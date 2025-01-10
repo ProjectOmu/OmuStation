@@ -1,0 +1,7 @@
+- type: trait
+  id: Unborgable
+  name: trait-unborgable-name
+  description: trait-unborgable-desc
+  category: PhysicalTraits
+  components:
+  - type: Unborgable # Automatically gets moved to the brain

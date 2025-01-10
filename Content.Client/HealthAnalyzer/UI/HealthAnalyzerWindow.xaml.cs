@@ -1,4 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
@@ -69,6 +68,8 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Client.Message;
+using Content.Shared._DV.Traits.Assorted; // DeltaV
 using Content.Shared.Atmos;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Damage;
@@ -111,6 +112,7 @@ namespace Content.Client.HealthAnalyzer.UI
         private readonly SpriteSystem _spriteSystem;
         private readonly IPrototypeManager _prototypes;
         private readonly IResourceCache _cache;
+        private readonly UnborgableSystem _unborgable; // DeltaV
 
         // Shitmed Change Start
         private readonly WoundSystem _wound;
@@ -134,6 +136,7 @@ namespace Content.Client.HealthAnalyzer.UI
             _spriteSystem = _entityManager.System<SpriteSystem>();
             _prototypes = dependencies.Resolve<IPrototypeManager>();
             _cache = dependencies.Resolve<IResourceCache>();
+            _unborgable = _entityManager.System<UnborgableSystem>(); // DeltaV
             // Shitmed Change Start
             _wound = _entityManager.System<WoundSystem>();
             _bodyPartControls = new Dictionary<TargetBodyPart, TextureButton>
@@ -284,6 +287,10 @@ namespace Content.Client.HealthAnalyzer.UI
                     ? Identity.Name(part.Value, _entityManager)
                     : Loc.GetString("health-analyzer-window-entity-unknown-value-text");
 
+
+
+            // Damage Groups
+
             var damageSortedGroups =
                 damageable.DamagePerGroup.OrderByDescending(damage => damage.Value)
                     .ToDictionary(x => x.Key, x => x.Value);
@@ -306,6 +313,15 @@ namespace Content.Client.HealthAnalyzer.UI
                     Text = Loc.GetString("condition-body-unrevivable", ("entity", Identity.Name(_target.Value, _entityManager))),
                     Margin = new Thickness(0, 4),
                 });
+
+            var unborgable = _unborgable.IsUnborgable(_target.Value); // DeltaV
+            if (unborgable) // DeltaV
+                AlertsContainer.AddChild(new RichTextLabel
+                {
+                    Text = Loc.GetString("health-analyzer-window-entity-unborgable-text"),
+                    Margin = new Thickness(0, 4),
+                    MaxWidth = 300
+                });     //DeltaV end
 
             foreach (var (bodyPart, isBleeding) in msg.Bleeding)
             {
