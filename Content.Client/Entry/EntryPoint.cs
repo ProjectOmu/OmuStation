@@ -251,6 +251,8 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("codewordFaction");
             _prototypeManager.RegisterIgnore("story"); // Goobstation
             _prototypeManager.RegisterIgnore("storyBeat"); // Goobstation
+            _prototypeManager.RegisterIgnore("gasDeposit"); // Frontier
+            _prototypeManager.RegisterIgnore("pointOfInterest"); // Frontier: worldgen-related, server-only
 
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();

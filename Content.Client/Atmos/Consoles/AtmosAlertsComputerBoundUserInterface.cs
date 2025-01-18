@@ -7,6 +7,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Atmos.Components;
+using Content.Shared.Shuttles.Events; // Frontier
+using Content.Shared._NF.Atmos.BUI; // Frontier
 
 namespace Content.Client.Atmos.Consoles;
 
@@ -33,7 +35,7 @@ public sealed class AtmosAlertsComputerBoundUserInterface : BoundUserInterface
         var castState = (AtmosAlertsComputerBoundInterfaceState) state;
 
         EntMan.TryGetComponent<TransformComponent>(Owner, out var xform);
-        _menu?.UpdateUI(xform?.Coordinates, castState.AirAlarms, castState.FireAlarms, castState.FocusData);
+        _menu?.UpdateUI(xform?.Coordinates, castState.AirAlarms, castState.FireAlarms, castState.FocusData, castState.Gaslocks, castState.FocusGaslockData); // Frontier: add gaslocks, focusGaslockData
     }
 
     public void SendFocusChangeMessage(NetEntity? netEntity)
@@ -45,6 +47,28 @@ public sealed class AtmosAlertsComputerBoundUserInterface : BoundUserInterface
     {
         SendMessage(new AtmosAlertsComputerDeviceSilencedMessage(netEntity, silenceDevice));
     }
+
+    // Frontier: gaslock message
+    public void SendGaslockChangeDirectionMessage(NetEntity netEntity, bool direction)
+    {
+        SendMessage(new RemoteGasPressurePumpChangePumpDirectionMessage(netEntity, direction));
+    }
+
+    public void SendGaslockPressureChangeMessage(NetEntity netEntity, float pressure)
+    {
+        SendMessage(new RemoteGasPressurePumpChangeOutputPressureMessage(netEntity, pressure));
+    }
+
+    public void SendGaslockChangeEnabled(NetEntity netEntity, bool enabled)
+    {
+        SendMessage(new RemoteGasPressurePumpToggleStatusMessage(netEntity, enabled));
+    }
+
+    public void SendGaslockUndock(NetEntity netEntity)
+    {
+        SendMessage(new UndockRequestMessage { DockEntity = netEntity });
+    }
+    // End Frontier
 
     protected override void Dispose(bool disposing)
     {
