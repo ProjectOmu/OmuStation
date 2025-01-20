@@ -197,10 +197,10 @@
           - type: RandomEntityPopulator
             entries: &gasDeposits
             - params:
-                prob: 0.5
-                min: 0
-                max: 2
-                canBeAirSealed: true
+              prob: 0.5
+              min: 500
+              max: 600
+              canBeAirSealed: true
               entries:
               - id: GasDepositOxygen
                 orGroup: deposit
@@ -222,6 +222,7 @@
                 orGroup: deposit
               - id: GasDepositMuddlePlasma
                 orGroup: deposit
+
           protos:
           - VGRoid
 

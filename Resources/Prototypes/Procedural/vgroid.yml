@@ -24,8 +24,8 @@
       proto: VGRoidBlob
     - !type:PrototypeDunGen
       proto: VGRoidExterior
-    - !type:PrototypeDunGen
-      proto: VGRoidSmaller
+#    - !type:PrototypeDunGen    Omu commented as its cool, but laggy
+#      proto: VGRoidSmaller
     - !type:PrototypeDunGen
       proto: VGRoidSmallPaths
       inheritDungeons: All
