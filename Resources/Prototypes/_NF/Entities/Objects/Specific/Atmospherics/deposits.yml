@@ -14,6 +14,7 @@
     bodyType: Static
     canCollide: False
   - type: Fixtures
+  - type: GasDeposit
   - type: RandomGasDeposit
   - type: Sprite
     drawdepth: FloorTiles
@@ -120,21 +121,21 @@
     color: "#F0DDF0"
 
 # Debug item for detecting gas deposits
-- type: entity
-  parent: PinpointerSyndicateNuclear
-  id: PinpointerGasDeposit
-  name: gas deposit pinpointer
-  description: Pointing to the nearest gas deposit.
-  suffix: DEBUG
-  components:
-  - type: Pinpointer
-    component: RandomGasDeposit
-    targetName: RandomGasDeposit
+#- type: entity
+#  parent: PinpointerSyndicateNuclear
+#  id: PinpointerGasDeposit
+#  name: gas deposit pinpointer
+#  description: Pointing to the nearest gas deposit.
+#  suffix: DEBUG
+#  components:
+#  - type: Pinpointer
+#    component: GasDeposit
+#    targetName: GasDeposit
 
 - type: entity
-  id: DepositLocatorUnpowered
+  id: GasDepositLocatorUnpowered
   parent: BaseItem
-  name: deposit locator
+  name: gas deposit locator
   description: A scanner that checks the nearby area for gas deposits.
   suffix: Unpowered
   components:
@@ -170,8 +171,8 @@
         volume: -8
 
 - type: entity
-  id: DepositLocator
-  parent: [ DepositLocatorUnpowered, PowerCellSlotSmallItem ]
+  id: GasDepositLocator
+  parent: [ GasDepositLocatorUnpowered, PowerCellSlotSmallItem ]
   suffix: Powered
   components:
   - type: PowerCellDraw
@@ -180,8 +181,8 @@
   - type: ToggleCellDraw
 
 - type: entity
-  id: DepositLocatorEmpty
-  parent: DepositLocator
+  id: GasDepositLocatorEmpty
+  parent: GasDepositLocator
   suffix: Empty
   components:
   - type: ItemSlots

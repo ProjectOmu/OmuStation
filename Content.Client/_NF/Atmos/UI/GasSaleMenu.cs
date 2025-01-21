@@ -38,8 +38,8 @@ public sealed partial class GasSaleMenu : FancyWindow
     {
         Gases.Children.Clear();
         GasAmounts.Children.Clear();
-        bool hasGas = false;
-        for (int i = 0; i < Atmospherics.TotalNumberOfGases; i++)
+        var hasGas = false;
+        for (var i = 0; i < Atmospherics.TotalNumberOfGases; i++)
         {
             var gasAmount = mixture.GetMoles(i);
             if (gasAmount <= 0)
@@ -58,6 +58,7 @@ public sealed partial class GasSaleMenu : FancyWindow
             GasAmounts.Children.Add(amountLabel);
             hasGas = true;
         }
+
         if (!hasGas)
         {
             Label noGasLabel = new();
