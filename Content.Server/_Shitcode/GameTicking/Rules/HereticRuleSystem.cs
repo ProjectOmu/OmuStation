@@ -44,7 +44,6 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly HellWorldSystem _hell = default!; //imp
-
     public static readonly SoundSpecifier BriefingSound =
         new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
 
