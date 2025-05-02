@@ -15,6 +15,42 @@
   id: BionicSyrinxImplant
 
 - type: Tag
+  id: HudMedicalSecurity #Craftable Corpsman Glasses
+
+- type: Tag # prevents ID chips being used for an id computer privileged id
+  id: IdChip
+
+- type: Tag
+  id: LightFixture
+
+- type: Tag
+  id: MagazineLaser
+
+- type: Tag
+  id: MagazinePistolSpecial # For the .38 special ammo and pistol
+
+- type: Tag
+  id: Magboots
+
+- type: Tag
+  id: ModularBreech #Craftable Musket
+
+- type: Tag
+  id: ModularTrigger #Craftable Musket
+
+- type: Tag
+  id: PaperSlip
+
+- type: Tag
+  id: PlutoniumCore
+
+- type: Tag
+  id: PreventLabel
+
+- type: Tag
+  id: SecDogWearable # allows Laika to wear meson goggles (and more later?)
+  
+- type: Tag
   id: Skirt
 
 - type: Tag
