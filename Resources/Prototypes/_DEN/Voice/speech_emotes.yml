@@ -1,0 +1,28 @@
+
+# Ovinia
+- type: emote
+  id: Baa
+  name: chat-emote-name-baa
+  category: Vocal
+  available: false
+  icon: _Goobstation/Interface/Emotes/caw.png
+  whitelist:
+    tags:
+    - HarpyEmotes
+    - OviniaEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [ baas ]
+  chatTriggers:
+    - baas
+    - baa
+    - baahs
+    - baah
+    - baahed
+    - baah'd
+    - baahing
+    - bah
+    - bahs
+    - bahed
+    - bah'd

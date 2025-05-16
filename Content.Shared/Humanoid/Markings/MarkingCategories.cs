@@ -17,6 +17,7 @@ namespace Content.Shared.Humanoid.Markings
         Snout,
         SnoutCover,
         Chest,
+        NeckFluff,
         UndergarmentTop,
         UndergarmentBottom,
         RightArm,
@@ -54,6 +55,7 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.UndergarmentTop => MarkingCategories.UndergarmentTop,
                 HumanoidVisualLayers.UndergarmentBottom => MarkingCategories.UndergarmentBottom,
                 HumanoidVisualLayers.Groin => MarkingCategories.Groin, // Shitmed Change
+                HumanoidVisualLayers.NeckFluff => MarkingCategories.NeckFluff, //Den -  Ovinia
                 HumanoidVisualLayers.RArm => MarkingCategories.RightArm, // Goobstation
                 HumanoidVisualLayers.LArm => MarkingCategories.LeftArm, // Goobstation
                 HumanoidVisualLayers.RHand => MarkingCategories.RightHand, // Goobstation
@@ -70,3 +72,4 @@ namespace Content.Shared.Humanoid.Markings
         }
     }
 }
+
