@@ -21,6 +21,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Content.Shared.Throwing;
+using Robust.Shared.Prototypes;
+using Content.Shared.Stacks;
 
 namespace Content.Shared._Impstation.Replicator;
 
@@ -95,7 +97,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 
         var isReplicator = HasComp<ReplicatorComponent>(args.Tripper);
 
-        // Allow dead replicators regardless of current level. 
+        // Allow dead replicators regardless of current level.
         if (TryComp<MobStateComponent>(args.Tripper, out var mobState) && isReplicator && _mobState.IsDead(args.Tripper))
         {
             StartFalling(ent, args.Tripper);
@@ -129,19 +131,28 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 
     private void HandlePoints(Entity<ReplicatorNestComponent> ent, EntityUid tripper) // this is its own method because I think it reads cleaner. also the way goobcode handled this sucked.
     {
-        // regardless of what falls in, you get at least one point.
-        ent.Comp.TotalPoints++;
-        ent.Comp.SpawningProgress++;
+        // regardless of what falls in, you get at least one point
+        if (!HasComp<StackComponent>(tripper)) // as long as it's not a stack.
+        {
+            ent.Comp.TotalPoints += 10;
+            ent.Comp.SpawningProgress += 10;
+        }
+
+        // if the item is in a stack, you get points depending on how many items are in that stack.
+        if (TryComp<StackComponent>(tripper, out var stackComp))
+        {
+            ent.Comp.TotalPoints += stackComp.Count;
+        }
 
         // you get a bonus point if the item is Large, 2 bonus points if it's Huge, and 3 bonus points if it's above that.
-        if (TryComp<ItemComponent>(tripper, out var itemComp))
+        else if (TryComp<ItemComponent>(tripper, out var itemComp))
         {
             if (_item.GetSizePrototype(itemComp.Size) == _item.GetSizePrototype("Large"))
-                ent.Comp.TotalPoints++;
+                ent.Comp.TotalPoints += 10;
             else if (_item.GetSizePrototype(itemComp.Size) == _item.GetSizePrototype("Huge"))
-                ent.Comp.TotalPoints += 2;
+                ent.Comp.TotalPoints += 20;
             else if (_item.GetSizePrototype(itemComp.Size) >= _item.GetSizePrototype("Ginormous"))
-                ent.Comp.TotalPoints += 3;
+                ent.Comp.TotalPoints += 30;
             // regardless, items only net 1 spawning progress.
             ent.Comp.SpawningProgress++;
         }
@@ -149,9 +160,9 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         // if it wasn't an item and was anchorable, you get 3 bonus points.
         else if (TryComp<AnchorableComponent>(tripper, out _))
         {
-            ent.Comp.TotalPoints += 3;
+            ent.Comp.TotalPoints += 30;
             // structures give a lot more spawning progress than items
-            ent.Comp.SpawningProgress += 3;
+            ent.Comp.SpawningProgress += 30;
         }
 
         // recycling four dead replicators nets you one new replicator, but no progress towards leveling up.
@@ -178,13 +189,13 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             }
         }
 
-        // if we exceed the upgrade threshold after points are added, 
+        // if we exceed the upgrade threshold after points are added,
         if (ent.Comp.TotalPoints >= ent.Comp.NextUpgradeAt)
         {
             // level up
             ent.Comp.CurrentLevel++;
 
-            // this allows us to have an arbitrary number of unique messages for when the nest levels up - and a default for if we run out. 
+            // this allows us to have an arbitrary number of unique messages for when the nest levels up - and a default for if we run out.
             var growthMessage = $"replicator-nest-level{ent.Comp.CurrentLevel}";
             if (Loc.TryGetString(growthMessage, out var localizedMsg))
                 _popup.PopupEntity(localizedMsg, ent);
