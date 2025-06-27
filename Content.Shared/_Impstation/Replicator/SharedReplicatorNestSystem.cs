@@ -4,6 +4,7 @@
 
 using Content.Shared._Impstation.SpawnedFromTracker;
 using Content.Shared.Actions;
+using Content.Shared.Audio;
 using Content.Shared.Construction.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Item;
@@ -23,6 +24,10 @@ using Robust.Shared.Timing;
 using Content.Shared.Throwing;
 using Robust.Shared.Prototypes;
 using Content.Shared.Stacks;
+using Robust.Shared.Map.Components;
+using Content.Shared.Maps;
+using Robust.Shared.Map;
+using Robust.Shared.Random;
 
 namespace Content.Shared._Impstation.Replicator;
 
@@ -30,6 +35,8 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -44,6 +51,10 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly TileSystem _tile = default!;
+    [Dependency] private readonly SharedAmbientSoundSystem _ambientSound = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
 
     public override void Initialize()
     {
@@ -215,6 +226,13 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             ent.Comp.NextUpgradeAt += ent.Comp.CurrentLevel >= ent.Comp.EndgameLevel ? ent.Comp.UpgradeAt * ent.Comp.EndgameLevel : ent.Comp.UpgradeAt * ent.Comp.CurrentLevel;
             UpgradeAll(ent);
             _audio.PlayPvs(ent.Comp.LevelUpSound, ent);
+
+            // increase the radius at which tiles are converted.
+            ent.Comp.TileConversionRadius += ent.Comp.TileConversionIncrease;
+
+            // and increase the radius of the ambient nest sound
+            if (TryComp<AmbientSoundComponent>(ent.Comp.PointsStorage, out var ambientComp))
+                _ambientSound.SetRange(ent.Comp.PointsStorage, ambientComp.Range + 1, ambientComp);
         }
 
         // after upgrading, if we exceed the next spawn threshold, spawn a new (un-upgraded) replicator, then set the next spawn threshold.
@@ -222,6 +240,13 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         {
             SpawnNew(ent);
             ent.Comp.NextSpawnAt += ent.Comp.SpawnNewAt * ent.Comp.UnclaimedSpawners.Count;
+        }
+
+        // then convert some tiles if we're over level 3.
+        if (ent.Comp.TotalPoints >= ent.Comp.NextTileConvertAt && ent.Comp.CurrentLevel >= ent.Comp.EndgameLevel)
+        {
+            ConvertTiles(ent, ent.Comp.TileConversionRadius);
+            ent.Comp.NextTileConvertAt += ent.Comp.TileConvertAt;
         }
 
         // and dirty so the client knows if it's supposed to update the nest visuals
@@ -271,15 +296,36 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             if (!TryComp<MindContainerComponent>(replicator, out var mindContainer) || mindContainer.Mind == null)
                 continue;
 
-            comp.TargetUpgradeStage++;
-
-            var targetAction = comp.TargetUpgradeStage == 1 ? comp.Level2Action : comp.Level3Action;
-
-            if (!mindContainer.HasMind)
-                comp.Actions.Add(_actions.AddAction(replicator, targetAction));
-            else if (mindContainer.Mind != null)
-                comp.Actions.Add(_actionContainer.AddAction((EntityUid)mindContainer.Mind, targetAction));
+            foreach (var action in comp.UpgradeActions)
+            {
+                if (!mindContainer.HasMind)
+                    comp.Actions.Add(_actions.AddAction(replicator, action));
+                else if (mindContainer.Mind != null)
+                    comp.Actions.Add(_actionContainer.AddAction((EntityUid)mindContainer.Mind, action));
+            }
+            comp.HasBeenGivenUpgradeActions = true;
         }
+
+        return upgraded;
+    }
+
+    // force upgrade any tier to another given tier.
+    // or i guess technically you could feed it any EntProtoId...
+    public EntityUid? ForceUpgrade(Entity<ReplicatorComponent> ent, EntProtoId nextStage)
+    {
+        // don't run this clientside
+        if (_net.IsClient || !_timing.IsFirstTimePredicted)
+            return null;
+
+        var upgraded = UpgradeReplicator(ent, nextStage);
+
+        QueueDel(ent);
+        foreach (var action in ent.Comp.Actions)
+        {
+            QueueDel(action);
+        }
+
+        return upgraded;
     }
 
     public void OnUpgrade2(Entity<ReplicatorComponent> ent, ref ReplicatorUpgrade2ActionEvent args)
@@ -288,7 +334,9 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         if (_net.IsClient || !_timing.IsFirstTimePredicted)
             return;
 
-        if (ent.Comp.MyNest == null)
+        var nextStage = args.NextStage;
+
+        if (ent.Comp.MyNest == null || UpgradeReplicator(ent, nextStage) == null)
         {
             _popup.PopupEntity(Loc.GetString("replicator-cant-find-nest"), ent, PopupType.MediumCaution);
             return;
@@ -302,7 +350,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("replicator-upgrade-t2-others"), ent, PopupType.MediumCaution);
     }
 
-    public void OnUpgrade3(Entity<ReplicatorComponent> ent, ref ReplicatorUpgrade3ActionEvent args)
+    public EntityUid? UpgradeReplicator(Entity<ReplicatorComponent> ent, EntProtoId nextStage)
     {
         // don't run this clientside
         if (_net.IsClient || !_timing.IsFirstTimePredicted)
@@ -326,9 +374,6 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
     {
         var xform = Transform(ent);
 
-        // if adding more stages, maybe make this a switch.
-        var nextStage = desiredLevel == 2 ? ent.Comp.Level2Id : ent.Comp.Level3Id;
-
         var upgraded = Spawn(nextStage, xform.Coordinates);
         var upgradedComp = EnsureComp<ReplicatorComponent>(upgraded);
         upgradedComp.RelatedReplicators = ent.Comp.RelatedReplicators;
@@ -340,6 +385,8 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             var nestComp = EnsureComp<ReplicatorNestComponent>((EntityUid)ent.Comp.MyNest);
             nestComp.SpawnedMinions.Remove(ent);
             nestComp.SpawnedMinions.Add(upgraded);
+
+            _audio.PlayPvs(nestComp.LevelUpSound, upgraded);
         }
 
         if (!_mind.TryGetMind(ent, out var mind, out _))
@@ -347,8 +394,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 
         _mind.TransferTo(mind, upgraded);
 
-        var messageSelf = desiredLevel == 2 ? "replicator-upgrade-t2-self" : "replicator-upgrade-t3-self";
-        _popup.PopupEntity(Loc.GetString(messageSelf), ent, PopupType.Medium);
+        _popup.PopupEntity(Loc.GetString($"{ent.Comp.ReadyToUpgradeMessage}-self"), upgraded, PopupType.Medium);
 
         return;
     }
@@ -357,6 +403,37 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
     {
         var ev = new ReplicatorNestEmbiggenedEvent(ent);
         RaiseLocalEvent(ent, ref ev);
+    }
+
+    private void ConvertTiles(Entity<ReplicatorNestComponent> ent, float radius)
+    {
+        var xform = Transform(ent);
+        if (xform.GridUid is not { } gridUid || !TryComp(gridUid, out MapGridComponent? mapGrid))
+            return;
+
+        var tileEnumerator = _map.GetLocalTilesEnumerator(gridUid, mapGrid, new Box2(xform.Coordinates.Position + new System.Numerics.Vector2(-radius, -radius), xform.Coordinates.Position + new System.Numerics.Vector2(radius, radius)));
+        var convertTile = (ContentTileDefinition)_tileDef[ent.Comp.ConversionTile];
+
+        while (tileEnumerator.MoveNext(out var tile))
+        {
+            if (tile.Tile.TypeId == convertTile.TileId)
+                continue;
+
+            var tileCoords = tile.GridIndices;
+            var nestCoords = xform.Coordinates.Position;
+
+            // have to check the distance from nest center to tileref, otherwise it comes out square due to Box2
+            if (Math.Sqrt(Math.Pow(tileCoords.X - (nestCoords.X - 0.5), 2) + Math.Pow(tileCoords.Y - (nestCoords.Y - 0.5), 2)) >= radius)
+                continue;
+
+            if (_random.Prob(ent.Comp.TileConversionChance))
+            {
+                Spawn(ent.Comp.TileConversionVfx, _turf.GetTileCenter(tile));
+
+                _tile.ReplaceTile(tile, convertTile);
+                _tile.PickVariant(convertTile);
+            }
+        }
     }
 }
 

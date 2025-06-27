@@ -13,6 +13,20 @@
     useDelay: 20
 
 - type: entity
+  id: ActionReplicatorUpgrade1
+  parent: BaseReplicatorLevelupAction
+  name: Upgrade (Replicator)
+  description: Gather nanites. Begin colonization.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon: _Impstation/Interface/Actions/replicator_level1.png
+    useDelay: 20
+  - type: InstantAction
+    event: !type:ReplicatorUpgradeActionEvent
+      nextStage: MobReplicator
+
+- type: entity
   id: ActionReplicatorUpgrade2
   name: Upgrade (Tier 2)
   description: Gather nanites. Gain manipulation.
