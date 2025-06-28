@@ -171,8 +171,6 @@
   components:
   - type: Replicator
     queen: true
-    upgradeActions:
-    - ActionReplicatorUpgrade1
   - type: VentCrawler # unique to queens at the moment, for stealth purposes
   - type: Sprite
     granularLayersRendering: true
@@ -368,9 +366,9 @@
   - type: CombatMode
   - type: Replicator
     upgradeStage: 2
-  - type: Puller
-    needsHands: false
-    applySpeedModifier: false
+    upgradeActions:
+    - ActionReplicatorUpgrade1
+  - type: MovementAlwaysTouching
   - type: MovementSpeedModifier
     baseWalkSpeed: 2 # same as slime
     baseSprintSpeed: 2.835 # this is the same speed as an engineering hardsuit + duffel

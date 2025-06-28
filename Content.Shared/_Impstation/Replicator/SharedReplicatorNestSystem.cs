@@ -243,7 +243,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         }
 
         // then convert some tiles if we're over level 3.
-        if (ent.Comp.TotalPoints >= ent.Comp.NextTileConvertAt && ent.Comp.CurrentLevel >= ent.Comp.EndgameLevel)
+        if (ent.Comp.TotalPoints >= ent.Comp.NextTileConvertAt && ent.Comp.CurrentLevel > ent.Comp.EndgameLevel)
         {
             ConvertTiles(ent, ent.Comp.TileConversionRadius);
             ent.Comp.NextTileConvertAt += ent.Comp.TileConvertAt;
@@ -290,7 +290,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             if (!TryComp<ReplicatorComponent>(replicator, out var comp))
                 continue;
 
-            if (comp.UpgradeStage >= ent.Comp.MaxUpgradeStage || comp.TargetUpgradeStage >= ent.Comp.MaxUpgradeStage)
+            if (comp.HasBeenGivenUpgradeActions == true)
                 continue;
 
             if (!TryComp<MindContainerComponent>(replicator, out var mindContainer) || mindContainer.Mind == null)
@@ -386,7 +386,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             nestComp.SpawnedMinions.Remove(ent);
             nestComp.SpawnedMinions.Add(upgraded);
 
-            _audio.PlayPvs(nestComp.LevelUpSound, upgraded);
+            _audio.PlayPvs(nestComp.UpgradeSound, upgraded);
         }
 
         if (!_mind.TryGetMind(ent, out var mind, out _))
@@ -428,7 +428,10 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 
             if (_random.Prob(ent.Comp.TileConversionChance))
             {
-                Spawn(ent.Comp.TileConversionVfx, _turf.GetTileCenter(tile));
+                var center = _turf.GetTileCenter(tile);
+
+                Spawn(ent.Comp.TileConversionVfx, center);
+                _audio.PlayPvs(ent.Comp.TilePlaceSound, center);
 
                 _tile.ReplaceTile(tile, convertTile);
                 _tile.PickVariant(convertTile);
