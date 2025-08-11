@@ -5,6 +5,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+// SPDX-FileCopyrightText: 2024 SlamBamActionman
+// SPDX-FileCopyrightText: 2025 Coenx-flex
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.EntityEffects;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
 
@@ -54,6 +61,10 @@ public sealed partial class GenericStatusEffect : EntityEffect
         if (Type == StatusEffectMetabolismType.Add && Component != String.Empty)
         {
             statusSys.TryAddStatusEffect(args.TargetEntity, Key, TimeSpan.FromSeconds(time), Refresh, Component);
+        }
+        else if (Type == StatusEffectMetabolismType.Add) // Mono change: just add status without component
+        {
+            statusSys.TryAddStatusEffect(args.TargetEntity, Key, TimeSpan.FromSeconds(time), Refresh);
         }
         else if (Type == StatusEffectMetabolismType.Remove)
         {
