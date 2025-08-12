@@ -9,6 +9,7 @@ cortical-borer-start-infest = You begin to crawl into {THE($target)}'s ear.
 
 ## Generic messages
 cortical-borer-no-host = You do not have a host.
+cortical-borer-dead-host = Your host is dead.
 cortical-borer-not-enough-chem = You do not have enough chemicals.
 cortical-borer-not-enough-chem-storage = You cannot hold enough chemicals.
 cortical-borer-sugar-block = You taste something sweet.

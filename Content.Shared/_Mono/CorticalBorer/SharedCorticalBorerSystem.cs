@@ -14,6 +14,7 @@ using Content.Shared.MedicalScanner;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Content.Shared.Coordinates;
+using Content.Shared.Damage;
 using Content.Shared.IdentityManagement;
 using Robust.Shared.Containers;
 using Robust.Shared.Serialization;
@@ -27,6 +28,7 @@ public partial class SharedCorticalBorerSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ISerializationManager _serManager = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] protected readonly SharedPopupSystem _popup = default!;
     [Dependency] protected readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] protected readonly SharedActionsSystem _actions = default!;
@@ -92,6 +94,9 @@ public partial class SharedCorticalBorerSystem : EntitySystem
             foreach (var (key, compReg) in comp.RemoveOnInfest)
                 RemCompDeferred(ent, compReg.Component.GetType());
         }
+
+        if (TryComp<DamageableComponent>(ent, out var damComp))
+            _damage.SetAllDamage(ent, damComp, 0);
     }
 
     public bool TryEjectBorer(Entity<CorticalBorerComponent> ent)

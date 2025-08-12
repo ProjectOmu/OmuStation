@@ -20,6 +20,8 @@ using Content.Shared.Database;
 using Content.Shared.Inventory;
 using Content.Shared.MedicalScanner;
 using Content.Shared.Mind;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
@@ -285,6 +287,10 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
         var (worm, comp) = ent;
 
         if (comp.Host is not { } host)
+            return;
+
+        if (TryComp<MobStateComponent>(ent.Comp.Host, out var mobState) &&
+            mobState.CurrentState == MobState.Dead)
             return;
 
         infestedComp.ControlTimeEnd = _timing.CurTime + comp.ControlDuration;

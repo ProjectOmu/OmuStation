@@ -51,10 +51,18 @@
     thresholds:
       0: Alive
       20: Dead
-  - type: Barotrauma
+  - type: Barotrauma # take away space immunity but still not gasp
     damage:
       types:
         Blunt: 0.15
+  - type: Bloodstream
+    bloodlossDamage:
+      types:
+        Bloodloss: 0.5
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -1
+    bleedReductionAmount: 2 # bleeding stops faster
   - type: MovementSpeedModifier
     baseWalkSpeed : 1.9
     baseSprintSpeed : 7.5

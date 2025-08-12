@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Coenx-flex
+// SPDX-FileCopyrightText: 2025 Cojoke
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -9,6 +10,8 @@ using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared.Body.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 
 namespace Content.Server._Mono.CorticalBorer;
@@ -160,6 +163,14 @@ public sealed partial class CorticalBorerSystem
         if (ent.Comp.Host is null)
         {
             _popup.PopupEntity(Loc.GetString("cortical-borer-no-host"), ent, ent, PopupType.Medium);
+            return;
+        }
+
+        // Host is dead, you can't take control
+        if (TryComp<MobStateComponent>(ent.Comp.Host, out var mobState) &&
+            mobState.CurrentState == MobState.Dead)
+        {
+            _popup.PopupEntity(Loc.GetString("cortical-borer-dead-host"), ent, ent, PopupType.Medium);
             return;
         }
 
