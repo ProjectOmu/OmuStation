@@ -50,18 +50,6 @@ public partial class SharedCorticalBorerSystem : EntitySystem
     {
         var (uid, comp) = ent;
 
-        if (!TryComp<BodyComponent>(target, out var body))
-            return;
-
-        var hasHead = _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Head, body).Count() != 0;
-
-        // if we don't get a head don't try to stick the borer in it
-        if (!hasHead)
-        {
-            _popup.PopupEntity(Loc.GetString("cortical-borer-headless", ("target", Identity.Entity(target, EntityManager))), ent.Owner, ent.Owner, PopupType.Medium);
-            return;
-        }
-
         // Make sure the infected person is infected right
         var infestedComp = EnsureComp<CorticalBorerInfestedComponent>(target);
 

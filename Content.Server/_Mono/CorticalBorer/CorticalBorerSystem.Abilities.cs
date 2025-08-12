@@ -68,10 +68,8 @@ public sealed partial class CorticalBorerSystem
             return;
         }
 
-        // anything with bloodstream and has body parts... that you can do surgery on
-        if (!HasComp<BloodstreamComponent>(target) ||
-            !HasComp<BodyComponent>(target) ||
-            !HasComp<SurgeryTargetComponent>(target))
+        // anything with bloodstream
+        if (!HasComp<BloodstreamComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("cortical-borer-invalid-host", ("target", targetIdentity)), uid, uid, PopupType.Medium);
             return;
@@ -181,7 +179,7 @@ public sealed partial class CorticalBorerSystem
             return;
 
         // idk how you would cause this...
-        if (infestedComp.ControlTimeEnd is not null)
+        if (ent.Comp.ControlingHost)
         {
             _popup.PopupEntity(Loc.GetString("cortical-borer-already-control"), ent, ent, PopupType.Medium);
             return;

@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Coenx-flex
+// SPDX-FileCopyrightText: 2025 Cojoke
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -42,12 +43,16 @@ public sealed class CorticalBorerInfestedSystem : EntitySystem
             || args.Examined != args.Examiner)
             return;
 
-        if (infected.Comp.ControlTimeEnd is not { } cte)
+        if (!infected.Comp.Borer.Comp.ControlingHost)
             return;
 
-        var timeRemaining = Math.Floor((cte - _timing.CurTime).TotalSeconds);
+        if (infected.Comp.ControlTimeEnd is { } cte)
+        {
+            var timeRemaining = Math.Floor((cte - _timing.CurTime).TotalSeconds);
+            args.PushMarkup(Loc.GetString("infested-control-examined", ("timeremaining", timeRemaining)));
+        }
+
         args.PushMarkup(Loc.GetString("cortical-borer-self-examine", ("chempoints", infected.Comp.Borer.Comp.ChemicalPoints)));
-        args.PushMarkup(Loc.GetString("infested-control-examined", ("timeremaining", timeRemaining)));
     }
 
     private void OnStateChange(Entity<CorticalBorerInfestedComponent> infected, ref MobStateChangedEvent args)
@@ -55,13 +60,13 @@ public sealed class CorticalBorerInfestedSystem : EntitySystem
         if (args.NewMobState != MobState.Dead)
             return;
 
-        if(infected.Comp.ControlTimeEnd.HasValue)
+        if(infected.Comp.Borer.Comp.ControlingHost)
             _borer.EndControl(infected.Comp.Borer);
     }
 
     private void OnComponentShutdown(Entity<CorticalBorerInfestedComponent> infected, ref ComponentShutdown args)
     {
-        if(infected.Comp.ControlTimeEnd.HasValue)
+        if(infected.Comp.Borer.Comp.ControlingHost)
             _borer.EndControl(infected.Comp.Borer);
     }
 

@@ -85,6 +85,9 @@ public sealed partial class CorticalBorerComponent : Component
     public int EggCost = 200;
 
     [DataField]
+    public bool ControlingHost;
+
+    [DataField]
     public ComponentRegistry? AddOnInfest;
 
     [DataField]

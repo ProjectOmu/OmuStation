@@ -5,7 +5,7 @@ cortical-borer-host-already-infested = {THE($target)} is already infested.
 cortical-borer-invalid-host = {THE($target)} is not a valid host.
 cortical-borer-face-covered = {THE($target)}'s face is covered.
 cortical-borer-headless = {THE($target)} does not have a head!
-cortical-borer-start-infest = You begin to crawl into {THE($target)}'s ear.
+cortical-borer-start-infest = You begin to crawl into {THE($target)}.
 
 ## Generic messages
 cortical-borer-no-host = You do not have a host.
