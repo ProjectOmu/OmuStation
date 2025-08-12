@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Coenx-flex
+// SPDX-FileCopyrightText: 2025 Cojoke
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -82,6 +83,12 @@ public sealed partial class CorticalBorerComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
     public int EggCost = 200;
+
+    [DataField]
+    public ComponentRegistry? AddOnInfest;
+
+    [DataField]
+    public ComponentRegistry? RemoveOnInfest;
 
     [DataField]
     public ProtoId<AlertPrototype> ChemicalAlert = "Chemicals";

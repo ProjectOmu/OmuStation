@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Coenx-flex
+# SPDX-FileCopyrightText: 2025 Cojoke
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -50,18 +51,27 @@
     thresholds:
       0: Alive
       20: Dead
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.15
   - type: MovementSpeedModifier
     baseWalkSpeed : 1.9
     baseSprintSpeed : 7.5
   - type: Tag
     tags:
     - Meat
-  - type: NightVision
-    color: "#512f59"
+  - type: ThermalVision
+    color: "#ae65bf"
+    lightRadius: 15
     activateSound: null
     deactivateSound: null
   - type: CorticalBorer
     eggProto: "CorticalBorerEgg"
+    addOnInfest:
+    - type: PressureImmunity
+    removeOnInfest:
+    - type: CanEscapeInventory
   - type: UserInterface
     interfaces:
       enum.CorticalBorerDispenserUiKey.Key:
