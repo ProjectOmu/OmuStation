@@ -5,6 +5,18 @@ marking-OviniaEars-ovinia-ears-inner = Inner Ears
 marking-OviniaTail = Ovinia Tail (Default)
 marking-OviniaTail-ovinia-tail = Tail
 
+marking-OviniaEarsCow = Ovinia Ears (Side)
+marking-OviniaEarsCow-cow-ears = Outer Ears
+marking-OviniaEarsCow-cow-ears-inner = Inner Ears
+
+marking-OviniaEarsDeer = Ovinia Ears (Outward)
+marking-OviniaEarsDeer-deer-ears = Outer Ears
+marking-OviniaEarsDeer-deer-ears-inner = Inner Ears
+
+marking-OviniaEarsHorse = Ovinia Ears (Upward)
+marking-OviniaEarsHorse-horse-ears = Outer Ears
+marking-OviniaEarsHorse-horse-ears-inner = Inner Ears
+
 marking-OviniaNeckfluff = Ovinia Neck Fluff
 marking-OviniaNeckfluff-ovinia-neck-fluff = Neck Fluff
 
@@ -32,6 +44,9 @@ marking-OviniaIbexHorns-ovinia-ibex-horns = Horns
 marking-OviniaCurvedHorns = Curved Horns
 marking-OviniaCurvedHorns-ovinia-curved-horns = Horns
 
+marking-OviniaJacobHorns = Jacob Horns
+marking-OviniaJacobHorns-jacob-horns = Horns
+
 
 marking-OviniaFace = Ovinia Face
 marking-OviniaFace-ovinia-face = Face
@@ -47,6 +62,21 @@ marking-OviniaSnout-ovinia-nose = Nose
 
 marking-OviniaTummy = Ovinia Tummy
 marking-OviniaTummy-ovinia-tummy = Tummy
+
+marking-OviniaPatternFawn = Fawn Spots
+marking-OviniaPatternFawn-torso-fawn = Spot
+
+marking-OviniaChestFullMasc = Ovinia Torso [M]
+marking-OviniaChestFullMasc-full-m = Torso
+
+marking-OviniaChestFullFem = Ovinia Torso [F]
+marking-OviniaChestFullFem-full-f = Torso
+
+marking-OviniaPatternCattleMasc = Splotches [M]
+marking-OviniaPatternCattleMasc-torso-cow-m = Splotch
+
+marking-OviniaPatternCattleFem = Splotches [F]
+marking-OviniaPatternCattleFem-torso-cow-f = Splotch
 
 marking-OviniaLeftLegValais = Valais Left Leg
 marking-OviniaLeftLegValais-ovinia-leg-valais-left = Valais Left Leg
@@ -65,5 +95,11 @@ marking-OviniaLeftArmValais-ovinia-arm-valais-left = Valais Left Arm
 
 marking-OviniaRightArmValais = Valais Right Arm
 marking-OviniaRightArmValais-ovinia-arm-valais-right = Valais Right Arm
+
+marking-OviniaLeftHandHoof = Hooved Left Hand
+marking-OviniaLeftHandHoof-hand-hoof-left = Hoof
+
+marking-OviniaRightHandHoof = Hooved Right Hand
+marking-OviniaRightHandHoof-hand-hoof-right = Hoof
 
 markings-category-NeckFluff = Neck Fluff

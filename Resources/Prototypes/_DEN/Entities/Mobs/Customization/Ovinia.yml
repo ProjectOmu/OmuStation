@@ -27,6 +27,38 @@
     state: ovinia-tail
 
 # Ears Markings
+- type: marking
+  id: OviniaEarsCow
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ovinia, Human ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Ovinia/ear_markings.rsi
+    state: cow-ears
+  - sprite: _DEN/Mobs/Customization/Ovinia/ear_markings.rsi
+    state: cow-ears-inner
+
+- type: marking
+  id: OviniaEarsDeer
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ovinia, Human ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Ovinia/ear_markings.rsi
+    state: deer-ears
+  - sprite: _DEN/Mobs/Customization/Ovinia/ear_markings.rsi
+    state: deer-ears-inner
+
+- type: marking
+  id: OviniaEarsHorse
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ovinia, Human ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Ovinia/ear_markings.rsi
+    state: horse-ears
+  - sprite: _DEN/Mobs/Customization/Ovinia/ear_markings.rsi
+    state: horse-ears-inner
 
 # Head Markings
 - type: marking
@@ -111,6 +143,15 @@
   - sprite: _DEN/Mobs/Customization/Ovinia/horn_markings.rsi
     state: ovinia-ibex-horns
 
+- type: marking
+  id: OviniaJacobHorns
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ovinia, Human ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Ovinia/horn_markings.rsi
+    state: jacob-horns
+
 # Snout Markings
 - type: marking
   id: OviniaFace
@@ -156,6 +197,69 @@
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/body_markings.rsi
     state: ovinia-tummy
+
+- type: marking
+  id: OviniaChestFullMasc
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ovinia ]
+  sexRestriction: [ Female ]
+  invertSexRestriction: true
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Ovinia/body_markings.rsi
+    state: full-m
+
+- type: marking
+  id: OviniaChestFullFem
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ovinia ]
+  sexRestriction: [ Male ]
+  invertSexRestriction: true
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Ovinia/body_markings.rsi
+    state: full-f
+
+- type: marking
+  id: OviniaPatternFawn
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ovinia ]
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Ovinia/body_markings.rsi
+    state: torso-fawn
+
+- type: marking
+  id: OviniaPatternCattleMasc
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ovinia ]
+  sexRestriction: [ Female ]
+  invertSexRestriction: true
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Ovinia/body_markings.rsi
+    state: torso-cow-m
+
+- type: marking
+  id: OviniaPatternCattleFem
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ovinia ]
+  sexRestriction: [ Male ]
+  invertSexRestriction: true
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Ovinia/body_markings.rsi
+    state: torso-cow-f
 
 # Leg Markings
 - type: marking
@@ -213,3 +317,30 @@
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/body_markings.rsi
     state: ovinia-arm-valais-right
+
+# Hand Markings
+- type: marking
+  id: OviniaLeftHandHoof
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [ Ovinia ]
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#07090f"
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Ovinia/body_markings.rsi
+    state: hand-hoof-left
+
+- type: marking
+  id: OviniaRightHandHoof
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [ Ovinia ]
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#07090f"
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Ovinia/body_markings.rsi
+    state: hand-hoof-right
