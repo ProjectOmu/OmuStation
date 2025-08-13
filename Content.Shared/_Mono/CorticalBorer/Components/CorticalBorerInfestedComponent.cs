@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Coenx-flex
+// SPDX-FileCopyrightText: 2025 Cojoke
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -29,7 +30,7 @@ public sealed partial class CorticalBorerInfestedComponent : Robust.Shared.GameO
     public TimeSpan? ControlTimeEnd;
 
     [ViewVariables]
-    public EntityUid OrigininalMindId;
+    public EntityUid? OrigininalMindId;
 
     [ViewVariables]
     public EntityUid BorerMindId;

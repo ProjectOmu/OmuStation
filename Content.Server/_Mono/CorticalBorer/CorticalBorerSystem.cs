@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 Coenx-flex
 // SPDX-FileCopyrightText: 2025 Cojoke
+// SPDX-FileCopyrightText: 2025 ScyronX
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -62,6 +63,7 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
         SubscribeLocalEvent<InventoryComponent, InfestHostAttempt>(OnInfestHostAttempt);
         SubscribeLocalEvent<CorticalBorerComponent, CheckTargetedSpeechEvent>(OnSpeakEvent);
 
+        SubscribeLocalEvent<CorticalBorerComponent, MindRemovedMessage>(OnMindRemoved);
     }
 
     private void OnStartup(Entity<CorticalBorerComponent> ent, ref ComponentStartup args)
@@ -315,6 +317,12 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
 
             _mind.TransferTo(controledMind, dummy);
         }
+        else
+        {
+            infestedComp.OrigininalMindId = null;
+        }
+
+        comp.ControlingHost = true;
         _mind.TransferTo(wormMind, host);
 
         // add the end control and vomit egg action
@@ -326,8 +334,6 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
             if (_actions.AddAction(host, "ActionLayEggHost") is {} actionLay)
                 infestedComp.RemoveAbilities.Add(actionLay);
         }
-
-        comp.ControlingHost = true;
 
         var str = $"{ToPrettyString(worm)} has taken control over {ToPrettyString(host)}";
 
@@ -350,6 +356,8 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
         if (!comp.ControlingHost)
             return;
 
+        comp.ControlingHost = false;
+
         // remove all the actions set to remove
         foreach (var ability in infestedComp.RemoveAbilities)
         {
@@ -360,12 +368,16 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
         // Return everyone to their own bodies
         if (!TerminatingOrDeleted(infestedComp.BorerMindId))
             _mind.TransferTo(infestedComp.BorerMindId, infestedComp.Borer);
-        if (!TerminatingOrDeleted(infestedComp.OrigininalMindId))
-            _mind.TransferTo(infestedComp.OrigininalMindId, host);
+        if (!TerminatingOrDeleted(infestedComp.OrigininalMindId) && infestedComp.OrigininalMindId.HasValue)
+            _mind.TransferTo(infestedComp.OrigininalMindId.Value, host);
 
         infestedComp.ControlTimeEnd = null;
         _container.CleanContainer(infestedComp.ControlContainer);
+    }
 
-        comp.ControlingHost = false;
+    private void OnMindRemoved(Entity<CorticalBorerComponent> ent, ref MindRemovedMessage args)
+    {
+        if (!ent.Comp.ControlingHost)
+            TryEjectBorer(ent); // No storing them in hosts if you don't have a soul
     }
 }

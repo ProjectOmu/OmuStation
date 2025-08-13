@@ -7,6 +7,7 @@ using Content.Shared._Mono.CorticalBorer;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared.Body.Part;
 using Content.Shared.Examine;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
@@ -29,6 +30,7 @@ public sealed class CorticalBorerInfestedSystem : EntitySystem
 
         SubscribeLocalEvent<CorticalBorerInfestedComponent, BodyPartRemovedEvent>(OnBodyPartRemoved);
         SubscribeLocalEvent<CorticalBorerInfestedComponent, MobStateChangedEvent>(OnStateChange);
+        SubscribeLocalEvent<CorticalBorerInfestedComponent, MindRemovedMessage>(OnMindRemoved);
     }
 
     private void OnInit(Entity<CorticalBorerInfestedComponent> infested, ref MapInitEvent args)
@@ -74,6 +76,15 @@ public sealed class CorticalBorerInfestedSystem : EntitySystem
     {
         if (TryComp<BodyPartComponent>(args.Part, out var part) &&
             part.PartType == BodyPartType.Head)
+        {
+            _borer.EndControl(infected.Comp.Borer);
+            _borer.TryEjectBorer(infected.Comp.Borer);
+        }
+    }
+
+    private void OnMindRemoved(Entity<CorticalBorerInfestedComponent> infected, ref MindRemovedMessage args)
+    {
+        if (infected.Comp.Borer.Comp.ControlingHost)
         {
             _borer.EndControl(infected.Comp.Borer);
             _borer.TryEjectBorer(infected.Comp.Borer);
