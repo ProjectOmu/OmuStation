@@ -9,6 +9,7 @@ using Content.Server.Body.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
+using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Medical;
 using Content.Server.Medical.Components;
@@ -50,6 +51,7 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly GhostRoleSystem _ghost  = default!;
 
     public override void Initialize()
     {
@@ -325,6 +327,9 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
         comp.ControlingHost = true;
         _mind.TransferTo(wormMind, host);
 
+        if (TryComp<GhostRoleComponent>(worm, out var ghostRole))
+            _ghost.UnregisterGhostRole((worm, ghostRole)); // prevent players from taking the worm role once mind isn't in the worm
+
         // add the end control and vomit egg action
         if (_actions.AddAction(host, "ActionEndControlHost") is {} actionEnd)
             infestedComp.RemoveAbilities.Add(actionEnd);
@@ -364,6 +369,9 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
             _actions.RemoveAction(host, ability);
         }
         infestedComp.RemoveAbilities = new(); // clear out the list
+
+        if (TryComp<GhostRoleComponent>(worm, out var ghostRole))
+            _ghost.RegisterGhostRole((worm, ghostRole)); // re-enable the ghost role after you return to the body
 
         // Return everyone to their own bodies
         if (!TerminatingOrDeleted(infestedComp.BorerMindId))

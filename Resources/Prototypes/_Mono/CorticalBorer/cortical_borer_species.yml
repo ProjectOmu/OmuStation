@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Ark
 # SPDX-FileCopyrightText: 2025 Coenx-flex
 # SPDX-FileCopyrightText: 2025 Cojoke
 #
@@ -99,6 +100,9 @@
   - type: GuideHelp
     guides:
     - CorticalBorerGuide
+  - type: Body
+    thermalVisibility: false
+  - type: UniversalLanguageSpeaker
 
 - type: entity
   parent: BaseItem
