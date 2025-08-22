@@ -72,3 +72,62 @@
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterJacketParamed]
   id: ClothingOuterJacketParamedOpened
   name: paramedic's jacket
+
+- type: entity
+  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseCentcommContraband]
+  id: ClothingOuterCoatCentralCommandWinter
+  name: CentComm winter trenchcoat
+  description: Pride. Greed. Envy. It's not a sin if you are better than them.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/centcomwinterjacket.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/centcomwinterjacket.rsi
+
+- type: entity
+  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseCentcommContraband]
+  id: ClothingOuterCoatCentralCommandWinterADMEME
+  name: CentComm winter trenchcoat
+  suffix: ADMEME Version
+  description: Pride. Greed. Envy. It's not a sin if you are better than them.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/centcomwinterjacket.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/centcomwinterjacket.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Blunt: 0.20
+        Slash: 0.20
+        Piercing: 0.20
+        Heat: 0.20
+        Radiation: 0.20
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: StaminaResistance
+    damageCoefficient: 0.3
+  - type: StripMenuInvisible # No peeking!
+  - type: TemperatureProtection
+    heatingCoefficient: 0.8 # Blame it on bluespace.
+    coolingCoefficient: 0.1
+
+- type: entity
+  parent: [ClothingOuterWinterCoat, BaseCommandContraband]
+  id: ClothingOuterCoatHoP
+  name: head of personnel's coat
+  description: A stylish coat given to a Head of Personnel.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/hopcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/hopcoat.rsi
