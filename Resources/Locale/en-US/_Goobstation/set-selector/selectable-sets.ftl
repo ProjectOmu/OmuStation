@@ -204,6 +204,12 @@ selectable-set-headofsecurity-voidsuit-desc =
     the armour value of the vital organs and increase mobility
     compared to the standard security voidsuit.
 
+selectable-set-headofsecurity-paradevoidsuit-name = Head of Security's parade voidsuit
+selectable-set-headofsecurity-paradevoidsuit-desc =
+    A voidsuit with plastitanium armor for the head of security's personal usage.
+    Comes integrated with a AI Operated stim injector.
+    Usually reserved for special occasions.
+
 selectable-set-headofsecurity-modsuit-name = Head of security's 'bulwark' hardsuit
 selectable-set-headofsecurity-modsuit-desc =
     A modular hardsuit with expensive plastitanium armour for the head of security's use.

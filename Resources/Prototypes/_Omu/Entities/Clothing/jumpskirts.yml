@@ -1,0 +1,50 @@
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitQMUniformSkirt
+  name: quartermaster skirt
+  description: A brown dress shirt, coupled with a long pleated black skirt. It's specially designed to prevent back injuries caused by pushing paper.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/qmuniformskirt.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/qmuniformskirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargotechShortsSkirt
+  name: cargo technician's shortskirt
+  description: I like skiiiiirts! They're comfy and easy to wear!
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/cargotechshirtskirt.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/cargotechshirtskirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargotechSweaterSkirt
+  name: cargo technician's skirt
+  description: A brown sweater and a black skirt to match.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/cargotechturtleneckskirt.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/cargotechturtleneckskirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitParamedUniformSkirt
+  name: paramedic skirt
+  description: It's made of a special fiber that provides minor protection against caustic hazards. It has a dark blue cross on the chest denoting that the wearer is a trained paramedic.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/paramedicuniformskirt.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/paramedicuniformskirt.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.85
+
+
+

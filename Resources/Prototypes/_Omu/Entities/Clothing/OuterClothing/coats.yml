@@ -1,0 +1,74 @@
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterJacketCargoTech
+  name: cargo gorka
+  description: A brown and black puffy jacket; made from synthetic fabric. Inspired by old Eastern European designs.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/cargotechjacket.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/cargotechjacket.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Slash: 0.9
+        Heat: 0.8
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterJacketCargoTech]
+  id: ClothingOuterJacketCargoTechOpened
+  name: unzipped cargo gorka
+
+- type: entity
+  parent: ClothingOuterCoatHoSTrench
+  id: ClothingOuterCoatHOSWinterCoat
+  name: head of security's winter trenchcoat
+  description: A trenchcoat enhanced with a special lightweight kevlar, padded with wool on the collar and inside. You feel strangely lonely wearing this coat.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/hoswinterjacket.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/hoswinterjacket.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterJacketParamed
+  name: paramedic's jacket
+  description: A dark blue jacket for paramedics with reflective stripes.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/paramedicjacket.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/paramedicjacket.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Slash: 0.9
+        Heat: 0.8
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterJacketParamed]
+  id: ClothingOuterJacketParamedOpened
+  name: paramedic's jacket
