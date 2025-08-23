@@ -79,3 +79,35 @@
       coefficients:
         Caustic: 0.85
 
+- type: entity
+  parent: ClothingUniformJumpsuitBlueshieldOfficer
+  id: ClothingUniformBlueShieldOfficerTurtleneck
+  name: blueshield officer turtleneck
+  description: Turtleneck worn by Blueshield Officers, CC tag removed because it was too itchy.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/blueshieldturtleneck.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/blueshieldturtleneck.rsi
+
+- type: entity
+  parent: ClothingUniformJumpsuitBlueshieldOfficer
+  id: ClothingUniformBlackBlueShieldOfficerTurtleneck
+  name: black blueshield officer turtleneck
+  description: black turtleneck worn by Blueshield Officers, CC tag removed because it was too itchy.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/blackblueshieldturtleneck.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/blackblueshieldturtleneck.rsi
+
+- type: entity
+  parent: ClothingUniformSecurityTrooper
+  id: ClothingUniformBlackRedSecUniform
+  name: security officer uniform
+  description: A utility uniform worn by trained Security officers.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/blackredsecurityuniform.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/blackredsecurityuniform.rsi
