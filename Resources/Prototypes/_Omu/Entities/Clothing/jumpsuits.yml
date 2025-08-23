@@ -111,3 +111,25 @@
     sprite: _Omu/Clothing/Uniforms/Jumpsuit/blackredsecurityuniform.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Uniforms/Jumpsuit/blackredsecurityuniform.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoPParade
+  name: head of personnel's parade uniform
+  description: A luxurious uniform for the head of personnel, woven in a deep blue. On the lapel is a small pin in the shape of a corgi's head.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/hopparadeuniform.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/hopparadeuniform.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoPTurtleneck
+  name: head of personnel's turtleneck
+  description: A soft blue turtleneck and black khakis worn by heads who prefer a bit more comfort over style.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/hopturtleneck.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/hopturtleneck.rsi

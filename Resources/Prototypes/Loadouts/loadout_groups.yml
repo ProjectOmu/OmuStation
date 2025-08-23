@@ -352,6 +352,10 @@
   loadouts:
   - HoPJumpsuit
   - HoPJumpskirt
+  - HoPParadeUniformMale # OmuStation
+  - HoPParadeUniformFemale # OmuStation
+  - HoPTurtleneckMale # OmuStation
+  - HoPTurtleneckSkirtFemale # OmuStation
   - HoPJumpsuitMilitary # goob
 
 - type: loadoutGroup
@@ -378,7 +382,7 @@
   minLimit: 0
   loadouts:
   - HoPWintercoat
-  - ClothingHOPCOAT
+  - ClothingFormalHoPCoat # OmuStation
 
 # Civilian
 - type: loadoutGroup
