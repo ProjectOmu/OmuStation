@@ -1,0 +1,24 @@
+- type: entity
+  name: CentComm Intern handheld fax
+  parent: HandheldFax
+  id: HandheldFaxCentCommIntern
+  suffix: CentComm Intern
+  components:
+  - type: FaxMachine
+    name: "CentComm Intern"
+  - type: Item
+    size: Normal
+    sprite: _Omustation/Objects/Tools/intern_fax.rsi
+  - type: Prayable
+    sentMessage: prayer-popup-notify-centcom-sent
+    notificationPrefix: prayer-chat-notify-centcom
+    verb: prayer-verbs-call
+    verbImage: null
+  - type: Sprite
+    sprite: _Omustation/Objects/Tools/intern_fax.rsi
+    drawdepth: SmallObjects
+    layers:
+    - state: icon
+      map: [ "enum.FaxMachineVisuals.VisualState" ]
+    - state: scanner
+      shader: unshaded

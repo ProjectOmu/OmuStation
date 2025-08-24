@@ -1,0 +1,40 @@
+- type: job
+  id: CentCommIntern
+  name: job-name-centcomm-intern
+  description: job-description-inspector
+  playTimeTracker: JobCentCommIntern
+  setPreference: false
+  startingGear: CentcomInternGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  requirements:
+  - !type:AgeRequirement
+    requiredAge: 18
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+
+- type: startingGear
+  id: CentcomInternGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficial
+    shoes: ClothingShoesBootsJack 
+    head: ClothingHeadHatCentcomcap 
+    eyes: ClothingEyesGlassesCentComm 
+    gloves: ClothingHandsGlovesHeavyGoldenTrim 
+    back: ClothingBackpackSatchelLeather 
+    belt: BoxFolderCentComClipboard
+    neck: ExecutiveInternIDCard 
+    id: CentCommInternPDA
+    ears: ClothingHeadsetAltCentCom
+    pocket1: RubberStampCentcomIntern
+  storage:
+    back:
+    - HandheldFaxCentCommIntern

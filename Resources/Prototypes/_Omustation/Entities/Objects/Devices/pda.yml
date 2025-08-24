@@ -1,0 +1,8 @@
+- type: entity
+  parent: CentcomPDA
+  id: CentCommInternPDA
+  name: CentComm Intern's PDA
+  description: A standard-issue CentComm Intern PDA.
+  components:
+  - type: Pda
+    id: CentralCommandInternIDCard
