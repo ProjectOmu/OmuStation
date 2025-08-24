@@ -241,7 +241,7 @@
 
 # Omu, this didn't get merged upstream, however the rig is nice to have here.
 - type: entity
-  parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband ]
+  parent: [ ClothingBeltMilitaryWebbingCMO, BaseCentcommContraband ]
   id: ClothingBeltMilitaryWebbingBSO
   name: blueshield chest rig
   description: A robust chest rig with deep pockets and hooks, for use by a blueshield officer.
