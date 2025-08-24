@@ -142,3 +142,14 @@
     sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/brigmedjacketred.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/brigmedjacketred.rsi
+
+- type: entity
+  parent: ClothingOuterCoatLabChem
+  id: ClothingOuterCoatLabcoatChemLong
+  name: chemist's labcoat
+  description: A standard labcoat for chemistry which protects the wearer from acid spills.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/labcoatchemist.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/labcoatchemist.rsi
