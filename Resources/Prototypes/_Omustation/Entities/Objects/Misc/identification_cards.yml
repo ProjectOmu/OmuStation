@@ -1,0 +1,50 @@
+- type: entity
+  parent: IDCardStandard
+  id: CentralCommandInternIDCard
+  name: CentComm Intern ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+    - state: idcentcom
+  - type: Item
+    heldPrefix:
+  - type: IdCard
+    jobTitle: job-name-centcomm-intern
+    jobIcon: JobIconNanotrasen
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
+
+- type: entity
+  parent: IDCardStandard
+  id: ExecutiveInternIDCard
+  name: executive intern access card
+  description: The owner of this ID just barely qualifies to work at Central Command, listening to their orders is suggested, but not required. Refer to Central Command if you need further verification.
+  components:
+  - type: Sprite
+    sprite: _Omustation/Objects/Misc/executiveintern.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Omustation/Objects/Misc/executiveintern.rsi
+    quickEquip: true
+    slots:
+    - neck
+    - idcard
+  - type: Item
+    heldPrefix:
+    sprite: _Omustation/Objects/Misc/executiveintern.rsi
+  - type: IdCard
+    jobTitle: job-name-exec-intern
+    jobIcon: JobIconNanotrasen
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
