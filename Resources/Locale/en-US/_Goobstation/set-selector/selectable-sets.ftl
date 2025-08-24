@@ -146,10 +146,11 @@ selectable-set-blueshield-chester-description =
     Includes: 8 Gauge shotgun, the Chester. Spare ammo,
     Alternate ammo, Spare magazines.
 
+# Omu, add military webbing to syringe kit
 selectable-set-blueshield-syringe-name = medical set
 selectable-set-blueshield-syringe-description =
     Perfect for healing allies or poisioning foes in a pinch.
-    Includes: A combat injector, and several vials of medicine.
+    Includes: A combat injector, A general use chestrig, and several vials of medicine. 
 
 # Blueshield hardsuits
 
