@@ -106,12 +106,12 @@
       - map: [ "gloves" ]
       - map: [ "shoes" ]
       - map: [ "ears" ]
-      - map: [ "belt" ]
+      - map: [ "belt" ] # Omu - Moved belt to render under OuterClothing to have it be similar with how the base drawdepth is.
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
-      - map: [ "beltalt" ]
-      - map: [ "back" ]
-      - map: [ "neck" ]
+      - map: [ "beltalt" ] # Omu
+      - map: [ "back" ] 
+      - map: [ "neck" ] # Omu - Moved this to render above backpacks because it felt weird seeing duffels above the cloaks and mantles? Easy thing to revert anyway.
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
       - map: [ "maskalt" ]
