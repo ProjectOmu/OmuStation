@@ -146,10 +146,32 @@
 - type: entity
   parent: ClothingOuterCoatLabChem
   id: ClothingOuterCoatLabcoatChemLong
-  name: chemist's labcoat
+  name: chemist's longcoat
   description: A standard labcoat for chemistry which protects the wearer from acid spills.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/labcoatchemist.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/labcoatchemist.rsi
+
+- type: entity
+  parent: ClothingOuterCoatLab
+  id: ClothingOuterCoatMedicalcoatLong
+  name: long labcoat
+  description: A Nanotrasen standard labcoat for medical personnel.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/longlabcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/longlabcoat.rsi
+
+- type: entity
+  parent: ClothingOuterCoatLab
+  id: ClothingOuterCoatSciencecoatLong
+  name: science longcoat
+  description: A Nanotrasen standard labcoat for science personnel.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/sciencelonglabcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/OuterClothing/Coats/sciencelonglabcoat.rsi
