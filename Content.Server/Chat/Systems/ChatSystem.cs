@@ -142,6 +142,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Players;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Radio;
+using Content.Shared.Speech; // Omu - Language
 using Content.Shared.Whitelist;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
@@ -1224,7 +1225,17 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (language.SpeechOverride.MessageWrapOverrides.TryGetValue(chatType, out var wrapOverride))
             wrapId = wrapOverride;
 
-        var speech = GetSpeechVerb(source, message);
+        // Omu Edit - Speech Verbs
+        SpeechVerbPrototype speech;
+        var evt = new TransformSpeakerNameEvent(source, MetaData(source).EntityName);
+        RaiseLocalEvent(source, evt);
+
+        if (evt.SpeechVerb != null && _prototypeManager.TryIndex(evt.SpeechVerb, out var evntProto))
+            speech = evntProto;
+        else
+            speech = GetSpeechVerb(source, message);
+        // Omu Edit - End
+
         var verbId = language.SpeechOverride.SpeechVerbOverrides is { } verbsOverride
             ? _random.Pick(verbsOverride).ToString()
             : _random.Pick(speech.SpeechVerbStrings);

@@ -257,7 +257,18 @@ public sealed class RadioSystem : EntitySystem
         LanguagePrototype language)
     {
         // TODO: code duplication with ChatSystem.WrapMessage
-        var speech = _chat.GetSpeechVerb(source, message);
+
+        // Omu Edit - Speech Verbs
+        SpeechVerbPrototype speech;
+        var evt = new TransformSpeakerNameEvent(source, MetaData(source).EntityName);
+        RaiseLocalEvent(source, evt);
+
+        if (evt.SpeechVerb != null && _prototype.TryIndex(evt.SpeechVerb, out var evntProto))
+            speech = evntProto;
+        else
+            speech = _chat.GetSpeechVerb(source, message);
+        // Omu Edit - End
+
         var languageColor = channel.Color;
 
         if (language.SpeechOverride.Color is { } colorOverride)
