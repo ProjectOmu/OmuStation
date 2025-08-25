@@ -29,6 +29,8 @@
   chatTriggers:
   - boops
   whitelist:
+    tags:
+    - HarpyEmotes # Omu, give harpies more emotes
     components:
     - Silicon
     - BorgChassis
@@ -41,6 +43,8 @@
   chatTriggers:
   - whirrs
   whitelist:
+    tags:
+    - HarpyEmotes # Omu, give harpies more emotes
     components:
     - Silicon
     - BorgChassis

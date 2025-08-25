@@ -57,8 +57,8 @@
       collection: HarpyBeeps
     Rev:
       collection: HarpyRevs
-#    Click:
-#      collection: HarpyClicks
+    Click:
+      collection: HarpyClicks
     Chitter:
       collection: HarpyChitter
     Squeak:
@@ -99,6 +99,26 @@
       collection: Warble
     Wurble:
       collection: Wurble
+    Mars: # Omu, fix harpy emotes
+      collection: Mars
+    Yawn: # Omu, fix harpy emotes
+      collection: FemaleYawn
+    Boop: # Omu, give harpy more emotes
+      path: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg
+    Buzz: # Omu, give harpy more emotes
+      path: /Audio/Machines/buzz-sigh.ogg
+    Chime: # Omu, give harpy more emotes
+      path: /Audio/Effects/Cargo/ping.ogg
+    Buzz-Two: # Omu, give harpy more emotes
+      path: /Audio/Machines/buzz-two.ogg
+    Ping: # Omu, give harpy more emotes
+      path: /Audio/Effects/beep1.ogg
+      params: # to prevent it from being definitively read by players as "OH SHIT A GRENADE"
+        variation: 0.125
+    Whirr: # Omu, give harpy more emotes
+      collection: IPCWhirrs
+    Hew: # Omu, give harpy more emotes
+      collection: Hew
 
 - type: emoteSounds
   id: SoundsHarpyMale
@@ -139,8 +159,8 @@
       collection: HarpyBeeps
     Rev:
       collection: HarpyRevs
-#    Click:
-#      collection: HarpyClicks
+    Click:
+      collection: HarpyClicks
     Chitter:
       collection: HarpyChitter
     Squeak:
@@ -183,6 +203,24 @@
       collection: Wurble
     Mars:
       collection: Mars
+    Yawn: # Omu, fix harpy emotes
+      collection: MaleYawn
+    Boop: # Omu, give harpy more emotes
+      path: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg
+    Buzz: # Omu, give harpy more emotes
+      path: /Audio/Machines/buzz-sigh.ogg
+    Chime: # Omu, give harpy more emotes
+      path: /Audio/Effects/Cargo/ping.ogg
+    Buzz-Two: # Omu, give harpy more emotes
+      path: /Audio/Machines/buzz-two.ogg
+    Ping: # Omu, give harpy more emotes
+      path: /Audio/Effects/beep1.ogg
+      params: # to prevent it from being definitively read by players as "OH SHIT A GRENADE"
+        variation: 0.125
+    Whirr: # Omu, give harpy more emotes
+      collection: IPCWhirrs
+    Hew: # Omu, give harpy more emotes
+      collection: Hew
 
 - type: emoteSounds
   id: FemaleVulpkanin
