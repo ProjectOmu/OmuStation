@@ -57,6 +57,13 @@
       Steel: 12
   - type: StaticPrice
     price: 20
+  - type: AltClothingLayer # Goobstation
+  # Omu belt layer stuff.
+    defaultLayer: belt
+    altLayer: beltalt 
+    changeToAltMessage: alt-clothing-component-belt-alt
+    changeToDefaultMessage: alt-clothing-component-belt-default
+  # Omu belt layer stuff.
   - type: Armor # provide minimal covering to your groin
     coverage:
     - Groin

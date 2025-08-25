@@ -152,9 +152,10 @@
         - map: ["gloves"]
         - map: ["shoes"]
         - map: ["ears"]
+        - map: [ "belt" ] # Omu - Moved belt to render under OuterClothing to have it be similar with how the base drawdepth is.
         - map: ["outerClothing"]
         - map: ["eyes"]
-        - map: ["belt"]
+        - map: ["beltalt"] # Omu
         - map: ["neck"]
         - map: ["back"]
         - map: [ "enum.HumanoidVisualLayers.Face" ]
