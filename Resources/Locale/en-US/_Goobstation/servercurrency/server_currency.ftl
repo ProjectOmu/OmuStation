@@ -4,9 +4,9 @@
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-
-server-currency-name-singular = Goob Coin
-server-currency-name-plural = Goob Coins
+# Omu, replace goobcoin with Eggcoin
+server-currency-name-singular = Egg Coin
+server-currency-name-plural = Egg Coins
 
 ## Commands
 
