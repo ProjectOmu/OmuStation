@@ -79,6 +79,7 @@
     quickEquip: false
     slots:
     - Back
+    - SuitStorage # Omu, allow jetpacks in suitstorage
   - type: GasTank
     outputPressure: 21.3
     air:
@@ -126,6 +127,7 @@
     sprite: Objects/Tanks/Jetpacks/blue.rsi
     slots:
       - Back
+      - SuitStorage # Omu, allow jetpacks in suitstorage
 
 # Filled blue
 - type: entity
@@ -159,6 +161,7 @@
     sprite: Objects/Tanks/Jetpacks/black.rsi
     slots:
       - Back
+      - SuitStorage # Omu, allow jetpacks in suitstorage
   - type: StaticPrice
     price: 1000
 
@@ -275,6 +278,7 @@
     sprite: Objects/Tanks/Jetpacks/security.rsi
     slots:
       - Back
+      - SuitStorage # Omu, allow jetpacks in suitstorage
 
 #Filled security
 - type: entity
