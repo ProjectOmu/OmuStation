@@ -3,3 +3,14 @@
   id: ClothingHOSWinterJacket
   equipment:
     outerClothing: ClothingOuterCoatHOSWinterCoat
+
+# Jumpsuits / Jumpskirts
+- type: loadout
+  id: HoSParadeUniformMale
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHoSParadeMale
+
+- type: loadout
+  id: HoSParadeUniformFemale
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtHoSParadeFemale
