@@ -221,6 +221,8 @@
   available: false
   icon: Interface/Emotes/chitter.png
   whitelist:
+    tags: 
+    - HarpyEmotes # Omu, allow harpy to chitter
     components:
     - Vocal
   blacklist:
@@ -239,6 +241,8 @@
   available: false
   icon: Interface/Emotes/squeak.png
   whitelist:
+    tags: 
+    - HarpyEmotes # Omu, allow harpy to squeak
     components:
       - Vocal
   blacklist:
@@ -251,12 +255,14 @@
    - squeaked
 
 - type: emote
-  id: Click
+  id: Click 
   name: chat-emote-name-click
   category: Vocal
   available: false
   icon: Interface/Emotes/click.png
   whitelist:
+    tags: 
+    - HarpyEmotes # Omu, allow harpy to click
     components:
     - Vocal
   blacklist:
@@ -389,6 +395,8 @@
   icon: Interface/Emotes/buzz.png
   chatMessages: ["chat-emote-msg-buzz"]
   whitelist: #Goobstation - IPCs
+    tags:
+      - HarpyEmotes # Omu, allow harpy to buzz
     components:
     - Silicon
     - BorgChassis
@@ -406,6 +414,7 @@
   chatMessages: ["chat-emote-msg-weh"]
   whitelist:
     tags:
+      - HarpyEmotes # Omu, allow harpy to weh
       - ReptilianEmotes # Goob - restrict wehs to the OG lizz
   blacklist:
     components:
@@ -420,6 +429,12 @@
   category: Vocal
   icon: Interface/Emotes/hew.png
   chatMessages: ["chat-emote-msg-hew"]
+  whitelist:
+    tags:
+      - HarpyEmotes # Omu, allow harpy to hew
+  chatTriggers: # Omu, allow harpy to hew
+    - hew 
+    - hews
 
 - type: emote
   id: Chirp
@@ -428,6 +443,8 @@
   available: false
   icon: Interface/Emotes/chirp.png
   whitelist:
+    tags:
+      - HarpyEmotes # Omu, allow harpy to chirp
     components:
     - Nymph
     - Vocal
@@ -449,6 +466,8 @@
   icon: Interface/Emotes/beep.png
   chatMessages: ["chat-emote-msg-beep"]
   whitelist: #Goobstation - IPCs, C4 sentience
+    tags:
+      - HarpyEmotes # Omu, allow harpy to beep
     components:
     - Silicon
     - BorgChassis
@@ -466,6 +485,8 @@
   icon: Interface/Emotes/chime.png
   chatMessages: ["chat-emote-msg-chime"]
   whitelist: #Goobstation - IPCs
+    tags:
+      - HarpyEmotes # Omu, allow harpy to chime
     components:
     - Silicon
     - BorgChassis
@@ -482,6 +503,8 @@
   icon: Interface/Emotes/buzztwo.png
   chatMessages: ["chat-emote-msg-buzzestwo"]
   whitelist: #Goobstation - IPCs
+    tags:
+      - HarpyEmotes # Omu, allow harpy to buzztwo
     components:
     - Silicon
     - BorgChassis
@@ -504,6 +527,8 @@
   icon: Interface/Emotes/ping.png
   chatMessages: ["chat-emote-msg-ping"]
   whitelist: #Goobstation - IPCs
+    tags:
+      - HarpyEmotes # Omu, allow harpy to ping
     components:
     - Silicon
     - BorgChassis
