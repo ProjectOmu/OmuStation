@@ -27,17 +27,17 @@
   description: The owner of this ID just barely qualifies to work at Central Command, listening to their orders is suggested, but not required. Refer to Central Command if you need further verification.
   components:
   - type: Sprite
-    sprite: _Omustation/Objects/Misc/executiveintern.rsi
+    sprite: _Omu/Objects/Misc/executiveintern.rsi
     state: icon
   - type: Clothing
-    sprite: _Omustation/Objects/Misc/executiveintern.rsi
+    sprite: _Omu/Objects/Misc/executiveintern.rsi
     quickEquip: true
     slots:
     - neck
     - idcard
   - type: Item
     heldPrefix:
-    sprite: _Omustation/Objects/Misc/executiveintern.rsi
+    sprite: _Omu/Objects/Misc/executiveintern.rsi
   - type: IdCard
     jobTitle: job-name-exec-intern
     jobIcon: JobIconNanotrasen
