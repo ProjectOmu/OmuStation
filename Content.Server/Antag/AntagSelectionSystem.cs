@@ -111,8 +111,10 @@ using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
 using Content.Server.Shuttles.Components;
 using Content.Server.Station.Events;
+using Content.Shared._Omu.CCvars;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Antag;
+using Content.Shared.CCVar; // Omustation
 using Content.Shared.Clothing;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
@@ -127,6 +129,7 @@ using Content.Shared.Whitelist;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
+using Robust.Shared.Configuration; // Omustation
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
@@ -152,6 +155,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly InventorySystem _inventory = default!; // Goobstation
     [Dependency] private readonly LastRolledAntagManager _lastRolled = default!; // Goobstation
     [Dependency] private readonly PlayTimeTrackingManager _playTime = default!; // Goobstation
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // Omustation
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
     // arbitrary random number to give late joining some mild interest.
@@ -352,6 +356,8 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     public Dictionary<ICommonSession, float> ToWeightsDict(IList<ICommonSession> pool)
     {
         Dictionary<ICommonSession, float> weights = new();
+        if (!_cfg.GetCVar(OmuCvar.AntagPity)) // omu antag pity cvar
+            return weights;
 
         // weight by playtime since last rolled
         foreach (var se in pool)
