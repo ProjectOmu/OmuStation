@@ -502,6 +502,16 @@
   - ClothingOuterHardsuitSecurityRed
 
 - type: selectableSet
+  id: VoidsuitSelectorHeadOfSecurityParadeVoidsuit
+  name: selectable-set-headofsecurity-paradevoidsuit-name
+  description: selectable-set-headofsecurity-paradevoidsuit-desc
+  sprite:
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/hos-expi.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitHeadOfSecurityExperimental
+
+- type: selectableSet
   id: VoidsuitSelectorHeadOfSecurityHardsuit
   name: selectable-set-headofsecurity-modsuit-name
   description: selectable-set-headofsecurity-modsuit-desc
