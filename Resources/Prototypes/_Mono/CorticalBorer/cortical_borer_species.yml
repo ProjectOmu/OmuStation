@@ -1,7 +1,9 @@
 # SPDX-FileCopyrightText: 2025 Ark
 # SPDX-FileCopyrightText: 2025 Coenx-flex
 # SPDX-FileCopyrightText: 2025 Cojoke
-#
+# SPDX-FileCopyrightText: 2025 Redrover1760
+# SPDX-FileCopyrightText: 2025 ark1368
+# SPDX-FileCopyrightText: 2025 tonotom
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -94,7 +96,8 @@
   - type: Speech
     enabled: false
   - type: HealthAnalyzer
-    silent: true
+    scanningEndSound:
+      path: "/Audio/Voice/Slime/slime_squish.ogg"
     maxScanRange: .5
   - type: CanEscapeInventory
   - type: GuideHelp
