@@ -29,6 +29,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
+using Content.Shared.Movement.Systems;
+using Robust.Shared.Serialization.TypeSerializers.Implementations;
 
 namespace Content.Server._Impstation.Replicator;
 
@@ -138,6 +140,10 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
 
     private void HandleDestruction(Entity<ReplicatorNestComponent> ent)
     {
+        // turn off the ambient sound on the points storage entity.
+        if (TryComp<AmbientSoundComponent>(ent.Comp.PointsStorage, out var ambientComp))
+            _ambientSound.SetAmbience(ent.Comp.PointsStorage, false, ambientComp);
+
         if (ent.Comp.Hole != null)
         {
             foreach (var uid in _containerSystem.EmptyContainer(ent.Comp.Hole))
@@ -165,22 +171,20 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         // Figure out who the queen is & which replicators belonging to this nest are still alive.
         EntityUid? queen = null;
         HashSet<Entity<ReplicatorComponent>> livingReplicators = [];
-        foreach (var replicator in ent.Comp.SpawnedMinions)
+        var repQuery = EntityQueryEnumerator<ReplicatorComponent>();
+        while (repQuery.MoveNext(out var uid, out var comp))
         {
-            if (!TryComp<ReplicatorComponent>(replicator, out var replicatorComp))
+            if (!_mobState.IsAlive(uid))
                 continue;
 
-            if (!_mobState.IsAlive(replicator))
+            if (comp.MyNest != ent.Owner)
                 continue;
 
-            replicatorComp.MyNest = null;
+            comp.MyNest = null;
+            if (comp.Queen)
+                queen = uid;
 
-            if (replicatorComp.Queen)
-                queen = replicator;
-
-            livingReplicators.Add((replicator, replicatorComp));
-
-            _popup.PopupEntity(Loc.GetString("replicator-nest-destroyed"), replicator, replicator);
+            livingReplicators.Add((uid, comp));
         }
 
         // if there are living replicators, select one and give the action to create a new nest.
@@ -202,6 +206,12 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
             if (upgradedQueen is not { } upgradedQueenNotNull || !TryComp<MindContainerComponent>(upgradedQueen, out var mindContainer) || mindContainer.Mind is not { } mind)
                 return;
 
+            if (!TryComp<ReplicatorComponent>(upgradedQueenNotNull, out var upgradedQueenReplicatorComp))
+                return;
+
+            queen = upgradedQueenNotNull;
+            livingReplicators.Add((upgradedQueenNotNull, upgradedQueenReplicatorComp));
+
             if (!mindContainer.HasMind)
                 upgradedComp.Actions.Add(_actions.AddAction(upgradedQueenNotNull, upgradedComp.SpawnNewNestAction));
             else
@@ -212,22 +222,32 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         }
 
         // finally, loop over our living replicators and set their pinpointers to target the queen, then downgrade them to level 1 and stun them.
-        foreach (var replicator in livingReplicators)
+        List<(EntityUid, ReplicatorComponent)> finalLivingReps = [];
+        var repQuery2 = EntityQueryEnumerator<ReplicatorComponent>();
+        while (repQuery2.MoveNext(out var uid, out var comp))
         {
-            if (!_inventory.TryGetSlotEntity(replicator, "pocket1", out var pocket1) || !TryComp<PinpointerComponent>(pocket1, out var pinpointer))
-                continue;
-            // set the target to the queen
-            _pinpointer.SetTarget(pocket1.Value, queen, pinpointer);
-
-            // downgrade to level 1
-            var upgraded = ForceUpgrade(replicator, replicator.Comp.FirstStage);
-            if (upgraded != null)
-                _stun.TrySlowdown(upgraded.Value, TimeSpan.FromSeconds(3), true, 0.8f, 0.8f);
+            finalLivingReps.Add((uid, comp));
+            if (HasComp<ReplicatorSignComponent>(uid))
+                queen = uid;
         }
+        foreach (var (uid, comp) in finalLivingReps)
+        {
+            EntityUid? upgraded;
+            if (HasComp<ReplicatorSignComponent>(uid))
+                upgraded = uid;
+            else
+                upgraded = ForceUpgrade((uid, comp), comp.FirstStage);
+            if (upgraded is not { } upgradedNotNull)
+                return;
 
-        // turn off the ambient sound on the points storage entity.
-        if (TryComp<AmbientSoundComponent>(ent.Comp.PointsStorage, out var ambientComp))
-            _ambientSound.SetAmbience(ent.Comp.PointsStorage, false, ambientComp);
+            _movementMod.TryUpdateMovementSpeedModDuration(upgradedNotNull, "HoleDestroyedSlowdownStatusEffect", TimeSpan.FromSeconds(3), 0.8f);
+
+            if (!_inventory.TryGetSlotEntity(upgradedNotNull, "pocket1", out var pocket1) || !TryComp<PinpointerComponent>(pocket1, out var pinpointer))
+                continue;
+
+            _pinpointer.SetTarget(pocket1.Value, queen, pinpointer);
+            _popup.PopupEntity(Loc.GetString("replicator-nest-destroyed"), uid, uid, Shared.Popups.PopupType.LargeCaution);
+        }
     }
 
     private void OnRoundEndTextAppend(RoundEndTextAppendEvent args)
