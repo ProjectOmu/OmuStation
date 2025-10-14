@@ -41,6 +41,7 @@ using Content.Client._Shitcode.Wizard.Systems;
 using Content.Client.Movement.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Ghost;
+using Content.Shared._White.Ghost; // Omustation - Port WD Respawn Button
 using Robust.Client.Console;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
@@ -250,5 +251,13 @@ namespace Content.Client.Ghost
         {
             GhostVisibility = visibility ?? !GhostVisibility;
         }
+
+        // begin Omustation - Port WD Respawn Button
+        public void ReturnToRound()
+        {
+            var msg = new GhostReturnToRoundRequest();
+            RaiseNetworkEvent(msg);
+        }
+        // emd Omustation - Port WD Respawn Button
     }
 }

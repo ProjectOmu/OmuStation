@@ -95,6 +95,7 @@ using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
 using Content.Shared.CCVar;
+using Content.Shared.Chat; // Omustation - Port WD Respawn Button
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
@@ -269,6 +270,22 @@ namespace Content.Server.GameTicking
                 JoinAsObserver(player);
                 return;
             }
+
+            // begin Omustation - Port WD Respawn Button
+            // Ghost system return to round, check for whether the character isn't the same.
+            if (lateJoin && !_adminManager.IsAdmin(player) && !CheckGhostReturnToRound(player, character, out var checkAvoid))
+            {
+                var message = checkAvoid
+                    ? Loc.GetString("ghost-respawn-same-character-slightly-changed-name")
+                    : Loc.GetString("ghost-respawn-same-character");
+                var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+
+                _chatManager.ChatMessageToOne(ChatChannel.Server, message, wrappedMessage,
+                    default, false, player.Channel, Color.Red);
+
+                return;
+            }
+            // end Omustation - Port WD Respawn Button
 
             string speciesId;
             if (_randomizeCharacters)
@@ -557,6 +574,81 @@ namespace Content.Server.GameTicking
                 LogImpact.Low,
                 $"{player.Name} late joined the round as an Observer with {ToPrettyString(ghost):entity}.");
         }
+
+
+        // begin Omustation - Port WD Respawn Button
+        #region WD Ghost Respawn
+
+        /// <summary>
+        ///     Checks to see whether the player character's current name is similar to the name of a character whom they previously played in the current shift.
+        ///     The goal is to make sure the player isn't respawning as the same character which died earlier in the shift.
+        /// </summary>
+        /// <returns>
+        ///     False if the current character's name is identical, or similar, to any previously-played character's name.
+        /// </returns>
+        private bool CheckGhostReturnToRound(ICommonSession player, HumanoidCharacterProfile character, out bool checkAvoid)
+        {
+            checkAvoid = false;
+
+            var allPlayerMinds = EntityQuery<MindComponent>().Where(mind => mind.OriginalOwnerUserId == player.UserId);
+
+            foreach (var mind in allPlayerMinds)
+            {
+                // If the player is playing a character with the exact same name as a previously played character.
+                if (mind.CharacterName == character.Name)
+                    return false;
+
+                // If the previously played character has no name, we don't have to do the following check.
+                if (mind.CharacterName == null)
+                    continue;
+
+                // Calculate the similarity, as a percentage, between the names of the current player character and the previously played character.
+                var similarity = CalculateStringSimilarity(mind.CharacterName, character.Name);
+                if (similarity >= 85f) // Omustation - changed this to an if statement. Why use a switch statement here? It just makes the whole thing harder to read.  
+                {
+                    _chatManager.SendAdminAlert(Loc.GetString("ghost-respawn-log-character-almost-same",
+                        ("player", player.Name), ("try", false), ("oldName", mind.CharacterName),
+                        ("newName", character.Name)));
+
+                    checkAvoid = true;
+                    return false;
+                }
+                else if (similarity >= 50f)
+                {
+                    _chatManager.SendAdminAlert(Loc.GetString("ghost-respawn-log-character-almost-same",
+                        ("player", player.Name), ("try", true), ("oldName", mind.CharacterName),
+                        ("newName", character.Name)));
+                }
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        ///     Calculates the similarity between two strings.
+        /// </summary>
+        /// <returns>
+        ///     The string similarity, as a percentage.
+        /// </returns>
+        private float CalculateStringSimilarity(string str1, string str2)
+        {
+            var minLength = Math.Min(str1.Length, str2.Length);
+            var matchingCharacters = 0;
+
+            for (var i = 0; i < minLength; i++)
+            {
+                if (str1[i] == str2[i])
+                    matchingCharacters++;
+            }
+
+            float maxLength = Math.Max(str1.Length, str2.Length);
+            var similarityPercentage = matchingCharacters / maxLength * 100;
+
+            return similarityPercentage;
+        }
+
+        #endregion
+        // end Omustation - Port WD Respawn Button
 
         #region Spawn Points
 
