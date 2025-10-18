@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 Coenx-flex
 // SPDX-FileCopyrightText: 2025 Cojoke
+// SPDX-FileCopyrightText: 2025 ark1368
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -44,6 +45,11 @@ public sealed partial class CorticalBorerInfestedComponent : Robust.Shared.GameO
     /// Abilities to be removed once host gets control back
     /// </summary>
     public List<EntityUid> RemoveAbilities = new();
+
+    /// <summary>
+    /// Reform action that was removed from the host when borer took control.
+    /// </summary>
+    public EntityUid? RemovedReformAction;
 }
 
 [RegisterComponent, NetworkedComponent]

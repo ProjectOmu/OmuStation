@@ -1,13 +1,13 @@
+// SPDX-FileCopyrightText: 2025 Ark
 // SPDX-FileCopyrightText: 2025 Coenx-flex
 // SPDX-FileCopyrightText: 2025 Cojoke
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._NF.Salvage;
 using Content.Server.Body.Components;
 using Content.Server.Medical;
 using Content.Shared._Mono.CorticalBorer;
-using Content.Shared._Shitmed.Medical.Surgery;
-using Content.Shared.Body.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
@@ -68,6 +68,22 @@ public sealed partial class CorticalBorerSystem
             return;
         }
 
+        // Prevent borers from infesting other borers. :o)
+        if (HasComp<CorticalBorerComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString("cortical-borer-invalid-host", ("target", targetIdentity)), uid, uid, PopupType.Medium);
+
+            return;
+        }
+
+        // Prevent borers from infesting salvage/exped mobs. :o(
+        if (HasComp<NFSalvageMobRestrictionsComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString("cortical-borer-invalid-host", ("target", targetIdentity)), uid, uid, PopupType.Medium);
+
+            return;
+        }
+
         // anything with bloodstream
         if (!HasComp<BloodstreamComponent>(target))
         {
@@ -110,6 +126,9 @@ public sealed partial class CorticalBorerSystem
             return;
 
         if (args.Cancelled || HasComp<CorticalBorerInfestedComponent>(target))
+            return;
+
+        if (HasComp<CorticalBorerComponent>(target))
             return;
 
         InfestTarget(ent, target);

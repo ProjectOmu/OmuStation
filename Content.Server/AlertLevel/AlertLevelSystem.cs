@@ -20,6 +20,23 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-FileCopyrightText: 2022 Flipp Syder
+// SPDX-FileCopyrightText: 2022 Júlio César Ueti
+// SPDX-FileCopyrightText: 2022 Moony
+// SPDX-FileCopyrightText: 2022 Morbo
+// SPDX-FileCopyrightText: 2022 Veritius
+// SPDX-FileCopyrightText: 2022 keronshb
+// SPDX-FileCopyrightText: 2023 0x6273
+// SPDX-FileCopyrightText: 2023 Daniil Sikinami
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Mr. 27
+// SPDX-FileCopyrightText: 2024 Whatstone
+// SPDX-FileCopyrightText: 2025 Ark
+//
+// SPDX-License-Identifier: MPL-2.0
 
 using System.Linq;
 using Content.Server.Chat.Systems;
@@ -227,6 +244,12 @@ public sealed class AlertLevelSystem : EntitySystem
         {
             _chatSystem.DispatchStationAnnouncement(station, announcementFull, playDefaultSound: playDefault,
                 colorOverride: detail.Color, sender: stationName);
+            //var stationName = dataComponent.EntityName; // Frontier: moved down
+            //_chatSystem.DispatchGlobalAnnouncement(
+            //   announcementFull,
+            //   sender: stationName,
+            //   playSound: playDefault,
+            //   colorOverride: detail.Color);
         }
 
         RaiseLocalEvent(new AlertLevelChangedEvent(station, level));
