@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Ark
+# SPDX-FileCopyrightText: 2025 Avalon
 # SPDX-FileCopyrightText: 2025 Coenx-flex
 # SPDX-FileCopyrightText: 2025 Cojoke
 # SPDX-FileCopyrightText: 2025 Redrover1760
@@ -18,7 +19,7 @@
     allowMovement: true
     name: cortical-borer-ghostrole-name
     description: cortical-borer-ghostrole-desc
-    rules: ghost-role-information-freeagent-rules
+    rules: cortical-borer-ghostrole-rules
     mindRoles:
     - MindRoleGhostRoleFreeAgent
   - type: GhostTakeoverAvailable
