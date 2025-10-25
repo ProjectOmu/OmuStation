@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Ark
 // SPDX-FileCopyrightText: 2025 Coenx-flex
 // SPDX-FileCopyrightText: 2025 Cojoke
+// SPDX-FileCopyrightText: 2025 Ilya246
 // SPDX-FileCopyrightText: 2025 ScyronX
 // SPDX-FileCopyrightText: 2025 ark1368
 //
@@ -17,6 +18,7 @@ using Content.Server.Medical;
 using Content.Server.Medical.Components;
 using Content.Server.Nutrition.Components;
 using Content.Shared._Mono.CorticalBorer;
+using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
 using Content.Shared.Chemistry.Components;
@@ -55,6 +57,7 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly GhostRoleSystem _ghost  = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly CollectiveMindUpdateSystem _collective = default!;
 
     public override void Initialize()
     {
@@ -350,6 +353,14 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
             _actions.RemoveAction(host, reformComp.ActionEntity.Value);
         }
 
+        // add collective mind if we don't have it already
+        var channel = ent.Comp.HivemindChannel;
+        var hadHivemind = _collective.HasCollectiveMind(host, channel);
+        infestedComp.HadHivemind = hadHivemind;
+        if (TryComp<CollectiveMindComponent>(host, out var collectiveComp))
+            infestedComp.OldDefault = collectiveComp.DefaultChannel;
+        _collective.AddCollectiveMind(host, channel, true); // also set default
+
         var str = $"{ToPrettyString(worm)} has taken control over {ToPrettyString(host)}";
 
         Log.Info(str);
@@ -400,6 +411,11 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
             _mind.TransferTo(infestedComp.BorerMindId, infestedComp.Borer);
         if (!TerminatingOrDeleted(infestedComp.OrigininalMindId) && infestedComp.OrigininalMindId.HasValue)
             _mind.TransferTo(infestedComp.OrigininalMindId.Value, host);
+
+        if (!infestedComp.HadHivemind)
+            _collective.RemoveCollectiveMind(host, worm.Comp.HivemindChannel);
+        if (TryComp<CollectiveMindComponent>(host, out var collectiveComp))
+            collectiveComp.DefaultChannel = infestedComp.OldDefault;
 
         infestedComp.ControlTimeEnd = null;
         _container.CleanContainer(infestedComp.ControlContainer);

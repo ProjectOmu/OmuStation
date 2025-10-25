@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 Coenx-flex
 // SPDX-FileCopyrightText: 2025 Cojoke
+// SPDX-FileCopyrightText: 2025 Ilya246
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -166,42 +167,6 @@ public sealed class CorticalBorerDispenserSetInjectAmountMessage : BoundUserInte
     public CorticalBorerDispenserSetInjectAmountMessage(int amount)
     {
         CorticalBorerDispenserDispenseAmount = amount;
-    }
-
-    public CorticalBorerDispenserSetInjectAmountMessage(String s)
-    {
-        switch (s)
-        {
-            case "1":
-                CorticalBorerDispenserDispenseAmount = 1;
-                break;
-            case "5":
-                CorticalBorerDispenserDispenseAmount = 5;
-                break;
-            case "10":
-                CorticalBorerDispenserDispenseAmount = 10;
-                break;
-            case "15":
-                CorticalBorerDispenserDispenseAmount = 15;
-                break;
-            case "20":
-                CorticalBorerDispenserDispenseAmount = 20;
-                break;
-            case "25":
-                CorticalBorerDispenserDispenseAmount = 25;
-                break;
-            case "30":
-                CorticalBorerDispenserDispenseAmount = 30;
-                break;
-            case "50":
-                CorticalBorerDispenserDispenseAmount = 50;
-                break;
-            case "100":
-                CorticalBorerDispenserDispenseAmount = 100;
-                break;
-            default:
-                throw new Exception($"Cannot convert the string `{s}` into a valid DispenseAmount");
-        }
     }
 }
 
