@@ -9,7 +9,6 @@
 # SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
 # SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <zddm@outlook.es>
-# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
 # SPDX-FileCopyrightText: 2021 Kara D <lunarautomaton6@gmail.com>
 # SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+leonsfriedrich@users.noreply.github.com>
@@ -80,13 +79,16 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GaussiArson <193122004+GaussiArson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+# SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
 # SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
@@ -185,7 +187,6 @@
   abstract: true
   components:
   - type: Reflective
-  - type: FlyBySound
   - type: Clickable
   - type: Sprite
     noRot: false
@@ -208,15 +209,6 @@
         mask:
         - Impassable
         - BulletImpassable
-      fly-by: &flybyfixture
-        shape: !type:PhysShapeCircle
-          radius: 1.5
-        layer:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        hard: False
   - type: Projectile
     impactEffect: BulletImpactEffect
     damage:
@@ -226,6 +218,7 @@
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
   - type: TimedDespawn
     lifetime: 10
+  - type: LagCompensation
 
 - type: entity
   id: BaseBulletTrigger # Trigger-on-collide bullets
@@ -249,7 +242,6 @@
         mask:
         - Impassable
         - BulletImpassable
-      fly-by: *flybyfixture
 
 - type: entity
   id: BaseBulletPractice
@@ -341,9 +333,8 @@
           bounds: "-0.15,-0.45,0.15,0.15"
         hard: false
         mask:
-        - Impassable
-        - BulletImpassable
-      fly-by: *flybyfixture
+          - Impassable
+          - BulletImpassable
   - type: Ammo
   - type: Projectile
     damage:
@@ -418,7 +409,15 @@
         hard: false
         mask:
         - Opaque # Goobstation
-      fly-by: *flybyfixture
+      fly-by: # Inlined definition to avoid anchor issues
+        shape: !type:PhysShapeCircle
+          radius: 0.6
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: false
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectOmnilaser # imp
   - type: StaminaDamageOnCollide
@@ -458,7 +457,15 @@
         hard: false
         mask:
         - Opaque # Goobstation
-      fly-by: *flybyfixture
+      fly-by: # Inlined definition to avoid anchor issues
+        shape: !type:PhysShapeCircle
+          radius: 0.6
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: false
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectOmnilaser # imp
   - type: StaminaDamageOnCollide
@@ -495,10 +502,6 @@
         hard: false
         mask:
         - Opaque
-      fly-by: *flybyfixture
-  - type: Reflective # Goobstation - Make emitter bolts reflect as energy
-    reflective:
-    - Energy
   - type: Projectile
     #   soundHit:  Waiting on serv3
     damage:
@@ -541,7 +544,6 @@
         hard: false
         mask:
         - Opaque
-      fly-by: *flybyfixture
   - type: Projectile
     #   soundHit:  Waiting on serv3
     impactEffect: BulletImpactEffectDisabler
@@ -793,7 +795,6 @@
         hard: false
         mask:
         - Opaque
-      fly-by: *flybyfixture
   - type: Projectile
     damage:
       types:
@@ -1302,7 +1303,15 @@
         hard: false
         mask:
         - Opaque # Goobstation
-      fly-by: *flybyfixture
+      fly-by: # Inlined definition to avoid anchor issues
+        shape: !type:PhysShapeCircle
+          radius: 0.6
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: false
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectOmnilaser # imp
   - type: StaminaDamageOnCollide
@@ -1345,7 +1354,15 @@
         hard: false
         mask:
         - Opaque
-      fly-by: *flybyfixture
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 0.6
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: false
   - type: Ammo
 
 - type: entity
@@ -1455,8 +1472,8 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Opaque # Goob edit
-      fly-by: *flybyfixture
+        - Impassable
+        - BulletImpassable
   - type: Ammo
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler

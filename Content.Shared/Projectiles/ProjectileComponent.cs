@@ -12,7 +12,9 @@
 // SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
@@ -107,6 +109,12 @@ public sealed partial class ProjectileComponent : Component
     /// </summary>
     [DataField]
     public bool OnlyCollideWhenShot = false;
+
+    /// <summary>
+    ///     If true, the projectile has hit enough targets and should no longer interact with further collisions pending deletion.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool DamagedEntity;
 
     /// <summary>
     ///     If true, the projectile has hit enough targets and should no longer interact with further collisions pending deletion.
