@@ -8,7 +8,15 @@
 # SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-#
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Velken <8467292+Velken@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # tables
 
@@ -26,6 +34,7 @@
     children:
     - id: KingRatMigration
     - id: SnailMigration
+    - id: MiniDragonMigration
 
 # events
 
@@ -89,6 +98,25 @@
     specialEntries:
     - id: SpawnPointGhostRatKing
       prob: 0.001
+
+# Funky Start
+- type: entity
+  id: MiniDragonMigration
+  parent: BaseStationEventLongDelay #funky
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    weight: 3
+    duration: 20
+    minimumPlayers: 1
+  - type: VentCrittersRule
+    min: 1 # DeltaV
+    max: 3 # DeltaV
+    playerRatio: 70 # DeltaV: Mostly ignore player scaling
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: SpawnPointGhostMiniDragon
+# Funky End
 
 - type: entity
   id: CockroachMigration
