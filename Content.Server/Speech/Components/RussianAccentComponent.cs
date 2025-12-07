@@ -9,5 +9,6 @@
 
 namespace Content.Server.Speech.Components;
 
-[RegisterComponent]
-public sealed partial class RussianAccentComponent : Component {}
+// Omu - Replace RussianAccent with Funkystation's Russian Accent
+// [RegisterComponent]
+// public sealed partial class RussianAccentComponent : Component {}
