@@ -19,6 +19,12 @@
 # SPDX-FileCopyrightText: 2024 ColesMagnum <98577947+AW-FulCode@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -47,6 +53,7 @@
   color: "#757245"
   boilingPoint: 2977.0 # Aluminum oxide
   meltingPoint: 2030.0
+  flammability: 4
   tileReactions:
   - !type:FlammableTileReaction
     temperatureMultiplier: 2
@@ -78,6 +85,7 @@
   physicalDesc: reagent-physical-desc-soapy
   flavor: bitter
   color: "#FA00AF"
+  flammability: 5
   tileReactions:
   - !type:FlammableTileReaction
     temperatureMultiplier: 5
@@ -119,6 +127,7 @@
   physicalDesc: reagent-physical-desc-burning
   flavor: bitter
   color: "#D4872A"
+  flammability: 5
   metabolisms:
     Poison:
       effects:
@@ -159,6 +168,7 @@
   physicalDesc: reagent-physical-desc-blazing
   flavor: bitter
   color: "#FFC8C8"
+  flammability: 5
   tileReactions:
   - !type:PryTileReaction
   metabolisms:
@@ -181,7 +191,7 @@
         damage:
           types:
             Heat: 2
-            Caustic: 0.5 # CLF3 is corrosive    
+            Caustic: 0.5 # CLF3 is corrosive
       - !type:FlammableReaction
         multiplier: 0.2
       - !type:AdjustTemperature
@@ -228,6 +238,7 @@
   boilingPoint: -84.7 # Acetylene. Close enough.
   meltingPoint: -80.7
   friction: 0.4
+  flammability: 2
   tileReactions:
   - !type:FlammableTileReaction {}
   metabolisms:

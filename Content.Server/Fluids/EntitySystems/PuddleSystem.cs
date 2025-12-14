@@ -96,11 +96,17 @@
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
 using Content.Server.Administration.Logs;
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chemistry.TileReactions;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.Components;
@@ -160,7 +166,8 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
     [Dependency] private readonly TileFrictionController _tile = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
-
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;        //Funky tile fire
+    [Dependency] private readonly AtmosphereSystem _atmos = default!;           //Funky tile fire
 
     [ValidatePrototypeId<ReagentPrototype>]
     private const string Blood = "Blood";
@@ -435,6 +442,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         base.Update(frameTime);
         foreach (var ent in _deletionQueue)
         {
+            UpdateFlammability(ent, null);
             Del(ent);
         }
 
@@ -457,9 +465,63 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         }
 
         _deletionQueue.Remove(entity);
+        UpdateFlammability((entity.Owner, entity.Comp), args.Solution);
         UpdateSlip((entity, entity.Comp), args.Solution);
         UpdateSlow(entity, args.Solution, entity.Comp); // Corvax-Next-Footprints
         UpdateEvaporation(entity, args.Solution);
+        UpdateAppearance(entity, entity.Comp);  //Funky tile fire start
+    }
+
+    private void UpdateFlammability(Entity<PuddleComponent?> entity, Solution? solution)
+    {
+        if (solution is null)
+        {
+            _atmos.SetPuddleFlammabilityAtTile(entity.Owner, 0);
+            return;
+        }
+
+        var flammability = solution.GetSolutionFlammability(_prototypeManager);
+        _atmos.SetPuddleFlammabilityAtTile(entity.Owner, flammability);
+
+    }
+
+    private void UpdateAppearance(EntityUid uid, PuddleComponent? puddleComponent = null,
+        AppearanceComponent? appearance = null)
+    {
+        if (!Resolve(uid, ref puddleComponent, ref appearance, false))
+        {
+            return;
+        }
+
+        var volume = FixedPoint2.Zero;
+        Color color = Color.White;
+
+        if (_solutionContainerSystem.ResolveSolution(uid, puddleComponent.SolutionName, ref puddleComponent.Solution,
+                out var solution))
+        {
+            volume = solution.Volume / puddleComponent.OverflowVolume;
+
+            // Make blood stand out more
+            // Kinda EH
+            // Could potentially do alpha per-solution but future problem.
+
+            color = solution.GetColorWithout(_prototypeManager, _standoutReagents);
+            color = color.WithAlpha(0.7f);
+
+            foreach (var standout in _standoutReagents)
+            {
+                var quantity = solution.GetTotalPrototypeQuantity(standout);
+                if (quantity <= FixedPoint2.Zero)
+                    continue;
+
+                var interpolateValue = quantity.Float() / solution.Volume.Float();
+                color = Color.InterpolateBetween(color,
+                    _prototypeManager.Index<ReagentPrototype>(standout).SubstanceColor, interpolateValue);
+            }
+        }
+
+        _appearance.SetData(uid, PuddleVisuals.CurrentVolume, volume.Float(), appearance);
+        _appearance.SetData(uid, PuddleVisuals.SolutionColor, color, appearance);       //Funky tile fire end
     }
 
     private void UpdateSlip(Entity<PuddleComponent> entity, Solution solution)

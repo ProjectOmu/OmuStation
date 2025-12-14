@@ -8,6 +8,8 @@
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -25,6 +27,7 @@ using Content.Shared.StepTrigger.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Content.Shared.Atmos;
 
 namespace Content.Shared.Fluids;
 
@@ -63,6 +66,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
         SubscribeLocalEvent<PuddleComponent, GetFootstepSoundEvent>(OnGetFootstepSound);
         SubscribeLocalEvent<PuddleComponent, ExaminedEvent>(HandlePuddleExamined);
         SubscribeLocalEvent<PuddleComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
+        SubscribeLocalEvent<PuddleComponent, TileFireEvent>(OnPuddleBurn);      //Funky tile fire
 
         InitializeSpillable();
     }
@@ -212,6 +216,16 @@ public abstract partial class SharedPuddleSystem : EntitySystem
             solution.RemoveReagent(reagent, removed);
         }
     }
+    public void OnPuddleBurn(Entity<PuddleComponent> ent, ref TileFireEvent args)   //Funky tile fire
+    {
+        if (!_solutionContainerSystem.ResolveSolution(ent.Owner,
+                ent.Comp.SolutionName,
+                ref ent.Comp.Solution,
+                out var solution))
+            return;
+        _solutionContainerSystem.BurnFlammableReagents(ent.Comp.Solution.Value, 0.05f);
+
+    }           //End funky
 
     #region Spill
     // These methods are in Shared to make it easier to interact with PuddleSystem in Shared code.
