@@ -157,6 +157,7 @@ public abstract partial class SharedStunSystem : EntitySystem
         switch (args.NewMobState)
         {
             case MobState.Alive:
+            case MobState.SoftCritical:
                 {
                     break;
                 }
@@ -165,6 +166,7 @@ public abstract partial class SharedStunSystem : EntitySystem
                     _status.TryRemoveStatusEffect(uid, StunId);
                     break;
                 }
+            case MobState.HardCritical:
             case MobState.Dead:
                 {
                     _status.TryRemoveStatusEffect(uid, StunId);

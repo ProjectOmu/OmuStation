@@ -73,6 +73,8 @@ public sealed class DevourSystem : EntitySystem
             switch (targetState.CurrentState)
             {
                 case MobState.Critical:
+                case MobState.SoftCritical:     //Funky soft crit
+                case MobState.HardCritical:     //Funky soft crit
                 case MobState.Dead:
 
                     _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.DevourTime, new DevourDoAfterEvent(), ent.Owner, target: target, used: ent.Owner)

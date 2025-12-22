@@ -83,6 +83,13 @@
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya Mikheev <me@ilyamikcoder.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ilyamikcoder <me@ilyamikcoder.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -99,6 +106,7 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Events;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Pointing;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Speech;
@@ -133,6 +141,7 @@ public partial class MobStateSystem
         SubscribeLocalEvent<MobStateComponent, CombatModeShouldHandInteractEvent>(OnCombatModeShouldHandInteract);
         SubscribeLocalEvent<MobStateComponent, AttemptPacifiedAttackEvent>(OnAttemptPacifiedAttack);
         SubscribeLocalEvent<MobStateComponent, DamageModifyEvent>(OnDamageModify);
+        SubscribeLocalEvent<MobStateComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
 
         SubscribeLocalEvent<MobStateComponent, UnbuckleAttemptEvent>(OnUnbuckleAttempt);
     }
@@ -151,6 +160,8 @@ public partial class MobStateSystem
         {
             case MobState.Dead:
             case MobState.Critical:
+            case MobState.SoftCritical:
+            case MobState.HardCritical:
                 args.Cancelled = true;
                 break;
         }
@@ -164,11 +175,13 @@ public partial class MobStateSystem
                 //unused
                 break;
             case MobState.Critical:
+            case MobState.SoftCritical:     //Funky soft crit
                 _standing.Stand(target);
+                break;
+            case MobState.HardCritical:
                 break;
             case MobState.Dead:
                 RemComp<CollisionWakeComponent>(target);
-                _standing.Stand(target);
                 break;
             case MobState.Invalid:
                 //unused
@@ -194,6 +207,8 @@ public partial class MobStateSystem
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Alive);
                 break;
             case MobState.Critical:
+            case MobState.SoftCritical:
+            case MobState.HardCritical:
                 _standing.Down(target);
                 RaiseLocalEvent(target, ref ev); // Goobstation
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Critical);
@@ -213,6 +228,15 @@ public partial class MobStateSystem
     }
 
     #region Event Subscribers
+
+    private void OnRefreshMovespeed(EntityUid uid, MobStateComponent component, RefreshMovementSpeedModifiersEvent args)
+    {
+        if (component.CurrentState == MobState.SoftCritical)
+        {
+            // apply a 0.4x multiplier (60% slowdown) when in soft crit
+            args.ModifySpeed(0.4f, 0.4f);
+        }
+    }
 
     private void OnSleepAttempt(EntityUid target, MobStateComponent component, ref TryingToSleepEvent args)
     {
@@ -237,6 +261,9 @@ public partial class MobStateSystem
             return;
         }
 
+        if (component.CurrentState == MobState.SoftCritical)
+            args.OnlyWhisper = true;
+
         CheckAct(uid, component, args);
     }
 
@@ -246,6 +273,7 @@ public partial class MobStateSystem
         {
             case MobState.Dead:
             case MobState.Critical:
+            case MobState.HardCritical:
                 args.Cancel();
                 break;
         }

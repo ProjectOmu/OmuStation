@@ -5,6 +5,10 @@
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -131,7 +135,7 @@ public sealed class DamageForceSaySystem : EntitySystem
 
     private void OnMobStateChanged(EntityUid uid, DamageForceSayComponent component, MobStateChangedEvent args)
     {
-        if (args is not { OldMobState: MobState.Alive, NewMobState: MobState.Critical or MobState.Dead })
+        if (args is not { OldMobState: MobState.Alive, NewMobState: MobState.Critical or MobState.SoftCritical or MobState.HardCritical or MobState.Dead })
             return;
 
         // no suffix for the drama

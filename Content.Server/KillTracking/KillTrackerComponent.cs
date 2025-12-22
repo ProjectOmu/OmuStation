@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -20,7 +22,12 @@ public sealed partial class KillTrackerComponent : Component
     /// The mobstate that registers as a "kill"
     /// </summary>
     [DataField("killState")]
-    public MobState KillState = MobState.Critical;
+    public List<MobState> KillState = new()
+    {
+        MobState.Critical,
+        MobState.HardCritical,
+        MobState.Dead
+    };
 
     /// <summary>
     /// A dictionary of sources and how much damage they've done to this entity over time.

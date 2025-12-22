@@ -64,6 +64,8 @@
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -483,7 +485,7 @@ namespace Content.Client.HealthAnalyzer.UI
             return mobState switch
             {
                 MobState.Alive => Loc.GetString("health-analyzer-window-entity-alive-text"),
-                MobState.Critical => Loc.GetString("health-analyzer-window-entity-critical-text"),
+                MobState.Critical or MobState.SoftCritical or MobState.HardCritical => Loc.GetString("health-analyzer-window-entity-critical-text"),
                 MobState.Dead => Loc.GetString("health-analyzer-window-entity-dead-text"),
                 _ => Loc.GetString("health-analyzer-window-entity-unknown-text"),
             };
