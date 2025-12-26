@@ -1,0 +1,60 @@
+- type: entity
+  name: voideater
+  parent: BaseItem
+  id: WeaponVoideater
+  description: A deformed, writhing appendage, capable of sundering glass and flesh alike.
+  suffix: Unremoveable
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Melee/voideater.rsi
+    layers:
+    - state: icon
+  - type: MeleeWeapon
+    resistanceBypass: true
+    angle: 0
+    animation: WeaponArcCosmic
+    attackRate: 1
+    damage:
+      types:
+        Cold: 10
+        Asphyxiation: 25
+        Ion: 25
+    soundHit:
+      path: /Audio/_DV/CosmicCult/cosmiclance_hit.ogg
+      params:
+        variation: 0.2
+        volume: 1
+    soundSwing:
+      path: /Audio/_DV/CosmicCult/cosmicweapon_swing.ogg
+      params:
+        variation: 0.125
+        volume: -4
+    soundNoDamage:
+      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
+      params:
+        variation: 0.2
+        volume: -11
+  - type: StaminaDamageOnHit
+    damage: 32
+  - type: Item
+    size: Large
+    sprite: _Omu/Objects/Weapons/Melee/voideater-inhands.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Tool
+    qualities:
+    - Prying
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: Tag
+    tags:
+    - Crowbar
+  - type: ToolTileCompatible
+  - type: UseDelay
+    delay: 1
+  - type: Prying
+  - type: GrabbingItem
+  - type: Unremoveable

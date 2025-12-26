@@ -1,0 +1,124 @@
+- type: entity
+  parent: [BaseMob, MobDamageable]
+  id: BaseMobVoidWalker
+  name: voidwalker
+  suffix: ""
+  description: A glass-like entity from the void between stars. You probably shouldn't stare.
+  components:
+  - type: Sprite
+    sprite: _Omu/Mobs/voidwalker.rsi
+    state: voidwalker
+  - type: ComplexInteraction
+  - type: Stamina
+    critThreshold: 150
+  - type: NightVision
+    color: "#AA4A44"
+    activateSound: null
+    deactivateSound: null
+  - type: Insulated
+  - type: Damageable
+    damageContainer: ManifestedSpirit
+    damageModifierSet: Glass
+  - type: StatusEffects # Overwriting status effects
+    allowed:
+    - SlowedDown
+    - RadiationProtection
+    - Adrenaline
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-voidwalker-name
+    description: ghost-role-information-voidwalker-description
+    rules: ghost-role-information-voidwalker-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000
+  - type: GhostTakeoverAvailable
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+  - type: Examiner
+  - type: CombatMode
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    damage:
+      types:
+        Asphyxiation: 15
+        Cold: 5
+  - type: StaminaDamageOnHit
+    damage: 32
+  - type: Puller
+    stageChangeCooldown: 0.5
+    grabThrowDamageModifier: 6.0
+    throwingDistance: 30
+    needsHands: false
+  - type: Targeting
+  - type: Speech
+    speechVerb: Ghost
+    speechSounds: Alto
+  - type: TypingIndicator
+    proto: alien
+  - type: Gibbable
+  - type: NoSlip
+  - type: LayingDown
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
+  - type: Body
+    prototype: Voidwalker
+  - type: StandingState
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4.4
+    baseSprintSpeed: 4.4
+    weightlessAcceleration: 2
+    weightlessFriction: 1
+    weightlessModifier: 1
+  - type: Hands # Maybe limit this to just one? Dunno.
+  - type: PressureImmunity
+  - type: ZombieImmune
+  - type: Bloodstream
+    bloodMaxVolume: 300
+    bloodReagent: Entropy # Funny?
+    bleedReductionAmount: 5
+    bloodlossDamage:
+      types:
+        Bloodloss: 0.5
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -1
+        Heat: -2
+  - type: RandomMetadata
+    nameSegments:
+    - NamesVoidwalkerTitle
+    - NamesVoidwalker
+    nameFormat: name-format-slasher # If it works, it works.
+  - type: Temperature
+    coldDamage:
+      types:
+        Cold: 0
+    heatDamage:
+      types:
+        Heat: 0
+    heatDamageThreshold: 400
+    coldDamageThreshold: 66
+  - type: Voidwalker
+  - type: MovementIgnoreGravity # Put the walk in voidwalk
