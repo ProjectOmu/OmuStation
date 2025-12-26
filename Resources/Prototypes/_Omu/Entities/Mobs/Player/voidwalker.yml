@@ -121,4 +121,17 @@
     heatDamageThreshold: 400
     coldDamageThreshold: 66
   - type: Voidwalker
+    healingWhenSpaced:
+      groups:
+        Brute: -22.5
+      types:
+        Heat: -7.5
+        Cold: -7.5
+        Shock: -7.5
   - type: MovementIgnoreGravity # Put the walk in voidwalk
+  - type: Stealth
+    hadOutline: true
+    thermalsImmune: true
+  - type: StealthOnMove
+    passiveVisibilityRate: -0.9
+    movementVisibilityRate: 0.3
