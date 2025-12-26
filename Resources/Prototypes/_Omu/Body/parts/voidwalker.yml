@@ -11,57 +11,67 @@
   - type: Damageable
     damageContainer: ManifestedSpirit
     damageModifierSet: Glass
-  - type: Woundable
-    integrity: 150
-    integrityCap: 150
-    thresholds:
-      Minor: 130
-      Moderate: 100
-      Severe: 60
-      Critical: 30
-      Mangled: 0
 
 - type: entity
   id: ChestVoidwalker
   name: voidwalker chest
   parent: [PartVoidwalker, BaseChest]
+  components:
+  - type: Sprite
+    state: chest
 
 - type: entity
   id: HeadVoidwalker
   name: voidwalker head
   parent: [PartVoidwalker, BaseHead]
+  components:
+  - type: Sprite
+    state: head
 
 - type: entity
   id: LeftArmVoidwalker
   name: left voidwalker arm
   parent: [PartVoidwalker, BaseLeftArm]
+  components:
+  - type: Sprite
+    state: l_arm
 
 - type: entity
   id: RightArmVoidwalker
   name: right voidwalker arm
   parent: [PartVoidwalker, BaseRightArm]
+  components:
+  - type: Sprite
+    state: r_arm
 
 - type: entity
   id: LeftHandVoidwalker
   name: left voidwalker hand
   parent: [PartVoidwalker, BaseLeftHand]
+  components:
+  - type: Sprite
+    state: l_hand
 
 - type: entity
   id: RightHandVoidwalker
   name: right voidwalker hand
   parent: [PartVoidwalker, BaseRightHand]
+  components:
+  - type: Sprite
+    state: r_hand
 
 - type: entity
   id: LeftLegVoidwalker
   name: left voidwalker leg
   parent: [PartVoidwalker, BaseLeftLeg]
+  components:
+  - type: Sprite
+    state: l_leg
 
 - type: entity
   id: RightLegVoidwalker
   name: right voidwalker leg
   parent: [PartVoidwalker, BaseRightLeg]
-
-- type: entity
-  id: GroinVoidwalker
-  name: voidwalker groin
-  parent: [PartVoidwalker, BaseGroin]
+  components:
+  - type: Sprite
+    state: r_leg
