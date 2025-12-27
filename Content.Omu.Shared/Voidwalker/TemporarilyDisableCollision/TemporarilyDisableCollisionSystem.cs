@@ -26,8 +26,11 @@ public sealed partial class TemporarilyDisableCollisionSystem : EntitySystem
         _physics.SetCanCollide(entity, false);
     }
 
-    private void OnShutdown(Entity<TemporarilyDisableCollisionComponent> entity, ref ComponentShutdown args) =>
+    private void OnShutdown(Entity<TemporarilyDisableCollisionComponent> entity, ref ComponentShutdown args)
+    {
         _physics.SetCanCollide(entity, true);
+    }
+
 
     /// <inheritdoc />
     public override void Update(float frameTime)
