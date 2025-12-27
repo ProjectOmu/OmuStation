@@ -2,6 +2,7 @@ using Content.Shared.Damage;
 using Content.Shared.Tag;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 using YamlDotNet.Core.Tokens;
 
 namespace Content.Omu.Shared.Voidwalker;
@@ -76,5 +77,23 @@ public sealed partial class VoidwalkerComponent : Component
 
     [ViewVariables(VVAccess.ReadOnly)]
     public ushort? UnsettleDoAfterId;
+
+    /// <summary>
+    /// How long does it take to send ya?
+    /// </summary>
+    [DataField]
+    public TimeSpan KidnapDoAfterDuration = TimeSpan.FromSeconds(5);
+
+    /// <summary>
+    /// How long are we sendin' ya fer?
+    /// </summary>
+    [DataField]
+    public TimeSpan KidnapDuration = TimeSpan.FromSeconds(30);
+
+    /// <summary>
+    /// Where are we sendin' ya?
+    /// </summary>
+    [DataField]
+    public ResPath MapPath = new("Maps/_Omu/Nonstations/voidwalkervoid.yml");
 
 }

@@ -17,7 +17,7 @@
         Cold: -7.5
         Shock: -7.5
     componentsAddedOnPass:
-      - type: HologramVisuals # Someone should probably make this its own thing? IDK, I can't make shaders lol.
+    - type: VoidedVisuals
   - type: ActionGrant
     actions:
     - ActionUnsettle
@@ -86,7 +86,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 50
+        density: 600 # So they can PULL pull
         mask:
         - MobMask
         layer:

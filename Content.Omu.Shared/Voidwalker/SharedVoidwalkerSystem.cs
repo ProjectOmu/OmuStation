@@ -5,17 +5,15 @@ using Content.Shared.Stealth.Components;
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Physics.Events;
-using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 
 namespace Content.Omu.Shared.Voidwalker;
 
-public sealed partial class SharedVoidwalkerSystem : EntitySystem
+public sealed class SharedVoidwalkerSystem : EntitySystem
 {
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()

@@ -8,3 +8,6 @@ public sealed partial class VoidwalkerUnsettleEvent : EntityTargetActionEvent;
 
 [Serializable, NetSerializable]
 public sealed partial class VoidwalkerUnsettleDoAfterEvent : SimpleDoAfterEvent;
+
+[Serializable, NetSerializable]
+public sealed partial class VoidwalkerKidnapDoAfterEvent : SimpleDoAfterEvent;

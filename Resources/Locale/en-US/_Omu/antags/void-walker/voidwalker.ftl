@@ -18,3 +18,8 @@ voidwalker-unsettle-fail-blind = This target is incapabe of seeing you!
 voidwalker-unsettle-fail-looked-at = Your direct gaze is shattered as another creature lays its sights on you...
 
 voidwalker-unsettle-victim = THE B??EAUTY?? FL??OODS INTO Y??OUR MIN??D
+
+voidwalker-kidnap-verb = Seize
+voidwalker-kidnap-verb-text = E??NLIGHTE??N T??HEM
+
+voidwalker-kidnap-begin = {$user} begins to wrap their tentacles around {$target}...
