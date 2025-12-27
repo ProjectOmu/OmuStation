@@ -3,6 +3,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
+using Content.Shared.Tag;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Prototypes;
@@ -19,6 +20,9 @@ public sealed class DoAfterSystem : SharedDoAfterSystem
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly MetaDataSystem _metadata = default!;
+    [Dependency] private readonly TagSystem _tag = default!; // Omu
+
+    private static ProtoId<TagPrototype> _ignoreObstructionsTag = "DoAfterIgnoreObstructionPrediction";
 
     public override void Initialize()
     {
@@ -50,11 +54,16 @@ public sealed class DoAfterSystem : SharedDoAfterSystem
         if (_metadata.EntityPaused(playerEntity.Value))
             return;
 
+        // this is genuinely awful and hacky, but it works, and it took me three hours and a headache
+        // before resorting to this. replace this with a better solution if you can,
+        // but prediction can genuinely ████ my ████
+        var ignoreObstructions = _tag.HasTag(playerEntity.Value, _ignoreObstructionsTag); // Omu
+
         var time = GameTiming.CurTime;
         var comp = Comp<DoAfterComponent>(playerEntity.Value);
         var xformQuery = GetEntityQuery<TransformComponent>();
         var handsQuery = GetEntityQuery<HandsComponent>();
-        Update(playerEntity.Value, active, comp, time, xformQuery, handsQuery);
+        Update(playerEntity.Value, active, comp, time, xformQuery, handsQuery, ignoreObstructions); // Omu
     }
 
     /// <summary>

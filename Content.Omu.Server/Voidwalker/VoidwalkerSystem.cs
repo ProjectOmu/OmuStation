@@ -2,6 +2,7 @@ using Content.Omu.Shared.Voidwalker;
 using Content.Server.Administration.Systems;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
+using Content.Server.DoAfter;
 using Content.Server.Emoting.Systems;
 using Content.Server.Mind;
 using Content.Shared.Chat;
@@ -30,23 +31,23 @@ using Robust.Shared.Utility;
 namespace Content.Omu.Server.Voidwalker;
 public sealed partial class VoidwalkerSystem : EntitySystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private readonly SharedSlurredSystem _slurred = default!;
-    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly AtmosphereSystem _atmos = null!;
+    [Dependency] private readonly ChatSystem _chat = null!;
+    [Dependency] private readonly DamageableSystem _damage = null!;
+    [Dependency] private readonly DoAfterSystem _doAfter = null!;
+    [Dependency] private readonly SharedMapSystem _map = null!;
+    [Dependency] private readonly MapLoaderSystem _mapLoader = null!;
+    [Dependency] private readonly MetaDataSystem _meta = null!;
+    [Dependency] private readonly SharedMindSystem _mind = null!;
+    [Dependency] private readonly MobStateSystem _mobState = null!;
+    [Dependency] private readonly SharedPopupSystem _popup = null!;
+    [Dependency] private readonly IRobustRandom _random = null!;
+    [Dependency] private readonly RejuvenateSystem _rejuvenate = null!;
+    [Dependency] private readonly SharedSlurredSystem _slurred = null!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = null!;
+    [Dependency] private readonly SharedStunSystem _stun = null!;
+    [Dependency] private readonly IGameTiming _timing = null!;
+    [Dependency] private readonly SharedTransformSystem _transform = null!;
 
     /// <summary>
     /// If the voidwalker is within this much of a passed object, don't count it as being in space.
@@ -55,7 +56,7 @@ public sealed partial class VoidwalkerSystem : EntitySystem
     /// </summary>
     private const float PassedObjectGraceRange = 1; //
 
-    private static Entity<MapComponent>? theVoid;
+    private static Entity<MapComponent>? _theVoid;
 
     /// <inheritdoc />
     public override void Initialize()
@@ -66,7 +67,6 @@ public sealed partial class VoidwalkerSystem : EntitySystem
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnCleanup);
 
         SubscribeLocalEvent<VoidwalkerComponent, GridUidChangedEvent>(OnGridUidChanged);
-
         SubscribeLocalEvent<VoidwalkerComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<VoidwalkerComponent, GetVerbsEvent<InnateVerb>>(OnGetVerbs);
 
@@ -74,114 +74,61 @@ public sealed partial class VoidwalkerSystem : EntitySystem
         SubscribeAbilities();
     }
 
-    private void OnInit(Entity<VoidwalkerComponent> entity, ref MapInitEvent args)
-    {
-        if (theVoid == null
-            && _mapLoader.TryLoadMap(entity.Comp.MapPath, out theVoid, out _, new DeserializationOptions { InitializeMaps = true }))
-            _map.SetPaused(theVoid.Value.Comp.MapId, false); // load T??HE V??OID
-
-        UpdateSpacedStatus(entity);
-        _meta.AddFlag(entity, MetaDataFlags.ExtraTransformEvents); // So we can check when they leave a grid.
-    }
-
-    private void OnCleanup(RoundRestartCleanupEvent args)
-    {
-        if (theVoid is not null)
-            QueueDel(theVoid);
-
-        theVoid = null;
-    }
-
-    #region Updating Spaced Status
-
-    private void OnGridUidChanged(Entity<VoidwalkerComponent> entity, ref GridUidChangedEvent args) =>
-        UpdateSpacedStatus(entity);
-
-    /// <inheritdoc />
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+        var curTime = _timing.CurTime;
 
-        // Check every X amount of seconds. Just in case.
         var query = EntityQueryEnumerator<VoidwalkerComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (_timing.CurTime > comp.NextSpacedCheck)
+            // Check if spaced.
+            if (curTime > comp.NextSpacedCheck)
             {
                 UpdateSpacedStatus((uid, comp));
-                comp.NextSpacedCheck = _timing.CurTime + comp.SpacedCheckInterval;
+                comp.NextSpacedCheck = curTime + comp.SpacedCheckInterval;
             }
 
-            if (_timing.CurTime > comp.NextHealingTick)
+            // Healing tick
+            if (curTime > comp.NextHealingTick)
             {
                 if (comp.HealingWhenSpaced is { } healing)
                     _damage.TryChangeDamage(uid, healing);
 
-                comp.NextHealingTick = _timing.CurTime + comp.HealingTickInterval;
+                comp.NextHealingTick = curTime + comp.HealingTickInterval;
             }
 
-            foreach (var (ent, expiry) in comp.EntitiesPassed)
-            {
-                if (_timing.CurTime > expiry)
-                {
-                    comp.EntitiesPassed.Remove(ent);
-                    EntityManager.RemoveComponents(ent, comp.ComponentsAddedOnPass);
-                }
-            }
+            // Cleanup
+            CleanupPassedEntities(comp, curTime);
         }
     }
 
-    private void UpdateSpacedStatus(Entity<VoidwalkerComponent> entity)
-    {
-        var isInSpace = CheckInSpace(entity.Owner, entity.Comp);
-        entity.Comp.IsInSpace = isInSpace;
+    #region Event Handlers
 
-        var ev = new VoidwalkerSpacedStatusChangedEvent(isInSpace);
-        RaiseLocalEvent(entity, ref ev);
+    private void OnInit(Entity<VoidwalkerComponent> entity, ref MapInitEvent args)
+    {
+        // Load THE VOID map if not already loaded
+        if (_theVoid == null
+            && _mapLoader.TryLoadMap(entity.Comp.MapPath,
+                out _theVoid,
+                out _,
+                new DeserializationOptions { InitializeMaps = true }))
+            _map.SetPaused(_theVoid.Value.Comp.MapId, false);
+
+        UpdateSpacedStatus(entity);
+        _meta.AddFlag(entity, MetaDataFlags.ExtraTransformEvents);
     }
 
-    #endregion
-
-
-    #region Helpers
-
-    public bool CheckInSpace(EntityUid uid, VoidwalkerComponent? voidwalker = null)
+    private void OnCleanup(RoundRestartCleanupEvent args)
     {
-        var entityXform = Transform(uid);
+        if (_theVoid is not null)
+            QueueDel(_theVoid);
 
-        // Check if the voidwalker is standing inside a passed object.
-        // is this hacky? Yes. Very.
-        if (voidwalker is not null)
-            foreach (var (entityPassed, _) in voidwalker.EntitiesPassed)
-                if (_transform.InRange(uid, entityPassed, PassedObjectGraceRange))
-                  return false;
-
-        // If the voidwalker is not on a grid, it is in space.
-        if (entityXform.GridUid is not { } gridUid)
-            return true;
-
-        // If the voidwalker *is* on a grid, but the grid has no atmosphere; it is in space.
-        var position = _transform.GetGridOrMapTilePosition(uid);
-        var tileMixture = _atmos.GetTileMixture(gridUid, entityXform.MapUid, position);
-
-        if (tileMixture is null)
-            return true;
-
-        return tileMixture.Pressure <= 0;
+        _theVoid = null;
     }
 
-    private bool CanSeeVoidwalker(EntityUid target)
-    {
-        if (HasComp<PermanentBlindnessComponent>(target)
-            || HasComp<TemporaryBlindnessComponent>(target))
-            return false;
-
-        return !TryComp<BlindableComponent>(target, out var blindable)
-               || blindable.EyeDamage < blindable.MaxDamage;
-    }
-
-    #endregion
-
+    private void OnGridUidChanged(Entity<VoidwalkerComponent> entity, ref GridUidChangedEvent args) =>
+        UpdateSpacedStatus(entity);
 
     private void OnExamined(Entity<VoidwalkerComponent> entity, ref ExaminedEvent args)
     {
@@ -217,6 +164,72 @@ public sealed partial class VoidwalkerSystem : EntitySystem
 
         args.Verbs.Add(kidnapVerb);
     }
+
+    #endregion
+
+    #region Updating Spaced Status
+
+    private void UpdateSpacedStatus(Entity<VoidwalkerComponent> entity)
+    {
+        var isInSpace = CheckInSpace(entity.Owner, entity.Comp);
+        entity.Comp.IsInSpace = isInSpace;
+
+        var ev = new VoidwalkerSpacedStatusChangedEvent(isInSpace);
+        RaiseLocalEvent(entity, ref ev);
+    }
+
+    public bool CheckInSpace(EntityUid uid, VoidwalkerComponent? voidwalker = null)
+    {
+        var entityXform = Transform(uid);
+
+        // Check if the voidwalker is standing inside a passed object.
+        // is this hacky? Yes. Very.
+        if (voidwalker is not null)
+            foreach (var (entityPassed, _) in voidwalker.EntitiesPassed)
+                if (_transform.InRange(uid, entityPassed, PassedObjectGraceRange))
+                    return false;
+
+        // If the voidwalker is not on a grid, it is in space.
+        if (entityXform.GridUid is not { } gridUid)
+            return true;
+
+        // If the voidwalker *is* on a grid, but the grid has no atmosphere; it is in space.
+        var position = _transform.GetGridOrMapTilePosition(uid);
+        var tileMixture = _atmos.GetTileMixture(gridUid, entityXform.MapUid, position);
+
+        return tileMixture is null || tileMixture.Pressure <= 0;
+    }
+
+    #endregion
+
+
+    #region Helpers
+
+    private void CleanupPassedEntities(VoidwalkerComponent comp, TimeSpan curTime)
+    {
+        var toRemove = new List<EntityUid>();
+
+        foreach (var (ent, expiry) in comp.EntitiesPassed)
+            if (curTime > expiry)
+                toRemove.Add(ent);
+
+        foreach (var ent in toRemove)
+        {
+            comp.EntitiesPassed.Remove(ent);
+            EntityManager.RemoveComponents(ent, comp.ComponentsAddedOnPass);
+        }
+    }
+    private bool CanSeeVoidwalker(EntityUid target)
+    {
+        if (HasComp<PermanentBlindnessComponent>(target)
+            || HasComp<TemporaryBlindnessComponent>(target))
+            return false;
+
+        return !TryComp<BlindableComponent>(target, out var blindable)
+               || blindable.EyeDamage < blindable.MaxDamage;
+    }
+
+    #endregion
 
 }
 

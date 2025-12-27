@@ -52,12 +52,12 @@
   - type: CombatMode
   - type: MeleeWeapon
     soundHit:
-      collection: Punch
-    animation: WeaponArcFist
+      path: /Audio/Effects/bite.ogg
+    animation: WeaponArcBite
     damage:
       types:
-        Asphyxiation: 15
-        Cold: 5
+        Asphyxiation: 12
+        Cold: 8
   - type: StaminaDamageOnHit
     damage: 32
   - type: Puller
@@ -134,6 +134,9 @@
     passiveVisibilityRate: -0.3
     movementVisibilityRate: 0.1
   - type: UniversalLanguageSpeaker
+  - type: Tag
+    tags:
+    - DoAfterIgnoreObstructionPrediction
 
 - type: startingGear
   id: VoidwalkerGear

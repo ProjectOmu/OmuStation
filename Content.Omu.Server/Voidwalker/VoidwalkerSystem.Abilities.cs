@@ -52,11 +52,10 @@ public sealed partial class VoidwalkerSystem
         {
             BreakOnDamage = true,
             BreakOnMove = true,
-            BlockDuplicate = true,
             RequireCanInteract = false, // use your EYES!!!!
-            IgnoreObstruction = true,
             DistanceThreshold = 20,
-            ShowTo = entity,
+            IgnoreObstruction = true,
+            Hidden = true,
         };
 
         if (!_doAfter.TryStartDoAfter(doAfterArgs, out var id))

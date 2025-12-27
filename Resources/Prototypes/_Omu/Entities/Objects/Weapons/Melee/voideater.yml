@@ -13,17 +13,17 @@
     resistanceBypass: true
     angle: 0
     animation: WeaponArcBite
-    attackRate: 1
+    attackRate: 0.8
     damage:
       types:
         Cold: 10
-        Asphyxiation: 25
+        Asphyxiation: 20
         Ion: 25
         Structural: 20
     soundHit:
-      path: /Audio/Effects/bite.ogg
+      path: /Audio/_Omu/Effects/void_slash.ogg
   - type: StaminaDamageOnHit
-    damage: 32
+    damage: 40
   - type: Item
     size: Large
     sprite: _Omu/Objects/Weapons/Melee/voideater-inhands.rsi

@@ -8,7 +8,7 @@ public sealed partial class VoidedComponent : Component
     /// <summary>
     /// The voidwalker that kidnapped this entity.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadOnly)]
     public Entity<VoidwalkerComponent>? Voidwalker;
 
     [ViewVariables(VVAccess.ReadOnly)]
