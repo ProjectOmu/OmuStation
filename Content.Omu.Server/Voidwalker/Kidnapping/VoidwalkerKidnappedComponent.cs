@@ -11,5 +11,6 @@ public sealed partial class VoidwalkerKidnappedComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan ExitVoidTime = TimeSpan.Zero;
 
+    [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid OriginalMap;
 }
