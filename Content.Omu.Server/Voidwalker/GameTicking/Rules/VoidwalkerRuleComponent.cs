@@ -8,7 +8,7 @@ namespace Content.Omu.Server.Voidwalker.GameTicking.Rules;
 public sealed partial class VoidwalkerRuleComponent : Component
 {
     [DataField]
-    public SoundPathSpecifier BriefingSound = new("/Audio/_Goobstation/Ambience/Antag/devil_start.ogg"); // Change these
+    public SoundPathSpecifier BriefingSound = new("/Audio/_Omu/Ambience/Antag/voidwalker_start.ogg");
 
     [ValidatePrototypeId<NpcFactionPrototype>, DataField]
     public string VoidFaction = "VoidFaction";
