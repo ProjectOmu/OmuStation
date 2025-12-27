@@ -12,12 +12,16 @@
     healingWhenSpaced:
       groups:
         Brute: -22.5
+        Burn: -22.5
+        Airloss: -10.5
       types:
         Heat: -7.5
-        Cold: -7.5
         Shock: -7.5
     componentsAddedOnPass:
     - type: VoidedVisuals
+  - type: Damageable
+    damageContainer: ManifestedSpirit
+    damageModifierSet: Glass
   - type: ActionGrant
     actions:
     - ActionUnsettle
@@ -32,9 +36,6 @@
     activateSound: null
     deactivateSound: null
   - type: Insulated
-  - type: Damageable
-    damageContainer: ManifestedSpirit
-    damageModifierSet: Glass
   - type: StatusEffects # Overwriting status effects
     allowed:
     - SlowedDown
