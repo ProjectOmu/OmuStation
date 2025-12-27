@@ -10,6 +10,7 @@
   metabolisms:
     Poison:
       effects:
+
       - !type:Emote
         conditions:
         - !type:ReagentThreshold
@@ -17,6 +18,9 @@
           min: 0.2
         - !type:OrganType
           type: Slime
+          shouldHave: false
+        - !type:OrganType
+          type: Hydrakin
           shouldHave: false
         emote: Cough
         showInChat: true
@@ -31,6 +35,9 @@
           shouldHave: false
         - !type:OrganType # Shitmed - Cybernetic Organs
           type: Cybernetic
+          shouldHave: false
+        - !type:OrganType
+          type: Hydrakin
           shouldHave: false
         scaleByQuantity: true
         ignoreResistances: true
@@ -113,6 +120,10 @@
         type: Add
     Gas:
       effects:
+      - !type:Oxygenate # Mono - Hydrakin
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
       - !type:Emote
         conditions:
         - !type:ReagentThreshold
@@ -120,6 +131,8 @@
           min: 0.2
         - !type:OrganType
           type: Slime
+        - !type:OrganType   #Mono
+          type: Hydrakin
         emote: Cough
         showInChat: true
         probability: 0.1
@@ -133,6 +146,9 @@
           shouldHave: false
         - !type:OrganType # Shitmed - Cybernetic Organs
           type: Cybernetic
+          shouldHave: false
+        - !type:OrganType   #Mono
+          type: Hydrakin
           shouldHave: false
         scaleByQuantity: true
         ignoreResistances: true
@@ -148,6 +164,9 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
+        - !type:OrganType   #Mono
+          type: Hydrakin
+          shouldHave: false
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
@@ -160,6 +179,8 @@
           min: 0.2
         - !type:OrganType
           type: Slime
+        - !type:OrganType   #Mono
+          type: Hydrakin
         emote: Laugh
         showInChat: true
         probability: 0.1
@@ -170,6 +191,8 @@
           min: 0.2
         - !type:OrganType
           type: Slime
+        - !type:OrganType   #Mono
+          type: Hydrakin
         emote: Scream
         showInChat: true
         probability: 0.01
@@ -180,6 +203,8 @@
           min: 0.5
         - !type:OrganType
           type: Slime
+        - !type:OrganType   #Mono
+          type: Hydrakin
         - !type:BloodReagentThreshold
           reagent: NitrosylPlasmide
           max: 0.1
@@ -197,6 +222,8 @@
         - !type:BloodReagentThreshold
           reagent: NitrosylPlasmide
           max: 0.1
+        - !type:OrganType   #Mono
+          type: Hydrakin
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:GenericStatusEffect
@@ -206,6 +233,8 @@
           min: 1
         - !type:OrganType
           type: Slime
+        - !type:OrganType   #Mono
+          type: Hydrakin
         - !type:BloodReagentThreshold
           reagent: NitrosylPlasmide
           max: 0.1
@@ -213,6 +242,18 @@
         component: ForcedSleeping
         time: 10
         type: Add
+      - !type:HealthChange    #Mono
+        conditions:
+        - !type:ReagentThreshold
+          reagent: BZ
+          min: 0.5
+        - !type:OrganType
+          type: Hydrakin
+        ignoreResistances: true
+        damage:
+          types:
+            Poison: -2
+            Cellular: -0.5  #Mono end
 
 - type: reagent
   id: Healium
@@ -224,6 +265,20 @@
   metabolisms:
     Narcotic:
       effects:
+      - !type:HealthChange  # Mono hydrakin
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Healium
+          max: 24
+        - !type:OrganType
+          type: Hydrakin
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          groups:
+            Burn: -2
+            Toxin: -1
+            Brute: -2   # Mono hydrakin end
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -279,6 +334,24 @@
           min: 4
     Gas:
       effects:
+      - !type:Oxygenate # Mono - Hydrakin
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Healium
+          max: 24
+        - !type:OrganType
+          type: Hydrakin
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          groups:
+            Burn: -2
+            Toxin: -1
+            Brute: -2   # Mono hydrakin end
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -349,10 +422,16 @@
           reagent: Nitrium
           min: 1
           max: 8
+        - !type:OrganType     # Mono Hydrakin
+          type: Hydrakin
+          shouldHave: false
         walkSpeedModifier: 1.25
         sprintSpeedModifier: 1.25
       - !type:NitriumMovespeedModifier
         conditions:
+        - !type:OrganType     # Mono Hydrakin
+          type: Hydrakin
+          shouldHave: false
         - !type:ReagentThreshold
           reagent: Nitrium
           min: 8
@@ -364,6 +443,9 @@
         - !type:ReagentThreshold
           reagent: Nitrium
           min: 12
+        - !type:OrganType     # Mono Hydrakin
+          type: Hydrakin
+          shouldHave: false
         walkSpeedModifier: 1.6
         sprintSpeedModifier: 1.6
       - !type:AddReagentToBlood
@@ -371,6 +453,9 @@
         - !type:ReagentThreshold
           reagent: Nitrium
           min: 6
+        - !type:OrganType     # Mono Hydrakin
+          type: Hydrakin
+          shouldHave: false
         reagent: NitrosylPlasmide
         amount: 2.5
       - !type:GenericStatusEffect
@@ -378,11 +463,17 @@
         - !type:ReagentThreshold
           reagent: Nitrium
           min: 8
+        - !type:OrganType     # Mono Hydrakin
+          type: Hydrakin
+          shouldHave: false
         key: Stutter
         component: StutteringAccent
         time: 8
       - !type:HealthChange
         conditions:
+        - !type:OrganType     # Mono Hydrakin
+          type: Hydrakin
+          shouldHave: false
         - !type:ReagentThreshold
           reagent: Nitrium
           min: 10
@@ -392,6 +483,10 @@
             Asphyxiation: 15
     Gas:
       effects:
+      - !type:Oxygenate # Mono - Hydrakin
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
       - !type:NitriumMovespeedModifier
         conditions:
         - !type:ReagentThreshold
@@ -406,6 +501,9 @@
           reagent: Nitrium
           min: 8
           max: 12
+        - !type:OrganType   # Mono Hydrakin
+          type: Hydrakin
+          shouldHave: false
         walkSpeedModifier: 1.4
         sprintSpeedModifier: 1.4
       - !type:NitriumMovespeedModifier
@@ -435,6 +533,9 @@
         - !type:ReagentThreshold
           reagent: Nitrium
           min: 10
+        - !type:OrganType   # Mono Hydrakin
+          type: Hydrakin
+          shouldHave: false
         ignoreResistances: true
         damage:
           types:
@@ -450,6 +551,11 @@
   metabolisms:
     Poison:
       effects:
+      - !type:Oxygenate   # Mono Hydrakin
+        factor: 8
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
       - !type:Oxygenate
         factor: 8
         conditions:

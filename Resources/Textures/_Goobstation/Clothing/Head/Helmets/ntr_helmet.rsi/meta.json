@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tg at commit https://github.com/tgstation/tgstation/commit/3b364b1cea497ccf414539719b6b79f39d42cb1b, modified by @ShootsTheMoon. Vox states by Flareguy for Space Station 14",
+  "copyright": "Taken from tg at commit https://github.com/tgstation/tgstation/commit/3b364b1cea497ccf414539719b6b79f39d42cb1b, modified by @ShootsTheMoon. Vox states by Flareguy for Space Station 14, -reptilian/hydrakin sprite by Zethine / @synthetic_086 (discord), changed the canvas size cause it wasnt according to conventions (androidonator)",
 
   "size": {
     "x": 32,
@@ -28,6 +28,14 @@
     },
     {
       "name": "on-equipped-HELMET-vox",
+      "directions": 4
+    },
+    {
+      "name": "off-equipped-HELMET-hydrakin",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-hydrakin",
       "directions": 4
     }
   ]

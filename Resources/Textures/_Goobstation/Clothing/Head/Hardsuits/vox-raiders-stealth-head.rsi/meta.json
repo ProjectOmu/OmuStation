@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "taken from paradise station https://github.com/ParadiseSS13/Paradise/blob/c656f5372783e2da7886b7957a02bbba0c036ba2/icons/mob/clothing/species/vox/head.dmi",
+  "copyright": "taken from paradise station https://github.com/ParadiseSS13/Paradise/blob/c656f5372783e2da7886b7957a02bbba0c036ba2/icons/mob/clothing/species/vox/head.dmi, made by BluHNT for Monolith, -reptilian/hydrakin sprite by Zethine / @synthetic_086 (discord).",
   "size": {
     "x": 32,
     "y": 32
@@ -19,6 +19,14 @@
     },
     {
       "name": "on-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "off-equipped-HELMET-hydrakin",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-hydrakin",
       "directions": 4
     }
   ]
