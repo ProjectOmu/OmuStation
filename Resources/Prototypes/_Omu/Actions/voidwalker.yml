@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseAction
+  id: ActionUnsettle
+  name: Unsettle
+  description: Stare directly into someone who doesn't see you. Remain in their view for a bit to stun them and announce your presence to them.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 12
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Omu/Actions/voidwalker.rsi
+      state: unsettle
+  - type: TargetAction
+    interactOnMiss: false
+    checkCanAccess: false
+    range: 15
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Blindable
+    canTargetSelf: false
+    event: !type:VoidwalkerUnsettleEvent {}

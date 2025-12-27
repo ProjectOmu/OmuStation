@@ -1,9 +1,22 @@
+using Content.Omu.Shared.Voidwalker;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Chat.Systems;
+using Content.Server.Emoting.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Damage;
-using Content.Shared.Gravity;
+using Content.Shared.Damage.Systems;
+using Content.Shared.DoAfter;
+using Content.Shared.Emoting;
+using Content.Shared.Examine;
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Popups;
+using Content.Shared.Speech.EntitySystems;
+using Content.Shared.Stunnable;
+using Content.Shared.Traits.Assorted;
 using Robust.Shared.Timing;
 
-namespace Content.Omu.Shared.Voidwalker;
+namespace Content.Omu.Server.Voidwalker;
 public sealed partial class VoidwalkerSystem : EntitySystem
 {
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
@@ -11,6 +24,13 @@ public sealed partial class VoidwalkerSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedSlurredSystem _slurred = default!;
 
     /// <summary>
     /// If the voidwalker is within this much of a passed object, don't count it as being in space.
@@ -26,6 +46,10 @@ public sealed partial class VoidwalkerSystem : EntitySystem
 
         SubscribeLocalEvent<VoidwalkerComponent, MapInitEvent>(OnInit);
         SubscribeLocalEvent<VoidwalkerComponent, GridUidChangedEvent>(OnGridUidChanged);
+
+        SubscribeLocalEvent<VoidwalkerComponent, ExaminedEvent>(OnExamined);
+
+        SubscribeAbilities();
     }
 
     private void OnInit(Entity<VoidwalkerComponent> entity, ref MapInitEvent args)
@@ -108,7 +132,27 @@ public sealed partial class VoidwalkerSystem : EntitySystem
 
     #endregion
 
+    private bool CanSeeVoidwalker(EntityUid target)
+    {
+        if (HasComp<PermanentBlindnessComponent>(target)
+            || HasComp<TemporaryBlindnessComponent>(target))
+            return false;
 
+        return !TryComp<BlindableComponent>(target, out var blindable)
+               || blindable.EyeDamage < blindable.MaxDamage;
+    }
+
+    private void OnExamined(Entity<VoidwalkerComponent> entity, ref ExaminedEvent args)
+    {
+        if (entity.Comp.UnsettleDoAfterId is not { } doAfterId)
+            return;
+
+        _doAfter.Cancel(entity, doAfterId);
+        entity.Comp.UnsettleDoAfterId = null;
+
+        var popup = Loc.GetString("voidwalker-unsettle-fail-looked-at");
+        _popup.PopupEntity(popup, entity, entity, PopupType.MediumCaution);
+    }
 
 }
 

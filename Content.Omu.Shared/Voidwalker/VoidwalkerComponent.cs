@@ -61,4 +61,20 @@ public sealed partial class VoidwalkerComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan EntityPassedAddedComponentsDuration = TimeSpan.FromSeconds(5);
+
+    /// <summary>
+    /// How long you need to stare at someone to stun em
+    /// </summary>
+    [DataField]
+    public TimeSpan UnsettleDoAfterDuration = TimeSpan.FromSeconds(5);
+
+    [DataField]
+    public TimeSpan UnsettleStunDuration= TimeSpan.FromSeconds(4);
+
+    [DataField]
+    public float UnsettleStaminaDamage = 80f;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public ushort? UnsettleDoAfterId;
+
 }

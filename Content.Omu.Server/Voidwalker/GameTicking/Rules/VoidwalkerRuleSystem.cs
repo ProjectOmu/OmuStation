@@ -6,6 +6,7 @@ using Content.Server.Roles;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Localizations;
+using Content.Shared.NPC.Systems;
 using Robust.Server.GameObjects;
 
 namespace Content.Omu.Server.Voidwalker.GameTicking.Rules;
@@ -17,6 +18,7 @@ public sealed class VoidwalkerRuleSystem : GameRuleSystem<VoidwalkerRuleComponen
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly RoleSystem _roleSystem = default!;
     [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
 
     /// <inheritdoc />
     public override void Initialize()
@@ -39,17 +41,21 @@ public sealed class VoidwalkerRuleSystem : GameRuleSystem<VoidwalkerRuleComponen
 
     private void OnSelectAntag(Entity<VoidwalkerRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
-        if (!_mind.TryGetMind(args.EntityUid, out var mindId, out _)
+        var target = args.EntityUid;
+
+        if (!_mind.TryGetMind(target, out var mindId, out _)
             || !_roleSystem.MindHasRole<VoidwalkerRoleComponent>(mindId))
             return;
 
-        _antag.SendBriefing(args.EntityUid, MakeBriefing(args.EntityUid), null, null);
+        _antag.SendBriefing(target, MakeBriefing(target), Color.DarkCyan, ent.Comp.BriefingSound);
+
+        _npcFaction.RemoveFaction(target, ent.Comp.NanotrasenFaction);
+        _npcFaction.AddFaction(target, ent.Comp.VoidFaction);
     }
 
     private string MakeBriefing(EntityUid voidwalker)
     {
         var direction = string.Empty;
-
         var voidwalkerXform = Transform(voidwalker);
 
         var station = _station.GetStationInMap(voidwalkerXform.MapID);

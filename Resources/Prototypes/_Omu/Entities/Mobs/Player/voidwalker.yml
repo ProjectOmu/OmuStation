@@ -2,7 +2,6 @@
   parent: [BaseMob, MobDamageable]
   id: BaseMobVoidWalker
   name: voidwalker
-  suffix: ""
   description: A glass-like entity from the void between stars. You probably shouldn't stare.
   components:
   - type: Voidwalker
@@ -19,6 +18,9 @@
         Shock: -7.5
     componentsAddedOnPass:
       - type: HologramVisuals # Someone should probably make this its own thing? IDK, I can't make shaders lol.
+  - type: ActionGrant
+    actions:
+    - ActionUnsettle
   - type: Sprite
     sprite: _Omu/Mobs/Voidwalker/voidwalker.rsi
     state: voidwalker
@@ -26,7 +28,7 @@
   - type: Stamina
     critThreshold: 150
   - type: NightVision
-    color: "#AA4A44"
+    color: "#CCCCFF"
     activateSound: null
     deactivateSound: null
   - type: Insulated
@@ -40,20 +42,6 @@
     - Adrenaline
   - type: Loadout
     prototypes: [ VoidwalkerGear ]
-  - type: GhostRole
-    allowMovement: true
-    allowSpeech: true
-    makeSentient: true
-    name: ghost-role-information-voidwalker-name
-    description: ghost-role-information-voidwalker-description
-    rules: ghost-role-information-voidwalker-rules
-    mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
-    raffle:
-      settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000
   - type: GhostTakeoverAvailable
   - type: MobThresholds
     thresholds:
@@ -80,6 +68,7 @@
   - type: Speech
     speechVerb: Ghost
     speechSounds: Alto
+  - type: VoidAccent
   - type: TypingIndicator
     proto: alien
   - type: Gibbable
@@ -143,6 +132,7 @@
   - type: StealthOnMove
     passiveVisibilityRate: -0.3
     movementVisibilityRate: 0.1
+  - type: UniversalLanguageSpeaker
 
 - type: startingGear
   id: VoidwalkerGear
