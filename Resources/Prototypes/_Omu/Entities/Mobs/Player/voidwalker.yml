@@ -5,6 +5,20 @@
   suffix: ""
   description: A glass-like entity from the void between stars. You probably shouldn't stare.
   components:
+  - type: Voidwalker
+    nonSpacedSpeedModifier: 0.6
+    passableTags:
+    - Window
+    - Grille
+    healingWhenSpaced:
+      groups:
+        Brute: -22.5
+      types:
+        Heat: -7.5
+        Cold: -7.5
+        Shock: -7.5
+    componentsAddedOnPass:
+      - type: HologramVisuals # Someone should probably make this its own thing? IDK, I can't make shaders lol.
   - type: Sprite
     sprite: _Omu/Mobs/Voidwalker/voidwalker.rsi
     state: voidwalker
@@ -24,6 +38,8 @@
     - SlowedDown
     - RadiationProtection
     - Adrenaline
+  - type: Loadout
+    prototypes: [ VoidwalkerGear ]
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -57,9 +73,9 @@
     damage: 32
   - type: Puller
     stageChangeCooldown: 0.5
-    grabThrowDamageModifier: 6.0
-    throwingDistance: 30
     needsHands: false
+    walkSpeedModifier: 1
+    sprint:SpeedModifier: 1 # Need to pull fast to kidnap better.
   - type: Targeting
   - type: Speech
     speechVerb: Ghost
@@ -120,18 +136,15 @@
         Heat: 0
     heatDamageThreshold: 400
     coldDamageThreshold: 66
-  - type: Voidwalker
-    healingWhenSpaced:
-      groups:
-        Brute: -22.5
-      types:
-        Heat: -7.5
-        Cold: -7.5
-        Shock: -7.5
   - type: MovementIgnoreGravity # Put the walk in voidwalk
   - type: Stealth
     hadOutline: true
     thermalsImmune: true
   - type: StealthOnMove
-    passiveVisibilityRate: -0.9
-    movementVisibilityRate: 0.3
+    passiveVisibilityRate: -0.3
+    movementVisibilityRate: 0.1
+
+- type: startingGear
+  id: VoidwalkerGear
+  inhand:
+  - Voideater

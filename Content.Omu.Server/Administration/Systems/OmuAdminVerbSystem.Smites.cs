@@ -1,5 +1,6 @@
 using Content.Omu.Common.CCVar;
 using Content.Server.Administration.Managers;
+using Content.Server.Antag;
 using Content.Server.EUI;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -21,6 +22,7 @@ public sealed partial class OmuAdminVerbSystem
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
 
     private void AddSmiteVerbs(GetVerbsEvent<Verb> args)
     {

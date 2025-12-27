@@ -1,39 +1,27 @@
 - type: entity
   name: voideater
   parent: BaseItem
-  id: WeaponVoideater
-  description: A deformed, writhing appendage, capable of sundering glass and flesh alike.
+  id: Voideater
+  description: A deformed, writhing appendage, capable of ripping the breath right out of a creature.
   suffix: Unremoveable
   components:
   - type: Sprite
     sprite: _Omu/Objects/Weapons/Melee/voideater.rsi
-    layers:
-    - state: icon
+    state: icon
   - type: MeleeWeapon
+    canWideSwing: false
     resistanceBypass: true
     angle: 0
-    animation: WeaponArcCosmic
+    animation: WeaponArcBite
     attackRate: 1
     damage:
       types:
         Cold: 10
         Asphyxiation: 25
         Ion: 25
+        Structural: 20
     soundHit:
-      path: /Audio/_DV/CosmicCult/cosmiclance_hit.ogg
-      params:
-        variation: 0.2
-        volume: 1
-    soundSwing:
-      path: /Audio/_DV/CosmicCult/cosmicweapon_swing.ogg
-      params:
-        variation: 0.125
-        volume: -4
-    soundNoDamage:
-      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
-      params:
-        variation: 0.2
-        volume: -11
+      path: /Audio/Effects/bite.ogg
   - type: StaminaDamageOnHit
     damage: 32
   - type: Item
