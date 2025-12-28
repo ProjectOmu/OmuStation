@@ -21,3 +21,28 @@
       - Blindable
     canTargetSelf: false
     event: !type:VoidwalkerUnsettleEvent {}
+  - type: VoidwalkerAction
+    requireInSpace: false
+
+- type: entity
+  parent: BaseAction
+  id: ActionVoidwalkerVoidWalk
+  name: void walk
+  description: Advance through space rapidly.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 6.5
+    icon: { sprite: _Goobstation/Actions/dash.rsi, state: icon }
+    itemIconStyle: NoItem
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Effects/moth_wings.ogg
+      params:
+        volume: 6.5
+  - type: TargetAction
+    checkCanAccess: false
+    range: 0
+  - type: WorldTargetAction
+    event: !type:DashActionEvent
+      staminaDrain: 30
+  - type: VoidwalkerAction

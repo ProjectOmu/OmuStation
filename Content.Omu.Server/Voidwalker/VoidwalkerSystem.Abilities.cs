@@ -1,4 +1,5 @@
 using System.Collections.Immutable;
+using Content.Goobstation.Shared.Dash;
 using Content.Omu.Server.Voidwalker.Kidnapping;
 using Content.Omu.Server.Voidwalker.Kidnapping.Voided;
 using Content.Omu.Server.Voidwalker.Objectives.Components;
@@ -24,11 +25,16 @@ public sealed partial class VoidwalkerSystem
         SubscribeLocalEvent<VoidwalkerComponent, VoidwalkerUnsettleDoAfterEvent>(OnUnsettleDoAfter);
 
         SubscribeLocalEvent<VoidwalkerComponent, VoidwalkerKidnapDoAfterEvent>(OnVoidwalkerKidnapDoAfter);
+
+        SubscribeLocalEvent<VoidwalkerComponent, DashActionEvent>(OnVoidWalk);
     }
 
     private void OnUnsettle(Entity<VoidwalkerComponent> entity, ref VoidwalkerUnsettleEvent args)
     {
         var target = args.Target;
+
+        if (!TryUseAbility(entity, args))
+            return;
 
         if (_mobState.IsIncapacitated(target))
         {
@@ -153,6 +159,12 @@ public sealed partial class VoidwalkerSystem
 
         var voidedComp = EnsureComp<VoidedComponent>(target);
         voidedComp.Voidwalker = entity;
+    }
+
+    private void OnVoidWalk(Entity<VoidwalkerComponent> entity, ref DashActionEvent args)
+    {
+        if (!TryUseAbility(entity, args))
+            args.Speed = 0;
     }
 
 }

@@ -6,8 +6,13 @@ namespace Content.Omu.Shared.Voidwalker.Actions;
 
 public sealed partial class VoidwalkerUnsettleEvent : EntityTargetActionEvent;
 
+public sealed partial class VoidwalkerVoidWalkEvent : WorldTargetActionEvent;
+
 [Serializable, NetSerializable]
 public sealed partial class VoidwalkerUnsettleDoAfterEvent : SimpleDoAfterEvent;
 
 [Serializable, NetSerializable]
 public sealed partial class VoidwalkerKidnapDoAfterEvent : SimpleDoAfterEvent;
+
+[Serializable, NetSerializable]
+public sealed partial class VoidwalkerConvertWallDoAfterEvent : SimpleDoAfterEvent;

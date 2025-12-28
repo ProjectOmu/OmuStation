@@ -134,6 +134,8 @@
     passiveVisibilityRate: -0.3
     movementVisibilityRate: 0.1
   - type: UniversalLanguageSpeaker
+  - type: DashAction
+    actionProto: ActionVoidwalkerVoidWalk
   - type: Tag
     tags:
     - DoAfterIgnoreObstructionPrediction
@@ -142,3 +144,15 @@
   id: VoidwalkerGear
   inhand:
   - Voideater
+
+- type: entity
+  parent: BaseMobSpeciesOrganic
+  id: MobHumanVoidedDummy
+  name: Urist McVoided
+  components:
+  - type: HumanoidAppearance
+    species: Human
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+  - type: VoidedVisuals

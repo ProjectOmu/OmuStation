@@ -45,6 +45,18 @@ public sealed partial class VoidwalkerComponent : Component
         [ "Window", "Grille" ];
 
     /// <summary>
+    /// Structures with this tag are convertable.
+    /// </summary>
+    [DataField]
+    public ProtoId<TagPrototype> WallTag = "Wall";
+
+    /// <summary>
+    /// Structures that are converted are granted this tag.
+    /// </summary>
+    [DataField]
+    public ProtoId<TagPrototype> VoidedStructureTag = "VoidedStructure";
+
+    /// <summary>
     /// Components to add to a window that has been passed through.
     /// Yes, the method was named this in SS13.
     /// </summary>

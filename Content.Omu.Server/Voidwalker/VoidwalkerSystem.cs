@@ -1,10 +1,12 @@
 using Content.Omu.Shared.Voidwalker;
+using Content.Omu.Shared.Voidwalker.Actions;
 using Content.Server.Administration.Systems;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Emoting.Systems;
 using Content.Server.Mind;
+using Content.Shared.Actions;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -19,6 +21,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.Stunnable;
+using Content.Shared.Tag;
 using Content.Shared.Traits.Assorted;
 using Content.Shared.Verbs;
 using Robust.Shared.EntitySerialization;
@@ -48,6 +51,7 @@ public sealed partial class VoidwalkerSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = null!;
     [Dependency] private readonly IGameTiming _timing = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
+    [Dependency] private readonly TagSystem _tag = null!;
 
     /// <summary>
     /// If the voidwalker is within this much of a passed object, don't count it as being in space.
@@ -147,22 +151,40 @@ public sealed partial class VoidwalkerSystem : EntitySystem
         var target = args.Target;
 
         if (!args.CanInteract
-            || !args.CanAccess
-            || !entity.Comp.IsInSpace
-            || !HasComp<MobStateComponent>(target)
-            || !_mobState.IsCritical(target))
+            || !args.CanAccess)
             return;
 
-        InnateVerb kidnapVerb = new()
+        if (!entity.Comp.IsInSpace
+            && HasComp<MobStateComponent>(target)
+            && _mobState.IsCritical(target))
         {
-            Act = () => StartKidnap(entity, target),
-            Text = Loc.GetString("voidwalker-kidnap-verb"),
-            Message = Loc.GetString("voidwalker-kidnap-verb-text"),
-            Icon = new SpriteSpecifier.Rsi(new ResPath("_Omu/Actions/voidwalker.rsi"), "kidnap"),
-            Priority = 1,
-        };
+            InnateVerb kidnapVerb = new()
+            {
+                Act = () => StartKidnap(entity, target),
+                Text = Loc.GetString("voidwalker-kidnap-verb"),
+                Message = Loc.GetString("voidwalker-kidnap-verb-text"),
+                Icon = new SpriteSpecifier.Rsi(new ResPath("_Omu/Actions/voidwalker.rsi"), "kidnap"),
+                Priority = 1,
+            };
 
-        args.Verbs.Add(kidnapVerb);
+            args.Verbs.Add(kidnapVerb);
+        }
+
+        if (_tag.HasTag(target, entity.Comp.WallTag))
+        {
+            InnateVerb convertWallVerb = new()
+            {
+                Act = () => UpdateSpacedStatus(entity), // replace this later
+                Text = Loc.GetString("voidwalker-convert-wall-verb"),
+                Message = Loc.GetString("voidwalker-convert-wall-text"),
+                Icon = new SpriteSpecifier.Rsi(new ResPath("_Omu/Actions/voidwalker.rsi"), "kidnap"),
+                Priority = 1,
+            };
+
+            args.Verbs.Add(convertWallVerb);
+        }
+
+
     }
 
     #endregion
@@ -219,7 +241,7 @@ public sealed partial class VoidwalkerSystem : EntitySystem
             EntityManager.RemoveComponents(ent, comp.ComponentsAddedOnPass);
         }
     }
-    private bool CanSeeVoidwalker(EntityUid target)
+    public bool CanSeeVoidwalker(EntityUid target)
     {
         if (HasComp<PermanentBlindnessComponent>(target)
             || HasComp<TemporaryBlindnessComponent>(target))
@@ -227,6 +249,21 @@ public sealed partial class VoidwalkerSystem : EntitySystem
 
         return !TryComp<BlindableComponent>(target, out var blindable)
                || blindable.EyeDamage < blindable.MaxDamage;
+    }
+
+    public bool TryUseAbility(Entity<VoidwalkerComponent> voidwalker, BaseActionEvent action)
+    {
+        if (action.Handled)
+            return false;
+
+        if (!TryComp<VoidwalkerActionComponent>(action.Action, out var voidwalkerAction))
+            return false;
+
+        if (voidwalkerAction.RequireInSpace
+            && !voidwalker.Comp.IsInSpace)
+            return false;
+
+        return true;
     }
 
     #endregion
