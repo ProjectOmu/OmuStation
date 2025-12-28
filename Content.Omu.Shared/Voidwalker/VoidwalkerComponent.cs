@@ -57,8 +57,13 @@ public sealed partial class VoidwalkerComponent : Component
     public ProtoId<TagPrototype> VoidedStructureTag = "VoidedStructure";
 
     /// <summary>
+    /// How long does it take to convert a wall?
+    /// </summary>
+    [DataField]
+    public TimeSpan WallConvertTime = TimeSpan.FromSeconds(5);
+
+    /// <summary>
     /// Components to add to a window that has been passed through.
-    /// Yes, the method was named this in SS13.
     /// </summary>
     [DataField]
     public ComponentRegistry ComponentsAddedOnPass;

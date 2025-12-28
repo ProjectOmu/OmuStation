@@ -170,11 +170,12 @@ public sealed partial class VoidwalkerSystem : EntitySystem
             args.Verbs.Add(kidnapVerb);
         }
 
-        if (_tag.HasTag(target, entity.Comp.WallTag))
+        if (_tag.HasTag(target, entity.Comp.WallTag)
+            && !_tag.HasTag(target, entity.Comp.VoidedStructureTag))
         {
             InnateVerb convertWallVerb = new()
             {
-                Act = () => UpdateSpacedStatus(entity), // replace this later
+                Act = () => StartConvertWall(entity, target), // replace this with starting a doafter later
                 Text = Loc.GetString("voidwalker-convert-wall-verb"),
                 Message = Loc.GetString("voidwalker-convert-wall-text"),
                 Icon = new SpriteSpecifier.Rsi(new ResPath("_Omu/Actions/voidwalker.rsi"), "kidnap"),

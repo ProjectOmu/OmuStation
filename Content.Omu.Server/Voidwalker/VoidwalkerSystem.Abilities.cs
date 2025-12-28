@@ -1,5 +1,6 @@
 using System.Collections.Immutable;
 using Content.Goobstation.Shared.Dash;
+using Content.Omu.Common.VoidedVisualizer;
 using Content.Omu.Server.Voidwalker.Kidnapping;
 using Content.Omu.Server.Voidwalker.Kidnapping.Voided;
 using Content.Omu.Server.Voidwalker.Objectives.Components;
@@ -27,6 +28,8 @@ public sealed partial class VoidwalkerSystem
         SubscribeLocalEvent<VoidwalkerComponent, VoidwalkerKidnapDoAfterEvent>(OnVoidwalkerKidnapDoAfter);
 
         SubscribeLocalEvent<VoidwalkerComponent, DashActionEvent>(OnVoidWalk);
+
+        SubscribeLocalEvent<VoidwalkerComponent, VoidwalkerConvertWallDoAfterEvent>(OnConvertWallDoAfter);
     }
 
     private void OnUnsettle(Entity<VoidwalkerComponent> entity, ref VoidwalkerUnsettleEvent args)
@@ -165,6 +168,40 @@ public sealed partial class VoidwalkerSystem
     {
         if (!TryUseAbility(entity, args))
             args.Speed = 0;
+    }
+
+    private void StartConvertWall(Entity<VoidwalkerComponent> entity, EntityUid target)
+    {
+        var popup = Loc.GetString("voidwalker-convert-wall-begin", ("user", Name(entity.Owner)));
+        _popup.PopupEntity(popup, target, PopupType.SmallCaution);
+
+        var doAfterArgs = new DoAfterArgs(
+            EntityManager,
+            entity,
+            entity.Comp.WallConvertTime,
+            new VoidwalkerConvertWallDoAfterEvent(),
+            eventTarget: entity,
+            target: target)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            BlockDuplicate = true,
+        };
+
+        _doAfter.TryStartDoAfter(doAfterArgs);
+    }
+
+    private void OnConvertWallDoAfter(Entity<VoidwalkerComponent> entity, ref VoidwalkerConvertWallDoAfterEvent args)
+    {
+        if (args.Target is not { } target
+            || args.Cancelled
+            || args.Handled)
+            return;
+
+        args.Handled = true;
+
+        EnsureComp<VoidedVisualsComponent>(target);
+        _tag.AddTag(target, entity.Comp.VoidedStructureTag);
     }
 
 }

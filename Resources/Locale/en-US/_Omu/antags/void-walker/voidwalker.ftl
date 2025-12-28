@@ -19,7 +19,12 @@ voidwalker-unsettle-fail-looked-at = Your direct gaze is shattered as another cr
 
 voidwalker-unsettle-victim = THE B??EAUTY?? FL??OODS INTO Y??OUR MIN??D
 
-voidwalker-kidnap-verb = Seize
+voidwalker-kidnap-verb = S?IEZE
 voidwalker-kidnap-verb-text = E??NLIGHTE??N T??HEM
 
 voidwalker-kidnap-begin = {$user} begins to wrap their tentacles around {$target}...
+
+voidwalker-convert-wall-verb = Corrupt Wall
+voidwalker-convert-wall-text = Corrupt a wall and render it passable by voidwalkers.
+
+voidwalker-convert-wall-begin = {$user} begins to corrupt the wall...

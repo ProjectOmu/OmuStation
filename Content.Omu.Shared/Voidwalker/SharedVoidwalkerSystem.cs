@@ -30,10 +30,15 @@ public sealed class SharedVoidwalkerSystem : EntitySystem
 
     private void OnPreventCollide(Entity<VoidwalkerComponent> entity, ref PreventCollideEvent args)
     {
-        if (!_tag.HasAnyTag(args.OtherEntity, entity.Comp.PassableTags))
+        if (!_tag.HasAnyTag(args.OtherEntity, entity.Comp.PassableTags)
+            && !_tag.HasTag(args.OtherEntity, entity.Comp.VoidedStructureTag))
             return;
 
         args.Cancelled = true;
+
+        if (_tag.HasTag(args.OtherEntity, entity.Comp.VoidedStructureTag))
+            return;
+
         EnsureComp<TemporarilyDisableCollisionComponent>(args.OtherEntity);
 
         entity.Comp.EntitiesPassed[args.OtherEntity] = _timing.CurTime + entity.Comp.EntityPassedAddedComponentsDuration;
