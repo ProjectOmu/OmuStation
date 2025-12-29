@@ -1,0 +1,47 @@
+- type: entity
+  id: PolymorphVoidCrawlJaunt
+  name: Unknown
+  description: You can't figure out what that is.
+  parent: [ Incorporeal, BaseMob ]
+  components:
+  - type: Sprite
+    sprite: _Omu/Mobs/Voidwalker/voidwalker.rsi
+    state: stealthed
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 12
+    baseWalkSpeed: 8
+  - type: Input
+    context: "ghost"
+  - type: NoSlip
+  - type: ReagentCrawl
+    isCrawling: true
+    actionId: VoidwalkerNebulaCrawlAction
+    targetReagent:
+      - NebulaVomit
+    enterJauntFailMessage: voidwalker-nebula-jaunt-fail
+    jaunt: VoidCrawlJaunt
+  - type: Visibility
+    layer: 2
+  - type: Spectral
+  - type: Eye
+    drawFov: false
+    visMask:
+    - Normal
+    - Ghost
+  - type: MindContainer
+    showExamineInfo: true
+  - type: ActionGrant
+    actions:
+    - VoidwalkerVoidWhisperAction
+  - type: VoidWhisper
+  - type: Muted
+  - type: IsDeadIC
+    dead: false
+
+- type: polymorph
+  id: VoidCrawlJaunt
+  configuration:
+    entity: PolymorphVoidCrawlJaunt
+    forced: true
+    attachToGridOrMap: true
+    showPopup: false

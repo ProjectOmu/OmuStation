@@ -3,7 +3,6 @@
   parent: BaseItem
   id: Voideater
   description: A deformed, writhing appendage, capable of ripping the breath right out of a creature.
-  suffix: Unremoveable
   components:
   - type: Sprite
     sprite: _Omu/Objects/Weapons/Melee/voideater.rsi
@@ -32,17 +31,13 @@
       - state: inhand-left
       right:
       - state: inhand-right
-  - type: Tool
-    qualities:
-    - Prying
-    useSound:
-      path: /Audio/Items/crowbar.ogg
-  - type: Tag
-    tags:
-    - Crowbar
-  - type: ToolTileCompatible
-  - type: UseDelay
-    delay: 1
-  - type: Prying
   - type: GrabbingItem
+  - type: Voideater
+
+- type: entity
+  parent: Voideater
+  id: VoideaterUnremoveable
+  suffix: Unremoveable
+  components:
   - type: Unremoveable
+

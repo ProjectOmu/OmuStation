@@ -35,7 +35,7 @@ public sealed partial class VoidAccentSystem : EntitySystem
     /// <summary>
     /// the stringbuilder sobs when it sees me coming
     /// </summary>
-    private string ApplyLegallyDistinctVoidSpeechPattern(string input)
+    public string ApplyLegallyDistinctVoidSpeechPattern(string input)
     {
         var words = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
         var result = new StringBuilder();

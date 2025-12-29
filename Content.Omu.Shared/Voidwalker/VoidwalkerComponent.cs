@@ -32,6 +32,12 @@ public sealed partial class VoidwalkerComponent : Component
     public DamageSpecifier? HealingWhenSpaced;
 
     /// <summary>
+    /// If the entity being pulled is space immune, this will be true so we don't remove it accidentally.
+    /// </summary>
+    [DataField]
+    public bool EntityPulledWasSpaceImmune;
+
+    /// <summary>
     /// What to multiply the voidwalker's speed by when they're in a non-spaced area.
     /// </summary>
     [DataField]

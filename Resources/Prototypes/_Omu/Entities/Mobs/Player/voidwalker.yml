@@ -19,12 +19,21 @@
         Shock: -7.5
     componentsAddedOnPass:
     - type: VoidedVisuals
+  - type: VoidWhisper
   - type: Damageable
     damageContainer: ManifestedSpirit
     damageModifierSet: Glass
   - type: ActionGrant
     actions:
     - ActionUnsettle
+    - ActionVoidwalkerVoidWalk
+    - VoidwalkerVoidWhisperAction
+  - type: ReagentCrawl
+    actionId: VoidwalkerNebulaCrawlAction
+    enterJauntFailMessage: voidwalker-nebula-jaunt-fail
+    jaunt: VoidCrawlJaunt
+    targetReagent:
+    - NebulaVomit
   - type: Sprite
     sprite: _Omu/Mobs/Voidwalker/voidwalker.rsi
     state: voidwalker
@@ -134,8 +143,6 @@
     passiveVisibilityRate: -0.3
     movementVisibilityRate: 0.1
   - type: UniversalLanguageSpeaker
-  - type: DashAction
-    actionProto: ActionVoidwalkerVoidWalk
   - type: Tag
     tags:
     - DoAfterIgnoreObstructionPrediction
@@ -143,16 +150,4 @@
 - type: startingGear
   id: VoidwalkerGear
   inhand:
-  - Voideater
-
-- type: entity
-  parent: BaseMobSpeciesOrganic
-  id: MobHumanVoidedDummy
-  name: Urist McVoided
-  components:
-  - type: HumanoidAppearance
-    species: Human
-    hideLayersOnEquip:
-    - Hair
-    - Snout
-  - type: VoidedVisuals
+  - VoideaterUnremoveable

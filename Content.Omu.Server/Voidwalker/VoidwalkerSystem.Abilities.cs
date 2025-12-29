@@ -27,7 +27,7 @@ public sealed partial class VoidwalkerSystem
 
         SubscribeLocalEvent<VoidwalkerComponent, VoidwalkerKidnapDoAfterEvent>(OnVoidwalkerKidnapDoAfter);
 
-        SubscribeLocalEvent<VoidwalkerComponent, DashActionEvent>(OnVoidWalk);
+        SubscribeLocalEvent<VoidwalkerComponent, VoidwalkerVoidWalkEvent>(OnVoidWalk);
 
         SubscribeLocalEvent<VoidwalkerComponent, VoidwalkerConvertWallDoAfterEvent>(OnConvertWallDoAfter);
     }
@@ -134,6 +134,9 @@ public sealed partial class VoidwalkerSystem
             || !targetMindContainer.HasMind)
             return;
 
+        var popup = Loc.GetString("voidwalker-kidnap-enter");
+        _popup.PopupEntity(popup, target, target, PopupType.SmallCaution);
+
         var originalMapId = Transform(target).MapID;
         var originalMapUid = _map.GetMap(originalMapId);
 
@@ -164,10 +167,17 @@ public sealed partial class VoidwalkerSystem
         voidedComp.Voidwalker = entity;
     }
 
-    private void OnVoidWalk(Entity<VoidwalkerComponent> entity, ref DashActionEvent args)
+    private void OnVoidWalk(Entity<VoidwalkerComponent> entity, ref VoidwalkerVoidWalkEvent args)
     {
         if (!TryUseAbility(entity, args))
-            args.Speed = 0;
+            return;
+
+        var vec = (_transform.ToMapCoordinates(args.Target).Position -
+                   _transform.GetMapCoordinates(args.Performer).Position).Normalized() * args.Distance;
+        var speed = args.Speed;
+
+        _throwing.TryThrow(args.Performer, vec, speed, animated: false);
+        _stealth.SetVisibility(entity, -1);
     }
 
     private void StartConvertWall(Entity<VoidwalkerComponent> entity, EntityUid target)

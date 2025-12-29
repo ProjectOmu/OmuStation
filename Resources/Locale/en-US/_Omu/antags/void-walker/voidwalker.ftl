@@ -12,6 +12,9 @@ objective-issuer-void = [color=#CCCCFF]The V??oid[/color]
 objective-condition-voidwalker-kidnap-title = E??nlight??en
 objective-condition-voidwalker-kidnap-description =  T??hey mu?st see what you ha??ve seen. They mus??t walk whe?re you have wa??lked. Brin??g them to the void a??nd show them the tr??uth.
 
+voidwalker-nebula-jaunt-fail = You must stand on Nebula Vomit!
+voidwalker-action-fail-require-in-space = You must be in space to use this ability!
+
 voidwalker-unsettle-begin = You begin to focus your gaze on {$target}...
 voidwalker-unsettle-fail-incapacitated = You cannot unsettle an incapacitated creature!
 voidwalker-unsettle-fail-blind = This target is incapabe of seeing you!
@@ -23,6 +26,11 @@ voidwalker-kidnap-verb = S?IEZE
 voidwalker-kidnap-verb-text = E??NLIGHTE??N T??HEM
 
 voidwalker-kidnap-begin = {$user} begins to wrap their tentacles around {$target}...
+
+voidwalker-kidnap-enter = Time and space warps around you...
+voidwalker-kidnap-return = Space warps around you as you return to reality!
+
+voided-spaced-teleport = You cannot enter space, you are traumatized!
 
 voidwalker-convert-wall-verb = Corrupt Wall
 voidwalker-convert-wall-text = Corrupt a wall and render it passable by voidwalkers.

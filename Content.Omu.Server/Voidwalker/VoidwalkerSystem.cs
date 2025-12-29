@@ -1,27 +1,28 @@
+using System.Diagnostics.CodeAnalysis;
+using Content.Goobstation.Common.Atmos;
+using Content.Goobstation.Server.Changeling;
 using Content.Omu.Shared.Voidwalker;
 using Content.Omu.Shared.Voidwalker.Actions;
 using Content.Server.Administration.Systems;
+using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
-using Content.Server.Emoting.Systems;
-using Content.Server.Mind;
 using Content.Shared.Actions;
-using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
-using Content.Shared.DoAfter;
-using Content.Shared.Emoting;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Popups;
 using Content.Shared.Speech.EntitySystems;
+using Content.Shared.Stealth;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
+using Content.Shared.Throwing;
 using Content.Shared.Traits.Assorted;
 using Content.Shared.Verbs;
 using Robust.Shared.EntitySerialization;
@@ -51,7 +52,10 @@ public sealed partial class VoidwalkerSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = null!;
     [Dependency] private readonly IGameTiming _timing = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
+    [Dependency] private readonly SharedStealthSystem _stealth = null!;
     [Dependency] private readonly TagSystem _tag = null!;
+    [Dependency] private readonly ThrowingSystem _throwing = null!;
+    [Dependency] private readonly ChangelingSystem _changeling = null!; // easier than remaking the code of two lines lol
 
     /// <summary>
     /// If the voidwalker is within this much of a passed object, don't count it as being in space.
@@ -73,6 +77,9 @@ public sealed partial class VoidwalkerSystem : EntitySystem
         SubscribeLocalEvent<VoidwalkerComponent, GridUidChangedEvent>(OnGridUidChanged);
         SubscribeLocalEvent<VoidwalkerComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<VoidwalkerComponent, GetVerbsEvent<InnateVerb>>(OnGetVerbs);
+
+        SubscribeLocalEvent<VoidwalkerComponent, PullStartedMessage>(OnPullStarted);
+        SubscribeLocalEvent<VoidwalkerComponent, PullStoppedMessage>(OnPullStopped);
 
 
         SubscribeAbilities();
@@ -154,9 +161,9 @@ public sealed partial class VoidwalkerSystem : EntitySystem
             || !args.CanAccess)
             return;
 
-        if (!entity.Comp.IsInSpace
-            && HasComp<MobStateComponent>(target)
-            && _mobState.IsCritical(target))
+        if (entity.Comp.IsInSpace
+            && _mobState.IsCritical(target)
+            && _changeling.IsHardGrabbed(target))
         {
             InnateVerb kidnapVerb = new()
             {
@@ -188,11 +195,29 @@ public sealed partial class VoidwalkerSystem : EntitySystem
 
     }
 
+    /// <summary>
+    /// We apply pressure immunity to a target being dragged by a voidwalker so they have time to kidnap them
+    /// without them dying to pressure.
+    /// </summary>
+    private void OnPullStarted(Entity<VoidwalkerComponent> entity, ref PullStartedMessage args)
+    {
+        entity.Comp.EntityPulledWasSpaceImmune = HasComp<SpecialPressureImmunityComponent>(args.PulledUid);
+
+        if (HasComp<AtmosExposedComponent>(args.PulledUid))
+            EnsureComp<SpecialPressureImmunityComponent>(args.PulledUid);
+    }
+
+    private void OnPullStopped(Entity<VoidwalkerComponent> entity, ref PullStoppedMessage args)
+    {
+        if (!entity.Comp.EntityPulledWasSpaceImmune)
+          RemComp<SpecialPressureImmunityComponent>(args.PulledUid);
+    }
+
     #endregion
 
     #region Updating Spaced Status
 
-    private void UpdateSpacedStatus(Entity<VoidwalkerComponent> entity)
+    public void UpdateSpacedStatus(Entity<VoidwalkerComponent> entity)
     {
         var isInSpace = CheckInSpace(entity.Owner, entity.Comp);
         entity.Comp.IsInSpace = isInSpace;
@@ -257,12 +282,21 @@ public sealed partial class VoidwalkerSystem : EntitySystem
         if (action.Handled)
             return false;
 
+        UpdateSpacedStatus(voidwalker);
+
         if (!TryComp<VoidwalkerActionComponent>(action.Action, out var voidwalkerAction))
             return false;
 
         if (voidwalkerAction.RequireInSpace
             && !voidwalker.Comp.IsInSpace)
+        {
+            var popup = Loc.GetString("voidwalker-action-fail-require-in-space");
+            _popup.PopupEntity(popup, voidwalker, voidwalker);
+
             return false;
+        }
+
+        action.Handled = true;
 
         return true;
     }

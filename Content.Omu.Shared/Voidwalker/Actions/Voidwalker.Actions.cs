@@ -6,7 +6,14 @@ namespace Content.Omu.Shared.Voidwalker.Actions;
 
 public sealed partial class VoidwalkerUnsettleEvent : EntityTargetActionEvent;
 
-public sealed partial class VoidwalkerVoidWalkEvent : WorldTargetActionEvent;
+public sealed partial class VoidwalkerVoidWalkEvent : WorldTargetActionEvent
+{
+    [DataField]
+    public float Distance = 4.65f;
+
+    [DataField]
+    public float Speed = 9.65f;
+}
 
 [Serializable, NetSerializable]
 public sealed partial class VoidwalkerUnsettleDoAfterEvent : SimpleDoAfterEvent;
