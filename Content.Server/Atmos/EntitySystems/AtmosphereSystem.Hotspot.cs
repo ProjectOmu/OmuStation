@@ -166,6 +166,7 @@ namespace Content.Server.Atmos.EntitySystems
             // Clamp effective flammability so super-dense puddles don't create heat death of the universe temperatures
             var rawFlammability = (float)tile.PuddleSolutionFlammability;
             var effectiveFlammability = Math.Min(rawFlammability, 20f);
+            var capFlammability = rawFlammability;
 
             // Use the higher of the exposed temp neighbor or the tile's own air temp.
             // This ensures hot ambient gas ignites the puddle
@@ -187,8 +188,8 @@ namespace Content.Server.Atmos.EntitySystems
                 // Linear scaling
                 tile.Hotspot.Temperature = AddClampedTemperature(
                     tile.Hotspot.Temperature,
-                    10 * effectiveFlammability,
-                    (float)(Atmospherics.T0C + 100 * effectiveFlammability));
+                    200 * effectiveFlammability,
+                    (float)(Atmospherics.T0C + 53.5f * MathF.Pow(capFlammability, 2.5f)));
 
                 return;
             }
@@ -207,8 +208,8 @@ namespace Content.Server.Atmos.EntitySystems
                 {
                     temperature = AddClampedTemperature(
                         temperature,
-                        10 * effectiveFlammability,
-                        (float)(Atmospherics.T0C + 100 * effectiveFlammability));
+                        200 * effectiveFlammability,
+                        (float)(Atmospherics.T0C + 53.5f * MathF.Pow(capFlammability, 2.5f)));
                 }
 
                 tile.Hotspot = new Hotspot
@@ -242,8 +243,8 @@ namespace Content.Server.Atmos.EntitySystems
             {
                 var affected = tile.Air.RemoveVolume(tile.Hotspot.Volume);
 
-                var effectiveFlammability = Math.Min((float)tile.PuddleSolutionFlammability, 20f);
-                affected.Temperature = MathF.Max(tile.Hotspot.Temperature, Atmospherics.T0C + 25 * effectiveFlammability);
+                var effectiveFlammability = (float)tile.PuddleSolutionFlammability;
+                affected.Temperature = MathF.Max(tile.Hotspot.Temperature, Atmospherics.T0C + 53.5f * MathF.Pow(effectiveFlammability, 2.5f));
 
                 // Gas consumption and production
                 if (effectiveFlammability > 0)
