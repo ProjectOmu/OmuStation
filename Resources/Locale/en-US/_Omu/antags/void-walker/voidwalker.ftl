@@ -32,7 +32,11 @@ voidwalker-kidnap-return = Space warps around you as you return to reality!
 
 voided-spaced-teleport = You cannot enter space, you are traumatized!
 
-voidwalker-convert-wall-verb = Corrupt Wall
+voidwalker-convert-wall-verb = C??ORRUPT INFERIOR?? STRU?CTURE
 voidwalker-convert-wall-text = Corrupt a wall and render it passable by voidwalkers.
 
 voidwalker-convert-wall-begin = {$user} begins to corrupt the wall...
+
+void-whisper-title = V??OID WHISPER?
+void-whisper-popup = T??HE V??OID'S BEAUT??Y S??PEAKS? TO ?YOU
+void-whisper-whisper = Y??OU WHISPER? ?TO {$name}: {$message}

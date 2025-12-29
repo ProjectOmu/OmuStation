@@ -14,10 +14,11 @@
   parent: BaseVoidwalkerAction
   id: ActionUnsettle
   name: Unsettle
-  description: Stare directly into someone who doesn't see you. Remain in their view for a bit to stun them and announce your presence to them.
+  description: L??ET THE A??BYSS GAZ??E BACK
   components:
   - type: Action
     useDelay: 12
+    itemIconStyle: NoItem
     icon:
       sprite: _Omu/Actions/voidwalker.rsi
       state: unsettle
@@ -38,10 +39,11 @@
   parent: BaseAction
   id: ActionVoidwalkerVoidWalk
   name: Void Walk
-  description: Advance to a specified position in space rapidly.
+  description: E??SCAPE THEI??R ?GAZES
   components:
   - type: Action
     useDelay: 8
+    itemIconStyle: NoItem
     icon:
       sprite: _Omu/Actions/voidwalker.rsi
       state: voidwalk
@@ -57,9 +59,10 @@
   parent: BaseVoidwalkerAction
   id: VoidwalkerNebulaCrawlAction
   name: Nebula Crawl
-  description: Jaunt in or out of Nebula Vomit left by voided entities.
+  description: C??RAWL BETWEE??N P?LANES??
   components:
   - type: Action
+    itemIconStyle: NoItem
     icon:
       sprite: _Omu/Actions/voidwalker.rsi
       state: crawl
