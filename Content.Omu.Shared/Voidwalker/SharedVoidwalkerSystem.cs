@@ -13,36 +13,16 @@ public sealed class SharedVoidwalkerSystem : EntitySystem
 {
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<VoidwalkerComponent, PreventCollideEvent>(OnPreventCollide);
 
         SubscribeLocalEvent<VoidwalkerComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
         SubscribeLocalEvent<VoidwalkerComponent, VoidwalkerSpacedStatusChangedEvent>(OnSpacedStatusChanged);
 
         SubscribeLocalEvent<VoidwalkerComponent, ShotAttemptedEvent>(OnShotAttempted); // someone should rly genericize these lol
-    }
-
-    private void OnPreventCollide(Entity<VoidwalkerComponent> entity, ref PreventCollideEvent args)
-    {
-        if (!_tag.HasAnyTag(args.OtherEntity, entity.Comp.PassableTags)
-            && !_tag.HasTag(args.OtherEntity, entity.Comp.VoidedStructureTag))
-            return;
-
-        args.Cancelled = true;
-
-        if (_tag.HasTag(args.OtherEntity, entity.Comp.VoidedStructureTag))
-            return;
-
-        EnsureComp<TemporarilyDisableCollisionComponent>(args.OtherEntity);
-
-        entity.Comp.EntitiesPassed[args.OtherEntity] = _timing.CurTime + entity.Comp.EntityPassedAddedComponentsDuration;
-        EntityManager.AddComponents(args.OtherEntity, entity.Comp.ComponentsAddedOnPass);
     }
 
     private void OnSpacedStatusChanged(Entity<VoidwalkerComponent> entity, ref VoidwalkerSpacedStatusChangedEvent args)

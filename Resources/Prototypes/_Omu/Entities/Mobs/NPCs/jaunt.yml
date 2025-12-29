@@ -20,6 +20,7 @@
       - NebulaVomit
     enterJauntFailMessage: voidwalker-nebula-jaunt-fail
     jaunt: VoidCrawlJaunt
+  - type: ExitNebulaCrawl
   - type: Visibility
     layer: 2
   - type: Spectral
@@ -33,6 +34,7 @@
   - type: ActionGrant
     actions:
     - VoidwalkerVoidWhisperAction
+    - VoidwalkerNebulaCrawlExitAction
   - type: VoidWhisper
   - type: Muted
   - type: IsDeadIC

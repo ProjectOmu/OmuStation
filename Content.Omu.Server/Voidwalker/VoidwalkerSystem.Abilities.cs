@@ -30,6 +30,8 @@ public sealed partial class VoidwalkerSystem
         SubscribeLocalEvent<VoidwalkerComponent, VoidwalkerVoidWalkEvent>(OnVoidWalk);
 
         SubscribeLocalEvent<VoidwalkerComponent, VoidwalkerConvertWallDoAfterEvent>(OnConvertWallDoAfter);
+
+        SubscribeLocalEvent<ExitNebulaCrawlComponent, ExitNebulaCrawlEvent>(OnExitNebulaCrawl);
     }
 
     private void OnUnsettle(Entity<VoidwalkerComponent> entity, ref VoidwalkerUnsettleEvent args)
@@ -212,6 +214,24 @@ public sealed partial class VoidwalkerSystem
 
         EnsureComp<VoidedVisualsComponent>(target);
         _tag.AddTag(target, entity.Comp.VoidedStructureTag);
+    }
+
+    private void OnExitNebulaCrawl(Entity<ExitNebulaCrawlComponent> entity, ref ExitNebulaCrawlEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!CheckInSpace(entity))
+        {
+            var popup = Loc.GetString("voidwalker-action-fail-require-in-space");
+            _popup.PopupEntity(popup, entity, entity);
+
+            return;
+        }
+
+        _polymorph.Revert(entity.Owner);
+
+        args.Handled = true;
     }
 
 }

@@ -3,12 +3,15 @@ using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Server.Changeling;
 using Content.Omu.Shared.Voidwalker;
 using Content.Omu.Shared.Voidwalker.Actions;
+using Content.Omu.Shared.Voidwalker.GlassPasser;
 using Content.Server.Administration.Systems;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
+using Content.Server.Polymorph.Systems;
 using Content.Shared.Actions;
+using Content.Shared.Body.Events;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
@@ -50,6 +53,7 @@ public sealed partial class VoidwalkerSystem : EntitySystem
     [Dependency] private readonly SharedSlurredSystem _slurred = null!;
     [Dependency] private readonly SharedStaminaSystem _stamina = null!;
     [Dependency] private readonly SharedStunSystem _stun = null!;
+    [Dependency] private readonly PolymorphSystem _polymorph = null!;
     [Dependency] private readonly IGameTiming _timing = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
     [Dependency] private readonly SharedStealthSystem _stealth = null!;
@@ -81,7 +85,6 @@ public sealed partial class VoidwalkerSystem : EntitySystem
         SubscribeLocalEvent<VoidwalkerComponent, PullStartedMessage>(OnPullStarted);
         SubscribeLocalEvent<VoidwalkerComponent, PullStoppedMessage>(OnPullStopped);
 
-
         SubscribeAbilities();
     }
 
@@ -101,16 +104,14 @@ public sealed partial class VoidwalkerSystem : EntitySystem
             }
 
             // Healing tick
-            if (curTime > comp.NextHealingTick)
+            if (curTime > comp.NextHealingTick
+                && comp.IsInSpace)
             {
                 if (comp.HealingWhenSpaced is { } healing)
                     _damage.TryChangeDamage(uid, healing);
 
                 comp.NextHealingTick = curTime + comp.HealingTickInterval;
             }
-
-            // Cleanup
-            CleanupPassedEntities(comp, curTime);
         }
     }
 
@@ -232,8 +233,9 @@ public sealed partial class VoidwalkerSystem : EntitySystem
 
         // Check if the voidwalker is standing inside a passed object.
         // is this hacky? Yes. Very.
-        if (voidwalker is not null)
-            foreach (var (entityPassed, _) in voidwalker.EntitiesPassed)
+        if (voidwalker is not null
+            && TryComp<GlassPasserComponent>(uid, out var glassPasser))
+            foreach (var (entityPassed, _) in glassPasser.EntitiesPassed)
                 if (_transform.InRange(uid, entityPassed, PassedObjectGraceRange))
                     return false;
 
@@ -253,20 +255,6 @@ public sealed partial class VoidwalkerSystem : EntitySystem
 
     #region Helpers
 
-    private void CleanupPassedEntities(VoidwalkerComponent comp, TimeSpan curTime)
-    {
-        var toRemove = new List<EntityUid>();
-
-        foreach (var (ent, expiry) in comp.EntitiesPassed)
-            if (curTime > expiry)
-                toRemove.Add(ent);
-
-        foreach (var ent in toRemove)
-        {
-            comp.EntitiesPassed.Remove(ent);
-            EntityManager.RemoveComponents(ent, comp.ComponentsAddedOnPass);
-        }
-    }
     public bool CanSeeVoidwalker(EntityUid target)
     {
         if (HasComp<PermanentBlindnessComponent>(target)

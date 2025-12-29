@@ -40,3 +40,7 @@ voidwalker-convert-wall-begin = {$user} begins to corrupt the wall...
 void-whisper-title = V??OID WHISPER?
 void-whisper-popup = T??HE V??OID'S BEAUT??Y S??PEAKS? TO ?YOU
 void-whisper-whisper = Y??OU WHISPER? ?TO {$name}: {$message}
+
+cosmic-skull-use-start = You begin staring into the {$object}...
+cosmic-skull-use-finish = And a whole world opens up to you.
+cosmic-skull-use-voidwalker = OH GOD NOO!!!! WHYYYYYYYYY??!!! WHO WOULD DO THIS?!!

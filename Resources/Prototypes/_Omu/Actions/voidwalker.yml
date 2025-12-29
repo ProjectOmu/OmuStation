@@ -36,7 +36,7 @@
     requireInSpace: false
 
 - type: entity
-  parent: BaseAction
+  parent: BaseVoidwalkerAction
   id: ActionVoidwalkerVoidWalk
   name: Void Walk
   description: E??SCAPE THEI??R ?GAZES
@@ -69,6 +69,20 @@
     useDelay: 4
   - type: InstantAction
     event: !type:ReagentCrawlEvent
+
+- type: entity
+  parent: BaseVoidwalkerAction
+  id: VoidwalkerNebulaCrawlExitAction
+  name: Exit Nebula Crawl
+  description: R??ETURN TO T??HEIR P??LANE
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Omu/Actions/voidwalker.rsi
+      state: base
+  - type: InstantAction
+    event: !type:ExitNebulaCrawlEvent
 
 - type: entity
   id: VoidwalkerVoidWhisperAction

@@ -6,9 +6,6 @@
   components:
   - type: Voidwalker
     nonSpacedSpeedModifier: 0.6
-    passableTags:
-    - Window
-    - Grille
     healingWhenSpaced:
       groups:
         Brute: -22.5
@@ -17,12 +14,25 @@
       types:
         Heat: -7.5
         Shock: -7.5
-    componentsAddedOnPass:
-    - type: VoidedVisuals
+  - type: GlassPasser
+    passableTags:
+    - Window
+    - Grille
   - type: VoidWhisper
+  - type: SpawnItemsOnGib
+    itemsToSpawn:
+      CosmicSkull: 1
   - type: Damageable
     damageContainer: ManifestedSpirit
     damageModifierSet: Glass
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageGroupTrigger
+        damageGroup: Brute
+        damage: 150
+      behaviors:
+      - !type:GibBehavior { }
   - type: ActionGrant
     actions:
     - ActionUnsettle
@@ -34,6 +44,10 @@
     jaunt: VoidCrawlJaunt
     targetReagent:
     - NebulaVomit
+    enterJauntSound:
+      path: /Audio/_Omu/Effects/void_walk.ogg # Too lazy to make unique sounds lmfao
+    exitJauntSound:
+      path: /Audio/_Omu/Effects/void_walk.ogg
   - type: Sprite
     sprite: _Omu/Mobs/Voidwalker/voidwalker.rsi
     state: voidwalker
@@ -56,7 +70,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      150: Dead
+      145: Dead
   - type: Examiner
   - type: CombatMode
   - type: MeleeWeapon

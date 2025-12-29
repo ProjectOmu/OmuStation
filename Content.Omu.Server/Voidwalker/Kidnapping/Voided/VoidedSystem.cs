@@ -1,18 +1,22 @@
 using Content.Omu.Common.Speech;
 using Content.Omu.Common.VoidedVisualizer;
+using Content.Server.Medical;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Popups;
 using Content.Shared.Speech.Muting;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Omu.Server.Voidwalker.Kidnapping.Voided;
 
 public sealed class VoidedSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly VoidwalkerSystem _voidwalker = default!;
-    [Dependency] private readonly VoidwalkerKidnappedSystem _voidKidnapped = default!;
+    [Dependency] private readonly IGameTiming _timing = null!;
+    [Dependency] private readonly IRobustRandom _random = null!;
+    [Dependency] private readonly SharedPopupSystem _popup = null!;
+    [Dependency] private readonly VoidwalkerSystem _voidwalker = null!;
+    [Dependency] private readonly VoidwalkerKidnappedSystem _voidKidnapped = null!;
+    [Dependency] private readonly VomitSystem _vomit = null!;
 
     /// <inheritdoc />
     public override void Initialize()
@@ -28,6 +32,8 @@ public sealed class VoidedSystem : EntitySystem
         EnsureComp<VoidedVisualsComponent>(entity);
         EnsureComp<VoidAccentComponent>(entity); // This was muted in ss13, but I think this accent is cooler.
         EnsureComp<PacifiedComponent>(entity);
+
+        SetNextVomitTime(entity);
     }
 
     private void OnShutdown(Entity<VoidedComponent> entity, ref ComponentShutdown args)
@@ -37,6 +43,9 @@ public sealed class VoidedSystem : EntitySystem
         RemComp<PacifiedComponent>(entity);
     }
 
+    private void SetNextVomitTime(Entity<VoidedComponent> voided) =>
+        voided.Comp.NextVomitTime = _timing.CurTime + _random.Next(voided.Comp.MinVomitInterval, voided.Comp.MaxVomitInterval);
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -45,19 +54,26 @@ public sealed class VoidedSystem : EntitySystem
         var query = EntityQueryEnumerator<VoidedComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (_timing.CurTime <= comp.NextSpacedCheck)
-                continue;
-
-            if (_voidwalker.CheckInSpace(uid))
+            if (_timing.CurTime >= comp.NextSpacedCheck)
             {
-                if (!_voidKidnapped.TryTeleportToRandomPartOfStation(uid))
-                    return;
+                if (_voidwalker.CheckInSpace(uid))
+                {
+                    if (!_voidKidnapped.TryTeleportToRandomPartOfStation(uid))
+                        return;
 
-                var popup = Loc.GetString("voided-spaced-teleport");
-                _popup.PopupEntity(popup, uid, uid, PopupType.MediumCaution);
+                    var popup = Loc.GetString("voided-spaced-teleport");
+                    _popup.PopupEntity(popup, uid, uid, PopupType.MediumCaution);
+                }
+
+                comp.NextSpacedCheck = _timing.CurTime + comp.SpacedCheckInterval;
             }
 
-            comp.NextSpacedCheck = _timing.CurTime + comp.SpacedCheckInterval;
+            if (_timing.CurTime >= comp.NextVomitTime)
+            {
+                _vomit.Vomit(uid, comp.ThirstLost, comp.HungerLost, comp.NebulaVomitProto);
+                SetNextVomitTime((uid, comp));
+            }
+
         }
     }
 }

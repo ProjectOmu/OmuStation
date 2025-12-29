@@ -44,13 +44,6 @@ public sealed partial class VoidwalkerComponent : Component
     public float NonSpacedSpeedModifier = 0.7f;
 
     /// <summary>
-    /// Any structures with these tags will not be collided with.
-    /// </summary>
-    [DataField]
-    public HashSet<ProtoId<TagPrototype>> PassableTags =
-        [ "Window", "Grille" ];
-
-    /// <summary>
     /// Structures with this tag are convertable.
     /// </summary>
     [DataField]
@@ -67,24 +60,6 @@ public sealed partial class VoidwalkerComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan WallConvertTime = TimeSpan.FromSeconds(5);
-
-    /// <summary>
-    /// Components to add to a window that has been passed through.
-    /// </summary>
-    [DataField]
-    public ComponentRegistry ComponentsAddedOnPass;
-
-    /// <summary>
-    /// A dictionary containing each entity that has had components added to it, and when it expires.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    public Dictionary<EntityUid, TimeSpan> EntitiesPassed = new();
-
-    /// <summary>
-    /// How long do the components added to an object by passing through them last?
-    /// </summary>
-    [DataField]
-    public TimeSpan EntityPassedAddedComponentsDuration = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// How long you need to stare at someone to stun em
@@ -118,5 +93,8 @@ public sealed partial class VoidwalkerComponent : Component
     /// </summary>
     [DataField]
     public ResPath MapPath = new("Maps/_Omu/Nonstations/voidwalkervoid.yml");
+
+    [DataField]
+    public EntProtoId CosmicSkull = "CosmicSkull";
 
 }

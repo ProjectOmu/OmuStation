@@ -39,8 +39,8 @@ public sealed class ReagentCrawlSystem : SharedReagentCrawlSystem // Omu - Renam
         if (reverted != null)
             _audio.PlayPvs(component.ExitJauntSound, reverted.Value);
 
-            var evExit = new ReagentCrawlExitEvent();
-            RaiseLocalEvent(polymorph.Parent.Value, ref evExit);
+        var evExit = new ReagentCrawlExitEvent();
+        RaiseLocalEvent(polymorph.Parent.Value, ref evExit);
 
         return false;
     }

@@ -1,10 +1,5 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Omu.Server.Speech;
-using Content.Omu.Shared.Voidwalker;
+using Content.Omu.Shared.Voidwalker.Actions;
 using Content.Server.Administration;
 using Content.Server.IdentityManagement;
 using Content.Server.Popups;
@@ -59,6 +54,7 @@ public sealed class VoidWhisperSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString(entity.Comp.WhisperTitle,
                 ("name", _identity.GetEntityIdentity(target)),
                 ("message", FormattedMessage.EscapeText(message))),
+                entity.Owner,
                 entity.Owner);
         });
     }

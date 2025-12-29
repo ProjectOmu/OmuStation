@@ -6,6 +6,10 @@ namespace Content.Omu.Shared.Voidwalker.Actions;
 
 public sealed partial class VoidwalkerUnsettleEvent : EntityTargetActionEvent;
 
+public sealed partial class VoidWhisperEvent : EntityTargetActionEvent;
+
+public sealed partial class ExitNebulaCrawlEvent : InstantActionEvent;
+
 public sealed partial class VoidwalkerVoidWalkEvent : WorldTargetActionEvent
 {
     [DataField]
