@@ -1,3 +1,4 @@
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 
@@ -17,17 +18,23 @@ public sealed partial class TemporarilyDisableCollisionSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<TemporarilyDisableCollisionComponent, MapInitEvent>(OnInit);
-        SubscribeLocalEvent<TemporarilyDisableCollisionComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<TemporarilyDisableCollisionComponent, ComponentRemove>(OnRemove);
     }
 
     private void OnInit(Entity<TemporarilyDisableCollisionComponent> entity, ref MapInitEvent args)
     {
+        if (!HasComp<PhysicsComponent>(entity))
+            return;
+
         entity.Comp.EndTime = _timing.CurTime + entity.Comp.Duration;
         _physics.SetCanCollide(entity, false);
     }
 
-    private void OnShutdown(Entity<TemporarilyDisableCollisionComponent> entity, ref ComponentShutdown args)
+    private void OnRemove(Entity<TemporarilyDisableCollisionComponent> entity, ref ComponentRemove args)
     {
+        if (!HasComp<PhysicsComponent>(entity))
+            return;
+
         _physics.SetCanCollide(entity, true);
     }
 
