@@ -92,7 +92,7 @@ public sealed partial class VoidwalkerComponent : Component
     /// Where are we sendin' ya?
     /// </summary>
     [DataField]
-    public ResPath MapPath = new("Maps/_Omu/Nonstations/voidwalkervoid.yml");
+    public ResPath MapPath = new("Resources/Maps/_Omu/Nonstations/voidwalkervoid.yml");
 
     [DataField]
     public EntProtoId CosmicSkull = "CosmicSkull";
