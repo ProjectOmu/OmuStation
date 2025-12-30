@@ -15,13 +15,11 @@
         Heat: -7.5
         Shock: -7.5
   - type: GlassPasser
-    passableTags:
-    - Window
-    - Grille
   - type: VoidWhisper
   - type: SpawnItemsOnGib
     itemsToSpawn:
       CosmicSkull: 1
+      ShardGlassPlasma: 5
   - type: Damageable
     damageContainer: ManifestedSpirit
     damageModifierSet: Glass
@@ -86,8 +84,6 @@
   - type: Puller
     stageChangeCooldown: 0.5
     needsHands: false
-    walkSpeedModifier: 1
-    sprint:SpeedModifier: 1 # Need to pull fast to kidnap better.
   - type: Targeting
   - type: Speech
     speechVerb: Ghost
@@ -104,6 +100,7 @@
   - type: Body
     prototype: Voidwalker
   - type: StandingState
+  - type: OwnInteractionVerbs # So you can stare
   - type: Fixtures
     fixtures:
       fix1:

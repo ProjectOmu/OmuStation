@@ -5,10 +5,10 @@ using Content.Omu.Common.VoidedVisualizer;
 using Content.Omu.Shared.Voidwalker;
 using Content.Omu.Shared.Voidwalker.CosmicSkull;
 using Content.Omu.Shared.Voidwalker.GlassPasser;
+using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
-using Robust.Shared.Prototypes;
 
 namespace Content.Omu.Server.Voidwalker.CosmicSkull;
 
@@ -16,6 +16,7 @@ public sealed partial class CosmicSkullSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = null!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
+    [Dependency] private readonly DamageableSystem _damageable = null!;
 
     /// <inheritdoc />
     public override void Initialize()
@@ -77,6 +78,8 @@ public sealed partial class CosmicSkullSystem : EntitySystem
         EnsureComp<SpecialHighTempImmunityComponent>(args.User);
         EnsureComp<VoidedVisualsComponent>(args.User);
         EnsureComp<GlassPasserComponent>(args.User);
+
+        _damageable.SetDamageModifierSetId(args.User, skull.Comp.GlassModifierSet);
 
         var popup = Loc.GetString("cosmic-skull-use-finish");
         _popupSystem.PopupEntity(popup, args.User, args.User);
