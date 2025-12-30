@@ -17,5 +17,5 @@ public sealed partial class VoidwalkerRuleComponent : Component
     public string NanotrasenFaction = "NanoTrasen";
 
     [DataField]
-    public EntProtoId VoidwalkerMindRole = "VoidwalkerMindRole";
+    public EntProtoId VoidwalkerMindRole = "MindRoleVoidwalker";
 }

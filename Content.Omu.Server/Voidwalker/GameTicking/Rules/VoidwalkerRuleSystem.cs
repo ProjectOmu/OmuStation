@@ -1,7 +1,9 @@
 using Content.Omu.Server.Voidwalker.Roles;
+using Content.Omu.Shared.Voidwalker;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
+using Content.Server.Objectives;
 using Content.Server.Roles;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;

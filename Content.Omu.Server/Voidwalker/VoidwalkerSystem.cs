@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Server.Changeling;
@@ -18,6 +19,7 @@ using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Popups;
@@ -285,6 +287,36 @@ public sealed partial class VoidwalkerSystem : EntitySystem
         }
 
         action.Handled = true;
+
+        return true;
+    }
+
+    public bool TrySendToShadowRealm(EntityUid target)
+    {
+        var popup = Loc.GetString("voidwalker-kidnap-enter");
+        _popup.PopupEntity(popup, target, target, PopupType.SmallCaution);
+
+        if (!TryComp<MindContainerComponent>(target, out var targetMindContainer)
+            || !targetMindContainer.HasMind)
+            return false;
+
+        var targetMind = Comp<MindComponent>(targetMindContainer.Mind.Value);
+        targetMind.PreventGhosting = true;
+
+        var spawnPoints = EntityManager
+            .GetAllComponents(typeof(VoidedSpawnComponent))
+            .ToImmutableList();
+
+        if (spawnPoints.IsEmpty)
+            return false;
+
+        var newSpawn = _random.Pick(spawnPoints);
+        var spawnTarget = Transform(newSpawn.Uid).Coordinates;
+
+        _transform.SetCoordinates(target, spawnTarget);
+        _rejuvenate.PerformRejuvenate(target);
+        _stun.KnockdownOrStun(target, TimeSpan.FromSeconds(5), true);
+        // need more sfx here later
 
         return true;
     }

@@ -1,7 +1,10 @@
 using Content.Omu.Common.Speech;
 using Content.Omu.Common.VoidedVisualizer;
+using Content.Omu.Shared.Voidwalker;
+using Content.Server.Gibbing.Systems;
 using Content.Server.Medical;
 using Content.Shared.CombatMode.Pacification;
+using Content.Shared.GameTicking;
 using Content.Shared.Popups;
 using Content.Shared.Speech.Muting;
 using Robust.Shared.Random;
@@ -25,6 +28,23 @@ public sealed class VoidedSystem : EntitySystem
 
         SubscribeLocalEvent<VoidedComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<VoidedComponent, ComponentShutdown>(OnShutdown);
+
+        SubscribeLocalEvent<RoundEndMessageEvent>(OnRoundEnd);
+    }
+
+    /// <summary>
+    ///  Everyone gets to play in the void!!!
+    /// </summary>
+    /// <param name="args"></param>
+    private void OnRoundEnd(RoundEndMessageEvent args)
+    {
+        var voidedQuery = EntityQueryEnumerator<VoidedComponent>();
+        while (voidedQuery.MoveNext(out var uid, out _))
+            _voidwalker.TrySendToShadowRealm(uid);
+
+        var voidwalkerQuery = EntityQueryEnumerator<VoidwalkerComponent>();
+        while (voidwalkerQuery.MoveNext(out var uid, out _))
+            _voidwalker.TrySendToShadowRealm(uid);
     }
 
     private void OnStartup(Entity<VoidedComponent> entity, ref ComponentStartup args)

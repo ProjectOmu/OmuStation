@@ -136,30 +136,8 @@ public sealed partial class VoidwalkerSystem
             || !targetMindContainer.HasMind)
             return;
 
-        var popup = Loc.GetString("voidwalker-kidnap-enter");
-        _popup.PopupEntity(popup, target, target, PopupType.SmallCaution);
-
         var originalMapId = Transform(target).MapID;
         var originalMapUid = _map.GetMap(originalMapId);
-
-        var targetMindEntity = targetMindContainer.Mind.Value;
-        var targetMind = Comp<MindComponent>(targetMindEntity);
-        targetMind.PreventGhosting = true;
-
-        var spawnPoints = EntityManager
-            .GetAllComponents(typeof(VoidedSpawnComponent))
-            .ToImmutableList();
-
-        if (spawnPoints.IsEmpty)
-            return;
-
-        var newSpawn = _random.Pick(spawnPoints);
-        var spawnTarget = Transform(newSpawn.Uid).Coordinates;
-
-        _transform.SetCoordinates(target, spawnTarget);
-        _rejuvenate.PerformRejuvenate(target);
-        _stun.KnockdownOrStun(target, entity.Comp.UnsettleStunDuration, true); // doesn't really matter how long this lasts so uh.. tie it to that idk :shrug:
-        // need more sfx here later
 
         var kidnappedComp = EnsureComp<VoidwalkerKidnappedComponent>(target);
         kidnappedComp.ExitVoidTime = _timing.CurTime + entity.Comp.KidnapDuration;
@@ -167,6 +145,8 @@ public sealed partial class VoidwalkerSystem
 
         var voidedComp = EnsureComp<VoidedComponent>(target);
         voidedComp.Voidwalker = entity;
+
+        TrySendToShadowRealm(target);
     }
 
     private void OnVoidWalk(Entity<VoidwalkerComponent> entity, ref VoidwalkerVoidWalkEvent args)
