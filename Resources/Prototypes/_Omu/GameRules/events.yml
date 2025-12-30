@@ -20,7 +20,7 @@
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner
-    prototype: MobVoidwalker
+    prototype: BaseMobVoidWalker
   - type: VoidwalkerRule
   - type: AntagObjectives
     objectives:
