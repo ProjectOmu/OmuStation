@@ -36,7 +36,9 @@
     slotId: stomach
   - type: Metabolizer
     metabolizerTypes: [ Animal, Hydrakin ]
-    removeEmpty: true
+    groups:
+    - id: Food
+    - id: Drink
   - type: SolutionContainerManager
     solutions:
       stomach:
