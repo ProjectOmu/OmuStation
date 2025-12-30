@@ -16,11 +16,11 @@ public sealed partial class TemporarilyDisableCollisionSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<TemporarilyDisableCollisionComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<TemporarilyDisableCollisionComponent, MapInitEvent>(OnInit);
         SubscribeLocalEvent<TemporarilyDisableCollisionComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnStartup(Entity<TemporarilyDisableCollisionComponent> entity, ref ComponentStartup args)
+    private void OnInit(Entity<TemporarilyDisableCollisionComponent> entity, ref MapInitEvent args)
     {
         entity.Comp.EndTime = _timing.CurTime + entity.Comp.Duration;
         _physics.SetCanCollide(entity, false);
