@@ -19,6 +19,8 @@
     targetReagent:
       - NebulaVomit
     enterJauntFailMessage: voidwalker-nebula-jaunt-fail
+    exitJauntSound:
+      path: /Audio/_Omu/Effects/void_walk.ogg
     jaunt: VoidCrawlJaunt
   - type: ExitNebulaCrawl
   - type: Visibility
