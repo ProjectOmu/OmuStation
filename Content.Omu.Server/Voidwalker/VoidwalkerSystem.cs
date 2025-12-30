@@ -70,6 +70,7 @@ public sealed partial class VoidwalkerSystem : EntitySystem
     /// </summary>
     private const float PassedObjectGraceRange = 1; //
 
+    private readonly ResPath _mapPath = new("Maps/_Omu/Nonstations/voidwalkervoid.yml");
     private static Entity<MapComponent>? _theVoid;
 
     /// <inheritdoc />
@@ -123,7 +124,7 @@ public sealed partial class VoidwalkerSystem : EntitySystem
     {
         // Load THE VOID map if not already loaded
         if (_theVoid == null
-            && _mapLoader.TryLoadMap(entity.Comp.MapPath,
+            && _mapLoader.TryLoadMap(_mapPath,
                 out _theVoid,
                 out _,
                 new DeserializationOptions { InitializeMaps = true }))

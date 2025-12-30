@@ -88,12 +88,6 @@ public sealed partial class VoidwalkerComponent : Component
     [DataField]
     public TimeSpan KidnapDuration = TimeSpan.FromSeconds(30);
 
-    /// <summary>
-    /// Where are we sendin' ya?
-    /// </summary>
-    [DataField]
-    public ResPath MapPath = new("Resources/Maps/_Omu/Nonstations/voidwalkervoid.yml");
-
     [DataField]
     public EntProtoId CosmicSkull = "CosmicSkull";
 
