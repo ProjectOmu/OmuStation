@@ -22,7 +22,7 @@ public sealed class DoAfterSystem : SharedDoAfterSystem
     [Dependency] private readonly MetaDataSystem _metadata = default!;
     [Dependency] private readonly TagSystem _tag = default!; // Omu
 
-    private static ProtoId<TagPrototype> _ignoreObstructionsTag = "DoAfterIgnoreObstructionPrediction";
+    private static ProtoId<TagPrototype> _ignoreObstructionsTag = "DoAfterIgnoreObstructionPrediction"; // Omu - I'm so sorry.
 
     public override void Initialize()
     {
