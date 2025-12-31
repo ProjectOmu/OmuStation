@@ -56,10 +56,10 @@ public sealed class DoAfterSystem : SharedDoAfterSystem
 
         // this is genuinely awful and hacky, but it works, and it took me three hours and a headache
         // before resorting to this. 
-        // the client wasn't getting the ignore obstructions tag even if it was set in the dargs and caused really weird
+        // the client wasn't getting the ignore obstructions flag  even if it was set in the dargs and caused really weird
         // flickering with the progress bar
         // if you have a better solution, dm me at @MarshalMelipona and explain it to me so this can be rightfully taken out back and shot
-        //  prediction can genuinely ████ my ████, i'm sorry for my sins. - delphine
+        // i suck at networking, i'm sorry for my sins. - delphine
         var ignoreObstructions = _tag.HasTag(playerEntity.Value, _ignoreObstructionsTag); // Omu
 
         var time = GameTiming.CurTime;
