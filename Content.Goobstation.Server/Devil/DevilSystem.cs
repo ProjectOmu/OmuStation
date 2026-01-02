@@ -18,7 +18,7 @@ using Content.Server.Administration.Systems;
 using Content.Server.Antag.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Systems;
-using Content.Server.Destructible;
+using Content.Shared.Destructible;
 using Content.Server.Hands.Systems;
 using Content.Server.Jittering;
 using Content.Server.Mind;

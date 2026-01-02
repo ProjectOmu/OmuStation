@@ -562,5 +562,5 @@ public sealed partial class GunSystem : SharedGunSystem
         return false;
     }
 
-    public override void PlayImpactSound(EntityUid otherEntity, DamageSpecifier? modifiedDamage, SoundSpecifier? weaponSound, bool forceWeaponSound) { }
+    // Trauma - predicted PlayImpactSound
 }

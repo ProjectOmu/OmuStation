@@ -3,7 +3,7 @@ using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Player;
 
-namespace Content.Trauma.Client.Sandevistan;
+namespace Content.Client._Trauma.Sandevistan;
 
 public sealed class SandevistanGlitchSystem : EntitySystem
 {
