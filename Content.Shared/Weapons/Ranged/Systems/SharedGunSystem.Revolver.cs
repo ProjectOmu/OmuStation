@@ -447,7 +447,7 @@ public partial class SharedGunSystem
                     // Pretend it's always been there.
                     // <Trauma> - predicted this shit
                     ammoEnt = PredictedSpawnAtPosition(ent.Comp.FillPrototype, args.Coordinates);
-                    ent.Comp.AmmoSlots[index] = ent;
+                    ent.Comp.AmmoSlots[index] = ammoEnt;
                     Containers.Insert(ammoEnt.Value, ent.Comp.AmmoContainer);
                     // </Trauma>
 

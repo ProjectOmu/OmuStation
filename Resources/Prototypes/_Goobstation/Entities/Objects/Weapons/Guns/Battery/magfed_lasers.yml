@@ -224,8 +224,8 @@
     minAngle: -15
     maxAngle: -15
   - type: Gun
-    minAngle: 50
-    maxAngle: 20
+    minAngle: 20 #omu why was min more than max
+    maxAngle: 50 #omu see above
     angleIncrease: -5
     angleDecay: -80
     fireRate: 10
