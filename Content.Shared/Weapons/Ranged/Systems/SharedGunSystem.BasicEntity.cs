@@ -29,12 +29,13 @@ public abstract partial class SharedGunSystem
 
     private void OnBasicEntityTakeAmmo(Entity<BasicEntityAmmoProviderComponent> ent, ref TakeAmmoEvent args)
     {
-        // Goobstation start
+        // <Trauma>
         WeightedRandomEntityPrototype? prototypes = null;
         if (ent.Comp.Proto == null && (!ProtoManager.TryIndex(ent.Comp.Prototypes, out prototypes) ||
                                         prototypes.Weights.Count == 0))
             return;
-        // Goobstation end
+        var rand = Random(uid);
+        // </Trauma>
 
         for (var i = 0; i < args.Shots; i++)
         {
@@ -44,11 +45,11 @@ public abstract partial class SharedGunSystem
             if (ent.Comp.Count != null)
                 ent.Comp.Count--;
 
-            // Goob edit start
-            var proto = ent.Comp.Proto ?? prototypes!.Pick(Random);
-            var ammoEnt = Spawn(proto, args.Coordinates);
-            // Goob edit end
-            args.Ammo.Add((ammoEnt, EnsureShootable(ammoEnt)));
+            // <Trauma>
+            var proto = component.Proto ?? prototypes!.Pick(rand);
+            var ent = PredictedSpawnAtPosition(proto, args.Coordinates);
+            // </Trauma>
+            args.Ammo.Add((ent, EnsureShootable(ent)));
         }
 
         _recharge.Reset(ent.Owner);
