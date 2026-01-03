@@ -6,6 +6,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Timing; //omu fix
 
 namespace Content.Shared._Goobstation.Wizard.Projectiles;
 
@@ -15,6 +16,7 @@ public sealed class HomingProjectileSystem : EntitySystem
     [Dependency] private readonly RotateToFaceSystem _rotate = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly IGameTiming _timing = default!; //omu fix
 
     private EntityQuery<TransformComponent> _xformQuery;
     private EntityQuery<FrozenComponent> _frozenQuery;
@@ -30,8 +32,7 @@ public sealed class HomingProjectileSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-
-        if (_net.IsClient)
+        if (_net.IsServer || _net.IsClient && _timing.IsFirstTimePredicted) //omu fix
             return;
 
         var query =
