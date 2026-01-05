@@ -269,6 +269,10 @@
       - state: equipped-head-dog
       - state: equipped-head-unshaded-dog
         shader: unshaded
+      head-hydrakin:    #Mono
+      - state: equipped-head-hydrakin
+      - state: equipped-head-unshaded-hydrakin
+        shader: unshaded  #Mono
   - type: PointLight
     radius: 6
   - type: PressureProtection
