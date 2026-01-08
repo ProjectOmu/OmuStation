@@ -1,0 +1,10 @@
+- type: entity
+  parent: [ClothingBackpackDuffel, BaseSecurityContraband]
+  id: ClothingBackpackDuffelCorpsman
+  name: blue corpsman duffel bag
+  description: A large duffel bag for holding extra medical related goods. This one comes in alternative blue colours.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Back/Duffels/corpsman.rsi
+
+

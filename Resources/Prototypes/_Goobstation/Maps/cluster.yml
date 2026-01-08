@@ -50,13 +50,14 @@
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
-            #service
-            StationAi: [ 1, 1 ]
+            #Command
             Captain: [ 1, 1 ]
+            NanotrasenCareerTrainer: [ 2, 2] # Omu
             NanotrasenRepresentative: [ 1, 1 ]
             BlueshieldOfficer: [ 1, 1 ]
-            HeadOfPersonnel: [ 1, 1 ]
             AdministrativeAssistant: [ 1, 1 ] # Delta V
+            #service
+            HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]
             Botanist: [ 2, 2 ]
             Chef: [ 1, 1 ]
@@ -65,6 +66,7 @@
             Librarian: [ 1, 1 ]
             Lawyer: [ 1, 1 ]
             ServiceWorker: [ 1, 1 ]
+            RadioHost: [ 1, 1 ] # Omu
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 2, 2 ]
@@ -75,10 +77,12 @@
             Chemist: [ 1, 1 ]
             MedicalDoctor: [ 2, 2 ]
             MedicalIntern: [ 2, 2 ]
+            Virologist: [ 1, 1 ] # Omu
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 3, 3 ]
             ResearchAssistant: [ 2, 2 ]
+            StationAi: [ 1, 1 ]
             Borg: [ 1, 1 ]
             #security
             HeadOfSecurity: [ 1, 1 ]

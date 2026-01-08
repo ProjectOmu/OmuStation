@@ -75,3 +75,26 @@
     - type: Clothing
       sprite: _DV/Clothing/Uniforms/Jumpskirt/security_grey.rsi
 
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtCorpsman
+  name: blue corpsman jumpskirt
+  description: This uniform is issued to qualified personnel who have been trained. This one comes in alternative blue colours.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/corpsman.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/corpsman.rsi
+
+# Salvage uniform
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtSalvageSpecialist
+  name: salvage specialist's jumpskirt
+  description: It's a snappy jumpsuit with a sturdy skirt. It's very dirty.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/explorer.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/explorer.rsi

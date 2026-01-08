@@ -132,7 +132,6 @@
     - id: BoxEncryptionKeyPrisoner #Delta-V
     - id: BoxPrisonerHeadset # Einstein Engines
     - id: SecurityMegaphone # goob - loudspeakers
-    # Omu no second skin - id: SecondSkinSecurity # Goobstation
 
 - type: entityTable
   id: FillLockerWardenHarduit
@@ -179,7 +178,6 @@
     - id: ClothingHeadsetAltSecurityRegular # Goobstation
     - id: PanicButton # Goobstation
     - id: PepperSpray # Goobstation
-    # Omu no second skin - id: SecondSkinSecurity # Goobstation
     # Goobstation - Martial Arts - start
     - !type:GroupSelector
       children:
@@ -191,7 +189,7 @@
 
 - type: entity
   id: LockerBrigmedicFilled
-  suffix: Brigmedic, Filled
+  suffix: Corpsman, Filled # Omu - rename Brigmedic to Corpsman
   parent: LockerBrigmedic
   components:
   - type: EntityTableContainerFill
@@ -206,7 +204,7 @@
     - id: BoxAutoinjectorCartidges
     - id: ClothingBackpackDuffelSurgeryFilled
     - id: ClothingHandsGlovesLatex
-    - id: ClothingOuterHardsuitBrigmedic
+    - id: UndeterminedVoidsuitCorpsman #Omu
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: ClothingUniformJumpskirtOfLife
@@ -215,7 +213,6 @@
     - id: MedkitAdvancedFilled
     - id: BoxSyringe
     - id: BoxBodyBag # Goob Station
-    # Omu no second skin - id: SecondSkinSecurity # Goobstation
 
 - type: entity
   id: LockerDetectiveFilled
@@ -250,7 +247,6 @@
     - id: BloodTrak # Goobstation
     - id: Betty # Goobstation
     - id: BoxTapeRecorder # DeltaV
-    # Omu no second skin - id: SecondSkinSecurity # Goobstation
 
 - type: entity
   id: ClosetBombFilled

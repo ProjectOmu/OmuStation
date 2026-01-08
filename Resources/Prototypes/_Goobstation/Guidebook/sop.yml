@@ -105,6 +105,7 @@
   name: guide-entry-sop-command
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/CommandSOP.xml"
   children:
+  - CommandTrainingManual # Omu
   - NanotrasenRep SOP
   - BlueshieldOfficer SOP
   - Captain SOP
@@ -144,7 +145,9 @@
   name: guide-entry-sop-security
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/SecuritySOP.xml"
   children:
-  - Brigmedic SOP
+  # - Brigmedic SOP # Omu - rename Brigmedic to Corpsman
+  - SecurityTrainingManual # Omu
+  - Corpsman SOP # Omu - rename Brigmedic to Corpsman
   - Warden SOP
   - OfficerCadet SOP
   - Detective SOP
@@ -398,10 +401,10 @@
 
 # Security SOP Entries
 
-- type: guideEntry
-  id: Brigmedic SOP
-  name: guide-entry-sop-brigmedic
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/BrigmedicSOP.xml"
+# - type: guideEntry # Omu - rename Brigmedic to Corpsman
+#   id: Brigmedic SOP
+#   name: guide-entry-sop-brigmedic
+#   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/BrigmedicSOP.xml"
 
 - type: guideEntry
   id: Detective SOP

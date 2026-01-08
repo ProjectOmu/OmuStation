@@ -118,6 +118,14 @@
     whitelist:
       tags:
       - GasTank
+   # Omu Start
+  - type: DiseaseProtection #same protection as a biosuit
+    incoming:
+      powerModifiers:
+        Blood: -1
+      chanceMultipliers:
+        Blood: 0.5
+   # Omu End
 
 - type: entity
   abstract: true

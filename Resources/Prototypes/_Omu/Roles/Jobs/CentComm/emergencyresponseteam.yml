@@ -1,0 +1,304 @@
+# BLUE ALERT ERT
+
+# ERT Leader
+
+- type: job
+  id: ERTLeaderBlue
+  name: job-name-ertleader
+  description: job-description-ertleader
+  playTimeTracker: JobERTLeaderBlue
+  setPreference: false
+  startingGear: ERTLeaderGearBlue
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: ERTLeaderGearBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTLeader
+    back: ClothingBackpackERTLeader
+    shoes: ClothingShoesBootsJack
+    head: ClothingHeadHelmetERTLeader
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmourDurathread
+    id: ERTLeaderPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltAssaultFilled
+    pocket1: WeaponEnergyRevolver
+    pocket2: FlashlightSeclite
+    suitstorage: WeaponRifleLecter
+  storage:
+    back:
+    - BoxZiptie
+    - BoxMagazineRifle
+    - MedkitCombatFilled
+    - CrowbarRed
+    - EnergySpeedloaderLethal
+    - EnergySpeedloaderLethal
+    - EnergySpeedloaderDisabler
+
+# ERT Security
+
+- type: job
+  id: ERTSecurityBlue
+  name: job-name-ertsecurity
+  description: job-description-ertsecurity
+  playTimeTracker: JobERTSecurityBlue
+  setPreference: false
+  startingGear: ERTSecurityGearBlue
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  access:
+  - CentralCommand
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - Detective
+  - Cryogenics
+  - External
+  - Command
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: ERTSecurityGearBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTSecurity
+    back: ClothingBackpackERTSecurity
+    shoes: ClothingShoesBootsJack
+    head: ClothingHeadHelmetERTSecurity
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesColorBlack
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTSecurityPDABlue
+    ears: ClothingHeadsetAltCentComSec
+    belt: ClothingBeltAssaultFilled
+    pocket1: OfficerGunCase
+    pocket2: FlashlightSeclite
+    suitstorage: WeaponRifleLecter
+  storage:
+    back:
+    - BoxZiptie
+    - BoxMagazineRifle
+    - MedkitCombatFilled
+    - CrowbarRed
+
+# ERT Medical
+
+- type: job
+  id: ERTMedicBlue
+  name: job-name-ertmedic
+  description: job-description-ertmedic
+  playTimeTracker: JobERTMedicalBlue
+  setPreference: false
+  startingGear: ERTMedicGearBlue
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  access:
+  - CentralCommand
+  - Medical
+  - Chemistry
+  - Maintenance
+  - Command
+  - Brig
+  - Cryogenics
+  - External
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: ERTMedicGearBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTMedic
+    back: ClothingBackpackERTMedical
+    shoes: ClothingShoesBootsJack
+    eyes: ClothingEyesGlassesMedChemFlash
+    gloves: ClothingHandsGlovesNitrile
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTMedicPDABlue
+    ears: ClothingHeadsetAltCentComMed
+    belt: ClothingBeltMedicalEMTFilled
+    pocket1: WeaponDisablerAdvanced
+    pocket2: FlashlightSeclite
+  storage:
+    back:
+    - MedkitAdvancedFilled
+    - BoxAutoinjectorCartidges
+    - MedkitCombatFilled
+    - CrowbarRed
+
+# ERT Janitor
+
+- type: job
+  id: ERTJanitorBlue
+  name: job-name-ertjanitor
+  description: job-description-ertjanitor
+  playTimeTracker: JobERTJanitorBlue
+  setPreference: false
+  startingGear: ERTJanitorGearBlue
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  access:
+  - CentralCommand
+  - Service
+  - Janitor
+  - Maintenance
+  - Command
+  - Brig
+  - Cryogenics
+  - External
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: ERTJanitorGearBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTJanitor
+    back: ClothingBackpackERTJanitor
+    shoes: ClothingShoesGaloshes
+    eyes: ClothingEyesGlassesCommand
+    gloves: ClothingHandsGlovesColorPurple
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTJanitorPDABlue
+    ears: ClothingHeadsetAltCentComJani
+    belt: ClothingBeltJanitorFilled
+    pocket1: WeaponDisablerAdvanced
+    pocket2: FlashlightSeclite
+  storage:
+    back:
+    - BoxLightMixed
+    - BoxLightMixed
+    - CrowbarRed
+    - AdvMopItem
+
+# ERT Engineer
+
+- type: job
+  id: ERTEngineerBlue
+  name: job-name-ertengineer
+  description: job-description-ertengineer
+  playTimeTracker: JobERTEngineerBlue
+  setPreference: false
+  startingGear: ERTEngineerGearBlue
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  access:
+  - CentralCommand
+  - Engineering
+  - Atmospherics
+  - Maintenance
+  - Command
+  - Brig
+  - Cryogenics
+  - External
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: ERTEngineerGearBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTEngineer
+    back: ClothingModsuitResponsoryEngineering
+    shoes: ClothingShoesBootsJack
+    eyes: ClothingEyesGlassesMeson
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTEngineerPDABlue
+    ears: ClothingHeadsetAltCentComEngi
+    belt: ClothingBeltChiefEngineerFilled
+    pocket1: WeaponDisablerAdvanced
+    pocket2: FlashlightSeclite
+  storage:
+    back:
+    - RCD
+    - RPD
+    - RCDAmmo
+    - RCDAmmo
+    - CableMVStack
+    - CableHVStack
+    - CableApcStack
+    - SheetPlasteel
+    - SheetSteel
+    - SheetGlass
+
+# ERT Chaplain
+
+- type: job
+  id: ERTChaplainBlue
+  name: job-name-ertchaplain
+  description: job-description-ertchaplain
+  playTimeTracker: JobERTChaplainBlue
+  setPreference: false
+  startingGear: ERTChaplainGearBlue
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  access:
+  - CentralCommand
+  - Chapel
+  - Service
+  - Maintenance
+  - Command
+  - Brig
+  - Cryogenics
+  - External
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: BibleUser
+    - type: CurseImmune
+    - type: CanEnchant
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: ERTChaplainGearBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTChaplain
+    back: ClothingBackpackERTChaplain
+    head: ClothingHeadHatFez
+    neck: ClothingNeckStoleChaplain
+    shoes: ClothingShoesBootsJack
+    eyes: ClothingEyesGlassesCommand
+    gloves: ClothingHandsGlovesColorBlack
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: ERTChaplainPDABlue
+    ears: ClothingHeadsetAltCentComChaplain
+    belt: ClothingBeltStorageWaistbag
+    pocket1: WeaponDisablerAdvanced
+    pocket2: FlashlightSeclite
+  storage:
+    back:
+    - BoxCandle
+    - BoxBodyBag
+    - DrinkWaterMelonJuiceJug
+    - Lantern
+    - Lantern
+    - ChaplainUndeterminedBible
+    - CrowbarRed
+    - FoodBakedBunHotX
+    - FoodBakedBunHotX
+    - FoodBakedBunHotX
+    - Nullrod
+    - Lighter
+    - DrinkWaterBottleFull

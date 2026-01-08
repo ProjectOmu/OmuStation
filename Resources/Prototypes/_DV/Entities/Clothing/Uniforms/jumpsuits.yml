@@ -85,3 +85,14 @@
       sprite: _DV/Clothing/Uniforms/Jumpsuit/security_grey.rsi
     - type: Clothing
       sprite: _DV/Clothing/Uniforms/Jumpsuit/security_grey.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCorpsman
+  name: blue corpsman jumpsuit
+  description: This uniform is issued to qualified personnel who have been trained. This one comes in alternative blue colours.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/corpsman.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/corpsman.rsi

@@ -1,0 +1,16 @@
+#Corpsman Hardsuit ported from EE/DeltaV.
+- type: entity
+  parent: [ClothingOuterVoidsuitSecurity] #Parented to goob's security hardsuit
+  id: ClothingOuterHardsuitCorpsman
+  name: corpsman combat hardsuit
+  description: A purpose-built combat suit designed to allow its user greater mobility for superior support of friendly units in active combat zones.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/corpsman.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/corpsman.rsi
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitCorpsman
+
+

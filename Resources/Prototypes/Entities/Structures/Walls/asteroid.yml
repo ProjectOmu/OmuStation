@@ -164,7 +164,7 @@
         sound:
           path: /Audio/Effects/break_stone.ogg
           params:
-            volume: -6
+            volume: -2 # Omu - Sound wasn't playing when I broke the rocks in lavaland
   - type: Fixtures
     fixtures:
       fix1:
@@ -1292,6 +1292,24 @@
       state: rock_wall_north
     - map: [ "enum.EdgeLayer.West" ]
       state: rock_wall_west
+  # Omu - Make lavaland mining satisfying again
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Rock
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 120
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -6
+  # Omu - Make lavaland mining satisfying again
 
 - type: entity
   id: WallRockBasaltCoal

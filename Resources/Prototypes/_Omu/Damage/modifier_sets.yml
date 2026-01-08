@@ -1,0 +1,13 @@
+#OMU content, make flesh stalkers have armor to compensate for lower numbers.
+- type: damageModifierSet
+  id: GhoulFleshStalker
+  coefficients:
+    Heat: 0.9
+    Cold: 1.25
+    Asphyxiation: 0.0
+    Blunt: 0.8
+    Slash: 0.8
+    Piercing: 0.8
+    Holy: 1.5
+    Shock: 1.5
+  ignoreArmorPierceFlags: All

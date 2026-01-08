@@ -631,7 +631,7 @@
 - type: entity
   parent: IDCardStandard
   id: BrigmedicIDCard
-  name: brigmedic ID card
+  name: corpsman ID card # Omu - rename Brigmedic to Corpsman
   components:
   - type: Sprite
     layers:

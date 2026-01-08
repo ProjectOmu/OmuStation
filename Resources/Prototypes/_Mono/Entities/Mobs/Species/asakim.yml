@@ -68,6 +68,8 @@
     baseWalkSpeed : 2.7
     baseSprintSpeed : 4.65
     weightlessAcceleration: 1.5 # Slightly more manueverable in space.
+  - type: ClothingSlowResistance # Omu
+    modifier: 1.0 # Completely unaffected by clothing slow
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -205,7 +207,7 @@
   #  - Asakim
   #  # WWDP-Edit-End
   # Begin DeltaV Additions
-  - type: BlockWriting # can't speak common can't write common. better get an AAC tablet
+  # - type: BlockWriting # can't speak common can't write common. better get an AAC tablet - Omu: Moved to hardsuit, funny idea that they can write but hardsuit makes their hands too big.
   # End DeltaV Additions
   # Omu Start
   - type: Tag
@@ -215,7 +217,8 @@
     - DoorBumpOpener
     - AnomalyHost
     - ReptilianEmotes
-  - type: TranslatorImplantBlocker
+  - type: SpeechSynthesis # Corvax-Frontier-Barks
+    voice: Lizard
   - type: Access
     tags:
     - NuclearOperative # This is the access that ADS use for some reason.

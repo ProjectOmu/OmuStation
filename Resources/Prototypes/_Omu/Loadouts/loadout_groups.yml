@@ -64,6 +64,30 @@
   - PrisonerEnviroglovesBlack
   - PrisonerEnviroglovesWhite
 
+- type: loadoutGroup
+  id: VirologistEnvirohelm
+  name: loadout-group-virologist-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - VirologistEnvirohelm
+
+- type: loadoutGroup
+  id: VirologistEnvirosuit
+  name: loadout-group-virologist-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - VirologistEnvirosuit
+
+- type: loadoutGroup
+  id: VirologistEnvirogloves
+  name: loadout-group-virologist-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirogloves
+  - NitrileEnvirogloves
 # NTR
 
 - type: loadoutGroup
@@ -72,7 +96,6 @@
   minLimit: 0
   loadouts:
   - NanotrasenRepresentativerMaskLollypop
-
 
 # Blueshield Officer
 
@@ -84,3 +107,35 @@
   loadouts:
   - BeltAssaultFilled
   - BeltBlueshieldEliteFilled #Starlight Sprite Port
+  - BsoSwordBelt #For the swordies
+
+#Brigmed/Corpsman
+
+- type: loadoutGroup
+  id: CorpsmanGlasses
+  name: loadout-group-corpsman-glasses
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - GlassesMedSec
+  - GlassesCorpsman
+
+- type: loadoutGroup
+  id: CorpsmanBelt
+  name: loadout-group-corpsman-belt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CorpsmanBelt
+  - CorpsmanWebbing
+
+- type: loadoutGroup
+  id: CorpsmanHeadset
+  name: loadout-group-corpsman-headset
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BrigmedicHeadset
+  - BrigmedicAltHeadset
+
+

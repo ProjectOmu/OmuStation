@@ -1359,3 +1359,359 @@ Entries:
   changes: []
   id: 164
   time: '2025-12-07T19:59:51.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Remove
+      message: Removed the Guerilla Gloves.
+  id: 165
+  time: '2025-12-08T16:12:50.0000000+00:00'
+- author: Tuerk
+  changes:
+    - type: Add
+      message: >-
+        Salvager Jumpskirt added! Check your MiningDrobe or loadout screen for
+        it.
+  id: 166
+  time: '2025-12-09T13:07:56.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Shiva is now a ghostrole
+    - type: Tweak
+      message: Smile is now a bit more tanky.
+  id: 167
+  time: '2025-12-09T13:08:16.0000000+00:00'
+- author: dootythefrooty
+  changes:
+    - type: Add
+      message: MORTIS voice for IPCs
+  id: 168
+  time: '2025-12-09T13:09:50.0000000+00:00'
+- author: dootythefrooty
+  changes:
+    - type: Fix
+      message: MORTIS should sound not broken now.
+    - type: Tweak
+      message: MORTIS is quieter.
+  id: 169
+  time: '2025-12-10T17:52:51.0000000+00:00'
+- author: dootythefrooty
+  changes:
+    - type: Fix
+      message: Feroxi and Harpies can be buff again, alongside other markings!
+  id: 170
+  time: '2025-12-10T17:56:14.0000000+00:00'
+- author: 3PonPon3
+  changes:
+    - type: Tweak
+      message: >-
+        Brigmedic has been officially renamed to Corpsman! Rejoice! Their SoP
+        has been slightly reworded as well.
+    - type: Tweak
+      message: >-
+        Both of the Now-Corpsman's armor (outer slot) options allow things to be
+        put in the outer suit storage slot. 
+  id: 171
+  time: '2025-12-10T18:47:04.0000000+00:00'
+- author: RedstonewolfX
+  changes:
+    - type: Add
+      message: >-
+        Medical Chemistry (Medichem) Goggles! Craftable like MedSec or MedDiag
+        HUDs. Combines the features of a Medical HUD and Chemical Analysis
+        Goggles.
+    - type: Add
+      message: >-
+        Medichem Glasses, craftable with Medichem Goggles, LV Cable, and
+        Sunglasses.
+    - type: Tweak
+      message: The Chief Medical Officer spawns with a free pair of Medichem Glasses.
+  id: 172
+  time: '2025-12-10T20:20:50.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: >-
+        midround spawns, we shouldn't get the midround blob anymore, we should
+        get heretic's and changelings at appropriate pop.
+  id: 173
+  time: '2025-12-11T12:04:56.0000000+00:00'
+- author: Scalebeard
+  changes:
+    - type: Tweak
+      message: Updated pirate accent 🏴‍☠️
+  id: 174
+  time: '2025-12-11T12:06:44.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: the spiders have discovered wigs. they have human hair now
+  id: 175
+  time: '2025-12-11T12:09:49.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: >-
+        Xelthia jackets added to med and engi loadouts, they get senior variants
+        too
+  id: 176
+  time: '2025-12-11T12:10:38.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed nuclear 14 assets
+  id: 177
+  time: '2025-12-12T16:00:31.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Add
+      message: vulps can take glowing eyes marking
+  id: 178
+  time: '2025-12-12T19:54:58.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: 'You should no longer be able to spawn as NCT '
+  id: 179
+  time: '2025-12-13T09:59:53.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Added a new CC ghostrole, Nanotrasen Spectre.
+  id: 180
+  time: '2025-12-13T21:06:01.0000000+00:00'
+- author: Kirisune
+  changes:
+    - type: Add
+      message: Full set of new corpsman gear
+    - type: Add
+      message: Corpsman hardsuit selector along with a new hardsuit.
+    - type: Tweak
+      message: Changed colour of job icon on brigmed's ID card to red from blue.
+  id: 181
+  time: '2025-12-14T10:15:48.0000000+00:00'
+- author: CliveOcelot, Richard Blonski
+  changes:
+    - type: Add
+      message: Upstream merge till 14 Dec
+  id: 182
+  time: '2025-12-14T17:40:49.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed an issue with cavity implants.
+  id: 183
+  time: '2025-12-14T19:14:17.0000000+00:00'
+- author: Dot5511
+  changes:
+    - type: Fix
+      message: Ninjas can no longer spawn in as Xelthias (Because no Ninja Gloves)
+  id: 184
+  time: '2025-12-15T08:08:16.0000000+00:00'
+- author: Diggy0
+  changes:
+    - type: Tweak
+      message: >-
+        Buffed Onis! They now receive 25% less slowdown by clothing to help them
+        get into melee distance!
+    - type: Tweak
+      message: >-
+        Asakim's harnesses now slow you down by 80%, the harness isn't made for
+        small meatbags.
+    - type: Tweak
+      message: >-
+        Asakim's harness helmet now blocks facehuggers, xenos HATE this one
+        trick.
+    - type: Tweak
+      message: Asakim are now as tall as an Oni.
+    - type: Tweak
+      message: >-
+        Asakim can now accept translation implants, them not being able to was
+        unintended, now they can also write if they EVER take off the harness,
+        which probably won't happen.
+  id: 185
+  time: '2025-12-15T15:51:55.0000000+00:00'
+- author: Shy-ivy
+  changes:
+    - type: Tweak
+      message: Oni have gotten their strength and defenses back.
+  id: 186
+  time: '2025-12-17T19:47:18.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Ported corporate secrets from Funky.
+  id: 187
+  time: '2025-12-18T12:02:35.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Added a weaker form of ERT
+  id: 188
+  time: '2025-12-18T12:05:10.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Add
+      message: Upstream till 18th December
+  id: 189
+  time: '2025-12-18T12:29:25.0000000+00:00'
+- author: Diggy0
+  changes:
+    - type: Tweak
+      message: Asteroid rocks can now be breakable with blunt weapons.
+    - type: Tweak
+      message: >-
+        Basalt now makes noise when broken, asteroid rocks should be slightly
+        more audible when they break.
+  id: 190
+  time: '2025-12-18T12:31:56.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: 'Changed Qua Nar''Vulna from Judo to Capoeira '
+  id: 191
+  time: '2025-12-18T20:05:05.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: >-
+        Updated Secuirty SoP n.8, Security are now required to wear a full
+        clearly identifiable uniform.
+  id: 192
+  time: '2025-12-22T08:55:38.0000000+00:00'
+- author: Dot5511
+  changes:
+    - type: Add
+      message: Nanotrasen Career Trainer now can spawn in Cog!
+  id: 193
+  time: '2025-12-22T08:57:38.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: Alters midround antags - no more midround ling doubling the C-ling count
+  id: 194
+  time: '2025-12-24T21:50:46.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: >-
+        Limit of 10 flesh stalkers now, BUT they are buffed, you should tase em,
+        holy em or freeze em now!
+  id: 195
+  time: '2025-12-27T07:54:48.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Add
+      message: Upstream till the 26th December
+    - type: Add
+      message: Added Virology spawns to all maps that need it.
+    - type: Tweak
+      message: Pink Xenobio slimes will now make Weh juice instead of Genderfluid.
+    - type: Fix
+      message: Fixed Polymorph issues from Upstream.
+    - type: Fix
+      message: >-
+        Fixed a rare crash that is caused by an entity that is polymorphed
+        multiple times being reverted.
+    - type: Remove
+      message: Removed Genderfluid.
+    - type: Remove
+      message: Removed Serpentcrest from the map rotation.
+  id: 196
+  time: '2025-12-27T11:33:36.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: >-
+        NCT is actually a crew member - no godmode or admin special things need
+        to apply to them
+  id: 197
+  time: '2025-12-28T20:53:22.0000000+00:00'
+- author: maertayn
+  changes:
+    - type: Add
+      message: Integrated bodycams to HoS mantle & cloak
+  id: 198
+  time: '2026-01-01T03:13:00.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: resin breaking sound effects changed
+  id: 199
+  time: '2026-01-01T03:42:56.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Add
+      message: >-
+        Envirosuits, are now certificated Biosuits. Plasmamen rejoice, all two
+        of you!
+    - type: Fix
+      message: Virologists Plasmaman now have the envirosuits in their loadout.
+  id: 200
+  time: '2026-01-01T14:12:13.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Tweak
+      message: Replaced the pink slime weh juice with Genderfluid.
+  id: 201
+  time: '2026-01-01T15:49:38.0000000+00:00'
+- author: PhosphateWithManyOs
+  changes:
+    - type: Add
+      message: Chunky shoes for the BSO.
+  id: 202
+  time: '2026-01-01T17:34:28.0000000+00:00'
+- author: Dishwasher0
+  changes: []
+  id: 203
+  time: '2026-01-01T20:50:46.0000000+00:00'
+- author: Delphine
+  changes:
+    - type: Fix
+      message: >-
+        The Chef Engineer has been fired and replaced with a Chief Engineer. We
+        apologize for any inconvenience caused.
+  id: 204
+  time: '2026-01-01T20:51:33.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: >-
+        Added space shrimps, fish them up. Fry them before a ghost takes it over
+        and fries YOU
+    - type: Tweak
+      message: >-
+        Added crabs to the fishing loot pool. Oh also you can fish up dragons
+        now have fun
+  id: 205
+  time: '2026-01-01T20:52:18.0000000+00:00'
+- author: WazuraWasTaken
+  changes:
+    - type: Tweak
+      message: Terminus damage value reverted to how it was before upstream.
+  id: 206
+  time: '2026-01-01T20:53:23.0000000+00:00'
+- author: Delphine
+  changes:
+    - type: Fix
+      message: Fixed the Temperature Gun not working properly.
+  id: 207
+  time: '2026-01-02T18:33:53.0000000+00:00'
+- author: ukuleleman
+  changes:
+    - type: Tweak
+      message: Made IPCs fat again (you lost your Ozempic privileges)
+  id: 208
+  time: '2026-01-06T08:19:52.0000000+00:00'
+- author: Dot5511
+  changes:
+    - type: Add
+      message: Added two illegal cloaks in Maintenance Closets!
+  id: 209
+  time: '2026-01-06T22:48:32.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: Ventclog can now jet out any chem, enjoy.
+  id: 210
+  time: '2026-01-07T04:59:18.0000000+00:00'

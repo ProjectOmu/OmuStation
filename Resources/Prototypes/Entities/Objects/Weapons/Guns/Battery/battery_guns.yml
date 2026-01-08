@@ -317,7 +317,7 @@
 
 - type: entity
   name: svalinn laser pistol
-  parent: [BaseWeaponPowerCellSmall, BaseSecurityContraband]
+  parent: [BaseWeaponCustomCellSmall, BaseSecurityContraband] # goob edit - svalinn buff fix
   id: WeaponLaserSvalinn
   description: A cheap and widely used laser pistol.
   components:
@@ -346,6 +346,18 @@
     materialComposition:
       Steel: 500
       Gold: 125
+  - type: ItemSlots # goob edit - let svalinns use potato batteries
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: PowerCellMedium
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - PowerCell
+            - PowerCellSmall
+            - PotatoBattery
 
 - type: entity
   name: retro laser blaster
@@ -579,7 +591,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: HitscanBatteryAmmoProvider
-    proto: Pulse 
+    proto: Pulse
     fireCost: 100 # Omu - ERT Hotfix
   - type: AmmoSelector # Goobstation - Start
     prototypes:
@@ -595,7 +607,7 @@
     verbText: mode-select-verb-text
     key: enum.AmmoSelectorUiKey.Key # Goobstation - End
   - type: Battery
-    maxCharge: 2500 # Omu - ERT Hotfix 
+    maxCharge: 2500 # Omu - ERT Hotfix
     startingCharge: 2500 # Omu - ERT Hotfix
   # Goobstation
   - type: Tag
@@ -1193,7 +1205,7 @@
 
 - type: entity
   name: temperature gun
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
+  parent: [BaseWeaponBattery, BaseSecurityContraband] # Omu, removed wieldable
   id: WeaponTemperatureGun
   description: An advanced gun that shoots body-temperature-changing beams. This probably constitutes as some kind of war crime.
   components:
@@ -1220,18 +1232,23 @@
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun.rsi # Goobstation
   - type: Gun
-    fireRate: 1
+    fireRate: 2 # Omu
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletTemperatureCold # Goobstation
-    fireCost: 100
-  - type: BatteryWeaponFireModes
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg # Omu
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg # Omu
+  - type: ProjectileBatteryAmmoProvider # Omu
+    proto: BulletTemperatureHot
+  - type: EnergyGun # Omu
     fireModes:
-    - proto: BulletTemperatureCold # Goobstation
+    - proto: BulletTemperatureCold
       fireCost: 100
-    - proto: BulletTemperatureHot # Goobstation - im lazy to port shit from wizden so i just use goob prototypes that are already balanced
+      name: cooling # Omu
+      state: cooling # Omu
+    - proto: BulletTemperatureHot
       fireCost: 100
+      name: heating # Omu
+      state: heating # Omu
   - type: Battery
     maxCharge: 2500 # Goobstation - 1000 -> 2500
     startingCharge: 2500 # 1000 -> 2500

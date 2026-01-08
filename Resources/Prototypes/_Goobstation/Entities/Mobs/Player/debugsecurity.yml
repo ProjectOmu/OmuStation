@@ -80,7 +80,7 @@
   categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanBrigmedicSuit
-  name: Brigmedic Suit
+  name: Corpsman Suit # Omu - rename Brigmedic to Corpsman
   components:
   - type: Loadout
     prototypes: [ SecurityBrigmedicSuit ]
@@ -170,7 +170,7 @@
   categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanBrigmedic
-  name: Brigmedic
+  name: Corpsman # Omu - rename Brigmedic to Corpsman
   components:
   - type: Loadout
     prototypes: [ BrigmedicGearDebug ]

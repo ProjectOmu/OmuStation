@@ -103,12 +103,14 @@
   description: An abomination cobbled together from varied remains. Its appearance changes slightly every time you blink.
   components:
   - type: Ghoul
-    totalHealth: 150
+    totalHealth: 200 #OMU change, buffed health in exchange for limit of 10
     ghostRoleName: ghostrole-stalker-name
     ghostRoleDesc: ghostrole-stalker-desc
   - type: Sprite
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
     state: stalker
+  - type: Damageable #OMU change, make flesh stalkers have armor to compensate for lower numbers.
+    damageModifierSet: GhoulFleshStalker
   - type: GhostRole
     name: ghostrole-stalker-name
     description: ghostrole-stalker-desc

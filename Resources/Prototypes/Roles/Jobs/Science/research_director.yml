@@ -156,6 +156,12 @@
   supervisors: job-supervisors-captain
   #canBeAntag: false
   antagAdvantage: 75 # Goobstation
+  guides: # goobstation
+  - Science
+  - Command
+  - ResearchDirector SOP
+  - Science SOP
+  - CommandTrainingManual # Omu
   goobcoins: 40 #Goob content
   access:
   - Research
@@ -164,7 +170,7 @@
   - ResearchDirector
   - Brig
   - Cryogenics
-  - External # goobstation
+  - External # Goobstation
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

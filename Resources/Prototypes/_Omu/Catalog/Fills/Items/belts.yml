@@ -1,14 +1,19 @@
 - type: entity
-  id: ClothingBeltMilitaryWebbingBSOFilled
-  parent: ClothingBeltMilitaryWebbingBSO
-  suffix: Filled, BSO
+  id: ClothingBeltCorpsmanWebbingFilled
+  parent: ClothingBeltCorpsmanWebbing
+  suffix: Filled
   components:
   - type: StorageFill
     contents:
-    - id: CombatInjector
-    - id: TirimolChemistryVial
-    - id: OmnizineChemistryVial
-    - id: SyriniverChemistryVial
-    - id: ProcenylLazideChemistryVial
-    - id: EbifinlLazideChemistryVial
+    - id: Stunbaton
+    - id: WeaponDisabler
+    - id: HandheldCrewMonitor
+    - id: SecHypo
+    - id: CartridgeEpinephrine
+    - id: CartridgeBicaridine
+    - id: CartridgeDermaline
+    - id: CartridgeAtropine
 
+- type: entity
+  id: ClothingBeltCorpsmanFilled
+  parent: [ClothingBeltCorpsman, ClothingBeltCorpsmanWebbingFilled]

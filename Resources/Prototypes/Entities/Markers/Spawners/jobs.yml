@@ -525,7 +525,7 @@
 - type: entity
   id: SpawnPointBrigmedic
   parent: SpawnPointJobBase
-  name: brigmedic
+  name: corpsman # Omu - rename Brigmedic to Corpsman
   components:
   - type: Sprite
     layers:

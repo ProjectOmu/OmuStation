@@ -446,12 +446,12 @@
     - CorgiWearable
     - WhitelistChameleon
 
-#Brigmedic Hardsuit
+# Brigmedic Hardsuit | # Omu - fuck you it's Corpsman now
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitBrigmedic
-  name: brigmedic hardsuit helmet # Goob edit
-  description: The lightweight helmet of the brigmedic hardsuit. Protects against viruses, and clowns.
+  name: corpsman hardsuit helmet # Goob edit | Omu - rename Brigmedic to Corpsman
+  description: The lightweight helmet of the corpsman hardsuit. Protects against viruses, and clowns.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/brigmedic.rsi

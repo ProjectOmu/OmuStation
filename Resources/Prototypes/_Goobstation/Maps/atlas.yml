@@ -53,13 +53,14 @@
             prefixCreator: 'R4' # R4407/Goon. GS isn't as cool sounding.
         - type: StationJobs
           availableJobs:
-            #service
-            StationAi: [ 1, 1 ]
+            #Command
             Captain: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ]
             BlueshieldOfficer: [ 1, 1 ]
-            HeadOfPersonnel: [ 1, 1 ]
             AdministrativeAssistant: [ 1, 1 ] # Delta V
+
+            #service
+            HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]
             Botanist: [ 2, 2 ]
             Chef: [ 1, 1 ]
@@ -67,6 +68,7 @@
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 1, 1 ]
+            RadioHost: [ 1, 1 ] # Omu
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 2, 2 ]
@@ -77,11 +79,13 @@
             Chemist: [ 1, 1 ]
             MedicalDoctor: [ 2, 2 ]
             MedicalIntern: [ 1, 3 ]
+            Virologist: [ 1, 1 ] # Omu
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 2, 2 ]
             ResearchAssistant: [ 1, 3 ]
             Borg: [ 2, 2 ]
+            StationAi: [ 1, 1 ]
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]

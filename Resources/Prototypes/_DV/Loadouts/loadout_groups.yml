@@ -48,3 +48,12 @@
   loadouts:
   - HoPGloves
   # - InspectionGloves
+
+- type: loadoutGroup
+  id: SalvageSpecialistJumpsuit
+  name: loadout-group-salvage-specialist-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SalvageJumpsuit
+  - SalvageJumpskirt

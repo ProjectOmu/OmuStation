@@ -96,3 +96,16 @@ selectable-set-ert-light-energy-description =
     infrastructure and recharging stations.
     Includes a CR-9 energy rifle, an EG-4 energy revolver,
     and 3 self-recharging magazines for each.
+
+# Corpsman
+selectable-set-corpsman-lighthardsuit-name = Corpsman hardsuit
+selectable-set-corpsman-lighthardsuit-desc =
+    Standard issue corpsman hardsuit.
+    Lighter then security variants offering greater mobility
+    while sacrificing protection.
+
+selectable-set-corpsman-combathardsuit-name = Corpsman combat hardsuit
+selectable-set-corpsman-combathardsuit-desc =
+    Older model of corpsman's hardsuit.
+    Built based on designs recovered from Regalis sector.
+    Offers much better armor then newer models.

@@ -121,6 +121,7 @@
   description: It's a space carp.
   abstract: true
   components:
+    - type: WeatherImmune
     - type: InputMover
     - type: MobMover
     - type: HTN
@@ -392,6 +393,8 @@
         types:
           Slash: 10
           Bloodloss: 5
+    - type: Fish
+      difficulty: 0.040
 
 - type: entity
   id: MobSharkSalvage

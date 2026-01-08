@@ -10,10 +10,15 @@
 
 guide-entry-space-law = Space Law
 guide-entry-medpatches = Medical Patches
+guide-entry-virology = Virology
 guide-entry-rules-nrp = NRP Ruleset
 guide-entry-sm = Supermatter Engine
 guide-entry-automation = Automation
 guide-entry-plumbing = Plumbing
+
+guide-entry-alcoholic-drinks = Alcoholic Drinks
+guide-entry-non-alcoholic-drinks = Non-Alcoholic Drinks
+guide-entry-enchanting = Enchanting
 
 # Goob SOP
 # - Main Directories
@@ -74,7 +79,9 @@ guide-entry-sop-rd = Research Director
 guide-entry-sop-cmo = Chief Medical Ofc.
 guide-entry-sop-ce = Chief Engineer
 guide-entry-sop-qm = Quartermaster
-guide-entry-sop-aa = Administration Assist. # Omu
+# Omu start
+guide-entry-sop-aa = Administration Assist.
+# Omu end
 # - Engineering
 guide-entry-sop-atmostech = Atmos Tech
 guide-entry-sop-stationengineer = Station Engineer

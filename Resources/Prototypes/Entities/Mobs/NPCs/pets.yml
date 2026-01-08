@@ -894,6 +894,13 @@
   id: MobSpiderShiva
   description: The first defender of the station.
   components:
+  - type: GhostRole # DeltaV
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-shiva-name
+    description: ghost-role-information-shiva-description
+  - type: GhostTakeoverAvailable # DeltaV
   - type: InteractionPopup
     successChance: 0.5 # spider is mean
     interactSuccessString: petting-success-tarantula
@@ -939,7 +946,7 @@
     damage:
       types:
         Piercing: 8
-        Poison: 8
+        Poison: 2 # Omu, Sleep poison instead of die poison
   - type: Spider
     spawnsWebsAsNonPlayer: false
   - type: Grammar
@@ -954,6 +961,25 @@
     - FootstepSound
   - type: StealTarget
     stealGroup: AnimalShiva
+  - type: SolutionContainerManager # Omu start
+    solutions:
+      melee:
+        maxVol: 12
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: Nocturine
+        Quantity: 0.1
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 3
+  - type: Access
+    tags:
+    - Security
+    - Brig
+  - type: Puller
+    needsHands: false # Omu end
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Xeno
@@ -1024,7 +1050,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Dead
+      300: Dead # Omu, Make smile a bit more tanky
+  - type: CanEscapeInventory # Omu
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepSlime
@@ -1047,25 +1074,42 @@
       amount: 1
     - id: MaterialSmileExtract
       amount: 1
-  - type: Damageable
-    damageModifierSet: SlimePet
   - type: Bloodstream
     bloodlossHealDamage:
       types:
         Bloodloss:
           -0.8
   - type: Temperature
-    heatDamageThreshold: 800
-    coldDamageThreshold: 0
+    heatDamageThreshold: 1000 # Omu, make smile a bit more tanky.
+    coldDamageThreshold: -200 # Omu, make smile spaceproof.
+  - type: Damageable # Omu start
+    damageContainer: Biological
+    damageModifierSet: Smile
+  - type: SupermatterImmune
+  - type: Puller
+    needsHands: false
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 1
-        Caustic: 1
+        Blunt: 0
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 10
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: Omnizine
+        Quantity: 0.05
+  - type: NoSlip
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 0.1 # Omu end
   - type: MultiHandedItem
   - type: Item
     sprite: Mobs/Pets/Smile/smile.rsi
-    size: Huge
+    size: Ginormous # Omu
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-slime
   - type: MobPrice
@@ -1086,6 +1130,19 @@
     understands:
     - Bubblish
     - TauCetiBasic
+  - type: SlowOnDamage # Omu start
+    speedModifierThresholds:
+      150: 1
+  - type: ZombieImmune
+  - type: MovementIgnoreGravity
+  - type: BreathingImmunity
+  - type: PressureImmunity
+  - type: SpecialLowTempImmunity
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Access
+    tags:
+    - Research # Omu end
 
 - type: entity
   name: Pun Pun

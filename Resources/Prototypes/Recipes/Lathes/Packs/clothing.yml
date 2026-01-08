@@ -13,6 +13,8 @@
   - ClothingUniformJumpsuitLoungewear
 
 - type: latheRecipePack
+  parent:
+  - ClothingCargoDeltaV # DeltaV
   id: ClothingCargo
   recipes:
   - ClothingUniformJumpsuitCargo

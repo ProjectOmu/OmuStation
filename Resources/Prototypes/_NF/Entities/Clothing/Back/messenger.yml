@@ -437,7 +437,7 @@
 - type: entity
   parent: [ BaseSecurityContraband , ClothingBackpackMessengerBase ]
   id: ClothingBackpackMessengerBrigmedic
-  name: brigmedic messenger bag
+  name: corpsman messenger bag # Omu - rename Brigmedic to Corpsman
   description: A robust bag for storing extra surgery tools for inmate tort... treating.
   components:
   - type: Sprite

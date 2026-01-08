@@ -4,3 +4,5 @@ loadout-group-admin-assistant-outerclothing = Administrative Assistant outer clo
 loadout-group-admin-assistant-headset = Administrative Assistant headset
 loadout-group-admin-assistant-shoes = Administrative Assistant shoes
 loadout-group-admin-assistant-gloves = Administrative Assistant gloves
+
+loadout-group-salvage-specialist-jumpsuit = Salvage Specialist jumpsuit

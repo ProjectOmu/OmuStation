@@ -29,6 +29,7 @@
             AdministrativeAssistant: [ 1, 1 ] # Delta V
             NanotrasenRepresentative: [ 1, 1 ]
             BlueshieldOfficer: [ 1, 1 ]
+            NanotrasenCareerTrainer: [ 2, 2] # Omu
             # cargo
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 6, 8 ]
@@ -43,8 +44,9 @@
             MedicalDoctor: [ 6, 8 ]
             MedicalIntern: [ 3, 4 ]
             Psychologist: [ 1, 1 ]
-            Paramedic: [ 1, 2 ]
+            Paramedic: [ 2, 2 ] # Omu 1 -> 2
             Chemist: [ 2, 2 ]
+            Virologist: [ 1, 1 ] # Omu
             # science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 6, 8 ]
@@ -69,6 +71,7 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 2 ]
             Reporter: [ 1, 2 ]
+            RadioHost: [ 1, 1 ] # Omu
             ServiceWorker: [ 3, 4 ]
             Zookeeper: [ 1, 1 ]
             Passenger: [ -1, -1 ]

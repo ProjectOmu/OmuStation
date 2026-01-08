@@ -1,0 +1,78 @@
+#Corpsman alt headset. Base brigmed code, new sprite.
+- type: entity
+  parent: [ClothingHeadsetAlt, BaseSecurityContraband]
+  id: ClothingHeadsetAltBrigmedic
+  name: corpsman over-ear headset
+  description: A headset that helps to hear the death cries.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyMedical
+      - EncryptionKeySecurity
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: _Omu/Clothing/Ears/Headsets/corpsman.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Ears/Headsets/corpsman.rsi
+
+- type: entity
+  parent: [ ClothingHeadsetAltCentCom ]
+  id: ClothingHeadsetAltCentComSec
+  name: CentComm Security over-ear headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCentCom
+      - EncryptionKeyCommon
+      - EncryptionKeySecurity
+
+- type: entity
+  parent: [ ClothingHeadsetAltCentCom ]
+  id: ClothingHeadsetAltCentComMed
+  name: CentComm Medical over-ear headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCentCom
+      - EncryptionKeyCommon
+      - EncryptionKeyMedical
+
+- type: entity
+  parent: [ ClothingHeadsetAltCentCom ]
+  id: ClothingHeadsetAltCentComJani
+  name: CentComm Janitor over-ear headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCentCom
+      - EncryptionKeyCommon
+      - EncryptionKeyService
+
+- type: entity
+  parent: [ ClothingHeadsetAltCentCom ]
+  id: ClothingHeadsetAltCentComEngi
+  name: CentComm Engineer over-ear headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCentCom
+      - EncryptionKeyCommon
+      - EncryptionKeyEngineering
+
+- type: entity
+  parent: [ ClothingHeadsetAltCentCom ]
+  id: ClothingHeadsetAltCentComChaplain
+  name: CentComm Chaplain over-ear headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCentCom
+      - EncryptionKeyCommon
+      - EncryptionKeyService
+      - EncryptionKeySecurity

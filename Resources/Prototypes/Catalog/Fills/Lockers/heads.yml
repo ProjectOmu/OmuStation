@@ -210,10 +210,10 @@
     - id: WeaponDisabler
     - id: ClothingEyesGlassesCommand
     - id: HeadSkeleton # A skull to accompany your skeleton crew
-    # Omu - No second skin - id: SecondSkinSecurity # Goobstation
       conditions:
       - !type:PlayerCountCondition
         max: 15
+    - id: BookCorporateSecrets # funky
 
 # No laser table + Laser table
 - type: entityTable
@@ -420,6 +420,9 @@
     - id: ClothingBackpackDuffelSurgeryFilled
     # Shitmed
     - id: MedicalBiofabricatorFlatpack
+    # Virology
+    - id: DiseaseDiagnoserFlatPack
+    - id: VaccinatorFlatPack
     # Goobstation End
     - id: ComputerMedicalCommsFlatpack #Omu adds departmental comms board
 
@@ -482,6 +485,7 @@
     - id: ScienceTechFabCircuitboard # Goobstation - Science Techfab
     - id: ClothingBeltGeminiHoloProjector # Goobstation - Who better to do science with than yourself?
     - id: ClothingEyesGlassesSciDiag # Omustation - HUD that lets RD talk in binary hivemind!
+    - id: XenobiologyBountyComputerCircuitboard # Goobstation
     - id: MMI # Goobstation
     - id: ComputerScienceCommsFlatpack #Omu adds departmental comms board
     - id: Multitool # Omu
@@ -549,8 +553,6 @@
     - id: HeadOfSecurityMeleeCase # Omu
     - id: ComputerSecurityCommsFlatpack #Omu adds departmental comms board
     - id: Multitool # Omu
-    - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp
-    # Omu - no second skin - id: SecondSkinSecurity # Goobstation
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -603,4 +605,3 @@
     - id: SpaceCash1000
     - id: BeachBall
     - id: BikeHorn
-

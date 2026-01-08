@@ -389,11 +389,11 @@
   - type: AccessReader
     access: [["Armory"]]
 
-# Brigmedic
+# Brigmedic | Omu - You mean Corpsman?
 - type: entity
   id: LockerBrigmedic
   parent: LockerBaseSecure
-  name: brigmedic locker
+  name: corpsman locker # Omu - rename Brigmedic to Corpsman
   components:
   - type: Appearance
   - type: EntityStorageVisuals

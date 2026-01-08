@@ -17,7 +17,7 @@
   - type: Clothing
     sprite: _Mono/Clothing/Head/Hardsuits/asakim.rsi
     # Omu Start
-    clothingVisuals: 
+    clothingVisuals:
       head:
       - state: equipped-HELMET
       - state: equipped-HELMET-glow
@@ -25,7 +25,7 @@
       head-asakim:
       - state: equipped-HELMET-asakim
       - state: equipped-HELMET-glow-asakim
-        shader: unshaded 
+        shader: unshaded
     # Omu End
   - type: PressureProtection
     highPressureMultiplier: 0.02
@@ -75,6 +75,7 @@
     - HeadTop
     - HeadSide
   # Omu Start
-  - type: SpeechSoundsReplacer
-    speechSounds: SyndieBorg
+  - type: ClothingGrantComponent
+    component:
+    - type: FacehuggerImmune
   # Omu End

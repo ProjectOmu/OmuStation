@@ -35,7 +35,7 @@ job-name-security = Security Officer
 job-name-cadet = Security Cadet
 job-name-hos = Head of Security
 job-name-detective = Detective
-job-name-brigmedic = Brigmedic
+job-name-brigmedic = Corpsman
 job-name-borg = Cyborg
 job-name-scientist = Scientist
 job-name-research-assistant = Research Assistant
@@ -82,6 +82,8 @@ job-name-ertjanitor = ERT Janitor
 job-name-boxer = Boxer
 job-name-zookeeper = Zookeeper
 job-name-visitor = Visitor
+# Viro
+job-name-virologist = Virologist
 job-name-cluwne = Cluwne
 
 # event-resctricted jobs
@@ -98,7 +100,6 @@ job-name-prisoner = Prisoner
 job-name-roboticist = Roboticist
 job-name-syndicate = Syndicate
 job-name-unknown = Unknown
-job-name-virologist = Virologist
 job-name-zombie = Zombie
 
 # Job titles

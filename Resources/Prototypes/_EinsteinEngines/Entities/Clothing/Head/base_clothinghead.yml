@@ -97,6 +97,19 @@
       cell_slot: !type:ContainerSlot {}
   - type: GuideHelp # While the playerbase is getting introduced to Plasmamen, add their guidebook here
     guides: [ Plasmaman ]
+  # Omu Start
+  - type: DiseaseProtection # The same full protection as a biosuit helmet
+    incoming:
+      powerModifiers:
+        Aerial: -1
+      chanceMultipliers:
+        Aerial: 0
+    outgoing:
+      powerModifiers:
+        Aerial: -1
+      chanceMultipliers:
+        Aerial: 0
+   # Omu End
 
 # When making new custom envirohelms, inherit from this entity and
 # replace the color fields on the layers

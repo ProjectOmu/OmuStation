@@ -1,0 +1,45 @@
+- type: entity
+  parent: [ BaseSecurityContraband , ClothingBackpackMessengerBase ]
+  id: ClothingBackpackMessengerCorpsman
+  name: blue corpsman messenger bag
+  description: A robust bag for storing extra surgery tools for inmate tort... treating. This one comes in alternative blue colours.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon-base
+      color: "#5b5b5b"
+    - state: icon-base-top
+      color: "#486782"
+    - state: icon-sling
+      color: "#292929" # 1f2026
+    - state: icon-clasp
+      color: "#292929"
+  - type: Clothing
+    clothingVisuals:
+      back:
+      - state: base-equipped-BACKPACK
+        color: "#5b5b5b"
+      - state: base-top-equipped-BACKPACK
+        color: "#486782"
+      - state: sling-equipped-BACKPACK
+        color: "#292929" # ffffff
+      - state: clasp-equipped-BACKPACK
+        color: "#292929"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-inhand-left
+        color: "#88242d"
+      - state: base-top-inhand-left
+        color: "#a52f29"
+      - state: clasp-inhand-left
+        color: "#ffffff"
+      right:
+      - state: base-inhand-right
+        color: "#88242d"
+      - state: base-top-inhand-right
+        color: "#a52f29"
+      - state: clasp-inhand-right
+        color: "#ffffff"
+
+

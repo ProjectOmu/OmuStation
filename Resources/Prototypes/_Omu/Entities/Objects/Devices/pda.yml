@@ -24,3 +24,43 @@
   components:
   - type: Pda
     id: PrisonerIDCardPerma
+
+- type: entity
+  parent: ERTChaplainPDA
+  id: ERTChaplainPDABlue
+  suffix: Chaplain, Blue alert
+  components:
+  - type: Pda
+    id: ERTChaplainIDCardBlue
+
+- type: entity
+  parent: ERTEngineerPDA
+  id: ERTEngineerPDABlue
+  suffix: Engineer, Blue alert
+  components:
+  - type: Pda
+    id: ERTEngineerIDCardBlue
+
+- type: entity
+  parent: ERTJanitorPDA
+  id: ERTJanitorPDABlue
+  suffix: Janitor, Blue alert
+  components:
+  - type: Pda
+    id: ERTJanitorIDCardBlue
+
+- type: entity
+  parent: ERTMedicPDA
+  id: ERTMedicPDABlue
+  suffix: Medic, Blue alert
+  components:
+  - type: Pda
+    id: ERTMedicIDCardBlue
+
+- type: entity
+  parent: ERTSecurityPDA
+  id: ERTSecurityPDABlue
+  suffix: Security, Blue alert
+  components:
+  - type: Pda
+    id: ERTSecurityIDCardBlue

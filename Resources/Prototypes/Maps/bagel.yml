@@ -102,6 +102,7 @@
             Captain: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ]
             BlueshieldOfficer: [ 1, 1 ]
+            NanotrasenCareerTrainer: [ 2, 2] # Omu
             #service
             HeadOfPersonnel: [ 1, 1 ]
             AdministrativeAssistant: [ 1, 1 ] # Delta V
@@ -121,8 +122,9 @@
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 3, 3 ]
-            Paramedic: [ 1, 1 ]
+            Paramedic: [ 2, 2 ] # Omu 1 -> 2
             MedicalIntern: [ 4, 4 ]
+            Virologist: [ 2, 2 ] # Omu
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 5, 5 ]
@@ -146,8 +148,7 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Reporter: [ 2, 2 ]
+            RadioHost: [ 1, 1 ] # Omu
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
-
-            NanotrasenCareerTrainer: [ -1, -1] # Omu

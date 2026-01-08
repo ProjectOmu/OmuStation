@@ -53,7 +53,7 @@
     sprite: _Omu/Clothing/Belt/clothingbelthoscqc.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Belt/clothingbelthoscqc.rsi
-  - type: GrantCqc
+  - type: GrantCapoeira
   - type: Storage
     whitelist:
       tags:
@@ -83,7 +83,7 @@
       - ScatteringGrenade
   - type: GuideHelp
     guides:
-    - CQC
+    - Capoeira
   - type: StealTarget
     stealGroup: WeaponSecHeadSword
 
@@ -101,3 +101,15 @@
     damageCoefficient: 0.1
   - type: StaticPrice
     price: 500
+
+- type: entity
+  parent: [ClothingBeltCorpsmanWebbing]
+  id: ClothingBeltCorpsman
+  name: corpsman belt
+  description: Standard security belt with blue corpsman highlights.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Belt/corpsman.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Belt/corpsman.rsi
+

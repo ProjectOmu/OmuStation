@@ -200,10 +200,10 @@ loadout-group-head-of-security-envirosuit = Head of Security envirosuit
 loadout-group-head-of-security-envirogloves = Head of Security envirogloves
 loadout-group-head-of-security-gloves = Head of Security gloves
 
-# Brigmedic
-loadout-group-brigmedic-envirohelm = Brigmedic envirohelm
-loadout-group-brigmedic-envirosuit = Brigmedic envirosuit
-loadout-group-brigmedic-envirogloves = Brigmedic envirogloves
+# Brigmedic | Omu - Corpsman
+loadout-group-brigmedic-envirohelm = Corpsman envirohelm
+loadout-group-brigmedic-envirosuit = Corpsman envirosuit
+loadout-group-brigmedic-envirogloves = Corpsman envirogloves
 
 # Zookeeper
 loadout-group-zookeeper-envirohelm = Zookeeper envirohelm

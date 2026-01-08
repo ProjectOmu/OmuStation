@@ -26,3 +26,44 @@
   description: Do the impossible, see the invisible!
   components:
   - type: EyeProtection
+
+- type: entity
+  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons, BaseSecurityContraband]
+  id: ClothingEyesGlassesCorpsman
+  name: corpsman glasses
+  description: Security glasses designed for the Corpsman for medical and security needs. Now with a cool blue hue!
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Eyes/Glasses/corpsglasses.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Eyes/Glasses/corpsglasses.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+  - type: GuideHelp
+    guides:
+    - Security
+    - Antagonists
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Armor #Stats from regular sec glasses
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Heat: 0.9
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+    traumaDeductions:
+      Dismemberment: 0
+      OrganDamage: 0.13
+      BoneDamage: 0.13
+      VeinsDamage: 0
+      NerveDamage: 0
+
+

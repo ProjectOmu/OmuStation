@@ -7,19 +7,18 @@
   id: BrigmedicJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitBrigmedic
-
+  groupBy: "jumpsuit" #Omu
 
 - type: loadout
   id: BrigmedicJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtBrigmedic
-
+  groupBy: "jumpskirt" #Omu
 
 - type: loadout
   id: BrigmedicBeret
   equipment:
     head: ClothingHeadHatBeretBrigmedic
-
 
 - type: loadout
   id: BrigmedicAMG
@@ -30,21 +29,25 @@
   id: BrigmedicBackpack
   equipment:
     back: ClothingBackpackBrigmedic
+  groupBy: "backpack" #Omu
 
 - type: loadout
   id: BrigmedicSatchel
   equipment:
     back: ClothingBackpackSatchelBrigmedic
+  groupBy: "satchel" #Omu
 
 - type: loadout
   id: BrigmedicDuffel
   equipment:
     back: ClothingBackpackDuffelBrigmedic
+  groupBy: "duffel" #Omu
 
 - type: loadout
   id: BrigmedicMessenger
   equipment:
     back: ClothingBackpackMessengerBrigmedic
+  groupBy: "messenger" #Omu
 
 - type: loadout
   id: BrigmedicEnvirosuit

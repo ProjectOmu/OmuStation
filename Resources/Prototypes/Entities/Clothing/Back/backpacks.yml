@@ -150,7 +150,7 @@
 - type: entity
   parent: [ClothingBackpack, BaseSecurityContraband]
   id: ClothingBackpackBrigmedic
-  name: brigmedic backpack
+  name: corpsman backpack # Omu - rename Brigmedic to Corpsman
   description: It's a very sterile backpack.
   components:
   - type: Sprite

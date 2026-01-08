@@ -45,6 +45,16 @@
     - id: FishNuker
     - id: FishToxic
     - id: FishIan
+    - id: CrateCargoGambling
+    - id: MobShark
+
+- type: entityTable
+  id: InsaneFishTable
+  table: !type:GroupSelector
+    children:
+    - id: MobDragonDungeon  # This one dies pretty easy its just gonna be funny
+    - id: NukeDiskFake
+    - id: ClothingOuterHardsuitCarp
 
 # Fish from water
 - type: entityTable
@@ -61,6 +71,8 @@
     - id: FishSilver
     - id: FishTropicalSun
     - id: FishTropical
+    - id: MobSpaceShrimp
+    - id: MobCrab
 
 # Items from Water
 - type: entityTable
@@ -69,13 +81,16 @@
     children:
       - !type:NestedSelector
         tableId: BasicFishingLootTable
-        weight: 70
+        weight: 40
       - !type:NestedSelector
         tableId: WaterFishTable
-        weight: 20
+        weight: 50
       - !type:NestedSelector
         tableId: RareFishTable
-        weight: 10
+        weight: 9
+      - !type:NestedSelector
+        tableId: InsaneFishTable
+        weight: 1
 
 # Items from Lava
 - type: entityTable

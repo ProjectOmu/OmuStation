@@ -75,6 +75,7 @@
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
+            RadioHost: [ 1, 1 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 3, 3 ]
@@ -86,6 +87,7 @@
             MedicalDoctor: [ 6, 6 ]
             Paramedic: [ 2, 2 ]
             MedicalIntern: [ 4, 4 ]
+            Virologist: [ 1, 1 ]
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 5, 5 ]
@@ -112,7 +114,7 @@
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
 
-            NanotrasenCareerTrainer: [ -1, -1] # Omu
+            NanotrasenCareerTrainer: [ 2, 2] # Omu
         # Goobstation blob-config-start HUGE
         - type: StationBlobConfig
           stageBegin: 40

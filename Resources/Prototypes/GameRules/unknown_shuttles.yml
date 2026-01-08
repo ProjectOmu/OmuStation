@@ -46,7 +46,7 @@
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
     - id: UnknownShuttleSyndieEvacPod
-    - id: AsakimShuttle # Omu
+  #  - id: AsakimShuttle # Omu
 
 - type: entityTable
   id: UnknownShuttlesHostileTable

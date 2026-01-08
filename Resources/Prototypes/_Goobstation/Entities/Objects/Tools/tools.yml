@@ -188,6 +188,8 @@
     notificationPrefix: prayer-chat-notify-centcom
     verb: prayer-verbs-call
     verbImage: null
+    notificationSound:
+      path: /Audio/_Goobstation/Misc/phone_ring.ogg
   - type: MultiHandedItem
 
 - type: entity
@@ -206,6 +208,8 @@
     notificationPrefix: prayer-chat-notify-centcom
     verb: prayer-verbs-call
     verbImage: null
+    notificationSound:
+      path: /Audio/_Goobstation/Misc/phone_ring.ogg
   - type: Sprite
     sprite: _Goobstation/Objects/Tools/official_fax.rsi
     drawdepth: SmallObjects

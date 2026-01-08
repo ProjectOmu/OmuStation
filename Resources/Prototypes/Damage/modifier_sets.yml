@@ -102,12 +102,12 @@
   id: Rock
   coefficients:
     Structural: 4
-    Blunt: 0.5
+    Blunt: 4 # Omu change - 0.25 - 4 / PKAs can now be used to break both station rock and lavaland rock
     Slash: 0.25
     Piercing: 0.75
     Heat: 0.9
-  flatReductions:
-    Blunt: 5
+  # flatReductions: # Omu change - PKAs can now be used to break both station rock and lavaland rock
+  #  Blunt: 5
 
 - type: damageModifierSet
   id: PerforatedMetallic

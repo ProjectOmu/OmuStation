@@ -3,3 +3,12 @@
   id: BlackRedUniform
   equipment:
     jumpsuit: ClothingUniformBlackRedSecUniform
+
+#Belt
+- type: loadout
+  id: SecuritySwordBelt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+  equipment:
+    belt: ClothingBeltSheathStunswordFilled

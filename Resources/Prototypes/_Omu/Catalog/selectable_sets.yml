@@ -158,7 +158,7 @@
   id: ERTShotgunSet
   name: selectable-set-ert-shotgun-name
   description: selectable-set-ert-shotgun-description
-  sprite: 
+  sprite:
     sprite: _Goobstation/Objects/Weapons/Guns/Lever/combatshotgun.rsi
     state: icon
   content:
@@ -199,3 +199,24 @@
   - AdvancedEnergyMagRifleLethal
   - AdvancedEnergyMagRifleOverchargeLethal
   - AdvancedEnergyMagRifleDisabler
+
+#corpsman
+- type: selectableSet
+  id: VoidsuitSelectorCorpsmanLightHardsuit
+  name: selectable-set-corpsman-lighthardsuit-name
+  description: selectable-set-corpsman-lighthardsuit-desc
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/brigmedic.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitBrigmedic
+
+- type: selectableSet
+  id: VoidsuitSelectorCorpsmanCombatHardsuit
+  name: selectable-set-corpsman-combathardsuit-name
+  description: selectable-set-corpsman-combathardsuit-desc
+  sprite:
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/corpsman.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitCorpsman
