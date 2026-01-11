@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/01/2026 18:21:21
-  entityCount: 44730
+  time: 01/03/2026 16:56:59
+  entityCount: 44733
 maps:
 - 18185
 grids:
@@ -112368,7 +112368,7 @@ entities:
       pos: -22.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2573.6443
+      secondsUntilStateChange: -2740.1768
       state: Opening
   - uid: 44598
     components:
@@ -112377,7 +112377,7 @@ entities:
       pos: -20.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2574.0774
+      secondsUntilStateChange: -2740.6099
       state: Opening
 - proto: CurtainsGreenOpen
   entities:
@@ -204364,21 +204364,6 @@ entities:
     - type: Transform
       pos: -5.5,7.5
       parent: 2
-  - uid: 5638
-    components:
-    - type: Transform
-      pos: -8.5,5.5
-      parent: 2
-  - uid: 5660
-    components:
-    - type: Transform
-      pos: -8.5,6.5
-      parent: 2
-  - uid: 7229
-    components:
-    - type: Transform
-      pos: -8.5,7.5
-      parent: 2
   - uid: 8279
     components:
     - type: Transform
@@ -204465,6 +204450,23 @@ entities:
       bodyType: Static
     - type: Anchorable
       flags: Anchorable
+- proto: LockerParamedicFilled
+  entities:
+  - uid: 5660
+    components:
+    - type: Transform
+      pos: -8.5,5.5
+      parent: 2
+  - uid: 7229
+    components:
+    - type: Transform
+      pos: -8.5,6.5
+      parent: 2
+  - uid: 44732
+    components:
+    - type: Transform
+      pos: -8.5,7.5
+      parent: 2
 - proto: LockerQuarterMasterFilled
   entities:
   - uid: 15891
@@ -240355,6 +240357,23 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-40.5
+      parent: 2
+- proto: SpawnPointParamedic
+  entities:
+  - uid: 5638
+    components:
+    - type: Transform
+      pos: -7.5,6.5
+      parent: 2
+  - uid: 44731
+    components:
+    - type: Transform
+      pos: -7.5,5.5
+      parent: 2
+  - uid: 44733
+    components:
+    - type: Transform
+      pos: -7.5,7.5
       parent: 2
 - proto: SpawnPointPassenger
   entities:

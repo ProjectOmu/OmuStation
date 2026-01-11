@@ -690,6 +690,11 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         // otherwise we can only transform once
         RemCompDeferred<PolymorphedEntityComponent>(newEnt);
 
+        // Omu - Ensure changlings copy all components when they polymorphs.
+        TryChangelingCopyComp(uid, newEnt, comp);
+        // Refer to - ChangelingSystem.Omu.cs for edits
+        #region Omu edits - outdated code
+        /*
         // exceptional comps check
         // TODO make PolymorphedEvent handlers for all
         List<Type> types = new()
@@ -702,6 +707,9 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         };
         foreach (var type in types)
             _polymorph.CopyPolymorphComponent(uid, newEnt, nameof(type));
+        */
+        // Omu End
+        #endregion
 
         // CopyPolymorphComponent fails to copy the HumanoidAppearanceComponent in TransformData
         // outside of the first list item so this has to be done manually unfortunately
