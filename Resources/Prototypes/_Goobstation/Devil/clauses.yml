@@ -212,12 +212,13 @@
   - type: CheatDeath
     reviveAmount: 1
 
-- type: clause
-  id: mortality
-  clauseWeight: -135
-  addedComponents:
-  - type: CheatDeath
-    infiniteRevives: true
+# I brought you into this world, and I'll take you out of it. - Omu, Delphine
+#- type: clause
+#  id: mortality
+#  clauseWeight: -135
+#  addedComponents:
+#  - type: CheatDeath
+#    infiniteRevives: true
 
 - type: clause
   id: time
