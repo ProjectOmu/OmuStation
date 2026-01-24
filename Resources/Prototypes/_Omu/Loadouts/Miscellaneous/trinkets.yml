@@ -172,3 +172,31 @@
   storage:
     back:
     - BarberScissors
+
+- type: loadout
+  id: MysteryLighterBox
+  storage:
+    back:
+    - MysteryLighterBox
+  groupBy: "smokeables"
+
+- type: loadout
+  id: DiscountDanLighter
+  storage:
+    back:
+    - DiscountDanLighter
+  groupBy: "smokeables"
+
+- type: loadout
+  id: CheapLighter
+  storage:
+    back:
+    - CheapLighter
+  groupBy: "smokeables"
+
+- type: loadout
+  id: FlippoLighter
+  storage:
+    back:
+    - FlippoLighter
+  groupBy: "smokeables"

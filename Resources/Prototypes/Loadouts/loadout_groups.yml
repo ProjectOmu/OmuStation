@@ -230,6 +230,10 @@
   - ClothingNeckChameleonPride
   - BarberScissors
   - ClothingNeckUnathiMantle
+  - MysteryLighterBox
+  - DiscountDanLighter
+  - CheapLighter
+  - FlippoLighter
   # Omu end
   - CardBoxBlack # GoobStation
   - CardBoxNanotrasen # GoobStation
@@ -437,6 +441,7 @@
   - AncientJumpsuit
   - RainbowJumpsuit
   - RainbowJumpskirt
+  - Loungewear # omu
  # goob changes start
   - GreyMJ
   - BlackMJ
@@ -966,11 +971,14 @@
   - CargoTechnicianJacket # OmuStation
   - CargoTechnicianWintercoatMail # Goob/DeltaV - Mail
 
-- type: loadoutGroup
-  id: CargoTechnicianShoes
+- type: loadoutGroup # omu, more cargo shoes, all cargo jobs use the same loadoutgroup
+  id: CargoShoes
   name: loadout-group-cargo-technician-shoes
   loadouts:
   - BlackShoes
+  - WorkBoots 
+  - FishingBoots
+  - SalvageBoots
   - CargoWinterBoots
 
 - type: loadoutGroup
@@ -1165,6 +1173,7 @@
   minLimit: 0
   loadouts:
   - ResearchDirectorBeret
+  - MystaHat # omu
 
 - type: loadoutGroup
   id: ResearchDirectorNeck
@@ -1192,6 +1201,7 @@
   - ResearchDirectorLabCoat
   - ResearchDirectorWintercoat
   - LongScienceCoat # OmuStation
+  - MystaLabcoat # Omu
   - ResearchDirectorLabCoatPurple #goob
 
 - type: loadoutGroup
@@ -1244,6 +1254,7 @@
   minLimit: 0
   loadouts:
   - RegularLabCoat
+  - EpiLabcoat # omu
   - ScienceLabCoat
   - ScienceWintercoat
   - RoboticistLabCoat

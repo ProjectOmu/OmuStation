@@ -62,7 +62,7 @@
   - type: StationEvent
     earliestStart: 20
     weight: 4
-    minimumPlayers: 15
+    minimumPlayers: 150   #Omu change - killed as per request
     maxOccurrences: 1
     startAnnouncement: station-event-communication-interception
     startAudio:
@@ -105,7 +105,7 @@
   - type: StationEvent
     earliestStart: 20
     weight: 3
-    minimumPlayers: 30 # OMU change - lowered to 30, now they are actively a thing.
+    minimumPlayers: 150 # OMU change - killed as per request
     maxOccurrences: 1
     #startAnnouncement: station-event-communication-interception
     #startAudio:

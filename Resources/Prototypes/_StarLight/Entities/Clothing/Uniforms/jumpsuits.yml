@@ -50,3 +50,14 @@
     sprite: _Starlight/Clothing/Uniforms/Jumpsuit/blueshieldshirt.rsi
   - type: Clothing
     sprite: _Starlight/Clothing/Uniforms/Jumpsuit/blueshieldshirt.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCentcommContraband]
+  id: ClothingUniformJumpsuitFormalBlueShield
+  name: formal blueshield officer suit
+  description: A textile jumpsuit, reinforced with thick leather in some areas.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/formal_blueshield.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/formal_blueshield.rsi

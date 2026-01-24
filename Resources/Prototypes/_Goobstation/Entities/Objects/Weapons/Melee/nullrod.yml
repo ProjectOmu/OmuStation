@@ -228,7 +228,7 @@
   - type: UseDelay
     delay: 1
   - type: Prying
-  - type: GrabbingItem
+#  - type: GrabbingItem, Omu change, hard grab is busted
 
 - type: entity
   parent: BaseNullrod
@@ -708,7 +708,7 @@
         Slash: 25
         Piercing: 15
         Holy: 10
-       
+
 - type: entity
   parent: BaseNullrod
   id: RatvarianSpear
