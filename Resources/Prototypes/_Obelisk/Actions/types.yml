@@ -12,5 +12,5 @@
     event: !type:HydrakinCoolOffActionEvent
   - type: Action
     itemIconStyle: BigAction
-    useDelay: 90
-    icon: { sprite: Structures/Piping/Atmospherics/heatexchanger.rsi, state: heStraight }
+    useDelay: 5
+    icon: { sprite: _Obelisk/Actions/hydrakin_cooldown.rsi, state: hydra_cooldown }
