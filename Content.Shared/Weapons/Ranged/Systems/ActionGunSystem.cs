@@ -1,5 +1,7 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
+// <Trauma>
+using Robust.Shared.Map;
+using System.Numerics;
+// </Trauma>
 using Content.Shared.Actions;
 using Content.Shared.Weapons.Ranged.Components;
 
@@ -24,14 +26,21 @@ public sealed class ActionGunSystem : EntitySystem
         if (string.IsNullOrEmpty(ent.Comp.Action))
             return;
 
-        _actions.AddAction(ent, ref ent.Comp.ActionEntity, ent.Comp.Action);
-        ent.Comp.Gun = Spawn(ent.Comp.GunProto);
+        // <Trauma> - parent the gun to the action for networking
+        if (!_actions.AddAction(ent, ref ent.Comp.ActionEntity, ent.Comp.Action))
+            return;
+
+        var coords = new EntityCoordinates(ent.Comp.ActionEntity.Value, Vector2.Zero);
+        ent.Comp.Gun = Spawn(ent.Comp.GunProto, coords);
+        Dirty(ent);
+        // </Trauma>
     }
 
     private void OnShutdown(Entity<ActionGunComponent> ent, ref ComponentShutdown args)
     {
-        if (ent.Comp.Gun is { } gun)
-            QueueDel(gun);
+        if (ent.Comp.Gun is {} gun)
+            PredictedQueueDel(gun); // Trauma - predict this shit
+        _actions.RemoveAction(ent.Comp.ActionEntity); // Trauma
     }
 
     private void OnShoot(Entity<ActionGunComponent> ent, ref ActionGunShootEvent args)

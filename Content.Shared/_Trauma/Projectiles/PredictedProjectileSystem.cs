@@ -232,7 +232,7 @@ public sealed class PredictedProjectileSystem : EntitySystem
                 _recoil.KickCamera(target, ourBody.LinearVelocity.Normalized());
         }
 
-        if ((comp.DeleteOnCollide && comp.ProjectileSpent) || (comp.NoPenetrateMask & otherFixture.CollisionLayer) != 0) // Goobstation - Make x-ray arrows not penetrate blob
+        if (comp.DeleteOnCollide && comp.ProjectileSpent || (comp.NoPenetrateMask & otherFixture.CollisionLayer) != 0) // Goobstation - Make x-ray arrows not penetrate blob
         {
             var deleteEv = new DeletingProjectileEvent(uid);
             RaiseLocalEvent(ref deleteEv);

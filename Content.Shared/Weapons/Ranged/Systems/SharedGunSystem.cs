@@ -188,7 +188,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (gun.Comp.Target == null || !gun.Comp.BurstActivated || !gun.Comp.LockOnTargetBurst)
             gun.Comp.Target = potentialTarget;
         // Goob edit end
-        AttemptShoot(user.Value, gun);
+        AttemptShoot(user.Value, gun, msg.Tick); //omu
     }
 
     private void OnStopShootRequest(RequestStopShootEvent ev, EntitySessionEventArgs args)
@@ -303,7 +303,8 @@ public abstract partial class SharedGunSystem : EntitySystem
         return result;
     }
 
-    private bool AttemptShoot(EntityUid user, Entity<GunComponent> gun)
+    private bool AttemptShoot(EntityUid user, Entity<GunComponent> gun,
+     uint? tick = null) //omu
     {
         if (gun.Comp.FireRateModified <= 0f ||
             !_actionBlockerSystem.CanAttack(user))
@@ -476,7 +477,8 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
 
         // Shoot confirmed - sounds also played here in case it's invalid (e.g. cartridge already spent).
-        Shoot(gun.Owner, gun.Comp, ev.Ammo, fromCoordinates, toCoordinates.Value, out var userImpulse, user, throwItems: attemptEv.ThrowItems);
+        Shoot(gun.Owner, gun.Comp, ev.Ammo, fromCoordinates, toCoordinates.Value, out var userImpulse, user, throwItems: attemptEv.ThrowItems,
+            tick); //omu
         var shotEv = new GunShotEvent(user, ev.Ammo);
         RaiseLocalEvent(gun, ref shotEv);
         var shotBodyEv = new GunShotBodyEvent(gun, gun); // Shitmed Change
@@ -519,7 +521,8 @@ public abstract partial class SharedGunSystem : EntitySystem
         EntityCoordinates toCoordinates,
         out bool userImpulse,
         EntityUid? user = null,
-        bool throwItems = false)
+        bool throwItems = false,
+        uint? tick = null) //omu
     {
         userImpulse = false;
 
@@ -539,7 +542,8 @@ public abstract partial class SharedGunSystem : EntitySystem
             return;
         // </Trauma>
         var mapAngle = mapDirection.ToAngle();
-        var angle = GetRecoilAngle(Timing.CurTime, (gunUid, gun), mapDirection.ToAngle(), user); // Trauma - pass gunUid and user
+        var angle = GetRecoilAngle(Timing.CurTime, (gunUid, gun), mapDirection.ToAngle(), user, // Trauma - pass gunUid and user
+            tick);
 
         userImpulse = true;
 
@@ -706,6 +710,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (shooter != null)
             Projectiles.SetShooter(uid, projectile, shooter.Value);
 
+        Log.Debug($"client={_netManager.IsClient} Shot projectile {ToPrettyString(uid)}");
         Physics.UpdateIsPredicted(uid, physics); // Trauma - predict this shit
 
         TransformSystem.SetWorldRotation(uid, direction.ToWorldAngle() + projectile.Angle);
