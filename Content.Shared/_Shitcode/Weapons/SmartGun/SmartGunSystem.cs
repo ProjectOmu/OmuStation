@@ -20,21 +20,16 @@ public sealed class SmartGunSystem : EntitySystem
     {
         var (uid, comp) = ent;
 
-        if (!TryComp(uid, out GunComponent? gun) || gun.Target == null)
-            return;
-
         if (comp.RequiresWield && !(TryComp(uid, out WieldableComponent? wieldable) && wieldable.Wielded))
             return;
-
-        if (gun.Target == Transform(uid).ParentUid)
-            return;
-
         foreach (var projectile in args.FiredProjectiles)
         {
-            if (!TryComp(projectile, out HomingProjectileComponent? homing))
+            if (!TryComp(projectile, out HomingProjectileComponent? homing) ||
+                !TryComp(projectile, out TargetedProjectileComponent? targeted) ||
+                targeted.Target is not { } target || target == Transform(uid).ParentUid)
                 continue;
 
-            homing.Target = gun.Target.Value;
+            homing.Target = target;
             Dirty(projectile, homing);
         }
     }

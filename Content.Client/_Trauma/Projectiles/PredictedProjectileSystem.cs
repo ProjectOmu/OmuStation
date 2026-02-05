@@ -13,6 +13,7 @@ namespace Content.Client._Trauma.Projectiles;
 public sealed class PredictedProjectileSystem : EntitySystem
 {
     [Dependency] private readonly Robust.Client.Physics.PhysicsSystem _physics = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -40,6 +41,7 @@ public sealed class PredictedProjectileSystem : EntitySystem
         if (!uid.IsValid())
             return;
 
+        _sprite.SetVisible(uid, false);
         _physics.UpdateIsPredicted(uid);
         // TODO: come up with solution to fix the jitter when clientside entity is deleted and serverside one is spawned back at the shooter
         // clientside components have no way to persist so this may need engine work
