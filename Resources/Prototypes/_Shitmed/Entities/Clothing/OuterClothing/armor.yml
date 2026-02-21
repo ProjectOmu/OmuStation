@@ -17,10 +17,10 @@
   - type: Sprite
     sprite: _Shitmed/Clothing/OuterClothing/Armor/abductor.rsi
   - type: AbductorVest
-  - type: ModifyDelayedKnockdown # Goobstation
-    cancel: true
+#  - type: ModifyDelayedKnockdown # Goobstation # Omu
+#    cancel: true
   - type: StaminaResistance
-    damageCoefficient: 0.25
+    damageCoefficient: 0.5 # Omu, was 0.25
   - type: ItemSwitch
     state: stealth
     states:
@@ -83,12 +83,12 @@
           - Tail
           modifiers:
             coefficients:
-              Blunt: 0.25
-              Slash: 0.25
-              Heat: 0.25
-              Piercing: 0.25
-              Radiation: 0.25
-              Caustic: 0.1
+              Blunt: 0.5 # Omu, was 0.25
+              Slash: 0.5 # Omu, was 0.25
+              Heat: 0.5 # Omu, was 0.25
+              Piercing: 0.5 # Omu, was 0.25
+              Radiation: 0.5 # Omu, was 0.25
+              Caustic: 0.4 # Omu, was 0.1
         - type: ExplosionResistance
           damageCoefficient: 0.5
         - type: Clothing
@@ -131,7 +131,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.75
   - type: StaminaResistance
-    damageCoefficient: 0.4
-  - type: ModifyDelayedKnockdown
-    delayDelta: 3
-    knockdownTimeDelta: -3
+    damageCoefficient: 0.6 # Omu, was 0.4
+#  - type: ModifyDelayedKnockdown # Omu
+#    delayDelta: 3
+#    knockdownTimeDelta: -3

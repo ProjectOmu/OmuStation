@@ -98,9 +98,13 @@
     - type: Battery
       maxCharge: 600
       startingCharge: 600
-    - type: RechargeableBlocking
-      dischargedRechargeRate: 0
-      chargedRechargeRate: 0
+    - type: RechargeableBlocking # Omu - Re-added self recharge
+      dischargedRechargeRate: 15 # 40 seconds to fully recharge if completely depleted.
+      chargedRechargeRate: 10 # 60 seconds to fully recharge if just above depleted.
+      rechargePercentage: 1 # Recharge faster if completely depleted, but prevent use before fully recharged.
+    - type: BatterySelfRecharger # Omu - Re-added self recharge
+      autoRechargeRate: 10
+      autoRecharge: true
     - type: ItemSlots
       slots:
         item:

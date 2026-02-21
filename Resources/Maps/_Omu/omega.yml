@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/01/2026 19:02:59
-  entityCount: 14023
+  time: 02/02/2026 11:12:23
+  entityCount: 14029
 maps:
 - 1
 grids:
@@ -30853,18 +30853,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 29.5,-4.5
       parent: 2
-- proto: ChemDispenser
-  entities:
-  - uid: 4963
-    components:
-    - type: Transform
-      pos: -8.5,-14.5
-      parent: 2
-  - uid: 4964
-    components:
-    - type: Transform
-      pos: -12.5,-18.5
-      parent: 2
 - proto: ChemistryHotplate
   entities:
   - uid: 4967
@@ -38510,6 +38498,18 @@ entities:
       parent: 5984
     - type: Physics
       canCollide: False
+- proto: EnergyChemDispenser
+  entities:
+  - uid: 4963
+    components:
+    - type: Transform
+      pos: -8.5,-14.5
+      parent: 2
+  - uid: 4964
+    components:
+    - type: Transform
+      pos: -12.5,-18.5
+      parent: 2
 - proto: EngiComputerComms
   entities:
   - uid: 11336
@@ -40497,6 +40497,34 @@ entities:
     components:
     - type: Transform
       pos: -19.5,29.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 14026
+    components:
+    - type: Transform
+      pos: 9.5,-37.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 14027
+    components:
+    - type: Transform
+      pos: 9.5,-41.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 14028
+    components:
+    - type: Transform
+      pos: 8.5,-33.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 14029
+    components:
+    - type: Transform
+      pos: 6.5,-39.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -74807,6 +74835,18 @@ entities:
     components:
     - type: Transform
       pos: 4.5,-0.5
+      parent: 2
+- proto: SpawnPointShaftMiner
+  entities:
+  - uid: 14024
+    components:
+    - type: Transform
+      pos: 24.5,13.5
+      parent: 2
+  - uid: 14025
+    components:
+    - type: Transform
+      pos: 23.5,13.5
       parent: 2
 - proto: SpawnPointStationEngineer
   entities:

@@ -1869,3 +1869,194 @@ Entries:
       message: Traitor onis can now buy a kanabo from their uplink. 50tc.
   id: 233
   time: '2026-01-20T00:04:54.0000000+00:00'
+- author: IQlvlZero
+  changes:
+    - type: Add
+      message: Added Dispace Lobby Art
+  id: 234
+  time: '2026-01-29T09:10:05.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Upstream merge
+  id: 235
+  time: '2026-02-01T14:11:02.0000000+00:00'
+- author: Dishwasher0
+  changes:
+    - type: Add
+      message: Shaft miners are mapped now
+    - type: Tweak
+      message: Marathon now has virology and xenobio
+    - type: Tweak
+      message: Minor map changes
+    - type: Fix
+      message: Lifeline warp
+  id: 236
+  time: '2026-02-04T16:39:33.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Tweak
+      message: Harpy and Xelthia minimum sizes raised
+  id: 237
+  time: '2026-02-05T16:13:00.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: NY-6 Grognard unpowered damage lowered (20 slash -> 12)
+    - type: Tweak
+      message: >-
+        NY-6 Grognard shock mode damage lowered (15 heat, 5 slash -> 10 heat, 5
+        slash)
+  id: 238
+  time: '2026-02-05T19:12:02.0000000+00:00'
+- author: Dishwasher0
+  changes:
+    - type: Fix
+      message: Delta now has shaft miners
+  id: 239
+  time: '2026-02-05T20:26:52.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Clown and Mime are no longer exempt to self-antag rules.
+  id: 240
+  time: '2026-02-06T20:57:44.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Ported Breaching charges and the Breaching hammer from EE.
+  id: 241
+  time: '2026-02-09T19:24:46.0000000+00:00'
+- author: maertayn
+  changes:
+    - type: Add
+      message: ViroHuds to NanoMed+ and ViroDrobe
+  id: 242
+  time: '2026-02-09T21:11:15.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed all forms of holoparasite due to them crashing the server.
+  id: 243
+  time: '2026-02-11T06:46:27.0000000+00:00'
+- author: Dishwasher0
+  changes:
+    - type: Add
+      message: 'Cluster has TEG now rejoice '
+  id: 244
+  time: '2026-02-15T20:59:55.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Abductor walls are no longer unbreakable.
+  id: 245
+  time: '2026-02-15T21:07:28.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Heirophant's club is now classed as magical contraband, and no longer
+        fits in bags.
+  id: 246
+  time: '2026-02-15T21:09:42.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Ported Heavy Ballistic turrets from Monolith.
+    - type: Tweak
+      message: >-
+        Changed the ballistic turrets on the lavaland syndicate base to be heavy
+        ballistic turrets.
+  id: 247
+  time: '2026-02-15T21:30:09.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Chester has been reverted back into a rifle.
+    - type: Tweak
+      message: >-
+        9.5mm has been nerfed, it now is 16 damage instead of 25, but no longer
+        has negative AP.
+  id: 248
+  time: '2026-02-16T07:21:28.0000000+00:00'
+- author: Giltsmith
+  changes:
+    - type: Tweak
+      message: Made Ward shotgun selfcharge again.
+  id: 249
+  time: '2026-02-16T11:36:02.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: Some organs now contra
+  id: 250
+  time: '2026-02-16T14:43:47.0000000+00:00'
+- author: BramvanZijp
+  changes:
+    - type: Add
+      message: >-
+        The blueshield officer's headset now comes with a custom encryption key,
+        losing the prison channel but gaining the medical channel.
+    - type: Tweak
+      message: >-
+        The greatshield and atrocity have both regained the ability to
+        self-recharge their power over time.
+    - type: Tweak
+      message: >-
+        The Praetorian Modsuit Chestplate has had its stamina damage resistance
+        raised from 10% to 40%.
+    - type: Fix
+      message: >-
+        The Blueshield Officer has been added to several multi-department
+        contraband groups that contain security, including those for the combat
+        gloves and jackboots they can spawn with.
+  id: 251
+  time: '2026-02-16T19:25:30.0000000+00:00'
+- author: ArtemisYK
+  changes:
+    - type: Fix
+      message: Salvage Mantle-beast Mantle on Shaft-Miner
+  id: 252
+  time: '2026-02-17T08:51:47.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Remove
+      message: Present anoms
+  id: 253
+  time: '2026-02-17T19:35:51.0000000+00:00'
+- author: PickelSilly
+  changes:
+    - type: Tweak
+      message: T-8 "Consistency" is silver now instead of red
+  id: 254
+  time: '2026-02-18T07:36:51.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Revs are back. Gulp.
+  id: 255
+  time: '2026-02-18T20:22:04.0000000+00:00'
+- author: 'CliveOcelot, Starlight contributors '
+  changes:
+    - type: Add
+      message: Ported Avali from Starlight
+    - type: Tweak
+      message: >-
+        Resomi are now poisoned by Dexalin, Dexalin Plus, And saline, instead
+        use Amoxla
+    - type: Tweak
+      message: Resomi and Avali now share a collective mind, this is on +n
+  id: 256
+  time: '2026-02-20T11:49:34.0000000+00:00'
+- author: madeline2323
+  changes:
+    - type: Tweak
+      message: amended metashield, crew know more and command has more freedom
+  id: 257
+  time: '2026-02-20T12:34:25.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Ported Chimera (admin only for now)
+  id: 258
+  time: '2026-02-20T21:06:11.0000000+00:00'

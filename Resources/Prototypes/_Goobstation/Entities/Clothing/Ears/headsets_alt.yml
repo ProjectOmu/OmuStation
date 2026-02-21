@@ -108,10 +108,9 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyCommand
+      - EncryptionKeyBSO # Omu - Command, Sec, and Medical, but not prison. Does not include CC comms, which is seperate.
       - EncryptionKeyCentCom
       - EncryptionKeyCommon
-      - EncryptionKeySecurity # Omu - Added because sec info is relevant to head safety
   - type: Sprite
     sprite: _Goobstation/Clothing/Ears/Headsets/blueshield.rsi
   - type: Clothing

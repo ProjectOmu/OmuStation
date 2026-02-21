@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/01/2026 16:50:28
-  entityCount: 38898
+  time: 02/02/2026 09:53:32
+  entityCount: 38906
 maps:
 - 1
 grids:
@@ -28112,7 +28112,8 @@ entities:
           1,-9:
             0: 65535
           2,-8:
-            0: 36317
+            0: 36061
+            3: 256
           2,-7:
             0: 65535
           2,-6:
@@ -29052,10 +29053,10 @@ entities:
             0: 1
           -20,5:
             1: 12834
-            3: 34952
+            4: 34952
           -20,6:
             1: 20017
-            3: 8
+            4: 8
           -21,5:
             1: 53166
           -21,6:
@@ -29065,25 +29066,25 @@ entities:
           -20,8:
             1: 53068
           -19,5:
-            3: 30583
+            4: 30583
           -19,6:
-            3: 7
+            4: 7
             1: 16128
           -19,7:
             1: 13107
-            4: 2184
+            5: 2184
           -19,8:
             1: 13107
-            5: 2184
+            6: 2184
           -18,5:
             1: 65535
           -18,6:
             1: 35839
           -18,7:
-            4: 819
+            5: 819
             1: 34952
           -18,8:
-            5: 819
+            6: 819
             1: 34952
           -17,6:
             0: 61182
@@ -29251,27 +29252,27 @@ entities:
             1: 19532
           -19,9:
             1: 13107
-            6: 2184
+            7: 2184
           -19,10:
             1: 13107
-            3: 2184
+            4: 2184
           -19,11:
             1: 13107
-            3: 2184
+            4: 2184
           -19,12:
             1: 13107
-            3: 2184
+            4: 2184
           -18,9:
-            6: 819
+            7: 819
             1: 34952
           -18,10:
-            3: 819
+            4: 819
             1: 34952
           -18,11:
-            3: 819
+            4: 819
             1: 34952
           -18,12:
-            3: 819
+            4: 819
             1: 34952
           -17,9:
             0: 3822
@@ -31231,6 +31232,25 @@ entities:
           moles:
           - 27.225372
           - 102.419266
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 21.828398
+          - 82.116356
           - 0
           - 0
           - 0
@@ -40032,17 +40052,6 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-  - uid: 26982
-    components:
-    - type: Transform
-      pos: -22.5,15.5
-      parent: 2
-    - type: TechnologyDatabase
-      supportedDisciplines:
-      - Industrial
-      - Arsenal
-      - Experimental
-      - CivilianServices
 - proto: AutolatheMachineCircuitboard
   entities:
   - uid: 1244
@@ -41158,6 +41167,11 @@ entities:
     components:
     - type: Transform
       pos: 38.5,-37.5
+      parent: 2
+  - uid: 15753
+    components:
+    - type: Transform
+      pos: 38.5,-44.5
       parent: 2
   - uid: 18683
     components:
@@ -43404,6 +43418,12 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 61.26216,-5.289681
+      parent: 2
+  - uid: 38561
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 38.755238,-43.290134
       parent: 2
 - proto: Bucket
   entities:
@@ -108713,62 +108733,6 @@ entities:
     - type: Transform
       pos: 24.262762,-27.091896
       parent: 2
-- proto: ChemDispenser
-  entities:
-  - uid: 14419
-    components:
-    - type: Transform
-      pos: 3.5,-33.5
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        ReagentDispenser-beaker: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        beakerSlot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-  - uid: 14420
-    components:
-    - type: Transform
-      pos: 6.5,-29.5
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        ReagentDispenser-beaker: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        beakerSlot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
 - proto: ChemicalPayload
   entities:
   - uid: 14421
@@ -113756,11 +113720,6 @@ entities:
     - type: Transform
       pos: -35.5,21.5
       parent: 2
-  - uid: 14901
-    components:
-    - type: Transform
-      pos: -28.5,8.5
-      parent: 2
   - uid: 14902
     components:
     - type: Transform
@@ -113793,6 +113752,11 @@ entities:
       parent: 2
 - proto: ClothingHandsGlovesConducting
   entities:
+  - uid: 14760
+    components:
+    - type: Transform
+      pos: -28.56085,8.362178
+      parent: 2
   - uid: 14921
     components:
     - type: Transform
@@ -113982,16 +113946,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 14950
-    components:
-    - type: Transform
-      pos: 26.16902,-24.54952
-      parent: 2
-  - uid: 14951
-    components:
-    - type: Transform
-      pos: 25.512768,-24.26827
-      parent: 2
 - proto: ClothingHeadHatBeretEngineering
   entities:
   - uid: 14952
@@ -116877,15 +116831,16 @@ entities:
     - type: Transform
       pos: 47.5,-13.5
       parent: 2
-  - uid: 15386
-    components:
-    - type: Transform
-      pos: 36.5,-43.5
-      parent: 2
   - uid: 15387
     components:
     - type: Transform
       pos: 45.5,-37.5
+      parent: 2
+  - uid: 38563
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 36.5,-43.5
       parent: 2
 - proto: ComputerBroken
   entities:
@@ -119861,21 +119816,11 @@ entities:
     - type: Transform
       pos: 49.5,-13.5
       parent: 2
-  - uid: 15753
-    components:
-    - type: Transform
-      pos: 38.5,-44.5
-      parent: 2
   - uid: 15754
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 44.5,-15.5
-      parent: 2
-  - uid: 15755
-    components:
-    - type: Transform
-      pos: 38.5,-43.5
       parent: 2
   - uid: 24568
     components:
@@ -132848,6 +132793,62 @@ entities:
       parent: 17767
     - type: Physics
       canCollide: False
+- proto: EnergyChemDispenser
+  entities:
+  - uid: 14419
+    components:
+    - type: Transform
+      pos: 3.5,-33.5
+      parent: 2
+    - type: ContainerContainer
+      containers:
+        ReagentDispenser-beaker: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+        machine_board: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        machine_parts: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        beakerSlot: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+  - uid: 14420
+    components:
+    - type: Transform
+      pos: 6.5,-29.5
+      parent: 2
+    - type: ContainerContainer
+      containers:
+        ReagentDispenser-beaker: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+        machine_board: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        machine_parts: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        beakerSlot: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
 - proto: EngiComputerComms
   entities:
   - uid: 25508
@@ -138993,6 +138994,13 @@ entities:
       parent: 2
 - proto: FloorDrain
   entities:
+  - uid: 15755
+    components:
+    - type: Transform
+      pos: -34.5,-27.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
   - uid: 18444
     components:
     - type: Transform
@@ -139117,6 +139125,20 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 26.5,59.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 38566
+    components:
+    - type: Transform
+      pos: -38.5,-27.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 38567
+    components:
+    - type: Transform
+      pos: -42.5,-27.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -186623,44 +186645,16 @@ entities:
         - 0
 - proto: LockerChemistryFilled
   entities:
-  - uid: 25053
+  - uid: 14951
     components:
     - type: Transform
-      pos: 8.5,-29.481438
+      pos: 3.5,-32.5
       parent: 2
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 14760
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.1496
-        moles:
-        - 1.9016405
-        - 7.1537914
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+  - uid: 38564
+    components:
+    - type: Transform
+      pos: 4.5,-32.5
+      parent: 2
 - proto: LockerChiefEngineerFilledHardsuit
   entities:
   - uid: 25054
@@ -189043,6 +189037,11 @@ entities:
       parent: 2
 - proto: MedicalBed
   entities:
+  - uid: 15386
+    components:
+    - type: Transform
+      pos: 38.5,-44.5
+      parent: 2
   - uid: 25228
     components:
     - type: Transform
@@ -191337,11 +191336,21 @@ entities:
       rot: 3.141592653589793 rad
       pos: 25.983013,21.48996
       parent: 2
+  - uid: 26982
+    components:
+    - type: Transform
+      pos: 38.362713,-43.30321
+      parent: 2
   - uid: 30212
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 53.525803,-3.8881612
+      parent: 2
+  - uid: 38560
+    components:
+    - type: Transform
+      pos: 38.637478,-43.617073
       parent: 2
 - proto: PaperBin10
   entities:
@@ -195434,6 +195443,12 @@ entities:
     components:
     - type: Transform
       pos: 32.5,-66.5
+      parent: 2
+  - uid: 38562
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 36.5,-44.5
       parent: 2
 - proto: PottedPlantRandomPlastic
   entities:
@@ -220985,6 +221000,23 @@ entities:
     - type: Transform
       pos: -30.5,41.5
       parent: 2
+- proto: SpawnPointShaftMiner
+  entities:
+  - uid: 14901
+    components:
+    - type: Transform
+      pos: 33.5,38.5
+      parent: 2
+  - uid: 14950
+    components:
+    - type: Transform
+      pos: 33.5,37.5
+      parent: 2
+  - uid: 38565
+    components:
+    - type: Transform
+      pos: 33.5,39.5
+      parent: 2
 - proto: SpawnPointStationEngineer
   entities:
   - uid: 30040
@@ -225949,39 +225981,6 @@ entities:
       rot: 1.0182609457842773E-06 rad
       pos: 6.6442585,-14.492169
       parent: 2
-- proto: SyringeEphedrine
-  entities:
-  - uid: 1817
-    components:
-    - type: Transform
-      parent: 14760
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-- proto: SyringeGun
-  entities:
-  - uid: 14760
-    components:
-    - type: Transform
-      parent: 25053
-    - type: Storage
-      storedItems:
-        1817:
-          position: 0,0
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 1817
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: SyringeInaprovaline
   entities:
   - uid: 30561
@@ -230130,6 +230129,11 @@ entities:
     components:
     - type: Transform
       pos: 34.5,-49.5
+      parent: 2
+  - uid: 25053
+    components:
+    - type: Transform
+      pos: 38.5,-43.5
       parent: 2
   - uid: 25461
     components:
@@ -264651,6 +264655,11 @@ entities:
       parent: 2
 - proto: WeldingFuelTankFull
   entities:
+  - uid: 1817
+    components:
+    - type: Transform
+      pos: -22.5,15.5
+      parent: 2
   - uid: 10426
     components:
     - type: Transform

@@ -75,6 +75,8 @@
       enum.WizardTeleportUiKey.Key: # Goobstation - wizard
         type: WizardTeleportBoundUserInterface
         requireInputValidation: false
+      enum.RadarConsoleUiKey.Key: #goob - contractor
+        type: RadarConsoleBoundUserInterface
   - type: Sprite
     # scale: 0.9, 0.9 # Goobstation: port EE height/width sliders
     layers:
@@ -159,7 +161,7 @@
   - type: Speech
     speechSounds: Harpy
     speechVerb: Harpy
-    allowedEmotes: ['Chirp', 'Trill', 'Warble', 'Wurble', 'Mars', 'Chitter', 'Squeak', 'Flap'] # Omu (Chitter, Squeak, Flap)
+    allowedEmotes: ['Chirp', 'Trill', 'Warble', 'Wurble', 'Mars', 'Chitter', 'Squeak', 'Flap', 'Scree', 'Call', 'Squawk'] # Omu (Chitter, Squeak, Flap, 'Scree', 'Call', 'Squawk')
   - type: Vocal
     sounds:
       Male: SoundsHarpyMale

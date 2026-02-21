@@ -106,7 +106,7 @@
       - map: [ "belt" ] # Omu - Moved belt to render under OuterClothing to have it be similar with how the base drawdepth is.
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
-      - map: [ "beltalt" ] # Omu 
+      - map: [ "beltalt" ] # Omu
       - map: [ "back" ]
       - map: [ "neck" ] # Omu - Moved this to render above backpacks because it felt weird seeing duffels above the cloaks and mantles? Easy thing to revert anyway.
       - map: [ "enum.HumanoidVisualLayers.Face" ]
@@ -155,6 +155,7 @@
     - DoorBumpOpener
     - AnomalyHost
     - VulpEmotes
+    - Humanoid
 
 - type: entity
   save: false

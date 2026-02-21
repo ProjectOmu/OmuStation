@@ -16,7 +16,7 @@
     integrityThresholds:
       Normal: 28
       Damaged: 16
-      Destroyed: 0  
+      Destroyed: 0
     onAdd:
     - type: BreathingImmunity
 
@@ -31,12 +31,12 @@
     integrityThresholds:
       Normal: 21
       Damaged: 12
-      Destroyed: 0  
+      Destroyed: 0
     onAdd:
     - type: PressureImmunity
 
 - type: entity
-  parent: OrganAnimalHeart
+  parent: [ OrganAnimalHeart, BaseCargoContraband ] # Omu, add cargo contra
   id: OrganGoliathHeart
   name: goliath heart
   components:
@@ -48,18 +48,18 @@
     state: heart-on
 
 - type: entity
-  parent: OrganAnimalLungs
+  parent: [ OrganAnimalLungs, BaseMajorContraband ] # Omu, add major contra
   id: OrganDragonLungs
   name: dragon lungs
   components:
-  - type: Organ
-    onAdd:
-    - type: ActionGun
-      action: ActionDragonsBreath
-      gunProto: DragonsBreathGun
+    - type: Organ
+      onAdd:
+      - type: ActionGun
+        action: ActionDragonsBreath
+        gunProto: DragonsBreathGun
 
 - type: entity
-  parent: OrganHumanEyes
+  parent: [ OrganHumanEyes, BaseMajorContraband ] # Omu, add major contra
   id: OrganLaserEyes
   name: laser raptor eyes
   components:

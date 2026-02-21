@@ -44,8 +44,8 @@
     angle: 60
     animation: WeaponArcThrust
   - type: StaminaDamageOnHit
-    damage: 60
-    lightAttackDamageMultiplier: 2
+    damage: 50 # Omu, was 60
+#    lightAttackDamageMultiplier: 2 # Omu
     sound: /Audio/Weapons/Guns/Hits/taser_hit.ogg
 #  - type: RestrictMeleeByUserTag
 #    contains:
@@ -58,15 +58,15 @@
   - type: Tag
     tags:
     - Wonderprod
-  - type: Multihit
-    multihitWhitelist:
-      tags:
-      - Wonderprod
-    conditions:
-    - !type:MultihitUserWhitelistEvent
-      whitelist:
-        tags:
-        - Abductor
+#  - type: Multihit # Omu, no.
+#    multihitWhitelist:
+#      tags:
+#      - Wonderprod
+#    conditions:
+#    - !type:MultihitUserWhitelistEvent
+#      whitelist:
+#        tags:
+#        - Abductor
   - type: DisarmMalus
   - type: ItemSwitch
     state: stun
@@ -87,8 +87,8 @@
           angle: 60
           animation: WeaponArcThrust
         - type: StaminaDamageOnHit
-          damage: 60
-          lightAttackDamageMultiplier: 2
+          damage: 50 # Omu, was 60
+#          lightAttackDamageMultiplier: 2 # Omu
           sound: /Audio/Weapons/Guns/Hits/taser_hit.ogg
         soundStateActivate:
           collection: sparks
@@ -123,7 +123,7 @@
           attackRate: 1
           damage:
             types:
-              Ion: 30
+              Ion: 5 #Omu, was 30
           angle: 60
           animation: WeaponArcThrust
         - type: InjectOnHit

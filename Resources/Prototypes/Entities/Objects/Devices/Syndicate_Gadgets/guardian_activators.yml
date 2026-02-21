@@ -90,17 +90,17 @@
   - type: Sprite
     sprite: Objects/Specific/Medical/hypospray.rsi
     state: combat_hypo
-  - type: GuardianCreator
-    guardianProto: MobHoloparasiteGuardian
+ # - type: GuardianCreator # Omu, remove holopara till it no longer crashes the server.
+ #   guardianProto: MobHoloparasiteGuardian
 
 - type: entity
   name: holoclown injector
   parent: HoloparasiteInjector
   id: HoloClownInjector
   description: A complex artwork of handheld machinery allowing the user to host a holoclown guardian.
-  components:
-  - type: GuardianCreator
-    guardianProto: MobHoloClownGuardian
+#  components:
+#  - type: GuardianCreator # Omu, remove holopara till it no longer crashes the server.
+#    guardianProto: MobHoloClownGuardian
 
 - type: entity
   name: magical lamp
@@ -108,8 +108,8 @@
   parent: [ArabianLamp, BaseMagicalContraband] # Goob edit
   description: The wizard federation had to cut costs after the jinn merchandise scandal somehow.
   components:
-  - type: GuardianCreator
-    guardianProto: MobIfritGuardian
+#  - type: GuardianCreator # Omu, remove holopara till it no longer crashes the server.
+#    guardianProto: MobIfritGuardian
   - type: AccessReader # Goobstation
     access: [ [ "Wizard" ] ]
 

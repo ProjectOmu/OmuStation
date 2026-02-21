@@ -25,7 +25,7 @@ selectable-set-thief-syndie-description =
     Trinkets from a disavowed past, or stolen from a careless agent?
     You've made some connections. Whiskey, echo...
     Includes: An Emag, Access Breaker, Interdyne cigs, a Syndicate codeword,
-    a Radio Jammer, a lighter and some strange red crystals.
+    a Radio Jammer, a novelty lighter box and some strange red crystals.
 
 selectable-set-thief-sleeper-name = Sleeper Kit
 selectable-set-thief-sleeper-description =
@@ -151,7 +151,7 @@ selectable-set-blueshield-dragon-description =
 selectable-set-blueshield-chester-name = chester set
 selectable-set-blueshield-chester-description =
     Ready to go hunting?
-    Includes: 8 Gauge shotgun, the Chester. Spare ammo,
+    Includes: .45 lever-action rifle, the Chester. Spare ammo, # omu
     Alternate ammo, Spare magazines.
 
 # Omu, add military webbing to syringe kit

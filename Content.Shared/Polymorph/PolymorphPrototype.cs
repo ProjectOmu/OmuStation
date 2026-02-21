@@ -162,19 +162,6 @@ public sealed partial record PolymorphConfiguration
     [DataField]
     public SoundSpecifier? ExitPolymorphSound;
 
-    // Einstein Engines - Language begin
-    /// <summary>
-    /// The exact names of components to copy over when this polymorph is applied.
-    /// </summary>
-    [DataField(serverOnly: true)]
-    public HashSet<string> CopiedComponents = new()
-    {
-        "LanguageKnowledge",
-        "LanguageSpeaker",
-        "Grammar"
-    };
-    // Einstein Engines - Language end
-
     /// <summary>
     ///     If not null, this popup will be displayed when being polymorphed into something.
     /// </summary>
@@ -210,7 +197,12 @@ public sealed partial record PolymorphConfiguration
     /// Does nothing on revert.
     /// </summary>
     [DataField(serverOnly: true)]
-    public HashSet<ComponentTransferData> ComponentsToTransfer = new();
+    public HashSet<ComponentTransferData> ComponentsToTransfer = new()
+    {
+        new("LanguageKnowledge"),
+        new("LanguageSpeaker"),
+        new("Grammar"),
+    };
 
     /// <summary>
     ///     Goobstation
@@ -239,6 +231,28 @@ public sealed partial record PolymorphConfiguration
     /// </summary>
     [DataField]
     public bool SkipRevertConfirmation;
+
+    /// Mono start
+
+    /// <summary>
+    /// Whether or not the target is polymorphed above critical status.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool PolymorphTheLiving = true;
+
+    /// <summary>
+    /// Whether or not the target is polymorphed below critical status but above dead status.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool PolymorphTheCritical = true;
+
+    /// <summary>
+    /// Whether or not the target is polymorphed while dead.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool PolymorphTheDead = false;
+
+    /// Mono End
 }
 
 public enum PolymorphInventoryChange : byte

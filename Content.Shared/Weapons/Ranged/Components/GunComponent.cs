@@ -339,6 +339,14 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float GunExecutionTime = 3.5f;
+
+    // Omu start
+    /// <summary>
+    ///     This multiplier will apply per projectile fired by the weapon.
+    /// </summary>
+    [DataField]
+    public float DamageModifier = 1f;
+    // Omu end
 }
 
 [Flags]
