@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/20/2025 14:32:37
-  entityCount: 49320
+  time: 01/10/2026 15:37:02
+  entityCount: 49324
 maps:
 - 1
 grids:
@@ -14600,17 +14600,17 @@ entities:
           6,17:
             1: 64911
           6,18:
-            1: 32671
+            1: 65439
           6,19:
-            1: 64901
+            1: 64909
           6,20:
             1: 65293
           7,17:
             1: 63287
           7,18:
-            1: 63015
+            1: 63287
           7,19:
-            1: 63261
+            1: 63295
           7,20:
             1: 64279
           8,16:
@@ -14620,7 +14620,7 @@ entities:
           8,18:
             1: 30471
           8,19:
-            1: 30535
+            1: 30471
           5,21:
             1: 61627
           5,22:
@@ -16669,10 +16669,10 @@ entities:
             1: 64443
           28,9:
             1: 13115
-            4: 34816
+            6: 34816
           28,10:
             1: 30515
-            4: 8
+            6: 8
           28,11:
             1: 45943
           27,12:
@@ -16930,7 +16930,7 @@ entities:
           30,6:
             1: 255
           30,7:
-            5: 119
+            4: 119
             1: 61440
           30,8:
             1: 65535
@@ -16939,7 +16939,7 @@ entities:
           31,6:
             1: 239
           31,7:
-            6: 119
+            5: 119
             1: 61440
           31,8:
             1: 65535
@@ -16950,7 +16950,7 @@ entities:
           32,6:
             1: 255
           32,7:
-            4: 119
+            6: 119
             1: 61440
           29,41:
             1: 28680
@@ -16998,9 +16998,9 @@ entities:
             1: 8191
           29,9:
             1: 34823
-            4: 13056
+            6: 13056
           29,10:
-            4: 3
+            6: 3
             1: 64392
           29,11:
             1: 64315
@@ -17257,7 +17257,7 @@ entities:
           33,6:
             1: 255
           33,7:
-            4: 119
+            6: 119
             1: 61440
           33,8:
             1: 65535
@@ -17266,7 +17266,7 @@ entities:
           34,6:
             1: 255
           34,7:
-            4: 117
+            6: 117
             1: 61440
             7: 2
           34,8:
@@ -17276,7 +17276,7 @@ entities:
           35,6:
             1: 127
           35,7:
-            4: 119
+            6: 119
             1: 28672
           35,8:
             1: 30591
@@ -17588,7 +17588,7 @@ entities:
             1: 14192
           37,8:
             1: 63
-            4: 28672
+            6: 28672
           38,5:
             1: 32626
           38,6:
@@ -17598,7 +17598,7 @@ entities:
           38,8:
             1: 30567
           37,9:
-            4: 119
+            6: 119
             1: 24576
           37,10:
             1: 2032
@@ -17817,25 +17817,6 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
           - 6666.982
           - 0
           - 0
@@ -17855,6 +17836,25 @@ entities:
           temperature: 293.15
           moles:
           - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
           - 0
           - 0
           - 0
@@ -133392,12 +133392,6 @@ entities:
     - type: Transform
       pos: 107.5,132.5
       parent: 2
-  - uid: 21444
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 49.5,40.5
-      parent: 2
 - proto: ExtinguisherCabinetFilled
   entities:
   - uid: 21445
@@ -234430,6 +234424,11 @@ entities:
           ent: null
 - proto: LockerSalvageSpecialistFilled
   entities:
+  - uid: 23039
+    components:
+    - type: Transform
+      pos: 59.5,40.5
+      parent: 2
   - uid: 35787
     components:
     - type: Transform
@@ -237831,10 +237830,10 @@ entities:
       parent: 2
 - proto: MineralScanner
   entities:
-  - uid: 36231
+  - uid: 23046
     components:
     - type: Transform
-      pos: 59.480423,40.593506
+      pos: 54.502903,32.59635
       parent: 2
 - proto: MiningWindow
   entities:
@@ -250199,12 +250198,6 @@ entities:
     components:
     - type: Transform
       pos: 48.5,80.5
-      parent: 2
-  - uid: 38257
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 59.5,40.5
       parent: 2
   - uid: 38258
     components:
@@ -268548,6 +268541,11 @@ entities:
       parent: 2
 - proto: SpawnPointSalvageSpecialist
   entities:
+  - uid: 21444
+    components:
+    - type: Transform
+      pos: 59.5,39.5
+      parent: 2
   - uid: 41340
     components:
     - type: Transform
@@ -268655,6 +268653,28 @@ entities:
     components:
     - type: Transform
       pos: 92.5,134.5
+      parent: 2
+- proto: SpawnPointShaftMiner
+  entities:
+  - uid: 23038
+    components:
+    - type: Transform
+      pos: 44.5,34.5
+      parent: 2
+  - uid: 23043
+    components:
+    - type: Transform
+      pos: 45.5,34.5
+      parent: 2
+  - uid: 23044
+    components:
+    - type: Transform
+      pos: 46.5,34.5
+      parent: 2
+  - uid: 23045
+    components:
+    - type: Transform
+      pos: 47.5,34.5
       parent: 2
 - proto: SpawnPointStationEngineer
   entities:
@@ -270711,6 +270731,11 @@ entities:
     components:
     - type: Transform
       pos: 51.5,40.5
+      parent: 2
+  - uid: 23042
+    components:
+    - type: Transform
+      pos: 49.5,40.5
       parent: 2
 - proto: SuitStorageSec
   entities:
@@ -275901,12 +275926,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 53.5,40.5
-      parent: 2
-  - uid: 42483
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 49.5,40.5
       parent: 2
   - uid: 42485
     components:

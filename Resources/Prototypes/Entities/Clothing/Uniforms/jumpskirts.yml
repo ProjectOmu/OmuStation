@@ -778,6 +778,9 @@
       sprite: Clothing/Uniforms/Jumpskirt/skirtoflife.rsi
     - type: Clothing
       sprite: Clothing/Uniforms/Jumpskirt/skirtoflife.rsi
+    - type: ZombificationResistance # Starlight
+      zombificationResistanceCoefficient: 0.95 # Starlight
+
 
 - type: entity
   parent: ClothingUniformSkirtBase

@@ -47,16 +47,7 @@
   equipment:
     id: VirologistPDA
 
-# Omu edit
-- type: loadout
-  id: VirologistEnvirosuit
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitVirology
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-
+# Envirosuit Helmet
 - type: loadout
   id: VirologistEnvirohelm
   equipment:
@@ -65,4 +56,13 @@
   - !type:SpeciesLoadoutEffect
     species:
     - Plasmaman
-  # Omu End
+
+# Envirosuit
+- type: loadout
+  id: VirologistEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitVirology
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman

@@ -58,6 +58,7 @@
   modes:
   - Heretic
   - CosmicCult
+  - Changeling #Omu
 
 - type: incompatibleModes
   id: BlobGameMode
@@ -91,3 +92,9 @@
   - BlobGameMode
   - CosmicCult
   - Heretic
+
+- type: incompatibleModes #Omu start
+  id: Changeling
+  modes:
+  - Heretic
+  - CosmicCult            #Omu end

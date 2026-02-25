@@ -23,11 +23,11 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="MobDiona" Caption="Diona"/>
     <GuideEntityEmbed Entity="MobDwarf" Caption="Dwarf"/>
     <GuideEntityEmbed Entity="MobFelinid" Caption="Felinid"/> <!-- Omu, add back Felinid -->
-<!--    <GuideEntityEmbed Entity="MobGingerbread" Caption="Gingerbread"/> Omu, remove gingerbread from guidebook--> 
+<!--    <GuideEntityEmbed Entity="MobGingerbread" Caption="Gingerbread"/> Omu, remove gingerbread from guidebook-->
     <GuideEntityEmbed Entity="MobHarpy" Caption="Harpy"/> <!-- Omu, reorder species list -->
   </Box>
   <Box>
-    
+
     <GuideEntityEmbed Entity="MobHuman" Caption="Human"/>
     <GuideEntityEmbed Entity="MobIPCDummy" Caption="IPC"/>
     <GuideEntityEmbed Entity="MobMoth" Caption="Moth Person"/>
@@ -45,7 +45,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="MobFeroxi" Caption="Feroxi"/>
   </Box>
   <Box>
-  <GuideEntityEmbed Entity="MobXelthia" Caption="Xelthia"/>
+    <GuideEntityEmbed Entity="MobXelthia" Caption="Xelthia"/>
+    <GuideEntityEmbed Entity="MobShadowkin" Caption="Shadowkin"/>
+    <GuideEntityEmbed Entity="MobAvali" Caption="Avali"/> <!-- Starlight -->
   </Box>
 
 </Document>

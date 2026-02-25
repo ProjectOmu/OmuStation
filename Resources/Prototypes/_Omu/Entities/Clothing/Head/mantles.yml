@@ -242,6 +242,39 @@
     - type: ShowHealthBars
     - type: ShowHealthIcons
 
+# medical mantle with internals and pressure protection for paramedics.
+- type: entity
+  id: ClothingCyberneticBeastMantleMedicalParamedic
+  parent: ClothingCyberneticBeastMantleMedical
+  name: beast's paramedic mantle
+  description: A modified version of a cybernetic beast's mantle. This one comes with internals, a pressure seal, and an included medhud.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    state: icon-paramedic
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    clothingVisuals:
+      head:
+      - state: helmet-medical
+      - state: helmet-internals-medical
+      - state: eyes-medical
+        shader: unshaded
+  - type: IngestionBlocker
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: ComponentToggler
+    components:
+    - type: VisionCorrection
+      correctionPower: 16
+    - type: NightVision
+      isEquipment: true
+      color: "#CCFFCC"
+    - type: BreathMask
+    - type: ShowHealthBars
+    - type: ShowHealthIcons
+
 # Mantle for the BSO
 - type: entity
   id: ClothingCyberneticBeastMantleBlueshieldOfficer

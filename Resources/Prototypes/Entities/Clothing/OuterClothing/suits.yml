@@ -330,7 +330,7 @@
     - type: Stealth
       maxVisibility: 0.1
       hadOutline: true
-      thermalsImmune: true # Goobstation
+#      thermalsImmune: true OMU change, its a big techy suit, it would emit heat
     - type: StealthOnMove
       invisibilityPenalty: 3
       maxInvisibilityPenalty: 1.6

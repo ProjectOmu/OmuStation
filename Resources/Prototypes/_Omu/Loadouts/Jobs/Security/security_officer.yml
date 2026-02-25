@@ -12,3 +12,10 @@
     proto: SeniorOfficer
   equipment:
     belt: ClothingBeltSheathStunswordFilled
+
+#Backpack
+- type: loadout
+  id: SecurityOfficerGunCase
+  storage:
+    back:
+    - OfficerGunCase

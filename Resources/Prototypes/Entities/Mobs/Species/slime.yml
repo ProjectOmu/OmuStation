@@ -106,6 +106,8 @@
         type: StoreBoundUserInterface
       enum.HereticLivingHeartKey.Key: # goob edit - heretics
         type: LivingHeartMenuBoundUserInterface
+      enum.RadarConsoleUiKey.Key: #goob - contractor
+        type: RadarConsoleBoundUserInterface
       enum.InstrumentUiKey.Key: # Omustation - Required to make the Singer trait work
         type: InstrumentBoundUserInterface
         requireInputValidation: false

@@ -851,7 +851,7 @@
     allowMovement: true
     name: ghost-role-information-hamlet-name
     description: ghost-role-information-hamlet-description
-    rules: ghost-role-information-nonantagonist-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
   - type: GhostTakeoverAvailable
   - type: InteractionPopup
     successChance: 1
@@ -961,23 +961,23 @@
     - FootstepSound
   - type: StealTarget
     stealGroup: AnimalShiva
-  - type: SolutionContainerManager # Omu start
-    solutions:
-      melee:
-        maxVol: 12
-  - type: SolutionRegeneration
-    solution: melee
-    generated:
-      reagents:
-      - ReagentId: Nocturine
-        Quantity: 0.1
-  - type: MeleeChemicalInjector
-    solution: melee
-    transferAmount: 3
-  - type: Access
-    tags:
-    - Security
-    - Brig
+#  - type: SolutionContainerManager # Omu start / Death to validhunting Shiva
+#    solutions:
+#      melee:
+#        maxVol: 12
+#  - type: SolutionRegeneration
+#    solution: melee
+#    generated:
+#      reagents:
+#      - ReagentId: Nocturine
+#        Quantity: 0.1
+#  - type: MeleeChemicalInjector
+#    solution: melee
+#    transferAmount: 3
+#  - type: Access
+#    tags:
+#    - Security
+#    - Brig
   - type: Puller
     needsHands: false # Omu end
   - type: LanguageKnowledge # Einstein Engines - Language
@@ -1013,7 +1013,7 @@
     prob: 0.25
     name: ghost-role-information-willow-name
     description: ghost-role-information-willow-description
-    rules: ghost-role-information-nonantagonist-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [ BoxingKangarooGear ]
@@ -1117,7 +1117,7 @@
   - type: GhostRole
     name: ghost-role-information-smile-name
     description: ghost-role-information-smile-description
-    rules: ghost-role-information-nonantagonist-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
     raffle: null
   - type: Grammar
     attributes:
@@ -1207,7 +1207,7 @@
 #    allowMovement: true
 #    name: ghost-role-information-tropico-name
 #    description: ghost-role-information-tropico-description
-#    rules: ghost-role-information-nonantagonist-rules
+#    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
 #  - type: GhostTakeoverAvailable
   - type: Tag
     tags:

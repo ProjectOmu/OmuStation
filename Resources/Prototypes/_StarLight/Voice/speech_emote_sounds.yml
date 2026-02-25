@@ -1,0 +1,112 @@
+# Avali Sounds
+- type: emoteSounds
+  id: MaleAvali
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: ResomiScreams  # Omu
+    Laugh:
+      collection: ResomiLaugh # Omu
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Sigh:
+      collection: MaleSigh
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MaleDeathGasp
+    Hiss:
+      collection: CatHisses # Omu, replace Felionoid sounds.
+    Purr:
+      collection: FelinidPurrs # Omu, replace Felionoid sounds.
+    Growl:
+      collection: FelinidGrowls # Omu, replace Felionoid sounds.
+    Trill:
+      collection: Trill # Omu, replace Felionoid sounds.
+    Scree:
+      collection: ResomiScrees
+    Call:
+      collection: ResomiCalls
+    Squawk:
+      collection: ResomiSquawk
+    Warble: # Omu start
+      collection: Warble
+    Wurble:
+      collection: Wurble # Omu end
+    Crying:
+      collection: ResomiCry # Omu
+    Honk:
+      collection: BikeHorn
+    Whistle:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_whistle.ogg
+    Chirp:
+      collection: ResomiChirp
+    Gulp: # Omu
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+
+- type: emoteSounds
+  id: FemaleAvali
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: ResomiScreams  # Omu
+    Laugh:
+      collection: ResomiLaugh # Omu
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    Yawn:
+      collection: FemaleYawn
+    Snore:
+      collection: Snores
+    Sigh:
+      collection: FemaleSigh
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: FemaleDeathGasp
+    Hiss:
+      collection: CatHisses # Omu, replace Felionoid sounds.
+    Purr:
+      collection: FelinidPurrs # Omu, replace Felionoid sounds.
+    Growl:
+      collection: FelinidGrowls # Omu, replace Felionoid sounds.
+    Trill:
+      collection: Trill # Omu, replace Felionoid sounds.
+    Scree:
+      collection: ResomiScrees
+    Call:
+      collection: ResomiCalls
+    Squawk:
+      collection: ResomiSquawk
+    Warble: # Omu start
+      collection: Warble
+    Wurble:
+      collection: Wurble # Omu end
+    Crying:
+      collection: ResomiCry # Omu
+    Honk:
+      collection: BikeHorn
+    Whistle:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_whistle.ogg
+    Chirp:
+      collection: ResomiChirp
+    Gulp: # Omu
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg

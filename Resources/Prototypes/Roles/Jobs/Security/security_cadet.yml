@@ -102,10 +102,10 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours - Omu edit start -  No way should you learn what the game is about as sec.
-    #- !type:DepartmentTimeRequirement - Sometimes you haven't played a department in a while :shrug:
-    #  department: Security
-    #  time: 36000 #10 hours
-    #  inverted: true # Omu edit end
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 #10 hours
+      inverted: true # Omu edit end
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"
   supervisors: job-supervisors-security

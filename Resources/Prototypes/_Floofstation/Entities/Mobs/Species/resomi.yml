@@ -61,19 +61,22 @@
     requiredLegs: 2
   - type: Speech
     speechVerb: Parrot
-    speechSounds: MaleAvali
-    allowedEmotes: ['Chirp', 'Trill', 'Warble', 'Wurble'] #goob
+    speechSounds: MaleResomi # Omu
+    allowedEmotes: ['Chirp', 'Trill', 'Warble', 'Wurble', 'Scree', 'Call', 'Squawk'] #goob # omu, add 'Scree', 'Call', 'Squawk'
   - type: Vocal
     sounds:
-      Male: MaleAvaliEmote
-      Unsexed: MaleAvaliEmote
-      Female: FemaleAvaliEmote
+# Omu start
+      Male: MaleResomiEmote
+      Unsexed: MaleResomiEmote
+      Female: FemaleResomiEmote
+# Omu end
   - type: Tag
     tags:         # Goob - What the fuck is FootstepSound and DoorBumpOpener for if they work without them - rest fixes anoms though.
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
+    - Resomi # Starlight
   - type: Hands
     handDisplacement:
       sizeMaps:
@@ -205,7 +208,7 @@
             sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
             state: belt
   - type: Bloodstream # Goobstation - lore stuff
-    bloodReagent: AmmoniaBlood
+    bloodReagent: ResomiBlood # Starlight
   - type: MeleeWeapon # Goobstation - aliem raptors probably use their claws
     soundHit:
       collection: AlienClaw
@@ -285,6 +288,10 @@
       sprite: "Effects/creampie.rsi"
       state: "creampie_resomi"
       visible: false
+  - type: CollectiveMind # Starlight
+    defaultChannel: Nexus
+    channels:
+      - Nexus
 
 - type: entity
   parent: BaseSpeciesDummy

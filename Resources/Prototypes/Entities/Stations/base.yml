@@ -131,6 +131,10 @@
           paths:
             - /Maps/Shuttles/trading_outpost.yml
           nameDataset: TradeStationNames
+        mining: !type:GridSpawnGroup # omu edit start
+          paths:
+          - /Maps/Shuttles/mining.yml
+          nameDataset: MiningShuttleNames # omu edit end
         # Spawn last
         ruins: !type:GridSpawnGroup
           hide: true

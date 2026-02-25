@@ -143,6 +143,9 @@
     pocket2: WeaponAlien
     suitstorage: Wonderprod
     id: AgentIDCard
+  storage:
+    back:
+    - FlashAbductor # Omu
 
 - type: startingGear
   id: AbductorScientistGear
@@ -157,6 +160,9 @@
     pocket1: AbductorGizmo
     suitstorage: WeaponDecloner
     id: AgentIDCard
+  storage:
+    back:
+    - FlashAbductor # Omu
 
 - type: startingGear
   id: AbductorAgentGear
@@ -172,6 +178,9 @@
     pocket2: WeaponAlien
     suitstorage: Wonderprod
     id: AgentIDCard
+  storage:
+    back:
+    - FlashAbductor # Omu
 
 # Spawners
 

@@ -8,7 +8,7 @@
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
   id: GunSafeLauncherNonLethal
-  name: riot launcher safe
+  name: riot and breaching gear safe # Omu
   components:
   - type: StorageFill
     contents:
@@ -17,6 +17,7 @@
     - id: BoxGrenadesFlash
     - id: BoxGrenadesTeargas
     - id: BoxGrenadesMixedShot # Omu
+    - id: SecBreachingHammer # Omu - This is the best place I could think of for it to be.
 
 # Detective Locker with Hardsuit
 - type: entityTable

@@ -63,11 +63,14 @@
   startingInventory:
     ClothingUniformJumpsuitSalvageSpecialist: 3
     #ClothingUniformJumpSkirtSalvageSpecialist: 3 # DeltaV - Tuerk here, the jumpsuit should be available but the linter is not recognizing it...
+    ClothingUniformJumpsuitShaftMiner: 3
     ClothingShoesBootsSalvage: 3
     ClothingHandsGlovesColorBlack: 3
     ClothingBackpackSalvage: 2
     ClothingBackpackSatchelSalvage: 2
     ClothingBackpackDuffelSalvage: 2
     ClothingBackpackMessengerSalvage: 2
-    ClothingHeadsetMining: 2
+    ClothingHeadsetMining: 4
     ClothingOuterWinterMiner: 2
+  emaggedInventory:
+    PKAUpgradeDamage: 1

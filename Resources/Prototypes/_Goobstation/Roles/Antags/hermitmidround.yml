@@ -1,29 +1,29 @@
-- type: antag
-  id: SleeperChangeling
-  name: roles-antag-changelingmidround-name
-  antagonist: true
-  setPreference: true
-  objective: roles-antag-changeling-description
-  requirements:
-  - !type:OverallPlaytimeRequirement
-      time: 36000 #10 hrs
-  - !type:SpeciesRequirement
-    inverted: true
-    species:
-    - IPC
-    - Plasmaman
-  guides: [ Changelings ]
+#- type: antag                                Omu start
+#  id: SleeperChangeling
+#  name: roles-antag-changelingmidround-name
+#  antagonist: true
+#  setPreference: true
+#  objective: roles-antag-changeling-description
+#  requirements:
+#  - !type:OverallPlaytimeRequirement
+#      time: 36000 #10 hrs
+#  - !type:SpeciesRequirement
+#    inverted: true
+#    species:
+#    - IPC
+#    - Plasmaman
+#  guides: [ Changelings ]
 
-- type: antag
-  id: SleeperHeretic
-  name: roles-antag-hereticmidround-name
-  antagonist: true
-  setPreference: true
-  objective: roles-antag-heretic-description
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 54000 # 15h
-  guides: [ Heretics ]
+#- type: antag
+#  id: SleeperHeretic
+#  name: roles-antag-hereticmidround-name
+#  antagonist: true
+#  setPreference: true
+#  objective: roles-antag-heretic-description
+#  requirements:
+#  - !type:OverallPlaytimeRequirement
+#    time: 54000 # 15h
+#  guides: [ Heretics ]                      Omu end - commented as per Marty
 
 - type: antag
   id: SleeperDevil

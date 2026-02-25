@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: speechSounds
-  id: MaleAvali
+  id: MaleResomi # Omu, rename to Resomi
   saySound:
     path: /Audio/_Floofstation/Voice/Avali/avali_1.ogg
   askSound:
@@ -14,7 +14,7 @@
 
 # Unused but if we get diff supprot for it can add in
 - type: speechSounds
-  id: FemaleAvali
+  id: FemaleResomi # Omu, rename to Resomi
   saySound:
     path: /Audio/_Floofstation/Voice/Avali/avali_2.ogg
   askSound:

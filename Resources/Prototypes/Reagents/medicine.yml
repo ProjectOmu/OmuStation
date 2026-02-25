@@ -447,6 +447,13 @@
           min: 20
         amount: 0.04
       - !type:HealthChange
+        conditions:
+          - !type:OrganType # Starlight
+            type: Resomi
+            shouldHave: false
+          - !type:OrganType
+            type: Avali
+            shouldHave: false
         damage:
           types:
             Asphyxiation: -1
@@ -468,6 +475,26 @@
         identifier: Suffocation
         amount: 3.4
         time: 12
+      - !type:HealthChange #Starlight start
+        conditions:
+          - !type:OrganType
+            type: Resomi
+            shouldHave: true
+        damage:
+          types:
+            Poison: 1.5 #Avali and Resomi blood is ammonia based, so chems made to treat normal bloodloss poison them instead (Lethal Dose: 20u)
+            Asphyxiation: 1
+            Bloodloss: 1
+      - !type:HealthChange
+        conditions:
+          - !type:OrganType
+            type: Avali
+            shouldHave: true
+        damage:
+          types:
+            Poison: 1.5 #Avali and Resomi blood is ammonia based, so chems made to treat normal bloodloss poison them instead (Lethal Dose: 20u)
+            Asphyxiation: 1
+            Bloodloss: 1 #Starlight end
 
 - type: reagent
   id: DexalinPlus
@@ -489,6 +516,13 @@
           min: 25
         amount: 0.1
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Resomi
+          shouldHave: false
+        - !type:OrganType
+          type: Avali
+          shouldHave: false
         damage:
           types:
             Asphyxiation: -3.5
@@ -523,6 +557,26 @@
         identifier: Suffocation
         amount: -5
         time: 12
+      - !type:HealthChange #Starlight start
+        conditions:
+        - !type:OrganType
+          type: Resomi
+          shouldHave: true
+        damage:
+          types:
+            Poison: 2.5 #Avali and Resomi blood is ammonia based, so chems made to treat normal bloodloss poison them instead. Dex+ is worse. (Lethal Dose: 15u)
+            Asphyxiation: 1.5
+            Bloodloss: 1
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Avali
+          shouldHave: true
+        damage:
+          types:
+            Poison: 2.5 #Avali and Resomi blood is ammonia based, so chems made to treat normal bloodloss poison them instead. Dex+ is worse. (Lethal Dose: 15u)
+            Asphyxiation: 1.5
+            Bloodloss: 1 #Starlight end
 
 # this ones a doozy
 - type: reagent
@@ -977,11 +1031,44 @@
   physicalDesc: reagent-physical-desc-salty
   flavor: salty
   color: "#0064C8"
-  metabolisms:
-    Drink:
+  metabolisms: # Omu, reclass saline as medcine instead of a drink.
+    Medicine:
       effects:
+        - !type:HealthChange # Starlight start
+          conditions:
+          - !type:OrganType
+            type: Resomi
+            shouldHave: true
+          damage:
+            types:
+              Caustic: 2 # 30 damage per unit was ridiculous, but I'm leaving some damage to punish mistakes without risking round removal. Adding salt to water shouldn't suddenly make it the strongest toxin in the game by far.
+              Heat: 2
+        - !type:HealthChange
+          conditions:
+          - !type:OrganType
+            type: Avali
+            shouldHave: true
+          damage:
+            types:
+              Caustic: 2 # 30 damage per unit was ridiculous, but I'm leaving some damage to punish mistakes without risking round removal. Adding salt to water shouldn't suddenly make it the strongest toxin in the game by far.
+              Heat: 2 # Starlight end
+        - !type:ModifyBloodLevel
+          conditions:
+          - !type:OrganType # Startlight start
+            type: Resomi
+            shouldHave: false
+          - !type:OrganType
+            type: Avali
+            shouldHave: false # Starlight end
+          amount: 12 # Goobstation - buffed by two times due to shitmed changes
         - !type:SatiateThirst
           conditions: # DeltaV nerf of saline for Feroxi
+          - !type:OrganType
+            type: Resomi
+            shouldHave: false
+          - !type:OrganType
+            type: Avali
+            shouldHave: false
           - !type:OrganType
             type: Feroxi
             shouldHave: false
@@ -989,10 +1076,15 @@
         - !type:SatiateThirst # DeltaV nerf of saline for Feroxi
           conditions:
           - !type:OrganType
+            type: Resomi
+            shouldHave: false
+          - !type:OrganType
+            type: Avali
+            shouldHave: false
+          - !type:OrganType
             type: Feroxi
           factor: 2
-        - !type:ModifyBloodLevel
-          amount: 12 # Goobstation - buffed by two times due to shitmed changes
+
 
 - type: reagent
   id: Siderlac

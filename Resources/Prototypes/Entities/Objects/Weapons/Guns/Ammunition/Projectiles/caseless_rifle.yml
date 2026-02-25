@@ -28,15 +28,15 @@
 
 - type: entity
   id: BulletCaselessRifle
-  name: bullet (9.5mm HP) # Goobstation edit
+  name: bullet (9.5mm) # Goobstation edit # Omu edit, no longer HP
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
       types:
-        Piercing: 25 # Goobstation edit
-      armorPenetration: -0.3 # Goobstation
+        Piercing: 16 # Goobstation edit # Omu, was 25
+      #armorPenetration: -0.3 # Goobstation # Omu, remove negative AP.
 
 - type: entity
   id: BulletCaselessRiflePractice

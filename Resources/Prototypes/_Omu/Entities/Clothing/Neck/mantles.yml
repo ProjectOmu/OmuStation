@@ -13,18 +13,29 @@
   parent: ClothingNeckMantleBlueshield
   id: ClothingNeckMantleCCOMantle
   name: CentComm ommantle
-  description: The commander's signature wrap, designed as a part of a uniform explicitly designed to torment her.
+  description: The commander's signature wrap, designed as a part of a uniform explicitly designed to torment her. Now with in built microchips!
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Neck/Mantle/CCOmmantle.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Neck/Mantle/CCOmmantle.rsi
+  - type: Emag
+    emagType: All
+    emagSound: /Audio/_Goobstation/Items/card_swipe.ogg
+    successText: executive-card-success
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckMantleCMOModern
   name: chief medical officer's modern mantle
-  description: A modernised, much more comfortable version of the CMO's mantle, recolored in a more fashionable and fitting color, with sleek, white fur added on the collar and its edges, held up by a golden pin. 
+  description: A modernised, much more comfortable version of the CMO's mantle, recolored in a more fashionable and fitting color, with sleek, white fur added on the collar and its edges, held up by a golden pin.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Neck/Mantle/cmomantle.rsi

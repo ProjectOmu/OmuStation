@@ -154,6 +154,7 @@
   abstract: true
   components:
   - type: Contraband
+    allowedJobs: [ BlueshieldOfficer ] # Omu - BSO has access to security contraband, should include multi-department sec contraband.
     allowedDepartments: [ Security, Command ]
 
 - type: entity
@@ -162,6 +163,7 @@
   abstract: true
   components:
   - type: Contraband
+    allowedJobs: [ BlueshieldOfficer ] # Omu - BSO has access to security contraband, should include multi-department sec contraband.
     allowedDepartments: [ Security, Science, Command ]
 
 - type: entity
@@ -170,6 +172,7 @@
   abstract: true
   components:
   - type: Contraband
+    allowedJobs: [ BlueshieldOfficer ] # Omu - BSO has access to security contraband, should include multi-department sec contraband.
     allowedDepartments: [ Security, Engineering ]
 
 - type: entity
@@ -186,6 +189,7 @@
   abstract: true
   components:
   - type: Contraband
+    allowedJobs: [ BlueshieldOfficer ] # Omu - BSO has access to security contraband, should include multi-department sec contraband.
     allowedDepartments: [ Security, Cargo ]
 
 - type: entity
@@ -204,7 +208,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Security ]
-    allowedJobs: [ Bartender ]
+    allowedJobs: [ Bartender, BlueshieldOfficer ] # Omu - BSO added as it has access to security contraband, should include multi-department sec contraband.
 
 - type: entity
   id: BaseSecurityBartenderZookeeperContraband
@@ -213,7 +217,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Security ]
-    allowedJobs: [ Bartender, Zookeeper ]
+    allowedJobs: [ Bartender, Zookeeper, BlueshieldOfficer ] # Omu - BSO added as it has access to security contraband, should include multi-department sec contraband.
 
 - type: entity
   id: BaseSecurityLawyerContraband
@@ -222,7 +226,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Security ]
-    allowedJobs: [ Lawyer ]
+    allowedJobs: [ Lawyer, BlueshieldOfficer ] # Omu - BSO added as it has access to security contraband, should include multi-department sec contraband.
 
 - type: entity
   id: BaseJanitorContraband

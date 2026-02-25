@@ -40,6 +40,10 @@
         reagents:
         - ReagentId: Water
           Quantity: 9999999
+  - type: RCDDeconstructable # omu
+    cost: 1
+    delay: 2
+    fx: EffectRCDDeconstruct2
   #- type: SolutionRegeneration Goobstation - laggy as shit
   #  solution: tank
   #  generated:

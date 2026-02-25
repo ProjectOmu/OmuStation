@@ -536,6 +536,7 @@
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
+    - SecurityAmmoOmu # Omu
     - SecurityExplosives
     #- SecurityEquipment # Goobstation
     - SecurityWeapons
@@ -769,7 +770,6 @@
     - ScienceExplosives
     - GrenadeTriggersStatic
     - SecurityWeaponsStaticGoob
-    - SecurityWeaponsNonEmaggableStaticGoob
     - SecurityAmmoStaticOmu # Omu
     dynamicPacks:
     - SalvageSecurityBoards
@@ -778,6 +778,7 @@
     - SecurityBoards
     - SecurityExplosives
     - SecurityAmmo
+    - SecurityAmmoOmu # Omu
     - SecurityWeapons
     - SecurityDisablers
     # Goobstation

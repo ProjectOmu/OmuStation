@@ -79,6 +79,11 @@
   - type: Battery
     maxCharge: 600
     startingCharge: 600
+  - type: BatterySelfRecharger # Omu - Re-added self recharge, takes 50 seconds to fully recharge after not being used for 10 seconds.
+    autoRecharge: true
+    autoRechargeRate: 12
+    autoRechargePause: true
+    autoRechargePauseTime: 10
   - type: UseDelay
   - type: Item
     heldPrefix: off
@@ -129,7 +134,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 5
+        Piercing: 1
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg

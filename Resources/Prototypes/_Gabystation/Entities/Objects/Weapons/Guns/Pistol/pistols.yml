@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: 2025 GabyChangelog <agentepanela2@gmail.com>
+# SPDX-FileCopyrightText: 2025 VictorJob <victorjobnogueira12@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: golden mk 58
+  parent: [WeaponPistolMk58]
+  id: WeaponPistolMk58Gold
+  description: A Gold-plated MK-58. If you see an officer wielding this, they have definitely seen some shit. Uses .35 caliber pistol magazines.
+  components:
+  - type: Sprite
+    sprite: _Gabystation/Objects/Weapons/Guns/Pistol/mk58gold.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Gabystation/Objects/Weapons/Guns/Pistol/mk58gold.rsi

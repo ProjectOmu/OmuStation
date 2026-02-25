@@ -69,6 +69,7 @@
         TechnicalAssistant: ClothingCyberneticBeastMantleWorkEngineering
         # salvage mantle for salvagers
         SalvageSpecialist: ClothingCyberneticBeastMantleWorkSalvage
+        ShaftMiner: ClothingCyberneticBeastMantleWorkSalvage
         # sec mantle for secoffs
         Detective: ClothingCyberneticBeastMantleSecurity
         SecurityCadet: ClothingCyberneticBeastMantleSecurity
@@ -78,7 +79,7 @@
         Chemist: ClothingCyberneticBeastMantleMedical
         MedicalDoctor: ClothingCyberneticBeastMantleMedical
         MedicalIntern: ClothingCyberneticBeastMantleMedical
-        Paramedic: ClothingCyberneticBeastMantleMedical
+        Paramedic: ClothingCyberneticBeastMantleMedicalParamedic # paramedic mantle variant with internals
         Brigmedic: ClothingCyberneticBeastMantleMedical
         # tossup of mantles for command.
         BlueshieldOfficer: ClothingCyberneticBeastMantleBlueshieldOfficer
@@ -230,5 +231,5 @@
     - Resomi
     - Rodentia
   - !type:WeightRequirement # too heavy for uppies
-    minimumWeight: 40
+    minimumWeight: 53
     inverted: true

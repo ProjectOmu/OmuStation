@@ -64,3 +64,90 @@
   components:
   - type: Pda
     id: ERTSecurityIDCardBlue
+
+#New PDAs for command!
+
+- type: entity
+  parent: [NanotrasenRepresentativePDA, BaseWidePDA]
+  id: AltNanotrasenRepresentativePDA
+  name: nanotrasen representative's PDA
+  description: Slick design for the one who walks among the crew.
+  components:
+  - type: Pda
+    id: NanotrasenRepresentativeIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-altnanorep
+  - type: Sprite
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-altnanorep
+  - type: Icon
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-altnanorep
+  - type: PdaBorderColor
+    borderColor: "#0d140d"
+
+- type: entity
+  parent: HoPPDA
+  id: altHoPPDA
+  name: head of personnel PDA
+  description: Themed after everyone's favorite pet.
+  components:
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-althop
+  - type: PdaBorderColor
+    borderColor: "#103152"
+    accentVColor: "#aca54b"
+    accentHColor: "#4e0607"
+  - type: Sprite
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-althop
+  - type: Icon
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-althop
+
+- type: entity
+  parent: CaptainPDA
+  id: altCaptainPDA
+  name: captain PDA
+  description: Same as your PDA, but with more style.
+  components:
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-altcaptain
+  - type: Sprite
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-altcaptain
+  - type: Icon
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-altcaptain
+  - type: PdaBorderColor
+    borderColor: "#103152"
+    accentVColor: "#e6a345"
+
+- type: entity
+  parent: BlueshieldPDA
+  id: altBlueshieldPDA
+  name: blueshield officer PDA
+  description: This one can take a bullet.
+  components:
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-altblueshield
+  - type: PdaBorderColor
+    borderColor: "#2569b0"
+  - type: Sprite
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-altblueshield
+  - type: Icon
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-altblueshield
