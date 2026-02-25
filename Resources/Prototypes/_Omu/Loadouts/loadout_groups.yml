@@ -97,6 +97,44 @@
   loadouts:
   - NanotrasenRepresentativerMaskLollypop
 
+#New Selectable PDAs
+
+- type: loadoutGroup
+  id: HoPPDA
+  name: loadout-group-hop-id
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - HoPPDA
+  - altHoPPDA
+
+- type: loadoutGroup
+  id: CaptainPDA
+  name: loadout-group-captain-id
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CaptainPDA
+  - altCaptainPDA
+
+- type: loadoutGroup
+  id: NanotrasenRepresentativePDA
+  name: loadout-group-ntr-id
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - NanotrasenRepresentativePDA
+  - AltNanotrasenRepresentativePDA
+
+- type: loadoutGroup
+  id: BlueshieldPDA
+  name: loadout-group-bs-id
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BlueshieldPDA
+  - altBlueshieldPDA
+
 # Blueshield Officer
 
 - type: loadoutGroup

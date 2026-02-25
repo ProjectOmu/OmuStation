@@ -136,6 +136,7 @@ public sealed partial class DragonSystem : EntitySystem
     [Dependency] private readonly ISerializationManager _serManager = default!; // Goobstation
     [Dependency] private readonly DamageableSystem _damage = default!; // Goobstation
     [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly BodySystem _body = default!; // OmuStation
 
     private EntityQuery<CarpRiftsConditionComponent> _objQuery;
 
@@ -211,11 +212,11 @@ public sealed partial class DragonSystem : EntitySystem
             if (!_mobState.IsDead(uid))
                 comp.RiftAccumulator += frameTime;
 
-            // Delete it, naughty dragon!
+            // Gib it, naughty dragon!
             if (comp.RiftAccumulator >= comp.RiftMaxAccumulator)
             {
                 Roar(uid, comp);
-                QueueDel(uid);
+                _body.GibBody(uid); // Omu Change -- QueueDel(uid);
             }
         }
     }

@@ -452,6 +452,7 @@
     CableCoil: 15
   output:
     MobGhoulRustWalker: 1
+  limit: 5  #Omu change - was unlimited, limit of 5, go play flesh if you want a tide.
 
 - type: hereticRitual
   id: CarvingKnife

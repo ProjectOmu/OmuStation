@@ -100,6 +100,7 @@
   - NanotrasenRepresentativerMask #Omu
   - NanotrasenRepresentativeShoes
   - NanotrasenRepresentativeBelt
+  - NanotrasenRepresentativePDA # Omu
   - Glasses
   - Trinkets
   - Animals
@@ -122,6 +123,7 @@
   - BlueshieldOfficerNeck
   - BlueshieldOfficerMask
   - BlueshieldOfficerShoes
+  - BlueshieldPDA # Omu
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
@@ -184,7 +186,7 @@
   id: JobBrigmedic
   groups:
   - BrigmedicHead
-  - MedicalMask
+  - BrigmedicMask #Starlight - Omu port
   - CorpsmanGlasses #Omu
   - CorpsmanHeadset #Omu
   - BrigmedicJumpsuit
@@ -194,8 +196,10 @@
   - BrigmedicBackpack
   - SecurityMelee # EE parity, make corpsman able to carry weapons like the rest of security
   - SecurityShoes
+  - BrigmedicPDA #Starlight - Omu port
   - SecurityNeck
   - SurvivalSecurity
+  - BrigmedicBeaker #Starlight - Omu port
   - Trinkets
   - Animals
   - SecurityStar

@@ -2060,3 +2060,116 @@ Entries:
       message: Ported Chimera (admin only for now)
   id: 258
   time: '2026-02-20T21:06:11.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: Chimera tweaks
+  id: 259
+  time: '2026-02-21T19:58:06.0000000+00:00'
+- author: PhosphateWithManyOs
+  changes:
+    - type: Add
+      message: 'PORT: Saving and Loading Hand Labeler Labels'
+  id: 260
+  time: '2026-02-22T06:23:36.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer construct buildables without actually having the
+        materials to do so.
+  id: 261
+  time: '2026-02-22T12:50:24.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Add
+      message: Reclaimed the NT-Reclaimer
+    - type: Add
+      message: Expeditions Make a return
+  id: 262
+  time: '2026-02-22T12:52:23.0000000+00:00'
+- author: PhosphateWithManyOs
+  changes:
+    - type: Add
+      message: Conspirators! Ported from Harmony
+  id: 263
+  time: '2026-02-22T13:11:20.0000000+00:00'
+- author: ArtemisYK
+  changes:
+    - type: Add
+      message: Surgery Trait to the BSO
+  id: 264
+  time: '2026-02-23T16:06:07.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: Limited Rust walkers to 5, go play flesh if you want a swarm
+  id: 265
+  time: '2026-02-23T17:00:11.0000000+00:00'
+- author: madcaker
+  changes:
+    - type: Add
+      message: Paramedic mantles! A variant of medical mantles that includes internals.
+  id: 266
+  time: '2026-02-23T17:00:48.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Changed access requirement on the Anomaly generator to RD access.
+    - type: Tweak
+      message: >-
+        Cargo, Salv, and Syndie shuttle consoles now require their related
+        access. (Mining shuttle still is free to access for anyone).
+  id: 267
+  time: '2026-02-23T17:06:05.0000000+00:00'
+- author: PhosphateWithManyOs
+  changes:
+    - type: Add
+      message: Senior Chemistry Clothing
+    - type: Add
+      message: Veteran Corpsman Clothing
+    - type: Add
+      message: Vanity Beakers
+    - type: Add
+      message: Golden Labeller to throw at corpsmen that walk into the chembay
+    - type: Add
+      message: >-
+        BSO, chemistry and medisec eyepatches. (Only the chem ones are available
+        in loadout)
+  id: 268
+  time: '2026-02-23T19:43:30.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: small trait maximum weight raised 40 kg -> 53kg
+  id: 269
+  time: '2026-02-23T19:44:53.0000000+00:00'
+- author: EidolonForgery
+  changes:
+    - type: Add
+      message: The Welles (Shaken, not Stirred)
+  id: 270
+  time: '2026-02-23T19:46:40.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: >-
+        New language traits for siik maas, sinta unathi, and valyrian standard.
+        Also a super secret lizard only language trait called azaziba but you
+        cant tell anyone
+  id: 271
+  time: '2026-02-23T19:48:28.0000000+00:00'
+- author: Aureu
+  changes:
+    - type: Tweak
+      message: Space Dragon will no longer delete itself
+  id: 272
+  time: '2026-02-23T19:52:04.0000000+00:00'
+- author: Gab
+  changes:
+    - type: Add
+      message: >-
+        Added 4 new PDAs in the loadout menu for HoP, Cap, BSO and NTR. Expect
+        some more in the near future.
+  id: 273
+  time: '2026-02-23T19:57:11.0000000+00:00'

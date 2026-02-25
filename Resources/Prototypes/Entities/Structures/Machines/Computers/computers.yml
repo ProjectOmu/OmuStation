@@ -433,6 +433,9 @@
     color: "#c94242"
   - type: Computer
     board: SyndicateShuttleConsoleCircuitboard
+  - type: ActivatableUIRequiresAccess # Omu start
+  - type: AccessReader
+    access: [["SyndicateAgent"]] # Omu end
 
 - type: entity
   parent: BaseComputerShuttle
@@ -465,6 +468,9 @@
     board: CargoShuttleConsoleCircuitboard
   - type: StealTarget
     stealGroup: CargoShuttleConsoleCircuitboard
+  - type: ActivatableUIRequiresAccess # Omu start
+  - type: AccessReader
+    access: [["Cargo"]] # Omu end
 
 - type: entity
   parent: BaseComputerShuttle
@@ -495,6 +501,9 @@
       board: SalvageShuttleConsoleCircuitboard
     - type: StealTarget
       stealGroup: SalvageShuttleConsoleCircuitboard
+    - type: ActivatableUIRequiresAccess # Omu start
+    - type: AccessReader
+      access: [["Salvage"]] # Omu end
 
 - type: entity
   parent: BaseComputerAiAccess

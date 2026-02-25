@@ -371,6 +371,11 @@ reagent-desc-mimosa = Perfect for a lively brunch out with the girls.
 reagent-name-moscow-mule = moscow mule
 reagent-desc-moscow-mule = A surpsingly strong and refreshing mixed drink, served in an iconic copper mug.
 
+# Omu start
+reagent-name-welles = the welles
+reagent-desc-welles = A smooth drink for the big dreamers from the lower classes in Night City. Made with love and mourning.
+# Omu end
+
 reagent-name-the-sun-also-rises = the sun also rises
 reagent-desc-the-sun-also-rises = A strong cocktail mixed into a murky blend. A secret favorite of tortured authors.
 

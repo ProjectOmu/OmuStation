@@ -1,0 +1,74 @@
+#Chemist
+- type: loadoutGroup
+  id: ChemistBag
+  name: loadout-group-chemist-bag
+  loadouts:
+  - ChemBag
+  - SeniorChemBag
+
+- type: loadoutGroup
+  id: ChemistShoes
+  name: loadout-group-chemist-shoes
+  loadouts:
+  - WhiteShoes
+  - ChemistWinterBoots
+  - MedicalWinterBoots
+
+- type: loadoutGroup
+  id: ChemistPDA
+  name: loadout-group-chemist-id
+  loadouts:
+  - ChemistPDA
+  - SeniorChemistPDA
+
+- type: loadoutGroup
+  id: ChemistEyewear
+  name: loadout-group-chemist-eyewear
+  loadouts:
+  - ChemicalGoggles
+  - ChemicalHud
+  - ChemicalEyePatchHud
+  - ChemicalJensens
+
+- type: loadoutGroup
+  id: ChemistBeaker
+  name: loadout-group-chemist-beaker
+  minLimit: 0
+  loadouts:
+  - LightBeaker
+  - SilverBeakerChemist
+  - DarkBeakerChemist #since all the beakers are the same, no harm
+
+- type: loadoutGroup
+  id: ChemistLabeler
+  name: loadout-group-chemist-labeler
+  loadouts:
+  - ChemistHandLabeler
+  - GoldenHandLabeler
+
+# Brigmedic
+- type: loadoutGroup
+  id: BrigmedicMask
+  name: loadout-group-brigmedic-mask
+  minLimit: 0
+  loadouts:
+  - BrigmedicBreathMaskMedicalSecurity
+  - BrigmedicMaskGasSecurity
+
+- type: loadoutGroup
+  id: BrigmedicPDA
+  name: loadout-group-brigmedic-id
+  loadouts:
+  - BrigmedicPDA
+  - CorpsmanPDA
+  - VeteranBrigmedicPDA
+  - VeteranCorpsmanPDA
+
+- type: loadoutGroup
+  id: BrigmedicBeaker
+  name: loadout-group-brigmedic-beaker
+  minLimit: 0
+  loadouts:
+  - LightBeaker #since all the beakers are the same, no harm
+  - SilverBeakerBrigmedic
+  - DarkBeakerBrigmedic

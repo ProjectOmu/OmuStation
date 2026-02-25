@@ -57,6 +57,11 @@
     - SolCommon
   languagesUnderstood:
     - SolCommon
+  requirements: # omu
+    - !type:SpeciesRequirement
+      species:
+        - Human
+      inverted: true
 
 - type: trait
   id: Tradeband
@@ -100,19 +105,25 @@
   languagesUnderstood:
     - Elyran
 
-# Commented out since it's species-specific.
-# - type: trait
-#   id: ValyrianStandard
-#   name: trait-language-valyrianstandard-name
-#   description: trait-language-valyrianstandard-desc
-#   category: LanguageTraits
-#   cost: 1
-#   functions:
-#     - !type:TraitModifyLanguages
-#       languagesSpoken:
-#         - ValyrianStandard
-#       languagesUnderstood:
-#         - ValyrianStandard
+# omu, un commented this yaayyy
+- type: trait
+  id: ValyrianStandard
+  name: trait-language-valyrianstandard-name
+  description: trait-language-valyrianstandard-desc
+  category: LanguageTraits
+  cost: 1
+  components:
+  - type: LanguageSpeaker
+  countsTowardsMaxTraits: false # Omustation - Don't count languages towards max traits
+  languagesSpoken:
+    - ValyrianStandard
+  languagesUnderstood:
+    - ValyrianStandard
+  requirements:
+    - !type:SpeciesRequirement
+      species:
+        - Harpy
+      inverted: true
 
 - type: trait
   id: NovuNederic
@@ -128,20 +139,21 @@
   languagesUnderstood:
     - NovuNederic
 
-# Commented out since it's species-specific.
-# - type: trait
-#   id: Azaziba
-#   name:
-#   description: trait-language-azaziba-desc
-#   category: LanguageTraits
-#   cost: 1
-#   # requirements:
-#   #   - !type:CharacterSpeciesRequirement
-#   #     species:
-#   #       - Reptilian
-#   functions:
-#     - !type:TraitModifyLanguages
-#       languagesSpoken:
-#         - Azaziba
-#       languagesUnderstood:
-#         - Azaziba
+# omu, un commented this yaayyy
+- type: trait
+  id: SintaAzaziba
+  name: trait-language-azaziba-name
+  description: trait-language-azaziba-desc
+  category: LanguageTraits
+  cost: 1
+  components:
+  - type: LanguageSpeaker
+  countsTowardsMaxTraits: false # Omustation - Don't count languages towards max traits
+  languagesSpoken:
+    - Azaziba
+  languagesUnderstood:
+    - Azaziba
+  requirements:
+    - !type:SpeciesRequirement
+      species:
+        - Reptilian

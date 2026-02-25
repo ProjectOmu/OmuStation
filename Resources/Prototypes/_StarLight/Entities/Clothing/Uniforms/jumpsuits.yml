@@ -61,3 +61,41 @@
     sprite: _Starlight/Clothing/Uniforms/Jumpsuit/formal_blueshield.rsi
   - type: Clothing
     sprite: _Starlight/Clothing/Uniforms/Jumpsuit/formal_blueshield.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitSeniorChemist
+  name: senior chemist jumpsuit
+  description: A sign of skill, prestige, and alchemical prowess.
+  components:
+  - type: RollUpSleeves
+  - type: Sprite
+    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/senior_chemist.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/senior_chemist.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: ClothingUniformJumpsuitCorpsmanResponse
+  name: corpsman's response jacket
+  description: If only I'd been faster.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/corpsman_response.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/corpsman_response.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitOfLife
+  name: suit of life
+  description: A suit that symbolizes the joy and positivity of our life.
+  components:
+  - type: RollUpSleeves
+  - type: Sprite
+    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/suitoflife.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/suitoflife.rsi
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.95
+

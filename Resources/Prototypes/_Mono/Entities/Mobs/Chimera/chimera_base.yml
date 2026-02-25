@@ -63,7 +63,7 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Blunt: 12
+        Blunt: 6
         Slash: 10
         Structural: 10
   - type: ReplacementAccent
@@ -84,8 +84,8 @@
     solution: melee
     transferAmount: 1.5
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.5
-    baseSprintSpeed : 4.25
+    baseWalkSpeed : 2.25
+    baseSprintSpeed : 3.75
   - type: StatusEffects
     allowed:
     - Stun
@@ -176,6 +176,7 @@
   description: A once sentient being covered in putrid flesh and bone. You can see a glimpse of humanity left in its eyes, like whoever it was is still awake.
   abstract: true
   components:
+  - type: Chimera # Omu
   - type: HTN
     rootTask:
       task: ChimeraHostileCompound
@@ -229,7 +230,6 @@
     - FootstepSound
     - DoorBumpOpener
     - Chimera
-    - Humanoid
   - type: Puller
     needsHands: true
   - type: Body

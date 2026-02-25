@@ -49,6 +49,17 @@
   equipment:
     neck: ClothingNeckMantleTwoBlueshield
 
+#PDA
+
+- type: loadout
+  id: BlueshieldPDA
+  equipment:
+    id: BlueshieldPDA
+
+- type: loadout
+  id: altBlueshieldPDA
+  equipment:
+    id: altBlueshieldPDA
 
 # Belt
 - type: loadout #BSO's belt - Moved to Loadout
