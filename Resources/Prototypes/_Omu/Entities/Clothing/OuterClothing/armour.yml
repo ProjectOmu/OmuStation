@@ -10,3 +10,16 @@
     sprite: _Omu/Clothing/OuterClothing/Armour/ClothingOuterBlueshieldArmourKimono.rsi
   - type: Item
     size: Normal
+
+- type: entity
+  parent: [ ClothingBlueshieldArmourVest, ClothingOuterStorageBase ]
+  id: ClothingOuterBlueshieldArmourTrenchcoat
+  name: blueshield's armored trenchcoat
+  description: ratta
+  components:
+  - type: Sprite # temporary sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/hoswinterjacket.rsi
+  - type: Clothing # temporary sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/hoswinterjacket.rsi
+  - type: Item
+    size: Normal

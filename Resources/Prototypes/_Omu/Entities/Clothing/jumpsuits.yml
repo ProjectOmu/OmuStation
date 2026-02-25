@@ -155,3 +155,14 @@
     sprite: _Omu/Clothing/Uniforms/Jumpsuit/cybersunparamed.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Uniforms/Jumpsuit/cybersunparamed.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCentcommContraband]
+  id: ClothingUniformJumpsuitBlueshieldOfficerSuit
+  name: blueshield officer's suit
+  description: ooo fancy
+  components:
+  - type: Sprite #temp sprite
+    sprite: Clothing/Uniforms/Jumpsuit/lawyerblack.rsi 
+  - type: Clothing #temp sprite
+    sprite: Clothing/Uniforms/Jumpsuit/lawyerblack.rsi
