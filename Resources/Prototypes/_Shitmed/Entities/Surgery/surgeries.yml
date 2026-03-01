@@ -560,7 +560,7 @@
 - type: entity
   parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemoveBorgBrain
-  name: Remove Positronic Brain
+  name: Remove Positronic Interface # Omu change name
   components:
   # TODO: ipc surgery steps
   - type: SurgeryPartCondition
@@ -583,7 +583,7 @@
 - type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertBorgBrain
-  name: Insert Positronic Brain
+  name: Insert Positronic Interface # Omu change surgery name
   components:
   - type: SurgeryPartCondition
     parts: [ Chest ]
@@ -731,6 +731,20 @@
   - type: SurgeryOrganCondition
     organ:
     - type: Stomach
+  - type: SurgeryOrganSlotCondition # Omu change so that slimes dont get this surg.
+    organSlot: brain
+    inverse: true
+
+- type: entity # Omu
+  parent: BaseSurgeryRemoveOrgan
+  id: SurgeryRemoveStomachBrain # You don't need this for slimes but youll need it if you insert a non-slime into a slime
+  name: Remove Sentient Core    # Yes technically you can still insert slime brains via insert stomach though
+  components:
+  - type: SurgeryPartCondition
+    parts: [ Groin ]
+  - type: SurgeryOrganCondition
+    organ:
+    - type: Brain
 
 - type: entity
   parent: BaseSurgeryInsertOrgan
@@ -748,6 +762,23 @@
   - type: SurgeryOrganCondition
     organ:
     - type: Stomach
+
+- type: entity # Omu
+  parent: BaseSurgeryInsertOrgan
+  id: SurgeryInsertStomachBrain # Slimes mostly
+  name: Insert Sentient Core
+  components:
+  - type: Surgery
+    steps:
+    - SurgeryStepInsertOrgan
+    - SurgeryStepSealOrganWound
+  - type: SurgeryPartCondition
+    parts: [ Groin ]
+  - type: SurgeryOrganSlotCondition
+    organSlot: brain
+  - type: SurgeryOrganCondition
+    organ:
+    - type: Brain
 
 - type: entity
   parent: BaseSurgeryRemoveOrgan

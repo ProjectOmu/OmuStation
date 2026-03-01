@@ -200,3 +200,12 @@
     back:
     - FlippoLighter
   groupBy: "smokeables"
+
+- type: loadout
+  id: GreyTideStamp
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SophisticatedTider
+  storage:
+   back:
+   - RubberStampGreytide

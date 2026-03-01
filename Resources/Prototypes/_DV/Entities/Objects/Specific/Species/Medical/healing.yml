@@ -1,0 +1,43 @@
+- type: entity
+  parent: BaseHealingItem
+  id: Oilpack
+  name: oil pack
+  suffix: Full
+  description: Fit with a proprietary and disposable connector, oil can easily be injected to top off a bleeding IPC
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Medical/Oilpack.rsi
+    state: icon
+  - type: Item
+    sprite: _DV/Objects/Medical/Oilpack.rsi
+    heldPrefix: icon
+  - type: Healing
+    damageContainers:
+      - SiliconRadiation
+    damage:
+      types:
+        Heat: -0 # use cables for thiisss i tried  to remove this part but it broke my game lol
+    modifyBloodLevel: -60 # heal moreeee
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: Stack
+    stackType: Bloodpack
+    count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
+  - type: StackPrice
+    price: 10
+
+- type: entity
+  parent: Oilpack
+  id: Oilpack1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1

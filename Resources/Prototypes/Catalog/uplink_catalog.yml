@@ -1892,9 +1892,9 @@
   id: UplinkHolster
   name: uplink-holster-name
   description: uplink-holster-desc
-  productEntity: ClothingBeltSyndieHolster
+  productEntity: ClothingBeltChameleonHolster # omu
   cost:
-    Telecrystal: 8 # goob - holster rework
+    Telecrystal: 15 # omu. its chameleon and it can fit any gun you can pull a hristov out of what looks like a towel
   categories:
   - UplinkWearables
 
@@ -1987,7 +1987,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Suits/eva_syndicate.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEVABundle
   cost:
-    Telecrystal: 20 # goob - Meh protection no slowdown. Can definitely take a hit or two extra however.
+    Telecrystal: 10 # omu, no slowdown but the protection is gone
   categories:
   - UplinkWearables
 

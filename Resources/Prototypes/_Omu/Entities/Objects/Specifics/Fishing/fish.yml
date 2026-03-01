@@ -1,0 +1,161 @@
+- type: entity
+  id: FishCoalOre
+  parent: BaseFish
+  name: steel orefish
+  description: Messed up looking rock fish.. I can make butcher it for coal and iron.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
+    state: coalfish
+  - type: Item
+    sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
+  - type: Butcherable
+    spawned:
+    - id: CoalUnprocessed
+      amount: 2
+    - id: SteelOreUnprocessed
+      amount: 2
+
+- type: entity
+  id: FishQuartzOre
+  parent: BaseFish
+  name: quartz orefish
+  description: Messed up looking rock fish.. I can butcher it for quartz.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
+    state: quartzfish
+  - type: Item
+    sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
+  - type: Butcherable
+    spawned:
+    - id: SpaceQuartzUnprocessed
+      amount: 2
+
+- type: entity
+  id: FishGoldOre
+  parent: BaseFish
+  name: gold orefish
+  description: Not to be confused with a goldfish.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
+    state: goldorefish
+  - type: Item
+    sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
+  - type: Butcherable
+    spawned:
+    - id: GoldOreUnprocessed
+      amount: 1
+
+- type: entity
+  id: FishSilverOre
+  parent: BaseFish
+  name: silver orefish
+  description: Not to be confused with a silverfish.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
+    state: silverorefish
+  - type: Item
+    sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
+  - type: Butcherable
+    spawned:
+    - id: SilverOreUnprocessed
+      amount: 1
+
+- type: entity
+  id: FishPlasmaOre
+  parent: BaseFish
+  name: plasma orefish
+  description: Yuck.........
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
+    state: plasmaorefish
+  - type: Item
+    sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
+  - type: Butcherable
+    spawned:
+    - id: PlasmaOreUnprocessed
+      amount: 1
+
+- type: entity
+  id: FishUraniumOre
+  parent: BaseFish
+  name: uranium orefish
+  description: Uranium fever has done and got me down!
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
+    state: uraniumorefish
+  - type: Item
+    sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
+  - type: Butcherable
+    spawned:
+    - id: UraniumOreUnprocessed
+      amount: 1
+
+- type: entity
+  id: FishDiamondOre
+  parent: BaseFishRare
+  name: diamond orefish
+  description: I'm ofishially rich.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
+    state: diamondfish
+  - type: Item
+    sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
+  - type: Butcherable
+    spawned:
+    - id: DiamondOre1Unprocessed
+      amount: 6
+
+- type: entity
+  id: FishBluespaceOre
+  parent: BaseFishRare
+  name: bluespace orefish
+  description: What in the world?
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
+    state: bluespaceorefish
+  - type: Item
+    sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
+  - type: Butcherable
+    spawned:
+    - id: MaterialBSCrystal1Unprocessed
+      amount: 6
+
+- type: entity
+  id: FishArtifactOre
+  parent: BaseFish
+  name: artifact orefish
+  description: Science would krill for this.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
+    state: artifragfish
+  - type: Item
+    sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
+  - type: Butcherable
+    spawned:
+    - id: ArtifactFragmentOre1Unprocessed
+      amount: 8
+
+- type: entity
+  id: FishBananiumOre
+  parent: BaseFishRare
+  name: bananium orefish
+  description: Honk!
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
+    state: bananiumfish
+  - type: Item
+    sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
+  - type: Butcherable
+    spawned:
+    - id: BananiumOre1Unprocessed
+      amount: 6

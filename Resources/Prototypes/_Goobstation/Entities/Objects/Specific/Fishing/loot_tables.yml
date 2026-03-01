@@ -45,16 +45,19 @@
     - id: FishNuker
     - id: FishToxic
     - id: FishIan
-    - id: CrateCargoGambling
-    - id: MobShark
+    - id: CrateCargoGambling #omu
+    - id: MobShark #omu
 
-- type: entityTable
+- type: entityTable # omu
   id: InsaneFishTable
   table: !type:GroupSelector
     children:
     - id: MobDragonDungeon  # This one dies pretty easy its just gonna be funny
     - id: NukeDiskFake
     - id: ClothingOuterHardsuitCarp
+    - id: FoodSnackLollypopWrappedCarpEvil # Omu
+    - id: CombatMedipen # Omu
+    - id: MobXenomorphMaid # Omu
 
 # Fish from water
 - type: entityTable
@@ -71,9 +74,9 @@
     - id: FishSilver
     - id: FishTropicalSun
     - id: FishTropical
-    - id: MobSpaceShrimp
-    - id: MobCrab
-
+    - id: MobSpaceShrimp # omu
+    - id: MobCrab # omu
+    - id: MobCarpGoldfish # omu
 # Items from Water
 - type: entityTable
   id: WaterFishingLootTable
@@ -92,15 +95,56 @@
         tableId: InsaneFishTable
         weight: 1
 
+# Omu, fish from Lava
+
+- type: entityTable
+  id: LavaFishTableCommon
+  table: !type:GroupSelector
+    children:
+    - id: FishCoalOre
+    - id: FishQuartzOre
+
+- type: entityTable
+  id: LavaFishTableUncommon
+  table: !type:GroupSelector
+    children:
+    - id: FishSilverOre
+    - id: FishGoldOre
+    - id: FishPlasmaOre
+    - id: FishUraniumOre
+    - id: FishArtifactOre
+- type: entityTable
+  id: LavaFishTableRare
+  table: !type:GroupSelector
+    children:
+    - id: FishDiamondOre
+    - id: FishBananiumOre
+    - id: FishBluespaceOre
+    - id: MobShark
+    - id: MedkitCombatFilled
+    - id: MaterialGoliathHide
+    
+# Omu end
+
 # Items from Lava
 - type: entityTable
   id: LavaFishingLootTable
   table: !type:GroupSelector
     children:
-      # TODO: lava/plasma fish
+      # omu salvage fishing real
       - !type:NestedSelector
-        tableId: BasicFishingLootTable
-
+        tableId: LavaFishTableCommon
+        weight: 50
+      - !type:NestedSelector
+        tableId: LavaFishTableUncommon
+        weight: 30
+      - !type:NestedSelector
+        tableId: LavaFishTableRare
+        weight: 17
+      - !type:NestedSelector
+        tableId: InsaneFishTable
+        weight: 3
+        
 # Items from Plasma
 - type: entityTable
   id: PlasmaFishingLootTable

@@ -117,7 +117,7 @@ uplink-l6-saw-name = L6 SAW
 uplink-l6-saw-desc = A bulky light machine gun excellent at suppressive, sustained fire. Feeds from .30 Rifle box magazines.
 
 uplink-m90-name = M-90
-uplink-m90-desc = A cheaper revision of the M-90GL that omits the integrated grenade launcher. Feeds from .20 Rifle magazines.
+uplink-m90-desc = A rugged assault rifle that maintains its accuracy across extreme distances. Feeds from .20 Rifle magazines.
 
 uplink-estoc-name = Estoc
 uplink-estoc-desc = A burst-fire designated marksman rifle fitted with an expensive tritium optic. Feeds from .20 Rifle magazines.
@@ -156,9 +156,6 @@ uplink-frag-grenade-desc = Lower damage, bigger radius. Compatible with the Chin
 
 uplink-mpapers-grenade-name = MP-APERS shell (40mm)
 uplink-mpapers-grenade-desc = Fires out 20 small pellets to turn your grenade launcher into a shotgun. Compatible with the China-Lake.
-
-uplink-rifle-mag-name = Rifle Magazine (.20)
-uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Supports the Lecter and M-90.
 
 uplink-rifle-caseless-mag-name = Rifle Magazine (9.5mm HP)
 uplink-rifle-caseless-mag-desc = A 30 round rifle magazine filled with 9.5mm caseless magnum hollow-point bullets. Compatible with the WSPR.
@@ -217,6 +214,9 @@ uplink-high-caliber-shotgun-box-sarin-desc = 16 shells of 8 Gauge sarin shells f
 uplink-estoc-ammo-name = Rifle Magazine (.30 rifle)
 uplink-estoc-ammo-desc = Rifle magazine with 30 rounds. Compatible with the Estoc.
 
+uplink-m90-ammo-name = Rifle Magazine (.20 rifle)
+uplink-m90-ammo-desc = Rifle magazine with 25 rounds. Compatible with the M-90 and Lecter.
+
 # Grenades
 
 uplink-sarin-gas-grenade-name = Sarin Gas Grenade
@@ -260,7 +260,8 @@ uplink-combat-medkit-pills-name = Combat Medical Kit (Pills)
 uplink-combat-medkit-pills-desc = Contains most medicines you need to recover from injuries and illnesses, all in a convenient pill form.
 
 uplink-combat-medkit-ipc-name = Combat Medical Kit (IPC)
-uplink-combat-medkit-ipc-desc = Contains everything you need to heal an IPC; includes LV wire, industrial welder, a high capacity cell and meson goggles.
+# Omu
+uplink-combat-medkit-ipc-desc = Contains everything you need to heal an IPC; includes LV wire, an industrial welder, oil packs, and meson goggles.
 
 # Implants
 

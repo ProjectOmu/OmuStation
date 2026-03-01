@@ -166,8 +166,8 @@
   guides: # goobstation
   - Command
   - Succession
-  - StandardProcedures SOP
-  - Captain SOP
+  - StandardProceduresSOP
+  - CaptainSOP
   - CommandTrainingManual # Omu
   goobcoins: 50 #Goob content
   weight: 20
@@ -191,7 +191,7 @@
   id: CaptainGear
   equipment:
     shoes: ClothingShoesBootsLaceup
-    eyes: ClothingEyesGlassesSunglasses
+    eyes: ClothingEyesGlassesCommand
     #gloves: ClothingHandsGlovesCaptain - Goobstation, moved to loadouts
     #id: CaptainPDA - Omu, moved to loadouts
     ears: ClothingHeadsetAltCommand

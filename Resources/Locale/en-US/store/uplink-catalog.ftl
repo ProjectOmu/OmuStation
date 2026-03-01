@@ -213,8 +213,9 @@ uplink-holoclown-kit-name = Holoclown Kit
 uplink-holoclown-kit-desc = A joint venture between Cybersun and Honk.co. Contains an injector that hosts a sentient metaphysical clown made of hard light which resides in the user's body when not active.
     The holoclown has pockets to store things, a hardlight hand it can manipulate the environment with and is immune to hazardous environments while being resistant to direct trauma, but shares any damage it takes with the user.
 
+# omu, chameleon
 uplink-holster-name = Shoulder Holster
-uplink-holster-desc = A deep shoulder holster capable of holding many types of ballistics.
+uplink-holster-desc = A deep shoulder holster capable of holding many types of ballistics, of any size! Now comes with chameleon functionality!
 
 uplink-chest-rig-name = Chest Rig
 uplink-chest-rig-desc = Explosion-resistant tactical webbing used for holding traitor goods.
@@ -327,7 +328,7 @@ uplink-chemistry-kit-name = Chemical Synthesis Kit
 uplink-chemistry-kit-desc = A starter kit for the aspiring chemist, notably includes a chemical payload and timer, a hyperzine syringe, and two vials of vestine for all your criminal needs!
 
 uplink-knives-kit-name = Throwing Knives Kit
-uplink-knives-kit-desc = A set of 4 syndicate branded throwing knives, perfect for embedding into the body of your victims.
+uplink-knives-kit-desc = A set of 4 syndicate branded throwing knives, perfect for embedding into the body of your victims. Capable of ignoring armor entirely when thrown.
 
 uplink-meds-bundle-name = Interdyne Medical Bundle
 uplink-meds-bundle-desc = An assortment of autoinjectors and premium medical equipment to cover for every possible situation. Contains an elite compact defibrillator that can be used as a weapon.
@@ -434,7 +435,8 @@ uplink-clothing-shoes-boots-mag-syndie-name = Blood-red Magboots
 uplink-clothing-shoes-boots-mag-syndie-desc = A pair of boots that prevent slipping and, in zero gravity, allow you to move normally, at the cost of a slight slowdown. Additionally, they have jetpack functionality and come fueled, but don't last for long.
 
 uplink-eva-syndie-name = Syndicate EVA Bundle
-uplink-eva-syndie-desc = A durathread EVA suit with some protection, and anti-rad installed. Very nimble, with zero slowdown.
+# Omu
+uplink-eva-syndie-desc = An incredibly lightweight EVA suit equipped with radiation shielding. Now with 100% less durathread!
 
 uplink-hardsuit-carp-name = Carp Hardsuit
 uplink-hardsuit-carp-desc = Looks like an ordinary carp suit, except fully spaceproof and tricks space carp into thinking you are one of them.

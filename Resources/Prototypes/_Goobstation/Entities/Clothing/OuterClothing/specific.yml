@@ -149,3 +149,17 @@
     sprite: _Goobstation/Clothing/OuterClothing/Misc/tutu.rsi
     quickEquip: true
 
+- type: entity
+  parent: ClothingOuterBaseToggleable
+  id: ClothingOuterArmorHereticCostume
+  name: occult robes
+  description: A ragged, dusty set of robes. Strange smudgy eyes line the inside.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/toy_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/toy_armor.rsi #idi nakhuy
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticCostume

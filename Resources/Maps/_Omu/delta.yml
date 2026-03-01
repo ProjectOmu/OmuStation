@@ -130600,14 +130600,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -28.666578,45.60487
       parent: 2
-- proto: DVSmartFridge
+- proto: SmartFridge
   entities:
   - uid: 31236
     components:
     - type: Transform
       pos: -29.5,44.5
       parent: 2
-- proto: DVSmartFridgeMedical
+- proto: SmartFridgeMedical
   entities:
   - uid: 25222
     components:

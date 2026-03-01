@@ -1927,6 +1927,8 @@
   name: wrapped carp lollypop
   description: A carp shaped lollypop. How silly!
   components:
+  - type: Fish # omu
+    difficulty: 0.023
   - type: Tag
     tags:
     - FoodSnack

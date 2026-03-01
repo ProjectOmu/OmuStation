@@ -13,3 +13,6 @@ loadout-group-corpsman-headset = Corpsman headset
 loadout-group-virologist-envirohelm = Virologist envirohelm
 loadout-group-virologist-envirosuit = Virologist envirosuit
 loadout-group-virologist-envirogloves = Virologist envirogloves
+
+# Detective
+loadout-group-detective-eyes = Detective Glasses

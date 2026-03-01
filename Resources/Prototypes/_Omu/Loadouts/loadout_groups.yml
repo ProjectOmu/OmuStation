@@ -176,3 +176,62 @@
   - BrigmedicHeadset
   - BrigmedicAltHeadset
 
+# tide
+
+- type: loadoutGroup
+  id: TrinketsAssistant
+  name: loadout-group-trinkets-job
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - GreyTideStamp
+  
+# Security
+
+- type: loadoutGroup
+  id: TrinketsSecurity
+  name: loadout-group-trinkets-job
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SecurityOfficerGunCase
+  - SecurityOfficerMk58
+  - SecurityOfficerSecurityDutyRevolver
+  - SecurityOfficerTerminus
+  - WeaponPistolMk58Gold
+
+# We have a separate one for detective cause holster
+- type: loadoutGroup
+  id: TrinketsSecurityDetective
+  name: loadout-group-trinkets-job
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - DetectiveWeaponRevolverInspector # Default for det should be their revolver
+  - DetectiveOfficerGunCase
+  - DetectiveMk58
+  - DetectiveSecurityDutyRevolver
+  - DetectiveTerminus
+  - DetectiveWeaponPistolMk58Gold
+
+- type: loadoutGroup
+  id: DetectiveEyes
+  name: loadout-group-detective-eyes
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - DetectiveClothingEyesGlassesSecurity
+  - DetectiveClothingEyesGlassesNoir
+
+# And... a separate one for brigmed cause they cant put the terminus in the suit storage
+- type: loadoutGroup
+  id: TrinketsSecurityBrigmed
+  name: loadout-group-trinkets-job
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SecurityOfficerGunCase
+  - SecurityOfficerMk58
+  - SecurityOfficerSecurityDutyRevolver
+  - BrigmedTerminus
+  - WeaponPistolMk58Gold

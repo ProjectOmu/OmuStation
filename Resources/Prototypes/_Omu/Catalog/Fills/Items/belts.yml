@@ -17,3 +17,23 @@
 - type: entity
   id: ClothingBeltCorpsmanFilled
   parent: [ClothingBeltCorpsman, ClothingBeltCorpsmanWebbingFilled]
+
+- type: entity
+  id: ClothingBeltHolsterMagazinePistolFilled
+  parent: ClothingBeltHolster
+  suffix: Filled, MagazinePistol
+  components:
+  - type: StorageFill
+    contents:
+    - id: MagazinePistol
+      amount: 2
+
+- type: entity
+  id: ClothingBeltHolsterSpeedLoaderRevolverLightRifleFilled # holy name
+  parent: ClothingBeltHolster
+  suffix: Filled, SpeedLoaderRevolverLightRifle
+  components:
+  - type: StorageFill
+    contents:
+    - id: SpeedLoaderRevolverLightRifle
+      amount: 2

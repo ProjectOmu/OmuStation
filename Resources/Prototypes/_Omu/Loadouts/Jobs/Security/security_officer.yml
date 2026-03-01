@@ -13,9 +13,104 @@
   equipment:
     belt: ClothingBeltSheathStunswordFilled
 
-#Backpack
+#Secoff
 - type: loadout
   id: SecurityOfficerGunCase
+  equipment:
+    pocket1: OfficerGunCase
+  groupBy: "Main weapon"
+
+- type: loadout
+  id: SecurityOfficerMk58
+  dummyEntity: WeaponPistolMk58
+  equipment:
+    pocket1: WeaponPistolMk58
   storage:
     back:
-    - OfficerGunCase
+    - MagazinePistol
+    - MagazinePistol
+  groupBy: "Main weapon"
+
+- type: loadout
+  id: SecurityOfficerSecurityDutyRevolver
+  dummyEntity: SecurityDutyRevolver
+  equipment:
+    pocket1: SecurityDutyRevolver
+  storage:
+    back:
+    - SpeedLoaderRevolverLightRifle
+    - SpeedLoaderRevolverLightRifle
+  groupBy: "Main weapon"
+
+- type: loadout
+  id: SecurityOfficerTerminus
+  equipment:
+    suitstorage: Terminus
+  groupBy: "Main weapon"
+
+#Detective
+- type: loadout
+  id: DetectiveWeaponRevolverInspector
+  dummyEntity: WeaponRevolverInspector
+  equipment:
+    belt: ClothingBeltHolsterFilled # Has revolver + ammo inside
+  groupBy: "Main weapon"
+
+- type: loadout
+  id: DetectiveOfficerGunCase
+  dummyEntity: OfficerGunCase
+  equipment:
+    pocket1: OfficerGunCase
+    belt: ClothingBeltHolster # Empty holster no revolver. they get ammo off the gun case.
+  groupBy: "Main weapon"
+
+- type: loadout
+  id: DetectiveMk58
+  dummyEntity: WeaponPistolMk58
+  equipment:
+    pocket1: WeaponPistolMk58
+    belt: ClothingBeltHolsterMagazinePistolFilled # 2x mag (same as gun case) in holster
+  groupBy: "Main weapon"
+
+- type: loadout
+  id: DetectiveSecurityDutyRevolver
+  dummyEntity: SecurityDutyRevolver
+  equipment:
+    pocket1: SecurityDutyRevolver
+    belt: ClothingBeltHolsterSpeedLoaderRevolverLightRifleFilled
+  groupBy: "Main weapon"
+
+- type: loadout
+  id: DetectiveTerminus
+  equipment:
+    suitstorage: Terminus
+  groupBy: "Main weapon"
+
+- type: loadout
+  id: DetectiveWeaponPistolMk58Gold
+  dummyEntity: WeaponPistolMk58Gold
+  equipment:
+    pocket1: WeaponPistolMk58Gold
+    belt: ClothingBeltHolsterMagazinePistolFilled # 2x mag (same as gun case) in holster
+  groupBy: "Main weapon"
+
+- type: loadout
+  id: DetectiveClothingEyesGlassesSecurity
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+  groupBy: "Detective eyes"
+
+- type: loadout
+  id: DetectiveClothingEyesGlassesNoir
+  equipment:
+    eyes: ClothingEyesGlassesNoir
+  groupBy: "Detective eyes"
+
+
+# Brigmed
+
+- type: loadout
+  id: BrigmedTerminus
+  inhand:
+  - Terminus
+  groupBy: "Main weapon"

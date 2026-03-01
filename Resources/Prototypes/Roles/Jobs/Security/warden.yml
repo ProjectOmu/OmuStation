@@ -155,9 +155,9 @@
   canBeAntag: false
   guides: # goobstation
   - SpaceLaw
-  - Legal SOP
+  - LegalSOP
   - Security
-  - Warden SOP
+  - WardenSOP
   - KravMaga
   - CommandTrainingManual # Omu
   - SecurityTrainingManual # Omu
@@ -188,7 +188,7 @@
   storage:
     back:
     - Flash
-    - MagazinePistol
+    #- MagazinePistol # Omu moved to loadouts and will give ammo according to weapon
     - ClothingMaskGasSecurity # Goobstation
 
 - type: chameleonOutfit

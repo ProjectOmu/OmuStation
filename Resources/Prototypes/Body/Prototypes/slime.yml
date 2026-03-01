@@ -15,6 +15,10 @@
   slots:
     head:
       part: HeadSlime
+      # Omu start
+      organs:
+        eyes: OrganHumanEyes # why did we not ever give them eyes
+      # Omu end
       connections:
       - chest
     chest:
@@ -29,7 +33,7 @@
     groin:
       part: GroinSlime
       organs:
-        core: SentientSlimeCore
+        brain: SentientSlimeCore # Omu normalize slime brains
       connections:
       - right leg
       - left leg

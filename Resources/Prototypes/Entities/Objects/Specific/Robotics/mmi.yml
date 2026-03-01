@@ -152,7 +152,7 @@
       brain_slot:
         name: positronic-brain-slot-component-slot-name-brain
         whitelist:
-          components:
+          tags: # EE Reverse MMI - EE apparently changed this comp to tags as well? fuck it sure.
           - Brain
   - type: ContainerContainer
     containers:
@@ -174,6 +174,12 @@
     understands:
     - TauCetiBasic
     - RobotTalk
+  # EE Reverse MMI
+  - type: Brain
+    active: false
+  - type: Organ
+    slotId: posbrain
+  # EE Reverse MMI end
 
 - type: entity
   parent: MMI
@@ -186,7 +192,7 @@
         name: "Brain"
         startingItem: OrganHumanBrain
         whitelist:
-          components:
+          tags: # EE Change - IPCMMI - changed component requirement to a tag bc you'd be able to infinitely stack regular + reverse MMIs otherwise
             - Brain
 
 - type: entity
@@ -251,6 +257,7 @@
     - type: Tag
       tags:
       - CannotSuicide
+      - Posibrain # IPCMMI - added posibrain tag
     - type: GenericVisualizer
       visuals:
         enum.ToggleableGhostRoleVisuals.Status:

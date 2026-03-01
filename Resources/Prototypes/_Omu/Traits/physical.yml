@@ -107,6 +107,9 @@
   name: trait-moth-flight-name
   description: trait-moth-flight-desc
   category: PhysicalTraits
+  blacklist:
+    components:
+      - BorgChassis
   components:
   - type: Flight
     isLayerAnimated: true
