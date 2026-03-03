@@ -184,6 +184,11 @@
   - type: Tag #Goobstation - whitelisted cig pack strorage (added new tag)
     tags:
     - Lighter
+  - type: EntityRadiusHeater # Mono
+    thermalEnergy: 900
+    radius: 0.3
+    limit: 390 # Too dangerous to hold it for long.
+    requireActivation: true
 
 - type: entity
   name: cheap lighter
