@@ -131,3 +131,11 @@
   components:
   - type: PresetIdCard
     job: ERTSecurityBlue
+
+- type: entity
+  parent: CentcomIDCardDeathsquad
+  id: NanotrasenSpectreIDCard
+  name: nanotrasen spectre ID card
+  components:
+  - type: PresetIdCard
+    job: NanoTrasenSpectre

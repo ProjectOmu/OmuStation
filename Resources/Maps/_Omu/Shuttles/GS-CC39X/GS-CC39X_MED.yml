@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/18/2025 20:34:01
-  entityCount: 572
+  time: 03/04/2026 00:53:05
+  entityCount: 569
 maps: []
 grids:
 - 1
@@ -95,13 +95,7 @@ entities:
             color: '#FFFFFFFF'
             id: BotLeft
           decals:
-            6: -4,6
             7: -4,5
-        - node:
-            color: '#FFFFFFFF'
-            id: Delivery
-          decals:
-            4: -2,5
         - node:
             color: '#FFFFFFFF'
             id: StandClear
@@ -230,56 +224,58 @@ entities:
           0,2:
             0: 3515
           -1,1:
-            0: 34679
+            0: 34675
+            1: 4
           -1,2:
             0: 955
-            1: 1024
+            2: 1024
           0,3:
             0: 14199
-            1: 32768
+            2: 32768
           -1,3:
             0: 36044
-            1: 8209
+            2: 8209
           0,4:
             0: 51
-            1: 576
+            2: 576
           1,0:
             0: 4369
-            1: 17476
+            2: 17476
           1,1:
             0: 273
-            1: 1092
+            2: 1092
           1,2:
             0: 273
-            1: 8192
+            2: 8192
           1,3:
-            1: 51
+            2: 51
           1,-1:
             0: 4112
-            1: 18022
+            2: 18022
           -2,0:
-            1: 17476
+            2: 17476
           -2,-1:
-            1: 19660
+            2: 19660
           -2,1:
-            1: 1092
+            2: 1092
           -1,0:
-            0: 30583
+            0: 26487
+            1: 4096
           -2,2:
-            1: 32768
+            2: 32768
           -2,3:
-            1: 136
+            2: 136
           -1,-1:
             0: 30970
           -1,4:
             0: 136
-            1: 2112
+            2: 2112
           -2,-2:
-            1: 36044
+            2: 36044
           -2,-3:
-            1: 32768
+            2: 32768
           -1,-3:
-            1: 4864
+            2: 4864
             0: 2048
           -1,-2:
             0: 3822
@@ -287,17 +283,36 @@ entities:
             0: 4095
           0,-3:
             0: 512
-            1: 2048
+            2: 2048
           1,-3:
-            1: 12544
+            2: 12544
           1,-2:
-            1: 9830
+            2: 9830
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
           moles:
           - 21.824879
           - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -661,12 +676,6 @@ entities:
       parent: 1
 - proto: BorgERTGhostroleSpawner
   entities:
-  - uid: 251
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -3.5,6.5
-      parent: 1
   - uid: 252
     components:
     - type: Transform
@@ -741,20 +750,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 261
-    components:
-    - type: Transform
-      parent: 254
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 262
-    components:
-    - type: Transform
-      parent: 254
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: BoxStinger
   entities:
   - uid: 114
@@ -787,18 +782,21 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: C4
+- proto: BreachingCharge
   entities:
-  - uid: 13
+  - uid: 6
     components:
     - type: Transform
       parent: 12
     - type: Physics
       canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
+    - type: InsideEntityStorage
+  - uid: 10
+    components:
+    - type: Transform
+      parent: 12
+    - type: Physics
+      canCollide: False
     - type: InsideEntityStorage
   - uid: 14
     components:
@@ -806,10 +804,6 @@ entities:
       parent: 12
     - type: Physics
       canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
     - type: InsideEntityStorage
   - uid: 15
     components:
@@ -817,43 +811,6 @@ entities:
       parent: 12
     - type: Physics
       canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
-    - type: InsideEntityStorage
-  - uid: 52
-    components:
-    - type: Transform
-      parent: 12
-    - type: Physics
-      canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
-    - type: InsideEntityStorage
-  - uid: 91
-    components:
-    - type: Transform
-      parent: 12
-    - type: Physics
-      canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
-    - type: InsideEntityStorage
-  - uid: 122
-    components:
-    - type: Transform
-      parent: 12
-    - type: Physics
-      canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
     - type: InsideEntityStorage
 - proto: CableApcExtension
   entities:
@@ -1486,13 +1443,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,12.5
       parent: 1
-- proto: ChemDispenser
-  entities:
-  - uid: 50
-    components:
-    - type: Transform
-      pos: -1.5,-0.5
-      parent: 1
 - proto: ChemistryHotplate
   entities:
   - uid: 36
@@ -1513,6 +1463,13 @@ entities:
     components:
     - type: Transform
       pos: 3.5,-0.5
+      parent: 1
+- proto: ClosetL3SecurityFilled
+  entities:
+  - uid: 124
+    components:
+    - type: Transform
+      pos: -3.5,6.5
       parent: 1
 - proto: ClothingHandsGlovesSurgical
   entities:
@@ -1604,6 +1561,13 @@ entities:
       parent: 552
     - type: Physics
       canCollide: False
+- proto: EnergyChemDispenser
+  entities:
+  - uid: 50
+    components:
+    - type: Transform
+      pos: -1.5,-0.5
+      parent: 1
 - proto: FaxMachineCaptain
   entities:
   - uid: 314
@@ -1613,30 +1577,6 @@ entities:
       parent: 1
     - type: FaxMachine
       name: GS-CC39X "Savior"
-- proto: FireAxeFlaming
-  entities:
-  - uid: 121
-    components:
-    - type: Transform
-      parent: 254
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 124
-    components:
-    - type: Transform
-      parent: 254
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: FloorDrain
   entities:
   - uid: 180
@@ -2598,22 +2538,45 @@ entities:
   - uid: 12
     components:
     - type: MetaData
-      name: gun safe (Boom Box)
+      name: gun safe (Entry Gear, Utility Grenades)
     - type: Transform
       pos: -1.5,4.5
       parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
           ents:
-          - 122
-          - 13
+          - 6
+          - 10
           - 14
+          - 13
+          - 11
           - 15
-          - 52
-          - 91
+          - 115
           - 92
           - 95
           - 98
@@ -2623,50 +2586,59 @@ entities:
           - 112
           - 113
           - 114
-          - 115
-          - 116
-          - 117
-          - 118
-          - 119
-          - 120
-          - 123
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
           ent: null
     - type: Label
-      currentLabel: Boom Box
+      currentLabel: Entry Gear, Utility Grenades
     - type: NameModifier
       baseName: gun safe
   - uid: 254
     components:
     - type: MetaData
-      name: gun safe (C-20r, Fire Axes)
+      name: gun safe (SMGs)
     - type: Transform
       pos: -3.5,3.5
       parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
           ents:
-          - 255
-          - 256
-          - 257
+          - 57
+          - 52
           - 258
-          - 259
-          - 260
-          - 121
-          - 261
-          - 262
-          - 124
+          - 257
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
           ent: null
     - type: Label
-      currentLabel: C-20r, Fire Axes
+      currentLabel: SMGs
     - type: NameModifier
       baseName: gun safe
 - proto: Gyroscope
@@ -2779,6 +2751,7 @@ entities:
       - Security
       - Service
       - Supply
+      - Prison
       currentChannel: CentCom
     - type: ContainerContainer
       containers:
@@ -3148,14 +3121,6 @@ entities:
     - type: Transform
       pos: -1.5,7.5
       parent: 1
-- proto: PowerCageRecharger
-  entities:
-  - uid: 10
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -1.5,6.5
-      parent: 1
 - proto: PoweredFloorLightEmpty
   entities:
   - uid: 171
@@ -3347,28 +3312,37 @@ entities:
       parent: 1
 - proto: RandomHumanoidSpawnerERTMedicalEVA
   entities:
-  - uid: 6
-    components:
-    - type: Transform
-      pos: -2.5,0.5
-      parent: 1
   - uid: 56
     components:
     - type: Transform
       pos: 1.5,12.5
+      parent: 1
+  - uid: 116
+    components:
+    - type: Transform
+      pos: -2.5,0.5
       parent: 1
   - uid: 573
     components:
     - type: Transform
       pos: 3.5,2.5
       parent: 1
-- proto: RandomHumanoidSpawnerERTSecurityEVA
+- proto: SecBreachingHammer
   entities:
-  - uid: 57
+  - uid: 11
     components:
     - type: Transform
-      pos: -0.5,12.5
-      parent: 1
+      parent: 12
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 13
+    components:
+    - type: Transform
+      parent: 12
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: SignalButton
   entities:
   - uid: 550
@@ -3463,13 +3437,59 @@ entities:
       rot: 3.141592653589793 rad
       pos: -2.5,-0.5
       parent: 1
-- proto: SpawnMechMarauderFilled
+- proto: SprayBottleSilverSulfadiazine
   entities:
-  - uid: 11
+  - uid: 119
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -1.5,5.5
+      pos: -1.5924027,5.9414816
+      parent: 1
+  - uid: 120
+    components:
+    - type: Transform
+      pos: -1.5275879,5.9414816
+      parent: 1
+  - uid: 121
+    components:
+    - type: Transform
+      pos: -1.462773,5.9414816
+      parent: 1
+  - uid: 122
+    components:
+    - type: Transform
+      pos: -1.3979582,5.9414816
+      parent: 1
+  - uid: 123
+    components:
+    - type: Transform
+      pos: -1.3331434,5.9414816
+      parent: 1
+- proto: SprayBottleStypticPowder
+  entities:
+  - uid: 3
+    components:
+    - type: Transform
+      pos: -1.3331434,6.534074
+      parent: 1
+  - uid: 251
+    components:
+    - type: Transform
+      pos: -1.5924027,6.534074
+      parent: 1
+  - uid: 255
+    components:
+    - type: Transform
+      pos: -1.5275879,6.534074
+      parent: 1
+  - uid: 256
+    components:
+    - type: Transform
+      pos: -1.3979582,6.534074
+      parent: 1
+  - uid: 259
+    components:
+    - type: Transform
+      pos: -1.462773,6.534074
       parent: 1
 - proto: StasisBed
   entities:
@@ -3492,11 +3512,6 @@ entities:
       parent: 1
 - proto: TableReinforced
   entities:
-  - uid: 3
-    components:
-    - type: Transform
-      pos: -2.5,-0.5
-      parent: 1
   - uid: 54
     components:
     - type: Transform
@@ -3508,11 +3523,26 @@ entities:
     - type: Transform
       pos: -3.5,2.5
       parent: 1
+  - uid: 91
+    components:
+    - type: Transform
+      pos: -1.5,5.5
+      parent: 1
   - uid: 102
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 2.5,3.5
+      parent: 1
+  - uid: 117
+    components:
+    - type: Transform
+      pos: -1.5,6.5
+      parent: 1
+  - uid: 118
+    components:
+    - type: Transform
+      pos: -2.5,-0.5
       parent: 1
   - uid: 152
     components:
@@ -4376,100 +4406,16 @@ entities:
       allowedDepartments:
       - CentralCommand
     - type: InsideEntityStorage
-- proto: WeaponLauncherRocketDisposable
+- proto: WeaponSubMachineGunAtreides
   entities:
-  - uid: 118
-    components:
-    - type: Transform
-      parent: 12
-    - type: Physics
-      canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
-    - type: InsideEntityStorage
-  - uid: 119
-    components:
-    - type: Transform
-      parent: 12
-    - type: Physics
-      canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
-    - type: InsideEntityStorage
-  - uid: 120
-    components:
-    - type: Transform
-      parent: 12
-    - type: Physics
-      canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
-    - type: InsideEntityStorage
-  - uid: 123
-    components:
-    - type: Transform
-      parent: 12
-    - type: Physics
-      canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
-    - type: InsideEntityStorage
-- proto: WeaponLauncherRocketDisposableThermobaric
-  entities:
-  - uid: 116
-    components:
-    - type: Transform
-      parent: 12
-    - type: Physics
-      canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
-    - type: InsideEntityStorage
-  - uid: 117
-    components:
-    - type: Transform
-      parent: 12
-    - type: Physics
-      canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
-    - type: InsideEntityStorage
-- proto: WeaponSubMachineGunC20rCentComm
-  entities:
-  - uid: 255
+  - uid: 52
     components:
     - type: Transform
       parent: 254
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 256
-    components:
-    - type: Transform
-      parent: 254
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 259
-    components:
-    - type: Transform
-      parent: 254
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 260
+  - uid: 57
     components:
     - type: Transform
       parent: 254

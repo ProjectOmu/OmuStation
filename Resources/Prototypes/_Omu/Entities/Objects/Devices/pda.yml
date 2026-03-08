@@ -65,6 +65,14 @@
   - type: Pda
     id: ERTSecurityIDCardBlue
 
+- type: entity
+  parent: DeathsquadPDA
+  id: NanoTrasenSpectrePDA
+  name: nanotrasen spectre PDA
+  components:
+  - type: Pda
+    id: NanotrasenSpectreIDCard
+
 #New PDAs for command!
 
 - type: entity

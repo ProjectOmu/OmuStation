@@ -465,6 +465,7 @@
         layer:
         - SmallMobLayer
   - type: GhostRole
+    prob: 0.2 # Omu - only 1 in 5 homunculi are smart
     makeSentient: true
     allowSpeech: true
     allowMovement: true
@@ -492,9 +493,10 @@
     tags:
     - Trash
     - VimPilot
+    - FootstepSound # Omu - they walking
   - type: NpcFactionMember
     factions:
-      - SimpleHostile
+      - Passive # Omu - they were in the hostile faction despite being passive
   - type: VentCrawler
   - type: MeleeWeapon
     altDisarm: false
@@ -504,7 +506,7 @@
       path: /Audio/Effects/bite.ogg
     damage:
       types:
-        Slash: 10
+        Slash: 6 # Omu - 10 was probably too much
   - type: Item
     size: Tiny
   - type: LanguageKnowledge # Einstein Engines - Language
@@ -512,6 +514,21 @@
     - TauCetiBasic # Is sentient, should have TauCeti since it is norm.
     understands:
     - TauCetiBasic
+  # Omu - they learned how to be loyal
+  - type: NPCImprintingOnSpawnBehaviour
+    whitelist:
+      components:
+      - HumanoidAppearance
+  # ...they also learned rage
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: HTN
+    rootTask:
+      task: HomunculusFollowCompound
+  - type: GroupRetaliation
+    range: 8
+  - type: FactionException
+  # Omu end
 
 - type: entity
   parent: MobMouse

@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/18/2025 20:33:07
-  entityCount: 625
+  time: 03/04/2026 01:26:52
+  entityCount: 620
 maps: []
 grids:
 - 1
@@ -43,7 +43,7 @@ entities:
       chunks:
         0,0:
           ind: 0,0
-          tiles: BwAAAAAAAAAAAAAAAAAOAAAAAAAADgAAAAAAAA4AAAAAAAAAAAAAAAAAAgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAHAAAAAAAABwAAAAAAAA8AAAAAAAAPAAAAAAAADwAAAAAAAAAAAAAAAAACAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAABwAAAAAAAAAAAAAAAAAPAAAAAAAADwAAAAAAAA8AAAAAAAAAAAAAAAAAAgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAHAAAAAAAAAAAAAAAAAA4AAAAAAAAOAAAAAAAADgAAAAAAAAAAAAAAAAACAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAABwAAAAAAAAAAAAAAAAAOAAAAAAAADgAAAAAAAA4AAAAAAAAAAAAAAAAAAwAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAcAAAAAAAAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAHAAAAAAAABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAABwAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAACAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAACAAAAAAAAAgAAAAAAAAJAAAAAAAAAAAAAAAAAAIAAAAAAAACAAAAAAAAAwAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAgAAAAAAAAIAAAAAAAACQAAAAAAAAAAAAAAAAACAAAAAAAAAwAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAIAAAAAAAACAAAAAAAAAkAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAACAAAAAAAAAgAAAAAAAAAAAAAAAAAAwAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA==
+          tiles: BwAAAAAAAAAAAAAAAAAOAAAAAAAADgAAAAAAAA4AAAAAAAAAAAAAAAAAAgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAcAAAAAAAAAAAAAAAAADgAAAAAAAA8AAAAAAAAOAAAAAAAAAAAAAAAAAAIAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAHAAAAAAAABwAAAAAAAA8AAAAAAAAPAAAAAAAADwAAAAAAAAAAAAAAAAACAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAABwAAAAAAAAAAAAAAAAAPAAAAAAAADwAAAAAAAA8AAAAAAAAAAAAAAAAAAgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAcAAAAAAAAAAAAAAAAADgAAAAAAAA8AAAAAAAAOAAAAAAAAAAAAAAAAAAIAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAHAAAAAAAAAAAAAAAAAA4AAAAAAAAPAAAAAAAADgAAAAAAAAAAAAAAAAACAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAABwAAAAAAAAAAAAAAAAAOAAAAAAAADwAAAAAAAA4AAAAAAAAAAAAAAAAAAwAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAcAAAAAAAAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAHAAAAAAAABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAABwAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAACAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAACAAAAAAAAAgAAAAAAAAJAAAAAAAAAAAAAAAAAAIAAAAAAAACAAAAAAAAAwAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAgAAAAAAAAIAAAAAAAACQAAAAAAAAAAAAAAAAACAAAAAAAAAwAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAIAAAAAAAACAAAAAAAAAkAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAACAAAAAAAAAgAAAAAAAAAAAAAAAAAAwAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA==
           version: 7
         -1,0:
           ind: -1,0
@@ -97,11 +97,6 @@ entities:
           decals:
             6: -4,6
             7: -4,5
-        - node:
-            color: '#FFFFFFFF'
-            id: Delivery
-          decals:
-            4: -2,5
         - node:
             color: '#FFFFFFFF'
             id: StandClear
@@ -226,60 +221,64 @@ entities:
           0,-1:
             0: 54267
           0,1:
-            0: 15837
+            0: 14749
+            1: 1088
           0,2:
             0: 3515
           -1,1:
-            0: 34679
+            0: 34675
+            2: 4
           -1,2:
             0: 955
-            1: 1024
+            3: 1024
           0,3:
             0: 14199
-            1: 32768
+            3: 32768
           -1,3:
             0: 36044
-            1: 8209
+            3: 8209
           0,4:
             0: 51
-            1: 576
+            3: 576
           1,0:
             0: 4369
-            1: 17476
+            3: 17476
           1,1:
-            0: 273
-            1: 1092
+            0: 1
+            1: 272
+            3: 1092
           1,2:
             0: 273
-            1: 8192
+            3: 8192
           1,3:
-            1: 51
+            3: 51
           1,-1:
             0: 4112
-            1: 18022
+            3: 18022
           -2,0:
-            1: 17476
+            3: 17476
           -2,-1:
-            1: 19660
+            3: 19660
           -2,1:
-            1: 1092
+            3: 1092
           -1,0:
-            0: 30583
+            0: 26487
+            2: 4096
           -2,2:
-            1: 32768
+            3: 32768
           -2,3:
-            1: 136
+            3: 136
           -1,-1:
             0: 30970
           -1,4:
             0: 136
-            1: 2112
+            3: 2112
           -2,-2:
-            1: 36044
+            3: 36044
           -2,-3:
-            1: 32768
+            3: 32768
           -1,-3:
-            1: 4864
+            3: 4864
             0: 2048
           -1,-2:
             0: 3822
@@ -287,17 +286,55 @@ entities:
             0: 4095
           0,-3:
             0: 512
-            1: 2048
+            3: 2048
           1,-3:
-            1: 12544
+            3: 12544
           1,-2:
-            1: 9830
+            3: 9830
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
           moles:
           - 21.824879
           - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 21.824879
+          - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -431,9 +468,10 @@ entities:
       parent: 1
 - proto: AirlockCentralCommandGlassLocked
   entities:
-  - uid: 570
+  - uid: 119
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: 3.5,4.5
       parent: 1
   - uid: 573
@@ -601,7 +639,7 @@ entities:
     - type: Transform
       pos: 4.5,-0.5
       parent: 1
-  - uid: 575
+  - uid: 576
     components:
     - type: Transform
       pos: 4.5,6.5
@@ -615,7 +653,7 @@ entities:
       parent: 1
 - proto: BedsheetWhite
   entities:
-  - uid: 576
+  - uid: 4
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -753,7 +791,7 @@ entities:
       parent: 1
 - proto: BorgERTGhostroleSpawner
   entities:
-  - uid: 251
+  - uid: 13
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -833,20 +871,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 261
-    components:
-    - type: Transform
-      parent: 254
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 262
-    components:
-    - type: Transform
-      parent: 254
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: BoxStinger
   entities:
   - uid: 114
@@ -879,40 +903,14 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: C4
+- proto: BreachingCharge
   entities:
-  - uid: 13
-    components:
-    - type: Transform
-      parent: 12
-    - type: Physics
-      canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
-    - type: InsideEntityStorage
-  - uid: 14
-    components:
-    - type: Transform
-      parent: 12
-    - type: Physics
-      canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
-    - type: InsideEntityStorage
   - uid: 15
     components:
     - type: Transform
       parent: 12
     - type: Physics
       canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
     - type: InsideEntityStorage
   - uid: 52
     components:
@@ -920,32 +918,20 @@ entities:
       parent: 12
     - type: Physics
       canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
     - type: InsideEntityStorage
-  - uid: 91
+  - uid: 116
     components:
     - type: Transform
       parent: 12
     - type: Physics
       canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
     - type: InsideEntityStorage
-  - uid: 122
+  - uid: 117
     components:
     - type: Transform
       parent: 12
     - type: Physics
       canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
     - type: InsideEntityStorage
 - proto: CableApcExtension
   entities:
@@ -1321,6 +1307,11 @@ entities:
       parent: 1
 - proto: CableHV
   entities:
+  - uid: 10
+    components:
+    - type: Transform
+      pos: 4.5,4.5
+      parent: 1
   - uid: 313
     components:
     - type: Transform
@@ -1355,11 +1346,6 @@ entities:
     components:
     - type: Transform
       pos: 5.5,4.5
-      parent: 1
-  - uid: 597
-    components:
-    - type: Transform
-      pos: 4.5,4.5
       parent: 1
   - uid: 598
     components:
@@ -1717,30 +1703,6 @@ entities:
       parent: 1
     - type: FaxMachine
       name: GS-CC39X "Savior"
-- proto: FireAxeFlaming
-  entities:
-  - uid: 121
-    components:
-    - type: Transform
-      parent: 254
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 124
-    components:
-    - type: Transform
-      parent: 254
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: FloorDrain
   entities:
   - uid: 180
@@ -1783,6 +1745,12 @@ entities:
       color: '#0055CCFF'
 - proto: GasPassiveVent
   entities:
+  - uid: 251
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,5.5
+      parent: 1
   - uid: 276
     components:
     - type: Transform
@@ -1815,12 +1783,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -1.5,-5.5
       parent: 1
-  - uid: 609
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 3.5,5.5
-      parent: 1
   - uid: 610
     components:
     - type: Transform
@@ -1835,6 +1797,11 @@ entities:
       parent: 1
 - proto: GasPipeBend
   entities:
+  - uid: 259
+    components:
+    - type: Transform
+      pos: 4.5,5.5
+      parent: 1
   - uid: 296
     components:
     - type: Transform
@@ -1867,11 +1834,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 2.5,-3.5
-      parent: 1
-  - uid: 612
-    components:
-    - type: Transform
-      pos: 4.5,5.5
       parent: 1
   - uid: 613
     components:
@@ -1981,6 +1943,11 @@ entities:
       color: '#990000FF'
 - proto: GasPipeStraight
   entities:
+  - uid: 262
+    components:
+    - type: Transform
+      pos: 4.5,4.5
+      parent: 1
   - uid: 398
     components:
     - type: Transform
@@ -1992,12 +1959,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -1.5,-4.5
-      parent: 1
-  - uid: 615
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 4.5,4.5
       parent: 1
   - uid: 616
     components:
@@ -2384,7 +2345,7 @@ entities:
       color: '#990000FF'
 - proto: GasPipeTJunction
   entities:
-  - uid: 614
+  - uid: 120
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -2693,6 +2654,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 5.5,3.5
       parent: 1
+  - uid: 122
+    components:
+    - type: Transform
+      pos: 4.5,4.5
+      parent: 1
   - uid: 227
     components:
     - type: Transform
@@ -2720,11 +2686,6 @@ entities:
     components:
     - type: Transform
       pos: 5.5,5.5
-      parent: 1
-  - uid: 566
-    components:
-    - type: Transform
-      pos: 4.5,4.5
       parent: 1
   - uid: 569
     components:
@@ -2783,75 +2744,106 @@ entities:
   - uid: 12
     components:
     - type: MetaData
-      name: gun safe (Boom Box)
+      name: gun safe (Entry Gear, Utility Grenades)
     - type: Transform
       pos: -1.5,4.5
       parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
           ents:
-          - 122
-          - 13
-          - 14
-          - 15
-          - 52
-          - 91
-          - 92
-          - 95
-          - 98
-          - 105
-          - 110
-          - 111
-          - 112
-          - 113
-          - 114
-          - 115
-          - 116
           - 117
-          - 118
-          - 119
-          - 120
-          - 123
+          - 116
+          - 91
+          - 52
+          - 115
+          - 114
+          - 113
+          - 112
+          - 110
+          - 105
+          - 98
+          - 95
+          - 92
+          - 15
+          - 111
+          - 14
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
           ent: null
     - type: Label
-      currentLabel: Boom Box
+      currentLabel: Entry Gear, Utility Grenades
     - type: NameModifier
       baseName: gun safe
   - uid: 254
     components:
     - type: MetaData
-      name: gun safe (C-20r, Fire Axes)
+      name: gun safe (SMGs)
     - type: Transform
       pos: -3.5,3.5
       parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
           ents:
-          - 255
-          - 256
-          - 257
+          - 118
           - 258
-          - 259
-          - 260
-          - 121
-          - 261
-          - 262
-          - 124
+          - 257
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
           ent: null
     - type: Label
-      currentLabel: C-20r, Fire Axes
+      currentLabel: SMGs
     - type: NameModifier
       baseName: gun safe
 - proto: Gyroscope
@@ -2964,6 +2956,7 @@ entities:
       - Security
       - Service
       - Supply
+      - Prison
       currentChannel: CentCom
     - type: ContainerContainer
       containers:
@@ -3312,16 +3305,16 @@ entities:
     - type: Transform
       pos: 5.5,6.5
       parent: 1
-  - uid: 4
-    components:
-    - type: Transform
-      pos: 4.5,4.5
-      parent: 1
   - uid: 7
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 5.5,3.5
+      parent: 1
+  - uid: 11
+    components:
+    - type: Transform
+      pos: 4.5,4.5
       parent: 1
   - uid: 94
     components:
@@ -3332,6 +3325,11 @@ entities:
     components:
     - type: Transform
       pos: 5.5,-0.5
+      parent: 1
+  - uid: 255
+    components:
+    - type: Transform
+      pos: 4.5,1.5
       parent: 1
   - uid: 482
     components:
@@ -3361,12 +3359,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 5.5,2.5
-      parent: 1
-  - uid: 591
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 4.5,1.5
       parent: 1
 - proto: PlastitaniumWindowDiagonal
   entities:
@@ -3427,10 +3419,10 @@ entities:
       parent: 1
 - proto: PosterLegitObey
   entities:
-  - uid: 586
+  - uid: 523
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
+      rot: -1.5707963267948966 rad
       pos: 2.5,4.5
       parent: 1
   - uid: 587
@@ -3438,14 +3430,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 2.5,1.5
-      parent: 1
-- proto: PowerCageRecharger
-  entities:
-  - uid: 10
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -1.5,6.5
       parent: 1
 - proto: PoweredFloorLightEmpty
   entities:
@@ -3644,11 +3628,22 @@ entities:
     - type: Transform
       pos: -0.5,12.5
       parent: 1
-  - uid: 588
+- proto: SecBreachingHammer
+  entities:
+  - uid: 14
     components:
     - type: Transform
-      pos: 4.5,3.5
-      parent: 1
+      parent: 12
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 91
+    components:
+    - type: Transform
+      parent: 12
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: SecurityCyberneticEyes
   entities:
   - uid: 63
@@ -3751,25 +3746,17 @@ entities:
       parent: 1
 - proto: Sink
   entities:
-  - uid: 580
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 2.5,-0.5
-      parent: 1
-  - uid: 581
+  - uid: 121
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 2.5,6.5
       parent: 1
-- proto: SpawnMechMarauderFilled
-  entities:
-  - uid: 11
+  - uid: 580
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -1.5,5.5
+      rot: 1.5707963267948966 rad
+      pos: 2.5,-0.5
       parent: 1
 - proto: SpeedLeftLeg
   entities:
@@ -3817,6 +3804,60 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: SprayBottleSilverSulfadiazine
+  entities:
+  - uid: 261
+    components:
+    - type: Transform
+      pos: -1.391996,6
+      parent: 1
+  - uid: 581
+    components:
+    - type: Transform
+      pos: -1.5864406,6
+      parent: 1
+  - uid: 586
+    components:
+    - type: Transform
+      pos: -1.5216256,6
+      parent: 1
+  - uid: 588
+    components:
+    - type: Transform
+      pos: -1.4568107,6
+      parent: 1
+  - uid: 591
+    components:
+    - type: Transform
+      pos: -1.3271812,6
+      parent: 1
+- proto: SprayBottleStypticPowder
+  entities:
+  - uid: 564
+    components:
+    - type: Transform
+      pos: -1.5910702,6.5
+      parent: 1
+  - uid: 566
+    components:
+    - type: Transform
+      pos: -1.5262551,6.5
+      parent: 1
+  - uid: 570
+    components:
+    - type: Transform
+      pos: -1.4614404,6.5
+      parent: 1
+  - uid: 575
+    components:
+    - type: Transform
+      pos: -1.3966256,6.5
+      parent: 1
+  - uid: 578
+    components:
+    - type: Transform
+      pos: -1.3318108,6.5
+      parent: 1
 - proto: StasisBed
   entities:
   - uid: 31
@@ -3854,11 +3895,23 @@ entities:
     - type: Transform
       pos: -3.5,2.5
       parent: 1
+  - uid: 124
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,6.5
+      parent: 1
   - uid: 152
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -1.5,3.5
+      parent: 1
+  - uid: 260
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,5.5
       parent: 1
   - uid: 524
     components:
@@ -3872,7 +3925,7 @@ entities:
       parent: 1
 - proto: ToiletEmpty
   entities:
-  - uid: 578
+  - uid: 256
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -4109,6 +4162,11 @@ entities:
     components:
     - type: Transform
       pos: 4.5,7.5
+      parent: 1
+  - uid: 123
+    components:
+    - type: Transform
+      pos: 2.5,4.5
       parent: 1
   - uid: 126
     components:
@@ -4400,11 +4458,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -1.5,15.5
       parent: 1
-  - uid: 564
-    components:
-    - type: Transform
-      pos: 2.5,4.5
-      parent: 1
   - uid: 568
     components:
     - type: Transform
@@ -4670,15 +4723,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 605
-  - uid: 606
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 4.5,2.5
-      parent: 1
-    - type: DeviceNetwork
-      deviceLists:
-      - 605
 - proto: WeaponEnergyTurretCentCommControlPanel
   entities:
   - uid: 197
@@ -4734,7 +4778,6 @@ entities:
       parent: 1
     - type: DeviceList
       devices:
-      - 606
       - 585
 - proto: WeaponLauncherNonLethal
   entities:
@@ -4742,106 +4785,17 @@ entities:
     components:
     - type: Transform
       parent: 12
+    - type: Gun
+      burstCooldownModified: 0.25
     - type: Physics
       canCollide: False
     - type: Contraband
       allowedDepartments:
       - CentralCommand
     - type: InsideEntityStorage
-- proto: WeaponLauncherRocketDisposable
+- proto: WeaponSubMachineGunAtreides
   entities:
   - uid: 118
-    components:
-    - type: Transform
-      parent: 12
-    - type: Physics
-      canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
-    - type: InsideEntityStorage
-  - uid: 119
-    components:
-    - type: Transform
-      parent: 12
-    - type: Physics
-      canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
-    - type: InsideEntityStorage
-  - uid: 120
-    components:
-    - type: Transform
-      parent: 12
-    - type: Physics
-      canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
-    - type: InsideEntityStorage
-  - uid: 123
-    components:
-    - type: Transform
-      parent: 12
-    - type: Physics
-      canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
-    - type: InsideEntityStorage
-- proto: WeaponLauncherRocketDisposableThermobaric
-  entities:
-  - uid: 116
-    components:
-    - type: Transform
-      parent: 12
-    - type: Physics
-      canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
-    - type: InsideEntityStorage
-  - uid: 117
-    components:
-    - type: Transform
-      parent: 12
-    - type: Physics
-      canCollide: False
-    - type: Contraband
-      allowedDepartments:
-      - CentralCommand
-      severity: Restricted
-    - type: InsideEntityStorage
-- proto: WeaponSubMachineGunC20rCentComm
-  entities:
-  - uid: 255
-    components:
-    - type: Transform
-      parent: 254
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 256
-    components:
-    - type: Transform
-      parent: 254
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 259
-    components:
-    - type: Transform
-      parent: 254
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 260
     components:
     - type: Transform
       parent: 254

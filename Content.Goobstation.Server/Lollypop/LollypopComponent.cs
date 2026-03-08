@@ -20,7 +20,4 @@ public sealed partial class LollypopComponent : Component
 
     [DataField]
     public TimeSpan BiteInterval = TimeSpan.FromSeconds(3);
-
-    [DataField]
-    public bool DeleteOnEmpty = true; // for unique lollipops that don't get turned into trash when empty
 }

@@ -14,7 +14,6 @@
   description: A plain old lollypop. It's still in a wrapper.
   abstract: true
   components:
-  - type: Food
   - type: Tag
     tags:
     - FoodSnack
@@ -40,7 +39,8 @@
   - type: FlavorProfile
     flavors:
     - cherry
-  - type: Food
+  - type: Edible
+    destroyOnEmpty: true
     trash:
     - FoodPacketLollypopTrash
   - type: Tag
@@ -412,6 +412,9 @@
   name: captains' lollypop
   description: A blueish lollypop containing a potentially unhealthy amount of gold leaf. Only for the goodest of captains.
   components:
+  - type: Edible
+    solution: food
+    destroyOnEmpty: false
   - type: Tag
     tags:
     - FoodSnack
@@ -424,7 +427,6 @@
     - state: lollypop-captain
       map: [ "enum.AmmoVisualLayers.Tip" ]
   - type: Lollypop
-    deleteOnEmpty: false
 
 # CentComm
 
@@ -2090,8 +2092,9 @@
     quickEquip: false # You want to eat it, not stick it in your mouth.
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     slots: [ mask ]
-  - type: Food
+  - type: Edible
     solution: food
+    destroyOnEmpty: true
   - type: FlavorProfile
     flavors:
     - paper

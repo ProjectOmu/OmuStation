@@ -1,0 +1,29 @@
+- type: entity
+  name: scurret operative
+  id: MobBaseScurretSyndicate
+  parent: MobBaseScurret
+  abstract: true
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  - type: Loadout
+    prototypes: [SyndicateOperativeGearFullNoUplink]
+
+- type: entity
+  id: MobScurretSyndicateAgent
+  parent: MobBaseScurretSyndicate
+  suffix: syndicate agent
+  components:
+    # make the player a traitor once its taken
+  - type: VentCrawler # goobstation - Ventcrawl
+  - type: AutoTraitor
+    profile: TraitorReinforcement
+
+- type: entity
+  id: MobScurretSyndicateAgentNukeops # Reinforcement exclusive to nukeops uplink
+  parent: MobBaseScurretSyndicate
+  suffix: NukeOps
+  components:
+  - type: VentCrawler # goobstation - Ventcrawl
+  - type: NukeOperative

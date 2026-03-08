@@ -134,7 +134,7 @@
     weight: 3
     duration: null
     earliestStart: 20
-    minimumPlayers: 40
+    minimumPlayers: 100 # OMU was 20 - remove from spawnpool
     chaos:
       Hostile: 50
       Combat: 20
@@ -166,10 +166,10 @@
   id: TunnelClownMidround
   components:
   - type: StationEvent
-    weight: 4
+    weight: 1 # Omu, was 4
     duration: null
     earliestStart: 15
-    minimumPlayers: 20
+    minimumPlayers: 30 # Omu, was 20
     chaos:
       Hostile: 15
       Combat: 20
@@ -204,7 +204,7 @@
     weight: 2.5
     duration: null
     earliestStart: 45
-    minimumPlayers: 50
+    minimumPlayers: 100 # OMU was 50 - remove from spawnpool
     chaos:
       Hostile: 75
       Combat: 40
@@ -241,7 +241,7 @@
     weight: 2
     duration: null
     earliestStart: 30
-    minimumPlayers: 30
+    minimumPlayers: 50 # Omu, was 30
     chaos:
       Death: 100
       Combat: 85
@@ -306,7 +306,7 @@
     weight: 4
     duration: null
     earliestStart: 30
-    minimumPlayers: 30
+    minimumPlayers: 100 # OMU it doesnt work, turning it off
     chaos:
       Hostile: 40
       Combat: 50
@@ -332,9 +332,7 @@
   - type: AntagRandomSpawn
   - type: AntagObjectives
     objectives:
-    - KillRandomHeadObjective
-    - KillRandomHeadObjective
-    - KillRandomHeadObjective
+    - KillRandomHeadObjective   # Omu is set to unique anyway so probably wouldnt roll right? (not that it does anyway)
     - EscapeShuttleObjective
 
 - type: entity
@@ -345,7 +343,7 @@
     weight: 3
     duration: null
     earliestStart: 30
-    minimumPlayers: 30
+    minimumPlayers: 100 # OMU was 40 - remove from spawnpool
     chaos:
       Death: 60
     eventType: HostilesSpawn
@@ -535,7 +533,7 @@
     weight: 1
     duration: null
     earliestStart: 30
-    minimumPlayers: 30
+    minimumPlayers: 100 # OMU was 50 - remove from spawnpool
     chaos:
       Hostile: 40
       Combat: 40

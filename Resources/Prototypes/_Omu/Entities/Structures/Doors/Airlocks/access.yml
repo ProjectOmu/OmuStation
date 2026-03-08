@@ -1,0 +1,162 @@
+### Central Command Airlocks
+
+# Standard
+- type: entity
+  parent: AirlockCentralCommand
+  id: AirlockDeathsquadLocked
+  suffix: Deatsquad, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsDeathsquad ]
+
+- type: entity
+  parent: AirlockCentralCommand
+  id: AirlockNanotrasenSpectreLocked
+  suffix: NanotrasenSpectre, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNanotrasenSpectre ]
+
+- type: entity
+  parent: AirlockCentralCommand
+  id: AirlockCentCommOfficalLocked
+  suffix: CentCommOffical, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentCommOffical ]
+
+- type: entity
+  parent: AirlockCentralCommand
+  id: AirlockEmergencyResponseTeamLocked
+  suffix: EmergencyResponseTeam, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEmergencyResponseTeam ]
+
+# Glass
+
+- type: entity
+  parent: AirlockCentralCommandGlass
+  id: AirlockDeathsquadGlassLocked
+  suffix: Deathsquad, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsDeathsquad ]
+
+- type: entity
+  parent: AirlockCentralCommandGlass
+  id: AirlockNanotrasenSpectreGlassLocked
+  suffix: NanotrasenSpectre, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNanotrasenSpectre ]
+
+- type: entity
+  parent: AirlockCentralCommandGlass
+  id: AirlockCentCommOfficalGlassLocked
+  suffix: CentCommOffical, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentCommOffical ]
+
+- type: entity
+  parent: AirlockCentralCommandGlass
+  id: AirlockEmergencyResponseTeamGlassLocked
+  suffix: EmergencyResponseTeam, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEmergencyResponseTeam ]
+
+# Highsec
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecDeathsquadLocked
+  suffix: Deathsquad, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsDeathsquad ]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecNanotrasenSpectreLocked
+  suffix: NanotrasenSpectre, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNanotrasenSpectre ]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecCentCommOfficalLocked
+  suffix: CentCommOffical, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentCommOffical ]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecEmergencyResponseTeamLocked
+  suffix: EmergencyResponseTeam, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEmergencyResponseTeam ]
+
+### Security Airlocks
+
+# Standard
+
+- type: entity
+  parent: AirlockSecurity
+  id: AirlockCorpsmanLocked
+  suffix: Corpsman, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCorpsman ]
+
+# Glass
+
+- type: entity
+  parent: AirlockSecurityGlass
+  id: AirlockCorpsmanGlassLocked
+  suffix: Corpsman, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCorpsman ]
+
+### Medical Airlocks
+
+# Standard
+
+- type: entity
+  parent: AirlockMedical
+  id: AirlockParamedicLocked
+  suffix: Paramedic, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsParamedic ]
+
+# Glass
+
+- type: entity
+  parent: AirlockMedicalGlass
+  id: AirlockParamedicGlassLocked
+  suffix: Paramedic, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsParamedic ]

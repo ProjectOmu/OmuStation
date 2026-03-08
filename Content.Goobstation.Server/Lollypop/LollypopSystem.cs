@@ -10,6 +10,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry;
 using Content.Shared.Clothing;
+using Content.Shared.Destructible;
 using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
@@ -21,7 +22,6 @@ public sealed class LollypopSystem : EntitySystem
 {
 
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly FoodSystem _food = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly StomachSystem _stomach = default!;
     [Dependency] private readonly ReactiveSystem _reaction = default!;
@@ -39,7 +39,7 @@ public sealed class LollypopSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        var query = EntityManager.EntityQueryEnumerator<LollypopComponent, ClothingComponent, FoodComponent>();
+        var query = EntityManager.EntityQueryEnumerator<LollypopComponent, ClothingComponent, EdibleComponent>();
 
         while (query.MoveNext(out var queryUid, out var lollypop, out var clothing, out var food))
         {
@@ -60,13 +60,13 @@ public sealed class LollypopSystem : EntitySystem
         ent.Comp.NextBite = _time.CurTime + ent.Comp.BiteInterval;
 
         // add popup of taste
-        if (!TryComp<FoodComponent>(ent.Owner, out var food))
+        if (!TryComp<EdibleComponent>(ent.Owner, out var food))
             return;
         if (!_solutionContainer.TryGetSolution(ent.Owner, food.Solution, out var soln, out _))
             return;
 
         var flavors = _flavorProfile.GetLocalizedFlavorsMessage(args.Wearer, soln.Value.Comp.Solution);
-        _popup.PopupEntity(Loc.GetString(food.EatMessage, ("food", ent.Owner), ("flavors", flavors)), args.Wearer,args.Wearer);
+        _popup.PopupEntity(Loc.GetString("edible-nom", ("food", ent.Owner), ("flavors", flavors)), args.Wearer,args.Wearer);
     }
 
     private void OnUnequipt(Entity<LollypopComponent> ent, ref ClothingGotUnequippedEvent args)
@@ -75,7 +75,7 @@ public sealed class LollypopSystem : EntitySystem
         ent.Comp.NextBite = TimeSpan.Zero;
     }
 
-    private void Eat(Entity<LollypopComponent> ent, FoodComponent food)
+    private void Eat(Entity<LollypopComponent> ent, EdibleComponent food)
     {
         if(ent.Comp.HeldBy == null)
             return;
@@ -122,14 +122,12 @@ public sealed class LollypopSystem : EntitySystem
         if (soln.Value.Comp.Solution.Volume > FixedPoint2.Zero )
             return; // end if there is solution left
 
-
-        if (ent.Comp.DeleteOnEmpty)
-        {
-            var args = new FullyEatenEvent(ent.Comp.HeldBy!.Value);
-            _food.OnFoodFullyEaten(food.Owner!, ref args);
-        }
-
-
         ent.Comp.NextBite  = TimeSpan.Zero; // lollypop is empty stop checking
+
+        if (food.DestroyOnEmpty)
+        {
+            var args = new FullyEatenEvent(ent.Comp.HeldBy.Value);
+            RaiseLocalEvent(ent, ref args);
+        }
     }
 }

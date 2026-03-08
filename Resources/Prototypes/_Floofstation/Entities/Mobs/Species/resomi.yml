@@ -288,16 +288,17 @@
       sprite: "Effects/creampie.rsi"
       state: "creampie_resomi"
       visible: false
-  - type: CollectiveMind # Starlight
-    defaultChannel: Nexus
-    channels:
-      - Nexus
+ # - type: CollectiveMind # Omu, kinda annoying dude
+ #   defaultChannel: Nexus
+ #   channels:
+ #     - Nexus
 
 - type: entity
   parent: BaseSpeciesDummy
   id: MobResomiDummy
   save: false
   description: A dummy resomi meant to be used in character setup.
+  categories: [ HideSpawnMenu ] # Omu
   components:
   - type: HumanoidAppearance
     species: Resomi
