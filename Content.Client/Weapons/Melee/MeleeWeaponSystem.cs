@@ -155,7 +155,8 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             {
                 RaisePredictiveEvent(new StopAttackEvent(GetNetEntity(weaponUid)));
             }
-            wasPressedPreviously = altDown == BoundKeyState.Down; //Omu
+            if (HasComp(weaponUid, typeof(MeleeDashComponent)))
+                wasPressedPreviously = altDown == BoundKeyState.Down; //Omu
         }
 
         if (weapon.Attacking || weapon.NextAttack > Timing.CurTime)

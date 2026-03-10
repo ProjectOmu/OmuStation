@@ -113,7 +113,7 @@
         amount: -4.5
         conditions: # higher quality anti-poisons, save for calomel which is low effort but high risk
         - !type:BloodReagentThreshold
-          reagent: PentenicAcid
+          reagent: PenteticAcid
           max: 0.1
         - !type:BloodReagentThreshold
           reagent: Calomel

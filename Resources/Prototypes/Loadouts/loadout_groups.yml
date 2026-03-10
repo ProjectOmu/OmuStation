@@ -322,6 +322,7 @@
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVapor # Delta-V
   - EmergencySilicon
+  - EmergencyOxygenCarnivore # Omu
 
 # nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup
@@ -788,6 +789,7 @@
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVaporClown # Delta-V
   - EmergencySilicon
+  - EmergencyOxygenCarnivoreClown # Omu
 
 - type: loadoutGroup
   id: MimeHead
@@ -850,6 +852,7 @@
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVaporMime # Delta-V
   - EmergencySilicon
+  - EmergencyOxygenCarnivoreMime # Omu
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -1185,6 +1188,7 @@
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVaporExtended # Delta-V
   - EmergencySilicon
+  - EmergencyOxygenCarnivoreExtended # Omu
 
 # Science
 - type: loadoutGroup
@@ -1513,6 +1517,7 @@
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVaporSecurity # Delta-V
   - EmergencySilicon
+  - EmergencyOxygenCarnivoreSecurity # Omu
 
 - type: loadoutGroup
   id: SecurityStar
@@ -1766,6 +1771,7 @@
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVaporMedical # Delta-V
   - EmergencySilicon
+  - EmergencyOxygenCarnivoreMedical # Omu
 
 # Wildcards
 - type: loadoutGroup
@@ -1813,6 +1819,7 @@
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVaporSyndicate # Delta-V
   - EmergencySilicon
+  - EmergencyOxygenCarnivoreSyndicate # Omu
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool

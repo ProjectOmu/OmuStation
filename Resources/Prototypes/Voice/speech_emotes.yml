@@ -153,7 +153,7 @@
     - Vocal
   blacklist:
     tags:
-    - SiliconEmotes
+ #   - SiliconEmotes # Omu, robots have their own vocal noises, let them use them!
   chatMessages: ["chat-emote-msg-sigh"]
   chatTriggers:
     - sigh
@@ -170,7 +170,7 @@
     - Vocal
   blacklist:
     tags:
-    - SiliconEmotes
+ #   - SiliconEmotes # Omu, robots have their own vocal noises, let them use them!
   chatMessages: ["chat-emote-msg-whistle"]
   chatTriggers:
     - whistle
@@ -187,7 +187,7 @@
     - Vocal
   blacklist:
     tags:
-    - SiliconEmotes
+ #   - SiliconEmotes # Omu, robots have their own vocal noises, let them use them!
   chatMessages: ["chat-emote-msg-crying"]
   chatTriggers:
     - cry
@@ -222,7 +222,7 @@
   available: false
   icon: Interface/Emotes/chitter.png
   whitelist:
-    tags: 
+    tags:
     - HarpyEmotes # Omu, allow harpy to chitter
     components:
     - Vocal
@@ -242,7 +242,7 @@
   available: false
   icon: Interface/Emotes/squeak.png
   whitelist:
-    tags: 
+    tags:
     - HarpyEmotes # Omu, allow harpy to squeak
     components:
       - Vocal
@@ -256,13 +256,13 @@
    - squeaked
 
 - type: emote
-  id: Click 
+  id: Click
   name: chat-emote-name-click
   category: Vocal
   available: false
   icon: Interface/Emotes/click.png
   whitelist:
-    tags: 
+    tags:
     - HarpyEmotes # Omu, allow harpy to click
     components:
     - Vocal
@@ -285,7 +285,7 @@
     - Hands
   blacklist:
     tags:
-    - SiliconEmotes
+ #   - SiliconEmotes # Omu, let IPCs and other hand robots emote with them
   chatMessages: ["chat-emote-msg-clap"]
   chatTriggers:
     - claps
@@ -302,7 +302,7 @@
     - Hands
   blacklist:
     tags:
-    - SiliconEmotes
+ #   - SiliconEmotes # Omu, let IPCs and other hand robots emote with them
   chatMessages: ["chat-emote-msg-snap"] # snaps <{THEIR($ent)}> fingers?
   chatTriggers:
     - snap
@@ -350,7 +350,7 @@
     - Hands
   blacklist:
     tags:
-    - SiliconEmotes
+ #   - SiliconEmotes # Omu, let IPCs and other hand robots emote with them
   chatMessages: ["chat-emote-msg-salute"]
   chatTriggers:
     - salute
@@ -441,7 +441,7 @@
     tags:
       - HarpyEmotes # Omu, allow harpy to hew
   chatTriggers: # Omu, allow harpy to hew
-    - hew 
+    - hew
     - hews
 
 - type: emote

@@ -43,8 +43,8 @@ reagent-desc-salicylic-acid = Powerful healing agent, excelling at restoring mos
 reagent-name-oxandrolone = oxandrolone
 reagent-desc-oxandrolone = Gelatinous chemical that heals burn damage faster the more burnt patient's body is. Difficult to overdose.
 
-reagent-name-pentenic-acid = pentenic acid
-reagent-desc-pentenic-acid = Multipurpose drug, works against poisons and prevents radiation damage from all but strongest sources.
+reagent-name-pentetic-acid = pentetic acid
+reagent-desc-pentetic-acid = Multipurpose drug, works against poisons and prevents radiation damage from all but strongest sources.
 
 reagent-name-atropine = atropine
 reagent-desc-atropine = Shuts down many body functions to safely heal any damage to patients in critical condition. Best used outside of combat situations due to severe mental impairment it causes.
