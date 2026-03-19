@@ -58,6 +58,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
+using Content.Shared.Chat; // EE
 
 namespace Content.Shared.Magic;
 
@@ -886,5 +887,22 @@ public abstract class SharedMagicSystem : EntitySystem
     #endregion
     // End Spells
     #endregion
+    // EE start
+    // When any spell is cast it will raise this as an event, so then it can be played in server or something. At least until chat gets moved to shared
+    // TODO: Temp until chat is in shared
+    public void Speak(BaseActionEvent args)
+    {
+        if (args is not ISpeakSpell speak || string.IsNullOrWhiteSpace(speak.Speech))
+            return;
 
+        var ev = new SpeakSpellEvent(args.Performer, speak.Speech, speak.ChatType);
+        RaiseLocalEvent(ref ev);
+    }
+
+    public void Speak(EntityUid uid, string speech, InGameICChatType inGameICChatType)
+    {
+        var ev = new SpeakSpellEvent(uid, speech, inGameICChatType);
+        RaiseLocalEvent(ref ev);
+    }
+    // EE end
 }
