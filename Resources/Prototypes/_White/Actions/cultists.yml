@@ -7,9 +7,11 @@
   - type: Sprite
     sprite: _White/BloodCult/actions.rsi
     state: stun
+  - type: LimitedCharges # Omu
+    maxCharges: 1
   - type: InstantAction
     itemIconStyle: BigAction
-    charges: 1
+    #charges: 1 # Omu
     useDelay: 3
     temporary: true
     icon:
@@ -30,11 +32,13 @@
   - type: Sprite
     sprite: _White/BloodCult/actions.rsi
     state: teleport
+  - type: LimitedCharges # Omu
+    maxCharges: 1
   - type: EntityTargetAction
     checkCanAccess: false
     range: 3
     itemIconStyle: BigAction
-    charges: 1
+    #charges: 1 # Omu
     temporary: true
     interactOnMiss: false
     whitelist:
@@ -56,9 +60,11 @@
   - type: Sprite
     sprite: _White/BloodCult/actions.rsi
     state: create_emp
+  - type: LimitedCharges # Omu
+    maxCharges: 1
   - type: InstantAction
     itemIconStyle: BigAction
-    charges: 1
+    #charges: 1 # Omu
     temporary: true
     icon:
       sprite: _White/BloodCult/actions.rsi
@@ -76,9 +82,11 @@
   - type: Sprite
     sprite: _White/BloodCult/actions.rsi
     state: shackles
+  - type: LimitedCharges # Omu
+    maxCharges: 4
   - type: InstantAction
     itemIconStyle: BigAction
-    charges: 4
+    #charges: 4 # Omu
     useDelay: 3
     temporary: true
     icon:
@@ -99,11 +107,13 @@
   - type: Sprite
     sprite: _White/BloodCult/actions.rsi
     state: transmute
+  - type: LimitedCharges # Omu
+    maxCharges: 1
   - type: EntityTargetAction
     checkCanAccess: false
     range: 3
     itemIconStyle: BigAction
-    charges: 1
+    #charges: 1 # Omu
     temporary: true
     canTargetSelf: false
     interactOnMiss: false
@@ -126,9 +136,11 @@
   - type: Sprite
     sprite: _White/BloodCult/actions.rsi
     state: summon_combat_equipment
+  - type: LimitedCharges # Omu
+    maxCharges: 1
   - type: InstantAction
     itemIconStyle: BigAction
-    charges: 1
+    #charges: 1 # Omu
     temporary: true
     icon:
       sprite: _White/BloodCult/actions.rsi
@@ -150,9 +162,11 @@
   - type: Sprite
     sprite: _White/BloodCult/actions.rsi
     state: summon_dagger
+  - type: LimitedCharges # Omu
+    maxCharges: 1
   - type: InstantAction
     itemIconStyle: BigAction
-    charges: 1
+    #charges: 1 # Omu
     temporary: true
     icon:
       sprite: _White/BloodCult/actions.rsi
@@ -172,9 +186,11 @@
   - type: Sprite
     sprite: _White/BloodCult/actions.rsi
     state: blood_rites
+  - type: LimitedCharges # Omu
+    maxCharges: 1
   - type: InstantAction
     itemIconStyle: BigAction
-    charges: 1
+    #charges: 1 # Omu
     useDelay: 3
     temporary: true
     icon:

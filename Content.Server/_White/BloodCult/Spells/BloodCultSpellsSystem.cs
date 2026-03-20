@@ -19,6 +19,7 @@ using Content.Shared.WhiteDream.BloodCult.Spells;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.Charges.Events; // Omu
 
 namespace Content.Server.WhiteDream.BloodCult.Spells;
 
@@ -43,7 +44,7 @@ public sealed class BloodCultSpellsSystem : EntitySystem
 
         SubscribeLocalEvent<BaseCultSpellComponent, ComponentStartup>(OnSpellStartup);
         SubscribeLocalEvent<BaseCultSpellComponent, EntityTargetActionEvent>(OnCultTargetEvent);
-        SubscribeLocalEvent<BaseCultSpellComponent, ActionGettingDisabledEvent>(OnActionGettingDisabled);
+        SubscribeLocalEvent<BaseCultSpellComponent, ActionOutOfChargesEvent>(OnActionOutOfCharges); // Omu
 
         SubscribeLocalEvent<BloodCultSpellsHolderComponent, ComponentStartup>(OnComponentStartup);
         SubscribeLocalEvent<BloodCultSpellsHolderComponent, GetVerbsEvent<ExamineVerb>>(OnGetVerbs);
@@ -76,8 +77,8 @@ public sealed class BloodCultSpellsSystem : EntitySystem
         if (HasComp<MindShieldComponent>(args.Target) || HasComp<PsionicInsulationComponent>(args.Target))
             args.Handled = true;
     }
-
-    private void OnActionGettingDisabled(Entity<BaseCultSpellComponent> spell, ref ActionGettingDisabledEvent args)
+    // Omu, this has to use a weird hack to get around limeted charges system.
+    private void OnActionOutOfCharges(Entity<BaseCultSpellComponent> spell, ref ActionOutOfChargesEvent args)
     {
         if (TryComp(args.Performer, out BloodCultSpellsHolderComponent? spellsHolder))
             spellsHolder.SelectedSpells.Remove(spell);
