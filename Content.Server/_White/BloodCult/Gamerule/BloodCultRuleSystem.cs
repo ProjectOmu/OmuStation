@@ -7,7 +7,8 @@ using Content.Server.Body.Systems;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Hands.Systems;
-using Content.Server.Language;
+using Content.Shared._EinsteinEngines.Language;
+using Content.Server._EinsteinEngines.Language;
 using Content.Server.Mind;
 using Content.Server.NPC.Systems;
 using Content.Server.Pinpointer;
@@ -18,6 +19,7 @@ using Content.Server.WhiteDream.BloodCult.Objectives;
 using Content.Server.WhiteDream.BloodCult.RendingRunePlacement;
 using Content.Server.WhiteDream.BloodCult.Spells;
 using Content.Shared.Cloning;
+using Content.Shared.Cloning.Events;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
@@ -26,7 +28,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Mood;
+//using Content.Shared.Mood;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.WhiteDream.BloodCult.Components;
 using Content.Shared.WhiteDream.BloodCult.BloodCultist;
@@ -140,7 +142,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
     private void OnCultistComponentInit(Entity<BloodCultistComponent> cultist, ref ComponentInit args)
     {
-        RaiseLocalEvent(cultist, new MoodEffectEvent("CultFocused"));
+        //RaiseLocalEvent(cultist, new MoodEffectEvent("CultFocused"));
         _language.AddLanguage(cultist, cultist.Comp.CultLanguageId);
 
         var query = QueryActiveRules();
@@ -165,7 +167,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         RemoveAllCultItems(cultist);
         RemoveCultistAppearance(cultist);
         RemoveObjectiveAndRole(cultist.Owner);
-        RaiseLocalEvent(cultist.Owner, new MoodRemoveEffectEvent("CultFocused"));
+        //RaiseLocalEvent(cultist.Owner, new MoodRemoveEffectEvent("CultFocused"));
         _language.RemoveLanguage(cultist.Owner, cultist.Comp.CultLanguageId);
 
         if (!TryComp(cultist, out BloodCultSpellsHolderComponent? powersHolder))

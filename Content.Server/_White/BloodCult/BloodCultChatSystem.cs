@@ -2,9 +2,10 @@
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
-using Content.Server.Language;
+using Content.Server._EinsteinEngines.Language;
 using Content.Shared.Chat;
-using Content.Shared.Language;
+using Content.Shared._EinsteinEngines.Language.Systems;
+using Content.Shared._EinsteinEngines.Language;
 using Content.Shared.WhiteDream.BloodCult.BloodCultist;
 using Content.Shared.WhiteDream.BloodCult.Constructs;
 using Robust.Shared.Network;

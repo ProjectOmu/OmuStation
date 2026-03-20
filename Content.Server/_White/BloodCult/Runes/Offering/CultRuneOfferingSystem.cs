@@ -1,5 +1,7 @@
 ﻿using System.Linq;
-using Content.Server.Bible.Components;
+using Content.Goobstation.Shared.Bible;
+using Content.Server.Bible;
+using Content.Goobstation.Common.Religion;
 using Content.Server.Body.Systems;
 using Content.Server.Cuffs;
 using Content.Server.Mind;

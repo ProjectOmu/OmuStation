@@ -2,7 +2,7 @@
 using Content.Server.WhiteDream.BloodCult.Runes;
 using Content.Server.WhiteDream.BloodCult.Runes.Teleport;
 using Content.Shared.DoAfter;
-using Content.Shared.ListViewSelector;
+using Content.Shared._White.ListViewSelector;
 using Content.Shared.WhiteDream.BloodCult.Spells;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;

@@ -1,7 +1,8 @@
 ﻿using System.Linq;
 using System.Numerics;
-using Content.Shared._Goobstation.Bible;
-using Content.Server.Bible.Components;
+using Content.Goobstation.Shared.Bible;
+using Content.Server.Bible;
+using Content.Goobstation.Common.Religion;
 using Content.Server.Chat.Systems;
 using Content.Server.Chemistry.Components;
 using Content.Server.DoAfter;

@@ -24,6 +24,7 @@ using Content.Shared.WhiteDream.BloodCult.UI;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
+using Content.Shared.Body.Components;
 
 namespace Content.Server.WhiteDream.BloodCult.BloodRites;
 

@@ -1,5 +1,6 @@
-﻿using Content.Shared._Goobstation.Bible;
-using Content.Server.Bible.Components;
+﻿using Content.Goobstation.Shared.Bible;
+using Content.Server.Bible;
+using Content.Goobstation.Common.Religion;
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Roles;
