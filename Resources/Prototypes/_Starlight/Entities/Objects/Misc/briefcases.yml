@@ -1,0 +1,12 @@
+# Syndie Black
+- type: entity
+  parent: [ BriefcaseBase, BaseMinorContraband ]
+  id: BriefcaseSyndicateRedspace
+  name: syndicate briefcase
+  suffix: empty
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Storage/Briefcases/syndicate_briefcase.rsi
+    state: icon
+  - type: Item
+    sprite: _Starlight/Objects/Storage/Briefcases/syndicate_briefcase.rsi

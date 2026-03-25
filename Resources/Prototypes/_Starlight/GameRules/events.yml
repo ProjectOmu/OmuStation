@@ -1,0 +1,20 @@
+# Syndicate dead drop
+- type: entity
+  parent: BaseGameRule
+  id: SyndicateDeadDrop
+  components:
+  - type: GameRule  #Omu addition to get it to work
+    chaosScore: 300
+  - type: StationEvent
+    startAnnouncement: station-syndicate-dead-drop-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 15
+    duration: 1
+    minimumPlayers: 10
+    maxOccurrences: 3 #Omu just having an alternative to antags
+    weight: 10
+  - type: RandomSpawnRule
+    prototype: SyndieDeadDropSpawner
+    radioMessage: {channel: Syndicate, message: "syndicate-dead-drop-announcement"}
+
