@@ -22,3 +22,12 @@ reagent-desc-nat-letoferol = A version of letoferol produced by organic means. I
 
 reagent-name-protoletoferol = protoletoferol
 reagent-desc-protoletoferol = Letoferol neutralized via electrolysis. Used as a precursor for the chemicals to cure it. Its too dead to do anything to you now.
+
+reagent-name-peranol = peranol
+reagent-desc-peranol = A more stable version of Leporazine, reducing the body temperature and healing heat burns. It has amplified effect on Hydrakins.
+
+reagent-name-phenoxzine = phenoxzine
+reagent-desc-phenoxzine = A biochemical designed to promote the rapid growth of claws, including Reptilian claws.
+
+reagent-name-meroxzine = meroxzine
+reagent-desc-meroxzine = A biochemical which halts all natural claw growth, including Reptilian claws.
