@@ -1,0 +1,42 @@
+- type: language
+  id: RakkProper
+  isVisibleLanguage: true
+  speech:
+    color: "#a489a0"
+    fontId: NotoSansCoptic
+    fontSize: 12
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 4
+    #Transliteration of New Kin Pidgin replacements into Coptic script
+    #based on IPA pronunciation found on Wikipedia entry "Coptic script"
+    replacement:
+    - ⲭⲁ
+    - ⲣⲁ
+    - ⲙⲁ
+    - ⲥⲁ
+    - nⲁ
+    - ⲑⲁ
+    - ⲗⲁ
+    - ϭⲁ
+    - ⲑⲓ
+    - ϩⲓ
+    - ⲭⲓ
+    - ⲏⲁ
+    - ⲑⲁ
+    - ϩⲁ
+    - ⲭⲁ
+    - ⲏⲁ
+    - ⲧϣⲓ
+    - ⲧϣⲁ
+    - ⲭⲁϩ
+    - ⲥⲭⲣⲉ
+    - ⲁϩϧ
+    - ⲉⲭ
+    - ϯⲁwⲭ
+    - ⲭⲣⲁⲁ
+    - ⲓⲓ
+    - ⲭⲣⲓ
+    - ⲭⲁ
+    - ϫⲟ
