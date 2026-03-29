@@ -49,11 +49,13 @@ public sealed partial class DeepFryerComponent : SharedDeepFryerComponent
     /// <summary>
     /// What entities cannot be deep-fried no matter what?
     /// </summary>
+    [DataField]
     public EntityWhitelist? Blacklist { get; set; }
 
     /// <summary>
     /// What entities can be deep-fried into being edible?
     /// </summary>
+    [DataField]
     public EntityWhitelist? Whitelist { get; set; }
 
     /// <summary>
