@@ -64,7 +64,7 @@ public sealed partial class DeepFryerSystem
                                     proto!,
                                     null,
                                     1f);
-                                // effect.Effect(effectsArgs); //TODO: 🦅 Effect system reworked
+                                effect.Effect(effectsArgs);
                             }
 
                         }

@@ -14,6 +14,7 @@ using Content.Server.Cargo.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Kitchen.Components;
+using Content.Server.Nutrition.Events;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Temperature.Components;
@@ -116,7 +117,7 @@ public sealed partial class DeepFryerSystem : SharedDeepFryerSystem
         SubscribeLocalEvent<DeepFriedComponent, ComponentInit>(OnInitDeepFried);
         SubscribeLocalEvent<DeepFriedComponent, ExaminedEvent>(OnExamineFried);
         SubscribeLocalEvent<DeepFriedComponent, PriceCalculationEvent>(OnPriceCalculation);
-        // SubscribeLocalEvent<DeepFriedComponent, FoodSlicedEvent>(OnSliceDeepFried); //TODO: 🦅 FoodSlicedEvt needs port from EE. Diff. than SliceFoodEvent
+        SubscribeLocalEvent<DeepFriedComponent, FoodSlicedEvent>(OnSliceDeepFried);
     }
 
     private void UpdateUserInterface(EntityUid uid, DeepFryerComponent component)
@@ -340,8 +341,9 @@ public sealed partial class DeepFryerSystem : SharedDeepFryerSystem
 
         MakeCrispy(item);
 
+        //TODO: Moodlets system not avail
         // if (TryComp(item, out EdibleComponent? edibleComp))
-            // edibleComp.MoodletsOnEat.Add(component.DeepFriedMoodletPrototype); //TODO: 🦅 Moodlets system no longer used?
+            // edibleComp.MoodletsOnEat.Add(component.DeepFriedMoodletPrototype);
 
         FixedPoint2 oilToUse = 0;
 
@@ -414,10 +416,9 @@ public sealed partial class DeepFryerSystem : SharedDeepFryerSystem
                 1f);
             foreach (var effect in component.UnsafeOilVolumeEffects)
             {
-                // if(!effect.Effects[0].ShouldApply(effectsArgs, _random))
-                // if (!effect.ShouldApply(effectsArgs, _random))
-                    // continue;
-                // effect.Effect(effectsArgs); //TODO: 🦅 Effects system reworked
+                if (!effect.ShouldApply(effectsArgs, _random))
+                    continue;
+                effect.Effect(effectsArgs);
             }
         }
     }
@@ -719,31 +720,30 @@ public sealed partial class DeepFryerSystem : SharedDeepFryerSystem
         args.Price *= component.PriceCoefficient;
     }
 
-    //TODO: 🦅 Needs usg.s, custom evt impl
-    // private void OnSliceDeepFried(EntityUid uid, DeepFriedComponent component, FoodSlicedEvent args)
-    // {
-    //     MakeCrispy(args.Slice);
-    //
-    //     // Copy relevant values to the slice.
-    //     var sourceDeepFriedComponent = Comp<DeepFriedComponent>(args.Food);
-    //     var sliceDeepFriedComponent = Comp<DeepFriedComponent>(args.Slice);
-    //
-    //     sliceDeepFriedComponent.Crispiness = sourceDeepFriedComponent.Crispiness;
-    //     sliceDeepFriedComponent.PriceCoefficient = sourceDeepFriedComponent.PriceCoefficient;
-    //
-    //     UpdateDeepFriedName(args.Slice, sliceDeepFriedComponent);
-    //
-    //     // TODO: Flavor profiles aren't copied to the slices. This should
-    //     // probably be handled on upstream, but for now let's assume the
-    //     // oil of the deep fryer is overpowering enough for this small
-    //     // hack. This is likely the only place where it would be useful.
-    //     if (TryComp<FlavorProfileComponent>(args.Food, out var sourceFlavorProfileComponent) &&
-    //         TryComp<FlavorProfileComponent>(args.Slice, out var sliceFlavorProfileComponent))
-    //     {
-    //         sliceFlavorProfileComponent.Flavors.UnionWith(sourceFlavorProfileComponent.Flavors);
-    //         sliceFlavorProfileComponent.IgnoreReagents.UnionWith(sourceFlavorProfileComponent.IgnoreReagents);
-    //     }
-    // }
+    private void OnSliceDeepFried(EntityUid uid, DeepFriedComponent component, FoodSlicedEvent args)
+    {
+        MakeCrispy(args.Slice);
+
+        // Copy relevant values to the slice.
+        var sourceDeepFriedComponent = Comp<DeepFriedComponent>(args.Food);
+        var sliceDeepFriedComponent = Comp<DeepFriedComponent>(args.Slice);
+
+        sliceDeepFriedComponent.Crispiness = sourceDeepFriedComponent.Crispiness;
+        sliceDeepFriedComponent.PriceCoefficient = sourceDeepFriedComponent.PriceCoefficient;
+
+        UpdateDeepFriedName(args.Slice, sliceDeepFriedComponent);
+
+        // TODO: Flavor profiles aren't copied to the slices. This should
+        // probably be handled on upstream, but for now let's assume the
+        // oil of the deep fryer is overpowering enough for this small
+        // hack. This is likely the only place where it would be useful.
+        if (TryComp<FlavorProfileComponent>(args.Food, out var sourceFlavorProfileComponent) &&
+            TryComp<FlavorProfileComponent>(args.Slice, out var sliceFlavorProfileComponent))
+        {
+            sliceFlavorProfileComponent.Flavors.UnionWith(sourceFlavorProfileComponent.Flavors);
+            sliceFlavorProfileComponent.IgnoreReagents.UnionWith(sourceFlavorProfileComponent.IgnoreReagents);
+        }
+    }
 }
 
 public sealed class DeepFryAttemptEvent(EntityUid deepFryer) : CancellableEntityEventArgs

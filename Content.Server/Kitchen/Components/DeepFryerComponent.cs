@@ -7,6 +7,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 using Content.Server.Kitchen.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared.EntityEffects;
 using Content.Shared.Kitchen.Components;
 using Content.Shared.Nutrition;
 using Content.Shared.Whitelist;
@@ -147,7 +148,7 @@ public sealed partial class DeepFryerComponent : SharedDeepFryerComponent
     /// </summary>
     public FixedPoint2 SafeOilVolume { get; set; } = 10f;
 
-    public List<ReagentEffectsEntry> UnsafeOilVolumeEffects = new();
+    public List<EntityEffect> UnsafeOilVolumeEffects = new();
 
     /// <summary>
     /// What is the temperature of the vat when the deep fryer is powered?

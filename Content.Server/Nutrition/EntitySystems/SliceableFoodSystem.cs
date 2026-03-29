@@ -98,6 +98,7 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.DoAfter;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Server.Nutrition.Events;
 using Content.Shared.Interaction;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -209,6 +210,11 @@ public sealed class SliceableFoodSystem : EntitySystem
         // this lets you do things like slice a pizza up inside of a hot food cart without making a food-everywhere mess
         _transform.DropNextTo(sliceUid, entity);
         _transform.SetLocalRotation(sliceUid, 0);
+
+        // DeltaV - start of deep frier stuff
+        var slicedEv = new FoodSlicedEvent(user, entity, sliceUid);
+        RaiseLocalEvent(entity, ref slicedEv);
+        // DeltaV - end of deep frier stuff
 
         if (!_container.IsEntityOrParentInContainer(sliceUid))
         {

@@ -42,58 +42,57 @@ public sealed partial class DeepFryerSystem
     public bool TryMakeMobIntoFood(EntityUid mob, MobStateComponent mobStateComponent, bool force = false)
     {
         // Don't do anything to mobs until they're dead.
-        if (force || _mobStateSystem.IsDead(mob, mobStateComponent))
+        if (!force && !_mobStateSystem.IsDead(mob, mobStateComponent))
+            return false;
+
+        RemComp<ActiveNPCComponent>(mob);
+        RemComp<AtmosExposedComponent>(mob);
+        RemComp<BarotraumaComponent>(mob);
+        RemComp<BuckleComponent>(mob);
+        RemComp<GhostTakeoverAvailableComponent>(mob);
+        RemComp<InternalsComponent>(mob);
+        RemComp<PerishableComponent>(mob);
+        RemComp<RespiratorComponent>(mob);
+        RemComp<RottingComponent>(mob);
+
+        // Ensure it's Food here, so it passes the whitelist.
+        var mobEdibleComponent = EnsureComp<EdibleComponent>(mob);
+        _solutionContainerSystem.EnsureSolution(mob, mobEdibleComponent.Solution, out var alreadyHadFood, out _);
+
+        if (!_solutionContainerSystem.TryGetSolution(mob, mobEdibleComponent.Solution, out var mobFoodSolution))
+            return false;
+
+        // This line here is mainly for mice, because they have a food
+        // component that mirrors how much blood they have, which is
+        // used for the reagent grinder.
+        if (alreadyHadFood)
+            _solutionContainerSystem.RemoveAllSolution(mobFoodSolution.Value);
+
+        if (TryComp<BloodstreamComponent>(mob, out var bloodstreamComponent) && bloodstreamComponent.ChemicalSolution != null)
         {
-            RemComp<ActiveNPCComponent>(mob);
-            RemComp<AtmosExposedComponent>(mob);
-            RemComp<BarotraumaComponent>(mob);
-            RemComp<BuckleComponent>(mob);
-            RemComp<GhostTakeoverAvailableComponent>(mob);
-            RemComp<InternalsComponent>(mob);
-            RemComp<PerishableComponent>(mob);
-            RemComp<RespiratorComponent>(mob);
-            RemComp<RottingComponent>(mob);
+            // Fry off any blood into protein.
+            var bloodSolution = bloodstreamComponent.BloodSolution;
+            var solPresent = bloodSolution!.Value.Comp.Solution.Volume;
+            _solutionContainerSystem.RemoveReagent(bloodSolution.Value, "Blood", FixedPoint2.MaxValue);
+            var bloodRemoved = solPresent - bloodSolution.Value.Comp.Solution.Volume;
 
-            // Ensure it's Food here, so it passes the whitelist.
-            var mobEdibleComponent = EnsureComp<EdibleComponent>(mob);
-            _solutionContainerSystem.EnsureSolution(mob, mobEdibleComponent.Solution, out var alreadyHadFood, out _);
+            var proteinQuantity = bloodRemoved * BloodToProteinRatio;
+            mobFoodSolution.Value.Comp.Solution.MaxVolume += proteinQuantity;
+            _solutionContainerSystem.TryAddReagent(mobFoodSolution.Value, "Protein", proteinQuantity);
 
-            if (!_solutionContainerSystem.TryGetSolution(mob, mobEdibleComponent.Solution, out var mobFoodSolution))
-                return false;
+            // This is a heuristic. If you had blood, you might just taste meaty.
+            if (bloodRemoved > FixedPoint2.Zero)
+                EnsureComp<FlavorProfileComponent>(mob).Flavors.Add(MobFlavorMeat);
 
-            // This line here is mainly for mice, because they have a food
-            // component that mirrors how much blood they have, which is
-            // used for the reagent grinder.
-            if (alreadyHadFood)
-                _solutionContainerSystem.RemoveAllSolution(mobFoodSolution.Value);
-
-            if (TryComp<BloodstreamComponent>(mob, out var bloodstreamComponent) && bloodstreamComponent.ChemicalSolution != null)
-            {
-                // Fry off any blood into protein.
-                var bloodSolution = bloodstreamComponent.BloodSolution;
-                var solPresent = bloodSolution!.Value.Comp.Solution.Volume;
-                _solutionContainerSystem.RemoveReagent(bloodSolution.Value, "Blood", FixedPoint2.MaxValue);
-                var bloodRemoved = solPresent - bloodSolution.Value.Comp.Solution.Volume;
-
-                var proteinQuantity = bloodRemoved * BloodToProteinRatio;
-                mobFoodSolution.Value.Comp.Solution.MaxVolume += proteinQuantity;
-                _solutionContainerSystem.TryAddReagent(mobFoodSolution.Value, "Protein", proteinQuantity);
-
-                // This is a heuristic. If you had blood, you might just taste meaty.
-                if (bloodRemoved > FixedPoint2.Zero)
-                    EnsureComp<FlavorProfileComponent>(mob).Flavors.Add(MobFlavorMeat);
-
-                // Bring in whatever chemicals they had in them too.
-                mobFoodSolution.Value.Comp.Solution.MaxVolume +=
-                    bloodstreamComponent.ChemicalSolution.Value.Comp.Solution.Volume;
-                _solutionContainerSystem.AddSolution(mobFoodSolution.Value,
-                    bloodstreamComponent.ChemicalSolution.Value.Comp.Solution);
-            }
-
-            return true;
+            // Bring in whatever chemicals they had in them too.
+            mobFoodSolution.Value.Comp.Solution.MaxVolume +=
+                bloodstreamComponent.ChemicalSolution.Value.Comp.Solution.Volume;
+            _solutionContainerSystem.AddSolution(mobFoodSolution.Value,
+                bloodstreamComponent.ChemicalSolution.Value.Comp.Solution);
         }
 
-        return false;
+        return true;
+
     }
 
     /// <summary>
@@ -127,7 +126,7 @@ public sealed partial class DeepFryerSystem
             paperComponent.Content = stringBuilder.ToString();
         }
 
-        var foodComponent = EnsureComp<FoodComponent>(item);
+        var edibleComponent = EnsureComp<EdibleComponent>(item);
         var extraSolution = new Solution();
         if (TryComp(item, out FlavorProfileComponent? flavorProfileComponent))
         {
@@ -168,8 +167,8 @@ public sealed partial class DeepFryerSystem
         }
 
         // Make sure there's enough room for the fryer solution.
-        if (!_solutionContainerSystem.EnsureSolution(item, foodComponent.Solution, out var foodSolution)
-            || !_solutionContainerSystem.EnsureSolutionEntity(item, foodComponent.Solution, out var foodContainer))
+        if (!_solutionContainerSystem.EnsureSolution(item, edibleComponent.Solution, out var foodSolution)
+            || !_solutionContainerSystem.EnsureSolutionEntity(item, edibleComponent.Solution, out var foodContainer))
             return;
 
         // The solution quantity is used to give the fried food an extra
