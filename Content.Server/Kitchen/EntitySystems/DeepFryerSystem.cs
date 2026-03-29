@@ -746,25 +746,14 @@ public sealed partial class DeepFryerSystem : SharedDeepFryerSystem
     // }
 }
 
-public sealed class DeepFryAttemptEvent : CancellableEntityEventArgs
+public sealed class DeepFryAttemptEvent(EntityUid deepFryer) : CancellableEntityEventArgs
 {
-    public EntityUid DeepFryer { get; }
-
-    public DeepFryAttemptEvent(EntityUid deepFryer)
-    {
-        DeepFryer = deepFryer;
-    }
+    public EntityUid DeepFryer { get; } = deepFryer;
 }
 
-public sealed class BeingDeepFriedEvent : EntityEventArgs
+public sealed class BeingDeepFriedEvent(EntityUid deepFryer, EntityUid item) : EntityEventArgs
 {
-    public EntityUid DeepFryer { get; }
-    public EntityUid Item { get; }
+    public EntityUid DeepFryer { get; } = deepFryer;
+    public EntityUid Item { get; } = item;
     public bool TurnIntoFood { get; set; }
-
-    public BeingDeepFriedEvent(EntityUid deepFryer, EntityUid item)
-    {
-        DeepFryer = deepFryer;
-        Item = item;
-    }
 }

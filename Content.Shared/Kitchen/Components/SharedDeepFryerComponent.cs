@@ -6,7 +6,7 @@ namespace Content.Shared.Kitchen.Components;
 /// <summary>
 /// This is used for frying things
 /// </summary>
-public abstract partial class SharedDeepFryerComponent : Component { }
+public abstract partial class SharedDeepFryerComponent : Component;
 
 [Serializable, NetSerializable]
 public enum DeepFryerVisuals : byte
@@ -49,39 +49,22 @@ public sealed class DeepFryerBoundUserInterfaceState : BoundUserInterfaceState
 }
 
 [Serializable, NetSerializable]
-public sealed class DeepFryerRemoveItemMessage : BoundUserInterfaceMessage
+public sealed class DeepFryerRemoveItemMessage(NetEntity item) : BoundUserInterfaceMessage
 {
-    public readonly NetEntity Item;
-
-    public DeepFryerRemoveItemMessage(NetEntity item)
-    {
-        Item = item;
-    }
+    public readonly NetEntity Item = item;
 }
 
 [Serializable, NetSerializable]
-public sealed class DeepFryerInsertItemMessage : BoundUserInterfaceMessage
-{
-    public DeepFryerInsertItemMessage() { }
-}
+public sealed class DeepFryerInsertItemMessage : BoundUserInterfaceMessage;
 
 [Serializable, NetSerializable]
-public sealed class DeepFryerScoopVatMessage : BoundUserInterfaceMessage
-{
-    public DeepFryerScoopVatMessage() { }
-}
+public sealed class DeepFryerScoopVatMessage : BoundUserInterfaceMessage;
 
 [Serializable, NetSerializable]
-public sealed class DeepFryerClearSlagMessage : BoundUserInterfaceMessage
-{
-    public DeepFryerClearSlagMessage() { }
-}
+public sealed class DeepFryerClearSlagMessage : BoundUserInterfaceMessage;
 
 [Serializable, NetSerializable]
-public sealed class DeepFryerRemoveAllItemsMessage : BoundUserInterfaceMessage
-{
-    public DeepFryerRemoveAllItemsMessage() { }
-}
+public sealed class DeepFryerRemoveAllItemsMessage : BoundUserInterfaceMessage;
 
 [NetSerializable, Serializable]
 public enum DeepFryerUiKey
