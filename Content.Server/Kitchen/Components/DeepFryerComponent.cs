@@ -71,22 +71,25 @@ public sealed partial class DeepFryerComponent : SharedDeepFryerComponent
     /// <summary>
     /// What reagents are considered valid cooking oils?
     /// </summary>
-    [DataField("fryingOils", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<ReagentPrototype>))]
+    [DataField(customTypeSerializer: typeof(PrototypeIdHashSetSerializer<ReagentPrototype>))]
     public HashSet<string> FryingOils { get; set; } = new();
 
     /// <summary>
     /// What reagents are added to tasty deep-fried food?
     /// </summary>
+    [DataField]
     public List<ReagentQuantity> GoodReagents { get; set; } = new();
 
     /// <summary>
     /// What reagents are added to terrible deep-fried food?
     /// </summary>
+    [DataField]
     public List<ReagentQuantity> BadReagents { get; set; } = new();
 
     /// <summary>
     /// What reagents replace every 1 unit of oil spent on frying?
     /// </summary>
+    [DataField]
     public List<ReagentQuantity> WasteReagents { get; set; } = new();
 
     /// <summary>

@@ -262,7 +262,7 @@ public sealed partial class DeepFryerSystem : SharedDeepFryerSystem
         }
 
         // Damage non-food items and mobs.
-        if ((!HasComp<FoodComponent>(item) || HasComp<MobStateComponent>(item)) &&
+        if ((!HasComp<EdibleComponent>(item) || HasComp<MobStateComponent>(item)) &&
             TryComp<DamageableComponent>(item, out var damageableComponent))
         {
             var damage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>(CookingDamageType),
@@ -281,7 +281,7 @@ public sealed partial class DeepFryerSystem : SharedDeepFryerSystem
     /// </summary>
     private void BurnItem(EntityUid uid, DeepFryerComponent component, EntityUid item)
     {
-        if (HasComp<FoodComponent>(item) &&
+        if (HasComp<EdibleComponent>(item) &&
             !HasComp<MobStateComponent>(item) &&
             MetaData(item).EntityPrototype?.ID != component.CharredPrototype)
         {
@@ -382,12 +382,12 @@ public sealed partial class DeepFryerSystem : SharedDeepFryerSystem
         // if (TryComp(item, out EdibleComponent? foodComp))
             // foodComp.MoodletsOnEat.Add(component.DeepFriedMoodletPrototype); //TODO: 🦅 Moodlets system no longer used?
 
-        var oilToUse = 0;
+        FixedPoint2 oilToUse = 0;
 
         if (HasComp<ItemComponent>(item)) {
             var itemComponent = Comp<ItemComponent>(item);
 
-            oilToUse = (int) (itemComponent.Size.Id switch
+            oilToUse = (itemComponent.Size.Id switch
             {
                 "Tiny" => 1,
                 "Small" => 5,
@@ -400,7 +400,7 @@ public sealed partial class DeepFryerSystem : SharedDeepFryerSystem
         }
         else
         {
-            oilToUse = (int) (TryComp<PhysicsComponent>(item, out var physicsComponent) ? physicsComponent.Mass : 10);
+            oilToUse = TryComp<PhysicsComponent>(item, out var physicsComponent) ? physicsComponent.Mass : 10;
         }
 
         // Determine how much solution to spend on this item.
@@ -496,14 +496,6 @@ public sealed partial class DeepFryerSystem : SharedDeepFryerSystem
         _containerSystem.EmptyContainer(component.Storage, true);
     }
 
-    // private void OnRefreshParts(EntityUid uid, DeepFryerComponent component, RefreshPartsEvent args) //TODO: 🦅 Machine Parts reworked
-    // {
-    //     var ratingStorage = args.PartRatings[component.MachinePartStorageMax];
-    //
-    //     component.StorageMaxEntities = component.BaseStorageMaxEntities +
-    //                                    (int) (component.StoragePerPartRating * (ratingStorage - 1));
-    // }
-
     /// <summary>
     ///     Allow thrown items to land in a basket.
     /// </summary>
@@ -512,26 +504,25 @@ public sealed partial class DeepFryerSystem : SharedDeepFryerSystem
         if (args.Handled)
             return;
 
-        //TODO: 🦅 Bother adding pro chef comp?
-        // // Chefs never miss this. :)
-        // var missChance = HasComp<ProfessionalChefComponent>(args.User) ? 0f : ThrowMissChance;
-        //
-        // if (!CanInsertItem(uid, component, args.Thrown) ||
-        //     _random.Prob(missChance) ||
-        //     !_containerSystem.Insert(args.Thrown, component.Storage))
-        // {
-        //     _popupSystem.PopupEntity(
-        //         Loc.GetString("deep-fryer-thrown-missed"),
-        //         uid);
-        //
-        //     if (args.User != null)
-        //     {
-        //         _adminLogManager.Add(LogType.Action, LogImpact.Low,
-        //             $"{ToPrettyString(args.User.Value)} threw {ToPrettyString(args.Thrown)} at {ToPrettyString(uid)}, and it missed.");
-        //     }
-        //
-        //     return;
-        // }
+         // Chefs never miss this. :)
+         var missChance = /*HasComp<ProfessionalChefComponent>(args.User) ? 0f : */ThrowMissChance;
+
+         if (!CanInsertItem(uid, component, args.Thrown) ||
+             _random.Prob(missChance) ||
+             !_containerSystem.Insert(args.Thrown, component.Storage))
+         {
+             _popupSystem.PopupEntity(
+                 Loc.GetString("deep-fryer-thrown-missed"),
+                 uid);
+
+             if (args.User != null)
+             {
+                 _adminLogManager.Add(LogType.Action, LogImpact.Low,
+                     $"{ToPrettyString(args.User.Value)} threw {ToPrettyString(args.Thrown)} at {ToPrettyString(uid)}, and it missed.");
+             }
+
+             return;
+         }
 
         if (GetOilVolume(uid, component) < component.SafeOilVolume)
         {

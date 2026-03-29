@@ -16,7 +16,7 @@ public sealed class DeepFryerBoundUserInterface : BoundUserInterface
         _window.OnClose += Close;
         _window.ItemList.OnItemSelected += args =>
         {
-            SendMessage(new DeepFryerRemoveItemMessage(_entities[args.ItemIndex]));
+            SendPredictedMessage(new DeepFryerRemoveItemMessage(_entities[args.ItemIndex]));
         };
         _window.InsertItem.OnPressed += _ =>
         {
