@@ -1,0 +1,90 @@
+using Content.Goobstation.Maths.FixedPoint;
+using Robust.Shared.Serialization;
+
+namespace Content.Shared.Kitchen.Components;
+
+/// <summary>
+/// This is used for frying things
+/// </summary>
+public abstract partial class SharedDeepFryerComponent : Component { }
+
+[Serializable, NetSerializable]
+public enum DeepFryerVisuals : byte
+{
+    Bubbling,
+}
+
+
+/// <summary>
+/// Contains network state for SharedDeepFryerComponent.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class SharedDeepFryerState : ComponentState
+{
+    public SharedDeepFryerState(SharedDeepFryerComponent component)
+    {
+
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class DeepFryerBoundUserInterfaceState : BoundUserInterfaceState
+{
+    public readonly FixedPoint2 OilLevel;
+    public readonly FixedPoint2 OilPurity;
+    public readonly FixedPoint2 FryingOilThreshold;
+    public readonly EntityUid[] ContainedEntities;
+
+    public DeepFryerBoundUserInterfaceState(
+        FixedPoint2 oilLevel,
+        FixedPoint2 oilPurity,
+        FixedPoint2 fryingOilThreshold,
+        EntityUid[] containedEntities)
+    {
+        OilLevel = oilLevel;
+        OilPurity = oilPurity;
+        FryingOilThreshold = fryingOilThreshold;
+        ContainedEntities = containedEntities;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class DeepFryerRemoveItemMessage : BoundUserInterfaceMessage
+{
+    public readonly EntityUid Item; //🦅 Swap FROM NetEntity TO EntityUid
+
+    public DeepFryerRemoveItemMessage(EntityUid item)
+    {
+        Item = item;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class DeepFryerInsertItemMessage : BoundUserInterfaceMessage
+{
+    public DeepFryerInsertItemMessage() { }
+}
+
+[Serializable, NetSerializable]
+public sealed class DeepFryerScoopVatMessage : BoundUserInterfaceMessage
+{
+    public DeepFryerScoopVatMessage() { }
+}
+
+[Serializable, NetSerializable]
+public sealed class DeepFryerClearSlagMessage : BoundUserInterfaceMessage
+{
+    public DeepFryerClearSlagMessage() { }
+}
+
+[Serializable, NetSerializable]
+public sealed class DeepFryerRemoveAllItemsMessage : BoundUserInterfaceMessage
+{
+    public DeepFryerRemoveAllItemsMessage() { }
+}
+
+[NetSerializable, Serializable]
+public enum DeepFryerUiKey
+{
+    Key,
+}
