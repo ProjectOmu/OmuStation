@@ -7,7 +7,7 @@ public sealed class DeepFryerBoundUserInterface : BoundUserInterface
 {
     private DeepFryerWindow? _window;
 
-    private EntityUid[] _entities = default!;
+    private NetEntity[] _entities = default!;
 
     public DeepFryerBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner,uiKey)
     {

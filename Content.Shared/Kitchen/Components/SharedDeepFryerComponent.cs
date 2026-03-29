@@ -33,13 +33,13 @@ public sealed class DeepFryerBoundUserInterfaceState : BoundUserInterfaceState
     public readonly FixedPoint2 OilLevel;
     public readonly FixedPoint2 OilPurity;
     public readonly FixedPoint2 FryingOilThreshold;
-    public readonly EntityUid[] ContainedEntities;
+    public readonly NetEntity[] ContainedEntities;
 
     public DeepFryerBoundUserInterfaceState(
         FixedPoint2 oilLevel,
         FixedPoint2 oilPurity,
         FixedPoint2 fryingOilThreshold,
-        EntityUid[] containedEntities)
+        NetEntity[] containedEntities)
     {
         OilLevel = oilLevel;
         OilPurity = oilPurity;
@@ -51,9 +51,9 @@ public sealed class DeepFryerBoundUserInterfaceState : BoundUserInterfaceState
 [Serializable, NetSerializable]
 public sealed class DeepFryerRemoveItemMessage : BoundUserInterfaceMessage
 {
-    public readonly EntityUid Item; //🦅 Swap FROM NetEntity TO EntityUid
+    public readonly NetEntity Item; //🦅 Swap FROM NetEntity TO EntityUid
 
-    public DeepFryerRemoveItemMessage(EntityUid item)
+    public DeepFryerRemoveItemMessage(NetEntity item)
     {
         Item = item;
     }

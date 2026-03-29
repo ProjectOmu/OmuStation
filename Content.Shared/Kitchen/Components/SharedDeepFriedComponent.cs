@@ -6,7 +6,6 @@ namespace Content.Shared.Kitchen.Components;
 /// <summary>
 /// This is used for marking an entity as having been fried in a DeepFryer
 /// </summary>
-[RegisterComponent]
 [NetworkedComponent]
 public abstract partial class SharedDeepFriedComponent : Component
 {

@@ -60,6 +60,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
+using Content.Shared.Kitchen;
 using Content.Shared.Kitchen.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -82,7 +83,7 @@ using Robust.Shared.Physics.Components;
 
 namespace Content.Server.Kitchen.EntitySystems;
 
-public sealed partial class DeepFryerSystem : EntitySystem
+public sealed partial class DeepFryerSystem : SharedDeepFryerSystem
 {
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
@@ -127,7 +128,7 @@ public sealed partial class DeepFryerSystem : EntitySystem
 
         SubscribeLocalEvent<DeepFryerComponent, ComponentInit>(OnInitDeepFryer);
         SubscribeLocalEvent<DeepFryerComponent, PowerChangedEvent>(OnPowerChange);
-        SubscribeLocalEvent<DeepFryerComponent, RefreshPartsEvent>(OnRefreshParts);
+        // SubscribeLocalEvent<DeepFryerComponent, RefreshPartsEvent>(OnRefreshParts);
         SubscribeLocalEvent<DeepFryerComponent, MachineDeconstructedEvent>(OnDeconstruct);
         SubscribeLocalEvent<DeepFryerComponent, DestructionEventArgs>(OnDestruction);
         SubscribeLocalEvent<DeepFryerComponent, ThrowHitByEvent>(OnThrowHitBy);
@@ -157,7 +158,7 @@ public sealed partial class DeepFryerSystem : EntitySystem
             GetOilLevel(uid, component),
             GetOilPurity(uid, component),
             component.FryingOilThreshold,
-            EntityManager.GetNetEntityArray(component.Storage.ContainedEntities));
+            EntityManager.GetNetEntityArray(component.Storage.ContainedEntities.ToArray()));
 
         _uiSystem.SetUiState(uid, DeepFryerUiKey.Key, state);
     }
@@ -511,25 +512,26 @@ public sealed partial class DeepFryerSystem : EntitySystem
         if (args.Handled)
             return;
 
-        // Chefs never miss this. :)
-        var missChance = HasComp<ProfessionalChefComponent>(args.User) ? 0f : ThrowMissChance;
-
-        if (!CanInsertItem(uid, component, args.Thrown) ||
-            _random.Prob(missChance) ||
-            !_containerSystem.Insert(args.Thrown, component.Storage))
-        {
-            _popupSystem.PopupEntity(
-                Loc.GetString("deep-fryer-thrown-missed"),
-                uid);
-
-            if (args.User != null)
-            {
-                _adminLogManager.Add(LogType.Action, LogImpact.Low,
-                    $"{ToPrettyString(args.User.Value)} threw {ToPrettyString(args.Thrown)} at {ToPrettyString(uid)}, and it missed.");
-            }
-
-            return;
-        }
+        //TODO: 🦅 Bother adding pro chef comp?
+        // // Chefs never miss this. :)
+        // var missChance = HasComp<ProfessionalChefComponent>(args.User) ? 0f : ThrowMissChance;
+        //
+        // if (!CanInsertItem(uid, component, args.Thrown) ||
+        //     _random.Prob(missChance) ||
+        //     !_containerSystem.Insert(args.Thrown, component.Storage))
+        // {
+        //     _popupSystem.PopupEntity(
+        //         Loc.GetString("deep-fryer-thrown-missed"),
+        //         uid);
+        //
+        //     if (args.User != null)
+        //     {
+        //         _adminLogManager.Add(LogType.Action, LogImpact.Low,
+        //             $"{ToPrettyString(args.User.Value)} threw {ToPrettyString(args.Thrown)} at {ToPrettyString(uid)}, and it missed.");
+        //     }
+        //
+        //     return;
+        // }
 
         if (GetOilVolume(uid, component) < component.SafeOilVolume)
         {
@@ -772,30 +774,31 @@ public sealed partial class DeepFryerSystem : EntitySystem
         args.Price *= component.PriceCoefficient;
     }
 
-    private void OnSliceDeepFried(EntityUid uid, DeepFriedComponent component, FoodSlicedEvent args)
-    {
-        MakeCrispy(args.Slice);
-
-        // Copy relevant values to the slice.
-        var sourceDeepFriedComponent = Comp<DeepFriedComponent>(args.Food);
-        var sliceDeepFriedComponent = Comp<DeepFriedComponent>(args.Slice);
-
-        sliceDeepFriedComponent.Crispiness = sourceDeepFriedComponent.Crispiness;
-        sliceDeepFriedComponent.PriceCoefficient = sourceDeepFriedComponent.PriceCoefficient;
-
-        UpdateDeepFriedName(args.Slice, sliceDeepFriedComponent);
-
-        // TODO: Flavor profiles aren't copied to the slices. This should
-        // probably be handled on upstream, but for now let's assume the
-        // oil of the deep fryer is overpowering enough for this small
-        // hack. This is likely the only place where it would be useful.
-        if (TryComp<FlavorProfileComponent>(args.Food, out var sourceFlavorProfileComponent) &&
-            TryComp<FlavorProfileComponent>(args.Slice, out var sliceFlavorProfileComponent))
-        {
-            sliceFlavorProfileComponent.Flavors.UnionWith(sourceFlavorProfileComponent.Flavors);
-            sliceFlavorProfileComponent.IgnoreReagents.UnionWith(sourceFlavorProfileComponent.IgnoreReagents);
-        }
-    }
+    //TODO: 🦅 Needs usg.s, custom evt impl
+    // private void OnSliceDeepFried(EntityUid uid, DeepFriedComponent component, FoodSlicedEvent args)
+    // {
+    //     MakeCrispy(args.Slice);
+    //
+    //     // Copy relevant values to the slice.
+    //     var sourceDeepFriedComponent = Comp<DeepFriedComponent>(args.Food);
+    //     var sliceDeepFriedComponent = Comp<DeepFriedComponent>(args.Slice);
+    //
+    //     sliceDeepFriedComponent.Crispiness = sourceDeepFriedComponent.Crispiness;
+    //     sliceDeepFriedComponent.PriceCoefficient = sourceDeepFriedComponent.PriceCoefficient;
+    //
+    //     UpdateDeepFriedName(args.Slice, sliceDeepFriedComponent);
+    //
+    //     // TODO: Flavor profiles aren't copied to the slices. This should
+    //     // probably be handled on upstream, but for now let's assume the
+    //     // oil of the deep fryer is overpowering enough for this small
+    //     // hack. This is likely the only place where it would be useful.
+    //     if (TryComp<FlavorProfileComponent>(args.Food, out var sourceFlavorProfileComponent) &&
+    //         TryComp<FlavorProfileComponent>(args.Slice, out var sliceFlavorProfileComponent))
+    //     {
+    //         sliceFlavorProfileComponent.Flavors.UnionWith(sourceFlavorProfileComponent.Flavors);
+    //         sliceFlavorProfileComponent.IgnoreReagents.UnionWith(sourceFlavorProfileComponent.IgnoreReagents);
+    //     }
+    // }
 }
 
 public sealed class DeepFryAttemptEvent : CancellableEntityEventArgs
