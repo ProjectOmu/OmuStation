@@ -51,7 +51,7 @@ public sealed class DeepFryerBoundUserInterfaceState : BoundUserInterfaceState
 [Serializable, NetSerializable]
 public sealed class DeepFryerRemoveItemMessage : BoundUserInterfaceMessage
 {
-    public readonly NetEntity Item; //🦅 Swap FROM NetEntity TO EntityUid
+    public readonly NetEntity Item;
 
     public DeepFryerRemoveItemMessage(NetEntity item)
     {

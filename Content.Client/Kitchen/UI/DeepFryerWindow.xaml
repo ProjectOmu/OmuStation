@@ -6,8 +6,7 @@
     <BoxContainer Orientation="Horizontal" VerticalExpand="True">
         <BoxContainer
             Orientation="Vertical"
-            HorizontalExpand="True"
-        >
+            HorizontalExpand="True">
             <Label
                 Text="{Loc 'deep-fryer-label-baskets'}"
                 Align="Left"/>
