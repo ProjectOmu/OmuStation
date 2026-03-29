@@ -9,11 +9,6 @@ namespace Content.Shared.Kitchen.Components;
 [NetworkedComponent]
 public abstract partial class SharedDeepFriedComponent : Component
 {
-
-    /// <summary>
-    /// How deep-fried is this item?
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
     public int Crispiness { get; set; }
 }

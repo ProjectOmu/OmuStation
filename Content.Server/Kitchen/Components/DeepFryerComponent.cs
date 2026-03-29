@@ -1,4 +1,3 @@
-using System.ComponentModel;
 using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -6,10 +5,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 using Content.Server.Kitchen.EntitySystems;
-using Content.Server.Nutrition;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Construction.Prototypes;
 using Content.Shared.Kitchen.Components;
 using Content.Shared.Nutrition;
 using Content.Shared.Whitelist;
@@ -65,7 +62,7 @@ public sealed partial class DeepFryerComponent : SharedDeepFryerComponent
     /// To prevent unwanted destruction of items, only food can be turned
     /// into this.
     /// </remarks>
-    [DataField("charredPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? CharredPrototype { get; set; }
 
     /// <summary>
@@ -95,13 +92,13 @@ public sealed partial class DeepFryerComponent : SharedDeepFryerComponent
     /// <summary>
     /// What flavors go well with deep frying?
     /// </summary>
-    [DataField("goodFlavors", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<FlavorPrototype>))]
+    [DataField(customTypeSerializer: typeof(PrototypeIdHashSetSerializer<FlavorPrototype>))]
     public HashSet<string> GoodFlavors { get; set; } = new();
 
     /// <summary>
     /// What flavors don't go well with deep frying?
     /// </summary>
-    [DataField("badFlavors", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<FlavorPrototype>))]
+    [DataField(customTypeSerializer: typeof(PrototypeIdHashSetSerializer<FlavorPrototype>))]
     public HashSet<string> BadFlavors { get; set; } = new();
 
     /// <summary>
@@ -117,7 +114,6 @@ public sealed partial class DeepFryerComponent : SharedDeepFryerComponent
     /// <summary>
     /// What is the name of the solution container for the fryer's oil?
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
     [DataField("solution")]
     public string SolutionName { get; set; } = "vat_oil";
 
@@ -135,11 +131,6 @@ public sealed partial class DeepFryerComponent : SharedDeepFryerComponent
     /// How much solution should be imparted based on an item's size?
     /// </summary>
     public FixedPoint2 SolutionSizeCoefficient { get; set; } = 0.5f;
-
-    /// <summary>
-    /// What's the maximum amount of solution that should ever be imparted?
-    /// </summary>
-    public FixedPoint2 SolutionSplitMax { get; set; } = 10f;
 
     /// <summary>
     /// What percent of the fryer's solution has to be oil in order for it to fry?
@@ -168,22 +159,6 @@ public sealed partial class DeepFryerComponent : SharedDeepFryerComponent
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public int StorageMaxEntities = 4;
-
-    /// <summary>
-    /// How many entities can be held, at a minimum?
-    /// </summary>
-    public int BaseStorageMaxEntities = 4;
-
-    /// <summary>
-    /// What upgradeable machine part dictates the quality of the storage size?
-    /// </summary>
-    // [DataField("machinePartStorageMax", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-    public string MachinePartStorageMax = "MatterBin"; //TODO: Machine parts simplified. Remove.
-
-    /// <summary>
-    /// How much extra storage is added per part rating?
-    /// </summary>
-    public int StoragePerPartRating = 4;
 
     /// <summary>
     /// What sound is played when an item is inserted into hot oil?

@@ -1,9 +1,6 @@
 using System.Linq;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Server.Kitchen.Components;
-// using Content.Server.Nyanotrasen.Kitchen.Components;
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects;
 using Content.Shared.Popups;
@@ -36,7 +33,9 @@ public sealed partial class DeepFryerSystem
                 _solutionContainerSystem.SetTemperature(solution.Value, component.PoweredTemperature);
 
                 foreach (var item in component.Storage.ContainedEntities)
+                {
                     CookItem(uid, component, item);
+                }
 
                 // Do something bad if there's enough heat but not enough oil.
                 var oilVolume = GetOilVolume(uid, component);
@@ -44,7 +43,9 @@ public sealed partial class DeepFryerSystem
                 if (oilVolume < component.SafeOilVolume)
                 {
                     foreach (var item in component.Storage.ContainedEntities.ToArray())
+                    {
                         BurnItem(uid, component, item);
+                    }
 
                     if (oilVolume > FixedPoint2.Zero)
                     {
@@ -99,14 +100,18 @@ public sealed partial class DeepFryerSystem
                 }
 
                 foreach (var item in component.Storage.ContainedEntities.ToArray())
+                {
                     DeepFry(uid, component, item);
+                }
 
                 // After the round of frying, replace the spent oil with a
                 // waste product.
                 if (component.WasteToAdd > FixedPoint2.Zero)
                 {
                     foreach (var reagent in component.WasteReagents)
+                    {
                         component.Solution.AddReagent(reagent.Reagent.ToString(), reagent.Quantity * component.WasteToAdd);
+                    }
 
                     component.WasteToAdd = FixedPoint2.Zero;
 
@@ -126,5 +131,4 @@ public sealed partial class DeepFryerSystem
     {
         component.NextFryTime = _gameTimingSystem.CurTime + component.FryInterval;
     }
-
 }
