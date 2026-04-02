@@ -1,0 +1,17 @@
+- type: loadout
+  id: WinterCoatSecSweaterDV
+  equipment:
+    outerClothing: ClothingOuterStasecSweater
+
+- type: loadout
+  id: WinterCoatSecCoatDV
+  equipment:
+    outerClothing: ClothingOuterCoatStasec
+
+- type: loadout
+  id: WinterGreatCoatSecCoatDV
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+  equipment:
+    outerClothing: ClothingOuterCoatStasecSenior

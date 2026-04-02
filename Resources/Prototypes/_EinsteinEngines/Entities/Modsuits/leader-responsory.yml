@@ -74,6 +74,12 @@
   description: A state-of-the-art helmet designed by NanoTrasen for the Leader Responsory modsuit. It includes a built-in HUD.
   categories: [HideSpawnMenu]
   components:
+    - type: Clothing # Omu start
+      clothingVisuals:
+        head:
+          - state: equipped-HEAD
+        head-vox:
+          - state: equipped-HEAD-vox # Omu end
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/leader-responsory.rsi
     - type: PressureProtection

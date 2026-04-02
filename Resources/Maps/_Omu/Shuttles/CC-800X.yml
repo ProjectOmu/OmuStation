@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 08/31/2025 18:50:05
-  entityCount: 2829
+  entityCount: 2827
 maps: []
 grids:
 - 1
@@ -1283,22 +1283,6 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
   - uid: 346
-    components:
-    - type: Transform
-      parent: 333
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: AntagImplanterHeretic
-  entities:
-  - uid: 334
-    components:
-    - type: Transform
-      parent: 333
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 347
     components:
     - type: Transform
       parent: 333

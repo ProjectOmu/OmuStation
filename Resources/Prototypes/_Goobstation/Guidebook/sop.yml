@@ -20,6 +20,7 @@
   - LegalSOP
   - StandardProceduresSOP
   - Succession
+  - TrainingManuals # Omu
 
 # Alert Levels Main Directory
 - type: guideEntry
@@ -100,6 +101,7 @@
   - CargoTechSOP
   - SalvageSpecialistSOP
   - ShaftMinerSOP
+  - CourierSOP #Omu
 
 - type: guideEntry
   id: CommandSOP
@@ -115,7 +117,6 @@
   - ChiefMedicalOfficerSOP
   - ChiefEngineerSOP
   - QuartermasterSOP
-  - CommandTrainingManual # Omu
   - AdministrativeAssistantSOP # Omu
 - type: guideEntry
   id: EngineeringSOP
@@ -150,8 +151,8 @@
   - WardenSOP
   - OfficerCadetSOP
   - DetectiveSOP
-  - SecurityTrainingManual # Omu
   - CorpsmanSOP # Omu - rename Brigmedic to Corpsman
+  - SecuritySergeantSOP # Omu
 
 - type: guideEntry
   id: ServiceSOP

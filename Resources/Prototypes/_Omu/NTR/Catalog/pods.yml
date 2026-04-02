@@ -1,0 +1,8 @@
+- type: entity
+  id: SpawnPodNTRCane
+  categories: [ HideSpawnMenu ]
+  name: SpawnEnergyCane
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: CaneNT

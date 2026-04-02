@@ -80,6 +80,7 @@
   id: CargoTechnicianHead
   equipment:
     head: ClothingHeadHatCargosoft
+  groupBy: "softhat" # Omu - loadout cleanup
 
 
 # Jumpsuit
@@ -87,18 +88,20 @@
   id: CargoTechnicianJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCargo
+  groupBy: "jumpsuit" # Omu - loadout cleanup
 
 
 - type: loadout
   id: CargoTechnicianJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtCargo
-
+  groupBy: "jumpskirt" # Omu - loadout cleanup
 
 - type: loadout # goob
   id: CargoTechMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryCargo
+  groupBy: "jumpsuit" # Omu - loadout cleanup
 
 
 # Back
@@ -106,25 +109,30 @@
   id: CargoTechnicianBackpack
   equipment:
     back: ClothingBackpackCargo
+  groupBy: "backpack" # Omu - loadout cleanup
 
 - type: loadout
   id: CargoTechnicianSatchel
   equipment:
     back: ClothingBackpackSatchelCargo
+  groupBy: "satchel" # Omu - loadout cleanup
 
 - type: loadout
   id: CargoTechnicianDuffel
   equipment:
     back: ClothingBackpackDuffelCargo
+  groupBy: "duffel" # Omu - loadout cleanup
 
 # OuterClothing
 - type: loadout
   id: CargoTechnicianWintercoat
   equipment:
     outerClothing: ClothingOuterWinterCargo
+  groupBy: "wintercoat" # Omu - loadout cleanup
 
 # Shoes
 - type: loadout
   id: CargoWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterCargo
+  groupBy: "winterboots" # Omu - loadout cleanup

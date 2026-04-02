@@ -3,21 +3,25 @@
   id: CargoTechnicianSweater
   equipment:
     jumpsuit: ClothingUniformJumpsuitCargotechSweater
+  groupBy: "jumpsuit" #loadout cleanup
 
 - type: loadout
   id: CargoTechnicianSweaterSkirt
   equipment:
     jumpsuit: ClothingUniformJumpsuitCargotechSweaterSkirt
+  groupBy: "jumpskirt" #loadout cleanup
 
 - type: loadout
   id: CargoTechnicianShortPantsIfuckinghateyouifyouwearthisbtw
   equipment:
     jumpsuit: ClothingUniformJumpsuitCargotechShorts
+  groupBy: "jumpsuit" #loadout cleanup
 
 - type: loadout
   id: CargoTechnicianShortSkirtsInsteadofPants
   equipment:
     jumpsuit: ClothingUniformJumpsuitCargotechShortsSkirt
+  groupBy: "jumpskirt" #loadout cleanup
 
 - type: loadout
   id: CargoTechnicianUniformTopInsteadOfJumpsuit
@@ -30,6 +34,7 @@
   id: CargoTechnicianJacket
   equipment:
     outerClothing: ClothingOuterJacketCargoTech
+  groupBy: "wintercoat" #loadout cleanup
 
 #shoes
 - type: loadout

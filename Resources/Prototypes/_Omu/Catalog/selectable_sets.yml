@@ -117,6 +117,16 @@
   - SpeedLoaderRevolverLightRifle
 
 - type: selectableSet
+  id: WeaponCeremonialRifleSet
+  name: selectable-set-ceremonial-rifle-name
+  description: selectable-set-ceremonial-rifle-description
+  sprite:
+    sprite: _Omu/Objects/Weapons/Guns/Snipers/ceremonial_rifle.rsi
+    state: base
+  content:
+  - WeaponSniperMosinSergeant
+
+- type: selectableSet
   id: WeaponTerminusSet
   name: selectable-set-terminus-name
   description: selectable-set-terminus-description

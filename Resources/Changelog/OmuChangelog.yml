@@ -2532,3 +2532,520 @@ Entries:
       message: Fixed syringes interaction with Syringe guns
   id: 319
   time: '2026-03-10T08:49:12.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: minor rework of CC, actually MAJOR rework
+  id: 320
+  time: '2026-03-10T18:12:25.0000000+00:00'
+- author: Aureu
+  changes:
+    - type: Tweak
+      message: Command maid role now spawns with a mind shield.
+    - type: Tweak
+      message: Command maid role now can be tracked by BSO.
+  id: 321
+  time: '2026-03-11T10:39:45.0000000+00:00'
+- author: distraughtcat
+  changes:
+    - type: Tweak
+      message: Resprited chimera and chimera biomass textures.
+  id: 322
+  time: '2026-03-12T00:39:21.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Remove
+      message: >-
+        NTR, task console and briefcase. NTR focus on RP please and fax us at CC
+        more.
+  id: 323
+  time: '2026-03-13T01:57:22.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: >-
+        Trash bags can pick up organs now... You should take the biomass at
+        dispos to med please thanks
+  id: 324
+  time: '2026-03-14T02:12:26.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: >-
+        Fish (that you fish up with a fishing rod) are items now and they dont
+        butcher into organs
+  id: 325
+  time: '2026-03-14T06:04:04.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Central Command is now indestructible.
+  id: 326
+  time: '2026-03-14T16:29:14.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed people being able to Amag doors on protected grids.
+  id: 327
+  time: '2026-03-14T18:14:03.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixes the RGB staff causing the server to lag when used.
+  id: 328
+  time: '2026-03-15T00:17:07.0000000+00:00'
+- author: JustOrdinaryPao
+  changes:
+    - type: Tweak
+      message: Increased overall time requirement for Command (and Warden)
+  id: 329
+  time: '2026-03-15T00:19:27.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: >-
+        Each training manual has their own guidebook entry now, also reworded
+        alot of it
+  id: 330
+  time: '2026-03-15T06:47:22.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: QM's Digiboard can now be linked to cargo telepads.
+  id: 331
+  time: '2026-03-15T17:55:37.0000000+00:00'
+- author: PickelSilly
+  changes:
+    - type: Add
+      message: IdiotVibes' Glory to Cardonia artwork now in lobby art rotation!
+  id: 332
+  time: '2026-03-16T17:46:29.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed CC modsuits displaying an error when a vulp was wearing them
+  id: 333
+  time: '2026-03-17T05:51:46.0000000+00:00'
+- author: Willzile1
+  changes:
+    - type: Fix
+      message: Added viro icons to the Medical and Paramedic beast mantles.
+  id: 334
+  time: '2026-03-17T06:16:10.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Corpsman nostalgic and reminisced coats now have medical gown stats
+    - type: Fix
+      message: Corpsman should only spawn with 1 pda now
+  id: 335
+  time: '2026-03-17T18:56:05.0000000+00:00'
+- author: Tuerk
+  changes:
+    - type: Add
+      message: Emote spam causes your emotes to be muted for some time.
+    - type: Remove
+      message: Smite on emote spam removed.
+  id: 336
+  time: '2026-03-18T22:26:27.0000000+00:00'
+- author: PhosphateWithManyOs
+  changes:
+    - type: Add
+      message: Additional lizard screams and emotes!
+  id: 337
+  time: '2026-03-18T23:23:50.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Add
+      message: Departmental Jamjar glasses! Check your crafting recipes :)
+  id: 338
+  time: '2026-03-21T19:07:29.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Tweak
+      message: >-
+        buffed the particle decelerator's damage to the tesla and singlo by 5
+        times
+  id: 339
+  time: '2026-03-21T19:13:14.0000000+00:00'
+- author: RadsammyT
+  changes:
+    - type: Add
+      message: Central Command shades have been added to the NTR locker.
+  id: 340
+  time: '2026-03-21T19:26:58.0000000+00:00'
+- author: beckthompson, RadsammyT
+  changes:
+    - type: Add
+      message: >-
+        (PORT) Pinktext. This adds a custom objective summary written by the
+        antagonist. Unlike other implementations, Greentext remains intact. If
+        you are one, check your character menu to make your evil-doings known in
+        the round-end summary!
+  id: 341
+  time: '2026-03-21T20:08:06.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Changed silicon rule 8 to clarify that Prisoners and Syndicate icons are
+        not crew.
+  id: 342
+  time: '2026-03-21T20:28:23.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Cargo sop demands you ask CE before you smes farm... Beware...
+  id: 343
+  time: '2026-03-21T20:34:35.0000000+00:00'
+- author: RadsammyT
+  changes:
+    - type: Tweak
+      message: >-
+        EE Interaction Verbs "Hug" and "Pet" now trigger the Social Anxiety
+        trait.
+  id: 344
+  time: '2026-03-21T20:40:19.0000000+00:00'
+- author: 3PonPon3
+  changes:
+    - type: Add
+      message: >-
+        Added the morphchems! They are new chems that each morph you into a
+        different species or into a critter upon reaching their threshold! Bird
+        Flu, Mothamphetamine, Marotine and Methril all change your species for
+        10 minutes, and revert when that timer is up OR if you are put into crit
+        before it runs out. They also have vestine-made antag concentrate
+        versions! Those morph permanently. There are also Cacaphonium and
+        Chitterzine, which morph you into squackroach/mothroach for a minute,
+        also reverting on crit.
+  id: 345
+  time: '2026-03-21T20:44:49.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Remove
+      message: Command component from command maid
+  id: 346
+  time: '2026-03-21T20:47:21.0000000+00:00'
+- author: jellygato
+  changes:
+    - type: Add
+      message: >-
+        The Atomic Precision, a drink so strong it rewrites your existence, is
+        now available to be made.
+  id: 347
+  time: '2026-03-21T20:55:13.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: AI now has access to more devices (namely lathes and gas pumps)
+  id: 348
+  time: '2026-03-21T21:07:51.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Detectives can only pick the inspector or terminus in their loadout now.
+  id: 349
+  time: '2026-03-21T21:11:31.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Tweak
+      message: The Automated Trade Station now spawns further away from the station.
+  id: 350
+  time: '2026-03-21T21:15:55.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: >-
+        Ipcs bleed coolant instead of oil now... New tasty beverage for the
+        Voxes....
+  id: 351
+  time: '2026-03-21T21:16:52.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Ported the NT cane from Starlight, and replaced the caneblade with it.
+    - type: Fix
+      message: Fixes the nanorep getting a CCO fax.
+  id: 352
+  time: '2026-03-21T21:23:45.0000000+00:00'
+- author: BramvanZijp
+  changes:
+    - type: Add
+      message: >-
+        Added a toggleable light to the BSO's ensemble, which is identical to
+        that of the Elite BSO Cloak.
+  id: 353
+  time: '2026-03-21T21:28:03.0000000+00:00'
+- author: Benevolent Tuerk
+  changes:
+    - type: Add
+      message: >-
+        The Courier role has been added to omu code. Please wait 3 to 4 business
+        months for em to be mapped.
+    - type: Add
+      message: >-
+        Courier Outfits from EE and DeltaV! Check the loadout screen and the
+        MailDrobe for all the goodies!
+    - type: Add
+      message: CourierSpawners for a later mapping PR
+  id: 354
+  time: '2026-03-21T21:28:44.0000000+00:00'
+- author: BramvanZijp
+  changes:
+    - type: Fix
+      message: You can no longer break out of a grab while stunned.
+  id: 355
+  time: '2026-03-21T23:17:56.0000000+00:00'
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Natural Letoferol guidebook description updated to note Mesotaxinide or
+        Mesophenerol is used to cure Chimera infections instead of being
+        permanent.
+  id: 356
+  time: '2026-03-22T01:25:10.0000000+00:00'
+- author: Aureu
+  changes:
+    - type: Remove
+      message: Dark lord, Dark priest, and Grey tide midround spawns.
+  id: 357
+  time: '2026-03-22T02:22:09.0000000+00:00'
+- author: Aureu
+  changes:
+    - type: Remove
+      message: Mention of Nexus from the Avali guidebook.
+  id: 358
+  time: '2026-03-22T03:48:35.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: 'AutoDrobe now dispenses fake blue wizard clothes! '
+  id: 359
+  time: '2026-03-22T05:48:06.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Changed the Robotics airlock to use the proper sprite
+  id: 360
+  time: '2026-03-22T12:58:11.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixes Courier spawn deleting itself
+    - type: Add
+      message: Adds a robotics maints airlock for mapping
+  id: 361
+  time: '2026-03-22T13:38:31.0000000+00:00'
+- author: Dishwasher0
+  changes:
+    - type: Add
+      message: Robo and Courier are mapped now rejoice !
+  id: 362
+  time: '2026-03-22T16:59:18.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: >-
+        Fixed people being able to break into areas on Protected grids. Stop
+        trying to bypass this.
+  id: 363
+  time: '2026-03-22T20:41:33.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Atomic Precision only dna scrambles at 25u now. It also adds ethanol now
+  id: 364
+  time: '2026-03-22T21:50:08.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Added a new job to security, the Sergeant
+  id: 365
+  time: '2026-03-22T21:52:56.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Remove
+      message: >-
+        Removed the swat gas mask from the maildrobe.. Dont know how that got
+        approved..
+  id: 366
+  time: '2026-03-23T01:25:56.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: Dedicated roundtype for tokens and admin events
+  id: 367
+  time: '2026-03-23T01:26:26.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Add
+      message: 'Jumpsuit for CC direggtor '
+  id: 368
+  time: '2026-03-24T23:03:36.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Tweak
+      message: Command mantles now have admin hud
+  id: 369
+  time: '2026-03-26T19:06:27.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Add
+      message: Custom clothing for the sergeant role!
+  id: 370
+  time: '2026-03-26T19:07:24.0000000+00:00'
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Dartboards have enough flat pierce armor to be no longer broken by dart
+        throws.
+  id: 371
+  time: '2026-03-27T22:10:37.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Add
+      message: Added (disciplinary) belts! Check the sergeant loadout :)
+  id: 372
+  time: '2026-03-27T22:40:32.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Add
+      message: 'Added: A new default module for medical cyborgs - the Virology Module!'
+  id: 373
+  time: '2026-03-28T06:14:45.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Glacier has been added to the map pool
+    - type: Add
+      message: 'Glacier now has job spawns for Roboticist and Sergeant   '
+    - type: Tweak
+      message: 'Glacier now has proper camera coverage for AI  '
+    - type: Fix
+      message: Fixed glacier having the wrong vents
+    - type: Fix
+      message: Glacier now has a secfab in armory
+    - type: Fix
+      message: Glacier no longer has the wrong suits in armory
+  id: 374
+  time: '2026-03-28T06:37:12.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Remove
+      message: Removed concussive gauntlet voucher.
+    - type: Tweak
+      message: Concussive gauntlet price increased to 4000
+  id: 375
+  time: '2026-03-28T17:45:09.0000000+00:00'
+- author: Dishwasher0
+  changes:
+    - type: Add
+      message: Sergeant is now mapped go larp
+    - type: Tweak
+      message: Salv shuttle control is now mapped
+  id: 376
+  time: '2026-03-29T15:10:53.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: IPCs now take ion damage from EMPs
+  id: 377
+  time: '2026-03-29T19:20:16.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Added Shipyard functionality, to be mapped at a later date.
+  id: 378
+  time: '2026-03-29T19:21:25.0000000+00:00'
+- author: Anui-ElXx
+  changes:
+    - type: Remove
+      message: Removes deep-meow from the game
+  id: 379
+  time: '2026-03-29T19:23:42.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Fix
+      message: As sergeant, the cloak no longer spawns on your head.
+  id: 380
+  time: '2026-03-30T05:29:05.0000000+00:00'
+- author: Manni-Marco
+  changes:
+    - type: Tweak
+      message: Changed T8 Consistency's sprites to be less gray and more silver.
+  id: 381
+  time: '2026-03-30T05:32:14.0000000+00:00'
+- author: ANorthAmerican
+  changes:
+    - type: Add
+      message: >-
+        Added winter coats for the Nanotrasen Representative and Administrative
+        Assistant.
+  id: 382
+  time: '2026-03-30T05:37:28.0000000+00:00'
+- author: ArtemisYK
+  changes:
+    - type: Remove
+      message: Commander hardsuit from loneop's uplink
+    - type: Remove
+      message: All mentions and Weaponry of both 8 gauge and 2 gauge shotguns
+    - type: Remove
+      message: SAP-HE rounds from the ammo category for the cobra
+    - type: Tweak
+      message: >-
+        Changed the Advanced Combat Medipen to reduce its maximum volume to 15
+        instead of 40
+    - type: Tweak
+      message: Changes the Contractor Baton in the uplink to be 50TC instead of 35TC
+  id: 383
+  time: '2026-03-30T07:29:33.0000000+00:00'
+- author: ArtemisYK
+  changes:
+    - type: Tweak
+      message: Tweaked the amount of TC Warops provides nukies
+  id: 384
+  time: '2026-03-30T07:30:39.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: >-
+        Removed leg coverage from secoff greatcoat. Hos and ward greatcoat stats
+        match their other armors now
+    - type: Tweak
+      message: Hos and warden jackets have 45% infect resist now
+  id: 385
+  time: '2026-03-30T08:04:14.0000000+00:00'
+- author: Manni-Marco
+  changes:
+    - type: Add
+      message: Foam sabre added and given to mime and clown
+    - type: Add
+      message: Sharp foam sabre added and given to evil mimes and clowns
+  id: 386
+  time: '2026-03-30T08:05:19.0000000+00:00'
+- author: pinktanuki
+  changes:
+    - type: Fix
+      message: Contraband level from Foam sword sheath
+  id: 387
+  time: '2026-03-31T18:16:40.0000000+00:00'
+- author: pinktanuki
+  changes:
+    - type: Fix
+      message: Fixed Estoc caliber information in uplink.
+  id: 388
+  time: '2026-03-31T18:20:20.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Fix
+      message: Command mantles are just admin glasses toggled by the trait
+  id: 389
+  time: '2026-04-01T02:56:59.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Upstream merge from goob, check goob changelog ingame for more details
+  id: 390
+  time: '2026-04-02T03:34:55.0000000+00:00'

@@ -54,6 +54,11 @@ selectable-set-terminus-description =
     A weapon exclusively for oni, this greataxe
     can fire a burst of disabler bolts on command.
 
+selectable-set-ceremonial-rifle-name = Ceremonial rifle
+selectable-set-ceremonial-rifle-description =
+    A weapon exclusively for sergeants,
+    this relic of a rifle has been in service for over 670 years.
+
 selectable-set-antiquelaser-name = Antique Laser Pistol
 selectable-set-antiquelaser-description =
     The classic. An operative's worst nightmare.

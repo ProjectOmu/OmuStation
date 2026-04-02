@@ -5,3 +5,7 @@ job-name-centcomm-direggtor = Centcomm Direggtor
 job-name-nanotrasen-spectre = Spectre Agent
 # Security Misc
 job-name-transit-prisoner = Transit Prisoner
+job-name-security-sergeant = Sergeant
+# Cargo Jobs
+JobCourier = Courier #Playtime tracker
+job-name-courier = Courier

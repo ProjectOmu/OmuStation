@@ -93,6 +93,23 @@
     price: 0
 
 - type: entity
+  parent: IDCardStandard
+  id: CourierIDCard
+  name: courier ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idcourier
+  - type: Item
+    heldPrefix:
+  - type: IdCard
+    jobTitle: job-name-courier
+    jobIcon: JobIconCourier
+  - type: PresetIdCard
+    job: Courier
+
+- type: entity
   parent: ERTChaplainIDCard
   id: ERTChaplainIDCardBlue
   suffix: Blue alert
@@ -139,3 +156,18 @@
   components:
   - type: PresetIdCard
     job: NanoTrasenSpectre
+
+- type: entity
+  parent: SecurityIDCard
+  id: SecuritySergeantIDCard
+  name: sergeant ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idseniorofficer
+  - type: PresetIdCard
+    job: SecuritySergeant
+  - type: IdCard
+    jobTitle: job-name-security-sergeant
+    jobIcon: JobIconSecuritySergeant

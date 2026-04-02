@@ -181,7 +181,7 @@
     - type: HasJobIcons # Goobstation
     - type: Bloodstream # omu
       damageBleedModifiers: BloodlossHuman
-      bloodReagent: Oil
+      bloodReagent: CoolantIPC # Omu
       bleedReductionAmount: 0
       bloodMaxVolume: 500
       chemicalMaxVolume: 0
@@ -248,8 +248,6 @@
           type: StrippableBoundUserInterface
         enum.StoreUiKey.Key: # Goobstation - changelings
           type: StoreBoundUserInterface
-        enum.HereticLivingHeartKey.Key: # goob edit - heretics
-          type: LivingHeartMenuBoundUserInterface
         enum.WizardTeleportUiKey.Key: # Goobstation - wizard
           type: WizardTeleportBoundUserInterface
           requireInputValidation: false
@@ -345,6 +343,8 @@
       lightningExplode: false
     - type: ComplexInteraction
     - type: Carriable
+    - type: GrabIntent # wilted rose
+    - type: Grabbable 
     - type: Targeting
     - type: Crawler
     - type: Consciousness

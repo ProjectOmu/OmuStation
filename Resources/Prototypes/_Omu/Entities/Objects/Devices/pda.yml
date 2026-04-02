@@ -26,6 +26,44 @@
     id: PrisonerIDCardPerma
 
 - type: entity
+  parent: CargoPDA
+  id: CourierPDA
+  name: courier PDA
+  description: Smells of carton.
+  components:
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-courier
+  - type: Pda
+    id: CourierIDCard
+  - type: Icon
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-courier
+  - type: Sprite
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-courier
+
+- type: entity
+  parent: CourierPDA
+  id: CourierPDAAlt
+  name: mail carrier PDA
+  description: Smells of dog repellent.
+  components:
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-courier-whiteblue
+  - type: Pda
+    id: CourierIDCard
+  - type: Icon
+    state: pda-courier-whiteblue
+  - type: Sprite
+    state: pda-courier-whiteblue
+
+- type: entity
   parent: ERTChaplainPDA
   id: ERTChaplainPDABlue
   suffix: Chaplain, Blue alert
@@ -159,3 +197,22 @@
   - type: Icon
     sprite: _Omu/Objects/Devices/pda.rsi
     state: pda-altblueshield
+
+- type: entity
+  parent: BaseSecurityPDA
+  id: SecuritySergeantPDA
+  name: sergeant PDA
+  description: Beaten, battered and broken, but just barely useable.
+  components:
+  - type: Pda
+    id: SecuritySergeantIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-securitysergeant
+  - type: PdaBorderColor
+    borderColor: "#A32D26"
+    accentVColor: "#DFDFDF"
+  - type: Icon
+    state: pda-securitysergeant

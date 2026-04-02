@@ -238,7 +238,15 @@ public sealed partial class ShuttleSystem
         if (_loader.TryLoadGrid(mapId, path, out var grid))
         {
             if (HasComp<ShuttleComponent>(grid))
-                TryFTLProximity(grid.Value, targetGrid);
+            {
+                // Omu  start minimumdistance support for grids that have them (i.e. ATS)
+                if (group.MinimumDistance == 0)
+                    TryFTLProximity(grid.Value, targetGrid); // <-  omu this is upstream everything else here is omu
+
+                _omuShuttle.OmuGridSpawnNearMinimums(grid.Value, targetGrid, group.MinimumDistance, group.MaximumDistance);
+
+            }// Omu end
+
 
             if (group.NameGrid)
             {
