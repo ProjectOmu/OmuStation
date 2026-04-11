@@ -12,6 +12,12 @@
   maleFirstNames: AllulaloFirstNames
   femaleFirstNames: AllulaloFirstNames
   lastNames: AllulaloLastNames
+  minHeight: 0.95 # Omu start
+  defaultHeight: 1
+  maxHeight: 1.05
+  minWidth: 0.95
+  defaultWidth: 1
+  maxWidth: 1.05 # Omu end
   sexes:
   - Male
   - Female
@@ -20,8 +26,8 @@
 - type: speciesBaseSprites
   id: MobAllulaloSprites
   sprites:
-    TailBehind: MobHumanoidAnyMarking # floof
-    TailOversuit: MobHumanoidAnyMarking # floof
+    #TailBehind: MobHumanoidAnyMarking # floof # Omu, we don't have this yet
+    #TailOversuit: MobHumanoidAnyMarking # floof # Omu, we don't have this yet
     Eyes: MobAllulaloEyes
     Head: MobAllulaloHead
     HeadTop: MobHumanoidAnyMarking
@@ -54,8 +60,8 @@
     HeadTop:
       points: 2
       required: false
-    UndergarmentTop:
-      points: 1
+    Undershirt:
+      points: 2
       required: false
     Chest:
       points: 4

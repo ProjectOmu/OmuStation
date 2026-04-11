@@ -37,11 +37,11 @@ public abstract class SharedDrunkSystem : EntitySystem
         if (!Resolve(uid, ref status, false))
             return;
 
-        if (TryComp<LightweightDrunkComponent>(uid, out var trait))
-            boozePower *= trait.BoozeStrengthMultiplier;
+        if (TryComp<LightweightDrunkComponent>(uid, out var lighttrait)) // Omu, change trait to lighttrait
+            boozePower *= lighttrait.BoozeStrengthMultiplier;
 
-        if (TryComp<HeavyweightDrunkComponent>(uid, out var trait)) // Imp
-            boozePower *= trait.BoozeStrengthMultiplier;
+        if (TryComp<HeavyweightDrunkComponent>(uid, out var heavytrait)) // Imp
+            boozePower *= heavytrait.BoozeStrengthMultiplier;
 
         if (applySlur)
         {

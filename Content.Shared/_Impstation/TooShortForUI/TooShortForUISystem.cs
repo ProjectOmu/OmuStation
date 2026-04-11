@@ -36,7 +36,7 @@ public sealed class TooShortForUI : EntitySystem
             return;
 
         // next, check if we're weightless. you get the idea
-        if (TryComp<GravityAffectedComponent>(ent, out var gravityAffected) && _gravity.IsWeightless((ent.Owner, gravityAffected)))
+        if (_gravity.IsWeightless((ent.Owner)))
             return;
 
         // check if we're on a table.

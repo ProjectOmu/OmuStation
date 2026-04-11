@@ -40,11 +40,11 @@
   - type: Bloodstream
     bloodMaxVolume: 250 #should be 50 less than the default of 300. theyre small
     bloodReagent: BloodAllulalo
-  - type: DamageVisuals
-    damageOverlayGroups:
-      Brute:
-        sprite: _Impstation/Mobs/Effects/allulalo_brute_damage.rsi
-        color: "#e5efff"
+#  - type: DamageVisuals # Omu, this does not work currently.
+#    damageOverlayGroups:
+#      Brute:
+#        sprite: _Impstation/Mobs/Effects/allulalo_brute_damage.rsi
+#        color: "#e5efff"
   - type: MobThresholds
     thresholds:
       0: Alive
