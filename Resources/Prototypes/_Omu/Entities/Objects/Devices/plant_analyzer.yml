@@ -1,0 +1,48 @@
+- type: entity
+  name: plant analyzer
+  parent: BaseItem
+  id: BasePlantAnalyzer
+  description: A handheld device that scans seeds and plants, revealing their properties. Requires a power cell.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Devices/plant_analyzer.rsi
+    layers:
+    - state: plantanalyzer
+    - state: unlit
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+      shader: unshaded
+  - type: Item
+    storedRotation: -90
+  - type: ActivatableUI
+    key: enum.PlantAnalyzerUiKey.Key
+    inHandsOnly: true
+  - type: UserInterface
+    interfaces:
+      enum.PlantAnalyzerUiKey.Key:
+        type: PlantAnalyzerBoundUserInterface
+  - type: PlantAnalyzer
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
+  - type: Tag
+    tags:
+    - PlantAnalyzer
+
+- type: entity
+  id: PlantAnalyzer
+  parent: [BasePlantAnalyzer, PowerCellSlotSmallItem]
+  components:
+  - type: PowerCellDraw
+    drawRate: 0
+    useCharge: 40
+  - type: ActivatableUIRequiresPowerCell
+
+- type: entity
+  id: PlantAnalyzerEmpty
+  parent: PlantAnalyzer
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default

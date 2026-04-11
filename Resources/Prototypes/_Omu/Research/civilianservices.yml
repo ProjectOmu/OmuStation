@@ -1,0 +1,16 @@
+# OmuStation - CivilianServices additions
+
+- type: technology
+  id: AdvancedBotany
+  name: research-technology-advanced-botany
+  icon:
+    sprite: _Omu/Objects/Devices/plant_analyzer.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - PlantAnalyzer
+  position: -3,6
+  technologyPrerequisites:
+  - Hydroponics

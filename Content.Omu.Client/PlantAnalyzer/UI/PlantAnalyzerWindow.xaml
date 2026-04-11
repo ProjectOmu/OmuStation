@@ -1,0 +1,75 @@
+<!--
+Plant Analyzer window - OmuStation
+Three tabs: Basic Info (always), Tolerances (advanced only), Mutations (advanced only)
+-->
+<controls:FancyWindow xmlns="https://spacestation14.io"
+    xmlns:controls="using:Content.Client.UserInterface.Controls"
+    Title="{Loc 'plant-analyzer-interface-title'}"
+    MinSize="420 480">
+
+    <BoxContainer Orientation="Vertical" Margin="8 6 8 6" HorizontalExpand="True" VerticalExpand="True">
+
+        <!-- shown when nothing has been scanned yet -->
+        <Label Name="NoData"
+               Text="{Loc 'plant-analyzer-window-no-data'}"
+               Margin="4 0 0 0"
+               Visible="True"/>
+
+        <!-- tab container, hidden until first scan -->
+        <TabContainer Name="Tabs"
+                      HorizontalExpand="True"
+                      VerticalExpand="True"
+                      Visible="False">
+
+            <!-- Tab 0: Basic Info (always visible) -->
+            <ScrollContainer Name="{Loc 'plant-analyzer-tab-basic'}"
+                             HorizontalExpand="True"
+                             VerticalExpand="True">
+                <BoxContainer Orientation="Vertical" Margin="6 4 6 4">
+                    <Label Name="PlantName"  Margin="0 3 0 3"/>
+                    <Label Name="PlantYield"     Margin="0 3 0 3"/>
+                    <Label Name="Potency"         Margin="0 3 0 3"/>
+                    <Label Name="HarvestRepeat"   Margin="0 3 0 3"/>
+                    <Label Name="Chemicals"       Margin="0 3 0 3" ClipText="False"/>
+                    <Label Name="ConsumeGases"    Margin="0 3 0 3" ClipText="False"/>
+                    <Label Name="ExudeGases"      Margin="0 3 0 3" ClipText="False"/>
+                    <Label Name="Lifespan"        Margin="0 3 0 3"/>
+                    <Label Name="Maturation"      Margin="0 3 0 3"/>
+                    <Label Name="Production"      Margin="0 3 0 3"/>
+                    <Label Name="GrowthStages"    Margin="0 3 0 3"/>
+                    <Label Name="Endurance"       Margin="0 3 0 3"/>
+                </BoxContainer>
+            </ScrollContainer>
+
+            <!-- Tab 1: Tolerances (advanced scan only) -->
+            <ScrollContainer Name="{Loc 'plant-analyzer-tab-tolerances'}"
+                             HorizontalExpand="True"
+                             VerticalExpand="True">
+                <BoxContainer Orientation="Vertical" Margin="6 4 6 4">
+                    <Label Name="NutrientUsage"       Margin="0 3 0 3"/>
+                    <Label Name="WaterUsage"          Margin="0 3 0 3"/>
+                    <Label Name="IdealHeat"           Margin="0 3 0 3"/>
+                    <Label Name="HeatTolerance"       Margin="0 3 0 3"/>
+                    <Label Name="IdealLight"          Margin="0 3 0 3"/>
+                    <Label Name="LightTolerance"      Margin="0 3 0 3"/>
+                    <Label Name="ToxinsTolerance"     Margin="0 3 0 3"/>
+                    <Label Name="LowPressure"         Margin="0 3 0 3"/>
+                    <Label Name="HighPressure"        Margin="0 3 0 3"/>
+                    <Label Name="PestTolerance"       Margin="0 3 0 3"/>
+                    <Label Name="WeedTolerance"       Margin="0 3 0 3"/>
+                </BoxContainer>
+            </ScrollContainer>
+
+            <!-- Tab 2: Mutations (advanced scan only) -->
+            <ScrollContainer Name="{Loc 'plant-analyzer-tab-mutations'}"
+                             HorizontalExpand="True"
+                             VerticalExpand="True">
+                <BoxContainer Orientation="Vertical" Margin="6 4 6 4">
+                    <Label Name="Mutations"   Margin="0 3 0 3" ClipText="False"/>
+                    <Label Name="Speciation"  Margin="0 3 0 3" ClipText="False"/>
+                </BoxContainer>
+            </ScrollContainer>
+
+        </TabContainer>
+    </BoxContainer>
+</controls:FancyWindow>
