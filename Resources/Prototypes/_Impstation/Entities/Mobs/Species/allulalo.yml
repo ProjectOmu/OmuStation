@@ -5,8 +5,8 @@
   id: BaseMobAllulalo
   abstract: true
   components:
-  - type: GoobAbsorbable
-    biomassRestored: 1.0
+#  - type: GoobAbsorbable # Omu, we don't have this
+#    biomassRestored: 1.0
   - type: Hunger
   - type: Thirst
   - type: Fixtures
