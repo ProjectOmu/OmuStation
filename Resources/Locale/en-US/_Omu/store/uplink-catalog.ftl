@@ -19,3 +19,7 @@ uplink-blueprint-exosuit-fabricator-syndie-module-assault-desc = A blueprint for
 
 uplink-blueprint-exosuit-fabricator-syndie-chassis-name = Syndicate Cyborg Chassis blueprint
 uplink-blueprint-exosuit-fabricator-syndie-chassis-desc = A blueprint for syndicate cyborg chassis. Works in Exosuit Fabricators.
+
+uplink-swordfish-name = Blood Red Swordfish
+uplink-swordfish-desc = A terrifying weapon made for the Thaven operatives. This fish is wielded like a rapier. It pierces armor and it can perform a dash attack.
+

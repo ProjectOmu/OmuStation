@@ -1,0 +1,101 @@
+﻿- type: emoteSounds
+  id: MaleThaven
+  params:
+    variation: 0.05
+    pitch: 1.25
+  sounds:
+    Scream:
+      collection: MaleScreams
+    Laugh:
+      collection: MaleLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Gulp: # gds - more thaven emotes
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    Hiss: #
+      path: /Audio/Animals/snake_hiss.ogg
+    Meow:
+      collection: ThavenMeows # add thavenMale versions maybe?? idk. i feel like vocally it shouldnt be do different since its like whale noises
+    Mew:
+      collection: ThavenMews
+    Growl:
+      collection: ThavenGrowls
+    Purr:
+      collection: ThavenPurrs
+    Chirp:
+      collection: ThavenChirps #
+
+- type: emoteSounds
+  id: FemaleThaven
+  params:
+    variation: 0.05
+    pitch: 1.25
+  sounds:
+    Scream:
+      collection: FemaleScreams
+    Laugh:
+      collection: FemaleLaugh
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: FemaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: CluwneHorn
+    Sigh:
+      collection: FemaleSigh
+    Crying:
+      collection: FemaleCry
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Gulp: # gds - more thaven emotes
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    Hiss: #
+      path: /Audio/Animals/snake_hiss.ogg
+    Meow:
+      collection: ThavenMeows
+    Mew:
+      collection: ThavenMews
+    Growl:
+      collection: ThavenGrowls
+    Purr:
+      collection: ThavenPurrs
+    Chirp:
+      collection: ThavenChirps

@@ -75,21 +75,26 @@
         SecurityCadet: ClothingCyberneticBeastMantleSecurity
         SecurityOfficer: ClothingCyberneticBeastMantleSecurity
         Warden: ClothingCyberneticBeastMantleSecurity
+        SecuritySergeant: ClothingCyberneticBeastMantleSecurity
         # med mantle for doctors (and brigmedic, actually corpsman)
-        Chemist: ClothingCyberneticBeastMantleMedical
+        Chemist: ClothingCyberneticBeastMantleMedicalChemist
         MedicalDoctor: ClothingCyberneticBeastMantleMedical
         MedicalIntern: ClothingCyberneticBeastMantleMedical
         Paramedic: ClothingCyberneticBeastMantleMedicalParamedic # paramedic mantle variant with internals
-        Brigmedic: ClothingCyberneticBeastMantleMedical
+        Brigmedic: ClothingCyberneticBeastMantleCorpsman
+        Virologist: ClothingCyberneticBeastMantleMedical
         # tossup of mantles for command.
-        BlueshieldOfficer: ClothingCyberneticBeastMantleBlueshieldOfficer
         Captain: ClothingCyberneticBeastMantleCommand
-        ChiefEngineer: ClothingCyberneticBeastMantleWorkAtmospherics
-        ChiefMedicalOfficer: ClothingCyberneticBeastMantleMedical
+        ChiefEngineer: ClothingCyberneticBeastMantleWorkChiefEngineering
+        ChiefMedicalOfficer: ClothingCyberneticBeastMantleMedicalCMO
         HeadOfPersonnel: ClothingCyberneticBeastMantleCommand
-        HeadOfSecurity: ClothingCyberneticBeastMantleSecurity
-        Quartermaster: ClothingCyberneticBeastMantleCommand
-        ResearchDirector: ClothingCyberneticBeastMantleCommand
+        HeadOfSecurity: ClothingCyberneticBeastMantleHeadofSecurity
+        Quartermaster: ClothingCyberneticBeastMantleSupply
+        ResearchDirector: ClothingCyberneticBeastMantleScienceCommand
+        AdministrativeAssistant: ClothingCyberneticBeastMantleCommand
+        #Mantles for Central Command
+        BlueshieldOfficer: ClothingCyberneticBeastMantleBlueshieldOfficer
+        NanotrasenRepresentative: ClothingCyberneticBeastMantleCentralCommandNoThermal
       # If they have none of the specified jobs:
       equipmentUnmet: ClothingCyberneticBeastMantle
   globalCost: 5
@@ -236,3 +241,17 @@
   - !type:WeightRequirement # too heavy for uppies
     minimumWeight: 53
     inverted: true
+
+- type: trait
+  id: Redshirt
+  name: trait-redshirt-name
+  description: trait-redshirt-desc
+  category: PhysicalTraits
+  components:
+  - type: NoCrit
+  globalCost: -4
+  requirements:
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+        - IPC
