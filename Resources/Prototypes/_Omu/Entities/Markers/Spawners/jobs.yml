@@ -5,7 +5,6 @@
   components:
   - type: SpawnPoint
     job_id: TransitPrisoner
-    forced: true
   - type: Sprite
     layers:
       - state: green
@@ -22,7 +21,7 @@
     layers:
       - state: green
       - state: security_officer
-      
+
 - type: entity
   id: SpawnPointCourier
   parent: SpawnPointJobBase

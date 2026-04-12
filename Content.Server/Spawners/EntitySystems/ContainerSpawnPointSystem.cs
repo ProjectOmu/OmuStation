@@ -87,16 +87,6 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
     {
         if (args.SpawnResult != null)
             return;
-
-        // Omustation start, spawning is kinda ass so i'm hardcoding forced job spawns to ignore preferences like cryo spawn.
-        // todo unfuck spawning system after upstream.
-        while (EntityQueryEnumerator<SpawnPointComponent>().MoveNext(out _, out var spawnPoint))
-        {
-            if (spawnPoint.Forced && spawnPoint.Job == args.Job)
-                return;
-        }
-        // Omu end.
-
         // If it's just a spawn pref check if it's for cryo (silly).
         if (args.HumanoidCharacterProfile?.SpawnPriority != SpawnPriorityPreference.Cryosleep &&
             (!_proto.TryIndex(args.Job, out var jobProto) || jobProto.JobEntity == null))

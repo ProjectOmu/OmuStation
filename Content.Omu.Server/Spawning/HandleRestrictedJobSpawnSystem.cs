@@ -1,19 +1,27 @@
+using System.Linq;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
-using Content.Server.Spawners.Components;
 using Content.Server.Spawners.EntitySystems;
 using Content.Shared.GameTicking;
-using Content.Shared.Preferences;
+using Content.Server.Spawners.Components;
+using Robust.Server.Containers;
+using Robust.Shared.Containers;
+using Robust.Shared.Random;
 
 namespace Content.Omu.Server.Spawning;
 
+// todo this is all boilerplate copypaste code and is bad but i really don't want to touch upstream shit atm.
+// probably PR some changes to wizden and some helpers to make use of ContainerSpawnPointSystem.
 public sealed class HandleRestrictedJobSpawnSystem : EntitySystem
 {
+    [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
-    [Dependency] private readonly IChatManager _chat = default!;
+    [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
+    [Dependency] private readonly IChatManager _chat = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -21,11 +29,11 @@ public sealed class HandleRestrictedJobSpawnSystem : EntitySystem
 
         SubscribeLocalEvent<PlayerSpawningEvent>(
             OnPlayerSpawning,
-            before: new[]
-            {
+            before:
+            [
                 typeof(ContainerSpawnPointSystem),
-                typeof(ArrivalsSystem)
-            });
+                typeof(ArrivalsSystem),
+            ]);
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnSpawnComplete);
     }
 
@@ -34,55 +42,82 @@ public sealed class HandleRestrictedJobSpawnSystem : EntitySystem
         if (args.SpawnResult != null || args.Job == null)
             return;
 
-        EntityUid? chosen = null;
-        TransformComponent? chosenXform = null;
+        var isLateJoin = _ticker.RunLevel == GameRunLevel.InRound;
 
-        var query = EntityQueryEnumerator<SpawnPointComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var spawn, out var xform))
+        var query = EntityQueryEnumerator<ForcedCryosleepSpawnerComponent, ContainerManagerComponent, TransformComponent>();
+        var possibleContainers = new List<Entity<ForcedCryosleepSpawnerComponent, ContainerManagerComponent, TransformComponent>>();
+
+        while (query.MoveNext(out var uid, out var comp, out var manager, out var xform))
         {
-            if (!spawn.Forced || spawn.Job != args.Job)
+            if (!comp.Forced || comp.Job != args.Job)
                 continue;
 
-            chosen = uid;
-            chosenXform = xform;
-            break;
+            if (args.Station != null && _station.GetOwningStation(uid, xform) != args.Station)
+                continue;
+
+            var valid = comp.SpawnTypes.Any(type =>
+                type == SpawnPointType.LateJoin && isLateJoin ||
+                type == SpawnPointType.Job && !isLateJoin);
+
+            if (!valid)
+                continue;
+
+            possibleContainers.Add((uid, comp, manager, xform));
         }
 
-        if (chosen == null || chosenXform == null)
+        if (possibleContainers.Count == 0)
             return;
 
-        // latejoin only
-        if (_ticker.RunLevel != GameRunLevel.InRound)
-            return;
+        TrySpawnIntoContainers(args, possibleContainers);
+    }
 
-        var coords = chosenXform.Coordinates;
-
-        Spawn("EffectFlashBluespace", coords); // todo unhardcode.
+    private bool TrySpawnIntoContainers(PlayerSpawningEvent args, List<Entity<ForcedCryosleepSpawnerComponent, ContainerManagerComponent, TransformComponent>> containers)
+    {
+        var coords = containers[0].Comp3.Coordinates;
 
         args.SpawnResult = _stationSpawning.SpawnPlayerMob(
             coords,
             args.Job,
             args.HumanoidCharacterProfile,
             args.Station);
+
+        if (args.SpawnResult == null)
+            return false;
+
+        _random.Shuffle(containers);
+
+        foreach (var (uid, comp, manager, xform) in containers)
+        {
+            if (!_container.TryGetContainer(uid, comp.ContainerId, out var container, manager))
+                continue;
+
+            if (!_container.Insert(args.SpawnResult.Value, container, containerXform: xform))
+                continue;
+
+            return true;
+        }
+
+        Del(args.SpawnResult);
+        args.SpawnResult = null;
+        return false;
     }
 
     private void OnSpawnComplete(PlayerSpawnCompleteEvent ev)
     {
-        if (!ev.LateJoin || ev.JobId == null)
+        if (ev.JobId == null)
             return;
+        var query = EntityQueryEnumerator<ForcedCryosleepSpawnerComponent>();
 
-        var query = EntityQueryEnumerator<SpawnPointComponent>();
-        while (query.MoveNext(out _, out var spawn))
+        while (query.MoveNext(out var uid, out var comp))
         {
-            if (!spawn.Forced) // todo kinda hardcoded atm.
+            if (comp.Job != ev.JobId)
+                continue;
+            if (!_container.TryGetContainer(uid, comp.ContainerId, out var container))
+                continue;
+            if (!container.Contains(ev.Mob))
                 continue;
 
-            if (spawn.Job != ev.JobId)
-                continue;
-
-            _chat.DispatchServerMessage(ev.Player,
-                Loc.GetString("latejoin-forced-job-spawn"));
-
+            _chat.DispatchServerMessage(ev.Player, Loc.GetString("latejoin-forced-job-spawn"));
             return;
         }
     }

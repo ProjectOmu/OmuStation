@@ -56,12 +56,6 @@ public sealed partial class SpawnPointComponent : Component, ISpawnPoint
     [DataField("spawn_type"), ViewVariables(VVAccess.ReadWrite)]
     public SpawnPointType SpawnType { get; set; } = SpawnPointType.Unset;
 
-    /// <summary>
-    /// Omustation forced late spawns i.e. transit prisoner. Check HandleRestrictedJobSpawnSystem.
-    /// </summary>
-    [DataField]
-    public bool Forced { get; set; }
-
     public override string ToString()
     {
         return $"{Job} {SpawnType}";
