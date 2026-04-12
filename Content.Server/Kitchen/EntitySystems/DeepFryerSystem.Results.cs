@@ -159,6 +159,7 @@ public sealed partial class DeepFryerSystem
                     extraSolution.AddReagent(reagent.Reagent.ToString(), reagent.Quantity * badFlavors.Count);
                 }
             }
+            Dirty(item, flavorProfileComponent);
         }
         else
         {

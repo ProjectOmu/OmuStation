@@ -742,6 +742,7 @@ public sealed partial class DeepFryerSystem : SharedDeepFryerSystem
         {
             sliceFlavorProfileComponent.Flavors.UnionWith(sourceFlavorProfileComponent.Flavors);
             sliceFlavorProfileComponent.IgnoreReagents.UnionWith(sourceFlavorProfileComponent.IgnoreReagents);
+            Dirty(args.Slice, sliceFlavorProfileComponent);
         }
     }
 }

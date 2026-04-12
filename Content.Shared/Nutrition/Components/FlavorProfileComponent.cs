@@ -8,7 +8,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.Nutrition.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class FlavorProfileComponent : Component
 {
     /// <summary>
@@ -20,8 +20,8 @@ public sealed partial class FlavorProfileComponent : Component
     /// <summary>
     ///     Reagent IDs to ignore when processing this flavor profile. Defaults to nutriment.
     /// </summary>
-    [DataField]
-    public HashSet<string> IgnoreReagents { get; private set; } = new()
+    [DataField, AutoNetworkedField]
+    public HashSet<string> IgnoreReagents { get; set; } = new()
     {
         "Nutriment",
         "Vitamin",
