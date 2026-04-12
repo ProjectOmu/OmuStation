@@ -179,7 +179,7 @@ public sealed class BodySetupTest
             {
                 Assert.That(dummy, Is.Not.EqualTo(EntityUid.Invalid));
                 var handCount = handsSys.EnumerateHands(dummy).Count();
-                Assert.That(handCount, Is.GreaterThanOrEqualTo(2), $"hands {speciesPrototype.ID}({speciesPrototype.Prototype})");
+                Assert.That(handCount, Is.GreaterThanOrEqualTo(1), $"hands {speciesPrototype.ID}({speciesPrototype.Prototype})"); // Omu, change from 2 to 1 since Allulalo only has one hand.
             });
 
         }
