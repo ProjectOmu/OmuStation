@@ -1,14 +1,19 @@
 using System.Linq;
+using Content.Server.Bed.Cryostorage;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
+using Content.Server.Mind;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
 using Content.Server.Spawners.EntitySystems;
 using Content.Shared.GameTicking;
 using Content.Server.Spawners.Components;
+using Content.Shared.Bed.Cryostorage;
 using Robust.Server.Containers;
+using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Omu.Server.Spawning;
 
@@ -22,6 +27,10 @@ public sealed class HandleRestrictedJobSpawnSystem : EntitySystem
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly TransformSystem _xform = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly CryostorageSystem _cryoStorage = default!;
 
     public override void Initialize()
     {
@@ -91,9 +100,43 @@ public sealed class HandleRestrictedJobSpawnSystem : EntitySystem
             if (!_container.TryGetContainer(uid, comp.ContainerId, out var container, manager))
                 continue;
 
-            if (!_container.Insert(args.SpawnResult.Value, container, containerXform: xform))
-                continue;
 
+            var inserted = _container.Insert(args.SpawnResult.Value, container, containerXform: xform);
+            if (inserted)
+                return true;
+
+            // Insert failed, handle fuckers that are still asleep.
+            // foreach in a cryosleep pod is evil tho.
+            foreach (var entity in container.ContainedEntities)
+            {
+                if (!TryComp<CryostorageContainedComponent>(entity, out var cryostorage)) // how would they not have it
+                    break;
+
+                if (_timing.CurTime < cryostorage.GracePeriodEndTime)
+                {
+                    cryostorage.GracePeriodEndTime = _timing.CurTime;
+                    _mind.TryGetMind(entity, out _, out var mind);
+                    var id = mind?.UserId ?? cryostorage.UserId;
+                    _cryoStorage.HandleEnterCryostorage((entity, cryostorage), id);
+                }
+
+                // AGAIN!
+                if (_container.Insert(args.SpawnResult.Value, container, containerXform: xform))
+                {
+                    inserted = true;
+                    break;
+                }
+                // also like, in my head this works even if you have multi-storage cryopods which is kinda neat, it would just take one out.
+            }
+
+            if (inserted)
+                return true;
+
+            // Not doing force here cause that un-inserts whoever might be inside.
+            // and frankly, i do not want to deal with handling an SSD player nor their mind.
+            // so this is like, mega-force? i guess. Teleport the spawning ent onto the pod itself.
+            SpawnAtPosition("EffectFlashBluespace", xform.Coordinates);
+            _xform.SetCoordinates(args.SpawnResult.Value, xform.Coordinates);
             return true;
         }
 
