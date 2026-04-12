@@ -3193,3 +3193,151 @@ Entries:
       message: Thavens have survival kits now
   id: 406
   time: '2026-04-06T22:06:18.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Replaced the old Pirate/IRS shuttle with a new larger one.
+    - type: Tweak
+      message: >-
+        Pirates now actually have lethals on their ship, and spawn with
+        headsets.
+    - type: Tweak
+      message: >-
+        Resource Siphon is now ten times as fast, and works at twice the range
+        (200m instead of 100m).
+    - type: Tweak
+      message: Space Pirates/IRS no longer have a IFF computer on their shuttle.
+    - type: Fix
+      message: 'Fixed pirate EVA suits not having space protection. '
+  id: 407
+  time: '2026-04-07T09:35:52.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed salv borgs being able to carry mech PKAs.
+  id: 408
+  time: '2026-04-07T14:24:04.0000000+00:00'
+- author: Nevec
+  changes:
+    - type: Fix
+      message: Fixed Thavens suffocating in space while using valid internals.
+  id: 409
+  time: '2026-04-07T15:35:25.0000000+00:00'
+- author: dotwavfile
+  changes:
+    - type: Tweak
+      message: Precussion for the built-in soundfont no longer sounds broken.
+  id: 410
+  time: '2026-04-08T00:26:40.0000000+00:00'
+- author: Fin55Fin
+  changes:
+    - type: Fix
+      message: Fixed bloodstream component text
+  id: 411
+  time: '2026-04-08T00:28:06.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: Glow in the dark wave pulse markings for thaven
+  id: 412
+  time: '2026-04-08T00:39:05.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: >-
+        Added fonts to the thaven languages, also a trait for bieselized
+        eckeckyik
+  id: 413
+  time: '2026-04-08T00:40:30.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: The Syndicate Evacuation pod now has reverse thrust.
+  id: 414
+  time: '2026-04-08T00:41:05.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed Corpsman Cyberbeast mantle not showing up when worn.
+  id: 415
+  time: '2026-04-08T08:05:40.0000000+00:00'
+- author: Anui-Elxx
+  changes:
+    - type: Add
+      message: IPCs can now use hair and facial hair via NT-approved wigs.
+  id: 416
+  time: '2026-04-08T10:52:52.0000000+00:00'
+- author: Anui-ElXx
+  changes:
+    - type: Add
+      message: Added new sounds for the "trill" emote.
+  id: 417
+  time: '2026-04-09T07:32:45.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Halved the ore you get from butchering most orefish, it had to be done..
+    - type: Fix
+      message: Fixed fishing up 30 goliath plates, u were only supposed to get 1
+  id: 418
+  time: '2026-04-09T22:43:59.0000000+00:00'
+- author: Fin55Fin
+  changes:
+    - type: Add
+      message: Made Departmental JamJar Glasses also work as Prescription Glasses.
+  id: 419
+  time: '2026-04-10T00:01:50.0000000+00:00'
+- author: Nevec
+  changes:
+    - type: Fix
+      message: >-
+        Thavens now properly take respiratory damage while in critical
+        condition, preventing a softlock where they could not die.
+  id: 420
+  time: '2026-04-10T10:58:07.0000000+00:00'
+- author: BoiWab
+  changes:
+    - type: Add
+      message: BugBorgs
+    - type: Add
+      message: More Inhuman StationAI Holograms
+  id: 421
+  time: '2026-04-10T11:07:10.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: >-
+        Harpy can now use the 'Squish', 'Bubble', 'Pop', "Gnash", "Thump"
+        emotes.
+  id: 422
+  time: '2026-04-10T12:12:33.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Add
+      message: NTR selector case, can choose between a fancy cane and disciplinary belt
+    - type: Tweak
+      message: Disciplinary Belts can now snap! press Z with them inhand :)
+    - type: Tweak
+      message: Admeme belts now have a 1 damage spawnable version.
+    - type: Tweak
+      message: Changed the sergeant's disciplinary belt stats a bit.
+  id: 423
+  time: '2026-04-10T12:42:50.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Disciplinary belts now make you scream when hit by them.
+  id: 424
+  time: '2026-04-10T12:50:15.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: Switched the Sergeant ceremonial rifle with a proper M1 Garand! *ping!*
+  id: 425
+  time: '2026-04-10T13:41:36.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: BlackIron slugs now penetrate through even more walls.
+  id: 426
+  time: '2026-04-10T18:08:57.0000000+00:00'
