@@ -5,7 +5,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Metabolizer
-    maxReagents: 2
+    #maxReagents: 2
     metabolizerTypes: [ Allulalo ]
     groups:
     - id: Medicine
