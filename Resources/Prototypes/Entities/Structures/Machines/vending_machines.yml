@@ -259,6 +259,7 @@
     defaultChannel: Binary
     channels:
     - Binary
+  - type: IntellicardableMind # Goobstation - intellicard on more AIs
   - type: DoAfter
   - type: Electrified
     enabled: false
@@ -1880,7 +1881,6 @@
     - MiningSurvival
     - MiningMedical
     #- MiningDrone
-    - MiningConcussiveGauntlets # Omu
     - MiningFishingSet # Omu
   - type: Wires # DeltaV: Use shop vendor wires layout
     layoutId: ShopVendor
@@ -2636,7 +2636,7 @@
     brokenState: broken
     normalState: normal
     denyState: deny
-    ejectDelay: 2
+  # ejectDelay: 2 Goobstation - No reason for the eject delay to be 2 seconds
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/chemvend.rsi
     layers:

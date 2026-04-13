@@ -8,7 +8,7 @@
 
 # Names
 chat-emote-name-fart = Fart
-chat-emote-name-fart-inhale = Breathe in a fart
+chat-emote-name-fart-inhale = Reverse fart
 chat-emote-name-fart-super = Super Fart
 chat-emote-name-flap = Flap
 chat-emote-name-trill = Trill

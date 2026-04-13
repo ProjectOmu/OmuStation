@@ -507,3 +507,84 @@
     - type: ContainerFill
       containers:
         board: [ DoorElectronicsCorpsman ]
+
+### Science
+
+## Standard
+
+- type: entity
+  parent: Windoor
+  id: WindoorRoboticsLocked
+  suffix: Robotics, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsRobotics ]
+  - type: Wires
+    layoutId: AirlockScience
+
+# Secure
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureRoboticsLocked
+  suffix: Robotics, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsRobotics ]
+  - type: Wires
+    layoutId: AirlockScience
+
+## Plasma
+
+- type: entity
+  parent: WindoorPlasma
+  id: WindoorPlasmaRoboticsLocked
+  suffix: Robotics, Locked, Plasma
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsRobotics ]
+  - type: Wires
+    layoutId: AirlockScience
+
+# Secure
+
+- type: entity
+  parent: WindoorSecurePlasma
+  id: WindoorSecurePlasmaRoboticsLocked
+  suffix: Robotics, Locked, Plasma
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsRobotics ]
+  - type: Wires
+    layoutId: AirlockScience
+
+
+## Uranium
+
+- type: entity
+  parent: WindoorUranium
+  id: WindoorUraniumRoboticsLocked
+  suffix: Robotics, Locked, Uranium
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsRobotics ]
+  - type: Wires
+    layoutId: AirlockScience
+
+# Secure
+
+- type: entity
+  parent: WindoorSecureUranium
+  id: UraniumWindoorSecureRoboticsLocked
+  suffix: Robotics, Locked, Uranium
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsRobotics ]
+  - type: Wires
+    layoutId: AirlockScience

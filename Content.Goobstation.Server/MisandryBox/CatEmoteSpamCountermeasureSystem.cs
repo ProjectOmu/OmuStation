@@ -31,16 +31,16 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
     private const int LowerBound = 2; // Shoo away any shits with server vv from killing everyone on 1 emote
 
     [ViewVariables(VVAccess.ReadWrite)]
-    private int _hardEmoteThreshold = 10; // Omu
+    private int _hardEmoteThreshold = 20; // Omu
 
     [ViewVariables(VVAccess.ReadWrite)]
-    private int _softThresholdVariance = 5; // Omu
+    private int _softThresholdVariance = 0; // Omu
 
     [ViewVariables(VVAccess.ReadWrite)]
-    private float _postSoftThresholdProbability = 0.16f; // Omu
+    private float _postSoftThresholdProbability = 0f; // Omu
 
     [ViewVariables(VVAccess.ReadWrite)]
-    private float _softThresholdRefreshCooldown = 34f;
+    private float _softThresholdRefreshCooldown = 0f;
 
     [ViewVariables(VVAccess.ReadOnly)]
     // ReSharper disable once UnusedMember.Local

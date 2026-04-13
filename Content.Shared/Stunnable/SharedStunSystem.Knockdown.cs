@@ -583,7 +583,7 @@ public abstract partial class SharedStunSystem
 
     private void OnRefreshKnockedSpeed(Entity<KnockedDownComponent> entity, ref RefreshMovementSpeedModifiersEvent args)
     {
-        args.ModifySpeed(entity.Comp.SpeedModifier);
+        args.ModifySpeed(entity.Comp.SpeedModifier, bypassImmunity: true); // Omu: Bypass immunity to prevent diona from moving at full speed while prone.
     }
 
     private void OnKnockedTileFriction(Entity<KnockedDownComponent> entity, ref TileFrictionEvent args)

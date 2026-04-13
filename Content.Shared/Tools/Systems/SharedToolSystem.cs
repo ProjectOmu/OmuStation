@@ -94,6 +94,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared._Mono.NoHack; // Omu, can people stop trying to break protected grids.
+using Content.Shared._Mono.NoDeconstruct; // Omu, can people stop trying to break protected grids.
 
 namespace Content.Shared.Tools.Systems;
 
@@ -348,6 +350,10 @@ public abstract partial class SharedToolSystem : EntitySystem
         // check if the target allows using the tool
         if (target != null && target != tool)
         {
+            if (HasComp<NoHackComponent>(target)) // Omu. Can people stop trying to break protected grids.
+                return false;
+            if (HasComp<NoDeconstructComponent>(target)) // Omu. Can people stop trying to break protected grids.
+                return false;
             RaiseLocalEvent(target.Value, beforeAttempt);
         }
 

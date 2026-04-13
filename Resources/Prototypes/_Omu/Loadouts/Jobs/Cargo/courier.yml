@@ -1,0 +1,92 @@
+﻿# Head
+- type: loadout
+  id: CourierHead
+  equipment:
+    head: ClothingHeadCourier
+
+- type: loadout
+  id: CourierHeadFlipped
+  equipment:
+    head: ClothingHeadCourierFlipped
+
+# Jumpsuit
+- type: loadout
+  id: CourierJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformCourierLong
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: CourierJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformSkirtCourier
+  groupBy: "jumpskirt"
+
+- type: loadout
+  id: CourierJumpsuitLong
+  equipment:
+    jumpsuit: ClothingUniformCourierLong
+  groupBy: "jumpsuit"
+
+# Back
+- type: loadout
+  id: MailCarrierMessenger
+  equipment:
+    back: ClothingBackpackMessengerMailman
+  groupBy: "messenger"
+
+- type: loadout
+  id: CourierMessenger
+  equipment:
+    back: ClothingBackpackMessengerCourier
+  groupBy: "messenger"
+
+# OuterClothing
+#- type: loadout
+#  id: CourierWintercoat - Unused and needs renaming
+#  equipment:
+#    outerClothing: ClothingOuterWinterCargo
+
+# PDA
+- type: loadout
+  id: CourierPDA
+  equipment:
+    id: CourierPDA
+
+- type: loadout
+  id: CourierPDAAlt
+  equipment:
+    id: CourierPDAAlt
+
+- type: loadout
+  id: CargoPDA
+  equipment:
+    id: CargoPDA
+
+#Plasmaman Drip
+- type: loadout
+  id: CourierEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmCourier
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: CourierEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitCourier
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: CourierEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesCourier
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
