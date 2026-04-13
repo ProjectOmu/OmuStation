@@ -1124,28 +1124,28 @@
 #      - LoneOpsUplink
 
 
-- type: listing
-  id: UplinkClothingOuterDavidsJacketValid
-  name: uplink-davids-jacket-name
-  description: uplink-davids-jacket-desc
-  icon: { sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi, state: icon }
-  productEntity: ClothingOuterDavidsJacketValid
-  cost:
-    Telecrystal: 0
-  categories:
-  - UplinkImplants
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:BuyBeforeCondition
-    whitelist:
-    - UplinkAutosurgeonRightMantisBlade
-    - UplinkAutosurgeonLeftMantisBlade
-    - UplinkAutosurgeonSandevistan
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
+#- type: listing # Omu, only in bundle now
+#  id: UplinkClothingOuterDavidsJacketValid
+#  name: uplink-davids-jacket-name
+#  description: uplink-davids-jacket-desc
+#  icon: { sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi, state: icon }
+#  productEntity: ClothingOuterDavidsJacketValid
+#  cost:
+#    Telecrystal: 0
+#  categories:
+#  - UplinkImplants
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
+#  - !type:BuyBeforeCondition
+#    whitelist:
+#    - UplinkAutosurgeonRightMantisBlade
+#    - UplinkAutosurgeonLeftMantisBlade
+#    - UplinkAutosurgeonSandevistan
+#  - !type:BuyerWhitelistCondition
+#    blacklist:
+#      components:
+#      - SurplusBundle
 
 - type: listing
   id: UplinkAutosurgeonSmartLink
