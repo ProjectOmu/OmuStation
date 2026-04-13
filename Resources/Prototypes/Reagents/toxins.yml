@@ -92,7 +92,10 @@
     Poison:
       effects:
       - !type:HealthChange
-        conditions:
+        conditions: # Imp - Thaven are immune to carpotoxin because their organs are full of it (what would it damage?)
+        - !type:OrganType
+          type: Thaven
+          shouldHave: false
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
@@ -101,6 +104,9 @@
             Poison: 4
       - !type:PopupMessage
         conditions:
+        - !type:OrganType
+          type: Thaven
+          shouldHave: false
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
