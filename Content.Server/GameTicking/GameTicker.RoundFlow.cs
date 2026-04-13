@@ -83,6 +83,7 @@ using System.Numerics;
 using Content.Server.Announcements;
 using Content.Server.Discord;
 using Content.Server.GameTicking.Events;
+using Content.Server._EinsteinEngines.GameTicking; // EE
 using Content.Server.Ghost;
 using Content.Server.Maps;
 using Content.Server.Roles;
@@ -720,6 +721,7 @@ namespace Content.Server.GameTicking
 
             _replayRoundPlayerInfo = listOfPlayerInfoFinal;
             _replayRoundText = roundEndText;
+            RaiseLocalEvent(new RoundEndedEvent(RoundId, roundDuration)); // EE
         }
 
         private async void SendRoundEndDiscordMessage()
