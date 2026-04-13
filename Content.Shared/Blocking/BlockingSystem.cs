@@ -191,7 +191,7 @@ public sealed partial class BlockingSystem : EntitySystem
             CantBlockError(user);
             return false;
         }
-
+        /* - Omu, this breaks stuff with larger characters, making them entierly unable to block.
         //Don't allow someone to block if someone else is on the same tile
         var playerTileRef = _turf.GetTileRef(xform.Coordinates);
         if (playerTileRef != null)
@@ -207,6 +207,7 @@ public sealed partial class BlockingSystem : EntitySystem
                 }
             }
         }
+        */
 
         //Don't allow someone to block if they're somehow not anchored.
         _transformSystem.AnchorEntity(user, xform);
