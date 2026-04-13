@@ -70,8 +70,6 @@
       # Goobstation - changelings
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
-      enum.HereticLivingHeartKey.Key: # goob edit - heretics
-        type: LivingHeartMenuBoundUserInterface
       enum.WizardTeleportUiKey.Key: # Goobstation - wizard
         type: WizardTeleportBoundUserInterface
         requireInputValidation: false
@@ -161,7 +159,7 @@
   - type: Speech
     speechSounds: Harpy
     speechVerb: Harpy
-    allowedEmotes: ['Chirp', 'Trill', 'Warble', 'Wurble', 'Mars', 'Chitter', 'Squeak', 'Flap', 'Scree', 'Call', 'Squawk'] # Omu (Chitter, Squeak, Flap, 'Scree', 'Call', 'Squawk')
+    allowedEmotes: ['Chirp', 'Trill', 'Warble', 'Wurble', 'Mars', 'Chitter', 'Squeak', 'Flap', 'Scree', 'Call', 'Squawk', 'Squish', 'Bubble', 'Pop', 'Gnash', 'Thump'] # Omu (Chitter, Squeak, Flap, 'Scree', 'Call', 'Squawk', 'Squish', 'Bubble', 'Pop', 'Gnash', 'Thump')
   - type: Vocal
     sounds:
       Male: SoundsHarpyMale
@@ -212,6 +210,8 @@
       - Shard
       - Landmine
       - Mousetrap
+  - type: BodyEmotes # Omu
+    soundsId: HarpyBodyEmotes
 
 - type: entity
   save: false

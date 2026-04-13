@@ -129,6 +129,8 @@
     selectedBorgType: medical
   - type: BorgSwitchableSubtype # Goobstation
     borgSubtype: default_medical
+  # Omu Add Virohud to Cyborgs
+  - type: ShowDiseaseIcons
 
 - type: entity
   id: BorgChassisService

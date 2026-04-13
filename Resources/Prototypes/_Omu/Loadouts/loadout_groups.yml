@@ -64,6 +64,98 @@
   - PrisonerEnviroglovesBlack
   - PrisonerEnviroglovesWhite
 
+# Courier
+
+- type: loadoutGroup
+  id: CourierHead
+  name: loadout-group-courier-head
+  minLimit: 0
+  loadouts:
+  - CargoTechnicianHeadMail
+  - CourierHead
+  - CourierHeadFlipped
+  - CargoTechnicianHead
+
+- type: loadoutGroup
+  id: CourierJumpsuit
+  name: loadout-group-courier-jumpsuit
+  loadouts:
+  - CargoTechnicianJumpsuitMail
+  - CargoTechnicianJumpskirtMail
+  - CourierJumpsuit
+  - CourierJumpskirt
+  - CourierJumpsuitLong
+  - CargoTechnicianJumpsuit
+  - CargoTechnicianJumpskirt
+  - CargoTechnicianSweater
+  - CargoTechnicianSweaterSkirt
+  - CargoTechnicianShortPantsIfuckinghateyouifyouwearthisbtw
+  - CargoTechnicianShortSkirtsInsteadofPants
+  - CargoTechMJ
+
+- type: loadoutGroup
+  id: CourierBackpack
+  name: loadout-group-courier-backpack
+  loadouts:
+  - CargoTechnicianBackpack
+  - CargoTechnicianSatchel
+  - CargoTechnicianDuffel
+  - MailCarrierMessenger
+  - CourierMessenger
+  - CargoTechnicianMessenger
+
+- type: loadoutGroup
+  id: CourierOuterClothing
+  name: loadout-group-courier-outerclothing
+  minLimit: 0
+  loadouts:
+  - CargoTechnicianWintercoatMail
+  - CargoTechnicianWintercoat
+  - CargoTechnicianJacket
+
+- type: loadoutGroup
+  id: CourierShoes
+  name: loadout-group-courier-shoes
+  loadouts:
+  - BrownShoes
+  - BlackShoes
+  - CargoWinterBoots
+
+- type: loadoutGroup
+  id: CourierPDA
+  name: loadout-group-courier-id
+  loadouts:
+  - CourierPDAAlt
+  - CourierPDA
+  - CargoPDA
+
+# Plasma Mail Man
+- type: loadoutGroup
+  id: CourierEnvirohelm
+  name: loadout-group-courier-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - MailCarrierEnvirohelm
+  - CourierEnvirohelm
+
+- type: loadoutGroup
+  id: CourierEnvirosuit
+  name: loadout-group-courier-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - MailCarrierEnvirosuit
+  - CourierEnvirosuit
+
+- type: loadoutGroup
+  id: CourierEnvirogloves
+  name: loadout-group-cargo-technician-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirogloves
+  - CourierEnvirogloves
 - type: loadoutGroup
   id: VirologistEnvirohelm
   name: loadout-group-virologist-envirohelm
@@ -96,6 +188,13 @@
   minLimit: 0
   loadouts:
   - NanotrasenRepresentativerMaskLollypop
+
+- type: loadoutGroup
+  id: NanotrasenRepresentativeOuterClothing
+  name: loadout-group-ntr-outerclothing
+  minLimit: 0
+  loadouts:
+  - NanotrasenRepresentativeWintercoat
 
 #New Selectable PDAs
 
@@ -185,12 +284,12 @@
   maxLimit: 1
   loadouts:
   - GreyTideStamp
-  
+
 # Security
 
 - type: loadoutGroup
   id: TrinketsSecurity
-  name: loadout-group-trinkets-job
+  name: loadout-group-security-gun
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -200,19 +299,73 @@
   - SecurityOfficerTerminus
   - WeaponPistolMk58Gold
 
-# We have a separate one for detective cause holster
 - type: loadoutGroup
-  id: TrinketsSecurityDetective
+  id: TrinketsSecuritySergeant
   name: loadout-group-trinkets-job
   minLimit: 1
   maxLimit: 1
   loadouts:
+  - SecuritySergeantGunCase
+  - SecurityOfficerMk58
+  - SecurityOfficerSecurityDutyRevolver
+  - SecurityOfficerTerminus
+  - WeaponPistolMk58Gold
+  - SecuritySergeantMosin
+
+- type: loadoutGroup
+  id: SecuritySergeantPDA
+  name: loadout-group-security-id
+  loadouts:
+  - SecuritySergeantPDA
+
+- type: loadoutGroup
+  id: SergeantJumpsuit
+  name: loadout-group-sergeant-jumpsuit
+  loadouts:
+  - SecurityJumpsuit
+  - SecurityJumpskirt
+  - SeniorOfficerJumpsuit
+  - SeniorOfficerJumpskirt
+  - SergeantJumpsuit
+  - SergeantJumpskirt
+
+- type: loadoutGroup
+  id: SergeantBelt
+  name: loadout-group-sergeant-belt
+  loadouts:
+  - SergeantBelt
+  - SecurityBelt
+  - SecurityWebbing
+  - SecuritySwordBelt # Omu
+  - SecurityJudoBelt # Goobstation - Martial Arts
+
+- type: loadoutGroup
+  id: SergeantHead
+  name: loadout-group-sergeant-head
+  minLimit: 0
+  loadouts:
+  - SergeantHat
+  - SergeantBeret
+  - SecurityHelmet
+  - SecurityHelmetAlt
+  - SecurityBeret
+
+- type: loadoutGroup
+  id: SergeantNeck
+  name: loadout-group-sergeant-neck
+  loadouts:
+  - SergeantCloak
+  - ClothingNeckCWPSec
+
+# We have a separate one for detective cause holster
+- type: loadoutGroup
+  id: TrinketsSecurityDetective
+  name: loadout-group-detective-gun
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
   - DetectiveWeaponRevolverInspector # Default for det should be their revolver
-  - DetectiveOfficerGunCase
-  - DetectiveMk58
-  - DetectiveSecurityDutyRevolver
   - DetectiveTerminus
-  - DetectiveWeaponPistolMk58Gold
 
 - type: loadoutGroup
   id: DetectiveEyes
@@ -226,7 +379,7 @@
 # And... a separate one for brigmed cause they cant put the terminus in the suit storage
 - type: loadoutGroup
   id: TrinketsSecurityBrigmed
-  name: loadout-group-trinkets-job
+  name: loadout-group-security-gun
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -235,3 +388,10 @@
   - SecurityOfficerSecurityDutyRevolver
   - BrigmedTerminus
   - WeaponPistolMk58Gold
+
+# clown
+- type: loadoutGroup
+  id: ClownBelt
+  name: loadout-group-clown-belt
+  loadouts:
+  - ClownFoamSabre # Omu - Add foam sabre to the clown's loadout.

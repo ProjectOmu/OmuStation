@@ -2358,3 +2358,1022 @@ Entries:
       message: You no longer automatically eat lollypops in your mask slot.
   id: 294
   time: '2026-03-01T18:42:07.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Changed the sprite of most walls
+  id: 295
+  time: '2026-03-03T17:51:36.0000000+00:00'
+- author: ShieldAcrados
+  changes:
+    - type: Add
+      message: ERT Janitor Variant of "Savior" Shuttle
+    - type: Tweak
+      message: Adjusted ERT locker contents
+    - type: Tweak
+      message: Adjusted ERT crew makeup.
+  id: 296
+  time: '2026-03-04T19:23:04.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed the XenoVac's emag interaction.
+  id: 297
+  time: '2026-03-07T06:20:41.0000000+00:00'
+- author: Pgriha
+  changes:
+    - type: Add
+      message: Avali voices for Avalis and Harpies!
+  id: 298
+  time: '2026-03-07T15:02:16.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: 'Fixed Plastitanium windows not linking to adjacent walls. '
+  id: 299
+  time: '2026-03-07T17:32:48.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Added corpsman access, which is now used by their locker.
+    - type: Tweak
+      message: Paramedic access is now used for parameds locker.
+  id: 300
+  time: '2026-03-07T17:34:04.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Corpsman's armor now allows items in the suit storage slot.
+  id: 301
+  time: '2026-03-07T17:37:27.0000000+00:00'
+- author: 'JustOrdinaryPao '
+  changes:
+    - type: Tweak
+      message: PTech can now dispense other PDAs
+    - type: Tweak
+      message: PTech now dispenses syndie PDA and headset when emagged
+  id: 302
+  time: '2026-03-07T17:40:28.0000000+00:00'
+- author: Giltsmith
+  changes:
+    - type: Add
+      message: Added a moproach to animals loadout category with jani time req.
+  id: 303
+  time: '2026-03-07T17:40:53.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Changed the sprites of most doors.
+    - type: Fix
+      message: 'Secret doors are now actually secret. '
+  id: 304
+  time: '2026-03-07T18:25:12.0000000+00:00'
+- author: jellygato
+  changes:
+    - type: Add
+      message: Recipes for lazy tiramisu and fancy tiramisu are now available.
+  id: 305
+  time: '2026-03-07T18:28:46.0000000+00:00'
+- author: TheSecondLord
+  changes:
+    - type: Tweak
+      message: >-
+        Homunculi will now bond with their parent and follow them around, as
+        well as retaliating against attackers.
+  id: 306
+  time: '2026-03-07T18:30:01.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Lollypops can be put in your mouth again.
+    - type: Tweak
+      message: >-
+        Fish are stupider, no longer space immune, and now rot. This applies to
+        fishing, not carp.
+  id: 307
+  time: '2026-03-07T21:48:00.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Wawa wa waaa waaawa War.
+    - type: Add
+      message: scurret reinforcement
+  id: 308
+  time: '2026-03-08T10:13:54.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the warden's trench gun to 12 gauge, lowered the firing rate by
+        alot...
+  id: 309
+  time: '2026-03-08T10:15:10.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Remove
+      message: Removed the nexus from Avali and Resomi.
+  id: 310
+  time: '2026-03-08T10:46:18.0000000+00:00'
+- author: PhosphateWithManyOs
+  changes:
+    - type: Fix
+      message: Chemists get their beltbag back.
+  id: 311
+  time: '2026-03-08T17:55:49.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Added more windoors for mappers to use.
+  id: 312
+  time: '2026-03-09T01:36:07.0000000+00:00'
+- author: RadsammyT
+  changes:
+    - type: Fix
+      message: Wideswinging on auto-attacking weapons is now fixed.
+  id: 313
+  time: '2026-03-09T10:37:43.0000000+00:00'
+- author: CometVoid
+  changes:
+    - type: Fix
+      message: >-
+        IPCs now make sound when they clap, snap, salute, sigh, whistle, and
+        manually cough
+  id: 314
+  time: '2026-03-09T10:52:32.0000000+00:00'
+- author: Aureu
+  changes:
+    - type: Fix
+      message: Removed paused asakim shuttle from ghost warp
+  id: 315
+  time: '2026-03-10T00:16:37.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: Oil packs no longer turn into bloodpacks when you split the stacks
+  id: 316
+  time: '2026-03-10T00:18:17.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: Avali now get survival boxes. The boxes have tinned meat too
+    - type: Fix
+      message: Xelthia gets the cool avali survival kit too
+  id: 317
+  time: '2026-03-10T02:46:06.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Rust walkers now get night vision.
+  id: 318
+  time: '2026-03-10T08:48:25.0000000+00:00'
+- author: Aureu
+  changes:
+    - type: Tweak
+      message: Fixed syringes interaction with Syringe guns
+  id: 319
+  time: '2026-03-10T08:49:12.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: minor rework of CC, actually MAJOR rework
+  id: 320
+  time: '2026-03-10T18:12:25.0000000+00:00'
+- author: Aureu
+  changes:
+    - type: Tweak
+      message: Command maid role now spawns with a mind shield.
+    - type: Tweak
+      message: Command maid role now can be tracked by BSO.
+  id: 321
+  time: '2026-03-11T10:39:45.0000000+00:00'
+- author: distraughtcat
+  changes:
+    - type: Tweak
+      message: Resprited chimera and chimera biomass textures.
+  id: 322
+  time: '2026-03-12T00:39:21.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Remove
+      message: >-
+        NTR, task console and briefcase. NTR focus on RP please and fax us at CC
+        more.
+  id: 323
+  time: '2026-03-13T01:57:22.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: >-
+        Trash bags can pick up organs now... You should take the biomass at
+        dispos to med please thanks
+  id: 324
+  time: '2026-03-14T02:12:26.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: >-
+        Fish (that you fish up with a fishing rod) are items now and they dont
+        butcher into organs
+  id: 325
+  time: '2026-03-14T06:04:04.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Central Command is now indestructible.
+  id: 326
+  time: '2026-03-14T16:29:14.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed people being able to Amag doors on protected grids.
+  id: 327
+  time: '2026-03-14T18:14:03.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixes the RGB staff causing the server to lag when used.
+  id: 328
+  time: '2026-03-15T00:17:07.0000000+00:00'
+- author: JustOrdinaryPao
+  changes:
+    - type: Tweak
+      message: Increased overall time requirement for Command (and Warden)
+  id: 329
+  time: '2026-03-15T00:19:27.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: >-
+        Each training manual has their own guidebook entry now, also reworded
+        alot of it
+  id: 330
+  time: '2026-03-15T06:47:22.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: QM's Digiboard can now be linked to cargo telepads.
+  id: 331
+  time: '2026-03-15T17:55:37.0000000+00:00'
+- author: PickelSilly
+  changes:
+    - type: Add
+      message: IdiotVibes' Glory to Cardonia artwork now in lobby art rotation!
+  id: 332
+  time: '2026-03-16T17:46:29.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed CC modsuits displaying an error when a vulp was wearing them
+  id: 333
+  time: '2026-03-17T05:51:46.0000000+00:00'
+- author: Willzile1
+  changes:
+    - type: Fix
+      message: Added viro icons to the Medical and Paramedic beast mantles.
+  id: 334
+  time: '2026-03-17T06:16:10.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Corpsman nostalgic and reminisced coats now have medical gown stats
+    - type: Fix
+      message: Corpsman should only spawn with 1 pda now
+  id: 335
+  time: '2026-03-17T18:56:05.0000000+00:00'
+- author: Tuerk
+  changes:
+    - type: Add
+      message: Emote spam causes your emotes to be muted for some time.
+    - type: Remove
+      message: Smite on emote spam removed.
+  id: 336
+  time: '2026-03-18T22:26:27.0000000+00:00'
+- author: PhosphateWithManyOs
+  changes:
+    - type: Add
+      message: Additional lizard screams and emotes!
+  id: 337
+  time: '2026-03-18T23:23:50.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Add
+      message: Departmental Jamjar glasses! Check your crafting recipes :)
+  id: 338
+  time: '2026-03-21T19:07:29.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Tweak
+      message: >-
+        buffed the particle decelerator's damage to the tesla and singlo by 5
+        times
+  id: 339
+  time: '2026-03-21T19:13:14.0000000+00:00'
+- author: RadsammyT
+  changes:
+    - type: Add
+      message: Central Command shades have been added to the NTR locker.
+  id: 340
+  time: '2026-03-21T19:26:58.0000000+00:00'
+- author: beckthompson, RadsammyT
+  changes:
+    - type: Add
+      message: >-
+        (PORT) Pinktext. This adds a custom objective summary written by the
+        antagonist. Unlike other implementations, Greentext remains intact. If
+        you are one, check your character menu to make your evil-doings known in
+        the round-end summary!
+  id: 341
+  time: '2026-03-21T20:08:06.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Changed silicon rule 8 to clarify that Prisoners and Syndicate icons are
+        not crew.
+  id: 342
+  time: '2026-03-21T20:28:23.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Cargo sop demands you ask CE before you smes farm... Beware...
+  id: 343
+  time: '2026-03-21T20:34:35.0000000+00:00'
+- author: RadsammyT
+  changes:
+    - type: Tweak
+      message: >-
+        EE Interaction Verbs "Hug" and "Pet" now trigger the Social Anxiety
+        trait.
+  id: 344
+  time: '2026-03-21T20:40:19.0000000+00:00'
+- author: 3PonPon3
+  changes:
+    - type: Add
+      message: >-
+        Added the morphchems! They are new chems that each morph you into a
+        different species or into a critter upon reaching their threshold! Bird
+        Flu, Mothamphetamine, Marotine and Methril all change your species for
+        10 minutes, and revert when that timer is up OR if you are put into crit
+        before it runs out. They also have vestine-made antag concentrate
+        versions! Those morph permanently. There are also Cacaphonium and
+        Chitterzine, which morph you into squackroach/mothroach for a minute,
+        also reverting on crit.
+  id: 345
+  time: '2026-03-21T20:44:49.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Remove
+      message: Command component from command maid
+  id: 346
+  time: '2026-03-21T20:47:21.0000000+00:00'
+- author: jellygato
+  changes:
+    - type: Add
+      message: >-
+        The Atomic Precision, a drink so strong it rewrites your existence, is
+        now available to be made.
+  id: 347
+  time: '2026-03-21T20:55:13.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: AI now has access to more devices (namely lathes and gas pumps)
+  id: 348
+  time: '2026-03-21T21:07:51.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Detectives can only pick the inspector or terminus in their loadout now.
+  id: 349
+  time: '2026-03-21T21:11:31.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Tweak
+      message: The Automated Trade Station now spawns further away from the station.
+  id: 350
+  time: '2026-03-21T21:15:55.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: >-
+        Ipcs bleed coolant instead of oil now... New tasty beverage for the
+        Voxes....
+  id: 351
+  time: '2026-03-21T21:16:52.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Ported the NT cane from Starlight, and replaced the caneblade with it.
+    - type: Fix
+      message: Fixes the nanorep getting a CCO fax.
+  id: 352
+  time: '2026-03-21T21:23:45.0000000+00:00'
+- author: BramvanZijp
+  changes:
+    - type: Add
+      message: >-
+        Added a toggleable light to the BSO's ensemble, which is identical to
+        that of the Elite BSO Cloak.
+  id: 353
+  time: '2026-03-21T21:28:03.0000000+00:00'
+- author: Benevolent Tuerk
+  changes:
+    - type: Add
+      message: >-
+        The Courier role has been added to omu code. Please wait 3 to 4 business
+        months for em to be mapped.
+    - type: Add
+      message: >-
+        Courier Outfits from EE and DeltaV! Check the loadout screen and the
+        MailDrobe for all the goodies!
+    - type: Add
+      message: CourierSpawners for a later mapping PR
+  id: 354
+  time: '2026-03-21T21:28:44.0000000+00:00'
+- author: BramvanZijp
+  changes:
+    - type: Fix
+      message: You can no longer break out of a grab while stunned.
+  id: 355
+  time: '2026-03-21T23:17:56.0000000+00:00'
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Natural Letoferol guidebook description updated to note Mesotaxinide or
+        Mesophenerol is used to cure Chimera infections instead of being
+        permanent.
+  id: 356
+  time: '2026-03-22T01:25:10.0000000+00:00'
+- author: Aureu
+  changes:
+    - type: Remove
+      message: Dark lord, Dark priest, and Grey tide midround spawns.
+  id: 357
+  time: '2026-03-22T02:22:09.0000000+00:00'
+- author: Aureu
+  changes:
+    - type: Remove
+      message: Mention of Nexus from the Avali guidebook.
+  id: 358
+  time: '2026-03-22T03:48:35.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: 'AutoDrobe now dispenses fake blue wizard clothes! '
+  id: 359
+  time: '2026-03-22T05:48:06.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Changed the Robotics airlock to use the proper sprite
+  id: 360
+  time: '2026-03-22T12:58:11.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixes Courier spawn deleting itself
+    - type: Add
+      message: Adds a robotics maints airlock for mapping
+  id: 361
+  time: '2026-03-22T13:38:31.0000000+00:00'
+- author: Dishwasher0
+  changes:
+    - type: Add
+      message: Robo and Courier are mapped now rejoice !
+  id: 362
+  time: '2026-03-22T16:59:18.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: >-
+        Fixed people being able to break into areas on Protected grids. Stop
+        trying to bypass this.
+  id: 363
+  time: '2026-03-22T20:41:33.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Atomic Precision only dna scrambles at 25u now. It also adds ethanol now
+  id: 364
+  time: '2026-03-22T21:50:08.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Added a new job to security, the Sergeant
+  id: 365
+  time: '2026-03-22T21:52:56.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Remove
+      message: >-
+        Removed the swat gas mask from the maildrobe.. Dont know how that got
+        approved..
+  id: 366
+  time: '2026-03-23T01:25:56.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: Dedicated roundtype for tokens and admin events
+  id: 367
+  time: '2026-03-23T01:26:26.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Add
+      message: 'Jumpsuit for CC direggtor '
+  id: 368
+  time: '2026-03-24T23:03:36.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Tweak
+      message: Command mantles now have admin hud
+  id: 369
+  time: '2026-03-26T19:06:27.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Add
+      message: Custom clothing for the sergeant role!
+  id: 370
+  time: '2026-03-26T19:07:24.0000000+00:00'
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Dartboards have enough flat pierce armor to be no longer broken by dart
+        throws.
+  id: 371
+  time: '2026-03-27T22:10:37.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Add
+      message: Added (disciplinary) belts! Check the sergeant loadout :)
+  id: 372
+  time: '2026-03-27T22:40:32.0000000+00:00'
+- author: Richard Blonski
+  changes:
+    - type: Add
+      message: 'Added: A new default module for medical cyborgs - the Virology Module!'
+  id: 373
+  time: '2026-03-28T06:14:45.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Glacier has been added to the map pool
+    - type: Add
+      message: 'Glacier now has job spawns for Roboticist and Sergeant   '
+    - type: Tweak
+      message: 'Glacier now has proper camera coverage for AI  '
+    - type: Fix
+      message: Fixed glacier having the wrong vents
+    - type: Fix
+      message: Glacier now has a secfab in armory
+    - type: Fix
+      message: Glacier no longer has the wrong suits in armory
+  id: 374
+  time: '2026-03-28T06:37:12.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Remove
+      message: Removed concussive gauntlet voucher.
+    - type: Tweak
+      message: Concussive gauntlet price increased to 4000
+  id: 375
+  time: '2026-03-28T17:45:09.0000000+00:00'
+- author: Dishwasher0
+  changes:
+    - type: Add
+      message: Sergeant is now mapped go larp
+    - type: Tweak
+      message: Salv shuttle control is now mapped
+  id: 376
+  time: '2026-03-29T15:10:53.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: IPCs now take ion damage from EMPs
+  id: 377
+  time: '2026-03-29T19:20:16.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Added Shipyard functionality, to be mapped at a later date.
+  id: 378
+  time: '2026-03-29T19:21:25.0000000+00:00'
+- author: Anui-ElXx
+  changes:
+    - type: Remove
+      message: Removes deep-meow from the game
+  id: 379
+  time: '2026-03-29T19:23:42.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Fix
+      message: As sergeant, the cloak no longer spawns on your head.
+  id: 380
+  time: '2026-03-30T05:29:05.0000000+00:00'
+- author: Manni-Marco
+  changes:
+    - type: Tweak
+      message: Changed T8 Consistency's sprites to be less gray and more silver.
+  id: 381
+  time: '2026-03-30T05:32:14.0000000+00:00'
+- author: ANorthAmerican
+  changes:
+    - type: Add
+      message: >-
+        Added winter coats for the Nanotrasen Representative and Administrative
+        Assistant.
+  id: 382
+  time: '2026-03-30T05:37:28.0000000+00:00'
+- author: ArtemisYK
+  changes:
+    - type: Remove
+      message: Commander hardsuit from loneop's uplink
+    - type: Remove
+      message: All mentions and Weaponry of both 8 gauge and 2 gauge shotguns
+    - type: Remove
+      message: SAP-HE rounds from the ammo category for the cobra
+    - type: Tweak
+      message: >-
+        Changed the Advanced Combat Medipen to reduce its maximum volume to 15
+        instead of 40
+    - type: Tweak
+      message: Changes the Contractor Baton in the uplink to be 50TC instead of 35TC
+  id: 383
+  time: '2026-03-30T07:29:33.0000000+00:00'
+- author: ArtemisYK
+  changes:
+    - type: Tweak
+      message: Tweaked the amount of TC Warops provides nukies
+  id: 384
+  time: '2026-03-30T07:30:39.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: >-
+        Removed leg coverage from secoff greatcoat. Hos and ward greatcoat stats
+        match their other armors now
+    - type: Tweak
+      message: Hos and warden jackets have 45% infect resist now
+  id: 385
+  time: '2026-03-30T08:04:14.0000000+00:00'
+- author: Manni-Marco
+  changes:
+    - type: Add
+      message: Foam sabre added and given to mime and clown
+    - type: Add
+      message: Sharp foam sabre added and given to evil mimes and clowns
+  id: 386
+  time: '2026-03-30T08:05:19.0000000+00:00'
+- author: pinktanuki
+  changes:
+    - type: Fix
+      message: Contraband level from Foam sword sheath
+  id: 387
+  time: '2026-03-31T18:16:40.0000000+00:00'
+- author: pinktanuki
+  changes:
+    - type: Fix
+      message: Fixed Estoc caliber information in uplink.
+  id: 388
+  time: '2026-03-31T18:20:20.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Fix
+      message: Command mantles are just admin glasses toggled by the trait
+  id: 389
+  time: '2026-04-01T02:56:59.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Upstream merge from goob, check goob changelog ingame for more details
+  id: 390
+  time: '2026-04-02T03:34:55.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Fix
+      message: >-
+        item "beast's security mantle" now properly allows access to the "set
+        wanted status" UI
+  id: 391
+  time: '2026-04-03T03:08:28.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: Grognard now deals 12 damage on OFF mode
+  id: 392
+  time: '2026-04-04T03:32:22.0000000+00:00'
+- author: pinktanuki
+  changes:
+    - type: Fix
+      message: 'Sergeant and Virologist Cyberbeast spawn with there respective mantles '
+  id: 393
+  time: '2026-04-04T06:14:00.0000000+00:00'
+- author: pinktanuki
+  changes:
+    - type: Fix
+      message: 'Sarin gas grenade is now syndicate level contraband '
+  id: 394
+  time: '2026-04-04T06:34:34.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Added a new lifeline for events.
+  id: 395
+  time: '2026-04-04T06:56:14.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Add
+      message: 5x75mm Tungsten ammunition (Admeme)
+    - type: Add
+      message: Admeme SMG for the tungsten ammo..!
+    - type: Add
+      message: 9.5mm Hollow Point is back!
+    - type: Tweak
+      message: >-
+        9.5mm hollow point only available on emagged lathes and syndicate
+        uplinks
+  id: 396
+  time: '2026-04-04T19:58:28.0000000+00:00'
+- author: BramvanZijp
+  changes:
+    - type: Fix
+      message: Fixed Diona being immune to the slowdown caused by being prone.
+  id: 397
+  time: '2026-04-04T21:43:46.0000000+00:00'
+- author: Anui-ElXx
+  changes:
+    - type: Tweak
+      message: Changed "breath-in-a-fart" emote name to "reverse fart"
+  id: 398
+  time: '2026-04-04T23:11:14.0000000+00:00'
+- author: pinktanuki
+  changes:
+    - type: Add
+      message: Redshirt Trait
+  id: 399
+  time: '2026-04-04T23:14:19.0000000+00:00'
+- author: Willzile1
+  changes:
+    - type: Add
+      message: Added CMO, Chemestry, Corpsman, RD, CE, and NTR beast mantles
+    - type: Tweak
+      message: All beast mantles have new sprites! Made by Mariki.
+  id: 400
+  time: '2026-04-05T06:11:23.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: >-
+        CBURN dispatch spear range increased to match other spears. Wideswing
+        removed from it for the same reason
+  id: 401
+  time: '2026-04-05T06:12:42.0000000+00:00'
+- author: Marikiii
+  changes:
+    - type: Add
+      message: Foam Dart Sniper! Comes with the Foam Force crate!
+  id: 402
+  time: '2026-04-05T06:14:55.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Ported Solarian Navy Deserters as a new midround from EE
+    - type: Add
+      message: Ported Solarian modsuits for humans in the traitor uplink.
+  id: 403
+  time: '2026-04-05T22:41:36.0000000+00:00'
+- author: NEVEC And Plasmamen Work
+  changes:
+    - type: Add
+      message: >-
+        Added the Thaven species port with moods, organs, language, and related
+        content.
+    - type: Add
+      message: Admins can now add/view thaven moods.
+    - type: Add
+      message: emag a thaven will take 1 sec.
+    - type: Add
+      message: Thavens now cant be emmaged if they have mindshield.
+    - type: Add
+      message: Little delay when you try to emmag a thaven
+    - type: Add
+      message: Thavens get drunks smelling freon.
+    - type: Fix
+      message: >-
+        Fixed Thaven breathing so they no longer take normal suffocation damage
+        from breathing.
+    - type: Fix
+      message: >-
+        Improved Thaven equipment rendering by replacing several slot
+        displacements with offsets.
+    - type: Fix
+      message: >-
+        Thavens use pressure-based breathing via ThavenBreatherComponent and
+        should never suffocate from lack of gas. 
+    - type: Fix
+      message: Thaven now not breath in space.
+    - type: Fix
+      message: made the code a little more less hardcoded.
+  id: 404
+  time: '2026-04-06T19:11:22.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Add
+      message: >-
+        Custodii Vitellus - A deathsquad-level admeme bodyguard role for Central
+        Command events
+    - type: Add
+      message: Blackiron slug ammo, railgun and modsuit for the new role
+  id: 405
+  time: '2026-04-06T20:53:20.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: Thavens have survival kits now
+  id: 406
+  time: '2026-04-06T22:06:18.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Replaced the old Pirate/IRS shuttle with a new larger one.
+    - type: Tweak
+      message: >-
+        Pirates now actually have lethals on their ship, and spawn with
+        headsets.
+    - type: Tweak
+      message: >-
+        Resource Siphon is now ten times as fast, and works at twice the range
+        (200m instead of 100m).
+    - type: Tweak
+      message: Space Pirates/IRS no longer have a IFF computer on their shuttle.
+    - type: Fix
+      message: 'Fixed pirate EVA suits not having space protection. '
+  id: 407
+  time: '2026-04-07T09:35:52.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed salv borgs being able to carry mech PKAs.
+  id: 408
+  time: '2026-04-07T14:24:04.0000000+00:00'
+- author: Nevec
+  changes:
+    - type: Fix
+      message: Fixed Thavens suffocating in space while using valid internals.
+  id: 409
+  time: '2026-04-07T15:35:25.0000000+00:00'
+- author: dotwavfile
+  changes:
+    - type: Tweak
+      message: Precussion for the built-in soundfont no longer sounds broken.
+  id: 410
+  time: '2026-04-08T00:26:40.0000000+00:00'
+- author: Fin55Fin
+  changes:
+    - type: Fix
+      message: Fixed bloodstream component text
+  id: 411
+  time: '2026-04-08T00:28:06.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: Glow in the dark wave pulse markings for thaven
+  id: 412
+  time: '2026-04-08T00:39:05.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: >-
+        Added fonts to the thaven languages, also a trait for bieselized
+        eckeckyik
+  id: 413
+  time: '2026-04-08T00:40:30.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: The Syndicate Evacuation pod now has reverse thrust.
+  id: 414
+  time: '2026-04-08T00:41:05.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed Corpsman Cyberbeast mantle not showing up when worn.
+  id: 415
+  time: '2026-04-08T08:05:40.0000000+00:00'
+- author: Anui-Elxx
+  changes:
+    - type: Add
+      message: IPCs can now use hair and facial hair via NT-approved wigs.
+  id: 416
+  time: '2026-04-08T10:52:52.0000000+00:00'
+- author: Anui-ElXx
+  changes:
+    - type: Add
+      message: Added new sounds for the "trill" emote.
+  id: 417
+  time: '2026-04-09T07:32:45.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Halved the ore you get from butchering most orefish, it had to be done..
+    - type: Fix
+      message: Fixed fishing up 30 goliath plates, u were only supposed to get 1
+  id: 418
+  time: '2026-04-09T22:43:59.0000000+00:00'
+- author: Fin55Fin
+  changes:
+    - type: Add
+      message: Made Departmental JamJar Glasses also work as Prescription Glasses.
+  id: 419
+  time: '2026-04-10T00:01:50.0000000+00:00'
+- author: Nevec
+  changes:
+    - type: Fix
+      message: >-
+        Thavens now properly take respiratory damage while in critical
+        condition, preventing a softlock where they could not die.
+  id: 420
+  time: '2026-04-10T10:58:07.0000000+00:00'
+- author: BoiWab
+  changes:
+    - type: Add
+      message: BugBorgs
+    - type: Add
+      message: More Inhuman StationAI Holograms
+  id: 421
+  time: '2026-04-10T11:07:10.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: >-
+        Harpy can now use the 'Squish', 'Bubble', 'Pop', "Gnash", "Thump"
+        emotes.
+  id: 422
+  time: '2026-04-10T12:12:33.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Add
+      message: NTR selector case, can choose between a fancy cane and disciplinary belt
+    - type: Tweak
+      message: Disciplinary Belts can now snap! press Z with them inhand :)
+    - type: Tweak
+      message: Admeme belts now have a 1 damage spawnable version.
+    - type: Tweak
+      message: Changed the sergeant's disciplinary belt stats a bit.
+  id: 423
+  time: '2026-04-10T12:42:50.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Disciplinary belts now make you scream when hit by them.
+  id: 424
+  time: '2026-04-10T12:50:15.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: Switched the Sergeant ceremonial rifle with a proper M1 Garand! *ping!*
+  id: 425
+  time: '2026-04-10T13:41:36.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: BlackIron slugs now penetrate through even more walls.
+  id: 426
+  time: '2026-04-10T18:08:57.0000000+00:00'
+- author: Androclast
+  changes:
+    - type: Fix
+      message: Fixed a DOS attack
+  id: 427
+  time: '2026-04-12T16:20:10.0000000+00:00'
+- author: Anui-ElXx
+  changes:
+    - type: Add
+      message: Two new sprites added for Tajarans (Tuxedo cat)
+  id: 428
+  time: '2026-04-12T17:12:18.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: >-
+        Added the Blood Red Swordfish, a 40tc thaven exclusive traitor item. It
+        has a cool ass lunge attack like a rapier..
+  id: 429
+  time: '2026-04-12T17:13:50.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Disabled gamemode voting, enabled map voting.
+  id: 430
+  time: '2026-04-12T20:15:22.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Remove
+      message: >-
+        Sandevistan and berserker heart removed from the uplink. The
+        undetermined bundle keeps the sandy.
+    - type: Remove
+      message: Removed contractor baton from all uplinks except the contractor uplink
+  id: 431
+  time: '2026-04-13T01:09:11.0000000+00:00'

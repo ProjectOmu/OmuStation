@@ -148,6 +148,7 @@ public sealed partial class IngestionSystem
         var position = _transform.GetMapCoordinates(entity);
         var trashes = entity.Comp.Trash;
         var tryPickup = _hands.IsHolding(user, entity, out _);
+        var isWearing =  _container.TryGetContainer(user, "mask", out var maskContainer) && maskContainer.Contains(entity); // Goob
 
         foreach (var trash in trashes)
         {
@@ -158,6 +159,12 @@ public sealed partial class IngestionSystem
             {
                 // Put the trash in the user's hand
                 _hands.TryPickupAnyHand(user, spawnedTrash);
+            }
+            //  Goob wearable foods, i.e. lollypops
+            if (isWearing && maskContainer != null && entity.Comp.Trash.Count.Equals(1))
+            {
+                _container.CleanContainer(maskContainer);
+                _container.Insert(spawnedTrash, maskContainer);
             }
         }
     }

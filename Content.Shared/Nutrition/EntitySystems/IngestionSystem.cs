@@ -24,6 +24,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Content.Goobstation.Common.Ingestion;
+using Robust.Shared.Containers;
 
 namespace Content.Shared.Nutrition.EntitySystems;
 
@@ -55,6 +56,7 @@ public sealed partial class IngestionSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!; // Goob
 
     // Body Component Dependencies
     [Dependency] private readonly SharedBodySystem _body = default!;

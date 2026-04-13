@@ -327,6 +327,7 @@
     needsPower: false
   - type: StationAiCore
   - type: StationAiVision
+  - type: StationAiEarlyLeave # Goobstation
   - type: InteractionOutline
   - type: Sprite
     sprite: Mobs/Silicon/station_ai.rsi
@@ -428,28 +429,52 @@
       state: ai_female
   - type: NameIdentifier
     group: StationAi
-  - type: SpeechSynthesis # Corvax-Frontier-Barks
-    voice: Borg
-  - type: LanguageKnowledge # Einstein Engines - Language | Omustation - This has been added in here to have the AI speak unique languages, Borgs and the AI should speak all common languages, minus sign, which they should just understand.
+  - type: LanguageKnowledge
     speaks:
     - TauCetiBasic
-    - RobotTalk
-    - Elyran # Omustation start - Borgs and the AI should speak all common languages, minus sign, which they should just understand.
-    - Freespeak
-    - NovuNederic
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
     - SolCommon
-    - TauCetiBasic
-    - Tradeband # Omustation end
+    - RootSpeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
+    - RobotTalk
+    - DroneTalk
+    - Marish
+    - Elyran
+    - Freespeak
+    - Tradeband
+    - Schechi
+    - NewKinPidgin
+    - NovuNederic # Omustation
     understands:
     - TauCetiBasic
-    - RobotTalk
-    - Elyran # Omustation start - Borgs and the AI should speak all common languages, minus sign, which they should just understand.
-    - Freespeak
-    - NovuNederic
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
     - SolCommon
-    - TauCetiBasic
+    - RootSpeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
+    - RobotTalk
+    - DroneTalk
+    - Marish
+    - Elyran
+    - Freespeak
     - Tradeband
-    - Sign # Omustation end
+    - Sign
+    - Schechi
+    - NewKinPidgin
+    - NovuNederic # Omustation
+  - type: SpeechSynthesis # Corvax-Frontier-Barks
+    voice: Borg
 
 # Hologram projection that the AI's eye tracks.
 - type: entity

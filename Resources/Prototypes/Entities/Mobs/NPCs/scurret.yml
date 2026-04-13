@@ -17,7 +17,7 @@
     prototype: Scurret
     bodyType: Complex
     requiredLegs: 2
-  - type: AntagImmune # Goob, no evil wawa
+  #- type: AntagImmune Omu commented to allow for syndi scurret
   - type: Sprite
     layers:
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -192,6 +192,7 @@
   id: MobScurret
   parent: MobBaseScurret
   components:
+  - type: AntagImmune #Omu re-added here to allow for wawar ops
   # The have a rich culture
   - type: RandomMetadata
     nameSegments:
@@ -225,6 +226,7 @@
   parent: MobBaseScurret
   abstract: true
   components:
+    - type: AntagImmune #Omu re-added here to allow for wawar ops
     - type: Loadout
       prototypes: [ EmotionalSupportScurretGear ]
     - type: NpcFactionMember

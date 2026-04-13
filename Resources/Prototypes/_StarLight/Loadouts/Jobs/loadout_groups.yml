@@ -58,6 +58,8 @@
 - type: loadoutGroup
   id: BrigmedicPDA
   name: loadout-group-brigmedic-id
+  minLimit: 1 # omu
+  maxLimit: 1 # omu
   loadouts:
   - BrigmedicPDA
   - CorpsmanPDA

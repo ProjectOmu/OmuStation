@@ -32,8 +32,11 @@
         restitution: 0.3
         friction: 0.2
   - type: MeleeWeapon
+    canWideSwing: false # Omu
+    range: 2.2 # Omu
     angle: 0
     attackRate: 0.9
+    animationRotation: -135 # Omu
     wideAnimationRotation: -135
     damage:
       types:

@@ -1,0 +1,13 @@
+- type: ghostRole
+  id: SyndicateScurret
+  name: ghost-role-information-syndicate-scurret-reinforcement-name
+  description: ghost-role-information-syndicate-scurret-reinforcement-description
+  rules: ghost-role-information-syndicate-reinforcement-rules
+  entityPrototype: MobScurretSyndicateAgent
+
+- type: ghostRole
+  id: SyndicateScurretNukeops
+  name: ghost-role-information-syndicate-scurret-reinforcement-name
+  description: ghost-role-information-syndicate-scurret-reinforcement-description
+  rules: ghost-role-information-nukeop-reinforcement-rules
+  entityPrototype: MobScurretSyndicateAgentNukeops

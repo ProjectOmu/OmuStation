@@ -945,6 +945,10 @@
     drawdepth: Walls
     sprite: Structures/Walls/reinforced_diagonal.rsi
     state: state0
+  - type: IconSmooth
+    mode: Diagonal
+    key: walls
+    base: state
   - type: Icon
     sprite: Structures/Walls/reinforced_diagonal.rsi
     state: state0
@@ -1102,7 +1106,7 @@
   - type: Icon
     sprite: Structures/Walls/shuttle_diagonal.rsi
     state: state0
-  - type: Reflect 
+  - type: Reflect
     reflectProb: 0.3 # Omu, lower reflect chance
   - type: Pullable
   - type: Airtight
@@ -1221,7 +1225,7 @@
           3: { state: shuttle_construct-3, visible: true}
           4: { state: shuttle_construct-4, visible: true}
           5: { state: shuttle_construct-5, visible: true}
-  - type: Reflect 
+  - type: Reflect
     reflectProb: 0.3 # Omu, lower reflect chance
   - type: Fixtures
     fixtures:
@@ -1959,6 +1963,6 @@
   - type: IconSmooth
     key: cards
     base: card
-  - type: Occluder 
+  - type: Occluder
   - type: BlockWeather
   - type: SunShadowCast

@@ -54,6 +54,12 @@ selectable-set-terminus-description =
     A weapon exclusively for oni, this greataxe
     can fire a burst of disabler bolts on command.
 
+selectable-set-ceremonial-rifle-name = M1 Garand
+selectable-set-ceremonial-rifle-description =
+    "Gory, gory, what a hell of a way to die!"
+    An weapon often given to Paratroopers mainly and Infantry in ancient Sol.
+    This one is a relic given to the Sergeant, shoots .30 Rifle.
+
 selectable-set-antiquelaser-name = Antique Laser Pistol
 selectable-set-antiquelaser-description =
     The classic. An operative's worst nightmare.
@@ -119,3 +125,15 @@ selectable-set-corpsman-combathardsuit-desc =
     Older model of corpsman's hardsuit.
     Built based on designs recovered from Regalis sector.
     Offers much better armor then newer models.
+
+selectable-set-ntr-cane-name = Fancy Cane
+selectable-set-ntr-cane-desc =
+    A fancy cane with a stun setting.
+    Good for fending off annoying assistants who don't want
+    to fill up paperwork.
+
+selectable-set-ntr-belt-name = Disciplinary Belt
+selectable-set-ntr-belt-desc =
+    A belt, hollowed out to maximize pain and minimize damage.
+    This one will let you do many, many lashings to anyone who
+    dares stand in NanoTrasen's way. Oh boy.

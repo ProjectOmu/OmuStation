@@ -10,3 +10,30 @@
     FoodBreadBun: 1
     FoodMeatRat: 1
     FoodButter: 1
+
+#Lazy tiramisu and fancy tiramisu added by jellygato 3-1-26
+- type: microwaveMealRecipe
+  id: RecipeLazyTiramisu
+  name: Lazy Tiramisu recipe
+  result: FoodBakedLazyTiramisu
+  time: 5
+  group: Dessert
+  reagents:
+    CoffeeLiqueur: 15
+    Cream: 15
+  solids:
+    FoodBreadPlainSlice: 1
+    FoodSnackChocolateBar: 1
+
+- type: microwaveMealRecipe
+  id: RecipeFancyTiramisu
+  name: Fancy Tiramisu recipe
+  result: FoodBakedFancyTiramisu
+  time: 5
+  group: Dessert
+  reagents:
+    Coffee: 15
+    Cream: 15
+  solids:
+    FoodBakedMuffin: 2
+    FoodSnackChocolateBar: 1

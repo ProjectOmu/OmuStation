@@ -172,7 +172,7 @@
 - type: loadout
   id: ChemBag
   equipment:
-    belt: ChemBag
+    belt: ChemBagFilled
 
 - type: loadout
   id: SeniorChemBag
@@ -180,7 +180,7 @@
   - !type:GroupLoadoutEffect
     proto: SeniorChemist
   equipment:
-    belt: SeniorChemBag
+    belt: SeniorChemBagFilled
 
 # Senior Bags
 - type: loadout

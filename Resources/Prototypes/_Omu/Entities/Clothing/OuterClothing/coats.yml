@@ -236,3 +236,16 @@
   id: ClothingOuterCentcomLabcoatOpened
   name: central commander's labcoat
 
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCourierDuster
+  name: courier's duster
+  description: Makes you feel nuclear.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/courierduster.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/courierduster.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
