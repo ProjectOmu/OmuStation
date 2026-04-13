@@ -3223,3 +3223,157 @@ Entries:
       message: Fixed Thavens suffocating in space while using valid internals.
   id: 409
   time: '2026-04-07T15:35:25.0000000+00:00'
+- author: dotwavfile
+  changes:
+    - type: Tweak
+      message: Precussion for the built-in soundfont no longer sounds broken.
+  id: 410
+  time: '2026-04-08T00:26:40.0000000+00:00'
+- author: Fin55Fin
+  changes:
+    - type: Fix
+      message: Fixed bloodstream component text
+  id: 411
+  time: '2026-04-08T00:28:06.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: Glow in the dark wave pulse markings for thaven
+  id: 412
+  time: '2026-04-08T00:39:05.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: >-
+        Added fonts to the thaven languages, also a trait for bieselized
+        eckeckyik
+  id: 413
+  time: '2026-04-08T00:40:30.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: The Syndicate Evacuation pod now has reverse thrust.
+  id: 414
+  time: '2026-04-08T00:41:05.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed Corpsman Cyberbeast mantle not showing up when worn.
+  id: 415
+  time: '2026-04-08T08:05:40.0000000+00:00'
+- author: Anui-Elxx
+  changes:
+    - type: Add
+      message: IPCs can now use hair and facial hair via NT-approved wigs.
+  id: 416
+  time: '2026-04-08T10:52:52.0000000+00:00'
+- author: Anui-ElXx
+  changes:
+    - type: Add
+      message: Added new sounds for the "trill" emote.
+  id: 417
+  time: '2026-04-09T07:32:45.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Halved the ore you get from butchering most orefish, it had to be done..
+    - type: Fix
+      message: Fixed fishing up 30 goliath plates, u were only supposed to get 1
+  id: 418
+  time: '2026-04-09T22:43:59.0000000+00:00'
+- author: Fin55Fin
+  changes:
+    - type: Add
+      message: Made Departmental JamJar Glasses also work as Prescription Glasses.
+  id: 419
+  time: '2026-04-10T00:01:50.0000000+00:00'
+- author: Nevec
+  changes:
+    - type: Fix
+      message: >-
+        Thavens now properly take respiratory damage while in critical
+        condition, preventing a softlock where they could not die.
+  id: 420
+  time: '2026-04-10T10:58:07.0000000+00:00'
+- author: BoiWab
+  changes:
+    - type: Add
+      message: BugBorgs
+    - type: Add
+      message: More Inhuman StationAI Holograms
+  id: 421
+  time: '2026-04-10T11:07:10.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: >-
+        Harpy can now use the 'Squish', 'Bubble', 'Pop', "Gnash", "Thump"
+        emotes.
+  id: 422
+  time: '2026-04-10T12:12:33.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Add
+      message: NTR selector case, can choose between a fancy cane and disciplinary belt
+    - type: Tweak
+      message: Disciplinary Belts can now snap! press Z with them inhand :)
+    - type: Tweak
+      message: Admeme belts now have a 1 damage spawnable version.
+    - type: Tweak
+      message: Changed the sergeant's disciplinary belt stats a bit.
+  id: 423
+  time: '2026-04-10T12:42:50.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Disciplinary belts now make you scream when hit by them.
+  id: 424
+  time: '2026-04-10T12:50:15.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: Switched the Sergeant ceremonial rifle with a proper M1 Garand! *ping!*
+  id: 425
+  time: '2026-04-10T13:41:36.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: BlackIron slugs now penetrate through even more walls.
+  id: 426
+  time: '2026-04-10T18:08:57.0000000+00:00'
+- author: Androclast
+  changes:
+    - type: Fix
+      message: Fixed a DOS attack
+  id: 427
+  time: '2026-04-12T16:20:10.0000000+00:00'
+- author: Anui-ElXx
+  changes:
+    - type: Add
+      message: Two new sprites added for Tajarans (Tuxedo cat)
+  id: 428
+  time: '2026-04-12T17:12:18.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: >-
+        Added the Blood Red Swordfish, a 40tc thaven exclusive traitor item. It
+        has a cool ass lunge attack like a rapier..
+  id: 429
+  time: '2026-04-12T17:13:50.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Disabled gamemode voting, enabled map voting.
+  id: 430
+  time: '2026-04-12T20:15:22.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Remove
+      message: >-
+        Sandevistan and berserker heart removed from the uplink. The
+        undetermined bundle keeps the sandy.
+    - type: Remove
+      message: Removed contractor baton from all uplinks except the contractor uplink
+  id: 431
+  time: '2026-04-13T01:09:11.0000000+00:00'
