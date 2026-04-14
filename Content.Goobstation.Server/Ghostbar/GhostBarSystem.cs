@@ -54,7 +54,7 @@ public sealed class GhostBarSystem : EntitySystem
         SubscribeLocalEvent<GhostBarPlayerComponent, MindRemovedMessage>(OnPlayerGhosted);
     }
 
-    const string MapPath = "Maps/_Goobstation/Nonstations/ghostbar.yml";
+    const string MapPath = "Maps/Test/Empty.yml"; // Cheeburbr. "Maps/_Goobstation/Nonstations/ghostbar.yml" в оригіналі
     private void OnRoundStart(RoundStartingEvent ev)
     {
         var resPath = new ResPath(MapPath);
