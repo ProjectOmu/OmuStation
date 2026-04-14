@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Content.Server._EinsteinEngines.GameTicking;
 using Robust.Shared.Configuration;
 using Content.Omu.Common.CCVar;
-using Microsoft.VisualBasic;
 
 /*
     Realisticly this system shouldn't exist, but its the only way I thought of to ensure the server updates properly.
@@ -20,25 +19,33 @@ public sealed class ServerUpdaterSystem : EntitySystem
 
 
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly ILogManager _logMan = default!;
+
     private ISawmill _sawmill = default!;
 
     private string? serverId;
     private bool updaterEnabled = false;
 
-    private string pannelurl = _cfg.GetCVar(OmuCVars.ServerUpdaterPanelUrl);
-    private string apiKey = _cfg.GetCVar(OmuCVars.ServerUpdaterApiKey);
+    private string? pannelurl;
+    private string? apiKey;
 
-    private static readonly HttpClient client = CreateHttpClient();
+    private HttpClient client = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        _sawmill = Logger.GetSawmill("updater");
+        _sawmill = IoCManager.Resolve<ILogManager>().GetSawmill("updater");
+
+        pannelurl = _cfg.GetCVar(OmuCVars.ServerUpdaterPanelUrl);
+        apiKey = _cfg.GetCVar(OmuCVars.ServerUpdaterApiKey);
+
+        client = CreateHttpClient(pannelurl, apiKey);
 
         SubscribeLocalEvent<RoundEndedEvent>(OnRoundEnded);
 
         _cfg.OnValueChanged(OmuCVars.ServerUpdaterServerId, id => serverId = id, true);
         _cfg.OnValueChanged(OmuCVars.ServerUpdaterEnabled, enabled => updaterEnabled = enabled, true);
+
     }
 
     private void OnRoundEnded(RoundEndedEvent args)
@@ -61,23 +68,23 @@ public sealed class ServerUpdaterSystem : EntitySystem
             return;
         }
 
-        await RestartServerAsync(serverId);
+        RestartServerAsync(serverId);
     }
 
-    private static HttpClient CreateHttpClient()
+    private static HttpClient CreateHttpClient(string pannel_url, string api_key)
     {
         var httpClient = new HttpClient()
         {
-            BaseAddress = new Uri(pannelurl)
+            BaseAddress = new Uri(pannel_url)
         };
 
-        httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
+        httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {api_key}");
         httpClient.DefaultRequestHeaders.Add("Accept", "Application/vnd.pterodactyl.v1+json");
 
         return httpClient;
     }
 
-    public static async Task RestartServerAsync(string serverId)
+    public async Task RestartServerAsync(string serverId)
     {
         var endpoint = $"api/client/servers/{serverId}/power";
 
