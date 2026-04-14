@@ -322,24 +322,24 @@
 #   categories:
 #   - UplinkWeaponry
 
-- type: listing
-  id: UplinkContractorBaton
-  name: uplink-contractor-baton-name
-  description: uplink-contractor-baton-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Melee/contractor_baton.rsi, state: uplink }
-  productEntity: ContractorBaton
-  cost:
-    Telecrystal: 50 #Omu Nerf
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink #cheaper for contractors
-      - NukeOpsUplink
-  - !type:ListingLimitedStockCondition
-    stock: 1
+#- type: listing # Omu
+#  id: UplinkContractorBaton
+#  name: uplink-contractor-baton-name
+#  description: uplink-contractor-baton-desc
+#  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Melee/contractor_baton.rsi, state: uplink }
+#  productEntity: ContractorBaton
+#  cost:
+#    Telecrystal: 50 #Omu Nerf
+#  categories:
+#  - UplinkWeaponry
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - ContractorUplink #cheaper for contractors
+#      - NukeOpsUplink
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
 
 - type: listing
   id: UplinkGlovesKnuckleDusters
@@ -1091,61 +1091,61 @@
       tags:
       - ContractorUplink
 
-- type: listing
-  id: UplinkAutosurgeonSandevistan
-  name: uplink-autosurgeon-sandevistan-name
-  description: uplink-autosurgeon-sandevistan-desc
-  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
-  productEntity: AutosurgeonSandevistan
-  cost:
-    Telecrystal: 66 # The urge to make it 65...
-  categories:
-  - UplinkImplants
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
+#- type: listing # Omu, no more of that
+#  id: UplinkAutosurgeonSandevistan
+#  name: uplink-autosurgeon-sandevistan-name
+#  description: uplink-autosurgeon-sandevistan-desc
+#  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
+#  productEntity: AutosurgeonSandevistan
+#  cost:
+#    Telecrystal: 66 # The urge to make it 65...
+#  categories:
+#  - UplinkImplants
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - NukeOpsUplink
 
-- type: listing
-  id: NukieUplinkAutosurgeonSandevistan
-  name: uplink-autosurgeon-sandevistan-name
-  description: uplink-autosurgeon-sandevistan-desc
-  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
-  productEntity: AutosurgeonSandevistan
-  cost:
-    Telecrystal: 124
-  categories:
-  - UplinkImplants
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - LoneOpsUplink
+#- type: listing # Omu, no more
+#  id: NukieUplinkAutosurgeonSandevistan
+#  name: uplink-autosurgeon-sandevistan-name
+#  description: uplink-autosurgeon-sandevistan-desc
+#  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
+#  productEntity: AutosurgeonSandevistan
+#  cost:
+#    Telecrystal: 124
+#  categories:
+#  - UplinkImplants
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - LoneOpsUplink
 
 
-- type: listing
-  id: UplinkClothingOuterDavidsJacketValid
-  name: uplink-davids-jacket-name
-  description: uplink-davids-jacket-desc
-  icon: { sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi, state: icon }
-  productEntity: ClothingOuterDavidsJacketValid
-  cost:
-    Telecrystal: 0
-  categories:
-  - UplinkImplants
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:BuyBeforeCondition
-    whitelist:
-    - UplinkAutosurgeonRightMantisBlade
-    - UplinkAutosurgeonLeftMantisBlade
-    - UplinkAutosurgeonSandevistan
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
+#- type: listing # Omu, only in bundle now
+#  id: UplinkClothingOuterDavidsJacketValid
+#  name: uplink-davids-jacket-name
+#  description: uplink-davids-jacket-desc
+#  icon: { sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi, state: icon }
+#  productEntity: ClothingOuterDavidsJacketValid
+#  cost:
+#    Telecrystal: 0
+#  categories:
+#  - UplinkImplants
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
+#  - !type:BuyBeforeCondition
+#    whitelist:
+#    - UplinkAutosurgeonRightMantisBlade
+#    - UplinkAutosurgeonLeftMantisBlade
+#    - UplinkAutosurgeonSandevistan
+#  - !type:BuyerWhitelistCondition
+#    blacklist:
+#      components:
+#      - SurplusBundle
 
 - type: listing
   id: UplinkAutosurgeonSmartLink
@@ -1174,21 +1174,21 @@
       tags:
       - ContractorUplink
 
-- type: listing
-  id: UplinkAutosurgeonBerserkerHeart
-  name: uplink-autosurgeon-berserker-heart-name
-  description: uplink-autosurgeon-berserker-heart-desc
-  icon: { sprite: _Goobstation/Objects/Misc/berserker_heart.rsi, state: icon }
-  productEntity: AutosurgeonBerserker
-  cost:
-    Telecrystal: 66
-  categories:
-  - UplinkImplants
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
+#- type: listing # Omu
+#  id: UplinkAutosurgeonBerserkerHeart
+#  name: uplink-autosurgeon-berserker-heart-name
+#  description: uplink-autosurgeon-berserker-heart-desc
+#  icon: { sprite: _Goobstation/Objects/Misc/berserker_heart.rsi, state: icon }
+#  productEntity: AutosurgeonBerserker
+#  cost:
+#    Telecrystal: 66
+#  categories:
+# - UplinkImplants
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - ContractorUplink
 
 - type: listing
   id: UplinkAutosurgeonJumpstarter
