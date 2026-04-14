@@ -12,11 +12,8 @@ public enum PlantAnalyzerHarvestType : byte
     SelfHarvest
 }
 
-/// <summary>
-///     state sent to the client after a successful scan.
-///     basic scans only populate the basic tab fields.
-///     advanced scans also populate tolerances and mutations.
-/// </summary>
+// state sent to the client after a successful scan.
+// all tabs are always populated - the analyzer is always in advanced mode.
 [Serializable, NetSerializable]
 public sealed class PlantAnalyzerScannedSeedMessage : BoundUserInterfaceState
 {
@@ -25,8 +22,10 @@ public sealed class PlantAnalyzerScannedSeedMessage : BoundUserInterfaceState
     // true if scanned a plant tray, false if a loose seed
     public bool IsTray;
 
-    // true if this was an advanced scan (shows tolerances + mutations tabs)
-    public bool IsAdvanced;
+    // plant tray health status (only relevant when IsTray = true)
+    public bool IsDead;
+    public float PlantHealth;
+    public float PlantMaxHealth; // = seed.Endurance
 
     // basic tab
     public string? SeedName;
@@ -42,7 +41,7 @@ public sealed class PlantAnalyzerScannedSeedMessage : BoundUserInterfaceState
     public int GrowthStages;
     public float Endurance;
 
-    // tolerances tab (advanced only)
+    // tolerances tab
     public float NutrientConsumption;
     public float WaterConsumption;
     public float IdealHeat;
@@ -55,7 +54,7 @@ public sealed class PlantAnalyzerScannedSeedMessage : BoundUserInterfaceState
     public float PestTolerance;
     public float WeedTolerance;
 
-    // mutations tab (advanced only)
+    // mutations tab
     // active mutation flags (only flags for mutations that are actually in the base game)
     public PlantMutationFlags Mutations;
     // possible sub-species from mutation prototypes
