@@ -38,13 +38,14 @@ public sealed class ServerUpdaterSystem : EntitySystem
 
         pannelurl = _cfg.GetCVar(OmuCVars.ServerUpdaterPanelUrl);
         apiKey = _cfg.GetCVar(OmuCVars.ServerUpdaterApiKey);
+        updaterEnabled = _cfg.GetCVar(OmuCVars.ServerUpdaterEnabled);
+        serverId = _cfg.GetCVar(OmuCVars.ServerUpdaterServerId);
 
-        client = CreateHttpClient(pannelurl, apiKey);
+        if (updaterEnabled && (!string.IsNullOrEmpty(pannelurl)) && (!string.IsNullOrEmpty(apiKey)) && (!string.IsNullOrEmpty(serverId))){
+            client = CreateHttpClient(pannelurl, apiKey);
+        }
 
         SubscribeLocalEvent<RoundEndedEvent>(OnRoundEnded);
-
-        _cfg.OnValueChanged(OmuCVars.ServerUpdaterServerId, id => serverId = id, true);
-        _cfg.OnValueChanged(OmuCVars.ServerUpdaterEnabled, enabled => updaterEnabled = enabled, true);
 
     }
 

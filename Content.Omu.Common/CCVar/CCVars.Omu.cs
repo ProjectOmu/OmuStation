@@ -19,6 +19,7 @@ public sealed partial class OmuCVars
         CVarDef.Create("omu.disable_pathfinding", false, CVar.SERVER | CVar.SERVERONLY);
 
     #region "Server Updater"
+
     /// <summary>
     ///     Should the server send a request to the updater to restart on round end.
     /// </summary>
