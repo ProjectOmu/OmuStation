@@ -6,7 +6,6 @@ using Content.Server.Botany.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Server.PowerCell;
-using Content.Shared.PowerCell;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
@@ -44,13 +43,11 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         if (ent.Comp.DoAfter != null)
             return;
 
-        // check battery up front - no point starting a 4-8s wait with no power
+        // check battery up front - no point starting an 8s wait with no power
         if (!_cell.HasActivatableCharge(ent.Owner, user: args.User))
             return;
 
-        var delay = ent.Comp.AdvancedMode ? ent.Comp.AdvancedScanDelay : ent.Comp.BasicScanDelay;
-
-        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, delay, new PlantAnalyzerDoAfterEvent(), ent, target: target, used: ent)
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, ent.Comp.ScanDelay, new PlantAnalyzerDoAfterEvent(), ent, target: target, used: ent)
         {
             NeedHand = true,
             BreakOnDamage = true,
@@ -68,28 +65,18 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         if (args.Handled || args.Cancelled || args.Target is not { } target)
             return;
 
-        // consume charge - advanced costs twice as much
-        var chargeNeeded = ent.Comp.AdvancedMode ? ent.Comp.AdvancedScanCharge : ent.Comp.BasicScanCharge;
-        // for advanced we need 2 uses: simulate by trying twice
-        if (ent.Comp.AdvancedMode)
-        {
-            if (!_cell.TryUseActivatableCharge(ent.Owner, user: args.User))
-                return;
-            if (!_cell.TryUseActivatableCharge(ent.Owner, user: args.User))
-                return;
-        }
-        else
-        {
-            if (!_cell.TryUseActivatableCharge(ent.Owner, user: args.User))
-                return;
-        }
+        // consume 2 charges (scan is always advanced)
+        if (!_cell.TryUseActivatableCharge(ent.Owner, user: args.User))
+            return;
+        if (!_cell.TryUseActivatableCharge(ent.Owner, user: args.User))
+            return;
 
         var state = BuildScanState(ent, target);
         if (state == null)
             return;
 
         _ui.SetUiState(ent.Owner, PlantAnalyzerUiKey.Key, state);
-        _ui.TryOpenUi(args.User, PlantAnalyzerUiKey.Key, ent);
+        _ui.TryOpenUi(ent.Owner, PlantAnalyzerUiKey.Key, args.User);
         _audio.PlayPvs(ent.Comp.ScanningEndSound, ent);
 
         args.Handled = true;
@@ -99,28 +86,24 @@ public sealed class PlantAnalyzerSystem : EntitySystem
     {
         SeedData? seed = null;
         var isTray = false;
+        PlantHolderComponent? trayComp = null;
 
         if (TryComp<SeedComponent>(target, out var seedComp))
         {
             if (seedComp.Seed != null)
-            {
                 seed = seedComp.Seed;
-            }
             else if (seedComp.SeedId != null && _proto.TryIndex<SeedPrototype>(seedComp.SeedId, out var proto))
-            {
                 seed = proto;
-            }
         }
         else if (TryComp<PlantHolderComponent>(target, out var plantHolder))
         {
             seed = plantHolder.Seed;
             isTray = true;
+            trayComp = plantHolder;
         }
 
         if (seed == null)
             return null;
-
-        var advanced = ent.Comp.AdvancedMode;
 
         // collect gas name strings (works for any gas, no hardcoded enum)
         var exudeGases = seed.ExudeGasses.Keys
@@ -148,9 +131,10 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         {
             TargetEntity = GetNetEntity(target),
             IsTray = isTray,
-            IsAdvanced = advanced,
+            IsDead = trayComp?.Dead ?? false,
+            PlantHealth = trayComp?.Health ?? seed.Endurance,
+            PlantMaxHealth = seed.Endurance,
 
-            // basic tab
             SeedName = seed.DisplayName,
             SeedYield = seed.Yield,
             SeedPotency = seed.Potency,
@@ -164,7 +148,6 @@ public sealed class PlantAnalyzerSystem : EntitySystem
             GrowthStages = seed.GrowthStages,
             Endurance = seed.Endurance,
 
-            // tolerances tab (always populated, but only shown on advanced)
             NutrientConsumption = seed.NutrientConsumption,
             WaterConsumption = seed.WaterConsumption,
             IdealHeat = seed.IdealHeat,
@@ -177,7 +160,6 @@ public sealed class PlantAnalyzerSystem : EntitySystem
             PestTolerance = seed.PestTolerance,
             WeedTolerance = seed.WeedTolerance,
 
-            // mutations tab (always populated, but only shown on advanced)
             Mutations = mutations,
             Speciation = speciation,
         };
