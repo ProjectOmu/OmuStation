@@ -13,6 +13,29 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
 {
     private const string IndentedNewline = "\n   ";
 
+    // health bar thresholds (percentage)
+    private const float HealthGoodPct = 66f;
+    private const float HealthWarnPct = 33f;
+
+    // yield thresholds (unit count)
+    private const int YieldHigh = 8;
+    private const int YieldGood = 4;
+    private const int YieldLow  = 2;
+
+    // potency thresholds (percentage)
+    private const float PotencyHigh = 80f;
+    private const float PotencyMid  = 50f;
+    private const float PotencyLow  = 20f;
+
+    // ui colors (shared across all stat fields)
+    private static readonly Color ColorGood    = Color.FromHex("#7ecd48"); // healthy green
+    private static readonly Color ColorGoodAlt = Color.FromHex("#a8e070"); // lighter green
+    private static readonly Color ColorWarn    = Color.FromHex("#e8a837"); // warning orange
+    private static readonly Color ColorDanger  = Color.FromHex("#e05252"); // danger red
+    private static readonly Color ColorCyan    = Color.FromHex("#4ecdc4"); // self-harvest cyan
+    private static readonly Color ColorGold    = Color.FromHex("#f0c040"); // high potency gold
+    private static readonly Color ColorGoldDim = Color.FromHex("#d4a830"); // mid potency gold
+
     public PlantAnalyzerWindow()
     {
         RobustXamlLoader.Load(this);
@@ -27,12 +50,12 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
         if (msg.IsTray && msg.IsDead)
         {
             DeadBanner.Visible = true;
-            PlantName.FontColorOverride = Color.FromHex("#e05252");
+            PlantName.FontColorOverride = ColorDanger;
         }
         else
         {
             DeadBanner.Visible = false;
-            PlantName.FontColorOverride = Color.FromHex("#7ecd48");
+            PlantName.FontColorOverride = ColorGood;
         }
 
         var nameKey = msg.IsTray ? "plant-analyzer-name-tray" : "plant-analyzer-name-seed";
@@ -47,9 +70,9 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
             PlantHealthLabel.Text = $"{msg.PlantHealth:F0} / {msg.PlantMaxHealth:F0}  ({pct:F0}%)";
             PlantHealthLabel.FontColorOverride = pct switch
             {
-                > 66f => Color.FromHex("#7ecd48"),
-                > 33f => Color.FromHex("#e8a837"),
-                _     => Color.FromHex("#e05252"),
+                > HealthGoodPct => ColorGood,
+                > HealthWarnPct => ColorWarn,
+                _               => ColorDanger,
             };
         }
         else
@@ -61,9 +84,9 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
         HarvestRepeat.Text = Loc.GetString($"plant-analyzer-harvest-{msg.HarvestType}");
         HarvestRepeat.FontColorOverride = msg.HarvestType switch
         {
-            PlantAnalyzerHarvestType.Repeat      => Color.FromHex("#7ecd48"), // perennial - green, keeps giving
-            PlantAnalyzerHarvestType.SelfHarvest => Color.FromHex("#4ecdc4"), // self-harvest - cyan, automatic
-            _                                    => Color.FromHex("#e8a837"), // ephemeral - orange, one-shot
+            PlantAnalyzerHarvestType.Repeat      => ColorGood,  // perennial - keeps giving
+            PlantAnalyzerHarvestType.SelfHarvest => ColorCyan,  // self-harvest - automatic
+            _                                    => ColorWarn,   // ephemeral - one-shot
         };
 
         // ---- growth stats - value only, colour is fixed per field ----
@@ -78,19 +101,19 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
         // yield colour scales: high is good
         PlantYield.FontColorOverride = msg.SeedYield switch
         {
-            >= 8 => Color.FromHex("#7ecd48"),
-            >= 4 => Color.FromHex("#a8e070"),
-            >= 2 => Color.FromHex("#e8a837"),
-            _    => Color.FromHex("#e05252"),
+            >= YieldHigh => ColorGood,
+            >= YieldGood => ColorGoodAlt,
+            >= YieldLow  => ColorWarn,
+            _            => ColorDanger,
         };
 
         // potency colour scales: high is good
         Potency.FontColorOverride = msg.SeedPotency switch
         {
-            >= 80f => Color.FromHex("#f0c040"),
-            >= 50f => Color.FromHex("#d4a830"),
-            >= 20f => Color.FromHex("#e8a837"),
-            _      => Color.FromHex("#e05252"),
+            >= PotencyHigh => ColorGold,
+            >= PotencyMid  => ColorGoldDim,
+            >= PotencyLow  => ColorWarn,
+            _              => ColorDanger,
         };
 
         // ---- chemistry ----

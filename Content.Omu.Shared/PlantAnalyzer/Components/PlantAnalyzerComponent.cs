@@ -11,9 +11,13 @@ public sealed partial class PlantAnalyzerComponent : Component
     [DataField]
     public float ScanDelay = 2.5f;
 
-    // charge consumed per scan (called twice - advanced always costs 2)
+    // how many charges are consumed per scan
     [DataField]
-    public float ScanCharge = 2f;
+    public int ScanCharge = 2;
+
+    // how much movement cancels the scan doafter
+    [DataField]
+    public float MovementThreshold = 0.01f;
 
     [DataField]
     public DoAfterId? DoAfter;

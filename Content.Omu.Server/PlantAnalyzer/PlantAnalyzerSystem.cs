@@ -52,7 +52,7 @@ public sealed class PlantAnalyzerSystem : EntitySystem
             NeedHand = true,
             BreakOnDamage = true,
             BreakOnMove = true,
-            MovementThreshold = 0.01f
+            MovementThreshold = ent.Comp.MovementThreshold
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs, out ent.Comp.DoAfter);
@@ -65,11 +65,12 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         if (args.Handled || args.Cancelled || args.Target is not { } target)
             return;
 
-        // consume 2 charges (scan is always advanced)
-        if (!_cell.TryUseActivatableCharge(ent.Owner, user: args.User))
-            return;
-        if (!_cell.TryUseActivatableCharge(ent.Owner, user: args.User))
-            return;
+        // consume charges according to ScanCharge (default 2, configurable in yaml)
+        for (var i = 0; i < ent.Comp.ScanCharge; i++)
+        {
+            if (!_cell.TryUseActivatableCharge(ent.Owner, user: args.User))
+                return;
+        }
 
         var state = BuildScanState(ent, target);
         if (state == null)
