@@ -1,0 +1,79 @@
+﻿#spoken by thaven
+- type: language
+  id: Eckeckyik
+  isVisibleLanguage: true
+  speech:
+    color: "#5dd4a0"
+    fontId: HazeMorning
+    boldFontId: Goo
+    fontSize: 15
+    speechVerbOverrides:
+    - chat-speech-verb-eckeckyik-1
+    - chat-speech-verb-eckeckyik-2
+    - chat-speech-verb-eckeckyik-3
+    - chat-speech-verb-eckeckyik-4
+    - chat-speech-verb-eckeckyik-5
+    - chat-speech-verb-eckeckyik-6
+    - chat-speech-verb-eckeckyik-7
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 2
+    replacement:
+    - eEe'
+    - eEk
+    - oOouH
+    - OuAHhhohhHUhhohh
+    - EE'ee
+    - eek
+    - eck'
+    - kck
+    - a'ee
+    - e'ee
+    - aeeu
+    - a'keek
+    - ououhh
+    - EEKECk
+    - ke'EEk
+
+- type: language
+  id: BieselEckeckyik
+  isVisibleLanguage: true
+  speech:
+    color: "#5dd4a0"
+    fontId: Wavetosh
+    boldFontId: Goo
+    fontSize: 15
+    speechVerbOverrides: # 2/4 are gone cause less cetaceous
+    - chat-speech-verb-eckeckyik-1
+    - chat-speech-verb-eckeckyik-3
+    - chat-speech-verb-eckeckyik-5
+    - chat-speech-verb-eckeckyik-6
+    - chat-speech-verb-eckeckyik-7
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 2
+    replacement:
+    - e'EE
+    - eEee
+    - oO'u
+    - oU'hou
+    - ohh
+    - huhoh
+    - Eyee'EKK
+    - aeou
+    - ee
+    - eek
+    - ek'
+    - iou
+    - shie'e
+    - shi'ae
+    - an'eE
+    - a'ou
+    - eijo'u
+    - lia'ou
+    - tag'Ee
+    - coj'Eee
+    - va'eE
+    - zoj'Ie

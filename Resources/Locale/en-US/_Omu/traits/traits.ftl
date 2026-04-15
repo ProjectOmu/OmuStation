@@ -72,3 +72,8 @@ trait-small-shit-name = Very Smol
 trait-small-shit-desc =
     You are tiny. So teeny tiny it makes you incredibly puntable to everyone around you.
     On the bright side, you are small enough to snugly fit inside large containers like duffle bags.
+
+trait-redshirt-name = Redshirt
+trait-redshirt-desc =
+   You don't go into critical condition.
+   And at this rate you probably wont make it to the second act...

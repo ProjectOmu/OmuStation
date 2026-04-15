@@ -515,6 +515,17 @@
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fluffy
 
+- type: marking #omu
+  id: VulpTailFluffyTip
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: fluffy
+    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: fluffy-tip
+
 - type: marking
   id: VulpTailDalmatianWag
   bodyPart: Tail

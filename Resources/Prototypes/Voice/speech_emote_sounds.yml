@@ -200,7 +200,7 @@
     variation: 0.125
   sounds:
     Scream:
-      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+      collection: ReptilianScream # Omu
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
     Honk:
@@ -229,6 +229,19 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Sigh: # Goob
+      collection: MaleSigh
+    Cough: # Goob
+      collection: MaleCoughs
+    Yawn: # Goob
+      collection: MaleYawn
+    Purr: #Omu
+      path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_purr.ogg
+    Rattle: #Omu
+      path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_rattle.ogg
+    ReptilianScreech: #Omu
+      collection: ReptilianScreech
+
 
 - type: emoteSounds
   id: FemaleReptilian
@@ -236,7 +249,7 @@
     variation: 0.125
   sounds:
     Scream:
-      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+      collection: ReptilianScream # Omu
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
     Honk:
@@ -265,6 +278,18 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Sigh: # Goob
+      collection: FemaleSigh
+    Cough: # Goob
+      collection: FemaleCoughs
+    Yawn: # Goob
+      collection: FemaleYawn
+    Purr: #Omu
+      path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_purr.ogg
+    Rattle: #Omu
+      path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_rattle.ogg
+    ReptilianScreech: #Omu
+      collection: ReptilianScreech
 
 - type: emoteSounds
   id: MaleSlime
@@ -390,7 +415,7 @@
     Sneeze:
       path: /Audio/_Goobstation/Voice/Vox/vox_sneeze.ogg
     Cough:
-      path: /Audio/_Goobstation/Voice/Vox/vox_cough.ogg
+      collection: VoxCough #goob
     CatHisses:
       collection: CatHisses
     MonkeyScreeches:
@@ -415,6 +440,14 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Click: #imp
+      collection: VoxClick
+    Chitter: #imp
+      collection: VoxChitter
+    Hiss: #imp
+      collection: VoxHiss
+    Caw:
+      collection: HarpyCaws
   params:
     variation: 0.125
 
@@ -1026,3 +1059,21 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: WawaDeath
+
+- type: emoteSounds #goob edit
+  id: FeroxiBodyEmotes
+  sounds:
+    Thump:
+      path: /Audio/Voice/Reptilian/reptilian_tailthump.ogg
+      params:
+        variation: 0.125
+    Clap:
+      collection: Claps
+    Snap:
+      collection: Snaps
+      params:
+        volume: -6
+    Salute:
+      collection: Salutes
+    Crack: # Imp
+      collection: Cracks # Imp

@@ -145,6 +145,7 @@
     solution: hypospray
   - type: ExaminableSolution
     solution: hypospray
+    exactVolume: true
   - type: Hypospray
     onlyAffectsMobs: false
   - type: UseDelay
@@ -186,6 +187,7 @@
     solution: hypospray
   - type: ExaminableSolution
     solution: hypospray
+    exactVolume: true
   - type: Hypospray
     onlyAffectsMobs: false
   - type: UseDelay
@@ -265,6 +267,7 @@
         maxVol: 20 # Goobstation
   - type: ExaminableSolution
     solution: pen
+    exactVolume: true
   - type: Hypospray
     solutionName: pen
     transferAmount: 20 # Goobstation
@@ -751,6 +754,8 @@
   id: CombatMedipen
   description: A single-use medipen containing chemicals that regenerate most types of damage.
   components:
+  - type: Fish # omu
+    difficulty: 0.023
   - type: Item
     inhandVisuals:
       left:
@@ -805,6 +810,7 @@
   - type: ExaminableSolution
     solution: hypospray
     heldOnly: true # Allow examination only when held in hand.
+    exactVolume: true
   - type: Hypospray
     onlyAffectsMobs: false
   - type: UseDelay

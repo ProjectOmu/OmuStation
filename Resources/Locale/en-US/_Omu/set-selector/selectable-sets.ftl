@@ -30,6 +30,16 @@ selectable-set-hos-lawbringer-name = Lawbringer Multirole Energy Pistol
 selectable-set-hos-lawbringer-description =
     The classic. This pistol is capable of many different combat functions.
 
+selectable-set-hos-brdi-name = Antique BRDI R-25
+selectable-set-hos-brdi-description=
+    Once wielded by an unknown member of the Biesel Foreign Legion,
+    this beloved rifle has seen battle with Sol on every world in the colonies.
+
+selectable-set-bso-brdi-name = BRDI R-25
+selectable-set-bso-brdi-description=
+    An iconic weapon used by members of the Biesel Republic Foreign Legion.
+    Repainted for Blueshield Officers.
+
 selectable-set-mk58-name = Mk58 Pistol
 selectable-set-mk58-description =
     The standard duty pistol for Nanotrasen security.
@@ -43,6 +53,12 @@ selectable-set-terminus-name = DT-8 "Terminus"
 selectable-set-terminus-description =
     A weapon exclusively for oni, this greataxe
     can fire a burst of disabler bolts on command.
+
+selectable-set-ceremonial-rifle-name = M1 Garand
+selectable-set-ceremonial-rifle-description =
+    "Gory, gory, what a hell of a way to die!"
+    An weapon often given to Paratroopers mainly and Infantry in ancient Sol.
+    This one is a relic given to the Sergeant, shoots .30 Rifle.
 
 selectable-set-antiquelaser-name = Antique Laser Pistol
 selectable-set-antiquelaser-description =
@@ -109,3 +125,15 @@ selectable-set-corpsman-combathardsuit-desc =
     Older model of corpsman's hardsuit.
     Built based on designs recovered from Regalis sector.
     Offers much better armor then newer models.
+
+selectable-set-ntr-cane-name = Fancy Cane
+selectable-set-ntr-cane-desc =
+    A fancy cane with a stun setting.
+    Good for fending off annoying assistants who don't want
+    to fill up paperwork.
+
+selectable-set-ntr-belt-name = Disciplinary Belt
+selectable-set-ntr-belt-desc =
+    A belt, hollowed out to maximize pain and minimize damage.
+    This one will let you do many, many lashings to anyone who
+    dares stand in NanoTrasen's way. Oh boy.

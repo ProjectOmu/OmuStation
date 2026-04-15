@@ -1,0 +1,15 @@
+- type: entity
+  id: BluespaceLifelineImplanter50TC
+  suffix: Bluespace Lifeline, 50TC
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: BluespaceLifelineImplant50TC
+
+- type: entity
+  id: BluespaceLifelineImplanter100TC
+  suffix: Bluespace Lifeline, 100TC
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: BluespaceLifelineImplant100TC

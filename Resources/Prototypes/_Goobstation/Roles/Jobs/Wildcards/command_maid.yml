@@ -19,6 +19,10 @@
   - Maintenance
   - Command
   special:
+  #Omu Start
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  #Omu End
   - !type:GiveItemOnHolidaySpecial
     holiday: GarbageDay
     prototype: WeaponRevolverInspector

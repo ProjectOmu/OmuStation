@@ -159,8 +159,8 @@
   guides: # goobstation
   - Command
   - Succession
-  - StandardProcedures SOP
-  - HeadOfPersonnel SOP
+  - StandardProceduresSOP
+  - HeadOfPersonnelSOP
   - Writing
   - CommandTrainingManual # Omu
   goobcoins: 40 #Goob content
@@ -196,6 +196,10 @@
   - Cargo
   - Atmospherics
   - Medical
+  - Journalism # Goob
+  - Robotics # Goob
+  - Corpsman # Omu
+  - Paramedic # Omu
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -207,10 +211,11 @@
   id: HoPGear
   equipment:
     shoes: ClothingShoesColorBrown
-    id: HoPPDA
+    #id: HoPPDA - Omu, moved to loadouts
     #gloves: ClothingHandsGlovesHop
     ears: ClothingHeadsetAltCommand
     belt: BoxFolderClipboard
+    eyes: ClothingEyesHudCommand
   storage:
     back:
     - Flash

@@ -1,0 +1,52 @@
+- type: entity
+  name: raw shrimp
+  parent: FoodMeatRawBase
+  id: FoodMeatShrimp
+  description: "I should clobber you over the head with a club."
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/bay_food_shellfish.rsi
+    state: shrimp_meat
+  - type: FlavorProfile
+    flavors:
+    - rawshrimp
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+        - ReagentId: Fat
+          Quantity: 2
+  - type: Construction
+    graph: CookedShrimp
+    node: start
+    defaultTarget: cooked shrimp
+
+- type: entity
+  name: cooked shrimp
+  parent: FoodMeatBase
+  id: FoodMeatShrimpCooked
+  description: srimp
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/bay_food_shellfish.rsi
+    state: cooked_shrimp
+  - type: FlavorProfile
+    flavors:
+    - shrimp
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 7
+  - type: Construction
+    graph: CookedShrimp
+    node: cooked shrimp

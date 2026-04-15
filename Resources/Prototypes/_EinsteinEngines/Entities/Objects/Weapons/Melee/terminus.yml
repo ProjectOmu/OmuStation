@@ -42,8 +42,8 @@
     attackRate: 0.8
     damage:
       types:
-        Blunt: 12
-        Slash: 12
+        Blunt: 15 # Omu
+        Slash: 15 # Omu
     soundHit:
       collection: MetalThud
     canWideSwing: false # Omu
@@ -52,7 +52,6 @@
   - type: Wieldable
   - type: GunRequiresWield
   - type: MeleeRequiresWield
-    fumbleOnAttempt: true
   - type: Item
     size: Huge
     shape:

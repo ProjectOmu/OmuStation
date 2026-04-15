@@ -1,0 +1,37 @@
+- type: entity
+  name: radiation autoinjector cartridge
+  parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
+  description: Contains 10u of arithrazine, used in a cartridge autoinjector.
+  id: CartridgeArith
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: filling
+      color: "#572757"
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Arithrazine
+        Quantity: 10
+
+- type: entity
+  name: poison autoinjector cartridge
+  parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
+  description: Contains 10u of dylovene, used in a cartridge autoinjector.
+  id: CartridgeDylo
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: filling
+      color: "#572757"
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Dylovene
+        Quantity: 10

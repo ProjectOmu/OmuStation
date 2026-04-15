@@ -16,21 +16,21 @@
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.EUI;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords;
 using Content.Server.StationRecords.Systems;
+using Content.Server._Omu.CrewManifest;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.CrewManifest;
 using Content.Shared.GameTicking;
 using Content.Shared.Roles;
+using Content.Shared.Station.Components;
 using Content.Shared.StationRecords;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 namespace Content.Server.CrewManifest;
 
@@ -130,6 +130,8 @@ public sealed class CrewManifestSystem : EntitySystem
     /// <returns>The name and crew manifest entries (unordered) of the station.</returns>
     public (string name, CrewManifestEntries? entries) GetCrewManifest(EntityUid station)
     {
+        BuildCrewManifest(station); // Omu
+
         var valid = _cachedEntries.TryGetValue(station, out var manifest);
         return (valid ? MetaData(station).EntityName : string.Empty, valid ? manifest : null);
     }
@@ -240,7 +242,6 @@ public sealed class CrewManifestSystem : EntitySystem
         var iter = _recordsSystem.GetRecordsOfType<GeneralStationRecord>(station);
 
         var entries = new CrewManifestEntries();
-
         var entriesSort = new List<(JobPrototype? job, CrewManifestEntry entry)>();
         foreach (var recordObject in iter)
         {
@@ -250,6 +251,12 @@ public sealed class CrewManifestSystem : EntitySystem
             _prototypeManager.TryIndex(record.JobPrototype, out JobPrototype? job);
             entriesSort.Add((job, entry));
         }
+
+        // Omu start
+        // Allow downstream modules to inject extra manifest rows without rewriting this system.
+        var ev = new CrewManifestEntriesCollectEvent(station, entriesSort);
+        RaiseLocalEvent(ev);
+        // Omu end
 
         entriesSort.Sort((a, b) =>
         {

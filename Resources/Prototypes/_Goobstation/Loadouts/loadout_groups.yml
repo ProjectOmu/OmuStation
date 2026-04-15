@@ -17,6 +17,8 @@
 # SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
+# SPDX-FileCopyrightText: 2026 ThanosDeGraf <richardgirgindontstop@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -245,7 +247,7 @@
   maxLimit: 1
   loadouts:
   - CargoTechnicianEnvirohelm
-  - MailCarrierEnvirohelm
+  #- MailCarrierEnvirohelm # Omu - Moved to courier
 
 - type: loadoutGroup
   id: CargoTechnicianEnvirosuit
@@ -254,7 +256,7 @@
   maxLimit: 1
   loadouts:
   - CargoTechnicianEnvirosuit
-  - MailCarrierEnvirosuit
+  #- MailCarrierEnvirosuit # Omu - Moved to courier
 
 - type: loadoutGroup
   id: CargoTechnicianEnvirogloves
@@ -263,7 +265,7 @@
   maxLimit: 1
   loadouts:
   - CargoTechnicianEnvirogloves
-  - WhiteEnvirogloves
+  #- WhiteEnvirogloves # Omu - Moved to courier
 
 # Quartermaster
 
@@ -906,6 +908,7 @@
   minLimit: 0
   loadouts:
   - ClothingNeckScarfStripedCentcom
+  - NanotrasenRepresentativeEnsemble
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeBackpack
@@ -1005,6 +1008,7 @@
   - BlackBlueshieldOfficerTurtleneck # OmuStation Addon
   - BlackBlueshieldOfficerTurtleneckSkirt # OmuStation Addon
   - BlueShieldShirt #Omu - Starlight Port
+  - FormalBlueShieldJumpsuit #Omu - Starlight Port
   - EliteBlueShieldJumpsuit #Omu - Starlight Port
   - EliteBlueShieldJumpskirt #Omu - Starlight Port
 
@@ -1029,6 +1033,7 @@
   - BlueshieldOfficerOuterBlueshieldMantle
   - BlueshieldOfficerOuterBlueshieldMantleBlack # Omu
   - BlueShieldEliteCloak # Omu - Starlight Port
+  - BlueshieldOfficerEnsemble
 
 - type: loadoutGroup
   id: BlueshieldOfficerMask
@@ -1044,6 +1049,7 @@
   - JackBoots
   - BlackCowboyBoots
   - SnowjacksBso
+  - BSOAdvancedJackBoots #Omu
 
 - type: loadoutGroup
   id: BlueshieldOfficerEnvirohelm
@@ -1170,6 +1176,7 @@
   loadouts:
   - Bodycam # Goobstation - Body cameras
   - ClothingNeckCWPSec
+  - ClothingNeckMantleVeteranSecurity
 
 #honkops
 
@@ -1281,7 +1288,7 @@
   loadouts:
   - RoboticistPDA
 
-# Salvage / Miner
+# Salvage
 
 - type: loadoutGroup
   id: SalvageEnvirohelm
@@ -1313,6 +1320,7 @@
   minLimit: 0
   loadouts:
   - MinerCloak
+  - SalvageEspecialistEnsemble
 
 # Chemist
 
@@ -1324,6 +1332,10 @@
   - MedicalBeret
   - SeniorPhysicianBeret
   - ChemistUshanka # Da.
+  - ChemistryBeret # Starlight - OMU port
+  - ChemistNurseHat # Starlight - OMU port
+  - ChemistTruckersHat # Starlight - OMU port
+  - ChemistFisherCap # Starlight - OMU port
 
 - type: loadoutGroup
   id: ChemistEnvirohelm
@@ -1402,6 +1414,10 @@
   - BrigmedicJumpskirt
   - CorpsmanJumpsuit #Omu
   - CorpsmanJumpskirt #Omu
+  - CorpsmanResponse # Starlight
+  - CorpsmanTrauma # Starlight
+  - BrigmedicJumpsuitOfLife # Starlight
+  - BrigmedicJumpskirtOfLife # Starlight
 
 - type: loadoutGroup
   id: BrigmedicHead
@@ -1410,10 +1426,13 @@
   loadouts:
   - BrigmedicBeret
   - CMOMedicalHeadMirror
+  - BrigmedicNurseHat # Starlight
   - SecurityBeret
   - SecurityHat
   - TrooperHat
   - CorpsmanBeret #Omu
+  - CorpsmanNurseHat # Starlight
+  - BrigmedicNurseHatOfLife # Starlight
 
 - type: loadoutGroup
   id: BrigmedicOuterClothing
@@ -1424,6 +1443,9 @@
   - ArmorVest
   - ArmorVestSlim
   - SecurityOfficerWintercoat
+  - CorpsmanWinterCoatDV # Omu
+  - BrigmedicLabCoat # Starlight
+  - CorpsmanLabCoat # Starlight
 
 - type: loadoutGroup
   id: BrigmedicBackpack
@@ -1572,3 +1594,60 @@
   name: loadout-group-virologist-id
   loadouts:
    - VirologistPDA
+
+- type: loadoutGroup
+  id: VirologyEnvirohelm
+  name: loadout-group-virology-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - VirologistEnvirohelm
+
+- type: loadoutGroup
+  id: VirologyEnvirosuit
+  name: loadout-group-virology-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - VirologistEnvirosuit
+
+- type: loadoutGroup
+  id: VirologyEnvirogloves
+  name: loadout-group-virology-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirogloves
+  - NitrileEnvirogloves
+
+# Radio Host
+
+- type: loadoutGroup
+  id: RadioHostJumpsuit
+  name: loadout-group-radiohost-jumpsuit
+  loadouts:
+  - JumpsuitHawaiBlack
+  - JumpsuitHawaiBlue
+  - JumpsuitHawaiRed
+  - JumpsuitHawaiYellow
+
+# Salvage/Shaft Miner
+
+- type: loadoutGroup
+  id: SalvageSpecialistJumpsuit
+  name: loadout-group-salvage-specialist-jumpsuit
+  minLimit: 1 # DV
+  maxLimit: 1 # DV
+  loadouts:
+  - SalvageJumpskirt # DV
+  - SalvageSpecialistJumpsuit
+  - SalvageSpecialistJumpskirt
+  - SalvageSpecialistOveralls
+
+- type: loadoutGroup
+  id: ShaftMinerJumpsuit
+  name: loadout-group-shaft-miner-jumpsuit
+  loadouts:
+  - ShaftMinerJumpsuit
+  - ShaftMinerJumpskirt
+  - ShaftMinerOveralls

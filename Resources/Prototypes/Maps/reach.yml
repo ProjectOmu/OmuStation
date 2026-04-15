@@ -48,6 +48,7 @@
             # AdministrativeAssistant: [ 1, 1 ] # Delta V
             HeadOfSecurity: [ 1, 1 ]
             SecurityOfficer: [ 1, 2 ]
+            #Courier: [ 1, 1 ] # Omu - Courier role
             CargoTechnician: [ 1, 1 ]
             SalvageSpecialist: [ 1, 2 ]
             Bartender: [ 1, 1 ]
@@ -61,8 +62,6 @@
             StationEngineer: [ 1, 2 ]
             Scientist: [ 1, 1 ]
             Passenger: [ -1, -1 ]
-
-            NanotrasenCareerTrainer: [ 2, 2] # Omu
 
         # Goobstation blob-config-start LOW
         - type: StationBlobConfig

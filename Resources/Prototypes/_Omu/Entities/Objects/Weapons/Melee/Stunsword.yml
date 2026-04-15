@@ -20,7 +20,7 @@
     autoRechargePause: false
     autoRechargePauseTime: 25
   - type: DisarmMalus
-  - type: Tag 
+  - type: Tag
     tags:
     - Stunsword
   - type: Sharp
@@ -31,9 +31,7 @@
     attackRate: 1
     damage:
       types:
-        Slash: 20
-      woundSeverityMultipliers:
-        Slash: 1.5
+        Slash: 12 # It's a sword, come on guys!
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
     angle: 60
@@ -56,9 +54,7 @@
           attackRate: 1
           damage:
             types:
-              Slash: 20
-            woundSeverityMultipliers:
-              Slash: 1.5
+              Slash: 12 # Again, it's a sword!!
           soundHit:
             path: /Audio/Weapons/bladeslice.ogg
           angle: 60
@@ -93,7 +89,7 @@
 
       shock: !type:ItemSwitchState
         verb: heat # no more shock dmg :(
-        energyPerUse: 100 
+        energyPerUse: 100
         sprite:
           sprite: _Omu/Objects/Weapons/Melee/stunsword.rsi
           state: shock-icon
@@ -110,7 +106,7 @@
           damage:
             types:
               Slash: 5
-              Heat: 15
+              Heat: 10
             woundSeverityMultipliers:
               Slash: 1.5
           angle: 60

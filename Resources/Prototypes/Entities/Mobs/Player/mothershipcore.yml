@@ -1,19 +1,26 @@
-- type: startingGear
-  id: MothershipCoreGear
-  inhand:
-  - DoorRemoteXenoborg
-  - Omnitool
+#- type: startingGear # <//fixborghands>
+#  id: MothershipCoreGear
+#  inhand:
+#  - DoorRemoteXenoborg
+#  - Omnitool
 
 - type: entity
   parent:
-  - BaseMachinePowered
+  #- BaseMachinePowered  # <//fixborghands>
+  - BaseStructure # <//fixborghands>
   - BaseMob
   id: MothershipCore
   name: mothership core
   description: A sentient machine that can produce Xenoborgs. Without this the Xenoborgs are doomed.
   components:
+  - type: InputMover # needs this to pilot the mothership  # <//fixborghands>
+  - type: MovementSpeedModifier  # <//fixborghands>
+    baseWalkSpeed: 0 # shouldn't move
+    baseSprintSpeed: 0 # shouldn't move
   - type: Appearance
   - type: WiresVisuals
+  - type: Damageable  # <//fixborghands>
+    damageContainer: Inorganic
   - type: Fixtures
     fixtures:
       fix1:
@@ -34,6 +41,10 @@
       map: ["enum.MaterialStorageVisualLayers.Inserting"]
     - state: core-o
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - state: core-e  # <//fixborghands>
+      map: [ "enum.BorgVisualLayers.Light" ]
+      shader: unshaded
+      visible: false
   - type: Machine
     board: null
   - type: Lathe
@@ -90,17 +101,6 @@
     maxIntensity: 100
     intensitySlope: 2
     totalIntensity: 200
-  - type: SurveillanceCameraSpeaker
-  - type: SurveillanceCameraMonitor
-  - type: RoboticsConsole
-#     allowBorgControl: false # Omu, this doesnt exist here.
-    radioChannel: Xenoborg
-  - type: DeviceNetwork
-    deviceNetId: Wireless
-    receiveFrequencyId: Mothership
-    transmitFrequencyId: Mothership
-  - type: WirelessNetworkConnection
-    range: 10000 # mothership can see them from very far
   - type: WiresPanel
   - type: ActivatableUI
     key: enum.LatheUiKey.Key
@@ -112,10 +112,6 @@
         requireInputValidation: false
       enum.RadarConsoleUiKey.Key:
         type: RadarConsoleBoundUserInterface
-      enum.RoboticsConsoleUiKey.Key:
-        type: RoboticsConsoleBoundUserInterface
-      enum.SurveillanceCameraMonitorUiKey.Key:
-        type: SurveillanceCameraMonitorBoundUserInterface
       enum.LatheUiKey.Key:
         type: LatheBoundUserInterface
       enum.ResearchClientUiKey.Key:
@@ -142,35 +138,64 @@
       Unsexed: UnisexSiliconXenoborg
     wilhelmProbability: 0
   - type: IntrinsicRadioReceiver
-  - type: CollectiveMind # Omu, binary is collectivemind
-    defaultChannel: Binary
-    channels:
-    - Binary
   - type: IntrinsicRadioTransmitter
     channels:
     - Mothership
     - Xenoborg
-#    - Binary # Omu, binary is collectivemind
+    #- Binary # Goobstation binary hivemind
+  - type: CollectiveMind # Goobstation binary hivemind
+    defaultChannel: Binary
+    channels:
+    - Binary
   - type: ActiveRadio
     channels:
     - Mothership
     - Xenoborg
-#    - Binary # Omu, binary is collectivemind
+    #- Binary # Goobstation binary hivemind
   - type: XenoborgMothership
   - type: Tag
     tags:
+    - SiliconEmotes
     - CanPilot
     - Structure
   - type: Inventory
     templateId: borg
-  - type: Loadout
-    prototypes: [MothershipCoreGear]
+  #- type: Loadout # <//fixborghands>
+  #  prototypes: [MothershipCoreGear]
   - type: NpcFactionMember
     factions:
     - Xenoborg
-  - type: Body
-    prototype: MothershipCoreBody
+  #- type: Body <//fixborghands>
+  #  prototype: MothershipCoreBody
   - type: Hands
+    showInHands: false # <fixborghands>
+    disableExplosionRecursion: true
+    canBeStripped: false
+  - type: BorgChassis
+    maxModules: 3
+    hasMindState: core-e
+    noMindState: core-e
+    moduleWhitelist:
+      tags:
+      - MothershipModule
+      - BorgModuleEngineering
+  - type: ContainerFill
+    containers:
+      borg_module:
+      - MothershipModule
+      - BorgModuleAdvancedTool
+      - BorgModuleConstruction # Accursed
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot { }
+      borg_module: !type:Container { }
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMicroreactor # </fixborghands>
   # - type: Puller # use the conveyor
   - type: Eye
     drawFov: false
@@ -202,38 +227,9 @@
     uis:
       enum.RadarConsoleUiKey.Key:
         toggleAction: ActionAGhostShowRadar
-      enum.RoboticsConsoleUiKey.Key:
-        toggleAction: ActionXenoborgControlMonitor
-      enum.SurveillanceCameraMonitorUiKey.Key:
-        toggleAction: ActionXenoborgCameraMonitor
   - type: ShowElectrocutionHUD
   - type: PowerMonitoringCableNetworks
   - type: RadarConsole
 
-- type: entity
-  parent: BaseAGhostAction
-  id: ActionXenoborgControlMonitor
-  name: Xenoborgs Control Console
-  description: View the Xenoborgs Control Console
-  components:
-  - type: Action
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-basic-module }
-    iconOn: Interface/Actions/actions_borg.rsi/xenoborg-basic-module.png
-    keywords: [ "Mothership Core", "console", "interface" ]
-    priority: -6
-  - type: InstantAction
-    event: !type:ToggleIntrinsicUIEvent { key: enum.RoboticsConsoleUiKey.Key }
-
-- type: entity
-  parent: BaseAGhostAction
-  id: ActionXenoborgCameraMonitor
-  name: Xenoborgs Camera Monitor
-  description: View the Xenoborgs Camera Monitor
-  components:
-  - type: Action
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-eye-module }
-    iconOn: Interface/Actions/actions_borg.rsi/xenoborg-eye-module.png
-    keywords: [ "Mothership Core", "console", "interface" ]
-    priority: -6
-  - type: InstantAction
-    event: !type:ToggleIntrinsicUIEvent { key: enum.SurveillanceCameraMonitorUiKey.Key }
+# TODO: add xenoborg control interface action (part 5)
+# TODO: add xenoborg camera monitor interface action (part 5)

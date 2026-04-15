@@ -12,7 +12,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   <GuideEntityEmbed Entity="MobIPCDummy" Caption="I.P.C."/>
   An IPC (short for Integrated Positronic Chassis) is a type of sentient robot and is considered an [color=yellow]independent individual[/color], meaning [color=red]they are not guided by any laws of robotics[/color]. IPCs cannot be hacked by Emags because they do not have to follow any predefined directives in their system. [color=red]IPCs are silicon-based beings, so they are usually healed by Science or Engineering instead of Medical.[/color]
   They take 20% less Brute damage, 70% more Heat damage and 100% more Shock damage. Contrary to cyborgs, they take Radiation damage, but 60% less than humans.
-  They have no bones.
+  They have no bones. They are resistant to low pressures, but not immune.
 
   <Box>
     <GuideEntityEmbed Entity="PositronicBrain" Caption="Positronic Brain"/>
@@ -53,6 +53,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="SheetGlass" Caption="Glass Sheets (any type)"/>
     Glass Sheets can be used to repair [color=yellow]Blindness[/color].
+  </Box>
+  <Box HorizontalAlignment="Stretch">
+    <GuideEntityEmbed Entity="Oilpack" Caption="Coolant bottle"/>
+    Coolant bottles can be used to replenish [color=yellow]Coolant level[/color].
   </Box>
   <Box HorizontalAlignment="Stretch">
     In the event an IPC dies, after being fully repaired, it should be restarted using the [color=yellow]"Restart"[/color] button (located by right-clicking).

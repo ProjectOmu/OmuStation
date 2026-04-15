@@ -1,0 +1,18 @@
+- type: antag
+  id: Chimera
+  name: roles-antag-Chimera-name
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-Chimera-objective
+  guides: [ Letoferol ]
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleChimera
+  name: Chimera Role
+  components:
+  - type: MindRole
+    antagPrototype: Chimera
+    roleType: TeamAntagonist
+    subtype: role-subtype-Chimera
+  - type: MindRoleChimera

@@ -15,3 +15,17 @@
     whitelist:
       tags:
       - Grenade
+
+- type: entity
+  parent: BlueshieldAmmunitionBox
+  id: BlueshieldAmmunitionBoxFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: MagazineBoxMagnum
+    - id: MagazineBoxMagnumEnsnaring
+    - id: MagazineBoxMagnumFlash
+    # - id: MagazineBoxMagnumEMP
+    - id: MagazineMagnumLeverRifleEmpty
+      amount: 2

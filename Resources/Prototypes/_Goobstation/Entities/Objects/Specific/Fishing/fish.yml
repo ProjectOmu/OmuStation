@@ -7,45 +7,44 @@
 
 - type: entity
   id: BaseFish
-  parent: [SimpleMobBase, BaseItem]
+  parent: BaseItem # Omu, item fish
   abstract: true
   name: fish
   description: Water-born creature from the infinite sea... Or toilet.
   components:
   - type: Fish
-    difficulty: 0.029
+    difficulty: 0.023
   - type: StaticPrice
     price: 250
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      1: Critical
-      5: Dead
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 0.1
-    baseSprintSpeed: 0.1
-  - type: PassiveDamage
-    allowedStates:
-    - Alive
-    damageCap: 20
-    damage:
-      types:
-        Asphyxiation: 1
-  - type: Respirator
-    damage:
-      types:
-        Asphyxiation: 1.0
-    damageRecovery:
-      types:
-        Asphyxiation: 0
+#  - type: MobThresholds # Omu, item fish
+#    thresholds:
+#      0: Alive
+#      1: Critical
+#      5: Dead
+#  - type: MovementSpeedModifier
+#    baseWalkSpeed: 0.1
+#  - type: PassiveDamage
+#    allowedStates:
+#    - Alive
+#    damageCap: 20
+#    damage:
+#      types:
+#        Asphyxiation: 1
+#  - type: Respirator
+#    damage:
+#      types:
+#        Asphyxiation: 1.0
+#    damageRecovery:
+#      types:
+#        Asphyxiation: 0
   - type: Butcherable
     spawned:
     - id: FoodMeatFish
       amount: 2
-  - type: Bloodstream
-    bloodMaxVolume: 20
-    bloodReagent: Blood
-  - type: ZombieImmune
+#  - type: Bloodstream # Omu, item fish
+#    bloodMaxVolume: 20
+#    bloodReagent: Blood
+#  - type: ZombieImmune
 
 - type: entity
   id: BaseFishRare
@@ -166,9 +165,9 @@
     state: clown
   - type: Item
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-  - type: Bloodstream
-    bloodMaxVolume: 20
-    bloodReagent: Laughter
+#  - type: Bloodstream # Omu, Item fish
+#    bloodMaxVolume: 20
+#    bloodReagent: Laughter
 
 - type: entity
   id: FishNukeDisk
@@ -277,9 +276,9 @@
     state: tropical
   - type: Item
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-  - type: Bloodstream
-    bloodMaxVolume: 10
-    bloodReagent: Laughter
+#  - type: Bloodstream # Omu, item fish
+#    bloodMaxVolume: 10
+#   bloodReagent: Laughter
 
 - type: entity
   id: FishIan

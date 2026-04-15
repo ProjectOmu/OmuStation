@@ -1,0 +1,68 @@
+- type: body
+  id: ChimeraBeast
+  name: "chimera endoskeleton"
+  root: torso
+  slots:
+    torso:
+      part: TorsoSkeletonChimera
+      organs:
+        heart: OrganChimeraHeart
+        lungs: OrganChimeraLungs
+        stomach: OrganChimeraStomach
+        liver: OrganChimeraLiver
+
+- type: body
+  id: Chimera
+  name: "chimera endoskeleton"
+  root: torso
+  slots:
+    head:
+      part: HeadSkeletonChimera
+      connections:
+      - torso
+      organs:
+        brain: OrganChimeraBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: TorsoSkeletonChimera
+      connections:
+      - right arm
+      - left arm
+      - groin # Omu - adds groin
+      - head # Shitmed
+      organs:
+        heart: OrganChimeraHeart
+        lungs: OrganChimeraLungs
+
+    groin:
+      part: GroinSkeletonChimera
+      connections:
+      - right leg
+      - left leg
+      organs:
+        stomach: OrganChimeraStomach
+        liver: OrganChimeraLiver
+    right arm:
+      part: RightArmSkeletonChimera
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmSkeletonChimera
+      connections:
+      - left hand
+    right hand:
+      part: RightHandSkeletonChimera
+    left hand:
+      part: LeftHandSkeletonChimera
+    right leg:
+      part: RightLegSkeletonChimera
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegSkeletonChimera
+      connections:
+      - left foot
+    right foot:
+      part: RightFootSkeletonChimera
+    left foot:
+      part: LeftFootSkeletonChimera

@@ -25,9 +25,6 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, BluespaceLifelineImplant ]
-  - !type:RemoveComponentSpecial # Omu, no stealing NCT's gear
-    components:
-    - type: Strippable
 #  - !type:AddComponentSpecial # Intentionally not command. I don't want them to ruin rev rounds.
 #    components:
 #    - type: CommandStaff

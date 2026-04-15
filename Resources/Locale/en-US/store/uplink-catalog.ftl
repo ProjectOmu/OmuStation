@@ -97,22 +97,22 @@
 
 # Weapons
 uplink-pistol-viper-name = Viper
-uplink-pistol-viper-desc = A small, easily concealable, but somewhat underpowered gun. Retrofitted with a fully automatic receiver. Uses pistol magazines (.35 auto).
+uplink-pistol-viper-desc = A light and concelable pistol that punches high above its weight class. Can be switched between semi and full-auto. Feeds from .35 Auto pistol magazines.
 
 uplink-estoc-bundle-name = Estoc DMR bundle
 uplink-estoc-bundle-desc = A designated marksman rifle, fitted with a mid-range optic for longer-range combat. Bundled with two rifle magazines (.20 rifle).
 
 uplink-revolver-python-name = Python
-uplink-revolver-python-desc = A brutally simple, effective, and loud Syndicate revolver. Comes loaded with armor-piercing rounds. Uses .45 magnum.
+uplink-revolver-python-desc = A brutally simple, effective, and loud Syndicate revolver. Comes loaded with armor-piercing rounds. Loads 6 rounds of .45 Magnum.
 
 uplink-gloves-knuckleduster-name = Syndicate Knuckle Dusters
 uplink-gloves-knuckleduster-desc = A pair of plastitanium knuckle dusters that let you punch hard enough to break the captains jaw into pieces.
 
 uplink-pistol-cobra-name = Cobra
-uplink-pistol-cobra-desc = A rugged, robust operator handgun with inbuilt silencer. Uses 9.5mm caseless magnum, comes loaded with a hollow-point magazine.
+uplink-pistol-cobra-desc = An integrally suppressed, semi-automatic pistol that leaves no trace. Feeds from 9.5mm pistol magazines.
 
 uplink-rifle-mosin-name = Kardashev-Mosin
-uplink-rifle-mosin-desc = A bolt action service rifle that has seen many wars. Not modern by any standard, hand loaded, and terrible recoil, but it is cheap.
+uplink-rifle-mosin-desc = A bolt action service rifle that has seen many wars. Not modern by any standard, hand loaded, and terrible recoil, but it is cheap. Loads 10 rounds of .30 Rifle.
 
 uplink-esword-name = Energy Sword
 uplink-esword-desc = A very dangerous energy sword that can reflect energy shots. Can be stored in pockets when turned off. Makes a lot of noise when used or turned on.
@@ -213,8 +213,9 @@ uplink-holoclown-kit-name = Holoclown Kit
 uplink-holoclown-kit-desc = A joint venture between Cybersun and Honk.co. Contains an injector that hosts a sentient metaphysical clown made of hard light which resides in the user's body when not active.
     The holoclown has pockets to store things, a hardlight hand it can manipulate the environment with and is immune to hazardous environments while being resistant to direct trauma, but shares any damage it takes with the user.
 
+# omu, chameleon
 uplink-holster-name = Shoulder Holster
-uplink-holster-desc = A deep shoulder holster capable of holding many types of ballistics.
+uplink-holster-desc = A deep shoulder holster capable of holding many types of ballistics, of any size! Now comes with chameleon functionality!
 
 uplink-chest-rig-name = Chest Rig
 uplink-chest-rig-desc = Explosion-resistant tactical webbing used for holding traitor goods.
@@ -327,7 +328,7 @@ uplink-chemistry-kit-name = Chemical Synthesis Kit
 uplink-chemistry-kit-desc = A starter kit for the aspiring chemist, notably includes a chemical payload and timer, a hyperzine syringe, and two vials of vestine for all your criminal needs!
 
 uplink-knives-kit-name = Throwing Knives Kit
-uplink-knives-kit-desc = A set of 4 syndicate branded throwing knives, perfect for embedding into the body of your victims.
+uplink-knives-kit-desc = A set of 4 syndicate branded throwing knives, perfect for embedding into the body of your victims. Capable of ignoring armor entirely when thrown.
 
 uplink-meds-bundle-name = Interdyne Medical Bundle
 uplink-meds-bundle-desc = An assortment of autoinjectors and premium medical equipment to cover for every possible situation. Contains an elite compact defibrillator that can be used as a weapon.
@@ -434,7 +435,8 @@ uplink-clothing-shoes-boots-mag-syndie-name = Blood-red Magboots
 uplink-clothing-shoes-boots-mag-syndie-desc = A pair of boots that prevent slipping and, in zero gravity, allow you to move normally, at the cost of a slight slowdown. Additionally, they have jetpack functionality and come fueled, but don't last for long.
 
 uplink-eva-syndie-name = Syndicate EVA Bundle
-uplink-eva-syndie-desc = A durathread EVA suit with some protection, and anti-rad installed. Very nimble, with zero slowdown.
+# Omu
+uplink-eva-syndie-desc = An incredibly lightweight EVA suit equipped with radiation shielding. Now with 100% less durathread!
 
 uplink-hardsuit-carp-name = Carp Hardsuit
 uplink-hardsuit-carp-desc = Looks like an ordinary carp suit, except fully spaceproof and tricks space carp into thinking you are one of them.

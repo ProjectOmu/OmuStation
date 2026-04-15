@@ -1,0 +1,160 @@
+- type: entity
+  save: false
+  id: NFMobAtmos
+  abstract: true
+  components:
+  - type: Temperature
+    heatDamageThreshold: 2000 # Should prevent mobs from taking damage on planets with extreme heat
+    coldDamageThreshold: -250 # Should make mobs immune to cold planets
+    currentTemperature: 310.15
+    coldDamage: #per second, scales with temperature & other constants
+      types:
+        Cold: 0.1
+    specificHeat: 42
+    heatDamage: #per second, scales with temperature & other constants
+      types:
+        Heat: 1.5
+  - type: ThermalRegulator
+    metabolismHeat: 800
+    radiatedHeat: 100
+    implicitHeatRegulation: 500
+    sweatHeatRegulation: 2000
+    shiveringHeatRegulation: 2000
+    normalBodyTemperature: 310.15
+    thermalRegulationTemperatureThreshold: 25
+  - type: MovedByPressure
+
+- type: entity
+  save: false
+  id: MobPassiveRegenWeak
+  abstract: true
+  components:
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damageCap: 500
+    damage:
+      groups:
+        Brute: -0.5
+        Burn: -0.5
+        Airloss: -1
+
+- type: entity
+  save: false
+  id: MobPassiveRegen
+  abstract: true
+  components:
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    - Critical
+    damageCap: 500
+    damage:
+      groups:
+        Brute: -0.5
+        Burn: -0.5
+        Airloss: -1
+
+- type: entity
+  save: false
+  id: MobPassiveRegenStrong
+  abstract: true
+  components:
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
+    damageCap: 9999
+    damage:
+      groups:
+        Brute: -0.5
+        Burn: -0.5
+        Airloss: -1
+
+- type: entity
+  save: false
+  id: MobPrying
+  abstract: true
+  components:
+  - type: Tool
+    speedModifier: 1 # omu -> 1 from 3
+    qualities:
+      - Prying
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 1 # omu -> 1 from 3
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+#  - type: Access
+#    groups:
+#    - AllAccess
+
+# NonHuman NPC base, no equipment, immune to vacuum/low pressure
+- type: entity
+  suffix: AI, Hostile
+  abstract: true
+  parent:
+  - BaseMob
+  - MobDamageable
+  - MobCombat
+  - NFMobAtmos
+  - MobBloodstream
+  - MobFlammable
+  - MobPrying
+  id: MobNonHumanHostileBase
+  components:
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: Reactive
+    groups:
+      Flammable: [Touch]
+      Extinguish: [Touch]
+      Acidic: [Touch, Ingestion]
+  - type: StatusEffects
+    allowed:
+    - SlowedDown
+    - Stutter
+    - Electrocution
+    - ForcedSleep
+    - TemporaryBlindness
+    - Pacified
+    - Drowsiness
+    - Adrenaline
+  - type: Buckle
+  - type: StandingState
+  - type: InputMover
+  - type: MobMover
+  #- type: ZombieImmune # Mono
+  - type: Hands
+  - type: Puller
+  - type: NameIdentifier
+    group: GenericNumber
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.7
+      80: 0.5
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      80: Critical
+      120: Dead
+  - type: Stamina
+    critThreshold: 100
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Carriable # Carrying system from nyanotrasen.
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - CannotSuicide
+

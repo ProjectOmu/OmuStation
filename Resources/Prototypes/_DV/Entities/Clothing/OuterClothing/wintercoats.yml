@@ -1,0 +1,223 @@
+- type: entity
+  parent: [ ClothingOuterWinterCoat, BaseSecurityContraband ]
+  id: ClothingOuterStasecSweater
+  name: station security sweater
+  description: A thick synthetic sweater with reinforced shoulders and elbows, enough to warm even the harshest security officer's cold heart.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Wintercoats/stasecsweater.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Wintercoats/stasecsweater.rsi
+  - type: Armor
+    coverage: 
+    - Chest
+    - Arm
+    - Groin
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.6
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.7
+
+
+
+- type: entity
+  parent: [ ClothingOuterWinterCoatToggleable, BaseSecurityContraband ]
+  id: ClothingOuterCoatStasec
+  name: station security coat
+  description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Wintercoats/staseccoat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Wintercoats/staseccoat.rsi
+  - type: Armor
+    coverage: 
+    - Chest
+    - Arm
+    - Groin
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.6
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.7
+
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBase, AllowSuitStorageClothing, BaseSecurityContraband ]
+  id: ClothingOuterCoatStasecSenior
+  name: security great coat
+  description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Wintercoats/stasecgreatcoat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Wintercoats/stasecgreatcoat.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.6
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.7
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatStasecSenior ]
+  id: ClothingOuterCoatStasecSeniorOpen
+  name: security great coat
+  suffix: Opened
+
+- type: entity
+  parent: [ ClothingOuterCoatStasecSenior, BaseSecurityCommandContraband ]
+  id: ClothingOuterCoatStasecHoS
+  name: head of security's great coat
+  description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. This version is adorned with gold trim.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Wintercoats/hosgreatcoat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Wintercoats/hosgreatcoat.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.55
+        Heat: 0.55
+        Caustic: 0.6 
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.7
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatStasecHoS ]
+  id: ClothingOuterCoatStasecHoSOpen
+  name: head of security's great coat
+  suffix: Opened
+
+- type: entity
+  parent: [ ClothingOuterCoatStasecSenior, BaseWardenContraband ]
+  id: ClothingOuterCoatStasecWarden
+  name: warden's great coat
+  description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. This version features ice-white trim.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Wintercoats/armourergreatcoat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Wintercoats/armourergreatcoat.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.6
+        Heat: 0.6
+        Caustic: 0.65
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.7
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatStasecWarden ]
+  id: ClothingOuterCoatStasecWardenOpen
+  name: warden's great coat
+  suffix: Opened
+
+
+- type: entity
+  parent: ClothingOuterCoatStasec
+  id: ClothingOuterCoatStasecDet
+  name: detective's coat
+  description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. This version is detective plum.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Wintercoats/detcoat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Wintercoats/detcoat.rsi
+
+- type: entity
+  parent: ClothingOuterCoatStasec
+  id: ClothingOuterCoatStasecCorpsman
+  name: corpsman's coat
+  description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. This version is corpsman blue.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Wintercoats/corpsmancoat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Wintercoats/corpsmancoat.rsi

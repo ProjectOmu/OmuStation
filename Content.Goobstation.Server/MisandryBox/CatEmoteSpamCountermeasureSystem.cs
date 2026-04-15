@@ -10,6 +10,11 @@ using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
 using Robust.Shared.Random;
 
+// Omu
+using Content.Shared.StatusEffectNew;
+using Content.Shared.StatusEffectNew.Components;
+using Robust.Shared.Prototypes;
+
 namespace Content.Goobstation.Server.MisandryBox;
 
 // Now that's a mouthful
@@ -18,21 +23,24 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
     [Dependency] private readonly ThunderstrikeSystem _thunderstrike = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
 
+    // Omu
+    [Dependency] private readonly StatusEffectsSystem _statusEffectNew = default!;
+
     private const float ClearInterval = 20.0f;
     private const float PitchModulo = 0.08f;
     private const int LowerBound = 2; // Shoo away any shits with server vv from killing everyone on 1 emote
 
     [ViewVariables(VVAccess.ReadWrite)]
-    private int _hardEmoteThreshold = 20;
+    private int _hardEmoteThreshold = 20; // Omu
 
     [ViewVariables(VVAccess.ReadWrite)]
-    private int _softThresholdVariance = 10;
+    private int _softThresholdVariance = 0; // Omu
 
     [ViewVariables(VVAccess.ReadWrite)]
-    private float _postSoftThresholdProbability = 0.08f;
+    private float _postSoftThresholdProbability = 0f; // Omu
 
     [ViewVariables(VVAccess.ReadWrite)]
-    private float _softThresholdRefreshCooldown = 34f;
+    private float _softThresholdRefreshCooldown = 0f;
 
     [ViewVariables(VVAccess.ReadOnly)]
     // ReSharper disable once UnusedMember.Local
@@ -51,6 +59,10 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
     private float _timeSinceLastClear = 0f;
 
     private float _timeSinceLastRefresh = 0f;
+
+    //Omu - We are kinder gods... I think.
+    public static readonly EntProtoId MuteEffect= "StatusEffectEmoteMuted";
+    public static readonly TimeSpan MuteDuration = TimeSpan.FromSeconds(10f);
 
     public override void Initialize()
     {
@@ -91,6 +103,18 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
 
     private void OnEmoteEvent(Entity<SpeechComponent> ent, ref EmoteEvent args)
     {
+        // Omu edit start
+        if (args.Handled)
+            return;
+
+        if (_statusEffectNew.HasEffectComp<EmoteMutedStatusEffectComponent>(ent.Owner)
+            && args.Emote.Category.HasFlag(EmoteCategory.Vocal)) //still leaves the text so it looks like they are pantomiming a laugh
+
+        {
+            args.Handled = true;
+            Log.Debug($"Prevented Entity {ent.Owner.Id} from emoting.");
+        }
+        // Omu edit end
         if (args.Emote.Category is EmoteCategory.Vocal or EmoteCategory.Farts && args.Voluntary)
             Add(ent.Owner);
     }
@@ -127,7 +151,9 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
         // By default, this is 8% per step over. 10 over soft threshold is 80%.
         var chance = steps*_postSoftThresholdProbability;
 
-        if (_rand.Prob(chance))
+        if (chance >= 1) // Omu edit - got unhandled exceptions from chance going above 1.
+            Smite(uid,false);
+        else if (_rand.Prob(chance))
             Smite(uid, false);
     }
 
@@ -146,6 +172,14 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
     /// <param name="killOverride">Optional override for the kill parameter. If null, uses DrasticMeasures</param>
     private void Smite(EntityUid uid, bool? killOverride = null)
     {
-        _thunderstrike.Smite(uid, kill: killOverride ?? DrasticMeasures);
+        _statusEffectNew.TrySetStatusEffectDuration(uid, MuteEffect, MuteDuration); // Omu edit start
+        Log.Debug($"Entity {uid.Id} has been muted for {MuteDuration.Seconds} seconds.");
+        //_thunderstrike.Smite(uid, kill: killOverride ?? DrasticMeasures); // Omu edit end
     }
 }
+/// <summary>
+/// Prevents emoting. Use only in conjunction with <see cref="StatusEffectComponent"/>, on the status effect entity.
+/// </summary>
+/// <remarks> Omu - We using the new Entity System raagh</remarks>
+[RegisterComponent]
+public sealed partial class EmoteMutedStatusEffectComponent : Component;

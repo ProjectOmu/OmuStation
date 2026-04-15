@@ -58,7 +58,11 @@
         - state: equipped-HAND-sealed
         - state: equipped-HAND-sealed-unshaded
           shader: unshaded
-    - type: Insulated # Omu, Who removed the insulated from the parent...
+        gloves-vox:
+        - state: equipped-HAND-sealed-vox
+        - state: equipped-HAND-sealed-unshaded-vox
+          shader: unshaded
+    - type: Insulated # Goob Edit (WHY IS IT NOT INSULATED??)
 
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
@@ -67,6 +71,12 @@
   description: A state-of-the-art helmet designed by NanoTrasen for the Medical Responsory modsuit. It includes a built-in HUD.
   categories: [HideSpawnMenu]
   components:
+    - type: Clothing # Omu start
+      clothingVisuals:
+        head:
+          - state: equipped-HEAD
+        head-vox:
+          - state: equipped-HEAD-vox # Omu end
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/medical-responsory.rsi
     - type: PressureProtection
@@ -105,7 +115,10 @@
         - state: equipped-HEAD-sealed
         - state: equipped-HEAD-sealed-unshaded
           shader: unshaded
-
+        head-vox:
+        - state: equipped-HEAD-sealed-vox
+        - state: equipped-HEAD-sealed-unshaded-vox
+          shader: unshaded
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplateResponsoryMedical
@@ -140,6 +153,8 @@
       clothingVisuals:
         outerClothing:
         - state: equipped-OUTERCLOTHING-sealed
+        outerClothing-vox:
+        - state: equipped-OUTERCLOTHING-sealed-vox
     - type: StaminaResistance
       damageCoefficient: 0.45
 
@@ -162,6 +177,10 @@
       clothingVisuals:
         shoes:
         - state: equipped-FEET-sealed
+        shoes-vox:
+        - state: equipped-FEET-sealed-vox
+        - state: equipped-FEET-sealed-unshaded-vox
+          shader: unshaded
     - type: ItemToggle
     - type: ToggleClothing
       action: ActionToggleMagboots

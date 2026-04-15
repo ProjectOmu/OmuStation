@@ -176,6 +176,8 @@
     - id: ComputerCargoCommsFlatpack #Omu adds departmental comms board
     - id: Multitool # Omu
     - id: SlotMachineHighRollerFlatPack # Goob - gambling
+    - id: SalvageShuttleConsoleCircuitboard # Omu edit
+    - id: SalvageExpeditionsComputerCircuitboard # Omu edit
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -338,6 +340,8 @@
     - id: RubberStampCE
     - id: MetalFoamGrenade
     # Goobstation V
+    - id: SupermatterComputerCircuitboard
+    - id: BaseHandheldStationMapSupermatterCe
     - id: BaseHandheldStationMapPowerCe
     - id: EngineeringTechFabCircuitboard
     - id: CartridgeRocketSingularityBuster
@@ -408,9 +412,6 @@
     - id: RubberStampCMO
     # Goobstation Start
     - id: ChemistryHotplateFlatPack
-    - id: CloningpodFlatpack
-    - id: MedicalScannerFlatpack
-    - id: ComputerCloningConsoleFlatpack
     - id: BiomassReclaimerFlatpack
     - id: Multitool
     - id: MedTekCartridge
@@ -543,7 +544,7 @@
     - id: ClothingOuterCoatHoSTrench
     - id: ClothingShoesBootsJack
     - id: DoorRemoteSecurity
-    - id: HoloprojectorSecurity
+    #- id: HoloprojectorSecurity Goob, you have one in the belt
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
@@ -605,3 +606,5 @@
     - id: SpaceCash1000
     - id: BeachBall
     - id: BikeHorn
+    - id: FoodMango #Goobstation
+      prob: 0.65

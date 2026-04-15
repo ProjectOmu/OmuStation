@@ -75,12 +75,38 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckCloakHos
   name: head of security's cloak
-  description: An exquisite dark and red cloak fitting for those who can assert dominance over wrongdoers. Take a stab at being civil in prosecution!
+  description: An exquisite dark and red cloak fitting for those who can assert dominance over wrongdoers. Take a stab at being civil in prosecution! Built-in camera. # Omu
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/hos.rsi
   - type: StealTarget
     stealGroup: HeadCloak
+  # Omu Begin
+  - type: DeviceNetwork
+    deviceNetId: Wired # :clueless:
+    receiveFrequencyId: SurveillanceCameraCommand
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+    nameSet: True
+    mobile: True  # Goobstation - mobile cameras fix
+    id: Bodycam
+  - type: Eye
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: SurveillanceCameraMicrophone
+    blacklist:
+      components:
+      - SurveillanceCamera
+      - SurveillanceCameraMonitor
+      - RadioSpeaker
+  - type: ActiveListener
+    range: 10
+  - type: ClothingGrantComponent
+    component:
+    - type: StationAiVision
+      range: 4
+  # Omu End
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
@@ -100,7 +126,7 @@
   description: A sterile blue cloak with a green cross, radiating with a sense of duty and willingness to help others.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Cloaks/cmo.rsi
+    sprite: _Goobstation/Clothing/Neck/Cloaks/cmo.rsi # Goob Station - cloak resprite
   - type: StealTarget
     stealGroup: HeadCloak
 
@@ -122,7 +148,7 @@
   description: A strong brown cloak with a reflective stripe, while not as fancy as others, it does show your managing skills.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Cloaks/qm.rsi
+    sprite: _Goobstation/Clothing/Neck/Cloaks/qm.rsi # Goob Station - cloak resprite
   - type: StealTarget
     stealGroup: HeadCloak
 

@@ -6,3 +6,41 @@
   cost: -1
   functions:
   globalCost: 1
+
+- type: trait
+  id: SintaUnathi
+  name: language-Draconic-name
+  description: language-Draconic-description
+  category: LanguageTraits
+  cost: 1
+  components:
+  - type: LanguageSpeaker
+  countsTowardsMaxTraits: false # Omustation - Don't count languages towards max traits
+  languagesSpoken:
+    - Draconic
+  languagesUnderstood:
+    - Draconic
+  requirements:
+    - !type:SpeciesRequirement
+      species:
+        - Reptilian
+      inverted: true
+
+- type: trait
+  id: SiikMaas
+  name: language-SiikMaas-name
+  description: language-SiikMaas-description
+  category: LanguageTraits
+  cost: 1
+  components:
+  - type: LanguageSpeaker
+  countsTowardsMaxTraits: false # Omustation - Don't count languages towards max traits
+  languagesSpoken:
+    - SiikMaas
+  languagesUnderstood:
+    - SiikMaas
+  requirements:
+    - !type:SpeciesRequirement
+      species:
+        - Tajaran
+      inverted: true
