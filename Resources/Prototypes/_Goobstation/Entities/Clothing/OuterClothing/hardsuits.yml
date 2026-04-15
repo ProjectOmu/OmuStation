@@ -314,12 +314,27 @@
   parent: [ClothingOuterHardsuitBase, BaseCentcommContraband]
   id: ClothingOuterHardsuitExperimentalNanorep
   name: "NTX5-Mirrorduss"
-  description: A crude dark exosuit of reinforced plating, etched with faintly glowing Bluespace circuits. You can tell someone attempted to scratch out part of the text — Prototype No. 2
+  description: It used to be green, but too many premium cigars turned it tobacco brown. # Starlight
   components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr_experimental.rsi
+  - type: Sprite # Omu - changed sprites because default is ugly as fuck
+    sprite: _Starlight/Clothing/OuterClothing/Hardsuits/ntrep_space.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
   - type: Clothing
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr_experimental.rsi
+    sprite: _Starlight/Clothing/OuterClothing/Hardsuits/ntrep_space.rsi # Omu start
+  - type: Item
+    heldPrefix: inhand
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right
+      - state: inhand-right-unshaded
+        shader: unshaded # Omu end
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000

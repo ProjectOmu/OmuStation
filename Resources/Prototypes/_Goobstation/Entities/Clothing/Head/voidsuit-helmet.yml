@@ -250,26 +250,26 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitExperimentalNanorep
   name: "NTX5-Mirrorduss helmet"
-  description: A dark green helmet with glowing cyan nodes, a mirrored visor, and a mounted side light.
+  description: Used to be a a dark green helmet, but too many premium cigars turned it tobacco brown. # Omu
   components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Helmets/ntr_experimental_helmet.rsi
+  - type: Sprite # Omu - the default sprites were way too ugly
+    sprite: _Starlight/Clothing/Head/Hardsuits/ntrep_helmet.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Helmets/ntr_experimental_helmet.rsi
-    clothingVisuals:
-      head:
-      - state: equipped-head
-      head-resomi:
-      - state: equipped-head-resomi
+    sprite: _Starlight/Clothing/Head/Hardsuits/ntrep_helmet.rsi
+#    clothingVisuals: # Omu edit - commented this out
+#      head:
+#      - state: equipped-head
+#      head-resomi:
+#      - state: equipped-head-resomi
   - type: PointLight
-    color: white
+    color: "#ffdc73" # Omu - changed the color to golden
     radius: 7
     energy: 5
-  - type: ToggleableVisuals
-    clothingVisuals:
-      head:
-      - state: equipped-head-light
-        shader: unshaded
+#  - type: ToggleableVisuals # Omu edit - commented this out
+#    clothingVisuals:
+#      head:
+#      - state: on-equipped-HELMET
+#        shader: unshaded
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
@@ -292,6 +292,10 @@
         Caustic: 0.7
   - type: FireProtection
     reduction: 0.4
+
+
+
+
 
 # singuloth head
 
