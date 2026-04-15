@@ -351,7 +351,7 @@
     - HeadTop
     - HeadSide
     - FacialHair
-  - type: Armor
+  - type: Armor # Omu start
     traumaDeductions:
       Dismemberment: 0.7
       OrganDamage: 0.7
@@ -364,7 +364,7 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-        Radiation: 0.9
+        Radiation: 0.9 # Omu end
 
 # Detective's Hardsuit
 
