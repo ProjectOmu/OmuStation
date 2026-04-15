@@ -397,7 +397,7 @@
         Radiation: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown
     delayDelta: 2
     knockdownTimeDelta: -2
   - type: StaminaResistance
