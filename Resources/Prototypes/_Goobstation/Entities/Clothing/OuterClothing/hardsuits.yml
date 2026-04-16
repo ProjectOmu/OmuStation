@@ -314,7 +314,7 @@
   parent: [ClothingOuterHardsuitBase, BaseCentcommContraband]
   id: ClothingOuterHardsuitExperimentalNanorep
   name: "NTX5-Mirrorduss"
-  description: It used to be green, but too many premium cigars turned it tobacco brown. # Starlight
+  description: A compact space-rated luxury hardsuit issued to the Nanotrasen Representative. # Omu
   components:
   - type: Sprite # Omu - changed sprites because default is ugly as fuck
     sprite: _Starlight/Clothing/OuterClothing/Hardsuits/ntrep_space.rsi
@@ -323,8 +323,8 @@
     - state: icon-unshaded
       shader: unshaded
   - type: Clothing
-    sprite: _Starlight/Clothing/OuterClothing/Hardsuits/ntrep_space.rsi # Omu start
-  - type: Item
+    sprite: _Starlight/Clothing/OuterClothing/Hardsuits/ntrep_space.rsi # Omu - changed sprites bc default is ugly af
+  - type: Item # Omu start
     heldPrefix: inhand
     inhandVisuals:
       left:

@@ -252,11 +252,11 @@
   name: "NTX5-Mirrorduss helmet"
   description: Used to be a a dark green helmet, but too many premium cigars turned it tobacco brown. # Omu
   components:
-  - type: Sprite # Omu - the default sprites were way too ugly
-    sprite: _Starlight/Clothing/Head/Hardsuits/ntrep_helmet.rsi
+  - type: Sprite
+    sprite: _Starlight/Clothing/Head/Hardsuits/ntrep_helmet.rsi # Omu - changed sprites
   - type: Clothing
-    sprite: _Starlight/Clothing/Head/Hardsuits/ntrep_helmet.rsi
-#    clothingVisuals: # Omu edit - commented this out
+    sprite: _Starlight/Clothing/Head/Hardsuits/ntrep_helmet.rsi # Omu - changed sprites
+#    clothingVisuals: # Omu edit - commented clothingVisuals out
 #      head:
 #      - state: equipped-head
 #      head-resomi:
