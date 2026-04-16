@@ -1,3 +1,4 @@
+# Medical
 - type: entity
   parent: [ ClothingHeadHatBeretRND, BaseCommandContraband ]
   id: ClothingHeadHatBeretVeteranCMO
@@ -15,6 +16,7 @@
     - HamsterWearable
     - WhitelistChameleon
 
+# Science
 - type: entity
   parent: ClothingHeadHatBeretRND
   id: ClothingHeadHatBeretCCBeregg
@@ -43,6 +45,7 @@
         Heat: 0.20
         Radiation: 0.20
 
+# Security
 - type: entity
   parent: [ClothingHeadHatBeret, BaseSecurityContraband]
   id: ClothingHeadHatBeretSergeant
@@ -110,3 +113,14 @@
         Slash: 0.7
         Piercing: 0.7
         Heat: 0.8
+
+- type: entity
+  parent: ClothingHeadHatSecurityTrooper
+  id: ClothingHeadHatCowboySec
+  name: security cowboy hat
+  description: "\"There’s a new sheriff on this station, partner.\""
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/sec_cowboyhat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/sec_cowboyhat.rsi

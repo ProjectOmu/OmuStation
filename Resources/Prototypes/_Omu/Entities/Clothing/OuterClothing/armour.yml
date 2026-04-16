@@ -10,3 +10,16 @@
     sprite: _Omu/Clothing/OuterClothing/Armour/ClothingOuterBlueshieldArmourKimono.rsi
   - type: Item
     size: Normal
+
+- type: entity
+  parent: ClothingOuterArmorBase
+  id: ClothingOuterCowboySec
+  name: Security Cowboy Vest
+  description: "\"This station's got laws. You're lookin’ at 'em.\""
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Armour/sec_cowboycoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Armour/sec_cowboycoat.rsi
+  - type: Item
+    size: Normal

@@ -48,6 +48,43 @@
     suitstorage: Terminus
   groupBy: "Main weapon"
 
+- type: loadout
+  id: SecurityOfficerCowboyHat
+  equipment:
+    head: ClothingHeadHatCowboySec
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 360000 #100 hrs
+
+- type: loadout
+  id: SecurityOfficerCowboyVest
+  equipment:
+    outerClothing: ClothingOuterCowboySec
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 360000 #100 hrs
+#      !type:RoleTimeRequirement
+#      role: JobSecurityOfficer
+#      time: 180000 #50 hrs
+
+- type: loadout
+  id: SecurityOfficerCowboyBoots
+  equipment:
+    shoes: ClothingShoesBootsCowboysec
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 360000 #100 hrs
+
+
 #Detective
 - type: loadout
   id: DetectiveWeaponRevolverInspector

@@ -11,3 +11,20 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: StepHeavyBoots
+
+- type: entity
+  parent: ClothingShoesMilitaryBase
+  id: ClothingShoesBootsCowboysec
+  name: security cowboy boots
+  description: Not standard issue. Not your problem.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Shoes/Boots/sec_cowboyboots.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Shoes/Boots/sec_cowboyboots.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepSpurs
+      params:
+        variation: 0.09
+        volume: -6
