@@ -18,6 +18,7 @@
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
+# SPDX-FileCopyrightText: 2026 ThanosDeGraf <richardgirgindontstop@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -246,7 +247,7 @@
   maxLimit: 1
   loadouts:
   - CargoTechnicianEnvirohelm
-  - MailCarrierEnvirohelm
+  #- MailCarrierEnvirohelm # Omu - Moved to courier
 
 - type: loadoutGroup
   id: CargoTechnicianEnvirosuit
@@ -255,7 +256,7 @@
   maxLimit: 1
   loadouts:
   - CargoTechnicianEnvirosuit
-  - MailCarrierEnvirosuit
+  #- MailCarrierEnvirosuit # Omu - Moved to courier
 
 - type: loadoutGroup
   id: CargoTechnicianEnvirogloves
@@ -264,7 +265,7 @@
   maxLimit: 1
   loadouts:
   - CargoTechnicianEnvirogloves
-  - WhiteEnvirogloves
+  #- WhiteEnvirogloves # Omu - Moved to courier
 
 # Quartermaster
 
@@ -1175,6 +1176,7 @@
   loadouts:
   - Bodycam # Goobstation - Body cameras
   - ClothingNeckCWPSec
+  - ClothingNeckMantleVeteranSecurity
 
 #honkops
 
@@ -1441,6 +1443,7 @@
   - ArmorVest
   - ArmorVestSlim
   - SecurityOfficerWintercoat
+  - CorpsmanWinterCoatDV # Omu
   - BrigmedicLabCoat # Starlight
   - CorpsmanLabCoat # Starlight
 
@@ -1627,3 +1630,24 @@
   - JumpsuitHawaiBlue
   - JumpsuitHawaiRed
   - JumpsuitHawaiYellow
+
+# Salvage/Shaft Miner
+
+- type: loadoutGroup
+  id: SalvageSpecialistJumpsuit
+  name: loadout-group-salvage-specialist-jumpsuit
+  minLimit: 1 # DV
+  maxLimit: 1 # DV
+  loadouts:
+  - SalvageJumpskirt # DV
+  - SalvageSpecialistJumpsuit
+  - SalvageSpecialistJumpskirt
+  - SalvageSpecialistOveralls
+
+- type: loadoutGroup
+  id: ShaftMinerJumpsuit
+  name: loadout-group-shaft-miner-jumpsuit
+  loadouts:
+  - ShaftMinerJumpsuit
+  - ShaftMinerJumpskirt
+  - ShaftMinerOveralls

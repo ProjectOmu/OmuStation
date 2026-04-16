@@ -440,16 +440,43 @@
   - type: LanguageKnowledge # Einstein Engines - Languages
     speaks:
     - TauCetiBasic
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
+    - SolCommon
+    - RootSpeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
     - RobotTalk
+    - Marish
+    - Elyran
+    - Freespeak
+    - Tradeband
+    - Schechi
+    - NewKinPidgin
     understands:
     - TauCetiBasic
-    - RobotTalk
-    - Elyran # Omustation start - Borgs and the AI should speak all common languages, minus sign, which they should just understand. (Correction, for now borgs only understand the langs)
-    - Freespeak
-    - NovuNederic
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
     - SolCommon
-    - TauCetiBasic
+    - RootSpeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
+    - RobotTalk
+    - Marish
+    - Elyran
+    - Freespeak
     - Tradeband
+    - Schechi # Omustation start - Borgs and the AI should speak all common languages, minus sign, which they should just understand. (Correction, for now borgs only understand the langs)
+    - NewKinPidgin
+    - NovuNederic
     - Sign # Omustation end
   - type: ProtectedFromStepTriggers
   - type: DamageOnInteractProtection

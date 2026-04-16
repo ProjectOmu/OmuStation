@@ -1,4 +1,12 @@
 - type: entity
+  id: CartridgeCaselessRifleFMJ
+  name: cartridge (9.5mm caseless)
+  parent: BaseCartridgeCaselessRifle
+  components:
+  - type: CartridgeAmmo
+    proto: BulletCaselessRifleFMJ
+
+- type: entity
   id: CartridgeCaselessRifleIncendiary
   name: cartridge (9.5mm caseless incendiary)
   parent: BaseCartridgeCaselessRifle

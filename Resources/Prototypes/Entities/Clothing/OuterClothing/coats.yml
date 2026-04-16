@@ -222,7 +222,7 @@
         Slash: 0.6
         Piercing: 0.55
         Heat: 0.55
-        Caustic: 0.6
+        Caustic: 0.6 
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
@@ -230,6 +230,8 @@
     knockdownTimeDelta: -2
   - type: StaminaResistance # Goobstation
     damageCoefficient: 0.7
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
 
 - type: entity
   abstract: true
@@ -247,9 +249,9 @@
       coefficients:
         Blunt: 0.6
         Slash: 0.6
-        Piercing: 0.65
+        Piercing: 0.55 # Omu
         Heat: 0.55
-        Caustic: 0.8
+        Caustic: 0.6 # Omu
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
@@ -257,6 +259,8 @@
     knockdownTimeDelta: -2
   - type: StaminaResistance # Goobstation
     damageCoefficient: 0.7
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
 
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]

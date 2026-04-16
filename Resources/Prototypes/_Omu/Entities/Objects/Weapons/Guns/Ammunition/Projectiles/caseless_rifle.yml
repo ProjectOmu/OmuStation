@@ -1,4 +1,15 @@
 - type: entity
+  id: BulletCaselessRifleFMJ
+  name: bullet (9.5mm full metal jacket)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 16
+
+- type: entity
   id: BulletCaselessRifleIncendiary
   name: bullet (9.5mm caseless incendiary)
   parent: BaseBulletIncendiary

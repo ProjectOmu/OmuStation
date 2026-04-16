@@ -1,0 +1,115 @@
+- type: polymorph 
+  id: PolymorphHarpy
+  configuration:
+    entity: MobHarpyRandom
+    forced: true
+    inventory: Transfer
+    transferName: true
+    transferDamage: true
+    revertOnDeath: true
+    revertOnCrit: true
+    duration: 600 # 10 minutes
+
+- type: polymorph 
+  id: PolymorphMoth
+  configuration:
+    entity: MobMothRandom
+    forced: true
+    inventory: Transfer
+    transferName: true
+    transferDamage: true
+    revertOnDeath: true
+    revertOnCrit: true
+    duration: 600 # 10 minutes
+
+- type: polymorph
+  id: PolymorphSquackroach
+  configuration:
+    entity: MobSquackroach
+    forced: true
+    inventory: None
+    transferName: true
+    transferDamage: true
+    revertOnDeath: true
+    revertOnCrit: true
+    duration: 60 # 1 minute
+
+- type: polymorph
+  id: PolymorphMothroach
+  configuration:
+    entity: MobMothroach
+    forced: true
+    inventory: None
+    transferName: true
+    transferDamage: true
+    revertOnDeath: true
+    revertOnCrit: true
+    duration: 60 # 1 minute
+
+- type: polymorph
+  id: PolymorphShadowkin
+  configuration:
+    entity: MobShadowkinRandom
+    forced: true
+    inventory: Transfer
+    transferName: true
+    transferDamage: true
+    revertOnDeath: true
+    revertOnCrit: true
+    duration: 600 # 10 minutes
+
+- type: polymorph
+  id: PolymorphDwarf
+  configuration:
+    entity: MobDwarfRandom
+    forced: true
+    inventory: Transfer
+    transferName: true
+    transferDamage: true
+    revertOnDeath: true
+    revertOnCrit: true
+    duration: 600 # 10 minutes
+
+- type: polymorph 
+  id: PolymorphHarpyPermanent
+  configuration:
+    entity: MobHarpyRandom
+    forced: true
+    inventory: Transfer
+    transferName: true
+    transferDamage: true
+    revertOnDeath: false
+    revertOnCrit: false
+
+- type: polymorph 
+  id: PolymorphMothPermanent
+  configuration:
+    entity: MobMothRandom
+    forced: true
+    inventory: Transfer
+    transferName: true
+    transferDamage: true
+    revertOnDeath: false
+    revertOnCrit: false
+
+- type: polymorph
+  id: PolymorphShadowkinPermanent
+  configuration:
+    entity: MobShadowkinRandom
+    forced: true
+    inventory: Transfer
+    transferName: true
+    transferDamage: true
+    revertOnDeath: false
+    revertOnCrit: false
+
+- type: polymorph
+  id: PolymorphDwarfPermanent
+  configuration:
+    entity: MobDwarfRandom
+    forced: true
+    inventory: Transfer
+    transferName: true
+    transferDamage: true
+    revertOnDeath: false
+    revertOnCrit: false

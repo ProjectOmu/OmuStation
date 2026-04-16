@@ -120,7 +120,7 @@ uplink-m90-name = M-90
 uplink-m90-desc = A rugged assault rifle that maintains its accuracy across extreme distances. Feeds from .20 Rifle magazines.
 
 uplink-estoc-name = Estoc
-uplink-estoc-desc = A burst-fire designated marksman rifle fitted with an expensive tritium optic. Feeds from .20 Rifle magazines.
+uplink-estoc-desc = A burst-fire designated marksman rifle fitted with an expensive tritium optic. Feeds from .30 Rifle magazines.
 
 uplink-syndicate-disabler-name = Syndicate Disabler
 uplink-syndicate-disabler-desc = A sleek disabler designed from a reverse-engineered NanoTrasen prototype. While it lacks stopping power, it makes up for it with a self-recharging cell.
@@ -261,7 +261,7 @@ uplink-combat-medkit-pills-desc = Contains most medicines you need to recover fr
 
 uplink-combat-medkit-ipc-name = Combat Medical Kit (IPC)
 # Omu
-uplink-combat-medkit-ipc-desc = Contains everything you need to heal an IPC; includes LV wire, an industrial welder, oil packs, and meson goggles.
+uplink-combat-medkit-ipc-desc = Contains everything you need to heal an IPC; includes LV wire, an industrial welder, coolant bottles, and meson goggles.
 
 # Implants
 

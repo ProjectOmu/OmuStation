@@ -662,8 +662,10 @@
     items:
     - id: WeaponProtoKineticAccelerator
       whitelist:
-        components:
-        - PressureDamageChange
+        tags: # Omu
+        - CyborgProtoKineticAccelerator
+        #components:
+        #- PressureDamageChange
   # Goob end
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-mining-module }

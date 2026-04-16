@@ -1,0 +1,28 @@
+- type: entity
+  id: BorgModuleVirology
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: virology cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-virology
+      sprite: _Omu/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: Virology
+    items:
+    - HandheldHealthAnalyzerUnpowered
+  # Swab and Vaccine Hand
+  - type: DroppableBorgModule
+    moduleId: Virology
+    items:
+    - id: DiseaseSwab
+      whitelist:
+        components:
+        - DiseaseSwab
+    - id: Vaccine
+      whitelist:
+        components:
+        - DiseasePen
+  - type: BorgModuleIcon
+    icon: { sprite: _Omu/Interface/Actions/actions-borg.rsi, state: viro-module }

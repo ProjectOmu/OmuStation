@@ -1,0 +1,40 @@
+- type: reagent
+  id: CoolantIPC
+  name: reagent-name-ipccoolant
+  desc: reagent-desc-ipccoolant
+  physicalDesc: reagent-physical-desc-reflective
+  flavor: bitter
+  flavorMinimum: 0.05
+  recognizable: true
+  color: "#44BB9E"
+  metabolisms:
+    Food:
+      effects:
+      - !type:PopupMessage
+        conditions:
+          - !type:OrganType
+            type: Vox
+            shouldHave: false
+        type: Local
+        visualType: MediumCaution
+        messages: [ "generic-reagent-effect-sick" ]
+        probability: 0.5
+      - !type:ChemVomit
+        probability: 0.1
+        conditions:
+          - !type:OrganType
+            type: Vox
+            shouldHave: false
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
+        damage:
+          types:
+            Poison: 1
+      - !type:SatiateThirst
+        factor: 1
+        conditions:
+        - !type:OrganType
+          type: Vox
