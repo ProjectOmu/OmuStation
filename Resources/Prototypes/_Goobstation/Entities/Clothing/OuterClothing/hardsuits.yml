@@ -316,14 +316,14 @@
   name: "NTX5-Mirrorduss"
   description: A compact space-rated luxury hardsuit issued to the Nanotrasen Representative. # Omu
   components:
-  - type: Sprite # Omu - changed sprites because default is ugly as fuck
+  - type: Sprite # Omu - changed sprites because default was ugly as fuck
     sprite: _Starlight/Clothing/OuterClothing/Hardsuits/ntrep_space.rsi
     layers:
     - state: icon
     - state: icon-unshaded
       shader: unshaded
   - type: Clothing
-    sprite: _Starlight/Clothing/OuterClothing/Hardsuits/ntrep_space.rsi # Omu - changed sprites bc default is ugly af
+    sprite: _Starlight/Clothing/OuterClothing/Hardsuits/ntrep_space.rsi # Omu - changed sprites bc default was ugly af
   - type: Item # Omu start
     heldPrefix: inhand
     inhandVisuals:
