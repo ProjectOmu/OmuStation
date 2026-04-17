@@ -87,7 +87,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobCaptain
-      time: 72000 #20 hrs
+      time: 7200 #2 hrs
 
 # Goobstation - For Ensembles
 - type: loadoutEffectGroup
@@ -194,7 +194,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobCaptain
-      time: 360000 #100 hrs
+      time: 36000 #10 hrs
 
 - type: loadout # Goobstation - Ensembles
   id: CaptainEnsemble
