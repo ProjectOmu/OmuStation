@@ -25,9 +25,10 @@
   id: Boop
   name: chat-emote-name-boop
   category: Vocal
-  chatMessages: [ boops. ]
+  chatMessages: [ бупає. ]
   chatTriggers:
   - boops
+  - бупає
   whitelist:
     tags:
     - HarpyEmotes # Omu, give harpies more emotes
@@ -39,9 +40,11 @@
   id: Whirr
   name: chat-emote-name-whirr
   category: Vocal
-  chatMessages: [ whirrs. ]
+  chatMessages: [ шурхотить. ]
   chatTriggers:
   - whirrs
+  - шурхотить
+  - шурхотіти
   whitelist:
     tags:
     - HarpyEmotes # Omu, give harpies more emotes
@@ -65,6 +68,7 @@
     - mars
     - marsing
     - marsed
+    - маркає
 
 - type: emoteSounds
   id: UnisexPlasmaman

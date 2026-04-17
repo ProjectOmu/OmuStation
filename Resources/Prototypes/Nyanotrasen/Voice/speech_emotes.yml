@@ -11,7 +11,7 @@
 # vocal emotes
 - type: emote
   id: Hiss
-  name: Hiss
+  name: Шипіти
   category: Vocal
   icon: _Goobstation/Interface/Emotes/hiss.png
   whitelist:
@@ -22,16 +22,19 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [hisses.]
+  chatMessages: [шипить.]
   chatTriggers:
     - hiss
     - hisses
     - hissing
     - hissed
+    - шипить
+    - шипіти
+    - шипів
 
 - type: emote
   id: Meow
-  name: Meow
+  name: Нявкати
   category: Vocal
   icon: _Goobstation/Interface/Emotes/meow.png
   whitelist:
@@ -41,7 +44,7 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [meows.]
+  chatMessages: [нявкає.]
   chatTriggers:
     - meow
     - meows
@@ -53,10 +56,13 @@
     - nyas
     - mraow
     - mraows
+    - нявчить
+    - нявкає
+    - ня
 
 - type: emote
   id: Mew
-  name: Mew
+  name: Мявкати
   category: Vocal
   icon: _Goobstation/Interface/Emotes/mew.png
   whitelist:
@@ -66,16 +72,19 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [mews.]
+  chatMessages: [мявкає.]
   chatTriggers:
     - mew
     - mews
     - mewing
     - mewed
+    - мяв
+    - мявкати
+    - мя
 
 - type: emote
   id: Growl
-  name: Growl
+  name: Гарчати
   category: Vocal
   icon: _Goobstation/Interface/Emotes/growl.png
   whitelist:
@@ -85,16 +94,18 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [growls.]
+  chatMessages: [гарчить.]
   chatTriggers:
     - growl
     - growls
     - growling
     - growled
+    - гарчати
+    - гарчить
 
 - type: emote
   id: Purr
-  name: Purr
+  name: Мурчати
   category: Vocal
   icon: _Goobstation/Interface/Emotes/purr.png
   whitelist:
@@ -105,9 +116,14 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [purrs.]
+  chatMessages: [мурчить.]
   chatTriggers:
     - purr
     - purrs
     - purring
     - purred
+    - муркотіти
+    - мур
+    - муркоче
+    - мурчати
+    - мурчить

@@ -114,6 +114,11 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         Entry("[':", "chatsan-tearfully-smiles"),
         Entry("('=", "chatsan-tearfully-smiles"),
         Entry("['=", "chatsan-tearfully-smiles"),
+        Entry("о/", "chatsan-waves"), // Cheeburbr
+        Entry("о-о", "chatsan-wide-eyed"),
+        Entry(":О", "chatsan-surprised"),
+        Entry("о7", "chatsan-salutes"),
+
     ];
 
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;

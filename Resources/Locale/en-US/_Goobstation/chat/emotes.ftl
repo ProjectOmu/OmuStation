@@ -10,22 +10,22 @@
 chat-emote-name-fart = Fart
 chat-emote-name-fart-inhale = Reverse fart
 chat-emote-name-fart-super = Super Fart
-chat-emote-name-flap = Flap
-chat-emote-name-trill = Trill
-chat-emote-name-warble = Warble
-chat-emote-name-wurble = Wurble
-chat-emote-name-mars = Mars
+chat-emote-name-flap = Лопотіти
+chat-emote-name-trill = Трелювати
+chat-emote-name-warble = Щебетати
+chat-emote-name-wurble = Гулькати
+chat-emote-name-mars = Маркати
 
 # Message
 chat-emote-msg-fart = farts.
 chat-emote-msg-fart-inhale = breathes in a big fart.
 chat-emote-msg-fart-super = super farts.
-chat-emote-msg-flap = flaps {POSS-ADJ($entity)} wings.
-chat-emote-msg-trill = trills!
-chat-emote-msg-warble = warbles!
-chat-emote-msg-wurble = wurbles!
-chat-emote-msg-mars = mars.
-chat-emote-msg-bagawk = bagawks!
+chat-emote-msg-flap = лопотить своїми крилами.
+chat-emote-msg-trill = трелює!
+chat-emote-msg-warble = щебече!
+chat-emote-msg-wurble = гулькає!
+chat-emote-msg-mars = маркає.
+chat-emote-msg-bagawk = кудахкає!
 
 
 # Misc
@@ -37,5 +37,5 @@ emote-fart-super-fart = You (literally) fart your ass off!
 emote-fart-inhale-notice = You breathe in, arming a super fart.
 emote-fart-inhale-disarm-notice = You disarm your super fart.
 
-chat-emote-name-boop = Boop
-chat-emote-name-whirr = Whirr
+chat-emote-name-boop = Буп
+chat-emote-name-whirr = Шурхотіти

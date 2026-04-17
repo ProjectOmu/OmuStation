@@ -14,6 +14,7 @@
   id: Fart
   name: chat-emote-name-fart
   category: Farts
+  available: false # Omu - The Fun Police
   icon: _Goobstation/Interface/Emotes/fart.png
   whitelist:
     components:
@@ -69,6 +70,7 @@
   id: FartInhale
   name: chat-emote-name-fart-inhale
   category: Farts
+  available: false # Omu - The Fun Police
   icon: _Goobstation/Interface/Emotes/fart-in.png
   whitelist:
     components:
@@ -110,6 +112,7 @@
   id: FartSuper
   name: chat-emote-name-fart-super
   category: Farts
+  available: false # Omu - The Fun Police
   icon: _Goobstation/Interface/Emotes/fart-super.png
   whitelist:
     components:
@@ -157,6 +160,8 @@
    - flaps her wings
    - flaps their wings
    - flaps its wings
+   - лопотить
+   - лопотить своїми крилами
 
 - type: emote
   id: Trill
@@ -176,6 +181,7 @@
     - trills
     - trilling
     - trilled
+    - трелює
 
 - type: emote
   id: Warble
@@ -195,6 +201,8 @@
     - warbles
     - warbling
     - warbled
+    - щебече
+    - щебетати
 
 - type: emote
   id: Wurble
@@ -217,6 +225,8 @@
     - wurbles
     - wurbling
     - wurbled
+    - гулькає
+    - гулькоче
 
 - type: emote # Mono
   id: Bagawk
@@ -236,6 +246,8 @@
   - bagawks
   - bawk
   - bawks
+  - кудахкає
+  - кудахкати
 
 - type: emote
   id: Gulp
@@ -252,6 +264,9 @@
   chatTriggers:
     - gulps
     - gulp
+    - сковтує
+    - сковтувати
+    - сковтує свою слину
 
 - type: emote
   id: Surprised
@@ -267,3 +282,6 @@
     - is surprised
     - exclamation marks
     - exclamation mark
+    - виглядає здивовано
+    - виглядати здивовано
+    - здивований
