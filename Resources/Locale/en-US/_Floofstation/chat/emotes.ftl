@@ -1,5 +1,5 @@
-chat-emote-name-yip = Yip
-chat-emote-name-coo = Coo
+chat-emote-name-yip = Їпати
+chat-emote-name-coo = Воркувати
 
-chat-emote-msg-yip = yips!
-chat-emote-msg-coo = coos!
+chat-emote-msg-yip = їпає!
+chat-emote-msg-coo = воркує!

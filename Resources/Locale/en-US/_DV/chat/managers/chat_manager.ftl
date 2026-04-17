@@ -9,32 +9,32 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-chat-speech-verb-name-vulpkanin = Vulpkanin
-chat-speech-verb-vulpkanin-1 = rawrs
-chat-speech-verb-vulpkanin-2 = barks
-chat-speech-verb-vulpkanin-3 = rurs
-chat-speech-verb-vulpkanin-4 = yaps
+chat-speech-verb-name-vulpkanin = Вульпканін
+chat-speech-verb-vulpkanin-1 = равкає
+chat-speech-verb-vulpkanin-2 = гавкає
+chat-speech-verb-vulpkanin-3 = рурчить
+chat-speech-verb-vulpkanin-4 = тявкає
 
-chat-speech-verb-name-felinid = Felinid
-chat-speech-verb-felinid-1 = mraows
-chat-speech-verb-felinid-2 = mews
-chat-speech-verb-felinid-3 = meows
-chat-speech-verb-felinid-4 = purrs out
+chat-speech-verb-name-felinid = Фелінід
+chat-speech-verb-felinid-1 = мрявкає
+chat-speech-verb-felinid-2 = мявкає
+chat-speech-verb-felinid-3 = нявкає
+chat-speech-verb-felinid-4 = муркоче
 
-chat-speech-verb-name-harpy = Harpy
-chat-speech-verb-harpy-1 = chirps
-chat-speech-verb-harpy-2 = tweets
-chat-speech-verb-harpy-3 = caws
-chat-speech-verb-harpy-4 = trills
+chat-speech-verb-name-harpy = Гарпія
+chat-speech-verb-harpy-1 = цвірінькає
+chat-speech-verb-harpy-2 = щебече
+chat-speech-verb-harpy-3 = каркає
+chat-speech-verb-harpy-4 = трелює
 
-chat-speech-verb-name-rodentia = Rodentia
-chat-speech-verb-rodentia-1 = squeaks
-chat-speech-verb-rodentia-2 = pieps
-chat-speech-verb-rodentia-3 = chatters
-chat-speech-verb-rodentia-4 = squeals
+chat-speech-verb-name-rodentia = Родентія
+chat-speech-verb-rodentia-1 = пищить
+chat-speech-verb-rodentia-2 = пікає
+chat-speech-verb-rodentia-3 = цоркотить
+chat-speech-verb-rodentia-4 = верещить
 
-chat-speech-verb-name-chitinid = Chitinid
-chat-speech-verb-chitinid-1 = clicks
-chat-speech-verb-chitinid-2 = chitters
-chat-speech-verb-chitinid-3 = hisses
-chat-speech-verb-chitinid-4 = buzzes
+chat-speech-verb-name-chitinid = Хітинід
+chat-speech-verb-chitinid-1 = клацає
+chat-speech-verb-chitinid-2 = стрекоче
+chat-speech-verb-chitinid-3 = сичить
+chat-speech-verb-chitinid-4 = дзижчить

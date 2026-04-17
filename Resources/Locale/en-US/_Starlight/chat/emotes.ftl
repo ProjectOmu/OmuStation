@@ -1,9 +1,9 @@
 # Emote Names
-chat-emote-name-scree = Scree
-chat-emote-name-call = Call
-chat-emote-name-squawk = Squawk
+chat-emote-name-scree = Чірікати
+chat-emote-name-call = Співати
+chat-emote-name-squawk = Крякнути
 
 # Emote Messages
-chat-emote-msg-scree = screes
-chat-emote-msg-call = calls
-chat-emote-msg-squawk = squawks
+chat-emote-msg-scree = чірікає!
+chat-emote-msg-call = співає!
+chat-emote-msg-squawk = крякає!

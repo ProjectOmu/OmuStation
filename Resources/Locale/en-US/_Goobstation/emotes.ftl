@@ -12,19 +12,19 @@
 
 emote-menu-category-farts = Farts
 
-chat-emote-name-flip = Do a flip
-chat-emote-name-spin = Spin
-chat-emote-name-jump = Jump
-chat-emote-name-tweak = Tweak
-chat-emote-name-flex = Flex muscles
-chat-emote-name-gulp = Gulp
-chat-emote-name-surprised = look surprised
-chat-emote-name-bagawk = Bagawk
+chat-emote-name-flip = Зробити сальто
+chat-emote-name-spin = Крутитися
+chat-emote-name-jump = Стрибнути
+chat-emote-name-tweak = Пританцьовувати
+chat-emote-name-flex = Напружити м'язи
+chat-emote-name-gulp = Сковтнути
+chat-emote-name-surprised = Здивуватися
+chat-emote-name-bagawk = Кудахкати
 
-chat-emote-msg-flip = does a flip!
-chat-emote-msg-spin = spins!
-chat-emote-msg-jump = jumps!
-chat-emote-msg-tweak = starts tweaking!
-chat-emote-msg-flex = flexes its muscles.
-chat-emote-msg-gulp = gulps.
-chat-emote-msg-surprised = looks surprised.
+chat-emote-msg-flip = робить сальто!
+chat-emote-msg-spin = крутиться!
+chat-emote-msg-jump = стрибає!
+chat-emote-msg-tweak = пританцьовує!
+chat-emote-msg-flex = напружує м'язи.
+chat-emote-msg-gulp = сковтує.
+chat-emote-msg-surprised = виглядає здивовано.
