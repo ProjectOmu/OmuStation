@@ -14,7 +14,7 @@
   id: Fart
   name: chat-emote-name-fart
   category: Farts
-  available: false # Omu - The Fun Police
+  available: false # Cheeburbr. No more fart
   icon: _Goobstation/Interface/Emotes/fart.png
   whitelist:
     components:
@@ -70,7 +70,7 @@
   id: FartInhale
   name: chat-emote-name-fart-inhale
   category: Farts
-  available: false # Omu - The Fun Police
+  available: false # Cheeburbr. No more fart
   icon: _Goobstation/Interface/Emotes/fart-in.png
   whitelist:
     components:
@@ -112,7 +112,7 @@
   id: FartSuper
   name: chat-emote-name-fart-super
   category: Farts
-  available: false # Omu - The Fun Police
+  available: false # Cheeburbr. No more fart
   icon: _Goobstation/Interface/Emotes/fart-super.png
   whitelist:
     components:
@@ -160,8 +160,12 @@
    - flaps her wings
    - flaps their wings
    - flaps its wings
-   - лопотить
-   - лопотить своїми крилами
+   - тріпотить крилами # Cheeburbr. До кінця прототипу
+   - тріпотять крилами
+   - маше крилами
+   - машуть крилами
+   - трепушить крилами
+   - трепушать крилами
 
 - type: emote
   id: Trill
@@ -181,7 +185,10 @@
     - trills
     - trilling
     - trilled
+    - трелить # Cheeburbr. До кінця прототипу
+    - трелять
     - трелює
+    - трелюють
 
 - type: emote
   id: Warble
@@ -201,8 +208,8 @@
     - warbles
     - warbling
     - warbled
-    - щебече
-    - щебетати
+    - тьохкає # Cheeburbr. До кінця прототипу
+    - тьохкають
 
 - type: emote
   id: Wurble
@@ -225,8 +232,10 @@
     - wurbles
     - wurbling
     - wurbled
-    - гулькає
-    - гулькоче
+    - вурчить # Cheeburbr. До кінця прототипу
+    - вурчать
+    - воркоче
+    - воркочуть
 
 - type: emote # Mono
   id: Bagawk
@@ -246,8 +255,8 @@
   - bagawks
   - bawk
   - bawks
-  - кудахкає
-  - кудахкати
+  - кудахкає # Cheeburbr. До кінця прототипу
+  - кудахкають
 
 - type: emote
   id: Gulp
@@ -264,9 +273,12 @@
   chatTriggers:
     - gulps
     - gulp
-    - сковтує
-    - сковтувати
+    - сковтує # Cheeburbr. До кінця прототипу
+    - сковтують
+    - сковтує слину
+    - сковтують слину
     - сковтує свою слину
+    - сковтують свою слину
 
 - type: emote
   id: Surprised
@@ -282,6 +294,9 @@
     - is surprised
     - exclamation marks
     - exclamation mark
-    - виглядає здивовано
-    - виглядати здивовано
+    - виглядає здивовано # Cheeburbr. До кінця прототипу
+    - виглядають здивовано
     - здивований
+    - здивована
+    - здивовано
+    - здивовані

@@ -10,20 +10,20 @@
 chat-emote-name-fart = Fart
 chat-emote-name-fart-inhale = Reverse fart
 chat-emote-name-fart-super = Super Fart
-chat-emote-name-flap = Лопотіти
+chat-emote-name-flap = Махати крилами
 chat-emote-name-trill = Трелювати
-chat-emote-name-warble = Щебетати
-chat-emote-name-wurble = Гулькати
+chat-emote-name-warble = Тьохкати
+chat-emote-name-wurble = Вурчати
 chat-emote-name-mars = Маркати
 
 # Message
 chat-emote-msg-fart = farts.
 chat-emote-msg-fart-inhale = breathes in a big fart.
 chat-emote-msg-fart-super = super farts.
-chat-emote-msg-flap = лопотить своїми крилами.
-chat-emote-msg-trill = трелює!
-chat-emote-msg-warble = щебече!
-chat-emote-msg-wurble = гулькає!
+chat-emote-msg-flap = тріпотить крилами.
+chat-emote-msg-trill = трелить!
+chat-emote-msg-warble = тьохкає!
+chat-emote-msg-wurble = вурчить.
 chat-emote-msg-mars = маркає.
 chat-emote-msg-bagawk = кудахкає!
 
@@ -37,5 +37,5 @@ emote-fart-super-fart = You (literally) fart your ass off!
 emote-fart-inhale-notice = You breathe in, arming a super fart.
 emote-fart-inhale-disarm-notice = You disarm your super fart.
 
-chat-emote-name-boop = Буп
+chat-emote-name-boop = Бупати
 chat-emote-name-whirr = Шурхотіти

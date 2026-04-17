@@ -28,9 +28,8 @@
     - hisses
     - hissing
     - hissed
-    - шипить
-    - шипіти
-    - шипів
+    - шипить # Cheeburbr. До кінця прототипу
+    - шиплять
 
 - type: emote
   id: Meow
@@ -56,13 +55,22 @@
     - nyas
     - mraow
     - mraows
+    - нявкає # Cheeburbr. До кінця прототипу
+    - нявкають
     - нявчить
-    - нявкає
-    - ня
+    - нявчать
+    - мявчить
+    - мявчать
+    - мяукає
+    - мяукають
+    - мявкає
+    - мявкають
+    - нявкотить
+    - нявкотять
 
 - type: emote
   id: Mew
-  name: Мявкати
+  name: Мєвкати
   category: Vocal
   icon: _Goobstation/Interface/Emotes/mew.png
   whitelist:
@@ -72,15 +80,14 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [мявкає.]
+  chatMessages: [мєвкає.]
   chatTriggers:
     - mew
     - mews
     - mewing
     - mewed
-    - мяв
-    - мявкати
-    - мя
+    - мєвкає  # Cheeburbr. До кінця прототипу
+    - мєвкають
 
 - type: emote
   id: Growl
@@ -100,8 +107,8 @@
     - growls
     - growling
     - growled
-    - гарчати
-    - гарчить
+    - гарчить # Cheeburbr. До кінця прототипу
+    - гарчать
 
 - type: emote
   id: Purr
@@ -122,8 +129,11 @@
     - purrs
     - purring
     - purred
-    - муркотіти
-    - мур
+    - мурчить # Cheeburbr. До кінця прототипу
+    - мурчать
+    - мурликає
+    - мурличуть
+    - мурмоче
+    - мурмочуть
     - муркоче
-    - мурчати
-    - мурчить
+    - муркочуть

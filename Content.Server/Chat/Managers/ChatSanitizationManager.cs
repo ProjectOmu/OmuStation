@@ -56,12 +56,18 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         Entry("]=", "chatsan-frowns"),
         Entry(":D", "chatsan-smiles-widely"),
         Entry("D:", "chatsan-frowns-deeply"),
+        Entry(":Д", "chatsan-smiles-widely"), // Cheeburbr
+        Entry("Д:", "chatsan-frowns-deeply"), // Cheeburbr
         Entry(":O", "chatsan-surprised"),
+        Entry(":О", "chatsan-surprised"), // Cheeburbr
+        Entry("!", "chatsan-surprised"), // Cheeburbr
         Entry(":3", "chatsan-smiles"),
+        Entry(":з", "chatsan-smiles"), // Cheeburbr
         Entry(":S", "chatsan-uncertain"),
         Entry(":>", "chatsan-grins"),
         Entry(":<", "chatsan-pouts"),
         Entry("xD", "chatsan-laughs"),
+        Entry("хД", "chatsan-laughs"), // Cheeburbr
         Entry(":'(", "chatsan-cries"),
         Entry(":'[", "chatsan-cries"),
         Entry("='(", "chatsan-cries"),
@@ -76,20 +82,37 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         Entry(":u", "chatsan-smiles-smugly"),
         Entry(":v", "chatsan-smiles-smugly"),
         Entry(">:i", "chatsan-annoyed"),
+        Entry(">:і", "chatsan-annoyed"), // Cheeburbr
         Entry(":i", "chatsan-sighs"),
+        Entry(":і", "chatsan-sighs"), // Cheeburbr
         Entry(":|", "chatsan-sighs"),
         Entry(":p", "chatsan-stick-out-tongue"),
         Entry(";p", "chatsan-stick-out-tongue"),
         Entry(":b", "chatsan-stick-out-tongue"),
+        Entry(":р", "chatsan-stick-out-tongue"), // Cheeburbr
+        Entry(";р", "chatsan-stick-out-tongue"), // Cheeburbr
         Entry("0-0", "chatsan-wide-eyed"),
         Entry("o-o", "chatsan-wide-eyed"),
         Entry("o.o", "chatsan-wide-eyed"),
+        Entry("0_0", "chatsan-wide-eyed"), // Cheeburbr
+        Entry("0.0", "chatsan-wide-eyed"), // Cheeburbr
+        Entry("о-о", "chatsan-wide-eyed"), // Cheeburbr
+        Entry("о.о", "chatsan-wide-eyed"), // Cheeburbr
+        Entry("omg", "chatsan-wide-eyed"), // Cheeburbr
+        Entry("омг", "chatsan-wide-eyed"), // Cheeburbr
         Entry("._.", "chatsan-surprised"),
         Entry( "!", "chatsan-surprised"), // Goobstation
+        Entry("о_0", "chatsan-surprised"), // Cheeburbr
+        Entry("0_о", "chatsan-surprised"), // Cheeburbr
+        Entry("о.0", "chatsan-surprised"), // Cheeburbr
+        Entry("0.о", "chatsan-surprised"), // Cheeburbr
+        Entry(".).", "chatsan-surprised"), // Cheeburbr-MIU
         Entry(".-.", "chatsan-confused"),
+        Entry("?", "chatsan-confused"), // Cheeburbr
         Entry("-_-", "chatsan-unimpressed"),
         Entry("smh", "chatsan-unimpressed"),
         Entry("o/", "chatsan-waves"),
+        Entry("о/", "chatsan-waves"), // Cheeburbr
         Entry("^^/", "chatsan-waves"),
         Entry(":/", "chatsan-uncertain"),
         Entry(":\\", "chatsan-uncertain"),
@@ -99,9 +122,16 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         Entry("lel", "chatsan-laughs"),
         Entry("kek", "chatsan-laughs"),
         Entry("rofl", "chatsan-laughs"),
+        Entry("лмао", "chatsan-laughs"), // Cheeburbr
+        Entry("лмфао", "chatsan-laughs"), // Cheeburbr
+        Entry("лол", "chatsan-laughs"), // Cheeburbr
+        Entry("кек", "chatsan-laughs"), // Cheeburbr
+        Entry("рофл", "chatsan-laughs"), // Cheeburbr
         Entry("o7", "chatsan-salutes"),
+        Entry("о7", "chatsan-salutes"), // Cheeburbr
         Entry(";_;7", "chatsan-tearfully-salutes"),
         Entry("idk", "chatsan-shrugs"),
+        Entry("хз", "chatsan-shrugs"), // Cheeburbr
         Entry(";)", "chatsan-winks"),
         Entry(";]", "chatsan-winks"),
         Entry("(;", "chatsan-winks"),
@@ -114,11 +144,6 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         Entry("[':", "chatsan-tearfully-smiles"),
         Entry("('=", "chatsan-tearfully-smiles"),
         Entry("['=", "chatsan-tearfully-smiles"),
-        Entry("о/", "chatsan-waves"), // Cheeburbr
-        Entry("о-о", "chatsan-wide-eyed"),
-        Entry(":О", "chatsan-surprised"),
-        Entry("о7", "chatsan-salutes"),
-
     ];
 
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;

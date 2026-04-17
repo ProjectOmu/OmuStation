@@ -28,13 +28,12 @@
     - rings
     - ringing
     - ringed
-    - дзвонити
-    - дзвенить
-    - дзвеніти
+    - дзвенить # Cheeburbr. До кінця прототипу
+    - дзвенять
 
 - type: emote
   id: Pew
-  name: Піу
+  name: Піукати
   category: Vocal
   icon: _Goobstation/Interface/Emotes/pew.png
   whitelist:
@@ -47,11 +46,12 @@
   chatTriggers:
     - pew
     - pews
-    - піу
+    - піукає # Cheeburbr. До кінця прототипу
+    - піукають
 
 - type: emote
   id: Bang
-  name: Клацати
+  name: Імітувати постріл
   category: Vocal
   icon: _Goobstation/Interface/Emotes/bang.png
   whitelist:
@@ -60,14 +60,16 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [клацає.]
+  chatMessages: [стріляє.]
   chatTriggers:
     - bangs
     - bang
     - banging
     - banged
-    - клацання
-    - клацати
+    - стріляє # Cheeburbr. До кінця прототипу
+    - стріляють
+    - імітує звуки постріла
+    - імітують звуки пострілу
 
 #- type: emote
 #  id: Beep
@@ -96,8 +98,8 @@
     - rev
     - revving
     - revved
-    - гуркотіти
-    - гуркоче
+    - гуркоче # Cheeburbr. До кінця прототипу
+    - гуркочуть
 #- type: emote
 #  id: Click
 #  category: Vocal
@@ -125,9 +127,8 @@
     - caw
     - cawing
     - cawed
-    - каркати
-    - каркає
-    - кар
+    - каркає # Cheeburbr. До кінця прототипу
+    - каркають
 
 #Vulpkanin
 - type: emote
@@ -148,13 +149,16 @@
     - barks
     - barked
     - barking
-    - гавкати
-    - гавкає
+    - гавкає # Cheeburbr. До кінця прототипу
+    - гавкають
     - гавчить
+    - гавчать
+    - тявкає
+    - тявкають
 
 - type: emote
   id: Snarl
-  name: Ричання
+  name: Ричати
   category: Vocal
   icon: _Goobstation/Interface/Emotes/snarl.png
   whitelist:
@@ -170,9 +174,10 @@
     - snarls
     - snarled
     - snarling
-    - ричати
-    - ричання
-    - ричить
+    - ричить # Cheeburbr. До кінця прототипу
+    - ричать
+    - огризається
+    - огризаються
 
 - type: emote
   id: Whine
@@ -192,9 +197,10 @@
     - whines
     - whined
     - whining
-    - скиглити
-    - скиглить
-    - скиглив
+    - скиглить # Cheeburbr. До кінця прототипу
+    - скиглять
+    - скавчить
+    - скавчать
 
 - type: emote
   id: Howl
@@ -214,9 +220,8 @@
     - howls
     - howling
     - howled
-    - вити
-    - виє
-    - виття
+    - виє # Cheeburbr. До кінця прототипу
+    - виють
 
 - type: emote
   id: Awoo
@@ -236,13 +241,14 @@
     - awoos
     - awooing
     - awooed
-    - аву
-    - авукає
+    - підвивають # Cheeburbr. До кінця прототипу
     - підвиває
+    - авукає
+    - авукають
 
 # Feroxi
 - type: emote
-  id: Скреготіти
+  id: Скреготіти зубами
   name: chat-emote-name-gnash
   category: Vocal
   available: false
@@ -274,7 +280,15 @@
     - gnashed her teeth
     - gnashed his teeth
     - gnashed its teeth
-    - скреготить
-    - скреготіти
+    - скреготить # Cheeburbr. До кінця прототипу
+    - скреготять
+    - скрежетить
+    - скрежетять
+    - скрежетить зубами
+    - скережетять зубами
+    - скреготить зубами
+    - скреготять зубами
     - скреготить своїми зубами
-    - стреготіти своїми зубамий
+    - скреготять своїми зубами
+    - скрежетить своїми зубами
+    - скрежетять своїми зубами

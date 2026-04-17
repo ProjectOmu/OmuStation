@@ -27,7 +27,7 @@ chat-speech-verb-harpy-2 = щебече
 chat-speech-verb-harpy-3 = каркає
 chat-speech-verb-harpy-4 = трелює
 
-chat-speech-verb-name-rodentia = Роденція
+chat-speech-verb-name-rodentia = Родентія
 chat-speech-verb-rodentia-1 = пищить
 chat-speech-verb-rodentia-2 = пікає
 chat-speech-verb-rodentia-3 = цоркотить

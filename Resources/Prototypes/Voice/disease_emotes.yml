@@ -30,13 +30,25 @@
   chatTriggers:
     - cough
     - coughs
-    - coughed 
+    - coughed
     - cough.
     - coughs.
     - coughed.
     - cough!
     - coughs!
     - coughed!
+    - кашляє # Cheeburbr. До кінця прототипу
+    - кашляють
+    - прокашлюється
+    - прокашлюються
+    - закашлюється
+    - закашлюються
+    - кахикає
+    - кахикають
+    - бухикає
+    - бухикають
+    - покашлює
+    - покашлюють
 
 - type: emote
   id: CatMeow
@@ -77,6 +89,10 @@
   chatTriggers:
     - yawn
     - yawns
+    - позіхає # Cheeburbr. До кінця прототипу
+    - позіхають
+    - зіває
+    - зівають
 
 - type: emote
   id: Snore

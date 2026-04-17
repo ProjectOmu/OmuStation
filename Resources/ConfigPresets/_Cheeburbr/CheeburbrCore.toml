@@ -40,9 +40,6 @@ see_own_notes = true
 deadmin_on_join = false
 server_ban_erase_player = true
 server_ban_hwid_ban_default = false
-chat_discord_channel_id = ""
-ahelp_discord_channel_id = ""
-dead_chat_discord_channel_id = ""
 
 [ic]
 #Описи та імена
@@ -53,6 +50,9 @@ punctuation = false
 [movement]
 #КОЛІІІІІЗІЯ
 mob_pushing = false
+
+[atmos]
+space_wind = false
 
 [shuttle]
 #Вимикає раундстарт спавн зайвих мап ваніли №1, зміни еваку та можливість ФТЛити великі шатли
@@ -77,6 +77,7 @@ preload = false
 rate_limit_announce_admins_delay = -1
 
 #Поради нафіг
+[tips]
 dataset = ""
 
 [ooc]
