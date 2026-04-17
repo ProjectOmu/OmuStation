@@ -184,6 +184,11 @@
     title: objective-condition-maroon-person-title
   - type: PickRandomPerson
     filters:
+    - !type:ObjectiveImmuneFilter # DeltaV
+    - !type:BodyMindBlacklistFilter # Omu
+      blacklist:
+        components:
+        - TargetObjectiveImmune
     # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:
@@ -210,6 +215,11 @@
       whitelist:
         components:
         - CommandStaff
+    - !type:ObjectiveImmuneFilter # DeltaV
+    - !type:BodyMindBlacklistFilter # Omu
+      blacklist:
+        components:
+        - TargetObjectiveImmune
     # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:
@@ -238,6 +248,11 @@
       whitelist:
         components:
         - TraitorRole
+    - !type:ObjectiveImmuneFilter # DeltaV
+    - !type:BodyMindBlacklistFilter # Omu
+      blacklist:
+        components:
+        - TargetObjectiveImmune
     # Can't have multiple objectives to help/save the same person
     - !type:TargetObjectiveMindFilter
       blacklist:
@@ -267,6 +282,11 @@
       blacklist:
         components:
         - HelpProgressCondition
+    - !type:ObjectiveImmuneFilter # DeltaV
+    - !type:BodyMindBlacklistFilter # Omu
+      blacklist:
+        components:
+        - TargetObjectiveImmune
     # Can't have multiple objectives to help/save the same person
     - !type:TargetObjectiveMindFilter
       blacklist:

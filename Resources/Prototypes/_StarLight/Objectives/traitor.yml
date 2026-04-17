@@ -29,6 +29,12 @@
   - type: TargetObjective
     title: objective-condition-teach-lesson-title
   - type: PickRandomPerson
+    filters: # DeltaV
+    - !type:ObjectiveImmuneFilter
+    - !type:BodyMindBlacklistFilter # Omu
+      blacklist:
+        components:
+        - TargetObjectiveImmune
 
 
 - type: entity
@@ -45,6 +51,11 @@
     title: objective-condition-teach-lesson-title
   - type: PickRandomPerson
     filters:
+    - !type:ObjectiveImmuneFilter # DeltaV
+    - !type:BodyMindBlacklistFilter # Omu
+      blacklist:
+        components:
+        - TargetObjectiveImmune
     - !type:BodyMindFilter
       whitelist:
         components:
