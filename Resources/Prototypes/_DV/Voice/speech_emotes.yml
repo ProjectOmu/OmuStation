@@ -248,7 +248,7 @@
 
 # Feroxi
 - type: emote
-  id: Скреготіти зубами
+  id: Gnash
   name: chat-emote-name-gnash
   category: Vocal
   available: false
@@ -258,7 +258,7 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [скреготить.]
+  chatMessages: [скреготить зубами.]
   chatTriggers:
     - gnash
     - gnashes
