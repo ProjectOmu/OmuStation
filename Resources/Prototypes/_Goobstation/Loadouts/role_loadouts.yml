@@ -95,6 +95,7 @@
   - GroupTankHarness
   - NanotrasenRepresentativeHead
   - NanotrasenRepresentativeJumpsuit
+  - NanotrasenRepresentativeOuterClothing #Omu
   - NanotrasenRepresentativeBackpack
   - NanotrasenRepresentativeNeck
   - NanotrasenRepresentativerMask #Omu
@@ -165,14 +166,14 @@
   id: JobRoboticist
   groups:
   - GroupTankHarness
-  - ScientistHead
+  - RoboticistHead
   - ScientistNeck
-  - ScientistJumpsuit
-  - ScientistBackpack
-  - ScientistOuterClothing
-  - ScientistGloves
-  - ScientistShoes
-  - ScientistPDA
+  - RoboticistJumpsuit
+  - RoboticistBackpack
+  - RoboticistOuterClothing
+  - RoboticistGloves
+  - RoboticistShoes
+  - RoboticistPDA
   - Glasses
   - Survival
   - Trinkets

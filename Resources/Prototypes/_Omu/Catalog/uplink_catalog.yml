@@ -25,6 +25,26 @@
     - Clown
 
 - type: listing
+  id: UplinkSwordfish
+  name: uplink-swordfish-name
+  description: uplink-swordfish-desc
+  icon: { sprite: _Omu/Objects/Weapons/Melee/syndieswordfish.rsi, state: icon }
+  productEntity: ThavenSyndieRapier
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Thaven
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContractorUplink
+      - NukeOpsUplink
+
+- type: listing
   id: UplinkShredder
   name: uplink-shredder-name
   description: uplink-shredder-desc

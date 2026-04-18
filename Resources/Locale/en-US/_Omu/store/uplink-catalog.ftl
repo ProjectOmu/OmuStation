@@ -5,6 +5,9 @@ uplink-hardsuit-cybersunsciencesuit-desc = A scientific reseach hardsuit meant t
 uplink-dislippler-name = Dislippler
 uplink-dislippler-desc = Standard-issue security disabler on Honk! Co. stations. Ultimate proof that God has abandoned us.
 
+uplink-swordfish-name = Blood Red Swordfish
+uplink-swordfish-desc = A terrifying weapon made for the Thaven operatives. This fish is wielded like a rapier. It pierces armor and it can perform a dash attack.
+
 uplink-shredder-name = Shredder
 uplink-shredder-desc = A razor-sharp rock guitar which delivers deadly shocks while providing you with increased speed and healing while wielded. Anyone wearing blood-red headphones nearby will also gain the same boost!
 

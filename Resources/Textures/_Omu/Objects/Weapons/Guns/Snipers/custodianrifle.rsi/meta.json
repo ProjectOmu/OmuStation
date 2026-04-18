@@ -1,0 +1,63 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Marikiii",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "sniper"
+        },
+        {
+            "name": "sniper-folded"
+        },
+        {
+            "name": "mag-0"
+        },
+        {
+            "name": "folded-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "folded-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "unfolded-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "unfolded-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "wielded-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "wielded-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "unfolded-equipped-BACKPACK",
+            "directions": 4
+        },
+        {
+            "name": "unfolded-equipped-SUITSTORAGE",
+            "directions": 4
+        },
+        {
+            "name": "folded-equipped-BACKPACK",
+            "directions": 4
+        },
+        {
+            "name": "folded-equipped-SUITSTORAGE",
+            "directions": 4
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+﻿- type: reagent # can't parent it to blood because anybody should be able to drink it, the flesh/organs are the toxic parts (fugu moment) -- thanks den
+  id: ShimmeringBlood
+  name: reagent-name-shimmering-blood
+  group: Biological
+  desc: reagent-desc-shimmering-blood
+  flavor: shimmeringblood
+  color: "#ff624a" # a slightly warmer color than the ichor extracted from dragon flesh
+  recognizable: true
+  physicalDesc: reagent-physical-desc-shimmering-blood
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        factor: 1
+      - !type:SatiateThirst
+        factor: 1
+    Narcotic:
+      effects:
+      - !type:ModifyStatusEffect # gds fixed this
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 5
+        refresh: false
+      - !type:PopupMessage # gds added this
+        type: Local
+        messages:
+        - generic-reagent-effect-kelp-drooling
+        - generic-reagent-effect-kelp-pretty
+        - generic-reagent-effect-soundgood
+        - generic-reagent-effect-confused
+        - generic-reagent-effect-patterns # coming up
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+          max: 20
+        probability: 0.08
+      - !type:PopupMessage
+        visualType: LargeCaution # drop 3 and get back to me please
+        type: Local
+        messages:
+        - generic-reagent-effect-fractals # visual intensity ramps up
+        - generic-reagent-effect-kelp-weird
+        - generic-reagent-effect-kelp-scream
+        - generic-reagent-effect-disoriented
+        - generic-reagent-effect-manic
+        - generic-reagent-effect-static
+        - generic-reagent-effect-breakthrough
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        probability: 0.05 # gds- end
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Bloodsucker
+        damage:
+          groups:
+            Brute: -4.5
+            Burn: -1.875
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: 2
+  - !type:PlantAdjustWeeds
+    amount: -2
+  - !type:PlantAdjustPests
+    amount: -2
+  footstepSound:
+    collection: FootstepBlood
+    params:
+      volume: 6

@@ -29,6 +29,7 @@
             # cargo
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 6, 8 ]
+            Courier: [ 3, 4 ] # Omu - Courier role
             CargoTechnician: [ 5, 6 ]
             # engineering
             ChiefEngineer: [ 1, 1 ]
@@ -42,10 +43,12 @@
             Psychologist: [ 1, 1 ]
             Paramedic: [ 1, 2 ]
             Chemist: [ 2, 2 ]
+            Virologist: [ 2, 2 ] # Omu
             # science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 6, 8 ]
             ResearchAssistant: [ 3, 4 ]
+            Roboticist: [ 3, 3 ] # Omu
             # security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
@@ -54,6 +57,7 @@
             Detective: [ 1, 1 ]
             Brigmedic: [ 1, 1 ]
             TransitPrisoner: [2, 2] # Omu - Prisoner role
+            SecuritySergeant: [ 1, 1 ] # Omu
             # service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]

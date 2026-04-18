@@ -160,3 +160,14 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsParamedic ]
+
+### Science Airlocks
+
+# Standard
+
+- type: entity
+  parent: AirlockRobotics
+  id: AirlockMaintRoboticsLocked
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/maint.rsi

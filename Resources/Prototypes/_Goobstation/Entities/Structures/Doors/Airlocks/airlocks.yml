@@ -61,7 +61,7 @@
     enabled: false
 
 - type: entity
-  parent: AirlockGlass
+  parent: Airlock # Omu, default to not glass
   id: AirlockRobotics
   suffix: Robotics
   components:
@@ -69,7 +69,7 @@
     containers:
       board: [ DoorElectronicsRobotics ]
   - type: Sprite
-    sprite: _Goobstation/Structures/Doors/Airlocks/Glass/robotics.rsi
+    sprite: _DV/Structures/Doors/Airlocks/Standard/roboticist.rsi # Omu
   - type: PaintableAirlock
     department: Science
     group: Glass

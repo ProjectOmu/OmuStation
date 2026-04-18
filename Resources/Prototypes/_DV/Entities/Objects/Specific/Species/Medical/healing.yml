@@ -1,15 +1,15 @@
 - type: entity
   parent: BaseHealingItem
   id: Oilpack
-  name: oil pack
+  name: coolant bottle # Omu
   suffix: Full
-  description: Fit with a proprietary and disposable connector, oil can easily be injected to top off a bleeding IPC
+  description: Filled with machine coolant to top off a bleeding IPC. It has a large warning on the label telling you it isn't soda. # Omu
   components:
   - type: Sprite
-    sprite: _DV/Objects/Medical/Oilpack.rsi
+    sprite: _Omu/Objects/Medical/coolantbottle.rsi # Omu
     state: icon
   - type: Item
-    sprite: _DV/Objects/Medical/Oilpack.rsi
+    sprite: _Omu/Objects/Medical/coolantbottle.rsi # Omu
     heldPrefix: icon
   - type: Healing
     damageContainers:
