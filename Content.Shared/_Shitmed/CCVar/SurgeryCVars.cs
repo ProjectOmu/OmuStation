@@ -116,5 +116,8 @@ public sealed class SurgeryCVars : CVars
     public static readonly CVarDef<float> PainScreamChance =
         CVarDef.Create("pain.scream_chance", 0.20f, CVar.SERVER | CVar.REPLICATED);
 
+    public static readonly CVarDef<bool> PainUnconscious =
+        CVarDef.Create("pain.unconscious", true, CVar.SERVER | CVar.REPLICATED);
+
     #endregion
 }
