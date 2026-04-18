@@ -84,6 +84,9 @@ public sealed partial class ConsciousnessComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan ForceConsciousnessTime = TimeSpan.Zero;
 
+    [ViewVariables]
+    public TimeSpan NextPainUnconsciousAllowedTime = TimeSpan.Zero;
+
     [ViewVariables(VVAccess.ReadOnly)]
     public bool ForceDead;
 
