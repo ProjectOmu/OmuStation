@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Shared.Body.Part;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
@@ -36,6 +36,30 @@ public partial class ConsciousnessSystem
 
             consciousness.NextConsciousnessUpdate = _timing.CurTime + consciousness.ConsciousnessUpdateTime;
 
+            // =========================
+            // ADDED: Pain unconsciousness system
+            // =========================
+            if (_cfg.GetCVar(SurgeryCVars.PainUnconscious) &&
+                TryComp<NerveSystemComponent>(ent, out var nerve))
+            {
+                if (nerve.Pain >= nerve.PainCap &&
+                    !consciousness.PassedOut &&
+                    _timing.CurTime >= consciousness.NextPainUnconsciousAllowedTime)
+                {
+                    AddConsciousnessModifier(
+                        ent,
+                        ent,
+                        -consciousness.Cap,
+                        "MaxPain",
+                        ConsciousnessModType.Pain,
+                        consciousness: consciousness
+                    );
+
+                    consciousness.PassedOut = true;
+                    consciousness.PassedOutTime = _timing.CurTime + TimeSpan.FromSeconds(6f);
+                }
+            }
+
             foreach (var modifier in consciousness.Modifiers.Where(modifier => modifier.Value.Time < _timing.CurTime))
                 RemoveConsciousnessModifier(ent, modifier.Key.Item1, modifier.Key.Item2, consciousness);
 
@@ -45,6 +69,13 @@ public partial class ConsciousnessSystem
             if (consciousness.PassedOutTime < _timing.CurTime && consciousness.PassedOut)
             {
                 consciousness.PassedOut = false;
+
+                // =========================
+                // ADDED: 10s grace period after waking
+                // =========================
+                consciousness.NextPainUnconsciousAllowedTime =
+                    _timing.CurTime + TimeSpan.FromSeconds(10f);
+
                 CheckConscious(ent, consciousness);
             }
 
