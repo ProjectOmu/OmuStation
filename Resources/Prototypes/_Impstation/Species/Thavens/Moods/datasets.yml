@@ -1,0 +1,98 @@
+- type: dataset
+  id: ThavenMoodDepartments
+  values:
+  - Command
+  - Security
+  - Medical
+  - Science
+  - Engineering
+  - Cargo
+  - Service
+
+- type: dataset
+  id: ThavenMoodClothes
+  values:
+  - hardsuits
+  - uniforms
+  - helmets
+  - gloves
+  - boots
+  - cloaks
+
+- type: dataset
+  id: ThavenMoodFoodRestrictions
+  values:
+  - vegetarian
+  - vegan
+  - pescetarian
+  - fruitarian
+  - gluten-free diet
+  - dairy-free diet
+
+- type: dataset
+  id: ThavenMoodPets
+  values:
+  - Ian
+  - Runtime
+  - Pun Pun
+  - McGriff
+  - Morticia
+
+- type: dataset
+  id: ThavenMoodRooms
+  values:
+  - the chapel
+  - the bar
+  - medbay
+  - the bridge
+  - the courtroom
+  - the arrivals shuttle
+
+- type: dataset
+  id: ThavenMoodEdibles
+  values:
+  - pizza
+  - soup
+  - burger
+  - tacos
+  - noodles
+  - pie
+
+- type: dataset
+  id: ThavenMoodHolidays
+  values:
+  - Remembrance Day
+  - Founding Day
+  - Lantern Night
+  - Long Vigil
+  - Feast of Returning
+
+- type: dataset
+  id: ThavenMoodItems
+  values:
+  - hats
+  - stamps
+  - pens
+  - shoes
+  - plushies
+  - glasses
+
+- type: dataset
+  id: ThavenMoodCommandRoles
+  values:
+  - Captain
+  - Head of Personnel
+  - Chief Engineer
+  - Chief Medical Officer
+  - Research Director
+  - Head of Security
+
+- type: dataset
+  id: ThavenMoodSpeechRestrictions
+  values:
+  - in whispers only
+  - only in questions
+  - only in rhymes
+  - without contractions
+  - only in third person
+  - only in formal titles
