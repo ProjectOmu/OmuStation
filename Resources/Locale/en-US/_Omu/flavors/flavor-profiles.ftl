@@ -5,7 +5,7 @@ flavor-complex-dwarfgrudge = like grudges and resentment
 flavor-complex-rawshrimp = shrimply uncooked
 flavor-complex-shrimp = shrimply wonderful
 flavor-complex-thewelles = like a city you've got to burn
-flavor-complex-captainy = metallic, sweet, like cherries, and like a job well done
+flavor-complex-captainy = metallic, sweet, and like a job well done
 
 #  Description of what plutonium tastes like from IFL Science article "What Does Plutonium Taste Like?" published March 5, 2025
 flavor-complex-atomicPrecision = sour and sweet, enough to drown out the umami of "I'm going to die soon"
