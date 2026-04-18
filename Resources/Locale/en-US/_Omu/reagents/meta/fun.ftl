@@ -27,3 +27,6 @@ reagent-desc-marotineconcentrate = A concentrated form of marotine made by Inter
 
 reagent-name-methrilconcentrate = methril concentrate
 reagent-desc-methrilconcentrate = A concentrated form of methril made by Interdyne. Originally created as a way to permanently alter ones species after a cloning mishap, it is now often made and used by Syndicate agents for different purposes.
+
+reagent-name-captainschoice = captain's choice
+reagent-desc-captainschoice = A reagent made by pasting bad captains, made from captain, by captain with captains.

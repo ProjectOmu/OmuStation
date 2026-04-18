@@ -240,3 +240,12 @@
         conditions:
         - !type:ReagentThreshold
           min: 25
+
+- type: reagent
+  id: CaptainsChoice
+  name: reagent-name-captainschoice
+  group: Toxins
+  desc: reagent-desc-captainschoice
+  physicalDesc: reagent-physical-desc-verycaptainy
+  flavor: captainy
+  color: "#EFBF04"
