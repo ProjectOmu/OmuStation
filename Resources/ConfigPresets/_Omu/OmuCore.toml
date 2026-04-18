@@ -92,8 +92,8 @@ time = 60 # Increased from 45
 
 [vote]
 enabled = true
-map_enabled = false
-preset_enabled = true
+map_enabled = true
+preset_enabled = false
 restart_enabled = false
 restart_ghost_percentage = 60 # 24 players must be dead
 restart_max_players = 40 # General midground for max players right now
