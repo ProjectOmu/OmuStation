@@ -10,3 +10,40 @@
     sprite: _Omu/Clothing/OuterClothing/Armour/ClothingOuterBlueshieldArmourKimono.rsi
   - type: Item
     size: Normal
+
+- type: entity
+  parent: [ ClothingOuterBase, AllowSuitStorageClothing, BaseSyndicateContraband ]
+  id: ClothingOuterNeuluthiv
+  name: neuluthiv visionary robes
+  description: A heavy dark gem-encrusted robe, worn by visionaries of the Wizard Federation. Sewn-in durathread and plating makes it a formidable armorpiece.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Armour/neuluthiv.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Armour/neuluthiv.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: Armor # Same stats as authentic cowboy poncho, as their obtaining methods are identical.
+    coverage:
+    - Chest
+    - Groin
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: ModifyDelayedKnockdown
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaResistance
+    damageCoefficient: 0.6
