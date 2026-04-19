@@ -508,7 +508,7 @@
         softGrabSpeedModifier: 1
         hardGrabSpeedModifier: 1
         chokeGrabSpeedModifier: 1
-      - type: BreathingImmunity
+      #- type: BreathingImmunity # Omu, why would the thing that audibly breaths, be immune to breathing?
       - type: GunBlocked
         PopupText: slasher-cannot-use-guns # Seems to be broken inside AntagSelection
       - type: WeakToHoly
