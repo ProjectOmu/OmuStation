@@ -101,6 +101,10 @@
   - type: AntiRottingContainer
   - type: StaticPrice
     price: 200
+  - type: AccessReader #OMU
+    access: [["Command"]] #OMU
+  - type: Lock #OMU
+    locked: false
 
 - type: entity
   id: Crematorium
