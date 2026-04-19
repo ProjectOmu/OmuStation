@@ -173,7 +173,7 @@
 
 - type: entity
   id: NanoRepBelt
-  parent: WaistBeltSergeantBelt
+  parent: [BaseCentcommContraband, DisciplinaryBeltBase]
   name: nanotrasen representative's disciplinary belt
   description: "Looks the same as a Central Command belt, but less heavy. Oh boy, someone's getting a beating."
   components:
@@ -189,3 +189,21 @@
     damage:
       types:
         Blunt: 7
+    attackRate: 0.7
+    soundHit:
+      path: /Audio/_Goobstation/Weapons/Baton/woodhit.ogg
+      params:
+        variation: 0.25
+  - type: TelescopicBaton
+  - type: KnockdownOnHit
+    duration: .1
+    dropItems: false
+  - type: StaminaDamageOnHit
+    damage: 12
+  - type: UseDelay
+    delays:
+      default:
+        length: 1
+  - type: UseDelayBlockMelee
+    delays:
+    - default
