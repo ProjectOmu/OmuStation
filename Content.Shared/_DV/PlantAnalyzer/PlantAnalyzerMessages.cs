@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Omu.Shared.PlantAnalyzer;
+namespace Content.Shared._DV.PlantAnalyzer;
 
 // local mirror of Content.Server.Botany.HarvestType - kept in sync manually.
 // defined here because HarvestType lives in Content.Server and cannot be referenced from Shared.

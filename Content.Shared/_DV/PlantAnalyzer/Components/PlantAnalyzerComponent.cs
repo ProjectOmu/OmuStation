@@ -2,7 +2,7 @@ using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Omu.Shared.PlantAnalyzer.Components;
+namespace Content.Shared._DV.PlantAnalyzer.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class PlantAnalyzerComponent : Component

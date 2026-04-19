@@ -1,6 +1,6 @@
-using Content.Omu.Shared.PlantAnalyzer;
+using Content.Shared._DV.PlantAnalyzer;
 
-namespace Content.Omu.Client.PlantAnalyzer.UI;
+namespace Content.Client._DV.PlantAnalyzer.UI;
 
 // this is the bridge between the server and the window.
 // the server sends a PlantAnalyzerScannedSeedMessage after a successful scan,

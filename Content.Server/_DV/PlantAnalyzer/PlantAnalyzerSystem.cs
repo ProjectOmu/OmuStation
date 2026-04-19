@@ -1,6 +1,6 @@
 using System.Linq;
-using Content.Omu.Shared.PlantAnalyzer;
-using Content.Omu.Shared.PlantAnalyzer.Components;
+using Content.Shared._DV.PlantAnalyzer;
+using Content.Shared._DV.PlantAnalyzer.Components;
 using Content.Server.Botany;
 using Content.Server.Botany.Components;
 using Content.Shared.DoAfter;
@@ -10,7 +10,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 
-namespace Content.Omu.Server.PlantAnalyzer;
+namespace Content.Server._DV.PlantAnalyzer;
 
 public sealed class PlantAnalyzerSystem : EntitySystem
 {
