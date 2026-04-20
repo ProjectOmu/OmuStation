@@ -13,6 +13,7 @@
   components:
   - type: GameRule
     minPlayers: 28 # minimum of 4 conspirators
+    chaosScore: 400 #Omu added for compatability
   - type: ConspiratorRule
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn

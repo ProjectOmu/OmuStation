@@ -80,6 +80,7 @@
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 6, 6 ]
             ResearchAssistant: [ 4, 4 ]
+            Roboticist: [ 2, 2 ] #Omu
             Borg: [ 2, 2 ]
             #security
             HeadOfSecurity: [ 1, 1 ]
@@ -89,11 +90,13 @@
             SecurityCadet: [ 2, 4 ]
             Brigmedic: [ 1, 1 ]
             TransitPrisoner: [2, 2] # Omu - Prisoner role
+            SecuritySergeant: [ 1, 1 ] #Omu
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
             ShaftMiner: [ 3, 3 ] # Omu
             CargoTechnician: [ 5, 5 ]
+            Courier: [ 2, 2 ] #Omu
             #civillian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]

@@ -151,7 +151,7 @@
       time: 18000 #5 hours
   - type: GhostRoleMobSpawner
     prototype: MobMonkeySyndicateAgent
-    selectablePrototypes: ["SyndicateMonkey", "SyndicateKobold"]
+    selectablePrototypes: ["SyndicateMonkey", "SyndicateKobold", "SyndicateScurret"]
 
 - type: entity
   parent: ReinforcementRadioSyndicateAncestor
@@ -162,7 +162,7 @@
     rules: ghost-role-information-nukeop-reinforcement-rules
   - type: GhostRoleMobSpawner
     prototype: MobMonkeySyndicateAgentNukeops
-    selectablePrototypes: ["SyndicateMonkeyNukeops", "SyndicateKoboldNukeops"]
+    selectablePrototypes: ["SyndicateMonkeyNukeops", "SyndicateKoboldNukeops", "SyndicateScurretNukeops"]
 
 - type: entity
   parent: ReinforcementRadio

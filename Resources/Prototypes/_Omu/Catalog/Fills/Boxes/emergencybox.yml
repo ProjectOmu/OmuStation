@@ -1,0 +1,161 @@
+- type: entity
+  parent: BoxSurvivalSlots
+  id: BoxSurvivalSlotsMeat
+  suffix: Carnivore
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - EmergencyOxygenTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+
+- type: entity
+  parent: BoxSurvivalSlotsEngineering
+  id: BoxSurvivalSlotsEngineeringMeat
+  suffix: Extended, Carnivore
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyOxygenTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Sprite
+    state: box_extend
+
+- type: entity
+  parent: BoxSurvivalSlotsSecurity
+  id: BoxSurvivalSlotsSecurityMeat
+  suffix: Security, Carnivore
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyOxygenTankFilled
+      mask:
+      - ClothingMaskGasSecurity
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Sprite
+    state: box_sec
+
+- type: entity
+  parent: BoxSurvivalSlotsMedical
+  id: BoxSurvivalSlotsMedicalMeat
+  suffix: Medical, Carnivore
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - EmergencyOxygenTankFilled
+      mask:
+      - ClothingMaskBreathMedical
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Sprite
+    state: box_med
+
+- type: entity
+  parent: BoxHugSlots
+  id: BoxHugSlotsMeat
+  suffix: Clown, Carnivore
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - EmergencyFunnyOxygenTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+
+- type: entity
+  parent: BoxSurvivalSlotsSyndicate
+  id: BoxSurvivalSlotsSyndicateMeat
+  suffix: Syndicate, Carnivore
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyOxygenTankFilled
+      mask:
+      - ClothingMaskGasSyndicate
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Sprite
+    state: box_syndie
+
+- type: entity
+  parent: BoxSurvivalSlots
+  id: BoxMimeSlotsMeat
+  suffix: Mime, Carnivore
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - EmergencyOxygenTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen

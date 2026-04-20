@@ -72,6 +72,12 @@
   description: A state-of-the-art helmet designed by NanoTrasen for the Janitorial Responsory modsuit. It includes a built-in HUD.
   categories: [HideSpawnMenu]
   components:
+    - type: Clothing # Omu start
+      clothingVisuals:
+        head:
+          - state: equipped-HEAD
+        head-vox:
+          - state: equipped-HEAD-vox # Omu end
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/janitorial-responsory.rsi
     - type: PressureProtection
@@ -148,8 +154,8 @@
       clothingVisuals:
         outerClothing:
         - state: equipped-OUTERCLOTHING-sealed
-        - state: equipped-OUTERCLOTHING-sealed-unshaded
-          shader: unshaded
+#        - state: equipped-OUTERCLOTHING-sealed-unshaded # Omu, this does not exist for this modsuit.
+#          shader: unshaded
         outerClothing-vox:
         - state: equipped-OUTERCLOTHING-sealed-vox
     - type: StaminaResistance

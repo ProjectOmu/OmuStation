@@ -27,9 +27,13 @@
     groups:
     - AllAccess
     tags:
-    - CentralCommand
-    - NanotrasenRepresentative
-    - BlueshieldOfficer
+      - CentCommOffical
+      - NanotrasenSpectre
+      - Deathsquad
+      - EmergencyResponseTeam
+      - CentralCommand
+      - NanotrasenRepresentative
+      - BlueshieldOfficer
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]

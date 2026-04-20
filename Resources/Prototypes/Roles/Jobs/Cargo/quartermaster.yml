@@ -143,6 +143,8 @@
 #      inverted: true
 #      species:
 #      - Felinid #Omu, add back Felinid
+    - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hours - Omu Edit
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
@@ -151,8 +153,8 @@
   antagAdvantage: 75 # Goobstation
   guides: # goobstation
   - Cargo
-  - Quartermaster SOP
-  - Cargo SOP
+  - QuartermasterSOP
+  - CargoSOP
   - Command
   - CommandTrainingManual # Omu
   goobcoins: 40 #Goob content

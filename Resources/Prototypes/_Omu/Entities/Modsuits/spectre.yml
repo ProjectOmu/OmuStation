@@ -66,6 +66,10 @@
   description: A state-of-the-art helmet designed by NanoTrasen for the Spectre modsuit. It includes a built-in HUD.
   categories: [HideSpawnMenu]
   components:
+    - type: Clothing
+      clothingVisuals:
+        head:
+        - state: equipped-HEAD
     - type: Sprite
       sprite: _Omu/Clothing/Modsuits/chrono.rsi
     - type: PressureProtection

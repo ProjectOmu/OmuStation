@@ -129,6 +129,7 @@
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 5, 5 ]
             ResearchAssistant: [ 4, 4 ] #intern, not counted
+            Roboticist: [ 2, 2 ]
             #security (10)
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
@@ -143,6 +144,7 @@
             SalvageSpecialist: [ 3, 3 ]
             ShaftMiner: [ 3, 3 ] # Omu, needs mapping
             CargoTechnician: [ 3, 3 ]
+            Courier: [ 2, 3 ] # Omu - Courier role
             #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]

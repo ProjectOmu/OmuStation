@@ -183,6 +183,7 @@
   - Survival
   - Trinkets
   - Animals
+  - TrinketsAssistant # Omu
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - AssistantEnvirohelm
@@ -237,6 +238,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - TrinketsChef #Gabystation
   # Goobstation - EE Plasmeme Change.
   - ChefEnvirohelm
   - ChefEnvirosuit
@@ -342,6 +344,7 @@
   - ClownJumpsuit
   - ClownBackpack
   - ClownOuterClothing
+  - ClownBelt # Omu
   - ClownShoes
   - Glasses
   - SurvivalClown
@@ -434,10 +437,10 @@
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
-  - SalvageSpecialistJumpsuit # DeltaV - more jumpskirts
   - GroupTankHarness
   - SalvageSpecialistNeck # Goobstation
   - SalvageSpecialistBackpack
+  - SalvageSpecialistJumpsuit # Goobstation
   - SalvageSpecialistOuterClothing
   - CargoShoes # omu
   - Glasses
@@ -614,12 +617,12 @@
   - WardenJumpsuit
   - SecurityBackpack
   - SecurityMelee # Goobstation
+  - TrinketsSecurity # Omu Edit
   - SecurityNeck
   - SecurityBelt
   - WardenOuterClothing
   - SecurityShoes
   - SurvivalSecurity
-  - TrinketsSecurity # Omu Edit
   - Trinkets
   - SecurityStar
   - Animals
@@ -636,13 +639,13 @@
   - SecurityJumpsuit
   - SecurityBackpack
   - SecurityMelee # Goobstation
+  - TrinketsSecurity # Omu Edit
   - SecurityOuterClothing
   - SecurityShoes
   - SecurityNeck
   - SecurityPDA
   - SecurityBelt
   - SurvivalSecurity
-  - TrinketsSecurity # Omu Edit
   - Trinkets
   - SecurityStar
   - Animals
@@ -656,13 +659,15 @@
   id: JobDetective
   groups:
   - DetectiveHead
+  - DetectiveEyes # Omu edit
   - DetectiveNeck
   - DetectiveJumpsuit
   - SecurityBackpack
+  - SecurityMelee # Omu edit
+  - TrinketsSecurityDetective # Omu Edit
   - DetectiveOuterClothing
   - SecurityShoes
   - SurvivalSecurity
-  - TrinketsSecurity # Omu Edit
   - Trinkets
   - SecurityStar
   - Animals
@@ -766,6 +771,7 @@
   - ChemistEyewear
   - ChemistBeaker
   - ChemistLabeler
+  - ChemistBag # Omu
   - SurvivalMedical
   - Trinkets
   - Animals

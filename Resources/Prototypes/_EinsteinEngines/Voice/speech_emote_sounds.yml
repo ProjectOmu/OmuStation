@@ -79,6 +79,10 @@
       path: /Audio/_Goobstation/Voice/surprised.ogg
       params:
         variation: 0
+    Cough: # Omu
+      path: /Audio/Effects/tesla_consume.ogg # same as their disease noise
+      params:
+        variation: 0.125
 
 - type: emoteSounds
   id: MaleShadowkin

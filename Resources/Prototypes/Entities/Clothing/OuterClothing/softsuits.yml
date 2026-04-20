@@ -130,6 +130,24 @@
     - Softsuit # OuterSlotClothingPenalty
   - type: StaticPrice
     price: 1000 # Helmet is 500
+  ### Omu Station Edits
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
+    modifiers:
+      coefficients:
+        Radiation: 0.75
+# Omu End
 
 #Emergency EVA
 - type: entity

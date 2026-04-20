@@ -48,8 +48,10 @@
 #      inverted: true
 #      species:
 #      - Felinid #Omu, add back Felinid
+    - !type:OverallPlaytimeRequirement
+      time: 72000 #20 hours - Omu Edit
   guides:
-  - BlueshieldOfficer SOP
+  - BlueshieldOfficerSOP
   - Command
   - Succession
   goobcoins: 45

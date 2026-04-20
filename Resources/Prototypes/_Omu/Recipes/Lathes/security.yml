@@ -2,10 +2,17 @@
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineCaselessRifle
-  result: MagazineCaselessRifle
+  id: MagazineCaselessRifleFMJ
+  result: MagazineCaselessRifleFMJ
   materials:
     Steel: 350
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineCaselessRifleShortFMJ
+  result: MagazineCaselessRifleShortFMJ
+  materials:
+    Steel: 300
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -50,8 +57,8 @@
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineBoxCaselessRifle
-  result: MagazineBoxCaselessRifle
+  id: MagazineBoxCaselessRifleFMJ
+  result: MagazineBoxCaselessRifleFMJ
   materials:
     Steel: 720
 
@@ -105,3 +112,17 @@
   result: MagazineMagnumLeverRifle
   materials:
     Steel: 185
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineClipM1GarandEmpty
+  result: MagazineClipM1GarandEmpty
+  materials:
+    Steel: 12
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineClipM1Garand
+  result: MagazineClipM1Garand
+  materials:
+    Steel: 150

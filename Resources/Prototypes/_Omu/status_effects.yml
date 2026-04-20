@@ -1,0 +1,11 @@
+﻿# SPDX-FileCopyrightText: 2025 Tuerk <richardgirgindontstop@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Stops Emotes
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectEmoteMuted
+  name: emote muted
+  components:
+  - type: EmoteMutedStatusEffect

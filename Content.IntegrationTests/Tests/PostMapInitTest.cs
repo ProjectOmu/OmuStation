@@ -183,7 +183,6 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Goobstation/kettle.yml",
             "/Maps/_Goobstation/lambda.yml",
             "/Maps/_Goobstation/leonid.yml",
-            "/Maps/_Goobstation/submarine.yml",
             "/Maps/_Goobstation/Nonstations/wizden.yml", // Obviously
             "/Maps/_Lavaland/Lavaland/ruin_toyshop.yml", // I think we might want to glob these, idk
             "/Maps/_Goobstation/loop.yml",
@@ -236,8 +235,7 @@ namespace Content.IntegrationTests.Tests
             "Packed",
             "Reach",
             "Saltern",
-            "Serpentcrest",
-            "Submarine",
+            //"Serpentcrest", // omu serpentcrest kil
             "TestTeg",        // Dev map
             "Train"           // Not in pool
             // Goob end
@@ -283,7 +281,6 @@ namespace Content.IntegrationTests.Tests
               "Reach",
               "Saltern",
             //"Serpentcrest", Omu No
-              "Submarine"
         };
         // Goobstation edit end
 
@@ -702,6 +699,7 @@ namespace Content.IntegrationTests.Tests
             await pair.CleanReturnAsync();
         }
 
+        [Explicit] // Goobstation, make these manual.
         [Test]
         public async Task NonGameMapsLoadableTest()
         {

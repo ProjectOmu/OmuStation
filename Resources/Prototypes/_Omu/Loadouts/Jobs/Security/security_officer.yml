@@ -13,9 +13,72 @@
   equipment:
     belt: ClothingBeltSheathStunswordFilled
 
-#Backpack
+#Secoff
 - type: loadout
   id: SecurityOfficerGunCase
+  equipment:
+    pocket1: OfficerGunCase
+  groupBy: "Main weapon"
+
+- type: loadout
+  id: SecurityOfficerMk58
+  dummyEntity: WeaponPistolMk58
+  equipment:
+    pocket1: WeaponPistolMk58
   storage:
     back:
-    - OfficerGunCase
+    - MagazinePistol
+    - MagazinePistol
+  groupBy: "Main weapon"
+
+- type: loadout
+  id: SecurityOfficerSecurityDutyRevolver
+  dummyEntity: SecurityDutyRevolver
+  equipment:
+    pocket1: SecurityDutyRevolver
+  storage:
+    back:
+    - SpeedLoaderRevolverLightRifle
+    - SpeedLoaderRevolverLightRifle
+  groupBy: "Main weapon"
+
+- type: loadout
+  id: SecurityOfficerTerminus
+  equipment:
+    suitstorage: Terminus
+  groupBy: "Main weapon"
+
+#Detective
+- type: loadout
+  id: DetectiveWeaponRevolverInspector
+  dummyEntity: WeaponRevolverInspector
+  equipment:
+    belt: ClothingBeltHolsterFilled # Has revolver + ammo inside
+  groupBy: "Main weapon"
+
+- type: loadout
+  id: DetectiveTerminus
+  equipment:
+    suitstorage: Terminus
+  groupBy: "Main weapon"
+
+- type: loadout
+  id: DetectiveClothingEyesGlassesSecurity
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+  groupBy: "Detective eyes"
+
+- type: loadout
+  id: DetectiveClothingEyesGlassesNoir
+  equipment:
+    eyes: ClothingEyesGlassesNoir
+  groupBy: "Detective eyes"
+
+
+# Brigmed
+
+- type: loadout
+  id: BrigmedTerminus
+  inhand:
+  - Terminus
+  groupBy: "Main weapon"

@@ -1,0 +1,50 @@
+#Lazy tiramisu and fancy tiramisu added by jellygato 3-1-26
+- type: entity
+  name: lazy tiramisu
+  parent: FoodBakedBase
+  id: FoodBakedLazyTiramisu
+  suffix: Fresh
+  description: A slice of bread soaked in chocolate and coffee, topped with cream. Listen, it's tiramisu. Trust me.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - chocolate
+      - coffee
+  - type: Sprite
+    sprite: _Omu/Objects/Consumable/Food/Baked/misc.rsi
+    state: tiramisu-lazy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 13
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Theobromine
+          Quantity: 3
+
+- type: entity
+  name: fancy tiramisu
+  parent: FoodBakedBase
+  id: FoodBakedFancyTiramisu
+  suffix: Fresh
+  description: Dense cake soaked in espresso, layered with whipped cream and topped with shaved chocolate.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - chocolate
+      - coffee
+  - type: Sprite
+    sprite: _Omu/Objects/Consumable/Food/Baked/misc.rsi
+    state: tiramisu-fancy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 13
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Theobromine
+          Quantity: 3

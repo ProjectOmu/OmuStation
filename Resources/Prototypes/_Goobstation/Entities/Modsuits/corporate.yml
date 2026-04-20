@@ -46,7 +46,7 @@
         back:
         - state: equipped-BACKPACK-sealed
         - state: equipped-BACKPACK-sealed-unshaded
-          shader: unshaded      
+          shader: unshaded
 
 - type: entity
   parent: [ClothingModsuitGauntletsStandard, BaseCentcommContraband]
@@ -84,6 +84,12 @@
   description: A state-of-the-art helmet designed by NanoTrasen for the Corporate modsuit. It includes a built-in HUD.
   categories: [HideSpawnMenu]
   components:
+    - type: Clothing # Omu start
+      clothingVisuals:
+        head:
+          - state: equipped-HEAD
+        head-vox:
+          - state: equipped-HEAD-vox # Omu end
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/corporate.rsi
     - type: Armor
@@ -126,10 +132,10 @@
         - state: equipped-HEAD-sealed-vox
         - state: equipped-HEAD-sealed-unshaded-vox
           shader: unshaded
-        head-vulpkanin: #TODO: add vulp sprites
-        - state: equipped-HEAD-sealed
-        - state: equipped-HEAD-sealed-unshaded
-          shader: unshaded
+#        head-vulpkanin: #TODO: add vulp sprites # Omu, prehaps don't add this before you do sprites?
+#        - state: equipped-HEAD-sealed
+#        - state: equipped-HEAD-sealed-unshaded
+#          shader: unshaded
     - type: ActivatableUI
       inHandsOnly: false # Goobstation
       singleUser: true
@@ -298,7 +304,7 @@
           - id: WelderExperimental
           - id: Multitool
           - id: MedkitCombatFilled
-          
+
 #NCT
 - type: entity
   parent: [ClothingModsuitCorporate, ClothingModsuitStandard, BaseCentcommContraband]
@@ -332,6 +338,12 @@
   description: A state-of-the-art helmet designed by NanoTrasen for the Career Trainer modsuit. It includes a built-in HUD.
   categories: [HideSpawnMenu]
   components:
+    - type: Clothing # Omu start
+      clothingVisuals:
+        head:
+          - state: equipped-HEAD
+        head-vox:
+          - state: equipped-HEAD-vox # Omu end
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/nct.rsi
     - type: ThermalVision

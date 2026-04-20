@@ -62,7 +62,6 @@ using Content.Shared.Popups;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Zombies;
-using Content.Shared.Heretic;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Cuffs.Components;
@@ -341,8 +340,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             return;
 
         // goob - event instead of whatever the fuck the hascomp obelisk below is (whoever did this needs to be flogged)
-        var convEv = new BeforeConversionEvent();
-        RaiseLocalEvent(ev.Target, ref convEv);
+        var convEv = new BeforeConversionEvent(ev.Target);
+        RaiseLocalEvent(ev.Target, ref convEv, true);
 
         if (HasComp<RevolutionaryComponent>(ev.Target) ||
             HasComp<MindShieldComponent>(ev.Target) ||
@@ -350,7 +349,6 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             !alwaysConvertible ||
             !_mobState.IsAlive(ev.Target) ||
             HasComp<ZombieComponent>(ev.Target) ||
-            HasComp<HereticComponent>(ev.Target) || // goob edit - no more heretic revs
             HasComp<AntagImmuneComponent>(ev.Target)) // Antag immune MEANS antag immune.
         {
             return;
@@ -483,12 +481,11 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                 if (HasComp<HeadRevolutionaryComponent>(uid))
                     continue;
 
-            _npcFaction.RemoveFaction(uid, RevolutionaryNpcFaction);
-            _stun.TryParalyze(uid, stunTime, true); // todo: use gamerule
-            RemCompDeferred<RevolutionaryComponent>(uid);
-            RemCompDeferred<ShowRevolutionaryIconsComponent>(uid);
-            _popup.PopupEntity(Loc.GetString("rev-break-control", ("name", Identity.Entity(uid, EntityManager))), uid);
-            _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} was deconverted due to all Head Revolutionaries dying.");
+                _npcFaction.RemoveFaction(uid, RevolutionaryNpcFaction);
+                _stun.TryUpdateParalyzeDuration(uid, stunTime);
+                RemCompDeferred<RevolutionaryComponent>(uid);
+                _popup.PopupEntity(Loc.GetString("rev-break-control", ("name", Identity.Entity(uid, EntityManager))), uid);
+                _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} was deconverted due to all Head Revolutionaries dying.");
 
                 // Goobstation - check if command staff was deconverted
                 if (TryComp<CommandStaffComponent>(uid, out var commandComp))

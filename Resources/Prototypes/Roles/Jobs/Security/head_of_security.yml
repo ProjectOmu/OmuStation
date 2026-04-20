@@ -163,6 +163,8 @@
   #    - HumanHairFloorlengthBedhead
   #    - HumanHairClassicFloorlengthBedhead
   #    - HumanHairFloorlengthBraid
+    - !type:OverallPlaytimeRequirement
+      time: 72000 #20 hours - Omu Edit
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
@@ -171,15 +173,16 @@
   guides: # goobstation
   - Security
   - SpaceLaw
-  - Legal SOP
+  - LegalSOP
   - Command
-  - HeadOfSecurity SOP
-  - Security SOP
-  - Alert Levels
+  - HeadOfSecuritySOP
+  - SecuritySOP
+  - AlertLevels
   - CommandTrainingManual # Omu
   - SecurityTrainingManual # Omu
   goobcoins: 45 #Goob content
   access:
+  - Corpsman # Omu
   - HeadOfSecurity
   - Command
   - Brig

@@ -193,12 +193,12 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             {
                 // Goobstation - Here penetration threshold count as "penetration health".
                 // If it's lower than damage than penetation damage entity cause it deletes projectile
-                if (component.PenetrationThreshold < penetratable.PenetrateDamage)
+                if (component.PenetrationThreshold < (penetratable.PenetrateDamage * component.PenetrationFactor)) // Omu, add penetration factor
                 {
                     component.ProjectileSpent = true;
                 }
 
-                component.PenetrationThreshold -= FixedPoint2.New(penetratable.PenetrateDamage);
+                component.PenetrationThreshold -= (FixedPoint2.New(penetratable.PenetrateDamage) * component.PenetrationFactor); // Omu, add penetration factor
                 component.Damage *= (1 - penetratable.DamagePenaltyModifier);
             }
         }

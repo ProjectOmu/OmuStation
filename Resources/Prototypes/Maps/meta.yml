@@ -133,6 +133,7 @@
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 5, 7 ]
             ResearchAssistant: [ 3, 6 ]
+            Roboticist: [ 2, 2 ] #Omu
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
@@ -142,9 +143,11 @@
             Lawyer: [ 2, 2 ]
             Brigmedic: [ 1, 1 ]
             TransitPrisoner: [2, 2] # Omu - Prisoner role
+            SecuritySergeant: [ 1, 1 ] #Omu
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
+            Courier: [ 2, 3 ] # Omu - Courier role
             CargoTechnician: [ 3, 3 ]
             ShaftMiner: [ 3, 3 ]
             #civilian

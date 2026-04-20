@@ -15,6 +15,7 @@
   accessGroups:
   - AllAccess
   access:
+  - EmergencyResponseTeam
   - CentralCommand
   - NanotrasenRepresentative
   - BlueshieldOfficer
@@ -61,6 +62,7 @@
   supervisors: job-supervisors-centcom
   canBeAntag: false
   access:
+  - EmergencyResponseTeam
   - CentralCommand
   - Security
   - Brig
@@ -110,6 +112,7 @@
   supervisors: job-supervisors-centcom
   canBeAntag: false
   access:
+  - EmergencyResponseTeam
   - CentralCommand
   - Medical
   - Chemistry
@@ -156,6 +159,7 @@
   supervisors: job-supervisors-centcom
   canBeAntag: false
   access:
+  - EmergencyResponseTeam
   - CentralCommand
   - Service
   - Janitor
@@ -202,6 +206,7 @@
   supervisors: job-supervisors-centcom
   canBeAntag: false
   access:
+  - EmergencyResponseTeam
   - CentralCommand
   - Engineering
   - Atmospherics
@@ -254,6 +259,7 @@
   supervisors: job-supervisors-centcom
   canBeAntag: false
   access:
+  - EmergencyResponseTeam
   - CentralCommand
   - Chapel
   - Service

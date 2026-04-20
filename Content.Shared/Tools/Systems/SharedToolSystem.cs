@@ -92,12 +92,16 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared._Mono.NoHack; // Omu, can people stop trying to break protected grids.
+using Content.Shared._Mono.NoDeconstruct; // Omu, can people stop trying to break protected grids.
 
 namespace Content.Shared.Tools.Systems;
 
 public abstract partial class SharedToolSystem : EntitySystem
 {
+    [Dependency] private   readonly IGameTiming _timing = default!;
     [Dependency] private   readonly IMapManager _mapManager = default!;
     [Dependency] private   readonly IPrototypeManager _protoMan = default!;
     [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
@@ -346,10 +350,21 @@ public abstract partial class SharedToolSystem : EntitySystem
         // check if the target allows using the tool
         if (target != null && target != tool)
         {
+            if (HasComp<NoHackComponent>(target)) // Omu. Can people stop trying to break protected grids.
+                return false;
+            if (HasComp<NoDeconstructComponent>(target)) // Omu. Can people stop trying to break protected grids.
+                return false;
             RaiseLocalEvent(target.Value, beforeAttempt);
         }
 
         return !beforeAttempt.Cancelled;
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        UpdateWelders();
     }
 
     #region DoAfterEvents

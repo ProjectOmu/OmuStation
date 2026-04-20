@@ -1066,10 +1066,10 @@
           shouldHave: false
 
 - type: reagent
-  id: PentenicAcid
-  name: reagent-name-pentenic-acid
+  id: PenteticAcid
+  name: reagent-name-pentetic-acid
   group: Medicine
-  desc: reagent-desc-pentenic-acid
+  desc: reagent-desc-pentetic-acid
   physicalDesc: reagent-physical-desc-acidic
   flavor: medicine
   color: "#22ff1a"
@@ -1445,8 +1445,8 @@
             Toxin: -3
             Airloss: -3
             Genetic: -3
-      - !type:GenericStatusEffect
-        key: Stun
+      - !type:ModifyStatusEffect 
+        effectProto: StatusEffectStunned
         time: 3
         type: Remove
     Narcotic:
