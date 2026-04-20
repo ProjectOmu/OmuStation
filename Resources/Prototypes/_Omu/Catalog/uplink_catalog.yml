@@ -43,3 +43,18 @@
       tags:
       - ContractorUplink
       - NukeOpsUplink
+
+- type: listing
+  id: UplinkShoalMask
+  name: uplink-shoalmask-name
+  description: uplink-shoalmask-desc
+  icon: { sprite: _Omu/Clothing/Mask/shoalmask.rsi, state: icon }
+  productEntity: ClothingMaskGasShoal
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Vox

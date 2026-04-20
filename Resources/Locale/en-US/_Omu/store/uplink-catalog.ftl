@@ -8,3 +8,5 @@ uplink-dislippler-desc = Standard-issue security disabler on Honk! Co. stations.
 uplink-swordfish-name = Blood Red Swordfish
 uplink-swordfish-desc = A terrifying weapon made for the Thaven operatives. This fish is wielded like a rapier. It pierces armor and it can perform a dash attack.
 
+uplink-shoalmask-name = Shoal Infiltration Mask
+uplink-shoalmask-desc = A padded steel gas mask designed for Shoal Infiltrators, provides quiet door prying and thermal vision.
