@@ -31,6 +31,20 @@
       layers:
         - state: extraction_point
           map: [ "foldedLayer" ]
+    - type: Lock
+    - type: AccessReader
+      access: [["CentralCommand"]]
+  
+- type: entity
+  id: FultonBeaconBlueshieldUnfolded
+  parent: FultonBeaconBlueshield
+  suffix: unfolded
+  components:
+  - type: Foldable
+    folded: false
+  # - type: Lock
+  # - type: AccessReader
+  #   access: [["CentralCommand"]]
 
 - type: entity
   id: FultonBlueshield

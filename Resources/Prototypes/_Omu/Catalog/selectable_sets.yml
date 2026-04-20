@@ -257,15 +257,15 @@
   content:
   - ClothingBeltExtractionRigBSOFilled
 
-- type: selectableSet
-  id: BSOSurgicalSet
-  name: selectable-set-bso-surgical-name
-  description: selectable-set-bso-surgical-description
-  sprite:
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi
-    state: omnimed
-  content:
-  - ClothingBeltBlueshieldEliteWebbingSurgicalFilled
+# - type: selectableSet
+#   id: BSOSurgicalSet
+#   name: selectable-set-bso-surgical-name
+#   description: selectable-set-bso-surgical-description
+#   sprite:
+#     sprite: _Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi
+#     state: omnimed
+#   content:
+#   - ClothingBeltBlueshieldEliteWebbingSurgicalFilled
 
 - type: selectableSet
   id: BSOMedicalSet

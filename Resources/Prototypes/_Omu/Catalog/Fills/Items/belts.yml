@@ -70,6 +70,7 @@
     - id: DefibrillatorCompact
     - id: MedkitCombatFilled
       amount: 2
+    - id: BodyBagBluespaceBSOFolded # moved from surgical
 
 - type: entity
   id: ClothingBeltExtractionRigBSOFilled
@@ -82,12 +83,12 @@
     - id: FultonBlueshield
     - id: MedkitCombatBlueFilled
 
-- type: entity
-  id: ClothingBeltBlueshieldEliteWebbingSurgicalFilled
-  parent: ClothingBeltBlueshieldEliteWebbingSurgical
-  suffix: Filled
-  components:
-  - type: StorageFill
-    contents:
-    - id: OmnimedTool
-    - id: BodyBagBluespaceBSOFolded
+# - type: entity
+#   id: ClothingBeltBlueshieldEliteWebbingSurgicalFilled
+#   parent: ClothingBeltBlueshieldEliteWebbingSurgical
+#   suffix: Filled
+#   components:
+#   - type: StorageFill
+#     contents:
+#     - id: OmnimedTool
+#     - id: BodyBagBluespaceBSOFolded
