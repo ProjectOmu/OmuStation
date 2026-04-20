@@ -241,6 +241,7 @@
       color: "#CCFFCC"
     - type: ShowHealthBars
     - type: ShowHealthIcons
+    - type: ShowDiseaseIcons
 
 # medical mantle with internals and pressure protection for paramedics.
 - type: entity
@@ -274,6 +275,7 @@
     - type: BreathMask
     - type: ShowHealthBars
     - type: ShowHealthIcons
+    - type: ShowDiseaseIcons
 
 # Mantle for the BSO
 - type: entity
@@ -337,7 +339,7 @@
     - type: BreathMask
 
 # Command members who need job specific mantles just get their job mantles.
-# Command members who don't get this. It's no better than the base mantle, but it looks schweet.
+# Command members who don't get this. Suffer, because it now shows job icons
 - type: entity
   parent: [ClothingCyberneticBeastMantle, BaseCommandContraband]
   id: ClothingCyberneticBeastMantleCommand
@@ -353,3 +355,13 @@
       - state: helmet-command
       - state: eyes-command
         shader: unshaded
+  - type: ComponentToggler # copied from the parent with some additions.
+    components:
+    - type: VisionCorrection
+      correctionPower: 16
+    - type: NightVision
+      isEquipment: true
+      color: "#CCFFCC"
+    - type: FlashImmunity
+    - type: FlashSoundSuppression
+    - type: ShowJobIcons

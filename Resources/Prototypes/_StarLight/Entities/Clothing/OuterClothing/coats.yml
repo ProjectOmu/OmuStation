@@ -19,7 +19,7 @@
   name: senior chemist lab coat
 
 - type: entity
-  parent: [ClothingOuterStorageFoldableBase, AllowSuitStorageClothing, BaseSecurityContraband]
+  parent: ClothingOuterCoatAMG
   id: ClothingOuterCoatLabBrigmedic
   name: corpsman's reminisced overcoat
   description: A labcoat from reminisced, peaceful days. It's been reinforced several times over.
@@ -28,16 +28,13 @@
     sprite: _Starlight/Clothing/OuterClothing/Coats/brigmedic_overcoat.rsi
   - type: Clothing
     sprite: _Starlight/Clothing/OuterClothing/Coats/brigmedic_overcoat.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.65
-        Piercing: 0.75
-        Heat: 0.85
-        Caustic: 0.75
-  - type: ZombificationResistance
-    zombificationResistanceCoefficient: 0.65
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-zip-verb
+    foldVerbText: fold-unzip-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: open
+    foldedHeldPrefix: open
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabBrigmedic]
@@ -45,25 +42,15 @@
   name: corpsman's reminisced overcoat
 
 - type: entity
-  parent: [ClothingOuterStorageFoldableBase, AllowSuitStorageClothing, BaseSecurityContraband]
+  parent: ClothingOuterCoatLabBrigmedic
   id: ClothingOuterCoatLabCorpsman
   name: corpsman's nostalgic overcoat
-  description: A dark labcoat that's been reinforced several times over. Peaceful days died.
+  description: A dark labcoat that's been reinforced several times over.
   components:
   - type: Sprite
     sprite: _Starlight/Clothing/OuterClothing/Coats/corpsman_overcoat.rsi
   - type: Clothing
     sprite: _Starlight/Clothing/OuterClothing/Coats/corpsman_overcoat.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.65
-        Piercing: 0.75
-        Heat: 0.85
-        Caustic: 0.75
-  - type: ZombificationResistance
-    zombificationResistanceCoefficient: 0.65
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabCorpsman]

@@ -27,14 +27,17 @@
     # - id: BriefcaseBrownFilled
     - id: WeaponDisablerAdvanced
     - id: BedsheetCentcom
-    - id: CaneSheathFilledNanotrasen
-    - id: HandheldFaxOfficial
+    #- id: CaneSheathFilledNanotrasen # Omu, replace with NT cane
+    - id: CaneNT
+    #- id: HandheldFaxOfficial # Omu, replace with a NT rep fax
+    - id: HandheldFaxNanotrasenRepresentative
     - id: RubberStampNanorep
-    - id: ExecutiveBriefcaseEmpty # nanorep update
-    - id: ComputerNTRTasksFlatpack # nanorep update
+    #- id: ExecutiveBriefcaseEmpty # nanorep update # omu refocus on RP
+    #- id: ComputerNTRTasksFlatpack # nanorep update # omu refocus on RP
     - id: Paper
       amount: !type:ConstantNumberSelector
         value: 5
+    - id: ClothingEyesGlassesCentCommNoThermal
     - id: NanoRepStationReport # Goobstation
     - id: Multitool # Omu - Added for tasks flatpack
 

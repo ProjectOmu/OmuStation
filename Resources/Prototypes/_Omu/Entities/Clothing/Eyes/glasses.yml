@@ -45,3 +45,104 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingEyesBase, ShowMedicalIcons]
+  id: ClothingEyesGlassesMedJamjar
+  name: medical jamjar glasses
+  description: Jamjar glasses installed with a medical HUD.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_med.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_med.rsi
+  - type: Construction
+    graph: ClothingEyesGlassesMedJJ
+    node: gogglesJamJarMed
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HamsterWearable
+
+- type: entity
+  parent: [ClothingEyesBase]
+  id: ClothingEyesGlassesDiagJamjar
+  name: diagnostic jamjar glasses
+  description: Jamjar glasses installed with a diagnostic HUD.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_diag.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_diag.rsi
+  - type: Construction
+    graph: ClothingEyesGlassesDiagJJ
+    node: gogglesJamJarDiag
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HamsterWearable
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+    - SiliconRadiation
+
+- type: entity
+  parent: [ClothingEyesBase]
+  id: ClothingEyesGlassesMesonJamjar
+  name: meson jamjar glasses
+  description: Jamjar glasses installed with welding protection.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_meson.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_meson.rsi
+  - type: Construction
+    graph: ClothingEyesGlassesMesonJJ
+    node: gogglesJamJarMeson
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HamsterWearable
+  - type: EyeProtection
+
+- type: entity
+  parent: [ClothingEyesBase, ShowSecurityIcons, ClothingEyesGlassesSunglasses, BaseSecurityContraband]
+  id: ClothingEyesGlassesSecJamjar
+  name: security jamjar glasses
+  description: Jamjar glasses installed with a security HUD and flash protection.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_sec.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_sec.rsi
+  - type: Construction
+    graph: ClothingEyesGlassesSecJJ
+    node: gogglesJamJarSec
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HamsterWearable
+
+- type: entity
+  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons, BaseCentcommContraband]
+  id: ClothingEyesGlassesCentComJamjar
+  name: central command jamjar glasses
+  description: Actshually, it's not a sin if you're nerdier than them..!
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_centcom.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_centcom.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+  - type: ShowHungerIcons
+  - type: ShowThirstIcons
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HamsterWearable

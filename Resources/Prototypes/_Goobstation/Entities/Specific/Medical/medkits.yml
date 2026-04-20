@@ -28,10 +28,10 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 40
+        maxVol: 15 #Omu Nerf
         reagents:
         - ReagentId: Ichor
-          Quantity: 35
+          Quantity: 10 #Omu Nerf
         - ReagentId: TranexamicAcid
           Quantity: 5
   - type: Hypospray

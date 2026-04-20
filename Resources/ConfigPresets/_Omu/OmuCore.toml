@@ -1,0 +1,147 @@
+# This is the core file that will be the basis for each server.
+# Configuration settings written in this may be overridden by other config presets or the individual server config.
+
+[log]
+path = "logs"
+format = "log_%(date)s-%(time)s.txt"
+level = 2
+enabled = false
+
+[net]
+tickrate = 30
+max_connections = 120 # Absolute maximum allowed connections to the server
+lidgren_log_warning = false
+lidgren_log_error = false
+log_late_msg = false
+
+[status]
+enabled = true
+
+[server]
+rules_file = "OmuRuleset" # Default for all servers.
+
+[auth]
+mode = 1 # Requires authentication from SS14 API
+
+[hub]
+advertise = 1
+advertise_interval = 30
+tags = "lang:en,rp:med,region:am_n_e" # You can find a list of all tags @ https://docs.spacestation14.com/en/robust-toolbox/server-http-api.html#standard-tags
+hub_urls = "https://central.spacestation14.io/hub/, https://hub.fallback.spacestation14.com/, https://hub.singularity14.co.uk/"
+use_dynamic_hostname = true # File replacements found in `motd.ftl` in datasets under _Goobstation
+
+[game]
+desc = "Come join us on Omu Station! A roleplay-centric game focus with the added chaos of Goob antags and more!"
+
+# Lobby/Character Control
+lobbyduration = 300 # Default is 150, raised.
+role_timers = true # Reverted to true on 25/09/2025 @ 16:50 EDT
+maxcharacterslots = 20 # Increased from 10 on 03/11/2025 @ 17:56 EST
+soft_max_players = 85
+
+# Panic Bunker
+panic_bunker.custom_reason = "The panic bunker is currently enabled, and you do not meet the time requirements to join this server. You may join the Discord and check to see if anyone is able to let you in."
+panic_bunker.min_overall_minutes = 300 # Reduced from 600
+panic_bunker.show_reason = true
+panic_bunker.whitelisted_can_bypass = true # Anyone that is whitelisted should be able to ignore; albeit this shouldn't be a problem anyway?
+# Admin Panic Bunker Interaction
+panic_bunker.count_deadminned_admins = false # We may change this later, but this is default.
+panic_bunker.disable_with_admins = true
+panic_bunker.enable_without_admins = true
+
+# IPIntel Information
+ipintel_enabled = true
+ipintel_contact_email = "ss14opal@gmail.com"
+
+# Defaults and other CVars
+defaultpreset = "SecretPlusMid"
+round_restart_time = 180 # Increased from 120
+table_bonk = false # Default is false, change later?
+round_end_pvs_overrides = false # Default is true, needs to be disabled for less end-of-round lag
+
+[infolinks]
+appeal = "https://discord.gg/omustation"
+bug_report = "https://github.com/ProjectOmu/OmuStation/issues"
+discord = "https://discord.gg/omustation"
+# forum = "https://forums.projectomu.org/" # Forums website was taken down
+github = "https://github.com/ProjectOmu/OmuStation"
+patreon = "https://www.patreon.com/cw/OMUStation"
+wiki = "https://wiki.projectomu.org/"
+
+[queue]
+enabled = true
+patreon_skip = true
+
+[rmc]
+patron_lobby_message_initial_delay_seconds = 10 # Doubled from 5
+patron_lobby_message_time_seconds = 20 # Reduced from 30
+
+[admin]
+see_own_notes = true # No reason not to, SS14 Admin ignores this
+deadmin_on_join = true
+
+[adminlogs]
+enabled = true
+
+[ban]
+hardware_ids = true
+
+[rules]
+exempt_local = false # No local connections in general, but might as well
+time = 60 # Increased from 45
+
+[vote]
+enabled = true
+map_enabled = false
+preset_enabled = true
+restart_enabled = false
+restart_ghost_percentage = 60 # 24 players must be dead
+restart_max_players = 40 # General midground for max players right now
+restart_not_allowed_when_admin_online = false # Changed from true
+same_type_timeout = 300 # Increased from 240, more punishing on spam voting
+
+[console]
+login_host_user = "CerberusWolfie"
+loginlocal = false # Never change, we are not connecting from the server to itself
+
+# In-game Changes and variables
+[shuttle]
+emergency_early_launch_allowed = true # Changed to allow early leaving (due to increased time)
+emergency_dock_time = 300 # Increased from 180
+auto_call_time = 120 # Increased from 90
+mass_limit = 2000 # Changed for event shuttles
+
+[lavaland]
+enabled = true
+
+[movement]
+mob_pushing = false # No jank mob shoving
+
+[worldgen]
+enabled = true # Required for planet maps
+
+[traits]
+max_traits = 5
+default_points = 5
+
+[chat]
+show_typing_indicator = true
+
+[heightadjust]
+modifies_sprinting = false
+modifies_flight = false
+
+[voice]
+barks_enabled = true # Default is false
+
+[lifeline]
+rejuvenate = true
+reset_mind = false
+
+[ic]
+flavor_text = true # Default is false
+flavor_text_length = 1024 # Raised from 512
+punctuation = true
+
+[ooc]
+enable_during_round = false # Default is false, changed back to default on 31/03/2026 @ 11:35 CDT

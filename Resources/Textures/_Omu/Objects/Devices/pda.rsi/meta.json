@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by NeKognitoHazard and _raincall",
+  "copyright": "Made by NeKognitoHazard and _raincall, Courier PDA by NeKognitoHazard, Courier PDA Alt by ThanosDeGraf",
   "size": {
     "x": 32,
     "y": 32
@@ -42,6 +42,31 @@
 	},
 	{
 		"name":"pda-altcaptain"
-	}
+	},
+    {
+        "name": "equipped-BELT",
+        "directions": 4
+    },
+    {
+        "name": "inhand-left",
+        "directions": 4
+    },
+    {
+        "name": "inhand-right",
+        "directions": 4
+    },
+    {
+        "name": "equipped-IDCARD",
+        "directions": 4
+    },
+    {
+        "name": "pda-courier"
+    },
+    {
+        "name": "pda-courier-whiteblue"
+    },
+    {
+        "name": "insert_overlay"
+    }
   ]
 }

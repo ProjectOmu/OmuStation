@@ -57,41 +57,9 @@
   groupBy: "Main weapon"
 
 - type: loadout
-  id: DetectiveOfficerGunCase
-  dummyEntity: OfficerGunCase
-  equipment:
-    pocket1: OfficerGunCase
-    belt: ClothingBeltHolster # Empty holster no revolver. they get ammo off the gun case.
-  groupBy: "Main weapon"
-
-- type: loadout
-  id: DetectiveMk58
-  dummyEntity: WeaponPistolMk58
-  equipment:
-    pocket1: WeaponPistolMk58
-    belt: ClothingBeltHolsterMagazinePistolFilled # 2x mag (same as gun case) in holster
-  groupBy: "Main weapon"
-
-- type: loadout
-  id: DetectiveSecurityDutyRevolver
-  dummyEntity: SecurityDutyRevolver
-  equipment:
-    pocket1: SecurityDutyRevolver
-    belt: ClothingBeltHolsterSpeedLoaderRevolverLightRifleFilled
-  groupBy: "Main weapon"
-
-- type: loadout
   id: DetectiveTerminus
   equipment:
     suitstorage: Terminus
-  groupBy: "Main weapon"
-
-- type: loadout
-  id: DetectiveWeaponPistolMk58Gold
-  dummyEntity: WeaponPistolMk58Gold
-  equipment:
-    pocket1: WeaponPistolMk58Gold
-    belt: ClothingBeltHolsterMagazinePistolFilled # 2x mag (same as gun case) in holster
   groupBy: "Main weapon"
 
 - type: loadout
