@@ -147,6 +147,8 @@
     - Organ
     - Lungs
   - type: ThavenBreather
+    # allow standard low-pressure internals output to count as a valid breath
+    minPressure: 5
     # gas that makes them feel drunk when breathed
     intoxicatingGas: Frezon
     # minimum share of that gas in the breath mix before it does anything

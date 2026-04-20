@@ -89,6 +89,9 @@
         whitelist:
           tags:
           - PKAUpgrade
+  - type: Tag # Omu
+    tags:
+    - CyborgProtoKineticAccelerator
 
 - type: entity
   name: proto-kinetic repeater
@@ -118,6 +121,9 @@
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_repeater.rsi
     shape:
     - 0,0,2,1
+  - type: Tag # Omu
+    tags:
+    - CyborgProtoKineticAccelerator
 
 - type: entity
   name: proto-kinetic pistol
@@ -146,6 +152,9 @@
     shape:
     - 0,0,1,0
     - 0,1,0,1
+  - type: Tag # Omu
+    tags:
+    - CyborgProtoKineticAccelerator
 
 # Space versions of all PKAs
 - type: entity

@@ -213,3 +213,14 @@
     sprite: _Omu/Clothing/Uniforms/Jumpsuit/eggsercisewear.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Uniforms/Jumpsuit/eggsercisewear.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitShaftMinerVintage 
+  name: vintage shaft miner's jumpsuit
+  description: It's a snappy jumpsuit with a sturdy set of overalls. Looks a bit burnt.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/shaft_miner.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/shaft_miner.rsi
