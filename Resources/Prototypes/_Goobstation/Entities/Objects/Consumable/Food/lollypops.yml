@@ -167,6 +167,9 @@
   name: nanotrasen lollypop
   description: An expensive tasting lollypop.
   components:
+  #- type: FlavorProfile #Omu Captain's Lollypop changes
+  #  flavors:
+  #  - cola
   - type: Tag
     tags:
     - FoodSnack
@@ -180,9 +183,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
+#        maxVol: 40 # Room for extra chems #Omu Captain's Lollypop changes
         reagents:
-        - ReagentId: CaptainsChoice
-          Quantity: 100000000 # Omu Cram this baby FULL of what the captains crave.
+        - ReagentId: CaptainsChoice #Sugar #Omu Captain's Lollypop changes
+          Quantity: 100000000 #5 #Omu Captain's Lollypop changes
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
