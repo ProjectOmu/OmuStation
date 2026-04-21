@@ -43,9 +43,9 @@
     size: Normal
   - type: ContainerContainer
     containers:
-      ballistic-ammo: !type:Container
-  - type: Sprite # temp sprites
-    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi
+      ballistic-ammo:!type:Container
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Ammunition/Magazine/tommydrum.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -53,7 +53,7 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
     magState: mag
-    steps: 6
+    steps: 2
     zeroVisible: false
   - type: Appearance
 
@@ -61,7 +61,7 @@
   id: MagazinePistolSubMachineGunDrum
   name: drum magazine (.35 auto)
   parent: BaseMagazinePistolSubMachineGunDrum
-  description: typing
+  description: 50-round drum magazine for submachine guns. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistol
@@ -70,7 +70,7 @@
         - CartridgePistol
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
-  - type: Sprite # temp sprites
+  - type: Sprite
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -87,7 +87,7 @@
   id: MagazinePistolSubMachineGunDrumRubber
   name: drum magazine (.35 auto rubber)
   parent: BaseMagazinePistolSubMachineGunDrum
-  description: typing but rubber
+  description: 50-round drum magazine for submachine guns. Intended to hold non-lethal rubber ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolRubber
@@ -96,7 +96,7 @@
         - CartridgePistol
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
-  - type: Sprite # temp sprites
+  - type: Sprite
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]

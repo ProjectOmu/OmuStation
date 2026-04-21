@@ -61,18 +61,6 @@
   - MagazineCaselessRifle
 
 - type: selectableSet
-  id: BSOBRDISet
-  name: selectable-set-bso-brdi-name
-  description: selectable-set-bso-brdi-description
-  sprite:
-    sprite: _DEN/Objects/Weapons/Guns/SMGs/BRDI_R25_blue.rsi
-    state: icon
-  content:
-  - WeaponSubMachineGunBRDIR25BSO
-  - MagazineCaselessRifle
-  - MagazineCaselessRifle
-
-- type: selectableSet
   id: WeaponEnergyShotgunSet
   name: selectable-set-warden-eshotty-name
   description: selectable-set-warden-eshotty-description
@@ -276,3 +264,29 @@
     state: icon
   content:
   - NanoRepBelt
+
+# BSO I moved it because it bothered me
+
+- type: selectableSet
+  id: BSOBRDISet
+  name: selectable-set-bso-brdi-name
+  description: selectable-set-bso-brdi-description
+  sprite:
+    sprite: _DEN/Objects/Weapons/Guns/SMGs/BRDI_R25_blue.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunBRDIR25BSO
+  - MagazineCaselessRifle
+  - MagazineCaselessRifle
+
+  - type: selectableSet
+    id: BSOTypewriterSet
+    name: selectable-set-bso-typewriter-name
+    description: selectable-set-bso-typewriter-desc
+    sprite:
+      sprite: _DV/Objects/Weapons/Guns/SMGs/typewriter.rsi
+      state: icon
+    content:
+    - WeaponSubMachineGunTypewriter
+    - MagazinePistolSubMachineGunDrumRubber
+    - MagazinePistolSubmachineGun

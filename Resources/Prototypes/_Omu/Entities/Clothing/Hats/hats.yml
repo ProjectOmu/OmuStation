@@ -115,9 +115,9 @@
   parent: ClothingHeadHatBeretBlueshield
   id: ClothingHeadHatFedoraBlueshield
   name: blueshield officer's armored fedora
-  description: ratta fancy
+  description: A padded fedora meant to aid your goons in battle whilst maintaining their class.
   components:
-  - type: Sprite # temporary sprite
-    sprite: _ShitChap/Objects/Weapons/Nullrod/atheist.rsi
-  - type: Clothing # temporary sprite 
-    sprite: _ShitChap/Objects/Weapons/Nullrod/atheist.rsi
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/blueshield_mafia_fedora.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/blueshield_mafia_fedora.rsi

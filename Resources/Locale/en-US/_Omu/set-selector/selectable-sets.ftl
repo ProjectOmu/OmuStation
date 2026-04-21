@@ -35,11 +35,6 @@ selectable-set-hos-brdi-description=
     Once wielded by an unknown member of the Biesel Foreign Legion,
     this beloved rifle has seen battle with Sol on every world in the colonies.
 
-selectable-set-bso-brdi-name = BRDI R-25
-selectable-set-bso-brdi-description=
-    An iconic weapon used by members of the Biesel Republic Foreign Legion.
-    Repainted for Blueshield Officers.
-
 selectable-set-mk58-name = Mk58 Pistol
 selectable-set-mk58-description =
     The standard duty pistol for Nanotrasen security.
@@ -126,6 +121,7 @@ selectable-set-corpsman-combathardsuit-desc =
     Built based on designs recovered from Regalis sector.
     Offers much better armor then newer models.
 
+# NTR
 selectable-set-ntr-cane-name = Fancy Cane
 selectable-set-ntr-cane-desc =
     A fancy cane with a stun setting.
@@ -137,3 +133,14 @@ selectable-set-ntr-belt-desc =
     A belt, hollowed out to maximize pain and minimize damage.
     This one will let you do many, many lashings to anyone who
     dares stand in NanoTrasen's way. Oh boy.
+
+# BSO
+selectable-set-bso-brdi-name = BRDI R-25
+selectable-set-bso-brdi-description=
+    An iconic weapon used by members of the Biesel Republic Foreign Legion.
+    Repainted for Blueshield Officers.
+
+selectable-set-bso-typewriter-name = Typewriter Submachine Gun
+selectable-set-bso-typewriter-desc =
+    A kit containing a perfect replica of the Thompson Submachine Gun, chambered in .35, a preloaded drum mag, a stick mag and a drum mag with rubber bullets. 
+    Perfect for LARPers and wise guys alike.
