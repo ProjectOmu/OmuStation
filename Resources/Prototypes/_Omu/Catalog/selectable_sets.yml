@@ -279,14 +279,14 @@
   - MagazineCaselessRifle
   - MagazineCaselessRifle
 
-  - type: selectableSet
-    id: BSOTypewriterSet
-    name: selectable-set-bso-typewriter-name
-    description: selectable-set-bso-typewriter-desc
-    sprite:
-      sprite: _DV/Objects/Weapons/Guns/SMGs/typewriter.rsi
-      state: icon
-    content:
-    - WeaponSubMachineGunTypewriter
-    - MagazinePistolSubMachineGunDrumRubber
-    - MagazinePistolSubmachineGun
+- type: selectableSet
+  id: BSOTypewriterSet
+  name: selectable-set-bso-typewriter-name
+  description: selectable-set-bso-typewriter-desc
+  sprite:
+    sprite: _DV/Objects/Weapons/Guns/SMGs/typewriter.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunTypewriter
+  - MagazinePistolSubMachineGunDrumRubber
+  - MagazinePistolSubMachineGun

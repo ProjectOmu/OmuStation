@@ -29,6 +29,7 @@
   id: BaseMagazinePistolSubMachineGunDrum
   name: drum magazine (.35 auto)
   parent: BaseItem
+  abstract: true
   components:
   - type: Tag
     tags:
@@ -43,7 +44,7 @@
     size: Normal
   - type: ContainerContainer
     containers:
-      ballistic-ammo:!type:Container
+      ballistic-ammo: !type:Container
   - type: Sprite
     sprite: _Omu/Objects/Weapons/Guns/Ammunition/Magazine/tommydrum.rsi
     layers:
