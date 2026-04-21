@@ -1,0 +1,37 @@
+- type: entity
+  parent: BasePlushie
+  id: PlushieRestful
+  name: disgusting ogre plushie
+  description: Absolutely massive plushie, vile....
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/restful.rsi
+    state: plushie_restful
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Omu/Items/Plushie/ogrenoise.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Omu/Items/Plushie/ogrenoise.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Omu/Items/Plushie/ogrenoise.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Omu/Items/Plushie/ogrenoise.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_Omu/Items/Plushie/ogrenoise.ogg
+  - type: Food
+    requiresSpecialDigestion: false
+    useSound:
+      path: /Audio/_Omu/Items/Plushie/ogrenoise.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/_Omu/Items/Plushie/ogrenoise.ogg
+  - type: Fish
+    difficulty: 0.023
+  - type: GibThisGuy # hes cool with it
+    icNames:
+    - Dajjal Ojibakk
