@@ -86,7 +86,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.StationEvents.SecretPlus;
-using Content.Goobstation.Server.StationEvents.Metric;
+using Content.Goobstation.Common.StationEvent.Metrics;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes; // Goobstation
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;

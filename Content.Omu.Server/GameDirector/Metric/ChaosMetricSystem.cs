@@ -1,13 +1,6 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
+using Content.Goobstation.Common.StationEvent.Metrics;
 
-using Content.Server.GameTicking;
-
-namespace Content.Goobstation.Server.StationEvents.Metric;
+namespace Content.Omu.Server.GameDirector.Metric;
 
 /// <summary>
 ///   Base class for systems which measure chaos.

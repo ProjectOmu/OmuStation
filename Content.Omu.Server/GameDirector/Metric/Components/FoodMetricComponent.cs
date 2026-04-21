@@ -1,15 +1,8 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Nutrition.Components;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
 
-namespace Content.Goobstation.Server.StationEvents.Metric.Components;
+namespace Content.Omu.Server.GameDirector.Metric.Components;
 
 [RegisterComponent, Access(typeof(FoodMetricSystem))]
 public sealed partial class FoodMetricComponent : Component
@@ -30,6 +23,28 @@ public sealed partial class FoodMetricComponent : Component
             { HungerThreshold.Starving, 5.0f },
         };
 
+    /// <summary>
+    ///   normalized charge threshold below which a silicon counts as critical (matches ChargeCriticalThreshold key)
+    /// </summary>
+    [DataField]
+    public float ChargeCriticalThreshold = 0.10f;
+
+    /// <summary>
+    ///   normalized charge threshold below which a silicon counts as low (matches ChargeLowThreshold key)
+    /// </summary>
+    [DataField]
+    public float ChargeLowThreshold = 0.35f;
+
+    /// <summary>
+    ///   return value used when charge is above low - also the key for the mid entry in ChargeScores
+    /// </summary>
+    [DataField]
+    public float ChargeMidThreshold = 0.80f;
+
+    /// <summary>
+    ///   chaos score per silicon at each charge bucket.
+    ///   keys must match ChargeCriticalThreshold, ChargeLowThreshold, ChargeMidThreshold exactly.
+    /// </summary>
     [DataField(customTypeSerializer: typeof(DictionarySerializer<float, FixedPoint2>))]
     public Dictionary<float, FixedPoint2> ChargeScores =
         new()
@@ -38,5 +53,4 @@ public sealed partial class FoodMetricComponent : Component
             { 0.35f, 2.0f },
             { 0.10f, 5.0f },
         };
-
 }

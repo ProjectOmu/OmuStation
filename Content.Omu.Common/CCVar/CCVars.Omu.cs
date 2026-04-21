@@ -16,4 +16,7 @@ public sealed partial class OmuCVars
     /// </summary>
     public static readonly CVarDef<bool> DisablePathfinding =
         CVarDef.Create("omu.disable_pathfinding", false, CVar.SERVER | CVar.SERVERONLY);
+
+    // gamedirector cvars live in Content.Goobstation.Common/CCVar/CCVars.Goob.cs since goob's secret+ also uses them.
+    // to override the defaults for omu, set them in Resources/ConfigPresets/_Omu/OmuCore.toml instead of redefining here.
 }

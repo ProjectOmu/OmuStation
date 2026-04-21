@@ -1,10 +1,13 @@
-﻿using System.Linq;
+using System.Linq;
+using Content.Goobstation.Common.StationEvent.Metrics;
 using Content.Goobstation.Server.StationEvents.Components;
-using Content.Goobstation.Server.StationEvents.Metric;
+using Content.Omu.Server.GameDirector.Components;
+using Content.Omu.Server.GameDirector.Metric;
+using Content.Omu.Shared.GameTicking.EventDirector;
 using Content.Server.StationEvents.Components;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.StationEvents.GameDirector;
+namespace Content.Omu.Server.GameDirector;
 
 public sealed partial class GameDirectorSystem
 {
@@ -146,7 +149,6 @@ public sealed partial class GameDirectorSystem
         var beatName = scheduler.RemainingBeats[0];
         beat = _prototypeManager.Index(beatName);
 
-        StoryBeatChangesTotal.WithLabels(scheduler.CurrentStoryName.ToString(), beatName).Inc();
         LogMessage($"New StoryBeat {beatName}: {beat.Description}. Goal is {beat.Goal}");
         return true;
     }
@@ -181,7 +183,6 @@ public sealed partial class GameDirectorSystem
             var beatName = scheduler.RemainingBeats[0];
             beat = _prototypeManager.Index(beatName);
 
-            StoryBeatChangesTotal.WithLabels(storyName.ToString(), beatName).Inc();
             LogMessage($"First StoryBeat {beatName}: {beat.Description}. Goal is {beat.Goal}");
             return true;
         }
@@ -210,23 +211,21 @@ public sealed partial class GameDirectorSystem
 
     private static float RankChaosDelta(ChaosMetrics chaos)
     {
-        // Just a sum of squares (trying to get close to 0 on every score)
-        //   Lower is better
-        // Note:  if the chaos value is above 655.36 then its square is above maxint (inside FixedPoint2) and it wraps
-        //        around. We need a full float range to handle the square.
+        // sum of squares of each chaos value - lower means we are closer to the beat goal
+        // squaring amplifies large deviations so events that solve big problems score better
         return chaos.ChaosDict.Values.Sum(v => (float) v * (float) v);
     }
 
     private List<RankedEvent> ChooseEvents(GameDirectorComponent scheduler, StoryBeatPrototype beat, ChaosMetrics chaos, PlayerCount count)
     {
-        // TODO : Potentially filter Chaos here using CriticalLevels & DangerLevels which force us to focus on
-        //        big problems (lots of hostiles, spacing) prior to smaller ones (food & drink)
+        // first pass: only look at metrics the beat cares about (ExclusiveSubtract ignores unrelated metrics)
         var desiredChange = beat.Goal.ExclusiveSubtract(chaos);
         var result = FilterAndScore(scheduler, chaos, desiredChange, count);
         if (result.Count > 0)
             return result;
-        // Fall back to improving all scores (not just the ones the beat is focused on)
-        //   Generally this means reducing chaos (unspecified scores are desired to be 0).
+
+        // second pass: nothing helped the beat goals, so consider all metrics
+        // this also includes events with no chaos tag so they add variety when things are calm
         var allDesiredChange = beat.Goal - chaos;
         result = FilterAndScore(scheduler, chaos, allDesiredChange, count, inclNoChaos:true);
 
@@ -239,23 +238,25 @@ public sealed partial class GameDirectorSystem
     /// </summary>
     private List<RankedEvent> FilterAndScore(GameDirectorComponent scheduler, ChaosMetrics chaos, ChaosMetrics desiredChange, PlayerCount count, bool inclNoChaos = false)
     {
+        // baseline score if no event runs at all - we only want events that beat doing nothing
         var noEvent = RankChaosDelta(desiredChange);
         var result = new List<RankedEvent>();
 
-        // Choose an event that specifically achieves chaos goals, focusing only on them.
         foreach (var possibleEvent in scheduler.PossibleEvents)
         {
-            // How much of the relevant chaos will be left after this event has occurred
+            // how much chaos gap remains after this event fires
             var relevantChaosDelta = desiredChange.ExclusiveSubtract(possibleEvent.Chaos);
             var rank = RankChaosDelta(relevantChaosDelta);
 
             var allChaosAfter = chaos + possibleEvent.Chaos;
-            // Some events have no chaos score assigned. Treat them as if they change nothing and mix them in for flavor.
+            // events with no chaos entry have no measurable impact, include them only in the fallback pass for flavor
             var noChaosEvent = inclNoChaos && possibleEvent.Chaos.Empty;
 
+            // skip events that are no better than doing nothing
             if (!(rank < noEvent) && !noChaosEvent)
                 continue;
-            // Look up this event's prototype and check it is ready to run.
+
+            // check that the event prototype exists and is allowed to run right now
             var proto = _prototypeManager.Index<EntityPrototype>(possibleEvent.StationEvent);
 
             if (!proto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory))

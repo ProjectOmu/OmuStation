@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using Content.Goobstation.Server.StationEvents.Components;
+using System.Linq;
+using Content.Omu.Server.GameDirector.Components;
 using Content.Goobstation.Shared.StationEvents;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Random;
@@ -7,7 +7,7 @@ using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Goobstation.Server.StationEvents.GameDirector;
+namespace Content.Omu.Server.GameDirector;
 
 public sealed partial class GameDirectorSystem
 {
@@ -114,7 +114,6 @@ public sealed partial class GameDirectorSystem
     private void StartGameMode(string protoId)
     {
         LogMessage($"Roundstart antag chosen: {protoId}");
-        RoundstartAntagsSelectedTotal.WithLabels(protoId).Inc();
         GameTicker.AddGameRule(protoId);
     }
 }

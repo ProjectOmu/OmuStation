@@ -1,11 +1,13 @@
-﻿using Content.Goobstation.Server.StationEvents.Components;
-using Content.Goobstation.Server.StationEvents.Metric;
+using Content.Goobstation.Common.StationEvent.Metrics;
+using Content.Omu.Server.GameDirector.Components;
+using Content.Omu.Server.GameDirector.Metric;
 
-namespace Content.Goobstation.Server.StationEvents.GameDirector;
+namespace Content.Omu.Server.GameDirector;
 
 /// <summary>
 ///   Pairs a PossibleEvent with the resultant chaos and a "score" for sorting by the GameDirector
-///   Temporary class used in processing and ranking the list of events.
+///   Temporary class used in processing and ranking the list of event
+///   lest do some reverse-engineering to do not add magic numbers
 /// </summary>
 public sealed class RankedEvent(PossibleEvent possibleEvent, ChaosMetrics result, float score)
 {

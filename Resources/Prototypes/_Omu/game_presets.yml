@@ -17,3 +17,45 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+
+# adventure - admin-only preset powered by the event director.
+# NOT the server default (see Resources/ConfigPresets/_Omu/OmuCore.toml for that).
+# NOT voteable by players (showInVote: false) - maintainer decision: admin-gated only while
+# the director is being tested live. players cannot pick this from the lobby vote.
+#
+# how it works:
+#   - uses the event director gamerule (OmuEventDirectorRule) as its sole scheduler
+#   - the director reads a eventDirectorConfig prototype to decide timings and tables
+#   - default config is "OmuDefault" (see Resources/Prototypes/_Omu/GameRules/event_director.yml)
+#   - to swap configs at runtime, admins use: eventdirector setconfig <configId>
+#
+# --- how to add a new director preset (e.g. for a different tone or ruleset) ---
+# follow these steps if you want another voteable preset with its own tables:
+#
+#   1. pick a unique preset id (e.g. "Chaos", "Pirates", "Mystery").
+#   2. create a new eventDirectorConfig prototype in event_director.yml (copy OmuDefault
+#      and rename its id, e.g. "OmuChaos"). point its *Table fields at new tables you also define.
+#   3. copy the adventure block below as a template.
+#      - change its id, alias list, name/description locale keys.
+#      - keep "rules: [ OmuEventDirectorRule ]" so it still uses the director gamerule.
+#      - keep "showInVote: false" while the director is admin-only, or flip to true when the
+#        maintainers decide the preset is ready for the public vote.
+#   4. add locale strings in Resources/Locale/en-US/_Omu/game-ticking/game-presets/
+#      matching the name/description keys you chose.
+#   5. if you want admins to force the config via "eventdirector setconfig", the config id
+#      is what matters - not the preset id. setconfig swaps the running director's config.
+#   6. build the project and test: start the round with your preset, then run
+#      "eventdirector status" to confirm the right config is loaded.
+#
+# keep preset ids in PascalCase, alias entries in lowercase, and locale keys in kebab-case.
+- type: gamePreset
+  id: Adventure
+  alias:
+    - adventure
+    - secretstructured
+    - structured
+  name: adventure-title
+  description: adventure-description
+  showInVote: false # admin only per maintainer decision - players cannot vote for the director, admins force it via preset swap or "eventdirector start"
+  rules:
+    - OmuEventDirectorRule

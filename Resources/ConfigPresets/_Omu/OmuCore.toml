@@ -59,6 +59,9 @@ round_restart_time = 180 # Increased from 120
 table_bonk = false # Default is false, change later?
 round_end_pvs_overrides = false # Default is true, needs to be disabled for less end-of-round lag
 
+[gamedirector]
+debug_player_count = 0 # override goob default (80) so the director uses the real player count in production
+
 [infolinks]
 appeal = "https://discord.gg/omustation"
 bug_report = "https://github.com/ProjectOmu/OmuStation/issues"

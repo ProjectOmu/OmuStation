@@ -1,20 +1,12 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
-using Content.Goobstation.Server.StationEvents.Metric.Components;
+using Content.Omu.Server.GameDirector.Metric.Components;
 using Content.Server.Power.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Doors.Components;
 using Content.Goobstation.Maths.FixedPoint;
-using Prometheus; // Added for Prometheus metrics
-
-namespace Content.Goobstation.Server.StationEvents.Metric;
+using Content.Goobstation.Common.StationEvent.Metrics;
+namespace Content.Omu.Server.GameDirector.Metric;
 
 /// <summary>
 ///   Uses doors and firelocks to sample station chaos across the station
@@ -26,47 +18,6 @@ namespace Content.Goobstation.Server.StationEvents.Metric;
 public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
 {
     [Dependency] private readonly StationSystem _stationSystem = default!;
-
-    private static readonly Gauge DoorsTotal = Metrics.CreateGauge(
-        "game_director_metric_door_total",
-        "Total number of doors counted on station grids.");
-
-    private static readonly Gauge FirelocksTotal = Metrics.CreateGauge(
-        "game_director_metric_door_firelocks_total",
-        "Total number of firelocks counted.");
-
-    private static readonly Gauge AirlocksTotal = Metrics.CreateGauge(
-        "game_director_metric_door_airlocks_total",
-        "Total number of airlocks counted.");
-
-    private static readonly Gauge FirelocksHoldingFire = Metrics.CreateGauge(
-        "game_director_metric_door_firelocks_holding_fire",
-        "Number of firelocks currently holding back fire.");
-
-    private static readonly Gauge FirelocksHoldingPressure = Metrics.CreateGauge(
-        "game_director_metric_door_firelocks_holding_pressure",
-        "Number of firelocks currently holding back pressure.");
-
-    private static readonly Gauge EmaggedAirlocksWeighted = Metrics.CreateGauge(
-        "game_director_metric_door_emagged_airlocks_weighted",
-        "Weighted count of emagged airlocks (higher value for higher access).");
-
-    private static readonly Gauge UnpoweredDoors = Metrics.CreateGauge(
-        "game_director_metric_door_unpowered_total",
-        "Number of doors or firelocks currently without power.");
-
-    private static readonly Gauge SecurityChaosCalculated = Metrics.CreateGauge(
-        "game_director_metric_door_security_chaos_calculated",
-        "Calculated chaos value contributed by security status (emagged doors).");
-
-    private static readonly Gauge AtmosChaosCalculated = Metrics.CreateGauge(
-        "game_director_metric_door_atmos_chaos_calculated",
-        "Calculated chaos value contributed by atmospheric status (fire/pressure).");
-
-    private static readonly Gauge PowerChaosCalculated = Metrics.CreateGauge(
-        "game_director_metric_door_power_chaos_calculated",
-        "Calculated chaos value contributed by power status.");
-
 
     protected override ChaosMetrics CalculateChaos(
         EntityUid metricUid,
@@ -95,7 +46,7 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
                 continue;
 
             fireCount = CalculateFirelock(firelockQ, uid, fireCount, ref pressureCount, ref firelockCounter);
-            emagWeightedCount = CalculateAirlock(airlockQ, uid, door, emagWeightedCount, ref airlockCounter);
+            emagWeightedCount = CalculateAirlock(airlockQ, uid, door, component, emagWeightedCount, ref airlockCounter);
             powerCount = CalculateDoorPower(power, powerCount, ref doorCounter);
         }
 
@@ -112,18 +63,6 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
                                     + pressureCount / firelockCounter * component.PressureCost);
         if (doorCounter > 0)
             powerChaos = Math.Round(powerCount / doorCounter * component.PowerCost);
-
-        DoorsTotal.Set(doorCounter);
-        FirelocksTotal.Set(firelockCounter);
-        AirlocksTotal.Set(airlockCounter);
-        FirelocksHoldingFire.Set(fireCount);
-        FirelocksHoldingPressure.Set(pressureCount);
-        EmaggedAirlocksWeighted.Set(emagWeightedCount);
-        UnpoweredDoors.Set(powerCount);
-        SecurityChaosCalculated.Set(emagChaos);
-        AtmosChaosCalculated.Set(atmosChaos);
-        PowerChaosCalculated.Set(powerChaos);
-
 
         var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, double>()
         {
@@ -146,6 +85,7 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
     private double CalculateAirlock(EntityQuery<AirlockComponent> airlockQ,
         EntityUid uid,
         DoorComponent door,
+        DoorMetricComponent component,
         double emagWeightedCount,
         ref double airlockCounter)
     {
@@ -153,7 +93,7 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
             return emagWeightedCount;
         if (door.State == DoorState.Emagging)
         {
-            var modifier = GetAccessLevelModifier(uid);
+            var modifier = GetAccessLevelModifier(uid, component);
             emagWeightedCount += 1 + modifier;
         }
 
@@ -181,29 +121,17 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
         return fireCount;
     }
 
-    private int GetAccessLevelModifier(EntityUid uid)
+    private int GetAccessLevelModifier(EntityUid uid, DoorMetricComponent component)
     {
         if (!TryComp<AccessReaderComponent>(uid, out var accessReaderComponent))
             return 0;
 
         var modifier = 0;
+        // index 0 is the primary access set by engine contract (AccessReader always puts it first)
         var accessSet = accessReaderComponent.AccessLists.ElementAt(0);
         foreach (var accessPrototype in accessSet)
         {
-            // TODO: PROTOTYPE
-            switch (accessPrototype.Id)
-            {
-                case "Security":
-                case "Atmospherics":
-                    modifier += 1;
-                    break;
-                case "Armory":
-                    modifier += 3;
-                    break;
-                case "Command":
-                    modifier += 2;
-                    break;
-            }
+            modifier += component.AccessWeights.GetValueOrDefault(accessPrototype.Id, 0);
         }
         return modifier;
     }

@@ -1,17 +1,16 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Goobstation.Maths.FixedPoint;
 
-namespace Content.Goobstation.Server.StationEvents.Metric.Components;
+namespace Content.Omu.Server.GameDirector.Metric.Components;
 
 [RegisterComponent, Access(typeof(CombatMetricSystem))]
 public sealed partial class CombatMetricComponent : Component
 {
+    /// <summary>
+    ///   the faction considered friendly - NPCs hostile to this faction count as antags
+    /// </summary>
+    [DataField]
+    public string FriendlyFactionId = "NanoTrasen";
+
     [DataField]
     public double HostileScore = 10.0f;
 

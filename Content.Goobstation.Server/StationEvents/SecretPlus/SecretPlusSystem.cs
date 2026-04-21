@@ -17,6 +17,7 @@ using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.StationEvents;
 using Content.Server.StationEvents.Components;
+using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Ghost;
@@ -97,6 +98,12 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
 
     protected override void Added(EntityUid uid, SecretPlusComponent scheduler, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
+        if (!IsActiveScheduler())
+        {
+            LogMessage("Inactive for this round because a different scheduler mode is selected.", false);
+            return;
+        }
+
         // Omu Station - Start
         // Edited it Initial ChaosScore & Antag Weight, to be based upon the amount of ReadyPlayers to be consistent with round start score.
 
@@ -193,6 +200,9 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
     /// </summary>
     protected override void ActiveTick(EntityUid uid, SecretPlusComponent scheduler, GameRuleComponent gameRule, float frameTime)
     {
+        if (!IsActiveScheduler())
+            return;
+
         var count = CountActivePlayers();
         var ramp = GetRamping((uid, scheduler));
         var speedup = _event.EventSpeedup;
@@ -488,5 +498,14 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
         if (showChat)
             _chat.SendAdminAnnouncement("SecretPlus " + message);
 
+    }
+
+    private bool IsActiveScheduler()
+    {
+        if (_cfg.GetCVar(CCVars.EventDirectorEnabled))
+            return false;
+
+        var schedulerMode = _cfg.GetCVar(CCVars.EventSchedulerMode);
+        return !string.Equals(schedulerMode, CCVars.EventSchedulerModes.EventDirector, StringComparison.OrdinalIgnoreCase);
     }
 }

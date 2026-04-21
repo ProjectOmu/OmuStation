@@ -1,21 +1,9 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Goobstation.Common.CCVar;
+using Content.Goobstation.Common.StationEvent.Metrics;
 using Content.Goobstation.Server.StationEvents.Components;
-using Content.Goobstation.Server.StationEvents.Metric;
+using Content.Omu.Common.CCVar;
+using Content.Omu.Server.GameDirector.Components;
+using Content.Omu.Server.GameDirector.Metric;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking.Rules;
@@ -29,7 +17,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.StationEvents.GameDirector;
+namespace Content.Omu.Server.GameDirector;
 
 /// <summary>
 ///   A scheduler which tries to keep station chaos within a set bound over time with the most suitable
@@ -68,7 +56,6 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
     protected override void Added(EntityUid uid, GameDirectorComponent scheduler, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         _sawmill.Info($"Game Director Spawned at {uid}");
-        ResetMetrics();
         TrySpawnRoundstartAntags(scheduler); // Roundstart antags need to be selected in the lobby
         if(TryComp<SelectedGameRulesComponent>(uid,out var selectedRules))
             SetupEvents(scheduler, CountActivePlayers(), selectedRules);
@@ -82,6 +69,7 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
     protected override void ActiveTick(EntityUid uid, GameDirectorComponent scheduler, GameRuleComponent gameRule, float frameTime)
     {
         var currTime = _timing.CurTime;
+        // wait until it is time to consider a new event
         if (currTime < scheduler.TimeNextEvent)
             return;
 
@@ -91,18 +79,18 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
 
         if (scheduler.Stories is not { Length: > 0 })
         {
-            // No stories (e.g. dummy game rule for printing metrics), end game rule now
+            // no stories means this is a debug/metrics-only director, nothing to schedule
             GameTicker.EndGameRule(uid, gameRule);
             return;
         }
-        // Decide what story beat to work with (which sets chaos goals)
-        var count = CountActivePlayers();
-        ActivePlayers.Set(count.Players);
-        ActiveGhosts.Set(count.Ghosts);
 
+        var count = CountActivePlayers();
+
+        // figure out which story beat we are in (sets the chaos goals for event selection)
         var beat = DetermineNextBeat(scheduler, chaos, count);
 
-        // This is the first event, add an automatic delay
+        // TimeNextEvent == Zero means the director just started this round
+        // we wait a bit before firing the first event so the round has time to settle
         if (scheduler.TimeNextEvent == TimeSpan.Zero)
         {
             var minimumTimeUntilFirstEvent = _configManager.GetCVar(GoobCVars.MinimumTimeUntilFirstEvent) / _event.EventSpeedup;
@@ -112,15 +100,13 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
         }
 
         RankedEvent? chosenEvent = null;
-        // Pick the best events (which move the station towards the chaos desired by the beat)
+        // score all possible events and keep the ones that move chaos toward the beat goal
         var bestEvents = ChooseEvents(scheduler, beat, chaos, count);
 
-        // Run the best event here, if we have any to pick from.
         if (bestEvents.Count > 0)
         {
-            // Sorts the possible events and then picks semi-randomly.
-            // when beat.RandomEventLimit is 1 it's always the "best" event picked. Higher values
-            // allow more events to be randomly selected.
+            // pick semi-randomly from the top candidates so the director is not fully deterministic
+            // RandomEventLimit = 1 always picks the best, higher values add more variety
             chosenEvent = SelectBest(bestEvents, beat.RandomEventLimit);
 
             _event.RunNamedEvent(chosenEvent.PossibleEvent.StationEvent);
@@ -128,15 +114,14 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
 
         if (chosenEvent != null)
         {
-            EventsRunTotal.WithLabels(chosenEvent.PossibleEvent.StationEvent).Inc();
-            // 2 - 6 minutes until the next event is considered, can vary per beat
+            // wait between EventDelayMin and EventDelayMax before considering the next event
             scheduler.TimeNextEvent = currTime + TimeSpan.FromSeconds(_random.NextFloat(beat.EventDelayMin, beat.EventDelayMax) / _event.EventSpeedup);
         }
         else
         {
-            // No events were run. Consider again in 30 seconds (current beat or chaos might change)
+            // nothing ran this tick, retry sooner in case chaos or beat changes
             LogMessage($"Chaos is: {chaos} (No events ran)", false);
-            scheduler.TimeNextEvent = currTime + TimeSpan.FromSeconds(30f);
+            scheduler.TimeNextEvent = currTime + TimeSpan.FromSeconds(scheduler.NoEventRetryDelay);
         }
     }
 
@@ -150,13 +135,14 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
 
     public ChaosMetrics CalculateChaos(EntityUid uid)
     {
-        // Send an event to chaos metric components on the Game Director's entity.
+        // ask every metric component on this entity to report its chaos score
         var calcEvent = new CalculateChaosEvent(new ChaosMetrics());
         RaiseLocalEvent(uid, ref calcEvent);
 
         var metrics = calcEvent.Metrics;
 
-        // Calculated metrics
+        // Combat = Friend + Hostile. Friend is negative when the crew is strong,
+        // so Combat < 0 means the crew is winning, > 0 means the station is losing
         metrics.ChaosDict[ChaosMetric.Combat] = metrics.ChaosDict.GetValueOrDefault(ChaosMetric.Friend) +
                                                 metrics.ChaosDict.GetValueOrDefault(ChaosMetric.Hostile);
         return calcEvent.Metrics;

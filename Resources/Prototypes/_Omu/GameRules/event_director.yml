@@ -1,0 +1,507 @@
+# the game rule entity that the event director preset starts at roundbegin.
+# having this as its own game rule means the director owns the round lifecycle cleanly
+# instead of running as an entity system on top of another preset.
+- type: entity
+  id: OmuEventDirectorRule
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+  - type: EventDirector
+
+# omu event director configuration - secret structured preset
+# weights are taken directly from the design doc percentages (e.g. 0.50 = 50%).
+# the system normalizes weights automatically so they don't need to sum to 1.
+# to rebalance, just change the weights here - no c# changes needed.
+#
+# --- how to enable a commented-out entry ---
+# some entries below are commented out because their game rule entity does not exist in omustation yet.
+# to enable one, follow these steps:
+#
+#   1. find the "rule:" value in the commented entry (e.g. rule: XenosSpawn)
+#   2. search in Resources/Prototypes for an entity with that id and "parent: BaseGameRule"
+#      if it does not exist, you need to port or create it first before continuing
+#   3. if the entity exists but has a different id than expected, update the "rule:" field to match
+#   4. uncomment the entry (remove the # at the start of each line)
+#   5. build the project and run "eventdirector list <table>" in admin console to confirm it appears
+#
+# do not enable an entry if step 2 fails - the server will crash when the event fires
+#
+# example - enabling xenos:
+#   - you see "rule: XenosSpawn" in the commented entry
+#   - you search and find the entity does not exist, but "XenomorphsInfestationRoundstart" does
+#   - you change "rule: XenosSpawn" to "rule: XenomorphsInfestationRoundstart"
+#   - you uncomment the block and build
+#   - you run "eventdirector list roundstart" and confirm Xenos appears in the list
+
+- type: eventDirectorConfig
+  id: OmuDefault
+
+  roundStartTable: OmuRoundStartDirectorTable
+  minorTable: OmuMinorDirectorTable
+  midroundTable: OmuMidroundDirectorTable
+  timerTable: OmuTimerDirectorTable
+
+  # loop delay: after each (timer roll + minor roll), wait this long before the next iteration.
+  # minor also fires immediately at roundstart before the first loop begins.
+  minorDelayMinMinutes: 5
+  minorDelayMaxMinutes: 20
+
+  # midround fires once independently at a random time in this window
+  firstMidroundRollMinMinutes: 40
+  firstMidroundRollMaxMinutes: 80
+
+
+# --- table 1: roundstart antags ---
+# weights from design doc. entries without a valid rule in omustation are commented out.
+# total eligible weight with all entries: ~87 (missing conspirators/shadowling/xenos = ~13)
+- type: eventDirectorTable
+  id: OmuRoundStartDirectorTable
+  entries:
+
+  # 50%  bread and butter, works at any population (lol)
+  - id: traitor
+    name: Traitor
+    rule: Traitor
+    weight: 50
+    minimumPlayers: 5
+    maximumOccurrences: 1
+
+  # 10% - slow burn, rewards attentive crews
+  - id: heretic
+    name: Heretic
+    rule: Heretic
+    weight: 10
+    minimumPlayers: 20
+    maximumOccurrences: 1
+
+  # 10% - social deduction antag, needs a decent crew to work
+  - id: changeling
+    name: Changeling
+    rule: Changeling
+    weight: 10
+    minimumPlayers: 20
+    maximumOccurrences: 1
+
+  # 8% - TODO: not in omustation yet, uncomment when conspirators rule is added with permissions, add it if you guys want.
+  # - id: conspirators
+  #   name: Conspirators
+  #   rule: Conspirators
+  #   weight: 8
+  #   minimumPlayers: 30
+  #   maximumOccurrences: 1
+
+  # 5% - high pressure, only fires at decent pop
+  - id: nukeops
+    name: Nuclear Operatives
+    rule: Nukeops
+    weight: 5
+    minimumPlayers: 30
+    maximumOccurrences: 1
+
+  # 5% - TODO: not in omustation yet, uncomment when shadowling rule is added
+  # - id: shadowling
+  #   name: Shadowling
+  #   rule: Shadowling
+  #   weight: 5
+  #   minimumPlayers: 20
+  #   maximumOccurrences: 1
+
+  # 4% - high impact cult antag, needs good pop
+  - id: cosmic-cult
+    name: Cosmic Cult
+    rule: CosmicCult
+    weight: 4
+    minimumPlayers: 30
+    maximumOccurrences: 1
+
+  # 3% - chaotic magic antag
+  - id: wizard
+    name: Wizard
+    rule: Wizard
+    weight: 3
+    minimumPlayers: 20
+    maximumOccurrences: 1
+
+  # 3% - TODO: not in omustation yet, uncomment when xenos rule is added
+  # - id: xenos
+  #   name: Xenos
+  #   rule: XenosSpawn
+  #   weight: 3
+  #   minimumPlayers: 30
+  #   maximumOccurrences: 1
+
+  # 2% - TODO: not in omustation yet, uncomment when chimera game rule entity is added
+  # - id: chimera
+  #   name: Chimera
+  #   rule: Chimera
+  #   weight: 2
+  #   minimumPlayers: 30
+  #   maximumOccurrences: 1
+
+
+# --- table 2: minor antags ---
+# rolled every 5-20 minutes. thief dominates at 65% by design - it's the safest minor antag.
+# weights from design doc. maintslasher is listed at 0% so it's commented out for now.
+- type: eventDirectorTable
+  id: OmuMinorDirectorTable
+  entries:
+
+  # 65% - safest and most rp-friendly minor antag
+  - id: thief
+    name: Thief
+    rule: Thief
+    weight: 65
+    minimumPlayers: 0
+    repeatDelayMinutes: 30
+
+  # 3% - chaotic contract antag, needs enough people to target
+  - id: devil
+    name: Devil
+    rule: Devil
+    weight: 3
+    minimumPlayers: 25
+    repeatDelayMinutes: 40
+
+  # 3% - abductor lite, works at low pop
+  - id: lone-abductor
+    name: Lone Abductor
+    rule: TokenLoneAbductorSpawn
+    weight: 3
+    minimumPlayers: 10
+    repeatDelayMinutes: 40
+
+  # 3% - chaotic clown antag
+  - id: tunnel-clown
+    name: Tunnel Clown
+    rule: TunnelClownMidround
+    weight: 3
+    minimumPlayers: 15
+    repeatDelayMinutes: 45
+
+  # 3% - mercenary antag, needs targets
+  - id: contractor
+    name: Contractor
+    rule: ContractorSpawn
+    weight: 3
+    minimumPlayers: 30
+    repeatDelayMinutes: 40
+
+  # 3% - chaotic critter antag
+  - id: floor-goblin
+    name: Floor Goblin
+    rule: FloorGoblinSpawn
+    weight: 3
+    minimumPlayers: 10
+    repeatDelayMinutes: 40
+
+  # 3% - rat king migration, creates emergent chaos
+  - id: ratking
+    name: Rat King
+    rule: KingRatMigration
+    weight: 3
+    minimumPlayers: 25
+    repeatDelayMinutes: 45
+
+  # 0% - disabled by design doc, uncomment when ready to enable
+  # - id: maint-slasher
+  #   name: Maintenance Slasher
+  #   rule: SlasherSpawn
+  #   weight: 0
+  #   minimumPlayers: 40
+  #   repeatDelayMinutes: 60
+
+
+# --- table 3: midround event ---
+# fired once between 40-80 minutes. sleepers is the "else" fallback with high weight.
+# many entries here were in the design doc - commented ones need rules added to omustation.
+- type: eventDirectorTable
+  id: OmuMidroundDirectorTable
+  entries:
+
+  # fallback - always eligible, quiet escalation that doesn't derail rp
+  - id: sleeper-agents
+    name: Sleeper Agents
+    rule: SleeperAgents
+    weight: 20
+    minimumPlayers: 0
+    maximumOccurrences: 1
+
+  # 10% - thief as a midround surprise
+  - id: thief-midround
+    name: Thief
+    rule: Thief
+    weight: 10
+    minimumPlayers: 0
+    maximumOccurrences: 1
+
+  # 10% - dragon is high impact, reserved for decent pop
+  - id: dragon
+    name: Dragon
+    rule: DragonSpawn
+    weight: 10
+    minimumPlayers: 40
+    maximumOccurrences: 1
+
+  # 10% - mercenary midround variant
+  - id: contractor-midround
+    name: Contractor
+    rule: ContractorSpawnMidround
+    weight: 10
+    minimumPlayers: 30
+    maximumOccurrences: 1
+
+  # 10% - ratking as a midround surprise
+  - id: ratking-midround
+    name: Rat King
+    rule: KingRatMigration
+    weight: 10
+    minimumPlayers: 25
+    maximumOccurrences: 1
+
+  # 10% - TODO: dual abductors not in omustation yet, uncomment when added
+  # - id: dual-abductors
+  #   name: Dual Abductors
+  #   rule: DualAbductorSpawn
+  #   weight: 10
+  #   minimumPlayers: 30
+  #   maximumOccurrences: 1
+
+  # 5% - ninja can define an entire round on its own
+  - id: ninja
+    name: Ninja
+    rule: NinjaSpawn
+    weight: 5
+    minimumPlayers: 30
+    maximumOccurrences: 1
+
+  # 5% - vox raiders mid-round incursion
+  - id: vox-raiders
+    name: Vox Raiders
+    rule: VoxRaidersMidround
+    weight: 5
+    minimumPlayers: 30
+    maximumOccurrences: 1
+
+  # 5% - lone operative, contained threat
+  - id: loneops
+    name: Lone Operative
+    rule: LoneOpsSpawn
+    weight: 5
+    minimumPlayers: 30
+    maximumOccurrences: 1
+
+  # 5% - TODO: wraith not in omustation yet, uncomment when added
+  # - id: wraith
+  #   name: Wraith
+  #   rule: WraithSpawn
+  #   weight: 5
+  #   minimumPlayers: 20
+  #   maximumOccurrences: 1
+
+  # 5% - blob is chaotic but short-lived
+  - id: blob-midround
+    name: Blob
+    rule: BlobMidround
+    weight: 5
+    minimumPlayers: 30
+    maximumOccurrences: 1
+
+  # 5% - mime assassin, stealth threat
+  - id: mime-assassin
+    name: Mime Assassin
+    rule: MimeAssassinMidround
+    weight: 5
+    minimumPlayers: 20
+    maximumOccurrences: 1
+
+  # 5% - bingle spawn, chaotic critter event
+  - id: bingles
+    name: Bingles
+    rule: BingleSpawn
+    weight: 5
+    minimumPlayers: 15
+    maximumOccurrences: 1
+
+  # 5% - singuloth knights, unique mid-round threat
+  - id: singuloth-knights
+    name: Singuloth Knights
+    rule: SingulothKnightsMidround
+    weight: 5
+    minimumPlayers: 20
+    maximumOccurrences: 1
+
+  # 2.5% - TODO: xenos not in omustation yet, uncomment when added
+  # - id: xenos-midround
+  #   name: Xenos
+  #   rule: XenosSpawn
+  #   weight: 2.5
+  #   minimumPlayers: 30
+  #   maximumOccurrences: 1
+
+  # 1% - nukeops as a rare midround surprise
+  - id: nukeops-midround
+    name: Nuclear Operatives
+    rule: Nukeops
+    weight: 1
+    minimumPlayers: 40
+    maximumOccurrences: 1
+
+  # 1% - kessler syndrome - very rare, extremely disruptive
+  - id: kessler
+    name: Kessler Syndrome
+    rule: KesslerSyndromeScheduler
+    weight: 1
+    minimumPlayers: 30
+    maximumOccurrences: 1
+
+  # 1% - heretic as rare midround injection
+  - id: heretic-midround
+    name: Heretic
+    rule: Heretic
+    weight: 1
+    minimumPlayers: 20
+    maximumOccurrences: 1
+
+  # 1% - changeling as rare midround injection
+  - id: changeling-midround
+    name: Changeling
+    rule: Changeling
+    weight: 1
+    minimumPlayers: 20
+    maximumOccurrences: 1
+
+  # 1% - five skeletons, spooky and fun
+  - id: skeletons
+    name: Skeletons
+    rule: SkeletonMidround
+    weight: 1
+    minimumPlayers: 10
+    maximumOccurrences: 1
+
+
+# --- table 4: timer / background events ---
+# fires every 10-30 minutes independently of antag rolls.
+# these are environmental events that give departments something to react to.
+- type: eventDirectorTable
+  id: OmuTimerDirectorTable
+  entries:
+
+  # bluespace locker - low stakes item surprise
+  - id: bluespace-locker
+    name: Bluespace Locker
+    rule: BluespaceLocker
+    weight: 5
+    minimumPlayers: 10
+    repeatDelayMinutes: 20
+
+  # clerical error - paperwork chaos
+  - id: clerical-error
+    name: Clerical Error
+    rule: ClericalError
+    weight: 5
+    minimumPlayers: 15
+    repeatDelayMinutes: 20
+
+  # breaker flip - localized power outage, engineering gets a task
+  - id: breaker-flip
+    name: Breaker Flip
+    rule: BreakerFlip
+    weight: 4
+    minimumPlayers: 10
+    repeatDelayMinutes: 15
+
+  # power grid check - broader power event
+  - id: power-grid-check
+    name: Power Grid Check
+    rule: PowerGridCheck
+    weight: 4
+    minimumPlayers: 15
+    repeatDelayMinutes: 20
+
+  # vent clog - atmos gets a job
+  - id: vent-clog
+    name: Vent Clog
+    rule: VentClog
+    weight: 4
+    minimumPlayers: 15
+    repeatDelayMinutes: 25
+
+  # gas leak - more urgent than a clog
+  - id: gas-leak
+    name: Gas Leak
+    rule: GasLeak
+    weight: 3
+    minimumPlayers: 20
+    repeatDelayMinutes: 30
+
+  # ion storm - scrambles ai and borgs
+  - id: ion-storm
+    name: Ion Storm
+    rule: IonStorm
+    weight: 3
+    minimumPlayers: 15
+    repeatDelayMinutes: 30
+
+  # solar flare - brief station-wide disruption
+  - id: solar-flare
+    name: Solar Flare
+    rule: SolarFlare
+    weight: 3
+    minimumPlayers: 10
+    repeatDelayMinutes: 25
+
+  # mass hallucinations - eerie and rp-friendly
+  - id: mass-hallucinations
+    name: Mass Hallucinations
+    rule: MassHallucinations
+    weight: 2
+    minimumPlayers: 20
+    repeatDelayMinutes: 40
+
+  # kudzu growth - botanical chaos, spreads through the station
+  - id: kudzu-growth
+    name: Kudzu Growth
+    rule: KudzuGrowth
+    weight: 2
+    minimumPlayers: 10
+    repeatDelayMinutes: 40
+
+  # random sentience - objects gain a mind, creates funny rp moments
+  - id: random-sentience
+    name: Random Sentience
+    rule: RandomSentience
+    weight: 2
+    minimumPlayers: 10
+    repeatDelayMinutes: 35
+
+  # immovable rod - chaotic but brief, crosses through the station
+  - id: immovable-rod
+    name: Immovable Rod
+    rule: ImmovableRodSpawn
+    weight: 2
+    minimumPlayers: 10
+    repeatDelayMinutes: 30
+
+  # small meteor swarm - light hazard, keeps crew alert
+  - id: meteor-swarm-small
+    name: Meteor Swarm (Small)
+    rule: GameRuleMeteorSwarmSmall
+    weight: 3
+    minimumPlayers: 10
+    repeatDelayMinutes: 20
+
+  # medium meteor swarm - more serious, engineering gets busy
+  - id: meteor-swarm-medium
+    name: Meteor Swarm (Medium)
+    rule: GameRuleMeteorSwarmMedium
+    weight: 2
+    minimumPlayers: 15
+    repeatDelayMinutes: 30
+
+  # large meteor swarm - rare, station-wide emergency
+  - id: meteor-swarm-large
+    name: Meteor Swarm (Large)
+    rule: GameRuleMeteorSwarmLarge
+    weight: 1
+    minimumPlayers: 20
+    repeatDelayMinutes: 45

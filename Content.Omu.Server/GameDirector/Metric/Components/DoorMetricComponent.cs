@@ -1,11 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
-namespace Content.Goobstation.Server.StationEvents.Metric.Components;
+namespace Content.Omu.Server.GameDirector.Metric.Components;
 
 [RegisterComponent, Access(typeof(DoorMetricSystem))]
 public sealed partial class DoorMetricComponent : Component
@@ -33,4 +26,17 @@ public sealed partial class DoorMetricComponent : Component
     /// </summary>
     [DataField]
     public double FireCost = 400.0f;
+
+    /// <summary>
+    ///   extra weight added per emag based on door access level.
+    ///   higher access doors are worth more chaos when emagged.
+    /// </summary>
+    [DataField]
+    public Dictionary<string, int> AccessWeights = new()
+    {
+        { "Security",     1 },
+        { "Atmospherics", 1 },
+        { "Command",      2 },
+        { "Armory",       3 },
+    };
 }

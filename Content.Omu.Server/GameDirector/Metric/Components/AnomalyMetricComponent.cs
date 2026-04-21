@@ -1,11 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
-namespace Content.Goobstation.Server.StationEvents.Metric.Components;
+namespace Content.Omu.Server.GameDirector.Metric.Components;
 
 [RegisterComponent, Access(typeof(AnomalyMetric))]
 public sealed partial class AnomalyMetricComponent : Component
@@ -27,4 +20,16 @@ public sealed partial class AnomalyMetricComponent : Component
     /// </summary>
     [DataField("dangerCost")]
     public float BaseCost = 10.0f;
+
+    /// <summary>
+    ///   Chaos cost added per kudzu patch
+    /// </summary>
+    [DataField]
+    public float KudzuCost = 0.25f;
+
+    /// <summary>
+    ///   Severity value above which an anomaly counts as severe
+    /// </summary>
+    [DataField]
+    public float SeverityThreshold = 0.8f;
 }
