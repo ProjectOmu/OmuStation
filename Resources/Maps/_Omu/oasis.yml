@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/29/2026 13:31:51
+  time: 04/12/2026 16:24:17
   entityCount: 30418
 maps:
 - 1
@@ -13127,7 +13127,7 @@ entities:
       pos: 0.5,48.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -47714.637
+      secondsUntilStateChange: -47755.97
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13783,7 +13783,7 @@ entities:
       pos: -3.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -649359.5
+      secondsUntilStateChange: -649400.8
       state: Opening
   - uid: 422
     components:
@@ -80379,10 +80379,11 @@ entities:
     - type: Transform
       pos: 25.5,11.5
       parent: 2
+- proto: CryogenicSleepUnitSpawnerForcedPrisonerLatejoin
+  entities:
   - uid: 27110
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 11.5,-11.5
       parent: 22618
 - proto: CryogenicSleepUnitSpawnerLateJoin
@@ -94528,7 +94529,7 @@ entities:
       pos: -1.5,-16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -16139.082
+      secondsUntilStateChange: -16180.415
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -141586,9 +141587,15 @@ entities:
     - type: Paper
       stampState: paper_stamp-centcom
       stampedBy:
-      - stampedColor: '#006600FF'
+      - hasIcon: True
+        stampFont: null
+        stampLargeIcon: null
+        stampedColor: '#006600FF'
         stampedName: stamp-component-stamped-name-centcom
-      - stampedColor: '#2F4F4FFF'
+      - hasIcon: True
+        stampFont: null
+        stampLargeIcon: null
+        stampedColor: '#2F4F4FFF'
         stampedName: DO NOT DISREGARD
       content: >2-
                                       [color=#1b487e]╔══════════════════╗
@@ -191154,7 +191161,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -73063.664
+      secondsUntilStateChange: -73105
       state: Opening
     - type: Airlock
       autoClose: False
@@ -192553,7 +192560,7 @@ entities:
       pos: 24.5,2.5
       parent: 22618
     - type: Door
-      secondsUntilStateChange: -427491.03
+      secondsUntilStateChange: -427532.38
       state: Opening
   - uid: 29025
     components:
@@ -192562,7 +192569,7 @@ entities:
       pos: -46.5,28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -81447.42
+      secondsUntilStateChange: -81488.76
       state: Opening
 - proto: WoodenBench
   entities:
