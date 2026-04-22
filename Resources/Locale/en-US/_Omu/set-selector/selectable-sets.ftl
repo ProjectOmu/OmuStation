@@ -49,10 +49,11 @@ selectable-set-terminus-description =
     A weapon exclusively for oni, this greataxe
     can fire a burst of disabler bolts on command.
 
-selectable-set-ceremonial-rifle-name = Ceremonial rifle
+selectable-set-ceremonial-rifle-name = M1 Garand
 selectable-set-ceremonial-rifle-description =
-    A weapon exclusively for sergeants,
-    this relic of a rifle has been in service for over 670 years.
+    "Gory, gory, what a hell of a way to die!"
+    An weapon often given to Paratroopers mainly and Infantry in ancient Sol.
+    This one is a relic given to the Sergeant, shoots .30 Rifle.
 
 selectable-set-antiquelaser-name = Antique Laser Pistol
 selectable-set-antiquelaser-description =
@@ -148,3 +149,15 @@ selectable-set-bso-chemical-description =
     for the Blueshield Officer especially fond of chemical efficiency.
     Includes: A robust pouch for general use, 
     packed with several vials of advanced medicine and a combat injector that instantly injects its contents upon forceful stabbing.
+selectable-set-ntr-cane-name = Fancy Cane
+selectable-set-ntr-cane-desc =
+    A fancy cane with a stun setting.
+    Good for fending off annoying assistants who don't want
+    to fill up paperwork.
+
+# NTR
+selectable-set-ntr-belt-name = Disciplinary Belt
+selectable-set-ntr-belt-desc =
+    A belt, hollowed out to maximize pain and minimize damage.
+    This one will let you do many, many lashings to anyone who
+    dares stand in NanoTrasen's way. Oh boy.

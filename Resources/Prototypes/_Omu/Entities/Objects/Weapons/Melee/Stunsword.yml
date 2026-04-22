@@ -31,9 +31,7 @@
     attackRate: 1
     damage:
       types:
-        Slash: 8
-      woundSeverityMultipliers:
-        Slash: 1.5
+        Slash: 12 # It's a sword, come on guys!
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
     angle: 60
@@ -56,9 +54,7 @@
           attackRate: 1
           damage:
             types:
-              Slash: 8
-            woundSeverityMultipliers:
-              Slash: 1.5
+              Slash: 12 # Again, it's a sword!!
           soundHit:
             path: /Audio/Weapons/bladeslice.ogg
           angle: 60

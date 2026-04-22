@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/29/2026 13:00:41
+  time: 04/12/2026 15:47:29
   entityCount: 49355
 maps:
 - 1
@@ -33407,7 +33407,10 @@ entities:
       parent: 2
     - type: Paper
       stampedBy:
-      - stampedColor: '#850000FF'
+      - hasIcon: True
+        stampFont: null
+        stampLargeIcon: null
+        stampedColor: '#850000FF'
         stampedName: 1984
       content: >2
 
@@ -118337,13 +118340,6 @@ entities:
     - type: Transform
       pos: 13.494041,97.43478
       parent: 2
-- proto: CryogenicSleepUnit
-  entities:
-  - uid: 3664
-    components:
-    - type: Transform
-      pos: 126.5,123.5
-      parent: 2
 - proto: CryogenicSleepUnitSpawner
   entities:
   - uid: 18561
@@ -118368,6 +118364,13 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 99.5,125.5
+      parent: 2
+- proto: CryogenicSleepUnitSpawnerForcedPrisonerLatejoin
+  entities:
+  - uid: 3664
+    components:
+    - type: Transform
+      pos: 126.5,123.5
       parent: 2
 - proto: CryogenicSleepUnitSpawnerLateJoin
   entities:
@@ -118581,7 +118584,7 @@ entities:
       pos: 97.5,172.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -261.1483
+      secondsUntilStateChange: -299.8149
       state: Opening
 - proto: CurtainsWhiteOpen
   entities:
@@ -141481,7 +141484,7 @@ entities:
       pos: 61.5,58.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -572.04816
+      secondsUntilStateChange: -610.7148
       state: Closing
     - type: DeviceNetwork
       deviceLists:

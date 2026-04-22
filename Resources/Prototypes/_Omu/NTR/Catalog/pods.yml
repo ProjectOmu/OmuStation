@@ -6,3 +6,21 @@
   components:
   - type: SpawnOnDespawn
     prototype: CaneNT
+
+- type: entity
+  id: SpawnPod50TC
+  categories: [ HideSpawnMenu ]
+  name: Spawn50TC
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: Telecrystal50
+
+- type: entity
+  id: SpawnPod100TC
+  categories: [ HideSpawnMenu ]
+  name: Spawn100TC
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: Telecrystal100

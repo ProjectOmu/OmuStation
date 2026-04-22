@@ -93,3 +93,47 @@
    - BoxShotgunUranium
    - CQCManual
 
+- type: job
+  id: CustodiiVitellus
+  name: job-name-centcomm-guard
+  description: job-description-deathsquad
+  playTimeTracker: JobCustodii
+  setPreference: false
+  startingGear: CustodiiGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - Deathsquad
+  - EmergencyResponseTeam
+  - CentralCommand
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm, StypticStimulatorImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: DeathSquadMember
+
+
+- type: startingGear
+  id: CustodiiGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBlueshieldShirt
+    back: ClothingModsuitGhanaFilled
+    eyes: ClothingEyesGlassesCentComm
+    neck: ExecutiveIDCard
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesDeathsquad
+    outerClothing: ClothingOuterVestWebDurathread
+    shoes: ClothingShoesBootsMagAsakim
+    id: NanoTrasenCustodianPDA
+    pocket1: PhoronSabre
+    pocket2: WeaponRevolverMateba
+    belt: ClothingBeltMilitaryWebbingCustodii
+    mask: ClothingMaskBandGrey
+  inhand:
+  - WeaponSniperCustodian
