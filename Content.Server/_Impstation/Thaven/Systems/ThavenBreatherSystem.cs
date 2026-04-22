@@ -1,13 +1,13 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Shared.Body;
 using Content.Server._Impstation.Thaven.Components;
-using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.Atmos;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Organ;
 using Content.Shared.Drunk;
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Server._Impstation.Thaven.Systems;
 
@@ -18,10 +18,10 @@ namespace Content.Server._Impstation.Thaven.Systems;
 /// </summary>
 public sealed class ThavenBreatherSystem : EntitySystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly RespiratorSystem _respirator = default!;
     [Dependency] private readonly SharedDrunkSystem _drunk = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     private const float MinIntoxicatingGasMoles = 0.01f;
 
@@ -98,8 +98,15 @@ public sealed class ThavenBreatherSystem : EntitySystem
         if (!TryGetActiveThavenLung(ent, out var lung))
             return;
 
-        var mixture = _atmosphere.GetContainingMixture(ent.Owner, excite: true);
-        if (mixture != null && mixture.Pressure >= lung.Comp1.MinPressure)
+        // when in crit, thavens should take respiratory damage like everyone else.
+        // skipping this check means adequate air pressure would keep them alive forever.
+        if (_mobState.IsIncapacitated(ent.Owner))
+        {
+            _respirator.UpdateSaturation(ent.Owner, -lung.Comp1.SaturationPerBreath, skipNeedsAirCheck: true);
+            return;
+        }
+
+        if (_respirator.CanMetabolizeInhaledAir((ent.Owner, ent.Comp)))
         {
             args.Cancelled = true;
             return;

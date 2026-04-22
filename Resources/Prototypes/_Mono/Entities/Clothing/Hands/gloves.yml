@@ -22,6 +22,7 @@
     soundHit:
       collection: ExplosionSmall
     heavyStaminaCost: 5
+    mustBeEquippedToUse: true # Omu, they are gloves, you should need to equip them.
   - type: Tag
     tags:
     - Pickaxe
