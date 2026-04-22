@@ -128,7 +128,7 @@ selectable-set-bso-brdi-description =
     Repainted for Blueshield Officers.
 
 selectable-set-bso-extraction-name = Extraction kit
-selectable-set-bso-extraction-description = 
+selectable-set-bso-extraction-description =
     A swift extraction guarantees safety, you stand by those words.
     Includes: A webbing rig with a ridiculous amount of pouches and pockets, capable of holding many items.
     The rig is prepacked with 20 bluespace-enchanced fultons, easily attachable to any rollerbed, a beacon for these fultons and a combat medical kit with various medicines in pill form.
@@ -147,15 +147,16 @@ selectable-set-bso-chemical-name = Chemical kit
 selectable-set-bso-chemical-description =
     Perfect for healing allies or poisoning foes in a pinch,
     for the Blueshield Officer especially fond of chemical efficiency.
-    Includes: A robust pouch for general use, 
+    Includes: A robust pouch for general use,
     packed with several vials of advanced medicine and a combat injector that instantly injects its contents upon forceful stabbing.
+
+# NTR
 selectable-set-ntr-cane-name = Fancy Cane
 selectable-set-ntr-cane-desc =
     A fancy cane with a stun setting.
     Good for fending off annoying assistants who don't want
     to fill up paperwork.
 
-# NTR
 selectable-set-ntr-belt-name = Disciplinary Belt
 selectable-set-ntr-belt-desc =
     A belt, hollowed out to maximize pain and minimize damage.
