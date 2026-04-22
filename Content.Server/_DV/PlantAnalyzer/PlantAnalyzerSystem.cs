@@ -32,18 +32,12 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         if (args.Target is not { } target || !args.CanReach)
             return;
 
-        // only valid on seeds and plant trays that have a seed
         var isValidTarget = HasComp<SeedComponent>(target)
             || TryComp<PlantHolderComponent>(target, out var holder) && holder.Seed != null;
 
         if (!isValidTarget)
             return;
 
-        // do not start a second doafter while one is already running
-        if (ent.Comp.DoAfter != null)
-            return;
-
-        // check battery up front - no point starting an 8s wait with no power
         if (!_cell.HasActivatableCharge(ent.Owner, user: args.User))
             return;
 
@@ -51,28 +45,21 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         {
             NeedHand = true,
             BreakOnDamage = true,
-            BreakOnMove = true,
-            MovementThreshold = ent.Comp.MovementThreshold
+            BreakOnMove = true
         };
 
-        _doAfter.TryStartDoAfter(doAfterArgs, out ent.Comp.DoAfter);
+        _doAfter.TryStartDoAfter(doAfterArgs, out _);
     }
 
     private void OnDoAfter(Entity<PlantAnalyzerComponent> ent, ref PlantAnalyzerDoAfterEvent args)
     {
-        ent.Comp.DoAfter = null;
-
         if (args.Handled || args.Cancelled || args.Target is not { } target)
             return;
 
-        // consume charges according to ScanCharge (default 2, configurable in yaml)
-        for (var i = 0; i < ent.Comp.ScanCharge; i++)
-        {
-            if (!_cell.TryUseActivatableCharge(ent.Owner, user: args.User))
-                return;
-        }
+        if (!_cell.TryUseActivatableCharge(ent.Owner, user: args.User))
+            return;
 
-        var state = BuildScanState(ent, target);
+        var state = BuildScanState(target);
         if (state == null)
             return;
 
@@ -83,7 +70,7 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         args.Handled = true;
     }
 
-    private PlantAnalyzerScannedSeedMessage? BuildScanState(Entity<PlantAnalyzerComponent> ent, EntityUid target)
+    private PlantAnalyzerScannedSeedMessage? BuildScanState(EntityUid target)
     {
         SeedData? seed = null;
         var isTray = false;
@@ -106,7 +93,6 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         if (seed == null)
             return null;
 
-        // collect gas name strings (works for any gas, no hardcoded enum)
         var exudeGases = seed.ExudeGasses.Keys
             .Select(g => Loc.GetString($"gases-{g}"))
             .ToArray();
@@ -117,7 +103,6 @@ public sealed class PlantAnalyzerSystem : EntitySystem
 
         var chemicals = seed.Chemicals.Keys.ToArray();
 
-        // resolve possible sub-species display names
         var speciation = seed.MutationPrototypes
             .Select(id => _proto.TryIndex<SeedPrototype>(id, out var s) ? s.DisplayName : id.ToString())
             .ToArray();
@@ -133,7 +118,7 @@ public sealed class PlantAnalyzerSystem : EntitySystem
             TargetEntity = GetNetEntity(target),
             IsTray = isTray,
             IsDead = trayComp?.Dead ?? false,
-            PlantHealth = trayComp?.Health ?? seed.Endurance,
+            PlantHealth = seed.Endurance,
             PlantMaxHealth = seed.Endurance,
 
             SeedName = seed.DisplayName,

@@ -118,8 +118,8 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
 
         // ---- chemistry ----
         Chemicals.Text    = Loc.GetString("plant-analyzer-chemicals",    ("value", BuildList(msg.Chemicals)));
-        ConsumeGases.Text = Loc.GetString("plant-analyzer-consume-gases", ("value", BuildGasList(msg.ConsumeGases)));
-        ExudeGases.Text   = Loc.GetString("plant-analyzer-exude-gases",   ("value", BuildGasList(msg.ExudeGases)));
+        ConsumeGases.Text = Loc.GetString("plant-analyzer-consume-gases", ("value", BuildList(msg.ConsumeGases)));
+        ExudeGases.Text   = Loc.GetString("plant-analyzer-exude-gases",   ("value", BuildList(msg.ExudeGases)));
 
         // ---- tolerances tab - value only ----
         NutrientUsage.Text   = $"{msg.NutrientConsumption:F2} u/stage";
@@ -175,19 +175,6 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
         {
             sb.Append(IndentedNewline);
             sb.Append(item);
-        }
-        return sb.ToString();
-    }
-
-    private static string BuildGasList(string[] gases)
-    {
-        if (gases.Length == 0)
-            return " " + Loc.GetString("plant-analyzer-none");
-        var sb = new StringBuilder();
-        foreach (var gas in gases)
-        {
-            sb.Append(IndentedNewline);
-            sb.Append(gas);
         }
         return sb.ToString();
     }
