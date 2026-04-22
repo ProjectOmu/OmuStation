@@ -126,7 +126,10 @@
     time: 36000 # 10h Goobstation
   - !type:RoleTimeRequirement
     role: JobChemist
-    time: 18000 # 5h Goobstation
+    time: 36000 # 10h Omu
+  - !type:RoleTimeRequirement
+    role: JobBrigmedic # added Brigmedic requirement - Omu change
+    time: 18000 #5hr Omu change
   - !type:SpeciesRequirement
     inverted: true
     species:
