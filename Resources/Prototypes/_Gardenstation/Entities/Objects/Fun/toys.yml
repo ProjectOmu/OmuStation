@@ -34,12 +34,6 @@
       path: /Audio/_Gardenstation/Items/Toys/babusqueak.ogg
       params:
         volume: 12
-  - type: Food
-    requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/_Gardenstation/Items/Toys/babuthrow.ogg
-      params:
-        volume: 12
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit:

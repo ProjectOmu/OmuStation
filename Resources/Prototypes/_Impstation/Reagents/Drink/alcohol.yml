@@ -30,24 +30,11 @@
         amount: 0.7
     Narcotic:
       effects:
-#      - !type:SatiateThirst
-#        factor: 2
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 10
         refresh: false
-#  plantMetabolism:
-#  - !type:PlantAdjustNutrition
-#    amount: 0.5
-#  - !type:PlantAdjustWater
-#    amount: 0.5
-#  - !type:PlantAdjustToxins
-#    amount: 1
-#  - !type:PlantAdjustWeeds
-#    amount: -1
-#  - !type:PlantAdjustPests
-#    amount: -1
   fizziness: 0.1
 
 - type: reagent
