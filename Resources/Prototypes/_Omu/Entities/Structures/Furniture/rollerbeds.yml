@@ -1,6 +1,6 @@
 - type: entity
   id: BlueshieldRollerBed
-  parent: RollerBed
+  parent: [RollerBed, BaseCentcommContraband]
   name: bluespace rollerbed
   description: A robust looking rollerbed enchanced with bluespace technology to better fit in the bags of Blueshield Officer's.
   components:

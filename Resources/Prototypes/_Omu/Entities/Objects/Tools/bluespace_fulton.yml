@@ -12,7 +12,7 @@
 
 - type: entity
   id: FultonBeaconBlueshield
-  parent: FultonBeacon
+  parent: [FultonBeacon, BaseCentcommContraband]
   name: bluespace fulton beacon
   description: A beacon to receive fulton extractions, outfitted with a much more potent bluespace signal.
   components:
@@ -45,13 +45,10 @@
   components:
   - type: Foldable
     folded: false
-  # - type: Lock
-  # - type: AccessReader
-  #   access: [["CentralCommand"]]
 
 - type: entity
   id: FultonBlueshield
-  parent: Fulton
+  parent: [Fulton, BaseCentcommContraband]
   suffix: Full
   name: bluespace fulton
   description: A bluespace enchanced fulton, easily applied to any rollerbed or item of choice, capable of homing in on a bluespace signal nearly instantly, for extremely quick extraction.

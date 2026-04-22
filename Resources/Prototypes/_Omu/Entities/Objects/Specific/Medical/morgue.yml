@@ -1,6 +1,6 @@
 - type: entity
   id: BodyBagBluespaceBSO
-  parent: BodyBag
+  parent: [BodyBag, BaseCentcommContraband]
   name: bluespace body bag
   description: A synthetically made bluespace bag, designed for Blueshield Officer's to store and transport multiple dead VIPs at a time, capable of holding their bodies, limbs and even organs.
   components:

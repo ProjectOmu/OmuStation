@@ -165,7 +165,7 @@
   name: blueshield officer's medical pouch
   description: A robust pouch for medical supplies worn by Blueshield Officers especially fond of chemical based medicinals.
   components:
-  - type: Sprite 
+  - type: Sprite
     sprite: _Omu/Clothing/Belt/blueshieldchembag.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Belt/blueshieldchembag.rsi
@@ -211,7 +211,7 @@
 
 - type: entity
   id: ClothingBeltExtractionRigBSO
-  parent: ClothingBeltStorageBase
+  parent: [ClothingBeltStorageBase, BaseCentcommContraband]
   name: blueshield officer's extraction rig
   description: A more modern design of the rigs used by salvagers with even more pockets and pouches, worn by Blueshield Officers which like to focus on efficient extraction.
   components:
@@ -222,8 +222,8 @@
   - type: Storage
     grid:
     - 0,0,9,1 # 20 squares of space, least of all of the options (chembag has 24, the chest rigs have 21), cus it can store anything. Also funny long line.
-  
-# - type: entity 
+
+# - type: entity
 #   id: ClothingBeltBlueshieldEliteWebbingSurgical
 #   parent: ClothingBeltMilitaryWebbingBSO # this is to share the same whitelist
 #   name: blueshield officer's surgical chest rig
