@@ -3287,3 +3287,51 @@ Entries:
       message: Made Departmental JamJar Glasses also work as Prescription Glasses.
   id: 419
   time: '2026-04-10T00:01:50.0000000+00:00'
+- author: Nevec
+  changes:
+    - type: Fix
+      message: >-
+        Thavens now properly take respiratory damage while in critical
+        condition, preventing a softlock where they could not die.
+  id: 420
+  time: '2026-04-10T10:58:07.0000000+00:00'
+- author: BoiWab
+  changes:
+    - type: Add
+      message: BugBorgs
+    - type: Add
+      message: More Inhuman StationAI Holograms
+  id: 421
+  time: '2026-04-10T11:07:10.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: >-
+        Harpy can now use the 'Squish', 'Bubble', 'Pop', "Gnash", "Thump"
+        emotes.
+  id: 422
+  time: '2026-04-10T12:12:33.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Add
+      message: NTR selector case, can choose between a fancy cane and disciplinary belt
+    - type: Tweak
+      message: Disciplinary Belts can now snap! press Z with them inhand :)
+    - type: Tweak
+      message: Admeme belts now have a 1 damage spawnable version.
+    - type: Tweak
+      message: Changed the sergeant's disciplinary belt stats a bit.
+  id: 423
+  time: '2026-04-10T12:42:50.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Disciplinary belts now make you scream when hit by them.
+  id: 424
+  time: '2026-04-10T12:50:15.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: Switched the Sergeant ceremonial rifle with a proper M1 Garand! *ping!*
+  id: 425
+  time: '2026-04-10T13:41:36.0000000+00:00'

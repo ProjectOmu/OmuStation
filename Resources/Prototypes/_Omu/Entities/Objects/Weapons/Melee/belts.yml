@@ -14,6 +14,17 @@
       path: /Audio/_Omu/Items/Belts/BeltPickup.ogg
       params:
         volume: -3
+  - type: EmoteOnMeleeHit
+    emoteChance: 1
+    emotes:
+    - Scream
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Omu/Items/Belts/BeltSnap.ogg
+      params:
+        maxDistance: 15
+  - type: UseDelay
+    delay: 1
 
 - type: entity
   id: CentCommBelt
@@ -64,6 +75,7 @@
     sprite: _Omu/Clothing/Belt/eggshelldisciplinary.rsi
   #Hurty hurts
   - type: MeleeWeapon
+    attackRate: 5
     wideAnimationRotation: -135
     bluntStaminaDamageFactor: 1.5
     angle: 0
@@ -83,6 +95,11 @@
     delays:
       hit:
         length: 1
+  - type: EmoteOnMeleeHit
+    emoteChance: 1
+    emoteCooldown: 0.001
+    emotes:
+    - Scream
 
 
 - type: entity
@@ -115,13 +132,60 @@
     duration: .1
     dropItems: false
   - type: StaminaDamageOnHit
-    damage: 15
+    damage: 12
   - type: UseDelay
     delays:
       default:
-        length: 3
-      telebaton:
-        length: 3
+        length: 1
   - type: UseDelayBlockMelee
     delays:
     - default
+
+- type: entity
+  id: EggCentCommBeltNoDamage
+  parent: EggCentCommBelt
+  name: eggsciplinary belt
+  description: "Commander, your work has been unsatisfactory. Consider yourself suspended for now. This one seems less heavy."
+  components:
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    bluntStaminaDamageFactor: 1.5
+    angle: 0
+    damage:
+      types:
+        Blunt: 1
+  suffix: NoDamage
+
+- type: entity
+  id: CentCommBeltNoDamage
+  parent: CentCommBelt
+  name: central command belt
+  description: "Intern, you've been an unprofitable asset. This one seems less heavy."
+  components:
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    bluntStaminaDamageFactor: 1.5
+    angle: 0
+    damage:
+      types:
+        Blunt: 1
+  suffix: NoDamage
+
+- type: entity
+  id: NanoRepBelt
+  parent: WaistBeltSergeantBelt
+  name: nanotrasen representative's disciplinary belt
+  description: "Looks the same as a Central Command belt, but less heavy. Oh boy, someone's getting a beating."
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Belt/centcomdisciplinary.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Omu/Clothing/Belt/centcomdisciplinary.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    bluntStaminaDamageFactor: 1.5
+    angle: 0
+    damage:
+      types:
+        Blunt: 7
