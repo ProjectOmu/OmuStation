@@ -44,6 +44,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Content.Shared.Access.Components; // Omu
+using Content.Shared.Access.Systems; // Omu
 
 namespace Content.Shared.Foldable;
 
@@ -55,6 +57,7 @@ public sealed class FoldableSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly AnchorableSystem _anchorable = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!; // Omu
 
     public override void Initialize()
     {
@@ -133,21 +136,34 @@ public sealed class FoldableSystem : EntitySystem
 
     public bool TryToggleFold(EntityUid uid, FoldableComponent comp, EntityUid? folder = null)
     {
-        var result = TrySetFolded(uid, comp, !comp.IsFolded);
+        var result = TrySetFolded(uid, comp, !comp.IsFolded, folder); // Omu, pass folder through
         if (!result && folder != null)
         {
-            if (comp.IsFolded)
-                _popup.PopupPredicted(Loc.GetString("foldable-unfold-fail", ("object", uid)), uid, folder.Value);
+            if (TryComp<AccessReaderComponent>(uid, out var accessReaderComponent) && !_accessReaderSystem.IsAllowed(folder.Value, uid, accessReaderComponent)) // Omu
+                _popup.PopupPredicted(Loc.GetString("lock-comp-has-user-access-fail", ("object", uid)), uid, folder.Value);
             else
-                _popup.PopupPredicted(Loc.GetString("foldable-fold-fail", ("object", uid)), uid, folder.Value);
+            {
+                if (comp.IsFolded)
+                    _popup.PopupPredicted(Loc.GetString("foldable-unfold-fail", ("object", uid)), uid, folder.Value);
+                else
+                    _popup.PopupPredicted(Loc.GetString("foldable-fold-fail", ("object", uid)), uid, folder.Value);
+            }
         }
         return result;
     }
 
-    public bool CanToggleFold(EntityUid uid, FoldableComponent? fold = null)
+    public bool CanToggleFold(EntityUid uid, FoldableComponent? fold = null, EntityUid? folder = null) // Omu add folder.
     {
         if (!Resolve(uid, ref fold))
             return false;
+
+        // Omu start, check for access.
+        if (folder != null)
+        {
+            if (TryComp<AccessReaderComponent>(uid, out var accessReaderComponent) && !_accessReaderSystem.IsAllowed(folder.Value, uid, accessReaderComponent))
+                return false;
+        }
+        // Omu end
 
         // Can't un-fold in any container unless enabled (locker, hands, inventory, whatever).
         if (_container.IsEntityInContainer(uid) && !fold.CanFoldInsideContainer)
@@ -165,12 +181,12 @@ public sealed class FoldableSystem : EntitySystem
     /// <summary>
     /// Try to fold/unfold
     /// </summary>
-    public bool TrySetFolded(EntityUid uid, FoldableComponent comp, bool state)
+    public bool TrySetFolded(EntityUid uid, FoldableComponent comp, bool state, EntityUid? folder = null) // Omu add folder.
     {
         if (state == comp.IsFolded)
             return false;
 
-        if (!CanToggleFold(uid, comp))
+        if (!CanToggleFold(uid, comp, folder)) // Omu, pass folder through
             return false;
 
         SetFolded(uid, comp, state);

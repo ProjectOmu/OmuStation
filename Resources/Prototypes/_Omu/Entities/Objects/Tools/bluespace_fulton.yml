@@ -13,9 +13,13 @@
 - type: entity
   id: FultonBeaconBlueshield
   parent: FultonBeacon
-  name: bluespace fulton beacon 
+  name: bluespace fulton beacon
   description: A beacon to receive fulton extractions, outfitted with a much more potent bluespace signal.
   components:
+    - type: FultonBeacon
+      announceOnFulton: true
+      announcementChannel: Medical
+      announcementMessage: fulton-blueshield-radio-message
     - type: Item
       sprite: _Omu/Objects/Tools/bluespace_fulton.rsi
     - type: GenericVisualizer # yeah idk might need this
@@ -31,10 +35,9 @@
       layers:
         - state: extraction_point
           map: [ "foldedLayer" ]
-    - type: Lock
     - type: AccessReader
       access: [["CentralCommand"]]
-  
+
 - type: entity
   id: FultonBeaconBlueshieldUnfolded
   parent: FultonBeaconBlueshield
@@ -50,7 +53,7 @@
   id: FultonBlueshield
   parent: Fulton
   suffix: Full
-  name: bluespace fulton 
+  name: bluespace fulton
   description: A bluespace enchanced fulton, easily applied to any rollerbed or item of choice, capable of homing in on a bluespace signal nearly instantly, for extremely quick extraction.
   components:
   - type: Fulton
