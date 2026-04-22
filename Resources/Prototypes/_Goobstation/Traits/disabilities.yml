@@ -58,8 +58,9 @@
   category: PhysicalTraits #omu
   blacklist: # Omu Station
     components:
-      - SecurityStaff
-      - CommandStaff
+    - BorgChassis
+    - SecurityStaff
+    - CommandStaff
   components:
     - type: SocialAnxiety
   globalCost: -4 #omu i suppose. ive not tedted. If this comment is still here assume i havent tested.
@@ -73,6 +74,8 @@
   blacklist:
     components:
     - BorgChassis
+    - SecurityStaff # Omu
+    - CommandStaff # Omu
   components:
     - type: Deaf
   globalCost: -8 #it might actually be just as or more crippling that not walking in this game - omu

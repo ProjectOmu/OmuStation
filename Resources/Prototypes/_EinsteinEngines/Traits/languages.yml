@@ -6,6 +6,11 @@
   name: trait-language-foreigner-light-name
   description: trait-language-foreigner-light-desc
   category: LanguageTraits
+  blacklist: # Omu Station
+    components:
+    - BorgChassis
+    - SecurityStaff
+    - CommandStaff
   cost: -1
   components:
   - type: ForeignerTrait
@@ -23,6 +28,11 @@
   name: trait-language-foreigner-name
   description: trait-language-foreigner-desc
   category: LanguageTraits
+  blacklist: # Omu Station
+    components:
+    - BorgChassis
+    - SecurityStaff
+    - CommandStaff
   cost: -2
   components:
   - type: ForeignerTrait

@@ -99,7 +99,9 @@
   category: MentalTraits # Omustation - Remake EE Traits system - EE traits categories
   blacklist:
     components:
-      - BorgChassis
+    - BorgChassis
+    - SecurityStaff # Omu
+    - CommandStaff # Omu
   components:
     - type: Muted
   globalCost: -6 # Omustation - Remake EE Traits system - global trait points cost
