@@ -57,7 +57,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Security
-      time: 360000 #100 hrs
+      time: 252000 #100 hrs
 
 - type: loadout
   id: SecurityOfficerCowboyVest
@@ -68,10 +68,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Security
-      time: 360000 #100 hrs
-#      !type:RoleTimeRequirement
-#      role: JobSecurityOfficer
-#      time: 180000 #50 hrs
+      time: 360000 #70 hrs
 
 - type: loadout
   id: SecurityOfficerCowboyBoots
