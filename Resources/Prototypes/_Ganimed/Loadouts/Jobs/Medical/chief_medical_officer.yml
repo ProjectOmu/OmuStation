@@ -1,0 +1,7 @@
+- type: loadout
+  id: ChiefMedicalOfficerCloakLong
+  equipment:
+    neck: ClothingNeckLongCloakCMO
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterCMO

@@ -39,7 +39,7 @@
 
 
 - type: entity
-  parent: [ ClothingOuterWinterCoatToggleable, BaseSecurityContraband ]
+  parent: [ ClothingOuterWinterCoatToggleable, AllowSuitStorageClothing, BaseSecurityContraband ] #Omu - added AllowSuitStorageClothing parent
   id: ClothingOuterCoatStasec
   name: station security coat
   description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards.
