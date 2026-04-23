@@ -60,13 +60,17 @@ namespace Content.Server.Nutrition.EntitySystems
             if (solution.Volume <= 0)
             {
                 _tagSystem.AddTag(entity.Owner, TrashTag);
-                if (!HasComp<SpaceGarbageComponent>(entity.Owner)) { AddComp<SpaceGarbageComponent>(entity.Owner); } // Omu - Add the SpaceGarbage component when the container is empty.
+
+                EnsureComp<SpaceGarbageComponent>(entity.Owner); // Omu - Add the SpaceGarbage component when the container is empty.
                 
                 return;
             }
 
             _tagSystem.RemoveTag(entity.Owner, TrashTag);
-            if (HasComp<SpaceGarbageComponent>(entity.Owner)) { RemComp<SpaceGarbageComponent>(entity.Owner); } // Omu - Remove the SpaceGarbage component when the container has a reagent, preventing deletion of chem bottles, etc.
+
+            if (HasComp<SpaceGarbageComponent>(entity.Owner)) // Omu - Remove the SpaceGarbage component when the container has a reagent, preventing deletion of chem bottles, etc.
+                RemComp<SpaceGarbageComponent>(entity.Owner); // Omu
+            
         }
     }
 }
