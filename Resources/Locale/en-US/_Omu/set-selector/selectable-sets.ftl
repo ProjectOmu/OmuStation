@@ -131,17 +131,16 @@ selectable-set-bso-extraction-name = Extraction kit
 selectable-set-bso-extraction-description =
     A swift extraction guarantees safety, you stand by those words.
     Includes: A webbing rig with a ridiculous amount of pouches and pockets, capable of holding many items.
-    The rig is prepacked with 20 bluespace-enchanced fultons, easily attachable to any rollerbed, a beacon for these fultons and a combat medical kit with various medicines in pill form.
-
-selectable-set-bso-surgical-name = Surgical kit
-selectable-set-bso-surgical-description =
-    You've seen those that you protect disected into multiple pieces and giblets far too many times.
-    Includes: A spatial general use chest rig, packed with a surgical omntitool and a bluespace body bag, capable of holding multiple cadavers, organs, pieces and giblets.
+    The rig is prepacked with 20 bluespace-enchanced fultons, easily attachable to any rollerbed,
+    a beacon announcing extraction in medical radio upon fulton extraction,
+    and a combat medical kit with various medicines in pill form.
 
 selectable-set-bso-medical-name = Medical kit
 selectable-set-bso-medical-description =
     Sometimes, the classic and simple option is the best option.
-    Includes: A spatial general use chest rig, packed with a compact defibrillator and two combat medical kits.
+    Includes: A spatial general use chest rig, packed with a compact defibrillator,
+    two combat medical kits and a bluespace body bag,
+    capable of holding multiple cadavers, organs, pieces and giblets.
 
 selectable-set-bso-chemical-name = Chemical kit
 selectable-set-bso-chemical-description =
