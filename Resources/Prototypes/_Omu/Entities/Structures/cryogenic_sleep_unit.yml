@@ -1,0 +1,54 @@
+# Not parented to others because i don't want to touch upstream systems and i dont want these to have ContainerSpawnpoint
+# We'll handle the spawning inside our own systems and just say that the mob is spawned.
+- type: entity
+  abstract: true
+  parent: CryogenicSleepUnit
+  id: CryogenicSleepUnitSpawnerForcedBase
+  suffix: Spawner, Forced
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Omu/Structures/cryostorage.rsi # Red sprite for differentiation Ig. I don't want this accidentally mapped.
+    layers:
+    - state: sleeper_0
+      map: [ "base" ]
+  - type: ForcedCryosleepSpawner # There's no point to this but whatever
+    containerId: storage
+    forced: true
+
+# Mapping roundstart ForcedCryosleepSpawners will force the specified job to spawn inside that container roundstart
+# Overriding regular spawn points.
+- type: entity
+  parent: CryogenicSleepUnitSpawnerForcedBase
+  id: CryogenicSleepUnitSpawnerForcedPrisonerRoundstart
+  suffix: Spawner, Forced, Roundstart, [READ YAML]
+  components:
+  - type: ForcedCryosleepSpawner
+    containerId: storage
+    job: TransitPrisoner
+    spawnTypes: [Job]
+
+# Same, but ONLY for latejoin spawns.
+- type: entity
+  parent: CryogenicSleepUnitSpawnerForcedBase
+  id: CryogenicSleepUnitSpawnerForcedPrisonerLatejoin
+  suffix: Spawner, Forced, Latejoin, [READ YAML]
+  components:
+  - type: ForcedCryosleepSpawner
+    containerId: storage
+    job: TransitPrisoner
+    spawnTypes: [LateJoin]
+
+# Both
+- type: entity
+  parent: CryogenicSleepUnitSpawnerForcedBase
+  id: CryogenicSleepUnitSpawnerForcedPrisonerBoth # Both is ambiguous but if you're doing fucked shit like observer spawns thats on you.
+  suffix: Spawner, Forced, Both, [READ YAML]
+  components:
+  - type: ForcedCryosleepSpawner
+    containerId: storage
+    job: TransitPrisoner
+    spawnTypes:
+    - LateJoin
+    - Job
+

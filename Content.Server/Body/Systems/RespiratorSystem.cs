@@ -592,15 +592,23 @@ public sealed class RespiratorSystem : EntitySystem
 
     public void UpdateSaturation(EntityUid uid, float amount, RespiratorComponent? respirator = null)
     {
+        UpdateSaturation(uid, amount, skipNeedsAirCheck: false, respirator);
+    }
+
+    public void UpdateSaturation(EntityUid uid, float amount, bool skipNeedsAirCheck, RespiratorComponent? respirator = null)
+    {
         if (!Resolve(uid, ref respirator, false))
             return;
 
         // Goob start
-        var airEv = new CheckNeedsAirEvent();
-        RaiseLocalEvent(uid, ref airEv);
+        if (!skipNeedsAirCheck)
+        {
+            var airEv = new CheckNeedsAirEvent();
+            RaiseLocalEvent(uid, ref airEv);
 
-        if (airEv.Cancelled)
-            return;
+            if (airEv.Cancelled)
+                return;
+        }
         // Goob end
 
         respirator.Saturation += amount;

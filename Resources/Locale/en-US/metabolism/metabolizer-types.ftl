@@ -19,4 +19,5 @@ metabolizer-type-arachnid = Arachnid
 # Starlight start
 metabolizer-type-avali = Avali
 metabolizer-type-resomi = Resomi
+metabolizer-type-thaven = Thaven
 # Starlight end

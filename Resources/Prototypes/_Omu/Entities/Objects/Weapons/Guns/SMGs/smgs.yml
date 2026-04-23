@@ -7,3 +7,68 @@
     - type: Contraband
       allowedDepartments: [ CentralCommand ]
       severity: Restricted
+
+- type: entity
+  name: SKBC-15 "Varja"
+  parent: [BaseWeaponSubMachineGun, BaseGunWieldable]
+  id: WeaponSubMachineGunCustodii
+  suffix: ADMEME, DO NOT MAP EVER
+  description: Command, Compliance, Control. It's not a sin if you stand beside a god.
+  components:
+  - type: Contraband
+    allowedDepartments: [ CentralCommand ]
+    severity: Restricted
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/SMGs/tungstensmg.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Omu/Objects/Weapons/Guns/SMGs/tungstensmg.rsi
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -15
+    maxAngle: -24
+  - type: Gun
+    projectileSpeed: 65
+    minAngle: 18
+    maxAngle: 30
+    fireRate: 3
+    cameraRecoilScalar: 2
+    soundGunshot:
+      path: /Audio/_EinsteinEngines/Weapons/Guns/Gunshots/fpa-90-suppressed-gunshot.ogg
+      params:
+        volume: -3
+        maxDistance: 8
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: ChamberMagazineAmmoProvider
+    autoEject: true
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 10000
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineCaselessTungsten
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineCaselessTungsten
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeCaselessTungsten
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeCaselessTungsten
