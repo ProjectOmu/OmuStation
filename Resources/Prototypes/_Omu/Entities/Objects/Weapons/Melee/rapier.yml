@@ -1,0 +1,30 @@
+- type: entity
+  name: blood red swordfish
+  parent: [ BaseSword, BaseSyndicateContraband ]
+  id: ThavenSyndieRapier
+  description: Killer fish from syndiego....
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Melee/syndieswordfish.rsi
+  - type: MeleeWeapon
+    angle: 0
+    animationRotation: -90
+    wideAnimationRotation: -90
+    heavyStaminaCost: 2.5
+    damage:
+      types:
+        Piercing: 25
+      armorPenetration: 0.3
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    shape:
+    - 0,0,0,3
+    storedRotation: -45
+  - type: MeleeDash
+    emoteOnDash: null
+    length: 2
+    canDashWhileWeightless: false
+  - type: UseDelay
+    delay: 1.5
+  - type: DisarmMalus
