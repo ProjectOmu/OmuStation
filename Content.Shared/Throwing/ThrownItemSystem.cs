@@ -205,16 +205,19 @@ namespace Content.Shared.Throwing
                     $"{ToPrettyString(thrown):thrown} thrown by {ToPrettyString(component.Thrower.Value):thrower} hit {ToPrettyString(target):target}.");
 
             if (component.Thrower is not null)// Nyano - Summary: Gotta check if there was a thrower.
+            {
                 RaiseLocalEvent(target, new ThrowHitByEvent(component.Thrower.Value, thrown, target, component), true); // Nyano - Summary: Gotta update for who threw it.
+            }
             else
-                RaiseLocalEvent(target, new ThrowHitByEvent(null, thrown, target, component), true); // Nyano - Summary: No thrower.
+            {
+                // Goob edit start
+                var ev = new ThrowHitByEvent(null, thrown, target, component); // Nyano - Summary: No thrower.
+                RaiseLocalEvent(target, ev, true);
+                if (ev.Handled)
+                    return;
+                // Goob edit ent
+            }
 
-            // Goob edit start
-            var ev = new ThrowHitByEvent(null, thrown, target, component); //TODO:  🦅Refac to support thrower tracking
-            RaiseLocalEvent(target, ev, true);
-            if (ev.Handled)
-                return;
-            // Goob edit ent
             RaiseLocalEvent(thrown, new ThrowDoHitEvent(null, thrown, target, component), true);
         }
 
