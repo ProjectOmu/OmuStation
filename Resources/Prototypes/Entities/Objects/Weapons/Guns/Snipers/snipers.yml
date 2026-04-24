@@ -153,7 +153,8 @@
     - suitStorage
   - type: AmmoCounter
   - type: Gun
-    fireRate: 0.45 # Omu Rebalance 0.65 -> 0.45 to make it more viable for its intended use case
+    projectileSpeed: 60 # Omu Rebalance
+    fireRate: 0.35 # Omu Rebalance 0.65 -> 0.35 to make it more viable for its intended use case
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -273,8 +274,8 @@
   #  capacity: 5
   #  proto: CartridgeAntiMateriel
   - type: SpeedModifiedOnWield
-    walkModifier: 0.8 # goob edit V
-    sprintModifier: 0.8 # goob edit ^
+    walkModifier: 0.7 # Omu Rebalance 20% -> 30% reduction
+    sprintModifier: 0.7 # Omu Rebalance 20% -> 30% reduction
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 8 # Goobstation - Sniper rifles buff
