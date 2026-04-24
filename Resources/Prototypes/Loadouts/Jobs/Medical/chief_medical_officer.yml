@@ -127,6 +127,26 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryCMO
 
+- type: loadout # Omu
+  id: ChiefMedicalOfficerVestJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformCMOVest
+
+- type: loadout # Omu
+  id: ChiefMedicalOfficerVestJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCMOVest
+
+- type: loadout # Omu
+  id: ChiefMedicalOfficerFormalJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformCMOFormal
+
+- type: loadout # Omu
+  id: ChiefMedicalOfficerFormalJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCMOFormal
+
 
 # Head
 - type: loadout
@@ -151,6 +171,22 @@
   id: ChiefMedicalOfficerMantle
   equipment:
     neck: ClothingNeckMantleCMO
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterCMO
+
+- type: loadout
+  id: ChiefMedicalOfficerShawl
+  equipment:
+    neck: ClothingNeckCMOShawl
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterCMO
+
+- type: loadout
+  id: ChiefMedicalOfficerOverShoulder
+  equipment:
+    neck: ClothingNeckCMOOverShoulder
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterCMO
