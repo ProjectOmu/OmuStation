@@ -153,8 +153,8 @@
     - suitStorage
   - type: AmmoCounter
   - type: Gun
-    projectileSpeed: 60 # Omu Rebalance
-    fireRate: 0.35 # Omu Rebalance 0.65 -> 0.35 to make it more viable for its intended use case
+    projectileSpeed: 60 # Omu Rebalance 40 -> 60
+    fireRate: 0.4 # Omu Rebalance 0.65 -> 0.4 to make it more viable for its intended use case
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto

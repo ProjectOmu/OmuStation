@@ -45,9 +45,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 82 # Omu Rebalance 75 -> 80 to counterbalance stamina damage reduction and firerate decrease
-      armorPenetration: 0.5 # Goobstation
-    penetrationThreshold: 100 # Goobstation - This count as penetration health
+        Piercing: 90 # Omu Rebalance 75 -> 90 to counterbalance stamina damage reduction and firerate decrease
+      armorPenetration: 0.65 # Omu Rebalance 0.5 -> 0.65
+    penetrationThreshold: 150 # Omu Rebalance 100 -> 150
   - type: StaminaDamageOnCollide
-    damage: 75
-#Omu StaminaDamage Rebalance 115 -> 70
+    damage: 85 # Omu StaminaDamage Rebalance 115 -> 85
