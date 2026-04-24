@@ -153,7 +153,7 @@
     - suitStorage
   - type: AmmoCounter
   - type: Gun
-    fireRate: 0.75
+    fireRate: 0.45 # Omu Rebalance 0.65 -> 0.45 to make it more viable for its intended use case
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
