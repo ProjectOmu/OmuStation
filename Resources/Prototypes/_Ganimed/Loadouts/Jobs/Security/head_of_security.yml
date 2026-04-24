@@ -1,0 +1,7 @@
+- type: loadout
+  id: HeadofSecurityCloakLong
+  equipment:
+    neck: ClothingNeckLongCloakHOS
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterHoS
