@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/29/2026 12:55:32
+  time: 04/12/2026 15:45:11
   entityCount: 25162
 maps:
 - 1
@@ -64274,12 +64274,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 10.5,-13.5
       parent: 2
-  - uid: 21295
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -16.5,-14.5
-      parent: 2
 - proto: CryogenicSleepUnitSpawner
   entities:
   - uid: 9675
@@ -64292,6 +64286,14 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 10.5,-11.5
+      parent: 2
+- proto: CryogenicSleepUnitSpawnerForcedPrisonerLatejoin
+  entities:
+  - uid: 21295
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -16.5,-14.5
       parent: 2
 - proto: CryogenicSleepUnitSpawnerLateJoin
   entities:

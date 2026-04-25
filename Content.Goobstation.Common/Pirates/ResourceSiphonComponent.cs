@@ -31,7 +31,7 @@ public sealed partial class ResourceSiphonComponent : Component
     [ViewVariables(VVAccess.ReadOnly)] public float ActivationRewindTime = 3.5f;
     [ViewVariables(VVAccess.ReadOnly)] public float ActivationRewindClock = 3.5f;
 
-    [DataField] public float MaxSignalRange = 200f; // Omu, was 100
+    [DataField] public float MaxSignalRange = 100f;
 }
 
 public enum ResourceSiphonActivationPhase
