@@ -86,18 +86,13 @@ public sealed class FultonSystem : SharedFultonSystem
                 Coordinates = GetNetCoordinates(oldCoords),
             });
         }
-
-        if (component.Beacon != null) // Omu start
+        // Omu start
+        if (TryComp<FultonBeaconComponent>(component.Beacon, out var beacon) && beacon.AnnounceOnFulton)
         {
-            if (TryComp<FultonBeaconComponent>(component.Beacon, out var beacon))
-            {
-                if (beacon.AnnounceOnFulton)
-                {
-                    var message = Loc.GetString(beacon.AnnouncementMessage);
-                    _radio.SendRadioMessage(component.Beacon.Value, message, beacon.AnnouncementChannel, uid, escapeMarkup: false);
-                }
-            }
-        } // Omu end
+            var message = Loc.GetString(beacon.AnnouncementMessage);
+            _radio.SendRadioMessage(component.Beacon.Value, message, beacon.AnnouncementChannel, uid, escapeMarkup: false);
+        }
+        // Omu end
 
         Audio.PlayPvs(component.Sound, uid);
         RemCompDeferred<FultonedComponent>(uid);
