@@ -140,14 +140,15 @@ public sealed class FoldableSystem : EntitySystem
         if (!result && folder != null)
         {
             if (TryComp<AccessReaderComponent>(uid, out var accessReaderComponent) && !_accessReaderSystem.IsAllowed(folder.Value, uid, accessReaderComponent)) // Omu
-                _popup.PopupPredicted(Loc.GetString("lock-comp-has-user-access-fail", ("object", uid)), uid, folder.Value);
-            else
             {
-                if (comp.IsFolded)
-                    _popup.PopupPredicted(Loc.GetString("foldable-unfold-fail", ("object", uid)), uid, folder.Value);
-                else
-                    _popup.PopupPredicted(Loc.GetString("foldable-fold-fail", ("object", uid)), uid, folder.Value);
+                _popup.PopupPredicted(Loc.GetString("lock-comp-has-user-access-fail", ("object", uid)), uid, folder.Value);
+                return result;
             }
+
+            if (comp.IsFolded)
+                _popup.PopupPredicted(Loc.GetString("foldable-unfold-fail", ("object", uid)), uid, folder.Value);
+            else
+                _popup.PopupPredicted(Loc.GetString("foldable-fold-fail", ("object", uid)), uid, folder.Value);
         }
         return result;
     }
@@ -204,7 +205,7 @@ public sealed class FoldableSystem : EntitySystem
         {
             Act = () => TryToggleFold(uid, component, args.User),
             Text = component.IsFolded ? Loc.GetString(component.UnfoldVerbText) : Loc.GetString(component.FoldVerbText),
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/fold.svg.192dpi.png")),
+            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/fold.svg.192dpi.png")),
 
             // If the object is unfolded and they click it, they want to fold it, if it's folded, they want to pick it up
             Priority = component.IsFolded ? 0 : 2,
