@@ -1139,3 +1139,9 @@ DVSmartFridgeMedical: SmartFridgeMedical
 
 # 2026-01-10 Goobstation Change Mapped Chem to Energy Chem by default
 ChemDispenser: EnergyChemDispenser
+
+# 2026-04-25 Omu Disable transit prisoner
+CryogenicSleepUnitSpawnerForcedPrisonerRoundstart: null
+CryogenicSleepUnitSpawnerForcedPrisonerLatejoin: null
+CryogenicSleepUnitSpawnerForcedPrisonerBoth: null
+SpawnPointPrisoner: null
