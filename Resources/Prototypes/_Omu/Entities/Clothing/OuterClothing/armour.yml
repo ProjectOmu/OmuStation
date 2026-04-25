@@ -23,7 +23,8 @@
     sprite: _Omu/Clothing/OuterClothing/Armour/sec_cowboycoat.rsi
   - type: Item
     size: Normal
-    
+
+- type: entity
   parent: [ ClothingOuterBase, AllowSuitStorageClothing, BaseSyndicateContraband ]
   id: ClothingOuterNeuluthiv
   name: neuluthiv visionary robes
