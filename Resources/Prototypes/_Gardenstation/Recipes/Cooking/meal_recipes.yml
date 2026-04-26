@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: 2025 Gip-Kip <hargifarspam2@gmail.com>
+# SPDX-FileCopyrightText: 2025 bunnygirlHyacinth <xxst4rf11m00nb700db4nnyxx@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# THAVEN
+
+# stirfry
+- type: microwaveMealRecipe
+  id: RecipeThavenKelpFry
+  name: Eckeyiish kelpfry recipe
+  result: FoodMealThavenKelpFry
+  time: 10
+  group: Savory
+  reagents:
+    KelpPodSlime: 10
+    KelpPodWine: 5
+  solids:
+    FoodKelpPod: 2
+    FoodChiliPepper: 1
+    FoodButterSlice: 1
+
+# soups
+- type: microwaveMealRecipe
+  id: RecipeKelpStew
+  name: Eckeyiish kelp stew recipe
+  result: FoodKelpStew
+  time: 10
+  group: Soup
+  reagents:
+    Water: 5
+    KelpPodSlime: 5
+    KelpPodWine: 5
+  solids:
+    FoodBowlBig: 1
+    FoodKelpPod: 1
+    FoodChiliPepper: 1
