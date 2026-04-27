@@ -1,6 +1,6 @@
 - type: entity
   id: ClothingBeltMilitaryWebbingBSO
-  parent: [ ClothingBeltMilitaryWebbingCMO, BaseCentcommContraband ]
+  parent: [ BaseCentcommContraband, ClothingBeltMilitaryWebbingCMO ]
   name: blueshield officer's medical chest rig # renamed for medical set
   description: A robust chest rig with deep pockets and hooks, for use by a Blueshield Officer who believes in the reliability of classic medicinals.
   components:
@@ -32,6 +32,8 @@
         - HandheldCrewMonitor # Goobstation
         - Medkit # Omustation, for BSO's medical set
         - BodyBag # Omustation, for BSO's surgical set
+        - SyringeCase # Copied from CMO's rig
+        - RollerBedCompact # For BSO's bluespace roller beds
       components:
         - Flash
         - Handcuff
@@ -161,17 +163,28 @@
 
 - type: entity
   id: ClothingBeltChemBagBSO
-  parent: [ ChemBag, BaseCentcommContraband ]
+  parent: [ BaseStorageItem , ContentsExplosionResistanceBase, BaseCentcommContraband ] # Not parented from ChemBag directly to exclude Dumpable component
   name: blueshield officer's medical pouch
   description: A robust pouch for medical supplies worn by Blueshield Officers especially fond of chemical based medicinals.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Belt/blueshieldchembag.rsi
+    state: icon
   - type: Clothing
     sprite: _Omu/Clothing/Belt/blueshieldchembag.rsi
+    quickEquip: false
+    slots:
+    - belt
   - type: ExplosionResistance
     damageCoefficient: 0.01
+  - type: Item
+    size: Ginormous
   - type: Storage
+    maxItemSize: Normal # allow up to 5 large beakers / 10 beakers / 10 pill canisters
+    grid:
+    - 0,0,5,3 # Exactly the same as a normal chemag
+    quickInsert: true
+    areaInsert: true
     whitelist: # Yeah so I kinda just copied everything from the syndie one nukie corpsman gets and then also combined it with the BSO webbing whitelist on request
       tags:
         - PillCanister
@@ -194,6 +207,8 @@
         - HandheldCrewMonitor # Goobstation
         - Medkit # Omustation, for BSO's medical set
         - BodyBag # Omustation, for BSO's surgical set
+        - SyringeCase # Copied from CMO's rig
+        - RollerBedCompact # For BSO's bluespace roller beds
       components:
         - Pill
         - Hypospray
@@ -221,5 +236,5 @@
     sprite: _Omu/Clothing/Belt/blueshieldextractionwebbing.rsi
   - type: Storage
     grid:
-    - 0,0,9,1 # 20 squares of space, least of all of the options (chembag has 24, the chest rigs have 21), cus it can store anything. Also funny long line.
+    - 0,0,9,1 # 20 squares of space, least of all of the options (chembag has 24, the chest rig has 21), cus it can store anything. Also funny long line.
 

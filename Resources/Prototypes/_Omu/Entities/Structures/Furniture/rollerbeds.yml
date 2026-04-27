@@ -21,6 +21,9 @@
       map: ["buckledLayer"]
       visible: false
   - type: Appearance
+  - type: Tag
+    tags:
+    - RollerBedCompact
 
 - type: entity
   parent: BlueshieldRollerBed
