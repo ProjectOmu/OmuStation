@@ -40,8 +40,8 @@
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
-    Hair: MobHumanoidMarkingMatchSkin
-    #dv
+    Hair: MobHumanoidAnyMarking # Omu
+    FacialHair: MobHumanoidAnyMarking # Omu
     Snout: MobHumanoidAnyMarking
     #omu start
     Undershirt: MobHumanoidAnyMarking
@@ -67,6 +67,9 @@
       required: true
       defaultMarkings: [ MobIPCHeadDefault ]
     Hair:
+      points: 1
+      required: false
+    FacialHair: # Omu
       points: 1
       required: false
     Face:

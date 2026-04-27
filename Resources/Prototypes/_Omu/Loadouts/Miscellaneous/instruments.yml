@@ -1,0 +1,95 @@
+- type: loadout
+  id: BirdToy
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMusician
+      time: 90000 # 25 hrs
+  storage:
+    back:
+    - BirdToyInstrument
+
+- type: loadout
+  id: Helicopter
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMusician
+      time: 90000 # 25 hrs
+  storage:
+    back:
+    - HelicopterInstrument
+
+- type: loadout
+  id: Gunpet
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMusician
+      time: 90000 # 25 hrs
+  storage:
+    back:
+    - GunpetInstrument
+
+- type: loadout
+  id: MusicalLung
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMusician
+      time: 90000 # 25 hrs
+  storage:
+    back:
+    - MusicalLungInstrument
+
+- type: loadout
+  id: ReverseCymbals
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMusician
+      time: 90000 # 25 hrs
+  storage:
+    back:
+    - ReverseCymbalsInstrument
+
+- type: loadout #OMU
+  id: Seashell
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMusician
+      time: 90000 # 25 hrs
+  storage:
+    back:
+    - SeashellInstrument
+
+- type: loadout
+  id: Wehpet
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMusician
+      time: 180000 # 50 hrs
+  storage:
+    back:
+    - WehpetInstrument
+
+- type: loadout
+  id: BikeHorn
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobClown
+      time: 360000 # 100 hrs
+  storage:
+    back:
+    - BikeHornInstrument

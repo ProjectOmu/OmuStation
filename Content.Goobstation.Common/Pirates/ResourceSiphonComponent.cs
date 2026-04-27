@@ -25,7 +25,7 @@ public sealed partial class ResourceSiphonComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)] public float Credits = 0f;
 
-    [DataField] public float DrainRate = 10f;
+    [DataField] public float DrainRate = 100f; // Omu, was 10, but that was too slow.
 
     [ViewVariables(VVAccess.ReadOnly)] public ResourceSiphonActivationPhase ActivationPhase = ResourceSiphonActivationPhase.Idle;
     [ViewVariables(VVAccess.ReadOnly)] public float ActivationRewindTime = 3.5f;

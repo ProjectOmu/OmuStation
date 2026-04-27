@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/29/2026 13:16:30
-  entityCount: 18709
+  time: 04/12/2026 16:03:26
+  entityCount: 18710
 maps:
 - 1
 grids:
@@ -50118,6 +50118,13 @@ entities:
     - type: Transform
       pos: 51.5,-7.5
       parent: 2
+- proto: CryogenicSleepUnitSpawnerForcedPrisonerLatejoin
+  entities:
+  - uid: 18710
+    components:
+    - type: Transform
+      pos: -25.5,18.5
+      parent: 2
 - proto: CryogenicSleepUnitSpawnerLateJoin
   entities:
   - uid: 7007
@@ -50350,7 +50357,7 @@ entities:
       pos: -2.5,48.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -11192.663
+      secondsUntilStateChange: -11272.33
       state: Closing
   - uid: 7046
     components:
@@ -58439,7 +58446,6 @@ entities:
       pos: -50.32873,7.580326
       parent: 2
     - type: ScaleVisuals
-    - type: Appearance
 - proto: FoodMeat
   entities:
   - uid: 6949
@@ -93310,9 +93316,15 @@ entities:
     - type: Paper
       stampState: paper_stamp-centcom
       stampedBy:
-      - stampedColor: '#006600FF'
+      - hasIcon: True
+        stampFont: null
+        stampLargeIcon: null
+        stampedColor: '#006600FF'
         stampedName: stamp-component-stamped-name-centcom
-      - stampedColor: '#C69B17FF'
+      - hasIcon: True
+        stampFont: null
+        stampLargeIcon: null
+        stampedColor: '#C69B17FF'
         stampedName: stamp-component-stamped-name-ce
       content: >-
         To the atmospherics staff on Glacier Station,
