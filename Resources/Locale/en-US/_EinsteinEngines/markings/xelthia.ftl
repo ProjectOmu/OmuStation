@@ -30,8 +30,6 @@ marking-XelthiaHairStandard = Normal Hair Tendrils
 
 marking-XelthiaHairOvereye = Over-eye Hair Tendrils
 
-marking-XelthiaHairOminous = Ominous Hair Tendrils
-
 marking-XelthiaHairFancy = Fancy Hair Tendrils
 
 marking-XelthiaHairTripoint = Tripoint Hair Tendrils
