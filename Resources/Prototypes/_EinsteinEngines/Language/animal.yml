@@ -61,6 +61,8 @@
 
 - type: language
   id: Mouse
+  speech:
+    color: "#8B532C" #omuchange
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 2
