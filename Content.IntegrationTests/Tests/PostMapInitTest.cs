@@ -235,7 +235,7 @@ namespace Content.IntegrationTests.Tests
             "Packed",
             "Reach",
             "Saltern",
-            "Serpentcrest",
+            //"Serpentcrest", // omu serpentcrest kil
             "TestTeg",        // Dev map
             "Train"           // Not in pool
             // Goob end

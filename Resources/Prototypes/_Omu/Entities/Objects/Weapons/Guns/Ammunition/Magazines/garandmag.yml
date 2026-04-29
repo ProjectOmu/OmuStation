@@ -1,0 +1,54 @@
+- type: entity
+  id: BaseMagazineClipM1Garand
+  name: "m1 garand clip (.30 rifle)"
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - MagazineClipM1Garand
+      - Magazine
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeLightRifle
+    proto: CartridgeLightRifle
+    capacity: 8
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Ammunition/Magazine/garandclip.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 9
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazineClipM1Garand
+  name: "m1 garand clip (.30 rifle)"
+  parent: BaseMagazineClipM1Garand
+  components:
+  - type: Tag
+    tags:
+      - MagazineClipM1Garand
+      - Magazine
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Ammunition/Magazine/garandclip.rsi
+
+- type: entity
+  id: MagazineClipM1GarandEmpty
+  parent: MagazineClipM1Garand
+  suffix: Empty
+  components:
+  - type: BallisticAmmoProvider
+    proto: null

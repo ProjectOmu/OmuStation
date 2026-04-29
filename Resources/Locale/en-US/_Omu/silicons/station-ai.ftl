@@ -1,1 +1,10 @@
 station-ai-whitelist-examine = This device can be controlled by an AI.
+station-ai-hologram-algalone = Algal One
+station-ai-hologram-fractalsnowflake = Fractal Snowflake
+station-ai-hologram-hensonsnode = Henson's Node
+station-ai-hologram-longrun = Long Run
+station-ai-hologram-ntpaint = NTpaint
+station-ai-hologram-puredata = Pure Data
+station-ai-hologram-rorschach = Rorschach
+station-ai-hologram-seraphim = Seraphim
+station-ai-hologram-tripleaffirmative = Triple Affirmative
