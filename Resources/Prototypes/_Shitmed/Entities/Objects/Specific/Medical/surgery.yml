@@ -35,12 +35,12 @@
     state: stitches
   - type: SurgeryTool
     startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg # TODO: SOUND
+      path: /Audio/Items/Medical/brutepack_end.ogg
   - type: Stitches
 
 - type: entity
-  name: tissue cutter
-  id: EnergyScalpel
+  name: tissue cutter 
+  id: EnergyScalpel 
   parent: Scalpel
   description: A scalpel which uses an energy blade, also serves as a drill in its powered state.
   components:
