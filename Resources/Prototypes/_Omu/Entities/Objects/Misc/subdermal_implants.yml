@@ -55,8 +55,8 @@
   components:
   - type: SubdermalImplant
   - type: MindShieldImplant
-  - type: AddComponentsImplant
-    componentsToAdd:
+  - type: ComponentsImplant
+    added:
     - type: AntagImmune
     - type: TargetObjectiveImmune
 
@@ -69,6 +69,6 @@
   components:
   - type: SubdermalImplant
   - type: MindShieldImplant
-  - type: AddComponentsImplant
-    componentsToAdd:
+  - type: ComponentsImplant
+    added:
     - type: TargetObjectiveImmune

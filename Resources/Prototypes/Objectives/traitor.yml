@@ -185,8 +185,9 @@
   - type: PickRandomPerson
     filters:
     - !type:ObjectiveImmuneFilter # DeltaV
-    - !type:BodyMindBlacklistFilter # Omu
-      blacklist:
+    - !type:BodyMindFilter # Omu
+      inverted: true
+      whitelist:
         components:
         - TargetObjectiveImmune
     # Can't have multiple objectives to kill the same person.
@@ -216,8 +217,9 @@
         components:
         - CommandStaff
     - !type:ObjectiveImmuneFilter # DeltaV
-    - !type:BodyMindBlacklistFilter # Omu
-      blacklist:
+    - !type:BodyMindFilter # Omu
+      inverted: true
+      whitelist:
         components:
         - TargetObjectiveImmune
     # Can't have multiple objectives to kill the same person.
@@ -249,8 +251,9 @@
         components:
         - TraitorRole
     - !type:ObjectiveImmuneFilter # DeltaV
-    - !type:BodyMindBlacklistFilter # Omu
-      blacklist:
+    - !type:BodyMindFilter # Omu
+      inverted: true
+      whitelist:
         components:
         - TargetObjectiveImmune
     # Can't have multiple objectives to help/save the same person
@@ -283,8 +286,9 @@
         components:
         - HelpProgressCondition
     - !type:ObjectiveImmuneFilter # DeltaV
-    - !type:BodyMindBlacklistFilter # Omu
-      blacklist:
+    - !type:BodyMindFilter # Omu
+      inverted: true
+      whitelist:
         components:
         - TargetObjectiveImmune
     # Can't have multiple objectives to help/save the same person

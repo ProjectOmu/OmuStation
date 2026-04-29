@@ -72,17 +72,7 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
         // END DeltaV
 
         // Omu - TargetObjectiveImmune
-        if (!TryComp<MindComponent>(targetComp.Target, out var targetMind))
-        {
-            args.Cancelled = true;
-            return;
-        }
-        if (targetMind.OwnedEntity == null)
-        {
-            args.Cancelled = true;
-            return;
-        }
-        if (HasComp<TargetObjectiveImmuneComponent>(targetMind.OwnedEntity.Value))
+        if (!_mind.TryGetMind(targetComp.Target, out _, out var targetMind) || targetMind.OwnedEntity == null || HasComp<TargetObjectiveImmuneComponent>(targetMind.OwnedEntity))
         {
             args.Cancelled = true;
             return;
@@ -123,17 +113,7 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
         // END DeltaV
 
         // Omu - TargetObjectiveImmune
-        if (!TryComp<MindComponent>(picked, out var pickedMind))
-        {
-            args.Cancelled = true;
-            return;
-        }
-        if (pickedMind.OwnedEntity == null)
-        {
-            args.Cancelled = true;
-            return;
-        }
-        if (HasComp<TargetObjectiveImmuneComponent>(pickedMind.OwnedEntity.Value))
+        if (!_mind.TryGetMind(picked, out _, out var pickedMind) || pickedMind.OwnedEntity == null || HasComp<TargetObjectiveImmuneComponent>(pickedMind.OwnedEntity))
         {
             args.Cancelled = true;
             return;

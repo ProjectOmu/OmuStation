@@ -31,8 +31,9 @@
   - type: PickRandomPerson
     filters: # DeltaV
     - !type:ObjectiveImmuneFilter
-    - !type:BodyMindBlacklistFilter # Omu
-      blacklist:
+    - !type:BodyMindFilter # Omu
+      inverted: true
+      whitelist:
         components:
         - TargetObjectiveImmune
 
@@ -52,8 +53,9 @@
   - type: PickRandomPerson
     filters:
     - !type:ObjectiveImmuneFilter # DeltaV
-    - !type:BodyMindBlacklistFilter # Omu
-      blacklist:
+    - !type:BodyMindFilter # Omu
+      inverted: true
+      whitelist:
         components:
         - TargetObjectiveImmune
     - !type:BodyMindFilter
