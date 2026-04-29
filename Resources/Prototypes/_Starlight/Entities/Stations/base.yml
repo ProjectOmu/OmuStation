@@ -1,0 +1,5 @@
+- type: entity
+  id: BaseStationSecureTerminal
+  abstract: true
+  components:
+    - type: SecureCommandTerminalStation

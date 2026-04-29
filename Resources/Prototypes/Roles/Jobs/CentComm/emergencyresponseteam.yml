@@ -160,11 +160,16 @@
     pocket2: CombatKnife
   storage:
     back:
-    - BoxCandle
-    - BodyBagFolded
-    - BodyBagFolded
+    # Starlight - Start
     - JugWater
-    - JugBlood # End of first row
+    - JugBlood
+    - Bible
+    - CosmicCenser
+    - CrowbarRed
+    - Lantern
+    - BodyBagFolded
+    - BodyBagFolded
+    - FlippoEngravedLighter
     - FoodBakedBunHotX
     - FoodBakedBunHotX
     - FoodBakedBunHotX
@@ -365,6 +370,7 @@
   id: ERTSecurityGearArmedRifle
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
+    back: ClothingBackpackERTSecurity # SL
     shoes: ClothingShoesBootsMagERT
     mask: ClothingMaskGasERT
     eyes: ClothingEyesHudSecurity
@@ -379,6 +385,18 @@
     - WeaponLaserCannon
     - PortableRecharger
   storage:
+    # SL - Start
+    back:
+    - BoxZiptie
+    - Flash
+    - GrenadeFlashBang
+    - TearGasGrenade
+    - GrenadeStinger
+    - MedkitCombatFilled # End of first line
+    - TelescopicShield
+    - HoloprojectorSecurity
+    - PowerCellHigh
+    # SL - End
     belt:
     - CrowbarRed
     - Zipties

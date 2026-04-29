@@ -29,6 +29,8 @@
     radius: 1.5
     energy: 1.6
     color: "#b54ed6"
+  - type: SecureCommandTerminalConsole # Starlight
+    authTerminal: true
 
 - type: entity
   parent: ComputerComms
@@ -61,6 +63,8 @@
     radius: 1.5
     energy: 1.6
     color: "#de3a3a"
+  - type: SecureCommandTerminalConsole # Starlight
+    authTerminal: true
 
 - type: entity
   parent: ComputerComms
@@ -93,6 +97,8 @@
     radius: 1.5
     energy: 1.6
     color: "#88be14"
+  - type: SecureCommandTerminalConsole # Starlight
+    authTerminal: true
 
 - type: entity
   parent: ComputerComms
@@ -125,6 +131,8 @@
     radius: 1.5
     energy: 1.6
     color: "#995a16"
+  - type: SecureCommandTerminalConsole # Starlight
+    authTerminal: true
 
 - type: entity
   parent: ComputerComms
@@ -157,6 +165,8 @@
     radius: 1.5
     energy: 1.6
     color: "#f9a524"
+  - type: SecureCommandTerminalConsole # Starlight
+    authTerminal: true
 
 - type: entity
   parent: ComputerComms
@@ -189,4 +199,5 @@
     radius: 1.5
     energy: 1.6
     color: "#398bdf"
-
+  - type: SecureCommandTerminalConsole # Starlight
+    authTerminal: true
