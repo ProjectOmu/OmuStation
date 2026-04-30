@@ -29,7 +29,6 @@
     proto: ProjectileSparkHobbyist
     fireCost: 250
   - type: Appearance
-
   - type: AmmoSelector
     soundSelect:
       path: /Audio/Magic/forcewall.ogg
@@ -56,6 +55,6 @@
     - GunCanAimShooter
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 500
+    autoRechargeRate: 1000
     autoRechargePause: true
-    autoRechargePauseTime: 7
+    autoRechargePauseTime: 5
