@@ -1,0 +1,135 @@
+- type: entity
+  id: ProjectileWehBolt
+  name: bolt of weh
+  description: Weh!
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: magicm_green
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+  - type: PolymorphOnTrigger
+    targetUser: true
+    polymorph: LizardPlushieMagicMorph
+  - type: WhitelistTriggerCondition
+    userWhitelist:
+      components:
+      - Body
+  - type: Reflective
+    reflective: Magic
+  - type: Ammo
+    muzzleFlash: null
+  - type: Trail
+    lerpTime: 0.05
+    frequency: 0.02
+    lifetime: 1
+    alphaLerpAmount: 0.4
+    shader: unshaded
+    sprite:
+      sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: magicm_green
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+        - Opaque
+  - type: TriggerOnCollide
+    fixtureID: projectile
+
+- type: entity
+  id: ProjectileBananaPeelHobbyist
+  parent: BaseItem
+  name: slightly magical banana peel
+  description: Watch your step!
+  components:
+  - type: InteractionOutline
+  - type: MovedByPressure
+  - type: Clickable
+  - type: Pullable
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 1
+    angularDamping: 0
+  - type: TimedDespawn
+    lifetime: 5
+  - type: Sprite
+    drawdepth: Items
+    noRot: true
+    sprite: _Goobstation/Wizard/Projectiles/banana.rsi
+    layers:
+    - state: icon
+  - type: SlipOnCollide
+  - type: Slippery
+    slipData:
+      slipOnStep: false
+      stunTime: 1
+      launchForwardsMultiplier: 2
+  - type: ProjectileHitShooterAfterDelay
+    delay: 0.5
+  - type: TileFrictionModifier
+    modifier: 0.9
+  - type: Projectile
+    deleteOnCollide: false
+    soundHit: null
+    damage:
+      types:
+        Heat: 0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.5
+        friction: 0.8
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        layer:
+        - SlipLayer
+  - type: Ammo
+    muzzleFlash: null
+
+- type: entity
+  id: ProjectileSpark
+  name: Magic Spark
+  description: Burns and lights target on fire.
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: magicm_yellow
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 20
+  - type: IgniteOnCollide
+    fireStacks: 1
+  - type: Reflective
+    reflective: Magic
+  - type: Ammo
+    muzzleFlash: null
+  - type: PointLight
+    color: "#F8B068"
+    radius: 2.0
+    energy: 5.0

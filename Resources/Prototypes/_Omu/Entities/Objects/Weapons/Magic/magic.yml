@@ -1,0 +1,69 @@
+- type: entity
+  id: hobbyistspellbook
+  name: hobbyist's spellbook
+  description: An old book from the Pre-Federation days, containing fun hobbyist level spells and encantations. The title reads "5 Minute Spells, Magic for Dummies".
+  parent: [BaseItem, BaseMagicalContraband]
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/Plushies/lizard.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Fun/Plushies/lizard.rsi
+    size: Normal
+  - type: AmmoCounter
+  - type: Gun
+    projectileSpeed: 20
+    soundEmpty: null
+    soundMode: null
+    clumsyProof: true
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: ProjectileBatteryAmmoProvider
+    proto: ProjectileSpark
+    fireCost: 250
+  - type: Appearance
+
+  - type: AmmoSelector
+    soundSelect:
+      path: /Audio/Magic/forcewall.ogg
+      params:
+        volume: -5
+    prototypes:
+    - ProjectileSpark
+    - ProjectileWehBolt
+    - ProjectileBananaPeelHobbyist
+  - type: UserInterface
+    interfaces:
+      enum.AmmoSelectorUiKey.Key:
+        type: AmmoSelectorMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.AmmoSelectorUiKey.Key
+  - type: EmpImmune
+  - type: StaticPrice
+    price: 10000
+  - type: Tag
+    tags:
+    - GunCanAimShooter
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 500
+    autoRechargePause: true
+    autoRechargePauseTime: 5
+
+- type: entity
+  id: wehspellbook
+  name: book of weh
+  description: A book of spells that only a true master of weh could understand.
+  parent: hobbyistspellbook
+  components:
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Items/Toys/weh.ogg

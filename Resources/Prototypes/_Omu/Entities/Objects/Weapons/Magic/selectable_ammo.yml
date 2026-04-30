@@ -1,0 +1,41 @@
+- type: selectableAmmo
+  id: ProjectileSpark
+  desc: Small spark, burns and ignites the target.
+  icon:
+    sprite: Objects/Magic/magicactions.rsi
+    state: fireball
+  color: darkorange
+  soundGunshot:
+    path: /Audio/Magic/fireball.ogg
+  fireRate: 1
+  fireCost: 250
+  flags: All
+  protoId: ProjectileSpark
+
+- type: selectableAmmo
+  id: ProjectileWehBolt
+  desc: Weh!! Transforms the target into a lizard plushie!
+  icon:
+    sprite: Objects/Fun/Plushies/lizard.rsi
+    state: icon
+  color: green
+  soundGunshot:
+    path: /Audio/Items/Toys/weh.ogg
+  fireRate: 1
+  fireCost: 500
+  flags: All
+  protoId: ProjectileWehBolt
+
+- type: selectableAmmo
+  id: ProjectileBananaPeelHobbyist
+  desc: Fires a very slippery but temporary magic banana peel.
+  icon:
+    sprite: Objects/Fun/Plushies/lizard.rsi
+    state: icon
+  color: yellow
+  soundGunshot:
+    collection: BikeHorn
+  fireRate: 1
+  fireCost: 750
+  flags: All
+  protoId: ProjectileBananaPeelHobbyist
