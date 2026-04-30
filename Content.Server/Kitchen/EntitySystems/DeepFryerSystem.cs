@@ -120,8 +120,11 @@ public sealed partial class DeepFryerSystem : SharedDeepFryerSystem
         SubscribeLocalEvent<DeepFriedComponent, FoodSlicedEvent>(OnSliceDeepFried);
     }
 
-    private void UpdateUserInterface(EntityUid uid, DeepFryerComponent component)
+    private void UpdateUserInterface(EntityUid uid, DeepFryerComponent? component = null)
     {
+        if (component == null)
+            return;
+
         var state = new DeepFryerBoundUserInterfaceState(
             GetOilLevel(uid, component),
             GetOilPurity(uid, component),
@@ -145,9 +148,12 @@ public sealed partial class DeepFryerSystem : SharedDeepFryerSystem
     /// <summary>
     ///     Returns how much total oil is in the vat.
     /// </summary>
-    public static FixedPoint2 GetOilVolume(EntityUid uid, DeepFryerComponent component)
+    public static FixedPoint2 GetOilVolume(EntityUid uid, DeepFryerComponent? component)
     {
         var oilVolume = FixedPoint2.Zero;
+
+        if (component?.Solution == null)
+            return oilVolume;
 
         foreach (var reagent in component.Solution)
         {
@@ -513,6 +519,8 @@ public sealed partial class DeepFryerSystem : SharedDeepFryerSystem
 
     private void OnSolutionChange(EntityUid uid, DeepFryerComponent component, SolutionContainerChangedEvent args)
     {
+        if (!_solutionContainerSystem.TryGetSolution(uid, component.SolutionName, out _, out var solution))
+            return;
         UpdateUserInterface(uid, component);
         UpdateAmbientSound(uid, component);
     }
