@@ -1,5 +1,5 @@
 - type: entity
-  id: hobbyistspellbook
+  id: HobbyistSpellBook
   name: hobbyist's spellbook
   description: A book given out by the Wizard Federation to get avid fanatics to finally shut up. Contains fun hobbyist level spells and incantations. The title reads "5 Minute Spells, Magic for Dummies".
   parent: [BaseItem, BaseMagicalContraband]
@@ -26,7 +26,7 @@
     maxCharge: 1000
     startingCharge: 1000
   - type: ProjectileBatteryAmmoProvider
-    proto: ProjectileSpark
+    proto: ProjectileSparkHobbyist
     fireCost: 250
   - type: Appearance
 
@@ -40,7 +40,6 @@
     - ProjectileWehBoltHobbyist
     - ProjectileBananaPeelHobbyist
     - ProjectileMagicMissileHobbyist
-    - ProjectileMagicBoltHobbyist
     - ProjectileHealingHobbyist
   - type: UserInterface
     interfaces:
