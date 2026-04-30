@@ -54,3 +54,22 @@
     - snorts
     - snorting
     - snorted
+
+- type: emote
+  id: Gekker
+  name: chat-emote-name-gekker
+  icon: _Goobstation/Interface/Emotes/bark.png
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+    - VulpEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-gekker"]
+  chatTriggers:
+    - bark
+    - barks
+    - barking
+    - barked
