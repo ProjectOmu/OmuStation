@@ -5,10 +5,10 @@
   parent: [BaseItem, BaseMagicalContraband]
   components:
   - type: Sprite
-    sprite: _Omu/Objects/Weapons/Magic/book.rsi
+    sprite: _Omu/Objects/Weapons/Magic/hobbyistspellbook.rsi
     state: icon
   - type: Item
-    sprite: _Omu/Objects/Weapons/Magic/book.rsi
+    sprite: _Omu/Objects/Weapons/Magic/hobbyistspellbook.rsi
     size: Normal
   - type: AmmoCounter
   - type: Gun
