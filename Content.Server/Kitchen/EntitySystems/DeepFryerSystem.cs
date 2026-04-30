@@ -202,7 +202,7 @@ public sealed partial class DeepFryerSystem : SharedDeepFryerSystem
     {
         if (component.Solution.Volume <= 0)
             return FixedPoint2.Zero;
-        return GetOilVolume(uid, component) / component.Solution.Volume;
+        return GetOilVolume(uid, component) / component.Solution.MaxVolume;
     }
 
     /// <summary>
@@ -519,7 +519,7 @@ public sealed partial class DeepFryerSystem : SharedDeepFryerSystem
 
     private void OnSolutionChange(EntityUid uid, DeepFryerComponent component, SolutionContainerChangedEvent args)
     {
-        if (!_solutionContainerSystem.TryGetSolution(uid, component.SolutionName, out _, out var solution))
+        if (args.Solution != component.Solution || args.SolutionId != component.SolutionName)
             return;
         UpdateUserInterface(uid, component);
         UpdateAmbientSound(uid, component);
