@@ -54,3 +54,9 @@
     Telecrystal: 40
   categories:
   - UplinkWeaponry
+    - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chaplain
+    - Librarian
