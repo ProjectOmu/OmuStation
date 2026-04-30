@@ -123,6 +123,7 @@
     damage:
       types:
         Heat: 10
+        Holy: 10
   - type: IgniteOnCollide
     fireStacks: 1
   - type: Reflective
@@ -150,6 +151,7 @@
     damage:
       types:
         Piercing: 20
+        Holy: 10
   - type: Reflective
     reflective: Magic
   - type: Ammo
@@ -184,6 +186,7 @@
         Piercing: -10
         Heat: -15
         Asphyxiation: -25
+        Holy: 20
   - type: WhitelistTriggerCondition
     userWhitelist:
       components:
