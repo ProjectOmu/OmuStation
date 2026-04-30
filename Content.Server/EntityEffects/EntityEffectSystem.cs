@@ -8,6 +8,7 @@ using Content.Server.Body.Systems;
 using Content.Server.Botany.Components;
 using Content.Server.Botany.Systems;
 using Content.Server.Botany;
+using Content.Shared.Botany;
 using Content.Server.Chat.Systems;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;

@@ -23,6 +23,7 @@
 
 using Content.Server.Botany.Components;
 using Content.Server.Botany.Systems;
+using Content.Shared.Botany;
 using Content.Server.EntityEffects;
 using Content.Shared.Atmos;
 using Content.Shared.Database;
@@ -41,13 +42,6 @@ namespace Content.Server.Botany;
 public sealed partial class SeedPrototype : SeedData, IPrototype
 {
     [IdDataField] public string ID { get; private set; } = default!;
-}
-
-public enum HarvestType : byte
-{
-    NoRepeat,
-    Repeat,
-    SelfHarvest
 }
 
 /*

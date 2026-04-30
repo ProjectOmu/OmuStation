@@ -1,9 +1,8 @@
 - type: entity
   name: plant analyzer
-  parent: BaseItem
-  id: BasePlantAnalyzer
+  parent: [BaseItem, PowerCellSlotSmallItem]
+  id: PlantAnalyzer
   description: A handheld device that scans seeds and plants, revealing their properties. Requires a power cell.
-  abstract: true
   components:
   - type: Sprite
     sprite: _DV/Objects/Devices/plant_analyzer.rsi
@@ -22,17 +21,12 @@
       enum.PlantAnalyzerUiKey.Key:
         type: PlantAnalyzerBoundUserInterface
   - type: PlantAnalyzer
+  - type: PowerCellDraw
+    drawRate: 0.5
+  - type: ActivatableUIRequiresPowerCell
   - type: Tag
     tags:
     - PlantAnalyzer
-
-- type: entity
-  id: PlantAnalyzer
-  parent: [BasePlantAnalyzer, PowerCellSlotSmallItem]
-  components:
-  - type: PowerCellDraw
-    drawRate: 0
-  - type: ActivatableUIRequiresPowerCell
 
 - type: entity
   id: PlantAnalyzerEmpty

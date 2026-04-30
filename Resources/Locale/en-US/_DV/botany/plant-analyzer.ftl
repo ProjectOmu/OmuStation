@@ -24,7 +24,6 @@ plant-analyzer-unknown = Unknown
 
 # dead plant
 plant-analyzer-dead-banner = ⚠ PLANT IS DEAD
-plant-analyzer-health = Health: {$current}/{$max} ({$pct}%)
 
 # field name labels (left column, always grey)
 plant-analyzer-key-health       = Health
@@ -48,18 +47,10 @@ plant-analyzer-key-high-pressure = High pressure
 plant-analyzer-key-pests        = Pest tolerance
 plant-analyzer-key-weeds        = Weed tolerance
 
-# value strings (right column, coloured)
-plant-analyzer-yield       = Yield: {$value}
-plant-analyzer-potency     = Potency: {$value}%
-plant-analyzer-harvest     = Harvest type: {$value}
+# value strings used by the window
 plant-analyzer-chemicals   = Substances:{$value}
 plant-analyzer-consume-gases = Consumed gases:{$value}
 plant-analyzer-exude-gases   = Emitted gases:{$value}
-plant-analyzer-lifespan    = Lifespan: {$value}
-plant-analyzer-maturation  = Maturation: {$value}
-plant-analyzer-production  = Production: {$value}
-plant-analyzer-growthstages = Growth stages: {$value}
-plant-analyzer-endurance   = Endurance: {$value}
 plant-analyzer-none        = None
 
 # harvest type names
@@ -67,20 +58,7 @@ plant-analyzer-harvest-NoRepeat    = Ephemeral
 plant-analyzer-harvest-Repeat      = Perennial
 plant-analyzer-harvest-SelfHarvest = Self-harvesting
 
-# tolerances tab fields
-plant-analyzer-tol-nutrient      = Nutrient usage: {$value} u/stage
-plant-analyzer-tol-water         = Water usage: {$value} u/stage
-plant-analyzer-tol-ideal-heat    = Ideal heat: {$value} K
-plant-analyzer-tol-heat-range    = Heat tolerance: ±{$value} K
-plant-analyzer-tol-ideal-light   = Ideal light: {$value} cd
-plant-analyzer-tol-light-range   = Light tolerance: ±{$value} cd
-plant-analyzer-tol-toxins        = Toxin tolerance: {$value}
-plant-analyzer-tol-low-pressure  = Low pressure: {$value} kPa
-plant-analyzer-tol-high-pressure = High pressure: {$value} kPa
-plant-analyzer-tol-pests         = Pest tolerance: {$value}
-plant-analyzer-tol-weeds         = Weed tolerance: {$value}
-
-# mutations tab fields
+# mutations tab
 plant-analyzer-mutations         = Active mutations:{$value}
 plant-analyzer-mutations-none    = None
 plant-analyzer-mut-kudzu         = Kudzufication

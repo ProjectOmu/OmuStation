@@ -7,7 +7,8 @@ namespace Content.Shared._DV.PlantAnalyzer.Components;
 public sealed partial class PlantAnalyzerComponent : Component
 {
     [DataField]
-    public float ScanDelay = 2.5f;
+    public TimeSpan ScanDelay = TimeSpan.FromSeconds(2.5);
 
+    [DataField]
     public SoundSpecifier ScanningEndSound = new SoundPathSpecifier("/Audio/Items/Medical/healthscanner.ogg");
 }

@@ -1,20 +1,20 @@
 <!--
-Plant Analyzer window - OmuStation
+plant analyzer window.
 
-Color identity per stat (field name always #a0a0a0 grey, value gets its own color):
-  Yield        #7ecd48  green   - scales with value
-  Potency      #f0c040  yellow  - scales with value
-  Harvest      per-type color
-  Lifespan     #4ecdc4  cyan    - neutral timing stat
-  Maturation   #4ecdc4  cyan    - neutral timing stat
-  Production   #4ecdc4  cyan    - neutral timing stat
-  Growth stgs  #a0a0a0  grey    - purely informational
-  Endurance    #e8a837  orange  - scales (low = red)
-  Health       scales green -> orange -> red
+color identity per stat (field name is always grey, value gets its own color):
+  yield        #7ecd48  green   - scales with value
+  potency      #f0c040  yellow  - scales with value
+  harvest      per-type color
+  lifespan     #4ecdc4  cyan    - neutral timing stat
+  maturation   #4ecdc4  cyan    - neutral timing stat
+  production   #4ecdc4  cyan    - neutral timing stat
+  growth stgs  #a0a0a0  grey    - purely informational
+  endurance    #e8a837  orange  - scales (low = red)
+  health       scales green -> orange -> red
 
-  Tolerances:  #e8a837  orange  (all tolerance values)
-  Mutations:   #c879ff  purple
-  Guide:       #4ecdc4  cyan headers
+  tolerances:  #e8a837  orange  (all tolerance values)
+  mutations:   #c879ff  purple
+  guide:       #4ecdc4  cyan headers
 -->
 <controls:FancyWindow xmlns="https://spacestation14.io"
     xmlns:controls="using:Content.Client.UserInterface.Controls"
@@ -47,7 +47,7 @@ Color identity per stat (field name always #a0a0a0 grey, value gets its own colo
                       HorizontalExpand="True" VerticalExpand="True"
                       Visible="False">
 
-            <!-- ===== TAB 0: Basic Info ===== -->
+            <!-- ===== tab 0: basic info ===== -->
             <ScrollContainer Name="{Loc 'plant-analyzer-tab-basic'}"
                              HorizontalExpand="True" VerticalExpand="True">
                 <BoxContainer Orientation="Vertical" Margin="8 6 8 6">
@@ -136,7 +136,7 @@ Color identity per stat (field name always #a0a0a0 grey, value gets its own colo
                 </BoxContainer>
             </ScrollContainer>
 
-            <!-- ===== TAB 1: Tolerances (advanced only) ===== -->
+            <!-- ===== tab 1: tolerances (advanced only) ===== -->
             <ScrollContainer Name="{Loc 'plant-analyzer-tab-tolerances'}"
                              HorizontalExpand="True" VerticalExpand="True">
                 <BoxContainer Orientation="Vertical" Margin="8 6 8 6">
@@ -220,7 +220,7 @@ Color identity per stat (field name always #a0a0a0 grey, value gets its own colo
                 </BoxContainer>
             </ScrollContainer>
 
-            <!-- ===== TAB 2: Mutations (advanced only) ===== -->
+            <!-- ===== tab 2: mutations (advanced only) ===== -->
             <ScrollContainer Name="{Loc 'plant-analyzer-tab-mutations'}"
                              HorizontalExpand="True" VerticalExpand="True">
                 <BoxContainer Orientation="Vertical" Margin="8 6 8 6">
@@ -246,7 +246,7 @@ Color identity per stat (field name always #a0a0a0 grey, value gets its own colo
                 </BoxContainer>
             </ScrollContainer>
 
-            <!-- ===== TAB 3: Guide (no energy cost, always available) ===== -->
+            <!-- ===== tab 3: guide (no energy cost, always available) ===== -->
             <ScrollContainer Name="{Loc 'plant-analyzer-tab-guide'}"
                              HorizontalExpand="True" VerticalExpand="True"
                              HScrollEnabled="False">
