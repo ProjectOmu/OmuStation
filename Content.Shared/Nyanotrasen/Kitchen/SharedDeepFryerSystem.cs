@@ -1,14 +1,13 @@
-using Content.Shared.DragDrop;
-using Robust.Shared.Physics.Components;
-using Content.Shared.Item;
 using Content.Shared.Body.Components;
-using Content.Shared.Kitchen.Components;
+using Content.Shared.DragDrop;
+using Content.Shared.Item;
+using Robust.Shared.Physics.Components;
 
-namespace Content.Shared.Kitchen;
+namespace Content.Shared.Nyanotrasen.Kitchen;
 
 public abstract class SharedDeepFryerSystem : EntitySystem
 {
-    protected void OnCanDragDropOn(EntityUid uid, SharedDeepFryerComponent component, ref CanDropTargetEvent args)
+    protected void OnCanDragDropOn(EntityUid uid, Nyanotrasen.Kitchen.Components.SharedDeepFryerComponent component, ref CanDropTargetEvent args)
     {
         if (args.Handled)
             return;

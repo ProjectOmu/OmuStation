@@ -1,6 +1,6 @@
 using Content.Client.Kitchen.Components;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Kitchen.Components;
+using Content.Shared.Nyanotrasen.Kitchen.Components;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.Kitchen.Visualizers;

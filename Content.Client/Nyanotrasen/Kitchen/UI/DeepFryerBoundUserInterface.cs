@@ -1,6 +1,6 @@
-using Content.Shared.Kitchen.Components;
+using Content.Shared.Nyanotrasen.Kitchen.UI;
 
-namespace Content.Client.Kitchen.UI;
+namespace Content.Client.Nyanotrasen.Kitchen.UI;
 
 
 public sealed class DeepFryerBoundUserInterface : BoundUserInterface

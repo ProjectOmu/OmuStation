@@ -1,6 +1,6 @@
-<controls:DeepFryerWindow
+<ui:DeepFryerWindow
     xmlns="https://spacestation14.io"
-    xmlns:controls="clr-namespace:Content.Client.Kitchen.UI"
+    xmlns:ui="clr-namespace:Content.Client.Nyanotrasen.Kitchen.UI"
     MinSize="600 400"
     Title="{Loc 'deep-fryer-window-title'}">
     <BoxContainer Orientation="Horizontal" VerticalExpand="True">
@@ -64,4 +64,4 @@
                 ToolTip="{Loc 'deep-fryer-button-remove-all-items-tooltip'}"/>
         </BoxContainer>
     </BoxContainer>
-</controls:DeepFryerWindow>
+</ui:DeepFryerWindow>

@@ -6,7 +6,7 @@ using Content.Shared.EntityEffects;
 using Content.Shared.Popups;
 using Robust.Shared.Player;
 
-namespace Content.Server.Kitchen.EntitySystems;
+namespace Content.Server.Nyanotrasen.Kitchen.EntitySystems;
 
 public sealed partial class DeepFryerSystem
 {
@@ -14,7 +14,7 @@ public sealed partial class DeepFryerSystem
         {
             base.Update(frameTime);
 
-            foreach (var component in EntityManager.EntityQuery<DeepFryerComponent>())
+            foreach (var component in EntityManager.EntityQuery<Components.DeepFryerComponent>())
             {
                 var uid = component.Owner;
 
@@ -38,7 +38,7 @@ public sealed partial class DeepFryerSystem
                 }
 
                 // Do something bad if there's enough heat but not enough oil.
-                var oilVolume = GetOilVolume(uid, component);
+                var oilVolume = DeepFryerSystem.GetOilVolume(uid, component);
 
                 if (oilVolume < component.SafeOilVolume)
                 {
@@ -94,7 +94,7 @@ public sealed partial class DeepFryerSystem
                         Loc.GetString("deep-fryer-oil-purity-low",
                             ("deepFryer", uid)),
                         uid,
-                        Filter.Pvs(uid, PvsWarningRange),
+                        Filter.Pvs(uid, DeepFryerSystem.PvsWarningRange),
                         true);
                     continue;
                 }
@@ -122,12 +122,12 @@ public sealed partial class DeepFryerSystem
             }
         }
 
-    private void UpdateAmbientSound(EntityUid uid, DeepFryerComponent component)
+    private void UpdateAmbientSound(EntityUid uid, Components.DeepFryerComponent component)
     {
         _ambientSoundSystem.SetAmbience(uid, HasBubblingOil(uid, component));
     }
 
-    private void UpdateNextFryTime(EntityUid uid, DeepFryerComponent component)
+    private void UpdateNextFryTime(EntityUid uid, Components.DeepFryerComponent component)
     {
         component.NextFryTime = _gameTimingSystem.CurTime + component.FryInterval;
     }

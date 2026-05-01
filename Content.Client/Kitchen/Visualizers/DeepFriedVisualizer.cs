@@ -1,27 +1,26 @@
 using System.Linq;
 using Robust.Client.GameObjects;
 using static Robust.Client.GameObjects.SpriteComponent;
-using Content.Client.Kitchen.Components;
 using Content.Shared.Clothing;
 using Content.Shared.Hands;
 using Content.Shared.Kitchen.Components;
 
 namespace Content.Client.Kitchen.Visualizers;
 
-public sealed class DeepFriedVisualizerSystem : VisualizerSystem<DeepFriedComponent>
+public sealed class DeepFriedVisualizerSystem : VisualizerSystem<Nyanotrasen.Kitchen.Components.DeepFriedComponent>
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-    private readonly static string ShaderName = "Crispy";
+    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = null!;
+    private const string ShaderName = "Crispy";
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<DeepFriedComponent, HeldVisualsUpdatedEvent>(OnHeldVisualsUpdated);
-        SubscribeLocalEvent<DeepFriedComponent, EquipmentVisualsUpdatedEvent>(OnEquipmentVisualsUpdated);
+        SubscribeLocalEvent<Nyanotrasen.Kitchen.Components.DeepFriedComponent, HeldVisualsUpdatedEvent>(OnHeldVisualsUpdated);
+        SubscribeLocalEvent<Nyanotrasen.Kitchen.Components.DeepFriedComponent, EquipmentVisualsUpdatedEvent>(OnEquipmentVisualsUpdated);
     }
 
-    protected override void OnAppearanceChange(EntityUid uid, DeepFriedComponent component, ref AppearanceChangeEvent args)
+    protected override void OnAppearanceChange(EntityUid uid, Nyanotrasen.Kitchen.Components.DeepFriedComponent component, ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null)
             return;
@@ -33,7 +32,7 @@ public sealed class DeepFriedVisualizerSystem : VisualizerSystem<DeepFriedCompon
             args.Sprite.LayerSetShader(i, ShaderName);
     }
 
-    private void OnHeldVisualsUpdated(EntityUid uid, DeepFriedComponent component, HeldVisualsUpdatedEvent args)
+    private void OnHeldVisualsUpdated(EntityUid uid, Nyanotrasen.Kitchen.Components.DeepFriedComponent component, HeldVisualsUpdatedEvent args)
     {
         if (args.RevealedLayers.Count == 0)
         {
@@ -53,7 +52,7 @@ public sealed class DeepFriedVisualizerSystem : VisualizerSystem<DeepFriedCompon
         }
     }
 
-    private void OnEquipmentVisualsUpdated(EntityUid uid, DeepFriedComponent component, EquipmentVisualsUpdatedEvent args)
+    private void OnEquipmentVisualsUpdated(EntityUid uid, Nyanotrasen.Kitchen.Components.DeepFriedComponent component, EquipmentVisualsUpdatedEvent args)
     {
         if (args.RevealedLayers.Count == 0)
         {

@@ -6,9 +6,9 @@ using Robust.Shared.GameObjects;
 namespace Content.IntegrationTests.Tests.DeepFryer
 {
     [TestFixture]
-    [TestOf(typeof(DeepFriedComponent))]
-    [TestOf(typeof(DeepFryerSystem))]
-    [TestOf(typeof(DeepFryerComponent))]
+    [TestOf(typeof(Server.Nyanotrasen.Kitchen.Components.DeepFriedComponent))]
+    [TestOf(typeof(Server.Nyanotrasen.Kitchen.EntitySystems.DeepFryerSystem))]
+    [TestOf(typeof(Server.Nyanotrasen.Kitchen.Components.DeepFryerComponent))]
     public sealed class DeepFryerTest
     {
 
@@ -44,7 +44,7 @@ namespace Content.IntegrationTests.Tests.DeepFryer
 
             var entityManager = server.ResolveDependency<IEntityManager>();
             var xformSystem = entityManager.System<SharedTransformSystem>();
-            var deepFryerSystem = entityManager.System<DeepFryerSystem>();
+            var deepFryerSystem = entityManager.System<Server.Nyanotrasen.Kitchen.EntitySystems.DeepFryerSystem>();
             await server.WaitAssertion(() =>
             {
                 Assert.That(deepFryerSystem, Is.Not.Null);

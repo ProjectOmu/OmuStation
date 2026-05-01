@@ -1,22 +1,20 @@
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.EntityEffects;
+using Content.Shared.Nutrition;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
-using Content.Server.Kitchen.EntitySystems;
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.Reagent;
-using Content.Shared.EntityEffects;
-using Content.Shared.Kitchen.Components;
-using Content.Shared.Nutrition;
-using Content.Shared.Whitelist;
 
-namespace Content.Server.Kitchen.Components;
+namespace Content.Server.Nyanotrasen.Kitchen.Components;
 
 [RegisterComponent]
-[Access(typeof(DeepFryerSystem))]
-public sealed partial class DeepFryerComponent : SharedDeepFryerComponent
+[Access(typeof(Nyanotrasen.Kitchen.EntitySystems.DeepFryerSystem))]
+public sealed partial class DeepFryerComponent : Shared.Nyanotrasen.Kitchen.Components.SharedDeepFryerComponent
 {
     // There are three levels to how the deep fryer treats entities.
     //

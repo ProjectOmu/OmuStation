@@ -6,7 +6,7 @@ namespace Content.Client.Kitchen.Components;
 /// This is used for things that are a DeepFryer
 /// </summary>
 [RegisterComponent]
-public sealed partial class DeepFryerComponent : SharedDeepFryerComponent
+public sealed partial class DeepFryerComponent : Shared.Nyanotrasen.Kitchen.Components.SharedDeepFryerComponent
 {
 
 }

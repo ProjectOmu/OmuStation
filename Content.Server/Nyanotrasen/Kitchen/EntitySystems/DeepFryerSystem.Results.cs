@@ -3,7 +3,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Ghost.Roles.Components;
-using Content.Server.Kitchen.Components;
+using Content.Server.Nyanotrasen.Kitchen.Components;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Body.Components;
 using Content.Shared.Buckle.Components;
@@ -15,7 +15,7 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Paper;
 using Robust.Shared.Random;
 
-namespace Content.Server.Kitchen.EntitySystems;
+namespace Content.Server.Nyanotrasen.Kitchen.EntitySystems;
 
 public sealed partial class DeepFryerSystem
 {
@@ -73,13 +73,13 @@ public sealed partial class DeepFryerSystem
             _solutionContainerSystem.RemoveReagent(bloodSolution.Value, "Blood", FixedPoint2.MaxValue);
             var bloodRemoved = solPresent - bloodSolution.Value.Comp.Solution.Volume;
 
-            var proteinQuantity = bloodRemoved * BloodToProteinRatio;
+            var proteinQuantity = bloodRemoved * DeepFryerSystem.BloodToProteinRatio;
             mobFoodSolution.Value.Comp.Solution.MaxVolume += proteinQuantity;
             _solutionContainerSystem.TryAddReagent(mobFoodSolution.Value, "Protein", proteinQuantity);
 
             // This is a heuristic. If you had blood, you might just taste meaty.
             if (bloodRemoved > FixedPoint2.Zero)
-                EnsureComp<FlavorProfileComponent>(mob).Flavors.Add(MobFlavorMeat);
+                EnsureComp<FlavorProfileComponent>(mob).Flavors.Add(DeepFryerSystem.MobFlavorMeat);
 
             // Bring in whatever chemicals they had in them too.
             mobFoodSolution.Value.Comp.Solution.MaxVolume +=
@@ -95,9 +95,9 @@ public sealed partial class DeepFryerSystem
     /// <summary>
     ///     Make an item actually edible.
     /// </summary>
-    private void MakeEdible(EntityUid uid, DeepFryerComponent component, EntityUid item, FixedPoint2 solutionQuantity)
+    private void MakeEdible(EntityUid uid, Components.DeepFryerComponent component, EntityUid item, FixedPoint2 solutionQuantity)
     {
-        if (!TryComp<DeepFriedComponent>(item, out var deepFriedComponent))
+        if (!TryComp<Nyanotrasen.Kitchen.Components.DeepFriedComponent>(item, out var deepFriedComponent))
         {
             _sawmill.Error($"{ToPrettyString(item)} is missing the DeepFriedComponent before being made Edible.");
             return;
@@ -114,8 +114,8 @@ public sealed partial class DeepFryerSystem
             {
                 var uchar = paperComponent.Content.Substring(i, 1);
 
-                if (uchar == "\n" || _random.Prob(0.4f))
-                    stringBuilder.Append(uchar);
+                if (uchar == "\n" || RandomExtensions.Prob(_random, 0.4f))
+                    stringBuilder.Append((string?)uchar);
                 else
                     stringBuilder.Append("x");
             }

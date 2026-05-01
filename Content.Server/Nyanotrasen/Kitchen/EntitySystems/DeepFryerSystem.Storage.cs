@@ -4,15 +4,15 @@ using Content.Shared.Database;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
-using Content.Shared.Kitchen.Components;
+using Content.Shared.Nyanotrasen.Kitchen.UI;
 using Content.Shared.Storage;
 using Content.Shared.Tools.Components;
 
-namespace Content.Server.Kitchen.EntitySystems;
+namespace Content.Server.Nyanotrasen.Kitchen.EntitySystems;
 
 public sealed partial class DeepFryerSystem
 {
-    public bool CanInsertItem(EntityUid uid, DeepFryerComponent component, EntityUid item)
+    public bool CanInsertItem(EntityUid uid, Components.DeepFryerComponent component, EntityUid item)
     {
         // Keep this consistent with the checks in TryInsertItem.
         return HasComp<ItemComponent>(item) &&
@@ -20,7 +20,7 @@ public sealed partial class DeepFryerSystem
                component.Storage.ContainedEntities.Count < component.StorageMaxEntities;
     }
 
-    private bool TryInsertItem(EntityUid uid, DeepFryerComponent component, EntityUid user, EntityUid item)
+    private bool TryInsertItem(EntityUid uid, Components.DeepFryerComponent component, EntityUid user, EntityUid item)
     {
         if (!HasComp<ItemComponent>(item))
         {
@@ -61,7 +61,7 @@ public sealed partial class DeepFryerSystem
         return true;
     }
 
-    private void OnInteractUsing(EntityUid uid, DeepFryerComponent component, InteractUsingEvent args)
+    private void OnInteractUsing(EntityUid uid, Components.DeepFryerComponent component, InteractUsingEvent args)
     {
         if (args.Handled)
             return;
@@ -77,7 +77,7 @@ public sealed partial class DeepFryerSystem
             args.Handled = true;
     }
 
-    private void OnInsertItem(EntityUid uid, DeepFryerComponent component, DeepFryerInsertItemMessage args)
+    private void OnInsertItem(EntityUid uid, Components.DeepFryerComponent component, DeepFryerInsertItemMessage args)
     {
         var user = args.Actor;
 

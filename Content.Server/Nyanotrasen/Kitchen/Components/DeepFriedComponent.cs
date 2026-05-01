@@ -1,6 +1,6 @@
 using Content.Shared.Kitchen.Components;
 
-namespace Content.Server.Kitchen.Components;
+namespace Content.Server.Nyanotrasen.Kitchen.Components;
 
 [RegisterComponent]
 public sealed partial class DeepFriedComponent : SharedDeepFriedComponent
