@@ -3627,3 +3627,11 @@ Entries:
       message: Vulpkanin now have digitigrade legs!
   id: 466
   time: '2026-04-29T17:13:14.0000000+00:00'
+- author: BramvanZijp
+  changes:
+    - type: Fix
+      message: >-
+        An admin using a command to cleanup trash will no longer delete filled
+        containers or medipens.
+  id: 467
+  time: '2026-04-30T23:10:47.0000000+00:00'
