@@ -36,4 +36,12 @@ public sealed partial class EntityHeaterComponent : Component
     /// </summary>
     [DataField]
     public SoundPathSpecifier? SettingSound;
+
+    // Frontier: ghost power
+    /// <summary>
+    /// Passive power draw.  Takes this much while plugged in, even when off.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public float PassivePower = 0f;
+    // End Frontier
 }
