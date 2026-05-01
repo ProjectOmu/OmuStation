@@ -38,6 +38,7 @@
   name: jumpstarter heart
   description: A next-gen combat circulatory core that injects a large amount of omnizine into the user's bloodstream when they are critically injured, saving them from death. Highly illegal.
   components:
+  - type: Cybernetics # Omu
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/jumpstarter_heart.rsi
     state: icon
@@ -47,5 +48,5 @@
     - type: InjectOnMobState
       reagents:
         Omnizine: 75
-        TranexamicAcid: 5
-        DexalinPlus: 15
+        Artiplates: 5 # Omu
+        Epinephrine: 10 # Omu
