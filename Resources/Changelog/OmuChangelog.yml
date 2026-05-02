@@ -3613,3 +3613,25 @@ Entries:
       message: Added IdiotVibes' "Boarded from the Void" artwork to the lobby art pool!
   id: 464
   time: '2026-04-28T08:11:52.0000000+00:00'
+- author: 3PonPon3
+  changes:
+    - type: Fix
+      message: >-
+        Fixed THE LARGEST OF CHARACTERS being unable to raise shields properly.
+        Should be ACTUALLY capable of doing so now.
+  id: 465
+  time: '2026-04-29T17:07:29.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: Vulpkanin now have digitigrade legs!
+  id: 466
+  time: '2026-04-29T17:13:14.0000000+00:00'
+- author: BramvanZijp
+  changes:
+    - type: Fix
+      message: >-
+        An admin using a command to cleanup trash will no longer delete filled
+        containers or medipens.
+  id: 467
+  time: '2026-04-30T23:10:47.0000000+00:00'
