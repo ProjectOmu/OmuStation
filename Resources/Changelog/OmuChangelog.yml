@@ -3503,3 +3503,135 @@ Entries:
         the station!
   id: 450
   time: '2026-04-19T00:14:00.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: fixed thaven not being immune to carpotoxin
+  id: 451
+  time: '2026-04-21T16:59:37.0000000+00:00'
+- author: ArtemisYK
+  changes:
+    - type: Add
+      message: Brigmedic time requirement to Nukie agent
+    - type: Tweak
+      message: Changed Nukie agent chemist time requirement to be 10hrs instead of 5
+  id: 452
+  time: '2026-04-22T18:13:28.0000000+00:00'
+- author: ArtemisYK
+  changes:
+    - type: Remove
+      message: StaminaDamage Component from the Hristov
+  id: 453
+  time: '2026-04-23T15:46:36.0000000+00:00'
+- author: ArtemisYK
+  changes:
+    - type: Add
+      message: New CMO Jumpsuits/Skirts and two new cloaks
+  id: 454
+  time: '2026-04-24T17:39:38.0000000+00:00'
+- author: LukaSlade
+  changes:
+    - type: Add
+      message: Added Distraughtcat's "Lunch Break" Artwork to the lobby art rotation
+  id: 455
+  time: '2026-04-24T23:48:42.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: >-
+        Added thaven kelp wine and some cocktails along with them. Find the wine
+        in booze-o-mat
+    - type: Add
+      message: >-
+        Added thaven kelp pods for botany to grow, mutate them for cask kelp
+        pods that have wine in them. Kelp pod seeds are in megaseed vend
+    - type: Add
+      message: Marketable thaven plush in loadout trinkets
+    - type: Add
+      message: Weird ass thaven dolphin emotes enjoy
+    - type: Add
+      message: Eckeckyik and bieselized eckeckyik translators
+    - type: Add
+      message: Thaven barbel markings
+  id: 456
+  time: '2026-04-25T16:32:49.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Resomi can now use more hair options outside Resomi defaults without
+        looking horrendous.
+  id: 457
+  time: '2026-04-28T07:52:22.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Resprited captain longcloak to match the rest of the cap gear
+  id: 458
+  time: '2026-04-28T07:54:43.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Fix
+      message: >-
+        Fixed hos duty case giving you hp bullets for the brdi instead of full
+        metal jacket
+  id: 459
+  time: '2026-04-28T07:55:20.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Jumpstarter heart dexalin replaced with artiplates and epinephrine
+    - type: Fix
+      message: >-
+        Fixed jumpstarter hearts not getting disabled by emps (if its a weak emp
+        they still might not die)
+  id: 460
+  time: '2026-04-28T07:56:22.0000000+00:00'
+- author: Marikiii
+  changes:
+    - type: Tweak
+      message: Increased the shark soft plush "attack" rate!
+  id: 461
+  time: '2026-04-28T08:00:58.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed the lavaland syndicate base.
+  id: 462
+  time: '2026-04-28T08:01:42.0000000+00:00'
+- author: Dudebroishere
+  changes:
+    - type: Add
+      message: >-
+        A Brown Colour to the mouse language. rodentia and mice now speak in a
+        brown.
+  id: 463
+  time: '2026-04-28T08:11:17.0000000+00:00'
+- author: LukaSlade
+  changes:
+    - type: Add
+      message: Added IdiotVibes' "Boarded from the Void" artwork to the lobby art pool!
+  id: 464
+  time: '2026-04-28T08:11:52.0000000+00:00'
+- author: 3PonPon3
+  changes:
+    - type: Fix
+      message: >-
+        Fixed THE LARGEST OF CHARACTERS being unable to raise shields properly.
+        Should be ACTUALLY capable of doing so now.
+  id: 465
+  time: '2026-04-29T17:07:29.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: Vulpkanin now have digitigrade legs!
+  id: 466
+  time: '2026-04-29T17:13:14.0000000+00:00'
+- author: BramvanZijp
+  changes:
+    - type: Fix
+      message: >-
+        An admin using a command to cleanup trash will no longer delete filled
+        containers or medipens.
+  id: 467
+  time: '2026-04-30T23:10:47.0000000+00:00'

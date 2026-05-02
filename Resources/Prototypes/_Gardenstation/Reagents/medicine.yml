@@ -1,0 +1,105 @@
+﻿- type: reagent
+  id: KelpPodSlime
+  name: reagent-name-kelpslime
+  group: Medicine
+  desc: reagent-desc-kelpslime
+  physicalDesc: reagent-physical-desc-slimy
+  flavor: medicine
+  color: "#9972fd"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Asphyxiation: -0.4
+            Bloodloss: -0.3
+            Poison: -0.3
+            Cold: -0.1
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType # thaven have engineered the pods to be suited specifically to their digestive systems. other species cant partake as much without a mental/physical toll
+          type: Thaven
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          types:
+            Asphyxiation: 3
+            Caustic: 1 # it causes a buildup of acid in the body or something idk
+            Poison: 1
+      - !type:SuppressPain #reorganize - nonthaven dont get as much benefit
+        amount: 10
+        time: 30
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 10
+        refresh: false
+    Narcotic:
+      effects:
+      - !type:PopupMessage
+        type: Local
+        messages:
+        - generic-reagent-effect-kelp-drooling
+        - generic-reagent-effect-kelp-stupid
+        - generic-reagent-effect-kelp-slow
+        - generic-reagent-effect-kelp-seacow
+        - generic-reagent-effect-kelp-silly
+        - generic-reagent-effect-kelp-bubbles
+        - generic-reagent-effect-kelp-more
+        - generic-reagent-effect-kelp-good
+        - generic-reagent-effect-kelp-pretty
+        - generic-reagent-effect-soundgood
+        - generic-reagent-effect-euphoria
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+          max: 30
+        probability: 0.08
+      - !type:PopupMessage
+        visualType: LargeCaution
+        type: Local
+        messages:
+        - generic-reagent-effect-kelp-beauty
+        - generic-reagent-effect-kelp-weird
+        - generic-reagent-effect-kelp-anythinggoes
+        - generic-reagent-effect-kelp-punchshit #this happened to me on shrooms once
+        - generic-reagent-effect-kelp-scream
+        - generic-reagent-effect-disoriented
+        - generic-reagent-effect-manic
+        - generic-reagent-effect-confused
+        - generic-reagent-effect-static
+        - generic-reagent-effect-breakthrough
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        probability: 0.3
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Thaven # thavens have engineered the pod to be beneficial to their biological makeup, essentially being their aquatic pre-contact deus.
+          shouldHave: true
+        damage:
+          types:
+            Blunt: -0.3 # bloodclotting helps with processing muscle damage or some shit idfk dude
+            Asphyxiation: -1
+            Bloodloss: -0.8 #increases production of the hallucinogenic enzyme in their blood, increasing cell count in the bloodstream
+            Poison: -0.5
+            Cold: -0.3
+      - !type:SuppressPain #moved to here so thaven can still get these effects
+        conditions:
+        - !type:OrganType
+          type: Thaven
+          shouldHave: true
+        amount: 30
+        time: 60
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:OrganType
+          type: Thaven
+          shouldHave: true
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 25
+        refresh: false
