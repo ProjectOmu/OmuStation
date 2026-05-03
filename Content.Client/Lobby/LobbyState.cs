@@ -142,7 +142,7 @@ namespace Content.Client.Lobby
             _contentAudioSystem = _entityManager.System<ContentAudioSystem>();
             _contentAudioSystem.LobbySoundtrackChanged += UpdateLobbySoundtrackInfo;
             _sawmill = Logger.GetSawmill("lobby");
-            _readyManifest = _entityManager.EntitySysManager.GetEntitySystem<ReadyManifestSystem>();
+            _readyManifest = _entityManager.EntitySysManager.GetEntitySystem<ReadyManifestSystem>(); // Imp
 
             chatController.SetMainChat(true);
 
