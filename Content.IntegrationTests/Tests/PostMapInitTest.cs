@@ -211,6 +211,7 @@ namespace Content.IntegrationTests.Tests
             "Cluster",
             "Cog",
             "Core",           // Not in pool.
+            "Crystal", // OMU
             "Delta",
             "Dev",            // Dev map
             "dm01-entryway",  // Deathmatch
