@@ -123,7 +123,7 @@ namespace Content.Client.Lobby
         private ISawmill _sawmill = default!; // Goobstation
         private ClientGameTicker _gameTicker = default!;
         private ContentAudioSystem _contentAudioSystem = default!;
-        private ReadyManifestSystem _readyManifest = default!;
+        private ReadyManifestSystem _readyManifest = default!; // Imp
 
         protected override Type? LinkedScreenType { get; } = typeof(LobbyGui);
         public LobbyGui? Lobby;
