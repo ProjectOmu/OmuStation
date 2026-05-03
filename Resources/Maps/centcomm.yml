@@ -80,8 +80,6 @@ entities:
     components:
     - type: MetaData
       name: Central Command
-    - type: Transform
-      parent: invalid
     - type: GridGodMode
       protectedEntities: []
     - type: GridRaider
@@ -42995,8 +42993,6 @@ entities:
       pos: -19.5,-14.5
       parent: 1668
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 5668
     - type: AtmosPipeColor
@@ -43725,8 +43721,6 @@ entities:
       pos: -17.5,-14.5
       parent: 1668
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 5668
     - type: AtmosPipeColor
@@ -49310,10 +49304,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 18.501059,33.591957
       parent: 1668
-    - type: SpecialRespawn
-      stationMap:
-      - invalid
-      - 1668
 - proto: NukeOverride
   entities:
   - uid: 2555
