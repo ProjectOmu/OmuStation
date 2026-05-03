@@ -176,6 +176,7 @@
   - Headphones
   - PlushieLizard
   - PlushieSpaceLizard
+  - PlushieChoicesTadpole # gds
   - PersonalAI # Goobstation
   - GoldenPersonalAI # Goobstation
   - CrewCassette # Goobstation
@@ -381,6 +382,7 @@
   - CaptainCloak
   - CaptainCloakFormal
   - CaptainMantle
+  - CaptainCloakLong # Ganimed14
   - VeteranCaptainCloak # goob
   - CaptainEnsemble # goob
 
@@ -428,6 +430,7 @@
   loadouts:
   - HoPCloak
   - HoPMantle
+  - HoPCloakLong # Ganimed14
   - HeadOfPersonnelEnsemble # goob
 
 - type: loadoutGroup
@@ -905,6 +908,14 @@
   - PanFlute
   - Ocarina
   - Bagpipe
+  - BirdToy #OMU
+  - Helicopter #OMU
+  - Gunpet #OMU
+  - MusicalLung #OMU
+  - ReverseCymbals #OMU
+  - Seashell #OMU
+  - Wehpet #OMU
+  - BikeHorn #OMU
 
 # Cargo
 - type: loadoutGroup
@@ -936,6 +947,7 @@
   loadouts:
   - QuartermasterCloak
   - QuartermasterMantle
+  - QuartermasterCloakLong #Ganimed14
   - QuartermasterEnsemble # goob
 
 - type: loadoutGroup
@@ -1056,6 +1068,7 @@
   loadouts:
   - ChiefEngineerCloak
   - ChiefEngineerMantle
+  - ChiefEngineerCloakLong #Ganimed14
   - ChiefEngineerEnsemble # goob
 
 - type: loadoutGroup
@@ -1210,6 +1223,7 @@
   - ResearchDirectorMantle
   - ResearchDirectorCloak
   - ResearchDirectorDecoratedCloak
+  - ResearchDirectorCloakLong #Ganimed14
   - ResearchDirectorEnsemble # goob
 
 - type: loadoutGroup
@@ -1360,6 +1374,7 @@
   - HeadofSecurityCloak
   - HeadofSecurityMantle
   - Bodycam # Goobstation - Body cameras
+  - HeadofSecurityCloakLong #Ganimed14
   - HeadOfSecurityEnsemble # goob
 
 - type: loadoutGroup
@@ -1559,6 +1574,10 @@
   - ChiefMedicalOfficerTurtleneckJumpsuit
   - ChiefMedicalOfficerTurtleneckJumpskirt
   - CMOMJ # goob
+  - ChiefMedicalOfficerVestJumpsuit #DV
+  - ChiefMedicalOfficerVestJumpskirt #DV
+  - ChiefMedicalOfficerFormalJumpsuit #DV
+  - ChiefMedicalOfficerFormalJumpskirt #DV
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerOuterClothing
@@ -1580,6 +1599,9 @@
   - ChiefMedicalOfficerMantle
   - ChiefMedicalOfficerDecoratedCloak # Omu
   - ChiefMedicalOfficerModernMantle # Omu
+  - ChiefMedicalOfficerShawl #DV
+  - ChiefMedicalOfficerOverShoulder #DV
+  - ChiefMedicalOfficerCloakLong #Ganimed14
   - ChiefMedicalOfficerEnsemble # goob
 
 - type: loadoutGroup

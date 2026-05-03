@@ -207,7 +207,7 @@ namespace Content.IntegrationTests.Tests
             "Barratry",
             "Box",            // Not in pool
             "CentComm",       // CentComm
-            "Chloris",
+            //"Chloris", // Omu, remove this map.
             "Cluster",
             "Cog",
             "Core",           // Not in pool.
@@ -235,7 +235,7 @@ namespace Content.IntegrationTests.Tests
             "Packed",
             "Reach",
             "Saltern",
-            "Serpentcrest",
+            //"Serpentcrest", // omu serpentcrest kil
             "TestTeg",        // Dev map
             "Train"           // Not in pool
             // Goob end
@@ -247,10 +247,10 @@ namespace Content.IntegrationTests.Tests
               "Amber",
               "Atlas",
               "Bagel",
-              "Barratry",
+              //"Barratry", // Omu, not in rotation
             //"Box",            // Not in pool
               "CentComm",      // CentComm
-              "Chloris",
+              //"Chloris", // Omu, derotate this map
               "Cluster",
               "Cog",
             //"Core",           // Not in pool.
