@@ -202,6 +202,7 @@ namespace Content.IntegrationTests.Tests
             // order this list alphabetically, mark dev maps
             // if upstreaming take ours here and edit manually.
             "Amber",
+            "Arena",        // Omu
             "Atlas",
             "Bagel",
             "Barratry",
@@ -245,6 +246,7 @@ namespace Content.IntegrationTests.Tests
         {
             // order this list alphabetically, mark dev maps
               "Amber",
+              "Arena",         // Omu
               "Atlas",
               "Bagel",
               //"Barratry", // Omu, not in rotation
