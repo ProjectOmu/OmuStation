@@ -3,7 +3,7 @@
   id: CentComButMap
   mapName: 'Central Command'
   mapPath: /Maps/_Omu/CentCompMap.yml # Omu - Prisoner role mapping
-  minPlayers: 0 
+  minPlayers: 0
   maxPlayers: 85
   stations:
     CentComButMap:
@@ -30,8 +30,6 @@
             Janitor: [ 1, 1 ]
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
-            ServiceWorker: [ 0, 0 ]
-            RadioHost: [ 0, 0 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 1, 1 ]
@@ -48,7 +46,7 @@
             ResearchDirector: [ 2, 2 ]
             Scientist: [ 7, 7 ]
             ResearchAssistant: [ 6, 6 ]
-            Roboticist: [ 0, 0 ] #Omu
+            Roboticist: [ 2, 2 ] #Omu
             #security
             HeadOfSecurity: [ 2, 2 ]
             Warden: [ 1, 1 ]
@@ -64,7 +62,6 @@
             SalvageSpecialist: [ 3, 3 ]
             Courier: [ 2, 2 ] # Omu - Courier role
             CargoTechnician: [ 6, 6 ]
-            ShaftMiner: [ 0, 0 ]
             #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]
