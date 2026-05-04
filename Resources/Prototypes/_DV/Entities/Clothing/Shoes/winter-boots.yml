@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingShoesBaseWinterBoots
+  parent: [ClothingShoesBaseWinterBoots, BaseCentcommContraband] # Omu, add contra
   id: ClothingShoesBootsWinterCentCom
   name: Centcom winter boots
   components:

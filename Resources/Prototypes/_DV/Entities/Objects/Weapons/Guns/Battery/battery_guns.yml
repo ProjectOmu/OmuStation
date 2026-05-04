@@ -7,7 +7,7 @@
 
 - type: entity
   name: energy gun
-  parent: BaseWeaponBattery
+  parent: [BaseWeaponBattery, BaseSecurityContraband] # Omu, add contra
   id: WeaponEnergyGun
   description: "A basic hybrid energy gun with two settings: disable and kill."
   components:
@@ -141,7 +141,7 @@
 
 - type: entity
   name: miniature energy gun
-  parent: BaseWeaponBatterySmall
+  parent: [BaseWeaponBatterySmall, BaseSecurityCommandContraband] # Omu, add contra
   id: WeaponEnergyGunMini
   description: A light version of the Energy gun with a smaller capacity.
   components:
@@ -194,7 +194,7 @@
 
 - type: entity
   name: PDW-9 Energy Pistol
-  parent: BaseWeaponBatterySmall
+  parent: [BaseWeaponBatterySmall, BaseSecurityContraband] # Omu, add contra
   id: WeaponEnergyGunPistol
   description: A military grade sidearm, used by many militia forces throughout the local sector.
   components:

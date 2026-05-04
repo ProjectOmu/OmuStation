@@ -2,7 +2,7 @@
   id: SpyCrewMonitor
   name: spy monitor
   description: A spy device capable of connecting to crew monitoring servers.
-  parent: HandheldCrewMonitor
+  parent: [HandheldCrewMonitor, BaseMajorContraband] # Omu, add contra
   components:
   - type: Sprite
     sprite: Objects/Tools/spy_device.rsi

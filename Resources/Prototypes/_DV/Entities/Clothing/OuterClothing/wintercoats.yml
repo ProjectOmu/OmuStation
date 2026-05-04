@@ -27,7 +27,7 @@
         ents: []
 
 - type: entity
-  parent: ClothingOuterArmoredWinterCoat
+  parent: [ClothingOuterArmoredWinterCoat, BaseCentcommContraband] # Omu, add contra
   id: ClothingOuterArmoredWinterCoatCentComm
   name: central command's armored winter coat
   description: A tough, utilitarian coat designed for the wardens of Central Command. Reinforced kevlar plating and high quality fur allow the user to look stylish while staying protected.
