@@ -1,13 +1,14 @@
+using Content.Server._DV.StationEvents.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Station.Components;
 using Content.Server.AlertLevel;
 using Content.Server.Audio;
+using Content.Server.StationEvents.Events;
 using Robust.Shared.Audio.Systems;
 
-namespace Content.Server.StationEvents.Events
+namespace Content.Server._DV.StationEvents.Gamerules
 {
 public sealed class EpsilonEventRule : StationEventSystem<EpsilonEventRuleComponent>
 {
