@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/eea0599511b088fdab9d43e562210cdbd51c6a98, cover is edited by Ubaser. blue-storage recolored by Aviu",
+  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/eea0599511b088fdab9d43e562210cdbd51c6a98, cover is edited by Ubaser. blue-storage recolored by Aviu. Sec Recolour by PurpleEI for OmuStation.",
   "size": {
     "x": 32,
     "y": 32
@@ -54,6 +54,24 @@
     },
     {
       "name": "blue-storage"
-    }
+    },
+      {
+          "name": "sec-inhand-left",
+          "directions": 4
+      },
+      {
+          "name": "sec-inhand-right",
+          "directions": 4
+      },
+      {
+          "name": "sec-icon"
+      },
+      {
+          "name": "sec-equipped-BELT",
+          "directions": 4
+      },
+      {
+          "name": "sec-storage"
+      }
   ]
 }

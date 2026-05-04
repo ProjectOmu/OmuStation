@@ -49,3 +49,29 @@
       map: [ "enum.FaxMachineVisuals.VisualState" ]
     - state: scanner
       shader: unshaded
+
+# Security Crowbar
+- type: entity
+  parent: [BaseCrowbar, BaseSecurityContraband]
+  id: SecurityCrowbar
+  description: A robust multipurpose tool to pry open doors and fight greytide invaders.
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 10
+  - type: Sprite
+    state: sec-icon
+  - type: Item
+    storedSprite:
+      sprite: Objects/Tools/crowbar.rsi
+      state: sec-storage
+    inhandVisuals:
+      left:
+      - state: sec-inhand-left
+      right:
+      - state: sec-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      belt:
+      - state: sec-equipped-BELT
