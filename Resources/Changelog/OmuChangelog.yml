@@ -3641,3 +3641,47 @@ Entries:
       message: Removed Chloris from map rotation.
   id: 468
   time: '2026-05-02T21:21:14.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Abductors now are back to having the normal IFF console rather than the
+        syndicate one.
+    - type: Fix
+      message: Fixed Abductors being able to abduct people across maps.
+  id: 469
+  time: '2026-05-03T11:46:12.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Command is no longer exempt to the metashield, refer to the command
+        training manual to see what you know.
+  id: 470
+  time: '2026-05-03T11:48:05.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Ported DV's tweaks to the epsilon alert level.
+  id: 471
+  time: '2026-05-04T10:15:51.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed the syndicate instigator gamerule from rotation.
+  id: 472
+  time: '2026-05-04T10:18:28.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Plague mice now only spawn from mouse migration events.
+  id: 473
+  time: '2026-05-04T10:22:15.0000000+00:00'
+- author: Kazuno-dev
+  changes:
+    - type: Fix
+      message: >-
+        Fixed CentComm PDAs (and those parented from it) being unable to use
+        nanochat
+  id: 474
+  time: '2026-05-04T14:23:11.0000000+00:00'
