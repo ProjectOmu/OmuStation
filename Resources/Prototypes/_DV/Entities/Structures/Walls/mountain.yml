@@ -77,7 +77,7 @@
     state: full
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: StrongMetallic
+    damageModifierSet: StructuralMetallicStrong # Omu
   - type: Destructible
     thresholds:
     - trigger:
