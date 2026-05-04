@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/03/2026 21:52:14
-  entityCount: 17187
+  time: 05/04/2026 00:06:10
+  entityCount: 17230
 maps:
 - 12140
 grids:
@@ -6071,7 +6071,7 @@ entities:
       pos: -11.5,32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -78879
+      secondsUntilStateChange: -81153.836
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6243,7 +6243,7 @@ entities:
       pos: -16.5,-28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -544488.75
+      secondsUntilStateChange: -546763.56
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6268,7 +6268,7 @@ entities:
       pos: 5.5,2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -556244.25
+      secondsUntilStateChange: -558519.06
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7659,7 +7659,7 @@ entities:
       pos: 44.5,-23.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -475280.06
+      secondsUntilStateChange: -477554.9
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10059,6 +10059,223 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -23.5,35.5
+      parent: 2
+- proto: AtmosFixBlockerMarker
+  entities:
+  - uid: 17188
+    components:
+    - type: Transform
+      pos: -0.5,-0.5
+      parent: 2
+  - uid: 17189
+    components:
+    - type: Transform
+      pos: -0.5,0.5
+      parent: 2
+  - uid: 17190
+    components:
+    - type: Transform
+      pos: -0.5,1.5
+      parent: 2
+  - uid: 17191
+    components:
+    - type: Transform
+      pos: 0.5,-0.5
+      parent: 2
+  - uid: 17192
+    components:
+    - type: Transform
+      pos: 0.5,1.5
+      parent: 2
+  - uid: 17193
+    components:
+    - type: Transform
+      pos: 1.5,-0.5
+      parent: 2
+  - uid: 17194
+    components:
+    - type: Transform
+      pos: 1.5,0.5
+      parent: 2
+  - uid: 17195
+    components:
+    - type: Transform
+      pos: 1.5,1.5
+      parent: 2
+  - uid: 17196
+    components:
+    - type: Transform
+      pos: 0.5,0.5
+      parent: 2
+  - uid: 17197
+    components:
+    - type: Transform
+      pos: -13.5,17.5
+      parent: 2
+  - uid: 17198
+    components:
+    - type: Transform
+      pos: -13.5,16.5
+      parent: 2
+  - uid: 17199
+    components:
+    - type: Transform
+      pos: -13.5,18.5
+      parent: 2
+  - uid: 17200
+    components:
+    - type: Transform
+      pos: -11.5,16.5
+      parent: 2
+  - uid: 17201
+    components:
+    - type: Transform
+      pos: -11.5,17.5
+      parent: 2
+  - uid: 17202
+    components:
+    - type: Transform
+      pos: -11.5,18.5
+      parent: 2
+  - uid: 17203
+    components:
+    - type: Transform
+      pos: -9.5,16.5
+      parent: 2
+  - uid: 17204
+    components:
+    - type: Transform
+      pos: -9.5,17.5
+      parent: 2
+  - uid: 17205
+    components:
+    - type: Transform
+      pos: -9.5,18.5
+      parent: 2
+  - uid: 17206
+    components:
+    - type: Transform
+      pos: -7.5,18.5
+      parent: 2
+  - uid: 17207
+    components:
+    - type: Transform
+      pos: -7.5,16.5
+      parent: 2
+  - uid: 17208
+    components:
+    - type: Transform
+      pos: -7.5,17.5
+      parent: 2
+  - uid: 17209
+    components:
+    - type: Transform
+      pos: -5.5,16.5
+      parent: 2
+  - uid: 17210
+    components:
+    - type: Transform
+      pos: -5.5,17.5
+      parent: 2
+  - uid: 17211
+    components:
+    - type: Transform
+      pos: -5.5,18.5
+      parent: 2
+  - uid: 17212
+    components:
+    - type: Transform
+      pos: -3.5,18.5
+      parent: 2
+  - uid: 17213
+    components:
+    - type: Transform
+      pos: -3.5,17.5
+      parent: 2
+  - uid: 17214
+    components:
+    - type: Transform
+      pos: -3.5,16.5
+      parent: 2
+  - uid: 17215
+    components:
+    - type: Transform
+      pos: -1.5,16.5
+      parent: 2
+  - uid: 17216
+    components:
+    - type: Transform
+      pos: -1.5,18.5
+      parent: 2
+  - uid: 17217
+    components:
+    - type: Transform
+      pos: -1.5,17.5
+      parent: 2
+  - uid: 17218
+    components:
+    - type: Transform
+      pos: 0.5,18.5
+      parent: 2
+  - uid: 17219
+    components:
+    - type: Transform
+      pos: 0.5,17.5
+      parent: 2
+  - uid: 17220
+    components:
+    - type: Transform
+      pos: 0.5,16.5
+      parent: 2
+  - uid: 17221
+    components:
+    - type: Transform
+      pos: 10.5,7.5
+      parent: 2
+  - uid: 17222
+    components:
+    - type: Transform
+      pos: 10.5,9.5
+      parent: 2
+  - uid: 17223
+    components:
+    - type: Transform
+      pos: 11.5,7.5
+      parent: 2
+  - uid: 17224
+    components:
+    - type: Transform
+      pos: 11.5,8.5
+      parent: 2
+  - uid: 17225
+    components:
+    - type: Transform
+      pos: 10.5,8.5
+      parent: 2
+  - uid: 17226
+    components:
+    - type: Transform
+      pos: 11.5,9.5
+      parent: 2
+  - uid: 17227
+    components:
+    - type: Transform
+      pos: 12.5,7.5
+      parent: 2
+  - uid: 17228
+    components:
+    - type: Transform
+      pos: 12.5,8.5
+      parent: 2
+  - uid: 17229
+    components:
+    - type: Transform
+      pos: 12.5,9.5
+      parent: 2
+  - uid: 17230
+    components:
+    - type: Transform
+      pos: 0.5,3.5
       parent: 2
 - proto: Autolathe
   entities:
@@ -46040,7 +46257,7 @@ entities:
       deviceLists:
       - 9821
     - type: Door
-      secondsUntilStateChange: -261035.16
+      secondsUntilStateChange: -263310
       state: Closing
   - uid: 9817
     components:
@@ -76662,7 +76879,7 @@ entities:
       pos: 7.5,-23.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -540086.7
+      secondsUntilStateChange: -542361.5
       state: Opening
   - uid: 2029
     components:
@@ -76712,7 +76929,7 @@ entities:
       pos: -25.5,9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -13919.038
+      secondsUntilStateChange: -16193.872
       state: Closing
 - proto: hydroponicsSoil
   entities:
