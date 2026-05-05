@@ -187,7 +187,7 @@
     size: Normal
 
 - type: entity
-  parent: ClothingBlueshieldArmoredCoat # Omu
+  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, ClothingBlueshieldArmourVest]
   id: ClothingBlueshieldArmoredJacket
   name: blueshield's armored jacket
   description: A jacket with sewn-in reinforcement layers.
@@ -196,6 +196,25 @@
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_jacket.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_jacket.rsi
+  - type: Armor # Omu
+    coverage:
+    - Chest
+    - Arm
+    - Groin
+    - Tail
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.45
+        Heat: 0.35
+        Caustic: 0.65
 
 - type: entity
   parent: ClothingBlueshieldArmourVest
