@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Map
+  category: Grid
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/05/2026 20:38:13
+  time: 05/05/2026 21:02:36
   entityCount: 1463
-maps:
-- 140
+maps: []
 grids:
 - 1
-orphans: []
+orphans:
+- 1
 nullspace: []
 tilemap:
   0: Space
@@ -43,7 +43,7 @@ entities:
       name: Uncle Charlie's Cruise Boat
     - type: Transform
       pos: 0.5468445,0.46875
-      parent: 140
+      parent: invalid
     - type: MapGrid
       chunks:
         -1,-1:
@@ -606,16 +606,6 @@ entities:
     - type: SpreaderGrid
     - type: ImplicitRoof
     - type: FTLDrive
-  - uid: 140
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
-    - type: Broadphase
-    - type: OccluderTree
 - proto: AirAlarm
   entities:
   - uid: 235
@@ -1230,7 +1220,7 @@ entities:
       parent: 1
 - proto: AlwaysPoweredlightPink
   entities:
-  - uid: 1340
+  - uid: 1302
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -2907,14 +2897,14 @@ entities:
       parent: 1
 - proto: CardDeckBlack
   entities:
-  - uid: 1455
+  - uid: 1425
     components:
     - type: Transform
       pos: 2.5310793,2.6309376
       parent: 1
 - proto: CardDeckNanotrasen
   entities:
-  - uid: 1425
+  - uid: 1424
     components:
     - type: Transform
       pos: 1.7852843,3.219429
@@ -7089,14 +7079,14 @@ entities:
       parent: 1
 - proto: PoweredDimSmallLight
   entities:
-  - uid: 1342
+  - uid: 1340
     components:
     - type: Transform
       pos: 2.5,-17.5
       parent: 1
 - proto: Poweredlight
   entities:
-  - uid: 1302
+  - uid: 1301
     components:
     - type: Transform
       pos: -3.5,-6.5
@@ -7292,6 +7282,14 @@ entities:
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 0
+- proto: PoweredlightBlue
+  entities:
+  - uid: 1455
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -5.5,-14.5
+      parent: 1
 - proto: PoweredlightSodium
   entities:
   - uid: 1452
@@ -7417,6 +7415,11 @@ entities:
       parent: 1
 - proto: RandomPosterAny
   entities:
+  - uid: 140
+    components:
+    - type: Transform
+      pos: -6.5,-10.5
+      parent: 1
   - uid: 310
     components:
     - type: Transform
@@ -7433,17 +7436,12 @@ entities:
     - type: Transform
       pos: -6.5,-6.5
       parent: 1
-  - uid: 1301
-    components:
-    - type: Transform
-      pos: -6.5,-10.5
-      parent: 1
-  - uid: 1422
+  - uid: 1342
     components:
     - type: Transform
       pos: 5.5,-12.5
       parent: 1
-  - uid: 1424
+  - uid: 1422
     components:
     - type: Transform
       pos: 9.5,-19.5
