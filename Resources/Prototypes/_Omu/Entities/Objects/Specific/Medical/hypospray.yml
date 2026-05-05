@@ -8,26 +8,28 @@
     layers:
     - state: base
     - state: filling
-      color: "#572757"
+      color: "#8dce15"
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
       maxVol: 10
       reagents:
+      - ReagentId: Hyronalin
+        Quantity: 5
       - ReagentId: Arithrazine
-        Quantity: 10
+        Quantity: 5
 
 - type: entity
   name: poison autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 10u of dylovene, used in a cartridge autoinjector.
+  description: Contains 8u of dylovene, and 1u of multiver, used in a cartridge autoinjector.
   id: CartridgeDylo
   components:
   - type: Sprite
     layers:
     - state: base
     - state: filling
-      color: "#572757"
+      color: "#3c2097"
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
