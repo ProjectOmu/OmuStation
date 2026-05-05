@@ -6850,13 +6850,6 @@ entities:
     - type: Transform
       pos: -1.5,-23.5
       parent: 1
-- proto: HatSpawner
-  entities:
-  - uid: 1342
-    components:
-    - type: Transform
-      pos: -5.5,2.5
-      parent: 1
 - proto: KitchenDeepFryer
   entities:
   - uid: 1339
@@ -6965,13 +6958,6 @@ entities:
       parent: 1
     - type: AtmosDevice
       joinedGrid: 1
-- proto: OilJarGhee
-  entities:
-  - uid: 1340
-    components:
-    - type: Transform
-      pos: -3.4777303,-16.694881
-      parent: 1
 - proto: OxygenCanister
   entities:
   - uid: 806
