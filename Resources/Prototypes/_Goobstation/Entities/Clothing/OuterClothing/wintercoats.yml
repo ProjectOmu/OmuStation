@@ -76,6 +76,9 @@
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/seniorsecvestcoat.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/seniorsecvestcoat.rsi
+  - type: ToggleableClothing # Omu
+    clothingPrototypes:
+      head: ClothingHeadHatHoodWinterColorBlue
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -88,6 +91,6 @@
     state: icon
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/cosmic.rsi
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing # Omu
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterColorBlue
