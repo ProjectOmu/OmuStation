@@ -38,27 +38,27 @@
     emptySpriteName: survivalpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 40
+    transferAmount: 30
     onlyAffectsMobs: false
     injectOnly: true
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 40
+        maxVol: 30
         reagents:
           - ReagentId: MinersSalve
             Quantity: 20
           - ReagentId: Leporazine
-            Quantity: 10
+            Quantity: 5
           - ReagentId: Epinephrine
-            Quantity: 10
+            Quantity: 5
 
 # doesn't get any better than this
 - type: entity
   name: luxury medipen
   parent: ChemicalMedipen
   id: LuxuryMedipen
-  description: Cutting edge bluespace technology allowed Nanotrasen to compact 180u of volume into a single medipen. Contains rare and powerful chemicals used to aid in exploration of harsh environments. Chemicals relatively harmful and not as effective when used outside of low pressure.
+  description: Cutting edge technology allowed Nanotrasen to synthesize and trial a new wonder-drug. Contains a rare and powerful chemical used to aid in exploration of harsh environments. Chemicals contained are less effective when used outside of intended pressure ranges. # Omu
   components:
   - type: Sprite
     sprite: /Textures/_Lavaland/Objects/Specific/Medical/luxmedipen.rsi
@@ -72,29 +72,17 @@
     emptySpriteName: luxpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 180
+    transferAmount: 30 # Omu
     onlyAffectsMobs: false
     injectOnly: true
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 180
-        reagents:
-          - ReagentId: DexalinPlus
-            Quantity: 20
-          - ReagentId: Epinephrine # until Penthrite gets shitcoded in someday
-            Quantity: 20
-          - ReagentId: Oxandrolone
-            Quantity: 20
-          - ReagentId: SalicylicAcid
-            Quantity: 20
-          - ReagentId: Omnizine
-            Quantity: 20
+        maxVol: 30 # Omu
+        reagents: # Omu
           - ReagentId: Leporazine
-            Quantity: 20
-          - ReagentId: TranexamicAcid
-            Quantity: 20
-          - ReagentId: Saline
-            Quantity: 20
+            Quantity: 5
+          - ReagentId: Epinephrine
+            Quantity: 5
           - ReagentId: Luxurium
             Quantity: 20

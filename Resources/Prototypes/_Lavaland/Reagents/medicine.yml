@@ -95,34 +95,75 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange
+      - !type:HealthChange # Omu
         damage:
           types:
-            Cold: 2
-            Asphyxiation: 1.75
-            Bloodloss: 3
-          groups:
-            Toxin: 1.5
-            Brute: 7.5
-            Burn: 4
-            Airloss: 1.5
-      - !type:HealthChange
+            Blunt: -1
+            Slash: -1
+            Heat: -1
+            Cold: -1
+      - !type:HealthChange # Omu
         damage:
           types:
+            Blunt: -2
+            Slash: -2
+            Heat: -2
             Cold: -2
-            Asphyxiation: -1.75
-            Bloodloss: -3
+            Poison: -1.5
+            Asphyxiation: -1.5
           groups:
-            Toxin: -1.5
-            Brute: -7.5
-            Burn: -4
-            Airloss: -1.5
         conditions:
           - !type:PressureThreshold
             min: 1
             max: 50
             worksOnLavaland: true
-      # Cuts the amount healed roughly by 50% when in normal pressure.
+      - !type:ModifyBloodLevel # Omu added
+        amount: 5
+        conditions:
+          - !type:PressureThreshold
+            min: 1
+            max: 50
+            worksOnLavaland: true
+      - !type:ModifyBleedAmount # Omu added
+        amount: -1
+        conditions:
+          - !type:PressureThreshold
+            min: 1
+            max: 50
+            worksOnLavaland: true
+      ## Omu added, for rest of prototype; Overdose
+      - !type:HealthChange
+        conditions:
+        - !type:PressureThreshold
+          min: 1
+          max: 50
+          worksOnLavaland: true
+        - !type:ReagentThreshold
+          min: 20.5
+        damage:
+          types:
+            Asphyxiation: 1
+            Poison: 2
+      - !type:MovespeedModifier
+        conditions:
+        - !type:PressureThreshold
+          min: 1
+          max: 50
+          worksOnLavaland: true
+        - !type:ReagentThreshold
+          min: 20.5
+        walkSpeedModifier: 0.8
+        sprintSpeedModifier: 0.8
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          min: 20.5
+        key: Stutter
+        component: StutteringAccent
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 20.5
 
 - type: reagent
   id: VitriumFroth
