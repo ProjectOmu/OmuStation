@@ -22,7 +22,7 @@
 - type: entity
   name: autoinjector cartridge (poison) # Omu
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 8u of dylovene, and 1u of multiver, used in a cartridge autoinjector.
+  description: Contains 8u of dylovene, and 2u of multiver, used in a cartridge autoinjector.
   id: CartridgeDylo
   components:
   - type: Sprite
@@ -36,4 +36,6 @@
       maxVol: 10
       reagents:
       - ReagentId: Dylovene
-        Quantity: 10
+        Quantity: 8
+      - ReagentId: Multiver
+        Quantity: 2
