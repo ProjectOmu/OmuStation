@@ -12,7 +12,7 @@
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterCommand
 
-- type: entity
+- type: entity # Omu
   id: ClothingOuterWinterNTR
   parent: [ClothingOuterWinterCoatToggleable, BaseCentcommContraband]
   name: nanotrasen representative's winter coat
@@ -24,4 +24,4 @@
     sprite: _Omu/Clothing/OuterClothing/WinterCoats/coatntr.rsi
   - type: ToggleableClothing
     clothingPrototypes:
-      head: ClothingHeadHatHoodWinterSyndie
+      head: ClothingHeadHatHoodWinterNTR

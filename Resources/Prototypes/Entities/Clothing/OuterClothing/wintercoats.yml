@@ -109,7 +109,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: [ ClothingOuterStorageBase, ClothingOuterStorageToggleableBase] # Omu, fixing default hoodless coat
   id: ClothingOuterWinterCoat
   name: winter coat
   description: A heavy jacket made from 'synthetic' animal furs.
@@ -148,7 +148,6 @@
   - type: Tag
     tags:
     - ClothMade
-    - Recyclable
     - WhitelistChameleon
     - WinterCoat # Goobstation
   - type: StaticPrice
@@ -157,21 +156,16 @@
     materialComposition:
       Cloth: 125
       Durathread: 50
-
-- type: entity
-  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageToggleableBase ]
-  id: ClothingOuterWinterCoatToggleable
-  name: winter coat with hood
-  categories: [ HideSpawnMenu ]
-  components:
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterDefault
-  - type: Tag # Goobstation
-    tags:
-    - ClothMade
-    - WhitelistChameleon
-    - WinterCoat
+
+- type: entity # Omu, fixing default hoodless coat
+  abstract: true
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterWinterCoatToggleable
+  name: winter coat with hood
+  categories: [ HideSpawnMenu ]
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
@@ -378,14 +372,14 @@
       Plasteel: 187
   - type: StaticPrice #Goobstation - Recycle update
     price: 220
-  - type: Armor # Goob
+  - type: Armor # Goob # Omu
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.6
-        Heat: 0.6
-        Caustic: 0.65
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.55
+        Heat: 0.55
+        Caustic: 0.6
 
 - type: entity
   parent: [ClothingOuterWinterCoatToggleable, BaseSecurityCommandContraband]
@@ -620,14 +614,14 @@
       Plasteel: 125
   - type: StaticPrice #Goobstation - Recycle update
     price: 180
-  - type: Armor # Goob
+  - type: Armor # Goob # Omu
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.6 # Omu
-        Heat: 0.6
-        Caustic: 0.65 # Omu
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.55
+        Heat: 0.55
+        Caustic: 0.6
 ################################################################
 
 - type: entity

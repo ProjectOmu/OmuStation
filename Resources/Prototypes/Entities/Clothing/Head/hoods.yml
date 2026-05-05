@@ -412,6 +412,17 @@
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
 
+- type: entity # Omu
+  parent: ClothingHeadHatHoodWinterArmoredBase
+  id: ClothingHeadHatHoodWinterArmored
+  categories: [ HideSpawnMenu ]
+  name: armored winter coat hood
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterBartender

@@ -155,7 +155,12 @@
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/cap_armored_winter_coat.rsi
   - type: Item
     size: Normal
-  - type: Armor
+  - type: Armor # Omu
+    coverage:
+    - Chest
+    - Arm
+    - Groin
+    - Tail
     modifiers:
       coefficients:
         Blunt: 0.4
@@ -182,7 +187,7 @@
     size: Normal
 
 - type: entity
-  parent: ClothingBlueshieldArmourVest
+  parent: ClothingBlueshieldArmoredCoat # Omu
   id: ClothingBlueshieldArmoredJacket
   name: blueshield's armored jacket
   description: A jacket with sewn-in reinforcement layers.
@@ -213,6 +218,20 @@
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/bso_winter_coat.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/bso_winter_coat.rsi
+  - type: Armor # Omu
+    coverage:
+    - Chest
+    - Arm
+    - Groin
+    - Tail
+    - Leg
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.5
+        Heat: 0.4
+        Caustic: 0.65
   - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterBso

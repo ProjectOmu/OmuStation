@@ -8,3 +8,9 @@
     sprite: _Omu/Clothing/Head/Hoods/Coat/hoodcommand.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Head/Hoods/Coat/hoodcommand.rsi
+
+- type: entity # Omu
+  parent: ClothingHeadHatHoodWinterSyndie
+  id: ClothingHeadHatHoodWinterNTR
+  categories: [ HideSpawnMenu ]
+  name: nanotrasen representative's winter coat hood
