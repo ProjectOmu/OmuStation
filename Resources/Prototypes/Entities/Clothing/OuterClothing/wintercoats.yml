@@ -692,6 +692,9 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatnomi.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatnomi.rsi
+  - type: ToggleableClothing # Omu
+    clothingPrototypes:
+      head: ClothingHeadHatHoodWinterColorBlack
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
