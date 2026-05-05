@@ -483,6 +483,7 @@
   parent: IDCardStandard
   id: PunPunIDCard
   name: pun pun ID card
+  description: A card necessary to access various areas aboard the station. It seems firmly attached to the jumpsuit. # Omu
   components:
     - type: Sprite
       layers:
@@ -494,6 +495,7 @@
     - type: Tag #  Ignore Chameleon tags
       tags:
       - DoorBumpOpener
+    - type: Unremovable # Omu - Make Pun Pun's ID card unremovable
 
 - type: entity
   parent: IDCardStandard
