@@ -93,16 +93,16 @@
   color: "#302f70"
   recognizable: true
   metabolisms:
-    Medicine:
+    Medicine: # Omu (rest of prototype from here)
       effects:
-      - !type:HealthChange # Omu
+      - !type:HealthChange
         damage:
           types:
             Blunt: -1
             Slash: -1
             Heat: -1
             Cold: -1
-      - !type:HealthChange # Omu
+      - !type:HealthChange
         damage:
           types:
             Blunt: -2
@@ -117,21 +117,21 @@
             min: 1
             max: 50
             worksOnLavaland: true
-      - !type:ModifyBloodLevel # Omu added
+      - !type:ModifyBloodLevel
         amount: 5
         conditions:
           - !type:PressureThreshold
             min: 1
             max: 50
             worksOnLavaland: true
-      - !type:ModifyBleedAmount # Omu added
+      - !type:ModifyBleedAmount
         amount: -1
         conditions:
           - !type:PressureThreshold
             min: 1
             max: 50
             worksOnLavaland: true
-      ## Omu added, for rest of prototype; Overdose
+      ## Overdose effects
       - !type:HealthChange
         conditions:
         - !type:PressureThreshold
