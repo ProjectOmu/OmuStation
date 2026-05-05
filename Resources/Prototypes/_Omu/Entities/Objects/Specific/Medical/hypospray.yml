@@ -1,7 +1,7 @@
 - type: entity
   name: autoinjector cartridge (radiation) # Omu
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 10u of arithrazine, used in a cartridge autoinjector.
+  description: Contains 5u of arithrazine, and 5u of hyronalin used in a cartridge autoinjector.
   id: CartridgeArith
   components:
   - type: Sprite
