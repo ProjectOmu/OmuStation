@@ -1,5 +1,5 @@
 - type: entity
-  name: radiation autoinjector cartridge
+  name: autoinjector cartridge (radiation) # Omu
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
   description: Contains 10u of arithrazine, used in a cartridge autoinjector.
   id: CartridgeArith
@@ -8,7 +8,7 @@
     layers:
     - state: base
     - state: filling
-      color: "#8dce15"
+      color: "#15ce5c"
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
@@ -20,7 +20,7 @@
         Quantity: 5
 
 - type: entity
-  name: poison autoinjector cartridge
+  name: autoinjector cartridge (poison) # Omu
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
   description: Contains 8u of dylovene, and 1u of multiver, used in a cartridge autoinjector.
   id: CartridgeDylo
