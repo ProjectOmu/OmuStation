@@ -524,6 +524,17 @@
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodhos.rsi
 
+- type: entity # Omu
+  parent: ClothingHeadHatHoodWinterArmoredBase
+  id: ClothingHeadHatHoodWinterArmoredHOS
+  categories: [ HideSpawnMenu ]
+  name: head of security's armored winter coat hood
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hoods/Coat/hoodhos.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hoods/Coat/hoodhos.rsi
+
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterHydro
@@ -645,9 +656,31 @@
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodsec.rsi
 
+- type: entity # Omu
+  parent: ClothingHeadHatHoodWinterArmoredBase
+  id: ClothingHeadHatHoodWinterArmoredSec
+  categories: [ HideSpawnMenu ]
+  name: security armored coat hood
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hoods/Coat/hoodsec.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hoods/Coat/hoodsec.rsi
+
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterSyndie
+  categories: [ HideSpawnMenu ]
+  name: syndicate coat hood
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hoods/Coat/hoodsyndicate.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hoods/Coat/hoodsyndicate.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterArmoredBase
+  id: ClothingHeadHatHoodWinterArmoredSyndie
   categories: [ HideSpawnMenu ]
   name: syndicate coat hood
   components:
@@ -661,6 +694,17 @@
   id: ClothingHeadHatHoodWinterWarden
   categories: [ HideSpawnMenu ]
   name: warden's coat hood
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hoods/Coat/hoodsec.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hoods/Coat/hoodsec.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterArmoredBase
+  id: ClothingHeadHatHoodWinterArmoredWarden
+  categories: [ HideSpawnMenu ]
+  name: warden's armored coat hood
   components:
   - type: Sprite
     sprite: Clothing/Head/Hoods/Coat/hoodsec.rsi

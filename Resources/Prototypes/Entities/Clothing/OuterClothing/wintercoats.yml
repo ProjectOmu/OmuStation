@@ -159,7 +159,7 @@
       Durathread: 50
 
 - type: entity
-  parent: [ ClothingOuterStorageToggleableBase, ClothingOuterWinterCoat ]
+  parent: [ ClothingOuterWinterCoat, ClothingOuterStorageToggleableBase ]
   id: ClothingOuterWinterCoatToggleable
   name: winter coat with hood
   categories: [ HideSpawnMenu ]
@@ -358,7 +358,6 @@
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterHOP
 
-
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterWinterCoatToggleable, BaseSecurityCommandContraband]
   id: ClothingOuterWinterHoS
@@ -371,7 +370,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coathosarmored.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
-      head: ClothingHeadHatHoodWinterHOS
+      head: ClothingHeadHatHoodWinterArmoredHOS
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Cloth: 250
@@ -514,7 +513,6 @@
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterQM
 
-
 - type: entity
   parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
   id: ClothingOuterWinterRD
@@ -547,7 +545,6 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterRobo
-
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
@@ -615,7 +612,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
-      head: ClothingHeadHatHoodWinterWarden
+      head: ClothingHeadHatHoodWinterArmoredWarden
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Cloth: 250
@@ -674,7 +671,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecaparmored.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
-      head: ClothingHeadHatHoodWinterSyndie
+      head: ClothingHeadHatHoodWinterArmoredSyndie
 ##############################################################
 
 - type: entity
