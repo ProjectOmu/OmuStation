@@ -667,7 +667,7 @@
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodsec.rsi
 
-- type: entity
+- type: entity # Omu
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterSyndie
   categories: [ HideSpawnMenu ]
@@ -678,7 +678,7 @@
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodsyndicate.rsi
 
-- type: entity
+- type: entity # Omu
   parent: ClothingHeadHatHoodWinterArmoredBase
   id: ClothingHeadHatHoodWinterArmoredSyndie
   categories: [ HideSpawnMenu ]
@@ -700,7 +700,7 @@
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodsec.rsi
 
-- type: entity
+- type: entity # Omu
   parent: ClothingHeadHatHoodWinterArmoredBase
   id: ClothingHeadHatHoodWinterArmoredWarden
   categories: [ HideSpawnMenu ]
