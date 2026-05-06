@@ -37,7 +37,9 @@ public sealed class SmartFridgeSystem : EntitySystem
             sub =>
             {
                 sub.Event<SmartFridgeDispenseItemMessage>(OnDispenseItem);
+                // Monolith Start
                 sub.Event<SmartFridgeRemoveEntryMessage>(OnRemoveEntry);
+                // Monolith End
             });
     }
 
@@ -137,6 +139,7 @@ public sealed class SmartFridgeSystem : EntitySystem
         _popup.PopupPredicted(Loc.GetString("smart-fridge-component-try-eject-out-of-stock"), ent, args.Actor);
     }
 
+    // Monolith Start
     private void OnRemoveEntry(Entity<SmartFridgeComponent> ent, ref SmartFridgeRemoveEntryMessage args)
     {
         if (!Allowed(ent, args.Actor))
@@ -151,6 +154,7 @@ public sealed class SmartFridgeSystem : EntitySystem
         ent.Comp.ContainedEntries.Remove(args.Entry);
         Dirty(ent);
     }
+    // Monolith End
 
     private void OnGetDumpableVerb(Entity<SmartFridgeComponent> ent, ref GetDumpableVerbEvent args)
     {
