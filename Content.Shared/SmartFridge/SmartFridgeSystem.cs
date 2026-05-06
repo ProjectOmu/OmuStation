@@ -1,5 +1,6 @@
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
+using Content.Shared.Doors.Electronics; // Omustation
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -32,6 +33,9 @@ public sealed class SmartFridgeSystem : EntitySystem
 
         SubscribeLocalEvent<SmartFridgeComponent, GetDumpableVerbEvent>(OnGetDumpableVerb);
         SubscribeLocalEvent<SmartFridgeComponent, DumpEvent>(OnDump);
+
+        SubscribeLocalEvent<SmartFridgeComponent, ActivatableUIOpenAttemptEvent>(OnOpenAttempt); // Omustation
+        SubscribeLocalEvent<SmartFridgeComponent, EntInsertedIntoContainerMessage>(OnBoardInserted); // Omustation
 
         Subs.BuiEvents<SmartFridgeComponent>(SmartFridgeUiKey.Key,
             sub =>
@@ -108,6 +112,29 @@ public sealed class SmartFridgeSystem : EntitySystem
         _audio.PlayPredicted(machine.Comp.SoundDeny, machine, user);
         return false;
     }
+
+    // Start of Omustation
+    private void OnOpenAttempt(Entity<SmartFridgeComponent> ent, ref ActivatableUIOpenAttemptEvent args)
+    {
+        if (!Allowed(ent, args.User))
+            args.Cancel();
+    }
+
+    private void OnBoardInserted(Entity<SmartFridgeComponent> ent, ref EntInsertedIntoContainerMessage args)
+    {
+        if (args.Container.ID != "machine_board")
+            return;
+
+        if (!TryComp<DoorElectronicsComponent>(args.Entity, out _))
+            return;
+
+        if (!TryComp<AccessReaderComponent>(args.Entity, out var boardReader) || boardReader.AccessLists.Count == 0)
+            return;
+
+        var fridgeReader = EnsureComp<AccessReaderComponent>(ent);
+        _accessReader.SetAccesses((ent.Owner, fridgeReader), boardReader.AccessLists);
+    }
+    // End of Omustation
 
     private void OnDispenseItem(Entity<SmartFridgeComponent> ent, ref SmartFridgeDispenseItemMessage args)
     {
