@@ -13,14 +13,16 @@
   name: SmartFridge
   description: A refrigerated storage unit for keeping items cold and fresh.
   components:
-  - type: Machine # Mono
+  # Monolith Start
+  - type: Machine
     board: SmartfridgeCircuitboard
-  - type: Construction # Mono
+  - type: Construction
     graph: Machine
     node: machine
     containers:
     - machine_parts
     - machine_board
+  # Monolith End
   - type: StationAiWhitelist
   - type: Vocalizer
     hideChat: true
