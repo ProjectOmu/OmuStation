@@ -2,6 +2,7 @@ using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Doors.Electronics; // Omustation
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.UserInterface; // Omustation
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
