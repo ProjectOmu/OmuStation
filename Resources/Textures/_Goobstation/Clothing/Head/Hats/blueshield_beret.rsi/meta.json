@@ -1,17 +1,18 @@
 {
-    "version": 1,
-    "size": {
-        "x": 32,
-        "y": 32
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Paradise Station, Edited by SolsticeOfTheWinter",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
     },
-    "license": "CC-BY-SA-3.0",
-    "copyright": "Made by quantoo2 on discord",
-    "states": [
-        {
-            "name": "icon"
-        },
-        {
-            "name": "equipped-HELMET"
-        }
-    ]
+    {
+      "name": "equipped-HELMET",
+      "directions": 4
+    }
+  ]
 }
