@@ -196,7 +196,7 @@ public sealed partial class BlockingSystem : EntitySystem
         var playerTileRef = _turf.GetTileRef(xform.Coordinates);
         if (playerTileRef != null)
         {
-            var intersecting = _lookup.GetLocalEntitiesIntersecting(playerTileRef.Value, -0.2f); // Omu change 0f to -0.2f to allow large characters to block
+            var intersecting = _lookup.GetLocalEntitiesIntersecting(playerTileRef.Value, -0.3f); // Omu change 0f to -0.3f to allow large characters to block
             var mobQuery = GetEntityQuery<MobStateComponent>();
             foreach (var uid in intersecting)
             {
