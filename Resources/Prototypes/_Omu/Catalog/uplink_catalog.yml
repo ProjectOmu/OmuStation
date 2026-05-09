@@ -25,6 +25,71 @@
     - Clown
 
 - type: listing
+  id: UplinkReinforcementRadioSyndicateCyborgMedical
+  name:  uplink-reinforcement-radio-cyborg-medical-name
+  description: uplink-reinforcement-radio-cyborg-medical-desc
+  productEntity: ReinforcementRadioSyndicateCyborgMedical
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
+  cost:
+    Telecrystal: 325 # 50 cheaper than assault borg
+  categories:
+    - UplinkAllies
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NukeOpsUplink
+      blacklist:
+        tags:
+        - ContravendUplink
+
+# Cyborg blueprints
+
+- type: listing
+  id: UplinkBlueprintExosuitFabricatorSyndieModuleBasic
+  name:  uplink-blueprint-exosuit-fabricator-syndie-module-basic-name
+  description: uplink-blueprint-exosuit-fabricator-syndie-module-basic-desc
+  productEntity: BlueprintExosuitFabricatorSyndieModuleBasic
+  icon: { sprite: Objects/Tools/blueprint.rsi, state: icon }
+  cost:
+    Telecrystal: 35
+  categories:
+    - UplinkDisruption
+
+- type: listing
+  id: UplinkBlueprintExosuitFabricatorSyndieModuleAdvanced
+  name:  uplink-blueprint-exosuit-fabricator-syndie-module-advanced-name
+  description: uplink-blueprint-exosuit-fabricator-syndie-module-advanced-desc
+  productEntity: BlueprintExosuitFabricatorSyndieModuleAdvanced
+  icon: { sprite: Objects/Tools/blueprint.rsi, state: icon }
+  cost:
+    Telecrystal: 50
+  categories:
+    - UplinkDisruption
+
+- type: listing
+  id: UplinkBlueprintExosuitFabricatorSyndieModuleAssault
+  name:  uplink-blueprint-exosuit-fabricator-syndie-module-assault-name
+  description: uplink-blueprint-exosuit-fabricator-syndie-module-assault-desc
+  productEntity: BlueprintExosuitFabricatorSyndieModuleAssault
+  icon: { sprite: Objects/Tools/blueprint.rsi, state: icon }
+  cost:
+    Telecrystal: 75
+  categories:
+    - UplinkDisruption
+
+- type: listing
+  id: UplinkBlueprintExoSuitFabricatorSyndieBorgChassis
+  name:  uplink-blueprint-exosuit-fabricator-syndie-chassis-name
+  description: uplink-blueprint-exosuit-fabricator-syndie-chassis-desc
+  productEntity: BlueprintExoSuitFabricatorSyndieBorgChassis
+  icon: { sprite: Objects/Tools/blueprint.rsi, state: icon }
+  cost:
+    Telecrystal: 125
+  categories:
+    - UplinkDisruption
+    
+- type: listing
   id: UplinkSwordfish
   name: uplink-swordfish-name
   description: uplink-swordfish-desc
