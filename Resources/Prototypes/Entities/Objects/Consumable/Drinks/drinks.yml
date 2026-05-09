@@ -287,7 +287,10 @@
       - state: icon-front
         map: [ "enum.SolutionContainerLayers.Overlay" ]
   - type: Appearance
-  - type: Drink # Adventure
+  - type: Edible # Adventure
+    edible: Drink
+    solution: bucket
+    destroyOnEmpty: false
   - type: SolutionContainerManager
     solutions:
       drink:
