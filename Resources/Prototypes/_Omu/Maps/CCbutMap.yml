@@ -1,0 +1,81 @@
+
+- type: gameMap
+  id: CentComButMap
+  mapName: 'Central Command'
+  mapPath: /Maps/_Omu/CentCompMap.yml # Omu - Prisoner role mapping
+  minPlayers: 0
+  maxPlayers: 85
+  stations:
+    CentComButMap:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Central Command {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'CC'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/emergency_meta.yml
+        - type: StationJobs
+          availableJobs:
+            #service
+            Captain: [ 1, 1 ]
+            NanotrasenRepresentative: [ 1, 1 ]
+            BlueshieldOfficer: [ 1, 1 ]
+            HeadOfPersonnel: [ 2, 2 ]
+            AdministrativeAssistant: [ 1, 1 ] # Delta V
+            Bartender: [ 1, 1 ]
+            Botanist: [ 2, 2 ]
+            Chef: [ 3, 3 ]
+            Janitor: [ 1, 1 ]
+            Chaplain: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
+            #engineering
+            ChiefEngineer: [ 1, 1 ]
+            AtmosphericTechnician: [ 1, 1 ]
+            StationEngineer: [ 1, 1 ]
+            TechnicalAssistant: [ 1, 1 ]
+            #medical
+            ChiefMedicalOfficer: [ 2, 2 ]
+            Chemist: [ 3, 3 ]
+            MedicalDoctor: [ 5, 5 ]
+            MedicalIntern: [ 6, 6 ]
+            Paramedic: [ 2, 2 ]
+            Virologist: [ 2, 2 ]
+            #science
+            ResearchDirector: [ 2, 2 ]
+            Scientist: [ 7, 7 ]
+            ResearchAssistant: [ 6, 6 ]
+            Roboticist: [ 2, 2 ] #Omu
+            #security
+            HeadOfSecurity: [ 2, 2 ]
+            Warden: [ 1, 1 ]
+            SecurityOfficer: [ 5, 7 ]
+            Detective: [ 1, 1 ]
+            SecurityCadet: [ 3, 6 ]
+            Lawyer: [ 1, 1 ]
+            Brigmedic: [ 1, 1 ]
+            TransitPrisoner: [6, 6] # Omu - Prisoner role
+            SecuritySergeant: [ 1, 1 ] #Omu
+            #supply
+            Quartermaster: [ 2, 2 ]
+            SalvageSpecialist: [ 3, 3 ]
+            Courier: [ 2, 2 ] # Omu - Courier role
+            CargoTechnician: [ 6, 6 ]
+            #civilian
+            Passenger: [ -1, -1 ]
+            Clown: [ 1, 1 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            #silicon
+            StationAi: [ 4, 4 ]
+            Borg: [ 12, 12 ]
+
+            NanotrasenCareerTrainer: [ 2, 2] # Omu
+
+        # Goobstation blob-config-start HUGE
+        - type: StationBlobConfig
+          stageBegin: 40
+          stageCritical: 450
+          stageTheEnd: 900
+        # Goobstation blob-config-end
