@@ -22,18 +22,18 @@ public sealed partial class FultonBeaconComponent : Component
     /// <summary>
     /// Omu: Send announcement over radio when a fulton is sent?
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public bool AnnounceOnFulton = false;
 
     /// <summary>
     /// Omu: The radio channel that the fulton announcements are broadcast to.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public ProtoId<RadioChannelPrototype> AnnouncementChannel = "Supply";
 
     /// <summary>
     /// Omu: The radio channel that the fulton announcements are broadcast to.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public string AnnouncementMessage = "fulton-radio-message";
 }
