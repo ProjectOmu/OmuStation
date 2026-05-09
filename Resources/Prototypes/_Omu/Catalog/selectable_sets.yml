@@ -61,18 +61,6 @@
   - MagazineCaselessRifleFMJ
 
 - type: selectableSet
-  id: BSOBRDISet
-  name: selectable-set-bso-brdi-name
-  description: selectable-set-bso-brdi-description
-  sprite:
-    sprite: _DEN/Objects/Weapons/Guns/SMGs/BRDI_R25_blue.rsi
-    state: icon
-  content:
-  - WeaponSubMachineGunBRDIR25BSO
-  - MagazineCaselessRifle
-  - MagazineCaselessRifle
-
-- type: selectableSet
   id: WeaponEnergyShotgunSet
   name: selectable-set-warden-eshotty-name
   description: selectable-set-warden-eshotty-description
@@ -254,6 +242,50 @@
     state: icon
   content:
   - ClothingOuterHardsuitCorpsman
+
+# Blueshield Officer
+
+- type: selectableSet 
+  id: BSOBRDISet # Yes I moved it because it bothered me that it was in some random ass place above
+  name: selectable-set-bso-brdi-name
+  description: selectable-set-bso-brdi-description
+  sprite:
+    sprite: _DEN/Objects/Weapons/Guns/SMGs/BRDI_R25_blue.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunBRDIR25BSO
+  - MagazineCaselessRifle
+  - MagazineCaselessRifle
+
+- type: selectableSet
+  id: BSOExtractionSet
+  name: selectable-set-bso-extraction-name
+  description: selectable-set-bso-extraction-description
+  sprite:
+    sprite: _Omu/Objects/Tools/bluespace_fulton.rsi
+    state: extraction_pack
+  content:
+  - ClothingBeltExtractionRigBSOFilled
+
+- type: selectableSet
+  id: BSOMedicalSet
+  name: selectable-set-bso-medical-name
+  description: selectable-set-bso-medical-description
+  sprite:
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: medicated-suture
+  content:
+  - ClothingBeltMilitaryWebbingBSOFilledMed
+
+- type: selectableSet
+  id: BSOChemicalSet
+  name: selectable-set-bso-chemical-name
+  description: selectable-set-bso-chemical-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Melee/blueshield_knife.rsi
+    state: icon
+  content:
+  - ClothingBeltChemBagBSOFilled
 
 # NTR
 
