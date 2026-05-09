@@ -427,7 +427,7 @@
     coverage: EYES
 
 - type: entity
-  parent: [ClothingEyesBase, BaseMedicalScienceContraband] # Omu
+  parent: ClothingEyesBase
   id: ClothingEyesGlassesChemical
   name: chemical analysis goggles
   description: Goggles that can scan the chemical composition of a solution.
