@@ -57,8 +57,8 @@
     state: icon
   content:
   - WeaponSubMachineGunBRDIR25HoS
-  - MagazineCaselessRifle
-  - MagazineCaselessRifle
+  - MagazineCaselessRifleFMJ
+  - MagazineCaselessRifleFMJ
 
 - type: selectableSet
   id: BSOBRDISet
@@ -115,6 +115,16 @@
   - SecurityDutyRevolver
   - SpeedLoaderRevolverLightRifle
   - SpeedLoaderRevolverLightRifle
+
+- type: selectableSet
+  id: WeaponCeremonialRifleSet
+  name: selectable-set-ceremonial-rifle-name
+  description: selectable-set-ceremonial-rifle-description
+  sprite:
+    sprite: _Omu/Objects/Weapons/Guns/Snipers/ceremonial_rifle.rsi
+    state: base
+  content:
+  - WeaponSniperM1Garand
 
 - type: selectableSet
   id: WeaponTerminusSet
@@ -244,3 +254,25 @@
     state: icon
   content:
   - ClothingOuterHardsuitCorpsman
+
+# NTR
+
+- type: selectableSet
+  id: CaneNTSet
+  name: selectable-set-ntr-cane-name
+  description: selectable-set-ntr-cane-desc
+  sprite:
+    sprite: _Starlight/Objects/Weapons/Melee/cane_nt.rsi
+    state: icon
+  content:
+  - CaneNT
+
+- type: selectableSet
+  id: NanoRepBeltSet
+  name: selectable-set-ntr-belt-name
+  description: selectable-set-ntr-belt-desc
+  sprite:
+    sprite: _Omu/Clothing/Belt/centcomdisciplinary.rsi
+    state: icon
+  content:
+  - NanoRepBelt

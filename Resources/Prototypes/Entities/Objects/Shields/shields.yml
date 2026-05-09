@@ -199,6 +199,13 @@
   components:
     - type: StaticPrice
       price: 90
+    - type: Clothing #gabystation - added clothing component to make MOST shields wearable
+      sprite: Objects/Weapons/Melee/shields.rsi
+      slots:
+      - suitStorage
+      clothingVisuals:
+        suitstorage:
+        - state: riot-backpack
     - type: Blocking
       passiveBlockModifier:
         coefficients:
@@ -220,6 +227,13 @@
   components:
     - type: Sprite
       state: riot_laser-icon
+    - type: Clothing #gabystation
+      sprite: Objects/Weapons/Melee/shields.rsi
+      slots:
+      - suitStorage
+      clothingVisuals:
+        suitstorage:
+        - state: riot-laser-backpack
     - type: Item
       heldPrefix: riot_laser
     - type: Blocking
@@ -241,6 +255,13 @@
     - type: Sprite
       sprite: _Goobstation/Objects/Shields/riotbulletshield.rsi # Goobstation
       state: ballistic-icon
+    - type: Clothing #gabystation
+      sprite: _Goobstation/Objects/Shields/riotbulletshield.rsi
+      slots:
+      - suitStorage
+      clothingVisuals:
+        suitstorage:
+        - state: riot-bullet-backpack
     - type: Item
       heldPrefix: ballistic
     - type: Blocking
@@ -263,6 +284,13 @@
   components:
     - type: Sprite
       state: buckler-icon
+    - type: Clothing #gabystation
+      sprite: Objects/Weapons/Melee/shields.rsi
+      slots:
+      - suitStorage
+      clothingVisuals:
+        suitstorage:
+        - state: buckler-backpack
     - type: Item
       heldPrefix: buckler
     - type: Blocking
@@ -376,6 +404,13 @@
        - MakeshiftShield
     - type: Sprite
       state: makeshift-icon
+    - type: Clothing #gabystation
+      sprite: Objects/Weapons/Melee/shields.rsi
+      slots:
+      - suitStorage
+      clothingVisuals:
+        suitstorage:
+        - state: metal-backpack
     - type: Item
       heldPrefix: metal
     - type: Blocking
@@ -485,6 +520,13 @@
   components:
     - type: Sprite
       state: ratvarian-icon
+    - type: Clothing #gabystation
+      sprite: Objects/Weapons/Melee/shields.rsi
+      slots:
+      - suitStorage
+      clothingVisuals:
+        suitstorage:
+        - state: ratvarian-backpack
     - type: Item
       heldPrefix: ratvarian
     - type: Blocking

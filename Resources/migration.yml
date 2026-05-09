@@ -174,9 +174,9 @@ BenchParkRight: null
 BenchPewLeft: null
 BenchPewMiddle: null
 BenchPewRight: null
-BenchSofaCorpLeft: null
-BenchSofaCorpMiddle: null
-BenchSofaCorpRight: null
+#BenchSofaCorpLeft: null # Goob edit
+#BenchSofaCorpMiddle: null # Goob edit
+#BenchSofaCorpRight: null # Goob edit
 #BenchSofaLeft: null #Omu
 #BenchSofaRight: null #Omu
 BenchSteelLeft: null
@@ -192,7 +192,6 @@ BoxMaintenanceLightbulb: BoxLightMixed
 BoxPDAPrisoner: BoxPDA
 ClothingBeltMartialBlack: null
 ClothingCostumeArcDress: null
-ClothingHeadCourier: null
 ClothingHeadHatFedoraBlack: null
 ClothingHeadHatFedoraChoc: null
 ClothingHeadHatFezMantis: null
@@ -200,7 +199,6 @@ ClothingHeadPrisonGuard: null
 ClothingUniformMartialGi: null
 ClothingUniformTShirtKhakiPants: null
 ComputerShipyard: null
-CourierBag: null
 CryogenicSleepUnitSpawnerPrisoner: null
 DefaultStationBeaconBoxing: null
 DefaultStationBeaconCameraServerRoom: null
@@ -287,7 +285,6 @@ SpareIdCabinetFilled: null
 SpawnMobArcticFoxSiobhan: null
 SpawnMobFerret: null
 SpawnMobMothroach: null
-SpawnPointCourier: null
 SpawnPointForensicMantis: null
 SpawnPointLocationMidRoundAntag: null
 SpawnPointMartialArtist: null
@@ -303,7 +300,6 @@ ToyRenault: null
 ToySiobhan: null
 VendingMachineBoozeUnlocked: null
 VendingMachineBoxingDrobe: null
-VendingMachineCourierDrobe: null
 VendingMachineMNKDrobe: null
 VendingMachineRepDrobe: null
 WallPaper: null
@@ -1112,7 +1108,7 @@ SpawnPointAdminAssistant: SpawnPointAdminAssistant
 SpawnPointChiefJustice: null
 SpawnPointClerk: null
 SpawnPointProsecutor: null
-SpawnPointRoboticist: SpawnPointScientist
+#SpawnPointRoboticist: SpawnPointScientist # Omu, add robtocist
 SpawnPointSecurityBorg: null
 SpawnPointSurgeon: SpawnPointMedicalDoctor
 SuitStorageSecDeltaV: SuitStorageSec
@@ -1127,12 +1123,14 @@ SpawnMobCMOPetSilvia: null
 SpawnPointCargoAssistant: SpawnPointCargoTechnician
 SignLastIdiot: null
 EpistemicsTechFab: ScienceTechFab
-LockableButtonRobotics: null
+#LockableButtonRobotics: null # Omu, add robtocist
 # LockerAdministrativeAssistantFilled: UniqueLockerNanorepFilled # Administrative Assistant is real now. This was just converting their lockers to NTR ones.
 
 # 2025-10-09
 FoodDonutJellySlugcat: FoodDonutJellyScurret
 
+# 2026-01-07 - Omu
+#SpawnPointCourier: null # Omu, add courier
 # 2026-01-04
 # GhostBarSpawner: null # Omu
 

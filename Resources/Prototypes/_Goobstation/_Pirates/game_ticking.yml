@@ -21,13 +21,14 @@
     earliestStart: 20
     reoccurrenceDelay: 60
     minimumPlayers: 30
+    maxOccurrences: 1 # Omu
     chaos:
-      Hostile: 50
-      Medical: 50
-      Death: 25
+      Hostile: 200 # Omu, was 100
+      Medical: 200 # Omu, was 100
+      Death: 100 # Omu, was 25
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 500
+    chaosScore: 1000 # Omu, was 500
   - type: PendingPirateRule
     ransomPrototype: BikeHornRansom
   - type: Tag
@@ -41,7 +42,7 @@
   - type: ActivePirateRule
   - type: RuleGrids
   - type: LoadMapRule
-    mapPath: /Maps/_Goobstation/Shuttles/pirates_irs.yml
+    mapPath: /Maps/_Omu/Shuttles/pirates_irs.yml # Omu
   - type: AntagLoadProfileRule
     speciesOverride: Human
     alwaysUseSpeciesOverride: true

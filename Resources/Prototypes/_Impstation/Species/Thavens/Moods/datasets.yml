@@ -1,0 +1,136 @@
+- type: dataset
+  id: ThavenMoodDepartments
+  values:
+  - Command
+  - Security
+  - Medical
+  - Science
+  - Engineering
+  - Cargo
+  - Service
+
+- type: dataset
+  id: ThavenMoodClothes
+  values:
+  - hardsuits
+  - uniforms
+  - helmets
+  - gloves
+  - boots
+  - cloaks
+
+- type: dataset
+  id: ThavenMoodFoodRestrictions
+  values:
+  - vegetarian
+  - vegan
+  - pescetarian
+  - fruitarian
+  - gluten-free diet
+  - dairy-free diet
+
+- type: dataset
+  id: ThavenMoodPets
+  values:
+  - Ian
+  - Runtime
+  - Pun Pun
+  - McGriff
+  - Morticia
+
+- type: dataset
+  id: ThavenMoodRooms
+  values:
+  - The Chapel
+  - The Bar
+  - Medbay
+  - The Bridge
+  - The Courtroom
+  - The Arrivals Shuttle
+  - Disposals
+  - The Library
+  - The Station Anchor
+  - The Morgue
+
+- type: dataset
+  id: ThavenMoodEdibles
+  values:
+  - Pizza
+  - Soup
+  - Burger
+  - Tacos
+  - Noodles
+  - Pie
+  - Eckeyiish kelpfry # omu, porting stuff from garden
+  - Eckeyiish kelp stew # omu, porting stuff from garden
+  - Kelp pods # omu, porting stuff from garden
+
+- type: dataset
+  id: ThavenMoodHolidays
+  values:
+  - Free Kelp Day
+  - Foster's Feast
+  - Gondaltide
+  - St. Pun Pun's Eve
+  - Clownsmas
+  - Intergalactic Hug A Robot Day
+  - Labor Day
+  - NT Corporate Mindfulness Day
+  - Silicon Awareness Day
+  - Pink Appreciation Day
+  - Logistics Improvement Day
+  - Small Ear Syndrome Awareness Day
+  - Gunchday
+  - Saint Eckeyeas' Day
+  - the Good Day Of Digging And Playing
+  - the Talent Show
+  - Tau-Ceti Cetaceaform Accessibility Act Remembrance Day
+  - Biesel Independence Day
+  - the Day Of Veneration Of Saint O'Hare
+  - Todaybor Day
+  - Pet A Sheep Day
+  - Eekeyiaikakslana Remembrance Day
+
+- type: dataset
+  id: ThavenMoodItems
+  values:
+  - Wrenches
+  - Welding Tools
+  - Screwdrivers
+  - Wirecutters
+  - Multitools
+  - Plushies
+  - Food packaging
+  - Soda cans
+  - Flashlights
+  - Empty toolboxes
+  - Civilian clothes
+  - Shoes
+  - Hats
+  - Scarves
+  - Folders
+  - Spray bottles
+  - Lizard Plushies
+  - Figurines
+  - Toys
+  - Lockers
+
+- type: dataset
+  id: ThavenMoodCommandRoles
+  values:
+  - Captain
+  - Head of Personnel
+  - Chief Engineer
+  - Chief Medical Officer
+  - Research Director
+  - Head of Security
+
+- type: dataset
+  id: ThavenMoodSpeechRestrictions
+  values:
+  - in whispers only
+  - only in questions
+  - only in rhymes
+  - without contractions
+  - only in third person
+  - only in formal titles

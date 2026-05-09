@@ -18,6 +18,7 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
+using Content.Server.Shuttles.Components;
 
 namespace Content.Server.Nutrition.EntitySystems
 {
@@ -59,10 +60,17 @@ namespace Content.Server.Nutrition.EntitySystems
             if (solution.Volume <= 0)
             {
                 _tagSystem.AddTag(entity.Owner, TrashTag);
+
+                EnsureComp<SpaceGarbageComponent>(entity.Owner); // Omu - Add the SpaceGarbage component when the container is empty.
+                
                 return;
             }
 
             _tagSystem.RemoveTag(entity.Owner, TrashTag);
+
+            if (HasComp<SpaceGarbageComponent>(entity.Owner)) // Omu - Remove the SpaceGarbage component when the container has a reagent, preventing deletion of chem bottles, etc.
+                RemComp<SpaceGarbageComponent>(entity.Owner); // Omu
+            
         }
     }
 }
