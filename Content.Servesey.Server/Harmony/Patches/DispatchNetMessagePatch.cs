@@ -34,12 +34,14 @@ public static class DispatchNetMessagePatch
     /// </summary>
     static Exception? Finalizer(Exception? __exception, ref bool __result, NetIncomingMessage msg)
     {
-        if (__exception is SodiumException)
+        if (__exception is SodiumException or ArgumentException or ArgumentOutOfRangeException)
         {
-            if (_logPacketIssues)
-                _sawmill.Debug($"{msg.SenderConnection?.RemoteEndPoint}: Got a packet that fails to decrypt.");
+            // Fuck you, i want logs.
+            _sawmill.Debug(
+                $"{msg.SenderConnection?.RemoteEndPoint}: Packet handling exception ({__exception.GetType().Name}) - {__exception.Message}\n{__exception.StackTrace}");
 
-            msg.SenderConnection?.Disconnect("Failed to decrypt packet.");
+            msg.SenderConnection?.Peer.FlushSendQueue();
+            msg.SenderConnection?.Disconnect(string.Empty, false);
             __result = true;
             return null;
         }
