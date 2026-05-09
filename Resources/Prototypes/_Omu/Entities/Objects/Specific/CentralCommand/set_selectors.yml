@@ -1,0 +1,35 @@
+# Blueshield Omu Edition
+
+- type: entity
+  id: BlueshieldUndeterminedOffensive
+  name:  blueshield offensive sets pack
+  description: A small box utilizing bluespace technology to drop in a loadout meant for offensive directly to you. Choose wisely.
+  parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/GunCases/blueshieldoffensivecase.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - BSOBRDISet
+    - BSOChesterSet
+    - BSORevolverSet
+    - BSOBlueshieldSet
+    - BSOCQCSet
+    maxSelectedSets: 1
+
+- type: entity
+  id: BlueshieldUndeterminedSupport
+  name:  blueshield support sets pack
+  description: A small box utilizing bluespace technology to drop in a loadout meant for support directly to you. Choose wisely.
+  parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/GunCases/blueshieldsupportcase.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - BSOExtractionSet
+    - BSOMedicalSet
+    - BSOChemicalSet
+    maxSelectedSets: 1

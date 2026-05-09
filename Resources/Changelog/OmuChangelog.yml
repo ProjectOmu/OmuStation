@@ -3731,3 +3731,127 @@ Entries:
       message: misc CC bugs
   id: 480
   time: '2026-05-06T15:16:39.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Add
+      message: Vox have cortical stacks for brains now
+  id: 481
+  time: '2026-05-09T17:19:10.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: >-
+        Added blueprints to the traitor uplink giving the ability to print
+        syndicate cyborg modules and chassis. 
+    - type: Add
+      message: Added the syndicate mediborg to nukeops uplinks
+  id: 482
+  time: '2026-05-09T20:12:04.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: 'Crew manifest now shows the gender of crew. '
+    - type: Fix
+      message: 'Fixed long names overflowing into the job section of the crew manifest. '
+  id: 483
+  time: '2026-05-09T20:36:02.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Ported Allulalo from Impstation
+  id: 484
+  time: '2026-05-09T20:51:09.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Betrayal knife no longer works in Zero G
+  id: 485
+  time: '2026-05-09T20:58:29.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Added a selector for vox raiders to pick from a list of sets.
+    - type: Tweak
+      message: >-
+        Changed the IFF console on the vox raider shuttle from true invisibility
+        to simply hiding the name
+    - type: Tweak
+      message: 'Vox raider''s suits are now less armored. '
+    - type: Remove
+      message: >-
+        Vox raiders no longer receive nocturine or chameleon projectors (You get
+        your tools from your selector)
+    - type: Remove
+      message: Removed vox raider's death acidifier
+  id: 486
+  time: '2026-05-09T21:04:25.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Slasher no longer has the ability to possess others, and is no longer
+        immune to breathing.
+  id: 487
+  time: '2026-05-09T21:12:32.0000000+00:00'
+- author: Pon, Annie
+  changes:
+    - type: Remove
+      message: >-
+        Removed the belt slot in loadout options for the BSO, due to the new
+        support kits.
+    - type: Remove
+      message: >-
+        Removed the compact defibrillator from BSO's locker, to focus on more
+        extraction based gameplay.
+    - type: Add
+      message: >-
+        Added 2 new set selectors for the BSO, which replace the previous weapon
+        one. 1 contains all the weapons the previous one did, the other
+        containing 3 different support options to choose from. They all come
+        with a unique belt slot items, allowing for better readability for all
+        players.
+    - type: Add
+      message: >-
+        Added the bluespace fultons and bluespace fultons beacon. These CC ID
+        locked fultons are applied in half the time of a normal fulton, extract
+        in 5 seconds and announce extraction on medical radio. Contained in the
+        Extraction set alongside the pill combat medkit and extraction rig, able
+        to store any 2x2 or smaller item.
+    - type: Add
+      message: >-
+        Added the bluespace body bag, a unique body bag which can hold up to 30
+        bodies, body parts and/or organs. Contained in the Medical set alongside
+        a compact defibrillator, 2 combat medkits and medical chest rig.
+    - type: Add
+      message: >-
+        Added the Chemical set, similiar to the old medical kit. Contains the
+        combat injector, T4 chems, omnizine and artiplates vials. Comes in the
+        medical pouch.
+    - type: Add
+      message: >-
+        Added the bluespace and bluespace stasis rollerbeds into the BSO's
+        locker. Both are 1x2 items when folded, with the stasis one also
+        functioning like a stasis bed on buckle. 
+    - type: Tweak
+      message: >-
+        Changed the item pool for BSO's locker to contain the two new set
+        selectors instead of the old weapon one, and a disabler for those who
+        choose a offensive kit without a nonlethal option. 
+    - type: Tweak
+      message: >-
+        Added a second nonlethal (disabling) speedloader to the shoulder holster
+        that the EG-4 comes with.
+  id: 488
+  time: '2026-05-09T21:26:46.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: 'Ported a new mid round event from DV, The Internal Affairs Agent. '
+  id: 489
+  time: '2026-05-09T21:47:40.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed being able to bypass species requirements on uplinks
+  id: 490
+  time: '2026-05-09T21:50:08.0000000+00:00'
