@@ -3503,3 +3503,343 @@ Entries:
         the station!
   id: 450
   time: '2026-04-19T00:14:00.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: fixed thaven not being immune to carpotoxin
+  id: 451
+  time: '2026-04-21T16:59:37.0000000+00:00'
+- author: ArtemisYK
+  changes:
+    - type: Add
+      message: Brigmedic time requirement to Nukie agent
+    - type: Tweak
+      message: Changed Nukie agent chemist time requirement to be 10hrs instead of 5
+  id: 452
+  time: '2026-04-22T18:13:28.0000000+00:00'
+- author: ArtemisYK
+  changes:
+    - type: Remove
+      message: StaminaDamage Component from the Hristov
+  id: 453
+  time: '2026-04-23T15:46:36.0000000+00:00'
+- author: ArtemisYK
+  changes:
+    - type: Add
+      message: New CMO Jumpsuits/Skirts and two new cloaks
+  id: 454
+  time: '2026-04-24T17:39:38.0000000+00:00'
+- author: LukaSlade
+  changes:
+    - type: Add
+      message: Added Distraughtcat's "Lunch Break" Artwork to the lobby art rotation
+  id: 455
+  time: '2026-04-24T23:48:42.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: >-
+        Added thaven kelp wine and some cocktails along with them. Find the wine
+        in booze-o-mat
+    - type: Add
+      message: >-
+        Added thaven kelp pods for botany to grow, mutate them for cask kelp
+        pods that have wine in them. Kelp pod seeds are in megaseed vend
+    - type: Add
+      message: Marketable thaven plush in loadout trinkets
+    - type: Add
+      message: Weird ass thaven dolphin emotes enjoy
+    - type: Add
+      message: Eckeckyik and bieselized eckeckyik translators
+    - type: Add
+      message: Thaven barbel markings
+  id: 456
+  time: '2026-04-25T16:32:49.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Resomi can now use more hair options outside Resomi defaults without
+        looking horrendous.
+  id: 457
+  time: '2026-04-28T07:52:22.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Resprited captain longcloak to match the rest of the cap gear
+  id: 458
+  time: '2026-04-28T07:54:43.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Fix
+      message: >-
+        Fixed hos duty case giving you hp bullets for the brdi instead of full
+        metal jacket
+  id: 459
+  time: '2026-04-28T07:55:20.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Jumpstarter heart dexalin replaced with artiplates and epinephrine
+    - type: Fix
+      message: >-
+        Fixed jumpstarter hearts not getting disabled by emps (if its a weak emp
+        they still might not die)
+  id: 460
+  time: '2026-04-28T07:56:22.0000000+00:00'
+- author: Marikiii
+  changes:
+    - type: Tweak
+      message: Increased the shark soft plush "attack" rate!
+  id: 461
+  time: '2026-04-28T08:00:58.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed the lavaland syndicate base.
+  id: 462
+  time: '2026-04-28T08:01:42.0000000+00:00'
+- author: Dudebroishere
+  changes:
+    - type: Add
+      message: >-
+        A Brown Colour to the mouse language. rodentia and mice now speak in a
+        brown.
+  id: 463
+  time: '2026-04-28T08:11:17.0000000+00:00'
+- author: LukaSlade
+  changes:
+    - type: Add
+      message: Added IdiotVibes' "Boarded from the Void" artwork to the lobby art pool!
+  id: 464
+  time: '2026-04-28T08:11:52.0000000+00:00'
+- author: 3PonPon3
+  changes:
+    - type: Fix
+      message: >-
+        Fixed THE LARGEST OF CHARACTERS being unable to raise shields properly.
+        Should be ACTUALLY capable of doing so now.
+  id: 465
+  time: '2026-04-29T17:07:29.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: Vulpkanin now have digitigrade legs!
+  id: 466
+  time: '2026-04-29T17:13:14.0000000+00:00'
+- author: BramvanZijp
+  changes:
+    - type: Fix
+      message: >-
+        An admin using a command to cleanup trash will no longer delete filled
+        containers or medipens.
+  id: 467
+  time: '2026-04-30T23:10:47.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed Chloris from map rotation.
+  id: 468
+  time: '2026-05-02T21:21:14.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Abductors now are back to having the normal IFF console rather than the
+        syndicate one.
+    - type: Fix
+      message: Fixed Abductors being able to abduct people across maps.
+  id: 469
+  time: '2026-05-03T11:46:12.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Command is no longer exempt to the metashield, refer to the command
+        training manual to see what you know.
+  id: 470
+  time: '2026-05-03T11:48:05.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Ported DV's tweaks to the epsilon alert level.
+  id: 471
+  time: '2026-05-04T10:15:51.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed the syndicate instigator gamerule from rotation.
+  id: 472
+  time: '2026-05-04T10:18:28.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Plague mice now only spawn from mouse migration events.
+  id: 473
+  time: '2026-05-04T10:22:15.0000000+00:00'
+- author: Kazuno-dev
+  changes:
+    - type: Fix
+      message: >-
+        Fixed CentComm PDAs (and those parented from it) being unable to use
+        nanochat
+  id: 474
+  time: '2026-05-04T14:23:11.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed the luxury medipen
+  id: 475
+  time: '2026-05-04T17:30:57.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: >-
+        You can mutate some new chems into your plants,, I cant list them all
+        here
+    - type: Tweak
+      message: Botanist traitors can buy the dart gun now
+    - type: Tweak
+      message: Industrial reagent grinder storage increased 400u -> 3000u
+  id: 476
+  time: '2026-05-05T17:40:16.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed being unable to break mountain rock
+  id: 477
+  time: '2026-05-06T02:20:16.0000000+00:00'
+- author: PickelSilly
+  changes:
+    - type: Add
+      message: >-
+        Added Divineluke's "Sapphire Bubblestar's Bubble-bar" artwork to the
+        lobby art rotation!
+  id: 478
+  time: '2026-05-06T02:21:57.0000000+00:00'
+- author: Rainflies
+  changes:
+    - type: Add
+      message: >-
+        Armored Jamrock blazer & Armored aerostatic jacket for detectives, The
+        road to healing is a long one.
+  id: 479
+  time: '2026-05-06T02:25:44.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: misc CC bugs
+  id: 480
+  time: '2026-05-06T15:16:39.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Add
+      message: Vox have cortical stacks for brains now
+  id: 481
+  time: '2026-05-09T17:19:10.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: >-
+        Added blueprints to the traitor uplink giving the ability to print
+        syndicate cyborg modules and chassis. 
+    - type: Add
+      message: Added the syndicate mediborg to nukeops uplinks
+  id: 482
+  time: '2026-05-09T20:12:04.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: 'Crew manifest now shows the gender of crew. '
+    - type: Fix
+      message: 'Fixed long names overflowing into the job section of the crew manifest. '
+  id: 483
+  time: '2026-05-09T20:36:02.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Ported Allulalo from Impstation
+  id: 484
+  time: '2026-05-09T20:51:09.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Betrayal knife no longer works in Zero G
+  id: 485
+  time: '2026-05-09T20:58:29.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Added a selector for vox raiders to pick from a list of sets.
+    - type: Tweak
+      message: >-
+        Changed the IFF console on the vox raider shuttle from true invisibility
+        to simply hiding the name
+    - type: Tweak
+      message: 'Vox raider''s suits are now less armored. '
+    - type: Remove
+      message: >-
+        Vox raiders no longer receive nocturine or chameleon projectors (You get
+        your tools from your selector)
+    - type: Remove
+      message: Removed vox raider's death acidifier
+  id: 486
+  time: '2026-05-09T21:04:25.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Slasher no longer has the ability to possess others, and is no longer
+        immune to breathing.
+  id: 487
+  time: '2026-05-09T21:12:32.0000000+00:00'
+- author: Pon, Annie
+  changes:
+    - type: Remove
+      message: >-
+        Removed the belt slot in loadout options for the BSO, due to the new
+        support kits.
+    - type: Remove
+      message: >-
+        Removed the compact defibrillator from BSO's locker, to focus on more
+        extraction based gameplay.
+    - type: Add
+      message: >-
+        Added 2 new set selectors for the BSO, which replace the previous weapon
+        one. 1 contains all the weapons the previous one did, the other
+        containing 3 different support options to choose from. They all come
+        with a unique belt slot items, allowing for better readability for all
+        players.
+    - type: Add
+      message: >-
+        Added the bluespace fultons and bluespace fultons beacon. These CC ID
+        locked fultons are applied in half the time of a normal fulton, extract
+        in 5 seconds and announce extraction on medical radio. Contained in the
+        Extraction set alongside the pill combat medkit and extraction rig, able
+        to store any 2x2 or smaller item.
+    - type: Add
+      message: >-
+        Added the bluespace body bag, a unique body bag which can hold up to 30
+        bodies, body parts and/or organs. Contained in the Medical set alongside
+        a compact defibrillator, 2 combat medkits and medical chest rig.
+    - type: Add
+      message: >-
+        Added the Chemical set, similiar to the old medical kit. Contains the
+        combat injector, T4 chems, omnizine and artiplates vials. Comes in the
+        medical pouch.
+    - type: Add
+      message: >-
+        Added the bluespace and bluespace stasis rollerbeds into the BSO's
+        locker. Both are 1x2 items when folded, with the stasis one also
+        functioning like a stasis bed on buckle. 
+    - type: Tweak
+      message: >-
+        Changed the item pool for BSO's locker to contain the two new set
+        selectors instead of the old weapon one, and a disabler for those who
+        choose a offensive kit without a nonlethal option. 
+    - type: Tweak
+      message: >-
+        Added a second nonlethal (disabling) speedloader to the shoulder holster
+        that the EG-4 comes with.
+  id: 488
+  time: '2026-05-09T21:26:46.0000000+00:00'

@@ -53,6 +53,12 @@
     alternateState: Resomi_burning
   - type: HumanoidAppearance
     species: Resomi
+    markingsDisplacement: # Omustation Start
+      Hair:
+        sizeMaps:
+          32:
+            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            state: hair # Omustation End
   - type: Icon
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
     state: full
@@ -302,6 +308,12 @@
   components:
   - type: HumanoidAppearance
     species: Resomi
+    markingsDisplacement: # Omustation Start
+      Hair:
+        sizeMaps:
+          32:
+            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            state: hair # Omustation End
   - type: Hands
     handDisplacement:
       sizeMaps:
