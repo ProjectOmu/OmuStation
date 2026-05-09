@@ -65,7 +65,7 @@
 
 # Boxes
 - type: entity
-  parent: BaseMagazineBoxMagnum
+  parent: [BaseMagazineBoxMagnum, BaseSecurityContraband] # Omu, add security contra tag
   id: MagazineBoxMagnum
   name: ammunition box (.45 magnum)
   description: A cardboard box of .45 magnum rounds. Intended to hold general-purpose kinetic ammunition.
@@ -97,7 +97,7 @@
 
 - type: entity
   id: MagazineBoxMagnumIncendiary
-  parent: BaseMagazineBoxMagnum
+  parent: [BaseMagazineBoxMagnum, BaseSecurityContraband] # Omu, add security contra tag
   name: ammunition box (.45 magnum incendiary)
   description: A cardboard box of .45 magnum rounds. Intended to hold self-igniting incendiary ammunition.
   components:
@@ -113,7 +113,7 @@
 
 - type: entity
   id: MagazineBoxMagnumUranium
-  parent: BaseMagazineBoxMagnum
+  parent: [BaseMagazineBoxMagnum, BaseSecurityContraband] # Omu, add security contra tag
   name: ammunition box (.45 magnum uranium)
   description: A cardboard box of .45 magnum rounds. Intended to hold exotic uranium-core ammunition.
   components:

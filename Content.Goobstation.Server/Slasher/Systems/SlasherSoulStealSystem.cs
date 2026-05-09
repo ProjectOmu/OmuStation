@@ -215,6 +215,7 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         var specialUnlockHappened = false;
 
         // Check for possession unlock at 10 souls
+        /* - Omu, disable slasher possession.
         if (!comp.HasUnlockedPossession
             && totalSouls >= comp.PossessionSoulThreshold)
         {
@@ -224,6 +225,7 @@ public sealed class SlasherSoulStealSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("slasher-soulsteal-unlock-possession"), user, user, PopupType.LargeCaution);
             specialUnlockHappened = true;
         }
+        */
 
         // Check for ascendance at 15 total souls
         if (!comp.HasAscended
