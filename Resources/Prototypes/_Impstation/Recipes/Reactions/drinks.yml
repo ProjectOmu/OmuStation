@@ -1,0 +1,34 @@
+# SPDX-FileCopyrightText: 2025 Gip-Kip <hargifarspam2@gmail.com>
+# SPDX-FileCopyrightText: 2025 bunnygirlHyacinth <xxst4rf11m00nb700db4nnyxx@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: reaction
+  id: ThavenBad # gds added kelp ooze requirement
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    WhiskeyCola:
+      amount: 1
+    BbqSauce:
+      amount: 1
+    KelpPodSlime:
+      amount: 1
+  products:
+    ThavenBad: 3
+
+- type: reaction
+  id: FeverDream # added kelp wine - gds
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    ShimmeringBlood:
+      amount: 2
+    KelpPodWine: # this used to be absinthe, this is kelpwine now to prevent testing errors
+      amount: 1
+    Champagne:
+      amount: 1
+    Egg:
+      amount: 1
+  products:
+    FeverDream: 5

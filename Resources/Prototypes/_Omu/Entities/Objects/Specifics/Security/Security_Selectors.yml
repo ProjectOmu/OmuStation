@@ -105,3 +105,18 @@
     maxSelectedSets: 1
   - type: StealTarget
     stealGroup: WeaponAntiqueLaser
+
+- type: entity
+  id: NTRDutyCase
+  name: nanotrasen representative's duty case
+  description: A case, used to securely store your disciplinary weapon of choice.
+  parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/GunCases/nanorepcase.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - CaneNTSet
+    - NanoRepBeltSet
+    maxSelectedSets: 1

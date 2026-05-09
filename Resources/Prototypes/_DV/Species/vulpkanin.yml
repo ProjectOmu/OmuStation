@@ -37,7 +37,7 @@
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
     Chest: MobVulpkaninChest
-    Groin: MobVulpkaninGroin
+    Groin: MobVulpkaninGroinDigi # Omu
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
@@ -46,10 +46,10 @@
     RArm: MobVulpkaninRArm
     LHand: MobVulpkaninLHand
     RHand: MobVulpkaninRHand
-    LLeg: MobVulpkaninLLeg
-    RLeg: MobVulpkaninRLeg
-    LFoot: MobVulpkaninLFoot
-    RFoot: MobVulpkaninRFoot
+    LLeg: MobVulpkaninLLegDigi #Omu - Vulp furrification
+    RLeg: MobVulpkaninRLegDigi #Omu - Vulp furrification
+    LFoot: MobVulpkaninLFootDigi #Omu - Vulp furrification
+    RFoot: MobVulpkaninRFootDigi #Omu - Vulp furrification
 
 - type: markingPoints
   id: MobVulpkaninMarkingLimits
@@ -105,102 +105,101 @@
 - type: humanoidBaseSprite
   id: MobVulpkaninHead
   baseSprite:
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    sprite: _DV/Mobs/Species/Vulpkanin/parts_plantigrade.rsi # Omu - vulp furrification
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobVulpkaninHeadMale
   baseSprite:
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    sprite: _DV/Mobs/Species/Vulpkanin/parts_plantigrade.rsi # Omu - vulp furrification
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobVulpkaninHeadFemale
   baseSprite:
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    sprite: _DV/Mobs/Species/Vulpkanin/parts_plantigrade.rsi # Omu - vulp furrification
     state: head_f
 
 - type: humanoidBaseSprite
   id: MobVulpkaninChest
   baseSprite:
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    sprite: _DV/Mobs/Species/Vulpkanin/parts_plantigrade.rsi # Omu - vulp furrification
     state: chest_m
 
 - type: humanoidBaseSprite
   id: MobVulpkaninChestMale
   baseSprite:
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    sprite: _DV/Mobs/Species/Vulpkanin/parts_plantigrade.rsi # Omu - vulp furrification
     state: chest_m
 
 - type: humanoidBaseSprite
   id: MobVulpkaninChestFemale
   baseSprite:
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    sprite: _DV/Mobs/Species/Vulpkanin/parts_plantigrade.rsi # Omu - vulp furrification
     state: chest_f
 
 - type: humanoidBaseSprite
   id: MobVulpkaninGroin
   baseSprite:
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    sprite: _DV/Mobs/Species/Vulpkanin/parts_plantigrade.rsi # Omu - vulp furrification
     state: groin_m
 
 - type: humanoidBaseSprite
   id: MobVulpkaninGroinMale
   baseSprite:
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    sprite: _DV/Mobs/Species/Vulpkanin/parts_plantigrade.rsi # Omu - vulp furrification
     state: groin_m
 
 - type: humanoidBaseSprite
   id: MobVulpkaninGroinFemale
   baseSprite:
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    sprite: _DV/Mobs/Species/Vulpkanin/parts_plantigrade.rsi # Omu - vulp furrification
     state: groin_f
 
 - type: humanoidBaseSprite
   id: MobVulpkaninLLeg
   baseSprite:
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    sprite: _DV/Mobs/Species/Vulpkanin/parts_plantigrade.rsi # Omu - vulp furrification
     state: l_leg
 
 - type: humanoidBaseSprite
   id: MobVulpkaninLHand
   baseSprite:
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    sprite: _DV/Mobs/Species/Vulpkanin/parts_plantigrade.rsi # Omu - vulp furrification
     state: l_hand
 
 - type: humanoidBaseSprite
   id: MobVulpkaninLArm
   baseSprite:
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    sprite: _DV/Mobs/Species/Vulpkanin/parts_plantigrade.rsi # Omu - vulp furrification
     state: l_arm
 
 - type: humanoidBaseSprite
   id: MobVulpkaninLFoot
   baseSprite:
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    sprite: _DV/Mobs/Species/Vulpkanin/parts_plantigrade.rsi # Omu - vulp furrification
     state: l_foot
 
 - type: humanoidBaseSprite
   id: MobVulpkaninRLeg
   baseSprite:
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    sprite: _DV/Mobs/Species/Vulpkanin/parts_plantigrade.rsi # Omu - vulp furrification
     state: r_leg
 
 - type: humanoidBaseSprite
   id: MobVulpkaninRHand
   baseSprite:
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    sprite: _DV/Mobs/Species/Vulpkanin/parts_plantigrade.rsi # Omu - vulp furrification
     state: r_hand
 
 - type: humanoidBaseSprite
   id: MobVulpkaninRArm
   baseSprite:
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    sprite: _DV/Mobs/Species/Vulpkanin/parts_plantigrade.rsi # Omu - vulp furrification
     state: r_arm
 
 - type: humanoidBaseSprite
   id: MobVulpkaninRFoot
   baseSprite:
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    sprite: _DV/Mobs/Species/Vulpkanin/parts_plantigrade.rsi # Omu - vulp furrification
     state: r_foot
-

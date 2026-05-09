@@ -1,0 +1,42 @@
+# SPDX-FileCopyrightText: 2025 Gip-Kip <hargifarspam2@gmail.com>
+# SPDX-FileCopyrightText: 2025 bunnygirlHyacinth <xxst4rf11m00nb700db4nnyxx@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieChoicesTadpole
+  name: Thaven tadpole plush
+  description: A marketable plushie of a certain thaven tadpole. It smells like the ocean.
+  components:
+  - type: Sprite
+    sprite: _Gardenstation/Objects/Fun/Toys.rsi
+    state: plushie_choicesbaby
+  - type: Item
+    heldPrefix: plushiechoicestadpole
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Gardenstation/Items/Toys/babusqueak.ogg
+      params:
+        volume: 12
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Gardenstation/Items/Toys/babuthrow.ogg
+      params:
+        volume: 12
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Gardenstation/Items/Toys/babusqueak.ogg
+      params:
+        volume: 12
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Gardenstation/Items/Toys/babusqueak.ogg
+      params:
+        volume: 12
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/_Gardenstation/Items/Toys/babusqueak.ogg
+      params:
+        volume: 12
