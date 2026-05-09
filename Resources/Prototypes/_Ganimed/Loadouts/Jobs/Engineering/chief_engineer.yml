@@ -1,0 +1,7 @@
+- type: loadout
+  id: ChiefEngineerCloakLong
+  equipment:
+    neck: ClothingNeckLongCloakCE
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterCE
