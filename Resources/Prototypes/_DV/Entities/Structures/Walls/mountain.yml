@@ -76,8 +76,8 @@
     sprite: _DV/Structures/Walls/mountain_rock.rsi
     state: full
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: StrongMetallic
+    damageContainer: StructuralInorganic # Omu
+    damageModifierSet: StructuralMetallicStrong # Omu
   - type: Destructible
     thresholds:
     - trigger:

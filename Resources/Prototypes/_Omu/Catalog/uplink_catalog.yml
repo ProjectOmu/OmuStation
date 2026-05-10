@@ -25,6 +25,71 @@
     - Clown
 
 - type: listing
+  id: UplinkReinforcementRadioSyndicateCyborgMedical
+  name:  uplink-reinforcement-radio-cyborg-medical-name
+  description: uplink-reinforcement-radio-cyborg-medical-desc
+  productEntity: ReinforcementRadioSyndicateCyborgMedical
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
+  cost:
+    Telecrystal: 325 # 50 cheaper than assault borg
+  categories:
+    - UplinkAllies
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NukeOpsUplink
+      blacklist:
+        tags:
+        - ContravendUplink
+
+# Cyborg blueprints
+
+- type: listing
+  id: UplinkBlueprintExosuitFabricatorSyndieModuleBasic
+  name:  uplink-blueprint-exosuit-fabricator-syndie-module-basic-name
+  description: uplink-blueprint-exosuit-fabricator-syndie-module-basic-desc
+  productEntity: BlueprintExosuitFabricatorSyndieModuleBasic
+  icon: { sprite: Objects/Tools/blueprint.rsi, state: icon }
+  cost:
+    Telecrystal: 35
+  categories:
+    - UplinkDisruption
+
+- type: listing
+  id: UplinkBlueprintExosuitFabricatorSyndieModuleAdvanced
+  name:  uplink-blueprint-exosuit-fabricator-syndie-module-advanced-name
+  description: uplink-blueprint-exosuit-fabricator-syndie-module-advanced-desc
+  productEntity: BlueprintExosuitFabricatorSyndieModuleAdvanced
+  icon: { sprite: Objects/Tools/blueprint.rsi, state: icon }
+  cost:
+    Telecrystal: 50
+  categories:
+    - UplinkDisruption
+
+- type: listing
+  id: UplinkBlueprintExosuitFabricatorSyndieModuleAssault
+  name:  uplink-blueprint-exosuit-fabricator-syndie-module-assault-name
+  description: uplink-blueprint-exosuit-fabricator-syndie-module-assault-desc
+  productEntity: BlueprintExosuitFabricatorSyndieModuleAssault
+  icon: { sprite: Objects/Tools/blueprint.rsi, state: icon }
+  cost:
+    Telecrystal: 75
+  categories:
+    - UplinkDisruption
+
+- type: listing
+  id: UplinkBlueprintExoSuitFabricatorSyndieBorgChassis
+  name:  uplink-blueprint-exosuit-fabricator-syndie-chassis-name
+  description: uplink-blueprint-exosuit-fabricator-syndie-chassis-desc
+  productEntity: BlueprintExoSuitFabricatorSyndieBorgChassis
+  icon: { sprite: Objects/Tools/blueprint.rsi, state: icon }
+  cost:
+    Telecrystal: 125
+  categories:
+    - UplinkDisruption
+    
+- type: listing
   id: UplinkSwordfish
   name: uplink-swordfish-name
   description: uplink-swordfish-desc
@@ -43,3 +108,65 @@
       tags:
       - ContractorUplink
       - NukeOpsUplink
+
+- type: listing
+  id: UplinkShredder
+  name: uplink-shredder-name
+  description: uplink-shredder-desc
+  icon: { sprite: _Omu/Objects/Weapons/Melee/shredder.rsi, state: icon }
+  productEntity: WeaponShredder
+  cost:
+    Telecrystal: 45
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerJobCondition
+    whitelist:
+    - Musician
+
+- type: listing
+  id: UplinkShredderBundle
+  name: uplink-shredder-bundle-name
+  description: uplink-shredder-bundle-desc
+  icon: { sprite: _Omu/Objects/Weapons/Melee/shredder.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledShredder
+  cost:
+    Telecrystal: 75
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkBloodredHeadphones
+  name: uplink-bloodred-headphones-name
+  description: uplink-bloodred-headphones-desc
+  icon: { sprite: /Textures/_Omu/Clothing/Multiple/bloodred-headphones.rsi, state: icon }
+  productEntity: ClothingMultipleBloodredHeadphones
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkWearables
+ 
+- type: listing
+  id: UplinkHobbyistSpellBook
+  name: uplink-hobbyist-spellbook-name
+  description: uplink-hobbyist-spellbook-desc
+  icon: { sprite: _Omu/Objects/Weapons/Magic/hobbyistspellbook.rsi, state: icon }
+  productEntity: HobbyistSpellBook
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chaplain
+    - Librarian

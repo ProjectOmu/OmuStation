@@ -146,10 +146,7 @@
     epsilon:
       announcement: alert-level-epsilon-announcement
       selectable: false
-      sound:
-        path: /Audio/Misc/epsilon.ogg
-        params:
-          volume: -2
+      sound: /Audio/_DV/Announcements/Alerts/code_epsilon.ogg # DeltaV
       disableSelection: true
       color: DarkViolet
       emergencyLightColor: DarkViolet
