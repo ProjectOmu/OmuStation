@@ -91,6 +91,12 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
         if (ent.Comp.Target == null || ent.Comp.AlienPod == null) return;
         var target = GetEntity(ent.Comp.Target.Value);
         EnsureComp<TransformComponent>(target, out var xform);
+        // Omu start, no abducting people that are not on the same map as the console.
+        if (!TryComp<TransformComponent>(ent, out var consoleXform))
+            return;
+        if (xform.MapID != consoleXform.MapID)
+            return;
+        // Omu end
         var effectEnt = SpawnAttachedTo(TeleportationEffectEntity, xform.Coordinates);
         _xformSys.SetParent(effectEnt, target);
         EnsureComp<TimedDespawnComponent>(effectEnt, out var despawnEffectEntComp);

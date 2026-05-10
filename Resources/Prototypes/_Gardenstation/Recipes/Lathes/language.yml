@@ -1,0 +1,34 @@
+﻿- type: latheRecipe
+  id: BieselEckeckyikTranslator
+  result: BieselEckeckyikTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
+- type: latheRecipe
+  id: EckeckyikTranslator
+  result: EckeckyikTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+    Plasma: 50 # needs phoron to support an integrated pai core for translation
+
+# implanters
+
+- type: latheRecipe
+  parent: BaseTranslatorImplanter
+  id: BieselEckeckyikTranslatorImplanter
+  subname: lathe-recipe-BieselEckeckyikTranslator-subname
+  result: BieselEckeckyikTranslatorImplanter
+
+- type: latheRecipe
+  parent: BaseTranslatorImplanter
+  id: EckeckyikTranslatorImplanter
+  subname: lathe-recipe-EckeckyikTranslator-subname
+  result: EckeckyikTranslatorImplanter
