@@ -35,3 +35,9 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterCMO
+
+# Outer clothing
+- type: loadout
+  id: ChiefMedicalOfficerLongcoat
+  equipment:
+    outerClothing: ClothingLongcoatCMO

@@ -688,6 +688,18 @@
   - type: GuideHelp
     guides:
     - Robotics
+  - type: BlueprintReceiver # Omu start
+    whitelist:
+      tags:
+      - BlueprintExosuitFabricator
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      blueprint: !type:Container
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - blueprint # Omu end
 
 - type: entity
   id: Biofabricator
