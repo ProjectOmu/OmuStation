@@ -1,0 +1,20 @@
+﻿# thaven kelp pod
+- type: entity
+  parent: SeedBase
+  name: packet of kelp pod sprouts
+  id: KelpPodSeeds
+  components:
+  - type: Seed
+    seedId: KelpPod
+  - type: Sprite
+    sprite: _Gardenstation/Objects/Specific/Hydroponics/kelppod.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of cask-kelp sprouts
+  id: KelpWineSeeds
+  components:
+  - type: Seed
+    seedId: KelpWinePod
+  - type: Sprite
+    sprite: _Gardenstation/Objects/Specific/Hydroponics/kelppod.rsi
