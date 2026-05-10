@@ -3849,3 +3849,100 @@ Entries:
       message: 'Ported a new mid round event from DV, The Internal Affairs Agent. '
   id: 489
   time: '2026-05-09T21:47:40.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed being able to bypass species requirements on uplinks
+  id: 490
+  time: '2026-05-09T21:50:08.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Ported the synth trait from DV
+  id: 491
+  time: '2026-05-09T22:11:39.0000000+00:00'
+- author: Marikii
+  changes:
+    - type: Add
+      message: >-
+        Vulps can now yip, yap and gekker. Feroxi can now chirp and squeak,
+        rodentia can now squee (alternate squeak) and snort!
+    - type: Tweak
+      message: >-
+        Avali and Resomi can now growl and hiss, felinids and tajarans can now
+        trill!
+    - type: Tweak
+      message: >-
+        Moths, arachnids and chitinids now have species-specific sounds for
+        crying, gasping, yawning, sighing and coughing. Resomi and Avali have a
+        species-specific sound for yawning (deathgasp from Starlight, tee-hee..)
+  id: 492
+  time: '2026-05-09T22:22:19.0000000+00:00'
+- author: PickelSilly
+  changes:
+    - type: Add
+      message: >-
+        Added hobbyist's spell book to the chaplain and librarian's uplink,
+        allows you to cast your own basic spells!
+  id: 493
+  time: '2026-05-09T22:38:49.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed one leftover unintended spawner for plague mice.
+  id: 494
+  time: '2026-05-09T23:00:23.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Tweak
+      message: >-
+        Medical's autoinjector cartridges now have more vibrant colours to
+        better tell them apart.
+    - type: Tweak
+      message: >-
+        poison autoinjector cartridges now contain 2u multiver, 8u dylovene to
+        aid in active field poisonings.
+    - type: Tweak
+      message: >-
+        radiation autoinjector cartridges now contain 5u arithrazine, 5u
+        hyronlin.
+    - type: Tweak
+      message: >-
+        autoinjector cartridges are now named so that they group together in the
+        medical techfabs list of items.
+  id: 495
+  time: '2026-05-09T23:59:18.0000000+00:00'
+- author: PickelSilly
+  changes:
+    - type: Add
+      message: Added IdiotVibes' "What the Hell is Going On" art to the lobby rotation!
+  id: 496
+  time: '2026-05-10T00:09:35.0000000+00:00'
+- author: ArtemisYK
+  changes:
+    - type: Remove
+      message: Removed fun. (Removed the combat shells from the RGL)
+  id: 497
+  time: '2026-05-10T00:14:53.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: Vox can now choose from more colors!
+    - type: Fix
+      message: Feroxi sprites on the customization screen fixed
+  id: 498
+  time: '2026-05-10T00:20:11.0000000+00:00'
+- author: PickelSilly
+  changes:
+    - type: Add
+      message: Added Squibbo's "Extermination" artwork to the lobby art rotation!
+  id: 499
+  time: '2026-05-10T00:24:18.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: Ported the longcoats from delta v, look in command loadouts
+    - type: Tweak
+      message: Medical doctors have like 2 more shoes in their loadout hooray
+  id: 500
+  time: '2026-05-10T00:30:30.0000000+00:00'
