@@ -127,6 +127,12 @@ selectable-set-bso-brdi-description =
     An iconic weapon used by members of the Biesel Republic Foreign Legion.
     Repainted for Blueshield Officers.
 
+selectable-set-bso-typewriter-name = Typewriter Submachine Gun
+selectable-set-bso-typewriter-desc =
+    A kit containing a perfect replica of the Thompson Submachine Gun,
+    chambered in .35, a preloaded drum mag, a stick mag and a drum mag with rubber bullets. 
+    Perfect for LARPers and wise guys alike.
+
 selectable-set-bso-extraction-name = Extraction kit
 selectable-set-bso-extraction-description =
     A swift extraction guarantees safety, you stand by those words.
