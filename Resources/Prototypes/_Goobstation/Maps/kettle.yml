@@ -57,31 +57,31 @@
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             AdministrativeAssistant: [ 1, 1 ] # Delta V
-            Bartender: [ 1, 2 ]
-            Botanist: [ 3, 4 ]
-            Chef: [ 2, 3 ]
+            Bartender: [ 2, 2 ] # Omu
+            Botanist: [ 3, 3 ] # Omu
+            Chef: [ 2, 2 ] # Omu
             Janitor: [ 4, 4 ]
             Chaplain: [ 1, 1 ]
-            Librarian: [ 1, 2 ]
-            Lawyer: [ 2, 3 ]
+            Librarian: [ 1, 1 ] # Omu
+            Lawyer: [ 2, 2 ] # Omu
             Zookeeper: [ 1, 1 ]
             ServiceWorker: [ 4, 4 ]
             RadioHost: [ 1, 1 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 3, 3 ]
-            StationEngineer: [ 4, 6 ]
+            StationEngineer: [ 6, 6 ] # Omu
             TechnicalAssistant: [ 8, 8 ]
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
-            Chemist: [ 2, 3 ]
+            Chemist: [ 3, 3 ] # Omu
             Paramedic: [ 2, 2 ]
-            MedicalDoctor: [ 3, 5 ]
+            MedicalDoctor: [ 5, 5 ] # Omu
             MedicalIntern: [ 8, 8 ]
             Virologist: [ 1, 1 ]
             #science
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 4, 6 ]
+            Scientist: [ 6, 6 ] # Omu
             ResearchAssistant: [ 8, 8 ]
             Roboticist: [ 2, 2 ] #Omu
             Borg: [ 2, 2 ]
@@ -89,7 +89,7 @@
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
             Detective: [ 1, 1 ]
-            SecurityOfficer: [ 4, 6 ]
+            SecurityOfficer: [ 5, 5 ] # Omu
             SecurityCadet: [ 8, 8 ]
             Brigmedic: [ 1, 1 ]
             TransitPrisoner: [2, 2] # Omu - Prisoner role
@@ -102,8 +102,8 @@
             Courier: [ 2, 2 ] #Omu
             #civillian
             Passenger: [ -1, -1 ]
-            Clown: [ 1, 2 ]
-            Mime: [ 1, 2 ]
+            Clown: [ 1, 1 ] # Omu
+            Mime: [ 1, 1 ] # Omu
             Musician: [ 1, 2 ]
             StationAi: [ 1, 1 ]
 
