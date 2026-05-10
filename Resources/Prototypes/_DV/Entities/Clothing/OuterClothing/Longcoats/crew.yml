@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingLongcoatNanoTrasen
+  name: nanotrasen longcoat
+  description: A double-breasted longcoat sporting the the colors of NanoTrasen, the general-purpose spacefaring corporation that you (hopefully) work for! Longcoats are fairly robust, offering some protection from the elements.
+  components:
+  - type: Sprite
+    sprite: _Floofstation/Clothing/OuterClothing/Longcoats/nanotrasen.rsi
+  - type: Clothing
+    sprite: _Floofstation/Clothing/OuterClothing/Longcoats/nanotrasen.rsi
