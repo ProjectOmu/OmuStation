@@ -104,6 +104,7 @@ public sealed class OmuCrewManifestSystem : EntitySystem
     {
         return new CrewManifestEntry(
             MetaData(uid).EntityName,
+            "neuter", // Until someone works out how to pass the gender through to this system, this will do.
             job.LocalizedName,
             job.Icon.ToString(),
             job.ID);
