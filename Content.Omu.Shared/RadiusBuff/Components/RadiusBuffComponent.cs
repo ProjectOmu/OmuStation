@@ -13,7 +13,7 @@ namespace Content.Omu.Shared.RadiusBuff.Components;
 public sealed partial class RadiusBuffComponent : Component
 {
     [DataField]
-    public bool Active = false;
+public bool Active;
 
     [DataField]
     public float Range = 4f;
@@ -47,7 +47,7 @@ public sealed partial class RadiusBuffComponent : Component
     /// If this buff should apply to the entity that is providing this buff, regardless of the whitelist.
     /// </summary>
     [DataField]
-    public bool BuffSelf = false;
+public bool BuffSelf;
 
     /// <summary>
     /// If this buff should apply to the entity that is holding the item providing this buff, regardless of the whitelist.

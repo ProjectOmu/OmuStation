@@ -12,5 +12,5 @@ public sealed partial class ActivateBuffOnWieldComponent : Component
     /// Deactivate on wield instead
     /// </summary>
     [DataField]
-    public bool Invert = false;
+public bool Invert;
 }

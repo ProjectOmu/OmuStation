@@ -52,9 +52,6 @@ public sealed class ShredderStatusEffectSystem : EntitySystem
 
     private bool TryApplyHealing(EntityUid target, ShredderStatusEffectComponent comp)
     {
-        if (comp.HealBuff == null)
-            return false;
-
         if (!TryComp<DamageableComponent>(target, out var damageable))
             return false;
 
