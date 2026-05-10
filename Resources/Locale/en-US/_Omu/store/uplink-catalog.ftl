@@ -23,3 +23,5 @@ uplink-blueprint-exosuit-fabricator-syndie-chassis-desc = A blueprint for syndic
 uplink-swordfish-name = Blood Red Swordfish
 uplink-swordfish-desc = A terrifying weapon made for the Thaven operatives. This fish is wielded like a rapier. It pierces armor and it can perform a dash attack.
 
+uplink-hobbyist-spellbook-name = Hobbyist Spell Book
+uplink-hobbyist-spellbook-desc = A book given out by the Wizard Federation to get avid fanatics to finally shut up. Contains the spells: Spark, Cure Wounds, Conjure Peel, Abracaweh, and Lessest Magic Missile.

@@ -108,3 +108,19 @@
       tags:
       - ContractorUplink
       - NukeOpsUplink
+
+- type: listing
+  id: UplinkHobbyistSpellBook
+  name: uplink-hobbyist-spellbook-name
+  description: uplink-hobbyist-spellbook-desc
+  icon: { sprite: _Omu/Objects/Weapons/Magic/hobbyistspellbook.rsi, state: icon }
+  productEntity: HobbyistSpellBook
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chaplain
+    - Librarian
