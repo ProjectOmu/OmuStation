@@ -837,9 +837,19 @@
   categories:
   - UplinkJob
   conditions:
-  - !type:BuyerDepartmentCondition
-    whitelist:
-    - Medical
+#  - !type:BuyerDepartmentCondition # Omu, wait for logical OR
+#    whitelist:
+#    - Medical
+  - !type:BuyerJobCondition # Omu
+    whitelist: 
+    - MedicalDoctor
+    - MedicalIntern
+    - Chemist
+    - Paramedic
+    - Virologist
+    - Psychologist
+    - ChiefMedicalOfficer
+    - Botanist
 
 - type: listing
   id: UplinkMagazineNailgun
