@@ -645,6 +645,9 @@
         - !type:OrganType # Goobstation - XenobioSlime
           type: XenobioSlime
           shouldHave: false
+        - !type:OrganType # Omu, Letting xelthia eat more things
+          type: Xelthia
+          shouldHave: false
         damage:
           types:
             Poison: 1
@@ -652,6 +655,12 @@
         conditions:
         - !type:OrganType
           type: Animal
+        reagent: Protein
+        amount: 0.5
+      - !type:AdjustReagent # Omu, letting xelthia eat more things
+        conditions:
+        - !type:OrganType
+          type: Xelthia
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent # Goobstation - XenobioSlime
