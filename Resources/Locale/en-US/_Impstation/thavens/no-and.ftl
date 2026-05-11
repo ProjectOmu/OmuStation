@@ -71,6 +71,7 @@ thaven-mood-food-restrict-desc = You must only eat {$food ->
   [Frugivore] fruit
   [Fungivore] fungi
   [Ovivore] eggs
+  [Hunter] what you can kill
   [Soupivore] soup
   [Cakivore] cakes
 }.
