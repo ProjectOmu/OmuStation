@@ -4,14 +4,6 @@
   parent: OrganHumanStomach
   categories: [ HideSpawnMenu ]
   components:
-  - type: Stomach
-    specialDigestible:
-      tags:
-      - ReptilianFood # Omu, lets xelthia eat chocolate, cant figure out what makes the "you cant digest this" pop up so its this for
-      - Meat
-      - Pill
-      - Crayon
-      - Paper
   - type: SolutionContainerManager
     solutions:
       stomach:
