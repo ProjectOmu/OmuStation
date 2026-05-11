@@ -338,17 +338,6 @@
         - ReagentId: Carbon
           Quantity: 1
         canReact: false
-  - type: UserInterface # Omu - EE Port
-    interfaces:
-      enum.RadialSelectorUiKey.Key:
-        type: AttachedRadialSelectorMenuBUI
-  - type: ActivatableUI
-    key: enum.RadialSelectorUiKey.Key
-    inHandsOnly: true
-    requireActiveHand: false
-  - type: ShortConstruction
-    entries:
-    - prototype: SecureWindoor
 
 - type: entity
   parent: SheetPlasteel
