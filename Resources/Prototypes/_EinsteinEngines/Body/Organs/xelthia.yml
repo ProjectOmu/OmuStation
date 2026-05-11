@@ -7,6 +7,7 @@
   - type: Stomach
     specialDigestible:
       tags:
+      - ReptilianFood # Omu, lets xelthia eat chocolate, cant figure out what makes the "you cant digest this" pop up so its this for
       - Meat
       - Pill
       - Crayon
@@ -14,7 +15,7 @@
   - type: SolutionContainerManager
     solutions:
       stomach:
-        maxVol: 50
+        maxVol: 70 # Omu, xelthia fatty
       food:
         maxVol: 5
         reagents:
