@@ -160870,8 +160870,6 @@ entities:
       pos: -51.5,-29.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 25018
   - uid: 18907
@@ -160881,8 +160879,7 @@ entities:
       pos: -56.5,-29.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+
       deviceLists:
       - 25018
   - uid: 25013
