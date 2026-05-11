@@ -606,7 +606,7 @@
           - !type:OrganType # Goobstation - XenobioSlime
             type: XenobioSlime
             shouldHave: false
-          - !type:OrganType # Omu, Letting xelthia eat more things
+          - !type:OrganType # Omu, Letting xelthia eat raw meat
             type: Xelthia
             shouldHave: false
         type: Local
@@ -628,7 +628,7 @@
           - !type:OrganType # Goobstation - XenobioSlime
             type: XenobioSlime # slimes shouldn't vomit from blood and raw meat
             shouldHave: false
-          - !type:OrganType # Omu, Letting xelthia eat more things
+          - !type:OrganType # Omu, Letting xelthia eat raw meat
             type: Xelthia
             shouldHave: false
       - !type:HealthChange
