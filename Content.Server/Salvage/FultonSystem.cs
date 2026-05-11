@@ -13,6 +13,7 @@ using System.Numerics;
 using Content.Shared.Salvage.Fulton;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
+using Content.Server.Radio.EntitySystems; // Omu
 
 namespace Content.Server.Salvage;
 
@@ -22,6 +23,7 @@ namespace Content.Server.Salvage;
 public sealed class FultonSystem : SharedFultonSystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly RadioSystem _radio = default!; // Omu
 
     public override void Initialize()
     {
@@ -84,6 +86,13 @@ public sealed class FultonSystem : SharedFultonSystem
                 Coordinates = GetNetCoordinates(oldCoords),
             });
         }
+        // Omu start
+        if (TryComp<FultonBeaconComponent>(component.Beacon, out var beacon) && beacon.AnnounceOnFulton)
+        {
+            var message = Loc.GetString(beacon.AnnouncementMessage);
+            _radio.SendRadioMessage(component.Beacon.Value, message, beacon.AnnouncementChannel, uid, escapeMarkup: false);
+        }
+        // Omu end
 
         Audio.PlayPvs(component.Sound, uid);
         RemCompDeferred<FultonedComponent>(uid);

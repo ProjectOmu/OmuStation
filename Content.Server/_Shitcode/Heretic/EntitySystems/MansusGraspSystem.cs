@@ -46,6 +46,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
+using Content.Shared.Hands.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -256,6 +257,11 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
     {
         var tags = ent.Comp.Tags;
 
+        if(!TryComp<HandsComponent>(args.User, out var userHands)) // Imp
+        {
+            return;
+        }
+
         if (!args.CanReach
             || !args.ClickLocation.IsValid(EntityManager)
             || !_heretic.TryGetHereticComponent(args.User, out var heretic, out _) // not a heretic - how???
@@ -270,7 +276,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
             runeProto = scriber.RuneDrawingEntity;
             time = scriber.Time;
         }
-        else if (heretic.MansusGraspAction == EntityUid.Invalid // no grasp - not special
+        else if (((heretic.MansusGraspAction == EntityUid.Invalid) && !(userHands.Count <= 1)) // no grasp - not special // Imp, if they have no extra hand for a grasp, then do not require one
                  || !tags.Contains("Write") || !tags.Contains("Pen")) // not a pen
             return;
 
