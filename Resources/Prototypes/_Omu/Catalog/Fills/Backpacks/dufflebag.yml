@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledShredder
+  name: Shredder bundle
+  description: Contains a Shredder, and headphones for the whole squad.
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponShredder
+      - id: ClothingMultipleBloodredHeadphones
+        amount: 6
