@@ -3,7 +3,7 @@
   name: xelthia stomach
   parent: OrganHumanStomach
   categories: [ HideSpawnMenu ]
-  components:
+  components: # Omu, Removed special digestion so that xelthia can properly eat chocolate and other things
   - type: SolutionContainerManager
     solutions:
       stomach:
