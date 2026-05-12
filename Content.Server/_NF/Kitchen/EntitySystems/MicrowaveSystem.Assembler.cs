@@ -17,10 +17,10 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._NF.Kitchen.EntitySystems;
 
-public sealed partial class NewFrontierMicrowaveSystem : EntitySystem
+public sealed class NewFrontierMicrowaveSystem : EntitySystem
 {
     [Dependency] private readonly MicrowaveSystem _microwave = default!;
-    [Dependency] private readonly PrototypeManager _protoman = default!;
+    [Dependency] private readonly IPrototypeManager _protoman = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly RecipeManager _recipeManager = default!;
@@ -75,13 +75,9 @@ public sealed partial class NewFrontierMicrowaveSystem : EntitySystem
             {
                 continue;
             }
-            if (solidsDict.ContainsKey(solidID))
+            if (!solidsDict.TryAdd(solidID, amountToAdd))
             {
                 solidsDict[solidID] += amountToAdd;
-            }
-            else
-            {
-                solidsDict.Add(solidID, amountToAdd);
             }
 
             if (!TryComp<SolutionContainerManagerComponent>(item, out var solMan))
@@ -92,10 +88,8 @@ public sealed partial class NewFrontierMicrowaveSystem : EntitySystem
                 var solution = soln.Comp.Solution;
                 foreach (var (reagent, quantity) in solution.Contents)
                 {
-                    if (reagentDict.ContainsKey(reagent.Prototype))
+                    if (!reagentDict.TryAdd(reagent.Prototype, quantity))
                         reagentDict[reagent.Prototype] += quantity;
-                    else
-                        reagentDict.Add(reagent.Prototype, quantity);
                 }
             }
         }

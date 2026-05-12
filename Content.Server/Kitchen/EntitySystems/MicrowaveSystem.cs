@@ -493,24 +493,16 @@ namespace Content.Server.Kitchen.EntitySystems
 
         public void UpdateUserInterfaceState(EntityUid uid, MicrowaveComponent component)
         {
-            {
-                _userInterface.SetUiState(uid, component.Key, new MicrowaveUpdateUserInterfaceState(
-                    GetNetEntityArray(component.Storage.ContainedEntities.ToArray()),
-                    HasComp<ActiveMicrowaveComponent>(uid),
-                    component.CurrentCookTimeButtonIndex,
-                    component.CurrentCookTimerTime,
-                    component.CurrentCookTimeEnd
-                ));
-            }
-            /* Delta-v Wanted to fix a bug, no fucking clue, commenting out their shit so we can eject things from microwavelike devices
-            _userInterface.SetUiState(uid, MicrowaveUiKey.Key, new MicrowaveUpdateUserInterfaceState(
-                GetNetEntityArray(component.Storage.ContainedEntities.ToArray()),
-                HasComp<ActiveMicrowaveComponent>(uid),
-                component.CurrentCookTimeButtonIndex,
-                component.CurrentCookTimerTime,
-                component.CurrentCookTimeEnd
-            ));
-            */
+
+             _userInterface.SetUiState(uid,
+                 component.Key, // Delta-v Wanted to fix a bug, no fucking clue, commenting out their shit so we can eject things from microwavelike devices
+                 new MicrowaveUpdateUserInterfaceState(
+                 GetNetEntityArray(component.Storage.ContainedEntities.ToArray()),
+                 HasComp<ActiveMicrowaveComponent>(uid),
+                 component.CurrentCookTimeButtonIndex,
+                 component.CurrentCookTimerTime,
+                 component.CurrentCookTimeEnd
+             ));
         }
 
         public void SetAppearance(EntityUid uid, MicrowaveVisualState state, MicrowaveComponent? component = null, AppearanceComponent? appearanceComponent = null)
