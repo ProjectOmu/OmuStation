@@ -37,11 +37,6 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
-  #- type: Hypospray
-    solutionName: pen
-    onlyAffectsMobs: false
-    injectOnly: true
-    transferAmount: 15 # Explicitly redefined in case parent changes
   - type: Tag
     tags: []
 
@@ -69,8 +64,6 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     emptySpriteName: hemostasispen_empty
-  #- type: Hypospray
-  #  transferAmount: 20
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -106,8 +99,6 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     emptySpriteName: stimulantpen_empty
-  #- type: Hypospray
-  #  transferAmount: 20
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -143,8 +134,6 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     emptySpriteName: crisispen_empty
-  #- type: Hypospray
-  #  transferAmount: 20
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -180,8 +169,6 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     emptySpriteName: ephedrinepen_empty
-  #- type: Hypospray
-  #  transferAmount: 10
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -318,8 +305,6 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     emptySpriteName: barkeepersfriend_empty
-  #- type: Hypospray
-  #  transferAmount: 20
   - type: SolutionContainerManager
     solutions:
       pen:

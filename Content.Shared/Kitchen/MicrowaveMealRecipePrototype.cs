@@ -58,16 +58,16 @@ namespace Content.Shared.Kitchen
 
         // Frontier: separate microwave recipe types.
 
-        [DataField("recipeType", customTypeSerializer: typeof(FlagSerializer<MicrowaveRecipeTypeFlags>))]
-        public int RecipeType = (int)MicrowaveRecipeType.Microwave;
+        [DataField("recipeType", customTypeSerializer: typeof(FlagSerializer<MicrowaveRecipeTypeFlags>))] // Frontier
+        public int RecipeType = (int)MicrowaveRecipeType.Microwave; // Frontier
 
         public string Name => Loc.GetString(_name);
 
         // TODO Turn this into a ReagentQuantity[]
         public IReadOnlyDictionary<string, FixedPoint2> IngredientsReagents => _ingsReagents;
         public IReadOnlyDictionary<string, FixedPoint2> IngredientsSolids => _ingsSolids;
-        public bool HideInGuidebook { get; set; }
-        public int ResultCount { get; set; }
+        public bool HideInGuidebook { get; set; } // Frontier
+        public int ResultCount { get; set; } // Frontier
 
         /// <summary>
         /// Is this recipe unavailable in normal circumstances?
