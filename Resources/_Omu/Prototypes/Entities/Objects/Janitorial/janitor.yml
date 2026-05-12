@@ -1,0 +1,36 @@
+- type: entity
+  parent: BaseItem
+  id: AdvWireBrush
+  name: Advanced wire brush
+  description: Science has reinforced this bursh with carbon nano-fibre bristles. Has science gone too far? NO! It never has and never will!
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Janitorial/advwirebrush.rsi
+    state: icon
+  - type: Item
+    storedSprite:
+      sprite: Objects/Specific/Janitorial/advwirebrush.rsi
+      state: storage
+    size: Small
+  - type: Tag
+    tags:
+    - WireBrush
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Plastic: 100
+  - type: Tool
+    qualities:
+    - Brushing
+    speedModifier: 5
+    useSound:
+      path: /Audio/Items/wirebrushing.ogg
+  - type: StaticPrice
+    price: 30
+  - type: MeleeWeapon
+    wideAnimationRotation: 45
+    damage:
+      types:
+        Piercing: 6
+    soundHit:
+      path: "/Audio/Weapons/bladeslice.ogg"
