@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Client.Chemistry.EntitySystems;
+using Content.Shared._NF.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;

@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Client._NF.Medical.EntitySystems;
 using Content.Client.Chemistry.EntitySystems;
+using Content.Shared._NF.Chemistry.EntitySystems;
 using Content.Client.Guidebook.Controls;
 using Content.Client.Guidebook.Richtext;
 using Content.Client.Message;

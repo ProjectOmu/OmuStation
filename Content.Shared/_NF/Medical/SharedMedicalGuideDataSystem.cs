@@ -4,7 +4,7 @@ using Content.Shared.Kitchen;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Client.Chemistry.EntitySystems;
+namespace Content.Shared._NF.Chemistry.EntitySystems;
 
 // A clone of the FoodGuideDataSystem. Thank you to Mnemotechnician for the original implementation.
 // Redundancy.
