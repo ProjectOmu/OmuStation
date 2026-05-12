@@ -129,7 +129,7 @@ public sealed partial class GuideMedicalEmbed : BoxContainer, IDocumentTag, ISea
         #endregion
 
         #region Damage
-        var damageDict = data.Healing?.DamageDict ?? new();
+        var damageDict = data.Healing?.DamageDict ?? new Dictionary<string, FixedPoint2>();
         if (damageDict.Count > 0)
             DamageContainer.Visible = true;
 
@@ -151,12 +151,12 @@ public sealed partial class GuideMedicalEmbed : BoxContainer, IDocumentTag, ISea
 
         FormattedMessage description = new();
         description.AddText(proto?.Description ?? string.Empty);
-        // Cannot describe food flavor or smth beause food is entirely server-side
+        // Cannot describe food flavor or smth because food is entirely server-side
 
         Description.SetMessage(description);
     }
 
-    private void CalculateColors(List<(ReagentPrototype, FixedPoint2)> composition, out Color text, out Color background)
+    private static void CalculateColors(List<(ReagentPrototype, FixedPoint2)> composition, out Color text, out Color background)
     {
         // Background color is calculated as the weighted average of the colors of the composition.
         // Text color is determined based on background luminosity.

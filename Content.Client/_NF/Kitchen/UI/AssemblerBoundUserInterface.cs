@@ -67,9 +67,6 @@ namespace Content.Client._NF.Kitchen.UI
             // TODO move this to a component state and ensure the net ids.
             RefreshContentsDisplay(EntMan.GetEntityArray(cState.ContainedSolids));
 
-            //Set the cook time info label
-            var cookTime = cState.CurrentCookTime.ToString();
-
             _menu.CookTimeInfoLabel.Text = Loc.GetString("assembler-bound-user-interface-insert-ingredients");
             _menu.StartButton.Disabled = cState.IsMicrowaveBusy || cState.ContainedSolids.Length == 0;
             _menu.EjectButton.Disabled = cState.IsMicrowaveBusy || cState.ContainedSolids.Length == 0;

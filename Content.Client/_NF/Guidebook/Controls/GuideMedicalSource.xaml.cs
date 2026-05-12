@@ -54,9 +54,7 @@ public sealed partial class GuideMedicalSource : BoxContainer, ISearchableContro
         var combinedIngredients = string.Join("\n", combinedLiquids.Union(combinedSolids));
         SourceLabel.Text = Loc.GetString("guidebook-food-processing-recipe", ("ingredients", combinedIngredients)); // Frontier: SetMessage<Text
 
-        var recipeType = (MicrowaveRecipeType)recipe.RecipeType;
-        TextureRect processingTexture;
-        processingTexture = new TextureRect();
+        var processingTexture = new TextureRect();
         processingTexture.Texture = GetRsiTexture("/Textures/_NF/Structures/Machines/medical_assembler.rsi", "mediwave-base");
         ProcessingTextures.AddChild(processingTexture);
 
