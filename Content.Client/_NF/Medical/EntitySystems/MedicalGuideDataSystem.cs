@@ -1,5 +1,4 @@
-using Content.Client.Chemistry.EntitySystems;
-using Content.Shared._NF.Chemistry.EntitySystems;
+using Content.Shared._NF.Medical;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client._NF.Medical.EntitySystems;

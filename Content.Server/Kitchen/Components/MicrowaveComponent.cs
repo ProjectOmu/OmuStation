@@ -166,50 +166,51 @@ namespace Content.Server.Kitchen.Components
 
         /// <summary>
         /// Chance of lightning occurring when we microwave a metallic object
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        /// </summary>
+        [DataField]
         public float LightningChance = .75f;
 
         /// <summary>
         /// If this microwave can give ids accesses without exploding
         /// </summary>
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public bool CanMicrowaveIdsSafely = true;
 
         // Frontier: recipe type
         /// <summary>
         /// the types of recipes that this "microwave" can handle.
         /// </summary>
-        [DataField(customTypeSerializer: typeof(FlagSerializer<MicrowaveRecipeTypeFlags>)), ViewVariables(VVAccess.ReadWrite)]
+        [DataField(customTypeSerializer: typeof(FlagSerializer<MicrowaveRecipeTypeFlags>))]
         public int ValidRecipeTypes = (int)MicrowaveRecipeType.Microwave;
 
         /// <summary>
         /// If true, events sent off by the microwave will state that the object is being heated.
         /// </summary>
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public bool CanHeat = true;
 
         /// <summary>
         /// If true, events sent off by the microwave will state that the object is being irradiated.
         /// </summary>
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public bool CanIrradiate = true;
 
         /// <summary>
         /// The localization string to be displayed when something that's too large is inserted.
         /// </summary>
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public string TooBigPopup = "microwave-component-interact-item-too-big";
 
         /// <summary>
         /// The sound that is played when a set of ingredients does not match an assembly recipe.
         /// </summary>
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public SoundSpecifier NoRecipeSound = new SoundPathSpecifier("/Audio/Effects/Cargo/buzz_sigh.ogg");
 
         /// <summary>
         /// The sound that is played when a set of ingredients does not match an assembly recipe.
         /// </summary>
-        [DataField, ViewVariables(VVAccess.ReadOnly)]
+        [DataField]
         public MicrowaveUiKey Key = MicrowaveUiKey.Key;
         // End Frontier
     }

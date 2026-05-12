@@ -41,7 +41,7 @@ public sealed partial class EntityHeaterComponent : Component
     /// <summary>
     /// Passive power draw.  Takes this much while plugged in, even when off.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public float PassivePower = 0f;
     // End Frontier
 }
