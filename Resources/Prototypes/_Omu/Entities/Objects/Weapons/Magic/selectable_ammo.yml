@@ -1,18 +1,4 @@
 - type: selectableAmmo
-  id: ProjectileSparkHobbyist
-  desc: Spark, fires a small spark, burns and ignites the target.
-  icon:
-    sprite: Objects/Magic/magicactions.rsi
-    state: fireball
-  color: darkorange
-  soundGunshot:
-    path: /Audio/Magic/fireball.ogg
-  fireRate: 1
-  fireCost: 250
-  flags: All
-  protoId: ProjectileSparkHobbyist
-
-- type: selectableAmmo
   id: ProjectileWehBoltHobbyist
   desc: Abracaweh!! Transforms the target into a lizard plushie!
   icon:
@@ -35,35 +21,49 @@
   color: yellow
   soundGunshot:
     collection: BikeHorn
-  fireRate: 0.5
+  fireRate: 1
   fireCost: 500
   flags: All
   protoId: ProjectileBananaPeelHobbyist
 
 - type: selectableAmmo
   id: ProjectileMagicMissileHobbyist
-  desc: Lessest Magic Missile, fires a weak magic missile but is fast and has a low fire cost.
+  desc: Lessest Magic Missile, fires a magic missile that is fast and has a low fire cost.
   icon:
     sprite: _Goobstation/Wizard/Icons/ammo_selector.rsi
     state: magicm
   color: purple
   soundGunshot:
     path: /Audio/_Goobstation/Wizard/magic_missile.ogg
-  fireRate: 2
-  fireCost: 166
+  fireRate: 3
+  fireCost: 125
   flags: All
   protoId: ProjectileMagicMissileHobbyist
 
 - type: selectableAmmo
-  id: ProjectileHealingHobbyist
-  desc: Cure Wounds, fires a weak healing bolt that heals most common damage types.
+  id: ProjectileSnackHobbyist
+  desc: Conujure Snackies, conjures a magical snack that heals damage.
   icon:
-    sprite: _Goobstation/Wizard/Objects/Weapons/Staves/healing.rsi
-    state: healing
+    sprite: Objects/Consumable/Food/snacks.rsi
+    state: chips
   color: green
   soundGunshot:
     path: /Audio/_Goobstation/Wizard/magic_missile.ogg
-  fireRate: 1.5
-  fireCost: 333
+  fireRate: 1
+  fireCost: 1000
   flags: All
-  protoId: ProjectileHealingHobbyist
+  protoId: ProjectileSnackHobbyist
+
+- type: selectableAmmo
+  id: ProjectileArcaneShockHobbyist
+  desc: Arcane Shock, fires a short-range non-lethal blast of stunning energy.
+  icon:
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    state: ice
+  color: blue
+  soundGunshot:
+    path: /Audio/Weapons/Guns/Gunshots/ship_svalinn.ogg
+  fireRate: 1.5
+  fireCost: 250
+  flags: All
+  protoId: BarrageArcaneShockHobbyist

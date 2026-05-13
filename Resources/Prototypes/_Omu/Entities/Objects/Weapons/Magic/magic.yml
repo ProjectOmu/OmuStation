@@ -1,7 +1,7 @@
 - type: entity
   id: HobbyistSpellBook
   name: hobbyist's spellbook
-  description: A book given out by the Wizard Federation to get avid fanatics to finally shut up. Contains fun hobbyist level spells and incantations. The title reads "5 Minute Spells, Magic for Dummies".
+  description: A book given out by the Wizard Federation to get avid fanatics to finally shut up. Contains fun hobbyist level spells and incantations. The title reads "5 Minute Spells, Magic for Dummies". Despite its seemingly diminishing name, it remains extremely formidable.
   parent: [BaseItem, BaseMagicalContraband]
   components:
   - type: Sprite
@@ -26,8 +26,8 @@
     maxCharge: 1000
     startingCharge: 1000
   - type: ProjectileBatteryAmmoProvider
-    proto: ProjectileSparkHobbyist
-    fireCost: 250
+    proto: ProjectileMagicMissileHobbyist
+    fireCost: 125
   - type: Appearance
   - type: AmmoSelector
     soundSelect:
@@ -35,11 +35,11 @@
       params:
         volume: -5
     prototypes:
-    - ProjectileSparkHobbyist
     - ProjectileWehBoltHobbyist
     - ProjectileBananaPeelHobbyist
     - ProjectileMagicMissileHobbyist
-    - ProjectileHealingHobbyist
+    - ProjectileSnackHobbyist
+    - ProjectileArcaneShockHobbyist
   - type: UserInterface
     interfaces:
       enum.AmmoSelectorUiKey.Key:
@@ -57,5 +57,5 @@
     autoRecharge: true
     autoRechargeRate: 1000
     autoRechargePause: true
-    autoRechargePauseTime: 5
+    autoRechargePauseTime: 6
   - type: EnchantingTool

@@ -32,5 +32,5 @@ uplink-shredder-bundle-desc = Contains a Shredder, and 6 blood-red headphones so
 uplink-bloodred-headphones-name = Blood-red Headphones
 uplink-bloodred-headphones-desc = Looks stylish, and synergizes with the Shredder.
 
-uplink-hobbyist-spellbook-name = Hobbyist Spell Book
-uplink-hobbyist-spellbook-desc = A book given out by the Wizard Federation to get avid fanatics to finally shut up. Contains the spells: Spark, Cure Wounds, Conjure Peel, Abracaweh, and Lessest Magic Missile.
+uplink-hobbyist-spellbook-name = Budget Wizard Bundle
+uplink-hobbyist-spellbook-desc = Give up all alignment to NT, become a badass wizard. Contains a not-quite official spellbook with incredibly useful spells.

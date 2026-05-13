@@ -74,8 +74,8 @@
   - type: Slippery
     slipData:
       slipOnStep: false
-      stunTime: 0
-      launchForwardsMultiplier: 2
+      stunTime: 0.5
+      launchForwardsMultiplier: 4
   - type: ProjectileHitShooterAfterDelay
     delay: 0.5
   - type: TileFrictionModifier
@@ -122,10 +122,9 @@
   - type: Projectile
     damage:
       types:
-        Heat: 10
-        Holy: 10
+        Heat: 20
   - type: IgniteOnCollide
-    fireStacks: 1
+    fireStacks: 1.5
   - type: Reflective
     reflective: Magic
   - type: Ammo
@@ -151,7 +150,6 @@
     damage:
       types:
         Piercing: 20
-        Holy: 10
   - type: Reflective
     reflective: Magic
   - type: Ammo
@@ -167,53 +165,65 @@
     shader: unshaded
 
 - type: entity
-  id: ProjectileHealingHobbyist
-  name: Cure Wounds
-  description: Heals the target.
+  id: ProjectileSnackHobbyist
+  name: Magic Snackies
+  description: Yummy! These will certainly heal you up! Hurry and eat them before they fizzle away!
+  parent: FoodSnackBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: Sprite
+    state: chips
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 12
+        - ReagentId: Omnizine
+          Quantity: 3 # 18 healing
+  - type: FlavorProfile
+    flavors:
+      - oily
+      - salty
+      - potatoes
+  - type: Tag
+    tags:
+      - FoodSnack
+      - Pill # Make it edible by all species that can heal by eating pills, (which is usually the only food that heals)
+
+- type: entity
+  name: arcane shock barrage
+  id: BarrageArcaneShockHobbyist
+  categories: [ HideSpawnMenu ]
+  parent: ProjectileShockHobbyist
+  components:
+  - type: ProjectileSpread
+    proto: ProjectileShockHobbyist
+    count: 3 # 45 stam
+    spread: 10
+
+- type: entity
+  id: ProjectileShockHobbyist
+  name: Arcane Shock
+  description: A powerful stunning blast of arcane energy.
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
-    - state: magicm_green
+      state: bluespace
       shader: unshaded
   - type: Projectile
     damage:
       types:
-        Blunt: -15
-        Slash: -10
-        Piercing: -10
-        Heat: -15
-        Asphyxiation: -25
-        Holy: 20
-  - type: WhitelistTriggerCondition
-    userWhitelist:
-      components:
-      - Body
+        Heat: 0 # non-lethal
+  - type: StaminaDamageOnCollide
+    damage: 15
   - type: Reflective
     reflective: Magic
   - type: Ammo
     muzzleFlash: null
-  - type: Trail
-    lerpTime: 0.02
-    frequency: 0.02
-    lifetime: 1
-    alphaLerpAmount: 0.4
-    shader: unshaded
-    sprite:
-      sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
-      state: magicm_green
-  - type: Fixtures
-    fixtures:
-      projectile:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.1,-0.1,0.1,0.1"
-        hard: false
-        mask:
-        - Impassable
-        - BulletImpassable
-        - Opaque
-  - type: TriggerOnCollide
-    fixtureID: projectile
