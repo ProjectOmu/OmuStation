@@ -14,7 +14,7 @@
 - type: entity
   parent: ClothingBlueshieldArmourVest
   id: ClothingOuterBlueshieldArmourXelthia
-  name: blueshield's full-sleeve coat
+  name: blueshield's Xelthian full-sleeve coat
   description: An intimidating armored coat with a commanding presence, designed for use by Xelthians. Provides insulation and surgical protection to Xelthian tentacles.
   components:
   - type: Sprite
@@ -29,6 +29,9 @@
     fiberColor: fibers-black
   - type: FingerprintMask
   - type: GloveJacket
+  - type: ClothingTakesUpExtraSlots
+    slots:
+    - gloves
 
 - type: entity
   parent: [ ClothingOuterBase, AllowSuitStorageClothing, BaseSyndicateContraband ]
