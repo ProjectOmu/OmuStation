@@ -67,14 +67,17 @@
 
 - type: entity
   id: MountainRock
-  parent: BaseStructure
+  parent: BaseWall # Omu
   name: mountain rock
-  suffix: Un-mineable
-  description: A craggy mountain wall. It is too hard to mine.
+  suffix: Reinforced Wall # Omu
+  description: A craggy mountain wall. It looks as tough as a reinforced wall. #Omu
   components:
   - type: Sprite
     sprite: _DV/Structures/Walls/mountain_rock.rsi
     state: full
+  - type: Icon # Omu, Makes it display on maps
+    sprite: Structures/Walls/solid.rsi
+    state: rgeneric
   - type: Damageable
     damageContainer: StructuralInorganic # Omu
     damageModifierSet: StructuralMetallicStrong # Omu
@@ -82,23 +85,15 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1500
+        damage: 400 # Omu, Lowered to reinforced wall value
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
-  - type: Occluder
-  - type: Airtight
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
-        density: 100
-        mask:
-        - FullTileMask
-        layer:
-        - WallLayer
+      - !type:PlaySoundBehavior # Omu, added destruction sound
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -2
   - type: IconSmooth
     key: walls
     base: rock_
