@@ -64,7 +64,7 @@
     sprite: _Starlight/Clothing/Head/Hats/fishcap_chemist.rsi
 
 - type: entity
-  parent: [ ClothingHeadBase, BaseSecurityContraband, ClothingHeadHelmetArmoredBase ] # Omu, Armored
+  parent: [ ClothingHeadHelmetArmoredBase, BaseSecurityContraband ] # Omu, Armored
   id: ClothingHeadNurseHatBrigmedic
   name: corpsman's medbay hat # brigmedic -> corpsman
   description: For those long nights on the shift.
@@ -81,7 +81,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ ClothingHeadBase, BaseSecurityContraband, ClothingHeadHelmetArmoredBase ] # Omu, Armored
+  parent: [ ClothingHeadHelmetArmoredBase, BaseSecurityContraband ] # Omu, Armored
   id: ClothingHeadNurseHatCorpsman
   name: corpsman's traumabay hat
   description: Dark enough to hide blood and tears alike.
@@ -115,7 +115,7 @@
     - WhitelistChameleon
 
 - type: entity # Omu, Armored Variant
-  parent: [ ClothingHeadNurseHatOfLife, BaseSecurityContraband, ClothingHeadHelmetArmoredBase ]
+  parent: [ ClothingHeadHelmetArmoredBase, ClothingHeadNurseHatOfLife, BaseSecurityContraband ]
   id: ClothingHeadArmoredNurseHatOfLife
   name: armored nurse hat of life
   description: A hat that symbolizes the joy and positivity of our life.
