@@ -1,37 +1,41 @@
 - type: entity
-  name: radiation autoinjector cartridge
+  name: autoinjector cartridge (radiation) # Omu
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 10u of arithrazine, used in a cartridge autoinjector.
+  description: Contains 5u of arithrazine, and 5u of hyronalin used in a cartridge autoinjector.
   id: CartridgeArith
   components:
   - type: Sprite
     layers:
     - state: base
     - state: filling
-      color: "#572757"
+      color: "#15ce5c"
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
       maxVol: 10
       reagents:
+      - ReagentId: Hyronalin
+        Quantity: 5
       - ReagentId: Arithrazine
-        Quantity: 10
+        Quantity: 5
 
 - type: entity
-  name: poison autoinjector cartridge
+  name: autoinjector cartridge (poison) # Omu
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 10u of dylovene, used in a cartridge autoinjector.
+  description: Contains 8u of dylovene, and 2u of multiver, used in a cartridge autoinjector.
   id: CartridgeDylo
   components:
   - type: Sprite
     layers:
     - state: base
     - state: filling
-      color: "#572757"
+      color: "#3c2097"
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
       maxVol: 10
       reagents:
       - ReagentId: Dylovene
-        Quantity: 10
+        Quantity: 8
+      - ReagentId: Multiver
+        Quantity: 2
