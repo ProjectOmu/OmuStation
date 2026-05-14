@@ -162,8 +162,8 @@ selectable-set-ntr-cane-desc =
     Good for fending off annoying assistants who don't want
     to fill up paperwork.
 
-selectable-set-ntr-belt-name = Disciplinary Belt
-selectable-set-ntr-belt-desc =
-    A belt, hollowed out to maximize pain and minimize damage.
-    This one will let you do many, many lashings to anyone who
-    dares stand in NanoTrasen's way. Oh boy.
+selectable-set-ntr-blade-name = Cane Blade
+selectable-set-ntr-blade-desc =
+    A sturdier, bladed fancy cane, with no stun setting...
+    This one is meant for emergencies only
+    CC note says: ONLY USE ON RED!!!!!
