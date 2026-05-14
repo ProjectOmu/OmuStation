@@ -312,11 +312,11 @@
   - CaneNT
 
 - type: selectableSet
-  id: NanoRepBeltSet
-  name: selectable-set-ntr-belt-name
-  description: selectable-set-ntr-belt-desc
+  id: BladeNTSet
+  name: selectable-set-ntr-blade-name
+  description: selectable-set-ntr-blade-desc
   sprite:
-    sprite: _Omu/Clothing/Belt/centcomdisciplinary.rsi
+    sprite: Objects/Weapons/Melee/cane_blade.rsi
     state: icon
   content:
-  - NanoRepBelt
+  - CaneBladeNanotrasen
