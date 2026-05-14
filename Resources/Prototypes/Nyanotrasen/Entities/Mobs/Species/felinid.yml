@@ -46,7 +46,7 @@
     prototype: Felinid
   - type: Damageable
     damageModifierSet: Felinid
-  # Goobstation - Siouxcide, #OMU reverts 
+  # Goobstation - Siouxcide, #OMU changes that to reflect what guide book says
  - type: SlowOnDamage
    speedModifierThresholds:
      60: 0.85  # 0.7 is base speed.
@@ -76,7 +76,7 @@
       types:
         Blunt: 1
   - type: Stamina
-    critThreshold: 85 # Goobstation - Siouxcide #OMU reverts
+    critThreshold: 85 # Goobstation - Siouxcide #OMU changes that to reflect what guide book says
     animationThreshold: 40 # Goob edit
   - type: TypingIndicator
     proto: felinid
