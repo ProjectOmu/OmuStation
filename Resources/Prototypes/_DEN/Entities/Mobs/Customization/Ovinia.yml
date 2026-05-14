@@ -203,8 +203,6 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Ovinia ]
-  sexRestriction: [ Female ]
-  invertSexRestriction: true
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/body_markings.rsi
     state: full-m
@@ -214,8 +212,6 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Ovinia ]
-  sexRestriction: [ Male ]
-  invertSexRestriction: true
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/body_markings.rsi
     state: full-f
@@ -238,8 +234,6 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Ovinia ]
-  sexRestriction: [ Female ]
-  invertSexRestriction: true
   coloring:
     default:
       type: !type:TattooColoring
@@ -252,8 +246,6 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Ovinia ]
-  sexRestriction: [ Male ]
-  invertSexRestriction: true
   coloring:
     default:
       type: !type:TattooColoring
