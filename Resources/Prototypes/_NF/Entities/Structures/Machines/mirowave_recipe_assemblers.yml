@@ -116,7 +116,7 @@
     - Chef
     - FoodRecipes
   - type: EntityHeater
-    passivePower: 1000 # Base oven power.
+    #passivePower: 1000 # Base oven power. # Omu, we don't have this.
   - type: PlaceableSurface
     isPlaceable: false # Prevent items hanging around for a few frames when clicked on the oven.
   - type: ItemPlacer
