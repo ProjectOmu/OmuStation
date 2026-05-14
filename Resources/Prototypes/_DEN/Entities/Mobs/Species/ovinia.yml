@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2025 Blitz
+# SPDX-FileCopyrightText: 2025 BlitzTheSquishy
+# SPDX-FileCopyrightText: 2025 Falcon
+# SPDX-FileCopyrightText: 2025 Forzii
+# SPDX-FileCopyrightText: 2025 Tabitha
+# SPDX-FileCopyrightText: 2025 juniwoofs
+# SPDX-FileCopyrightText: 2025 portfiend
+# SPDX-FileCopyrightText: 2025 sheepie
+# SPDX-FileCopyrightText: 2025 sleepyyapril
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   save: false
   name: Urist McSheepy
@@ -9,51 +21,6 @@
     netsync: false
     noRot: true
     drawdepth: Mobs
-    layers:
-      - map: [ "enum.HumanoidVisualLayers.Chest" ]
-      - map: [ "enum.HumanoidVisualLayers.Head" ]
-      - map: [ "enum.HumanoidVisualLayers.Snout" ]
-      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-      - map: [ "enum.HumanoidVisualLayers.RArm" ]
-      - map: [ "enum.HumanoidVisualLayers.LArm" ]
-      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      - shader: StencilClear
-        sprite: Mobs/Species/Human/parts.rsi #PJB on stencil clear being on the left leg: "...this is 'fine'" -https://github.com/space-wizards/space-station-14/pull/12217#issuecomment-1291677115
-        # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
-        # sprite refactor when
-        state: l_leg
-      - map: [ "enum.HumanoidVisualLayers.Underwear" ]
-      - map: [ "enum.HumanoidVisualLayers.Undershirt" ]
-      - map: [ "jumpsuit" ]
-      - map: [ "enum.HumanoidVisualLayers.LHand" ]
-      - map: [ "enum.HumanoidVisualLayers.RHand" ]
-      - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-      - map: [ "enum.HumanoidVisualLayers.RFoot" ]
-      - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
-        color: "#ffffff"
-        sprite: Objects/Misc/handcuffs.rsi
-        state: body-overlay-2
-        visible: false
-      - map: [ "id" ]
-      - map: [ "gloves" ]
-      - map: [ "shoes" ]
-      - map: [ "ears" ]
-      - map: [ "outerClothing" ]
-      - map: [ "eyes" ]
-      - map: [ "belt" ]
-      - map: [ "neck" ]
-      - map: [ "back" ]
-      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-      - map: [ "enum.HumanoidVisualLayers.NeckFluff" ]
-      - map: [ "enum.HumanoidVisualLayers.Hair" ]
-      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-      - map: [ "enum.HumanoidVisualLayers.Tail" ]
-      - map: [ "mask" ]
-      - map: [ "head" ]
-      - map: [ "pocket1" ]
-      - map: [ "pocket2" ]
   - type: HumanoidAppearance
     species: Ovinia
   - type: Body
@@ -99,21 +66,32 @@
           32:
             sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
             state: jumpsuit
-            copyToShaderParameters:
-              # Value required, provide a dummy. Gets overridden when applied.
-              layerKey: dummy
-              parameterTexture: displacementMap
-              parameterUV: displacementUV
       shoes:
         sizeMaps:
           32:
             sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
             state: shoes
-            copyToShaderParameters:
-              # Value required, provide a dummy. Gets overridden when applied.
-              layerKey: dummy
-              parameterTexture: displacementMap
-              parameterUV: displacementUV
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: outerclothing_hardsuit
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: shoes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: outerclothing_hardsuit
   - type: Flammable
     firestackFade: -0.15 #wool isnt flammable
   - type: Hunger
@@ -129,30 +107,42 @@
   name: Ovinia Dummy
   save: false
   categories: [ HideSpawnMenu ]
-  description: A dummy Ovinia meant to be used in character setup.
+  description: A dummy ovinia meant to be used in character setup.
   components:
   - type: HumanoidAppearance
     species: Ovinia
-  - type: Sprite
-    scale: 1, 1
   - type: Inventory
-    speciesId: Ovinia
+    speciesId: ovinia
+    templateId: human
     displacements:
       jumpsuit:
         sizeMaps:
           32:
             sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
             state: jumpsuit
-            copyToShaderParameters:
-              layerKey: dummy
-              parameterTexture: displacementMap
-              parameterUV: displacementUV
       shoes:
         sizeMaps:
           32:
             sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
             state: shoes
-            copyToShaderParameters:
-              layerKey: dummy
-              parameterTexture: displacementMap
-              parameterUV: displacementUV
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: outerclothing_hardsuit
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: shoes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: outerclothing_hardsuit
