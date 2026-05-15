@@ -5,10 +5,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Forensics;
-using Content.Omu.Shared.WashingMachine;
+using Content.Omu.Shared._Gabystation.WashingMachine;
 using Content.Shared.Forensics.Components;
 
-namespace Content.Omu.Server.WashingMachine;
+namespace Content.Omu.Server._Gabystation.WashingMachine;
 
 public sealed partial class WashingMachineSystem : SharedWashingMachineSystem
 {

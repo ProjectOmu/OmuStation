@@ -10,7 +10,7 @@ using Content.Shared.Power.EntitySystems;
 using Content.Shared.Storage.Components;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Verbs;
-using Content.Omu.Shared.WashingMachine.Events;
+using Content.Omu.Shared._Gabystation.WashingMachine.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
@@ -27,7 +27,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Chemistry;
 
-namespace Content.Omu.Shared.WashingMachine;
+namespace Content.Omu.Shared._Gabystation.WashingMachine;
 
 public abstract partial class SharedWashingMachineSystem : EntitySystem
 {

@@ -12,9 +12,9 @@ using Content.Shared.Hands;
 using Robust.Client.GameObjects;
 using Robust.Shared.Reflection;
 using Robust.Shared.Prototypes;
-using Content.Omu.Shared.Stains;
+using Content.Omu.Shared._Gabystation.Stains;
 
-namespace Content.Omu.Client.Stains;
+namespace Content.Omu.Client._Gabystation.Stains;
 
 public sealed partial class StainableSystem : SharedStainableSystem
 {

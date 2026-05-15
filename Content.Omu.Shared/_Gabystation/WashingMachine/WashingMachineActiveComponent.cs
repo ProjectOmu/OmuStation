@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Omu.Shared.WashingMachine;
+namespace Content.Omu.Shared._Gabystation.WashingMachine;
 
 /// Component added to a washing machine while it is active
 [RegisterComponent]

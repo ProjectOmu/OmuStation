@@ -5,10 +5,10 @@
 
 using Robust.Shared.Serialization;
 
-namespace Content.Omu.Shared.WashingMachine;
+namespace Content.Omu.Shared._Gabystation.Stains;
 
 [Serializable, NetSerializable]
-public enum WashingMachineVisuals : byte
+public enum StainVisualLayers : byte
 {
-    State
+    Layer
 }

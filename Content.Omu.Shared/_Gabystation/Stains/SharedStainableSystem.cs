@@ -10,7 +10,7 @@ using Content.Shared.Fluids;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared.Slippery;
-using Content.Omu.Shared.WashingMachine.Events;
+using Content.Omu.Shared._Gabystation.WashingMachine.Events;
 using Content.Shared.Clothing.Components;
 using Robust.Shared.Containers;
 using Content.Shared.Stains.Components;
@@ -19,7 +19,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Popups;
 using Content.Shared._Gabystation.Stains;
 
-namespace Content.Omu.Shared.Stains;
+namespace Content.Omu.Shared._Gabystation.Stains;
 
 public abstract partial class SharedStainableSystem : EntitySystem
 {

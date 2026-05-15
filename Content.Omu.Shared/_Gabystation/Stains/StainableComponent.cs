@@ -10,7 +10,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Content.Shared.DoAfter;
 
-namespace Content.Omu.Shared.Stains;
+namespace Content.Omu.Shared._Gabystation.Stains;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class StainableComponent : Component

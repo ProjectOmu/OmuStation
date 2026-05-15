@@ -7,11 +7,11 @@
 using Content.Server.Forensics;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Forensics.Components;
-using Content.Omu.Shared.Stains;
+using Content.Omu.Shared._Gabystation.Stains;
 using Content.Shared.Tag;
 using Robust.Shared.Containers;
 
-namespace Content.Omu.Server.Stains;
+namespace Content.Omu.Server._Gabystation.Stains;
 
 public sealed partial class StainableSystem : SharedStainableSystem
 {

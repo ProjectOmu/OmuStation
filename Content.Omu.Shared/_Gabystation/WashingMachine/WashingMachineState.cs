@@ -5,10 +5,12 @@
 
 using Robust.Shared.Serialization;
 
-namespace Content.Omu.Shared.Stains;
+namespace Content.Omu.Shared._Gabystation.WashingMachine;
 
 [Serializable, NetSerializable]
-public enum StainVisualLayers : byte
+public enum WashingMachineState : byte
 {
-    Layer
+    Idle,
+    Washing,
+    Broken
 }

@@ -6,7 +6,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Omu.Shared.WashingMachine;
+namespace Content.Omu.Shared._Gabystation.WashingMachine;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), AutoGenerateComponentPause]
 public sealed partial class WashingMachineComponent : Component

@@ -3,14 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Robust.Shared.Serialization;
+using Content.Omu.Shared._Gabystation.WashingMachine;
 
-namespace Content.Omu.Shared.WashingMachine;
+namespace Content.Omu.Client._Gabystation.WashingMachine;
 
-[Serializable, NetSerializable]
-public enum WashingMachineState : byte
-{
-    Idle,
-    Washing,
-    Broken
-}
+public sealed partial class WashingMachineSystem : SharedWashingMachineSystem;
