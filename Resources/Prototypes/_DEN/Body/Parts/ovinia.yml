@@ -14,14 +14,31 @@
       - ReagentId: Blood
         Quantity: 10
 
-- type: entity
-  id: TorsoOvinia
-  name: "ovinia torso"
+- type: entity #Omu - Woundmed Compat
+  id: ChestOvinia
+  name: "ovinia chest"
   parent: [PartOvinia, BaseChest]
   components:
   - type: Sprite
     sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+  categories: [ HideSpawnMenu ]
+
+- type: entity #
+  id: GroinOvinia
+  name: "ovinia groin"
+  parent: [PartOvinia, BaseGroin]
+  components:
+  - type: Sprite
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: "groin_m"
   - type: Extractable
     juiceSolution:
       reagents:
