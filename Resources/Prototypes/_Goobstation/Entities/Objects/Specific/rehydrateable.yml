@@ -152,3 +152,12 @@
   - type: Rehydratable
     possibleSpawns:
     - MobFeroxiRandom
+
+- type: entity #Omu
+  parent: MonkeyCube
+  id: OviniaCube
+  name: ovinia cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobOviniaRandom
