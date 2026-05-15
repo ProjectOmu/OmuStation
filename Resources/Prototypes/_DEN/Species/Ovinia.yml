@@ -24,7 +24,7 @@
     Underwear: MobHumanoidAnyMarking
     Undershirt: MobHumanoidAnyMarking
     Groin: MobOviniaGroin #Omu - Woundmed Compat
-    Chest: MobOviniaChest #
+    Chest: MobOviniaChest #Omu - Woundmed Compat
     NeckFluff: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
@@ -115,30 +115,30 @@
     state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobOviniaChestMale #
+  id: MobOviniaChestMale #Omu - Woundmed Compat
   baseSprite:
     sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
     state: chest_m
 
-- type: humanoidBaseSprite #
+- type: humanoidBaseSprite #Omu - Woundmed Compat
   id: MobOviniaChestFemale
   baseSprite:
     sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
     state: chest_f
 
-- type: humanoidBaseSprite #
+- type: humanoidBaseSprite #Omu - Woundmed Compat
   id: MobOviniaGroin
   baseSprite:
     sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
     state: groin_m
 
-- type: humanoidBaseSprite #
+- type: humanoidBaseSprite #Omu - Woundmed Compat
   id: MobOviniaGroinMale
   baseSprite:
     sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
     state: groin_m
 
-- type: humanoidBaseSprite #
+- type: humanoidBaseSprite #Omu - Woundmed Compat
   id: MobOviniaGroinFemale
   baseSprite:
     sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
