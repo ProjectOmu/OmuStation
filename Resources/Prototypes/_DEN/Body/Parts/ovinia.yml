@@ -29,7 +29,6 @@
         Quantity: 10
       - ReagentId: Blood
         Quantity: 20
-  categories: [ HideSpawnMenu ]
 
 - type: entity #
   id: GroinOvinia
@@ -46,7 +45,6 @@
         Quantity: 10
       - ReagentId: Blood
         Quantity: 20
-  categories: [ HideSpawnMenu ]
 
 - type: entity
   id: HeadOvinia
@@ -63,7 +61,6 @@
         Quantity: 5
       - ReagentId: Blood
         Quantity: 10
-  categories: [ HideSpawnMenu ]
 
 - type: entity
   id: LeftArmOvinia
@@ -73,7 +70,6 @@
   - type: Sprite
     sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
     state: "l_arm"
-  categories: [ HideSpawnMenu ]
 
 - type: entity
   id: RightArmOvinia
@@ -83,7 +79,6 @@
   - type: Sprite
     sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
     state: "r_arm"
-  categories: [ HideSpawnMenu ]
 
 - type: entity
   id: LeftHandOvinia
@@ -93,7 +88,6 @@
   - type: Sprite
     sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
     state: "l_hand"
-  categories: [ HideSpawnMenu ]
 
 - type: entity
   id: RightHandOvinia
@@ -103,7 +97,6 @@
   - type: Sprite
     sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
     state: "r_hand"
-  categories: [ HideSpawnMenu ]
 
 - type: entity
   id: LeftLegOvinia
@@ -113,7 +106,6 @@
   - type: Sprite
     sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
     state: "l_leg"
-  categories: [ HideSpawnMenu ]
 
 - type: entity
   id: RightLegOvinia
@@ -123,7 +115,6 @@
   - type: Sprite
     sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
     state: "r_leg"
-  categories: [ HideSpawnMenu ]
 
 - type: entity
   id: LeftFootOvinia
@@ -133,7 +124,6 @@
   - type: Sprite
     sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
     state: "l_foot"
-  categories: [ HideSpawnMenu ]
 
 - type: entity
   id: RightFootOvinia
@@ -143,4 +133,3 @@
   - type: Sprite
     sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
     state: "r_foot"
-  categories: [ HideSpawnMenu ]
