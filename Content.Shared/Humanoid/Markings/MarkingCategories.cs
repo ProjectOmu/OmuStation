@@ -30,7 +30,7 @@ namespace Content.Shared.Humanoid.Markings
         Face, // Plasmeme Port
         Snout,
         Chest,
-        NeckFluff,
+        NeckFluff, // Den, Omu Port
         RightArm,
         RightHand,
         LeftArm,
@@ -68,7 +68,7 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.Underwear => MarkingCategories.Underwear,
                 HumanoidVisualLayers.Chest => MarkingCategories.Chest,
                 HumanoidVisualLayers.Groin => MarkingCategories.Groin, // Shitmed Change
-                HumanoidVisualLayers.NeckFluff => MarkingCategories.NeckFluff,
+                HumanoidVisualLayers.NeckFluff => MarkingCategories.NeckFluff, //Den, Omu Port
                 HumanoidVisualLayers.RArm => MarkingCategories.RightArm,
                 HumanoidVisualLayers.LArm => MarkingCategories.LeftArm,
                 HumanoidVisualLayers.RHand => MarkingCategories.RightHand,
