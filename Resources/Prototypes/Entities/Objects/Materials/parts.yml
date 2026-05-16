@@ -107,7 +107,7 @@
   - type: GuideHelp
     guides:
     - ExpandingRepairingStation
-  - type: UserInterface # Omu - EE Port
+  - type: UserInterface # Omu Start - EE Port
     interfaces:
       enum.RadialSelectorUiKey.Key:
         type: AttachedRadialSelectorMenuBUI
@@ -139,7 +139,7 @@
         - prototype: SheetRPGlass0
         - prototype: SheetRUGlass
         - prototype: SheetRUGlass0
-        - prototype: SheetRGlass
+        - prototype: SheetRGlass #Omu end - EE port
 
 
 - type: entity

@@ -118,7 +118,7 @@
     - Sheet
     - Metal
     - Steel
-  - type: UserInterface # Omu - EE Port
+  - type: UserInterface # Omu Start - EE Port
     interfaces:
       enum.RadialSelectorUiKey.Key:
         type: AttachedRadialSelectorMenuBUI
@@ -200,7 +200,7 @@
         - prototype: DisposalTagger
         - prototype: DisposalTrunk
         - prototype: DisposalUnit
-    - prototype: CrateGenericSteel
+    - prototype: CrateGenericSteel #Omu end - EE port
 
 
 - type: entity
