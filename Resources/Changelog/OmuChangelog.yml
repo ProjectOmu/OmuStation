@@ -3691,3 +3691,384 @@ Entries:
       message: Removed the luxury medipen
   id: 475
   time: '2026-05-04T17:30:57.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: >-
+        You can mutate some new chems into your plants,, I cant list them all
+        here
+    - type: Tweak
+      message: Botanist traitors can buy the dart gun now
+    - type: Tweak
+      message: Industrial reagent grinder storage increased 400u -> 3000u
+  id: 476
+  time: '2026-05-05T17:40:16.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed being unable to break mountain rock
+  id: 477
+  time: '2026-05-06T02:20:16.0000000+00:00'
+- author: PickelSilly
+  changes:
+    - type: Add
+      message: >-
+        Added Divineluke's "Sapphire Bubblestar's Bubble-bar" artwork to the
+        lobby art rotation!
+  id: 478
+  time: '2026-05-06T02:21:57.0000000+00:00'
+- author: Rainflies
+  changes:
+    - type: Add
+      message: >-
+        Armored Jamrock blazer & Armored aerostatic jacket for detectives, The
+        road to healing is a long one.
+  id: 479
+  time: '2026-05-06T02:25:44.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: misc CC bugs
+  id: 480
+  time: '2026-05-06T15:16:39.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Add
+      message: Vox have cortical stacks for brains now
+  id: 481
+  time: '2026-05-09T17:19:10.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: >-
+        Added blueprints to the traitor uplink giving the ability to print
+        syndicate cyborg modules and chassis. 
+    - type: Add
+      message: Added the syndicate mediborg to nukeops uplinks
+  id: 482
+  time: '2026-05-09T20:12:04.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: 'Crew manifest now shows the gender of crew. '
+    - type: Fix
+      message: 'Fixed long names overflowing into the job section of the crew manifest. '
+  id: 483
+  time: '2026-05-09T20:36:02.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Ported Allulalo from Impstation
+  id: 484
+  time: '2026-05-09T20:51:09.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Betrayal knife no longer works in Zero G
+  id: 485
+  time: '2026-05-09T20:58:29.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Added a selector for vox raiders to pick from a list of sets.
+    - type: Tweak
+      message: >-
+        Changed the IFF console on the vox raider shuttle from true invisibility
+        to simply hiding the name
+    - type: Tweak
+      message: 'Vox raider''s suits are now less armored. '
+    - type: Remove
+      message: >-
+        Vox raiders no longer receive nocturine or chameleon projectors (You get
+        your tools from your selector)
+    - type: Remove
+      message: Removed vox raider's death acidifier
+  id: 486
+  time: '2026-05-09T21:04:25.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Slasher no longer has the ability to possess others, and is no longer
+        immune to breathing.
+  id: 487
+  time: '2026-05-09T21:12:32.0000000+00:00'
+- author: Pon, Annie
+  changes:
+    - type: Remove
+      message: >-
+        Removed the belt slot in loadout options for the BSO, due to the new
+        support kits.
+    - type: Remove
+      message: >-
+        Removed the compact defibrillator from BSO's locker, to focus on more
+        extraction based gameplay.
+    - type: Add
+      message: >-
+        Added 2 new set selectors for the BSO, which replace the previous weapon
+        one. 1 contains all the weapons the previous one did, the other
+        containing 3 different support options to choose from. They all come
+        with a unique belt slot items, allowing for better readability for all
+        players.
+    - type: Add
+      message: >-
+        Added the bluespace fultons and bluespace fultons beacon. These CC ID
+        locked fultons are applied in half the time of a normal fulton, extract
+        in 5 seconds and announce extraction on medical radio. Contained in the
+        Extraction set alongside the pill combat medkit and extraction rig, able
+        to store any 2x2 or smaller item.
+    - type: Add
+      message: >-
+        Added the bluespace body bag, a unique body bag which can hold up to 30
+        bodies, body parts and/or organs. Contained in the Medical set alongside
+        a compact defibrillator, 2 combat medkits and medical chest rig.
+    - type: Add
+      message: >-
+        Added the Chemical set, similiar to the old medical kit. Contains the
+        combat injector, T4 chems, omnizine and artiplates vials. Comes in the
+        medical pouch.
+    - type: Add
+      message: >-
+        Added the bluespace and bluespace stasis rollerbeds into the BSO's
+        locker. Both are 1x2 items when folded, with the stasis one also
+        functioning like a stasis bed on buckle. 
+    - type: Tweak
+      message: >-
+        Changed the item pool for BSO's locker to contain the two new set
+        selectors instead of the old weapon one, and a disabler for those who
+        choose a offensive kit without a nonlethal option. 
+    - type: Tweak
+      message: >-
+        Added a second nonlethal (disabling) speedloader to the shoulder holster
+        that the EG-4 comes with.
+  id: 488
+  time: '2026-05-09T21:26:46.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: 'Ported a new mid round event from DV, The Internal Affairs Agent. '
+  id: 489
+  time: '2026-05-09T21:47:40.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed being able to bypass species requirements on uplinks
+  id: 490
+  time: '2026-05-09T21:50:08.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Ported the synth trait from DV
+  id: 491
+  time: '2026-05-09T22:11:39.0000000+00:00'
+- author: Marikii
+  changes:
+    - type: Add
+      message: >-
+        Vulps can now yip, yap and gekker. Feroxi can now chirp and squeak,
+        rodentia can now squee (alternate squeak) and snort!
+    - type: Tweak
+      message: >-
+        Avali and Resomi can now growl and hiss, felinids and tajarans can now
+        trill!
+    - type: Tweak
+      message: >-
+        Moths, arachnids and chitinids now have species-specific sounds for
+        crying, gasping, yawning, sighing and coughing. Resomi and Avali have a
+        species-specific sound for yawning (deathgasp from Starlight, tee-hee..)
+  id: 492
+  time: '2026-05-09T22:22:19.0000000+00:00'
+- author: PickelSilly
+  changes:
+    - type: Add
+      message: >-
+        Added hobbyist's spell book to the chaplain and librarian's uplink,
+        allows you to cast your own basic spells!
+  id: 493
+  time: '2026-05-09T22:38:49.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed one leftover unintended spawner for plague mice.
+  id: 494
+  time: '2026-05-09T23:00:23.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Tweak
+      message: >-
+        Medical's autoinjector cartridges now have more vibrant colours to
+        better tell them apart.
+    - type: Tweak
+      message: >-
+        poison autoinjector cartridges now contain 2u multiver, 8u dylovene to
+        aid in active field poisonings.
+    - type: Tweak
+      message: >-
+        radiation autoinjector cartridges now contain 5u arithrazine, 5u
+        hyronlin.
+    - type: Tweak
+      message: >-
+        autoinjector cartridges are now named so that they group together in the
+        medical techfabs list of items.
+  id: 495
+  time: '2026-05-09T23:59:18.0000000+00:00'
+- author: PickelSilly
+  changes:
+    - type: Add
+      message: Added IdiotVibes' "What the Hell is Going On" art to the lobby rotation!
+  id: 496
+  time: '2026-05-10T00:09:35.0000000+00:00'
+- author: ArtemisYK
+  changes:
+    - type: Remove
+      message: Removed fun. (Removed the combat shells from the RGL)
+  id: 497
+  time: '2026-05-10T00:14:53.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: Vox can now choose from more colors!
+    - type: Fix
+      message: Feroxi sprites on the customization screen fixed
+  id: 498
+  time: '2026-05-10T00:20:11.0000000+00:00'
+- author: PickelSilly
+  changes:
+    - type: Add
+      message: Added Squibbo's "Extermination" artwork to the lobby art rotation!
+  id: 499
+  time: '2026-05-10T00:24:18.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: Ported the longcoats from delta v, look in command loadouts
+    - type: Tweak
+      message: Medical doctors have like 2 more shoes in their loadout hooray
+  id: 500
+  time: '2026-05-10T00:30:30.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: Fixed IAA guidebook mentioning midpoint
+  id: 501
+  time: '2026-05-10T02:27:36.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: >-
+        The shared delicacy mood for Thaven is gonna have u eating some wacky
+        shit now like god intended
+    - type: Tweak
+      message: Some Thaven moods were tweaked to fit in better in wording.
+  id: 502
+  time: '2026-05-10T04:51:41.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed Betrayal knife causing a server crash.
+  id: 503
+  time: '2026-05-10T11:59:43.0000000+00:00'
+- author: 3PonPon3
+  changes:
+    - type: Add
+      message: >-
+        Added the Typewriter Submachine Gun! It comes in a new set for the BSO,
+        chambered in .35 caliber, capable of fitting 50-round drum mags! The set
+        comes with the Typewriter preloaded with a drum mag filled with lethals,
+        a drum mag filled with non-lethal rubber bullets, and a standard SMG
+        stick mag filled with lethals!
+    - type: Add
+      message: >-
+        Added rubber .35 bullets! They do 5 blunt (a punch) and 17 stamina
+        damage, taking 6 hits to stun an unarmored person! Printed at the
+        secfab!
+  id: 504
+  time: '2026-05-10T17:44:16.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: Shaft miner loadout gets the same shoes as salvage loadout now
+  id: 505
+  time: '2026-05-13T01:40:10.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: Replaced the NTR belt with a caneblade
+  id: 506
+  time: '2026-05-13T05:29:28.0000000+00:00'
+- author: Aureu
+  changes:
+    - type: Fix
+      message: NT Cane blade now spawns with the cane
+  id: 507
+  time: '2026-05-14T11:04:24.0000000+00:00'
+- author: Dishwasher0
+  changes:
+    - type: Tweak
+      message: Changed felinids to be as the guide books says
+  id: 508
+  time: '2026-05-14T12:18:05.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Changed the contra status on a lot of huds.
+  id: 509
+  time: '2026-05-14T17:13:18.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: Thaven guidebook changed, must now follow regular escalation.
+  id: 510
+  time: '2026-05-15T00:29:15.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: >-
+        Removed the artifact abductor gland due to it causing heavy server lag
+        at random.
+  id: 511
+  time: '2026-05-15T05:42:23.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: >-
+        ajusted Syndicate thaven rapier damage values, changes where demanded on
+        initial but not adressed
+  id: 512
+  time: '2026-05-15T05:42:59.0000000+00:00'
+- author: LukaSlade
+  changes:
+    - type: Tweak
+      message: Xelthia can now freely drink coffee and eat raw meat.
+  id: 513
+  time: '2026-05-15T10:09:45.0000000+00:00'
+- author: 3PonPon3
+  changes:
+    - type: Add
+      message: >-
+        Added a new bark voice option for Moths (and Harpies).
+        Squeaksqueaksqueaksqueaksqueak!!
+  id: 514
+  time: '2026-05-15T18:37:19.0000000+00:00'
+- author: rainflies
+  changes:
+    - type: Tweak
+      message: >-
+        Moved the advanced remote signaller in the uplink to the suspicious
+        toolbox.
+  id: 515
+  time: '2026-05-16T05:42:59.0000000+00:00'
+- author: Silly_Fisher
+  changes:
+    - type: Add
+      message: Trans ensemble as a trinket unlockable at 200 overall hours on omu
+  id: 516
+  time: '2026-05-16T10:53:21.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Ported the Medical Assembler and Oven from Frontier
+    - type: Tweak
+      message: Combat medipen is no longer contraband
+  id: 517
+  time: '2026-05-16T11:27:36.0000000+00:00'
