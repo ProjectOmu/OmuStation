@@ -109,7 +109,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [ ClothingOuterStorageBase, ClothingOuterStorageToggleableBase] # Omu, fixing default hoodless coat
+  parent: [ ClothingOuterStorageBase, ClothingOuterStorageToggleableBase] # Omu, fixing default hoodless coat (does mean all coats need hoods)
   id: ClothingOuterWinterCoat
   name: winter coat
   description: A heavy jacket made from 'synthetic' animal furs.
@@ -160,7 +160,7 @@
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterDefault
 
-- type: entity # Omu, fixing default hoodless coat
+- type: entity # Omu, fixing default hoodless coat, keeping this saves editing every child prototype
   abstract: true
   parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterCoatToggleable
@@ -372,14 +372,14 @@
       Plasteel: 187
   - type: StaticPrice #Goobstation - Recycle update
     price: 220
-  - type: Armor # Goob # Omu
+  - type: Armor # Goob
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.55
-        Heat: 0.55
-        Caustic: 0.6
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.6
+        Heat: 0.6
+        Caustic: 0.65
 
 - type: entity
   parent: [ClothingOuterWinterCoatToggleable, BaseSecurityCommandContraband]
@@ -614,14 +614,14 @@
       Plasteel: 125
   - type: StaticPrice #Goobstation - Recycle update
     price: 180
-  - type: Armor # Goob # Omu
+  - type: Armor # Goob
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.55
-        Heat: 0.55
-        Caustic: 0.6
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.6 # Omu
+        Heat: 0.6
+        Caustic: 0.65 # Omu
 ################################################################
 
 - type: entity

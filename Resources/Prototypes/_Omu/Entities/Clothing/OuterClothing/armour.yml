@@ -10,26 +10,6 @@
     sprite: _Omu/Clothing/OuterClothing/Armour/ClothingOuterBlueshieldArmourKimono.rsi
   - type: Item
     size: Normal
-  - type: Armor # Omu
-    coverage:
-    - Chest
-    - Arm
-    - Groin
-    - Tail
-    - Leg
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.35
-        Slash: 0.35
-        Piercing: 0.45
-        Heat: 0.35
-        Caustic: 0.7
 
 - type: entity
   parent: [ ClothingOuterBase, AllowSuitStorageClothing, BaseSyndicateContraband ]
