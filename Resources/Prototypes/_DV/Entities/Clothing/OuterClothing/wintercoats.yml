@@ -56,21 +56,6 @@
     sprite: _DV/Clothing/OuterClothing/Wintercoats/corpo_jacket.rsi
 
 - type: entity
-  abstract: true
-  parent: ClothingOuterArmoredWinterCoat
-  id: ClothingOuterArmoredWinterCoatToggleable
-  components:
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterDefault
-    slot: head
-  - type: ContainerContainer
-    containers:
-      toggleable-clothing: !type:ContainerSlot {}
-      toggleable-under-clothing: !type:ContainerSlot {}
-      storagebase: !type:Container
-        ents: []
-
-- type: entity
   parent: [ClothingOuterArmoredWinterCoat, BaseCentcommContraband] # Omu, add contra
   id: ClothingOuterArmoredWinterCoatCentComm
   name: central command's armored winter coat
