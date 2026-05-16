@@ -18,6 +18,8 @@ using Content.Server._EinsteinEngines.Language;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Movement.Systems; // HardLight
+using Content.Shared.Preferences; // HardLight
 using Content.Shared.Roles;
 using Content.Shared.Traits;
 using Content.Shared.Whitelist;
@@ -33,6 +35,7 @@ public sealed class TraitSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedHandsSystem _sharedHandsSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!; // HardLight
 
     public override void Initialize()
     {
@@ -105,6 +108,65 @@ public sealed class TraitSystem : EntitySystem
             var coords = Transform(args.Mob).Coordinates;
             var inhandEntity = Spawn(traitPrototype.TraitGear, coords);
             _sharedHandsSystem.TryPickup(args.Mob,
+                inhandEntity,
+                checkActionBlocker: false,
+                handsComp: handsComponent);
+        }
+    }
+
+    /// <summary>
+    /// HardLight: Applies the selected traits from a humanoid profile to an existing entity.
+    /// This is intended for non-standard spawn paths like admin spawning or cloning
+    /// that already have a validated profile and just need its trait components replayed.
+    /// </summary>
+    public void ApplyProfileTraits(EntityUid uid, HumanoidCharacterProfile profile, string? playerName = null, bool addTraitGear = true)
+    {
+        var sortedTraits = new List<TraitPrototype>();
+        foreach (var traitId in profile.TraitPreferences)
+        {
+            if (_prototypeManager.TryIndex<TraitPrototype>(traitId, out var traitPrototype))
+                sortedTraits.Add(traitPrototype);
+        }
+
+        sortedTraits.Sort();
+
+        foreach (var traitPrototype in sortedTraits)
+        {
+// OMU: commenting out this "trait<-->player whitelisting" code
+//			if (traitPrototype.Logins.Count > 0 &&
+//				(playerName == null || !traitPrototype.Logins.Contains(playerName)))
+//			{
+//				continue;
+//			}
+
+            AddTrait(uid, traitPrototype, addTraitGear);
+        }
+    }
+
+    // HardLight
+    /// <summary>
+    ///     Adds a single Trait Prototype to an Entity.
+    /// </summary>
+    public void AddTrait(EntityUid uid, TraitPrototype traitPrototype, bool addTraitGear = true)
+    {
+        // Check whitelist/blacklist
+        if (_whitelistSystem.IsWhitelistFail(traitPrototype.Whitelist, uid) ||
+            _whitelistSystem.IsBlacklistPass(traitPrototype.Blacklist, uid))
+            return;
+
+        // Add all components required by the prototype
+        if(traitPrototype.Components is not null) // OMU: This check is required to work with the nullable ComponentRegistry in Content.Shared/Traits/TraitPrototype.cs
+            EntityManager.AddComponents(uid, traitPrototype.Components, traitPrototype.ReplaceComponents); // Hardlight: Added ReplaceComponents
+
+        // HardLight: Force an immediate refresh so movement penalties/bonuses apply on spawn.
+        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+
+        // Add item required by the trait
+        if (addTraitGear && traitPrototype.TraitGear != null && TryComp(uid, out HandsComponent? handsComponent)) // HardLight: Added addTraitGear
+        {
+            var coords = Transform(uid).Coordinates;
+            var inhandEntity = EntityManager.SpawnEntity(traitPrototype.TraitGear, coords);
+            _sharedHandsSystem.TryPickup(uid,
                 inhandEntity,
                 checkActionBlocker: false,
                 handsComp: handsComponent);

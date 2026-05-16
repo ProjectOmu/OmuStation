@@ -90,6 +90,11 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Radio.Components; // Goobstation
 using Content.Shared.Radio.EntitySystems;
 using Robust.Shared.Utility; // Goobstation
+using Content.Shared.Mind; // HardLight
+using Content.Server.Preferences.Managers; // HardLight
+using Robust.Server.Player; // HardLight
+using Content.Server.Traits; // HardLight
+using Content.Shared.Preferences; // HardLight
 
 namespace Content.Server.Cloning;
 
@@ -111,6 +116,10 @@ public sealed partial class CloningSystem : EntitySystem
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
     [Dependency] private readonly ToggleableClothingSystem _toggleable = default!; // Goobstation
     [Dependency] private readonly SharedSealableClothingSystem _sealable = default!; // Goobstation
+    [Dependency] private readonly SharedMindSystem _mind = default!; // HardLight
+    [Dependency] private readonly IServerPreferencesManager _prefs = default!; // HardLight
+    [Dependency] private readonly IPlayerManager _player = default!; // HardLight
+    [Dependency] private readonly TraitSystem _traits = default!; // HardLight
 
     /// <summary>
     ///     Spawns a clone of the given humanoid mob at the specified location or in nullspace.
@@ -149,6 +158,7 @@ public sealed partial class CloningSystem : EntitySystem
         _humanoidSystem.CloneAppearance(original, clone.Value);
 
         CloneComponents(original, clone.Value, settings);
+        ApplySelectedTraits(original, clone.Value); // HardLight
 
         // Add equipment first so that SetEntityName also renames the ID card.
         if (settings.CopyEquipment != null)
@@ -170,6 +180,23 @@ public sealed partial class CloningSystem : EntitySystem
 
         _adminLogger.Add(LogType.Chat, LogImpact.Medium, $"The body of {original:player} was cloned as {clone.Value:player}");
         return true;
+    }
+
+    private void ApplySelectedTraits(EntityUid original, EntityUid clone) // HardLight
+    {
+        if (!_mind.TryGetMind(original, out _, out var mind) ||
+            mind.UserId == null ||
+            _prefs.GetPreferences(mind.UserId.Value).SelectedCharacter is not HumanoidCharacterProfile profile)
+        {
+            return;
+        }
+
+        string? playerName = null;
+        if (_player.TryGetSessionById(mind.UserId.Value, out var session))
+            playerName = session.Name;
+
+        // Clone equipment separately; replay only the selected trait components here.
+        _traits.ApplyProfileTraits(clone, profile, playerName, addTraitGear: false);
     }
 
     /// <summary>

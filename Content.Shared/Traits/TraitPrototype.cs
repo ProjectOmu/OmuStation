@@ -53,6 +53,12 @@ public sealed partial class TraitPrototype : IPrototype
     public HashSet<JobRequirement>? Requirements;
 
     /// <summary>
+    ///     If this trait should replace the added components. Hardlight change.
+    /// </summary>
+    [DataField]
+    public bool ReplaceComponents = false;
+
+    /// <summary>
     /// Don't apply this trait to entities this whitelist IS NOT valid for.
     /// </summary>
     [DataField]
