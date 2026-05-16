@@ -240,6 +240,7 @@
   whitelist:
     tags:
     - HarpyEmotes # Omu, allow harpy to squeak
+    - RodentiaEmotes # Omu
     components:
       - Vocal
   blacklist:
@@ -450,6 +451,7 @@
     tags:
       - HarpyEmotes # Omu, allow harpy to chirp
       - ThavenEmotes # gds
+      - FeroxiEmotes # Omu
     components:
     - Nymph
     - Vocal
