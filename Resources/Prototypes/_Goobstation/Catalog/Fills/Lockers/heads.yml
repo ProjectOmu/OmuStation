@@ -77,4 +77,4 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
-        tableId: LockerFillBlueshieldOfficer
+        tableId: LockerFillBlueshieldOfficerOmu # Omustation apperance so we don't have to remap a thousand times

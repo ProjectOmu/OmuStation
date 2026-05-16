@@ -1,0 +1,57 @@
+# SPDX-FileCopyrightText: 2025 Gip-Kip <hargifarspam2@gmail.com>
+# SPDX-FileCopyrightText: 2025 bunnygirlHyacinth <xxst4rf11m00nb700db4nnyxx@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+#Thavens
+- type: entity
+  name: Eeckekyiish kelp pod
+  parent: FoodProduceBase
+  id: FoodKelpPod
+  description: A strange and smelly pod, valued by thaven and other aquatic species for its medicinal properties.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - bungo
+    - medicine
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # downtuned from 40
+        reagents:
+        - ReagentId: KelpPodSlime
+          Quantity: 10
+        - ReagentId: Slime #mostly useless goo
+          Quantity: 10
+  - type: Sprite
+    sprite: _Gardenstation/Objects/Specific/Hydroponics/kelppod.rsi
+  - type: Produce
+    seedId: KelpPod
+  - type: Extractable
+    grindableSolutionName: food
+# cask-kelp
+- type: entity
+  name: Eeckekyiish cask-kelp pod
+  parent: FoodProduceBase
+  id: FoodKelpWinePod
+  description: A strange and sweet-smelling pod. It seems be bubbling away on the inside... some kind of self-contained fermentation process?
+  components:
+  - type: FlavorProfile
+    flavors:
+    - kelpwine
+    - medicine
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: KelpPodSlime
+          Quantity: 20
+        - ReagentId: KelpPodWine #self fermenting!
+          Quantity: 20
+  - type: Sprite
+    sprite: _Gardenstation/Objects/Specific/Hydroponics/kelppod.rsi
+  - type: Produce
+    seedId: KelpWinePod
+  - type: Extractable
+    grindableSolutionName: food
