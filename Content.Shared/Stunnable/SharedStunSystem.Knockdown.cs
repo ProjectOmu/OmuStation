@@ -371,7 +371,7 @@ public abstract partial class SharedStunSystem
         ForceStandUp(user);
     }
 
-    public void ForceStandUp(Entity<KnockedDownComponent?> entity, bool helped = false)
+    public void ForceStandUp(Entity<KnockedDownComponent?> entity, bool ignoreMartialArtReq = false)
     {
         if (!Resolve(entity, ref entity.Comp, false))
             return;
@@ -379,7 +379,7 @@ public abstract partial class SharedStunSystem
         // That way if we fail to stand, the game will try to stand for us when we are able to
         SetAutoStand(entity, true);
 
-        if ((!(HasComp<MartialArtsKnowledgeComponent>(entity.Owner) || HasComp<KravMagaComponent>(entity.Owner)) && !helped))
+        if ((!(HasComp<MartialArtsKnowledgeComponent>(entity.Owner) || HasComp<KravMagaComponent>(entity.Owner)) && !ignoreMartialArtReq))
             return;
 
         if (StandingBlocked((entity, entity.Comp)))

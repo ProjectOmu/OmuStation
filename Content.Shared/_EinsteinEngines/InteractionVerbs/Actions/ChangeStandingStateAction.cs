@@ -44,7 +44,7 @@ public sealed partial class ChangeStandingStateAction : InteractionAction
         if (!state.Standing && MakeStanding &&
             entMan.TryGetComponent<KnockedDownComponent>(args.Target, out var knocked))
         {
-            stun.ForceStandUp((args.Target, knocked), helped: true);
+            stun.ForceStandUp((args.Target, knocked), ignoreMartialArtReq: true);
             return state.Standing;
         }
 
