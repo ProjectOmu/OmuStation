@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.MartialArts;
 using Content.Shared.Alert;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Buckle.Components;
@@ -20,6 +21,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Goobstation.Shared.MartialArts.Components;
 
 namespace Content.Shared.Stunnable;
 
@@ -369,13 +371,16 @@ public abstract partial class SharedStunSystem
         ForceStandUp(user);
     }
 
-    public void ForceStandUp(Entity<KnockedDownComponent?> entity)
+    public void ForceStandUp(Entity<KnockedDownComponent?> entity, bool helped = false)
     {
         if (!Resolve(entity, ref entity.Comp, false))
             return;
 
         // That way if we fail to stand, the game will try to stand for us when we are able to
         SetAutoStand(entity, true);
+
+        if ((!(HasComp<MartialArtsKnowledgeComponent>(entity.Owner) || HasComp<KravMagaComponent>(entity.Owner)) && !helped))
+            return;
 
         if (StandingBlocked((entity, entity.Comp)))
             return;
