@@ -192,7 +192,7 @@
   - type: Tag
     tags:
       - FoodSnack
-      - Pill # Make it edible by all species that can heal by eating pills, (which is usually the only food that heals)
+      - Pill # Make it edible by all species
 
 - type: entity
   name: arcane shock barrage
@@ -203,7 +203,7 @@
   - type: ProjectileSpread
     proto: ProjectileShockHobbyist
     count: 3 # 45 stam
-    spread: 10
+    spread: 15
 
 - type: entity
   id: ProjectileShockHobbyist
@@ -215,7 +215,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
-      state: bluespace
+    - state: bluespace
       shader: unshaded
   - type: Projectile
     damage:
