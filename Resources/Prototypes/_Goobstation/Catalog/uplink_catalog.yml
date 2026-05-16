@@ -101,15 +101,16 @@
   categories:
     -  UplinkDisruption
 
-- type: listing
-  id: UplinkRemoteSignallerAdvanced
-  name: uplink-signaller-name
-  description: uplink-signaller-desc
-  productEntity: RemoteSignallerAdvanced
-  cost:
-    Telecrystal: 8
-  categories:
-    -  UplinkDisruption
+# - type: listing  # Omu, remove this as its not needed anymore.
+  #id: UplinkRemoteSignallerAdvanced
+  #name: uplink-signaller-name
+  #description: uplink-signaller-desc
+  #productEntity: RemoteSignallerAdvanced
+  #cost:
+  #  Telecrystal: 8
+  #categories:
+  #  -  UplinkDisruption
+
 
 - type: listing
   id: UplinkSarinGasGrenade
@@ -841,7 +842,7 @@
 #    whitelist:
 #    - Medical
   - !type:BuyerJobCondition # Omu
-    whitelist: 
+    whitelist:
     - MedicalDoctor
     - MedicalIntern
     - Chemist
