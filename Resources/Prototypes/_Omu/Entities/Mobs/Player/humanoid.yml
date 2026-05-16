@@ -1,4 +1,17 @@
 - type: entity
+  parent: MobOvinia
+  id: MobOviniaRandom
+  name: Urist mcSheepy
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
+
+- type: entity
   id: RandomHumanoidSpawnerNanoTrasenSpectre
   name: NanoTrasen Spectre Agent
   suffix: ERTRole, Death Squad, Spectre Agent
