@@ -1,6 +1,6 @@
 - type: entity
   parent: BasePlushie
-  id: PlushieRestful
+  id: PlushieRestfulOmuStaff
   name: disgusting ogre plushie
   description: Absolutely massive plushie, vile....
   components:
@@ -35,3 +35,433 @@
   - type: GibThisGuy # hes cool with it
     icNames:
     - Dajjal Ojibakk
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieAureuOmuStaff
+  name: kyra liken plushie
+  description: She wears a tired smile. And yet, despite it all, she wurbles.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/aureu.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/aureu.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/aureu.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/Shadowkin/wurble.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/Shadowkin/wurble.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/Shadowkin/wurble.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_cry.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/_EinsteinEngines/Voice/Shadowkin/wurble.ogg
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: PenteticAcid
+          Quantity: 10
+        - ReagentId: WhiskeySoda
+          Quantity: 5
+
+- type: entity # fix the fax machine components
+  parent: BasePlushie
+  id: PlushieThesiaOmuStaff
+  name: lydia schofield plushie
+  description: This plushie smells of corporate greed. This seems like a bad idea to eat.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/thesia.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/thesia.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/thesia.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/Shadowkin/wurble.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/Shadowkin/wurble.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/Shadowkin/wurble.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_cry.ogg
+# lydia fax stuff
+  - type: FaxMachine
+    name: "Lydia Plushie"
+    paperSlot:
+      insertSound: /Audio/Machines/scanning.ogg
+      ejectSound: /Audio/Machines/tray_eject.ogg
+      whitelist:
+        components:
+          - FaxableObject #used to be PaperComponent - brainfood1183
+      blacklist:
+        components:
+          - CargoSlip
+  - type: ActivatableUI
+    key: enum.FaxUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.FaxUiKey.Key:
+        type: FaxBoundUi
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: Fax
+    transmitFrequencyId: Fax
+  - type: ApcPowerReceiver
+    needsPower: false
+    powerLoad: 250
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      Paper: !type:ContainerSlot
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    attackRate: .1
+    soundHit:
+      path: /Audio/_Goobstation/Weapons/ChronoLegionnaire/stasisgun_reload.ogg
+
+- type: entity
+  parent: PlushieThesiaOmuStaff
+  id: PlushieThesiaOmuStaffAmnestic
+  suffix: DO NOT MAP
+  components:
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Amnestizine # oh boy, nothing can go wrong right?
+          Quantity: 10
+        - ReagentId: Amatoxin
+          Quantity: 5
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieMarikiiiOmuStaff
+  name: mariki plushie
+  description: Note from CC says "Please return to spriting dungeons". Smells like cuban nachos, joy and whimsy.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/mariki.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/mariki.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/mariki.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_laugh.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      collection: Trill
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_laugh.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    attackRate: 1.5
+    soundHit:
+      path: /Audio/Animals/cat_hiss.ogg
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: CapsaicinOil
+          Quantity: 7
+        - ReagentId: Vitamin
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+      - nachos
+      - tomato
+      - spicy
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieNagollOmuStaff
+  name: loming plushie
+  description: A happy, dumb little caged plushie. He likes playing music on his super synth!
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/nagoll.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/nagoll.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/nagoll.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: Trill
+  - type: EmitSoundOnUse
+    sound:
+      collection: Trill
+  - type: EmitSoundOnLand
+    sound:
+      collection: ResomiChirp
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/Shadowkin/wurble.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: Trill
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_cry.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/_EinsteinEngines/Voice/Shadowkin/wurble.ogg
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 15
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieArtemisOmuStaff
+  name: fenrir kahler plushie
+  description: This plushie smells faintly of gunpowder and omnizine... Did it just bark at me?
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/artemis.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/artemis.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/artemis.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: VulpkaninSnarls
+  - type: EmitSoundOnUse
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnLand
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnCollide
+    sound:
+      collection: VulpkaninSnarls
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: VulpkaninSnarls
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: Charcoal
+          Quantity: 5
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieArtemisOmuStaff
+  name: fenrir kahler plushie
+  description: This plushie smells faintly of gunpowder and omnizine... Did it just bark at me?
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/artemis.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/artemis.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/artemis.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: VulpkaninSnarls
+  - type: EmitSoundOnUse
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnLand
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnCollide
+    sound:
+      collection: VulpkaninSnarls
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: VulpkaninSnarls
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: Charcoal
+          Quantity: 5
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieCliveOmuStaff
+  name: annie star plushie
+  description: Looks sterile and ready to save lives!
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/cliveocelot.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/cliveocelot.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/cliveocelot.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: HarpyCaws
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
+  - type: EmitSoundOnLand
+    sound:
+      collection: HarpyCaws
+  - type: EmitSoundOnActivate
+    sound:
+      collection: Trill
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: HarpyCaws
+  - type: EmitSoundOnCollide
+    sound:
+      collection: ResomiScrees
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: ResomiSquawk
+  - type: TileFrictionModifier
+    modifier: 0.001
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieCygOmuStaff
+  name: vivian olsson plushie
+  description: It's filled with hatred and malignacy. Filled with blackiron for realism.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/cyg.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/cyg.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/cyg.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: HarpyCaws
+  - type: EmitSoundOnUse
+    sound:
+      collection: HarpyCaws
+  - type: EmitSoundOnLand
+    sound:
+      collection: HarpyCaws
+  - type: EmitSoundOnActivate
+    sound:
+      collection: Trill
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: HarpyCaws
+  - type: EmitSoundOnCollide
+    sound:
+      collection: ResomiScrees
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: ResomiSquawk
+  - type: TileFrictionModifier
+    modifier: 0.001
+  - type: ClothingSpeedModifier
+    walkModifier: 0.5
+    sprintModifier: 0.5
+  - type: HeldSpeedModifier
