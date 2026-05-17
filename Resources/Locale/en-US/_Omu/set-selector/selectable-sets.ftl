@@ -127,6 +127,12 @@ selectable-set-bso-brdi-description =
     An iconic weapon used by members of the Biesel Republic Foreign Legion.
     Repainted for Blueshield Officers.
 
+selectable-set-bso-typewriter-name = Typewriter Submachine Gun
+selectable-set-bso-typewriter-desc =
+    A kit containing a perfect replica of the Thompson Submachine Gun,
+    chambered in .35, a preloaded drum mag, a stick mag and a drum mag with rubber bullets. 
+    Perfect for LARPers and wise guys alike.
+
 selectable-set-bso-extraction-name = Extraction kit
 selectable-set-bso-extraction-description =
     A swift extraction guarantees safety, you stand by those words.
@@ -156,8 +162,8 @@ selectable-set-ntr-cane-desc =
     Good for fending off annoying assistants who don't want
     to fill up paperwork.
 
-selectable-set-ntr-belt-name = Disciplinary Belt
-selectable-set-ntr-belt-desc =
-    A belt, hollowed out to maximize pain and minimize damage.
-    This one will let you do many, many lashings to anyone who
-    dares stand in NanoTrasen's way. Oh boy.
+selectable-set-ntr-blade-name = Cane Blade
+selectable-set-ntr-blade-desc =
+    A sturdier, bladed fancy cane, with no stun setting...
+    This one is meant for emergencies only
+    CC note says: ONLY USE ON RED!!!!!
