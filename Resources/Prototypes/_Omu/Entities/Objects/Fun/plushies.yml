@@ -58,9 +58,6 @@
   - type: EmitSoundOnUse
     sound:
       path: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/_EinsteinEngines/Voice/Shadowkin/wurble.ogg
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/_EinsteinEngines/Voice/Shadowkin/wurble.ogg
@@ -108,9 +105,6 @@
   - type: EmitSoundOnUse
     sound:
       path: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/_EinsteinEngines/Voice/Shadowkin/wurble.ogg
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/_EinsteinEngines/Voice/Shadowkin/wurble.ogg
@@ -194,9 +188,6 @@
   - type: EmitSoundOnUse
     sound:
       path: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/_Floofstation/Voice/Avali/avali_laugh.ogg
   - type: EmitSoundOnActivate
     sound:
       collection: Trill
@@ -252,9 +243,6 @@
   - type: EmitSoundOnUse
     sound:
       collection: Trill
-  - type: EmitSoundOnLand
-    sound:
-      collection: ResomiChirp
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/_EinsteinEngines/Voice/Shadowkin/wurble.ogg
@@ -300,59 +288,6 @@
   - type: EmitSoundOnUse
     sound:
       collection: VulpkaninBarks
-  - type: EmitSoundOnLand
-    sound:
-      collection: VulpkaninBarks
-  - type: EmitSoundOnActivate
-    sound:
-      collection: VulpkaninBarks
-  - type: EmitSoundOnTrigger
-    sound:
-      collection: VulpkaninBarks
-  - type: EmitSoundOnCollide
-    sound:
-      collection: VulpkaninSnarls
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    soundHit:
-      collection: VulpkaninSnarls
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
-        - ReagentId: Charcoal
-          Quantity: 5
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieArtemisOmuStaff
-  name: fenrir kahler plushie
-  description: This plushie smells faintly of gunpowder and omnizine... Did it just bark at me?
-  components:
-  - type: Sprite
-    sprite: _Omu/Objects/Fun/Plushies/artemis.rsi
-    state: icon
-  - type: Item
-    sprite: _Omu/Objects/Fun/Plushies/artemis.rsi
-  - type: Clothing
-    quickEquip: false
-    sprite: _Omu/Objects/Fun/Plushies/artemis.rsi
-    slots:
-    - HEAD
-  - type: EmitSoundOnPickup
-    sound:
-      collection: VulpkaninSnarls
-  - type: EmitSoundOnUse
-    sound:
-      collection: VulpkaninBarks
-  - type: EmitSoundOnLand
-    sound:
-      collection: VulpkaninBarks
   - type: EmitSoundOnActivate
     sound:
       collection: VulpkaninBarks
@@ -384,6 +319,7 @@
   name: annie star plushie
   description: Looks sterile and ready to save lives!
   components:
+  - type: Blindfold
   - type: Sprite
     sprite: _Omu/Objects/Fun/Plushies/cliveocelot.rsi
     state: icon
@@ -400,9 +336,6 @@
   - type: EmitSoundOnUse
     sound:
       path: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
-  - type: EmitSoundOnLand
-    sound:
-      collection: HarpyCaws
   - type: EmitSoundOnActivate
     sound:
       collection: Trill
@@ -419,7 +352,7 @@
     soundHit:
       collection: ResomiSquawk
   - type: TileFrictionModifier
-    modifier: 0.001
+    modifier: 0.005
 
 - type: entity
   parent: BasePlushie
@@ -427,6 +360,7 @@
   name: vivian olsson plushie
   description: It's filled with hatred and malignacy. Filled with blackiron for realism.
   components:
+  - type: Blindfold
   - type: Sprite
     sprite: _Omu/Objects/Fun/Plushies/cyg.rsi
     state: icon
@@ -443,7 +377,47 @@
   - type: EmitSoundOnUse
     sound:
       collection: HarpyCaws
-  - type: EmitSoundOnLand
+  - type: EmitSoundOnActivate
+    sound:
+      collection: Trill
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: HarpyCaws
+  - type: EmitSoundOnCollide
+    sound:
+      collection: ResomiScrees
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: ResomiSquawk
+  - type: TileFrictionModifier
+    modifier: 0.005
+  - type: ClothingSpeedModifier
+    walkModifier: 0.5
+    sprintModifier: 0.5
+  - type: HeldSpeedModifier
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieTossornOmuStaff
+  name: feng-po-po plushie
+  description: A plush full of whimsy.
+  components:
+  - type: Blindfold
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/tossorn.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/tossorn.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/tossorn.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: HarpyCaws
+  - type: EmitSoundOnUse
     sound:
       collection: HarpyCaws
   - type: EmitSoundOnActivate
@@ -460,8 +434,397 @@
     soundHit:
       collection: ResomiSquawk
   - type: TileFrictionModifier
-    modifier: 0.001
-  - type: ClothingSpeedModifier
-    walkModifier: 0.5
-    sprintModifier: 0.5
-  - type: HeldSpeedModifier
+    modifier: 0.005
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieDishwasherOmuStaff
+  name: jude boyer plushie
+  description: This plush resembles a genetically scrambled mess of a felinid. Who cloned it this many times?!
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/dishwasher.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/dishwasher.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/dishwasher.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: FelinidMeows
+  - type: EmitSoundOnUse
+    sound:
+      collection: FelinidMeows
+  - type: EmitSoundOnActivate
+    sound:
+      collection: FelinidMeows
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: FelinidMews
+  - type: EmitSoundOnCollide
+    sound:
+      collection: FelinidMews
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: FelinidScreams
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieDoglettuceOmuStaff
+  name: cheron plushie
+  description: This plush resembles Atmos's strongest vox. Smells like good old tritium.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/doglettuce.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/doglettuce.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/doglettuce.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: VoxScreams
+  - type: EmitSoundOnUse
+    sound:
+      collection: VoxChitter
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VoxChitter
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: VoxChitter
+  - type: EmitSoundOnCollide
+    sound:
+      collection: VoxScreams
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: VoxScreams
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieHayrayOmuStaff
+  name: TEC-445 plushie
+  description: Looks like a tired quartermaster. Smells like a lack of time to spare.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/hayray425.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/hayray425.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/hayray425.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/Voice/Talk/pai.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Talk/pai.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Talk/pai.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Talk/pai.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Voice/Talk/pai.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Voice/Talk/pai.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieKabukiOmuStaffish
+  name: vesca plushie
+  description: This plushy looks so sad. Gets even sadder when you hug her.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/kabuki.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/kabuki.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/kabuki.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: ResomiSquawk
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_cry.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_cry.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_cry.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_cry.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: ResomiSquawk
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieGinoOmuStaff
+  name: gino avis plushie
+  description: 1/2 of the MUTT series. Looks like it's been staring at a tesla for too long
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/madamegino.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/madamegino.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/madamegino.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: VulpYips
+  - type: EmitSoundOnUse
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnCollide
+    sound:
+      collection: VulpYips
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: VulpkaninSnarls
+
+- type: entity
+  parent: BasePlushie
+  id: PlushiePuntsssOmuStaff
+  name: vaelis neli plushie
+  description: 2/2 of the MUTT series. This plushie looks relatively robust.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/puntsss.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/puntsss.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/puntsss.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: VulpYips
+  - type: EmitSoundOnUse
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnCollide
+    sound:
+      collection: VulpYips
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: VulpkaninSnarls
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieNnifOmuStaff
+  name: luka tio plushie
+  description: This plushie looks very relaxed and laid back. It has a tag saying "BLUE ERT IS UNDERRATED!".
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/nnif.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/nnif.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/nnif.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnUse
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnCollide
+    sound:
+      collection: VulpkaninBarks
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: VulpkaninSnarls
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieMednogOmuStaff
+  name: loses-the-fights plushie
+  description: It seems clueless on what it's doing. Note in the back says "HOW DID I GET INTO THE NAVY?!".
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/mednog.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/mednog.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/mednog.rsi
+    slots:
+    - HEAD
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieYuriOmuStaff
+  name: tends-the-pot plushie
+  description: The designer of this plushie seems to have ran out of ideas for what to put on the tag on this...
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/yuri.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/yuri.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/yuri.rsi
+    slots:
+    - HEAD
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushiePickelSillyOmuStaffish
+  name: kur-nema plushie
+  description: A MAAAGICAAAL WIIIZAAAAAAAAAAARD!!! Abacraweh!
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/pickelsilly.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/pickelsilly.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/pickelsilly.rsi
+    slots:
+    - HEAD
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieXiOmuStaff
+  name: hailey vera plushie
+  description: The name sounds oddly like "Aloe Vera". This plushy has a tendency to torture blueshield officers.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/xi.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/xi.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/xi.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: Bubbles
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Omu/Items/Plushie/wow_vera.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Omu/Items/Plushie/wow_vera.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: Squishes
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Weapons/punch1.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Weapons/punch1.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieSammyOmuStaff
+  name: luna stargazer plushie
+  description: This plushie looks like it has no chill. Last seen defending the vivian plush in custodii gear.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/sammy.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/sammy.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/sammy.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: Bubbles
+  - type: EmitSoundOnUse
+    sound:
+      collection: Pops
+  - type: EmitSoundOnActivate
+    sound:
+      collection: Pops
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: Squishes
+  - type: EmitSoundOnCollide
+    sound:
+      collection: Pops
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: Squishes
