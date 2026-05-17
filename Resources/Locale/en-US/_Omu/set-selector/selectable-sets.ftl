@@ -172,9 +172,10 @@ selectable-set-ntr-blade-desc =
 
 selectable-set-syndicate-wizard-name = Budget Wizard Bundle
 selectable-set-syndicate-wizard-description =
-    Give up all alignment to NT, become a badass wizard. GO BIG OR GO HOME!!
+    Give up all alignment to NT, become a badass wizard. LIVE YOUR DREAMS! GO BIG OR GO HOME!!
     Contains a beginner level magic spellbook with a plethora of useful spells,
     a sick as hell armored costume,
-    a free scram implanter, and so much more....
+    a free scram implanter,
+    a chameleon projector, and no-slips!!
     Given NT's hatred towards magic,
     theres a non-zero chance your getting executed for this....
