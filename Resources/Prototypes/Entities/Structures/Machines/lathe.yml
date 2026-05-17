@@ -604,6 +604,8 @@
     # Goobstation Packs
     - SharedBoards
     - ShuttleBoardsGoob
+    - ServiceAssemblerPack # Frontier Service Assembler
+    - MedicalAssemblerPack # Frontier Medical Assembler
   - type: MaterialStorage
     whitelist:
       tags:
@@ -914,6 +916,7 @@
     # Einstein Engines Packs
     - Translators # Language
     - TranslatorImplanters # Language
+    - MedicalAssemblerPack # Frontier Medical Assembler
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: EmagLatheRecipes # Goobstation Packs
