@@ -117,6 +117,7 @@
 # lydia fax stuff
   - type: FaxMachine
     name: "Lydia Plushie"
+    responsePings: false
     paperSlot:
       insertSound: /Audio/Machines/scanning.ogg
       ejectSound: /Audio/Machines/tray_eject.ogg
