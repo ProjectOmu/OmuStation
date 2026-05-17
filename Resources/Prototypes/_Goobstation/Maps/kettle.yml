@@ -58,7 +58,7 @@
             HeadOfPersonnel: [ 1, 1 ]
             AdministrativeAssistant: [ 1, 1 ] # Delta V
             Bartender: [ 2, 2 ] # Omu
-            Botanist: [ 3, 3 ] # Omu
+            Botanist: [ 2, 2 ] # Omu
             Chef: [ 2, 2 ] # Omu
             Janitor: [ 4, 4 ]
             Chaplain: [ 1, 1 ]
@@ -70,8 +70,8 @@
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 3, 3 ]
-            StationEngineer: [ 6, 6 ] # Omu
-            TechnicalAssistant: [ 8, 8 ]
+            StationEngineer: [ 5, 5 ] # Omu
+            TechnicalAssistant: [ 4, 4 ] # Omu
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 3, 3 ] # Omu
@@ -81,7 +81,7 @@
             Virologist: [ 1, 1 ]
             #science
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 6, 6 ] # Omu
+            Scientist: [ 5, 5 ] # Omu
             ResearchAssistant: [ 8, 8 ]
             Roboticist: [ 2, 2 ] #Omu
             Borg: [ 2, 2 ]
