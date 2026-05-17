@@ -21,9 +21,9 @@
     definitions:
     - prefRoles: [ XenomorphsInfestationRoundstart ]
       spawnerPrototype: SpawnPointGhostXenomorph
-      min: 2
-      max: 4
-      playerRatio: 15
+      min: 4
+      max: 6
+      playerRatio: 10
       pickPlayer: true
       mindRoles:
       - MindRoleXenomorph

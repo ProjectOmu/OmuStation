@@ -52,10 +52,10 @@ public sealed partial class XenomorphsRuleComponent : Component
     public string? Sender;
 
     [DataField]
-    public TimeSpan MinTimeToAnnouncement = TimeSpan.FromSeconds(400);
+    public TimeSpan MinTimeToAnnouncement = TimeSpan.FromSeconds(840);
 
     [DataField]
-    public TimeSpan MaxTimeToAnnouncement = TimeSpan.FromSeconds(450);
+    public TimeSpan MaxTimeToAnnouncement = TimeSpan.FromSeconds(960);
 
     [ViewVariables]
     public bool Announced;
