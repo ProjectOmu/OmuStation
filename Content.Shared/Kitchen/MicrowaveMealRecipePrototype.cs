@@ -23,6 +23,8 @@ using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.Serialization; // Frontier
 
 namespace Content.Shared.Kitchen
 {
@@ -54,11 +56,18 @@ namespace Content.Shared.Kitchen
         [DataField("time")]
         public uint CookTime { get; private set; } = 5;
 
+        // Frontier: separate microwave recipe types.
+
+        [DataField("recipeType", customTypeSerializer: typeof(FlagSerializer<MicrowaveRecipeTypeFlags>))] // Frontier
+        public int RecipeType = (int)MicrowaveRecipeType.Microwave; // Frontier
+
         public string Name => Loc.GetString(_name);
 
         // TODO Turn this into a ReagentQuantity[]
         public IReadOnlyDictionary<string, FixedPoint2> IngredientsReagents => _ingsReagents;
         public IReadOnlyDictionary<string, FixedPoint2> IngredientsSolids => _ingsSolids;
+        public bool HideInGuidebook { get; set; } // Frontier
+        public int ResultCount { get; set; } // Frontier
 
         /// <summary>
         /// Is this recipe unavailable in normal circumstances?
@@ -82,4 +91,16 @@ namespace Content.Shared.Kitchen
             return n;
         }
     }
+    // Frontier: microwave recipe types, to limit certain recipes to certain machines
+    [Flags, FlagsFor(typeof(MicrowaveRecipeTypeFlags))]
+    [Serializable, NetSerializable]
+    public enum MicrowaveRecipeType : int
+    {
+        Microwave = 1,
+        Oven = 2,
+        Assembler = 4,
+        MedicalAssembler = 8,
+    }
+
+    public sealed class MicrowaveRecipeTypeFlags { } // Froniter
 }

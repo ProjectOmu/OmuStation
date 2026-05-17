@@ -171,3 +171,20 @@
   - type: IdCard
     jobTitle: job-name-security-sergeant
     jobIcon: JobIconSecuritySergeant
+
+- type: entity
+  parent: IDCardStandard
+  id: CustodianIDCard
+  name: custodii vitellus ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+    - state: idcentcom
+  - type: Item
+    heldPrefix:
+  - type: IdCard
+    jobTitle: job-name-centcomm-guard
+    jobIcon: JobIconNanotrasen
+  - type: PresetIdCard
+    job: CustodiiVitellus

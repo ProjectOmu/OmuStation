@@ -58,7 +58,7 @@
   - type: Speech
     speechVerb: Rodentia
     speechSounds: Squeak
-    allowedEmotes: ['Squeak']
+    allowedEmotes: ['Squeak', 'Squee', 'Snort'] # Omu, added squeeing and snorting
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - TauCetiBasic
@@ -111,7 +111,7 @@
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
       - map: [ "beltalt" ] # Omu
-      - map: [ "back" ] 
+      - map: [ "back" ]
       - map: [ "neck" ] # Omu - Moved this to render above backpacks because it felt weird seeing duffels above the cloaks and mantles? Easy thing to revert anyway.
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -172,6 +172,13 @@
     spitDamageThreshold: 3
   - type: CrawlUnderObjects
     actionProto: ActionToggleSneakMode
+  - type: Tag # Omu Start
+    tags:
+    - RodentiaEmotes
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost # Omu End
 
 - type: entity
   save: false

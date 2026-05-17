@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [ SmokeGrenade , BaseSyndicateContraband ]
+  parent: [ BaseSyndicateContraband, SmokeGrenade ]
   id: SarinGasGrenade
   name: sarin gas grenade
   description: A brutal neurotoxin gas that stuns, blinds, and poisons anybody unlucky enough to catch a whiff aswell as burning anyone not in a voidsuit.

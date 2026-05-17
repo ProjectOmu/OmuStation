@@ -1,0 +1,302 @@
+#ported from imp with some changes from the den version of thavens
+- type: entity
+  id: BaseThavenOrgan
+  parent: BaseHumanOrgan
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Thaven/organs.rsi
+  - type: Organ # thaven guts is good
+    intCap: 30
+    integrity: 30
+    integrityThresholds:
+      Normal: 30
+      Damaged: 10
+      Destroyed: 0
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 3
+        - ReagentId: CarpoToxin
+          Quantity: 12
+  - type: FlavorProfile
+    flavors:
+    - thavenflesh
+
+- type: entity
+  id: OrganThavenBrain
+  parent: OrganHumanBrain
+  name: thaven brain
+  description: "An organic positronic brain. Quite remarkable, really."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Thaven/organs.rsi
+    state: brain
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 3
+        - ReagentId: CarpoToxin
+          Quantity: 12
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: CarpoToxin
+        Quantity: 5
+  - type: FoodSequenceElement
+    entries:
+      Burger: Brain
+      Taco: Brain
+  - type: Item
+    size: Small
+    heldPrefix: brain
+
+- type: entity
+  id: OrganThavenEyes
+  parent: OrganHumanEyes
+  name: thaven eyes
+  description: "The dark sclera have a faint, iridescent coating."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Thaven/organs.rsi
+    layers:
+    - state: eyeball-l
+    - state: eyeball-r
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 1
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 4
+        - ReagentId: CarpoToxin
+          Quantity: 5
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: CarpoToxin
+        Quantity: 5
+
+- type: entity
+  id: OrganThavenLungs
+  parent: BaseThavenOrgan
+  name: thaven lungs
+  description: "Technically not lungs since they don't draw chemicals from the air, these strange, durable organs use the motion of respiration to provide energy for cell maintenance."
+  components:
+  - type: Organ # thavens have fancy lungs
+    intCap: 35
+    integrity: 35
+    integrityThresholds:
+      Normal: 35
+      Damaged: 6
+      Destroyed: 0
+    slotId: lungs
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Thaven/organs.rsi
+    layers:
+    - state: lung-l
+    - state: lung-r
+  - type: Item
+    size: Small
+    heldPrefix: lungs
+  - type: Lung
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ Thaven ]
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 3
+        - ReagentId: CarpoToxin
+          Quantity: 7
+      Lung:
+        maxVol: 100.0
+        canReact: false
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: CarpoToxin
+          Quantity: 5
+  - type: Tag
+    tags:
+    - Meat
+    - Organ
+    - Lungs
+  - type: ThavenBreather
+    # allow standard low-pressure internals output to count as a valid breath
+    minPressure: 5
+    # gas that makes them feel drunk when breathed
+    intoxicatingGas: Frezon
+    # minimum share of that gas in the breath mix before it does anything
+    intoxicatingGasMinRatio: 0.05
+    # how much drunk time the gas gives based on its ratio in the mix
+    intoxicatingGasDurationScale: 60
+    # minimum drunk time applied per breath when the gas is present
+    intoxicatingGasMinDuration: 15
+    # local cap per breath; 0 lets the normal drunk cap handle it
+    intoxicatingGasMaxDuration: 0
+    # whether this should also slur speech
+    intoxicatingGasApplySlur: false
+
+- type: entity
+  id: OrganThavenHeart
+  parent: BaseThavenOrgan
+  name: heart
+  description: "The toxic heart of a thaven. You're wearing gloves, right?"
+  components:
+  - type: Heart
+  - type: Organ # fancy heart to match the lungs
+    intCap: 25
+    integrity: 25
+    integrityThresholds:
+      Normal: 25
+      Damaged: 6
+      Destroyed: 0
+    slotId: heart
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Thaven/organs.rsi
+    state: heart-on
+  - type: Metabolizer
+    maxPoisonsProcessable: 3
+    metabolizerTypes: [Human, Thaven]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+  - type: Tag
+    tags:
+    - Meat
+    - Organ
+    - Heart
+  - type: Item
+    size: Small
+    heldPrefix: heart
+
+
+- type: entity
+  id: OrganThavenStomach
+  parent: OrganAnimalStomach
+  name: thaven stomach
+  description: "Surprisingly similar to the stomach of a sharkminnow."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Thaven/organs.rsi
+  - type: Metabolizer
+    metabolizerTypes: [Animal, Thaven]
+    removeEmpty: true
+    groups:
+    - id: Food
+    - id: Drink
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 80
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 1
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 4
+        - ReagentId: CarpoToxin
+          Quantity: 5
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: CarpoToxin
+        Quantity: 5
+
+- type: entity
+  id: OrganThavenLiver
+  parent: OrganHumanLiver
+  name: thaven liver
+  description: "It loosely resembles a slab of dragon flesh."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Thaven/organs.rsi
+  - type: Liver # Shitmed Change // gds :)
+  - type: Organ # Shitmed Change
+    intCap: 30
+    integrity: 30
+    integrityThresholds:
+      Normal: 30
+      Damaged: 10
+      Destroyed: 0
+    slotId: liver # Shitmed Change
+  - type: Metabolizer
+    maxPoisonsProcessable: 2
+    metabolizerTypes: [Animal, Thaven]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1
+    - id: Poison
+      rateModifier: 0.2
+    - id: Narcotic # youuu fekkin druggo
+      rateModifier: 0.3
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 1
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 4
+        - ReagentId: CarpoToxin
+          Quantity: 5
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: CarpoToxin
+        Quantity: 5
+
+- type: entity
+  id: OrganThavenKidneys
+  parent: OrganHumanKidneys
+  name: thaven kidneys
+  description: "Shiny, coppery nerves make these the most ornate kidneys known to modern science."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Thaven/organs.rsi
+  - type: Metabolizer
+    metabolizerTypes: [Animal, Thaven]
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 1
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 4
+        - ReagentId: CarpoToxin
+          Quantity: 5
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: CarpoToxin
+        Quantity: 5

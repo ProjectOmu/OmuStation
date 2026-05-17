@@ -1,0 +1,152 @@
+# SPDX-FileCopyrightText: 2025 Gip-Kip <hargifarspam2@gmail.com>
+# SPDX-FileCopyrightText: 2025 bunnygirlHyacinth <xxst4rf11m00nb700db4nnyxx@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# hair
+- type: marking
+  id: ThavenHairChoices
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Thaven ]
+  sprites:
+  - sprite: _Gardenstation/Mobs/Customization/Thaven/hair.rsi
+    state: choicesbangs
+
+# chest
+- type: marking
+  id: ThavenChestPulse
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Gardenstation/Mobs/Customization/Thaven/chest.rsi
+    state: chestpulse
+  shader: unshaded
+
+# right arm
+- type: marking
+  id: ThavenRightArmPulse
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Gardenstation/Mobs/Customization/Thaven/rarm.rsi
+    state: rightpulse
+  shader: unshaded
+# right hand
+- type: marking
+  id: ThavenRightHandPulse
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Gardenstation/Mobs/Customization/Thaven/rhand.rsi
+    state: rhandpulse
+  shader: unshaded
+# right leg
+- type: marking
+  id: ThavenRightLegPulse
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Gardenstation/Mobs/Customization/Thaven/rleg.rsi
+    state: rlegpulse
+  shader: unshaded
+# right foot
+- type: marking
+  id: ThavenRightFootPulse
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Gardenstation/Mobs/Customization/Thaven/rfoot.rsi
+    state: rfootpulse
+  shader: unshaded
+# left arm
+- type: marking
+  id: ThavenLeftArmPulse
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Gardenstation/Mobs/Customization/Thaven/larm.rsi
+    state: leftpulse
+  shader: unshaded
+
+# left hand
+- type: marking
+  id: ThavenLeftHandPulse
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Gardenstation/Mobs/Customization/Thaven/lhand.rsi
+    state: lhandpulse
+  shader: unshaded
+# left leg
+- type: marking
+  id: ThavenLeftLegPulse
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Gardenstation/Mobs/Customization/Thaven/lleg.rsi
+    state: llegpulse
+  shader: unshaded
+# left foot
+- type: marking
+  id: ThavenLeftFootPulse
+  bodyPart: LFoot
+  markingCategory: LeftFoot
+  speciesRestriction: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Gardenstation/Mobs/Customization/Thaven/lfoot.rsi
+    state: lfootpulse
+  shader: unshaded

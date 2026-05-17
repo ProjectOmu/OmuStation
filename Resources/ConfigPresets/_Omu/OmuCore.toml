@@ -16,6 +16,9 @@ log_late_msg = false
 
 [status]
 enabled = true
+privacy_policy_link = "https://projectomu.org/about/privacy_policies/ss14/"
+privacy_policy_identifier = "omu"
+privacy_policy_version = "2026-05-13"
 
 [server]
 rules_file = "OmuRuleset" # Default for all servers.
@@ -66,6 +69,7 @@ discord = "https://discord.gg/omustation"
 # forum = "https://forums.projectomu.org/" # Forums website was taken down
 github = "https://github.com/ProjectOmu/OmuStation"
 patreon = "https://www.patreon.com/cw/OMUStation"
+website = "https://projectomu.org/"
 wiki = "https://wiki.projectomu.org/"
 
 [queue]
@@ -92,8 +96,8 @@ time = 60 # Increased from 45
 
 [vote]
 enabled = true
-map_enabled = false
-preset_enabled = true
+map_enabled = true
+preset_enabled = false
 restart_enabled = false
 restart_ghost_percentage = 60 # 24 players must be dead
 restart_max_players = 40 # General midground for max players right now
