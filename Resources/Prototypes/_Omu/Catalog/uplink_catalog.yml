@@ -164,8 +164,8 @@
   cost:
     Telecrystal: 100
   categories:
-  - UplinkWeaponry
-  #conditions:
-  #- !type:BuyerJobCondition
-  #  whitelist:
-  #  - Librarian
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Librarian
