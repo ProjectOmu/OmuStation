@@ -12,7 +12,7 @@
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterCommand
 
-- type: entity # Omu
+- type: entity
   id: ClothingOuterWinterNTR
   parent: [ClothingOuterWinterCoatToggleable, BaseCentcommContraband]
   name: nanotrasen representative's winter coat

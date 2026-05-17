@@ -157,7 +157,7 @@
     materialComposition:
       Cloth: 125
       Durathread: 50
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing # Goobstation - Modsuits change # Omu, moved from child
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterDefault
 
@@ -365,7 +365,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coathosarmored.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
-      head: ClothingHeadHatHoodWinterArmoredHOS
+      head: ClothingHeadHatHoodWinterArmoredHOS # Omu
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Cloth: 250
@@ -607,7 +607,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
-      head: ClothingHeadHatHoodWinterArmoredWarden
+      head: ClothingHeadHatHoodWinterArmoredWarden # Omu
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Cloth: 250
@@ -666,7 +666,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecaparmored.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
-      head: ClothingHeadHatHoodWinterArmoredSyndie
+      head: ClothingHeadHatHoodWinterArmoredSyndie # Omu
 ##############################################################
 
 - type: entity
