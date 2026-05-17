@@ -108,33 +108,6 @@
     muzzleFlash: null
 
 - type: entity
-  id: ProjectileSparkHobbyist
-  name: Magic Spark
-  description: Don't get burned!
-  parent: BaseBullet
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
-    layers:
-    - state: magicm_yellow
-      shader: unshaded
-  - type: Projectile
-    damage:
-      types:
-        Heat: 20
-  - type: IgniteOnCollide
-    fireStacks: 1.5
-  - type: Reflective
-    reflective: Magic
-  - type: Ammo
-    muzzleFlash: null
-  - type: PointLight
-    color: "#F8B068"
-    radius: 2.0
-    energy: 5.0
-
-- type: entity
   id: ProjectileMagicMissileHobbyist
   name: Lessest Magic Missile
   description: It truly is the lessest.
