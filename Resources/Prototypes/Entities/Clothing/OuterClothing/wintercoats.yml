@@ -166,7 +166,6 @@
   # Omu Moved majority of components to previous prototype [ClothingOuterWinterCoatBase]
 
 - type: entity # Omu, keeping this saves editing every child prototype
-  abstract: true
   parent: [ ClothingOuterWinterCoatBase, ClothingOuterBaseToggleable]
   id: ClothingOuterWinterCoatToggleable
   name: winter coat with hood
