@@ -320,3 +320,22 @@
     state: icon
   content:
   - CaneBladeNanotrasen
+
+# Traitor
+
+- type: selectableSet
+  id: SyndicateWizardSet
+  name: selectable-set-syndicate-wizard-name
+  description: selectable-set-syndicate-wizard-description
+  sprite:
+    sprite: _Omu/Objects/Weapons/Magic/hobbyistspellbook.rsi
+    state: icon
+  content:
+    - HobbyistSpellBook
+    - ClothingOuterNeuluthiv
+    - ClothingHeadHelmetNeuluthiv
+    - PlushieLizard
+    - EncryptionKeySyndie
+    - PonderingOrb
+    - PenWiz
+    - RubberStampWizard

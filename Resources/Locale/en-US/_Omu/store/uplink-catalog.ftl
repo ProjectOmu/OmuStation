@@ -32,5 +32,5 @@ uplink-shredder-bundle-desc = Contains a Shredder, and 6 blood-red headphones so
 uplink-bloodred-headphones-name = Blood-red Headphones
 uplink-bloodred-headphones-desc = Looks stylish, and synergizes with the Shredder.
 
-uplink-hobbyist-spellbook-name = Budget Wizard Bundle
-uplink-hobbyist-spellbook-desc = Give up all alignment to NT, become a badass wizard. Contains a not-quite official spellbook with incredibly useful spells.
+uplink-hobbyist-bundle-name = Budget Wizard Bundle
+uplink-hobbyist-bundle-desc = Give up all alignment to NT, become a badass wizard. Contains a beginner level magic spellbook with a plethora of useful spells, a sick as hell armored costume, and a weh plushie to cuddle with. Given NT's hatred towards magic, theres a non-zero chance your getting executed for this....

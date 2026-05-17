@@ -88,7 +88,7 @@
     Telecrystal: 125
   categories:
     - UplinkDisruption
-    
+
 - type: listing
   id: UplinkSwordfish
   name: uplink-swordfish-name
@@ -154,19 +154,18 @@
     Telecrystal: 3
   categories:
   - UplinkWearables
- 
+
 - type: listing
-  id: UplinkHobbyistSpellBook
-  name: uplink-hobbyist-spellbook-name
-  description: uplink-hobbyist-spellbook-desc
+  id: UplinkHobbyistBundle
+  name: uplink-hobbyist-bundle-name
+  description: uplink-hobbyist-bundle-desc
   icon: { sprite: _Omu/Objects/Weapons/Magic/hobbyistspellbook.rsi, state: icon }
-  productEntity: HobbyistSpellBook
+  productEntity: ClothingBackpackDuffelSyndicateFilledWizard
   cost:
-    Telecrystal: 50
+    Telecrystal: 100
   categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Chaplain
-    - Librarian
+  - UplinkWeaponry
+  #conditions:
+  #- !type:BuyerJobCondition
+  #  whitelist:
+  #  - Librarian

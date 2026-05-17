@@ -9,3 +9,19 @@
       - id: WeaponShredder
       - id: ClothingMultipleBloodredHeadphones
         amount: 6
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledWizard
+  name: budget wizard bundle
+  description:
+  components:
+  - type: StorageFill
+    contents:
+      - id: HobbyistSpellBook
+      - id: ClothingOuterNeuluthiv
+      - id: ClothingHeadHelmetNeuluthiv
+      - id: PlushieLizard
+      - id: PonderingOrb
+      - id: PenWiz
+      - id: RubberStampWizard

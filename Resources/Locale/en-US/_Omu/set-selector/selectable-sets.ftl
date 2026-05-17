@@ -130,7 +130,7 @@ selectable-set-bso-brdi-description =
 selectable-set-bso-typewriter-name = Typewriter Submachine Gun
 selectable-set-bso-typewriter-desc =
     A kit containing a perfect replica of the Thompson Submachine Gun,
-    chambered in .35, a preloaded drum mag, a stick mag and a drum mag with rubber bullets. 
+    chambered in .35, a preloaded drum mag, a stick mag and a drum mag with rubber bullets.
     Perfect for LARPers and wise guys alike.
 
 selectable-set-bso-extraction-name = Extraction kit
@@ -167,3 +167,14 @@ selectable-set-ntr-blade-desc =
     A sturdier, bladed fancy cane, with no stun setting...
     This one is meant for emergencies only
     CC note says: ONLY USE ON RED!!!!!
+
+# Traitor
+
+selectable-set-syndicate-wizard-name = Budget Wizard Bundle
+selectable-set-syndicate-wizard-description =
+    Give up all alignment to NT, become a badass wizard. GO BIG OR GO HOME!!
+    Contains a beginner level magic spellbook with a plethora of useful spells,
+    a sick as hell armored costume,
+    and a weh plushie to cuddle with....
+    Given NT's hatred towards magic,
+    theres a non-zero chance your getting executed for this....
