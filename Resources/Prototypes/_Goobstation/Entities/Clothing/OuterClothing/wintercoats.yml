@@ -10,7 +10,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: ClothingOuterWinterCoat
+  parent: ClothingOuterWinterCoatBase # Omu
   id: ClothingOuterWinterCoatMail
   name: mail carrier's winter coat
   description: It'll keep away the cold but not the dogs.
@@ -21,7 +21,7 @@
       sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/mail_winter_coat.rsi
 
 - type: entity
-  parent: ClothingOuterWinterCoat
+  parent: ClothingOuterWinterCoatBase # Omu
   id: ClothingOuterWinterCoatTrainer
   name: NCT's coat
   description: A robust coat issued to Nanotrasen Career Trainers. Great for teaching newbies.
@@ -78,7 +78,7 @@
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/seniorsecvestcoat.rsi
 
 - type: entity
-  parent: ClothingOuterWinterCoat
+  parent: ClothingOuterWinterCoatBase # Omu
   id: ClothingOuterWinterCosmic
   name: cosmic winter coat
   description: An expensive machine-made winter coat.

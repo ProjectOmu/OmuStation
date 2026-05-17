@@ -1,7 +1,7 @@
 # Everyone
 
 - type: entity
-  parent: ClothingOuterWinterCoat
+  parent: ClothingOuterWinterCoatBase # Omu
   id: ClothingLongcoatNanoTrasen
   name: nanotrasen longcoat
   description: A double-breasted longcoat sporting the the colors of NanoTrasen, the general-purpose spacefaring corporation that you (hopefully) work for! Longcoats are fairly robust, offering some protection from the elements.
@@ -12,7 +12,7 @@
     sprite: _Floofstation/Clothing/OuterClothing/Longcoats/nanotrasen.rsi
 
 - type: entity
-  parent: ClothingOuterWinterCoat
+  parent: ClothingOuterWinterCoatBase # Omu
   id: ClothingLongcoatBlack
   name: black longcoat
   description: A matte black double-breasted longcoat with gold-tinted brass buttons. Longcoats are fairly robust, offering some protection from the elements.
@@ -23,7 +23,7 @@
     sprite: _Floofstation/Clothing/OuterClothing/Longcoats/black.rsi
 
 - type: entity
-  parent: ClothingOuterWinterCoat
+  parent: ClothingOuterWinterCoatBase # Omu
   id: ClothingLongcoatBrown
   name: brown longcoat
   description: A matte brown double-breasted longcoat with stylish onyx buttons. Longcoats are fairly robust, offering some protection from the elements.

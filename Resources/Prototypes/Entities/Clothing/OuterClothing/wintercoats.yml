@@ -108,16 +108,11 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: entity
-  parent: [ ClothingOuterStorageBase, ClothingOuterStorageToggleableBase] # Omu, fixing default hoodless coat (does mean all coats need hoods)
-  id: ClothingOuterWinterCoat
-  name: winter coat
-  description: A heavy jacket made from 'synthetic' animal furs.
+- type: entity # Omu, Coat Reparenting fixes
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterWinterCoatBase
+  abstract: true
   components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
   - type: TemperatureProtection
     heatingCoefficient: 1.1
     coolingCoefficient: 0.1
@@ -157,13 +152,22 @@
     materialComposition:
       Cloth: 125
       Durathread: 50
-  - type: ToggleableClothing # Goobstation - Modsuits change # Omu, moved from child
-    clothingPrototypes:
-      head: ClothingHeadHatHoodWinterDefault
 
-- type: entity # Omu, fixing default hoodless coat, keeping this saves editing every child prototype
+- type: entity
+  parent: [ ClothingOuterWinterCoatBase, ClothingOuterBaseToggleable ] # Omu, fixing default hoodless coat (does mean all coats need hoods)
+  id: ClothingOuterWinterCoat
+  name: winter coat
+  description: A heavy jacket made from 'synthetic' animal furs.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+  # Omu Moved majority of components to previous prototype [ClothingOuterWinterCoatBase]
+
+- type: entity # Omu, keeping this saves editing every child prototype
   abstract: true
-  parent: ClothingOuterWinterCoat
+  parent: [ ClothingOuterWinterCoatBase, ClothingOuterBaseToggleable]
   id: ClothingOuterWinterCoatToggleable
   name: winter coat with hood
   categories: [ HideSpawnMenu ]
@@ -247,7 +251,7 @@
       head: ClothingHeadHatHoodWinterCentcom
 
 - type: entity
-  parent: ClothingOuterWinterCoat
+  parent: ClothingOuterWinterCoatBase # Omu
   id: ClothingOuterWinterChef
   name: chef's freezer coat
   description: A coat specifically designed for work inside cold storage, sorely needed by cold-blooded lizard chefs.
@@ -298,7 +302,7 @@
       head: ClothingHeadHatHoodWinterCMO
 
 - type: entity
-  parent: ClothingOuterWinterCoat
+  parent: ClothingOuterWinterCoatBase # Omu
   id: ClothingOuterWinterClown
   name: clown winter coat
   components:
@@ -684,7 +688,7 @@
       head: ClothingHeadHatHoodWinterSyndie
 
 - type: entity
-  parent: ClothingOuterWinterCoat
+  parent: ClothingOuterWinterCoatBase # Omu
   id: ClothingOuterWinterMusician
   name: musician's winter coat
   description: An oversized, plasticine space tuxedo that'll have people asking "do you know me?"
@@ -693,9 +697,6 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatnomi.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatnomi.rsi
-  - type: ToggleableClothing # Omu
-    clothingPrototypes:
-      head: ClothingHeadHatHoodWinterColorBlack
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable

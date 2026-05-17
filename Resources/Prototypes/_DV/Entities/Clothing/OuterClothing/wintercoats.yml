@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: ClothingOuterWinterCoat
+  parent: ClothingOuterWinterCoatBase # Omu
   id: ClothingOuterArmoredWinterCoat
   components:
   - type: Armor
