@@ -447,7 +447,7 @@ namespace Content.Server.Kitchen.EntitySystems
             }
 
             // Omu start
-            if (_whitelistSystem.IsBlacklistPass(ent.Comp.MicrowaveBlacklist, args.Used))
+            if (_whitelistSystem.IsWhitelistPass(ent.Comp.MicrowaveBlacklist, args.Used))
             {
                 _popupSystem.PopupEntity(Loc.GetString("microwave-component-interact-using-blacklist-fail", ("item", args.Used), ("microwave", ent)), ent, args.User);
                 return;
