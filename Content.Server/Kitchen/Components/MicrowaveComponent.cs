@@ -219,7 +219,7 @@ namespace Content.Server.Kitchen.Components
         /// <summary>
         /// A blacklist of components/tags that should not be allowed to be inserted into a microwave.
         /// </summary>
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public EntityWhitelist MicrowaveBlacklist = new();
         // End Omu
     }
