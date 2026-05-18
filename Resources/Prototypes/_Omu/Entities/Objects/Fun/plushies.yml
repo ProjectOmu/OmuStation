@@ -58,9 +58,12 @@
   - type: EmitSoundOnUse
     sound:
       path: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
-  - type: EmitSoundOnActivate
+  - type: EmitSoundOnLand
     sound:
       path: /Audio/_EinsteinEngines/Voice/Shadowkin/wurble.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
