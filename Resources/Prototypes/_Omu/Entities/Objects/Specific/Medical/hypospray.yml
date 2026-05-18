@@ -16,6 +16,27 @@
         Quantity: 0.25
 
 - type: entity
+  name: autoinjector cartridge (amoxla)
+  parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
+  description: Contains 3u of amoxla, and 7u of sugar used in a cartridge autoinjector.
+  id: CartridgeAmoxla
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: filling
+      color: "#64ecb3"
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Amoxla
+        Quantity: 3
+      - ReagentId: Sugar
+        Quantity: 7
+
+- type: entity
   name: autoinjector cartridge (radiation)
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
   description: Contains 5u of arithrazine, and 5u of hyronalin used in a cartridge autoinjector.

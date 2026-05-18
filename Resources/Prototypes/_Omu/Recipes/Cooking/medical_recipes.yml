@@ -93,6 +93,19 @@
   recipeType: MedicalAssembler
 
 - type: microwaveMealRecipe
+  id: RecipeCartridgeAmoxla
+  name: autoinjector cartridge (amoxla)
+  result: CartridgeAmoxla
+  time: 3
+  group: Medicinal
+  solids:
+    CartridgeEmpty: 1
+  reagents:
+    Amoxla: 3
+    Sugar: 7
+  recipeType: MedicalAssembler
+
+- type: microwaveMealRecipe
   id: RecipeCartridgeDylo
   name: autoinjector cartridge (poison)
   result: CartridgeDylo
