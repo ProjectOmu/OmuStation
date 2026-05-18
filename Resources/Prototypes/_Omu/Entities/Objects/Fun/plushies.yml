@@ -147,6 +147,7 @@
   - type: ContainerContainer
     containers:
       Paper: !type:ContainerSlot
+      stash: !type:ContainerSlot {}
   - type: MeleeWeapon
     wideAnimationRotation: 180
     attackRate: .1
