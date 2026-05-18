@@ -4072,3 +4072,35 @@ Entries:
       message: Combat medipen is no longer contraband
   id: 517
   time: '2026-05-16T11:27:36.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed Slasher from natural roll
+  id: 518
+  time: '2026-05-18T13:38:09.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed being able to make infinite medipens for free.
+  id: 519
+  time: '2026-05-18T18:56:12.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Add
+      message: >-
+        Empty autoinjector cartridges can be printed, and injected for a 0.25u
+        microplastics
+    - type: Add
+      message: >-
+        the Medical Assembler can now create filled autoinjector cartridges (not
+        including the emag options).
+    - type: Add
+      message: >-
+        Amoxla autoinjector cartridges now exist in the same places airloss ones
+        were found.
+    - type: Tweak
+      message: >-
+        Multiver's mix temperature is now hotter than the mix temperature of
+        table salt (320k->520k.
+  id: 520
+  time: '2026-05-18T20:14:53.0000000+00:00'
