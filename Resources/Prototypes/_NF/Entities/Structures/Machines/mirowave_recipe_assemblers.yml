@@ -230,7 +230,7 @@
     key: MedicalAssemblerKey
     microwaveBlacklist: # Omu start
       components:
-      - Hypospray # Omu end
+      - Hypospray # NOTE: Will need fixing with upstream, Omu end
   - type: GenericVisualizer
     visuals:
       enum.PowerDeviceVisuals.VisualState:
