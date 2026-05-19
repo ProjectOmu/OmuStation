@@ -44,6 +44,14 @@
   id: BSOLongcoat
   equipment:
     outerClothing: ClothingOuterLongcoatBlueshield
+    
+  id: BlueshieldOfficerOuterXelthiaBlueshield
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Xelthia
+  equipment:
+    outerClothing: ClothingOuterBlueshieldArmourXelthia
 
 # Neck
 - type: loadout
