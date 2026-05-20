@@ -176,6 +176,6 @@ selectable-set-syndicate-wizard-description =
     Contains a beginner level magic spellbook with a plethora of useful spells,
     a sick as hell armored costume,
     a free scram implanter,
-    a chameleon projector, and no-slips!!
+    no-slips, and so much more!
     Given NT's hatred towards magic,
     theres a non-zero chance your getting executed for this....
