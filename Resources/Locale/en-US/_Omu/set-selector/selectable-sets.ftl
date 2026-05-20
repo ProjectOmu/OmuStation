@@ -84,7 +84,7 @@ selectable-set-hosoniblade-description =
 selectable-set-MobSpiderShiva-name = Shiva, The First Defender
 selectable-set-MobSpiderShiva-description =
     A veteran of security, Shiva's been fighting nuclear threats and syndicate traitors
-    Since the dawn of time!
+    since the dawn of time!
 
 selectable-set-MobSecDogLaika-name = Laika, The K9 Attack Unit
 selectable-set-MobSecDogLaika-description =
