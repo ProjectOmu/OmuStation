@@ -6,6 +6,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Random.Helpers
 {
