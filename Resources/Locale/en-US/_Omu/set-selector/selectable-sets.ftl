@@ -88,7 +88,7 @@ selectable-set-MobSpiderShiva-description =
 
 selectable-set-MobSecDogLaika-name = Laika, The K9 Attack Unit
 selectable-set-MobSecDogLaika-description =
-    Woof Woof Bark Bark! Laika doesn't mess around! Gnawing at the legs of courier's and sticking to
+    Woof Woof Bark Bark! Laika doesn't mess around! Gnawing at the legs of couriers and sticking to
     the HoS' side. She's Security's most loyal guardian!
 
 selectable-set-trevor-name = Trevor, The "Majestic" Stallion
