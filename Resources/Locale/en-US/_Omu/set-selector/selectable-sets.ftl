@@ -86,7 +86,7 @@ selectable-set-MobSpiderShiva-description =
     A veteran of security, Shiva's been fighting nuclear threats and syndicate traitors
     Since the dawn of time!
 
-selectable-set-MobSecDogLaika-name = Laika, K9 Attack unit
+selectable-set-MobSecDogLaika-name = Laika, The K9 Attack Unit
 selectable-set-MobSecDogLaika-description =
     Woof Woof Bark Bark! Laika doesn't mess around! Gnawing at the legs of courier's and sticking to
     The HoS' side, She's Security's most loyal guardian!
