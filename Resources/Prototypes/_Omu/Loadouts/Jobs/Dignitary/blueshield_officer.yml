@@ -40,6 +40,15 @@
   equipment:
     outerClothing: ClothingOuterBlueshieldArmourKimono
 
+- type: loadout
+  id: BlueshieldOfficerOuterXelthiaBlueshield
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Xelthia
+  equipment:
+    outerClothing: ClothingOuterBlueshieldArmourXelthia
+
 # Neck
 - type: loadout
   id: BlueshieldOfficerOuterBlueshieldMantleBlack
