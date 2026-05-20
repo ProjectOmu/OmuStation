@@ -84,6 +84,14 @@
     Uranium: 720
 
 - type: latheRecipe
+  id: CartridgeAmoxla
+  result: CartridgeAmoxla
+  completetime: 1
+  materials:
+    Glass: 100
+    Plasma: 100
+
+- type: latheRecipe
   id: CartridgeArith
   result: CartridgeArith
   completetime: 1
@@ -98,6 +106,14 @@
   materials:
     Glass: 100
     Plasma: 100
+
+- type: latheRecipe
+  id: CartridgeEmpty
+  result: CartridgeEmpty
+  completetime: 1
+  materials:
+    Glass: 25
+    Plastic: 25
 
 - type: latheRecipe
   parent: BaseAmmoRecipe

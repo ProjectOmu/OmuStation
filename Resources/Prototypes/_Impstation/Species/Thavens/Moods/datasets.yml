@@ -12,31 +12,40 @@
 - type: dataset
   id: ThavenMoodClothes
   values:
-  - hardsuits
-  - uniforms
-  - helmets
-  - gloves
-  - boots
-  - cloaks
+  - Hardsuits
+  - Gloves
+  - Hats
+  - Capes
+  - Glasses
+  - Backpacks
 
 - type: dataset
   id: ThavenMoodFoodRestrictions
   values:
-  - vegetarian
-  - vegan
-  - pescetarian
-  - fruitarian
-  - gluten-free diet
-  - dairy-free diet
+  - Vegetarian
+  - Carnivore
+  - Frugivore
+  - Fungivore
+  - Ovivore
+  - Hunter
+  - Soupivore
+  - Cakivore
 
 - type: dataset
   id: ThavenMoodPets
   values:
-  - Ian
-  - Runtime
-  - Pun Pun
-  - McGriff
-  - Morticia
+  - Ian the Corgi
+  - Runtime the Cat
+  - Pun Pun the Monkey
+  - McGriff the Dog
+  - Morticia the Possum
+  - Hamlet the Hamster
+  - Shiva the Spider
+  - Morty the Possum
+  - Tropico the Crab
+  - Smile the Slime
+  - Renault the Fox
+  - Walter the Dog
 
 - type: dataset
   id: ThavenMoodRooms
@@ -46,7 +55,7 @@
   - Medbay
   - The Bridge
   - The Courtroom
-  - The Arrivals Shuttle
+  - Arrivals
   - Disposals
   - The Library
   - The Station Anchor
@@ -55,12 +64,17 @@
 - type: dataset
   id: ThavenMoodEdibles
   values:
-  - Pizza
-  - Soup
-  - Burger
-  - Tacos
-  - Noodles
-  - Pie
+  - Copypasta
+  - Baseball Burger
+  - Empowered Burger
+  - Mcguffin
+  - Suppermatter
+  - Stick of Cannabis Butter
+  - Bungo Curry
+  - Salty Sweet Miso Cola Soup
+  - Bread Dog
+  - Mothroachburger
+  - Gunkslider # Omu
   - Eckeyiish kelpfry # omu, porting stuff from garden
   - Eckeyiish kelp stew # omu, porting stuff from garden
   - Kelp pods # omu, porting stuff from garden
@@ -114,23 +128,37 @@
   - Figurines
   - Toys
   - Lockers
+  - Dihydrogen Monoxide
+  - Bananas
 
 - type: dataset
   id: ThavenMoodCommandRoles
   values:
   - Captain
+  - Quartermaster
   - Head of Personnel
   - Chief Engineer
   - Chief Medical Officer
   - Research Director
   - Head of Security
+  - Administrative Assistant
 
 - type: dataset
   id: ThavenMoodSpeechRestrictions
   values:
-  - in whispers only
-  - only in questions
-  - only in rhymes
-  - without contractions
-  - only in third person
-  - only in formal titles
+  - FullNameAndTitle
+  - NamesAreRude
+  - Clarity
+  #- SwearingGood
+  - StatementOnly
+  - Imitation
+  - Unclarity
+  - SwearingBad
+  - QuestionOnly
+  - MustAnswer
+  - OnlyWhisper
+  #- OnlyYell
+  - Rhyme
+  - Alliterate
+  - ThirdPerson
+  - TitleCase
