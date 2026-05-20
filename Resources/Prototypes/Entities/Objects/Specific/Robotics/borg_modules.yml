@@ -896,7 +896,7 @@
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: defib-module }
 
-- type: entity
+- type: entity # emu edited to have a portable chemaster and a beaker only hand
   id: BorgModuleChemical
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
   name: chemical cyborg module
@@ -910,10 +910,16 @@
     items:
     - HandheldHealthAnalyzerUnpowered
     - Syringe
-    - BorgDropper
-    - BorgVial
-    - BorgVial
-    - BorgVial
+    - portableChemicalMixer
+  - type: DroppableBorgModule
+    moduleId: Chemical
+    items:
+    - id: Beaker
+      whitelist:
+        components:
+        - FitsInDispenser
+        tags:
+        - ChemDispensable
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: chem-module }
 
@@ -1307,25 +1313,21 @@
   - type: ItemBorgModule
     moduleId: Surgery
     items:
-    - Scalpel
-    - SawElectric
-    - Drill
-    - Retractor
-    - Hemostat
-    - Cautery
-    - MedicalStitches
-    - BoneGel
-    - Bonesetter
+    - HandheldHealthAnalyzerUnpowered
+    - EnergyScalpel
+    - EnergyCautery
+    - AdvancedRetractor
+    - AdvancedBoneGel
     # Frontier: droppable borg items
   - type: DroppableBorgModule
     moduleId: Surgery
     items:
-    - id: OrganHumanBrain
+    - id: BioSynthHeart
       whitelist:
         components:
         - BodyPart
-        tags:
         - Organ
+        - TissueSample
     # End Frontier: droppable borg items
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: surgery-module }
@@ -1342,20 +1344,18 @@
   - type: ItemBorgModule
     moduleId: AdvancedSurgery
     items:
-    - EnergyScalpel
-    - EnergyCautery
-    - AdvancedRetractor
-    - AdvancedBoneGel
+    - HandheldHealthAnalyzerUnpowered
+    - CyborgOmnimedTool
     # Frontier: droppable borg items
   - type: DroppableBorgModule
     moduleId: AdvancedSurgery
     items:
-    - id: OrganHumanBrain
+    - id: BioSynthHeart
       whitelist:
         components:
         - BodyPart
-        tags:
         - Organ
+        - TissueSample
     # End Frontier: droppable borg items
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-surgery-module }
