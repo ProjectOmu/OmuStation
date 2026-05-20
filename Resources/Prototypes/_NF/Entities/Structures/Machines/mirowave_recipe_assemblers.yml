@@ -228,6 +228,9 @@
     foodDoneSound: /Audio/Effects/Shuttle/radar_ping.ogg
     loopingSound: /Audio/_NF/Machines/medical-assembler.ogg
     key: MedicalAssemblerKey
+    microwaveBlacklist: # Omu start
+      components:
+      - Hypospray # NOTE: Will need fixing with upstream, Omu end
   - type: GenericVisualizer
     visuals:
       enum.PowerDeviceVisuals.VisualState:
