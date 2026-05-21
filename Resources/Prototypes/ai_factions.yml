@@ -89,7 +89,7 @@
   - SimpleHostile
   - Zombie
   - Xeno
-  - AllHostile
+  #- AllHostile # Omu, stops shiva/trevor etc attacking turrets
   - Wizard
   - Dragon
   - Blob # Goobstation - Blob
@@ -222,10 +222,10 @@
   - Lavafauna # Goob - Lavaland
 
 # Balloons Factions Edit:
-- type: npcFaction  
+- type: npcFaction
   id: Balloon
   # Balloons can't attack
-  
+
 - type: npcFaction
   id: Monkey
   hostile:
@@ -247,7 +247,7 @@
   - Xeno # rivalry
 
   # cause they are hostile to them
-  - SimpleHostile 
+  - SimpleHostile
   - AllHostile
   - Blob # Goobstation - Blob
   - Shadowling # Einstein Engines - Shadowlings
