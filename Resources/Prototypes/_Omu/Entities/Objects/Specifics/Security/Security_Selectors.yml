@@ -109,7 +109,7 @@
 - type: entity
   id: NTRDutyCase
   name: nanotrasen representative's duty case
-  description: A case, used to securely store your disciplinary weapon of choice.
+  description: A case, used to securely store your personal trinket of choice.
   parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
   components:
   - type: Sprite
@@ -118,5 +118,5 @@
   - type: SetSelector
     possibleSets:
     - CaneNTSet
-    - NanoRepBeltSet
+    - BladeNTSet
     maxSelectedSets: 1

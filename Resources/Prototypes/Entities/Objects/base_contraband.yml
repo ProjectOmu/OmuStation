@@ -199,6 +199,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Medical, Science ]
+    allowedJobs: [ Brigmedic, BlueshieldOfficer ] # Omu
 
 # contraband restricted by job by some degree
 - type: entity
