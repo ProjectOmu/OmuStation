@@ -8,8 +8,10 @@
 reagent-name-minerssalve = minerslavine
 reagent-desc-minerssalve = A powerful mixture of stimulants intended for use by lavaland shaft miners.
 
+# Omu Changes Start
 reagent-name-luxurium = luxurium
 reagent-desc-luxurium = An experimental concoction devised by top Nanotrasen scientists in an attempt to rival omnizine, however results proved limited outside of specific environments.
+# Omu Changes End
 
 reagent-name-vitrium-froth = vitrium Froth
 reagent-desc-vitrium-froth = A bubbly paste that heals wounds of the skin.
