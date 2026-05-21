@@ -83,6 +83,8 @@
 
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server._DV.CosmicCult.Components; // DeltaV
+using Content.Server._DV.GameTicking.Rules.Components; // DeltaV
+using Content.Server.Administration.Commands;
 using Content.Server.Antag;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
@@ -310,6 +312,21 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", cosmicCultName, Loc.GetString("admin-verb-make-cosmiccultist")),
         };
         args.Verbs.Add(cosmiccult);
+
+        var ntAgent = Loc.GetString("admin-verb-make-NTAgent");
+        Verb agent = new()
+        {
+            Text = ntAgent,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/job_icons.rsi"), "Nanotrasen"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<NTAgentRuleComponent>(targetPlayer, "NTAgentRule");
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", ntAgent, Loc.GetString("admin-verb-text-make-NTAgent")),
+        };
+        args.Verbs.Add(agent);
         // End DeltaV Additions
 
 
