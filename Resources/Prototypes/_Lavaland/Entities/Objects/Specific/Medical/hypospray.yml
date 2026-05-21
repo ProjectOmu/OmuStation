@@ -38,20 +38,20 @@
     emptySpriteName: survivalpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 30
+    transferAmount: 20 # Omu
     onlyAffectsMobs: false
     injectOnly: true
-  - type: SolutionContainerManager # Omu
+  - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 30
-        reagents:
+        maxVol: 20 # Omu
+        reagents: # Omu
           - ReagentId: MinersSalve
-            Quantity: 20
+            Quantity: 15
           - ReagentId: Leporazine
-            Quantity: 5
+            Quantity: 2.5
           - ReagentId: Epinephrine
-            Quantity: 5
+            Quantity: 2.5
 
 # doesn't get any better than this
 - type: entity
@@ -81,8 +81,8 @@
         maxVol: 30 # Omu
         reagents: # Omu
           - ReagentId: Luxurium
-            Quantity: 20
+            Quantity: 15
           - ReagentId: Leporazine
-            Quantity: 5
+            Quantity: 2.5
           - ReagentId: Epinephrine
-            Quantity: 5
+            Quantity: 2.5
