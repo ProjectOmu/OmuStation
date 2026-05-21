@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/20/2026 17:39:03
-  entityCount: 28218
+  time: 05/21/2026 14:41:31
+  entityCount: 28210
 maps:
 - 1
 grids:
@@ -14710,7 +14710,7 @@ entities:
       pos: 45.5,55.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -78720.32
+      secondsUntilStateChange: -78818.01
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -20073,17 +20073,6 @@ entities:
     - type: Transform
       pos: 33.5,-89.5
       parent: 2
-  - uid: 24464
-    components:
-    - type: Transform
-      pos: -29.5,5.5
-      parent: 2
-    - type: TechnologyDatabase
-      supportedDisciplines:
-      - Industrial
-      - Arsenal
-      - Experimental
-      - CivilianServices
 - proto: AutolatheMachineCircuitboard
   entities:
   - uid: 1225
@@ -69800,74 +69789,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: ClosetWallOrange
-  entities:
-  - uid: 9972
-    components:
-    - type: Transform
-      pos: 45.5,-47.5
-      parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.1496
-        moles:
-        - 1.6971024
-        - 6.3843384
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: Fixtures
-      fixtures: {}
-  - uid: 9973
-    components:
-    - type: Transform
-      pos: 49.5,-47.5
-      parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.1496
-        moles:
-        - 1.6971024
-        - 6.3843384
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: Fixtures
-      fixtures: {}
-  - uid: 22060
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 42.5,-43.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
 - proto: ClosetWallPink
   entities:
   - uid: 9976
@@ -69898,6 +69819,30 @@ entities:
         - 0
         - 0
         - 0
+    - type: Fixtures
+      fixtures: {}
+- proto: ClosetWallWardrobePrisonFilled
+  entities:
+  - uid: 9973
+    components:
+    - type: Transform
+      pos: 45.5,-47.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 10300
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 42.5,-43.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 10381
+    components:
+    - type: Transform
+      pos: 49.5,-47.5
+      parent: 2
     - type: Fixtures
       fixtures: {}
 - proto: ClothingBackpackDuffelSurgeryFilled
@@ -70049,7 +69994,7 @@ entities:
   - uid: 10006
     components:
     - type: Transform
-      pos: -27.739601,5.7649994
+      pos: -27.97076,5.6265087
       parent: 2
 - proto: ClothingHandsGlovesConducting
   entities:
@@ -70465,7 +70410,7 @@ entities:
   - uid: 10078
     components:
     - type: Transform
-      pos: -28.35835,5.4578533
+      pos: -29.017635,5.7515087
       parent: 2
 - proto: ClothingNeckLesbianPin
   entities:
@@ -83047,17 +82992,6 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-  - uid: 19078
-    components:
-    - type: Transform
-      pos: -11.5,41.5
-      parent: 2
-    - type: TechnologyDatabase
-      supportedDisciplines:
-      - Industrial
-      - Arsenal
-      - Experimental
-      - CivilianServices
 - proto: ExosuitFabricator
   entities:
   - uid: 12630
@@ -86644,7 +86578,7 @@ entities:
       pos: 25.5,49.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5662.8345
+      secondsUntilStateChange: -5760.521
       state: Closing
   - uid: 12433
     components:
@@ -130411,7 +130345,7 @@ entities:
   - uid: 18264
     components:
     - type: Transform
-      pos: -28.598854,5.6387434
+      pos: -28.736385,5.6265087
       parent: 2
   - uid: 18265
     components:
@@ -154049,7 +153983,7 @@ entities:
   - uid: 21753
     components:
     - type: Transform
-      pos: -27.968767,5.5774994
+      pos: -29.548887,5.6265087
       parent: 2
   - uid: 21754
     components:
@@ -157164,6 +157098,11 @@ entities:
     components:
     - type: Transform
       pos: -16.5,-22.5
+      parent: 2
+  - uid: 9972
+    components:
+    - type: Transform
+      pos: -29.5,5.5
       parent: 2
   - uid: 10102
     components:
