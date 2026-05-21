@@ -81,8 +81,8 @@
     cost: 800
   - id: OreBagMagnetic
     cost: 800
-  - id: SurvivalMedipen
-    cost: 800
+  # - id: SurvivalMedipen # Omu, disabled until PressureThreshold condition is fixed for reagents
+  #   cost: 800
   - id: PKAUpgradeRange
     cost: 1000
   - id: PKAUpgradeFireRate
