@@ -309,3 +309,8 @@ Resources/MapImages
 
 config.json
 .github/workflows/update-prs.yaml
+
+# Local build scripts (not for PR)
+check-errors.bat
+rebuild-client-clean.bat
+runclient-nobuild.bat

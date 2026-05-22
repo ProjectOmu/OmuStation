@@ -105,24 +105,18 @@ public sealed class PlantAnalyzerSystem : EntitySystem
             .Select(id => _proto.TryIndex<SeedPrototype>(id, out var s) ? s.DisplayName : id.ToString())
             .ToArray();
 
-        var mutations = new List<string>();
-        if (seed.Seedless)      mutations.Add(Loc.GetString("plant-analyzer-mut-seedless"));
-        if (seed.Ligneous)      mutations.Add(Loc.GetString("plant-analyzer-mut-ligneous"));
-        if (seed.CanScream)     mutations.Add(Loc.GetString("plant-analyzer-mut-screaming"));
-        if (seed.TurnIntoKudzu) mutations.Add(Loc.GetString("plant-analyzer-mut-kudzu"));
-        foreach (var mut in seed.Mutations)
-        {
-            if (mut.Description is { } desc)
-                mutations.Add(Loc.GetString(desc));
-        }
+        var mutationDescriptions = seed.Mutations
+            .Where(m => m.Description.HasValue)
+            .Select(m => m.Description!.Value.Id)
+            .ToArray();
 
         return new PlantAnalyzerScannedSeedMessage
         {
             TargetEntity = GetNetEntity(target),
             IsTray = isTray,
-            IsDead = trayComp?.Dead ?? false,
-            PlantHealth = trayComp?.Health ?? 0f,
-            PlantMaxHealth = seed.Endurance,
+            IsDead = isTray && (trayComp?.Dead ?? false),
+            PlantHealth = isTray ? (trayComp?.Health ?? 0f) : 0f,
+            PlantMaxHealth = isTray ? seed.Endurance : 0f,
 
             SeedName = seed.DisplayName,
             SeedYield = seed.Yield,
@@ -149,7 +143,12 @@ public sealed class PlantAnalyzerSystem : EntitySystem
             PestTolerance = seed.PestTolerance,
             WeedTolerance = seed.WeedTolerance,
 
-            Mutations = mutations.ToArray(),
+            Seedless = seed.Seedless,
+            Ligneous = seed.Ligneous,
+            CanScream = seed.CanScream,
+            Kudzu = seed.TurnIntoKudzu,
+            MutationDescriptions = mutationDescriptions,
+
             Speciation = speciation,
         };
     }

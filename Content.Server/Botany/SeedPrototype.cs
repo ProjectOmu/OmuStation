@@ -34,8 +34,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Utility;
 
-using Content.Server.EntityEffects;
-
 namespace Content.Server.Botany;
 
 [Prototype]
@@ -43,6 +41,8 @@ public sealed partial class SeedPrototype : SeedData, IPrototype
 {
     [IdDataField] public string ID { get; private set; } = default!;
 }
+
+// HarvestType was here; moved to Content.Shared/Botany/HarvestType.cs so client code can reference it.
 
 /*
     public enum PlantSpread : byte

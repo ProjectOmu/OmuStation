@@ -1,4 +1,3 @@
-using System.Linq;
 using System.Text;
 using Content.Client.UserInterface.Controls;
 using Content.Shared._DV.PlantAnalyzer;
@@ -123,14 +122,31 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
         PestTolerance.Text   = $"{msg.PestTolerance:F1}";
         WeedTolerance.Text   = $"{msg.WeedTolerance:F1}";
 
-        var mutText = msg.Mutations.Length == 0
+        var mutLines = new List<string>();
+        if (msg.Seedless)   mutLines.Add(Loc.GetString("plant-analyzer-mut-seedless"));
+        if (msg.Ligneous)   mutLines.Add(Loc.GetString("plant-analyzer-mut-ligneous"));
+        if (msg.CanScream)  mutLines.Add(Loc.GetString("plant-analyzer-mut-screaming"));
+        if (msg.Kudzu)      mutLines.Add(Loc.GetString("plant-analyzer-mut-kudzu"));
+        foreach (var key in msg.MutationDescriptions)
+            mutLines.Add(Loc.GetString(key));
+
+        var mutText = mutLines.Count == 0
             ? IndentedNewline + Loc.GetString("plant-analyzer-mutations-none")
-            : BuildList(msg.Mutations);
+            : BuildList(mutLines.ToArray());
         Mutations.Text = Loc.GetString("plant-analyzer-mutations", ("value", mutText));
 
-        var specText = msg.Speciation.Length == 0
-            ? IndentedNewline + Loc.GetString("plant-analyzer-speciation-none")
-            : BuildList(msg.Speciation);
+        string specText;
+        if (msg.Speciation.Length == 0)
+        {
+            specText = IndentedNewline + Loc.GetString("plant-analyzer-speciation-none");
+        }
+        else
+        {
+            var specNames = new string[msg.Speciation.Length];
+            for (var i = 0; i < msg.Speciation.Length; i++)
+                specNames[i] = Loc.GetString(msg.Speciation[i]);
+            specText = BuildList(specNames);
+        }
         Speciation.Text = Loc.GetString("plant-analyzer-speciation", ("value", specText));
     }
 

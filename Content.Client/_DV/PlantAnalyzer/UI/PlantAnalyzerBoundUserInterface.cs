@@ -13,10 +13,7 @@ public sealed class PlantAnalyzerBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        _window = new PlantAnalyzerWindow
-        {
-            Title = Loc.GetString("plant-analyzer-interface-title"),
-        };
+        _window = new PlantAnalyzerWindow();
         _window.OnClose += Close;
         _window.OpenCenteredLeft();
     }

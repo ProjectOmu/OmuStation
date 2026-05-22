@@ -38,6 +38,14 @@ public sealed class PlantAnalyzerScannedSeedMessage : BoundUserInterfaceState
     public float PestTolerance;
     public float WeedTolerance;
 
-    public string[] Mutations = [];
+    // Boolean flag mutations — resolved to display strings on the client.
+    public bool Seedless;
+    public bool Ligneous;
+    public bool CanScream;
+    public bool Kudzu;
+
+    // LocId keys for RandomPlantMutation entries on this seed. Resolved client-side.
+    public string[] MutationDescriptions = [];
+
     public string[] Speciation = [];
 }

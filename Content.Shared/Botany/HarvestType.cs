@@ -1,4 +1,4 @@
-// moved to shared so client and server code can both reference it.
+// Moved from Content.Server/Botany/SeedPrototype.cs to shared so the analyzer UI can reference it client-side.
 
 namespace Content.Shared.Botany;
 
