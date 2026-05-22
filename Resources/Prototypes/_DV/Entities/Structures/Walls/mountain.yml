@@ -1,6 +1,6 @@
 - type: entity
   id: AsteroidAltRock #It's 1994
-  parent: BaseStructure
+  parent: BaseWall
   name: asteroid rock
   suffix: Low Ore Yield
   description: A rocky asteroid.
@@ -39,6 +39,9 @@
   - type: IconSmooth
     key: walls
     base: rock_
+  - type: Icon # Omu, Makes it display on maps
+    sprite: _DV/Structures/Walls/mountain_rock_ore.rsi
+    state: full
   - type: OreVein
     oreChance: 0.2
     oreRarityPrototypeId: RandomOreDistributionStandard
@@ -67,7 +70,7 @@
 
 - type: entity
   id: MountainRock
-  parent: BaseWall # Omu
+  parent: BaseWall # Omu, Treating mountain rock as an RWall.
   name: mountain rock
   suffix: Reinforced Wall # Omu
   description: A craggy mountain wall. It looks as tough as a reinforced wall. #Omu
@@ -76,8 +79,8 @@
     sprite: _DV/Structures/Walls/mountain_rock.rsi
     state: full
   - type: Icon # Omu, Makes it display on maps
-    sprite: Structures/Walls/solid.rsi
-    state: rgeneric
+    sprite: _DV/Structures/Walls/mountain_rock.rsi
+    state: full
   - type: Damageable
     damageContainer: StructuralInorganic # Omu
     damageModifierSet: StructuralMetallicStrong # Omu
@@ -85,11 +88,11 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 400 # Omu, Lowered to reinforced wall value
+        damage: 400 # Omu
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
-      - !type:PlaySoundBehavior # Omu, added destruction sound
+      - !type:PlaySoundBehavior # Omu
         sound:
           path: /Audio/Effects/break_stone.ogg
           params:
