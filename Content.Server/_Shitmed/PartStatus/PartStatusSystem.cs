@@ -144,10 +144,10 @@ public sealed class PartStatusSystem : EntitySystem
 
         foreach (var woundable in _woundSystem.GetAllWoundableChildren(rootPart))
         {
-            if (!TryComp<BodyPartComponent>(woundable, out var bodyPartComponent))
+            if (!TryComp<BodyPartComponent>(woundable, out var bodyPartComponent)) // Omu: Boneless Fix
                 continue;
 
-            TryComp<BoneComponent>(woundable.Comp.Bone.ContainedEntities.FirstOrNull(), out var bone);
+            TryComp<BoneComponent>(woundable.Comp.Bone.ContainedEntities.FirstOrNull(), out var bone); // Omu: Boneless Fix
             var partName = bodyPartComponent.ParentSlot?.Id ?? bodyPartComponent.PartType.ToString().ToLower();
             var (damageSeverities, isBleeding) = AnalyzeWounds(woundable);
 
@@ -157,7 +157,7 @@ public sealed class PartStatusSystem : EntitySystem
                 partName,
                 woundable.Comp.WoundableSeverity,
                 damageSeverities,
-                bone?.BoneSeverity ?? BoneSeverity.Normal, // boneless?
+                bone?.BoneSeverity ?? BoneSeverity.Normal, // Omu: Boneless Fix
                 isBleeding));
         }
 
