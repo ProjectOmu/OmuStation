@@ -8,7 +8,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: entity
+- type: entity # Omu Note, Capable of making 592 spesos from 500kj every 10 seconds
   id: MachinePowerTransmissionLaser
   parent: [ BaseMachine ]
   name: power transmission laser
@@ -21,6 +21,7 @@
     baseBeamDamage:
       types:
         Heat: 5
+        Structural: 5 # Omu
   - type: PTLVisuals
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/PTL/pt_laser.rsi
@@ -102,9 +103,11 @@
 
 - type: hitscan
   id: PTL
+  maxLength: 50 # Omu, Stop firing it inside OML
   damage:
     types:
       Heat: 30
+      Structural: 30 # Omu
   muzzleFlash:
     sprite: _Goobstation/Structures/Machines/PTL/pt_beam.rsi
     state: ptl_beam
