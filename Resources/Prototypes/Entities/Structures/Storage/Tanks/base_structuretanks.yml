@@ -59,7 +59,7 @@
         - MachineMask
         layer:
         - MachineLayer
-        - InteractImpassable
+        #- InteractImpassable # Omu, but like why... what purpose did this ever have.
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
