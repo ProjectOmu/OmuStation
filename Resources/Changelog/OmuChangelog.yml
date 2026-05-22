@@ -4072,3 +4072,69 @@ Entries:
       message: Combat medipen is no longer contraband
   id: 517
   time: '2026-05-16T11:27:36.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed Slasher from natural roll
+  id: 518
+  time: '2026-05-18T13:38:09.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed being able to make infinite medipens for free.
+  id: 519
+  time: '2026-05-18T18:56:12.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Add
+      message: >-
+        Empty autoinjector cartridges can be printed, and injected for a 0.25u
+        microplastics
+    - type: Add
+      message: >-
+        the Medical Assembler can now create filled autoinjector cartridges (not
+        including the emag options).
+    - type: Add
+      message: >-
+        Amoxla autoinjector cartridges now exist in the same places airloss ones
+        were found.
+    - type: Tweak
+      message: >-
+        Multiver's mix temperature is now hotter than the mix temperature of
+        table salt (320k->520k.
+  id: 520
+  time: '2026-05-18T20:14:53.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: Space ninja entry in the training manuals
+  id: 521
+  time: '2026-05-19T16:10:41.0000000+00:00'
+- author: PickelSilly
+  changes:
+    - type: Add
+      message: >-
+        Added a new BSO armor set for Xelthia, with shock proof and surgical
+        safe sleeves
+  id: 522
+  time: '2026-05-19T18:24:47.0000000+00:00'
+- author: ArtemisYK
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced typewriters gunwieldbonus comp to 12 from 20, Made its fire-rate
+        5 instead of 8
+  id: 523
+  time: '2026-05-20T15:29:20.0000000+00:00'
+- author: Marikiii
+  changes:
+    - type: Add
+      message: Staff (and some non) plushies! Check your trinket loadout!
+  id: 524
+  time: '2026-05-20T15:43:53.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed Door staff being unable to work.
+  id: 525
+  time: '2026-05-20T19:05:26.0000000+00:00'
