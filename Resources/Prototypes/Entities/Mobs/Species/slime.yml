@@ -135,6 +135,7 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Slime
+  - type: Geras # Den
   - type: PassiveDamage # Around 8 damage a minute healed # Omu start, add back slime regen
     allowedStates:
     - Alive

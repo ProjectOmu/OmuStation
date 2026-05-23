@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from the tgstation at https://github.com/tgstation/tgstation/blob/832cecdbb1118fc8b45fbc1d41a1a928d5be2eef/icons/mob/simple/slimes.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "blue_adult_slime",
+      "delays": [
+        [
+          0.15,
+          0.15,
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "blue_adult_slime_dead"
+    },
+    {
+      "name": "green_adult_slime",
+      "delays": [
+        [
+          0.15,
+          0.15,
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "green_adult_slime_dead"
+    },
+    {
+      "name": "yellow_adult_slime",
+      "delays": [
+        [
+          0.15,
+          0.15,
+          0.15,
+          0.15
+        ]
+      ]
+	},
+	{
+      "name": "yellow_adult_slime_dead"
+    },
+	{
+      "name": "aslime_3",
+      "directions": 4
+    },
+	{
+      "name": "rainbow_slime_extract",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+	{
+      "name": "rainbow_baby_slime",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "rainbow_baby_slime_dead",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+	{
+      "name": "aslime_angry",
+      "directions": 4
+    },
+	{
+      "name": "aslime_mischievous",
+      "directions": 4
+    },
+    {
+        "name": "slime_geras",
+        "delays": [
+            [
+                0.15,
+                0.15,
+                0.15,
+                0.15
+            ]
+        ]
+    },
+    {
+        "name": "slime_geras_eyes",
+        "directions": 4
+    }
+  ]
+}
