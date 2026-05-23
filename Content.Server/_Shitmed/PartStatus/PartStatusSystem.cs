@@ -157,7 +157,7 @@ public sealed class PartStatusSystem : EntitySystem
                 partName,
                 woundable.Comp.WoundableSeverity,
                 damageSeverities,
-                bone?.BoneSeverity ?? BoneSeverity.Normal, // Omu: Boneless Fix
+                bone?.BoneSeverity ?? BoneSeverity.None, // Omu: Boneless Fix
                 isBleeding));
         }
 
