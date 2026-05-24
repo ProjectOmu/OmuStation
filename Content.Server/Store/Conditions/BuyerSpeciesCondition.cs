@@ -42,10 +42,10 @@ public sealed partial class BuyerSpeciesCondition : ListingCondition
         var ent = args.EntityManager;
 
         if (!ent.TryGetComponent<MindComponent>(args.Buyer, out var mind))
-            return true; // needed to obtain body entityuid to check for humanoid appearance
+            return false; // needed to obtain body entityuid to check for humanoid appearance // Omu, set to false.
 
         if (!ent.TryGetComponent<HumanoidAppearanceComponent>(mind.OwnedEntity, out var appearance))
-            return true; // inanimate or non-humanoid entities should be handled elsewhere, main example being surplus crates
+            return false; // inanimate or non-humanoid entities should be handled elsewhere, main example being surplus crates // Omu, set to false.
 
         if (Blacklist != null)
         {

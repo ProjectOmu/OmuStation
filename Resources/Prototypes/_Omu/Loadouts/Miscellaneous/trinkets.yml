@@ -166,6 +166,17 @@
     - ClothingNeckChameleonPride
   groupBy: "pin"
 
+- type: loadout
+  id: ClothingNeckEnsembleTrans
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 720000 # 200hr
+  storage:
+    back:
+    - ClothingNeckEnsembleTrans
+  groupBy: "pin"
 
 - type: loadout
   id: BarberScissors
@@ -209,3 +220,174 @@
   storage:
    back:
    - RubberStampGreytide
+
+  # Staff Plushies
+
+- type: loadout
+  id: PlushieLoadoutRestful
+  dummyEntity: PlushieRestfulOmuStaff
+  storage:
+    back:
+    - PlushieRestfulOmuStaff
+  groupBy: "Plushie"
+
+- type: loadout
+  id: PlushieLoadoutAureu
+  dummyEntity: PlushieAureuOmuStaff
+  storage:
+    back:
+    - PlushieAureuOmuStaff
+  groupBy: "Plushie"
+
+- type: loadout
+  id: PlushieLoadoutThesia
+  dummyEntity: PlushieThesiaOmuStaff
+  storage:
+    back:
+    - PlushieThesiaOmuStaff
+  groupBy: "Plushie"
+
+- type: loadout
+  id: PlushieLoadoutMarikiii
+  dummyEntity: PlushieMarikiiiOmuStaff
+  storage:
+    back:
+    - PlushieMarikiiiOmuStaff
+  groupBy: "Plushie"
+
+- type: loadout
+  id: PlushieLoadoutNagoll
+  dummyEntity: PlushieNagollOmuStaff
+  storage:
+    back:
+    - PlushieNagollOmuStaff
+  groupBy: "Plushie"
+
+- type: loadout
+  id: PlushieLoadoutArtemis
+  dummyEntity: PlushieArtemisOmuStaff
+  storage:
+    back:
+    - PlushieArtemisOmuStaff
+  groupBy: "Plushie"
+
+- type: loadout
+  id: PlushieLoadoutClive
+  dummyEntity: PlushieCliveOmuStaff
+  storage:
+    back:
+    - PlushieCliveOmuStaff
+  groupBy: "Plushie"
+
+- type: loadout
+  id: PlushieLoadoutCyg
+  dummyEntity: PlushieCygOmuStaff
+  storage:
+    back:
+    - PlushieCygOmuStaff
+  groupBy: "Plushie"
+
+- type: loadout
+  id: PlushieLoadoutTossorn
+  dummyEntity: PlushieTossornOmuStaff
+  storage:
+    back:
+    - PlushieTossornOmuStaff
+  groupBy: "Plushie"
+
+- type: loadout
+  id: PlushieLoadoutDishwasher
+  dummyEntity: PlushieDishwasherOmuStaff
+  storage:
+    back:
+    - PlushieDishwasherOmuStaff
+  groupBy: "Plushie"
+
+- type: loadout
+  id: PlushieLoadoutDoglettuce
+  dummyEntity: PlushieDoglettuceOmuStaff
+  storage:
+    back:
+    - PlushieDoglettuceOmuStaff
+  groupBy: "Plushie"
+
+- type: loadout
+  id: PlushieLoadoutHayray
+  dummyEntity: PlushieHayrayOmuStaff
+  storage:
+    back:
+    - PlushieHayrayOmuStaff
+  groupBy: "Plushie"
+
+- type: loadout
+  id: PlushieLoadoutKabuki
+  dummyEntity: PlushieKabukiOmuStaffish
+  storage:
+    back:
+    - PlushieKabukiOmuStaffish
+  groupBy: "Plushie"
+
+- type: loadout
+  id: PlushieLoadoutGino
+  dummyEntity: PlushieGinoOmuStaff
+  storage:
+    back:
+    - PlushieGinoOmuStaff
+  groupBy: "Plushie"
+
+- type: loadout
+  id: PlushieLoadoutPuntsss
+  dummyEntity: PlushiePuntsssOmuStaff
+  storage:
+    back:
+    - PlushiePuntsssOmuStaff
+  groupBy: "Plushie"
+
+- type: loadout
+  id: PlushieLoadoutNnif
+  dummyEntity: PlushieNnifOmuStaff
+  storage:
+    back:
+    - PlushieNnifOmuStaff
+  groupBy: "Plushie"
+
+- type: loadout
+  id: PlushieLoadoutMednog
+  dummyEntity: PlushieMednogOmuStaff
+  storage:
+    back:
+    - PlushieMednogOmuStaff
+  groupBy: "Plushie"
+
+- type: loadout
+  id: PlushieLoadoutYuri
+  dummyEntity: PlushieYuriOmuStaff
+  storage:
+    back:
+    - PlushieYuriOmuStaff
+  groupBy: "Plushie"
+
+- type: loadout
+  id: PlushieLoadoutPickelSilly
+  dummyEntity: PlushiePickelSillyOmuStaffish
+  storage:
+    back:
+    - PlushiePickelSillyOmuStaffish
+  groupBy: "Plushie"
+
+- type: loadout
+  id: PlushieLoadoutXi
+  dummyEntity: PlushieXiOmuStaff
+  storage:
+    back:
+    - PlushieXiOmuStaff
+  groupBy: "Plushie"
+
+- type: loadout
+  id: PlushieLoadoutSammy
+  dummyEntity: PlushieSammyOmuStaff
+  storage:
+    back:
+    - PlushieSammyOmuStaff
+  groupBy: "Plushie"
+

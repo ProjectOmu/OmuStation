@@ -606,6 +606,9 @@
           - !type:OrganType # Goobstation - XenobioSlime
             type: XenobioSlime
             shouldHave: false
+          - !type:OrganType # Omu, Letting xelthia eat raw meat
+            type: Xelthia
+            shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
@@ -625,6 +628,9 @@
           - !type:OrganType # Goobstation - XenobioSlime
             type: XenobioSlime # slimes shouldn't vomit from blood and raw meat
             shouldHave: false
+          - !type:OrganType # Omu, Letting xelthia eat raw meat
+            type: Xelthia
+            shouldHave: false
       - !type:HealthChange
         conditions:
         - !type:OrganType
@@ -639,6 +645,9 @@
         - !type:OrganType # Goobstation - XenobioSlime
           type: XenobioSlime
           shouldHave: false
+        - !type:OrganType # Omu, Letting xelthia eat more things
+          type: Xelthia
+          shouldHave: false
         damage:
           types:
             Poison: 1
@@ -646,6 +655,12 @@
         conditions:
         - !type:OrganType
           type: Animal
+        reagent: Protein
+        amount: 0.5
+      - !type:AdjustReagent # Omu, letting xelthia eat more things
+        conditions:
+        - !type:OrganType
+          type: Xelthia
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent # Goobstation - XenobioSlime

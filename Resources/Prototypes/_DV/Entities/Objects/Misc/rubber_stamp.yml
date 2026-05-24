@@ -11,3 +11,17 @@
   - type: Sprite
     sprite: _DV/Objects/Misc/stamps.rsi
     state: stamp-admin-assistant
+
+- type: entity
+  name: IA rubber stamp
+  parent: [RubberStampBase, BaseCentcommContraband] # Omu, add contra
+  id: RubberStampNTAgent
+  suffix: DO NOT MAP
+  description: A rubber stamp for stamping important documents. For internal related affairs.
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-NTAgent
+    stampedColor: "#000080"
+    stampState: "paper_stamp-cap"
+  - type: Sprite
+    state: stamp-cap
