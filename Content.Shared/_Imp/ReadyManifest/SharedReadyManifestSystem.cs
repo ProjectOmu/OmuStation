@@ -9,12 +9,7 @@ namespace Content.Shared._Imp.ReadyManifest;
 [Serializable, NetSerializable]
 public sealed class RequestReadyManifestMessage : EntityEventArgs
 {
-    public NetEntity Id { get; }
-
-    public RequestReadyManifestMessage()
-    {
-        //Id = id;
-    }
+    public RequestReadyManifestMessage() { }
 }
 
 [Serializable, NetSerializable]
