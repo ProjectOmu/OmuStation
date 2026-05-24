@@ -1,7 +1,7 @@
 - type: gameMap
   id: Plasma
   mapName: 'Plasma'
-  mapPath: /Maps/plasma.yml
+  mapPath: /Maps/_Omu/plasma.yml
   minPlayers: 20
   maxPlayers: 80
   stations:
@@ -14,9 +14,9 @@
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_plasma.yml
+          emergencyShuttlePath: /Maps/_Omu/Shuttles/emergency_plasma.yml
         - type: StationCargoShuttle
-          path: /Maps/Shuttles/cargo_plasma.yml
+          path: /Maps/_Omu/Shuttles/cargo_plasma.yml
         - type: StationJobs
           availableJobs:
             #command
