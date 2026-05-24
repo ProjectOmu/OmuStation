@@ -68,13 +68,13 @@
   - type: Speech
     speechVerb: Parrot
     speechSounds: MaleResomi # Omu
-    allowedEmotes: ['Chirp', 'Trill', 'Warble', 'Wurble', 'Scree', 'Call', 'Squawk'] #goob # omu, add 'Scree', 'Call', 'Squawk'
+    allowedEmotes: ['Chirp', 'Trill', 'Warble', 'Wurble', 'Scree', 'Call', 'Squawk', 'Hiss', 'Growl'] #goob # omu, add 'Scree', 'Call', 'Squawk' # omu again, added hiss and growl from avali in avali-resomi emote merge
   - type: Vocal
     sounds:
 # Omu start
-      Male: MaleResomiEmote
-      Unsexed: MaleResomiEmote
-      Female: FemaleResomiEmote
+      Male: MaleAvali
+      Unsexed: MaleAvali
+      Female: FemaleAvali
 # Omu end
   - type: Tag
     tags:         # Goob - What the fuck is FootstepSound and DoorBumpOpener for if they work without them - rest fixes anoms though.
@@ -83,6 +83,7 @@
     - DoorBumpOpener
     - AnomalyHost
     - Resomi # Starlight
+    - AvaliEmotes # Omu
   - type: Hands
     handDisplacement:
       sizeMaps:

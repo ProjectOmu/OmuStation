@@ -18,7 +18,7 @@ namespace Content.Shared.Chat.TypingIndicator;
 ///     Added automatically when player poses entity.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(SharedTypingIndicatorSystem))]
+// [Access(typeof(SharedTypingIndicatorSystem))] CD - Restricted access breaks synth trait because it rewrites the speech bubble over the default race indicator
 public sealed partial class TypingIndicatorComponent : Component
 {
     /// <summary>
