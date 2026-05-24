@@ -94,30 +94,26 @@ public sealed class ReadyManifestSystem : EntitySystem
         UpdateEuis();
     }
 
-    private void BuildReadyManifest()
+     private void BuildReadyManifest()
     {
         var jobCounts = new Dictionary<ProtoId<JobPrototype>, int>();
 
         foreach (var (userId, status) in _gameTicker.PlayerGameStatuses)
         {
-            if (status == PlayerGameStatus.ReadyToPlay)
+            if (status != PlayerGameStatus.ReadyToPlay
+                ||!_prefsManager.TryGetCachedPreferences(userId, out var preferences))
+                continue;
+            var profile = (HumanoidCharacterProfile)preferences.SelectedCharacter;
+            var profileJobs = FilterPlayerJobs(profile);
+            foreach (var jobId in profileJobs)
             {
-                HumanoidCharacterProfile profile;
-                if (_prefsManager.TryGetCachedPreferences(userId, out var preferences))
+                if (jobCounts.ContainsKey(jobId))
                 {
-                    profile = (HumanoidCharacterProfile)preferences.SelectedCharacter;
-                    var profileJobs = FilterPlayerJobs(profile);
-                    foreach (var jobId in profileJobs)
-                    {
-                        if (jobCounts.ContainsKey(jobId))
-                        {
-                            jobCounts[jobId]++;
-                        }
-                        else
-                        {
-                            jobCounts.Add(jobId, 1);
-                        }
-                    }
+                    jobCounts[jobId]++;
+                }
+                else
+                {
+                    jobCounts.Add(jobId, 1);
                 }
             }
         }
