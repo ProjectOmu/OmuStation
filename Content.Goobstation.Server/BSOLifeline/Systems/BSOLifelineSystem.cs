@@ -13,6 +13,7 @@ using Robust.Server.GameObjects;
 using Content.Shared.Rejuvenate;
 using Content.Goobstation.Common.CCVar;
 using Robust.Shared.Configuration;
+using Content.Server.Chat.Managers;
 
 public sealed class GoobLifelineSystem : EntitySystem
 {
@@ -20,6 +21,7 @@ public sealed class GoobLifelineSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
+    [Dependency] private readonly IChatManager _chat = default!;
 
     public override void Initialize()
     {
@@ -29,6 +31,7 @@ public sealed class GoobLifelineSystem : EntitySystem
 
     private void OnTrigger(EntityUid uid, WarpParentOnTriggerComponent component, TriggerEvent args)
     {
+        _chat.SendAdminAlert($"{ToPrettyString(uid):player}'s lifeline activated");
         WarpParent(uid, component);
         args.Handled = true;
     }
