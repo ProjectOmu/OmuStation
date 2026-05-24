@@ -49,3 +49,15 @@
       map: [ "enum.FaxMachineVisuals.VisualState" ]
     - state: scanner
       shader: unshaded
+
+- type: entity
+  id: RPDRechargingCE
+  parent: RPD
+  name: experimental RPD
+  description: A bluespace-enhanced rapid piping device that passively generates its own compressed matter.
+  suffix: AutoRecharge
+  components:
+  - type: LimitedCharges
+    maxCharges: 40
+  - type: AutoRecharge
+    rechargeDuration: 5

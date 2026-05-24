@@ -1,0 +1,21 @@
+﻿- type: technology
+  id: IndustrialMedicine
+  name: research-technology-industrial-medicine
+  icon:
+    sprite: _NF/Structures/Machines/medical_assembler.rsi
+    state: icon
+  discipline: CivilianServices # Omu
+  tier: 3
+  cost: 15000
+  position: 4,4 # Omu start
+  technologyPrerequisites:
+  - BluespaceChemistry # Omu end
+  recipeUnlocks:
+  - MedicalAssemblerMachineCircuitboard
+  - BlankMediPen
+
+- type: latheRecipePack
+  id: MedicalAssemblerPack
+  recipes:
+  - MedicalAssemblerMachineCircuitboard
+  - BlankMediPen

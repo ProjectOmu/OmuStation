@@ -12,6 +12,47 @@
     size: Normal
 
 - type: entity
+  parent: ClothingBlueshieldArmourVest
+  id: ClothingOuterBlueshieldArmourXelthia
+  name: blueshield's xelthian full-sleeve coat
+  description: An intimidating armored coat with a commanding presence, designed for use by Xelthians. Provides insulation and surgical protection to Xelthian tentacles.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Armour/ClothingOuterBlueshieldArmourXelthia.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Armour/ClothingOuterBlueshieldArmourXelthia.rsi
+  - type: Item
+    size: Normal
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-black
+  - type: FingerprintMask
+  - type: GloveJacket
+  - type: ClothingTakesUpExtraSlots
+    slots:
+    - gloves
+  - type: Armor # same as BSO winter coat
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.5
+        Heat: 0.4
+        Caustic: 0.65
+
+- type: entity
   parent: [ ClothingOuterBase, AllowSuitStorageClothing, BaseSyndicateContraband ]
   id: ClothingOuterNeuluthiv
   name: neuluthiv visionary robes
