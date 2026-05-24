@@ -245,7 +245,7 @@
 
 # Blueshield Officer
 
-- type: selectableSet 
+- type: selectableSet
   id: BSOBRDISet # Yes I moved it because it bothered me that it was in some random ass place above
   name: selectable-set-bso-brdi-name
   description: selectable-set-bso-brdi-description
@@ -254,8 +254,20 @@
     state: icon
   content:
   - WeaponSubMachineGunBRDIR25BSO
-  - MagazineCaselessRifle
-  - MagazineCaselessRifle
+  - MagazineCaselessRifleFMJ
+  - MagazineCaselessRifleFMJ
+
+- type: selectableSet
+  id: BSOTypewriterSet
+  name: selectable-set-bso-typewriter-name
+  description: selectable-set-bso-typewriter-desc
+  sprite:
+    sprite: _DV/Objects/Weapons/Guns/SMGs/typewriter.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunTypewriter
+  - MagazinePistolSubMachineGunDrumRubber
+  - MagazinePistolSubMachineGun
 
 - type: selectableSet
   id: BSOExtractionSet
@@ -300,11 +312,11 @@
   - CaneNT
 
 - type: selectableSet
-  id: NanoRepBeltSet
-  name: selectable-set-ntr-belt-name
-  description: selectable-set-ntr-belt-desc
+  id: BladeNTSet
+  name: selectable-set-ntr-blade-name
+  description: selectable-set-ntr-blade-desc
   sprite:
-    sprite: _Omu/Clothing/Belt/centcomdisciplinary.rsi
+    sprite: Objects/Weapons/Melee/cane_blade.rsi
     state: icon
   content:
-  - NanoRepBelt
+  - CaneSheathFilledNanotrasen
