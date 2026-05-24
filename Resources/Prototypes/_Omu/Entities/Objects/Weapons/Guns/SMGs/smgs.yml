@@ -90,12 +90,13 @@
     sprite: _DV/Objects/Weapons/Guns/SMGs/typewriter.rsi
   - type: Wieldable
     unwieldOnUse: false
-  - type: GunWieldBonus # Slightly better spread than c-20r, basically tried different values until it felt good
-    minAngle: -20
-    maxAngle: -20
+  - type: GunWieldBonus # Changed to be on par or slightly worse than the C20
+    minAngle: -12
+    maxAngle: -12
   - type: Gun
     minAngle: 21
     maxAngle: 32
+    fireRate: 5 # Moved down from 8, Felt the best
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/typewriter.ogg
   - type: ChamberMagazineAmmoProvider
