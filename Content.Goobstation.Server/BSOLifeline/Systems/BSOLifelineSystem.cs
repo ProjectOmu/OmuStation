@@ -31,7 +31,7 @@ public sealed class GoobLifelineSystem : EntitySystem
 
     private void OnTrigger(EntityUid uid, WarpParentOnTriggerComponent component, TriggerEvent args)
     {
-        _chat.SendAdminAlert($"{ToPrettyString(uid):player}'s lifeline activated");
+        _chat.SendAdminAlert($"{ToPrettyString(Transform(uid).ParentUid):player}'s lifeline activated");
         WarpParent(uid, component);
         args.Handled = true;
     }
