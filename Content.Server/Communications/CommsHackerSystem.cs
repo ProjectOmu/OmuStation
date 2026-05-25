@@ -12,7 +12,7 @@
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Ninja.Systems;
-using Content.Server.Power.EntitySystems; // goobstation - check power 
+using Content.Server.Power.EntitySystems; // goobstation - check power
 using Content.Shared.Communications;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -46,7 +46,7 @@ public sealed class CommsHackerSystem : SharedCommsHackerSystem
     /// </summary>
     private void OnBeforeInteractHand(EntityUid uid, CommsHackerComponent comp, BeforeInteractHandEvent args)
     {
-        if (args.Handled || !HasComp<CommunicationsConsoleComponent>(args.Target))
+        if (args.Handled || !TryComp<CommunicationsConsoleComponent>(args.Target, out var console) || !console.CanShuttle) // Omu, change hascomp to trycomp, and check if the comms console can call shuttle
             return;
         if (!_powerReceiverSystem.IsPowered(args.Target)) // Goobstation - is powererd
             return;
