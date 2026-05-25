@@ -73,6 +73,22 @@
     maxSelectedSets: 1
 
 - type: entity
+  id: HoSPetKennel
+  name: HoS Pet Teleporter
+  description: This kennel with the help of bluespace technology allows for the user to spawn one of the three security mascots!
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/HoSCarrier.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - HoSPetLaikaSet
+    - HoSPetShivaSet
+    - HoSPetTrevorSet
+    maxSelectedSets: 1
+
+- type: entity
   id: SergeantGunCase
   name: sergeant duty case
   description: A case, used to securely store your duty weapon of choice.
