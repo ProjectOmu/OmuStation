@@ -5,11 +5,11 @@
   description: Science has reinforced this bursh with carbon nano-fibre bristles. Has science gone too far? NO! It never has and never will!
   components:
   - type: Sprite
-    sprite: Objects/Specific/Janitorial/advwirebrush.rsi
+    sprite: _Omu/Objects/Specific/Janitorial/advwirebrush.rsi
     state: icon
   - type: Item
     storedSprite:
-      sprite: Objects/Specific/Janitorial/advwirebrush.rsi
+      sprite: _Omu/Objects/Specific/Janitorial/advwirebrush.rsi
       state: storage
     size: Small
   - type: PhysicalComposition
