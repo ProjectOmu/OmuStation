@@ -8,7 +8,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: entity # Omu Note, Capable of making 592 spesos from 500kj every 10 seconds, 6x less than selling a SMES of equal power.
+- type: entity
   id: MachinePowerTransmissionLaser
   parent: [ BaseMachine ]
   name: power transmission laser
@@ -17,6 +17,8 @@
     mode: SnapgridCenter
   components:
   - type: PTL
+    minEnergyPerShot: 5e5 # Omu
+    maxEnergyPerShot: 3e6 # Omu 3MJ (300kw/s), 404spesos 10/s
     active: false
     baseBeamDamage:
       types:
@@ -42,10 +44,10 @@
   - type: RadiationSource
   - type: Appearance
   - type: PowerNetworkBattery
-    maxChargeRate: 5000000 # 5MJ
+    maxChargeRate: 500000 # Omu, 500kW
   - type: Battery
     startingCharge: 0
-    maxCharge: 100000000 # 100MJ
+    maxCharge: 25000000 # Omu, 25MJ (50s of 500kW)
     pricePerJoule: 0 # Omu
   - type: ExaminableBattery
   - type: BatteryCharger
