@@ -84,12 +84,12 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-1.5,-1.5,1.5,1.5"
-        density: 50
+          bounds: "-1.2,-1.2,1.2,1.2" # Omu
+        density: 250 # Omu
         mask:
         - LargeMobMask
         layer:
-        - WallLayer
+        - MachineLayer # Omu
   - type: StationAiWhitelist
   # ui todo
   #- type: ActivatableUI
