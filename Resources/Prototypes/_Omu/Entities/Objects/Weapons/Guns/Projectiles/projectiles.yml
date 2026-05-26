@@ -1,0 +1,21 @@
+- type: entity
+  id: BaseBulletRubber
+  name: base bullet rubber
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: rubber
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/snap.ogg
+  - type: StaminaDamageOnCollide
+    damage: 17 # 6 hits to stun w/o armor
+  - type: Tag
+    tags:
+    - BulletRubber

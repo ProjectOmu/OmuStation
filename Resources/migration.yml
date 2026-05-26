@@ -619,18 +619,18 @@ BodyBag_Folded: BodyBagFolded
 
 # 2024-04-26
 BaseBulletRubber: null
-BulletPistolRubber: BulletPistol
+#BulletPistolRubber: BulletPistol # Omu
 BulletMagnumRubber: BulletMagnum
 BulletLightRifleRubber: BulletLightRifle
 BulletRifleRubber: BulletRifle
 BulletCaselessRifleRubber: BulletCaselessRifle
-CartridgePistolRubber: CartridgePistol
+#CartridgePistolRubber: CartridgePistol # Omu
 CartridgeMagnumRubber: CartridgeMagnum
 CartridgeLightRifleRubber: CartridgeLightRifle
 CartridgeRifleRubber: CartridgeRifle
 CartridgeCaselessRifleRubber: CartridgeCaselessRifle
 MagazinePistolRubber: MagazinePistol
-MagazinePistolSubMachineGunRubber: MagazinePistolSubMachineGun
+#MagazinePistolSubMachineGunRubber: MagazinePistolSubMachineGun # Omu
 MagazinePistolCaselessRifleRubber: MagazinePistolCaselessRifle
 MagazineMagnumRubber: MagazineMagnum
 MagazineMagnumSubMachineGunRubber: MagazineMagnumSubMachineGun
@@ -640,7 +640,7 @@ MagazineCaselessRifleRubber: MagazineCaselessRifle
 MagazineCaselessRifleShortRubber: MagazineCaselessRifleShort
 SpeedLoaderPistolRubber: SpeedLoaderPistol
 SpeedLoaderMagnumRubber: SpeedLoaderMagnum
-MagazineBoxPistolRubber: MagazineBoxPistol
+#MagazineBoxPistolRubber: MagazineBoxPistol # Omu
 # RIP box of magnum rubbers 202X to 2024
 MagazineBoxMagnumRubber: MagazineBoxMagnum
 MagazineBoxLightRifleRubber: MagazineBoxLightRifle
@@ -863,8 +863,8 @@ LightTree06: LightTree
 
 # 2024-12-22 # Lavaland Change: Migrations
 VendingMachineRestockSalvageEquipment: null
-ComputerSalvageExpedition: ComputerShuttleMiningLavaland
-SalvageExpeditionsComputerCircuitboard: LavalandShuttleConsoleCircuitboard
+# ComputerSalvageExpedition: ComputerShuttleMiningLavaland #omu
+# SalvageExpeditionsComputerCircuitboard: LavalandShuttleConsoleCircuitboard #omu
 
 # 2025-01-06
 BorgModuleRadiationDetection: null
