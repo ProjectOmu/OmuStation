@@ -14,9 +14,9 @@
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_plasma.yml
+          emergencyShuttlePath: /Maps/_Omu/Shuttles/emergency_plasma.yml # Omu, Fixing broken tiles
         - type: StationCargoShuttle
-          path: /Maps/Shuttles/cargo_plasma.yml
+          path: /Maps/_Omu/Shuttles/cargo_plasma.yml # Omu, Made it slightly smaller so lavaland shuttle can dock while its also docked.
         - type: StationJobs
           availableJobs:
             #command
