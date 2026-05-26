@@ -695,19 +695,6 @@ entities:
     - type: Transform
       pos: -1.429965,2.5060978
       parent: 2
-    - type: GroupExamine
-      group:
-      - hoverMessage: ""
-        contextText: verb-examine-group-other
-        icon: /Textures/Interface/examine-star.png
-        components:
-        - Armor
-        - ClothingSpeedModifier
-        entries:
-        - message: This decreases your running speed by [color=yellow]10%[/color].
-          priority: 0
-          component: ClothingSpeedModifier
-        title: null
 - proto: ClothingMaskBreathMedical
   entities:
   - uid: 92
