@@ -1,0 +1,78 @@
+- type: gameMap
+  id: Plasma
+  mapName: 'Plasma'
+  mapPath: /Maps/_Omu/plasma.yml
+  minPlayers: 20
+  maxPlayers: 80
+  stations:
+    Plasma:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Plasma {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_Omu/Shuttles/emergency_plasma.yml
+        - type: StationCargoShuttle
+          path: /Maps/_Omu/Shuttles/cargo_plasma.yml
+        - type: StationJobs
+          availableJobs:
+            #command (7)
+            NanotrasenRepresentative: [ 1, 1 ]
+            BlueshieldOfficer: [ 1, 1 ]
+            Captain: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            ChiefEngineer: [ 1, 1 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            ResearchDirector: [ 1, 1 ]
+            HeadOfSecurity: [ 1, 1 ]
+            Quartermaster: [ 1, 1 ]
+            #service (15 - 17)
+            Bartender: [ 2, 2 ]
+            Botanist: [ 2, 3 ]
+            Chef: [ 2, 2 ]
+            Janitor: [ 3, 3 ]
+            Chaplain: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
+            ServiceWorker: [ 2, 2 ]
+            Reporter: [ 1, 2 ]
+            Lawyer: [ 1, 2 ]
+            RadioHost: [ 1, 1 ]
+            #engineering (8)
+            AtmosphericTechnician: [ 4, 4 ]
+            StationEngineer: [ 4, 4 ]
+            TechnicalAssistant: [ 4, 4 ]
+            #medical (9)
+            Chemist: [ 2, 2 ]
+            MedicalDoctor: [ 4, 4 ]
+            Paramedic: [ 2, 2 ]
+            MedicalIntern: [ 4, 4 ]
+            Psychologist: [ 1, 1 ]
+            Virologist: [ 2, 2 ]
+            #science (4)
+            Scientist: [ 4, 4 ]
+            ResearchAssistant: [ 4, 4 ]
+            Roboticist: [ 2, 2 ]
+            #security (9 - 11)
+            Warden: [ 1, 1 ]
+            SecurityOfficer: [ 6, 6 ]
+            Detective: [ 2, 2 ]
+            SecurityCadet: [ 4, 4 ]
+            Brigmedic: [ 1, 1 ]
+            TransitPrisoner: [2, 2]
+            SecuritySergeant: [ 1, 1 ]
+            #supply
+            CargoTechnician: [ 4, 4 ]
+            SalvageSpecialist: [ 4, 4 ]
+            Courier: [ 2, 2 ]
+            ShaftMiner: [ 3, 3 ]
+            #civilian
+            Passenger: [ -1, -1 ]
+            Clown: [ 1, 2 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            #silicon
+            Borg: [ 2, 4 ]
+            StationAi: [ 1, 1 ]
