@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/12/2026 15:41:49
-  entityCount: 23744
+  time: 05/16/2026 14:40:25
+  entityCount: 23742
 maps:
 - 1
 grids:
@@ -19392,7 +19392,7 @@ entities:
       pos: -25.5,-25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -12856.127
+      secondsUntilStateChange: -12887.022
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -132276,14 +132276,6 @@ entities:
     - type: Transform
       pos: -23.5,-53.5
       parent: 2
-- proto: SpawnMobHorseTrevor
-  entities:
-  - uid: 19163
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -25.5,-4.5
-      parent: 2
 - proto: SpawnMobKangarooWillow
   entities:
   - uid: 19164
@@ -132368,13 +132360,6 @@ entities:
     components:
     - type: Transform
       pos: 6.5,-53.5
-      parent: 2
-- proto: SpawnMobShiva
-  entities:
-  - uid: 19178
-    components:
-    - type: Transform
-      pos: -26.5,11.5
       parent: 2
 - proto: SpawnMobSmile
   entities:
