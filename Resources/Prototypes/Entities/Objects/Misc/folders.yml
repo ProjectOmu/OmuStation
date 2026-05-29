@@ -243,6 +243,14 @@
     sprite: Objects/Misc/cc-clipboard.rsi
   - type: Clothing
     sprite: Objects/Misc/cc-clipboard.rsi
+  - type: Storage
+    grid:
+    - 0,0,5,3
+    whitelist:
+      tags:
+      - Document
+      components:
+      - StationReport
 
 - type: entity
   id: BoxFolderQmClipboard
