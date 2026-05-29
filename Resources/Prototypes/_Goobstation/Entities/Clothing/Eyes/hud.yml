@@ -6,7 +6,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: entity 
+- type: entity
   id: ShowHealthRelatedIcons
   abstract: true
   categories: [ HideSpawnMenu ]
@@ -40,8 +40,8 @@
   components:
   - type: Unremoveable
 
-- type: entity 
-  parent: [ClothingEyesBase, ShowHealthRelatedIcons]
+- type: entity
+  parent: [ClothingEyesBase, ShowHealthRelatedIcons, BaseMedicalContraband] # Omu, add BaseMedicalContraband
   id: ClothingEyesHudDiagnosticMedical
   name: meddiag hud
   description: A heads-up display combining both medical and diagnostic information.

@@ -1,8 +1,8 @@
 - type: entity
-  parent: [ ClothingBeltMilitaryWebbingCMO, BaseCentcommContraband ]
   id: ClothingBeltMilitaryWebbingBSO
-  name: blueshield chest rig
-  description: A robust chest rig with deep pockets and hooks, for use by a Blueshield Officer.
+  parent: [ BaseCentcommContraband, ClothingBeltMilitaryWebbingCMO ]
+  name: blueshield officer's medical chest rig # renamed for medical set
+  description: A robust chest rig with deep pockets and hooks, for use by a Blueshield Officer who believes in the reliability of classic medicinals.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Belt/blueshieldwebbing.rsi
@@ -10,7 +10,7 @@
     sprite: _Omu/Clothing/Belt/blueshieldwebbing.rsi
   - type: Storage
     grid:
-    - 0,0,4,2
+    - 0,0,6,2
     whitelist: # I have no idea why is, say, wrench here, but it's just copied from medical belt.
       tags:
         - Wrench
@@ -30,6 +30,10 @@
         - MedicalPatch # Goobstation
         - AutoinjectorCartridge # Goobstation
         - HandheldCrewMonitor # Goobstation
+        - Medkit # Omustation, for BSO's medical set
+        - BodyBag # Omustation, for BSO's surgical set
+        - SyringeCase # Copied from CMO's rig
+        - RollerBedCompact # For BSO's bluespace roller beds
       components:
         - Flash
         - Handcuff
@@ -156,3 +160,81 @@
       enum.ChameleonUiKey.Key:
         type: ChameleonBoundUserInterface
   - type: HideContrabandContent #Goobstation-Contraband detector
+
+- type: entity
+  id: ClothingBeltChemBagBSO
+  parent: [ BaseStorageItem , ContentsExplosionResistanceBase, BaseCentcommContraband ] # Not parented from ChemBag directly to exclude Dumpable component
+  name: blueshield officer's medical pouch
+  description: A robust pouch for medical supplies worn by Blueshield Officers especially fond of chemical based medicinals.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Belt/blueshieldchembag.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Omu/Clothing/Belt/blueshieldchembag.rsi
+    quickEquip: false
+    slots:
+    - belt
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Normal # allow up to 5 large beakers / 10 beakers / 10 pill canisters
+    grid:
+    - 0,0,5,3 # Exactly the same as a normal chemag
+    quickInsert: true
+    areaInsert: true
+    whitelist: # Yeah so I kinda just copied everything from the syndie one nukie corpsman gets and then also combined it with the BSO webbing whitelist on request
+      tags:
+        - PillCanister
+        - Syringe
+        - Dropper
+        - MedicalPatch
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - Cigarette
+        - Bottle
+        - Spray
+        - Radio
+        - DiscreteHealthAnalyzer
+        - SurgeryTool
+        - Tourniquet #Goobstation
+        - AutoinjectorCartridge # Goobstation
+        - HandheldCrewMonitor # Goobstation
+        - Medkit # Omustation, for BSO's medical set
+        - BodyBag # Omustation, for BSO's surgical set
+        - SyringeCase # Copied from CMO's rig
+        - RollerBedCompact # For BSO's bluespace roller beds
+      components:
+        - Pill
+        - Hypospray
+        - SyringeGun
+        - SurgeryTool
+        - Defibrillator
+        - SolutionTransfer
+        - GunApplySolution # Dart gun
+        - Flash
+        - Handcuff
+        - Whistle
+        - Injector
+        - HandLabeler
+        - FitsInDispenser
+
+- type: entity
+  id: ClothingBeltExtractionRigBSO
+  parent: [ClothingBeltStorageBase, BaseCentcommContraband]
+  name: blueshield officer's extraction rig
+  description: A more modern design of the rigs used by salvagers with even more pockets and pouches, worn by Blueshield Officers which like to focus on efficient extraction.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Belt/blueshieldextractionwebbing.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Belt/blueshieldextractionwebbing.rsi
+  - type: Storage
+    grid:
+    - 0,0,9,1 # 20 squares of space, least of all of the options (chembag has 24, the chest rig has 21), cus it can store anything. Also funny long line.
+

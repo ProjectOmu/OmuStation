@@ -81,3 +81,7 @@
     - Brig
   - type: Puller
     needsHands: false
+#Omu Start
+  - type: StealTarget
+    stealGroup: AnimalShiva # Omu change, Allows for laika to count for shiva steal obj with the addition of the HoS pet teleporter
+#Omu End

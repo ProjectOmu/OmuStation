@@ -1,37 +1,79 @@
 - type: entity
-  name: radiation autoinjector cartridge
+  name: autoinjector cartridge (empty)
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 10u of arithrazine, used in a cartridge autoinjector.
+  description: A empty autoinjector cartridge with endless potential. Does not allow for deviation from Nanotrasen recipes.
+  id: CartridgeEmpty
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 0.25
+      reagents:
+      - ReagentId: Microplastics
+        Quantity: 0.25
+
+- type: entity
+  name: autoinjector cartridge (amoxla)
+  parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
+  description: Contains 3u of amoxla, and 7u of sugar used in a cartridge autoinjector.
+  id: CartridgeAmoxla
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: filling
+      color: "#64ecb3"
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Amoxla
+        Quantity: 3
+      - ReagentId: Sugar
+        Quantity: 7
+
+- type: entity
+  name: autoinjector cartridge (radiation)
+  parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
+  description: Contains 5u of arithrazine, and 5u of hyronalin used in a cartridge autoinjector.
   id: CartridgeArith
   components:
   - type: Sprite
     layers:
     - state: base
     - state: filling
-      color: "#572757"
+      color: "#74b327"
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
       maxVol: 10
       reagents:
+      - ReagentId: Hyronalin
+        Quantity: 5
       - ReagentId: Arithrazine
-        Quantity: 10
+        Quantity: 5
 
 - type: entity
-  name: poison autoinjector cartridge
+  name: autoinjector cartridge (poison)
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 10u of dylovene, used in a cartridge autoinjector.
+  description: Contains 8u of dylovene, and 2u of multiver, used in a cartridge autoinjector.
   id: CartridgeDylo
   components:
   - type: Sprite
     layers:
     - state: base
     - state: filling
-      color: "#572757"
+      color: "#3c2097"
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
       maxVol: 10
       reagents:
       - ReagentId: Dylovene
-        Quantity: 10
+        Quantity: 8
+      - ReagentId: Multiver
+        Quantity: 2

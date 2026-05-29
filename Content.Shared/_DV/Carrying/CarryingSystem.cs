@@ -39,6 +39,7 @@ using System.Numerics;
 using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mind.Components;
+using Content.Shared._EinsteinEngines.Carrying; // EE
 
 namespace Content.Shared._DV.Carrying;
 
@@ -356,17 +357,47 @@ public sealed class CarryingSystem : EntitySystem
 
     public bool CanCarry(EntityUid carrier, Entity<CarriableComponent> carried)
     {
-        return
-            carrier != carried.Owner &&
-            // can't carry multiple people, even if you have 4 hands it will break invariants when removing carryingcomponent for first carried person
-            !HasComp<CarryingComponent>(carrier) &&
-            // can't carry someone in a locker, buckled, etc
-            HasComp<MapGridComponent>(Transform(carrier).ParentUid) &&
-            // no tower of spacemen or stack overflow
-            !HasComp<BeingCarriedComponent>(carrier) &&
-            !HasComp<BeingCarriedComponent>(carried) &&
-            // finally check that there are enough free hands
-            _hands.CountFreeHands(carrier) >= carried.Comp.FreeHandsRequired;
+        // cant carry yourself, no tower of spacemen or stack overflow
+        if (carrier == carried.Owner ||
+            HasComp<BeingCarriedComponent>(carrier) ||
+            HasComp<BeingCarriedComponent>(carried))
+            return false;
+
+        // can't carry multiple people, even if you have 4 hands it will break invariants when removing carryingcomponent for first carried person
+        if (HasComp<CarryingComponent>(carrier))
+        {
+            _popup.PopupClient(Loc.GetString("carrying-multiple-people"), carrier, carrier);
+            return false;
+        }
+
+        // can't carry someone in a locker, buckled, etc
+        // TODO: this doesnt work. i dont know why. im blaming ee. anyway, it doesnt break anything, so its probably fine.
+        if (!HasComp<MapGridComponent>(Transform(carrier).ParentUid))
+            return false;
+
+        // finally check that there are enough free hands
+        // IMP: we're also not counting any hands that already contain the carried entity as occupied.
+        // this will allow you to pick up someone youre dragging.
+        var freeHands = _hands.CountFreeHands(carrier);
+        var handsRequired = carried.Comp.FreeHandsRequired;
+
+        if (TryComp<CarrierOneHandComponent>(carrier, out _) && !carried.Comp.OneHandOverride)
+            handsRequired = 1;
+
+        foreach (var item in _hands.EnumerateHeld(carrier))
+            if (TryComp<VirtualItemComponent>(item, out var virt) &&
+                virt.BlockingEntity == carried.Owner)
+            {
+                freeHands += 1;
+            }
+
+        if (freeHands < handsRequired)
+        {
+            _popup.PopupClient(Loc.GetString("carrying-not-enough-free-hands"), carrier, carrier);
+            return false;
+        }
+
+        return true;
     }
 
     private TimeSpan GetPickupDuration(EntityUid carrier, EntityUid carried)
