@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/12/2026 16:24:17
-  entityCount: 30418
+  time: 05/16/2026 14:56:58
+  entityCount: 30417
 maps:
 - 1
 grids:
@@ -13127,7 +13127,7 @@ entities:
       pos: 0.5,48.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -47755.97
+      secondsUntilStateChange: -47793.867
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13783,7 +13783,7 @@ entities:
       pos: -3.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -649400.8
+      secondsUntilStateChange: -649438.7
       state: Opening
   - uid: 422
     components:
@@ -94529,7 +94529,7 @@ entities:
       pos: -1.5,-16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -16180.415
+      secondsUntilStateChange: -16218.314
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -161077,13 +161077,6 @@ entities:
     - type: Transform
       pos: -57.5,2.5
       parent: 2
-- proto: SpawnMobShiva
-  entities:
-  - uid: 18440
-    components:
-    - type: Transform
-      pos: 40.5,-39.5
-      parent: 2
 - proto: SpawnMobSlothPaperwork
   entities:
   - uid: 18441
@@ -191161,7 +191154,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -73105
+      secondsUntilStateChange: -73142.9
       state: Opening
     - type: Airlock
       autoClose: False
@@ -192560,7 +192553,7 @@ entities:
       pos: 24.5,2.5
       parent: 22618
     - type: Door
-      secondsUntilStateChange: -427532.38
+      secondsUntilStateChange: -427570.28
       state: Opening
   - uid: 29025
     components:
@@ -192569,7 +192562,7 @@ entities:
       pos: -46.5,28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -81488.76
+      secondsUntilStateChange: -81526.66
       state: Opening
 - proto: WoodenBench
   entities:
