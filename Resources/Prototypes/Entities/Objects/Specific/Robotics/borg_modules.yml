@@ -910,7 +910,12 @@
     items:
     - HandheldHealthAnalyzerUnpowered
     - Syringe
-    - portableChemicalMixer
+    - BorgVial
+    - BorgVial
+    - BorgVial
+    - BorgVial
+    - BorgVial
+    - BorgVial
   - type: DroppableBorgModule
     moduleId: Chemical
     items:
@@ -937,8 +942,10 @@
     moduleId: AdvancedTreatment
     items:
     - HandheldHealthAnalyzerUnpowered
-    - BorgHypo
     - Syringe
+    - BorgBluespaceChemistryVial
+    - BorgBluespaceChemistryVial
+    - BorgBluespaceChemistryVial
     # Frontier: droppable borg items
   - type: DroppableBorgModule
     moduleId: AdvancedTreatment
@@ -947,6 +954,8 @@
       whitelist:
         components:
         - FitsInDispenser
+        tags:
+        - ChemDispensable
     # End Frontier: droppable borg items
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-chem-module }
@@ -1313,18 +1322,15 @@
   - type: ItemBorgModule
     moduleId: Surgery
     items:
-    - HandheldHealthAnalyzerUnpowered
-    - EnergyScalpel
-    - EnergyCautery
-    - AdvancedRetractor
-    - AdvancedBoneGel
+    - HandheldHealthAnalyzerUnpowered #omu edit. edded health analyzer
+    - CyborgOmnimedTool #omu edit. it's very cumbersome for cyborgs to manage modules with 10+ items. this makes it easier and faster
     # Frontier: droppable borg items
   - type: DroppableBorgModule
     moduleId: Surgery
     items:
-    - id: BioSynthHeart
+    - id: BioSynthHeart #Omu edit. replaced the brain with a heart since there was many times the brain was mistake for one of a actual player
       whitelist:
-        components:
+        components: #Omu edit. expanded whitelist since not all organs used the organ tag. also added Tissuesample so cyborgs can preform goob's xeno surgeries
         - BodyPart
         - Organ
         - TissueSample
@@ -1344,15 +1350,18 @@
   - type: ItemBorgModule
     moduleId: AdvancedSurgery
     items:
-    - HandheldHealthAnalyzerUnpowered
-    - CyborgOmnimedTool
+    - HandheldHealthAnalyzerUnpowered #omu edit. edded health analyzer
+    - EnergyScalpel
+    - EnergyCautery
+    - AdvancedRetractor
+    - AdvancedBoneGel
     # Frontier: droppable borg items
   - type: DroppableBorgModule
     moduleId: AdvancedSurgery
     items:
-    - id: BioSynthHeart
+    - id: BioSynthHeart #Omu edit. replaced the brain with a heart since there was many times the brain was mistake for one of a actual player
       whitelist:
-        components:
+        components: #Omu edit. expanded whitelist since not all organs used the organ tag. also added Tissuesample so cyborgs can preform goob's xeno surgeries
         - BodyPart
         - Organ
         - TissueSample
