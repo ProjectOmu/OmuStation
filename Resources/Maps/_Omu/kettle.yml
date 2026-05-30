@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/12/2026 16:05:50
-  entityCount: 27057
+  time: 05/16/2026 14:50:26
+  entityCount: 27056
 maps:
 - 1
 grids:
@@ -146229,13 +146229,6 @@ entities:
     components:
     - type: Transform
       pos: 46.5,14.5
-      parent: 2
-- proto: SpawnMobShiva
-  entities:
-  - uid: 21643
-    components:
-    - type: Transform
-      pos: 61.5,-9.5
       parent: 2
 - proto: SpawnMobSlothPaperwork
   entities:

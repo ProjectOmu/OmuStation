@@ -194,6 +194,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Goobstation/Shuttles/retort_janitorial.yml",
             "/Maps/_Goobstation/Shuttles/retort_cburn.yml",
             "/Maps/_Omu/glacier.yml",
+            "/Maps/_Omu/CentCompMap.yml", // Its CC, Do I really need to explain this one?
         };
 
         private static readonly string[] GameMaps =
@@ -207,6 +208,7 @@ namespace Content.IntegrationTests.Tests
             "Barratry",
             "Box",            // Not in pool
             "CentComm",       // CentComm
+            "CentComButMap", // Omu
             //"Chloris", // Omu, remove this map.
             "Cluster",
             "Cog",
@@ -250,6 +252,7 @@ namespace Content.IntegrationTests.Tests
               //"Barratry", // Omu, not in rotation
             //"Box",            // Not in pool
               "CentComm",      // CentComm
+              "CentComButMap", // Omu
               //"Chloris", // Omu, derotate this map
               "Cluster",
               "Cog",
