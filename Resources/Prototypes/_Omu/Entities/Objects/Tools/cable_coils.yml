@@ -13,18 +13,14 @@
       map: ["base"]
   - type: Item
     sprite: *sprite0
-    size: Small
     heldPrefix: coillvg0
-    storedRotation: -90
   - type: Stack
-    baseLayer: base
     layerStates:
     - coillvg0-10
     - coillvg0-20
     - coillvg0-30
   - type: CablePlacer
     cablePrototypeID: CableApcExtensionGranular0
-    blockingWireType: Apc
   - type: SolutionContainerManager
     solutions:
       lvcable:
@@ -75,18 +71,14 @@
     - state: coillvg1-30
       map: ["base"]
   - type: Item
-    size: Small
     heldPrefix: coillvg1
-    storedRotation: -90
   - type: Stack
-    baseLayer: base
     layerStates:
     - coillvg1-10
     - coillvg1-20
     - coillvg1-30
   - type: CablePlacer
     cablePrototypeID: CableApcExtensionGranular1
-    blockingWireType: Apc
   - type: SolutionContainerManager
     solutions:
       lvcable:
@@ -139,18 +131,14 @@
     - state: coillvg2-30
       map: ["base"]
   - type: Item
-    size: Small
     heldPrefix: coillvg2
-    storedRotation: -90
   - type: Stack
-    baseLayer: base
     layerStates:
     - coillvg2-10
     - coillvg2-20
     - coillvg2-30
   - type: CablePlacer
     cablePrototypeID: CableApcExtensionGranular2
-    blockingWireType: Apc
   - type: SolutionContainerManager
     solutions:
       lvcable:
