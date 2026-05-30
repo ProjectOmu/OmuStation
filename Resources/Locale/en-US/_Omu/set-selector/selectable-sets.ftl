@@ -81,6 +81,20 @@ selectable-set-hosoniblade-description =
     This blade's immense size makes it a force to be reckoned with,
     able to cut down any foe in seconds.
 
+selectable-set-MobSpiderShiva-name = Shiva, The First Defender
+selectable-set-MobSpiderShiva-description =
+    A veteran of security, Shiva's been fighting nuclear threats and syndicate traitors
+    since the dawn of time!
+
+selectable-set-MobSecDogLaika-name = Laika, The K9 Attack Unit
+selectable-set-MobSecDogLaika-description =
+    Woof Woof Bark Bark! Laika doesn't mess around! Gnawing at the legs of couriers and sticking to
+    the HoS' side. She's Security's most loyal guardian!
+
+selectable-set-trevor-name = Trevor, The "Majestic" Stallion
+selectable-set-trevor-description =
+    Trevor, Security's... *noble* steed! Charge into battle or get your boots stuck in his glue..
+
 # ERT
 # TO-DO, rename all of these to be Super Mario related and hopefully avoid a cease and desist from nintendo
 
@@ -130,7 +144,7 @@ selectable-set-bso-brdi-description =
 selectable-set-bso-typewriter-name = Typewriter Submachine Gun
 selectable-set-bso-typewriter-desc =
     A kit containing a perfect replica of the Thompson Submachine Gun,
-    chambered in .35, a preloaded drum mag, a stick mag and a drum mag with rubber bullets. 
+    chambered in .35, a preloaded drum mag, a stick mag and a drum mag with rubber bullets.
     Perfect for LARPers and wise guys alike.
 
 selectable-set-bso-extraction-name = Extraction kit
