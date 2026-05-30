@@ -10,7 +10,7 @@
     sprite: _Omu/Clothing/Eyes/scidiagglasses.rsi
 
 - type: entity
-  parent: [ClothingEyesBase, ShowMedicalIcons]
+  parent: [ClothingEyesBase, ShowMedicalIcons, BaseMedicalContraband]
   id: ClothingEyesGlassesMedChem
   name: medichem goggles
   description: Goggles that can scan the chemical composition of a solution, with an integrated medical hud.
@@ -29,7 +29,7 @@
     - HudMedichem
 
 - type: entity
-  parent: [ClothingEyesBase, ShowMedicalIcons, ClothingEyesGlassesSunglasses]
+  parent: [ClothingEyesBase, ShowMedicalIcons, ClothingEyesGlassesSunglasses, BaseMedicalContraband]
   id: ClothingEyesGlassesMedChemFlash
   name: medichem glasses
   description: Sunglasses with a medical hud and solution analyzer.
@@ -47,7 +47,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingEyesBase, ShowMedicalIcons]
+  parent: [ClothingEyesBase, ShowMedicalIcons, BaseMedicalContraband]
   id: ClothingEyesGlassesMedJamjar
   name: medical jamjar glasses
   description: Jamjar glasses installed with a medical HUD.
@@ -90,7 +90,7 @@
     - SiliconRadiation
 
 - type: entity
-  parent: [ClothingEyesBase]
+  parent: [ClothingEyesBase, BaseEngineeringSalvContraband]
   id: ClothingEyesGlassesMesonJamjar
   name: meson jamjar glasses
   description: Jamjar glasses installed with welding protection.

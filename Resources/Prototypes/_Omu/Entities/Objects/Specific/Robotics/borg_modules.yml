@@ -1,0 +1,46 @@
+- type: entity
+  id: BaseBorgModuleSyndicateMedical
+  parent: BaseBorgModule
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - BorgModuleSyndicateMedical
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#FF0000"
+      - state: base-module-inhand-left
+        color: "#891417"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#7B0F12"
+      right:
+      - state: base-icon-inhand-right
+        color: "#FF0000"
+      - state: base-module-inhand-right
+        color: "#891417"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#7B0F12"
+
+
+- type: entity
+  id: BorgModuleSyndicateMedicalTools
+  parent: [ BaseBorgModuleSyndicateMedical, BaseProviderBorgModule, BaseSyndicateContraband ]
+  name: medical beam gun cyborg module
+  description: A module that comes with a syndicate medical beam gun and a pinpointer.
+  components:
+    - type: Sprite
+      layers:
+      - state: syndicate
+      - state: icon-syndicate
+    - type: ItemBorgModule
+      moduleId: SyndicateMedicalBeamGun
+      items:
+        - MedicalBeamGunSyndicate
+        - DefibrillatorSyndicateUnpowered
+        - PinpointerSyndicateNuclear
+    - type: BorgModuleIcon
+      icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-medical-beam-module }
