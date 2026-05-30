@@ -59,3 +59,24 @@
           steps:
             - tool: Prying
               doAfter: 4
+# omu start
+        - to: apcDamaged
+          conditions:
+            - !type:WirePanel
+              open: true
+          steps:
+            - tool: Welding
+              doAfter: 6
+
+    - node: apcDamaged
+      entity: APCConstructedDamaged
+      edges:
+        - to: apc
+          conditions:
+            - !type:WirePanel
+              open: true
+          steps:
+            - material: Cable
+              amount: 1
+              doAfter: 3
+# omu end
