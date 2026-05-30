@@ -40,6 +40,20 @@
   equipment:
     outerClothing: ClothingOuterBlueshieldArmourKimono
 
+- type: loadout
+  id: BSOLongcoat
+  equipment:
+    outerClothing: ClothingOuterLongcoatBlueshield
+    
+- type: loadout 
+  id: BlueshieldOfficerOuterXelthiaBlueshield
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Xelthia
+  equipment:
+    outerClothing: ClothingOuterBlueshieldArmourXelthia
+
 # Neck
 - type: loadout
   id: BlueshieldOfficerOuterBlueshieldMantleBlack
@@ -83,3 +97,9 @@
     proto: SeniorBlueshieldOfficer
   equipment:
     shoes: ClothingShoesBootsBSOJackAdvancedFilled
+
+# Hat
+- type: loadout
+  id: BlueshieldOfficerHeadHatFedora
+  equipment:
+    head: ClothingHeadHatFedoraBlueshield

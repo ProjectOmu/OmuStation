@@ -146,10 +146,7 @@
     epsilon:
       announcement: alert-level-epsilon-announcement
       selectable: false
-      sound:
-        path: /Audio/Misc/epsilon.ogg
-        params:
-          volume: -2
+      sound: /Audio/_DV/Announcements/Alerts/code_epsilon.ogg # DeltaV
       disableSelection: true
       color: DarkViolet
       emergencyLightColor: DarkViolet
@@ -182,5 +179,12 @@
         path: /Audio/Items/bikehorn.ogg
       color: Magenta
       emergencyLightColor: Magenta
+      forceEnableEmergencyLights: true
+      shuttleTime: 600
+    cyan: # Funky
+      announcement: alert-level-cyan-announcement
+      sound: /Audio/_Funkystation/Misc/cyan.ogg
+      color: Cyan
+      emergencyLightColor: Cyan
       forceEnableEmergencyLights: true
       shuttleTime: 600

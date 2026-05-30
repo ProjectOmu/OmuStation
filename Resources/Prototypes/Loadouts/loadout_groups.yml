@@ -176,6 +176,7 @@
   - Headphones
   - PlushieLizard
   - PlushieSpaceLizard
+  - PlushieChoicesTadpole # gds
   - PersonalAI # Goobstation
   - GoldenPersonalAI # Goobstation
   - CrewCassette # Goobstation
@@ -220,6 +221,7 @@
   # Goobstation End
   # Omu start
   - ClothingNeckCloakProgressPride
+  - ClothingNeckEnsembleTrans
   - ClothingNeckCloakTrans
   - ClothingNeckCloakGenderfluid
   - ClothingNeckCloakAro
@@ -249,6 +251,27 @@
   - DiscountDanLighter
   - CheapLighter
   - FlippoLighter
+  - PlushieLoadoutCyg
+  - PlushieLoadoutAureu
+  - PlushieLoadoutThesia
+  - PlushieLoadoutMarikiii
+  - PlushieLoadoutNagoll
+  - PlushieLoadoutArtemis
+  - PlushieLoadoutClive
+  - PlushieLoadoutRestful
+  - PlushieLoadoutTossorn
+  - PlushieLoadoutDishwasher
+  - PlushieLoadoutDoglettuce
+  - PlushieLoadoutHayray
+  - PlushieLoadoutKabuki
+  - PlushieLoadoutGino
+  - PlushieLoadoutPuntsss
+  - PlushieLoadoutNnif
+  - PlushieLoadoutMednog
+  - PlushieLoadoutYuri
+  - PlushieLoadoutPickelSilly
+  - PlushieLoadoutXi
+  - PlushieLoadoutSammy
   # Omu end
   - CardBoxBlack # GoobStation
   - CardBoxNanotrasen # GoobStation
@@ -401,6 +424,7 @@
   - CaptainOuterClothing
   - CaptainWintercoat
   - CaptainJacket # Goobstation
+  - CaptainLongcoat # DeltaV Longcoats
 
 - type: loadoutGroup
   id: HoPHead
@@ -452,6 +476,7 @@
   - ClothingFormalHoPJacket # Omu
   - ClothingFormalHoPDress # Omu
   - HoPLongcoat #goob
+  - HoPLongcoatDV # DeltaV Longcoats
 
 # Civilian
 - type: loadoutGroup
@@ -520,6 +545,9 @@
   minLimit: 0
   loadouts:
   - PassengerWintercoat
+  - LongcoatBlack # DeltaV Longcoats
+  - LongcoatBrown # DeltaV Longcoats
+  - LongcoatNanoTrasen # DeltaV Longcoats
 
 - type: loadoutGroup
   id: PassengerShoes
@@ -955,7 +983,7 @@
   minLimit: 0
   loadouts:
   - QuartermasterWintercoat
-
+  - QuartermasterLongcoat # DeltaV Longcoats
 - type: loadoutGroup
   id: QuartermasterShoes
   name: loadout-group-quartermaster-shoes
@@ -1076,6 +1104,7 @@
   minLimit: 0
   loadouts:
   - ChiefEngineerWintercoat
+  - ChiefEngineerLongcoat # DeltaV Longcoats
   - SeniorEngineerXelthiaJacket
   - ClothingOuterXelthiaInsulated
 
@@ -1246,6 +1275,7 @@
   - LongScienceCoat # OmuStation
   - MystaLabcoat # Omu
   - ResearchDirectorLabCoatPurple #goob
+  - ResearchDirectorLongcoat # DeltaV Longcoats
 
 - type: loadoutGroup
   id: ResearchDirectorShoes
@@ -1386,6 +1416,7 @@
   - HeadofSecurityGreatCoat # Goobstation
   - HeadofSecurityVestWeb # Goobstation
   - HeadofSecurityGreatCoatDV # Omu
+  - HeadofSecurityLongcoat # DeltaV Longcoats
 
 - type: loadoutGroup
   id: WardenHead
@@ -1414,6 +1445,7 @@
   - WardenArmoredWinterCoat
   - WardenCoatBlue #goob
   - WardenGreatCoatDV # Omu
+  - WardenLongcoat # DeltaV Longcoats
 
 - type: loadoutGroup
   id: SecurityHead
@@ -1474,6 +1506,7 @@
   - WinterCoatSecSweaterDV # Omu
   - WinterCoatSecCoatDV # Omu
   - WinterGreatCoatSecCoatDV # Omu
+  - LongcoatSecurity # DeltaV longcoats
 
 - type: loadoutGroup
   id: SecurityShoes
@@ -1523,6 +1556,9 @@
   - DetectiveCoat
   - DetectiveCoatGrey
   - DetectiveWinterCoatDV # Omu
+  - LongcoatSecurity # DeltaV Longcoats
+  - AerostaticJacketArmored # omu
+  - JamrockBlazerArmored # omu
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit
@@ -1573,6 +1609,10 @@
   - ChiefMedicalOfficerTurtleneckJumpsuit
   - ChiefMedicalOfficerTurtleneckJumpskirt
   - CMOMJ # goob
+  - ChiefMedicalOfficerVestJumpsuit #DV
+  - ChiefMedicalOfficerVestJumpskirt #DV
+  - ChiefMedicalOfficerFormalJumpsuit #DV
+  - ChiefMedicalOfficerFormalJumpskirt #DV
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerOuterClothing
@@ -1584,6 +1624,7 @@
   - ClothingOuterXelthiaSurgical # Omu
   - SeniorPhysicianXelthiaJacket # Omu
   - CMOVetLabCoat #Omu
+  - ChiefMedicalOfficerLongcoat # DeltaV Longcoats
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerNeck
@@ -1594,6 +1635,8 @@
   - ChiefMedicalOfficerMantle
   - ChiefMedicalOfficerDecoratedCloak # Omu
   - ChiefMedicalOfficerModernMantle # Omu
+  - ChiefMedicalOfficerShawl #DV
+  - ChiefMedicalOfficerOverShoulder #DV
   - ChiefMedicalOfficerCloakLong #Ganimed14
   - ChiefMedicalOfficerEnsemble # goob
 
@@ -1658,6 +1701,8 @@
   name: loadout-group-medical-doctor-shoes
   loadouts:
   - WhiteShoes
+  - BrownShoes # Omu
+  - BlueShoes # Omu
   - MedicalWinterBoots
 
 - type: loadoutGroup
@@ -1772,6 +1817,7 @@
   name: loadout-group-paramedic-shoes
   loadouts:
   - BlueShoes
+  - BrownShoes # Omu
   - WhiteShoes
   - MedicalWinterBoots
 
