@@ -1,7 +1,7 @@
 - type: entity
   parent: CableApcExtension
   id: CableApcExtensionGranular0
-  suffix: granular, radius 0
+  name: LV G0 power cable
   description: A cable used to connect machines to an APC. This older variant doesn't see much use anymore.
   components:
   - type: Sprite
@@ -39,8 +39,7 @@
 - type: entity
   parent: CableApcExtension
   id: CableApcExtensionGranular1
-  suffix: granular, radius 1
-  description: A cable used to connect machines to an APC. This older variant doesn't see much use anymore.
+  name: LV G1 power cable
   components:
   - type: Sprite
     color: Aqua
@@ -77,8 +76,7 @@
 - type: entity
   parent: CableApcExtension
   id: CableApcExtensionGranular2
-  suffix: granular, radius 2
-  description: A cable used to connect machines to an APC. This older variant doesn't see much use anymore.
+  name: LV G2 power cable
   components:
   - type: Sprite
     color: Aqua
