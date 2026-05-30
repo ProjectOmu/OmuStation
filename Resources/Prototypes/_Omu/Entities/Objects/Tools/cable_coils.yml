@@ -25,6 +25,10 @@
   - type: CablePlacer
     cablePrototypeID: CableApcExtensionGranular0
     blockingWireType: Apc
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 7
+      Glass: 7
   - type: SolutionContainerManager
     solutions:
       lvcable:
@@ -87,6 +91,10 @@
   - type: CablePlacer
     cablePrototypeID: CableApcExtensionGranular1
     blockingWireType: Apc
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 10
+      Glass: 5
   - type: SolutionContainerManager
     solutions:
       lvcable:
@@ -151,6 +159,10 @@
   - type: CablePlacer
     cablePrototypeID: CableApcExtensionGranular2
     blockingWireType: Apc
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 12
+      Glass: 2
   - type: SolutionContainerManager
     solutions:
       lvcable:
