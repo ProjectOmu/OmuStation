@@ -1,0 +1,7 @@
+- type: entity
+  parent: APCBasic
+  id: APCBasicDamaged
+  suffix: Basic, Damaged, 50kJ
+  components:
+  - type: ExtensionCableProvider
+    transferRange: 0
