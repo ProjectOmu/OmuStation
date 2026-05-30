@@ -57,15 +57,18 @@ public sealed class CrewManifestEntry
 {
     public string Name { get; }
 
+    public string Gender { get; } // Funky
+
     public string JobTitle { get; }
 
     public string JobIcon { get; }
 
     public string JobPrototype { get; }
 
-    public CrewManifestEntry(string name, string jobTitle, string jobIcon, string jobPrototype)
+    public CrewManifestEntry(string name, string gender, string jobTitle, string jobIcon, string jobPrototype) // Funky, add gender to crew manifest.
     {
         Name = name;
+        Gender = gender; // Funky
         JobTitle = jobTitle;
         JobIcon = jobIcon;
         JobPrototype = jobPrototype;
