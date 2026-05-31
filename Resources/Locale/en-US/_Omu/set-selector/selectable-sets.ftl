@@ -46,7 +46,7 @@ selectable-set-t8-description =
 
 selectable-set-eg1-name = EG-1 Taro Energy Revolver
 selectable-set-eg1-description =
-    An energy based alternative the standard ballistics sidearms, this revolver
+    An energy-based alternative to the standard ballistics sidearms, this revolver
     trades firepower for the versatility provided by lasers.
 
 selectable-set-terminus-name = DT-8 "Terminus"
@@ -135,7 +135,7 @@ selectable-set-bso-brdi-description =
 selectable-set-bso-typewriter-name = Typewriter Submachine Gun
 selectable-set-bso-typewriter-desc =
     A kit containing a perfect replica of the Thompson Submachine Gun,
-    chambered in .35, a preloaded drum mag, a stick mag and a drum mag with rubber bullets.
+    chambered in .35, a preloaded drum mag, a stick mag and a drum mag with rubber bullets. 
     Perfect for LARPers and wise guys alike.
 
 selectable-set-bso-extraction-name = Extraction kit
