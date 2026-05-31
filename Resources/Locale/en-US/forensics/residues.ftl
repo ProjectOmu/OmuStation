@@ -11,6 +11,7 @@ forensic-residue-colored = {LOC($adjective)} {LOC($color)} residue
 
 residue-unknown = unknown
 residue-slippery = slippery
+residue-sticky = sticky
 
 residue-green = green
 residue-blue = blue

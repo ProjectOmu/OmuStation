@@ -117,6 +117,8 @@ using Robust.Shared.Utility;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Timing; // Goobstation
+using Content.Shared._EinsteinEngines.Xelthia;
+using Content.Shared.Inventory.VirtualItem;
 
 namespace Content.Server.Forensics
 {
@@ -173,7 +175,7 @@ namespace Content.Server.Forensics
 
         private void OnFingerprintInit(Entity<FingerprintComponent> ent, ref MapInitEvent args)
         {
-            if (ent.Comp.Fingerprint == null)
+            if (ent.Comp.Fingerprint == null && !HasComp<XelthiaComponent>(ent.Owner))
                 RandomizeFingerprint((ent.Owner, ent.Comp));
         }
 
@@ -455,13 +457,14 @@ namespace Content.Server.Forensics
                     component.Fibers.Add(string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial)) : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial)));
             }
             // EE start for Xelthia jackets
-            if (_inventory.TryGetSlotEntity(user, "outerClothing", out var outerClothing)) // Allows outerClothing to use this.
+            if (_inventory.TryGetSlotEntity(user, "outerClothing", out var outerClothing) && (!_inventory.TryGetSlotEntity(user, "gloves", out _) || HasComp<VirtualItemComponent>(gloves))) // Allows outerClothing to use this. omu - can't do else if since we need outerclothing, check if entity can't wear gloves or has a virtual item replacing them (jacket)
             {
                 if (TryComp<FiberComponent>(outerClothing, out var fiber) && !string.IsNullOrEmpty(fiber.FiberMaterial))
                 {
                     var fiberLocale = string.IsNullOrEmpty(fiber.FiberColor)
                         ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial))
                         : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial));
+                    component.Fibers.Add(fiberLocale); //omu - fix jackets not leaving fibers
                 }
 
                 if (HasComp<FingerprintMaskComponent>(outerClothing))
@@ -470,8 +473,10 @@ namespace Content.Server.Forensics
                     return;
                 }
             }
+            if (HasComp<XelthiaComponent>(user) && !HasComp<FingerprintMaskComponent>(outerClothing)) //omu edit xelthia leave residue
+                component.Residues.Add(Loc.GetString("forensic-residue", ("adjective", "residue-sticky")));
             // EE End for Xelthia jackets
-            if (TryComp<FingerprintComponent>(user, out var fingerprint) && CanAccessFingerprint(user, out _))
+            if (TryComp<FingerprintComponent>(user, out var fingerprint) && CanAccessFingerprint(user, out _) && !HasComp<XelthiaComponent>(user)) //omu -xelthia don't leave fingerprints
                 component.Fingerprints.Add(fingerprint.Fingerprint ?? "");
         }
 
