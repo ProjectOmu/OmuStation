@@ -131,8 +131,11 @@
   name: guide-entry-sop-medical
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Medical/MedicalSOP.xml"
   children:
-  - DoctorInternSOP
   - ChemistSOP
+  - DoctorInternSOP
+  - ParamedicSOP
+  - PsychologistSOP
+  - VirologistSOP
 
 - type: guideEntry
   id: ScienceSOP
