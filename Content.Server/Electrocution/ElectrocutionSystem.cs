@@ -63,6 +63,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Database;
 using Content.Shared.Electrocution;
+using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
@@ -140,6 +141,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         SubscribeLocalEvent<ElectrifiedComponent, InteractUsingEvent>(OnElectrifiedInteractUsing);
         SubscribeLocalEvent<RandomInsulationComponent, MapInitEvent>(OnRandomInsulationMapInit);
         SubscribeLocalEvent<PoweredLightComponent, AttackedEvent>(OnLightAttacked);
+        SubscribeLocalEvent<InsulatedComponent, ExaminedEvent>(OnExamine);
 
         UpdatesAfter.Add(typeof(PowerNetSystem));
     }
@@ -583,5 +585,10 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             return;
         }
         _audio.PlayPvs(electrified.ShockNoises, targetUid, AudioParams.Default.WithVolume(electrified.ShockVolume));
+    }
+
+    private void OnExamine(Entity<InsulatedComponent> ent, ref ExaminedEvent args)
+    {
+        args.PushMarkup(Loc.GetString("insulated-component-shock-protection"));
     }
 }

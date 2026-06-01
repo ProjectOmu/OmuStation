@@ -8,3 +8,5 @@
 electrocuted-component-mob-shocked-by-source-popup-others = { CAPITALIZE(THE($mob)) } is shocked by { THE($source) }!
 electrocuted-component-mob-shocked-popup-others = { CAPITALIZE(THE($mob)) } is shocked!
 electrocuted-component-mob-shocked-popup-player =  You feel a powerful shock coursing through your body!
+
+insulated-component-shock-protection = It provides protection against most [color=lightblue]electrical shocks[/color].
