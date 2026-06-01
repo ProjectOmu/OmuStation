@@ -264,6 +264,7 @@
     - type: TemperatureProtection
       coolingCoefficient: 0.01
       heatingCoefficient: 0.01
+    - type: Insulated
   - type: FireProtection
     reduction: 0.5
   - type: ClothingAutoInject
@@ -420,6 +421,7 @@
     - type: TemperatureProtection
       coolingCoefficient: 0.01
       heatingCoefficient: 0.01
+    - type: Insulated
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1
     knockdownTimeDelta: -1
@@ -496,6 +498,7 @@
     - type: TemperatureProtection
       coolingCoefficient: 0.001
       heatingCoefficient: 0.001
+    - type: Insulated
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1
     knockdownTimeDelta: -1
@@ -574,6 +577,7 @@
     - type: TemperatureProtection
       coolingCoefficient: 0.01
       heatingCoefficient: 0.01
+    - type: Insulated
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
@@ -653,6 +657,7 @@
     - type: TemperatureProtection
       coolingCoefficient: 0.01
       heatingCoefficient: 0.01
+    - type: Insulated
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
