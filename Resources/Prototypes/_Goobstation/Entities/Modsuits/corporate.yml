@@ -223,6 +223,7 @@
       - type: ContainmentFieldIgnore
     - type: ComponentToggler
       components:
+      - type: Insulated
       - type: ClothingAutoInject
         reagents:
           Epinephrine: 10
