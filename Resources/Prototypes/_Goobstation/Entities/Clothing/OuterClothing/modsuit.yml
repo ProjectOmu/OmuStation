@@ -109,6 +109,7 @@
     - type: TemperatureProtection
       coolingCoefficient: 0.01
       heatingCoefficient: 0.01
+    - type: Insulated
   - type: FireProtection
     reduction: 0.5
 
