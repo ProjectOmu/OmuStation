@@ -13,6 +13,9 @@ using Content.Server.Radiation.Components;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Radiation.Events;
 using Content.Shared.Stacks;
+using Content.Shared.Damage;
+using Content.Shared.Popups;
+using Robust.Shared.Timing;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -25,6 +28,8 @@ public sealed partial class RadiationSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private EntityQuery<RadiationBlockingContainerComponent> _blockerQuery;
     private EntityQuery<RadiationGridResistanceComponent> _resistanceQuery;
@@ -63,6 +68,66 @@ public sealed partial class RadiationSystem : EntitySystem
     {
         var msg = new OnIrradiatedEvent(time, radsPerSecond, uid);
         RaiseLocalEvent(uid, msg);
+
+        TryWarnRadiationHealth(uid, radsPerSecond);
+    }
+
+    private void TryWarnRadiationHealth(EntityUid uid, float radsPerSecond)
+    {
+        // Only run this when the entity is actively receiving radiation.
+        if (radsPerSecond <= 0f)
+            return;
+
+        if (!TryComp<DamageableComponent>(uid, out var damageable))
+            return;
+
+        var totalDamage = damageable.TotalDamage.Float();
+
+        var stage = totalDamage switch
+        {
+            >= 90f => 5,
+            >= 70f => 4,
+            >= 45f => 3,
+            >= 25f => 2,
+            >= 10f => 1,
+            _ => 0
+        };
+
+        if (stage == 0)
+            return;
+
+        var warning = EnsureComp<RadiationWarningComponent>(uid);
+
+        // If their condition gets worse, warn immediately.
+        // If they stay in the same condition, use the cooldown so it doesn't spam.
+        var worsened = stage > warning.LastWarningStage;
+        if (!worsened && _timing.CurTime < warning.NextWarningTime)
+            return;
+
+        var message = stage switch
+        {
+            1 => "You feel uneasy.",
+            2 => "Your skin prickles faintly.",
+            3 => "Your stomach twists slightly.",
+            4 => "You feel lightheaded.",
+            5 => "A sudden wave of nausea hits you.",
+            _ => null
+        };
+
+        if (message == null)
+            return;
+
+        var cooldown = stage switch
+        {
+            >= 5 => TimeSpan.FromSeconds(15),
+            >= 4 => TimeSpan.FromSeconds(20),
+            _ => TimeSpan.FromSeconds(35)
+        };
+
+        warning.LastWarningStage = Math.Max(warning.LastWarningStage, stage);
+        warning.NextWarningTime = _timing.CurTime + cooldown;
+
+        _popup.PopupEntity(message, uid, uid);
     }
 
     public void SetSourceEnabled(Entity<RadiationSourceComponent?> entity, bool val)
