@@ -63,12 +63,12 @@
     shoes: ClothingShoesBootsMagDeathsquad # These boots are cooler.
     id: NanoTrasenSpectrePDA # New PDA!
     pocket1: PhoronSabre # Goobstation
-    pocket2: WeaponRevolverMateba # Goobstation
+    pocket2: WeaponPistolCentcommAgent # Goobstation # Omu, stealth agents don't need a loud weapon
     belt: ClothingBeltDeathsquadWebbingFilled # Centcomm Doesn't use syndicate tech.
   storage:
     back:
-      - SpeedLoaderMatebaAP # Goobstation - 7 rounds
-      - SpeedLoaderMatebaAP # Goobstation - 7 rounds
-  inhand:
-    - WeaponPulseRifle
+      - MagazinePistolNeurotoxin # Goobstation - 7 rounds # Omu, stealth agents don't need a loud weapon
+      - MagazinePistolNeurotoxin # Goobstation - 7 rounds # Omu, stealth agents don't need a loud weapon
+#  inhand: # Omu, stealth agents don't need a loud weapon
+#    - WeaponPulseRifle # Omu, stealth agents don't need a loud weapon
     # Goobstation End
