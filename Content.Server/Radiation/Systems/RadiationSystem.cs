@@ -6,19 +6,21 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Thomas <87614336+Aeshus@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 puntsss <bex.ish.aholic@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Radiation.Components;
+using Content.Shared.Damage;
+using Robust.Shared.Player;
+using Content.Shared.Popups;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Radiation.Events;
 using Content.Shared.Stacks;
-using Content.Shared.Damage;
-using Content.Shared.Popups;
-using Robust.Shared.Timing;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Radiation.Systems;
 
@@ -69,12 +71,12 @@ public sealed partial class RadiationSystem : EntitySystem
         var msg = new OnIrradiatedEvent(time, radsPerSecond, uid);
         RaiseLocalEvent(uid, msg);
 
+        TrySendRadiationVisuals(uid, radsPerSecond);
         TryWarnRadiationHealth(uid, radsPerSecond);
     }
 
     private void TryWarnRadiationHealth(EntityUid uid, float radsPerSecond)
     {
-        // Only run this when the entity is actively receiving radiation.
         if (radsPerSecond <= 0f)
             return;
 
@@ -97,9 +99,6 @@ public sealed partial class RadiationSystem : EntitySystem
             return;
 
         var warning = EnsureComp<RadiationWarningComponent>(uid);
-
-        // If their condition gets worse, warn immediately.
-        // If they stay in the same condition, use the cooldown so it doesn't spam.
         var worsened = stage > warning.LastWarningStage;
         if (!worsened && _timing.CurTime < warning.NextWarningTime)
             return;
@@ -130,6 +129,23 @@ public sealed partial class RadiationSystem : EntitySystem
         _popup.PopupEntity(message, uid, uid);
     }
 
+    private void TrySendRadiationVisuals(EntityUid uid, float radsPerSecond)
+    {
+        // Do not start the visual effect until about 1 rad/sec.
+        if (radsPerSecond < 1f)
+            return;
+
+        if (!TryComp<ActorComponent>(uid, out var actor))
+            return;
+
+        // Scale off the CURRENT radiation being received.
+        // 1 rad/sec = subtle start, 6+ rads/sec = strong camera damage effect.
+        var normalized = Math.Clamp((radsPerSecond - 1f) / 5f, 0f, 1f);
+        var intensity = Math.Clamp(0.12f + MathF.Sqrt(normalized) * 0.88f, 0.12f, 1f);
+
+        RaiseNetworkEvent(new RadiationVisualsEvent(intensity, 3.25f), actor.PlayerSession);
+    }
+
     public void SetSourceEnabled(Entity<RadiationSourceComponent?> entity, bool val)
     {
         if (!Resolve(entity, ref entity.Comp, false))
@@ -138,18 +154,11 @@ public sealed partial class RadiationSystem : EntitySystem
         entity.Comp.Enabled = val;
     }
 
-    /// <summary>
-    ///     Marks entity to receive/ignore radiation rays.
-    /// </summary>
     public void SetCanReceive(EntityUid uid, bool canReceive)
     {
         if (canReceive)
-        {
             EnsureComp<RadiationReceiverComponent>(uid);
-        }
         else
-        {
             RemComp<RadiationReceiverComponent>(uid);
-        }
     }
 }
