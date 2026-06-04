@@ -2,9 +2,7 @@
   id: Unclonable
   name: trait-unclonable-name
   description: trait-unclonable-desc
-  category: Quirks
+  category: PhysicalTraits
   cost: 0
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: Uncloneable
+  components:
+  - type: Uncloneable
