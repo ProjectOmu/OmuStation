@@ -504,6 +504,7 @@
   - type: MindControllable # Goobstation
   #- type: VisibleContraband # Goobstation - Omu not here
   - type: MomentumSteering # Goobstation - No steer
+  - type: GrappleTarget # DeltaV - Allow targets to be grappled
 
 - type: entity
   save: false

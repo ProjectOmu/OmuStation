@@ -344,7 +344,7 @@
     - type: ComplexInteraction
     - type: Carriable
     - type: GrabIntent # wilted rose
-    - type: Grabbable 
+    - type: Grabbable
     - type: Targeting
     - type: Crawler
     - type: Consciousness
@@ -356,3 +356,4 @@
     - type: CombatMode
       canDisarm: true
     - type: ExaminableCharacter # WWDP
+    - type: GrappleTarget # DeltaV - Allow targets to be grappled

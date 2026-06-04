@@ -584,6 +584,11 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         Dirty(uid, component);
 
         _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(uid):user} entered stamina crit");
+
+        // Begin DeltaV Additions - StaminaCrit event
+        var ev = new EnterStaminaCritEvent();
+        RaiseLocalEvent(uid, ref ev);
+        // End DeltaV Additions - StaminaCrit event
     }
 
     // goob edit - made it public.

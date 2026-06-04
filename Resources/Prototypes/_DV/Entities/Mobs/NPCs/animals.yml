@@ -110,3 +110,18 @@
   - type: Vocal
     sounds:
       Unsexed: MobDog
+  - type: Grappler
+    handDisabling: None
+    cooldown: 15
+    grapplingPart: grapple-part-jaws
+    proneOnGrapple: true # Make sure Secdogs aren't shot by sprays
+    grappleSound:
+      collection: VulpkaninGrowls
+    activationMode:
+      !type:GrapplerActivationStaminaDrain
+      staminaDrainRate: 5
+      movementSpeedModifier: 0.2
+      initialDamage:
+        types:
+          Slash: 5
+          Piercing: 10
