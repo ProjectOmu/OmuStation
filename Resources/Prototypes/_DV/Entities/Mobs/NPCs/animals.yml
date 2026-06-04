@@ -110,6 +110,13 @@
   - type: Vocal
     sounds:
       Unsexed: MobDog
+#  - type: LanguageKnowledge # Omu start
+#    speaks:
+#    - Canilunzt
+#    understands:
+#    - TauCetiBasic
+#    - Canilunzt
+  - type: ScentTracker # Omu end
   - type: Grappler
     handDisabling: None
     cooldown: 15
