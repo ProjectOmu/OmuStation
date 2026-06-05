@@ -45,6 +45,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <CheckBox Name="OpaqueStorageWindowCheckBox" Text="{Loc 'ui-options-opaque-storage-window'}" />
                 <CheckBox Name="StaticStorageUI" Text="{Loc 'ui-options-static-storage-ui'}" />
                 <!-- Goobstation Edit Start -->
+
+                <Label Text="{Loc 'ui-options-visuals-header'}"
+                       StyleClasses="LabelHeading" />
+                <CheckBox Name="RadiationVisualsCheckBox"
+                          Text="{Loc 'ui-options-radiation-visuals'}"
+                          ToolTip="{Loc 'ui-options-radiation-visuals-tooltip'}" />
                 <Label Text="{Loc 'ui-options-preferences'}"
                        StyleClasses="LabelKeyText"/>
                 <CheckBox Name="AutoFocusSearchOnBuildMenuCheckBox" Text="{Loc 'ui-options-auto-focus-search-on-build-menu'}" />

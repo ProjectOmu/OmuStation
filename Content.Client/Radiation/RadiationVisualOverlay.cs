@@ -1,3 +1,6 @@
+using Content.Shared.CCVar;
+using Robust.Shared.Configuration;
+using Robust.Shared.IoC;
 // SPDX-FileCopyrightText: 2026 puntsss <bex.ish.aholic@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -34,6 +37,9 @@ public sealed class RadiationVisualOverlay : Overlay
 
     protected override void Draw(in OverlayDrawArgs args)
     {
+        if (!IoCManager.Resolve<IConfigurationManager>().GetCVar(CCVars.OmuRadiationVisualsEnabled))
+            return;
+
         var deltaSeconds = _lastDrawTime == default
             ? 0f
             : Math.Clamp((float) (_timing.CurTime - _lastDrawTime).TotalSeconds, 0f, 0.1f);
