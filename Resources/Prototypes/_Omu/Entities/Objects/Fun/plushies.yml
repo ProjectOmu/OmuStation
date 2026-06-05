@@ -828,3 +828,41 @@
     wideAnimationRotation: 180
     soundHit:
       collection: Squishes
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieYipYipThump
+  name: Yip-Yip-Thump plushie
+  description: An emotional support Yip. Now pocket sized!
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/yipyipthump.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/yipyipthump.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/yipyipthump.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: Yip
+  - type: EmitSoundOnUse
+    sound:
+      collection: Yip
+  - type: EmitSoundOnActivate
+    sound:
+      collection: Yip
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: Yip
+  - type: EmitSoundOnCollide
+    sound:
+      collection: Yip
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: Yip

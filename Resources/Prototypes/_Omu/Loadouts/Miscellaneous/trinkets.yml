@@ -391,3 +391,10 @@
     - PlushieSammyOmuStaff
   groupBy: "Plushie"
 
+- type: loadout
+  id: PlushieLoadoutYipYipThump
+  dummyEntity: PlushieYipYipThump
+  storage:
+    back:
+    - PlushieYipYipThump
+  groupBy: "Plushie"
