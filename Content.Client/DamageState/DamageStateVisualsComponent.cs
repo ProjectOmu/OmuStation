@@ -25,4 +25,5 @@ public enum DamageStateVisualLayers : byte
 {
     Base,
     BaseUnshaded,
+    Tail, // DeltaV - Pet tails wagging
 }

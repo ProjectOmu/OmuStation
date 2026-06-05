@@ -11,6 +11,16 @@
       tags:
         - PetWearable
 
+  - name: head
+    slotTexture: head
+    slotFlags: HEAD
+    uiWindowPos: 1,3
+    strippingWindowPos: 1,0
+    displayName: Head
+    whitelist:
+      tags:
+      - K9Armor
+
   - name: suitstorage
     slotTexture: suit_storage
     slotFlags: SUITSTORAGE
@@ -21,6 +31,17 @@
     whitelist:
       components:
         - GasTank
+
+  - name: outerClothing
+    slotTexture: suit
+    slotFlags: OUTERCLOTHING
+    stripTime: 6
+    uiWindowPos: 1,1
+    strippingWindowPos: 1,2
+    displayName: Suit
+    whitelist:
+      tags:
+      - K9Armor
 
   - name: eyes
     slotTexture: glasses
