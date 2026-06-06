@@ -1,10 +1,10 @@
-using Content.Shared._Omu.Item.ItemToggle.Components;
+using Content.Omu.Shared.Item.ItemToggle.Components;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Light;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 
-namespace Content.Shared._Omu.Item.ItemToggle;
+namespace Content.Omu.Shared.Item.ItemToggle;
 
 /// <summary>
 ///     Causes items to cast a ray when toggled. The specifications of the ray are determined by ItemToggleCastRayComponent.

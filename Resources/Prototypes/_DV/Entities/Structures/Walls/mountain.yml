@@ -42,6 +42,10 @@
   - type: OreVein
     oreChance: 0.2
     oreRarityPrototypeId: RandomOreDistributionStandard
+  - type: Tag # Omu, Makes it show up on maps
+    tags:
+    - Structure
+    - Wall
 
 - type: entity
   id: MountainRockMining
@@ -102,6 +106,10 @@
   - type: IconSmooth
     key: walls
     base: rock_
+  - type: Tag # Omu, Makes it show up on maps
+    tags:
+    - Structure
+    - Wall
 
 - type: entity
   id: AsteroidAltRockMining
