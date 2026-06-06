@@ -158,13 +158,13 @@
     Plastic: 500
     Cloth: 500
 
-- type: latheRecipe
-  id: EnergyChemDispenserMachineCircuitboard
-  parent: BaseGoldCircuitboardRecipe
-  result: EnergyChemDispenserMachineCircuitboard
-  icon:
-    sprite: Structures/dispensers.rsi
-    state: industrial-working
+# - type: latheRecipe
+#   id: EnergyChemDispenserMachineCircuitboard
+#   parent: BaseGoldCircuitboardRecipe
+#   result: EnergyChemDispenserMachineCircuitboard
+#   icon:
+#     sprite: Structures/dispensers.rsi
+#     state: industrial-working
 
 - type: latheRecipe
   parent: [BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory]
