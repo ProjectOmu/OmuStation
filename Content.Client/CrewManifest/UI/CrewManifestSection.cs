@@ -103,27 +103,59 @@ public sealed class CrewManifestSection : BoxContainer
             Text = Loc.GetString(section.Name)
         });
 
-        var gridContainer = new GridContainer()
+        var departmentContainer = new BoxContainer() // Funky start
         {
+            Orientation = LayoutOrientation.Horizontal,
             HorizontalExpand = true,
-            Columns = 2
+
         };
 
-        AddChild(gridContainer);
+        var namesContainer = new BoxContainer()
+        {
+            Orientation = LayoutOrientation.Vertical,
+            HorizontalExpand = true,
+            SizeFlagsStretchRatio = 3,
+        };
+
+        var titlesContainer = new BoxContainer()
+        {
+            Orientation = LayoutOrientation.Vertical,
+            HorizontalExpand = true,
+            SizeFlagsStretchRatio = 2,
+        };
+
+        departmentContainer.AddChild(namesContainer);
+        departmentContainer.AddChild(titlesContainer);
+
+        AddChild(departmentContainer); // Funky end
 
         foreach (var entry in entries)
         {
-            var name = new RichTextLabel()
+            var nameContainer = new BoxContainer() // Funky start
             {
+                Orientation = LayoutOrientation.Horizontal,
                 HorizontalExpand = true,
             };
+
+            var name = new RichTextLabel();
             name.SetMessage(entry.Name);
+
+            var gender = new RichTextLabel()
+            {
+                Margin = new Thickness(6, 0, 0, 0),
+                StyleClasses = { "CrewManifestGender" }
+            };
+            gender.SetMessage(Loc.GetString("gender-display", ("gender", entry.Gender)));
+
+            nameContainer.AddChild(name);
+            nameContainer.AddChild(gender);
 
             var titleContainer = new BoxContainer()
             {
                 Orientation = LayoutOrientation.Horizontal,
-                HorizontalExpand = true
-            };
+                HorizontalExpand = true,
+                SizeFlagsStretchRatio = 1,
+            }; // Funky end
 
             var title = new RichTextLabel();
             title.SetMessage(entry.JobTitle);
@@ -147,8 +179,8 @@ public sealed class CrewManifestSection : BoxContainer
                 titleContainer.AddChild(title);
             }
 
-            gridContainer.AddChild(name);
-            gridContainer.AddChild(titleContainer);
+            namesContainer.AddChild(nameContainer); // Funky
+            titlesContainer.AddChild(titleContainer); // Funky
         }
     }
 }

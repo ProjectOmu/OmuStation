@@ -88,5 +88,3 @@ thaven-mood-seek-sin-desc = To act against one's other moods is the highest virt
 thaven-mood-emagmood-name = Wicked Headache
 thaven-mood-emagmood-desc = You have a horrible headache, the only treatment is multiple doses of highly concentrated electromagnetic interference directly to your skull.
 
-thaven-mood-potassium-banana-devotion-name = potassiophilia
-thaven-mood-potassium-banana-devotion-desc = Bananas and potassium are perfect, radiant treasures. You love them deeply and should speak about that love whenever you can.
