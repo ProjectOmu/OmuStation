@@ -398,3 +398,11 @@
     back:
     - PlushieYipYipThump
   groupBy: "Plushie"
+
+- type: loadout
+  id: PlushieExperiment
+  dummyEntity: PlushieExperiment
+  storage:
+    back:
+    - PlushieExperiment
+  groupBy: "Plushie"
