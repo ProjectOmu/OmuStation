@@ -237,3 +237,17 @@
     accentVColor: "#DFDFDF"
   - type: Icon
     state: pda-securitysergeant
+
+# Borger? I hardly know-er!
+
+- type: entity
+  parent: BasePDA
+  id: Borgpda
+  name: Cyborg doohickey
+  description: An internal object used by cyborgs to use PDA-like functions, coequally called "The Doohickey"
+  components:
+  - type: Pda
+    id: PassengerIDCard
+  - type: PdaBorderColor
+    borderColor: "#0d140d"
+  - type: Unremoveable
