@@ -88,3 +88,14 @@
     knockdownTimeDelta: -2
   - type: StaminaResistance
     damageCoefficient: 0.6
+
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingLongcoatCaptainArmored ]
+  id: ClothingOuterLongcoatBlueshield
+  name: blueshield's armored longcoat
+  description: A cozy longcoat designed for the Blueshield. It's been reinforced with a special alloy for some added protection.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Longcoats/blueshield.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Longcoats/blueshield.rsi
