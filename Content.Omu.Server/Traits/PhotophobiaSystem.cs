@@ -1,6 +1,6 @@
-using Content.Shared._Omu.Traits;
+using Content.Omu.Shared.Traits;
 
-namespace Content.Server._Omu.Traits;
+namespace Content.Omu.Server.Traits;
 
 /// <summary>
 ///     Replicates the SharedPhotophobiaSystem onto the server.
