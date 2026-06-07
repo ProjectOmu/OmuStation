@@ -1,7 +1,7 @@
 using Robust.Shared.Analyzers;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Omu.Traits;
+namespace Content.Omu.Shared.Traits;
 
 /// <summary>
 ///     Used for the Photophobia trait.
