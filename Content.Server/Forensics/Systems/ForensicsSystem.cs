@@ -175,7 +175,8 @@ namespace Content.Server.Forensics
 
         private void OnFingerprintInit(Entity<FingerprintComponent> ent, ref MapInitEvent args)
         {
-            if (ent.Comp.Fingerprint == null && !HasComp<XelthiaComponent>(ent.Owner))
+            if (ent.Comp.Fingerprint == null
+             && !HasComp<XelthiaComponent>(ent.Owner)) // Omu
                 RandomizeFingerprint((ent.Owner, ent.Comp));
         }
 
