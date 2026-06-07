@@ -1,7 +1,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Omu.Item.ItemToggle.Components;
+namespace Content.Omu.Shared.Item.ItemToggle.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ItemToggleCastRayComponent : Component
