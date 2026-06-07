@@ -241,20 +241,52 @@
 # Borger? I hardly know-er!
 
 - type: entity
-  parent: BasePDA
+  parent: BaseItem
   id: Borgpda
   name: Cyborg Doohickey
   description: An internal object used by cyborgs to use PDA-like functions, coequally called "The Doohickey"
   components:
+  - type: Sprite
+    sprite: Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda"
   - type: Pda
-    id:
-    penSlot:
-      startingItem:
-      priority: -1
-      whitelist:
-        tags:
-        - Write
+    id: PassengerIDCard
   - type: PdaBorderColor
     borderColor: "#0d140d" # NT rep border colour is temporary aaaaaaaaaaaaaaaa
   - type: Unremoveable
-
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    softness: 5
+    autoRot: true
+  - type: ActivatableUI
+    key: enum.PdaUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.PdaUiKey.Key:
+        type: PdaBoundUserInterface
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+      enum.RingerUiKey.Key:
+        type: RingerBoundUserInterface
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+      enum.HealthAnalyzerUiKey.Key:
+        type: HealthAnalyzerBoundUserInterface
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NanoTaskCartridge
+    - NewsReaderCartridge
+    - NanoChatCartridge # DeltaV
+  - type: ContainerContainer
+    containers:
+      program-container: !type:Container
+  - type: IdCard
+  - type: NanoChatCard # DeltaV
