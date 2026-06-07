@@ -243,11 +243,18 @@
 - type: entity
   parent: BasePDA
   id: Borgpda
-  name: Cyborg doohickey
+  name: Cyborg Doohickey
   description: An internal object used by cyborgs to use PDA-like functions, coequally called "The Doohickey"
   components:
   - type: Pda
-    id: PassengerIDCard
+    id:
+    penSlot:
+      startingItem:
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: PdaBorderColor
-    borderColor: "#0d140d"
+    borderColor: "#0d140d" # NT rep border colour is temporary aaaaaaaaaaaaaaaa
   - type: Unremoveable
+
