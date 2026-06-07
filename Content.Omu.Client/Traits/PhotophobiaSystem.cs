@@ -1,5 +1,5 @@
-using Content.Client._Omu.Eye;
-using Content.Shared._Omu.Traits;
+using Content.Omu.Client.Eye;
+using Content.Omu.Shared.Traits;
 using Content.Shared.Flash.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
@@ -7,7 +7,7 @@ using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Player;
 
-namespace Content.Client._Omu.Traits;
+namespace Content.Omu.Client.Traits;
 
 /// <summary>
 ///     Handles giving the player the photophobia shader / overlay.
