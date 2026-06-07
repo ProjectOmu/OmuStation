@@ -129,6 +129,7 @@
     tags:
     - VulpEmotes
     - HarpyEmotes
+    - DogEmotes # Omu
   blacklist:
     components:
     - BorgChassis
@@ -148,6 +149,7 @@
     tags:
     - VulpEmotes
     - HarpyEmotes
+    - DogEmotes # Omu
   blacklist:
     components:
     - BorgChassis
@@ -167,6 +169,7 @@
     tags:
     - VulpEmotes
     - HarpyEmotes
+    - DogEmotes # Omu
   blacklist:
     components:
     - BorgChassis
@@ -186,6 +189,7 @@
     tags:
     - VulpEmotes
     - HarpyEmotes
+    - DogEmotes # Omu
   blacklist:
     components:
     - BorgChassis
@@ -196,24 +200,24 @@
     - howling
     - howled
 
-- type: emote
-  id: Awoo
-  name: Awoo
-  category: Vocal
-  icon: _Goobstation/Interface/Emotes/awoo.png
-  whitelist:
-    tags:
-    - VulpEmotes
-    - HarpyEmotes
-  blacklist:
-    components:
-    - BorgChassis
-  chatMessages: [awoos.]
-  chatTriggers:
-    - awoo
-    - awoos
-    - awooing
-    - awooed
+#- type: emote # Omu - What is this? this is literally a copy of the howl emote. I am removing this shit
+#  id: Awoo
+#  name: Awoo
+#  category: Vocal
+#  icon: _Goobstation/Interface/Emotes/awoo.png
+#  whitelist:
+#    tags:
+#    - VulpEmotes
+#    - HarpyEmotes
+#  blacklist:
+#    components:
+#    - BorgChassis
+#  chatMessages: [awoos.]
+#  chatTriggers:
+#    - awoo
+#    - awoos
+#    - awooing
+#    - awooed
 
 # Feroxi
 - type: emote
