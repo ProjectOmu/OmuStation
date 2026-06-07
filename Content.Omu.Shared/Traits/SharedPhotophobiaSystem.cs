@@ -1,7 +1,7 @@
-using Content.Shared._Omu.Item.ItemToggle.Components;
+using Content.Omu.Shared.Item.ItemToggle.Components;
 using Content.Shared.Flash;
 
-namespace Content.Shared._Omu.Traits;
+namespace Content.Omu.Shared.Traits;
 
 /// <summary>
 ///     Handles flashing the player when an item-toggle raycast is recieved.
