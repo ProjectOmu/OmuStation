@@ -8,7 +8,41 @@
     sprite: _Goobstation/Objects/Specific/Medical/vial_bluespace.rsi
     layers:
     - state: icon
+  - type: Appearance #all of this just to not inherit SolutionContainerVisuals & breakable :(
+  - type: Drink
+    solution: beaker
   - type: SolutionContainerManager
     solutions:
       beaker:
         maxVol: 300
+  - type: MixableSolution
+    solution: beaker
+  - type: RefillableSolution
+    solution: beaker
+  - type: DrainableSolution
+    solution: beaker
+  - type: ExaminableSolution
+    solution: beaker
+    exactVolume: true
+  - type: DrawableSolution
+    solution: beaker
+  - type: SolutionTransfer
+    maxTransferAmount: 30
+    canChangeTransferAmount: true
+  - type: SolutionItemStatus
+    solution: beaker
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: Item
+    size: Tiny
+    sprite: _Goobstation/Objects/Specific/Medical/vial_bluespace.rsi
+    shape:
+    - 0,0,0,0
+  - type: MeleeWeapon
+    soundNoDamage:
+      path: "/Audio/Effects/Fluids/splat.ogg"
+    damage:
+      types:
+        Blunt: 0
