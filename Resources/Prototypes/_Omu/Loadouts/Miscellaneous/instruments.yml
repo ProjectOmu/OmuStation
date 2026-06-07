@@ -71,6 +71,19 @@
     - SeashellInstrument
 
 - type: loadout
+  id: Marmonica
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMusician
+      time: 144000 # 40 hrs
+  storage:
+    back:
+    - MarmonicaInstrument
+
+
+- type: loadout
   id: Wehpet
   effects:
   - !type:JobRequirementLoadoutEffect

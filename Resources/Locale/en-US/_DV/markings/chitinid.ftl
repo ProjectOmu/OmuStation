@@ -46,6 +46,10 @@ marking-ChitinidWingsStubby = Tail (Stubby)
 
 marking-ChitinidWingsBee-bee_primary = Primary
 marking-ChitinidWingsBee-bee_secondary = Secondary
+# v Omu v
+marking-ChitinidWingsBee-bee_primary_alt = Primary
+marking-ChitinidWingsBee-bee_tertiary = Tertiary
+# ^ Omu ^
 marking-ChitinidWingsBee = Tail (Bee)
 
 marking-ChitinidWingsFirefly-firefly_primary = Primary
@@ -128,7 +132,7 @@ marking-ChitinidRArmRadiant = Chitinid Right Arm (Radiant)
 marking-ChitinidChestToxic-toxic_chest = Chest
 marking-ChitinidChestToxic = Chitinid Chest (Toxic)
 
-marking-ChitinidHeadToxic-toxic_head = Head 
+marking-ChitinidHeadToxic-toxic_head = Head
 marking-ChitinidHeadToxic = Chitinid Head (Toxic)
 
 marking-ChitinidLLegToxic-toxic_l_leg = Left Leg
