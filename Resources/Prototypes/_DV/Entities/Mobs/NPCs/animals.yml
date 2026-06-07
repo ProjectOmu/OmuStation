@@ -1,5 +1,6 @@
 - type: entity
   parent: SimpleMobBase
+  abstract: true
   id: MobSecDog
   name: security dog
   description: Funnily enough, this pig is actually a dog.
@@ -17,7 +18,7 @@
     baseSprintSpeed : 5.0
   - type: NpcFactionMember
     factions:
-      - PetsNT
+    - PetsNT
   - type: Sprite
     drawdepth: Mobs
     sprite: _DV/Mobs/Pets/secdog.rsi
@@ -45,7 +46,7 @@
   - type: Speech
     allowedEmotes: ['Bark', 'Snarl', 'Whine', 'Howl', 'Awoo']
     speechVerb: Canine
-    speechSounds: Vulpkanin
+    speechSounds: SecDogTalk # cooler than just default vulp sounds
   - type: Fixtures
     fixtures:
       fix1:
@@ -67,7 +68,7 @@
     hidden: true
     altDisarm: false
     soundHit:
-        path: /Audio/Effects/bite.ogg
+      path: /Audio/Effects/bite.ogg
     angle: 0
     attackRate: 1
     damage:
@@ -91,8 +92,8 @@
     spawned:
     - id: FoodMeat
       amount: 2
-  - type: ReplacementAccent
-    accent: dog
+#  - type: ReplacementAccent # Omu - no need for accent, we have EE's language system
+#    accent: dog
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-dog
@@ -113,14 +114,20 @@
     tags:
     - DoorBumpOpener
     - VimPilot
+    - K9
+    - DogEmotes # Omu
+  - type: AutoImplant
+    implants:
+    - TrackingImplant
   - type: Vocal
     sounds:
       Unsexed: MobDog
-  - type: LayingDown
+    screamAction: ActionBark # Omu - changes screamaction to bark
+    screamId: Bark # Omu - changes the scream sound to bark
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90
-  - type: ScentTracker # Omu end
+  - type: ScentTracker # Omu - the best tracker this side of the station
   - type: Grappler
     handDisabling: None
     cooldown: 15
@@ -136,9 +143,11 @@
         types:
           Slash: 5
           Piercing: 10
-#  - type: LanguageKnowledge # Omu start
-#    speaks:
-#    - Canilunzt
-#    understands:
-#    - TauCetiBasic
-#    - Canilunzt
+  - type: LanguageKnowledge # Omu - better than replacement accent
+    speaks:
+    - Dog
+    understands:
+    - Dog
+    - Canilunzt # able to undestand, but not to talk. Way too much for a dog.
+    - TauCetiBasic
+  - type: MessyDrinker # Omu

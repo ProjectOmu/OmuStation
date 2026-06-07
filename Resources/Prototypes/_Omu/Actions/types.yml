@@ -1,0 +1,14 @@
+﻿# actions
+
+- type: entity
+  parent: BaseAction
+  id: ActionBark
+  name: Bark
+  description: WOOF WOOF WOOF
+  components:
+  - type: Action
+    useDelay: 5
+    icon: Interface/Actions/scream.png
+    checkCanInteract: false
+  - type: InstantAction
+    event: !type:ScreamActionEvent
