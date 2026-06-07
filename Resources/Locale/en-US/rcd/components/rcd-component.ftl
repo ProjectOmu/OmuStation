@@ -54,7 +54,7 @@ rcd-component-electrical = Electrical
 rcd-component-lighting = Lighting
 rcd-component-piping = Piping
 rcd-component-atmosphericutility = Atmospheric Utility
-rcd-component-pumpsvalves = Pumps & Valves # Omu, pumps -> pumpsvalves
+rcd-component-pumpsvalves = Pumps & Valves
 rcd-component-vents = Vents
 
 
