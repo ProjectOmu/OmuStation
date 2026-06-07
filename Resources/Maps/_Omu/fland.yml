@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/12/2026 15:55:27
-  entityCount: 36107
+  time: 05/16/2026 14:46:39
+  entityCount: 36106
 maps:
 - 1
 grids:
@@ -21427,7 +21427,7 @@ entities:
       pos: 72.5,-11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -73605.63
+      secondsUntilStateChange: -73630.35
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -193347,13 +193347,6 @@ entities:
     components:
     - type: Transform
       pos: -5.5,-24.5
-      parent: 2
-- proto: SpawnMobShiva
-  entities:
-  - uid: 28700
-    components:
-    - type: Transform
-      pos: 38.5,17.5
       parent: 2
 - proto: SpawnMobSlothPaperwork
   entities:
