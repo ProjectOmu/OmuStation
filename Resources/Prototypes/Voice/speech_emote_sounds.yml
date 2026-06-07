@@ -910,6 +910,8 @@
       collection: Salutes
     Crack: # Imp
       collection: Cracks # Imp
+    Blink: # Imp
+      collection: Blinks # Imp
 
 - type: emoteSounds
   id: DionaBodyEmotes
@@ -926,6 +928,8 @@
        volume: -5
     Crack: # Imp
       collection: Cracks # Imp
+    Blink: # Imp
+      collection: Blinks # Imp
 
 - type: emoteSounds
   id: ReptilianBodyEmotes
@@ -944,6 +948,8 @@
       collection: Salutes
     Crack: # Imp
       collection: Cracks # Imp
+    Blink: # Imp
+      collection: Blinks # Imp
 
 # mobs
 - type: emoteSounds
@@ -1067,6 +1073,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: WawaDeath
+    Blink: # Omu
+      collection: Blinks
 
 - type: emoteSounds #goob edit
   id: FeroxiBodyEmotes
@@ -1085,3 +1093,5 @@
       collection: Salutes
     Crack: # Imp
       collection: Cracks # Imp
+    Blink: # Omu
+      collection: Blinks
