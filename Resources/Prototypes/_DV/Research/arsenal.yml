@@ -2,11 +2,12 @@
   id: SecurityHardsuits
   name: research-technology-security-eva
   icon:
-    sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/officer.rsi
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/k9.rsi
     state: icon
   discipline: Arsenal
   tier: 2
   cost: 8000
   recipeUnlocks:
   - ClothingOuterHardsuitCombatK9
-  - ClothingOuterHardsuitCombatRiotK9
+#  - ClothingOuterHardsuitCombatRiotK9
+  position: 2,0
