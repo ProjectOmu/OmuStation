@@ -2,10 +2,10 @@ using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
-using Content.Shared._Omu.Traits;
+using Content.Omu.Shared.Traits;
 using System.Numerics;
 
-namespace Content.Client._Omu.Eye
+namespace Content.Omu.Client.Eye
 {
     public sealed class PhotophobiaOverlay : Overlay
     {
