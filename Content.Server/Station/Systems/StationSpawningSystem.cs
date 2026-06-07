@@ -205,11 +205,11 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         }
 
         // If we're not spawning a humanoid, we're gonna exit early without doing all the humanoid stuff.
-        // Omu, only skip if AI so borgs can have a loadout
-        if (prototype?.JobEntity != null && prototype?.Name != "job-name-borg")
+        if (prototype?.JobEntity != null
+         && prototype.Name != "job-name-borg") // Omu, only skip if AI so borgs can have a loadout
         {
             DebugTools.Assert(entity is null);
-            var jobEntity = Spawn(prototype?.JobEntity, coordinates);
+            var jobEntity = Spawn(prototype.JobEntity, coordinates);
             _mindSystem.MakeSentient(jobEntity);
 
             // Make sure custom names get handled, what is gameticker control flow whoopy.
