@@ -1,7 +1,7 @@
-using Content.Shared._Omu.Clothing.EntitySystems;
+using Content.Omu.Shared.Clothing.EntitySystems;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Omu.Clothing.Components;
+namespace Content.Omu.Shared.Clothing.Components;
 
 /// <summary>
 ///     This component indicates that a clothing garment takes up multiple slots.

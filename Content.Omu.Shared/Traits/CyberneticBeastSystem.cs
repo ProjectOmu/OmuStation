@@ -1,9 +1,9 @@
 using Content.Goobstation.Common.Speech;
-using Content.Shared._Omu.Clothing.Components;
+using Content.Omu.Shared.Clothing.Components;
 using Content.Shared.Inventory;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Omu.Traits;
+namespace Content.Omu.Shared.Traits;
 
 /// <summary>
 ///     info.
