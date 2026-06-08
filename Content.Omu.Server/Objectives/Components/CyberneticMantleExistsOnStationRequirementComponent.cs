@@ -1,6 +1,6 @@
-using Content.Server._Omu.Objectives.Systems;
+using Content.Omu.Server.Objectives.Systems;
 
-namespace Content.Server._Omu.Objectives.Components;
+namespace Content.Omu.Server.Objectives.Components;
 
 /// <summary>
 ///     Requires that a cybernetic mantle is present on station.

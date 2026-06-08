@@ -1,6 +1,7 @@
 using System.Linq;
-using Content.Shared._Omu.Clothing.Components;
-using Content.Shared._Omu.Traits;
+using Content.Omu.Shared.Clothing.Components;
+using Content.Omu.Common.Clothing;
+using Content.Omu.Shared.Traits;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
@@ -10,7 +11,7 @@ using Content.Shared.Item.ItemToggle.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Omu.Clothing.EntitySystems;
+namespace Content.Omu.Shared.Clothing.EntitySystems;
 
 public sealed class CyberneticMantleSystem : EntitySystem
 {
