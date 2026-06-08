@@ -76,6 +76,7 @@
   - type: Tag # Overwrite the TagComponent from the parent to get rid of ClothMade because it's funny when a mothroach eats this ultra specialized bit of equipment, but only the first time.
     tags:
     - WhitelistChameleon
+
 # This mantle is inteded for people doing jobs that require internals. In particular, this mantle is a breath mask with pressure protection and welding protection.
 - type: entity
   id: ClothingCyberneticBeastMantleWork
@@ -107,6 +108,7 @@
       color: "#CCFFCC"
     - type: BreathMask
     - type: EyeProtection
+
 # slight resprite of the work mantle for engineers.
 - type: entity
   id: ClothingCyberneticBeastMantleWorkEngineering
@@ -122,6 +124,7 @@
       - state: helmet-internals
       - state: eyes-engineering
         shader: unshaded
+
 # variant of the engineering mantle for atmosians. Mostly because the burn chamber is a thing.
 - type: entity
   id: ClothingCyberneticBeastMantleWorkAtmospherics
@@ -143,6 +146,7 @@
     - type: EyeProtection
     - type: FireProtection
       reduction: 0.2
+
 # variant of the engineering mantle for chief engineer. Same stats as the hardsuit helmet, they are practically glued into the things anyway.
 - type: entity
   id: ClothingCyberneticBeastMantleWorkChiefEngineering
@@ -189,6 +193,8 @@
       isEquipment: true
       color: "#CCFFCC"
     - type: BreathMask
+
+
 # resprite of the work mantle for salvagers in particular.
 - type: entity
   id: ClothingCyberneticBeastMantleWorkSalvage
@@ -212,6 +218,7 @@
     energy: 0.45 # lower energy, so that it's not too distracting outside of salvage operations.
     offset: 0,0.2
     color: "#CCFFCC"
+
 # resprite of the Security mantle for the Head of Security
 - type: entity
   id: ClothingCyberneticBeastMantleHeadofSecurity
@@ -242,6 +249,7 @@
     - type: ShowMindShieldIcons
     - type: ShowCriminalRecordIcons
     - type: ShowContrabandDetails
+
 # resprite of the standard mantle with a sechud.
 - type: entity
   id: ClothingCyberneticBeastMantleSecurity
@@ -287,6 +295,7 @@
     - type: ShowMindShieldIcons
     - type: ShowCriminalRecordIcons
     - type: ShowContrabandDetails
+
 # resprite of the standard mantle with a medsec hud.
 - type: entity
   id: ClothingCyberneticBeastMantleCorpsman
@@ -319,6 +328,7 @@
     - type: ShowHealthBars
     - type: ShowHealthIcons
     - type: ShowDiseaseIcons
+
 # resprite of the standard mantle with a medhud.
 - type: entity
   id: ClothingCyberneticBeastMantleMedical
@@ -346,6 +356,7 @@
     - type: ShowHealthBars
     - type: ShowHealthIcons
     - type: ShowDiseaseIcons
+
 # medical mantle with internals and pressure protection for paramedics.
 - type: entity
   id: ClothingCyberneticBeastMantleMedicalParamedic
@@ -409,6 +420,7 @@
     - type: FlashImmunity
     - type: FlashSoundSuppression
     - type: SolutionScanner
+
 # medical mantle with chemical analysis goggles for chemists.
 - type: entity
   id: ClothingCyberneticBeastMantleMedicalChemist
@@ -434,6 +446,7 @@
       isEquipment: true
       color: "#CCFFCC"
     - type: SolutionScanner
+
 # Mantle for the BSO
 - type: entity
   id: ClothingCyberneticBeastMantleBlueshieldOfficer
@@ -494,6 +507,7 @@
       damageContainers:
       - Biological
     - type: BreathMask
+
 # Command members who need job specific mantles just get their job mantles.
 # Command members who don't get this. Rejoice! You now have your own mantle, unless you're HOP, then weep.
 - type: entity
@@ -521,6 +535,7 @@
     - type: FlashImmunity
     - type: FlashSoundSuppression
     - type: ShowJobIcons
+
 #RD's mantle
 - type: entity
   parent: [ClothingCyberneticBeastMantle, BaseCommandContraband]
@@ -558,6 +573,7 @@
       - RobotTalk
       understood:
       - RobotTalk
+
 # NTR's very cool CC mantle, no thermals
 - type: entity
   parent: [ClothingCyberneticBeastMantle, BaseCentcommContraband]
@@ -602,6 +618,7 @@
     - type: ShowHealthIcons
       damageContainers:
       - Biological
+
 #TRUE CC MANTLE
 - type: entity
   parent: [ClothingCyberneticBeastMantle, BaseCentcommContraband]
@@ -671,6 +688,7 @@
     - type: ShowHealthIcons
       damageContainers:
       - Biological
+
 #Supply/fancy mantle for the QM and Foreman
 - type: entity
   parent: [ClothingCyberneticBeastMantle, BaseCommandContraband] #contraband will have to be redone after roles are shifted about
@@ -697,6 +715,7 @@
     - type: NightVision
       isEquipment: true
       color: "#CCFFCC"
+
 # Bartender mantle with integraged beer goggles.
 - type: entity
   parent: ClothingCyberneticBeastMantle
@@ -720,6 +739,6 @@
       correctionPower: 16
     - type: NightVision
       isEquipment: true
-      color: "#CCFFCC"
+      color: "#AF4C1F"
     - type: SolutionScanner
     - type: ShowThirstIcons
