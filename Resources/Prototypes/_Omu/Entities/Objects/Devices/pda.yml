@@ -253,6 +253,14 @@
       state: "pda"
   - type: Pda
     id: PassengerIDCard
+    idSlot:
+      name: access-id-card-component-default
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      disableEject: true
+      whitelist:
+        components:
+        - IdCard
   - type: PdaBorderColor
     borderColor: "#0d140d" # NT rep border colour is temporary aaaaaaaaaaaaaaaa
   - type: Unremoveable
@@ -288,5 +296,5 @@
   - type: ContainerContainer
     containers:
       program-container: !type:Container
-  - type: IdCard
-  - type: NanoChatCard # DeltaV
+      PDA-id: !type:ContainerSlot {}
+
