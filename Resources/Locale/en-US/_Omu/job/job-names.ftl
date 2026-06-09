@@ -10,5 +10,4 @@ job-name-security-sergeant = Sergeant
 # Cargo Jobs
 JobCourier = Courier #Playtime tracker
 job-name-courier = Courier
-# Borg ""id""
-job-name-cyborg = Cyborg
+
