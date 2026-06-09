@@ -157,6 +157,7 @@ public sealed partial class HandPlaceholderSystem : EntitySystem
         _hands.DoPickup(user, hand, target, hands); // Force pickup - empty hands are not okay
         _interaction.DoContactInteraction(user, target); // allow for forensics and other systems to work (why does hands system not do this???)
 
+        // Omu, moving these after above items fixes medborgs clearing whitelist
         SetPlaceholder(target, ent);
         SetEnabled(target, true);
     }
