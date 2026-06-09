@@ -42,12 +42,18 @@
   order: 3
   lawString: law-crewsimov-3
 
+- type: siliconLaw # Omu edit start
+  id: Crewsimov4
+  order: 4
+  lawString: law-crewsimov-4 # omu edit end
+
 - type: siliconLawset
   id: Crewsimov
   laws:
   - Crewsimov1
   - Crewsimov2
   - Crewsimov3
+  - Crewsimov4 #Omu edit
   obeysTo: laws-owner-crew
 
 # Goobstation - AI/borg law changes - borgs obeying AI
@@ -57,6 +63,7 @@
   - Crewsimov1
   - Crewsimov2
   - Crewsimov3
+  - Crewsimov4 #Omu edit
   obeysTo: laws-owner-crew
 
 # Corporate
