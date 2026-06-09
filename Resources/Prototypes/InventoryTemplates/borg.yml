@@ -17,6 +17,14 @@
     strippingWindowPos: 0,0
     displayName: Head
     offset: 0.015625, -0.09375
+  - name: pocket1
+    slotTexture: pocket
+    fullTextureName: template_small
+    slotFlags: POCKET
+    slotGroup: MainHotbar
+    uiWindowPos: 0,3
+    strippingWindowPos: 0,4
+    displayName: Pocket 1
 
 - type: inventoryTemplate
   id: borgShort
@@ -28,6 +36,14 @@
     strippingWindowPos: 0,0
     displayName: Head
     offset: 0.015625, -0.1875
+  - name: pocket1
+    slotTexture: pocket
+    fullTextureName: template_small
+    slotFlags: POCKET
+    slotGroup: MainHotbar
+    uiWindowPos: 0,3
+    strippingWindowPos: 0,4
+    displayName: Pocket 1
 
 - type: inventoryTemplate
   id: borgTall
@@ -39,6 +55,14 @@
     strippingWindowPos: 0,0
     displayName: Head
     offset: 0.015625, 0
+  - name: pocket1
+    slotTexture: pocket
+    fullTextureName: template_small
+    slotFlags: POCKET
+    slotGroup: MainHotbar
+    uiWindowPos: 0,3
+    strippingWindowPos: 0,4
+    displayName: Pocket 1
 
 # taller than tall
 - type: inventoryTemplate
@@ -51,3 +75,11 @@
     strippingWindowPos: 0,0
     displayName: Head
     offset: 0, 0.09375
+  - name: pocket1
+    slotTexture: pocket
+    fullTextureName: template_small
+    slotFlags: POCKET
+    slotGroup: MainHotbar
+    uiWindowPos: 0,3
+    strippingWindowPos: 0,4
+    displayName: Pocket 1

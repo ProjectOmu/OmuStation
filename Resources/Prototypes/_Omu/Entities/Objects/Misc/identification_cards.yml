@@ -193,6 +193,7 @@
   parent: IDCardStandard
   id: CyborgIDCard
   name: cyborg ID card
+  categories: [ HideSpawnMenu ]
   description: YOURE NOT SUPPOSED TO SEE THIS IN-GAME AAAAAAAAAAAAAAAAAAAAAAAAA
   components:
   - type: Sprite
@@ -206,3 +207,4 @@
     jobIcon: JobIconBorg
   - type: PresetIdCard
     job: Borg
+  - type: Unremoveable
