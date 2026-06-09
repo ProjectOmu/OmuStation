@@ -73,7 +73,7 @@
   - BorgModuleRCD
   - BorgModuleCable
 
-  lawset: Engineer # DeltaV: Custom lawset
+  #lawset: Engineer # DeltaV: Custom lawset
 
   radioChannels:
   - Engineering
@@ -121,7 +121,7 @@
   #- type: SlavedBorg # Goobstation: Special AI labeling for salv borgs. # Omu edit
   #  law: SalvageObeyAI # Omu edit
 
-  lawset: Salvage # DeltaV: Custom lawset
+  #lawset: Salvage # DeltaV: Custom lawset
 
   # Visual
   inventoryTemplateId: borgTall
@@ -159,7 +159,7 @@
   - Science
   - Service
 
-  lawset: Janitor # DeltaV: Custom lawset
+  #lawset: Janitor # DeltaV: Custom lawset
 
   # Visual
   inventoryTemplateId: borgShort
@@ -197,7 +197,7 @@
   - BorgModuleVirology # Omu Viro Module
   - BorgModuleLollypop # Goobstation
 
-  lawset: Medical # DeltaV: Custom lawset
+  #lawset: Medical # DeltaV: Custom lawset
 
   radioChannels:
   - Science
@@ -257,7 +257,7 @@
   - BorgModuleHarvesting
   - BorgModuleLollypop # Goobstation
 
-  lawset: Clown # DeltaV: Custom lawset # Omu - Changed from Clown to Crewsimov since the chassis is made with tools for most of service, not just clowning.
+  #lawset: Clown # DeltaV: Custom lawset # Omu - Changed from Clown to Crewsimov since the chassis is made with tools for most of service, not just clowning.
 
   radioChannels:
   - Science
