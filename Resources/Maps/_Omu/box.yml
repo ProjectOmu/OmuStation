@@ -171764,8 +171764,6 @@ entities:
       pos: -2.5,-22.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 21127
   - uid: 9128
@@ -171774,8 +171772,6 @@ entities:
       pos: -2.5,-19.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 21127
   - uid: 10571
@@ -171784,8 +171780,6 @@ entities:
       pos: 1.5,-19.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 21127
   - uid: 17811
@@ -171794,8 +171788,6 @@ entities:
       pos: 1.5,-22.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 21127
 - proto: WeaponEnergyTurretCommandControlPanel
