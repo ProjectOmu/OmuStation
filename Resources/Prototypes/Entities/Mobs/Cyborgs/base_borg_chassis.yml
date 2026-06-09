@@ -489,6 +489,9 @@
   - type: MiningPoints # goobstation borgs can claim mining points
   - type: SpeechSynthesis # Corvax-Frontier-Barks
     voice: Borg
+  - type: Loadout # Omu - Borg doohickey
+    prototypes:
+    - CyborgGear
 
 - type: entity
   abstract: true
