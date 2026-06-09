@@ -896,7 +896,7 @@
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: defib-module }
 
-- type: entity # emu edited to have a portable chemaster and a beaker only hand
+- type: entity # Omu edited to have a bunch of vials and a beaker only hand
   id: BorgModuleChemical
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
   name: chemical cyborg module
