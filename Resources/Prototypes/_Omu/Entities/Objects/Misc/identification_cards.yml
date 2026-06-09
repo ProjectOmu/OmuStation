@@ -188,3 +188,21 @@
     jobIcon: JobIconNanotrasen
   - type: PresetIdCard
     job: CustodiiVitellus
+
+- type: entity
+  parent: IDCardStandard
+  id: CyborgIDCard
+  name: cyborg ID card
+  description: YOURE NOT SUPPOSED TO SEE THIS IN-GAME AAAAAAAAAAAAAAAAAAAAAAAAA
+  components:
+  - type: Sprite
+    layers:
+    - state: orange
+    - state: idroboticist
+  - type: Item
+    heldPrefix:
+  - type: IdCard
+    jobTitle: job-name-cyborg
+    jobIcon: JobIconCourier
+  - type: PresetIdCard
+    job: Courier

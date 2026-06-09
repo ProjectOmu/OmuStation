@@ -252,7 +252,7 @@
     - map: [ "enum.PdaVisualLayers.Base" ]
       state: "pda"
   - type: Pda
-    id: PassengerIDCard
+    id: CyborgIDCard
     idSlot:
       name: access-id-card-component-default
       ejectSound: /Audio/Machines/id_swipe.ogg
