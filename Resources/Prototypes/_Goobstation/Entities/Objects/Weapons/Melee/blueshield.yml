@@ -54,7 +54,7 @@
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
-        Heat: 1
+        Heat: 0 # Omu
   - type: Stunbaton
     energyPerUse: 40
     lightAttackEnergyMultiplier: 2

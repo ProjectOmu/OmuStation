@@ -243,6 +243,14 @@
     sprite: Objects/Misc/cc-clipboard.rsi
   - type: Clothing
     sprite: Objects/Misc/cc-clipboard.rsi
+  - type: Storage     # Omu (component respecify needed for holding the station report)
+    grid:             # Omu
+    - 0,0,5,3         # Omu
+    whitelist:        # Omu
+      tags:           # Omu
+      - Document      # Omu
+      components:     # Omu
+      - StationReport # Omu
 
 - type: entity
   id: BoxFolderQmClipboard
