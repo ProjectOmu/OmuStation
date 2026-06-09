@@ -1,4 +1,4 @@
-namespace Content.Shared._Omu.Clothing;
+namespace Content.Omu.Common.Clothing;
 
 /// <summary>
 ///     Raised on an entity before a piece of ToggleableClothing is going to place that entity into its container.
