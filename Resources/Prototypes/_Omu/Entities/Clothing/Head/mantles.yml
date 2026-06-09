@@ -146,7 +146,7 @@
     - type: EyeProtection
     - type: FireProtection
       reduction: 0.2
-      
+
 # variant of the engineering mantle for chief engineer. Same stats as the hardsuit helmet, they are practically glued into the things anyway.
 - type: entity
   id: ClothingCyberneticBeastMantleWorkChiefEngineering
@@ -194,7 +194,7 @@
       color: "#CCFFCC"
     - type: BreathMask
 
-          
+
 # resprite of the work mantle for salvagers in particular.
 - type: entity
   id: ClothingCyberneticBeastMantleWorkSalvage
@@ -218,7 +218,7 @@
     energy: 0.45 # lower energy, so that it's not too distracting outside of salvage operations.
     offset: 0,0.2
     color: "#CCFFCC"
-    
+
 # resprite of the Security mantle for the Head of Security
 - type: entity
   id: ClothingCyberneticBeastMantleHeadofSecurity
@@ -249,7 +249,7 @@
     - type: ShowMindShieldIcons
     - type: ShowCriminalRecordIcons
     - type: ShowContrabandDetails
-    
+
 # resprite of the standard mantle with a sechud.
 - type: entity
   id: ClothingCyberneticBeastMantleSecurity
@@ -715,3 +715,30 @@
     - type: NightVision
       isEquipment: true
       color: "#CCFFCC"
+
+# Bartender mantle with integraged beer goggles.
+- type: entity
+  parent: ClothingCyberneticBeastMantle
+  id: ClothingCyberneticBeastMantleBar
+  name: Beast's Bartender Mantle
+  description: A modified version of a cybernetic beast's mantle. This one has integrated beer goggles.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    state: icon-bar
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    clothingVisuals:
+      head:
+      - state: helmet-bar
+      - state: eyes-bar
+        shader: unshaded
+  - type: ComponentToggler
+    components:
+    - type: VisionCorrection
+      correctionPower: 16
+    - type: NightVision
+      isEquipment: true
+      color: "#CCFFCC"
+    - type: SolutionScanner
+    - type: ShowThirstIcons

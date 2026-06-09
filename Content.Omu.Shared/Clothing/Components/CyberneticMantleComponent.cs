@@ -1,9 +1,9 @@
-using Content.Shared._Omu.Clothing.EntitySystems;
-using Content.Shared._Omu.Traits;
+using Content.Omu.Shared.Clothing.EntitySystems;
+using Content.Omu.Shared.Traits;
 using Content.Shared.Inventory;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Omu.Clothing.Components;
+namespace Content.Omu.Shared.Clothing.Components;
 
 /// <summary>
 ///     This component indicates that an item is a Cybernetic Beast's mantle.

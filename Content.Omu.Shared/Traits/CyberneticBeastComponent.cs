@@ -1,10 +1,9 @@
-using Content.Shared._Omu.Clothing.EntitySystems;
-using Content.Shared._Omu.Traits;
+using Content.Omu.Shared.Clothing.EntitySystems;
 using Content.Shared.Speech;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Omu.Traits;
+namespace Content.Omu.Shared.Traits;
 
 /// <summary>
 ///     This component indicates that a player is a Cybernetic Beast.
