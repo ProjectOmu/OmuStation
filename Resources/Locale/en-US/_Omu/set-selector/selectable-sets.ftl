@@ -4,6 +4,11 @@ selectable-set-headofsecurity-paradevoidsuit-desc =
     Comes integrated with a AI-operated stim injector.
     Usually reserved for special occasions.
 
+selectable-set-k9-voidsuit-name = K9 Combat Hardsuit
+selectable-set-k9-voidsuit-desc =
+    A canine combat suit designed to protect against low pressure
+    environments. Provides moderate protection while remaining mobile.
+
 selectable-set-paramedic-cybersunhardsuit-name = CSI-122M "Xiézhù" hardsuit
 selectable-set-paramedic-cybersunhardsuit-desc =
     The odd one out of the Cybersun hardsuits, meant to be lightweight but less armored.
@@ -130,7 +135,7 @@ selectable-set-bso-brdi-description =
 selectable-set-bso-typewriter-name = Typewriter Submachine Gun
 selectable-set-bso-typewriter-desc =
     A kit containing a perfect replica of the Thompson Submachine Gun,
-    chambered in .35, a preloaded drum mag, a stick mag and a drum mag with rubber bullets. 
+    chambered in .35, a preloaded drum mag, a stick mag and a drum mag with rubber bullets.
     Perfect for LARPers and wise guys alike.
 
 selectable-set-bso-extraction-name = Extraction kit

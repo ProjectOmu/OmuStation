@@ -9,6 +9,16 @@
   - ClothingOuterHardsuitHeadOfSecurityExperimental
 
 - type: selectableSet
+  id: VoidsuitSelectorK9Voidsuit
+  name: selectable-set-k9-voidsuit-name
+  description: selectable-set-k9-voidsuit-desc
+  sprite:
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/k9.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitCombatK9
+
+- type: selectableSet
   id: HardsuitSelectorCybersunParamedHardsuit
   name: selectable-set-paramedic-cybersunhardsuit-name
   description: selectable-set-paramedic-cybersunhardsuit-desc

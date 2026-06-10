@@ -1,4 +1,4 @@
-﻿# Base - Not sure if goob already has their own version of this, let a brother know
+﻿# Base Hardsuit - Not sure if goob already has their own version of this, let a brother know
 - type: latheRecipe
   abstract: true
   id: BaseHardsuitRecipe
@@ -26,14 +26,3 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtSalvageSpecialistDV
   result: ClothingUniformJumpskirtSalvageSpecialistDV
-
-# Security
-- type: latheRecipe
-  parent: BaseHardsuitArmoredRecipe
-  id: ClothingOuterHardsuitCombatK9
-  result: ClothingOuterHardsuitCombatK9
-
-#- type: latheRecipe
-#  parent: BaseHardsuitArmoredRecipe
-#  id: ClothingOuterHardsuitCombatRiotK9
-#  result: ClothingOuterHardsuitCombatRiotK9
