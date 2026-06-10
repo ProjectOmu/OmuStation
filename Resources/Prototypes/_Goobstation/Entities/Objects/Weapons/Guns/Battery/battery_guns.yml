@@ -396,7 +396,7 @@
     layers:
     - state: icon
       map: ["enum.GunVisualLayers.Base"]
-    - state: mode #OmuStation
+    - state: mode #OmuStation start
       shader: unshaded
       color: "#00B2FF"
       map: [ "Firemode" ]
