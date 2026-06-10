@@ -134,9 +134,8 @@ public sealed class CPRSystem : EntitySystem
             && TryComp<MobStateComponent>(args.Target, out var state)
             && _mobThreshold.CheckVitalDamage(args.Target.Value, damageableComponent) < threshold)// GoobStation
         {//OMU start
-            if (HasComp<UnrevivableComponent>(args.Target))
+            if (TryComp<UnrevivableComponent>(args.Target, out var unrevComp))
             {
-                TryComp<UnrevivableComponent>(args.Target, out var unrevComp);
                 if (!unrevComp!.CPRBlock)
                 {
                     _mobStateSystem.ChangeMobState(args.Target.Value, MobState.Critical, state, performer);
