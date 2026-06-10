@@ -1,0 +1,27 @@
+- type: trait
+  id: Protected
+  name: trait-protected-name
+  description: trait-protected-desc
+  category: Meta
+  components:
+  - type: NoObjectiveTarget
+  requirements:
+    - !type:TraitsRequirement
+      traits:
+        - HighValueTarget
+      inverted: true
+  countsTowardsMaxTraits: false # Byrd - Don't count meta traits towards limit
+
+- type: trait
+  id: HighValueTarget
+  name: trait-high-value-target-name
+  description: trait-high-value-target-desc
+  category: Meta
+  components:
+  - type: HighValueTarget
+  requirements:
+    - !type:TraitsRequirement
+      traits:
+        - Protected
+      inverted: true
+  countsTowardsMaxTraits: false # Byrd - Don't count meta traits towards limit

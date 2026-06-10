@@ -121,6 +121,7 @@
       whitelist:
         components:
         - CommandStaff
+        - HighValueTarget # Byrd
       # Can't have multiple objectives to kill the same person.
     - !type:ObjectiveImmuneFilter # DeltaV
     - !type:BodyMindFilter # Omu

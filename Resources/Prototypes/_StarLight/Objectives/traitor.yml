@@ -37,7 +37,6 @@
         components:
         - TargetObjectiveImmune
 
-
 - type: entity
   parent: [BaseTraitorObjective, BaseTeachALessonObjective]
   id: TeachRandomHeadObjective
@@ -62,3 +61,4 @@
       whitelist:
         components:
         - CommandStaff
+        - HighValueTarget # Byrd

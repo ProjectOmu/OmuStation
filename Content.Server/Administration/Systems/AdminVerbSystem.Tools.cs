@@ -92,6 +92,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Server._Starlight.Antags;
 using Content.Server.Administration.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Cargo.Components;
@@ -158,7 +159,7 @@ public sealed partial class AdminVerbSystem
 
         if (TryComp<DoorBoltComponent>(args.Target, out var bolts))
         {
-            Verb bolt = new()
+            args.Verbs.Add(new Verb
             {
                 Text = bolts.BoltsDown ? "Unbolt" : "Bolt",
                 Category = VerbCategory.Tricks,
@@ -173,14 +174,13 @@ public sealed partial class AdminVerbSystem
                 Message = Loc.GetString(bolts.BoltsDown
                     ? "admin-trick-unbolt-description"
                     : "admin-trick-bolt-description"),
-                Priority = (int)(bolts.BoltsDown ? TricksVerbPriorities.Unbolt : TricksVerbPriorities.Bolt),
-            };
-            args.Verbs.Add(bolt);
+                Priority = (int) (bolts.BoltsDown ? TricksVerbPriorities.Unbolt : TricksVerbPriorities.Bolt),
+            });
         }
 
         if (TryComp<AirlockComponent>(args.Target, out var airlockComp))
         {
-            Verb emergencyAccess = new()
+            args.Verbs.Add(new Verb
             {
                 Text = airlockComp.EmergencyAccess ? "Emergency Access Off" : "Emergency Access On",
                 Category = VerbCategory.Tricks,
@@ -193,14 +193,13 @@ public sealed partial class AdminVerbSystem
                 Message = Loc.GetString(airlockComp.EmergencyAccess
                     ? "admin-trick-emergency-access-off-description"
                     : "admin-trick-emergency-access-on-description"),
-                Priority = (int)(airlockComp.EmergencyAccess ? TricksVerbPriorities.EmergencyAccessOff : TricksVerbPriorities.EmergencyAccessOn),
-            };
-            args.Verbs.Add(emergencyAccess);
+                Priority = (int) (airlockComp.EmergencyAccess ? TricksVerbPriorities.EmergencyAccessOff : TricksVerbPriorities.EmergencyAccessOn),
+            });
         }
 
         if (HasComp<DamageableComponent>(args.Target))
         {
-            Verb rejuvenate = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Rejuvenate",
                 Category = VerbCategory.Tricks,
@@ -211,14 +210,13 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-rejuvenate-description"),
-                Priority = (int)TricksVerbPriorities.Rejuvenate,
-            };
-            args.Verbs.Add(rejuvenate);
+                Priority = (int) TricksVerbPriorities.Rejuvenate,
+            });
         }
 
         if (!HasComp<GodmodeComponent>(args.Target))
         {
-            Verb makeIndestructible = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Make Indestructible",
                 Category = VerbCategory.Tricks,
@@ -229,13 +227,12 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-make-indestructible-description"),
-                Priority = (int)TricksVerbPriorities.MakeIndestructible,
-            };
-            args.Verbs.Add(makeIndestructible);
+                Priority = (int) TricksVerbPriorities.MakeIndestructible,
+            });
         }
         else
         {
-            Verb makeVulnerable = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Make Vulnerable",
                 Category = VerbCategory.Tricks,
@@ -246,14 +243,13 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-make-vulnerable-description"),
-                Priority = (int)TricksVerbPriorities.MakeVulnerable,
-            };
-            args.Verbs.Add(makeVulnerable);
+                Priority = (int) TricksVerbPriorities.MakeVulnerable,
+            });
         }
 
         if (TryComp<BatteryComponent>(args.Target, out var battery))
         {
-            Verb refillBattery = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Refill Battery",
                 Category = VerbCategory.Tricks,
@@ -264,11 +260,10 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-refill-battery-description"),
-                Priority = (int)TricksVerbPriorities.RefillBattery,
-            };
-            args.Verbs.Add(refillBattery);
+                Priority = (int) TricksVerbPriorities.RefillBattery,
+            });
 
-            Verb drainBattery = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Drain Battery",
                 Category = VerbCategory.Tricks,
@@ -279,11 +274,10 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-drain-battery-description"),
-                Priority = (int)TricksVerbPriorities.DrainBattery,
-            };
-            args.Verbs.Add(drainBattery);
+                Priority = (int) TricksVerbPriorities.DrainBattery,
+            });
 
-            Verb infiniteBattery = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Infinite Battery",
                 Category = VerbCategory.Tricks,
@@ -297,14 +291,13 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-infinite-battery-object-description"),
-                Priority = (int)TricksVerbPriorities.InfiniteBattery,
-            };
-            args.Verbs.Add(infiniteBattery);
+                Priority = (int) TricksVerbPriorities.InfiniteBattery,
+            });
         }
 
         if (TryComp<AnchorableComponent>(args.Target, out var anchor))
         {
-            Verb blockUnanchor = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Block Unanchoring",
                 Category = VerbCategory.Tricks,
@@ -315,14 +308,13 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-block-unanchoring-description"),
-                Priority = (int)TricksVerbPriorities.BlockUnanchoring,
-            };
-            args.Verbs.Add(blockUnanchor);
+                Priority = (int) TricksVerbPriorities.BlockUnanchoring,
+            });
         }
 
         if (TryComp<GasTankComponent>(args.Target, out var tank))
         {
-            Verb refillInternalsO2 = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Refill Internals Oxygen",
                 Category = VerbCategory.Tricks,
@@ -333,11 +325,10 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-internals-refill-oxygen-description"),
-                Priority = (int)TricksVerbPriorities.RefillOxygen,
-            };
-            args.Verbs.Add(refillInternalsO2);
+                Priority = (int) TricksVerbPriorities.RefillOxygen,
+            });
 
-            Verb refillInternalsN2 = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Refill Internals Nitrogen",
                 Category = VerbCategory.Tricks,
@@ -348,11 +339,10 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-internals-refill-nitrogen-description"),
-                Priority = (int)TricksVerbPriorities.RefillNitrogen,
-            };
-            args.Verbs.Add(refillInternalsN2);
+                Priority = (int) TricksVerbPriorities.RefillNitrogen,
+            });
 
-            Verb refillInternalsPlasma = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Refill Internals Plasma",
                 Category = VerbCategory.Tricks,
@@ -363,14 +353,13 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-internals-refill-plasma-description"),
-                Priority = (int)TricksVerbPriorities.RefillPlasma,
-            };
-            args.Verbs.Add(refillInternalsPlasma);
+                Priority = (int) TricksVerbPriorities.RefillPlasma,
+            });
         }
 
         if (HasComp<InventoryComponent>(args.Target))
         {
-            Verb refillInternalsO2 = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Refill Internals Oxygen",
                 Category = VerbCategory.Tricks,
@@ -378,11 +367,10 @@ public sealed partial class AdminVerbSystem
                 Act = () => RefillEquippedTanks(args.User, Gas.Oxygen),
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-internals-refill-oxygen-description"),
-                Priority = (int)TricksVerbPriorities.RefillOxygen,
-            };
-            args.Verbs.Add(refillInternalsO2);
+                Priority = (int) TricksVerbPriorities.RefillOxygen,
+            });
 
-            Verb refillInternalsN2 = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Refill Internals Nitrogen",
                 Category = VerbCategory.Tricks,
@@ -390,11 +378,10 @@ public sealed partial class AdminVerbSystem
                 Act = () => RefillEquippedTanks(args.User, Gas.Nitrogen),
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-internals-refill-nitrogen-description"),
-                Priority = (int)TricksVerbPriorities.RefillNitrogen,
-            };
-            args.Verbs.Add(refillInternalsN2);
+                Priority = (int) TricksVerbPriorities.RefillNitrogen,
+            });
 
-            Verb refillInternalsPlasma = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Refill Internals Plasma",
                 Category = VerbCategory.Tricks,
@@ -402,12 +389,11 @@ public sealed partial class AdminVerbSystem
                 Act = () => RefillEquippedTanks(args.User, Gas.Plasma),
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-internals-refill-plasma-description"),
-                Priority = (int)TricksVerbPriorities.RefillPlasma,
-            };
-            args.Verbs.Add(refillInternalsPlasma);
+                Priority = (int) TricksVerbPriorities.RefillPlasma,
+            });
         }
 
-        Verb sendToTestArena = new()
+        args.Verbs.Add(new Verb
         {
             Text = "Send to test arena",
             Category = VerbCategory.Tricks,
@@ -420,15 +406,14 @@ public sealed partial class AdminVerbSystem
             },
             Impact = LogImpact.Medium,
             Message = Loc.GetString("admin-trick-send-to-test-arena-description"),
-            Priority = (int)TricksVerbPriorities.SendToTestArena,
-        };
-        args.Verbs.Add(sendToTestArena);
+            Priority = (int) TricksVerbPriorities.SendToTestArena,
+        });
 
         var activeId = FindActiveId(args.Target);
 
         if (activeId is not null)
         {
-            Verb grantAllAccess = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Grant All Access",
                 Category = VerbCategory.Tricks,
@@ -439,11 +424,10 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-grant-all-access-description"),
-                Priority = (int)TricksVerbPriorities.GrantAllAccess,
-            };
-            args.Verbs.Add(grantAllAccess);
+                Priority = (int) TricksVerbPriorities.GrantAllAccess,
+            });
 
-            Verb revokeAllAccess = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Revoke All Access",
                 Category = VerbCategory.Tricks,
@@ -454,14 +438,13 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-revoke-all-access-description"),
-                Priority = (int)TricksVerbPriorities.RevokeAllAccess,
-            };
-            args.Verbs.Add(revokeAllAccess);
+                Priority = (int) TricksVerbPriorities.RevokeAllAccess,
+            });
         }
 
         if (HasComp<AccessComponent>(args.Target))
         {
-            Verb grantAllAccess = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Grant All Access",
                 Category = VerbCategory.Tricks,
@@ -472,11 +455,10 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-grant-all-access-description"),
-                Priority = (int)TricksVerbPriorities.GrantAllAccess,
-            };
-            args.Verbs.Add(grantAllAccess);
+                Priority = (int) TricksVerbPriorities.GrantAllAccess,
+            });
 
-            Verb revokeAllAccess = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Revoke All Access",
                 Category = VerbCategory.Tricks,
@@ -487,14 +469,13 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-revoke-all-access-description"),
-                Priority = (int)TricksVerbPriorities.RevokeAllAccess,
-            };
-            args.Verbs.Add(revokeAllAccess);
+                Priority = (int) TricksVerbPriorities.RevokeAllAccess,
+            });
         }
 
         if (TryComp<StackComponent>(args.Target, out var stack))
         {
-            Verb adjustStack = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Adjust Stack",
                 Category = VerbCategory.Tricks,
@@ -510,10 +491,9 @@ public sealed partial class AdminVerbSystem
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-adjust-stack-description"),
                 Priority = (int) TricksVerbPriorities.AdjustStack,
-            };
-            args.Verbs.Add(adjustStack);
+            });
 
-            Verb fillStack = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Fill Stack",
                 Category = VerbCategory.Tricks,
@@ -525,11 +505,10 @@ public sealed partial class AdminVerbSystem
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-fill-stack-description"),
                 Priority = (int) TricksVerbPriorities.FillStack,
-            };
-            args.Verbs.Add(fillStack);
+            });
         }
 
-        Verb rename = new()
+        args.Verbs.Add(new Verb
         {
             Text = "Rename",
             Category = VerbCategory.Tricks,
@@ -544,10 +523,9 @@ public sealed partial class AdminVerbSystem
             Impact = LogImpact.Medium,
             Message = Loc.GetString("admin-trick-rename-description"),
             Priority = (int) TricksVerbPriorities.Rename,
-        };
-        args.Verbs.Add(rename);
+        });
 
-        Verb redescribe = new()
+        args.Verbs.Add(new Verb
         {
             Text = "Redescribe",
             Category = VerbCategory.Tricks,
@@ -562,10 +540,9 @@ public sealed partial class AdminVerbSystem
             Impact = LogImpact.Medium,
             Message = Loc.GetString("admin-trick-redescribe-description"),
             Priority = (int) TricksVerbPriorities.Redescribe,
-        };
-        args.Verbs.Add(redescribe);
+        });
 
-        Verb renameAndRedescribe = new()
+        args.Verbs.Add(new Verb
         {
             Text = "Redescribe",
             Category = VerbCategory.Tricks,
@@ -583,14 +560,13 @@ public sealed partial class AdminVerbSystem
             Impact = LogImpact.Medium,
             Message = Loc.GetString("admin-trick-rename-and-redescribe-description"),
             Priority = (int) TricksVerbPriorities.RenameAndRedescribe,
-        };
-        args.Verbs.Add(renameAndRedescribe);
+        });
 
         if (TryComp<StationDataComponent>(args.Target, out var stationData))
         {
             if (_adminManager.HasAdminFlag(player, AdminFlags.Round))
             {
-                Verb barJobSlots = new()
+                args.Verbs.Add(new Verb
                 {
                     Text = "Bar job slots",
                     Category = VerbCategory.Tricks,
@@ -605,11 +581,10 @@ public sealed partial class AdminVerbSystem
                     Impact = LogImpact.Extreme,
                     Message = Loc.GetString("admin-trick-bar-job-slots-description"),
                     Priority = (int) TricksVerbPriorities.BarJobSlots,
-                };
-                args.Verbs.Add(barJobSlots);
+                });
             }
 
-            Verb locateCargoShuttle = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Locate Cargo Shuttle",
                 Category = VerbCategory.Tricks,
@@ -626,13 +601,12 @@ public sealed partial class AdminVerbSystem
                 Impact = LogImpact.Low,
                 Message = Loc.GetString("admin-trick-locate-cargo-shuttle-description"),
                 Priority = (int) TricksVerbPriorities.LocateCargoShuttle,
-            };
-            args.Verbs.Add(locateCargoShuttle);
+            });
         }
 
         if (TryGetGridChildren(args.Target, out var childEnum))
         {
-            Verb refillBattery = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Refill Battery",
                 Category = VerbCategory.Tricks,
@@ -650,10 +624,9 @@ public sealed partial class AdminVerbSystem
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-refill-battery-description"),
                 Priority = (int) TricksVerbPriorities.RefillBattery,
-            };
-            args.Verbs.Add(refillBattery);
+            });
 
-            Verb drainBattery = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Drain Battery",
                 Category = VerbCategory.Tricks,
@@ -671,10 +644,9 @@ public sealed partial class AdminVerbSystem
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-drain-battery-description"),
                 Priority = (int) TricksVerbPriorities.DrainBattery,
-            };
-            args.Verbs.Add(drainBattery);
+            });
 
-            Verb infiniteBattery = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Infinite Battery",
                 Category = VerbCategory.Tricks,
@@ -698,13 +670,12 @@ public sealed partial class AdminVerbSystem
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-infinite-battery-description"),
                 Priority = (int) TricksVerbPriorities.InfiniteBattery,
-            };
-            args.Verbs.Add(infiniteBattery);
+            });
         }
 
         if (TryComp<PhysicsComponent>(args.Target, out var physics))
         {
-            Verb haltMovement = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Halt Movement",
                 Category = VerbCategory.Tricks,
@@ -717,8 +688,7 @@ public sealed partial class AdminVerbSystem
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-halt-movement-description"),
                 Priority = (int) TricksVerbPriorities.HaltMovement,
-            };
-            args.Verbs.Add(haltMovement);
+            });
         }
 
         if (TryComp<MapComponent>(args.Target, out var map))
@@ -727,7 +697,7 @@ public sealed partial class AdminVerbSystem
             {
                 if (_map.IsPaused(map.MapId))
                 {
-                    Verb unpauseMap = new()
+                    args.Verbs.Add(new Verb
                     {
                         Text = "Unpause Map",
                         Category = VerbCategory.Tricks,
@@ -739,12 +709,11 @@ public sealed partial class AdminVerbSystem
                         Impact = LogImpact.Extreme,
                         Message = Loc.GetString("admin-trick-unpause-map-description"),
                         Priority = (int) TricksVerbPriorities.Unpause,
-                    };
-                    args.Verbs.Add(unpauseMap);
+                    });
                 }
                 else
                 {
-                    Verb pauseMap = new()
+                    args.Verbs.Add(new Verb
                     {
                         Text = "Pause Map",
                         Category = VerbCategory.Tricks,
@@ -756,15 +725,14 @@ public sealed partial class AdminVerbSystem
                         Impact = LogImpact.Extreme,
                         Message = Loc.GetString("admin-trick-pause-map-description"),
                         Priority = (int) TricksVerbPriorities.Pause,
-                    };
-                    args.Verbs.Add(pauseMap);
+                    });
                 }
             }
         }
 
         if (TryComp<JointComponent>(args.Target, out var joints))
         {
-            Verb snapJoints = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Snap Joints",
                 Category = VerbCategory.Tricks,
@@ -776,13 +744,12 @@ public sealed partial class AdminVerbSystem
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-snap-joints-description"),
                 Priority = (int) TricksVerbPriorities.SnapJoints,
-            };
-            args.Verbs.Add(snapJoints);
+            });
         }
 
         if (TryComp<GunComponent>(args.Target, out var gun))
         {
-            Verb minigunFire = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Make Minigun",
                 Category = VerbCategory.Tricks,
@@ -795,13 +762,12 @@ public sealed partial class AdminVerbSystem
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-minigun-fire-description"),
                 Priority = (int) TricksVerbPriorities.MakeMinigun,
-            };
-            args.Verbs.Add(minigunFire);
+            });
         }
 
         if (TryComp<BallisticAmmoProviderComponent>(args.Target, out var ballisticAmmo))
         {
-            Verb setCapacity = new()
+            args.Verbs.Add(new Verb
             {
                 Text = "Set Bullet Amount",
                 Category = VerbCategory.Tricks,
@@ -820,9 +786,23 @@ public sealed partial class AdminVerbSystem
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-set-bullet-amount-description"),
                 Priority = (int) TricksVerbPriorities.SetBulletAmount,
-            };
-            args.Verbs.Add(setCapacity);
+            });
         }
+
+        if (HasComp<ActorComponent>(args.Target))
+            args.Verbs.Add(new Verb
+            {
+                Text = "Prevent objective targeting",
+                Category = VerbCategory.Tricks,
+                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/sentient.svg.192dpi.png")),
+                Act = () =>
+                {
+                    EnsureComp<NoObjectiveTargetComponent>(args.Target);
+                },
+                Impact = LogImpact.Low,
+                Message = "Prevents this entity from being targeted by other player's objectives. Will also prevent paraclones of this player.",
+                Priority = (int) TricksVerbPriorities.BlockObjectiveTargeting
+            });
     }
 
     private void RefillEquippedTanks(EntityUid target, Gas gasType)
@@ -968,5 +948,6 @@ public sealed partial class AdminVerbSystem
         SnapJoints = -27,
         MakeMinigun = -28,
         SetBulletAmount = -29,
+        BlockObjectiveTargeting = -44, // Starlight
     }
 }
