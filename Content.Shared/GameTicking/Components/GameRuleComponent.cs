@@ -51,7 +51,7 @@ public sealed partial class GameRuleComponent : Component
     /// A delay for when the rule the is started and when the starting logic actually runs.
     /// </summary>
     [DataField]
-    public MinMax? Delay;
+    public MinMax? Delay = new(5 * 60, 5 * 60); // Omu - Delay round start antags
 
     // Goobstation
     /// <summary>
