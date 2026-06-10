@@ -7,3 +7,13 @@
   - type: MovementModStatusEffect
     sprintSpeedModifier: 1.2
     walkSpeedModifier: 1.2
+
+- type: entity
+  id: DubiousOrganEMPEffect
+  categories: [ HideSpawnMenu ]
+  parent: AdminInstantEffectBase
+  components:
+  - type: EmpOnTrigger
+    range: 4
+    energyConsumption: 12500
+    disableDuration: 15
