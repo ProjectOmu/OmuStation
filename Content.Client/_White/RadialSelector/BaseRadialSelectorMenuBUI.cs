@@ -47,10 +47,11 @@ public abstract class BasedRadialSelectorMenuBUI : BoundUserInterface
 
         foreach (var entry in entries)
         {
+
             if (entry.Category != null)
             {
                 var button = CreateButton(entry.Category.Name, _spriteSystem.Frame0(entry.Category.Icon));
-                button.TargetLayer = container;
+                button.TargetLayerControlName = entry.Category.Name; //Omu Change, works regardless.
                 CreateMenu(entry.Category.Entries, menu, entry.Category.Name);
                 container.AddChild(button);
             }
