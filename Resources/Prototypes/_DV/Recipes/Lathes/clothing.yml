@@ -1,26 +1,4 @@
-﻿# Base Hardsuit - Not sure if goob already has their own version of this, let a brother know
-- type: latheRecipe
-  abstract: true
-  id: BaseHardsuitRecipe
-  categories:
-  - Hardsuits
-  completetime: 10 # Hardsuit beeg
-  materials:
-    Plasteel: 500
-    Durathread: 500
-    Steel: 1000
-    Glass: 500
-    Plastic: 400
-
-- type: latheRecipe
-  abstract: true
-  parent: BaseHardsuitRecipe
-  id: BaseHardsuitArmoredRecipe
-  materials:
-    Plasteel: 1000
-    Durathread: 600
-
-# Salvage Specialist
+﻿# Salvage Specialist
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
