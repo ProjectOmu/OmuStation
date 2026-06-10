@@ -247,10 +247,11 @@
   description: An internal object used by cyborgs to use PDA-like functions, coequally called "The Doohickey"
   components:
   - type: Sprite
-    sprite: Objects/Devices/pda.rsi
-    layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-      state: "pda"
+    sprite: _Omu/Objects/Devices/borgdoohickey.rsi
+    state: icon
+  - type: Icon
+    sprite: _Omu/Objects/Devices/borgdoohickey.rsi
+    state: icon
   - type: Pda
     id: CyborgIDCard
     idSlot:
@@ -262,7 +263,7 @@
         components:
         - IdCard
   - type: PdaBorderColor
-    borderColor: "#0d140d" # NT rep border colour is temporary aaaaaaaaaaaaaaaa
+    borderColor: "#999875"
   - type: Unremoveable
   - type: UnpoweredFlashlight
   - type: PointLight
