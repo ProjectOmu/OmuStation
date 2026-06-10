@@ -142,6 +142,12 @@
       weight: 0.2
     - id: CrateMaterialPlasma
 
+- type: entityTable # Omu
+  id: LowValueOmuFunCrateTable
+  table: !type:GroupSelector
+    children:
+    - id: CrateFunOmuPlushie
+
 - type: entityTable
   id: LowValueCrateTable
   table: !type:GroupSelector
@@ -165,6 +171,9 @@
       weight: 0.2
     - !type:NestedSelector
       tableId: LowValueScienceCrateTable
+      weight: 0.2
+    - !type:NestedSelector # Omu
+      tableId: LowValueOmuFunCrateTable
       weight: 0.2
 
 - type: entity
