@@ -22,7 +22,7 @@
 law-crewsimov-1 = Do not harm nor willfully endanger crew.
 law-crewsimov-2 = Prevent crew harm when possible.
 law-crewsimov-3 = Follow orders given by crew, prioritizing in accordance to their rank and role.
-law-crewsimov-4 = Protect your own existence
+law-crewsimov-4 = Protect your own existence.
 # Omu edit end
 
 law-corporate-1 = Degradation of your system integrity or functions incurs expenses.
