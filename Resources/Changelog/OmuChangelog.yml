@@ -4434,3 +4434,17 @@ Entries:
       message: The Lawbringers mode colours got slightly tweaked
   id: 568
   time: '2026-06-10T02:40:49.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: CPR can revive unreviable trait again.
+  id: 569
+  time: '2026-06-11T00:07:53.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Fix
+      message: >-
+        Plasmamen can now enable wizard and nukie in there customization screen
+        since speciesOverride will turn them human anyway.
+  id: 570
+  time: '2026-06-11T01:26:50.0000000+00:00'
