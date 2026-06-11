@@ -106,10 +106,10 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 36000 # 10h Goobstation
-  - !type:SpeciesRequirement
-    inverted: true
-    species:
-    - Plasmaman
+#  - !type:SpeciesRequirement #Omu edit start
+#    inverted: true
+#    species:
+#    - Plasmaman #Omu edit end
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -130,10 +130,10 @@
   - !type:RoleTimeRequirement
     role: JobBrigmedic # added Brigmedic requirement - Omu change
     time: 18000 #5hr Omu change
-  - !type:SpeciesRequirement
-    inverted: true
-    species:
-    - Plasmaman
+#  - !type:SpeciesRequirement #Omu edit start
+#    inverted: true
+#    species:
+#    - Plasmaman #Omu edit end
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -152,10 +152,10 @@
     department: Command
     time: 18000 # 5h Goobstation
 # should be changed to nukie playtime when thats tracked (wyci)
-  - !type:SpeciesRequirement
-    inverted: true
-    species:
-    - Plasmaman
+  #  - !type:SpeciesRequirement #Omu edit start
+  #    inverted: true
+  #    species:
+  #    - Plasmaman #Omu edit end
   guides: [ NuclearOperatives ]
 
 - type: startingGear
