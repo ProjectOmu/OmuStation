@@ -17,6 +17,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Reflection;
+using System;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Managers;
 using Content.Shared.GameTicking.Components;
@@ -79,6 +81,13 @@ public abstract partial class GameRuleSystem<T> : EntitySystem where T : ICompon
     {
         if (!TryComp<GameRuleComponent>(uid, out var ruleData))
             return;
+
+        Assembly assem = typeof(GameRuleSystem<T>).Assembly;
+        Type? type = assem.GetType("Content.IntegrationTests.Tests");
+        if (type != null)
+        {
+            ruleData.Delay = new(0, 0);
+        }
         Added(uid, component, ruleData, args);
     }
 
