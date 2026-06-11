@@ -92,10 +92,10 @@
   components:
     - type: Sprite
       sprite: _DV/Clothing/OuterClothing/Armor/duravest.rsi
-      states: icon
+      state: icon
     - type: Clothing
       sprite: _DV/Clothing/OuterClothing/Armor/duravest.rsi
-      states: equipped-OUTERCLOTHING
+      state: equipped-OUTERCLOTHING
     - type: Tag
       tags:
         - K9Armor
