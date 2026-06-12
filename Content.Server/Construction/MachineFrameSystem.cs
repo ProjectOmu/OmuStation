@@ -36,6 +36,8 @@ public sealed class MachineFrameSystem : EntitySystem
     [Dependency] private readonly ConstructionSystem _construction = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
+    [Dependency] private SharedInteractionSystem _interactionSystem = default!; // Moffstation - Interaction particles
+
     public override void Initialize()
     {
         base.Initialize();
@@ -67,6 +69,8 @@ public sealed class MachineFrameSystem : EntitySystem
     {
         if (args.Handled)
             return;
+
+        _interactionSystem.DoContactInteraction(args.User, uid, args.Used, false); // Moffstation - Interaction particles
 
         if (!component.HasBoard)
         {

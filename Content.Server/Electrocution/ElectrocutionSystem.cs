@@ -86,6 +86,10 @@ using Robust.Shared.Spawners;
 using Robust.Shared.Timing; // Goobstation - Add Cooldown to shock to prevent entity overload
 using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
 using PullerComponent = Content.Shared.Movement.Pulling.Components.PullerComponent;
+// ES START
+using Content.Shared._ES.Sparks;
+using Content.Shared.Interaction.Events;
+// ES END
 
 namespace Content.Server.Electrocution;
 
@@ -111,6 +115,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!; // Goobstation - Add Cooldown to shock to prevent entity overload
     [Dependency] private readonly SparksSystem _sparks = default!; // goob edit - finally visual fucking effects
+    [Dependency] private readonly ESSparksSystem _esSparks = default!; // ES - Door Animations
 
     private static readonly ProtoId<StatusEffectPrototype> StatusKeyIn = "Electrocution";
     private static readonly ProtoId<DamageTypePrototype> DamageType = "Shock";
@@ -447,6 +452,9 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
 
     private bool DoCommonElectrocutionAttempt(EntityUid uid, EntityUid? sourceUid, ref float siemensCoefficient, bool ignoreInsulation = false)
     {
+// ES START
+        TrySpark(uid, sourceUid);
+// ES END
 
         var attemptEvent = new ElectrocutionAttemptEvent(uid, sourceUid, siemensCoefficient,
             ignoreInsulation ? SlotFlags.NONE : ~SlotFlags.POCKET & ~SlotFlags.HEAD); // Goobstation - insulated mouse can't be worn
@@ -459,6 +467,23 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         siemensCoefficient = attemptEvent.SiemensCoefficient;
         return true;
     }
+
+// ES START
+    private bool TrySpark(EntityUid uid, EntityUid? sourceUid)
+    {
+        if (!sourceUid.HasValue)
+            return false;
+
+        if (!TryComp<StatusEffectsComponent>(uid, out var statusEffects) ||
+            !_statusEffects.CanApplyEffect(uid, StatusKeyIn, statusEffects))
+        {
+            return false;
+        }
+
+        _esSparks.DoSparks(sourceUid.Value);
+        return true;
+    }
+// ES END
 
     private bool DoCommonElectrocution(EntityUid uid, EntityUid? sourceUid,
         int? shockDamage, TimeSpan time, bool refresh, float siemensCoefficient = 1f,
@@ -492,7 +517,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
                 ? _stun.TryUpdateParalyzeDuration(uid, time * ParalyzeTimeMultiplier)
                 : _stun.TryAddParalyzeDuration(uid, time * ParalyzeTimeMultiplier);
         }
-            
+
 
         // TODO: Sparks here.
         _sparks.DoSparks(Transform(uid).Coordinates); // goob edit - DONE! I HATE YOU AVIU

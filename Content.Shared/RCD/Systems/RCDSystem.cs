@@ -54,6 +54,7 @@ using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Doors.Components; // Goob - Check for Door Bolt
+using Content.Shared._ES.Sparks; // ES
 
 namespace Content.Shared.RCD.Systems;
 
@@ -76,6 +77,7 @@ public sealed class RCDSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TagSystem _tags = default!;
     [Dependency] private readonly AccessReaderSystem _accessReader = default!; // Goobstation - RCD respects door access
+    [Dependency] private ESSparksSystem _esSparks = default!; // ES
 
     private readonly int _instantConstructionDelay = 0;
     private readonly EntProtoId _instantConstructionFx = "EffectRCDConstruct0";
@@ -129,6 +131,7 @@ public sealed class RCDSystem : EntitySystem
 
         // Set the current RCD prototype to the one supplied
         component.ProtoId = args.ProtoId;
+        _esSparks.DoSparks(uid, 1, user: args.Actor);//ES
         Dirty(uid, component);
     }
 

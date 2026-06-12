@@ -52,3 +52,6 @@
   - type: LightningTarget
     priority: 1
   - type: TooShortForUIBlacklist #imp
+  - type: ESSparkOnHit # ES
+    prob: 0.25
+    count: 2
