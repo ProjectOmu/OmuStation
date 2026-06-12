@@ -66,10 +66,10 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
             || !TryComp<MobThresholdsComponent>(uid, out var mobThresholdsComponent)
             || !TryComp<DamageableComponent>(uid, out var damageable))
             return;
-
+        var vitalDamage = _mobThreshold.CheckVitalDamage(uid, damageable); // OmuStation: reboot based on vital dmg
         // Check if entity have critical state
         if (_mobThreshold.TryGetThresholdForState(uid, MobState.Critical, out var criticalThreshold, mobThresholdsComponent)
-            && damageable.TotalDamage < criticalThreshold)
+            && vitalDamage < criticalThreshold) // Omu: vitalDamage
         {
             _mobState.ChangeMobState(uid, MobState.Alive, mobStateComponent);
             return;
@@ -77,7 +77,7 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
 
         // Check if entity have dead state
         if (_mobThreshold.TryGetThresholdForState(uid, MobState.Dead, out var deadThreshold, mobThresholdsComponent)
-            && damageable.TotalDamage < deadThreshold)
+            && vitalDamage < deadThreshold) // Omu: vitalDamage
         {
             _mobState.ChangeMobState(uid, MobState.Alive, mobStateComponent);
             return;

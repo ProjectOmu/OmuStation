@@ -110,3 +110,14 @@
         Slash: 0.7
         Piercing: 0.7
         Heat: 0.8
+
+- type: entity
+  parent: ClothingHeadHatBeretBlueshield
+  id: ClothingHeadHatFedoraBlueshield
+  name: blueshield officer's armored fedora
+  description: A padded fedora meant to aid your goons in battle whilst maintaining their class.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/blueshield_mafia_fedora.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/blueshield_mafia_fedora.rsi

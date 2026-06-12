@@ -95,6 +95,8 @@
         #Mantles for Central Command
         BlueshieldOfficer: ClothingCyberneticBeastMantleBlueshieldOfficer
         NanotrasenRepresentative: ClothingCyberneticBeastMantleCentralCommandNoThermal
+        # Bartender mantle
+        Bartender: ClothingCyberneticBeastMantleBar
       # If they have none of the specified jobs:
       equipmentUnmet: ClothingCyberneticBeastMantle
   globalCost: 5
@@ -105,6 +107,7 @@
     - !type:TraitsRequirement
       traits:
         - PoorVision
+        - Blindness
       inverted: true
 
 - type: trait
