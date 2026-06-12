@@ -19,13 +19,13 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-  - type: IngestionBlocker # Goobstation
+  - type: IngestionBlocker
     blockSmokeIngestion: true
   - type: ClothingGrantComponent
     component:
     - type: Prying
       pryPowered: true
-      speedModifier: 3.0
+      speedModifier: 2.5
   - type: ThermalVision
     thermalShader: null
     color: "#BF40BF"
