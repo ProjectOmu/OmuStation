@@ -172,19 +172,19 @@
   color: "#4DFF4D"
   metabolisms:
     Poison:
-      metabolismRate: 5 # hello hypospray users!
+      metabolismRate: 0.25 # Omu
       effects:
       - !type:SpeciesChange
         conditions:
         - !type:ReagentThreshold
-          min: 10
+          min: 25 # Omu
         newSpecies: SlimePerson
       - !type:AdjustReagent
         reagent: XenobioJellyGreen
-        amount: -50.0
+        amount: -15 # Omu
         conditions:
         - !type:ReagentThreshold
-          min: 10
+          min: 25 # Omu
 
 - type: reagent
   parent: BaseXenobioReagent
@@ -194,19 +194,19 @@
   color: "#000000"
   metabolisms:
     Poison:
-      metabolismRate: 5 # hello hypospray users!
+      metabolismRate: 0.25 # Omu
       effects:
       - !type:SpeciesChange
         conditions:
         - !type:ReagentThreshold
-          min: 10
+          min: 25 # Omu
         newSpecies: Human
       - !type:AdjustReagent
         reagent: XenobioHumanToxin
-        amount: -50.0
+        amount: -15 # Omu
         conditions:
         - !type:ReagentThreshold
-          min: 10
+          min: 25 # Omu
 
 - type: reagent
   parent: BaseXenobioReagent
@@ -232,7 +232,7 @@
   color: "#000000"
   metabolisms:
     Poison:
-      metabolismRate: 5 # hello hypospray users!
+      metabolismRate: 0.25 # Omu
       effects:
       - !type:RandomSpeciesChange
         speciesBlacklist:
@@ -243,13 +243,13 @@
         # add more here
         conditions:
         - !type:ReagentThreshold
-          min: 10
+          min: 25 # Omu
       - !type:AdjustReagent
         reagent: AdvancedMutationToxin
-        amount: -50.0
+        amount: -15 # Omu
         conditions:
         - !type:ReagentThreshold
-          min: 10
+          min: 25 # Omu
 
 - type: reagent
   parent: BaseXenobioReagent
@@ -259,19 +259,19 @@
   color: "#000000"
   metabolisms:
     Poison:
-      metabolismRate: 5 # hello hypospray users!
+      metabolismRate: 0.25 # Omu
       effects:
       - !type:SpeciesChange
         conditions:
         - !type:ReagentThreshold
-          min: 10
+          min: 25 # Omu
         newSpecies: Felinid
       - !type:AdjustReagent
         reagent: XenobioFelinidToxin
-        amount: -50.0
+        amount: -15 # Omu
         conditions:
         - !type:ReagentThreshold
-          min: 10
+          min: 25 # Omu
 
 - type: reagent
   parent: BaseXenobioReagent
@@ -281,15 +281,15 @@
   color: "#FF4DD2"
   metabolisms:
     Narcotic:
-      metabolismRate: 1
+      metabolismRate: 0.25 # Omu
       effects:
       - !type:SexChange
         conditions:
         - !type:ReagentThreshold
-          min: 5
+          min: 25 # Omu
       - !type:AdjustReagent
         reagent: XenobioGenderFluid
-        amount: -50.0
+        amount: -15 # Omu
         conditions:
         - !type:ReagentThreshold
-          min: 5
+          min: 25 # Omu
