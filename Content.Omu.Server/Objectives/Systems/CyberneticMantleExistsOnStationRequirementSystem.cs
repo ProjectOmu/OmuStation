@@ -1,9 +1,9 @@
-using Content.Server._Omu.Objectives.Components;
-using Content.Shared._Omu.Clothing.Components;
+using Content.Omu.Server.Objectives.Components;
+using Content.Omu.Shared.Clothing.Components;
 using Content.Shared.Objectives.Components;
 using Robust.Shared.Utility;
 
-namespace Content.Server._Omu.Objectives.Systems;
+namespace Content.Omu.Server.Objectives.Systems;
 
 public sealed class CyberneticMantleExistsOnStationRequirementSystem : EntitySystem
 {

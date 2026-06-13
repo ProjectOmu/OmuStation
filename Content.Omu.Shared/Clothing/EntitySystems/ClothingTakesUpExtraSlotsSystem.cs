@@ -1,9 +1,9 @@
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Inventory.VirtualItem;
-using Content.Shared._Omu.Clothing.Components;
+using Content.Omu.Shared.Clothing.Components;
 
-namespace Content.Shared._Omu.Clothing.EntitySystems;
+namespace Content.Omu.Shared.Clothing.EntitySystems;
 
 /// <summary>
 ///     info.
