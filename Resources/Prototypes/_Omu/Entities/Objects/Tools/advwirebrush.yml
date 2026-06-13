@@ -14,7 +14,6 @@
     size: Small
   - type: PhysicalComposition
     materialComposition:
-      Steel: 100
       Plastic: 100
   - type: Tool
     qualities:
@@ -23,7 +22,7 @@
     useSound:
       path: /Audio/Items/wirebrushing.ogg
   - type: StaticPrice
-    price: 30
+    price: 35
   - type: MeleeWeapon
     wideAnimationRotation: 45
     damage:
