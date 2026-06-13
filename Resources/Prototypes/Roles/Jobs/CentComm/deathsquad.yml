@@ -32,7 +32,7 @@
   - BlueshieldOfficer
   special: # Goobstation Start - I basically re-did all of deathsquads stuff so. - Sol
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ] # Omu Removed StypticStimulatorImplant
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ] # Omu Removed StypticStimulatorImplant, use CC mindshield
   - !type:AddComponentSpecial
     components:
     - type: DeathSquadMember # Goobstation

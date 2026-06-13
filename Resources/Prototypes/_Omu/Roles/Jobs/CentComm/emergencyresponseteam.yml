@@ -21,7 +21,7 @@
   - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTLeaderGearBlue
@@ -74,7 +74,7 @@
   - Command
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTSecurityGearBlue
@@ -123,7 +123,7 @@
   - External
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTMedicGearBlue
@@ -170,7 +170,7 @@
   - External
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTJanitorGearBlue
@@ -217,7 +217,7 @@
   - External
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTEngineerGearBlue
@@ -275,7 +275,7 @@
     - type: CurseImmune
     - type: CanEnchant
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTChaplainGearBlue
