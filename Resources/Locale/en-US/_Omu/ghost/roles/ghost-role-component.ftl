@@ -6,3 +6,5 @@ ghost-role-information-shiva-description = The first defender of the station.
 
 ghost-role-information-syndicate-scurret-reinforcement-description = Someone needs reinforcements. You, a poorly trained Scurret, will help them.
 ghost-role-information-syndicate-scurret-reinforcement-name = Syndicate Scurret Agent
+
+ghost-role-information-syndicate-cyborg-medical-name = Syndicate Medical Cyborg

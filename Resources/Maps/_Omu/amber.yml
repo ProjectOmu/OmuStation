@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/29/2026 12:50:14
-  entityCount: 23744
+  time: 05/16/2026 14:40:25
+  entityCount: 23742
 maps:
 - 1
 grids:
@@ -19392,7 +19392,7 @@ entities:
       pos: -25.5,-25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -12800.561
+      secondsUntilStateChange: -12887.022
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -67668,14 +67668,6 @@ entities:
     - type: Transform
       pos: 19.53374,-58.377003
       parent: 2
-- proto: CryogenicSleepUnit
-  entities:
-  - uid: 9542
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -39.5,-5.5
-      parent: 2
 - proto: CryogenicSleepUnitSpawner
   entities:
   - uid: 9543
@@ -67688,6 +67680,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 13.5,-49.5
+      parent: 2
+- proto: CryogenicSleepUnitSpawnerForcedPrisonerLatejoin
+  entities:
+  - uid: 9542
+    components:
+    - type: Transform
+      pos: -39.5,-5.5
       parent: 2
 - proto: CryogenicSleepUnitSpawnerLateJoin
   entities:
@@ -132277,14 +132276,6 @@ entities:
     - type: Transform
       pos: -23.5,-53.5
       parent: 2
-- proto: SpawnMobHorseTrevor
-  entities:
-  - uid: 19163
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -25.5,-4.5
-      parent: 2
 - proto: SpawnMobKangarooWillow
   entities:
   - uid: 19164
@@ -132369,13 +132360,6 @@ entities:
     components:
     - type: Transform
       pos: 6.5,-53.5
-      parent: 2
-- proto: SpawnMobShiva
-  entities:
-  - uid: 19178
-    components:
-    - type: Transform
-      pos: -26.5,11.5
       parent: 2
 - proto: SpawnMobSmile
   entities:

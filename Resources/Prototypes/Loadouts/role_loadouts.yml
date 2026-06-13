@@ -161,6 +161,8 @@
   id: JobBorg
   nameDataset: NamesBorg
   canCustomizeName: true
+  groups: # Omu
+  - CyborgHead
 
 - type: roleLoadout
   id: JobStationAi
@@ -437,7 +439,6 @@
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
-  - SalvageSpecialistJumpsuit # DeltaV - more jumpskirts
   - GroupTankHarness
   - SalvageSpecialistNeck # Goobstation
   - SalvageSpecialistBackpack
