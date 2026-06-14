@@ -244,7 +244,7 @@
   parent: BaseItem
   id: Borgpda
   name: Cyborg Doohickey
-  description: An internal object used by cyborgs to use PDA-like functions, coequally called "The Doohickey"
+  description: An internal object used by cyborgs to use PDA-like functions, colloquially called "The Doohickey"
   components:
   - type: Sprite
     sprite: _Omu/Objects/Devices/borgdoohickey.rsi
@@ -297,5 +297,3 @@
   - type: ContainerContainer
     containers:
       program-container: !type:Container
-      PDA-id: !type:ContainerSlot {}
-
