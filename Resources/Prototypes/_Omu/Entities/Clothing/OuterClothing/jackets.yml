@@ -1,7 +1,7 @@
 - type: entity
   abstract: true
   parent: ClothingOuterBase
-  id: ClothingOuterJacketBase
+  id: ClothingGloveJacketBase
   components:
   - type: ClothingTakesUpExtraSlots
     slots:
@@ -12,7 +12,7 @@
 # replacing the equipped-OUTERCLOTHING-xelthia.png file in the RSI with the one in the InsulatedJacket/insulated_jacket_unmodified folder would fix this.
 
 - type: entity
-  parent: ClothingOuterJacketBase
+  parent: ClothingGloveJacketBase
   id: ClothingOuterJacketSeniorPhys
   name: senior physician surgical jacket
   description: A prestigious surgical membrane jacket for the handless senior physicians.
@@ -25,7 +25,7 @@
     fiberMaterial: fibers-nitrile
 
 - type: entity
-  parent: [ClothingOuterJacketBase, BaseEngineeringContraband]
+  parent: [ClothingGloveJacketBase, BaseEngineeringContraband]
   id: ClothingOuterJacketSeniorEngineer
   name: senior engineer insulated jacket
   description: A prestigious insulated membrane jacket for handless engineers.
