@@ -112,7 +112,7 @@ loginlocal = false # Never change, we are not connecting from the server to itse
 [shuttle]
 emergency_early_launch_allowed = true # Changed to allow early leaving (due to increased time)
 emergency_dock_time = 300 # Increased from 180
-auto_call_time = 120 # Increased from 90
+auto_call_time = 90 # Decreased from 120
 mass_limit = 2000 # Changed for event shuttles
 
 [lavaland]
