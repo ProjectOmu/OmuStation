@@ -288,6 +288,7 @@
       tags:
       - PetWearable
       - CorgiWearable
+    - type: PlasmaUnfit #Omustation
 
 - type: entity
   parent: ClothingHeadHatBeret
@@ -531,6 +532,7 @@
     - HamsterWearable
     - MouseWearable # Goobstation
     - WhitelistChameleon
+  - type: PlasmaUnfit #Omustation
   - type: Armor # Goob
     coverage:
     - Head
@@ -561,6 +563,7 @@
     proto: robot
   - type: IdentityBlocker
   - type: IngestionBlocker
+  - type: PlasmaUnfit #Omustation
 
 - type: entity
   parent: [ ClothingHeadHatArmored, ClothingHeadBase, BaseCentcommContraband ] #goob
@@ -1267,6 +1270,7 @@
       Hair: HEAD
       HeadTop : HEAD
       HeadSide : HEAD
+  - type: PlasmaUnfit #Omustation
 
 - type: entity
   parent: ClothingHeadBase
@@ -1284,6 +1288,7 @@
       Hair: HEAD
       HeadTop : HEAD
       HeadSide : HEAD
+  - type: PlasmaUnfit #Omustation
 
 - type: entity
   parent: ClothingHeadBase
@@ -1362,6 +1367,7 @@
       sprite: Clothing/Head/Hats/jester.rsi
     - type: Clothing
       sprite: Clothing/Head/Hats/jester.rsi
+    - type: PlasmaUnfit #Omustation
 
 - type: entity
   parent: ClothingHeadHatJester
@@ -1606,6 +1612,7 @@
       Hair: HEAD
       HeadTop : HEAD
       HeadSide : HEAD
+  - type: PlasmaUnfit #Omustation
 
 - type: entity
   parent: ClothingHeadBase
