@@ -727,8 +727,13 @@ public sealed class PullingSystem : EntitySystem
             LogImpact.Low,
             $"{ToPrettyString(pullerUid):user} started pulling {ToPrettyString(pullableUid):target}");
 
-        var ev = new GrabAttemptEvent(pullerUid, GrabStageOverride: grabStageOverride, EscapeAttemptModifier: escapeAttemptModifier);
-        RaiseLocalEvent(pullableUid, ref ev);
+        // <Goob>
+        if (grabStageOverride != null || _combatMode.IsInCombatMode(pullerUid))
+        {
+            var grabEv = new GrabAttemptEvent(pullerUid, IgnoreCombatMode: true, GrabStageOverride: grabStageOverride, EscapeAttemptModifier: escapeAttemptModifier);
+            RaiseLocalEvent(pullableUid, ref grabEv);
+        }
+        // <Goob>
         return true;
     }
 
