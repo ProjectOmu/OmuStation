@@ -62,6 +62,7 @@
     blacklist:
       components:
       - SocialObjective
+      - TargetObjectiveImmune # Omu
   - type: KillPersonCondition
 
 # requires that the player interact socially with someone
@@ -77,6 +78,7 @@
     blacklist:
       components:
       - KillPersonCondition
+      - TargetObjectiveImmune # Omu
   - type: SocialObjective
 
 # requires that the target survives the round

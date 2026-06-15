@@ -14,13 +14,13 @@
       sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     - type: Damageable # Shitmed
       damageModifierSet: Feroxi
-    - type: WoundableVisuals
-      damageOverlayGroups:
-        Brute:
-          sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
-          color: "#3d909c"
-        Burn:
-          sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+    #- type: WoundableVisuals # Omu, reverts injurys back to red, they have regular blood.
+    #  damageOverlayGroups:
+    #    Brute:
+    #      sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+    #      color: "#3d909c"
+    #    Burn:
+    #      sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
 
 - type: entity
   parent: [ PartFeroxiBase, BaseChest ]

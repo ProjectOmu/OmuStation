@@ -88,7 +88,7 @@
     Telecrystal: 125
   categories:
     - UplinkDisruption
-    
+
 - type: listing
   id: UplinkSwordfish
   name: uplink-swordfish-name
@@ -154,7 +154,7 @@
     Telecrystal: 3
   categories:
   - UplinkWearables
- 
+
 - type: listing
   id: UplinkHobbyistSpellBook
   name: uplink-hobbyist-spellbook-name
@@ -170,3 +170,18 @@
     whitelist:
     - Chaplain
     - Librarian
+
+- type: listing
+  id: UplinkXenoCompatibilityImplanterSyndi
+  name: uplink-xeno-compatibility-implanter-name
+  description: uplink-xeno-compatibility-implanter-desc
+  icon: { sprite: /Textures/Objects/Specific/Medical/syndi_implanter.rsi, state: implanter0 }
+  productEntity: XenoCompatibilityImplanterSyndi
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Science
