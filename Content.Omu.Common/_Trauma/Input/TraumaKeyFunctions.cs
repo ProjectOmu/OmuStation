@@ -7,6 +7,5 @@ namespace Content.Omu.Common._Trauma.Input;
 [KeyFunctions]
 public static class TraumaKeyFunctions
 {
-    public static readonly BoundKeyFunction OpenMartialArtsMenu = "OpenMartialArtsMenu";
     public static readonly BoundKeyFunction Tackle = "Tackle";
 }

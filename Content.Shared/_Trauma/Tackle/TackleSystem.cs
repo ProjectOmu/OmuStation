@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-//using Content.Medical.Common.Targeting;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle;
 using Content.Shared.Damage.Events;
@@ -15,7 +14,6 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
-//using Content.Trauma.Common.MartialArts;
 using Robust.Shared.Containers;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
@@ -26,7 +24,6 @@ using Robust.Shared.Timing;
 using Content.Shared._Shitmed.Targeting;
 using Content.Omu.Common._Trauma.Input; // Omu
 using Content.Goobstation.Common.Grab; // Omu
-using Content.Shared.Damage;
 
 namespace Content.Shared._Trauma.Tackle;
 
