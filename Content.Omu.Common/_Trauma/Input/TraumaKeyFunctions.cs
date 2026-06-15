@@ -2,7 +2,7 @@
 
 using Robust.Shared.Input;
 
-namespace Content.Omu.Common.Input;
+namespace Content.Omu.Common._Trauma.Input;
 
 [KeyFunctions]
 public static class TraumaKeyFunctions

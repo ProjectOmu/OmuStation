@@ -24,7 +24,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Content.Shared._Shitmed.Targeting;
-using Content.Omu.Common.Input; // Omu
+using Content.Omu.Common._Trauma.Input; // Omu
 using Content.Goobstation.Common.Grab; // Omu
 using Content.Shared.Damage;
 

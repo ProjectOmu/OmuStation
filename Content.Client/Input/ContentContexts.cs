@@ -72,7 +72,7 @@
 
 using Content.Shared.Input;
 using Robust.Shared.Input;
-using Content.Omu.Common.Input;
+using Content.Omu.Common._Trauma.Input; // Trauma
 
 namespace Content.Client.Input
 {
