@@ -101,7 +101,7 @@
   - type: Sprite
     layers:
     - state: default
-    - sprite: _Omu/Objects/Misc/id_cards.rsi # New namespace
+    - sprite: _Omu/Objects/Misc/id_cards.rsi #New namespace
       state: idcourier
   - type: Item
     heldPrefix:
@@ -167,7 +167,7 @@
   - type: Sprite
     layers:
     - state: default
-    - sprite: _Omu/Objects/Misc/id_cards.rsi # New namespace
+    - sprite: _Omu/Objects/Misc/id_cards.rsi #New namespace
       state: idsecuritysergeant #Changed from idseniorofficer
   - type: PresetIdCard
     job: SecuritySergeant
