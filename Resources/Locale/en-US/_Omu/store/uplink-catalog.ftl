@@ -34,3 +34,6 @@ uplink-bloodred-headphones-desc = Looks stylish, and synergizes with the Shredde
 
 uplink-hobbyist-spellbook-name = Hobbyist Spell Book
 uplink-hobbyist-spellbook-desc = A book given out by the Wizard Federation to get avid fanatics to finally shut up. Contains the spells: Spark, Cure Wounds, Conjure Peel, Abracaweh, and Lessest Magic Missile.
+
+uplink-xeno-compatibility-implanter-name = Xeno Compatibility Implanter
+uplink-xeno-compatibility-implanter-desc = An implant that allows the user to make use of xenomorph organs.
