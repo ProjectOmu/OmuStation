@@ -142,7 +142,7 @@
   - NanotrasenRepresentative
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, BluespaceLifelineImplant ]
+    implants: [ MindShieldImplantCentComm, BluespaceLifelineImplant ] # Omu, use CC mindshield
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
