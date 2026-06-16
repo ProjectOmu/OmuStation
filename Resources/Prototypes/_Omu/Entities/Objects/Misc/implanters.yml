@@ -13,3 +13,19 @@
   components:
   - type: Implanter
     implant: BluespaceLifelineImplant100TC
+
+- type: entity
+  id: CentcommMindShieldImplanterAntagImmune
+  suffix: Mindshield, Target Immune, Antag Immune
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: MindShieldImplantCentCommAntagImmune
+
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: XenoCompatibilityImplanterSyndi
+  suffix: Xeno Compatibility
+  components:
+  - type: Implanter
+    implant: XenoCompatibilityImplant
