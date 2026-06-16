@@ -8,6 +8,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Audio.Components;
+using Robust.Shared.Player;
 using Content.Shared.Mind;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
@@ -46,15 +47,32 @@ public sealed class StationRadioReceiverSystem : EntitySystem
 
         var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
 
-        while (query.MoveNext(out var uid, out var mind)) {
+        while (query.MoveNext(out var uid, out var mind))
+        {
+            if (!TryComp(uid, out StationRadioReceiverComponent? localComp))
+                continue;
+            if (!TryComp(localComp.SoundEntity, out AudioComponent? component))
+                continue;
+
             TransformComponent? xform = null;
-            var sourcePos = _transform.GetMapCoordinates(uid, xform);
+            // var sourcePos = _transform.GetMapCoordinates(uid, xform);
+            var entCoord = Transform(uid).Coordinates;
 
-            var mindThings = new HashSet<Entity<MindComponent>>();
-            if (xform != null)
-                _entityLookup.GetEntitiesInRange(xform.Coordinates, 8f, mindThings);
+            var mindThings = new HashSet<Entity<ActorComponent>>();
+            if (entCoord != null)
+            {
+                _entityLookup.GetEntitiesInRange(entCoord, 8f, mindThings);
+
+                if (mindThings.Count == 0)
+                {
+                    component.NetSyncEnabled = true;
+                }
+                else
+                {
+                    audioUpdate(localComp);
+                }
+            }
         }
-
     }
 
     private void StationRadioCVarChanged(float obj) 
@@ -67,7 +85,6 @@ public sealed class StationRadioReceiverSystem : EntitySystem
             if (receiverComponent.SoundEntity != null && _power.IsPowered(receiver))
                 {
                     receiverComponent.volume = _volume;
-                    receiverComponent.synced = false;
                     RaiseLocalEvent(receiver, new StationRadioLocalAudioChangeEvent());
                 }
         }
@@ -75,12 +92,13 @@ public sealed class StationRadioReceiverSystem : EntitySystem
 
     private void audioUpdate(StationRadioReceiverComponent comp)
     {
-        if(comp.SoundEntity != null && !comp.synced) {
+        if(comp.SoundEntity != null) {
             AudioComponent? component = null;
             Resolve(comp.SoundEntity.Value, ref component);
             if (component != null) 
                 component.NetSyncEnabled = false;
         }
+        comp.volume = _cfgMan.GetCVar(OmuCVars.StationRadioVolume);
         _audio.SetGain(comp.SoundEntity, comp.Active ? comp.volume : 0f);
     }
     private void OnAudioChanged(EntityUid uid, StationRadioReceiverComponent comp, StationRadioLocalAudioChangeEvent args)
