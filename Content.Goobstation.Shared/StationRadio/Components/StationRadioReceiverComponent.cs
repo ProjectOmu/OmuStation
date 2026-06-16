@@ -19,9 +19,6 @@ public sealed partial class StationRadioReceiverComponent : Component
     [DataField]
     public float volume = 0.0f;
 
-    [DataField]
-    public bool synced = true;
-
     /// <summary>
     /// The audio component being played
     /// </summary>

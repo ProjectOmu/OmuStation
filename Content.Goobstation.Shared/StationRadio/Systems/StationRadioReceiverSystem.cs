@@ -34,6 +34,7 @@ public sealed class StationRadioReceiverSystem : EntitySystem
         SubscribeLocalEvent<StationRadioReceiverComponent, StationRadioMediaStoppedEvent>(OnMediaStopped);
         SubscribeLocalEvent<StationRadioReceiverComponent, ActivateInWorldEvent>(OnRadioToggle);
         SubscribeLocalEvent<StationRadioReceiverComponent, PowerChangedEvent>(OnPowerChanged);
+        // SubscribeLocalEvent<StationRadioReceiverComponent, ComponentInit>(OnSpawn);
 
         Subs.CVar(_cfgMan, OmuCVars.StationRadioVolume, StationRadioCVarChanged, true);
 
@@ -47,16 +48,34 @@ public sealed class StationRadioReceiverSystem : EntitySystem
         var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
 
         while (query.MoveNext(out var uid, out var mind)) {
+
+            StationRadioReceiverComponent? localComp = null;
+            if (!Resolve(uid, ref localComp))
+                continue;
+            if (localComp.NetSyncEnabled == true)
+            {
+                audioUpdate(localComp);
+            } else {
+                continue;
+            }
             TransformComponent? xform = null;
             var sourcePos = _transform.GetMapCoordinates(uid, xform);
 
             var mindThings = new HashSet<Entity<MindComponent>>();
             if (xform != null)
                 _entityLookup.GetEntitiesInRange(xform.Coordinates, 8f, mindThings);
+
+                if (mindThings.Count > 0)
+                {
+                    localComp.NetSyncEnabled = true;
+                }
         }
-
     }
-
+    // private void OnSpawn(EntityUid uid, StationRadioReceiverComponent component, ComponentInit args)
+    // {
+    //     component.volume = _cfgMan.GetCVar(OmuCVars.StationRadioVolume);
+    //     audioUpdate(component);
+    // }
     private void StationRadioCVarChanged(float obj) 
     {
         _volume = obj * 100.0f;
@@ -67,7 +86,6 @@ public sealed class StationRadioReceiverSystem : EntitySystem
             if (receiverComponent.SoundEntity != null && _power.IsPowered(receiver))
                 {
                     receiverComponent.volume = _volume;
-                    receiverComponent.synced = false;
                     RaiseLocalEvent(receiver, new StationRadioLocalAudioChangeEvent());
                 }
         }
@@ -75,13 +93,15 @@ public sealed class StationRadioReceiverSystem : EntitySystem
 
     private void audioUpdate(StationRadioReceiverComponent comp)
     {
-        if(comp.SoundEntity != null && !comp.synced) {
+        if(comp.SoundEntity != null) {
             AudioComponent? component = null;
-            Resolve(comp.SoundEntity.Value, ref component);
+            if (!Resolve(comp.SoundEntity.Value, ref component))
+                return;
             if (component != null) 
                 component.NetSyncEnabled = false;
+
+            _audio.SetGain(comp.SoundEntity, comp.Active ? comp.volume : 0f);
         }
-        _audio.SetGain(comp.SoundEntity, comp.Active ? comp.volume : 0f);
     }
     private void OnAudioChanged(EntityUid uid, StationRadioReceiverComponent comp, StationRadioLocalAudioChangeEvent args)
     {
