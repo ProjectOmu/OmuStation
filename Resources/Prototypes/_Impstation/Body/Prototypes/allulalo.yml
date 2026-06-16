@@ -1,0 +1,51 @@
+﻿- type: body
+  name: "allulalo"
+  id: Allulalo
+  root: chest
+  slots:
+    head:
+      part: HeadAllulalo
+      connections:
+      - chest
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    chest:
+      part: ChestAllulalo
+      connections:
+      - groin
+      - right arm
+      - left arm
+      - head
+      organs:
+        heart: OrganAllulaloHeart
+        lungs: OrganHumanLungs
+    groin:
+      part: GroinAllulalo
+      connections:
+      - right leg
+      - left leg
+      organs:
+        stomach: OrganAnimalStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganHumanKidneys
+    right arm:
+      part: RightArmAllulalo
+    left arm:
+      part: LeftArmAllulalo
+      connections:
+      - left hand
+    left hand:
+      part: LeftHandAllulalo
+    right leg:
+      part: RightLegAllulalo
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegAllulalo
+      connections:
+      - left foot
+    right foot:
+      part: RightFootAllulalo
+    left foot:
+      part: LeftFootAllulalo

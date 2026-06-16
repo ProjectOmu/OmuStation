@@ -32,6 +32,7 @@
             SalvageSpecialist: [ 4, 4 ]
             ShaftMiner: [ 4, 4 ] # Omu
             CargoTechnician: [ 5, 6 ]
+            Courier: [ 2, 2 ] #Omu
             # engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 2, 3 ]
@@ -42,13 +43,14 @@
             MedicalDoctor: [ 4, 5 ]
             MedicalIntern: [ 3, 3 ]
             Psychologist: [ 1, 1 ]
-            Paramedic: [ 1, 1 ]
+            Paramedic: [ 2, 2 ]
             Chemist: [ 2, 2 ]
             Virologist: [ 1, 1 ]
             # science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 6, 7 ]
             ResearchAssistant: [ 3, 3 ]
+            Roboticist: [ 2, 2 ] #Omu
             # security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
@@ -57,6 +59,7 @@
             Detective: [ 1, 1 ]
             Brigmedic: [ 1, 1 ]
             TransitPrisoner: [2, 2] # Omu - Prisoner role
+            SecuritySergeant: [ 1, 1 ] #Omu
             # service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]

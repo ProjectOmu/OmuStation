@@ -454,8 +454,6 @@
       # Goobstation - changelings
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
-      enum.HereticLivingHeartKey.Key: # goob edit - heretics
-        type: LivingHeartMenuBoundUserInterface
       enum.WizardTeleportUiKey.Key: # Goobstation - wizard
         type: WizardTeleportBoundUserInterface
         requireInputValidation: false
@@ -578,6 +576,8 @@
   - type: FireVisuals
     alternateState: Standing
   # <Goobstation>
+  - type: GrabIntent
+  - type: Grabbable
   - type: Carriable
   - type: FootprintOwner # Corvax-Next-Footprints
   - type: CPRTraining # Goobstation - Just give to everyone! This ain't MRP.

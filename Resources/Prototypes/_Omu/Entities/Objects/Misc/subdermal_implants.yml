@@ -1,0 +1,74 @@
+- type: entity
+  parent: BaseSubdermalImplant
+  id: BluespaceLifelineImplant50TC
+  name: bluespace lifeline implant
+  description: Teleports the hosts body to Central Command on activation. They will not be able to return.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    permanent: true
+    implantAction: ActionActivateBluespaceLifeline
+  - type: MansusGraspBlockTrigger
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: TriggerOnActivateImplant
+  - type: WarpParentOnTrigger
+    warpLocation: "CentComm"
+  - type: SpawnOnTrigger
+    proto: BluespaceLifelineSpawnCore50TC
+  - type: Tag
+    tags:
+    - SubdermalImplant
+    - HideContextMenu
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: BluespaceLifelineImplant100TC
+  name: bluespace lifeline implant
+  description: Teleports the hosts body to Central Command on activation. They will not be able to return.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    permanent: true
+    implantAction: ActionActivateBluespaceLifeline
+  - type: MansusGraspBlockTrigger
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: TriggerOnActivateImplant
+  - type: WarpParentOnTrigger
+    warpLocation: "CentComm"
+  - type: SpawnOnTrigger
+    proto: BluespaceLifelineSpawnCore100TC
+  - type: Tag
+    tags:
+    - SubdermalImplant
+    - HideContextMenu
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MindShieldImplantCentCommAntagImmune
+  name: centcomm mindshield implant
+  description: This implant will ensure loyalty to Nanotrasen and prevent mind control devices.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+  - type: MindShieldImplant
+  - type: ComponentsImplant
+    added:
+    - type: AntagImmune
+    - type: TargetObjectiveImmune
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MindShieldImplantCentComm
+  name: centcomm mindshield implant
+  description: This implant will ensure loyalty to Nanotrasen and prevent mind control devices.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+  - type: MindShieldImplant
+  - type: ComponentsImplant
+    added:
+    - type: TargetObjectiveImmune

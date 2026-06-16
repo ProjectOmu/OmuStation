@@ -90,7 +90,21 @@
   components:
   - type: Sprite
     sprite: _Omu/Objects/Weapons/Guns/Revolvers/T8.rsi
-    state: base
+    layers:
+    - state: base
+    - state: base-unshaded
+      shader: unshaded
+  - type: Item
+    heldPrefix: inhand
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right
+      - state: inhand-right-unshaded
+        shader: unshaded
   - type: Clothing
     sprite: _Omu/Objects/Weapons/Guns/Revolvers/T8.rsi
   - type: AmmoCounter

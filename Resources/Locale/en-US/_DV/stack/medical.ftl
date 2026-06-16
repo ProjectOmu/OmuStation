@@ -1,1 +1,2 @@
-stack-oil-pack = oil pack
+# omu
+stack-oil-pack = coolant bottle

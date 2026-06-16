@@ -88,6 +88,8 @@ using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Serialization;
 using PryUnpoweredComponent = Content.Shared.Prying.Components.PryUnpoweredComponent;
+using Content.Shared._Mono.NoHack; // Omu, can people stop trying to break protected grids.
+using Content.Shared._Mono.NoDeconstruct; // Omu, can people stop trying to break protected grids.
 
 namespace Content.Shared.Prying.Systems;
 
@@ -191,6 +193,17 @@ public sealed class PryingSystem : EntitySystem
     private bool CanPry(EntityUid target, EntityUid user, out string? message, PryingComponent? comp = null, PryUnpoweredComponent? unpoweredComp = null)
     {
         BeforePryEvent canev;
+
+        if (HasComp<NoHackComponent>(target)) // Omu. Can people stop trying to break protected grids.
+        {
+            message = null;
+            return false;
+        }
+        if (HasComp<NoDeconstructComponent>(target)) // Omu. Can people stop trying to break protected grids.
+        {
+            message = null;
+            return false;
+        }
 
         if (comp != null || Resolve(user, ref comp, false))
         {

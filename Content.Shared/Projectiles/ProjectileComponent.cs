@@ -148,4 +148,10 @@ public sealed partial class ProjectileComponent : Component
     [DataField]
     public Vector2 TargetCoordinates;
     // Goobstation end
+
+    /// <summary>
+    /// Omu:    Effects how much of the PenetrateDamage is taken into account (1 = 100%)
+    /// </summary>
+    [DataField]
+    public FixedPoint2 PenetrationFactor = 1f;
 }

@@ -58,6 +58,8 @@
     - id: FoodSnackLollypopWrappedCarpEvil # Omu
     - id: CombatMedipen # Omu
     - id: MobXenomorphMaid # Omu
+    - id: MedkitCombatFilled
+    - id: PlushieRestfulOmuStaff # Omu
 
 # Fish from water
 - type: entityTable
@@ -121,9 +123,8 @@
     - id: FishBananiumOre
     - id: FishBluespaceOre
     - id: MobShark
-    - id: MedkitCombatFilled
-    - id: MaterialGoliathHide
-    
+    - id: MaterialGoliathHide1
+
 # Omu end
 
 # Items from Lava
@@ -144,7 +145,7 @@
       - !type:NestedSelector
         tableId: InsaneFishTable
         weight: 3
-        
+
 # Items from Plasma
 - type: entityTable
   id: PlasmaFishingLootTable

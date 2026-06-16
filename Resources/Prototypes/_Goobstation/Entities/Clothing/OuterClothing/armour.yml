@@ -155,7 +155,17 @@
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/cap_armored_winter_coat.rsi
   - type: Item
     size: Normal
-  - type: Armor
+  - type: Armor # Omu arms and trauma deduction
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.4
@@ -551,3 +561,14 @@
     sprite: _ShitChap/Clothing/OuterClothing/Misc/inquisitor.rsi
   - type: Clothing
     sprite: _ShitChap/Clothing/OuterClothing/Misc/inquisitor.rsi
+#senior security
+- type: entity
+  parent: ClothingOuterArmorBase
+  id: ClothingOuterArmorVeteranSecurity
+  name: Veteran security's old armor
+  description: An old version of the standard NanoTrasen bulletproof vest, its design provides better protection against surprise attacks by clowns, it still meets NT's protection standards
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Armor/veteran_security.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Armor/veteran_security.rsi
