@@ -43,6 +43,18 @@
   groupBy: "Main weapon"
 
 - type: loadout
+  id: SecurityOfficerEG1
+  dummyEntity: WeaponLaserCellRevolver
+  equipment:
+    pocket1: WeaponLaserCellRevolver
+  storage:
+    back:
+    - PowerCellIRRevolver
+    - PowerCellIRRevolver
+    - PowerCellIRRevolver
+  groupBy: "Main weapon"
+
+- type: loadout
   id: SecurityOfficerTerminus
   equipment:
     suitstorage: Terminus

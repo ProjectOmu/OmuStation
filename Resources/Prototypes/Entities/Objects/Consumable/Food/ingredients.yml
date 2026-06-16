@@ -823,6 +823,8 @@
         reagents:
         - ReagentId: Butter
           Quantity: 15
+  - type: Extractable # Omu
+    grindableSolutionName: food # Omu
   - type: SliceableFood
     count: 3
     slice: FoodButterSlice
@@ -844,6 +846,8 @@
         reagents:
         - ReagentId: Butter
           Quantity: 5
+  - type: Extractable # Omu
+    grindableSolutionName: food # Omu
   - type: Tag
     tags:
     - Slice

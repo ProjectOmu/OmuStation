@@ -143,9 +143,11 @@
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_wings.rsi
-    state: bee_primary
+    state: bee_primary_alt #omu edit - separate tail primary and neck fluff
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_wings.rsi
     state: bee_secondary
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_wings.rsi # Omu
+    state: bee_tertiary
 
 - type: marking
   id: ChitinidWingsFirefly

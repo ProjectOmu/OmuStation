@@ -1,0 +1,19 @@
+- type: entity
+  parent: BorgVial
+  id: BorgBluespaceChemistryVial
+  name: integrated bluespace vial
+  description: A high-tech internal compartment capable of holding 300 units of any liquid. Just don't try to think about the several mostly stable, largely untested, only half-understood, pinpoint-sized interdimensional portals being used to store potentially volatile chemicals that now exist inside you.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/vial_bluespace.rsi
+    layers:
+    - state: icon
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+  - type: SolutionContainerVisuals
+    maxFillLevels: 0
+    fillBaseName: null
+    inHandsMaxFillLevels: 0
+    inHandsFillBaseName: null
