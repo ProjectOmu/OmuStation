@@ -118,8 +118,8 @@
 
   addComponents: # Goobstation
   - type: NoWieldNeeded
-  - type: SlavedBorg # Goobstation: Special AI labeling for salv borgs.
-    law: SalvageObeyAI
+#  - type: SlavedBorg # Goobstation: Special AI labeling for salv borgs. Omu edit
+#    law: SalvageObeyAI Omu edit
 
   lawset: Salvage # DeltaV: Custom lawset
 
@@ -257,7 +257,7 @@
   - BorgModuleHarvesting
   - BorgModuleLollypop # Goobstation
 
-  lawset: Crewsimov # DeltaV: Custom lawset # Omu - Changed from Clown to Crewsimov since the chassis is made with tools for most of service, not just clowning.
+  lawset: Clown # Omu edit
 
   radioChannels:
   - Science
