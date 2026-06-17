@@ -13,3 +13,21 @@
     gas: WaterVapor
   products:
     Syrup: 1
+
+- type: reaction
+  id: SalicOxanDecomp #Tired of lazy doctors mixing SaliOxan
+  reactants:
+    Oxandrolone:
+      amount: 4
+    SalicylicAcid:
+      amount: 4
+  products:
+    TranexamicAcid: 1
+    FluorosulfuricAcid: 1
+    Bicaridine:  1
+    Dermaline: 1
+    Leporazine: 1
+    Phenol: 1
+    Water: 1
+    Ammonia: 1
+    
