@@ -136,7 +136,10 @@
       slotFlags: HEAD
       uiWindowPos: 2,3
       strippingWindowPos: 2,0
-      displayName: Head
+      displayName: Hat
+      dependsOn: head
+      dependsOnComponents:
+      - type: PlasmamanSafe
       blacklist:
         tags:
           - PlasmamanSafe
