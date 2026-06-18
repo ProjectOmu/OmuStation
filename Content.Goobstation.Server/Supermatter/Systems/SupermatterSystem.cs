@@ -101,7 +101,6 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         SubscribeLocalEvent<SupermatterComponent, InteractUsingEvent>(OnItemInteract);
         SubscribeLocalEvent<SupermatterComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<SupermatterComponent, SupermatterDoAfterEvent>(OnGetSliver);
-        SubscribeLocalEvent<SupermatterComponent, TriggerEvent>(GetEventType);
     }
 
     private void OnComponentRemove(EntityUid uid, SupermatterComponent component, ComponentRemove args)
@@ -172,6 +171,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         if (sm.SMAngerValue >= sm.SMEventSetpoint)
         {
+            var eventtorun = GetEventType(sm);
             sm.SMAngerValue = 0f;
         }
     }
