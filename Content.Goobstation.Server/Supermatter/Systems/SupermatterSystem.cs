@@ -62,6 +62,9 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
 using Robust.Shared.Prototypes;
 using Content.Shared.Random;
+using Content.Shared.Random.Helpers;
+using Robust.Shared.Random;
+using Robust.Shared.Toolshed.TypeParsers;
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
@@ -82,6 +85,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     private DelamType _delamType = DelamType.Explosion;
 
@@ -731,14 +735,23 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         }
     }
 
-    private void GetEventType(SupermatterComponent sm)
+    private string GetEventType(SupermatterComponent sm)
     {
+
+
         if (sm.SMLastAnger >= sm.HarshEventThreshold)
         {
             var events = _proto.Index<WeightedRandomPrototype>(sm.HarshEvents);
-            var event = events.Pick(_random);
-            RaiseLocalEvent
+            var chosenevent = events.Pick(_random);
+            return (chosenevent);
         }
+        else
+        {
+            var events = _proto.Index<WeightedRandomPrototype>(sm.NormalEvents);
+            var chosenevent = events.Pick(_random);
+            return (chosenevent);
+        }
+
     }
 
     #endregion

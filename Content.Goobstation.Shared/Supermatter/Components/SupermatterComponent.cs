@@ -387,22 +387,7 @@ public sealed partial class SupermatterComponent : Component
     [DataField("detonationRads")]
     public float DetonationRads = 200f;
 
-    /// <summary>
-    /// The SM's current anger value, increments to a setpoint then triggers an event
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float SMAngerValue = 0f;
-    /// <summary>
-    /// The setpoint at which the SM does an event.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float SMEventSetpoint = 5000f;
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float SMLastAnger = 0f
-
-    [DataField(required: true)]
-    public ProtoId<WeightedRandomPrototype> HarshEvents = string.Empty;
 
 
     #endregion SM Delamm
@@ -457,6 +442,40 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public SupermatterStatusType Status = SupermatterStatusType.Inactive;
     #endregion EE
+
+    #region Events
+    /// <summary>
+    /// The SM's current anger value, increments to a setpoint then triggers an event
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float SMAngerValue = 0f;
+    /// <summary>
+    /// The setpoint at which the SM does an event.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float SMEventSetpoint = 5000f;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float SMLastAnger = 0f;
+
+    [ViewVariablesAttribute(VVAccess.ReadOnly)]
+    [DataField(required: true)]
+    public ProtoId<WeightedRandomPrototype> HarshEvents = string.Empty;
+
+    [ViewVariablesAttribute(VVAccess.ReadOnly)]
+    [DataField(required: true)]
+    public ProtoId<WeightedRandomPrototype> NormalEvents = string.Empty;
+
+    public sealed partial class SupermatterEventPrototype : IPrototype
+    {
+        [IdDataField]
+        public string ID { get; private set; } = default!;
+
+        public string Type { get; private set; } = default!;
+        public LocId Announcement;
+    }
+
+    #endregion Events
 }
 
 [Serializable, NetSerializable]

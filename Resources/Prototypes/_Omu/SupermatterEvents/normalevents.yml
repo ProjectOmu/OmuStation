@@ -1,0 +1,6 @@
+- type: weightedRandom
+  id: NormalEvents
+  weights:
+    GasSpillOxy: 1
+    GasSpillPlasma: 1
+    GasSpillNitrium: 1

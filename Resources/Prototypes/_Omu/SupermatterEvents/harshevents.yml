@@ -1,0 +1,11 @@
+- type: weightedRandom
+  id: HarshEvents
+  weights:
+    GasSpillOxy: 1
+    GasSpillPlasma: 1
+    GasSpillNitrium: 1
+
+- type: supermatterEvent
+  id: GasSpillOxy
+  type: Gas
+  announcement: Gas-Spill-Oxy
