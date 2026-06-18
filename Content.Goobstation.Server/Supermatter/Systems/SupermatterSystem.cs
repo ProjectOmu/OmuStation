@@ -47,8 +47,10 @@ using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Radiation.Components;
+using Content.Shared.SmartFridge;
 using Content.Shared.Tag;
 using Content.Shared.Throwing;
+using Content.Shared.Trigger;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -58,6 +60,8 @@ using Robust.Shared.Maths;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
+using Robust.Shared.Prototypes;
+using Content.Shared.Random;
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
@@ -77,6 +81,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     private DelamType _delamType = DelamType.Explosion;
 
@@ -92,6 +97,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         SubscribeLocalEvent<SupermatterComponent, InteractUsingEvent>(OnItemInteract);
         SubscribeLocalEvent<SupermatterComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<SupermatterComponent, SupermatterDoAfterEvent>(OnGetSliver);
+        SubscribeLocalEvent<SupermatterComponent, TriggerEvent>(GetEventType);
     }
 
     private void OnComponentRemove(EntityUid uid, SupermatterComponent component, ComponentRemove args)
@@ -159,6 +165,11 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             sm.YellAccumulator -= sm.YellTimer;
             HandleAnnouncements(uid, sm);
         }
+
+        if (sm.SMAngerValue >= sm.SMEventSetpoint)
+        {
+            sm.SMAngerValue = 0f;
+        }
     }
 
     #region Processing
@@ -200,9 +211,16 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         var h2OBonus = 1 - gases[Gas.WaterVapor] * 0.25f;
 
+        var angerModifier = gases.Sum(gas => gases[gas.Key] * facts[gas.Key].AngerValue);
+
         powerRatio = Math.Clamp(powerRatio, 0, 1);
         heatModifier = Math.Max(heatModifier, 0.5f);
         transmissionBonus *= h2OBonus;
+        angerModifier = Math.Min(angerModifier, 0);     //sets the minimum to 0, you can't make it go into negatives.
+
+        // Increments the SM's anger value, to eventually trigger an event.
+        sm.SMAngerValue += angerModifier;
+        sm.SMLastAnger = angerModifier;
 
         // Effects the damage heat does to the crystal
         sm.DynamicHeatResistance = 1f;
@@ -694,7 +712,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         sm.Damage += sm.DelaminationPoint / 10;
         sm.DamageArchived += sm.DelaminationPoint / 10;
         sm.SliverRemoved = true;
-        
+
         var integrity = GetIntegrity(sm).ToString("0.00");
         SupermatterAnnouncement(uid, Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", integrity)), true, "Central Command");
 
@@ -710,6 +728,16 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         if (args.IsInDetailsRange)
         {
             args.PushMarkup(Loc.GetString("supermatter-examine-integrity", ("integrity", GetIntegrity(sm).ToString("0.00"))));
+        }
+    }
+
+    private void GetEventType(SupermatterComponent sm)
+    {
+        if (sm.SMLastAnger >= sm.HarshEventThreshold)
+        {
+            var events = _proto.Index<WeightedRandomPrototype>(sm.HarshEvents);
+            var event = events.Pick(_random);
+            RaiseLocalEvent
         }
     }
 

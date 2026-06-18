@@ -29,6 +29,9 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager.Attributes;
 using Robust.Shared.ViewVariables;
+using Robust.Shared.Utility;
+using Robust.Shared.Prototypes;
+using Content.Shared.Random;
 
 namespace Content.Goobstation.Shared.Supermatter.Components;
 
@@ -344,6 +347,12 @@ public sealed partial class SupermatterComponent : Component
     [DataField("maxspaceexposureDamage")]
     public float MaxSpaceExposureDamage = 2;
 
+    /// <summary>
+    ///
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField("harsheventThreshold")]
+    public float HarshEventThreshold = 20f;
     #endregion SM Threshold
 
     #region SM Delamm
@@ -378,6 +387,24 @@ public sealed partial class SupermatterComponent : Component
     [DataField("detonationRads")]
     public float DetonationRads = 200f;
 
+    /// <summary>
+    /// The SM's current anger value, increments to a setpoint then triggers an event
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float SMAngerValue = 0f;
+    /// <summary>
+    /// The setpoint at which the SM does an event.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float SMEventSetpoint = 5000f;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float SMLastAnger = 0f
+
+    [DataField(required: true)]
+    public ProtoId<WeightedRandomPrototype> HarshEvents = string.Empty;
+
+
     #endregion SM Delamm
 
     #region SM Gas
@@ -406,21 +433,21 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     ///     Stores each gas facts
     /// </summary>
-    public readonly Dictionary<Gas, (float TransmitModifier, float HeatPenalty, float PowerMixRatio)> GasDataFields = new()
+    public readonly Dictionary<Gas, (float TransmitModifier, float HeatPenalty, float PowerMixRatio, float AngerValue)> GasDataFields = new()   //AngerValue refers to the arbritary value added to cause the SM to trigger events.
     {
-        [Gas.Oxygen] = (TransmitModifier: 1.5f, HeatPenalty: 1f, PowerMixRatio: 1f),
-        [Gas.Nitrogen] = (TransmitModifier: 0f, HeatPenalty: -1.5f, PowerMixRatio: -1f),
-        [Gas.CarbonDioxide] = (TransmitModifier: 0f, HeatPenalty: 0.1f, PowerMixRatio: 1f),
-        [Gas.Plasma] = (TransmitModifier: 4f, HeatPenalty: 15f, PowerMixRatio: 1f),
-        [Gas.Tritium] = (TransmitModifier: 30f, HeatPenalty: 10f, PowerMixRatio: 1f),
-        [Gas.WaterVapor] = (TransmitModifier: 2f, HeatPenalty: 12f, PowerMixRatio: 1f),
-        [Gas.Frezon] = (TransmitModifier: 3f, HeatPenalty: -10f, PowerMixRatio: -1f),
-        [Gas.Ammonia] = (TransmitModifier: 0f, HeatPenalty: .5f, PowerMixRatio: 1f),
-        [Gas.NitrousOxide] = (TransmitModifier: 0f, HeatPenalty: -5f, PowerMixRatio: -1f),
-        [Gas.Nitrium] = (TransmitModifier: 0f, HeatPenalty: -5f, PowerMixRatio: -1f), // EE Gas compatibility (Need to Change)
-        [Gas.BZ] = (TransmitModifier: 0f, HeatPenalty: 5f, PowerMixRatio: 1f), // Assmos - /tg/ gases
-        [Gas.Healium] = (TransmitModifier: 2.4f, HeatPenalty: 4f, PowerMixRatio: 1f), // Assmos - /tg/ gases
-        [Gas.Pluoxium] = (TransmitModifier: 0f, HeatPenalty: -2.5f, PowerMixRatio: -1f), // Assmos - /tg/ gases
+        [Gas.Oxygen] = (TransmitModifier: 1.5f, HeatPenalty: 1f, PowerMixRatio: 1f, AngerValue: 1f),
+        [Gas.Nitrogen] = (TransmitModifier: 0f, HeatPenalty: -1.5f, PowerMixRatio: -1f, AngerValue: -1f),
+        [Gas.CarbonDioxide] = (TransmitModifier: 0f, HeatPenalty: 0.1f, PowerMixRatio: 1f, AngerValue: 3f),
+        [Gas.Plasma] = (TransmitModifier: 4f, HeatPenalty: 15f, PowerMixRatio: 1f, AngerValue: 5f),
+        [Gas.Tritium] = (TransmitModifier: 30f, HeatPenalty: 10f, PowerMixRatio: 1f, AngerValue: 10f),
+        [Gas.WaterVapor] = (TransmitModifier: 2f, HeatPenalty: 12f, PowerMixRatio: 1f, AngerValue: 3f),
+        [Gas.Frezon] = (TransmitModifier: 3f, HeatPenalty: -10f, PowerMixRatio: -1f, AngerValue: -5f),
+        [Gas.Ammonia] = (TransmitModifier: 0f, HeatPenalty: .5f, PowerMixRatio: 1f, AngerValue: 1f),
+        [Gas.NitrousOxide] = (TransmitModifier: 0f, HeatPenalty: -5f, PowerMixRatio: -1f, AngerValue: -3f),
+        [Gas.Nitrium] = (TransmitModifier: 0f, HeatPenalty: -5f, PowerMixRatio: -1f, AngerValue: 10f), // EE Gas compatibility (Need to Change)
+        [Gas.BZ] = (TransmitModifier: 0f, HeatPenalty: 5f, PowerMixRatio: 1f, AngerValue: 3f), // Assmos - /tg/ gases
+        [Gas.Healium] = (TransmitModifier: 2.4f, HeatPenalty: 4f, PowerMixRatio: 1f, AngerValue: -5f), // Assmos - /tg/ gases
+        [Gas.Pluoxium] = (TransmitModifier: 0f, HeatPenalty: -2.5f, PowerMixRatio: -1f, AngerValue: -3f), // Assmos - /tg/ gases
     };
 
     #endregion SM Gas
