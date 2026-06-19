@@ -101,7 +101,6 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         SubscribeLocalEvent<SupermatterComponent, InteractUsingEvent>(OnItemInteract);
         SubscribeLocalEvent<SupermatterComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<SupermatterComponent, SupermatterDoAfterEvent>(OnGetSliver);
-        SubscribeLocalEvent<SupermatterComponent, ComponentStartup>(OnComponentStartup);
     }
 
     private void OnComponentRemove(EntityUid uid, SupermatterComponent component, ComponentRemove args)
@@ -109,12 +108,6 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         // turn off any ambient if component is removed (ex. entity deleted)
         _ambient.SetAmbience(uid, false);
         component.AudioStream = _audio.Stop(component.AudioStream);
-    }
-
-    private void OnComponentStartup(EntityUid uid, SupermatterComponent component, ref ComponentStartup args)
-    {
-        _proto.TryIndex(component.HarshEvents, out var harsheventsTable);
-        _proto.TryIndex(harsheventsTable.Weights.);
     }
 
     private void OnMapInit(EntityUid uid, SupermatterComponent component, MapInitEvent args)
