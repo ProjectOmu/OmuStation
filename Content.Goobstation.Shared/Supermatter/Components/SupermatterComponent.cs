@@ -32,6 +32,7 @@ using Robust.Shared.ViewVariables;
 using Robust.Shared.Utility;
 using Robust.Shared.Prototypes;
 using Content.Shared.Random;
+using Robust.Shared.Toolshed.TypeParsers;
 
 namespace Content.Goobstation.Shared.Supermatter.Components;
 
@@ -460,24 +461,22 @@ public sealed partial class SupermatterComponent : Component
 
     [ViewVariablesAttribute(VVAccess.ReadOnly)]
     [DataField(required: true)]
-    public ProtoId<WeightedRandomPrototype> HarshEvents = string.Empty;
+    public ProtoId<WeightedRandomPrototype> HarshEvents = "HarshEvents";
 
     [ViewVariablesAttribute(VVAccess.ReadOnly)]
     [DataField(required: true)]
-    public ProtoId<WeightedRandomPrototype> NormalEvents = string.Empty;
-
-    public sealed partial class SupermatterEventPrototype : IPrototype
-    {
-        [IdDataField]
-        public string ID { get; private set; } = default!;
-
-        public string Type { get; private set; } = default!;
-        public LocId Announcement;
-    }
-
-    #endregion Events
+    public ProtoId<WeightedRandomPrototype> NormalEvents = "NormalEvents";
 }
-
+public sealed partial class SupermatterEventPrototype : IPrototype
+{
+    [IdDataField]
+    public string ID { get; private set; } = default!;
+    public string Type { get; set; } = default!;
+    public Gas GasToSpawn { get; set; } = default!;
+    public string ProtoToSpawn { get; set; } = default!;
+    public LocId Announcement;
+}
+#endregion
 [Serializable, NetSerializable]
 public sealed partial class SupermatterDoAfterEvent : SimpleDoAfterEvent
 {

@@ -101,6 +101,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         SubscribeLocalEvent<SupermatterComponent, InteractUsingEvent>(OnItemInteract);
         SubscribeLocalEvent<SupermatterComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<SupermatterComponent, SupermatterDoAfterEvent>(OnGetSliver);
+        SubscribeLocalEvent<SupermatterComponent, ComponentStartup>(OnComponentStartup);
     }
 
     private void OnComponentRemove(EntityUid uid, SupermatterComponent component, ComponentRemove args)
@@ -108,6 +109,12 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         // turn off any ambient if component is removed (ex. entity deleted)
         _ambient.SetAmbience(uid, false);
         component.AudioStream = _audio.Stop(component.AudioStream);
+    }
+
+    private void OnComponentStartup(EntityUid uid, SupermatterComponent component, ref ComponentStartup args)
+    {
+        _proto.TryIndex(component.HarshEvents, out var harsheventsTable);
+        _proto.TryIndex(harsheventsTable.Weights.);
     }
 
     private void OnMapInit(EntityUid uid, SupermatterComponent component, MapInitEvent args)
@@ -169,10 +176,30 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             HandleAnnouncements(uid, sm);
         }
 
-        if (sm.SMAngerValue >= sm.SMEventSetpoint)
+        if (sm.SMAngerValue < 0) //Omu - Sm events start
         {
-            var eventtorun = GetEventType(sm);
+            sm.SMAngerValue = 0f;  //no negative numbers plz
+        }
+        else if (sm.SMAngerValue >= sm.SMEventSetpoint)  //if we are above the setpoint, do something
+        {
+            var eventtorunID = GetEventType(sm); //get what we do
             sm.SMAngerValue = 0f;
+            if (eventtorunID == null)
+            {
+                return;
+            }
+            var eventtorun = _proto.Index<SupermatterEventPrototype>(eventtorunID);
+            if (eventtorun.Type == "Gas")   //If its a gas event - create the gas
+            {
+                var mix = _atmosphere.GetContainingMixture(uid, true, true);
+                if (mix == null)
+                    return;
+                mix.AdjustMoles(eventtorun.GasToSpawn, 2000f);
+            }
+            else if (eventtorun.Type == "Spawn")    //If its a spawn event - spawn what we want next to the SM
+            {
+                SpawnNextToOrDrop(eventtorun.ProtoToSpawn, uid);
+            }
         }
     }
 
@@ -734,10 +761,10 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             args.PushMarkup(Loc.GetString("supermatter-examine-integrity", ("integrity", GetIntegrity(sm).ToString("0.00"))));
         }
     }
-
+    #endregion
+    #region SM events
     private string GetEventType(SupermatterComponent sm)
     {
-
 
         if (sm.SMLastAnger >= sm.HarshEventThreshold)
         {
