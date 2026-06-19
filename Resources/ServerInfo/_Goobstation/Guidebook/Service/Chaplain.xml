@@ -18,6 +18,7 @@ If you don't already have one, build an altar and find an offering to place on-t
 
   <Box>
     <GuideEntityEmbed Entity="AltarBananium"/>
+    <GuideEntityEmbed Entity="AltarConvertBlue"/>
     <GuideEntityEmbed Entity="AltarChaos"/>
     <GuideEntityEmbed Entity="AltarDruid"/>
     <GuideEntityEmbed Entity="AltarClock"/>
@@ -39,6 +40,7 @@ If you don't already have one, build an altar and find an offering to place on-t
 These altars can be constructed by placing the following offerings atop your base convert altar:
 
 - Bananium Altar: 1 x Bananium
+- Blue Altar: 1 x Makeshift Shield
 - Chaos Altar: 1 x Plasma
 - Druid Altar: 1 x Wooden Plank
 - Fanged Altar: 1 x Raw Meat
@@ -46,7 +48,7 @@ These altars can be constructed by placing the following offerings atop your bas
 - Maints Altar: 1 x Budget Insulated Gloves
 - Nanotrasen Altar: 1 x Plasteel
 - Space-Christian Altar: 1 x Nun Hood
-- Technology Altar: 1 x Capacitor
+- Technology Altar: 1 x Modular Machine Part
 - Toolbox Altar: 1 x Toolbox
 - Clockwork Altar: 1 x Small Power Cell
 - Draconic Altar: 1 x Carp plushie
@@ -55,26 +57,60 @@ These altars can be constructed by placing the following offerings atop your bas
 ## Holy Artefacts
 
 ### Armaments Beacon
-Allows you to choose a set of armor. All armors have identical stats.
+Allows you to choose a set of armor. All armors have identical stats:
+
+- Blunt resistance: 50%
+- Slash resistance: 50%
+- Piercing resistance: 50%
+- Head resistance: 50%
+- Caustic resistance: 50%
 
 ### Null Rod
 The obsidian rod will be your defense against the forces of evil. [color=blue][bold] Having it in your hands will make you completely immune to the effects of magic. [/bold][/color]
 
 You can transform it into a holy weapon of choice by placing it on an altar!
 
+<Box>
+    <GuideEntityEmbed Entity="HonkmotherMaw"/>
+    <GuideEntityEmbed Entity="Bulwark"/>
+    <GuideEntityEmbed Entity="GodHand"/>
+    <GuideEntityEmbed Entity="MonkStaff"/>
+    <GuideEntityEmbed Entity="RatvarianSpear"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="ArrythmicKnife"/>
+    <GuideEntityEmbed Entity="HolyClaymore"/>
+    <GuideEntityEmbed Entity="UristHand"/>
+    <GuideEntityEmbed Entity="AtheistFedora"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="Rosary"/>
+    <GuideEntityEmbed Entity="ClothingBeltHolsterFilledChaplain"/>
+    <GuideEntityEmbed Entity="HolyChainsaw"/>
+    <GuideEntityEmbed Entity="DragonsTail"/>
+    <GuideEntityEmbed Entity="InquisitorChainSword"/>
+  </Box>
+
+These are the items you recieve from each altar:
+
+- Bananium Altar: Honkmother's Maw
+- Blue Altar: Bulwark
+- Chaos Altar: Hand of God
+- Druid Altar: Monk Staff
+- Fanged Altar: Arrythmic Knife
+- Heaven Altar: Holy Claymore
+- Maints Altar: Grey Emperor's Glove
+- Nanotrasen Altar: Atheist's Fedora
+- Space-Christian Altar: Rosary
+- Technology Altar: Chaplains' Holster containing Jackal and Casul
+- Toolbox Altar: Holy Chainsaw
+- Clockwork Altar: Ancient Spear
+- Draconic Altar: Dragon's Tail
+- Imperial altar: Chain Sword
+
 ### Enchanting
 
 You can use your Bible and any Altar of your choosing to [textlink="enchant items." link="Enchanting"]
-
-### Spirit Candles
-You can craft a spirit candle by putting a candle on a skull. Spirit Candles are useful against evil spirits like Wraith.
-
-When they are ignited, they create a 12x12 tile area that reveals evil spirits. It also has a special function when you use it in-hand.
-By using it [bold]when an evil spirit is within(!!) your 12x12 area[/bold], it will make them corporeal.
-
-It has 2 charges per spirit candle, and [bold]it only consumes a charge when you reveal the evil spirit[/bold].
-
-It drops the skull once the candle has melted, so you can craft another one.
 
 ## Duties
 
