@@ -200,7 +200,7 @@
     - MobHumanWardenSuit
 
 - type: entity
-  name: Brigmedic Suit Spawner
+  name: Corpsman Suit Spawner # Omu - rename Brigmedic to Corpsman
   id: SpawnMobHumanBrigmedicSuit
   parent: MarkerBase
   suffix: DEBUG
@@ -290,7 +290,7 @@
     - MobHumanHos
 
 - type: entity
-  name: Brigmedic Spawner
+  name: Corpsman Spawner # Omu - rename Brigmedic to Corpsman
   id: SpawnMobHumanBrigmedic
   parent: MarkerBase
   suffix: DEBUG

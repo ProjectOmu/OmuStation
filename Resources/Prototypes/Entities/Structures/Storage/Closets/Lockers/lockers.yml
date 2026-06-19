@@ -93,8 +93,25 @@
 - type: entity
   id: LockerSalvageSpecialist
   parent: LockerBase
-  name: salvage specialist's equipment
-  description: Nevermind the pickaxe.
+  name: salvage specialist's locker # Lavaland Change
+  description: Contains equipment useful for space exploration. # Lavaland Change
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    # Lavaland Change start - new sprite for the locker
+    stateBaseClosed: cargo
+    stateDoorOpen: cargo_open
+    stateDoorClosed: salvage_door
+    # Lavaland Change end
+  - type: AccessReader
+    access: [["Salvage"]]
+
+# Lavaland Change start - Shaft miner role
+- type: entity
+  id: LockerShaftMiner
+  parent: LockerBase
+  name: shaft miner's locker
+  description: Contains equipment useful for planet exploration.
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -103,6 +120,7 @@
     stateDoorClosed: mining_door
   - type: AccessReader
     access: [["Salvage"]]
+# Lavaland Change end
 
 # Command
 - type: entity
@@ -303,7 +321,7 @@
     stateDoorOpen: paramed_open
     stateDoorClosed: paramed_door
   - type: AccessReader
-    access: [ [ "Medical" ] ]
+    access: [ [ "Paramedic" ] ] # Omu, replace Medical access with Paramedic access
 
 
 # Chemical
@@ -389,11 +407,11 @@
   - type: AccessReader
     access: [["Armory"]]
 
-# Brigmedic
+# Brigmedic | Omu - You mean Corpsman?
 - type: entity
   id: LockerBrigmedic
   parent: LockerBaseSecure
-  name: brigmedic locker
+  name: corpsman locker # Omu - rename Brigmedic to Corpsman
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -401,7 +419,7 @@
     stateDoorOpen: armory_open
     stateDoorClosed: brigmedic_door
   - type: AccessReader
-    access: [["Security"]] # goob edit
+    access: [["Corpsman"]] # goob edit # Omu, replace Security access with Corpsman access
 
 # Security Officer
 - type: entity

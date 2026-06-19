@@ -150,12 +150,20 @@
 #      inverted: true
 #      species:
 #      - Felinid #Omu, add back Felinid
+  - !type:OverallPlaytimeRequirement
+    time: 36000 #10 hours - Omu Edit
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
   supervisors: job-supervisors-captain
   #canBeAntag: false
   antagAdvantage: 75 # Goobstation
+  guides: # goobstation
+  - Science
+  - Command
+  - ResearchDirectorSOP
+  - ScienceSOP
+  - CommandTrainingManual # Omu
   goobcoins: 40 #Goob content
   access:
   - Research
@@ -164,7 +172,8 @@
   - ResearchDirector
   - Brig
   - Cryogenics
-  - External # goobstation
+  - External # Goobstation
+  - Robotics # Omu
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

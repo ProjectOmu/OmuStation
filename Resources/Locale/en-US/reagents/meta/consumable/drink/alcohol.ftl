@@ -114,7 +114,7 @@ reagent-name-banana-honk = Banana Honk
 reagent-desc-banana-honk = A drink from Clown Heaven.
 
 reagent-name-barefoot = barefoot
-reagent-desc-barefoot = Barefoot and pregnant.
+reagent-desc-barefoot = A cassis milkshake, made from cream, fruit juice, and vermouth wine.
 
 reagent-name-beepsky-smash = Beepsky smash
 reagent-desc-beepsky-smash = Deny drinking this and prepare for THE LAW.
@@ -370,6 +370,11 @@ reagent-desc-mimosa = Perfect for a lively brunch out with the girls.
 
 reagent-name-moscow-mule = moscow mule
 reagent-desc-moscow-mule = A surpsingly strong and refreshing mixed drink, served in an iconic copper mug.
+
+# Omu start
+reagent-name-welles = the welles
+reagent-desc-welles = A smooth drink for the big dreamers from the lower classes in Night City. Made with love and mourning.
+# Omu end
 
 reagent-name-the-sun-also-rises = the sun also rises
 reagent-desc-the-sun-also-rises = A strong cocktail mixed into a murky blend. A secret favorite of tortured authors.

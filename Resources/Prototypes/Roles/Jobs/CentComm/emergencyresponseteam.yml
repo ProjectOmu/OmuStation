@@ -127,13 +127,14 @@
   accessGroups:
   - AllAccess
   access:
+  - EmergencyResponseTeam # Omu
   - CentralCommand
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
   special: # Goobstation
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ] # Omu, use CC mindshield
 
 - type: startingGear
   id: ERTLeaderGear
@@ -207,6 +208,7 @@
   accessGroups:
   - AllAccess
   access:
+  - EmergencyResponseTeam # Omu
   - CentralCommand
   # Goobstation
   - NanotrasenRepresentative
@@ -218,7 +220,7 @@
     - type: CurseImmune # Goobstation - Wraith
     - type: CanEnchant #GoobStation
   - !type:AddImplantSpecial
-     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
+     implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ] # Omu, use CC mindshield
 
 - type: startingGear
   id: ERTChaplainGear
@@ -309,13 +311,14 @@
   accessGroups:
   - AllAccess
   access:
+  - EmergencyResponseTeam # Omu
   - CentralCommand
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
   special: # Goobstation
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ] # Omu, use CC mindshield
 
 - type: startingGear
   id: ERTEngineerGear
@@ -397,13 +400,14 @@
   accessGroups:
   - AllAccess
   access:
+  - EmergencyResponseTeam # Omu
   - CentralCommand
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
   special: # Goobstation
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm] # Omu, use CC mindshield
 
 - type: startingGear
   id: ERTSecurityGear
@@ -504,13 +508,14 @@
   accessGroups:
   - AllAccess
   access:
+  - EmergencyResponseTeam # Omu
   - CentralCommand
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
   special: # Goobstation
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ] # Omu, use CC mindshield
 
 - type: startingGear
   id: ERTMedicalGear
@@ -590,13 +595,14 @@
   accessGroups:
   - AllAccess
   access:
+  - EmergencyResponseTeam # Omu
   - CentralCommand
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
   special: # Goobstation
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm] # Omu, use CC mindshield
 
 - type: startingGear
   id: ERTJanitorGear

@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseItem
+  parent: [BaseItem, BaseMajorContraband] # Omu, make it contra.
   id: BaseXenomorphOrgan
   abstract: true
   components:
@@ -58,7 +58,8 @@
     onAdd:
     - type: ThermalVision
       toggleAction: ToggleThermalVisionXenomorph
-      color: "#7d0cc9"
+      color: white
+      drawOverlay: false
       lightRadius: 10
       strength: 0
       noise: 0
@@ -184,6 +185,12 @@
     state: hive_node
   - type: Organ
     slotId: hive_node
+    onAdd: # Omu start
+      - type: FacehuggerImmune
+      - type: Access # Goobstation - xeno doors
+        enabled: true
+        groups:
+          - XenomorphAccess # Omu end
   - type: HiveNode
     # TODO: Organ should give XenoHivemind language and Xeno faction
 

@@ -1,0 +1,27 @@
+- type: marking
+  id: ThavenCheekBarbels
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Thaven]
+  coloring: #imp
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/Thaven/thaven.rsi
+    state: cheek_barbels
+
+- type: marking
+  id: ThavenEyebrowBarbels
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Thaven]
+  coloring: #imp
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _DV/Mobs/Customization/Thaven/thaven.rsi
+    state: eyebrow_barbels

@@ -11,6 +11,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: loadout
+  id: SecurityJudoBelt
+  equipment:
+    belt: ClothingBeltCorporateJudoFilled
+
+- type: loadout
   id: WinterCoatSeniorSecArmored
   effects:
   - !type:GroupLoadoutEffect
@@ -27,10 +32,47 @@
     neck: ClothingNeckCWPSec
 
 - type: loadout
+  id: ClothingNeckMantleVeteranSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranOfficer
+  equipment:
+    neck: ClothingNeckMantleVeteranSecurity
+
+- type: loadout
+  id: VeteranOfficerArmor
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranOfficer
+  equipment:
+    outerClothing: ClothingOuterArmorVeteranSecurity
+
+- type: loadout
+  id: VeteranOfficerBlackJumpsuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranOfficer
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitVeteranSecurity
+
+
+- type: loadout
   id: SecurityMeleeKnife
   storage:
     back:
     - CombatKnife
+
+- type: loadout
+  id: SecurityMeleePolyBaton
+  storage:
+    back:
+    - PolymerBaton
+
+- type: loadout
+  id: SecurityMeleeSpear
+  storage:
+    back:
+    - SpearTelescopic
 
 - type: loadout
   id: SecurityOfficerEnvirosuit

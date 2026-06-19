@@ -22,7 +22,6 @@
     damage:
       types:
         Slash: 10
-        Cellular: 3
         Structural: 40
   - type: StaminaDamageOnHit
     damage: 20
@@ -72,6 +71,7 @@
   - type: MeleeDash
     emoteOnDash: null
     length: 2
+    canDashWhileWeightless: false # Omu
   - type: UseDelay
     delay: 1.5
   - type: Tag

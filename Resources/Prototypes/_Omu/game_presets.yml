@@ -1,0 +1,19 @@
+﻿- type: gamePreset
+  id: AdminEventGreenshift
+  name: adminevent-title
+  showInVote: false #admin only
+  description: adminevent-description
+  rules:
+  - SpaceTrafficControlFriendlyEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: AdminEventExtended
+  name: adminevent-title
+  showInVote: false #admin only
+  description: adminevent-description
+  rules:
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation

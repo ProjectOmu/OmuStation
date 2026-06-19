@@ -1,0 +1,145 @@
+## Injector Pens
+- type: microwaveMealRecipe
+  id: RecipeSpaceMedipen
+  name: environmental stabilization medipen
+  result: SpaceMedipen
+  time: 5
+  group: Medicinal
+  solids:
+    BlankMediPen: 1
+  reagents:
+    Leporazine: 15
+    Barozine: 15
+  recipeType: MedicalAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeCombatMedipen
+  name: combat medipen
+  result: CombatMedipen
+  time: 5
+  group: Medicinal
+  solids:
+    BlankMediPen: 1
+  reagents:
+    Omnizine: 30
+    TranexamicAcid: 5
+  recipeType: MedicalAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeWehMedipen
+  name: weh auto-injector
+  result: WehMedipen
+  time: 5
+  group: Medicinal
+  solids:
+    BlankMediPen: 1
+  reagents:
+    JuiceThatMakesYouWeh: 60
+  recipeType: MedicalAssembler
+
+## Cartridges
+- type: microwaveMealRecipe
+  id: RecipeCartridgeBrute
+  name: autoinjector cartridge (brute)
+  result: CartridgeBicaridine
+  time: 3
+  group: Medicinal
+  solids:
+    CartridgeEmpty: 1
+  reagents:
+    Bicaridine: 4
+    Ibuprofen: 4
+    SalicylicAcid: 1
+    TranexamicAcid: 1
+  recipeType: MedicalAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeCartridgeBurn
+  name: autoinjector cartridge (burn)
+  result: CartridgeDermaline
+  time: 3
+  group: Medicinal
+  solids:
+    CartridgeEmpty: 1
+  reagents:
+    Kelotane: 5
+    Dermaline: 4
+    Leporazine: 1
+  recipeType: MedicalAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeCartridgeArtopine
+  name: autoinjector cartridge (emergency)
+  result: CartridgeAtropine
+  time: 3
+  group: Medicinal
+  solids:
+    CartridgeEmpty: 1
+  reagents:
+    Atropine: 10
+  recipeType: MedicalAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeCartridgeSaline
+  name: autoinjector cartridge (airloss)
+  result: CartridgeSaline
+  time: 3
+  group: Medicinal
+  solids:
+    CartridgeEmpty: 1
+  reagents:
+    Saline: 7
+    DexalinPlus: 3
+  recipeType: MedicalAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeCartridgeAmoxla
+  name: autoinjector cartridge (amoxla)
+  result: CartridgeAmoxla
+  time: 3
+  group: Medicinal
+  solids:
+    CartridgeEmpty: 1
+  reagents:
+    Amoxla: 3
+    Sugar: 7
+  recipeType: MedicalAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeCartridgeDylo
+  name: autoinjector cartridge (poison)
+  result: CartridgeDylo
+  time: 3
+  group: Medicinal
+  solids:
+    CartridgeEmpty: 1
+  reagents:
+    Dylovene: 8
+    Multiver: 2
+  recipeType: MedicalAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeCartridgeArith
+  name: autoinjector cartridge (radiation)
+  result: CartridgeArith
+  time: 3
+  group: Medicinal
+  solids:
+    CartridgeEmpty: 1
+  reagents:
+    Hyronalin: 5
+    Arithrazine: 5
+  recipeType: MedicalAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeCartridgeEpinephrine
+  name: autoinjector cartridge (adrenaline)
+  result: CartridgeEpinephrine
+  time: 3
+  group: Medicinal
+  solids:
+    CartridgeEmpty: 1
+  reagents:
+    Epinephrine: 7
+    TranexamicAcid: 3
+  recipeType: MedicalAssembler

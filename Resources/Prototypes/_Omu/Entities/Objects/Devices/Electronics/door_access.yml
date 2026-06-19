@@ -1,0 +1,53 @@
+### Central Command
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsDeathsquad
+  suffix: Deathsquad, Locked
+  components:
+  - type: AccessReader
+    access: [["Deathsquad"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsNanotrasenSpectre
+  suffix: NanotrasenSpectre, Locked
+  components:
+  - type: AccessReader
+    access: [["NanotrasenSpectre"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsCentCommOffical
+  suffix: CentCommOffical, Locked
+  components:
+  - type: AccessReader
+    access: [["CentCommOffical"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsEmergencyResponseTeam
+  suffix: EmergencyResponseTeam, Locked
+  components:
+  - type: AccessReader
+    access: [["EmergencyResponseTeam"]]
+
+### Security
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsCorpsman
+  suffix: Corpsman, Locked
+  components:
+  - type: AccessReader
+    access: [["Corpsman"]]
+
+### Medical
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsParamedic
+  suffix: Paramedic, Locked
+  components:
+  - type: AccessReader
+    access: [["Paramedic"]]

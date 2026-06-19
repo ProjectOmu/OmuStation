@@ -33,3 +33,16 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+
+- type: entity # Starlight
+  id: OrganResomiHeart
+  parent: OrganHumanHeart
+  suffix: Resomi
+  description: "The heart of a resomi."
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [Resomi]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic

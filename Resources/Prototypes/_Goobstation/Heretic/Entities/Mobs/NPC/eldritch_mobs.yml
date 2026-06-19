@@ -79,7 +79,7 @@
     description: ghostrole-ghoul-desc
     rules: ghostrole-ghoul-rules
     mindRoles:
-    - MindRoleGhostRoleFamiliar
+    - MindRoleGhoul
     raffle:
       settings: short
   - type: CollectiveMind
@@ -103,24 +103,25 @@
   description: An abomination cobbled together from varied remains. Its appearance changes slightly every time you blink.
   components:
   - type: Ghoul
-    totalHealth: 150
+    totalHealth: 200 #OMU change, buffed health in exchange for limit of 10
     ghostRoleName: ghostrole-stalker-name
     ghostRoleDesc: ghostrole-stalker-desc
   - type: Sprite
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
     state: stalker
+  - type: Damageable #OMU change, make flesh stalkers have armor to compensate for lower numbers.
+    damageModifierSet: GhoulFleshStalker
   - type: GhostRole
     name: ghostrole-stalker-name
     description: ghostrole-stalker-desc
     mindRoles:
-    - MindRoleGhostRoleFamiliar
-  - type: ActionsProvider
+    - MindRoleGhoul
+  - type: ActionGrant
     actions:
     - ActionHereticJaunt
     # basically an EMP implant. don't feel like making 1 more emp action
     - ActionActivateEmpImplant
-    - ActionHereticShapeshift
-  - type: TriggerImplantAction
+  - type: TriggerOnActivateImplant
   - type: EmpOnTrigger
     range: 5
     energyConsumption: 50000
@@ -130,6 +131,7 @@
     baseSprintSpeed: 5
   - type: FlashImmunity
   - type: ThermalVision
+    thermalShader: null
     isActive: true
     color: white
     drawOverlay: false
@@ -169,15 +171,15 @@
     name: ghostrole-prophet-name
     description: ghostrole-prophet-desc
     mindRoles:
-    - MindRoleGhostRoleFamiliar
-  - type: ActionsProvider
+    - MindRoleGhoul
+  - type: ActionGrant
     actions:
     - ActionHereticJauntLong
     - ActionHereticMansusLink
   - type: HealingAura
     selfHealMultiplier: 2
     componentHealMultipliers:
-      Heretic: 1
+      FleshPassive: 1
       Ghoul: 2
   - type: NightVision
     color: white
@@ -210,7 +212,7 @@
     name: ghostrole-fire-shark-name
     description: ghostrole-fire-shark-desc
     mindRoles:
-    - MindRoleGhostRoleFamiliar
+    - MindRoleGhoul
   - type: Body
     prototype: null
     bodyType: Simple
@@ -278,7 +280,7 @@
     noMovementLayers:
       movement:
         state: rust_walker
-  - type: ActionsProvider
+  - type: ActionGrant
     actions:
     - ActionHereticAggressiveSpread
     - ActionHereticRustWave
@@ -394,3 +396,8 @@
       NavSmash: !type:Bool
         true
   - type: Targeting
+  - type: NightVision # Omu
+    color: white
+    activateSound: null
+    deactivateSound: null
+    drawOverlay: false

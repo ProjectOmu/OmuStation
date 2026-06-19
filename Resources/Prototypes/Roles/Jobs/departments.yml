@@ -108,6 +108,8 @@
   - CargoTechnician
   - Quartermaster
   - SalvageSpecialist
+  - ShaftMiner # Lavaland Change
+  - Courier # Omu
 
 - type: department
   id: Civilian
@@ -161,6 +163,7 @@
   - Diplomat
   - GovernmentMan # Goobstation - End
   - CentralCommandDireggtor # Omu Start
+  - CustodiiVitellus
   - CentCommIntern # Omu End
   editorHidden: true
   weight: 120
@@ -219,6 +222,7 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
+  - Virologist # Gooby goob ba gooby goob ba
 
 - type: department
   id: Security
@@ -228,6 +232,7 @@
   weight: 20
   roles:
   - HeadOfSecurity
+  - SecuritySergeant # Omu
   - SecurityCadet
   - SecurityOfficer
   - Detective
@@ -263,6 +268,7 @@
   color: "#9FED58"
   weight: 10
   roles:
+  - RadioHost # Goobstation
   - Boxer
   - Reporter
   - Zookeeper

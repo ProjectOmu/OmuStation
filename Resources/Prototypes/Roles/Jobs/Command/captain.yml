@@ -163,6 +163,12 @@
       #any MRP using our code might eventually want to use it
     # - !type:SaturationRequirement # MisandryBox - no neon hair on captain
     #   hairColorSaturation: 0.30
+  guides: # goobstation
+  - Command
+  - Succession
+  - StandardProceduresSOP
+  - CaptainSOP
+  - CommandTrainingManual # Omu
   goobcoins: 50 #Goob content
   weight: 20
   startingGear: CaptainGear
@@ -185,9 +191,9 @@
   id: CaptainGear
   equipment:
     shoes: ClothingShoesBootsLaceup
-    eyes: ClothingEyesGlassesSunglasses
+    eyes: ClothingEyesGlassesCommand
     #gloves: ClothingHandsGlovesCaptain - Goobstation, moved to loadouts
-    id: CaptainPDA
+    #id: CaptainPDA - Omu, moved to loadouts
     ears: ClothingHeadsetAltCommand
   storage:
     back:

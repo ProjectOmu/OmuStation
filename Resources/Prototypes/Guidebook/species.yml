@@ -25,6 +25,7 @@
   text: "/ServerInfo/Guidebook/Mobs/Species.xml"
   children:
     - Arachnid
+    - Allulalo # imp
     - Diona
     - Dwarf
     - Human
@@ -45,6 +46,10 @@
     - Chitinid
     - Plasmaman
     - Feroxi
+    - Thaven
+    - Xelthia # OMU - EE species
+    - Shadowkin
+    - Avali # Starlight
 
 - type: guideEntry
   id: Arachnid
@@ -132,3 +137,18 @@
   id: Plasmaman
   name: species-name-plasmaman
   text: "/ServerInfo/Guidebook/Mobs/Plasmaman.xml"
+
+- type: guideEntry
+  id: Xelthia
+  name: species-name-xelthia
+  text: "/ServerInfo/_EinsteinEngines/Guidebook/Mobs/Xelthia.xml"
+
+- type: guideEntry
+  id: Shadowkin
+  name: species-name-shadowkin
+  text: "/ServerInfo/Guidebook/Mobs/Shadowkin.xml"
+
+- type: guideEntry # Starlight
+  id: Avali
+  name: species-name-avali
+  text: "/ServerInfo/Guidebook/Mobs/Avali.xml"

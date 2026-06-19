@@ -176,6 +176,8 @@
     - id: ComputerCargoCommsFlatpack #Omu adds departmental comms board
     - id: Multitool # Omu
     - id: SlotMachineHighRollerFlatPack # Goob - gambling
+    - id: SalvageShuttleConsoleCircuitboard # Omu edit
+    - id: SalvageExpeditionsComputerCircuitboard # Omu edit
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -213,6 +215,7 @@
       conditions:
       - !type:PlayerCountCondition
         max: 15
+    - id: BookCorporateSecrets # funky
 
 # No laser table + Laser table
 - type: entityTable
@@ -221,7 +224,7 @@
     children:
     - !type:NestedSelector
       tableId: LockerFillCaptainNoLaser
-    - id: WeaponAntiqueLaser
+    - id: CaptainGunCase # Omu
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -321,6 +324,7 @@
     children:
     - id: AccessConfigurator
     - id: BoxEncryptionKeyEngineering
+    - id: ClothingOuterJacketInsulated # Omu - Port Xelthia
     - id: CigarCase
       prob: 0.15
     - id: ClothingBeltChiefEngineerFilled
@@ -331,11 +335,13 @@
     - id: CargoRequestEngineeringComputerCircuitboard
     # - id: RCD # Goobstation
     - id: RCDAmmo
-    - id: RPD
+    - id: RPDRechargingCE # Omu, replace with recharging RPD
     - id: RCDAmmo
     - id: RubberStampCE
     - id: MetalFoamGrenade
     # Goobstation V
+    - id: SupermatterComputerCircuitboard
+    - id: BaseHandheldStationMapSupermatterCe
     - id: BaseHandheldStationMapPowerCe
     - id: EngineeringTechFabCircuitboard
     - id: CartridgeRocketSingularityBuster
@@ -393,6 +399,7 @@
     - id: ClothingCloakCmo
     - id: ClothingEyesHudMedical
     - id: ClothingHandsGlovesNitrile
+    - id: ClothingOuterJacketSurgical # Omu - port Xelthia
     - id: ClothingHeadHatBeretCmo
     - id: ClothingHeadsetAltMedical
     - id: ClothingMaskSterile
@@ -404,9 +411,7 @@
     - id: MedkitFilled
     - id: RubberStampCMO
     # Goobstation Start
-    - id: CloningpodFlatpack
-    - id: MedicalScannerFlatpack
-    - id: ComputerCloningConsoleFlatpack
+    - id: ChemistryHotplateFlatPack
     - id: BiomassReclaimerFlatpack
     - id: Multitool
     - id: MedTekCartridge
@@ -416,6 +421,9 @@
     - id: ClothingBackpackDuffelSurgeryFilled
     # Shitmed
     - id: MedicalBiofabricatorFlatpack
+    # Virology
+    - id: DiseaseDiagnoserFlatPack
+    - id: VaccinatorFlatPack
     # Goobstation End
     - id: ComputerMedicalCommsFlatpack #Omu adds departmental comms board
 
@@ -478,6 +486,7 @@
     - id: ScienceTechFabCircuitboard # Goobstation - Science Techfab
     - id: ClothingBeltGeminiHoloProjector # Goobstation - Who better to do science with than yourself?
     - id: ClothingEyesGlassesSciDiag # Omustation - HUD that lets RD talk in binary hivemind!
+    - id: XenobiologyBountyComputerCircuitboard # Goobstation
     - id: MMI # Goobstation
     - id: ComputerScienceCommsFlatpack #Omu adds departmental comms board
     - id: Multitool # Omu
@@ -535,7 +544,7 @@
     - id: ClothingOuterCoatHoSTrench
     - id: ClothingShoesBootsJack
     - id: DoorRemoteSecurity
-    - id: HoloprojectorSecurity
+    #- id: HoloprojectorSecurity Goob, you have one in the belt
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
@@ -545,6 +554,7 @@
     - id: HeadOfSecurityMeleeCase # Omu
     - id: ComputerSecurityCommsFlatpack #Omu adds departmental comms board
     - id: Multitool # Omu
+    - id: HoSPetKennel #Omu
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -597,4 +607,5 @@
     - id: SpaceCash1000
     - id: BeachBall
     - id: BikeHorn
-
+    - id: FoodMango #Goobstation
+      prob: 0.65

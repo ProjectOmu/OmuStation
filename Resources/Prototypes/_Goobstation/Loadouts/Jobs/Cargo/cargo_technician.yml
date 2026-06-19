@@ -9,25 +9,25 @@
   equipment:
     head: ClothingHeadMailCarrier
 
-
 # Jumpsuit
 - type: loadout
   id: CargoTechnicianJumpsuitMail
   equipment:
     jumpsuit: ClothingUniformMailCarrier
-
+  groupBy: "jumpsuit" #Omu - loadout cleanup
 
 - type: loadout
   id: CargoTechnicianJumpskirtMail
   equipment:
     jumpsuit: ClothingUniformSkirtMailCarrier
-
+  groupBy: "jumpskirt" #Omu - loadout cleanup
 
 # OuterClothing
 - type: loadout
   id: CargoTechnicianWintercoatMail
   equipment:
     outerClothing: ClothingOuterWinterCoatMail
+  groupBy: "wintercoat" #Omu - loadout cleanup
 
 - type: loadout
   id: CargoTechnicianEnvirosuit
@@ -38,6 +38,7 @@
     species:
     - Plasmaman
 
+#Plasmaman
 - type: loadout
   id: CargoTechnicianEnvirohelm
   equipment:
@@ -73,3 +74,8 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+
+- type: loadout
+  id: CargoTechnicianOveralls
+  equipment:
+    jumpsuit: ClothingUniformOverallsCargo

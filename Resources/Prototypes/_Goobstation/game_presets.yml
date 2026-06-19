@@ -231,19 +231,6 @@
   rules:
     - SecretPlusRampingMid
 
-# hermit gamemode, internal threat focused gamemode
-- type: gamePreset
-  id: SecretPlusHermit
-  alias:
-  - secretPlusHermit
-  - The hermit
-  - Ingress
-  name: hermitplus-title
-  description: hermitplus-description
-  showInVote: true
-  rules:
-  - SecretPlusHermit
-
 - type: gamePreset
   id: Xenomorphs
   alias:
@@ -251,7 +238,7 @@
   name: xenomorph-title
   description: xenomorph-description
   showInVote: false
-  minPlayers: 1
+  minPlayers: 30  #Omu change - was 1
   rules:
   - XenomorphsInfestationRoundstart
   - SubGamemodesRule

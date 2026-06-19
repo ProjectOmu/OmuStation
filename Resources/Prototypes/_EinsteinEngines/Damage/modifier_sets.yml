@@ -47,3 +47,24 @@
     Poison: 0.8
     Radiation: 0
     Bloodloss: 0.0 # Immune to weapons that directly deal bloodloss damage
+
+- type: damageModifierSet
+  id: Smile
+  coefficients:
+    Blunt: 0.7
+    Slash: 0.7
+    Piercing: 0.7
+    Heat: 0.8
+    Shock: 0.6
+    Cold: 0.2
+    Bloodloss: 0
+    Poison: 0.4
+    Radiation: 0
+    Cellular: 0.1
+    
+- type: damageModifierSet
+  id: Xelthia
+  coefficients:
+    Cold: 1.5
+    Heat: 0.5
+    Caustic: 0

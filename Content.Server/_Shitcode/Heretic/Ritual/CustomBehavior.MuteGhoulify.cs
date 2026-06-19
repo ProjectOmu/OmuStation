@@ -18,20 +18,20 @@ public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior
 {
     public override void Finalize(RitualData args)
     {
-        if (!args.EntityManager.TryGetComponent(args.Performer, out HereticComponent? heretic))
-            return;
-
         if (args is { Limit: > 0, Limited: not null } && args.Limited.Count >= args.Limit)
             return;
 
         for (var i = 0; i < Math.Min(uids.Count, Max); i++)
         {
             var uid = uids[i];
+
+            var minion = args.EntityManager.EnsureComponent<HereticMinionComponent>(uid);
+            minion.BoundHeretic = args.Performer;
+
             var ghoul = new GhoulComponent
             {
                 TotalHealth = 100f,
                 GiveBlade = true,
-                BoundHeretic = args.Performer,
             };
             args.EntityManager.AddComponent(uid, ghoul, overwrite: true);
             args.EntityManager.EnsureComponent<MutedComponent>(uid);

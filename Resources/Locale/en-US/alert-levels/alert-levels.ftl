@@ -43,9 +43,10 @@ alert-level-delta = Delta
 alert-level-delta-announcement = The station is currently under threat of imminent destruction. Crewmembers are advised to listen to heads of staff for more information.
 alert-level-delta-instructions = Crewmembers are advised to listen to heads of staff for more information.
 
+## DeltaV - Epsilon rewrite
 alert-level-epsilon = Epsilon
-alert-level-epsilon-announcement = Central Command has ordered the Epsilon security level on the station. Consider all contracts terminated.
-alert-level-epsilon-instructions = Consider all contracts terminated.
+alert-level-epsilon-announcement = Central Command has ordered the Epsilon security level on the station. Only orders from Central Command Officials are to be obeyed by the Station's Crew. Martial Law is now in effect.
+alert-level-epsilon-instructions = Crewmember are advised to await instructions from Central Command Personnel and to follow their orders when given.
 
 alert-level-omicron = Omicron
 alert-level-omicron-announcement = Station override activated. Await further orders from Central Command staff, stay in your departments.
@@ -55,3 +56,8 @@ alert-level-omicron-instructions = Await further orders.
 alert-level-octarine = Octarine
 alert-level-octarine-announcement = A cataclysmic noospheric event threatens to envelop realspace. Station crew are to contain the event if possible, or else evacuate.
 alert-level-octarine-instructions = Crewmembers are advised to listen to heads of staff for more information.
+
+## GoobStation
+alert-level-honk = Honk
+alert-level-honk-announcement = A devious clown is on the loose and will cause cataclysmic damage if not executed! All crewmembers must collaborate in executing the clown if possible, or else evacuate.
+alert-level-honk-instructions = Crewmembers are advised to execute the clown.

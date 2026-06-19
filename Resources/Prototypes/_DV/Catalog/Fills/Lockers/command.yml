@@ -2,11 +2,14 @@
   id: AdministrativeAssistantLockerFill
   table: !type:AllSelector
     children:
-    - id: DrinkCoffeeJug # Gotta keep command awake during the greenshifts
+    - id: DrinkMugAA # Gotta keep command awake during the greenshifts # Omu, AA bluespace mug
     - id: BoxFolderBlue
     - id: ClothingUniformJumpsuitAdminAssistant
     - id: ClothingUniformJumpskirtAdminAssistant
     - id: ClothingHeadsetAltAdminAssistant
+    - id: DrinkGlass # Omu start
+    - id: DrinkGlass
+    - id: DrinkGlass # Omu end
     # - id: AdminAssistantIDCard
 
 - type: entity

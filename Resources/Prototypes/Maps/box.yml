@@ -105,10 +105,12 @@
           emergencyShuttlePath: /Maps/Shuttles/emergency_box.yml
         - type: StationJobs
           availableJobs:
-            #service
+            #command
             Captain: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ]
+            NanotrasenCareerTrainer: [ 2, 2] # Omu
             BlueshieldOfficer: [ 1, 1 ]
+            #service
             HeadOfPersonnel: [ 1, 1 ]
             AdministrativeAssistant: [ 1, 1 ] # Delta V
             Bartender: [ 2, 2 ]
@@ -118,6 +120,7 @@
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             Reporter: [ 1, 1 ]
+            RadioHost: [ 1, 1 ] # Omu
             ServiceWorker: [ 2, 2 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
@@ -128,9 +131,10 @@
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 4, 4 ]
-            Paramedic: [ 1, 1 ]
+            Paramedic: [ 2, 2 ] # Omu 1 -> 2
             MedicalIntern: [ 4, 4 ]
             Psychologist: [ 1, 1 ]
+            Virologist: [ 1, 1 ] # Omu
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 5, 5 ]
@@ -144,10 +148,13 @@
             Lawyer: [ 2, 2 ]
             Brigmedic: [ 1, 1 ]
             TransitPrisoner: [2, 2] # Omu - Prisoner role
+            SecuritySergeant: [ 1, 1 ] #Omu
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
+            ShaftMiner: [ 3, 3 ] # Omu, needs mapping
             CargoTechnician: [ 3, 3 ]
+            #Courier: [ 3, 3 ] # Omu - Courier role
             #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]

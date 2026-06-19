@@ -11,7 +11,7 @@
   supervisors: job-supervisors-ntr-centcom
   canBeAntag: false
   whitelisted: true # 1984
-  setPreference: false # 1984 x2
+  setPreference: true # Omu, enable NCT for admins
   accessGroups:
   - AllAccess
   access:
@@ -20,7 +20,7 @@
   - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, BluespaceLifelineImplant ]
+    implants: [ MindShieldImplantCentComm, BluespaceLifelineImplant ] # Omu, use CC mindshield
 #  - !type:AddComponentSpecial # Intentionally not command. I don't want them to ruin rev rounds.
 #    components:
 #    - type: CommandStaff

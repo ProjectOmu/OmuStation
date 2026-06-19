@@ -64,7 +64,7 @@
 
 - type: entity
   id: PlastitaniumWindowBase
-  parent: BaseStructure
+  parent: WindowRCDResistant # Omu, change parent
   abstract: true
   name: plastitanium window
   description: Don't smudge up the glass down there.
@@ -73,41 +73,41 @@
     snap:
     - Window
   components:
-  - type: RCDDeconstructable
-    deconstructable: false
-  - type: MeleeSound
-    soundGroups:
-      Brute:
-        collection: GlassSmack
-  - type: WallMount
-    arc: 360 # interact despite grilles
-  - type: Tag
-    tags:
-      - ForceFixRotations
-      - Window
-  - type: Physics
-    bodyType: Static
-  - type: ExaminableDamage
-    messages: WindowMessages
-  - type: InteractionPopup
-    interactSuccessString: comp-window-knock
-    messagePerceivedByOthers: comp-window-knock
-    interactSuccessSound:
-      path: /Audio/Effects/glass_knock.ogg
+#  - type: RCDDeconstructable # Omu start
+#    deconstructable: false
+#  - type: MeleeSound
+#    soundGroups:
+#      Brute:
+#        collection: GlassSmack
+#  - type: WallMount
+#    arc: 360 # interact despite grilles
+#  - type: Tag
+#    tags:
+#      - ForceFixRotations
+#      - Window
+#  - type: Physics
+#    bodyType: Static
+#  - type: ExaminableDamage
+#    messages: WindowMessages
+#  - type: InteractionPopup
+#    interactSuccessString: comp-window-knock
+#    messagePerceivedByOthers: comp-window-knock
+#    interactSuccessSound:
+#      path: /Audio/Effects/glass_knock.ogg # Omu end
   - type: Appearance
   - type: StaticPrice
     price: 100
-  - type: BlockWeather
+#  - type: BlockWeather # Omu
   - type: Fixtures
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
+          !type:PhysShapeAabb {} # Omu
+          #bounds: "-0.5,-0.5,0.5,0.5" #Omu
         mask:
         - FullTileMask
         layer:
-        - WallLayer
+        - GlassLayer # Omu
         density: 4000
 
 - type: entity
@@ -123,18 +123,18 @@
     sprite: Structures/Windows/plastitanium_window.rsi
     state: full
   - type: IconSmooth
-    key: windows
+#    key: windows # Omu
     base: ptwindow
-  - type: Airtight
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb {}
-        mask:
-        - FullTileMask
-        layer:
-        - GlassLayer
+#  - type: Airtight # Omu start
+#  - type: Fixtures
+#    fixtures:
+#      fix1:
+#        shape:
+#          !type:PhysShapeAabb {}
+#        mask:
+#        - FullTileMask
+#        layer:
+#        - GlassLayer # Omu end
 
 - type: entity
   id: PlastitaniumWindowIndestructible
@@ -142,6 +142,10 @@
   parent: PlastitaniumWindowSquareBase
   suffix: indestructible
   components:
+  # Frontier: colored indestructible windows
+  - type: Sprite
+    color: "#cdf3cd"
+  # End Frontier
   - type: ExaminableDamage
     messages: null
 
@@ -235,6 +239,10 @@
   parent: PlastitaniumWindowDiagonalBase
   suffix: diagonal, indestructible
   components:
+  # Frontier: colored indestructible windows
+  - type: Sprite
+    color: "#cdf3cd"
+  # End Frontier
   - type: ExaminableDamage
     messages: null
 

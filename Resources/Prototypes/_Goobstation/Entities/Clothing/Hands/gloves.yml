@@ -8,7 +8,9 @@
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Jarl <140098675+JarlElbowses@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Jarl <elliotacline@gmail.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
@@ -157,6 +159,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+    state: icon # Omu
   - type: Clothing
     sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
     equippedPrefix: gauntlet
@@ -166,6 +169,7 @@
   - type: Item
     sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
     heldPrefix: gauntlet
+    storedRotation: -90 # Omu
   - type: ClothingGrantComponent
     component:
     - type: Prying
@@ -328,6 +332,12 @@
   - type: Insulated
   - type: Unremoveable
 
+- type: entity
+  parent: ClothingHandsGlovesColorYellow
+  id: ClothingHandsGlovesColorYellowUnremovable
+  suffix: Unremovable
+  components:
+  - type: Unremoveable
 
 # Knuckle Dusters
 
@@ -433,3 +443,27 @@
         Blunt: 35
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: [BaseSyndicateContraband, ClothingHandsGlovesCombat]
+  id: ClothingHandsGlovesGuerrilla
+  name: guerrilla gloves
+  description: Superior quality combative gloves, good for grabs as well as absorbing electrical shocks.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/guerrilla.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/guerrilla.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#940000"
+      right:
+      - state: inhand-right
+        color: "#940000"
+  - type: GrabModifier
+    startingGrabStage: Hard
+    grabEscapeModifier: -0.1
+    grabEscapeMultiplier: 0.8
+    grabMoveSpeedMultiplier: 2 # 0.8 speed modifier on hard grab

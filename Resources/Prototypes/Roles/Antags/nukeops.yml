@@ -106,10 +106,10 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 36000 # 10h Goobstation
-  - !type:SpeciesRequirement
-    inverted: true
-    species:
-    - Plasmaman
+#  - !type:SpeciesRequirement #Omu edit start
+#    inverted: true
+#    species:
+#    - Plasmaman #Omu edit end
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -126,11 +126,14 @@
     time: 36000 # 10h Goobstation
   - !type:RoleTimeRequirement
     role: JobChemist
-    time: 18000 # 5h Goobstation
-  - !type:SpeciesRequirement
-    inverted: true
-    species:
-    - Plasmaman
+    time: 36000 # 10h Omu
+  - !type:RoleTimeRequirement
+    role: JobBrigmedic # added Brigmedic requirement - Omu change
+    time: 18000 #5hr Omu change
+#  - !type:SpeciesRequirement #Omu edit start
+#    inverted: true
+#    species:
+#    - Plasmaman #Omu edit end
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -149,10 +152,10 @@
     department: Command
     time: 18000 # 5h Goobstation
 # should be changed to nukie playtime when thats tracked (wyci)
-  - !type:SpeciesRequirement
-    inverted: true
-    species:
-    - Plasmaman
+  #  - !type:SpeciesRequirement #Omu edit start
+  #    inverted: true
+  #    species:
+  #    - Plasmaman #Omu edit end
   guides: [ NuclearOperatives ]
 
 - type: startingGear
@@ -161,7 +164,7 @@
     jumpsuit: ClothingUniformJumpsuitOperative
     back: ClothingBackpackDuffelSyndicate
     mask: ClothingMaskGasSyndicate
-    eyes: ClothingEyesNightVisionGogglesNukie # Goobstation
+    eyes: ClothingEyesHudSyndicate
     ears: ClothingHeadsetAltSyndicate
     gloves: ClothingHandsGlovesCombat
     #outerClothing: ClothingOuterHardsuitSyndie # goobstation - duke nukies
@@ -218,7 +221,7 @@
   parent: SyndicateOperativeGearFullNoUplink
   equipment:
     back: ClothingBackpackDuffelSyndicateMedical # Goobstation
-    eyes: ClothingEyesNightVisionGogglesNukie # Goobstation
+    eyes: ClothingEyesHudSyndicateAgent # Goob edit
     #outerClothing: ClothingOuterHardsuitSyndieMedic # goobstation - duke nukies
     shoes: ClothingShoesBootsMagSyndie
     id: SyndiAgentPDA

@@ -14,6 +14,20 @@
   path: "/Textures/_Goobstation/Shaders/enchant.swsl"
 
 - type: shader
+  id: ThermalVision
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/thermal.swsl"
+  params:
+    pixelSize: 32.0
+
+- type: shader
   id: ColorTint
   kind: source
   path: "/Textures/_Goobstation/Shaders/color_tint.swsl"
+
+- type: shader
+  id: Dodge
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/dodge.swsl"
+  params:
+    progress: 0.0

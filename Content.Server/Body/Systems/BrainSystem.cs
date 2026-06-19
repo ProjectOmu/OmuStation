@@ -22,16 +22,20 @@
 
 using Content.Server.Body.Components;
 using Content.Server.Ghost.Components;
-using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Pointing;
-
+using Content.Goobstation.Common.Body;
 // Shitmed Change
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Body.Systems;
 using Content.Goobstation.Common.Changeling;
+using Content.Shared.Body.Components;
+using Content.Goobstation.Shared.Changeling.Components;
+// EE Reverse MMI
+using Content.Shared.Silicons.Borgs.Components;
 
 
 namespace Content.Server.Body.Systems
@@ -53,9 +57,17 @@ namespace Content.Server.Body.Systems
         private void HandleRemoval(EntityUid uid, BrainComponent brain, ref OrganRemovedFromBodyEvent args)
         {
             if (TerminatingOrDeleted(uid)
-                || TerminatingOrDeleted(args.OldBody)
-                || HasComp<ChangelingComponent>(args.OldBody))
+                || TerminatingOrDeleted(args.OldBody))
                 return;
+
+            // goob start
+            var remEv = new BeforeBrainRemovedEvent();
+            RaiseLocalEvent(args.OldBody, ref remEv);
+
+            if (remEv.Blocked)
+                return;
+
+            // goob end
 
             brain.Active = false;
             if (!CheckOtherBrains(args.OldBody))
@@ -69,9 +81,17 @@ namespace Content.Server.Body.Systems
         private void HandleAddition(EntityUid uid, BrainComponent brain, ref OrganAddedToBodyEvent args)
         {
             if (TerminatingOrDeleted(uid)
-                || TerminatingOrDeleted(args.Body)
-                || HasComp<ChangelingComponent>(args.Body))
+                || TerminatingOrDeleted(args.Body))
                 return;
+
+            // goob start
+            var addEv = new BeforeBrainAddedEvent();
+            RaiseLocalEvent(args.Body, ref addEv);
+
+            if (addEv.Blocked)
+                return;
+
+            // goob end
 
             if (!CheckOtherBrains(args.Body))
             {
@@ -86,15 +106,19 @@ namespace Content.Server.Body.Systems
             if (TerminatingOrDeleted(newEntity) || TerminatingOrDeleted(oldEntity))
                 return;
 
-            EnsureComp<MindContainerComponent>(newEntity);
-            EnsureComp<MindContainerComponent>(oldEntity);
+        EnsureComp<MindContainerComponent>(newEntity);
+        EnsureComp<MindContainerComponent>(oldEntity);
 
-            var ghostOnMove = EnsureComp<GhostOnMoveComponent>(newEntity);
-            if (HasComp<BodyComponent>(newEntity))
-                ghostOnMove.MustBeDead = true;
-
-            if (!_mindSystem.TryGetMind(oldEntity, out var mindId, out var mind))
-                return;
+        var ghostOnMove = EnsureComp<GhostOnMoveComponent>(newEntity);
+        ghostOnMove.MustBeDead = HasComp<MobStateComponent>(newEntity); // Don't ghost living players out of their bodies.
+        
+        // EE Reverse MMI start
+        if (HasComp<BorgBrainComponent>(newEntity))
+            EntityManager.RemoveComponent<GhostOnMoveComponent>(newEntity);
+        // EE Reverse MMI End
+        
+        if (!_mindSystem.TryGetMind(oldEntity, out var mindId, out var mind))
+            return;
 
             _mindSystem.TransferTo(mindId, newEntity, mind: mind);
             if (brain != null)

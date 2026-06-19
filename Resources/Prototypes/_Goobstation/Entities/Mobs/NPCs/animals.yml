@@ -465,6 +465,7 @@
         layer:
         - SmallMobLayer
   - type: GhostRole
+    prob: 0.2 # Omu - only 1 in 5 homunculi are smart
     makeSentient: true
     allowSpeech: true
     allowMovement: true
@@ -492,9 +493,10 @@
     tags:
     - Trash
     - VimPilot
+    - FootstepSound # Omu - they walking
   - type: NpcFactionMember
     factions:
-      - SimpleHostile
+      - Passive # Omu - they were in the hostile faction despite being passive
   - type: VentCrawler
   - type: MeleeWeapon
     altDisarm: false
@@ -504,7 +506,7 @@
       path: /Audio/Effects/bite.ogg
     damage:
       types:
-        Slash: 10
+        Slash: 6 # Omu - 10 was probably too much
   - type: Item
     size: Tiny
   - type: LanguageKnowledge # Einstein Engines - Language
@@ -512,6 +514,21 @@
     - TauCetiBasic # Is sentient, should have TauCeti since it is norm.
     understands:
     - TauCetiBasic
+  # Omu - they learned how to be loyal
+  - type: NPCImprintingOnSpawnBehaviour
+    whitelist:
+      components:
+      - HumanoidAppearance
+  # ...they also learned rage
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: HTN
+    rootTask:
+      task: HomunculusFollowCompound
+  - type: GroupRetaliation
+    range: 8
+  - type: FactionException
+  # Omu end
 
 - type: entity
   parent: MobMouse
@@ -738,6 +755,7 @@
       - Dog
       understands:
       - Dog
+      - TauCetiBasic
 
 - type: entity
   name: horse
@@ -820,3 +838,164 @@
       280: 0.6
       260: 0.4
 
+- type: entity
+  parent: SimpleMobBase
+  id: MobClownGoblin
+  name: clown goblin
+  description: Little walking clown mask and shoes. You want to honk their nose!
+  components:
+  - type: WaddleAnimation
+  - type: Hunger
+    baseDecayRate: 0
+  - type: Thirst
+    baseDecayRate: 0
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-clown-goblin-name
+    description: ghost-role-information-clown-goblin-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: Speech
+    speechSounds: BikeHorn
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Animals/clown_goblin.rsi
+    state: goblin
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+  - type: Physics
+  - type: HTN
+    rootTask:
+      task: MouseCompound
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ClothingShoesClown:
+            min: 1
+            max: 1
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ClothingMaskClown:
+            min: 1
+            max: 1
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3.5
+    baseSprintSpeed : 5
+  - type: Appearance
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - FootstepSound
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.25
+    damageRecovery:
+      types:
+        Asphyxiation: -0.25
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.1
+  - type: Bloodstream
+    bloodMaxVolume: 50
+    bloodReagent: Honk
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepClown
+  - type: CombatMode
+  - type: MeleeWeapon
+    attackRate: 2
+    damage:
+      types:
+        Blunt: 0.5
+    soundHit:
+      collection: BikeHorn
+    animation: WeaponArcFist
+  - type: Vocal
+    sounds:
+      Male: ClownGoblin
+      Female: ClownGoblin
+      Unsexed: ClownGoblin
+
+- type: entity
+  name: mustard mothroach
+  parent: MobMothroach
+  id: MobMothroachMustard
+  description: A delightful result of the world's chefs crossing meat with sauce.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Animals/mustard_mothroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: FaxableObject
+    insertingState: inserting_mothroach_mustard
+
+- type: entity
+  name: leopard mothroach
+  parent: MobMothroach
+  id: MobMothroachLeopard
+  description: A charming result of numerous attempts to crossbreed insects with predators.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Animals/leopard_mothroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: FaxableObject
+    insertingState: inserting_mothroach_leopard
+
+- type: entity
+  name: cecropia mothroach
+  parent: MobMothroach
+  id: MobMothroachCecropia
+  description: A charming result of numerous attempts to cross a genus of the nettle family with cockroaches.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Animals/cecropia_mothroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: FaxableObject
+    insertingState: inserting_mothroach_cecropia
+
+- type: entity
+  name: lunar mothroach
+  parent: MobMothroach
+  id: MobMothroachLunar
+  description: Someone left the moth under the moonlight.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Animals/lunar_mothroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: FaxableObject
+    insertingState: inserting_mothroach_lunar

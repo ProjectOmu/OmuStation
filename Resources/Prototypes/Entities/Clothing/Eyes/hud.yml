@@ -115,6 +115,7 @@
   components:
   - type: ShowHealthBars
   - type: ShowHealthIcons
+  - type: ShowDiseaseIcons # Goobstation
 
 - type: entity
   parent: ClothingEyesBase
@@ -136,7 +137,7 @@
     - HudDiagnostic # Goobstation - CR glasses changes and addition
 
 - type: entity
-  parent: [ClothingEyesBase, ShowMedicalIcons]
+  parent: [ClothingEyesBase, ShowMedicalIcons, BaseMedicalContraband] # Omu, add BaseMedicalContraband
   id: ClothingEyesHudMedical
   name: medical hud
   description: A heads-up display that scans the humanoids in view and provides accurate data about their health status.
@@ -240,7 +241,7 @@
   - type: ShowThirstIcons
 
 - type: entity
-  parent: [ClothingEyesBase, ShowMedicalIcons]
+  parent: [ClothingEyesBase, ShowMedicalIcons, BaseMedicalContraband] # Omu, add BaseMedicalContraband
   id: ClothingEyesHudMedOnion
   name: medonion hud
   description: Filler
@@ -252,7 +253,7 @@
   - type: ShowHungerIcons
 
 - type: entity
-  parent: [ClothingEyesBase, ShowMedicalIcons]
+  parent: [ClothingEyesBase, ShowMedicalIcons, BaseMedicalContraband] # Omu, add BaseMedicalContraband
   id: ClothingEyesHudMedOnionBeer
   name: medthungerst hud
   description: Filler
@@ -265,7 +266,7 @@
   - type: ShowThirstIcons
 
 - type: entity
-  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons, BaseSecurityCommandContraband]
+  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons, BaseCorpsmanBlueShieldContraband ] # Omu, was BaseSecurityCommandContraband
   id: ClothingEyesHudMedSec
   name: medsec hud
   description: An eye display that looks like a mixture of medical and security huds.
@@ -334,7 +335,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingEyesBase, BaseSyndicateContraband] # Goob edit
+  parent: [ClothingEyesHudSyndicate, ShowMedicalIcons] # Goob edit
   id: ClothingEyesHudSyndicateAgent
   name: syndicate medical visor
   description: The Syndicate Corpsman's professional heads-up display, designed for quick diagnosis of their team's status.
@@ -343,17 +344,15 @@
     sprite: Clothing/Eyes/Hud/syndagent.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/syndagent.rsi
-  - type: ShowSyndicateIcons
-  - type: ShowHealthBars
-    damageContainers:
-    - Biological
-    - SiliconRadiation # Goobstation - IPCs
-  - type: ShowJobIcons # Goob
-  - type: ShowMindShieldIcons # Goob
-  - type: Tag
-    tags:
-    - PetWearable
-    - WhitelistChameleon
+  - type: SolutionScanner # Goob: For new players as a nukie medic
+#  - type: ShowSyndicateIcons # Goob remove: In parent
+#  - type: ShowHealthBars
+#    damageContainers:
+#    - Biological
+#  - type: Tag
+#    tags:
+#    - PetWearable
+#    - WhitelistChameleon
 
 - type: entity
   parent: [ClothingEyesGlassesSunglasses, ShowSecurityIcons]

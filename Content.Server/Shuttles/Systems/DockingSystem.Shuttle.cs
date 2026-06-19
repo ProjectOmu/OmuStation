@@ -407,4 +407,25 @@ public sealed partial class DockingSystem
 
         return _dockingSet.ToList();
     }
+
+    /// <summary>
+    /// Mono: Checks if two grids are docked together by examining if any docking port on gridA is connected to any docking port on gridB.
+    /// </summary>
+    public bool AreGridsDocked(EntityUid gridA, EntityUid gridB)
+    {
+        var docksA = GetDocks(gridA);
+
+        foreach (var dockA in docksA)
+        {
+            if (!dockA.Comp.Docked || dockA.Comp.DockedWith == null)
+                continue;
+
+            // Get the grid that this dock is connected to
+            var connectedDockGrid = Transform(dockA.Comp.DockedWith.Value).GridUid;
+            if (connectedDockGrid == gridB)
+                return true;
+        }
+
+        return false;
+    }
 }

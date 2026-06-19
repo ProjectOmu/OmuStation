@@ -38,6 +38,11 @@ loadout-group-psychologist-envirohelm = Psychologist envirohelm
 loadout-group-psychologist-envirosuit = Psychologist envirosuit
 loadout-group-psychologist-envirogloves = Psychologist envirogloves
 
+# Virologist
+loadout-group-virology-envirohelm = Virologist envirohelm
+loadout-group-virology-envirosuit = Virologist envirosuit
+loadout-group-virology-envirogloves = Virologist envirogloves
+
 # Cargo Technician
 loadout-group-cargo-technician-envirohelm = Cargo Technician envirohelm
 loadout-group-cargo-technician-envirosuit = Cargo Technician envirosuit
@@ -200,10 +205,10 @@ loadout-group-head-of-security-envirosuit = Head of Security envirosuit
 loadout-group-head-of-security-envirogloves = Head of Security envirogloves
 loadout-group-head-of-security-gloves = Head of Security gloves
 
-# Brigmedic
-loadout-group-brigmedic-envirohelm = Brigmedic envirohelm
-loadout-group-brigmedic-envirosuit = Brigmedic envirosuit
-loadout-group-brigmedic-envirogloves = Brigmedic envirogloves
+# Brigmedic | Omu - Corpsman
+loadout-group-brigmedic-envirohelm = Corpsman envirohelm
+loadout-group-brigmedic-envirosuit = Corpsman envirosuit
+loadout-group-brigmedic-envirogloves = Corpsman envirogloves
 
 # Zookeeper
 loadout-group-zookeeper-envirohelm = Zookeeper envirohelm
@@ -218,3 +223,7 @@ loadout-group-boxer-envirosuit = Boxer envirosuit
 
 # Misc
 loadout-group-plasma-tank = Plasma tank
+
+# Salvage/Shaft Miner
+loadout-group-salvage-specialist-jumpsuit = Salvage Specialist Jumpsuit
+loadout-group-shaft-miner-jumpsuit = Shaft Miner Jumpsuit

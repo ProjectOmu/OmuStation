@@ -1,5 +1,4 @@
 ﻿using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Body.Organ;
 using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Serialization;
@@ -56,6 +55,7 @@ public record struct TraumaBeingRemovedEvent(Entity<TraumaComponent> Trauma, Ent
 [Serializable, NetSerializable]
 public enum BoneSeverity
 {
+    None = -1, // Omu: No bones?
     Normal = 0,
     Damaged = 1,
     Cracked = 2,

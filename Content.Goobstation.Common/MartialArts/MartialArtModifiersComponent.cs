@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Numerics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -21,11 +22,11 @@ public sealed partial class MartialArtModifiersComponent : Component
     [DataField]
     public Dictionary<MartialArtModifierType, Vector4> MinMaxModifiersMultipliers = new()
     {
-        { MartialArtModifierType.AttackRate, new Vector4(0.5f, 3f, -4f, 4f)},
+        { MartialArtModifierType.AttackRate, new Vector4(0.5f, 4f, -4f, 4f)},
          // Flat negative modifiers will be just clamped to zero so it's fine (probably)
         { MartialArtModifierType.Damage, new Vector4(0.5f, 3f, -20f, 20f)},
         // No modifiers for move speed are supported
-        { MartialArtModifierType.MoveSpeed, new Vector4(0.2f, 3f, 0f, 0f)},
+        { MartialArtModifierType.MoveSpeed, new Vector4(0.2f, 1.5f, 0f, 0f)},
         // No modifiers for healing are supported
         { MartialArtModifierType.Healing, new Vector4(0f, 10f, 0f, 0f)},
     };

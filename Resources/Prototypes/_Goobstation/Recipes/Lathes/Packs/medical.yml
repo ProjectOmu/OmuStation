@@ -24,6 +24,10 @@
   - CartridgeBicaridine
   - CartridgeDermaline
   - CartridgeSaline
+  - CartridgeAmoxla # Omu
+  - CartridgeArith # Omu
+  - CartridgeDylo # Omu
+  - CartridgeEmpty # Omu
   - ParamedHypo
 
 - type: latheRecipePack
@@ -33,6 +37,7 @@
   - MedicalPatchRapid
   - MedicalPatchTherapeutic
   - MedicalPatchLarge
+  - MedicalCigPack
 
 - type: latheRecipePack
   id: SurgeryStaticGoob
@@ -72,6 +77,7 @@
   recipes:
   - PrescriptionGlasses
   - VehicleHoverchairSci
+  - TinfoilHats
 
 - type: latheRecipePack
   id: MedicalMiscRestricted
@@ -85,3 +91,10 @@
   id: EnvirosuitExtinguisherRefill
   recipes:
   - EnvirosuitExtinguisherRefill
+
+- type: latheRecipePack
+  id: MedicalCloning
+  recipes:
+  - CloningPodMachineCircuitboardRecipe
+  - MedicalScannerMachineCircuitboardRecipe
+  - CloningConsoleComputerCircuitboardRecipe

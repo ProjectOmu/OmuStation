@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Discoded <33738298+Discoded@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -268,7 +269,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         if (mix.GetMoles(Gas.CarbonDioxide) > 0.01f)
         {
             var co2PP = absorbedGas.Pressure * ((mix.GetMoles(Gas.CarbonDioxide) / mix.TotalMoles) * 100);
-            var co2Ratio = Math.Clamp(0.5f * (co2PP - (101.325f*0.01f)) / (co2PP + (101.325f*0.25f)), 0, 1);
+            var co2Ratio = Math.Clamp(0.5f * (co2PP - (101.325f * 0.01f)) / (co2PP + (101.325f * 0.25f)), 0, 1);
             var consumedCO2 = absorbedGas.GetMoles(Gas.CarbonDioxide) * co2Ratio;
             consumedCO2 = Math.Min(consumedCO2, Math.Min(absorbedGas.GetMoles(Gas.Oxygen), absorbedGas.GetMoles(Gas.CarbonDioxide)));
 
@@ -292,6 +293,15 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         // After this point power is lowered
         // This wraps around to the begining of the function
         sm.Power = Math.Max(sm.Power - Math.Min(powerReduction * powerlossInhibitor, sm.Power * 0.83f * powerlossInhibitor), 0f);
+
+        sm.GasStorage = sm.GasStorage.ToDictionary(
+            gas => gas.Key,
+            gas => absorbedGas.GetMoles(gas.Key)
+        );
+
+        // Console Compatibility from EE
+        sm.Temperature = absorbedGas.Temperature;
+        sm.WasteMultiplier = heatModifier;
     }
 
     /// <summary>
@@ -586,6 +596,14 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     private void OnCollideEvent(EntityUid uid, SupermatterComponent sm, ref StartCollideEvent args)
     {
+        var target = args.OtherEntity;
+
+        // Stop immune entities from activating the sm.
+        if (args.OtherBody.BodyType == BodyType.Static
+            || HasComp<SupermatterImmuneComponent>(target)
+            || _container.IsEntityInContainer(uid))
+            return;
+
         if (!sm.Activated)
         {
             // Extra logging for supermatter
@@ -603,12 +621,6 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
             sm.Activated = true;
         }
-
-        var target = args.OtherEntity;
-        if (args.OtherBody.BodyType == BodyType.Static
-            || HasComp<SupermatterImmuneComponent>(target)
-            || _container.IsEntityInContainer(uid))
-            return;
 
         if (TryComp<SupermatterFoodComponent>(target, out var food))
             sm.Power += food.Energy;
@@ -631,13 +643,13 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     private void OnHandInteract(EntityUid uid, SupermatterComponent sm, ref InteractHandEvent args)
     {
-        if (!sm.Activated)
-            sm.Activated = true;
-
         var target = args.User;
 
         if (HasComp<SupermatterImmuneComponent>(target))
             return;
+
+        if (!sm.Activated)
+            sm.Activated = true;
 
         sm.MatterPower += 200;
 
@@ -648,6 +660,9 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     private void OnItemInteract(EntityUid uid, SupermatterComponent sm, ref InteractUsingEvent args)
     {
+        if (!HasComp<SupermatterImmuneComponent>(args.User))
+            return;
+
         if (!sm.Activated)
             sm.Activated = true;
 
@@ -678,7 +693,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         // your criminal actions will not go unnoticed
         sm.Damage += sm.DelaminationPoint / 10;
         sm.DamageArchived += sm.DelaminationPoint / 10;
-
+        sm.SliverRemoved = true;
+        
         var integrity = GetIntegrity(sm).ToString("0.00");
         SupermatterAnnouncement(uid, Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", integrity)), true, "Central Command");
 

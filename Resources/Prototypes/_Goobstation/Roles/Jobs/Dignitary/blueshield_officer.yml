@@ -48,6 +48,12 @@
 #      inverted: true
 #      species:
 #      - Felinid #Omu, add back Felinid
+    - !type:OverallPlaytimeRequirement
+      time: 72000 #20 hours - Omu Edit
+  guides:
+  - BlueshieldOfficerSOP
+  - Command
+  - Succession
   goobcoins: 45
   weight: 20
   startingGear: BlueshieldOfficerGear
@@ -72,26 +78,28 @@
   - Cargo
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, BluespaceLifelineImplant ] # Go big, or go home.
+    implants: [ MindShieldImplantCentComm, BluespaceLifelineImplant ] # Go big, or go home. # Omu, use CC mindshield
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
       - type: Condemned
         soulOwnedNotDevil: true
+      - type: SurgerySpeedModifier #Omu Change
+        speedModifier: 1.25 #Same as Paramedic and Corpsman
 
 - type: startingGear
   id: BlueshieldOfficerGear
   equipment:
     eyes: ClothingEyesGlassesBSO
     #gloves: ClothingHandsGlovesCombat - Goobstation, moved to loadouts
-    id: BlueshieldPDA
+    #id: BlueshieldPDA - Omu, moved to loadouts
     ears: ClothingHeadsetAltBlueshield
    #belt: ClothingBeltAssaultFilled - Omu, moved to loadouts
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
   storage:
     back:
     - Flash
-    - ClothingMaskGasBSO #Omu - Replaced the security gas mask with Blue SWAT from Starlight
+    - ClothingBSOMaskGasSwat
     - CombatKnife
 
 - type: chameleonOutfit

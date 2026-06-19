@@ -11,7 +11,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Standing;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Clothing.Components;
 using Content.Goobstation.Shared.MartialArts.Components;
@@ -19,8 +18,10 @@ using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Ghost.Roles.Components;
 using Content.Shared._Shitcode.Heretic.Components;
+using Content.Shared.Body.Components;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Cloning;
 using Content.Shared.Coordinates;
@@ -30,7 +31,7 @@ using Content.Shared.Heretic;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.NPC.Components;
-using Content.Shared.Speech.Muting;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Audio;
@@ -53,6 +54,15 @@ public sealed partial class HereticAbilitySystem
         SubscribeLocalEvent<FleshPassiveComponent, GetBodyOrganOverrideEvent<StomachComponent>>(OnGetStomach);
         SubscribeLocalEvent<FleshPassiveComponent, ConsumingFoodEvent>(OnConsumingFood);
         SubscribeLocalEvent<FleshPassiveComponent, ExcludeMetabolismGroupsEvent>(OnExclude);
+        SubscribeLocalEvent<FleshPassiveComponent, ComponentShutdown>(OnShutdown);
+    }
+
+    private void OnShutdown(Entity<FleshPassiveComponent> ent, ref ComponentShutdown args)
+    {
+        if (TerminatingOrDeleted(ent.Comp.FleshStomach))
+            return;
+
+        QueueDel(ent.Comp.FleshStomach);
     }
 
     private void OnExclude(Entity<FleshPassiveComponent> ent, ref ExcludeMetabolismGroupsEvent args)
@@ -72,14 +82,14 @@ public sealed partial class HereticAbilitySystem
         if (args.Volume <= FixedPoint2.Zero)
             return;
 
-        if (!TryComp(ent, out HereticComponent? heretic) || heretic.PathStage <= 0)
+        if (!Heretic.TryGetHereticComponent(ent, out var heretic, out _) || heretic.PathStage <= 0)
             return;
 
-        var multiplier = GetMultiplier((ent.Owner, ent.Comp, heretic), ref args, out var stage, out var multipliersApplied);
+        var multiplier = GetMultiplier((ent.Owner, ent.Comp), heretic, ref args, out var stage, out var multipliersApplied);
         if (!multipliersApplied)
             return;
 
-        var time = TimeSpan.FromSeconds(30) * stage;
+        var time = TimeSpan.FromMinutes(1) * stage;
         if (heretic.Ascended)
             time += TimeSpan.FromMinutes(1);
 
@@ -89,29 +99,30 @@ public sealed partial class HereticAbilitySystem
         _modifier.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
-    private float GetMultiplier(Entity<FleshPassiveComponent, HereticComponent> ent,
+    private float GetMultiplier(Entity<FleshPassiveComponent> ent,
+        HereticComponent heretic,
         ref ConsumingFoodEvent args,
         out float stage,
         out bool multipliersApplied)
     {
-        stage = (float) Math.Pow((float) ent.Comp2.PathStage, 0.3f);
+        stage = MathF.Pow(heretic.PathStage, 0.3f);
         var multiplier = args.Volume.Float() * stage;
         var oldMult = multiplier;
 
         if (HasComp<MobStateComponent>(args.Food))
-            multiplier *= ent.Comp1.MobMultiplier;
+            multiplier *= ent.Comp.MobMultiplier;
         if (HasComp<BrainComponent>(args.Food))
-            multiplier *= ent.Comp1.BrainMultiplier;
+            multiplier *= ent.Comp.BrainMultiplier;
         if (HasComp<BodyPartComponent>(args.Food))
-            multiplier *= ent.Comp1.BodyPartMultiplier;
+            multiplier *= ent.Comp.BodyPartMultiplier;
         if (HasComp<OrganComponent>(args.Food))
-            multiplier *= ent.Comp1.OrganMultiplier;
+            multiplier *= ent.Comp.OrganMultiplier;
         if (HasComp<HumanOrganComponent>(args.Food))
-            multiplier *= ent.Comp1.HumanMultiplier;
-        if (_tag.HasTag(args.Food, ent.Comp1.MeatTag))
-            multiplier *= ent.Comp1.MeatMultiplier;
-        if (ent.Comp2.Ascended)
-            multiplier *= ent.Comp1.AscensionMultiplier;
+            multiplier *= ent.Comp.HumanMultiplier;
+        if (_tag.HasTag(args.Food, ent.Comp.MeatTag))
+            multiplier *= ent.Comp.MeatMultiplier;
+        if (heretic.Ascended)
+            multiplier *= ent.Comp.AscensionMultiplier;
 
         multipliersApplied = oldMult < multiplier;
         return multiplier;
@@ -183,32 +194,47 @@ public sealed partial class HereticAbilitySystem
         if (!args.DamageIncreased || args.DamageDelta == null)
             return;
 
+        if (_mobstate.IsDead(ent))
+            return;
+
         var damage = args.DamageDelta.GetTotal();
 
-        if (damage < 5)
+        if (damage <= 0)
             return;
 
-        if (!TryComp(ent, out HereticComponent? heretic) || !heretic.Ascended)
+        if (!Heretic.TryGetHereticComponent(ent, out var heretic, out _) || !heretic.Ascended)
             return;
+
+        ent.Comp.TrackedDamage += damage;
 
         ent.Comp.FleshMimics.RemoveAll(x => !Exists(x));
-        if (ent.Comp.MaxMimics > 0 && ent.Comp.FleshMimics.Count > ent.Comp.MaxMimics)
+
+        if (ent.Comp.MaxMimics <= ent.Comp.FleshMimics.Count)
         {
-            var toHeal = -damage / ent.Comp.FleshMimics.Count * ent.Comp.MimicHealMultiplier;
+            var toHeal = -ent.Comp.TrackedDamage / ent.Comp.FleshMimics.Count * ent.Comp.MimicHealMultiplier;
+            ent.Comp.TrackedDamage = FixedPoint2.Zero;
             foreach (var mimic in ent.Comp.FleshMimics)
             {
-                IHateWoundMed(mimic, AllDamage * toHeal, toHeal, toHeal, toHeal);
+                IHateWoundMed(mimic, AllDamage * toHeal, toHeal, toHeal, toHeal, null, null);
             }
 
             return;
         }
 
-        if (CreateFleshMimic(ent, ent, true, true, 100, args.Origin) is not { } clone)
+        var maxToSpawn = ent.Comp.MaxMimics - ent.Comp.FleshMimics.Count;
+        var toSpawn = (int) (ent.Comp.TrackedDamage / ent.Comp.MimicDamage);
+        toSpawn = Math.Clamp(toSpawn, 0, maxToSpawn);
+
+        if (toSpawn == 0)
             return;
 
-        ent.Comp.FleshMimics.Add(clone);
-        EnsureComp<MutedComponent>(clone);
-        EnsureComp<HereticBladeUserBonusDamageComponent>(clone);
+        for (var i = 0; i < toSpawn; i++)
+        {
+            if (CreateFleshMimic(ent, ent, true, true, 50, args.Origin) is { } clone)
+                ent.Comp.FleshMimics.Add(clone);
+        }
+
+        ent.Comp.TrackedDamage -= toSpawn * ent.Comp.MimicDamage;
     }
 
     public EntityUid? CreateFleshMimic(EntityUid uid,
@@ -218,6 +244,9 @@ public sealed partial class HereticAbilitySystem
         FixedPoint2 hp,
         EntityUid? hostile)
     {
+        if (_mobstate.IsDead(uid) || HasComp<GhoulComponent>(uid) || HasComp<BorgChassisComponent>(uid))
+            return null;
+
         var xform = Transform(uid);
         if (!_cloning.TryCloning(uid, _xform.GetMapCoordinates(xform), Settings, out var clone))
             return null;
@@ -240,10 +269,13 @@ public sealed partial class HereticAbilitySystem
             }
         }
 
+        var minion = EnsureComp<HereticMinionComponent>(clone.Value);
+        minion.BoundHeretic = user;
+        Dirty(clone.Value, minion);
+
         var ghoul = _compFactory.GetComponent<GhoulComponent>();
         ghoul.GiveBlade = giveBlade;
         ghoul.TotalHealth = hp;
-        ghoul.BoundHeretic = user;
         ghoul.DropOrgansOnDeath = false;
         ghoul.GhostRoleName = "ghostrole-flesh-mimic-name";
         ghoul.GhostRoleDesc = "ghostrole-flesh-mimic-desc";
@@ -276,7 +308,7 @@ public sealed partial class HereticAbilitySystem
         {
             var time = knockdownStartEnd.Value.Item2 - Timing.CurTime;
             if (time > TimeSpan.Zero)
-                _stun.TryKnockdown(clone.Value, time, true, DropHeldItemsBehavior.NoDrop);
+                _stun.TryKnockdown(clone.Value, time, true, true, false);
         }
 
         var damage = EnsureComp<DamageOverTimeComponent>(clone.Value);
@@ -295,13 +327,21 @@ public sealed partial class HereticAbilitySystem
 
         if (!makeGhostRole)
             RemCompDeferred<GhostTakeoverAvailableComponent>(clone.Value);
+        else if (TryComp(clone.Value, out GhostRoleComponent? ghostRole))
+            ghostRole.RaffleConfig = null;
 
         var exception = EnsureComp<FactionExceptionComponent>(clone.Value);
         _npcFaction.IgnoreEntity((clone.Value, exception), user);
         if (user != uid)
+        {
             _npcFaction.AggroEntity((clone.Value, exception), uid);
+            EnsureComp<FleshMimickedComponent>(uid).FleshMimics.Add(clone.Value);
+        }
         if (hostile != null && hostile.Value != user)
+        {
             _npcFaction.AggroEntity((clone.Value, exception), hostile.Value);
+            EnsureComp<FleshMimickedComponent>(hostile.Value).FleshMimics.Add(clone.Value);
+        }
 
         return clone.Value;
     }

@@ -196,9 +196,9 @@
   - type: Sprite
     layers:
     - state: icon-base
-      color: "#c99840"
+      color: "#b7793d" # Goob
     - state: icon-base-top
-      color: "#aaaaaa"
+      color: "#494b4e" # Goob
     - state: icon-sling
       color: "#776756"
     - state: icon-clasp
@@ -437,7 +437,7 @@
 - type: entity
   parent: [ BaseSecurityContraband , ClothingBackpackMessengerBase ]
   id: ClothingBackpackMessengerBrigmedic
-  name: brigmedic messenger bag
+  name: corpsman messenger bag # Omu - rename Brigmedic to Corpsman
   description: A robust bag for storing extra surgery tools for inmate tort... treating.
   components:
   - type: Sprite

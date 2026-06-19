@@ -13,6 +13,8 @@
   - ClothingUniformJumpsuitLoungewear
 
 - type: latheRecipePack
+  parent:
+  - ClothingCargoDeltaV # DeltaV
   id: ClothingCargo
   recipes:
   - ClothingUniformJumpsuitCargo
@@ -25,6 +27,12 @@
   - ClothingUniformJumpsuitQMTurtleneck
   - ClothingUniformJumpskirtQMTurtleneck
   - ClothingUniformJumpsuitQMFormal
+  - ClothingUniformJumpsuitShaftMiner # Lavaland Change
+  # Omu start: Courier
+  - ClothingUniformCourier
+  - ClothingUniformCourierLong
+  - ClothingUniformSkirtCourier
+  - ClothingOuterCourierDuster
 
 - type: latheRecipePack
   id: ClothingCommand
@@ -141,6 +149,8 @@
   - ClothingUniformJumpsuitMime
   - ClothingUniformJumpskirtMime
   - ClothingUniformJumpsuitMusician
+  - ClothingUniformJumpsuitReporterGoob # goob change
+  - ClothingUniformJumpskirtReporterGoob # goob change
 
 - type: latheRecipePack
   id: WinterCoats

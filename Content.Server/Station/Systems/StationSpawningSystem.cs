@@ -98,7 +98,7 @@
 using Content.Server.Access.Systems;
 using Content.Server.Humanoid;
 using Content.Server.IdentityManagement;
-using Content.Server.Mind.Commands;
+using Content.Server.Mind;
 using Content.Server.PDA;
 using Content.Server.Station.Components;
 using Content.Shared.Access.Components;
@@ -139,6 +139,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly PdaSystem _pdaSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly MindSystem _mindSystem = default!;
 
     /// <summary>
     /// Attempts to spawn a player character onto the given station.
@@ -204,11 +205,12 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         }
 
         // If we're not spawning a humanoid, we're gonna exit early without doing all the humanoid stuff.
-        if (prototype?.JobEntity != null)
+        if (prototype?.JobEntity != null
+         && prototype.Name != "job-name-borg") // Omu, only skip if AI so borgs can have a loadout
         {
             DebugTools.Assert(entity is null);
             var jobEntity = Spawn(prototype.JobEntity, coordinates);
-            MakeSentientCommand.MakeSentient(jobEntity, EntityManager);
+            _mindSystem.MakeSentient(jobEntity);
 
             // Make sure custom names get handled, what is gameticker control flow whoopy.
             if (loadout != null)
@@ -222,6 +224,10 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         }
 
         string speciesId = profile != null ? profile.Species : SharedHumanoidAppearanceSystem.DefaultSpecies;
+
+        // Omu, overwrite species to Cyborg if playing JobBorg
+        if (prototype?.Name == "job-name-borg")
+            speciesId = "Cyborg";
 
         if (!_prototypeManager.TryIndex<SpeciesPrototype>(speciesId, out var species))
             throw new ArgumentException($"Invalid species prototype was used: {speciesId}");

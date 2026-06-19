@@ -355,7 +355,7 @@
 - type: entity
   parent: [ClothingHeadset, BaseSecurityContraband]
   id: ClothingHeadsetBrigmedic
-  name: brigmedic headset
+  name: corpsman headset # Omu - rename Brigmedic to Corpsman
   description: A headset that helps to hear the death cries.
   components:
   - type: ContainerFill
@@ -365,9 +365,9 @@
       - EncryptionKeySecurity
       - EncryptionKeyCommon
   - type: Sprite
-    sprite: Clothing/Ears/Headsets/brigmedic.rsi
+    sprite: _Omu/Clothing/Ears/Headsets/corpsman.rsi #Omu - new sprite
   - type: Clothing
-    sprite: Clothing/Ears/Headsets/brigmedic.rsi
+    sprite: _Omu/Clothing/Ears/Headsets/corpsman.rsi #Omu - new sprite
 
 - type: entity
   parent: ClothingHeadset

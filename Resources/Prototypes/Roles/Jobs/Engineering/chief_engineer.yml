@@ -147,12 +147,21 @@
 #      inverted: true
 #      species:
 #      - Felinid #Omu, add back Felinid
+    - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hours - Omu Edit
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
   supervisors: job-supervisors-captain
   #canBeAntag: false
   antagAdvantage: 75 # Goobstation
+  guides: # goobstation
+  - Engineering
+  - ChiefEngineerSOP
+  - EngineeringSOP
+  - Command
+  - EmergenciesSOP
+  - CommandTrainingManual # Omu
   goobcoins: 40 #Goob content
   access:
   - Maintenance

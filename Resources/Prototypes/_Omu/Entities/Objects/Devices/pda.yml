@@ -24,3 +24,216 @@
   components:
   - type: Pda
     id: PrisonerIDCardPerma
+
+- type: entity
+  parent: CargoPDA
+  id: CourierPDA
+  name: courier PDA
+  description: Smells of carton.
+  components:
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-courier
+  - type: Pda
+    id: CourierIDCard
+  - type: Icon
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-courier
+  - type: Sprite
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-courier
+
+- type: entity
+  parent: CourierPDA
+  id: CourierPDAAlt
+  name: mail carrier PDA
+  description: Smells of dog repellent.
+  components:
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-courier-whiteblue
+  - type: Pda
+    id: CourierIDCard
+  - type: Icon
+    state: pda-courier-whiteblue
+  - type: Sprite
+    state: pda-courier-whiteblue
+
+- type: entity
+  parent: ERTChaplainPDA
+  id: ERTChaplainPDABlue
+  suffix: Chaplain, Blue alert
+  components:
+  - type: Pda
+    id: ERTChaplainIDCardBlue
+
+- type: entity
+  parent: ERTEngineerPDA
+  id: ERTEngineerPDABlue
+  suffix: Engineer, Blue alert
+  components:
+  - type: Pda
+    id: ERTEngineerIDCardBlue
+
+- type: entity
+  parent: ERTJanitorPDA
+  id: ERTJanitorPDABlue
+  suffix: Janitor, Blue alert
+  components:
+  - type: Pda
+    id: ERTJanitorIDCardBlue
+
+- type: entity
+  parent: ERTMedicPDA
+  id: ERTMedicPDABlue
+  suffix: Medic, Blue alert
+  components:
+  - type: Pda
+    id: ERTMedicIDCardBlue
+
+- type: entity
+  parent: ERTSecurityPDA
+  id: ERTSecurityPDABlue
+  suffix: Security, Blue alert
+  components:
+  - type: Pda
+    id: ERTSecurityIDCardBlue
+
+- type: entity
+  parent: DeathsquadPDA
+  id: NanoTrasenSpectrePDA
+  name: nanotrasen spectre PDA
+  components:
+  - type: Pda
+    id: NanotrasenSpectreIDCard
+
+# Custodian PDA
+
+- type: entity
+  parent: DeathsquadPDA
+  id: NanoTrasenCustodianPDA
+  name: Custodii Vitellus PDA
+  components:
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-custodii
+  - type: Pda
+    id: CustodianIDCard
+  - type: Sprite
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-custodii
+  - type: Icon
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-custodii
+
+#New PDAs for command!
+
+- type: entity
+  parent: [NanotrasenRepresentativePDA, BaseWidePDA]
+  id: AltNanotrasenRepresentativePDA
+  name: nanotrasen representative's PDA
+  description: Slick design for the one who walks among the crew.
+  components:
+  - type: Pda
+    id: NanotrasenRepresentativeIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-altnanorep
+  - type: Sprite
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-altnanorep
+  - type: Icon
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-altnanorep
+  - type: PdaBorderColor
+    borderColor: "#0d140d"
+
+- type: entity
+  parent: HoPPDA
+  id: altHoPPDA
+  name: head of personnel PDA
+  description: Themed after everyone's favorite pet.
+  components:
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-althop
+  - type: PdaBorderColor
+    borderColor: "#103152"
+    accentVColor: "#aca54b"
+    accentHColor: "#4e0607"
+  - type: Sprite
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-althop
+  - type: Icon
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-althop
+
+- type: entity
+  parent: CaptainPDA
+  id: altCaptainPDA
+  name: captain PDA
+  description: Same as your PDA, but with more style.
+  components:
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-altcaptain
+  - type: Sprite
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-altcaptain
+  - type: Icon
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-altcaptain
+  - type: PdaBorderColor
+    borderColor: "#103152"
+    accentVColor: "#e6a345"
+
+- type: entity
+  parent: BlueshieldPDA
+  id: altBlueshieldPDA
+  name: blueshield officer PDA
+  description: This one can take a bullet.
+  components:
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-altblueshield
+  - type: PdaBorderColor
+    borderColor: "#2569b0"
+  - type: Sprite
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-altblueshield
+  - type: Icon
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-altblueshield
+
+- type: entity
+  parent: BaseSecurityPDA
+  id: SecuritySergeantPDA
+  name: sergeant PDA
+  description: Beaten, battered and broken, but just barely useable.
+  components:
+  - type: Pda
+    id: SecuritySergeantIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-securitysergeant
+  - type: PdaBorderColor
+    borderColor: "#A32D26"
+    accentVColor: "#DFDFDF"
+  - type: Icon
+    state: pda-securitysergeant

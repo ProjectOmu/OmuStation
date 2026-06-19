@@ -1,0 +1,18 @@
+﻿- type: trait
+  id: BieselEckeckyik # this is really only for nonthaven who want to communicate with fishyfriends
+  name: trait-language-BieselEckeckyik-name
+  description: trait-language-BieselEckeckyik-desc
+  category: LanguageTraits
+  cost: 1
+  components:
+  - type: LanguageSpeaker
+  countsTowardsMaxTraits: false
+  languagesSpoken:
+  - BieselEckeckyik
+  languagesUnderstood:
+  - BieselEckeckyik
+  requirements: # omu
+    - !type:SpeciesRequirement
+      species:
+        - Thaven
+      inverted: true

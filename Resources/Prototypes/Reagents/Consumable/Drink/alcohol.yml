@@ -1063,7 +1063,7 @@
 - type: reagent
   id: DoctorsDelight
   name: reagent-name-doctors-delight
-  parent: BaseDrink
+  parent: BaseAlcohol # Goob - It's alcoholic
   desc: reagent-desc-doctors-delight
   physicalDesc: reagent-physical-desc-soothing
   flavor: medicine
@@ -2084,7 +2084,7 @@
 - type: reagent
   id: WhiteGilgamesh
   name: reagent-name-white-gilgamesh
-  parent: BaseDrink
+  parent: BaseAlcohol # Goob - It's alcoholic
   desc: reagent-desc-white-gilgamesh
   physicalDesc: reagent-physical-desc-creamy
   flavor: white-gilgamesh
@@ -2379,6 +2379,29 @@
       - !type:AdjustReagent
         reagent: Copper
         amount: 0.05
+
+- type: reagent # Omu start
+  id: TheWelles
+  name: reagent-name-welles
+  parent: BaseAlcohol
+  desc: reagent-desc-welles
+  physicalDesc: reagent-physical-desc-robust
+  flavor: thewelles
+  color: "#CECBAD"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/the_welles.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2 # Omu end
 
 - type: reagent
   id: Mimeosa

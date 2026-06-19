@@ -318,6 +318,7 @@
     - CorgiWearable
     - WhitelistChameleon
 
+#Goliath Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitGoliath
@@ -380,6 +381,7 @@
     - CorgiWearable
     - WhitelistChameleon
 
+#Maxim Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitMaxim
@@ -446,12 +448,12 @@
     - CorgiWearable
     - WhitelistChameleon
 
-#Brigmedic Hardsuit
+# Brigmedic Hardsuit | # Omu - fuck you it's Corpsman now
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitBrigmedic
-  name: brigmedic hardsuit helmet # Goob edit
-  description: The lightweight helmet of the brigmedic hardsuit. Protects against viruses, and clowns.
+  name: corpsman hardsuit helmet # Goob edit | Omu - rename Brigmedic to Corpsman
+  description: The lightweight helmet of the corpsman hardsuit. Protects against viruses, and clowns.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/brigmedic.rsi
@@ -626,6 +628,8 @@
         Heat: 0.30
         Radiation: 0.01
         Caustic: 0.35
+  - type: EyeProtection #Goob
+  - type: FlashImmunity #Goob
   - type: Tag
     tags:
     - CorgiWearable
@@ -933,14 +937,14 @@
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/pirateeva.rsi
   - type: PressureProtection
-    highPressureMultiplier: 0.3
+    highPressureMultiplier: 0.225 # Omu, was 0.3
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.8
         Slash: 0.8
-        Piercing: 0.9
+        Piercing: 0.7 # Omu, was 0.9
         Heat: 0.4
         Caustic: 0.75
 
@@ -979,7 +983,7 @@
     radius: 7
     energy: 3
   - type: PressureProtection
-    highPressureMultiplier: 0.3
+    highPressureMultiplier: 0.225 # Omu, was 0.3
     lowPressureMultiplier: 1000
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
@@ -988,7 +992,7 @@
       coefficients:
         Blunt: 0.75
         Slash: 0.8
-        Piercing: 0.85
+        Piercing: 0.5 # Omu, was 0.85
         Heat: 0.4
         Caustic: 0.75
 
@@ -1100,6 +1104,10 @@
       head:
       - state: equipped-head
       - state: equipped-head-unshaded
+        shader: unshaded
+      head-vox:
+      - state: equipped-head-vox
+      - state: equipped-head-unshaded-vox
         shader: unshaded
   - type: PointLight
     color: orange

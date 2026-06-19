@@ -72,6 +72,13 @@
   id: HeadSlime
   name: "slime head"
   parent: [PartSlime, BaseHead]
+  components:
+  - type: BodyPart # Doing this to remove brain slot cause multiple consciousness issues - Omu
+    partType: Head
+    toolName: "a head" # Shitmed Change
+    organs: # Shitmed Change
+      eyes:
+        id: eyes
 
 - type: entity
   id: LeftArmSlime

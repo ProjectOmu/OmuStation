@@ -64,6 +64,7 @@
             ServiceWorker: [ 4, 4 ]
             Zookeeper: [ 2, 2 ]
             Reporter: [ 3, 3 ]
+            RadioHost: [ 1, 1 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 5, 5 ]
@@ -76,10 +77,12 @@
             Paramedic: [ 3, 3 ]
             MedicalIntern: [ -1, -1 ]
             Psychologist: [ 2, 2 ]
+            Virologist: [ 1, 1 ]
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 10, 10 ]
             ResearchAssistant: [ -1, -1 ]
+            Roboticist: [ 2, 2 ] #Omu
             Borg: [ 4, 4 ]
             #security
             HeadOfSecurity: [ 1, 1 ]
@@ -90,9 +93,12 @@
             Lawyer: [ 3, 3 ]
             Brigmedic: [ 1, 1 ]
             TransitPrisoner: [2, 2] # Omu - Prisoner role
+            SecuritySergeant: [ 1, 1 ] #Omu
             #supply
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 8, 8 ]
+            SalvageSpecialist: [ 4, 4 ]
+            Courier: [ 3, 4 ] # Omu - Courier role
+            ShaftMiner: [ 4, 4 ] # Omu, needs mapping
             CargoTechnician: [ -1, -1 ]
             #civilian
             Passenger: [ -1, -1 ]

@@ -19,7 +19,7 @@
     #    path: /Audio/Misc/notice1.ogg
     weight: 1.5 # DeltaV -  was 2, now less common then Arms Dealer. rare role
     minimumPlayers: 25 # DeltaV
-    maxOccurrences: 2 # Omu - was 4
+    maxOccurrences: 1 # Omu - was 4 / Moved back to 1
     duration: null # DeltaV
   #- type: GameRule # DeltaV - redundant
   #  minPlayers: 40

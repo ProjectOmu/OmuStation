@@ -71,6 +71,11 @@
       - Alive
   - type: StealTarget
     stealGroup: WeaponSecHeadSword
+  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Security
   - type: ItemSwitch
     needsPower: true
     defaultState: off
@@ -117,6 +122,8 @@
         - type: StaminaDamageOnHit
           damage: 20
           overtime: 15
+          lightAttackDamageMultiplier: 2
+          lightAttackOvertimeDamageMultiplier: 1
         soundStateActivate:
           collection: sparks
           params:

@@ -17,6 +17,9 @@
 
 gun-selected-mode-examine = Current selected fire mode is [color={$color}]{$mode}[/color].
 gun-fire-rate-examine = Fire rate is [color={$color}]{$fireRate}[/color] per second.
+# Omu start
+gun-damage-modifier-examine = Its shots deal [color={$color}]{$damage}x[/color] damage.
+# Omu end
 gun-selector-verb = Change to {$mode}
 gun-selected-mode = Selected {$mode}
 gun-disabled = You can't use guns!

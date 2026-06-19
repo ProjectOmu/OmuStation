@@ -164,7 +164,7 @@
         sound:
           path: /Audio/Effects/break_stone.ogg
           params:
-            volume: -6
+            volume: -2 # Omu - Sound wasn't playing when I broke the rocks in lavaland
   - type: Fixtures
     fixtures:
       fix1:
@@ -176,6 +176,9 @@
         layer:
         - WallLayer
         density: 2000
+  - type: Gatherable # Lavaland Change
+    toolWhitelist:
+      tags: []
 
 - type: entity
   abstract: true
@@ -194,7 +197,7 @@
           Unprimed:
             state: gibtonite_inactive
             visible: false
-  - type: OnUseTimerTrigger
+  - type: TimerTrigger
     examinable: false
     beepInterval: 0.4
     beepSound:
@@ -203,6 +206,8 @@
     min: 8
     max: 10
   - type: ExplodeOnTrigger
+    keysIn:
+    - timer
   - type: Explosive
     explosionType: DemolitionCharge
     totalIntensity: 450
@@ -226,6 +231,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
       - !type:TriggerBehavior
+        keyOut: timer # explode immediately
 
 # Ore veins
 - type: entity
@@ -1213,7 +1219,7 @@
 - type: entity
   id: WallRockArtifactFragment
   parent: WallRock
-  description: A rock wall. What's that sticking out of it?
+  #description: A rock wall. What's that sticking out of it? # Lavaland Change
   suffix: Artifact Fragment
   components:
   - type: EntityRemap
@@ -1292,6 +1298,24 @@
       state: rock_wall_north
     - map: [ "enum.EdgeLayer.West" ]
       state: rock_wall_west
+  # Omu - Make lavaland mining satisfying again
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Rock
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 120
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -6
+  # Omu - Make lavaland mining satisfying again
 
 - type: entity
   id: WallRockBasaltCoal

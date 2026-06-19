@@ -1,0 +1,77 @@
+- type: loadoutEffectGroup
+  id: OxygenMeatEater
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Xelthia
+    - Avali
+
+# Basic
+- type: loadout
+  id: EmergencyOxygenCarnivore
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenMeatEater
+  storage:
+    back:
+    - BoxSurvivalSlotsMeat
+
+# Clown
+- type: loadout
+  id: EmergencyOxygenCarnivoreClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenMeatEater
+  storage:
+    back:
+    - BoxHugSlotsMeat
+
+# Mime
+- type: loadout
+  id: EmergencyOxygenCarnivoreMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenMeatEater
+  storage:
+    back:
+    - BoxMimeSlotsMeat
+
+# Engineering / Extended
+- type: loadout
+  id: EmergencyOxygenCarnivoreExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenMeatEater
+  storage:
+    back:
+    - BoxSurvivalSlotsEngineeringMeat
+
+# Medical
+- type: loadout
+  id: EmergencyOxygenCarnivoreMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenMeatEater
+  storage:
+    back:
+    - BoxSurvivalSlotsMedicalMeat
+
+# Security
+- type: loadout
+  id: EmergencyOxygenCarnivoreSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenMeatEater
+  storage:
+    back:
+    - BoxSurvivalSlotsSecurityMeat
+
+# Syndicate
+- type: loadout
+  id: EmergencyOxygenCarnivoreSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenMeatEater
+  storage:
+    back:
+    - BoxSurvivalSlotsSyndicateMeat

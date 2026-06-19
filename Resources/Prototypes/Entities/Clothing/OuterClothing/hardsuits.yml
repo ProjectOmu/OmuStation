@@ -291,6 +291,10 @@
   - type: Armor
     modifiers:
       coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.90
         Shock: 0.5
         Caustic: 0.7
         Radiation: 0.05
@@ -533,7 +537,7 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
   id: ClothingOuterHardsuitBrigmedic
-  name: brigmedic hardsuit # Goob edit
+  name: corpsman hardsuit # Goob edit | Omu - rename Brigmedic to Corpsman
   description: Special hardsuit of the guardian angel of the brig. It is the medical version of the security hardsuit. # Goob edit
   components:
   - type: Sprite
@@ -1001,8 +1005,8 @@
   - type: Item
     size: Huge
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
+    walkModifier: 1 # goob edit
+    sprintModifier: 1 # goob edit
   - type: HeldSpeedModifier
   - type: Tag
     tags:
@@ -1214,9 +1218,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.9
+        Blunt: 0.7 # Omu, was 0.8
+        Slash: 0.7 # Omu, was 0.8
+        Piercing: 0.6 # Omu, was 0.9
         Heat: 0.4
         Caustic: 0.75
   - type: ClothingSpeedModifier
@@ -1233,6 +1237,9 @@
     knockdownTimeDelta: -2
   - type: StaminaResistance # Goobstation
     damageCoefficient: 0.7
+  - type: PressureProtection # Omu
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
 
 #Pirate Captain Hardsuit
 - type: entity
@@ -1255,9 +1262,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.8
-        Piercing: 0.85
+        Blunt: 0.5 # Omu, was 0.7
+        Slash: 0.6 # Omu, was 0.8
+        Piercing: 0.4 # Omu, was 0.85
         Heat: 0.4
         Caustic: 0.75
   - type: ClothingSpeedModifier

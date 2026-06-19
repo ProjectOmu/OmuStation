@@ -1,0 +1,99 @@
+#Corpsman webbing. Whitelist in theory allows what regular medical and security belts allow but in one item. Unless i messed something up of course.
+- type: entity
+  parent: [ClothingBeltSecurity]
+  id: ClothingBeltCorpsmanWebbing
+  name: corpsman webbing
+  description: A set of security webbing with blue corpsman highlights.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Belt/corpsmanwebbing.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Belt/corpsmanwebbing.rsi
+  - type: ExplosionResistance # Goobstation
+    damageCoefficient: 0.5
+  - type: Storage
+    whitelist:
+      tags:
+      - CigPack
+      - Taser
+      - SecBeltEquip
+      - Radio
+      - Sidearm
+      - MagazinePistol
+      - MagazineMagnum
+      - CombatKnife
+      - Truncheon
+      - BolaEnergy # Goobstation
+      - EnergySpeedloader # Goobstation
+      - MilitaryPowerCell # Goobstation
+      - HandGrenade
+      - Wrench
+      - Bottle
+      - Spray
+      - Brutepack
+      - Bloodpack
+      - Gauze
+      - Ointment
+      - CigPack
+      - PillCanister
+      - Radio
+      - DiscreteHealthAnalyzer
+      - SurgeryTool
+      - Dropper
+      - Tourniquet #Goobstation
+      - MedicalPatch # Goobstation
+      - AutoinjectorCartridge # Goobstation
+      - HandheldCrewMonitor # Goobstation
+      components:
+      - Stunbaton
+      - FlashOnTrigger
+      - SmokeOnTrigger
+      - Flash
+      - Handcuff
+      - BallisticAmmoProvider
+      - CartridgeAmmo
+      - DoorRemote
+      - Whistle
+      - BalloonPopper
+      - ScatteringGrenade # goobstation
+      - Hypospray
+      - Injector
+      - Pill
+      - HandLabeler
+      - SurgeryTool # Shitmed Change
+      - Defibrillator # Goobstation
+      - SyringeGun # Goobstation
+      - GunApplySolution # Goobstation - Syndicate dart gun
+
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase]
+  id: ClothingBeltFoamSheath
+  name: foam sheath
+  description: A foam sheath to cosplay as the captain! It seems to be able to fit a real sabre in it.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Belt/foamsheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: _DV/Clothing/Belt/foamsheath.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: Appearance
+

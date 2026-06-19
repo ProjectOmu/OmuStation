@@ -1,5 +1,7 @@
 using System.Linq;
+using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Goobstation.Heretic.Systems;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.Damage;
@@ -9,22 +11,27 @@ using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
+using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic;
+using Content.Shared.Magic.Events;
+using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.Roles;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
@@ -50,6 +57,9 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
     [Dependency] protected readonly EntityLookupSystem Lookup = default!;
     [Dependency] protected readonly StatusEffectsSystem Status = default!;
+    [Dependency] protected readonly SharedVoidCurseSystem Voidcurse = default!;
+    [Dependency] protected readonly SharedHereticSystem Heretic = default!;
+
     [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _statusNew = default!;
     [Dependency] private readonly SharedProjectileSystem _projectile = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
@@ -70,8 +80,12 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly PainSystem _pain = default!;
     [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly SharedBloodstreamSystem _blood = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
 
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
 
@@ -103,16 +117,20 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         SubscribeBlade();
         SubscribeRust();
         SubscribeCosmos();
+        SubscribeVoid();
         SubscribeFlesh();
         SubscribeSide();
 
-        SubscribeLocalEvent<HereticComponent, EventHereticShadowCloak>(OnShadowCloak);
+        SubscribeLocalEvent<EventHereticShadowCloak>(OnShadowCloak);
+
+        SubscribeLocalEvent<HereticActionComponent, BeforeCastSpellEvent>(OnBeforeCast);
     }
 
     protected List<Entity<MobStateComponent>> GetNearbyPeople(EntityUid ent,
         float range,
         string? path,
-        EntityCoordinates? coords = null)
+        EntityCoordinates? coords = null,
+        bool checkNullRod = true)
     {
         var list = new List<Entity<MobStateComponent>>();
         var lookup = Lookup.GetEntitiesInRange<MobStateComponent>(coords ?? Transform(ent).Coordinates, range);
@@ -120,11 +138,20 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         foreach (var look in lookup)
         {
             // ignore heretics with the same path*, affect everyone else
-            if (TryComp<HereticComponent>(look, out var th) && th.CurrentPath == path || HasComp<GhoulComponent>(look))
+            if (Heretic.TryGetHereticComponent(look, out var th, out _) && th.CurrentPath == path ||
+                HasComp<GhoulComponent>(look))
                 continue;
 
             if (!HasComp<StatusEffectsComponent>(look))
                 continue;
+
+            if (checkNullRod)
+            {
+                var ev = new BeforeCastTouchSpellEvent(look, false);
+                RaiseLocalEvent(look, ev, true);
+                if (ev.Cancelled)
+                    continue;
+            }
 
             list.Add(look);
         }
@@ -133,69 +160,79 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     }
 
 
-    private void OnShadowCloak(Entity<HereticComponent> ent, ref EventHereticShadowCloak args)
+    private void OnShadowCloak(EventHereticShadowCloak args)
     {
+        var ent = args.Performer;
+
         if (!TryComp(ent, out StatusEffectsComponent? status))
             return;
 
         if (TryComp(ent, out ShadowCloakedComponent? shadowCloaked))
         {
             Status.TryRemoveStatusEffect(ent, args.Status, status, false);
-            RemCompDeferred(ent.Owner, shadowCloaked);
+            RemCompDeferred(ent, shadowCloaked);
             args.Handled = true;
             return;
         }
 
         // TryUseAbility only if we are not cloaked so that we can uncloak without focus
         // Ideally you should uncloak when losing focus but whatever
-        if (!TryUseAbility(ent, args))
+        if (!TryUseAbility(args))
             return;
 
-        args.Handled = true;
         Status.TryAddStatusEffect<ShadowCloakedComponent>(ent, args.Status, args.Lifetime, true, status);
     }
 
-    public bool TryUseAbility(EntityUid ent, BaseActionEvent args)
+    public bool TryUseAbility(BaseActionEvent args, bool handle = true)
     {
         if (args.Handled)
             return false;
+        var ev = new BeforeCastSpellEvent(args.Performer);
+        RaiseLocalEvent(args.Action, ref ev);
+        var result = !ev.Cancelled;
+        if (result && handle)
+            args.Handled = true;
+        return result;
+    }
 
-        // No using abilities while charging
-        if (HasComp<RustChargeComponent>(ent))
-            return false;
-
-        if (!TryComp<HereticActionComponent>(args.Action, out var actionComp))
-            return false;
-
-        // check if any magic items are worn
-        if (!TryComp<HereticComponent>(ent, out var hereticComp) || !actionComp.RequireMagicItem ||
-            hereticComp.Ascended)
+    private void OnBeforeCast(Entity<HereticActionComponent> ent, ref BeforeCastSpellEvent args)
+    {
+        if (HasComp<RustChargeComponent>(args.Performer))
         {
-            SpeakAbility(ent, actionComp);
-            return true;
+            args.Cancelled = true;
+            return;
         }
+
+        if (HasComp<GhoulComponent>(args.Performer) || HasComp<StarGazerComponent>(args.Performer))
+            return;
+
+        if (!Heretic.TryGetHereticComponent(args.Performer, out var heretic, out _))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        if (!ent.Comp.RequireMagicItem || heretic.Ascended)
+            return;
 
         var ev = new CheckMagicItemEvent();
-        RaiseLocalEvent(ent, ev);
+        RaiseLocalEvent(args.Performer, ev);
 
         if (ev.Handled)
-        {
-            SpeakAbility(ent, actionComp);
-            return true;
-        }
+            return;
 
         // Almost all of the abilites are serverside anyway
         if (_net.IsServer)
-            Popup.PopupEntity(Loc.GetString("heretic-ability-fail-magicitem"), ent, ent);
+            Popup.PopupEntity(Loc.GetString("heretic-ability-fail-magicitem"), args.Performer, args.Performer);
 
-        return false;
+        args.Cancelled = true;
     }
 
-    private EntityUid? GetTouchSpell<TEvent, TComp>(Entity<HereticComponent> ent, ref TEvent args)
+    private EntityUid? GetTouchSpell<TEvent, TComp>(EntityUid ent, ref TEvent args)
         where TEvent : InstantActionEvent, ITouchSpellEvent
         where TComp : Component
     {
-        if (!TryUseAbility(ent, args))
+        if (!TryUseAbility(args, false))
             return null;
 
         if (!TryComp(ent, out HandsComponent? hands) || hands.Hands.Count < 1)
@@ -261,11 +298,16 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     /// <param name="toHeal">how much to heal, null = full heal</param>
     /// <param name="boneHeal">how much to heal bones, null = full heal</param>
     /// <param name="painHeal">how much to heal pain, null = full heal</param>
+    /// <param name="woundHeal">how much to heal wounds, null = full heal</param>
+    /// <param name="bloodHeal">how much to restore blood, null = fully restore</param>
+    /// <param name="bleedHeal">how much to heal bleeding, null = full heal</param>
     public void IHateWoundMed(Entity<DamageableComponent?, BodyComponent?, ConsciousnessComponent?> uid,
         DamageSpecifier? toHeal,
         FixedPoint2? boneHeal,
         FixedPoint2? painHeal,
-        FixedPoint2? woundHeal)
+        FixedPoint2? woundHeal,
+        FixedPoint2? bloodHeal,
+        FixedPoint2? bleedHeal)
     {
         if (!Resolve(uid, ref uid.Comp1, false))
             return;
@@ -379,6 +421,35 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
                 // Read this method name
                 _consciousness.RemoveConsciousnessModifier(uid, modifier.Key.Item1, modifier.Key.Item2, uid.Comp3);
             }
+        }
+
+        if (bleedHeal == FixedPoint2.Zero && bloodHeal == FixedPoint2.Zero ||
+            !TryComp(uid, out BloodstreamComponent? blood))
+            return;
+
+        if (bleedHeal != FixedPoint2.Zero && blood.BleedAmount > 0f)
+        {
+            if (bleedHeal == null)
+                _blood.TryModifyBleedAmount((uid, blood), -blood.BleedAmount);
+            else
+                _blood.TryModifyBleedAmount((uid, blood), bleedHeal.Value.Float());
+        }
+
+        if (bloodHeal == FixedPoint2.Zero || !TryComp(uid, out SolutionContainerManagerComponent? sol) ||
+            !_solution.ResolveSolution((uid, sol), blood.BloodSolutionName, ref blood.BloodSolution) ||
+            blood.BloodSolution.Value.Comp.Solution.Volume >= blood.BloodMaxVolume)
+            return;
+
+        if (bloodHeal == null)
+        {
+            _blood.TryModifyBloodLevel((uid, blood),
+                blood.BloodMaxVolume - blood.BloodSolution.Value.Comp.Solution.Volume);
+        }
+        else
+        {
+            _blood.TryModifyBloodLevel((uid, blood),
+                FixedPoint2.Min(bloodHeal.Value,
+                    blood.BloodMaxVolume - blood.BloodSolution.Value.Comp.Solution.Volume));
         }
     }
 

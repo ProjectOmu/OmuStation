@@ -555,6 +555,7 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalMcGriff
+  - type: MessyDrinker
 
 - type: entity
   name: Paperwork
@@ -661,6 +662,7 @@
   - type: Speech
     speechVerb: Canine
     speechSounds: Dog
+  - type: MessyDrinker
 
 - type: entity
   name: Morty
@@ -851,7 +853,7 @@
     allowMovement: true
     name: ghost-role-information-hamlet-name
     description: ghost-role-information-hamlet-description
-    rules: ghost-role-information-nonantagonist-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
   - type: GhostTakeoverAvailable
   - type: InteractionPopup
     successChance: 1
@@ -887,6 +889,11 @@
     understands:
     - Mouse
     - TauCetiBasic
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-hamlet
+    stampedColor: "#1c1c1c"
+    stampState: "paper_stamp-hamster"
+    stampLargeIcon: "large_stamp-hamster"
 
 - type: entity
   name: Shiva
@@ -894,6 +901,13 @@
   id: MobSpiderShiva
   description: The first defender of the station.
   components:
+  - type: GhostRole # DeltaV
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-shiva-name
+    description: ghost-role-information-shiva-description
+  - type: GhostTakeoverAvailable # DeltaV
   - type: InteractionPopup
     successChance: 0.5 # spider is mean
     interactSuccessString: petting-success-tarantula
@@ -939,7 +953,7 @@
     damage:
       types:
         Piercing: 8
-        Poison: 8
+        Poison: 2 # Omu, Sleep poison instead of die poison
   - type: Spider
     spawnsWebsAsNonPlayer: false
   - type: Grammar
@@ -954,6 +968,25 @@
     - FootstepSound
   - type: StealTarget
     stealGroup: AnimalShiva
+#  - type: SolutionContainerManager # Omu start / Death to validhunting Shiva
+#    solutions:
+#      melee:
+#        maxVol: 12
+#  - type: SolutionRegeneration
+#    solution: melee
+#    generated:
+#      reagents:
+#      - ReagentId: Nocturine
+#        Quantity: 0.1
+#  - type: MeleeChemicalInjector
+#    solution: melee
+#    transferAmount: 3
+#  - type: Access
+#    tags:
+#    - Security
+#    - Brig
+  - type: Puller
+    needsHands: false # Omu end
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Xeno
@@ -987,7 +1020,7 @@
     prob: 0.25
     name: ghost-role-information-willow-name
     description: ghost-role-information-willow-description
-    rules: ghost-role-information-nonantagonist-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [ BoxingKangarooGear ]
@@ -1024,7 +1057,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Dead
+      300: Dead # Omu, Make smile a bit more tanky
+  - type: CanEscapeInventory # Omu
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepSlime
@@ -1047,25 +1081,42 @@
       amount: 1
     - id: MaterialSmileExtract
       amount: 1
-  - type: Damageable
-    damageModifierSet: SlimePet
   - type: Bloodstream
     bloodlossHealDamage:
       types:
         Bloodloss:
           -0.8
   - type: Temperature
-    heatDamageThreshold: 800
-    coldDamageThreshold: 0
+    heatDamageThreshold: 1000 # Omu, make smile a bit more tanky.
+    coldDamageThreshold: -200 # Omu, make smile spaceproof.
+  - type: Damageable # Omu start
+    damageContainer: Biological
+    damageModifierSet: Smile
+  - type: SupermatterImmune
+  - type: Puller
+    needsHands: false
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 1
-        Caustic: 1
+        Blunt: 0
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 10
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: Omnizine
+        Quantity: 0.05
+  - type: NoSlip
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 0.1 # Omu end
   - type: MultiHandedItem
   - type: Item
     sprite: Mobs/Pets/Smile/smile.rsi
-    size: Huge
+    size: Ginormous # Omu
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-slime
   - type: MobPrice
@@ -1073,7 +1124,7 @@
   - type: GhostRole
     name: ghost-role-information-smile-name
     description: ghost-role-information-smile-description
-    rules: ghost-role-information-nonantagonist-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
     raffle: null
   - type: Grammar
     attributes:
@@ -1086,6 +1137,19 @@
     understands:
     - Bubblish
     - TauCetiBasic
+  - type: SlowOnDamage # Omu start
+    speedModifierThresholds:
+      150: 1
+  - type: ZombieImmune
+  - type: MovementIgnoreGravity
+  - type: BreathingImmunity
+  - type: PressureImmunity
+  - type: SpecialLowTempImmunity
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Access
+    tags:
+    - Research # Omu end
 
 - type: entity
   name: Pun Pun
@@ -1150,7 +1214,7 @@
 #    allowMovement: true
 #    name: ghost-role-information-tropico-name
 #    description: ghost-role-information-tropico-description
-#    rules: ghost-role-information-nonantagonist-rules
+#    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
 #  - type: GhostTakeoverAvailable
   - type: Tag
     tags:

@@ -163,13 +163,26 @@
   #    - HumanHairFloorlengthBedhead
   #    - HumanHairClassicFloorlengthBedhead
   #    - HumanHairFloorlengthBraid
+    - !type:OverallPlaytimeRequirement
+      time: 72000 #20 hours - Omu Edit
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
   supervisors: job-supervisors-captain
   canBeAntag: false
+  guides: # goobstation
+  - Security
+  - SpaceLaw
+  - LegalSOP
+  - Command
+  - HeadOfSecuritySOP
+  - SecuritySOP
+  - AlertLevels
+  - CommandTrainingManual # Omu
+  - SecurityTrainingManual # Omu
   goobcoins: 45 #Goob content
   access:
+  - Corpsman # Omu
   - HeadOfSecurity
   - Command
   - Brig
@@ -195,7 +208,7 @@
     id: HoSPDA
     #gloves: ClothingHandsGlovesCombat - Goobstation, moved to loadouts
     ears: ClothingHeadsetAltSecurity
-    pocket1: OfficerGunCase #Omu
+    #pocket1: OfficerGunCase #Omu, item is in loadout instead
   storage:
     back:
     - Flash

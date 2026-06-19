@@ -135,10 +135,12 @@
             Paramedic: [ 2, 2 ]
             Psychologist: [ 1, 1 ]
             MedicalIntern: [ 4, 4 ]
+            Virologist: [ 1, 1 ]
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 5, 5 ]
             ResearchAssistant: [ 4, 4 ]
+            Roboticist: [ 2, 2 ] #Omu
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
@@ -148,16 +150,22 @@
             Lawyer: [ 2, 2 ]
             Brigmedic: [ 1, 1 ]
             TransitPrisoner: [2, 2] # Omu - Prisoner role
+            SecuritySergeant: [ 1, 1 ] #Omu
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 4, 4 ]
+            ShaftMiner: [ 3, 3 ]
+            Courier: [ 2, 2 ] #Omu
             #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Reporter: [ 1, 1 ]
+            RadioHost: [ 1, 1 ]
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]
+
+            NanotrasenCareerTrainer: [ 2, 2] # Omu

@@ -10,4 +10,10 @@ public sealed partial class OmuCVars
     /// </summary>
     public static readonly CVarDef<float> RulesSmiteTime =
         CVarDef.Create("rulessmite.time", 60f, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    ///     DEBUG Cvar - Should pathfinding be disabled globally.
+    /// </summary>
+    public static readonly CVarDef<bool> DisablePathfinding =
+        CVarDef.Create("omu.disable_pathfinding", false, CVar.SERVER | CVar.SERVERONLY);
 }

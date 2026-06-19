@@ -152,13 +152,24 @@
 #      inverted: true
 #      species:
 #      - Felinid #Omu, add back Felinid
+    - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hours - Omu Edit
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
   supervisors: job-supervisors-captain
   canBeAntag: false
+  guides: # goobstation
+  - Medical
+  - ChiefMedicalOfficerSOP
+  - MedicalSOP
+  - Command
+  - Chemicals
+  - CommandTrainingManual # Omu
+  - Virology
   goobcoins: 40 #Goob content
   weight: 10 #Goob Edit
   access:
+  - Paramedic # Omu
   - Medical
   - Command
   - Maintenance
@@ -184,7 +195,7 @@
   equipment:
     id: CMOPDA
     ears: ClothingHeadsetAltMedical # Goobstation
-    eyes: ClothingEyesGlassesMed # Goobstation
+    eyes: ClothingEyesGlassesMedChemFlash #Omu
     belt: ClothingBeltMedicalFilled
   storage:
     back:
@@ -197,7 +208,7 @@
   hasMindShield: true
   equipment:
     head: ClothingHeadHatBeretCmo
-    eyes: ClothingEyesHudMedical
+    eyes: ClothingEyesGlassesMedChemFlash # Omu
     mask: ClothingMaskSterile
     neck: ClothingCloakCmo
     outerClothing: ClothingOuterCoatLabCmo

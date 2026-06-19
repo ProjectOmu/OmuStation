@@ -27,6 +27,7 @@
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
@@ -121,6 +122,9 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> HighpopThreshold =
         CVarDef.Create("game.players.highpop_threshold", 50f, CVar.SERVERONLY);
 
+    public static readonly CVarDef<bool> RemoveClumsyOnAntag =
+        CVarDef.Create("game.antag.gain.remove_clumsy", false, CVar.SERVERONLY);
+
     /// <summary>
     ///     Is ore silo enabled.
     /// </summary>
@@ -132,6 +136,12 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<float> MaxDrunkTime =
         CVarDef.Create("goob.max_drunk_time", 1500f, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Easy mode for biomass requirements on cloning. If true, 30% less biomass is required to clone mobs.
+    /// </summary>
+    public static readonly CVarDef<bool> CloneBiomassEasyMode =
+        CVarDef.Create("goob.clone_biomass_easy_mode", false, CVar.SERVER | CVar.SERVER);
 
     #region Player Listener
 
@@ -245,12 +255,6 @@ public sealed partial class GoobCVars
         CVarDef.Create("silicon.npcupdatetime", 1.5f, CVar.SERVERONLY);
 
     /// <summary>
-    ///     Should the player automatically get up after being knocked down
-    /// </summary>
-    public static readonly CVarDef<bool> AutoGetUp =
-        CVarDef.Create("white.auto_get_up", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED); // WD EDIT
-
-    /// <summary>
     ///     Sets the size of the hitbox where projectile/laser will hit any entity regardless of crawling
     /// </summary>
     public static readonly CVarDef<float> CrawlHitzoneSize =
@@ -291,13 +295,23 @@ public sealed partial class GoobCVars
 
     #endregion
 
+    public static readonly CVarDef<string> PatronSupportLastShown =
+        CVarDef.Create("patron.support_last_shown", "", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<int> PatronAskSupport =
+        CVarDef.Create("patron.ask_support", 7, CVar.REPLICATED | CVar.SERVER);
+
+    #region Xenobiology
+
+    public static readonly CVarDef<float> BreedingInterval =
+        CVarDef.Create("xenobiology.breeding.interval", 1f, CVar.REPLICATED | CVar.SERVER);
+
+    #endregion
+
     #region Goobcoins
 
     public static readonly CVarDef<int> GoobcoinsPerPlayer =
         CVarDef.Create("servercurrency.per_player", 10, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> GoobcoinsPerGreentext =
-        CVarDef.Create("servercurrency.per_greentext", 5, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GoobcoinNonAntagMultiplier =
         CVarDef.Create("servercurrency.non_antag_multiplier", 1, CVar.SERVERONLY);
@@ -421,7 +435,7 @@ public sealed partial class GoobCVars
     /// How much should the mass difference affect shove range & speed.
     /// </summary>
     public static readonly CVarDef<float> ShoveMassFactor =
-        CVarDef.Create("game.shove_mass_factor", 5f, CVar.SERVER | CVar.ARCHIVE);
+        CVarDef.Create("game.shove_mass_factor", 3f, CVar.SERVER | CVar.ARCHIVE);
     #endregion
 
     #region Chat
@@ -590,7 +604,7 @@ public sealed partial class GoobCVars
     /// Applies to Brute and Burn damage
     /// </summary>
     public static readonly CVarDef<float> ExplosionWoundMultiplier =
-        CVarDef.Create("explosion.wounding_multiplier", 8f, CVar.SERVERONLY);
+        CVarDef.Create("explosion.wounding_multiplier", 4f, CVar.SERVERONLY);
 
     #endregion
 
@@ -601,6 +615,12 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> AutoFocusSearchOnBuildMenu =
         CVarDef.Create("ui.auto_focus_search_on_build_menu", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// When enabled, action hotbar slots can only be drag-reordered while the actions menu is open.
+    /// </summary>
+    public static readonly CVarDef<bool> LockActionBarDrag =
+        CVarDef.Create("ui.lock_action_bar_drag", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
     /// Whether or not to show detailed examine text.
@@ -639,10 +659,40 @@ public sealed partial class GoobCVars
         CVarDef.Create("lifeline.rejuvenate", false, CVar.SERVERONLY);
 
     /// <summary>
+    /// A multiplier for bloodloss damage and heal.
+    /// </summary>
+    public static readonly CVarDef<float> BleedMultiplier =
+        CVarDef.Create("medical.bloodloss_multiplier", 4.0f, CVar.SERVER);
+
+    /// <summary>
     /// Should the bluespace lifeline reset mind on teleport.
     /// </summary>
     public static readonly CVarDef<bool> LifeLineResetMind =
         CVarDef.Create("lifeline.reset_mind", true, CVar.SERVERONLY);
 
+    /// <summary>
+    /// Enable admin notification sounds
+    /// </summary>
+    public static readonly CVarDef<float> AdminNotificationVolume =
+        CVarDef.Create("admin.notification_volume", 1f, CVar.CLIENT | CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Whether or not to spawn space whales if the entity is too far away from the station
+    /// </summary>
+    public static readonly CVarDef<bool> SpaceWhaleSpawn =
+        CVarDef.Create("misc.space_whale_spawn", true, CVar.SERVER);
+
+    /// <summary>
+    /// The distance to spawn a space whale from the station
+    /// </summary>
+    public static readonly CVarDef<int> SpaceWhaleSpawnDistance =
+        CVarDef.Create("misc.space_whale_spawn_distance", 1965, CVar.SERVER);
+
     #endregion
+
+    /// <summary>
+    /// Controls how often GPS updates.
+    /// </summary>
+    public static readonly CVarDef<float> GpsUpdateRate =
+        CVarDef.Create("gps.update_rate", 1f, CVar.SERVER | CVar.REPLICATED);
 }

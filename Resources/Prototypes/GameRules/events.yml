@@ -178,6 +178,7 @@
     - id: DerelictCyborgSyndicateSpawn # Goobstation - usually calm
     - id: MalignRiftSpawn # DeltaV
     - id: FloorGoblinMidRound # Goobstation
+    - id: ClownGoblinMigration # Goobstation - New Midrounds
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -190,9 +191,6 @@
     - id: ParadoxCloneSpawn
     #- id: RevenantSpawn  # GoobStation - removed till rework
     - id: SleeperAgents
-    - id: ChangelingMidround
-    - id: HereticMidround
-    - id: Devilmidround
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
@@ -202,8 +200,17 @@
     - id: BingleSpawn #Goobstation - Bingle
     - id: SlaughterDemonMidround # Goobstation - Slaughter Demon
     - id: XenomorphsInfestation # WD EDIT
-   # - id: WraithMidround # Goobstation - Wraith - OMU Wraith is unbalanced and shit to deal with
-    #TODO When Slasher is Ready - id: SlasherSpawn # Goobstation - The Slasher
+    #- id: SlasherSpawn # Goobstation - The Slasher # Omu, disable this
+    - id: SpacePirates # Goobstation - you probably can read whom this rule spawns
+    #- id: GreyTideAntagMidround # Goobstation - New Midrounds -- Omu Change Removed
+    - id: SingulothKnightsMidround # Goobstation - New Midrounds
+    #- id: DarkLordMidround # Goobstation - New Midrounds
+    - id: MimeAssassinMidround # Goobstation - New Midrounds
+    #- id: DarkPriestMidround # Goobstation - New Midrounds -- Omu Change Removed
+    - id: VoxRaidersMidround # Goobstation - New Midrounds
+    - id: TunnelClownMidround # Goobstation
+    #- id: WraithMidround # Goobstation - Wraith
+    #TODO when midrounds are "reviewed" by the chudmins add them back
 
 - type: entity
   id: BaseStationEvent
@@ -322,6 +329,7 @@
   - type: BureaucraticErrorRule
     ignoredJobs:
     - StationAi
+    - NanotrasenCareerTrainer #Omu
 
 - type: entity
   id: ClericalError
@@ -426,6 +434,7 @@
     - Harpy
     - Plasmaman # EE
     # Goobstation end
+    - Xelthia # Omu Edit - They can't use gloves and ninja objectives needs gloves
   - type: AntagObjectives
     objectives:
     - StealResearchObjective
@@ -715,9 +724,7 @@
   - type: VentCrittersRule
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
-      - id: MobAdultSlimesBlueAngry
-      - id: MobAdultSlimesGreenAngry
-      - id: MobAdultSlimesYellowAngry
+      - id: XenobioSlimeBabySpawner # goob edit - nuke wizden slimes in favor of xenobio
 
 - type: entity
   id: SnakeSpawn
@@ -842,7 +849,7 @@
     earliestStart: 60 # OMU change - make lone-ops spawn later
     weight: 5.5       #Omu
     minimumPlayers: 20 #Omu keeping it lower for now cause playercount
-    duration: 1
+    duration: 720 # Goobstation - required for custom nuke music. 720s to ensure loneop can hear the music and still have space for other midrounds incase of failure
     chaos: # Goobstation
       Hostile: 200
       Medical: 200
@@ -855,6 +862,7 @@
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
   - type: NukeopsRule
+    localePrefix: "loneop-" #Goobstation
     roundEndBehavior: Nothing
   - type: AntagSelection
     definitions:
@@ -868,6 +876,7 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune # DeltaV - Nukies are no longer targets of kill objectives, this includes lone ops.
       - type: RandomMetadata
         nameSegments:
         - NamesSyndicatePrefix

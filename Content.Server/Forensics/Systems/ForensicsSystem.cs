@@ -106,6 +106,7 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.DoAfter;
 using Content.Shared.Forensics;
 using Content.Shared.Forensics.Components;
+using Content.Shared.Forensics.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
@@ -119,7 +120,7 @@ using Robust.Shared.Timing; // Goobstation
 
 namespace Content.Server.Forensics
 {
-    public sealed class ForensicsSystem : EntitySystem
+    public sealed class ForensicsSystem : SharedForensicsSystem
     {
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
@@ -239,7 +240,7 @@ namespace Content.Server.Forensics
         private void OnRehydrated(Entity<ForensicsComponent> ent, ref GotRehydratedEvent args)
         {
             CopyForensicsFrom(ent.Comp, args.Target);
-            Dirty(args.Target, ent.Comp); // Einstein Engines
+            Dirty(args.Target, Comp<ForensicsComponent>(args.Target)); // Einstein Engines
         }
 
         /// <summary>
@@ -453,7 +454,23 @@ namespace Content.Server.Forensics
                 if (TryComp<FiberComponent>(gloves, out var fiber) && !string.IsNullOrEmpty(fiber.FiberMaterial))
                     component.Fibers.Add(string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial)) : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial)));
             }
+            // EE start for Xelthia jackets
+            if (_inventory.TryGetSlotEntity(user, "outerClothing", out var outerClothing)) // Allows outerClothing to use this.
+            {
+                if (TryComp<FiberComponent>(outerClothing, out var fiber) && !string.IsNullOrEmpty(fiber.FiberMaterial))
+                {
+                    var fiberLocale = string.IsNullOrEmpty(fiber.FiberColor)
+                        ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial))
+                        : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial));
+                }
 
+                if (HasComp<FingerprintMaskComponent>(outerClothing))
+                {
+                    Dirty(target, component);
+                    return;
+                }
+            }
+            // EE End for Xelthia jackets
             if (TryComp<FingerprintComponent>(user, out var fingerprint) && CanAccessFingerprint(user, out _))
                 component.Fingerprints.Add(fingerprint.Fingerprint ?? "");
         }
@@ -481,12 +498,7 @@ namespace Content.Server.Forensics
         }
 
         #region Public API
-
-        /// <summary>
-        /// Give the entity a new, random DNA string and call an event to notify other systems like the bloodstream that it has been changed.
-        /// Does nothing if it does not have the DnaComponent.
-        /// </summary>
-        public void RandomizeDNA(Entity<DnaComponent?> ent)
+        public override void RandomizeDNA(Entity<DnaComponent?> ent)
         {
             if (!Resolve(ent, ref ent.Comp, false))
                 return;
@@ -498,11 +510,7 @@ namespace Content.Server.Forensics
             RaiseLocalEvent(ent.Owner, ref ev);
         }
 
-        /// <summary>
-        /// Give the entity a new, random fingerprint string.
-        /// Does nothing if it does not have the FingerprintComponent.
-        /// </summary>
-        public void RandomizeFingerprint(Entity<FingerprintComponent?> ent)
+        public override void RandomizeFingerprint(Entity<FingerprintComponent?> ent)
         {
             if (!Resolve(ent, ref ent.Comp, false))
                 return;

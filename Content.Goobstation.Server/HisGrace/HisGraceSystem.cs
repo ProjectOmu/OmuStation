@@ -325,7 +325,7 @@ public sealed class HisGraceSystem : SharedHisGraceSystem
         if (_state.IsDead(user)
             && _threshold.TryGetDeadThreshold(user, out var deadThreshold)
             && TryComp<DamageableComponent>(user, out var damageable)
-            && damageable.TotalDamage < deadThreshold
+            && _threshold.CheckVitalDamage(user, damageable) < deadThreshold
             && hisGrace.Comp.IsHeld)
         {
             _state.ChangeMobState(user, MobState.Critical);
@@ -515,7 +515,7 @@ public sealed class HisGraceSystem : SharedHisGraceSystem
         var released = _containerSystem.EmptyContainer(hisGrace.Stomach, true);
 
         foreach (var ent in released)
-            _stun.TryParalyze(ent, TimeSpan.FromSeconds(8), true);
+            _stun.TryUpdateParalyzeDuration(ent, TimeSpan.FromSeconds(8));
     }
 
     #endregion
