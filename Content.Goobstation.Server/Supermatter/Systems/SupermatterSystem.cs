@@ -182,14 +182,14 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 return;
             }
             var eventtorun = _proto.Index<SupermatterEventPrototype>(eventtorunID);
-            if (eventtorun.Type == "Gas")   //If its a gas event - create the gas
+            if (eventtorun.EventType == "Gas")   //If its a gas event - create the gas
             {
                 var mix = _atmosphere.GetContainingMixture(uid, true, true);
                 if (mix == null)
                     return;
                 mix.AdjustMoles(eventtorun.GasToSpawn, 2000f);
             }
-            else if (eventtorun.Type == "Spawn")    //If its a spawn event - spawn what we want next to the SM
+            else if (eventtorun.EventType == "Spawn")    //If its a spawn event - spawn what we want next to the SM
             {
                 SpawnNextToOrDrop(eventtorun.ProtoToSpawn, uid);
             }

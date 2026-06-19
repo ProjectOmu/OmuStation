@@ -460,21 +460,26 @@ public sealed partial class SupermatterComponent : Component
     public float SMLastAnger = 0f;
 
     [ViewVariablesAttribute(VVAccess.ReadOnly)]
-    [DataField(required: true)]
+    [DataField]
     public ProtoId<WeightedRandomPrototype> HarshEvents = "HarshEvents";
 
     [ViewVariablesAttribute(VVAccess.ReadOnly)]
-    [DataField(required: true)]
+    [DataField]
     public ProtoId<WeightedRandomPrototype> NormalEvents = "NormalEvents";
 }
+[Prototype]
 public sealed partial class SupermatterEventPrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; private set; } = default!;
-    public string Type { get; set; } = default!;
-    public Gas GasToSpawn { get; set; } = default!;
-    public string ProtoToSpawn { get; set; } = default!;
-    public LocId Announcement;
+    public string ID { get; set; } = default!;
+    [DataField]
+    public string EventType = default!;
+    [DataField]
+    public Gas GasToSpawn = default!;
+    [DataField]
+    public string ProtoToSpawn = default!;
+    [DataField]
+    public LocId? Announcement;
 }
 #endregion
 [Serializable, NetSerializable]

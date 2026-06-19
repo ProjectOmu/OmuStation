@@ -8,24 +8,24 @@
 
 - type: supermatterEvent
   id: GasSpillOxy
-  type: Gas
+  eventType: Gas
   gasToSpawn: Oxygen
   announcement: Gas-Spill-Oxy
 
 - type: supermatterEvent
   id: GasSpillPlasma
-  type: Gas
+  eventType: Gas
   gasToSpawn: Plasma
   announcement: Gas-Spill-Plasma
 
 - type: supermatterEvent
   id: GasSpillNitrium
-  type: Gas
+  eventType: Gas
   gasToSpawn: Nitrium
   announcement: Gas-Spill-Nitrium
 
 - type: supermatterEvent
   id: SMShardSpawn
-  type: Spawn
+  eventType: Spawn
   protoToSpawn: SupermatterSliver
   announcement: supermatter-announcement-cc-tamper
