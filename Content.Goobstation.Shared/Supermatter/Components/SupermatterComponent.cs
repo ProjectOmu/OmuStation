@@ -33,6 +33,7 @@ using Robust.Shared.Utility;
 using Robust.Shared.Prototypes;
 using Content.Shared.Random;
 using Robust.Shared.Toolshed.TypeParsers;
+using Content.Shared.Radio;
 
 namespace Content.Goobstation.Shared.Supermatter.Components;
 
@@ -348,12 +349,6 @@ public sealed partial class SupermatterComponent : Component
     [DataField("maxspaceexposureDamage")]
     public float MaxSpaceExposureDamage = 2;
 
-    /// <summary>
-    ///
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("harsheventThreshold")]
-    public float HarshEventThreshold = 20f;
     #endregion SM Threshold
 
     #region SM Delamm
@@ -387,9 +382,6 @@ public sealed partial class SupermatterComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField("detonationRads")]
     public float DetonationRads = 200f;
-
-
-
 
     #endregion SM Delamm
 
@@ -445,6 +437,9 @@ public sealed partial class SupermatterComponent : Component
     #endregion EE
 
     #region Events
+    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField("harsheventThreshold")]
+    public float HarshEventThreshold = 5f;
     /// <summary>
     /// The SM's current anger value, increments to a setpoint then triggers an event
     /// </summary>
@@ -466,6 +461,9 @@ public sealed partial class SupermatterComponent : Component
     [ViewVariablesAttribute(VVAccess.ReadOnly)]
     [DataField]
     public ProtoId<WeightedRandomPrototype> NormalEvents = "NormalEvents";
+
+    [DataField]
+    public ProtoId<RadioChannelPrototype> RadioChannel = "Engineering";
 }
 [Prototype]
 public sealed partial class SupermatterEventPrototype : IPrototype

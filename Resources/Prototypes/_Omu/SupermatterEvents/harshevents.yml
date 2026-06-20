@@ -8,12 +8,14 @@
     GasSpillFrezon: 1
     SMShardSpawn: 1
     SMAnomSpawn: 1
+    SMEMPSpawn: 1
+    SMGravitySpawn: 1
 
 - type: supermatterEvent
   id: GasSpillOxy
   eventType: Gas
   gasToSpawn: Oxygen
-  announcement: Gas-Spill-Oxy
+  announcement: Gas-Spill-Oxygen
 
 - type: supermatterEvent
   id: GasSpillPlasma
@@ -68,3 +70,17 @@
   eventType: Spawn
   protoToSpawn: MobSupermatterCrab
   announcement: supermatter-announcement-cc-tamper
+
+- type: supermatterEvent
+  id: SMEMPSpawn
+  eventType: Spawn
+  protoToSpawn: AdminInstantEffectEMP7
+  announcement: Supermatter-energy-surge
+
+- type: supermatterEvent
+  id: SMGravitySpawn
+  eventType: Spawn
+  protoToSpawn: AdminInstantEffectGravityWell
+  announcement: Supermatter-energy-surge
+
+
