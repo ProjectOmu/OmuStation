@@ -47,7 +47,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Radiation.Components;
-using Content.Shared.SmartFridge;
 using Content.Shared.Tag;
 using Content.Shared.Throwing;
 using Content.Shared.Trigger;
