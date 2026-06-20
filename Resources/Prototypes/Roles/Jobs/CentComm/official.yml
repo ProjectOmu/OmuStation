@@ -61,7 +61,7 @@
   - BlueshieldOfficer
   special: # Goobstation
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ] # Omu, use CC mindshield
 
 - type: startingGear # Goobstation - Start - SolsticeOfTheWinter
   id: CentcomGear

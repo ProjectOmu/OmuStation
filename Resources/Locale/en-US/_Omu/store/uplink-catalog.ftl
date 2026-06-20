@@ -23,6 +23,9 @@ uplink-blueprint-exosuit-fabricator-syndie-chassis-desc = A blueprint for syndic
 uplink-swordfish-name = Blood Red Swordfish
 uplink-swordfish-desc = A terrifying weapon made for the Thaven operatives. This fish is wielded like a rapier. It pierces armor and it can perform a dash attack.
 
+uplink-shoalmask-name = Shoal Infiltration Mask
+uplink-shoalmask-desc = A padded steel gas mask designed for Shoal Infiltrators, provides quiet door prying and thermal vision.
+
 uplink-shredder-name = Shredder
 uplink-shredder-desc = A razor-sharp rock guitar which delivers deadly shocks while providing you with increased speed and healing while wielded. Anyone wearing blood-red headphones nearby will also gain the same boost!
 
