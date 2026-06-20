@@ -1,0 +1,66 @@
+# SPDX-FileCopyrightText: 2025 Gip-Kip <hargifarspam2@gmail.com>
+# SPDX-FileCopyrightText: 2025 bunnygirlHyacinth <xxst4rf11m00nb700db4nnyxx@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: reagent
+  id: FeverDream
+  name: reagent-name-feverdream
+  parent: BaseAlcohol
+  desc: reagent-desc-feverdream
+  physicalDesc: reagent-physical-desc-shimmering-blood
+  flavor: feverdream
+  color: "#DD793E"
+  metamorphicChangeColor: false
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/feverdream.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 6
+  metamorphicFillBaseName: fill-
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.3
+      - !type:AdjustReagent
+        reagent: KelpPodSlime
+        amount: 0.7
+    Narcotic:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 10
+        refresh: false
+  fizziness: 0.1
+
+- type: reagent
+  id: ThavenBad
+  name: reagent-name-thavenbad
+  parent: BaseAlcohol
+  desc: reagent-desc-thavenbad
+  physicalDesc: reagent-physical-desc-thavenbad
+  flavor: thavenbad
+  color: "#68430b"
+  recognizable: true
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/thavenbadglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 6
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: KelpPodSlime
+        amount: 0.7
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.07
+  fizziness: .1

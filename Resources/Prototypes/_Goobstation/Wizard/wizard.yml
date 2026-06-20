@@ -36,10 +36,10 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 126000 # 35h
-  - !type:SpeciesRequirement
-    inverted: true
-    species:
-    - Plasmaman
+  #  - !type:SpeciesRequirement #Omu edit start
+  #    inverted: true
+  #    species:
+  #    - Plasmaman #Omu edit end
   guides: [ Wizard ]
 
 - type: antag

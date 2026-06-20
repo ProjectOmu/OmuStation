@@ -1,0 +1,108 @@
+﻿# thaven drinks
+
+- type: reagent # glass wine
+  id: KelpPodWine
+  name: reagent-name-kelp-pod-wine
+  parent: BaseAlcohol
+  desc: reagent-desc-kelp-pod-wine
+  physicalDesc: reagent-physical-desc-kelp-wine
+  flavor: kelpwine
+  color: "#381479"
+  metamorphicSprite:
+    sprite: _Gardenstation/Objects/Consumable/Drinks/kelpwine_glass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.11
+      - !type:AdjustReagent
+        reagent: KelpPodSlime
+        amount: 0.6 #its strong you should get high if you drink enough lol
+
+- type: reagent # wine spritz
+  id: ThavenWineSpritz
+  name: reagent-name-thaven-wine-spritz
+  parent: BaseAlcohol
+  desc: reagent-desc-thaven-wine-spritz
+  physicalDesc: reagent-physical-desc-kelp-wine
+  flavor: thavenwinespritz
+  color: "#7859af"
+  metamorphicSprite:
+    sprite: _Gardenstation/Objects/Consumable/Drinks/thavenwine_spritz.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.11
+      - !type:AdjustReagent
+        reagent: KelpPodSlime
+        amount: 0.7 # stronger cause its got the syrup in it too <3
+
+- type: reagent # blood drink
+  id: ThavenBloodDrink
+  name: reagent-name-thaven-blood-drink
+  parent: BaseAlcohol
+  desc: reagent-desc-thaven-blood-drink
+  physicalDesc: reagent-physical-desc-thaven-blood-drink
+  flavor: thavenblooddrink
+  color: "#180513"
+  metamorphicSprite:
+    sprite: _Gardenstation/Objects/Consumable/Drinks/thavenblooddrink_glass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.7 # get crunk
+      - !type:AdjustReagent
+        reagent: ShimmeringBlood # i <3 vampires
+        amount: 0.7
+      - !type:AdjustReagent
+        reagent: KelpPodSlime
+        amount: 0.7 # stronger cause its got the syrup in it too <3
+
+- type: reagent # harvest drink
+  id: ThavenKelpCocktail
+  name: reagent-name-thaven-kelp-cocktail
+  parent: BaseAlcohol
+  desc: reagent-desc-thaven-kelp-cocktail
+  physicalDesc: reagent-physical-desc-thaven-kelp-cocktail
+  flavor: thavenkelpcocktail
+  color: "#446d64"
+  metamorphicSprite:
+    sprite: _Gardenstation/Objects/Consumable/Drinks/thavenkelpcocktail_glass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol # its a LOT of absinthe
+        amount: 0.4
+      - !type:AdjustReagent
+        reagent: KelpPodSlime
+        amount: 0.8 # stronger cause its like fresh syrup idk

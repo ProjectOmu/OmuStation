@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/29/2026 13:23:53
-  entityCount: 35920
+  time: 05/16/2026 14:51:27
+  entityCount: 35919
 maps:
 - 1
 grids:
@@ -105157,6 +105157,8 @@ entities:
     - type: Transform
       pos: -105.5,-26.5
       parent: 2
+- proto: CryogenicSleepUnitSpawnerForcedPrisonerLatejoin
+  entities:
   - uid: 16885
     components:
     - type: Transform
@@ -162946,7 +162948,10 @@ entities:
     - type: Paper
       stampState: paper_stamp-ok
       stampedBy:
-      - stampedColor: '#00BE00FF'
+      - hasIcon: True
+        stampFont: null
+        stampLargeIcon: null
+        stampedColor: '#00BE00FF'
         stampedName: stamp-component-stamped-name-approved
       content: >-
         [color=#1b67a5]█▄ █ ▀█▀    [head=3]CENTRAL COMMAND Memo[/head]
@@ -163726,7 +163731,10 @@ entities:
     - type: Paper
       stampState: paper_stamp-centcom
       stampedBy:
-      - stampedColor: '#006600FF'
+      - hasIcon: True
+        stampFont: null
+        stampLargeIcon: null
+        stampedColor: '#006600FF'
         stampedName: stamp-component-stamped-name-centcom
       content: >-
         Included are some premade forms provided by our Chief Paper pusher codenamed "Moomoobeef".
@@ -193716,13 +193724,6 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-44.5
-      parent: 2
-- proto: SpawnMobShiva
-  entities:
-  - uid: 29549
-    components:
-    - type: Transform
-      pos: -72.5,25.5
       parent: 2
 - proto: SpawnMobSlothPaperwork
   entities:
