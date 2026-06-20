@@ -5,10 +5,11 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Content.Shared._DV.Construction;
 
 namespace Content.Omu.Shared.DiodeDiscs;
 
-[RegisterComponent, NetworkedComponent, Access(typeof(DiodeDiscSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(UpgradeKitSystem))]
 public sealed partial class DiodeDiscComponent : Component
 {
     /// <summary>
@@ -43,6 +44,8 @@ public sealed partial class DiodeDiscComponent : Component
     public SoundSpecifier? UpgradeSound = new SoundPathSpecifier("/Audio/Items/rped.ogg");
 
     public EntityUid? SoundStream;
+
+    public EntProtoId NewBolt;
 }
 
 [Serializable, NetSerializable]
