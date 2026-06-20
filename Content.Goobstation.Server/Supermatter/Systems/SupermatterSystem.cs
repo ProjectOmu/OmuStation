@@ -65,6 +65,8 @@ using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Random;
 using Robust.Shared.Toolshed.TypeParsers;
+using Content.Shared.Mind.Components;
+using System.Numerics;
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
@@ -169,7 +171,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             HandleAnnouncements(uid, sm);
         }
 
-        if (sm.SMAngerValue < 0) //Omu - Sm events start
+        if (sm.SMAngerValue < 0f) //Omu - Sm events start
         {
             sm.SMAngerValue = 0f;  //no negative numbers plz
         }
@@ -191,7 +193,11 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             }
             else if (eventtorun.EventType == "Spawn")    //If its a spawn event - spawn what we want next to the SM
             {
-                SpawnNextToOrDrop(eventtorun.ProtoToSpawn, uid);
+                var xform = Transform(uid);
+                var coords = xform.Coordinates;
+                Vector2 xy = new Vector2(0f, -1f);
+                coords = coords.Offset(xy);
+                Spawn(eventtorun.ProtoToSpawn, coords);
             }
         }
     }
@@ -240,7 +246,6 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         powerRatio = Math.Clamp(powerRatio, 0, 1);
         heatModifier = Math.Max(heatModifier, 0.5f);
         transmissionBonus *= h2OBonus;
-        angerModifier = Math.Min(angerModifier, 0);     //sets the minimum to 0, you can't make it go into negatives.
 
         // Increments the SM's anger value, to eventually trigger an event.
         sm.SMAngerValue += angerModifier;
