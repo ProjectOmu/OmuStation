@@ -459,7 +459,7 @@ namespace Content.Server.Forensics
                     component.Fibers.Add(string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial)) : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial)));
             }
             // EE start for Xelthia jackets
-            if (_inventory.TryGetSlotEntity(user, "outerClothing", out var outerClothing) && (hasGloves || HasComp<VirtualItemComponent>(gloves))) // Allows outerClothing to use this. omu - can't do else if since we need outerclothing, check if entity can't wear gloves or has a virtual item replacing them (jacket)
+            if (_inventory.TryGetSlotEntity(user, "outerClothing", out var outerClothing) && (!hasGloves || HasComp<VirtualItemComponent>(gloves))) // Allows outerClothing to use this. omu - can't do else if since we need outerclothing, check if entity can't wear gloves or has a virtual item replacing them (jacket)
             {
                 if (TryComp<FiberComponent>(outerClothing, out var fiber) && !string.IsNullOrEmpty(fiber.FiberMaterial))
                 {
@@ -479,7 +479,7 @@ namespace Content.Server.Forensics
             if (isXelthia && !HasComp<FingerprintMaskComponent>(outerClothing)) //omu edit xelthia leave residue
                 component.Residues.Add(Loc.GetString("forensic-residue", ("adjective", "residue-sticky")));
             // EE End for Xelthia jackets
-            if (TryComp<FingerprintComponent>(user, out var fingerprint) && CanAccessFingerprint(user, out _) && isXelthia) //omu -xelthia don't leave fingerprints
+            if (TryComp<FingerprintComponent>(user, out var fingerprint) && CanAccessFingerprint(user, out _) && !isXelthia) //omu -xelthia don't leave fingerprints
                 component.Fingerprints.Add(fingerprint.Fingerprint ?? "");
         }
 
