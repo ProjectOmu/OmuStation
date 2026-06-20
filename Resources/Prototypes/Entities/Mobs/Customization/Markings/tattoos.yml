@@ -283,13 +283,13 @@
   bodyPart: Eyes
   markingCategory: Overlay
   speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
-  coloring: # omu edit - make eyeliner colourable
+  coloring: # Omu start, make eyeliner colourable
     default:
       type:
         !type:SimpleColoring
           color: "#000000"
   sprites:
-  - sprite: _Omu/Mobs/Customization/eyeshadow.rsi # end omu edit
+  - sprite: _Omu/Mobs/Customization/eyeshadow.rsi # Omu end
     state: eyeshadow_upper
 
 - type: marking
@@ -297,11 +297,11 @@
   bodyPart: Eyes
   markingCategory: Overlay
   speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
-  coloring: #omu edit - make eyeliner colourable
+  coloring: # Omu start, make eyeliner colourable
     default:
       type:
         !type:SimpleColoring
           color: "#000000"
   sprites:
-  - sprite: _Omu/Mobs/Customization/eyeshadow.rsi # end omu edit
+  - sprite: _Omu/Mobs/Customization/eyeshadow.rsi # Omu end
     state: eyeshadow_lower
