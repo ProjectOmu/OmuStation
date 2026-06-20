@@ -45,3 +45,30 @@
     tags:
     - SubdermalImplant
     - HideContextMenu
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MindShieldImplantCentCommAntagImmune
+  name: centcomm mindshield implant
+  description: This implant will ensure loyalty to Nanotrasen and prevent mind control devices.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+  - type: MindShieldImplant
+  - type: ComponentsImplant
+    added:
+    - type: AntagImmune
+    - type: TargetObjectiveImmune
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MindShieldImplantCentComm
+  name: centcomm mindshield implant
+  description: This implant will ensure loyalty to Nanotrasen and prevent mind control devices.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+  - type: MindShieldImplant
+  - type: ComponentsImplant
+    added:
+    - type: TargetObjectiveImmune

@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/16/2026 14:42:11
+  time: 05/26/2026 13:09:07
   entityCount: 27399
 maps:
 - 1
@@ -72326,27 +72326,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: 57.5,-17.5
       parent: 2
-  - uid: 12560
-    components:
-    - type: Transform
-      pos: -7.5,-27.5
-      parent: 2
-  - uid: 12687
-    components:
-    - type: Transform
-      pos: 5.5,23.5
-      parent: 2
-  - uid: 12716
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 9.5,-8.5
-      parent: 2
   - uid: 12778
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 70.5,-16.5
+      rot: 1.5707963267948966 rad
+      pos: 18.5,30.5
       parent: 2
 - proto: DisposalJunction
   entities:
@@ -74262,8 +74246,8 @@ entities:
   - uid: 11922
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 18.5,30.5
+      rot: 3.141592653589793 rad
+      pos: -7.5,-27.5
       parent: 2
   - uid: 11923
     components:
@@ -77867,6 +77851,12 @@ entities:
     - type: Transform
       pos: -7.5,-28.5
       parent: 2
+  - uid: 12560
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 5.5,23.5
+      parent: 2
   - uid: 12561
     components:
     - type: Transform
@@ -78597,6 +78587,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,22.5
       parent: 2
+  - uid: 12687
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 9.5,-8.5
+      parent: 2
   - uid: 12688
     components:
     - type: Transform
@@ -78764,6 +78760,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 10.5,-8.5
+      parent: 2
+  - uid: 12716
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 70.5,-16.5
       parent: 2
   - uid: 12717
     components:
