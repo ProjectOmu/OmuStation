@@ -66,10 +66,12 @@ Allows you to choose a holy text, all have the same functionality and is only a 
     <GuideEntityEmbed Entity="BibleSlabClockwork"/>
   </Box>
 
-The chosen holy text can be used to close malign rifts and enchant items.
+The chosen holy text can be used to close malign rifts, enchant items and heal players.
 <Box>
     <GuideEntityEmbed Entity="CosmicMalignRift"/>
  </Box>
+
+To heal using your chosen holy text hold it in your hand and and click on a person, the holy text can only heal physical wounds. [color=red] Though there is a 33% chance to instead injure the target if they are not wearing a helmet.[/color]
 
 ### Armaments Beacon
 Allows you to choose a set of armor out of 11 different options:
@@ -172,6 +174,23 @@ These are the items you recieve from each altar:
 ### Enchanting
 
 You can use your Chosen holy text and any Altar of your choosing to [textlink="enchant items." link="Enchanting"]
+
+
+### Spirit Candles
+You can craft a spirit candle by putting a candle on a skull. Spirit Candles are useful against evil spirits like Wraith.
+
+<Box>
+    <GuideEntityEmbed Entity="SpiritCandle"/>
+  </Box>
+
+When they are ignited, they create a 12x12 tile area that reveals evil spirits. It also has a special function when you use it in-hand.
+By using it [bold]when an evil spirit is within(!!) your 12x12 area[/bold], it will make them corporeal.
+
+It has 2 charges per spirit candle, and [bold]it only consumes a charge when you reveal the evil spirit[/bold].
+
+Sprit candles will notify you when ghosts are nearby and when they try to blow out the spirit candles.
+
+It drops the skull once the candle has melted, so you can craft another one.
 
 ## Duties
 
