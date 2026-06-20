@@ -202,11 +202,14 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             }
             else if (eventtorun.EventType == "Spawn")    //If its a spawn event - spawn what we want next to the SM
             {
-                var xform = Transform(uid);
-                var coords = xform.Coordinates;
-                Vector2 xy = new Vector2(0f, -1f);
-                coords = coords.Offset(xy);
-                Spawn(eventtorun.ProtoToSpawn, coords);
+                if (eventtorun.ProtoToSpawn != null)
+                {
+                    var xform = Transform(uid);
+                    var coords = xform.Coordinates;
+                    Vector2 xy = new Vector2(0f, -1f);
+                    coords = coords.Offset(xy);
+                    Spawn(eventtorun.ProtoToSpawn, coords);
+                }
             }
         }
     }
