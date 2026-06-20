@@ -6,10 +6,36 @@
   - type: Sprite
     sprite: _DV/Objects/Tools/lathe_upgrade_kit.rsi
     state: icon
-  - type: UpgradeKit
+  - type: DiodeDisc
     whitelist:
       components:
       - EmitterComponent
     blacklist:
       components:
       - UpgradedMachine
+
+- type: entity
+  parent: BaseDiodeDisc
+  id: DiodeDiscElectroDisruptive
+  name: Electro-Disruptive Diode disc.
+  description: A diode disc for use within an emitter, this one will trigger a causality rectifying event within a supermatter, causing it to repair itself.
+  components:
+  - type: DiodeDisc
+    components:
+    - type: UpgradedMachine
+      upgrade: Emitter-Electro-Disrutpive
+    - type: DiodeDisc
+      newBolt: Electrodisruptive-Bolt
+
+- type: entity
+  name: emitter bolt
+  id: EmitterBoltElectroDisruptive
+  parent: EmitterBolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - EmitterBoltElectrodisruptive
+
+- type: Tag
+  id: EmitterBoltElectrodisruptive

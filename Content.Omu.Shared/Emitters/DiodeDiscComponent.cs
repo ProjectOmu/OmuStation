@@ -7,7 +7,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Content.Shared._DV.Construction;
 
-namespace Content.Omu.Shared.DiodeDiscs;
+namespace Content.Omu.Shared.DiodeDisc;
 
 [RegisterComponent, NetworkedComponent, Access(typeof(UpgradeKitSystem))]
 public sealed partial class DiodeDiscComponent : Component
