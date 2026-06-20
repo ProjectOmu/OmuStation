@@ -70,6 +70,7 @@ using System.Numerics;
 using NetCord.Gateway;
 using Content.Shared.Radio;
 using Content.Server.Radio.EntitySystems;
+using Content.Server.Chat.Managers; // omu
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
@@ -92,6 +93,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly RadioSystem _radioSystem = default!;
+    [Dependency] private readonly IChatManager _achat = default!; // omu
 
     private DelamType _delamType = DelamType.Explosion;
 
@@ -190,8 +192,9 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             var eventtorun = _proto.Index<SupermatterEventPrototype>(eventtorunID);
             if (eventtorun.Announcement != null)
             {
-            var message = Loc.GetString(eventtorun.Announcement);
-            _radioSystem.SendRadioMessage(uid, message, _proto.Index<RadioChannelPrototype>(sm.RadioChannel), uid);
+                var message = Loc.GetString(eventtorun.Announcement);
+                _radioSystem.SendRadioMessage(uid, message, _proto.Index<RadioChannelPrototype>(sm.RadioChannel), uid);
+                _achat.SendAdminAlert($"{eventtorun.ID} run by supermatter {uid}");
             }
             if (eventtorun.EventType == "Gas")   //If its a gas event - create the gas
             {
