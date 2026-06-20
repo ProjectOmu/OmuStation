@@ -1,0 +1,15 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseDiodeDisc
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Tools/lathe_upgrade_kit.rsi
+    state: icon
+  - type: UpgradeKit
+    whitelist:
+      components:
+      - EmitterComponent
+    blacklist:
+      components:
+      - UpgradedMachine
