@@ -19,7 +19,7 @@
   - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
 
 - type: startingGear
   id: CentcomInternGear
@@ -67,7 +67,7 @@
   - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: CentcomDireggtorGear
@@ -100,7 +100,7 @@
   playTimeTracker: JobCustodii
   setPreference: false
   startingGear: CustodiiGear
-  icon: "JobIconNanotrasen"
+  icon: "JobIconCustodii" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
@@ -113,7 +113,7 @@
   - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm, StypticStimulatorImplant ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm, StypticStimulatorImplant ]
   - !type:AddComponentSpecial
     components:
     - type: DeathSquadMember
