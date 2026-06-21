@@ -551,6 +551,7 @@
   recognizable: true
   boilingPoint: 100.0
   meltingPoint: 0.0
+  flammability: -4 # Funky change
   friction: 0.4
   metabolisms:
     Drink:
@@ -612,6 +613,7 @@
   physicalDesc: reagent-physical-desc-frosty
   flavor: cold
   color: "#bed8e6"
+  flammability: -4 # Funky change
   recognizable: true
   meltingPoint: 0.0
   boilingPoint: 100.0
