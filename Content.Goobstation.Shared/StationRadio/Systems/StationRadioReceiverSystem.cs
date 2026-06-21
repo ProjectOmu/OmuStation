@@ -9,6 +9,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.Player;
+using Robust.Shared.Network;
 using Content.Shared.Mind;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
@@ -23,9 +24,11 @@ public sealed class StationRadioReceiverSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfgMan = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
     
     // Omustation - volume controller for station radio
     private float _volume = 0f;
+    bool playerPresent = false;
     public override void Initialize()
     {
         base.Initialize();
@@ -45,6 +48,9 @@ public sealed class StationRadioReceiverSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        if (!_netManager.IsServer)
+            return;
 
         var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
 
@@ -66,10 +72,12 @@ public sealed class StationRadioReceiverSystem : EntitySystem
 
                 if (mindThings.Count == 0)
                 {
+                    playerPresent = false;
                     component.NetSyncEnabled = true;
                 }
-                else
+                else if (!playerPresent)
                 {
+                    playerPresent = true;
                     audioUpdate(localComp);
                 }
             }
@@ -149,7 +157,6 @@ public sealed class StationRadioReceiverSystem : EntitySystem
             comp.SoundEntity = audio.Value.Entity;
             _audio.SetGain(comp.SoundEntity, 0);
         }
-        Dirty(uid, comp);
     }
 
     private void OnMediaStopped(EntityUid uid, StationRadioReceiverComponent comp, StationRadioMediaStoppedEvent args)
