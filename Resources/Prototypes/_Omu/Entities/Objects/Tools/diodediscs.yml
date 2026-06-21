@@ -27,6 +27,18 @@
       upgrade: Emitter-Electro-Disrutpive
 
 - type: entity
+  parent: BaseDiodeDisc
+  id: DiodeDiscElectroBehavioural
+  name: Electro-Behavioural Diode disc.
+  description: A diode disc for use within an emitter, this one will trigger a causality cascading event within a supermatter, causing damage but increasing energy output significantly. It also has a postive effect on patients health!
+  components:
+  - type: DiodeDisc
+    newBolt: EmitterBoltElectroBehavioural
+    componentsToAdd:
+    - type: UpgradedMachine
+      upgrade: Emitter-Electro-Behavioural
+
+- type: entity
   name: emitter bolt
   id: EmitterBoltElectroDisruptive
   parent: EmitterBolt
@@ -34,7 +46,7 @@
   components:
   - type: Tag
     tags:
-    - EmitterBoltElectrodisruptive
+    - EmitterBoltElectroDisruptive
     - EmitterBolt
   - type: Projectile
     damage:
@@ -42,5 +54,25 @@
         Heat: 14
         Blunt: 6
 
+- type: entity
+  name: emitter bolt
+  id: EmitterBoltElectroBehavioural
+  parent: EmitterBolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - EmitterBoltElectroBehavioural
+    - EmitterBolt
+  - type: Projectile
+    damage:
+      types:
+        Heat: -5
+        Blunt: -2
+
+
 - type: Tag
-  id: EmitterBoltElectrodisruptive
+  id: EmitterBoltElectroDisruptive
+
+- type: Tag
+  id: EmitterBoltElectroBehavioural

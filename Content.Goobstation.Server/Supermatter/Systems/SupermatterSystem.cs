@@ -42,6 +42,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
+using Content.Shared.EntityEffects.EffectConditions;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
@@ -58,6 +59,8 @@ using Robust.Shared.Maths;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
+using Content.Server.Chat.Managers;
+using Content.Shared.SmartFridge; // omu
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
@@ -77,7 +80,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-
+    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly IChatManager _achat = default!; // omu
     private DelamType _delamType = DelamType.Explosion;
 
     public override void Initialize()
@@ -622,10 +626,33 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             sm.Activated = true;
         }
 
+        if (_tag.HasTag(target, "EmitterBoltElectroDisruptive"))
+        {
+            sm.Damage -= 1f;
+            sm.Power -= 10f;
+            _achat.SendAdminAlert("SM healed");
+            goto Delete;
+            return;
+        }
+        if (_tag.HasTag(target, "EmitterBoltElectroBehavioural"))
+        {
+            sm.Damage += 1f;
+            sm.Power += 20f;
+            _achat.SendAdminAlert("SM harmed");
+            goto Delete;
+            return;
+        }
+
         if (TryComp<SupermatterFoodComponent>(target, out var food))
+        {
             sm.Power += food.Energy;
+            goto Delete;
+        }
         else if (TryComp<ProjectileComponent>(target, out var projectile))
+        {
             sm.Power += (float) projectile.Damage.GetTotal();
+            goto Delete;
+        }
         else
             sm.Power++;
 
@@ -637,7 +664,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
             _audio.PlayPvs(sm.DustSound, uid);
         }
-
+    Delete:
         EntityManager.QueueDeleteEntity(target);
     }
 
@@ -694,7 +721,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         sm.Damage += sm.DelaminationPoint / 10;
         sm.DamageArchived += sm.DelaminationPoint / 10;
         sm.SliverRemoved = true;
-        
+
         var integrity = GetIntegrity(sm).ToString("0.00");
         SupermatterAnnouncement(uid, Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", integrity)), true, "Central Command");
 

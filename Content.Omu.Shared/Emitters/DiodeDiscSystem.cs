@@ -42,15 +42,12 @@ public sealed class DiodeDiscSystem : EntitySystem
         args.Handled = true;
 
         var user = args.User;
-        if (!CanUpgrade(ent, target, user))
+        if (!HasComp<EmitterComponent>(target))
             return;
-
-        if (!_wires.IsPanelOpen(target))
-        {
-            _popup.PopupClient(Loc.GetString("construction-step-condition-wire-panel-open"), target, user);
+        if (HasComp<UpgradedMachineComponent>(target))
             return;
-        }
-
+        //if (!CanUpgrade(ent, target, user))
+        //    return;
         Dirty(ent);
         var ev = new DiodeDiscDoAfterEvent();
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, ent.Comp.Delay, ev, ent, target, ent));
@@ -67,8 +64,8 @@ public sealed class DiodeDiscSystem : EntitySystem
         args.Handled = true;
 
         var user = args.Args.User;
-        if (!CanUpgrade(ent, target, user))
-            return;
+        //if (!CanUpgrade(ent, target, user))
+        //    return;
 
         // do the upgrading now
         EntityManager.AddComponents(target, ent.Comp.ComponentsToAdd);
