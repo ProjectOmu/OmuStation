@@ -52,7 +52,7 @@ using Content.Shared.Actions;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Clothing.Components;
-using Content.Shared._Omu.Clothing; // Omustation - for the AboutToEnterToggleableClothingContainer event.
+using Content.Omu.Common.Clothing; // Omustation - for the AboutToEnterToggleableClothingContainer event.
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;

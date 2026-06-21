@@ -40,8 +40,9 @@
     Snout: MobShadowkinAnyMarkingFollowSkin
     HeadTop: MobShadowkinAnyMarking
     HeadSide: MobShadowkinAnyMarkingFollowSkin
-    Tail: MobShadowkinAnyMarkingFollowSkin
+    Tail: MobShadowkinAnyMarking # Omu - Changed from MobShadowkinAnyMarkingFollowSkin. Allows for custom tail colors
     #omu start
+    Hair: MobHumanoidAnyMarking
     Undershirt: MobHumanoidAnyMarking
     Underwear: MobHumanoidAnyMarking
     #omu end
@@ -60,6 +61,9 @@
 - type: markingPoints
   id: MobShadowkinMarkingLimits
   points:
+    Hair: # Omu
+      points: 1
+      required: false
     Tail:
       points: 1
       required: true
