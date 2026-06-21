@@ -475,7 +475,7 @@ namespace Content.Server.Forensics
                     return;
                 }
             }
-            var isXelthia = HasComp<XelthiaComponent>(user);
+            var isXelthia = HasComp<XelthiaComponent>(user); // Omu
             if (isXelthia && !HasComp<FingerprintMaskComponent>(outerClothing)) //omu edit xelthia leave residue
                 component.Residues.Add(Loc.GetString("forensic-residue", ("adjective", "residue-sticky")));
             // EE End for Xelthia jackets
