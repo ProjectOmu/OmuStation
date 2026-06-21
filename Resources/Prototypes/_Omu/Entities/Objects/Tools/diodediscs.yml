@@ -21,11 +21,10 @@
   description: A diode disc for use within an emitter, this one will trigger a causality rectifying event within a supermatter, causing it to repair itself.
   components:
   - type: DiodeDisc
-    components:
+    newBolt: EmitterBoltElectroDisruptive
+    componentsToAdd:
     - type: UpgradedMachine
       upgrade: Emitter-Electro-Disrutpive
-    - type: DiodeDisc
-      newBolt: Electrodisruptive-Bolt
 
 - type: entity
   name: emitter bolt
@@ -36,6 +35,12 @@
   - type: Tag
     tags:
     - EmitterBoltElectrodisruptive
+    - EmitterBolt
+  - type: Projectile
+    damage:
+      types:
+        Heat: 14
+        Blunt: 6
 
 - type: Tag
   id: EmitterBoltElectrodisruptive

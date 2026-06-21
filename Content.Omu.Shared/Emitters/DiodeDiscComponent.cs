@@ -29,13 +29,13 @@ public sealed partial class DiodeDiscComponent : Component
     /// Some of these must blacklist it from upgrades to prevent stacking.
     /// </summary>
     [DataField(required: true)]
-    public ComponentRegistry Components = new();
+    public ComponentRegistry ComponentsToAdd = new();
 
     /// <summary>
     /// How long the doafter is
     /// </summary>
     [DataField]
-    public TimeSpan Delay = TimeSpan.FromSeconds(4);
+    public TimeSpan Delay = TimeSpan.FromSeconds(2);
 
     /// <summary>
     /// Sound played when upgrading an entity.
@@ -45,8 +45,9 @@ public sealed partial class DiodeDiscComponent : Component
 
     public EntityUid? SoundStream;
 
+    [DataField]
     public EntProtoId NewBolt;
 }
 
 [Serializable, NetSerializable]
-public sealed partial class UpgradeKitDoAfterEvent : SimpleDoAfterEvent;
+public sealed partial class DiodeDiscDoAfterEvent : SimpleDoAfterEvent;
