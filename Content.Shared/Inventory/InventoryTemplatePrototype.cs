@@ -85,4 +85,11 @@ public sealed partial class SlotDefinition
     ///     Entity blacklist for CanEquip checks.
     /// </summary>
     [DataField("blacklist")] public EntityWhitelist? Blacklist = null;
+
+    // Omu Fields
+    /// <summary>
+    ///     Whether or not items should be deleted on loadout spawn if they don't match the whitelist (if there is one)
+    /// </summary>
+    [DataField("deleteOnWhitelistFail")] public bool DeleteOnWhitelistFail = true;
+    // End Omu
 }
