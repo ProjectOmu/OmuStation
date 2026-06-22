@@ -35,7 +35,7 @@ internal sealed class CyberneticsSystem : EntitySystem
             if (TryComp(cyberEnt, out DamageableComponent? damageable))
             {
                 var ion = new DamageSpecifier(_prototypes.Index<DamageTypePrototype>("Ion"), 75); // 75 ion damage, 75 vital damage -> 19 wires to heal
-                _damageable.TryChangeDamage(cyberEnt, ion, ignoreResistances: true, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAll, damageable: damageable);
+                _damageable.TryChangeDamage(cyberEnt, ion, ignoreResistances: true, targetPart: TargetBodyPart.Vital, splitDamage: SplitDamageBehavior.SplitEnsureAll, damageable: damageable);
                 Dirty(cyberEnt, damageable);
             }
         }
