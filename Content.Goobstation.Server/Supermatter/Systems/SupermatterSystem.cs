@@ -60,7 +60,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
 using Content.Server.Chat.Managers;
-using Content.Shared.SmartFridge; // omu
+using Content.Server.Construction.Completions; // omu
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
@@ -625,33 +625,34 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
             sm.Activated = true;
         }
-
-        if (_tag.HasTag(target, "EmitterBoltElectroDisruptive"))
+        if (_tag.HasTag(target, "EmitterBolt"))
         {
-            sm.Damage -= 1f;
-            sm.Power -= 10f;
-            _achat.SendAdminAlert("SM healed");
-            goto Delete;
-            return;
-        }
-        if (_tag.HasTag(target, "EmitterBoltElectroBehavioural"))
-        {
-            sm.Damage += 1f;
-            sm.Power += 20f;
-            _achat.SendAdminAlert("SM harmed");
-            goto Delete;
-            return;
-        }
+            //_achat.SendAdminAlert("SM struck by bolt");
+            if (_tag.HasTag(target, "EmitterBoltElectroDisruptive"))    //omu
+            {
+                sm.Damage -= 1f;
+                sm.Power -= 60f;
+                _achat.SendAdminAlert("SM healed");
+                QueueDel(target);
+                return;
+            }
+            if (_tag.HasTag(target, "EmitterBoltElectroBehavioural"))
+            {
+                sm.Damage += 1f;
+                sm.Power += 100f;
+                _achat.SendAdminAlert("SM harmed");
+                QueueDel(target);
+                return;
+            }
+        }                                                            //omu end
 
         if (TryComp<SupermatterFoodComponent>(target, out var food))
         {
             sm.Power += food.Energy;
-            goto Delete;
         }
         else if (TryComp<ProjectileComponent>(target, out var projectile))
         {
             sm.Power += (float) projectile.Damage.GetTotal();
-            goto Delete;
         }
         else
             sm.Power++;
@@ -664,8 +665,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
             _audio.PlayPvs(sm.DustSound, uid);
         }
-    Delete:
-        EntityManager.QueueDeleteEntity(target);
+        QueueDel(target);               //omu changed on advice
     }
 
     private void OnHandInteract(EntityUid uid, SupermatterComponent sm, ref InteractHandEvent args)

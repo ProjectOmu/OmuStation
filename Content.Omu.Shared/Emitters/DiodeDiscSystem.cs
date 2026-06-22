@@ -46,8 +46,6 @@ public sealed class DiodeDiscSystem : EntitySystem
             return;
         if (HasComp<UpgradedMachineComponent>(target))
             return;
-        //if (!CanUpgrade(ent, target, user))
-        //    return;
         Dirty(ent);
         var ev = new DiodeDiscDoAfterEvent();
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, ent.Comp.Delay, ev, ent, target, ent));
@@ -64,9 +62,6 @@ public sealed class DiodeDiscSystem : EntitySystem
         args.Handled = true;
 
         var user = args.Args.User;
-        //if (!CanUpgrade(ent, target, user))
-        //    return;
-
         // do the upgrading now
         EntityManager.AddComponents(target, ent.Comp.ComponentsToAdd);
         if (_net.IsServer)
@@ -76,20 +71,5 @@ public sealed class DiodeDiscSystem : EntitySystem
             return;
 
         blaster.BoltType = ent.Comp.NewBolt;
-    }
-
-    /// <summary>
-    /// Check the upgrade kit's whitelist and blacklist, showing a popup if it is invalid.
-    /// </summary>
-    public bool CanUpgrade(Entity<DiodeDiscComponent> ent, EntityUid target, EntityUid user)
-    {
-        if (_whitelist.IsWhitelistFail(ent.Comp.Whitelist, target) ||
-            _whitelist.IsBlacklistPass(ent.Comp.Blacklist, target))
-        {
-            _popup.PopupClient(Loc.GetString("upgrade-kit-invalid-target"), target, user);
-            return false;
-        }
-
-        return true;
     }
 }

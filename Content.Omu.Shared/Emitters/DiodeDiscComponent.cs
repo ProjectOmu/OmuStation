@@ -13,18 +13,6 @@ namespace Content.Omu.Shared.DiodeDisc;
 public sealed partial class DiodeDiscComponent : Component
 {
     /// <summary>
-    /// A whitelist that entities must match to be upgraded.
-    /// </summary>
-    [DataField(required: true)]
-    public EntityWhitelist Whitelist = new();
-
-    /// <summary>
-    /// A blacklist that entities cannot match to be upgraded.
-    /// </summary>
-    [DataField(required: true)]
-    public EntityWhitelist Blacklist = new();
-
-    /// <summary>
     /// Components added to the machine after it's upgraded.
     /// Some of these must blacklist it from upgrades to prevent stacking.
     /// </summary>
