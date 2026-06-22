@@ -616,15 +616,16 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             var impact = isMob ? LogImpact.Extreme : LogImpact.High;
 
             // Original log entry
-            _adminLog.Add(LogType.Supermatter, impact,
-                $"{activator:actor} activated Supermatter {ToPrettyString(uid):subject}");
+            _achat.SendAdminAlert(
+                $"{activator:actor} activated Supermatter {ToPrettyString(uid):subject}");  //omu changed to achat so it works
 
             // New admin alert
-            _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
-                $"SUPERMATTER ACTIVATED BY {activator} AT {Transform(uid).Coordinates}");
+            _achat.SendAdminAlert(
+                $"SUPERMATTER ACTIVATED BY {activator} AT {Transform(uid).Coordinates}");  //omu changed to achat so it works
 
             sm.Activated = true;
         }
+
         if (_tag.HasTag(target, "EmitterBolt")) //omu
         {
             //_achat.SendAdminAlert("SM struck by bolt");
@@ -661,7 +662,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         if (!HasComp<ProjectileComponent>(target))
         {
-            _adminLog.Add(LogType.Supermatter, LogImpact.Medium, $"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");
+            _achat.SendAdminAlert($"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");      //omu changed to achat so it works
             EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
             _audio.PlayPvs(sm.DustSound, uid);
         }
@@ -682,7 +683,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
         _audio.PlayPvs(sm.DustSound, uid);
-        EntityManager.QueueDeleteEntity(target);
+        QueueDel(target);              //omu changed on advice
     }
 
     private void OnItemInteract(EntityUid uid, SupermatterComponent sm, ref InteractUsingEvent args)
