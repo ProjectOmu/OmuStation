@@ -174,8 +174,6 @@
       coolingCoefficient: 0.01
     - type: ClothingSlowOnDamageModifier
       modifier: 0
-    - type: ClothingModifyStunTime
-      modifier: 0
     - type: ModifyStandingUpTime
       multiplier: 0
     - type: ModifyDelayedKnockdown
@@ -192,6 +190,18 @@
       - type: ContainmentFieldIgnore
       - type: VentCrawler
         allowInventory: true
+    # spectre modsuit stealth
+    - type: ComponentToggler
+      parent: true
+      components:
+      - type: Stealth
+        maxVisibility: 1
+        hadOutline: true
+      - type: StealthOnMove
+        invisibilityPenalty: 3
+        maxInvisibilityPenalty: 1.6
+        passiveVisibilityRate: -1
+        movementVisibilityRate: 0.15
 
 - type: entity
   parent: ClothingModsuitBootsStandard
@@ -217,11 +227,10 @@
     - type: Magboots
       enabledPrefix: null
     - type: ClothingSpeedModifier
-      walkModifier: 1.1
-      sprintModifier: 1.1
+      walkModifier: 1.2
+      sprintModifier: 1.2
     - type: FootstepModifier
-      footstepSoundCollection:
-        collection: FootstepHeavySuit
+      footstepSoundCollection: null
 
 - type: entity
   id: SuitStorageSpectre
@@ -241,11 +250,19 @@
   components:
   - type: StorageFill
     contents:
-      - id: StasisBaton
-      - id: ChronoTeleporter
       - id: HandheldGPSBasic # Mass Scanner Removed by Lavaland
       - id: HyperFlash
       - id: ToolDebug # Spanish Army Knife - TODO Replace
       - id: WelderExperimental
-      - id: BlueShieldShieldEvilFilled # Goobstation
       - id: DeterrentCaseFilled
+      - id: NocturineHypo
+      - id: FultonBlueshield
+      - id: FultonBeaconBlueshield
+      - id: BluespaceLifelineImplanter
+      - id: BlueShieldShieldEvilFilled
+      - id: CentralCommandBusinessCard
+        amount: 2
+      - id: Zipties
+        amount: 2
+      - id: BodyBagBluespaceBSOFolded
+        amount: 2

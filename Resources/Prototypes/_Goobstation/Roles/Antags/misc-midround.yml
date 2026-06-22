@@ -124,6 +124,7 @@
   id: VoxRaiderAntagGear
   equipment:
     ears: ClothingHeadsetAltSyndicate
+    mask: ClothingMaskGasShoal # Omu
     jumpsuit: ClothingUniformJumpsuitTacticool
     eyes: ClothingEyesGlassesSunglasses
     shoes: ClothingShoesColorBlack
@@ -136,8 +137,9 @@
     back:
     - BoxSurvivalSlotsNitrogen
     - ExtendedEmergencyNitrogenTankFilled
-    - ChameleonProjector
-    - DartGun
-    - ChemistryBottleNocturine
-    - ChemistryBottleNocturine
-    - HypopenBox
+    #- ChameleonProjector # Omu start
+    #- DartGun
+    #- ChemistryBottleNocturine
+    #- ChemistryBottleNocturine
+    #- HypopenBox
+    - ToolboxVoxRaider # Omu end

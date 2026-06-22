@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/29/2026 13:34:22
-  entityCount: 32550
+  time: 05/16/2026 14:58:02
+  entityCount: 32549
 maps:
 - 1
 grids:
@@ -84128,18 +84128,20 @@ entities:
     - type: Transform
       pos: 46.5,8.5
       parent: 2
-  - uid: 32470
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 44.5,21.5
-      parent: 2
 - proto: CryogenicSleepUnitSpawner
   entities:
   - uid: 13081
     components:
     - type: Transform
       pos: 13.5,-84.5
+      parent: 2
+- proto: CryogenicSleepUnitSpawnerForcedPrisonerLatejoin
+  entities:
+  - uid: 32470
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 44.5,21.5
       parent: 2
 - proto: CryogenicSleepUnitSpawnerLateJoin
   entities:
@@ -84215,7 +84217,7 @@ entities:
       pos: -36.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -11584.367
+      secondsUntilStateChange: -11636.009
       state: Closing
 - proto: d10Dice
   entities:
@@ -168695,13 +168697,6 @@ entities:
     components:
     - type: Transform
       pos: -33.5,31.5
-      parent: 2
-- proto: SpawnMobShiva
-  entities:
-  - uid: 24958
-    components:
-    - type: Transform
-      pos: 4.5,19.5
       parent: 2
 - proto: SpawnMobSlothPaperwork
   entities:

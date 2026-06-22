@@ -43,7 +43,7 @@
   #- type: FootPrints #Omu EE slop todo
   - type: Xelthia
   - type: Damageable
-    damageContainer: Biological
+    damageContainer: Xelthia #Omu edit - so they don't take caustic damage from chems among other things
     damageModifierSet: Xelthia
   - type: Temperature
     heatDamageThreshold: 360
