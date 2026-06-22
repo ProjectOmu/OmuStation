@@ -1,0 +1,14 @@
+- type: technology
+  id: AdvancedEmitters
+  name: research-technology-advanced-emitters
+  icon:
+    sprite: Structures/Power/Generation/portable_generator.rsi
+    state: portgen0
+  discipline: Industrial
+  tier: 1
+  cost: 3000
+  recipeUnlocks:
+  - AdvancedEmitters
+  position: 0,-3
+  technologyPrerequisites:
+  - PowerGeneration
