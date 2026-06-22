@@ -80,7 +80,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly TagSystem _tag = default!;    //omu
     [Dependency] private readonly IChatManager _achat = default!; // omu
     private DelamType _delamType = DelamType.Explosion;
 
@@ -625,10 +625,10 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
             sm.Activated = true;
         }
-        if (_tag.HasTag(target, "EmitterBolt"))
+        if (_tag.HasTag(target, "EmitterBolt")) //omu
         {
             //_achat.SendAdminAlert("SM struck by bolt");
-            if (_tag.HasTag(target, "EmitterBoltElectroDisruptive"))    //omu
+            if (_tag.HasTag(target, "EmitterBoltElectroDisruptive"))
             {
                 sm.Damage -= 1f;
                 sm.Power -= 60f;
