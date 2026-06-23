@@ -54,13 +54,15 @@
   table: !type:GroupSelector
     children:
     - id: CrateFunPlushie
-      weight: 2
+      weight: 3 # Omu
     - id: CrateFunLizardPlushieBulk
     - id: CrateFunSharkPlushieBulk
     - id: CrateCandles
     - id: CrateFunArtSupplies
     - id: CrateFunFoamGuns
       weight: 0.01
+    - id: CrateFunOmuPlushie # Omu
+      weight: 2
 
 - type: entityTable
   id: LowValueMaterialCrateTable

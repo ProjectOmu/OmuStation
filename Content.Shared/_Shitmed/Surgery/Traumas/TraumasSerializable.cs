@@ -55,6 +55,7 @@ public record struct TraumaBeingRemovedEvent(Entity<TraumaComponent> Trauma, Ent
 [Serializable, NetSerializable]
 public enum BoneSeverity
 {
+    None = -1, // Omu: No bones?
     Normal = 0,
     Damaged = 1,
     Cracked = 2,

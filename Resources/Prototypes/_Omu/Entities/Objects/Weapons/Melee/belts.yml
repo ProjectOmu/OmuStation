@@ -170,22 +170,3 @@
       types:
         Blunt: 1
   suffix: NoDamage
-
-- type: entity
-  id: NanoRepBelt
-  parent: WaistBeltSergeantBelt
-  name: nanotrasen representative's disciplinary belt
-  description: "Looks the same as a Central Command belt, but less heavy. Oh boy, someone's getting a beating."
-  components:
-  - type: Sprite
-    sprite: _Omu/Clothing/Belt/centcomdisciplinary.rsi
-    state: icon
-  - type: Clothing
-    sprite: _Omu/Clothing/Belt/centcomdisciplinary.rsi
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    bluntStaminaDamageFactor: 1.5
-    angle: 0
-    damage:
-      types:
-        Blunt: 7
