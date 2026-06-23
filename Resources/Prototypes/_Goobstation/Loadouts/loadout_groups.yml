@@ -986,6 +986,7 @@
   - BlueshieldOfficerHeadCowboy
   - BlueshieldOfficerGoidaHelmet
   - BlueshieldOfficerBeretElite # Omustation
+  - BlueshieldOfficerHeadHatFedora # OmuStation
 
 - type: loadoutGroup
   id: BlueshieldOfficerBackpack
@@ -1023,7 +1024,9 @@
   - BSOArmoredCoat # EE
   - BSOMarineVest # EE
   - BSOArmoredVest # EE
+  - BSOLongcoat # Omu
   - BlueshieldOfficerOuterKimonoBlueshield #Omu
+  - BlueshieldOfficerOuterXelthiaBlueshield #Omu
 
 - type: loadoutGroup
   id: BlueshieldOfficerNeck
@@ -1412,8 +1415,8 @@
   loadouts:
   - BrigmedicJumpsuit
   - BrigmedicJumpskirt
-  - CorpsmanJumpsuit #Omu
-  - CorpsmanJumpskirt #Omu
+  - CorpsmanJumpsuit # Omu
+  - CorpsmanJumpskirt # Omu
   - CorpsmanResponse # Starlight
   - CorpsmanTrauma # Starlight
   - BrigmedicJumpsuitOfLife # Starlight
@@ -1430,7 +1433,7 @@
   - SecurityBeret
   - SecurityHat
   - TrooperHat
-  - CorpsmanBeret #Omu
+  - CorpsmanBeret # Omu
   - CorpsmanNurseHat # Starlight
   - BrigmedicNurseHatOfLife # Starlight
 
@@ -1446,6 +1449,7 @@
   - CorpsmanWinterCoatDV # Omu
   - BrigmedicLabCoat # Starlight
   - CorpsmanLabCoat # Starlight
+  - LongcoatBrigmedic # DeltaV Longcoats
 
 - type: loadoutGroup
   id: BrigmedicBackpack
@@ -1639,7 +1643,6 @@
   minLimit: 1 # DV
   maxLimit: 1 # DV
   loadouts:
-  - SalvageJumpskirt # DV
   - SalvageSpecialistJumpsuit
   - SalvageSpecialistJumpskirt
   - SalvageSpecialistOveralls
@@ -1651,3 +1654,5 @@
   - ShaftMinerJumpsuit
   - ShaftMinerJumpskirt
   - ShaftMinerOveralls
+  - VintageShaftMinerJumpsuit # Omu
+  - SalvageJumpskirt # Omu

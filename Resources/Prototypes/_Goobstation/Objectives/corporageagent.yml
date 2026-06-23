@@ -122,6 +122,12 @@
         components:
         - CommandStaff
       # Can't have multiple objectives to kill the same person.
+    - !type:ObjectiveImmuneFilter # DeltaV
+    - !type:BodyMindFilter # Omu
+      inverted: true
+      whitelist:
+        components:
+        - TargetObjectiveImmune
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:

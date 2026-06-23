@@ -78,7 +78,7 @@
   - Cargo
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, BluespaceLifelineImplant ] # Go big, or go home.
+    implants: [ MindShieldImplantCentComm, BluespaceLifelineImplant ] # Go big, or go home. # Omu, use CC mindshield
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
