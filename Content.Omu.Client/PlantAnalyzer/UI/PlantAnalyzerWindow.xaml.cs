@@ -628,7 +628,7 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
         }
 
         var fillColor = (health != null && maxHealth != null && maxHealth > 0)
-            ? Color.FromHsv(new Vector4(0.33f * Math.Clamp(health.Value / maxHealth.Value, 0f, 1f), 1f, 0.85f, 1f))
+            ? Color.FromHsv(new Vector4(0.33f * Math.Clamp(health.Value / maxHealth.Value, 0f, 1f), 1f, 0.55f, 1f))
             : Color.FromHex("#444444");
 
         ((StyleBoxFlat) HealthBar.ForegroundStyleBoxOverride).BackgroundColor = fillColor;
