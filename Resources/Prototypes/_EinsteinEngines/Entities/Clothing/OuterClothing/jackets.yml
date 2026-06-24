@@ -1,6 +1,6 @@
 #Insulated Jacket
 - type: entity
-  parent: [ClothingOuterBase, BaseEngineeringContraband]
+  parent: [ClothingGloveJacketBase, BaseEngineeringContraband] # omu edit - jacket base
   id: ClothingOuterJacketInsulated
   name: insulated jacket
   description: A thick jacket with a membrane attached to the end of its sleeves that conforms to the user's hands, allowing it to function as insulated gloves. Useful if you can't wear or find regular insulated gloves.
@@ -13,14 +13,10 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-yellow
-  - type: FingerprintMask
-  - type: GloveJacket # Components for these jackets that allows them to act as gloves. Mostly for surgery.
-# if species-specific sprites are fixed to not have displacement maps apply to them, this will break.
-# replacing the equipped-OUTERCLOTHING-xelthia.png file in the RSI with the one in the InsulatedJacket/insulated_jacket_unmodified folder would fix this.
 
 #Surgical Jacket
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingGloveJacketBase #omu edit - jacket base
   id: ClothingOuterJacketSurgical
   name: surgical jacket
   description: A thick jacket with a membrane attached to the end of its sleeves that conforms to the user's hands, allowing it to function as surgical gloves. Useful for if you need to do surgery but can't wear normal gloves.
@@ -31,5 +27,3 @@
     sprite: _EinsteinEngines/Clothing/GloveJackets/surgical_jacket.rsi
   - type: Fiber
     fiberMaterial: fibers-nitrile
-  - type: FingerprintMask
-  - type: GloveJacket
