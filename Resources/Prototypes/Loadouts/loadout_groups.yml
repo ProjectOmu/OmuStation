@@ -347,6 +347,7 @@
   - EmergencyWaterVapor # Delta-V
   - EmergencySilicon
   - EmergencyOxygenCarnivore # Omu
+  - EmergencyOxygenEthanol # Omu
 
 # nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup
@@ -821,6 +822,7 @@
   - EmergencyWaterVaporClown # Delta-V
   - EmergencySilicon
   - EmergencyOxygenCarnivoreClown # Omu
+  - EmergencyOxygenEthanolClown # Omu
 
 - type: loadoutGroup
   id: MimeHead
@@ -885,6 +887,7 @@
   - EmergencyWaterVaporMime # Delta-V
   - EmergencySilicon
   - EmergencyOxygenCarnivoreMime # Omu
+  - EmergencyOxygenEthanolMime # Omu
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -1234,6 +1237,7 @@
   - EmergencyWaterVaporExtended # Delta-V
   - EmergencySilicon
   - EmergencyOxygenCarnivoreExtended # Omu
+  - EmergencyOxygenEthanolExtended # Omu
 
 # Science
 - type: loadoutGroup
@@ -1582,6 +1586,7 @@
   - EmergencyWaterVaporSecurity # Delta-V
   - EmergencySilicon
   - EmergencyOxygenCarnivoreSecurity # Omu
+  - EmergencyOxygenEthanolSecurity # Omu
 
 - type: loadoutGroup
   id: SecurityStar
@@ -1847,6 +1852,7 @@
   - EmergencyWaterVaporMedical # Delta-V
   - EmergencySilicon
   - EmergencyOxygenCarnivoreMedical # Omu
+  - EmergencyOxygenEthanolMedical # Omu
 
 # Wildcards
 - type: loadoutGroup
@@ -1895,6 +1901,7 @@
   - EmergencyWaterVaporSyndicate # Delta-V
   - EmergencySilicon
   - EmergencyOxygenCarnivoreSyndicate # Omu
+  - BoxSurvivalSlotsSyndicateEthanol # Omu
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool

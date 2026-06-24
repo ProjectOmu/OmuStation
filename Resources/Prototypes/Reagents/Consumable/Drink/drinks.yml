@@ -557,6 +557,33 @@
       effects:
       - !type:SatiateThirst
         factor: 4
+        conditions: # Omu start
+        - !type:OrganType
+          type: Allulalo
+          shouldHave: false
+      - !type:Drunk
+        boozePower: 10
+        conditions:
+        - !type:OrganType
+          type: Allulalo
+      - !type:ChemVomit
+        probability: 0.04
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Water
+          min: 12
+        - !type:OrganType
+          type: Allulalo
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Water
+          min: 15
+        - !type:OrganType
+          type: Allulalo # Omu end
     Gas: # DeltaV - Feroxi get to breathe with this too!
       effects:
       - !type:HealthChange

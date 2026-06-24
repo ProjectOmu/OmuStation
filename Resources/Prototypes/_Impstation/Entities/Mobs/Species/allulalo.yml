@@ -41,7 +41,7 @@
       components:
       - TooShortForUIWhitelist
   - type: AllulaloAccent
-  - type: HeavyweightDrunk #Their blood is alcoholic. also a bird drinking you under the table is funny
+  #- type: HeavyweightDrunk #Their blood is alcoholic. also a bird drinking you under the table is funny # Omu, not needed anymore as ethanol does not get them drunk.
   - type: CanEscapeInventory
     baseResistTime: 1.0 #they break out of grabs FAST
   - type: Damageable
