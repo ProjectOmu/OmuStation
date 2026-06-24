@@ -257,7 +257,6 @@ public sealed class ReflectSystem : EntitySystem
         DamageSpecifier? damage, // WD EDIT
 
         // 🌟Starlight🌟 start
-        string? hitscanId,
         [NotNullWhen(true)] out Vector2? newDirection)
     {
         newDirection = null; //Starlight
