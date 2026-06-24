@@ -765,10 +765,11 @@ public sealed class EntityEffectSystem : EntitySystem
         var knowledge = EntityManager.EnsureComponent<LanguageKnowledgeComponent>(uid);
         var fallback = SharedLanguageSystem.FallbackLanguagePrototype;
 
+
         if (!knowledge.UnderstoodLanguages.Contains(fallback))
             knowledge.UnderstoodLanguages.Add(fallback);
 
-        if (!knowledge.SpokenLanguages.Contains(fallback))
+        if (knowledge.SpokenLanguages.Count < 1)
             knowledge.SpokenLanguages.Add(fallback);
 
         IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<LanguageSystem>().UpdateEntityLanguages(uid);
