@@ -14,6 +14,6 @@ namespace Content.Shared._Shitmed.StatusEffects;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SpawnEmpComponent : SpawnEntityEffectComponent
 {
-    public override string EntityPrototype { get; set; } = "AdminInstantEffectEMP7";
+    public override string EntityPrototype { get; set; } = "DubiousOrganEMPEffect"; // Omu, replaced with lesser emp.
     public override bool AttachToParent { get; set; } = true;
 }

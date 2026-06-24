@@ -135,11 +135,11 @@
 
 - type: entity
   id: CentcommMindShieldImplanter
-  suffix: Mindshield
+  suffix: Mindshield, Target Immune # Omu, add Target Immune
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
-    implant: MindShieldImplant
+    implant: MindShieldImplantCentComm # Omu
 
 - type: entity
   id: CentcommNutrimentImplanter
