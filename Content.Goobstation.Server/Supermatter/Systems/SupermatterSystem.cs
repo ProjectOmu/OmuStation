@@ -805,8 +805,10 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             Math.Ceiling(diff);
             if (diff >0)
                 sm.GasEfficiency = sm.GasEfficiency - diff;
-            if (diff <0)
+            else if (diff <0)
                 sm.GasEfficiency = sm.GasEfficiency + diff;
+            else if (diff == 0)
+                sm.GasEfficiency = sm.GasEfficiencySetpoint;
             _achat.SendAdminAlert("SM gas efficiency adjusted");
 
             if (sm.GasEfficiency == sm.GasEfficiencySetpoint)
@@ -819,8 +821,10 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             Math.Ceiling(diff);
             if (diff >0)
                 sm.RadiationOutputFactor = sm.RadiationOutputFactor - diff;
-            if (diff <0)
+            else if (diff <0)
                 sm.RadiationOutputFactor = sm.RadiationOutputFactor + diff;
+            else if (diff == 0)
+                sm.RadiationOutputFactor = sm.RadiationOutputFactorSetpoint;
             _achat.SendAdminAlert("SM radiation output factor adjusted");
 
             if (sm.RadiationOutputFactor == sm.RadiationOutputFactorSetpoint)
