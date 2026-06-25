@@ -39,11 +39,10 @@
     Head: MobShadowkinHead
     Snout: MobShadowkinAnyMarkingFollowSkin
     HeadTop: MobShadowkinAnyMarking
-    #HeadSide: MobShadowkinAnyMarkingFollowSkin
     Tail: MobShadowkinAnyMarking # Omu - Changed from MobShadowkinAnyMarkingFollowSkin. Allows for custom tail colors
     #omu start
     Hair: MobHumanoidAnyMarking
-    HeadSide: MobHumanoidAnyMarking 
+    HeadSide: MobShadowkinAnyMarking
     Undershirt: MobHumanoidAnyMarking
     Underwear: MobHumanoidAnyMarking
     #omu end
