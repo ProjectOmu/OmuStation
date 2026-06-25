@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 06/16/2026 01:07:05
-  entityCount: 28350
+  entityCount: 28352
 maps:
 - 1
 grids:
@@ -80787,7 +80787,7 @@ entities:
     - type: Transform
       pos: 20.5,-70.5
       parent: 2
-  - uid: 27058
+  - uid: 28352
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -181308,7 +181308,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 21643
+      - 28351
   - uid: 17197
     components:
     - type: Transform
@@ -181325,7 +181325,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 21643
+      - 28351
   - uid: 17209
     components:
     - type: Transform
@@ -181333,7 +181333,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 21643
+      - 28351
   - uid: 17210
     components:
     - type: Transform
@@ -181341,7 +181341,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 21643
+      - 28351
   - uid: 17216
     components:
     - type: Transform
@@ -181349,7 +181349,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 21643
+      - 28351
   - uid: 17217
     components:
     - type: Transform
@@ -181357,7 +181357,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 21643
+      - 28351
   - uid: 17218
     components:
     - type: Transform
@@ -181365,7 +181365,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 21643
+      - 28351
   - uid: 17221
     components:
     - type: Transform
@@ -181373,7 +181373,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 21643
+      - 28351
   - uid: 17222
     components:
     - type: Transform
@@ -181381,7 +181381,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 21643
+      - 28351
   - uid: 17223
     components:
     - type: Transform
@@ -181389,7 +181389,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 21643
+      - 28351
   - uid: 17630
     components:
     - type: Transform
@@ -181397,7 +181397,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 21643
+      - 28351
   - uid: 19811
     components:
     - type: Transform
@@ -181512,7 +181512,7 @@ entities:
       - 27058
 - proto: WeaponEnergyTurretAIControlPanel
   entities:
-  - uid: 21643
+  - uid: 28351
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
