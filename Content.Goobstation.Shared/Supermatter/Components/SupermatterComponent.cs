@@ -468,21 +468,22 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// The desired setpoint for a radiation output factor - bigger number means it will try reach a bigger value
     /// </summary>
-    [DataField("radiationOutputFactor")]
+    [DataField("radiationOutputFactorSetpoint")]
     [ViewVariables(VVAccess.ReadWrite)]
     public float RadiationOutputFactorSetpoint = 0.03f;
 
-    [DataField("radiationOutputFactor")]
+    [DataField("radiationOutputFactorChanged")]
     [ViewVariables(VVAccess.ReadWrite)]
     public bool RadiationOutputFactorChanged = false;
 
     /// <summary>
     /// The desired setpoint for gas efficiency - bigger number means it will try to absorb more gas
     /// </summary>
+    [DataField("GasEfficiencySetpoint")]
     [ViewVariables(VVAccess.ReadWrite)]
     public float GasEfficiencySetpoint = 0.15f;
 
-    [DataField("radiationOutputFactor")]
+    [DataField("GasEfficiencyFactorChanged")]
     [ViewVariables(VVAccess.ReadWrite)]
     public bool GasEfficiencyFactorChanged = false;
 
