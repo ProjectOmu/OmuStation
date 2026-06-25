@@ -39,7 +39,7 @@
     Head: MobShadowkinHead
     Snout: MobShadowkinAnyMarkingFollowSkin
     HeadTop: MobShadowkinAnyMarking
-    HeadSide: MobShadowkinAnyMarkingFollowSkin
+    HeadSide: MobHumanoidAnyMarking #Omu - Goat
     Tail: MobShadowkinAnyMarkingFollowSkin
     #omu start
     Hair: MobHumanoidAnyMarking
@@ -72,6 +72,9 @@
       points: 6 # Omu - Like moff antennae, the wurblefucks too, must have more ears for customization fuckery
       required: true
       defaultMarkings: [EarsShadowkin]
+    HeadSide: # Omu - Goat
+      points: 8
+      required: false
     Chest:
       points: 8
       required: false
