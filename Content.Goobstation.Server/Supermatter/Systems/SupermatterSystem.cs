@@ -146,9 +146,10 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     public void Cycle(EntityUid uid, SupermatterComponent sm)
     {
-        if (_gameTiming.CurTime.TotalMinutes < sm.Timelocked + sm.Timetounlock)
+        if (_gameTiming.CurTime.TotalMinutes < (sm.Timelocked + sm.Timetounlock) && sm.Varlocked == true)
         {
             sm.Varlocked = false;
+            _achat.SendAdminAlert($"SM variables unlocked at time {_gameTiming.CurTime.TotalMinutes}");
         }
         sm.ZapAccumulator++;
         sm.YellAccumulator++;
@@ -216,6 +217,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             else if (eventtorun.EventType == "Surge")
             {
                 sm.Varlocked = true;
+                _achat.SendAdminAlert($"{sm.Varlocked} = supermatter locked at time: {_gameTiming.CurTime.TotalMinutes}");
                 sm.Timelocked = _gameTiming.CurTime.TotalMinutes;
                 sm.GasEfficiencyFactorChanged = true;
                 sm.GasEfficiency = 0.45f;

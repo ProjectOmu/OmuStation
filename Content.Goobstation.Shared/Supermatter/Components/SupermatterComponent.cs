@@ -470,7 +470,7 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField("Timetounlock")]
     [ViewVariables(VVAccess.ReadWrite)]
-    public float Timetounlock = 5f;
+    public double Timetounlock = 5;
 
     public double Timelocked;
     public bool Varlocked = false;
