@@ -237,6 +237,7 @@ public sealed class ReflectSystem : EntitySystem
             var newRot = rotation.RotateVec(locRot.ToVec());
             _transform.SetLocalRotation(projectile, newRot.ToAngle());
         }
+        #endregion
 
         if (TryComp(projectile, out HomingProjectileComponent? homing)) // Goobstation
             RemCompDeferred(projectile, homing);
