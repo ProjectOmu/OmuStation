@@ -769,7 +769,7 @@ public sealed class EntityEffectSystem : EntitySystem
         if (knowledge.UnderstoodLanguages.Count < 1)    //Omu - not everything can hear tau
             knowledge.UnderstoodLanguages.Add(fallback);
 
-        if (knowledge.SpokenLanguages.Count < 1)        //Omu - nmot everything speaks tau
+        if (knowledge.SpokenLanguages.Count < 1)        //Omu - not everything speaks tau
             knowledge.SpokenLanguages.Add(fallback);
 
         IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<LanguageSystem>().UpdateEntityLanguages(uid);
