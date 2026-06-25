@@ -42,7 +42,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
-using Content.Shared.EntityEffects.EffectConditions;
+using Content.Shared.EntityEffects.EffectConditions;    //omu for emitters
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
@@ -59,7 +59,7 @@ using Robust.Shared.Maths;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
-using Content.Server.Chat.Managers;
+using Content.Server.Chat.Managers;     // omu for emitters
 using Content.Server.Construction.Completions; // omu
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
@@ -633,7 +633,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             {
                 sm.Damage -= 1f;
                 sm.Power -= 60f;
-                _achat.SendAdminAlert("SM healed");
+                //_achat.SendAdminAlert("SM healed");
                 QueueDel(target);
                 return;
             }
@@ -641,7 +641,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             {
                 sm.Damage += 1f;
                 sm.Power += 100f;
-                _achat.SendAdminAlert("SM harmed");
+                //_achat.SendAdminAlert("SM harmed");
                 QueueDel(target);
                 return;
             }
