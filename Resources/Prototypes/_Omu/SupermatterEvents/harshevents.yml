@@ -12,6 +12,11 @@
     SMGravitySpawn: 1
 
 - type: supermatterEvent
+  id: SMSurge
+  eventType: Surge
+  announcement: Supermatter-Surge
+
+- type: supermatterEvent
   id: GasSpillOxy
   eventType: Gas
   gasToSpawn: Oxygen

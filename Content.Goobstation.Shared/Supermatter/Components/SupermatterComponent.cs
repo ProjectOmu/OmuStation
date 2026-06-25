@@ -464,6 +464,28 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public ProtoId<RadioChannelPrototype> RadioChannel = "Engineering";
+
+    /// <summary>
+    /// The desired setpoint for a radiation output factor - bigger number means it will try reach a bigger value
+    /// </summary>
+    [DataField("radiationOutputFactor")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float RadiationOutputFactorSetpoint = 0.03f;
+
+    [DataField("radiationOutputFactor")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool RadiationOutputFactorChanged = false;
+
+    /// <summary>
+    /// The desired setpoint for gas efficiency - bigger number means it will try to absorb more gas
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float GasEfficiencySetpoint = 0.15f;
+
+    [DataField("radiationOutputFactor")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool GasEfficiencyFactorChanged = false;
+
 }
 [Prototype]
 public sealed partial class SupermatterEventPrototype : IPrototype

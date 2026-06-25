@@ -151,6 +151,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         ProcessAtmos(uid, sm);
         HandleDamage(uid, sm);
+        AdjustSetpoints(sm);        //Omu - SM events - alters the variables of the sm according to setpoints
 
         if (sm.Damage >= sm.DelaminationPoint || sm.Delamming)
             HandleDelamination(uid, sm);
@@ -182,7 +183,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 return;
             }
             var eventtorun = _proto.Index<SupermatterEventPrototype>(eventtorunID);
-            if (eventtorun.Announcement != null)
+            if (eventtorun.Announcement != null)     //shout over radio!
             {
                 var message = Loc.GetString(eventtorun.Announcement);
                 _radioSystem.SendRadioMessage(uid, message, _proto.Index<RadioChannelPrototype>(sm.RadioChannel), uid);
@@ -205,6 +206,13 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                     coords = coords.Offset(xy);
                     Spawn(eventtorun.ProtoToSpawn, coords);
                 }
+            }
+            else if (eventtorun.EventType == "Surge")
+            {
+                sm.GasEfficiencyFactorChanged = true;
+                sm.GasEfficiency = 0.45f;
+                sm.RadiationOutputFactorChanged = true;
+                sm.RadiationOutputFactor = 0.06f;
             }
         }
     }
@@ -787,4 +795,36 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     }
 
     #endregion
+
+    public void AdjustSetpoints(SupermatterComponent sm)
+    {
+        if (sm.GasEfficiencyFactorChanged)
+        {
+            var diff = sm.GasEfficiency - sm.GasEfficiencySetpoint;
+            diff = diff/2;
+            Math.Ceiling(diff);
+            if (diff >0)
+                sm.GasEfficiency = sm.GasEfficiency - diff;
+            if (diff <0)
+                sm.GasEfficiency = sm.GasEfficiency + diff;
+            _achat.SendAdminAlert("SM gas efficiency adjusted");
+
+            if (sm.GasEfficiency == sm.GasEfficiencySetpoint)
+                sm.GasEfficiencyFactorChanged = false;
+        }
+        if (sm.RadiationOutputFactorChanged)
+        {
+            var diff = sm.RadiationOutputFactor - sm.RadiationOutputFactorSetpoint;
+            diff = diff/2;
+            Math.Ceiling(diff);
+            if (diff >0)
+                sm.RadiationOutputFactor = sm.RadiationOutputFactor - diff;
+            if (diff <0)
+                sm.RadiationOutputFactor = sm.RadiationOutputFactor + diff;
+            _achat.SendAdminAlert("SM radiation output factor adjusted");
+
+            if (sm.RadiationOutputFactor == sm.RadiationOutputFactorSetpoint)
+                sm.RadiationOutputFactorChanged = false;
+        }
+    }
 }
