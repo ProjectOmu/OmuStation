@@ -801,8 +801,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         if (sm.GasEfficiencyFactorChanged)
         {
             var diff = sm.GasEfficiency - sm.GasEfficiencySetpoint;
-            diff = diff/2;
-            Math.Ceiling(diff);
+            //diff = diff;
+            Math.Clamp(diff, -0.0001, 0.0001);
             if (diff >0)
                 sm.GasEfficiency = sm.GasEfficiency - diff;
             else if (diff <0)
@@ -817,8 +817,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         if (sm.RadiationOutputFactorChanged)
         {
             var diff = sm.RadiationOutputFactor - sm.RadiationOutputFactorSetpoint;
-            diff = diff/2;
-            Math.Ceiling(diff);
+            //diff = diff;
+            Math.Clamp(diff, -0.00001, 0.00001);
             if (diff >0)
                 sm.RadiationOutputFactor = sm.RadiationOutputFactor - diff;
             else if (diff <0)
