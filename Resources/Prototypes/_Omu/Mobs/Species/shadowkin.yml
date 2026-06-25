@@ -1,0 +1,268 @@
+- type: marking
+  id: EyesShadowkinGlowingRight
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Shadowkin]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_parts.rsi
+    state: eyes_right
+  shader: unshaded
+
+- type: marking
+  id: EyesShadowkinGlowingLeft
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Shadowkin]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_parts.rsi
+    state: eyes_left
+  shader: unshaded
+
+- type: marking
+  id: EyesShadowkinNormalRight
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Shadowkin]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_parts.rsi
+    state: eyes_right
+
+- type: marking
+  id: EyesShadowkinNormalLeft
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Shadowkin]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_parts.rsi
+    state: eyes_left
+
+
+- type: marking
+  id: EarsShadowkinAllEarsGauzedAll
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadowkin]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
+    state: shadowkin
+  - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
+    state: gauze_ear_all_default
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_ears_32x32.rsi
+    state: gauze_lowerears_all_default
+
+- type: marking
+  id: EarsShadowkinAllEarsGauzedLeft
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadowkin]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
+    state: shadowkin
+  - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
+    state: gauze_ear_l_default
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_ears_32x32.rsi
+    state: gauze_lowerears_l_default
+
+- type: marking
+  id: EarsShadowkinAllEarsGauzedRight
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadowkin]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
+    state: shadowkin
+  - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
+    state: gauze_ear_r_default
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_ears_32x32.rsi
+    state: gauze_lowerears_r_default
+
+
+- type: marking
+  id: EarsShadowkinAllSaggyGauzedAll
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadowkin]
+  sprites:
+  - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
+    state: saggy_default
+  - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
+    state: saggy_gauze_all
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_ears_32x32.rsi
+    state: saggy_gauze_lowerears_all
+
+- type: marking
+  id: EarsShadowkinAllSaggyGauzedLeft
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadowkin]
+  sprites:
+  - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
+    state: saggy_default
+  - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
+    state: saggy_gauze_l
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_ears_32x32.rsi
+    state: saggy_gauze_lowerears_l
+
+- type: marking
+  id: EarsShadowkinAllSaggyGauzedRight
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadowkin]
+  sprites:
+  - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
+    state: saggy_default
+  - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
+    state: saggy_gauze_r
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_ears_32x32.rsi
+    state: saggy_gauze_lowerears_r
+
+
+- type: marking
+  id: TailShadowkinMediumFurry
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  sprites:
+  - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi
+    state: shadekin_medium
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_tails_32x32.rsi
+    state: medium_furry
+
+- type: marking
+  id: TailShadowkinShortTwoColored
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  sprites:
+  - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi
+    state: shadekin_shorter
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_tails_32x32.rsi
+    state: short_twocolored
+
+
+- type: marking
+  id: TailShadowkinTwoColored
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails64x32.rsi
+    state: shadowkin
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_tails_64x32.rsi
+    state: shadowkin_twocolored
+
+- type: marking
+  id: TailShadowkinFurry
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails64x32.rsi
+    state: shadowkin
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_tails_64x32.rsi
+    state: shadowkin_furry
+
+- type: marking
+  id: TailShadowkinStriped
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails64x32.rsi
+    state: shadowkin
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_tails_64x32.rsi
+    state: shadowkin_striped
+
+
+- type: marking
+  id: TailShadowkinBigTwoColored
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails64x32.rsi
+    state: shadowkin_big
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_tails_64x32.rsi
+    state: shadowkin_big_twocolored
+
+- type: marking
+  id: TailShadowkinBigFurry
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails64x32.rsi
+    state: shadowkin_big
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_tails_64x32.rsi
+    state: shadowkin_big_furry
+
+- type: marking
+  id: TailShadowkinBigStriped
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails64x32.rsi
+    state: shadowkin_big
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_tails_64x32.rsi
+    state: shadowkin_big_striped
+
+
+- type: marking
+  id: TailShadowkinBigFluffTwoColored
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails64x32.rsi
+    state: shadowkin_big_fluff
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_tails_64x32.rsi
+    state: shadowkin_big_fluff_twocolored
+
+- type: marking
+  id: TailShadowkinBigFluffFurry
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails64x32.rsi
+    state: shadowkin_big_fluff
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_tails_64x32.rsi
+    state: shadowkin_big_fluff_furry
+
+- type: marking
+  id: TailShadowkinBigFluffStriped
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails64x32.rsi
+    state: shadowkin_big_fluff
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_tails_64x32.rsi
+    state: shadowkin_big_fluff_striped
+
+
+- type: marking
+  id: BodyShadowkinFullBelly
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Shadowkin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_overlay.rsi
+    state: body_fullbelly

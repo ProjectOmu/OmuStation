@@ -399,3 +399,24 @@
   name: loadout-group-clown-belt
   loadouts:
   - ClownFoamSabre # Omu - Add foam sabre to the clown's loadout.
+
+# Cyborg
+- type: loadoutGroup
+  id: CyborgHead
+  name: loadout-group-cyborg-head
+  minLimit: 0
+  loadouts:
+  - PropellerHead
+  - PartyHatRedHead
+  - BeanieHead
+  - ChefHead
+  - FezHatHead
+  - FedoraHatHead
+  - WhiteCowboyHead
+  - TophatHead
+  - SafariHead
+  - JesterHead
+  - HeadSlimeHead
+  - HeadFlowerHead
+  - HeadbandSkull
+  

@@ -5,7 +5,7 @@
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Shadowkin]
-  forcedColoring: true
+  forcedColoring: false # Omu - Changed from true. Allows for custom ears colors
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
@@ -37,7 +37,7 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Shadowkin]
-  forcedColoring: true
+  forcedColoring: false # Omu - Changed from true. Allows for custom tail colors
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails64x32.rsi
       state: shadowkin
@@ -47,7 +47,7 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Shadowkin]
-  forcedColoring: true
+  forcedColoring: false # Omu - Changed from true. Allows for custom tail colors
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails64x32.rsi
       state: shadowkin_big
@@ -57,7 +57,7 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Shadowkin]
-  forcedColoring: true
+  forcedColoring: false # Omu - Changed from true. Allows for custom tail colors
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails64x32.rsi
       state: shadowkin_big_fluff
@@ -67,7 +67,7 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Shadowkin]
-  forcedColoring: true
+  forcedColoring: false # Omu - Changed from true. Allows for custom tail colors
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails32x32.rsi
       state: shadowkin_shorter
@@ -77,7 +77,7 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Shadowkin]
-  forcedColoring: true
+  forcedColoring: false # Omu - Changed from true. Allows for custom tail colors
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails32x32.rsi
       state: shadowkin_medium
@@ -706,7 +706,7 @@
   sprites:
     - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi
       state: shadekin_shorter
-    - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi
+    - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_tails_32x32.rsi # Omu - Make texture fully opaque
       state: shorter_brush
 
 - type: marking
@@ -726,6 +726,6 @@
   sprites:
     - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi
       state: shadekin_medium
-    - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_tails_32x32.rsi
+    - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_tails_32x32.rsi # Omu - Make texture fully opaque
       state: medium_twocolored
 
