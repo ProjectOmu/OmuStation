@@ -146,7 +146,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     public void Cycle(EntityUid uid, SupermatterComponent sm)
     {
-        if (_gameTiming.CurTime.TotalMinutes < (sm.Timelocked + sm.Timetounlock) && sm.Varlocked == true)
+        if (sm.Timelocked < (_gameTiming.CurTime.TotalMinutes - sm.Timetounlock) && sm.Varlocked == true)
         {
             sm.Varlocked = false;
             _achat.SendAdminAlert($"SM variables unlocked at time {_gameTiming.CurTime.TotalMinutes}");
