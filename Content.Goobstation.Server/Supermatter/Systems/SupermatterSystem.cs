@@ -89,8 +89,6 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     private DelamType _delamType = DelamType.Explosion;
 
-    private double _timer;
-
     public override void Initialize()
     {
         base.Initialize();
