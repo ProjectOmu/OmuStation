@@ -801,15 +801,15 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         if (sm.GasEfficiencyFactorChanged)
         {
             var diff = sm.GasEfficiency - sm.GasEfficiencySetpoint;
-            //diff = diff;
-            Math.Clamp(diff, -0.0001, 0.0001);
+            diff = diff/50;
+            Math.Round(diff, 5);
             if (diff >0)
                 sm.GasEfficiency = sm.GasEfficiency - diff;
             else if (diff <0)
                 sm.GasEfficiency = sm.GasEfficiency + diff;
             else if (diff == 0)
                 sm.GasEfficiency = sm.GasEfficiencySetpoint;
-            _achat.SendAdminAlert("SM gas efficiency adjusted");
+            _achat.SendAdminAlert($"SM gas efficiency adjusted by {diff}");
 
             if (sm.GasEfficiency == sm.GasEfficiencySetpoint)
                 sm.GasEfficiencyFactorChanged = false;
@@ -817,15 +817,15 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         if (sm.RadiationOutputFactorChanged)
         {
             var diff = sm.RadiationOutputFactor - sm.RadiationOutputFactorSetpoint;
-            //diff = diff;
-            Math.Clamp(diff, -0.00001, 0.00001);
+            diff = diff/50;
+            Math.Round(diff, 5);
             if (diff >0)
                 sm.RadiationOutputFactor = sm.RadiationOutputFactor - diff;
             else if (diff <0)
                 sm.RadiationOutputFactor = sm.RadiationOutputFactor + diff;
             else if (diff == 0)
                 sm.RadiationOutputFactor = sm.RadiationOutputFactorSetpoint;
-            _achat.SendAdminAlert("SM radiation output factor adjusted");
+            _achat.SendAdminAlert($"SM radiation output factor adjusted by {diff}");
 
             if (sm.RadiationOutputFactor == sm.RadiationOutputFactorSetpoint)
                 sm.RadiationOutputFactorChanged = false;
