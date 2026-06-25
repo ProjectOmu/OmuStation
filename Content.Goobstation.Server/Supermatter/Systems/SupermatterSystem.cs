@@ -89,6 +89,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     private DelamType _delamType = DelamType.Explosion;
 
+    private double _timer;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -146,12 +148,18 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     public void Cycle(EntityUid uid, SupermatterComponent sm)
     {
+        if (_gameTiming.CurTime.TotalMinutes < sm.Timelocked + sm.Timetounlock)
+        {
+            sm.Varlocked = false;
+        }
         sm.ZapAccumulator++;
         sm.YellAccumulator++;
 
         ProcessAtmos(uid, sm);
         HandleDamage(uid, sm);
-        AdjustSetpoints(sm);        //Omu - SM events - alters the variables of the sm according to setpoints
+
+        if (sm.Varlocked == false)
+            AdjustSetpoints(sm);        //Omu - SM events - alters the variables of the sm according to setpoints
 
         if (sm.Damage >= sm.DelaminationPoint || sm.Delamming)
             HandleDelamination(uid, sm);
@@ -209,6 +217,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             }
             else if (eventtorun.EventType == "Surge")
             {
+                sm.Varlocked = true;
+                sm.Timelocked = _gameTiming.CurTime.TotalMinutes;
                 sm.GasEfficiencyFactorChanged = true;
                 sm.GasEfficiency = 0.45f;
                 sm.RadiationOutputFactorChanged = true;

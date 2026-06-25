@@ -466,6 +466,16 @@ public sealed partial class SupermatterComponent : Component
     public ProtoId<RadioChannelPrototype> RadioChannel = "Engineering";
 
     /// <summary>
+    /// The time in minutes since a surge occurred that variables can be adjusted
+    /// </summary>
+    [DataField("radiationOutputFactorSetpoint")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float Timetounlock = 5f;
+
+    public double Timelocked;
+    public bool Varlocked = false;
+
+    /// <summary>
     /// The desired setpoint for a radiation output factor - bigger number means it will try reach a bigger value
     /// </summary>
     [DataField("radiationOutputFactorSetpoint")]
