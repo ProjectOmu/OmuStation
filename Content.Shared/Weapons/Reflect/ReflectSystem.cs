@@ -221,7 +221,6 @@ public sealed class ReflectSystem : EntitySystem
             _transform.SetWorldRotation(projectile, velocityAngle - reflector.Comp.OverrideAngle.Value);
         }
         else
-        
         {
             var rotation = _random.NextAngle(-reflector.Comp.Spread / 2, reflector.Comp.Spread / 2).Opposite();
             var existingVelocity = _physics.GetMapLinearVelocity(projectile, component: physics);
