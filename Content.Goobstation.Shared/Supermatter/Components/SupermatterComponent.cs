@@ -468,7 +468,7 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// The time in minutes since a surge occurred that variables can be adjusted
     /// </summary>
-    [DataField("radiationOutputFactorSetpoint")]
+    [DataField("Timetounlock")]
     [ViewVariables(VVAccess.ReadWrite)]
     public float Timetounlock = 5f;
 
