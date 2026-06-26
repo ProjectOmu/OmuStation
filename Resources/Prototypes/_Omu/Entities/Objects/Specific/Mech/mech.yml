@@ -39,7 +39,6 @@
       tags:
       - VimPilot
     startingEquipment:
-      - CombatKnife
       - WeaponMechCombatMissileRack8
   - type: MeleeWeapon
     hidden: true
@@ -54,6 +53,26 @@
   - type: Access
     tags:
     - Maintenance
+  - type: BloodredVim
+    actionProto: ActionBloodredVimBoost
+    thrustAcceleration: 50
+    boostDuration: 2.2
+    vaporReagentPerPuff: 5
+    vaporVelocity: 4
+    vaporLifetime: 0.8
+    vaporCountPerEmit: 1
+    vaporSpread: 30
+    emitInterval: 0.3
+    emitMaxPerTick: 1
+    nozzleOffset: 0.1
+  - type: VehicleHitAndRun
+    minRunoverSpeed: 5
+    launchForceBase: 4
+    launchForceScale: 0.4
+    throwCooldown: 0.6
+    runoverRadius: 1
+    airTime: 1.2
+    canRunOver: false
   # TOOD: buzz / chime actions
   # TODO: builtin flashlight
 
@@ -66,3 +85,21 @@
     containers:
       mech-battery-slot:
       - PowerCellAntiqueProto
+
+- type: entity
+  id: ActionBloodredVimBoost
+  parent: BaseAction
+  name: Boost
+  description: Spray water to launch forward.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Omu/Objects/Specific/Mechs/bloodredvim.rsi
+      state: bloodredvim
+    useDelay: 1
+  - type: TargetAction
+    range: 16
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:BloodredVimBoostActionEvent
