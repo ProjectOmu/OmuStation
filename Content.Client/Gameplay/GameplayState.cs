@@ -155,6 +155,9 @@ namespace Content.Client.Gameplay
                 case ScreenType.Separated:
                     _uiManager.LoadScreen<SeparatedChatGameScreen>();
                     break;
+                case ScreenType.SeparatedLeft:
+                    _uiManager.LoadScreen<SeparatedChatLeftGameScreen>();
+                    break;
             }
 
             _loadController.LoadScreen();
