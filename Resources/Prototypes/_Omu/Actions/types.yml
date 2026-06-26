@@ -1,0 +1,17 @@
+- type: entity
+  id: ActionBloodredVimBoost
+  parent: BaseAction
+  name: Boost
+  description: Spray water to launch forward.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Omu/Objects/Specific/Mechs/bloodredvim.rsi
+      state: bloodredvim
+    useDelay: 1
+  - type: TargetAction
+    range: 16
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:BloodredVimBoostActionEvent {}
