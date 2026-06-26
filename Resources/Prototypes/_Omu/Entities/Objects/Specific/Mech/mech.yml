@@ -60,8 +60,8 @@
   # TODO: builtin flashlight
 
 - type: entity
-  parent: MechVim
-  id: MechVimBattery
+  parent: MechBloodredVim
+  id: MechBloodredVimBattery
   suffix: Battery
   components:
   - type: ContainerFill
