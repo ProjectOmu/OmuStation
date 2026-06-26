@@ -616,12 +616,16 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             var impact = isMob ? LogImpact.Extreme : LogImpact.High;
 
             // Original log entry
+            _adminLog.Add(LogType.Supermatter, impact,
+                $"{activator:actor} activated Supermatter {ToPrettyString(uid):subject}");
             _achat.SendAdminAlert(
-                $"{activator:actor} activated Supermatter {ToPrettyString(uid):subject}");  //omu changed to achat so it works
+                $"{activator:actor} activated Supermatter {ToPrettyString(uid):subject}");  //omu added admin alert
 
             // New admin alert
+            _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+                $"SUPERMATTER ACTIVATED BY {activator} AT {Transform(uid).Coordinates}");
             _achat.SendAdminAlert(
-                $"SUPERMATTER ACTIVATED BY {activator} AT {Transform(uid).Coordinates}");  //omu changed to achat so it works
+                $"SUPERMATTER ACTIVATED BY {activator} AT {Transform(uid).Coordinates}");  //omu added admin alert
 
             sm.Activated = true;
         }
@@ -662,7 +666,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         if (!HasComp<ProjectileComponent>(target))
         {
-            _achat.SendAdminAlert($"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");      //omu changed to achat so it works
+            _adminLog.Add(LogType.Supermatter, LogImpact.Medium, $"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");
+            _achat.SendAdminAlert($"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");      //omu admin alert
             EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
             _audio.PlayPvs(sm.DustSound, uid);
         }
