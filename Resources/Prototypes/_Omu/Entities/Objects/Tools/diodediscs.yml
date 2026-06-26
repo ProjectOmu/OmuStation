@@ -4,7 +4,7 @@
   id: BaseDiodeDisc
   components:
   - type: Sprite
-    sprite: _Omu\Objects\Tools\diodedisc.rsi
+    sprite: _Omu/Objects/Tools/diodedisc.rsi, state: icon
     state: icon
   - type: DiodeDisc
 
