@@ -31,7 +31,7 @@
     baseState: bloodredvim
     openState: brvim-open
     brokenState: brvim-broken
-    maxEquipmentAmount: 4
+    maxEquipmentAmount: 3
     # keep mouse safe
     mechToPilotDamageMultiplier: 0.1
     airtight: true
@@ -39,10 +39,8 @@
       tags:
       - VimPilot
     startingEquipment:
-      - WeaponMechChainSword
-      - WeaponMechCombatShotgun
+      - CombatKnife
       - WeaponMechCombatMissileRack8
-      - WeaponMechCombatTeslaCannon
   - type: MeleeWeapon
     hidden: true
     attackRate: 0.8
