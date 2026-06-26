@@ -10,7 +10,7 @@
     sprite: _Omu/Objects/Specific/Mechs/bloodredvim.rsi
     layers:
     - map: [ "enum.MechVisualLayers.Base" ]
-      state: brvim
+      state: bloodredvim
   - type: Fixtures
     fixtures:
       fix1:
@@ -28,7 +28,7 @@
       params:
         volume: -10
   - type: Mech
-    baseState: brvim
+    baseState: bloodredvim
     openState: brvim-open
     brokenState: brvim-broken
     maxEquipmentAmount: 4
