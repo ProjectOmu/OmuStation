@@ -632,12 +632,12 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         if (_tag.HasTag(target, "EmitterBolt")) //omu
         {
-            //_achat.SendAdminAlert("SM struck by bolt");
-            if (_tag.HasTag(target, "EmitterBoltElectroDisruptive"))
+            if (_tag.HasTag(target, "EmitterBoltElectroDisruptive"))    //Omu checks for the tag of the emitter bolt in question
             {
-                sm.Damage -= 1f;
+                sm.Damage -= 1f;        //omu - heal the SM
                 sm.Power -= 60f;
-                //_achat.SendAdminAlert("SM healed");
+                _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+                $"SUPERMATTER hit by healing bolt AT {Transform(uid).Coordinates}");
                 QueueDel(target);
                 return;
             }
@@ -645,7 +645,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             {
                 sm.Damage += 1f;
                 sm.Power += 100f;
-                //_achat.SendAdminAlert("SM harmed");
+                _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+                $"SUPERMATTER hit by harming bolt AT {Transform(uid).Coordinates}");
                 QueueDel(target);
                 return;
             }
