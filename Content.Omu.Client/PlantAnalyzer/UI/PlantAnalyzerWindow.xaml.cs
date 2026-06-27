@@ -175,12 +175,12 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
     {
         try
         {
-            var title = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(seedName.ToLower(CultureInfo.CurrentCulture));
+            var title = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(seedName.ToLower(CultureInfo.InvariantCulture));
             return isTray ? title : title + " Seed";
         }
         catch (ArgumentException)
         {
-            // Invalid format for current culture - return as-is
+            // Invalid format for invariant culture - return as-is
             return isTray ? seedName : seedName + " Seed";
         }
     }
@@ -486,7 +486,7 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
 
         try
         {
-            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(value.ToLower(CultureInfo.CurrentCulture));
+            return CultureInfo.InvariantCulture.TextInfo.ToTitleCase(value.ToLower(CultureInfo.InvariantCulture));
         }
         catch
         {
