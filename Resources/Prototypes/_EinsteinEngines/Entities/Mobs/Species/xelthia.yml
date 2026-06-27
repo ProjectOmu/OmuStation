@@ -43,7 +43,7 @@
   #- type: FootPrints #Omu EE slop todo
   - type: Xelthia
   - type: Damageable
-    damageContainer: Xelthia #Omu edit - so they don't take caustic damage from chems among other things
+    damageContainer: Biological #Not really a Omu edit but this has to be Biological or else medHUDs and topicals won't work unless you hardcode it into there filter
     damageModifierSet: Xelthia
   - type: Temperature
     heatDamageThreshold: 360
