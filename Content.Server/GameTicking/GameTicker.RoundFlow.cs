@@ -113,6 +113,11 @@ using Content.Shared.Mobs.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Mind.Components;
 
+// Omu Station - End of Round Silicon Summary
+using Content.Shared.Silicons.Laws.Components;
+using Content.Shared.Silicons.Laws;
+using Content.Server.Silicons.Laws;
+
 namespace Content.Server.GameTicking
 {
     public sealed partial class GameTicker
@@ -120,6 +125,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly DiscordWebhook _discord = default!;
         [Dependency] private readonly RoleSystem _role = default!;
         [Dependency] private readonly ITaskManager _taskManager = default!;
+        [Dependency] private readonly SiliconLawSystem _law = default!;
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -677,6 +683,18 @@ namespace Content.Server.GameTicking
                 #endregion
                 // END
 
+                #region Omu Station
+
+                SiliconLawset? _lawset = null; 
+                if (lastMob != null && !TerminatingOrDeleted(lastMob))
+                {
+                    if (TryComp<SiliconLawProviderComponent>(lastMob, out var providerComp))
+                    {
+                        _lawset = _law.GetLawset(providerComp.Laws);
+                    }
+                }
+                #endregion
+
                 var playerEndRoundInfo = new RoundEndMessageEvent.RoundEndPlayerInfo()
                 {
                     // Note that contentPlayerData?.Name sticks around after the player is disconnected.
@@ -697,7 +715,10 @@ namespace Content.Server.GameTicking
                     // Goob Station - End of Round Screen
                     LastWords = lastWords,
                     EntMobState = mobState,
-                    DamagePerGroup = damagePerGroup
+                    DamagePerGroup = damagePerGroup,
+                    // Omu - End of Round Silicon Summary
+                    laws = _lawset,
+                    borgEnt = lastMob
                 };
                 listOfPlayerInfo.Add(playerEndRoundInfo);
             }

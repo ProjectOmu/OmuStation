@@ -58,6 +58,9 @@ using static Robust.Client.UserInterface.Controls.BoxContainer;
 // Goob Station - End of Round Screen
 using Content.Client.Stylesheets;
 using Content.Shared.Mobs;
+// OmuStation - End of Round Silicon Summary
+using Content.Shared.Silicons.Laws.Components;
+using Content.Shared.Silicons.Laws;
 
 namespace Content.Client.RoundEnd
 {
@@ -86,6 +89,7 @@ namespace Content.Client.RoundEnd
             roundEndTabs.AddChild(MakeRoundEndSummaryTab(gm, roundEnd, roundTimeSpan, roundId));
             roundEndTabs.AddChild(MakePlayerManifestTab(info));
             roundEndTabs.AddChild(MakeStationReportTab()); //goob
+            roundEndTabs.AddChild(MakeSiliconSummaryTab(info)); // Omu
 
             Contents.AddChild(roundEndTabs);
 
@@ -379,7 +383,7 @@ namespace Content.Client.RoundEnd
             var stationReportTab = new BoxContainer
             {
                 Orientation = LayoutOrientation.Vertical,
-                Name = Loc.GetString("round-end-summary-window-station-report-tab-title")
+                Name = Loc.GetString("round-end-summary-window-silicon-summary-tab-title")
             };
             var StationReportContainerScrollbox = new ScrollContainer
             {
@@ -401,6 +405,62 @@ namespace Content.Client.RoundEnd
             StationReportContainerScrollbox.AddChild(StationReportContainer);
             stationReportTab.AddChild(StationReportContainerScrollbox);
             return stationReportTab;
+        }
+        #endregion
+
+        #region Omu Station
+        private BoxContainer MakeSiliconSummaryTab(RoundEndMessageEvent.RoundEndPlayerInfo[] playersInfo)
+        {
+            var siliconSummaryTab = new BoxContainer
+            {
+                Orientation = LayoutOrientation.Vertical,
+                Name = Loc.GetString("round-end-summary-window-player-manifest-tab-title")
+            };
+
+            var playerInfoContainerScrollbox = new ScrollContainer
+            {
+                VerticalExpand = true,
+                Margin = new Thickness(10)
+            };
+            var siliconInfoContainer = new BoxContainer
+            {
+                Orientation = LayoutOrientation.Vertical
+            };
+
+            //Create labels for each player info.
+            foreach (var playerInfo in playersInfo)
+            {
+                var panel = new PanelContainer
+                {
+                    StyleClasses = { StyleNano.StyleClassBackgroundBaseDark },
+                    Margin = new Thickness(0, 0, 0, 6)
+                };
+                var hBox = new BoxContainer
+                {
+                    Orientation = LayoutOrientation.Horizontal,
+                    VerticalExpand = true
+                };
+
+                if (playerInfo.PlayerNetEntity != null && playerInfo.laws != null)
+                {
+                    hBox.AddChild(new SpriteView(playerInfo.borgEnt, _entityManager)
+                    {
+                        OverrideDirection = Direction.South,
+                        VerticalAlignment = VAlignment.Center,
+                        SetSize = new Vector2(64, 64),
+                        VerticalExpand = true,
+                        Stretch = SpriteView.StretchMode.Fill,
+                        Margin = new Thickness(3, 0, 3, 0)
+                    });
+                }
+                panel.AddChild(hBox);
+                siliconInfoContainer.AddChild(panel);
+            }
+
+            playerInfoContainerScrollbox.AddChild(siliconInfoContainer);
+            siliconSummaryTab.AddChild(playerInfoContainerScrollbox);
+
+            return siliconSummaryTab;
         }
         #endregion
     }

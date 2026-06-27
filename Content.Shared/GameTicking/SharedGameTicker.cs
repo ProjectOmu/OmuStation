@@ -58,6 +58,8 @@ using Robust.Shared.Timing;
 using Robust.Shared.Audio;
 using Content.Goobstation.Maths.FixedPoint; // Goob Station - Round End Screen
 using Content.Shared.Mobs; // Goob Station - Round End Screen
+using Content.Shared.Silicons.Laws; // Omu - Silicon Summary
+using Robust.Shared.GameObjects;
 
 namespace Content.Shared.GameTicking
 {
@@ -218,7 +220,7 @@ namespace Content.Shared.GameTicking
     public sealed partial class RoundEndMessageEvent : EntityEventArgs
     {
         [Serializable, NetSerializable, DataDefinition]
-        public partial struct RoundEndPlayerInfo
+        public partial struct  RoundEndPlayerInfo
         {
             [DataField]
             public string PlayerOOCName;
@@ -253,6 +255,11 @@ namespace Content.Shared.GameTicking
             public MobState EntMobState;
 
             public Dictionary<string, FixedPoint2> DamagePerGroup;
+
+            public SiliconLawset? laws; // Omu
+
+            [NonSerialized]
+            public EntityUid? borgEnt; // Omu
             #endregion
         }
 
