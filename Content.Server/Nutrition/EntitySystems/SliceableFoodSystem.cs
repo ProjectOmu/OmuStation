@@ -192,10 +192,11 @@ public sealed class SliceableFoodSystem : EntitySystem
         var ev = new SliceFoodEvent();
         RaiseLocalEvent(entity, ref ev);
 
-        // Omu: Makes you cry if you slice onions.
+        // Omu start: Makes you cry if you slice onions.
         if (TryComp<MetaDataComponent>(entity.Owner, out var meta) &&
             (meta.EntityPrototype?.ID == "FoodOnion" || meta.EntityPrototype?.ID == "FoodOnionRed"))
             _chat.TryEmoteWithChat(user, "Crying", ignoreActionBlocker: true, forceEmote: true);
+        // Omu end
 
         DeleteFood(entity, user);
         return true;
