@@ -217,10 +217,10 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             else if (eventtorun.EventType == "Surge")
             {
                 sm.Varlocked = true;
-                _achat.SendAdminAlert($"{sm.Varlocked} = supermatter locked at time: {_gameTiming.CurTime.TotalMinutes}");
+                _achat.SendAdminAlert($"{sm.Varlocked} = supermatter surge begun at time: {_gameTiming.CurTime.TotalMinutes}");
                 sm.Timelocked = _gameTiming.CurTime.TotalMinutes;
                 sm.GasEfficiencyFactorChanged = true;
-                sm.GasEfficiency = 0.45f;
+                sm.GasEfficiency = 0.30f;
                 sm.RadiationOutputFactorChanged = true;
                 sm.RadiationOutputFactor = 0.06f;
             }
@@ -266,7 +266,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         var h2OBonus = 1 - gases[Gas.WaterVapor] * 0.25f;
 
-        var angerModifier = gases.Sum(gas => gases[gas.Key] * facts[gas.Key].AngerValue);
+        var angerModifier = gases.Sum(gas => gases[gas.Key] * facts[gas.Key].AngerValue);   //omu - SM anger - total up the anger modifier of all gasses
 
         powerRatio = Math.Clamp(powerRatio, 0, 1);
         heatModifier = Math.Max(heatModifier, 0.5f);
@@ -819,7 +819,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 sm.GasEfficiency = sm.GasEfficiency + diff;
             else if (diff == 0)
                 sm.GasEfficiency = sm.GasEfficiencySetpoint;
-            _achat.SendAdminAlert($"SM gas efficiency adjusted by {diff}");
+            _adminLog.Add(LogType.Supermatter,
+                $"Supermatter gas efficiency factor adjusted by {diff} to {sm.GasEfficiency}");
 
             if (sm.GasEfficiency == sm.GasEfficiencySetpoint)
                 sm.GasEfficiencyFactorChanged = false;
@@ -835,7 +836,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 sm.RadiationOutputFactor = sm.RadiationOutputFactor + diff;
             else if (diff == 0)
                 sm.RadiationOutputFactor = sm.RadiationOutputFactorSetpoint;
-            _achat.SendAdminAlert($"SM radiation output factor adjusted by {diff}");
+            _adminLog.Add(LogType.Supermatter,
+                $"Supermatter radiation output factor adjusted by {diff} to {sm.RadiationOutputFactor}");
 
             if (sm.RadiationOutputFactor == sm.RadiationOutputFactorSetpoint)
                 sm.RadiationOutputFactorChanged = false;
