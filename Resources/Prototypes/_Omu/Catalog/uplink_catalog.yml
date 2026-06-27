@@ -88,7 +88,7 @@
     Telecrystal: 125
   categories:
     - UplinkDisruption
-    
+
 - type: listing
   id: UplinkSwordfish
   name: uplink-swordfish-name
@@ -96,7 +96,7 @@
   icon: { sprite: _Omu/Objects/Weapons/Melee/syndieswordfish.rsi, state: icon }
   productEntity: ThavenSyndieRapier
   cost:
-    Telecrystal: 40
+    Telecrystal: 35
   categories:
   - UplinkWeaponry
   conditions:
@@ -108,6 +108,21 @@
       tags:
       - ContractorUplink
       - NukeOpsUplink
+
+- type: listing
+  id: UplinkShoalMask
+  name: uplink-shoalmask-name
+  description: uplink-shoalmask-desc
+  icon: { sprite: _Omu/Clothing/Mask/shoalmask.rsi, state: icon }
+  productEntity: ClothingMaskGasShoal
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Vox
 
 - type: listing
   id: UplinkShredder
@@ -154,7 +169,7 @@
     Telecrystal: 3
   categories:
   - UplinkWearables
- 
+
 - type: listing
   id: UplinkHobbyistSpellBook
   name: uplink-hobbyist-spellbook-name
@@ -170,3 +185,18 @@
     whitelist:
     - Chaplain
     - Librarian
+
+- type: listing
+  id: UplinkXenoCompatibilityImplanterSyndi
+  name: uplink-xeno-compatibility-implanter-name
+  description: uplink-xeno-compatibility-implanter-desc
+  icon: { sprite: /Textures/Objects/Specific/Medical/syndi_implanter.rsi, state: implanter0 }
+  productEntity: XenoCompatibilityImplanterSyndi
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Science

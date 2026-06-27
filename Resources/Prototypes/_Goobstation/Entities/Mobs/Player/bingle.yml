@@ -108,7 +108,7 @@
     overtime: 15
     sound: /Audio/Weapons/egloves.ogg
   - type: Damageable
-    damageContainer: Biological
+    damageContainer: BiologicalElectrical # Omu, was Biological
     damageModifierSet: Bingle
   - type: FootstepModifier
     footstepSoundCollection:
@@ -191,7 +191,7 @@
         Structural: 28
         Ion: 7
   - type: Damageable
-    damageContainer: Biological
+    damageContainer: BiologicalElectrical # Omu, was Biological
     damageModifierSet: BingleUpgraded
 
 # Skin - turkle

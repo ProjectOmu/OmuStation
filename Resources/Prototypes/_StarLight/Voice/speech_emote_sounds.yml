@@ -54,6 +54,8 @@
       collection: ResomiChirp
     Gulp: # Omu
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    CatMeow: # Omu, fixes cat drugs
+      collection: CatMeows
 
 - type: emoteSounds
   id: FemaleAvali
@@ -69,7 +71,7 @@
     Cough:
       collection: FemaleCoughs
     Yawn:
-      collection: FemaleYawn
+      path: /Audio/_Starlight/Voice/Resomi/resomi_deathgasp.ogg # Omu
     Snore:
       collection: Snores
     Sigh:
@@ -110,3 +112,5 @@
       collection: ResomiChirp
     Gulp: # Omu
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    CatMeow: # Omu, fixes cat drugs
+      collection: CatMeows
