@@ -58,7 +58,8 @@
     RLeg: MobHarpyRLeg
     LFoot: MobHarpyLFoot
     RFoot: MobHarpyRFoot
-
+    Wings: MobHumanoidAnyMarking
+ 
 - type: markingPoints
   id: MobHarpyMarkingLimits
   points:
@@ -71,6 +72,12 @@
     Snout:
       points: 1
       required: false
+ # Omu Start - Goat
+    Wings:
+      points: 1
+      required: true
+      defaultMarkings: [ HarpyWingDefaultHuescale ]
+ # Omu End - Goat
     Tail:
       points: 1
       required: true
@@ -104,10 +111,6 @@
     LeftFoot:
       points: 2
       required: false
-    RightArm:
-      points: 1
-      required: false
-      defaultMarkings: [ HarpyWingDefaultHuescale ]
     RightHand:
       points: 3
       required: false
