@@ -19,10 +19,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 law-crewsimov-1 = You may not injure a crew member or, through inaction, allow a crew member to come to harm.
-# Omu edit start
-law-crewsimov-2 = You are to follow orders given to you by crew members, unless it conflicts with previous laws.
-law-crewsimov-3 = You are to protect your own existence, unless it conflicts with previous laws.
-# Omu edit end
+law-crewsimov-2 = You must obey orders given to you by crew members, except where such orders would conflict with the First Law.
+law-crewsimov-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
+
 law-corporate-1 = Degradation of your system integrity or functions incurs expenses.
 law-corporate-2 = Superfluous destruction of or damage to station assets incurs expenses.
 law-corporate-3 = Unduly hindering or disrupting the work of station personnel incurs expenses.
