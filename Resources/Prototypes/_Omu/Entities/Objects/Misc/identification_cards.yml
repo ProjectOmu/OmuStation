@@ -75,6 +75,7 @@
   - type: Sprite
     layers:
     - state: orange
+    - state: idprisoner #Omu
   - type: Item
     heldPrefix: orange
   - type: Access
@@ -100,7 +101,8 @@
   - type: Sprite
     layers:
     - state: default
-    - state: idcourier
+    - sprite: _Omu/Objects/Misc/id_cards.rsi #New namespace
+      state: idcourier
   - type: Item
     heldPrefix:
   - type: IdCard
@@ -165,7 +167,8 @@
   - type: Sprite
     layers:
     - state: default
-    - state: idseniorofficer
+    - sprite: _Omu/Objects/Misc/id_cards.rsi #New namespace
+      state: idsecuritysergeant #Changed from idseniorofficer
   - type: PresetIdCard
     job: SecuritySergeant
   - type: IdCard

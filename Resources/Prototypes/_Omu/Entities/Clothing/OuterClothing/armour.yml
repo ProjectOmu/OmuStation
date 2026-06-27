@@ -12,7 +12,7 @@
     size: Normal
 
 - type: entity
-  parent: ClothingBlueshieldArmourVest
+  parent: [ClothingBlueshieldArmourVest, ClothingGloveJacketBase]
   id: ClothingOuterBlueshieldArmourXelthia
   name: blueshield's xelthian full-sleeve coat
   description: An intimidating armored coat with a commanding presence, designed for use by Xelthians. Provides insulation and surgical protection to Xelthian tentacles.
@@ -27,11 +27,6 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-black
-  - type: FingerprintMask
-  - type: GloveJacket
-  - type: ClothingTakesUpExtraSlots
-    slots:
-    - gloves
   - type: Armor # same as BSO winter coat
     coverage:
     - Chest

@@ -61,10 +61,10 @@
     Poison: 0.4
     Radiation: 0
     Cellular: 0.1
-    
+
 - type: damageModifierSet
   id: Xelthia
   coefficients:
     Cold: 1.5
     Heat: 0.5
-    Caustic: 0
+    #Caustic: 0 #Omu edit, redundant since there damage container no longer holds caustic
