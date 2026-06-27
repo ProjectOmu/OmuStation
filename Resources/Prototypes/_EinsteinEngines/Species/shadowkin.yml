@@ -42,7 +42,6 @@
     Tail: MobShadowkinAnyMarking # Omu - Changed from MobShadowkinAnyMarkingFollowSkin. Allows for custom tail colors
     #omu start
     Hair: MobHumanoidAnyMarking
-    HeadSide: MobShadowkinAnyMarking
     Undershirt: MobHumanoidAnyMarking
     Underwear: MobHumanoidAnyMarking
     #omu end
@@ -72,11 +71,6 @@
       points: 6 # Omu - Like moff antennae, the wurblefucks too, must have more ears for customization fuckery
       required: true
       defaultMarkings: [EarsShadowkin]
-      # Omu Start - Goat
-    HeadSide:
-      points: 8 
-      required: false
-      # Omu End - Goat
     Chest:
       points: 8
       required: false
