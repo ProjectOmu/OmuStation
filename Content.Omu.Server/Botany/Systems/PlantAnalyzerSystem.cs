@@ -266,11 +266,6 @@ public sealed partial class PlantAnalyzerSystem : EntitySystem
             return true;
         }
 
-        if (TryComp<ProduceComponent>(target, out var produce) && _botany.TryGetSeed(produce, out seed))
-        {
-            return true;
-        }
-
         return false;
     }
 
