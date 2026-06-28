@@ -60,7 +60,8 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
 using Content.Server.Chat.Managers;     // omu for emitters
-using Content.Server.Construction.Completions; // omu
+using Content.Server.Construction.Completions;
+using Content.Shared.Mind; // omu
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
@@ -668,7 +669,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         if (!HasComp<ProjectileComponent>(target))
         {
             _adminLog.Add(LogType.Supermatter, LogImpact.Medium, $"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");
-            _achat.SendAdminAlert($"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");      //omu admin alert
+            if (HasComp<MindComponent>(target))     //omu - alert for creatures with a mind
+                _achat.SendAdminAlert($"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");      //omu admin alert
             EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
             _audio.PlayPvs(sm.DustSound, uid);
         }
