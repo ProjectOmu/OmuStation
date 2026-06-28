@@ -201,7 +201,8 @@ public sealed class ReflectSystem : EntitySystem
             return false;
         }
 
-        #region 🌟Starlight🌟
+        #region Starlight
+        // Starlight Start
         if (reflector.Comp.OverrideAngle is not null)
         {
             var overrideAngle = _transform.GetWorldRotation(reflector) + reflector.Comp.OverrideAngle.Value;
