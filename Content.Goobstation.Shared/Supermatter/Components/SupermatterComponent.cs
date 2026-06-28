@@ -411,7 +411,7 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     ///     Stores each gas facts
     /// </summary>
-    public readonly Dictionary<Gas, (float TransmitModifier, float HeatPenalty, float PowerMixRatio, float AngerValue)> GasDataFields = new()   //AngerValue refers to the arbritary value added to cause the SM to trigger events.
+    public readonly Dictionary<Gas, (float TransmitModifier, float HeatPenalty, float PowerMixRatio, float AngerValue)> GasDataFields = new()   //Omu - AngerValue refers to the arbritary value added to cause the SM to trigger events.
     {
         [Gas.Oxygen] = (TransmitModifier: 1.5f, HeatPenalty: 1f, PowerMixRatio: 1f, AngerValue: 1f),
         [Gas.Nitrogen] = (TransmitModifier: 0f, HeatPenalty: -1.5f, PowerMixRatio: -1f, AngerValue: -1f),
