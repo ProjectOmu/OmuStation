@@ -60,7 +60,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
 using Content.Server.Chat.Managers;     // omu for emitters
-using Content.Server.Construction.Completions;
+using Content.Server.Construction.Completions; // omu
 using Content.Shared.Mind; // omu
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
