@@ -31,7 +31,7 @@ using Robust.Shared.Serialization.Manager.Attributes;
 using Robust.Shared.ViewVariables;
 using Robust.Shared.Utility;        //omu
 using Robust.Shared.Prototypes;       //omu
-using Content.Shared.Random;        /omu
+using Content.Shared.Random;        //omu
 using Robust.Shared.Toolshed.TypeParsers;    //omu
 using Content.Shared.Radio;        //omu
 
