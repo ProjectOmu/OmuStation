@@ -16,6 +16,9 @@ log_late_msg = false
 
 [status]
 enabled = true
+privacy_policy_link = "https://projectomu.org/about/privacy_policies/ss14/"
+privacy_policy_identifier = "omu"
+privacy_policy_version = "2026-05-13"
 
 [server]
 rules_file = "OmuRuleset" # Default for all servers.
@@ -27,7 +30,7 @@ mode = 1 # Requires authentication from SS14 API
 advertise = 1
 advertise_interval = 30
 tags = "lang:en,rp:med,region:am_n_e" # You can find a list of all tags @ https://docs.spacestation14.com/en/robust-toolbox/server-http-api.html#standard-tags
-hub_urls = "https://central.spacestation14.io/hub/, https://hub.fallback.spacestation14.com/, https://hub.singularity14.co.uk/"
+hub_urls = "https://central.spacestation14.io/hub/" # https://hub.fallback.spacestation14.com/ # https://hub.singularity14.co.uk/ is down and does not seem to be up soon anymore.
 use_dynamic_hostname = true # File replacements found in `motd.ftl` in datasets under _Goobstation
 
 [game]
@@ -66,6 +69,7 @@ discord = "https://discord.gg/omustation"
 # forum = "https://forums.projectomu.org/" # Forums website was taken down
 github = "https://github.com/ProjectOmu/OmuStation"
 patreon = "https://www.patreon.com/cw/OMUStation"
+website = "https://projectomu.org/"
 wiki = "https://wiki.projectomu.org/"
 
 [queue]
@@ -92,7 +96,7 @@ time = 60 # Increased from 45
 
 [vote]
 enabled = true
-map_enabled = true
+map_enabled = false
 preset_enabled = false
 restart_enabled = false
 restart_ghost_percentage = 60 # 24 players must be dead
