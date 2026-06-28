@@ -3,7 +3,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using System.Numerics;
 
-namespace Content.Omu.Server.Entities.Objects.Specific.BloodredVim;
+namespace Content.Omu.Shared.Entities.Objects.Specific.BloodredVim;
 
 [RegisterComponent]
 public sealed partial class BloodredVimComponent : Component

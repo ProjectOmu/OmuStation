@@ -7,7 +7,7 @@ using Robust.Shared.Timing;
 using Content.Goobstation.Shared.OfficeChair;
 using Content.Shared.Mech.EntitySystems;
 
-namespace Content.Omu.Server.Entities.Objects.Specific.BloodredVim;
+namespace Content.Omu.Shared.Entities.Objects.Specific.BloodredVim;
 
 public abstract partial class BloodredVimSystem : EntitySystem
 {
