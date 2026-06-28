@@ -219,7 +219,7 @@ public sealed class ReflectSystem : EntitySystem
             }
         }
         else
-        #endregion
+
         {
             var rotation = _random.NextAngle(-reflector.Comp.Spread / 2, reflector.Comp.Spread / 2).Opposite();
             var existingVelocity = _physics.GetMapLinearVelocity(projectile, component: physics);
@@ -236,7 +236,6 @@ public sealed class ReflectSystem : EntitySystem
             _transform.SetLocalRotation(projectile, newRot.ToAngle());
         }
         // Starlight End
-
         #endregion
 
         if (TryComp(projectile, out HomingProjectileComponent? homing)) // Goobstation
