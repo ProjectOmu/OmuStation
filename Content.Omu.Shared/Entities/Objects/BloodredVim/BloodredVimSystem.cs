@@ -28,15 +28,14 @@ public abstract partial class BloodredVimSystem : EntitySystem
     private void OnMechEntry(Entity<BloodredVimComponent> ent, ref MechEntryEvent args)
     {
         var (uid, comp) = ent;
-        if (comp.BoostAction == null)
-            _actions.AddAction(args.User, ref comp.BoostAction, comp.ActionProto, uid);
+        _actions.AddAction(args.Args.User, ref comp.BoostAction, comp.ActionProto, uid);
     }
 
     private void OnMechExit(Entity<BloodredVimComponent> ent, ref MechExitEvent args)
     {
         var (uid, comp) = ent;
         if (comp.BoostAction != null)
-            _actions.RemoveAction(args.User, comp.BoostAction);
+            _actions.RemoveAction(args.Args.User, comp.BoostAction);
         comp.BoostAction = null;
     }
 
