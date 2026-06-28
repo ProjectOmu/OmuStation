@@ -125,21 +125,6 @@ public sealed partial class ReflectComponent : Component
     [DataField, AutoNetworkedField]
     public Angle Spread = Angle.FromDegrees(45);
 
-    #region 🌟Starlight🌟
-    /// <summary>
-    /// Overrides the reflection angle when set.
-    /// </summary>
-    [DataField("overrideAngle"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public Angle? OverrideAngle = null;
-
-    /// <summary>
-    /// If the shield requires power to function, how much power to consume for a reflection
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float ReflectEnergyDraw = 80f;
-    #endregion
-
-
     /// <summary>
     /// The sound to play when reflecting.
     /// </summary>
