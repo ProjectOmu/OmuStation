@@ -66,6 +66,7 @@ using Content.Server.Radio.EntitySystems;
 using Content.Server.Chat.Managers; // omu
 using Content.Server.Construction.Completions; // omu
 using Content.Shared.Mind; // omu
+using Content.Shared.Tag; //omu
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
