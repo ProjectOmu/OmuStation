@@ -1,0 +1,29 @@
+# Tail
+- type: marking
+  id: XelthiaTailLongSplit
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Xelthia]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Xelthia/xelthia_parts.rsi
+    state: tail_longsplit
+
+# Ears
+- type: marking
+  id: XelthiaEarsBigFloppy
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Xelthia]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Xelthia/xelthia_parts.rsi
+    state: ears_bigfloppy
+
+# Hair
+- type: marking
+  id: XelthiaHairOminous
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Xelthia]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Xelthia/xelthia_parts.rsi
+    state: hair_ominous    

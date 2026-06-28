@@ -200,7 +200,7 @@
     - id: BingleSpawn #Goobstation - Bingle
     - id: SlaughterDemonMidround # Goobstation - Slaughter Demon
     - id: XenomorphsInfestation # WD EDIT
-    - id: SlasherSpawn # Goobstation - The Slasher
+    #- id: SlasherSpawn # Goobstation - The Slasher # Omu, disable this
     - id: SpacePirates # Goobstation - you probably can read whom this rule spawns
     #- id: GreyTideAntagMidround # Goobstation - New Midrounds -- Omu Change Removed
     - id: SingulothKnightsMidround # Goobstation - New Midrounds
@@ -876,6 +876,7 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune # DeltaV - Nukies are no longer targets of kill objectives, this includes lone ops.
       - type: RandomMetadata
         nameSegments:
         - NamesSyndicatePrefix

@@ -27,6 +27,13 @@
   - type: Damageable
     damageContainer: Biological # Shadowkin
     damageModifierSet: Shadowkin
+  - type: WoundableVisuals # Omu
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#6C3BAA"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
 
 - type: entity
   id: ChestShadowkin

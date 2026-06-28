@@ -797,7 +797,7 @@ namespace Content.Client.Lobby.UI
                 selector.PreferenceChanged += preference =>
                 {
                     if (preference &&
-                    (_selectedTraitCount < _maxTraits || _maxTraits <= 0)) // make sure the player isn't selecting more traits than they're allowed
+                    (_selectedTraitCount < _maxTraits || _maxTraits <= 0 || !trait.CountsTowardsMaxTraits)) // make sure the player isn't selecting more traits than they're allowed
                     {
                         Profile = Profile?.WithTraitPreference(trait.ID, _prototypeManager);
                         _selectedTraitPointCount -= trait.GlobalCost;
