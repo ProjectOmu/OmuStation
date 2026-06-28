@@ -106,6 +106,7 @@ using Content.Shared.Localizations;
 
 #region Starlight
 using Robust.Shared.Timing;
+using Robust.Shared.Spawners;
 #endregion
 
 namespace Content.Shared.Weapons.Reflect;
@@ -219,8 +220,14 @@ public sealed class ReflectSystem : EntitySystem
             _physics.SetLinearVelocity(projectile, physics.LinearVelocity + difference, body: physics);
             var velocityAngle = (float)Math.Atan2(newVelocity.Y, newVelocity.X);
             _transform.SetWorldRotation(projectile, velocityAngle - reflector.Comp.OverrideAngle.Value);
+            var uid = projectile.Owner; //omu edit for despawning
+            if (TryComp<TimedDespawnComponent>(uid, out var timedDespawn))
+            {
+                timedDespawn.Lifetime = timedDespawn.Lifetime - 1f;
+            }
         }
         else
+        #endregion
         {
             var rotation = _random.NextAngle(-reflector.Comp.Spread / 2, reflector.Comp.Spread / 2).Opposite();
             var existingVelocity = _physics.GetMapLinearVelocity(projectile, component: physics);
@@ -236,7 +243,6 @@ public sealed class ReflectSystem : EntitySystem
             var newRot = rotation.RotateVec(locRot.ToVec());
             _transform.SetLocalRotation(projectile, newRot.ToAngle());
         }
-        #endregion
 
         if (TryComp(projectile, out HomingProjectileComponent? homing)) // Goobstation
             RemCompDeferred(projectile, homing);
