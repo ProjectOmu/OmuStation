@@ -631,7 +631,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             sm.Activated = true;
         }
 
-        if (_tag.HasTag(target, "EmitterBolt")) //omu
+        if (_tag.HasTag(target, "EmitterBolt")) //omu start
         {
             if (_tag.HasTag(target, "EmitterBoltElectroDisruptive"))    //Omu checks for the tag of the emitter bolt in question
             {
