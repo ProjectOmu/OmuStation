@@ -449,7 +449,7 @@ public sealed partial class SupermatterComponent : Component
     /// The setpoint at which the SM does an event.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float SMEventSetpoint = 5000f;
+    public float SMEventSetpoint = 2000f;
 
     [ViewVariables(VVAccess.ReadWrite)]
     public float SMLastAnger = 0f;
