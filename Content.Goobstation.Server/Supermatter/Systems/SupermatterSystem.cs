@@ -68,6 +68,9 @@ using Content.Shared.Radio;            //omu
 using Content.Server.Radio.EntitySystems;    //omu
 using Content.Server.Chat.Managers; // omu
 using Content.Shared.Mind; // omu
+using Content.Shared.Humanoid; // omu
+using Robust.Shared.Player; // omu
+using Content.Server.Objectives.Components.Targets; // omu
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
@@ -742,7 +745,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         if (!HasComp<ProjectileComponent>(target))
         {
             _adminLog.Add(LogType.Supermatter, LogImpact.Medium, $"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");
-            if (HasComp<MindComponent>(target))     //omu - alert for creatures with a mind
+            if (HasComp<HumanoidAppearanceComponent>(target) || HasComp<ActorComponent>(target) || HasComp<StealTargetComponent>(target))     //omu - alert for humanoids, controld entities, and steal targets
                 _achat.SendAdminAlert($"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");      //omu admin alert
             EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
             _audio.PlayPvs(sm.DustSound, uid);
