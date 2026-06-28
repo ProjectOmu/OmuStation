@@ -103,12 +103,6 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Content.Shared.Examine;
 using Content.Shared.Localizations;
-
-#region Starlight
-using Robust.Shared.Timing;
-using Robust.Shared.Spawners;
-#endregion
-
 namespace Content.Shared.Weapons.Reflect;
 
 /// <summary>
@@ -127,9 +121,6 @@ public sealed class ReflectSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!; // WD EDIT
 
-    #region Starlight
-    [Dependency] private readonly IGameTiming _timing = default!;
-    #endregion
     public override void Initialize()
     {
         base.Initialize();
@@ -205,7 +196,8 @@ public sealed class ReflectSystem : EntitySystem
             return false;
         }
 
-        #region 🌟Starlight🌟
+        #region Starlight
+        // Starlight Start
         if (reflector.Comp.OverrideAngle is not null)
         {
             var overrideAngle = _transform.GetWorldRotation(reflector) + reflector.Comp.OverrideAngle.Value;
@@ -243,6 +235,9 @@ public sealed class ReflectSystem : EntitySystem
             var newRot = rotation.RotateVec(locRot.ToVec());
             _transform.SetLocalRotation(projectile, newRot.ToAngle());
         }
+        // Starlight End
+
+        #endregion
 
         if (TryComp(projectile, out HomingProjectileComponent? homing)) // Goobstation
             RemCompDeferred(projectile, homing);
@@ -282,7 +277,6 @@ public sealed class ReflectSystem : EntitySystem
         ReflectType hitscanReflectType,
         DamageSpecifier? damage, // WD EDIT
 
-        // 🌟Starlight🌟 start
         [NotNullWhen(true)] out Vector2? newDirection)
     {
         newDirection = null; //Starlight
@@ -303,6 +297,7 @@ public sealed class ReflectSystem : EntitySystem
         if (reflector.Comp.DamageOnReflectModifier != 0 && damage != null)
             _damageable.TryChangeDamage(reflector, damage * reflector.Comp.DamageOnReflectModifier, origin: shooter);
         // WD EDIT END
+        // Starlight Start
         if (reflector.Comp.OverrideAngle is { } newAngle)
         {
             var overrideAngle = _transform.GetWorldRotation(reflector) + newAngle;
@@ -311,11 +306,11 @@ public sealed class ReflectSystem : EntitySystem
         }
         else
         {
-        var spread = _random.NextAngle(-reflector.Comp.Spread / 2, reflector.Comp.Spread / 2);
-        newDirection = -spread.RotateVec(direction);
+            var spread = _random.NextAngle(-reflector.Comp.Spread / 2, reflector.Comp.Spread / 2);
+            newDirection = -spread.RotateVec(direction);
         }
 
-        // 🌟Starlight🌟 end
+        // Starlight end
 
         if (shooter != null)
             _adminLogger.Add(LogType.HitScanHit, LogImpact.Medium, $"{ToPrettyString(user)} reflected hitscan from {ToPrettyString(shotSource)} shot by {ToPrettyString(shooter.Value)}");

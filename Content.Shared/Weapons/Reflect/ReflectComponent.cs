@@ -125,11 +125,13 @@ public sealed partial class ReflectComponent : Component
     [DataField, AutoNetworkedField]
     public Angle Spread = Angle.FromDegrees(45);
 
-    #region 🌟Starlight🌟
+    #region Starlight
+    // Starlight Start
+    
     /// <summary>
     /// Overrides the reflection angle when set.
     /// </summary>
-    [DataField("overrideAngle"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public Angle? OverrideAngle = null;
 
     /// <summary>
@@ -137,8 +139,9 @@ public sealed partial class ReflectComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float ReflectEnergyDraw = 80f;
+    
+    // Starlight end
     #endregion
-
 
     /// <summary>
     /// The sound to play when reflecting.
