@@ -439,7 +439,7 @@ public abstract partial class SharedMechSystem : EntitySystem
 
         if (component.MechSpecialAction != null)       //Omu add mech special actions
         {
-            _actions.AddAction(toInsert, component.MechSpecialActionEntity, component.MechSpecialAction);
+            _actions.AddAction(toInsert.Value, ref component.MechSpecialActionEntity, component.MechSpecialAction);
         }
         var ev = new MechInsertedEvent(uid);
         RaiseLocalEvent(toInsert.Value, ev);
