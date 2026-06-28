@@ -3,7 +3,6 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
-using Content.Shared.Mech.EntitySystems;
 
 namespace Content.Shared._Omu.Entities.Objects.BloodredVim;
 
@@ -19,22 +18,6 @@ public abstract partial class BloodredVimSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<BloodredVimComponent, BloodredVimBoostActionEvent>(OnBoost);
-        SubscribeLocalEvent<BloodredVimComponent, MechEntryEvent>(OnMechEntry);
-        SubscribeLocalEvent<BloodredVimComponent, MechExitEvent>(OnMechExit);
-    }
-
-    private void OnMechEntry(Entity<BloodredVimComponent> ent, ref MechEntryEvent args)
-    {
-        var (uid, comp) = ent;
-        _actions.AddAction(args.Args.User, ref comp.BoostAction, comp.ActionProto, uid);
-    }
-
-    private void OnMechExit(Entity<BloodredVimComponent> ent, ref MechExitEvent args)
-    {
-        var (uid, comp) = ent;
-        if (comp.BoostAction != null)
-            _actions.RemoveAction(args.Args.User, comp.BoostAction);
-        comp.BoostAction = null;
     }
 
     public override void Update(float frameTime)
@@ -51,16 +34,6 @@ public abstract partial class BloodredVimSystem : EntitySystem
         while (query.MoveNext(out var uid, out var comp, out var physics))
         {
             var boosting = now >= comp.BoostStart && now < comp.BoostEnd;
-
-            if (_net.IsServer && comp.LockHitAndRunComponent && TryComp<VehicleHitAndRunComponent>(uid, out var har))
-            {
-                var shouldEnable = boosting;
-                if (har.CanRunOver != shouldEnable)
-                {
-                    har.CanRunOver = shouldEnable;
-                    Dirty(uid, har);
-                }
-            }
 
             if (boosting)
             {
@@ -79,6 +52,7 @@ public abstract partial class BloodredVimSystem : EntitySystem
 
     public virtual void OnBoost(Entity<BloodredVimComponent> ent, ref BloodredVimBoostActionEvent args)
     {
+
         if (args.Handled)
             return;
 

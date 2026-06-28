@@ -73,11 +73,6 @@ public sealed partial class BloodredVimComponent : Component
     /// </summary>
     [DataField] public SoundSpecifier SpraySound = new SoundPathSpecifier("/Audio/Effects/extinguish.ogg");
 
-    /// <summary>
-    /// When true, VehicleHitAndRunComponent is only enabled while a boost is active
-    /// </summary>
-    [DataField] public bool LockHitAndRunComponent = true;
-
     // Internal shit
     public TimeSpan EmitElapsed;
     public TimeSpan BoostStart;

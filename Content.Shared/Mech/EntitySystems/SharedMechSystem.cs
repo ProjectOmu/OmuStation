@@ -60,7 +60,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory.VirtualItem;
 using Robust.Shared.Configuration;
-using Content.Omu.Shared.Entities.Objects.BloodredVim;
+using Content.Shared._Omu.Entities.Objects.BloodredVim;
 
 namespace Content.Shared.Mech.EntitySystems;
 
@@ -106,7 +106,7 @@ public abstract partial class SharedMechSystem : EntitySystem
         SubscribeLocalEvent<MechPilotComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<MechPilotComponent, EntGotRemovedFromContainerMessage>(OnEntGotRemovedFromContainer);
         SubscribeLocalEvent<MechEquipmentComponent, ShotAttemptedEvent>(OnShotAttempted); // Goobstation
-        SubscribeLocalEvent<MechComponent, OnBoostActionEvent>(OnBoost);    //omu
+        SubscribeLocalEvent<MechPilotComponent, OnBoostActionEvent>(OnBoost);    //omu
         Subs.CVar(_config, GoobCVars.MechGunOutsideMech, value => _canUseMechGunOutside = value, true); // Goobstation
 
         InitializeRelay();
@@ -197,6 +197,11 @@ public abstract partial class SharedMechSystem : EntitySystem
         _actions.AddAction(pilot, ref component.MechUiActionEntity, component.MechUiAction, mech);
         _actions.AddAction(pilot, ref component.MechEjectActionEntity, component.MechEjectAction, mech);
         _actions.AddAction(pilot, ref component.ToggleActionEntity, component.ToggleAction, mech); //Goobstation Mech Lights toggle action
+
+        if (component.MechSpecialAction != null)       //Omu add mech special actions
+        {
+            _actions.AddAction(pilot, ref component.MechSpecialActionEntity, component.MechSpecialAction, mech);
+        }
     }
 
     private void RemoveUser(EntityUid mech, EntityUid pilot)
@@ -439,10 +444,6 @@ public abstract partial class SharedMechSystem : EntitySystem
         // <Goobstation>
         UpdateHands(toInsert.Value, uid, true);
 
-        if (component.MechSpecialAction != null)       //Omu add mech special actions
-        {
-            _actions.AddAction(toInsert.Value, ref component.MechSpecialActionEntity, component.MechSpecialAction);
-        }
         var ev = new MechInsertedEvent(uid);
         RaiseLocalEvent(toInsert.Value, ev);
         // </Goobstation>
@@ -605,9 +606,14 @@ public abstract partial class SharedMechSystem : EntitySystem
         Dirty(uid, component);
     }
 
-    public virtual void OnBoost(Entity<MechComponent> ent, ref OnBoostActionEvent args)
+    public virtual void OnBoost(Entity<MechPilotComponent> ent, ref OnBoostActionEvent args)
     {
-        RaiseLocalEvent(ent, new BloodredVimBoostActionEvent(args.Target));
+        if (args.Handled)
+            return;
+        args.Handled = true;
+
+        EntityUid mech = ent.Comp.Mech;
+        RaiseLocalEvent(mech, new BloodredVimBoostActionEvent());
     }
 }
 
