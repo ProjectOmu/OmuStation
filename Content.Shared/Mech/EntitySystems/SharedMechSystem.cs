@@ -613,7 +613,7 @@ public abstract partial class SharedMechSystem : EntitySystem
         args.Handled = true;
 
         EntityUid mech = ent.Comp.Mech;
-        RaiseLocalEvent(mech, new BloodredVimBoostActionEvent());
+        RaiseLocalEvent(mech, new BloodredVimBoostActionEvent(args.Target));
     }
 }
 

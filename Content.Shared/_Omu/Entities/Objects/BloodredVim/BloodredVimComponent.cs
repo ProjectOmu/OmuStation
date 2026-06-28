@@ -1,5 +1,6 @@
 using Content.Shared.Actions;
 using Robust.Shared.Audio;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using System.Numerics;
 
@@ -84,4 +85,6 @@ public sealed partial class BloodredVimComponent : Component
 
 public sealed partial class BloodredVimBoostActionEvent : WorldTargetActionEvent
 {
+    [DataField]
+    public EntityCoordinates Target;
 }
