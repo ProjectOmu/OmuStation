@@ -67,7 +67,6 @@ using System.Numerics;                    //omu
 using Content.Shared.Radio;            //omu
 using Content.Server.Radio.EntitySystems;    //omu
 using Content.Server.Chat.Managers; // omu
-using Content.Server.Construction.Completions; // omu
 using Content.Shared.Mind; // omu
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
@@ -88,9 +87,9 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly RadioSystem _radioSystem = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;    //omu
+    [Dependency] private readonly IRobustRandom _random = default!;        //omu
+    [Dependency] private readonly RadioSystem _radioSystem = default!;    //omu
     [Dependency] private readonly IChatManager _achat = default!; // omu
     [Dependency] private readonly TagSystem _tag = default!;    //omu
     private DelamType _delamType = DelamType.Explosion;
@@ -152,11 +151,11 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     public void Cycle(EntityUid uid, SupermatterComponent sm)
     {
-        if (sm.Timelocked < (_gameTiming.CurTime.TotalMinutes - sm.Timetounlock) && sm.Varlocked == true)
+        if (sm.Timelocked < (_gameTiming.CurTime.TotalMinutes - sm.Timetounlock) && sm.Varlocked == true)        //omu start
         {
             sm.Varlocked = false;
             _achat.SendAdminAlert($"SM variables unlocked at time {_gameTiming.CurTime.TotalMinutes}");
-        }
+        }                                                                                                        //omu end
         sm.ZapAccumulator++;
         sm.YellAccumulator++;
 
@@ -231,7 +230,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 sm.RadiationOutputFactor = 0.06f;
             }
         }
-    }
+    }                            // Omu end
 
     #region Processing
 
@@ -278,9 +277,10 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         heatModifier = Math.Max(heatModifier, 0.5f);
         transmissionBonus *= h2OBonus;
 
-        // Increments the SM's anger value, to eventually trigger an event.
+        // omu Increments the SM's anger value, to eventually trigger an event.
         sm.SMAngerValue += angerModifier;
         sm.SMLastAnger = angerModifier;
+        //omu End
 
         // Effects the damage heat does to the crystal
         sm.DynamicHeatResistance = 1f;
@@ -822,7 +822,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         }
     }
     #endregion
-    #region SM events
+    #region SM events - omu start
     private string GetEventType(SupermatterComponent sm)
     {
 
@@ -879,5 +879,5 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             if (sm.RadiationOutputFactor == sm.RadiationOutputFactorSetpoint)
                 sm.RadiationOutputFactorChanged = false;
         }
-    }
+    }        //omu end
 }
