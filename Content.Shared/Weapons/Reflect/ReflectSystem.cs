@@ -125,10 +125,7 @@ public sealed class ReflectSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!; // WD EDIT
-
-    #region Starlight
-    [Dependency] private readonly IGameTiming _timing = default!;
-    #endregion
+    
     public override void Initialize()
     {
         base.Initialize();
