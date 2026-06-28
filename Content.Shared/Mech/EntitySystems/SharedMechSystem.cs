@@ -60,6 +60,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory.VirtualItem;
 using Robust.Shared.Configuration;
+using Content.Omu.Shared.Entities.Objects.BloodredVim;
 
 namespace Content.Shared.Mech.EntitySystems;
 
@@ -105,6 +106,7 @@ public abstract partial class SharedMechSystem : EntitySystem
         SubscribeLocalEvent<MechPilotComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<MechPilotComponent, EntGotRemovedFromContainerMessage>(OnEntGotRemovedFromContainer);
         SubscribeLocalEvent<MechEquipmentComponent, ShotAttemptedEvent>(OnShotAttempted); // Goobstation
+        SubscribeLocalEvent<MechComponent, OnBoostActionEvent>(OnBoost);    //omu
         Subs.CVar(_config, GoobCVars.MechGunOutsideMech, value => _canUseMechGunOutside = value, true); // Goobstation
 
         InitializeRelay();
@@ -601,6 +603,11 @@ public abstract partial class SharedMechSystem : EntitySystem
         args.Handled = true;
         component.EquipmentWhitelist = null;
         Dirty(uid, component);
+    }
+
+    public virtual void OnBoost(Entity<MechComponent> ent, ref OnBoostActionEvent args)
+    {
+        RaiseLocalEvent(ent, new BloodredVimBoostActionEvent(args.Target));
     }
 }
 

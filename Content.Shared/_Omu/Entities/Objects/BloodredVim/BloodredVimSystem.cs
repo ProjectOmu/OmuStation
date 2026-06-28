@@ -1,13 +1,11 @@
 using Content.Shared.Actions;
-using Content.Shared.Buckle.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
-using Content.Goobstation.Shared.OfficeChair;
 using Content.Shared.Mech.EntitySystems;
 
-namespace Content.Omu.Shared.Entities.Objects.Specific.BloodredVim;
+namespace CContent.Shared._Omu.Entities.Objects.BloodredVim;
 
 public abstract partial class BloodredVimSystem : EntitySystem
 {
