@@ -301,8 +301,8 @@ public sealed class ReflectSystem : EntitySystem
         }
         else
         {
-        var spread = _random.NextAngle(-reflector.Comp.Spread / 2, reflector.Comp.Spread / 2);
-        newDirection = -spread.RotateVec(direction);
+            var spread = _random.NextAngle(-reflector.Comp.Spread / 2, reflector.Comp.Spread / 2);
+            newDirection = -spread.RotateVec(direction);
         }
 
         // 🌟Starlight🌟 end
