@@ -5,7 +5,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 using Content.Shared.Mech.EntitySystems;
 
-namespace CContent.Shared._Omu.Entities.Objects.BloodredVim;
+namespace Content.Shared._Omu.Entities.Objects.BloodredVim;
 
 public abstract partial class BloodredVimSystem : EntitySystem
 {
