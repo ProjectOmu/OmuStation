@@ -302,7 +302,7 @@ public sealed class ReflectSystem : EntitySystem
             newDirection = -spread.RotateVec(direction);
         }
 
-        // 🌟Starlight🌟 end
+        // Starlight end
 
         if (shooter != null)
             _adminLogger.Add(LogType.HitScanHit, LogImpact.Medium, $"{ToPrettyString(user)} reflected hitscan from {ToPrettyString(shotSource)} shot by {ToPrettyString(shooter.Value)}");
