@@ -229,6 +229,8 @@ public sealed class ReflectSystem : EntitySystem
             var newRot = rotation.RotateVec(locRot.ToVec());
             _transform.SetLocalRotation(projectile, newRot.ToAngle());
         }
+        // Starlight End
+        
         #endregion
 
         if (TryComp(projectile, out HomingProjectileComponent? homing)) // Goobstation
