@@ -294,6 +294,7 @@ public sealed class ReflectSystem : EntitySystem
         if (reflector.Comp.DamageOnReflectModifier != 0 && damage != null)
             _damageable.TryChangeDamage(reflector, damage * reflector.Comp.DamageOnReflectModifier, origin: shooter);
         // WD EDIT END
+        // Starlight Start
         if (reflector.Comp.OverrideAngle is { } newAngle)
         {
             var overrideAngle = _transform.GetWorldRotation(reflector) + newAngle;
