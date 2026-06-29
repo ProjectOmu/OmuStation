@@ -208,7 +208,7 @@
   #  heatingCoefficient: 0.1
   #  coolingCoefficient: 0.1
   - type: Temperature
-    atmosTemperatureTransferEfficiency: 0.01  # Goobstation - fix vulps - end
+    atmosTemperatureTransferEfficiency: 0.1  # Omu - raised to 0.1 from 0.01 - enables them to use cryopods
   - type: ScentTracker # Einstein Engines
   - type: Vocal
     sounds:
