@@ -474,14 +474,7 @@
     - type: GuideHelp
       guides:
       - GasCanisters
-    - type: VentCrawlerTube # Goobstation - ventcrawl
-      containerId: VentCrawlerTube
-    - type: VentCrawlerJunction # Goobstation - ventcrawl
-      degrees:
-        - 0
-    - type: ContainerContainer # Goobstation - ventcrawl
-      containers:
-        VentCrawlerTube: !type:Container
+    - type: CrawlableNode # DeltaV
 
 - type: entity
   parent: GasVentPump
@@ -548,6 +541,7 @@
     - type: GuideHelp
       guides:
       - AirVent
+    - type: NodeCrawlVentAccess # DeltaV
 
 - type: entity
   parent: [ BaseMachine, ConstructibleMachine ]

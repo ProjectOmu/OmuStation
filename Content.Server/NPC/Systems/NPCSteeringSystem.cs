@@ -82,7 +82,7 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
     private EntityQuery<NpcFactionMemberComponent> _factionQuery;
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private EntityQuery<TransformComponent> _xformQuery;
-    private EntityQuery<TileMovementComponent> _tileMovementQuery; // Tile Movement Change
+    private EntityQuery<OldTileMovementComponent> _tileMovementQuery; // Tile Movement Change
     private ObjectPool<HashSet<EntityUid>> _entSetPool =
         new DefaultObjectPool<HashSet<EntityUid>>(new SetPolicy<EntityUid>());
 
@@ -113,7 +113,7 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
         _factionQuery = GetEntityQuery<NpcFactionMemberComponent>();
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
-        _tileMovementQuery = GetEntityQuery<TileMovementComponent>(); // Tile Movement Change
+        _tileMovementQuery = GetEntityQuery<OldTileMovementComponent>(); // Tile Movement Change
         for (var i = 0; i < InterestDirections; i++)
         {
             Directions[i] = new Angle(InterestRadians * i).ToVec();
@@ -543,7 +543,7 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
     /// </summary>
     private void SetTileMovementDirection(
         TransformComponent transform,
-        TileMovementComponent tileMovement,
+        OldTileMovementComponent tileMovement,
         Vector2 direction)
     {
         if (tileMovement.SlideActive || direction == Vector2.Zero)
