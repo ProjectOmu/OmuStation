@@ -53,7 +53,7 @@
     Groin: MobMothGroin
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
-    Tail: MobHumanoidAnyMarking
+    #Tail: MobHumanoidAnyMarking // Omu - moving moth wings to Wings body part
     Eyes: MobMothEyes
     LArm: MobMothLArm
     RArm: MobMothRArm
@@ -63,6 +63,7 @@
     RLeg: MobMothRLeg
     LFoot: MobMothLFoot
     RFoot: MobMothRFoot
+    Wings: MobHumanoidAnyMarking #Omu - Moving moth wings to Wings body part
 
 - type: humanoidBaseSprite
   id: MobMothEyes
@@ -80,10 +81,18 @@
     FacialHair:
       points: 0
       required: false
-    Tail:
+    #Omu Start - Moving moth wings to Wings body part
+    Wings:
       points: 1
       required: true
-      defaultMarkings: [ MothWingsDefault ]
+      defaultMarkings: [ MothWingsDefault ]      
+    #Omu End - Moving moth wings to Wings body part
+    #Omu start - moving moth wings to Wings body part
+#    Tail:
+#      points: 1 
+#      required: false
+#      defaultMarkings: [ MothWingsDefault ]  // Omu - Moving moth wings to Wings body part
+    #Omu end - moving moth wings to Wings body part
     Snout:
       points: 1
       required: false
