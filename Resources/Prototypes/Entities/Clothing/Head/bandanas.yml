@@ -130,6 +130,8 @@
   id: ClothingHeadBandBotany
   name: botany bandana
 
+# Omustation Changes Start.
+
 - type: entity
   parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
   id: ClothingMaskBandCargo
@@ -164,6 +166,8 @@
   parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
   id: ClothingHeadBandWhite
   name: white bandana
+
+# Omustation Changes End.
 
 - type: entity
   parent: [ClothingHeadBandBase, ClothingMaskBandGold]
