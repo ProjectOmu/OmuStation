@@ -16,6 +16,21 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IUserInterfaceManager _ui = default!;
 
+    // Begin DeltaV - node crawling
+    private Type[] _types = new Type[] { };
+
+    [ViewVariables]
+    public Type[] Types
+    {
+        get => _types;
+        set
+        {
+            _types = value;
+            UpdateAll();
+        }
+    }
+    // End DeltaV - node crawling
+
     private bool _showAll;
     private bool _showVentPipe; //Goobstation - Ventcrawler
 
@@ -84,6 +99,17 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
 
         var showVentPipe = HasComp<PipeAppearanceComponent>(uid) && ShowVentPipe;    //Goobstation - Ventcrawler
         var revealed = !covered || ShowAll || scannerRevealed || showVentPipe;   //Goobstation - Ventcrawler
+
+        // Begin DeltaV - node crawling
+        foreach (var type in _types)
+        {
+            if (!HasComp(uid, type))
+                continue;
+
+            revealed = true;
+            break;
+        }
+        // End DeltaV - node crawling
 
         // set visibility & color of each layer
         foreach (var layer in args.Sprite.AllLayers)

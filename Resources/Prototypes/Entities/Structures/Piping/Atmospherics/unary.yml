@@ -30,12 +30,6 @@
   placement:
     mode: SnapgridCenter
   components:
-    - type: VentCrawlerTube  # Goobstation - ventcrawl
-      containerId: VentCrawlerTube
-    - type: VentCrawlerEntry
-    - type: ContainerContainer # Goobstation - ventcrawl
-      containers:
-        VentCrawlerTube: !type:Container
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver
     - type: DeviceNetwork
@@ -87,6 +81,7 @@
       guides:
       - AirVent
       - DeviceMonitoringAndControl
+    - type: NodeCrawlVentAccess # DeltaV
 
 - type: entity
   parent: GasUnaryBase
@@ -120,14 +115,7 @@
     - type: GuideHelp
       guides:
       - PassiveVent
-    - type: VentCrawlerEntry # Goobstation - ventcrawl
-    - type: VentCrawlerTube # Goobstation - ventcrawl
-      containerId: VentCrawlerTube
-    - type: ContainerContainer # Goobstation - ventcrawl
-      containers:
-        VentCrawlerTube: !type:Container
-    - type: Weldable  # Goobstation - ventcrawl
-      time: 3
+    - type: NodeCrawlVentAccess # DeltaV
 
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
@@ -194,6 +182,7 @@
       guides:
       - AirScrubber
       - DeviceMonitoringAndControl
+    - type: NodeCrawlVentAccess # DeltaV
 
 - type: entity
   parent: GasUnaryBase
@@ -238,14 +227,7 @@
     - type: GuideHelp
       guides:
       - AirInjector
-    - type: VentCrawlerTube # Goobstation - ventcrawl
-      containerId: VentCrawlerTube
-    - type: VentCrawlerJunction # Goobstation - ventcrawl
-      degrees:
-        - 0
-    - type: ContainerContainer # Goobstation - ventcrawl
-      containers:
-        VentCrawlerTube: !type:Container
+    - type: NodeCrawlVentAccess # DeltaV
 
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
