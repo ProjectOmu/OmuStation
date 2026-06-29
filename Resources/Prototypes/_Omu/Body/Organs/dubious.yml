@@ -1,0 +1,204 @@
+
+- type: entity
+  id: OrganDubiousLawbound #makes them lawbound like cyborgs and station AI
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: mindshock
+  - type: Organ
+    onAdd:
+    - type: UserInterface
+      interfaces:
+        enum.SiliconLawsUiKey.Key:
+          type: SiliconLawBoundUserInterface
+    - type: ShowJobIcons
+    - type: SiliconLawBound
+    - type: SiliconLawProvider
+      laws: Crewsimov
+    - type: SlavedBorg
+      law: ObeyAI
+    - type: IonStormTarget
+    - type: CollectiveMind #if they are going to be enslaved to the AI they should have binary
+      defaultChannel: Binary
+      channels:
+      - Binary
+    - type: ActionGrant
+      actions:
+      - ActionViewLaws
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - Common
+  - type: OrganInsertOnUse
+    slotId: heart
+    partType: Chest
+
+- type: entity
+  id: OrganDubiousAllHearingGood #gives all radios, languages, and most hiveminds
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: mindshock
+  - type: Organ
+    onAdd:
+    - type: IntrinsicRadioReceiver
+    - type: IntrinsicRadioTransmitter
+    - type: ActiveRadio
+      receiveAllChannels: true
+      globalReceive: true
+    - type: CollectiveMind
+      defaultChannel: Abductormind
+      channels:
+      - Abductormind # if you went though all the hassle of them probing you should at least share some "choice" words with them
+      - Binary
+      - Tidemind
+      - Empathy
+      - Dronemind
+      - Mousemind
+      - Dragonmind #antag hiveminds
+      - Lingmind
+      - Blobmind
+      - MansusLink
+      - Binglemind
+      - Shadowmind
+      - Xenomorphivemind
+      hearAll: true
+      seeAllNames: true
+    - type: TowerOfBabel
+    - type: LanguageSpeaker
+  - type: OrganInsertOnUse
+    slotId: heart
+    partType: Chest
+
+- type: entity
+  id: OrganDubiousTelepathic #mutes but gives them demonic wisper. idealy I would had made the wisper it's own generic system but that would require C# so it's a future TODO
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: mindshock
+  - type: Organ
+    onAdd:
+    - type: LanguageKnowledge
+      speaks:
+      - TauCetiBasic
+      understands:
+      - TauCetiBasic
+      - Canilunzt
+      - Bubblish
+      - Nekomimetic
+      - Draconic
+      - SolCommon
+      - RootSpeak
+      - Moffic
+      - ValyrianStandard
+      - Chittin
+      - SiikMaas
+      - RobotTalk
+      - Marish
+      - Elyran
+      - Freespeak
+      - Tradeband
+      - Schechi
+      - NewKinPidgin
+      - NovuNederic
+      - Sign
+      - Xeeplian #gleep glorp skill issue
+    - type: CollectiveMind
+      defaultChannel: Empathy # at least they can speak to the Mar crew
+      channels:
+      - Empathy
+    - type: Muted
+    - type: LanguageSpeaker
+    - type: TranslatorImplantBlocker #so they can't just grab a sign translater implant and circumvent the mute
+    - type: DemonicWhisper
+  - type: OrganActions
+    actions:
+    - DemonicWhisperAction
+  - type: OrganInsertOnUse
+    slotId: heart
+    partType: Chest
+
+- type: entity
+  id: OrganDubiousGun # Space Station 14: Become gun
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: species
+  - type: Organ
+    onAdd:
+    - type: Item
+      size: Huge
+      shape:
+      - 2,0,4,0
+    - type: AmmoCounter
+    - type: Gun
+      fireRate: 2
+      selectedMode: SemiAuto
+      availableModes:
+      - SemiAuto
+    - type: BallisticAmmoProvider
+      whitelist:
+        tags:
+        - Cartridge # pretty much any ammo works
+        - Grenade
+        - BulletFoam # FoamForce compatible!
+      capacity: 5
+      soundInsert:
+        path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+      soundRack:
+        path: /Audio/_Mono/Weapons/Guns/Cock/shotgun_cock.ogg
+        params:
+          volume: -3
+      autoCycle: false
+    - type: RestrictGunshotsByUserTag # No Onis. you can't shoot 12 Gauge out of the Avali.
+      doesntContain:
+      - Oni
+      messages:
+      - oni-cannot-shoot-guns-1
+      - oni-cannot-shoot-guns-2
+      - oni-cannot-shoot-guns-3
+    - type: AltFireMelee
+      attackType: Heavy
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 12
+      angle: 0
+      wideAnimationRotation: 180
+      soundHit:
+        collection: MetalThud
+    - type: GunSpreadModifier
+      spread: 0.5
+    - type: GunRequiresWield
+    - type: Wieldable
+      unwieldOnUse: false
+  - type: OrganInsertOnUse
+    slotId: heart
+    partType: Chest
+
+#- type: entity
+#  id: OrganDubiousTelekinetic # great idea. need to figure out a way to incress interaction range while respecting walls and windows
+#  parent: OrganDubiousBase
+#  components:
+#  - type: Sprite
+#    state: mindshock
+#  - type: Organ
+#    onAdd:
+#    - type: Tag
+#      tags:
+#      - BypassInteractionRangeChecks
+#  - type: OrganInsertOnUse
+#    slotId: heart
+#    partType: Chest
+
+- type: entity
+  id: OrganDubiousAllHearingBad # might remove this one. Could get pretty bad for people who get overstimulated in this game
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: mindshock
+  - type: Organ
+    onAdd:
+    - type: GhostHearing
+  - type: OrganInsertOnUse
+    slotId: heart
+    partType: Chest

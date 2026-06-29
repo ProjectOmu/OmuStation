@@ -1,0 +1,40 @@
+
+
+- type: entity
+  name: Random Dubious Gland Spawner
+  id: DubiousGlandSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: _Shitmed/Mobs/Species/Misc/Dubious/organs.rsi
+          state: gland
+    - type: RandomSpawner
+      rarePrototypes: # glands that are only beneficial to the abductee
+      - OrganDubiousHealth
+      - OrganDubiousAA
+      - OrganDubiousInvisible
+      - OrganDubiousGoliath
+      - OrganDubiousSpaceAdaptation
+      - OrganDubiousSteptriggerImmune
+      - OrganDubiousVentcrawler
+      - OrganDubiousRepairable
+      - OrganDubiousAllHearingGood
+      - OrganDubiousGun
+      rareChance: 0.5
+      prototypes: # Glands that are detrimental to the abductee that may also have some benefit
+      - OrganDubiousShock
+      - OrganDubiousScrambleDna
+      - OrganDubiousScrambleLocation
+      - OrganDubiousSpiderEggs
+      - OrganDubiousSlimeEggs
+      - OrganDubiousEMP
+      - OrganDubiousGravityWell
+      - OrganDubiousFlash
+      - OrganDubiousSmoke
+      - OrganDubiousGas
+      - OrganDubiousLawbound
+      - OrganDubiousTelepathic
+      - OrganDubiousAllHearingBad
+      offset: 0.2
