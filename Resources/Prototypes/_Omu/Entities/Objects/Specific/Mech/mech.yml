@@ -66,16 +66,6 @@
     emitInterval: 0.3
     emitMaxPerTick: 1
     nozzleOffset: 0.1
-  - type: VehicleHitAndRun
-    minRunoverSpeed: 5
-    launchForceBase: 4
-    launchForceScale: 0.4
-    throwCooldown: 0.6
-    runoverRadius: 1
-    airTime: 1.2
-    canRunOver: false
-  # TOOD: buzz / chime actions
-  # TODO: builtin flashlight
 
 - type: entity
   parent: MechBloodredVim

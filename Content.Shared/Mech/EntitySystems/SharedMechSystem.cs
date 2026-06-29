@@ -62,6 +62,9 @@ using Content.Shared.Inventory.VirtualItem;
 using Robust.Shared.Configuration;
 using Content.Shared._Omu.Entities.Objects.BloodredVim;
 
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
+
 namespace Content.Shared.Mech.EntitySystems;
 
 /// <summary>
@@ -84,6 +87,8 @@ public abstract partial class SharedMechSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!; // Goobstation Change
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!; // Goobstation Change
     [Dependency] private readonly IConfigurationManager _config = default!; // Goobstation Change
+
+    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
 
     // Goobstation: Local variable for checking if mech guns can be used out of them.
     private bool _canUseMechGunOutside;
@@ -608,12 +613,15 @@ public abstract partial class SharedMechSystem : EntitySystem
 
     public virtual void OnBoost(Entity<MechPilotComponent> ent, ref OnBoostActionEvent args)
     {
+        _admin.Add(LogType.Action, LogImpact.Extreme, $"Onboost activated");
         if (args.Handled)
             return;
         args.Handled = true;
 
+        var Targetcoords = args.Target;
+
         EntityUid mech = ent.Comp.Mech;
-        RaiseLocalEvent(mech, new BloodredVimBoostActionEvent(args.Target));
+        RaiseLocalEvent(mech, new BloodredVimBoostActionEvent{Target = Targetcoords});
     }
 }
 

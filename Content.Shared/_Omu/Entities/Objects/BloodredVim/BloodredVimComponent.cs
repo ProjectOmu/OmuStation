@@ -85,6 +85,4 @@ public sealed partial class BloodredVimComponent : Component
 
 public sealed partial class BloodredVimBoostActionEvent : WorldTargetActionEvent
 {
-    [DataField]
-    public EntityCoordinates Target;
 }
