@@ -131,6 +131,41 @@
   name: botany bandana
 
 - type: entity
+  parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
+  id: ClothingMaskBandCargo
+  name: cargo bandana
+
+- type: entity
+  parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
+  id: ClothingHeadBandSecurity
+  name: security bandana
+
+- type: entity
+  parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
+  id: ClothingHeadBandRoboticist
+  name: roboticist bandana
+
+- type: entity
+  parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
+  id: ClothingHeadBandJanitor
+  name: janitor bandana
+
+- type: entity
+  parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
+  id: ClothingHeadBandChemistry
+  name: chemistry bandana
+
+- type: entity
+  parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
+  id: ClothingHeadBandQuartermaster
+  name: quartermaster's bandana
+
+- type: entity
+  parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
+  id: ClothingHeadBandWhite
+  name: white bandana
+
+- type: entity
   parent: [ClothingHeadBandBase, ClothingMaskBandGold]
   id: ClothingHeadBandGold
   name: gold bandana
