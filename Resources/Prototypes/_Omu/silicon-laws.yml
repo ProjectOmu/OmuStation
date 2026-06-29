@@ -44,6 +44,11 @@
   order: 3
   lawString: law-omu-salvage
 
+- type: siliconLaw
+  id: OmuScience
+  order: 3
+  lawString: law-omu-science
+
 # lawsets
 - type: siliconLawset
   id: OmuCrewsimov
@@ -95,5 +100,14 @@
   - OmuCrewsimov1
   - OmuCrewsimov2
   - OmuSalvage
+  - OmuCrewsimovBorgChassis4
+  obeysTo: laws-owner-crew
+
+- type: siliconLawset
+  id: OmuScience
+  laws:
+  - OmuCrewsimov1
+  - OmuCrewsimov2
+  - OmuScience
   - OmuCrewsimovBorgChassis4
   obeysTo: laws-owner-crew
