@@ -594,12 +594,14 @@
     - PipeStraight
     - PipeBend
     - PipeTJunction
+    - PipeManifold # Omu
     - OutletInjector
     - ManualValve
     - VolumetricPump
     - PressurePump
     - VentScrubber
     - PressureValve
+    - PressureRegulator # Omu
     - DualPortVent
     - VentGas
     - VentPassive

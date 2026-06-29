@@ -13,7 +13,8 @@
   group: Medicinal
   solids:
     FoodAloe: 1
-  recipeType: MedicalAssembler # Frontier
+  #  recipeType: MedicalAssembler # Frontier
+  recipeType: Microwave # Omu; temporary fix june 12 2026 due to reagent duping to keep advanced topicals being craftable
 
 - type: microwaveMealRecipe
   id: RecipeMedicatedSuture
@@ -28,7 +29,8 @@
   reagents:
     TranexamicAcid: 20
     Cryptobiolin: 20
-  recipeType: MedicalAssembler # Frontier
+  #  recipeType: MedicalAssembler # Frontier
+  recipeType: Microwave # Omu; temporary fix june 12 2026 due to reagent duping to keep advanced topicals being craftable
 
 - type: microwaveMealRecipe
   id: RecipeRegenerativeMesh
@@ -43,4 +45,6 @@
   reagents:
     Sigynate: 20
     Dermaline: 20
-  recipeType: MedicalAssembler # Frontier
+  # recipeType: MedicalAssembler # Frontier
+  recipeType: Microwave # Omu; temporary fix june 12 2026 due to reagent duping to keep advanced topicals being craftable
+

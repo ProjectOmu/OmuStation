@@ -105,6 +105,19 @@
   - SpeedLoaderRevolverLightRifle
 
 - type: selectableSet
+  id: WeaponEG1Set
+  name: selectable-set-eg1-name
+  description: selectable-set-eg1-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_revolver.rsi
+    state: icon
+  content:
+  - WeaponLaserCellRevolver
+  - PowerCellIRRevolver
+  - PowerCellIRRevolver
+  - PowerCellIRRevolver
+
+- type: selectableSet
   id: WeaponCeremonialRifleSet
   name: selectable-set-ceremonial-rifle-name
   description: selectable-set-ceremonial-rifle-description
