@@ -116,54 +116,54 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingHeadBandBase, ClothingBlack]
+  parent: [ClothingHeadBandBase, ClothingMaskBandBlack]
   id: ClothingHeadBandBlack
   name: black bandana
 
 - type: entity
-  parent: [ClothingHeadBandBase, ClothingBlue]
+  parent: [ClothingHeadBandBase, ClothingMaskBandBlue]
   id: ClothingHeadBandBlue
   name: blue bandana
 
 - type: entity
-  parent: [ClothingHeadBandBase, ClothingBotany]
+  parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
   id: ClothingHeadBandBotany
   name: botany bandana
 
 # Omustation Changes Start.
 
 - type: entity
-  parent: [ClothingHeadBandBase, ClothingBotany]
+  parent: [ClothingHeadBandBase, ClothingMaskBandCargo]
   id: ClothingHeadBandCargo
   name: cargo bandana
 
 - type: entity
-  parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
+  parent: [ClothingHeadBandBase, ClothingMaskBandSecurity]
   id: ClothingHeadBandSecurity
   name: security bandana
 
 - type: entity
-  parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
+  parent: [ClothingHeadBandBase, ClothingMaskBandRoboticist]
   id: ClothingHeadBandRoboticist
   name: roboticist bandana
 
 - type: entity
-  parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
+  parent: [ClothingHeadBandBase, ClothingMaskBandJanitor]
   id: ClothingHeadBandJanitor
   name: janitor bandana
 
 - type: entity
-  parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
+  parent: [ClothingHeadBandBase, ClothingMaskBandChemistry]
   id: ClothingHeadBandChemistry
   name: chemistry bandana
 
 - type: entity
-  parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
+  parent: [ClothingHeadBandBase, ClothingMaskBandQuartermaster]
   id: ClothingHeadBandQuartermaster
   name: quartermaster's bandana
 
 - type: entity
-  parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
+  parent: [ClothingHeadBandBase, ClothingMaskBandWhite]
   id: ClothingHeadBandWhite
   name: white bandana
 
