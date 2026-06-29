@@ -17,7 +17,7 @@ public abstract partial class BloodredVimSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<BloodredVimComponent, BloodredVimBoostActionEvent>(OnBoost);
+        SubscribeLocalEvent<BloodredVimComponent, BloodredVimBoostInternalActionEvent>(OnBoost);
     }
 
     public override void Update(float frameTime)
@@ -50,7 +50,7 @@ public abstract partial class BloodredVimSystem : EntitySystem
         }
     }
 
-    public virtual void OnBoost(Entity<BloodredVimComponent> ent, ref BloodredVimBoostActionEvent args)
+    public virtual void OnBoost(Entity<BloodredVimComponent> ent, ref BloodredVimBoostInternalActionEvent args)
     {
 
         if (args.Handled)

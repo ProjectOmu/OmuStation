@@ -64,6 +64,7 @@ using Content.Shared._Omu.Entities.Objects.BloodredVim;
 
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
+using Content.Shared.Actions.Components;
 
 namespace Content.Shared.Mech.EntitySystems;
 
@@ -111,7 +112,7 @@ public abstract partial class SharedMechSystem : EntitySystem
         SubscribeLocalEvent<MechPilotComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<MechPilotComponent, EntGotRemovedFromContainerMessage>(OnEntGotRemovedFromContainer);
         SubscribeLocalEvent<MechEquipmentComponent, ShotAttemptedEvent>(OnShotAttempted); // Goobstation
-        SubscribeLocalEvent<MechPilotComponent, BloodredVimBoostActionEvent>(OnBoost);    //omu
+        SubscribeLocalEvent<MechComponent, BloodredVimBoostActionEvent>(OnBoost);    //omu
         Subs.CVar(_config, GoobCVars.MechGunOutsideMech, value => _canUseMechGunOutside = value, true); // Goobstation
 
         InitializeRelay();
@@ -611,15 +612,16 @@ public abstract partial class SharedMechSystem : EntitySystem
         Dirty(uid, component);
     }
 
-    public virtual void OnBoost(Entity<MechPilotComponent> ent, ref BloodredVimBoostActionEvent args)
+    public virtual void OnBoost(Entity<MechComponent> ent, ref BloodredVimBoostActionEvent args)
     {
         _admin.Add(LogType.Action, LogImpact.Extreme, $"Onboost activated");
         if (args.Handled)
             return;
         args.Handled = true;
 
-        EntityUid mech = ent.Comp.Mech;
-        RaiseLocalEvent(mech, args);
+        EntityUid mech = ent.Comp.Owner;
+        var ev = new BloodredVimBoostInternalActionEvent();
+        RaiseLocalEvent(mech, ev);
     }
 }
 

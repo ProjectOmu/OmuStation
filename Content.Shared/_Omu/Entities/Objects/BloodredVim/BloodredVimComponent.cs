@@ -86,3 +86,9 @@ public sealed partial class BloodredVimComponent : Component
 public sealed partial class BloodredVimBoostActionEvent : WorldTargetActionEvent
 {
 }
+
+public sealed partial class BloodredVimBoostInternalActionEvent : WorldTargetActionEvent
+{
+    public EntityCoordinates Target;
+    public EntityUid? Performer;
+}

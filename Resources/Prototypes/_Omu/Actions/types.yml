@@ -15,3 +15,10 @@
     checkCanAccess: false
   - type: WorldTargetAction
     event: !type:BloodredVimBoostActionEvent {}
+
+- type: entity
+  id: ActionInternalBloodredVimBoost      #used inside the system so it can't call itself
+  parent: ActionBloodredVimBoost
+  components:
+  - type: WorldTargetAction
+    event: !type:BloodredVimBoostInternalActionEvent {}
