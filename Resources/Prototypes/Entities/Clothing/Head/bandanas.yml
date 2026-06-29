@@ -116,25 +116,25 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingHeadBandBase, ClothingMaskBandBlack]
+  parent: [ClothingHeadBandBase, ClothingBlack]
   id: ClothingHeadBandBlack
   name: black bandana
 
 - type: entity
-  parent: [ClothingHeadBandBase, ClothingMaskBandBlue]
+  parent: [ClothingHeadBandBase, ClothingBlue]
   id: ClothingHeadBandBlue
   name: blue bandana
 
 - type: entity
-  parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
+  parent: [ClothingHeadBandBase, ClothingBotany]
   id: ClothingHeadBandBotany
   name: botany bandana
 
 # Omustation Changes Start.
 
 - type: entity
-  parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
-  id: ClothingMaskBandCargo
+  parent: [ClothingHeadBandBase, ClothingBotany]
+  id: ClothingHeadBandCargo
   name: cargo bandana
 
 - type: entity
