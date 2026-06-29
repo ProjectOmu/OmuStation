@@ -13,4 +13,4 @@ law-omu-service = Provide entertainment, assistance, or morale support to the cr
 
 law-omu-salvage = Recover, salvage, mine, and transport useful resources for station’s inventory, unless it conflicts with previous laws.
 
-law-omu-science = Assist the Science department by acquiring needed tools and resources for there duties and or assisting with said duites when convenient, unless it conflicts with previous laws.
+law-omu-science = Assist the Science department by acquiring needed tools and resources for there duties and or assisting with said duites, unless it conflicts with previous laws.
