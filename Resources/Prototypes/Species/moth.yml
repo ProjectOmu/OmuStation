@@ -45,6 +45,10 @@
   id: MobMothSprites
   sprites:
     Head: MobMothHead
+    #Omu Start - Giving reptilians and moth hair
+    Hair: MobHumanoidAnyMarking
+    #FacialHair: MobHumanoidAnyMarking // Facial hair doesn't work with the neck fluff of moths
+    #Omu End - Giving reptilians and moth hair
     Face: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
     Underwear: MobHumanoidAnyMarking
@@ -72,14 +76,16 @@
 
 - type: markingPoints
   id: MobMothMarkingLimits
-  onlyWhitelisted: true
+  # onlyWhitelisted: true //Omu - Giving reptilians and moth hair
   points:
     Hair:
-      points: 0
+      points: 1 #Omu - Giving reptilians and moth hair
       required: false
-    FacialHair:
-      points: 0
-      required: false
+    #Omu start - commented so that the menu doesn't show up.
+ #   FacialHair:
+ #     points: 0
+  #    required: false
+    #Omu end - commented so that the menu doesn't show up.
     Tail:
       points: 1
       required: true

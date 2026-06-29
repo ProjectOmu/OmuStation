@@ -38,6 +38,10 @@
   id: MobReptilianSprites
   sprites:
     Head: MobReptilianHead
+    #Omu Start - Giving reptilians and moth hair
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    #Omu End - Giving reptilians and moth hair
     Face: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
     Underwear: MobHumanoidAnyMarking
@@ -60,13 +64,13 @@
 
 - type: markingPoints
   id: MobReptilianMarkingLimits
-  onlyWhitelisted: true
+  # onlyWhitelisted: true // Omu - Giving reptilians and moth hair
   points:
     Hair:
-      points: 0
+      points: 1 #Omu - Giving reptilians and moth hair
       required: false
     FacialHair:
-      points: 0
+      points: 1 #Omu - Giving reptilians and moth hair
       required: false
     Tail:
       points: 1
