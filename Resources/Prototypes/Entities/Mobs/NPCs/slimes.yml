@@ -89,8 +89,8 @@
 
 - type: entity
   name: basic slime
-  id: BaseMobAdultSlime # Goob
-  parent: [ SimpleMobBase, MobCombat ]
+  id: BaseMobAdultSlime
+  parent: [ SimpleMobBase, MobCombat, DVNodeCrawler ] # DeltaV - node crawling
   abstract: true
   description: It looks so much like jelly. I wonder what it tastes like?
   components:

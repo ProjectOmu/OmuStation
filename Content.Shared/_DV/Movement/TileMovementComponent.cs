@@ -1,33 +1,28 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.GameStates;
-using Robust.Shared.Map;
 
-namespace Content.Shared._vg.TileMovement;
+namespace Content.Shared._DV.Movement;
 
 /// <summary>
 /// When attached to an entity with an InputMoverComponent, all mob movement on that entity will
 /// be tile-based. Contains info used to facilitate that movement.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class OldTileMovementComponent : Component
+[RegisterComponent, NetworkedComponent, Access(typeof(TileMovementSystem))]
+[AutoGenerateComponentState(fieldDeltas: true)]
+public sealed partial class TileMovementComponent : Component
 {
     /// <summary>
     /// Whether a tile movement slide is currently in progress.
     /// </summary>
-    [AutoNetworkedField]
-    public bool SlideActive;
+    [ViewVariables]
+    public bool SlideActive => MovementKeyPressedAt != null;
 
     /// <summary>
     /// Local coordinates from which the current slide first began.
     /// </summary>
     [AutoNetworkedField]
-    public EntityCoordinates Origin;
+    public Vector2 Origin;
 
     /// <summary>
     /// Local coordinates of the target of the current slide.
@@ -41,12 +36,12 @@ public sealed partial class OldTileMovementComponent : Component
     /// a certain time period then it will continue for a minimum period.
     /// </summary>
     [AutoNetworkedField]
-    public TimeSpan? MovementKeyInitialDownTime;
+    public TimeSpan? MovementKeyPressedAt;
 
     /// <summary>
     /// Move buttons used to initiate the current slide.
     /// </summary>
-    [AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public MoveButtons CurrentSlideMoveButtons;
 
     /// <summary>
@@ -56,15 +51,8 @@ public sealed partial class OldTileMovementComponent : Component
     public bool WasWeightlessLastTick;
 
     /// <summary>
-    /// Whether the current ongoing slide was initiated due to a failed slide.
+    /// Used to remove TileMovement after pulling stops.
     /// </summary>
-    [AutoNetworkedField]
-    public bool FailureSlideActive;
-
-    /// <summary>
-    /// Coordinates of the moving entity on the last physics tick. Null if the entity was not
-    /// parented to the same entity last tick.
-    /// </summary>
-    [AutoNetworkedField]
-    public Vector2? LastTickLocalCoordinates;
+    [DataField, AutoNetworkedField]
+    public bool Temporary;
 }

@@ -235,8 +235,8 @@ public abstract partial class SharedVehicleSystem : EntitySystem
     {
         _mover.SetRelay(driver, vehicle);
 
-        if (HasComp<TileMovementComponent>(driver))
-            EnsureComp<TileMovementComponent>(vehicle);
+        if (HasComp<OldTileMovementComponent>(driver))
+            EnsureComp<OldTileMovementComponent>(vehicle);
     }
 
     private void Dismount(EntityUid driver, EntityUid vehicle)
@@ -260,8 +260,8 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         _virtualItem.DeleteInHandsMatching(driver, vehicle);
 
-        if (HasComp<TileMovementComponent>(vehicle))
-            RemComp<TileMovementComponent>(vehicle);
+        if (HasComp<OldTileMovementComponent>(vehicle))
+            RemComp<OldTileMovementComponent>(vehicle);
     }
 
     private void OnItemSlotEject(EntityUid uid, VehicleComponent comp, ref ItemSlotEjectAttemptEvent args)

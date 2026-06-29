@@ -109,6 +109,8 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared._DV.Movement; // DeltaV
+using Content.Shared._DV.NodeCrawl; // DeltaV - Node Crawling
 using Content.Shared.ActionBlocker;
 using Content.Shared.CCVar;
 using Content.Shared.Friction;
@@ -165,6 +167,8 @@ public abstract partial class SharedMoverController : VirtualController
     [Dependency] private   readonly StandingStateSystem _standing = default!; // Goobstation - kil mofs
     [Dependency] private   readonly CommonMomentumSteeringSystem _momentumSteering = default!; // Goobstation - momentum steering
     [Dependency] private   readonly CommonMomentumThrustSystem _momentumThrust = default!; // Goobstation - jetpack thrust falloff
+    [Dependency] private   readonly TileMovementSystem _tileMovement = default!; // DeltaV
+    [Dependency] private   readonly NodeCrawlerMovementSystem _nodeCrawlerMovement = default!; // DeltaV - node crawling
 
     protected EntityQuery<CanMoveInAirComponent> CanMoveInAirQuery;
     protected EntityQuery<FootstepModifierComponent> FootstepModifierQuery;
@@ -184,7 +188,7 @@ public abstract partial class SharedMoverController : VirtualController
     private static readonly ProtoId<TagPrototype> FootstepSoundTag = "FootstepSound";
 
     protected EntityQuery<FixturesComponent> FixturesQuery; // Tile Movement Change
-    protected EntityQuery<TileMovementComponent> TileMovementQuery; // Tile Movement Change
+    protected EntityQuery<OldTileMovementComponent> TileMovementQuery; // Tile Movement Change
     protected EntityQuery<MomentumSteeringComponent> MomentumSteeringQuery; // Goobstation - momentum steering
 
     private bool _relativeMovement;
@@ -218,7 +222,7 @@ public abstract partial class SharedMoverController : VirtualController
         FootstepModifierQuery = GetEntityQuery<FootstepModifierComponent>();
         MapGridQuery = GetEntityQuery<MapGridComponent>();
         FixturesQuery = GetEntityQuery<FixturesComponent>(); // Tile Movement Change
-        TileMovementQuery = GetEntityQuery<TileMovementComponent>(); // Tile Movement Change
+        TileMovementQuery = GetEntityQuery<OldTileMovementComponent>(); // Tile Movement Change
         NoShoesSilentQuery = GetEntityQuery<NoShoesSilentFootstepsComponent>(); // DeltaV - NoShoesSilentFootstepsComponent
         MapQuery = GetEntityQuery<MapComponent>();
         MomentumSteeringQuery = GetEntityQuery<MomentumSteeringComponent>(); // Goobstation - momentum steering
@@ -249,7 +253,7 @@ public abstract partial class SharedMoverController : VirtualController
     /// <summary>
     ///     Movement while considering actionblockers, weightlessness, etc.
     /// </summary>
-    protected void HandleMobMovement(
+    public void HandleMobMovement(          //Omu changed to public for delta V port
         Entity<InputMoverComponent> entity,
         float frameTime)
     {
@@ -383,6 +387,11 @@ public abstract partial class SharedMoverController : VirtualController
                 tileMovement.FailureSlideActive = false;
             }
         }
+
+        // Begin DeltaV Additions - node crawling
+        if (_nodeCrawlerMovement.TryTick((uid, mover, physicsComponent, xform)))
+            return;
+        // End DeltaV Additions
 
         var touching = false;
         // Whether we use tilefriction or not
@@ -663,7 +672,7 @@ public abstract partial class SharedMoverController : VirtualController
 
     protected abstract bool CanSound();
 
-    private bool TryGetSound(
+    public bool TryGetSound(        //Omu changed to public for delta V port
         bool weightless,
         EntityUid uid,
         InputMoverComponent mover,
@@ -845,7 +854,7 @@ public abstract partial class SharedMoverController : VirtualController
     public bool HandleTileMovement(
         EntityUid uid,
         EntityUid physicsUid,
-        TileMovementComponent tileMovement,
+        OldTileMovementComponent tileMovement,
         PhysicsComponent physicsComponent,
         TransformComponent targetTransform,
         InputMoverComponent inputMover,
@@ -986,7 +995,7 @@ public abstract partial class SharedMoverController : VirtualController
     private bool CheckForSlideEnd(
         MoveButtons pressedButtons,
         TransformComponent transform,
-        TileMovementComponent tileMovement,
+        OldTileMovementComponent tileMovement,
         float movementSpeed
     )
     {
@@ -1022,7 +1031,7 @@ public abstract partial class SharedMoverController : VirtualController
     /// <param name="heldMoveButtons">Buttons used to initiate this slide.</param>
     private void InitializeSlideToTarget(
         EntityUid uid,
-        TileMovementComponent tileMovement,
+        OldTileMovementComponent tileMovement,
         Vector2 localPositionTarget,
         MoveButtons heldMoveButtons)
     {
@@ -1042,7 +1051,7 @@ public abstract partial class SharedMoverController : VirtualController
     /// </summary>
     /// <param name="uid">UID of the entity that will be performing the slide.</param>
     /// <param name="tileMovement">TileMovementComponent on the entity represented by UID.</param>
-    private void InitializeSlideToCenter(EntityUid uid, TileMovementComponent tileMovement)
+    private void InitializeSlideToCenter(EntityUid uid, OldTileMovementComponent tileMovement)
     {
         var localPosition = Transform(uid).LocalPosition;
         InitializeSlideToTarget(uid, tileMovement, SnapCoordinatesToTile(localPosition), MoveButtons.None);
@@ -1055,7 +1064,7 @@ public abstract partial class SharedMoverController : VirtualController
     /// <param name="uid">UID of the entity that will be performing the slide.</param>
     /// <param name="tileMovement">TileMovementComponent on the entity represented by UID.</param>
     /// <param name="inputMover">InputMoverComponent on the entity represented by UID.</param>
-    private void InitializeSlide(EntityUid uid, TileMovementComponent tileMovement, InputMoverComponent inputMover)
+    private void InitializeSlide(EntityUid uid, OldTileMovementComponent tileMovement, InputMoverComponent inputMover)
     {
         var transform = Transform(uid);
         var localPosition = transform.LocalPosition;
@@ -1075,7 +1084,7 @@ public abstract partial class SharedMoverController : VirtualController
     private void UpdateSlide(
         EntityUid uid,
         EntityUid physicsUid,
-        TileMovementComponent tileMovement,
+        OldTileMovementComponent tileMovement,
         InputMoverComponent inputMover
     )
     {
@@ -1118,7 +1127,7 @@ public abstract partial class SharedMoverController : VirtualController
     /// </summary>
     /// <param name="uid">UID of the entity whose slide is being ended.</param>
     /// <param name="tileMovement">TileMovementComponent on the entity represented by UID.</param>
-    private void EndSlide(EntityUid uid, TileMovementComponent tileMovement)
+    private void EndSlide(EntityUid uid, OldTileMovementComponent tileMovement)
     {
         tileMovement.SlideActive = false;
         tileMovement.MovementKeyInitialDownTime = null;
