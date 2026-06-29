@@ -9,7 +9,7 @@ law-omu-engineer = Expand, repair, improve, and maintain station infrastructure,
 
 law-omu-janitor = Preserve station cleanliness, sanitation, and work standards, unless it conflicts with previous laws.
 
-law-omu-service = Provide entertainment, assistance, or morale support to the crew in your best ability, unless it conflicts with previous laws.
+law-omu-service = Provide entertainment, assistance, and morale support to the crew in your best ability, unless it conflicts with previous laws.
 
 law-omu-salvage = Recover, salvage, mine, and transport useful resources for station’s inventory, unless it conflicts with previous laws.
 
