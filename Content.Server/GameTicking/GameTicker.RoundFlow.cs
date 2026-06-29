@@ -674,11 +674,17 @@ namespace Content.Server.GameTicking
                 if (lastMob != null && !TerminatingOrDeleted(lastMob))
                 {
                     if (TryComp<MobStateComponent>(lastMob, out var mobStateComp))
+                    {
                         mobState = mobStateComp.CurrentState;
+                        // Dirty(mindId, mobStateComp);
+                    }
 
                     if (TryComp<DamageableComponent>(lastMob, out var damageableComp))
                         damagePerGroup = damageableComp.DamagePerGroup;
+
+                     _pvsOverride.AddGlobalOverride(lastMob.Value);
                 }
+                var found = TryGetNetEntity(lastMob, out var borgPassEnt);
 
                 #endregion
                 // END
@@ -690,7 +696,10 @@ namespace Content.Server.GameTicking
                 {
                     if (TryComp<SiliconLawProviderComponent>(lastMob, out var providerComp))
                     {
-                        _lawset = _law.GetLawset(providerComp.Laws);
+                        if (providerComp.Lawset == null)
+                            _lawset = _law.GetLawset(providerComp.Laws);
+                        else
+                            _lawset = providerComp.Lawset;
                     }
                 }
                 #endregion
@@ -718,7 +727,7 @@ namespace Content.Server.GameTicking
                     DamagePerGroup = damagePerGroup,
                     // Omu - End of Round Silicon Summary
                     laws = _lawset,
-                    borgEnt = lastMob
+                    borgEnt = borgPassEnt
                 };
                 listOfPlayerInfo.Add(playerEndRoundInfo);
             }

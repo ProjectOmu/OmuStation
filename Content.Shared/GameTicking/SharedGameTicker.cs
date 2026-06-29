@@ -258,8 +258,7 @@ namespace Content.Shared.GameTicking
 
             public SiliconLawset? laws; // Omu
 
-            [NonSerialized]
-            public EntityUid? borgEnt; // Omu
+            public NetEntity? borgEnt; // Omu
             #endregion
         }
 

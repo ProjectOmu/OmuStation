@@ -61,6 +61,7 @@ using Content.Shared.Mobs;
 // OmuStation - End of Round Silicon Summary
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Silicons.Laws;
+using Content.Shared.IdentityManagement;
 
 namespace Content.Client.RoundEnd
 {
@@ -383,7 +384,7 @@ namespace Content.Client.RoundEnd
             var stationReportTab = new BoxContainer
             {
                 Orientation = LayoutOrientation.Vertical,
-                Name = Loc.GetString("round-end-summary-window-silicon-summary-tab-title")
+                Name = Loc.GetString("round-end-summary-window-station-report-tab-title")
             };
             var StationReportContainerScrollbox = new ScrollContainer
             {
@@ -414,7 +415,7 @@ namespace Content.Client.RoundEnd
             var siliconSummaryTab = new BoxContainer
             {
                 Orientation = LayoutOrientation.Vertical,
-                Name = Loc.GetString("round-end-summary-window-player-manifest-tab-title")
+                Name = Loc.GetString("round-end-summary-window-silicon-summary-tab-title")
             };
 
             var playerInfoContainerScrollbox = new ScrollContainer
@@ -443,7 +444,10 @@ namespace Content.Client.RoundEnd
 
                 if (playerInfo.PlayerNetEntity != null && playerInfo.laws != null)
                 {
-                    hBox.AddChild(new SpriteView(playerInfo.borgEnt, _entityManager)
+                    if (!_entityManager.TryGetEntity(playerInfo.borgEnt, out var borgEnt))
+                        continue;
+
+                    hBox.AddChild(new SpriteView(borgEnt, _entityManager)
                     {
                         OverrideDirection = Direction.South,
                         VerticalAlignment = VAlignment.Center,
@@ -452,9 +456,80 @@ namespace Content.Client.RoundEnd
                         Stretch = SpriteView.StretchMode.Fill,
                         Margin = new Thickness(3, 0, 3, 0)
                     });
+
+                    var textVBox = new BoxContainer
+                    {
+                        Orientation = LayoutOrientation.Vertical,
+                        VerticalExpand = true,
+                        SeparationOverride = 2,
+                    };
+
+                    var playerTitleBox = new BoxContainer
+                    {
+                        Orientation = LayoutOrientation.Horizontal,
+                    };
+
+                    if (!_entityManager.TryGetComponent<MetaDataComponent>(borgEnt, out var metaComp))
+                        continue;
+
+                    if (playerInfo.PlayerICName != null)
+                    {
+                        var playerNameText = new Label
+                        {
+                            VerticalAlignment = VAlignment.Bottom,
+                            StyleClasses = { StyleNano.StyleClassLabelHeading },
+                            Margin = new Thickness(0, 0, 6, 0),
+                            Text = metaComp?.EntityName,
+                        };
+                        playerTitleBox.AddChild(playerNameText);
+
+                        var role = Loc.GetString(playerInfo.Role);
+                        var playerRoleText = new Label
+                        {
+                            VerticalAlignment = VAlignment.Bottom,
+                            StyleClasses = { StyleNano.StyleClassLabelSubText },
+                            Text = Loc.GetString("round-end-summary-window-player-name",
+                                ("player", playerInfo.PlayerOOCName))
+                        };
+
+                        if (role != "Unknown")
+                            playerRoleText.Text = Loc.GetString("round-end-summary-window-player-name-role",
+                                    ("role", role),
+                                    ("player", playerInfo.PlayerOOCName));
+
+                        playerTitleBox.AddChild(playerRoleText);
+                    }
+
+                    var borgLawsBox = new BoxContainer
+                    {
+                        Orientation = LayoutOrientation.Horizontal,
+                    };
+                    var lawsVbox = new BoxContainer
+                    {
+                        Orientation = LayoutOrientation.Vertical,
+                        VerticalExpand = true,
+                        SeparationOverride = 2,
+                    };
+
+                    foreach (SiliconLaw lawEntry in playerInfo.laws.Laws)
+                    {
+                        var borgLawText = new Label
+                        {
+                            VerticalAlignment = VAlignment.Bottom,
+                            StyleClasses = { StyleNano.StyleClassLabelSubText },
+                            Margin = new Thickness(0, 0, 6, 0),
+                            Text = $"{lawEntry.Order}. {Loc.GetString(lawEntry.LawString)}",
+                        };
+                        lawsVbox.AddChild(borgLawText);
+                    }
+
+                    textVBox.AddChild(playerTitleBox);
+                    borgLawsBox.AddChild(lawsVbox);
+                    textVBox.AddChild(borgLawsBox);
+                    hBox.AddChild(textVBox);
+                    panel.AddChild(hBox);
+                    siliconInfoContainer.AddChild(panel);
                 }
-                panel.AddChild(hBox);
-                siliconInfoContainer.AddChild(panel);
             }
 
             playerInfoContainerScrollbox.AddChild(siliconInfoContainer);
