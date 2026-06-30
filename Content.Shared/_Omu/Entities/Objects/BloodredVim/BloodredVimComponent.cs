@@ -12,12 +12,12 @@ public sealed partial class BloodredVimComponent : Component
     /// <summary>
     /// Peak acceleration applied during boost
     /// </summary>
-    [DataField] public float ThrustAcceleration = 30f;
+    [DataField] public float ThrustAcceleration = 60f;
 
     /// <summary>
     /// Duration in seconds of a single boost activation.
     /// </summary>
-    [DataField] public float BoostDuration = 0.6f;
+    [DataField] public float BoostDuration = 3f;
 
     /// <summary>
     /// Action prototype granted to a strapped pilot to trigger the boost.

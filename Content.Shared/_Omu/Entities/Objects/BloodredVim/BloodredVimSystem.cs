@@ -7,14 +7,13 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 namespace Content.Shared._Omu.Entities.Objects.BloodredVim;
 
-public abstract partial class BloodredVimSystem : EntitySystem
+[Virtual]
+public class BloodredVimSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-
     [Dependency] private readonly ISharedAdminLogManager _admin = default!;
 
     public override void Initialize()
@@ -22,14 +21,8 @@ public abstract partial class BloodredVimSystem : EntitySystem
 
         base.Initialize();
         SubscribeLocalEvent<BloodredVimComponent, BloodredVimBoostInternalActionEvent>(OnBoost);
-        SubscribeLocalEvent<BloodredVimComponent, ComponentInit>(OnCompInit);
-        _admin.Add(LogType.Action, LogImpact.Extreme, $"BloodredVim comp activated");
     }
 
-    private void OnCompInit(Entity<BloodredVimComponent> ent, ref ComponentInit args)
-    {
-        _admin.Add(LogType.Action, LogImpact.Extreme, $"BloodredVim comp activated");
-    }
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
