@@ -1,0 +1,38 @@
+- type: entity
+  parent: BaseGameRule
+  id: Letoferol
+  components:
+  - type: ChimeraRule
+  - type: GameRule
+    minPlayers: 15
+  - type: AntagObjectives
+    objectives:
+    - roles-antag-Chimera-objective
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    agentName: Letoferol Infected
+    definitions:
+    - prefRoles: [ LetoferolSleeper ]
+      max: 1
+      playerRatio: 40
+      chaosScore: 600
+      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster ]
+      mindRoles:
+      - DevilMindRole
+      startingGear: LetoStartingGear
+  - type: Tag
+    tags:
+    - RoundstartAntag
+
+- type: antag
+  id: LetoferolSleeper
+  name: Letoferol Sleeper
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-Chimera-objective
+  requirements:
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - IPC
+  guides: [ Letoferol ]

@@ -16,12 +16,10 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Tag;
 
 // Goobstation
-using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Mobs.Components;
 using Content.Goobstation.Shared.Mind.Components;
 using Content.Server.Mind;
 using Content.Server.Roles;
-using Content.Shared.Abilities.Mime;
 using Content.Shared.Polymorph;
 using Robust.Shared.Prototypes;
 
