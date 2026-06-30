@@ -30,7 +30,7 @@ mode = 1 # Requires authentication from SS14 API
 advertise = 1
 advertise_interval = 30
 tags = "lang:en,rp:med,region:am_n_e" # You can find a list of all tags @ https://docs.spacestation14.com/en/robust-toolbox/server-http-api.html#standard-tags
-hub_urls = "https://central.spacestation14.io/hub/, https://hub.fallback.spacestation14.com/" # https://hub.singularity14.co.uk/ is down and does not seem to be up soon anymore.
+hub_urls = "https://central.spacestation14.io/hub/" # https://hub.fallback.spacestation14.com/ # https://hub.singularity14.co.uk/ is down and does not seem to be up soon anymore.
 use_dynamic_hostname = true # File replacements found in `motd.ftl` in datasets under _Goobstation
 
 [game]
