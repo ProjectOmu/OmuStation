@@ -10,15 +10,13 @@
     - roles-antag-Chimera-objective
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
-    agentName: Letoferol Infected
+    agentName: letoinfected
     definitions:
     - prefRoles: [ LetoferolSleeper ]
       max: 1
       playerRatio: 40
       chaosScore: 600
       jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster ]
-      mindRoles:
-      - DevilMindRole
       startingGear: LetoStartingGear
   - type: Tag
     tags:
