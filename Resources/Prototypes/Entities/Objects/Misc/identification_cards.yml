@@ -829,7 +829,7 @@
   components:
   - type: Sprite
     layers:
-    - state: orange
+    - state: default #Omu, changed from orange to default
     - state: idatmospherictechnician
   - type: PresetIdCard
     job: AtmosphericTechnician
@@ -933,6 +933,7 @@
   - type: Sprite
     layers:
     - state: orange
+    - state: idprisoner #Omu
   - type: Item
     heldPrefix: orange
   - type: Access
