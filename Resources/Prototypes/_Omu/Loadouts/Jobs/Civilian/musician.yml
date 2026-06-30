@@ -1,0 +1,55 @@
+- type: loadoutEffectGroup
+  id: MasterMusician
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMusician
+      time: 36000 #10 hrs
+
+- type: loadout # Omu - the horrid miku
+  id: MusicianMikuJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtPerformer
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterMusician
+
+- type: loadout # Omu - the horrid miku
+  id: MusicianMikuHead
+  equipment:
+    head: ClothingHeadPerformerWig
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterMusician
+
+- type: loadout
+  id: MusicianMemoryLeek
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterMusician
+  storage:
+    back:
+    - FoodMealMemoryleek
+
+- type: loadout
+  id: MusicianMikuShoes
+  equipment:
+    shoes: ClothingShoesBootsPerformer
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterMusician
+
+- type: loadoutGroup
+  id: MusicianShoes
+  name: loadout-group-musician-shoes
+  loadouts:
+  - BlackShoes
+  - MusicianMikuShoes
+
+- type: loadoutGroup
+  id: MusicianHat
+  name: loadout-group-musician-hat
+  minLimit: 0
+  loadouts:
+  - MusicianMikuHead
