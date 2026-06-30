@@ -3,7 +3,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
-
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 namespace Content.Shared._Omu.Entities.Objects.BloodredVim;
 
 public abstract partial class BloodredVimSystem : EntitySystem
@@ -14,12 +15,21 @@ public abstract partial class BloodredVimSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
 
+    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
+
     public override void Initialize()
     {
+
         base.Initialize();
         SubscribeLocalEvent<BloodredVimComponent, BloodredVimBoostInternalActionEvent>(OnBoost);
+        SubscribeLocalEvent<BloodredVimComponent, ComponentInit>(OnCompInit);
+        _admin.Add(LogType.Action, LogImpact.Extreme, $"BloodredVim comp activated");
     }
 
+    private void OnCompInit(Entity<BloodredVimComponent> ent, ref ComponentInit args)
+    {
+        _admin.Add(LogType.Action, LogImpact.Extreme, $"BloodredVim comp activated");
+    }
     public override void Update(float frameTime)
     {
         base.Update(frameTime);

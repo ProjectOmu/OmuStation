@@ -64,7 +64,6 @@ using Content.Shared._Omu.Entities.Objects.BloodredVim;
 
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
-using Content.Shared.Actions.Components;
 
 namespace Content.Shared.Mech.EntitySystems;
 
@@ -619,9 +618,13 @@ public abstract partial class SharedMechSystem : EntitySystem
             return;
         args.Handled = true;
 
-        EntityUid mech = ent.Comp.Owner;
+        //EntityUid mech = ent.Comp.Owner;
         var ev = new BloodredVimBoostInternalActionEvent();
-        RaiseLocalEvent(mech, ev);
+        if (args.Entity != null)
+            ev.Entity = args.Entity;
+        ev.Target = args.Target;
+        ev.Performer = ent;
+        RaiseLocalEvent(ent, ev, true);
     }
 }
 
