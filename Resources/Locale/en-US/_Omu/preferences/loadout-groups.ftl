@@ -1,6 +1,33 @@
 ﻿# Research Director
 loadout-group-research-director-eyewear = Research Director glasses
 
+# Administrative Assistant
+## Plasmaman stuff
+
+- type: loadoutGroup
+  id: AdminAssistantEnvirohelm
+  name: loadout-group-admin-assistant-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - AdminAssistantEnvirohelm
+
+- type: loadoutGroup
+  id: AdminAssistantEnvirosuit
+  name: loadout-group-admin-assistant-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - AdminAssistantEnvirosuit
+
+- type: loadoutGroup
+  id: AdminAssistantEnvirogloves
+  name: loadout-group-admin-assistant-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - AdminAssistantEnvirogloves
+
 # Transit Prisoner
 loadout-group-prisoner-jumpsuits = Prisoner jumpsuit
 loadout-group-prisoner-outer-clothing = Prisoner outer clothing
