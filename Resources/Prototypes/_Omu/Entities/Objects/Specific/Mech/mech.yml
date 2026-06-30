@@ -49,15 +49,15 @@
         Blunt: 15 #thwack
         Structural: 2
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.25
-    baseSprintSpeed: 2.25 #Goobedit
+    baseWalkSpeed: 3.0
+    baseSprintSpeed: 3.0 #Goobedit
   - type: Access
     tags:
     - Maintenance
   - type: BloodredVim
     actionProto: ActionBloodredVimBoost
-    thrustAcceleration: 50
-    boostDuration: 2.2
+    thrustAcceleration: 700
+    boostDuration: 0.5
     vaporReagentPerPuff: 5
     vaporVelocity: 4
     vaporLifetime: 0.8
