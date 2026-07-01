@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseObjective
+  name: Spread the infection
+  description: Spread the infection to all living creatures.
+  id: roles-antag-Chimera-objective
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Specific/Anomalies/Cores/flesh_core.rsi
+      state: icon
+    difficulty: 1
+    issuer: objective-issuer-unknown
+  - type: RoleplayObjective
