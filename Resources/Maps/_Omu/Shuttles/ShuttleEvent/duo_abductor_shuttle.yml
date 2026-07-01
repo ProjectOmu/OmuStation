@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/18/2026 16:25:03
+  time: 07/01/2026 02:17:15
   entityCount: 262
 maps:
 - 1
@@ -702,7 +702,7 @@ entities:
     - type: Transform
       pos: -3.7265432,1.5118785
       parent: 2
-- proto: ComputerIFF
+- proto: ComputerIFFSyndicate
   entities:
   - uid: 94
     components:
@@ -726,7 +726,7 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: DubiousOrganSpawner
+- proto: DubiousGlandSpawnerOmu
   entities:
   - uid: 96
     components:
@@ -744,6 +744,11 @@ entities:
       pos: -2.5,0.5
       parent: 2
   - uid: 99
+    components:
+    - type: Transform
+      pos: -2.5,0.5
+      parent: 2
+  - uid: 101
     components:
     - type: Transform
       pos: -2.5,0.5
@@ -769,11 +774,6 @@ entities:
       pos: -2.5,0.5
       parent: 2
   - uid: 142
-    components:
-    - type: Transform
-      pos: -2.5,0.5
-      parent: 2
-  - uid: 146
     components:
     - type: Transform
       pos: -2.5,0.5
@@ -1113,28 +1113,6 @@ entities:
     - type: Transform
       pos: 1.5,2.5
       parent: 2
-- proto: ReinforcedUraniumWindow
-  entities:
-  - uid: 75
-    components:
-    - type: Transform
-      pos: 1.5,-4.5
-      parent: 2
-  - uid: 243
-    components:
-    - type: Transform
-      pos: 3.5,5.5
-      parent: 2
-  - uid: 245
-    components:
-    - type: Transform
-      pos: 5.5,3.5
-      parent: 2
-  - uid: 254
-    components:
-    - type: Transform
-      pos: 5.5,-0.5
-      parent: 2
 - proto: PlushieAbductor
   entities:
   - uid: 145
@@ -1199,6 +1177,28 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 3.5,1.5
+      parent: 2
+- proto: ReinforcedUraniumWindow
+  entities:
+  - uid: 75
+    components:
+    - type: Transform
+      pos: 1.5,-4.5
+      parent: 2
+  - uid: 243
+    components:
+    - type: Transform
+      pos: 3.5,5.5
+      parent: 2
+  - uid: 245
+    components:
+    - type: Transform
+      pos: 5.5,3.5
+      parent: 2
+  - uid: 254
+    components:
+    - type: Transform
+      pos: 5.5,-0.5
       parent: 2
 - proto: SecurityCyberneticEyes
   entities:
@@ -1373,6 +1373,14 @@ entities:
     components:
     - type: Transform
       pos: -0.5,6.5
+      parent: 2
+- proto: TurboItemRecharger
+  entities:
+  - uid: 146
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,0.5
       parent: 2
 - proto: WallAbductor
   entities:
