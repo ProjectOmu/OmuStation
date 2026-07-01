@@ -1,0 +1,78 @@
+- type: reagent
+  id: LingNeurotoxin
+  name: reagent-name-ling-neurotoxin
+  group: Narcotics
+  desc: reagent-desc-ling-neurotoxin
+  physicalDesc: reagent-physical-desc-acrid
+  flavor: bitter
+  color: "#215263"
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.2
+      effects:
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.85
+        sprintSpeedModifier: 0.85
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        time: 10
+        type: Add
+        refresh: false
+      - !type:ChemVomit # Vomiting is a symptom of brain damage
+        probability: 0.05
+      - !type:Drunk # Headaches and slurring are major symptoms of brain damage, this is close enough
+        boozePower: 5
+      - !type:AdjustReagent
+        reagent: Muscotoxin
+        amount: 0.6
+
+- type: reagent
+  id: Muscotoxin
+  name: reagent-name-muscotoxin
+  group: Narcotics
+  desc: reagent-desc-muscotoxin
+  physicalDesc: reagent-physical-desc-acrid
+  flavor: bitter
+  color: "#215263"
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.2
+      effects:
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.85
+        sprintSpeedModifier: 0.85
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+      - !type:AdjustReagent
+        reagent: Tetradotoxin
+        amount: 0.6
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+      - !type:TakeStaminaDamage
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+
+- type: reagent
+  id: Tetradotoxin
+  name: reagent-name-tetradotoxin
+  group: Narcotics
+  desc: reagent-desc-tetradotoxin
+  physicalDesc: reagent-physical-desc-powdery
+  color: "#128e80"
+  boilingPoint: 444.0
+  meltingPoint: 128.0
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.2
+      effects:
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Tetradotoxin
+          min: 10
+        effectProto: StatusEffectForcedSleeping
+        time: 5
+        type: Add

@@ -61,7 +61,8 @@ public sealed partial class ChangelingIdentityComponent : Component
         "ActionAbsorbDNA",
         "ActionStingExtractDNA",
         "ActionChangelingTransformCycle",
-        "ActionChangelingTransform"
+        "ActionChangelingTransform",
+        "ActionStingNeurotoxin" //Omu - neurotoxin sting
     };
 
     /// <summary>
