@@ -11,7 +11,7 @@
       interfaces:
         enum.SiliconLawsUiKey.Key:
           type: SiliconLawBoundUserInterface
-    - type: ShowJobIcons
+    - type: ShowJobIcons # so they can see who's crew
     - type: SiliconLawBound
     - type: SiliconLawProvider
       laws: Crewsimov
@@ -25,7 +25,7 @@
     - type: ActionGrant
       actions:
       - ActionViewLaws
-    - type: IntrinsicRadioTransmitter
+    - type: IntrinsicRadioTransmitter #so they can state laws on common to the AI.
       channels:
       - Common
   - type: OrganInsertOnUse
@@ -33,7 +33,7 @@
     partType: Chest
 
 - type: entity
-  id: OrganDubiousAllHearingGood #gives all radios, languages, and most hiveminds
+  id: OrganDubiousAllHearing #gives all radios, languages, and most hiveminds
   parent: OrganDubiousBase
   components:
   - type: Sprite
@@ -175,30 +175,82 @@
     slotId: heart
     partType: Chest
 
-#- type: entity
-#  id: OrganDubiousTelekinetic # great idea. need to figure out a way to incress interaction range while respecting walls and windows
-#  parent: OrganDubiousBase
-#  components:
-#  - type: Sprite
-#    state: mindshock
-#  - type: Organ
-#    onAdd:
-#    - type: Tag
-#      tags:
-#      - BypassInteractionRangeChecks
-#  - type: OrganInsertOnUse
-#    slotId: heart
-#    partType: Chest
-
 - type: entity
-  id: OrganDubiousAllHearingBad # might remove this one. Could get pretty bad for people who get overstimulated in this game
+  id: OrganDubiousTheVoices # might remove this one later. Could get pretty bad for people who get overstimulated in this game
   parent: OrganDubiousBase
   components:
   - type: Sprite
     state: mindshock
   - type: Organ
     onAdd:
-    - type: GhostHearing
+    - type: GhostHearing # Gets to hear all normal local, wispers, and emotes from everywhere and anywhere. No this doesn't let you hear dead chat
+  - type: OrganInsertOnUse
+    slotId: heart
+    partType: Chest
+
+- type: entity
+  id: OrganDubiousAllSeeing # sees ghosts, AI eye, abductor eye, normal HUD icons
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: mindshock
+  - type: Organ
+    onAdd:
+    - type: Eye #Warning. if this gland is not installed by a abductor. the victium will need to reconnect to fix there camera
+      visMask:
+        - Ghost
+        - Normal
+        - Abductor
+    - type: ShowElectrocutionHUD
+    - type: ShowHealthBars
+    - type: ShowHealthIcons
+    - type: ShowDiseaseIcons
+    - type: ShowJobIcons
+    - type: ShowMindShieldIcons
+    - type: ShowCriminalRecordIcons
+    - type: ShowContrabandDetails
+  - type: OrganInsertOnUse
+    slotId: heart
+    partType: Chest
+
+- type: entity
+  id: OrganDubiousFriendship # NPCs won't attack them
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: egg
+  - type: Organ
+    onAdd:
+    - type: NpcFactionMember
+      factions:
+      - AllFriendly
+  - type: OrganInsertOnUse
+    slotId: heart
+    partType: Chest
+
+- type: entity
+  id: OrganDubiousDroneVision # gives drone vision (everyone else appears as black silhouettes) and lets them see job icons to help them a little
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: egg
+  - type: Organ
+    onAdd:
+    - type: DroneVision
+    - type: ShowJobIcons
+  - type: OrganInsertOnUse
+    slotId: heart
+    partType: Chest
+
+- type: entity
+  id: OrganDubiousClumsy # makes them clumsy
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: egg
+  - type: Organ
+    onAdd:
+    - type: Clumsy
   - type: OrganInsertOnUse
     slotId: heart
     partType: Chest

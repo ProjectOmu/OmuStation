@@ -20,8 +20,10 @@
       - OrganDubiousSteptriggerImmune
       - OrganDubiousVentcrawler
       - OrganDubiousRepairable
-      - OrganDubiousAllHearingGood
+      - OrganDubiousAllHearing
       - OrganDubiousGun
+      - OrganDubiousAllSeeing
+      - OrganDubiousFriendship
       rareChance: 0.5
       prototypes: # Glands that are detrimental to the abductee that may also have some benefit
       - OrganDubiousShock
@@ -36,5 +38,7 @@
       - OrganDubiousGas
       - OrganDubiousLawbound
       - OrganDubiousTelepathic
-      - OrganDubiousAllHearingBad
+      - OrganDubiousTheVoices
+      - OrganDubiousDroneVision
+      - OrganDubiousClumsy
       offset: 0.2
