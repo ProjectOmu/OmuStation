@@ -1,6 +1,7 @@
 
+# these are made with the idea that they can be removed with cloning. If glands can no longer be removed by cloning or cloning because less accessible, these will need to be removed/changed.
 - type: entity
-  id: OrganDubiousLawbound #makes them lawbound like cyborgs and station AI
+  id: OrganDubiousLawbound #makes them lawbound like cyborgs and station AI. Right now there's no way to tell if someone has this or not unless they tell you. if people abuse that I'll add a HUD icon to AI and cyborgs
   parent: OrganDubiousBase
   components:
   - type: Sprite
@@ -18,6 +19,8 @@
     - type: SlavedBorg
       law: ObeyAI
     - type: IonStormTarget
+    - type: StationAiVision
+      range: 3
     - type: CollectiveMind #if they are going to be enslaved to the AI they should have binary
       defaultChannel: Binary
       channels:
@@ -25,12 +28,9 @@
     - type: ActionGrant
       actions:
       - ActionViewLaws
-    - type: IntrinsicRadioTransmitter #so they can state laws on common to the AI.
+    - type: IntrinsicRadioTransmitter #so they can state laws in common.
       channels:
       - Common
-  - type: OrganInsertOnUse
-    slotId: heart
-    partType: Chest
 
 - type: entity
   id: OrganDubiousAllHearing #gives all radios, languages, and most hiveminds
@@ -65,9 +65,6 @@
       seeAllNames: true
     - type: TowerOfBabel
     - type: LanguageSpeaker
-  - type: OrganInsertOnUse
-    slotId: heart
-    partType: Chest
 
 - type: entity
   id: OrganDubiousTelepathic #mutes but gives them demonic wisper. idealy I would had made the wisper it's own generic system but that would require C# so it's a future TODO
@@ -113,9 +110,6 @@
   - type: OrganActions
     actions:
     - DemonicWhisperAction
-  - type: OrganInsertOnUse
-    slotId: heart
-    partType: Chest
 
 - type: entity
   id: OrganDubiousGun # Space Station 14: Become gun
@@ -171,9 +165,6 @@
     - type: GunRequiresWield
     - type: Wieldable
       unwieldOnUse: false
-  - type: OrganInsertOnUse
-    slotId: heart
-    partType: Chest
 
 - type: entity
   id: OrganDubiousTheVoices # might remove this one later. Could get pretty bad for people who get overstimulated in this game
@@ -184,9 +175,6 @@
   - type: Organ
     onAdd:
     - type: GhostHearing # Gets to hear all normal local, wispers, and emotes from everywhere and anywhere. No this doesn't let you hear dead chat
-  - type: OrganInsertOnUse
-    slotId: heart
-    partType: Chest
 
 - type: entity
   id: OrganDubiousAllSeeing # sees ghosts, AI eye, abductor eye, normal HUD icons
@@ -209,9 +197,6 @@
     - type: ShowMindShieldIcons
     - type: ShowCriminalRecordIcons
     - type: ShowContrabandDetails
-  - type: OrganInsertOnUse
-    slotId: heart
-    partType: Chest
 
 - type: entity
   id: OrganDubiousFriendship # NPCs won't attack them
@@ -224,12 +209,9 @@
     - type: NpcFactionMember
       factions:
       - AllFriendly
-  - type: OrganInsertOnUse
-    slotId: heart
-    partType: Chest
 
 - type: entity
-  id: OrganDubiousDroneVision # gives drone vision (everyone else appears as black silhouettes) and lets them see job icons to help them a little
+  id: OrganDubiousDroneVision # gives drone vision (everyone else appears as black silhouettes) and lets them see job icons to help that a little
   parent: OrganDubiousBase
   components:
   - type: Sprite
@@ -238,9 +220,6 @@
     onAdd:
     - type: DroneVision
     - type: ShowJobIcons
-  - type: OrganInsertOnUse
-    slotId: heart
-    partType: Chest
 
 - type: entity
   id: OrganDubiousClumsy # makes them clumsy
@@ -251,6 +230,3 @@
   - type: Organ
     onAdd:
     - type: Clumsy
-  - type: OrganInsertOnUse
-    slotId: heart
-    partType: Chest

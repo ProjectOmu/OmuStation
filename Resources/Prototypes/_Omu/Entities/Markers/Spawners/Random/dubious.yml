@@ -1,7 +1,7 @@
 
 
 - type: entity
-  name: Random Dubious Gland Spawner
+  name: Random Dubious Gland Spawner (Omu)
   id: DubiousGlandSpawner
   parent: MarkerBase
   components:
@@ -9,9 +9,9 @@
       layers:
         - state: red
         - sprite: _Shitmed/Mobs/Species/Misc/Dubious/organs.rsi
-          state: gland
+          state: mindshock
     - type: RandomSpawner
-      rarePrototypes: # glands that are only beneficial to the abductee
+      rarePrototypes: # Glands that are only beneficial to the abductee
       - OrganDubiousHealth
       - OrganDubiousAA
       - OrganDubiousInvisible
@@ -24,15 +24,16 @@
       - OrganDubiousGun
       - OrganDubiousAllSeeing
       - OrganDubiousFriendship
-      rareChance: 0.5
+      rareChance: 0.5 # Helps ensure there's a even distribution of good and bad glands no matter how many are added or removed.
       prototypes: # Glands that are detrimental to the abductee that may also have some benefit
+      #- OrganDubiousScrambleDna
+      #- OrganDubiousScrambleLocation
+      #- OrganDubiousArtifact #lag issues
+      #- OrganDubiousGravityWell
       - OrganDubiousShock
-      - OrganDubiousScrambleDna
-      - OrganDubiousScrambleLocation
       - OrganDubiousSpiderEggs
       - OrganDubiousSlimeEggs
       - OrganDubiousEMP
-      - OrganDubiousGravityWell
       - OrganDubiousFlash
       - OrganDubiousSmoke
       - OrganDubiousGas
