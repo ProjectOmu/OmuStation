@@ -7,8 +7,8 @@
   flavor: robust
   color: "#ffd648"
   metabolisms:
-    Drink:
-      metabolismRate: 1
+    Narcotic:
+      metabolismRate: 0.1
       effects:
       - !type:GenericStatusEffect
         key: Berserk

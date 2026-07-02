@@ -29,7 +29,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._Omu.Changeling;
 
-public abstract class SharedBerserkSystem : EntitySystem
+public abstract class BerserkAffectedSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
