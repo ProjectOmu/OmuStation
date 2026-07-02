@@ -8,9 +8,10 @@
   color: "#ffd648"
   metabolisms:
     Narcotic:
-      metabolismRate: 0.1
+      metabolismRate: 1
       effects:
       - !type:GenericStatusEffect
-        key: Berserk
-        time: 10
+        key: StatusEffectBerserk
+        time: 20
+        type: Set
         component: BerserkAffected

@@ -34,8 +34,6 @@ public abstract class BerserkAffectedSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
-
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _weapon = default!;
@@ -44,6 +42,12 @@ public abstract class BerserkAffectedSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -56,15 +60,6 @@ public abstract class BerserkAffectedSystem : EntitySystem
 
             if (_net.IsClient)
                 continue;
-
-            affected.Duration -= frameTime;
-
-            if (affected.Duration > 0)
-                continue;
-
-            RemCompDeferred(uid, affected);
-
-            continue;
 
             void Amok()
             {
