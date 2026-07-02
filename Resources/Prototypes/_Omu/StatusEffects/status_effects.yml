@@ -1,6 +1,10 @@
-- type: entity
-  parent: MobStatusEffectBase
+#- type: entity
+#  parent: MobStatusEffectBase
+#  id: StatusEffectBerserk
+#  name: Berserk
+#  components:
+#  - type: BerserkAffected
+
+- type: statusEffect
   id: StatusEffectBerserk
-  name: Berserk
-  components:
-  - type: BerserkAffected
+  alwaysAllowed: true
