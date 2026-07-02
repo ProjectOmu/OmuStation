@@ -54,7 +54,10 @@ public abstract partial class SharedXenoArtifactSystem
     public Entity<XenoArtifactNodeComponent> GetNode(Entity<XenoArtifactComponent> ent, int index)
     {
         if (ent.Comp.NodeVertices[index] is { } netUid && GetEntity(netUid) is var uid)
-            return (uid, XenoArtifactNode(uid));
+        {
+            if (HasComp<XenoArtifactNodeComponent>(uid))
+                return (uid, XenoArtifactNode(uid));
+        }
 
         throw new ArgumentException($"index {index} does not correspond to an existing node in {ToPrettyString(ent)}");
     }
