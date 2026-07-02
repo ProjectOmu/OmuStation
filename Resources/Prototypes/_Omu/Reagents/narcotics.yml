@@ -1,0 +1,16 @@
+- type: reagent
+  id: Berserktoxin
+  name: reagent-name-berserktoxin
+  group: Special
+  desc: reagent-desc-berserktoxin
+  physicalDesc: reagent-physical-desc-robust
+  flavor: robust
+  color: "#ffd648"
+  metabolisms:
+    Drink:
+      metabolismRate: 1
+      effects:
+      - !type:GenericStatusEffect
+        key: Berserk
+        time: 10
+        component: BerserkAffected
