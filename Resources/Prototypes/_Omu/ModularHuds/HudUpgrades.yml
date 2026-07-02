@@ -1,0 +1,32 @@
+- type: entity
+  id: ModularHudUpgrade
+  parent: BaseItem
+  name: Modular HUD Upgrade
+  description: An upgrade for the modular HUD
+  abstract: true
+  components:
+    - type: Sprite
+      sprite: _Lavaland/Objects/Weapons/upgrade.rsi
+    - type: Item
+      size: Small
+    - type: StaticPrice
+      price: 500
+    - type: Tag
+      tags:
+      - ModularHudUpgrade
+
+- type: entity
+  id: ModularHudUpgradeMedical
+  parent: [ModularHudUpgrade, ShowMedicalIcons]
+  name: Modular HUD upgrade (Medical)
+  description: An upgrade for the modular HUD with added Medihud functionality
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#ffffff"
+    - state: overlay-2
+      color: "#000000"
+    - state: overlay-3
+      color: "#8700ff"
