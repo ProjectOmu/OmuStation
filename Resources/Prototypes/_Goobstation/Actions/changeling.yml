@@ -429,6 +429,7 @@
     whitelist:
       components:
       - Body
+      - SolutionContainerManager
     canTargetSelf: false
     event: !type:StingReagentEvent {}
   - type: ChangelingAction
@@ -459,6 +460,7 @@
     whitelist:
       components:
       - Body
+      - SolutionContainerManager
     canTargetSelf: false
     event: !type:StingReagentEvent {}
   - type: ChangelingAction
@@ -489,6 +491,7 @@
     whitelist:
       components:
       - Body
+      - SolutionContainerManager
     canTargetSelf: false
     event: !type:StingReagentEvent {}
   - type: ChangelingAction
@@ -519,6 +522,7 @@
     whitelist:
       components:
       - Body
+      - SolutionContainerManager
     canTargetSelf: false
     event: !type:StingReagentEvent {}
   - type: ChangelingAction
