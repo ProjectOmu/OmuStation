@@ -17,8 +17,8 @@
     mode: SnapgridCenter
   components:
   - type: PTL
-    minEnergyPerShot: 5e5 # Omu
-    maxEnergyPerShot: 3e6 # Omu 3MJ (300kw/s), 404spesos 10/s
+    minEnergyPerShot: 25e4 # Omu
+    maxEnergyPerShot: 3.5e6 # Omu 3.5MJ (@300kw/s, 404spesos 10/s), this is throttled to 3e6 by charge rate intentionally.
     active: false
     baseBeamDamage:
       types:
@@ -44,7 +44,7 @@
   - type: RadiationSource
   - type: Appearance
   - type: PowerNetworkBattery
-    maxChargeRate: 500000 # Omu, 500kW
+    maxChargeRate: 300000 # Omu, 300kW
   - type: Battery
     startingCharge: 0
     maxCharge: 25000000 # Omu, 25MJ (50s of 500kW)
