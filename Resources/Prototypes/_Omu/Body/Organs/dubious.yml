@@ -31,6 +31,7 @@
     - type: IntrinsicRadioTransmitter #so they can state laws in common.
       channels:
       - Common
+      - Science
 
 - type: entity
   id: OrganDubiousAllHearing #gives all radios, languages, and most hiveminds
@@ -43,7 +44,16 @@
     - type: IntrinsicRadioReceiver
     - type: IntrinsicRadioTransmitter
     - type: ActiveRadio
-      receiveAllChannels: true
+      channels:
+      - Common
+      - Command
+      - CentCom
+      - Engineering
+      - Medical
+      - Science
+      - Security
+      - Service
+      - Supply
       globalReceive: true
     - type: CollectiveMind
       defaultChannel: Abductormind
@@ -59,8 +69,6 @@
       - Blobmind
       - MansusLink
       - Binglemind
-      - Shadowmind
-      - Xenomorphivemind
       hearAll: true
       seeAllNames: true
     - type: TowerOfBabel
