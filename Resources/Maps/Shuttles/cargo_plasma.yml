@@ -1145,8 +1145,7 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         147:
-        - - Pressed
-          - Toggle
+        - Pressed: Toggle
   - uid: 149
     components:
     - type: Transform
@@ -1156,8 +1155,7 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         146:
-        - - Pressed
-          - Toggle
+        - Pressed: Toggle
 - proto: SubstationWallBasic
   entities:
   - uid: 57
@@ -1238,26 +1236,17 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         65:
-        - - Left
-          - Forward
-        - - Right
-          - Reverse
-        - - Middle
-          - Off
+        - Left: Forward
+        - Right: Reverse
+        - Middle: Off
         7:
-        - - Left
-          - Forward
-        - - Right
-          - Reverse
-        - - Middle
-          - Off
+        - Left: Forward
+        - Right: Reverse
+        - Middle: Off
         6:
-        - - Left
-          - Forward
-        - - Right
-          - Reverse
-        - - Middle
-          - Off
+        - Left: Forward
+        - Right: Reverse
+        - Middle: Off
   - uid: 36
     components:
     - type: Transform
@@ -1266,26 +1255,17 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         108:
-        - - Left
-          - Forward
-        - - Right
-          - Reverse
-        - - Middle
-          - Off
+        - Left: Forward
+        - Right: Reverse
+        - Middle: Off
         9:
-        - - Left
-          - Forward
-        - - Right
-          - Reverse
-        - - Middle
-          - Off
+        - Left: Forward
+        - Right: Reverse
+        - Middle: Off
         10:
-        - - Left
-          - Forward
-        - - Right
-          - Reverse
-        - - Middle
-          - Off
+        - Left: Forward
+        - Right: Reverse
+        - Middle: Off
 - proto: WallShuttle
   entities:
   - uid: 3
