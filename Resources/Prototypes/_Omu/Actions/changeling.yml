@@ -2,14 +2,17 @@
   id: ActionJumpChangeling
   parent: BaseAction
   name: Jump
-  description: Jump forward with great speed in order to stun lesser beings.
+  description: Jump forward with great speed in order to stun lesser beings. Costs 25 chemicals.
   components:
   - type: Action
     priority: 0
     useDelay: 3
-    icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: leap_off }
-    iconOn: { sprite : _White/Interface/Actions/xenomorph.rsi, state: leap_on }
+    icon: { sprite : _Omu/Changeling/changeling_abilities.rsi, state: changeling_leap_off }
+    iconOn: { sprite : _Omu/Changeling/changeling_abilities.rsi, state: changeling_leap_on }
   - type: TargetAction
     range: 10
   - type: WorldTargetAction
     event: !type:JumpActionEvent
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 25

@@ -1,0 +1,13 @@
+- type: listing
+  id: EvolutionMenuLeap
+  name: evolutionmenu-leap-name
+  description: evolutionmenu-leap-desc
+  icon: { sprite: _Omu/Changeling/changeling_abilities.rsi, state: changeling_leap_on }
+  productAction: ActionJumpChangeling
+  cost:
+    EvolutionPoint: 2
+  categories:
+  - ChangelingAbilityCombat
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
