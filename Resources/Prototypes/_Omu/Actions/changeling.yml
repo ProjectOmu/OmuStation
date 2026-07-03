@@ -1,0 +1,15 @@
+- type: entity
+  id: ActionJumpChangeling
+  parent: BaseAction
+  name: Jump
+  description: Jump forward with great speed in order to stun lesser beings.
+  components:
+  - type: Action
+    priority: 0
+    useDelay: 3
+    icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: leap_off }
+    iconOn: { sprite : _White/Interface/Actions/xenomorph.rsi, state: leap_on }
+  - type: TargetAction
+    range: 10
+  - type: WorldTargetAction
+    event: !type:JumpActionEvent
