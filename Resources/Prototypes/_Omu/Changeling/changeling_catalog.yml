@@ -2,8 +2,8 @@
   id: EvolutionMenuStingBerserk
   name: evolutionmenu-sting-berserk-name
   description: evolutionmenu-sting-berserk-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: sting_lethargic }
-  productAction: ActionStingCryo
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: sting_berserk }
+  productAction: ActionStingBerserk
   cost:
     EvolutionPoint: 2
   categories:
