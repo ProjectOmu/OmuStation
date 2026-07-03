@@ -104,10 +104,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 15 #omu edit
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15
+          Quantity: 7.5 #omu edit
   - type: Openable
     openableByHand: false
     sound:
