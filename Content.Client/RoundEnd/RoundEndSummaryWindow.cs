@@ -400,7 +400,8 @@ namespace Content.Client.RoundEnd
             }
             catch (Exception)
             {
-                StationReportmessage.AddText(stationReportText);
+                StationReportmessage.AddText(Loc.GetString("round-end-summary-window-station-report-tab-invalid-part1"));
+                StationReportmessage.AddText($"\n\n{Loc.GetString("round-end-summary-window-station-report-tab-invalid-part2")}");
             }
             // Omu end
             StationReportLabel.SetMessage(StationReportmessage);
