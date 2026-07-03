@@ -1,0 +1,42 @@
+- type: entity
+  name: Hunter's Bounty
+  id: HolyShotgun
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseItem, BaseNullrod]
+  description: A shotgun that saw a lot of usage throughout it's life, now serving in your hands.
+  components:
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Heat: 20
+    UntrainedUseString: nullrod-untrained-usage-popup
+  - type: Tag
+    tags:
+    - HolyShotgun
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,4,0
+    sprite: _Omu/Objects/Weapons/Guns/Shotguns/HolyShotgun_InHands_x64.rsi
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Shotguns/HolyShotgun.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Omu/Objects/Weapons/Guns/Shotguns/HolyShotgun.rsi
+    slots:
+    - suitStorage
+    - back
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: BallisticAmmoProvider
+    proto: SilverShells
+    capacity: 7
+    whitelist:
+      tags:
+      - SilverShells
+    autoCycle: false
+  - type: Gun
+    # fireRate: 1 # goob
+  - type: GunSpreadModifier
+    spread: 0.6
+  - type: ReloadOnPrayShotgun
+  - type: AlternatePrayable # needs this, since it ain't parented of nullrod.
+    prayDoAfterDuration: 3.5

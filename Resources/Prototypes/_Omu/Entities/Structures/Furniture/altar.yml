@@ -1,0 +1,18 @@
+- type: entity
+  id: AltarHunter
+  parent: AltarBase
+  name: Hunter's altar
+  components:
+  - type: Sprite
+    sprite: _Omu/Structures/Furniture/Altars/Gods/Hunter.rsi
+    state: shotgunaltar
+  - type: Icon
+    sprite: _Omu/Structures/Furniture/Altars/Gods/Hunter.rsi
+    state: shotgunaltar
+  - type: Construction
+    graph: AltarsGraph
+    node: HunterAltarNode
+  - type: AltarSource
+    rodProto: HolyShotgun
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg

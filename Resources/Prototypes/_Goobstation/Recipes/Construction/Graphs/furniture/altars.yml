@@ -154,6 +154,16 @@
       - tag: Book
         name: construction-graph-tag-book
         doAfter: 3
+    #Omu Start - Holy Shotgun
+    - to: HunterAltarNode
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - tag: FishingRodMakeshift
+        name: construction-graph-tag-Hunter
+        doAfter: 3
+    #Omu End - Holy Shotgun
 
   #Nullrod Altars
   - node: BananiumAltarNode
@@ -323,3 +333,17 @@
       steps:
       - tool: Prying
         doAfter: 1
+
+  #Omu Start
+  - node: HunterAltarNode
+    entity: AltarHunter
+    edges:
+    - to: AltarConvertNode
+      completed:
+      - !type:SpawnPrototype
+        prototype: FishingRodMakeshift
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 1
+  #Omu End

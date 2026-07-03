@@ -1,0 +1,19 @@
+#Holy Shotgun bullets
+- type: entity
+  id: SilverShells
+  name: Silver Shells (.12 Gauge)
+  parent: BaseShellShotgun
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Ammunition/Cartridges/SilverShells.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: SpentAmmoVisuals
+    state: "base"
+  - type: Tag
+    tags:
+    - SilverShells
+  - type: CartridgeAmmo
+    proto: PelletShotgunSilver

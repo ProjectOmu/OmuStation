@@ -61,6 +61,11 @@
   - type: Construction
     graph: FishingRodMakeshift
     node: makeshiftRod
+  # Omu Start
+  - type: Tag
+    tags:
+    - FishingRodMakeshift 
+    # Omu End
 
 # Golden rod
 - type: entity

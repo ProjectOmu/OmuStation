@@ -1,0 +1,19 @@
+#Holy Shotgun
+- type: entity
+  id: PelletShotgunSilver
+  name: Silver Pellets (.50)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot-flare
+  - type: ProjectileSpread
+    proto: PelletShotgun
+    count: 6
+    spread: 15  
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 4
+        Holy: 4

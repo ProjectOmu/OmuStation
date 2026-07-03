@@ -13,6 +13,7 @@ nullrod-bulwark-untrained-usage-popup = You cannot bear the weight of your own s
 nullrod-spear-untrained-usage-popup = MALFUNCTION.
 nullrod-dragontail-untrained-usage-popup = The tail flails out of control and hits you!
 nullrod-chainsword-untrained-usage-popup = HE didn't accept you.
+nullrod-shotgun-untrained-usage-popup = The shotgun singes your hands.
 
 alternate-pray-prompt = Pray to {$item}
 alternate-pray-start = {$user} begins to whisper to the {$item}...

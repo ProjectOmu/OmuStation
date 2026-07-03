@@ -394,6 +394,23 @@ public abstract partial class SharedGunSystem
         UpdateAmmoCount(entity.Owner);
         Dirty(entity);
     }
+    //Omu Start
+    public bool UpdateBallisticAmmoCount(EntityUid uid, int count, BallisticAmmoProviderComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, false))
+            return false;
+
+        if (count > component.Capacity)
+            return false;
+
+        component.UnspawnedCount = Math.Max(0, count - component.Entities.Count);
+        UpdateBallisticAppearance(uid, component);
+        UpdateAmmoCount(uid);
+        Dirty(uid, component);
+
+        return true;
+    }
+    //Omu End
 }
 
 /// <summary>
