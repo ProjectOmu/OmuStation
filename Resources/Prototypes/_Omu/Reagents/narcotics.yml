@@ -17,3 +17,10 @@
         time: 20
         refresh: true
       - !type:Jitter
+      - !type:PopupMessage
+        type: Local
+        probability: 0.7
+        messages:
+        - berserkchemical-rage
+        - berserkchemical-anger
+        - berserkchemical-hate
