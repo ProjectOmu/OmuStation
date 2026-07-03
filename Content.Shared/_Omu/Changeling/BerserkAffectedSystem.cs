@@ -58,9 +58,6 @@ public abstract class BerserkAffectedSystem : EntitySystem
         {
             Amok();
 
-            if (_net.IsClient)
-                continue;
-
             void Amok()
             {
                 if (_net.IsClient && _player.LocalEntity != uid)

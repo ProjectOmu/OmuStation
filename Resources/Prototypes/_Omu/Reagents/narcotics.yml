@@ -12,6 +12,8 @@
       effects:
       - !type:GenericStatusEffect
         key: StatusEffectBerserk
-        time: 20
-        type: Set
         component: BerserkAffected
+        type: Add
+        time: 20
+        refresh: true
+      - !type:Jitter
