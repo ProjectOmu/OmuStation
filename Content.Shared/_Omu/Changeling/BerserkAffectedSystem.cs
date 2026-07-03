@@ -46,6 +46,7 @@ public abstract class BerserkAffectedSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        UpdatesOutsidePrediction = true;
     }
 
     public override void Update(float frameTime)
