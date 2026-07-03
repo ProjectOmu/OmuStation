@@ -1,0 +1,244 @@
+# SPDX-FileCopyrightText: 2026 Aikakakah
+# SPDX-FileCopyrightText: 2026 Shaman
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Head
+
+# Eyes
+
+- type: marking
+  id: SlimeEyesCyclopsPulsing
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: [ SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _DEN/Mobs/Customization/SlimePerson/eyes.rsi
+    state: cyclopspulseeye
+  - sprite: _DEN/Mobs/Customization/SlimePerson/eyes.rsi
+    state: cyclopspulsering
+  shader: unshaded
+
+# Chest
+
+- type: marking
+  id: BubbleGlowing
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ SlimePerson ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: bubble
+  shader: unshaded
+
+- type: marking
+  id: FadingStarsNonglowing
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ SlimePerson ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: fadingstars1
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: fadingstars2
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: fadingstars3
+
+- type: marking
+  id: FishbowlGlowing
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ SlimePerson ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: fishbowl1
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: fishbowl2
+  shader: unshaded
+
+- type: marking
+  id: FizzGlowing
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ SlimePerson ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: fizz
+  shader: unshaded
+
+
+
+
+- type: marking
+  id: AnatomicalSkull
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ SlimePerson ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: skull
+
+- type: marking
+  id: AnatomicalBrain
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ SlimePerson ]
+  forcedColoring: false
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#c08f7b"
+  sprites:
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: brain
+
+- type: marking
+  id: AnatomicalRibs
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ SlimePerson ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: floating_ribs
+
+- type: marking
+  id: AnatomicalPelvis
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ SlimePerson ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: pelvis
+
+- type: marking
+  id: AnatomicalLungs
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ SlimePerson ]
+  forcedColoring: false
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#88525c"
+  sprites:
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: lungs
+
+- type: marking
+  id: AnatomicalHeart
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ SlimePerson ]
+  forcedColoring: false
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#9b0808"
+  sprites:
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: heart
+
+- type: marking
+  id: AnatomicalHeartandLungs
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ SlimePerson ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: organbones-heart
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: lungs
+
+- type: marking
+  id: AnatomicalOrgans
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ SlimePerson ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: organbones-heart
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: lungs
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: organ-pharynx
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: organ-stomach
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: organ-liver
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: organ-large_intestine
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: organ-small_intestine
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: organ-bladder
+
+- type: marking
+  id: AnatomicalOrganBones
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ SlimePerson ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: organbones-heart
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: organbones-lungs
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: organbones-pharynx
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: organbones-liver
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: organbones-stomach
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: organbones-large_intestine
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: organbones-small_intestine
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: organbones-bladder
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: organbones-bones
+
+- type: marking
+  id: AnatomicalFloatingTorso
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ SlimePerson ]
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: organbones-heart
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: organbones-lungs
+  - sprite: _DEN/Mobs/Customization/SlimePerson/anatomical.rsi
+    state: floating_ribs

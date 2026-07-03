@@ -1,0 +1,53 @@
+# SPDX-FileCopyrightText: 2025 portfiend
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Eyes
+
+- type: marking
+  id: EyesShadowkin
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Shadowkin ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  forcedColoring: true
+  sprites:
+  - sprite: Mobs/Species/Shadowkin/parts.rsi
+    state: eyes
+
+- type: marking
+  id: EyesShadowkinUnshaded
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Shadowkin ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: false
+  forcedColoring: true
+  sprites:
+  - sprite: Mobs/Species/Shadowkin/parts.rsi
+    state: eyes
+  shader: unshaded
+
+# Tails
+
+- type: marking
+  id: TailShadowkinBigFluffAnimated
+  parent: BaseTailMarking
+  layering:
+    shadowkin_big_fluff_under_wag: TailBehind
+    shadowkin_big_fluff_over_wag: Tail
+  colorLinks:
+    shadowkin_big_fluff_under_wag: shadowkin_big_fluff_over_wag
+  colorIndexRedirect:
+  - 0
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Shadowkin/tailwag64x32.rsi
+    state: shadowkin_big_fluff_over_wag
+  - sprite: _DEN/Mobs/Customization/Shadowkin/tailwag64x32.rsi
+    state: shadowkin_big_fluff_under_wag

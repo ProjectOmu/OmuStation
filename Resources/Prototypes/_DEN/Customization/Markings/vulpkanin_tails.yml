@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2026 starlighthowls
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: marking
+  id: VulpTailHuskyAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/husky_tail.rsi
+    state: base_wag
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/husky_tail.rsi
+    state: markings_wag

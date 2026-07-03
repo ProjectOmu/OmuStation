@@ -1,0 +1,91 @@
+# SPDX-FileCopyrightText: 2025 LaconiumDragona
+# SPDX-FileCopyrightText: 2025 portfiend
+# SPDX-FileCopyrightText: 2025 sleepyyapril
+#
+# SPDX-License-Identifier: MIT AND AGPL-3.0-or-later
+
+- type: marking
+  id: ReptilianSharpCobraHood
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Reptilian/sharpcobrahood.rsi
+    state: sharp_cobra_hood_overlay
+  - sprite: _DEN/Mobs/Customization/Reptilian/sharpcobrahood.rsi
+    state: sharp_cobra_hood
+
+- type: marking
+  id: ReptilianHornsShort
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Reptilian/horns.rsi
+    state: short_horns
+
+- type: marking
+  id: ReptilianEarsFloppy
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Reptilian/ears.rsi
+    state: floppy_ears
+
+- type: marking
+  id: ReptilianHeadCheekTuft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Reptilian/cheek.rsi
+    state: cheek_tuft
+
+- type: marking
+  id: ReptilianTailFurred
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian, Vulpkanin, Human]
+  layering:
+    furred_tail_under: TailBehind
+    furred_tail_over: TailOversuit
+  colorLinks:
+    furred_tail_over: furred_tail_under
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Reptilian/tail.rsi
+    state: furred_tail_under
+  - sprite: _DEN/Mobs/Customization/Reptilian/tail.rsi
+    state: furred_tail_over
+
+- type: marking
+  id: ReptilianEarsSoft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Reptilian/softears.rsi
+    state: koboldearssoft
+
+- type: marking
+  id: ReptilianEarsTall
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Reptilian/softears.rsi
+    state: koboldearstall
+
+- type: marking
+  id: LizardLittleHorns
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Reptilian/littlehorns.rsi
+    state: little

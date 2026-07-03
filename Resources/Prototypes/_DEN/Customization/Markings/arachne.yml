@@ -1,0 +1,28 @@
+# Eyes
+
+- type: marking
+  id: ArachneEyesDefault
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: [ Arachne ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: Mobs/Species/eyes.rsi
+    state: eyes
+
+- type: marking
+  id: ArachneEyesGlow
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: [ Arachne ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: Mobs/Species/eyes.rsi
+    state: eyes
+  shader: unshaded

@@ -1,0 +1,130 @@
+# SPDX-FileCopyrightText: 2025 LaconiumDragona
+# SPDX-FileCopyrightText: 2025 mart
+# SPDX-FileCopyrightText: 2025 portfiend
+# SPDX-FileCopyrightText: 2025 sheepie
+# SPDX-FileCopyrightText: 2025 sleepyyapril
+#
+# SPDX-License-Identifier: MIT AND AGPL-3.0-or-later
+- type: marking
+  abstract: true
+  id: VulpkaninChestMarking
+  invertSpeciesRestriction: true
+  speciesRestriction: [Vox, Resomi, Shadowkin, Plasmaman, Thaven, Diona, Moth, Chitinid]
+  bodyPart: Chest
+  markingCategory: Chest
+
+- type: marking
+  id: NeckChestfluff
+  parent: VulpkaninChestMarking
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/vulpkanin.rsi
+    state: chestfloof
+
+- type: marking
+  id: TailBrushtip
+  parent: BaseTailMarking
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/vulpkanin.rsi
+    state: brushtiptail
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/vulpkanin.rsi
+    state: brushtiptail2
+
+- type: marking
+  id: SnoutCheesegal
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Vulpkanin, IPC, SlimePerson, Human, Kitsune, Oni]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/cheesegal.rsi
+    state:  sergsnoutredux-1
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/cheesegal.rsi
+    state:  sergsnoutredux-2
+
+- type: marking
+  id: EarsCheesegal
+  parent: BaseEarsMarking
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/cheesegal.rsi
+    state: sergears-1
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/cheesegal.rsi
+    state: sergears-2
+
+- type: marking
+  id: TailCheesegal
+  parent: BaseTailMarking
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/cheesegal.rsi
+    state: sergtail-1
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/cheesegal.rsi
+    state: sergtail-2
+
+- type: marking
+  id: NeckChestsmallfluff
+  parent: VulpkaninChestMarking
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/neckfluff.rsi
+    state: smallfluff
+
+- type: marking
+  id: NeckChestbigfluff
+  parent: VulpkaninChestMarking
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/neckfluff.rsi
+    state: bigfluff
+
+- type: marking
+  id: NeckChestbandanafluff
+  parent: VulpkaninChestMarking
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/neckfluff.rsi
+    state: bandanafluff
+
+- type: marking
+  id: NeckChestbackgerm
+  parent: VulpkaninChestMarking
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/backmarks.rsi
+    state: backgerm
+
+- type: marking
+  id: NeckChestbackupper
+  parent: VulpkaninChestMarking
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/backmarks.rsi
+    state: backupper
+
+- type: marking
+  id: NeckChestbackwhole
+  parent: VulpkaninChestMarking
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/backmarks.rsi
+    state: backwhole
+
+- type: marking
+  id: VulpTailFluffyTip
+  parent: BaseTailMarking
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/fluffytip.rsi
+    state: fluffyalt
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/fluffytip.rsi
+    state: fluffyalttip
+
+- type: marking
+  id: VulpTailFluffyAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/fluffytip.rsi
+    state: fluffywag
+
+- type: marking
+  id: VulpTailFluffyTipAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/fluffytip.rsi
+    state: fluffyaltwag
+  - sprite: _DEN/Mobs/Customization/Vulpkanin/fluffytip.rsi
+    state: fluffyaltwagtip

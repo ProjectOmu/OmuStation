@@ -1,0 +1,143 @@
+# SPDX-FileCopyrightText: 2025 portfiend
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Markings are inheriting. That means they can have parents now. Yay!
+
+## Colors
+
+- type: marking
+  abstract: true
+  id: BaseColorWhite
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+
+- type: marking
+  abstract: true
+  id: BaseTattoo
+  coloring:
+    default:
+      type: !type:TattooColoring
+      fallbackColor: "#666666"
+
+## Parts / complex
+
+- type: marking
+  abstract: true
+  id: BaseEyes
+  bodyPart: Eyes
+  markingCategory: Head
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+
+- type: marking
+  abstract: true
+  parent: [BaseSpeciesWithAss, BaseColorWhite]
+  id: BaseUnderpants
+  bodyPart: Underwear
+  markingCategory: Underwear
+
+- type: marking
+  abstract: true
+  parent: [BaseSpeciesChestStandard, BaseColorWhite]
+  id: BaseUndershirt
+  bodyPart: Undershirt
+  markingCategory: Undershirt
+
+## Parts / categories
+
+- type: marking
+  abstract: true
+  id: BaseChest
+  markingCategory: Chest
+  bodyPart: Chest
+
+- type: marking
+  abstract: true
+  id: BaseHead
+  markingCategory: Head
+  bodyPart: Head
+
+- type: marking
+  abstract: true
+  id: BaseHeadTop
+  markingCategory: HeadTop
+  bodyPart: HeadTop
+
+- type: marking
+  abstract: true
+  id: BaseHeadSide
+  markingCategory: HeadSide
+  bodyPart: HeadSide
+
+- type: marking
+  abstract: true
+  id: BaseFace
+  markingCategory: Face
+  bodyPart: Face
+
+- type: marking
+  abstract: true
+  id: BaseSnout
+  markingCategory: Snout
+  bodyPart: Snout
+
+- type: marking
+  abstract: true
+  id: BaseNeckFluff
+  bodyPart: NeckFluff
+  markingCategory: NeckFluff
+
+- type: marking
+  abstract: true
+  id: BaseTail
+  markingCategory: Tail
+  bodyPart: Tail
+
+# Cyberlimbs
+## (These are basic IPC parts, but they're also prosthetic markings for other species.)
+
+# Excluded species:
+# - Species who do not have arms.
+# - Species for whom arm prosthetics would not fit on their sprite.
+# - Species without skin and flesh.
+# NEVER exclude IPC from this list. This is also their body sprite.
+# TODO: Make custom prosthetic sprites for Moth and Chitinid and then add them to this list.
+- type: marking
+  abstract: true
+  parent: BaseSpeciesIPC
+  id: BaseArmsCyberlimb
+  invertSpeciesRestriction: true
+  speciesRestriction:
+  - Diona
+  - Harpy
+  - Plasmaman
+  - Resomi
+  - Vox
+
+# Excluded species:
+# - Species who do not have legs.
+# - Species for whom leg prosthetics would not fit on their sprite.
+# - Species without skin and flesh.
+# NEVER exclude IPC from this list. This is also their body sprite.
+# TODO: Make custom prosthetic sprites for Moth and Chitinid and then add them to this list.
+- type: marking
+  abstract: true
+  parent: BaseSpeciesIPC
+  id: BaseLegsCyberlimb
+  invertSpeciesRestriction: true
+  speciesRestriction:
+  - Arachne
+  - Diona
+  - Harpy
+  - Ovinia
+  - Plasmaman
+  - Resomi
+  - Shadowkin
+  - Vox

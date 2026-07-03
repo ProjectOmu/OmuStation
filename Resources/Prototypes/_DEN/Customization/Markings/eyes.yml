@@ -1,0 +1,35 @@
+# SPDX-FileCopyrightText: 2025 Aikakakah
+# SPDX-FileCopyrightText: 2025 maelines
+# SPDX-FileCopyrightText: 2025 portfiend
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: marking
+  id: HumanEyesGlow
+  parent: BaseEyesMarking
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Head/eyes.rsi
+    state: glowingeyes
+  shader: unshaded
+
+- type: marking
+  id: HumanEyesGlowR
+  parent: BaseEyesMarking
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Head/eyes.rsi
+    state: glowingeyer
+  shader: unshaded
+
+- type: marking
+  id: HumanEyesGlowL
+  parent: BaseEyesMarking
+  forcedColoring: false
+  followSkinColor: false
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Head/eyes.rsi
+    state: glowingeyel
+  shader: unshaded

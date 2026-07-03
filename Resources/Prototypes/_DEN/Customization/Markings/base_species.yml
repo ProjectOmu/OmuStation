@@ -1,0 +1,381 @@
+# SPDX-FileCopyrightText: 2025 portfiend
+# SPDX-FileCopyrightText: 2026 Shaman
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Markings are inheriting. That means they can have parents now. Yay!
+# This file is mostly for species restriction lists.
+# Keep in mind that there is no partial inheritance of species restrictions, so you have to redeclare the entire
+# species restriction list in its entirety for each speciesRestriction property.
+
+# Arachne
+# Arachnid
+# Canid
+# Chitinid
+# Diona
+# Felinid
+# Feroxi
+# Harpy
+# Human
+# IPC
+# Kitsune
+# Moth
+# Oni
+# Ovinia
+# Plasmaman
+# Reptilian
+# Resomi
+# Rodentia
+# Shadowkin
+# SlimePerson
+# Tajaran
+# Thaven
+# Vox
+# Vulpkanin
+
+# Species that use the "standard" body/head shape.
+# Excluded species:
+# - Different body/head size and shape.
+# - For example: digitigrade legs, radical body size differences.
+# Not excluded species:
+# - Snouts, tails, other "additions" to the base.
+# Use for: Markings that fit reasonably well on the humanoid sprite base.
+# Avoid using for: Markings that look weird on snouted species. (Sides/back/top of head are fine.)
+- type: marking
+  abstract: true
+  id: BaseSpeciesHeadStandard
+  invertSpeciesRestriction: true
+  speciesRestriction:
+    - Resomi
+    - Plasmaman
+    - Thaven
+    - Vox
+
+- type: marking
+  abstract: true
+  id: BaseSpeciesChestStandard
+  bodyPart: Chest
+  invertSpeciesRestriction: true
+  speciesRestriction:
+    - Resomi
+    - Plasmaman
+    - Thaven
+    - Vox
+
+- type: marking
+  abstract: true
+  id: BaseSpeciesArmsStandard
+  invertSpeciesRestriction: true
+  speciesRestriction:
+    - Chitinid
+    - Diona
+    - Harpy
+    - Moth
+    - Plasmaman
+    - Resomi
+    - Thaven
+    - Vox
+
+- type: marking
+  abstract: true
+  id: BaseSpeciesLegsStandard
+  invertSpeciesRestriction: true
+  speciesRestriction:
+    - Arachne
+    - Chitinid
+    - Diona
+    - Harpy
+    - Moth
+    - Ovinia
+    - Plasmaman
+    - Resomi
+    - Shadowkin
+    - Vox
+
+# Excluded species: Anything that doesn't have standard chest AND standard legs
+# Generally for markings that are full pants, since touching the hips means we have to consider the chest too
+- type: marking
+  abstract: true
+  id: BaseSpeciesChestLegsStandard
+  invertSpeciesRestriction: true
+  speciesRestriction:
+    - Arachne
+    - Chitinid
+    - Diona
+    - Harpy
+    - Moth
+    - Ovinia
+    - Plasmaman
+    - Resomi
+    - Shadowkin
+    - Vox
+    - Thaven
+
+# Excluded species: Anything in the other "standard body" restrictions.
+- type: marking
+  abstract: true
+  id: BaseSpeciesFullBodyStandard
+  invertSpeciesRestriction: true
+  speciesRestriction:
+    - Arachne
+    - Chitinid
+    - Diona
+    - Harpy
+    - Moth
+    - Ovinia
+    - Plasmaman
+    - Resomi
+    - Shadowkin
+    - Thaven
+    - Vox
+
+# Excluded species:
+# - Species with weird eye shapes/positions.
+# - Species for whom changing the eye shape looks bad or makes no sense.
+- type: marking
+  abstract: true
+  id: BaseSpeciesEyesStandard
+  bodyPart: Eyes
+  invertSpeciesRestriction: true
+  speciesRestriction:
+    - Moth
+    - Chitinid
+    - Shadowkin
+    - Arachne
+    - Arachnid
+    - Resomi
+    - IPC
+    - Thaven
+    - Vox
+
+# "Organic" species with standard heads/bodies.
+# Excluded: Same as standard. Species that lack skin.
+# Good for tattoos.
+
+- type: marking
+  abstract: true
+  id: BaseSpeciesHeadStandardOrganic
+  invertSpeciesRestriction: true
+  speciesRestriction:
+    # Non-standard
+    - Resomi
+    - Plasmaman
+    - Thaven
+    - Vox
+    # Skinless / inorganic
+    - Diona
+    - IPC
+    - SlimePerson
+
+- type: marking
+  abstract: true
+  id: BaseSpeciesChestStandardOrganic
+  bodyPart: Chest
+  invertSpeciesRestriction: true
+  speciesRestriction:
+    # Non-standard
+    - Resomi
+    - Plasmaman
+    - Thaven
+    - Vox
+    # Skinless / inorganic
+    - Diona
+    - IPC
+    - SlimePerson
+
+- type: marking
+  abstract: true
+  id: BaseSpeciesArmsStandardOrganic
+  invertSpeciesRestriction: true
+  speciesRestriction:
+    # Non-standard
+    - Chitinid
+    - Diona
+    - Harpy
+    - Moth
+    - Plasmaman
+    - Resomi
+    - Vox
+    # Skinless / inorganic
+    - Diona
+    - IPC
+    - SlimePerson
+
+- type: marking
+  abstract: true
+  id: BaseSpeciesLegsStandardOrganic
+  invertSpeciesRestriction: true
+  speciesRestriction:
+    # Non-standard
+    - Arachne
+    - Chitinid
+    - Diona
+    - Harpy
+    - Moth
+    - Ovinia
+    - Plasmaman
+    - Resomi
+    - Shadowkin
+    - Vox
+    # Skinless / inorganic
+    - Diona
+    - IPC
+    - SlimePerson
+
+# Species that use the human head and body sprites specifically.
+# Included species: Humans, demihumans, species that use human sprites.
+# Use for: Markings designed for the human body.
+# Avoid using for: Markings designed to be used for furry/custom-sprited species.
+
+- type: marking
+  abstract: true
+  id: BaseSpeciesHeadHuman
+  speciesRestriction:
+    - Arachne
+    - Canid
+    - Dwarf
+    - Felinid
+    - Harpy
+    - Human
+    - Kitsune
+    - Lamia
+    - Oni
+    - SlimePerson # Close enough
+
+- type: marking
+  abstract: true
+  id: BaseSpeciesChestHuman
+  speciesRestriction:
+    - Arachne
+    - Canid
+    - Dwarf
+    - Felinid
+    - Human
+    - Kitsune
+    - Lamia
+    - Oni
+    - SlimePerson # Close enough
+
+- type: marking
+  abstract: true
+  id: BaseSpeciesArmsHuman
+  speciesRestriction:
+    - Arachne
+    - Canid
+    - Dwarf
+    - Felinid
+    - Human
+    - Kitsune
+    - Lamia
+    - Oni
+    - SlimePerson # Close enough
+
+# No taurs.
+- type: marking
+  abstract: true
+  id: BaseSpeciesLegsHuman
+  speciesRestriction:
+    - Canid
+    - Dwarf
+    - Felinid
+    - Human
+    - Kitsune
+    - Oni
+    - SlimePerson # Close enough
+
+# Face shapes.
+
+# Included species: Species with standard-ish heads and no/short snout.
+# Short snout protrudes one pixel from the head.
+- type: marking
+  abstract: true
+  id: BaseSpeciesFaceShort
+  speciesRestriction:
+    # Human head
+    - Arachne
+    - Canid
+    - Felinid
+    - Harpy
+    - Human
+    - Kitsune
+    - Oni
+    - SlimePerson
+    # Short snout
+    - Ovinia
+    - Rodentia
+    - Tajaran
+
+# Included species: Species whose snouts extend 1 pixel from the head.
+- type: marking
+  abstract: true
+  id: BaseSpeciesFaceSnoutShort
+  speciesRestriction:
+    - Ovinia
+    - Rodentia
+    - Tajaran
+
+# Included species: Species whose snouts extend 3-4 pixels from the head.
+- type: marking
+  abstract: true
+  id: BaseSpeciesFaceSnoutLong
+  speciesRestriction:
+    - Feroxi
+    - Reptilian
+    - Vulpkanin
+
+# Body features.
+
+# Excluded species:
+# - Species who couldn't wear normal pants without them falling off.
+# - Species whose sprites wouldn't fit in pants anyway.
+# Not excluded: Species that have tails.
+- type: marking
+  abstract: true
+  id: BaseSpeciesWithAss
+  invertSpeciesRestriction: true
+  speciesRestriction:
+    - Arachne
+    - Plasmaman
+    - Resomi
+    - Thaven
+
+# Non-standard species restrictions.
+# Why single-species restrictions, you ask? I would like to minimize the amount of `speciesRestriction` redeclaration
+# in general. Always easier to edit one prototype than it is to edit potentially dozens. Maybe you add a species that
+# has an identical body but does something different - not that I recommend this.
+
+- type: marking
+  abstract: true
+  id: BaseSpeciesArachne
+  speciesRestriction: [Arachne]
+  preferredSpecies: [Arachne]
+
+- type: marking
+  abstract: true
+  id: BaseSpeciesIPC
+  speciesRestriction: [IPC]
+  preferredSpecies: [IPC]
+
+- type: marking
+  abstract: true
+  id: BaseSpeciesMoth
+  speciesRestriction: [Moth]
+  preferredSpecies: [Moth]
+
+- type: marking
+  abstract: true
+  id: BaseSpeciesOvinia
+  speciesRestriction: [Ovinia]
+  preferredSpecies: [Ovinia]
+
+- type: marking
+  abstract: true
+  id: BaseSpeciesRodentia
+  speciesRestriction: [Rodentia]
+  preferredSpecies: [Rodentia]
+
+- type: marking
+  abstract: true
+  id: BaseSpeciesVox
+  speciesRestriction: [Vox]
+  preferredSpecies: [Vox]
