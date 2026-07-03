@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/25/2026 18:47:14
-  entityCount: 27000
+  time: 07/03/2026 07:50:45
+  entityCount: 27008
 maps:
 - 1
 grids:
@@ -14256,6 +14256,13 @@ entities:
     - type: Transform
       pos: -110.5,-28.5
       parent: 2
+- proto: AirlockMaintGlassLocked
+  entities:
+  - uid: 23381
+    components:
+    - type: Transform
+      pos: -83.5,11.5
+      parent: 2
 - proto: AirlockMaintHOPLocked
   entities:
   - uid: 2912
@@ -15064,7 +15071,7 @@ entities:
       pos: -131.5,-45.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -91667.49
+      secondsUntilStateChange: -91862.76
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -65558,13 +65565,6 @@ entities:
     - type: Transform
       pos: -17.418892,-4.640849
       parent: 2
-- proto: CloningPod
-  entities:
-  - uid: 13706
-    components:
-    - type: Transform
-      pos: -17.5,-25.5
-      parent: 2
 - proto: ClosetBombFilled
   entities:
   - uid: 7261
@@ -66866,26 +66866,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -57.5,-37.5
       parent: 2
-- proto: ComputerCloningConsole
-  entities:
-  - uid: 13904
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -17.5,-24.5
-      parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        5985:
-        - - CloningPodSender
-          - MedicalScannerReceiver
-        - - MedicalScannerSender
-          - MedicalScannerReceiver
-        13706:
-        - - CloningPodSender
-          - CloningPodReceiver
-        - - MedicalScannerSender
-          - CloningPodReceiver
 - proto: ComputerComms
   entities:
   - uid: 2690
@@ -68018,11 +67998,6 @@ entities:
     components:
     - type: Transform
       pos: -84.5,10.5
-      parent: 2
-  - uid: 23381
-    components:
-    - type: Transform
-      pos: -84.5,11.5
       parent: 2
 - proto: CrateEngineeringAMEShielding
   entities:
@@ -123090,6 +123065,11 @@ entities:
     - type: Transform
       pos: -151.5,4.5
       parent: 2
+  - uid: 5985
+    components:
+    - type: Transform
+      pos: -83.5,10.5
+      parent: 2
   - uid: 6028
     components:
     - type: Transform
@@ -130516,6 +130496,16 @@ entities:
       parent: 2
 - proto: MachineFrame
   entities:
+  - uid: 561
+    components:
+    - type: Transform
+      pos: -19.5,-23.5
+      parent: 2
+  - uid: 564
+    components:
+    - type: Transform
+      pos: -17.5,-24.5
+      parent: 2
   - uid: 1158
     components:
     - type: Transform
@@ -130537,6 +130527,11 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -154.5,-45.5
+      parent: 2
+  - uid: 13706
+    components:
+    - type: Transform
+      pos: -17.5,-25.5
       parent: 2
   - uid: 16100
     components:
@@ -130907,13 +130902,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -36.5,-42.5
-      parent: 2
-- proto: MedicalScanner
-  entities:
-  - uid: 5985
-    components:
-    - type: Transform
-      pos: -19.5,-23.5
       parent: 2
 - proto: MedicalTechFab
   entities:
@@ -131398,6 +131386,11 @@ entities:
     components:
     - type: Transform
       pos: -118.46083,-76.449524
+      parent: 2
+  - uid: 26905
+    components:
+    - type: Transform
+      pos: -17.4169,-23.367332
       parent: 2
 - proto: MysteryFigureBox
   entities:
@@ -140595,6 +140588,11 @@ entities:
     - type: Transform
       pos: -138.5,12.5
       parent: 2
+  - uid: 13904
+    components:
+    - type: Transform
+      pos: -83.5,10.5
+      parent: 2
   - uid: 14003
     components:
     - type: Transform
@@ -148500,6 +148498,23 @@ entities:
     - type: Transform
       pos: -25.5,-6.5
       parent: 2
+- proto: SpawnPointPrisoner
+  entities:
+  - uid: 26897
+    components:
+    - type: Transform
+      pos: -90.5,-48.5
+      parent: 2
+  - uid: 26899
+    components:
+    - type: Transform
+      pos: -88.5,-48.5
+      parent: 2
+  - uid: 26900
+    components:
+    - type: Transform
+      pos: -89.5,-48.5
+      parent: 2
 - proto: SpawnPointPsychologist
   entities:
   - uid: 25678
@@ -148690,6 +148705,28 @@ entities:
     components:
     - type: Transform
       pos: -64.5,-33.5
+      parent: 2
+- proto: SpawnPointShaftMiner
+  entities:
+  - uid: 26901
+    components:
+    - type: Transform
+      pos: -80.5,12.5
+      parent: 2
+  - uid: 26902
+    components:
+    - type: Transform
+      pos: -81.5,8.5
+      parent: 2
+  - uid: 26903
+    components:
+    - type: Transform
+      pos: -81.5,12.5
+      parent: 2
+  - uid: 26904
+    components:
+    - type: Transform
+      pos: -81.5,10.5
       parent: 2
 - proto: SpawnPointStationEngineer
   entities:
@@ -163144,16 +163181,6 @@ entities:
     - type: Transform
       pos: -31.5,-10.5
       parent: 2
-  - uid: 561
-    components:
-    - type: Transform
-      pos: -83.5,10.5
-      parent: 2
-  - uid: 564
-    components:
-    - type: Transform
-      pos: -83.5,11.5
-      parent: 2
   - uid: 566
     components:
     - type: Transform
@@ -173343,7 +173370,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -291774.28
+      secondsUntilStateChange: -291969.56
       state: Opening
     - type: Airlock
       autoClose: False
