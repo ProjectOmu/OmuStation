@@ -63,7 +63,8 @@
         map: ["base"]
   - type: Physics
     bodyType: Static
-  - type: Fixtures # Omu start PR#1174
+# Omu start PR#1174
+  - type: Fixtures
     fixtures:
       fix1:
         shape:
@@ -73,7 +74,8 @@
         mask:
         - MachineMask
         layer:
-        - MachineLayer # Omu start PR#1174
+        - MachineLayer
+# Omu start PR#1174
   - type: Construction
     graph: Machine
     node: machine
