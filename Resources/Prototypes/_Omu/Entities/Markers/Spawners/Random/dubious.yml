@@ -24,6 +24,7 @@
       - OrganDubiousGun
       - OrganDubiousAllSeeing
       - OrganDubiousFriendship
+      - OrganDubiousPowerGen
       rareChance: 0.5 # Helps ensure there's a even distribution of good and bad glands no matter how many are added or removed.
       prototypes: # Glands that are detrimental to the abductee that may also have some benefit
       #- OrganDubiousScrambleDna
@@ -42,4 +43,5 @@
       - OrganDubiousTheVoices
       - OrganDubiousDroneVision
       - OrganDubiousClumsy
+      - OrganDubiousSlippery # Everyone is going to hate you. so I'm putting it in the bad section
       offset: 0.2

@@ -238,3 +238,51 @@
   - type: Organ
     onAdd:
     - type: Clumsy
+
+- type: entity
+  id: OrganDubiousPowerGen # I can already sense CE and QM foaming at the mouth with this one
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: egg
+  - type: Organ
+    onAdd:
+    - type: NodeContainer
+      examinable: true
+      nodes:
+        output:
+          !type:CableDeviceNode
+          nodeGroupID:
+          - HVPower
+    - type: PowerMonitoringDevice
+      group: Generator
+      loadNode: output
+      state: static
+    - type: PowerSupplier #engineering would like to know your location
+      supplyRate: 200000 # remember. this is a person, a person who odds are don't want to spend the next 40 minutes anchored to the ground
+      supplyRampRate: 500
+      supplyRampTolerance: 500
+    - type: Anchorable
+    - type: Insulated
+
+- type: entity
+  id: OrganDubiousSlippery # Honkbot incarnate (everyone is going to hate you)
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: egg
+  - type: Organ
+    onAdd:
+    - type: Slippery
+      staminaDamage: 10 #default is 25
+      slipData:
+        knockdownTime: 1.0
+        launchForwardsMultiplier: 10.0
+    - type: StepTrigger
+      intersectRatio: 0.2
+      triggerGroups:
+        types:
+        - SlipEntity
+  - type: OrganInsertOnUse
+    slotId: heart
+    partType: Chest
