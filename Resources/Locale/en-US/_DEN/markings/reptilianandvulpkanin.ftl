@@ -8,8 +8,6 @@
 # SPDX-License-Identifier: MIT AND AGPL-3.0-or-later
 
 marking-ReptilianSharpCobraHood = Sharp Cobra Hood
-marking-ReptilianSharpCobraHood-sharp_cobra_hood = Base
-marking-ReptilianSharpCobraHood-sharp_cobra_hood_overlay = Inner
 
 marking-ReptilianHornsShort = Short Horns
 marking-ReptilianHornsShort-short_horns = Horn
@@ -58,7 +56,6 @@ marking-NeckChestbackupper-backupper = Back upper
 marking-NeckChestbackwhole-backwhole = Back whole
 
 # alt version of the fluffy vulpkanin tail, with a colorable tip
-marking-VulpTailFluffyTip = Vulpkanin Fluffy (tip)
 marking-VulpTailFluffyTip-fluffyalt = Base Color
 marking-VulpTailFluffyTip-fluffyalttip = Tip Color
 

@@ -4,7 +4,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-marking-EyesShadowkin = Shadowkin Eyes
 marking-EyesShadowkinUnshaded = Glowing Shadowkin Eyes
 
 # color mapping for these now-colorable tails
