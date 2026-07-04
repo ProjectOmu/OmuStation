@@ -6,7 +6,7 @@
   - type: Item
     size: Small
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: box
     layers:
     - state: purple_box
@@ -24,7 +24,7 @@
   name: deck of cards
   components:
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: deck_tarot_full
   - type: CardStack
     content:
@@ -122,7 +122,7 @@
     sound:
       collection: cardShove
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: singlecard_down_tarot
   - type: Rotatable
   - type: Item
@@ -131,7 +131,7 @@
     delay: 0.5
   - type: Card
     backSpriteLayers:
-    - sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
       state: singlecard_down_tarot
     flipped: true
 
@@ -145,7 +145,7 @@
   - type: Card
     name: card-sc-ace-cups
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Ace_of_Cups_tarot
 
 - type: entity
@@ -157,7 +157,7 @@
   - type: Card
     name: card-sc-two-cups
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_2_of_Cups_tarot
 
 - type: entity
@@ -169,7 +169,7 @@
   - type: Card
     name: card-sc-three-cups
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_3_of_Cups_tarot
 
 - type: entity
@@ -181,7 +181,7 @@
   - type: Card
     name: card-sc-four-cups
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_4_of_Cups_tarot
 
 - type: entity
@@ -193,7 +193,7 @@
   - type: Card
     name: card-sc-five-cups
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_5_of_Cups_tarot
 
 - type: entity
@@ -205,7 +205,7 @@
   - type: Card
     name: card-sc-six-cups
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_6_of_Cups_tarot
 
 - type: entity
@@ -217,7 +217,7 @@
   - type: Card
     name: card-sc-seven-cups
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_7_of_Cups_tarot
 
 - type: entity
@@ -229,7 +229,7 @@
   - type: Card
     name: card-sc-eight-cups
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_8_of_Cups_tarot
 
 - type: entity
@@ -241,7 +241,7 @@
   - type: Card
     name: card-sc-nine-cups
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_9_of_Cups_tarot
 
 - type: entity
@@ -253,7 +253,7 @@
   - type: Card
     name: card-sc-ten-cups
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_10_of_Cups_tarot
 
 - type: entity
@@ -265,7 +265,7 @@
   - type: Card
     name: card-sc-page-cups
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Page_of_Cups_tarot
 
 - type: entity
@@ -277,7 +277,7 @@
   - type: Card
     name: card-sc-knight-cups
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Knight_of_Cups_tarot
 
 - type: entity
@@ -289,7 +289,7 @@
   - type: Card
     name: card-sc-queen-cups
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Queen_of_Cups_tarot
 
 - type: entity
@@ -301,7 +301,7 @@
   - type: Card
     name: card-sc-king-cups
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_King_of_Cups_tarot
 
 # pentacles
@@ -314,7 +314,7 @@
   - type: Card
     name: card-sc-ace-pentacles
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Ace_of_Pentacles_tarot
 
 - type: entity
@@ -326,7 +326,7 @@
   - type: Card
     name: card-sc-two-pentacles
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_2_of_Pentacles_tarot
 
 - type: entity
@@ -338,7 +338,7 @@
   - type: Card
     name: card-sc-three-pentacles
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_3_of_Pentacles_tarot
 
 - type: entity
@@ -350,7 +350,7 @@
   - type: Card
     name: card-sc-four-pentacles
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_4_of_Pentacles_tarot
 
 - type: entity
@@ -362,7 +362,7 @@
   - type: Card
     name: card-sc-five-pentacles
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_5_of_Pentacles_tarot
 
 - type: entity
@@ -374,7 +374,7 @@
   - type: Card
     name: card-sc-six-pentacles
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_6_of_Pentacles_tarot
 
 - type: entity
@@ -386,7 +386,7 @@
   - type: Card
     name: card-sc-seven-pentacles
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_7_of_Pentacles_tarot
 
 - type: entity
@@ -398,7 +398,7 @@
   - type: Card
     name: card-sc-eight-pentacles
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_8_of_Pentacles_tarot
 
 - type: entity
@@ -410,7 +410,7 @@
   - type: Card
     name: card-sc-nine-pentacles
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_9_of_Pentacles_tarot
 
 - type: entity
@@ -422,7 +422,7 @@
   - type: Card
     name: card-sc-ten-pentacles
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_10_of_Pentacles_tarot
 
 - type: entity
@@ -434,7 +434,7 @@
   - type: Card
     name: card-sc-page-pentacles
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Page_of_Pentacles_tarot
 
 - type: entity
@@ -446,7 +446,7 @@
   - type: Card
     name: card-sc-knight-pentacles
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Knight_of_Pentacles_tarot
 
 - type: entity
@@ -458,7 +458,7 @@
   - type: Card
     name: card-sc-queen-pentacles
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Queen_of_Pentacles_tarot
 
 - type: entity
@@ -470,7 +470,7 @@
   - type: Card
     name: card-sc-king-pentacles
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_King_of_Pentacles_tarot
 
 # swords
@@ -483,7 +483,7 @@
   - type: Card
     name: card-sc-ace-swords
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Ace_of_Swords_tarot
 
 - type: entity
@@ -495,7 +495,7 @@
   - type: Card
     name: card-sc-two-swords
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_2_of_Swords_tarot
 
 - type: entity
@@ -507,7 +507,7 @@
   - type: Card
     name: card-sc-three-swords
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_3_of_Swords_tarot
 
 - type: entity
@@ -519,7 +519,7 @@
   - type: Card
     name: card-sc-four-swords
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_4_of_Swords_tarot
 
 - type: entity
@@ -531,7 +531,7 @@
   - type: Card
     name: card-sc-five-swords
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_5_of_Swords_tarot
 
 - type: entity
@@ -543,7 +543,7 @@
   - type: Card
     name: card-sc-six-swords
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_6_of_Swords_tarot
 
 - type: entity
@@ -555,7 +555,7 @@
   - type: Card
     name: card-sc-seven-swords
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_7_of_Swords_tarot
 
 - type: entity
@@ -567,7 +567,7 @@
   - type: Card
     name: card-sc-eight-swords
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_8_of_Swords_tarot
 
 - type: entity
@@ -579,7 +579,7 @@
   - type: Card
     name: card-sc-nine-swords
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_9_of_Swords_tarot
 
 - type: entity
@@ -591,7 +591,7 @@
   - type: Card
     name: card-sc-ten-swords
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_10_of_Swords_tarot
 
 - type: entity
@@ -603,7 +603,7 @@
   - type: Card
     name: card-sc-page-swords
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Page_of_Swords_tarot
 
 - type: entity
@@ -615,7 +615,7 @@
   - type: Card
     name: card-sc-knight-swords
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Knight_of_Swords_tarot
 
 - type: entity
@@ -627,7 +627,7 @@
   - type: Card
     name: card-sc-queen-swords
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Queen_of_Swords_tarot
 
 - type: entity
@@ -639,7 +639,7 @@
   - type: Card
     name: card-sc-king-swords
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_King_of_Swords_tarot
 
 # wands
@@ -652,7 +652,7 @@
   - type: Card
     name: card-sc-ace-wands
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Ace_of_Wands_tarot
 
 - type: entity
@@ -664,7 +664,7 @@
   - type: Card
     name: card-sc-two-wands
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_2_of_Wands_tarot
 
 - type: entity
@@ -676,7 +676,7 @@
   - type: Card
     name: card-sc-three-wands
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_3_of_Wands_tarot
 
 - type: entity
@@ -688,7 +688,7 @@
   - type: Card
     name: card-sc-four-wands
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_4_of_Wands_tarot
 
 - type: entity
@@ -700,7 +700,7 @@
   - type: Card
     name: card-sc-five-wands
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_5_of_Wands_tarot
 
 - type: entity
@@ -712,7 +712,7 @@
   - type: Card
     name: card-sc-six-wands
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_6_of_Wands_tarot
 
 - type: entity
@@ -724,7 +724,7 @@
   - type: Card
     name: card-sc-seven-wands
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_7_of_Wands_tarot
 
 - type: entity
@@ -736,7 +736,7 @@
   - type: Card
     name: card-sc-eight-wands
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_8_of_Wands_tarot
 
 - type: entity
@@ -748,7 +748,7 @@
   - type: Card
     name: card-sc-nine-wands
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_9_of_Wands_tarot
 
 - type: entity
@@ -760,7 +760,7 @@
   - type: Card
     name: card-sc-ten-wands
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_10_of_Wands_tarot
 
 - type: entity
@@ -772,7 +772,7 @@
   - type: Card
     name: card-sc-page-wands
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Page_of_Wands_tarot
 
 - type: entity
@@ -784,7 +784,7 @@
   - type: Card
     name: card-sc-knight-wands
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Knight_of_Wands_tarot
 
 - type: entity
@@ -796,7 +796,7 @@
   - type: Card
     name: card-sc-queen-wands
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Queen_of_Wands_tarot
 
 - type: entity
@@ -808,7 +808,7 @@
   - type: Card
     name: card-sc-king-wands
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_King_of_Wands_tarot
 
 - type: entity
@@ -820,7 +820,7 @@
   - type: Card
     name: card-sc-the-fool
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Fool_tarot
 
 - type: entity
@@ -832,7 +832,7 @@
   - type: Card
     name: card-sc-the-magician
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Magician_tarot
 
 - type: entity
@@ -844,7 +844,7 @@
   - type: Card
     name: card-sc-the-high-priestess
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_High_Priestess_tarot
 
 - type: entity
@@ -856,7 +856,7 @@
   - type: Card
     name: card-sc-the-empress
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Empress_tarot
 
 - type: entity
@@ -868,7 +868,7 @@
   - type: Card
     name: card-sc-the-emperor
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Emperor_tarot
 
 - type: entity
@@ -880,7 +880,7 @@
   - type: Card
     name: card-sc-the-hierophant
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Hierophant_tarot
 
 - type: entity
@@ -892,7 +892,7 @@
   - type: Card
     name: card-sc-the-lovers
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Lovers_tarot
 
 - type: entity
@@ -904,7 +904,7 @@
   - type: Card
     name: card-sc-the-chariot
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Chariot_tarot
 
 - type: entity
@@ -916,7 +916,7 @@
   - type: Card
     name: card-sc-strength
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Strength_tarot
 
 - type: entity
@@ -928,7 +928,7 @@
   - type: Card
     name: card-sc-the-hermit
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Hermit_tarot
 
 - type: entity
@@ -940,7 +940,7 @@
   - type: Card
     name: card-sc-the-wheel
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Wheel_tarot
 
 - type: entity
@@ -952,7 +952,7 @@
   - type: Card
     name: card-sc-justice
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Justice_tarot
 
 - type: entity
@@ -964,7 +964,7 @@
   - type: Card
     name: card-sc-the-hanged-man
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Hanged_Man_tarot
 
 - type: entity
@@ -976,7 +976,7 @@
   - type: Card
     name: card-sc-death
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Death_tarot
 
 - type: entity
@@ -988,7 +988,7 @@
   - type: Card
     name: card-sc-temperance
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Temperance_tarot
 
 - type: entity
@@ -1000,7 +1000,7 @@
   - type: Card
     name: card-sc-the-devil
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Devil_tarot
 
 - type: entity
@@ -1012,7 +1012,7 @@
   - type: Card
     name: card-sc-the-tower
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Tower_tarot
 
 - type: entity
@@ -1024,7 +1024,7 @@
   - type: Card
     name: card-sc-the-star
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Star_tarot
 
 - type: entity
@@ -1036,7 +1036,7 @@
   - type: Card
     name: card-sc-the-moon
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Moon_tarot
 
 - type: entity
@@ -1048,7 +1048,7 @@
   - type: Card
     name: card-sc-the-sun
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_Sun_tarot
 
 - type: entity
@@ -1060,7 +1060,7 @@
   - type: Card
     name: card-sc-judgement
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Judgement_tarot
 
 - type: entity
@@ -1072,7 +1072,7 @@
   - type: Card
     name: card-sc-the-world
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_World_tarot
 
 # TippyTrump cards
@@ -1133,7 +1133,7 @@
     - 0,0,1,2
     maxItemSize: Tiny
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: box
     layers:
     - state: tt_boxclosed
@@ -1239,7 +1239,7 @@
   - type: Item
     size: Tiny
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     layers:
     - state: pack
   - type: EmitSoundOnUse
@@ -1262,7 +1262,7 @@
     - 0,0,4,0
     maxItemSize: Tiny
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     layers:
       - state: pack_open
   - type: Tag
@@ -1453,7 +1453,7 @@
     sound:
       collection: cardShove
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_back
   - type: Rotatable
   - type: Item
@@ -1462,7 +1462,7 @@
     delay: 0.5
   - type: Card
     backSpriteLayers:
-    - sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
       state: tt_back
     flipped: true
   - type: Edible
@@ -1500,7 +1500,7 @@
   - type: Card
     name: Yum-Yum card. "Oh, shit! It's Yum-Yum!" Robustness - 10, Validity - 10, Whimsy 10
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: yumyum
   - type: StaticPrice # to do, make announceOnSale or something
     price: 10000
@@ -1514,7 +1514,7 @@
   - type: Card
     name: Legendary Gondal card. Robustness - 8, Validity - 1, Whimsy 9
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_gondal
 
 - type: entity
@@ -1533,7 +1533,7 @@
   - type: Card
     name: Legendary V-Rex card. Robustness - 9, Validity - 7, Whimsy 6
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_vrex
 
 - type: entity
@@ -1544,7 +1544,7 @@
   - type: Card
     name: Legendary Dragon card. Robustness - 8, Validity - 9, Whimsy 3
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_dragon
 
 - type: entity
@@ -1563,7 +1563,7 @@
   - type: Card
     name: Legendary Eeep card. Robustness - 5, Validity - 10, Whimsy 4
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_eeep
 
 - type: entity
@@ -1574,7 +1574,7 @@
   - type: Card
     name: Rare Eeeplet card. Robustness - 5, Validity - 3, Whimsy 7
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_eeeplet
 
 - type: entity
@@ -1585,7 +1585,7 @@
   - type: Card
     name: Rare Replicator card. Robustness - 7, Validity - 5, Whimsy 3
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_repli
 
 - type: entity
@@ -1596,7 +1596,7 @@
   - type: Card
     name: Common Beeroboros card. Robustness - 1, Validity - 3, Whimsy 1
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_orbbees
 
 - type: entity
@@ -1615,7 +1615,7 @@
   - type: Card
     name: Legendary Behonker card. Robustness - 7, Validity - 8, Whimsy 8
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_behonker
 
 - type: entity
@@ -1634,7 +1634,7 @@
   - type: Card
     name: Rare Groteseque card. Robustness - 7, Validity - 5, Whimsy 3
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_rock
 
 - type: entity
@@ -1645,7 +1645,7 @@
   - type: Card
     name: Rare Rat King card. Robustness - 4, Validity - 8, Whimsy 4
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_rking
 
 - type: entity
@@ -1656,7 +1656,7 @@
   - type: Card
     name: Common Rat Servant card. Robustness - 2, Validity - 6, Whimsy 1
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_rs
 
 - type: entity
@@ -1667,7 +1667,7 @@
   - type: Card
     name: UnCommon Gorilla card. Robustness - 6, Validity - 2, Whimsy 5
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_gorilla
 
 - type: entity
@@ -1678,7 +1678,7 @@
   - type: Card
     name: UnCommon Forklift card. Robustness - 7, Validity - 3, Whimsy 2
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_forklift
 
 - type: entity
@@ -1689,7 +1689,7 @@
   - type: Card
     name: UnCommon Hivelord card. Robustness - 5, Validity - 6, Whimsy 2
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_hivelord
 
 - type: entity
@@ -1708,7 +1708,7 @@
   - type: Card
     name: Super Rare Goliath card. Robustness - 8, Validity - 6, Whimsy 4
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_golaith
 
 - type: entity
@@ -1727,7 +1727,7 @@
   - type: Card
     name: UnCommon Basilisk card. Robustness - 6, Validity - 5, Whimsy 3
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_basilisk
 
 - type: entity
@@ -1746,7 +1746,7 @@
   - type: Card
     name: Rare Supermatter spider card. Robustness - 10, Validity - 2, Whimsy 4
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_smspider
 
 - type: entity
@@ -1757,7 +1757,7 @@
   - type: Card
     name: Rare Grenade Penguin card. Robustness - 5, Validity - 5, Whimsy 6
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_penguin
 
 - type: entity
@@ -1776,7 +1776,7 @@
   - type: Card
     name: Super Rare Rouny card. Robustness - 7, Validity - 7, Whimsy 7
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_rouny
 
 - type: entity
@@ -1795,7 +1795,7 @@
   - type: Card
     name: Rare Revenant card. Robustness - 4, Validity - 7, Whimsy 6
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_rev
 
 - type: entity
@@ -1806,7 +1806,7 @@
   - type: Card
     name: UnCommon Shiva card. Robustness - 6, Validity - 4, Whimsy 3
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_shiva
 
 - type: entity
@@ -1817,7 +1817,7 @@
   - type: Card
     name: Rare Laser Raptor. Robustness - 6, Validity - 5, Whimsy 5
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_lr
 
 - type: entity
@@ -1836,7 +1836,7 @@
   - type: Card
     name:  UnCommon Laser-less laser Raptor card. Robustness - 1, Validity - 5, Whimsy 7
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_llr
 
 - type: entity
@@ -1855,7 +1855,7 @@
   - type: Card
     name: Super Rare Space Snake card. Robustness - 6, Validity - 8, Whimsy 4
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_ssnake
 
 - type: entity
@@ -1874,7 +1874,7 @@
   - type: Card
     name: UnCommon Space Bear card. Robustness - 6, Validity - 6, Whimsy 2
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_sbear
 
 - type: entity
@@ -1893,7 +1893,7 @@
   - type: Card
     name: UnCommon Watcher card. Robustness - 4, Validity - 5, Whimsy 4
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_watcher
 
 - type: entity
@@ -1912,7 +1912,7 @@
   - type: Card
     name: Rare Kangaroo card. Robustness - 6, Validity - 6, Whimsy 3
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_sroo
 
 - type: entity
@@ -1931,7 +1931,7 @@
   - type: Card
     name: Rare Bombadilidiidae card. Robustness - 5, Validity - 5, Whimsy 6
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_bomb
 
 - type: entity
@@ -1950,7 +1950,7 @@
   - type: Card
     name: Rare Willow card. Robustness - 6, Validity - 4, Whimsy 5
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_roo
 
 - type: entity
@@ -1961,7 +1961,7 @@
   - type: Card
     name: Common BROS card. Robustness - 1, Validity - 3, Whimsy 5
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_bros
 
 - type: entity
@@ -1980,7 +1980,7 @@
   - type: Card
     name: Common SORB card. Robustness - 5, Validity - 3, Whimsy 1
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_sorb
 
 - type: entity
@@ -1999,7 +1999,7 @@
   - type: Card
     name: UnCommon FOES card. Robustness - 2, Validity - 4, Whimsy 6
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_foes
 
 - type: entity
@@ -2018,7 +2018,7 @@
   - type: Card
     name: UnCommon SEOF card. Robustness - 6, Validity - 4, Whimsy 2
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_seof
 
 - type: entity
@@ -2037,7 +2037,7 @@
   - type: Card
     name: Super Rare Clown Spider card. Robustness - 7, Validity - 6, Whimsy 6
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_cspider
 
 - type: entity
@@ -2056,7 +2056,7 @@
   - type: Card
     name: Rare Snake card. Robustness - 7, Validity - 7, Whimsy 1
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_snake
 
 - type: entity
@@ -2075,7 +2075,7 @@
   - type: Card
     name: Common Space Carp card. Robustness - 4, Validity - 5, Whimsy 1
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_carp
 
 - type: entity
@@ -2094,7 +2094,7 @@
   - type: Card
     name: UnCommon Punpun card. Robustness - 5, Validity - 4, Whimsy 3
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_pun
 
 - type: entity
@@ -2105,7 +2105,7 @@
   - type: Card
     name: Rare HonkBot card. Robustness - 2, Validity - 7, Whimsy 8
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_honkbot
 
 - type: entity
@@ -2124,7 +2124,7 @@
   - type: Card
     name: Rare Gollylad card. Robustness - 4, Validity - 3, Whimsy 10
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_golly
 
 - type: entity
@@ -2135,7 +2135,7 @@
   - type: Card
     name: UnCommon Renault card. Robustness - 3, Validity - 6, Whimsy 2
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_ren
 
 - type: entity
@@ -2146,7 +2146,7 @@
   - type: Card
     name: UnCommon Tomato Killer card. Robustness - 4, Validity - 4, Whimsy 4
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_killer
 
 - type: entity
@@ -2187,7 +2187,7 @@
   - type: Card
     name: UnCommon Baby Kode card. Robustness - 5, Validity - 3, Whimsy 3
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_babykode
 
 - type: entity
@@ -2198,7 +2198,7 @@
   - type: Card
     name: UnCommon Space Tick card. Robustness - 4, Validity - 6, Whimsy 2
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_tick
 
 - type: entity
@@ -2217,7 +2217,7 @@
   - type: Card
     name: Rare Dolby card. Robustness - 9, Validity - 1, Whimsy 7
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_dolby
 
 - type: entity
@@ -2228,7 +2228,7 @@
   - type: Card
     name: UnCommon Tck'tck card. Robustness - 4, Validity - 3, Whimsy 6
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_tck
 
 - type: entity
@@ -2239,7 +2239,7 @@
   - type: Card
     name: UnCommon Tck'uk card. Robustness - 4, Validity - 4, Whimsy 6
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_tckut
 
 - type: entity
@@ -2268,7 +2268,7 @@
   - type: Card
     name: UnCommon Wild Boar card. Robustness - 6, Validity - 4, Whimsy 4
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_boar
 
 - type: entity
@@ -2279,7 +2279,7 @@
   - type: Card
     name: UnCommon Wiz spores card. Robustness - 2, Validity - 4, Whimsy 7
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_wizspore
 
 - type: entity
@@ -2290,7 +2290,7 @@
   - type: Card
     name: Rare Radioactive Mouse card. Robustness - 5, Validity - 6, Whimsy 5
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_cmouse
 
 - type: entity
@@ -2301,7 +2301,7 @@
   - type: Card
     name: Common Banana Deer card. Robustness - 3, Validity - 1, Whimsy 5
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_deer
 
 - type: entity
@@ -2329,7 +2329,7 @@
   - type: Card
     name: Common Serval card. Robustness - 3, Validity - 3, Whimsy 4
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_serval
 
 - type: entity
@@ -2340,7 +2340,7 @@
   - type: Card
     name: UnCommon Apid card. Robustness - 3, Validity - 3, Whimsy 5
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_apid
 
 - type: entity
@@ -2368,7 +2368,7 @@
   - type: Card
     name: UnCommon Pleebnar card. Robustness - 1, Validity - 1, Whimsy 9
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_pleeb
 
 - type: entity
@@ -2379,7 +2379,7 @@
   - type: Card
     name: UnCommon Luggage card. Robustness - 6, Validity - 2, Whimsy 6
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_box
 
 - type: entity
@@ -2390,7 +2390,7 @@
   - type: Card
     name: Common Hamlet card. Robustness - 2, Validity - 9, Whimsy 3
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_hamlet
 
 - type: entity
@@ -2401,7 +2401,7 @@
   - type: Card
     name: Super Rare Finfin card. Robustness - 5, Validity - 1, Whimsy 10
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_finfin
 
 - type: entity
@@ -2412,7 +2412,7 @@
   - type: Card
     name: Rare Griffy card. Robustness - 4, Validity - 6, Whimsy 5
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_griffy
 
 - type: entity
@@ -2423,7 +2423,7 @@
   - type: Card
     name: Common McGriff card. Robustness - 3, Validity - 1, Whimsy 2
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_mcgriff
 
 - type: entity
@@ -2434,7 +2434,7 @@
   - type: Card
     name: UnCommon Weird Shrimp card. Robustness - 2, Validity - 2, Whimsy 5
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_shrimp
 
 - type: entity
@@ -2445,7 +2445,7 @@
   - type: Card
     name: Common Mouse card. Robustness - 1, Validity - 4, Whimsy 5
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_mouse
 
 - type: entity
@@ -2456,7 +2456,7 @@
   - type: Card
     name: Common Mothroach card. Robustness - 2, Validity - 2, Whimsy 2
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_moth
 
 - type: entity
@@ -2467,7 +2467,7 @@
   - type: Card
     name: UnCommon Moproach card. Robustness - 3, Validity - 2, Whimsy 6
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_mop
 
 - type: entity
@@ -2478,7 +2478,7 @@
   - type: Card
     name: Common Lepidodent card. Robustness - 1, Validity - 2, Whimsy 4
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_lepidodent
 
 - type: entity
@@ -2489,7 +2489,7 @@
   - type: Card
     name: Rare Glockroach card. Robustness - 5, Validity - 5, Whimsy 7
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_glock
 
 - type: entity
@@ -2500,7 +2500,7 @@
   - type: Card
     name: Common Ian card. Robustness - 1, Validity - 7, Whimsy 2
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_ian
 
 - type: entity
@@ -2511,7 +2511,7 @@
   - type: Card
     name: Common Bingus card. Robustness - 2, Validity - 1, Whimsy 5
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_ncat
 
 - type: entity
@@ -2522,7 +2522,7 @@
   - type: Card
     name: Common Tropico card. Robustness - 4, Validity - 1, Whimsy 2
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_top
 
 - type: entity
@@ -2533,7 +2533,7 @@
   - type: Card
     name: Common Smile card. Robustness - 3, Validity - 1, Whimsy 3
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_smile
 
 - type: entity
@@ -2544,7 +2544,7 @@
   - type: Card
     name: Common Kisser Tomato card. Robustness - 3, Validity - 3, Whimsy 4
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_kisser
 
 - type: entity
@@ -2555,7 +2555,7 @@
   - type: Card
     name: UnCommon Slurva card. Robustness - 2, Validity - 2, Whimsy 7
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_slurva
 
 - type: entity
@@ -2566,7 +2566,7 @@
   - type: Card
     name: UnCommon Tarantula card. Robustness - 5, Validity - 6, Whimsy 2
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_rancho
 
 - type: entity
@@ -2585,7 +2585,7 @@
   - type: Card
     name: Common Pipi card. Robustness - 1, Validity - 1, Whimsy 6
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_pipi
 
 - type: entity
@@ -2622,7 +2622,7 @@
   - type: Card
     name: Legendary Augury card. Robustness - 10, Validity - 7, Whimsy 3
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_augury
 
 - type: entity
@@ -2641,7 +2641,7 @@
   - type: Card
     name: UnCommon Bad omen card. Robustness - 3, Validity - 5, Whimsy 4
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_omen
 
 - type: entity
@@ -2660,7 +2660,7 @@
   - type: Card
     name: UnCommon Monarch ray card. Robustness - 5, Validity - 6, Whimsy 2
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_monarch
 
 - type: entity
@@ -2671,7 +2671,7 @@
   - type: Card
     name: Legendary Terrelli fish card. Robustness - 7, Validity - 5, Whimsy 7
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_terrelli
 
 - type: entity
@@ -2690,5 +2690,5 @@
   - type: Card
     name: Rare Tck'ju'q'tp card. Robustness - 7, Validity - 5, Whimsy 7
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_cube
