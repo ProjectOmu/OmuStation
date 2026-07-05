@@ -76,7 +76,7 @@
       ]
     },
     {
-      "name": "ipc_screen_breakout",
+      "name": "ipc_screen_breakout_moving",
       "directions": 4,
       "delays": [
         [
@@ -1391,6 +1391,10 @@
     },
     {
       "name": "ipc_screen_screen_whitehue",
+      "directions": 4
+    },
+    {
+      "name": "ipc_screen_breakout_whitehue",
       "directions": 4
     }
   ]

@@ -35,7 +35,9 @@
   markingCategory: Face
   sprites:
     - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
-      state: ipc_screen_breakout
+      state: ipc_screen_breakout_whitehue
+    - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
+      state: ipc_screen_breakout_moving
 
 
 - type: marking
