@@ -449,18 +449,15 @@ namespace Content.Client.RoundEnd
                     if (!_entityManager.TryGetEntity(playerInfo.borgEnt, out var borgEnt))
                         continue;
 
-                    if (playerInfo.Role != "job-name-station-ai")
+                    hBox.AddChild(new SpriteView(borgEnt, _entityManager)
                     {
-                        hBox.AddChild(new SpriteView(borgEnt, _entityManager)
-                        {
-                            OverrideDirection = Direction.South,
-                            VerticalAlignment = VAlignment.Center,
-                            SetSize = new Vector2(64, 64),
-                            VerticalExpand = true,
-                            Stretch = SpriteView.StretchMode.Fill,
-                            Margin = new Thickness(3, 0, 3, 0)
-                        });
-                    }
+                        OverrideDirection = Direction.South,
+                        VerticalAlignment = VAlignment.Center,
+                        SetSize = new Vector2(64, 64),
+                        VerticalExpand = true,
+                        Stretch = SpriteView.StretchMode.Fill,
+                        Margin = new Thickness(3, 0, 3, 0)
+                    });
 
                     var textVBox = new BoxContainer
                     {

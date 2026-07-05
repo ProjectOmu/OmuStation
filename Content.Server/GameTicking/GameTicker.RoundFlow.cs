@@ -127,7 +127,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly DiscordWebhook _discord = default!;
         [Dependency] private readonly RoleSystem _role = default!;
         [Dependency] private readonly ITaskManager _taskManager = default!;
-        [Dependency] private readonly SiliconLawSystem _law = default!;
+        [Dependency] private readonly SiliconLawSystem _law = default!; // Omu - End of Round Silicon Summary
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -675,26 +675,26 @@ namespace Content.Server.GameTicking
                 // Get mob state and damage if the mob still exists
                 if (lastMob != null && !TerminatingOrDeleted(lastMob))
                 {
+                    // Omu - End of Round Silicon Summary
                     if (TryComp<MobStateComponent>(lastMob, out var mobStateComp))
-                    {
-                        mobState = mobStateComp.CurrentState; 
-                        // Dirty(mindId, mobStateComp);
-                    }
+                        mobState = mobStateComp.CurrentState;
 
                     if (TryComp<DamageableComponent>(lastMob, out var damageableComp))
                         damagePerGroup = damageableComp.DamagePerGroup;
 
-                     _pvsOverride.AddGlobalOverride(lastMob.Value);
+                    // Omu - End of Round Silicon Summary
+                    _pvsOverride.AddGlobalOverride(lastMob.Value);
                 }
-
-                var found = TryGetNetEntity(lastMob, out var borgPassEnt);
 
                 #endregion
                 // END
 
+                // Omu Start - End of Round Silicon Summary
                 #region Omu Station
 
-                SiliconLawset? _lawset = null; 
+                var found = TryGetNetEntity(lastMob, out var borgPassEnt);
+
+                SiliconLawset? _lawset = null;
                 if (lastMob != null && !TerminatingOrDeleted(lastMob))
                 {
                     if (TryComp<SiliconLawProviderComponent>(lastMob, out var providerComp))
@@ -705,8 +705,8 @@ namespace Content.Server.GameTicking
                             _lawset = providerComp.Lawset;
                     }
                 }
-                List<string> protoList = new List<string> { roles.First().Prototype };
                 #endregion
+                // Omu End
 
                 var playerEndRoundInfo = new RoundEndMessageEvent.RoundEndPlayerInfo()
                 {
@@ -721,7 +721,7 @@ namespace Content.Server.GameTicking
                         ? roles.First(role => role.Antagonist).Name
                         : roles.FirstOrDefault().Name ?? Loc.GetString("game-ticker-unknown-role"),
                     Antag = antag,
-                    JobPrototypes = protoList.ToArray(),
+                    JobPrototypes = roles.Where(role => !role.Antagonist).Select(role => role.Prototype).ToArray(),
                     AntagPrototypes = roles.Where(role => role.Antagonist).Select(role => role.Prototype).ToArray(),
                     Observer = observer,
                     Connected = connected,
@@ -729,9 +729,10 @@ namespace Content.Server.GameTicking
                     LastWords = lastWords,
                     EntMobState = mobState,
                     DamagePerGroup = damagePerGroup,
-                    // Omu - End of Round Silicon Summary
+                    // Omu Start - End of Round Silicon Summary
                     laws = _lawset,
                     borgEnt = borgPassEnt
+                    // Omu End
                 };
                 listOfPlayerInfo.Add(playerEndRoundInfo);
             }
