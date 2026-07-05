@@ -90,4 +90,10 @@
   equipment:
     eyes: ClothingEyesGlassesMedSec
 
+# Weapons
 
+- type: loadout
+  id: BrigmedTerminus
+  inhand:
+  - Terminus
+  groupBy: "Main weapon"

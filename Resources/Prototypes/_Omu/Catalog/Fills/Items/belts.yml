@@ -83,4 +83,15 @@
     - id: FultonBlueshield
     - id: MedkitCombatBlueFilled
 
-
+- type: entity
+  id: ClothingBeltHolsterFilledMatebaDetective
+  parent: ClothingBeltHolster
+  suffix: Filled, MatebaDetective # Goobstation
+  components:
+  - type: ContainerFill # Goobstation
+    containers:
+      item:
+      - WeaponRevolverMatebaDetective
+  - type: StorageFill
+    contents:
+        - id: SpeedLoaderMagnum

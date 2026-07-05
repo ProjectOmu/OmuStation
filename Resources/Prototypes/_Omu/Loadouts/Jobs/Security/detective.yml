@@ -1,4 +1,13 @@
-﻿# Blah Blah Blah CopyRight Blah Blah Blah
+﻿- type: loadoutEffectGroup
+  id: SeniorDetective
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobDetective
+      time: 360000 #100 hours
+
+# Blah Blah Blah CopyRight Blah Blah Blah
 # Head
 - type: loadout
   id: AerostaticJacketArmored
@@ -9,3 +18,40 @@
   id: JamrockBlazerArmored
   equipment:
     outerClothing: ClothingOuterCoatArmoredJamrockBlazer # omu
+
+# Weapons
+
+- type: loadout
+  id: DetectiveWeaponRevolverInspector
+  dummyEntity: WeaponRevolverInspector
+  equipment:
+    belt: ClothingBeltHolsterFilled # Has revolver + ammo inside
+  groupBy: "Main weapon"
+
+- type: loadout
+  id: DetectiveTerminus
+  equipment:
+    suitstorage: Terminus
+  groupBy: "Main weapon"
+
+- type: loadout
+  id: DetectiveClothingEyesGlassesSecurity
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+  groupBy: "Detective eyes"
+
+- type: loadout
+  id: DetectiveClothingEyesGlassesNoir
+  equipment:
+    eyes: ClothingEyesGlassesNoir
+  groupBy: "Detective eyes"
+
+- type: loadout
+  id: DetectiveWeaponRevolverMatebaDetective
+  dummyEntity: WeaponRevolverMatebaDetective
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorDetective
+  equipment:
+    belt: ClothingBeltHolsterFilledMatebaDetective # Has revolver + ammo inside
+  groupBy: "Main weapon"
