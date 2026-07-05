@@ -409,6 +409,7 @@ namespace Content.Client.RoundEnd
         }
         #endregion
 
+        // Omu Start Station - End of Round Silicon Summary
         #region Omu Station
         private BoxContainer MakeSiliconSummaryTab(RoundEndMessageEvent.RoundEndPlayerInfo[] playersInfo)
         {
@@ -428,6 +429,7 @@ namespace Content.Client.RoundEnd
                 Orientation = LayoutOrientation.Vertical
             };
 
+            // Make sure Station AI is always processed first
             var sortedPlayersInfo = playersInfo.OrderBy(p => p.Role == "job-name-station-ai");
 
             //Create labels for each player info.
@@ -449,6 +451,7 @@ namespace Content.Client.RoundEnd
                     if (!_entityManager.TryGetEntity(playerInfo.borgEnt, out var borgEnt))
                         continue;
 
+                    // Silicon Sprite
                     hBox.AddChild(new SpriteView(borgEnt, _entityManager)
                     {
                         OverrideDirection = Direction.South,
@@ -459,6 +462,7 @@ namespace Content.Client.RoundEnd
                         Margin = new Thickness(3, 0, 3, 0)
                     });
 
+                    // Main Text Box per silicon
                     var textVBox = new BoxContainer
                     {
                         Orientation = LayoutOrientation.Vertical,
@@ -474,6 +478,7 @@ namespace Content.Client.RoundEnd
                     if (!_entityManager.TryGetComponent<MetaDataComponent>(borgEnt, out var metaComp))
                         continue;
 
+                    // Grab silicon player info
                     if (playerInfo.PlayerICName != null)
                     {
                         var playerNameText = new Label
@@ -497,10 +502,7 @@ namespace Content.Client.RoundEnd
                         playerTitleBox.AddChild(playerRoleText);
                     }
 
-                    var borgLawsBox = new BoxContainer
-                    {
-                        Orientation = LayoutOrientation.Horizontal,
-                    };
+                    // Build list of silicon laws
                     var lawsVbox = new BoxContainer
                     {
                         Orientation = LayoutOrientation.Vertical,
@@ -521,8 +523,7 @@ namespace Content.Client.RoundEnd
                     }
 
                     textVBox.AddChild(playerTitleBox);
-                    borgLawsBox.AddChild(lawsVbox);
-                    textVBox.AddChild(borgLawsBox);
+                    textVBox.AddChild(lawsVbox);
                     hBox.AddChild(textVBox);
                     panel.AddChild(hBox);
                     siliconInfoContainer.AddChild(panel);
@@ -535,6 +536,7 @@ namespace Content.Client.RoundEnd
             return siliconSummaryTab;
         }
         #endregion
+        // Omu End
     }
 
 }
