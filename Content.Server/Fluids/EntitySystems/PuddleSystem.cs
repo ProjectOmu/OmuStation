@@ -135,6 +135,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Server._Funkystation.ReagentFires.Systems;
 
 namespace Content.Server.Fluids.EntitySystems;
 
@@ -160,6 +161,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
     [Dependency] private readonly TileFrictionController _tile = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private ReagentFireSystem _fireSystem = default!;
 
 
     [ValidatePrototypeId<ReagentPrototype>]
@@ -456,6 +458,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             return;
         }
 
+        _fireSystem.UpdateFire(entity);
         _deletionQueue.Remove(entity);
         UpdateSlip((entity, entity.Comp), args.Solution);
         UpdateSlow(entity, args.Solution, entity.Comp); // Corvax-Next-Footprints
