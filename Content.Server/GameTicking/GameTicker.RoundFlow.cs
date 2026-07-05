@@ -116,7 +116,9 @@ using Content.Goobstation.Shared.Mind.Components;
 // Omu Station - End of Round Silicon Summary
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Silicons.Laws;
+using Content.Shared.Roles;
 using Content.Server.Silicons.Laws;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking
 {
@@ -675,7 +677,7 @@ namespace Content.Server.GameTicking
                 {
                     if (TryComp<MobStateComponent>(lastMob, out var mobStateComp))
                     {
-                        mobState = mobStateComp.CurrentState;
+                        mobState = mobStateComp.CurrentState; 
                         // Dirty(mindId, mobStateComp);
                     }
 
@@ -684,6 +686,7 @@ namespace Content.Server.GameTicking
 
                      _pvsOverride.AddGlobalOverride(lastMob.Value);
                 }
+
                 var found = TryGetNetEntity(lastMob, out var borgPassEnt);
 
                 #endregion
@@ -702,6 +705,7 @@ namespace Content.Server.GameTicking
                             _lawset = providerComp.Lawset;
                     }
                 }
+                List<string> protoList = new List<string> { roles.First().Prototype };
                 #endregion
 
                 var playerEndRoundInfo = new RoundEndMessageEvent.RoundEndPlayerInfo()
@@ -717,7 +721,7 @@ namespace Content.Server.GameTicking
                         ? roles.First(role => role.Antagonist).Name
                         : roles.FirstOrDefault().Name ?? Loc.GetString("game-ticker-unknown-role"),
                     Antag = antag,
-                    JobPrototypes = roles.Where(role => !role.Antagonist).Select(role => role.Prototype).ToArray(),
+                    JobPrototypes = protoList.ToArray(),
                     AntagPrototypes = roles.Where(role => role.Antagonist).Select(role => role.Prototype).ToArray(),
                     Observer = observer,
                     Connected = connected,

@@ -75,7 +75,7 @@ namespace Content.Client.RoundEnd
         {
             _entityManager = entityManager;
 
-            MinSize = new Vector2(520, 580);
+            MinSize = new Vector2(600, 580); // Omu, increased 520 -> 600 to fit Silicon Summary
 
             Title = Loc.GetString("round-end-summary-window-title");
 
@@ -428,8 +428,10 @@ namespace Content.Client.RoundEnd
                 Orientation = LayoutOrientation.Vertical
             };
 
+            var sortedPlayersInfo = playersInfo.OrderBy(p => p.Role == "job-name-station-ai");
+
             //Create labels for each player info.
-            foreach (var playerInfo in playersInfo)
+            foreach (var playerInfo in sortedPlayersInfo)
             {
                 var panel = new PanelContainer
                 {
@@ -447,15 +449,18 @@ namespace Content.Client.RoundEnd
                     if (!_entityManager.TryGetEntity(playerInfo.borgEnt, out var borgEnt))
                         continue;
 
-                    hBox.AddChild(new SpriteView(borgEnt, _entityManager)
+                    if (playerInfo.Role != "job-name-station-ai")
                     {
-                        OverrideDirection = Direction.South,
-                        VerticalAlignment = VAlignment.Center,
-                        SetSize = new Vector2(64, 64),
-                        VerticalExpand = true,
-                        Stretch = SpriteView.StretchMode.Fill,
-                        Margin = new Thickness(3, 0, 3, 0)
-                    });
+                        hBox.AddChild(new SpriteView(borgEnt, _entityManager)
+                        {
+                            OverrideDirection = Direction.South,
+                            VerticalAlignment = VAlignment.Center,
+                            SetSize = new Vector2(64, 64),
+                            VerticalExpand = true,
+                            Stretch = SpriteView.StretchMode.Fill,
+                            Margin = new Thickness(3, 0, 3, 0)
+                        });
+                    }
 
                     var textVBox = new BoxContainer
                     {
@@ -491,11 +496,6 @@ namespace Content.Client.RoundEnd
                             Text = Loc.GetString("round-end-summary-window-player-name",
                                 ("player", playerInfo.PlayerOOCName))
                         };
-
-                        if (role != "Unknown")
-                            playerRoleText.Text = Loc.GetString("round-end-summary-window-player-name-role",
-                                    ("role", role),
-                                    ("player", playerInfo.PlayerOOCName));
 
                         playerTitleBox.AddChild(playerRoleText);
                     }
