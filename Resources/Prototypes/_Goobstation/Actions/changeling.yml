@@ -429,7 +429,8 @@
     whitelist:
       components:
       - Body
-      - SolutionContainerManager    #OMU
+      - Food    #OMU
+      - Solution  #Omu
     canTargetSelf: false
     event: !type:StingReagentEvent {}
   - type: ChangelingAction
@@ -460,7 +461,8 @@
     whitelist:
       components:
       - Body
-      - SolutionContainerManager    #OMU
+      - Food    #OMU
+      - Solution  #Omu
     canTargetSelf: false
     event: !type:StingReagentEvent {}
   - type: ChangelingAction
@@ -491,7 +493,8 @@
     whitelist:
       components:
       - Body
-      - SolutionContainerManager    #OMU
+      - Food    #OMU
+      - Solution  #Omu
     canTargetSelf: false
     event: !type:StingReagentEvent {}
   - type: ChangelingAction
@@ -522,7 +525,8 @@
     whitelist:
       components:
       - Body
-      - SolutionContainerManager    #OMU
+      - Food   #OMU
+      - Solution #OMU
     canTargetSelf: false
     event: !type:StingReagentEvent {}
   - type: ChangelingAction
