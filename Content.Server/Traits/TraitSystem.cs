@@ -18,13 +18,13 @@ using Content.Server._EinsteinEngines.Language;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Movement.Systems; // HardLight
-using Content.Shared.Preferences; // HardLight
+using Content.Shared.Movement.Systems;
+using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Traits;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.Manager; // Omustation - Remake EE Traits System - Port trait functions
+using Robust.Shared.Serialization.Manager;
 
 namespace Content.Server.Traits;
 
@@ -35,6 +35,7 @@ public sealed class TraitSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedHandsSystem _sharedHandsSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly LanguageSystem _languageSystem = default!; // Goobstation - EE
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!; // HardLight
 
     public override void Initialize()
@@ -55,7 +56,19 @@ public sealed class TraitSystem : EntitySystem
             return;
         }
 
-        foreach (var traitId in args.Profile.TraitPreferences)
+        ApplyProfileTraits(args.Mob, args.Profile); // HardLight
+    }
+
+    /// <summary>
+    /// This whole method is a hardlight edit. I hate it, but it is what it is.
+    /// HardLight: Applies the selected traits from a humanoid profile to an existing entity.
+    /// This is intended for non-standard spawn paths like admin spawning or cloning
+    /// that already have a validated profile and just need its trait components replayed.
+    /// </summary>
+    public void ApplyProfileTraits(EntityUid uid, HumanoidCharacterProfile profile, bool addTraitGear = true)
+    {
+        var sortedTraits = new List<TraitPrototype>(); // Hardlight change sort and apply traits by cost.
+        foreach (var traitId in profile.TraitPreferences)
         {
             if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var traitPrototype))
             {
@@ -63,87 +76,54 @@ public sealed class TraitSystem : EntitySystem
                 return;
             }
 
-            AddTrait(args.Mob, traitPrototype); // Omu: refactor
-        }
-    }
-
-    /// <summary>
-    /// HardLight: Applies the selected traits from a humanoid profile to an existing entity.
-    /// This is intended for non-standard spawn paths like admin spawning or cloning
-    /// that already have a validated profile and just need its trait components replayed.
-    /// </summary>
-    public void ApplyProfileTraits(EntityUid uid, HumanoidCharacterProfile profile, string? playerName = null, bool addTraitGear = true)
-    {
-        var sortedTraits = new List<TraitPrototype>();
-        foreach (var traitId in profile.TraitPreferences)
-        {
-            if (_prototypeManager.TryIndex<TraitPrototype>(traitId, out var traitPrototype))
-                sortedTraits.Add(traitPrototype);
+            sortedTraits.Add(traitPrototype); // Hardlight change sort and apply traits by cost.
         }
 
-        sortedTraits.Sort();
+        sortedTraits.Sort(); // Hardlight change sort and apply traits by cost.
 
-        foreach (var traitPrototype in sortedTraits)
+        foreach (var traitPrototype
+                 in sortedTraits)  // Hardlight change sort and apply traits by cost.
         {
-// OMU: commenting out this "trait<-->player whitelisting" code
-//			if (traitPrototype.Logins.Count > 0 &&
-//				(playerName == null || !traitPrototype.Logins.Contains(playerName)))
-//			{
-//				continue;
-//			}
 
-            AddTrait(uid, traitPrototype, addTraitGear);
-        }
-    }
+            if (_whitelistSystem.IsWhitelistFail(traitPrototype.Whitelist, uid) ||
+                _whitelistSystem.IsWhitelistFail(traitPrototype.Blacklist, uid)) // omu change technically but i know this is fixed upstream.
+                continue;
 
-    /// <summary>Adds a single Trait Prototype to an Entity.</summary>
-    /// <remarks>
-    ///   This method should handle all paths for which we are adding a trait to an entity,
-    ///   including [admin > spawn here] and cloning. It is a mixmash of what we previously had
-    ///   in OnPlayerSpawnComplete above, some HardLight code, and some refactorings @ishkab wrote.
-    /// </remarks>
-    public void AddTrait(EntityUid uid, TraitPrototype traitProto, bool addTraitGear = true)
-    {
-        // Check whitelist/blacklist
-        if (_whitelistSystem.IsWhitelistFail(traitProto.Whitelist, uid) ||
-            _whitelistSystem.IsBlacklistPass(traitProto.Blacklist, uid))
-            return;
+            // Add all components required by the prototype
+            // Omu start - Remake EE Traits System - Port trait functions (make traits that don't directly give you components *possible*)
+            if (traitPrototype.Components != null)
+            {
+                EntityManager.AddComponents(uid, traitPrototype.Components,
+                    traitPrototype.ReplaceComponents); // HardLight: Added ReplaceComponents
+            }
+            // Omu end
 
-        // Add all components required by the prototype
-        if(traitProto.Components is not null) // Omustation - Remake EE Traits System - Port trait functions (make traits that don't directly give you components *possible*)
-            EntityManager.AddComponents(uid, traitProto.Components, traitProto.ReplaceComponents); // Hardlight: Added ReplaceComponents
+            //  EE Lang, Goobedited to be less fucking shit holy fuck.
+            _languageSystem.UpdateEntityLanguages(uid, traitPrototype);  // Remove/Add Languages required by the prototype
+            // EE Lang end.
 
-        // Einstein Engines - Language begin (remove this if trait system refactor)
-        // Remove/Add Languages required by the prototype
-        var language = EntityManager.System<LanguageSystem>();
+            // begin Omustation - Remake EE Traits System - Port trait functions
+            if (traitPrototype.Functions != null)
+                foreach (var function in traitPrototype.Functions)
+                    function.OnPlayerSpawn(uid, _componentFactory, EntityManager, _serialization);
+            // end Omustation - Remake EE Traits System - Port trait functions
 
-        // stop having the same code-structures four times in a row
-        void DoLangProcessing(List<string>? langlist, Action<string> action)
-        {
-            if(langlist is not null)
-                foreach(var lang in langlist)
-                    action(lang);
-        }
+            // HardLight: Force an immediate refresh so movement penalties/bonuses apply on spawn.
+            _movementSpeed.RefreshMovementSpeedModifiers(uid);
 
-        DoLangProcessing(traitProto.RemoveLanguagesSpoken,     l => language.RemoveLanguage(uid, l, true, false));
-        DoLangProcessing(traitProto.RemoveLanguagesUnderstood, l => language.RemoveLanguage(uid, l, false, true));
-        DoLangProcessing(traitProto.LanguagesSpoken,           l => language.AddLanguage   (uid, l, true, false));
-        DoLangProcessing(traitProto.LanguagesUnderstood,       l => language.AddLanguage   (uid, l, false, true));
+            if (!addTraitGear) // required for cloning not to spawn shit
+                continue;
 
-        // begin Omustation - Remake EE Traits System - Port trait functions
-        if (traitProto.Functions != null)
-            foreach (var function in traitProto.Functions)
-                function.OnPlayerSpawn(uid, _componentFactory, EntityManager, _serialization);
-        // end Omustation - Remake EE Traits System - Port trait functions
+            // Hardlight end.
 
-        // HardLight: Force an immediate refresh so movement penalties/bonuses apply on spawn.
-        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+            if (traitPrototype.TraitGear == null)
+                continue;
 
-        // Add item(s) required by the trait
-        if (addTraitGear && traitProto.TraitGear != null && TryComp(uid, out HandsComponent? handsComponent)) // HardLight: Added addTraitGear
-        {
+            if (!TryComp(uid, out HandsComponent? handsComponent))
+                continue;
+
             var coords = Transform(uid).Coordinates;
-            var inhandEntity = Spawn(traitProto.TraitGear, coords);
+            var inhandEntity = Spawn(traitPrototype.TraitGear, coords);
             _sharedHandsSystem.TryPickup(uid,
                 inhandEntity,
                 checkActionBlocker: false,

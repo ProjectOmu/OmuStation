@@ -299,7 +299,7 @@ namespace Content.Server.Administration.Systems
 
                             var profile = _gameTicker.GetPlayerProfile(targetActor.PlayerSession);
                             var mobUid = _spawning.SpawnPlayerMob(coords.Value, null, profile, stationUid); // HardLight: added var mobUid =
-                            _traits.ApplyProfileTraits(mobUid, profile, targetActor.PlayerSession.Name); // HardLight
+                            _traits.ApplyProfileTraits(mobUid, profile); // HardLight
                         },
                         ConfirmationPopup = true,
                         Impact = LogImpact.High,
