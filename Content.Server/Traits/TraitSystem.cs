@@ -86,7 +86,7 @@ public sealed class TraitSystem : EntitySystem
         {
 
             if (_whitelistSystem.IsWhitelistFail(traitPrototype.Whitelist, uid) ||
-                _whitelistSystem.IsWhitelistFail(traitPrototype.Blacklist, uid)) // omu change technically but i know this is fixed upstream.
+                _whitelistSystem.IsBlacklistPass(traitPrototype.Blacklist, uid))
                 continue;
 
             // Add all components required by the prototype
