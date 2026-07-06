@@ -192,7 +192,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly AdminFrozenSystem _freeze = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly SiliconLawSystem _siliconLawSystem = default!;
-        [Dependency] private readonly OmuTraitCloneHelperSystem _omuTraitCloneHelper = default!;
+        [Dependency] private readonly OmuCloneHelperSystem _omuCloneHelper = default!; // Omu
         [Dependency] private readonly TraitSystem _traits = default!; // HardLight
 
         private readonly Dictionary<ICommonSession, List<EditSolutionsEui>> _openSolutionUis = new();
@@ -305,7 +305,7 @@ namespace Content.Server.Administration.Systems
                             // Omu edit start
                             _traits.ApplyProfileTraits(mobUid, profile, false); // Hardlight
                             // separately give job-based trait equipment using the original entity's mind.
-                            _omuTraitCloneHelper.GiveCloneJobTraitEquipment(args.Target, mobUid, profile);
+                            _omuCloneHelper.GiveCloneJobTraitEquipment(args.Target, mobUid, profile);
                             // Omu edit end
                         },
                         ConfirmationPopup = true,
