@@ -71,7 +71,7 @@
   markingCategory: Face
   sprites:
     - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
-      state: ipc_screen_exclaim_whitehue
+      state: ipc_screen_twocycle_whitehue
     - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
       state: ipc_screen_exclaim_moving
 
@@ -83,7 +83,9 @@
   markingCategory: Face
   sprites:
     - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
-      state: ipc_screen_heart
+      state: ipc_screen_twocycle_whitehue
+    - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
+      state: ipc_screen_heart_moving
 
 
 - type: marking
@@ -93,7 +95,9 @@
   markingCategory: Face
   sprites:
     - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
-      state: ipc_screen_monoeye
+      state: ipc_screen_monoeye_whitehue
+    - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
+      state: ipc_screen_monoeye_moving
 
 
 - type: marking # Omu Edit

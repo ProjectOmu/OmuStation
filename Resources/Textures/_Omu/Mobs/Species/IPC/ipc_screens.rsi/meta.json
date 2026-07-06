@@ -188,7 +188,7 @@
       ]
     },
     {
-      "name": "ipc_screen_heart",
+      "name": "ipc_screen_heart_moving",
       "directions": 4,
       "delays": [
         [
@@ -210,7 +210,7 @@
       ]
     },
     {
-      "name": "ipc_screen_monoeye",
+      "name": "ipc_screen_monoeye_moving",
       "directions": 4,
       "delays": [
         [
@@ -1406,7 +1406,11 @@
       "directions": 4
     },
     {
-      "name": "ipc_screen_exclaim_whitehue",
+      "name": "ipc_screen_monoeye_whitehue",
+      "directions": 4
+    },
+    {
+      "name": "ipc_screen_twocycle_whitehue",
       "directions": 4
     }
   ]
