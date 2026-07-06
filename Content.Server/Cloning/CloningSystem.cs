@@ -87,7 +87,6 @@ using Content.Goobstation.Shared.Clothing.Components;
 using Content.Goobstation.Shared.Clothing.Systems;
 using Content.Server._Hardlight.Traits;
 using Content.Server._Omu.Traits;
-using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Interaction.Components;
