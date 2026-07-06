@@ -15,6 +15,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server._EinsteinEngines.Language;
+using Content.Server.Traits.Assorted;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -93,8 +94,16 @@ public sealed class TraitSystem : EntitySystem
             // Omu start - Remake EE Traits System - Port trait functions (make traits that don't directly give you components *possible*)
             if (traitPrototype.Components != null)
             {
-                EntityManager.AddComponents(uid, traitPrototype.Components,
-                    traitPrototype.ReplaceComponents); // HardLight: Added ReplaceComponents
+                foreach (var (name, entry) in traitPrototype.Components) // omu edit, im tired, im hardcoding a very bad check.
+                {
+                    if (!addTraitGear && _componentFactory.GetRegistration(name).Type == typeof(BuckleOnMapInitComponent)) // omu todo, this bad. here to prevent wheelchairs from spawning on medical cloner.
+                        continue;
+
+                    if (!traitPrototype.ReplaceComponents && HasComp(uid, _componentFactory.GetRegistration(name).Type)) // hardlight
+                        continue;
+
+                    EntityManager.AddComponent(uid, _componentFactory.GetComponent(entry), traitPrototype.ReplaceComponents);
+                }
             }
             // Omu end
 
