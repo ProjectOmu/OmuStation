@@ -47,7 +47,9 @@
   markingCategory: Face
   sprites:
     - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
-      state: ipc_screen_eight
+      state: ipc_screen_eight_whitehue
+    - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
+      state: ipc_screen_eight_moving
 
 
 - type: marking
@@ -57,7 +59,9 @@
   markingCategory: Face
   sprites:
     - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
-      state: ipc_screen_goggles
+      state: ipc_screen_goggles_whitehue
+    - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
+      state: ipc_screen_goggles_moving
 
 
 - type: marking
