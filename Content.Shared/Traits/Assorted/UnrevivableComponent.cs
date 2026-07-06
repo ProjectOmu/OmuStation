@@ -25,6 +25,13 @@ public sealed partial class UnrevivableComponent : Component
     [DataField, AutoNetworkedField]
     public bool Cloneable = false;
 
+    /// <summary><OMU>
+    /// Make it a variable if CPR works
+    /// </summary>
+    [DataField]
+    public bool CPRBlock = false;
+    ///</OMU>
+
     /// <summary>
     /// The loc string used to provide a reason for being unrevivable
     /// </summary>

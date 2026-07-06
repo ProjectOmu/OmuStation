@@ -17,3 +17,24 @@
   - type: Tag
     tags:
     - BrassInstrument
+
+- type: entity
+  parent: BaseHandheldInstrument
+  id: MarmonicaInstrument
+  name: marmonica
+  description: We don't know what that black-eye was thinking when they made it, but by the dark does it mar.
+  components:
+  - type: Instrument
+    program: 6
+    bank: 1
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Instruments/marmonica.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: _Omu/Objects/Fun/Instruments/marmonica.rsi
+    storedRotation: -90
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - neck

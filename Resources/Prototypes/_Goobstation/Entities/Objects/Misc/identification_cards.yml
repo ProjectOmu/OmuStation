@@ -317,8 +317,10 @@
   components:
   - type: Sprite
     layers:
-    - state: default
+    - state: silver #Omu, changed from default to silver
     - state: idcommandmaid
+  - type: Item #Omu
+    heldPrefix: silver #Omu
   - type: PresetIdCard
     job: CommandMaid
 
