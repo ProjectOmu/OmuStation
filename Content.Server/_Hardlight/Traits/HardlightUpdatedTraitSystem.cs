@@ -1,17 +1,25 @@
+using Content.Server._Omu.Traits;
+using Content.Server.Hands.Systems;
 using Content.Server.Mind;
 using Content.Server.Preferences.Managers;
+using Content.Server.Roles.Jobs;
 using Content.Server.Traits;
 using Content.Shared.Preferences;
+using Content.Shared.Traits;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Hardlight.Traits;
 
 public sealed class HardlightUpdatedTraitSystem : EntitySystem
 {
-    [Dependency] private readonly IServerPreferencesManager _prefs = default!; // HardLight
-    [Dependency] private readonly MindSystem _mind = default!; // HardLight
-    [Dependency] private readonly TraitSystem _traits = default!; // HardLight
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IServerPreferencesManager _prefs = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly JobSystem _jobs = default!;
+    [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private readonly TraitSystem _traits = default!;
 
-    public void ApplySelectedTraits(EntityUid original, EntityUid clone) // HardLight
+    public void ApplySelectedTraits(EntityUid original, EntityUid clone)
     {
         if (!_mind.TryGetMind(original, out _, out var mind) ||
             mind.UserId == null ||

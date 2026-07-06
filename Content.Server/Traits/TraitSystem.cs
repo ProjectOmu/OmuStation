@@ -56,7 +56,7 @@ public sealed class TraitSystem : EntitySystem
             return;
         }
 
-        ApplyProfileTraits(args.Mob, args.Profile); // HardLight
+        ApplyProfileTraits(args.Mob, args.Profile, true); // HardLight
     }
 
     /// <summary>
@@ -65,7 +65,7 @@ public sealed class TraitSystem : EntitySystem
     /// This is intended for non-standard spawn paths like admin spawning or cloning
     /// that already have a validated profile and just need its trait components replayed.
     /// </summary>
-    public void ApplyProfileTraits(EntityUid uid, HumanoidCharacterProfile profile, bool addTraitGear = true)
+    public void ApplyProfileTraits(EntityUid uid, HumanoidCharacterProfile profile, bool addTraitGear)
     {
         var sortedTraits = new List<TraitPrototype>(); // Hardlight change sort and apply traits by cost.
         foreach (var traitId in profile.TraitPreferences)
