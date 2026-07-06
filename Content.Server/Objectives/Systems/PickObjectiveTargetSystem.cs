@@ -7,6 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._DV.Objectives.Components; // DeltaV
 using Content.Server.Objectives.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
@@ -62,6 +63,22 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
             return;
         }
 
+        // DeltaV - TargetObjectiveImmune
+        if (HasComp<TargetObjectiveImmuneComponent>(targetComp.Target))
+        {
+            args.Cancelled = true;
+            return;
+        }
+        // END DeltaV
+
+        // Omu - TargetObjectiveImmune
+        if (!TryComp<MindComponent>(targetComp.Target, out var targetMind) || targetMind.OwnedEntity == null || HasComp<TargetObjectiveImmuneComponent>(targetMind.OwnedEntity))
+        {
+            args.Cancelled = true;
+            return;
+        }
+        // END Omu
+
         _target.SetTarget(ent.Owner, targetComp.Target.Value);
     }
 
@@ -84,6 +101,24 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
             args.Cancelled = true;
             return;
         }
+
+        // DeltaV - TargetObjectiveImmune
+        // Pretty much just a back-up check. Ideally, we should have filtered out all the minds
+        // with this comp with the mind filter TargetObjectiveMindFilter.
+        if (HasComp<TargetObjectiveImmuneComponent>(picked))
+        {
+            args.Cancelled = true;
+            return;
+        }
+        // END DeltaV
+
+        // Omu - TargetObjectiveImmune
+        if (!TryComp<MindComponent>(picked, out var pickedMind) || pickedMind.OwnedEntity == null || HasComp<TargetObjectiveImmuneComponent>(pickedMind.OwnedEntity))
+        {
+            args.Cancelled = true;
+            return;
+        }
+        // END Omu
 
         _target.SetTarget(ent, picked, target);
     }

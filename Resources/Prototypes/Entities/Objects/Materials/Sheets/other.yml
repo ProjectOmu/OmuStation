@@ -153,6 +153,19 @@
     tags:
     - Sheet
     - SheetPlasma
+  - type: UserInterface # Omu start - EE Port
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: AttachedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: SheetPGlass
+    - prototype: SheetRPGlass
+    - prototype: SheetRPGlass1 #Omu end - EE port
 
 - type: entity
   parent: SheetPlasma
@@ -228,6 +241,17 @@
         - ReagentId: Microplastics
           Quantity: 4
         canReact: false
+  - type: UserInterface # Omu start - EE Port
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: AttachedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: CratePlastic #Omu end - EE port
 
 - type: entity
   parent: SheetPlastic
@@ -290,6 +314,19 @@
         - ReagentId: Radium
           Quantity: 2
         canReact: false
+  - type: UserInterface # Omu start - EE Port
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: AttachedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: SheetUGlass
+    - prototype: SheetRUGlass
+    - prototype: SheetRUGlass1 #Omu end - EE port
 
 - type: entity
   parent: SheetUranium

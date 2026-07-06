@@ -69,6 +69,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom; // Fro
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.Kitchen.Components; // Frontier
 using Content.Shared.Kitchen; // Frontier
+using Content.Shared.Whitelist; // Omu
 
 namespace Content.Server.Kitchen.Components
 {
@@ -213,6 +214,14 @@ namespace Content.Server.Kitchen.Components
         [DataField]
         public MicrowaveUiKey Key = MicrowaveUiKey.Key;
         // End Frontier
+
+        // Begin Omu
+        /// <summary>
+        /// A blacklist of components/tags that should not be allowed to be inserted into a microwave.
+        /// </summary>
+        [DataField]
+        public EntityWhitelist MicrowaveBlacklist = new();
+        // End Omu
     }
 
     public sealed class BeingMicrowavedEvent : HandledEntityEventArgs

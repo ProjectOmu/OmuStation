@@ -95,6 +95,7 @@ using Content.Shared.Stacks;
 using Content.Server.Construction.Components;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
+using Content.Shared.Whitelist; // Omu
 
 namespace Content.Server.Kitchen.EntitySystems
 {
@@ -122,6 +123,7 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private readonly IPrototypeManager _prototype = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly SharedSuicideSystem _suicide = default!;
+        [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!; // Omu
 
         private static readonly EntProtoId MalfunctionSpark = "Spark";
 
@@ -443,6 +445,14 @@ namespace Content.Server.Kitchen.EntitySystems
                 _popupSystem.PopupEntity(Loc.GetString("microwave-component-interact-using-transfer-fail"), ent, args.User);
                 return;
             }
+
+            // Omu start
+            if (_whitelistSystem.IsWhitelistPass(ent.Comp.MicrowaveBlacklist, args.Used))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("microwave-component-interact-using-blacklist-fail", ("item", args.Used), ("microwave", ent)), ent, args.User);
+                return;
+            }
+            // Omu end
 
             if (ent.Comp.Storage.Count >= ent.Comp.Capacity)
             {

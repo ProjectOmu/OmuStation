@@ -315,14 +315,15 @@ public sealed partial class PolymorphSystem : EntitySystem
             _gameTiming.CurTime < polymorphableComponent.LastPolymorphEnd + configuration.Cooldown)
             return null;
 
+        // Omu, the following monocode is edited to not require mobstate (previously required mobstate but that breaks staff of entrance)
         // Mono Begin - If polymorph only works in a certain life state, check that state.
-        if (!TryComp<MobStateComponent>(uid, out var mob))
-            return null;
-
-        if ((configuration.PolymorphTheLiving && _mobState.IsAlive(uid, mob) ||
-            configuration.PolymorphTheCritical && _mobState.IsIncapacitated(uid, mob) ||
-            configuration.PolymorphTheDead && _mobState.IsDead(uid, mob)) == false)
-            return null;
+        if (TryComp<MobStateComponent>(uid, out var mob))
+        {
+            if (!(configuration.PolymorphTheLiving && _mobState.IsAlive(uid, mob) ||
+                  configuration.PolymorphTheCritical && _mobState.IsIncapacitated(uid, mob) ||
+                  configuration.PolymorphTheDead && _mobState.IsDead(uid, mob)))
+                return null;
+        }
         // Mono End
 
         // mostly just for vehicles
@@ -672,7 +673,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         _metaData.SetEntityName(actionId.Value, Loc.GetString("polymorph-self-action-name", ("target", entProto.Name)), metaDataCache);
         _metaData.SetEntityDescription(actionId.Value, Loc.GetString("polymorph-self-action-description", ("target", entProto.Name)), metaDataCache);
 
-        if (_actions.GetAction(actionId) is not {} action)
+        if (_actions.GetAction(actionId) is not { } action)
             return;
 
         _actions.SetIcon((action, action.Comp), new SpriteSpecifier.EntityPrototype(polyProto.Configuration.Entity));
@@ -681,7 +682,7 @@ public sealed partial class PolymorphSystem : EntitySystem
 
     public void RemovePolymorphAction(ProtoId<PolymorphPrototype> id, Entity<PolymorphableComponent> target)
     {
-        if (target.Comp.PolymorphActions is not {} actions)
+        if (target.Comp.PolymorphActions is not { } actions)
             return;
 
         if (actions.TryGetValue(id, out var action))

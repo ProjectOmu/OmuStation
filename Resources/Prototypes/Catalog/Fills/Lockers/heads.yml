@@ -335,7 +335,7 @@
     - id: CargoRequestEngineeringComputerCircuitboard
     # - id: RCD # Goobstation
     - id: RCDAmmo
-    - id: RPD
+    - id: RPDRechargingCE # Omu, replace with recharging RPD
     - id: RCDAmmo
     - id: RubberStampCE
     - id: MetalFoamGrenade
@@ -554,6 +554,7 @@
     - id: HeadOfSecurityMeleeCase # Omu
     - id: ComputerSecurityCommsFlatpack #Omu adds departmental comms board
     - id: Multitool # Omu
+    - id: HoSPetKennel #Omu
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
