@@ -313,6 +313,46 @@
   - type: Tending
   - type: Stitches
 
+# Omu edit start
+- type: entity
+  name: cyborg surgical omnitool
+  id: CyborgOmnimedTool
+  parent: BaseToolSurgery
+  description: A surgical omnitool to more conveniently repair your death-prone masters.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi
+    state: omnimed
+  - type: Item
+    size: Normal
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
+  - type: Hemostat
+    speed: 1.5
+  - type: Scalpel
+    speed: 1.5
+  - type: Drill
+    speed: 1.5
+  - type: BoneSetter
+    speed: 1.5
+  - type: Retractor
+    speed: 1.5
+  - type: Cautery
+    speed: 1.5
+  - type: BoneGel
+    speed: 1.5
+  - type: BoneSaw
+    speed: 1.5
+  - type: Tweezers
+    speed: 1.5
+  - type: Tending
+    speed: 1.5
+  - type: Stitches
+    speed: 1.5
+# Omu edit end
+
 - type: entity
   parent: [ OmnimedTool, BaseSyndicateContraband ]
   id: OmnimedToolSyndie

@@ -1,0 +1,64 @@
+- type: entity
+  parent: MobAllulalo
+  id: MobAllulaloRandom
+  name: Uristia Mc-hands
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - AllulaloFirstNames
+    - AllulaloLastNames
+    nameFormat: name-format-standard
+
+- type: entity
+  parent: MobResomi
+  id: MobResomiRandom
+  name: Urist McRaptor
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesResomiMale
+    nameFormat: random-metadata-name-format-default # I dont know if this is the proper nameformat I should be using but it should work though so whatever
+
+
+- type: entity
+  parent: MobXelthia
+  id: MobXelthiaRandom
+  name: Urist McTentacles
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesXelthiaFirst
+    - NamesXelthiaLast
+    nameFormat: name-format-standard
+
+- type: entity
+  parent: MobThaven
+  id: MobThavenRandom
+  name: Urist McEars
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesThaven
+    nameFormat: random-metadata-name-format-default
+
+
+- type: entity
+  parent: MobAvali
+  id: MobAvaliRandom
+  name: Urist McSpaceRaptor
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - names_avali_first
+    - names_avali_packs
+    nameFormat: name-format-standard
