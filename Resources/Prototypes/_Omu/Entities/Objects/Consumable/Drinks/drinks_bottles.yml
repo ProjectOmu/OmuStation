@@ -1,0 +1,20 @@
+- type: entity
+  parent: [DrinkBottleVisualsAll, DrinkBottlePlasticSmallBaseFull]
+  id: DrinkEthanolBottleFull
+  name: ethanol bottle
+  description: Simple clean ethanol of unknown origin. You think that maybe you dont want to know it.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Ethanol
+          Quantity: 30
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/waterbottle.rsi
+  - type: Label
+    currentLabel: reagent-name-ethanol
+  - type: Sealable
+  - type: Tag
+    tags:
+    - DrinkBottle
