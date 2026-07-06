@@ -166,7 +166,7 @@
       ]
     },
     {
-      "name": "ipc_screen_exclaim",
+      "name": "ipc_screen_exclaim_moving",
       "directions": 4,
       "delays": [
         [
@@ -1403,6 +1403,10 @@
     },
     {
       "name": "ipc_screen_goggles_whitehue",
+      "directions": 4
+    },
+    {
+      "name": "ipc_screen_exclaim_whitehue",
       "directions": 4
     }
   ]
