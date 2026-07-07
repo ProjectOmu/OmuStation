@@ -107,7 +107,9 @@
   markingCategory: Face
   sprites:
     - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
-      state: ipc_screen_dot
+      state: ipc_screen_dot_whitehue
+    - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
+      state: ipc_screen_dot_moving
 
 - type: marking
   speciesRestriction: [ IPC ]

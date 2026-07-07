@@ -240,7 +240,7 @@
       ]
     },
     {
-      "name": "ipc_screen_dot",
+      "name": "ipc_screen_dot_moving",
       "directions": 4,
       "delays": [
         [
@@ -1407,6 +1407,10 @@
     },
     {
       "name": "ipc_screen_monoeye_whitehue",
+      "directions": 4
+    },
+    {
+      "name": "ipc_screen_dot_whitehue",
       "directions": 4
     },
     {
