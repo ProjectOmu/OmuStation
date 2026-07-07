@@ -57,7 +57,9 @@ using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 // Goob Station - End of Round Screen
 using Content.Client.Stylesheets;
+using Content.Client.UserInterface.RichText;
 using Content.Shared.Mobs;
+using Robust.Client.UserInterface.RichText;
 
 namespace Content.Client.RoundEnd
 {
@@ -65,6 +67,19 @@ namespace Content.Client.RoundEnd
     {
         private readonly IEntityManager _entityManager;
         public int RoundId;
+
+        // Byrd begin
+        private readonly Type[] _allowedStationReportTags =
+        [
+            typeof(BoldItalicTag),
+            typeof(BoldTag),
+            typeof(BulletTag),
+            typeof(ColorTag),
+            typeof(HeadingTag),
+            typeof(ItalicTag),
+            typeof(MonoTag)
+        ];
+        // Byrd end
 
         public RoundEndSummaryWindow(string gm, string roundEnd, TimeSpan roundTimeSpan, int roundId,
             RoundEndMessageEvent.RoundEndPlayerInfo[] info, IEntityManager entityManager)
@@ -403,7 +418,7 @@ namespace Content.Client.RoundEnd
                 StationReportmessage.AddText(Loc.GetString("round-end-summary-window-station-report-tab-invalid"));
             }
             // Omu end
-            StationReportLabel.SetMessage(StationReportmessage);
+            StationReportLabel.SetMessage(StationReportmessage, _allowedStationReportTags); // Byrd
             StationReportContainer.AddChild(StationReportLabel);
 
 
