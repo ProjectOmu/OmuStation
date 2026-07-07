@@ -132,7 +132,9 @@
   markingCategory: Face
   sprites:
     - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
-      state: ipc_screen_orange
+      state: ipc_screen_screen_small_whitehue
+    - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
+      state: ipc_screen_orange_moving
 
 
 - type: marking
