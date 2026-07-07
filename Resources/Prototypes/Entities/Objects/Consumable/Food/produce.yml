@@ -1854,7 +1854,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 14
+        maxVol: 14 #Omu, removed desoxyephedrine from ambrosia
         reagents:
         - ReagentId: Bicaridine
           Quantity: 5
@@ -1897,7 +1897,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 10 #Omu, removed desoxyephedrine from ambrosia
         reagents:
         - ReagentId: Omnizine
           Quantity: 3
@@ -1974,7 +1974,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 25 #Omu, moved 10 desoxyephedrine from ambrosia to glasstle
         reagents:
         - ReagentId: Razorium
           Quantity: 15
