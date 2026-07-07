@@ -13,3 +13,14 @@
     gas: WaterVapor
   products:
     Syrup: 1
+
+- type: reaction
+  id: AntiOmniDesoxy #added particularly to remove the oppressive omni/desoxy mix from use
+  impact: Medium 
+  reactants:
+    Omnizine:
+      amount: 1
+    Desoxyephedrine:
+      amount: 1
+  products:
+    Diphenylmethylamine: 2
