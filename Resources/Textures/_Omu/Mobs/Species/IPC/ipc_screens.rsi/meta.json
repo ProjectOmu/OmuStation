@@ -122,6 +122,52 @@
       ]
     },
     {
+      "name": "ipc_screen_breakout_whitehue",
+      "directions": 4,
+      "delays": [
+        [
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8
+        ],
+        [
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8
+        ],
+        [
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8
+        ],
+        [
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8
+        ]
+      ]
+    },
+    {
       "name": "ipc_screen_eight_moving",
       "directions": 4,
       "delays": [
@@ -166,24 +212,46 @@
       ]
     },
     {
+      "name": "ipc_screen_goggles_whitehue",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          4
+        ],
+        [
+          0.2,
+          4
+        ],
+        [
+          0.2,
+          4
+        ],
+        [
+          0.2,
+          4
+        ]
+      ]
+    },
+    {
       "name": "ipc_screen_exclaim_moving",
       "directions": 4,
       "delays": [
         [
-          0.6,
-          0.6
+          0.8,
+          0.8
         ],
         [
-          0.6,
-          0.6
+          0.8,
+          0.8
         ],
         [
-          0.6,
-          0.6
+          0.8,
+          0.8
         ],
         [
-          0.6,
-          0.6
+          0.8,
+          0.8
         ]
       ]
     },
@@ -210,7 +278,59 @@
       ]
     },
     {
+      "name": "ipc_screen_twocycle_whitehue",
+      "directions": 4,
+      "delays": [
+        [
+          0.8,
+          0.8
+        ],
+        [
+          0.8,
+          0.8
+        ],
+        [
+          0.8,
+          0.8
+        ],
+        [
+          0.8,
+          0.8
+        ]
+      ]
+    },
+    {
       "name": "ipc_screen_monoeye_moving",
+      "directions": 4,
+      "delays": [
+        [
+          4,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          4,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          4,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          4,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "ipc_screen_monoeye_whitehue",
       "directions": 4,
       "delays": [
         [
@@ -1391,30 +1511,6 @@
     },
     {
       "name": "ipc_screen_screen_small_whitehue",
-      "directions": 4
-    },
-    {
-      "name": "ipc_screen_breakout_whitehue",
-      "directions": 4
-    },
-    {
-      "name": "ipc_screen_eight_whitehue",
-      "directions": 4
-    },
-    {
-      "name": "ipc_screen_goggles_whitehue",
-      "directions": 4
-    },
-    {
-      "name": "ipc_screen_monoeye_whitehue",
-      "directions": 4
-    },
-    {
-      "name": "ipc_screen_dot_whitehue",
-      "directions": 4
-    },
-    {
-      "name": "ipc_screen_twocycle_whitehue",
       "directions": 4
     }
   ]
