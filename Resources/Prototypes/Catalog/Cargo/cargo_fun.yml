@@ -425,3 +425,13 @@
   cost: 1000
   category: cargoproduct-category-name-fun
   group: market
+
+- type: cargoProduct # Omu Start
+  id: FunOmuPlushies
+  icon:
+    sprite: _Omu/Objects/Fun/Plushies/cyg.rsi
+    state: icon
+  product: CrateFunOmuPlushie
+  cost: 1200
+  category: cargoproduct-category-name-fun
+  group: market # Omu End
