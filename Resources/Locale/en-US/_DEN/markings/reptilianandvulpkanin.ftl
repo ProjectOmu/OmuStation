@@ -7,8 +7,6 @@
 #
 # SPDX-License-Identifier: MIT AND AGPL-3.0-or-later
 
-marking-ReptilianSharpCobraHood = Sharp Cobra Hood
-
 marking-ReptilianHornsShort = Short Horns
 marking-ReptilianHornsShort-short_horns = Horn
 
