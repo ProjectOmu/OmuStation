@@ -19,6 +19,16 @@
     offset: 0.015625, -0.09375
 
 - type: inventoryTemplate
+  id: borgNoOffset
+  slots:
+  - name: head
+    slotTexture: head
+    slotFlags: HEAD
+    uiWindowPos: 1,0
+    strippingWindowPos: 0,0
+    displayName: Head
+
+- type: inventoryTemplate
   id: borgShort
   slots:
   - name: head

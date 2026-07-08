@@ -41,21 +41,32 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        foreach (var borgType in _prototypeManager.EnumeratePrototypes<BorgTypePrototype>().OrderBy(PrototypeName))
+        // TODO: Fix Select UI
+        Dictionary<string, List<BorgTypePrototype>> borgGroupBuilder = new Dictionary<string, List<BorgTypePrototype>>();
+
+        foreach (var borgType in _prototypeManager.EnumeratePrototypes<BorgTypePrototype>())
         {
-            // Goobstation-Start: Customizable borgs sprites
-            var chassisList = new EntityPrototypeView
+            borgGroupBuilder[PrototypeName(borgType)].Add(borgType);
+        }
+
+        foreach (var (key, borgTypeList) in borgGroupBuilder)
+        {
+            foreach (var borgType in borgTypeList)
             {
-                Scale = new Vector2(2, 2),
-                MouseFilter = MouseFilterMode.Stop
-            };
-            chassisList.SetPrototype(borgType.DummyPrototype);
-            chassisList.OnMouseEntered += _ =>
-            {
-                _selectedBorgType = borgType;
-                UpdateInformation(borgType);
-            };
-            SelectionsContainer.AddChild(chassisList);
+                // Goobstation-Start: Customizable borgs sprites
+                var chassisList = new EntityPrototypeView
+                {
+                    Scale = new Vector2(2, 2),
+                    MouseFilter = MouseFilterMode.Stop
+                };
+                chassisList.SetPrototype(borgType.DummyPrototype);
+                chassisList.OnMouseEntered += _ =>
+                {
+                    _selectedBorgType = borgType;
+                    UpdateInformation(borgType);
+                };
+                SelectionsContainer.AddChild(chassisList);
+            }
         }
 
         ConfirmTypeButton.OnPressed += ConfirmButtonPressed;
