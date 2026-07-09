@@ -47,14 +47,24 @@
           bounds: "-0.35,-0.35,0.35,0.35"
         density: 100
         mask:
-        - ItemMask
+        - ItemMask 
         hard: True
   - type: Transform
     anchored: true
     noRot: false
-  #- type: ApcPowerReceiver # Omu Disabled for ApcPowerReceiverBattery
-  #  powerLoad: 2000
-  #  needsPower: true
+  # Omu Start
+  #- type: ApcPowerReceiver
+    #powerLoad: 2000
+    #needsPower: true
+  - type: ApcPowerReceiverBattery
+    idleLoad: 2000
+    batteryRechargeRate: 500
+    batteryRechargeEfficiency: 1.0
+  - type: Battery
+    maxCharge: 300000 # 2m30s of unpowered buffer.
+    startingCharge: 0
+  - type: ExaminableBattery
+  # Omu End
   - type: ItemPlacer
     whitelist:
       components:
@@ -72,11 +82,3 @@
         enum.PowerDeviceVisualLayers.Powered:
           True: { visible: true }
           False: { visible: false }
-  - type: ApcPowerReceiverBattery # Omu
-    idleLoad: 2000
-    batteryRechargeRate: 500
-    batteryRechargeEfficiency: 1.0
-  - type: Battery # Omu
-    maxCharge: 300000 # 2m30s of unpowered buffer.
-    startingCharge: 0
-  - type: ExaminableBattery # Omu
