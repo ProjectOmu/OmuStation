@@ -19,10 +19,28 @@ public sealed partial class JaniVisionComponent : SwitchableVisionOverlayCompone
 {
     public override EntProtoId? ToggleAction { get; set; } = "ToggleJaniVision";
 
+    // The overlay filter color
     public override Color Color { get; set; } = Color.FromHex("#d8bfd8");
 
+    // Highlights all lights or only when something is wrong with them
     [DataField]
-    public string? ThermalShader = "unshaded";
+    public bool ShowAllLights = false;
+
+    // When the light is either on or off in a working state
+    [DataField]
+    public Color WorkingLightsColor = Color.White;
+
+    [DataField]
+    public Color BrokenLightsColor = Color.Red;
+
+    [DataField]
+    public Color EmptyLightsColor = Color.Blue;
+
+    [DataField]
+    public Color BurnedLightsColor = Color.Orange;
+
+    [DataField]
+    public string? JaniShader = "unshaded";
 }
 
 public sealed partial class ToggleJaniVisionEvent : InstantActionEvent;

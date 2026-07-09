@@ -8,15 +8,21 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Client.Light.Visualizers;
 using Content.Goobstation.Shared.Overlays;
 using Content.Omu.Shared.Overlays;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Fluids.Components;
+using Content.Shared.Light;
+using Content.Shared.Light.Components;
 using Content.Shared.Stealth.Components;
+using Microsoft.Build.Framework;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
+using Robust.Shared.Containers;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -36,6 +42,7 @@ public sealed class JaniVisionOverlay : Overlay
     private readonly SpriteSystem _sprite;
     private readonly ContainerSystem _container;
     private readonly SharedSolutionContainerSystem _solutionContainerSystem;
+    private readonly SharedAppearanceSystem _sharedAppearanceSystem;
 
     public override bool RequestScreenTexture => true;
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
@@ -52,6 +59,7 @@ public sealed class JaniVisionOverlay : Overlay
         _transform = _entity.System<TransformSystem>();
         _sprite = _entity.System<SpriteSystem>();
         _solutionContainerSystem = _entity.System<SharedSolutionContainerSystem>();
+        _sharedAppearanceSystem = _entity.System<SharedAppearanceSystem>();
 
         ZIndex = -1;
     }
@@ -81,6 +89,19 @@ public sealed class JaniVisionOverlay : Overlay
         var eyeRot = eye.Rotation;
 
         _entries.Clear();
+        GatherVisiblePuddleEntries(mapId, eyeRot);
+        GatherDestroyedLightsEntries(mapId, eyeRot, Comp);
+
+        foreach (var entry in _entries)
+        {
+            Render(entry.Ent, entry.Map, worldHandle, entry.EyeRot, entry.Color, Comp.JaniShader);
+        }
+
+        worldHandle.SetTransform(Matrix3x2.Identity);
+    }
+
+    private void GatherVisiblePuddleEntries(MapId mapId, Angle eyeRot)
+    {
         var entities = _entity.EntityQueryEnumerator<PuddleComponent, SpriteComponent, TransformComponent>();
         while (entities.MoveNext(out var uid, out var puddle, out var sprite, out var xform))
         {
@@ -105,19 +126,57 @@ public sealed class JaniVisionOverlay : Overlay
             if (_entries.Any(e => e.Ent.Owner == entity))
                 continue;
 
-            var color = Color.Red;
+            var color = Color.White;
             if (_solutionContainerSystem.ResolveSolution(entity, puddle.SolutionName, ref puddle.Solution, out var solution))
                 color = solution.GetColor(_protoMan);
 
             _entries.Add(new JaniVisionRenderEntry((entity, sprite, xform), color, mapId, eyeRot));
         }
+    }
 
-        foreach (var entry in _entries)
+    private void GatherDestroyedLightsEntries(MapId mapId, Angle eyeRot, JaniVisionComponent comp)
+    {
+        var entities = _entity.EntityQueryEnumerator<PoweredLightVisualsComponent, AppearanceComponent, SpriteComponent, TransformComponent>();
+        while (entities.MoveNext(out var uid, out var _, out var _, out var sprite, out var xform))
         {
-            Render(entry.Ent, entry.Map, worldHandle, entry.EyeRot, entry.Color, Comp.ThermalShader);
-        }
+            if (!CanSee(uid, sprite))
+                continue;
 
-        worldHandle.SetTransform(Matrix3x2.Identity);
+            var entity = uid;
+
+            if (_container.TryGetOuterContainer(uid, xform, out var container))
+            {
+                var owner = container.Owner;
+                if (_entity.HasComponent<PoweredLightVisualsComponent>(owner)
+                    && _entity.HasComponent<AppearanceComponent>(owner)
+                    && _entity.TryGetComponent<SpriteComponent>(owner, out var ownerSprite)
+                    && _entity.TryGetComponent<TransformComponent>(owner, out var ownerXform))
+                {
+                    entity = owner;
+                    sprite = ownerSprite;
+                    xform = ownerXform;
+                }
+            }
+
+            if (_entries.Any(e => e.Ent.Owner == entity))
+                continue;
+
+            if (!_sharedAppearanceSystem.TryGetData(entity, PoweredLightVisuals.BulbState, out PoweredLightState bulbState))
+                continue;
+
+            if (!comp.ShowAllLights && bulbState is PoweredLightState.On or PoweredLightState.Off)
+                continue;
+
+            var color = bulbState switch
+            {
+                PoweredLightState.Broken => comp.BrokenLightsColor,
+                PoweredLightState.Burned => comp.BurnedLightsColor,
+                PoweredLightState.Empty => comp.EmptyLightsColor,
+                _ => comp.WorkingLightsColor,
+            };
+
+            _entries.Add(new JaniVisionRenderEntry((entity, sprite, xform), color, mapId, eyeRot));
+        }
     }
 
     private void Render(Entity<SpriteComponent, TransformComponent> ent,
