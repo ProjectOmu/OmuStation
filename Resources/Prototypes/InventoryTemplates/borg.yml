@@ -18,6 +18,7 @@
     displayName: Head
     offset: 0.015625, -0.09375
 
+# Omu start - new template for replacing hard-coded offsets with a displacement map
 - type: inventoryTemplate
   id: borgNoOffset
   slots:
@@ -27,6 +28,7 @@
     uiWindowPos: 1,0
     strippingWindowPos: 0,0
     displayName: Head
+# Omu end
 
 - type: inventoryTemplate
   id: borgShort

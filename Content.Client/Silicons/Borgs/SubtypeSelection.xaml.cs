@@ -26,6 +26,7 @@ public partial class SubtypeSelection : Control
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
     }
+    // Omu - Added mouseRefresh logic to work with borgType groupings
     public void FillContainer(BorgTypePrototype parentPrototype, bool mouseRefresh)
     {
         if (mouseRefresh)

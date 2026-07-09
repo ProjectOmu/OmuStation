@@ -35,7 +35,7 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
     public event Action<ProtoId<BorgTypePrototype>, ProtoId<BorgSubtypePrototype>>? ConfirmedBorgType;
 
     private static readonly List<ProtoId<GuideEntryPrototype>> GuidebookEntries = new() { "Cyborgs", "Robotics" };
-    bool mouseRefresh = true;
+    bool mouseRefresh = true; // Omu
 
 
     public BorgSelectTypeMenu()
@@ -43,7 +43,7 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        // TODO: Fix Select UI
+        // Omu start - Group Borg Types based on name in FTL
         Dictionary<string, List<BorgTypePrototype>> borgGroupBuilder = new Dictionary<string, List<BorgTypePrototype>>();
 
         foreach (var borgType in _prototypeManager.EnumeratePrototypes<BorgTypePrototype>())
@@ -78,8 +78,10 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
             {
                 mouseRefresh = true;
             };
+
             SelectionsContainer.AddChild(chassisList);
         }
+        // Omu end
 
         ConfirmTypeButton.OnPressed += ConfirmButtonPressed;
         HelpGuidebookIds = GuidebookEntries;
@@ -103,12 +105,13 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
         ChassisView.SetPrototype(prototype.DummyPrototype);
 
         // Goobstation: Customizable borgs sprites
-        SubtypeSelection.FillContainer(prototype, mouseRefresh);
+        SubtypeSelection.FillContainer(prototype, mouseRefresh); // Omu add mouseRefresh for reloading subtypes
         ConfirmTypeButton.Disabled = true;
     }
 
     private void ConfirmButtonPressed(BaseButton.ButtonEventArgs obj)
     {
+        // Omu - revised logic for grouping borg types
         if (_selectedBorgType == null ||
             SubtypeSelection.SelectedBorgSubtype == null)
             return;
