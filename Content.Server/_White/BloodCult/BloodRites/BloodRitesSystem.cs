@@ -217,7 +217,7 @@ public sealed class BloodRitesSystem : EntitySystem
         if (target.Comp.BloodSolution is null)
             return false;
 
-        _bloodstream.FlushChemicals(target, "", 10);
+        _bloodstream.FlushChemicals(target.Owner, "", 10);
         var missingBlood = target.Comp.BloodSolution.Value.Comp.Solution.AvailableVolume;
         if (missingBlood == 0)
             return false;
@@ -232,8 +232,8 @@ public sealed class BloodRitesSystem : EntitySystem
             bloodCost = rites.Comp.StoredBlood;
         }
 
-        _bloodstream.TryModifyBleedAmount(target, -3);
-        _bloodstream.TryModifyBloodLevel(target, bloodCost / rites.Comp.BloodRegenerationRatio);
+        _bloodstream.TryModifyBleedAmount(target.Owner, -3);
+        _bloodstream.TryModifyBloodLevel(target.Owner, bloodCost / rites.Comp.BloodRegenerationRatio);
 
         rites.Comp.StoredBlood -= bloodCost;
         return true;

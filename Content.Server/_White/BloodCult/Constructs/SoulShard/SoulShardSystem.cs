@@ -84,7 +84,7 @@ public sealed class SoulShardSystem : EntitySystem
         if (!TryComp<MindContainerComponent>(shard, out var mindContainer) || !mindContainer.HasMind)
             return;
 
-        _roleSystem.MindTryRemoveRole<TraitorRoleComponent>(mindContainer.Mind.Value);
+        _roleSystem.MindRemoveRole<TraitorRoleComponent>(mindContainer.Mind.Value);
         UpdateGlowVisuals(shard, true);
     }
 
