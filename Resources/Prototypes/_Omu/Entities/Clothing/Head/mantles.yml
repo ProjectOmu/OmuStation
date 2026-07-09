@@ -742,3 +742,21 @@
       color: "#CCFFCC"
     - type: SolutionScanner
     - type: ShowThirstIcons
+
+# Research Work Mantle
+- type: entity
+  id: ClothingCyberneticBeastMantleWorkResearch
+  parent: ClothingCyberneticBeastMantleWork
+  name: beast's work mantle
+  description: A modified version of a cybernetic beast's mantle that science can research. This one has integrated internals.
+  components:
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    clothingVisuals:
+      head:
+      - state: helmet
+      - state: helmet-internals
+      - state: eyes
+        shader: unshaded
+  - type: StealTarget
+    stealGroup: None
