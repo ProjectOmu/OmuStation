@@ -42,6 +42,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
+using Content.Shared.EntityEffects.EffectConditions;    //omu for emitters
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
@@ -58,6 +59,9 @@ using Robust.Shared.Maths;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
+using Content.Server.Chat.Managers;     // omu for emitters
+using Content.Server.Construction.Completions; // omu
+using Content.Shared.Mind; // omu
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
@@ -77,7 +81,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-
+    [Dependency] private readonly TagSystem _tag = default!;    //omu
+    [Dependency] private readonly IChatManager _achat = default!; // omu
     private DelamType _delamType = DelamType.Explosion;
 
     public override void Initialize()
@@ -614,18 +619,48 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             // Original log entry
             _adminLog.Add(LogType.Supermatter, impact,
                 $"{activator:actor} activated Supermatter {ToPrettyString(uid):subject}");
+            _achat.SendAdminAlert(
+                $"{activator:actor} activated Supermatter {ToPrettyString(uid):subject}");  //omu added admin alert
 
             // New admin alert
             _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
                 $"SUPERMATTER ACTIVATED BY {activator} AT {Transform(uid).Coordinates}");
+            _achat.SendAdminAlert(
+                $"SUPERMATTER ACTIVATED BY {activator} AT {Transform(uid).Coordinates}");  //omu added admin alert
 
             sm.Activated = true;
         }
 
+        if (_tag.HasTag(target, "EmitterBolt")) //omu start
+        {
+            if (_tag.HasTag(target, "EmitterBoltElectroDisruptive"))    //Omu checks for the tag of the emitter bolt in question
+            {
+                sm.Damage -= 1f;        //omu - heal the SM
+                sm.Power -= 60f;
+                _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+                $"SUPERMATTER hit by healing bolt AT {Transform(uid).Coordinates}");
+                QueueDel(target);
+                return;
+            }
+            if (_tag.HasTag(target, "EmitterBoltElectroBehavioural"))
+            {
+                sm.Damage += 1f;
+                sm.Power += 100f;
+                _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+                $"SUPERMATTER hit by harming bolt AT {Transform(uid).Coordinates}");
+                QueueDel(target);
+                return;
+            }
+        }                                                            //omu end
+
         if (TryComp<SupermatterFoodComponent>(target, out var food))
+        {
             sm.Power += food.Energy;
+        }
         else if (TryComp<ProjectileComponent>(target, out var projectile))
+        {
             sm.Power += (float) projectile.Damage.GetTotal();
+        }
         else
             sm.Power++;
 
@@ -634,11 +669,12 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         if (!HasComp<ProjectileComponent>(target))
         {
             _adminLog.Add(LogType.Supermatter, LogImpact.Medium, $"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");
+            if (HasComp<MindComponent>(target))     //omu - alert for creatures with a mind
+                _achat.SendAdminAlert($"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");      //omu admin alert
             EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
             _audio.PlayPvs(sm.DustSound, uid);
         }
-
-        EntityManager.QueueDeleteEntity(target);
+        QueueDel(target);               //omu changed on advice
     }
 
     private void OnHandInteract(EntityUid uid, SupermatterComponent sm, ref InteractHandEvent args)
@@ -655,7 +691,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
         _audio.PlayPvs(sm.DustSound, uid);
-        EntityManager.QueueDeleteEntity(target);
+        QueueDel(target);              //omu changed on advice
     }
 
     private void OnItemInteract(EntityUid uid, SupermatterComponent sm, ref InteractUsingEvent args)
@@ -694,7 +730,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         sm.Damage += sm.DelaminationPoint / 10;
         sm.DamageArchived += sm.DelaminationPoint / 10;
         sm.SliverRemoved = true;
-        
+
         var integrity = GetIntegrity(sm).ToString("0.00");
         SupermatterAnnouncement(uid, Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", integrity)), true, "Central Command");
 

@@ -28,3 +28,6 @@ loadout-group-courier-id = Courier ID
 loadout-group-courier-envirohelm = Courier envirohelm
 loadout-group-courier-envirosuit = Courier envirosuit
 loadout-group-courier-envirogloves = Courier envirogloves
+
+# Cyborg
+loadout-group-cyborg-head = Cyborg head

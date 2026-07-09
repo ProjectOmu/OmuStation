@@ -600,7 +600,8 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         {
             // Special type like borg or AI, do not spawn a human just spawn the entity.
             dummyEnt = EntityManager.SpawnEntity(previewEntity, MapCoordinates.Nullspace);
-            return dummyEnt;
+            if (job?.Name != "job-name-borg") // Omu, don't return if borg
+                return dummyEnt;
         }
         else if (humanoid is not null)
         {

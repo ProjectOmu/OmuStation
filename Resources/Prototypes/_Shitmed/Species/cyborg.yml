@@ -9,7 +9,7 @@
   id: Cyborg
   name: species-name-human
   roundStart: false
-  prototype: BorgChassisSelectable
+  prototype: PlayerBorgBattery # Omu, borgs need batteries
   sprites: CyborgSprites
   defaultSkinTone: "#fff9e2"
   markingLimits: MobHumanMarkingLimits

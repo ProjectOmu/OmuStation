@@ -896,7 +896,7 @@
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: defib-module }
 
-- type: entity
+- type: entity # Omu edited to have a bunch of vials and a beaker only hand
   id: BorgModuleChemical
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
   name: chemical cyborg module
@@ -910,10 +910,21 @@
     items:
     - HandheldHealthAnalyzerUnpowered
     - Syringe
-    - BorgDropper
     - BorgVial
     - BorgVial
     - BorgVial
+    - BorgVial # Omu edit start
+    - BorgVial
+    - BorgVial
+  - type: DroppableBorgModule
+    moduleId: Chemical
+    items:
+    - id: Beaker
+      whitelist:
+        components:
+        - FitsInDispenser
+        tags:
+        - ChemDispensable # Omu edit end
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: chem-module }
 
@@ -931,8 +942,10 @@
     moduleId: AdvancedTreatment
     items:
     - HandheldHealthAnalyzerUnpowered
-    - BorgHypo
     - Syringe
+    - BorgBluespaceChemistryVial # Omu edit start
+    - BorgBluespaceChemistryVial
+    - BorgBluespaceChemistryVial # Omu edit end
     # Frontier: droppable borg items
   - type: DroppableBorgModule
     moduleId: AdvancedTreatment
@@ -941,6 +954,8 @@
       whitelist:
         components:
         - FitsInDispenser
+        tags: # Omu edit start
+        - ChemDispensable # Omu edit end
     # End Frontier: droppable borg items
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-chem-module }
@@ -1307,25 +1322,18 @@
   - type: ItemBorgModule
     moduleId: Surgery
     items:
-    - Scalpel
-    - SawElectric
-    - Drill
-    - Retractor
-    - Hemostat
-    - Cautery
-    - MedicalStitches
-    - BoneGel
-    - Bonesetter
+    - HandheldHealthAnalyzerUnpowered #omu edit. edded health analyzer
+    - CyborgOmnimedTool #omu edit. it's very cumbersome for cyborgs to manage modules with 10+ items. this makes it easier and faster
     # Frontier: droppable borg items
   - type: DroppableBorgModule
     moduleId: Surgery
     items:
-    - id: OrganHumanBrain
+    - id: BioSynthHeart #Omu edit. replaced the brain with a heart since there was many times the brain was mistake for one of a actual player
       whitelist:
-        components:
+        components: #Omu edit. expanded whitelist since not all organs used the organ tag. also added Tissuesample so cyborgs can preform goob's xeno surgeries
         - BodyPart
-        tags:
         - Organ
+        - TissueSample # Omu edit
     # End Frontier: droppable borg items
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: surgery-module }
@@ -1342,6 +1350,7 @@
   - type: ItemBorgModule
     moduleId: AdvancedSurgery
     items:
+    - HandheldHealthAnalyzerUnpowered #omu edit. edded health analyzer
     - EnergyScalpel
     - EnergyCautery
     - AdvancedRetractor
@@ -1350,12 +1359,12 @@
   - type: DroppableBorgModule
     moduleId: AdvancedSurgery
     items:
-    - id: OrganHumanBrain
+    - id: BioSynthHeart #Omu edit. replaced the brain with a heart since there was many times the brain was mistake for one of a actual player
       whitelist:
-        components:
+        components: #Omu edit. expanded whitelist since not all organs used the organ tag. also added Tissuesample so cyborgs can preform goob's xeno surgeries
         - BodyPart
-        tags:
         - Organ
+        - TissueSample # Omu edit
     # End Frontier: droppable borg items
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-surgery-module }
