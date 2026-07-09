@@ -26,9 +26,10 @@ public partial class SubtypeSelection : Control
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
     }
-    public void FillContainer(BorgTypePrototype parentPrototype)
+    public void FillContainer(BorgTypePrototype parentPrototype, bool mouseRefresh)
     {
-        OptionsContainer.RemoveAllChildren();
+        if (mouseRefresh)
+            OptionsContainer.RemoveAllChildren();
 
         var group = new ButtonGroup();
 
