@@ -276,7 +276,9 @@
   markingCategory: Face
   sprites:
     - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
-      state: ipc_screen_squarewave
+      state: ipc_screen_screen_small_whitehue
+    - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
+      state: ipc_screen_squarewave_moving
 
 
 - type: marking
@@ -286,7 +288,9 @@
   markingCategory: Face
   sprites:
     - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
-      state: ipc_screen_ecgwave
+      state: ipc_screen_screen_small_whitehue
+    - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
+      state: ipc_screen_ecgwave_moving
 
 
 - type: marking
