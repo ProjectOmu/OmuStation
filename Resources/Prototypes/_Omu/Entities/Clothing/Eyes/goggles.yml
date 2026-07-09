@@ -1,0 +1,15 @@
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesJaniVisionGoggles
+  name: jani vision goggles
+  description: Now you can see every puddle!
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
+  - type: JaniVision
+    isEquipment: true
+    toggleAction: ToggleJaniVision
+    thermalShader: unshaded
+  - type: SolutionScanner

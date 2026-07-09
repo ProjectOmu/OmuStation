@@ -1,0 +1,158 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Linq;
+using System.Numerics;
+using Content.Goobstation.Shared.Overlays;
+using Content.Omu.Shared.Overlays;
+using Content.Shared.Body.Components;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Fluids.Components;
+using Content.Shared.Stealth.Components;
+using Robust.Client.GameObjects;
+using Robust.Client.Graphics;
+using Robust.Client.Player;
+using Robust.Shared.Enums;
+using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
+
+namespace Content.Omu.Client.Overlays;
+
+public sealed class JaniVisionOverlay : Overlay
+{
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly IEntityManager _entity = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IEyeManager _eyeManager = default!;
+
+    private readonly TransformSystem _transform;
+    private readonly SpriteSystem _sprite;
+    private readonly ContainerSystem _container;
+    private readonly SharedSolutionContainerSystem _solutionContainerSystem;
+
+    public override bool RequestScreenTexture => true;
+    public override OverlaySpace Space => OverlaySpace.WorldSpace;
+
+    private readonly List<JaniVisionRenderEntry> _entries = [];
+
+    public JaniVisionComponent? Comp;
+
+    public JaniVisionOverlay()
+    {
+        IoCManager.InjectDependencies(this);
+
+        _container = _entity.System<ContainerSystem>();
+        _transform = _entity.System<TransformSystem>();
+        _sprite = _entity.System<SpriteSystem>();
+        _solutionContainerSystem = _entity.System<SharedSolutionContainerSystem>();
+
+        ZIndex = -1;
+    }
+
+    protected override bool BeforeDraw(in OverlayDrawArgs args)
+    {
+        return args.Viewport.Eye == _eyeManager.CurrentEye;
+    }
+
+    protected override void Draw(in OverlayDrawArgs args)
+    {
+        if (ScreenTexture is null || Comp is null)
+            return;
+
+        var worldHandle = args.WorldHandle;
+        var eye = args.Viewport.Eye;
+
+        if (eye == null)
+            return;
+
+        var player = _player.LocalEntity;
+
+        if (!_entity.TryGetComponent(player, out TransformComponent? _))
+            return;
+
+        var mapId = eye.Position.MapId;
+        var eyeRot = eye.Rotation;
+
+        _entries.Clear();
+        var entities = _entity.EntityQueryEnumerator<PuddleComponent, SpriteComponent, TransformComponent>();
+        while (entities.MoveNext(out var uid, out var puddle, out var sprite, out var xform))
+        {
+            if (!CanSee(uid, sprite))
+                continue;
+
+            var entity = uid;
+
+            if (_container.TryGetOuterContainer(uid, xform, out var container))
+            {
+                var owner = container.Owner;
+                if (_entity.TryGetComponent<PuddleComponent>(owner, out var ownerPuddle) && _entity.TryGetComponent<SpriteComponent>(owner, out var ownerSprite)
+                    && _entity.TryGetComponent<TransformComponent>(owner, out var ownerXform))
+                {
+                    entity = owner;
+                    puddle = ownerPuddle;
+                    sprite = ownerSprite;
+                    xform = ownerXform;
+                }
+            }
+
+            if (_entries.Any(e => e.Ent.Owner == entity))
+                continue;
+
+            var color = Color.Red;
+            if (_solutionContainerSystem.ResolveSolution(entity, puddle.SolutionName, ref puddle.Solution, out var solution))
+                color = solution.GetColor(_protoMan);
+
+            _entries.Add(new JaniVisionRenderEntry((entity, sprite, xform), color, mapId, eyeRot));
+        }
+
+        foreach (var entry in _entries)
+        {
+            Render(entry.Ent, entry.Map, worldHandle, entry.EyeRot, entry.Color, Comp.ThermalShader);
+        }
+
+        worldHandle.SetTransform(Matrix3x2.Identity);
+    }
+
+    private void Render(Entity<SpriteComponent, TransformComponent> ent,
+        MapId? map,
+        DrawingHandleWorld handle,
+        Angle eyeRot,
+        Color color,
+        string? shader)
+    {
+        var (uid, sprite, xform) = ent;
+        if (xform.MapID != map || !CanSee(uid, sprite))
+            return;
+
+        var position = _transform.GetWorldPosition(xform);
+        var rotation = _transform.GetWorldRotation(xform);
+
+        var originalColor = sprite.Color;
+        _sprite.SetColor((uid, sprite), color);
+        if (shader != null)
+            handle.UseShader(_protoMan.Index<ShaderPrototype>(shader).Instance());
+
+        _sprite.RenderSprite((uid, sprite), handle, eyeRot, rotation, position);
+        _sprite.SetColor((uid, sprite), originalColor);
+        handle.UseShader(null);
+    }
+
+    private bool CanSee(EntityUid uid, SpriteComponent sprite)
+    {
+        return sprite.Visible && (!_entity.TryGetComponent(uid, out StealthComponent? stealth) ||
+                                  !stealth.ThermalsImmune); // Goobstation - thermals ability to see invisible entities
+    }
+}
+
+public record struct JaniVisionRenderEntry(
+    Entity<SpriteComponent, TransformComponent> Ent,
+    Color Color,
+    MapId? Map,
+    Angle EyeRot);
