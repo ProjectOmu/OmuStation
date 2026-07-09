@@ -29,8 +29,10 @@ public partial class SubtypeSelection : Control
     // Omu - Added mouseRefresh logic to work with borgType groupings
     public void FillContainer(BorgTypePrototype parentPrototype, bool mouseRefresh)
     {
+        // Omu start
         if (mouseRefresh)
             OptionsContainer.RemoveAllChildren();
+        // Omu end
 
         var group = new ButtonGroup();
 
