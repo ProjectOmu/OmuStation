@@ -5,7 +5,7 @@ using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
-using Content.Shared.Actions.Events;
+using Content.Shared.Actions.Components;
 using Content.Shared.Clothing.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Inventory;
@@ -59,8 +59,7 @@ public sealed class BloodCultSpellsSystem : EntitySystem
 
     private void OnSpellStartup(Entity<BaseCultSpellComponent> action, ref ComponentStartup args)
     {
-        if (_actions.TryGetActionData(action, out var actionData, false) && actionData is { UseDelay: not null })
-            _actions.StartUseDelay(action);
+        _actions.StartUseDelay(action.Owner);
     }
 
     private void OnCultTargetEvent(Entity<BaseCultSpellComponent> spell, ref EntityTargetActionEvent args)
@@ -83,7 +82,7 @@ public sealed class BloodCultSpellsSystem : EntitySystem
         if (TryComp(args.Performer, out BloodCultSpellsHolderComponent? spellsHolder))
             spellsHolder.SelectedSpells.Remove(spell);
 
-        _actions.RemoveAction(args.Performer, spell);
+        _actions.RemoveAction(args.Performer, spell.Owner);
     }
 
     private void OnComponentStartup(Entity<BloodCultSpellsHolderComponent> cultist, ref ComponentStartup args) =>
@@ -119,7 +118,7 @@ public sealed class BloodCultSpellsSystem : EntitySystem
         {
             if (EntityUid.TryParse(args.SelectedItem, out var actionUid))
             {
-                _actions.RemoveAction(cultist, actionUid);
+                _actions.RemoveAction(cultist.Owner, actionUid);
                 cultist.Comp.SelectedSpells.Remove(actionUid);
             }
 
@@ -188,7 +187,7 @@ public sealed class BloodCultSpellsSystem : EntitySystem
             if (!_hands.TryPickupAnyHand(ev.Performer, entity) && !ev.Force)
             {
                 _popup.PopupEntity(Loc.GetString("cult-magic-no-empty-hand"), ev.Performer, ev.Performer);
-                _actions.SetCooldown(ev.Action, TimeSpan.FromSeconds(1));
+                _actions.SetCooldown(ev.Action.Owner, TimeSpan.FromSeconds(1));
                 QueueDel(entity);
                 return;
             }
@@ -255,7 +254,7 @@ public sealed class BloodCultSpellsSystem : EntitySystem
             var entry = new RadialSelectorEntry
             {
                 Prototype = spell.ToString(),
-                Icon = GetActionIcon(spell)
+                //Icon = GetActionIcon(spell)
             };
 
             radialList.Add(entry);
@@ -267,17 +266,18 @@ public sealed class BloodCultSpellsSystem : EntitySystem
         _ui.TryToggleUi(cultist.Owner, RadialSelectorUiKey.Key, cultist.Owner);
     }
 
-    private SpriteSpecifier? GetActionIcon(EntityUid actionUid)
-    {
-        if (TryComp(actionUid, out EntityTargetActionComponent? targetAction))
-            return targetAction.Icon;
-        if (TryComp(actionUid, out WorldTargetActionComponent? worldTargetAction))
-            return worldTargetAction.Icon;
-        if (TryComp(actionUid, out InstantActionComponent? instantActionComponent))
-            return instantActionComponent.Icon;
-
-        return null;
-    }
+    // Omu - might be redundant, temp
+    // private SpriteSpecifier? GetActionIcon(EntityUid actionUid)
+    // {
+    //     if (TryComp(actionUid, out EntityTargetActionComponent? targetAction))
+    //         return targetAction.Icon;
+    //     if (TryComp(actionUid, out WorldTargetActionComponent? worldTargetAction))
+    //         return worldTargetAction.Icon;
+    //     if (TryComp(actionUid, out InstantActionComponent? instantActionComponent))
+    //         return instantActionComponent.Icon;
+    //
+    //     return null;
+    // }
 
     #endregion
 }
