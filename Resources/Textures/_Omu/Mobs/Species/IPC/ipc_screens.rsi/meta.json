@@ -512,7 +512,7 @@
       ]
     },
     {
-      "name": "ipc_screen_question",
+      "name": "ipc_screen_question_moving",
       "directions": 4,
       "delays": [
         [
@@ -534,7 +534,7 @@
       ]
     },
     {
-      "name": "ipc_screen_shower",
+      "name": "ipc_screen_shower_moving",
       "directions": 4,
       "delays": [
         [
@@ -1511,6 +1511,10 @@
     },
     {
       "name": "ipc_screen_nature_tree",
+      "directions": 4
+    },
+    {
+      "name": "ipc_screen_shower_head_small",
       "directions": 4
     },
     {
