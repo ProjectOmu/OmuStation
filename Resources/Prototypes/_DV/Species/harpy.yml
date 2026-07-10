@@ -108,9 +108,15 @@
     LeftLeg:
       points: 2
       required: false
+#Omu start - harpy wings moved to wings body part
 #    LeftFoot:
 #      points: 2
 #      required: false
+#    RightArm:
+#      points: 1
+#      required: false
+#      defaultMarkings: [ HarpyWingDefaultHuescale ]
+# Omu End - harpy wings moved to wings body part
     RightHand:
       points: 3
       required: false
