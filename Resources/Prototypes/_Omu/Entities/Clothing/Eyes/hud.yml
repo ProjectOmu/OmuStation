@@ -21,3 +21,19 @@
     - RobotTalk
   - type: StealTarget
     stealGroup: ClothingEyesHudSciDiag
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesHudJanitorial
+  name: filth hud
+  description: A heads-up display providing advanced telemetry on the location of puddles, trash, and all things filthy.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Eyes/janihud.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Eyes/janihud.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - WhitelistChameleon
+  #TODO: Add quills component
