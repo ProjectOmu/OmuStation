@@ -36,8 +36,13 @@
     tags:
     - PetWearable
     - WhitelistChameleon
-  #TODO: Change to quills component
-  - type: ThermalVision
-    color: "#9862b1"
+  - type: JaniVision
     isEquipment: true
-    toggleAction: PulseThermalVision
+    toggleAction: ToggleJaniVision
+    janiShader: "unshaded"
+    showAllLights: true
+    workingLightsColor: "#FFFFFF"
+    brokenLightsColor: "#FF0000"
+    emptyLightsColor: "#05FCFC"
+    burnedLightsColor: "#2AFC05"
+  - type: SolutionScanner
