@@ -47,6 +47,17 @@
 #  equipment:
 #    outerClothing: ClothingOuterWinterCargo
 
+- type: loadout
+  id: ClothingOuterCourierDuster
+  equipment:
+    outerClothing: ClothingOuterCourierDuster
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCourier
+      time: 36000 #10 hrs
+
 # PDA
 - type: loadout
   id: CourierPDA
