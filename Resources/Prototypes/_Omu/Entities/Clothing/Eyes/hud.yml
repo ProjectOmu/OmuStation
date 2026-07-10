@@ -25,7 +25,7 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesHudJanitorial
-  name: filth hud
+  name: clean hud
   description: A heads-up display providing advanced telemetry on the location of puddles, trash, and all things filthy.
   components:
   - type: Sprite
@@ -36,4 +36,8 @@
     tags:
     - PetWearable
     - WhitelistChameleon
-  #TODO: Add quills component
+  #TODO: Change to quills component
+  - type: ThermalVision
+    color: "#9862b1"
+    isEquipment: true
+    toggleAction: PulseThermalVision
