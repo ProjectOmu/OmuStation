@@ -17,6 +17,7 @@ using Content.Shared.Fluids.Components;
 using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Content.Shared.Stealth.Components;
+using Content.Shared.Tag;
 using Microsoft.Build.Framework;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Robust.Client.GameObjects;
@@ -91,6 +92,7 @@ public sealed class JaniVisionOverlay : Overlay
         _entries.Clear();
         GatherVisiblePuddleEntries(mapId, eyeRot);
         GatherDestroyedLightsEntries(mapId, eyeRot, Comp);
+        GatherTrashEntries(mapId, eyeRot, Comp);
 
         foreach (var entry in _entries)
         {
@@ -113,7 +115,8 @@ public sealed class JaniVisionOverlay : Overlay
             if (_container.TryGetOuterContainer(uid, xform, out var container))
             {
                 var owner = container.Owner;
-                if (_entity.TryGetComponent<PuddleComponent>(owner, out var ownerPuddle) && _entity.TryGetComponent<SpriteComponent>(owner, out var ownerSprite)
+                if (_entity.TryGetComponent<PuddleComponent>(owner, out var ownerPuddle)
+                    && _entity.TryGetComponent<SpriteComponent>(owner, out var ownerSprite)
                     && _entity.TryGetComponent<TransformComponent>(owner, out var ownerXform))
                 {
                     entity = owner;
@@ -178,6 +181,54 @@ public sealed class JaniVisionOverlay : Overlay
             _entries.Add(new JaniVisionRenderEntry((entity, sprite, xform), color, mapId, eyeRot));
         }
     }
+
+    private void GatherTrashEntries(MapId mapId, Angle eyeRot, JaniVisionComponent comp)
+    {
+        var tags = _entity.System<TagSystem>();
+
+        var entities = _entity.EntityQueryEnumerator<TagComponent, SpriteComponent, TransformComponent>();
+        while (entities.MoveNext(out var uid, out var trash, out var sprite, out var xform))
+        {
+            if (!CanSee(uid, sprite))
+                continue;
+
+            var entity = uid;
+
+            if (_container.TryGetOuterContainer(uid, xform, out var container))
+            {
+                var owner = container.Owner;
+                if (_entity.TryGetComponent<TagComponent>(owner, out var ownerTrash)
+                    && _entity.TryGetComponent<SpriteComponent>(owner, out var ownerSprite)
+                    && _entity.TryGetComponent<TransformComponent>(owner, out var ownerXform))
+                {
+                    entity = owner;
+                    trash = ownerTrash;
+                    sprite = ownerSprite;
+                    xform = ownerXform;
+                }
+            }
+
+            if (_entries.Any(e => e.Ent.Owner == entity))
+                continue;
+
+            Color? color = null;
+
+            foreach (var (tag, tagColor) in comp.TagColors)
+            {
+                if (tags.HasTag(trash, tag))
+                {
+                    color = tagColor;
+                    break;
+                }
+            }
+
+            if (!color.HasValue)
+                continue;
+
+            _entries.Add(new JaniVisionRenderEntry((entity, sprite, xform), color.Value, mapId, eyeRot));
+        }
+    }
+
 
     private void Render(Entity<SpriteComponent, TransformComponent> ent,
         MapId? map,

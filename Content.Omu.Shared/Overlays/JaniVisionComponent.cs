@@ -41,6 +41,12 @@ public sealed partial class JaniVisionComponent : SwitchableVisionOverlayCompone
 
     [DataField]
     public string? JaniShader = "unshaded";
+
+    [DataField]
+    public Dictionary<string, Color> TagColors = new()
+    {
+        { "Trash", Color.Red }
+    };
 }
 
 public sealed partial class ToggleJaniVisionEvent : InstantActionEvent;
