@@ -429,8 +429,11 @@
     whitelist:
       components:
       - Body
-      - Food    #OMU
-      - Solution  #Omu
+      tags:
+      - FoodSnack    #OMU
+      - DrinkGlass   #OMU
+      - DrinkCan     #OMU
+      - Meat         #OMU
     canTargetSelf: false
     event: !type:StingReagentEvent {}
   - type: ChangelingAction
@@ -461,8 +464,11 @@
     whitelist:
       components:
       - Body
-      - Food    #OMU
-      - Solution  #Omu
+      tags:
+      - FoodSnack    #OMU
+      - DrinkGlass   #OMU
+      - DrinkCan     #OMU
+      - Meat         #OMU
     canTargetSelf: false
     event: !type:StingReagentEvent {}
   - type: ChangelingAction
@@ -493,8 +499,11 @@
     whitelist:
       components:
       - Body
-      - Food    #OMU
-      - Solution  #Omu
+      tags:
+      - FoodSnack    #OMU
+      - DrinkGlass   #OMU
+      - DrinkCan     #OMU
+      - Meat         #OMU
     canTargetSelf: false
     event: !type:StingReagentEvent {}
   - type: ChangelingAction
@@ -525,8 +534,11 @@
     whitelist:
       components:
       - Body
-      - Food   #OMU
-      - Solution #OMU
+      tags:
+      - FoodSnack    #OMU
+      - DrinkGlass   #OMU
+      - DrinkCan     #OMU
+      - Meat         #OMU
     canTargetSelf: false
     event: !type:StingReagentEvent {}
   - type: ChangelingAction
