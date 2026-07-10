@@ -62,7 +62,7 @@ public sealed class JaniVisionOverlay : Overlay
         _solutionContainerSystem = _entity.System<SharedSolutionContainerSystem>();
         _sharedAppearanceSystem = _entity.System<SharedAppearanceSystem>();
 
-        ZIndex = -1;
+        ZIndex = 2;
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
@@ -140,7 +140,7 @@ public sealed class JaniVisionOverlay : Overlay
     private void GatherDestroyedLightsEntries(MapId mapId, Angle eyeRot, JaniVisionComponent comp)
     {
         var entities = _entity.EntityQueryEnumerator<PoweredLightVisualsComponent, AppearanceComponent, SpriteComponent, TransformComponent>();
-        while (entities.MoveNext(out var uid, out var _, out var _, out var sprite, out var xform))
+        while (entities.MoveNext(out var uid, out _, out _, out var sprite, out var xform))
         {
             if (!CanSee(uid, sprite))
                 continue;
