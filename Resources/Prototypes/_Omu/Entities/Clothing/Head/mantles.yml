@@ -125,11 +125,11 @@
       - state: eyes-engineering
         shader: unshaded
   - type: Armor # Makes the engineer and atmos mantles have radiation resistance. It is close to as strong as the CE's mantle.
-   coverage:
-   - Head
-   modifiers:
+    coverage:
+    - Head
+    modifiers:
      coefficients:
-       Radiation: 0.15
+      Radiation: 0.15
 
 # variant of the engineering mantle for atmosians. Mostly because the burn chamber is a thing.
 - type: entity
