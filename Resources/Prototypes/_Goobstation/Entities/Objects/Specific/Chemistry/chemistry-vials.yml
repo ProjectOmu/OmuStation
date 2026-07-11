@@ -131,17 +131,24 @@
     tags:
     - CentrifugeCompatible
   - type: Item
+    sprite: Objects/Specific/Chemistry/vial.rsi # Omu
     size: Tiny
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/vial_bluespace.rsi
     layers:
       - state: icon
-  - type: SolutionContainerVisuals
-    maxFillLevels: 0
+      - state: fill-7 # Omu
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: SolutionContainerVisuals # Omu
+    maxFillLevels: 7
+    fillBaseName: fill-
+    inHandsMaxFillLevels: 4
+    inHandsFillBaseName: -fill-
   - type: SolutionContainerManager
     solutions:
       beaker:
-        maxVol: 300
+        maxVol: 150 # Omu
   - type: PhysicalComposition
     materialComposition:
       Steel: 25
