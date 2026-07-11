@@ -20,6 +20,7 @@ using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.Roles;
 using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._White.Jump;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
@@ -92,6 +93,7 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
 
         // make them a changeling
         EnsureComp<ChangelingComponent>(target);
+        EnsureComp<JumpComponent>(target); //Omu - cling leap
 
         // add store
         var store = EnsureComp<StoreComponent>(target);
