@@ -1,3 +1,57 @@
+- type: entity
+  name: reinforced jug
+  parent: Jug
+  id: ReinforcedJug
+  description: The sterile plastic of this jug has been reinforced with a metallic shell allowing it to contain an impressive amount of liquid.
+  components:
+    - type: SolutionContainerVisuals
+      inHandsMaxFillLevels: 4
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          maxVol: 400
+    - type: Sprite
+      sprite: _NF/Objects/Specific/Chemistry/reinforced_jug.rsi
+      layers:
+      - state: icon
+      - state: stopper
+        visible: true
+        map: ["enum.OpenableVisuals.Layer"]
+      - state: jug1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+    - type: Item
+      size: Large
+      shape:
+      - 0,0,2,2
+      sprite: _NF/Objects/Specific/Chemistry/reinforced_jug.rsi
+      inhandVisuals:
+        left:
+        - state: inhand-left
+        - state: inhand-left-fill-1
+          map: [ "enum.SolutionContainerLayers.Fill" ]
+          visible: false
+        right:
+        - state: inhand-right
+        - state: inhand-right-fill-1
+          map: [ "enum.SolutionContainerLayers.Fill" ]
+          visible: false
+    - type: Openable
+      sound:
+        collection: bottleOpenSounds
+      closeable: true
+      closeSound:
+        collection: bottleCloseSounds
+    - type: StaticPrice
+      price: 30 # Consistent with BaseBeakerMetallic
+    - type: Destructible # Hacky - takes damage, but shouldn't be destructible
+      thresholds: []
+    - type: GenericVisualizer
+      visuals:
+        enum.OpenableVisuals.Opened:
+          enum.OpenableVisuals.Layer:
+            True: { visible: false }
+            False: { visible: true }
 
 - type: entity
   name: bluespace jug
