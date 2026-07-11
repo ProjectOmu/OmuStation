@@ -93,6 +93,7 @@
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Nutrition.Components;
+using Content.Omu.Common.Nutrition.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.Components;
@@ -192,10 +193,11 @@ public sealed class SliceableFoodSystem : EntitySystem
         var ev = new SliceFoodEvent();
         RaiseLocalEvent(entity, ref ev);
 
-        // Omu start: Makes you cry if you slice onions.
-        if (TryComp<MetaDataComponent>(entity.Owner, out var meta) &&
-            (meta.EntityPrototype?.ID == "FoodOnion" || meta.EntityPrototype?.ID == "FoodOnionRed"))
-            _chat.TryEmoteWithChat(user, "Crying", ignoreActionBlocker: true, forceEmote: true);
+        // Omu start: Makes you emote if you slice food marked with EmoteOnSlice.
+        if (TryComp<EmoteOnSliceComponent>(entity.Owner, out var emoteOnSlice))
+        {
+            _chat.TryEmoteWithChat(user, emoteOnSlice.EmoteId, ignoreActionBlocker: true, forceEmote: true);
+        }
         // Omu end
 
         DeleteFood(entity, user);
