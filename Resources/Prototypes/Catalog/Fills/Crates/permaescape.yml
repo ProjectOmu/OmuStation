@@ -321,22 +321,6 @@
       - id: ClothingBeltMercWebbing
         prob: 0.05
 
-# Omu Start
-- type: entity
-  id: BackpackPermaSalvage
-  parent: ClothingBackpackMerc
-  suffix: Merc
-  components:
-  - type: StorageFill
-    contents:
-    - id: ClothingUniformJumpsuitMercenary
-    - id: ClothingHeadBandMerc
-    - id: ClothingHeadHatBeretMerc
-    - id: ClothingEyesGlassesMercenary
-    - id: ClothingHandsGlovesMercFingerless
-    - id: ClothingShoesBootsMerc
-# Omu End
-
 - type: entity
   id: CratePermaEscapeComs
   parent: CrateGenericSteel
