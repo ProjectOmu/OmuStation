@@ -82,6 +82,12 @@
   - type: Thirst
   - type: Carriable
   - type: HumanoidAppearance
+    markingsDisplacement: # Omu Start
+      Hair:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Shadowkin/displacement.rsi
+            state: hair # Omu End
     species: Shadowkin
   - type: Icon
     sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
@@ -240,6 +246,12 @@
   description: A dummy shadowkin meant to be used in character setup.
   components:
     - type: HumanoidAppearance
+      markingsDisplacement: # Omu Start
+        Hair:
+          sizeMaps:
+            32:
+              sprite: _Omu/Mobs/Species/Shadowkin/displacement.rsi
+              state: hair # Omu End
       species: Shadowkin
     - type: Sprite
       netsync: false

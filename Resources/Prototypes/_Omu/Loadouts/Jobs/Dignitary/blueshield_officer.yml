@@ -41,6 +41,11 @@
     outerClothing: ClothingOuterBlueshieldArmourKimono
 
 - type: loadout
+  id: BSOLongcoat
+  equipment:
+    outerClothing: ClothingOuterLongcoatBlueshield
+    
+- type: loadout 
   id: BlueshieldOfficerOuterXelthiaBlueshield
   effects:
   - !type:SpeciesLoadoutEffect

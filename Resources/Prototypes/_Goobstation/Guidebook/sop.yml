@@ -131,8 +131,11 @@
   name: guide-entry-sop-medical
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Medical/MedicalSOP.xml"
   children:
+  - ChemistSOP # Omustation Start todo move sop stuff
   - DoctorInternSOP
-  - ChemistSOP
+  - ParamedicSOP
+  - PsychologistSOP
+  - VirologistSOP # Omustation End
 
 - type: guideEntry
   id: ScienceSOP

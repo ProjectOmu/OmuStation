@@ -4,6 +4,8 @@
   id: NanoRepStationReport
   description: The document is made out of gold, but somehow you are still able to write on it.
   components:
+  - type: Item # Omu
+    size: Tiny # Omu
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
     layers:

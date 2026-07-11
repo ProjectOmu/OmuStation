@@ -112,6 +112,7 @@
   - CargoTechnicianWintercoatMail
   - CargoTechnicianWintercoat
   - CargoTechnicianJacket
+  - ClothingOuterCourierDuster  # Fallout duster
 
 - type: loadoutGroup
   id: CourierShoes
@@ -297,6 +298,7 @@
   - SecurityOfficerGunCase
   - SecurityOfficerMk58
   - SecurityOfficerSecurityDutyRevolver
+  - SecurityOfficerEG1
   - SecurityOfficerTerminus
   - WeaponPistolMk58Gold
 
@@ -309,6 +311,7 @@
   - SecuritySergeantGunCase
   - SecurityOfficerMk58
   - SecurityOfficerSecurityDutyRevolver
+  - SecurityOfficerEG1
   - SecurityOfficerTerminus
   - WeaponPistolMk58Gold
   - SecuritySergeantMosin
@@ -397,3 +400,23 @@
   name: loadout-group-clown-belt
   loadouts:
   - ClownFoamSabre # Omu - Add foam sabre to the clown's loadout.
+
+# Cyborg
+- type: loadoutGroup
+  id: CyborgHead
+  name: loadout-group-cyborg-head
+  minLimit: 0
+  loadouts:
+  - PropellerHead
+  - PartyHatRedHead
+  - BeanieHead
+  - ChefHead
+  - FezHatHead
+  - FedoraHatHead
+  - WhiteCowboyHead
+  - TophatHead
+  - SafariHead
+  - JesterHead
+  - HeadSlimeHead
+  - HeadFlowerHead
+  - HeadbandSkull
