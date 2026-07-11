@@ -12,8 +12,3 @@ public sealed partial class BerserkAffectedComponent : Component
     [DataField, AutoNetworkedField, AutoPausedField]
     public TimeSpan NextAttack = TimeSpan.Zero;
 }
-
-public enum BerserkKey : byte
-{
-    Key,
-}
