@@ -128,14 +128,6 @@ public abstract class BerserkAffectedSystem : EntitySystem
 
         if (!_timing.IsFirstTimePredicted)
             return;
-
-        // Prevent it from behaving weirdly on moving shuttles
-        //var plumeQuery = EntityQueryEnumerator<EntropicPlumeComponent, PhysicsComponent>();
-        //while (plumeQuery.MoveNext(out var uid, out _, out var physics))
-        //{
-        //    if (physics.BodyStatus != BodyStatus.OnGround)
-        //        _physics.SetBodyStatus(uid, physics, BodyStatus.OnGround);
-        //}
     }
 
     private List<EntityUid> FindPotentialTargets(Entity<TransformComponent> attacker, EntityUid excluded, float range)
