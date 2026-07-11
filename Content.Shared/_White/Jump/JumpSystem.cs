@@ -31,7 +31,7 @@ public sealed class JumpSystem : EntitySystem
     private void OnJumpStartup(EntityUid uid, JumpComponent component, ComponentStartup args)
     {
         if (component.JumpAction != null)
-        _actions.AddAction(uid, ref component.JumpActionEntity, component.JumpAction);
+            _actions.AddAction(uid, ref component.JumpActionEntity, component.JumpAction);
     }
 
     private void OnJumpShutdown(EntityUid uid, JumpComponent component, ComponentShutdown args) =>
