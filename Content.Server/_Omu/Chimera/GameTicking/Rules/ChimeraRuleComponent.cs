@@ -24,4 +24,9 @@ public sealed partial class ChimeraRuleComponent : Component
 
     [DataField]
     public EntProtoId MindRoleChimera = "MindRoleChimera";
+
+    public bool StartAnnounced = false;
+
+    [DataField]
+    public float DeltaCallPercentage = 0.7f;
 }

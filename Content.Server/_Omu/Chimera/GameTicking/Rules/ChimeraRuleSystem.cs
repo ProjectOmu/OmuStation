@@ -15,7 +15,24 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
-
+using Content.Server._Omu.Chimera;
+using Content.Server.Chat.Systems;
+using Content.Server.GameTicking.Rules.Components;
+using Content.Server.Popups;
+using Content.Server.RoundEnd;
+using Content.Server.Station.Systems;
+using Content.Shared.GameTicking.Components;
+using Content.Shared.Humanoid;
+using Content.Shared.Mind;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
+using Robust.Shared.Player;
+using Robust.Shared.Timing;
+using Content.Server.GameTicking;
+using Robust.Shared.Audio.Systems;
+using Content.Server.Nuke;
+using Content.Server.AlertLevel;
 namespace Content.Server._Omu.Chimera.GameTicking.Rules;
 
 public sealed class ChimeraRuleSystem : GameRuleSystem<ChimeraRuleComponent>
@@ -24,6 +41,14 @@ public sealed class ChimeraRuleSystem : GameRuleSystem<ChimeraRuleComponent>
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly ObjectivesSystem _objective = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly NukeCodePaperSystem _nukeCode = default!;
+    [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -57,5 +82,89 @@ public sealed class ChimeraRuleSystem : GameRuleSystem<ChimeraRuleComponent>
             return;
 
         args.Append(Loc.GetString("leto-role-greeting"));
+    }
+
+    /// <summary>
+    /// Get the fraction of players that are infected, between 0 and 1, exact same as in zombie system.
+    /// </summary>
+    /// <param name="includeOffStation">Include healthy players that are not on the station grid</param>
+    /// <param name="includeDead">Should dead zombies be included in the count</param>
+    /// <returns></returns>
+    private float GetInfectedFraction(bool includeOffStation = false, bool includeDead = true)
+    {
+        var players = GetHealthyHumans(includeOffStation);
+        var ChimeraCount = 0;
+        var query = EntityQueryEnumerator<HumanoidAppearanceComponent, ChimeraComponent, MobStateComponent>();
+        while (query.MoveNext(out _, out _, out _, out var mob))
+        {
+            if (!includeDead && mob.CurrentState == MobState.Dead)
+                continue;
+            ChimeraCount++;
+        }
+
+        return ChimeraCount / (float) (players.Count + ChimeraCount);
+    }
+
+    private List<EntityUid> GetHealthyHumans(bool includeOffStation = false)
+    {
+        var healthy = new List<EntityUid>();
+
+        var stationGrids = new HashSet<EntityUid>();
+        if (!includeOffStation)
+        {
+            foreach (var station in _gameTicker.GetSpawnableStations())
+            {
+                if (_station.GetLargestGrid(station) is { } grid)
+                    stationGrids.Add(grid);
+            }
+        }
+
+        var players = AllEntityQuery<HumanoidAppearanceComponent, ActorComponent, MobStateComponent, TransformComponent>();
+        var Chimera = GetEntityQuery<ChimeraComponent>();
+        while (players.MoveNext(out var uid, out _, out _, out var mob, out var xform))
+        {
+
+            if (!_mobState.IsAlive(uid, mob)
+                || Chimera.HasComponent(uid)
+                || !includeOffStation && !stationGrids.Contains(xform.GridUid ?? EntityUid.Invalid))
+                continue;
+
+            healthy.Add(uid);
+        }
+        return healthy;
+    }
+
+    private void CheckRoundEnd(ChimeraRuleComponent ChimeraRuleComponent)
+    {
+        var healthy = GetHealthyHumans();
+        if (GetInfectedFraction(false) > ChimeraRuleComponent.DeltaCallPercentage / 5f && !ChimeraRuleComponent.StartAnnounced)
+        {
+            ChimeraRuleComponent.StartAnnounced = true;
+
+            foreach (var station in _station.GetStations())
+            {
+                _chat.DispatchStationAnnouncement(station,
+                    Loc.GetString("zombie-start-announcement"),
+                    colorOverride: Color.Pink);
+            }
+
+            _audio.PlayGlobal("/Audio/Announcements/outbreak7.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
+        }
+
+        if (GetInfectedFraction(false) > ChimeraRuleComponent.DeltaCallPercentage && !_roundEnd.IsRoundEndRequested())
+        {
+            foreach (var station in _station.GetStations())
+            {
+                _nukeCode.SendNukeCodes(station);       // Send nuke codes
+                _alertLevelSystem.SetLevel(station, "delta", true, true, true, true);   // neenaw delta!
+                _chat.DispatchStationAnnouncement(station, Loc.GetString("chimera-critical-announcement"), colorOverride: Color.DarkRed);       // run for your lives!!
+            }
+            _roundEnd.RequestRoundEnd(null, false);
+        }
+
+        // we include dead for this count because we don't want to end the round
+        // when everyone gets on the shuttle.
+        if (GetInfectedFraction() >= 1) // Oops, all chimera
+            _roundEnd.EndRound();
     }
 }

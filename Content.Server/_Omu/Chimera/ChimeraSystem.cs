@@ -23,7 +23,7 @@ using Content.Server.Roles;
 using Content.Shared.Polymorph;
 using Robust.Shared.Prototypes;
 
-namespace Content.Omu.Server.Chimera;
+namespace Content.Server._Omu.Chimera;
 
 public sealed class ChimeraSystem : EntitySystem
 {
