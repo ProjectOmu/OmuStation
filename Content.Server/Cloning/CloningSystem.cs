@@ -82,11 +82,15 @@ using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Goobstation.Shared.CloneProjector.Clone;
+using Content.Goobstation.Common.Barks;
 using Content.Goobstation.Shared.Clothing.Components;
 using Content.Goobstation.Shared.Clothing.Systems;
+using Content.Server._Hardlight.Traits;
+using Content.Server._Omu.Traits;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Interaction.Components;
+using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Radio.Components; // Goobstation
 using Content.Shared.Radio.EntitySystems;
 using Robust.Shared.Utility; // Goobstation
@@ -111,6 +115,8 @@ public sealed partial class CloningSystem : EntitySystem
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
     [Dependency] private readonly ToggleableClothingSystem _toggleable = default!; // Goobstation
     [Dependency] private readonly SharedSealableClothingSystem _sealable = default!; // Goobstation
+    [Dependency] private readonly HardlightUpdatedTraitSystem _hardlightUpdatedTraitSystem = default!; // Omu & Hardlight
+    [Dependency] private readonly OmuCloneHelperSystem _omuCloneHelperSystem = default!; // Omu
 
     /// <summary>
     ///     Spawns a clone of the given humanoid mob at the specified location or in nullspace.
@@ -149,10 +155,14 @@ public sealed partial class CloningSystem : EntitySystem
         _humanoidSystem.CloneAppearance(original, clone.Value);
 
         CloneComponents(original, clone.Value, settings);
+        _hardlightUpdatedTraitSystem.ApplySelectedTraits(original, clone.Value); // HardLight
 
         // Add equipment first so that SetEntityName also renames the ID card.
         if (settings.CopyEquipment != null)
+        {
             CopyEquipment(original, clone.Value, settings.CopyEquipment.Value, settings.Whitelist, settings.Blacklist, settings.MakeEquipmentUnremoveable, settings.CopyStorage, settings.InternalContentsUnremoveable); // Goob edit
+            _omuCloneHelperSystem.CopyHands(original, clone.Value, settings.Whitelist, settings.Blacklist, settings.CopyStorage); // Omu
+        }
 
         // Copy storage on the mob itself as well.
         // This is needed for slime storage.
@@ -254,6 +264,15 @@ public sealed partial class CloningSystem : EntitySystem
             // If the original does not have the component, then the clone shouldn't have it either.
             RemComp(clone, componentRegistration.Type);
         }
+
+        // Goob edit fix speechSynth not cloning
+        if (TryComp(original, out SpeechSynthesisComponent? originalSpeech) &&
+            TryComp(clone, out SpeechSynthesisComponent? cloneSpeech))
+        {
+            cloneSpeech.VoicePrototypeId = originalSpeech.VoicePrototypeId;
+            Dirty(clone, cloneSpeech);
+        }
+        // Goob edit end
 
         var cloningEv = new CloningEvent(settings, clone);
         RaiseLocalEvent(original, ref cloningEv); // used for datafields that cannot be directly copied using CopyComp
@@ -361,6 +380,11 @@ public sealed partial class CloningSystem : EntitySystem
     /// </remarks>
     public EntityUid? CopyItem(EntityUid original, EntityCoordinates coords, EntityWhitelist? whitelist = null, EntityWhitelist? blacklist = null, bool copyStorage = true) // Goob edit
     {
+        // Omu edit this is just a bad idea in general
+        if (HasComp<VirtualItemComponent>(original))
+            return null;
+        // Omu end
+
         // we use a whitelist and blacklist to be sure to exclude any problematic entities
         if (!_whitelist.CheckBoth(original, blacklist, whitelist))
             return null;
