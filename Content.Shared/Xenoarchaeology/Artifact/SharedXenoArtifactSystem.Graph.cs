@@ -522,7 +522,9 @@ public abstract partial class SharedXenoArtifactSystem
         var output = new HashSet<Entity<XenoArtifactNodeComponent>>();
         foreach (var s in successors)
         {
-            output.Add(GetNode((ent, ent.Comp), s));
+            // Omu: Error check if the node component even exists
+            if (HasComp<XenoArtifactNodeComponent>(GetEntity(ent.Comp.NodeVertices[s])))
+                output.Add(GetNode((ent, ent.Comp), s));
         }
 
         return output;
