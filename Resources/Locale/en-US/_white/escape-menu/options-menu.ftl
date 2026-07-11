@@ -6,3 +6,7 @@
 ui-options-log-in-chat = Log actions in the chat
 
 ui-options-hud-theme-xenomorph = Xenomorph
+
+ui-options-radiation-visuals = Enable radiation visual effects
+ui-options-radiation-visuals-tooltip = Shows the radiation dots/static overlay when exposed to radiation.
+ui-options-visuals-header = Visuals
