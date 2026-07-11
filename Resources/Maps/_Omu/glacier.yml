@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/12/2026 16:03:26
-  entityCount: 18710
+  time: 05/16/2026 14:56:06
+  entityCount: 18709
 maps:
 - 1
 grids:
@@ -13566,20 +13566,6 @@ entities:
     - type: Transform
       pos: -28.5,14.5
       parent: 2
-  - uid: 189
-    components:
-    - type: MetaData
-      name: Surgery Room
-    - type: Transform
-      pos: -4.5,-3.5
-      parent: 2
-  - uid: 190
-    components:
-    - type: MetaData
-      name: Surgery Room
-    - type: Transform
-      pos: -4.5,-4.5
-      parent: 2
   - uid: 192
     components:
     - type: MetaData
@@ -13944,6 +13930,16 @@ entities:
       parent: 2
 - proto: AirlockMedicalGlassLocked
   entities:
+  - uid: 189
+    components:
+    - type: Transform
+      pos: -4.5,-3.5
+      parent: 2
+  - uid: 190
+    components:
+    - type: Transform
+      pos: -4.5,-4.5
+      parent: 2
   - uid: 242
     components:
     - type: MetaData
@@ -50357,7 +50353,7 @@ entities:
       pos: -2.5,48.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -11272.33
+      secondsUntilStateChange: -11440.439
       state: Closing
   - uid: 7046
     components:
@@ -105535,13 +105531,6 @@ entities:
     - type: Transform
       pos: 2.5,22.5
       parent: 2
-- proto: SpawnMobSecDogLaika
-  entities:
-  - uid: 15612
-    components:
-    - type: Transform
-      pos: -14.5,37.5
-      parent: 2
 - proto: SpawnMobSlothPaperwork
   entities:
   - uid: 15613
@@ -121674,6 +121663,14 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -18.5,19.5
       parent: 2
+    - type: DeviceLinkSource
+      lastSignals:
+        DoorStatus: True
+    - type: Door
+      secondsUntilStateChange: -94.08955
+      state: Opening
+    - type: Airlock
+      autoClose: False
   - uid: 18340
     components:
     - type: Transform

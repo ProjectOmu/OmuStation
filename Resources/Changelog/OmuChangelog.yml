@@ -4138,3 +4138,886 @@ Entries:
       message: Fixed Door staff being unable to work.
   id: 525
   time: '2026-05-20T19:05:26.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Fix
+      message: Minor avali emote fixes
+  id: 526
+  time: '2026-05-22T11:16:17.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed faxes failing to log who sent them to admin logs.
+  id: 527
+  time: '2026-05-23T01:20:41.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Add
+      message: added the expedition console and salvage magnet to the nt-reclaimer
+  id: 528
+  time: '2026-05-23T16:21:11.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Fix
+      message: HEV helmet now covers the head
+  id: 529
+  time: '2026-05-23T21:38:22.0000000+00:00'
+- author: Jamandbutter0
+  changes:
+    - type: Add
+      message: Added a new radio ad!
+  id: 530
+  time: '2026-05-23T21:40:32.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Fix
+      message: Station pets that attack hostiles will no longer attack station turrets
+  id: 531
+  time: '2026-05-23T21:50:49.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Changed the RPD in CE's locker to a unique experimental version
+  id: 532
+  time: '2026-05-23T21:52:42.0000000+00:00'
+- author: BramvanZijp
+  changes:
+    - type: Fix
+      message: >-
+        Fixed having items a soul (PAIs, MMIs, Posibrains, Mice/Roaches, etc.)
+        preventing you from raising/planting a shield.
+  id: 533
+  time: '2026-05-23T21:58:18.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Fix
+      message: Vaping doesnt require blocked ingestion to function
+  id: 534
+  time: '2026-05-23T22:09:28.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed the requirements on NCT.
+  id: 535
+  time: '2026-05-23T22:10:06.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Fix
+      message: Bagel now has a sergeant slot.
+  id: 536
+  time: '2026-05-23T22:13:25.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Tweak
+      message: Bee chitinids have discovered fluff dye
+  id: 537
+  time: '2026-05-24T13:47:00.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed the medical assembler making things for free.
+  id: 538
+  time: '2026-05-24T19:11:59.0000000+00:00'
+- author: alt4
+  changes:
+    - type: Add
+      message: >-
+        Added a rollerskates wearing, power-outage ignoring plasmaman to lobby
+        art rotation
+  id: 539
+  time: '2026-05-25T00:03:43.0000000+00:00'
+- author: 3PonPon3
+  changes:
+    - type: Tweak
+      message: >-
+        Increased the Head (Top) marking limit for Shadowkin, Oni and Chitinids
+        from 1 to 6.
+  id: 540
+  time: '2026-05-25T01:06:33.0000000+00:00'
+- author: ArtemisYK
+  changes:
+    - type: Add
+      message: Add's the Pet teleporter to the HoS' locker
+    - type: Remove
+      message: Removed Security pets (Shiva, Trevor and Laika) Spawn points from maps
+    - type: Tweak
+      message: >-
+        Replaced maints airlock whit medical airlock leading to surgery theater
+        in Glacier 
+  id: 541
+  time: '2026-05-25T11:06:56.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: BSOMace can now be used by Pacifists
+  id: 542
+  time: '2026-05-27T18:01:23.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Ported Cyan alert from Funky
+  id: 543
+  time: '2026-05-29T11:46:43.0000000+00:00'
+- author: RedstonewolfX
+  changes:
+    - type: Add
+      message: Ported Reptilian dragon antlers from GoobStation.
+  id: 544
+  time: '2026-05-29T11:47:45.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed bingles being unable to take ion damage.
+  id: 545
+  time: '2026-05-29T12:06:26.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Fix
+      message: >-
+        All species now accurately get bloodied from brute damage in their
+        respective blood's colour
+  id: 546
+  time: '2026-05-29T12:12:22.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Add
+      message: Added bso longcoat
+    - type: Tweak
+      message: Resprited QM longcoat
+  id: 547
+  time: '2026-05-29T17:20:40.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Fix
+      message: Added the surgery tools duffel back in the new abductor shuttles
+  id: 548
+  time: '2026-05-30T03:30:42.0000000+00:00'
+- author: angiogen
+  changes:
+    - type: Add
+      message: Added 3 new marking options for the Xelthia species
+  id: 549
+  time: '2026-05-30T21:53:27.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Add
+      message: Three more resomi markings! Fluffy!
+    - type: Tweak
+      message: Shadowkin have gained the ability to grow their hair!
+  id: 550
+  time: '2026-05-30T22:39:32.0000000+00:00'
+- author: Dishwasher0
+  changes:
+    - type: Fix
+      message: Lack of cargo techs jobs on high pop fland
+  id: 551
+  time: '2026-06-03T23:48:23.0000000+00:00'
+- author: rainflies
+  changes:
+    - type: Tweak
+      message: Made baseball bats fit inside microwaves again. Transits rejoice.
+  id: 552
+  time: '2026-06-06T22:01:04.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Fix
+      message: Corpsman's nursehat options are now armoured.
+  id: 553
+  time: '2026-06-06T22:06:47.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Remove
+      message: >-
+        Removed the energy chem board from lathes so keep your dispensers safe
+        chem 
+  id: 554
+  time: '2026-06-06T22:21:52.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Add
+      message: >-
+        Security can now select the EG-1 Taro as their round start gun or duty
+        case choice.
+    - type: Tweak
+      message: The security techfab can now print energy revolver magazines by default.
+  id: 555
+  time: '2026-06-06T22:32:28.0000000+00:00'
+- author: Jerulean
+  changes:
+    - type: Add
+      message: Added the Marmonica - look for it in maints!
+  id: 556
+  time: '2026-06-06T22:33:17.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the weighting for Malign rift spawning from 0.4 to 4, you should
+        see them more often now.
+  id: 557
+  time: '2026-06-06T22:44:04.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Fix
+      message: Tidemind now correctly mentions assistants instead of passengers.
+  id: 558
+  time: '2026-06-06T22:52:42.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Remove
+      message: Shrapnel payloads from the security techfab
+  id: 559
+  time: '2026-06-06T23:10:34.0000000+00:00'
+- author: MarkerWicker
+  changes:
+    - type: Fix
+      message: >-
+        Thieves now receive the objective to steal a Cybernetic Beast's mantle.
+        This objective is rarer than other item-steal objectives.
+  id: 560
+  time: '2026-06-06T23:12:40.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Add
+      message: Ported the blink emote from Imp!
+  id: 561
+  time: '2026-06-06T23:28:44.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Tweak
+      message: NTR report is now 1×1 and fits in the CC clipboard
+  id: 562
+  time: '2026-06-06T23:31:01.0000000+00:00'
+- author: S1nnam0n
+  changes:
+    - type: Add
+      message: >-
+        Added Sad Spongebob Face Moth getting screamed at by Lydia Schofield to
+        lobby art rotation
+  id: 563
+  time: '2026-06-06T23:33:54.0000000+00:00'
+- author: bnuuy
+  changes:
+    - type: Add
+      message: Added manifolds and pressure regulators to the RPD
+  id: 564
+  time: '2026-06-07T00:36:37.0000000+00:00'
+- author: 4Hangar
+  changes:
+    - type: Add
+      message: >-
+        Added 7 new biocubes, now every playable species has a craftable
+        biocube! 
+  id: 565
+  time: '2026-06-07T16:49:39.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Add
+      message: Cyberbeast's Bartender mantle
+  id: 566
+  time: '2026-06-08T04:05:46.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Xenomorph organs are now all major contra.
+    - type: Tweak
+      message: >-
+        Changed the xeno compatibility implant from research to an uplink item
+        for scientists.
+  id: 567
+  time: '2026-06-10T01:59:54.0000000+00:00'
+- author: Blumbee
+  changes:
+    - type: Add
+      message: The Lawbringer now has mode-indicator lighting
+    - type: Tweak
+      message: The Lawbringers mode colours got slightly tweaked
+  id: 568
+  time: '2026-06-10T02:40:49.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: CPR can revive unreviable trait again.
+  id: 569
+  time: '2026-06-11T00:07:53.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Fix
+      message: >-
+        Plasmamen can now enable wizard and nukie in there customization screen
+        since speciesOverride will turn them human anyway.
+  id: 570
+  time: '2026-06-11T01:26:50.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Harpies can blink loudly now.
+  id: 571
+  time: '2026-06-11T21:50:01.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Right-clicking a buckled entity no longer unbuckles it.
+  id: 572
+  time: '2026-06-12T11:44:36.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: Added DarkIvory47's "Bar Shenanigans" art to the lobby rotation.
+  id: 573
+  time: '2026-06-12T15:53:11.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Add
+      message: Medical cyborg surgery modules are now faster and easier to use!
+    - type: Add
+      message: Medical cyborg surgery modules now include a health analyzer.
+    - type: Add
+      message: >-
+        Medical cyborg chemistry modules now have more vials for chemical
+        storage
+    - type: Remove
+      message: >-
+        Cyborg hypo-spray from the right now unobtainable advanced chemistry
+        module
+    - type: Fix
+      message: >-
+        The whitelist of the "hand" slot in cyborg surgery modules has been
+        updated to fix issues where it couldn't pick up items it really should.
+  id: 574
+  time: '2026-06-13T09:27:28.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Add
+      message: Ports wizdens palette and colour picker buttons for spraypainters
+  id: 575
+  time: '2026-06-13T09:34:05.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        BSO and NTR are no longer valid targets for Kill objectives (alongside
+        all other CC roles, and nukies).
+  id: 576
+  time: '2026-06-13T09:39:34.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Add
+      message: Cyborg's can now choose a hat in their loadout.
+  id: 577
+  time: '2026-06-13T10:16:22.0000000+00:00'
+- author: RadsammyT
+  changes:
+    - type: Fix
+      message: >-
+        The state of IPC body parts will now show up properly when examining an
+        IPCs health.
+  id: 578
+  time: '2026-06-13T10:57:51.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        The entire Medical SOP section has been updated and expanded. Especially
+        Chemists, Paramedics, Psychologists and CMOs, check your new SOP
+        documents as soon as possible.
+  id: 579
+  time: '2026-06-13T10:59:30.0000000+00:00'
+- author: Etzil
+  changes:
+    - type: Add
+      message: Added a LOT of silly people to the art rotation pool.
+  id: 580
+  time: '2026-06-13T20:18:03.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: Moved staff plushies to a buyable crate, gamba time!
+  id: 581
+  time: '2026-06-13T20:23:09.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: Disabled map voting
+  id: 582
+  time: '2026-06-14T14:58:35.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: You can blend sticks of butter for liquid butter now
+  id: 583
+  time: '2026-06-15T00:25:25.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Fix
+      message: >-
+        Box'es mail loop should not have mail getting stuck inside it anymore,
+        and its Sec disposals is now properly reroute protected.
+  id: 584
+  time: '2026-06-16T07:03:23.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Fix
+      message: The icon when exiting duffels
+  id: 585
+  time: '2026-06-16T22:56:34.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Add
+      message: ERT now have icons for easier differentiation
+  id: 586
+  time: '2026-06-16T23:18:25.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Fixed harpy face markings not working due to them not having a face
+  id: 587
+  time: '2026-06-20T00:21:28.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: Added shoal infiltrator gas mask to vox raider and vox uplink
+  id: 588
+  time: '2026-06-20T00:41:20.0000000+00:00'
+- author: Alankao
+  changes:
+    - type: Tweak
+      message: >-
+        Various ID card sprites have been tweaked to match their job/department
+        properly.
+  id: 589
+  time: '2026-06-20T10:23:12.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: Shadowkins can now change their tail colors!
+    - type: Add
+      message: >-
+        New two colored tail versions, gauzed ear versions, full glowing eye
+        markings, and one fully colored chest customization options for
+        Shadowkins.
+  id: 590
+  time: '2026-06-20T10:30:00.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Fix
+      message: Xelthia are now fully immune to caustic damage rather then sorta immune.
+  id: 591
+  time: '2026-06-20T19:43:41.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Advanced topicals (aloe cream, medicated sutures, and regenerative mesh)
+        are now made in a microwave again.
+  id: 592
+  time: '2026-06-20T19:44:30.0000000+00:00'
+- author: jckspjf
+  changes:
+    - type: Tweak
+      message: AI now properly has access to prison comms.
+  id: 593
+  time: '2026-06-20T20:58:58.0000000+00:00'
+- author: Anui-ElXx
+  changes:
+    - type: Add
+      message: Radial menu added to Janitorial Trolleys and Survival boxes
+  id: 594
+  time: '2026-06-20T21:09:44.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Tweak
+      message: >-
+        Pun pun role timer requirements lowered. 15 bartender hours -> 5 overall
+        hours
+  id: 595
+  time: '2026-06-20T21:10:47.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Tweak
+      message: Abductor's EMP glands have less range potency and effect duration
+  id: 596
+  time: '2026-06-20T21:13:59.0000000+00:00'
+- author: Willzile1
+  changes:
+    - type: Add
+      message: 'Added a new map: Crystal Station'
+  id: 597
+  time: '2026-06-20T21:27:19.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Fix
+      message: >-
+        Added owner-executable permissions to the build and run shell scripts.
+        This does not impact anything in-game.
+  id: 598
+  time: '2026-06-20T21:30:55.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Tweak
+      message: Kettle station has been modernized.
+  id: 599
+  time: '2026-06-21T00:29:31.0000000+00:00'
+- author: bookassecond
+  changes:
+    - type: Add
+      message: Xelthia now leave a unique "sticky" residue instead of fingerprints.
+    - type: Tweak
+      message: Jackets that act as gloves now also take up the gloves slot.
+    - type: Fix
+      message: Jackets that act as gloves now properly leave fibers
+  id: 600
+  time: '2026-06-21T05:56:03.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Tweak
+      message: EMPs don't one-shot IPCs anymore.
+  id: 601
+  time: '2026-06-24T12:05:42.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: Dragon stomachs now protect you from rot
+  id: 602
+  time: '2026-06-26T13:07:51.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Fix
+      message: Fixed female Shadowkin laugh.
+  id: 603
+  time: '2026-06-27T11:50:48.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed the rules numbers being wrong
+  id: 604
+  time: '2026-06-27T13:56:32.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Fix
+      message: >-
+        Fixed a bug that stopped Xelthia from using topicals and being read by
+        medical HUDs
+  id: 605
+  time: '2026-06-27T15:52:09.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Tweak
+      message: Eyeshadow markings now come in colours other than black
+  id: 606
+  time: '2026-06-27T18:09:52.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Tweak
+      message: nerfed the Nutriment brick and meat tin
+  id: 607
+  time: '2026-06-27T21:41:51.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Add
+      message: Added to and updated the chaplain job guide
+  id: 608
+  time: '2026-06-28T01:27:17.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added diode discs for emitters
+  id: 609
+  time: '2026-06-28T11:45:58.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Add
+      message: >-
+        Added text to roleplay rule #​4: characters must be "moderately
+        functional adults" and "employable".
+  id: 610
+  time: '2026-06-29T15:06:49.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: NRL
+  id: 611
+  time: '2026-06-29T16:23:59.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: added pirate clothes to the autodrobe
+  id: 612
+  time: '2026-07-01T22:02:45.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed everything getting tau
+  id: 613
+  time: '2026-07-01T22:04:15.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Allulalo now get drunk from water instead of ethanol
+    - type: Tweak
+      message: Allulalo get hydrated by ethanol instead of water
+  id: 614
+  time: '2026-07-01T22:09:26.0000000+00:00'
+- author: CayDaShork
+  changes:
+    - type: Add
+      message: Added new tech to craft Spaceproof Cyberbeast Mantles to science
+  id: 615
+  time: '2026-07-01T23:36:09.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Fix
+      message: Fixed CQC guidebook stating incorrectly that chefs get CQC.
+  id: 616
+  time: '2026-07-02T12:11:21.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Tweak
+      message: CloningPod is now less wide.
+  id: 617
+  time: '2026-07-04T17:03:41.0000000+00:00'
+- author: PickelSilly
+  changes:
+    - type: Add
+      message: Added IdiotVibes' "Staring into the Void" art to the rotation!
+  id: 618
+  time: '2026-07-05T17:14:29.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Add
+      message: 'Added the Drill Sergeant and CC loudspeaker headsets '
+    - type: Tweak
+      message: gave the CC loudspeaker headset to the NTR and ERT leaders
+  id: 619
+  time: '2026-07-10T13:08:06.0000000+00:00'
+- author: jckspjf
+  changes:
+    - type: Fix
+      message: Administrative Assistant now properly has command priority when rolling.
+  id: 620
+  time: '2026-07-10T21:38:28.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: >-
+        Courier fallout duster is now in the loadout with a ten hour
+        requirement.
+  id: 621
+  time: '2026-07-10T21:44:04.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added Miku option for musician - Hatscale Miku
+  id: 622
+  time: '2026-07-10T21:48:04.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Tweak
+      message: cargo's SMES farming has been nerfed to 1/3rd of what it was before.
+  id: 623
+  time: '2026-07-10T21:49:19.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Add
+      message: Added scars to Felinids, Feroxi, Oni, and Yowie
+  id: 624
+  time: '2026-07-10T21:52:04.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Tweak
+      message: >-
+        water tanks and other 'wall-like' entities that aren't walls, are no
+        longer treated like walls.
+    - type: Fix
+      message: the mini gravity generator now weighs a realistic amount.
+  id: 625
+  time: '2026-07-10T21:57:18.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Add
+      message: Added a new lobby background by ABloodSmiler
+  id: 626
+  time: '2026-07-10T22:05:47.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Tweak
+      message: Changed moth wings to be under Wings marking.
+  id: 627
+  time: '2026-07-10T22:11:13.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Fix
+      message: Fixed horn and tails not working on slime people.
+  id: 628
+  time: '2026-07-10T22:12:38.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: All IPC hand markings show up in the hand category now.
+  id: 629
+  time: '2026-07-10T23:12:42.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: 'Fixed xeno nodes causing errors. '
+  id: 630
+  time: '2026-07-10T23:15:58.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Fix
+      message: >-
+        Fixed default wings for Harpy not disappearing when selecting a
+        different type of wing.
+  id: 631
+  time: '2026-07-11T16:58:56.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed a CTD on the SM monitoring console
+  id: 632
+  time: '2026-07-11T17:02:23.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: Changed ling stings to now work with food/drink
+  id: 633
+  time: '2026-07-11T17:07:01.0000000+00:00'
+- author: Derg
+  changes:
+    - type: Tweak
+      message: >-
+        Bingle ghost roles no longer need to be requested and raffle time
+        shortened.
+    - type: Tweak
+      message: Bingle pit no longer takes structural damage.
+  id: 634
+  time: '2026-07-11T17:16:31.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed monolith shuttleguns to no longer fail to recharge.
+  id: 635
+  time: '2026-07-11T17:25:08.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Add
+      message: added 93 new multi-species hairs
+  id: 636
+  time: '2026-07-11T17:32:06.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Admins will no longer be compulsively compelled to accidentally pick up
+        crewmembers that are inside a bag
+  id: 637
+  time: '2026-07-11T17:34:19.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Replace chat coalescing with chatstack (Check your options menu for more
+        details)
+  id: 638
+  time: '2026-07-11T17:38:31.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: >-
+        The Salvage Vendor's inventory has new items added, brute/burn kits
+        removed, and the price of spesos and survival medipens increased.
+  id: 639
+  time: '2026-07-11T17:45:42.0000000+00:00'
+- author: CliveOcelot, Imp
+  changes:
+    - type: Add
+      message: Ported the AAC tablet from Imp/DeltaV
+  id: 640
+  time: '2026-07-11T17:45:56.0000000+00:00'
+- author: Willzile1
+  changes:
+    - type: Add
+      message: 'Deathsquad gets a new shuttle: the Terminatus “Courier.”'
+  id: 641
+  time: '2026-07-11T17:46:23.0000000+00:00'
+- author: fish, NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Medically created clones and paradox clones now inherit a character's
+        roundstart traits.
+    - type: Tweak
+      message: Paradox clones will now copy held inhand items from the original.
+    - type: Fix
+      message: >-
+        Mantle beats vulps will now clone correctly from paradox clones (and be
+        able to use mantles)
+    - type: Fix
+      message: >-
+        Voice Barks now copy over properly when cloned, including paradox
+        clones.
+  id: 642
+  time: '2026-07-11T17:50:27.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Tweak
+      message: >-
+        Cyborgs now run Crewimov with an added chassis law and a reminder for
+        law priority.
+  id: 643
+  time: '2026-07-11T17:59:53.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Add
+      message: The Round End Summary now summarizes silicon lawsets!
+  id: 644
+  time: '2026-07-11T18:01:25.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Add
+      message: Ported content warning from Funky
+  id: 645
+  time: '2026-07-11T18:05:38.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: Implemented previously missing envirosuit to Administrative Assistant.
+  id: 646
+  time: '2026-07-11T18:20:23.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Tweak
+      message: Ported funky-station's RussianAccent
+  id: 647
+  time: '2026-07-11T18:23:01.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Chemist, Doctor/Intern, and Chief Medical Officer SOPs received small
+        updates, including increased leniency for Chemists and notes on when
+        healing priorities may be changed.
+  id: 648
+  time: '2026-07-11T18:27:25.0000000+00:00'
+- author: Blumbee, Alkheemist
+  changes:
+    - type: Add
+      message: >-
+        Thanks to the latest in NT technologies, Plasmaman can now wear select
+        hats atop their helmets.
+  id: 649
+  time: '2026-07-11T18:37:57.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        A badly formatted NTR report is not able to crash the EOR Summary window
+        anymore
+  id: 650
+  time: '2026-07-11T18:42:50.0000000+00:00'
+- author: Willzile1
+  changes:
+    - type: Fix
+      message: Crystal station post live test fixes.
+  id: 651
+  time: '2026-07-11T19:13:41.0000000+00:00'

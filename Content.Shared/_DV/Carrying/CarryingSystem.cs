@@ -39,7 +39,8 @@ using System.Numerics;
 using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mind.Components;
-using Content.Shared._EinsteinEngines.Carrying; // EE
+using Content.Shared._EinsteinEngines.Carrying;
+using Content.Shared._Omu.Carrying; // EE
 
 namespace Content.Shared._DV.Carrying;
 
@@ -319,6 +320,20 @@ public sealed class CarryingSystem : EntitySystem
 
         if (GetPickupDuration(carrier, toCarry).TotalSeconds > 9f)
             return false;
+
+        // Omu start,
+        // carry checks because hey treating people as items and using item pickup events is bad.
+
+        var carryAttempt = new CarryAttemptEvent(carrier, toCarry);
+        RaiseLocalEvent(toCarry, carryAttempt);
+
+        if (carryAttempt.Cancelled)
+            return false;
+
+        var itemEv = new GettingCarriedEvent(carrier, toCarry);
+        RaiseLocalEvent(toCarry, itemEv);
+
+        // Omu end
 
         Carry(carrier, toCarry);
         return true;

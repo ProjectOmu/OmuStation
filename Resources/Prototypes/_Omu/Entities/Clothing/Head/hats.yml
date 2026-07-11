@@ -26,3 +26,20 @@
         Slash: 0.7
         Piercing: 0.7
         Heat: 0.8
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, ClothingHeadNurseHatOfLife, BaseSecurityContraband ]
+  id: ClothingHeadArmoredNurseHatOfLife
+  name: armored nurse hat of life
+  description: A hat that symbolizes the joy and positivity of our life.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Head/Hats/nursehatoflife.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/Head/Hats/nursehatoflife.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - WhitelistChameleon

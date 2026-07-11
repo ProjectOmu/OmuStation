@@ -161,6 +161,8 @@
   id: JobBorg
   nameDataset: NamesBorg
   canCustomizeName: true
+  groups: # Omu
+  - CyborgHead
 
 - type: roleLoadout
   id: JobStationAi
@@ -383,6 +385,8 @@
   - MusicianJumpsuit
   - CommonBackpack
   - MusicianOuterClothing
+  - MusicianShoes     #omu = mikusician
+  - MusicianHat       #omu = mikusician
   - Glasses
   - Survival
   - Trinkets
