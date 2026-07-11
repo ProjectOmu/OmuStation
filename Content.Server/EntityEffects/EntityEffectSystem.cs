@@ -765,10 +765,11 @@ public sealed class EntityEffectSystem : EntitySystem
         var knowledge = EntityManager.EnsureComponent<LanguageKnowledgeComponent>(uid);
         var fallback = SharedLanguageSystem.FallbackLanguagePrototype;
 
-        if (!knowledge.UnderstoodLanguages.Contains(fallback))
+
+        if (knowledge.UnderstoodLanguages.Count < 1)    //Omu - not everything can hear tau
             knowledge.UnderstoodLanguages.Add(fallback);
 
-        if (!knowledge.SpokenLanguages.Contains(fallback))
+        if (knowledge.SpokenLanguages.Count < 1)        //Omu - not everything speaks tau
             knowledge.SpokenLanguages.Add(fallback);
 
         IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<LanguageSystem>().UpdateEntityLanguages(uid);

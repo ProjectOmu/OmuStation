@@ -61,28 +61,32 @@
   - id: DeathRattleLavalandImplanter
     cost: 500
     overrideName: shop-listing-deathrattle-implant-lavaland # stupid implanter structure raagh
+  - id: WeaponGrapplingGun # Omu
+    cost: 500 # Omu
+  - id: ClothingBeltMercWebbing # Omu
+    cost: 500 # Omu
   - id: ClothingShoesBootsJack
     cost: 550
   - id: MineralScanner
     cost: 550
-  - id: MedkitBruteFilled
-    cost: 600
-  - id: MedkitBurnFilled
-    cost: 600
+  #- id: MedkitBruteFilled -- Omu, removed
+  #  cost: 600
+  #- id: MedkitBurnFilled -- Omu, removed
+  #  cost: 600
   - id: DoubleEmergencyOxygenTankFilled
     cost: 650
   - id: DoubleEmergencyNitrogenTankFilled
     cost: 650
   - id: ClothingMaskWeldingGas
     cost: 750
-  - id: SpaceCash5000
-    cost: 750
   - id: MiningDrill
     cost: 800
   - id: OreBagMagnetic
     cost: 800
   - id: SurvivalMedipen
-    cost: 800
+    cost: 1000 #Omu
+  - id: SpaceCash5000
+    cost: 1000 #omu
   - id: PKAUpgradeRange
     cost: 1000
   - id: PKAUpgradeFireRate
@@ -101,6 +105,8 @@
     cost: 1150
   - id: PKAUpgradeDamage
     cost: 1200
+  - id: PKAUpgradeSpace #Omu
+    cost: 1200 #Omu
   - id: ClothingBackpackDuffelSalvageConscription
     cost: 1250
 #  - id: LuxuryMedipen # Omu, remove this.
@@ -119,10 +125,10 @@
     cost: 2000
   - id: ClothingShoesBootsJump
     cost: 2000
-  - id: ClothingShoesBootsJump
-    cost: 2000
   - id: ClothingOuterHardsuitSalvage
     cost: 2000
+  - id: CrusherUpgradeMainMarker #Omu
+    cost: 2750 #Omu
     #TODO: super resonator for 2500
   - id: ClothingOuterHardsuitLuxury
     cost: 3000 #still costs more than just buying it with spesos you got from vendor but whatever
@@ -136,9 +142,15 @@
     cost: 4000 #Mostly for flexing
   - id: ClothingHandsConcussiveGauntlets # Omu
     cost: 4000
+  - id: SpaceCash50000 #Omu
+    cost: 9500 #Omu
   - id: ClothingNeckEnsembleSalvager #Earn. It.
     cost: 10000
+  - id: BackpackPermaSalvage # Omu, Earn the drip
+    cost: 25000 # Omu, Earn the drip
   - id: CrateCargoClarkeAssembly
     cost: 25000 #TODO: Make modules real # Omu, increase price from 12500
+  - id: SalvageHelldiverPDA # Omu
+    cost: 30000 # Omu, Something fun for salvs to work toward
   # TODO: luxury elite bar capsule for 10k
   # TODO: mining drone stuff
