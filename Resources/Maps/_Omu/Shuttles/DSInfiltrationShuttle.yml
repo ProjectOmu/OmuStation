@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/11/2026 03:31:09
+  time: 07/11/2026 05:26:16
   entityCount: 632
 maps: []
 grids:
@@ -35,7 +35,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: DS Infiltration Shuttle
+      name: CC-272 Terminatus “Courier”
     - type: Transform
       pos: -0.515625,-0.421875
       parent: invalid
@@ -1376,7 +1376,7 @@ entities:
     - type: Transform
       pos: -0.5,-1.5
       parent: 1
-- proto: ComputerRadar
+- proto: ComputerIFFSyndicate
   entities:
   - uid: 19
     components:
@@ -1467,7 +1467,6 @@ entities:
     - type: GasMixer
       inletTwoConcentration: 0.20999998
       inletOneConcentration: 0.79
-      enabled: True
     - type: AtmosPipeColor
       color: '#0055CCFF'
 - proto: GasPassiveVent
