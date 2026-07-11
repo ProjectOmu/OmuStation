@@ -90,6 +90,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Nutrition.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -115,6 +116,7 @@ public sealed class SliceableFoodSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDestructibleSystem _destroy = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -189,6 +191,12 @@ public sealed class SliceableFoodSystem : EntitySystem
         _audio.PlayPvs(entity.Comp2.Sound, entity.Comp1.Coordinates, AudioParams.Default.WithVolume(-2));
         var ev = new SliceFoodEvent();
         RaiseLocalEvent(entity, ref ev);
+
+        // Omu start: Makes you cry if you slice onions.
+        if (TryComp<MetaDataComponent>(entity.Owner, out var meta) &&
+            (meta.EntityPrototype?.ID == "FoodOnion" || meta.EntityPrototype?.ID == "FoodOnionRed"))
+            _chat.TryEmoteWithChat(user, "Crying", ignoreActionBlocker: true, forceEmote: true);
+        // Omu end
 
         DeleteFood(entity, user);
         return true;
