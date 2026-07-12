@@ -53,6 +53,9 @@ public sealed partial class PlantAnalyzerSystem : EntitySystem
             if (comp.ScannedEntity is not { } target)
                 continue;
 
+            if (!TryComp<PlantHolderComponent>(target, out _))
+                continue;
+
             if (!_ui.IsUiOpen(uid, PlantAnalyzerUiKey.Key))
             {
                 StopUsingAnalyzer(uid, comp);
