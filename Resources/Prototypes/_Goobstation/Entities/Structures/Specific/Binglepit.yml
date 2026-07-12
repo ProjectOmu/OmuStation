@@ -53,7 +53,7 @@
   - type: InteractionOutline
   - type: Clickable
   - type: Damageable
-    damageContainer: StructuralInorganic
+    damageContainer: Inorganic   # Omu
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:

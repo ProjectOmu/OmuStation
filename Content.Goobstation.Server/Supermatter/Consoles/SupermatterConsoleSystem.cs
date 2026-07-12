@@ -14,6 +14,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Robust.Shared.Physics;
 
 namespace Content.Goobstation.Server.Supermatter.Console.Systems;
 
@@ -163,7 +164,8 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
         if (focusSupermatter == null)
             return null;
 
-        var focusSupermatterXform = Transform(focusSupermatter.Value);
+        if (!TryComp<TransformComponent>(focusSupermatter, out var focusSupermatterXform))      //Omu fix a crash to server if SM deleted
+            return null;
 
         if (!focusSupermatterXform.Anchored
             || focusSupermatterXform.GridUid != gridUid

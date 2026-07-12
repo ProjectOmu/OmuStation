@@ -13,6 +13,8 @@ using Content.Server.Popups;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.Bed.Sleep;
 using Content.Shared._DV.Carrying;
+using Content.Shared._Omu.Carrying;
+using Content.Shared.Ghost;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Item;
@@ -67,10 +69,11 @@ public sealed class PseudoItemSystem : SharedPseudoItemSystem
         args.Verbs.Add(verb);
     }
 
-    protected override void OnGettingPickedUpAttempt(EntityUid uid, PseudoItemComponent component, GettingPickedUpAttemptEvent args)
+    protected override void OnGettingPickedUpAttempt(EntityUid uid, PseudoItemComponent component,
+        GettingCarriedEvent args) // Omu
     {
         // Try to pick the entity up instead first
-        if (args.User != args.Item && _carrying.TryCarry(args.User, uid))
+        if (args.Carrier != args.Carried && !_carrying.TryCarry(args.Carried, uid)) // omu
         {
             args.Cancel();
             return;
