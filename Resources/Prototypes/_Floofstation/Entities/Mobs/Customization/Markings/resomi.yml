@@ -24,6 +24,17 @@
   - sprite: _Floofstation/Mobs/Customization/resomi_parts.rsi
     state: tail_feathers
 
+# Omu Start
+- type: marking
+  id: ResomiFluffyTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Resomi/markings.rsi
+    state: fluffy_tail
+# Omu End
+
 - type: marking
   id: ResomiLArmFeathers
   bodyPart: LHand
@@ -86,3 +97,23 @@
   sprites:
   - sprite: _Floofstation/Mobs/Customization/resomi_parts.rsi
     state: fluff_head_up
+
+# Omu Start
+- type: marking
+  id: ResomiFluffForehead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Resomi/markings.rsi
+    state: forehead_fluff
+
+- type: marking
+  id: ResomiFluffEars
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Resomi/markings.rsi
+    state: fluffy_ears
+# Omu End

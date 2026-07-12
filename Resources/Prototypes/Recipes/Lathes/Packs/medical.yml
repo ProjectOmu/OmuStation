@@ -61,6 +61,7 @@
   - Hemostat
 
 - type: latheRecipePack
+  parent: ImpMedStatic #imp edit
   id: MedicalStatic
   recipes:
   - Implanter
@@ -108,7 +109,7 @@
   - ChemMasterMachineCircuitboard
   - CondenserMachineCircuitBoard
   - HotplateMachineCircuitboard
-  - EnergyChemDispenserMachineCircuitboard #Goob edit - all things that get base med boards get E-Chem
+  # - EnergyChemDispenserMachineCircuitboard #omu edit
 
 ## Dynamic
 

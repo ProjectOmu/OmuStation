@@ -23,18 +23,12 @@
       types:
         Slash: 10
         Structural: 40
-  - type: StaminaDamageOnHit
-    damage: 20
   - type: MeleeThrowOnHit
-    distance: 1.5
+    distance: 0.5
     speed: 10
   - type: Item
     size: Large
     storedRotation: 45
-  - type: Tool
-    qualities:
-    - Rolling
-    speedModifier: 1.25
   - type: Clothing
     quickEquip: true
     slots:

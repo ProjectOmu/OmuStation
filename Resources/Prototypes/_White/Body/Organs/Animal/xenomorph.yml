@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseItem
+  parent: [BaseItem, BaseMajorContraband] # Omu, make it contra.
   id: BaseXenomorphOrgan
   abstract: true
   components:

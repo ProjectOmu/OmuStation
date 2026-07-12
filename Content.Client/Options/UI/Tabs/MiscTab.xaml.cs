@@ -118,6 +118,14 @@ public sealed partial class MiscTab : Control
             layoutEntries.Add(new OptionDropDownCVar<string>.ValueOption(layout.ToString()!, Loc.GetString($"ui-options-hud-layout-{layout.ToString()!.ToLower()}")));
         }
 
+        // WD Start
+        var chatStackEntries = new List<OptionDropDownCVar<int>.ValueOption>();
+        for (var chatStack = 0; chatStack < 6; chatStack++) // Omu, chhange <4 to <6
+        {
+            chatStackEntries.Add(new OptionDropDownCVar<int>.ValueOption(chatStack, Loc.GetString($"ui-options-chatstack-{chatStack}")));
+        }
+        // WD end
+
         // Channel can be null in replays so.
         // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
         ShowOocPatronColor.Visible = _linkAccount.Tier != null;
@@ -129,7 +137,7 @@ public sealed partial class MiscTab : Control
         Control.AddOptionCheckBox(CCVars.ShowOocPatronColor, ShowOocPatronColor);
         Control.AddOptionCheckBox(CCVars.LoocAboveHeadShow, ShowLoocAboveHeadCheckBox);
         Control.AddOptionCheckBox(GoobCVars.LogInChat, LogInChatCheckBox); // WD EDIT
-        Control.AddOptionCheckBox(GoobCVars.CoalesceIdenticalMessages, CoalesceIdenticalMessagesCheckBox); // WD EDIT
+        Control.AddOptionDropDown(CCVars.ChatStackLastLines, ChatStackOption, chatStackEntries); // WD EDIT
         Control.AddOptionCheckBox(GoobCVars.DetailedExamine, DetailedExamineCheckBox); // Goobstation Change
         Control.AddOptionCheckBox(CCVars.HudHeldItemShow, ShowHeldItemCheckBox);
         Control.AddOptionCheckBox(CCVars.CombatModeIndicatorsPointShow, ShowCombatModeIndicatorsCheckBox);
