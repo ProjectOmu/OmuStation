@@ -1,0 +1,186 @@
+- type: entity
+  id: WeaponFlamethrower
+  parent: BaseItem
+  name: Flamethrower
+  description: A high-powered spray nozzle used in conjunction with a backpack-mounted water tank.
+  components:
+  - type: Tag
+    tags:
+    - FlamethrowerNozzle
+  - type: Sprite
+    sprite: _Omu/Weapons/Flamethrower.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Weapons/Flamethrower.rsi
+    size: Normal
+  - type: Gun
+    cameraRecoilScalar: 0 #no recoil
+    fireRate: 20
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/water_spray.ogg
+  - type: Appearance
+  - type: ClothingSlotAmmoProvider
+    targetSlot:
+    - BACK
+    - suitStorage #goob edit
+    providerWhitelist:
+      tags:
+      - FlamethrowerBackTank
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 375
+      Glass: 125
+
+- type: entity
+  parent: [Clothing, ClothingSlotBase]
+  id: ClothingBackpackFlametank
+  name: Flamethrower storage tank
+  description: Accepts specialized fuel tanks to enable the flamethrowers function
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Back/Backpacks/lmg_backpack.rsi
+    layers:
+    - state: icon
+      visible: false
+    - state: base
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: true
+    zeroNoAmmo: true
+  - type: Clothing
+    slots: BACK
+    sprite: _Goobstation/Clothing/Back/Backpacks/lmg_backpack.rsi
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      - state: green-equipped-BACKPACK
+        shader: unshaded
+      - state: mag-equipped-BACKPACK
+  - type: MagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: FlamethrowerFuelTank
+        whitelist:
+          tags:
+          - FlamethrowerFuelTank
+      item:
+        name: LMG
+        priority: 2
+        startingItem: WeaponFlamethrower
+        whitelist:
+          tags:
+          - FlamethrowerNozzle
+  - type: Appearance
+  - type: StaticPrice
+    price: 500
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      item: !type:ContainerSlot
+  - type: Item
+    size: Ginormous
+  - type: Tag
+    tags:
+    - FlamethrowerBackTank
+    - WhitelistChameleon
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+
+- type: entity
+  id: BulletFlamethrower
+  name: Fire
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Clickable
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: TimedDespawn
+    lifetime: 10
+  - type: Projectile
+    damage:
+      types:
+        Burn: 0.3
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: fireball
+      shader: unshaded
+  - type: Ammo
+    muzzleFlash: null
+  - type: SolutionContainerManager
+    solutions:
+      vapor:
+        maxVol: 3
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 2
+        - ReagentId: Phlogiston
+          Quantity: 1
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.10,-0.30,0.10,0.15"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: Vapor
+    active: true
+    transferAmountPercentage: 100
+  - type: Appearance
+  - type: VaporVisuals
+  - type: SmartLinkBlacklist
+  - type: ChangeTemperatureOnCollide # 1% of the temp gun so its lesser
+    heat: 350
+
+- type: entity
+  id: SecFlamethrowerTank
+  parent: BasePowerCell
+  name: Flamethrower Fuel Tank
+  description: A tank of specialised fuel mix, designed for use within a flamethrower.
+  components:
+  - type: Sprite
+    sprite: _Omu/Weapons/FlamethrowerFuelTank.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: icon
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o4
+      shader: unshaded
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,1
+  - type: Battery
+    maxCharge: 3000
+    startingCharge: 3000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletFlamethrower
+    fireCost: 15
+  - type: Tag
+    tags:
+    - FlamethrowerFuelTank
+  - type: Clothing
+    slots: BELT
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 300
+      Gold: 40
+      Glass: 160
+      Plasma: 200
+    chemicalComposition:
+      Zinc: 20
