@@ -73,3 +73,26 @@
     - gekkers
     - gekkering
     - gekkered
+
+- type: emote
+  id: Roar
+  name: chat-emote-name-roar
+  icon: Interface/Emotes/vocal.png
+  category: Vocal
+  # whitelist:
+  #   tags:
+  #   - HarpyEmotes
+  #   - FeroxiEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-roar"]
+  chatTriggers:
+    - roar
+    - roars
+    - roaring
+    - roared
+    - rawr
+    - rawrs
+    - rawring
+    - rawred
