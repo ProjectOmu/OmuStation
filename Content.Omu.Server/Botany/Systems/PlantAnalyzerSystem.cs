@@ -222,8 +222,8 @@ public sealed partial class PlantAnalyzerSystem : EntitySystem
             PlantAnalyzerUiKey.Key,
             new PlantAnalyzerScannedState(
                 status: PlantAnalyzerStatus.OutOfRange,
-                seedName: null,
-                isTray: false,
+                name: null,
+                scanType: PlantAnalyzerScanType.None,
                 entity: null,
                 health: null,
                 maxHealth: null,
@@ -239,8 +239,8 @@ public sealed partial class PlantAnalyzerSystem : EntitySystem
             PlantAnalyzerUiKey.Key,
             new PlantAnalyzerScannedState(
                 status: PlantAnalyzerStatus.NoData,
-                seedName: null,
-                isTray: false,
+                name: null,
+                scanType: PlantAnalyzerScanType.None,
                 entity: null,
                 health: null,
                 maxHealth: null,
@@ -249,20 +249,28 @@ public sealed partial class PlantAnalyzerSystem : EntitySystem
                 dead: false));
     }
 
-    private bool TryGetSeedData(EntityUid target, [NotNullWhen(true)] out SeedData? seed, out bool isTray)
+    private bool TryGetSeedData(EntityUid target, [NotNullWhen(true)] out SeedData? seed, out PlantAnalyzerScanType scanType)
     {
-        isTray = false;
         seed = null;
+        scanType = PlantAnalyzerScanType.None;
 
         if (TryComp<PlantHolderComponent>(target, out var plantHolder) && plantHolder.Seed != null)
         {
             seed = plantHolder.Seed;
-            isTray = true;
+            scanType = PlantAnalyzerScanType.Plant;
+            return true;
+        }
+
+        if (TryComp<ProduceComponent>(target, out var produceComp) && produceComp.Seed != null)
+        {
+            seed = produceComp.Seed;
+            scanType = PlantAnalyzerScanType.Produce;
             return true;
         }
 
         if (TryComp<SeedComponent>(target, out var seedComp) && _botany.TryGetSeed(seedComp, out seed))
         {
+            scanType = PlantAnalyzerScanType.Seed;
             return true;
         }
 
@@ -476,27 +484,6 @@ public sealed partial class PlantAnalyzerSystem : EntitySystem
         return traits.Count > 0 ? string.Join("\n", traits) : Loc.GetString("plant-analyzer-traits-none");
     }
 
-    private string BuildGeneticQuality(SeedData seed)
-    {
-        if (!seed.Viable)
-            return "plant-analyzer-quality-poor";
-
-        var potencyScore = Math.Clamp((seed.Potency - 1f) / 4f, 0f, 1f);
-        var yieldScore = Math.Clamp((seed.Yield - 3f) / 5f, 0f, 1f);
-        var score = (potencyScore + yieldScore) / 2f;
-
-        if (seed.Potency >= 3f && seed.Yield >= 6)
-            score = Math.Max(score, 0.85f);
-
-        if (score >= 0.8f)
-            return "plant-analyzer-quality-superior";
-
-        if (score >= 0.55f)
-            return "plant-analyzer-quality-strong";
-
-        return "plant-analyzer-quality-standard";
-    }
-
     private void SendScannedState(Entity<PlantAnalyzerComponent> ent, EntityUid target)
     {
         SendScannedState(ent.Owner, ent.Comp, target);
@@ -510,12 +497,18 @@ public sealed partial class PlantAnalyzerSystem : EntitySystem
             return;
         }
 
-        if (!TryGetSeedData(target, out var seed, out var isTray))
+        if (!TryGetSeedData(target, out var seed, out var scanType))
             return;
 
         TryComp<PlantHolderComponent>(target, out var plantHolder);
 
-        var seedName = Loc.GetString(seed.DisplayName);
+        var name = scanType switch
+        {
+            PlantAnalyzerScanType.Seed => $"{Loc.GetString(seed.Name)} seed",
+            PlantAnalyzerScanType.Plant => Loc.GetString(seed.DisplayName),
+            PlantAnalyzerScanType.Produce => Loc.GetString(seed.Name),
+            _ => Loc.GetString(seed.DisplayName)
+        };
 
         var maxHealth = plantHolder?.Seed?.Endurance;
 
@@ -548,8 +541,8 @@ public sealed partial class PlantAnalyzerSystem : EntitySystem
             PlantAnalyzerUiKey.Key,
             new PlantAnalyzerScannedState(
                 PlantAnalyzerStatus.Active,
-                seedName,
-                isTray,
+                name,
+                scanType,
                 GetNetEntity(target),
                 plantHolder?.Health,
                 maxHealth,
@@ -574,9 +567,6 @@ public sealed partial class PlantAnalyzerSystem : EntitySystem
                 pestResistance: seed?.PestTolerance,
                 toxinResistance: seed?.ToxinsTolerance,
                 weedResistance: seed?.WeedTolerance,
-                age: plantHolder?.Age,
-                lastCycleUnixSeconds: plantHolder != null ? (int?)(int)plantHolder.LastCycle.TotalSeconds : null,
-                lastProduceAge: plantHolder?.LastProduce,
                 harvestReady: plantHolder?.Harvest ?? false,
                 idealTemperature: seed?.IdealHeat,
                 temperatureTolerance: seed?.HeatTolerance,

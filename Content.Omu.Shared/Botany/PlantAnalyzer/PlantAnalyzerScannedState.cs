@@ -10,9 +10,11 @@ public sealed class PlantAnalyzerScannedState : BoundUserInterfaceState
 {
     // Basic
     public PlantAnalyzerStatus Status;
-    public string? SeedName;
-    public bool IsTray;
+    public string? Name;
+    public PlantAnalyzerScanType ScanType;
     public NetEntity? Entity;
+    public bool HarvestReady;
+    private PlantAnalyzerStatus _active;
 
     // Condition
     public float? Health;
@@ -56,16 +58,16 @@ public sealed class PlantAnalyzerScannedState : BoundUserInterfaceState
     public float? HighPressureTolerance;
     public List<string>? MissingGases;
 
-    // Debug / raw server values
-    public int? Age;
-    public int? LastCycleUnixSeconds;
-    public int? LastProduceAge;
-    public bool HarvestReady;
+    public PlantAnalyzerScannedState(PlantAnalyzerStatus active, string name)
+    {
+        _active = active;
+        Name = name;
+    }
 
     public PlantAnalyzerScannedState(
         PlantAnalyzerStatus status,
-        string? seedName,
-        bool isTray,
+        string? name,
+        PlantAnalyzerScanType scanType,
         NetEntity? entity,
         float? health,
         float? maxHealth,
@@ -91,9 +93,6 @@ public sealed class PlantAnalyzerScannedState : BoundUserInterfaceState
         float? pestResistance = null,
         float? toxinResistance = null,
         float? weedResistance = null,
-        int? age = null,
-        int? lastCycleUnixSeconds = null,
-        int? lastProduceAge = null,
         bool harvestReady = false,
         float? idealTemperature = null,
         float? temperatureTolerance = null,
@@ -102,8 +101,8 @@ public sealed class PlantAnalyzerScannedState : BoundUserInterfaceState
         List<string>? missingGases = null)
     {
         Status = status;
-        SeedName = seedName;
-        IsTray = isTray;
+        Name = name;
+        ScanType = scanType;
         Entity = entity;
 
         Health = health;
@@ -142,9 +141,6 @@ public sealed class PlantAnalyzerScannedState : BoundUserInterfaceState
         HighPressureTolerance = highPressureTolerance;
         MissingGases = missingGases;
 
-        Age = age;
-        LastCycleUnixSeconds = lastCycleUnixSeconds;
-        LastProduceAge = lastProduceAge;
         HarvestReady = harvestReady;
     }
 }
@@ -155,4 +151,12 @@ public enum PlantAnalyzerStatus : byte
     NoData,
     Active,
     OutOfRange,
+}
+
+public enum PlantAnalyzerScanType
+{
+    None,
+    Seed,
+    Plant,
+    Produce
 }

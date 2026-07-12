@@ -1,5 +1,6 @@
 plant-analyzer-interface-title = plant analyzer
-plant-analyzer-window-no-data = No plant scanned yet.
+plant-analyzer-window-no-data = No plant scanned.
+plant-analyzer-window-scanned = Plant scanned:
 plant-analyzer-window-out-of-range = Target is out of range.
 plant-analyzer-unknown-plant = Unknown plant
 plant-analyzer-toxin = Toxin level
