@@ -1,0 +1,92 @@
+- type: entity
+  name: Melta bolt
+  id: BulletMelta
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Structures/Specific/Anomalies/pyro_anom.rsi
+    layers:
+    - state: anom
+      shader: unshaded
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.3,0.15,0.3"
+        hard: false
+        mask:
+        - Opaque
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectOmnilaser
+  - type: StaminaDamageOnCollide
+    damage: 20
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Burn: 20
+      armorPenetration: 0.7
+    penetrationThreshold: 400
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
+- type: entity
+  name: Melta
+  parent: [BaseItem, BaseSecurityContraband]
+  id: Melta
+  description: A cybersun branded microwave-emission-lens-transmitted-artillery or a MELTA. Fires a burst of concentrated heat that can burn through most surfaces.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_lmg_icon_48x.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: light
+      shader: unshaded
+      map: ["enum.GunVisualLayers.BaseUnshaded"]
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_lmg.rsi
+    size: Huge
+    shape:
+    - 0,0,4,3
+  - type: Wieldable
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 0.5
+    selectedMode: SemiAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_lmg.ogg
+  - type: AmmoCounter
+  - type: StaticPrice
+    price: 500
+  - type: UseDelay
+    delay: 1
+  - type: Appearance
+  - type: Cautery
+    speed: 0.9
+  - type: SurgeryTool
+    endSound:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_lmg.ogg
+  - type: Battery
+    maxCharge: 250
+    startingCharge: 250
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 10
+  - type: ProjectileBatteryAmmoProvider # Omu
+    proto: BulletMelta
+    fireCost: 50
