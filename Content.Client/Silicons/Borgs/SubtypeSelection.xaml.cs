@@ -20,6 +20,7 @@ public partial class SubtypeSelection : Control
 
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     public BorgSubtypePrototype? SelectedBorgSubtype;
+    public BorgTypePrototype? SelectedParentType; // Omu - Tracking parent type
 
     public SubtypeSelection()
     {
@@ -45,6 +46,8 @@ public partial class SubtypeSelection : Control
             button.Group = group;
             button.OnPressed += _ =>
             {
+                // Omu - Tracking parent type
+                var result = _prototype.TryIndex(borgSubtype.ParentBorgType, out SelectedParentType);
                 SelectedBorgSubtype = borgSubtype;
                 SubtypeSelected?.Invoke();
             };

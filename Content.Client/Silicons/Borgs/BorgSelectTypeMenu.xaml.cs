@@ -113,10 +113,12 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
     {
         // Omu - revised logic for grouping borg types
         if (_selectedBorgType == null ||
-            SubtypeSelection.SelectedBorgSubtype == null)
+            SubtypeSelection.SelectedBorgSubtype == null ||
+            SubtypeSelection.SelectedParentType == null)
             return;
 
-        ConfirmedBorgType?.Invoke(_selectedBorgType, SubtypeSelection.SelectedBorgSubtype);
+        // Omu - Tracking parent type
+        ConfirmedBorgType?.Invoke(SubtypeSelection.SelectedParentType, SubtypeSelection.SelectedBorgSubtype);
     }
 
     private static string PrototypeName(BorgTypePrototype prototype)
