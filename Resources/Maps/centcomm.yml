@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/12/2026 14:34:40
-  entityCount: 11964
+  time: 07/12/2026 21:44:30
+  entityCount: 11988
 maps: []
 grids:
 - 1668
@@ -1840,6 +1840,9 @@ entities:
           decals:
             3825: -19,12
             3860: -19,-5
+            5439: 29,-2
+            5440: 31,-3
+            5441: 33,-4
         - node:
             color: '#00FF00FF'
             id: MiniTileDarkLineE
@@ -1983,6 +1986,12 @@ entities:
           decals:
             2518: 1,-50
         - node:
+            color: '#D69949FF'
+            id: MiniTileSteelCornerNe
+          decals:
+            5427: -29,46
+            5428: -28,45
+        - node:
             color: '#DE3A3AFF'
             id: MiniTileSteelCornerNe
           decals:
@@ -2003,6 +2012,11 @@ entities:
             id: MiniTileSteelCornerNw
           decals:
             2517: -3,-50
+        - node:
+            color: '#D69949FF'
+            id: MiniTileSteelCornerNw
+          decals:
+            5426: -33,46
         - node:
             color: '#DE3A3AFF'
             id: MiniTileSteelCornerNw
@@ -2026,6 +2040,11 @@ entities:
           decals:
             2510: 1,-52
         - node:
+            color: '#D69949FF'
+            id: MiniTileSteelCornerSe
+          decals:
+            5424: -28,43
+        - node:
             color: '#DE3A3AFF'
             id: MiniTileSteelCornerSe
           decals:
@@ -2047,6 +2066,11 @@ entities:
             id: MiniTileSteelCornerSw
           decals:
             2514: -3,-52
+        - node:
+            color: '#D69949FF'
+            id: MiniTileSteelCornerSw
+          decals:
+            5425: -33,43
         - node:
             color: '#DE3A3AFF'
             id: MiniTileSteelCornerSw
@@ -2119,6 +2143,11 @@ entities:
           decals:
             2516: 1,-51
         - node:
+            color: '#D69949FF'
+            id: MiniTileSteelLineE
+          decals:
+            5438: -28,44
+        - node:
             color: '#DE3A3AFF'
             id: MiniTileSteelLineE
           decals:
@@ -2137,6 +2166,14 @@ entities:
             3757: -26,12
             3758: -25,12
             3759: -24,12
+        - node:
+            color: '#D69949FF'
+            id: MiniTileSteelLineN
+          decals:
+            5434: -32,46
+            5435: -32,46
+            5436: -30,46
+            5437: -31,46
         - node:
             color: '#FFFFFFFF'
             id: MiniTileSteelLineN
@@ -2169,6 +2206,14 @@ entities:
             2511: 0,-52
             2512: -1,-52
             2513: -2,-52
+        - node:
+            color: '#D69949FF'
+            id: MiniTileSteelLineS
+          decals:
+            5429: -32,43
+            5430: -31,43
+            5431: -30,43
+            5432: -29,43
         - node:
             color: '#FFFFFFFF'
             id: MiniTileSteelLineS
@@ -2207,6 +2252,12 @@ entities:
             id: MiniTileSteelLineW
           decals:
             2515: -3,-51
+        - node:
+            color: '#D69949FF'
+            id: MiniTileSteelLineW
+          decals:
+            5422: -33,44
+            5423: -33,45
         - node:
             color: '#DE3A3AFF'
             id: MiniTileSteelLineW
@@ -7132,7 +7183,7 @@ entities:
       pos: 12.5,-35.5
       parent: 1668
     - type: Door
-      secondsUntilStateChange: -52431.37
+      secondsUntilStateChange: -53239.438
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -8353,6 +8404,148 @@ entities:
     components:
     - type: Transform
       pos: -32.5,23.5
+      parent: 1668
+- proto: AtmosFixFreezerMarker
+  entities:
+  - uid: 406
+    components:
+    - type: Transform
+      pos: -8.5,-31.5
+      parent: 1668
+  - uid: 409
+    components:
+    - type: Transform
+      pos: -5.5,-30.5
+      parent: 1668
+  - uid: 498
+    components:
+    - type: Transform
+      pos: -6.5,-31.5
+      parent: 1668
+  - uid: 1963
+    components:
+    - type: Transform
+      pos: -5.5,-28.5
+      parent: 1668
+  - uid: 11965
+    components:
+    - type: Transform
+      pos: -4.5,-28.5
+      parent: 1668
+  - uid: 11966
+    components:
+    - type: Transform
+      pos: -5.5,-31.5
+      parent: 1668
+  - uid: 11967
+    components:
+    - type: Transform
+      pos: -5.5,-29.5
+      parent: 1668
+  - uid: 11968
+    components:
+    - type: Transform
+      pos: -4.5,-31.5
+      parent: 1668
+  - uid: 11969
+    components:
+    - type: Transform
+      pos: -3.5,-29.5
+      parent: 1668
+  - uid: 11970
+    components:
+    - type: Transform
+      pos: -4.5,-29.5
+      parent: 1668
+  - uid: 11971
+    components:
+    - type: Transform
+      pos: -3.5,-30.5
+      parent: 1668
+  - uid: 11972
+    components:
+    - type: Transform
+      pos: -3.5,-28.5
+      parent: 1668
+  - uid: 11973
+    components:
+    - type: Transform
+      pos: -3.5,-31.5
+      parent: 1668
+  - uid: 11974
+    components:
+    - type: Transform
+      pos: -4.5,-30.5
+      parent: 1668
+  - uid: 11975
+    components:
+    - type: Transform
+      pos: -9.5,-28.5
+      parent: 1668
+  - uid: 11976
+    components:
+    - type: Transform
+      pos: -9.5,-29.5
+      parent: 1668
+  - uid: 11977
+    components:
+    - type: Transform
+      pos: -9.5,-30.5
+      parent: 1668
+  - uid: 11978
+    components:
+    - type: Transform
+      pos: -9.5,-31.5
+      parent: 1668
+  - uid: 11979
+    components:
+    - type: Transform
+      pos: -8.5,-28.5
+      parent: 1668
+  - uid: 11980
+    components:
+    - type: Transform
+      pos: -8.5,-29.5
+      parent: 1668
+  - uid: 11981
+    components:
+    - type: Transform
+      pos: -8.5,-30.5
+      parent: 1668
+  - uid: 11982
+    components:
+    - type: Transform
+      pos: -7.5,-28.5
+      parent: 1668
+  - uid: 11983
+    components:
+    - type: Transform
+      pos: -7.5,-29.5
+      parent: 1668
+  - uid: 11984
+    components:
+    - type: Transform
+      pos: -7.5,-30.5
+      parent: 1668
+  - uid: 11985
+    components:
+    - type: Transform
+      pos: -7.5,-31.5
+      parent: 1668
+  - uid: 11986
+    components:
+    - type: Transform
+      pos: -6.5,-28.5
+      parent: 1668
+  - uid: 11987
+    components:
+    - type: Transform
+      pos: -6.5,-29.5
+      parent: 1668
+  - uid: 11988
+    components:
+    - type: Transform
+      pos: -6.5,-30.5
       parent: 1668
 - proto: AutolatheHyperConvection
   entities:
@@ -29267,13 +29460,6 @@ entities:
     - type: Transform
       pos: -20.5,36.5
       parent: 1668
-- proto: CrateFunClownCarNukieUplink
-  entities:
-  - uid: 1963
-    components:
-    - type: Transform
-      pos: -30.5,36.5
-      parent: 1668
 - proto: CrateFunFoamGuns
   entities:
   - uid: 1402
@@ -29564,6 +29750,16 @@ entities:
     - type: Transform
       pos: -9.5,-29.5
       parent: 1668
+  - uid: 410
+    components:
+    - type: Transform
+      pos: -13.5,-29.5
+      parent: 1668
+  - uid: 411
+    components:
+    - type: Transform
+      pos: -13.5,-30.5
+      parent: 1668
   - uid: 543
     components:
     - type: Transform
@@ -29618,6 +29814,11 @@ entities:
     components:
     - type: Transform
       pos: -9.5,-29.5
+      parent: 1668
+  - uid: 1238
+    components:
+    - type: Transform
+      pos: -12.5,-31.5
       parent: 1668
   - uid: 1240
     components:
@@ -34494,14 +34695,18 @@ entities:
   - uid: 6180
     components:
     - type: MetaData
+      desc: Resident botany slopper
       name: Yuri
     - type: Transform
-      pos: -41.280525,4.288477
+      pos: -41.332146,4.3722773
       parent: 1668
   - uid: 6188
     components:
+    - type: MetaData
+      desc: '@Calls epsilon'
+      name: Mednog
     - type: Transform
-      pos: -41.499275,4.335352
+      pos: -41.644646,4.3410273
       parent: 1668
   - uid: 11184
     components:
@@ -34681,9 +34886,10 @@ entities:
   - uid: 11206
     components:
     - type: MetaData
-      name: Feng
+      desc: Feng is still in debt
+      name: Tossorn
     - type: Transform
-      pos: -43.17115,4.757227
+      pos: -43.12902,4.7785273
       parent: 1668
   - uid: 11207
     components:
@@ -60087,20 +60293,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,-51.5
       parent: 1668
-- proto: RandomCargoCorpseSpawner
-  entities:
-  - uid: 409
-    components:
-    - type: Transform
-      pos: -13.5,-30.5
-      parent: 1668
-- proto: RandomCommandCorpseSpawner
-  entities:
-  - uid: 1238
-    components:
-    - type: Transform
-      pos: -13.5,-31.5
-      parent: 1668
 - proto: RandomDrinkGlass
   entities:
   - uid: 613
@@ -60137,13 +60329,6 @@ entities:
     components:
     - type: Transform
       pos: -13.5,-6.5
-      parent: 1668
-- proto: RandomEngineerCorpseSpawner
-  entities:
-  - uid: 411
-    components:
-    - type: Transform
-      pos: -11.5,-28.5
       parent: 1668
 - proto: RandomFoodMeal
   entities:
@@ -60208,25 +60393,6 @@ entities:
     components:
     - type: Transform
       pos: -8.948298,-28.250834
-      parent: 1668
-- proto: RandomSecurityCorpseSpawner
-  entities:
-  - uid: 406
-    components:
-    - type: Transform
-      pos: -13.5,-29.5
-      parent: 1668
-  - uid: 498
-    components:
-    - type: Transform
-      pos: -13.5,-29.5
-      parent: 1668
-- proto: RandomServiceCorpseSpawner
-  entities:
-  - uid: 410
-    components:
-    - type: Transform
-      pos: -11.5,-31.5
       parent: 1668
 - proto: RapidSyringeGun
   entities:
@@ -78013,6 +78179,28 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 8.474144,33.747227
       parent: 1668
+    - type: Supermatter
+      dustSound: !type:SoundPathSpecifier
+        path: /Audio/_Goobstation/Wizard/supermatter.ogg
+      delamAlarm: !type:SoundPathSpecifier
+        path: /Audio/Machines/alarm.ogg
+      delamSound: !type:SoundPathSpecifier
+        path: /Audio/_Goobstation/Supermatter/delamming.ogg
+      whitelist: {}
+      gasStorage:
+        Oxygen: 0
+        Nitrogen: 0
+        CarbonDioxide: 0
+        Plasma: 0
+        Tritium: 0
+        WaterVapor: 0
+        Frezon: 0
+        Ammonia: 0
+        NitrousOxide: 0
+        Nitrium: 0
+        BZ: 0
+        Healium: 0
+        Pluoxium: 0
 - proto: XenoTissueSample
   entities:
   - uid: 2292

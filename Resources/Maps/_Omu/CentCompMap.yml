@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/12/2026 15:03:17
-  entityCount: 12287
+  time: 07/12/2026 21:51:11
+  entityCount: 12345
 maps:
 - 176
 grids:
@@ -7354,7 +7354,7 @@ entities:
       pos: 12.5,-35.5
       parent: 1668
     - type: Door
-      secondsUntilStateChange: -54142.465
+      secondsUntilStateChange: -54525.004
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -19169,6 +19169,231 @@ entities:
     components:
     - type: Transform
       pos: -5.5,8.5
+      parent: 1668
+  - uid: 12288
+    components:
+    - type: Transform
+      pos: 72.5,3.5
+      parent: 1668
+  - uid: 12289
+    components:
+    - type: Transform
+      pos: 73.5,3.5
+      parent: 1668
+  - uid: 12290
+    components:
+    - type: Transform
+      pos: 74.5,3.5
+      parent: 1668
+  - uid: 12291
+    components:
+    - type: Transform
+      pos: 75.5,3.5
+      parent: 1668
+  - uid: 12292
+    components:
+    - type: Transform
+      pos: 76.5,3.5
+      parent: 1668
+  - uid: 12293
+    components:
+    - type: Transform
+      pos: 58.5,3.5
+      parent: 1668
+  - uid: 12294
+    components:
+    - type: Transform
+      pos: 59.5,3.5
+      parent: 1668
+  - uid: 12295
+    components:
+    - type: Transform
+      pos: 62.5,3.5
+      parent: 1668
+  - uid: 12296
+    components:
+    - type: Transform
+      pos: 61.5,3.5
+      parent: 1668
+  - uid: 12297
+    components:
+    - type: Transform
+      pos: 63.5,3.5
+      parent: 1668
+  - uid: 12298
+    components:
+    - type: Transform
+      pos: 64.5,3.5
+      parent: 1668
+  - uid: 12299
+    components:
+    - type: Transform
+      pos: 65.5,3.5
+      parent: 1668
+  - uid: 12300
+    components:
+    - type: Transform
+      pos: 66.5,3.5
+      parent: 1668
+  - uid: 12301
+    components:
+    - type: Transform
+      pos: 60.5,3.5
+      parent: 1668
+  - uid: 12302
+    components:
+    - type: Transform
+      pos: 67.5,3.5
+      parent: 1668
+  - uid: 12303
+    components:
+    - type: Transform
+      pos: 68.5,3.5
+      parent: 1668
+  - uid: 12304
+    components:
+    - type: Transform
+      pos: 69.5,3.5
+      parent: 1668
+  - uid: 12305
+    components:
+    - type: Transform
+      pos: 70.5,3.5
+      parent: 1668
+  - uid: 12306
+    components:
+    - type: Transform
+      pos: 71.5,3.5
+      parent: 1668
+  - uid: 12307
+    components:
+    - type: Transform
+      pos: 76.5,-4.5
+      parent: 1668
+  - uid: 12308
+    components:
+    - type: Transform
+      pos: 75.5,-4.5
+      parent: 1668
+  - uid: 12309
+    components:
+    - type: Transform
+      pos: 74.5,-4.5
+      parent: 1668
+  - uid: 12310
+    components:
+    - type: Transform
+      pos: 73.5,-4.5
+      parent: 1668
+  - uid: 12311
+    components:
+    - type: Transform
+      pos: 72.5,-4.5
+      parent: 1668
+  - uid: 12312
+    components:
+    - type: Transform
+      pos: 71.5,-4.5
+      parent: 1668
+  - uid: 12313
+    components:
+    - type: Transform
+      pos: 70.5,-4.5
+      parent: 1668
+  - uid: 12314
+    components:
+    - type: Transform
+      pos: 69.5,-4.5
+      parent: 1668
+  - uid: 12315
+    components:
+    - type: Transform
+      pos: 68.5,-4.5
+      parent: 1668
+  - uid: 12316
+    components:
+    - type: Transform
+      pos: 67.5,-4.5
+      parent: 1668
+  - uid: 12317
+    components:
+    - type: Transform
+      pos: 66.5,-4.5
+      parent: 1668
+  - uid: 12318
+    components:
+    - type: Transform
+      pos: 65.5,-4.5
+      parent: 1668
+  - uid: 12319
+    components:
+    - type: Transform
+      pos: 64.5,-4.5
+      parent: 1668
+  - uid: 12320
+    components:
+    - type: Transform
+      pos: 63.5,-4.5
+      parent: 1668
+  - uid: 12321
+    components:
+    - type: Transform
+      pos: 62.5,-4.5
+      parent: 1668
+  - uid: 12322
+    components:
+    - type: Transform
+      pos: 61.5,-4.5
+      parent: 1668
+  - uid: 12323
+    components:
+    - type: Transform
+      pos: 60.5,-4.5
+      parent: 1668
+  - uid: 12324
+    components:
+    - type: Transform
+      pos: 59.5,-4.5
+      parent: 1668
+  - uid: 12325
+    components:
+    - type: Transform
+      pos: 58.5,-4.5
+      parent: 1668
+  - uid: 12336
+    components:
+    - type: Transform
+      pos: 69.5,-3.5
+      parent: 1668
+  - uid: 12337
+    components:
+    - type: Transform
+      pos: 69.5,-2.5
+      parent: 1668
+  - uid: 12338
+    components:
+    - type: Transform
+      pos: 69.5,-1.5
+      parent: 1668
+  - uid: 12339
+    components:
+    - type: Transform
+      pos: 69.5,-0.5
+      parent: 1668
+  - uid: 12340
+    components:
+    - type: Transform
+      pos: 69.5,0.5
+      parent: 1668
+  - uid: 12341
+    components:
+    - type: Transform
+      pos: 69.5,1.5
+      parent: 1668
+  - uid: 12342
+    components:
+    - type: Transform
+      pos: 69.5,2.5
       parent: 1668
 - proto: CableApcStack
   entities:
@@ -53769,6 +53994,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.4820008,38.523663
       parent: 1668
+- proto: MailTeleporter
+  entities:
+  - uid: 12345
+    components:
+    - type: Transform
+      pos: -7.5,30.5
+      parent: 1668
 - proto: MarmonicaInstrument
   entities:
   - uid: 12273
@@ -53882,6 +54114,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -8.164195,-31.663967
+      parent: 1668
+- proto: MaterialSilo
+  entities:
+  - uid: 12343
+    components:
+    - type: Transform
+      pos: -7.5,28.5
       parent: 1668
 - proto: MechAirTank
   entities:
@@ -58726,6 +58965,28 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: PoweredFloorLight
+  entities:
+  - uid: 12332
+    components:
+    - type: Transform
+      pos: 67.5,-1.5
+      parent: 1668
+  - uid: 12333
+    components:
+    - type: Transform
+      pos: 67.5,0.5
+      parent: 1668
+  - uid: 12334
+    components:
+    - type: Transform
+      pos: 71.5,-1.5
+      parent: 1668
+  - uid: 12335
+    components:
+    - type: Transform
+      pos: 71.5,0.5
+      parent: 1668
 - proto: Poweredlight
   entities:
   - uid: 124
@@ -60624,6 +60885,42 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 65.5,-5.5
+      parent: 1668
+  - uid: 12326
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 64.5,-2.5
+      parent: 1668
+  - uid: 12327
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 64.5,1.5
+      parent: 1668
+  - uid: 12328
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 74.5,1.5
+      parent: 1668
+  - uid: 12329
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 74.5,-2.5
+      parent: 1668
+  - uid: 12330
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 58.5,-2.5
+      parent: 1668
+  - uid: 12331
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 58.5,1.5
       parent: 1668
 - proto: PoweredlightCyan
   entities:
@@ -69813,6 +70110,13 @@ entities:
     components:
     - type: Transform
       pos: 19.5,12.5
+      parent: 1668
+- proto: VendingMachineMailDrobe
+  entities:
+  - uid: 12344
+    components:
+    - type: Transform
+      pos: -7.5,29.5
       parent: 1668
 - proto: VendingMachineMedical
   entities:
