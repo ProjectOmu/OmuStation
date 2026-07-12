@@ -238,8 +238,6 @@
   - type: Icon
     state: pda-securitysergeant
 
-# Borger? I hardly know-er!
-
 - type: entity
   parent: BaseItem
   id: Borgpda
@@ -297,3 +295,12 @@
   - type: ContainerContainer
     containers:
       program-container: !type:Container
+
+- type: entity
+  parent: HelldiverPDA
+  id: SalvageHelldiverPDA
+  name: salvage diver PDA
+  description: Smells like corpses of insects and androids.
+  components:
+  - type: Pda
+    id:

@@ -32,6 +32,10 @@
     Face: MobHumanoidAnyMarking
     Head: MobSlimeHead
     HeadSide: MobHumanoidAnyMarking
+    #omu start - Goat
+    HeadTop: MobHumanoidAnyMarking 
+    Tail: MobHumanoidAnyMarking 
+    #omu end
     Hair: MobSlimeMarkingFollowSkin
     FacialHair: MobSlimeMarkingFollowSkin
     Underwear: MobHumanoidAnyMarking
@@ -57,6 +61,14 @@
     HeadSide:
       points: 3
       required: false
+      #Omu Start - Goat
+    HeadTop: 
+      points: 8 
+      required: false
+    Tail: 
+      points: 2 
+      required: false
+      #Omu End - Goat
     FacialHair:
       points: 1
       required: false
