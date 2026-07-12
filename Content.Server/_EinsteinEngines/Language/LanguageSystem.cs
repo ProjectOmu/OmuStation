@@ -8,6 +8,7 @@ using Content.Shared._EinsteinEngines.Language;
 using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared._EinsteinEngines.Language.Events;
 using Content.Shared._EinsteinEngines.Language.Systems;
+using Content.Shared.Traits;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -230,5 +231,32 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         Dirty(ent);
     }
 
+    #endregion
+
+    // Goobstation edit move trait stuff here.
+    #region trait stuff
+
+    public void UpdateEntityLanguages(EntityUid uid, TraitPrototype traitPrototype)
+    {
+        foreach (var (languages, add, spoken, understood) in new[]
+                 {
+                     (traitPrototype.RemoveLanguagesSpoken, false, true, false),
+                     (traitPrototype.RemoveLanguagesUnderstood, false, false, true),
+                     (traitPrototype.LanguagesSpoken, true, true, false),
+                     (traitPrototype.LanguagesUnderstood, true, false, true),
+                 })
+        {
+            if (languages is null || languages.Count == 0)
+                continue;
+
+            foreach (var lang in languages)
+            {
+                if (add)
+                    AddLanguage(uid, lang, spoken, understood);
+                else
+                    RemoveLanguage(uid, lang, spoken, understood);
+            }
+        }
+    }
     #endregion
 }
