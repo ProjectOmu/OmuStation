@@ -159,30 +159,16 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
 
     private void PopulateSeedHeader(PlantAnalyzerScannedState state)
     {
-        StatusLabel.Text = "Plant scanned.";
+        StatusLabel.Text = Loc.GetString("plant-analyzer-window-scanned");
         SeedSprite.Visible = true;
         OutOfRangeSprite.Visible = false;
 
-        SeedNameLabel.Text = FormatSeedName(state.SeedName ?? Loc.GetString("plant-analyzer-unknown-plant"), state.IsTray);
+        SeedNameLabel.Text = state.Name ?? Loc.GetString("plant-analyzer-na");
 
         if (state.Entity != null)
             SeedSprite.SetEntity(state.Entity.Value);
         else
             SeedSprite.SetEntity((EntityUid?)null);
-    }
-
-    private static string FormatSeedName(string seedName, bool isTray)
-    {
-        try
-        {
-            var title = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(seedName.ToLower(CultureInfo.InvariantCulture));
-            return isTray ? title : title + " Seed";
-        }
-        catch (ArgumentException)
-        {
-            // Invalid format for invariant culture - return as-is
-            return isTray ? seedName : seedName + " Seed";
-        }
     }
 
     private void PopulateConditionTab(PlantAnalyzerScannedState state)
