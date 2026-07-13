@@ -25,7 +25,7 @@
 - type: entity
   name: proto-kinetic shotgun
   id: WeaponProtoKineticShotgun
-  parent: [ BaseGunWieldable, WeaponProtoKineticAcceleratorBase, BaseCargoContraband ]
+  parent: [ WeaponProtoKineticAcceleratorBase, BaseCargoContraband ] #Omu - removed BaseGunWeildable to let onis use Proto-Kinetic shotgun.
   description: Fires a spread of low-damage kinetic bolts that are half as effective for mining.
   components:
   - type: Sprite
@@ -92,7 +92,18 @@
   - type: Tag # Omu
     tags:
     - CyborgProtoKineticAccelerator
+  #Omu start - letting onis use the Proto-Kinetic shotgun.
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -30
+  - type: Gun
+    minAngle: 21
+    maxAngle: 32
+  #Omu end - letting onis use the Proto-Kinetic shotgun. 
 
+  
 - type: entity
   name: proto-kinetic repeater
   id: WeaponProtoKineticRepeater
