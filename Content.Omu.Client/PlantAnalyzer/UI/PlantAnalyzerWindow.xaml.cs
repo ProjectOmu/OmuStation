@@ -100,6 +100,18 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
         ChemistryButton.Pressed = mode == 3;
     }
 
+    protected override DragMode GetDragModeFor(Vector2 relativeMousePos)
+    {
+        var mode = base.GetDragModeFor(relativeMousePos);
+
+        if (MinSize.X == MaxSize.X)
+        {
+            mode &= ~(DragMode.Left | DragMode.Right);
+        }
+
+        return mode;
+    }
+
     public void Populate(PlantAnalyzerScannedState state)
     {
         if (state.Status == PlantAnalyzerStatus.NoData)
@@ -623,7 +635,7 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
 
     private void AddReagentRow(BoxContainer list, PlantReagentEntry r, int i, string unit = "u")
     {
-        var color = SafeParseColor(r.ColorHex, Color.FromHex(Colors.TextDefault));
+        var color = Color.FromHex(r.ColorHex);
         var rowColor = i % 2 == 0 ? Color.FromHex(Colors.AlternateRowDark) : Color.FromHex(Colors.DarkerBackground);
         var row = new PanelContainer
         {
@@ -660,25 +672,6 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
     }
 
     /// <summary>
-    /// Safely parse hex color or return default color if parsing fails.
-    /// </summary>
-    private static Color SafeParseColor(string? hex, Color defaultColor)
-    {
-        if (string.IsNullOrWhiteSpace(hex))
-            return defaultColor;
-
-        try
-        {
-            return Color.FromHex(hex);
-        }
-        catch (ArgumentException)
-        {
-            // Invalid hex color format - return default
-            return defaultColor;
-        }
-    }
-
-    /// <summary>
     /// Validate and clamp reagent amount, handling NaN and Infinity values.
     /// </summary>
     private static float ValidateReagentAmount(float amount)
@@ -709,7 +702,6 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
         if (value == null || float.IsNaN(value.Value) || float.IsInfinity(value.Value))
             return Loc.GetString("plant-analyzer-na");
 
-        // Match other UIs (examine) which cast to int/truncate rather than round.
         return ((int) value.Value).ToString() + "%";
     }
 
