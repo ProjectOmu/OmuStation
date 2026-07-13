@@ -90,7 +90,6 @@
   - type: SolutionAmmoProvider
     solutionId: chamber
     proto: BulletFlamethrower
-    fuelReagent: WeldingFuel
     fireCost: 5 #300 shots
   - type: SolutionContainerManager
     solutions:
@@ -103,14 +102,12 @@
     solution: chamber
   - type: RefillableSolution
     solution: chamber
-    fuelReagent: WeldingFuel
   - type: ExaminableSolution
     solution: chamber
   - type: InjectableSolution
     solution: chamber
   - type: SolutionTransfer
     transferAmount: 600
-    solution: chamber
 
 - type: entity
   id: BulletFlamethrower
