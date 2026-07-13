@@ -63,18 +63,10 @@
       - state: green-equipped-BACKPACK
         shader: unshaded
       - state: mag-equipped-BACKPACK
-  - type: MagazineAmmoProvider
   - type: ItemSlots
     slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: SecFlamethrowerTank
-        whitelist:
-          tags:
-          - FlamethrowerFuelTank
       item:
-        name: LMG
-        priority: 2
+        name: Nozzle
         startingItem: WeaponFlamethrower
         whitelist:
           tags:
@@ -84,7 +76,6 @@
     price: 500
   - type: ContainerContainer
     containers:
-      gun_magazine: !type:ContainerSlot
       item: !type:ContainerSlot
   - type: Item
     size: Ginormous
@@ -96,6 +87,31 @@
     walkModifier: 0.8
     sprintModifier: 0.8
   - type: HeldSpeedModifier
+  - type: SolutionAmmoProvider
+    solutionId: chamber
+    proto: BulletFlamethrower
+    fuelReagent: WeldingFuel
+    fireCost: 5 #300 shots
+  - type: SolutionContainerManager
+    solutions:
+      chamber:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 1500
+        maxVol: 1500
+  - type: SolutionItemStatus
+    solution: chamber
+  - type: RefillableSolution
+    solution: chamber
+    fuelReagent: WeldingFuel
+  - type: ExaminableSolution
+    solution: chamber
+  - type: InjectableSolution
+    solution: chamber
+  - type: SolutionTransfer
+    transferAmount: 600
+    solution: chamber
+  - type: Riggable
 
 - type: entity
   id: BulletFlamethrower
@@ -108,7 +124,7 @@
     linearDamping: 0
     angularDamping: 0
   - type: TimedDespawn
-    lifetime: 10
+    lifetime: 1
   - type: Projectile
     damage:
       types:
@@ -147,41 +163,3 @@
   - type: SmartLinkBlacklist
   - type: ChangeTemperatureOnCollide # 1% of the temp gun so its lesser
     heat: 350
-
-- type: entity
-  id: SecFlamethrowerTank
-  parent: BasePowerCell
-  name: Flamethrower Fuel Tank
-  description: A tank of specialised fuel mix, designed for use within a flamethrower.
-  components:
-  - type: Sprite
-    sprite: _Omu/Weapons/FlamethrowerFuelTank.rsi
-    layers:
-    - map: [ "enum.PowerCellVisualLayers.Base" ]
-      state: icon
-    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
-      state: o4
-      shader: unshaded
-  - type: Item
-    size: Large
-    shape:
-    - 0,0,2,1
-  - type: Battery
-    maxCharge: 4500
-    startingCharge: 4500
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletFlamethrower
-    fireCost: 15
-  - type: Tag
-    tags:
-    - FlamethrowerFuelTank
-  - type: Clothing
-    slots: BELT
-  - type: PhysicalComposition
-    materialComposition:
-      Steel: 300
-      Gold: 40
-      Glass: 160
-      Plasma: 200
-    chemicalComposition:
-      Zinc: 20
