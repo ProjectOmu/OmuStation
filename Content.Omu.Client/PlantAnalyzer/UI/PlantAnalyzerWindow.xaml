@@ -6,7 +6,7 @@
     Title="{Loc 'plant-analyzer-interface-title'}"
     MinSize="360 560"
     MaxSize="360 1000"
-    Resizable="False">
+    Resizable="True">
 
     <BoxContainer Orientation="Vertical" Margin="8" VerticalExpand="True" HorizontalExpand="True">
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
@@ -316,7 +316,7 @@
                         <PanelContainer.PanelOverride>
                             <gfx:StyleBoxFlat BackgroundColor="#1f1f22" BorderColor="#2f2f33" BorderThickness="1" />
                         </PanelContainer.PanelOverride>
-                        <BoxContainer Orientation="Vertical" HorizontalExpand="True" >
+                        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="2">
                             <PanelContainer HorizontalExpand="True">
                                 <PanelContainer.PanelOverride>
                                     <gfx:StyleBoxFlat BackgroundColor="#27272b" />
@@ -329,12 +329,12 @@
                         </BoxContainer>
                     </PanelContainer>
 
-                    <PanelContainer HorizontalExpand="True">
+                    <PanelContainer HorizontalExpand="True" Margin="0 2 0 0">
                         <PanelContainer.PanelOverride>
                             <gfx:StyleBoxFlat BackgroundColor="#1f1f22" BorderColor="#2f2f33" BorderThickness="1" />
                         </PanelContainer.PanelOverride>
-                        <BoxContainer Orientation="Vertical" HorizontalExpand="True" >
-                            <PanelContainer HorizontalExpand="True">
+                        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="2">
+                            <PanelContainer HorizontalExpand="True" Margin="0 0 0 2">
                                 <PanelContainer.PanelOverride>
                                     <gfx:StyleBoxFlat BackgroundColor="#223022" />
                                 </PanelContainer.PanelOverride>
@@ -347,12 +347,12 @@
                         </BoxContainer>
                     </PanelContainer>
 
-                    <PanelContainer HorizontalExpand="True" Margin="0 0 0 6">
+                    <PanelContainer HorizontalExpand="True" Margin="0 2 0 0">
                         <PanelContainer.PanelOverride>
                             <gfx:StyleBoxFlat BackgroundColor="#1f1f22" BorderColor="#2f2f33" BorderThickness="1" />
                         </PanelContainer.PanelOverride>
-                        <BoxContainer Orientation="Vertical" HorizontalExpand="True" >
-                            <PanelContainer HorizontalExpand="True">
+                        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="2">
+                            <PanelContainer HorizontalExpand="True" Margin="0 0 0 2">
                                 <PanelContainer.PanelOverride>
                                     <gfx:StyleBoxFlat BackgroundColor="#2b223d" />
                                 </PanelContainer.PanelOverride>
@@ -365,12 +365,12 @@
                         </BoxContainer>
                     </PanelContainer>
 
-                    <PanelContainer HorizontalExpand="True">
+                    <PanelContainer HorizontalExpand="True" Margin="0 2 0 0">
                         <PanelContainer.PanelOverride>
                             <gfx:StyleBoxFlat BackgroundColor="#1f1f22" BorderColor="#2f2f33" BorderThickness="1" />
                         </PanelContainer.PanelOverride>
-                        <BoxContainer Orientation="Vertical" HorizontalExpand="True" >
-                            <PanelContainer HorizontalExpand="True">
+                        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="2">
+                            <PanelContainer HorizontalExpand="True" Margin="0 0 0 2">
                                 <PanelContainer.PanelOverride>
                                     <gfx:StyleBoxFlat BackgroundColor="#1f323e" />
                                 </PanelContainer.PanelOverride>
@@ -383,12 +383,12 @@
                         </BoxContainer>
                     </PanelContainer>
 
-                    <PanelContainer HorizontalExpand="True">
+                    <PanelContainer HorizontalExpand="True" Margin="0 2 0 0">
                         <PanelContainer.PanelOverride>
                             <gfx:StyleBoxFlat BackgroundColor="#1f1f22" BorderColor="#2f2f33" BorderThickness="1" />
                         </PanelContainer.PanelOverride>
-                        <BoxContainer Orientation="Vertical" HorizontalExpand="True" >
-                            <PanelContainer HorizontalExpand="True">
+                        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="2">
+                            <PanelContainer HorizontalExpand="True" Margin="0 0 0 2">
                                 <PanelContainer.PanelOverride>
                                     <gfx:StyleBoxFlat BackgroundColor="#3e221f" />
                                 </PanelContainer.PanelOverride>
