@@ -15,6 +15,7 @@
     size: Normal
   - type: Gun
     cameraRecoilScalar: 0 #no recoil
+    projectileSpeed: 6
     fireRate: 20
     selectedMode: FullAuto
     availableModes:
@@ -25,11 +26,11 @@
   - type: ClothingSlotAmmoProvider
     targetSlot:
     - BACK
-    - suitStorage #goob edit
+    - suitStorage
     providerWhitelist:
       tags:
       - FlamethrowerBackTank
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition
     materialComposition:
       Steel: 375
       Glass: 125
@@ -111,7 +112,7 @@
   - type: Projectile
     damage:
       types:
-        Burn: 0.3
+        Heat: 0.3
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
@@ -166,8 +167,8 @@
     shape:
     - 0,0,2,1
   - type: Battery
-    maxCharge: 3000
-    startingCharge: 3000
+    maxCharge: 4500
+    startingCharge: 4500
   - type: ProjectileBatteryAmmoProvider
     proto: BulletFlamethrower
     fireCost: 15
