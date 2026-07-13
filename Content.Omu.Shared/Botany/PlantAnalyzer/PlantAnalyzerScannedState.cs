@@ -30,8 +30,7 @@ public sealed class PlantAnalyzerScannedState : BoundUserInterfaceState
     public int? Yield;
     public List<string>? MutationTargets;
 
-    // Traits
-    // Preformatted texts (server-provided to avoid client-side formatting)
+    // Text
     public string? WarningsText;
     public string? ResistancesText;
     public string? MutationsText;

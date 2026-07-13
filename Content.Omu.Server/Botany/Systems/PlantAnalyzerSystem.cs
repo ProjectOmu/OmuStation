@@ -131,7 +131,7 @@ public sealed partial class PlantAnalyzerSystem : EntitySystem
             ent.Comp.NextUpdate = TimeSpan.Zero;
 
             _audio.PlayPvs(ent.Comp.ScanningEndSound, ent.Owner);
-            SendScannedState(ent, target);
+            SendScannedState(ent.Owner, ent.Comp, target);
             _ui.TryOpenUi(ent.Owner, PlantAnalyzerUiKey.Key, args.User);
             return;
         }
@@ -170,7 +170,7 @@ public sealed partial class PlantAnalyzerSystem : EntitySystem
         ent.Comp.OutOfRangeSince = null;
 
         _audio.PlayPvs(ent.Comp.ScanningEndSound, ent.Owner);
-        SendScannedState(ent, target);
+        SendScannedState(ent.Owner, ent.Comp, target);
         if (_cell.HasDrawCharge(ent.Owner))
         {
             _ui.TryOpenUi(ent.Owner, PlantAnalyzerUiKey.Key, args.User);
@@ -442,7 +442,7 @@ public sealed partial class PlantAnalyzerSystem : EntitySystem
         return targets.Count > 0 ? targets : null;
     }
 
-    private string? BuildAllTraitsText(SeedData seed, PlantHolderComponent? component)
+    private string? BuildAllTraitsText(SeedData seed)
     {
         var traits = new List<string>();
 
@@ -487,9 +487,16 @@ public sealed partial class PlantAnalyzerSystem : EntitySystem
         return traits.Count > 0 ? string.Join("\n", traits) : Loc.GetString("plant-analyzer-traits-none");
     }
 
-    private void SendScannedState(Entity<PlantAnalyzerComponent> ent, EntityUid target)
+    private string BuildName(SeedData seed, PlantAnalyzerScanType scanType)
     {
-        SendScannedState(ent.Owner, ent.Comp, target);
+        var name = scanType switch
+        {
+            PlantAnalyzerScanType.Seed => $"{Loc.GetString(seed.Name)} seed",
+            PlantAnalyzerScanType.Plant => Loc.GetString(seed.DisplayName),
+            PlantAnalyzerScanType.Produce => Loc.GetString(seed.Name),
+            _ => Loc.GetString(seed.DisplayName)
+        };
+        return name;
     }
 
     private void SendScannedState(EntityUid uid, PlantAnalyzerComponent comp, EntityUid target)
@@ -505,17 +512,10 @@ public sealed partial class PlantAnalyzerSystem : EntitySystem
 
         TryComp<PlantHolderComponent>(target, out var plantHolder);
 
-        var name = scanType switch
-        {
-            PlantAnalyzerScanType.Seed => $"{Loc.GetString(seed.Name)} seed",
-            PlantAnalyzerScanType.Plant => Loc.GetString(seed.DisplayName),
-            PlantAnalyzerScanType.Produce => Loc.GetString(seed.Name),
-            _ => Loc.GetString(seed.DisplayName)
-        };
+        var name = BuildName(seed, scanType);
 
         var maxHealth = plantHolder?.Seed?.Endurance;
 
-        // Compute yield (number of products produced)
         int? yield = null;
         if (plantHolder?.Seed != null)
         {
@@ -525,13 +525,12 @@ public sealed partial class PlantAnalyzerSystem : EntitySystem
         }
         else if (seed != null)
         {
-            // For seed packets or produce, show the base yield
             yield = seed.Yield;
         }
 
         var mutationTargetsList = seed != null ? BuildMutationTargets(seed) : null;
         var resistancesTextLocal = seed != null ? BuildResistancesText(seed) : null;
-        var allTraitsTextLocal = seed != null ? BuildAllTraitsText(seed, plantHolder) : null;
+        var allTraitsTextLocal = seed != null ? BuildAllTraitsText(seed) : null;
         var inherentReagentsList = seed != null ? BuildReagentEntries(seed, true).ToList() : new List<PlantReagentEntry>();
         var mutatedReagentsList = seed != null ? BuildReagentEntries(seed, false).ToList() : new List<PlantReagentEntry>();
         var consumedGasesList = seed != null ? BuildGasEntries(seed.ConsumeGasses).ToList() : new List<PlantReagentEntry>();
