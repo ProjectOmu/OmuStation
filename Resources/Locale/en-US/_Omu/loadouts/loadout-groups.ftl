@@ -29,3 +29,7 @@ loadout-group-sergeant-belt = Sergeant belt
 
 # Clown
 loadout-group-clown-belt = Clown belt
+
+# Musician
+loadout-group-musician-shoes = Musician Shoes
+loadout-group-musician-hat = Musician Hat
