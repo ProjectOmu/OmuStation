@@ -5,6 +5,6 @@ namespace Content.Omu.Common.Nutrition.Components;
 [RegisterComponent]
 public sealed partial class EmoteOnSliceComponent : Component
 {
-    [DataField]
+    [DataField("emoteId")]
     public string EmoteId = "Crying";
 }
