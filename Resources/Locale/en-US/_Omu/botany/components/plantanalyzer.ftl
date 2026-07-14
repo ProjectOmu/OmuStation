@@ -40,10 +40,10 @@ plant-analyzer-production = Production
 plant-analyzer-health = Health
 plant-analyzer-water = Water
 plant-analyzer-nutrition = Nutrition
-plant-analyzer-tab-condition = Condition
-plant-analyzer-tab-genetics = Genetics
+plant-analyzer-tab-condition = Status
+plant-analyzer-tab-genetics = Genes
 plant-analyzer-tab-traits = Traits
-plant-analyzer-tab-chemistry = Chemistry
+plant-analyzer-tab-chemistry = Chem
 plant-analyzer-risk-meters = Risk indicators
 plant-analyzer-warnings = Warnings
 
