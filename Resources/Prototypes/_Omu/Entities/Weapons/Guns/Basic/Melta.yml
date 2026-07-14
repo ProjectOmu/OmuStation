@@ -35,29 +35,29 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 20
+        Heat: 10
+        Structural: 400
       armorPenetration: 0.7
     penetrationThreshold: 400
     soundHit:
       collection: WeakHit
     forceSound: true
+  - type: TimedDespawn
+    lifetime: 1
 
 - type: entity
   name: Melta
-  parent: [BaseItem, BaseSecurityContraband]
+  parent: [BaseItem, BaseSyndicateContraband]
   id: Melta
   description: A cybersun branded microwave-emission-lens-transmitted-artillery or a MELTA. Fires a burst of concentrated heat that can burn through most surfaces.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_lmg_icon_48x.rsi
+    sprite: _Omu/Objects/Weapons/Guns/Battery/melta.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: light
-      shader: unshaded
-      map: ["enum.GunVisualLayers.BaseUnshaded"]
   - type: Item
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_lmg.rsi
+    sprite: _Omu/Objects/Weapons/Guns/Battery/meltainhand.rsi
     size: Huge
     shape:
     - 0,0,4,3
@@ -67,7 +67,7 @@
     fireRate: 0.5
     selectedMode: SemiAuto
     availableModes:
-      - FullAuto
+      - SemiAuto
     soundGunshot:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_lmg.ogg
   - type: AmmoCounter
