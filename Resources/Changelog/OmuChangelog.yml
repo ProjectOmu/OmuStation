@@ -5066,3 +5066,11 @@ Entries:
       message: 'Ported the Ready manifest '
   id: 658
   time: '2026-07-13T22:13:38.0000000+00:00'
+- author: tyrone-ss14
+  changes:
+    - type: Fix
+      message: >-
+        Fixed seeds from clippings and seed extractors gaining mutations that
+        happened after they were produced.
+  id: 659
+  time: '2026-07-14T01:01:52.0000000+00:00'
