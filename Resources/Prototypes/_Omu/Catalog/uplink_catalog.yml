@@ -200,3 +200,14 @@
   - !type:BuyerDepartmentCondition
     whitelist:
     - Science
+
+- type: listing
+  id: UplinkMelta
+  name: uplink-melta-name
+  description: uplink-melta-desc
+  icon: { sprite: _Omu/Objects/Weapons/Guns/Battery/melta.rsi, state: base }
+  productEntity: Melta
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkWeaponry

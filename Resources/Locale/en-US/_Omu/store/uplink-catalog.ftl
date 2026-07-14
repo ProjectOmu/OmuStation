@@ -40,3 +40,6 @@ uplink-hobbyist-spellbook-desc = A book given out by the Wizard Federation to ge
 
 uplink-xeno-compatibility-implanter-name = Xeno Compatibility Implanter
 uplink-xeno-compatibility-implanter-desc = An implant that allows the user to make use of xenomorph organs.
+
+uplink-melta-name = Melta
+uplink-melta-desc = A cybersun branded microwave-emission-lens-transmitted-artillery or a MELTA. Fires a burst of concentrated heat that can burn through most surfaces.
