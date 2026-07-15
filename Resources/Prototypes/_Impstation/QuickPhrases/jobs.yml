@@ -39,6 +39,20 @@
   group: Security
   abstract: true
 
+# Omu, adds Civilian and Non-departmental command
+# Outside of Omu namespace due to Passenger, Lawyer and Captain
+- type: quickPhrase
+  id: BaseJobsOmuCivilian
+  parent: BaseJobsImp
+  group: Civilian
+  abstract: true
+
+- type: quickPhrase
+  id: BaseJobsOmuNonDepartmentalCommand
+  parent: BaseJobsImp
+  group: Non-departmental command
+  abstract: true
+
 # engie
 
 - type: quickPhrase
@@ -95,10 +109,11 @@
   parent: BaseJobsImpService
   text: imp-phrase-job-mime
 
-- type: quickPhrase
-  id: HDPhraseImp
-  parent: BaseJobsImpService
-  text: imp-phrase-job-hd
+# Omu, we don't have this job
+# - type: quickPhrase
+#   id: HDPhraseImp
+#   parent: BaseJobsImpService
+#   text: imp-phrase-job-hd
 
 - type: quickPhrase
   id: BotanistPhraseImp
@@ -172,38 +187,39 @@
   text: imp-phrase-job-det
 
 # other
+# Omu, all "other" jobs are moved to appropriate categories
 
 - type: quickPhrase
   id: HOPPhraseImp
-  parent: BaseJobsImp
+  parent: BaseJobsImpService # Omu
   text: imp-phrase-job-hop
 
 - type: quickPhrase
   id: CapPhraseImp
-  parent: BaseJobsImp
+  parent: BaseJobsOmuNonDepartmentalCommand # Omu
   text: imp-phrase-job-cap
 
 - type: quickPhrase
   id: PassengerPhraseImp
-  parent: BaseJobsImp
+  parent: BaseJobsOmuCivilian # Omu
   text: imp-phrase-job-passenger
 
 - type: quickPhrase
   id: ReporterPhraseImp
-  parent: BaseJobsImp
+  parent: BaseJobsImpService # Omu
   text: imp-phrase-job-reporter
 
 - type: quickPhrase
   id: LawyerPhraseImp
-  parent: BaseJobsImp
+  parent: BaseJobsOmuCivilian # Omu; not sec, not service
   text: imp-phrase-job-lawyer
 
 - type: quickPhrase
   id: ZookeeperPhraseImp
-  parent: BaseJobsImp
+  parent: BaseJobsImpService # Omu
   text: imp-phrase-job-zookeeper
 
 - type: quickPhrase
   id: BoxerPhraseImp
-  parent: BaseJobsImp
+  parent: BaseJobsImpService # Omu (somehow they get service comms)
   text: imp-phrase-job-boxer
