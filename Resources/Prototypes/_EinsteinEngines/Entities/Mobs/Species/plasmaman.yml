@@ -40,7 +40,7 @@
     - map: [ "innerNeck" ]
     - map: [ "belt" ] # Omu - Moved belt to render under OuterClothing to have it be similar with how the base drawdepth is.
     - map: [ "outerClothing" ]
-    - map: [ "beltalt" ] # Omu 
+    - map: [ "beltalt" ] # Omu
     - map: [ "eyes" ]
     - map: [ "id" ]
     - map: [ "back" ]
@@ -52,6 +52,7 @@
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "mask" ]
     - map: [ "head" ]
+    - map: [ "head2" ] #Omustation
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
     - map: ["enum.HumanoidVisualLayers.Handcuffs"]
@@ -112,6 +113,14 @@
       amount: 8
   - type: Inventory
     templateId: plasmaman
+    # Omu
+    displacements:
+      head2:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Plasmaman/displacement.rsi
+            state: head2
+    # End Omu
   - type: Temperature
     heatDamageThreshold: 308    # 35 celsius, -17 from base heat damage threshold
     currentTemperature: 270.15  # -3 celsius
