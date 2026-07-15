@@ -114,7 +114,7 @@
   id: ClothingCyberneticBeastMantleWorkEngineering
   parent: ClothingCyberneticBeastMantleWork
   name: beast's engineering mantle
-  description: A modified version of a cybernetic beast's mantle. This one has integrated internals.
+  description: A modified version of a cybernetic beast's mantle. This one has integrated internals and lead plating.
   components:
   - type: Clothing
     sprite: _Omu/Clothing/Head/mantle.rsi
@@ -124,13 +124,19 @@
       - state: helmet-internals
       - state: eyes-engineering
         shader: unshaded
+  - type: Armor # Makes the engineer and atmos mantles have radiation resistance. It is close to as strong as the CE's mantle.
+    coverage:
+    - Head
+    modifiers:
+     coefficients:
+      Radiation: 0.15
 
 # variant of the engineering mantle for atmosians. Mostly because the burn chamber is a thing.
 - type: entity
   id: ClothingCyberneticBeastMantleWorkAtmospherics
   parent: ClothingCyberneticBeastMantleWorkEngineering
   name: beast's atmospheric mantle
-  description: A modified version of a cybernetic beast's mantle. This one has internals and extra thermal insulation.
+  description: A modified version of a cybernetic beast's mantle. This one has internals, lead plating, and extra thermal insulation.
   components:
   - type: ComponentToggler
     components: # copied from the parent with some additions

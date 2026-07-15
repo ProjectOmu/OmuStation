@@ -176,9 +176,11 @@
     definitions:
     - prefRoles: [ TraitorSleeper ]
       fallbackRoles: [ Traitor ]
-      min: 4
-      max: 6
-      playerRatio: 10
+      # Omu start
+      min: 2
+      max: 4
+      playerRatio: 15
+      # Omu end
       blacklist:
         components:
         - AntagImmune
