@@ -9,6 +9,7 @@
 
 using Content.Goobstation.Shared.Overlays;
 using Content.Shared.Actions;
+using Robust.Shared.Enums;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -41,6 +42,9 @@ public sealed partial class JaniVisionComponent : SwitchableVisionOverlayCompone
 
     [DataField]
     public string? JaniShader = "unshaded";
+
+    [DataField]
+    public float DistanceCheck = 1;
 
     [DataField]
     public Dictionary<string, Color> TagColors = new()

@@ -62,7 +62,7 @@ public sealed class JaniVisionOverlay : Overlay
         _solutionContainerSystem = _entity.System<SharedSolutionContainerSystem>();
         _sharedAppearanceSystem = _entity.System<SharedAppearanceSystem>();
 
-        ZIndex = 2;
+        ZIndex = -1;
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
@@ -87,7 +87,9 @@ public sealed class JaniVisionOverlay : Overlay
             return;
 
         var mapId = eye.Position.MapId;
+        var eyePos = eye.Position;
         var eyeRot = eye.Rotation;
+        var distanceCheck = Comp.DistanceCheck * Comp.DistanceCheck;
 
         _entries.Clear();
         GatherVisiblePuddleEntries(mapId, eyeRot);
@@ -96,7 +98,10 @@ public sealed class JaniVisionOverlay : Overlay
 
         foreach (var entry in _entries)
         {
-            Render(entry.Ent, entry.Map, worldHandle, entry.EyeRot, entry.Color, Comp.JaniShader);
+            var entryPos = _transform.GetMapCoordinates(entry.Ent.Comp2);
+
+            if (Vector2.Distance(eyePos.Position, entryPos.Position) > distanceCheck)
+                Render(entry.Ent, entry.Map, worldHandle, entry.EyeRot, entry.Color, Comp.JaniShader);
         }
 
         worldHandle.SetTransform(Matrix3x2.Identity);
