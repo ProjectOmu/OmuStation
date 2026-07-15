@@ -83,7 +83,8 @@ public sealed class JaniVisionOverlay : Overlay
         var mapId = eye.Position.MapId;
         var eyePos = eye.Position;
         var eyeRot = eye.Rotation;
-        var distanceCheck = Comp.DistanceCheck * Comp.DistanceCheck;
+        var distanceCheckMax = Comp.DistanceCheckMax * Comp.DistanceCheckMax;
+        var distanceCheckMin = Comp.DistanceCheckMin * Comp.DistanceCheckMin;
 
         _entries.Clear();
         GatherVisiblePuddleEntries(mapId, eyeRot);
@@ -93,9 +94,12 @@ public sealed class JaniVisionOverlay : Overlay
         foreach (var entry in _entries)
         {
             var entryPos = _transform.GetMapCoordinates(entry.Ent.Comp2);
+            var entryDistance = Vector2.Distance(eyePos.Position, entryPos.Position);
 
-            if (Vector2.Distance(eyePos.Position, entryPos.Position) > distanceCheck)
-                Render(entry.Ent, entry.Map, worldHandle, entry.EyeRot, entry.Color, Comp.JaniShader);
+            var entryTween = Math.Clamp(InverseLerp(distanceCheckMin, distanceCheckMax, entryDistance), 0f, 1f);
+            var entryColor = entry.Color.WithAlpha(float.Lerp(Comp.DistanceAlpha, 1f, entryTween));
+
+            Render(entry.Ent, entry.Map, worldHandle, entry.EyeRot, entryColor, Comp.JaniShader);
         }
 
         worldHandle.SetTransform(Matrix3x2.Identity);
@@ -257,6 +261,14 @@ public sealed class JaniVisionOverlay : Overlay
     {
         return sprite.Visible && (!_entity.TryGetComponent(uid, out StealthComponent? stealth) ||
                                   !stealth.ThermalsImmune); // Goobstation - thermals ability to see invisible entities
+    }
+
+    private static float InverseLerp(float a, float b, float value)
+    {
+        if (Math.Abs(a - b) < 0.0001f)
+            return 0f;
+
+        return (value - a) / (b - a);
     }
 }
 

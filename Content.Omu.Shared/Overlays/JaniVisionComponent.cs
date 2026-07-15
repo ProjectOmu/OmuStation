@@ -44,7 +44,13 @@ public sealed partial class JaniVisionComponent : SwitchableVisionOverlayCompone
     public string? JaniShader = "unshaded";
 
     [DataField]
-    public float DistanceCheck = 1;
+    public float DistanceCheckMin = 1;
+
+    [DataField]
+    public float DistanceCheckMax = 1.5f;
+
+    [DataField]
+    public float DistanceAlpha = 0.2f;
 
     [DataField]
     public Dictionary<string, Color> TagColors = new()
