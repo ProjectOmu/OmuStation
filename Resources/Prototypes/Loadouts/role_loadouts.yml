@@ -161,6 +161,8 @@
   id: JobBorg
   nameDataset: NamesBorg
   canCustomizeName: true
+  groups: # Omu
+  - CyborgHead
 
 - type: roleLoadout
   id: JobStationAi
@@ -344,6 +346,7 @@
   - ClownJumpsuit
   - ClownBackpack
   - ClownOuterClothing
+  - ClownBelt # Omu
   - ClownShoes
   - Glasses
   - SurvivalClown
@@ -382,6 +385,8 @@
   - MusicianJumpsuit
   - CommonBackpack
   - MusicianOuterClothing
+  - MusicianShoes     #omu = mikusician
+  - MusicianHat       #omu = mikusician
   - Glasses
   - Survival
   - Trinkets
@@ -436,10 +441,10 @@
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
-  - SalvageSpecialistJumpsuit # DeltaV - more jumpskirts
   - GroupTankHarness
   - SalvageSpecialistNeck # Goobstation
   - SalvageSpecialistBackpack
+  - SalvageSpecialistJumpsuit # Goobstation
   - SalvageSpecialistOuterClothing
   - CargoShoes # omu
   - Glasses

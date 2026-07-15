@@ -604,6 +604,8 @@
     # Goobstation Packs
     - SharedBoards
     - ShuttleBoardsGoob
+    - ServiceAssemblerPack # Frontier Service Assembler
+    - MedicalAssemblerPack # Frontier Medical Assembler
   - type: MaterialStorage
     whitelist:
       tags:
@@ -688,6 +690,18 @@
   - type: GuideHelp
     guides:
     - Robotics
+  - type: BlueprintReceiver # Omu start
+    whitelist:
+      tags:
+      - BlueprintExosuitFabricator
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      blueprint: !type:Container
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - blueprint # Omu end
 
 - type: entity
   id: Biofabricator
@@ -897,10 +911,12 @@
     - MedicalVehiclesAdvanced
     - MedicalBoards
     - Janitor
-    - Genetics
+    #- Genetics # Omu, this pack is currently empty
+    - MedicalCloning
     # Einstein Engines Packs
     - Translators # Language
     - TranslatorImplanters # Language
+    - MedicalAssemblerPack # Frontier Medical Assembler
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: EmagLatheRecipes # Goobstation Packs
@@ -910,7 +926,7 @@
     stealGroup: MedicalTechFabCircuitboard
 
 - type: entity
-  parent: BaseLathe
+  parent: [BaseLatheLube, BaseSiloUtilizer] #Goob edit
   id: UniformPrinter
   name: uniform printer
   description: Prints new or replacement uniforms.
@@ -1131,3 +1147,4 @@
         - Wooden
         - RawMaterial
         - Plastic
+        - Ingot #OMU

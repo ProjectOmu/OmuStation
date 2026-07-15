@@ -26,7 +26,7 @@ public sealed class StationPowerTests
         "Box",
         "Cluster",
         "Fland",
-        "Loop",
+        //"Loop", // Omu, not in rotation
         "Marathon",
         "Meta",
         "Oasis",
@@ -36,11 +36,11 @@ public sealed class StationPowerTests
         "Packed",
         "Reach",
         "OasisHighPop",
-        "Barratry",
+        //"Barratry", // Omu, not in rotation
         "Kettle",
         "Leonid",
         "Delta",
-        "Chloris",
+        //"Chloris", // Omu, not in rotation
         "Cog"
     ];
 

@@ -31,7 +31,7 @@
   - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]  # Omu, use CC mindshield
 
 - type: startingGear
   id: NavyOfficerGear
@@ -74,7 +74,7 @@
     - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Omu, use CC mindshield
 
 - type: startingGear
   id: NavyCaptainGear
@@ -88,7 +88,7 @@
     outerClothing: ClothingOuterArmourInvisible
     neck: ExecutiveIDCard
     id: NavyCaptainPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: ClothingHeadsetAltCentComLoudspeaker #Omu
     belt: ClothingBeltSheathFilledNavyOfficer
     pocket1: NukeOverride
 
@@ -117,7 +117,7 @@
     - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Omu, use CC mindshield
 
 - type: startingGear
   id: NavyOfficerUndercoverGear
@@ -161,7 +161,7 @@
     - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant] # Omu, use CC mindshield
 
 - type: startingGear
   id: SpecialOperationsOfficerGear
@@ -175,7 +175,7 @@
     outerClothing: ClothingOuterArmourInvisible
     neck: ExecutiveIDCard
     id: SpecialOperationsOfficerPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: ClothingHeadsetAltCentComLoudspeaker #Omu
     belt: ClothingBeltHolsterFilledCentComm
     suitstorage: WeaponRifleAnnie
     pocket1: WeaponRevolverMateba
@@ -205,7 +205,7 @@
     - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Omu, use CC mindshield
 
 - type: startingGear
   id: DiplomatGear
@@ -245,7 +245,7 @@
     - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Omu, use CC mindshield
 
 - type: startingGear
   id: InspectorGear
@@ -258,7 +258,7 @@
     outerClothing: ClothingOuterArmourInvisible
     neck: ExecutiveIDCard
     id: InspectorPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: ClothingHeadsetAltCentComLoudspeaker #Omu
     belt: BoxFolderCentComClipboard
 
 # Nerfed CentComm Space Salvage Gear
@@ -301,7 +301,7 @@
     - BlueshieldOfficer
   special:
     - !type:AddImplantSpecial
-      implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+      implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Omu, use CC mindshield
 
 - type: startingGear
   id: OuterCommanderGear

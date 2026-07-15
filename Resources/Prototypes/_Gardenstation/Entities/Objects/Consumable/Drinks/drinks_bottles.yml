@@ -1,0 +1,24 @@
+﻿- type: entity
+  parent: [DrinkBottleVisualsOpenable, DrinkBottleGlassBaseFull]
+  id: DrinkKelpWineBottleFull
+  name: Eckeyiish Kelpwine # believe it or not the kelp pod thing was cause a one off bit i did with choices complaining about being a vampire& missing thavenslop lol
+  description: A traditional Thaven wine made from fermented kelp pod ooze. despite its origin, it is quite delicious!
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: KelpPodWine
+          Quantity: 150 # larger than a normal wine bottle
+  - type: Label
+    currentLabel: reagent-name-wine
+  - type: Sprite
+    sprite: _Gardenstation/Objects/Consumable/Drinks/kelpwine_bottle.rsi
+  - type: Sealable
+  - type: Item
+    sprite: _Gardenstation/Objects/Consumable/Drinks/kelpwine_bottle.rsi
+  - type: SolutionContainerVisuals
+  - type: Tag
+    tags:
+    - Wine
+    - DrinkBottle

@@ -37,7 +37,7 @@ using Robust.Shared.Utility;
 using System.Linq;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
-using Content.Shared.Localizations; // omu
+using Content.Shared.Localizations;
 
 namespace Content.Shared.Armor;
 
@@ -137,17 +137,15 @@ public abstract class SharedArmorSystem : EntitySystem
 
         if (!component.ArmourCoverageHidden)
         {
-            // omu start - armor coverage list
-            var covered = new List<string>();
-            foreach (var coveragePart in coverage.Where(coveragePart => coveragePart != BodyPartType.Other))
-            {
-                covered.Add(Loc.GetString("armor-coverage-type-" + coveragePart.ToString().ToLower()));
-            }
+            // <Trauma>
+            var coveredParts = coverage.Where(coveragePart => coveragePart != BodyPartType.Other).ToList();
+            List<string> coverageText = [];
+            foreach (var part in coveredParts)
+                coverageText.Add(Loc.GetString("armor-coverage-type-" + part.ToString().ToLower()));
 
             msg.PushNewline();
-            var coverageList = ContentLocalizationManager.FormatList(covered);
-            msg.AddMarkupOrThrow(Loc.GetString("armor-coverage-value", ("type", coverageList)));
-            //omu end
+            msg.AddMarkupOrThrow(Loc.GetString("armor-coverage-value", ("type", ContentLocalizationManager.FormatList(coverageText))));
+            // </Trauma>
         }
 
         if (!component.ArmourModifiersHidden)

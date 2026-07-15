@@ -18,6 +18,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq; //omu
 using Content.Shared.Access.Components;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
@@ -103,8 +104,18 @@ public sealed class IdExaminableSystem : EntitySystem
 
     private bool CanAccessWantedMenu(EntityUid user, EntityUid target) // Goobstation-WantedMenu
     {
-        if (!_inventorySystem.TryGetSlotEntity(user, "eyes", out var eyes)
-            || !TryComp<ShowCriminalRecordIconsComponent>(eyes, out _))
+        // omu edit -start
+        bool ItemExistsInSlotAndHasTheComponent(string slot)
+            // ent is not null in the second condition due to short circuiting
+            => _inventorySystem.TryGetSlotEntity(user, slot, out var ent)
+            && TryComp<ShowCriminalRecordIconsComponent>(ent, out _);
+
+        string[] slotsToCheck = ["head", "eyes"];
+
+        // "if there isn't an item on either (eyes or head) that has ShowCriminalRecordIconsComponent,
+        //  then failfast and return false"
+        if (!slotsToCheck.Any(i => ItemExistsInSlotAndHasTheComponent(i)))
+        // omu edit -end
             return false;
 
         if (TryComp<AccessReaderComponent>(target, out var accessReader))

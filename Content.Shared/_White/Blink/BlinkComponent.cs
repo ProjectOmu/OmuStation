@@ -32,6 +32,9 @@ public sealed partial class BlinkComponent : Component
 
     [DataField]
     public SoundSpecifier BlinkSound = new SoundPathSpecifier("/Audio/Magic/blink.ogg");
+
+    [DataField]
+    public bool CanBlinkWhileWeightless = true; //Omu
 }
 
 [Serializable, NetSerializable]

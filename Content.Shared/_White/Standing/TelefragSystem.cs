@@ -37,7 +37,7 @@ public sealed class TelefragSystem : EntitySystem
                 continue;
 
             if (_stun.TryCrawling(ent) && autoStandUp)
-                _stun.TryStand(ent!);
+                _stun.TryStanding(ent); // Omu, change TryStand(ent!) to TryStanding(ent)
         }
     }
 }

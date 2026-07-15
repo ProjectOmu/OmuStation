@@ -33,4 +33,10 @@ public sealed partial class DCCVars
     /// </summary>
     public static readonly CVarDef<float> RoundEndNoEorgPopupTime =
         CVarDef.Create("game.round_end_eorg_popup_time", 5f, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Whether the Shipyard is enabled.
+    /// </summary>
+    public static readonly CVarDef<bool> Shipyard =
+        CVarDef.Create("shuttle.shipyard", true, CVar.SERVERONLY);
 }

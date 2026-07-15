@@ -1,0 +1,47 @@
+﻿# Generic subtypes
+
+- type: borgSubtype
+  parentBorgType: generic
+  id: generic_bugborg
+  spritePath: _Omu/Mobs/Silicon/Generic/Bugborg.rsi
+  dummyPrototype: BorgChassisGenericBugborg
+
+# Mining subtypes
+
+- type: borgSubtype
+  parentBorgType: mining
+  id: mining_bugborg
+  spritePath: _Omu/Mobs/Silicon/Miner/bugborg.rsi
+  dummyPrototype: BorgChassisMiningBugborg
+
+# Engineer subtypes
+
+- type: borgSubtype
+  parentBorgType: engineering
+  id: engineer_bug
+  spritePath: _Omu/Mobs/Silicon/Engineering/bug.rsi
+  dummyPrototype: BorgChassisEngineerBug
+
+# Janitor subtypes
+
+# Medical subtypes
+
+# Service subtypes
+
+- type: borgSubtype
+  parentBorgType: service
+  id: service_slenderbug
+  spritePath: _Omu/Mobs/Silicon/Service/Slenderbug.rsi
+  dummyPrototype: BorgChassisServiceSlenderbug
+
+- type: borgSubtype
+  parentBorgType: service
+  id: service_bugtractor
+  spritePath: _Omu/Mobs/Silicon/Service/Bugtractor.rsi
+  dummyPrototype: BorgChassisServiceBugtractor
+
+- type: borgSubtype
+  parentBorgType: service
+  id: service_bugdj
+  spritePath: _Omu/Mobs/Silicon/Service/bugdj.rsi
+  dummyPrototype: BorgChassisServiceBugdj

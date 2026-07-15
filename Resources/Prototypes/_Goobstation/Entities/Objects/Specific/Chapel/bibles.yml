@@ -25,11 +25,9 @@
   id: BibleTanakh
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Objects/scroll.rsi
-    layers:
-    - state: scroll2
+    sprite: _Omu/Objects/Specific/Chapel/Tanakh.rsi #omu specific
   - type: Item
-    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    sprite: _Omu/Objects/Specific/Chapel/Tanakh.rsi #omu specific
     size: Small
   - type: MeleeWeapon
     soundHit:

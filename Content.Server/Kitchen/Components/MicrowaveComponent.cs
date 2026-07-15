@@ -65,7 +65,11 @@ using Content.Shared.Item;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom; // Frontier
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Content.Shared.Kitchen.Components; // Frontier
+using Content.Shared.Kitchen; // Frontier
+using Content.Shared.Whitelist; // Omu
 
 namespace Content.Server.Kitchen.Components
 {
@@ -163,25 +167,78 @@ namespace Content.Server.Kitchen.Components
 
         /// <summary>
         /// Chance of lightning occurring when we microwave a metallic object
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        /// </summary>
+        [DataField]
         public float LightningChance = .75f;
 
         /// <summary>
         /// If this microwave can give ids accesses without exploding
         /// </summary>
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public bool CanMicrowaveIdsSafely = true;
+
+        // Frontier: recipe type
+        /// <summary>
+        /// the types of recipes that this "microwave" can handle.
+        /// </summary>
+        [DataField(customTypeSerializer: typeof(FlagSerializer<MicrowaveRecipeTypeFlags>))]
+        public int ValidRecipeTypes = (int)MicrowaveRecipeType.Microwave;
+
+        /// <summary>
+        /// If true, events sent off by the microwave will state that the object is being heated.
+        /// </summary>
+        [DataField]
+        public bool CanHeat = true;
+
+        /// <summary>
+        /// If true, events sent off by the microwave will state that the object is being irradiated.
+        /// </summary>
+        [DataField]
+        public bool CanIrradiate = true;
+
+        /// <summary>
+        /// The localization string to be displayed when something that's too large is inserted.
+        /// </summary>
+        [DataField]
+        public string TooBigPopup = "microwave-component-interact-item-too-big";
+
+        /// <summary>
+        /// The sound that is played when a set of ingredients does not match an assembly recipe.
+        /// </summary>
+        [DataField]
+        public SoundSpecifier NoRecipeSound = new SoundPathSpecifier("/Audio/Effects/Cargo/buzz_sigh.ogg");
+
+        /// <summary>
+        /// The sound that is played when a set of ingredients does not match an assembly recipe.
+        /// </summary>
+        [DataField]
+        public MicrowaveUiKey Key = MicrowaveUiKey.Key;
+        // End Frontier
+
+        // Begin Omu
+        /// <summary>
+        /// A blacklist of components/tags that should not be allowed to be inserted into a microwave.
+        /// </summary>
+        [DataField]
+        public EntityWhitelist MicrowaveBlacklist = new();
+        // End Omu
     }
 
     public sealed class BeingMicrowavedEvent : HandledEntityEventArgs
     {
         public EntityUid Microwave;
         public EntityUid? User;
+        public uint Time; // DeltaV
+        // Froniter start
+        public bool BeingHeated;
+        public bool BeingIrradiated;
+        // End Frontier
 
-        public BeingMicrowavedEvent(EntityUid microwave, EntityUid? user)
+        public BeingMicrowavedEvent(EntityUid microwave, EntityUid? user, uint time) // DeltaV, add time
         {
             Microwave = microwave;
             User = user;
+            Time = time; // DeltaV
         }
     }
 }

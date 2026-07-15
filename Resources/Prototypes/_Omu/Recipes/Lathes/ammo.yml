@@ -1,0 +1,15 @@
+- type: latheRecipe
+  parent: BaseAmmoBoxRecipe
+  id: MagazineBoxPistolRubber
+  result: MagazineBoxPistolRubber
+  materials:
+    Steel: 350
+    Plastic: 300
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolSubMachineGunRubber
+  result: MagazinePistolSubMachineGunRubber
+  materials:
+    Steel: 100
+    Plastic: 200

@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2025 Gip-Kip <hargifarspam2@gmail.com>
+# SPDX-FileCopyrightText: 2025 bunnygirlHyacinth <xxst4rf11m00nb700db4nnyxx@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: Eckeyiish kelpfry
+  parent: FoodMealBase
+  id: FoodMealThavenKelpFry
+  description: All the best parts of the kelp pod- chopped and stir fried! You might want a sitter for this one!
+  components:
+  - type: Edible
+    trash:
+    - FoodPlateSmall
+  - type: FlavorProfile
+    flavors:
+    - salty
+    - bungo
+    - magical
+    - spicy
+  - type: Sprite
+    sprite: _Gardenstation/Objects/Consumable/Food/meals.rsi
+    state: kelp-fry
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: KelpPodSlime
+          Quantity: 12

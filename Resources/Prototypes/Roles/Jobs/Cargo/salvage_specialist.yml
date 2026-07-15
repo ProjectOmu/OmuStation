@@ -89,17 +89,16 @@
   - Salvage
   - Maintenance
   - External
-
 - type: startingGear
   id: SalvageSpecialistGear
   equipment:
     #jumpsuit: ClothingUniformJumpsuitSalvageSpecialist # DeltaV: salvage jumpskirt added
     id: SalvagePDA
+## Goob comment out - jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
     ears: ClothingHeadsetCargo
   storage: # DeltaV: Add mining voucher
     back:
     - MiningVoucher
-
 - type: chameleonOutfit
   id: SalvageSpecialistChameleonOutfit
   job: SalvageSpecialist

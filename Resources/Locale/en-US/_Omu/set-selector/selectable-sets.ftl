@@ -35,11 +35,6 @@ selectable-set-hos-brdi-description=
     Once wielded by an unknown member of the Biesel Foreign Legion,
     this beloved rifle has seen battle with Sol on every world in the colonies.
 
-selectable-set-bso-brdi-name = BRDI R-25
-selectable-set-bso-brdi-description=
-    An iconic weapon used by members of the Biesel Republic Foreign Legion.
-    Repainted for Blueshield Officers.
-
 selectable-set-mk58-name = Mk58 Pistol
 selectable-set-mk58-description =
     The standard duty pistol for Nanotrasen security.
@@ -49,15 +44,21 @@ selectable-set-t8-description =
     An alternative to the mk58, this revolver
     trades throughput for increased ability to shatter bones.
 
+selectable-set-eg1-name = EG-1 Taro Energy Revolver
+selectable-set-eg1-description =
+    An energy-based alternative to the standard ballistics sidearms, this revolver
+    trades firepower for the versatility provided by lasers.
+
 selectable-set-terminus-name = DT-8 "Terminus"
 selectable-set-terminus-description =
     A weapon exclusively for oni, this greataxe
     can fire a burst of disabler bolts on command.
 
-selectable-set-ceremonial-rifle-name = Ceremonial rifle
+selectable-set-ceremonial-rifle-name = M1 Garand
 selectable-set-ceremonial-rifle-description =
-    A weapon exclusively for sergeants,
-    this relic of a rifle has been in service for over 670 years.
+    "Gory, gory, what a hell of a way to die!"
+    An weapon often given to Paratroopers mainly and Infantry in ancient Sol.
+    This one is a relic given to the Sergeant, shoots .30 Rifle.
 
 selectable-set-antiquelaser-name = Antique Laser Pistol
 selectable-set-antiquelaser-description =
@@ -84,6 +85,20 @@ selectable-set-hosoniblade-description =
     A titanic relic, wieldable only by oni.
     This blade's immense size makes it a force to be reckoned with,
     able to cut down any foe in seconds.
+
+selectable-set-MobSpiderShiva-name = Shiva, The First Defender
+selectable-set-MobSpiderShiva-description =
+    A veteran of security, Shiva's been fighting nuclear threats and syndicate traitors
+    since the dawn of time!
+
+selectable-set-MobSecDogLaika-name = Laika, The K9 Attack Unit
+selectable-set-MobSecDogLaika-description =
+    Woof Woof Bark Bark! Laika doesn't mess around! Gnawing at the legs of couriers and sticking to
+    the HoS' side. She's Security's most loyal guardian!
+
+selectable-set-trevor-name = Trevor, The "Majestic" Stallion
+selectable-set-trevor-description =
+    Trevor, Security's... *noble* steed! Charge into battle or get your boots stuck in his glue..
 
 # ERT
 # TO-DO, rename all of these to be Super Mario related and hopefully avoid a cease and desist from nintendo
@@ -124,3 +139,50 @@ selectable-set-corpsman-combathardsuit-desc =
     Older model of corpsman's hardsuit.
     Built based on designs recovered from Regalis sector.
     Offers much better armor then newer models.
+
+# BSO
+selectable-set-bso-brdi-name = BRDI R-25
+selectable-set-bso-brdi-description =
+    An iconic weapon used by members of the Biesel Republic Foreign Legion.
+    Repainted for Blueshield Officers.
+
+selectable-set-bso-typewriter-name = Typewriter Submachine Gun
+selectable-set-bso-typewriter-desc =
+    A kit containing a perfect replica of the Thompson Submachine Gun,
+    chambered in .35, a preloaded drum mag, a stick mag and a drum mag with rubber bullets. 
+    Perfect for LARPers and wise guys alike.
+
+selectable-set-bso-extraction-name = Extraction kit
+selectable-set-bso-extraction-description =
+    A swift extraction guarantees safety, you stand by those words.
+    Includes: A webbing rig with a ridiculous amount of pouches and pockets, capable of holding many items.
+    The rig is prepacked with 20 bluespace-enchanced fultons, easily attachable to any rollerbed,
+    a beacon announcing extraction in medical radio upon fulton extraction,
+    and a combat medical kit with various medicines in pill form.
+
+selectable-set-bso-medical-name = Medical kit
+selectable-set-bso-medical-description =
+    Sometimes, the classic and simple option is the best option.
+    Includes: A spatial general use chest rig, packed with a compact defibrillator,
+    two combat medical kits and a bluespace body bag,
+    capable of holding multiple cadavers, organs, pieces and giblets.
+
+selectable-set-bso-chemical-name = Chemical kit
+selectable-set-bso-chemical-description =
+    Perfect for healing allies or poisoning foes in a pinch,
+    for the Blueshield Officer especially fond of chemical efficiency.
+    Includes: A robust pouch for general use,
+    packed with several vials of advanced medicine and a combat injector that instantly injects its contents upon forceful stabbing.
+
+# NTR
+selectable-set-ntr-cane-name = Fancy Cane
+selectable-set-ntr-cane-desc =
+    A fancy cane with a stun setting.
+    Good for fending off annoying assistants who don't want
+    to fill up paperwork.
+
+selectable-set-ntr-blade-name = Cane Blade
+selectable-set-ntr-blade-desc =
+    A sturdier, bladed fancy cane, with no stun setting...
+    This one is meant for emergencies only
+    CC note says: ONLY USE ON RED!!!!!

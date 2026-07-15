@@ -18,6 +18,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   Nanotrasen employs a variety of sapient species.
 
   <Box>
+    <GuideEntityEmbed Entity="MobAllulalo" Caption="Allulalo"/> <!-- Imp -->
     <GuideEntityEmbed Entity="MobArachnid" Caption="Arachnid"/>
     <GuideEntityEmbed Entity="MobChitinid" Caption="Chitinid"/> <!-- Omu, reorder species list -->
     <GuideEntityEmbed Entity="MobDiona" Caption="Diona"/>
@@ -46,6 +47,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   </Box>
   <Box>
     <GuideEntityEmbed Entity="MobXelthia" Caption="Xelthia"/>
+    <GuideEntityEmbed Entity="MobThaven" Caption="Thaven"/> <!-- Omu: ported from Impstation -->
     <GuideEntityEmbed Entity="MobShadowkin" Caption="Shadowkin"/>
     <GuideEntityEmbed Entity="MobAvali" Caption="Avali"/> <!-- Starlight -->
   </Box>

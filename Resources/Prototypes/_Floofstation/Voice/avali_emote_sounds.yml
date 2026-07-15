@@ -28,114 +28,116 @@
   files:
     - /Audio/_Floofstation/Voice/Avali/avali_cry.ogg # Omu end
 
-- type: emoteSounds
-  id: MaleResomiEmote # Omu, rename to Resomi
-  params:
-    variation: 0.125
-  sounds:
-    Scream:
-      collection: ResomiScreams  # Omu, rename to Resomi
-    Laugh:
-      collection: ResomiLaugh # Omu, rename to Resomi
-    Sneeze:
-      collection: MaleSneezes
-    Cough:
-      collection: MaleCoughs
-    CatMeow:
-      collection: CatMeows
-    CatHisses:
-      collection: CatHisses
-    MonkeyScreeches:
-      collection: MonkeyScreeches
-    RobotBeep:
-      collection: RobotBeeps
-    Yawn:
-      collection: MaleYawn
-    Snore:
-      collection: Snores
-    Honk:
-      collection: BikeHorn
-    Sigh:
-      collection: MaleSigh
-    Crying:
-      collection: ResomiCry # Omu
-    Whistle:
-      path: /Audio/_Starlight/Voice/Resomi/resomi_whistle.ogg # Omu, collection: Whistles
-    Weh:
-      collection: Weh
-    Trill:
-      collection: Trill
-    Warble:
-      collection: Warble
-    Wurble:
-      collection: Wurble
-    Chirp:
-      collection: ResomiChirp
-    Gasp:
-      collection: MaleGasp
-    DefaultDeathgasp:
-      collection: MaleDeathGasp
-    Gulp: # Goob
-      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
-    Scree:
-      collection: ResomiScrees
-    Call:
-      collection: ResomiCalls
-    Squawk:
-      collection: ResomiSquawk
+# Omu start - Merged resomi and avali emotes
+# - type: emoteSounds
+#   id: MaleResomiEmote # Omu, rename to Resomi
+#   params:
+#     variation: 0.125
+#   sounds:
+#     Scream:
+#       collection: ResomiScreams  # Omu, rename to Resomi
+#     Laugh:
+#       collection: ResomiLaugh # Omu, rename to Resomi
+#     Sneeze:
+#       collection: MaleSneezes
+#     Cough:
+#       collection: MaleCoughs
+#     CatMeow:
+#       collection: CatMeows
+#     CatHisses:
+#       collection: CatHisses
+#     MonkeyScreeches:
+#       collection: MonkeyScreeches
+#     RobotBeep:
+#       collection: RobotBeeps
+#     Yawn:
+#       collection: MaleYawn
+#     Snore:
+#       collection: Snores
+#     Honk:
+#       collection: BikeHorn
+#     Sigh:
+#       collection: MaleSigh
+#     Crying:
+#       collection: ResomiCry # Omu
+#     Whistle:
+#       path: /Audio/_Starlight/Voice/Resomi/resomi_whistle.ogg # Omu, collection: Whistles
+#     Weh:
+#       collection: Weh
+#     Trill:
+#       collection: Trill
+#     Warble:
+#       collection: Warble
+#     Wurble:
+#       collection: Wurble
+#     Chirp:
+#       collection: ResomiChirp
+#     Gasp:
+#       collection: MaleGasp
+#     DefaultDeathgasp:
+#       collection: MaleDeathGasp
+#     Gulp: # Goob
+#       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+#     Scree:
+#       collection: ResomiScrees
+#     Call:
+#       collection: ResomiCalls
+#     Squawk:
+#       collection: ResomiSquawk
 
-- type: emoteSounds
-  id: FemaleResomiEmote  # Omu, rename to Resomi
-  params:
-    variation: 0.125
-  sounds:
-    Scream:
-      collection: ResomiScreams  # Omu, rename to Resomi
-    Laugh:
-      collection: ResomiLaugh  # Omu, rename to Resomi
-    Sneeze:
-      collection: FemaleSneezes
-    Cough:
-      collection: FemaleCoughs
-    CatMeow:
-      collection: CatMeows
-    CatHisses:
-      collection: CatHisses
-    MonkeyScreeches:
-      collection: MonkeyScreeches
-    RobotBeep:
-      collection: RobotBeeps
-    Yawn:
-      collection: FemaleYawn
-    Snore:
-      collection: Snores
-    Honk:
-      collection: CluwneHorn
-    Sigh:
-      collection: FemaleSigh
-    Crying:
-      collection: ResomiCry # Omu
-    Whistle:
-      path: /Audio/_Starlight/Voice/Resomi/resomi_whistle.ogg # Omu, collection: Whistles
-    Weh:
-      collection: Weh
-    Trill:
-      collection: Trill
-    Warble:
-      collection: Warble
-    Wurble:
-      collection: Wurble
-    Chirp:
-      collection: ResomiChirp
-    Gasp:
-      collection: FemaleGasp
-    DefaultDeathgasp:
-      collection: FemaleDeathGasp
-    Gulp: # Goob
-      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
-    Scree:
-      collection: ResomiScrees
-    Call:
-      collection: ResomiCalls
-    Squawk:
-      collection: ResomiSquawk
+# - type: emoteSounds
+#   id: FemaleResomiEmote  # Omu, rename to Resomi
+#   params:
+#     variation: 0.125
+#   sounds:
+#     Scream:
+#       collection: ResomiScreams  # Omu, rename to Resomi
+#     Laugh:
+#       collection: ResomiLaugh  # Omu, rename to Resomi
+#     Sneeze:
+#       collection: FemaleSneezes
+#     Cough:
+#       collection: FemaleCoughs
+#     CatMeow:
+#       collection: CatMeows
+#     CatHisses:
+#       collection: CatHisses
+#     MonkeyScreeches:
+#       collection: MonkeyScreeches
+#     RobotBeep:
+#       collection: RobotBeeps
+#     Yawn:
+#       collection: FemaleYawn
+#     Snore:
+#       collection: Snores
+#     Honk:
+#       collection: CluwneHorn
+#     Sigh:
+#       collection: FemaleSigh
+#     Crying:
+#       collection: ResomiCry # Omu
+#     Whistle:
+#       path: /Audio/_Starlight/Voice/Resomi/resomi_whistle.ogg # Omu, collection: Whistles
+#     Weh:
+#       collection: Weh
+#     Trill:
+#       collection: Trill
+#     Warble:
+#       collection: Warble
+#     Wurble:
+#       collection: Wurble
+#     Chirp:
+#       collection: ResomiChirp
+#     Gasp:
+#       collection: FemaleGasp
+#     DefaultDeathgasp:
+#       collection: FemaleDeathGasp
+#     Gulp: # Goob
+#       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+#     Scree:
+#      collection: ResomiScrees
+#    Call:
+#      collection: ResomiCalls
+#    Squawk:
+#      collection: ResomiSquawk
+# Omu end

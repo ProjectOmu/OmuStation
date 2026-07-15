@@ -1,0 +1,109 @@
+- type: entity
+  id: BulletCaselessBlackiron
+  name: bullet (blackiron rail slug)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 100
+        Blunt: 40
+        Structural: 1000
+      armorPenetration: 1
+    penetrationThreshold: 200
+    penetrationFactor: 0.01
+  - type: StaminaDamageOnCollide
+    damage: 150
+
+- type: entity
+  id: BaseCartridgeCaselessBlackiron
+  name: cartridge (blackiron rail slug)
+  description: A large, heavy, impossibly-condensed blackiron slug shot using a railgun. God has forsaken us all.
+  parent: [ BaseCartridge ]
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ CentralCommand ]
+    severity: Restricted
+  - type: Tag
+    tags:
+      - Cartridge
+      - CartridgeCaselessBlackiron
+  - type: CartridgeAmmo
+    deleteOnSpawn: false
+  - type: Sprite
+    noRot: false
+    sprite: _Omu/Objects/Weapons/Guns/Ammunition/Casings/blackiron.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 25
+
+- type: entity
+  id: CartridgeCaselessBlackiron
+  name: cartridge (blackiron rail slug)
+  parent: BaseCartridgeCaselessBlackiron
+  components:
+  - type: CartridgeAmmo
+    proto: BulletCaselessBlackiron
+
+- type: entity
+  id: BaseMagazineCaselessBlackiron
+  name: "magazine (blackiron rail slug)"
+  parent: [ BaseItem ]
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ CentralCommand ]
+    severity: Restricted
+  - type: Tag
+    tags:
+      - MagazineCaselessBlackiron
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeCaselessBlackiron
+    proto: CartridgeCaselessBlackiron
+    capacity: 8
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Ammunition/Magazine/blackiron.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazineCaselessBlackiron
+  name: "magazine (blackiron rail slug)"
+  parent: BaseMagazineCaselessBlackiron
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCaselessBlackiron
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag

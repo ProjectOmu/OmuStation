@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/29/2026 14:46:33
-  entityCount: 13049
+  time: 05/16/2026 14:44:05
+  entityCount: 13048
 maps:
 - 1
 grids:
@@ -29831,12 +29831,6 @@ entities:
     - type: Transform
       pos: -1.5,-29.5
       parent: 2
-  - uid: 10614
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 27.5,24.5
-      parent: 2
 - proto: CryogenicSleepUnitSpawner
   entities:
   - uid: 4420
@@ -29844,6 +29838,14 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -3.5,-28.5
+      parent: 2
+- proto: CryogenicSleepUnitSpawnerForcedPrisonerLatejoin
+  entities:
+  - uid: 10614
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 27.5,24.5
       parent: 2
 - proto: CryogenicSleepUnitSpawnerLateJoin
   entities:
@@ -70210,14 +70212,6 @@ entities:
     components:
     - type: Transform
       pos: -38.5,-3.5
-      parent: 2
-- proto: SpawnMobShiva
-  entities:
-  - uid: 10302
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 26.5,12.5
       parent: 2
 - proto: SpawnMobSmile
   entities:

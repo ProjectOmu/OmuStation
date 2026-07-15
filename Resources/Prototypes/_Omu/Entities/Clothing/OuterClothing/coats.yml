@@ -249,3 +249,25 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
+
+- type: entity
+  id: ClothingOuterCoatArmoredJamrockBlazer
+  parent: [ClothingOuterCoatDetective]
+  name: armored jamrock blazer
+  description: It reminds you there are no truces with the furies.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/OuterClothing/Coats/blazer_jamrock.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/OuterClothing/Coats/blazer_jamrock.rsi
+
+- type: entity
+  id: ClothingOuterCoatArmoredAerostaticBomber
+  parent: [ClothingOuterCoatDetective]
+  name: armored aerostatic bomber
+  description: Wearing this jacket makes you feel stoic.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/OuterClothing/Coats/bomber_aerostatic.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/OuterClothing/Coats/bomber_aerostatic.rsi

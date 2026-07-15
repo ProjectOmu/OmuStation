@@ -1,0 +1,21 @@
+# Tajaran Head/Face
+
+- type: marking
+  id: TajaranHeadTuxedo
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Tajaran/head.rsi
+    state: tuxedocat_face
+
+# Tajaran Torso
+
+- type: marking
+  id: TajaranTorsoTuxedo
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Tajaran/torso.rsi
+    state: tuxedocat_back

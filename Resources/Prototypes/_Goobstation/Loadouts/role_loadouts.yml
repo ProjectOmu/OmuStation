@@ -95,6 +95,7 @@
   - GroupTankHarness
   - NanotrasenRepresentativeHead
   - NanotrasenRepresentativeJumpsuit
+  - NanotrasenRepresentativeOuterClothing #Omu
   - NanotrasenRepresentativeBackpack
   - NanotrasenRepresentativeNeck
   - NanotrasenRepresentativerMask #Omu
@@ -119,7 +120,7 @@
   - BlueshieldOfficerJumpsuit
   - BlueshieldOfficerBackpack
   - BlueshieldOfficerOuter
-  - BlueshieldOfficerBelt #Omu - Senior BSO drip
+  # - BlueshieldOfficerBelt #Omu - Senior BSO drip | No more, now in support kit.
   - BlueshieldOfficerNeck
   - BlueshieldOfficerMask
   - BlueshieldOfficerShoes
@@ -165,14 +166,14 @@
   id: JobRoboticist
   groups:
   - GroupTankHarness
-  - ScientistHead
+  - RoboticistHead
   - ScientistNeck
-  - ScientistJumpsuit
-  - ScientistBackpack
-  - ScientistOuterClothing
-  - ScientistGloves
-  - ScientistShoes
-  - ScientistPDA
+  - RoboticistJumpsuit
+  - RoboticistBackpack
+  - RoboticistOuterClothing
+  - RoboticistGloves
+  - RoboticistShoes
+  - RoboticistPDA
   - Glasses
   - Survival
   - Trinkets

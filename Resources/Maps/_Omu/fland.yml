@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/29/2026 13:12:18
-  entityCount: 36107
+  time: 05/16/2026 14:46:39
+  entityCount: 36106
 maps:
 - 1
 grids:
@@ -21427,7 +21427,7 @@ entities:
       pos: 72.5,-11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -73574.13
+      secondsUntilStateChange: -73630.35
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -99462,11 +99462,6 @@ entities:
     - type: Transform
       pos: 99.5,21.5
       parent: 2
-  - uid: 24445
-    components:
-    - type: Transform
-      pos: 51.5,9.5
-      parent: 2
 - proto: CryogenicSleepUnitSpawner
   entities:
   - uid: 15101
@@ -99474,6 +99469,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 97.5,21.5
+      parent: 2
+- proto: CryogenicSleepUnitSpawnerForcedPrisonerLatejoin
+  entities:
+  - uid: 24445
+    components:
+    - type: Transform
+      pos: 51.5,9.5
       parent: 2
 - proto: CryogenicSleepUnitSpawnerLateJoin
   entities:
@@ -170096,7 +170098,10 @@ entities:
     - type: Paper
       stampState: paper_stamp-greytide
       stampedBy:
-      - stampedColor: '#323232FF'
+      - hasIcon: True
+        stampFont: null
+        stampLargeIcon: null
+        stampedColor: '#323232FF'
         stampedName: stamp-component-stamped-name-greytide
       content: >
         uhh... Looks like our last particle decelerator was eaten in giant burger...
@@ -170145,7 +170150,10 @@ entities:
     - type: Paper
       stampState: paper_stamp-ce
       stampedBy:
-      - stampedColor: '#C69B17FF'
+      - hasIcon: True
+        stampFont: null
+        stampLargeIcon: null
+        stampedColor: '#C69B17FF'
         stampedName: stamp-component-stamped-name-ce
       content: >-
         We've done it. We got our hands on the supermatter! Now all we have to do is configure the air alarm for scrubbers in the chamber to siphon, get the air outta there, pump in some fresh nitrogen, replace rad collector tanks, something something... you know what? Fuck this, i'm leaving it to whoever finds the note.
@@ -170401,7 +170409,10 @@ entities:
     - type: Paper
       stampState: paper_stamp-signature
       stampedBy:
-      - stampedColor: '#2F4F4FFF'
+      - hasIcon: True
+        stampFont: null
+        stampLargeIcon: null
+        stampedColor: '#2F4F4FFF'
         stampedName: John Cadet
       content: >
         how do I charge batong?
@@ -193336,13 +193347,6 @@ entities:
     components:
     - type: Transform
       pos: -5.5,-24.5
-      parent: 2
-- proto: SpawnMobShiva
-  entities:
-  - uid: 28700
-    components:
-    - type: Transform
-      pos: 38.5,17.5
       parent: 2
 - proto: SpawnMobSlothPaperwork
   entities:

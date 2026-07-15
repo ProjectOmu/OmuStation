@@ -1,0 +1,69 @@
+- type: selectableAmmo
+  id: ProjectileSparkHobbyist
+  desc: Spark, fires a small spark, burns and ignites the target.
+  icon:
+    sprite: Objects/Magic/magicactions.rsi
+    state: fireball
+  color: darkorange
+  soundGunshot:
+    path: /Audio/Magic/fireball.ogg
+  fireRate: 1
+  fireCost: 250
+  flags: All
+  protoId: ProjectileSparkHobbyist
+
+- type: selectableAmmo
+  id: ProjectileWehBoltHobbyist
+  desc: Abracaweh!! Transforms the target into a lizard plushie!
+  icon:
+    sprite: Objects/Fun/Plushies/lizard.rsi
+    state: icon
+  color: green
+  soundGunshot:
+    path: /Audio/Items/Toys/weh.ogg
+  fireRate: 1
+  fireCost: 1000
+  flags: All
+  protoId: ProjectileWehBoltHobbyist
+
+- type: selectableAmmo
+  id: ProjectileBananaPeelHobbyist
+  desc: Conjure Peel, fires a very slippery banana peel that causes the target to slip and fall.
+  icon:
+    sprite: _Goobstation/Wizard/Projectiles/banana.rsi
+    state: icon
+  color: yellow
+  soundGunshot:
+    collection: BikeHorn
+  fireRate: 0.5
+  fireCost: 500
+  flags: All
+  protoId: ProjectileBananaPeelHobbyist
+
+- type: selectableAmmo
+  id: ProjectileMagicMissileHobbyist
+  desc: Lessest Magic Missile, fires a weak magic missile but is fast and has a low fire cost.
+  icon:
+    sprite: _Goobstation/Wizard/Icons/ammo_selector.rsi
+    state: magicm
+  color: purple
+  soundGunshot:
+    path: /Audio/_Goobstation/Wizard/magic_missile.ogg
+  fireRate: 2
+  fireCost: 166
+  flags: All
+  protoId: ProjectileMagicMissileHobbyist
+
+- type: selectableAmmo
+  id: ProjectileHealingHobbyist
+  desc: Cure Wounds, fires a weak healing bolt that heals most common damage types.
+  icon:
+    sprite: _Goobstation/Wizard/Objects/Weapons/Staves/healing.rsi
+    state: healing
+  color: green
+  soundGunshot:
+    path: /Audio/_Goobstation/Wizard/magic_missile.ogg
+  fireRate: 1.5
+  fireCost: 333
+  flags: All
+  protoId: ProjectileHealingHobbyist

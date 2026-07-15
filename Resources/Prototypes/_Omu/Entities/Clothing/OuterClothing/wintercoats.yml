@@ -1,0 +1,27 @@
+- type: entity
+  id: ClothingOuterWinterCommand
+  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
+  name: command winter coat
+  description: "Kind of gives off a team jersey vibe."
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/WinterCoats/coatcommand.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/WinterCoats/coatcommand.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodWinterCommand
+
+- type: entity
+  id: ClothingOuterWinterNTR
+  parent: [ClothingOuterWinterCoatToggleable, BaseCentcommContraband]
+  name: nanotrasen representative's winter coat
+  description: "A label on the inner lining reads: Ichikawa Designer Clothes, a Cybersun Industries subsidiary."
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/WinterCoats/coatntr.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/WinterCoats/coatntr.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodWinterSyndie

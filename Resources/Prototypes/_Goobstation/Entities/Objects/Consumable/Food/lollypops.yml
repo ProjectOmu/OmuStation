@@ -14,6 +14,7 @@
   description: A plain old lollypop. It's still in a wrapper.
   abstract: true
   components:
+  - type: SpaceGarbage
   - type: Tag
     tags:
     - FoodSnack
@@ -40,7 +41,6 @@
     flavors:
     - cherry
   - type: Edible
-    destroyOnEmpty: true
     trash:
     - FoodPacketLollypopTrash
   - type: Tag

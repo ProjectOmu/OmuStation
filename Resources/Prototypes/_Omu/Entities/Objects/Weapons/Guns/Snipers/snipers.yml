@@ -1,59 +1,178 @@
 - type: entity
-  name: Ceremonial Rifle
-  parent: [BaseWeaponSniper, BaseGunWieldable, BaseSecurityContraband]
-  id: WeaponSniperMosinSergeant
-  description: A true relic, this has served in nearly every armed conflict since its creation 670 years ago. The bolt-action design of the rifle remains virtually identical to its original design, whether used for hunting, sniping, or endless trench warfare. Loads 10 rounds of .30 Rifle.
-  suffix: sergeant, ceremonial rifle
+  name: M1 Garand
+  parent: [ BaseWeaponRifle, BaseSecurityContraband ]
+  id: WeaponSniperM1Garand
+  description: An ancient, adored weapon once wielded by infantrymen on Sol. This one was gifted to the Sergeant.
   components:
-  - type: Clothing
-    sprite: _Omu/Objects/Weapons/Guns/Snipers/ceremonial_rifle.rsi
   - type: Sprite
     sprite: _Omu/Objects/Weapons/Guns/Snipers/ceremonial_rifle.rsi
-    layers:
-    - state: base
-    - state: base1
-      map: [ "enum.SolutionContainerLayers.Fill" ]
-      visible: false
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 1
-    fillBaseName: base
-    inHandsFillBaseName: -fill-
-    inHandsMaxFillLevels: 1
-    equippedFillBaseName: -fill-
-    equippedMaxFillLevels: 1
+    state: base
+  - type: Clothing
+    sprite: _Omu/Objects/Weapons/Guns/Snipers/ceremonial_rifle.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Clip
+        startingItem: MagazineClipM1Garand
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineClipM1Garand
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeLightRifle
   - type: Gun
-    fireRate: 1 # Slighty higher fire rate (1, instead of 0.75)
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    animationRotation: -135 # WWDP
-    damage:
-      types:
-        Piercing: 12
-    angle: 0
-    animation: WeaponArcThrust
-    soundHit:
-      path: /Audio/Weapons/bladeslice.ogg
-  - type: MeleeRequiresWield
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: SolutionContainerManager
-    solutions:
-      melee:
-        maxVol: 2
-  - type: MeleeChemicalInjector
-    solution: melee
-  - type: RefillableSolution
-    solution: melee
-  - type: InjectableSolution
-    solution: melee
-  - type: SolutionTransfer
-    maxTransferAmount: 2
-  - type: Sharp
-    butcherDelayModifier: 2 #It's a bayonet
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: ChamberMagazineAmmoProvider
+    autoCycle: true
+    autoEject: true
+    soundAutoEject:
+      path: /Audio/_Goobstation/Weapons/Guns/MagOut/garand_eject.ogg
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/m41_cock.ogg
+    soundBoltClosed:
+      path: /Audio/Weapons/Guns/Bolt/rifle_bolt_closed.ogg
+    soundBoltOpened:
+      path: /Audio/Weapons/Guns/Bolt/rifle_bolt_open.ogg
   - type: GunRequiresWield
-  - type: StaticPrice
-    price: 500
-  - type: Item  # Goob edit
+  - type: Item
     size: Large
     storedRotation: 45
+  - type: AmmoCounter
+
+- type: entity # Toy sniper
+  name: Foam Force Sniper
+  parent: [BaseWeaponShotgun, BaseGunWieldable]
+  id: WeaponSniperFoam
+  description: A foam force weapon designed after a syndicate Hristov. Security is going to be so mad...
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Toys/toy_hristov.rsi
+  - type: Clothing
+    sprite: _Omu/Objects/Fun/Toys/toy_hristov.rsi
+  - type: Item
+    sprite: _Omu/Objects/Fun/Toys/toy_hristov.rsi
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    clumsyProof: true
+  - type: PacifismAllowedGun
+  - type: GunRecoil
+    refreshKnockdown: false
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - BulletFoam
+    capacity: 5
+    proto: BulletFoam
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 2
+    pvsIncrease: 0.8
+
+- type: entity
+  id: WeaponSniperCustodian
+  parent: BaseItem
+  name: SKAMR-03 "Aloha"
+  suffix: DO NOT MAP EVER
+  description: A sin, an insult, taller than most, this railgun will erase you, the poor soul behind you, five walls, and whatever lies beyond hell. Bolting this monstrosity is difficult.
+  components:
+  - type: Contraband
+    allowedDepartments: [ CentralCommand ]
+  - type: ChamberMagazineAmmoProvider
+    autoCycle: false
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineCaselessBlackiron
+        insertSound: /Audio/Weapons/Guns/MagIn/rifle_load.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineCaselessBlackiron
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeCaselessBlackiron
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeCaselessBlackiron
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Snipers/custodianrifle.rsi
+    layers:
+    - state: sniper-folded
+      map: [ "base" ]
+  - type: Item
+    heldPrefix: folded
+    size: Normal
+  - type: Clothing
+    sprite: _Omu/Objects/Weapons/Guns/Snipers/custodianrifle.rsi
+    quickEquip: false
+    slots:
+      - Back
+      - suitStorage
+  - type: UseDelay
+    delay: 1
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: .4
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
+    soundEmpty: null
+  - type: UseDelayBlockShoot
+  - type: FoldingWeapon
+  - type: ItemToggle
+    wieldToggle: false
+    soundActivate:
+      path: /Audio/Weapons/telescopicon.ogg
+      params:
+        volume: -5
+    soundDeactivate:
+      path: /Audio/Weapons/telescopicoff.ogg
+      params:
+        volume: -5
+  - type: ItemToggleSize
+    activatedSize: Ginormous
+  - type: ComponentToggler
+    components:
+    - type: Wieldable
+      wieldSound:
+        path: /Audio/Items/bow_pull.ogg
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        base:
+          True: { state: sniper }
+          False: { state: sniper-folded }
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 4
+    pvsIncrease: 0.4

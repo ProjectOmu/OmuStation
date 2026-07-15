@@ -52,6 +52,7 @@
     - CablesStatic
     - MaterialsStatic
     - LightsStatic
+    - LatheMiscStatic
     - PowerCellsStatic
     - ElectronicsStatic
     - MiscSignallersStatic
@@ -74,6 +75,7 @@
     - BluespaceTheory
     - ScienceClothing
     - UpgradeKits
+    - AdvancedEmitters        # Omu - advanced emitters
   - type: EmagLatheRecipes
     emagStaticPacks:
     - NailgunEvilStatic
@@ -116,6 +118,8 @@
     - SharedBoardsStatic
     - CargoBoardsStatic
     - CablesStatic
+    - PartsStatic
+    - LatheMiscStatic
     - PowerCellsStatic
     - MiningToolsStatic
     - MiscSignallersStatic
@@ -183,6 +187,7 @@
     - MedicalBoardsStaticGoob
     - ToolsStatic
     - PartsStatic
+    - LatheMiscStatic
     - AtmosStatic
     - CablesStatic
     - MaterialsStatic
@@ -219,7 +224,7 @@
     - ExperimentalScienceGoob
     - MechBoardsScience
     - Pinpointers
-    - Genetics
+    #- Genetics # Omu, this pack is currently empty
     - XenobioPack
     - XenobagHoldingPack
     # Einstein Engines Packs
@@ -269,6 +274,7 @@
     - ServiceStatic
     - PowerCellsStatic
     - LatheMiscStatic
+    - PartsStatic
     - ChemistryStatic
     - TapeRecorderStatic
     - CondimentStatic

@@ -31,3 +31,13 @@
     jumpsuit: CentcomAgentSkirt
   groupBy: "jumpskirt"
 
+# Outer Clothing
+- type: loadout
+  id: NanotrasenRepresentativeWintercoat
+  equipment:
+    outerClothing: ClothingOuterWinterNTR
+
+- type: loadout
+  id: NanotrasenRepresentativeLongcoat
+  equipment:
+    outerClothing: ClothingLongcoatCentComm

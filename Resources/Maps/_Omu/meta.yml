@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/29/2026 13:29:00
-  entityCount: 27780
+  time: 05/16/2026 14:55:14
+  entityCount: 27779
 maps:
 - 1
 grids:
@@ -11618,7 +11618,7 @@ entities:
       pos: -42.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -21896.334
+      secondsUntilStateChange: -21963.195
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -65037,11 +65037,6 @@ entities:
       parent: 2
 - proto: CryogenicSleepUnit
   entities:
-  - uid: 9339
-    components:
-    - type: Transform
-      pos: -2.5,56.5
-      parent: 2
   - uid: 10091
     components:
     - type: Transform
@@ -65059,6 +65054,13 @@ entities:
     components:
     - type: Transform
       pos: 37.5,17.5
+      parent: 2
+- proto: CryogenicSleepUnitSpawnerForcedPrisonerLatejoin
+  entities:
+  - uid: 9339
+    components:
+    - type: Transform
+      pos: -2.5,56.5
       parent: 2
 - proto: CryogenicSleepUnitSpawnerLateJoin
   entities:
@@ -126568,7 +126570,10 @@ entities:
     - type: Paper
       stampState: paper_stamp-signature
       stampedBy:
-      - stampedColor: '#2F4F4FFF'
+      - hasIcon: True
+        stampFont: null
+        stampLargeIcon: null
+        stampedColor: '#2F4F4FFF'
         stampedName: Fixes-the-shuttle
       content: Line to TEG burn chamber.
   - uid: 27706
@@ -144930,13 +144935,6 @@ entities:
     components:
     - type: Transform
       pos: -29.5,14.5
-      parent: 2
-- proto: SpawnMobShiva
-  entities:
-  - uid: 21237
-    components:
-    - type: Transform
-      pos: 11.5,47.5
       parent: 2
 - proto: SpawnMobSlothPaperwork
   entities:

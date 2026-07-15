@@ -28,8 +28,8 @@ public abstract class SharedDrunkSystem : EntitySystem
 
     [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
     [Dependency] private readonly SharedSlurredSystem _slurredSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!; // Goob - needed to calculate remaining status time. 
-    [Dependency] private readonly IConfigurationManager _cfg = default!; // Goob - used to get the CVar setting. 
+    [Dependency] private readonly IGameTiming _timing = default!; // Goob - needed to calculate remaining status time.
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // Goob - used to get the CVar setting.
 
     public void TryApplyDrunkenness(EntityUid uid, float boozePower, bool applySlur = true,
         StatusEffectsComponent? status = null)
@@ -37,8 +37,11 @@ public abstract class SharedDrunkSystem : EntitySystem
         if (!Resolve(uid, ref status, false))
             return;
 
-        if (TryComp<LightweightDrunkComponent>(uid, out var trait))
-            boozePower *= trait.BoozeStrengthMultiplier;
+        if (TryComp<LightweightDrunkComponent>(uid, out var lighttrait)) // Omu, change trait to lighttrait
+            boozePower *= lighttrait.BoozeStrengthMultiplier;
+
+        if (TryComp<HeavyweightDrunkComponent>(uid, out var heavytrait)) // Imp
+            boozePower *= heavytrait.BoozeStrengthMultiplier;
 
         if (applySlur)
         {

@@ -111,6 +111,27 @@
   - type: Pda
     id: NanotrasenSpectreIDCard
 
+# Custodian PDA
+
+- type: entity
+  parent: DeathsquadPDA
+  id: NanoTrasenCustodianPDA
+  name: Custodii Vitellus PDA
+  components:
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-custodii
+  - type: Pda
+    id: CustodianIDCard
+  - type: Sprite
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-custodii
+  - type: Icon
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-custodii
+
 #New PDAs for command!
 
 - type: entity
@@ -216,3 +237,12 @@
     accentVColor: "#DFDFDF"
   - type: Icon
     state: pda-securitysergeant
+
+- type: entity
+  parent: HelldiverPDA
+  id: SalvageHelldiverPDA
+  name: salvage diver PDA
+  description: Smells like corpses of insects and androids.
+  components:
+  - type: Pda
+    id:

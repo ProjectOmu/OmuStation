@@ -537,7 +537,7 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
   id: ClothingOuterHardsuitBrigmedic
-  name: corpsman hardsuit # Goob edit | Omu - rename Brigmedic to Corpsman 
+  name: corpsman hardsuit # Goob edit | Omu - rename Brigmedic to Corpsman
   description: Special hardsuit of the guardian angel of the brig. It is the medical version of the security hardsuit. # Goob edit
   components:
   - type: Sprite
@@ -1218,9 +1218,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.9
+        Blunt: 0.7 # Omu, was 0.8
+        Slash: 0.7 # Omu, was 0.8
+        Piercing: 0.6 # Omu, was 0.9
         Heat: 0.4
         Caustic: 0.75
   - type: ClothingSpeedModifier
@@ -1237,6 +1237,9 @@
     knockdownTimeDelta: -2
   - type: StaminaResistance # Goobstation
     damageCoefficient: 0.7
+  - type: PressureProtection # Omu
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
 
 #Pirate Captain Hardsuit
 - type: entity
@@ -1259,9 +1262,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.8
-        Piercing: 0.85
+        Blunt: 0.5 # Omu, was 0.7
+        Slash: 0.6 # Omu, was 0.8
+        Piercing: 0.4 # Omu, was 0.85
         Heat: 0.4
         Caustic: 0.75
   - type: ClothingSpeedModifier
