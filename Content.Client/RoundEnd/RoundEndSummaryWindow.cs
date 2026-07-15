@@ -58,10 +58,13 @@ using static Robust.Client.UserInterface.Controls.BoxContainer;
 // Goob Station - End of Round Screen
 using Content.Client.Stylesheets;
 using Content.Shared.Mobs;
+// OmuStation - NTR Crash fix
+using Content.Client.UserInterface.RichText;
 // OmuStation - End of Round Silicon Summary
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.IdentityManagement;
+using Robust.Client.UserInterface.RichText;
 
 namespace Content.Client.RoundEnd
 {
@@ -69,6 +72,19 @@ namespace Content.Client.RoundEnd
     {
         private readonly IEntityManager _entityManager;
         public int RoundId;
+
+        // Byrd begin
+        private readonly Type[] _allowedStationReportTags =
+        [
+            typeof(BoldItalicTag),
+            typeof(BoldTag),
+            typeof(BulletTag),
+            typeof(ColorTag),
+            typeof(HeadingTag),
+            typeof(ItalicTag),
+            typeof(MonoTag)
+        ];
+        // Byrd end
 
         public RoundEndSummaryWindow(string gm, string roundEnd, TimeSpan roundTimeSpan, int roundId,
             RoundEndMessageEvent.RoundEndPlayerInfo[] info, IEntityManager entityManager)
@@ -398,8 +414,17 @@ namespace Content.Client.RoundEnd
             };
             var StationReportLabel = new RichTextLabel();
             var StationReportmessage = new FormattedMessage();
-            StationReportmessage.AddMarkupOrThrow(stationReportText);
-            StationReportLabel.SetMessage(StationReportmessage);
+            // Omu begin - NTR's shouldn't be able to crash the window by submitting a badly formatted report
+            try
+            {
+                StationReportmessage.AddMarkupPermissive(stationReportText);
+            }
+            catch (Exception)
+            {
+                StationReportmessage.AddText(Loc.GetString("round-end-summary-window-station-report-tab-invalid"));
+            }
+            // Omu end
+            StationReportLabel.SetMessage(StationReportmessage, _allowedStationReportTags); // Byrd
             StationReportContainer.AddChild(StationReportLabel);
 
 
