@@ -93,9 +93,9 @@
   - type: Icon
     sprite: _Goobstation/Objects/Devices/pda.rsi
     state: pda-heccd
-  - type: Tag # Ignore Chameleon tags, this is too cool 4 u
-    tags:
-    - DoorBumpOpener
+  #- type: Tag # Omu change, allow chameleon
+  #  tags:
+  #  - DoorBumpOpener
 
 - type: entity
   parent: CentcomPDA
