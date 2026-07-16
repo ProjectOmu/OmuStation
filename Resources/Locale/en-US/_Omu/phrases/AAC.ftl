@@ -81,6 +81,23 @@ omu-phrase-nouns-jawsoflife = Jaws Of Life
 omu-phrase-nouns-powerdrill = Power Drill
 omu-phrase-nouns-holofan = Holofan
 
+omu-phrase-nouns-head = Head
+omu-phrase-nouns-chest = Chest
+omu-phrase-nouns-arm = Arm
+omu-phrase-nouns-hand = Hand
+# I was given the go-ahead to include this. May it be used moderately appropriately — Duuckie
+omu-phrase-nouns-groin = Groin
+omu-phrase-nouns-leg = Leg
+omu-phrase-nouns-foot = Foot
+
+omu-phrase-nouns-heart = Heart
+omu-phrase-nouns-lungs = Lungs
+omu-phrase-nouns-stomach = Stomach
+omu-phrase-nouns-liver = Liver
+omu-phrase-nouns-kidneys = Kidneys
+omu-phrase-nouns-brain = Brain
+omu-phrase-nouns-eyes = Eyes
+
 omu-phrase-job-stationengineer = Station Engineer
 omu-phrase-job-technicalassistant = Technical Assistant
 
