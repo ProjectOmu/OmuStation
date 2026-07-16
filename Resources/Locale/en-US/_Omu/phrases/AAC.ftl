@@ -3,6 +3,8 @@ omu-phrase-with = With
 omu-phrase-other = Other
 
 omu-phrase-verb-be = Be
+omu-phrase-verb-see = See
+omu-phrase-verb-cut = Cut
 
 omu-phrase-locations-to = To
 omu-phrase-locations-behind = Behind

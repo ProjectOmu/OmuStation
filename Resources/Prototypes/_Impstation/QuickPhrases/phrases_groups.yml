@@ -191,7 +191,9 @@
     - ClearPhraseImp
     - InjectPhraseImp
     - ArrestPhraseImp
-    - BePhraseOmu # Omu
+    - BePhraseOmu # Omu start
+    - SeePhraseOmu
+    - CutPhraseOmu # Omu end
   # determiners
     - MyPhraseImp
     - MinePhraseImp
@@ -756,7 +758,9 @@
     - ClearPhraseImp
     - InjectPhraseImp
     - ArrestPhraseImp
-    - BePhraseOmu # Omu
+    - BePhraseOmu # Omu start
+    - SeePhraseOmu
+    - CutPhraseOmu # Omu end
   # determiners
     - MyPhraseImp
     - MinePhraseImp
