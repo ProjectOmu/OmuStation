@@ -117,7 +117,6 @@
     - DoorBumpOpener
     - AnomalyHost
     - ReptilianEmotes
-    - Humanoid
   # Mono edit start
   - type: Fixtures
     fixtures:
@@ -139,17 +138,17 @@
     updateInterval: 2
   - type: TemperatureStatusEffects
     temperatureEffects:
-    - maximumTemperature: 295
+    - maximumTemperature: 300
       effects:
-      - !type:GenericStatusEffect
-        key: Drowsiness
-        component: Drowsiness
-        time: 2
-        type: Add
-        refresh: true
+#      - !type:GenericStatusEffect
+#        key: Drowsiness
+#        component: Drowsiness
+#        time: 2
+#        type: Add
+#        refresh: true
       - !type:Drunk
-        boozePower: 1
-    - minimumTemperature: 322
+        boozePower: 4
+    - minimumTemperature: 320
       effects:
       - !type:MovespeedModifier
         walkSpeedModifier: 1.10
@@ -157,8 +156,8 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -1
-            Brute: -1
+            Burn: -4
+            Brute: -4
 
 
   # Mono edit end
