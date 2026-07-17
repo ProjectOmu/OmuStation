@@ -76,6 +76,7 @@
   - type: Tag # Overwrite the TagComponent from the parent to get rid of ClothMade because it's funny when a mothroach eats this ultra specialized bit of equipment, but only the first time.
     tags:
     - WhitelistChameleon
+  - type: PlasmaUnfit #Omustation
 
 # This mantle is inteded for people doing jobs that require internals. In particular, this mantle is a breath mask with pressure protection and welding protection.
 - type: entity
@@ -114,7 +115,7 @@
   id: ClothingCyberneticBeastMantleWorkEngineering
   parent: ClothingCyberneticBeastMantleWork
   name: beast's engineering mantle
-  description: A modified version of a cybernetic beast's mantle. This one has integrated internals.
+  description: A modified version of a cybernetic beast's mantle. This one has integrated internals and lead plating.
   components:
   - type: Clothing
     sprite: _Omu/Clothing/Head/mantle.rsi
@@ -124,13 +125,19 @@
       - state: helmet-internals
       - state: eyes-engineering
         shader: unshaded
+  - type: Armor # Makes the engineer and atmos mantles have radiation resistance. It is close to as strong as the CE's mantle.
+    coverage:
+    - Head
+    modifiers:
+     coefficients:
+      Radiation: 0.15
 
 # variant of the engineering mantle for atmosians. Mostly because the burn chamber is a thing.
 - type: entity
   id: ClothingCyberneticBeastMantleWorkAtmospherics
   parent: ClothingCyberneticBeastMantleWorkEngineering
   name: beast's atmospheric mantle
-  description: A modified version of a cybernetic beast's mantle. This one has internals and extra thermal insulation.
+  description: A modified version of a cybernetic beast's mantle. This one has internals, lead plating, and extra thermal insulation.
   components:
   - type: ComponentToggler
     components: # copied from the parent with some additions
@@ -742,3 +749,21 @@
       color: "#CCFFCC"
     - type: SolutionScanner
     - type: ShowThirstIcons
+
+# Research Work Mantle
+- type: entity
+  id: ClothingCyberneticBeastMantleWorkResearch
+  parent: ClothingCyberneticBeastMantleWork
+  name: beast's work mantle
+  description: A modified version of a cybernetic beast's mantle that science can research. This one has integrated internals.
+  components:
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    clothingVisuals:
+      head:
+      - state: helmet
+      - state: helmet-internals
+      - state: eyes
+        shader: unshaded
+  - type: StealTarget
+    stealGroup: None

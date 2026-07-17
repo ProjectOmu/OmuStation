@@ -30,7 +30,7 @@ mode = 1 # Requires authentication from SS14 API
 advertise = 1
 advertise_interval = 30
 tags = "lang:en,rp:med,region:am_n_e" # You can find a list of all tags @ https://docs.spacestation14.com/en/robust-toolbox/server-http-api.html#standard-tags
-hub_urls = "https://central.spacestation14.io/hub/, https://hub.fallback.spacestation14.com/" # https://hub.singularity14.co.uk/ is down and does not seem to be up soon anymore.
+hub_urls = "https://central.spacestation14.io/hub/" # https://hub.fallback.spacestation14.com/ # https://hub.singularity14.co.uk/ is down and does not seem to be up soon anymore.
 use_dynamic_hostname = true # File replacements found in `motd.ftl` in datasets under _Goobstation
 
 [game]
@@ -58,7 +58,7 @@ ipintel_contact_email = "ss14opal@gmail.com"
 
 # Defaults and other CVars
 defaultpreset = "SecretPlusMid"
-round_restart_time = 180 # Increased from 120
+round_restart_time = 300 # Increased from 120//180 on 7/2026
 table_bonk = false # Default is false, change later?
 round_end_pvs_overrides = false # Default is true, needs to be disabled for less end-of-round lag
 

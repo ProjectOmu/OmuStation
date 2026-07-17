@@ -76,9 +76,9 @@
           bounds: "-0.45,-0.45,0.45,0.45"
         density: 190
         mask:
-        - FullTileMask
+        - MachineMask # Omu
         layer:
-        - WallLayer
+        - MachineLayer # Omu
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
