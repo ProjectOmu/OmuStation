@@ -372,13 +372,14 @@ namespace Content.Shared.Cuffs
             if (args.User == null || !Exists(args.User.Value))
                 return;
 
-            if (args.User.Value == uid && !component.CanStillInteract || _mobState.IsCritical(uid)) // Funky - If they are cuffed or in soft/hard critical, they cannot stop the pull
+            if (args.User.Value == uid)
             {
-                //TODO: UX feedback. Simply blocking the normal interaction feels like an interface bug
-
-                args.Cancelled = true;
+                // If they are cuffed or in soft/hard critical, they cannot stop the pull
+                if (!component.CanStillInteract || _mobState.IsCritical(uid))           //Funky soft crit
+                {
+                    args.Cancelled = true;
+                }
             }
-
         }
 
         private void OnRemoveCuffsAlert(Entity<CuffableComponent> ent, ref RemoveCuffsAlertEvent args)
