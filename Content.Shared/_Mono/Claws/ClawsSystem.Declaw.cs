@@ -12,7 +12,7 @@ public abstract partial class SharedClawsSystem
     public void UpdateDeclaw(EntityUid uid, Declawed declawed, ClawsComponent claws, float updateTime)
     {
         if (!_state.IsAlive(uid))
-                    return;
+            return;
 
         var hands = _hands.EnumerateHands(uid).ToArray();
         if (!_hands.EnumerateHeld(uid).Any())
@@ -36,9 +36,14 @@ public abstract partial class SharedClawsSystem
         if (claws.DeclawItemHoldTimer.Seconds < declawed.MaxItemHoldingTime.Seconds)
             return;
 
-        foreach (var hand in hands)
+        if(!TryComp<HandsComponent>(uid, out var handscomp))
+            return;
+
+        foreach (var handname in hands)
         {
-            DeclawDrop(uid, hand, hand.HeldEntity);
+
+            _hands.TryGetHeldItem(uid, handname, out var heldent);
+            DeclawDrop(uid, handname, heldent);
         }
 
         claws.DeclawItemHoldTimer = TimeSpan.Zero;
@@ -64,7 +69,7 @@ public abstract partial class SharedClawsSystem
         Dirty(uid, claws);
     }
 
-    private void DeclawDrop(EntityUid uid, Hand hand, EntityUid? item)
+    private void DeclawDrop(EntityUid uid, string hand, EntityUid? item)
     {
         _hands.SetActiveHand(uid, hand);
         if (item == null)
