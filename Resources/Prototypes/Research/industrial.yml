@@ -327,24 +327,24 @@
 
 # Tier 3
 
-- type: technology
-  id: BluespaceStorage
-  name: research-technology-bluespace-storage
-  icon:
-    sprite: Clothing/Back/Backpacks/holding.rsi
-    state: holding
-  discipline: Industrial
-  tier: 3
-  cost: 20000 # Goobstation 15000 -> 20000
-  recipeUnlocks:
-  - ClothingBackpackHolding
-  - ClothingBackpackSatchelHolding
-  - ClothingBackpackDuffelHolding
-  - ClothingBackpackMessengerHolding # Frontier
+#- type: technology # Omu bluespace bag removal
+#  id: BluespaceStorage
+#  name: research-technology-bluespace-storage
+#  icon:
+#    sprite: Clothing/Back/Backpacks/holding.rsi
+#    state: holding
+#  discipline: Industrial
+#  tier: 3
+#  cost: 20000 # Goobstation 15000 -> 20000
+#  recipeUnlocks:
+#  - ClothingBackpackHolding
+#  - ClothingBackpackSatchelHolding
+#  - ClothingBackpackDuffelHolding
+#  - ClothingBackpackMessengerHolding # Frontier
   # Goobstation R&D Console rework start
-  position: 2,-7
-  technologyPrerequisites:
-   - OptimizedMicrogalvanism
+#  position: 2,-7
+#  technologyPrerequisites:
+#   - OptimizedMicrogalvanism
   # Goobstation R&D Console rework end
 
 - type: technology
