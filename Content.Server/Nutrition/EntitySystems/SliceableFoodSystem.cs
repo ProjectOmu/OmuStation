@@ -117,7 +117,7 @@ public sealed class SliceableFoodSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDestructibleSystem _destroy = default!;
-    [Dependency] private readonly ChatSystem _chat = default!; # Omu
+    [Dependency] private readonly ChatSystem _chat = default!; // Omu
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
