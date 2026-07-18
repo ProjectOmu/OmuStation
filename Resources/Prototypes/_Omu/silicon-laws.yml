@@ -1,0 +1,113 @@
+- type: siliconLaw
+  id: OmuCrewsimov1
+  order: 1
+  lawString: law-omu-crewsimov-1
+
+- type: siliconLaw
+  id: OmuCrewsimov2
+  order: 2
+  lawString: law-omu-crewsimov-2
+
+- type: siliconLaw
+  id: OmuCrewsimov3
+  order: 3
+  lawString: law-omu-crewsimov-3
+
+- type: siliconLaw
+  id: OmuCrewsimovBorgChassis4
+  order: 4
+  lawString: law-omu-crewsimov-3 #so this law is in slot 4 rather then sharing slot 3 with the chassis law
+
+# Chassis laws
+- type: siliconLaw
+  id: OmuMedical
+  order: 3
+  lawString: law-omu-medical
+
+- type: siliconLaw
+  id: OmuEngineer
+  order: 3
+  lawString: law-omu-engineer
+
+- type: siliconLaw
+  id: OmuJanitor
+  order: 3
+  lawString: law-omu-janitor
+
+- type: siliconLaw
+  id: OmuService
+  order: 3
+  lawString: law-omu-service
+
+- type: siliconLaw
+  id: OmuSalvage
+  order: 3
+  lawString: law-omu-salvage
+
+- type: siliconLaw
+  id: OmuScience
+  order: 3
+  lawString: law-omu-science
+
+# lawsets
+- type: siliconLawset
+  id: OmuCrewsimov
+  laws:
+  - OmuCrewsimov1
+  - OmuCrewsimov2
+  - OmuCrewsimov3
+  obeysTo: laws-owner-crew
+
+- type: siliconLawset
+  id: OmuMedical
+  laws:
+  - OmuCrewsimov1
+  - OmuCrewsimov2
+  - OmuMedical
+  - OmuCrewsimovBorgChassis4
+  obeysTo: laws-owner-crew
+
+- type: siliconLawset
+  id: OmuEngineer
+  laws:
+  - OmuCrewsimov1
+  - OmuCrewsimov2
+  - OmuEngineer
+  - OmuCrewsimovBorgChassis4
+  obeysTo: laws-owner-crew
+
+- type: siliconLawset
+  id: OmuJanitor
+  laws:
+  - OmuCrewsimov1
+  - OmuCrewsimov2
+  - OmuJanitor
+  - OmuCrewsimovBorgChassis4
+  obeysTo: laws-owner-crew
+
+- type: siliconLawset
+  id: OmuService
+  laws:
+  - OmuCrewsimov1
+  - OmuCrewsimov2
+  - OmuService
+  - OmuCrewsimovBorgChassis4
+  obeysTo: laws-owner-crew
+
+- type: siliconLawset
+  id: OmuSalvage
+  laws:
+  - OmuCrewsimov1
+  - OmuCrewsimov2
+  - OmuSalvage
+  - OmuCrewsimovBorgChassis4
+  obeysTo: laws-owner-crew
+
+- type: siliconLawset
+  id: OmuScience
+  laws:
+  - OmuCrewsimov1
+  - OmuCrewsimov2
+  - OmuScience
+  - OmuCrewsimovBorgChassis4
+  obeysTo: laws-owner-crew
