@@ -323,6 +323,9 @@ namespace Content.Client.Stylesheets
         public const string StyleClassPinButtonPinned = "pinButtonPinned";
         public const string StyleClassPinButtonUnpinned = "pinButtonUnpinned";
 
+        //Manifest
+        public const string StyleClassCrewManifestGender = "CrewManifestGender"; // Funky
+
 
         public override Stylesheet Stylesheet { get; }
 
@@ -1576,6 +1579,11 @@ namespace Content.Client.Stylesheets
                     .Class(StyleClassItemStatusNotHeld)
                     .Prop("font", notoSansItalic10)
                     .Prop("font-color", ItemStatusNotHeldColor),
+
+                Element<RichTextLabel>() // Funky
+                    .Class(StyleClassCrewManifestGender)
+                    .Prop("font", notoSansItalic10)
+                    .Prop("font-style", "italic"),
 
                 Element<RichTextLabel>()
                     .Class(StyleClassItemStatus)

@@ -554,7 +554,7 @@
     soundHit:
       collection: Punch
     animation: WeaponArcFist
-    #mustBeEquippedToUse: true # goob edit
+    mustBeEquippedToUse: true # Omu, they are gloves, you should need to equip them.
     heavyStaminaCost: 0 # goob edit
     canWideSwing: false # goob edit
   - type: Fiber

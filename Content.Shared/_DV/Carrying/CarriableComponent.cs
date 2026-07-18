@@ -19,4 +19,11 @@ public sealed partial class CarriableComponent : Component
     /// </summary>
     [DataField]
     public int FreeHandsRequired = 2;
+
+    // imp add
+    /// <summary>
+    ///     Will override the CarrierOneHand tag for carrier entities, instead using FreeHandsRequired.
+    /// </summary>
+    [DataField]
+    public bool OneHandOverride = false;
 }

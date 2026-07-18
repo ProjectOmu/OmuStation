@@ -151,7 +151,7 @@ selectable-set-blueshield-dragon-description =
 selectable-set-blueshield-chester-name = chester set
 selectable-set-blueshield-chester-description =
     Ready to go hunting?
-    Includes: .45 lever-action rifle, the Chester. Spare ammo, # omu
+    Includes: .45 lever-action rifle, the Chester. Spare ammo,
     Alternate ammo, Spare magazines.
 
 # Omu, add military webbing to syringe kit

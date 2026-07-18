@@ -3,7 +3,7 @@
   id: NumberStationThreats
   weights:
     LoneOperative: 1
-    ShuttleInstigator: 0.8
+    #ShuttleInstigator: 0.8 # Omu, disable this
     VoxRaiders: 0.8
     #GreyTide: 0.65
     #TODO When Slasher is ready Slasher: 0.6 # Goobstation
@@ -40,10 +40,10 @@
   announcement: terror-slaughter-demon
   rule: LaughterDemonSummon
 
-- type: ninjaHackingThreat
-  id: ShuttleInstigator
-  announcement: terror-lone-operative
-  rule: UnknownShuttleInstigator
+#- type: ninjaHackingThreat # Omu, disable this
+#  id: ShuttleInstigator
+#  announcement: terror-lone-operative
+#  rule: UnknownShuttleInstigator
 
 - type: ninjaHackingThreat
   id: WizardMidRoundThreat

@@ -9,6 +9,33 @@
   - ResearchDirectorScienceGlasses
   - ResearchDirectorScienceHud
 
+# Administrative Assistant
+## Plasmaman stuff
+
+- type: loadoutGroup
+  id: AdminAssistantEnvirohelm
+  name: loadout-group-admin-assistant-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - AdminAssistantEnvirohelm
+
+- type: loadoutGroup
+  id: AdminAssistantEnvirosuit
+  name: loadout-group-admin-assistant-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - AdminAssistantEnvirosuit
+
+- type: loadoutGroup
+  id: AdminAssistantEnvirogloves
+  name: loadout-group-admin-assistant-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - AdminAssistantEnvirogloves
+
 # Transit Prisoner
 
 - type: loadoutGroup
@@ -112,6 +139,7 @@
   - CargoTechnicianWintercoatMail
   - CargoTechnicianWintercoat
   - CargoTechnicianJacket
+  - ClothingOuterCourierDuster  # Fallout duster
 
 - type: loadoutGroup
   id: CourierShoes
@@ -195,6 +223,7 @@
   minLimit: 0
   loadouts:
   - NanotrasenRepresentativeWintercoat
+  - NanotrasenRepresentativeLongcoat
 
 #New Selectable PDAs
 
@@ -236,15 +265,15 @@
 
 # Blueshield Officer
 
-- type: loadoutGroup
-  id: BlueshieldOfficerBelt
-  name: loadout-group-bso-belt
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - BeltAssaultFilled
-  - BeltBlueshieldEliteFilled #Starlight Sprite Port
-  - BsoSwordBelt #For the swordies
+# - type: loadoutGroup
+#   id: BlueshieldOfficerBelt # - Now moved to support kits
+#   name: loadout-group-bso-belt
+#   minLimit: 1
+#   maxLimit: 1
+#   loadouts:
+#   - BeltAssaultFilled
+#   - BeltBlueshieldEliteFilled #Starlight Sprite Port
+#   - BsoSwordBelt #For the swordies
 
 #Brigmed/Corpsman
 
@@ -296,6 +325,7 @@
   - SecurityOfficerGunCase
   - SecurityOfficerMk58
   - SecurityOfficerSecurityDutyRevolver
+  - SecurityOfficerEG1
   - SecurityOfficerTerminus
   - WeaponPistolMk58Gold
 
@@ -308,6 +338,7 @@
   - SecuritySergeantGunCase
   - SecurityOfficerMk58
   - SecurityOfficerSecurityDutyRevolver
+  - SecurityOfficerEG1
   - SecurityOfficerTerminus
   - WeaponPistolMk58Gold
   - SecuritySergeantMosin
@@ -356,6 +387,7 @@
   loadouts:
   - SergeantCloak
   - ClothingNeckCWPSec
+  - ClothingNeckMantleVeteranSecurity
 
 # We have a separate one for detective cause holster
 - type: loadoutGroup
@@ -395,3 +427,23 @@
   name: loadout-group-clown-belt
   loadouts:
   - ClownFoamSabre # Omu - Add foam sabre to the clown's loadout.
+
+# Cyborg
+- type: loadoutGroup
+  id: CyborgHead
+  name: loadout-group-cyborg-head
+  minLimit: 0
+  loadouts:
+  - PropellerHead
+  - PartyHatRedHead
+  - BeanieHead
+  - ChefHead
+  - FezHatHead
+  - FedoraHatHead
+  - WhiteCowboyHead
+  - TophatHead
+  - SafariHead
+  - JesterHead
+  - HeadSlimeHead
+  - HeadFlowerHead
+  - HeadbandSkull

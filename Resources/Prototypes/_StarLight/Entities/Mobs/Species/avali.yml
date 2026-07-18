@@ -19,6 +19,7 @@
         - DoorBumpOpener
         - AnomalyHost
         - Avali
+        - AvaliEmotes # Omu
     - type: Absorbable
     - type: HumanoidAppearance
       species: Avali
@@ -86,7 +87,7 @@
     - type: Speech
       speechVerb: Parrot # RMC did it right.
       speechSounds: MaleResomi
-      allowedEmotes: ['Chirp', 'Hiss', 'Purr', 'Growl', 'Trill', 'Warble', 'Wurble', 'Scree', 'Call', 'Squawk']
+      allowedEmotes: ['Chirp', 'Hiss', 'Growl', 'Trill', 'Warble', 'Wurble', 'Scree', 'Call', 'Squawk'] # Omu, removed purring
     - type: MobThresholds
       thresholds:
         0: Alive

@@ -45,6 +45,7 @@ namespace Content.Shared.Humanoid.Markings
         Underwear,
         Undershirt,
         Tail,
+        Eyes, // Omu
         Overlay
     }
 
@@ -76,6 +77,7 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.RFoot => MarkingCategories.RightFoot,
                 HumanoidVisualLayers.Wings => MarkingCategories.Wings,
                 HumanoidVisualLayers.Tail => MarkingCategories.Tail,
+                HumanoidVisualLayers.Eyes => MarkingCategories.Eyes, // Omu
                 _ => MarkingCategories.Overlay
             };
         }

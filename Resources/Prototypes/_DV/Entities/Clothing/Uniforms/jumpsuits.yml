@@ -96,3 +96,25 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/corpsman.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/corpsman.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformCMOVest
+  name: chief medical officer's vest jumpsuit
+  description: A cozy teal cotton vest with a green cross pin paired with a white button-up.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cmo_vest.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cmo_vest.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformCMOFormal
+  name: chief medical officer's formal suit
+  description: An lavish greenish blue suit with golden buttons and a green cross pin, fitted for the head of medical.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cmo_formal.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/cmo_formal.rsi

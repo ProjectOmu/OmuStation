@@ -1,0 +1,14 @@
+- type: entity
+  id: ArtiplatesChemistryVial
+  parent: BaseChemistryEmptyVial
+  suffix: artiplates
+  components:
+  - type: Label
+    currentLabel: reagent-name-artiplates
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 30
+        reagents:
+          - ReagentId: Artiplates
+            Quantity: 30

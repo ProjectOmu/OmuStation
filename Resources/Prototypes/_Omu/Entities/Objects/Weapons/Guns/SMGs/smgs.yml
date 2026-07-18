@@ -72,3 +72,51 @@
         whitelist:
           tags:
             - CartridgeCaselessTungsten
+
+- type: entity
+  name: Typewriter
+  parent: [ BaseWeaponSubMachineGun, BaseCentcommContraband ]
+  id: WeaponSubMachineGunTypewriter
+  description: Replica of a submachine gun notable for facing many battles, more famously those between mobsters back on Sol. Chambered in .35, fits both special made drum mags and stick mags. Perfect gun for making sure someone's sleeping with the carps.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/SMGs/typewriter.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/SMGs/typewriter.rsi
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunWieldBonus # Changed to be on par or slightly worse than the C20
+    minAngle: -12
+    maxAngle: -12
+  - type: Gun
+    minAngle: 21
+    maxAngle: 32
+    fireRate: 5 # Moved down from 8, Felt the best
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/typewriter.ogg
+  - type: ChamberMagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolSubMachineGunDrum
+        insertSound: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolSubMachineGun
+            - MagazinePistolSubMachineGunDrum
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+  - type: Appearance

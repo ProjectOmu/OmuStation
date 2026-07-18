@@ -45,12 +45,79 @@
   components:
   - type: HumanoidAppearance
     species: Vulpkanin
+    # Omu start
+    markingsDisplacement:
+      Chest:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit # yeah, it does in fact work :)
+      LLeg:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit # Overlays FOR SOME REASON use LLeg, so it has to stay on jumpsuit or else it will show everything except the right leg. It does, in turn, make some l-leg overlays apply on both legs.
+      RLeg:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: r_leg
+      LFoot:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: l_leg
+      RFoot:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: r_leg
+      Hair:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: hair # Omustation End
+    # Omu end
   - type: Hunger
   - type: Inventory # Allows vulps to wear properly shaped helmets
     speciesId: vulpkanin
+    #Omu start
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: shoes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: outerclothing
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: shoes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: outerclothing
+  #Omu end
   - type: Thirst
   - type: Icon
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    sprite: _DV/Mobs/Species/Vulpkanin/parts_plantigrade.rsi # Omu - vulp furrification
     state: full
   - type: Body
     prototype: Vulpkanin
@@ -166,3 +233,72 @@
   components:
   - type: HumanoidAppearance
     species: Vulpkanin
+    # Omu start
+    markingsDisplacement:
+      Chest:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit # yeah, it does in fact work :)
+      LLeg:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit # Overlays FOR SOME REASON use LLeg, so it has to stay on jumpsuit or else it will show everything except the right leg. It does, in turn, make some l-leg overlays apply on both legs.
+      RLeg:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: r_leg
+      LFoot:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: l_leg
+      RFoot:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: r_leg
+      Hair:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: hair # Omustation End
+    # Omu end
+  - type: Inventory
+    speciesId: vulpkanin
+    #Omu start
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: shoes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: outerclothing
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: shoes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
+            state: outerclothing
+  #Omu end

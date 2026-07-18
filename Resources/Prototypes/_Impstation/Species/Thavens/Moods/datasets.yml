@@ -12,87 +12,153 @@
 - type: dataset
   id: ThavenMoodClothes
   values:
-  - hardsuits
-  - uniforms
-  - helmets
-  - gloves
-  - boots
-  - cloaks
+  - Hardsuits
+  - Gloves
+  - Hats
+  - Capes
+  - Glasses
+  - Backpacks
 
 - type: dataset
   id: ThavenMoodFoodRestrictions
   values:
-  - vegetarian
-  - vegan
-  - pescetarian
-  - fruitarian
-  - gluten-free diet
-  - dairy-free diet
+  - Vegetarian
+  - Carnivore
+  - Frugivore
+  - Fungivore
+  - Ovivore
+  - Hunter
+  - Soupivore
+  - Cakivore
 
 - type: dataset
   id: ThavenMoodPets
   values:
-  - Ian
-  - Runtime
-  - Pun Pun
-  - McGriff
-  - Morticia
+  - Ian the Corgi
+  - Runtime the Cat
+  - Pun Pun the Monkey
+  - McGriff the Dog
+  - Morticia the Possum
+  - Hamlet the Hamster
+  - Shiva the Spider
+  - Morty the Possum
+  - Tropico the Crab
+  - Smile the Slime
+  - Renault the Fox
+  - Walter the Dog
 
 - type: dataset
   id: ThavenMoodRooms
   values:
-  - the chapel
-  - the bar
-  - medbay
-  - the bridge
-  - the courtroom
-  - the arrivals shuttle
+  - The Chapel
+  - The Bar
+  - Medbay
+  - The Bridge
+  - The Courtroom
+  - Arrivals
+  - Disposals
+  - The Library
+  - The Station Anchor
+  - The Morgue
 
 - type: dataset
   id: ThavenMoodEdibles
   values:
-  - pizza
-  - soup
-  - burger
-  - tacos
-  - noodles
-  - pie
+  - Copypasta
+  - Baseball Burger
+  - Empowered Burger
+  - Mcguffin
+  - Suppermatter
+  - Stick of Cannabis Butter
+  - Bungo Curry
+  - Salty Sweet Miso Cola Soup
+  - Bread Dog
+  - Mothroachburger
+  - Gunkslider # Omu
+  - Eckeyiish kelpfry # omu, porting stuff from garden
+  - Eckeyiish kelp stew # omu, porting stuff from garden
+  - Kelp pods # omu, porting stuff from garden
 
 - type: dataset
   id: ThavenMoodHolidays
   values:
-  - Remembrance Day
-  - Founding Day
-  - Lantern Night
-  - Long Vigil
-  - Feast of Returning
+  - Free Kelp Day
+  - Foster's Feast
+  - Gondaltide
+  - St. Pun Pun's Eve
+  - Clownsmas
+  - Intergalactic Hug A Robot Day
+  - Labor Day
+  - NT Corporate Mindfulness Day
+  - Silicon Awareness Day
+  - Pink Appreciation Day
+  - Logistics Improvement Day
+  - Small Ear Syndrome Awareness Day
+  - Gunchday
+  - Saint Eckeyeas' Day
+  - the Good Day Of Digging And Playing
+  - the Talent Show
+  - Tau-Ceti Cetaceaform Accessibility Act Remembrance Day
+  - Biesel Independence Day
+  - the Day Of Veneration Of Saint O'Hare
+  - Todaybor Day
+  - Pet A Sheep Day
+  - Eekeyiaikakslana Remembrance Day
 
 - type: dataset
   id: ThavenMoodItems
   values:
-  - hats
-  - stamps
-  - pens
-  - shoes
-  - plushies
-  - glasses
+  - Wrenches
+  - Welding Tools
+  - Screwdrivers
+  - Wirecutters
+  - Multitools
+  - Plushies
+  - Food packaging
+  - Soda cans
+  - Flashlights
+  - Empty toolboxes
+  - Civilian clothes
+  - Shoes
+  - Hats
+  - Scarves
+  - Folders
+  - Spray bottles
+  - Lizard Plushies
+  - Figurines
+  - Toys
+  - Lockers
+  - Dihydrogen Monoxide
+  - Bananas
 
 - type: dataset
   id: ThavenMoodCommandRoles
   values:
   - Captain
+  - Quartermaster
   - Head of Personnel
   - Chief Engineer
   - Chief Medical Officer
   - Research Director
   - Head of Security
+  - Administrative Assistant
 
 - type: dataset
   id: ThavenMoodSpeechRestrictions
   values:
-  - in whispers only
-  - only in questions
-  - only in rhymes
-  - without contractions
-  - only in third person
-  - only in formal titles
+  - FullNameAndTitle
+  - NamesAreRude
+  - Clarity
+  #- SwearingGood
+  - StatementOnly
+  - Imitation
+  - Unclarity
+  - SwearingBad
+  - QuestionOnly
+  - MustAnswer
+  - OnlyWhisper
+  #- OnlyYell
+  - Rhyme
+  - Alliterate
+  - ThirdPerson
+  - TitleCase
