@@ -20,4 +20,8 @@ public sealed partial class ClawsComponent : Component
 
     [AutoPausedField]
     public TimeSpan DeclawItemHoldTimer = TimeSpan.Zero;
+
+    [DataField]
+    public LocId? ClawGrowthNotification;
+
 }
