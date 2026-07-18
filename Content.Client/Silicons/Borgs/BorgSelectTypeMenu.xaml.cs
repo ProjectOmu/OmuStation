@@ -43,15 +43,15 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        // Omu start - Group Borg Types based on name in FTL
+        // Omu start - Group Borg Types based on dummyPrototype set in BorgTypePrototype YAML
         Dictionary<string, List<BorgTypePrototype>> borgGroupBuilder = new Dictionary<string, List<BorgTypePrototype>>();
 
         foreach (var borgType in _prototypeManager.EnumeratePrototypes<BorgTypePrototype>())
         {
-            if (!borgGroupBuilder.ContainsKey(PrototypeName(borgType)))
-                borgGroupBuilder[PrototypeName(borgType)] = new List<BorgTypePrototype>();
+            if (!borgGroupBuilder.ContainsKey(borgType.DummyPrototype))
+                borgGroupBuilder[borgType.DummyPrototype] = new List<BorgTypePrototype>();
 
-            borgGroupBuilder[PrototypeName(borgType)].Add(borgType);
+            borgGroupBuilder[borgType.DummyPrototype].Add(borgType);
         }
 
         foreach (var (key, borgTypeList) in borgGroupBuilder)
@@ -63,7 +63,7 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
                 Scale = new Vector2(2, 2),
                 MouseFilter = MouseFilterMode.Stop
             };
-            chassisList.SetPrototype(borgTypeList[0].DummyPrototype);
+            chassisList.SetPrototype(key);
 
             foreach (var borgType in borgTypeList)
             {
