@@ -140,14 +140,14 @@
     temperatureEffects:
     - maximumTemperature: 300
       effects:
-#      - !type:GenericStatusEffect
-#        key: Drowsiness
-#        component: Drowsiness
-#        time: 2
-#        type: Add
-#        refresh: true
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 2
+        type: Add
+        refresh: true
+      - !type:Jitter
       - !type:Drunk
-        boozePower: 4
+        boozePower: 2
     - minimumTemperature: 320
       effects:
       - !type:MovespeedModifier
@@ -157,6 +157,9 @@
         damage:
           groups:
             Burn: -4
+      - !type:HealthChange
+        damage:
+          groups:
             Brute: -4
 
 
