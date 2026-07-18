@@ -1,0 +1,16 @@
+- type: entity
+  parent: BaseAction
+  id: ToggleJaniVision
+  name: Toggle Clean Hud
+  description: Toggles your clean hud.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    priority: -20
+    useDelay: 1
+    icon:
+      sprite: _Omu/Clothing/Eyes/janihud.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:ToggleJaniVisionEvent

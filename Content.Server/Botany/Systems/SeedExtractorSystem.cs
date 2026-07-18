@@ -60,7 +60,7 @@ public sealed class SeedExtractorSystem : EntitySystem
         var amount = _random.Next(seedExtractor.BaseMinSeeds, seedExtractor.BaseMaxSeeds + 1);
         var coords = Transform(uid).Coordinates;
 
-        var packetSeed = seed;
+        var packetSeed = seed.Clone(); // Omu
         if (amount > 1)
             packetSeed.Unique = false;
 
