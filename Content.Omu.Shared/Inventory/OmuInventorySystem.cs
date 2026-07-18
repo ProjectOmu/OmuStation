@@ -10,9 +10,10 @@ using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
 using Robust.Shared.Containers;
 
-namespace Content.Goobstation.Shared.Inventory;
+namespace Content.Omu.Shared.Inventory;
 
-public sealed partial class GoobInventorySystem : EntitySystem
+// Omu - Moved from Goobstation to here so we can reference the jani goggles
+public sealed partial class OmuInventorySystem : EntitySystem
 {
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
