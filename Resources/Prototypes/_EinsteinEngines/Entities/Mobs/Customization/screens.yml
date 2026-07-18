@@ -5,6 +5,7 @@
 ## CANT SET THESE SCREENS TO "shader: unshaded"
 ## RobustToolbox/Robust.Shared/Utility/SpriteSpecifier.cs
 
+# Omu start - moving to Omu namespace with edits
 #- type: marking
 # speciesRestriction: [ IPC ]
 # id: ScreenStatic
@@ -400,4 +401,5 @@
 # markingCategory: Face
 # sprites:
 #   - sprite: _EinsteinEngines/Mobs/Customization/ipc_screens.rsi
+# Omu end
 #     state: ipc_screen_l
