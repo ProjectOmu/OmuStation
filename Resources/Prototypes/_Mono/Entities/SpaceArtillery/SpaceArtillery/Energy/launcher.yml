@@ -31,6 +31,8 @@
     powerChargeRate: 200
     powerUsePassive: 2000
     powerUseActive: 0
+  - type: ApcPowerReceiverBattery # Omu
+    batteryRechargeRate: 200
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
     proto: ShipRubiconProjectile
@@ -96,6 +98,8 @@
     powerChargeRate: 100
     powerUsePassive: 500
     powerUseActive: 0
+  - type: ApcPowerReceiverBattery # Omu
+    batteryRechargeRate: 100
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
     proto: ShipMediumPlasmaProjectile
@@ -164,6 +168,8 @@
     powerChargeRate: 2000
     powerUsePassive: 20000
     powerUseActive: 0
+  - type: ApcPowerReceiverBattery # Omu
+    batteryRechargeRate: 2000
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
     proto: ShipDymereProjectile
