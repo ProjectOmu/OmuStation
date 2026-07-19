@@ -844,7 +844,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     }
 
-    #endregion
+    
 
     public void AdjustSetpoints(SupermatterComponent sm)
     {
@@ -881,6 +881,6 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
             if (sm.RadiationOutputFactor == sm.RadiationOutputFactorSetpoint)
                 sm.RadiationOutputFactorChanged = false;
-        }
+        }      #endregion
     }        //omu end
 }
