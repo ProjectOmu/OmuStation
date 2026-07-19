@@ -30,7 +30,7 @@ public sealed class JumpSystem : EntitySystem
 
     private void OnJumpStartup(EntityUid uid, JumpComponent component, ComponentStartup args)
     {
-        if (component.JumpAction != null)
+        if (component.JumpAction != null)        //Omu - check if its not null before trying to add an action
             _actions.AddAction(uid, ref component.JumpActionEntity, component.JumpAction);
     }
 
