@@ -62,7 +62,7 @@ public abstract class SharedGasPressurePumpSystem : EntitySystem
         UpdateAppearance(ent);
     }
 
-    private void OnPowerChanged(Entity<GasPressurePumpComponent> ent, ref PowerChangedEvent args)
+    private void OnPowerChanged(Entity<GasPressurePumpComponent> ent, GasPressurePumpComponent component, ref PowerChangedEvent args)
     {
         UpdateAppearance(ent, component);
     }
@@ -72,8 +72,8 @@ public abstract class SharedGasPressurePumpSystem : EntitySystem
         if (!Resolve(ent, ref pump, ref appearance, false))
             return;
 
-        var pumpOn = ent.Comp1.Enabled && _receiver.IsPowered(ent.Owner);
-        _appearance.SetData(ent, PumpVisuals.Enabled, pumpOn, ent.Comp2);
+        var pumpOn = pump.Enabled && _receiver.IsPowered(ent);
+        _appearance.SetData(ent, PumpVisuals.Enabled, pumpOn, appearance);
     }
 
     private void OnToggleStatusMessage(Entity<GasPressurePumpComponent> ent, ref GasPressurePumpToggleStatusMessage args)
