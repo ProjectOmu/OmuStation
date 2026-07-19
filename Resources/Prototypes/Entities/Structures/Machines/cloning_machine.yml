@@ -63,6 +63,19 @@
         map: ["base"]
   - type: Physics
     bodyType: Static
+# Omu start PR#1174
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.30,-0.45,0.30,0.45"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+# Omu end PR#1174
   - type: Construction
     graph: Machine
     node: machine
