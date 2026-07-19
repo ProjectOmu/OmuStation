@@ -266,7 +266,7 @@
       path: /Audio/Items/flashlight_off.ogg
   - type: ItemToggleActiveSound
     activeSound:
-      path: /Audio/Effects/Vehicle/ambulancesiren.ogg
+      path: /Audio/_Omu/Effects/Vehicle/ambulancesiren.ogg
       params:
         volume: -3
   - type: UseDelay
