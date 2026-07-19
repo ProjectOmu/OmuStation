@@ -489,8 +489,4 @@ public sealed partial class MechSystem : SharedMechSystem
     }
     #endregion
 
-    private void OnBoost()
-    {
-
-    }
 }

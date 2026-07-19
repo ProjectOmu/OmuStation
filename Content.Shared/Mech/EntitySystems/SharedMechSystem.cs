@@ -53,17 +53,15 @@ using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
-
 using Content.Shared.Emag.Systems;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory.VirtualItem;
 using Robust.Shared.Configuration;
-using Content.Shared._Omu.Entities.Objects.BloodredVim;
-
-using Content.Shared.Administration.Logs;
-using Content.Shared.Database;
+using Content.Shared._Omu.Entities.Objects.BloodredVim;         //OMU
+using Content.Shared.Administration.Logs;       //OMU
+using Content.Shared.Database;          //OMU
 
 namespace Content.Shared.Mech.EntitySystems;
 
@@ -87,8 +85,7 @@ public abstract partial class SharedMechSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!; // Goobstation Change
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!; // Goobstation Change
     [Dependency] private readonly IConfigurationManager _config = default!; // Goobstation Change
-
-    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
+    [Dependency] private readonly ISharedAdminLogManager _admin = default!;     //OMU
 
     // Goobstation: Local variable for checking if mech guns can be used out of them.
     private bool _canUseMechGunOutside;
@@ -611,9 +608,8 @@ public abstract partial class SharedMechSystem : EntitySystem
         Dirty(uid, component);
     }
 
-    public virtual void OnBoost(Entity<MechComponent> ent, ref BloodredVimBoostActionEvent args)
+    public virtual void OnBoost(Entity<MechComponent> ent, ref BloodredVimBoostActionEvent args)        //Omu
     {
-        _admin.Add(LogType.Action, LogImpact.Extreme, $"Onboost activated");
         if (args.Handled)
             return;
         args.Handled = true;
@@ -625,7 +621,7 @@ public abstract partial class SharedMechSystem : EntitySystem
         ev.Target = args.Target;
         ev.Performer = ent;
         RaiseLocalEvent(ent, ev, true);
-    }
+    }       //Omu end
 }
 
 /// <summary>
