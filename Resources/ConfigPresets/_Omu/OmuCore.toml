@@ -116,7 +116,7 @@ auto_call_time = 120 # Increased from 90
 mass_limit = 2000 # Changed for event shuttles
 
 [lavaland]
-enabled = true
+enabled = false # Lets see what this does for lag.
 
 [movement]
 mob_pushing = false # No jank mob shoving

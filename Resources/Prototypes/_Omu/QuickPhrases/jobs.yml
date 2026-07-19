@@ -1,0 +1,157 @@
+
+- type: quickPhrase
+  id: BaseJobsOmuCentralCommand
+  parent: BaseJobsImp
+  group: Central Command
+  abstract: true
+
+# engie
+
+- type: quickPhrase
+  id: StationEngineerPhraseOmu
+  parent: BaseJobsImpEngie
+  text: omu-phrase-job-stationengineer
+
+- type: quickPhrase
+  id: TechnicalAssistantPhraseOmu
+  parent: BaseJobsImpEngie
+  text: omu-phrase-job-technicalassistant
+
+# sci
+
+- type: quickPhrase
+  id: ResearchAssistantPhraseOmu
+  parent: BaseJobsImpSci
+  text: omu-phrase-job-researchassistant
+
+- type: quickPhrase
+  id: RoboticistPhraseOmu
+  parent: BaseJobsImpSci
+  text: omu-phrase-job-roboticist
+
+# service
+
+- type: quickPhrase
+  id: ServiceWorkerPhraseOmu
+  parent: BaseJobsImpService
+  text: omu-phrase-job-serviceworker
+
+- type: quickPhrase
+  id: ChaplainPhraseOmu
+  parent: BaseJobsImpService
+  text: omu-phrase-job-chaplain
+
+- type: quickPhrase
+  id: LibrarianPhraseOmu
+  parent: BaseJobsImpService
+  text: omu-phrase-job-librarian
+
+- type: quickPhrase
+  id: MusicianPhraseOmu
+  parent: BaseJobsImpService
+  text: omu-phrase-job-musician
+
+- type: quickPhrase
+  id: RadioHostPhraseOmu
+  parent: BaseJobsImpService
+  text: omu-phrase-job-radiohost
+
+# med
+
+- type: quickPhrase
+  id: MedicalDoctorPhraseOmu
+  parent: BaseJobsImpMed
+  text: omu-phrase-job-medicaldoctor
+
+- type: quickPhrase
+  id: PsychologistPhraseOmu
+  parent: BaseJobsImpMed
+  text: omu-phrase-job-psychologist
+
+- type: quickPhrase
+  id: VirologistPhraseOmu
+  parent: BaseJobsImpMed
+  text: omu-phrase-job-virologist
+
+- type: quickPhrase
+  id: MedicalInternPhraseOmu
+  parent: BaseJobsImpMed
+  text: omu-phrase-job-medicalintern
+
+# cargo
+
+- type: quickPhrase
+  id: ShaftMinerPhraseOmu
+  parent: BaseJobsImpCargo
+  text: omu-phrase-job-shaftminer
+
+# sec
+
+- type: quickPhrase
+  id: SecurityCadetPhraseOmu
+  parent: BaseJobsImpSec
+  text: omu-phrase-job-securitycadet
+
+- type: quickPhrase
+  id: CorpsmanPhraseOmu
+  parent: BaseJobsImpSec
+  text: omu-phrase-job-corpsman
+
+- type: quickPhrase
+  id: PrisonerPhraseOmu
+  parent: BaseJobsImpSec
+  text: omu-phrase-job-prisoner
+
+- type: quickPhrase
+  id: SergeantPhraseOmu
+  parent: BaseJobsImpSec
+  text: omu-phrase-job-sergeant
+
+- type: quickPhrase
+  id: OfficerPhraseOmu
+  parent: BaseJobsImpSec
+  text: omu-phrase-job-officer
+
+  # civilian
+
+- type: quickPhrase
+  id: AssistantPhraseOmu
+  parent: BaseJobsOmuCivilian
+  text: omu-phrase-job-assistant
+
+- type: quickPhrase
+  id: VisitorPhraseOmu
+  parent: BaseJobsOmuCivilian
+  text: omu-phrase-job-visitor
+
+  # non-departmental command
+
+- type: quickPhrase
+  id: CommandMaidPhraseOmu
+  parent: BaseJobsOmuNonDepartmentalCommand
+  text: omu-phrase-job-commandmaid
+
+- type: quickPhrase
+  id: AdministrativeAssistantPhraseOmu
+  parent: BaseJobsOmuNonDepartmentalCommand
+  text: omu-phrase-job-administrativeassistant
+
+  # centcomm
+
+- type: quickPhrase
+  id: NanotrasenRepresentativePhraseOmu
+  parent: BaseJobsOmuCentralCommand
+  text: omu-phrase-job-nanotrasenrepresentative
+
+- type: quickPhrase
+  id: NanotrasenCareerTrainerPhraseOmu
+  parent: BaseJobsOmuCentralCommand
+  text: omu-phrase-job-nanotrasencareertrainer
+
+- type: quickPhrase
+  id: BlueshieldOfficerPhraseOmu
+  parent: BaseJobsOmuCentralCommand
+  text: omu-phrase-job-blueshieldofficer
+
+
+
