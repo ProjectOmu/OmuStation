@@ -432,47 +432,19 @@
     tags:
     - FakeMindShieldImplant
 
-# Omu Start
-## Uncommented the original, and added extras for the other suits.
-- type: entity # Default Suit
-  parent: BaseToggleAction
-  id: ActionToggleParamedicSiren
-  name: Toggle Paramedic Siren
-  description: Toggles the paramedic siren on and off.
-  components:
-  - type: Action
-    useDelay: 1
-    icon:
-      sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
-      state: icon-siren
-    itemIconStyle: BigAction
-
-- type: entity # Cybersun Suit
-  parent: BaseToggleAction
-  id: ActionToggleParamedicSirenCybersun
-  name: Toggle Paramedic Siren
-  description: Toggles the paramedic siren on and off.
-  components:
-  - type: Action
-    useDelay: 1
-    icon:
-      sprite: _Omu/Clothing/OuterClothing/Hardsuits/cybersunparamedhardsuit.rsi
-      state: icon-siren
-    itemIconStyle: BigAction
-
-- type: entity # Modsuit
-  parent: BaseToggleAction
-  id: ActionToggleParamedicSirenModsuit
-  name: Toggle Paramedic Siren
-  description: Toggles the paramedic siren on and off.
-  components:
-  - type: Action
-    useDelay: 1
-    icon:
-      sprite: _Goobstation/Clothing/Back/Modsuits/paramedic.rsi
-      state: icon-siren
-    itemIconStyle: BigAction
-# Omu End
+# Goob - merge this
+# - type: entity
+#   parent: BaseToggleAction
+#   id: ActionToggleParamedicSiren
+#   name: Toggle Paramedic Siren
+#   description: Toggles the paramedic siren on and off.
+#   components:
+#   - type: Action
+#     icon:
+#       sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+#       state: icon-siren
+#     useDelay: 1
+#     itemIconStyle: BigAction
 
 - type: entity
   parent: BaseAction
