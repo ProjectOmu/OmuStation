@@ -436,6 +436,7 @@ public sealed partial class SupermatterComponent : Component
     public SupermatterStatusType Status = SupermatterStatusType.Inactive;
     #endregion EE
 
+    // Omu start
     #region Events
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField("harsheventThreshold")]
@@ -513,6 +514,7 @@ public sealed partial class SupermatterEventPrototype : IPrototype
     public LocId? Announcement;
 }
 #endregion
+// Omu end
 [Serializable, NetSerializable]
 public sealed partial class SupermatterDoAfterEvent : SimpleDoAfterEvent
 {
