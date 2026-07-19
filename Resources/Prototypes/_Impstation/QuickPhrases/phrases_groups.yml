@@ -21,6 +21,9 @@
     - ThanksPhraseImp
     - SorryPhraseImp
     - HelpPhraseImp
+    - ButPhraseOmu # Omu start
+    - WithPhraseOmu
+    - OtherPhraseOmu # Omu end
   # common group
     - HowAreYouPhraseImp
     - IAmPhraseImp
@@ -110,6 +113,13 @@
     - HandsomePhraseImp
     - KindPhraseImp
     - CruelPhraseImp
+    - BluespacePhraseOmu # Omu start
+    - ExperimentalPhraseOmu
+    - AdvancedPhraseOmu
+    - ToxicPhraseOmu
+    - BlindPhraseOmu
+    - DeafPhraseOmu
+    - AnotherPhraseOmu # Omu end
   # colours
     - RedPhraseImp
     - OrangePhraseImp
@@ -121,6 +131,7 @@
     - RainbowPhraseImp
     - BlackPhraseImp
     - WhitePhraseImp
+    - PinkPhraseOmu # Omu
   # feelings
     - LikePhraseImp
     - HatePhraseImp
@@ -155,7 +166,7 @@
     - EatPhraseImp
     - DrinkPhraseImp
     - WantPhraseImp
-    - WantPhraseImp
+    # - WantPhraseImp # Omu, duplicated phrase
     - TalkPhraseImp
     - WritePhraseImp
     - BreakPhraseImp
@@ -180,16 +191,23 @@
     - ClearPhraseImp
     - InjectPhraseImp
     - ArrestPhraseImp
+    - BePhraseOmu # Omu start
+    - SeePhraseOmu
+    - CutPhraseOmu # Omu end
   # determiners
     - MyPhraseImp
     - MinePhraseImp
     - OursPhraseImp
     - YoursPhraseImp
+    - APhraseOmu # Omu
+    - ThePhraseOmu # Omu
   # amounts
     - AllPhraseImp
     - NothingPhraseImp
     - MorePhraseImp
     - LessPhraseImp
+    - MostPhraseOmu # Omu
+    - LeastPhraseOmu # Omu
   # numbers
     - 1PhraseImp
     - 2PhraseImp
@@ -212,7 +230,7 @@
     - PDAPhraseImp
     - BountyPhraseImp
     - FoodPhraseImp
-    - DrinkPhraseImp
+    # - DrinkPhraseImp # Omu, conflicts with Drink (verb); verb will stay
     - WeaponPhraseImp
     - GunPhraseImp
     - KnifePhraseImp
@@ -285,12 +303,25 @@
     - BombPhraseImp
     - O2PhraseImp
     - N2PhraseImp
+    - BatteryPhraseOmu # Omu
   # damage
     - BrutePhraseImp
     - BurnPhraseImp
     - ToxicPhraseImp
     - RadsPhraseImp
     - PoisonPhraseImp
+    - AirlossPhraseOmu # Omu start
+    - GeneticPhraseOmu
+    - HeatPhraseOmu
+    - ShockPhraseOmu
+    - ColdPhraseOmu
+    - CausticPhraseOmu
+    - AsphyxPhraseOmu
+    - BloodlossPhraseOmu
+    - BluntPhraseOmu
+    - SlashPhraseOmu
+    - PiercingPhraseOmu
+    - CellularPhraseOmu # Omu end
   # species
     - DionaPhraseImp
     - SlimePhraseImp
@@ -302,13 +333,14 @@
     - VoxPhraseImp
     - RaptorPhraseImp
     - ThavenPhraseImp
-    - ApidPhraseImp
-    - DecaPhraseImp
+    # Omu, comment out species that we don't have
+    # - ApidPhraseImp
+    # - DecaPhraseImp
     - GrayPhraseImp
-    - SnailPhraseImp
-    - ShrimpPhraseImp
-    - KodiPhraseImp
-    - UnguPhraseImp
+    # - SnailPhraseImp
+    # - ShrimpPhraseImp
+    # - KodiPhraseImp
+    # - UnguPhraseImp
     - XenoPhraseImp
     - BirdPhraseImp
     - CatPhraseImp
@@ -317,6 +349,22 @@
     - BugPhraseImp
     - PestPhraseImp
     - PetPhraseImp
+    - AvaliPhraseOmu # Omu start
+    - ChitinidPhraseOmu
+    - FelinidPhraseOmu
+    - FeroxiPhraseOmu
+    - HarpyPhraseOmu
+    - IPCPhraseOmu
+    - OniPhraseOmu
+    - PlasmamanPhraseOmu
+    - ResomiPhraseOmu
+    - RodentiaPhraseOmu
+    - ShadowkinPhraseOmu
+    - ShrimpPhraseOmu
+    - TajaranPhraseOmu
+    - VulpkaninPhraseOmu
+    - XelthiaPhraseOmu
+    - YowiePhraseOmu # Omu end
   # time
     - SecondPhraseImp
     - HourPhraseImp
@@ -326,6 +374,9 @@
     - LaterPhraseImp
     - SoonPhraseImp
     - NextPhraseImp
+    - NeverPhraseOmu # Omu start
+    - ThenPhraseOmu
+    - AgoPhraseOmu # Omu end
   # relationships
     - FriendPhraseImp
     - PartnerPhraseImp
@@ -335,6 +386,7 @@
     - SiblingPhraseImp
     - StrangerPhraseImp
     - BossPhraseImp
+    - CoworkerPhraseOmu # Omu
   # mats
     - SteelPhraseImp
     - PlasteelPhraseImp
@@ -348,12 +400,36 @@
     - QuartzPhraseImp
     - WoodPhraseImp
     - CardPhraseImp
+    - ArtifactFragmentPhraseOmu # Omu
+    - CrystalPhraseOmu # Omu
   # tools
     - WrenchPhraseImp
     - CrowbarPhraseImp
     - MultitoolPhraseImp
     - ScrewdriverPhraseImp
     - WeldingPhraseImp
+    - WirecutterPhraseOmu # Omu start
+    - TRayScannerPhraseOmu
+    - GasAnalyzerPhraseOmu
+    - JawsOfLifePhraseOmu
+    - PowerDrillPhraseOmu
+    - HolofanPhraseOmu
+  # Omu, body parts (external)
+    - HeadPhraseOmu
+    - ChestPhraseOmu
+    - ArmPhraseOmu
+    - HandPhraseOmu
+    - GroinPhraseOmu
+    - LegPhraseOmu
+    - FootPhraseOmu
+  # Omu, body parts (internal)
+    - HeartPhraseOmu
+    - LungsPhraseOmu
+    - StomachPhraseOmu
+    - LiverPhraseOmu
+    - KidneysPhraseOmu
+    - BrainPhraseOmu
+    - EyesPhraseOmu # Omu end
   # locations
     - UpPhraseImp
     - DownPhraseImp
@@ -361,6 +437,15 @@
     - RightPhraseImp
     - InsidePhraseImp
     - OutsidePhraseImp
+    - FrontPhraseOmu # Omu start
+    - BehindPhraseOmu
+    - ToPhraseOmu
+    - OfPhraseOmu
+    - UnderPhraseOmu
+    - OverPhraseOmu
+    - ThroughPhraseOmu
+    - BetweenPhraseOmu
+    - AroundPhraseOmu # Omu end
   # cardinal
     - NorthPhraseImp
     - SouthPhraseImp
@@ -399,6 +484,8 @@
     - StagePhraseImp
     - ChemPhraseImp
     - ArmouryPhraseImp
+    - BridgePhraseImp # Omu; this goes unused originally
+    - AtmosPhraseOmu # Omu
   # jobs
     - AtmosPhraseImp
     - EngiePhraseImp
@@ -410,7 +497,7 @@
     - JaniPhraseImp
     - ClownPhraseImp
     - MimePhraseImp
-    - HDPhraseImp
+    # - HDPhraseImp # Omu, we don't have this job
     - BotanistPhraseImp
     - MedicPhraseImp
     - ChemistPhraseImp
@@ -431,10 +518,47 @@
     - LawyerPhraseImp
     - ZookeeperPhraseImp
     - BoxerPhraseImp
+    # Omu start
+    # engi
+    - StationEngineerPhraseOmu
+    - TechnicalAssistantPhraseOmu
+    # sci
+    - ResearchAssistantPhraseOmu
+    - RoboticistPhraseOmu
+    # service
+    - ServiceWorkerPhraseOmu
+    - ChaplainPhraseOmu
+    - LibrarianPhraseOmu
+    - MusicianPhraseOmu
+    - RadioHostPhraseOmu
+    # med
+    - MedicalDoctorPhraseOmu
+    - PsychologistPhraseOmu
+    - VirologistPhraseOmu
+    - MedicalInternPhraseOmu
+    # cargo
+    - ShaftMinerPhraseOmu
+    # sec
+    - SecurityCadetPhraseOmu
+    - CorpsmanPhraseOmu
+    - PrisonerPhraseOmu
+    - SergeantPhraseOmu
+    - OfficerPhraseOmu
+    # civilian
+    - AssistantPhraseOmu
+    - VisitorPhraseOmu
+    # non-departmental command; includes captain
+    - CommandMaidPhraseOmu
+    - AdministrativeAssistantPhraseOmu
+    # centcomm
+    - NanotrasenRepresentativePhraseOmu
+    - NanotrasenCareerTrainerPhraseOmu
+    - BlueshieldOfficerPhraseOmu
+    # Omu end
   # danger
     - ViralPhraseImp
     - LifeformPhraseImp
-    - BrokenPhraseImp
+    - BrokenEqPhraseImp # Omu, corrected to BrokenEqPhrase
     - ChemSpillPhraseImp
     - ShockPhraseImp
     - PowerOutPhraseImp
@@ -444,6 +568,7 @@
 - type: quickPhraseGroup
   id: HackedPhrasesImp # THERE HAS TO BE A BETTER WAY
   prototypes:
+  # Common
     - IPhraseImp
     - YouPhraseImp
     - MePhraseImp
@@ -463,6 +588,9 @@
     - ThanksPhraseImp
     - SorryPhraseImp
     - HelpPhraseImp
+    - ButPhraseOmu # Omu start
+    - WithPhraseOmu
+    - OtherPhraseOmu # Omu end
   # common group
     - HowAreYouPhraseImp
     - IAmPhraseImp
@@ -552,6 +680,13 @@
     - HandsomePhraseImp
     - KindPhraseImp
     - CruelPhraseImp
+    - BluespacePhraseOmu # Omu start
+    - ExperimentalPhraseOmu
+    - AdvancedPhraseOmu
+    - ToxicPhraseOmu
+    - BlindPhraseOmu
+    - DeafPhraseOmu
+    - AnotherPhraseOmu # Omu end
   # colours
     - RedPhraseImp
     - OrangePhraseImp
@@ -563,6 +698,7 @@
     - RainbowPhraseImp
     - BlackPhraseImp
     - WhitePhraseImp
+    - PinkPhraseOmu # Omu
   # feelings
     - LikePhraseImp
     - HatePhraseImp
@@ -597,7 +733,7 @@
     - EatPhraseImp
     - DrinkPhraseImp
     - WantPhraseImp
-    - WantPhraseImp
+    # - WantPhraseImp # Omu, duplicated phrase
     - TalkPhraseImp
     - WritePhraseImp
     - BreakPhraseImp
@@ -622,16 +758,23 @@
     - ClearPhraseImp
     - InjectPhraseImp
     - ArrestPhraseImp
+    - BePhraseOmu # Omu start
+    - SeePhraseOmu
+    - CutPhraseOmu # Omu end
   # determiners
     - MyPhraseImp
     - MinePhraseImp
     - OursPhraseImp
     - YoursPhraseImp
+    - APhraseOmu # Omu
+    - ThePhraseOmu # Omu
   # amounts
     - AllPhraseImp
     - NothingPhraseImp
     - MorePhraseImp
     - LessPhraseImp
+    - MostPhraseOmu # Omu
+    - LeastPhraseOmu # Omu
   # numbers
     - 1PhraseImp
     - 2PhraseImp
@@ -654,7 +797,7 @@
     - PDAPhraseImp
     - BountyPhraseImp
     - FoodPhraseImp
-    - DrinkPhraseImp
+    # - DrinkPhraseImp # Omu, conflicts with Drink (verb); verb will stay
     - WeaponPhraseImp
     - GunPhraseImp
     - KnifePhraseImp
@@ -727,12 +870,25 @@
     - BombPhraseImp
     - O2PhraseImp
     - N2PhraseImp
+    - BatteryPhraseOmu # Omu
   # damage
     - BrutePhraseImp
     - BurnPhraseImp
     - ToxicPhraseImp
     - RadsPhraseImp
     - PoisonPhraseImp
+    - AirlossPhraseOmu # Omu start
+    - GeneticPhraseOmu
+    - HeatPhraseOmu
+    - ShockPhraseOmu
+    - ColdPhraseOmu
+    - CausticPhraseOmu
+    - AsphyxPhraseOmu
+    - BloodlossPhraseOmu
+    - BluntPhraseOmu
+    - SlashPhraseOmu
+    - PiercingPhraseOmu
+    - CellularPhraseOmu # Omu end
   # species
     - DionaPhraseImp
     - SlimePhraseImp
@@ -744,13 +900,14 @@
     - VoxPhraseImp
     - RaptorPhraseImp
     - ThavenPhraseImp
-    - ApidPhraseImp
-    - DecaPhraseImp
+    # Omu, comment out species that we don't have
+    # - ApidPhraseImp
+    # - DecaPhraseImp
     - GrayPhraseImp
-    - SnailPhraseImp
-    - ShrimpPhraseImp
-    - KodiPhraseImp
-    - UnguPhraseImp
+    # - SnailPhraseImp
+    # - ShrimpPhraseImp
+    # - KodiPhraseImp
+    # - UnguPhraseImp
     - XenoPhraseImp
     - BirdPhraseImp
     - CatPhraseImp
@@ -759,6 +916,22 @@
     - BugPhraseImp
     - PestPhraseImp
     - PetPhraseImp
+    - AvaliPhraseOmu # Omu start
+    - ChitinidPhraseOmu
+    - FelinidPhraseOmu
+    - FeroxiPhraseOmu
+    - HarpyPhraseOmu
+    - IPCPhraseOmu
+    - OniPhraseOmu
+    - PlasmamanPhraseOmu
+    - ResomiPhraseOmu
+    - RodentiaPhraseOmu
+    - ShadowkinPhraseOmu
+    - ShrimpPhraseOmu
+    - TajaranPhraseOmu
+    - VulpkaninPhraseOmu
+    - XelthiaPhraseOmu
+    - YowiePhraseOmu # Omu end
   # time
     - SecondPhraseImp
     - HourPhraseImp
@@ -768,6 +941,9 @@
     - LaterPhraseImp
     - SoonPhraseImp
     - NextPhraseImp
+    - NeverPhraseOmu # Omu start
+    - ThenPhraseOmu
+    - AgoPhraseOmu # Omu end
   # relationships
     - FriendPhraseImp
     - PartnerPhraseImp
@@ -777,6 +953,7 @@
     - SiblingPhraseImp
     - StrangerPhraseImp
     - BossPhraseImp
+    - CoworkerPhraseOmu # Omu
   # mats
     - SteelPhraseImp
     - PlasteelPhraseImp
@@ -790,12 +967,36 @@
     - QuartzPhraseImp
     - WoodPhraseImp
     - CardPhraseImp
+    - ArtifactFragmentPhraseOmu # Omu
+    - CrystalPhraseOmu # Omu
   # tools
     - WrenchPhraseImp
     - CrowbarPhraseImp
     - MultitoolPhraseImp
     - ScrewdriverPhraseImp
     - WeldingPhraseImp
+    - WirecutterPhraseOmu # Omu start
+    - TRayScannerPhraseOmu
+    - GasAnalyzerPhraseOmu
+    - JawsOfLifePhraseOmu
+    - PowerDrillPhraseOmu
+    - HolofanPhraseOmu
+  # Omu, body parts (external)
+    - HeadPhraseOmu
+    - ChestPhraseOmu
+    - ArmPhraseOmu
+    - HandPhraseOmu
+    - GroinPhraseOmu
+    - LegPhraseOmu
+    - FootPhraseOmu
+  # Omu, body parts (internal)
+    - HeartPhraseOmu
+    - LungsPhraseOmu
+    - StomachPhraseOmu
+    - LiverPhraseOmu
+    - KidneysPhraseOmu
+    - BrainPhraseOmu
+    - EyesPhraseOmu # Omu end
   # locations
     - UpPhraseImp
     - DownPhraseImp
@@ -803,6 +1004,15 @@
     - RightPhraseImp
     - InsidePhraseImp
     - OutsidePhraseImp
+    - FrontPhraseOmu # Omu start
+    - BehindPhraseOmu
+    - ToPhraseOmu
+    - OfPhraseOmu
+    - UnderPhraseOmu
+    - OverPhraseOmu
+    - ThroughPhraseOmu
+    - BetweenPhraseOmu
+    - AroundPhraseOmu # Omu end
   # cardinal
     - NorthPhraseImp
     - SouthPhraseImp
@@ -841,6 +1051,8 @@
     - StagePhraseImp
     - ChemPhraseImp
     - ArmouryPhraseImp
+    - BridgePhraseImp # Omu; this goes unused originally
+    - AtmosPhraseOmu # Omu
   # jobs
     - AtmosPhraseImp
     - EngiePhraseImp
@@ -852,7 +1064,7 @@
     - JaniPhraseImp
     - ClownPhraseImp
     - MimePhraseImp
-    - HDPhraseImp
+    # - HDPhraseImp # Omu, we don't have this job
     - BotanistPhraseImp
     - MedicPhraseImp
     - ChemistPhraseImp
@@ -873,10 +1085,47 @@
     - LawyerPhraseImp
     - ZookeeperPhraseImp
     - BoxerPhraseImp
+    # Omu start
+    # engi
+    - StationEngineerPhraseOmu
+    - TechnicalAssistantPhraseOmu
+    # sci
+    - ResearchAssistantPhraseOmu
+    - RoboticistPhraseOmu
+    # service
+    - ServiceWorkerPhraseOmu
+    - ChaplainPhraseOmu
+    - LibrarianPhraseOmu
+    - MusicianPhraseOmu
+    - RadioHostPhraseOmu
+    # med
+    - MedicalDoctorPhraseOmu
+    - PsychologistPhraseOmu
+    - VirologistPhraseOmu
+    - MedicalInternPhraseOmu
+    # cargo
+    - ShaftMinerPhraseOmu
+    # sec
+    - SecurityCadetPhraseOmu
+    - CorpsmanPhraseOmu
+    - PrisonerPhraseOmu
+    - SergeantPhraseOmu
+    - OfficerPhraseOmu
+    # civilian
+    - AssistantPhraseOmu
+    - VisitorPhraseOmu
+    # non-departmental command; includes captain
+    - CommandMaidPhraseOmu
+    - AdministrativeAssistantPhraseOmu
+    # centcomm
+    - NanotrasenRepresentativePhraseOmu
+    - NanotrasenCareerTrainerPhraseOmu
+    - BlueshieldOfficerPhraseOmu
+    # Omu end
   # danger
     - ViralPhraseImp
     - LifeformPhraseImp
-    - BrokenPhraseImp
+    - BrokenEqPhraseImp # Omu, corrected to BrokenEqPhrase
     - ChemSpillPhraseImp
     - ShockPhraseImp
     - PowerOutPhraseImp
