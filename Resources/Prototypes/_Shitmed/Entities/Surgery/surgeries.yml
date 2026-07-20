@@ -514,7 +514,7 @@
     - SurgeryStepRemoveCorticalBorer
   - type: SurgeryCorticalBorerCondition
   - type: SurgeryPartCondition
-    part: Head
+    parts: [ Head ]
 
 - type: entity
   parent: SurgeryBase

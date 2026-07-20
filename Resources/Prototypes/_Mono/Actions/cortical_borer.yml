@@ -7,8 +7,12 @@
   name: Chemicals
   description: Open the chemicals menu.
   components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Mono/Interface/Action.rsi
+      state: borer_chem
   - type: InstantAction
-    icon: _Mono/Interface/Action/borer_chem.png
     event: !type:CorticalChemMenuActionEvent
 
 - type: entity
@@ -16,15 +20,20 @@
   name: Infest
   description: Infest target Humanoid. Target host must have a bloodstream.
   components:
-  - type: EntityTargetAction
+  - type: Action
     useDelay: 5
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Mono/Interface/Action.rsi
+      state: borer_infest
+  - type: TargetAction
+    range: 0.5
+    interactOnMiss: false
+  - type: EntityTargetAction
     whitelist:
       components:
       - Body
     canTargetSelf: false
-    interactOnMiss: false
-    itemIconStyle: NoItem
-    icon: _Mono/Interface/Action/borer_infest.png
     event: !type:CorticalInfestEvent {}
 
 - type: entity
@@ -32,47 +41,65 @@
   name: Eject Host
   description: Eject yourself from your host.
   components:
-  - type: InstantAction
-    icon: _Mono/Interface/Action/borer_eject.png
-    event: !type:CorticalEjectEvent
+  - type: Action
     useDelay: 5
+    icon:
+      sprite: _Mono/Interface/Action.rsi
+      state: borer_eject
+  - type: InstantAction
+
+    event: !type:CorticalEjectEvent
+
 
 - type: entity
   id: ActionCheckBlood
   name: Check Blood
   description: Inspect the blood of your host to see how they are doing.
   components:
-  - type: InstantAction
-    icon: _Mono/Interface/Action/borer_bloodcheck.png
-    event: !type:CorticalCheckBloodEvent
+  - type: Action
     useDelay: 5
+    icon:
+      sprite: _Mono/Interface/Action.rsi
+      state: borer_bloodcheck
+  - type: InstantAction
+    event: !type:CorticalCheckBloodEvent
+
 
 - type: entity
   id: ActionControlHost
   name: Take Control
   description: Take full control of your host for a limited time.
   components:
-  - type: InstantAction
-    icon: _Mono/Interface/Action/borer_control.png
-    event: !type:CorticalTakeControlEvent
+  - type: Action
     useDelay: 120
+    icon:
+      sprite: _Mono/Interface/Action.rsi
+      state: borer_control
+  - type: InstantAction
+    event: !type:CorticalTakeControlEvent
 
 - type: entity
   id: ActionEndControlHost
   name: Relinquish Control
   description: Give up hold of the host's body early.
   components:
-  - type: InstantAction
-    icon: _Mono/Interface/Action/borer_eject.png
-    event: !type:CorticalEndControlEvent
+  - type: Action
     useDelay: 5
+    icon:
+      sprite: _Mono/Interface/Action.rsi
+      state: borer_eject
+  - type: InstantAction
+    event: !type:CorticalEndControlEvent
 
 - type: entity
   id: ActionLayEggHost
   name: Lay Egg
   description: Force your host to vomit an egg. Costs 200 chemicals and lasts for 40 seconds. # needs to be changed if the base chem cost is changed
   components:
-  - type: InstantAction
-    icon: _Mono/Interface/Action/borer_egg.png
-    event: !type:CorticalLayEggEvent
+  - type: Action
     useDelay: 5
+    icon:
+      sprite: _Mono/Interface/Action.rsi
+      state: borer_egg
+  - type: InstantAction
+    event: !type:CorticalLayEggEvent
