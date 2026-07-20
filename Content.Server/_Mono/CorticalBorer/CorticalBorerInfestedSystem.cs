@@ -103,8 +103,6 @@ public sealed class CorticalBorerInfestedSystem : EntitySystem
         if (TryComp(infected.Comp.Borer, out ActorComponent? borerActor))
         {
             _netMan.ServerSendMessage(args.Msg, borerActor.PlayerSession.Channel);
-            var radioBorerNoiseEvent = new RadioNoiseEvent(GetNetEntity(args.Headset), args.Channel.ID);
-            RaiseNetworkEvent(radioBorerNoiseEvent, borerActor.PlayerSession);
         }
     }
 
