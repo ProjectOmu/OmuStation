@@ -90,6 +90,12 @@ namespace Content.Server.Atmos.EntitySystems
         private EntityQuery<MapGridComponent> _gridQuery;
         private EntityQuery<GasTileOverlayComponent> _query;
 
+        /// <summary>
+        /// How much the distortion strength should change for the temperature of a tile to be dirtied.
+        /// The strength goes from 0.0f to 1.0f, so 0.05f gives it essentially 20 "steps"
+        /// </summary>
+        private const float HeatDistortionStrengthChangeTolerance = 0.05f;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -242,6 +248,7 @@ namespace Content.Server.Atmos.EntitySystems
                 return true;
             }
 
+            var temp = tile.Hotspot.Valid ? tile.Hotspot.Temperature : tile.Air?.Temperature ?? Atmospherics.TCMB;
             var changed = false;
             if (oldData.Equals(default))
             {
@@ -299,6 +306,20 @@ namespace Content.Server.Atmos.EntitySystems
             chunk.LastUpdate = _gameTiming.CurTick;
             return true;
         }
+
+        /// <summary>
+        /// This function determines whether the change in temperature is significant enough to warrant dirtying the tile data.
+        /// </summary>
+        private static bool CheckTemperatureTolerance(float tempA, float tempB, float tolerance)            //Funky start
+        {
+            var (strengthA, strengthB) = (GetHeatDistortionStrength(tempA), GetHeatDistortionStrength(tempB));
+
+            return (strengthA <= 0f && strengthB > 0f) || // change to or from 0
+                   (strengthB <= 0f && strengthA > 0f) ||
+                   (strengthA >= 1f && strengthB < 1f) || // change to or from 1
+                   (strengthB >= 1f && strengthA < 1f) ||
+                   Math.Abs(strengthA - strengthB) > tolerance; // other change within tolerance
+        }       //Funky end
 
         private void UpdateOverlayData()
         {

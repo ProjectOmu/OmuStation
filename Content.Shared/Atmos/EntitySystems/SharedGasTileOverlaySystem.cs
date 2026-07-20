@@ -31,6 +31,10 @@ namespace Content.Shared.Atmos.EntitySystems
         public const byte ChunkSize = 8;
         protected float AccumulatedFrameTime;
         protected bool PvsEnabled;
+        private const float TempAtMinHeatDistortion = 325.0f;   //Funky
+        private const float TempAtMaxHeatDistortion = 1000.0f;      //Funky
+        private const float HeatDistortionSlope = 1.0f / (TempAtMaxHeatDistortion - TempAtMinHeatDistortion);       //Funky
+        private const float HeatDistortionIntercept = -TempAtMinHeatDistortion * HeatDistortionSlope;   //Funky
 
         [Dependency] protected readonly IPrototypeManager ProtoMan = default!;
 
@@ -136,5 +140,16 @@ namespace Content.Shared.Atmos.EntitySystems
             public Dictionary<NetEntity, List<GasOverlayChunk>> UpdatedChunks = new();
             public Dictionary<NetEntity, HashSet<Vector2i>> RemovedChunks = new();
         }
+        /// <summary>
+        /// Calculate the heat distortion from a temperature.
+        /// Returns 0.0f below TempAtMinHeatDistortion and 1.0f above TempAtMaxHeatDistortion.
+        /// </summary>
+        /// <param name="temp"></param>
+        /// <returns></returns>
+        public static float GetHeatDistortionStrength(float temp)
+        {
+            return MathHelper.Clamp01(temp * HeatDistortionSlope + HeatDistortionIntercept);
+        }
+
     }
 }
