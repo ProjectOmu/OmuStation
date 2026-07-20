@@ -17,14 +17,14 @@
         lungs: OrganSlimesLungs
     groin:
       part: GroinSlime
-#      connections:       Omu - no more slime legs
+#      connections:       Omu start - no more slime legs
 #      - legs
 #    legs:
 #      part: LegsAnimal
 #      connections:
 #      - feet
 #    feet:
-#      part: FeetAnimal
+#      part: FeetAnimal     Omu end
 
 - type: body # Goobstation add
   id: XenobioSlimes
@@ -40,11 +40,11 @@
         lungs: OrganSlimesLungs
     groin:
       part: GroinSlime
-#      connections:       Omu - no more slime lungs
+#      connections:       Omu start - no more slime lungs
 #      - legs
 #    legs:
 #      part: LegsAnimal
 #      connections:
 #      - feet
 #    feet:
-#      part: FeetAnimal
+#      part: FeetAnimal    Omu end
