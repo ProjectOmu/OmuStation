@@ -244,12 +244,6 @@ public sealed class AlertLevelSystem : EntitySystem
         {
             _chatSystem.DispatchStationAnnouncement(station, announcementFull, playDefaultSound: playDefault,
                 colorOverride: detail.Color, sender: stationName);
-            //var stationName = dataComponent.EntityName; // Frontier: moved down
-            //_chatSystem.DispatchGlobalAnnouncement(
-            //   announcementFull,
-            //   sender: stationName,
-            //   playSound: playDefault,
-            //   colorOverride: detail.Color);
         }
 
         RaiseLocalEvent(new AlertLevelChangedEvent(station, level));
