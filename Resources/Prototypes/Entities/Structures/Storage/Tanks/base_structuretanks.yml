@@ -59,7 +59,7 @@
         - MachineMask
         layer:
         - MachineLayer
-        - InteractImpassable
+        #- InteractImpassable # Omu, but like what purpose did this ever have aside blocking kudzu.
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
@@ -122,4 +122,4 @@
         mask:
         - MachineMask
         layer:
-        - WallLayer
+        - MachineLayer # Omu
