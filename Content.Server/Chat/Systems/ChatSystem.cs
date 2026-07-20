@@ -974,7 +974,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             }
     }
 
-    private void SendEntityDirect(
+    private void SendEntityDirect(            //Mono start
         EntityUid source,
         string originalMessage,
         ChatTransmitRange range,
@@ -1043,7 +1043,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                         $"Direct messaged from {ToPrettyString(source):user}, original: {originalMessage}, transformed: {message}.");
             }
     }
-
+        //Mono end
     private void SendEntityEmote(
         EntityUid source,
         string action,
@@ -1580,11 +1580,11 @@ public sealed class CheckIgnoreSpeechBlockerEvent : EntityEventArgs
     }
 }
 
-public sealed class CheckTargetedSpeechEvent : EntityEventArgs
+public sealed class CheckTargetedSpeechEvent : EntityEventArgs    //Mono
 {
     public List<InGameICChatType> ChatTypeIgnore = new();
     public List<EntityUid> Targets = new();
-}
+}                    //Mono
 
 /// <summary>
 ///     Raised on an entity when it speaks, either through 'say' or 'whisper'.
