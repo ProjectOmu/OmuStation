@@ -180,17 +180,11 @@
         conditions:
         - !type:Temperature
           min: 253.15
-        - !type:OrganType
-          type: Hydrakin
-          shouldHave: false
         amount: -360
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
           min: 253.15
-        - !type:OrganType
-          type: Hydrakin
-          shouldHave: true
         amount: -7500
 
 # Claw growth medicine
