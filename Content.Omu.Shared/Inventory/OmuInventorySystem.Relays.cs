@@ -16,9 +16,11 @@ using Content.Goobstation.Shared.Disease;
 using Content.Goobstation.Shared.Disease.Components;
 using Content.Goobstation.Shared.Flashbang;
 using Content.Goobstation.Shared.Grab;
+using Content.Goobstation.Shared.Overlays;
 //using Content.Goobstation.Shared.InternalResources.Events; // Omu
 //using Content.Goobstation.Shared.Security.ContrabandIcons.Components;
 using Content.Goobstation.Shared.Stunnable;
+using Content.Omu.Shared.Overlays;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._White.Standing;
 using Content.Shared.Flash;
@@ -26,9 +28,10 @@ using Content.Shared.Heretic;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 
-namespace Content.Goobstation.Shared.Inventory;
+namespace Content.Omu.Shared.Inventory;
 
-public partial class GoobInventorySystem
+// Omu - Moved from Goobstation to here so we can reference the jani goggles
+public partial class OmuInventorySystem
 {
     public void InitializeRelays()
     {
@@ -45,8 +48,8 @@ public partial class GoobInventorySystem
         SubscribeLocalEvent<InventoryComponent, ModifyStunTimeEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, GrabModifierEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, IsEyesCoveredCheckEvent>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<Overlays.NightVisionComponent>>(RefRelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<Overlays.ThermalVisionComponent>>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<NightVisionComponent>>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ThermalVisionComponent>>(RefRelayInventoryEvent);
         /// Omu - No Contrahud >:(
         //SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowContrabandIconsComponent>>(RefRelayInventoryEvent);
 
@@ -55,6 +58,7 @@ public partial class GoobInventorySystem
         SubscribeLocalEvent<InventoryComponent, DiseaseIncomingSpreadAttemptEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowDiseaseIconsComponent>>(RefRelayInventoryEvent);
 
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<JaniVisionComponent>>(RefRelayInventoryEvent); // Omu
     }
 
     private void RefRelayInventoryEvent<T>(EntityUid uid, InventoryComponent component, ref T args) where T : IInventoryRelayEvent

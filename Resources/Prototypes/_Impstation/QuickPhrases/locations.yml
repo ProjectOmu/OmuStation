@@ -3,10 +3,22 @@
   tab: Locations
   abstract: true
 
+- type: quickPhrase # Omu, categorize unlabeled location words
+  id: BaseLocationsRelative
+  parent: BaseLocations
+  group: Directions (Relative)
+  abstract: true
+
+- type: quickPhrase # Omu, categorize unlabeled location words
+  id: BaseLocationsPrepositional
+  parent: BaseLocations
+  group: Prepositions
+  abstract: true
+
 - type: quickPhrase
   id: BaseLocationsCardinal
   parent: BaseLocations
-  group: Cardinal directions
+  group: Directions (Cardinal) # Omu, keeps the relative and cardinal directions close in the menu
   abstract: true
 
 - type: quickPhrase
@@ -19,32 +31,32 @@
 
 - type: quickPhrase
   id: UpPhraseImp
-  parent: BaseLocations
+  parent: BaseLocationsRelative # Omu, categorize unlabeled words
   text: imp-phrase-locations-up
 
 - type: quickPhrase
   id: DownPhraseImp
-  parent: BaseLocations
+  parent: BaseLocationsRelative # Omu, categorize unlabeled words
   text: imp-phrase-locations-down
 
 - type: quickPhrase
   id: LeftPhraseImp
-  parent: BaseLocations
+  parent: BaseLocationsRelative # Omu, categorize unlabeled words
   text: imp-phrase-locations-left
 
 - type: quickPhrase
   id: RightPhraseImp
-  parent: BaseLocations
+  parent: BaseLocationsRelative # Omu, categorize unlabeled words
   text: imp-phrase-locations-right
 
 - type: quickPhrase
   id: InsidePhraseImp
-  parent: BaseLocations
+  parent: BaseLocationsPrepositional # Omu, categorize unlabeled words
   text: imp-phrase-locations-inside
 
 - type: quickPhrase
   id: OutsidePhraseImp
-  parent: BaseLocations
+  parent: BaseLocationsPrepositional # Omu, categorize unlabeled words
   text: imp-phrase-locations-outside
 
 # cardinal
