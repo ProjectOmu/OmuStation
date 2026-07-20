@@ -44,8 +44,12 @@ public abstract partial class SharedClawsSystem
     {
         target ??= user;
 
-        if (!TryComp<ClawsComponent>(target, out var claws)||
-            TryGetStage(claws, out var stage) && !stage.CanBeCut)
+        if (!TryComp<ClawsComponent>(target, out var claws))
+        {
+            return false;
+        }
+
+        if (TryGetStage(claws, out var stage) && !stage.CanBeCut)
         {
             _popup.PopupClient(Loc.GetString("has-no-claws-popup"), Transform(user).Coordinates, user);
             return false;
