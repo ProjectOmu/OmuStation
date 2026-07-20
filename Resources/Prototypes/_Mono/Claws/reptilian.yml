@@ -27,7 +27,7 @@
   clawType: !type:SharpClaw
     damage:
       types:
-        Slash: 8
+        Slash: 5
         Blunt: -3
     clawsExaminationString: "claws-lizard-tiny"
 
@@ -36,7 +36,7 @@
   clawType: !type:SharpClaw
     damage:
       types:
-        Slash: 11
+        Slash: 8
         Blunt: -3
     gunSpreadMultiplier: 1.1
     meleeDamageModifiers:
@@ -51,7 +51,7 @@
   clawType: !type:SharpClaw
     damage:
       types:
-        Slash: 13
+        Slash: 9
         Piercing: 2
         Blunt: -3
     gunSpreadMultiplier: 1.25
@@ -68,8 +68,8 @@
   clawType: !type:SharpClaw
     damage:
       types:
-        Slash: 15
-        Piercing: 5
+        Slash: 11
+        Piercing: 2
         Blunt: -3
     gunSpreadMultiplier: 1.45
     canWideSwing: true
@@ -86,8 +86,8 @@
   clawType: !type:SharpClaw
     damage:
       types:
-        Slash: 18
-        Piercing: 12
+        Slash: 11
+        Piercing: 4
         Blunt: -3
     canShoot: false
     canWideSwing: true
