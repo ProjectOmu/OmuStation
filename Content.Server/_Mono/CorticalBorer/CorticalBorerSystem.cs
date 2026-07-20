@@ -27,6 +27,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Body.Components;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Chat;
 
 namespace Content.Server._Mono.CorticalBorer;
 
