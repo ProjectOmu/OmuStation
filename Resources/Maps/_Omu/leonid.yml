@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/03/2026 03:34:33
-  entityCount: 35921
+  time: 05/16/2026 14:51:27
+  entityCount: 35919
 maps:
 - 1
 grids:
@@ -225355,236 +225355,127 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 44.5,-69.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 35921
   - uid: 1140
     components:
     - type: Transform
       pos: 32.5,-87.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 35921
   - uid: 1411
     components:
     - type: Transform
       pos: 23.5,-87.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 35921
   - uid: 1708
     components:
     - type: Transform
       pos: 29.5,-69.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 29549
   - uid: 1830
     components:
     - type: Transform
       pos: 23.5,-65.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 35921
   - uid: 2850
     components:
     - type: Transform
       pos: 31.5,-65.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 35921
   - uid: 4568
     components:
     - type: Transform
       pos: 23.5,-79.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 29549
   - uid: 4572
     components:
     - type: Transform
       pos: 23.5,-73.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 29549
   - uid: 12743
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 23.5,-81.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 29549
   - uid: 12749
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 23.5,-83.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 29549
   - uid: 24032
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 44.5,-83.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 35921
   - uid: 24096
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 44.5,-76.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 35921
   - uid: 24700
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 33.5,-83.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 35921
   - uid: 24701
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 33.5,-69.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 35921
   - uid: 25919
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 7.5,-77.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 35921
   - uid: 26435
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 7.5,-75.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 35921
   - uid: 29017
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 55.5,-74.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 35921
   - uid: 29144
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 29.5,-81.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 29549
   - uid: 29145
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 25.5,-81.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 29549
   - uid: 29932
     components:
     - type: Transform
       pos: 31.5,-79.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 29549
   - uid: 30067
     components:
     - type: Transform
       pos: 31.5,-73.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 29549
   - uid: 30206
     components:
     - type: Transform
       pos: 40.5,-79.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 29549
   - uid: 30207
     components:
     - type: Transform
       pos: 40.5,-73.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 29549
-- proto: WeaponEnergyTurretAIControlPanel
-  entities:
-  - uid: 29549
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 35.5,-77.5
-      parent: 2
-    - type: DeviceList
-      devices:
-      - 29932
-      - 30206
-      - 30207
-      - 30067
-      - 1708
-      - 29144
-      - 29145
-      - 12743
-      - 12749
-      - 4572
-      - 4568
-  - uid: 35921
-    components:
-    - type: Transform
-      pos: 35.5,-75.5
-      parent: 2
-    - type: DeviceList
-      devices:
-      - 29017
-      - 24096
-      - 24032
-      - 203
-      - 24700
-      - 1140
-      - 1411
-      - 25919
-      - 26435
-      - 1830
-      - 2850
-      - 24701
 - proto: WeaponEnergyTurretSecurity
   entities:
   - uid: 5182

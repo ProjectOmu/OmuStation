@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/02/2026 22:59:11
-  entityCount: 13054
+  time: 05/16/2026 14:44:05
+  entityCount: 13048
 maps:
 - 1
 grids:
@@ -71482,11 +71482,6 @@ entities:
       parent: 2
 - proto: SurveillanceCameraCommand
   entities:
-  - uid: 10302
-    components:
-    - type: Transform
-      pos: -0.5,58.5
-      parent: 2
   - uid: 10445
     components:
     - type: Transform
@@ -71650,24 +71645,6 @@ entities:
       - SurveillanceCameraCommand
       nameSet: True
       id: Centcomm Dressroom
-  - uid: 13050
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 1.5,45.5
-      parent: 2
-  - uid: 13051
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 6.5,51.5
-      parent: 2
-  - uid: 13052
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -13.5,55.5
-      parent: 2
 - proto: SurveillanceCameraEngineering
   entities:
   - uid: 10463
@@ -84312,154 +84289,76 @@ entities:
     - type: Transform
       pos: -11.5,59.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 13054
   - uid: 650
     components:
     - type: Transform
       pos: -4.5,59.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 13054
   - uid: 4050
     components:
     - type: Transform
       pos: -13.5,48.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 13054
   - uid: 4051
     components:
     - type: Transform
       pos: -13.5,55.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 13054
   - uid: 4054
     components:
     - type: Transform
       pos: -10.5,55.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 13053
   - uid: 4056
     components:
     - type: Transform
       pos: -10.5,49.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 13053
   - uid: 4057
     components:
     - type: Transform
       pos: -2.5,49.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 13053
   - uid: 4058
     components:
     - type: Transform
       pos: -2.5,55.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 13053
   - uid: 4059
     components:
     - type: Transform
       pos: 6.5,48.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 13054
   - uid: 4064
     components:
     - type: Transform
       pos: 1.5,58.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 13054
   - uid: 4065
     components:
     - type: Transform
       pos: 6.5,54.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 13054
   - uid: 4066
     components:
     - type: Transform
       pos: 2.5,45.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 13054
   - uid: 4067
     components:
     - type: Transform
       pos: -4.5,42.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 13054
   - uid: 4068
     components:
     - type: Transform
       pos: -6.5,45.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 13053
   - uid: 4071
     components:
     - type: Transform
       pos: -1.5,45.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 13053
-- proto: WeaponEnergyTurretAIControlPanel
-  entities:
-  - uid: 13053
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -5.5,51.5
-      parent: 2
-    - type: DeviceList
-      devices:
-      - 4056
-      - 4054
-      - 4058
-      - 4057
-      - 4068
-      - 4071
-  - uid: 13054
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -7.5,53.5
-      parent: 2
-    - type: DeviceList
-      devices:
-      - 4067
-      - 4066
-      - 4059
-      - 4065
-      - 4064
-      - 650
-      - 383
-      - 4051
-      - 4050
 - proto: WeaponLaserCarbine
   entities:
   - uid: 12607

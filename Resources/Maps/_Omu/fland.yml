@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/02/2026 23:07:47
-  entityCount: 36111
+  time: 05/16/2026 14:46:39
+  entityCount: 36106
 maps:
 - 1
 grids:
@@ -21427,7 +21427,7 @@ entities:
       pos: 72.5,-11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -74088.82
+      secondsUntilStateChange: -73630.35
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -197893,18 +197893,6 @@ entities:
       - SurveillanceCameraScience
       nameSet: True
       id: Near Anomaly
-  - uid: 36110
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 40.5,-48.5
-      parent: 2
-  - uid: 36111
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 45.5,-49.5
-      parent: 2
 - proto: SurveillanceCameraSecurity
   entities:
   - uid: 2263
@@ -229251,206 +229239,102 @@ entities:
     - type: Transform
       pos: 99.5,56.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 36108
   - uid: 11639
     components:
     - type: Transform
       pos: 122.5,44.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28700
   - uid: 13587
     components:
     - type: Transform
       pos: 122.5,54.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28700
   - uid: 14053
     components:
     - type: Transform
       pos: 118.5,53.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28700
   - uid: 14062
     components:
     - type: Transform
       pos: 112.5,39.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 36109
   - uid: 14064
     components:
     - type: Transform
       pos: 110.5,42.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 36109
   - uid: 14065
     components:
     - type: Transform
       pos: 99.5,42.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 36108
   - uid: 14079
     components:
     - type: Transform
       pos: 118.5,45.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28700
   - uid: 14080
     components:
     - type: Transform
       pos: 116.5,48.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28700
   - uid: 14081
     components:
     - type: Transform
       pos: 116.5,50.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28700
   - uid: 14082
     components:
     - type: Transform
       pos: 104.5,46.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 36108
   - uid: 14083
     components:
     - type: Transform
       pos: 104.5,52.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 36108
   - uid: 14084
     components:
     - type: Transform
       pos: 99.5,52.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 36108
   - uid: 14085
     components:
     - type: Transform
       pos: 110.5,52.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 36108
   - uid: 14086
     components:
     - type: Transform
       pos: 110.5,46.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 36108
   - uid: 14087
     components:
     - type: Transform
       pos: 99.5,46.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 36108
   - uid: 35124
     components:
     - type: Transform
       pos: 127.5,45.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28700
   - uid: 35125
     components:
     - type: Transform
       pos: 127.5,53.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28700
   - uid: 35126
     components:
     - type: Transform
       pos: 128.5,49.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28700
   - uid: 35712
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 110.5,56.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 36108
-- proto: WeaponEnergyTurretAIControlPanel
-  entities:
-  - uid: 28700
-    components:
-    - type: Transform
-      pos: 124.5,50.5
-      parent: 2
-    - type: DeviceList
-      devices:
-      - 14080
-      - 14081
-      - 14053
-      - 13587
-      - 35125
-      - 35126
-      - 35124
-      - 11639
-      - 14079
-  - uid: 36108
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 98.5,50.5
-      parent: 2
-    - type: DeviceList
-      devices:
-      - 14065
-      - 14087
-      - 14082
-      - 14086
-      - 14085
-      - 14083
-      - 14084
-      - 6448
-      - 35712
-  - uid: 36109
-    components:
-    - type: Transform
-      pos: 111.5,45.5
-      parent: 2
-    - type: DeviceList
-      devices:
-      - 14062
-      - 14064
 - proto: WeaponLaserCarbine
   entities:
   - uid: 35099

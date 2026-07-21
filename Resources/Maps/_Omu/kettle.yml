@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 06/16/2026 01:07:05
-  entityCount: 28352
+  entityCount: 28350
 maps:
 - 1
 grids:
@@ -80787,7 +80787,7 @@ entities:
     - type: Transform
       pos: 20.5,-70.5
       parent: 2
-  - uid: 28352
+  - uid: 27058
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -181297,264 +181297,138 @@ entities:
     - type: Transform
       pos: 30.5,-93.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 27058
   - uid: 17117
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 28.5,-104.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28351
   - uid: 17197
     components:
     - type: Transform
       pos: 18.5,-89.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 27058
   - uid: 17198
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 12.5,-104.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28351
   - uid: 17209
     components:
     - type: Transform
       pos: 5.5,-85.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28351
   - uid: 17210
     components:
     - type: Transform
       pos: 5.5,-94.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28351
   - uid: 17216
     components:
     - type: Transform
       pos: 35.5,-85.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28351
   - uid: 17217
     components:
     - type: Transform
       pos: 29.5,-83.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28351
   - uid: 17218
     components:
     - type: Transform
       pos: 11.5,-83.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28351
   - uid: 17221
     components:
     - type: Transform
       pos: 5.5,-100.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28351
   - uid: 17222
     components:
     - type: Transform
       pos: 35.5,-100.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28351
   - uid: 17223
     components:
     - type: Transform
       pos: 35.5,-94.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28351
   - uid: 17630
     components:
     - type: Transform
       pos: 20.5,-108.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 28351
   - uid: 19811
     components:
     - type: Transform
       pos: 22.5,-89.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 27058
   - uid: 19988
     components:
     - type: Transform
       pos: 10.5,-93.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 27058
   - uid: 21713
     components:
     - type: Transform
       pos: 33.5,-98.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 27058
   - uid: 21758
     components:
     - type: Transform
       pos: 16.5,-102.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 27058
   - uid: 21759
     components:
     - type: Transform
       pos: 24.5,-106.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 27058
   - uid: 21760
     components:
     - type: Transform
       pos: 16.5,-106.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 27058
   - uid: 21762
     components:
     - type: Transform
       pos: 10.5,-98.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 27058
   - uid: 21829
     components:
     - type: Transform
       pos: 33.5,-87.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 27058
   - uid: 21861
     components:
     - type: Transform
       pos: 7.5,-87.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 27058
   - uid: 21862
     components:
     - type: Transform
       pos: 7.5,-98.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 27058
   - uid: 21872
     components:
     - type: Transform
       pos: 24.5,-102.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 27058
   - uid: 21882
     components:
     - type: Transform
       pos: 30.5,-98.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 27058
   - uid: 26680
     components:
     - type: Transform
       pos: 12.5,-93.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 27058
   - uid: 26681
     components:
     - type: Transform
       pos: 28.5,-93.5
       parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 27058
-- proto: WeaponEnergyTurretAIControlPanel
-  entities:
-  - uid: 28351
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 19.5,-104.5
-      parent: 2
-    - type: DeviceList
-      devices:
-      - 17198
-      - 17221
-      - 17210
-      - 17209
-      - 17218
-      - 17217
-      - 17216
-      - 17223
-      - 17222
-      - 17117
-      - 17630
-  - uid: 27058
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 21.5,-104.5
-      parent: 2
-    - type: DeviceList
-      devices:
-      - 21759
-      - 21760
-      - 21758
-      - 21872
-      - 21713
-      - 21882
-      - 9685
-      - 26681
-      - 21829
-      - 19811
-      - 17197
-      - 26680
-      - 19988
-      - 21861
-      - 21862
-      - 21762
 - proto: WeaponLaserCarbinePractice
   entities:
   - uid: 26113
