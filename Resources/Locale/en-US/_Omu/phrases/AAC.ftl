@@ -130,6 +130,11 @@ omu-phrase-job-visitor = Visitor
 
 omu-phrase-job-commandmaid = Command Maid
 omu-phrase-job-administrativeassistant = Administrative Assistant
+omu-phrase-job-command = Command
+
 omu-phrase-job-nanotrasenrepresentative = Nanotrasen Representative
 omu-phrase-job-nanotrasencareertrainer = Nanotrasen Career Trainer
 omu-phrase-job-blueshieldofficer = Blueshield Officer
+
+omu-phrase-hacked-tider = Tider
+omu-phrase-hacked-blob = Blob
