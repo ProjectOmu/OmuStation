@@ -17,3 +17,23 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+
+  - type: gamePreset
+  id: SilentAdminEventGreenshift
+  name: secretplus-mid-title
+  showInVote: false #admin only
+  description: secretplus-mid-description
+  rules:
+  - SpaceTrafficControlFriendlyEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SilentAdminEventExtended
+  name: secretplus-mid-title
+  showInVote: false #admin only
+  description: secretplus-mid-description
+  rules:
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
