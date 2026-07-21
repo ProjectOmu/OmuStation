@@ -77,7 +77,7 @@
   id: ClothingOuterBioJanitor
   name: bio suit
   suffix: Janitor
-  description: A suit that protects against biological contamination and caustic spills.
+  description: A suit that protects against biological contamination and caustic spills, has a clip on the back to hold a mop. # Omu
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Bio/janitor.rsi
@@ -131,6 +131,8 @@
         Piercing: 0.7
         Heat: 0.8
         Caustic: 0.2
+      flatReductions: # Omu
+        Slash: 1 # mice trolled
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.4
 
