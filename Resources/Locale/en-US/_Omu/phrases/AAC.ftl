@@ -136,5 +136,4 @@ omu-phrase-job-nanotrasenrepresentative = Nanotrasen Representative
 omu-phrase-job-nanotrasencareertrainer = Nanotrasen Career Trainer
 omu-phrase-job-blueshieldofficer = Blueshield Officer
 
-omu-phrase-hacked-tider = Tider
 omu-phrase-hacked-blob = Blob
