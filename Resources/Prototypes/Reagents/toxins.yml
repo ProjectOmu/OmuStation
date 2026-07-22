@@ -142,6 +142,9 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
+        - !type:ReagentThreshold
+          reagent: ChloralHydrate
+          min: 8    #OMU: 2 - 3 shots with a tranq to KO, syringe or hypo can still do work with it
         effectProto: StatusEffectDrowsiness
         time: 4
         type: Add

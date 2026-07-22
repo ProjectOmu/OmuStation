@@ -1212,6 +1212,7 @@
   plantMetabolism:
     - !type:PlantAdjustHealth
       amount: -10
+  worksOnTheDead: true # Omu
   reactiveEffects:
     Extinguish:
       methods: [ Touch ]
@@ -1252,7 +1253,14 @@
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
-          min: 160.15 # entire syringe lands you at -20 degrees celcius, not incredibly dangerous
+          min: 73.15 # Omu, this is the minimum temperature of a standard freezer; it takes a lot of herc to cool someone alive anyways
+        amount: -10000
+      - !type:AdjustTemperature # Omu, doubled cooling on corpses
+        conditions:
+        - !type:Temperature
+          min: 73.15
+        - !type:MobStateCondition
+          mobstate: Dead
         amount: -10000
       - !type:AdjustSolutionThermalEnergyEffect
         delta: -150

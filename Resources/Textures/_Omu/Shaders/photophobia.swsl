@@ -12,9 +12,9 @@ void fragment() {
     // Those arbitrary -0.5, 0.5, and 0.10 values are my attempt at dealing with the fact that humans percieve different colours differently.
     // There's probably a better way to do that. But I don't know much of vector math, and I've never done math with matrices in my life. So you get this.
     // Plus, I think there's a beauty in only blowing out one colour channel instead of all three. It looks good.
-    color.r = pow(color.r, pow(2, 2*(0.5-clamp((lightcolor.r - 0.05)*effectStrength, 0.5, 1))));
-    color.g = pow(color.g, pow(2, 2*(0.5-clamp((lightcolor.g + 0.05)*effectStrength, 0.5, 1))));
-    color.b = pow(color.b, pow(2, 2*(0.5-clamp((lightcolor.b + 0.10)*effectStrength, 0.5, 1))));
+    color.r = pow(color.r, pow(2.0, 2.0*(0.5-clamp((lightcolor.r - 0.05)*effectStrength, 0.5, 1.0))));
+    color.g = pow(color.g, pow(2.0, 2.0*(0.5-clamp((lightcolor.g + 0.05)*effectStrength, 0.5, 1.0))));
+    color.b = pow(color.b, pow(2.0, 2.0*(0.5-clamp((lightcolor.b + 0.10)*effectStrength, 0.5, 1.0))));
 
     COLOR = color;
 }
