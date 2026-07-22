@@ -5235,3 +5235,99 @@ Entries:
         extra flavour.
   id: 682
   time: '2026-07-19T20:34:31.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Add
+      message: Added mystery sectoral plushies to trinket loadout.
+  id: 683
+  time: '2026-07-20T03:03:56.0000000+00:00'
+- author: Willfullyheretical
+  changes:
+    - type: Add
+      message: 'Uplink PKA pressure upgrade to Shaft Miner syndie catalog '
+  id: 684
+  time: '2026-07-20T10:43:46.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Fix
+      message: Bananium ore crabs are no longer uninteractable.
+  id: 685
+  time: '2026-07-20T10:48:33.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Tweak
+      message: >-
+        PTLs are slightly smaller than they were before and weigh a more
+        sensible amount for their size with their fired laser being more
+        destructive.
+    - type: Tweak
+      message: >-
+        PTLs no longer gain price as their battery fills up and instead have a
+        static price.
+  id: 686
+  time: '2026-07-20T10:49:02.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Add
+      message: Added the Foam Minigun try and win it from the slot machines!!
+    - type: Remove
+      message: the slot machine can no longer be emaged to give out random items
+  id: 687
+  time: '2026-07-20T14:46:28.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: Readded the siren to the Paramedic Hardsuit
+    - type: Add
+      message: >-
+        Additionally, added new sirens to the Cybersun Paramedic Hardsuit and
+        Modsuit.
+  id: 688
+  time: '2026-07-20T17:13:37.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Ambrosia Vulgaris and Ambrosia Deus no longer contain Desoxyephedrine;
+        Glasstle now contains Desoxyephedrine.
+  id: 689
+  time: '2026-07-20T20:24:17.0000000+00:00'
+- author: Not-Solid
+  changes:
+    - type: Fix
+      message: >-
+        Fixed the client crashing on startup for players on
+        GLES/compatibility-mode renderers (e.g. Qualcomm/Snapdragon ARM devices)
+        due to a shader compile error in the Photophobia effect.
+  id: 690
+  time: '2026-07-20T22:45:54.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Tweak
+      message: Station AI now starts on Crewsimov to stop it from vaildhunting so much.
+  id: 691
+  time: '2026-07-21T00:20:07.0000000+00:00'
+- author: pinktanuki
+  changes:
+    - type: Tweak
+      message: Smartfridge can now delete empty list items
+    - type: Tweak
+      message: 'Smartfridge now has configurable access controls '
+    - type: Tweak
+      message: 'Smartfridge has a tiny internal battery in the event of powerloss '
+    - type: Add
+      message: 'Smartfridge can now be made via a machine board '
+    - type: Add
+      message: 'Hydroponics specific Smartfridge for mappers  '
+  id: 692
+  time: '2026-07-21T14:58:13.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: Infested robotics with 217% more bugborgs.
+    - type: Add
+      message: All new bug sprites for Medical and Janitor borgs.
+    - type: Add
+      message: Extra bug sprites for Generic, Engineering, and Salvage borgs.
+  id: 693
+  time: '2026-07-21T19:28:26.0000000+00:00'

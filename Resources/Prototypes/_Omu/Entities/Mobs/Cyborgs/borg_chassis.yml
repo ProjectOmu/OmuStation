@@ -8,6 +8,14 @@
   - type: BorgSwitchableSubtype
     borgSubtype: generic_bugborg
 
+- type: entity
+  id: BorgChassisGenericBugScience
+  parent: BorgChassisGeneric
+  name: bugborg science cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: generic_bugscience
 # Mining
 
 - type: entity
@@ -19,21 +27,116 @@
   - type: BorgSwitchableSubtype
     borgSubtype: mining_bugborg
 
-# Engineer
-
 - type: entity
-  id: BorgChassisEngineerBug
-  parent: BorgChassisEngineer
-  name: bug engineer cyborg
+  id: BorgChassisMiningBugborgBag
+  parent: BorgChassisMining
+  name: bugborg bagged mining cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
-    borgSubtype: engineering_bug
+    borgSubtype: mining_bugborgbag
 
+- type: entity
+  id: BorgChassisMiningBugborgCourier
+  parent: BorgChassisMining
+  name: bugborg courier cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: mining_bugcourier
+# Engineer
+
+- type: entity
+  id: BorgChassisEngineerBugborg
+  parent: BorgChassisEngineer
+  name: bugborg engineer cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineering_bugborg
+
+- type: entity
+  id: BorgChassisEngineerBugborgBag
+  parent: BorgChassisEngineer
+  name: bugborg bagged engineer cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineering_bugborgbag
+
+- type: entity
+  id: BorgChassisEngineerBugborgAtmos
+  parent: BorgChassisEngineer
+  name: bugborg atmos engineer cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineering_bugatmos
+
+- type: entity
+  id: BorgChassisEngineerBugborgAtmosBag
+  parent: BorgChassisEngineer
+  name: bugborg atmos bagged engineer cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineering_bugatmosbag
 # Janitor
 
+- type: entity
+  id: BorgChassisJanitorBugborg
+  parent: BorgChassisJanitor
+  name: bugborg janitor cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_bugborg
+
+- type: entity
+  id: BorgChassisJanitorBugborgVandalized
+  parent: BorgChassisJanitor
+  name: bugborg vandalized janitor cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_bugvandalized
+
+- type: entity
+  id: BorgChassisJanitorBugborgCentipede
+  parent: BorgChassisJanitor
+  name: bugborg centipede janitor cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_bugcentipede
 # Medical
 
+- type: entity
+  id: BorgChassisMedicalBugborg
+  parent: BorgChassisMedical
+  name: bugborg medical cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_bugborg
+
+- type: entity
+  id: BorgChassisMedicalBugborgCybersun
+  parent: BorgChassisMedical
+  name: bugborg cybersun medical cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_bugcybersun
+
+- type: entity
+  id: BorgChassisMedicalBugborgVirology
+  parent: BorgChassisMedical
+  name: bugborg virology medical cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_bugviro
 # Service
 
 - type: entity

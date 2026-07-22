@@ -16,6 +16,9 @@
   - BorgModuleTool
   - BorgModuleArtifact
   - BorgModuleAnomaly
+
+  lawset: OmuScience # Changed to match the laws of the borgs in non-omu namespace.
+
   radioChannels:
   - Science
 
@@ -61,7 +64,7 @@
   - BorgModuleRCD
   - BorgModuleCable
 
-  lawset: Engineer # DeltaV: Custom lawset
+  lawset: OmuEngineer # Changed to match the laws of the borgs in non-omu namespace.
 
   radioChannels:
   - Engineering
@@ -116,8 +119,8 @@
 
   addComponents: # Goobstation
   - type: NoWieldNeeded
-  - type: SlavedBorg # Goobstation: Special AI labeling for salv borgs.
-    law: SalvageObeyAI
+#  - type: SlavedBorg # Goobstation: Special AI labeling for salv borgs.
+#    law: SalvageObeyAI
   - type: Inventory
     templateId: borgNoOffset
     displacements:
@@ -127,7 +130,7 @@
             sprite: _Omu/Mobs/Species/Cyborgs/displacements.rsi
             state: head
 
-  lawset: Salvage # DeltaV: Custom lawset
+  lawset: OmuSalvage # Changed to match the laws of the borgs in non-omu namespace.
 
   # Visual
   inventoryTemplateId: borgTall
@@ -143,10 +146,118 @@
 
 
 # Bug Janitor borg
+- type: borgType
+  id: janitor_bug
+
+  # Description
+  dummyPrototype: BorgChassisJanitor
+
+  # Functional
+  extraModuleCount: 3
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleJanitor
+
+  defaultModules:
+  - BorgModuleTool
+  - BorgModuleCleaning
+  - BorgModuleCustodial
+
+  radioChannels:
+  - Science
+  - Service
+
+  addComponents: # Goobstation
+  - type: Inventory
+    templateId: borgNoOffset
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Cyborgs/displacements.rsi
+            state: head
+
+  lawset: OmuJanitor # Changed to match the laws of the borgs in non-omu namespace.
+
+  # Visual
+  inventoryTemplateId: borgShort
+  spriteBodyState: janitor
+  spriteHasMindState: janitor_e
+  spriteNoMindState: janitor_e_r
+  spriteToggleLightState: janitor_l
+
+  # Pet
+  petSuccessString: petting-success-janitor-cyborg
+  petFailureString: petting-failure-janitor-cyborg
 
 
 # Bug Medical borg
+- type: borgType
+  id: medical_bug
 
+  # Description
+  dummyPrototype: BorgChassisMedical
+
+  # Functional
+  extraModuleCount: 3
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleMedical
+
+  defaultModules:
+  - BorgModuleTool
+  - BorgModuleChemical
+  - BorgModuleTopicals
+  - BorgModuleRescue
+  - BorgModuleSurgery
+  - BorgModuleVirology # Omu Viro Module
+  - BorgModuleLollypop # Goobstation
+
+
+  lawset: OmuMedical # Changed to match the laws of the borgs in non-omu namespace.
+
+  radioChannels:
+  - Science
+  - Medical
+
+  addComponents:
+  - type: SolutionScanner
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+  - type: Sanitized # Shitmed
+  - type: SurgeryTarget # Shitmed
+  - type: SurgeryIgnoreClothing
+  - type: SurgerySpeedModifier
+    speedModifier: 1.5
+  - type: Inventory # Goobstation(?) The others had this comment, so i'm putting it here too.
+    templateId: borgNoOffset
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Cyborgs/displacements.rsi
+            state: head
+
+  # Visual
+  inventoryTemplateId: borgDutch
+  spriteBodyState: medical
+  spriteHasMindState: medical_e
+  spriteNoMindState: medical_e_r
+  spriteToggleLightState: medical_l
+
+  # Pet
+  petSuccessString: petting-success-medical-cyborg
+  petFailureString: petting-failure-medical-cyborg
+
+  # Sounds
+#  footstepCollection:
+#    collection: FootstepHoverBorg  # Omitted, due to having feet.
 
 # Bug Service borg
 - type: borgType
