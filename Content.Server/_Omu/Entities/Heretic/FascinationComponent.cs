@@ -1,5 +1,5 @@
+using Robust.Shared.GameStates;
 namespace Content.Server._Omu.Entities.Heretic;
-
 
 [RegisterComponent]
 public sealed partial class FascinationComponent : Component

@@ -18,14 +18,28 @@ public sealed class FascinationSystem: EntitySystem
     {
         var comp = ent.Comp;
         var Value = comp.FascinationValue;
+        string message;
+
         if (Value == 1)
-        {}
-        Loc.GetString("fascination-examine-1");
-        Loc.GetString("fascination-examine-2");
-        Loc.GetString("fascination-examine-3");
-        Loc.GetString("fascination-examine-4");
-        Loc.GetString("fascination-examine-5");
-        args.PushMarkup(comp.ExamineMessage ?? Loc.GetString("Fascination-0"));
-        Dirty(ent);
+        {
+            message = Loc.GetString("fascination-examine-1");
+        }
+        else if (Value == 2)
+        {
+            message = Loc.GetString("fascination-examine-2");
+        }
+        else if (Value == 3)
+        {
+            message = Loc.GetString("fascination-examine-3");
+        }
+        else if (Value == 4)
+        {
+            message = Loc.GetString("fascination-examine-4");
+        }
+        else if (Value == 5)
+        {
+            message = Loc.GetString("fascination-examine-5");
+        }
+        args.PushMarkup(comp.ExamineMessage ?? Loc.GetString("fascination-examine-1"));
     }
 }
