@@ -3,9 +3,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Religion;
-using Content.Goobstation.Server.Chaplain.Components;
+using Content.Server._Goobstation.Chaplain.Components;
 
-namespace Content.Goobstation.Server.Chaplain.Events;
+namespace Content.Server._Goobstation.Chaplain.Events;
 
 public sealed class RoleEventHandler : EntitySystem
 {

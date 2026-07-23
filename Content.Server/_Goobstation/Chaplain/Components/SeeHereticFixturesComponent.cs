@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Server.Chaplain.Components;
+namespace Content.Server._Goobstation.Chaplain.Components;
 
 /// <summary>
 /// Gives the user the ability to see the Eldritch Influence layer.

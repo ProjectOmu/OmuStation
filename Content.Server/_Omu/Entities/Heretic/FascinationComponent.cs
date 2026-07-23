@@ -32,6 +32,9 @@ public sealed partial class FascinationComponent : Component
         "fascination-examine-4",
         "fascination-examine-5"
     };
+
+    [DataField]
+    public float OrigEye;
 }
 public sealed class FascinationChangedArgs : EntityEventArgs
 {

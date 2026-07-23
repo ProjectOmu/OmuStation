@@ -1,18 +1,24 @@
 using Content.Shared.Examine;
-using NetCord;
 using Robust.Shared.Utility;
-using YamlDotNet.Core.Tokens;
+using Content.Shared.Eye;
+
 
 namespace Content.Server._Omu.Entities.Heretic;
 
 public sealed class FascinationSystem: EntitySystem
 {
+    [Dependency] private readonly SharedEyeSystem _eye = default!;
+
+    private const int ChaplainVisFlags = (int) VisibilityFlags.EldritchInfluence;
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<FascinationComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<FascinationComponent, FascinationChangedArgs>(OnChange);
+        SubscribeLocalEvent<FascinationComponent, ComponentStartup>(OnStartup);
+    }
+    private void OnStartup(EntityUid uid, FascinationComponent component, ComponentStartup args)
+    {
     }
 
     private void OnExamined(Entity<FascinationComponent> ent, ref ExaminedEvent args)
@@ -50,5 +56,17 @@ public sealed class FascinationSystem: EntitySystem
     private void OnChange(Entity<FascinationComponent> ent, ref FascinationChangedArgs args)
     {
         ent.Comp.FascinationValue += args.Amount; //increment the fascination value by the amount of knowledge gained!
+
+        float fascvalue = ent.Comp.FascinationValue;
+        var eye = EnsureComp<EyeComponent>(ent);
+
+        if (fascvalue <= 0);
+        {
+            RemComp<FascinationComponent>(ent);
+        }
+        if (fascvalue >= 5)
+        {
+
+        }
     }
 }

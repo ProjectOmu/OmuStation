@@ -23,7 +23,6 @@ public sealed class HereticTomeSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        //SubscribeLocalEvent<HereticTomeComponent, UseInHandEvent>(OnInteract);
         SubscribeLocalEvent<HereticTomeComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<HereticTomeComponent, BoundUIClosedEvent>(OnInteract);
     }

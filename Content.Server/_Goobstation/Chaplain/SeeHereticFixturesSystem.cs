@@ -2,10 +2,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Chaplain.Components;
+using Content.Server._Goobstation.Chaplain.Components;
 using Content.Shared.Eye;
 
-namespace Content.Goobstation.Server.Chaplain;
+namespace Content.Server._Goobstation.Chaplain;
 
 public sealed class SeeHereticFixturesSystem : EntitySystem
 {
