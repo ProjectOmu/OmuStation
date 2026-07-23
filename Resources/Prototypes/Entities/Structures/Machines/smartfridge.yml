@@ -13,6 +13,16 @@
   name: SmartFridge
   description: A refrigerated storage unit for keeping items cold and fresh.
   components:
+  # Monolith Start
+  - type: Machine
+    board: SmartfridgeCircuitboard
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers:
+    - machine_parts
+    - machine_board
+  # Monolith End
   - type: StationAiWhitelist
   - type: Vocalizer
     hideChat: true
@@ -36,10 +46,23 @@
     color: "#9dc5c9"
   - type: ContainerContainer
     containers:
+      machine_board: !type:Container # Mono
+      machine_parts: !type:Container # Mono
       smart_fridge_inventory: !type:Container
+  - type: StaticPrice # Omustation
+    price: 75 # Omustation
   - type: LitOnPowered
   - type: ApcPowerReceiver
     powerLoad: 200
+  # Omustation start - internal battery, lasts ~2 min when disconnected from power
+  - type: Battery
+    maxCharge: 12000
+    startingCharge: 12000
+  - type: ApcPowerReceiverBattery
+    idleLoad: 200
+    batteryRechargeRate: 100
+    batteryRechargeEfficiency: 1.0
+  # Omustation end
   - type: ExtensionCableReceiver
   - type: SmartFridge
     whitelist:
@@ -107,6 +130,9 @@
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
+          SheetGlass1: # Omustation
+            min: 1
+            max: 2
           SheetSteel1:
             min: 1
             max: 1
