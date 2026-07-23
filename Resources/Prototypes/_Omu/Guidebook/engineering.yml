@@ -1,0 +1,11 @@
+- type: guideEntry
+  id: NuclearReactor
+  name: guide-entry-nuclear-reactor
+  text: "/ServerInfo/_Omu/Guidebook/Engineering/NuclearReactor.xml"
+  children:
+  - NuclearMaterials
+
+- type: guideEntry
+  id: NuclearMaterials
+  name: guide-entry-nuclear-materials
+  text: "/ServerInfo/_Omu/Guidebook/Engineering/NuclearMaterials.xml"
