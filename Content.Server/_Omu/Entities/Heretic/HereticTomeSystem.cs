@@ -63,7 +63,7 @@ public sealed class HereticTomeSystem : EntitySystem
         if (!TryComp<FascinationComponent>(actor, out var fasc))
             EnsureComp<FascinationComponent>(actor, out fasc);
 
-        fasc.FascinationValue += component.KnowledgeGain;       //Increment fascination (madness)
+        RaiseLocalEvent(actor, new FascinationChangedArgs { Amount = component.KnowledgeGain });
 
         var message = Loc.GetString(fasc.MadnessMessage);       //Warn the user
         var size = component.FontSize;

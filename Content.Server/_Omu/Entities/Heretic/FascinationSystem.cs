@@ -12,6 +12,7 @@ public sealed class FascinationSystem: EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<FascinationComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<FascinationComponent, FascinationChangedArgs>(OnChange);
     }
 
     private void OnExamined(Entity<FascinationComponent> ent, ref ExaminedEvent args)
@@ -40,6 +41,14 @@ public sealed class FascinationSystem: EntitySystem
         {
             message = Loc.GetString("fascination-examine-5");
         }
-        args.PushMarkup(comp.ExamineMessage ?? Loc.GetString("fascination-examine-1"));
+        else
+        {
+            message = Loc.GetString("fascination-examine-5");
+        }
+        args.PushMarkup(message ?? Loc.GetString("fascination-examine-1"));
+    }
+    private void OnChange(Entity<FascinationComponent> ent, ref FascinationChangedArgs args)
+    {
+        ent.Comp.FascinationValue += args.Amount; //increment the fascination value by the amount of knowledge gained!
     }
 }

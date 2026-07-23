@@ -33,3 +33,7 @@ public sealed partial class FascinationComponent : Component
         "fascination-examine-5"
     };
 }
+public sealed class FascinationChangedArgs : EntityEventArgs
+{
+    public float Amount;
+}
