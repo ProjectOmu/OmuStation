@@ -29,3 +29,6 @@ loadout-group-sergeant-belt = Sergeant belt
 
 # Clown
 loadout-group-clown-belt = Clown belt
+
+# Other
+loadout-group-civilian_formal-shoes = Formal shoes
