@@ -10,11 +10,17 @@
   - type: Sprite
     sprite: Objects/Misc/books.rsi
     layers:
+    - state: paper
     - state: icon_mansusoverview
       map: [ "icon" ]
     - state: cover_base
       color: "#89CFF0"
       map: [ "cover" ]
+    - state: decor_wingette
+      color: "#453f3a"
+      map: [ "decor" ]
+    - state: overlay_null
+      map: [ "overlay" ]
 
 - type: entity
   parent: HereticTomeBase

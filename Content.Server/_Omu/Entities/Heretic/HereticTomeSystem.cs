@@ -49,12 +49,12 @@ public sealed class HereticTomeSystem : EntitySystem
 
     private void OnInteract(EntityUid book, HereticTomeComponent component, ref BoundUIClosedEvent args)
     {
-        var actor = args.Entity;       //Get the players entity!
+        var actor = args.Actor;       //Get the players entity!
 
-        if (!TryComp<HereticComponent>(actor, out _))       //Check for heretic - discard since we don't need it for now!
+        if (!_heretic.TryGetHereticComponent(actor, out _, out _))            //Get heretic entity
             return;
 
-        _heretic.UpdateKnowledge(args.Entity, component.KnowledgeGain);       //Give them knowledge
+        _heretic.UpdateKnowledge(actor, component.KnowledgeGain);       //Give them knowledge
         Spawn("Ash", Transform(book).Coordinates);          //Ash the book
         QueueDel(book);
     }
