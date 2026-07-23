@@ -57,73 +57,68 @@ public abstract class BerserkAffectedSystem : EntitySystem
         var query = EntityQueryEnumerator<BerserkAffectedComponent, MobStateComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var affected, out var mobState, out var xform))
         {
-            Amok();
+            if (_net.IsClient && _player.LocalEntity != uid)
+                return;
 
-            void Amok()
+            var curTime = _timing.CurTime;
+
+            if (curTime < affected.NextAttack)
+                return;
+
+            if (!TryComp(uid, out CombatModeComponent? combat))
+                return;
+
+            if (_mobState.IsIncapacitated(uid, mobState))
+                return;
+
+            if (HasComp<StunnedComponent>(uid) || HasComp<FrozenComponent>(uid) ||
+                HasComp<AdminFrozenComponent>(uid) || HasComp<IceCubeComponent>(uid))
+                return;
+
+            _gun.TryGetGun(uid, out var gun, out var gunComp);
+            _weapon.TryGetWeapon(uid, out var weapon, out var meleeComp);
+
+            float range;
+            float attackRate;
+
+            if (gunComp != null)
             {
-                if (_net.IsClient && _player.LocalEntity != uid)
+                if (gunComp.NextFire > curTime)
                     return;
 
-                var curTime = _timing.CurTime;
-
-                if (curTime < affected.NextAttack)
-                    return;
-
-                if (!TryComp(uid, out CombatModeComponent? combat))
-                    return;
-
-                if (_mobState.IsIncapacitated(uid, mobState))
-                    return;
-
-                if (HasComp<StunnedComponent>(uid) || HasComp<FrozenComponent>(uid) ||
-                    HasComp<AdminFrozenComponent>(uid) || HasComp<IceCubeComponent>(uid))
-                    return;
-
-                _gun.TryGetGun(uid, out var gun, out var gunComp);
-                _weapon.TryGetWeapon(uid, out var weapon, out var meleeComp);
-
-                float range;
-                float attackRate;
-
-                if (gunComp != null)
-                {
-                    if (gunComp.NextFire > curTime)
-                        return;
-
-                    attackRate = gunComp.FireRate;
-                    range = 3f;
-                }
-                else if (meleeComp != null)
-                {
-                    if (meleeComp.NextAttack > curTime)
-                        return;
-
-                    attackRate = meleeComp.AttackRate;
-                    range = meleeComp.Range;
-                }
-                else
-                    return;
-
-                if (attackRate == 0f)
-                    return;
-
-                var targets = FindPotentialTargets((uid, xform), affected.ExcludedEntity, range);
-                if (targets.Count == 0)
-                    return;
-
-                affected.NextAttack = curTime + TimeSpan.FromSeconds(1f / attackRate);
-                Dirty(uid, affected);
-
-                _combat.SetInCombatMode(uid, true, combat);
-
-                var target = rand.Pick(targets);
-                var coords = Transform(target).Coordinates;
-
-                if (gunComp != null)
-                    _gun.AttemptShoot(uid, gun, gunComp, coords, target);
-                else if (meleeComp != null)
-                    _weapon.AttemptLightAttack(uid, weapon, meleeComp, target);
+                attackRate = gunComp.FireRate;
+                range = 3f;
             }
+            else if (meleeComp != null)
+            {
+                if (meleeComp.NextAttack > curTime)
+                    return;
+
+                attackRate = meleeComp.AttackRate;
+                range = meleeComp.Range;
+            }
+            else
+                return;
+
+            if (attackRate == 0f)
+                return;
+
+            var targets = FindPotentialTargets((uid, xform), affected.ExcludedEntity, range);
+            if (targets.Count == 0)
+                return;
+
+            affected.NextAttack = curTime + TimeSpan.FromSeconds(1f / attackRate);
+            Dirty(uid, affected);
+
+            _combat.SetInCombatMode(uid, true, combat);
+
+            var target = rand.Pick(targets);
+            var coords = Transform(target).Coordinates;
+
+            if (gunComp != null)
+                _gun.AttemptShoot(uid, gun, gunComp, coords, target);
+            else if (meleeComp != null)
+                _weapon.AttemptLightAttack(uid, weapon, meleeComp, target);
         }
 
         if (!_timing.IsFirstTimePredicted)
