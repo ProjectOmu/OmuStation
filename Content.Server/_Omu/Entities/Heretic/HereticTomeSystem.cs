@@ -50,15 +50,26 @@ public sealed class HereticTomeSystem : EntitySystem
     private void OnInteract(EntityUid book, HereticTomeComponent component, ref BoundUIClosedEvent args)
     {
         var actor = args.Actor;       //Get the players entity!
-        float value;
 
         if (!_heretic.TryGetHereticComponent(actor, out _, out _))            //Get heretic entity
             return;
 
-        EnsureComp<FascinationComponent>(actor, out var fasc);
-        value = fasc.FascinationValue;
-        value += component.KnowledgeGain;
-        fasc.FascinationValue += value;
+        if (!_mind.TryGetMind(args.Actor, out _, out var mind))
+            return;
+
+        if (!_playerMan.TryGetSessionById(mind.UserId, out var session))
+            return;
+
+        if (!TryComp<FascinationComponent>(actor, out var fasc))
+            EnsureComp<FascinationComponent>(actor, out fasc);
+
+        fasc.FascinationValue += component.KnowledgeGain;       //Increment fascination (madness)
+
+        var message = Loc.GetString(fasc.MadnessMessage);       //Warn the user
+        var size = component.FontSize;
+        var loc = Loc.GetString(component.ExamineBaseMessage, ("size", size), ("text", message));
+        SharedChatSystem.UpdateFontSize(size, ref message, ref loc);
+        _chatMan.ChatMessageToOne(ChatChannel.Server, message, loc, default, false, session.Channel, canCoalesce: false);
 
         _heretic.UpdateKnowledge(actor, component.KnowledgeGain);       //Give them knowledge
         Spawn("Ash", Transform(book).Coordinates);          //Ash the book

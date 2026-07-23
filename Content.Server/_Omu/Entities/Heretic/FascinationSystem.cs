@@ -7,13 +7,12 @@ namespace Content.Server._Omu.Entities.Heretic;
 
 public sealed class FascinationSystem: EntitySystem
 {
-public override void Initialize()
-{
-    base.Initialize();
+    public override void Initialize()
+    {
+        base.Initialize();
 
-    SubscribeLocalEvent<FascinationComponent, ExaminedEvent>(OnExamined);
-    SubscribeLocalEvent<FascinationComponent, FascinationGain>(OnGain)
-}
+        SubscribeLocalEvent<FascinationComponent, ExaminedEvent>(OnExamined);
+    }
 
     private void OnExamined(Entity<FascinationComponent> ent, ref ExaminedEvent args)
     {
@@ -28,9 +27,5 @@ public override void Initialize()
         Loc.GetString("fascination-examine-5");
         args.PushMarkup(comp.ExamineMessage ?? Loc.GetString("Fascination-0"));
         Dirty(ent);
-    }
-    private void OnGain(Entity<FascinationComponent>)
-    {
-
     }
 }

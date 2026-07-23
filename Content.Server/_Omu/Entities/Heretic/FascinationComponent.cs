@@ -1,7 +1,7 @@
 namespace Content.Server._Omu.Entities.Heretic;
 
 
-[RegisterComponent, Access(typeof(FascinationSystem))]
+[RegisterComponent]
 public sealed partial class FascinationComponent : Component
 {
     [DataField]
