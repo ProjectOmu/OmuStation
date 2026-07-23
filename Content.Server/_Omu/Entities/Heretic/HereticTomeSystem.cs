@@ -50,9 +50,15 @@ public sealed class HereticTomeSystem : EntitySystem
     private void OnInteract(EntityUid book, HereticTomeComponent component, ref BoundUIClosedEvent args)
     {
         var actor = args.Actor;       //Get the players entity!
+        float value;
 
         if (!_heretic.TryGetHereticComponent(actor, out _, out _))            //Get heretic entity
             return;
+
+        EnsureComp<FascinationComponent>(actor, out var fasc);
+        value = fasc.FascinationValue;
+        value += component.KnowledgeGain;
+        fasc.FascinationValue += value;
 
         _heretic.UpdateKnowledge(actor, component.KnowledgeGain);       //Give them knowledge
         Spawn("Ash", Transform(book).Coordinates);          //Ash the book
