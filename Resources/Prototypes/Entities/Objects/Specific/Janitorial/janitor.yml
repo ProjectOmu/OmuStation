@@ -197,12 +197,14 @@
   - type: DnaSubstanceTrace
   - type: FloorCleaner # Goobstation
     radius: 2
-  - type: Clothing # Omu
+  # Omu start
+  - type: Clothing
     sprite: Objects/Specific/Janitorial/mop.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
+  # Omu end
 
 - type: entity
   parent: BaseItem
@@ -278,12 +280,14 @@
     - type: FloorCleaner # Goobstation
       radius: 3
       cleanDelay: 6
-    - type: Clothing # Omu
+    # Omu start
+    - type: Clothing
       sprite: Objects/Specific/Janitorial/advmop.rsi
       quickEquip: false
       slots:
       - Back
       - suitStorage
+    # Omu end
 
 - type: entity
   name: wet floor sign
@@ -311,10 +315,12 @@
     tags:
       - WetFloorSign
       - WhitelistChameleon
-  - type: AllowSuitStorage # Omu
+  # Omu start
+  - type: AllowSuitStorage
     whitelist:
       tags:
         - Mop
+  # Omu end
 
 
 - type: entity

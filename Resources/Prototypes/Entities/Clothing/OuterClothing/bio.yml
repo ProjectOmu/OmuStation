@@ -87,10 +87,12 @@
     modifiers:
       coefficients:
         Caustic: 0.4
-  - type: AllowSuitStorage # Omu
-    whitelist:
+  # Omu start
+  - type: AllowSuitStorage
+      whitelist:
       tags:
         - Mop
+  # Omu end
 
 - type: entity
   parent: ClothingOuterBioGeneral
