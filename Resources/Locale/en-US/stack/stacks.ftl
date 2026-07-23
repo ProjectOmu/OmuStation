@@ -1,3 +1,4 @@
+stack-plutonium = plutonium
 stack-steel = steel
 stack-bananium = bananium
 stack-glass = glass
