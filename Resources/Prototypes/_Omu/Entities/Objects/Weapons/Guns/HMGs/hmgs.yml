@@ -1,0 +1,13 @@
+- type: entity
+  name: foam minigun
+  id: WeaponFoamMinigun
+  parent: [ WeaponMinigun ]
+  description: Vzzzzzt! Rahrahrahrah! Vrrrrr! Uses Foam Darts.
+  components:
+  - type: BallisticAmmoProvider
+    proto: BulletFoam
+    capacity: 1000
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []  

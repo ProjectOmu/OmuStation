@@ -97,3 +97,11 @@ public sealed class SmartFridgeDispenseItemMessage(SmartFridgeEntry entry) : Bou
 {
     public SmartFridgeEntry Entry = entry;
 }
+
+// Monolith Start
+[Serializable, NetSerializable]
+public sealed class SmartFridgeRemoveEntryMessage(SmartFridgeEntry entry) : BoundUserInterfaceMessage
+{
+    public SmartFridgeEntry Entry = entry;
+}
+// Monolith End
