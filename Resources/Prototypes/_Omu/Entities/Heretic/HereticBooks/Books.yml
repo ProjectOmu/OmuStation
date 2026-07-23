@@ -1,0 +1,39 @@
+
+- type: entity
+  parent: BookBase
+  id: HereticTomeBase
+  name: HereticTomeBase
+  description: Something is off about this book - you shouldn't see this
+  components:
+  - type: HereticTome
+    knowledgeGain: 1    # One knowledge
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: icon_mansusoverview
+      map: [ "icon" ]
+    - state: cover_base
+      color: "#89CFF0"
+      map: [ "cover" ]
+
+- type: entity
+  parent: HereticTomeBase
+  id: HereticTomeMansusOverview
+  name: Overview of the Dreamscape
+  description: Something is off about this book
+  components:
+  - type: HereticTome
+    knowledgeGain: 1    # One knowledge
+  - type: Paper
+    content: book-text-mansus-overview    # The basic overview of what the mansus is
+
+- type: entity
+  parent: HereticTomeBase
+  id: HereticTomeMansusDepth
+  name: Analysis of the Mansus, volume I
+  description: Something is off about this book
+  components:
+  - type: HereticTome
+    knowledgeGain: 2    # Two knowledge!
+  - type: Paper
+    content: book-text-mansus-depth   # The indepth desc of what the mansus is
