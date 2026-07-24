@@ -26,12 +26,14 @@
         - RawMaterial
         - Ingot
  # - type: MaterialSiloClient
-  - type: Lathe
-    idleState: icon
-    runningState: building
-    unlitIdleState: unlit
-    unlitRunningState: unlit-building
+ - type: Lathe
+  idleState: icon
+  runningState: building
+  unlitIdleState: unlit
+  unlitRunningState: unlit-building
 
-    staticPacks:
+  staticPacks:
     - NuclearStatic
+
+  dynamicPacks:
     - NuclearDynamic
