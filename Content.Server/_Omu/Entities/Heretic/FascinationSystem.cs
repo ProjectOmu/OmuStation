@@ -60,7 +60,7 @@ public sealed class FascinationSystem: EntitySystem
     }
     private void OnChange(Entity<FascinationComponent> ent, ref FascinationChangedArgs args)
     {
-        ent.Comp.FascinationValue = args.Amount + ent.Comp.f; //increment the fascination value by the amount of knowledge gained!
+        ent.Comp.FascinationValue = args.Amount + ent.Comp.FascinationValue; //increment the fascination value by the amount of knowledge gained!
 
         float fascvalue = ent.Comp.FascinationValue;
 
