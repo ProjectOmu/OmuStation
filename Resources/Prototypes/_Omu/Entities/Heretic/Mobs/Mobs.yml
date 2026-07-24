@@ -1,13 +1,12 @@
 - type: entity
-  parent: BaseMobGhoul
+  parent: SimpleMobBase
   id: MobGhoulMirrorMaiden
   name: Mirror Maiden
   description: A trick of the light? Or is it the shimmering air itself come to claim you?
   components:
-  - type: Ghoul
-    totalHealth: 200 #miniboss!
-    ghostRoleName: mirror-maiden-role-name
-    ghostRoleDesc: mirror-maiden-role-desc
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
   - type: Sprite
     sprite: _Omu/Mobs/heretic.rsi
     state: blue_maiden
@@ -50,8 +49,11 @@
     factions:
     - Mansus
   - type: ShowAntagIcons
+  - type: NoSlip
 
 - type: npcFaction
   id: Mansus
   hostile:
   - Heretic
+  friendly:
+  - NanoTrasen
