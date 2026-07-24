@@ -1415,6 +1415,9 @@
 - type: Tag
   id: RawMaterial
 
+- type: Tag
+  id: ReactorPart
+
 # Give this to something that doesn't need any special recycler behavior and just needs deleting.
 - type: Tag
   id: Recyclable
@@ -1471,7 +1474,7 @@
   id: SalvageExperiment
 
 # Omu Station
-- type: Tag 
+- type: Tag
   id: SalvagePinpointer
 
 - type: Tag
