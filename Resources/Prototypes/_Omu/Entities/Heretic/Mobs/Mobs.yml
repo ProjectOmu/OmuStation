@@ -54,6 +54,11 @@
 - type: npcFaction
   id: Mansus
   hostile:
-  - Heretic
+  - Madness
+  friendly:
+  - NanoTrasen
+
+- type: npcFaction
+  id: Madness
   friendly:
   - NanoTrasen

@@ -6,6 +6,8 @@ using Content.Server._Goobstation.Chaplain;
 using Content.Server._Goobstation.Chaplain.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
+using Content.Shared.NPC.Systems;
+using Content.Shared.NPC.Components;
 
 namespace Content.Server._Omu.Entities.Heretic;
 
@@ -13,6 +15,7 @@ public sealed class FascinationSystem: EntitySystem
 {
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -91,6 +94,8 @@ public sealed class FascinationSystem: EntitySystem
             ent.Comp.AlteredFaction = true;
             var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(ent);    //Make them valid to the mirror maiden
             userFactionIcons.FactionIcons.Add(ent.Comp.IconToAdd);
+
+            _faction.AddFaction(ent.Owner, ent.Comp.FactionToAdd);      //Give them the faction so AI works
         }
     }
 }

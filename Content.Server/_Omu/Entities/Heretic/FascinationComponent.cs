@@ -1,5 +1,6 @@
 using Robust.Shared.Prototypes;
 using Content.Shared.StatusIcon;
+using Content.Shared.NPC.Prototypes;
 
 namespace Content.Server._Omu.Entities.Heretic;
 
@@ -43,6 +44,8 @@ public sealed partial class FascinationComponent : Component
 
     [DataField]
     public ProtoId<FactionIconPrototype> IconToAdd = "Madness";
+    [DataField]
+    public ProtoId<NpcFactionPrototype> FactionToAdd = "Madness";
 
     [DataField]
     public bool AlteredFaction;
