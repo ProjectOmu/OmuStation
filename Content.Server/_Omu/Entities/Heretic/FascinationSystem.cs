@@ -65,8 +65,11 @@ public sealed class FascinationSystem: EntitySystem
         {
             if (ent.Comp.Naturalsight == false & ent.Comp.AlteredVision == true)
                 RemComp<SeeHereticFixturesComponent>(ent);
-            var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(ent);    //Make them un-valid to the mirror maiden
-            userFactionIcons.FactionIcons.Remove(ent.Comp.IconToAdd);
+            if (ent.Comp.AlteredFaction == true)
+            {
+                var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(ent);    //Make them un-valid to the mirror maiden
+                userFactionIcons.FactionIcons.Remove(ent.Comp.IconToAdd);
+            }
         }
         if (fascvalue <= 0);
         {
@@ -79,6 +82,7 @@ public sealed class FascinationSystem: EntitySystem
                 EnsureComp<SeeHereticFixturesComponent>(ent);
                 ent.Comp.AlteredVision = true;
                 _gameTicker.StartGameRule("BlueMaidenSpawn", out _);
+                ent.Comp.AlteredFaction = true;
                 var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(ent);    //Make them valid to the mirror maiden
                 userFactionIcons.FactionIcons.Add(ent.Comp.IconToAdd);
             }

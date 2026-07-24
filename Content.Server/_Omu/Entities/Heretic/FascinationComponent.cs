@@ -43,6 +43,10 @@ public sealed partial class FascinationComponent : Component
 
     [DataField]
     public ProtoId<FactionIconPrototype> IconToAdd = "Madness";
+
+    [DataField]
+    public bool AlteredFaction;
+
 }
 public sealed class FascinationChangedArgs : EntityEventArgs
 {
