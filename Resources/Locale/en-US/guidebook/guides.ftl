@@ -47,6 +47,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 guide-entry-ss14 = Station and Shifts
+guide-entry-nuclear-reactor = Nuclear Reactor
+guide-entry-nuclear-materials = Nuclear Materials
 guide-entry-engineering = Engineering
 guide-entry-construction = Construction
 guide-entry-expandingrepairingstation = Expanding and Repairing Stations

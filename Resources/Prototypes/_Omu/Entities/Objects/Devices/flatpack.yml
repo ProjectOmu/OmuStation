@@ -51,3 +51,21 @@
   components:
   - type: Flatpack
     entity: MedicalComputerComms
+
+- type: entity
+  parent: BaseFlatpack
+  id: NuclearReactorFlatpack
+  name: nuclear reactor flatpack
+  description: A flatpack used for constructing a nuclear reactor.
+  components:
+  - type: Flatpack
+    entity: NuclearReactorSmall
+
+- type: entity
+  parent: BaseFlatpack
+  id: GasTurbineFlatpack
+  name: gas turbine flatpack
+  description: A flatpack used for constructing a gas turbine.
+  components:
+  - type: Flatpack
+    entity: TurbineSmall
