@@ -49,11 +49,23 @@
 
 - type: entity
   parent: HereticTomeBase
-  id: HereticTomeMansusDepth
+  id: HereticTomeMansusDepthI
   name: Analysis of the Mansus, volume I
   description: Something is off about this book
   components:
   - type: HereticTome
     knowledgeGain: 2    # Two knowledge!
   - type: Paper
-    content: book-text-mansus-depth   # The indepth desc of what the mansus is
+    content: book-text-mansus-depthI   # The indepth desc of what the mansus is
+
+- type: entity
+  parent: HereticTomeBase
+  id: HereticTomeMansusDepthII
+  name: Analysis of the Mansus, volume II
+  description: Something is off about this book
+  components:
+  - type: HereticTome
+    knowledgeGain: 2    # Two knowledge!
+  - type: Paper
+    content: book-text-mansus-depthII   # The indepth desc of what the mansus is
+
