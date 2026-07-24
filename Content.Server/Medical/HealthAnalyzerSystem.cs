@@ -561,7 +561,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
                 || !TryGetNetEntity(solution, out var netSolution))
                 continue;
 
-            solutionsList.TryAdd(netSolution.Value, solution.Comp.Solution);
+            solutionsList.TryAdd(netSolution.Value, solution.Comp.Solution); // Omu - TryAdd prevent exceptions in Update
         }
 
         if (TryComp<BodyComponent>(target, out var body)
@@ -573,7 +573,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
                     || !TryGetNetEntity(stomach.Comp1.Solution, out var netSolution))
                     continue;
 
-                solutionsList.TryAdd(netSolution.Value, stomach.Comp1.Solution.Value.Comp.Solution); // This is horrible.
+                solutionsList.TryAdd(netSolution.Value, stomach.Comp1.Solution.Value.Comp.Solution); // This is horrible. // Omu - TryAdd prevent exceptions in Update
             }
         }
 
