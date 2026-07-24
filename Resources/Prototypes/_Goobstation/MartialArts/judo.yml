@@ -12,7 +12,7 @@
   id: CorporateJudo
   martialArtsForm: CorporateJudo
   roundstartCombos: CorporateJudoMoves
-  baseDamageModifier: 5
+  # baseDamageModifier: 5 # Omu; Why does a non-lethal martial art make you more lethal?
 
 - type: comboList
   id: CorporateJudoMoves
@@ -39,6 +39,7 @@
   martialArtsForm: CorporateJudo
   attacks:
   - Disarm
+  - Grab # Omu, made Judo more challenging
   - Harm
   event: !type:JudoEyePokePerformedEvent
   extraDamage: 5
@@ -50,8 +51,9 @@
   attacks:
   - Grab
   - Disarm
+  - Disarm # Omu, made Judo more challenging
   event: !type:JudoThrowPerformedEvent
-  paralyzeTime: 4
+  paralyzeTime: 4.5 # Omu, made it last a TAAAD longer due to shove-standup
   staminaDamage: 5
   dropItems: false
   canDoWhileProne: false
