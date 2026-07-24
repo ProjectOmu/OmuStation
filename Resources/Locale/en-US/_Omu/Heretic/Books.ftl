@@ -3,7 +3,7 @@ book-text-mansus-overview = This text shall aim to provide the reader with a bri
     The plane of dreams exists above our own perception. It lies in cosmology above the noosphere, it is a plane shaped by the collective wills of all who sleep and dream.
     To those who dwell or visit, they will find their very existence and surroundings are shaped by their will and how they choose to percieve it.
     Beings of greater will can exert greater force and align the world with their view and desires, forcing others to fall in line or to a battle of wills.
-    To visit or observe te dreamscape requires sleeping in an area not fully anchored to realspace and to drift through the noosphere and to the edge of the wood.
+    To visit or observe the dreamscape requires sleeping in an area not fully anchored to realspace and to drift through the noosphere and to the edge of the wood.
 
 book-text-mansus-depth = For those readers astute enough to find this, know that to read further is to attract scrutiny.
     The plane of dreams, the mansus, grows closer to our world in isolated places. Those who dwell far from the noise of civilisation and the prescence of too many minds can observe it with great clarity.
