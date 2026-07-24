@@ -45,13 +45,13 @@
     prototype: MobGhoulMirrorMaiden
   - type: AntagObjectives
     objectives:
-    - CarpRiftsObjective
+    - KillEnlightenedObjective
   - type: AntagSelection
-    agentName: dragon-round-end-agent-name
+    agentName: role-subtype-mirror-maiden
     definitions:
     - spawnerPrototype: SpawnPointGhostBlueMaiden
       min: 1
       max: 1
       pickPlayer: false
       mindRoles:
-      - MindRoleDragon
+      - MindRoleGhoul
