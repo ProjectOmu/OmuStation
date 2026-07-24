@@ -63,7 +63,7 @@
       - state: inhand-right
         color: "#e3c656"
   - type: StaticPrice
-    price: 10000
+    price: 14000
 
 #MARK: Surgical
 - type: entity
@@ -81,7 +81,7 @@
   - type: Sprite
     state: icon-surgical
   - type: StaticPrice
-    price: 10000
+    price: 8000
 
 #MARK: Experimental
 - type: entity
@@ -107,7 +107,7 @@
       - state: inhand-right
         color: "#FFA500"
   - type: StaticPrice
-    price: 10000
+    price: 16000
 
 #MARK: Security
 - type: entity
@@ -133,7 +133,7 @@
       - state: inhand-right
         color: "#8B0000"
   - type: StaticPrice
-    price: 10000
+    price: 9000
 
 #MARK: Armory
 - type: entity
