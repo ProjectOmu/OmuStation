@@ -50,7 +50,7 @@ public sealed class HereticTomeSystem : EntitySystem
     {
         var actor = args.Actor;       //Get the players entity!
 
-        if (!_heretic.TryGetHereticComponent(actor, out _, out _))            //Get heretic entity
+        if (component.Readers.Contains(actor))          //Have they read it before?
             return;
 
         if (!_mind.TryGetMind(args.Actor, out _, out var mind))
@@ -70,8 +70,9 @@ public sealed class HereticTomeSystem : EntitySystem
         SharedChatSystem.UpdateFontSize(size, ref message, ref loc);
         _chatMan.ChatMessageToOne(ChatChannel.Server, message, loc, default, false, session.Channel, canCoalesce: false);
 
-        _heretic.UpdateKnowledge(actor, component.KnowledgeGain);       //Give them knowledge
-        Spawn("Ash", Transform(book).Coordinates);          //Ash the book
-        QueueDel(book);
+        if (_heretic.TryGetHereticComponent(actor, out _, out _))            //Get heretic entity
+            _heretic.UpdateKnowledge(actor, component.KnowledgeGain);         //Give them knowledge
+
+        component.Readers.Add(actor);           // No double dipping!
     }
 }
