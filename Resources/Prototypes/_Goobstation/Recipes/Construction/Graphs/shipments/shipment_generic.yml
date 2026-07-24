@@ -7,6 +7,7 @@
       - to: shipmentGenericTider
         steps:
           - tag: NoticeGenericTider
+            name: shipment-NoticeGenericTider
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
@@ -60,6 +61,7 @@
       - to: shipmentGenericUniforms
         steps:
           - tag: NoticeGenericUniforms
+            name: shipment-NoticeGenericUniforms
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt

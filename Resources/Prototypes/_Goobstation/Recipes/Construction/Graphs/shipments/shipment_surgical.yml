@@ -7,6 +7,7 @@
       - to: shipmentSurgicalSuppliesAdvanced
         steps:
           - tag: NoticeSurgicalSuppliesAdvanced
+            name: shipment-NoticeSurgicalSuppliesAdvanced
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
@@ -81,6 +82,7 @@
       - to: shipmentSurgicalCyborg
         steps:
           - tag: NoticeSurgicalCyborg
+            name: shipment-NoticeSurgicalCyborg
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt

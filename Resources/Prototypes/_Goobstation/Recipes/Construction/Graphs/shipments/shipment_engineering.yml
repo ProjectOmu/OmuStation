@@ -7,6 +7,7 @@
       - to: shipmentEngineeringTools
         steps:
           - tag: NoticeEngineeringTools
+            name: shipment-NoticeEngineeringTools
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
@@ -75,6 +76,7 @@
       - to: shipmentEngineeringToolsAdvanced
         steps:
           - tag: NoticeEngineeringToolsAdvanced
+            name: shipment-NoticeEngineeringToolsAdvanced
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt

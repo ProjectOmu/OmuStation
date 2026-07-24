@@ -66,3 +66,21 @@ shipment-wirecutter = wirecutter
 shipment-pair-of-jaws-of-life = pair of jaws of life
 shipment-power-drill = power drill
 shipment-experimental-welder = experimental welder
+
+## Notices
+shipment-NoticeEngineeringTools = engineering tools shipment notice
+shipment-NoticeEngineeringToolsAdvanced = engineering advanced tools shipment notice
+shipment-NoticeGenericTider = tiding gears shipment notice
+shipment-NoticeGenericUniforms = uniforms shipment notice
+shipment-NoticeMedicalSupplies = medical supplies shipment notice
+shipment-NoticeMedicalEmergency = medical emergency shipment notice
+shipment-NoticeSurgicalSuppliesAdvanced = advanced surgical supplies shipment notice
+shipment-NoticeSurgicalCyborg = cyborg kit shipment notice
+shipment-NoticeSecuritySupplies = security supplies shipment notice
+shipment-NoticeSecurityAmmo = ammunition shipment notice
+shipment-NoticeArmoryLasers = laser weaponry shipment notice
+shipment-NoticeArmoryAmmoAdvanced = advanced ammunition shipment notice
+shipment-NoticeScienceAnomaly = anomaly research kit shipment notice
+shipment-NoticeScienceWorkstation = workstation shipment notice
+shipment-NoticeExperimentalMaterialsAdvanced = advanced material analysis shipment notice
+shipment-NoticeExperimentalGeological = geological analysis shipment notice

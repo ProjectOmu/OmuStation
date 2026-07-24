@@ -7,6 +7,7 @@
       - to: shipmentExperimentalMaterialsAdvanced
         steps:
           - tag: NoticeExperimentalMaterialsAdvanced
+            name: shipment-NoticeExperimentalMaterialsAdvanced
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
@@ -48,6 +49,7 @@
       - to: shipmentExperimentalGeological
         steps:
           - tag: NoticeExperimentalGeological
+            name: shipment-NoticeExperimentalGeological
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt

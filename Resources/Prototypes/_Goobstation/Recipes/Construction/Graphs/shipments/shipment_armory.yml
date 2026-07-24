@@ -7,6 +7,7 @@
       - to: shipmentArmoryAmmoAdvanced
         steps:
           - tag: NoticeArmoryAmmoAdvanced
+            name: shipment-NoticeArmoryAmmoAdvanced
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
@@ -72,6 +73,7 @@
       - to: shipmentArmoryLasers
         steps:
           - tag: NoticeArmoryLasers
+            name: shipment-NoticeArmoryLasers
             doAfter: 0.1
             completed:
               - !type:VisualizerDataInt
