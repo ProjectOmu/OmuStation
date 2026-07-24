@@ -1,9 +1,9 @@
 - type: latheRecipe
-  parent: [ BaseCircuitboardRecipe ]
+  parent: [ BaseCircuitboardRecipe, BaseCircuitryRecipeCategory ]
   id: NuclearFabricatorMachineCircuitboard
   result: NuclearFabricatorMachineCircuitboard
 
 - type: latheRecipe
-  parent: [ BaseCircuitboardRecipe ]
+  parent: [ BaseCircuitboardRecipe, BaseCircuitryRecipeCategory ]
   id: NuclearCentrifugeMachineCircuitboard
   result: NuclearCentrifugeMachineCircuitboard
