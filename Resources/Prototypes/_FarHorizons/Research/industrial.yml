@@ -1,5 +1,6 @@
 - type: technology
   id: NuclearPowerGeneration
+  position: -2,-6
   name: research-technology-nuclear-power
   icon:
     sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/reactor_parts.rsi
@@ -23,10 +24,11 @@
   - PlasteelReactorHeatExchanger
   - PlasmaGlassReactorHeatExchanger
   technologyPrerequisites:
-  - PowerGeneration
- 
+  - AdvancedAtmospherics
+
 - type: technology
   id: NuclearPowerRecycling
+  position: -2,-7
   name: research-technology-nuclear-recycling
   icon:
     sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/nuclear_waste.rsi
