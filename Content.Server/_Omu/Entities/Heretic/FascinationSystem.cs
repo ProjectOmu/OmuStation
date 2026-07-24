@@ -86,11 +86,11 @@ public sealed class FascinationSystem: EntitySystem
                 $"{ent} has fascination 5, making valid");
                 EnsureComp<SeeHereticFixturesComponent>(ent);
                 ent.Comp.AlteredVision = true;
-                _gameTicker.StartGameRule("BlueMaidenSpawn", out _);
-                ent.Comp.AlteredFaction = true;
-                var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(ent);    //Make them valid to the mirror maiden
-                userFactionIcons.FactionIcons.Add(ent.Comp.IconToAdd);
             }
+            _gameTicker.StartGameRule("BlueMaidenSpawn", out _);
+            ent.Comp.AlteredFaction = true;
+            var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(ent);    //Make them valid to the mirror maiden
+            userFactionIcons.FactionIcons.Add(ent.Comp.IconToAdd);
         }
     }
 }
