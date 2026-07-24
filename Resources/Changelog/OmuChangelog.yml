@@ -5373,3 +5373,35 @@ Entries:
         "Blob."
   id: 699
   time: '2026-07-23T23:26:40.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Add
+      message: Added 'DescSquad' Component for events and Admin usage
+  id: 700
+  time: '2026-07-24T07:22:51.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed Lifeline not dropping items.
+  id: 701
+  time: '2026-07-24T11:41:26.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed Drill sergeant headset not rendering
+  id: 702
+  time: '2026-07-24T16:53:26.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: >-
+        Zombies/Sleepers/Lone Op found their way back to being able to be
+        spawned again
+  id: 703
+  time: '2026-07-24T18:24:09.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed adminchat relay sending messages to non-admins.
+  id: 704
+  time: '2026-07-24T18:30:21.0000000+00:00'
