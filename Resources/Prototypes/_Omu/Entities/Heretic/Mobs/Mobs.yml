@@ -46,3 +46,12 @@
         Piercing: 10
   - type: Visibility
     layer: 64 #same as influencespent
+  - type: NpcFactionMember
+    factions:
+    - Mansus
+  - type: ShowAntagIcons
+
+- type: npcFaction
+  id: Mansus
+  hostile:
+  - Heretic

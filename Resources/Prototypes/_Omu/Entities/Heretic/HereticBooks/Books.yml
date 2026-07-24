@@ -1,14 +1,15 @@
 - type: factionIcon
   id: MadnessFaction
-  priority: 5
+  priority: 15
   icon:
-    sprite: /Textures/_Omu/Interface/Heretic/faction_icons.rsi
+    sprite: _Omu/Interface/Heretic/faction_icons.rsi
     state: madness
   showTo:
     components:
     - Fauna
     - ShowAntagIcons
     - Ghoul
+  locationPreference: Right
 
 ## Books onward!
 
