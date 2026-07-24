@@ -4,12 +4,15 @@ using Content.Server.GameTicking;
 using Content.Goobstation.Shared.CustomFactionIcons;
 using Content.Server._Goobstation.Chaplain;
 using Content.Server._Goobstation.Chaplain.Components;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 
 namespace Content.Server._Omu.Entities.Heretic;
 
 public sealed class FascinationSystem: EntitySystem
 {
     [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -79,6 +82,8 @@ public sealed class FascinationSystem: EntitySystem
         {
             if (ent.Comp.Naturalsight == false)
             {
+                _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+                $"{ent} has fascination 5, making valid");
                 EnsureComp<SeeHereticFixturesComponent>(ent);
                 ent.Comp.AlteredVision = true;
                 _gameTicker.StartGameRule("BlueMaidenSpawn", out _);
