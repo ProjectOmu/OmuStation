@@ -502,13 +502,13 @@ public sealed class HealthAnalyzerSystem : EntitySystem
                     && trauma.Comp.TraumaTarget is { } boneWoundable
                     && TryComp(boneWoundable, out BoneComponent? boneComp))
                 {
-                    traumasList.TryAdd(new WoundableTraumaData(ToPrettyString(target), // Omu - TryAdd prevent exceptions in Update
+                    traumasList.Add(new WoundableTraumaData(ToPrettyString(target),
                         trauma.Comp.TraumaType.ToString(), trauma.Comp.TraumaSeverity, boneComp.BoneSeverity.ToString(), trauma.Comp.TargetType));
 
                     continue;
                 }
 
-                traumasList.TryAdd(new WoundableTraumaData(ToPrettyString(trauma), // Omu - TryAdd prevent exceptions in Update
+                traumasList.Add(new WoundableTraumaData(ToPrettyString(trauma),
                         trauma.Comp.TraumaType.ToString(), trauma.Comp.TraumaSeverity, targetType: trauma.Comp.TargetType));
             }
         }
