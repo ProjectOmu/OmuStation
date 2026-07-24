@@ -470,9 +470,9 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
         foreach (var (woundable, component) in _woundSystem.GetAllWoundableChildren(rootPart))
         {
-            traumas.Add(GetNetEntity(woundable), FetchTraumaData(woundable, component));
-            pain.Add(GetNetEntity(woundable), FetchPainData(woundable, component));
-            bleeding.Add(_bodySystem.GetTargetBodyPart(woundable), component.Bleeds > 0);
+            traumas.TryAdd(GetNetEntity(woundable), FetchTraumaData(woundable, component)); // Omu - TryAdd prevent exceptions in Update
+            pain.TryAdd(GetNetEntity(woundable), FetchPainData(woundable, component)); // Omu - TryAdd prevent exceptions in Update
+            bleeding.TryAdd(_bodySystem.GetTargetBodyPart(woundable), component.Bleeds > 0); // Omu - TryAdd prevent exceptions in Update
         }
     }
 
@@ -484,7 +484,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             return bleeding;
 
         foreach (var (woundable, component) in _woundSystem.GetAllWoundableChildren(rootPart))
-            bleeding.Add(_bodySystem.GetTargetBodyPart(woundable), component.Bleeds > 0);
+            bleeding.TryAdd(_bodySystem.GetTargetBodyPart(woundable), component.Bleeds > 0); // Omu - TryAdd prevent exceptions in Update
 
         return bleeding;
     }
@@ -502,13 +502,13 @@ public sealed class HealthAnalyzerSystem : EntitySystem
                     && trauma.Comp.TraumaTarget is { } boneWoundable
                     && TryComp(boneWoundable, out BoneComponent? boneComp))
                 {
-                    traumasList.Add(new WoundableTraumaData(ToPrettyString(target),
+                    traumasList.TryAdd(new WoundableTraumaData(ToPrettyString(target), // Omu - TryAdd prevent exceptions in Update
                         trauma.Comp.TraumaType.ToString(), trauma.Comp.TraumaSeverity, boneComp.BoneSeverity.ToString(), trauma.Comp.TargetType));
 
                     continue;
                 }
 
-                traumasList.Add(new WoundableTraumaData(ToPrettyString(trauma),
+                traumasList.TryAdd(new WoundableTraumaData(ToPrettyString(trauma), // Omu - TryAdd prevent exceptions in Update
                         trauma.Comp.TraumaType.ToString(), trauma.Comp.TraumaSeverity, targetType: trauma.Comp.TargetType));
             }
         }
@@ -535,7 +535,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
         foreach (var (organId, organComp) in _bodySystem.GetBodyOrgans(target))
         {
-            organs.Add(GetNetEntity(organId), new OrganTraumaData(organComp.OrganIntegrity,
+            organs.TryAdd(GetNetEntity(organId), new OrganTraumaData(organComp.OrganIntegrity, // Omu - TryAdd prevent exceptions in Update
                 organComp.IntegrityCap,
                 organComp.OrganSeverity,
                 organComp.IntegrityModifiers
@@ -561,7 +561,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
                 || !TryGetNetEntity(solution, out var netSolution))
                 continue;
 
-            solutionsList.Add(netSolution.Value, solution.Comp.Solution);
+            solutionsList.TryAdd(netSolution.Value, solution.Comp.Solution);
         }
 
         if (TryComp<BodyComponent>(target, out var body)
@@ -573,7 +573,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
                     || !TryGetNetEntity(stomach.Comp1.Solution, out var netSolution))
                     continue;
 
-                solutionsList.Add(netSolution.Value, stomach.Comp1.Solution.Value.Comp.Solution); // This is horrible.
+                solutionsList.TryAdd(netSolution.Value, stomach.Comp1.Solution.Value.Comp.Solution); // This is horrible.
             }
         }
 
