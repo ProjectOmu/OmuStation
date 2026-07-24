@@ -1,4 +1,6 @@
-using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
+using Content.Shared.StatusIcon;
+
 namespace Content.Server._Omu.Entities.Heretic;
 
 [RegisterComponent]
@@ -34,7 +36,13 @@ public sealed partial class FascinationComponent : Component
     };
 
     [DataField]
-    public float OrigEye;
+    public bool Naturalsight;
+
+    [DataField]
+    public bool AlteredVision;
+
+    [DataField]
+    public ProtoId<FactionIconPrototype> IconToAdd = "Madness";
 }
 public sealed class FascinationChangedArgs : EntityEventArgs
 {

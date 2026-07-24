@@ -1,3 +1,16 @@
+- type: factionIcon
+  id: MadnessFaction
+  priority: 7 # 6.5 rounded
+  icon:
+    sprite: /Textures/_Omu/Interface/Heretic/faction_icons.rsi
+    state: madness
+  showTo:
+    components:
+    - Fauna
+    - ShowAntagIcons
+    - Ghoul
+
+## Books onward!
 
 - type: entity
   parent: BookBase

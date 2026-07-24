@@ -1,0 +1,48 @@
+- type: entity
+  parent: BaseMobGhoul
+  id: MobGhoulMirrorMaiden
+  name: Mirror Maiden
+  description: A trick of the light? Or is it the shimmering air itself come to claim you?
+  components:
+  - type: Ghoul
+    totalHealth: 200 #miniboss!
+    ghostRoleName: mirror-maiden-role-name
+    ghostRoleDesc: mirror-maiden-role-desc
+  - type: Sprite
+    sprite: _Omu/Mobs/heretic.rsi
+    state: blue_maiden
+  - type: Damageable
+    damageModifierSet: GhoulFleshStalker    #todo - seperate damage resist
+  - type: GhostRole
+    name: mirror-maiden-role-name
+    description: mirror-maiden-role-desc
+    mindRoles:
+    - MindRoleGhoul
+  - type: ActionGrant
+    actions:
+    - ActionHereticJaunt
+    - ActionActivateEmpImplant
+  - type: TriggerOnActivateImplant
+  - type: EmpOnTrigger
+    range: 5
+    energyConsumption: 50000
+    disableDuration: 20
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 7    #Fast!
+    baseSprintSpeed: 7
+  - type: FlashImmunity
+  - type: ThermalVision
+    thermalShader: null
+    isActive: true
+    color: white
+    drawOverlay: false
+    lightRadius: 0
+    toggleAction: null
+  - type: MeleeWeapon
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 15
+        Piercing: 10
+  - type: Visibility
+    layer: 64 #same as influencespent

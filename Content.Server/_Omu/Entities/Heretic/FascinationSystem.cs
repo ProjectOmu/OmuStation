@@ -1,15 +1,15 @@
 using Content.Shared.Examine;
 using Robust.Shared.Utility;
-using Content.Shared.Eye;
-
+using Content.Server.GameTicking;
+using Content.Goobstation.Shared.CustomFactionIcons;
+using Content.Server._Goobstation.Chaplain;
+using Content.Server._Goobstation.Chaplain.Components;
 
 namespace Content.Server._Omu.Entities.Heretic;
 
 public sealed class FascinationSystem: EntitySystem
 {
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
-
-    private const int ChaplainVisFlags = (int) VisibilityFlags.EldritchInfluence;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -19,6 +19,8 @@ public sealed class FascinationSystem: EntitySystem
     }
     private void OnStartup(EntityUid uid, FascinationComponent component, ComponentStartup args)
     {
+        if (HasComp<SeeHereticFixturesComponent>(uid))
+            component.Naturalsight = true;
     }
 
     private void OnExamined(Entity<FascinationComponent> ent, ref ExaminedEvent args)
@@ -58,15 +60,28 @@ public sealed class FascinationSystem: EntitySystem
         ent.Comp.FascinationValue += args.Amount; //increment the fascination value by the amount of knowledge gained!
 
         float fascvalue = ent.Comp.FascinationValue;
-        var eye = EnsureComp<EyeComponent>(ent);
 
+        if (fascvalue < 5)
+        {
+            if (ent.Comp.Naturalsight == false & ent.Comp.AlteredVision == true)
+                RemComp<SeeHereticFixturesComponent>(ent);
+            var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(ent);    //Make them un-valid to the mirror maiden
+            userFactionIcons.FactionIcons.Remove(ent.Comp.IconToAdd);
+        }
         if (fascvalue <= 0);
         {
             RemComp<FascinationComponent>(ent);
         }
         if (fascvalue >= 5)
         {
-
+            if (ent.Comp.Naturalsight == false)
+            {
+                EnsureComp<SeeHereticFixturesComponent>(ent);
+                ent.Comp.AlteredVision = true;
+                _gameTicker.StartGameRule("BlueMaidenSpawn", out _);
+                var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(ent);    //Make them valid to the mirror maiden
+                userFactionIcons.FactionIcons.Add(ent.Comp.IconToAdd);
+            }
         }
     }
 }
