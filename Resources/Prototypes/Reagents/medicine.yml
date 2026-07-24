@@ -1798,6 +1798,8 @@
         visualType: Medium
         messages: [ "mannitol-effect-enlightened" ]
         probability: 0.2
+      - !type:ReduceFascinationEntityEffect   #Omu - sanity meds!
+        toChange: -0.2
 
 - type: reagent
   id: Psicodine
@@ -1844,6 +1846,8 @@
         - "psicodine-effect-anxieties-wash-away"
         - "psicodine-effect-at-peace"
         probability: 0.2
+      - !type:ReduceFascinationEntityEffect   #Omu - sanity meds!
+        toChange: -0.4
 
 - type: reagent
   id: PotassiumIodide

@@ -6,3 +6,5 @@ fascination-examine-2 = They look through things for just a moment, as if lookin
 fascination-examine-3 = A fear has them in its embrace, but of what?
 fascination-examine-4 = Eyes unfocused, face flush with exertion, something is wrong.
 fascination-examine-5 = A quiet madness has them in its clutches, they glance around with ever increasing fervour.
+
+reagent-effect-guidebook-reduce-fascination = reduces the effects of psychiatric disturbance
