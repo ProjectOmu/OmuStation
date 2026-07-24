@@ -39,9 +39,7 @@
     eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 100
-  - type: SpaceSpawnRule
-    spawnDistance: 0
-  - type: AntagSpawner
+  - type: RandomSpawnRule
     prototype: MobGhoulMirrorMaiden
   - type: AntagObjectives
     objectives:
