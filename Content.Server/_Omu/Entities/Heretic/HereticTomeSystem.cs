@@ -50,7 +50,7 @@ public sealed class HereticTomeSystem : EntitySystem
     {
         var actor = args.Actor;       //Get the players entity!
 
-        if (component.Readers.Count != 0)
+        if (component.Readers != null)
             if (component.Readers.Contains(actor))          //Have they read it before?
                 return;
 
