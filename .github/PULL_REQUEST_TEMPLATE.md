@@ -37,7 +37,7 @@ Small fixes/refactors are exempt. Media may be used in SS14 progress reports wit
 - [ ] I have read and am following the [Pull Request and Changelog Guidelines](https://docs.spacestation14.com/en/general-development/codebase-info/pull-request-guidelines.html).
 - [ ] I have added media to this PR or it does not require an ingame showcase.
 <!-- You should understand that not following the above may get your PR closed at maintainer’s discretion -->
-- [ ] I have read and agree to the Contributor License Agreement
+- [ ] I have read and agree to the Contributor License Agreement.
 <!-- See CLA.md for the CLA -->
 
 ## Breaking changes
