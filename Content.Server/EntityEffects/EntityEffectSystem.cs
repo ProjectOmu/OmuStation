@@ -49,6 +49,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Server._Omu.Entities.Heretic; // Omu
 using Content.Shared._Omu.EntityEffects.Effects; // Omu
+using Content.Shared.NPC.Systems; // Omu
 
 using TemperatureCondition = Content.Shared.EntityEffects.EffectConditions.Temperature; // disambiguate the namespace
 using PolymorphEffect = Content.Shared.EntityEffects.Effects.Polymorph;
@@ -83,7 +84,7 @@ public sealed class EntityEffectSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly VomitSystem _vomit = default!;
     [Dependency] private readonly TurfSystem _turf = default!; //todo Goobstation? The only thing im using this for is meant to be in RT? Fix if you havent
-
+    [Dependency] private readonly NpcFactionSystem _npcFactionSystem = default!; // Omu
     public override void Initialize()
     {
         base.Initialize();
@@ -755,7 +756,13 @@ public sealed class EntityEffectSystem : EntitySystem
     private void OnExecuteMakeSentient(ref ExecuteEntityEffectEvent<MakeSentient> args)
     {
         var uid = args.Args.TargetEntity;
-
+        // Omu start
+        var nanotrasenFaction = "NanoTrasen";
+        if (_npcFactionSystem.IsFactionHostile(nanotrasenFaction, uid)) // If its hostile to NT then don't allow cognizine to work (Without using xenobio to pacify the mob first)
+        {
+            return;
+        }
+        // Omu end
         // Let affected entities speak normally to make this effect different from, say, the "random sentience" event
         // This also works on entities that already have a mind
         // We call this before the mind check to allow things like player-controlled mice to be able to benefit from the effect
