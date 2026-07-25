@@ -11,10 +11,6 @@
       inverted: true
       departments:
         - Medical
-    - !type:JobsRequirement
-      inverted: true
-      jobs:
-        - BlueshieldOfficer
 
 - type: trait
   id: Uncloneable
