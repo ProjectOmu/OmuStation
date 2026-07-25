@@ -43,7 +43,7 @@ public sealed partial class FascinationComponent : Component
     public bool AlteredVision;
 
     [DataField]
-    public ProtoId<FactionIconPrototype> IconToAdd = "Madness";
+    public ProtoId<FactionIconPrototype> IconToAdd = "MadnessFaction";
     [DataField]
     public ProtoId<NpcFactionPrototype> FactionToAdd = "Madness";
 
