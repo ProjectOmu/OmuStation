@@ -12,6 +12,9 @@ using Content.Shared.Drunk;
 using Content.Shared.Drugs;
 using Content.Shared.Drowsiness;
 using Content.Shared.StatusEffectNew;
+using Content.Goobstation.Common.Flash;
+using Content.Shared.Tag;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Implants.Systems;
 public sealed class MindcontrolImplantSystem : EntitySystem
@@ -19,6 +22,8 @@ public sealed class MindcontrolImplantSystem : EntitySystem
     [Dependency] private readonly MindcontrolSystem _mindcontrol = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly SharedChargesSystem _sharedCharges = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+    public static readonly ProtoId<TagPrototype> IgnoreResistancesTag = "FlashIgnoreResistances"; // Goobstation
     public override void Initialize()
     {
         base.Initialize();
@@ -47,6 +52,19 @@ public sealed class MindcontrolImplantSystem : EntitySystem
         if (args.HitEntities != null)           //Did we hit smth?
             foreach (var target in args.HitEntities)
             {
+                var vulnerableEv = new CheckFlashVulnerable();
+                RaiseLocalEvent(target, ref vulnerableEv);
+
+                if (component.HolderUid == null
+                || !_tag.HasTag(component.Owner, IgnoreResistancesTag)
+                && !vulnerableEv.Vulnerable)
+                {
+                    var attempt = new FlashAttemptEvent(target, component.HolderUid, component.Owner);
+                    RaiseLocalEvent(target, ref attempt, true);
+
+                    if (attempt.Cancelled)
+                        return;
+                }
                 if (_statusEffect.HasStatusEffect(target, "StatusEffectSeeingRainbow") || _statusEffect.HasStatusEffect(target, "StatusEffectDrowsiness") || _statusEffect.HasStatusEffect(target, "StatusEffectForcedSleeping"))
                 {
                     EnsureComp<MindcontrolledComponent>(target, out var flashed);        //Mind control em
