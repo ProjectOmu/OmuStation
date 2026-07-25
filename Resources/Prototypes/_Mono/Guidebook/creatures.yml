@@ -1,13 +1,4 @@
 - type: guideEntry
-  id: Creatures
-  name: guide-entry-creatures
-  text: "/ServerInfo/_Mono/Guidebook/Creatures/Creatures.xml"
-  priority: 8
-  children:
-  - CorticalBorerGuide
-  - Letoferol
-
-- type: guideEntry
   id: CorticalBorerGuide
   name: guide-entry-cortical-borer
   text: "/ServerInfo/_Mono/Guidebook/Creatures/CorticalBorer.xml"
