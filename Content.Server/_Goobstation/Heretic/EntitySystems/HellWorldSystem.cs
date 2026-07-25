@@ -75,6 +75,7 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
                 //if they've been in hell long enough, return and revive them
                 if (_timing.CurTime >= victimComp.ExitHellTime && !victimComp.CleanupDone)
                 {
+                    var olduid = uid;
                     //make sure they won't get into this loop again
                     victimComp.CleanupDone = true;
                     //put them back in the original body
@@ -89,6 +90,7 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
                         _euiMan.OpenEui(new HellMemoryEui(), session);
                     //and then revive the old body
                     _rejuvenate.PerformRejuvenate(uid);
+                    _ent.QueueDeleteEntity(olduid);  //delete hell body
                 }
             }
         }
