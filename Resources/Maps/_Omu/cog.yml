@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/16/2026 14:44:51
+  time: 07/25/2026 19:52:10
   entityCount: 31865
 maps:
 - 1
@@ -166085,24 +166085,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-  - uid: 25477
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 48.5,-22.5
-      parent: 2
-    - type: SignalSwitch
-      state: True
-    - type: DeviceLinkSource
-      linkedPorts:
-        25464:
-        - - Pressed
-          - Toggle
-        25463:
-        - - Pressed
-          - Toggle
-    - type: Fixtures
-      fixtures: {}
   - uid: 25478
     components:
     - type: Transform
@@ -166124,6 +166106,22 @@ entities:
       fixtures: {}
 - proto: SignalButtonDirectional
   entities:
+  - uid: 25477
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 48.5,-22.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        25463:
+        - - Pressed
+          - Toggle
+        25464:
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
   - uid: 25479
     components:
     - type: Transform
