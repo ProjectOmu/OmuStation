@@ -205,7 +205,7 @@
   id: UplinkHypnoflash
   name: uplink-hypnoflash-name
   description: uplink-hypnoflash-desc
-  icon: { sprite: Objects/Weapons/Melee/flash.rsi }
+  icon: { sprite: Objects/Weapons/Melee/flash.rsi, state: flash }
   productEntity: HypnoFlash
   cost:
     Telecrystal: 70
