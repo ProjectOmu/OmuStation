@@ -51,13 +51,13 @@ public sealed partial class GhostGui : UIWidget
         ReturnToBodyButton.OnPressed += _ => ReturnToBodyPressed?.Invoke();
         GhostRolesButton.OnPressed += _ => GhostRolesPressed?.Invoke();
         GhostRolesButton.OnPressed += _ => GhostRolesButton.StyleClasses.Remove(StyleBase.ButtonCaution);
-        GhostBarButton.OnPressed += _ => GhostBarPressed?.Invoke(); // Goobstation - Ghost Bar
+        //GhostBarButton.OnPressed += _ => GhostBarPressed?.Invoke(); // Goobstation / Omu - Disabled
     }
 
     public void Hide()
     {
         TargetWindow.Close();
-        GhostBarWindow.Close(); // Goobstation - Ghost Bar
+        //GhostBarWindow.Close(); // Goobstation / Omu - Disabled
         Visible = false;
     }
 
@@ -65,9 +65,9 @@ public sealed partial class GhostGui : UIWidget
     public void Update(int? roles, bool? canReturnToBody, bool? canEnterGhostBar = true, bool? canTakeGhostRoles = true)
     {
         ReturnToBodyButton.Disabled = !canReturnToBody ?? true;
-        // Goobstation start
-        GhostBarButton.Disabled = !canEnterGhostBar ?? true;
-        GhostRolesButton.Disabled = !canTakeGhostRoles ?? true;
+        // Goobstation start / Omu - Disabled
+        //GhostBarButton.Disabled = !canEnterGhostBar ?? true;
+        //GhostRolesButton.Disabled = !canTakeGhostRoles ?? true;
         // Goobstation end
 
         if (roles != null)
@@ -92,7 +92,7 @@ public sealed partial class GhostGui : UIWidget
         if (disposing)
         {
             TargetWindow.Dispose();
-            GhostBarWindow.Dispose(); // Goobstation - Ghost Bar
+            //GhostBarWindow.Dispose(); // Goobstation / Omu - Disabled
         }
     }
 }

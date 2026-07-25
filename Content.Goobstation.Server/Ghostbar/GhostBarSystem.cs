@@ -49,7 +49,7 @@ public sealed class GhostBarSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
+        //SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart); //Omu - Disable Ghost Bar Loading
         SubscribeNetworkEvent<GhostBarSpawnEvent>(SpawnPlayer);
         SubscribeLocalEvent<GhostBarPlayerComponent, MindRemovedMessage>(OnPlayerGhosted);
     }
