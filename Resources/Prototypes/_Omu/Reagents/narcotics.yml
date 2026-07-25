@@ -73,6 +73,6 @@
         - !type:ReagentThreshold
           reagent: Tetradotoxin
           min: 10
-        effectProto: StatusEffectForcedSleeping
+        effectProto: StatusEffectDrowsiness
         time: 5
         type: Add
