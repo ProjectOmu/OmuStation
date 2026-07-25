@@ -16,3 +16,32 @@
   - type: InternalResourcesAction
     resourceProto: ChangelingChemicals
     useAmount: 50
+    
+- type: entity
+  parent: BaseAction
+  id: ActionStingBerserk
+  name: Berserk Sting
+  description: Silently sting your target, driving them into a berserk rage. Costs 45 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: sting_berserk
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:StingReagentEvent {}
+  - type: ChangelingAction
+    useInLesserForm: true
+  - type: ChangelingReagentSting
+    configuration: StingBerserk
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 45
