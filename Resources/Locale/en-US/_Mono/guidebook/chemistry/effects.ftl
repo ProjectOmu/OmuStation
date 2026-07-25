@@ -306,11 +306,12 @@ reagent-effect-guidebook-ignite =
         *[other] ignite
     } the metabolizer
 
+# Omu, add "if it is not hostile" to make-sentient
 reagent-effect-guidebook-make-sentient =
     { $chance ->
         [1] Makes
         *[other] make
-    } the metabolizer sentient
+    } the metabolizer sentient if it is not hostile
 
 reagent-effect-guidebook-make-polymorph =
     { $chance ->

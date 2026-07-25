@@ -14,6 +14,7 @@
     SlaughterDemon: 1 # Goobstation begin
     # Wraith: 1
     LoneOperative: 1
+    SleeperAgents: 1 # Omu
     # Slasher: 1 # Omu, disable this
     # Goobstation end
 
@@ -21,6 +22,13 @@
   id: Dragon
   announcement: terror-dragon
   rule: DragonSpawn
+
+# Omu start 
+- type: ninjaHackingThreat
+  id: SleeperAgents
+  announcement: terror-sleeper
+  rule: SleeperAgentsWizard
+# Omu end
 
 # Goobstation - Revenant was disabled.
 #- type: ninjaHackingThreat
