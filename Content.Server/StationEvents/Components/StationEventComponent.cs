@@ -140,6 +140,14 @@ public sealed partial class StationEventComponent : Component
     [DataField]
     public int EarliestStart = 5;
 
+    // Omu Edit start
+    /// <summary>
+    ///     In minutes, when is the latest this event can start -- Default of null
+    /// </summary>
+    [DataField]
+    public int LatestStart;
+    // Omu Edit End
+
     /// <summary>
     ///     In minutes, the amount of time before the same event can occur again
     /// </summary>
