@@ -39,5 +39,5 @@ public sealed partial class HereticTomeComponent : Component
         "fracture-examine-message-16",
     };
 
-    public List<EntityUid> Readers;     //UID's of people who read the book
+    public List<EntityUid> Readers = new();     //UID's of people who read the book
 }

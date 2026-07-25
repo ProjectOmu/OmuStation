@@ -89,7 +89,7 @@ public sealed class FascinationSystem: EntitySystem
         {
             RemComp<FascinationComponent>(ent);
         }
-        if (fascvalue >= 5)
+        if (fascvalue >= 5 && args.Amount > 0)
         {
             if (ent.Comp.Naturalsight == false)
             {
