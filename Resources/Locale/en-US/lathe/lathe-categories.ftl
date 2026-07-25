@@ -40,6 +40,7 @@ lathe-category-steel = Steel
 lathe-category-white = White
 lathe-category-wood = Wood
 lathe-category-marble = Marble
+lathe-category-metal = Metal
 
 # Science
 lathe-category-mechs = Mechs
