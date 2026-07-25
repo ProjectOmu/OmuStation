@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/06/2026 23:17:27
-  entityCount: 25339
+  time: 07/25/2026 20:59:27
+  entityCount: 25351
 maps:
 - 1
 grids:
@@ -11361,7 +11361,7 @@ entities:
       pos: 75.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -20128.9
+      secondsUntilStateChange: -20466.805
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17251,6 +17251,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 24.5,91.5
       parent: 2
+  - uid: 20438
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 57.5,17.5
+      parent: 2
 - proto: BarricadeDirectional
   entities:
   - uid: 997
@@ -17273,6 +17279,12 @@ entities:
     components:
     - type: Transform
       pos: 52.5,13.5
+      parent: 2
+  - uid: 20525
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 58.5,17.5
       parent: 2
 - proto: BarSign
   entities:
@@ -48511,6 +48523,13 @@ entities:
     - type: Transform
       pos: 22.5,63.5
       parent: 2
+- proto: CardBoxNanotrasen
+  entities:
+  - uid: 20325
+    components:
+    - type: Transform
+      pos: 72.136086,17.924522
+      parent: 2
 - proto: CardDoor
   entities:
   - uid: 6902
@@ -58656,6 +58675,30 @@ entities:
       rot: 3.141592653589793 rad
       pos: 95.5,120.5
       parent: 2
+  - uid: 19395
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 73.457054,18.617191
+      parent: 2
+  - uid: 19414
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 73.44663,17.72136
+      parent: 2
+  - uid: 19552
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 70.56122,17.731773
+      parent: 2
+  - uid: 19553
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 70.56122,18.62761
+      parent: 2
 - proto: CheapRollerBed
   entities:
   - uid: 8795
@@ -61297,6 +61340,22 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 79.5,31.5
+      parent: 2
+- proto: ComputerShuttleMiningLavaland
+  entities:
+  - uid: 20401
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 74.5,16.5
+      parent: 2
+- proto: ComputerShuttleSalvage
+  entities:
+  - uid: 18962
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 94.5,22.5
       parent: 2
 - proto: ComputerSolarControl
   entities:
@@ -64734,6 +64793,11 @@ entities:
     components:
     - type: Transform
       pos: 50.590275,99.63904
+      parent: 2
+  - uid: 20324
+    components:
+    - type: Transform
+      pos: 71.68817,17.757858
       parent: 2
 - proto: DiseaseDiagnoser
   entities:
@@ -107325,14 +107389,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF1212FF'
-- proto: GatewayFlatpackLavaland
-  entities:
-  - uid: 25406
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 71.47293,18.47897
-      parent: 2
 - proto: Gauze
   entities:
   - uid: 15286
@@ -130632,13 +130688,6 @@ entities:
     - type: Transform
       pos: 67.661514,39.328217
       parent: 2
-- proto: SalvageMagnet
-  entities:
-  - uid: 19414
-    components:
-    - type: Transform
-      pos: 94.5,22.5
-      parent: 2
 - proto: Saw
   entities:
   - uid: 19415
@@ -134037,15 +134086,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: SignMagneticsMed
-  entities:
-  - uid: 19809
-    components:
-    - type: Transform
-      pos: 94.5,21.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
 - proto: SignMail
   entities:
   - uid: 19810
@@ -136374,6 +136414,25 @@ entities:
     - type: Transform
       pos: 34.387836,26.425556
       parent: 2
+- proto: SpaceCash100
+  entities:
+  - uid: 19809
+    components:
+    - type: Transform
+      pos: 71.67776,18.43494
+      parent: 2
+  - uid: 19814
+    components:
+    - type: Transform
+      pos: 72.45901,17.643272
+      parent: 2
+- proto: SpaceCash1000
+  entities:
+  - uid: 19818
+    components:
+    - type: Transform
+      pos: 72.417336,18.30994
+      parent: 2
 - proto: SpaceHeater
   entities:
   - uid: 20175
@@ -137159,30 +137218,25 @@ entities:
       parent: 2
 - proto: SpawnPointShaftMiner
   entities:
+  - uid: 19052
+    components:
+    - type: Transform
+      pos: 73.5,17.5
+      parent: 2
+  - uid: 19070
+    components:
+    - type: Transform
+      pos: 73.5,18.5
+      parent: 2
+  - uid: 19088
+    components:
+    - type: Transform
+      pos: 70.5,17.5
+      parent: 2
   - uid: 25411
     components:
     - type: Transform
       pos: 70.5,18.5
-      parent: 2
-  - uid: 25412
-    components:
-    - type: Transform
-      pos: 70.5,19.5
-      parent: 2
-  - uid: 25413
-    components:
-    - type: Transform
-      pos: 71.5,19.5
-      parent: 2
-  - uid: 25414
-    components:
-    - type: Transform
-      pos: 72.5,19.5
-      parent: 2
-  - uid: 25415
-    components:
-    - type: Transform
-      pos: 72.5,18.5
       parent: 2
 - proto: SpawnPointStationEngineer
   entities:
@@ -141228,13 +141282,32 @@ entities:
     - type: Transform
       pos: 35.5,26.5
       parent: 2
-  - uid: 25416
-    components:
-    - type: Transform
-      pos: 71.5,18.5
-      parent: 2
 - proto: TableCarpet
   entities:
+  - uid: 18840
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 72.5,18.5
+      parent: 2
+  - uid: 18961
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 71.5,17.5
+      parent: 2
+  - uid: 19393
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 72.5,17.5
+      parent: 2
+  - uid: 19394
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 71.5,18.5
+      parent: 2
   - uid: 20888
     components:
     - type: Transform
