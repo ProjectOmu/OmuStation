@@ -107,7 +107,7 @@ public sealed class FascinationSystem: EntitySystem
                 _faction.AddFaction(ent.Owner, ent.Comp.FactionToAdd); //Give them the faction so AI works
                 Dirty(ent.Owner, userFactionIcons);
             }
-            _gameTicker.StartGameRule("BlueMaidenSpawn", out _);
+            _gameTicker.StartGameRule("MirrorMaidenSpawn", out _);
 
         }
     }
