@@ -805,6 +805,7 @@
   components:
   - type: StationEvent
     earliestStart: 60 # Goobstation - was 90 (impossible on goob)
+    latestStart: 100 # OmuStation (1hr 40min max)
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
@@ -847,6 +848,7 @@
   components:
   - type: StationEvent
     earliestStart: 60 # OMU change - make lone-ops spawn later
+    latestStart: 100 # OmuStation (1hr 40min max) Im tired of last second shuttle bombing
     weight: 5.5       #Omu
     minimumPlayers: 20 #Omu keeping it lower for now cause playercount
     duration: 720 # Goobstation - required for custom nuke music. 720s to ensure loneop can hear the music and still have space for other midrounds incase of failure
@@ -897,6 +899,7 @@
   components:
   - type: StationEvent
     earliestStart: 30
+    latestStart: 100 # OmuStation (1hr 40min max)
     weight: 8
     minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
