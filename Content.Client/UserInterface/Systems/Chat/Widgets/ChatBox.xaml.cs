@@ -29,6 +29,7 @@
 using System.Linq;
 using Content.Client.UserInterface.Systems.Chat.Controls;
 using Content.Goobstation.Common.CCVar; // Goobstation Change
+using Content.Shared.CCVar; // WD
 using Content.Shared.Chat;
 using Content.Shared.Input;
 using Robust.Client.Audio;
@@ -61,9 +62,9 @@ public partial class ChatBox : UIWidget
 
     public ChatSelectChannel SelectedChannel => ChatInput.ChannelSelector.SelectedChannel;
     // WD EDIT START
-    private bool _coalescence = false; // op ult btw
-    private (string, Color)? _lastLine;
-    private int _lastLineRepeatCount = 0;
+    private int _chatStackAmount = 0;
+    private bool _chatStackEnabled => _chatStackAmount > 0;
+    private List<ChatStackData> _chatStackList;
     // WD EDIT END
 
     public ChatBox()
@@ -87,9 +88,15 @@ public partial class ChatBox : UIWidget
 
         // WD EDIT START
         _cfg = IoCManager.Resolve<IConfigurationManager>();
-        _coalescence = _cfg.GetCVar(GoobCVars.CoalesceIdenticalMessages); // i am uncomfortable calling repopulate on chatbox in its ctor, even though it worked in testing i'll still err on the side of caution
-        _cfg.OnValueChanged(GoobCVars.CoalesceIdenticalMessages, UpdateCoalescence, true); // eplicitly false to underline the above comment
+        _chatStackList = new(_chatStackAmount);
+        _cfg.OnValueChanged(CCVars.ChatStackLastLines, UpdateChatStack, true);
         // WD EDIT END
+    }
+
+    private void UpdateChatStack(int value) // WD
+    {
+        _chatStackAmount = value >= 0 ? value : 0;
+        Repopulate();
     }
 
     private void OnTextEntered(LineEditEventArgs args)
@@ -113,26 +120,60 @@ public partial class ChatBox : UIWidget
         var color = msg.MessageColorOverride ?? msg.Channel.TextColor();
 
         // WD EDIT START
-        (string, Color) tup = (msg.WrappedMessage, color);
-
-        // Removing and then adding insantly nudges the chat window up before slowly dragging it back down, which makes the whole chat log shake
-        // and make it borderline unreadable with frequent enough spam.
-        // Adding first and then removing does not produce any visual effects.
-        // The other option is to copypaste into Content all of OutputPanel and everything it uses but is intertanl to Robust namespace.
-        // Thanks robustengine, very cool.
-        if (_coalescence && msg.CanCoalesce && _lastLine == tup)
+        if (!msg.IgnoreChatStack) // Omu, invert this so I dont have to change every reference to CanCoalesce
         {
-            _lastLineRepeatCount++;
-            AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
-            Contents.RemoveEntry(^2);
+            TrackNewMessage(msg.WrappedMessage, color, true);
+            AddLine(msg.WrappedMessage, color);
+            return;
         }
-        else
+
+        int index = _chatStackList.FindIndex(data => data.WrappedMessage == msg.WrappedMessage && !data.IgnoresChatstack);
+
+        if (index == -1) // this also handles chatstack being disabled, since FindIndex won't find anything in an empty array
         {
-            _lastLineRepeatCount = 0;
-            _lastLine = (msg.WrappedMessage, color);
-            AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
-        } // WD EDIT END
+            TrackNewMessage(msg.WrappedMessage, color);
+            AddLine(msg.WrappedMessage, color);
+            return;
+        }
+
+        UpdateRepeatingLine(index);
+        // WD EDIT END
     }
+
+    // WD EDIT START
+    /// <summary>
+    /// Removing and then adding insantly nudges the chat window up before slowly dragging it back down, which makes the whole chat log shake.
+    /// With rapid enough updates, the whole chat becomes unreadable.
+    /// Adding first and then removing does not produce any visual effects.
+    /// The other option is to dublicate OutputPanel functionality and everything internal to the engine it relies on.
+    /// But OutputPanel relies on directly setting Control.Position for control embedding. (which is not exposed to Content.)
+    /// Thanks robustengine, very cool.
+    /// </summary>
+    /// <remarks>
+    /// zero index is the very last line in chat, 1 is the line before the last one, 2 is the line before that, etc.
+    /// </remarks>
+    private void UpdateRepeatingLine(int index)
+    {
+        _chatStackList[index].RepeatCount++;
+        for (int i = index; i >= 0; i--)
+        {
+            var data = _chatStackList[i];
+            AddLine(data.WrappedMessage, data.ColorOverride, data.RepeatCount);
+            Contents.RemoveEntry(Index.FromEnd(index + 2));
+        }
+    }
+
+    private void TrackNewMessage(string wrappedMessage, Color colorOverride, bool ignoresChatstack = false)
+    {
+        if (!_chatStackEnabled)
+            return;
+
+        if(_chatStackList.Count == _chatStackList.Capacity)
+            _chatStackList.RemoveAt(_chatStackList.Capacity - 1);
+
+        _chatStackList.Insert(0, new ChatStackData(wrappedMessage, colorOverride, ignoresChatstack));
+    }
+    // WD EDIT END
 
     private void OnHighlightsUpdated(string highlights)
     {
@@ -144,33 +185,30 @@ public partial class ChatBox : UIWidget
         _controller.UpdateSelectedChannel(this);
     }
 
-    // Goobstation moved to .Goob.cs
-    #region Moved to .Goob.cs
-    /*
     public void Repopulate()
     {
         Contents.Clear();
-
+        _chatStackList = new List<ChatStackData>(_chatStackAmount); // WD
         foreach (var message in _controller.History)
         {
             OnMessageAdded(message.Item2);
         }
     }
-    */
 
-    /*
     private void OnChannelFilter(ChatChannel channel, bool active)
     {
         Contents.Clear();
+
+        foreach (var message in _controller.History) // WD
+        {
+            OnMessageAdded(message.Item2);
+        }
 
         if (active)
         {
             _controller.ClearUnfilteredUnreads(channel);
         }
     }
-    */
-    #endregion
-
 
     private void OnNewHighlights(string highlighs)
     {
@@ -287,6 +325,22 @@ public partial class ChatBox : UIWidget
         ChatInput.Input.OnKeyBindDown -= OnInputKeyBindDown;
         ChatInput.Input.OnTextChanged -= OnTextChanged;
         ChatInput.ChannelSelector.OnChannelSelect -= OnChannelSelect;
-        _cfg.UnsubValueChanged(GoobCVars.CoalesceIdenticalMessages, UpdateCoalescence); // WD EDIT
+        _cfg.UnsubValueChanged(CCVars.ChatStackLastLines, UpdateChatStack); // WD
     }
+
+    // WD EDIT START
+    private class ChatStackData
+    {
+        public string WrappedMessage;
+        public Color ColorOverride;
+        public int RepeatCount = 0;
+        public bool IgnoresChatstack;
+        public ChatStackData(string wrappedMessage, Color colorOverride, bool ignoresChatstack = false)
+        {
+            WrappedMessage = wrappedMessage;
+            ColorOverride = colorOverride;
+            IgnoresChatstack = ignoresChatstack;
+        }
+    }
+    // WD EDIT END
 }

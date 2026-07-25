@@ -202,7 +202,7 @@ namespace Content.Server.StationEvents
             if (!_stationEvent.TryBuildLimitedEvents(basicScheduler.ScheduledGameRules, available, out var untimedEvents))
                 yield break;
 
-            var events = untimedEvents.Where(pair => pair.Value.EarliestStart <= timemins).ToList();
+            var events = untimedEvents.Where(pair => pair.Value.EarliestStart <= timemins).Where(pair => pair.Value.LatestStart >= timemins).ToList(); //Omu edit, add latest start
 
             var totalWeight = events.Sum(x => x.Value.Weight); // same subsetting issue as lsprob.
 

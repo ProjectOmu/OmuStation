@@ -41,6 +41,8 @@
   radioChannels:
   - Science
 
+  lawset: OmuScience # Omu edit: Omu chassis laws
+
   # Visual
   inventoryTemplateId: borgShort
   spriteBodyState: robot
@@ -73,7 +75,7 @@
   - BorgModuleRCD
   - BorgModuleCable
 
-  lawset: Engineer # DeltaV: Custom lawset
+  lawset: OmuEngineer # Omu edit: using Omu laws
 
   radioChannels:
   - Engineering
@@ -118,10 +120,10 @@
 
   addComponents: # Goobstation
   - type: NoWieldNeeded
-  - type: SlavedBorg # Goobstation: Special AI labeling for salv borgs.
-    law: SalvageObeyAI
+#  - type: SlavedBorg # Goobstation: Special AI labeling for salv borgs. Omu edit
+#    law: SalvageObeyAI Omu edit
 
-  lawset: Salvage # DeltaV: Custom lawset
+  lawset: OmuSalvage # Omu edit: using Omu laws
 
   # Visual
   inventoryTemplateId: borgTall
@@ -159,7 +161,7 @@
   - Science
   - Service
 
-  lawset: Janitor # DeltaV: Custom lawset
+  lawset: OmuJanitor # Omu edit: using Omu laws
 
   # Visual
   inventoryTemplateId: borgShort
@@ -197,7 +199,7 @@
   - BorgModuleVirology # Omu Viro Module
   - BorgModuleLollypop # Goobstation
 
-  lawset: Medical # DeltaV: Custom lawset
+  lawset: OmuMedical # Omu edit: using Omu laws
 
   radioChannels:
   - Science
@@ -257,7 +259,7 @@
   - BorgModuleHarvesting
   - BorgModuleLollypop # Goobstation
 
-  lawset: Crewsimov # DeltaV: Custom lawset # Omu - Changed from Clown to Crewsimov since the chassis is made with tools for most of service, not just clowning.
+  lawset: OmuService # Omu edit: using Omu laws
 
   radioChannels:
   - Science
