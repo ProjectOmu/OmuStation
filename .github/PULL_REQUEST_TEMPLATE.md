@@ -39,7 +39,7 @@ Small fixes/refactors are exempt. Media may be used in SS14 progress reports wit
 <!-- You should understand that not following the above may get your PR closed at maintainer’s discretion -->
 
 <!-- Omu licensing agreement acknowledgement -->
-- [ ] I allow my code and changes to be relicensed as decided by the Owner of the project, as needed in the future.
+- [ ] I allow my code and changes to be relicensed to any license by [ProjectOmu](https://github.com/ProjectOmu), as decided at any point in the future.
 ## Breaking changes
 <!-- List any breaking changes, including namespaces, public class/method/field changes, prototype renames; and provide instructions for fixing them.
 This will be posted in #codebase-changes. -->
