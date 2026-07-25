@@ -42,14 +42,14 @@ public sealed class MindcontrolImplantSystem : EntitySystem
         if (args.HitEntities != null)           //Did we hit smth?
             foreach (var target in args.HitEntities)
             {
-                if (_statusEffect.HasStatusEffect(target, "StatusEffectSeeingRainbow"))
+                if (_statusEffect.HasStatusEffect(target, "StatusEffectSeeingRainbow") || _statusEffect.HasStatusEffect(target, "StatusEffectDrowsiness") || _statusEffect.HasStatusEffect(target, "StatusEffectForcedSleeping"))
                 {
                     EnsureComp<MindcontrolledComponent>(target, out var flashed);        //Mind control em
                     flashed.Master = component.HolderUid;
                     _mindcontrol.Start(target, flashed);
                     continue;
                 }
-                if (TryComp<DrunkComponent>(target, out _) || TryComp<SeeingRainbowsStatusEffectComponent>(target, out _) || TryComp<DrowsinessStatusEffectComponent>(target, out _))      //are they susceptible?
+                if (TryComp<DrunkComponent>(target, out _))      //are they susceptible?
                 {
                     EnsureComp<MindcontrolledComponent>(target, out var flashed);        //Mind control em
                     flashed.Master = component.HolderUid;
