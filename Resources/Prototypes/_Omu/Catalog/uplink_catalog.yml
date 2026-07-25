@@ -200,3 +200,14 @@
   - !type:BuyerDepartmentCondition
     whitelist:
     - Science
+
+- type: listing
+  id: UplinkHypnoflash
+  name: uplink-hypnoflash-name
+  description: uplink-hypnoflash-desc
+  icon: { sprite: Objects/Weapons/Melee/flash.rsi }
+  productEntity: HypnoFlash
+  cost:
+    Telecrystal: 70
+  categories:
+  - UplinkDisruption

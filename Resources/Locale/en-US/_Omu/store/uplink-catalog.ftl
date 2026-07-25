@@ -40,3 +40,6 @@ uplink-hobbyist-spellbook-desc = A book given out by the Wizard Federation to ge
 
 uplink-xeno-compatibility-implanter-name = Xeno Compatibility Implanter
 uplink-xeno-compatibility-implanter-desc = An implant that allows the user to make use of xenomorph organs.
+
+uplink-hypnoflash-name = Hypnoflash
+uplink-hypnoflash-desc = A disguised flash that outputs a special flash sequence coded to make the individual compliant to orders... It's mind control. Only works on those already suggestible, like drunks, drugged or the sleeping!
