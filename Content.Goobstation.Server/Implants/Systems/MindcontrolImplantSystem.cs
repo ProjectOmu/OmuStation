@@ -12,7 +12,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Server.Implants.Components;
-using Content.Goobstation.Server.Mindcontrol;
+using Content.Server._Goobstation.Mindcontrol;      //Omu changes to make referencable
 using Content.Goobstation.Shared.Mindcontrol;
 using Content.Shared.Implants;
 using Robust.Shared.Containers;
