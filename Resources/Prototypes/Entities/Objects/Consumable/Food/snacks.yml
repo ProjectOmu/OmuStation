@@ -590,10 +590,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 15 #omu edit
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 7.5 #omu edit
 
 - type: entity
   id: FoodSnackMREBrownie

@@ -211,3 +211,16 @@
     Telecrystal: 70
   categories:
   - UplinkDisruption
+  
+  id: UplinkBloodredVim
+  name: uplink-BloodredVim-name
+  description: uplink-BloodredVim-desc
+  productEntity: CrateCybersunBloodredVimBundle
+  cost:
+    Telecrystal: 100
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Allulalo

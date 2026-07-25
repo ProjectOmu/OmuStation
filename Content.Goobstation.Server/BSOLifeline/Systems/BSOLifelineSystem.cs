@@ -38,8 +38,8 @@ public sealed class GoobLifelineSystem : EntitySystem
     private void WarpParent(EntityUid uid, WarpParentOnTriggerComponent component)
     {
 
-        var dropHandItemsEvent = new DropHandItemsEvent();
-        RaiseLocalEvent(uid, ref dropHandItemsEvent);
+        //var dropHandItemsEvent = new DropHandItemsEvent(); // Omu, moved further down.
+        //RaiseLocalEvent(uid, ref dropHandItemsEvent);
 
         var location = FindWarpPoint(component.WarpLocation);
 
@@ -49,6 +49,9 @@ public sealed class GoobLifelineSystem : EntitySystem
         var parentUid = transform.ParentUid;
         if (parentUid == EntityUid.Invalid || !HasComp<MobStateComponent>(parentUid))
             return;
+
+        var dropHandItemsEvent = new DropHandItemsEvent(); // Omu, move this here otherwise it doesn't work.
+        RaiseLocalEvent(parentUid, ref dropHandItemsEvent);
 
         // Reset mind - can be considered if greentext is a concern
         if (_configurationManager.GetCVar(GoobCVars.LifeLineResetMind))

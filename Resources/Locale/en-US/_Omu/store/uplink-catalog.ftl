@@ -43,3 +43,6 @@ uplink-xeno-compatibility-implanter-desc = An implant that allows the user to ma
 
 uplink-hypnoflash-name = Hypnoflash
 uplink-hypnoflash-desc = A disguised flash that outputs a special flash sequence coded to make the individual compliant to orders... It's mind control. Only works on those already suggestible, like drunks, drugged or the sleeping!
+
+uplink-BloodredVim-name = Cybersun Combat Vim
+uplink-BloodredVim-desc = A specialised prototype developed by cybersun for specialised mouse operatives. The project was shelved after the market collapsed. Armed with a rocket-launcher and short range retro-rockets for speedboosts and maneuvering. It makes for a terrifying, if small, foe.
