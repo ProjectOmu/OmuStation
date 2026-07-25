@@ -18,6 +18,7 @@ public sealed class MindcontrolImplantSystem : EntitySystem
 {
     [Dependency] private readonly MindcontrolSystem _mindcontrol = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private readonly SharedChargesSystem _sharedCharges = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -26,6 +27,10 @@ public sealed class MindcontrolImplantSystem : EntitySystem
     private void OnFlash(EntityUid uid, HypnoflashComponent component, MeleeHitEvent args)
     {
         if (!TryComp<FlashComponent>(component.Owner, out var flashcomp))           //Needs a flash... Duh
+            return;
+
+        if (TryComp<LimitedChargesComponent>(component.Owner, out var charges)
+            && _sharedCharges.IsEmpty((component.Owner, charges)))
             return;
 
         if (!flashcomp.FlashOnMelee ||                                              //Check if it melee'd something
