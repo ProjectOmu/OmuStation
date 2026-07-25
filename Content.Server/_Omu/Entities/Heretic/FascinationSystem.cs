@@ -16,6 +16,7 @@ public sealed class FascinationSystem: EntitySystem
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly SharedEyeSystem _eye = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -69,12 +70,19 @@ public sealed class FascinationSystem: EntitySystem
 
         if (fascvalue < 5)
         {
-            if (ent.Comp.Naturalsight == false & ent.Comp.AlteredVision == true)
+            if (ent.Comp.Naturalsight == false && ent.Comp.AlteredVision == true)
+            {
                 RemComp<SeeHereticFixturesComponent>(ent);
+                ent.Comp.AlteredVision = false;
+                _eye.RefreshVisibilityMask(ent.Owner);
+            }
             if (ent.Comp.AlteredFaction == true)
             {
                 var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(ent);    //Make them un-valid to the mirror maiden
                 userFactionIcons.FactionIcons.Remove(ent.Comp.IconToAdd);
+                _faction.RemoveFaction(ent.Owner, ent.Comp.FactionToAdd); // remove the faction
+                ent.Comp.AlteredFaction = false;
+                Dirty(ent.Owner, userFactionIcons);
             }
         }
         if (fascvalue <= 0)
@@ -89,13 +97,18 @@ public sealed class FascinationSystem: EntitySystem
                 $"{ent} has fascination 5, making valid");
                 EnsureComp<SeeHereticFixturesComponent>(ent);
                 ent.Comp.AlteredVision = true;
+                _eye.RefreshVisibilityMask(ent.Owner);
+            }
+            if (ent.Comp.AlteredFaction != true)
+            {
+                ent.Comp.AlteredFaction = true;
+                var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(ent);    //Make them valid to the mirror maiden
+                userFactionIcons.FactionIcons.Add(ent.Comp.IconToAdd);
+                _faction.AddFaction(ent.Owner, ent.Comp.FactionToAdd); //Give them the faction so AI works
+                Dirty(ent.Owner, userFactionIcons);
             }
             _gameTicker.StartGameRule("BlueMaidenSpawn", out _);
-            ent.Comp.AlteredFaction = true;
-            var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(ent);    //Make them valid to the mirror maiden
-            userFactionIcons.FactionIcons.Add(ent.Comp.IconToAdd);
 
-            _faction.AddFaction(ent.Owner, ent.Comp.FactionToAdd);      //Give them the faction so AI works
         }
     }
 }

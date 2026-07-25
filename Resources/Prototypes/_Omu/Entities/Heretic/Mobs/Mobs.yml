@@ -20,12 +20,6 @@
   - type: ActionGrant
     actions:
     - ActionHereticJaunt
-    - ActionActivateEmpImplant
-  - type: TriggerOnActivateImplant
-  - type: EmpOnTrigger
-    range: 5
-    energyConsumption: 50000
-    disableDuration: 20
   - type: MovementSpeedModifier
     baseWalkSpeed: 7    #Fast!
     baseSprintSpeed: 7
@@ -55,8 +49,6 @@
   id: Mansus
   hostile:
   - Madness
-  friendly:
-  - NanoTrasen
 
 - type: npcFaction
   id: Madness

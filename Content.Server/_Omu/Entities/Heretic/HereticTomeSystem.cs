@@ -74,6 +74,6 @@ public sealed class HereticTomeSystem : EntitySystem
         if (_heretic.TryGetHereticComponent(actor, out _, out _))            //Get heretic entity
             _heretic.UpdateKnowledge(actor, component.KnowledgeGain);         //Give them knowledge
 
-        component.Readers.Add(actor);           // No double dipping!
+        component.Readers?.Add(actor);           // No double dipping!
     }
 }
