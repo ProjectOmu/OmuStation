@@ -13,7 +13,7 @@ Subject to the terms and conditions of this agreement, You grant to the Projects
 
 ## 2. Grant of Patent License
 
-Subject to the terms and conditions of this agreement, You grant to the Projects’ maintainers, contributors, users and to Project Omu a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer your contributions, where such license applies only to those patent claims licensable by you that are necessarily infringed by your contribution or by combination of your contribution with the project to which this contribution was submitted.
+Subject to the terms and conditions of this agreement, You grant to the Projects’ maintainers, contributors, users and to Project Omu a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell, import, and otherwise transfer your contributions, where such license applies only to those patent claims licensable by you that are necessarily infringed by your contribution or by combination of your contribution with the project to which this contribution was submitted.
 
 If any entity institutes patent litigation - including cross-claim or counterclaim in a lawsuit - against You alleging that your contribution or any project it was submitted to constitutes or is responsible for direct or contributory patent infringement, then any patent licenses granted to that entity under this agreement shall terminate as of the date such litigation is filed.
 
