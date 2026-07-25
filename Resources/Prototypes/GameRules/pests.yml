@@ -103,6 +103,8 @@
   id: MiniDragonMigration
   parent: BaseStationEventLongDelay #funky
   components:
+  - type: GameRule
+    chaosScore: 300
   - type: StationEvent
     earliestStart: 15
     weight: 3
