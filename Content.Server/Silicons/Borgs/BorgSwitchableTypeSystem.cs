@@ -110,7 +110,9 @@ public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeS
         // Configure inventory template (used for hat spacing)
         if (TryComp(ent, out InventoryComponent? inventory))
         {
-            _inventorySystem.SetTemplateId((ent.Owner, inventory), prototype.InventoryTemplateId);
+            // Omu - Only use hard-coded offsets if a displacement map isn't used
+            if (inventory.Displacements.Count == 0)
+                _inventorySystem.SetTemplateId((ent.Owner, inventory), prototype.InventoryTemplateId);
         }
 
         base.SelectBorgModule(ent, borgType, borgSubtype);

@@ -271,8 +271,8 @@ uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
 uplink-nutriment-implant-name = Nutriment Pump Implant
 uplink-nutriment-implant-desc = Removes the users need to consume food and/or drinks.
 
-uplink-krav-maga-implant-name = Krav Maga Implanter
-uplink-krav-maga-implant-desc = Allows the user to perform various Krav Maga moves.
+uplink-krav-maga-implant-name = SolCom Implanter
+uplink-krav-maga-implant-desc = Allows the user to perform various Solarian Combat moves.
 
 uplink-binary-implant-name = Binary Decoder Implanter
 uplink-binary-implant-desc = Lets the user tap into the silicons' binary channel. Talking on it is ill-advised though, at least until the AI goes malf.

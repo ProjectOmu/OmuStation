@@ -133,6 +133,7 @@ using Content.Server.Mind;
 using Content.Server.Prayer;
 using Content.Server.Silicons.Laws;
 using Content.Server.Station.Systems;
+using Content.Server.Traits; // HardLight
 using Content.Shared.Administration;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
@@ -159,6 +160,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Server._Omu.Traits;
 using static Content.Shared.Configurable.ConfigurationComponent;
 
 namespace Content.Server.Administration.Systems
@@ -190,6 +192,8 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly AdminFrozenSystem _freeze = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly SiliconLawSystem _siliconLawSystem = default!;
+        [Dependency] private readonly OmuCloneHelperSystem _omuCloneHelper = default!; // Omu
+        [Dependency] private readonly TraitSystem _traits = default!; // HardLight
 
         private readonly Dictionary<ICommonSession, List<EditSolutionsEui>> _openSolutionUis = new();
 
@@ -274,6 +278,8 @@ namespace Content.Server.Administration.Systems
                             if (_mindSystem.TryGetMind(args.Target, out var mindId, out var mindComp))
                                 _mindSystem.TransferTo(mindId, mobUid, true, mind: mindComp);
 
+                            _traits.ApplyProfileTraits(mobUid, profile, true); // Hardlight // Omu edit apply after mind transfer due to vulps
+
                         },
                         ConfirmationPopup = true,
                         Impact = LogImpact.High,
@@ -295,7 +301,12 @@ namespace Content.Server.Administration.Systems
                             var stationUid = _stations.GetOwningStation(args.Target);
 
                             var profile = _gameTicker.GetPlayerProfile(targetActor.PlayerSession);
-                            _spawning.SpawnPlayerMob(coords.Value, null, profile, stationUid);
+                            var mobUid = _spawning.SpawnPlayerMob(coords.Value, null, profile, stationUid); // Hardlight add mobUid
+                            // Omu edit start
+                            _traits.ApplyProfileTraits(mobUid, profile, false); // Hardlight
+                            // separately give job-based trait equipment using the original entity's mind.
+                            _omuCloneHelper.GiveCloneJobTraitEquipment(args.Target, mobUid, profile);
+                            // Omu edit end
                         },
                         ConfirmationPopup = true,
                         Impact = LogImpact.High,
