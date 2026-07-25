@@ -190,6 +190,7 @@
     fx: EffectRCDDeconstruct2
   - type: Physics
     bodyType: Static
+    canCollide: false
   - type: HellSpawnPoint
   placement:
     mode: SnapgridCenter
