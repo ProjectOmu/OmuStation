@@ -1,0 +1,147 @@
+- type: entity
+  parent: BaseAction
+  id: ActionOpenVampireTraits
+  name: Vampire Traits
+  description: Select your strengths and weaknesses.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Interface/Actions/actions_vampire.rsi
+      state: fullpotential
+  - type: InstantAction
+    event: !type:OpenVampireTraitsEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionVampireTraitRetractFangs
+  name: Retract Fangs
+  description: Retract your fangs, hiding your vampiric identity but losing the ability to bite. Drains your blood pool while active.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Interface/Actions/actions_vampire.rsi
+      state: fangs_extended
+    iconOn:
+      sprite: Interface/Actions/actions_vampire.rsi
+      state: fangs_retracted
+  - type: InstantAction
+    event: !type:VampireFangsRetractEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionVampireTraitTransfusion
+  name: Transfusion
+  description: Sacrifice a portion of your blood pool to restore the blood levels of someone else.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Interface/Actions/actions_vampire.rsi
+      state: bloodsteal
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - HumanoidAppearance
+    event:
+      !type:VampireTransfusionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionVampireTraitCharm
+  name: Charm
+  description: Make everyone around you feel safe and relaxed! You're clearly not a threat!
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: _FarHorizons/Interface/Actions/actions_vampire.rsi
+      state: charm # it sucks, but it's the best I got, sorry!
+    iconOn:
+      sprite: _FarHorizons/Interface/Actions/actions_vampire.rsi
+      state: dantalion # this one actually existed in files but not defined in meta, I copied it over
+  - type: InstantAction
+    event: !type:VampireCharmEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionVampireTraitConversion
+  name: Conversion
+  description: Share your vampirism with a willing target. Upon accepting, they will fall into a coma and heal most damage, but they will not develop their own vampiric traits.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Interface/Actions/actions_vampire.rsi
+      state: mutation
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - HumanoidAppearance
+    event:
+      !type:VampireConversionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionVampireTraitConversionAccept
+  name: "[color=red]Embrace the Blood[/color]"
+  description: Succumb to the curse given to you and become a vampire. This will put you into a coma, but you will regenerate most damage in the process. You will not gain any vampiric traits from converting!
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Interface/Actions/actions_vampire.rsi
+      state: mutation
+  - type: InstantAction
+    event: !type:VampireConversionAcceptEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionVampireTraitShortRest
+  name: Short Rest
+  description: Share your blood with a willing target. Upon accepting, they will fall into a coma and heal most damage.
+  components:
+  - type: Action
+    useDelay: 150
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Interface/Actions/actions_vampire.rsi
+      state: mutation
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - HumanoidAppearance
+    event:
+      !type:VampireConversionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionVampireTraitShortRestAccept
+  name: "[color=red]Accept the Blood[/color]"
+  description:  This will put you into a coma, but you will regenerate most damage in the process. You will become a vampire from this!
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Interface/Actions/actions_vampire.rsi
+      state: mutation
+  - type: InstantAction
+    event: !type:VampireConversionAcceptEvent

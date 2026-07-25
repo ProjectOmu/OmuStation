@@ -1,22 +1,9 @@
-// SPDX-FileCopyrightText: 2022 CommieFlowers <rasmus.cedergren@hotmail.com>
-// SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 forkeyboards <91704530+forkeyboards@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Roles; // Omustation - Remake EE Traits System - change TraitPreferenceSelector for RequirementsSelector
 using Content.Shared._Omu.Traits; // Omustation - Remake EE Traits System - Port trait functions
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
+using System.Collections.Generic;
+using Content.Shared.Tag;
 
 namespace Content.Shared.Traits;
 
@@ -71,6 +58,12 @@ public sealed partial class TraitPrototype : IPrototype
     public ComponentRegistry? Components { get; private set; } = default!; // Omustation - remake EE traits system - this has been made nullable in order to allow for traits which rely on just functions, instead of giving components.
 
     /// <summary>
+    /// The components that get removed from the player? when they pick this trait.
+    /// </summary>
+    [DataField]
+    public List<string>? RemoveComponents { get; private set; } = default!;
+
+    /// <summary>
     /// Gear that is given to the player, when they pick this trait.
     /// </summary>
     [DataField]
@@ -103,7 +96,7 @@ public sealed partial class TraitPrototype : IPrototype
     public int GlobalCost = 0;
 
     /// <summary>
-    ///     Whether this trait will increment MaxTraits or not. 
+    ///     Whether this trait will increment MaxTraits or not.
     ///     Useful for small traits, such as accents, which don't affect gameplay all that much and should be selectable at no cost.
     /// </summary>
     [DataField]
@@ -141,4 +134,18 @@ public sealed partial class TraitPrototype : IPrototype
     [DataField]
     public List<string>? RemoveLanguagesUnderstood { get; private set; } = default!;
     // Einstein Engines - Language end
+
+    #region Byrd
+    /// <summary>
+    /// The tags that get added to the player, when they pick this trait.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<TagPrototype>>? Tags { get; private set; } = default!;
+
+    /// <summary>
+    /// Override sorting priority (before )
+    /// </summary>
+    [DataField]
+    public int Priority { get; private set; } = 0;
+    #endregion
 }

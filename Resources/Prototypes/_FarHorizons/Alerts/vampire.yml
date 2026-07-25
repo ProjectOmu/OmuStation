@@ -1,0 +1,81 @@
+- type: alert
+  id: VampireBloodPool
+  icons:
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood0
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood4
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood8
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood12
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood16
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood20
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood24
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood28
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood32
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood36
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood40
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood44
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood48
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood52
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood56
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood60
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood64
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood68
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood72
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood76
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood80
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood84
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood88
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood92
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood96
+    - sprite: /Textures/_FarHorizons/Interface/Alerts/vampbloodpool.rsi
+      state: blood100
+  name: alerts-vampirebloodpool-name
+  description: alerts-vampirebloodpool-desc
+  minSeverity: 0
+  maxSeverity: 25
+  clientHandled: true
+  category: EntityResource
+  alertViewEntity: AlertVampireBloodPoolSpriteView
+
+- type: entity # Byrd
+  id: AlertVampireBloodPoolSpriteView
+  components:
+    - type: GenericCounterAlert
+    - type: Sprite
+      sprite: /Textures/Interface/Alerts/essence_counter.rsi
+      layers:
+      - map: [ "enum.AlertVisualLayers.Base" ]
+      - map: [ "1" ]
+        offset: 0.5, 0
+      - map: [ "10" ]
+        offset: 0.375, 0
+      - map: [ "100" ]
+        offset: 0.25, 0
+      - map: [ "1000" ]
+        offset: 0.125, 0
+      - map: [ "10000" ]
+        offset: 0, 0
