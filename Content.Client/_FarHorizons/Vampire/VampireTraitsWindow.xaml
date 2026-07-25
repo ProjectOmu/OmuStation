@@ -1,0 +1,46 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
+                      Title="{Loc 'lesser-vampire-ui-menu-title'}"
+                      MinSize="600 350"
+                      SetSize="650 450">
+    <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+        <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" MinSize="300 0" Margin="5">
+            <ItemList Name="PositiveTraits" SelectMode="Single" VerticalExpand="True" Margin="0 0 0 5" />
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 5">
+                <Label HorizontalExpand="True" />
+                <Button Name="PositiveTraitAdd" Disabled="True" Text="{Loc 'lesser-vampire-ui-menu-add-button'}" />
+            </BoxContainer>
+
+            <customControls:HSeparator Margin="0 0 0 5" />
+
+            <ItemList Name="NegativeTraits" SelectMode="Single" VerticalExpand="True" Margin="0 0 0 5" />
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 5">
+                <Label HorizontalExpand="True" />
+                <Button Name="NegativeTraitAdd" Disabled="True" Text="{Loc 'lesser-vampire-ui-menu-add-button'}" />
+            </BoxContainer>
+        </BoxContainer>
+
+        <customControls:VSeparator />
+
+        <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" MinSize="300 0" Margin="5">
+            <BoxContainer Orientation="Vertical" Margin="5">
+                <RichTextLabel Name="DescriptionSelectionName" />
+                <RichTextLabel Name="DescriptionSelectionCost" />
+                <RichTextLabel Name="DescriptionSelectionDescription" />
+                <RichTextLabel Name="DescriptionSelectionIncompatible" />
+            </BoxContainer>
+            <ItemList Name="SelectedTraits" SelectMode="Single" VerticalExpand="True" Margin="0 0 0 5" />
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <Button Name="TraitRemove" Disabled="True" Text="{Loc 'lesser-vampire-ui-menu-remove-button'}" />
+                <Label HorizontalExpand="True" />
+                <Label Name="TotalPointsLabel" Text="{Loc 'lesser-vampire-ui-menu-points-label'}"/>
+            </BoxContainer>
+
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 5">
+                <Label HorizontalExpand="True" />
+                <Button Name="SubmitButton" Text="{Loc 'lesser-vampire-ui-menu-submit-button'}" StyleClasses="positive" />
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

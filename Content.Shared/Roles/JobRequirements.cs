@@ -164,4 +164,15 @@ public abstract partial class JobRequirement
         HumanoidCharacterProfile? profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         [NotNullWhen(false)] out FormattedMessage? reason);
+
+    // Byrd: For spawn checks to prevent it applying to jobs it shouldn't.
+    public virtual bool CheckJob(
+        IEntityManager entManager,
+        IPrototypeManager protoManager,
+        JobPrototype job,
+        [NotNullWhen(false)] out FormattedMessage? reason)
+    {
+        reason = null;
+        return true;
+    }
 }

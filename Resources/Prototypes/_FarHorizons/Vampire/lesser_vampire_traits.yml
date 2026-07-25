@@ -1,0 +1,264 @@
+# Negatives
+
+- type: lesserVampireTrait
+  id: Scavenger
+  name: lesser-vampire-trait-scavenger-name
+  description: lesser-vampire-trait-scavenger-description
+  incompatible:
+    - Defanged
+    - Gourmand
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+      - type: GourmandVampireTrait
+        inverted: true
+
+- type: lesserVampireTrait
+  id: BloodDependencyI
+  name: lesser-vampire-trait-blood-dependency-i-name
+  description: lesser-vampire-trait-blood-dependency-i-description
+  incompatible:
+    - BloodDependencyII
+  cost: -2
+  effects:
+    - !type:AddCompsEffect
+      components:
+      - type: BloodDependencyVampireTrait
+        immunityAfterStateChange: 10 # No damage for 10 seconds after state change, so you don't go into loop of getting healed and dying
+        damage:
+          types:
+            Bloodloss: 2 # 2 damage per second, of a type that almost guaranteed to start passively healing right away, technically lethal, but only if you're SSD
+
+- type: lesserVampireTrait
+  id: InsatiableHunger
+  name: lesser-vampire-trait-hunger-name
+  description: lesser-vampire-trait-hunger-description
+  cost: -2
+  effects:
+    - !type:AddCompsEffect
+      components:
+      - type: PassiveBloodPoolDrainVampireTrait
+        passiveDrain: 0.04 # 0.04% per second, 40 minutes for full blood pool to go to 0, or 20 minutes after spawn to 0
+
+- type: lesserVampireTrait
+  id: Gourmand
+  name: lesser-vampire-trait-gourmand-name
+  description: lesser-vampire-trait-gourmand-description
+  incompatible:
+    - Defanged
+    - Scavenger
+  cost: -3
+  effects:
+    - !type:AddCompsEffect
+      components:
+      - type: GourmandVampireTrait
+
+- type: lesserVampireTrait
+  id: Defanged
+  name: lesser-vampire-trait-defanged-name
+  description: lesser-vampire-trait-defanged-description
+  incompatible:
+    - AbsorbLanguage
+    - Gourmand
+    - Scavenger
+    - ExtendableFangs
+  cost: -4
+  effects:
+    - !type:AddCompsEffect
+      components:
+      - type: DefangedVampireTrait
+
+- type: lesserVampireTrait
+  id: UvSensitivity
+  name: lesser-vampire-trait-uv-sensitivity-name
+  description: lesser-vampire-trait-uv-sensitivity-description
+  cost: -5
+  effects:
+    - !type:AddCompsEffect
+      components:
+      - type: UvSensitivityVampireTrait
+        tickRate: 1
+        bloodPoolDrain: 5 # 5% per second so 20 seconds before feeling effects when starting with full bloodpool and no other traits affecting drain
+
+- type: lesserVampireTrait
+  id: BloodDependencyII
+  name: lesser-vampire-trait-blood-dependency-ii-name
+  description: lesser-vampire-trait-blood-dependency-ii-description
+  incompatible:
+    - BloodDependencyI
+  cost: -6
+  effects:
+    - !type:AddCompsEffect
+      components:
+      - type: BloodDependencyVampireTrait
+        immunityAfterStateChange: 10 # No damage for 10 seconds after state change, so you don't go into loop of getting healed and dying
+        damage:
+          types:
+            Bloodloss: 75 # Technically not a real death, since bloodloss will start healing by itself and damage will stop when you enter crit. But it's unpleasant enough.
+
+# Positives
+
+- type: lesserVampireTrait
+  id: ExtendableFangs
+  name: lesser-vampire-trait-extendable-fangs-name
+  description: lesser-vampire-trait-extendable-fangs-description
+  incompatible:
+    - Defanged
+  cost: 1
+  effects:
+    - !type:AddCompsEffect
+      components:
+      - type: ExtendableFangsVampireTrait
+        action: ActionVampireTraitRetractFangs
+        drainWhenToggled: 0.02 # 0.02% per second, barely noticeable
+
+# Byrd: No
+#- type: lesserVampireTrait
+#  id: Charm
+#  name: lesser-vampire-trait-charm-name
+#  description: lesser-vampire-trait-charm-description
+#  cost: 2
+#  effects:
+#    - !type:AddCompsEffect
+#      components:
+#        - type: CharmVampireTrait
+#          action: ActionVampireTraitCharm
+#          drainWhenToggled: 0.35 # just under 5 minutes continuous run from full bloodpool, so people don't just always have it on
+#          range: 5
+#          tickRate: 1
+#          effects: # This is a stripped down version of happiness drug
+#            - !type:PopupMessage
+#              type: Local
+#              visualType: Medium
+#              messages:
+#                - "psicodine-effect-fearless"
+#                - "psicodine-effect-anxieties-wash-away"
+#                - "psicodine-effect-at-peace"
+#              probability: 0.05
+
+- type: lesserVampireTrait
+  id: Light
+  name: lesser-vampire-trait-nightvision-name
+  description: lesser-vampire-trait-nightvision-description
+  cost: 2
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: NightVision
+          isEquipment: false
+          color: "#990000"
+          activateSound: null
+          deactivateSound: null
+
+- type: lesserVampireTrait
+  id: AbsorbLanguage
+  name: lesser-vampire-trait-absorb-language-name
+  description: lesser-vampire-trait-absorb-language-description
+  incompatible:
+    - Defanged
+  cost: 2
+  effects:
+    - !type:AddCompsEffect
+      components:
+      - type: LanguageAbsorptionVampireTrait
+        chance: 0.5
+
+- type: lesserVampireTrait
+  id: Transfusion
+  name: lesser-vampire-trait-transfusion-name
+  description: lesser-vampire-trait-transfusion-description
+  cost: 3
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: TransfusionVampireTrait
+          action: ActionVampireTraitTransfusion
+          increaseBloodLevel: 20 # bloodpack value
+          decreaseBloodPool: 3 # 1 bloodpack restores 30 blood pool. It has 10 uses when used for healing. This is net neutral, minus bloodloss healing and slightly longer doafter.
+          popupMessage: lesser-vampire-trait-transfusion-popup
+          doAfterDuration: 1.5
+
+- type: lesserVampireTrait
+  id: SupernaturalStrength
+  name: lesser-vampire-trait-supernatural-strength-name
+  description: lesser-vampire-trait-supernatural-strength-description
+  cost: 4
+  effects:
+    - !type:AddCompsEffect
+      components:
+      - type: SupernaturalStrengthVampireTrait
+
+- type: lesserVampireTrait
+  id: HealingBlood
+  name: lesser-vampire-trait-healing-blood-name
+  description: lesser-vampire-trait-healing-blood-description
+  cost: 5
+  effects:
+    - !type:AddCompsEffect
+      components:
+      - type: HealingBloodVampireTrait
+        metabolizer: LesserVampireHealingBlood
+
+- type: lesserVampireTrait
+  id: ShortRest
+  name: lesser-vampire-trait-short-rest-name
+  description: lesser-vampire-trait-short-rest-description
+  cost: 6
+  effects:
+    - !type:AddCompsEffect
+      components:
+      - type: ConversionVampireTrait
+        action: ActionVampireTraitShortRest
+        acceptAction: ActionVampireTraitShortRestAccept
+        popupMessage: lesser-vampire-trait-short-rest-popup
+        convert: false
+        singleUse: false
+        doAfterDuration: 3
+        decreaseBloodPool: 40 # large cost
+        conversionTime: 120 # 2 minutes
+        comaHealing: # Heal Everything
+          types:
+            Heat: -1
+            Cold: -1
+            Shock: -1
+            Caustic: -1
+            Blunt: -1
+            Piercing: -1
+            Slash: -1
+            Bloodloss: -1
+            Asphyxiation: -1
+        blacklistTargets:
+          - SiliconMob
+
+# TODO: Move to vampire antag once implemented
+#- type: lesserVampireTrait
+#  id: Conversion
+#  name: lesser-vampire-trait-conversion-name
+#  description: lesser-vampire-trait-conversion-description
+#  cost: 6
+#  effects:
+#    - !type:AddCompsEffect
+#      components:
+#      - type: ConversionVampireTrait
+#        action: ActionVampireTraitConversion
+#        acceptAction: ActionVampireTraitConversionAccept
+#        popupMessage: lesser-vampire-trait-conversion-popup
+#        convert: true
+#        singleUse: true
+#        doAfterDuration: 5
+#        decreaseBloodPool: 40 # large cost
+#        conversionTime: 120 # 2 minutes
+#        comaHealing: # Heal Everything
+#          types:
+#            Heat: -1
+#            Cold: -1
+#            Shock: -1
+#            Caustic: -1
+#            Blunt: -1
+#            Piercing: -1
+#            Slash: -1
+#            Bloodloss: -1
+#            Asphyxiation: -1
+#        blacklistTargets:
+#          - SiliconMob

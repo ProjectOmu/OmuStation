@@ -1,0 +1,66 @@
+- type: trait
+  id: Vampire
+  name: trait-background-vampire-name
+  description: trait-background-vampire-description
+  category: Backgrounds
+  cost: 1
+  components:
+      - type: LesserVampire
+  requirements:
+    - !type:TraitsRequirement
+      traits:
+        - Unholy
+      inverted: true
+    - !type:SpeciesRequirement
+      species:
+        - IPC
+      inverted: true
+
+- type: trait
+  id: Armorer
+  name: trait-background-armorer-name
+  description: trait-background-armorer-description
+  category: Backgrounds
+  cost: 1
+  priority: -1
+  tags:
+    - Armorer
+
+- type: trait
+  id: FirearmsExpert
+  name: trait-background-firearms-expert-name
+  description: trait-background-firearms-expert-description
+  category: Backgrounds
+  cost: 1
+  priority: -2
+  tags:
+    - FirearmsExpert
+  requirements:
+    - !type:TraitsRequirement
+      traits:
+        - Armorer
+
+- type: trait
+  id: JuryRigger
+  name: trait-background-jury-rigger-name
+  description: trait-background-jury-rigger-description
+  category: Backgrounds
+  cost: 1
+  priority: -3
+  tags:
+    - JuryRigger
+
+- type: trait
+  id: ElectricalEngineer
+  name: trait-background-electrical-engineer-name
+  description: trait-background-electrical-engineer-description
+  category: Backgrounds
+  cost: 1
+  priority: -4
+  tags:
+    - ElectricalEngineer
+    - ShowWires
+  requirements:
+    - !type:TraitsRequirement
+      traits:
+        - JuryRigger

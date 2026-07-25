@@ -1,0 +1,23 @@
+- type: traitCategory
+  id: MetaTraits
+  name: trait-category-meta
+
+- type: traitCategory
+  id: Knowledge
+  name: trait-category-knowledge
+  maxTraitPoints: 2
+  priority: -2
+
+- type: traitCategory
+  id: Backgrounds
+  name: trait-category-backgrounds
+  maxTraitPoints: 2
+  priority: -1
+
+- type: traitCategory
+  id: MedicalTraits
+  name: trait-category-medical
+
+- type: traitCategory
+  id: SpeciesSpecific
+  name: trait-category-species

@@ -16,3 +16,5 @@ trait-category-physical = Physical
 trait-category-psionics = Psionics
 trait-category-speech = Speech
 trait-category-visual = Visual
+# Byrd
+trait-category-meta = Meta

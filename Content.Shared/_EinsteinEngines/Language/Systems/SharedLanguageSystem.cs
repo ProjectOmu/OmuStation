@@ -76,4 +76,16 @@ public abstract class SharedLanguageSystem : EntitySystem
         var random = seed * 1103515245 + 12345;
         return min + Math.Abs(random) % (max - min + 1);
     }
+    /// <summary>
+    ///     Adds a new language to the respective lists of intrinsically known languages of the given entity.
+    ///     This shouldn't do anything on the client.
+    /// </summary>
+    public void AddLanguage(
+        EntityUid uid,
+        ProtoId<LanguagePrototype> language,
+        bool addSpoken = true,
+        bool addUnderstood = true)
+    {
+        return; // Do nothing on client, server implementation is in Content.Server
+    }
 }

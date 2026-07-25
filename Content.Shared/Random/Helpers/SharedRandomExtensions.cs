@@ -84,6 +84,7 @@ using System.Linq;
 using Content.Shared.Dataset;
 using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Random.Helpers
 {
@@ -284,6 +285,24 @@ namespace Content.Shared.Random.Helpers
                 hash = (hash << 5) + hash + value;
             }
             return hash;
+        }
+
+        /// <summary>
+        /// Creates an instance of System.Random that will be the same for both the server and client.
+        /// This allows for the client and server to roll the same results when determining things randomly, preventing mispredictions.
+        /// We generate a unique seed by getting 2-3 unique but predictable integers into a Hashcode.
+        /// </summary>
+        /// <param name="timing">An instance if IGameTiming.
+        /// We use the integer value of the current tick to ensure a different seed every tick.</param>
+        /// <param name="netEnt">The relevant net entity to our seed.
+        /// This allows different entities to have different seeds and therefore different results on the same game-tick.</param>
+        /// <param name="netEnt2">An optional relevant net entity to our seed.
+        /// Typically used if we have an entity checking random potentially multiple times per tick, to ensure we get a unique seed each time.
+        /// This entity should not be the same entity as <see cref="netEnt"/>.</param>
+        public static System.Random PredictedRandom(IGameTiming timing, NetEntity netEnt, NetEntity? netEnt2 = null)
+        {
+            var seed = HashCodeCombine(new() { (int) timing.CurTick.Value, netEnt.Id, netEnt2?.Id ?? 0 });
+            return new System.Random(seed);
         }
     }
 }

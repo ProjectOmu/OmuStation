@@ -1,0 +1,54 @@
+- type: trait
+  id: Coolant
+  name: trait-coolant-name
+  description: trait-coolant-desc
+  category: SpeciesSpecific
+  removeComponents: [ Barotrauma ]
+  components:
+    - type: TemperatureProtection # Liquid cooling helps with cold AND hot atmospheres.
+      coolingCoefficient: 0.1
+      heatingCoefficient: 0.05
+    - type: Bloodstream # Liquid cooling means you have coolant.
+      damageBleedModifiers: BloodlossHuman
+      bloodReagent: CoolantIPC
+      bleedReductionAmount: 1 # To prevent infinite bleeding.
+      bloodMaxVolume: 500
+      chemicalMaxVolume: 0
+      bleedPuddleThreshold: 3
+      maxBleedAmount: 14
+      bloodlossDamage:
+        types:
+          Heat: 0.3
+      bloodlossHealDamage:
+        types:
+          Heat: -0.5 # Coolant heals heat
+      bloodRefreshAmount: 0
+  globalCost: 0
+  requirements:
+    - !type:SpeciesRequirement
+      species:
+        - IPC
+
+- type: trait
+  id: Modular
+  name: trait-modular-name
+  description: trait-modular-desc
+  category: SpeciesSpecific
+  removeComponents: [ Battery ]
+  components:
+    - type: PowerCellSlot
+      cellSlotId: cell_slot
+      fitsInCharger: true
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          locked: true
+          name: power-cell-slot-component-slot-name-default
+          startingItem: PowerCellMedium
+    - type: BatterySlotRequiresLock
+      itemSlot: cell_slot
+  globalCost: 0
+  requirements:
+    - !type:SpeciesRequirement
+      species:
+        - IPC

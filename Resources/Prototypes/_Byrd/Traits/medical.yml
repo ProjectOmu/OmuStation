@@ -1,0 +1,41 @@
+- type: trait
+  id: CPRTraining
+  name: trait-cpr-training-name
+  description: trait-cpr-training-desc
+  category: MedicalTraits
+  components:
+    - type: CPRTraining # Byrd
+  globalCost: 2
+  requirements:
+    - !type:DepartmentRequirement
+      inverted: true
+      departments:
+        - Medical
+    - !type:JobsRequirement
+      inverted: true
+      jobs:
+        - BlueshieldOfficer
+
+- type: trait
+  id: Uncloneable
+  name: trait-uncloneable-name
+  description: trait-uncloneable-desc
+  category: MedicalTraits
+  components:
+    - type: Uncloneable
+  globalCost: -2
+  requirements:
+    - !type:SpeciesRequirement
+      inverted: True
+      species:
+        - Vox
+
+- type: trait
+  id: Unborgable
+  name: trait-unborgable-name
+  description: trait-unborgable-desc
+  category: MedicalTraits
+  components:
+    - type: Unborgable
+  globalCost: -2
+

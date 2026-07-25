@@ -1,0 +1,50 @@
+- type: trait
+  id: Unholy
+  name: trait-unholy-name
+  description: trait-unholy-desc
+  category: MentalTraits
+  functions:
+    - !type:TraitRemoveComponent
+      componentsToRemove:
+        - type: BibleUser
+        - type: CurseImmune
+        - type: CanEnchant
+        - type: Condemned
+  components:
+    - type: WeakToHoly
+      alwaysTakeHoly: true
+  requirements:
+    - !type:TraitsRequirement
+      traits:
+        - Holy
+      inverted: true
+    - !type:TraitsRequirement
+      traits:
+        - Vampire
+      inverted: true
+  globalCost: -2
+
+- type: trait
+  id: Holy
+  name: trait-holy-name
+  description: trait-holy-desc
+  category: MentalTraits
+  components:
+    - type: BibleUser
+    - type: CurseImmune
+    - type: CanEnchant
+    - type: Condemned
+      soulOwnedNotDevil: true
+  requirements:
+    - !type:TraitsRequirement
+      traits:
+        - Pacifist
+    - !type:TraitsRequirement
+      traits:
+        - Unholy
+      inverted: true
+    - !type:TraitsRequirement
+      traits:
+        - Vampire
+      inverted: true
+  globalCost: 0
