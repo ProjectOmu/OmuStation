@@ -801,6 +801,7 @@
   - type: Item
     sprite: Objects/Materials/silk.rsi
     heldPrefix: silk
+    size: Small # Omu - spider silk fits in the spider pocket
 
 - type: entity
   parent: MaterialWebSilk

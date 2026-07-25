@@ -250,6 +250,9 @@
         - !type:OrganType # Shitmed - Cybernetic Organs
           type: Cybernetic
           shouldHave: false
+        - !type:OrganType # Omu
+          type: Allulalo
+          shouldHave: false
         damage:
           types:
             Poison: 1
@@ -316,8 +319,20 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
+        - !type:OrganType # Omu
+          type: Allulalo
+          shouldHave: false
       - !type:Drunk
         boozePower: 2
+        conditions: # Omu start
+        - !type:OrganType
+          type: Allulalo
+          shouldHave: false
+      - !type:SatiateThirst
+        factor: 4
+        conditions:
+        - !type:OrganType
+          type: Allulalo # Omu end
 
 - type: reagent
   id: Gin
@@ -2683,6 +2698,10 @@
       effects:
       - !type:Drunk
         boozePower: 10
+        conditions: # Omu start
+        - !type:OrganType
+          type: Allulalo
+          shouldHave: false # Omu end
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -2698,6 +2717,9 @@
           shouldHave: false
         - !type:OrganType # DeltaV - Oni are our heavy drinkers
           type: Oni
+          shouldHave: false
+        - !type:OrganType # Omu
+          type: Allulalo
           shouldHave: false
         damage:
           types:
@@ -2727,4 +2749,7 @@
           shouldHave: false
         - !type:OrganType # Delta V - Same as above
           type: Oni
+          shouldHave: false
+        - !type:OrganType # Omu
+          type: Allulalo
           shouldHave: false

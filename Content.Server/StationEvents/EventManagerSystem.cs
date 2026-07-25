@@ -362,7 +362,10 @@ public sealed class EventManagerSystem : EntitySystem
             return false;
         }
 
-        if (currentTime != TimeSpan.Zero && currentTime.TotalMinutes < stationEvent.EarliestStart / EventSpeedup)
+        if (currentTime != TimeSpan.Zero
+            && (currentTime.TotalMinutes < stationEvent.EarliestStart / EventSpeedup
+                || stationEvent.LatestStart != 0
+                && currentTime.TotalMinutes > stationEvent.LatestStart / EventSpeedup)) //OMU edit
         {
             return false;
         }

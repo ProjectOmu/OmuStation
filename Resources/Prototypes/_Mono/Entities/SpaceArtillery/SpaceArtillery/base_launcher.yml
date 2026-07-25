@@ -11,6 +11,8 @@
     priority: 1
   - type: ApcPowerReceiver
     powerLoad: 250
+  - type: ApcPowerReceiverBattery # Omu
+    batteryRechargeRate: 250
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic
