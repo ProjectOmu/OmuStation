@@ -291,6 +291,33 @@
     clothingVisuals:
       back:
       - state: equipped-BACKPACK-sealed
+  # Omu Start - Paramedic Siren
+  ## when the "mod" part of the suits get added, maybe make this a module instead?
+  - type: ItemToggle
+    onUse: false
+    soundActivate:
+      path: /Audio/Items/flashlight_on.ogg
+    soundDeactivate:
+      path: /Audio/Items/flashlight_off.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/_Omu/Effects/Vehicle/ambulancesiren2.ogg
+      params:
+        volume: -4
+  - type: UseDelay
+    delay: 1.0
+  - type: ToggleClothing
+    action: ActionToggleParamedicSirenModsuit
+  - type: ItemTogglePointLight
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: turquoise
+    mask: /Textures/Effects/LightMasks/double_cone.png
+  - type: RotatingLight
+    speed: 270
+   # Omu End
 
 - type: entity
   parent: ClothingModsuitParamedic

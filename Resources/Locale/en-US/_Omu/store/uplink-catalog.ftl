@@ -40,3 +40,6 @@ uplink-hobbyist-spellbook-desc = A book given out by the Wizard Federation to ge
 
 uplink-xeno-compatibility-implanter-name = Xeno Compatibility Implanter
 uplink-xeno-compatibility-implanter-desc = An implant that allows the user to make use of xenomorph organs.
+
+uplink-BloodredVim-name = Cybersun Combat Vim
+uplink-BloodredVim-desc = A specialised prototype developed by cybersun for specialised mouse operatives. The project was shelved after the market collapsed. Armed with a rocket-launcher and short range retro-rockets for speedboosts and maneuvering. It makes for a terrifying, if small, foe.
