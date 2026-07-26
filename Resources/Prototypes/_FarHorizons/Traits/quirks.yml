@@ -1,0 +1,10 @@
+- type: trait
+  id: HighValueTarget
+  name: trait-high-value-target-name
+  description: trait-high-value-target-desc
+  category: Quirks
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: HighValueTarget

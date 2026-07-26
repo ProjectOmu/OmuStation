@@ -216,6 +216,7 @@
       whitelist:
         components:
         - CommandStaff
+        - HighValueTarget #FH
     - !type:ObjectiveImmuneFilter # DeltaV
     - !type:BodyMindFilter # Omu
       inverted: true

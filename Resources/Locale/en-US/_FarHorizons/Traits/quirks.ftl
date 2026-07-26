@@ -1,0 +1,2 @@
+trait-high-value-target-name = High-Value Target
+trait-high-value-target-desc = For one reason or another you are considered a high-value target by various organizations. It could be that you wronged the wrong person or were at the wrong place at the right time, perhaps the right place at the wrong time too.. Occassionally traitorous elements will seek to maroon and obliterate you.
