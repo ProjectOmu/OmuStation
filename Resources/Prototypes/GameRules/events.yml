@@ -179,6 +179,14 @@
     - id: MalignRiftSpawn # DeltaV
     - id: FloorGoblinMidRound # Goobstation
     - id: ClownGoblinMigration # Goobstation - New Midrounds
+    - id: BeeMigration # Omu - The bees.
+    - id: ShadowCatSpawn # Omu
+    - id: CrabMigration # Omu
+    - id: PossumMigration # Omu
+    - id: LizardMigration # Omu
+    - id: SlurvaMigration # Omu
+    - id: SnakeMigration # Omu
+
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -210,6 +218,10 @@
     - id: VoxRaidersMidround # Goobstation - New Midrounds
     - id: TunnelClownMidround # Goobstation
     #- id: WraithMidround # Goobstation - Wraith
+    - id: BeeMigrationAngry # Omu - The bees but angry
+    - id: NaniteSpawn # Omu
+    - id: LivingCurseSpawn # Omu Chaplain Enrichment
+    - id: LavaMonkeySpawn # Omu Lavaland may be gone; but the monkies live on
     #TODO when midrounds are "reviewed" by the chudmins add them back
 
 - type: entity
