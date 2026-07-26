@@ -917,8 +917,8 @@
     - prefRoles: [ TraitorSleeper ]
       fallbackRoles: [ Traitor ]
       min: 1
-      max: 3
-      playerRatio: 15 # Omu changed so it will actually scale at 15/30/45 pop rather than how it was at 15/20 ppop
+      max: 2
+      playerRatio: 15 # Omu changed so it will actually scale at 15/30 pop rather than how it was at 15/20 ppop
       chaosScore: 200 # Goobstation - same as roundstart traitor gamerule
       blacklist:
         components:
