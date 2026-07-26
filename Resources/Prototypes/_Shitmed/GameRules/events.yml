@@ -21,9 +21,9 @@
   id: LoneAbductorSpawn
   components:
   - type: StationEvent
-    earliestStart: 15
+    earliestStart: 25 # Omu 15 -> 25
     reoccurrenceDelay: 45
-    weight: 3 # Goobstation - 7.5 -> 3
+    weight: 2 # Goobstation - 7.5 -> 3 Omu -> 2
     minimumPlayers: 10
     duration: null # Goobstation - chud
     chaos:
@@ -31,7 +31,7 @@
       Medical: 75
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 100
+    chaosScore: 150 # Omu 100 -> 150
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Omu/Shuttles/ShuttleEvent/abductor_shuttle.yml # Omu
@@ -122,9 +122,9 @@
   id: DuoAbductorSpawn
   components:
   - type: StationEvent
-    earliestStart: 15
+    earliestStart: 25 # Omu 15 -> 25
     reoccurrenceDelay: 45
-    weight: 3 # Goobstation - 7.5 -> 3
+    weight: 1 # Goobstation - 7.5 -> 3 Omu -> 1
     minimumPlayers: 20
     duration: null # Goobstation - chud
     chaos:
@@ -132,7 +132,7 @@
       Medical: 150
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 150
+    chaosScore: 250 # Omu 150 -> 250
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Omu/Shuttles/ShuttleEvent/duo_abductor_shuttle.yml # Omu
