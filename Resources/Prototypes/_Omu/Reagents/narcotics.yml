@@ -1,0 +1,26 @@
+- type: reagent
+  id: BerserkToxin
+  name: reagent-name-berserktoxin
+  group: Special
+  desc: reagent-desc-berserktoxin
+  physicalDesc: reagent-physical-desc-robust
+  flavor: robust
+  color: "#ffd648"
+  metabolisms:
+    Narcotic:
+      metabolismRate: 1
+      effects:
+      - !type:GenericStatusEffect
+        key: StatusEffectBerserk
+        component: BerserkAffected
+        type: Add
+        time: 20
+        refresh: true
+      - !type:Jitter
+      - !type:PopupMessage
+        type: Local
+        probability: 0.7
+        messages:
+        - berserkchemical-rage
+        - berserkchemical-anger
+        - berserkchemical-hate

@@ -33,3 +33,6 @@ loadout-group-clown-belt = Clown belt
 # Musician
 loadout-group-musician-shoes = Musician Shoes
 loadout-group-musician-hat = Musician Hat
+
+# Other
+loadout-group-civilian_formal-shoes = Formal shoes
