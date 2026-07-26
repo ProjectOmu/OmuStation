@@ -15,6 +15,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._Funkystation.Atmos.Events; // Funky
 using Content.Server.Atmos.Components;
 using Content.Server.Decals;
 using Content.Shared.Atmos;
@@ -56,17 +57,25 @@ namespace Content.Server.Atmos.EntitySystems
 
             AddActiveTile(gridAtmosphere, tile);
 
+            // Prevent the hotspot from processing on the same cycle it was created (???)
+            // TODO ATMOS: Is this even necessary anymore? The queue is kept per processing stage
+            // and is not updated until tne next cycle, so the condition of a hotspot being created
+            // and processed in the same cycle is impossible.
             if (!tile.Hotspot.SkippedFirstProcess)
             {
                 tile.Hotspot.SkippedFirstProcess = true;
                 return;
             }
 
-            if(tile.ExcitedGroup != null)
+            if (tile.ExcitedGroup != null)
                 ExcitedGroupResetCooldowns(tile.ExcitedGroup);
 
-            if ((tile.Hotspot.Temperature < Atmospherics.FireMinimumTemperatureToExist) || (tile.Hotspot.Volume <= 1f)
-                || tile.Air == null || tile.Air.GetMoles(Gas.Oxygen) < 0.5f || (tile.Air.GetMoles(Gas.Plasma) < 0.5f && tile.Air.GetMoles(Gas.Tritium) < 0.5f))
+            if (tile.Hotspot.Temperature < Atmospherics.FireMinimumTemperatureToExist ||
+            tile.Hotspot.Volume <= 1f ||
+            tile.Air == null ||
+            tile.Air.GetMoles(Gas.Oxygen) < 0.5f ||
+            tile.Air.GetMoles(Gas.Plasma) < 0.5f &&
+            tile.Air.GetMoles(Gas.Tritium) < 0.5f)
             {
                 tile.Hotspot = new Hotspot();
                 InvalidateVisuals(ent, tile);
@@ -75,6 +84,8 @@ namespace Content.Server.Atmos.EntitySystems
 
             PerformHotspotExposure(tile);
 
+            // This tile has now turned into a full-blown tile-fire.
+            // Start applying fire effects and spreading to adjacent tiles.
             if (tile.Hotspot.Bypassing)
             {
                 tile.Hotspot.State = 3;
@@ -98,10 +109,14 @@ namespace Content.Server.Atmos.EntitySystems
                     if (tileBurntDecals > 4)
                         break;
                 }
-
                 // Add a random burned decal to the tile only if there are less than 4 of them
                 if (tileBurntDecals < 4)
-                    _decalSystem.TryAddDecal(_burntDecals[_random.Next(_burntDecals.Length)], new EntityCoordinates(gridUid, tilePos), out _, cleanable: true);
+                {
+                    _decalSystem.TryAddDecal(_burntDecals[_random.Next(_burntDecals.Length)],
+                        new EntityCoordinates(gridUid, tilePos),
+                        out _,
+                        cleanable: true);
+                }
 
                 if (tile.Air.Temperature > Atmospherics.FireMinimumTemperatureToSpread)
                 {
@@ -109,17 +124,20 @@ namespace Content.Server.Atmos.EntitySystems
                     foreach (var otherTile in tile.AdjacentTiles)
                     {
                         // TODO ATMOS: This is sus. Suss this out.
+                        // Spread this fire to other tiles by exposing them to a hotspot if air can flow there.
+                        // Unsure as to why this is sus.
                         if (otherTile == null)
                             continue;
 
-                        if(!otherTile.Hotspot.Valid)
-                            HotspotExpose(gridAtmosphere, otherTile, radiatedTemperature, Atmospherics.CellVolume/4);
+                        if (!otherTile.Hotspot.Valid)
+                        HotspotExpose(gridAtmosphere, otherTile, radiatedTemperature, Atmospherics.CellVolume / 4);
                     }
                 }
             }
             else
             {
-                tile.Hotspot.State = (byte) (tile.Hotspot.Volume > Atmospherics.CellVolume * 0.4f ? 2 : 1);
+                // Little baby fire. Set the sprite state based on the current size of the fire.
+                tile.Hotspot.State = (byte)(tile.Hotspot.Volume > Atmospherics.CellVolume * 0.4f ? 2 : 1);
             }
 
             if (tile.Hotspot.Temperature > tile.MaxFireTemperatureSustained)
@@ -132,7 +150,10 @@ namespace Content.Server.Atmos.EntitySystems
                 // A few details on the audio parameters for fire.
                 // The greater the fire state, the lesser the pitch variation.
                 // The greater the fire state, the greater the volume.
-                _audio.PlayPvs(HotspotSound, coordinates, HotspotSound.Params.WithVariation(0.15f / tile.Hotspot.State).WithVolume(-5f + 5f * tile.Hotspot.State));
+                _audio.PlayPvs(HotspotSound,
+                coordinates,
+                HotspotSound.Params.WithVariation(0.15f / tile.Hotspot.State)
+                    .WithVolume(-5f + 5f * tile.Hotspot.State));
             }
 
             if (_hotspotSoundCooldown > HotspotSoundCooldownCycles)
@@ -141,12 +162,35 @@ namespace Content.Server.Atmos.EntitySystems
             // TODO ATMOS Maybe destroy location here?
         }
 
-        private void HotspotExpose(GridAtmosphereComponent gridAtmosphere, TileAtmosphere tile,
-            float exposedTemperature, float exposedVolume, bool soh = false, EntityUid? sparkSourceUid = null)
+        /// <summary>
+        /// Exposes a tile to a hotspot of given temperature and volume, igniting it if conditions are met.
+        /// </summary>
+        /// <param name="gridAtmosphere">The <see cref="GridAtmosphereComponent"/> of the grid the tile is on.</param>
+        /// <param name="tile">The <see cref="TileAtmosphere"/> to expose.</param>
+        /// <param name="exposedTemperature">The temperature of the hotspot to expose.
+        /// You can think of this as exposing a temperature of a flame.</param>
+        /// <param name="exposedVolume">The volume of the hotspot to expose.
+        /// You can think of this as how big the flame is initially.
+        /// Bigger flames will ramp a fire faster.</param>
+        /// <param name="soh">Whether to "boost" a fire that's currently on the tile already.
+        /// Does nothing if the tile isn't already a hotspot.
+        /// This clamps the temperature and volume of the hotspot to the maximum
+        /// of the provided parameters and whatever's on the tile.</param>
+        /// <param name="sparkSourceUid">Entity that started the exposure for admin logging.</param>
+        private void HotspotExpose(GridAtmosphereComponent gridAtmosphere,
+        TileAtmosphere tile,
+        float exposedTemperature,
+        float exposedVolume,
+        bool soh = false,
+        EntityUid? sparkSourceUid = null)
         {
             if (tile.Air == null)
                 return;
 
+            // Funky start
+            var ev = new TileExposedEvent(tile.GridIndices, exposedTemperature, exposedVolume, sparkSourceUid);
+            RaiseLocalEvent(gridAtmosphere.Owner, ref ev);
+            // Funky end
             var oxygen = tile.Air.GetMoles(Gas.Oxygen);
 
             if (oxygen < 0.5f)
@@ -159,22 +203,24 @@ namespace Content.Server.Atmos.EntitySystems
             {
                 if (soh)
                 {
-                    if (plasma > 0.5f || tritium > 0.5f)
+                    if (plasma > 0.5f || tritium > 0.5f) // Funky atmos - /tg/ gases
                     {
-                        if (tile.Hotspot.Temperature < exposedTemperature)
-                            tile.Hotspot.Temperature = exposedTemperature;
-                        if (tile.Hotspot.Volume < exposedVolume)
-                            tile.Hotspot.Volume = exposedVolume;
+                        tile.Hotspot.Temperature = MathF.Max(tile.Hotspot.Temperature, exposedTemperature);
+                        tile.Hotspot.Volume = MathF.Max(tile.Hotspot.Volume, exposedVolume);
                     }
                 }
 
                 return;
             }
 
-            if ((exposedTemperature > Atmospherics.PlasmaMinimumBurnTemperature) && (plasma > 0.5f || tritium > 0.5f))
+            if (exposedTemperature > Atmospherics.PlasmaMinimumBurnTemperature && (plasma > 0.5f || tritium > 0.5f))
             {
                 if (sparkSourceUid.HasValue)
-                    _adminLog.Add(LogType.Flammable, LogImpact.High, $"Heat/spark of {ToPrettyString(sparkSourceUid.Value)} caused atmos ignition of gas: {tile.Air.Temperature.ToString():temperature}K - {oxygen}mol Oxygen, {plasma}mol Plasma, {tritium}mol Tritium");
+                {
+                    _adminLog.Add(LogType.Flammable,
+                        LogImpact.High,
+                    $"Heat/spark of {ToPrettyString(sparkSourceUid.Value)} caused atmos ignition of gas: {tile.Air.Temperature.ToString():temperature}K - {oxygen}mol Oxygen, {plasma}mol Plasma, {tritium}mol Tritium");
+                }
 
                 tile.Hotspot = new Hotspot
                 {
@@ -189,6 +235,7 @@ namespace Content.Server.Atmos.EntitySystems
                 gridAtmosphere.HotspotTiles.Add(tile);
             }
         }
+
 
         private void PerformHotspotExposure(TileAtmosphere tile)
         {
