@@ -1,0 +1,10 @@
+- type: entity
+  id: BulletMagnumImprovised
+  name: bullet (.45 magnum improvised)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 27 # Base .45 does 35, lower by 10%

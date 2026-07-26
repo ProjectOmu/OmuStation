@@ -6,7 +6,6 @@ using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Shuttles.Components;
 using EntityCoordinates = Robust.Shared.Map.EntityCoordinates;
-
 namespace Content.Server._Mono.FireControl;
 
 public sealed partial class FireControlSystem
