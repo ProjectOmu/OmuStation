@@ -463,6 +463,8 @@
       enum.InstrumentUiKey.Key: # Omustation - Required to make the Singer trait work
         type: InstrumentBoundUserInterface
         requireInputValidation: false
+      enum.VampireTraitsUiKey.Key: # Far Horizons
+        type: VampireTraitsBoundUserInterface
   - type: Puller
   - type: Speech
     speechSounds: Alto

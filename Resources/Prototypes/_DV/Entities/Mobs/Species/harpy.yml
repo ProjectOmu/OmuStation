@@ -75,6 +75,8 @@
         requireInputValidation: false
       enum.RadarConsoleUiKey.Key: #goob - contractor
         type: RadarConsoleBoundUserInterface
+      enum.VampireTraitsUiKey.Key: # Far Horizons
+        type: VampireTraitsBoundUserInterface
   - type: Sprite
     # scale: 0.9, 0.9 # Goobstation: port EE height/width sliders
     layers:

@@ -109,6 +109,8 @@
       enum.InstrumentUiKey.Key: # Omustation - Required to make the Singer trait work
         type: InstrumentBoundUserInterface
         requireInputValidation: false
+      enum.VampireTraitsUiKey.Key: # Far Horizons
+        type: VampireTraitsBoundUserInterface
   # to prevent bag open/honk spam
   - type: UseDelay
     delay: 0.5

@@ -134,6 +134,8 @@
       enum.InstrumentUiKey.Key: # gds -- end of missing uiKeys
         type: InstrumentBoundUserInterface
         requireInputValidation: false
+      enum.VampireTraitsUiKey.Key: # Far Horizons
+        type: VampireTraitsBoundUserInterface
   - type: Tag
     tags:
     - CanPilot
