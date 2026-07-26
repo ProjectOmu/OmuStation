@@ -4,7 +4,5 @@
   description: trait-high-value-target-desc
   category: PhysicalTraits
   cost: 0
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: HighValueTarget
+  components:
+    - type: HighValueTarget
