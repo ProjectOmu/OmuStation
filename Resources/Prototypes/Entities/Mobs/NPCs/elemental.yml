@@ -346,6 +346,8 @@
         density: 20
         mask:
         - MobMask
+        layer: # Omu
+        - MobLayer
   - type: MeleeWeapon
     damage:
       types:
