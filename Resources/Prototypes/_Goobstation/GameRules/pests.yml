@@ -33,6 +33,7 @@
     chaosScore: 0
   - type: VentCrittersRule
     max: 1
+    min: 1 # Omu edit... So the vent critters rule has a min of 2 by default. So the rule wont work without overwriting that
     table: !type:GroupSelector
       children:
       - id: MobFloorGoblin

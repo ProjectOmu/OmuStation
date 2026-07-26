@@ -12,6 +12,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Antag;
+using Content.Server.Chat.Managers;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Pinpointer;
 using Content.Server.StationEvents.Components;
@@ -44,6 +45,7 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly IChatManager _achat = default!; // Omu admin announce
 
     private List<EntityCoordinates> _locations = new();
 
@@ -77,7 +79,7 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
         var min = comp.Min * players / comp.PlayerRatio;
         var max = comp.Max * players / comp.PlayerRatio;
         var count = Math.Max(RobustRandom.Next(min, max), 1);
-        Log.Info($"Spawning {count} critters for {ToPrettyString(uid):rule}");
+        _achat.SendAdminAlert($"Spawning {count} critters for {ToPrettyString(uid):rule}"); // Omu edit, now it will actually announce
         for (int i = 0; i < count; i++)
         {
             foreach (var spawn in _entityTable.GetSpawns(comp.Table))
