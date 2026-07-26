@@ -31,7 +31,7 @@
       Medical: 75
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 150 # Omu 100 -> 150
+    chaosScore: 100
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Omu/Shuttles/ShuttleEvent/abductor_shuttle.yml # Omu
@@ -132,7 +132,7 @@
       Medical: 150
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 250 # Omu 150 -> 250
+    chaosScore: 150
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Omu/Shuttles/ShuttleEvent/duo_abductor_shuttle.yml # Omu
