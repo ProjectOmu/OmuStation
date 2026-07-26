@@ -92,7 +92,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
-using Content.Server._Starlight.Antags;
+using Content.Server._Starlight.Antags;        // starlight
 using Content.Server.Administration.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Cargo.Components;
@@ -159,7 +159,7 @@ public sealed partial class AdminVerbSystem
 
         if (TryComp<DoorBoltComponent>(args.Target, out var bolts))
         {
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb        //Starlight i think?
             {
                 Text = bolts.BoltsDown ? "Unbolt" : "Bolt",
                 Category = VerbCategory.Tricks,
@@ -174,13 +174,13 @@ public sealed partial class AdminVerbSystem
                 Message = Loc.GetString(bolts.BoltsDown
                     ? "admin-trick-unbolt-description"
                     : "admin-trick-bolt-description"),
-                Priority = (int) (bolts.BoltsDown ? TricksVerbPriorities.Unbolt : TricksVerbPriorities.Bolt),
+                Priority = (int) (bolts.BoltsDown ? TricksVerbPriorities.Unbolt : TricksVerbPriorities.Bolt),        //Starlight i think?
             });
         }
 
         if (TryComp<AirlockComponent>(args.Target, out var airlockComp))
         {
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = airlockComp.EmergencyAccess ? "Emergency Access Off" : "Emergency Access On",
                 Category = VerbCategory.Tricks,
@@ -193,13 +193,13 @@ public sealed partial class AdminVerbSystem
                 Message = Loc.GetString(airlockComp.EmergencyAccess
                     ? "admin-trick-emergency-access-off-description"
                     : "admin-trick-emergency-access-on-description"),
-                Priority = (int) (airlockComp.EmergencyAccess ? TricksVerbPriorities.EmergencyAccessOff : TricksVerbPriorities.EmergencyAccessOn),
+                Priority = (int) (airlockComp.EmergencyAccess ? TricksVerbPriorities.EmergencyAccessOff : TricksVerbPriorities.EmergencyAccessOn),    //Starlight i think?
             });
         }
 
         if (HasComp<DamageableComponent>(args.Target))
         {
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Rejuvenate",
                 Category = VerbCategory.Tricks,
@@ -210,7 +210,7 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-rejuvenate-description"),
-                Priority = (int) TricksVerbPriorities.Rejuvenate,
+                Priority = (int) TricksVerbPriorities.Rejuvenate,    //Starlight i think?
             });
         }
 
@@ -232,7 +232,7 @@ public sealed partial class AdminVerbSystem
         }
         else
         {
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Make Vulnerable",
                 Category = VerbCategory.Tricks,
@@ -243,13 +243,13 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-make-vulnerable-description"),
-                Priority = (int) TricksVerbPriorities.MakeVulnerable,
+                Priority = (int) TricksVerbPriorities.MakeVulnerable,    //Starlight i think?
             });
         }
 
         if (TryComp<BatteryComponent>(args.Target, out var battery))
         {
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Refill Battery",
                 Category = VerbCategory.Tricks,
@@ -260,10 +260,10 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-refill-battery-description"),
-                Priority = (int) TricksVerbPriorities.RefillBattery,
+                Priority = (int) TricksVerbPriorities.RefillBattery,    //Starlight i think?
             });
 
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Drain Battery",
                 Category = VerbCategory.Tricks,
@@ -274,10 +274,10 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-drain-battery-description"),
-                Priority = (int) TricksVerbPriorities.DrainBattery,
+                Priority = (int) TricksVerbPriorities.DrainBattery,    //Starlight i think?
             });
 
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Infinite Battery",
                 Category = VerbCategory.Tricks,
@@ -291,13 +291,13 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-infinite-battery-object-description"),
-                Priority = (int) TricksVerbPriorities.InfiniteBattery,
+                Priority = (int) TricksVerbPriorities.InfiniteBattery,    //Starlight i think?
             });
         }
 
         if (TryComp<AnchorableComponent>(args.Target, out var anchor))
         {
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Block Unanchoring",
                 Category = VerbCategory.Tricks,
@@ -308,13 +308,13 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-block-unanchoring-description"),
-                Priority = (int) TricksVerbPriorities.BlockUnanchoring,
+                Priority = (int) TricksVerbPriorities.BlockUnanchoring,    //Starlight i think?
             });
         }
 
         if (TryComp<GasTankComponent>(args.Target, out var tank))
         {
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Refill Internals Oxygen",
                 Category = VerbCategory.Tricks,
@@ -325,10 +325,10 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-internals-refill-oxygen-description"),
-                Priority = (int) TricksVerbPriorities.RefillOxygen,
+                Priority = (int) TricksVerbPriorities.RefillOxygen,    //Starlight i think?
             });
 
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Refill Internals Nitrogen",
                 Category = VerbCategory.Tricks,
@@ -339,10 +339,10 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-internals-refill-nitrogen-description"),
-                Priority = (int) TricksVerbPriorities.RefillNitrogen,
+                Priority = (int) TricksVerbPriorities.RefillNitrogen,    //Starlight i think?
             });
 
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Refill Internals Plasma",
                 Category = VerbCategory.Tricks,
@@ -353,13 +353,13 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-internals-refill-plasma-description"),
-                Priority = (int) TricksVerbPriorities.RefillPlasma,
+                Priority = (int) TricksVerbPriorities.RefillPlasma,    //Starlight i think?
             });
         }
 
         if (HasComp<InventoryComponent>(args.Target))
         {
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb        //Starlight i think?
             {
                 Text = "Refill Internals Oxygen",
                 Category = VerbCategory.Tricks,
@@ -367,10 +367,10 @@ public sealed partial class AdminVerbSystem
                 Act = () => RefillEquippedTanks(args.User, Gas.Oxygen),
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-internals-refill-oxygen-description"),
-                Priority = (int) TricksVerbPriorities.RefillOxygen,
+                Priority = (int) TricksVerbPriorities.RefillOxygen,    //Starlight i think?
             });
 
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Refill Internals Nitrogen",
                 Category = VerbCategory.Tricks,
@@ -378,10 +378,10 @@ public sealed partial class AdminVerbSystem
                 Act = () => RefillEquippedTanks(args.User, Gas.Nitrogen),
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-internals-refill-nitrogen-description"),
-                Priority = (int) TricksVerbPriorities.RefillNitrogen,
+                Priority = (int) TricksVerbPriorities.RefillNitrogen,    //Starlight i think?
             });
 
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Refill Internals Plasma",
                 Category = VerbCategory.Tricks,
@@ -389,11 +389,11 @@ public sealed partial class AdminVerbSystem
                 Act = () => RefillEquippedTanks(args.User, Gas.Plasma),
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-internals-refill-plasma-description"),
-                Priority = (int) TricksVerbPriorities.RefillPlasma,
+                Priority = (int) TricksVerbPriorities.RefillPlasma,    //Starlight i think?
             });
         }
 
-        args.Verbs.Add(new Verb
+        args.Verbs.Add(new Verb    //Starlight i think?
         {
             Text = "Send to test arena",
             Category = VerbCategory.Tricks,
@@ -406,14 +406,14 @@ public sealed partial class AdminVerbSystem
             },
             Impact = LogImpact.Medium,
             Message = Loc.GetString("admin-trick-send-to-test-arena-description"),
-            Priority = (int) TricksVerbPriorities.SendToTestArena,
+            Priority = (int) TricksVerbPriorities.SendToTestArena,    //Starlight i think?
         });
 
         var activeId = FindActiveId(args.Target);
 
         if (activeId is not null)
         {
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Grant All Access",
                 Category = VerbCategory.Tricks,
@@ -424,10 +424,10 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-grant-all-access-description"),
-                Priority = (int) TricksVerbPriorities.GrantAllAccess,
+                Priority = (int) TricksVerbPriorities.GrantAllAccess,    //Starlight i think?
             });
 
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Revoke All Access",
                 Category = VerbCategory.Tricks,
@@ -438,13 +438,13 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-revoke-all-access-description"),
-                Priority = (int) TricksVerbPriorities.RevokeAllAccess,
+                Priority = (int) TricksVerbPriorities.RevokeAllAccess,    //Starlight i think?
             });
         }
 
         if (HasComp<AccessComponent>(args.Target))
         {
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Grant All Access",
                 Category = VerbCategory.Tricks,
@@ -455,10 +455,10 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-grant-all-access-description"),
-                Priority = (int) TricksVerbPriorities.GrantAllAccess,
+                Priority = (int) TricksVerbPriorities.GrantAllAccess,    //Starlight i think?
             });
 
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Revoke All Access",
                 Category = VerbCategory.Tricks,
@@ -469,13 +469,13 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-revoke-all-access-description"),
-                Priority = (int) TricksVerbPriorities.RevokeAllAccess,
+                Priority = (int) TricksVerbPriorities.RevokeAllAccess,    //Starlight i think?
             });
         }
 
         if (TryComp<StackComponent>(args.Target, out var stack))
         {
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Adjust Stack",
                 Category = VerbCategory.Tricks,
@@ -490,10 +490,10 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-adjust-stack-description"),
-                Priority = (int) TricksVerbPriorities.AdjustStack,
+                Priority = (int) TricksVerbPriorities.AdjustStack,    //Starlight i think?
             });
 
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Fill Stack",
                 Category = VerbCategory.Tricks,
@@ -504,11 +504,11 @@ public sealed partial class AdminVerbSystem
                 },
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-fill-stack-description"),
-                Priority = (int) TricksVerbPriorities.FillStack,
+                Priority = (int) TricksVerbPriorities.FillStack,    //Starlight i think?
             });
         }
 
-        args.Verbs.Add(new Verb
+        args.Verbs.Add(new Verb    //Starlight i think?
         {
             Text = "Rename",
             Category = VerbCategory.Tricks,
@@ -522,10 +522,10 @@ public sealed partial class AdminVerbSystem
             },
             Impact = LogImpact.Medium,
             Message = Loc.GetString("admin-trick-rename-description"),
-            Priority = (int) TricksVerbPriorities.Rename,
+            Priority = (int) TricksVerbPriorities.Rename,    //Starlight i think?
         });
 
-        args.Verbs.Add(new Verb
+        args.Verbs.Add(new Verb    //Starlight i think?
         {
             Text = "Redescribe",
             Category = VerbCategory.Tricks,
@@ -539,10 +539,10 @@ public sealed partial class AdminVerbSystem
             },
             Impact = LogImpact.Medium,
             Message = Loc.GetString("admin-trick-redescribe-description"),
-            Priority = (int) TricksVerbPriorities.Redescribe,
+            Priority = (int) TricksVerbPriorities.Redescribe,    //Starlight i think?
         });
 
-        args.Verbs.Add(new Verb
+        args.Verbs.Add(new Verb    //Starlight i think?
         {
             Text = "Redescribe",
             Category = VerbCategory.Tricks,
@@ -566,7 +566,7 @@ public sealed partial class AdminVerbSystem
         {
             if (_adminManager.HasAdminFlag(player, AdminFlags.Round))
             {
-                args.Verbs.Add(new Verb
+                args.Verbs.Add(new Verb    //Starlight i think?
                 {
                     Text = "Bar job slots",
                     Category = VerbCategory.Tricks,
@@ -581,10 +581,10 @@ public sealed partial class AdminVerbSystem
                     Impact = LogImpact.Extreme,
                     Message = Loc.GetString("admin-trick-bar-job-slots-description"),
                     Priority = (int) TricksVerbPriorities.BarJobSlots,
-                });
+                });    //Starlight i think?
             }
 
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Locate Cargo Shuttle",
                 Category = VerbCategory.Tricks,
@@ -601,12 +601,12 @@ public sealed partial class AdminVerbSystem
                 Impact = LogImpact.Low,
                 Message = Loc.GetString("admin-trick-locate-cargo-shuttle-description"),
                 Priority = (int) TricksVerbPriorities.LocateCargoShuttle,
-            });
+            });    //Starlight i think?
         }
 
         if (TryGetGridChildren(args.Target, out var childEnum))
         {
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Refill Battery",
                 Category = VerbCategory.Tricks,
@@ -624,9 +624,9 @@ public sealed partial class AdminVerbSystem
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-refill-battery-description"),
                 Priority = (int) TricksVerbPriorities.RefillBattery,
-            });
+            });    //Starlight i think?
 
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Drain Battery",
                 Category = VerbCategory.Tricks,
@@ -644,9 +644,9 @@ public sealed partial class AdminVerbSystem
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-drain-battery-description"),
                 Priority = (int) TricksVerbPriorities.DrainBattery,
-            });
+            });    //Starlight i think?
 
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Infinite Battery",
                 Category = VerbCategory.Tricks,
@@ -670,12 +670,12 @@ public sealed partial class AdminVerbSystem
                 Impact = LogImpact.Extreme,
                 Message = Loc.GetString("admin-trick-infinite-battery-description"),
                 Priority = (int) TricksVerbPriorities.InfiniteBattery,
-            });
+            });    //Starlight i think?
         }
 
         if (TryComp<PhysicsComponent>(args.Target, out var physics))
         {
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Halt Movement",
                 Category = VerbCategory.Tricks,
@@ -688,7 +688,7 @@ public sealed partial class AdminVerbSystem
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-halt-movement-description"),
                 Priority = (int) TricksVerbPriorities.HaltMovement,
-            });
+            });    //Starlight i think?
         }
 
         if (TryComp<MapComponent>(args.Target, out var map))
@@ -697,7 +697,7 @@ public sealed partial class AdminVerbSystem
             {
                 if (_map.IsPaused(map.MapId))
                 {
-                    args.Verbs.Add(new Verb
+                    args.Verbs.Add(new Verb    //Starlight i think?
                     {
                         Text = "Unpause Map",
                         Category = VerbCategory.Tricks,
@@ -709,11 +709,11 @@ public sealed partial class AdminVerbSystem
                         Impact = LogImpact.Extreme,
                         Message = Loc.GetString("admin-trick-unpause-map-description"),
                         Priority = (int) TricksVerbPriorities.Unpause,
-                    });
+                    });        //Starlight i think?
                 }
                 else
                 {
-                    args.Verbs.Add(new Verb
+                    args.Verbs.Add(new Verb    //Starlight i think?
                     {
                         Text = "Pause Map",
                         Category = VerbCategory.Tricks,
@@ -725,14 +725,14 @@ public sealed partial class AdminVerbSystem
                         Impact = LogImpact.Extreme,
                         Message = Loc.GetString("admin-trick-pause-map-description"),
                         Priority = (int) TricksVerbPriorities.Pause,
-                    });
+                    });    //Starlight i think?
                 }
             }
         }
 
         if (TryComp<JointComponent>(args.Target, out var joints))
         {
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Snap Joints",
                 Category = VerbCategory.Tricks,
@@ -744,12 +744,12 @@ public sealed partial class AdminVerbSystem
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-snap-joints-description"),
                 Priority = (int) TricksVerbPriorities.SnapJoints,
-            });
+            });    //Starlight i think?
         }
 
         if (TryComp<GunComponent>(args.Target, out var gun))
         {
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Make Minigun",
                 Category = VerbCategory.Tricks,
@@ -762,12 +762,12 @@ public sealed partial class AdminVerbSystem
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-minigun-fire-description"),
                 Priority = (int) TricksVerbPriorities.MakeMinigun,
-            });
+            });    //Starlight i think?
         }
 
         if (TryComp<BallisticAmmoProviderComponent>(args.Target, out var ballisticAmmo))
         {
-            args.Verbs.Add(new Verb
+            args.Verbs.Add(new Verb    //Starlight i think?
             {
                 Text = "Set Bullet Amount",
                 Category = VerbCategory.Tricks,
@@ -786,10 +786,10 @@ public sealed partial class AdminVerbSystem
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-set-bullet-amount-description"),
                 Priority = (int) TricksVerbPriorities.SetBulletAmount,
-            });
+            });    //Starlight i think?
         }
 
-        if (HasComp<ActorComponent>(args.Target))
+        if (HasComp<ActorComponent>(args.Target))    //Starlight i think?
             args.Verbs.Add(new Verb
             {
                 Text = "Prevent objective targeting",
@@ -802,7 +802,7 @@ public sealed partial class AdminVerbSystem
                 Impact = LogImpact.Low,
                 Message = "Prevents this entity from being targeted by other player's objectives. Will also prevent paraclones of this player.",
                 Priority = (int) TricksVerbPriorities.BlockObjectiveTargeting
-            });
+            });    //Starlight i think?
     }
 
     private void RefillEquippedTanks(EntityUid target, Gas gasType)
