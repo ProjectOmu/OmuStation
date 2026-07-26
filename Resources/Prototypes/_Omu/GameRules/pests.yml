@@ -212,7 +212,7 @@
       - id: MobLizard
 
 - type: entity
-  id: LizardMigration
+  id: SlurvaMigration
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
@@ -227,11 +227,11 @@
   - type: GameRule
     chaosScore: 30
   - type: VentCrittersRule
-    max: 4
-    min: 2
+    max: 2
+    min: 1
     table: !type:GroupSelector
       children:
-      - id: MobLizard
+      - id: MobArgocyteSlurva
 
 - type: entity
   id: SnakeMigration
