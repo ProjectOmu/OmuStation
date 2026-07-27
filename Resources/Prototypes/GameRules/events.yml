@@ -179,6 +179,7 @@
     - id: MalignRiftSpawn # DeltaV
     - id: FloorGoblinMidRound # Goobstation
     - id: ClownGoblinMigration # Goobstation - New Midrounds
+    - id: UtilityLineRupture # Funky Station
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -201,7 +202,7 @@
     - id: SlaughterDemonMidround # Goobstation - Slaughter Demon
     - id: XenomorphsInfestation # WD EDIT
     #- id: SlasherSpawn # Goobstation - The Slasher # Omu, disable this
-    - id: SpacePirates # Goobstation - you probably can read whom this rule spawns
+    #- id: SpacePirates # Omu - Yar, Mald pr for Mason, Yar
     #- id: GreyTideAntagMidround # Goobstation - New Midrounds -- Omu Change Removed
     - id: SingulothKnightsMidround # Goobstation - New Midrounds
     #- id: DarkLordMidround # Goobstation - New Midrounds
@@ -210,6 +211,7 @@
     - id: VoxRaidersMidround # Goobstation - New Midrounds
     - id: TunnelClownMidround # Goobstation
     #- id: WraithMidround # Goobstation - Wraith
+    - id: NTAgentSleeper # Omu
     #TODO when midrounds are "reviewed" by the chudmins add them back
 
 - type: entity
@@ -805,6 +807,7 @@
   components:
   - type: StationEvent
     earliestStart: 60 # Goobstation - was 90 (impossible on goob)
+    latestStart: 100 # OmuStation (1hr 40min max)
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
@@ -847,6 +850,7 @@
   components:
   - type: StationEvent
     earliestStart: 60 # OMU change - make lone-ops spawn later
+    latestStart: 100 # OmuStation (1hr 40min max) Im tired of last second shuttle bombing
     weight: 5.5       #Omu
     minimumPlayers: 20 #Omu keeping it lower for now cause playercount
     duration: 720 # Goobstation - required for custom nuke music. 720s to ensure loneop can hear the music and still have space for other midrounds incase of failure
@@ -897,9 +901,10 @@
   components:
   - type: StationEvent
     earliestStart: 30
+    latestStart: 100 # OmuStation (1hr 40min max)
     weight: 8
     minimumPlayers: 15
-    maxOccurrences: 1 # can only happen once per round
+    maxOccurrences: 2 # can only happen twice(omu up from 1) per round
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
@@ -915,7 +920,7 @@
       fallbackRoles: [ Traitor ]
       min: 1
       max: 2
-      playerRatio: 10
+      playerRatio: 15 # Omu changed so it will actually scale at 15/30 pop rather than how it was at 15/20 ppop
       chaosScore: 200 # Goobstation - same as roundstart traitor gamerule
       blacklist:
         components:
@@ -1052,3 +1057,20 @@
       min: 1
       max: 1
       pickPlayer: false
+
+# Funky Station
+- type: entity
+  parent: BaseStationEvent
+  id: UtilityLineRupture
+  name: Utility Line Rupture
+  components:
+  - type: UtilityLineRuptureRule
+  - type: StationEvent
+    earliestStart: 15
+    weight: 6.5
+    duration: null
+  - type: GameRule
+    delay:
+      min: 0
+      max: 0
+    chaosScore: 300 # Omu - potential to do a lot of damage

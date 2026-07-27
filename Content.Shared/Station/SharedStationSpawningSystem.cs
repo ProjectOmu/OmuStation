@@ -224,11 +224,17 @@ public abstract class SharedStationSpawningSystem : EntitySystem
                 if (!string.IsNullOrEmpty(equipmentStr))
                 {
                     var equipmentEntity = Spawn(equipmentStr, xform.Coordinates);
+
+                    // Omu - don't delete loadout items which fail whitelist
                     if (slot.Whitelist != null && !_whitelist.IsWhitelistPass(slot.Whitelist, equipmentEntity)) // Goob Change - Plasmamen
                     {
-                        QueueDel(equipmentEntity);
+                        if (slot.DeleteOnWhitelistFail)
+                            QueueDel(equipmentEntity);
+
                         continue;
                     }
+                    // End Omu
+
                     InventorySystem.TryEquip(entity, equipmentEntity, slot.Name, silent: true, force: true);
                 }
             }

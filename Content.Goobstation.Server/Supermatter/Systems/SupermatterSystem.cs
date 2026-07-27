@@ -42,6 +42,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
+using Content.Shared.EntityEffects.EffectConditions;    //omu for emitters
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
@@ -58,6 +59,18 @@ using Robust.Shared.Maths;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
+using Robust.Shared.Prototypes;        // omu
+using Content.Shared.Random;            //omu
+using Content.Shared.Random.Helpers;    //omu
+using Robust.Shared.Random;            //omu
+using System.Numerics;                    //omu
+using Content.Shared.Radio;            //omu
+using Content.Server.Radio.EntitySystems;    //omu
+using Content.Server.Chat.Managers; // omu
+using Content.Shared.Mind; // omu
+using Content.Shared.Humanoid; // omu
+using Robust.Shared.Player; // omu
+using Content.Server.Objectives.Components.Targets; // omu
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
@@ -77,7 +90,11 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-
+    [Dependency] private readonly IPrototypeManager _proto = default!;    //omu
+    [Dependency] private readonly IRobustRandom _random = default!;        //omu
+    [Dependency] private readonly RadioSystem _radioSystem = default!;    //omu
+    [Dependency] private readonly IChatManager _achat = default!; // omu
+    [Dependency] private readonly TagSystem _tag = default!;    //omu
     private DelamType _delamType = DelamType.Explosion;
 
     public override void Initialize()
@@ -137,11 +154,19 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     public void Cycle(EntityUid uid, SupermatterComponent sm)
     {
+        if (sm.Timelocked < (_gameTiming.CurTime.TotalMinutes - sm.Timetounlock) && sm.Varlocked == true)        //omu start
+        {
+            sm.Varlocked = false;
+            _achat.SendAdminAlert($"SM variables unlocked at time {_gameTiming.CurTime.TotalMinutes}");
+        }                                                                                                        //omu end
         sm.ZapAccumulator++;
         sm.YellAccumulator++;
 
         ProcessAtmos(uid, sm);
         HandleDamage(uid, sm);
+
+        if (sm.Varlocked == false)
+            AdjustSetpoints(sm);        //Omu - SM events - alters the variables of the sm according to setpoints
 
         if (sm.Damage >= sm.DelaminationPoint || sm.Delamming)
             HandleDelamination(uid, sm);
@@ -159,7 +184,56 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             sm.YellAccumulator -= sm.YellTimer;
             HandleAnnouncements(uid, sm);
         }
-    }
+
+        if (sm.SMAngerValue < 0f) //Omu - Sm events start
+        {
+            sm.SMAngerValue = 0f;  //no negative numbers plz
+        }
+        else if (sm.SMAngerValue >= sm.SMEventSetpoint)  //if we are above the setpoint, do something
+        {
+            var eventtorunID = GetEventType(sm); //get what we do
+            sm.SMAngerValue = 0f;
+            if (eventtorunID == null)
+            {
+                return;
+            }
+            var eventtorun = _proto.Index<SupermatterEventPrototype>(eventtorunID);
+            if (eventtorun.Announcement != null)     //shout over radio!
+            {
+                var message = Loc.GetString(eventtorun.Announcement);
+                _radioSystem.SendRadioMessage(uid, message, _proto.Index<RadioChannelPrototype>(sm.RadioChannel), uid);
+                _achat.SendAdminAlert($"{eventtorun.ID} run by supermatter {uid}");
+            }
+            if (eventtorun.EventType == "Gas")   //If its a gas event - create the gas
+            {
+                var mix = _atmosphere.GetContainingMixture(uid, true, true);
+                if (mix == null)
+                    return;
+                mix.AdjustMoles(eventtorun.GasToSpawn, 2000f);
+            }
+            else if (eventtorun.EventType == "Spawn")    //If its a spawn event - spawn what we want next to the SM
+            {
+                if (eventtorun.ProtoToSpawn != null)
+                {
+                    var xform = Transform(uid);
+                    var coords = xform.Coordinates;
+                    Vector2 xy = new Vector2(0f, -1f);
+                    coords = coords.Offset(xy);
+                    Spawn(eventtorun.ProtoToSpawn, coords);
+                }
+            }
+            else if (eventtorun.EventType == "Surge")
+            {
+                sm.Varlocked = true;
+                _achat.SendAdminAlert($"{sm.Varlocked} = supermatter surge begun at time: {_gameTiming.CurTime.TotalMinutes}");
+                sm.Timelocked = _gameTiming.CurTime.TotalMinutes;
+                sm.GasEfficiencyFactorChanged = true;
+                sm.GasEfficiency = 0.30f;
+                sm.RadiationOutputFactorChanged = true;
+                sm.RadiationOutputFactor = 0.06f;
+            }
+        }
+    }                            // Omu end
 
     #region Processing
 
@@ -200,9 +274,16 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         var h2OBonus = 1 - gases[Gas.WaterVapor] * 0.25f;
 
+        var angerModifier = gases.Sum(gas => gases[gas.Key] * facts[gas.Key].AngerValue);   //omu - SM anger - total up the anger modifier of all gasses
+
         powerRatio = Math.Clamp(powerRatio, 0, 1);
         heatModifier = Math.Max(heatModifier, 0.5f);
         transmissionBonus *= h2OBonus;
+
+        // omu Increments the SM's anger value, to eventually trigger an event.
+        sm.SMAngerValue += angerModifier;
+        sm.SMLastAnger = angerModifier;
+        //omu End
 
         // Effects the damage heat does to the crystal
         sm.DynamicHeatResistance = 1f;
@@ -614,18 +695,48 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             // Original log entry
             _adminLog.Add(LogType.Supermatter, impact,
                 $"{activator:actor} activated Supermatter {ToPrettyString(uid):subject}");
+            _achat.SendAdminAlert(
+                $"{activator:actor} activated Supermatter {ToPrettyString(uid):subject}");  //omu added admin alert
 
             // New admin alert
             _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
                 $"SUPERMATTER ACTIVATED BY {activator} AT {Transform(uid).Coordinates}");
+            _achat.SendAdminAlert(
+                $"SUPERMATTER ACTIVATED BY {activator} AT {Transform(uid).Coordinates}");  //omu added admin alert
 
             sm.Activated = true;
         }
 
+        if (_tag.HasTag(target, "EmitterBolt")) //omu start
+        {
+            if (_tag.HasTag(target, "EmitterBoltElectroDisruptive"))    //Omu checks for the tag of the emitter bolt in question
+            {
+                sm.Damage -= 1f;        //omu - heal the SM
+                sm.Power -= 60f;
+                _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+                $"SUPERMATTER hit by healing bolt AT {Transform(uid).Coordinates}");
+                QueueDel(target);
+                return;
+            }
+            if (_tag.HasTag(target, "EmitterBoltElectroBehavioural"))
+            {
+                sm.Damage += 1f;
+                sm.Power += 100f;
+                _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+                $"SUPERMATTER hit by harming bolt AT {Transform(uid).Coordinates}");
+                QueueDel(target);
+                return;
+            }
+        }                                                            //omu end
+
         if (TryComp<SupermatterFoodComponent>(target, out var food))
+        {
             sm.Power += food.Energy;
+        }
         else if (TryComp<ProjectileComponent>(target, out var projectile))
+        {
             sm.Power += (float) projectile.Damage.GetTotal();
+        }
         else
             sm.Power++;
 
@@ -634,11 +745,12 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         if (!HasComp<ProjectileComponent>(target))
         {
             _adminLog.Add(LogType.Supermatter, LogImpact.Medium, $"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");
+            if (HasComp<HumanoidAppearanceComponent>(target) || HasComp<ActorComponent>(target) || HasComp<StealTargetComponent>(target))     //omu - alert for humanoids, controld entities, and steal targets
+                _achat.SendAdminAlert($"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");      //omu admin alert
             EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
             _audio.PlayPvs(sm.DustSound, uid);
         }
-
-        EntityManager.QueueDeleteEntity(target);
+        QueueDel(target);               //omu changed on advice
     }
 
     private void OnHandInteract(EntityUid uid, SupermatterComponent sm, ref InteractHandEvent args)
@@ -655,7 +767,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
         _audio.PlayPvs(sm.DustSound, uid);
-        EntityManager.QueueDeleteEntity(target);
+        QueueDel(target);              //omu changed on advice
     }
 
     private void OnItemInteract(EntityUid uid, SupermatterComponent sm, ref InteractUsingEvent args)
@@ -694,7 +806,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         sm.Damage += sm.DelaminationPoint / 10;
         sm.DamageArchived += sm.DelaminationPoint / 10;
         sm.SliverRemoved = true;
-        
+
         var integrity = GetIntegrity(sm).ToString("0.00");
         SupermatterAnnouncement(uid, Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", integrity)), true, "Central Command");
 
@@ -712,6 +824,64 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             args.PushMarkup(Loc.GetString("supermatter-examine-integrity", ("integrity", GetIntegrity(sm).ToString("0.00"))));
         }
     }
-
     #endregion
+    #region SM events - omu start
+    private string GetEventType(SupermatterComponent sm)
+    {
+
+        if (sm.SMLastAnger >= sm.HarshEventThreshold)
+        {
+            var events = _proto.Index<WeightedRandomPrototype>(sm.HarshEvents);
+            var chosenevent = events.Pick(_random);
+            return (chosenevent);
+        }
+        else
+        {
+            var events = _proto.Index<WeightedRandomPrototype>(sm.NormalEvents);
+            var chosenevent = events.Pick(_random);
+            return (chosenevent);
+        }
+
+    }
+
+
+
+    public void AdjustSetpoints(SupermatterComponent sm)
+    {
+        if (sm.GasEfficiencyFactorChanged)
+        {
+            var diff = sm.GasEfficiency - sm.GasEfficiencySetpoint;
+            diff = diff/50;
+            Math.Round(diff, 5);
+            if (diff >0)
+                sm.GasEfficiency = sm.GasEfficiency - diff;
+            else if (diff <0)
+                sm.GasEfficiency = sm.GasEfficiency + diff;
+            else if (diff == 0)
+                sm.GasEfficiency = sm.GasEfficiencySetpoint;
+            _adminLog.Add(LogType.Supermatter,
+                $"Supermatter gas efficiency factor adjusted by {diff} to {sm.GasEfficiency}");
+
+            if (sm.GasEfficiency == sm.GasEfficiencySetpoint)
+                sm.GasEfficiencyFactorChanged = false;
+        }
+        if (sm.RadiationOutputFactorChanged)
+        {
+            var diff = sm.RadiationOutputFactor - sm.RadiationOutputFactorSetpoint;
+            diff = diff/50;
+            Math.Round(diff, 5);
+            if (diff >0)
+                sm.RadiationOutputFactor = sm.RadiationOutputFactor - diff;
+            else if (diff <0)
+                sm.RadiationOutputFactor = sm.RadiationOutputFactor + diff;
+            else if (diff == 0)
+                sm.RadiationOutputFactor = sm.RadiationOutputFactorSetpoint;
+            _adminLog.Add(LogType.Supermatter,
+                $"Supermatter radiation output factor adjusted by {diff} to {sm.RadiationOutputFactor}");
+
+            if (sm.RadiationOutputFactor == sm.RadiationOutputFactorSetpoint)
+                sm.RadiationOutputFactorChanged = false;
+        }
+    }
+    #endregion     //omu end
 }
