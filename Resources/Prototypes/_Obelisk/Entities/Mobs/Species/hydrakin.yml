@@ -53,8 +53,8 @@
       90: 0.9
       40: 0.75
       10: 0.6
-  #- type: HumanoidAppearance
-  #  species: Hydrakin
+  - type: HumanoidAppearance  # Mono comments but we need for chimera
+    species: Hydrakin
   - type: ThermalRegulator #Todo, implement hydrakin thermal movement generation
     metabolismHeat: 800
     radiatedHeat: 100
@@ -117,7 +117,7 @@
   id: MobHydrakinDummy
   categories: [ HideSpawnMenu ]
   components:
-  # - type: HumanoidAppearance
-  #   species: Hydrakin
+  - type: HumanoidAppearance    # Mono comments but we need for chimera
+    species: Hydrakin
   - type: Inventory
     speciesId: hydrakin
