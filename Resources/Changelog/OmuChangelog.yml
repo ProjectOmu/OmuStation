@@ -5531,3 +5531,31 @@ Entries:
       message: New game rule for admins to use :3
   id: 723
   time: '2026-07-26T17:52:37.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        Kettle's disposals is now connected properly to the disposals pipe
+        system.
+  id: 724
+  time: '2026-07-27T13:58:46.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        Added a single disposals pipe to connect a disposals unit in the medbay
+        in Leonid.
+  id: 725
+  time: '2026-07-27T14:32:01.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: Increased spawn rate of sleeper agents
+  id: 726
+  time: '2026-07-27T15:03:35.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Add
+      message: Added IAA as a midround spawn.
+  id: 727
+  time: '2026-07-27T15:04:17.0000000+00:00'
