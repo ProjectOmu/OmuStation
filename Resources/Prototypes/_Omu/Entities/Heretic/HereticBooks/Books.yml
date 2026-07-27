@@ -69,3 +69,14 @@
   - type: Paper
     content: book-text-mansus-depthII   # The indepth desc of what the mansus is
 
+- type: entity
+  parent: HereticTomeBase
+  id: HereticTomeEldritchBlast
+  name: Eldritch Blast!
+  description: Eldritch Blast!
+  components:
+  - type: HereticTome
+    knowledgeGain: 0    # no knowledge ?!
+    productAction: ActionEldritchBlast # It's the spell!!
+  - type: Paper
+    content: book-text-eldritch-blast    # It's a meme.

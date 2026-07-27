@@ -16,3 +16,7 @@ book-text-mansus-depthII = For those readers astute enough to find this, know th
     The entities that call the mansus home are often opposed to mortal life. Their reasons vary, from curiosity, fear to malice. The gods from stone fear mortal life, for we have wrought the destruction of much of their kind.
     The gods from flesh often hate us, for they came from us and fear we will replace them. The gods from blood are curious as to our nature, they want to poke and prod and to see from where their origins lie.
     They send forth their servants to the wider mansus and to the material plane to do combat with each other, and mortal life. They come in as varied forms as their masters.
+
+book-text-eldritch-blast = To bargain with the mansus gods is to sell a part of yourself. The gains are incredible, but the risks are immense.
+    Gaze upon this incantation and consider, is this worth your soul?
+    Personally? I think its worth it.

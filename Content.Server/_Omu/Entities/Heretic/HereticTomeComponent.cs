@@ -1,6 +1,9 @@
 using Content.Server.Heretic.EntitySystems;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
+using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Store;
 
 namespace Content.Server._Omu.Entities.Heretic;
 
@@ -40,4 +43,15 @@ public sealed partial class HereticTomeComponent : Component
     };
 
     public List<EntityUid> Readers = new();     //UID's of people who read the book
+
+    [DataField]
+    public ProtoId<HereticKnowledgePrototype>? ProductHereticKnowledge;     //Does the book have associated knowledge?
+
+    //Below is the variable(s) copied from listing prototypes and store component. - Useful if we want our books to give people actions!
+
+    /// <summary>
+    /// The action that is given when the listing is purchased.
+    /// </summary>
+    [DataField]
+    public EntProtoId? ProductAction;
 }
