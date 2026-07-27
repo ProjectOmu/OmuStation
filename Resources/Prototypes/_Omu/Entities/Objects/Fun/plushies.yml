@@ -831,20 +831,3 @@
     wideAnimationRotation: 180
     soundHit:
       collection: Squishes
-
-- type: entity
-  parent: PlushieLizard
-  id: PlushieJeelus
-  name: Jeelus-an Plush
-  description: This blue lizard, dressed up in greens and ready to make plant based nightmares
-  components:
-  - type: Sprite
-    sprite: _Omu/Objects/Fun/Plushies/Jeelus.rsi
-    state: icon
-  - type: Item
-    sprite: _Omu/Objects/Fun/Plushies/Jeelus.rsi
-  - type: Clothing
-    quickEquip: false
-    sprite: _Omu/Objects/Fun/Plushies/Jeelus.rsi
-    slots:
-    - HEAD
