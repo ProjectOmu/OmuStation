@@ -38,14 +38,18 @@
       - ReagentId: AmmoniaBlood
         Quantity: 20
 
-- type: entity
+- type: entity      # Omu - give them a groin
   id: GroinHydrakin
   parent: [PartHydrakin, BaseGroin]
   name: "hydrakin groin"
   abstract: true
   components:
-#  - type: Icon # Shitmed Change
-#    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi     # Best i can do okay?
+    state: "groin_f"
+  - type: Icon
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+    state: "groin_f"
   - type: BodyPart # Shitmed Change
     species: Hydrakin
   - type: Extractable
