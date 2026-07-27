@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/16/2026 14:44:51
-  entityCount: 31865
+  time: 07/01/2026 11:45:55
+  entityCount: 31881
 maps:
 - 1
 grids:
@@ -86131,6 +86131,17 @@ entities:
     - type: Transform
       pos: 52.5,46.5
       parent: 2
+  - uid: 31869
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 19.5,51.5
+      parent: 2
+  - uid: 31870
+    components:
+    - type: Transform
+      pos: 21.5,51.5
+      parent: 2
 - proto: DisposalJunction
   entities:
   - uid: 13595
@@ -86470,6 +86481,12 @@ entities:
     components:
     - type: Transform
       pos: 30.5,-10.5
+      parent: 2
+  - uid: 31881
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,41.5
       parent: 2
 - proto: DisposalMachineFrame
   entities:
@@ -94545,6 +94562,81 @@ entities:
     components:
     - type: Transform
       pos: 57.5,49.5
+      parent: 2
+  - uid: 26058
+    components:
+    - type: Transform
+      pos: 19.5,54.5
+      parent: 2
+  - uid: 31867
+    components:
+    - type: Transform
+      pos: 19.5,53.5
+      parent: 2
+  - uid: 31868
+    components:
+    - type: Transform
+      pos: 19.5,52.5
+      parent: 2
+  - uid: 31871
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 20.5,51.5
+      parent: 2
+  - uid: 31872
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,50.5
+      parent: 2
+  - uid: 31873
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,49.5
+      parent: 2
+  - uid: 31874
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,48.5
+      parent: 2
+  - uid: 31875
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,47.5
+      parent: 2
+  - uid: 31876
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,46.5
+      parent: 2
+  - uid: 31877
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,45.5
+      parent: 2
+  - uid: 31878
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,44.5
+      parent: 2
+  - uid: 31879
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,43.5
+      parent: 2
+  - uid: 31880
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,42.5
       parent: 2
 - proto: DisposalPipeBroken
   entities:
