@@ -58,4 +58,7 @@ public sealed partial class GhoulComponent : Component
 
     [DataField]
     public LocId GhostRoleRules = "ghostrole-ghoul-rules";
+
+    [DataField]
+    public bool GibOnDeath = true;      //Omu ghoul gibbing
 }

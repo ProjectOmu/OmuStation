@@ -181,6 +181,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
 
                     var ghoul = _compFactory.GetComponent<GhoulComponent>();
                     ghoul.GiveBlade = true;
+                    ghoul.GibOnDeath = false;       //Omu - ghouled targets can be cloned and don't gib!
 
                     AddComp(target, ghoul);
                     applyMark = false;

@@ -30,6 +30,7 @@ public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior
 
             var ghoul = new GhoulComponent
             {
+                GibOnDeath = false,
                 TotalHealth = 100f,
                 GiveBlade = true,
             };

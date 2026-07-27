@@ -311,6 +311,9 @@ public sealed class GhoulSystem : EntitySystem
         if (!TryComp(ent, out BodyComponent? body))
             return;
 
+        if (ent.Comp.GibOnDeath == false)
+            return;
+
         foreach (var nymph in _body.GetBodyOrganEntityComps<NymphComponent>((ent, body)))
         {
             RemComp(nymph.Owner, nymph.Comp1);
