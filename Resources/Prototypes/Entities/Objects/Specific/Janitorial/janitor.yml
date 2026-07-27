@@ -154,6 +154,8 @@
     fillBaseName: fill-
     inHandsFillBaseName: -fill-
     inHandsMaxFillLevels: 2
+    equippedFillBaseName: -fill- # Omu
+    equippedMaxFillLevels: 2 # Omu
   - type: MeleeWeapon
     damage:
       types:
@@ -195,6 +197,14 @@
   - type: DnaSubstanceTrace
   - type: FloorCleaner # Goobstation
     radius: 2
+  # Omu start
+  - type: Clothing
+    sprite: Objects/Specific/Janitorial/mop.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  # Omu end
 
 - type: entity
   parent: BaseItem
@@ -215,6 +225,8 @@
       fillBaseName: fill-
       inHandsFillBaseName: -fill-
       inHandsMaxFillLevels: 2
+      equippedFillBaseName: -fill- # Omu
+      equippedMaxFillLevels: 2 # Omu
     - type: MeleeWeapon
       damage:
         types:
@@ -268,6 +280,14 @@
     - type: FloorCleaner # Goobstation
       radius: 3
       cleanDelay: 6
+    # Omu start
+    - type: Clothing
+      sprite: Objects/Specific/Janitorial/advmop.rsi
+      quickEquip: false
+      slots:
+      - Back
+      - suitStorage
+    # Omu end
 
 - type: entity
   name: wet floor sign
@@ -295,6 +315,12 @@
     tags:
       - WetFloorSign
       - WhitelistChameleon
+  # Omu start
+  - type: AllowSuitStorage
+    whitelist:
+      tags:
+        - Mop
+  # Omu end
 
 
 - type: entity
