@@ -5499,3 +5499,69 @@ Entries:
       message: ported funkystation reagent fires, puddles of ignitables can burn
   id: 719
   time: '2026-07-25T21:59:25.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Add
+      message: Mops can be worn on your back and internals slot
+    - type: Add
+      message: >-
+        Wet floor signs and the janitor bio suit now support internals slots for
+        mops
+  id: 720
+  time: '2026-07-25T22:20:42.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Fix
+      message: >-
+        Fixed xelthia not being able to be read by medHUDs and use topicals
+        while maintaining there caustic immunity
+  id: 721
+  time: '2026-07-25T22:23:15.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Add
+      message: >-
+        Cargo lathe can now print mail capsules, have fun with expedient mail
+        delivery all round
+  id: 722
+  time: '2026-07-26T17:51:25.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: New game rule for admins to use :3
+  id: 723
+  time: '2026-07-26T17:52:37.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        Kettle's disposals is now connected properly to the disposals pipe
+        system.
+  id: 724
+  time: '2026-07-27T13:58:46.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        Added a single disposals pipe to connect a disposals unit in the medbay
+        in Leonid.
+  id: 725
+  time: '2026-07-27T14:32:01.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: Increased spawn rate of sleeper agents
+  id: 726
+  time: '2026-07-27T15:03:35.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Add
+      message: Added IAA as a midround spawn.
+  id: 727
+  time: '2026-07-27T15:04:17.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: Lowered Abductor spawn slightly.
+  id: 728
+  time: '2026-07-27T21:23:16.0000000+00:00'

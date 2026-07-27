@@ -211,6 +211,7 @@
     - id: VoxRaidersMidround # Goobstation - New Midrounds
     - id: TunnelClownMidround # Goobstation
     #- id: WraithMidround # Goobstation - Wraith
+    - id: NTAgentSleeper # Omu
     #TODO when midrounds are "reviewed" by the chudmins add them back
 
 - type: entity
@@ -903,7 +904,7 @@
     latestStart: 100 # OmuStation (1hr 40min max)
     weight: 8
     minimumPlayers: 15
-    maxOccurrences: 1 # can only happen once per round
+    maxOccurrences: 2 # can only happen twice(omu up from 1) per round
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
@@ -919,7 +920,7 @@
       fallbackRoles: [ Traitor ]
       min: 1
       max: 2
-      playerRatio: 10
+      playerRatio: 15 # Omu changed so it will actually scale at 15/30 pop rather than how it was at 15/20 ppop
       chaosScore: 200 # Goobstation - same as roundstart traitor gamerule
       blacklist:
         components:
