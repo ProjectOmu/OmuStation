@@ -1,0 +1,155 @@
+
+- type: rcd
+  id: ShuttersNormal
+  category: Airlocks
+  sprite: /Textures/Structures/Doors/Shutters/shutters.rsi/closed.png
+  mode: ConstructObject
+  prototype: ShuttersNormal
+  cost: 3
+  delay: 3
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: Windoor
+  category: Airlocks
+  sprite: /Textures/_Omu/Interface/Radial/RCD/windoor.png
+  mode: ConstructObject
+  prototype: Windoor
+  cost: 3
+  delay: 2
+  collisionMask: Impassable
+  collisionBounds: "-0.23,-0.49,0.23,-0.36"
+  rules:
+  - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: FirelockGlass
+  category: Airlocks
+  sprite: /Textures/Structures/Doors/Airlocks/Glass/firelock.rsi/closed.png
+  mode: ConstructObject
+  prototype: FirelockGlass
+  cost: 4
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: Camera
+  fx: EffectRCDConstruct3
+
+# advanced RCD recipes
+- type: rcd
+  id: WallReinforced
+  category: WallsAndFlooring
+  sprite: /Textures/Structures/Walls/solid.rsi/rgeneric.png
+  mode: ConstructObject
+  prototype: WallReinforced
+  cost: 10
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct4
+# windows
+- type: rcd
+  id: PlasmaWindow
+  category: WindowsAndGrilles
+  sprite: /Textures/Structures/Windows/plasma_window.rsi/full.png
+  mode: ConstructObject
+  prototype: PlasmaWindow
+  cost: 5
+  delay: 4
+  collisionMask: Impassable
+  rules:
+  - IsWindow
+  rotation: Fixed
+  fx: EffectRCDConstruct4
+
+- type: rcd
+  id: PlasmaWindowDirectional
+  category: WindowsAndGrilles
+  sprite: /Textures/_Omu/Interface/Radial/RCD/plasma_window_directional.png
+  mode: ConstructObject
+  prototype: PlasmaWindowDirectional
+  cost: 5
+  delay: 4
+  collisionMask: Impassable
+  collisionBounds: "-0.23,-0.49,0.23,-0.36"
+  rules:
+  - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct4
+# renforced windows
+- type: rcd
+  id: ReinforcedPlasmaWindow
+  category: WindowsAndGrilles
+  sprite: /Textures/Structures/Windows/reinforced_plasma_window.rsi/full.png
+  mode: ConstructObject
+  prototype: ReinforcedPlasmaWindow
+  cost: 10
+  delay: 4
+  collisionMask: Impassable
+  rules:
+  - IsWindow
+  rotation: Fixed
+  fx: EffectRCDConstruct4
+
+- type: rcd
+  id: PlasmaReinforcedWindowDirectional
+  category: WindowsAndGrilles
+  sprite: /Textures/_Omu/Interface/Radial/RCD/plasma_reinforced_window_directional.png
+  mode: ConstructObject
+  prototype: PlasmaReinforcedWindowDirectional
+  cost: 8
+  delay: 4
+  collisionMask: Impassable
+  collisionBounds: "-0.23,-0.49,0.23,-0.36"
+  rules:
+  - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct4
+# Windoors
+- type: rcd
+  id: WindoorSecure
+  category: Airlocks
+  sprite: /Textures/_Omu/Interface/Radial/RCD/windoor_secure.png
+  mode: ConstructObject
+  prototype: WindoorSecure
+  cost: 5
+  delay: 2
+  collisionMask: Impassable
+  collisionBounds: "-0.23,-0.49,0.23,-0.36"
+  rules:
+  - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: WindoorPlasma
+  category: Airlocks
+  sprite: /Textures/_Omu/Interface/Radial/RCD/plasma_windoor.png
+  mode: ConstructObject
+  prototype: WindoorPlasma
+  cost: 8
+  delay: 3
+  collisionMask: Impassable
+  collisionBounds: "-0.23,-0.49,0.23,-0.36"
+  rules:
+  - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: WindoorSecurePlasma
+  category: Airlocks
+  sprite: /Textures/_Omu/Interface/Radial/RCD/plasma_windoor_secure.png
+  mode: ConstructObject
+  prototype: WindoorSecurePlasma
+  cost: 10
+  delay: 4
+  collisionMask: Impassable
+  collisionBounds: "-0.23,-0.49,0.23,-0.36"
+  rules:
+  - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct4

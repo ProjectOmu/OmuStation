@@ -61,3 +61,52 @@
     maxCharges: 40
   - type: AutoRecharge
     rechargeDuration: 5
+
+- type: entity
+  id: AdvancedRCDRecharging
+  parent: RCD
+  name: advanced cyborg RCD
+  description: Big problems require big solutions. This beast of mobile fabrication technology can fabricate things other RCDs can only dream of.
+  suffix: AutoRecharge
+  components:
+  - type: LimitedCharges
+    maxCharges: 100
+  - type: AutoRecharge
+    rechargeDuration: 5
+  - type: Sprite
+    sprite: _Omu/Objects/Tools/advanced_cyborg_rcd.rsi
+    state: icon
+  - type: RCD
+    availablePrototypes:
+    - WallSolid
+    - FloorSteel
+    - FloorWaterEntity
+    - Plating
+    - Catwalk
+    - Grille
+    - Window
+    - WindowDirectional
+    - WindowReinforcedDirectional
+    - ReinforcedWindow
+    - Airlock
+    - AirlockGlass
+    - Firelock
+    - TubeLight
+    - BulbLight
+    - LVCable
+    - MVCable
+    - HVCable
+    - CableTerminal
+    - Deconstruct
+    - FirelockGlass
+    - ShuttersNormal
+    - Windoor
+    # advanced RCD only recipes
+    - WallReinforced
+    - WindoorSecure
+    - WindoorPlasma
+    - WindoorSecurePlasma
+    - PlasmaWindow
+    - PlasmaWindowDirectional
+    - ReinforcedPlasmaWindow
+    - PlasmaReinforcedWindowDirectional
