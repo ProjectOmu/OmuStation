@@ -725,29 +725,56 @@
   - type: ItemBorgModule
     moduleId: Construction
     items:
-    - SheetSteelLingering0
-    - SheetGlassLingering0
-    - SheetRGlassLingering0
-    - SheetRPGlassLingering0
-    - SheetPlasteelLingering0
-    - PartRodMetalLingering0
-    - FloorTileItemSteelLingering0
-    - FloorTileItemWhiteLingering0
-    - FloorTileItemDarkLingering0
+#    - SheetSteelLingering0 # Omu edit start
+#    - SheetGlassLingering0
+#    - SheetRGlassLingering0
+#    - SheetRPGlassLingering0
+#    - SheetPlasteelLingering0
+#    - PartRodMetalLingering0
+#    - FloorTileItemSteelLingering0
+#    - FloorTileItemWhiteLingering0
+#    - FloorTileItemDarkLingering0 # Omu edit end
     - ConstructionBag # Goobstation
     # Frontier: droppable borg items
   - type: DroppableBorgModule
     moduleId: Construction
     items:
-    - id: APCElectronics
-      whitelist:
+    - id: CameraElectronics # Omu edit start - Less hands for fewer much more versatile hands
+      whitelist: # Exact same filter as the Construction Bag
+        tags:
+        - Sheet
+        - CableCoil
+        - RawMaterial
+        - PartBase
         components:
         - Electronics
         - MachineBoard
-    - id: MicroManipulatorStockPart
-      whitelist:
-        components:
+        - ComputerBoard
+        - Material
         - StockPart
+        - Battery
+        - LightBulb
+        - FloorTile
+        - UpgradeKit
+        - Flatpack
+    - id: CameraElectronics
+      whitelist:
+        tags:
+        - Sheet
+        - CableCoil
+        - RawMaterial
+        - PartBase
+        components:
+        - Electronics
+        - MachineBoard
+        - ComputerBoard
+        - Material
+        - StockPart
+        - Battery
+        - LightBulb
+        - FloorTile
+        - UpgradeKit
+        - Flatpack # Omu edit end
     # End Frontier: droppable borg items
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: construction-module }
