@@ -72,7 +72,6 @@
   - type: Organ # Shitmed Change
     slotId: liver # Shitmed Change
   - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
-    maxReagents: 1
     metabolizerTypes: [Human]
     groups:
     - id: Alcohol
