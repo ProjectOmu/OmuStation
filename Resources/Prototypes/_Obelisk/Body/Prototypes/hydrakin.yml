@@ -23,15 +23,20 @@
       connections:
       - right arm
       - left arm
-      - right leg
-      - left leg
+      - groin
       - head # Shitmed
       organs:
         heart: OrganHydrakinHeart
         lungs: OrganHydrakinLungs
+        kidneys: OrganHumanKidneys
+    groin:      #Omu give em a groin
+      part: GroinHydrakin
+      connections:
+      - right leg
+      - left leg
+      organs:
         stomach: OrganHydrakinStomach
         liver: OrganHydrakinLiver
-        kidneys: OrganHumanKidneys
     right arm:
       part: RightArmHydrakin
       connections:

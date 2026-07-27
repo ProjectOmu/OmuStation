@@ -38,6 +38,24 @@
       - ReagentId: AmmoniaBlood
         Quantity: 20
 
+- type: entity
+  id: GroinHydrakin
+  parent: [PartHydrakin, BaseGroin]
+  name: "hydrakin groin"
+  abstract: true
+  components:
+#  - type: Icon # Shitmed Change
+#    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+  - type: BodyPart # Shitmed Change
+    species: Hydrakin
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: AmmoniaBlood
+        Quantity: 10
+
 
 - type: entity
   id: HeadHydrakin
