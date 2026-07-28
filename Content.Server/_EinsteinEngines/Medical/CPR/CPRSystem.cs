@@ -16,6 +16,7 @@ using Content.Shared.Atmos.Rotting;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Inventory;
+using Content.Shared.Nutrition; // Omu
 
 using Content.Shared.Medical.CPR;
 using Content.Shared.Mobs;
@@ -44,6 +45,7 @@ public sealed class CPRSystem : EntitySystem
     [Dependency] private readonly RottingSystem _rottingSystem = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!; // Omu
 
     public override void Initialize()
     {
@@ -90,7 +92,35 @@ public sealed class CPRSystem : EntitySystem
         }
 
         if (!_ingestionSystem.HasMouthAvailable(performer, performer) || !_ingestionSystem.HasMouthAvailable(performer, target)) // Omu, swap parameters to correctly check if target is wearing a blocker
+        {
+            // Omu, fixes the ingestion blocker text not appearing.
+            // Yes, this is shitcode. I am sorry but I don't know how to do this better.
+
+            // first, check if the range requirement is why the interaction failed
+            if (!_transform.GetMapCoordinates(performer).InRange(_transform.GetMapCoordinates(target), IngestionSystem.MaxFeedDistance))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("interaction-system-user-interaction-cannot-reach"), performer, performer);
+                return;
+            }
+
+            // if not range, then check if it's because someone can't do ingesting
+            var attempt = new IngestionAttemptEvent(IngestionSystem.DefaultFlags);
+            if(!_ingestionSystem.HasMouthAvailable(performer, performer)) // first check if the performer has a mask
+            {
+                RaiseLocalEvent(performer, ref attempt);
+                if (attempt.Blocker != null)
+                    _popupSystem.PopupEntity(Loc.GetString("ingestion-remove-mask", ("entity", attempt.Blocker.Value)), performer, performer);
+
+            } else if (!_ingestionSystem.HasMouthAvailable(performer, target)) // if not, check if the target has a mask; this is to prevent mixing textboxes
+            {
+                RaiseLocalEvent(target, ref attempt);
+                if (attempt.Blocker != null)
+                    _popupSystem.PopupEntity(Loc.GetString("ingestion-remove-mask", ("entity", attempt.Blocker.Value)), performer, performer);
+            }
             return;
+            // Omu end
+        }
+
 
         _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person", ("target", target)), target, performer);
         _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person-patient", ("user", performer)), target, target);
