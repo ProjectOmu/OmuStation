@@ -72,7 +72,7 @@ public sealed partial class IngestionSystem
 
     /// <inheritdoc cref="HasMouthAvailable(EntityUid, EntityUid)"/>
     /// Omu, option to take the message for use in server-side logic
-    public bool HasMouthAvailable(EntityUid user, EntityUid target, out string message)
+    public bool HasMouthAvailable(EntityUid user, EntityUid target, out string? message)
     {
         return HasMouthAvailable(user, target, DefaultFlags, out message);
     }
@@ -102,10 +102,10 @@ public sealed partial class IngestionSystem
 
     /// <inheritdoc cref="HasMouthAvailable(EntityUid, EntityUid, SlotFlags)"/>
     /// Omu, allows for taking the reason why the interaction failed
-    /// "message" will be an empty string if the interaction did not fail due to distance or a blocker
-    public bool HasMouthAvailable(EntityUid user, EntityUid target, SlotFlags flags, out string message)
+    /// "message" will be null if the interaction succeeded or did not fail due to distance or a blocker
+    public bool HasMouthAvailable(EntityUid user, EntityUid target, SlotFlags flags, out string? message)
     {
-        message = ""; // leave the message empty if nothing is stopping you
+        message = null; // leave the message null if it succeeded or the fail wasn't due to reach or a blocker
 
         if (!_transform.GetMapCoordinates(user).InRange(_transform.GetMapCoordinates(target), MaxFeedDistance))
         {
