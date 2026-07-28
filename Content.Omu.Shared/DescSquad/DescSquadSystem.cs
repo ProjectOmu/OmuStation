@@ -21,13 +21,27 @@ public sealed class DescSquadSystem : EntitySystem
         {
             desc += " ";
         }
+        string details;
 
-        var details = Loc.GetString("desc-squad-examined",
-            ("color", descSquad.Comp.Color),
-            ("target", Identity.Entity(descSquad, EntityManager)),
-            ("description", desc),
-            ("adjective", descSquad.Comp.Adjective),
-            ("word", descSquad.Comp.Word));
+        if (descSquad.Comp.IsCustom)
+        {
+            details = Loc.GetString("desc-squad-custom",
+                ("color", descSquad.Comp.Color),
+                ("target", Identity.Entity(descSquad, EntityManager)),
+                ("fullcustom", descSquad.Comp.FullCustom));
+        }
+        else
+        {
+            details = Loc.GetString("desc-squad-examined",
+                ("color", descSquad.Comp.Color),
+                ("target", Identity.Entity(descSquad, EntityManager)),
+                ("verb", descSquad.Comp.Verb),
+                ("description", desc),
+                ("determiner", descSquad.Comp.Determiner),
+                ("adjective", descSquad.Comp.Adjective),
+                ("word", descSquad.Comp.Word));
+        }
+
         args.PushMarkup(details, -1);
     }
 }
