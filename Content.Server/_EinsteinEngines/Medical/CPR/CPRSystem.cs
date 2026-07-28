@@ -89,8 +89,26 @@ public sealed class CPRSystem : EntitySystem
             return;
         }
 
-        if (!_ingestionSystem.HasMouthAvailable(performer, performer) || !_ingestionSystem.HasMouthAvailable(performer, target)) // Omu, swap parameters to correctly check if target is wearing a blocker
+        // Omu, fix CPR not showing a message for being out of range or for having a blocker
+        // Separated into two checks so that the out variables don't end up unassigned
+        if (!_ingestionSystem.HasMouthAvailable(performer, performer, out string performerMessage))
+        { 
+            if (performerMessage.Length > 0) // Check if message is an empty string; if it isn't, then report it via popup
+            {
+                _popupSystem.PopupEntity(performerMessage, performer, performer);
+            }
             return;
+        }
+        if (!_ingestionSystem.HasMouthAvailable(performer, target, out string targetMessage)) // Omu, swap parameters to correctly check if target is wearing a blocker
+        {
+            if (targetMessage.Length > 0)
+            {
+                _popupSystem.PopupEntity(targetMessage, performer, performer);
+            }
+            return;
+        }
+        // Omu end
+            
 
         _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person", ("target", target)), target, performer);
         _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person-patient", ("user", performer)), target, target);
