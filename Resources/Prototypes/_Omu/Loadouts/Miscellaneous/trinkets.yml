@@ -165,3 +165,64 @@
     back:
     - ClothingNeckChameleonPride
   groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckEnsembleTrans
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 720000 # 200hr
+  storage:
+    back:
+    - ClothingNeckEnsembleTrans
+  groupBy: "pin"
+
+- type: loadout
+  id: BarberScissors
+  storage:
+    back:
+    - BarberScissors
+
+- type: loadout
+  id: MysteryLighterBox
+  storage:
+    back:
+    - MysteryLighterBox
+  groupBy: "smokeables"
+
+- type: loadout
+  id: DiscountDanLighter
+  storage:
+    back:
+    - DiscountDanLighter
+  groupBy: "smokeables"
+
+- type: loadout
+  id: CheapLighter
+  storage:
+    back:
+    - CheapLighter
+  groupBy: "smokeables"
+
+- type: loadout
+  id: FlippoLighter
+  storage:
+    back:
+    - FlippoLighter
+  groupBy: "smokeables"
+
+- type: loadout
+  id: GreyTideStamp
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SophisticatedTider
+  storage:
+   back:
+   - RubberStampGreytide
+
+- type: loadout
+  id: MysteryStaffPlushieBox
+  storage:
+    back:
+    - MysteryStaffPlushieBox

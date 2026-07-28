@@ -6,13 +6,13 @@
 # (Extra reading) On Balance:
 #     The cybernetic beast trait is balanced around opportunity costs. That is to say, you gain some pretty nice benefits from wearing a mantle, but your mantle
 # can't do everything. You eventually will need to put on another helmet, or set of glasses, or facemask, and in order to do that, you must accept some downsides
-# in return. For instance, if you're a tider, your mantle provides you with some basic upsides: night vision, flash resistance, vision correction. However,
+# in return. For instance, if you're a tider, your mantle provides you with some basic upsides: night vision, vision correction. However,
 # if the station is spaced, you will need to use internals, which you don't have. So you must take off the mantle and deal with being nearsighted
 # for the time being. As well, the mantle is large, at 4x4 inventory slots, meaning that in a worst-case emergency you may need to drop it entirely and come
 # back for it later.
 #     Some concessions have been made for certain jobs. A salvager will need to go out into space, so they get internals and pressure resistance. Same with an
 # atmos technician. As well, a doctor probably needs a medhud for their job. The key is to give the player ONLY what is necessary to complete their job. A
-# doctor probably doesn't need to be spaceproofed to do their job, at least until the station goes belly up, at which point they __should__ have to play around the 
+# doctor probably doesn't need to be spaceproofed to do their job, at least until the station goes belly up, at which point they __should__ have to play around the
 # opportunity cost of having a mantle.
 #
 # (Extra, Extra reading) On Balance, holistically:
@@ -38,12 +38,10 @@
   - type: ComponentToggler
     components:
     - type: VisionCorrection
-      correctionPower: 16 # these ain't your granny's reading glasses 
+      correctionPower: 16 # these ain't your granny's reading glasses
     - type: NightVision
       isEquipment: true
-      color: "#CCFFCC" #todo: make this correspond to the colour of the beast's eyes
-    - type: FlashImmunity
-    - type: FlashSoundSuppression
+      color: "#CCFFCC"
   - type: Sprite
     sprite: _Omu/Clothing/Head/mantle.rsi
   - type: Clothing
@@ -53,6 +51,12 @@
       - state: helmet
       - state: eyes
         shader: unshaded
+  - type: HideLayerClothing
+    slots:
+    - Snout
+  - type: GuideHelp # I would add this to the player, but unfortunately that doesn't work. The guidebook system is client sided only, so if the server adds this to the player via a trait, nothing will happen.
+    guides:
+    - CyberneticBeast
   - type: PointLight # the glow is subtle. It's just enough to make the mantle visible in pitch black lighting, but won't help you see much.
     radius: 1.45
     energy: 0.6
@@ -63,14 +67,18 @@
     containerOccluded: true # this makes the mantle illuminate itself.
   - type: ClothingTakesUpExtraSlots
     slots:
-    - mask 
+    - mask
     - eyes
   - type: StealTarget
     stealGroup: CyberneticMantles
   - type: Item
     size: Huge
+  - type: Tag # Overwrite the TagComponent from the parent to get rid of ClothMade because it's funny when a mothroach eats this ultra specialized bit of equipment, but only the first time.
+    tags:
+    - WhitelistChameleon
+  - type: PlasmaUnfit #Omustation
 
-# This mantle is inteded for people doing jobs that require internals. In particular, this mantle is a breath mask with pressure protection.
+# This mantle is inteded for people doing jobs that require internals. In particular, this mantle is a breath mask with pressure protection and welding protection.
 - type: entity
   id: ClothingCyberneticBeastMantleWork
   parent: ClothingCyberneticBeastMantle
@@ -88,6 +96,10 @@
       - state: helmet-internals
       - state: eyes
         shader: unshaded
+  - type: IngestionBlocker # Work mantles, at least those with internals, make the cybernetic beast trait far more valuable to roles with these specialized mantles than those without. To offset this, at least a little, we'll say that the seals on the mantle make it impossible to eat while it's worn.
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
   - type: ComponentToggler
     components: # copied from the parent with some additions
     - type: VisionCorrection
@@ -95,18 +107,15 @@
     - type: NightVision
       isEquipment: true
       color: "#CCFFCC"
-    - type: FlashImmunity
-    - type: FlashSoundSuppression
     - type: BreathMask
-    - type: PressureProtection
-      highPressureMultiplier: 0.4
-      lowPressureMultiplier: 1000
+    - type: EyeProtection
 
-# resprite of the work mantle for engineers.
+# slight resprite of the work mantle for engineers.
 - type: entity
   id: ClothingCyberneticBeastMantleWorkEngineering
   parent: ClothingCyberneticBeastMantleWork
   name: beast's engineering mantle
+  description: A modified version of a cybernetic beast's mantle. This one has integrated internals and lead plating.
   components:
   - type: Clothing
     sprite: _Omu/Clothing/Head/mantle.rsi
@@ -116,6 +125,82 @@
       - state: helmet-internals
       - state: eyes-engineering
         shader: unshaded
+  - type: Armor # Makes the engineer and atmos mantles have radiation resistance. It is close to as strong as the CE's mantle.
+    coverage:
+    - Head
+    modifiers:
+     coefficients:
+      Radiation: 0.15
+
+# variant of the engineering mantle for atmosians. Mostly because the burn chamber is a thing.
+- type: entity
+  id: ClothingCyberneticBeastMantleWorkAtmospherics
+  parent: ClothingCyberneticBeastMantleWorkEngineering
+  name: beast's atmospheric mantle
+  description: A modified version of a cybernetic beast's mantle. This one has internals, lead plating, and extra thermal insulation.
+  components:
+  - type: ComponentToggler
+    components: # copied from the parent with some additions
+    - type: VisionCorrection
+      correctionPower: 16
+    - type: NightVision
+      isEquipment: true
+      color: "#CCFFCC"
+    - type: BreathMask
+    - type: TemperatureProtection
+      heatingCoefficient: 0.01
+      coolingCoefficient: 0.2
+    - type: EyeProtection
+    - type: FireProtection
+      reduction: 0.2
+
+# variant of the engineering mantle for chief engineer. Same stats as the hardsuit helmet, they are practically glued into the things anyway.
+- type: entity
+  id: ClothingCyberneticBeastMantleWorkChiefEngineering
+  parent: ClothingCyberneticBeastMantleWorkEngineering
+  name: beast's chief engineer mantle
+  description: A modified version of a cybernetic beast's mantle. This one has internals, lead plating, and extra thermal insulation.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    state: icon-ce
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    clothingVisuals:
+      head:
+      - state: helmet-ce
+      - state: helmet-internals
+      - state: eyes-ce
+        shader: unshaded
+  - type: TemperatureProtection
+    heatingCoefficient: 0.01
+    coolingCoefficient: 0.2
+  - type: EyeProtection
+  - type: FireProtection
+    reduction: 0.2
+  - type: PressureProtection #Copied directly from the CE hardsuit helmet
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor #Copied directly from the CE hardsuit helmet
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.4
+        Radiation: 0.0
+        Caustic: 0.7
+  - type: ComponentToggler
+    components: # copied from the parent with some additions
+    - type: VisionCorrection
+      correctionPower: 16
+    - type: NightVision
+      isEquipment: true
+      color: "#CCFFCC"
+    - type: BreathMask
+
 
 # resprite of the work mantle for salvagers in particular.
 - type: entity
@@ -141,6 +226,37 @@
     offset: 0,0.2
     color: "#CCFFCC"
 
+# resprite of the Security mantle for the Head of Security
+- type: entity
+  id: ClothingCyberneticBeastMantleHeadofSecurity
+  parent: [ClothingCyberneticBeastMantleSecurity, BaseSecurityContraband]
+  name: beast's head of security mantle
+  description: A refined mantle that gives the bearer a notable air of authority.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    state: icon-hos
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    clothingVisuals:
+      head:
+      - state: helmet-hos
+      - state: eyes-hos
+        shader: unshaded
+  - type: ComponentToggler # copied from the parent with some additions.
+    components:
+    - type: VisionCorrection
+      correctionPower: 16
+    - type: NightVision
+      isEquipment: true
+      color: "#CCFFCC"
+    - type: FlashImmunity
+    - type: FlashSoundSuppression
+    - type: ShowJobIcons
+    - type: ShowMindShieldIcons
+    - type: ShowCriminalRecordIcons
+    - type: ShowContrabandDetails
+
 # resprite of the standard mantle with a sechud.
 - type: entity
   id: ClothingCyberneticBeastMantleSecurity
@@ -158,6 +274,21 @@
       - state: helmet-security
       - state: eyes-security
         shader: unshaded
+  - type: Armor # Gives the same level of protection as the security beret.
+    coverage:
+    - Head
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.8
   - type: ComponentToggler # copied from the parent with some additions.
     components:
     - type: VisionCorrection
@@ -171,21 +302,39 @@
     - type: ShowMindShieldIcons
     - type: ShowCriminalRecordIcons
     - type: ShowContrabandDetails
-    - type: Armor # Gives the same level of protection as the security beret.
-      coverage:
-      - Head
-      traumaDeductions:
-        Dismemberment: 0.2
-        OrganDamage: 0.2
-        BoneDamage: 0.2
-        VeinsDamage: 0
-        NerveDamage: 0
-      modifiers:
-        coefficients:
-          Blunt: 0.7
-          Slash: 0.7
-          Piercing: 0.7
-          Heat: 0.8
+
+# resprite of the standard mantle with a medsec hud.
+- type: entity
+  id: ClothingCyberneticBeastMantleCorpsman
+  parent: ClothingCyberneticBeastMantleSecurity
+  name: beast's corpsman mantle
+  description: A modified version of a cybernetic beast's mantle. This one comes with an included medsec hud.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    state: icon-corpsman
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    clothingVisuals:
+      head:
+      - state: helmet-corpsman
+      - state: eyes-corpsman
+        shader: unshaded
+  - type: ComponentToggler # copied from the parent with some additions.
+    components:
+    - type: VisionCorrection
+      correctionPower: 16
+    - type: NightVision
+      isEquipment: true
+      color: "#CCFFCC"
+    - type: FlashImmunity
+    - type: FlashSoundSuppression
+    - type: ShowJobIcons
+    - type: ShowMindShieldIcons
+    - type: ShowCriminalRecordIcons
+    - type: ShowHealthBars
+    - type: ShowHealthIcons
+    - type: ShowDiseaseIcons
 
 # resprite of the standard mantle with a medhud.
 - type: entity
@@ -211,18 +360,101 @@
     - type: NightVision
       isEquipment: true
       color: "#CCFFCC"
-    - type: FlashImmunity
-    - type: FlashSoundSuppression
     - type: ShowHealthBars
     - type: ShowHealthIcons
+    - type: ShowDiseaseIcons
 
-# Mantle for the BSO, this one is a little weird:
-# We give the BSO all the huds they would normally get from their glasses, and we give them pressure protection, but NOT internals.
-# The BSO's job description (protect command) doesn't strictly speaking require going into space, but realistically the BSO probably
-# will have to. But I don't want to make the mantle a no-brainer item for the BSO to have. So, it gets pressure protection.
-# Pressure protection will reward spontaneous decision making (if I go out there NOW and save the captain quick, I'll get off scott free)
-# but it still makes extended trips into space unlikely without forcing the BSO to play around the balance of the trait.
+# medical mantle with internals and pressure protection for paramedics.
+- type: entity
+  id: ClothingCyberneticBeastMantleMedicalParamedic
+  parent: ClothingCyberneticBeastMantleMedical
+  name: beast's paramedic mantle
+  description: A modified version of a cybernetic beast's mantle. This one comes with internals, a pressure seal, and an included medhud.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    state: icon-paramedic
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    clothingVisuals:
+      head:
+      - state: helmet-medical
+      - state: helmet-internals-medical
+      - state: eyes-medical
+        shader: unshaded
+  - type: IngestionBlocker
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: ComponentToggler
+    components:
+    - type: VisionCorrection
+      correctionPower: 16
+    - type: NightVision
+      isEquipment: true
+      color: "#CCFFCC"
+    - type: BreathMask
+    - type: ShowHealthBars
+    - type: ShowHealthIcons
+    - type: ShowDiseaseIcons
+# medical mantle with medichem glasses for CMO.
+- type: entity
+  id: ClothingCyberneticBeastMantleMedicalCMO
+  parent: ClothingCyberneticBeastMantleMedical
+  name: beast's chief medical mantle
+  description: A modified version of a cybernetic beast's mantle. This one comes with integrated medichem glasses.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    state: icon-cmo
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    clothingVisuals:
+      head:
+      - state: helmet-cmo
+      - state: eyes-cmo
+        shader: unshaded
+  - type: ComponentToggler
+    components:
+    - type: VisionCorrection
+      correctionPower: 16
+    - type: NightVision
+      isEquipment: true
+      color: "#CCFFCC"
+    - type: ShowHealthBars
+    - type: ShowHealthIcons
+    - type: ShowDiseaseIcons
+    - type: FlashImmunity
+    - type: FlashSoundSuppression
+    - type: SolutionScanner
 
+# medical mantle with chemical analysis goggles for chemists.
+- type: entity
+  id: ClothingCyberneticBeastMantleMedicalChemist
+  parent: ClothingCyberneticBeastMantleMedical
+  name: beast's chemistry mantle
+  description: A modified version of a cybernetic beast's mantle. This one comes with integrated chemical analysis goggles.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    state: icon-chem
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    clothingVisuals:
+      head:
+      - state: helmet-chem
+      - state: eyes-chem
+        shader: unshaded
+  - type: ComponentToggler
+    components:
+    - type: VisionCorrection
+      correctionPower: 16
+    - type: NightVision
+      isEquipment: true
+      color: "#CCFFCC"
+    - type: SolutionScanner
+
+# Mantle for the BSO
 - type: entity
   id: ClothingCyberneticBeastMantleBlueshieldOfficer
   parent: [ClothingCyberneticBeastMantle, BaseCentcommContraband]
@@ -239,6 +471,28 @@
       - state: helmet-bso
       - state: eyes-bso
         shader: unshaded
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: Armor # Gets the same level of protection as the BSO beret gives.
+    coverage:
+      - Head
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.3
+        Radiation: 0.75
+        Caustic: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
   - type: ComponentToggler # copied from the parent with some additions.
     components:
     - type: VisionCorrection
@@ -260,31 +514,9 @@
       damageContainers:
       - Biological
     - type: BreathMask
-    - type: PressureProtection
-      highPressureMultiplier: 0.4
-      lowPressureMultiplier: 1000
-    - type: Armor # Gets the same level of protection as the BSO beret gives.
-      coverage:
-      - Head
-      traumaDeductions:
-        Dismemberment: 0.3
-        OrganDamage: 0.3
-        BoneDamage: 0.3
-        VeinsDamage: 0
-        NerveDamage: 0
-      modifiers:
-        coefficients:
-          Blunt: 0.3
-          Slash: 0.3
-          Piercing: 0.3
-          Heat: 0.3
-          Radiation: 0.75
-          Caustic: 0.75
-    - type: ExplosionResistance
-      damageCoefficient: 0.75
 
 # Command members who need job specific mantles just get their job mantles.
-# Command members who don't get this. It's no better than the base mantle, but it looks schweet.
+# Command members who don't get this. Rejoice! You now have your own mantle, unless you're HOP, then weep.
 - type: entity
   parent: [ClothingCyberneticBeastMantle, BaseCommandContraband]
   id: ClothingCyberneticBeastMantleCommand
@@ -300,3 +532,238 @@
       - state: helmet-command
       - state: eyes-command
         shader: unshaded
+  - type: ComponentToggler # copied from the parent with some additions.
+    components:
+    - type: VisionCorrection
+      correctionPower: 16
+    - type: NightVision
+      isEquipment: true
+      color: "#CCFFCC"
+    - type: FlashImmunity
+    - type: FlashSoundSuppression
+    - type: ShowJobIcons
+
+#RD's mantle
+- type: entity
+  parent: [ClothingCyberneticBeastMantle, BaseCommandContraband]
+  id: ClothingCyberneticBeastMantleScienceCommand
+  name: beast's research director mantle
+  description: A state-of-the-art mantle containing all the functions of a silicon-interfacing hud.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    state: icon-rd
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    clothingVisuals:
+      head:
+      - state: helmet-rd
+      - state: eyes-rd
+        shader: unshaded
+  - type: ComponentToggler # copied from the parent with some additions.
+    components:
+    - type: VisionCorrection
+      correctionPower: 16
+    - type: NightVision
+      isEquipment: true
+      color: "#CCFFCC"
+    - type: FlashImmunity
+    - type: FlashSoundSuppression
+    - type: ClothingGrantCollectiveMind
+      minds:
+      - Binary
+      defaultChannel: Binary
+    - type: HandheldTranslator # Thanks, Goob Italian Moustache!
+      toggleOnInteract: false
+      showInfoOnExamine: false
+      spoken:
+      - RobotTalk
+      understood:
+      - RobotTalk
+
+# NTR's very cool CC mantle, no thermals
+- type: entity
+  parent: [ClothingCyberneticBeastMantle, BaseCentcommContraband]
+  id: ClothingCyberneticBeastMantleCentralCommandNoThermal
+  name: beast's central command mantle
+  description: A fancy gold plated mantle for CC officals, comes equiped with NTR glasses
+  suffix: No thermals, DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    state: icon-centralcommand
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    clothingVisuals:
+      head:
+      - state: helmet-centralcommand
+      - state: eyes-centralcommand
+        shader: unshaded
+  - type: ComponentToggler # copied from the parent with some additions.
+    components:
+    - type: VisionCorrection
+      correctionPower: 16
+    - type: NightVision
+      isEquipment: true
+      color: "#CCFFCC"
+    - type: FlashImmunity
+    - type: FlashSoundSuppression
+    - type: ShowJobIcons
+    - type: ShowMindShieldIcons
+    - type: ShowCriminalRecordIcons
+    - type: ShowContrabandDetails
+    - type: IdentityBlocker
+    - type: ShowHungerIcons
+    - type: ShowThirstIcons
+    - type: ShowDiseaseIcons
+    - type: ShowHealthBars
+      damageContainers:
+      - Biological
+      - Inorganic
+      - Silicon
+      - SiliconRadiation # Goobstation - Make IPCs take radiation
+    - type: ShowHealthIcons
+      damageContainers:
+      - Biological
+
+#TRUE CC MANTLE
+- type: entity
+  parent: [ClothingCyberneticBeastMantle, BaseCentcommContraband]
+  id: ClothingCyberneticBeastMantleCentralCommand
+  name: beast's central command mantle
+  description: A fancy gold plated mantle for CC officals comes equiped with
+    everything the average hypercapitalist needs
+  suffix: DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    state: icon-centralcommand
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    clothingVisuals:
+      head:
+      - state: helmet-centralcommand
+      - state: eyes-centralcommand
+        shader: unshaded
+  - type: Armor
+    coverage:
+    - Head
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.3
+        Radiation: 0.75
+        Caustic: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+  - type: ComponentToggler # copied from the parent with some additions.
+    components:
+    - type: VisionCorrection
+      correctionPower: 16
+    - type: NightVision
+      isEquipment: true
+      color: "#CCFFCC"
+    - type: ThermalVision
+      isEquipment: true
+      color: "#2ebf40"
+      lightRadius: 15
+    - type: ShowSyndicateIcons
+    - type: FlashImmunity
+    - type: FlashSoundSuppression
+    - type: ShowJobIcons
+    - type: ShowMindShieldIcons
+    - type: ShowCriminalRecordIcons
+    - type: ShowContrabandDetails
+    - type: IdentityBlocker
+    - type: ShowHungerIcons
+    - type: ShowThirstIcons
+    - type: ShowDiseaseIcons
+    - type: ShowHealthBars
+      damageContainers:
+      - Biological
+      - Inorganic
+      - Silicon
+      - SiliconRadiation # Goobstation - Make IPCs take radiation
+    - type: ShowHealthIcons
+      damageContainers:
+      - Biological
+
+#Supply/fancy mantle for the QM and Foreman
+- type: entity
+  parent: [ClothingCyberneticBeastMantle, BaseCommandContraband] #contraband will have to be redone after roles are shifted about
+  id: ClothingCyberneticBeastMantleSupply
+  name: beast's supply mantle
+  description: A gaudy and expensive mantle, fit for individuals with a high net worth
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    state: icon-qm
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    clothingVisuals:
+      head:
+      - state: helmet-qm
+      - state: eyes-qm
+        shader: unshaded
+  - type: StaticPrice
+    price: 10000
+  - type: ComponentToggler # copied from the parent with some additions.
+    components:
+    - type: VisionCorrection
+      correctionPower: 16
+    - type: NightVision
+      isEquipment: true
+      color: "#CCFFCC"
+
+# Bartender mantle with integraged beer goggles.
+- type: entity
+  parent: ClothingCyberneticBeastMantle
+  id: ClothingCyberneticBeastMantleBar
+  name: Beast's Bartender Mantle
+  description: A modified version of a cybernetic beast's mantle. This one has integrated beer goggles.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    state: icon-bar
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    clothingVisuals:
+      head:
+      - state: helmet-bar
+      - state: eyes-bar
+        shader: unshaded
+  - type: ComponentToggler
+    components:
+    - type: VisionCorrection
+      correctionPower: 16
+    - type: NightVision
+      isEquipment: true
+      color: "#CCFFCC"
+    - type: SolutionScanner
+    - type: ShowThirstIcons
+
+# Research Work Mantle
+- type: entity
+  id: ClothingCyberneticBeastMantleWorkResearch
+  parent: ClothingCyberneticBeastMantleWork
+  name: beast's work mantle
+  description: A modified version of a cybernetic beast's mantle that science can research. This one has integrated internals.
+  components:
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    clothingVisuals:
+      head:
+      - state: helmet
+      - state: helmet-internals
+      - state: eyes
+        shader: unshaded
+  - type: StealTarget
+    stealGroup: None

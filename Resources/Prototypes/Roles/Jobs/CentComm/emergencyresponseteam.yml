@@ -121,19 +121,20 @@
   playTimeTracker: JobERTLeader
   setPreference: false
   startingGear: ERTLeaderGearEVA
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTLeader" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
   - AllAccess
   access:
+  - EmergencyResponseTeam # Omu
   - CentralCommand
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
   special: # Goobstation
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ] # Omu, use CC mindshield
 
 - type: startingGear
   id: ERTLeaderGear
@@ -147,7 +148,7 @@
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterArmourDurathread # Durathread armor is cooler.
     id: ERTLeaderPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: ClothingHeadsetAltCentComLoudspeaker #Omu
     belt: ClothingBeltAssaultFilled # Goobstation
     pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives". Is never used anywhere else.
     pocket2: FlashlightSeclite
@@ -172,7 +173,7 @@
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTLeader
     id: ERTLeaderPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: ClothingHeadsetAltCentComLoudspeaker #Omu
     belt: ClothingBeltAssaultFilled # Goobstation
     pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives". Is never used anywhere else.
     pocket2: FlashlightSeclite
@@ -201,12 +202,13 @@
   playTimeTracker: JobERTChaplain
   setPreference: false
   startingGear: ERTChaplainGear
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTChaplain" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
   - AllAccess
   access:
+  - EmergencyResponseTeam # Omu
   - CentralCommand
   # Goobstation
   - NanotrasenRepresentative
@@ -215,9 +217,10 @@
   - !type:AddComponentSpecial
     components:
     - type: BibleUser #Lets them heal with bibles
+    - type: CurseImmune # Goobstation - Wraith
     - type: CanEnchant #GoobStation
   - !type:AddImplantSpecial
-     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
+     implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ] # Omu, use CC mindshield
 
 - type: startingGear
   id: ERTChaplainGear
@@ -302,19 +305,20 @@
   playTimeTracker: JobERTEngineer
   setPreference: false
   startingGear: ERTEngineerGearEVA
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTEngineer" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
   - AllAccess
   access:
+  - EmergencyResponseTeam # Omu
   - CentralCommand
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
   special: # Goobstation
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ] # Omu, use CC mindshield
 
 - type: startingGear
   id: ERTEngineerGear
@@ -390,19 +394,20 @@
   playTimeTracker: JobERTSecurity
   setPreference: false
   startingGear: ERTSecurityGearEVA
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTSecurity" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
   - AllAccess
   access:
+  - EmergencyResponseTeam # Omu
   - CentralCommand
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
   special: # Goobstation
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm] # Omu, use CC mindshield
 
 - type: startingGear
   id: ERTSecurityGear
@@ -497,19 +502,20 @@
   playTimeTracker: JobERTMedical
   setPreference: false
   startingGear: ERTMedicalGearEVA
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTMedic" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
   - AllAccess
   access:
+  - EmergencyResponseTeam # Omu
   - CentralCommand
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
   special: # Goobstation
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ] # Omu, use CC mindshield
 
 - type: startingGear
   id: ERTMedicalGear
@@ -583,19 +589,20 @@
   playTimeTracker: JobERTJanitor
   setPreference: false
   startingGear: ERTJanitorGearEVA
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTJanitor" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
   - AllAccess
   access:
+  - EmergencyResponseTeam # Omu
   - CentralCommand
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
   special: # Goobstation
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm] # Omu, use CC mindshield
 
 - type: startingGear
   id: ERTJanitorGear

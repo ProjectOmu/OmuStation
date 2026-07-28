@@ -15,6 +15,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Timing;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
+using Content.Shared._Shitmed.Damage; // Omu
 namespace Content.Shared.Damage;
 
 public sealed class PassiveDamageSystem : EntitySystem
@@ -64,7 +65,14 @@ public sealed class PassiveDamageSystem : EntitySystem
             // Damage them
             foreach (var allowedState in comp.AllowedStates)
                 if (allowedState == mobState.CurrentState)
-                    _damageable.TryChangeDamage(uid, comp.Damage, true, false, damage, targetPart: TargetBodyPart.All, splitDamage: comp.SplitBehavior); // Shitmed Change
+                    if (comp.HealAllParts == true) // Omu start, make it so slime regen works properly.
+                    {
+                        _damageable.TryChangeDamage(uid, comp.Damage, true, false, damage, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAll);
+                    }
+                    else
+                    {
+                        _damageable.TryChangeDamage(uid, comp.Damage, true, false, damage, targetPart: TargetBodyPart.All, splitDamage: comp.SplitBehavior); // Shitmed Change
+                    } // Omu end
         }
     }
 }

@@ -59,18 +59,21 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Server.Body.Components;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Bed.Sleep; // Shitmed Change
+using Content.Shared.Body.Events;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Collections;
@@ -89,6 +92,7 @@ namespace Content.Server.Body.Systems
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+        [Dependency] private readonly SharedEntityEffectSystem _effect = default!; // goob edit
 
         private EntityQuery<OrganComponent> _organQuery;
         private EntityQuery<SolutionContainerManagerComponent> _solutionQuery;
@@ -225,7 +229,12 @@ namespace Content.Server.Body.Systems
                 if (ent.Comp1.MetabolismGroups is null)
                     continue;
 
-                foreach (var group in ent.Comp1.MetabolismGroups)
+                // Goob edit start
+                var ev = new ExcludeMetabolismGroupsEvent(ent.Owner);
+                RaiseLocalEvent(solutionEntityUid.Value, ref ev);
+                var exclude = ev.Groups ?? new();
+
+                foreach (var group in ent.Comp1.MetabolismGroups.ExceptBy(exclude, x => x.Id)) // Goob edit end
                 {
                     if (!proto.Metabolisms.TryGetValue(group.Id, out var entry))
                         continue;
@@ -276,7 +285,7 @@ namespace Content.Server.Body.Systems
                             );
                         }
 
-                        effect.Effect(args);
+                        _effect.Effect(effect, args); // goob edit - use system instead
                     }
                 }
 
@@ -293,30 +302,5 @@ namespace Content.Server.Body.Systems
 
             _solutionContainerSystem.UpdateChemicals(soln.Value);
         }
-    }
-
-    // TODO REFACTOR THIS
-    // This will cause rates to slowly drift over time due to floating point errors.
-    // Instead, the system that raised this should trigger an update and subscribe to get-modifier events.
-    [ByRefEvent]
-    public readonly record struct ApplyMetabolicMultiplierEvent(
-        EntityUid Uid,
-        float Multiplier,
-        bool Apply)
-    {
-        /// <summary>
-        /// The entity whose metabolism is being modified.
-        /// </summary>
-        public readonly EntityUid Uid = Uid;
-
-        /// <summary>
-        /// What the metabolism's update rate will be multiplied by.
-        /// </summary>
-        public readonly float Multiplier = Multiplier;
-
-        /// <summary>
-        /// If true, apply the multiplier. If false, revert it.
-        /// </summary>
-        public readonly bool Apply = Apply;
     }
 }

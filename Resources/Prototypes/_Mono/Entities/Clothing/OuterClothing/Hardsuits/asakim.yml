@@ -1,0 +1,92 @@
+# SPDX-FileCopyrightText: 2025 Arcticular1
+# SPDX-FileCopyrightText: 2025 HungryCuban
+# SPDX-FileCopyrightText: 2025 core-mene
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingOuterHardsuitBase # DeltaV - no contraband
+  id: ClothingOuterHardsuitAsakim
+  name: kasature-pattern combat harness
+  description: An advanced combat harness, alien in design compared to the modern hardsuit. Once equipped, the armor binds itself with the wearer and cannot be removed without external release. # Omu - Pretty similar to Mono's but removing the fracture mention.
+  suffix: SelfUnremovable
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/asakim.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/asakim.rsi
+    stripDelay: 60
+    equipDelay: 5
+  - type: SelfUnremovableClothing
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.35
+  - type: FireProtection
+    reduction: 0.7
+  - type: ProtectedFromStepTriggers
+    slots: WITHOUT_POCKET
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10
+    slots: OUTERCLOTHING
+  - type: StaticPrice
+    price: 50000
+  - type: Armor
+    traumaDeductions: # prevents traumas at all (kinda)
+      Dismemberment: 1
+      OrganDamage: 1
+      BoneDamage: 1
+      VeinsDamage: 1
+      NerveDamage: 1
+    modifiers:
+      coefficients:
+        Blunt: 0.5 # DeltaV - was 0.35
+        Slash: 0.45 # Omu - was 0.85
+        Piercing: 0.4 # DeltaV - was 0.3
+        Heat: 0.4
+        Radiation: 0
+        Shock: 0.8
+        Poison: 0.4
+        Caustic: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 0.2
+    sprintModifier: 0.2
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
+    clothingPrototypes:
+      head:
+        ClothingHelmetHardsuitAsakim # DeltaV - simplified ToggleableClothing
+  #- type: PirateBountyItem # DeltaV - no way we have this
+  #  id: ClothingOuterHardsuitTacsuit
+  - type: StaminaResistance # DeltaV - different comp name
+    damageCoefficient: 0.4 # DeltaV - was 0.1
+  - type: DamageOnUnequip # DeltaV
+    unequipDamage:
+      types:
+        Blunt: 20
+        Slash: 30
+        Piercing: 40
+    unequipSound: "/Audio/_DV/Effects/breakingbones.ogg"
+    screamOnUnequip: true
+  - type: ModifyDelayedKnockdown # Omu
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ClothingGrantComponent
+    component:
+    - type: BlockWriting # Omu - Hardsuit makes their hands too big or smth.
+
+- type: entity
+  parent: ClothingOuterHardsuitAsakim
+  id: ClothingOuterHardsuitAsakimUnremoveable
+  name: kasature-pattern combat harness
+  description: An advanced combat harness, alien in design compared to the modern tacsuit. Once equipped, the armor binds itself with the wearer and cannot be removed without external release. # Omu - Pretty similar to Mono's but removing the fracture mention.
+  suffix: 120 stripDelay
+  components:
+  - type: Clothing
+    stripDelay: 120
+    equipDelay: 120
+

@@ -1,0 +1,219 @@
+- type: entity
+  id: ProjectileWehBoltHobbyist
+  name: Abracaweh!
+  description: Weh!
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: magicm_green
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+  - type: PolymorphOnTrigger
+    targetUser: true
+    polymorph: LizardPlushieMagicMorph
+  - type: WhitelistTriggerCondition
+    userWhitelist:
+      components:
+      - Body
+  - type: Reflective
+    reflective: Magic
+  - type: Ammo
+    muzzleFlash: null
+  - type: Trail
+    lerpTime: 0.05
+    frequency: 0.02
+    lifetime: 1
+    alphaLerpAmount: 0.4
+    shader: unshaded
+    sprite:
+      sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: magicm_green
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+        - Opaque
+  - type: TriggerOnCollide
+    fixtureID: projectile
+
+- type: entity
+  id: ProjectileBananaPeelHobbyist
+  parent: BaseItem
+  name: Conjure Peel
+  description: Watch your step!
+  components:
+  - type: InteractionOutline
+  - type: MovedByPressure
+  - type: Clickable
+  - type: Pullable
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 1
+    angularDamping: 0
+  - type: TimedDespawn
+    lifetime: 5
+  - type: Sprite
+    drawdepth: Items
+    noRot: true
+    sprite: _Goobstation/Wizard/Projectiles/banana.rsi
+    layers:
+    - state: icon
+  - type: SlipOnCollide
+  - type: Slippery
+    slipData:
+      slipOnStep: false
+      stunTime: 0
+      launchForwardsMultiplier: 2
+  - type: ProjectileHitShooterAfterDelay
+    delay: 0.5
+  - type: TileFrictionModifier
+    modifier: 0.9
+  - type: Projectile
+    deleteOnCollide: true
+    soundHit: null
+    damage:
+      types:
+        Heat: 0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.5
+        friction: 0.8
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        layer:
+        - SlipLayer
+  - type: Ammo
+    muzzleFlash: null
+
+- type: entity
+  id: ProjectileSparkHobbyist
+  name: Magic Spark
+  description: Don't get burned!
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: magicm_yellow
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 10
+        Holy: 10
+  - type: IgniteOnCollide
+    fireStacks: 1
+  - type: Reflective
+    reflective: Magic
+  - type: Ammo
+    muzzleFlash: null
+  - type: PointLight
+    color: "#F8B068"
+    radius: 2.0
+    energy: 5.0
+
+- type: entity
+  id: ProjectileMagicMissileHobbyist
+  name: Lessest Magic Missile
+  description: It truly is the lessest.
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: arcane_barrage
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+        Holy: 10
+  - type: Reflective
+    reflective: Magic
+  - type: Ammo
+    muzzleFlash: null
+  - type: Trail
+    color: "#FF0BC255"
+    scale: 0.08
+    frequency: 0.02
+    lifetime: 0.3
+    lerpTime: 0.0001
+    alphaLerpAmount: 0.2
+    scaleLerpAmount: 0.08
+    shader: unshaded
+
+- type: entity
+  id: ProjectileHealingHobbyist
+  name: Cure Wounds
+  description: Heals the target.
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: magicm_green
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Blunt: -15
+        Slash: -10
+        Piercing: -10
+        Heat: -15
+        Asphyxiation: -25
+        Holy: 20
+  - type: WhitelistTriggerCondition
+    userWhitelist:
+      components:
+      - Body
+  - type: Reflective
+    reflective: Magic
+  - type: Ammo
+    muzzleFlash: null
+  - type: Trail
+    lerpTime: 0.02
+    frequency: 0.02
+    lifetime: 1
+    alphaLerpAmount: 0.4
+    shader: unshaded
+    sprite:
+      sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: magicm_green
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+        - Opaque
+  - type: TriggerOnCollide
+    fixtureID: projectile

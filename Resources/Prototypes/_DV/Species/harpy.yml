@@ -27,18 +27,21 @@
   dollPrototype: MobHarpyDummy
   skinColoration: HumanToned
   # begin Goobstation: port EE height/width sliders
+  # Omu edit start - Woaaaahh chill out a little
   minHeight: 0.75
-  defaultHeight: 0.80
-  maxHeight: 1.0
-  minWidth: 0.80
-  defaultWidth: 0.80
-  maxWidth: 1.0
+  defaultHeight: 0.8
+  maxHeight: 1.2
+  minWidth: 0.70
+  defaultWidth: 0.8
+  maxWidth: 1.2
+  # Omu edit end
   # end Goobstation: port EE height/width sliders
 
 - type: speciesBaseSprites
   id: MobHarpySprites
   sprites:
     Head: MobHarpyHead
+    Face: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
@@ -56,7 +59,8 @@
     RLeg: MobHarpyRLeg
     LFoot: MobHarpyLFoot
     RFoot: MobHarpyRFoot
-
+    Wings: MobHumanoidAnyMarking #Omu - Goat
+ 
 - type: markingPoints
   id: MobHarpyMarkingLimits
   points:
@@ -69,6 +73,12 @@
     Snout:
       points: 1
       required: false
+ # Omu Start - Goat
+    Wings:
+      points: 1
+      required: true
+      defaultMarkings: [ HarpyWingDefaultHuescale ]
+ # Omu End - Goat
     Tail:
       points: 1
       required: true
@@ -105,7 +115,7 @@
     RightArm:
       points: 1
       required: false
-      defaultMarkings: [ HarpyWingDefaultHuescale ]
+      #defaultMarkings: [ HarpyWingDefaultHuescale ] # Omu - moved to Wings slot
     RightHand:
       points: 3
       required: false

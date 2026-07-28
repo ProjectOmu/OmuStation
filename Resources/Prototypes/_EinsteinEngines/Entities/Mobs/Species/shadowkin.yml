@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 vorpuscl <198003781+vorpuscl@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThanosDeGraf <richardgirgindontstop@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -76,11 +77,17 @@
   - type: Perishable
   - type: FireVisuals
     alternateState: Standing
-  - type: LayingDown
+  - type: Crawler
   - type: Hunger
   - type: Thirst
   - type: Carriable
   - type: HumanoidAppearance
+    markingsDisplacement: # Omu Start
+      Hair:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Shadowkin/displacement.rsi
+            state: hair # Omu End
     species: Shadowkin
   - type: Icon
     sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
@@ -139,8 +146,8 @@
     drawdepth: Mobs
     # scale: 0.85, 0.85 # Goobstation: port EE height/width sliders
     layers:
-      - map: ["enum.HumanoidVisualLayers.Chest"]
       - map: ["enum.HumanoidVisualLayers.Groin"]
+      - map: ["enum.HumanoidVisualLayers.Chest"]
       - map: ["enum.HumanoidVisualLayers.Head"]
       - map: ["enum.HumanoidVisualLayers.Snout"]
       - map: ["enum.HumanoidVisualLayers.Eyes"]
@@ -149,6 +156,8 @@
       - map: ["enum.HumanoidVisualLayers.LArm"]
       - map: ["enum.HumanoidVisualLayers.RLeg"]
       - map: ["enum.HumanoidVisualLayers.LLeg"]
+      - map: [ "enum.HumanoidVisualLayers.Underwear" ] # Omu 109
+      - map: [ "enum.HumanoidVisualLayers.Undershirt" ] # Omu 109
       - shader: StencilClear
         sprite: Mobs/Species/Human/parts.rsi
         state: l_leg
@@ -179,7 +188,7 @@
       - map: [ "belt" ] # Omu - Moved belt to render under OuterClothing to have it be similar with how the base drawdepth is.
       - map: ["outerClothing"]
       - map: ["eyes"]
-      - map: [ "beltalt" ] # Omu 
+      - map: [ "beltalt" ] # Omu
       - map: ["back"]
       - map: ["neck"] # Omu - Moved this to render above backpacks because it felt weird seeing duffels above the cloaks and mantles? Easy thing to revert anyway.
       - map: [ "enum.HumanoidVisualLayers.Face" ]
@@ -223,6 +232,11 @@
     - DoorBumpOpener
     - AnomalyHost
     - ShadowkinEmotes
+  - type: Respirator #Goob edit start - Lore Accurate Shadowkin superdense iron blood.
+    updateInterval: 6
+    saturationLoss: 0.2
+    maxSaturation: 30
+    saturation: 30 #Goob Edit end
 
 - type: entity
   save: false
@@ -232,6 +246,12 @@
   description: A dummy shadowkin meant to be used in character setup.
   components:
     - type: HumanoidAppearance
+      markingsDisplacement: # Omu Start
+        Hair:
+          sizeMaps:
+            32:
+              sprite: _Omu/Mobs/Species/Shadowkin/displacement.rsi
+              state: hair # Omu End
       species: Shadowkin
     - type: Sprite
       netsync: false

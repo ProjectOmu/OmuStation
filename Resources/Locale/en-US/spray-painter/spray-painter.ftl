@@ -5,6 +5,8 @@ spray-painter-ammo-after-interact-refilled = You refill the spray painter.
 
 spray-painter-interact-no-charges = Not enough paint left.
 spray-painter-interact-nothing-to-remove = Nothing to remove!
+spray-painter-interact-no-color-pick = Can't find a color to pick!
+spray-painter-interact-color-picked = Picked color from '{$id}'.
 
 spray-painter-on-examined-painted-message = It seems to have been freshly painted.
 spray-painter-style-not-available = Cannot apply the selected style to this object.
@@ -95,7 +97,8 @@ spray-painter-style-airlockglass-virology = Virology
 spray-painter-style-locker-atmospherics = Atmospherics
 spray-painter-style-locker-basic = Basic
 spray-painter-style-locker-botanist = Botanist
-spray-painter-style-locker-brigmedic = Brigmedic
+# Omu Brigmed --> Corpsman
+spray-painter-style-locker-brigmedic = Corpsman
 spray-painter-style-locker-captain = Captain
 spray-painter-style-locker-ce = CE
 spray-painter-style-locker-chemical = Chemical

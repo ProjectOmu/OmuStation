@@ -1,0 +1,242 @@
+- type: reagent
+  id: BirdFlu
+  name: reagent-name-birdflu
+  group: Toxins
+  desc: reagent-desc-birdflu
+  physicalDesc: reagent-physical-desc-feathery
+  flavor: stupid
+  color: "#58DCA8"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.25
+      effects:
+      - !type:Polymorph
+        prototype: PolymorphHarpy
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+      - !type:AdjustReagent
+        reagent: BirdFlu
+        amount: -40 # Prevents the bug that keeps demorphing and morphing a person keeping them in place when injected with way over the threshold for morphing, once demorphed by knocking into crit.
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+
+- type: reagent
+  id: Mothamphetamine
+  name: reagent-name-mothamphetamine
+  group: Toxins
+  desc: reagent-desc-mothamphetamine
+  physicalDesc: reagent-physical-desc-chaoticallyfuzzy
+  flavor: mothsweetnsour
+  color: "#a592db"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.25
+      effects:
+      - !type:Jitter
+      - !type:Polymorph
+        prototype: PolymorphMoth
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+      - !type:AdjustReagent
+        reagent: Mothamphetamine
+        amount: -40 # Prevents the bug that keeps demorphing and morphing a person keeping them in place when injected with way over the threshold for morphing, once demorphed by knocking into crit.
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+
+- type: reagent
+  id: Cacaphonium
+  name: reagent-name-cacaphonium
+  group: Toxins
+  desc: reagent-desc-cacaphonium
+  physicalDesc: reagent-physical-desc-feathery
+  flavor: stupid
+  color: "#84dcb9"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.25
+      effects:
+      - !type:Polymorph
+        prototype: PolymorphSquackroach
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+      - !type:AdjustReagent
+        reagent: Cacaphonium
+        amount: -40 # Prevents the bug that keeps demorphing and morphing a person keeping them in place when injected with way over the threshold for morphing, once demorphed by knocking into crit.
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+
+- type: reagent
+  id: Chitterzine
+  name: reagent-name-chitterzine
+  group: Toxins
+  desc: reagent-desc-chitterzine
+  physicalDesc: reagent-physical-desc-chaoticallyfuzzy
+  flavor: mothsweetnsour
+  color: "#baaedb"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.25
+      effects:
+      - !type:Jitter
+      - !type:Polymorph
+        prototype: PolymorphMothroach
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+      - !type:AdjustReagent
+        reagent: Chitterzine
+        amount: -40 # Prevents the bug that keeps demorphing and morphing a person keeping them in place when injected with way over the threshold for morphing, once demorphed by knocking into crit.
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+
+- type: reagent
+  id: Marotine
+  name: reagent-name-marotine
+  group: Toxins
+  desc: reagent-desc-marotine
+  physicalDesc: reagent-physical-desc-headacheinducing
+  flavor: inkyvoid
+  color: "#3065b0"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.25
+      effects:
+      - !type:Polymorph
+        prototype: PolymorphShadowkin
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+      - !type:AdjustReagent
+        reagent: Marotine
+        amount: -40 # Prevents the bug that keeps demorphing and morphing a person keeping them in place when injected with way over the threshold for morphing, once demorphed by knocking into crit.
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+
+- type: reagent
+  id: Methril
+  name: reagent-name-methril
+  group: Toxins
+  desc: reagent-desc-methril
+  physicalDesc: reagent-physical-desc-gritty
+  flavor: dwarfgrudge
+  color: "#EFBF04"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.25
+      effects:
+      - !type:Polymorph
+        prototype: PolymorphDwarf
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+      - !type:AdjustReagent
+        reagent: Methril
+        amount: -40 # Prevents the bug that keeps demorphing and morphing a person keeping them in place when injected with way over the threshold for morphing, once demorphed by knocking into crit.
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+
+- type: reagent
+  id: BirdFluConcentrate
+  name: reagent-name-birdfluconcentrate
+  group: Toxins
+  desc: reagent-desc-birdfluconcentrate
+  physicalDesc: reagent-physical-desc-veryfeathery
+  flavor: stupid
+  color: "#50ad91"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.25
+      effects:
+      - !type:Polymorph
+        prototype: PolymorphHarpyPermanent
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+      - !type:AdjustReagent
+        reagent: BirdFluConcentrate
+        amount: -15 # Prevents the bug that keeps demorphing and morphing a person keeping them in place when injected with way over the threshold for morphing, once demorphed by knocking into crit.
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+
+- type: reagent
+  id: MothamphetamineConcentrate
+  name: reagent-name-mothamphetamineconcentrate
+  group: Toxins
+  desc: reagent-desc-mothamphetamineconcentrate
+  physicalDesc: reagent-physical-desc-pandemonicallyfuzzy
+  flavor: mothsweetnsour
+  color: "#857eb4"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.25
+      effects:
+      - !type:Jitter
+      - !type:Polymorph
+        prototype: PolymorphMothPermanent
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+      - !type:AdjustReagent
+        reagent: MothamphetamineConcentrate
+        amount: -15 # Prevents the bug that keeps demorphing and morphing a person keeping them in place when injected with way over the threshold for morphing, once demorphed by knocking into crit.
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+
+- type: reagent
+  id: MarotineConcentrate
+  name: reagent-name-marotineconcentrate
+  group: Toxins
+  desc: reagent-desc-marotineconcentrate
+  physicalDesc: reagent-physical-desc-veryheadacheinducing
+  flavor: inkyvoid
+  color: "#365f97"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.25
+      effects:
+      - !type:Polymorph
+        prototype: PolymorphShadowkinPermanent
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+      - !type:AdjustReagent
+        reagent: MarotineConcentrate
+        amount: -15 # Prevents the bug that keeps demorphing and morphing a person keeping them in place when injected with way over the threshold for morphing, once demorphed by knocking into crit.
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+
+- type: reagent
+  id: MethrilConcentrate
+  name: reagent-name-methrilconcentrate
+  group: Toxins
+  desc: reagent-desc-methrilconcentrate
+  physicalDesc: reagent-physical-desc-verygritty
+  flavor: dwarfgrudge
+  color: "#b79c25"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.25
+      effects:
+      - !type:Polymorph
+        prototype: PolymorphDwarfPermanent
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+      - !type:AdjustReagent
+        reagent: MethrilConcentrate
+        amount: -15 # Prevents the bug that keeps demorphing and morphing a person keeping them in place when injected with way over the threshold for morphing, once demorphed by knocking into crit.
+        conditions:
+        - !type:ReagentThreshold
+          min: 25

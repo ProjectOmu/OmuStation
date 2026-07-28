@@ -1,0 +1,13 @@
+- type: listing
+  id: UplinkKanabou
+  name: uplink-kanabou-name
+  description: uplink-kanabou-desc
+  productEntity: Kanabou
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Oni

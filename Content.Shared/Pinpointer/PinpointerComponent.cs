@@ -108,6 +108,13 @@ public sealed partial class PinpointerComponent : Component
     public bool CanExamine = true;
     // WD EDIT END
 
+    /// <summary>
+    /// Omu Edit: If target entity is on a different map than pinpointer,
+    ///           should the target entity still persist on the pinpointer?
+    /// </summary>
+    [DataField]
+    public bool RespectsCrossMaps = false; // OMU
+
     [DataField, AutoNetworkedField] // WD EDIT: ViewVariables -> DataField
     public bool IsActive = false;
 

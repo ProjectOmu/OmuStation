@@ -7,4 +7,10 @@ ui-options-log-in-chat = Log actions in the chat
 
 ui-options-hud-theme-xenomorph = Xenomorph
 
-ui-options-function-auto-get-up = Automatically get up after falling
+ui-options-chatstack = Automatically merge identical chat messages
+ui-options-chatstack-0 = Off
+ui-options-chatstack-1 = Only last message
+ui-options-chatstack-2 = Last two messages
+ui-options-chatstack-3 = Last three messages
+ui-options-chatstack-4 = Last four messages
+ui-options-chatstack-5 = Last five messages

@@ -87,7 +87,7 @@
 - type: gameMap
   id: Meta
   mapName: 'Meta Station'
-  mapPath: /Maps/_Goobstation/meta.yml # Goobstation
+  mapPath: /Maps/_Omu/meta.yml # Omu - Prisoner role mapping
   minPlayers: 30 # Goobstation return minPlayers requirement for maps
   maxPlayers: 85 # Goobstation - Limit mappool to highpop versions of maps only
   stations:
@@ -108,6 +108,7 @@
             NanotrasenRepresentative: [ 1, 1 ]
             BlueshieldOfficer: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
+            AdministrativeAssistant: [ 1, 1 ] # Delta V
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 3 ]
             Chef: [ 2, 2 ]
@@ -115,6 +116,7 @@
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
+            RadioHost: [ 1, 1 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 3, 3 ]
@@ -126,10 +128,12 @@
             MedicalDoctor: [ 5, 5 ]
             MedicalIntern: [ 3, 6 ]
             Paramedic: [ 1, 1 ]
+            Virologist: [ 1, 1 ]
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 5, 7 ]
             ResearchAssistant: [ 3, 6 ]
+            Roboticist: [ 2, 2 ] #Omu
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
@@ -138,10 +142,14 @@
             SecurityCadet: [ 3, 6 ]
             Lawyer: [ 2, 2 ]
             Brigmedic: [ 1, 1 ]
+            TransitPrisoner: [2, 2] # Omu - Prisoner role
+            SecuritySergeant: [ 1, 1 ] #Omu
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
+            Courier: [ 2, 3 ] # Omu - Courier role
             CargoTechnician: [ 3, 3 ]
+            #ShaftMiner: [ 3, 3 ]
             #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]
@@ -150,6 +158,8 @@
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
+
+            NanotrasenCareerTrainer: [ 2, 2] # Omu
 
         # Goobstation blob-config-start HUGE
         - type: StationBlobConfig

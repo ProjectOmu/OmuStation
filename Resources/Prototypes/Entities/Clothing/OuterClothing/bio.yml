@@ -40,6 +40,8 @@
     modifiers:
       coefficients:
         Caustic: 0.2
+      flatReductions:
+        Slash: 1 # mice trolled
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.35
   - type: GroupExamine
@@ -49,6 +51,14 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.95
+  # Goobstation
+  - type: DiseaseProtection
+    # full prot
+    incoming:
+      powerModifiers:
+        Blood: -1 # immune to plague mice
+      chanceMultipliers:
+        Blood: 0.5
 
 - type: entity
   parent: ClothingOuterBioGeneral
@@ -67,7 +77,7 @@
   id: ClothingOuterBioJanitor
   name: bio suit
   suffix: Janitor
-  description: A suit that protects against biological contamination and caustic spills.
+  description: A suit that protects against biological contamination and caustic spills, has a clip on the back to hold a mop. # Omu
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Bio/janitor.rsi
@@ -77,6 +87,12 @@
     modifiers:
       coefficients:
         Caustic: 0.4
+  # Omu start
+  - type: AllowSuitStorage
+    whitelist:
+      tags:
+        - Mop
+  # Omu end
 
 - type: entity
   parent: ClothingOuterBioGeneral

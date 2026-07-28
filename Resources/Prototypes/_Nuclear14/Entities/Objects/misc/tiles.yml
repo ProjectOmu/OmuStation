@@ -1,0 +1,15 @@
+- type: entity
+  name: metal floor freezer
+  parent: FloorTileItemBase
+  id: FloorTileItemMetalFreezer
+  components:
+  - type: Sprite
+    state: steel
+  - type: Item
+    heldPrefix: steel
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorMetalFreezer
+  - type: Stack
+    stackType: FloorTileMetalFreezer

@@ -6,9 +6,12 @@
 
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 using Content.Shared.Actions;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
+using Content.Shared.Speech.Muting;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.PreAscension;
@@ -25,6 +28,9 @@ public sealed class ShadowlingGlareSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StatusEffectsSystem _effects = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
+
+    public static readonly EntProtoId SlingGlareSlowEffect = "ShadowlingGlareSlowdownEffect";
 
     public override void Initialize()
     {
@@ -64,7 +70,7 @@ public sealed class ShadowlingGlareSystem : EntitySystem
 
     private void ActivateStun(EntityUid target, ShadowlingGlareComponent comp)
     {
-        _stun.TryStun(target, TimeSpan.FromSeconds(comp.GlareStunTime), false);
+        _stun.TryUpdateStunDuration(target, TimeSpan.FromSeconds(comp.GlareStunTime));
         comp.ActivateGlareTimer = false;
     }
 
@@ -83,17 +89,10 @@ public sealed class ShadowlingGlareSystem : EntitySystem
         var distance = (_transform.GetWorldPosition(user) - targetCoords).Length();
         comp.GlareTarget = target;
 
-        // Glare mutes and slows down the target no matter what.
-        if (TryComp<StatusEffectsComponent>(target, out var statComp))
-        {
-            _effects.TryAddStatusEffect(target, "Muted", TimeSpan.FromSeconds(comp.MuteTime), false, statComp);
-            _stun.TrySlowdown(target, TimeSpan.FromSeconds(comp.SlowTime), false, 0.5f, 0.5f, statComp);
-        }
-
         if (distance <= comp.MinGlareDistance)
         {
             comp.GlareStunTime = comp.MaxGlareStunTime;
-            _stun.TryStun(target, TimeSpan.FromSeconds(comp.GlareStunTime), true);
+            _stun.TryUpdateStunDuration(target, TimeSpan.FromSeconds(comp.GlareStunTime));
         }
         else
         {
@@ -102,6 +101,13 @@ public sealed class ShadowlingGlareSystem : EntitySystem
             comp.GlareTimeBeforeEffect = comp.MinGlareDelay + (comp.MaxGlareDelay - comp.MinGlareDelay) * Math.Clamp(distance / comp.MaxGlareDistance, 0, 1);
 
             comp.ActivateGlareTimer = true;
+        }
+
+        // Glare mutes and slows down the target no matter what.
+        if (TryComp<StatusEffectsComponent>(target, out var statComp))
+        {
+            _effects.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(comp.MuteTime), true);
+            _movementMod.TryUpdateMovementSpeedModDuration(target, SlingGlareSlowEffect, TimeSpan.FromSeconds(comp.SlowTime), 0.5f, 0.5f);
         }
 
         var effectEnt = PredictedSpawnAtPosition(comp.EffectGlare, Transform(uid).Coordinates);

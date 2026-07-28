@@ -120,15 +120,20 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
-    lifetime: 0.4
+    lifetime: 0.2 # imp
   - type: Sprite
     drawdepth: BelowMobs
     layers:
     - shader: unshaded
       map: ["enum.EffectLayers.Unshaded"]
-      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-      state: muzzle_bullet
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi # imp
+      state: kinetic # imp
   - type: EffectVisuals
+  - type: PointLight
+    enabled: true
+    color: "#ffa223" # imp
+    radius: 1.4 # imp
+    energy: 5.0 # imp
   - type: Tag
     tags:
       - HideContextMenu
@@ -139,28 +144,38 @@
   id: MuzzleFlashEffectOmnilaser
   categories: [ HideSpawnMenu ]
   components:
+  - type: PointLight
+    enabled: true
+    color: "#0ab8c4" # imp
+    radius: 1.4 # imp
+    energy: 5.0 # imp
   - type: Sprite
     drawdepth: BelowMobs
     offset: 0.15, 0
     layers:
     - shader: unshaded
       map: ["enum.EffectLayers.Unshaded"]
-      sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
-      state: omnilaser_flash
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi # imp
+      state: energystun # imp
 
 - type: entity
   parent: MuzzleFlashEffect
   id: MuzzleFlashEffectHeavyLaser
   categories: [ HideSpawnMenu ]
   components:
+  - type: PointLight
+    enabled: true
+    color: "#d63b28" # imp
+    radius: 1.4 # imp
+    energy: 5.0 # imp
   - type: Sprite
     drawdepth: BelowMobs
     offset: 0.15, 0
     layers:
     - shader: unshaded
       map: ["enum.EffectLayers.Unshaded"]
-      sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
-      state: heavylaser_flash
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi # imp
+      state: energy # imp
 
 # One bullet to bring them all into the darkness and bind them
 - type: entity
@@ -180,6 +195,7 @@
       shader: unshaded
   - type: Physics
     bodyType: Dynamic
+    bodyStatus: InAir
     linearDamping: 0
     angularDamping: 0
   - type: Fixtures
@@ -218,6 +234,7 @@
   components:
   - type: TriggerOnCollide
     fixtureID: projectile
+    maxTriggers: 1
   - type: Projectile
     damage:
       types:
@@ -311,11 +328,9 @@
       params:
         volume: 5
   - type: Sprite
-    noRot: true
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    color: "#ffff33"
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # imp
     layers:
-    - state: spark
+    - state: lightgold # imp
       shader: unshaded
   - type: Physics
   - type: Fixtures
@@ -333,13 +348,46 @@
   - type: Projectile
     damage:
       types:
-        Heat: 5
+        Shock: 1
     soundHit:
       path: "/Audio/Weapons/Guns/Hits/taser_hit.ogg"
     forceSound: true
+  - type: TimedDespawn
+    lifetime: 0.170 # Very short range
+  - type: StunOnCollide
+    stunAmount: 0
+    knockdownAmount: 2.5 # Enough to subdue and follow up with a stun batong
+    slowdownAmount: 2.5
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
+
+- type: entity
+  parent: BulletTaser
+  id: BulletTaserSuper
+  categories: [ HideSpawnMenu ]
+  name: taser bolt
+  description: If you can see this, you've probably been stun-meta'd
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: Structures/Power/Generation/Tesla/energy_miniball.rsi
+    color: "#ffff33"
+    layers:
+    - state: tesla_projectile
+      shader: unshaded
+  - type: PointLight
+    enabled: true
+    color: "#ffff33"
+    radius: 2.0
+    energy: 7.01
+  - type: TimedDespawn
+    lifetime: 1.0 # Not so short range
   - type: StunOnCollide
     stunAmount: 5
-    knockdownAmount: 5
+    knockdownAmount: 10
+    slowdownAmount: 10
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
 
 - type: entity
   name : disabler bolt
@@ -356,9 +404,9 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # imp
     layers:
-    - state: omnilaser
+    - state: mediumstun # imp
       shader: unshaded
   - type: Physics
   - type: Fixtures
@@ -372,13 +420,14 @@
         - Opaque # Goobstation
       fly-by: *flybyfixture
   - type: Ammo
+    muzzleFlash: MuzzleFlashEffectOmnilaser # imp
   - type: StaminaDamageOnCollide
-    damage: 33
+    damage: 20 # Goob edit
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 0
+        Ion: 6
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -395,9 +444,9 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # imp
     layers:
-    - state: omnilaser
+    - state: mediumstun # imp
       shader: unshaded
   - type: Physics
   - type: Fixtures
@@ -411,6 +460,7 @@
         - Opaque # Goobstation
       fly-by: *flybyfixture
   - type: Ammo
+    muzzleFlash: MuzzleFlashEffectOmnilaser # imp
   - type: StaminaDamageOnCollide
     damage: 1
   - type: Projectile
@@ -434,7 +484,7 @@
     - state: projectile
       shader: unshaded
   - type: Ammo
-    muzzleFlash: null
+    muzzleFlash: MuzzleFlashEffectSyndLaser # imp
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -461,6 +511,7 @@
     - EmitterBolt
   - type: TimedDespawn
     lifetime: 3
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   name: watcher bolt
@@ -587,59 +638,110 @@
   - type: ChangeTemperatureOnCollide
     heat: -50000
 
-- type: entity
-  id: BulletKinetic
-  name: kinetic bolt
-  parent: BaseBullet
-  categories: [ HideSpawnMenu ]
-  description: Not too bad, but you still don't want to get hit by it.
-  components:
-  - type: Reflective
-    reflective:
-    - NonEnergy
-  - type: Sprite
-    noRot: false
-    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
-    layers:
-    - state: chronobolt
-      shader: unshaded
-  - type: Projectile
-    impactEffect: BulletImpactEffectKinetic
-    damage:
-      types:
-        Blunt: 40 # Lavaland Change - TOTAL PKA VICTORY
-  #        Structural: 30 Lavaland Change - No easy break-ins :)
-  # Short lifespan
-  - type: TimedDespawn
-    lifetime: 0.22 # roughly 5.5 tiles
-  - type: GatheringProjectile
+# Lavaland Change start - migrated to _Lavaland folder
+#- type: entity
+#  id: BulletKinetic
+#  name: kinetic bolt
+#  parent: BaseBullet
+#  categories: [ HideSpawnMenu ]
+#  description: Not too bad, but you still don't want to get hit by it.
+#  components:
+#  - type: Reflective
+#    reflective:
+#    - NonEnergy
+#  - type: Sprite
+#    noRot: false
+#    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+#    layers:
+#    - state: chronobolt
+#      shader: unshaded
+#  - type: Projectile
+#    impactEffect: BulletImpactEffectKinetic
+#    damage:
+#      types:
+#        Blunt: 15
+#        Structural: 30
+#  # Short lifespan
+#  - type: TimedDespawn
+#    lifetime: 0.22 # roughly 5.5 tiles
+#  - type: GatheringProjectile
 
+#- type: entity
+#  id: BulletKineticShuttle
+#  parent: BaseBullet
+#  categories: [ HideSpawnMenu ]
+#  components:
+#  - type: Sprite
+#    noRot: false
+#    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+#    layers:
+#    - state: chronobolt
+#      shader: unshaded
+#  - type: Projectile
+#    impactEffect: BulletImpactEffectKinetic
+#    damage:
+#      types:
+#        Blunt: 30
+#        Structural: 35
+#  - type: Ammo
+#    muzzleFlash: HitscanEffect
+#  - type: TimedDespawn
+#    lifetime: 1.5
+#  - type: PointLight
+#    radius: 2.5
+#    color: white
+#    energy: 0.5
+#  - type: GatheringProjectile
+
+#- type: entity
+#  id: BulletCharge
+#  name: charge bolt
+#  parent: BaseBullet
+#  categories: [ HideSpawnMenu ]
+#  description: Marks a target for additional damage.
+#  components:
+#  - type: Reflective
+#    reflective:
+#    - NonEnergy
+#  - type: Sprite
+#    noRot: false
+#    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+#    layers:
+#    - state: chronobolt
+#      shader: unshaded
+#  - type: GatheringProjectile
+#  - type: DamageMarkerOnCollide
+#    whitelist:
+#      components:
+#      - MobState
+#    damage:
+#      types:
+#        Blunt: 18
+#        Slash: 4
+#  - type: Projectile
+#    impactEffect: BulletImpactEffectKinetic
+#    damage:
+#      types:
+#        Blunt: 0
+  # Short lifespan
+#  - type: TimedDespawn
+#    lifetime: 0.4
+# Lavaland Change end
+
+# Deals less damage, glaive has better HP recovery
 - type: entity
-  id: BulletKineticShuttle
-  parent: BaseBullet
-  categories: [ HideSpawnMenu ]
+  id: BulletChargeGlaive
+  name: leech bolt
+  parent: BulletCharge
   components:
-  - type: Sprite
-    noRot: false
-    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
-    layers:
-    - state: chronobolt
-      shader: unshaded
-  - type: Projectile
-    impactEffect: BulletImpactEffectKinetic
+  - type: DamageMarkerOnCollide
+    whitelist:
+      components:
+      - MobState
     damage:
       types:
-        Blunt: 80 # Goobstation edit
-        # Structural: 35 # Goobstation edit
-  - type: Ammo
-    muzzleFlash: HitscanEffect
-  - type: TimedDespawn
-    lifetime: 0.3 # Goobstation edit
-  - type: PointLight
-    radius: 2.5
-    color: white
-    energy: 0.5
-  - type: GatheringProjectile
+        Blunt: 1
+        Slash: 5
 
 - type: entity
   parent: BulletRocket
@@ -659,60 +761,7 @@
     intensitySlope: 3
     totalIntensity: 150
     maxTileBreak: 1
-
-- type: entity
-  id: BulletCharge
-  name: charge bolt
-  parent: BaseBullet
-  categories: [ HideSpawnMenu ]
-  description: Marks a target for additional damage.
-  components:
-  - type: Reflective
-    reflective:
-    - NonEnergy
-  - type: Sprite
-    noRot: false
-    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
-    layers:
-    - state: chronobolt
-      shader: unshaded
-  - type: GatheringProjectile
-  - type: DamageMarkerOnCollide
-    onlyWorkOnFauna: true # Lavaland Change
-    whitelist:
-      components:
-      - MobState
-    damage:
-      types:
-    # Lavaland Change start
-        Blunt: 20 # 18 -> 20
-        Slash: 5 # 4 -> 5
-    effect: { sprite: /Textures/Objects/Weapons/effects.rsi, state: shield2 }
-    sound: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
-    # Lavaland change end
-  - type: Projectile
-    impactEffect: BulletImpactEffectKinetic
-    damage:
-      types:
-        Blunt: 0
-  # Short lifespan
-  - type: TimedDespawn
-    lifetime: 0.4
-
-  # Deals less damage, glaive has better HP recovery
-- type: entity
-  id: BulletChargeGlaive
-  name: leech bolt
-  parent: BulletCharge
-  components:
-  - type: DamageMarkerOnCollide
-    whitelist:
-      components:
-        - MobState
-    damage:
-      types:
-        Blunt: 1
-        Slash: 5
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   parent: BaseBullet
@@ -754,7 +803,7 @@
   - type: Reflective
     reflective:
     - Energy
-
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   parent: AnomalousParticleDelta
@@ -767,6 +816,7 @@
     stabilityPerDestabilizingHit: 0.08
     healthPerWeakeningeHit: -0.1
     stabilityPerWeakeningeHit: -0.2
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   parent: AnomalousParticleDelta
@@ -785,6 +835,7 @@
       shader: unshaded
   - type: AnomalousParticle
     particleType: Epsilon
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   parent: AnomalousParticleEpsilon
@@ -797,6 +848,7 @@
     stabilityPerDestabilizingHit: 0.08
     healthPerWeakeningeHit: -0.1
     stabilityPerWeakeningeHit: -0.2
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   parent: AnomalousParticleDelta
@@ -815,6 +867,7 @@
       shader: unshaded
   - type: AnomalousParticle
     particleType: Zeta
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   parent: AnomalousParticleZeta
@@ -827,6 +880,7 @@
     stabilityPerDestabilizingHit: 0.08
     healthPerWeakeningeHit: -0.1
     stabilityPerWeakeningeHit: -0.2
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   parent: AnomalousParticleDelta
@@ -856,6 +910,7 @@
     damage:
       types:
         Heat: 20
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   parent: AnomalousParticleDelta
@@ -874,6 +929,7 @@
       shader: unshaded
   - type: AnomalousParticle
     particleType: Sigma
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   parent: AnomalousParticleSigma
@@ -883,6 +939,7 @@
   components:
   - type: AnomalousParticle
     particleType: Sigma
+  - type: SmartLinkBlacklist  # Goobstation
 
 # Launcher projectiles (grenade / rocket)
 - type: entity
@@ -906,6 +963,7 @@
     radius: 3.5
     color: orange
     energy: 0.5
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   id: BulletWeakRocket
@@ -928,6 +986,7 @@
     radius: 3.5
     color: orange
     energy: 0.5
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   id: BulletGrenadeBaton
@@ -949,6 +1008,7 @@
   - type: StaminaDamageOnCollide
     damage: 80
     overtime: 50 # Goobstation
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   id: BulletGrenadeBlast
@@ -966,6 +1026,8 @@
     totalIntensity: 150 # a ~2 tile radius
     intensitySlope: 5
     maxIntensity: 10
+    canCreateVacuum: false
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   id: BulletGrenadeFlash
@@ -981,13 +1043,11 @@
     range: 7
   - type: SpawnOnTrigger
     proto: GrenadeFlashEffect
-  - type: ActiveTimerTrigger
-    timeRemaining: 0.3
   - type: DeleteOnTrigger
   - type: Flashbang # Goobstation
     minProtectionRange: 7 # Can't stun/knockdown people wearing any ear protection
+  - type: SmartLinkBlacklist  # Goobstation
 
-# This is supposed to spawn shrapnel and stuff so uhh... TODO?
 - type: entity
   id: BulletGrenadeFrag
   name: frag grenade
@@ -1001,9 +1061,17 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 175 # about a ~6 tile radius
+    totalIntensity: 50
     intensitySlope: 1
-    maxIntensity: 10
+    maxIntensity: 5
+    canCreateVacuum: false
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: ProjectileGrenade
+    fillPrototype: PelletClusterLessLethal
+    capacity: 30
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   parent: BaseBulletTrigger
@@ -1015,8 +1083,6 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
     - state: cleanade
-  - type: ActiveTimerTrigger
-    timeRemaining: 0.3
   - type: SmokeOnTrigger
     duration: 3.5
     spreadAmount: 30
@@ -1025,7 +1091,7 @@
       reagents:
       - ReagentId: SpaceCleaner
         Quantity: 30
-  - type: SoundOnTrigger
+  - type: EmitSoundOnTrigger
     sound: /Audio/Items/smoke_grenade_smoke.ogg
   - type: ExplodeOnTrigger
   - type: Explosive
@@ -1034,6 +1100,7 @@
     intensitySlope: 1
     maxIntensity: 0.01
     tileBreakScale: 0.01
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   id: BulletGrenadeEMP
@@ -1055,6 +1122,7 @@
     radius: 3.5
     color: blue
     energy: 0.5
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   id: BulletCap
@@ -1071,6 +1139,7 @@
     damage:
       types:
         Piercing: 0
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   id: BulletAcid
@@ -1088,6 +1157,7 @@
     - state: xeno_toxic
   - type: Ammo
     muzzleFlash: null
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   id: BulletWaterShot
@@ -1131,6 +1201,7 @@
     transferAmountPercentage: 1
   - type: Appearance
   - type: VaporVisuals
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   id: BulletHivebot
@@ -1164,6 +1235,7 @@
     radius: 1
     color: orange
     energy: 0.5
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   id: GrapplingHook
@@ -1199,6 +1271,7 @@
         - Impassable
         - HighImpassable
   - type: GrapplingProjectile
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   name : disabler bolt smg
@@ -1215,9 +1288,9 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # imp
     layers:
-    - state: omnilaser
+    - state: lightstun # imp
       shader: unshaded
   - type: Physics
   - type: Fixtures
@@ -1231,13 +1304,14 @@
         - Opaque # Goobstation
       fly-by: *flybyfixture
   - type: Ammo
+    muzzleFlash: MuzzleFlashEffectOmnilaser # imp
   - type: StaminaDamageOnCollide
-    damage: 15
+    damage: 12 # Goob edit
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 0
+        Ion: 8
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -1257,9 +1331,9 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # imp
     layers:
-    - state: heavylaser
+    - state: medium # imp
       shader: unshaded
   - type: Physics
   - type: Fixtures
@@ -1283,15 +1357,15 @@
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectHeavyLaser
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # imp
     layers:
-    - state: heavylaser
+    - state: medium # imp
       shader: unshaded
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 28
+        Heat: 20 #goob, 28 > 20
 
 - type: entity
   name : disabler bolt
@@ -1302,9 +1376,9 @@
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectOmnilaser
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # imp
     layers:
-    - state: omnilaser
+    - state: mediumstun # imp
       shader: unshaded
   - type: StaminaDamageOnCollide
     damage: 30
@@ -1312,7 +1386,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 0
+        Ion: 6
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -1351,6 +1425,7 @@
     - HideContextMenu
   - type: Ammo # Goobstation
     muzzleFlash: null
+  - type: SmartLinkBlacklist  # Goobstation
 
 - type: entity
   name: laser bolt
@@ -1367,9 +1442,9 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi # imp
     layers:
-    - state: heavylaser
+    - state: light # imp
       shader: unshaded
   - type: Physics
   - type: Fixtures

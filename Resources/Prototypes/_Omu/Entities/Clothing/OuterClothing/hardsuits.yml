@@ -1,0 +1,85 @@
+- type: entity
+  parent: ClothingOuterHardsuitVoidParamed
+  id: ClothingOuterHardsuitCybersunParamedic
+  name: CSI-122M "Xiézhù" hardsuit
+  description: A less armored and more legal version of the "Guānlián" hardsuit, used by medical technicians, promoted by Interdyne.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Hardsuits/cybersunparamedhardsuit.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Hardsuits/cybersunparamedhardsuit.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetCybersunParamedic
+  - type: ItemToggle
+    onUse: false
+    soundActivate:
+      path: /Audio/Items/flashlight_on.ogg
+    soundDeactivate:
+      path: /Audio/Items/flashlight_off.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/_Omu/Effects/Vehicle/ambulancesiren2.ogg
+      params:
+        volume: -4
+  - type: UseDelay
+    delay: 1.0
+  - type: ToggleClothing
+    action: ActionToggleParamedicSirenCybersun
+  - type: ItemTogglePointLight
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: red
+    mask: /Textures/Effects/LightMasks/double_cone.png
+  - type: RotatingLight
+    speed: 270
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitCybersunScience
+  name: CSI-128X "Guānlián" hardsuit
+  description: Designed with scientific research in mind, this hardsuit designed by Cybersun Industries protects from most enviromental hazards, with the downside of less physical protection.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Hardsuits/cybersunscientisthardsuit.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Hardsuits/cybersunscientisthardsuit.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetCybersunScience
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: FireProtection
+    reduction: 0.6
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.1
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0.5
+      NerveDamage: 0.5
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.80
+        Heat: 0.3
+        Radiation: 0.3
+        Caustic: 0.3
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+
+
+

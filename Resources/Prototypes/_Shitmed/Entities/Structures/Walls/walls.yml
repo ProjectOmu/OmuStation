@@ -38,10 +38,32 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic
+  # Omu start
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  # Omu end
   - type: Physics
     bodyType: Static
   - type: Reflect
-    reflectProb: 1
+    reflectProb: 0.3 # Omu, lower reflect chance
   - type: Pullable
   - type: Airtight
     noAirWhenFullyAirBlocked: false
@@ -77,6 +99,28 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  # Omu start
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  # Omu end
   - type: StaticPrice
     price: 250
   - type: RadiationBlocker
@@ -94,6 +138,6 @@
     base: state
   - type: Appearance
   - type: Reflect
-    reflectProb: 1
+    reflectProb: 0.3 # Omu, lower reflect chance
   - type: RustRequiresPathStage
     pathStage: 10 # Ascension

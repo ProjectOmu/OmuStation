@@ -1,0 +1,26 @@
+- type: entity
+  parent: [DrinkBase, DrinkFlaskVisualsOpenable, BaseCommandContraband]
+  id: DrinkMugAA
+  name: administrative assistant's bluespace coffee mug
+  description: Given to the AA in place of their last paycheck.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Consumable/Drinks/mug_aa.rsi
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60
+        reagents:
+        - ReagentId: NTApprovedCoffee
+          Quantity: 60
+  - type: SolutionRegeneration
+    solution: drink
+    duration: 10
+    generated:
+      reagents:
+      - ReagentId: NTApprovedCoffee
+        Quantity: 10
+  - type: StaticPrice
+    price: 10000
+  - type: StealTarget
+    stealGroup: DrinkMugAA

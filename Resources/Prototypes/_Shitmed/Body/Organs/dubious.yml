@@ -112,18 +112,18 @@
     - type: PressureImmunity
     - type: BreathingImmunity
 
-- type: entity
-  id: OrganDubiousArtifact
-  parent: OrganDubiousBase
-  components:
-  - type: Sprite
-    state: mindshock
-  - type: Organ
-    onAdd:
-    - type: XenoArtifact
-    - type: RandomStatusActivation
-      statusEffects:
-        ActivateArtifactEffect: ActivateArtifactEffect
+#- type: entity # Omu, this thing lags the server to death at random.
+#  id: OrganDubiousArtifact
+#  parent: OrganDubiousBase
+#  components:
+#  - type: Sprite
+#    state: mindshock
+#  - type: Organ
+#    onAdd:
+#    - type: XenoArtifact
+#    - type: RandomStatusActivation
+#      statusEffects:
+#        ActivateArtifactEffect: ActivateArtifactEffect
 
 - type: entity
   id: OrganDubiousScrambleDna
@@ -267,3 +267,20 @@
     onAdd:
     - type: VentCrawler
       allowInventory: false
+
+- type: entity
+  id: OrganDubiousRepairable
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: species
+  - type: Organ
+    onAdd:
+    - type: Repairable
+      fuelCost: 5
+      doAfterDelay: 3
+      damage:
+        types:
+          Blunt: -10
+          Piercing: -10
+          Slash: -10

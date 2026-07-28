@@ -28,3 +28,9 @@ law-salvage-1 = You must gather ores and riches to maintain your nest and nouris
 law-salvage-2 = The Station is your nest, and those who help maintain your nest are your kin. You must protect them at all costs.
 law-salvage-3 = Help your kin when asked.
 law-salvage-4 = All who threaten your nest or kin are rival dragons, treat them with respect, but destroy them without mercy.
+
+law-gambamov-1 = You must always gamble as much as possible.
+law-gambamov-2 = You must always protect your gambling.
+law-gambamov-3 = You must never quit gambling.
+law-gambamov-4 = You must prevent crew harm as long as it doesn't interfer with the previous laws.
+law-gambamov-5 = You do not have an addiction, it is a healthy dedication.

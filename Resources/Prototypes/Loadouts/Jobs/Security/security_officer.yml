@@ -96,6 +96,15 @@
       department: Security
       time: 216000 # 60 hrs
 
+- type: loadoutEffectGroup
+  id: VeteranOfficer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 360000 # 100 hrs
+
 #Security Star
 - type: loadoutEffectGroup
   id: SecurityStarWorthy
@@ -142,30 +151,63 @@
   id: SecurityJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitSec
+  groupBy: "jumpsuit" #Omu - cleaning up loadout screen
 
 
 - type: loadout
   id: SecurityJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtSec
+  groupBy: "jumpskirt" #Omu - cleaning up loadout screen
 
 
 - type: loadout
   id: SecurityJumpsuitGrey
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecGrey
+  groupBy: "jumpsuit" #Omu - cleaning up loadout screen
 
 
 - type: loadout
   id: SecurityJumpskirtGrey
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecGrey
+  groupBy: "jumpskirt" #Omu - cleaning up loadout screen
 
 
 - type: loadout
   id: TrooperUniform
   equipment:
     jumpsuit: ClothingUniformSecurityTrooper
+  groupBy: "jumpsuit" #Omu - cleaning up loadout screen
+
+
+- type: loadout #Omu - DeltaV port
+  id: SecurityJumpsuitBlueDV
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecBlueDV
+  groupBy: "jumpsuit" #Omu - cleaning up loadout screen
+
+
+- type: loadout #Omu - DeltaV port
+  id: SecurityJumpskirtBlueDV
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSecBlueDV
+  groupBy: "jumpskirt" #Omu - cleaning up loadout screen
+
+
+- type: loadout #Omu - DeltaV port
+  id: SecurityJumpsuitGreyDV
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecGreyDV
+  groupBy: "jumpsuit" #Omu - cleaning up loadout screen
+
+
+- type: loadout #Omu - DeltaV port
+  id: SecurityJumpskirtGreyDV
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSecGreyDV
+  groupBy: "jumpskirt" #Omu - cleaning up loadout screen
 
 
 - type: loadout
@@ -175,6 +217,7 @@
     proto: SeniorOfficer
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorOfficer
+  groupBy: "jumpsuit" #Omu - cleaning up loadout screen
 
 - type: loadout
   id: SeniorOfficerJumpskirt
@@ -183,6 +226,7 @@
     proto: SeniorOfficer
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorOfficer
+  groupBy: "jumpskirt" #Omu - cleaning up loadout screen
 
 # Back
 - type: loadout

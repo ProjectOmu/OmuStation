@@ -116,17 +116,11 @@
   name: Atmos
   artist: asardonicsailor
 
-- type: lobbyBackground
-  id: cburn
-  background: /Textures/LobbyScreens/cburn.webp
-  name: Cburn
-  artist: PubliclyExecutedPig
-
-- type: lobbyBackground
-  id: clown
-  background: /Textures/LobbyScreens/clown.webp
-  name: Clown
-  artist: Unknown
+# - type: lobbyBackground # Omu - Removing some lobby arts
+#   id: clown
+#   background: /Textures/LobbyScreens/clown.webp
+#   name: Clown
+#   artist: Unknown
 
 - type: lobbyBackground
   id: captaintheresnukies
@@ -134,17 +128,17 @@
   name: Captain there's Nukies!
   artist: Zethine
 
-- type: lobbyBackground
-  id: clownassassin
-  background: /Textures/LobbyScreens/clownassassin.webp
-  name: Clown Assassin
-  artist: ka2220
+# - type: lobbyBackground # Omu - Removing some lobby arts
+#   id: clownassassin
+#   background: /Textures/LobbyScreens/clownassassin.webp
+#   name: Clown Assassin
+#   artist: ka2220
 
-- type: lobbyBackground
-  id: clownhell
-  background: /Textures/LobbyScreens/clownhell.webp
-  name: Clown Hell
-  artist: kA2220
+# - type: lobbyBackground # Omu - Removing some lobby arts
+#   id: clownhell
+#   background: /Textures/LobbyScreens/clownhell.webp
+#   name: Clown Hell
+#   artist: kA2220
 
 - type: lobbyBackground
   id: cqcm
@@ -170,11 +164,11 @@
   name: CQCM 3
   artist: blooodyspy
 
-- type: lobbyBackground
-  id: foundinghonkers
-  background: /Textures/LobbyScreens/foundinghonkers.webp
-  name: Founding Honkers
-  artist: Piras314
+# - type: lobbyBackground # Omu - Removing some lobby arts
+#   id: foundinghonkers
+#   background: /Textures/LobbyScreens/foundinghonkers.webp
+#   name: Founding Honkers
+#   artist: Piras314
 
 - type: lobbyBackground
   id: goob
@@ -182,23 +176,23 @@
   name: Goob
   artist: Diebeck
 
-- type: lobbyBackground
-  id: GoobNukie
-  background: /Textures/LobbyScreens/GoobNukie.webp
-  name: Goob Nukie
-  artist: Cheeki
+# - type: lobbyBackground # Omu - Removing Goob Only
+#   id: GoobNukie
+#   background: /Textures/LobbyScreens/GoobNukie.webp
+#   name: Goob Nukie
+#   artist: Cheeki
 
-- type: lobbyBackground
-  id: grandtheftgoob
-  background: /Textures/LobbyScreens/grandtheftgoob.webp
-  name: Grand Theft Goob
-  artist: Piras314
+# - type: lobbyBackground # Omu - Removing Goob Only
+#   id: grandtheftgoob
+#   background: /Textures/LobbyScreens/grandtheftgoob.webp
+#   name: Grand Theft Goob
+#   artist: Piras314
 
-- type: lobbyBackground
-  id: greytideworldwide
-  background: /Textures/LobbyScreens/greytideworldwide.webp
-  name: Greytide Worldwide
-  artist: Piras314
+# - type: lobbyBackground # Omu - Removing some lobby arts
+#   id: greytideworldwide
+#   background: /Textures/LobbyScreens/greytideworldwide.webp
+#   name: Greytide Worldwide
+#   artist: Piras314
 
 - type: lobbyBackground
   id: heretic
@@ -230,11 +224,11 @@
   name: Reclaimer Nuke
   artist: GetOutMarutak
 
-- type: lobbyBackground
-  id: tideractivities
-  background: /Textures/LobbyScreens/tideractivities.webp
-  name: Tider Activities
-  artist: asardonicsailor
+# - type: lobbyBackground # Omu - Removing some lobby arts
+#   id: tideractivities
+#   background: /Textures/LobbyScreens/tideractivities.webp
+#   name: Tider Activities
+#   artist: asardonicsailor
 
 - type: lobbyBackground
   id: lostpai
@@ -242,20 +236,38 @@
   name: Lost pAI
   artist: Cattom
 
-- type: lobbyBackground
-  id: moneyspread-bingle
-  background: /Textures/LobbyScreens/binglemoneyspread.webp
-  name: Bingle Flex
-  artist: LFMoth
+# - type: lobbyBackground # Omu - Removing Goob Only
+#   id: moneyspread-bingle
+#   background: /Textures/LobbyScreens/binglemoneyspread.webp
+#   name: Bingle Flex
+#   artist: LFMoth
+
+# - type: lobbyBackground # Omu - Removing Goob Only
+#   id: stargoob
+#   background: /Textures/LobbyScreens/StarGoob.webp
+#   name: GoobWars
+#   artist: Jvne
+
+# - type: lobbyBackground # Omu - Removing some lobby arts
+#   id: enlist-lavaland
+#   background: /Textures/LobbyScreens/enlist.webp
+#   name: Nanotrasen wants YOU.
+#   artist: thebiggestbruh
 
 - type: lobbyBackground
-  id: stargoob
-  background: /Textures/LobbyScreens/StarGoob.webp
-  name: GoobWars
-  artist: Jvne
+  id: ling-in-my-vents
+  background: /Textures/LobbyScreens/sec_theres_ling_in_my_vents.webp
+  name: Sec theres ling in my vents
+  artist: blooodyspy
 
 - type: lobbyBackground
-  id: enlist-lavaland
-  background: /Textures/LobbyScreens/enlist.webp
-  name: Nanotrasen wants YOU.
-  artist: thebiggestbruh
+  id: we-all-love-ai
+  background: /Textures/LobbyScreens/we_all_love_ai.webp
+  name: We all love ai
+  artist: blooodyspy
+
+- type: lobbyBackground
+  id: syndi-kek
+  background: /Textures/LobbyScreens/syndi_kek.webp
+  name: Syndi kek
+  artist: blooodyspy

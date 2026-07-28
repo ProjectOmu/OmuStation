@@ -1,0 +1,32 @@
+# Jumpsuit
+- type: loadout
+  id: AdminAssistantJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitAdminAssistant
+
+- type: loadout
+  id: AdminAssistantJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtAdminAssistant
+
+- type: loadout
+  id: AdminAssistantHeadset
+  equipment:
+    ears: ClothingHeadsetAdminAssistant
+
+- type: loadout
+  id: AdminAssistantAltHeadset
+  equipment:
+    ears: ClothingHeadsetAltAdminAssistant
+
+# Head
+- type: loadout
+  id: AdminAssistanthat
+  equipment:
+    head: ClothingHeadHatAdministrasive
+  # effects:
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobAdminAssistant
+  #     time: 180000 #50 hrs

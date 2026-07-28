@@ -7,6 +7,7 @@
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tuerk <richardgirgindontstop@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -33,6 +34,7 @@ using Content.Shared.Zombies;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
+using Content.Goobstation.Common.Traits; // Omu Edit: Paraplegic Harpies
 
 
 namespace Content.Shared._EinsteinEngines.Flight;
@@ -122,6 +124,12 @@ public abstract class SharedFlightSystem : EntitySystem
 
         if (component.CanFail && !gracefulStop)
             _damageable.TryChangeDamage(uid, component.FailDamageSpecifier);
+
+        //Omu Edit Start - Paraplegic Harpies
+        if (!component.On
+            && TryComp(uid, out LegsParalyzedComponent? _))
+            _standing.Down(uid, dropHeldItems: false);
+        //Omu Edit End
 
         Dirty(uid, component);
     }
@@ -274,6 +282,14 @@ public abstract class SharedFlightSystem : EntitySystem
     {
         if (!_standing.IsDown(uid, component))
             return;
+
+        //Omu Edit Start - Paraplegic Harpies
+        if (TryComp(uid, out LegsParalyzedComponent? _))
+        {
+            _standing.Stand(uid, component, force: true);
+            return;
+        }
+        //Omu Edit End
 
         _popupSystem.PopupClient(Loc.GetString("no-flight-while-lying"), uid, uid, PopupType.Medium);
         args.Cancel();

@@ -1,0 +1,73 @@
+﻿- type: entity
+  id: BaseBorgModuleCentComm
+  parent: BaseBorgModule
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - BorgModuleCentComm
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#9DD993"
+      - state: base-module-inhand-left
+        color: "#378631"
+      - state: base-stripes-inhand-left
+        color: "#404040"
+      right:
+      - state: base-icon-inhand-right
+        color: "#9DD993"
+      - state: base-module-inhand-right
+        color: "#378631"
+      - state: base-stripes-inhand-right
+        color: "#404040"
+
+- type: entity
+  parent: [ BaseBorgModuleCentComm, BaseProviderBorgModule, BaseCentcommContraband ]
+  id: BorgModuleERT
+  name: ERT cyborg module
+  description: A module that comes with several tools for a ERT Cyborg.
+  components:
+  - type: Sprite
+    layers:
+    - state: centralcommand
+      sprite: _Devilstation/Objects/Specific/Robotics/borgmodule.rsi
+    - state: icon-ert
+      sprite: _Devilstation/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: EmergencyResponse
+    items:
+    - WeaponPulsePistol
+    - HyperFlash
+    - StunBatonBorg
+    - ZiptieDispenser
+    - JawsOfLife
+    - SonicJackhammer
+    - JetpackXenoborg
+  - type: BorgModuleIcon
+    icon: { sprite: _Devilstation/Interface/Actions/actions_borg.rsi, state: ert-module }
+
+- type: entity
+  parent: [ BaseBorgModuleCentComm, BaseProviderBorgModule, BaseCentcommContraband ]
+  id: BorgModuleCommando
+  name: commando cyborg module
+  description: A module just as infamous as its chassis.
+  components:
+  - type: Sprite
+    layers:
+    - state: centralcommand
+      sprite: _Devilstation/Objects/Specific/Robotics/borgmodule.rsi
+    - state: icon-xenoborg-laser # im not making a second sprite smh, also it fits.
+      sprite: Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: Commando
+    items:
+    - WeaponPulseRifleCyborg
+    - PhoronSabre
+    - HyperFlash
+    - JawsOfLife
+    - SonicJackhammer
+    - JetpackXenoborg
+  - type: BorgModuleIcon
+    icon: { sprite: _Devilstation/Interface/Actions/actions_borg.rsi, state: ert-module } #im lazy

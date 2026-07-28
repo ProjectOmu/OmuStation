@@ -1,0 +1,56 @@
+﻿- type: gamePreset
+  id: AdminEventGreenshift
+  name: adminevent-title
+  showInVote: false #admin only
+  description: adminevent-description
+  rules:
+  - SpaceTrafficControlFriendlyEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: AdminEventExtended
+  name: adminevent-title
+  showInVote: false #admin only
+  description: adminevent-description
+  rules:
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SilentAdminEventGreenshift
+  name: secretplus-mid-title
+  showInVote: false #admin only
+  description: secretplus-mid-description
+  rules:
+  - SpaceTrafficControlFriendlyEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SilentAdminEventExtended
+  name: secretplus-mid-title
+  showInVote: false #admin only
+  description: secretplus-mid-description
+  rules:
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: AdminManualGameControl
+  name: manual-control-gamerule-title
+  showInVote: false #admin only
+  description: manual-control-gamerule-description
+  rules:
+  - SpaceTrafficControlFriendlyEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: AdminManualGameControlCOMPLETE
+  name: manual-control-gamerule-title
+  showInVote: false #admin only
+  description: manual-control-gamerule-description
+  rules:
+  - BasicRoundstartVariation

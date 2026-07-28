@@ -59,4 +59,7 @@ public sealed partial class PassiveDamageComponent : Component
     /// </summary>
     [DataField]
     public SplitDamageBehavior SplitBehavior = SplitDamageBehavior.Split;
+
+    [DataField("healAllParts"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public bool HealAllParts { get; set; } = false; // Omu, make it so slimes have natural regen again.
 }

@@ -20,6 +20,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Omu.Common.CCVar; // Omu
 using Content.Shared.NPC;
 using Content.Shared.Physics;
 using Robust.Shared.Collections;
@@ -95,6 +96,7 @@ public sealed partial class PathfindingSystem
 
     private void UpdateGrid(ParallelOptions options)
     {
+        PauseUpdating = _cfg.GetCVar(OmuCVars.DisablePathfinding); // Omu. Disabling pathfinding for certain tests.
         if (PauseUpdating)
             return;
 

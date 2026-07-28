@@ -1,0 +1,35 @@
+﻿# ERT Cyborg
+
+- type: entity
+  id: StunBatonBorg
+  parent: Stunbaton
+  name: Recharging Cyborg Baton
+  suffix: Cyborg
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 25
+  - type: Battery # 3/4 the charge capacity but slowly recharges
+    maxCharge: 750
+    startingCharge: 750
+
+- type: entity
+  id: ZiptieDispenser
+  name: Ziptie Dispenser
+  parent: BaseItem
+  suffix: "Cyborgs"
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/zipties.rsi
+    state: cuff
+  - type: CuffsOnHit
+    duration: 3.5
+    proto: Cablecuffs
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Items/Handcuffs/ziptie_start.ogg
+  - type: UseDelay
+    delay: 3

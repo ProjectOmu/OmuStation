@@ -25,12 +25,14 @@ public sealed class SendRulesInformationMessage : NetMessage
     public float PopupTime { get; set; }
     public string CoreRules { get; set; } = string.Empty;
     public bool ShouldShowRules { get; set; }
+    public bool AllowBypass { get; set; } // Omustation - Rules smite
 
     public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
     {
         PopupTime = buffer.ReadFloat();
         CoreRules = buffer.ReadString();
         ShouldShowRules = buffer.ReadBoolean();
+        AllowBypass = buffer.ReadBoolean(); // Omustation - Rules smite
     }
 
     public override void WriteToBuffer(NetOutgoingMessage buffer, IRobustSerializer serializer)
@@ -38,6 +40,7 @@ public sealed class SendRulesInformationMessage : NetMessage
         buffer.Write(PopupTime);
         buffer.Write(CoreRules);
         buffer.Write(ShouldShowRules);
+        buffer.Write(AllowBypass); // Omustation - Rules smite
     }
 }
 

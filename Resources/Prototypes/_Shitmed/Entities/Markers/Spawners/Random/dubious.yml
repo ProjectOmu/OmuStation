@@ -20,12 +20,13 @@
       - id: OrganDubiousHealth
       - id: OrganDubiousInvisible
       - id: OrganDubiousSpaceAdaptation
-      - id: OrganDubiousScrambleDna
-      - id: OrganDubiousScrambleLocation
-      - id: OrganDubiousArtifact
+  #    - id: OrganDubiousScrambleDna # omu
+  #    - id: OrganDubiousScrambleLocation # Omu
+      #- id: OrganDubiousArtifact # Omu, this thing lags the server to death at random.
       - id: OrganDubiousVentcrawler
       - id: OrganDubiousSteptriggerImmune
-      
+      - id: OrganDubiousRepairable
+
     # Annoying/Disruptive Organs Group - 35% chance
     - !type:GroupSelector
       weight: 35
@@ -33,7 +34,7 @@
       - id: OrganDubiousShock
       - id: OrganDubiousGoliath
       - id: OrganDubiousEMP
-      - id: OrganDubiousGravityWell
+ #     - id: OrganDubiousGravityWell # omu
       - id: OrganDubiousFlash
       - id: OrganDubiousSmoke
       - id: OrganDubiousGas

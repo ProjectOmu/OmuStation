@@ -133,10 +133,11 @@
     - Head
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
-        Radiation: 0.5
+        Radiation: 0.75
+        # Blunt: 0.8 # Omu
+        # Slash: 0.8  # Omu
+        # Piercing: 0.8 # Omu
+        # Radiation: 0.5 # Omu
   - type: StaticPrice
     price: 500 # Suit is 1000
 
@@ -165,6 +166,8 @@
     sprite: _Goobstation/Clothing/Head/Hardsuits/goobparamed.rsi # goobstation - wizden sprites SUCK ASS!!!
   - type: PointLight # goobstation
     color: "#3385cc"
+    radius: 7 # Omu 
+    energy: 3 # Omu
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1

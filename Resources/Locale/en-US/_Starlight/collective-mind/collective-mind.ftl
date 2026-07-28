@@ -10,3 +10,6 @@ collective-mind-chat-wrap-message-admin = [bold]\[ADMIN|{$channel} {$number}\]: 
 
 # Goobstation
 collective-mind-chat-wrap-message-named = [bold]\[{$channel}\] {$source}[/bold]: {$message}
+# Goobstation end
+
+collective-mind-nexus = Nexus User

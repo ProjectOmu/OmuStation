@@ -7,7 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Abilities.Mime;
+using Content.Shared.Abilities.Mime;
 using Content.Server.Chat.Systems;
 using Content.Server._EinsteinEngines.Language;
 using Content.Server.Popups;
@@ -38,7 +38,7 @@ namespace Content.Server.Speech.Muting
                 return;
 
             //still leaves the text so it looks like they are pantomiming a laugh
-            if (args.Emote.Category.HasFlag(EmoteCategory.Vocal))
+            if (args.Emote.Category.HasFlag(EmoteCategory.Vocal) && !args.Emote.OverrideMute) // Omu, adds manual overriding of mute
                 args.Handled = true;
         }
 

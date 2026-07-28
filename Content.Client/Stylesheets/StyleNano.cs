@@ -310,6 +310,7 @@ namespace Content.Client.Stylesheets
 
         //Background
         public const string StyleClassBackgroundBaseDark = "PanelBackgroundBaseDark";
+        public const string StyleClassBackgroundBaseLight = "PanelBackgroundBaseLight"; // Goob Station
 
         //Buttons
         public const string StyleClassCrossButtonRed = "CrossButtonRed";
@@ -321,6 +322,9 @@ namespace Content.Client.Stylesheets
         //Bwoink
         public const string StyleClassPinButtonPinned = "pinButtonPinned";
         public const string StyleClassPinButtonUnpinned = "pinButtonUnpinned";
+
+        //Manifest
+        public const string StyleClassCrewManifestGender = "CrewManifestGender"; // Funky
 
 
         public override Stylesheet Stylesheet { get; }
@@ -1576,6 +1580,11 @@ namespace Content.Client.Stylesheets
                     .Prop("font", notoSansItalic10)
                     .Prop("font-color", ItemStatusNotHeldColor),
 
+                Element<RichTextLabel>() // Funky
+                    .Class(StyleClassCrewManifestGender)
+                    .Prop("font", notoSansItalic10)
+                    .Prop("font-style", "italic"),
+
                 Element<RichTextLabel>()
                     .Class(StyleClassItemStatus)
                     .Prop(nameof(RichTextLabel.LineHeightScale), 0.7f)
@@ -1752,6 +1761,10 @@ namespace Content.Client.Stylesheets
                 Element<PanelContainer>().Class("PanelBackgroundBaseDark")
                     .Prop("panel", new StyleBoxTexture(BaseButtonOpenBoth) { Padding = default })
                     .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#1F1F23")),
+
+                Element<PanelContainer>().Class("PanelBackgroundBaseLight") // Goob Station
+                    .Prop("panel", new StyleBoxTexture(BaseButtonOpenBoth) { Padding = default })
+                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#2d2d39")),
 
                 Element<PanelContainer>().Class("PanelBackgroundLight")
                     .Prop("panel", new StyleBoxTexture(BaseButtonOpenBoth) { Padding = default })

@@ -9,6 +9,16 @@
   - ClothingOuterHardsuitHeadOfSecurityExperimental
 
 - type: selectableSet
+  id: HardsuitSelectorCybersunParamedHardsuit
+  name: selectable-set-paramedic-cybersunhardsuit-name
+  description: selectable-set-paramedic-cybersunhardsuit-desc
+  sprite:
+    sprite: _Omu/Clothing/OuterClothing/Hardsuits/cybersunparamedhardsuit.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitCybersunParamedic
+
+- type: selectableSet
   id: HosCQCSet
   name: selectable-set-hos-belt-name
   description: selectable-set-hos-belt-description
@@ -37,6 +47,18 @@
     state: icon
   content:
   - WeaponEnergyGunLawbringer
+
+- type: selectableSet
+  id: HosBRDISet
+  name: selectable-set-hos-brdi-name
+  description: selectable-set-hos-brdi-description
+  sprite:
+    sprite: _DEN/Objects/Weapons/Guns/SMGs/BRDI_R25_decorated.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunBRDIR25HoS
+  - MagazineCaselessRifleFMJ
+  - MagazineCaselessRifleFMJ
 
 - type: selectableSet
   id: WeaponEnergyShotgunSet
@@ -83,6 +105,29 @@
   - SpeedLoaderRevolverLightRifle
 
 - type: selectableSet
+  id: WeaponEG1Set
+  name: selectable-set-eg1-name
+  description: selectable-set-eg1-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_revolver.rsi
+    state: icon
+  content:
+  - WeaponLaserCellRevolver
+  - PowerCellIRRevolver
+  - PowerCellIRRevolver
+  - PowerCellIRRevolver
+
+- type: selectableSet
+  id: WeaponCeremonialRifleSet
+  name: selectable-set-ceremonial-rifle-name
+  description: selectable-set-ceremonial-rifle-description
+  sprite:
+    sprite: _Omu/Objects/Weapons/Guns/Snipers/ceremonial_rifle.rsi
+    state: base
+  content:
+  - WeaponSniperM1Garand
+
+- type: selectableSet
   id: WeaponTerminusSet
   name: selectable-set-terminus-name
   description: selectable-set-terminus-description
@@ -121,3 +166,200 @@
     state: base
   content:
   - HosIreLander
+
+- type: selectableSet
+  id: WardenRapierSet
+  name: selectable-set-warden-rapier-name
+  description: selectable-set-warden-rapier-description
+  sprite:
+    sprite: _Omu/Objects/Weapons/Melee/wardenrapier.rsi
+    state: icon
+  content:
+  - ClothingNeckWardenParryCloakFilled
+
+- type: selectableSet
+  id: HosOniGlaiveSet
+  name: selectable-set-hosoniblade-name
+  description: selectable-set-hosoniblade-description
+  sprite:
+    sprite: _Omu/Objects/Weapons/Melee/oniglaive.rsi
+    state: base
+  content:
+  - HosOniBlade
+
+- type: selectableSet
+  id: HoSPetShivaSet
+  name: selectable-set-MobSpiderShiva-name
+  description: selectable-set-MobSpiderShiva-description
+  sprite:
+    sprite: Mobs/Pets/shiva.rsi
+    state: shiva
+  content:
+  - MobSpiderShiva
+
+- type: selectableSet
+  id: HoSPetLaikaSet
+  name: selectable-set-MobSecDogLaika-name
+  description: selectable-set-MobSecDogLaika-description
+  sprite:
+    sprite: _DV/Mobs/Pets/secdog.rsi
+    state: secdog
+  content:
+  - MobSecDogLaika
+
+- type: selectableSet
+  id: HoSPetTrevorSet
+  name: selectable-set-trevor-name
+  description: selectable-set-trevor-description
+  sprite:
+    sprite: _Goobstation/Mobs/Trevor/trevor.rsi
+    state: trevor
+  content:
+  - MobTrevor
+
+# ERT
+
+- type: selectableSet
+  id: ERTShotgunSet
+  name: selectable-set-ert-shotgun-name
+  description: selectable-set-ert-shotgun-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Lever/combatshotgun.rsi
+    state: icon
+  content:
+  - WeaponShotgunCombatCentComm
+  - MagazineBoxShotgunHighCaliber
+  - MagazineBoxShotgunHighCaliber
+  - WeaponPistolAnacondaCentComm
+
+- type: selectableSet
+  id: ERTSMGSet
+  name: selectable-set-ert-smg-name
+  description: selectable-set-ert-smg-description
+  sprite:
+    sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunC20rCentComm
+  - MagazinePistolSubMachineGun
+  - MagazinePistolSubMachineGun
+  - MagazinePistolSubMachineGun
+  - MagazinePistolSubMachineGun
+  - BlueShieldShieldMarginallyLessEvilFilled
+  - BoxFlashbang
+  - BoxStinger
+  - BoxTearGas
+  - BoxHandcuff
+
+- type: selectableSet
+  id: ERTLightEnergySet
+  name: selectable-set-ert-light-energy-name
+  description: selectable-set-ert-light-energy-description
+  sprite:
+    sprite: _Omu/Objects/Weapons/Guns/Battery/ert_energy_rifle.rsi
+    state: icon
+  content:
+  - WeaponAdvancedEnergyRifle
+  - ClothingBeltHolsterFilledBlueshield
+  - AdvancedEnergyMagRifleLethal
+  - AdvancedEnergyMagRifleOverchargeLethal
+  - AdvancedEnergyMagRifleDisabler
+
+#corpsman
+- type: selectableSet
+  id: VoidsuitSelectorCorpsmanLightHardsuit
+  name: selectable-set-corpsman-lighthardsuit-name
+  description: selectable-set-corpsman-lighthardsuit-desc
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/brigmedic.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitBrigmedic
+
+- type: selectableSet
+  id: VoidsuitSelectorCorpsmanCombatHardsuit
+  name: selectable-set-corpsman-combathardsuit-name
+  description: selectable-set-corpsman-combathardsuit-desc
+  sprite:
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/corpsman.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitCorpsman
+
+# Blueshield Officer
+
+- type: selectableSet
+  id: BSOBRDISet # Yes I moved it because it bothered me that it was in some random ass place above
+  name: selectable-set-bso-brdi-name
+  description: selectable-set-bso-brdi-description
+  sprite:
+    sprite: _DEN/Objects/Weapons/Guns/SMGs/BRDI_R25_blue.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunBRDIR25BSO
+  - MagazineCaselessRifleFMJ
+  - MagazineCaselessRifleFMJ
+
+- type: selectableSet
+  id: BSOTypewriterSet
+  name: selectable-set-bso-typewriter-name
+  description: selectable-set-bso-typewriter-desc
+  sprite:
+    sprite: _DV/Objects/Weapons/Guns/SMGs/typewriter.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunTypewriter
+  - MagazinePistolSubMachineGunDrumRubber
+  - MagazinePistolSubMachineGun
+
+- type: selectableSet
+  id: BSOExtractionSet
+  name: selectable-set-bso-extraction-name
+  description: selectable-set-bso-extraction-description
+  sprite:
+    sprite: _Omu/Objects/Tools/bluespace_fulton.rsi
+    state: extraction_pack
+  content:
+  - ClothingBeltExtractionRigBSOFilled
+
+- type: selectableSet
+  id: BSOMedicalSet
+  name: selectable-set-bso-medical-name
+  description: selectable-set-bso-medical-description
+  sprite:
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: medicated-suture
+  content:
+  - ClothingBeltMilitaryWebbingBSOFilledMed
+
+- type: selectableSet
+  id: BSOChemicalSet
+  name: selectable-set-bso-chemical-name
+  description: selectable-set-bso-chemical-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Melee/blueshield_knife.rsi
+    state: icon
+  content:
+  - ClothingBeltChemBagBSOFilled
+
+# NTR
+
+- type: selectableSet
+  id: CaneNTSet
+  name: selectable-set-ntr-cane-name
+  description: selectable-set-ntr-cane-desc
+  sprite:
+    sprite: _Starlight/Objects/Weapons/Melee/cane_nt.rsi
+    state: icon
+  content:
+  - CaneNT
+
+- type: selectableSet
+  id: BladeNTSet
+  name: selectable-set-ntr-blade-name
+  description: selectable-set-ntr-blade-desc
+  sprite:
+    sprite: Objects/Weapons/Melee/cane_blade.rsi
+    state: icon
+  content:
+  - CaneSheathFilledNanotrasen

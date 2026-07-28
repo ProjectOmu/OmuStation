@@ -47,13 +47,22 @@
     path: /Audio/Machines/beep.ogg
 
 - type: speechSounds
-  id: ShadowCloak
+  id: ShadowCloakSpeechSounds
   saySound:
     collection: HissSay
   askSound:
     path: /Audio/_Goobstation/Heretic/hiss/hiss3.ogg
   exclaimSound:
     path: /Audio/_Goobstation/Heretic/hiss/hiss4.ogg
+
+- type: speechSounds
+  id: Loudspeaker
+  saySound:
+    path: /Audio/_Goobstation/Loudspeaker/megaphone.ogg
+  askSound:
+    path: /Audio/_Goobstation/Loudspeaker/megaphone.ogg
+  exclaimSound:
+    path: /Audio/_Goobstation/Loudspeaker/megaphone.ogg
 
 - type: speechVerb
   id: Hiss
@@ -123,10 +132,7 @@
   - chat-speech-verb-floor-goblin-3
 
 - type: speechVerb
-  id: HellGoose
-  name: chat-speech-verb-name-hell-goose
+  id: StationRadio
+  name: chat-speech-verb-name-station-radio
   speechVerbStrings:
-  - chat-speech-verb-hell-goose-1
-  - chat-speech-verb-hell-goose-2
-  - chat-speech-verb-hell-goose-3
-  - chat-speech-verb-hell-goose-4
+  - chat-speech-verb-station-radio-1

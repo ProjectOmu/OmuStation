@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 ThanosDeGraf <richardgirgindontstop@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: alert
   id: BrokenBones
   icons:
@@ -5,6 +9,15 @@
       state: brokenbones
   name: alerts-broken-bones-name
   description: alerts-broken-bones-desc
+
+# Omu
+- type: alert
+  id: FaultyHeart
+  icons:
+  - sprite: /Textures/_Shitmed/Interface/Alerts/alerts.rsi
+    state: faultyheart
+  name: alerts-faulty-heart-name
+  description: alerts-faulty-heart-desc
 
 - type: alert
   id: AugmentBattery

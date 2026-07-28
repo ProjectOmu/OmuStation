@@ -10,12 +10,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._DV.Polymorph;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Climbing.Events;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
-using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
@@ -35,10 +35,12 @@ using Content.Shared.Throwing;
 using Content.Shared.Verbs;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
-using Robust.Shared.Physics.Components;
 using System.Numerics;
+using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mind.Components;
+using Content.Shared._EinsteinEngines.Carrying;
+using Content.Shared._Omu.Carrying; // EE
 
 namespace Content.Shared._DV.Carrying;
 
@@ -56,14 +58,11 @@ public sealed class CarryingSystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standingState = default!;
     [Dependency] private readonly SharedVirtualItemSystem  _virtualItem = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-
-    private EntityQuery<PhysicsComponent> _physicsQuery;
+    [Dependency] private readonly ContestsSystem _contests = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-
-        _physicsQuery = GetEntityQuery<PhysicsComponent>();
 
         SubscribeLocalEvent<CarriableComponent, GetVerbsEvent<AlternativeVerb>>(AddCarryVerb);
         SubscribeLocalEvent<CarryingComponent, GetVerbsEvent<InnateVerb>>(AddInsertCarriedVerb);
@@ -82,8 +81,9 @@ public sealed class CarryingSystem : EntitySystem
         SubscribeLocalEvent<BeingCarriedComponent, UnbuckledEvent>(OnDrop);
         SubscribeLocalEvent<BeingCarriedComponent, StrappedEvent>(OnDrop);
         SubscribeLocalEvent<BeingCarriedComponent, UnstrappedEvent>(OnDrop);
-        SubscribeLocalEvent<BeingCarriedComponent, EscapeInventoryEvent>(OnDrop);
+        SubscribeLocalEvent<BeingCarriedComponent, EscapeInventoryEvent>(OnEscapeDrop); // Goob
         SubscribeLocalEvent<CarriableComponent, CarryDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<BeingCarriedComponent, EntityTerminatingEvent>(OnDelete);
     }
 
     private void AddCarryVerb(Entity<CarriableComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
@@ -109,7 +109,8 @@ public sealed class CarryingSystem : EntitySystem
         // If the person is carrying someone, and the carried person is a pseudo-item, and the target entity is a storage,
         // then add an action to insert the carried entity into the target
         // AKA put carried felenid into a duffelbag
-        if (args.Using is not {} carried || !args.CanAccess || !TryComp<PseudoItemComponent>(carried, out var pseudoItem))
+        var carried = ent.Comp.Carried; // Goob edit start - It made ZERO sense to grab args.Using, which would point to a virtual item.
+        if (!args.CanAccess || !TryComp<PseudoItemComponent>(ent.Comp.Carried, out var pseudoItem)) // Goob edit end - OF COURSE if you have CarryingComponent you are carrying something, why even check that.
             return;
 
         var target = args.Target;
@@ -136,7 +137,11 @@ public sealed class CarryingSystem : EntitySystem
     /// </summary>
     private void OnVirtualItemDeleted(Entity<CarryingComponent> ent, ref VirtualItemDeletedEvent args)
     {
-        if (HasComp<CarriableComponent>(args.BlockingEntity))
+        // Goobstation - VirtualItemDeletedEvent is raised on both the blocking entity and the user,
+        //               so we need to check that the item being deleted is the carried person item and
+        //               not something unrelated like the virtual item for pulling another player.
+        //               See https://github.com/Goob-Station/Goob-Station/issues/2121
+        if (args.BlockingEntity == ent.Comp.Carried && HasComp<CarriableComponent>(args.BlockingEntity))
             DropCarried(ent, args.BlockingEntity);
     }
 
@@ -146,13 +151,17 @@ public sealed class CarryingSystem : EntitySystem
     /// </summary>
     private void OnThrow(Entity<CarryingComponent> ent, ref BeforeThrowEvent args)
     {
+        if (ent.Owner != args.PlayerUid) // Goobstation
+            return;
+
         if (!TryComp<VirtualItemComponent>(args.ItemUid, out var virtItem) || !HasComp<CarriableComponent>(virtItem.BlockingEntity))
             return;
 
         var carried = virtItem.BlockingEntity;
         args.ItemUid = carried;
 
-        args.ThrowSpeed = 5f * MassContest(ent, carried);
+        args.ThrowSpeed = 5f * _contests.MassContest(ent, carried);
+        args.GrabThrow = true;
     }
 
     private void OnParentChanged(Entity<CarryingComponent> ent, ref EntParentChangedMessage args)
@@ -218,6 +227,14 @@ public sealed class CarryingSystem : EntitySystem
     private void OnDrop<TEvent>(Entity<BeingCarriedComponent> ent, ref TEvent args) // Augh
     {
         DropCarried(ent.Comp.Carrier, ent);
+    }
+
+    // Separate event so that cancels dont just drop the ent
+    private void OnEscapeDrop(Entity<BeingCarriedComponent> ent, ref EscapeInventoryEvent args)
+    {
+        if (args.Cancelled)
+            return;
+        DropCarried(ent.Comp.Carrier, ent.Owner);
     }
 
     private void OnDoAfter(Entity<CarriableComponent> ent, ref CarryDoAfterEvent args)
@@ -304,6 +321,20 @@ public sealed class CarryingSystem : EntitySystem
         if (GetPickupDuration(carrier, toCarry).TotalSeconds > 9f)
             return false;
 
+        // Omu start,
+        // carry checks because hey treating people as items and using item pickup events is bad.
+
+        var carryAttempt = new CarryAttemptEvent(carrier, toCarry);
+        RaiseLocalEvent(toCarry, carryAttempt);
+
+        if (carryAttempt.Cancelled)
+            return false;
+
+        var itemEv = new GettingCarriedEvent(carrier, toCarry);
+        RaiseLocalEvent(toCarry, itemEv);
+
+        // Omu end
+
         Carry(carrier, toCarry);
         return true;
     }
@@ -328,7 +359,7 @@ public sealed class CarryingSystem : EntitySystem
 
     private void ApplyCarrySlowdown(EntityUid carrier, EntityUid carried)
     {
-        var massRatio = MassContest(carrier, carried);
+        var massRatio = _contests.MassContest(carrier, carried);
 
         if (massRatio == 0)
             massRatio = 1;
@@ -341,40 +372,61 @@ public sealed class CarryingSystem : EntitySystem
 
     public bool CanCarry(EntityUid carrier, Entity<CarriableComponent> carried)
     {
-        return
-            carrier != carried.Owner &&
-            // can't carry multiple people, even if you have 4 hands it will break invariants when removing carryingcomponent for first carried person
-            !HasComp<CarryingComponent>(carrier) &&
-            // can't carry someone in a locker, buckled, etc
-            HasComp<MapGridComponent>(Transform(carrier).ParentUid) &&
-            // no tower of spacemen or stack overflow
-            !HasComp<BeingCarriedComponent>(carrier) &&
-            !HasComp<BeingCarriedComponent>(carried) &&
-            // finally check that there are enough free hands
-            _hands.CountFreeHands(carrier) >= carried.Comp.FreeHandsRequired;
-    }
+        // cant carry yourself, no tower of spacemen or stack overflow
+        if (carrier == carried.Owner ||
+            HasComp<BeingCarriedComponent>(carrier) ||
+            HasComp<BeingCarriedComponent>(carried))
+            return false;
 
-    private float MassContest(EntityUid roller, EntityUid target)
-    {
-        if (!_physicsQuery.TryComp(roller, out var rollerPhysics) || !_physicsQuery.TryComp(target, out var targetPhysics))
-            return 1f;
+        // can't carry multiple people, even if you have 4 hands it will break invariants when removing carryingcomponent for first carried person
+        if (HasComp<CarryingComponent>(carrier))
+        {
+            _popup.PopupClient(Loc.GetString("carrying-multiple-people"), carrier, carrier);
+            return false;
+        }
 
-        if (targetPhysics.FixturesMass == 0)
-            return 1f;
+        // can't carry someone in a locker, buckled, etc
+        // TODO: this doesnt work. i dont know why. im blaming ee. anyway, it doesnt break anything, so its probably fine.
+        if (!HasComp<MapGridComponent>(Transform(carrier).ParentUid))
+            return false;
 
-        return rollerPhysics.FixturesMass / targetPhysics.FixturesMass;
+        // finally check that there are enough free hands
+        // IMP: we're also not counting any hands that already contain the carried entity as occupied.
+        // this will allow you to pick up someone youre dragging.
+        var freeHands = _hands.CountFreeHands(carrier);
+        var handsRequired = carried.Comp.FreeHandsRequired;
+
+        if (TryComp<CarrierOneHandComponent>(carrier, out _) && !carried.Comp.OneHandOverride)
+            handsRequired = 1;
+
+        foreach (var item in _hands.EnumerateHeld(carrier))
+            if (TryComp<VirtualItemComponent>(item, out var virt) &&
+                virt.BlockingEntity == carried.Owner)
+            {
+                freeHands += 1;
+            }
+
+        if (freeHands < handsRequired)
+        {
+            _popup.PopupClient(Loc.GetString("carrying-not-enough-free-hands"), carrier, carrier);
+            return false;
+        }
+
+        return true;
     }
 
     private TimeSpan GetPickupDuration(EntityUid carrier, EntityUid carried)
     {
         var length = TimeSpan.FromSeconds(3);
 
-        var mod = MassContest(carrier, carried);
-        if (mod != 0)
-            length /= mod;
+        var mod = _contests.MassContest(carried, carrier);
+        length *= mod;
 
         return length;
     }
+
+    private void OnDelete(Entity<BeingCarriedComponent> ent, ref EntityTerminatingEvent args)
+        => DropCarried(ent.Comp.Carrier, ent.Owner);
 
     public override void Update(float frameTime)
     {

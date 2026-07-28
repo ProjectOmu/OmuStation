@@ -44,34 +44,44 @@
   requirements:
   - !type:AgeRequirement
     requiredAge: 21
-#    - !type:SpeciesRequirement # Goob - None Felinid	
-#      inverted: true	
-#      species:	
+#    - !type:SpeciesRequirement # Goob - None Felinid
+#      inverted: true
+#      species:
 #      - Felinid #Omu, add back Felinid
   accessGroups:
   - AllAccess
   access:
+  - CentCommOffical # Omu start
+  - NanotrasenSpectre
+  - Deathsquad
+  - EmergencyResponseTeam # Omu end
   - CentralCommand
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
   special: # Goobstation
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ] # Omu, use CC mindshield
 
 - type: startingGear # Goobstation - Start - SolsticeOfTheWinter
   id: CentcomGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitCentcomOfficial
-    shoes: ClothingShoesBootsJackFilled # Change this if you want, I don't really care.
+    shoes: ClothingShoesBootsCombatFilled
+    outerClothing: ClothingOuterArmorCentcommCarapace
+    # Goob edit start
+#    head: ClothingHeadHatCentcom # <- goob - These are upstream btw
+#    eyes: ClothingEyesGlassesCommand
+#    gloves: ClothingHandsGlovesColorBlack
+
     head: ClothingHeadHatCentcomcap # Lets be real, the other hat looks like steaming ASS.
     eyes: ClothingEyesGlassesCentComm # Goobstation
     gloves: ClothingHandsGlovesHeavyGoldenTrim # Goobstation
     back: ClothingBackpackSatchelLeather # Goobstation - Officials need bags too!
-    outerClothing: ClothingOuterArmorCentcommCarapace # Officials shouldn't use shitty armor, Nanotrasen is richer than that.
     neck: ExecutiveIDCard # Executive Access!
+    # Goob edit end
     id: CentcomPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: ClothingHeadsetAltCentComLoudspeaker #Omu
     belt: ClothingBeltHolsterFilledCentComm # Death to secbelts
     pocket1: BoxFolderCentCom # Why does a CentComm official not have a CentComm folder? Fixing that.
     # pocket2: PenCentcom - Already has one in the PDA. This is redundant.

@@ -36,7 +36,6 @@ using Content.Server.NPC.Queries.Curves;
 using Content.Server.NPC.Queries.Queries;
 using Content.Server.Nutrition.Components;
 using Content.Server.Nutrition.EntitySystems;
-using Content.Server.Storage.Components;
 using Content.Server.Temperature.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
@@ -50,6 +49,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Storage.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Turrets;
@@ -63,6 +63,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Server._Goobstation.Wizard.NPC;
+using Content.Shared.Foldable;
 using Content.Shared.Wieldable;
 using Content.Shared.Wieldable.Components;
 
@@ -77,9 +78,9 @@ public sealed class NPCUtilitySystem : EntitySystem
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly DrinkSystem _drink = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly FoodSystem _food = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly IngestionSystem _ingestion = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly OpenableSystem _openable = default!;
@@ -208,14 +209,8 @@ public sealed class NPCUtilitySystem : EntitySystem
         {
             case FoodValueCon:
             {
-                if (!TryComp<FoodComponent>(targetUid, out var food))
-                    return 0f;
-
-                // mice can't eat unpeeled bananas, need monkey's help
-                if (_openable.IsClosed(targetUid))
-                    return 0f;
-
-                if (!_food.IsDigestibleBy(owner, targetUid, food))
+                // do we have a mouth available? Is the food item opened?
+                if (!_ingestion.CanConsume(owner, targetUid))
                     return 0f;
 
                 var avoidBadFood = !HasComp<IgnoreBadFoodComponent>(owner);
@@ -228,15 +223,16 @@ public sealed class NPCUtilitySystem : EntitySystem
                 if (avoidBadFood && HasComp<BadFoodComponent>(targetUid))
                     return 0f;
 
+                var nutrition = _ingestion.TotalNutrition(targetUid, owner);
+                if (nutrition <= 1.0f)
+                    return 0f;
+
                 return 1f;
             }
             case DrinkValueCon:
             {
-                if (!TryComp<DrinkComponent>(targetUid, out var drink))
-                    return 0f;
-
-                // can't drink closed drinks
-                if (_openable.IsClosed(targetUid))
+                // can't drink closed drinks and can't drink with a mask on...
+                if (!_ingestion.CanConsume(owner, targetUid))
                     return 0f;
 
                 // only drink when thirsty
@@ -248,7 +244,9 @@ public sealed class NPCUtilitySystem : EntitySystem
                     return 0f;
 
                 // needs to have something that will satiate thirst, mice wont try to drink 100% pure mutagen.
-                var hydration = _drink.TotalHydration(targetUid, drink);
+                // We don't check if the solution is metabolizable cause all drinks should be currently.
+                // If that changes then simply use the other overflow.
+                var hydration = _ingestion.TotalHydration(targetUid);
                 if (hydration <= 1.0f)
                     return 0f;
 
@@ -333,7 +331,7 @@ public sealed class NPCUtilitySystem : EntitySystem
                 if (!_wieldable.CanWield(targetUid, wieldable, owner, true, false))
                     return 0f;
 
-                var beforeWieldEv = new WieldAttemptEvent();
+                var beforeWieldEv = new WieldAttemptEvent(owner, targetUid);
                 RaiseLocalEvent(targetUid, ref beforeWieldEv);
 
                 return beforeWieldEv.Cancelled ? 0f : 1f;
@@ -405,7 +403,8 @@ public sealed class NPCUtilitySystem : EntitySystem
             }
             case TargetMeleeCon:
             {
-                if (TryComp<MeleeWeaponComponent>(targetUid, out var melee))
+                if (TryComp<MeleeWeaponComponent>(targetUid, out var melee) &&
+                    (!TryComp<FoldableComponent>(targetUid, out var foldable) || foldable.IsFolded)) // Goobstation
                 {
                     return melee.Damage.GetTotal().Float() * melee.AttackRate / 100f;
                 }
@@ -570,7 +569,7 @@ public sealed class NPCUtilitySystem : EntitySystem
                 {
                     foreach (var comp in compFilter.Components)
                     {
-                        if (HasComp(ent, comp.Value.Component.GetType()))
+                        if (HasComp(ent, comp.Value.Component.GetType()) ^ compFilter.Invert) // Goob edit
                             continue;
 
                         _entityList.Add(ent);

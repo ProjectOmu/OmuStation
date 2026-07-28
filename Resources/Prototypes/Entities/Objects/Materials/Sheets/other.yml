@@ -82,11 +82,6 @@
     - paper
     - paper_2
     - paper_3
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -137,11 +132,6 @@
     - plasma
     - plasma_2
     - plasma_3
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: plasma_3
     layers:
@@ -162,6 +152,20 @@
   - type: Tag
     tags:
     - Sheet
+    - SheetPlasma
+  - type: UserInterface # Omu start - EE Port
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: AttachedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: SheetPGlass
+    - prototype: SheetRPGlass
+    - prototype: SheetRPGlass1 #Omu end - EE port
 
 - type: entity
   parent: SheetPlasma
@@ -216,11 +220,6 @@
     - plastic
     - plastic_2
     - plastic_3
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: plastic_3
     layers:
@@ -234,12 +233,25 @@
   - type: SolutionContainerManager
     solutions:
       plastic:
-        reagents:
+        reagents: #goob
         - ReagentId: Oil
-          Quantity: 5
+          Quantity: 3 #was 5
         - ReagentId: Phosphorus
-          Quantity: 5
+          Quantity: 3 #was 5
+        - ReagentId: Microplastics
+          Quantity: 4
         canReact: false
+  - type: UserInterface # Omu start - EE Port
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: AttachedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: CratePlastic #Omu end - EE port
 
 - type: entity
   parent: SheetPlastic
@@ -283,11 +295,6 @@
     - uranium
     - uranium_2
     - uranium_3
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: uranium_3
     layers:
@@ -307,6 +314,19 @@
         - ReagentId: Radium
           Quantity: 2
         canReact: false
+  - type: UserInterface # Omu start - EE Port
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: AttachedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: SheetUGlass
+    - prototype: SheetRUGlass
+    - prototype: SheetRUGlass1 #Omu end - EE port
 
 - type: entity
   parent: SheetUranium
@@ -343,11 +363,6 @@
         - meat
         - meat_2
         - meat_3
-  # Goobstation - Custom stack splitting dialog
-    - type: UserInterface
-      interfaces:
-        enum.StackCustomSplitUiKey.Key:
-          type: StackCustomSplitBoundUserInterface
     - type: Item
       sprite: Objects/Materials/Sheets/meaterial.rsi
       heldPrefix: meat

@@ -14,7 +14,7 @@
   name: blueshield ammunition box
   description: A box containing various ammunition and magazines for high caliber shotguns.
   suffix: Unused
-  parent: BaseStorageItem
+  parent: [BaseStorageItem, BaseCentcommContraband] # Omu, add CC contra tag
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Security/blueshieldundetermined.rsi

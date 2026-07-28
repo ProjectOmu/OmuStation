@@ -1,0 +1,14 @@
+- type: entity
+  parent: WeaponEnergyTurretStationControlPanelBase
+  id: WeaponEnergyTurretCentCommControlPanel
+  suffix: CentComm
+  components:
+  - type: AccessReader
+    access: [["CentralCommand"]]
+  #- type: ContainerFill - Will be added in a later PR
+  #  containers:
+  #    board:
+  #    - WeaponEnergyTurretCommandControlPanelElectronics
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - CentralCommand

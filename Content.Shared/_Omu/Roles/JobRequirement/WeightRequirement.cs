@@ -44,18 +44,20 @@ public sealed partial class WeightRequirement : JobRequirement
         }
 
         // "fix1" is used for all collisions except for getting set on fire iirc.
-        var fixtureMass = FixtureSystem.GetMassData(fixture.Fixtures["fix1"].Shape, fixture.Fixtures["fix1"].Density).Mass;
-        fixtureMass *= (profile.Width + profile.Height) / 2; // Alter the result of the fixture mass calculation based on the character's scale.
+        var avg = (profile.Width + profile.Height) / 2;
+        var radius = fixture.Fixtures["fix1"].Shape.Radius; 
+        var density = fixture.Fixtures["fix1"].Density;
+        var weight = MathF.Round(MathF.PI * MathF.Pow(radius * avg, 2) * density);
 
         if (!Inverted)
         {
             reason = FormattedMessage.FromMarkupPermissive(Loc.GetString("role-timer-below-weight", ("weight", MinimumWeight)));
-            return fixtureMass >= MinimumWeight;
+            return weight >= MinimumWeight;
         }
         else
         {
             reason = FormattedMessage.FromMarkupPermissive(Loc.GetString("role-timer-above-weight", ("weight", MinimumWeight)));
-            return fixtureMass <= MinimumWeight;
+            return weight <= MinimumWeight;
         }
     }
 

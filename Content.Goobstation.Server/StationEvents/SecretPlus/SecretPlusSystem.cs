@@ -97,11 +97,17 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
 
     protected override void Added(EntityUid uid, SecretPlusComponent scheduler, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
-        var totalPlayers = GetTotalPlayerCount(_playerManager.Sessions);
-        // set up starting chaos score
+        // Omu Station - Start
+        // Edited it Initial ChaosScore & Antag Weight, to be based upon the amount of ReadyPlayers to be consistent with round start score.
+
+        var readyPlayers = GameTicker.ReadyPlayerCount();
+        // set up starting chaos score based on ready players
         scheduler.ChaosScore =
-            -_random.NextFloat(scheduler.MinStartingChaos * totalPlayers, scheduler.MaxStartingChaos * totalPlayers) *
+            -_random.NextFloat(scheduler.MinStartingChaos * readyPlayers, scheduler.MaxStartingChaos * readyPlayers) *
             _roundstartChaosScoreMultiplier;
+
+        LogMessage($"Initial chaos score: {scheduler.ChaosScore} (based on {readyPlayers} ready players)");
+        // Omu Station - End
 
         // roll midroundchaos generation variation
         var roll = _random.NextFloat();

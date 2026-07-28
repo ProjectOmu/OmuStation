@@ -29,13 +29,26 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# SubGamemodes
+
+- type: entity
+  parent: BaseGameRule
+  id: TraitorSubGamemodesRule
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: SubgamemodeTraitor
+      prob: 0.5
+
+# GameModes
+
 - type: entity
   parent: BaseGameRule
   id: Changeling
   components:
   - type: ChangelingRule
   - type: GameRule
-    minPlayers: 30 # Omu, was 15
+    minPlayers: 20 # Omu, was 15
   - type: AntagRandomObjectives
     sets:
     - groups: ChangelingObjectiveGroups
@@ -76,7 +89,7 @@
     - groups: CorporateObjectiveGroups
     maxDifficulty: 8 # Very rare antag so they should get a lot of objectives
   - type: GameRule
-    minPlayers: 30
+    minPlayers: 20
     delay:
       min: 465
       max: 665 # Delay is so the heads help their department get set up.
@@ -84,8 +97,8 @@
     definitions:
     - prefRoles: [ Traitor ]
       max: 2
-      playerRatio: 25
-      chaosScore: 300
+      playerRatio: 20 # Omu change, allows it to roll with terminal unreadies
+      chaosScore: 150 # Omu change, lowered chaos cost, if we can roll it, we should, its a good antag for RP.
       jobBlacklist: [ NanotrasenRepresentative ]
       whitelist:
         components:
@@ -287,7 +300,7 @@
     weight: 1
     duration: 1
     earliestStart: 50
-    minimumPlayers: 20
+    minimumPlayers: 100 #Omu change, bastard blob has been corrected
     maxOccurrences: 2
     chaos:
       Hostile: 200
@@ -394,7 +407,7 @@
     definitions:
     - prefRoles: [ Devil ]
       max: 1
-      playerRatio: 20
+      playerRatio: 40 # from 20 --> 40 , makes it less likely to spawn (Fuck devils)
       chaosScore: 150
       jobBlacklist: [ Chaplain, Mime, ChiefEngineer, ResearchDirector, Quartermaster ] #chaplain is obvious, mime can't write.
       mindRoles:
@@ -405,86 +418,28 @@
     - RoundstartAntag
 
 - type: entity
-  parent: DuoAbductorSpawn
-  id: DuoAbductorRoundstart
+  parent: Thief
+  id: OopsAllThieves
   components:
-  - type: StationEvent
-    earliestStart: 0 # its roundstart chud
-  # I LOVE GOIDA COPY PASTING THE ENTIRE THING
-  # this just has ghost roles removed, pref roles added and players are picked roundstart
+  - type: GameRule
+    minPlayers: 30
+    chaosScore: 1200
   - type: AntagSelection
-    selectionTime: PrePlayerSpawn
+    agentName: thief-round-end-agent-name
     definitions:
-    - spawnerPrototype: AbductorScientistSpawner
-      prefRoles: [ AbductorScientistAntag ]
-      fallbackRoles: [ AbductorAgentAntag ]
-      min: 1
-      max: 1
-      pickPlayer: true
-      unequipOldGear: true
-      startingGear: AbductorScientistGear
-      briefing:
-        text: abductor-role-greeting
-        color: Green
-        sound: /Audio/_Shitmed/Misc/abductor.ogg
+    - prefRoles: [ Thief ]
+      max: 10
+      playerRatio: 7
+      lateJoinAdditional: true
+      allowNonHumans: true
+      multiAntagSetting: NotExclusive
+      startingGear: ThiefGear
       components:
-      - type: Abductor
-      - type: ActionGrant
-        actions:
-          - ActionReturnToShip
-      - type: NpcFactionMember
-        factions:
-          - SimpleHostile
-      - type: RandomMetadata
-        nameSegments:
-          - AbductorScientistPrefix
-          - AbductorNames
-        nameFormat: name-format-standard
-      - type: Tag
-        tags:
-          - Abductor
-          - AbductorScientist
-          - CanPilot
-          - FootstepSound
-          - DoorBumpOpener
-      - type: AbductorScientist
-      - type: SurgeryIgnoreClothing
-      - type: Sanitized
-      - type: SurgerySpeedModifier
-        speedModifier: 1.5
+      - type: Pacified
+      - type: Thieving
+        stripTimeReduction: 2
+        stealthy: true
       mindRoles:
-      - MindRoleAbductorScientist
-    - spawnerPrototype: AbductorAgentSpawner
-      prefRoles: [ AbductorAgentAntag ]
-      fallbackRoles: [ AbductorScientistAntag ]
-      min: 1
-      max: 1
-      pickPlayer: true
-      unequipOldGear: true
-      startingGear: AbductorAgentGear
+      - MindRoleThief
       briefing:
-        text: abductor-role-greeting
-        color: Green
-        sound: /Audio/_Shitmed/Misc/abductor.ogg
-      components:
-      - type: Abductor
-      - type: ActionGrant
-        actions:
-          - ActionReturnToShip
-      - type: NpcFactionMember
-        factions:
-          - SimpleHostile
-      - type: RandomMetadata
-        nameSegments:
-          - AbductorAgentPrefix
-          - AbductorNames
-        nameFormat: name-format-standard
-      - type: Tag
-        tags:
-          - Abductor
-          - CanPilot
-          - FootstepSound
-          - DoorBumpOpener
-      - type: AbductorScientist # Should be removed when we have proper teleportation system
-      mindRoles:
-      - MindRoleAbductorAgent
+        sound: "/Audio/Misc/thief_greeting.ogg"

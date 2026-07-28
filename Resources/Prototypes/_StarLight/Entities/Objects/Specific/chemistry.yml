@@ -1,0 +1,159 @@
+- type: entity
+  name: silver beaker
+  parent: BaseBeakerMetallic
+  description: Despite it visually being larger, the inner diameter makes it hold the same amount of chemicals. #whaaaat Im totally not lazy to shrink the sprite
+  id: SilverBeaker
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Chemistry/silverbeaker.rsi
+    layers:
+    - state: beaker
+    - state: beaker1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Item
+    sprite: _Starlight/Objects/Specific/Chemistry/silverbeaker.rsi
+  - type: Spillable
+    solution: beaker
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 50
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: beaker
+    inHandsMaxFillLevels: 3
+    inHandsFillBaseName: -fill-
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 100 #Omu - 150 -> 100
+
+- type: entity
+  name: light beaker
+  parent: BaseBeakerMetallic
+  description: The light side of an unbreakable beaker. For when chemistry isn't aesthetic enough.
+  id: LightBeaker
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Chemistry/lightbeaker.rsi
+    layers:
+    - state: beakerlarge
+    - state: beakerlarge1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Item
+    sprite: _Starlight/Objects/Specific/Chemistry/lightbeaker.rsi
+  - type: Spillable
+    solution: beaker
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: beakerlarge
+    inHandsMaxFillLevels: 3
+    inHandsFillBaseName: -fill-
+  #Omu - Removed for the time being. Original PR uses a refractored container system so the lid visually gets put on and off. Not sure we can do it with our current system
+  #- type: Openable
+  #  sound:
+  #    collection: bottleOpenSounds
+  #  closeable: true
+  #  closeSound:
+  #    collection: bottleCloseSounds
+  #- type: Sealable
+  #  sealed: false
+  #- type: ExaminableSolution
+  #  examinableWhileClosed: true
+  #  heldOnly: false
+  #Omu - Makes the beakers a more cosmetic thing than an actual advantage.
+  #- type: MeleeWeapon
+  #  damage:
+  #    types:
+  #      Blunt: 3
+  #  soundHit:
+  #    collection: MetalThud
+  #- type: DamageOtherOnHit
+  #  damage:
+  #    types:
+  #      Blunt: 5
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 100
+
+- type: entity
+  name: dark beaker
+  parent: BaseBeakerMetallic #Omu - Removed security contraband status
+  description: The dark side of an unbreakable beaker. When all other beakers just happen to hurt your eyes.
+  id: DarkBeaker
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Chemistry/darkbeaker.rsi
+    layers:
+    - state: beakerlarge
+    - state: beakerlarge1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Item
+    sprite: _Starlight/Objects/Specific/Chemistry/darkbeaker.rsi
+  - type: Spillable
+    solution: beaker
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: beakerlarge
+    inHandsMaxFillLevels: 3
+    inHandsFillBaseName: -fill-
+  #Omu - Removed for the time being. Original PR uses a refractored container system so the lid visually gets put on and off. Not sure we can do it with our current system
+  #- type: Openable
+  #  sound:
+  #    collection: bottleOpenSounds
+  #  closeable: true
+  #  closeSound:
+  #    collection: bottleCloseSounds
+  #- type: Sealable
+  #  sealed: false
+  #- type: ExaminableSolution
+  #  examinableWhileClosed: true
+  #  heldOnly: false
+  #- type: MeleeWeapon
+  #  damage:
+  #    types:
+  #      Blunt: 7
+  #  soundHit:
+  #    collection: MetalThud
+  #- type: DamageOtherOnHit
+  #  damage:
+  #    types:
+  #      Blunt: 9
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 100
+
+- type: entity
+  parent: ChemBag
+  id: SeniorChemBag
+  name: senior chemistry bag
+  description: A limited edition chemistry bag, only obtained by those seriously devoted to their craft.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Chemistry/senior_chem_bag.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Starlight/Objects/Specific/Chemistry/senior_chem_bag.rsi
+    quickEquip: false
+    slots:
+    - belt
+
+- type: entity
+  parent: HandLabeler
+  id: GoldenHandLabeler
+  name: golden hand labeler
+  description: A golden hand labeler, awarded only to the most elite of chemists. Don't test its composition.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Chemistry/golden_hand_labeler.rsi
+    state: golden_hand_labeler
+  - type: Item
+    sprite: _Starlight/Objects/Specific/Chemistry/golden_hand_labeler.rsi
+    storedRotation: -90
+  - type: EmitSoundOnCollide #Omu. It would be really funny.
+    sound:
+      path: /Audio/Effects/metal_thud3.ogg

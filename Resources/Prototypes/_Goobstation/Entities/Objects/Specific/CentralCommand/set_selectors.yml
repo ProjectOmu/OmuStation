@@ -31,6 +31,8 @@
     - BSOCQCSet
     - BSOChesterSet
     - BSOSyringeSet
+    - BSOBRDISet # Omu
+    - BSOTypewriterSet # Omu
     maxSelectedSets: 2
 
 
@@ -64,5 +66,8 @@
     possibleSets:
     - ERTBallisticsSet
     - ERTPulseSet
+    - ERTShotgunSet # Omu - ERT Rework
+    - ERTLightEnergySet # Omu - ERT Hotfix
+    - ERTSMGSet # Omu - ERT Rework
     maxSelectedSets: 1
 

@@ -33,6 +33,17 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargoMascot
+  name: cargo mascot's uniform
+  description: A cargo-brown top and striking pants to deliver smiles and mail!
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/cargomascot.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/cargomascot.rsi
+
+- type: entity
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitParamedUniformSkirt
   name: paramedic skirt
   description: It's made of a special fiber that provides minor protection against caustic hazards. It has a dark blue cross on the chest denoting that the wearer is a trained paramedic.
@@ -50,7 +61,7 @@
   parent: ClothingUniformJumpsuitBlueshieldOfficer
   id: ClothingUniformBlueShieldOfficerTurtleneckSkirt
   name: blueshield officer turtleskirt
-  description: Turtleneck with a skirt worn by Blueshield Officers, CC tag removed because it was too itchy.
+  description: A turtleneck with a skirt worn by Blueshield Officers, CC tag removed because it was too itchy.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Uniforms/Jumpskirt/blueshieldturtleskirt.rsi
@@ -61,7 +72,7 @@
   parent: ClothingUniformJumpsuitBlueshieldOfficer
   id: ClothingUniformBlackBlueShieldOfficerTurtleneckSkirt
   name: black blueshield officer turtleskirt
-  description: black turtleneck with a skirt worn by Blueshield Officers, CC tag removed because it was too itchy.
+  description: A black turtleneck with a skirt worn by Blueshield Officers, CC tag removed because it was too itchy.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Uniforms/Jumpskirt/blackblueshieldturtleskirt.rsi
@@ -90,5 +101,13 @@
   - type: Clothing
     sprite: _Omu/Clothing/Uniforms/Jumpskirt/hopturtleneckskirt.rsi
 
-
-
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformCybersunMedicalJumpskirt
+  name: cybersun medical jumpskirt
+  description: A sterile jumpskirt worn by Cybersun Industries field medics for protection against biological hazards.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/cybersunmedicaljumpskirt.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/cybersunmedicaljumpskirt.rsi

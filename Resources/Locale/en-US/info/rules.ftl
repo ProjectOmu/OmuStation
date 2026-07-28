@@ -17,3 +17,5 @@ ui-rules-wait = The accept button will be enabled after {$time} seconds.
 
 ui-rules-button-home = Home
 ui-rules-button-back = Back
+
+ui-rules-fuckrules-no-bypass = Nuh uh uh!

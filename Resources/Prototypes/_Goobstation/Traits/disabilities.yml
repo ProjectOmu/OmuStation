@@ -7,6 +7,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# add any future disability components to \Resources\Prototypes\_Goobstation\Medical\disabilities_lists.yml
+
 - type: trait
   id: WheelchairBound
   name: trait-wheelchair-bound-name
@@ -54,6 +56,10 @@
   description: trait-social-anxiety-disc
   #category: Disabilities #omu commentout
   category: PhysicalTraits #omu
+  blacklist: # Omu Station
+    components:
+      - SecurityStaff
+      - CommandStaff
   components:
     - type: SocialAnxiety
   globalCost: -4 #omu i suppose. ive not tedted. If this comment is still here assume i havent tested.

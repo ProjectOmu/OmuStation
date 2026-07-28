@@ -52,7 +52,7 @@ using Content.Shared.Actions;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Clothing.Components;
-using Content.Shared._Omu.Clothing; // Omustation - for the AboutToEnterToggleableClothingContainer event.
+using Content.Omu.Common.Clothing; // Omustation - for the AboutToEnterToggleableClothingContainer event.
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -86,6 +86,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private readonly ClothingSystem _clothing = default!;
 
     public override void Initialize()
     {
@@ -245,8 +246,11 @@ public sealed class ToggleableClothingSystem : EntitySystem
         UnequipClothing(wearer, new Entity<ToggleableClothingComponent>(attachedComp.AttachedUid, toggleableComp), attached.Owner, slot);
     }
 
-
-
+    public bool IsToggled(Entity<ToggleableClothingComponent> ent, EntityUid clothing) // Goobstation
+///
+    {
+        return !ent.Comp.Container.Contains(clothing);
+    }
 
     private void OnInteractHand(Entity<AttachedClothingComponent> attached, ref InteractHandEvent args)
     {
@@ -296,6 +300,8 @@ public sealed class ToggleableClothingSystem : EntitySystem
         // If it's a part of PVS departure then don't handle it.
         if (_timing.ApplyingState)
             return;
+
+        _clothing.SetEquippedPrefix(toggleable, null);
 
         // Check if container exists and we have linked clothings
         if (comp.Container == null || comp.ClothingUids.Count == 0)
@@ -604,7 +610,18 @@ public sealed class ToggleableClothingSystem : EntitySystem
     private void UnequipClothing(EntityUid user, Entity<ToggleableClothingComponent> toggleable, EntityUid clothing, string slot)
     {
         var parent = Transform(toggleable.Owner).ParentUid;
-        _inventorySystem.TryUnequip(parent, slot, force: true);
+        var clothingQuery = GetEntityQuery<ClothingComponent>();
+        if (_inventorySystem.TryUnequip(parent, slot, force: true))
+        {
+            var prefix = toggleable.Comp.EquippedPrefixes
+                .IntersectBy(toggleable.Comp.ClothingUids
+                        .Where(x => clothingQuery.TryComp(x.Key, out var c) && c.InSlot == x.Value)
+                        .Select(x => x.Value),
+                    kvp => kvp.Key)
+                .FirstOrNull()
+                ?.Value;
+            _clothing.SetEquippedPrefix(toggleable, prefix);
+        }
 
         // If attached have clothing in container - equip it
         if (!TryComp<AttachedClothingComponent>(clothing, out var attachedComp) || attachedComp.ClothingContainer == null)
@@ -615,7 +632,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
         if (storedClothing != null)
             _inventorySystem.TryEquip(parent, storedClothing.Value, slot, force: true, triggerHandContact: true, silent:true);
     }
-    private void EquipClothing(EntityUid user, Entity<ToggleableClothingComponent> toggleable, EntityUid clothing, string slot)
+    public bool EquipClothing(EntityUid user, Entity<ToggleableClothingComponent> toggleable, EntityUid clothing, string slot, bool silent = false) // Goobstation
     {
         var parent = Transform(toggleable.Owner).ParentUid;
         var comp = toggleable.Comp;
@@ -626,12 +643,12 @@ public sealed class ToggleableClothingSystem : EntitySystem
             if (!TryComp<AttachedClothingComponent>(clothing, out var attachedComp) || !comp.ReplaceCurrentClothing)
             {
                 _popupSystem.PopupClient(Loc.GetString("toggleable-clothing-remove-first", ("entity", currentClothing)), user, user);
-                return;
+                return false; // Goobstation
             }
 
             // Check if attached clothing have container or this container not empty
             if (attachedComp.ClothingContainer == null || attachedComp.ClothingContainer.ContainedEntity != null)
-                return;
+                return false; // Goobstation
 
             // Begin Omustation - Cybernetic Beasts - The mantle should really be dropped instead of being put into the toggleable clothing's container.
             var ev = new AboutToEnterToggleableClothingContainerEvent(parent);
@@ -642,7 +659,11 @@ public sealed class ToggleableClothingSystem : EntitySystem
                 _containerSystem.Insert(currentClothing.Value, attachedComp.ClothingContainer);
         }
 
-        _inventorySystem.TryEquip(user, parent, clothing, slot);
+        if (_inventorySystem.TryEquip(user, parent, clothing, slot, silent) &&
+            toggleable.Comp.EquippedPrefixes.TryGetValue(slot, out var prefix))
+            _clothing.SetEquippedPrefix(toggleable, toggleable.Comp.EquippedPrefixes.GetValueOrDefault(slot, prefix));
+
+        return true; // Goobstation
     }
 
     private void OnGetActions(Entity<ToggleableClothingComponent> toggleable, ref GetItemActionsEvent args)

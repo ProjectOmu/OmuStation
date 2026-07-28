@@ -2,7 +2,7 @@
   id: DemonChestCowSpots
   bodyPart: LLeg
   markingCategory: Overlay
-  speciesRestriction: [Human, Oni, IPC, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Shadowkin, Moth, Vulpkanin]
+  speciesRestriction: [Human, Oni, IPC, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Shadowkin, Moth, Vulpkanin, Feroxi] #Omu - Feroxi
   sprites:
   - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
     state: cow_spots
@@ -11,7 +11,7 @@
   id: DemonChestGuard
   bodyPart: LLeg
   markingCategory: Overlay
-  speciesRestriction: [Human, Oni, IPC, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Shadowkin, Moth, Vulpkanin]
+  speciesRestriction: [Human, Oni, IPC, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Shadowkin, Moth, Vulpkanin, Feroxi] #Omu - Feroxi
   sprites:
   - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
     state: guards_stripes
@@ -20,7 +20,7 @@
   id: DemonChestLinesEmperos
   bodyPart: LLeg
   markingCategory: Overlay
-  speciesRestriction: [Human, Oni, IPC, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Shadowkin, Moth, Vulpkanin]
+  speciesRestriction: [Human, Oni, IPC, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Shadowkin, Moth, Vulpkanin, Feroxi] #Omu - Feroxi
   sprites:
   - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
     state: lines_emperos
@@ -29,7 +29,7 @@
   id: DemonChestQueenLines
   bodyPart: LLeg
   markingCategory: Overlay
-  speciesRestriction: [Human, Oni, IPC, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Shadowkin, Moth, Vulpkanin]
+  speciesRestriction: [Human, Oni, IPC, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Shadowkin, Moth, Vulpkanin, Feroxi] #Omu - Feroxi
   sprites:
   - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
     state: queen_lines
@@ -38,7 +38,7 @@
   id: DemonChestTreeLines
   bodyPart: LLeg
   markingCategory: Overlay
-  speciesRestriction: [Human, Oni, IPC, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Shadowkin, Moth, Vulpkanin]
+  speciesRestriction: [Human, Oni, IPC, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Shadowkin, Moth, Vulpkanin, Feroxi] #Omu - Feroxi
   sprites:
   - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
     state: tree_lines
@@ -47,7 +47,7 @@
   id: DemonChestTrinitySpots
   bodyPart: Chest
   markingCategory: Overlay
-  speciesRestriction: [Human, Oni, IPC, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Shadowkin, Moth, Vulpkanin]
+  speciesRestriction: [Human, Oni, IPC, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Shadowkin, Moth, Vulpkanin, Feroxi] #Omu - Feroxi
   sprites:
   - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
     state: trinity_spots
@@ -205,4 +205,3 @@
   - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
     state: up
 
-    

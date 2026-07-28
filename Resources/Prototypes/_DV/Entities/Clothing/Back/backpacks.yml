@@ -1,0 +1,22 @@
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackAdvancedTactical
+  name: advanced tactical backpack
+  description: A spacious backpack with lots of pockets.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertleader.rsi
+  - type: Storage
+    grid:
+    - 0,0,10,3
+
+- type: entity
+  parent: [ClothingBackpack, BaseSecurityContraband]
+  id: ClothingBackpackCorpsman
+  name: blue corpsman backpack
+  description: It's a very sterile backpack. This one comes in alternative blue colours.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Back/Backpacks/corpsman.rsi
+
+

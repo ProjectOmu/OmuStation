@@ -1,0 +1,27 @@
+- type: entity
+  id: BorgERTGhostroleSpawner
+  name: ERT Borg Spawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: blue
+      - sprite: _Devilstation/Mobs/Silicon/chassis.rsi
+        state: ert
+  - type: ConditionalSpawner
+    prototypes:
+      - PlayerBorgErtGhostRole
+
+- type: entity
+  name: DeathSquad Borg Spawner
+  id: BorgDeathsquadGhostroleSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: blue
+      - sprite: _Devilstation/Mobs/Silicon/chassis.rsi
+        state: commando
+  - type: ConditionalSpawner
+    prototypes:
+      - PlayerBorgDeathsquadGhostRole

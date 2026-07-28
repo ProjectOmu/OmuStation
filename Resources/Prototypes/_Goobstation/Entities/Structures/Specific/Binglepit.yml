@@ -30,6 +30,8 @@
     anchored: true
   - type: Physics
     bodyType: Static
+  - type: WarpPoint
+    location: bingle pit
   - type: Fixtures
     fixtures:
       fix1:
@@ -51,7 +53,7 @@
   - type: InteractionOutline
   - type: Clickable
   - type: Damageable
-    damageContainer: StructuralInorganic
+    damageContainer: Inorganic   # Omu
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:

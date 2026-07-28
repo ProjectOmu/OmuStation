@@ -136,23 +136,32 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
-      time: 9000 #2.5 hrs
+      time: 54000 #15 hours - Omu Edit: This is the only role where you'd realistically learn how to do CE things like TEGs, atmos or SMs.
     - !type:RoleTimeRequirement
       role: JobStationEngineer
       time: 18000 #5 hrs
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 36000 #10 hrs
-#    - !type:SpeciesRequirement # Goob - None Felinid	
-#      inverted: true	
-#      species:	
+      time: 72000 #20 hrs - Omu Edit: around 10 full shifts
+#    - !type:SpeciesRequirement # Goob - None Felinid
+#      inverted: true
+#      species:
 #      - Felinid #Omu, add back Felinid
+    - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hours - Omu Edit
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
   supervisors: job-supervisors-captain
   #canBeAntag: false
   antagAdvantage: 75 # Goobstation
+  guides: # goobstation
+  - Engineering
+  - ChiefEngineerSOP
+  - EngineeringSOP
+  - Command
+  - EmergenciesSOP
+  - CommandTrainingManual # Omu
   goobcoins: 40 #Goob content
   access:
   - Maintenance

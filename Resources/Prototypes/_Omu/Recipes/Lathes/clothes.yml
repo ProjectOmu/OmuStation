@@ -1,0 +1,57 @@
+﻿# Courier
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformCourier
+  result: ClothingUniformCourier
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformCourierLong
+  result: ClothingUniformCourierLong
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformSkirtCourier
+  result: ClothingUniformSkirtCourier
+
+#- type: latheRecipe
+#  parent: BaseCoatRecipe
+#  id: ClothingOuterCourierDuster
+#  result: ClothingOuterCourierDuster   Omu - commented due to the new loadout
+
+#Mail Carrier - Because for some reason they were missing.
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingHeadMailCarrier
+  result: ClothingHeadMailCarrier
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterWinterCoatMail
+  result: ClothingOuterWinterCoatMail
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingUniformSkirtMailCarrier
+  result: ClothingUniformSkirtMailCarrier
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingUniformMailCarrier
+  result: ClothingUniformMailCarrier
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingUniformMailCarrierLong
+  result: ClothingUniformMailCarrierLong
+  
+- type: latheRecipe
+  id: ClothingCyberneticBeastMantleWorkResearch
+  result: ClothingCyberneticBeastMantleWorkResearch
+  completetime: 15
+  materials:
+    Steel: 2000
+    Glass: 1000
+    Silver: 1000
+    Gold: 1000
+    

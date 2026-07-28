@@ -54,6 +54,8 @@
         - Belt
     - type: AccessOverrider
       accessLevels:
+      - Corpsman # Omu
+      - Paramedic # Omu
       - Armory
       - Atmospherics
       - Bar
@@ -78,6 +80,8 @@
       - Medical
       - Quartermaster
       - Research
+      - Robotics # goobstation
+      - Journalism # goobstation
       - ResearchDirector
       - Salvage
       - Security
@@ -125,6 +129,12 @@
     sprite: Objects/Tools/universal_access_configurator.rsi
   - type: AccessOverrider
     accessLevels:
+    - CentCommOffical # Omu start
+    - NanotrasenSpectre
+    - Deathsquad
+    - EmergencyResponseTeam
+    - Corpsman
+    - Paramedic # Omu end
     - Armory
     - Atmospherics
     - Bar
@@ -164,6 +174,8 @@
     - SyndicateAgent
     - NanotrasenRepresentative # goobstation
     - BlueshieldOfficer # goobstation
+    - Robotics # goobstation
+    - Journalism # goobstation
     - Wizard
     - Xenoborg
     - GenpopEnter

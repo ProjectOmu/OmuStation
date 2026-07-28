@@ -101,15 +101,20 @@
   playTimeTracker: JobSecurityCadet
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 9000 #2.5 hrs
+      time: 18000 #5 hours - Omu edit start -  No way should you learn what the game is about as sec.
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 18000 #5 hrs
-      inverted: true # stop playing intern if you're good at security!
+      time: 36000 #10 hours
+      inverted: true # Omu edit end
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"
   supervisors: job-supervisors-security
   canBeAntag: false
+  guides: # goobstation
+  - Security
+  - OfficerCadetSOP
+  - SearchesSOP
+  - SecurityTrainingManual # Omu
   goobcoins: 30 #Goob content
   access:
   - Security

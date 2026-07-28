@@ -79,6 +79,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: absinthe
   color: "#33EE00"
+  flammability: 2 # Funky change
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/absintheglass.rsi
     state: icon_empty
@@ -157,6 +158,7 @@
   physicalDesc: reagent-physical-desc-aromatic
   flavor: bluecuracao
   color: "#0099FF"
+  flammability: 1 # Funky change
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/curacaoglass.rsi
     state: icon_empty
@@ -180,6 +182,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: cognac
   color: "#AB3C05"
+  flammability: 1 # Funky change
   recognizable: true
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/cognacglass.rsi
@@ -204,6 +207,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: rum
   color: "#664300"
+  flammability: 1 # Funky change
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/rumglass.rsi
     state: icon_empty
@@ -227,6 +231,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: alcohol
   color: "#b05b3c"
+  flammability: 2 # Funky change
   boilingPoint: 78.2
   meltingPoint: -114.1
   metabolisms:
@@ -244,6 +249,9 @@
           shouldHave: false
         - !type:OrganType # Shitmed - Cybernetic Organs
           type: Cybernetic
+          shouldHave: false
+        - !type:OrganType # Omu
+          type: Allulalo
           shouldHave: false
         damage:
           types:
@@ -284,6 +292,17 @@
         - !type:OrganType
           type: Dwarf
         amount: 1
+          # Begin DeltaV Additons - Oni take less poison
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        - !type:OrganType
+          type: Oni
+        damage:
+          types:
+            Poison: 0.2
+      # End DeltaV Additons
       - !type:ChemVomit
         probability: 0.04
         conditions:
@@ -300,8 +319,20 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
+        - !type:OrganType # Omu
+          type: Allulalo
+          shouldHave: false
       - !type:Drunk
         boozePower: 2
+        conditions: # Omu start
+        - !type:OrganType
+          type: Allulalo
+          shouldHave: false
+      - !type:SatiateThirst
+        factor: 4
+        conditions:
+        - !type:OrganType
+          type: Allulalo # Omu end
 
 - type: reagent
   id: Gin
@@ -311,6 +342,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: gin
   color: "#664300"
+  flammability: 1 # Funky change
   recognizable: true
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/ginvodkaglass.rsi
@@ -380,6 +412,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: bitter
   color: "#990066"
+  flammability: 3 # Funky change
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/pwineglass.rsi
     state: icon_empty
@@ -413,6 +446,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: rum
   color: "#f09f42"
+  flammability: 1 # Funky change
   recognizable: true
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/rumglass.rsi
@@ -437,6 +471,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: sake
   color: "#DDDDDD"
+  flammability: 1 # Funky change
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/sakeglass.rsi
     state: icon_empty
@@ -460,6 +495,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: tequila
   color: "#d7d1d155"
+  flammability: 1 # Funky change
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/tequillaglass.rsi
     state: icon_empty
@@ -498,6 +534,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: vodka
   color: "#d1d1d155"
+  flammability: 2 # Funky change
   recognizable: true
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/ginvodkaglass.rsi
@@ -522,6 +559,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: whiskey
   color: "#ee7732"
+  flammability: 2 # Funky change
   recognizable: true
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/whiskeyglass.rsi
@@ -1052,7 +1090,7 @@
 - type: reagent
   id: DoctorsDelight
   name: reagent-name-doctors-delight
-  parent: BaseDrink
+  parent: BaseAlcohol # Goob - It's alcoholic
   desc: reagent-desc-doctors-delight
   physicalDesc: reagent-physical-desc-soothing
   flavor: medicine
@@ -2073,7 +2111,7 @@
 - type: reagent
   id: WhiteGilgamesh
   name: reagent-name-white-gilgamesh
-  parent: BaseDrink
+  parent: BaseAlcohol # Goob - It's alcoholic
   desc: reagent-desc-white-gilgamesh
   physicalDesc: reagent-physical-desc-creamy
   flavor: white-gilgamesh
@@ -2369,6 +2407,29 @@
         reagent: Copper
         amount: 0.05
 
+- type: reagent # Omu start
+  id: TheWelles
+  name: reagent-name-welles
+  parent: BaseAlcohol
+  desc: reagent-desc-welles
+  physicalDesc: reagent-physical-desc-robust
+  flavor: thewelles
+  color: "#CECBAD"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/the_welles.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2 # Omu end
+
 - type: reagent
   id: Mimeosa
   name: reagent-name-mimeosa
@@ -2637,6 +2698,10 @@
       effects:
       - !type:Drunk
         boozePower: 10
+        conditions: # Omu start
+        - !type:OrganType
+          type: Allulalo
+          shouldHave: false # Omu end
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -2650,6 +2715,12 @@
         - !type:OrganType # Shitmed - Cybernetic Organs
           type: Cybernetic
           shouldHave: false
+        - !type:OrganType # DeltaV - Oni are our heavy drinkers
+          type: Oni
+          shouldHave: false
+        - !type:OrganType # Omu
+          type: Allulalo
+          shouldHave: false
         damage:
           types:
             Poison: 2 # TODO: Figure out poison amount. Ethanol does 1, this does 2 but also metabolises almost 3 to 4 times as fast as ethanol. This would be more Liver damage when that time arrives.
@@ -2659,6 +2730,8 @@
           min: 6
         - !type:OrganType
           type: Dwarf
+        - !type:OrganType # Delta V - Same as above
+          type: Oni
         damage:
           types:
             Poison: 0.4 # TODO: Might increase this, even though it's just double of ethanol from 0.2 to 0.4
@@ -2673,4 +2746,10 @@
           shouldHave: false
         - !type:OrganType # Shitmed - Cybernetic Organs
           type: Cybernetic
+          shouldHave: false
+        - !type:OrganType # Delta V - Same as above
+          type: Oni
+          shouldHave: false
+        - !type:OrganType # Omu
+          type: Allulalo
           shouldHave: false

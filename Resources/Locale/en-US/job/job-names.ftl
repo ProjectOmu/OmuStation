@@ -35,7 +35,7 @@ job-name-security = Security Officer
 job-name-cadet = Security Cadet
 job-name-hos = Head of Security
 job-name-detective = Detective
-job-name-brigmedic = Brigmedic
+job-name-brigmedic = Corpsman
 job-name-borg = Cyborg
 job-name-scientist = Scientist
 job-name-research-assistant = Research Assistant
@@ -53,6 +53,7 @@ job-name-hop = Head of Personnel
 job-name-captain = Captain
 job-name-serviceworker = Service Worker
 job-name-centcomoff = CentComm Official
+job-name-centcommoff = CentComm Official
 job-name-cburn = Centcomm Quarantine Officer
 job-name-deathsquad = Deathsquad Operative
 job-name-reporter = Reporter
@@ -82,7 +83,14 @@ job-name-ertjanitor = ERT Janitor
 job-name-boxer = Boxer
 job-name-zookeeper = Zookeeper
 job-name-visitor = Visitor
+# Viro
+job-name-virologist = Virologist
 job-name-cluwne = Cluwne
+
+# event-resctricted jobs
+job-name-security-clown = Security Clown
+job-name-command-maid = Command Maid
+job-name-party-maker = Party Maker
 
 # unused jobs
 # these are required for the agent ID job icon tooltips
@@ -93,7 +101,6 @@ job-name-prisoner = Prisoner
 job-name-roboticist = Roboticist
 job-name-syndicate = Syndicate
 job-name-unknown = Unknown
-job-name-virologist = Virologist
 job-name-zombie = Zombie
 
 # Job titles
@@ -116,6 +123,7 @@ JobChemist = Chemist
 JobChiefEngineer = Chief Engineer
 JobChiefMedicalOfficer = Chief Medical Officer
 JobClown = Clown
+JobCommandMaid = Command Maid
 JobDetective = Detective
 JobBrigmedic = Brigmedic
 JobERTChaplain = ERT Chaplain
@@ -135,6 +143,7 @@ JobMime = Mime
 JobMusician = Musician
 JobParamedic = Paramedic
 JobPassenger = Assistant
+JobPartyMaker = Party Maker
 JobPsychologist = Psychologist
 JobQuartermaster = Quartermaster
 JobReporter = Reporter
@@ -143,6 +152,7 @@ JobResearchDirector = Research Director
 JobSalvageSpecialist = Salvage Specialist
 JobScientist = Scientist
 JobSecurityCadet = Security Cadet
+JobSecurityClown = Security Clown
 JobSecurityOfficer = Security Officer
 JobServiceWorker = Service Worker
 JobStationAi = Station AI

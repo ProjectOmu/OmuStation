@@ -137,6 +137,17 @@
     - Tajaran
     - Chitinid # DeltaV
     - Shadowkin
+    - Thaven # Omu
+
+# Goobstation start
+- type: loadoutEffectGroup
+  id: HarnessWearers
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Vox
+    - Plasmaman
+# Goobstation end
 
 - type: loadoutEffectGroup
   id: EffectSpeciesVox
@@ -205,6 +216,7 @@
     - Resomi
     - Tajaran
     - Shadowkin
+    - Thaven # Omu
 
 - type: loadoutEffectGroup
   id: OxygenBreatherMimeMoth
@@ -366,7 +378,7 @@
   id: LoadoutTankHarness
   effects:
   - !type:GroupLoadoutEffect
-    proto: EffectSpeciesVox
+    proto: HarnessWearers # Goobstation edit
   equipment:
     outerClothing: ClothingOuterVestTank
 

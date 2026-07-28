@@ -66,7 +66,6 @@ using Content.Server.Humanoid;
 using Content.Server.IdentityManagement;
 using Content.Server.Inventory;
 using Content.Server.Mind;
-using Content.Server.Mind.Commands;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
@@ -100,8 +99,10 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Roles;
 using Content.Server.Animals.Components;
+using Content.Shared.Mech.Components;
 using Content.Shared.Rejuvenate; // Shitmed Change
 using Content.Shared.NPC.Prototypes;
+using Content.Shared.Mech.EntitySystems; // Goobstation
 
 namespace Content.Server.Zombies;
 
@@ -127,6 +128,7 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly SharedMechSystem _mech = default!; // Goobstation
 
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
     private static readonly ProtoId<NpcFactionPrototype> ZombieFaction = "Zombie";
@@ -277,7 +279,7 @@ public sealed partial class ZombieSystem
         _popup.PopupEntity(Loc.GetString("zombie-transform", ("target", target)), target, PopupType.LargeCaution);
 
         //Make it sentient if it's an animal or something
-        MakeSentientCommand.MakeSentient(target, EntityManager);
+        _mind.MakeSentient(target);
 
         //Make the zombie not die in the cold. Good for space zombies
         if (TryComp<TemperatureComponent>(target, out var tempComp))
@@ -348,5 +350,7 @@ public sealed partial class ZombieSystem
         RaiseLocalEvent(target, ref ev, true);
         //zombies get slowdown once they convert
         _movementSpeedModifier.RefreshMovementSpeedModifiers(target);
+        if (TryComp<MechPilotComponent>(target, out var mechPilotComponent)) // Goobstation - kick out zombies from mechs on conversion
+            _mech.TryEject(mechPilotComponent.Mech, null, target);
     }
 }

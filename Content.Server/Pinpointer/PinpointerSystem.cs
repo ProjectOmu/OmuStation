@@ -163,6 +163,7 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
         EntityWhitelist? blacklist)
     {
         _xformQuery.Resolve(ent, ref ent.Comp, false);
+        var pinpointerComponent = EntityManager.GetComponent<PinpointerComponent>(ent.Owner); //Omu
 
         if (ent.Comp == null)
             return null;
@@ -189,12 +190,20 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
 
             foreach (var (otherUid, _) in EntityManager.GetAllComponents(reg.Type))
             {
-                if (!_xformQuery.TryGetComponent(otherUid, out var compXform) || compXform.MapID != mapId)
+                // Omu - START
+                if (!_xformQuery.TryGetComponent(otherUid, out var compXform))
+                    continue;
+
+                if (compXform.MapID != mapId && !pinpointerComponent.RespectsCrossMaps)
                     continue;
 
                 if (Whitelist.IsBlacklistPass(blacklist, otherUid))
                     continue;
 
+                if (pinpointerComponent.RespectsCrossMaps && compXform.MapID != mapId)
+                {
+                    l.TryAdd(-1, otherUid); // Omu: Indicate a cross-map distance. FML.
+                } // Omu - END
                 var dist = (_transform.GetWorldPosition(compXform) - worldPos).LengthSquared();
                 l.TryAdd(dist, otherUid);
             }
@@ -215,6 +224,7 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
     {
         _xformQuery.Resolve(ent, ref ent.Comp, false);
         var list = new List<EntityUid>();
+        var pinpointerComponent = EntityManager.GetComponent<PinpointerComponent>(ent.Owner); // Omu
 
         if (ent.Comp == null)
             return list;
@@ -236,7 +246,12 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
 
             foreach (var (otherUid, _) in EntityManager.GetAllComponents(reg.Type))
             {
-                if (!_xformQuery.TryGetComponent(otherUid, out var compXform) || compXform.MapID != mapId)
+                // Omu - START
+                if (!_xformQuery.TryGetComponent(otherUid, out var compXform))
+                    continue;
+
+                if (mapId != compXform.MapID && !pinpointerComponent.RespectsCrossMaps)
+                // Omu - END
                     continue;
 
                 if (Whitelist.IsBlacklistPass(blacklist, otherUid))

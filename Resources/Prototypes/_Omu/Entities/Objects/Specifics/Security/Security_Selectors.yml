@@ -2,7 +2,7 @@
   id: HeadOfSecurityGunCase
   name: head of security's duty case
   description: A case, used to securely store the head of security's ranged weapon of choice.
-  parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
+  parent: [ BaseItem, BaseSetSelector, BaseGrandTheftContraband ]
   components:
   - type: Sprite
     sprite: _Omu/Objects/Misc/GunCases/hoscasegun.rsi
@@ -14,6 +14,7 @@
     - HosRifleSet
     - HosShotgunSet
     - HosSniperSet
+    - HosBRDISet
     maxSelectedSets: 1
   - type: StealTarget
     stealGroup: WeaponEnergyGunLawbringer
@@ -22,7 +23,7 @@
   id: HeadOfSecurityMeleeCase
   name: head of security's melee case
   description: A case, used to securely store the head of security's melee weapon of choice.
-  parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
+  parent: [ BaseItem, BaseSetSelector, BaseGrandTheftContraband ]
   components:
   - type: Sprite
     sprite: _Omu/Objects/Misc/GunCases/hoscasemelee.rsi
@@ -30,8 +31,9 @@
   - type: SetSelector
     possibleSets:
     - HosJusticeSet
-    - HosCQCSet
     - HosIrelanderSet
+    - HosCQCSet
+    - HosOniGlaiveSet
     maxSelectedSets: 1
   - type: StealTarget
     stealGroup: WeaponSecHeadSword
@@ -40,7 +42,7 @@
   id: WardenGunCase
   name: warden's duty case
   description: A case, used to securely store the warden's weapon of choice.
-  parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
+  parent: [ BaseItem, BaseSetSelector, BaseGrandTheftContraband ]
   components:
   - type: Sprite
     sprite: _Omu/Objects/Misc/GunCases/wardencase.rsi
@@ -49,6 +51,7 @@
     possibleSets:
     - WeaponEnergyShotgunSet
     - WeaponWardenRevolverShotgunSet
+    - WardenRapierSet
     maxSelectedSets: 1
   - type: StealTarget
     stealGroup: WeaponEnergyShotgun
@@ -66,14 +69,49 @@
     possibleSets:
     - WeaponMk58Set
     - WeaponT8Set
+    - WeaponEG1Set
     - WeaponTerminusSet
     maxSelectedSets: 1
 
 - type: entity
-  id: CaptainGunCase
-  name: captain's weapon case
+  id: HoSPetKennel
+  name: HoS Pet Teleporter
+  description: This kennel with the help of bluespace technology allows for the user to spawn one of the three security mascots!
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/HoSCarrier.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - HoSPetLaikaSet
+    - HoSPetShivaSet
+    - HoSPetTrevorSet
+    maxSelectedSets: 1
+
+- type: entity
+  id: SergeantGunCase
+  name: sergeant duty case
   description: A case, used to securely store your duty weapon of choice.
-  parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/GunCases/officercase.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - WeaponMk58Set
+    - WeaponT8Set
+    - WeaponEG1Set
+    - WeaponTerminusSet
+    - WeaponCeremonialRifleSet
+    maxSelectedSets: 1
+
+- type: entity
+  id: CaptainGunCase
+  name: captain's duty case
+  description: A case, used to securely store your duty weapon of choice.
+  parent: [ BaseItem, BaseSetSelector, BaseGrandTheftContraband ]
   components:
   - type: Sprite
     sprite: _Omu/Objects/Misc/GunCases/captaincase.rsi
@@ -85,3 +123,18 @@
     maxSelectedSets: 1
   - type: StealTarget
     stealGroup: WeaponAntiqueLaser
+
+- type: entity
+  id: NTRDutyCase
+  name: nanotrasen representative's duty case
+  description: A case, used to securely store your personal trinket of choice.
+  parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/GunCases/nanorepcase.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - CaneNTSet
+    - BladeNTSet
+    maxSelectedSets: 1

@@ -34,6 +34,8 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using System.Numerics;
+using Robust.Shared.Map; // Goobstation
 
 namespace Content.Shared.Projectiles;
 
@@ -142,5 +144,14 @@ public sealed partial class ProjectileComponent : Component
 
     [NonSerialized]
     public List<EntityUid> IgnoredEntities = new();
+
+    [DataField]
+    public Vector2 TargetCoordinates;
     // Goobstation end
+
+    /// <summary>
+    /// Omu:    Effects how much of the PenetrateDamage is taken into account (1 = 100%)
+    /// </summary>
+    [DataField]
+    public FixedPoint2 PenetrationFactor = 1f;
 }

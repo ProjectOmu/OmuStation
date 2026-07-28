@@ -64,31 +64,39 @@
     - !type:TraitGiveEquipmentIfHasJobs # Certain jobs do just need access to internals, so we'll spawn them with a more advanced version of the mantle.
       jobEquipment:
         # engineering mantle for engineers
-        AtmosphericTechnician: ClothingCyberneticBeastMantleWorkEngineering
+        AtmosphericTechnician: ClothingCyberneticBeastMantleWorkAtmospherics # special one for atmosians because burn chamber
         StationEngineer: ClothingCyberneticBeastMantleWorkEngineering
         TechnicalAssistant: ClothingCyberneticBeastMantleWorkEngineering
         # salvage mantle for salvagers
         SalvageSpecialist: ClothingCyberneticBeastMantleWorkSalvage
+        ShaftMiner: ClothingCyberneticBeastMantleWorkSalvage
         # sec mantle for secoffs
         Detective: ClothingCyberneticBeastMantleSecurity
         SecurityCadet: ClothingCyberneticBeastMantleSecurity
         SecurityOfficer: ClothingCyberneticBeastMantleSecurity
         Warden: ClothingCyberneticBeastMantleSecurity
-        # med mantle for doctors (and brigmedic)
-        Chemist: ClothingCyberneticBeastMantleMedical
+        SecuritySergeant: ClothingCyberneticBeastMantleSecurity
+        # med mantle for doctors (and brigmedic, actually corpsman)
+        Chemist: ClothingCyberneticBeastMantleMedicalChemist
         MedicalDoctor: ClothingCyberneticBeastMantleMedical
         MedicalIntern: ClothingCyberneticBeastMantleMedical
-        Paramedic: ClothingCyberneticBeastMantleMedical
-        Brigmedic: ClothingCyberneticBeastMantleMedical
+        Paramedic: ClothingCyberneticBeastMantleMedicalParamedic # paramedic mantle variant with internals
+        Brigmedic: ClothingCyberneticBeastMantleCorpsman
+        Virologist: ClothingCyberneticBeastMantleMedical
         # tossup of mantles for command.
-        BlueshieldOfficer: ClothingCyberneticBeastMantleBlueshieldOfficer
         Captain: ClothingCyberneticBeastMantleCommand
-        ChiefEngineer: ClothingCyberneticBeastMantleWorkEngineering
-        ChiefMedicalOfficer: ClothingCyberneticBeastMantleMedical
+        ChiefEngineer: ClothingCyberneticBeastMantleWorkChiefEngineering
+        ChiefMedicalOfficer: ClothingCyberneticBeastMantleMedicalCMO
         HeadOfPersonnel: ClothingCyberneticBeastMantleCommand
-        HeadOfSecurity: ClothingCyberneticBeastMantleSecurity
-        Quartermaster: ClothingCyberneticBeastMantleCommand
-        ResearchDirector: ClothingCyberneticBeastMantleCommand
+        HeadOfSecurity: ClothingCyberneticBeastMantleHeadofSecurity
+        Quartermaster: ClothingCyberneticBeastMantleSupply
+        ResearchDirector: ClothingCyberneticBeastMantleScienceCommand
+        AdministrativeAssistant: ClothingCyberneticBeastMantleCommand
+        #Mantles for Central Command
+        BlueshieldOfficer: ClothingCyberneticBeastMantleBlueshieldOfficer
+        NanotrasenRepresentative: ClothingCyberneticBeastMantleCentralCommandNoThermal
+        # Bartender mantle
+        Bartender: ClothingCyberneticBeastMantleBar
       # If they have none of the specified jobs:
       equipmentUnmet: ClothingCyberneticBeastMantle
   globalCost: 5
@@ -99,6 +107,7 @@
     - !type:TraitsRequirement
       traits:
         - PoorVision
+        - Blindness
       inverted: true
 
 - type: trait
@@ -106,6 +115,9 @@
   name: trait-moth-flight-name
   description: trait-moth-flight-desc
   category: PhysicalTraits
+  blacklist:
+    components:
+      - BorgChassis
   components:
   - type: Flight
     isLayerAnimated: true
@@ -158,30 +170,91 @@
     - !type:TraitsRequirement
       traits:
         - ClawsTrait
+        - SharpTeethTrait
+      inverted: true
+
+# - type: trait
+#   id: ThievingTrait # removed from selection
+#   name: trait-thieving-name
+#   description: trait-thieving-desc
+#   category: PhysicalTraits
+#   blacklist:
+#     components:
+#       - BorgChassis
+#   components:
+#     - type: Thieving
+#       noiseLevel: 0 # "0" is small, per the PopupType enum
+#       stealthy: False
+#       toggleable: False
+#       stripTimeReduction: 1
+#   globalCost: 3
+
+# - type: trait
+#   id: Frisky # removed from selection
+#   name: trait-frisky-name
+#   description: trait-frisky-desc
+#   category: PhysicalTraits
+#   components:
+#     - type: IgnorePocketHiding
+#   globalCost: 2
+
+- type: trait
+  id: SharpTeethTrait
+  name: trait-sharp-teeth-name
+  description: trait-sharp-teeth-desc
+  category: PhysicalTraits
+  functions:
+    - !type:TraitModifyUnarmed
+      hitSound:
+        path: /Audio/Effects/bite.ogg
+      animation: WeaponArcBite
+      damage:
+        types:
+          Piercing: 5
+  globalCost: 1
+  requirements:
+    - !type:SpeciesRequirement
+      species: # a list of species which already have them sharp chompers.
+        - Feroxi
+        - Arachnid
       inverted: true
 
 - type: trait
-  id: ThievingTrait
-  name: trait-thieving-name
-  description: trait-thieving-desc
+  id: SmallShit # Stuff Shadowkin and Harpies into a bag
+  name: trait-small-shit-name
+  description: trait-small-shit-desc
   category: PhysicalTraits
-  blacklist:
-    components:
-      - BorgChassis
   components:
-    - type: Thieving
-      noiseLevel: 0 # "0" is small, per the PopupType enum
-      stealthy: False
-      toggleable: False
-      stripTimeReduction: 1
+  - type: PseudoItem
+    storedOffset: 0,17
+    shape:
+    - 0,0,1,4
+    - 0,2,3,4
+    - 4,0,5,4
+    size: Huge
   globalCost: 3
+  requirements:
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Felinid # These species already have this feature by default.
+    - Tajaran
+    - Resomi
+    - Rodentia
+  - !type:WeightRequirement # too heavy for uppies
+    minimumWeight: 53
+    inverted: true
 
 - type: trait
-  id: Frisky
-  name: trait-frisky-name
-  description: trait-frisky-desc
+  id: Redshirt
+  name: trait-redshirt-name
+  description: trait-redshirt-desc
   category: PhysicalTraits
   components:
-    - type: IgnorePocketHiding
-  globalCost: 2
-  
+  - type: NoCrit
+  globalCost: -4
+  requirements:
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+        - IPC

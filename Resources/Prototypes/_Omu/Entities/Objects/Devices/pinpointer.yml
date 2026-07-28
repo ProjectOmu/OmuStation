@@ -1,0 +1,31 @@
+- type: entity
+  name: salvage crew pinpointer
+  description: A handheld tracking device that only locks onto salvage IDs and raises alerts for movement inactivity. Used for search and rescue operations. Keep upright to retain accuracy.
+  id: PinpointerSalvage
+  parent: [PinpointerBase, BaseCargoContraband]
+  components:
+  - type: Sprite
+    layers:
+    - state: pinpointer-miner
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    state: pinpointer-station
+  - type: Pinpointer
+    updateTargetName: true
+    canRetarget: true
+    canExamine: false
+    canTargetMultiple: false
+    respectsCrossMaps: true
+    whitelist:
+      tags:
+      - SalvagePinpointer
+    retargetingWhitelist:
+      tags:
+      - SalvagePinpointer
+  - type: SalvageCrewPinpointer
+  - type: Speech
+    speechSounds: Borg

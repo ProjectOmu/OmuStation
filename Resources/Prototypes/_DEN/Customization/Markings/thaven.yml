@@ -1,0 +1,622 @@
+﻿# Chest
+
+- type: marking
+  id: ThavenSlimChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  forcedColoring: true
+  followSkinColor: true
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/chest.rsi
+    state: slimchest
+
+- type: marking
+  id: GillsF
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/chest.rsi
+    state: gills_f
+
+- type: marking
+  id: ThavenAbsF
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  followSkinColor: true
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/chest.rsi
+    state: muscular_f
+
+- type: marking
+  id: ThavenBiteMarkF
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/chest.rsi
+    state: bitemark_f
+
+- type: marking
+  id: ThavenBodyStripesF
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/chest.rsi
+    state: stripes_f
+
+- type: marking
+  id: ThavenChestScalesF
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/chest.rsi
+    state: scales_f
+
+- type: marking
+  id: ThavenChestTattoo1F
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/chest.rsi
+    state: tat1_f
+
+- type: marking
+  id: ThavenTattooWaveF
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/chest.rsi
+    state: tattoowave_f
+
+- type: marking
+  id: ThavenTattooVinesF
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/chest.rsi
+    state: tattoovines_f
+
+- type: marking
+  id: ThavenTigerF
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/chest.rsi
+    state: tiger1_f
+  - sprite: _DEN/Mobs/Customization/Thaven/chest.rsi
+    state: tiger2_f
+
+- type: marking
+  id: ThavenHipScales
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/chest.rsi
+    state: hipscales
+
+# Head
+
+# Snout
+
+# Eyes
+
+# RArm
+
+#- type: marking
+#  id: GradientRArmT
+#  bodyPart: RArm
+#  markingCategory: RightArm
+#  speciesRestriction: [ Thaven ]
+#  sprites:
+#  - sprite: Mobs/Customization/misc.rsi
+#    state: m_gradient_r_arm
+
+# RHand
+
+#- type: marking
+#  id: GradientRHandT
+#  bodyPart: RHand
+#  markingCategory: RightHand
+#  speciesRestriction: [ Thaven ]
+#  sprites:
+#  - sprite: Mobs/Customization/misc.rsi
+#    state: m_gradient_r_hand
+
+# LArm
+
+#- type: marking
+#  id: GradientLArmT
+#  bodyPart: LArm
+#  markingCategory: LeftArm
+#  speciesRestriction: [ Thaven ]
+#  sprites:
+#  - sprite: Mobs/Customization/misc.rsi
+#    state: m_gradient_l_arm
+
+# LHand
+
+#- type: marking
+#  id: GradientLHandT
+#  bodyPart: LHand
+#  markingCategory: LeftHand
+#  speciesRestriction: [ Thaven ]
+#  sprites:
+#  - sprite: Mobs/Customization/misc.rsi
+#    state: m_gradient_l_hand
+
+# RLeg
+
+#- type: marking
+#  id: GradientRLegT
+#  bodyPart: RLeg
+#  markingCategory: RightLeg
+#  speciesRestriction: [ Thaven ]
+#  sprites:
+#  - sprite: Mobs/Customization/misc.rsi
+#    state: m_gradient_r_leg
+
+# RFoot
+
+#- type: marking
+#  id: GradientRFootT
+#  bodyPart: RFoot
+#  markingCategory: RightFoot
+#  speciesRestriction: [ Thaven ]
+#  sprites:
+#  - sprite: Mobs/Customization/misc.rsi
+#    state: m_gradient_r_foot
+
+# LLeg
+
+#- type: marking
+#  id: GradientLLegT
+#  bodyPart: LLeg
+#  markingCategory: LeftLeg
+#  speciesRestriction: [ Thaven ]
+#  sprites:
+#  - sprite: Mobs/Customization/misc.rsi
+#    state: m_gradient_l_leg
+
+# LFoot
+
+#- type: marking
+#  id: GradientLFootT
+#  bodyPart: LFoot
+#  markingCategory: LeftFoot
+#  speciesRestriction: [ Thaven ]
+#  sprites:
+#  - sprite: Mobs/Customization/misc.rsi
+#   state: m_gradient_l_foot
+
+# Underwear
+
+- type: marking
+  id: UnderwearBriefsTF
+  bodyPart: Underwear
+  markingCategory: Underwear
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/underwear.rsi
+    state: briefs_f
+
+- type: marking
+  id: UnderwearDefaultTF
+  bodyPart: Underwear
+  markingCategory: Underwear
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/underwear.rsi
+    state: boxers_f
+
+- type: marking
+  id: UnderwearLowridersTF
+  bodyPart: Underwear
+  markingCategory: Underwear
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/underwear.rsi
+    state: lowriders_f
+
+# Undershirt
+
+- type: marking
+  id: UndergarmentTopBinderTF
+  bodyPart: Undershirt
+  markingCategory: Undershirt
+  speciesRestriction: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/undershirt.rsi
+    state: binder_f
+
+- type: marking
+  id: UndergarmentTopTanktopTF
+  bodyPart: Undershirt
+  markingCategory: Undershirt
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/undershirt.rsi
+    state: tanktop_f
+
+- type: marking
+  id: UndershirtBraClassicTF
+  bodyPart: Undershirt
+  markingCategory: Undershirt
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/undershirt.rsi
+    state: classic_f
+
+- type: marking
+  id: UndershirtBraSportsTF
+  bodyPart: Undershirt
+  markingCategory: Undershirt
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/undershirt.rsi
+    state: sports_f
+
+- type: marking
+  id: UndershirtBraStraplessTF
+  bodyPart: Undershirt
+  markingCategory: Undershirt
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/undershirt.rsi
+    state: strapless_f
+
+- type: marking
+  id: UndershirtDefaultTF
+  bodyPart: Undershirt
+  markingCategory: Undershirt
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/undershirt.rsi
+    state: undershirt_f
+
+- type: marking
+  id: UndershirtGrossSleevelessTF
+  bodyPart: Undershirt
+  markingCategory: Undershirt
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/undershirt.rsi
+    state: grosssleeveless_f
+
+- type: marking
+  id: UndershirtNanotrasenTF
+  bodyPart: Undershirt
+  markingCategory: Undershirt
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/undershirt.rsi
+    state: nanotrasen_f
+
+- type: marking
+  id: UndershirtRolledTF
+  bodyPart: Undershirt
+  markingCategory: Undershirt
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/undershirt.rsi
+    state: rolledundershirt_f
+
+# LFoot
+
+# RFoot
+
+# LHand
+
+# RHand
+
+# FacialHair
+
+# Hair
+
+- type: marking
+  id: ThavenHairBraidtailF
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/hair.rsi
+    state: braidtail_f
+
+- type: marking
+  id: ThavenHairCountryF
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/hair.rsi
+    state: country_f
+
+- type: marking
+  id: ThavenHairDoublebunLongF
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/hair.rsi
+    state: doublebunlong_f
+
+- type: marking
+  id: ThavenHairFloorlengthBedheadF
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/hair.rsi
+    state: floorlengthbedhead_f
+
+- type: marking
+  id: ThavenHairHalfshavedF
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/hair.rsi
+    state: halfshaved_f
+
+- type: marking
+  id: ThavenHairLongBedheadF
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/hair.rsi
+    state: longbedhead_f
+
+- type: marking
+  id: ThavenHairOneshoulderF
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/hair.rsi
+    state: oneshoulder_f
+
+- type: marking
+  id: ThavenHairSidetail4F
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/hair.rsi
+    state: sidetail4_f
+
+- type: marking
+  id: ThavenHairStailF
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/hair.rsi
+    state: stail_f
+
+- type: marking
+  id: ThavenHairTressshoulderF
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/hair.rsi
+    state: tressshoulder_f
+
+- type: marking
+  id: ThavenHairTwoStrandsF
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/hair.rsi
+    state: twostrands_f
+
+- type: marking
+  id: ThavenHairUnkeptF
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/hair.rsi
+    state: unkept_f
+
+- type: marking
+  id: ThavenHairVlongF
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/hair.rsi
+    state: vlong_f
+
+- type: marking
+  id: ThavenHairVlongfringeF
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/hair.rsi
+    state: vlongfringe_f
+
+- type: marking
+  id: ThavenHairOxtonFlipped
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Thaven ]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/hair.rsi
+    state: oxton_flipped
+
+# HeadSide
+
+- type: marking
+  id: ThavenEarsWideEars
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [ Thaven ]
+  followSkinColor: true
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/headside.rsi
+    state: wideears
+
+- type: marking
+  id: ThavenEarsTallEars
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [ Thaven ]
+  followSkinColor: true
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/headside.rsi
+    state: tallears
+
+# HeadTop
+
+# Tail
+
+- type: marking
+  id: ThavenTailEelF
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Thaven ]
+  sexRestriction: [ Female ]
+  followSkinColor: true
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/tail.rsi
+    state: eel1_f
+  - sprite: _DEN/Mobs/Customization/Thaven/tail.rsi
+    state: eel2_f
+
+- type: marking
+  id: ThavenTailAngler
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Thaven ]
+  followSkinColor: true
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/tail.rsi
+    state: angler1
+  - sprite: _DEN/Mobs/Customization/Thaven/tail.rsi
+    state: angler2
+
+- type: marking
+  id: ThavenTailAnglerOverlay
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Thaven/tail.rsi
+    state: angler3
+  shader: unshaded

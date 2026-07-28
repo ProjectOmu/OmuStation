@@ -109,6 +109,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Omu.Common.Shuttles.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
 using Content.Server.Buckle.Systems;
@@ -175,6 +176,7 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
     [Dependency] private readonly ThrusterSystem _thruster = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly CommonOmuShuttleSystemGridFill _omuShuttle = default!; // Omu minimum ats spawn distance
 
     private EntityQuery<BuckleComponent> _buckleQuery;
     private EntityQuery<MapGridComponent> _gridQuery;

@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 ThanosDeGraf <richardgirgindontstop@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -15,7 +16,7 @@ public sealed partial class DelayedDeathComponent : Component
     /// How long it takes to kill the entity.
     /// </summary>
     [DataField]
-    public float DeathTime = 60;
+    public float DeathTime = 59; // Omu Edit - Because EMPs last 60 seconds and I want cybernetic organs to have an effect when you don't fix yourself in time
 
     /// <summary>
     /// If true, will prevent *almost* all types of revival.

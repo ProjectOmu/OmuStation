@@ -3,3 +3,28 @@
   id: ClothingLabcoatLong
   equipment:
     outerClothing: ClothingOuterCoatMedicalcoatLong
+
+# Gloves
+- type: loadout
+  id: CybersunNitrileGloves
+  equipment:
+    gloves: ClothingHandsGlovesCybersunNitrile
+
+# Uniforms 
+- type: loadout
+  id: CybersunMedicalJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformCybersunMedicalJumpsuit
+
+- type: loadout
+  id: CybersunMedicalJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformCybersunMedicalJumpskirt
+
+- type: loadout
+  id: SeniorPhysicianXelthiaJacket
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorPhysician
+  equipment:
+    outerClothing: ClothingOuterJacketSeniorPhys

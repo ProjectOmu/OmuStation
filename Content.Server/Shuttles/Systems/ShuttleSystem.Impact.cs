@@ -65,6 +65,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Numerics;
+using Content.Shared._Mono; // Monolith
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -195,6 +196,16 @@ public sealed partial class ShuttleSystem
             if (!_enabled)
                 continue;
 
+            // Check if either grid has GridGodMode or ForceAnchor protection // Monolith start
+            var ourProtected = HasComp<GridGodModeComponent>(args.OurEntity);
+            var otherProtected = HasComp<GridGodModeComponent>(args.OtherEntity);
+
+            // Check if the grids are docked together to prevent impact
+            var areGridsDocked = _dockSystem.AreGridsDocked(args.OurEntity, args.OtherEntity);
+
+            if (ourProtected || otherProtected || areGridsDocked)
+                continue; // Monolith end
+
             // Convert the collision point directly to tile indices
             var ourTile = new Vector2i((int)Math.Floor(ourPoint.X / ourGrid.TileSize), (int)Math.Floor(ourPoint.Y / ourGrid.TileSize));
             var otherTile = new Vector2i((int)Math.Floor(otherPoint.X / otherGrid.TileSize), (int)Math.Floor(otherPoint.Y / otherGrid.TileSize));
@@ -294,7 +305,7 @@ public sealed partial class ShuttleSystem
 
             if (direction.LengthSquared() > minsq)
             {
-                _stuns.TryKnockdown(uid, knockdownTime, true);
+                _stuns.TryCrawling(uid, knockdownTime);
                 _throwing.TryThrow(uid, direction, physics, Transform(uid), _projQuery, direction.Length(), playSound: false);
             }
             else

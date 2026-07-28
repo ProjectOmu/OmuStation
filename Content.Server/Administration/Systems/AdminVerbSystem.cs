@@ -129,11 +129,11 @@ using Content.Server.Administration.UI;
 using Content.Server.Disposal.Tube;
 using Content.Server.EUI;
 using Content.Server.Ghost.Roles;
-using Content.Server.Mind.Commands;
 using Content.Server.Mind;
 using Content.Server.Prayer;
 using Content.Server.Silicons.Laws;
 using Content.Server.Station.Systems;
+using Content.Server.Traits; // HardLight
 using Content.Shared.Administration;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
@@ -141,7 +141,6 @@ using Content.Shared.Configurable;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
-using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
 using Content.Shared.Movement.Components;
@@ -161,6 +160,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Server._Omu.Traits;
 using static Content.Shared.Configurable.ConfigurationComponent;
 
 namespace Content.Server.Administration.Systems
@@ -192,6 +192,8 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly AdminFrozenSystem _freeze = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly SiliconLawSystem _siliconLawSystem = default!;
+        [Dependency] private readonly OmuCloneHelperSystem _omuCloneHelper = default!; // Omu
+        [Dependency] private readonly TraitSystem _traits = default!; // HardLight
 
         private readonly Dictionary<ICommonSession, List<EditSolutionsEui>> _openSolutionUis = new();
 
@@ -276,6 +278,8 @@ namespace Content.Server.Administration.Systems
                             if (_mindSystem.TryGetMind(args.Target, out var mindId, out var mindComp))
                                 _mindSystem.TransferTo(mindId, mobUid, true, mind: mindComp);
 
+                            _traits.ApplyProfileTraits(mobUid, profile, true); // Hardlight // Omu edit apply after mind transfer due to vulps
+
                         },
                         ConfirmationPopup = true,
                         Impact = LogImpact.High,
@@ -297,7 +301,12 @@ namespace Content.Server.Administration.Systems
                             var stationUid = _stations.GetOwningStation(args.Target);
 
                             var profile = _gameTicker.GetPlayerProfile(targetActor.PlayerSession);
-                            _spawning.SpawnPlayerMob(coords.Value, null, profile, stationUid);
+                            var mobUid = _spawning.SpawnPlayerMob(coords.Value, null, profile, stationUid); // Hardlight add mobUid
+                            // Omu edit start
+                            _traits.ApplyProfileTraits(mobUid, profile, false); // Hardlight
+                            // separately give job-based trait equipment using the original entity's mind.
+                            _omuCloneHelper.GiveCloneJobTraitEquipment(args.Target, mobUid, profile);
+                            // Omu edit end
                         },
                         ConfirmationPopup = true,
                         Impact = LogImpact.High,
@@ -515,6 +524,22 @@ namespace Content.Server.Administration.Systems
                         Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"),
                     });
                 }
+
+                // open camera
+                args.Verbs.Add(new Verb()
+                {
+                    Priority = 10,
+                    Text = Loc.GetString("admin-verbs-camera"),
+                    Message = Loc.GetString("admin-verbs-camera-description"),
+                    Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/vv.svg.192dpi.png")),
+                    Category = VerbCategory.Admin,
+                    Act = () =>
+                    {
+                        var ui = new AdminCameraEui(args.Target);
+                        _euiManager.OpenEui(ui, player);
+                    },
+                    Impact = LogImpact.Low
+                });
             }
         }
 
@@ -583,7 +608,7 @@ namespace Content.Server.Administration.Systems
                     Text = Loc.GetString("make-sentient-verb-get-data-text"),
                     Category = VerbCategory.Debug,
                     Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/sentient.svg.192dpi.png")),
-                    Act = () => MakeSentientCommand.MakeSentient(args.Target, EntityManager),
+                    Act = () => _mindSystem.MakeSentient(args.Target),
                     Impact = LogImpact.Medium
                 };
                 args.Verbs.Add(verb);

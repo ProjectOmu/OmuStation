@@ -19,10 +19,16 @@
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
   canBeAntag: false
+  guides:
+  - MedicalDoctor
+  - CorpsmanSOP # Omu Brigmed -> Corpsman
+  - Medicine
   goobcoins: 35
-  access: # intentionally no medical access, not even hos has it, ask chemists instead of silently stealing meds
+  access: # EE parity, make corpsman able function.
+  - Corpsman # Omu
   - Security
   - Brig
+  - Medical
   - Maintenance
   - Service
   - External
@@ -31,14 +37,18 @@
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
-    components: # Intentionally no surgery buff, you're reliable but not powerful as a real doctor
+    components:
     - type: SecurityStaff
+  - !type:AddComponentSpecial
+    components:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.25 # Same as Paramedic
 
 - type: chameleonOutfit
   id: BrigmedicChameleonOutfit
   job: Brigmedic
   equipment:
-    eyes: ClothingEyesGlassesMed
+    eyes: ClothingEyesGlassesMedSec
     mask: ClothingMaskBreathMedicalSecurity
     ears: ClothingHeadsetBrigmedic
     outerClothing: ClothingOuterCoatAMG
@@ -48,4 +58,4 @@
     back: ClothingBackpackBrigmedic
     shoes: ClothingShoesBootsJack
     head: ClothingHeadHatBeretBrigmedic
-    pocket1: OfficerGunCase #Omu
+#    pocket1: OfficerGunCase #Omu

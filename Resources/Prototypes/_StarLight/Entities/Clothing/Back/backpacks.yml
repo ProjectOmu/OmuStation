@@ -1,0 +1,8 @@
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackChemistrySenior
+  name: senior chemistry backpack
+  description: A specially designed backpack that will never be stained, no matter what liquids are spilled on it.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Back/Backpacks/chemistrysenior.rsi

@@ -1,0 +1,24 @@
+- type: damageContainer
+  id: BiologicalElectrical
+  supportedGroups:
+    - Brute
+    - Burn
+    - Toxin
+    - Airloss
+    - Genetic
+    - Electronic
+  supportedTypes: # Goobstation
+    - Holy
+
+- type: damageContainer
+  id: Xelthia #same as Biological except it can't store caustic
+  supportedGroups:
+  - Brute
+  - Toxin
+  - Airloss
+  - Genetic
+  supportedTypes:
+  - Holy
+  - Heat
+  - Shock
+  - Cold

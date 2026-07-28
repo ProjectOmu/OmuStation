@@ -1,0 +1,301 @@
+- type: entity
+  id: RandomHumanoidSpawnerNanoTrasenSpectre
+  name: NanoTrasen Spectre Agent
+  suffix: ERTRole, Death Squad, Spectre Agent
+  components:
+    - type: Sprite
+      sprite: _Omu/Clothing/Modsuits/chrono.rsi
+      state: control
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: RandomHumanoidSpawner
+      settings: NanoTrasenSpectre
+
+- type: randomHumanoidSettings
+  id: NanoTrasenSpectre
+  parent: NanoTrasenSpectreHumanoid # Goobstation
+  components:
+    - type: AutoImplant
+      implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm] # Goobstation
+    - type: DeathSquadMember # Goobstation
+    - type: GhostRole
+      name: ghost-role-information-nanotrasen-spectre-name
+      description: ghost-role-information-nanotrasen-spectre-description
+      rules: ghost-role-information-nanotrasen-spectre-rules
+      raffle:
+        settings: short
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 48000 # Goobstation
+      - !type:DepartmentTimeRequirement
+        department: Command
+        time: 18000 # Goobstation
+    - type: Loadout
+      prototypes: [ NanoTrasenSpectreGear ]
+      roleLoadout: [ RoleSurvivalEVA ]
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+      nameFormat: name-format-ert
+
+# BLUE ERT
+
+# ERT Leader
+
+- type: entity
+  id: RandomHumanoidSpawnerERTLeaderBlue
+  name: ERT Blue alert leader
+  suffix: ERTRole, Basic, Blue
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: ertleader
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirstLeader
+      - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: RandomHumanoidSpawner
+      settings: ERTLeaderBlue
+
+- type: randomHumanoidSettings
+  id: ERTLeaderBlue
+  parent: CentcommHumanoid
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-leader-name
+      description: ghost-role-information-ert-leader-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      job: ERTLeaderBlue
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # ten hours
+      - !type:DepartmentTimeRequirement
+        department: Command
+        time: 18000 # five hours
+    - type: Loadout
+      prototypes: [ ERTLeaderGearBlue ]
+      roleLoadout: [ RoleSurvivalExtended ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ] # Omu - Removed StypticStimulatorImplant
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirstLeader
+      - NamesMilitaryLast
+      nameFormat: name-format-ert
+
+# ERT Security
+
+- type: entity
+  id: RandomHumanoidSpawnerERTSecurityBlue
+  parent: RandomHumanoidSpawnerERTLeaderBlue
+  name: ERT Blue alert security
+  suffix: ERTRole, Basic, Blue
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: ertsecurity
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: RandomHumanoidSpawner
+      settings: ERTSecurityBlue
+
+- type: randomHumanoidSettings
+  id: ERTSecurityBlue
+  parent: ERTLeaderBlue
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-security-name
+      description: ghost-role-information-ert-security-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      job: ERTSecurityBlue
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: Loadout
+      prototypes: [ ERTSecurityGearBlue ]
+      roleLoadout: [ RoleSurvivalExtended ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant ]
+
+# ERT Medical
+
+- type: entity
+  id: RandomHumanoidSpawnerERTMedicBlue
+  parent: RandomHumanoidSpawnerERTLeaderBlue
+  name: ERT Blue alert medic
+  suffix: ERTRole, Basic, Blue
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: ertmedical
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: RandomHumanoidSpawner
+      settings: ERTMedicBlue
+
+- type: randomHumanoidSettings
+  id: ERTMedicBlue
+  parent: ERTLeaderBlue
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-medical-name
+      description: ghost-role-information-ert-medical-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      job: ERTMedicBlue
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: Loadout
+      prototypes: [ ERTMedicGearBlue ]
+      roleLoadout: [ RoleSurvivalExtended ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant ] # Omu - Removed StypticStimulatorImplant
+
+# ERT Janitor
+
+- type: entity
+  id: RandomHumanoidSpawnerERTJanitorBlue
+  parent: RandomHumanoidSpawnerERTLeaderBlue
+  name: ERT Blue alert janitor
+  suffix: ERTRole, Basic, Blue
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: ertjanitor
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: RandomHumanoidSpawner
+      settings: ERTJanitorBlue
+
+- type: randomHumanoidSettings
+  id: ERTJanitorBlue
+  parent: ERTLeaderBlue
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-janitor-name
+      description: ghost-role-information-ert-janitor-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      job: ERTJanitorBlue
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: Loadout
+      prototypes: [ ERTJanitorGearBlue ]
+      roleLoadout: [ RoleSurvivalExtended ]
+
+# ERT Engineer
+
+- type: entity
+  id: RandomHumanoidSpawnerERTEngineerBlue
+  parent: RandomHumanoidSpawnerERTLeaderBlue
+  name: ERT Blue alert engineer
+  suffix: ERTRole, Blue, Enviro EVA
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: ertengineer
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: RandomHumanoidSpawner
+      settings: ERTEngineerBlue
+
+- type: randomHumanoidSettings
+  id: ERTEngineerBlue
+  parent: ERTLeaderBlue
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-engineer-name
+      description: ghost-role-information-ert-engineer-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      job: ERTEngineerBlue
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Engineering
+        time: 36000 # ten hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 18000 # five hours
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: Loadout
+      prototypes: [ ERTEngineerGearBlue ]
+      roleLoadout: [ RoleSurvivalEVA ]
+
+# ERT Chaplain
+
+- type: entity
+  id: RandomHumanoidSpawnerERTChaplainBlue
+  parent: RandomHumanoidSpawnerERTLeaderBlue
+  name: ERT Blue alert chaplain
+  suffix: ERTRole, Basic, Blue
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: chaplain #needs an ERT variant once a good suit it made.
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: RandomHumanoidSpawner
+      settings: ERTChaplainBlue
+
+- type: randomHumanoidSettings
+  id: ERTChaplainBlue
+  parent: ERTLeaderBlue
+  components:
+    - type: BibleUser
+    - type: GhostRole
+      name: ghost-role-information-ert-chaplain-name
+      description: ghost-role-information-ert-chaplain-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      job: ERTChaplainBlue
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
+      nameFormat: name-format-ert
+    - type: Loadout
+      prototypes: [ ERTChaplainGearBlue ]
+      roleLoadout: [ RoleSurvivalExtended ]
+

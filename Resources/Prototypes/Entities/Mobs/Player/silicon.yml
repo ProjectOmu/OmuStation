@@ -100,6 +100,7 @@
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThunderBear2006 <100388962+ThunderBear2006@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThunderBear2006 <bearthunder06@gmail.com>
@@ -109,6 +110,7 @@
 # SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 lizelive <github@lize.live>
 # SPDX-FileCopyrightText: 2025 loltart <159829224+loltart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -126,6 +128,7 @@
     - Command
     - Engineering
     - Medical
+    - Prison # Omu
     - Science
     - Security
     - Service
@@ -137,6 +140,7 @@
     - Command
     - Engineering
     - Medical
+    - Prison # Omu
     - Science
     - Security
     - Service
@@ -222,6 +226,7 @@
     defaultChannel: Binary
     channels:
     - Binary
+    canUseInCrit: true # Goobstation
   - type: ActionGrant
     actions:
     - ActionAIViewLaws
@@ -324,6 +329,7 @@
     needsPower: false
   - type: StationAiCore
   - type: StationAiVision
+  - type: StationAiEarlyLeave # Goobstation
   - type: InteractionOutline
   - type: Sprite
     sprite: Mobs/Silicon/station_ai.rsi
@@ -383,7 +389,7 @@
   - type: BlockMovement
     blockInteraction: false
   - type: SiliconLawProvider
-    laws: NTDefault # Goobstation - AI/borg law changes - set AI to NTDefault
+    laws: OmuCrewsimov # Omu edit. AI uses Omu Crewimov
   - type: IonStormTarget # Goobstation - AI/borg law changes - ion stormable AI
   - type: SiliconLawBound
   - type: ActionGrant
@@ -425,6 +431,52 @@
       state: ai_female
   - type: NameIdentifier
     group: StationAi
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
+    - SolCommon
+    - RootSpeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
+    - RobotTalk
+    - DroneTalk
+    - Marish
+    - Elyran
+    - Freespeak
+    - Tradeband
+    - Schechi
+    - NewKinPidgin
+    - NovuNederic # Omustation
+    understands:
+    - TauCetiBasic
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
+    - SolCommon
+    - RootSpeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
+    - RobotTalk
+    - DroneTalk
+    - Marish
+    - Elyran
+    - Freespeak
+    - Tradeband
+    - Sign
+    - Schechi
+    - NewKinPidgin
+    - NovuNederic # Omustation
+  - type: SpeechSynthesis # Corvax-Frontier-Barks
+    voice: Borg
 
 # Hologram projection that the AI's eye tracks.
 - type: entity
@@ -504,6 +556,7 @@
       borg_brain:
         - PositronicBrain
       borg_module:
+        - BorgModuleTool # Omu
         - BorgModuleL6C
         - BorgModuleOperative
         - BorgModuleEsword
@@ -521,7 +574,7 @@
     - type: GhostRole
       name: ghost-role-information-syndicate-cyborg-assault-name
       description: ghost-role-information-syndicate-cyborg-description
-      rules: ghost-role-information-silicon-rules
+      rules: ghost-role-information-higher-standard-silicon-rules
       raffle:
         settings: default
     - type: GhostTakeoverAvailable
@@ -554,7 +607,7 @@
     - type: GhostRole
       name: ghost-role-information-syndicate-cyborg-saboteur-name
       description: ghost-role-information-syndicate-cyborg-description
-      rules: ghost-role-information-silicon-rules
+      rules: ghost-role-information-higher-standard-silicon-rules
       raffle:
         settings: default
     - type: GhostTakeoverAvailable

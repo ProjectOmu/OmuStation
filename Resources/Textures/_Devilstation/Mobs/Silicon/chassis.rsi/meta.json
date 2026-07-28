@@ -1,0 +1,43 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "ERT chassis sprites made by FatEngineerGaming (Discord/Github), Commando sprites taken from Paradise https://github.com/ParadiseSS13/Paradise/tree/master",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "ert",
+            "directions": 4
+        },
+        {
+            "name": "ert_e",
+            "directions": 4
+        },
+        {
+            "name": "ert_e_r",
+            "directions": 4
+        },
+        {
+            "name": "ert_l",
+            "directions": 4
+        },
+        {
+            "name": "commando",
+            "directions": 4
+        },
+        {
+            "name": "commando_e",
+            "directions": 4
+        },
+        {
+            "name": "commando_e_r",
+            "directions": 4
+        },
+        {
+            "name": "commando_l",
+            "directions": 4
+        }
+    ]
+}

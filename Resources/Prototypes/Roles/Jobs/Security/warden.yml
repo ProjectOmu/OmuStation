@@ -137,21 +137,35 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 18000 #5 hrs
+      time: 18000 #5 hours - Omu edit start
+    - !type:RoleTimeRequirement
+      role: JobBrigmedic #added Brigmedic requirement
+      time: 2h # around two full shifts
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 #10 hrs
+      time: 54000 #15 hours - Omu edit end: Earn your thankless spot.
 #    - !type:SpeciesRequirement # Goob - None Felinid
 #      inverted: true
 #      species:
 #      - Felinid #Omu, add back Felinid
+    - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hours - Omu Edit
   weight: 5
   startingGear: WardenGear
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos
   canBeAntag: false
+  guides: # goobstation
+  - SpaceLaw
+  - LegalSOP
+  - Security
+  - WardenSOP
+  - KravMaga
+  - CommandTrainingManual # Omu
+  - SecurityTrainingManual # Omu
   goobcoins: 35 #Goob content
   access:
+  - Corpsman # Omu
   - Security
   - Brig
   - Armory
@@ -173,11 +187,11 @@
     eyes: ClothingEyesGlassesSecurity
     id: WardenPDA
     ears: ClothingHeadsetAltWarden # Goobstation
-    pocket1: OfficerGunCase #Omu
+    # pocket1: OfficerGunCase #Omu, item is in loadout instead
   storage:
     back:
     - Flash
-    - MagazinePistol
+    #- MagazinePistol # Omu moved to loadouts and will give ammo according to weapon
     - ClothingMaskGasSecurity # Goobstation
 
 - type: chameleonOutfit

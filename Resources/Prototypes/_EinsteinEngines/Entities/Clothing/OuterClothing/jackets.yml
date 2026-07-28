@@ -1,0 +1,29 @@
+#Insulated Jacket
+- type: entity
+  parent: [ClothingGloveJacketBase, BaseEngineeringContraband] # omu edit - jacket base
+  id: ClothingOuterJacketInsulated
+  name: insulated jacket
+  description: A thick jacket with a membrane attached to the end of its sleeves that conforms to the user's hands, allowing it to function as insulated gloves. Useful if you can't wear or find regular insulated gloves.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/GloveJackets/insulated_jacket.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/GloveJackets/insulated_jacket.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-yellow
+
+#Surgical Jacket
+- type: entity
+  parent: ClothingGloveJacketBase #omu edit - jacket base
+  id: ClothingOuterJacketSurgical
+  name: surgical jacket
+  description: A thick jacket with a membrane attached to the end of its sleeves that conforms to the user's hands, allowing it to function as surgical gloves. Useful for if you need to do surgery but can't wear normal gloves.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/GloveJackets/surgical_jacket.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/GloveJackets/surgical_jacket.rsi
+  - type: Fiber
+    fiberMaterial: fibers-nitrile

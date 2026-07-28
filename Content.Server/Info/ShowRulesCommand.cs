@@ -33,7 +33,8 @@ public sealed class ShowRulesCommand : LocalizedCommands
 
     public override async void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if (args.Length is < 1 or > 2)
+        // Omustation - Rules smite - Added allow bypass argument
+        if (args.Length is < 1 or > 3)
         {
             shell.WriteError(Loc.GetString("shell-wrong-arguments-number"));
             return;
@@ -41,7 +42,8 @@ public sealed class ShowRulesCommand : LocalizedCommands
 
         var seconds = _configuration.GetCVar(CCVars.RulesWaitTime);
 
-        if (args.Length == 2 && !float.TryParse(args[1], out seconds))
+        // Omustation - Rules smite - Changed == to >=
+        if (args.Length >= 2 && !float.TryParse(args[1], out seconds))
         {
             shell.WriteError(Loc.GetString("cmd-showrules-invalid-seconds", ("seconds", args[1])));
             return;
@@ -53,16 +55,28 @@ public sealed class ShowRulesCommand : LocalizedCommands
             return;
         }
 
+        // Omustation - Rules smite
+        var allowBypass = true; // Default to true
+        if (args.Length >= 3 && !bool.TryParse(args[2], out allowBypass))
+        {
+            shell.WriteError(Loc.GetString("shell-argument-must-be-boolean"));
+            return;
+        }
+
         var coreRules = _configuration.GetCVar(CCVars.RulesFile);
         var message = new SendRulesInformationMessage
-            { PopupTime = seconds, CoreRules = coreRules, ShouldShowRules = true };
+            { PopupTime = seconds, CoreRules = coreRules, ShouldShowRules = true, AllowBypass = allowBypass }; // Omustation - Rules smite
         _net.ServerSendMessage(message, player.Channel);
     }
 
+    // Omustation - Rules smite - Completely rewritten
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
-        return args.Length == 1
-            ? CompletionResult.FromOptions(CompletionHelper.SessionNames(players: _player))
-            : CompletionResult.Empty;
+        return args.Length switch
+        {
+            1 => CompletionResult.FromOptions(CompletionHelper.SessionNames(players: _player)),
+            3 => CompletionResult.FromOptions(CompletionHelper.Booleans),
+            _ => CompletionResult.Empty,
+        };
     }
 }

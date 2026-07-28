@@ -1,0 +1,56 @@
+- type: entity
+  name: alien flash
+  parent: [BaseItem, BaseMajorContraband]
+  id: FlashAbductor
+  suffix: Abductor
+  description: An ultrabright flashbulb with a trigger, which causes the victim to be dazed and lose their eyesight for a moment. Alien technology allows it to flash countless times.
+  components:
+    # Goobstation edit start
+    - type: EmitSoundOnPickup
+      sound:
+        path: /Audio/_Goobstation/Items/handling/component_pickup.ogg
+    - type: EmitSoundOnDrop
+      sound:
+        path: /Audio/_Goobstation/Items/handling/component_drop.ogg
+    - type: EmitSoundOnLand
+      sound:
+        path: /Audio/_Goobstation/Items/handling/component_drop.ogg
+    # Goobstation edit end
+    - type: Sprite
+      sprite: Objects/Weapons/Melee/flash.rsi
+      layers:
+      - state: flash
+        map: [ "enum.FlashVisualLayers.BaseLayer" ]
+      - state: flashing
+        map: [ "enum.FlashVisualLayers.LightLayer" ]
+        visible: false
+        shader: unshaded
+    - type: Flash
+    - type: MeleeWeapon
+      wideAnimationRotation: 180
+      damage:
+        types:
+          Blunt: 0 # melee weapon to allow flashing individual targets
+      angle: 10
+    - type: Item
+      size: Small
+      sprite: Objects/Weapons/Melee/flash.rsi
+    - type: UseDelay
+      delay: 4 # has to be the same as the FlashingTime datafield in FlashComponent
+    - type: UseDelayOnMeleeHit
+    - type: StaticPrice
+      price: 40
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.FlashVisuals.Burnt:
+          enum.FlashVisualLayers.BaseLayer:
+            True: {state: burnt}
+        enum.FlashVisuals.Flashing:
+          enum.FlashVisualLayers.LightLayer:
+            True: {visible: true}
+            False: {visible: false}
+    - type: GuideHelp
+      guides:
+      - Security
+      - Antagonists

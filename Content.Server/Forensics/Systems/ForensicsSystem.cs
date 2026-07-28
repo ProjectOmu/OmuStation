@@ -106,6 +106,7 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.DoAfter;
 using Content.Shared.Forensics;
 using Content.Shared.Forensics.Components;
+using Content.Shared.Forensics.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
@@ -116,10 +117,12 @@ using Robust.Shared.Utility;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Timing; // Goobstation
+using Content.Shared._EinsteinEngines.Xelthia; // Omu
+using Content.Shared.Inventory.VirtualItem; // Omu
 
 namespace Content.Server.Forensics
 {
-    public sealed class ForensicsSystem : EntitySystem
+    public sealed class ForensicsSystem : SharedForensicsSystem
     {
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
@@ -172,7 +175,8 @@ namespace Content.Server.Forensics
 
         private void OnFingerprintInit(Entity<FingerprintComponent> ent, ref MapInitEvent args)
         {
-            if (ent.Comp.Fingerprint == null)
+            if (ent.Comp.Fingerprint == null
+             && !HasComp<XelthiaComponent>(ent.Owner)) // Omu
                 RandomizeFingerprint((ent.Owner, ent.Comp));
         }
 
@@ -239,7 +243,7 @@ namespace Content.Server.Forensics
         private void OnRehydrated(Entity<ForensicsComponent> ent, ref GotRehydratedEvent args)
         {
             CopyForensicsFrom(ent.Comp, args.Target);
-            Dirty(args.Target, ent.Comp); // Einstein Engines
+            Dirty(args.Target, Comp<ForensicsComponent>(args.Target)); // Einstein Engines
         }
 
         /// <summary>
@@ -448,13 +452,34 @@ namespace Content.Server.Forensics
                 return;
 
             var component = EnsureComp<ForensicsComponent>(target);
-            if (_inventory.TryGetSlotEntity(user, "gloves", out var gloves))
+            var hasGloves = _inventory.TryGetSlotEntity(user, "gloves", out var gloves); // Omu
+            if (hasGloves) // Omu
             {
                 if (TryComp<FiberComponent>(gloves, out var fiber) && !string.IsNullOrEmpty(fiber.FiberMaterial))
                     component.Fibers.Add(string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial)) : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial)));
             }
+            // EE start for Xelthia jackets
+            if (_inventory.TryGetSlotEntity(user, "outerClothing", out var outerClothing) && (!hasGloves || HasComp<VirtualItemComponent>(gloves))) // Allows outerClothing to use this. omu - can't do else if since we need outerclothing, check if entity can't wear gloves or has a virtual item replacing them (jacket)
+            {
+                if (TryComp<FiberComponent>(outerClothing, out var fiber) && !string.IsNullOrEmpty(fiber.FiberMaterial))
+                {
+                    var fiberLocale = string.IsNullOrEmpty(fiber.FiberColor)
+                        ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial))
+                        : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial));
+                    component.Fibers.Add(fiberLocale); //omu - fix jackets not leaving fibers
+                }
 
-            if (TryComp<FingerprintComponent>(user, out var fingerprint) && CanAccessFingerprint(user, out _))
+                if (HasComp<FingerprintMaskComponent>(outerClothing))
+                {
+                    Dirty(target, component);
+                    return;
+                }
+            }
+            var isXelthia = HasComp<XelthiaComponent>(user); // Omu
+            if (isXelthia && !HasComp<FingerprintMaskComponent>(outerClothing)) //omu edit xelthia leave residue
+                component.Residues.Add(Loc.GetString("forensic-residue", ("adjective", "residue-sticky")));
+            // EE End for Xelthia jackets
+            if (TryComp<FingerprintComponent>(user, out var fingerprint) && CanAccessFingerprint(user, out _) && !isXelthia) //omu -xelthia don't leave fingerprints
                 component.Fingerprints.Add(fingerprint.Fingerprint ?? "");
         }
 
@@ -481,12 +506,7 @@ namespace Content.Server.Forensics
         }
 
         #region Public API
-
-        /// <summary>
-        /// Give the entity a new, random DNA string and call an event to notify other systems like the bloodstream that it has been changed.
-        /// Does nothing if it does not have the DnaComponent.
-        /// </summary>
-        public void RandomizeDNA(Entity<DnaComponent?> ent)
+        public override void RandomizeDNA(Entity<DnaComponent?> ent)
         {
             if (!Resolve(ent, ref ent.Comp, false))
                 return;
@@ -498,11 +518,7 @@ namespace Content.Server.Forensics
             RaiseLocalEvent(ent.Owner, ref ev);
         }
 
-        /// <summary>
-        /// Give the entity a new, random fingerprint string.
-        /// Does nothing if it does not have the FingerprintComponent.
-        /// </summary>
-        public void RandomizeFingerprint(Entity<FingerprintComponent?> ent)
+        public override void RandomizeFingerprint(Entity<FingerprintComponent?> ent)
         {
             if (!Resolve(ent, ref ent.Comp, false))
                 return;

@@ -21,14 +21,14 @@
       - groin
       organs:
         lungs: OrganDragonLungs # Fire breathing
-        heart: OrganSpaceAnimalHeart # Immunity to pressure
+        heart: OrganAnimalHeart
     groin:
       part: GroinDragon
       connections:
       - legs
       organs:
         liver: OrganAnimalLiver
-        stomach: OrganAnimalStomach
+        stomach: OrganDragonStomach  # Omu - for anti-rot
         kidneys: OrganAnimalKidneys
     legs:
       part: LegsDragon

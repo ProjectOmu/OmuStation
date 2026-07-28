@@ -89,4 +89,27 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<string> ChatHighlightsColor =
         CVarDef.Create("chat.highlights_color", "#17FFC1FF", CVar.CLIENTONLY | CVar.ARCHIVE, "The color in which the highlights will be displayed.");
+
+    #region Goobstation - Chat Highlight sounds!
+    // Goobstation - Chat Highlight sounds!
+    /// <summary>
+    ///     Whether to play a sound when a highlighted message is received.
+    /// </summary>
+    public static readonly CVarDef<bool> ChatHighlightSound =
+        CVarDef.Create("chat.highlight_sound", true, CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    /// <summary>
+    ///     Volume of the highlight sound when a highlighted message is received.
+    /// </summary>
+    public static readonly CVarDef<float> ChatHighlightVolume =
+        CVarDef.Create("chat.highlight_volume", 1.0f, CVar.ARCHIVE | CVar.CLIENTONLY);
+    // Goobstation - end
+    #endregion
+
+    /// <summary>
+    /// WD:    How far into the chat history to look when looking for similar messages to coalesce them.
+    /// </summary>
+    public static readonly CVarDef<int> ChatStackLastLines =
+        CVarDef.Create("chat.chatstack_last_lines", 1, CVar.CLIENTONLY | CVar.ARCHIVE, "How far into the chat history to look when looking for similiar messages to coalesce them.");
+
 }

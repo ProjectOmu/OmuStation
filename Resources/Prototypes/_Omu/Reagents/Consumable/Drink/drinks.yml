@@ -1,0 +1,80 @@
+- type: reagent
+  id: NTApprovedCoffee
+  name: reagent-name-NTApprovedCoffee
+  parent: BaseDrink
+  desc: reagent-desc-NTApprovedCoffee
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: profits
+  color: "#664300"
+  recognizable: true
+  metabolisms:
+    Drink:
+      metabolismRate: 0.1
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 2
+        type: Remove
+      - !type:Jitter # Goobstation: Coffee causes jitteriness and alters speed
+        conditions:
+        - !type:ReagentThreshold
+          reagent: NTApprovedCoffee
+          min: 20
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.15
+        sprintSpeedModifier: 1.15
+        conditions:
+        - !type:ReagentThreshold
+          reagent: NTApprovedCoffee
+          min: 20
+          max: 99
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+        conditions:
+        - !type:ReagentThreshold
+          reagent: NTApprovedCoffee
+          min: 20
+      - !type:MovespeedModifier # Goobstation: Drinking too much causes chest pain and slows you down
+        walkSpeedModifier: 0.70
+        sprintSpeedModifier: 0.70
+        conditions:
+        - !type:ReagentThreshold
+          reagent: NTApprovedCoffee
+          min: 31
+      - !type:PopupMessage
+        visualType: Medium
+        messages: ["ntcoffee-effect-ceomindset", "ntcoffee-effect-motivation", "ntcoffee-effect-lockedin"]
+        type: Local
+        probability: 0.05
+        conditions:
+        - !type:ReagentThreshold
+          reagent: NTApprovedCoffee
+          min: 20
+          max: 31
+      - !type:PopupMessage
+        visualType: Medium
+        messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
+        type: Local
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: NTApprovedCoffee
+          min: 31
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+            Asphyxiation: 1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: NTApprovedCoffee
+          min: 31
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/coffeeglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false

@@ -27,3 +27,19 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: VeteranCMO
+
+- type: loadout
+  id: ChiefMedicalOfficerDecoratedCloak
+  equipment:
+    neck: ClothingNeckCloakCMOFancy
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterCMO
+
+- type: loadout
+  id: ChiefMedicalOfficerModernMantle
+  equipment:
+    neck: ClothingNeckMantleCMOModern
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterCMO

@@ -1,0 +1,55 @@
+﻿- type: body
+  id: Thaven
+  name: "thaven"
+  root: chest
+  slots:
+    head:
+      part: HeadThaven
+      connections:
+      - chest
+      organs:
+        brain: OrganThavenBrain
+        eyes: OrganThavenEyes
+    chest:
+      part: ChestThaven
+      connections:
+      - groin
+      - right arm
+      - left arm
+      - head # Shitmed
+      organs:
+        heart: OrganThavenHeart
+        lungs: OrganThavenLungs
+    groin:
+      part: GroinThaven
+      connections:
+      - right leg
+      - left leg
+      organs:
+        stomach: OrganThavenStomach
+        liver: OrganThavenLiver
+        kidneys: OrganThavenKidneys
+    right arm:
+      part: RightArmThaven
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmThaven
+      connections:
+      - left hand
+    right hand:
+      part: RightHandThaven
+    left hand:
+      part: LeftHandThaven
+    right leg:
+      part: RightLegThaven
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegThaven
+      connections:
+      - left foot
+    right foot:
+      part: RightFootThaven
+    left foot:
+      part: LeftFootThaven

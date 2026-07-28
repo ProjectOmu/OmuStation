@@ -1,0 +1,104 @@
+- type: latheRecipe
+  abstract: true
+  id: BaseBorgModuleRecipeSyndicateBasic
+  categories:
+    - Modules
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 100
+
+- type: latheRecipe
+  abstract: true
+  id: BaseBorgModuleRecipeSyndicateAdvanced
+  categories:
+    - Modules
+  completetime: 3
+  materials:
+    Steel: 700
+    Glass: 600
+    Plastic: 450
+    Gold: 150
+    Diamond: 50
+
+- type: latheRecipe
+  abstract: true
+  id: BaseBorgModuleRecipeSyndicateAssault
+  categories:
+    - Modules
+  completetime: 3
+  materials:
+    Steel: 700
+    Glass: 600
+    Plastic: 450
+    Gold: 150
+    Diamond: 200
+
+- type: latheRecipe
+  abstract: true
+  id: BaseBorgChassisRecipeSyndicateAssault
+  categories:
+    - Robotics
+  completetime: 3
+  materials:
+    Steel: 8000
+    Glass: 3000
+    Plastic: 4500
+    Gold: 1500
+    Diamond: 300
+
+# Basic modules, slighly more expensive than NT modules.
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipeSyndicateBasic
+  id: BorgModuleSyndicateWeapon
+  result: BorgModuleSyndicateWeapon
+
+# Advanced modules, slightly more expensive
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipeSyndicateAdvanced
+  id: BorgModuleMartyr
+  result: BorgModuleMartyr
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipeSyndicateAdvanced
+  id: BorgModuleSyndicateWeaponAdvanced
+  result: BorgModuleSyndicateWeaponAdvanced
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipeSyndicateAdvanced
+  id: BorgModuleSyndicateMedicalTools
+  result: BorgModuleSyndicateMedicalTools
+
+# Assault modules, the most expensive
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipeSyndicateAssault
+  id: BorgModuleOperative
+  result: BorgModuleOperative
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipeSyndicateAssault
+  id: BorgModuleEsword
+  result: BorgModuleEsword
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipeSyndicateAssault
+  id: BorgModuleL6C
+  result: BorgModuleL6C
+
+
+# Chassis
+
+- type: latheRecipe
+  parent: BaseBorgChassisRecipeSyndicateAssault
+  id: BorgChassisSyndicateAssault
+  result: BorgChassisSyndicateAssault
+
+- type: latheRecipe
+  parent: BaseBorgChassisRecipeSyndicateAssault
+  id: BorgChassisSyndicateMedical
+  result: BorgChassisSyndicateMedical

@@ -62,13 +62,13 @@
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 RichardBlonski <48651647+RichardBlonski@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Administration.Logs;
 using Content.Server.GameTicking;
 using Content.Server.Ghost;
-using Content.Server.Mind.Commands;
 using Content.Shared.Database;
 using Content.Shared.Ghost;
 using Content.Shared.Mind;
@@ -80,8 +80,15 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
+using Content.Server.Mind.Commands;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Tag;
+
+// Goobstation
+using Content.Shared._Goobstation.Wizard.BindSoul;
+using Content.Shared.Mobs.Components;
+using Content.Goobstation.Shared.Mind.Components;
+
 
 namespace Content.Server.Mind;
 
@@ -269,6 +276,15 @@ public sealed class MindSystem : SharedMindSystem
 
                 alreadyAttached = true;
             }
+
+            // Goobstation - End-of-round Last words
+            if (HasComp<MobStateComponent>(entity.Value))
+            {
+                if (TryComp<MindLastMobComponent>(mindId, out var lastMobComp))
+                    lastMobComp.LastMob = entity.Value;
+            }
+            // END
+
         }
         else if (createGhost)
         {
@@ -423,7 +439,7 @@ public sealed class MindSystem : SharedMindSystem
             _tag.AddTag(mind.OwnedEntity.Value, SharedBindSoulSystem.IgnoreBindSoulTag);
         _tag.AddTag(target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
 
-        MakeSentientCommand.MakeSentient(target, EntityManager);
+        MakeSentient(target);
         TransferTo(mindId, target, ghostCheckOverride: true, mind: mind);
 
         if (mind.OwnedEntity != null) // Goobstation

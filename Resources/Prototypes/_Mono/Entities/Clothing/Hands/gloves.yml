@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: 2025 Avalon
+# SPDX-FileCopyrightText: 2025 core-mene
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsConcussiveGauntlets
+  name: concussive gauntlets
+  description: A pair of gauntlets designed for mining usage, delivering shocks to shatter anyhting in their path. Rare and powerful
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Hands/Gloves/concussive_gauntlets.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Mono/Clothing/Hands/Gloves/concussive_gauntlets.rsi
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: 2.5
+    damage:
+      types:
+        Blunt: 10
+        Structural: 40
+    soundHit:
+      collection: ExplosionSmall
+    heavyStaminaCost: 5
+    mustBeEquippedToUse: true # Omu, they are gloves, you should need to equip them.
+  - type: Tag
+    tags:
+    - Pickaxe
+  - type: PressureDamageChange
+    applyToMelee: true

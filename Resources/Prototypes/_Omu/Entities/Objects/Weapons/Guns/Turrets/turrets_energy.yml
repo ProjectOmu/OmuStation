@@ -1,0 +1,15 @@
+- type: entity
+  parent: WeaponEnergyTurretStationBase
+  id: WeaponEnergyTurretCentComm
+  suffix: CentComm
+  components:
+  - type: AccessReader
+    access: [["CentralCommand"]]
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - CentralCommand
+  - type: Machine
+    board: WeaponEnergyTurretSecurityMachineCircuitboard
+  - type: DeviceNetwork
+    receiveFrequencyId: TurretControl
+    transmitFrequencyId: Turret

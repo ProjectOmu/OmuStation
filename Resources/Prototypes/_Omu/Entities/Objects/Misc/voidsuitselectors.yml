@@ -1,0 +1,17 @@
+# corpsman
+- type: entity
+  id: UndeterminedVoidsuitCorpsman
+  name: corpsman hardsuit selector
+  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: SetSelector
+    possibleSets:
+    - VoidsuitSelectorCorpsmanLightHardsuit
+    - VoidsuitSelectorCorpsmanCombatHardsuit
+    - VoidsuitSelectorSecurityHardsuit
+
+

@@ -1,0 +1,296 @@
+﻿- type: entity
+  id: BorgChassisErt
+  parent: BaseBorgChassisNotIonStormable
+  name: Emergency Response Team Cyborg
+  description: A military-grade man-machine hybrid that's produced in-house by Nanotrasen, this chassis is purpose-built for the extermination of powerful threats alongside their ERT compatriots.
+  components:
+  - type: BorgTransponder
+    name: ert cyborg
+    sprite:
+      sprite: _Devilstation/Mobs/Silicon/chassis.rsi
+      state: ert
+  - type: Sprite
+    layers:
+    - state: ert
+      sprite: _Devilstation/Mobs/Silicon/chassis.rsi
+    - state: ert_e
+      map: [ "enum.BorgVisualLayers.Light" ]
+      shader: unshaded
+      visible: false
+      sprite: _Devilstation/Mobs/Silicon/chassis.rsi
+    - state: ert_l
+      shader: unshaded
+      map: [ "light" ]
+      visible: false
+      sprite: _Devilstation/Mobs/Silicon/chassis.rsi
+  - type: BorgChassis
+    maxModules: 3
+    hasMindState: ert_e
+    noMindState: ert_e_r
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleEngineering
+      - BorgModuleCentComm
+  - type: FlashImmunity
+  - type: MobThresholds # tankier
+    thresholds:
+      0: Alive
+      150: Critical
+      250: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Critical: BorgCrit
+      Dead: BorgDead
+    showOverlays: false
+    allowRevives: true
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:EmptyContainersBehaviour
+        containers:
+        - borg_brain
+        - cell_slot
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Command
+    - CentCom
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Command
+    - CentCom
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+  - type: CollectiveMind
+    defaultChannel: Binary
+    channels:
+    - Binary
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - MMIFilled
+      borg_module:
+      - BorgModuleERT
+      - BorgModuleAdvancedTool
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
+  - type: SiliconLawProvider
+    laws: CentCommLawset
+  - type: RandomMetadata
+    nameSegments:
+    - NamesBorg
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
+  - type: Access
+    enabled: false
+    groups:
+    - AllAccess
+    tags:
+    - Borg
+    - CentralCommand
+    - BlueshieldOfficer
+    - NanotrasenRepresentative
+  - type: AccessReader
+    access: [["CentralCommand"]]
+  - type: ShowJobIcons
+  - type: Stripping
+
+- type: entity
+  id: BorgChassisDeathsquad
+  parent: BaseBorgChassisNotIonStormable
+  name: Commando Cyborg
+  description: A man-machine hybrid that's equipped with the finest technology Nanotrasen could supply, this chassis is outfitted for one purpose and one purpose only, the complete annihilation of anything and everything in its path. Equipped with an energy sword, pulse rifle, and top-tier power cell, nothing can stand in its way for long.
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5
+  - type: BorgTransponder
+    name: commando cyborg
+    sprite:
+      sprite: _Devilstation/Mobs/Silicon/chassis.rsi
+      state: commando
+  - type: Sprite
+    layers:
+    - state: commando
+      sprite: _Devilstation/Mobs/Silicon/chassis.rsi
+    - state: commando_e
+      map: [ "enum.BorgVisualLayers.Light" ]
+      shader: unshaded
+      visible: false
+      sprite: _Devilstation/Mobs/Silicon/chassis.rsi
+    - state: commando_l
+      shader: unshaded
+      map: [ "light" ]
+      visible: false
+      sprite: _Devilstation/Mobs/Silicon/chassis.rsi
+  - type: BorgChassis
+    maxModules: 3
+    hasMindState: commando_e
+    noMindState: commando_e_r
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleEngineering
+      - BorgModuleCentComm
+  - type: FlashImmunity
+  - type: MobThresholds # tankier
+    thresholds:
+      0: Alive
+      300: Critical
+      350: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Critical: BorgCrit
+      Dead: BorgDead
+    showOverlays: false
+    allowRevives: true
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+        damage: 350
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:EmptyContainersBehaviour
+        containers:
+        - borg_brain
+        - cell_slot
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Command
+    - CentCom
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Command
+    - CentCom
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+  - type: CollectiveMind
+    defaultChannel: Binary
+    channels:
+    - Binary
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - MMIFilled
+      borg_module:
+      - BorgModuleCommando
+      - BorgModuleAdvancedTool
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellAntiqueProto
+  - type: SiliconLawProvider
+    laws: CentCommLawset
+  - type: RandomMetadata
+    nameSegments:
+    - NamesBorg
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
+  - type: Access
+    enabled: false
+    groups:
+    - AllAccess
+    tags:
+    - Borg
+    - CentralCommand
+    - BlueshieldOfficer
+    - NanotrasenRepresentative
+  - type: AccessReader
+    access: [["CentralCommand"]]
+  - type: ShowJobIcons
+  - type: Stripping
+
+- type: entity
+  id: PlayerBorgErtGhostRole
+  parent: BorgChassisErt
+  suffix: Ghost role
+  components:
+  - type: GhostRole
+    name: ghost-role-information-centcomm-cyborg-ert-name
+    description: ghost-role-information-centcomm-cyborg-ert-description
+    rules: ghost-role-information-higher-standard-silicon-rules
+    raffle:
+      settings: default
+    requirements:
+    - !type:RoleTimeRequirement
+      role: JobBorg
+      time: 18000 #5 hrs - Omu Edit
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  id: PlayerBorgDeathsquadGhostRole
+  parent: BorgChassisDeathsquad
+  suffix: Ghost role
+  components:
+  - type: GhostRole
+    name: ghost-role-information-centcomm-cyborg-commando-name
+    description: ghost-role-information-centcomm-cyborg-commando-description
+    rules: ghost-role-information-higher-standard-silicon-rules
+    raffle:
+      settings: default
+    requirements:
+    - !type:RoleTimeRequirement
+      role: JobBorg
+      time: 18000 #5 hrs - Omu Edit
+  - type: GhostTakeoverAvailable

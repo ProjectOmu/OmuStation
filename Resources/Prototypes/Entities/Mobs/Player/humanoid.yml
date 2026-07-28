@@ -107,7 +107,9 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -177,7 +179,7 @@
   - type: AutoImplant
     implants:
     - SpaceItalianTranslatorImplant   #chefs should speak space italian
-  - type: GrantCqc                    #Chefs should have CqC
+#  - type: GrantCqc                    #Chefs should have CqC # Omu, remove CQC
 # Goobstation end
 
 - type: randomHumanoidSettings
@@ -213,7 +215,7 @@
   parent: CentcommHumanoid # Goobstation
   components:
     - type: AutoImplant
-      implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm] # Goobstation
+      implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm] # Omu - Removed StypticStimulatorImplant
     - type: DeathSquadMember # Goobstation
     - type: GhostRole
       name: ghost-role-information-Death-Squad-name
@@ -231,6 +233,12 @@
     - type: Loadout
       prototypes: [ DeathSquadGear ]
       roleLoadout: [ RoleSurvivalEVA ]
+    - type: LoadoutSpecies # Omu
+      speciesSlotOverride: # Can't wear shoes, give magboot gloves
+        Harpy:
+          gloves: ClothingHandsGlovesDeathsquadGyroUnremoveable
+        Diona:
+          gloves: ClothingHandsGlovesDeathsquadGyroUnremoveable
     - type: RandomMetadata
       nameSegments:
         - NamesMilitaryFirstLeader
@@ -277,8 +285,14 @@
     - type: Loadout
       prototypes: [ ERTLeaderGear ]
       roleLoadout: [ RoleSurvivalExtended ]
+    - type: LoadoutSpecies # Omu
+      speciesSlotOverride: # Can't wear shoes, give magboot gloves
+        Harpy:
+          gloves: ClothingHandsGlovesEmergencyResponseTeam
+        Diona:
+          gloves: ClothingHandsGlovesEmergencyResponseTeam
     - type: AutoImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ] # Goobstation
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ] # Omu - Removed StypticStimulatorImplant
     - type: RandomMetadata
       nameSegments:
       - NamesMilitaryFirstLeader
@@ -557,7 +571,7 @@
       prototypes: [ ERTSecurityGear ]
       roleLoadout: [ RoleSurvivalExtended ]
     - type: AutoImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant ] # Omu - Removed StypticStimulatorImplant
 
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityEVA
@@ -586,7 +600,7 @@
       prototypes: [ ERTSecurityGearEVA ]
       roleLoadout: [ RoleSurvivalEVA ]
     - type: AutoImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant ] # Omu - Removed StypticStimulatorImplant
 
 # ERT Lecter is dead, and I have killed it. - Sol
 #- type: entity
@@ -651,7 +665,7 @@
       prototypes: [ ERTMedicalGear ]
       roleLoadout: [ RoleSurvivalExtended ]
     - type: AutoImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant ] # Omu - Removed StypticStimulatorImplant
 
 - type: entity
   id: RandomHumanoidSpawnerERTMedicalEVA
@@ -687,7 +701,7 @@
       prototypes: [ ERTMedicalGearEVA ]
       roleLoadout: [ RoleSurvivalEVA ]
     - type: AutoImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant ] # Omu - Removed StypticStimulatorImplant
 
 ## CBURN
 
@@ -707,7 +721,7 @@
   parent: CentcommHumanoid
   components:
     - type: AutoImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant ] # Omu - Removed StypticStimulatorImplant
     - type: Loadout
       prototypes: [CBURNGear]
       roleLoadout: [ RoleSurvivalEVA ]
@@ -747,7 +761,7 @@
   parent: EventHumanoidCentcomm
   components:
     - type: AutoImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant ] # Omu Removed StypticStimulatorImplant
     - type: GhostRole
       name: ghost-role-information-centcom-official-name
       description: ghost-role-information-centcom-official-description

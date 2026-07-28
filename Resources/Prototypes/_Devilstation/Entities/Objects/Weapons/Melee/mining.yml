@@ -1,0 +1,28 @@
+﻿- type: entity
+  name: Sonic Jackhammer
+  parent: BaseItem
+  id: SonicJackhammer
+  description: Powerful tool used to quickly breach structures.
+  components:
+  - type: Item
+    storedRotation: -90
+  - type: Tag
+    tags:
+    - Pickaxe
+  - type: Sprite
+    sprite: _Devilstation/Objects/Tools/sonicjackhammer.rsi
+    state: sonicjackhammer
+  - type: MeleeWeapon
+    autoAttack: true
+    angle: 0
+    wideAnimationRotation: -90
+    soundHit:
+      path: "/Audio/Items/drill_hit.ogg"
+    attackRate: 7
+    damage:
+      groups:
+        Brute: 6
+      types:
+        Structural: 30
+  - type: ThrowingAngle
+    angle: 270

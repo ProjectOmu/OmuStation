@@ -129,6 +129,8 @@
     selectedBorgType: medical
   - type: BorgSwitchableSubtype # Goobstation
     borgSubtype: default_medical
+  # Omu Add Virohud to Cyborgs
+  - type: ShowDiseaseIcons
 
 - type: entity
   id: BorgChassisService
@@ -158,7 +160,7 @@
           map: ["light"]
           visible: false
     - type: BorgChassis
-      maxModules: 3
+      maxModules: 4 # Omu
       moduleWhitelist:
         tags:
           - BorgModuleGeneric
@@ -190,12 +192,13 @@
           map: ["light"]
           visible: false
     - type: BorgChassis
-      maxModules: 3
+      maxModules: 6 # Omu, was 3
       moduleWhitelist:
         tags:
           - BorgModuleGeneric
           - BorgModuleMedical
           - BorgModuleSyndicate
+          - BorgModuleSyndicateMedical # Omu
       hasMindState: synd_medical_e
       noMindState: synd_medical
     - type: ShowHealthBars

@@ -57,11 +57,13 @@
   - CellRechargerCircuitboard
   - WeaponCapacitorRechargerCircuitboard
   - FreezerElectronics
+  - CameraElectronics # goob
 
 - type: latheRecipePack
   id: EngineeringBoardsStatic
   recipes:
   - SpaceHeaterMachineCircuitBoard
+  - CondenserMachineCircuitBoard # Goob
 
 ## Dynamic
 
@@ -102,3 +104,6 @@
   - HolopadMachineCircuitboard
   - TeslaCoilCircuitboard
   - RadiationCollectorCircuitboard
+  - NuclearFabricatorMachineCircuitboard
+  - NuclearReactorMonitorComputerCircuitboard
+  - NuclearCentrifugeMachineCircuitboard

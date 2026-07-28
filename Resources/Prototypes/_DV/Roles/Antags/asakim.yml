@@ -1,0 +1,11 @@
+- type: antag
+  id: Asakim
+  name: roles-antag-asakim-name
+  objective: roles-antag-asakim-objective
+  antagonist: true
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 86400 # 24 hours, same reasoning as SRN
+  - !type:DepartmentTimeRequirement # Omu
+    department: Security
+    time: 18000 # 5 hours

@@ -222,7 +222,7 @@
         Slash: 0.6
         Piercing: 0.55
         Heat: 0.55
-        Caustic: 0.6
+        Caustic: 0.6 
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
@@ -230,6 +230,8 @@
     knockdownTimeDelta: -2
   - type: StaminaResistance # Goobstation
     damageCoefficient: 0.7
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
 
 - type: entity
   abstract: true
@@ -247,9 +249,9 @@
       coefficients:
         Blunt: 0.6
         Slash: 0.6
-        Piercing: 0.65
+        Piercing: 0.55 # Omu
         Heat: 0.55
-        Caustic: 0.8
+        Caustic: 0.6 # Omu
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
@@ -257,6 +259,8 @@
     knockdownTimeDelta: -2
   - type: StaminaResistance # Goobstation
     damageCoefficient: 0.7
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
 
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
@@ -570,22 +574,6 @@
     sprite: Clothing/OuterClothing/Coats/clownpriest.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/clownpriest.rsi
-  - type: Armor # GOOB
-    coverage:
-    - Chest
-    - Groin
-    - Tail
-    - Arm
-    modifiers:
-      coefficients:
-        Slash: 0.6
-        Heat: 1.2
-  - type: ModifyDelayedKnockdown # GOOB
-    delayDelta: 1
-    knockdownTimeDelta: -1
-  - type: TemperatureProtection # GOOB
-    heatingCoefficient: 1.1 # the robes keep you warm but lets go of heat poorly
-    coolingCoefficient: 0.5
 
 - type: entity
   parent: [ClothingOuterStorageBase, BaseMajorContraband]
@@ -649,7 +637,7 @@
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
 
 - type: entity
-  parent: [ClothingOuterStorageBase, BaseSecurityContraband] # Goobstation
+  parent: [ClothingOuterStorageBase, BaseSecurityContraband, AllowSuitStorageClothing] # Goobstation # Omu, add AllowSuitStorageClothing
   id: ClothingOuterCoatAMG
   name: armored medical gown
   description: The version of the medical gown, with elements of a bulletproof vest, looks strange, but your heart is protected.

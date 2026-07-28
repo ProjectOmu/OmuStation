@@ -147,8 +147,15 @@
       Plastic: 25
       Steel: 25
       Glass: 25
+  # Lavaland Change start
+  - type: GunUpgrade
+    name: gun-upgrade-flashlight-name
+    examineTextType: gun-upgrade-examine-type-can-use
+    insertedTextType: gun-upgrade-inserted-examine-type-attached
+  - type: GunUpgradeFlashlight
+  # Lavaland Change end
   - type: ItemToggleCastRay # Omustation - Photophobia trait
-    raiseEventAt: 
+    raiseEventAt:
     - type: Photophobia
 
 - type: entity
@@ -201,7 +208,6 @@
     quickEquip: false
     slots:
       - Belt
-  - type: AttachmentFlashlight # Lavaland Change
 
 - type: entity
   parent: FlashlightLantern

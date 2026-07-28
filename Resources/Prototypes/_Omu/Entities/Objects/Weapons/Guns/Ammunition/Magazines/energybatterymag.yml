@@ -1,0 +1,69 @@
+- type: entity
+  id: AdvancedEnergyMagRifleLethal
+  parent: [ EnergyRifleMagBase, BaseSecurityContraband ]
+  name: advanced energy rifle magazine (lethal)
+  description: A Microreactor hooked up to a laser emitter that creates a lethal bolt of energy out the front of it's rifle.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Ammunition/Magazine/advancedenergyriflemag.rsi
+    layers:
+    - state: erifle_lethal
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: ProjectileBatteryAmmoProvider
+    proto: RifleBulletEnergyGunLethal
+    fireCost: 50
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50 # if balance is fucked probably just halve this number
+    autoRechargePause: true
+    autoRechargePauseTime: 12
+  - type: Tag
+    tags:
+    - AdvancedEnergyMagAmmo
+
+- type: entity
+  id: AdvancedEnergyMagRifleDisabler
+  parent: [ EnergyRifleMagBase, BaseSecurityContraband ]
+  name: advanced energy rifle magazine (disabler)
+  description: A Microreactor hooked up to a laser emitter that creates an exhausting bolt of energy out the front of it's rifle.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Ammunition/Magazine/advancedenergyriflemag.rsi
+    layers:
+    - state: erifle_disabler
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: ProjectileBatteryAmmoProvider
+    proto: RifleBulletEnergyGunDisabler
+    fireCost: 25
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50 # if balance is fucked probably just halve this number
+    autoRechargePause: true
+    autoRechargePauseTime: 12
+  - type: Tag
+    tags:
+    - AdvancedEnergyMagAmmo
+
+
+- type: entity
+  id: AdvancedEnergyMagRifleOverchargeLethal
+  parent: [ EnergyRifleMagBase, BaseSecurityContraband ]
+  name: advanced energy rifle magazine (overcharge)
+  description: A Microreactor hooked up to an overclocked laser emitter that creates a devastating bolt of energy out the front of it's rifle, but recharges slower and carries less ammo.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Ammunition/Magazine/advancedenergyriflemag.rsi
+    layers:
+    - state: erifle_overcharge
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: ProjectileBatteryAmmoProvider
+    proto: RifleBulletEnergyGunOverchargeLethal
+    fireCost: 66 #15 shot hopefully
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50 # if balance is fucked probably just halve this number
+    autoRechargePause: true
+    autoRechargePauseTime: 12
+  - type: Tag
+    tags:
+    - AdvancedEnergyMagAmmo

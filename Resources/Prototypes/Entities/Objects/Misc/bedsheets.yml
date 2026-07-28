@@ -113,10 +113,20 @@
     quickEquip: true
     slots:
     - neck
+  - type: Butcherable #Goob start
+    butcherDelay: 1.0
+    butcheringType: Knife
+    spawned:
+    - id: MaterialCloth1
+      amount: 3
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 150 #Goob end
   - type: StaticPrice
     price: 100
   - type: Tag
     tags:
+    - Recyclable #Goobstation
     - Bedsheet
 
 - type: entity
@@ -381,7 +391,7 @@
 - type: entity
   id: BedsheetBrigmedic
   parent: BedsheetBase
-  name: brigmedic's bedsheet
+  name: corpsman's bedsheet # Omu - rename Brigmedic to Corpsman
   description: Not worse than cotton.
   components:
   - type: Sprite

@@ -125,6 +125,8 @@
     - Security
     - Service
     - Theatre
+    - Paramedic # Omu
+    - Corpsman # Omu
     - CentralCommand # Omu
     - NanotrasenRepresentative # Omu
     - BlueshieldOfficer # Omu
@@ -189,8 +191,10 @@
     - Borg
   - type: DeployableTurretController
     accessGroups:
+    - Research # Omu, allow AI to whitelist RD
     - Silicon
     accessLevels:
+    - ResearchDirector # Omu, allow AI to whitelist RD
     - BasicSilicon
     - Borg
 

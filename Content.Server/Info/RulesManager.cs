@@ -46,6 +46,7 @@ public sealed class RulesManager
             PopupTime = _cfg.GetCVar(CCVars.RulesWaitTime),
             CoreRules = _cfg.GetCVar(CCVars.RulesFile),
             ShouldShowRules = !isLocalhost && !hasCooldown,
+            AllowBypass = true // Omustation - Rules smite
         };
         _netManager.ServerSendMessage(showRulesMessage, e.Channel);
     }

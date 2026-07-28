@@ -12,6 +12,8 @@ marking-ScreenGoggles = Goggles
 marking-ScreenExclaim = Exclaim
 marking-ScreenHeart = Heart
 marking-ScreenMonoeye = Cyclops
+# OmuStation
+marking-ScreenDot = Dot
 marking-ScreenNature = Naturalist
 marking-ScreenOrange = Orange
 marking-ScreenPink = Pink

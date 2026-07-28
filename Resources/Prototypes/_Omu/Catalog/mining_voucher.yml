@@ -1,0 +1,23 @@
+- type: thiefBackpackSet
+  id: MiningConcussiveGauntlets
+  name: mining-voucher-concussivegauntlets-name
+  description: mining-voucher-concussivegauntlets-description
+  sprite:
+    sprite: _Mono/Clothing/Hands/Gloves/concussive_gauntlets.rsi
+    state: icon
+  content:
+  - ClothingHandsConcussiveGauntlets
+
+- type: thiefBackpackSet
+  id: MiningFishingSet
+  name: mining-voucher-fishing-name
+  description: mining-voucher-fishing-description
+  sprite:
+    sprite: _Goobstation/Objects/Specific/Fishing/fishing_rod.rsi
+    state: icon
+  content:
+  - FishingRod
+  - DrinkBeerBottleFull
+  - DrinkBeerBottleFull
+  - DrinkBeerBottleFull
+  - ShelterCapsuleLuxury

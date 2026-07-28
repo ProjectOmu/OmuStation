@@ -1,0 +1,81 @@
+# SPDX-FileCopyrightText: 2025 Avalon
+# SPDX-FileCopyrightText: 2025 Coenx-flex
+# SPDX-FileCopyrightText: 2025 Cojoke
+# SPDX-FileCopyrightText: 2025 HungryCuban
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [ClothingHeadHardsuitBase, ShowMedicalIcons] # DeltaV - no contraband
+  id: ClothingHelmetHardsuitAsakim
+  name: kasature-pattern combat harness helmet
+  description: Part of an advanced combat harness, a suite of sensors and predictive algorithms provide real-time data on vital signs and heat signatures of others.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/asakim.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/asakim.rsi
+    # Omu Start
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-glow
+        shader: unshaded
+      head-asakim:
+      - state: equipped-HELMET-asakim
+      - state: equipped-HELMET-glow-asakim
+        shader: unshaded
+    # Omu End
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions: # prevents traumas at all (kinda)
+      Dismemberment: 1
+      OrganDamage: 1
+      BoneDamage: 1
+      VeinsDamage: 1
+      NerveDamage: 1
+    modifiers:
+      coefficients:
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.35
+        Heat: 0.35
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 15
+  - type: ThermalVision
+    pulseTime: 1
+    isEquipment: true
+    toggleAction: PulseThermalVision
+  #- type: NightVision # DeltaV - redundant, species already has it
+  #  flashDurationMultiplier: 0.85
+  #  isEquipment: true
+  #  color: "#1584e6"
+  - type: RadarConsole
+    maxRange: 1024
+    followEntity: true
+    #pannable: true # DeltaV - unimplemented
+  #- type: DetectionRangeMultiplier # upgraded thermal sensors # DeltaV - doesn't exist
+  #  infraredMultiplier: 1.5 # from 1
+  #  visualMultiplier: 8 # from 4
+  - type: ActivatableUI
+    key: enum.RadarConsoleUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+  # Omu Start
+  - type: ClothingGrantComponent
+    component:
+    - type: FacehuggerImmune
+  # Omu End

@@ -82,6 +82,7 @@ public sealed partial class GraphicsTab : Control
         Control.AddOptionCheckBox(CCVars.AmbientOcclusion, AmbientOcclusionCheckBox);
         Control.AddOption(new OptionFullscreen(Control, _cfg, FullscreenCheckBox));
         Control.AddOption(new OptionLightingQuality(Control, _cfg, DropDownLightingQuality));
+        Control.AddOption(new OptionParticleQuality(Control, _cfg, DropDownParticleQuality)); // _Starfall: Particle quality.
 
         Control.AddOptionDropDown(
             CVars.DisplayUIScale,
@@ -98,6 +99,14 @@ public sealed partial class GraphicsTab : Control
                 new OptionDropDownCVar<float>.ValueOption(2.00f, Loc.GetString("ui-options-scale-200")),
             ]);
 
+        Control.AddOptionDropDown(
+            CCVars.ViewportScalingFilterMode,
+            DropDownFilterMode,
+            [
+                new OptionDropDownCVar<string>.ValueOption("nearest", Loc.GetString("ui-options-filter-nearest")),
+                new OptionDropDownCVar<string>.ValueOption("bilinear", Loc.GetString("ui-options-filter-bilinear")),
+            ]);
+
         var vpStretch = Control.AddOptionCheckBox(CCVars.ViewportStretch, ViewportStretchCheckBox);
         var vpVertFit = Control.AddOptionCheckBox(CCVars.ViewportVerticalFit, ViewportVerticalFitCheckBox);
         Control.AddOptionSlider(
@@ -109,6 +118,7 @@ public sealed partial class GraphicsTab : Control
 
         vpStretch.ImmediateValueChanged += _ => UpdateViewportSettingsVisibility();
         vpVertFit.ImmediateValueChanged += _ => UpdateViewportSettingsVisibility();
+        IntegerScalingCheckBox.OnToggled += _ => UpdateViewportSettingsVisibility();
 
         Control.AddOptionSlider(
             CCVars.ViewportWidth,
@@ -136,6 +146,7 @@ public sealed partial class GraphicsTab : Control
         IntegerScalingCheckBox.Visible = ViewportStretchCheckBox.Pressed;
         ViewportVerticalFitCheckBox.Visible = ViewportStretchCheckBox.Pressed;
         ViewportWidthSlider.Visible = !ViewportStretchCheckBox.Pressed || !ViewportVerticalFitCheckBox.Pressed;
+        DropDownFilterMode.Visible = !IntegerScalingCheckBox.Pressed && ViewportStretchCheckBox.Pressed;
     }
 
     private void UpdateViewportWidthRange()
@@ -288,4 +299,59 @@ public sealed partial class GraphicsTab : Control
             };
         }
     }
+
+    // _Starfall Start: Particles
+    private sealed class OptionParticleQuality : BaseOption
+    {
+        private readonly IConfigurationManager _cfg;
+        private readonly OptionDropDown _dropDown;
+
+        private const int QualityOff    = 0;
+        private const int QualityLow    = 1;
+        private const int QualityMedium = 2;
+        private const int QualityHigh   = 3;
+        private const int QualityDefault = QualityHigh;
+
+        public OptionParticleQuality(OptionsTabControlRow controller, IConfigurationManager cfg, OptionDropDown dropDown) : base(controller)
+        {
+            _cfg = cfg;
+            _dropDown = dropDown;
+            var button = dropDown.Button;
+            button.AddItem(Loc.GetString("ui-options-particles-off"),    QualityOff);
+            button.AddItem(Loc.GetString("ui-options-particles-low"),    QualityLow);
+            button.AddItem(Loc.GetString("ui-options-particles-medium"), QualityMedium);
+            button.AddItem(Loc.GetString("ui-options-particles-high"),   QualityHigh);
+            button.OnItemSelected += args =>
+            {
+                _dropDown.Button.SelectId(args.Id);
+                ValueChanged();
+            };
+        }
+
+        public override void LoadValue()
+        {
+            _dropDown.Button.SelectId(_cfg.GetCVar(CCVars.ParticleQuality));
+        }
+
+        public override void SaveValue()
+        {
+            _cfg.SetCVar(CCVars.ParticleQuality, _dropDown.Button.SelectedId);
+        }
+
+        public override void ResetToDefault()
+        {
+            _dropDown.Button.SelectId(QualityDefault);
+        }
+
+        public override bool IsModified()
+        {
+            return _dropDown.Button.SelectedId != _cfg.GetCVar(CCVars.ParticleQuality);
+        }
+
+        public override bool IsModifiedFromDefault()
+        {
+            return _dropDown.Button.SelectedId != QualityDefault;
+        }
+    }
+    // _Starfall End: Particles
 }

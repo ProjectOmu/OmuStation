@@ -389,6 +389,9 @@
     - state: idshaftminer
   - type: PresetIdCard
     job: SalvageSpecialist
+  - type: Tag # Omu Edit
+    tags:
+    - SalvagePinpointer
 
 - type: entity
   parent: IDCardStandard
@@ -628,7 +631,7 @@
 - type: entity
   parent: IDCardStandard
   id: BrigmedicIDCard
-  name: brigmedic ID card
+  name: corpsman ID card # Omu - rename Brigmedic to Corpsman
   components:
   - type: Sprite
     layers:
@@ -826,7 +829,7 @@
   components:
   - type: Sprite
     layers:
-    - state: orange
+    - state: default #Omu, changed from orange to default
     - state: idatmospherictechnician
   - type: PresetIdCard
     job: AtmosphericTechnician
@@ -930,6 +933,7 @@
   - type: Sprite
     layers:
     - state: orange
+    - state: idprisoner #Omu
   - type: Item
     heldPrefix: orange
   - type: Access
@@ -1052,6 +1056,10 @@
     - AllAccess
     - Silicon
     tags:
+    - CentCommOffical # Omu start
+    - NanotrasenSpectre
+    - Deathsquad
+    - EmergencyResponseTeam # Omu end
     - CentralCommand
     - NuclearOperative
     - SyndicateAgent

@@ -1,0 +1,26 @@
+- type: entity
+  parent: ClothingHeadHeadHatBaseFlippable
+  id: ClothingHeadHatParamedicCybersun
+  name: cybersun paramedic cap
+  description: A turquoise baseball hat emblazoned with a reflective cross. Typical of Cybersun Industries field medics.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Soft/cybersunmedcap.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Soft/cybersunmedcap.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatParamedicCybersun]
+  id: ClothingHeadHatParamedicCybersunFlipped
+  name: cybersun paramedic cap
+  components:
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+
+    

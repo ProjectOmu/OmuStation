@@ -35,7 +35,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.28
+          radius: 0.35
         density: 140
         restitution: 0.0
         mask:
@@ -46,11 +46,11 @@
     prototype: Felinid
   - type: Damageable
     damageModifierSet: Felinid
-  # Goobstation - Siouxcide, felinids have standard slow on damage numbers
-# - type: SlowOnDamage
-#   speedModifierThresholds:
-#     60: 0.85  # 0.7 is base speed.
-#     80: 0.75  # 0.5 is base speed.
+  # Goobstation - Siouxcide, #OMU changes that to reflect what guide book says
+  - type: SlowOnDamage
+    speedModifierThresholds:
+     60: 0.85  # 0.7 is base speed.
+     80: 0.75  # 0.5 is base speed.
   - type: MeleeWeapon
     soundHit:
       collection: Punch
@@ -64,6 +64,7 @@
 #    - OwOnavirus
   - type: Speech
     speechSounds: Alto
+    allowedEmotes: [ 'Meow', 'Mew', 'Purr', 'Trill', 'Hiss', 'Growl' ] # Omu
   - type: LanguageKnowledge # Einstein Engines - Languages
     speaks:
     - TauCetiBasic
@@ -76,7 +77,8 @@
       types:
         Blunt: 1
   - type: Stamina
-    critThreshold: 75 # Goobstation - Siouxcide, felinids take 3 disabler shots to down
+    critThreshold: 85 # Goobstation - Siouxcide #OMU changes that to reflect what guide book says
+    animationThreshold: 40 # Goob edit
   - type: TypingIndicator
     proto: felinid
   - type: PseudoItem

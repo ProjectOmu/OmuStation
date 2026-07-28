@@ -1,0 +1,77 @@
+﻿- type: job
+  id: Courier
+  name: job-name-courier
+  description: job-description-courier
+  playTimeTracker: JobCourier
+  overrideConsoleVisibility: true
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Cargo
+    time: 9000 # = 2.5 hours
+  guides: # goobstation
+  - CourierSOP
+  - Cargo
+  startingGear: CourierGear #FIXME: CourierGear later since altTitles will be a thing, SO FIX AAAAAAAAAAAAAAAAAAAA
+  icon: "JobIconCourier"
+  supervisors: job-supervisors-qm
+  canBeAntag: true
+  goobcoins: 20 #Goob content
+  access:
+  - Cargo
+  - Maintenance
+  extendedAccess:
+  - Salvage
+  - External # goobstation
+
+- type: startingGear
+  id: CourierGear
+  equipment:
+    ears: ClothingHeadsetCargo
+    pocket1: AppraisalTool
+    pocket2: MailMetricsCartridge
+    # head: ClothingHeadMailCarrier
+
+- type: startingGear
+  id: MailCarrierGear #This is basically because with the deltaV drip, there's courier style and then mail carrier style.
+  equipment:
+    id: CourierPDAAlt
+    ears: ClothingHeadsetCargo
+    pocket1: AppraisalTool
+    pocket2: MailMetricsCartridge
+    head: ClothingHeadMailCarrier
+    jumpsuit: ClothingUniformMailCarrier
+    gloves: ClothingHandsGlovesColorWhite
+    shoes: ClothingShoesColorBrown
+
+- type: startingGear
+  id: CourierGearPlasmaman
+  parent: CourierGear
+  equipment:
+    id: CourierPDAAlt
+    head: ClothingHeadEnvirohelmCourier
+    jumpsuit: ClothingUniformEnvirosuitCourier
+    gloves: ClothingHandsGlovesEnviroglovesCourier
+    shoes: ClothingShoesColorBrown
+    outerClothing: ClothingOuterVestTank
+    suitstorage: DoubleEmergencyPlasmaTankFilled
+
+- type: startingGear
+  id: MailCarrierGearPlasmaman
+  parent: CourierGearPlasmaman
+  equipment:
+    id: CourierPDA
+    head: ClothingHeadEnvirohelmMailCarrier
+    jumpsuit: ClothingUniformEnvirosuitMailCarrier
+    gloves: ClothingHandsGlovesEnviroglovesWhite
+    shoes: ClothingShoesColorBlue
+
+- type: chameleonOutfit
+  id: CourierChameleonOutfit
+  job: Courier
+  equipment:
+    head: ClothingHeadMailCarrier
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskBreath
+    outerClothing: ClothingOuterWinterCoatMail
+    neck: ClothingNeckScarfStripedBrown
+    gloves: ClothingHandsGlovesFingerless

@@ -23,7 +23,7 @@
   components:
   - type: HereticRule
   - type: GameRule
-    minPlayers: 30 # Omu, was 15, we do not need heretics on lowpop.
+    minPlayers: 20 # Omu, was 15, we do not need heretics on lowpop.
   - type: AntagObjectives
     objectives:
     - HereticKnowledgeObjective
@@ -44,9 +44,6 @@
         - CommandStaff
       mindRoles:
       - MindRoleHeretic
-      components:
-      - type: WeakToHoly
-      - type: CanEnchant
   - type: Tag
     tags:
       - RoundstartAntag
@@ -57,7 +54,7 @@
   components:
   - type: HereticRule
   - type: GameRule
-    minPlayers: 30 # Omu, was 15, we don't need heretics on lowpop.
+    minPlayers: 20 # Omu, was 15, we don't need heretics on lowpop.
   - type: AntagObjectives
     objectives:
     - HereticKnowledgeObjective
@@ -69,7 +66,7 @@
     definitions:
     - prefRoles: [ Heretic ]
       max: 2
-      playerRatio: 30 # Omu, was 15, we don't need multiple heretics on lowpop, especialy not for a "calm" gamerule.
+      playerRatio: 20 # Omu, was 15, we don't need multiple heretics on lowpop, especialy not for a "calm" gamerule.
       lateJoinAdditional: true
       jobBlacklist: [ Chaplain ] # GOOBSTATION
       blacklist:
@@ -77,9 +74,6 @@
         - CommandStaff
       mindRoles:
       - MindRoleHeretic
-      components:
-      - type: WeakToHoly
-      - type: CanEnchant
   - type: Tag
     tags:
       - CalmAntag

@@ -36,7 +36,7 @@
 - type: gameMap
   id: Marathon
   mapName: 'Marathon Station'
-  mapPath: /Maps/_Goobstation/marathon.yml # Goobstation
+  mapPath: /Maps/_Omu/marathon.yml # Omu - Prisoner role mapping
   minPlayers: 35
   maxPlayers: 70
   stations:
@@ -57,6 +57,7 @@
             NanotrasenRepresentative: [ 1, 1 ] # Goobstation
             BlueshieldOfficer: [ 1, 1 ] # Goobstation
             HeadOfPersonnel: [ 1, 1 ]
+            AdministrativeAssistant: [ 1, 1 ] # Delta V
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 3 ]
             Chef: [ 2, 2 ]
@@ -64,6 +65,7 @@
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
+            #TODO Omu Mapping RadioHost: [ 1, 1 ] # Goobstation
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 3, 3 ]
@@ -80,6 +82,7 @@
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 4, 4 ]
             ResearchAssistant: [ 3, 3 ]
+            Roboticist: [ 2, 2 ] #Omu
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
@@ -88,10 +91,14 @@
             SecurityCadet: [ 4, 4 ]
             Lawyer: [ 2, 2 ]
             Brigmedic: [ 1, 1 ]
+            TransitPrisoner: [2, 2] # Omu - Prisoner role
+            SecuritySergeant: [ 1, 1 ] #Omu
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
+            Courier: [ 2, 3 ] # Omu - Courier role
             CargoTechnician: [ 3, 3 ]
+            #ShaftMiner: [ 3, 3 ]
             #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]
@@ -100,3 +107,5 @@
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
+
+            NanotrasenCareerTrainer: [ 2, 2] # Omu

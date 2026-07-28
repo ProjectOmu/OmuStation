@@ -89,6 +89,11 @@
   - WeaponProtoKineticAccelerator
   - ShuttleGunKineticCircuitboard
   - MechEquipmentKineticAccelerator # Goobstation
+  # Lavaland Change start
+  - WeaponProtoKineticShotgun
+  - WeaponProtoKineticRepeater
+  - WeaponProtoKineticPistol
+  # Lavaland Change end
   # These are roundstart but not replenishable for salvage
   position: 1,0 # Goobstation R&D Console rework
 
@@ -114,6 +119,10 @@
   - MagazineBoxMagnumIncendiary
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
+  # Omu start
+  - MagazineCaselessRifleIncendiary
+  - MagazineBoxCaselessRifleIncendiary
+  # Omu end
   # Goobstation R&D Console rework start
   position: 2,2
   technologyPrerequisites:
@@ -177,6 +186,8 @@
   - MagazinePistolUranium
   - MagazinePistolSubMachineGunUranium
   - MagazineLightRifleUranium
+  - MagazineCaselessRifleUranium # Omu
+  - MagazineBoxCaselessRifleUranium # Omu
   - SpeedLoaderMagnumUranium
   - MagazineBoxPistolUranium
   - MagazineBoxMagnumUranium
@@ -204,6 +215,7 @@
   - TelescopicShield
   - HoloprojectorSecurity
   - WeaponDisablerSMG
+  - Terminus #Goobstation
   # Goobstation R&D Console rework start
   position: 3,3
   technologyPrerequisites:

@@ -64,13 +64,19 @@
   description: job-description-intern
   playTimeTracker: JobMedicalIntern
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 18000 # 5 hrs
-      inverted: true # stop playing intern if you're good at med!
+    - !type:OverallPlaytimeRequirement
+      time: 1800 # 30 Minutes # Omu edit start - Play a single shift as passenger first
+    #- !type:DepartmentTimeRequirement # Sometimes you haven't played a department in a while :shrug:
+    #  department: Medical
+    #  time: 36000 #10 hours - Omu Edit
+    #  inverted: true # stop playing intern if you're good at med! # Omu edit end - no
   startingGear: MedicalInternGear
   icon: "JobIconMedicalIntern"
   supervisors: job-supervisors-medicine
+  guides: # goobstation
+  - MedicalDoctor
+  - Cloning
+  - Medicine
   goobcoins: 20 #Goob content
   access:
   - Medical

@@ -121,7 +121,8 @@ ntr-document-funny-sec1-10 = everyone in security has read George Orwell's 1984,
 ntr-document-funny-sec1-11 = the armory is properly sealed from tiders,
 ntr-document-funny-sec1-12 = the AI is working with security to catch wanted people,
 ntr-document-funny-sec1-13 = every officer has a non-lethal weapon,
-ntr-document-funny-sec1-14 = there is a brigmed present,
+# Omu Brigmed --> Corpsman
+ntr-document-funny-sec1-14 = there is a corpsman present,
 ntr-document-funny-sec1-15 = everyone in security knows that security autoinjectors are not single-use.
 
 # funny verbs SECURITY 2

@@ -18,8 +18,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineBrigmedic
-  name: brigmedic figurine
-  description: A figurine depicting a Brigmedic holding a combat medkit, poised to pois... treat prisoners.
+  name: corpsman figurine # Omu - rename Brigmedic to Corpsman
+  description: A figurine depicting a Corpsman holding a combat medkit, poised to pois... treat prisoners.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/figurines.rsi

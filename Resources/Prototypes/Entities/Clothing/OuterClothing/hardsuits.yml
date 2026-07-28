@@ -291,6 +291,10 @@
   - type: Armor
     modifiers:
       coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.90
         Shock: 0.5
         Caustic: 0.7
         Radiation: 0.05
@@ -533,7 +537,7 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
   id: ClothingOuterHardsuitBrigmedic
-  name: brigmedic hardsuit # Goob edit
+  name: corpsman hardsuit # Goob edit | Omu - rename Brigmedic to Corpsman
   description: Special hardsuit of the guardian angel of the brig. It is the medical version of the security hardsuit. # Goob edit
   components:
   - type: Sprite
@@ -749,8 +753,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseGrandTheftContraband]
   id: ClothingOuterHardsuitRd
-  name: experimental research hardsuit # Goob edit
-  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
+  name: sophia research hardsuit # Omu edit
+  description: One of the few remaining research hardsuits from now destroyed Regalis sector. Designed to protect against hazardous, low pressure environments. Old but reliable. # Omu edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/rd.rsi
@@ -761,19 +765,19 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients: #Goob - Modsuits all but pierce
-        Blunt: 0.65
-        Slash: 0.85
-        Piercing: 0.95
-        Heat: 0.4
-        Shock: 0.85
-        Radiation: 0.05
-        Caustic: 0.4
+      coefficients: #Omu - Making it viable to use again after awful goob nerfs
+        Blunt: 0.60
+        Slash: 0.80
+        Piercing: 0.90
+        Heat: 0.35
+        Shock: 0.75
+        Radiation: 0.01
+        Caustic: 0.35
   - type: ExplosionResistance
-    damageCoefficient: 0.15 #Goob - Modsuits
+    damageCoefficient: 0.10 #Goob - Modsuits /// Omu - Buffed to modsuit levels
   - type: ClothingSpeedModifier
-    walkModifier: 0.85 #Goob - Modsuits
-    sprintModifier: 0.85 #Goob - Modsuits
+    walkModifier: 0.80 #Goob - Modsuits /// Omu - Slightly nerfed, still faster then modsuit
+    sprintModifier: 0.80 #Goob - Modsuits /// Omu - Slightly nerfed, still faster then modsuit
   - type: HeldSpeedModifier
   - type: Item
     size: Huge
@@ -792,11 +796,11 @@
     price: 750
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitRd
-  - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 2
-    knockdownTimeDelta: -2
-  - type: StaminaResistance # Goobstation
-    damageCoefficient: 0.65
+  - type: ModifyDelayedKnockdown # Goobstation /// OMU - Buffed to modsuit levels
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: StaminaResistance # Goobstation /// OMU - Buffed to modsuit levels
+    damageCoefficient: 0.5
 
 #Head of Security's Hardsuit, heavily edited by goob
 - type: entity
@@ -1001,8 +1005,8 @@
   - type: Item
     size: Huge
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
+    walkModifier: 1 # goob edit
+    sprintModifier: 1 # goob edit
   - type: HeldSpeedModifier
   - type: Tag
     tags:
@@ -1214,9 +1218,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.9
+        Blunt: 0.7 # Omu, was 0.8
+        Slash: 0.7 # Omu, was 0.8
+        Piercing: 0.6 # Omu, was 0.9
         Heat: 0.4
         Caustic: 0.75
   - type: ClothingSpeedModifier
@@ -1233,6 +1237,9 @@
     knockdownTimeDelta: -2
   - type: StaminaResistance # Goobstation
     damageCoefficient: 0.7
+  - type: PressureProtection # Omu
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
 
 #Pirate Captain Hardsuit
 - type: entity
@@ -1255,9 +1262,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.8
-        Piercing: 0.85
+        Blunt: 0.5 # Omu, was 0.7
+        Slash: 0.6 # Omu, was 0.8
+        Piercing: 0.4 # Omu, was 0.85
         Heat: 0.4
         Caustic: 0.75
   - type: ClothingSpeedModifier

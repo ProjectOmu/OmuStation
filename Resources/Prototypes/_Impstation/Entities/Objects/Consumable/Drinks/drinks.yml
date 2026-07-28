@@ -1,0 +1,31 @@
+﻿- type: entity
+  parent: DrinkGlass
+  id: DrinkThavenBadGlass
+  suffix: bad
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ThavenBad
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/thavenbadglass.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkFeverDreamGlass
+  suffix: fever dream
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: FeverDream
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/feverdream.rsi
+    state: icon

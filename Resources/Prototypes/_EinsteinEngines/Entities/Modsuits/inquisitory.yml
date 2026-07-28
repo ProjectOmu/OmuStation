@@ -56,6 +56,8 @@
       clothingVisuals:
         gloves:
         - state: equipped-HAND-sealed
+        gloves-vox:
+        - state: equipped-HAND-sealed-vox
     - type: Insulated # Omu, Who removed the insulated from the parent...
 
 - type: entity
@@ -65,6 +67,12 @@
   description: A state-of-the-art helmet designed by NanoTrasen for the Inquisitory modsuit. It includes a built-in HUD.
   categories: [HideSpawnMenu]
   components:
+    - type: Clothing # Omu start
+      clothingVisuals:
+        head:
+          - state: equipped-HEAD
+        head-vox:
+          - state: equipped-HEAD-vox # Omu end
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/inquisitory.rsi
     - type: PressureProtection
@@ -100,7 +108,10 @@
         - state: equipped-HEAD-sealed
         - state: equipped-HEAD-sealed-unshaded
           shader: unshaded
-
+        head-vox:
+        - state: equipped-HEAD-sealed-vox
+        - state: equipped-HEAD-sealed-unshaded-vox
+          shader: unshaded
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplateInquisitory
@@ -133,6 +144,8 @@
       clothingVisuals:
         outerClothing:
         - state: equipped-OUTERCLOTHING-sealed
+        outerClothing-vox:
+        - state: equipped-OUTERCLOTHING-sealed-vox
     - type: StaminaResistance
       damageCoefficient: 0.5 # 50%
     - type: FireProtection
@@ -156,6 +169,8 @@
       clothingVisuals:
         shoes:
         - state: equipped-FEET-sealed
+        shoes-vox:
+        - state: equipped-FEET-sealed-vox
     - type: ItemToggle
     - type: ToggleClothing
       action: ActionToggleMagboots

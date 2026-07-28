@@ -38,7 +38,7 @@ namespace Content.Shared.Clothing.Components;
 //[Access(typeof(ClothingSystem), typeof(InventorySystem))] - Fuck yo access - Goob
 public sealed partial class ClothingComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField] // Omustation - autonetwork ClothingVisuals so that the eye colour of a cybernetic mantle is the same across clients
     public Dictionary<string, List<PrototypeLayerData>> ClothingVisuals = new();
 
     /// <summary>

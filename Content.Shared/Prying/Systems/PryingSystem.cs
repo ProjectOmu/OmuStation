@@ -69,6 +69,9 @@
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Avalon <jfbentley1@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -85,6 +88,8 @@ using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Serialization;
 using PryUnpoweredComponent = Content.Shared.Prying.Components.PryUnpoweredComponent;
+using Content.Shared._Mono.NoHack; // Omu, can people stop trying to break protected grids.
+using Content.Shared._Mono.NoDeconstruct; // Omu, can people stop trying to break protected grids.
 
 namespace Content.Shared.Prying.Systems;
 
@@ -189,6 +194,17 @@ public sealed class PryingSystem : EntitySystem
     {
         BeforePryEvent canev;
 
+        if (HasComp<NoHackComponent>(target)) // Omu. Can people stop trying to break protected grids.
+        {
+            message = null;
+            return false;
+        }
+        if (HasComp<NoDeconstructComponent>(target)) // Omu. Can people stop trying to break protected grids.
+        {
+            message = null;
+            return false;
+        }
+
         if (comp != null || Resolve(user, ref comp, false))
         {
             canev = new BeforePryEvent(user, comp.PryPowered, comp.Force, true);
@@ -218,6 +234,12 @@ public sealed class PryingSystem : EntitySystem
         var modEv = new GetPryTimeModifierEvent(user, instaPry); // Goob edit
 
         RaiseLocalEvent(target, ref modEv);
+
+        // Begin DeltaV additions
+        // Also raise an event for users to modifiy the time to pry
+        RaiseLocalEvent(user, ref modEv);
+        // End DeltaV additions
+
         var doAfterArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(modEv.BaseTime * modEv.PryTimeModifier / toolModifier), new DoorPryDoAfterEvent(), target, target, tool)
         {
             BreakOnDamage = true,

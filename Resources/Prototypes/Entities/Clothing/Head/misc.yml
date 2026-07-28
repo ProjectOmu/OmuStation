@@ -132,6 +132,7 @@
     - Hair
     - HeadTop
     - HeadSide
+  - type: PlasmaUnfit #Omustation
 
 - type: entity
   parent: ClothingHeadBase
@@ -180,6 +181,7 @@
     - HeadTop
     - HeadSide
     - FacialHair
+  - type: PlasmaUnfit #Omustation
 
 - type: entity
   parent: ClothingHeadBase
@@ -224,6 +226,7 @@
     - HeadTop
     - HeadSide
     - FacialHair
+  - type: PlasmaUnfit #Omustation
 
 - type: entity
   parent: ClothingHeadBase
@@ -242,6 +245,7 @@
     - Hair
     - HeadTop
     - HeadSide
+  - type: PlasmaUnfit #Omustation
 
 - type: entity
   parent: ClothingHeadBase
@@ -376,6 +380,7 @@
     - HeadTop
     - HeadSide
     - FacialHair
+  - type: PlasmaUnfit #Omustation
 
 - type: entity
   parent: ClothingHeadBase
@@ -393,6 +398,7 @@
     - HeadTop
     - HeadSide
     - FacialHair
+  - type: PlasmaUnfit #Omustation
 
 - type: entity
   parent: Clothing
@@ -410,15 +416,16 @@
   - type: Clothing
     slots:
     - HEAD
-  - type: Food
+  - type: Edible
+    edible: Drink
     solution: drink
-    useSound: /Audio/Items/drink.ogg
-    eatMessage: drink-component-try-use-drink-success-slurp
     delay: 0.5
     forceFeedDelay: 1.5
   - type: FlavorProfile
     flavors:
       - water
+  - type: DrainableSolution
+    solution: drink
   - type: SolutionContainerManager
     solutions:
       drink:

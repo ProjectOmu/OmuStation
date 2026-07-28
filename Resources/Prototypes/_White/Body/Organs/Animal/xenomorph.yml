@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseItem
+  parent: [BaseItem, BaseMajorContraband] # Omu, make it contra.
   id: BaseXenomorphOrgan
   abstract: true
   components:
@@ -28,6 +28,7 @@
   - type: Tag
     tags:
     - Meat
+    - Xenomorph # Omu Edit
 
 - type: entity
   parent: [BaseXenomorphOrgan, OrganHumanBrain]
@@ -57,7 +58,8 @@
     onAdd:
     - type: ThermalVision
       toggleAction: ToggleThermalVisionXenomorph
-      color: "#7d0cc9"
+      color: white
+      drawOverlay: false
       lightRadius: 10
       strength: 0
       noise: 0
@@ -106,10 +108,10 @@
           Heat: 20 # Goobstation
   # <Goobstation>
   - type: AcidGland
-  - type: OrganActions
-    actions:
-    - ActionAcid
-  # </Goobstation>
+  # - type: OrganActions
+  #   actions:
+  #   - ActionAcid
+  # </Goobstation> commented until acid if fixed
 
 - type: entity
   parent: BaseXenomorphOrgan
@@ -183,6 +185,12 @@
     state: hive_node
   - type: Organ
     slotId: hive_node
+    onAdd: # Omu start
+      - type: FacehuggerImmune
+      - type: Access # Goobstation - xeno doors
+        enabled: true
+        groups:
+          - XenomorphAccess # Omu end
   - type: HiveNode
     # TODO: Organ should give XenoHivemind language and Xeno faction
 

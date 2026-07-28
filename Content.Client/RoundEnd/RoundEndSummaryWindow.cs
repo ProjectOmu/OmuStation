@@ -51,11 +51,20 @@ using System.Linq;
 using System.Numerics;
 using Content.Client.Message;
 using Content.Shared.GameTicking;
-using Content.Goobstation.Common.StationReport;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
+// Goob Station - End of Round Screen
+using Content.Client.Stylesheets;
+using Content.Shared.Mobs;
+// OmuStation - NTR Crash fix
+using Content.Client.UserInterface.RichText;
+// OmuStation - End of Round Silicon Summary
+using Content.Shared.Silicons.Laws.Components;
+using Content.Shared.Silicons.Laws;
+using Content.Shared.IdentityManagement;
+using Robust.Client.UserInterface.RichText;
 
 namespace Content.Client.RoundEnd
 {
@@ -64,12 +73,25 @@ namespace Content.Client.RoundEnd
         private readonly IEntityManager _entityManager;
         public int RoundId;
 
+        // Byrd begin
+        private readonly Type[] _allowedStationReportTags =
+        [
+            typeof(BoldItalicTag),
+            typeof(BoldTag),
+            typeof(BulletTag),
+            typeof(ColorTag),
+            typeof(HeadingTag),
+            typeof(ItalicTag),
+            typeof(MonoTag)
+        ];
+        // Byrd end
+
         public RoundEndSummaryWindow(string gm, string roundEnd, TimeSpan roundTimeSpan, int roundId,
             RoundEndMessageEvent.RoundEndPlayerInfo[] info, IEntityManager entityManager)
         {
             _entityManager = entityManager;
 
-            MinSize = new Vector2(520, 580);
+            MinSize = new Vector2(600, 580); // Omu, increased 520 -> 600 to fit Silicon Summary
 
             Title = Loc.GetString("round-end-summary-window-title");
 
@@ -84,6 +106,7 @@ namespace Content.Client.RoundEnd
             roundEndTabs.AddChild(MakeRoundEndSummaryTab(gm, roundEnd, roundTimeSpan, roundId));
             roundEndTabs.AddChild(MakePlayerManifestTab(info));
             roundEndTabs.AddChild(MakeStationReportTab()); //goob
+            roundEndTabs.AddChild(MakeSiliconSummaryTab(info)); // Omu
 
             Contents.AddChild(roundEndTabs);
 
@@ -141,6 +164,8 @@ namespace Content.Client.RoundEnd
             return roundEndSummaryTab;
         }
 
+        #region Goob Station
+        // Everything inside this region is heavily edited for goob.
         private BoxContainer MakePlayerManifestTab(RoundEndMessageEvent.RoundEndPlayerInfo[] playersInfo)
         {
             var playerManifestTab = new BoxContainer
@@ -165,7 +190,39 @@ namespace Content.Client.RoundEnd
             //Create labels for each player info.
             foreach (var playerInfo in sortedPlayersInfo)
             {
+                var panel = new PanelContainer
+                {
+                    StyleClasses = { StyleNano.StyleClassBackgroundBaseDark },
+                    Margin = new Thickness(0, 0, 0, 6)
+                };
+
                 var hBox = new BoxContainer
+                {
+                    Orientation = LayoutOrientation.Horizontal,
+                    VerticalExpand = true
+                };
+
+                if (playerInfo.PlayerNetEntity != null)
+                {
+                    hBox.AddChild(new SpriteView(playerInfo.PlayerNetEntity.Value, _entityManager)
+                    {
+                        OverrideDirection = Direction.South,
+                        VerticalAlignment = VAlignment.Center,
+                        SetSize = new Vector2(64, 64),
+                        VerticalExpand = true,
+                        Stretch = SpriteView.StretchMode.Fill,
+                        Margin = new Thickness(3, 0, 3, 0)
+                    });
+                }
+
+                var textVBox = new BoxContainer
+                {
+                    Orientation = LayoutOrientation.Vertical,
+                    VerticalExpand = true,
+                    SeparationOverride = 2,
+                };
+
+                var playerTitleBox = new BoxContainer
                 {
                     Orientation = LayoutOrientation.Horizontal,
                 };
@@ -175,42 +232,159 @@ namespace Content.Client.RoundEnd
                     VerticalAlignment = VAlignment.Center,
                     VerticalExpand = true,
                 };
-                /* This causes so much lag holy fuck
-                if (playerInfo.PlayerNetEntity != null)
-                {
-                    hBox.AddChild(new SpriteView(playerInfo.PlayerNetEntity.Value, _entityManager)
-                        {
-                            OverrideDirection = Direction.South,
-                            VerticalAlignment = VAlignment.Center,
-                            SetSize = new Vector2(32, 32),
-                            VerticalExpand = true,
-                        });
-                }
-                */
+
                 if (playerInfo.PlayerICName != null)
                 {
-                    if (playerInfo.Observer)
+                    var playerNameText = new Label
                     {
-                        playerInfoText.SetMarkup(
-                            Loc.GetString("round-end-summary-window-player-info-if-observer-text",
-                                          ("playerOOCName", playerInfo.PlayerOOCName),
-                                          ("playerICName", playerInfo.PlayerICName)));
-                    }
-                    else
+                        VerticalAlignment = VAlignment.Bottom,
+                        StyleClasses = { StyleNano.StyleClassLabelHeading },
+                        Margin = new Thickness(0, 0, 6, 0),
+                        Text = playerInfo.PlayerICName
+                    };
+                    playerTitleBox.AddChild(playerNameText);
+
+                    var role = Loc.GetString(playerInfo.Role);
+                    var playerRoleText = new Label
                     {
-                        //TODO: On Hover display a popup detailing more play info.
-                        //For example: their antag goals and if they completed them sucessfully.
-                        var icNameColor = playerInfo.Antag ? "red" : "white";
-                        playerInfoText.SetMarkup(
-                            Loc.GetString("round-end-summary-window-player-info-if-not-observer-text",
-                                ("playerOOCName", playerInfo.PlayerOOCName),
-                                ("icNameColor", icNameColor),
-                                ("playerICName", playerInfo.PlayerICName),
-                                ("playerRole", Loc.GetString(playerInfo.Role))));
-                    }
+                        VerticalAlignment = VAlignment.Bottom,
+                        StyleClasses = { StyleNano.StyleClassLabelSubText },
+                        Text = Loc.GetString("round-end-summary-window-player-name",
+                            ("player", playerInfo.PlayerOOCName))
+                    };
+
+                    if (role != "Unknown")
+                        playerRoleText.Text = Loc.GetString("round-end-summary-window-player-name-role",
+                                ("role", role),
+                                ("player", playerInfo.PlayerOOCName));
+
+                    playerTitleBox.AddChild(playerRoleText);
                 }
-                hBox.AddChild(playerInfoText);
-                playerInfoContainer.AddChild(hBox);
+
+                textVBox.AddChild(playerTitleBox);
+
+                if (!string.IsNullOrWhiteSpace(playerInfo.LastWords))
+                {
+                    var playerLastWordsText = new RichTextLabel
+                    {
+                        VerticalAlignment = VAlignment.Center,
+                        VerticalExpand = true,
+                    };
+
+                    playerLastWordsText.SetMarkup(Loc.GetString("round-end-summary-window-last-words",
+                        ("lastWords", playerInfo.LastWords)));
+
+                    textVBox.AddChild(playerLastWordsText);
+                }
+
+                var hDeathBox = new BoxContainer
+                {
+                    Orientation = LayoutOrientation.Horizontal,
+                };
+
+                var deathLabel = new RichTextLabel
+                {
+                    VerticalAlignment = VAlignment.Center,
+                    VerticalExpand = true,
+                };
+
+                textVBox.AddChild(deathLabel);
+
+                if (playerInfo.EntMobState == MobState.Dead
+                    && playerInfo.DamagePerGroup.Values.Any(v => v > 0))
+                {
+                    var totalDamage = playerInfo.DamagePerGroup.Values.Sum(static v => (decimal) v);
+                    var severityAdj = totalDamage switch
+                    {
+                        >= 1000 => "catastrophic",
+                        >= 750 => "devastating",
+                        >= 500 => "agonizing",
+                        >= 300 => "painful",
+                        >= 200 => "brutal",
+                        _ => "tragic"
+                    };
+
+                    var highestDamage = playerInfo.DamagePerGroup
+                        .OrderByDescending(kvp => kvp.Value)
+                        .First();
+                    var typeAdj = highestDamage.Key switch
+                    {
+                        "Burn" => "fiery",
+                        "Brute" => "crushing",
+                        "Toxin" => "poisonous",
+                        "Airloss" => "suffocating",
+                        "Genetic" => "twisted",
+                        "Metaphysical" => "otherworldly",
+                        "Electronic" => "shocking",
+                        _ => "mysterious",
+                    };
+
+                    deathLabel.SetMarkup(
+                        Loc.GetString("round-end-summary-window-death",
+                            ("severity", severityAdj),
+                            ("type", typeAdj)));
+
+                    var damageTable = new GridContainer
+                    {
+                        Columns = playerInfo.DamagePerGroup.Count,
+                    };
+
+                    foreach (var damage in playerInfo.DamagePerGroup)
+                    {
+                        if (damage.Value <= 0)
+                            continue;
+
+                        var color = damage.Key switch
+                        {
+                            "Burn" => Color.Orange,
+                            "Brute" => Color.Red,
+                            "Toxin" => Color.Green,
+                            "Airloss" => Color.Blue,
+                            "Genetic" => Color.Cyan,
+                            "Metaphysical" => Color.Purple,
+                            "Electronic" => Color.DarkOrange,
+                            _ => Color.White,
+                        };
+                        var damagePanel = new PanelContainer
+                        {
+                            StyleClasses = { StyleNano.StyleClassBackgroundBaseLight },
+                            Margin = new Thickness(2, 2, 2, 2)
+                        };
+                        var damageBox = new BoxContainer
+                        {
+                            Orientation = LayoutOrientation.Vertical,
+                            Margin = new Thickness(1)
+                        };
+                        var valueLabel = new Label
+                        {
+                            Text = Math.Round((float) damage.Value).ToString(),
+                            FontColorOverride = color,
+                            HorizontalAlignment = HAlignment.Center,
+                            VerticalAlignment = VAlignment.Center,
+                        };
+                        var headerLabel = new Label
+                        {
+                            Text = damage.Key,
+                            FontColorOverride = Color.Gray,
+                            HorizontalAlignment = HAlignment.Center,
+                            VerticalAlignment = VAlignment.Center,
+                        };
+                        damagePanel.AddChild(damageBox);
+                        damageBox.AddChild(valueLabel);
+                        damageBox.AddChild(headerLabel);
+                        damageTable.AddChild(damagePanel);
+                    }
+
+                    textVBox.AddChild(damageTable);
+                }
+                else if (playerInfo.EntMobState == MobState.Invalid)
+                {
+                    deathLabel.SetMarkup(Loc.GetString("round-end-summary-window-death-unknown"));
+                }
+
+                hBox.AddChild(textVBox);
+                panel.AddChild(hBox);
+                playerInfoContainer.AddChild(panel);
             }
 
             playerInfoContainerScrollbox.AddChild(playerInfoContainer);
@@ -218,7 +392,7 @@ namespace Content.Client.RoundEnd
 
             return playerManifestTab;
         }
-        private BoxContainer MakeStationReportTab() //Goob edit start
+        private BoxContainer MakeStationReportTab()
         {
             //gets the stationreport varibible and sets the station report tab text to it if the map doesn't have a tablet will say No station report submitted
             var stationReportSystem = _entityManager.System<Content.Goobstation.Common.StationReport.StationReportSystem>();
@@ -240,8 +414,17 @@ namespace Content.Client.RoundEnd
             };
             var StationReportLabel = new RichTextLabel();
             var StationReportmessage = new FormattedMessage();
-            StationReportmessage.AddMarkupOrThrow(stationReportText);
-            StationReportLabel.SetMessage(StationReportmessage);
+            // Omu begin - NTR's shouldn't be able to crash the window by submitting a badly formatted report
+            try
+            {
+                StationReportmessage.AddMarkupPermissive(stationReportText);
+            }
+            catch (Exception)
+            {
+                StationReportmessage.AddText(Loc.GetString("round-end-summary-window-station-report-tab-invalid"));
+            }
+            // Omu end
+            StationReportLabel.SetMessage(StationReportmessage, _allowedStationReportTags); // Byrd
             StationReportContainer.AddChild(StationReportLabel);
 
 
@@ -249,7 +432,136 @@ namespace Content.Client.RoundEnd
             stationReportTab.AddChild(StationReportContainerScrollbox);
             return stationReportTab;
         }
-        //Goob edit end
+        #endregion
+
+        // Omu Start Station - End of Round Silicon Summary
+        #region Omu Station
+        private BoxContainer MakeSiliconSummaryTab(RoundEndMessageEvent.RoundEndPlayerInfo[] playersInfo)
+        {
+            var siliconSummaryTab = new BoxContainer
+            {
+                Orientation = LayoutOrientation.Vertical,
+                Name = Loc.GetString("round-end-summary-window-silicon-summary-tab-title")
+            };
+
+            var playerInfoContainerScrollbox = new ScrollContainer
+            {
+                VerticalExpand = true,
+                Margin = new Thickness(10)
+            };
+            var siliconInfoContainer = new BoxContainer
+            {
+                Orientation = LayoutOrientation.Vertical
+            };
+
+            // Make sure Station AI is always processed first
+            var sortedPlayersInfo = playersInfo.OrderBy(p => p.Role == "job-name-station-ai");
+
+            //Create labels for each player info.
+            foreach (var playerInfo in sortedPlayersInfo)
+            {
+                var panel = new PanelContainer
+                {
+                    StyleClasses = { StyleNano.StyleClassBackgroundBaseDark },
+                    Margin = new Thickness(0, 0, 0, 6)
+                };
+                var hBox = new BoxContainer
+                {
+                    Orientation = LayoutOrientation.Horizontal,
+                    VerticalExpand = true
+                };
+
+                if (playerInfo.PlayerNetEntity != null && playerInfo.laws != null)
+                {
+                    if (!_entityManager.TryGetEntity(playerInfo.borgEnt, out var borgEnt))
+                        continue;
+
+                    // Silicon Sprite
+                    hBox.AddChild(new SpriteView(borgEnt, _entityManager)
+                    {
+                        OverrideDirection = Direction.South,
+                        VerticalAlignment = VAlignment.Center,
+                        SetSize = new Vector2(64, 64),
+                        VerticalExpand = true,
+                        Stretch = SpriteView.StretchMode.Fill,
+                        Margin = new Thickness(3, 0, 3, 0)
+                    });
+
+                    // Main Text Box per silicon
+                    var textVBox = new BoxContainer
+                    {
+                        Orientation = LayoutOrientation.Vertical,
+                        VerticalExpand = true,
+                        SeparationOverride = 2,
+                    };
+
+                    var playerTitleBox = new BoxContainer
+                    {
+                        Orientation = LayoutOrientation.Horizontal,
+                    };
+
+                    if (!_entityManager.TryGetComponent<MetaDataComponent>(borgEnt, out var metaComp))
+                        continue;
+
+                    // Grab silicon player info
+                    if (playerInfo.PlayerICName != null)
+                    {
+                        var playerNameText = new Label
+                        {
+                            VerticalAlignment = VAlignment.Bottom,
+                            StyleClasses = { StyleNano.StyleClassLabelHeading },
+                            Margin = new Thickness(0, 0, 6, 0),
+                            Text = metaComp?.EntityName,
+                        };
+                        playerTitleBox.AddChild(playerNameText);
+
+                        var role = Loc.GetString(playerInfo.Role);
+                        var playerRoleText = new Label
+                        {
+                            VerticalAlignment = VAlignment.Bottom,
+                            StyleClasses = { StyleNano.StyleClassLabelSubText },
+                            Text = Loc.GetString("round-end-summary-window-player-name",
+                                ("player", playerInfo.PlayerOOCName))
+                        };
+
+                        playerTitleBox.AddChild(playerRoleText);
+                    }
+
+                    // Build list of silicon laws
+                    var lawsVbox = new BoxContainer
+                    {
+                        Orientation = LayoutOrientation.Vertical,
+                        VerticalExpand = true,
+                        SeparationOverride = 2,
+                    };
+
+                    foreach (SiliconLaw lawEntry in playerInfo.laws.Laws)
+                    {
+                        var borgLawText = new Label
+                        {
+                            VerticalAlignment = VAlignment.Bottom,
+                            StyleClasses = { StyleNano.StyleClassLabelSubText },
+                            Margin = new Thickness(0, 0, 6, 0),
+                            Text = $"{lawEntry.Order}. {Loc.GetString(lawEntry.LawString)}",
+                        };
+                        lawsVbox.AddChild(borgLawText);
+                    }
+
+                    textVBox.AddChild(playerTitleBox);
+                    textVBox.AddChild(lawsVbox);
+                    hBox.AddChild(textVBox);
+                    panel.AddChild(hBox);
+                    siliconInfoContainer.AddChild(panel);
+                }
+            }
+
+            playerInfoContainerScrollbox.AddChild(siliconInfoContainer);
+            siliconSummaryTab.AddChild(playerInfoContainerScrollbox);
+
+            return siliconSummaryTab;
+        }
+        #endregion
+        // Omu End
     }
 
 }

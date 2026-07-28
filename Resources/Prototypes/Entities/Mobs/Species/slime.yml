@@ -104,8 +104,8 @@
       # Goobstation - changelings
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
-      enum.HereticLivingHeartKey.Key: # goob edit - heretics
-        type: LivingHeartMenuBoundUserInterface
+      enum.RadarConsoleUiKey.Key: #goob - contractor
+        type: RadarConsoleBoundUserInterface
       enum.InstrumentUiKey.Key: # Omustation - Required to make the Singer trait work
         type: InstrumentBoundUserInterface
         requireInputValidation: false
@@ -135,15 +135,16 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Slime
-#  - type: PassiveDamage # Around 8 damage a minute healed
-#    allowedStates:
-#    - Alive
-#    damageCap: 65
-#    damage:
-#      types:
-#        Heat: -0.14
-#      groups:
-#        Brute: -0.14
+  - type: PassiveDamage # Around 8 damage a minute healed # Omu start, add back slime regen
+    allowedStates:
+    - Alive
+    damageCap: 65
+    damage:
+      types:
+        Heat: -0.14
+      groups:
+        Brute: -0.14
+    healAllParts: true # Omu end
   #  - type: DamageVisuals
   #    damageOverlayGroups:
   #      Brute:

@@ -1,0 +1,56 @@
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetCybersunParamedic
+  name: CSI-122M "Xiézhù" hardsuit helm
+  description: Helmet of the Xiézhù medical hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Hardsuits/cybersunparamedhelmet.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Hardsuits/cybersunparamedhelmet.rsi
+  - type: PointLight
+    color: "#f2feff"
+    radius: 7  
+    energy: 3 
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetCybersunScience
+  name: CSI-128X "Guānlián" hardsuit helm
+  description: Light red, non-see through faceplate for the "Guānlián" hardsuit, allows the user to weld without any protective gear underneath.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Hardsuits/cybersunscientisthelmet.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Hardsuits/cybersunscientisthelmet.rsi
+  - type: PointLight
+    color: "#d96050"
+    radius: 7  
+    energy: 3 
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
+  - type: FireProtection
+    reduction: 0.7  
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.3
+        Radiation: 0.3
+        Caustic: 0.4
+  - type: EyeProtection
+
+
+  

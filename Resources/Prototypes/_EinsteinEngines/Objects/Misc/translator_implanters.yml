@@ -10,6 +10,14 @@
   abstract: true
   parent: BaseImplantOnlyImplanter
   name: translator implanter
+  components: # Omu start
+  - type: Implanter
+    blacklist:
+      components:
+        - Guardian # no holoparasite macrobomb wombo combo
+        - TranslatorImplantBlocker
+      tags:
+        - Unimplantable # Omu end
 
 # Gives ability to understand TauCetiBasic.
 - type: entity
@@ -148,3 +156,11 @@
   components:
   - type: Implanter
     implant: NewKinPidginTranslatorImplant
+
+- type: entity
+  id: GruntishTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  suffix: Gruntish
+  components:
+  - type: Implanter
+    implant: GruntishTranslatorImplant

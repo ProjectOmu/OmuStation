@@ -60,6 +60,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Gameplay;
+using Content.Goobstation.Common.Weapons;
 using Content.Goobstation.Common.Weapons.MeleeDash;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._White.Blink;
@@ -81,6 +82,7 @@ using Robust.Client.State;
 using Robust.Shared.Input;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
+using Content.Shared._Omu.Changeling; //omu
 
 namespace Content.Client.Weapons.Melee;
 
@@ -96,6 +98,8 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly TransformSystem _transform = default!; // Goobstation
+    private bool wasPressedPreviously = false; //Omu
+
 
     private EntityQuery<TransformComponent> _xformQuery;
 
@@ -119,6 +123,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     {
         base.Update(frameTime);
 
+
         if (!Timing.IsFirstTimePredicted)
             return;
 
@@ -132,6 +137,11 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (TryComp<EntropicPlumeAffectedComponent>(entity, out var affected) &&
             affected.NextAttack + TimeSpan.FromSeconds(0.1f) > Timing.CurTime) // Goobstation
             return;
+
+        if (TryComp<BerserkAffectedComponent>(entity, out var berserk) &&
+            berserk.NextAttack + TimeSpan.FromSeconds(0.1f) > Timing.CurTime) // omu - for berserk sting
+            return;
+
 
         if (!TryGetWeapon(entity, out var weaponUid, out var weapon))
             return;
@@ -151,6 +161,8 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             {
                 RaisePredictiveEvent(new StopAttackEvent(GetNetEntity(weaponUid)));
             }
+            if (HasComp(weaponUid, typeof(MeleeDashComponent)))
+                wasPressedPreviously = altDown == BoundKeyState.Down; //Omu
         }
 
         if (weapon.Attacking || weapon.NextAttack > Timing.CurTime)
@@ -184,7 +196,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             if (!TryComp<AltFireMeleeComponent>(weaponUid, out var altFireComponent) || altDown != BoundKeyState.Down)
                 return;
 
-            switch(altFireComponent.AttackType)
+            switch (altFireComponent.AttackType)
             {
                 case AltFireAttackType.Light:
                     ClientLightAttack(entity, mousePos, coordinates, weaponUid, weapon);
@@ -222,6 +234,10 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 return;
             }
             // WD edit end
+            if (wasPressedPreviously) // Omu
+            {
+                return;
+            }
 
             // Dash
             if (TryComp(weaponUid, out MeleeDashComponent? dash))
@@ -229,6 +245,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 var direction = GetDirection();
                 if (direction != Vector2.Zero)
                     RaisePredictiveEvent(new MeleeDashEvent(GetNetEntity(weaponUid), direction));
+                wasPressedPreviously = altDown == BoundKeyState.Down; // Omu - removed autofire from dashes by making it only trigger once per state change.
                 return;
             }
 
@@ -247,7 +264,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 return targetMap.Position - userPos;
             }
             // Goobstation end
-
             ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
             return;
         }
@@ -314,13 +330,21 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     {
         var attackerPos = TransformSystem.GetMapCoordinates(attacker);
 
-        if (mousePos.MapId != attackerPos.MapId || (attackerPos.Position - mousePos.Position).Length() > meleeComponent.Range)
+        // Goob edit start
+        if (mousePos.MapId != attackerPos.MapId)
             return;
 
         EntityUid? target = null;
 
         if (_stateManager.CurrentState is GameplayStateBase screen)
-            target = screen.GetDamageableClickedEntity(mousePos); // Goob edit
+            target = screen.GetDamageableClickedEntity(mousePos);
+
+        var ev = new GetLightAttackRangeEvent(target, attacker, meleeComponent.Range);
+        RaiseLocalEvent(weaponUid, ref ev);
+
+        if ((attackerPos.Position - mousePos.Position).Length() > ev.Range)
+            return;
+        // Goob edit end
 
         // Don't light-attack if interaction will be handling this instead
         if (Interaction.CombatModeCanHandInteract(attacker, target))

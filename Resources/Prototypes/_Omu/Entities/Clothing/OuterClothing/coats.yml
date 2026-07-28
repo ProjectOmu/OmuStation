@@ -2,7 +2,7 @@
   parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterJacketCargoTech
   name: cargo gorka
-  description: A brown and black puffy jacket; made from synthetic fabric. Inspired by old Eastern European designs.
+  description: A brown and black puffy jacket made from synthetic fabric. Inspired by old Eastern European designs.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/OuterClothing/Coats/cargotechjacket.rsi
@@ -28,7 +28,7 @@
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterJacketCargoTech]
   id: ClothingOuterJacketCargoTechOpened
-  name: unzipped cargo gorka
+
 - type: entity
   parent: ClothingOuterCoatHoSTrench
   id: ClothingOuterCoatHOSWinterCoat
@@ -173,7 +173,7 @@
   parent: ClothingOuterCoatHoP
   id: ClothingOuterFormalJacketHoP
   name: head of personnel's formal jacket
-  description: A expensive, stylish jacket given to a Head of Personnel.
+  description: An expensive, stylish jacket given to a Head of Personnel.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/OuterClothing/Coats/hopformalcoat.rsi
@@ -184,7 +184,7 @@
   parent: ClothingOuterCoatHoP
   id: ClothingOuterFormalDressHoP
   name: head of personnel's formal dress jacket
-  description: A expensive, stylish dress given to a Head of Personnel.
+  description: An expensive, stylish dress given to a Head of Personnel.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/OuterClothing/Coats/hopformaldress.rsi
@@ -194,8 +194,8 @@
 - type: entity
   parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterCMOLabCoat
-  name: CMO's Splashproof Labcoat
-  description: A Heavy, splash resistant labcoat made out of a fabric inner layer and plastic outer layer. Practical and cozy!
+  name: CMO's splashproof labcoat
+  description: A heavy, splash resistant labcoat made out of a fabric inner layer and plastic outer layer. Practical and cozy!
   components:
   - type: Sprite
     sprite: _Omu/Clothing/OuterClothing/Coats/CMOlabcoat.rsi
@@ -223,8 +223,8 @@
 - type: entity
   parent: [ ClothingOuterStorageFoldableBase, ClothingOuterCoatCentralCommandWinterADMEME, BaseCentcommContraband ]
   id:  ClothingOuterCentcomLabcoat
-  name: Central Commander's Labcoat
-  description: Style, Performance, elegance, egg. Accept no compromise. Fur lined for maximum cozy, Bluespace rubber exterior for maximum performance.
+  name: central commander's labcoat
+  description: Style, Performance, elegance, egg. Accept no compromise. Fur lined for maximum cozy, bluespace rubber exterior for maximum performance.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/OuterClothing/Coats/centcomlabcoat.rsi
@@ -234,5 +234,40 @@
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCentcomLabcoat]
   id: ClothingOuterCentcomLabcoatOpened
-  name: Central Commander's Labcoat
+  name: central commander's labcoat
 
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCourierDuster
+  name: courier's duster
+  description: Makes you feel nuclear.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/courierduster.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/courierduster.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+
+- type: entity
+  id: ClothingOuterCoatArmoredJamrockBlazer
+  parent: [ClothingOuterCoatDetective]
+  name: armored jamrock blazer
+  description: It reminds you there are no truces with the furies.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/OuterClothing/Coats/blazer_jamrock.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/OuterClothing/Coats/blazer_jamrock.rsi
+
+- type: entity
+  id: ClothingOuterCoatArmoredAerostaticBomber
+  parent: [ClothingOuterCoatDetective]
+  name: armored aerostatic bomber
+  description: Wearing this jacket makes you feel stoic.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/OuterClothing/Coats/bomber_aerostatic.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/OuterClothing/Coats/bomber_aerostatic.rsi

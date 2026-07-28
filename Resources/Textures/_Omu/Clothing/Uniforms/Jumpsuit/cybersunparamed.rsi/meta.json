@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites taken from Shiptest at https://github.com/shiptest-ss13/Shiptest/commit/1ff7dac0b02641215eb5225a0da9c82ee4a40dcf#diff-0f5faae5d5ffbcf378d141a87bad5e8203c33791b6a26c74472aa2f3315e25fa - Inhand sprites made by diggy",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-INNERCLOTHING",
+      "directions": 4
+    },
+	{
+      "name": "inhand-left",
+	  "directions": 4
+    },
+	{
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

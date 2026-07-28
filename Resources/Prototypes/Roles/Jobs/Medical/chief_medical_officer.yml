@@ -138,24 +138,38 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobChemist
-      time: 9000 #2.5 hrs
+      time: 54000 #15 hrs - Omu Edit start
+    - !type:RoleTimeRequirement
+      role: JobParamedic
+      time: 9000 #2.5 hours
     - !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 18000 #5 hrs
+      time: 36000 #10 hours
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 36000 #10 hrs
-#    - !type:SpeciesRequirement # Goob - None Felinid	
-#      inverted: true	
-#      species:	
+      time: 72000 # 20 hours - Omu edit end
+#    - !type:SpeciesRequirement # Goob - None Felinid
+#      inverted: true
+#      species:
 #      - Felinid #Omu, add back Felinid
+    - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hours - Omu Edit
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
   supervisors: job-supervisors-captain
   canBeAntag: false
+  guides: # goobstation
+  - Medical
+  - ChiefMedicalOfficerSOP
+  - MedicalSOP
+  - Command
+  - Chemicals
+  - CommandTrainingManual # Omu
+  - Virology
   goobcoins: 40 #Goob content
   weight: 10 #Goob Edit
   access:
+  - Paramedic # Omu
   - Medical
   - Command
   - Maintenance
@@ -181,7 +195,7 @@
   equipment:
     id: CMOPDA
     ears: ClothingHeadsetAltMedical # Goobstation
-    eyes: ClothingEyesGlassesMed # Goobstation
+    eyes: ClothingEyesGlassesMedChemFlash #Omu
     belt: ClothingBeltMedicalFilled
   storage:
     back:
@@ -194,7 +208,7 @@
   hasMindShield: true
   equipment:
     head: ClothingHeadHatBeretCmo
-    eyes: ClothingEyesHudMedical
+    eyes: ClothingEyesGlassesMedChemFlash # Omu
     mask: ClothingMaskSterile
     neck: ClothingCloakCmo
     outerClothing: ClothingOuterCoatLabCmo

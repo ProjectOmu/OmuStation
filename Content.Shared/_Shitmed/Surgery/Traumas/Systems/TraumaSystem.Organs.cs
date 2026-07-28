@@ -7,13 +7,17 @@ using Content.Shared.Body.Organ;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.Popups;
+using Content.Shared.Stunnable;
+using Content.Shared.Rejuvenate; // Omu
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 
 public partial class TraumaSystem
 {
     private const string OrganDamagePainIdentifier = "OrganDamage";
+    public static readonly EntProtoId OrgansDamagedSlowdown = "OrgansDamagedSlowdownEffect";
 
     private void InitOrgans()
     {
@@ -95,13 +99,13 @@ public partial class TraumaSystem
                 nerveSys.Value.Comp.OrganDestructionReflexSounds[sex],
                 AudioParams.Default.WithVolume(6f));
 
-            _stun.TryParalyze(body.Value, nerveSys.Value.Comp.OrganDamageStunTime, true);
-            _stun.TrySlowdown(
-                body.Value,
-                nerveSys.Value.Comp.OrganDamageStunTime * _cfg.GetCVar(SurgeryCVars.OrganTraumaSlowdownTimeMultiplier),
-                true,
-                _cfg.GetCVar(SurgeryCVars.OrganTraumaWalkSpeedSlowdown),
-                _cfg.GetCVar(SurgeryCVars.OrganTraumaRunSpeedSlowdown));
+            _stun.TryUpdateParalyzeDuration(body.Value, nerveSys.Value.Comp.OrganDamageStunTime);
+            _movementMod.TryUpdateMovementSpeedModDuration(
+                 body.Value,
+                 OrgansDamagedSlowdown,
+                 nerveSys.Value.Comp.OrganDamageStunTime * _cfg.GetCVar(SurgeryCVars.OrganTraumaSlowdownTimeMultiplier),
+                 _cfg.GetCVar(SurgeryCVars.OrganTraumaWalkSpeedSlowdown),
+                 _cfg.GetCVar(SurgeryCVars.OrganTraumaRunSpeedSlowdown));
         }
 
         if (TryGetWoundableTrauma(bodyPart, out var traumas, TraumaType.OrganDamage, bodyPart))
@@ -125,6 +129,40 @@ public partial class TraumaSystem
     #endregion
 
     #region Public API
+
+    // Omu Start
+    /// <summary>
+    /// Let this be the defacto way of applying damage to organIntegrity.
+    /// </summary>
+    /// <param name="uid"> The organ entity's uid </param>
+    /// <param name="severity"> The amount of damage to be dealt </param>
+    /// <param name="effectOwner"> Who applied the effect (used for debugging idk) </param>
+    /// <param name="identifier"> Unique string??? </param>
+    /// <param name="organ"> The organ component of the organ entity </param>
+    /// <returns> True if damage was successfully added to the organ's modifier list. </returns>
+    /// <example> _trauma.TryMakeOrganDamageModifier(eye.Owner, amount, blindable.Owner, "BlindableDamage", eye.Comp2)</example>
+    /// <remarks>This is the biggest piece of shit I had ever seen. Halfassed implementation for public API that never gets used and had to be REDONE in EYESSYSTEM! AND EVEN THAT DIDN'T WORK OR DO ANYTHING</remarks>
+    public bool TryMakeOrganDamageModifier(EntityUid uid,
+        FixedPoint2 severity,
+        EntityUid effectOwner,
+        string identifier,
+        OrganComponent? organ = null)
+    {
+        if (severity == 0
+            || !Resolve(uid, ref organ))
+            return false;
+        // As I am obfuscating cumbersome methods here
+#pragma warning disable CS0618
+        if (!TryCreateOrganDamageModifier(uid, severity, effectOwner, identifier, organ))
+        {
+            if (!TryChangeOrganDamageModifier(uid, severity, effectOwner, identifier, organ))
+                return false;
+        }
+        return true;
+    }
+#pragma warning restore CS0618
+    [Obsolete("In most cases, use TryMakeOrganDamageModifier() instead")]
+    // Omu End
     public bool TryCreateOrganDamageModifier(EntityUid uid,
         FixedPoint2 severity,
         EntityUid effectOwner,
@@ -159,6 +197,7 @@ public partial class TraumaSystem
         return true;
     }
 
+    [Obsolete("In most cases, use TryMakeOrganDamageModifier() instead")] // Omu
     public bool TryChangeOrganDamageModifier(EntityUid uid,
         FixedPoint2 change,
         EntityUid effectOwner,
@@ -205,7 +244,7 @@ public partial class TraumaSystem
         var oldIntegrity = organ.OrganIntegrity;
 
         if (organ.IntegrityModifiers.Count > 0)
-            organ.OrganIntegrity = FixedPoint2.Clamp(organ.IntegrityModifiers
+            organ.OrganIntegrity = organ.IntegrityCap - FixedPoint2.Clamp(organ.IntegrityModifiers // Omu
                 .Aggregate(FixedPoint2.Zero, (current, modifier) => current + modifier.Value),
                 0,
                 organ.IntegrityCap);

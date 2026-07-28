@@ -10,8 +10,8 @@
 - type: latheRecipe
   abstract: true
   id: BaseXenoborgModulesRecipe
-#  categories: # Omu, This catagory doesn't exist here
-#  - Modules
+  categories:
+  - Modules
   completetime: 2
   materials:
     Glass: 3000

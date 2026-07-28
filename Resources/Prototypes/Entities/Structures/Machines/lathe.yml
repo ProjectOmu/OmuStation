@@ -338,6 +338,10 @@
     - !type:AutomatedMaterialStorage
       input: AutomationSlotMaterials
       output: null
+    - !type:AutomatedPorts
+      sinks:
+      - LathePrint
+  - type: LatheAutomation # Goobstation
   - type: SpamEmitSound # Goobstation - random lathe sounds
     minInterval: 300
     maxInterval: 900
@@ -440,6 +444,7 @@
     emagStaticPacks:
     - SecurityWeaponsStatic
     - SecurityAmmoStatic
+    - SecurityAmmoStaticOmu # Omu
     # Goobstation
     - SecurityWeaponsStaticGoob
     - SecurityAmmoStaticGoob
@@ -531,6 +536,7 @@
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
+    - SecurityAmmoOmu # Omu
     - SecurityExplosives
     #- SecurityEquipment # Goobstation
     - SecurityWeapons
@@ -585,6 +591,7 @@
     - SharedBoardsStatic
     - MedicalBoardsStaticGoob
     - SecurityBoardsStaticGoob
+    - ServiceBoardsStaticGoob
     dynamicPacks:
     - EngineeringBoards
     - CargoBoards
@@ -597,6 +604,8 @@
     # Goobstation Packs
     - SharedBoards
     - ShuttleBoardsGoob
+    - ServiceAssemblerPack # Frontier Service Assembler
+    - MedicalAssemblerPack # Frontier Medical Assembler
   - type: MaterialStorage
     whitelist:
       tags:
@@ -664,6 +673,8 @@
     - PowerAugments
     - ToolAugments
     - PowerCells
+    # EE Recipe packs
+    - ReverseMMiRecipeEE
   - type: EmagLatheRecipes # Goobstation
     emagStaticPacks:
     - MechWeaponsSecurityStatic
@@ -679,6 +690,18 @@
   - type: GuideHelp
     guides:
     - Robotics
+  - type: BlueprintReceiver # Omu start
+    whitelist:
+      tags:
+      - BlueprintExosuitFabricator
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      blueprint: !type:Container
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - blueprint # Omu end
 
 - type: entity
   id: Biofabricator
@@ -763,7 +786,7 @@
     - ScienceExplosives
     - GrenadeTriggersStatic
     - SecurityWeaponsStaticGoob
-    - SecurityWeaponsNonEmaggableStaticGoob
+    - SecurityAmmoStaticOmu # Omu
     dynamicPacks:
     - SalvageSecurityBoards
     - SalvageSecurityWeapons
@@ -771,6 +794,7 @@
     - SecurityBoards
     - SecurityExplosives
     - SecurityAmmo
+    - SecurityAmmoOmu # Omu
     - SecurityWeapons
     - SecurityDisablers
     # Goobstation
@@ -823,6 +847,7 @@
       - SecurityAmmoStatic
       # Goobstation Packs
       - SecurityAmmoStaticGoob
+      - SecurityAmmoStaticOmu # Omu
     - type: EmagLatheRecipes # Goobstation Packs
       emagStaticPacks:
       - SyndicateAmmoLightStatic
@@ -886,10 +911,12 @@
     - MedicalVehiclesAdvanced
     - MedicalBoards
     - Janitor
-    - Genetics
+    #- Genetics # Omu, this pack is currently empty
+    - MedicalCloning
     # Einstein Engines Packs
     - Translators # Language
     - TranslatorImplanters # Language
+    - MedicalAssemblerPack # Frontier Medical Assembler
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: EmagLatheRecipes # Goobstation Packs
@@ -899,7 +926,7 @@
     stealGroup: MedicalTechFabCircuitboard
 
 - type: entity
-  parent: BaseLathe
+  parent: [BaseLatheLube, BaseSiloUtilizer] #Goob edit
   id: UniformPrinter
   name: uniform printer
   description: Prints new or replacement uniforms.
@@ -1028,6 +1055,7 @@
       idleState: icon
       runningState: building
       defaultProductionAmount: 10
+      outputToStorage: true # Goob edit
       staticPacks:
       - OreSmelting
       - RGlassSmelting
@@ -1119,3 +1147,4 @@
         - Wooden
         - RawMaterial
         - Plastic
+        - Ingot #OMU

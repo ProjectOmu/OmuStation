@@ -1,0 +1,33 @@
+- type: job
+  id: TransitPrisoner
+  name: job-name-transit-prisoner
+  description: job-description-transit-prisoner
+  playTimeTracker: JobTransitPrisoner
+  overrideConsoleVisibility: true
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000 # = 10 hours
+  startingGear: TransitPrisonerGear
+  icon: "JobIconPrisoner"
+  supervisors: job-supervisors-security
+  canBeAntag: false
+  goobcoins: 10 # 1/3 Cadet
+  access:
+  - GenpopEnter
+  special:
+  - !type:AddImplantSpecial
+    implants: [ TrackingImplant ]
+
+- type: startingGear
+  id: TransitPrisonerGear
+  equipment:
+    ears: ClothingHeadsetPrison # Delta-V
+    id: TransitPrisonerPDA
+
+- type: chameleonOutfit
+  id: TransitPrisonerChameleonOutfit
+  job: TransitPrisoner
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPrisoner
+    id: TransitPrisonerPDA

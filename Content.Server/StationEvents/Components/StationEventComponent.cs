@@ -105,11 +105,13 @@ public sealed partial class StationEventComponent : Component
     public const float WeightHigh = 15.0f;
     public const float WeightVeryHigh = 20.0f;
 
+    // Goob Edit Start
     /// <summary>
     /// Can this event be selected randomly by the game director?
     /// </summary>
     [DataField]
     public bool IsSelectable = true;
+    // Goob Edit End
 
     [DataField]
     public float Weight = WeightNormal;
@@ -137,6 +139,14 @@ public sealed partial class StationEventComponent : Component
     /// </summary>
     [DataField]
     public int EarliestStart = 5;
+
+    // Omu Edit start
+    /// <summary>
+    ///     In minutes, when is the latest this event can start -- Default of null
+    /// </summary>
+    [DataField]
+    public int LatestStart;
+    // Omu Edit End
 
     /// <summary>
     ///     In minutes, the amount of time before the same event can occur again

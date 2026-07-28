@@ -37,7 +37,9 @@
   requirements:
   - !type:RoleTimeRequirement
     role: JobBorg
-    time: 18000  # 5 hrs
+    time: 36000 #10 hours - Omu Edit
+  - !type:OverallPlaytimeRequirement
+    time: 36000 #10 hours - Omu Edit
   canBeAntag: false
   goobcoins: 40 #Goob content
   weight: 10 # Goob Edit

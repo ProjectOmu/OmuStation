@@ -1,0 +1,9 @@
+# Limited life times
+- type: entity
+  id: ConjuredObject10
+  suffix: Conjured
+  abstract: true
+  description: A magically created entity, that'll vanish from existence eventually.
+  components:
+  - type: TimedDespawn
+    lifetime: 10

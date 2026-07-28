@@ -53,6 +53,12 @@
     alternateState: Resomi_burning
   - type: HumanoidAppearance
     species: Resomi
+    markingsDisplacement: # Omustation Start
+      Hair:
+        sizeMaps:
+          32:
+            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            state: hair # Omustation End
   - type: Icon
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
     state: full
@@ -61,19 +67,23 @@
     requiredLegs: 2
   - type: Speech
     speechVerb: Parrot
-    speechSounds: MaleAvali
-    allowedEmotes: ['Chirp', 'Trill', 'Warble', 'Wurble'] #goob
+    speechSounds: MaleResomi # Omu
+    allowedEmotes: ['Chirp', 'Trill', 'Warble', 'Wurble', 'Scree', 'Call', 'Squawk', 'Hiss', 'Growl'] #goob # omu, add 'Scree', 'Call', 'Squawk' # omu again, added hiss and growl from avali in avali-resomi emote merge
   - type: Vocal
     sounds:
-      Male: MaleAvaliEmote
-      Unsexed: MaleAvaliEmote
-      Female: FemaleAvaliEmote
+# Omu start
+      Male: MaleAvali
+      Unsexed: MaleAvali
+      Female: FemaleAvali
+# Omu end
   - type: Tag
     tags:         # Goob - What the fuck is FootstepSound and DoorBumpOpener for if they work without them - rest fixes anoms though.
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
+    - Resomi # Starlight
+    - AvaliEmotes # Omu
   - type: Hands
     handDisplacement:
       sizeMaps:
@@ -205,7 +215,7 @@
             sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
             state: belt
   - type: Bloodstream # Goobstation - lore stuff
-    bloodReagent: AmmoniaBlood
+    bloodReagent: ResomiBlood # Starlight
   - type: MeleeWeapon # Goobstation - aliem raptors probably use their claws
     soundHit:
       collection: AlienClaw
@@ -241,8 +251,8 @@
     - 7,1,7,0
   - type: Sprite # goob - in game visuals
     layers:
-    - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Groin" ]
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
@@ -285,15 +295,26 @@
       sprite: "Effects/creampie.rsi"
       state: "creampie_resomi"
       visible: false
+ # - type: CollectiveMind # Omu, kinda annoying dude
+ #   defaultChannel: Nexus
+ #   channels:
+ #     - Nexus
 
 - type: entity
   parent: BaseSpeciesDummy
   id: MobResomiDummy
   save: false
   description: A dummy resomi meant to be used in character setup.
+  categories: [ HideSpawnMenu ] # Omu
   components:
   - type: HumanoidAppearance
     species: Resomi
+    markingsDisplacement: # Omustation Start
+      Hair:
+        sizeMaps:
+          32:
+            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            state: hair # Omustation End
   - type: Hands
     handDisplacement:
       sizeMaps:

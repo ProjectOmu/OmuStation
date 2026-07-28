@@ -141,16 +141,19 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 3600 #1 hr
+      time: 18000 #5 hrs - Omu Edit start - Suffer like I did.
     - !type:RoleTimeRequirement
       role: JobDetective
-      time: 3600 #1 hr, knowing how to use the tools is important
+      time: 18000 #5 hrs - knowing how to use the tools is important
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
       time: 18000 #5 hrs
+    - !type:RoleTimeRequirement
+      role: JobBrigmedic # added Brigmedic requirement
+      time: 7200 #around one full shift (BrigMed is a single role)
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 # 10 hrs
+      time: 108000 #30 hours - Omu Edit end
 #    - !type:SpeciesRequirement # Goob - None Felinid
 #      inverted: true
 #      species:
@@ -160,13 +163,26 @@
   #    - HumanHairFloorlengthBedhead
   #    - HumanHairClassicFloorlengthBedhead
   #    - HumanHairFloorlengthBraid
+    - !type:OverallPlaytimeRequirement
+      time: 72000 #20 hours - Omu Edit
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
   supervisors: job-supervisors-captain
   canBeAntag: false
+  guides: # goobstation
+  - Security
+  - SpaceLaw
+  - LegalSOP
+  - Command
+  - HeadOfSecuritySOP
+  - SecuritySOP
+  - AlertLevels
+  - CommandTrainingManual # Omu
+  - SecurityTrainingManual # Omu
   goobcoins: 45 #Goob content
   access:
+  - Corpsman # Omu
   - HeadOfSecurity
   - Command
   - Brig
@@ -192,7 +208,7 @@
     id: HoSPDA
     #gloves: ClothingHandsGlovesCombat - Goobstation, moved to loadouts
     ears: ClothingHeadsetAltSecurity
-    pocket1: OfficerGunCase #Omu
+    #pocket1: OfficerGunCase #Omu, item is in loadout instead
   storage:
     back:
     - Flash

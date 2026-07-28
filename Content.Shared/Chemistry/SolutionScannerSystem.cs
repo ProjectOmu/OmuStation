@@ -26,5 +26,5 @@ public sealed class SolutionScannerSystem : EntitySystem
 public sealed class SolutionScanEvent : EntityEventArgs, IInventoryRelayEvent
 {
     public bool CanScan;
-    public SlotFlags TargetSlots { get; } = SlotFlags.EYES;
+    public SlotFlags TargetSlots { get; } = SlotFlags.EYES | SlotFlags.HEAD; // Omu Edit for beast mantles.
 }

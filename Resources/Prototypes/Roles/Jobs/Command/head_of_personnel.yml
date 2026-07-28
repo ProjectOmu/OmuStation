@@ -151,11 +151,18 @@
       time: 9000 # 2.5 hrs
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 9000 # 2.5 hours
-#    - !type:SpeciesRequirement # Goob - None Felinid	
-#      inverted: true	
-#      species:	
+      time: 36000 # Omu Edit - around 5-8 shifts of command for this paper pusher
+#    - !type:SpeciesRequirement # Goob - None Felinid
+#      inverted: true
+#      species:
 #      - Felinid #Omu, add back Felinid
+  guides: # goobstation
+  - Command
+  - Succession
+  - StandardProceduresSOP
+  - HeadOfPersonnelSOP
+  - Writing
+  - CommandTrainingManual # Omu
   goobcoins: 40 #Goob content
   weight: 20
   startingGear: HoPGear
@@ -189,6 +196,10 @@
   - Cargo
   - Atmospherics
   - Medical
+  - Journalism # Goob
+  - Robotics # Goob
+  - Corpsman # Omu
+  - Paramedic # Omu
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -199,11 +210,12 @@
 - type: startingGear
   id: HoPGear
   equipment:
-    shoes: ClothingShoesColorBrown
-    id: HoPPDA
+    #shoes: ClothingShoesColorBrown # Omu, Selectable formal shoes
+    #id: HoPPDA - Omu, moved to loadouts
     #gloves: ClothingHandsGlovesHop
     ears: ClothingHeadsetAltCommand
     belt: BoxFolderClipboard
+    eyes: ClothingEyesHudCommand
   storage:
     back:
     - Flash

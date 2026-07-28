@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 ThanosDeGraf <richardgirgindontstop@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -61,7 +62,7 @@ namespace Content.Server._Shitmed.Body.Systems
                 || organ.OrganIntegrity <= 0)
                 return;
 
-            _blindableSystem.SetEyeDamage((organ.Body.Value, blindable), (int) organ.OrganIntegrity);
+            _blindableSystem.SetEyeDamage((organ.Body.Value, blindable), (int) organ.IntegrityCap - (int) organ.OrganIntegrity); // Omu
         }
 
         private void OnOrganEnabled(EntityUid uid, EyesComponent component, OrganEnabledEvent args)

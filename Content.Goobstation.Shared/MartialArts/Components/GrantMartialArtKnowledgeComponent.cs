@@ -16,7 +16,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.MartialArts;
+using Content.Shared.NPC.Prototypes;
+using Content.Shared.StatusIcon;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.MartialArts.Components;
 
@@ -36,6 +39,11 @@ public abstract partial class GrantMartialArtKnowledgeComponent : Component
 
     [DataField]
     public SoundSpecifier? SoundOnUse = new SoundPathSpecifier("/Audio/Effects/fire.ogg", AudioParams.Default.WithVolume(10));
+
+    //omu start
+    [DataField]
+    public bool IsRemovable = true;
+    //omu end
 }
 
 [RegisterComponent]
@@ -86,9 +94,16 @@ public sealed partial class GrantSleepingCarpComponent : GrantMartialArtKnowledg
 {
     [DataField]
     public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.SleepingCarp;
+
     [DataField]
     public int MaximumUses = 1;
     public int CurrentUses = 0;
+
+    [DataField]
+    public ProtoId<FactionIconPrototype> IconToAdd = "SleepingCarpFaction";
+
+    [DataField]
+    public ProtoId<NpcFactionPrototype> FactionToAdd = "Dragon";
 }
 
 [RegisterComponent]
@@ -112,4 +127,6 @@ public sealed partial class GrantHellRipComponent : GrantMartialArtKnowledgeComp
 {
     [DataField]
     public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.HellRip;
+
+    public override LocId? LearnMessage { get; set; } = "hellrip-success-learned";
 }

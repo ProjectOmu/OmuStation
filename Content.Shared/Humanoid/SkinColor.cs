@@ -11,6 +11,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+
+using System.Numerics;
+using System.Security.Cryptography;
+using Microsoft.VisualBasic.CompilerServices;
+
 namespace Content.Shared.Humanoid;
 
 public static class SkinColor
@@ -20,8 +25,8 @@ public static class SkinColor
 
     public const float MinHuesLightness = 0.175f;
 
-    public const float MinFeathersHue = 29f / 360;
-    public const float MaxFeathersHue = 174f / 360;
+    public const float MinFeathersHue = 0f / 360; // Omu
+    public const float MaxFeathersHue = 360f / 360; // Omu
     public const float MinFeathersSaturation = 20f / 100;
     public const float MaxFeathersSaturation = 88f / 100;
     public const float MinFeathersValue = 36f / 100;

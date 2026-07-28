@@ -1,0 +1,15 @@
+- type: entity
+  parent: AirlockGlass
+  id: AirlockRoboticsGlass
+  suffix: Robotics
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsRobotics ]
+  - type: Sprite
+    sprite: _DV/Structures/Doors/Airlocks/Glass/roboticist.rsi # Omu
+  - type: PaintableAirlock
+    department: Science
+    group: Glass
+  - type: Wires
+    layoutId: AirlockScience

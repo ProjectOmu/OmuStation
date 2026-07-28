@@ -1,0 +1,63 @@
+# SPDX-FileCopyrightText: 2022 DrSmugleaf
+# SPDX-FileCopyrightText: 2022 Jezithyr
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2025 Ark
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: body
+  name: "asakim"
+  id: Asakim
+  root: chest
+  slots:
+    head:
+      part: HeadAsakim
+      connections:
+      - chest
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganAsakimEyes # DeltaV
+    chest:
+      part: ChestAsakim
+      organs:
+        heart: OrganAnimalHeart
+        lungs: OrganHumanLungs
+      connections:
+      - groin
+      - right arm
+      - left arm
+      - head # Shitmed
+    groin:
+      part: GroinAsakim
+      connections:
+      - right leg
+      - left leg
+      organs:
+        stomach: OrganReptilianStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganHumanKidneys
+    right arm:
+      part: RightArmAsakim
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmAsakim
+      connections:
+      - left hand
+    right hand:
+      part: RightHandAsakim
+    left hand:
+      part: LeftHandAsakim
+    right leg:
+      part: RightLegAsakim
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegAsakim
+      connections:
+      - left foot
+    right foot:
+      part: RightFootAsakim
+    left foot:
+      part: LeftFootAsakim

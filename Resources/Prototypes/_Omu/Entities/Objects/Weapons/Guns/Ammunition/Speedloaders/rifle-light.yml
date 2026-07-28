@@ -1,8 +1,8 @@
 - type: entity
   id: SpeedLoaderRevolverLightRifle
-  name: Speed Loader (.30 Rifle Revolver)
+  name: speedloader (.30 rifle)
   parent: [ BaseItem, BaseSecurityContraband ]
-  description: A speedloader for the T8 Revolver.
+  description: A speedloader for the T8 revolver.
   components:
   - type: Tag
     tags:
@@ -34,9 +34,9 @@
 
 - type: entity
   id: SpeedLoaderRevolverLightRifleEmpty
-  name: Speed Loader (.30 Rifle Revolver Any)
+  name: speedloader (.30 rifle)
   parent: [ BaseItem, BaseSecurityContraband ]
-  description: A speedloader for the T8 Revolver.
+  description: A speedloader for the T8 revolver.
   components:
   - type: Tag
     tags:

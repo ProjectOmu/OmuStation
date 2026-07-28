@@ -1,0 +1,12 @@
+﻿- type: entity
+  name: BRG-7 pulse rifle #imp
+  parent: WeaponPulseRifle
+  id: WeaponPulseRifleCyborg
+  description: A weapon almost as infamous as its users. Recharges from the Cyborgs internal cell.
+  components:
+  - type: Gun
+    minAngle: -4
+    maxAngle: 4
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 75

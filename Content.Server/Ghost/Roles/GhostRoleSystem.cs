@@ -49,7 +49,6 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Shared.Ghost.Roles.Raffles;
 using Content.Server.Ghost.Roles.UI;
-using Content.Server.Mind.Commands;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -746,7 +745,7 @@ public sealed class GhostRoleSystem : EntitySystem
         RaiseLocalEvent(mob, spawnedEvent, true); // Goob Edit: Broadcast
 
         if (ghostRole.MakeSentient)
-            MakeSentientCommand.MakeSentient(mob, EntityManager, ghostRole.AllowMovement, ghostRole.AllowSpeech);
+            _mindSystem.MakeSentient(mob, ghostRole.AllowMovement, ghostRole.AllowSpeech);
 
         EnsureComp<MindContainerComponent>(mob);
 
@@ -786,14 +785,14 @@ public sealed class GhostRoleSystem : EntitySystem
 
         var mind = EnsureComp<MindContainerComponent>(uid);
 
-        if (mind.HasMind)
+        if (mind.HasMind && !component.IgnoreMindCheck) // Goobstation edit
         {
             args.TookRole = false;
             return;
         }
 
         if (ghostRole.MakeSentient)
-            MakeSentientCommand.MakeSentient(uid, EntityManager, ghostRole.AllowMovement, ghostRole.AllowSpeech);
+            _mindSystem.MakeSentient(uid, ghostRole.AllowMovement, ghostRole.AllowSpeech);
 
         GhostRoleInternalCreateMindAndTransfer(args.Player, uid, uid, ghostRole);
         UnregisterGhostRole((uid, ghostRole));
@@ -871,6 +870,11 @@ public sealed class GhostRoleSystem : EntitySystem
         }
 
         SetMode(entity.Owner, ghostRoleProto, ghostRoleProto.Name, entity.Comp);
+    }
+
+    public void SetTaken(GhostRoleComponent role, bool taken) // Goobstation
+    {
+        role.Taken = taken;
     }
 }
 

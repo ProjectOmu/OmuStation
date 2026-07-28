@@ -1,0 +1,31 @@
+- type: entity
+  name: 40mm mixed shot box
+  parent: [BoxCardboard, BaseSecurityContraband]
+  id: BoxGrenadesMixedShot
+  description: A box containing three 40mm beanbag shots, and one 40mm slug.
+  components:
+  - type: StorageFill
+    contents:
+    - id: GrenadeBeanbagShotgun
+      amount: 3
+    - id: GrenadeSlug
+  - type: Storage
+    grid:
+    - 0,0,3,3
+    whitelist:
+      tags:
+      - Grenade
+
+- type: entity
+  parent: BlueshieldAmmunitionBox
+  id: BlueshieldAmmunitionBoxFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: MagazineBoxMagnum
+    - id: MagazineBoxMagnumEnsnaring
+    - id: MagazineBoxMagnumFlash
+    # - id: MagazineBoxMagnumEMP
+    - id: MagazineMagnumLeverRifleEmpty
+      amount: 2

@@ -4,5 +4,5 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 #!/bin/sh
-dotnet run --project Content.Goobstation.Server
+dotnet run --project Content.Omu.Server
 read -p "Press enter to continue"

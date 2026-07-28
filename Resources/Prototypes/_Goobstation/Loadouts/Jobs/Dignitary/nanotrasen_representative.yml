@@ -80,12 +80,23 @@
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
+
 #hat
 - type: loadout
   id: NanotrasenRepresentativeBowler
   equipment:
     head: ClothingHeadHatBowlerHat
 
+# Goobstation - For Ensembles
+- type: loadoutEffectGroup
+  id: GrandMasterNTR
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobNanotrasenRepresentative
+      time: 360000 # 100 hrs
 
 - type: loadout
   id: NanotrasenRepresentativeTop
@@ -133,6 +144,14 @@
   equipment:
     neck: ClothingNeckScarfStripedCentcom
 
+- type: loadout
+  id: NanotrasenRepresentativeEnsemble
+  equipment:
+    neck: ClothingNeckEnsembleNanotrasenRepresentative
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterNTR
+
 # Backpacks
 - type: loadout
   id: NanotrasenRepresentativeBackpack
@@ -159,12 +178,18 @@
   id: NanotrasenRepresentativeJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitNanotrasenRepresentative
+  groupBy: "jumpsuit" #Omu
 
+- type: loadout
+  id: NanotrasenRepresentativeFancyJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNanotrasenRepresentativeFancy
 
 - type: loadout
   id: NanotrasenRepresentativeJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtNanotrasenRepresentative
+  groupBy: "jumpskirt" #Omu
 
 
 - type: loadout

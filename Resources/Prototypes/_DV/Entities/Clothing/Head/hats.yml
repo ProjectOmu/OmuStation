@@ -1,0 +1,23 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatAdministrasive
+  name: administrative hat
+  description: A hat for those dedicated to assisting Command.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/admin_hat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/admin_hat.rsi
+
+- type: entity
+  parent: [ClothingHeadHatBeretSecurity, BaseSecurityContraband]
+  id: ClothingHeadHatBeretCorpsman
+  name: veteran corpsman beret
+  description: A black beret with blue corpsman highlights. Issued only to the most experienced.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_corpsman.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_corpsman.rsi
+
+

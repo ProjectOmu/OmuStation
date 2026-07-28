@@ -1,0 +1,53 @@
+- type: entity
+  parent: BaseFlatpack
+  id: ComputerScienceCommsFlatpack
+  name: science communications computer flatpack
+  description: A flatpack used for constructing a science communications computer.
+  components:
+  - type: Flatpack
+    entity: ScienceComputerComms
+
+- type: entity
+  parent: BaseFlatpack
+  id: ComputerCargoCommsFlatpack
+  name: cargo communications computer flatpack
+  description: A flatpack used for constructing a cargo communications computer.
+  components:
+  - type: Flatpack
+    entity: CargoComputerComms
+
+- type: entity
+  parent: BaseFlatpack
+  id: ComputerSecurityCommsFlatpack
+  name: security communications computer flatpack
+  description: A flatpack used for constructing a security communications computer.
+  components:
+  - type: Flatpack
+    entity: SecurityComputerComms
+
+- type: entity
+  parent: BaseFlatpack
+  id: ComputerServiceCommsFlatpack
+  name: service communications computer flatpack
+  description: A flatpack used for constructing a service communications computer.
+  components:
+  - type: Flatpack
+    entity: ServiceComputerComms
+
+- type: entity
+  parent: BaseFlatpack
+  id: ComputerEngiCommsFlatpack
+  name: engineering communications computer flatpack
+  description: A flatpack used for constructing a engineering communications computer.
+  components:
+  - type: Flatpack
+    entity: EngiComputerComms
+
+- type: entity
+  parent: BaseFlatpack
+  id: ComputerMedicalCommsFlatpack
+  name: medical communications computer flatpack
+  description: A flatpack used for constructing a medical communications computer.
+  components:
+  - type: Flatpack
+    entity: MedicalComputerComms

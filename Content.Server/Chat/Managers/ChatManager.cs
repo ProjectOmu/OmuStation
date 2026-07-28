@@ -383,8 +383,10 @@ internal sealed partial class ChatManager : IChatManager
 
     public void SendHookAdmin(string sender, string message)
     {
+        var clients = _adminManager.ActiveAdmins.Select(p => p.Channel); // Omu
         var wrappedMessage = Loc.GetString("chat-manager-send-hook-admin-wrap-message", ("senderName", sender), ("message", FormattedMessage.EscapeText(message)));
-        ChatMessageToAll(ChatChannel.AdminChat, message, wrappedMessage, source: EntityUid.Invalid, hideChat: false, recordReplay: false);
+        //ChatMessageToAll(ChatChannel.AdminChat, message, wrappedMessage, source: EntityUid.Invalid, hideChat: false, recordReplay: false); // Omu, replaced by line below.
+        ChatMessageToMany(ChatChannel.AdminChat, message, wrappedMessage, source: EntityUid.Invalid, hideChat: false, recordReplay: false, clients: clients); // Omu, don't send adminhooks to non-admins.
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Hook admin from {sender}: {message}");
     }
 
@@ -446,10 +448,25 @@ internal sealed partial class ChatManager : IChatManager
             var prefs = _preferencesManager.GetPreferences(player.UserId);
             colorOverride = prefs.AdminOOCColor;
         }
-        if (  _netConfigManager.GetClientCVar(player.Channel, CCVars.ShowOocPatronColor) &&
-            _linkAccount.GetPatron(player)?.Tier != null) // RMC - Patreon
+        // RMC - Heavily modified for patreon.
+        if (_netConfigManager.GetClientCVar(player.Channel, CCVars.ShowOocPatronColor) &&
+            _linkAccount.GetPatron(player)?.Tier is { } tier)
         {
-            wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", "#aa00ff"),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message))); // RMC - Patreon
+            if (tier.Icon != null)
+            {
+                wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message",
+                    ("tierIcon", tier.Icon),
+                    ("patronColor", "#aa00ff"),
+                    ("playerName", player.Name),
+                    ("message", FormattedMessage.EscapeText(message)));
+            }
+            else
+            {
+                wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message-no-icon",
+                    ("patronColor", "#aa00ff"),
+                    ("playerName", player.Name),
+                    ("message", FormattedMessage.EscapeText(message)));
+            }
         }
 
         //TODO: player.Name color, this will need to change the structure of the MsgChatMessage

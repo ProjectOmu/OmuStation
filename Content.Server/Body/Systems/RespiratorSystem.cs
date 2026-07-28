@@ -74,34 +74,38 @@
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 // SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
+// SPDX-FileCopyrightText: 2025 ThanosDeGraf <richardgirgindontstop@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Body.Components;
+using Content.Goobstation.Common.Grab;
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Shared.Body; // goob
+using Content.Goobstation.Shared.GrabIntent;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Chat.Systems;
-using Content.Server.EntityEffects.EffectConditions;
-using Content.Server.EntityEffects.Effects;
+using Content.Shared.EntityEffects.EffectConditions;
+using Content.Shared.EntityEffects.Effects;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Body.Components;
+using Content.Shared.Body.Events;
 using Content.Shared.Body.Prototypes;
 using Content.Shared.Chat; // Einstein Engines - Language
 using Content.Shared.Chemistry.Components;
+using Content.Shared.EntityEffects;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Database;
-using Content.Shared.EntityEffects;
+using Content.Server.EntityEffects;
 using Content.Shared.Mobs.Systems;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared.Movement.Pulling.Components; // Goobstation
-using Content.Shared.Movement.Pulling.Systems; // Goobstation
-using Content.Goobstation.Shared.Body.Components;
 using Content.Shared._DV.CosmicCult.Components; // DeltaV
 
 // Shitmed Change
@@ -127,6 +131,7 @@ public sealed class RespiratorSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly EntityEffectSystem _entityEffect = default!;
     [Dependency] private readonly ConsciousnessSystem _consciousness = default!; // Shitmed Change
 
     private static readonly ProtoId<MetabolismGroupPrototype> GasId = new("Gas");
@@ -149,14 +154,28 @@ public sealed class RespiratorSystem : EntitySystem
     }
 
     // Goobstation start
-    // Can breathe check for grab
+    // Can breathe check for grab or if they need air
     public bool CanBreathe(EntityUid uid, RespiratorComponent respirator)
     {
+        var airEv = new CheckNeedsAirEvent();
+        RaiseLocalEvent(uid, ref airEv);
+
+        if (airEv.Cancelled)
+            return true;
+
         if (respirator.Saturation < respirator.SuffocationThreshold)
             return false;
-        if (TryComp<PullableComponent>(uid, out var pullable)
-            && pullable.GrabStage == GrabStage.Suffocate)
+        if (TryComp<GrabbableComponent>(uid, out var grabbable)
+            && grabbable.GrabStage == GrabStage.Suffocate)
             return false;
+
+        // Omu start - If your lungs are caved in you can't breathe.
+        foreach (var ent in _bodySystem.GetBodyOrganEntityComps<LungComponent>(uid))
+        {
+            if (ent.Comp2.Enabled)
+                break;
+            return false;
+        } // Omu end
 
         return !HasComp<KravMagaBlockedBreathingComponent>(uid);
     }
@@ -170,8 +189,8 @@ public sealed class RespiratorSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<RespiratorComponent>();
-        while (query.MoveNext(out var uid, out var respirator))
+        var query = EntityQueryEnumerator<RespiratorComponent, BodyComponent>();
+        while (query.MoveNext(out var uid, out var respirator, out var body))
         {
             if (_gameTiming.CurTime < respirator.NextUpdate)
                 continue;
@@ -181,7 +200,15 @@ public sealed class RespiratorSystem : EntitySystem
             if (_mobState.IsDead(uid) || HasComp<BreathingImmunityComponent>(uid) || HasComp<SpecialBreathingImmunityComponent>(uid)) // Shitmed: BreathingImmunity
                 continue;
 
-            UpdateSaturation(uid, -(float)respirator.UpdateInterval.TotalSeconds, respirator);
+            // Begin DeltaV Code: Addition:
+            var organs = _bodySystem.GetBodyOrganEntityComps<LungComponent>((uid, body));
+            var multiplier = -1f;
+            foreach (var (_, lung, _) in organs)
+            {
+                multiplier *= lung.SaturationLoss * respirator.SaturationLoss; // Goob Edit - In a DeltaV Edit :o
+            }
+            // End DeltaV Code
+            UpdateSaturation(uid,  multiplier * (float) respirator.UpdateInterval.TotalSeconds, respirator); // DeltaV: use multiplier instead of negating
 
             if (!_mobState.IsIncapacitated(uid) && !HasComp<DebrainedComponent>(uid)) // Shitmed Change - Cannot breathe in crit or when no brain.
             {
@@ -459,7 +486,7 @@ public sealed class RespiratorSystem : EntitySystem
 
             foreach (var cond in effect.Conditions)
             {
-                if (cond is OrganType organ && !organ.Condition(lung, EntityManager))
+                if (cond is OrganType organ && !_entityEffect.OrganCondition(organ, lung))
                     return false;
             }
 
@@ -565,8 +592,24 @@ public sealed class RespiratorSystem : EntitySystem
 
     public void UpdateSaturation(EntityUid uid, float amount, RespiratorComponent? respirator = null)
     {
+        UpdateSaturation(uid, amount, skipNeedsAirCheck: false, respirator);
+    }
+
+    public void UpdateSaturation(EntityUid uid, float amount, bool skipNeedsAirCheck, RespiratorComponent? respirator = null)
+    {
         if (!Resolve(uid, ref respirator, false))
             return;
+
+        // Goob start
+        if (!skipNeedsAirCheck)
+        {
+            var airEv = new CheckNeedsAirEvent();
+            RaiseLocalEvent(uid, ref airEv);
+
+            if (airEv.Cancelled)
+                return;
+        }
+        // Goob end
 
         respirator.Saturation += amount;
         respirator.Saturation =

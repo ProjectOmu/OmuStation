@@ -11,22 +11,26 @@
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+// SPDX-FileCopyrightText: 2025 RichardBlonski <48651647+RichardBlonski@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Grab;
 using Content.Goobstation.Common.MartialArts;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint; //omu
+using Content.Goobstation.Shared.GrabIntent;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
+using Content.Shared._Goobstation.Heretic.Components; //omu
 using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Body.Components;
-using Content.Shared.Clothing;
-using Content.Shared.Clothing.Components;
+using Content.Shared.Clothing; //omu
+using Content.Shared.Clothing.Components; //omu
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
@@ -35,7 +39,8 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Standing;
-using Content.Shared.Weapons.Melee;
+using Content.Shared.Weapons.Melee; //omu
+using Content.Shared.Stunnable;
 using Robust.Shared.Audio;
 using Robust.Shared.Utility;
 
@@ -55,9 +60,10 @@ public partial class SharedMartialArtsSystem
 
         SubscribeLocalEvent<GrantCqcComponent, UseInHandEvent>(OnGrantCQCUse);
         SubscribeLocalEvent<GrantCqcComponent, MapInitEvent>(OnMapInitEvent);
-
+        // omu start
         SubscribeLocalEvent<GrantCqcComponent, ClothingGotEquippedEvent>(OnWear);
         SubscribeLocalEvent<GrantCqcComponent, ClothingGotUnequippedEvent>(OnRemove);
+        // omu end
     }
 
     #region Generic Methods
@@ -97,34 +103,35 @@ public partial class SharedMartialArtsSystem
 
     private void OnGrantCQCUse(EntityUid ent, GrantMartialArtKnowledgeComponent comp, UseInHandEvent args)
     {
+        // omu start, remove useless if statement
         //Makes CQC check for clothes for CQC belt to function
         if (HasComp<ClothingComponent>(ent))
             return;
-        else
-        {
-            if (args.Handled)
-                return;
 
-            args.Handled = true;
+        if (args.Handled)
+            return;
 
-            if (!_netManager.IsServer)
-                return;
+        args.Handled = true;
 
-            if (!TryGrantMartialArt(args.User, comp))
-                return;
+        if (!_netManager.IsServer)
+            return;
 
-            var coords = Transform(args.User).Coordinates;
-            _audio.PlayPvs(comp.SoundOnUse, coords);
+        if (!TryGrantMartialArt(args.User, comp))
+            return;
 
-            if (comp.MultiUse)
-                return;
+        var coords = Transform(args.User).Coordinates;
+        _audio.PlayPvs(comp.SoundOnUse, coords);
 
-            QueueDel(ent);
-            if (comp.SpawnedProto == null)
-                return;
+        if (comp.MultiUse)
+            return;
 
-            Spawn(comp.SpawnedProto, coords);
-        }
+        QueueDel(ent);
+        if (comp.SpawnedProto == null)
+            return;
+
+        Spawn(comp.SpawnedProto, coords);
+        // omu end
+
 
     }
 
@@ -142,10 +149,11 @@ public partial class SharedMartialArtsSystem
                 // Snap neck
                 if (!_mobState.IsDead(args.Target) && !HasComp<GodmodeComponent>(args.Target) &&
                     TryComp(ent, out PullerComponent? puller) && puller.Pulling == args.Target &&
+                    TryComp(ent, out GrabIntentComponent? grabIntent) &&
                     TryComp(args.Target, out PullableComponent? pullable) &&
                     TryComp(args.Target, out BodyComponent? body) &&
                     TryComp(args.Target, out StaminaComponent? stamina) && stamina.Critical &&
-                    puller.GrabStage == GrabStage.Suffocate && TryComp(ent, out TargetingComponent? targeting) &&
+                    grabIntent.GrabStage == GrabStage.Suffocate && TryComp(ent, out TargetingComponent? targeting) &&
                     targeting.Target == TargetBodyPart.Head
                     && _mobThreshold.TryGetDeadThreshold(args.Target, out var damageToKill))
                 {
@@ -171,14 +179,16 @@ public partial class SharedMartialArtsSystem
                 }
 
                 // Leg sweep
-                if (!TryComp<StandingStateComponent>(ent, out var standing)
-                    || standing.CurrentState == StandingState.Standing ||
-                    !TryComp(args.Target, out StandingStateComponent? targetStanding) ||
-                    targetStanding.CurrentState != StandingState.Standing)
-                    break;
+                 if (!TryComp<StandingStateComponent>(ent.Owner, out var standing)
+                     || standing.Standing
+                     || !TryComp<StandingStateComponent>(args.Target, out var targetStanding)
+                     || !targetStanding.Standing
+                     )
+                     break;
+                if (HasComp<KnockedDownComponent>(ent.Owner))
+                    RemComp<KnockedDownComponent>(ent.Owner);
 
-                _status.TryRemoveStatusEffect(ent, "KnockedDown");
-                _standingState.Stand(ent);
+                _standingState.Stand(ent.Owner);
                 _stun.TryKnockdown(args.Target, TimeSpan.FromSeconds(5), true);
                 ComboPopup(ent, args.Target, "Leg Sweep");
                 break;
@@ -198,13 +208,17 @@ public partial class SharedMartialArtsSystem
     private void OnRemove(Entity<GrantCqcComponent> ent, ref ClothingGotUnequippedEvent args)
     {
         var user = args.Wearer;
-        if (!TryComp<MartialArtsKnowledgeComponent>(user, out var martialArtsKnowledge))
+
+        // Omu Station
+        // Don't proceed if the user has non-removable Martial Arts knowledge
+        if (HasManualCqcKnowledge(user))
+            return;
+
+        if (!TryComp<MartialArtsKnowledgeComponent>(user, out var martialArtsKnowledge)
+            || !TryComp<MeleeWeaponComponent>(user, out var meleeWeaponComponent)) // Omu
             return;
 
         if (martialArtsKnowledge.MartialArtsForm != MartialArtsForms.CloseQuartersCombat)
-            return;
-
-        if (!TryComp<MeleeWeaponComponent>(args.Wearer, out var meleeWeaponComponent))
             return;
 
         var originalDamage = new DamageSpecifier();
@@ -214,8 +228,8 @@ public partial class SharedMartialArtsSystem
 
         RemComp<MartialArtsKnowledgeComponent>(user);
         RemComp<CanPerformComboComponent>(user);
+        RemComp<RiposteeComponent>(user); // Omu
     }
-
     #endregion
 
     #region Combo Methods
@@ -228,7 +242,7 @@ public partial class SharedMartialArtsSystem
             return;
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
@@ -261,7 +275,7 @@ public partial class SharedMartialArtsSystem
 
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
-        _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed);
+        _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed, behavior: proto.DropItems);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
@@ -273,7 +287,7 @@ public partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
 
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent, applyResistances: true);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
@@ -315,4 +329,18 @@ public partial class SharedMartialArtsSystem
     }
 
     #endregion
+
+    /// Omu Station
+    /// <summary>
+    /// Checks if the user has Martial Arts knowledge that is non-removable (Such as CQC Old Manual).
+    /// </summary>
+    /// <param name="user">The user to check</param>
+    /// <returns>True if the user has non removeable martial arts knowledge, false otherwise</returns>
+    private bool HasManualCqcKnowledge(EntityUid user)
+
+    {
+        return TryComp<MartialArtsKnowledgeComponent>(user, out var martialArtsKnowledge) &&
+               !martialArtsKnowledge.Removable;
+    }
+
 }

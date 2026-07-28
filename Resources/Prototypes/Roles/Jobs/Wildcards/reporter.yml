@@ -65,11 +65,12 @@
   access:
   - Service
   - Maintenance
+  - Journalism # goob
 
 - type: startingGear
   id: ReporterGear
   equipment:
-    shoes: ClothingShoesColorWhite
+    #shoes: ClothingShoesColorWhite # Omu, Selectable formal shoes
     id: ReporterPDA
     ears: ClothingHeadsetService
   storage: # DeltaV: Give reporters tape recording equipment

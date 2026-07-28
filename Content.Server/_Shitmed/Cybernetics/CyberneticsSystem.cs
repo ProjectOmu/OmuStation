@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 ThanosDeGraf <richardgirgindontstop@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -40,12 +41,12 @@ internal sealed class CyberneticsSystem : EntitySystem
             if (HasComp<OrganComponent>(cyberEnt))
             {
                 var disableEvent = new OrganEnableChangedEvent(false);
-                RaiseLocalEvent(cyberEnt, ref disableEvent);
+                RaiseLocalEvent(cyberEnt.Owner, ref disableEvent); // Omu
             }
             else if (TryComp(cyberEnt, out BodyPartComponent? part))
             {
                 var disableEvent = new BodyPartEnableChangedEvent(false);
-                RaiseLocalEvent(cyberEnt, ref disableEvent);
+                RaiseLocalEvent(cyberEnt.Owner, ref disableEvent); // Omu
 
                 if (TryComp(cyberEnt, out DamageableComponent? damageable)
                     && part.Body is not null)

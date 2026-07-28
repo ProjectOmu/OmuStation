@@ -18,19 +18,21 @@
   playTimeTracker: JobDeathSquad
   setPreference: false
   startingGear: DeathSquadGear
-  icon: "JobIconNanotrasen"
+  icon: "JobIconDeathsquad" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
   - AllAccess
   access:
+  - Deathsquad # Omu start
+  - EmergencyResponseTeam # Omu end
   - CentralCommand
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
   special: # Goobstation Start - I basically re-did all of deathsquads stuff so. - Sol
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ] # Omu Removed StypticStimulatorImplant, use CC mindshield
   - !type:AddComponentSpecial
     components:
     - type: DeathSquadMember # Goobstation

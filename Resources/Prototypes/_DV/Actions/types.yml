@@ -68,3 +68,14 @@
     useDelay: 120
   - type: InstantAction
     event: !type:CoughItemActionEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionIntrinsicStore
+  name: Store
+  description: Opens the store
+  components:
+  - type: Action
+    icon: Interface/Actions/shop.png
+  - type: InstantAction
+    event: !type:IntrinsicStoreActionEvent

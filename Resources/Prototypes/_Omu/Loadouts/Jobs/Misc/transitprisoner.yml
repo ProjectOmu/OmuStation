@@ -1,0 +1,78 @@
+# Jumpsuits 
+
+- type: loadout
+  id: PrisonerJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPrisoner
+
+- type: loadout
+  id: PrisonerJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtPrisoner
+
+- type: loadout
+  id: PrisonerJumpsuitSyndie
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndieFormal
+
+- type: loadout
+  id: PrisonerJumpskirtSyndie
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSyndieFormalDress
+
+# Shoes
+
+- type: loadout
+  id: PrisonerShoesWinterSyndie
+  equipment:
+    shoes: ClothingShoesBootsWinterSyndicate
+
+# Outer clothing
+
+- type: loadout
+  id: PrisonerWintercoatOrange
+  equipment:
+    outerClothing: ClothingOuterWinterColorOrange
+
+- type: loadout
+  id: PrisonerWintercoatSyndie
+  equipment:
+    outerClothing: ClothingOuterWinterSyndie
+
+# Plasmaman stuff
+
+- type: loadout
+  id: PrisonerEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmPrisoner
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: PrisonerEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitPrisoner
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: PrisonerEnviroglovesBlack
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesBlack
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: PrisonerEnviroglovesWhite
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesWhite
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman

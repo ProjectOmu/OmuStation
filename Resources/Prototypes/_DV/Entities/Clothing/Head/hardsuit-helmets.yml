@@ -1,0 +1,15 @@
+#Corpsman Hardsuit ported from EE/DeltaV.
+- type: entity
+  parent: ClothingHeadHelmetVoidsuitSecurity #Parented to goob's security hardsuit
+  id: ClothingHeadHelmetHardsuitCorpsman
+  name: corpsman combat hardsuit helmet
+  description: A lightweight armoured helmet with full-face blue visor and head-mounted light.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hardsuits/corpsman.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hardsuits/corpsman.rsi
+  - type: PointLight
+    color: "#00FFFF"
+
+

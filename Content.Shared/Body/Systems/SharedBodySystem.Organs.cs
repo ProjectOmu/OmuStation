@@ -79,6 +79,7 @@
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+// SPDX-FileCopyrightText: 2025 ThanosDeGraf <richardgirgindontstop@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -94,12 +95,18 @@ using Robust.Shared.Containers;
 using Content.Shared.Damage;
 using Content.Shared._Shitmed.BodyEffects;
 using Content.Shared._Shitmed.Body.Organ;
+using Content.Shared.Heretic;
+using Content.Shared.Tag; // Omu Edit
+using Robust.Shared.Prototypes; // Omu Edit
 
 namespace Content.Shared.Body.Systems;
 
 public partial class SharedBodySystem
 {
     // Shitmed Change Start
+    [Dependency]  private readonly TagSystem _tag = default!; // Omu Edit
+
+    private static readonly ProtoId<TagPrototype> XenomorphTagPrototype = "Xenomorph"; // Omu Edit
 
     private void InitializeOrgans()
     {
@@ -297,6 +304,14 @@ public partial class SharedBodySystem
         if (!Resolve(entity, ref entity.Comp))
             return new List<Entity<T, OrganComponent>>();
 
+        // Goobstation start
+        var ev = new GetBodyOrganOverrideEvent<T>();
+        RaiseLocalEvent(entity, ref ev);
+        var result = ev.Organ;
+        if (result != null)
+            return new List<Entity<T, OrganComponent>> {result.Value};
+        // Goobstation end
+
         var query = GetEntityQuery<T>();
         var list = new List<Entity<T, OrganComponent>>(3);
         foreach (var organ in GetBodyOrgans(entity.Owner, entity.Comp))
@@ -357,13 +372,15 @@ public partial class SharedBodySystem
         Dirty(organEnt, organEnt.Comp);
     }
 
-    private void EnableOrgan(Entity<OrganComponent> organEnt)
+    private void EnableOrgan(Entity<OrganComponent> organEnt) // Omu
     {
         if (!TryComp(organEnt.Comp.Body, out BodyComponent? body))
             return;
 
         // I hate having to hardcode these checks so much.
-        if (HasComp<EyesComponent>(organEnt))
+        // Omu Edit Start - Gluesniffer didn't explain: Every organ needs their interaction with being disabled hardcoded.
+        // Currently handled: EyesComponent, HeartComponent, LungComponent
+        if (!_tag.HasTag(organEnt, XenomorphTagPrototype)) //Excluding any and all BaseXenomorphOrgan's.
         {
             var ev = new OrganEnabledEvent(organEnt);
             RaiseLocalEvent(organEnt, ref ev);
@@ -372,15 +389,12 @@ public partial class SharedBodySystem
 
     private void DisableOrgan(Entity<OrganComponent> organEnt)
     {
-        if (!TryComp(organEnt.Comp.Body, out BodyComponent? body))
-            return;
-
-        // I hate having to hardcode these checks so much.
-        if (HasComp<EyesComponent>(organEnt))
+        if (!_tag.HasTag(organEnt, XenomorphTagPrototype))
         {
-            var ev = new OrganDisabledEvent(organEnt);
-            RaiseLocalEvent(organEnt, ref ev);
-        }
+        // I hate having to hardcode these checks so much.
+        var ev = new OrganDisabledEvent(organEnt);
+        RaiseLocalEvent(organEnt, ref ev);
+        } // Omu Edit End
     }
 
     /// <summary>

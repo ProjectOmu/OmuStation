@@ -104,10 +104,12 @@
       time: 180000  #50 hours
     - !type:AgeRequirement
       requiredAge: 21
-#    - !type:SpeciesRequirement # Goob - None Felinid	
-#      inverted: true	
-#      species:	
+#    - !type:SpeciesRequirement # Goob - None Felinid
+#      inverted: true
+#      species:
 #      - Felinid #Omu, add back Felinid
+    - !type:OverallPlaytimeRequirement
+      time: 72000 #20 hours - Omu Edit
   weight: 20
   startingGear: NanotrasenRepresentativeGear
   icon: "JobIconNanotrasenRepresentative"
@@ -115,6 +117,11 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  guides:
+  - NanotrasenRepSOP
+  - SOP
+  - SpaceLaw
+  - Writing
   goobcoins: 40
   access:
   - Security
@@ -135,7 +142,7 @@
   - NanotrasenRepresentative
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+    implants: [ MindShieldImplantCentComm, BluespaceLifelineImplant ] # Omu, use CC mindshield
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
@@ -145,9 +152,9 @@
 - type: startingGear
   id: NanotrasenRepresentativeGear
   equipment:
-    id: NanotrasenRepresentativePDA
+  # id: NanotrasenRepresentativePDA - Omu - moved to loadouts
     eyes: ClothingEyesGlassesCommand
-    ears: ClothingHeadsetAltCentCom
+    ears: ClothingHeadsetAltCentComLoudspeaker #Omu
     pocket1: UniqueNanorepLockerTeleporter
   storage:
     back:
@@ -162,7 +169,7 @@
   equipment:
     eyes: ClothingEyesGlassesCommand
     mask: ClothingMaskBreath
-    ears: ClothingHeadsetAltCentCom
+    ears: ClothingHeadsetAltCentComLoudspeaker #Omu
     gloves: ClothingHandsGlovesHeavyGoldenTrim
     jumpsuit: ClothingUniformJumpsuitNanotrasenRepresentative
     id: NanotrasenRepresentativePDA

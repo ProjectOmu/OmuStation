@@ -143,6 +143,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Goobstation.Maths.FixedPoint;
 using System.Linq;
+using Content.Shared.Mobs.Systems; // Goobstation
 
 namespace Content.Server.Medical;
 
@@ -160,6 +161,8 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly WoundSystem _woundSystem = default!; // Shitmed Change
     [Dependency] private readonly TraumaSystem _trauma = default!; // Shitmed Change
+    [Dependency] private readonly MobThresholdSystem _threshold = default!; // Goobstation
+
     public override void Initialize()
     {
         SubscribeLocalEvent<HealthAnalyzerComponent, AfterInteractEvent>(OnAfterInteract);
@@ -389,7 +392,13 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             bloodAmount = bloodSolution.FillFraction;
 
         var bodyStatus = _woundSystem.GetDamageableStatesOnBody(target);
-        Dictionary<TargetBodyPart, bool> bleeding = new();
+        Dictionary<TargetBodyPart, bool> bleeding; // Goobstation - removed unnecessary allocation
+
+        // Goobstation start
+        var vitalDamage = FixedPoint2.Zero;
+        if (TryComp<DamageableComponent>(target, out var damageableComponent))
+            vitalDamage = _threshold.CheckVitalDamage(target, damageableComponent);
+        // Goobstation end
 
         switch (mode)
         {
@@ -407,6 +416,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
                     unrevivable,
                     bodyStatus,
                     bleeding,
+                    vitalDamage, // Goobstation
                     traumas,
                     pain,
                     part != null ? GetNetEntity(part) : null
@@ -422,6 +432,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
                     bloodAmount,
                     scanMode,
                     bleeding,
+                    vitalDamage, // Goobstation
                     bodyStatus,
                     organs
                 ));
@@ -436,6 +447,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
                     bloodAmount,
                     scanMode,
                     bleeding,
+                    vitalDamage, // Goobstation
                     bodyStatus,
                     chemicals
                 ));
@@ -458,9 +470,9 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
         foreach (var (woundable, component) in _woundSystem.GetAllWoundableChildren(rootPart))
         {
-            traumas.Add(GetNetEntity(woundable), FetchTraumaData(woundable, component));
-            pain.Add(GetNetEntity(woundable), FetchPainData(woundable, component));
-            bleeding.Add(_bodySystem.GetTargetBodyPart(woundable), component.Bleeds > 0);
+            traumas.TryAdd(GetNetEntity(woundable), FetchTraumaData(woundable, component)); // Omu - TryAdd prevent exceptions in Update
+            pain.TryAdd(GetNetEntity(woundable), FetchPainData(woundable, component)); // Omu - TryAdd prevent exceptions in Update
+            bleeding.TryAdd(_bodySystem.GetTargetBodyPart(woundable), component.Bleeds > 0); // Omu - TryAdd prevent exceptions in Update
         }
     }
 
@@ -472,7 +484,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             return bleeding;
 
         foreach (var (woundable, component) in _woundSystem.GetAllWoundableChildren(rootPart))
-            bleeding.Add(_bodySystem.GetTargetBodyPart(woundable), component.Bleeds > 0);
+            bleeding.TryAdd(_bodySystem.GetTargetBodyPart(woundable), component.Bleeds > 0); // Omu - TryAdd prevent exceptions in Update
 
         return bleeding;
     }
@@ -523,7 +535,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
         foreach (var (organId, organComp) in _bodySystem.GetBodyOrgans(target))
         {
-            organs.Add(GetNetEntity(organId), new OrganTraumaData(organComp.OrganIntegrity,
+            organs.TryAdd(GetNetEntity(organId), new OrganTraumaData(organComp.OrganIntegrity, // Omu - TryAdd prevent exceptions in Update
                 organComp.IntegrityCap,
                 organComp.OrganSeverity,
                 organComp.IntegrityModifiers
@@ -549,7 +561,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
                 || !TryGetNetEntity(solution, out var netSolution))
                 continue;
 
-            solutionsList.Add(netSolution.Value, solution.Comp.Solution);
+            solutionsList.TryAdd(netSolution.Value, solution.Comp.Solution); // Omu - TryAdd prevent exceptions in Update
         }
 
         if (TryComp<BodyComponent>(target, out var body)
@@ -561,7 +573,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
                     || !TryGetNetEntity(stomach.Comp1.Solution, out var netSolution))
                     continue;
 
-                solutionsList.Add(netSolution.Value, stomach.Comp1.Solution.Value.Comp.Solution); // This is horrible.
+                solutionsList.TryAdd(netSolution.Value, stomach.Comp1.Solution.Value.Comp.Solution); // This is horrible. // Omu - TryAdd prevent exceptions in Update
             }
         }
 

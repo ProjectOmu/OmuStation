@@ -178,6 +178,7 @@
     defaultChannel: Binary
     channels:
     - Binary
+  - type: IntellicardableMind # Goobstation - intellicard on more AIs
   - type: DoAfter
   - type: Actions
   - type: Store
@@ -210,8 +211,6 @@
           Searching: { state: pai-searching-overlay }
           On: { state: pai-on-overlay }
   - type: StationMap
-  - type: StationAiVision # Goobstation - AI can see through NT silicon
-    range: 1
   - type: ChangeVoiceInContainer
     whitelist:
       components:
@@ -301,8 +300,6 @@
           Off: { state: syndicate-pai-off-overlay }
           Searching: { state: syndicate-pai-searching-overlay }
           On: { state: syndicate-pai-on-overlay }
-  - type: StationAiVision # Goobstation - AI can see through NT silicon
-    enabled: false
   - type: StaticPrice
     price: 500
   - type: Vocal

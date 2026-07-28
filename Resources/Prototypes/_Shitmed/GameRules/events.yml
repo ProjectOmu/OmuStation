@@ -21,20 +21,20 @@
   id: LoneAbductorSpawn
   components:
   - type: StationEvent
-    earliestStart: 15
+    earliestStart: 25 # Omu 15 -> 25
     reoccurrenceDelay: 45
-    weight: 4 # Goobstation - 7.5 -> 4
+    weight: 2 # Goobstation - 7.5 -> 3 Omu -> 2
     minimumPlayers: 10
-    duration: 1
+    duration: null # Goobstation - chud
     chaos:
       Hostile: 75
       Medical: 75
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 300
+    chaosScore: 100
   - type: RuleGrids
   - type: LoadMapRule
-    mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/abductor_shuttle.yml
+    mapPath: /Maps/_Omu/Shuttles/ShuttleEvent/abductor_shuttle.yml # Omu
   - type: AntagObjectives
     objectives:
     - AbductObjective
@@ -66,7 +66,7 @@
           settings: default
         requirements:
         - !type:OverallPlaytimeRequirement
-          time: 18000 #5 hours
+          time: 180000 #50 hours
         - !type:DepartmentTimeRequirement
           department: Medical
           time: 7200 #2 hours
@@ -94,6 +94,7 @@
       - type: Sanitized
       - type: SurgerySpeedModifier
         speedModifier: 1.5
+      - type: TranslatorImplantBlocker # Omu, no translators for abductors.
       mindRoles:
       - MindRoleLoneAbductor
 
@@ -121,20 +122,20 @@
   id: DuoAbductorSpawn
   components:
   - type: StationEvent
-    earliestStart: 15
+    earliestStart: 25 # Omu 15 -> 25
     reoccurrenceDelay: 45
-    weight: 4 # Goobstation - 7.5 -> 4
+    weight: 1 # Goobstation - 7.5 -> 3 Omu -> 1
     minimumPlayers: 20
-    duration: 1
+    duration: null # Goobstation - chud
     chaos:
       Hostile: 150
       Medical: 150
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 450
+    chaosScore: 150
   - type: RuleGrids
   - type: LoadMapRule
-    mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/duo_abductor_shuttle.yml
+    mapPath: /Maps/_Omu/Shuttles/ShuttleEvent/duo_abductor_shuttle.yml # Omu
   - type: AntagObjectives
     objectives:
     - AbductObjective
@@ -166,7 +167,7 @@
           settings: default
         requirements:
         - !type:OverallPlaytimeRequirement
-          time: 18000 #5 hours
+          time: 180000 #50 hours
         - !type:DepartmentTimeRequirement
           department: Medical
           time: 10800 #3 hours
@@ -191,6 +192,7 @@
       - type: Sanitized
       - type: SurgerySpeedModifier
         speedModifier: 1.5
+      - type: TranslatorImplantBlocker # Omu, no translators for abductors.
       mindRoles:
       - MindRoleAbductorScientist
     - spawnerPrototype: AbductorAgentSpawner
@@ -237,5 +239,6 @@
           - FootstepSound
           - DoorBumpOpener
       - type: AbductorScientist # Should be removed when we have proper teleportation system
+      - type: TranslatorImplantBlocker # Omu, no translators for abductors.
       mindRoles:
       - MindRoleAbductorAgent

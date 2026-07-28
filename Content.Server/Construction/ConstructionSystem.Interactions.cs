@@ -103,6 +103,7 @@ using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Stacks;
 using Content.Shared.Temperature;
 using Content.Shared.Tools.Systems;
+using Content.Shared._Mono.NoDeconstruct; // Monolith
 using Robust.Shared.Containers;
 using Robust.Shared.Utility;
 #if EXCEPTION_TOLERANCE
@@ -143,6 +144,9 @@ namespace Content.Server.Construction
         /// <returns>The result of this interaction with the entity.</returns>
         private HandleResult HandleEvent(EntityUid uid, object ev, bool validation, ConstructionComponent? construction = null)
         {
+            if (HasComp<NoDeconstructComponent>(uid)) // Monolith
+                return HandleResult.False;
+
             if (!Resolve(uid, ref construction))
                 return HandleResult.False;
 

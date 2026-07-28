@@ -27,6 +27,18 @@
     laws: HelpimovLawset
 
 - type: entity
+  id: GambamovCircuitBoard
+  parent: BaseElectronics
+  name: law board (Gambamov)
+  description: An electronics board containing the Gambamov lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: GambamovLawset
+
+- type: entity
   id: PlayerBorgDerelictSyndicateAssaultBattery
   parent: BorgChassisDerelictSyndicateAssault
   suffix: Battery, Module, Operative, Derelict
@@ -71,5 +83,5 @@
     requirements: # Goobstation - ghost roles requirements
     - !type:RoleTimeRequirement
       role: JobBorg
-      time: 3600 #1 hour
+      time: 18000 #5 hrs - Omu Edit: Can be a demanding RP role, needs familiarity with borg-ness.
   - type: GhostTakeoverAvailable

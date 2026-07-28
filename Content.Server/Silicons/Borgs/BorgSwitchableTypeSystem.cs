@@ -32,6 +32,7 @@ public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeS
     protected override void SelectBorgModule(Entity<BorgSwitchableTypeComponent> ent, ProtoId<BorgTypePrototype> borgType, ProtoId<BorgSubtypePrototype> borgSubtype)
     {
         var prototype = Prototypes.Index(borgType);
+        var subtypePrototype = Prototypes.Index(borgSubtype); // goob
 
         // Assign radio channels
         string[] radioChannels = [.. ent.Comp.InherentRadioChannels, .. prototype.RadioChannels];
@@ -63,7 +64,7 @@ public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeS
         {
             _borgSystem.SetTransponderSprite(
                 (ent.Owner, transponder),
-                new SpriteSpecifier.Rsi(new ResPath("Mobs/Silicon/chassis.rsi"), prototype.SpriteBodyState));
+                new SpriteSpecifier.Rsi(subtypePrototype.SpritePath, prototype.SpriteBodyState)); // goob - Use the subtype `SpritePath` instead of a hardcoded rsi
 
             _borgSystem.SetTransponderName(
                 (ent.Owner, transponder),
@@ -90,7 +91,7 @@ public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeS
         }
 
         // Begin DeltaV Code: Custom lawset patching
-        if (prototype.Lawset is {} lawset)
+        if (prototype.Lawset is { } lawset)
             ConfigureLawset(ent, lawset);
         // End DeltaV Code
 
@@ -109,7 +110,9 @@ public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeS
         // Configure inventory template (used for hat spacing)
         if (TryComp(ent, out InventoryComponent? inventory))
         {
-            _inventorySystem.SetTemplateId((ent.Owner, inventory), prototype.InventoryTemplateId);
+            // Omu - Only use hard-coded offsets if a displacement map isn't used
+            if (inventory.Displacements.Count == 0)
+                _inventorySystem.SetTemplateId((ent.Owner, inventory), prototype.InventoryTemplateId);
         }
 
         base.SelectBorgModule(ent, borgType, borgSubtype);

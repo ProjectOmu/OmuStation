@@ -1009,31 +1009,31 @@ namespace Content.Shared.Chemistry.Components
                     Contents.Add(new ReagentQuantity(otherReagent, otherQuantity));
                 }
             }
-			// Goobstation Start
+            // Goobstation Start
 
-			// Find the maximum freshness for each unique DNA string in the other solution.
-			// This is done by flattening the nested lists, filtering for DnaData objects,
-			// grouping them by the DNA string, and creating a dictionary with the max freshness for each.
-			var freshestDnasFromOther = otherSolution.Contents
-			    .SelectMany(content => content.Reagent.Data ?? Enumerable.Empty<object>())
-			    .OfType<DnaData>()
-			    .GroupBy(dna => dna.DNA)
-			    .ToDictionary(
-			        group => group.Key,
-			        group => group.Max(dna => dna.Freshness));
+            // Find the maximum freshness for each unique DNA string in the other solution.
+            // This is done by flattening the nested lists, filtering for DnaData objects,
+            // grouping them by the DNA string, and creating a dictionary with the max freshness for each.
+            var freshestDnasFromOther = otherSolution.Contents
+                .SelectMany(content => content.Reagent.Data ?? Enumerable.Empty<object>())
+                .OfType<DnaData>()
+                .GroupBy(dna => dna.DNA)
+                .ToDictionary(
+                    group => group.Key,
+                    group => group.Max(dna => dna.Freshness));
 
-			// Get all DnaData objects in the current solution to be updated.
-			var allCurrentDna = Contents
-			    .SelectMany(content => content.Reagent.Data ?? Enumerable.Empty<object>())
-			    .OfType<DnaData>();
+            // Get all DnaData objects in the current solution to be updated.
+            var allCurrentDna = Contents
+                .SelectMany(content => content.Reagent.Data ?? Enumerable.Empty<object>())
+                .OfType<DnaData>();
 
-			// Iterate through the current solution's DNA and update its freshness
-			// if a fresher version exists in the other solution.
-			foreach (var dna in allCurrentDna)
-			    if (freshestDnasFromOther.TryGetValue(dna.DNA, out var fresherFreshness) && fresherFreshness > dna.Freshness)
-			        dna.Freshness = fresherFreshness;
+            // Iterate through the current solution's DNA and update its freshness
+            // if a fresher version exists in the other solution.
+            foreach (var dna in allCurrentDna)
+                if (freshestDnasFromOther.TryGetValue(dna.DNA, out var fresherFreshness) && fresherFreshness > dna.Freshness)
+                    dna.Freshness = fresherFreshness;
 
-			// Goobstation End
+            // Goobstation End
 
             _heatCapacity += otherSolution._heatCapacity;
             CheckRecalculateHeatCapacity();
@@ -1087,7 +1087,62 @@ namespace Content.Shared.Chemistry.Components
         {
             return GetColorWithout(protoMan);
         }
+        // Funky start
+        public int GetSolutionFlammability(IPrototypeManager? protoMan)
+        {
+            if (Volume <= 0)
+                return 0;
 
+            IoCManager.Resolve(ref protoMan);
+            var totalFlammability = 0f;
+            foreach (var (reagent, quantity) in Contents)
+            {
+                if (protoMan.TryIndex<ReagentPrototype>(reagent.Prototype, out var proto))
+                {
+                    totalFlammability += proto.Flammability * (quantity.Float() / Volume.Float());
+                }
+            }
+            return (int) MathF.Round(totalFlammability);
+        }
+
+        public bool IsSolutionSelfOxidizing(IPrototypeManager? protoMan)
+        {
+            if (Volume <= 0)
+                return false;
+
+            IoCManager.Resolve(ref protoMan);
+            foreach (var (reagent, _) in Contents)
+            {
+                if (protoMan.TryIndex<ReagentPrototype>(reagent.Prototype, out var proto) && proto.SelfOxidizing)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void BurnFlammableReagents(float fraction, IPrototypeManager? protoMan)
+        {
+            IoCManager.Resolve(ref protoMan);
+            var clone = Clone();
+            foreach (var (reagent, quantity) in Contents)
+            {
+                if (!protoMan.TryIndex<ReagentPrototype>(reagent.Prototype, out var proto) || proto.Flammability <= 0)
+                    continue;
+
+                var rawBurn = quantity.Float() * fraction * proto.Flammability;
+                var roundedBurn = MathF.Ceiling(rawBurn * 100f) / 100f;
+                if (roundedBurn <= 0f)
+                    continue;
+
+                clone.RemoveReagent(reagent, FixedPoint2.New(roundedBurn));
+            }
+            Contents = clone.Contents;
+            Volume = clone.Volume;
+            _heatCapacityDirty = true;
+            ValidateSolution();
+        }
+        // Funky end
         public Color GetColorWithOnly(IPrototypeManager? protoMan, params string[] included)
         {
             if (Volume == FixedPoint2.Zero)
