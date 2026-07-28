@@ -89,7 +89,7 @@ public sealed class CPRSystem : EntitySystem
             return;
         }
 
-        if (!_ingestionSystem.HasMouthAvailable(performer, performer) || !_ingestionSystem.HasMouthAvailable(target, performer))
+        if (!_ingestionSystem.HasMouthAvailable(performer, performer) || !_ingestionSystem.HasMouthAvailable(performer, target)) // Omu, swap parameters to correctly check if target is wearing a blocker
             return;
 
         _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person", ("target", target)), target, performer);
