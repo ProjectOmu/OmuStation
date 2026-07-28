@@ -24,15 +24,16 @@
   id: FloorGoblinSpawn
   components:
   - type: StationEvent
-    earliestStart: 0
+    earliestStart: 15 #Omu was 0
     minimumPlayers: 15
     weight: 5
     reoccurrenceDelay: 30
     eventType: Neutral
   - type: GameRule
-    chaosScore: 0
+    chaosScore: 70 # Omu was 0
   - type: VentCrittersRule
     max: 1
+    min: 1 # Omu edit... So the vent critters rule has a min of 2 by default. So the rule wont work without overwriting that
     table: !type:GroupSelector
       children:
       - id: MobFloorGoblin
