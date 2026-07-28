@@ -138,6 +138,21 @@ public sealed class CPRSystem : EntitySystem
             performer.Comp.CPRPlayingStream = _audio.Stop(performer.Comp.CPRPlayingStream);
             return;
         }
+        // Omu start; fixes CPR being able to continue even when conditions to start CPR are no longer met
+        var target = args.Target.Value;
+
+        if (HasComp<RottingComponent>(target) || // Check on every CPR cycle if you're actually meant to be able to do CPR
+            !HasComp<RespiratorComponent>(target) || // If you're not, then you finish CPR
+            !HasComp<RespiratorComponent>(performer) ||
+            _inventory.TryGetSlotEntity(target, "outerClothing", out _) ||
+            !_ingestionSystem.HasMouthAvailable(performer, performer) ||
+            !_ingestionSystem.HasMouthAvailable(performer, target))
+        {
+            // This is repeated since HasMouthAvailable must take a non-optional target
+            performer.Comp.CPRPlayingStream = _audio.Stop(performer.Comp.CPRPlayingStream);
+            return;
+        }
+        // Omu end
 
         if (!performer.Comp.CPRHealing.Empty)
             _damageable.TryChangeDamage(args.Target, performer.Comp.CPRHealing, true, origin: performer, targetPart: TargetBodyPart.All); // Shitmed Change
