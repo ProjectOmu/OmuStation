@@ -91,7 +91,7 @@ public sealed class CPRSystem : EntitySystem
             return;
         }
 
-        if (!_ingestionSystem.HasMouthAvailable(performer, performer) || !_ingestionSystem.HasMouthAvailable(performer, target)) // Omu, swap parameters to correctly check if target is wearing a blocker
+        if (!_ingestionSystem.HasMouthAvailable(performer, performer) || !_ingestionSystem.HasMouthAvailable(performer, target)) // Omu, swap arguments to correctly check if target is wearing a blocker
         {
             // Omu, fixes the ingestion blocker text not appearing.
             // Yes, this is shitcode. I am sorry but I don't know how to do this better.
