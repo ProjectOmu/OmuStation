@@ -131,7 +131,15 @@ public sealed class CPRSystem : EntitySystem
         {
             BreakOnMove = true,
             NeedHand = true,
-            BlockDuplicate = true
+            BlockDuplicate = true,
+            // Omu, check if you're no longer able to do CPR during the doafter
+            // This is using a deprecated feature to avoid dealing with events from other namespaces
+            AttemptFrequency = AttemptFrequency.StartAndEnd,
+            ExtraCheck = () => !(HasComp<RottingComponent>(target) || // cancels on false, so invert all the previous checks
+            !HasComp<RespiratorComponent>(target) || !HasComp<RespiratorComponent>(performer) ||
+            _inventory.TryGetSlotEntity(target, "outerClothing", out _) ||
+            !_ingestionSystem.HasMouthAvailable(performer, performer) || !_ingestionSystem.HasMouthAvailable(performer, target))
+            // Omu end
         };
 
         _doAfterSystem.TryStartDoAfter(doAfterArgs);
