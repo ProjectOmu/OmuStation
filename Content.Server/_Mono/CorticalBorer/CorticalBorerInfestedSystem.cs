@@ -69,13 +69,13 @@ public sealed class CorticalBorerInfestedSystem : EntitySystem
         if (args.NewMobState != MobState.Dead)
             return;
 
-        if(infected.Comp.Borer.Comp.ControlingHost)
+        if (infected.Comp.Borer.Comp.ControlingHost)
             _borer.EndControl(infected.Comp.Borer);
     }
 
     private void OnComponentShutdown(Entity<CorticalBorerInfestedComponent> infected, ref ComponentShutdown args)
     {
-        if(infected.Comp is not null && infected.Comp.Borer.Comp is not null && infected.Comp.Borer.Comp.ControlingHost)
+        if (infected.Comp is not null && infected.Comp.Borer.Comp is not null && infected.Comp.Borer.Comp.ControlingHost)
             _borer.EndControl(infected.Comp.Borer);
     }
 
