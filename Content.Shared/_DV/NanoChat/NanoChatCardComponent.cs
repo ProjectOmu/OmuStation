@@ -1,14 +1,10 @@
-// SPDX-FileCopyrightText: 2024 Milon <milonpl.git@proton.me>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Skubman <ba.fallaria@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tobias Berger <toby@tobot.dev>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2024 Skubman <ba.fallaria@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Content.Shared._DV.CartridgeLoader.Cartridges;
 using Robust.Shared.GameStates;
@@ -26,17 +22,31 @@ public sealed partial class NanoChatCardComponent : Component
     [DataField, AutoNetworkedField]
     public uint? Number;
 
+   /// <summary>
+    ///     Whether a PDA has this card's UI closed.
+    ///     Used for notifications.
+    /// </summary>
+    [DataField]
+    public bool IsClosed;
+
+
     /// <summary>
     ///     All chat recipients stored on this card.
     /// </summary>
     [DataField]
-    public Dictionary<uint, NanoChatRecipient> Recipients = new();
+    public Dictionary<uint, NanoChatRecipient> Recipients = [];
 
     /// <summary>
     ///     All messages stored on this card, keyed by recipient number.
     /// </summary>
     [DataField]
-    public Dictionary<uint, List<NanoChatMessage>> Messages = new();
+    public Dictionary<uint, List<NanoChatMessage>> Messages = [];
+
+    /// <summary>
+    ///     The NanoChat numbers that should not give a notification, even when notifications are enabled.
+    /// </summary>
+    [DataField]
+    public HashSet<uint> MutedChats = [];
 
     /// <summary>
     ///     The currently selected chat recipient number.
@@ -63,20 +73,14 @@ public sealed partial class NanoChatCardComponent : Component
     public bool NotificationsMuted;
 
     /// <summary>
-    ///     The PDA that this card is currently inserted to.
-    /// </summary>
-    [DataField]
-    public EntityUid? PdaUid = null;
-
-    /// <summary>
     ///     Whether the card's number should be listed in NanoChat's lookup
     /// </summary>
     [DataField]
     public bool ListNumber = true;
 
     /// <summary>
-    ///     Whether the card's number should be listed in NanoChat's lookup
+    ///     The PDA that this card is currently inserted to.
     /// </summary>
     [DataField]
-    public bool IsClosed;
+    public EntityUid? PdaUid = null;
 }

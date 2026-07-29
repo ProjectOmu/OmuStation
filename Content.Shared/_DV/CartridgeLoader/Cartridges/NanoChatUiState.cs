@@ -1,14 +1,10 @@
-// SPDX-FileCopyrightText: 2024 Milon <milonpl.git@proton.me>
 // SPDX-FileCopyrightText: 2024 Skubman <ba.fallaria@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Tobias Berger <toby@tobot.dev>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Robust.Shared.Serialization;
 
@@ -17,8 +13,9 @@ namespace Content.Shared._DV.CartridgeLoader.Cartridges;
 [Serializable, NetSerializable]
 public sealed class NanoChatUiState : BoundUserInterfaceState
 {
-    public readonly Dictionary<uint, NanoChatRecipient> Recipients = new();
-    public readonly Dictionary<uint, List<NanoChatMessage>> Messages = new();
+    public readonly Dictionary<uint, NanoChatRecipient> Recipients = [];
+    public readonly Dictionary<uint, List<NanoChatMessage>> Messages = [];
+    public readonly HashSet<uint> MutedChats = [];
     public readonly List<NanoChatRecipient>? Contacts;
     public readonly uint? CurrentChat;
     public readonly uint OwnNumber;
@@ -29,6 +26,7 @@ public sealed class NanoChatUiState : BoundUserInterfaceState
     public NanoChatUiState(
         Dictionary<uint, NanoChatRecipient> recipients,
         Dictionary<uint, List<NanoChatMessage>> messages,
+        HashSet<uint> mutedChats,
         List<NanoChatRecipient>? contacts,
         uint? currentChat,
         uint ownNumber,
@@ -38,6 +36,7 @@ public sealed class NanoChatUiState : BoundUserInterfaceState
     {
         Recipients = recipients;
         Messages = messages;
+        MutedChats = mutedChats;
         Contacts = contacts;
         CurrentChat = currentChat;
         OwnNumber = ownNumber;

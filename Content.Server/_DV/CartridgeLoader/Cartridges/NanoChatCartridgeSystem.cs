@@ -1,16 +1,12 @@
-// SPDX-FileCopyrightText: 2024 Milon <milonpl.git@proton.me>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 Skubman <ba.fallaria@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tobias Berger <toby@tobot.dev>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2024 Skubman <ba.fallaria@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Evaisa <evagiacosa1@gmail.com>
+// SPDX-FileCopyrightText: 2025 EvaisaDev <mail@evaisa.dev>
+// SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using System.Linq;
 using Content.Server.Administration.Logs;
@@ -28,9 +24,6 @@ using Content.Shared.PDA;
 using Content.Shared.Radio.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared.CCVar;
-using Robust.Shared.Configuration;
-using Robust.Shared.Utility; // Goob
 
 namespace Content.Server._DV.CartridgeLoader.Cartridges;
 
@@ -41,16 +34,17 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedNanoChatSystem _nanoChat = default!;
-    [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly IConfigurationManager _cfgManager = default!;
+    [Dependency] private readonly StationSystem _station = default!;
 
     // Messages in notifications get cut off after this point
     // no point in storing it on the comp
     private const int NotificationMaxLength = 64;
 
-    private int _maxNameLength;
-    private int _maxIdJobLength;
+    // The max length of the name and job title on the notification before being truncated.
+    private const int NotificationTitleMaxLength = 32;
+
+
 
     public override void Initialize()
     {
@@ -58,9 +52,6 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         SubscribeLocalEvent<NanoChatCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<NanoChatCartridgeComponent, CartridgeMessageEvent>(OnMessage);
-
-        Subs.CVar(_cfgManager, CCVars.MaxNameLength, value => _maxNameLength = value, true);
-        Subs.CVar(_cfgManager, CCVars.MaxIdJobLength, value => _maxIdJobLength = value, true);
     }
 
     private void UpdateClosed(Entity<NanoChatCartridgeComponent> ent)
@@ -87,6 +78,9 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         {
             if (cartridge.LoaderUid == null)
                 continue;
+
+            // keep it up to date without handling ui open/close events on the pda or adding code when changing active program
+            UpdateClosed((uid, nanoChat));
 
             // Check if we need to update our card reference
             if (!TryComp<PdaComponent>(cartridge.LoaderUid, out var pda))
@@ -126,11 +120,17 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             case NanoChatUiMessageType.SelectChat:
                 HandleSelectChat(card, msg);
                 break;
+            case NanoChatUiMessageType.EditChat:
+                HandleEditChat(card, msg);
+                break;
             case NanoChatUiMessageType.CloseChat:
                 HandleCloseChat(card);
                 break;
             case NanoChatUiMessageType.ToggleMute:
                 HandleToggleMute(card);
+                break;
+            case NanoChatUiMessageType.ToggleMuteChat:
+                HandleToggleMuteChat(card, msg);
                 break;
             case NanoChatUiMessageType.DeleteChat:
                 HandleDeleteChat(card, msg);
@@ -141,6 +141,23 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             case NanoChatUiMessageType.ToggleListNumber:
                 HandleToggleListNumber(card);
                 break;
+            // Funky Station Start - Group Chat Functionality
+            case NanoChatUiMessageType.CreateGroupChat:
+                HandleCreateGroupChat(card, msg);
+                break;
+            case NanoChatUiMessageType.InviteToGroup:
+                HandleInviteToGroup(card, msg);
+                break;
+            case NanoChatUiMessageType.KickFromGroup:
+                HandleKickFromGroup(card, msg);
+                break;
+            case NanoChatUiMessageType.AdminUser:
+                HandleAdminUser(card, msg);
+                break;
+            case NanoChatUiMessageType.DeadminUser:
+                HandleDeadminUser(card, msg);
+                break;
+            // Funky Station End - Group Chat Functionality
         }
 
         UpdateUI(ent, GetEntity(args.LoaderUid));
@@ -180,16 +197,16 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (!string.IsNullOrWhiteSpace(name))
         {
             name = name.Trim();
-            if (name.Length > _maxNameLength)
-                name = name[.._maxNameLength];
+            if (name.Length > 30) // Omu
+                name = name[..30]; // Omu
         }
 
         var jobTitle = msg.RecipientJob;
         if (!string.IsNullOrWhiteSpace(jobTitle))
         {
             jobTitle = jobTitle.Trim();
-            if (jobTitle.Length > _maxIdJobLength)
-                jobTitle = jobTitle[.._maxIdJobLength];
+            if (jobTitle.Length > 30) // Omu
+                jobTitle = jobTitle[..30]; // Omu
         }
 
         // Add new recipient
@@ -229,6 +246,42 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     }
 
     /// <summary>
+    ///     Handles editing the current chat conversation.
+    /// </summary>
+    private void HandleEditChat(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
+    {
+        if (msg.RecipientNumber == null || msg.Content == null || msg.RecipientNumber == card.Comp.Number ||
+            _nanoChat.GetRecipient((card, card.Comp), msg.RecipientNumber.Value) is not { } recipient)
+            return;
+
+        var name = msg.Content;
+        if (!string.IsNullOrWhiteSpace(name))
+        {
+            name = name.Trim();
+            if (name.Length > 30)// Omu
+                name = name[..30]; // Omu 
+        }
+
+        var jobTitle = msg.RecipientJob;
+        if (!string.IsNullOrWhiteSpace(jobTitle))
+        {
+            jobTitle = jobTitle.Trim();
+            if (jobTitle.Length > 30) // Omu
+                jobTitle = jobTitle[..30]; // Omu
+        }
+
+        // Update recipient
+        recipient.Name = name;
+        recipient.JobTitle = jobTitle;
+
+        _nanoChat.SetRecipient((card, card.Comp), msg.RecipientNumber.Value, recipient);
+
+        var recipientEv = new NanoChatRecipientUpdatedEvent(card);
+        RaiseLocalEvent(ref recipientEv);
+        UpdateUIForCard(card);
+    }
+
+    /// <summary>
     ///     Handles closing the current chat conversation.
     /// </summary>
     private void HandleCloseChat(Entity<NanoChatCardComponent> card)
@@ -244,15 +297,68 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (msg.RecipientNumber == null || card.Comp.Number == null)
             return;
 
+        // Funky Station Start - Group Chat Handling
+        var chatNumber = msg.RecipientNumber.Value;
+        var recipient = _nanoChat.GetRecipient((card, card.Comp), chatNumber);
+
+        // If it's a group chat, remove this user from the group
+        if (recipient != null && recipient.Value.IsGroup)
+        {
+            var members = recipient.Value.Members ?? new HashSet<uint>();
+            if (members.Remove(card.Comp.Number.Value))
+            {
+                var admins = recipient.Value.Admins ?? new HashSet<uint>();
+                admins.Remove(card.Comp.Number.Value);
+
+                // If the creator is leaving, transfer ownership
+                uint? newCreatorId = recipient.Value.CreatorId;
+                var isCreatorLeaving = card.Comp.Number.Value == recipient.Value.CreatorId;
+                if (isCreatorLeaving)
+                {
+                    if (admins.Count > 0)
+                    {
+                        newCreatorId = admins.First();
+                    }
+                    else if (members.Count > 0)
+                    {
+                        newCreatorId = members.First();
+                    }
+                    else
+                    {
+                        newCreatorId = null;
+                    }
+                }
+
+                // Update the group for all remaining members
+                var updatedRecipient = newCreatorId != null
+                    ? recipient.Value with { Members = members, Admins = admins, CreatorId = newCreatorId }
+                    : recipient.Value with { Members = members, Admins = admins };
+
+                foreach (var memberNumber in members)
+                {
+                    var cardQuery = EntityQueryEnumerator<NanoChatCardComponent>();
+                    while (cardQuery.MoveNext(out var memberCardUid, out var memberCard))
+                    {
+                        if (memberCard.Number == memberNumber)
+                        {
+                            _nanoChat.SetRecipient((memberCardUid, memberCard), chatNumber, updatedRecipient);
+                            UpdateUIForCard(memberCardUid);
+                        }
+                    }
+                }
+            }
+        }
+        // Funky Station End - Group Chat Handling
+
         // Delete chat but keep the messages
-        var deleted = _nanoChat.TryDeleteChat((card, card.Comp), msg.RecipientNumber.Value, true);
+        var deleted = _nanoChat.TryDeleteChat((card, card.Comp), chatNumber, true); // Funky Station - Stored chatNumber earlier so we don't have to get it multiple times.
 
         if (!deleted)
             return;
 
         _adminLogger.Add(LogType.Action,
             LogImpact.Low,
-            $"{ToPrettyString(msg.Actor):user} deleted NanoChat conversation with #{msg.RecipientNumber:D4}");
+            $"{ToPrettyString(msg.Actor):user} deleted NanoChat conversation with #{chatNumber:D4}"); // Funky Station - Used stored chatNumber.
 
         UpdateUIForCard(card);
     }
@@ -263,6 +369,14 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     private void HandleToggleMute(Entity<NanoChatCardComponent> card)
     {
         _nanoChat.SetNotificationsMuted((card, card.Comp), !_nanoChat.GetNotificationsMuted((card, card.Comp)));
+        UpdateUIForCard(card);
+    }
+
+    private void HandleToggleMuteChat(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
+    {
+        if (msg.RecipientNumber is not uint chat)
+            return;
+        _nanoChat.ToggleChatMuted((card, card.Comp), chat);
         UpdateUIForCard(card);
     }
 
@@ -282,16 +396,23 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (msg.RecipientNumber == null || msg.Content == null || card.Comp.Number == null)
             return;
 
-        if (!EnsureRecipientExists(card, msg.RecipientNumber.Value))
+        // Funky Station Begin - Group Chats (Check if this is a group chat before trying to ensure recipient exists)
+        var recipient = _nanoChat.GetRecipient((card, card.Comp), msg.RecipientNumber.Value);
+        var isGroupChat = recipient?.IsGroup ?? false;
+
+        // Only ensure recipient exists for non-group chats
+        if (!isGroupChat && !EnsureRecipientExists(card, msg.RecipientNumber.Value))
             return;
+        // Funky Station End - Group Chats
 
         var content = msg.Content;
         if (!string.IsNullOrWhiteSpace(content))
         {
-            content = FormattedMessage.EscapeText(content.Trim()); // Goob Sanitize Text
+            content = content.Trim();
             if (content.Length > NanoChatMessage.MaxContentLength)
                 content = content[..NanoChatMessage.MaxContentLength];
         }
+
 
         // Create and store message for sender
         var message = new NanoChatMessage(
@@ -300,8 +421,21 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             (uint)card.Comp.Number
         );
 
-        // Attempt delivery
-        var (deliveryFailed, recipients) = AttemptMessageDelivery(cartridge, msg.RecipientNumber.Value);
+        // Funky Station Start - Group Chat Handling
+        List<Entity<NanoChatCardComponent>> recipients;
+        bool deliveryFailed;
+
+        if (isGroupChat && recipient != null)
+        {
+            // For group chats, deliver to all members
+            (deliveryFailed, recipients) = AttemptGroupMessageDelivery(cartridge, recipient.Value, card.Comp.Number.Value);
+        }
+        else
+        {
+            // For regular chats, deliver to single recipient
+            (deliveryFailed, recipients) = AttemptMessageDelivery(cartridge, msg.RecipientNumber.Value);
+        }
+        // Funky Station End - Group Chat Handling
 
         // Update delivery status
         message = message with { DeliveryFailed = deliveryFailed };
@@ -316,7 +450,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         _adminLogger.Add(LogType.Chat,
             LogImpact.Low,
-            $"{ToPrettyString(msg.Actor):user} sent NanoChat message to {recipientsText}: {content}{(deliveryFailed ? " [DELIVERY FAILED]" : "")}");
+            $"{ToPrettyString(card):user} sent NanoChat message to {recipientsText}: {content}{(deliveryFailed ? " [DELIVERY FAILED]" : "")}");
 
         var msgEv = new NanoChatMessageReceivedEvent(card);
         RaiseLocalEvent(ref msgEv);
@@ -324,9 +458,9 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (deliveryFailed)
             return;
 
-        foreach (var recipient in recipients)
+        foreach (var recipientCard in recipients)
         {
-            DeliverMessageToRecipient(card, recipient, message);
+            DeliverMessageToRecipient(card, recipientCard, message, msg.RecipientNumber.Value, recipient); // Funky Station - Modified for Group Chats.
         }
     }
 
@@ -433,32 +567,95 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         return false;
     }
 
+    // Funky Station Start - Heavily modified to support group chats
+
     /// <summary>
     ///     Delivers a message to the recipient and handles associated notifications.
     /// </summary>
     /// <param name="sender">The sender's card entity</param>
     /// <param name="recipient">The recipient's card entity</param>
     /// <param name="message">The <see cref="NanoChatMessage" /> to deliver</param>
+    /// <param name="chatNumber">The chat number (for group chats, this is the group number)</param>
+    /// <param name="groupRecipient">Optional group recipient info if this is a group chat</param>
     private void DeliverMessageToRecipient(Entity<NanoChatCardComponent> sender,
         Entity<NanoChatCardComponent> recipient,
-        NanoChatMessage message)
+        NanoChatMessage message,
+        uint chatNumber,
+        NanoChatRecipient? groupRecipient = null)
     {
-        var senderNumber = sender.Comp.Number;
-        if (senderNumber == null)
+        if (sender.Comp.Number is not uint senderNumber)
             return;
 
-        // Always try to get and add sender info to recipient's contacts
-        if (!EnsureRecipientExists(recipient, senderNumber.Value))
+        // For group chats, use the group number. For regular chats, use the sender's number
+        var recipientNumber = (groupRecipient != null && groupRecipient.Value.IsGroup) ? chatNumber : senderNumber;
+
+        if (groupRecipient != null && groupRecipient.Value.IsGroup)
+        {
+            var existingRecipient = _nanoChat.GetRecipient((recipient, recipient.Comp), recipientNumber);
+
+            if (existingRecipient == null || !existingRecipient.Value.IsGroup)
+            {
+                _nanoChat.SetRecipient((recipient, recipient.Comp), recipientNumber, groupRecipient.Value);
+            }
+            else if (groupRecipient.Value.Members != null)
+            {
+                var existingMembers = existingRecipient.Value.Members ?? new HashSet<uint>();
+                if (!existingMembers.SetEquals(groupRecipient.Value.Members))
+                {
+                    _nanoChat.SetRecipient((recipient, recipient.Comp), recipientNumber, groupRecipient.Value);
+                }
+                else
+                {
+                    var existingAdmins = existingRecipient.Value.Admins ?? new HashSet<uint>();
+                    var groupAdmins = groupRecipient.Value.Admins ?? new HashSet<uint>();
+                    if (!existingAdmins.SetEquals(groupAdmins))
+                    {
+                        _nanoChat.SetRecipient((recipient, recipient.Comp), recipientNumber, groupRecipient.Value);
+                    }
+                }
+            }
+        }
+        else if (!EnsureRecipientExists(recipient, recipientNumber))
+        {
             return;
+        }
 
-        _nanoChat.AddMessage((recipient, recipient.Comp), senderNumber.Value, message with { DeliveryFailed = false });
+        _nanoChat.AddMessage((recipient, recipient.Comp), recipientNumber, message with { DeliveryFailed = false });
 
-        if (recipient.Comp.IsClosed || _nanoChat.GetCurrentChat((recipient, recipient.Comp)) != senderNumber)
-            HandleUnreadNotification(recipient, message, (uint) senderNumber);
+        if (recipient.Comp.IsClosed || _nanoChat.GetCurrentChat((recipient, recipient.Comp)) != recipientNumber)
+            HandleUnreadNotification(recipient, message, recipientNumber);
 
         var msgEv = new NanoChatMessageReceivedEvent(recipient);
         RaiseLocalEvent(ref msgEv);
         UpdateUIForCard(recipient);
+    }
+    // Funky Station End - Heavily modified to support group chats
+
+
+    /// <summary>
+    ///     Attempts to deliver a message to all members of a group chat.
+    /// </summary>
+    private (bool failed, List<Entity<NanoChatCardComponent>> recipients) AttemptGroupMessageDelivery(
+        Entity<NanoChatCartridgeComponent> sender,
+        NanoChatRecipient groupRecipient,
+        uint senderNumber) // Funky Station - Group Chats
+    {
+        if (groupRecipient.Members == null)
+            return (true, new List<Entity<NanoChatCardComponent>>());
+
+        var deliverableRecipients = new List<Entity<NanoChatCardComponent>>();
+
+        foreach (var memberNumber in groupRecipient.Members)
+        {
+            if (memberNumber == senderNumber)
+                continue;
+
+            var (failed, memberCards) = AttemptMessageDelivery(sender, memberNumber);
+            if (!failed)
+                deliverableRecipients.AddRange(memberCards);
+        }
+
+        return (false, deliverableRecipients);
     }
 
     /// <summary>
@@ -470,19 +667,22 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     {
         // Get sender name from contacts or fall back to number
         var recipients = _nanoChat.GetRecipients((recipient, recipient.Comp));
-        var senderName = recipients.TryGetValue(message.SenderId, out var senderRecipient)
+        var senderName = recipients.TryGetValue(senderNumber, out var senderRecipient)
             ? senderRecipient.Name
-            : $"#{message.SenderId:D4}";
+            : $"#{senderNumber:D4}"; // Funky Station - senderNumber is used now in order to support group chats.
         var hasSelectedCurrentChat = _nanoChat.GetCurrentChat((recipient, recipient.Comp)) == senderNumber;
 
         // Update unread status
         if (!hasSelectedCurrentChat)
             _nanoChat.SetRecipient((recipient, recipient.Comp),
-                message.SenderId,
+                senderNumber, // Funky Station - senderNumber is used now in order to support group chats.
                 senderRecipient with { HasUnread = true });
 
+        // Temporary local to avoid trouble with read-only access; Contains doesn't modify the collection
+        HashSet<uint> mutedChats = recipient.Comp.MutedChats;
         if (recipient.Comp.NotificationsMuted ||
-            recipient.Comp.PdaUid is not {} pdaUid ||
+            mutedChats.Contains(senderNumber) || // Funky Station - senderNumber is used now in order to support group chats.
+            recipient.Comp.PdaUid is not { } pdaUid ||
             !TryComp<CartridgeLoaderComponent>(pdaUid, out var loader) ||
             // Don't notify if the recipient has the NanoChat program open with this chat selected.
             (hasSelectedCurrentChat &&
@@ -490,9 +690,19 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                 HasComp<NanoChatCartridgeComponent>(loader.ActiveProgram)))
             return;
 
+        var title = "";
+        if (!string.IsNullOrEmpty(senderRecipient.JobTitle))
+        {
+            var titleRecipient = SharedNanoChatSystem.Truncate(Loc.GetString("nano-chat-new-message-title-recipient",
+                ("sender", senderName), ("jobTitle", senderRecipient.JobTitle)), NotificationTitleMaxLength, " \\[...\\]");
+            title = Loc.GetString("nano-chat-new-message-title", ("sender", titleRecipient));
+        }
+        else
+            title = Loc.GetString("nano-chat-new-message-title", ("sender", senderName));
+
         _cartridge.SendNotification(pdaUid,
-            Loc.GetString("nano-chat-new-message-title", ("sender", senderName)),
-            Loc.GetString("nano-chat-new-message-body", ("message", TruncateMessage(message.Content))),
+            title,
+            Loc.GetString("nano-chat-new-message-body", ("message", SharedNanoChatSystem.Truncate(message.Content, NotificationMaxLength, " [...]"))),
             loader);
     }
 
@@ -553,16 +763,6 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         return null;
     }
 
-    /// <summary>
-    ///     Truncates a message to the notification maximum length.
-    /// </summary>
-    private static string TruncateMessage(string message)
-    {
-        return message.Length <= NotificationMaxLength
-            ? message
-            : message[..(NotificationMaxLength - 4)] + " [...]";
-    }
-
     private void OnUiReady(Entity<NanoChatCartridgeComponent> ent, ref CartridgeUiReadyEvent args)
     {
         _cartridge.RegisterBackgroundProgram(args.Loader, ent);
@@ -595,6 +795,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         var recipients = new Dictionary<uint, NanoChatRecipient>();
         var messages = new Dictionary<uint, List<NanoChatMessage>>();
+        var mutedChats = new HashSet<uint>();
         uint? currentChat = null;
         uint ownNumber = 0;
         var maxRecipients = 50;
@@ -605,6 +806,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         {
             recipients = card.Recipients;
             messages = card.Messages;
+            mutedChats = card.MutedChats;
             currentChat = card.CurrentChat;
             ownNumber = card.Number ?? 0;
             maxRecipients = card.MaxRecipients;
@@ -614,6 +816,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         var state = new NanoChatUiState(recipients,
             messages,
+            mutedChats,
             contacts,
             currentChat,
             ownNumber,
@@ -622,4 +825,314 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             listNumber);
         _cartridge.UpdateCartridgeUiState(loader, state);
     }
+
+    /// <summary>
+    ///     Handles creation of a new group chat.
+    /// </summary>
+    private void HandleCreateGroupChat(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg) // Funky Station - Group Chats
+    {
+        if (msg.Content == null || card.Comp.Number == null)
+            return;
+
+        var name = msg.Content;
+        if (!string.IsNullOrWhiteSpace(name))
+        {
+            name = name.Trim();
+            if (name.Length > 30) // Omu
+                name = name[..30]; // Omu
+        }
+
+        // Generate a unique group number (surely unique I actually have no idea how to generate good unique numbers.)
+        var groupNumber = (uint) (HashCode.Combine(card.Comp.Number.Value, _timing.CurTime.Ticks) & 0x7FFFFFFF);
+
+        // This fucking sucks (fire emoji)
+        while (_nanoChat.GetRecipient((card, card.Comp), groupNumber) != null)
+        {
+            groupNumber++;
+        }
+
+        // Create group chat recipient
+        var members = new HashSet<uint> { card.Comp.Number.Value };
+        var recipient = new NanoChatRecipient(
+            groupNumber,
+            name,
+            null,
+            false,
+            true,
+            members,
+            card.Comp.Number.Value
+        );
+
+        _nanoChat.SetRecipient((card, card.Comp), groupNumber, recipient);
+
+        _adminLogger.Add(LogType.Action,
+            LogImpact.Low,
+            $"{ToPrettyString(msg.Actor):user} created group chat '{name}' (#{groupNumber:D4})");
+
+        var recipientEv = new NanoChatRecipientUpdatedEvent(card);
+        RaiseLocalEvent(ref recipientEv);
+        UpdateUIForCard(card);
+    }
+
+    /// <summary>
+    ///     Handles inviting a user to a group chat.
+    /// </summary>
+    private void HandleInviteToGroup(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg) // Funky Station - Group Chats
+    {
+        if (msg.RecipientNumber == null || msg.Content == null || card.Comp.Number == null)
+            return;
+
+        var groupNumber = msg.RecipientNumber.Value;
+        if (!uint.TryParse(msg.Content, out var inviteeNumber))
+            return;
+
+        var recipient = _nanoChat.GetRecipient((card, card.Comp), groupNumber);
+        if (recipient == null || !recipient.Value.IsGroup)
+            return;
+
+        // Only the creator or admins can invite
+        var isCreator = recipient.Value.CreatorId == card.Comp.Number.Value;
+        var admins = recipient.Value.Admins ?? new HashSet<uint>();
+        var isAdmin = admins.Contains(card.Comp.Number.Value);
+
+        if (!isCreator && !isAdmin)
+            return;
+
+        var members = recipient.Value.Members ?? new HashSet<uint>();
+        if (members.Contains(inviteeNumber))
+            return;
+
+        // Add member to group
+        members.Add(inviteeNumber);
+        var updatedRecipient = recipient.Value with { Members = members };
+        _nanoChat.SetRecipient((card, card.Comp), groupNumber, updatedRecipient);
+
+        // Update member lists for all members
+        var memberCards = new List<Entity<NanoChatCardComponent>>();
+        var cardQuery = EntityQueryEnumerator<NanoChatCardComponent>();
+        while (cardQuery.MoveNext(out var cardUid, out var memberCard))
+        {
+            if (memberCard.Number != null && members.Contains(memberCard.Number.Value))
+            {
+                memberCards.Add((cardUid, memberCard));
+            }
+        }
+
+        foreach (var memberCard in memberCards)
+        {
+            _nanoChat.SetRecipient((memberCard, memberCard.Comp), groupNumber, updatedRecipient);
+            UpdateUIForCard(memberCard);
+        }
+
+        _adminLogger.Add(LogType.Action,
+            LogImpact.Low,
+            $"{ToPrettyString(msg.Actor):user} invited #{inviteeNumber:D4} to group chat #{groupNumber:D4}");
+
+        var recipientEv = new NanoChatRecipientUpdatedEvent(card);
+        RaiseLocalEvent(ref recipientEv);
+        UpdateUIForCard(card);
+    }
+
+    /// <summary>
+    ///     Handles kicking a user from a group chat.
+    /// </summary>
+    private void HandleKickFromGroup(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg) // Funky Station - Group Chats
+    {
+        if (msg.RecipientNumber == null || msg.Content == null || card.Comp.Number == null)
+            return;
+
+        var groupNumber = msg.RecipientNumber.Value;
+        if (!uint.TryParse(msg.Content, out var kickeeNumber))
+            return;
+
+        var recipient = _nanoChat.GetRecipient((card, card.Comp), groupNumber);
+        if (recipient == null || !recipient.Value.IsGroup)
+            return;
+
+        var isCreator = recipient.Value.CreatorId == card.Comp.Number.Value;
+        var admins = recipient.Value.Admins ?? new HashSet<uint>();
+        var isAdmin = admins.Contains(card.Comp.Number.Value);
+        var isSelfKick = kickeeNumber == card.Comp.Number.Value;
+
+        if (!isSelfKick && !isCreator && !isAdmin)
+            return;
+
+        // Allow creator to leave the group but not be kicked by other members.
+        var isCreatorLeaving = kickeeNumber == recipient.Value.CreatorId && isCreator;
+        if (kickeeNumber == recipient.Value.CreatorId && !isCreatorLeaving)
+            return;
+
+        // Find all cards belonging to the kickee
+        var kickeeCards = new List<Entity<NanoChatCardComponent>>();
+        var cardQuery = EntityQueryEnumerator<NanoChatCardComponent>();
+        while (cardQuery.MoveNext(out var cardUid, out var kickeeCard))
+        {
+            if (kickeeCard.Number == kickeeNumber)
+            {
+                kickeeCards.Add((cardUid, kickeeCard));
+            }
+        }
+
+        foreach (var kickeeCard in kickeeCards)
+        {
+            var deleteMsg = new NanoChatUiMessageEvent(NanoChatUiMessageType.DeleteChat, groupNumber, null, null)
+            {
+                Actor = msg.Actor
+            };
+            HandleDeleteChat(kickeeCard, deleteMsg);
+        }
+
+        if (isCreatorLeaving)
+        {
+            _adminLogger.Add(LogType.Action,
+                LogImpact.Low,
+                $"{ToPrettyString(msg.Actor):user} left group chat #{groupNumber:D4}");
+        }
+        else
+        {
+            _adminLogger.Add(LogType.Action,
+                LogImpact.Low,
+                $"{ToPrettyString(msg.Actor):user} kicked #{kickeeNumber:D4} from group chat #{groupNumber:D4}");
+        }
+
+        var recipientEv = new NanoChatRecipientUpdatedEvent(card);
+        RaiseLocalEvent(ref recipientEv);
+        UpdateUIForCard(card);
+    }
+
+    /// <summary>
+    ///     Handles promoting a user to admin in a group chat.
+    /// </summary>
+    private void HandleAdminUser(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg) // Funky Station - Group Chats
+    {
+        if (msg.RecipientNumber == null || msg.Content == null || card.Comp.Number == null)
+            return;
+
+        var groupNumber = msg.RecipientNumber.Value;
+        if (!uint.TryParse(msg.Content, out var targetNumber))
+            return;
+
+        var recipient = _nanoChat.GetRecipient((card, card.Comp), groupNumber);
+        if (recipient == null || !recipient.Value.IsGroup)
+            return;
+
+        // Only the creator or admins can make admins
+        var isCreator = recipient.Value.CreatorId == card.Comp.Number.Value;
+        var admins = recipient.Value.Admins ?? new HashSet<uint>();
+        var isAdmin = admins.Contains(card.Comp.Number.Value);
+
+        if (!isCreator && !isAdmin)
+            return;
+
+        var members = recipient.Value.Members ?? new HashSet<uint>();
+        if (!members.Contains(targetNumber))
+            return; // how tf
+
+        if (targetNumber == recipient.Value.CreatorId)
+            return;
+
+        if (!isCreator && admins.Contains(targetNumber))
+            return;
+
+        if (!admins.Add(targetNumber))
+            return;
+
+        var updatedRecipient = recipient.Value with { Admins = admins };
+        _nanoChat.SetRecipient((card, card.Comp), groupNumber, updatedRecipient);
+
+        // Sync to all members
+        foreach (var memberNumber in members)
+        {
+            var memberCards = new List<Entity<NanoChatCardComponent>>();
+            var cardQuery = EntityQueryEnumerator<NanoChatCardComponent>();
+            while (cardQuery.MoveNext(out var cardUid, out var memberCard))
+            {
+                if (memberCard.Number == memberNumber)
+                {
+                    memberCards.Add((cardUid, memberCard));
+                }
+            }
+
+            foreach (var memberCard in memberCards)
+            {
+                _nanoChat.SetRecipient((memberCard, memberCard.Comp), groupNumber, updatedRecipient);
+                UpdateUIForCard(memberCard);
+            }
+        }
+
+        _adminLogger.Add(LogType.Action,
+            LogImpact.Low,
+            $"{ToPrettyString(msg.Actor):user} promoted #{targetNumber:D4} to admin in group chat #{groupNumber:D4}");
+
+        var recipientEv = new NanoChatRecipientUpdatedEvent(card);
+        RaiseLocalEvent(ref recipientEv);
+        UpdateUIForCard(card);
+    }
+
+    /// <summary>
+    ///     Handles demoting a user from admin in a group chat.
+    /// </summary>
+    private void HandleDeadminUser(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg) // Funky Station - Group Chats
+    {
+        if (msg.RecipientNumber == null || msg.Content == null || card.Comp.Number == null)
+            return;
+
+        var groupNumber = msg.RecipientNumber.Value;
+        if (!uint.TryParse(msg.Content, out var targetNumber))
+            return;
+
+        var recipient = _nanoChat.GetRecipient((card, card.Comp), groupNumber);
+        if (recipient == null || !recipient.Value.IsGroup)
+            return;
+
+        // Only the creator or admins can remove admins
+        var isCreator = recipient.Value.CreatorId == card.Comp.Number.Value;
+        var admins = recipient.Value.Admins ?? new HashSet<uint>();
+        var isAdmin = admins.Contains(card.Comp.Number.Value);
+
+        if (!isCreator && !isAdmin)
+            return;
+
+        var members = recipient.Value.Members ?? new HashSet<uint>();
+        if (!members.Contains(targetNumber))
+            return; // how
+
+        if (!isCreator && (targetNumber == recipient.Value.CreatorId || admins.Contains(targetNumber)))
+            return;
+
+        if (!admins.Remove(targetNumber))
+            return;
+
+        var updatedRecipient = recipient.Value with { Admins = admins };
+        _nanoChat.SetRecipient((card, card.Comp), groupNumber, updatedRecipient);
+
+        // Sync to all members
+        foreach (var memberNumber in members)
+        {
+            var memberCards = new List<Entity<NanoChatCardComponent>>();
+            var cardQuery = EntityQueryEnumerator<NanoChatCardComponent>();
+            while (cardQuery.MoveNext(out var cardUid, out var memberCard))
+            {
+                if (memberCard.Number == memberNumber)
+                {
+                    memberCards.Add((cardUid, memberCard));
+                }
+            }
+
+            foreach (var memberCard in memberCards)
+            {
+                _nanoChat.SetRecipient((memberCard, memberCard.Comp), groupNumber, updatedRecipient);
+                UpdateUIForCard(memberCard);
+            }
+        }
+
+        _adminLogger.Add(LogType.Action,
+            LogImpact.Low,
+            $"{ToPrettyString(msg.Actor):user} removed admin from #{targetNumber:D4} in group chat #{groupNumber:D4}");
+
+        var recipientEv = new NanoChatRecipientUpdatedEvent(card);
+        RaiseLocalEvent(ref recipientEv);
+        UpdateUIForCard(card);
+    }
 }
+
