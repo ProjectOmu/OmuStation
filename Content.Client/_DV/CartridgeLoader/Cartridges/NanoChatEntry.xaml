@@ -1,7 +1,3 @@
-<!--
-SPDX-License-Identifier: AGPL-3.0-or-later
--->
-
 <BoxContainer
     xmlns="https://spacestation14.io"
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
@@ -29,6 +25,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                         BorderColor="#0f7a15" />
                 </PanelContainer.PanelOverride>
             </PanelContainer>
+
+            <!-- Funky Station - Group chat icon -->
+            <TextureRect Name="GroupIcon"
+                         TexturePath="/Textures/_Funkystation/Interface/NanoChat/members.png"
+                         MinSize="16 16"
+                         MaxSize="16 16"
+                         Stretch="KeepAspectCentered"
+                         VerticalAlignment="Center"
+                         Margin="4 0 6 0"
+                         Visible="False" />
 
             <!-- Text container -->
             <BoxContainer Orientation="Vertical"

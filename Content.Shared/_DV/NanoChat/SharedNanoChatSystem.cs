@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared._DV.CartridgeLoader.Cartridges;
 using Content.Shared.Examine;
 using Robust.Shared.Timing;
@@ -33,6 +31,19 @@ public abstract class SharedNanoChatSystem : EntitySystem
         args.PushMarkup(Loc.GetString("nanochat-card-examine-number", ("number", $"{ent.Comp.Number:D4}")));
     }
 
+    /// <summary>
+    ///     Helper Method for truncating a string to maximum length
+    /// </summary>
+    public static string Truncate(string? text, int maxLength, string overflowText = "...") // Funky station - made text nullable because weird shit was happening that I could not bother to debug.
+    {
+        if (string.IsNullOrEmpty(text))
+            return string.Empty;
+
+        return text.Length > maxLength
+            ? text[..(maxLength - overflowText.Length)] + overflowText
+            : text;
+    }
+
     #region Public API Methods
 
     /// <summary>
@@ -51,7 +62,7 @@ public abstract class SharedNanoChatSystem : EntitySystem
     /// </summary>
     public void SetNumber(Entity<NanoChatCardComponent?> card, uint number)
     {
-        if (!Resolve(card, ref card.Comp))
+        if (!Resolve(card, ref card.Comp) || card.Comp.Number == number)
             return;
 
         card.Comp.Number = number;
@@ -183,10 +194,23 @@ public abstract class SharedNanoChatSystem : EntitySystem
     /// </summary>
     public void SetNotificationsMuted(Entity<NanoChatCardComponent?> card, bool muted)
     {
-        if (!Resolve(card, ref card.Comp))
+        if (!Resolve(card, ref card.Comp) || card.Comp.NotificationsMuted == muted)
             return;
 
         card.Comp.NotificationsMuted = muted;
+        Dirty(card);
+    }
+
+    /// <summary>
+    ///     Sets whether notifications are muted for a specific chat.
+    /// </summary>
+    public void ToggleChatMuted(Entity<NanoChatCardComponent?> card, uint chat)
+    {
+        if (!Resolve(card, ref card.Comp))
+            return;
+
+        if (!card.Comp.MutedChats.Remove(chat))
+            card.Comp.MutedChats.Add(chat);
         Dirty(card);
     }
 
