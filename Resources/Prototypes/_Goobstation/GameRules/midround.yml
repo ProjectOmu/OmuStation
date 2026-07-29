@@ -116,9 +116,10 @@
     maxOccurrences: 2
     eventType: Neutral
   - type: GameRule
-    chaosScore: 20
+    chaosScore: 70 # Omu, was 20
   - type: VentCrittersRule
     max: 1
+    min: 1 # Omu :blonks:
     table: !type:GroupSelector
       children:
       - id: MobFloorGoblin
