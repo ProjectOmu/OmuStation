@@ -5531,3 +5531,85 @@ Entries:
       message: New game rule for admins to use :3
   id: 723
   time: '2026-07-26T17:52:37.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        Kettle's disposals is now connected properly to the disposals pipe
+        system.
+  id: 724
+  time: '2026-07-27T13:58:46.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        Added a single disposals pipe to connect a disposals unit in the medbay
+        in Leonid.
+  id: 725
+  time: '2026-07-27T14:32:01.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: Increased spawn rate of sleeper agents
+  id: 726
+  time: '2026-07-27T15:03:35.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Add
+      message: Added IAA as a midround spawn.
+  id: 727
+  time: '2026-07-27T15:04:17.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: Lowered Abductor spawn slightly.
+  id: 728
+  time: '2026-07-27T21:23:16.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Floor Goblins can spawn again
+    - type: Add
+      message: New Vent Critters can spawn
+  id: 729
+  time: '2026-07-27T21:31:36.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Add
+      message: >-
+        Pill canisters now have an open and closed visual state similar to
+        toolboxes
+  id: 730
+  time: '2026-07-27T21:57:11.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        You now require the "CanPilot" tag to pilot mechs, this means that mobs
+        like monkeys cannot pilot a mech, HAMTR and VIM are unaffected by this.
+  id: 731
+  time: '2026-07-28T00:54:19.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Add
+      message: Allulalo can now make three new noises. (Awebo, Coo, Scree)
+  id: 732
+  time: '2026-07-28T12:28:27.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: Changed execution SOP to be more clear
+  id: 733
+  time: '2026-07-29T01:50:03.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Tweak
+      message: Cog's cargo window shutter is now directional.
+  id: 734
+  time: '2026-07-29T01:56:05.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Remove
+      message: Paradox clone disabled due to urgent bug. Will be enabled in the future
+  id: 735
+  time: '2026-07-29T03:32:54.0000000+00:00'
