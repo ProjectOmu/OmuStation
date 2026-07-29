@@ -1066,20 +1066,26 @@
   - type: Sprite
     layers:
     - state: icon
+      #color: "#bb934b"
       color: "#633C18" # Omu
     - state: accent-icon
+      #color: "#ffc000"
       color: "#F2B050" # Omu
     - state: accent3_chestonly-icon
+      #color: "#d08200"
       color: "#796755" # Omu
     - state: clip-icon
       color: "#c0c0c0"
     - state: clip_right-icon
       color: "#a7a7a7"
     - state: pants-icon
+      #color: "#8a8a8a"
       color: "#2D2D33" # Omu
     - state: belt-icon
+      #color: "#6f6f6f"
       color: "#18191E" # Omu
     - state: beltbuckle-icon
+      #color: "#bfbfbf"
       color: "#F2B050" # Omu
     - state: buttons-icon
       color: "#535353"
@@ -1087,39 +1093,51 @@
     inhandVisuals:
       left:
       - state: inhand-left
+        #color: "#bb934b"
         color: "#633C18" # Omu
       - state: accent-inhand-left
+        #color: "#ffc000"
         color: "#F2B050" # Omu
       - state: accent3_chestonly-inhand-left
+        #color: "#d08200"
         color: "#796755" # Omu
       - state: clip-inhand-left
         color: "#c0c0c0"
       - state: clip_right-inhand-left
         color: "#a7a7a7"
       - state: pants-inhand-left
+        #color: "#8a8a8a"
         color: "#2D2D33" # Omu
       - state: belt-inhand-left
+        #color: "#6f6f6f"
         color: "#18191E" # Omu
       - state: beltbuckle-inhand-left
+        #color: "#bfbfbf"
         color: "#F2B050" # Omu
       - state: buttons-inhand-left
         color: "#535353"
       right:
       - state: inhand-right
+        #color: "#bb934b"
         color: "#633C18" # Omu
       - state: accent-inhand-right
+        #color: "#ffc000"
         color: "#F2B050" # Omu
       - state: accent3_chestonly-inhand-right
+        #color: "#d08200"
         color: "#796755" # Omu
       - state: clip-inhand-right
         color: "#c0c0c0"
       - state: clip_right-inhand-right
         color: "#a7a7a7"
       - state: pants-inhand-right
+        #color: "#8a8a8a"
         color: "#2D2D33" # Omu
       - state: belt-inhand-right
+        #color: "#6f6f6f"
         color: "#18191E" # Omu
       - state: beltbuckle-inhand-right
+        #color: "#bfbfbf"
         color: "#F2B050" # Omu
       - state: buttons-inhand-right
         color: "#535353"
@@ -1127,32 +1145,42 @@
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
+        #color: "#bb934b"
         color: "#633C18" # Omu
       - state: accentalt-equipped-INNERCLOTHING
+        #color: "#ffc000"
         color: "#F2B050" # Omu
       - state: accent3_chestonly-equipped-INNERCLOTHING
+        #color: "#d08200"
         color: "#796755" # Omu
       - state: clip-equipped-INNERCLOTHING
         color: "#c0c0c0"
       - state: clip_right-equipped-INNERCLOTHING
         color: "#a7a7a7"
       - state: cuffs-equipped-INNERCLOTHING
+        #color: "#d08200"
         color: "#39393F" # Omu
       - state: cuffs_upper-equipped-INNERCLOTHING
         color: "#6e6e6e"
       - state: pants-equipped-INNERCLOTHING
+        #color: "#8a8a8a"
         color: "#2D2D33" # Omu
       - state: belt-equipped-INNERCLOTHING
+        #color: "#6f6f6f"
         color: "#18191E" # Omu
       - state: beltbuckle-equipped-INNERCLOTHING
+        #color: "#ffc000"
         color: "#F2B050" # Omu
       - state: buttons-equipped-INNERCLOTHING
         color: "#535353"
       - state: loweraccent-equipped-INNERCLOTHING
+        #color: "#ffc000"
         color: "#F2B050" # Omu
       - state: shoesdark-equipped-INNERCLOTHING
-        color: "#39393F"
+        #color: "#828282"
+        color: "#39393F" # Omu
       - state: soles-equipped-INNERCLOTHING
+        #color: "#ffc000"
         color: "#F2B050" # Omu
 
 - type: entity
@@ -1597,6 +1625,7 @@
     - state: icon
       color: "#292929"
     - state: accent3_chestonly-icon
+      #color: "#266199"
       color: "#2B722F" # Omu, blue to green
     - state: accent2-icon
       color: "#ffce5b"
@@ -1612,6 +1641,7 @@
       - state: inhand-left
         color: "#292929"
       - state: accent3_chestonly-inhand-left
+        #color: "#266199"
         color: "#2B722F" # Omu, blue to green
       - state: accent2-inhand-left
         color: "#ffce5b"
@@ -1625,6 +1655,7 @@
       - state: inhand-right
         color: "#292929"
       - state: accent3_chestonly-inhand-right
+        #color: "#266199"
         color: "#2B722F" # Omu, blue to green
       - state: accent2-inhand-right
         color: "#ffce5b"
@@ -1640,6 +1671,7 @@
       - state: equipped-INNERCLOTHING
         color: "#292929"
       - state: accent3_chestonly-equipped-INNERCLOTHING
+        #color: "#266199"
         color: "#2B722F" # Omu, blue to green
       - state: accent2-equipped-INNERCLOTHING
         color: "#ffce5b"
@@ -1648,12 +1680,14 @@
       - state: cuffs-equipped-INNERCLOTHING
         color: "#ffce5b"
       - state: cuffs_upper-equipped-INNERCLOTHING
+        #color: "#0057a8"
         color: "#1C592C" # Omu, blue to green
       - state: belt-equipped-INNERCLOTHING
         color: "#87511b"
       - state: beltbuckle-equipped-INNERCLOTHING
         color: "#969696"
       - state: loweraccent-equipped-INNERCLOTHING
+        #color: "#266199"
         color: "#2B722F" # Omu, blue to green
       - state: soles-equipped-INNERCLOTHING
         color: "#ffce5b"

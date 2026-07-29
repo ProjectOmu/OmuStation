@@ -81,21 +81,25 @@
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     layers:
     - state: icon
+      #color: "#234f60"
       color: "#5ba0cf" # Omu, color changed from paramed blue to medical blue
   - type: Item
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     inhandVisuals:
       left:
       - state: inhand-left
+        #color: "#234f60"
         color: "#5ba0cf" # Omu
       right:
       - state: inhand-right
+        #color: "#234f60"
         color: "#5ba0cf" # Omu
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
+        #color: "#234f60"
         color: "#5ba0cf" # Omu
   - type: Fiber
     fiberMaterial: fibers-nitrile
@@ -221,24 +225,29 @@
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     layers:
     - state: icon
+      #color: "#bb9042"
       color: "#ABBAB8" # Omu
   - type: Item
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     inhandVisuals:
       left:
       - state: inhand-left
+        #color: "#bb9042"
         color: "#ABBAB8" # Omu
       right:
       - state: inhand-right
+        #color: "#bb9042"
         color: "#ABBAB8" # Omu
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
+        #color: "#bb9042"
         color: "#ABBAB8" # Omu
   - type: Fiber
-    fiberColor: fibers-grey
+    #fiberColor: fibers-orange # Omu, Color change
+    fiberColor: fibers-grey # Omu
 
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
@@ -250,21 +259,25 @@
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     layers:
     - state: icon
+      #color: "#d75600"
       color: "#D15B1B" # Omu, Slight shade change
   - type: Item
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     inhandVisuals:
       left:
       - state: inhand-left
+        #color: "#d75600"
         color: "#D15B1B" # Omu, Slight shade change
       right:
       - state: inhand-right
+        #color: "#d75600"
         color: "#D15B1B" # Omu, Slight shade change
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
+        #color: "#d75600"
         color: "#D15B1B" # Omu, Slight shade change
   - type: Fiber
     fiberColor: fibers-orange
@@ -280,21 +293,25 @@
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     layers:
     - state: icon
+      #color: "#00a5ff"
       color: "#47BFFF" # Omu, Slight shade change
   - type: Item
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     inhandVisuals:
       left:
       - state: inhand-left
+        #color: "#00a5ff"
         color: "#47BFFF" # Omu, Slight shade change
       right:
       - state: inhand-right
+        #color: "#00a5ff"
         color: "#47BFFF" # Omu, Slight shade change
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
+        #color: "#00a5ff"
         color: "#47BFFF" # Omu, Slight shade change
   - type: Fiber
     fiberColor: fibers-blue
@@ -516,21 +533,25 @@
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     layers:
     - state: icon
+      #color: "#45ff00"
       color: "#2E992E" # Omu, saturation lowered
   - type: Item
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     inhandVisuals:
       left:
       - state: inhand-left
+        #color: "#45ff00"
         color: "#2E992E" # Omu, saturation lowered
       right:
       - state: inhand-right
+        #color: "#45ff00"
         color: "#2E992E" # Omu, saturation lowered
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
+        #color: "#45ff00"
         color: "#2E992E" # Omu, saturation lowered
   - type: Fiber
     fiberColor: fibers-green
