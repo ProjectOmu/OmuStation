@@ -221,22 +221,22 @@
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     layers:
     - state: icon
-      color: "#ABBAB8"
+      color: "#ABBAB8" # Omu
   - type: Item
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#ABBAB8"
+        color: "#ABBAB8" # Omu
       right:
       - state: inhand-right
-        color: "#ABBAB8"
+        color: "#ABBAB8" # Omu
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        color: "#ABBAB8"
+        color: "#ABBAB8" # Omu
   - type: Fiber
     fiberColor: fibers-grey
 
