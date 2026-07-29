@@ -52,6 +52,8 @@ job-description-engineer = Keep the station's main engine & solars active, optim
 job-description-ertchaplain = Ensure the station crew's last rights are taken care of.
 job-description-ertengineer = Ensure that the station has power and clean air.
 job-description-ertjanitor = Ensure that the station is properly cleaned--for morale.
+## omu edit - tram driver
+job-description-tram-driver = Drive around a tram from stop to stop.
 job-description-ertleader = Lead the Emergency Response Team in dealing with threats to Nanotrasen assets.
 job-description-ertmedic = Ensure that the crew of the station is kept alive and healthy.
 job-description-ertsecurity = Ensure that any active threats to the station are put to rest.
