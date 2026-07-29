@@ -221,24 +221,24 @@
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     layers:
     - state: icon
-      color: "#bb9042"
+      color: "#ABBAB8"
   - type: Item
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#bb9042"
+        color: "#ABBAB8"
       right:
       - state: inhand-right
-        color: "#bb9042"
+        color: "#ABBAB8"
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        color: "#bb9042"
+        color: "#ABBAB8"
   - type: Fiber
-    fiberColor: fibers-orange
+    fiberColor: fibers-grey
 
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
@@ -250,22 +250,22 @@
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     layers:
     - state: icon
-      color: "#d75600"
+      color: "#D15B1B" # Omu, Slight shade change
   - type: Item
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#d75600"
+        color: "#D15B1B" # Omu, Slight shade change
       right:
       - state: inhand-right
-        color: "#d75600"
+        color: "#D15B1B" # Omu, Slight shade change
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        color: "#d75600"
+        color: "#D15B1B" # Omu, Slight shade change
   - type: Fiber
     fiberColor: fibers-orange
   - type: Insulated # We dont have as granular of a system as EE so we just make em straight up insuls.
@@ -273,29 +273,29 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesAtmos
-  name: atmos envirogloves
+  name: atmospherics envirogloves # Omu, "atmos" to "atmospherics" for consistency's sake
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     layers:
     - state: icon
-      color: "#00a5ff"
+      color: "#47BFFF" # Omu, Slight shade change
   - type: Item
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#00a5ff"
+        color: "#47BFFF" # Omu, Slight shade change
       right:
       - state: inhand-right
-        color: "#00a5ff"
+        color: "#47BFFF" # Omu, Slight shade change
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        color: "#00a5ff"
+        color: "#47BFFF" # Omu, Slight shade change
   - type: Fiber
     fiberColor: fibers-blue
   - type: Insulated # We dont have as granular of a system as EE so we just make em straight up insuls.
@@ -455,7 +455,7 @@
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesHoP
   name: head of personnel's envirogloves
-  description: Covers up those scandalous, bony hands. Appears to be an attempt at making a replica of the captain's gloves.
+  description: Protects from papercuts, and covers up those scandalous, bony hands. # Omu, no longer matches with cap gloves
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Hands/Gloves/Envirogloves/hop.rsi
@@ -477,11 +477,29 @@
     fiberColor: fibers-blue
 
 - type: entity
-  parent: ClothingHandsGlovesEnviroglovesHoP
+  parent: ClothingHandsGlovesEnviroglovesBase # Omu, no longer parented to HoP gloves
   id: ClothingHandsGlovesEnviroglovesCaptain
   name: captain's envirogloves
   description: Covers up those scandalous, bony hands in a fancy way.
   components:
+  # Omu changes start, link to new sprite
+  - type: Sprite
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/cap.rsi
+    layers:
+    - state: icon
+  - type: Item
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/cap.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Clothing
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/cap.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+  # Omu changes end
   - type: FingerprintMask
   - type: Insulated
   - type: Fiber
@@ -498,22 +516,22 @@
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     layers:
     - state: icon
-      color: "#45ff00"
+      color: "#2E992E" # Omu, saturation lowered
   - type: Item
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#45ff00"
+        color: "#2E992E" # Omu, saturation lowered
       right:
       - state: inhand-right
-        color: "#45ff00"
+        color: "#2E992E" # Omu, saturation lowered
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        color: "#45ff00"
+        color: "#2E992E" # Omu, saturation lowered
   - type: Fiber
     fiberColor: fibers-green
   - type: Insulated

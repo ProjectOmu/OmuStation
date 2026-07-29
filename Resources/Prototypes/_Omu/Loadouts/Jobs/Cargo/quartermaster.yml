@@ -7,3 +7,12 @@
   id: QuartermasterUniformSkirt
   equipment:
     jumpsuit: ClothingUniformJumpsuitQMUniformSkirt
+
+- type: loadout
+  id: QuartermasterEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesQM
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation? - EE Plasmeme Change.
+    species:
+    - Plasmaman
