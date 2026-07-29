@@ -3,3 +3,26 @@
   id: LongScienceCoat
   equipment:
     outerClothing: ClothingOuterCoatSciencecoatLong
+
+# Plasmaman Stuff
+- type: loadout
+  id: SeniorChemistEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmSeniorChemist
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorChemist
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: SeniorChemistEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitSeniorChemist
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorChemist
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman

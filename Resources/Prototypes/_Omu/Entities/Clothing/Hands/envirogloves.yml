@@ -26,3 +26,17 @@
         color: "#796755"
   - type: Fiber
     fiberColor: fibers-light-brown
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesLatex
+  name: latex envirogloves
+  description: Sealed latex gloves, for the medically inclined Plasmaman.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/latex.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/latex.rsi
+  - type: Fiber
+    fiberMaterial: fibers-latex
+  - type: FingerprintMask

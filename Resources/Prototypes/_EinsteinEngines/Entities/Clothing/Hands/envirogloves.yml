@@ -81,22 +81,22 @@
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     layers:
     - state: icon
-      color: "#234f60"
+      color: "#5ba0cf" # Omu, color changed from paramed blue to medical blue
   - type: Item
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#234f60"
+        color: "#5ba0cf" # Omu
       right:
       - state: inhand-right
-        color: "#234f60"
+        color: "#5ba0cf" # Omu
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        color: "#234f60"
+        color: "#5ba0cf" # Omu
   - type: Fiber
     fiberMaterial: fibers-nitrile
   - type: FingerprintMask

@@ -1,0 +1,32 @@
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmSeniorPhysician
+  name: senior physician envirosuit helmet
+  description: TBA
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Envirohelms/senior_medical.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Envirohelms/senior_medical.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmSeniorChemist
+  name: senior chemist envirosuit helmet
+  description: TBA
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Envirohelms/senior_chemist.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Envirohelms/senior_chemist.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmVeteranCMO
+  name: CMO's veteran envirosuit helmet
+  description: A reinforced helmet commissioned by the Chief Medical Officer, designed to survive even the most explosive of chemistry mishaps.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Envirohelms/veteran_cmo.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Envirohelms/veteran_cmo.rsi

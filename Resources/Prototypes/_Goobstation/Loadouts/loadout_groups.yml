@@ -114,6 +114,7 @@
   maxLimit: 1
   loadouts:
   - ChiefMedicalOfficerEnvirohelm
+  - CMOVetEnvirohelm # Omu
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerEnvirosuit
@@ -122,6 +123,7 @@
   maxLimit: 1
   loadouts:
   - ChiefMedicalOfficerEnvirosuit
+  - CMOVetEnvirosuit # Omu
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerEnvirogloves
@@ -129,7 +131,8 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - WhiteEnvirogloves
+  #- WhiteEnvirogloves # Omu, Replace with latex.
+  - LatexEnvirogloves
   - NitrileEnvirogloves
 
 # Medical Doctor
@@ -141,6 +144,7 @@
   maxLimit: 1
   loadouts:
   - MedicalDoctorEnvirohelm
+  - SeniorPhysicianEnvirohelm # Omu
 
 - type: loadoutGroup
   id: MedicalDoctorEnvirosuit
@@ -149,6 +153,7 @@
   maxLimit: 1
   loadouts:
   - MedicalDoctorEnvirosuit
+  - SeniorPhysicianEnvirosuit # Omu
 
 - type: loadoutGroup
   id: MedicalDoctorEnvirogloves
@@ -156,7 +161,8 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - WhiteEnvirogloves
+  #- WhiteEnvirogloves # Omu, Replace with latex.
+  - LatexEnvirogloves
   - NitrileEnvirogloves
 
 # Medical Intern
@@ -183,7 +189,8 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - WhiteEnvirogloves
+  #- WhiteEnvirogloves # Omu, Replace with latex.
+  - LatexEnvirogloves
 
 # Paramedic
 
@@ -194,6 +201,7 @@
   maxLimit: 1
   loadouts:
   - ParamedicEnvirohelm
+  - SeniorPhysicianEnvirohelm # Omu
 
 - type: loadoutGroup
   id: ParamedicEnvirosuit
@@ -202,6 +210,7 @@
   maxLimit: 1
   loadouts:
   - ParamedicEnvirosuit
+  - SeniorPhysicianEnvirosuit # Omu
 
 - type: loadoutGroup
   id: ParamedicEnvirogloves
@@ -209,7 +218,8 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - WhiteEnvirogloves
+  #- WhiteEnvirogloves # Omu, Replace with latex.
+  - LatexEnvirogloves
   - NitrileEnvirogloves
 
 # Psychologist
@@ -291,7 +301,8 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - QuartermasterEnvirogloves # Omu, given its own gloves
+  #- CargoTechEnvirogloves # Omu, QM given unique gloves
+  - QuartermasterEnvirogloves
 
 # Station Engineer
 
@@ -973,7 +984,8 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - WhiteEnvirogloves # Omu, black to white
+  #- BlackEnvirogloves # Omu, changed to match the regular NTR gloves.
+  - WhiteEnvirogloves
 
 # BSO
 - type: loadoutGroup
@@ -1349,6 +1361,8 @@
   maxLimit: 1
   loadouts:
   - ChemistEnvirohelm
+  - SeniorPhysicianEnvirohelm # Omu
+  - SeniorChemistEnvirohelm # Omu
 
 - type: loadoutGroup
   id: ChemistEnvirosuit
@@ -1357,6 +1371,8 @@
   maxLimit: 1
   loadouts:
   - ChemistEnvirosuit
+  - SeniorPhysicianEnvirosuit # Omu
+  - SeniorChemistEnvirosuit # Omu
 
 - type: loadoutGroup
   id: ChemistEnvirogloves
@@ -1364,7 +1380,8 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - WhiteEnvirogloves
+  #- WhiteEnvirogloves # Omu, Replace with latex.
+  - LatexEnvirogloves
   - NitrileEnvirogloves
 
 # HOS
@@ -1623,7 +1640,8 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - WhiteEnvirogloves
+  #- WhiteEnvirogloves # Omu, Replace with latex.
+  - LatexEnvirogloves
   - NitrileEnvirogloves
 
 # Radio Host

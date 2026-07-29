@@ -1,0 +1,32 @@
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitSeniorPhysician
+  name: senior physician envirosuit
+  description: TBA
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Envirosuits/senior_medical.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Envirosuits/senior_medical.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitSeniorChemist
+  name: senior chemist envirosuit
+  description: TBA
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Envirosuits/senior_chemist.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Envirosuits/senior_chemist.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitVeteranCMO
+  name: CMO's veteran envirosuit
+  description: A heavy, splash resistant containment suit reinforced with sterile plastics. Practical and stylish!
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Envirosuits/veteran_cmo.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Envirosuits/veteran_cmo.rsi
