@@ -71,44 +71,7 @@ public sealed class CPRSystem : EntitySystem
 
     private void StartCPR(Entity<CPRTrainingComponent> performer, EntityUid target)
     {
-        if (HasComp<RottingComponent>(target))
-        {
-            _popupSystem.PopupEntity(Loc.GetString("cpr-target-rotting", ("entity", target)), performer, performer);
-            return;
-        }
-
-        if (!HasComp<RespiratorComponent>(target) || !HasComp<RespiratorComponent>(performer))
-        {
-            _popupSystem.PopupEntity(Loc.GetString("cpr-target-cantbreathe", ("entity", target)), performer, performer);
-            return;
-        }
-
-        if (_inventory.TryGetSlotEntity(target, "outerClothing", out var outer))
-        {
-            _popupSystem.PopupEntity(Loc.GetString("cpr-must-remove", ("clothing", outer)), performer, performer);
-            return;
-        }
-
-        // Omu, fix CPR not showing a message for being out of range or for having a blocker
-        // Separated into two checks so that the out variables don't end up unassigned
-        if (!_ingestionSystem.HasMouthAvailable(performer, performer, out string? performerMessage))
-        { 
-            if (!string.IsNullOrEmpty(performerMessage)) // If the message isn't null, then report the message via popup
-            {
-                _popupSystem.PopupEntity(performerMessage, performer, performer);
-            }
-            return;
-        }
-        if (!_ingestionSystem.HasMouthAvailable(performer, target, out string? targetMessage)) // Omu, swap parameters to correctly check if target is wearing a blocker
-        {
-            if (!string.IsNullOrEmpty(targetMessage))
-            {
-                _popupSystem.PopupEntity(targetMessage, performer, performer);
-            }
-            return;
-        }
-        // Omu end
-            
+        if (ShouldCPRStop(performer, target)) { return; } // Omu, use new Omu-provided reusable function to check if CPR is okay to start and which text to display if not
 
         _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person", ("target", target)), target, performer);
         _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person-patient", ("user", performer)), target, target);
@@ -133,26 +96,11 @@ public sealed class CPRSystem : EntitySystem
 
     private void OnCPRDoAfter(Entity<CPRTrainingComponent> performer, ref CPRDoAfterEvent args)
     {
-        if (args.Cancelled || args.Handled || !args.Target.HasValue)
+        if (args.Cancelled || args.Handled || !args.Target.HasValue || ShouldCPRStop(performer, args.Target.Value)) // Omu, fixes CPR being able to continue; 
         {
             performer.Comp.CPRPlayingStream = _audio.Stop(performer.Comp.CPRPlayingStream);
             return;
         }
-        // Omu start; fixes CPR being able to continue even when conditions to start CPR are no longer met
-        var target = args.Target.Value;
-
-        if (HasComp<RottingComponent>(target) || // Check on every CPR cycle if you're actually meant to be able to do CPR
-            !HasComp<RespiratorComponent>(target) || // If you're not, then you finish CPR
-            !HasComp<RespiratorComponent>(performer) ||
-            _inventory.TryGetSlotEntity(target, "outerClothing", out _) ||
-            !_ingestionSystem.HasMouthAvailable(performer, performer) ||
-            !_ingestionSystem.HasMouthAvailable(performer, target))
-        {
-            // This is repeated since HasMouthAvailable must take a non-optional target
-            performer.Comp.CPRPlayingStream = _audio.Stop(performer.Comp.CPRPlayingStream);
-            return;
-        }
-        // Omu end
 
         if (!performer.Comp.CPRHealing.Empty)
             _damageable.TryChangeDamage(args.Target, performer.Comp.CPRHealing, true, origin: performer, targetPart: TargetBodyPart.All); // Shitmed Change
@@ -185,4 +133,63 @@ public sealed class CPRSystem : EntitySystem
         if (isAlive)
             performer.Comp.CPRPlayingStream = _audio.Stop(performer.Comp.CPRPlayingStream);
     }
+
+    // Omu start; adds reusable method to check for when CPR should stop and what text it should output when stopped
+    // Returns true if CPR should stop
+    // Displays appropriate popup text if CPR should stop
+    private bool ShouldCPRStop(EntityUid performer, EntityUid target)
+    {
+        if (!HasComp<RespiratorComponent>(performer)) // Omu, check respiratorcomponents first before rotting
+        {
+            _popupSystem.PopupEntity(Loc.GetString("omu-cpr-performer-cantbreathe"), performer, performer);
+            return true;
+        }
+
+        if (!HasComp<RespiratorComponent>(target)) // Omu, separated performer and target respiratorcomponent checks
+        {
+            _popupSystem.PopupEntity(Loc.GetString("omu-cpr-target-cantbreathe", ("entity", target)), performer, performer);
+            return true;
+        }
+
+        if (HasComp<RottingComponent>(target))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("cpr-target-rotting", ("entity", target)), performer, performer);
+            return true;
+        }
+
+        if (_inventory.TryGetSlotEntity(target, "outerClothing", out var outer))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("cpr-must-remove", ("clothing", outer)), performer, performer);
+            return true;
+        }
+
+        if (!_ingestionSystem.HasMouthAvailable(performer, performer, out string? performerMessage, out EntityUid? performerBlocker))
+        {
+            if (performerBlocker != null)
+            { // If blocker exists, use unique "remove-own-mask" line to reduce ambiguity
+                _popupSystem.PopupEntity(Loc.GetString("omu-cpr-must-remove-own-mask", ("clothing", performerBlocker)), performer, performer);
+            }
+            else if (!string.IsNullOrEmpty(performerMessage))
+            { // Fall back on given ingestion message if there is one
+                _popupSystem.PopupEntity(performerMessage, performer, performer);
+            }
+            return true;
+        }
+
+        if (!_ingestionSystem.HasMouthAvailable(performer, target, out string? targetMessage, out EntityUid? targetBlocker)) // Omu, swap arguments to correctly check if target is wearing a blocker
+        {
+            if (targetBlocker != null)
+            { // If blocker exists, use the "cpr-must-remove" line to reduce ambiguity
+                _popupSystem.PopupEntity(Loc.GetString("cpr-must-remove", ("clothing", targetBlocker)), performer, performer);
+            }
+            else if (!string.IsNullOrEmpty(targetMessage))
+            { // Fall back on given ingestion message if there is one
+                _popupSystem.PopupEntity(targetMessage, performer, performer);
+            }
+            return true;
+        }
+
+        return false;
+    }
+    // Omu end
 }
