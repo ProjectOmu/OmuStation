@@ -44,7 +44,7 @@ public sealed class BloodSpearSystem : EntitySystem
         if (!HasComp<HumanoidAppearanceComponent>(args.Embedded))
             return;
 
-        _stun.TryParalyze(args.Embedded, spear.Comp.ParalyzeTime, true);
+        _stun.TryUpdateParalyzeDuration(args.Embedded, spear.Comp.ParalyzeTime);
         QueueDel(spear);
     }
 

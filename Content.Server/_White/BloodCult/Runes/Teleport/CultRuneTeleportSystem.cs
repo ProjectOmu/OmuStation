@@ -3,6 +3,7 @@ using Content.Shared._White.ListViewSelector;
 using Content.Shared.WhiteDream.BloodCult.UI;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
+using Content.Shared.Movement.Pulling.Systems;
 
 namespace Content.Server.WhiteDream.BloodCult.Runes.Teleport;
 
@@ -13,6 +14,7 @@ public sealed class CultRuneTeleportSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly PullingSystem _pulling = default!;
 
     public override void Initialize()
     {
@@ -63,7 +65,7 @@ public sealed class CultRuneTeleportSystem : EntitySystem
 
         foreach (var target in teleportTargets)
         {
-            _cultRune.StopPulling(target);
+            _pulling.StopAllPulls(target);
             _transform.SetCoordinates(target, destinationTransform.Coordinates);
         }
 

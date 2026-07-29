@@ -34,7 +34,7 @@ public sealed class StunAuraSystem : BaseAuraSystem<StunAuraComponent>
         RaiseLocalEvent(uid, new SpeakOnAuraUseEvent(args.User));
 
         _statusEffects.TryAddStatusEffect<MutedComponent>(target, "Muted", component.MuteDuration, true);
-        _stun.TryParalyze(target, component.ParalyzeDuration, true);
+        _stun.TryUpdateParalyzeDuration(target, component.ParalyzeDuration);
         QueueDel(uid);
     }
 }
