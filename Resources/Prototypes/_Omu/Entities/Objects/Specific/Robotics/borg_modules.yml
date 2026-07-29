@@ -49,6 +49,7 @@
   id: BorgModulePostal
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
   name: postal cyborg module
+  description: Cargo module containing equipment for mail delivery
   components:
   - type: Sprite
     layers:

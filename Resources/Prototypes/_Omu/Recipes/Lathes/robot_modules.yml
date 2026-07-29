@@ -1,4 +1,9 @@
 - type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModulePostal
+  result: BorgModulePostal
+
+- type: latheRecipe
   abstract: true
   id: BaseBorgModuleRecipeSyndicateBasic
   categories:
