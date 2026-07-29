@@ -569,7 +569,7 @@
   - type: ItemBorgModule
     moduleId: FireExtinguisher
     items:
-    - BorgFireExtinguisher
+    - JetpackCyborg # Omu edit
     - BorgHandheldGPSBasic
     - HandheldStationMapUnpowered
     - HandHeldMassScannerBorg
@@ -664,6 +664,7 @@
       whitelist:
         tags: # Omu
         - CyborgProtoKineticAccelerator
+        - Pickaxe # Omu edit - salv borgs can use crusher weapons and enchanted drills
         #components:
         #- PressureDamageChange
   # Goob end
@@ -733,7 +734,8 @@
 #    - PartRodMetalLingering0
 #    - FloorTileItemSteelLingering0
 #    - FloorTileItemWhiteLingering0
-#    - FloorTileItemDarkLingering0 # Omu edit end
+#    - FloorTileItemDarkLingering0
+    - trayScanner # Omu edit end
     - ConstructionBag # Goobstation
     # Frontier: droppable borg items
   - type: DroppableBorgModule

@@ -44,3 +44,43 @@
         - PinpointerSyndicateNuclear
     - type: BorgModuleIcon
       icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-medical-beam-module }
+
+- type: entity
+  id: BorgModulePostal
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: postal cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-postal
+      sprite: _Omu/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: Postal
+    items:
+    - WeaponMailLake
+    - MailBag
+    - MailBag
+  - type: DroppableBorgModule # Because salv borgs have NoWieldNeeded they can carry mail boxes with one "hand"
+    moduleId: Postal
+    items:
+    - id: MailCapsulePrimed
+      whitelist:
+        tags:
+        - MailCapsule
+        components:
+        - Mail
+    - id: MailCapsulePrimed
+      whitelist:
+        tags:
+        - MailCapsule
+        components:
+        - Mail
+    - id: MailCapsulePrimed
+      whitelist:
+        tags:
+        - MailCapsule
+        components:
+        - Mail
+  - type: BorgModuleIcon
+    icon: { sprite: _Omu/Interface/Actions/actions-borg.rsi, state: postal-module }
