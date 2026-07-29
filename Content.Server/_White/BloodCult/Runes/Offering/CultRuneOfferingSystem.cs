@@ -109,7 +109,7 @@ public sealed class CultRuneOfferingSystem : EntitySystem
     private void Convert(Entity<CultRuneOfferingComponent> rune, EntityUid target, EntityUid user)
     {
         _bloodCultRule.Convert(target);
-        _stun.TryStun(target, TimeSpan.FromSeconds(2f), false);
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(2f), false);
         if (TryComp(target, out CuffableComponent? cuffs) && cuffs.Container.ContainedEntities.Count >= 1)
         {
             var lastAddedCuffs = cuffs.LastAddedCuffs;

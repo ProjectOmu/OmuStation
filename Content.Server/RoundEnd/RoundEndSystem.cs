@@ -402,6 +402,22 @@ namespace Content.Server.RoundEnd
             }, _cooldownTokenSource.Token);
         }
 
+        public void DelayShuttle(TimeSpan delay) //Omu - Bloodcult Port
+        {
+            if (_countdownTokenSource == null || !ExpectedCountdownEnd.HasValue)
+                return;
+
+            var countdown = ExpectedCountdownEnd.Value - _gameTiming.CurTime + delay;
+            if (countdown.TotalSeconds < 0)
+                return;
+
+            ExpectedCountdownEnd = _gameTiming.CurTime + countdown;
+            _countdownTokenSource.Cancel();
+            _countdownTokenSource = new CancellationTokenSource();
+
+            Timer.Spawn(countdown, _shuttle.DockEmergencyShuttle, _countdownTokenSource.Token);
+        }
+
         public override void Update(float frameTime)
         {
             // Check if we should auto-call.
