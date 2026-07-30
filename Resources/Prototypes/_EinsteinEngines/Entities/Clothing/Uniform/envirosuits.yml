@@ -281,8 +281,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitResearchDirector
-  name: research director's envirosuit
-  description: It's an envirosuit worn by those with the know-how to achieve the position of Research Director.
+  name: research director's experimental envirosuit # Omu, added "experimental"
+  description: A custom-painted envirosuit, made to match the Research Director's "Sophia" hardsuit. # Omu
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/rd.rsi

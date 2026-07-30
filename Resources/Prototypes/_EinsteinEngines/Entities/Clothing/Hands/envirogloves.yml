@@ -573,7 +573,7 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesResearchDirector
-  name: research director's envirogloves
+  name: research director's experimental envirogloves # Omu, added "experimental"
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
@@ -581,25 +581,25 @@
     layers:
     - state: icon
       #color: "#64008a"
-      color: "#620B73" # Omu, shade changed to match suit
+      color: "#853799" # Omu, shade changed to match suit
   - type: Item
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     inhandVisuals:
       left:
       - state: inhand-left
         #color: "#64008a"
-        color: "#620B73" # Omu, shade changed to match suit
+        color: "#853799" # Omu, shade changed to match suit
       right:
       - state: inhand-right
         #color: "#64008a"
-        color: "#620B73" # Omu, shade changed to match suit
+        color: "#853799" # Omu, shade changed to match suit
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
         #color: "#64008a"
-        color: "#620B73" # Omu, shade changed to match suit
+        color: "#853799" # Omu, shade changed to match suit
   - type: Fiber
     fiberColor: fibers-purple
 

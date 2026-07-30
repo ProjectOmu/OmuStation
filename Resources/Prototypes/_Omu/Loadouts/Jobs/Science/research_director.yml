@@ -24,3 +24,31 @@
   id: MystaHat
   equipment:
     head: ClothingHeadHatMysta
+
+#Plasmaman Stuff
+- type: loadout
+  id: ResearchDirectorEnvirosuitPurple
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitResearchDirectorPurple
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: ResearchDirectorEnvirohelmPurple
+  equipment:
+    head: ClothingHeadEnvirohelmResearchDirectorPurple
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: ResearchDirectorEnviroglovesPurple
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesResearchDirectorPurple
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

@@ -29,6 +29,35 @@
 
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesResearchDirectorPurple
+  name: research director's envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#620B73"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#620B73"
+      right:
+      - state: inhand-right
+        color: "#620B73"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#620B73"
+  - type: Fiber
+    fiberColor: fibers-purple
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesLatex
   name: latex envirogloves
   description: Sealed latex gloves, for the medically inclined Plasmaman.

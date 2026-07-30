@@ -31,6 +31,17 @@
   - type: Clothing
     sprite: _Omu/Clothing/Head/Envirohelms/veteran_cmo.rsi
 
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmResearchDirectorPurple
+  name: research director's envirosuit helmet
+  description: A special containment helmet designed for the Resarch Director. A purple design is applied to differentiate them from other scientists.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Envirohelms/rd_purple.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Envirohelms/rd_purple.rsi
+
 ## Base versions of helmet variants. Unimplemented for now, but will be expanded in another PR.
 # Cloche helmet variants
 - type: entity

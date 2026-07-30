@@ -312,13 +312,15 @@
 - type: entity
   parent: ClothingHeadEnvirohelmBase
   id: ClothingHeadEnvirohelmResearchDirector
-  name: research director's envirosuit helmet
-  description: A special containment helmet designed for the Resarch Director. A light brown design is applied to differentiate them from other scientists.
+  name: research director's experimental envirosuit helmet # Omu, added "experimental"
+  description: A special containment helmet commissioned by the Resarch Director, donning the colors of their "Sophia" hardsuit. # Omu
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Head/Envirohelms/rd.rsi
   - type: Clothing
     sprite: _EinsteinEngines/Clothing/Head/Envirohelms/rd.rsi
+  - type: PointLight # Omu, changed light to blue
+    color: "#7DFCFF" # Omu
 
 - type: entity
   parent: ClothingHeadEnvirohelmBase
@@ -341,8 +343,8 @@
     sprite: _EinsteinEngines/Clothing/Head/Envirohelms/salvage.rsi
   - type: Clothing
     sprite: _EinsteinEngines/Clothing/Head/Envirohelms/salvage.rsi
-#  - type: PointLight # Omu, Color normalized
-#    color: "#c77eff" # Omu
+  - type: PointLight
+    color: "#c77eff"
 
 - type: entity
   parent: ClothingHeadEnvirohelmBase

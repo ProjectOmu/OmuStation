@@ -32,6 +32,17 @@
     sprite: _Omu/Clothing/Uniforms/Envirosuits/veteran_cmo.rsi
 
 - type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitResearchDirectorPurple
+  name: research director's envirosuit
+  description: It's an envirosuit worn by those with the know-how to achieve the position of Research Director.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Envirosuits/rd_purple.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Envirosuits/rd_purple.rsi
+
+- type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitReporter
   name: reporter envirosuit
