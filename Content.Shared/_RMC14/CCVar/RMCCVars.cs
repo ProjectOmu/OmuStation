@@ -14,7 +14,7 @@ namespace Content.Shared._RMC14.CCVar;
 public sealed class RMCCVars : CVars
 {
     public static readonly CVarDef<bool> RMCDeadChatEnabled =
-    CVarDef.Create("rmc.dead_chat_enabled", true, CVar.SERVER | CVar.NOTIFY | CVar.REPLICATED);
+        CVarDef.Create("rmc.dead_chat_enabled", true, CVar.SERVER | CVar.NOTIFY | CVar.REPLICATED);
 
     public static readonly CVarDef<bool> RMCGunPrediction =
         CVarDef.Create("rmc.gun_prediction", true, CVar.SERVER | CVar.REPLICATED);

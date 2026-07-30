@@ -195,6 +195,9 @@ public sealed partial class GunSystem : SharedGunSystem
         var price = _pricing.GetEstimatedPrice(proto);
         args.Price += price * component.UnspawnedCount;
     }
+
+    // RMC, move shooting to SharedGunSystem for prediction
+
     protected override void Popup(string message, EntityUid? uid, EntityUid? user) { }
 
     protected override void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? user = null, EntityUid? player = null)
