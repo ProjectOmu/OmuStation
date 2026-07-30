@@ -533,6 +533,7 @@ namespace Content.Server._Funkystation.ReagentFires.Systems
                         if (!ignoreResistances)
                         {
                             var reduction = Math.Clamp(GetFireProtectionReduction(ent) * _fireProtectionEffectiveness, 0f, 1f);
+                            // Omu start
                             //appliedDamage = totalDamage * (1f - reduction);
                             foreach (var (type, damage) in appliedDamage.DamageDict)
                             {
@@ -540,6 +541,7 @@ namespace Content.Server._Funkystation.ReagentFires.Systems
                                     continue;
                                 appliedDamage.DamageDict[type] = damage * (1f - reduction);
                             }
+                            // Omu end
                         }
 
 
