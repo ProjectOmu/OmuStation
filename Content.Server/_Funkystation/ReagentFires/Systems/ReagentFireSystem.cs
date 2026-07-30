@@ -533,8 +533,16 @@ namespace Content.Server._Funkystation.ReagentFires.Systems
                         if (!ignoreResistances)
                         {
                             var reduction = Math.Clamp(GetFireProtectionReduction(ent) * _fireProtectionEffectiveness, 0f, 1f);
-                            appliedDamage = totalDamage * (1f - reduction);
+                            //appliedDamage = totalDamage * (1f - reduction);
+                            foreach (var (type, damage) in appliedDamage.DamageDict)
+                            {
+                                if (damage <= 0f)
+                                    continue;
+                                appliedDamage.DamageDict[type] = damage * (1f - reduction);
+                            }
                         }
+
+
 
                         _damageable.TryChangeDamage(ent, appliedDamage, ignoreResistances: ignoreResistances);
                     }
