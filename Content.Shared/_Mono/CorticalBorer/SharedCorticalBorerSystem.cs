@@ -140,7 +140,7 @@ public partial class SharedCorticalBorerSystem : EntitySystem
             return;
 
         var coordinates = _transform.ToMapCoordinates(host.ToCoordinates());
-        var spawnedEgg = Spawn(egg, coordinates);
+        Spawn(egg, coordinates);
     }
 }
 
