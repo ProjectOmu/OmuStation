@@ -47,7 +47,8 @@
   maxLimit: 1
   loadouts:
   - ResearchDirectorEnvirogloves
-  - WhiteEnvirogloves
+  #- WhiteEnvirogloves # Omu, Replace with latex.
+  - LatexEnvirogloves # Omu
 
 
 # Scientist
@@ -76,8 +77,10 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
+  #- WhiteEnvirogloves # Omu, Replace with latex.
+  - LatexEnvirogloves # Omu
   - RoboticistEnvirogloves
-  - WhiteEnvirogloves
+
 
 # Research Assistant
 
@@ -830,7 +833,8 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - DarkGreenEnvirohelm
+  #- DarkGreenEnvirohelm
+  - GreenEnviroslackHelm # Omu, changed to something more pleasing.
 
 - type: loadoutGroup
   id: ServiceWorkerEnvirosuit
@@ -838,7 +842,8 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - DarkGreenEnvirosuit
+  #- DarkGreenEnvirosuit
+  - GreenEnviroslacks # Omu
 
 - type: loadoutGroup
   id: ServiceWorkerEnvirogloves
@@ -847,6 +852,7 @@
   maxLimit: 1
   loadouts:
   - DarkGreenEnvirogloves
+  - WhiteEnvirogloves # Omu, extra choice
 
 # Bartender
 

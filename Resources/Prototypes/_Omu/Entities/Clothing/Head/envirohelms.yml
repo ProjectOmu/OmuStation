@@ -30,3 +30,43 @@
     sprite: _Omu/Clothing/Head/Envirohelms/veteran_cmo.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Head/Envirohelms/veteran_cmo.rsi
+
+## Base versions of helmet variants. Unimplemented for now, but will be expanded in another PR.
+# Cloche helmet variants
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmBaseCloche
+  name: cloche envirosuit helmet
+  description: A lightweight containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment. Trades some protection for a wider field of view.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Envirohelms/Cloche/plain.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Envirohelms/Cloche/plain.rsi
+
+
+# Spacer helmet variants
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmBaseSpacer
+  name: spacer envirosuit helmet
+  description: A heavy, reinforced containment helmet that allows plasma-based lifeforms to exist safely in an oxygenated environment. Warranty void if used for cycling.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Envirohelms/Spacer/plain.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Envirohelms/Spacer/plain.rsi
+
+
+# Hazard helmet variants
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmBaseHazard
+  name: hazard envirosuit helmet
+  description: An older containment helmet, seemingly derived from a cleanroom hood. Still keeps the oxygen out, and the plasma in.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Envirohelms/Hazard/plain.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Envirohelms/Hazard/plain.rsi
+

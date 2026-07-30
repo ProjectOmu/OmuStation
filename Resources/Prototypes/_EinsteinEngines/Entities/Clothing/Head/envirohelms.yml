@@ -341,8 +341,8 @@
     sprite: _EinsteinEngines/Clothing/Head/Envirohelms/salvage.rsi
   - type: Clothing
     sprite: _EinsteinEngines/Clothing/Head/Envirohelms/salvage.rsi
-  - type: PointLight
-    color: "#c77eff"
+#  - type: PointLight # Omu, Color normalized
+#    color: "#c77eff" # Omu
 
 - type: entity
   parent: ClothingHeadEnvirohelmBase

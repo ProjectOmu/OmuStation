@@ -30,3 +30,71 @@
     sprite: _Omu/Clothing/Uniforms/Envirosuits/veteran_cmo.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Uniforms/Envirosuits/veteran_cmo.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitReporter
+  name: reporter envirosuit
+  description: An envirosuit for the news-oriented Plasmamen.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#112334"
+    - state: plaintop-icon
+      color: "#112334"
+    - state: pants-icon
+      color: "#313131"
+    - state: belt-icon
+      color: "#4d4d4d"
+    - state: accent-icon
+      color: "#79121B"
+    - state: tie-icon
+      color: "#79121B"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#112334"
+      - state: plaintop-inhand-left
+        color: "#112334"
+      - state: pants-inhand-left
+        color: "#313131"
+      - state: belt-inhand-left
+        color: "#4d4d4d"
+      - state: accent-inhand-left
+        color: "#79121B"
+      - state: tie-inhand-left
+        color: "#79121B"
+      right:
+      - state: inhand-right
+        color: "#112334"
+      - state: plaintop-inhand-right
+        color: "#112334"
+      - state: pants-inhand-right
+        color: "#313131"
+      - state: belt-inhand-right
+        color: "#4d4d4d"
+      - state: accent-inhand-right
+        color: "#79121B"
+      - state: tie-inhand-right
+        color: "#79121B"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#112334"
+      - state: plaintop-equipped-INNERCLOTHING
+        color: "#112334"
+      - state: pants-equipped-INNERCLOTHING
+        color: "#313131"
+      - state: belt-equipped-INNERCLOTHING
+        color: "#4d4d4d"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#79121B"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#79121B"
+      - state: tie-equipped-INNERCLOTHING
+        color: "#79121B"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
