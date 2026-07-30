@@ -173,16 +173,16 @@ namespace Content.Server.Heretic.Ritual;
                 return;
 
             //spawn a clone of the victim
-            var sacrificialWhiteBoy = args.EntityManager.Spawn(speciesPrototype.Prototype, _transformSystem.GetMapCoordinates(uids[i]));
-            _humanoid.CloneAppearance(uids[i], sacrificialWhiteBoy);
+            var sacrificalbody = args.EntityManager.Spawn(speciesPrototype.Prototype, _transformSystem.GetMapCoordinates(uids[i]));
+            _humanoid.CloneAppearance(uids[i], sacrificalbody);
             //make sure it has the right DNA
             if (args.EntityManager.TryGetComponent<DnaComponent>(uids[i], out var victimDna))
             {
-                if (args.EntityManager.TryGetComponent<BloodstreamComponent>(sacrificialWhiteBoy, out var dummyBlood))
+                if (args.EntityManager.TryGetComponent<BloodstreamComponent>(sacrificalbody, out var dummyBlood))
                 {
                     //this is copied from BloodstreamSystem's OnDnaGenerated
                     //i hate it
-                    if(_solutionContainerSystem.ResolveSolution(sacrificialWhiteBoy, dummyBlood.BloodSolutionName, ref dummyBlood.BloodSolution, out var bloodSolution))
+                    if(_solutionContainerSystem.ResolveSolution(sacrificalbody, dummyBlood.BloodSolutionName, ref dummyBlood.BloodSolution, out var bloodSolution))
                     {
                         foreach (var reagent in bloodSolution.Contents)
                         {
@@ -197,12 +197,12 @@ namespace Content.Server.Heretic.Ritual;
             try
             {
                 // YES!!! GIB!!!
-                _body.GibBody(sacrificialWhiteBoy);
+                _body.GibBody(sacrificalbody);
             }
             catch (Exception e)
             {
-                if (!args.EntityManager.IsQueuedForDeletion(sacrificialWhiteBoy) && !args.EntityManager.Deleted(sacrificialWhiteBoy))
-                    args.EntityManager.QueueDeleteEntity(sacrificialWhiteBoy);
+                if (!args.EntityManager.IsQueuedForDeletion(sacrificalbody) && !args.EntityManager.Deleted(sacrificalbody))
+                    args.EntityManager.QueueDeleteEntity(sacrificalbody);
 
                 _sawmill ??= _log.GetSawmill("sacrifice");
                 _sawmill.Error(e.Message);
