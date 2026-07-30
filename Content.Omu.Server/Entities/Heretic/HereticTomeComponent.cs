@@ -7,7 +7,6 @@ using Content.Shared.Store;
 
 namespace Content.Omu.Server.Entities.Heretic;
 
-
 [RegisterComponent, Access(typeof(HereticTomeSystem))]
 public sealed partial class HereticTomeComponent : Component
 {
