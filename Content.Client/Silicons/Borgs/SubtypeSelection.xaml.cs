@@ -20,15 +20,20 @@ public partial class SubtypeSelection : Control
 
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     public BorgSubtypePrototype? SelectedBorgSubtype;
+    public BorgTypePrototype? SelectedParentType; // Omu - Tracking parent type
 
     public SubtypeSelection()
     {
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
     }
-    public void FillContainer(BorgTypePrototype parentPrototype)
+    // Omu - Added mouseRefresh logic to work with borgType groupings
+    public void FillContainer(BorgTypePrototype parentPrototype, bool mouseRefresh)
     {
-        OptionsContainer.RemoveAllChildren();
+        // Omu start
+        if (mouseRefresh)
+            OptionsContainer.RemoveAllChildren();
+        // Omu end
 
         var group = new ButtonGroup();
 
@@ -41,6 +46,8 @@ public partial class SubtypeSelection : Control
             button.Group = group;
             button.OnPressed += _ =>
             {
+                // Omu - Tracking parent type
+                var result = _prototype.TryIndex(borgSubtype.ParentBorgType, out SelectedParentType);
                 SelectedBorgSubtype = borgSubtype;
                 SubtypeSelected?.Invoke();
             };

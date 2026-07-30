@@ -43,3 +43,6 @@ uplink-xeno-compatibility-implanter-desc = An implant that allows the user to ma
 
 uplink-melta-name = Melta
 uplink-melta-desc = A cybersun branded microwave-emission-lens-transmitted-artillery or a MELTA. Fires a burst of concentrated heat that can burn through most surfaces.
+
+uplink-BloodredVim-name = Cybersun Combat Vim
+uplink-BloodredVim-desc = A specialised prototype developed by cybersun for specialised mouse operatives. The project was shelved after the market collapsed. Armed with a rocket-launcher and short range retro-rockets for speedboosts and maneuvering. It makes for a terrifying, if small, foe.

@@ -43,6 +43,14 @@ public sealed partial class EmotePrototype : IPrototype
     [DataField]
     public bool Available = true;
 
+    // Omu edit, added for handling blinking
+    /// <summary>
+    ///     Allows for overriding of mute trait for vocal/general emotes
+    ///     This check is handled in <see cref="Content.Server.Speech.Muting.MutingSystem"/>
+    /// </summary>
+    [DataField]
+    public bool OverrideMute = false;
+
     /// <summary>
     ///     Different emote categories may be handled by different systems.
     ///     Also may be used for filtering.

@@ -76,6 +76,24 @@
     Steel: 25
     Glass: 25
 
+- type: latheRecipe #OMU start
+  abstract: true
+  parent: BaseTileRecipe
+  id: BaseGoldTileRecipe
+  categories:
+  - Metal
+  materials:
+    Gold: 25
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseTileRecipe
+  id: BaseSilverTileRecipe
+  categories:
+  - Metal
+  materials:
+    Silver: 25 #OMU end
+
 ## Recipes
 
 # Steel tiles
@@ -352,3 +370,14 @@
   parent: BaseMarbleTileRecipe
   id: FloorTileItemDarkMarble
   result: FloorTileItemDarkMarble
+
+# Gold OMU start
+- type: latheRecipe
+  parent: BaseGoldTileRecipe
+  id: FloorTileItemGold
+  result: FloorTileItemGold
+
+- type: latheRecipe
+  parent: BaseSilverTileRecipe
+  id: FloorTileItemSilver
+  result: FloorTileItemSilver #OMU end
