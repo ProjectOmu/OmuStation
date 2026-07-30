@@ -2,7 +2,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.StatusIcon;
 using Content.Shared.NPC.Prototypes;
 
-namespace Content._Omu.Server.Entities.Heretic;
+namespace Content._Omu.Shared.Entities.Heretic;
 
 [RegisterComponent]
 public sealed partial class FascinationComponent : Component

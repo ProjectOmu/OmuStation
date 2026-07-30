@@ -2,7 +2,7 @@ using Content.Shared.Examine;
 using Robust.Shared.Utility;
 using Content.Server.GameTicking;
 using Content.Goobstation.Shared.CustomFactionIcons;
-using Content._Goobstation.Server.Chaplain;
+using Content._Omu.Shared.Entities.Heretic;
 using Content._Goobstation.Server.Chaplain.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
