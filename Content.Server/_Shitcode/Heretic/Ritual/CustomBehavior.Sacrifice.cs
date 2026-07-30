@@ -27,7 +27,7 @@ using Content.Server.Heretic.EntitySystems;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Store.Components;
-using Content.Server.Humanoid;
+using Content.Server.Humanoid;            //Imp start
 using Content.Shared.Forensics.Components;
 using Robust.Shared.Toolshed.TypeParsers;
 using Robust.Server.GameObjects;
@@ -39,7 +39,7 @@ using Content.Shared.Forensics;
 using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.GameObjects;
 using Content.Shared.Chemistry.EntitySystems;
-using  Content.Shared.Body.Components;
+using  Content.Shared.Body.Components;        //Imp end
 
 
 namespace Content.Server.Heretic.Ritual;
