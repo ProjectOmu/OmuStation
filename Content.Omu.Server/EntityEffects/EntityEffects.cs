@@ -1,6 +1,6 @@
 using Content.Shared.EntityEffects;
-using Content._Omu.Server.Entities.Heretic; // Omu
-using Content._Omu.Shared.EntityEffects.Effects; // Omu
+using Content.Omu.Server.Entities.Heretic;
+using Content.Omu.Shared.EntityEffects.Effects;
 
 namespace Content.Server.EntityEffects;
 

@@ -2,14 +2,14 @@ using Content.Shared.Examine;
 using Robust.Shared.Utility;
 using Content.Server.GameTicking;
 using Content.Goobstation.Shared.CustomFactionIcons;
-using Content._Goobstation.Server.Chaplain;
-using Content._Goobstation.Server.Chaplain.Components;
+using Content.Goobstation.Server.Chaplain;
+using Content.Goobstation.Server.Chaplain.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.NPC.Systems;
 using Content.Shared.NPC.Components;
 
-namespace Content._Omu.Server.Entities.Heretic;
+namespace Content.Omu.Server.Entities.Heretic;
 
 public sealed class FascinationSystem: EntitySystem
 {
