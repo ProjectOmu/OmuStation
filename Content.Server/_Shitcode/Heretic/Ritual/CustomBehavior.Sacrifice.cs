@@ -91,7 +91,7 @@ namespace Content.Server.Heretic.Ritual;
 
     [Dependency] protected IPrototypeManager _proto = default!;
     [Dependency] protected ILogManager _log = default!;
-    [Dependency] protected IEntityManager _entmanager = default!;
+    [Dependency] protected IEntityManager _entmanager = default!;        //Imp
 
     private ISawmill? _sawmill;
 
