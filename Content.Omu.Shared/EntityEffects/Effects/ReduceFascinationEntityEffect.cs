@@ -1,7 +1,7 @@
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Omu.EntityEffects.Effects;
+namespace Content._Omu.Shared.EntityEffects.Effects;
 
 public sealed partial class ReduceFascinationEntityEffect : EventEntityEffect<ReduceFascinationEntityEffect>
 {

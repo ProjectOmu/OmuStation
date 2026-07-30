@@ -47,8 +47,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Server._Omu.Entities.Heretic; // Omu
-using Content.Shared._Omu.EntityEffects.Effects; // Omu
 using Content.Shared.NPC.Systems; // Omu
 
 using TemperatureCondition = Content.Shared.EntityEffects.EffectConditions.Temperature; // disambiguate the namespace
@@ -136,7 +134,6 @@ public sealed class EntityEffectSystem : EntitySystem
         SubscribeLocalEvent<ExecuteEntityEffectEvent<PolymorphEffect>>(OnExecutePolymorph);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<RevertPolymorphEffect>>(OnExecuteRevertPolymorph); // Omu
         SubscribeLocalEvent<ExecuteEntityEffectEvent<ResetNarcolepsy>>(OnExecuteResetNarcolepsy);
-        SubscribeLocalEvent<ExecuteEntityEffectEvent<ReduceFascinationEntityEffect>>(OnReduceFascination); // Omu
     }
 
     private void OnCheckTemperature(ref CheckEntityEffectConditionEvent<TemperatureCondition> args)
@@ -1010,12 +1007,6 @@ public sealed class EntityEffectSystem : EntitySystem
         // Make it into a prototype
         EnsureComp<PolymorphableComponent>(args.Args.TargetEntity);
         _polymorph.Revert(args.Args.TargetEntity);
-    }
-
-    private void OnReduceFascination(ref ExecuteEntityEffectEvent<ReduceFascinationEntityEffect> args)
-    {
-        EnsureComp<FascinationComponent>(args.Args.TargetEntity);
-        RaiseLocalEvent(args.Args.TargetEntity, new FascinationChangedArgs { Amount = args.Effect.ToChange });
     }
     // Omu end
 
