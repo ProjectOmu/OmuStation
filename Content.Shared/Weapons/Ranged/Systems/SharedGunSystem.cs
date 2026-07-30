@@ -1250,6 +1250,18 @@ public abstract partial class SharedGunSystem : EntitySystem
             comp.ProjectileSpeedModified = ev.ProjectileSpeed;
             DirtyField(gun, nameof(GunComponent.ProjectileSpeedModified));
         }
+
+        if (!MathHelper.CloseTo(comp.BurstFireRateModified, ev.BurstFireRate)) // Goobstation - start
+        {
+            comp.BurstFireRateModified = ev.BurstFireRate;
+            DirtyField(gun, nameof(GunComponent.BurstFireRateModified));
+        }
+
+        if (!MathHelper.CloseTo(comp.BurstCooldownModified, ev.BurstCooldown))
+        {
+            comp.BurstCooldownModified = ev.BurstCooldown;
+            DirtyField(gun, nameof(GunComponent.BurstCooldownModified));
+        }  // Goobstation - end
     }
 
     // Goobstation
