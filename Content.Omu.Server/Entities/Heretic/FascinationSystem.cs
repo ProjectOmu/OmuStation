@@ -9,7 +9,7 @@ using Content.Shared.Database;
 using Content.Shared.NPC.Systems;
 using Content.Shared.NPC.Components;
 
-namespace Content.Server._Omu.Entities.Heretic;
+namespace Content._Omu.Server.Entities.Heretic;
 
 public sealed class FascinationSystem: EntitySystem
 {

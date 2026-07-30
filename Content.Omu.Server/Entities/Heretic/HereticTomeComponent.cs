@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Store;
 
-namespace Content.Server._Omu.Entities.Heretic;
+namespace Content._Omu.Server.Entities.Heretic;
 
 
 [RegisterComponent, Access(typeof(HereticTomeSystem))]

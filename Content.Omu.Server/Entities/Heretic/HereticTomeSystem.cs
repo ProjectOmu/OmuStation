@@ -9,7 +9,7 @@ using Content.Shared.Chat;
 using Content.Server.Chat.Managers;
 using Robust.Server.Toolshed.Commands.Players;
 using Content.Shared.Actions;
-namespace Content.Server._Omu.Entities.Heretic;
+namespace Content._Omu.Server.Entities.Heretic;
 
 public sealed class HereticTomeSystem : EntitySystem
 {
