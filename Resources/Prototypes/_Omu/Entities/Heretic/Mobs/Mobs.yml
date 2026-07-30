@@ -1,5 +1,8 @@
 - type: entity
-  parent: SimpleMobBase
+  parent:
+  - BaseMob
+  - MobCombat
+  - FlyingMobBase
   id: MobGhoulMirrorMaiden
   name: Mirror Maiden
   description: A trick of the light? Or is it the shimmering air itself come to claim you?
@@ -35,7 +38,7 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Slash: 15
+        Slash: 5
         Piercing: 10
   - type: Visibility
     layer: 64 #same as influencespent
@@ -44,6 +47,36 @@
     - Mansus
   - type: ShowAntagIcons
   - type: NoSlip
+  - type: Bloodstream
+    bloodMaxVolume: 15
+    bloodReagent: EldritchEssence
+    bloodlossDamage:
+      types:
+        Bloodloss:
+          0.0
+    bloodlossHealDamage:
+      types:
+        Bloodloss:
+          -1
+  - type: CollectiveMind
+    defaultChannel: MansusLink
+    channels:
+    - MansusLink
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: npcFaction
   id: Mansus
