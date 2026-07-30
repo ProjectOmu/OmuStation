@@ -170,17 +170,33 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
 
         private void TransformVictim(EntityUid ent)
         {
-            if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
+            if (!TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
+                return;
+
+            //make them look like they've seen some shit
+            const float palenessMultiplier = 0.25f;
+            _humanoid.SetSkinColor(ent, AdjustSaturation(humanoid.SkinColor, palenessMultiplier), true, false, humanoid);
+            humanoid.EyeColor = Color.White;
+            _humanoid.SetBaseLayerColor(ent, HumanoidVisualLayers.Eyes, humanoid.EyeColor, true, humanoid);
+
+            foreach (var (category, markings) in humanoid.MarkingSet.Markings)
             {
-                //there's no color saturation methods so you get this garbage instead
-                var skinColor = humanoid.SkinColor;
-                var colorHSV = Color.ToHsv(skinColor);
-                colorHSV.Y /= 4;
-                var newColor = Color.FromHsv(colorHSV);
-                //make them look like they've seen some shit
-                _humanoid.SetSkinColor(ent, newColor, true, false, humanoid);
-                _humanoid.SetBaseLayerColor(ent, HumanoidVisualLayers.Eyes, Color.White, true, humanoid);
+                for (var markingIndex = 0; markingIndex < markings.Count; markingIndex++)
+                {
+                    var markingColors = markings[markingIndex]
+                        .MarkingColors.Select(color => AdjustSaturation(color, palenessMultiplier))
+                        .ToList();
+
+                    _humanoid.SetMarkingColor(ent, category, markingIndex, markingColors);
+                }
             }
+        }
+
+        private static Color AdjustSaturation(Color color, float saturationMultiplier)
+        {
+            var hsv = Color.ToHsv(color);
+            hsv.Y *= saturationMultiplier;
+            return Color.FromHsv(hsv);
         }
 
         private void OnExamine(Entity<HellVictimComponent> ent, ref ExaminedEvent args)
