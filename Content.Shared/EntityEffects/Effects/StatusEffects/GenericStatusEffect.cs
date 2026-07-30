@@ -58,13 +58,12 @@ public sealed partial class GenericStatusEffect : EntityEffect
         if (args is EntityEffectReagentArgs reagentArgs)
             time *= reagentArgs.Scale.Float();
 
-        if (Type == StatusEffectMetabolismType.Add && Component != String.Empty)
+        if (Type == StatusEffectMetabolismType.Add)
         {
-            statusSys.TryAddStatusEffect(args.TargetEntity, Key, TimeSpan.FromSeconds(time), Refresh, Component);
-        }
-        else if (Type == StatusEffectMetabolismType.Add) // Mono change: just add status without component
-        {
-            statusSys.TryAddStatusEffect(args.TargetEntity, Key, TimeSpan.FromSeconds(time), Refresh);
+            if (Component != String.Empty)
+                statusSys.TryAddStatusEffect(args.TargetEntity, Key, TimeSpan.FromSeconds(time), Refresh, Component);
+            else
+                statusSys.TryAddStatusEffect(args.TargetEntity, Key, TimeSpan.FromSeconds(time), Refresh);
         }
         else if (Type == StatusEffectMetabolismType.Remove)
         {
