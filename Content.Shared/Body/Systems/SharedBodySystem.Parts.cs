@@ -118,8 +118,6 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Robust.Shared.Random;
-using Content.Shared.Inventory;
-using Content.Shared.Random;
 
 namespace Content.Shared.Body.Systems;
 
