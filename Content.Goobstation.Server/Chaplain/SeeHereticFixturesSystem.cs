@@ -2,10 +2,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Goobstation.Chaplain.Components;        //Omu changed namespace
+using Content._Goobstation.Server.Chaplain.Components;
 using Content.Shared.Eye;
 
-namespace Content.Server._Goobstation.Chaplain;                //Omu changed namespace
+namespace Content._Goobstation.Server.Chaplain;
 
 public sealed class SeeHereticFixturesSystem : EntitySystem
 {
