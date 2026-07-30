@@ -1,0 +1,26 @@
+# Red Mask
+- type: entity
+  parent: ClothingMaskSterile
+  id: ClothingMaskSterileRed
+  name: red sterile mask
+  description: A sterile mask designed to help prevent the spread of diseases. You can still smell the dye.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Mask/sterilecolor.rsi
+    layers:
+    - state: icon
+      color: "#940000"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#940000"
+      right:
+      - state: inhand-right
+        color: "#940000"
+  - type: Clothing
+    sprite: _Omu/Clothing/Mask/sterilecolor.rsi
+    clothingVisuals:
+      mask:
+        - state: equipped-MASK
+          color: "#940000"
