@@ -7,9 +7,10 @@ using Robust.Server.Player;
 using Robust.Shared.Random;
 using Content.Shared.Chat;
 using Content.Server.Chat.Managers;
-using Content._Omu.Shared.Entities.Heretic;
+using Content.Omu.Shared.Entities.Heretic;
 using Content.Shared.Actions;
-namespace Content._Omu.Server.Entities.Heretic;
+
+namespace Content.Omu.Server.Entities.Heretic;
 
 public sealed class HereticTomeSystem : EntitySystem
 {

@@ -5,8 +5,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Store;
 
-namespace Content._Omu.Server.Entities.Heretic;
-
+namespace Content.Omu.Server.Entities.Heretic;
 
 [RegisterComponent, Access(typeof(HereticTomeSystem))]
 public sealed partial class HereticTomeComponent : Component
