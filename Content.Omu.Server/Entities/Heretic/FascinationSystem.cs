@@ -33,34 +33,9 @@ public sealed class FascinationSystem: EntitySystem
     private void OnExamined(Entity<FascinationComponent> ent, ref ExaminedEvent args)
     {
         var comp = ent.Comp;
-        var Value = comp.FascinationValue;
-        string message;
+        var value = (int) Math.Round(comp.FascinationValue);
 
-        if (Value == 1)
-        {
-            message = Loc.GetString("fascination-examine-1");
-        }
-        else if (Value == 2)
-        {
-            message = Loc.GetString("fascination-examine-2");
-        }
-        else if (Value == 3)
-        {
-            message = Loc.GetString("fascination-examine-3");
-        }
-        else if (Value == 4)
-        {
-            message = Loc.GetString("fascination-examine-4");
-        }
-        else if (Value == 5)
-        {
-            message = Loc.GetString("fascination-examine-5");
-        }
-        else
-        {
-            message = Loc.GetString("fascination-examine-5");
-        }
-        args.PushMarkup(message ?? Loc.GetString("fascination-examine-1"));
+        args.PushMarkup(Loc.GetString($"fascination-examine-{((value < 1 || value > 5) ? 5 : value)}"));
     }
     private void OnChange(Entity<FascinationComponent> ent, ref FascinationChangedArgs args)
     {
