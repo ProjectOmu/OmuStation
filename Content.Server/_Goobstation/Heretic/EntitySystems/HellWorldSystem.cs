@@ -126,17 +126,17 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             MindComponent? mindComp = Comp<MindComponent>(victimComp.Mind);
             mindComp.PreventGhosting = true;
             //don't have to change this one's blood because nobody's bringing a forensic scanner to hell
-            var sufferingWhiteBoy = Spawn(species.Prototype, spawnTgt);
-            _metaSystem.SetEntityName(sufferingWhiteBoy, MetaData(target).EntityName);
-            _humanoid.CloneAppearance(victimComp.OriginalBody, sufferingWhiteBoy);
-            if (TryComp<BlindableComponent>(sufferingWhiteBoy, out var blindable))
+            var Entityinhell = Spawn(species.Prototype, spawnTgt);
+            _metaSystem.SetEntityName(Entityinhell, MetaData(target).EntityName);
+            _humanoid.CloneAppearance(victimComp.OriginalBody, Entityinhell);
+            if (TryComp<BlindableComponent>(Entityinhell, out var blindable))
             {
-                _blind.AdjustEyeDamage(sufferingWhiteBoy, 5); //make it more disorienting
+                _blind.AdjustEyeDamage(Entityinhell, 5); //make it more disorienting
 
             }
 
             //and then send the mind into the hellsona
-            _mind.TransferTo(victimComp.Mind, sufferingWhiteBoy);
+            _mind.TransferTo(victimComp.Mind, Entityinhell);
             victimComp.AlreadyHelled = true;
 
             //returning the mind to the original body happens in Update()
