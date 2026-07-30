@@ -291,6 +291,7 @@ public abstract partial class SharedSurgerySystem
         if (HasComp<CorticalBorerInfestedComponent>(args.Body))
             args.Cancelled = true;
     }
+    // mono end
 
     private void OnAddPartStep(Entity<SurgeryAddPartStepComponent> ent, ref SurgeryStepEvent args)
     {
