@@ -67,7 +67,7 @@ public partial class SharedCorticalBorerSystem : EntitySystem
 
         if (comp.AddOnInfest is not null)
         {
-            foreach (var (key, compReg) in comp.AddOnInfest)
+            foreach (var (_, compReg) in comp.AddOnInfest)
             {
                 var compType = compReg.Component.GetType();
                 if (HasComp(ent, compType))
@@ -80,7 +80,7 @@ public partial class SharedCorticalBorerSystem : EntitySystem
 
         if (comp.RemoveOnInfest is not null)
         {
-            foreach (var (key, compReg) in comp.RemoveOnInfest)
+            foreach (var (_, compReg) in comp.RemoveOnInfest)
                 RemCompDeferred(ent, compReg.Component.GetType());
         }
 
