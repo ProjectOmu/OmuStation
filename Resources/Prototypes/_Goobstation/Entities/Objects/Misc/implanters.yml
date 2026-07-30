@@ -213,13 +213,13 @@
   - type: Implanter
     implant: ClumsyImplant
 
-- type: entity
-  id: BinaryImplanter
-  suffix: Binary Decoder
-  parent: BaseImplantOnlyImplanterSyndi
-  components:
-  - type: Implanter
-    implant: BinaryImplant
+#- type: entity # Omu, make binary a radio again.
+#  id: BinaryImplanter
+#  suffix: Binary Decoder
+#  parent: BaseImplantOnlyImplanterSyndi
+#  components:
+#  - type: Implanter
+#    implant: BinaryImplant
 
 # Admeme
 

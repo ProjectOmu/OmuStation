@@ -131,7 +131,7 @@
   - type: IntrinsicRadioReceiver
   - type: ActiveRadio
     channels:
-    # - Binary # Goobstation - replaced with collective mind
+    - Binary # Goobstation - replaced with collective mind # Omu, make binary a radio again.
     - Common
     - Command
     - CentCom
@@ -144,10 +144,10 @@
     - Syndicate
     globalReceive: true
   # Goobstation
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
+  #- type: CollectiveMind # Omu, make binary a radio again.
+  #  defaultChannel: Binary
+  #  channels:
+  #  - Binary
   - type: Physics
     bodyType: Dynamic
     bodyStatus: InAir

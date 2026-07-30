@@ -246,18 +246,18 @@
     tags:
     - BasicSilicon
   - type: IntrinsicRadioReceiver
-  #- type: IntrinsicRadioTransmitter
-  #  channels:
-  #  - Binary # Goobstation - replaced with collective mind
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary # Goobstation - replaced with collective mind # Omu, make binary a radio again.
   - type: ActiveRadio
     channels:
     - Common
-    # - Binary # Goobstation - replaced with collective mind
+    - Binary # Goobstation - replaced with collective mind # Omu, make binary a radio again.
   # Goobstation
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
+  #- type: CollectiveMind # Omu, make binary a radio again.
+  #  defaultChannel: Binary
+  #  channels:
+  #  - Binary
   - type: IntellicardableMind # Goobstation - intellicard on more AIs
   - type: HealthExaminable
     examinableTypes:
@@ -689,7 +689,7 @@
     - Unimplantable
   - type: ActiveRadio
     channels:
-    # - Binary # Goobstation - replaced with collective mind
+    - Binary # Goobstation - replaced with collective mind # Omu, make binary a radio again.
     - Common
     - Supply
   - type: StationAiVision # Goobstation - AI can see through NT silicon

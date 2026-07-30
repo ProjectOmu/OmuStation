@@ -142,16 +142,16 @@
     channels:
     - Mothership
     - Xenoborg
-    #- Binary # Goobstation binary hivemind
-  - type: CollectiveMind # Goobstation binary hivemind
-    defaultChannel: Binary
-    channels:
-    - Binary
+    - Binary # Goobstation binary hivemind # Omu, make binary a radio again.
+  #- type: CollectiveMind # Goobstation binary hivemind # Omu, make binary a radio again.
+  #  defaultChannel: Binary
+  #  channels:
+  #  - Binary
   - type: ActiveRadio
     channels:
     - Mothership
     - Xenoborg
-    #- Binary # Goobstation binary hivemind
+    - Binary # Goobstation binary hivemind # Omu, make binary a radio again.
   - type: XenoborgMothership
   - type: Tag
     tags:

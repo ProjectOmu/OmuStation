@@ -127,18 +127,18 @@
   - type: BlockMovement
   - type: Examiner
   - type: IntrinsicRadioReceiver
-  #- type: IntrinsicRadioTransmitter
-  #  channels:
-  #  - Binary # Goobstation - replaced with collective mind
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary # Goobstation - replaced with collective mind # Omu, make binary a radio again.
   - type: ActiveRadio
     channels:
-    # - Binary # Goobstation - replaced with collective mind
+    - Binary # Goobstation - replaced with collective mind # Omu, make binary a radio again.
     - Common
   # Goobstation
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
+  #- type: CollectiveMind # Omu, make binary a radio again.
+  #  defaultChannel: Binary
+  #  channels:
+  #  - Binary
   - type: NameIdentifier
     group: MMI
   - type: DoAfter
@@ -231,18 +231,18 @@
     - type: BorgBrain
     - type: IntellicardableMind # Goobstation - intellicard on more AIs
     - type: IntrinsicRadioReceiver
-    #- type: IntrinsicRadioTransmitter
-    #  channels:
-    #  - Binary # Goobstation - replaced with collective mind
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - Binary # Goobstation - replaced with collective mind # Omu, make binary a radio again.
     - type: ActiveRadio
       channels:
-      # - Binary # Goobstation - replaced with collective mind
+      - Binary # Goobstation - replaced with collective mind # Omu, make binary a radio again.
       - Common
     # Goobstation
-    - type: CollectiveMind
-      defaultChannel: Binary
-      channels:
-      - Binary
+    #- type: CollectiveMind # Omu, make binary a radio again.
+    #  defaultChannel: Binary
+    #  channels:
+    #  - Binary
     - type: NameIdentifier
       group: PositronicBrain
     - type: DoAfter

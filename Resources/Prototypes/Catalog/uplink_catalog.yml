@@ -1099,22 +1099,22 @@
       tags:
       - ContravendUplink
 
-# Goobstation - replaced with collective mind
-#- type: listing
-#  id: UplinkBinaryTranslatorKey
-#  name: uplink-binary-translator-key-name
-#  description: uplink-binary-translator-key-desc
-#  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: ai_label }
-#  productEntity: EncryptionKeyBinarySyndicate
-#  cost:
-#    Telecrystal: 5 # goob
-#  categories:
-#  - UplinkDeception
-#  conditions:
-#  - !type:StoreWhitelistCondition
-#    blacklist:
-#      tags:
-#      - ContravendUplink
+# Goobstation - replaced with collective mind # Omu, make binary a radio again.
+- type: listing
+  id: UplinkBinaryTranslatorKey
+  name: uplink-binary-translator-key-name
+  description: uplink-binary-translator-key-desc
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: ai_label }
+  productEntity: EncryptionKeyBinarySyndicate
+  cost:
+    Telecrystal: 5 # goob
+  categories:
+  - UplinkDeception
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContravendUplink
 
 - type: listing
   id: UplinkCyberpen
