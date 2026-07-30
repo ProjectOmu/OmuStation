@@ -544,8 +544,6 @@ namespace Content.Server._Funkystation.ReagentFires.Systems
                             // Omu end
                         }
 
-
-
                         _damageable.TryChangeDamage(ent, appliedDamage, ignoreResistances: ignoreResistances);
                     }
 
