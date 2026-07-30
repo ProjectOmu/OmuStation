@@ -54,7 +54,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Shared._Shitmed.Surgery;
-using Content.Shared._Mono.CorticalBorer;
+using Content.Shared._Mono.CorticalBorer; // mono
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
 
