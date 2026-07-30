@@ -4,7 +4,7 @@ using Content.Shared.NPC.Prototypes;
 
 namespace Content.Omu.Shared.Entities.Heretic;
 
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentState]
 public sealed partial class FascinationComponent : Component
 {
     [DataField]
