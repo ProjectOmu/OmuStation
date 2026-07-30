@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content._Goobstation.Server.Chaplain.Components;        //Omu changed namespace
+namespace Content.Goobstation.Server.Chaplain.Components;
 
 /// <summary>
 /// Gives the user the ability to see the Eldritch Influence layer.
