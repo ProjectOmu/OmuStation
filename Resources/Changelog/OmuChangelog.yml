@@ -5635,3 +5635,13 @@ Entries:
         Thaven, Allulalo and Xelthia blood
   id: 738
   time: '2026-07-30T17:52:10.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: CPR now has proper text popups for when you're not able to do it.
+    - type: Fix
+      message: >-
+        CPR now stops you from continuing if you're not meant to be able to
+        start CPR. You also can no longer do CPR to people who have masks on.
+  id: 739
+  time: '2026-07-31T07:05:25.0000000+00:00'
