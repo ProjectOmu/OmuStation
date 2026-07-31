@@ -136,6 +136,11 @@
   parent: BaseJobsOmuNonDepartmentalCommand
   text: omu-phrase-job-administrativeassistant
 
+- type: quickPhrase
+  id: CommandPhraseOmu
+  parent: BaseJobsOmuNonDepartmentalCommand
+  text: omu-phrase-job-command
+
   # centcomm
 
 - type: quickPhrase
