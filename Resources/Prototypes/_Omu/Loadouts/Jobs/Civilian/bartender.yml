@@ -1,0 +1,18 @@
+## Plasmaman Stuff
+- type: loadout
+  id: BlackEnviroslackHelm
+  equipment:
+    head: ClothingHeadEnvirohelmEnviroslacksMNK
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: BlackEnviroslacks
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitEnviroslacksMNK
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
