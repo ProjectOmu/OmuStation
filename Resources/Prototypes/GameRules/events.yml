@@ -179,6 +179,13 @@
     - id: MalignRiftSpawn # DeltaV
     - id: FloorGoblinMidRound # Goobstation
     - id: ClownGoblinMigration # Goobstation - New Midrounds
+    - id: BeeMigration # Omu - The bees.
+    - id: ShadowCatSpawn # Omu
+    - id: CrabMigration # Omu
+    - id: PossumMigration # Omu
+    - id: LizardMigration # Omu
+    - id: SlurvaMigration # Omu
+    - id: SnakeMigration # Omu
     - id: UtilityLineRupture # Funky Station
 
 - type: entityTable
@@ -189,7 +196,7 @@
     - id: DragonSpawn
     - id: KingRatMigration
     - id: NinjaSpawn
-    - id: ParadoxCloneSpawn
+    #- id: ParadoxCloneSpawn # omu weird bug casuing extreme lag
     #- id: RevenantSpawn  # GoobStation - removed till rework
     - id: SleeperAgents
     - id: ZombieOutbreak
@@ -211,6 +218,10 @@
     - id: VoxRaidersMidround # Goobstation - New Midrounds
     - id: TunnelClownMidround # Goobstation
     #- id: WraithMidround # Goobstation - Wraith
+    - id: BeeMigrationAngry # Omu - The bees but angry
+    - id: NaniteSpawn # Omu
+    - id: LivingCurseSpawn # Omu Chaplain Enrichment
+    - id: LavaMonkeySpawn # Omu Lavaland may be gone; but the monkies live on
     - id: NTAgentSleeper # Omu
     #TODO when midrounds are "reviewed" by the chudmins add them back
 
