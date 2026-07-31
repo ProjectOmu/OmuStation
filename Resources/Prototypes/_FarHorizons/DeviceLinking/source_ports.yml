@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
+# SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: CC-BY-NC-SA-3.0
+
+  # Nuclear Reactor
+- type: sourcePort
+  id: NuclearReactorDataSender
+  name: signal-port-name-nuclear-reactor-data-sender
+  description: signal-port-description-nuclear-reactor-data-sender
+  defaultLinks: [ NuclearReactorDataReceiver ]
+
+  # Gas Turbine
+- type: sourcePort
+  id: TurbineSpeedHigh
+  name: signal-port-name-gas-turbine-speed-high
+  description: signal-port-description-gas-turbine-speed-high
+
+- type: sourcePort
+  id: TurbineSpeedLow
+  name: signal-port-name-gas-turbine-speed-low
+  description: signal-port-description-gas-turbine-speed-low

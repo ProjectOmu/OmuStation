@@ -179,7 +179,7 @@
         probability: 0.25
   - type: Body
     prototype: Slimes
-    requiredLegs: 1
+    requiredLegs: 0   #OMU - no more slime legs
   - type: MeleeWeapon
     altDisarm: false
     soundHit:

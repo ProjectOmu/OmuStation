@@ -31,9 +31,8 @@
       path: /Audio/_Mono/Weapons/Guns/Gunshots/slammer.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 550
+  - type: ApcPowerReceiverBattery # Omu
+    batteryRechargeRate: 550
   - type: SpaceArtillery
     powerChargeRate: 100
     powerUsePassive: 100
@@ -83,9 +82,8 @@
       path: /Audio/_Mono/Weapons/Guns/Gunshots/mortar.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 220
+  - type: ApcPowerReceiverBattery # Omu
+    batteryRechargeRate: 220
   - type: SpaceArtillery
     powerChargeRate: 220
     powerUsePassive: 750
@@ -136,9 +134,8 @@
       path: /Audio/_Mono/Weapons/Guns/Gunshots/120mm_mortar.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 125
+  - type: ApcPowerReceiverBattery # Omu
+    batteryRechargeRate: 125
   - type: SpaceArtillery
     powerChargeRate: 125
     powerUsePassive: 600
@@ -184,9 +181,8 @@
       path: /Audio/Weapons/Guns/Gunshots/ship_duster.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 214
+  - type: ApcPowerReceiverBattery # Omu
+    batteryRechargeRate: 214
   - type: SpaceArtillery
     powerChargeRate: 214
     powerUsePassive: 3500
@@ -249,9 +245,8 @@
       path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 12000
+  - type: ApcPowerReceiverBattery # Omu
+    batteryRechargeRate: 12000
   - type: SpaceArtillery
     powerChargeRate: 12000
     powerUsePassive: 1500
@@ -314,9 +309,8 @@
       path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 12000
+  - type: ApcPowerReceiverBattery # Omu
+    batteryRechargeRate: 12000
   - type: SpaceArtillery
     powerChargeRate: 12000
     powerUsePassive: 1500
@@ -362,9 +356,8 @@
       path: /Audio/_Mono/Weapons/Guns/Gunshots/leviathan_fire.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 350
+  - type: ApcPowerReceiverBattery # Omu
+    batteryRechargeRate: 350
   - type: SpaceArtillery
     powerChargeRate: 350
     powerUsePassive: 1000
@@ -450,10 +443,8 @@
       path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 12000
-    autoRechargePause: true
+  - type: ApcPowerReceiverBattery # Omu
+    batteryRechargeRate: 12000
   - type: SpaceArtillery
     powerChargeRate: 800
     powerUsePassive: 1500
@@ -511,10 +502,8 @@
       path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 12000
-    autoRechargePause: true
+  - type: ApcPowerReceiverBattery # Omu
+    batteryRechargeRate: 1200
   - type: SpaceArtillery
     powerChargeRate: 700
     powerUsePassive: 1500
