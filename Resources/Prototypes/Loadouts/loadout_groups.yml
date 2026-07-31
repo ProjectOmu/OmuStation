@@ -251,6 +251,7 @@
   - DiscountDanLighter
   - CheapLighter
   - FlippoLighter
+  - MysteryStaffPlushieBox
   # Omu end
   - CardBoxBlack # GoobStation
   - CardBoxNanotrasen # GoobStation
@@ -282,6 +283,9 @@
   - DrinkOniGourd
   - AACTablet
   # End DeltaV Additions
+  # Begin Imp Additions
+  - CardBoxTarot
+  # End Imp Additions
   - MusicianMemoryLeek  #Omu - Horrid miku
 
 - type: loadoutGroup
@@ -537,6 +541,8 @@
   loadouts:
   - BlackShoes
   - WinterBoots
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: BartenderHead
@@ -976,6 +982,13 @@
   loadouts:
   - BrownShoes
   - CargoWinterBoots
+  - BlackShoes # Omu
+  - WorkBoots # Omu
+  - FishingBoots # Omu
+  - SalvageBoots # Omu
+  - CargoWinterBoots # Omu
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: CargoTechnicianHead
@@ -1100,6 +1113,8 @@
   loadouts:
   - BrownShoes
   - EngineeringWinterBoots
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
@@ -1270,6 +1285,8 @@
   loadouts:
   - BrownShoes
   - ScienceWinterBoots
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: ScientistHead
@@ -1329,6 +1346,8 @@
   - WhiteShoes
   - BlackShoes
   - ScienceWinterBoots
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: ScientistGloves
@@ -1634,6 +1653,8 @@
   loadouts:
   - BrownShoes
   - MedicalWinterBoots
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: MedicalDoctorHead
@@ -1691,6 +1712,8 @@
   - WhiteShoes
   - BrownShoes # Omu
   - BlueShoes # Omu
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
   - MedicalWinterBoots
 
 - type: loadoutGroup
@@ -1808,6 +1831,8 @@
   - BrownShoes # Omu
   - WhiteShoes
   - MedicalWinterBoots
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: MedicalEyewear

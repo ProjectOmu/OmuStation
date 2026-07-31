@@ -101,6 +101,37 @@
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Fishfish458
+// SPDX-FileCopyrightText: 2022 Rane
+// SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
+// SPDX-FileCopyrightText: 2023 Checkraze
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Emisse
+// SPDX-FileCopyrightText: 2023 Jezithyr
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2023 keronshb
+// SPDX-FileCopyrightText: 2023 nmajask
+// SPDX-FileCopyrightText: 2024 ArchRBX
+// SPDX-FileCopyrightText: 2024 Brandon Hu
+// SPDX-FileCopyrightText: 2024 Cojoke
+// SPDX-FileCopyrightText: 2024 Dvir
+// SPDX-FileCopyrightText: 2024 Milon
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-FileCopyrightText: 2024 Rainfey
+// SPDX-FileCopyrightText: 2024 Saphire Lattice
+// SPDX-FileCopyrightText: 2024 Whisper
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 lzk
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 nikthechampiongr
+// SPDX-FileCopyrightText: 2025 Ark
+// SPDX-FileCopyrightText: 2025 Coenx-flex
+// SPDX-FileCopyrightText: 2025 Whatstone
+// SPDX-FileCopyrightText: 2025 Zachary Higgs
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -301,7 +332,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     /// <param name="healthAnalyzer">The health analyzer that should receive the updates</param>
     /// <param name="target">The entity to start analyzing</param>
     /// <param name="part">Shitmed Change: The body part to analyze, if any</param>
-    private void BeginAnalyzingEntity(Entity<HealthAnalyzerComponent> healthAnalyzer, EntityUid target, EntityUid? part = null)
+    public void BeginAnalyzingEntity(Entity<HealthAnalyzerComponent> healthAnalyzer, EntityUid target, EntityUid? part = null)
     {
         //Link the health analyzer to the scanned entity
         healthAnalyzer.Comp.ScannedEntity = target;
@@ -317,7 +348,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     /// </summary>
     /// <param name="healthAnalyzer">The health analyzer that's receiving the updates</param>
     /// <param name="target">The entity to analyze</param>
-    private void StopAnalyzingEntity(Entity<HealthAnalyzerComponent> healthAnalyzer, EntityUid target)
+    public void StopAnalyzingEntity(Entity<HealthAnalyzerComponent> healthAnalyzer, EntityUid target)
     {
         //Unlink the analyzer
         healthAnalyzer.Comp.ScannedEntity = null;
@@ -470,9 +501,9 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
         foreach (var (woundable, component) in _woundSystem.GetAllWoundableChildren(rootPart))
         {
-            traumas.Add(GetNetEntity(woundable), FetchTraumaData(woundable, component));
-            pain.Add(GetNetEntity(woundable), FetchPainData(woundable, component));
-            bleeding.Add(_bodySystem.GetTargetBodyPart(woundable), component.Bleeds > 0);
+            traumas.TryAdd(GetNetEntity(woundable), FetchTraumaData(woundable, component)); // Omu - TryAdd prevent exceptions in Update
+            pain.TryAdd(GetNetEntity(woundable), FetchPainData(woundable, component)); // Omu - TryAdd prevent exceptions in Update
+            bleeding.TryAdd(_bodySystem.GetTargetBodyPart(woundable), component.Bleeds > 0); // Omu - TryAdd prevent exceptions in Update
         }
     }
 
@@ -484,7 +515,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             return bleeding;
 
         foreach (var (woundable, component) in _woundSystem.GetAllWoundableChildren(rootPart))
-            bleeding.Add(_bodySystem.GetTargetBodyPart(woundable), component.Bleeds > 0);
+            bleeding.TryAdd(_bodySystem.GetTargetBodyPart(woundable), component.Bleeds > 0); // Omu - TryAdd prevent exceptions in Update
 
         return bleeding;
     }
@@ -535,7 +566,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
         foreach (var (organId, organComp) in _bodySystem.GetBodyOrgans(target))
         {
-            organs.Add(GetNetEntity(organId), new OrganTraumaData(organComp.OrganIntegrity,
+            organs.TryAdd(GetNetEntity(organId), new OrganTraumaData(organComp.OrganIntegrity, // Omu - TryAdd prevent exceptions in Update
                 organComp.IntegrityCap,
                 organComp.OrganSeverity,
                 organComp.IntegrityModifiers
@@ -561,7 +592,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
                 || !TryGetNetEntity(solution, out var netSolution))
                 continue;
 
-            solutionsList.Add(netSolution.Value, solution.Comp.Solution);
+            solutionsList.TryAdd(netSolution.Value, solution.Comp.Solution); // Omu - TryAdd prevent exceptions in Update
         }
 
         if (TryComp<BodyComponent>(target, out var body)
@@ -573,7 +604,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
                     || !TryGetNetEntity(stomach.Comp1.Solution, out var netSolution))
                     continue;
 
-                solutionsList.Add(netSolution.Value, stomach.Comp1.Solution.Value.Comp.Solution); // This is horrible.
+                solutionsList.TryAdd(netSolution.Value, stomach.Comp1.Solution.Value.Comp.Solution); // This is horrible. // Omu - TryAdd prevent exceptions in Update
             }
         }
 
