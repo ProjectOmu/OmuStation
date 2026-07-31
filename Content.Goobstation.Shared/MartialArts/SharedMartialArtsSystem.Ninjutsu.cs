@@ -21,6 +21,7 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
+using Content.Shared.Tag; // Omu
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
@@ -32,6 +33,8 @@ namespace Content.Goobstation.Shared.MartialArts;
 public abstract partial class SharedMartialArtsSystem
 {
     public static ProtoId<AlertCategoryPrototype> NinjutsuAlertCategory = "Ninjutsu";
+
+    private static readonly ProtoId<TagPrototype> WeaponAllowTag = "NinjutsuWeapon"; // Omu
 
     private void InitializeNinjutsu()
     {
@@ -283,6 +286,9 @@ public abstract partial class SharedMartialArtsSystem
     private bool IsWeaponValid(EntityUid user, EntityUid weapon, [NotNullWhen(true)] out MeleeWeaponComponent? melee)
     {
         if (!TryComp(weapon, out melee))
+            return false;
+
+        if (!_tag.HasTag(weapon, WeaponAllowTag)) // Omu
             return false;
 
         return user == weapon || melee.Damage.DamageDict.ContainsKey("Slash");
