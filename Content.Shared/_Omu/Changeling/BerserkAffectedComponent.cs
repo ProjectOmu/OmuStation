@@ -17,6 +17,7 @@ public sealed partial class BerserkAffectedComponent : Component
     {
         "berserkchemical-rage",
         "berserkchemical-hate",
-        "berserkchemical-anger"
+        "berserkchemical-anger",
+        "berserkchemical-mom"
     };
 }
