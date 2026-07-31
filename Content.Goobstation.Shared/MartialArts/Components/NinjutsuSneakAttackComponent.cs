@@ -7,6 +7,7 @@ using Content.Shared.Alert;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Content.Goobstation.Maths.FixedPoint; // Omu
 
 namespace Content.Goobstation.Shared.MartialArts.Components;
 
@@ -53,4 +54,10 @@ public sealed partial class NinjutsuSneakAttackComponent : Component
 
     [DataField]
     public ProtoId<AlertPrototype> Alert = "SneakAttack";
+
+    /// <summary>
+    /// Omu - The minimum damage to reveal the user on damage. Should be positive, since negative values are considered healing.
+    /// </summary>
+    [DataField]
+    public FixedPoint2 MinimumRevealDamage = 4;
 }
