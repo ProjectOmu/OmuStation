@@ -27,6 +27,27 @@
   - sprite: _Omu/Mobs/Customization/Xelthia/xelthia_parts.rsi
     state: ears_bigfloppy
 
+# Face    
+- type: marking
+  id: XelthiaFangs
+  bodyPart: Face
+  markingCategory: Face
+  SpeciesRestriction: [Xelthia]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Xelthia/xelthia_parts.rsi
+    state: face_fangs
+
+- type: marking
+  id: XelthiaFreckles
+  bodyPart: Face
+  markingCategory: Face
+  speciesRestriction: [Xelthia]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Xelthia/xelthia_parts.rsi
+    state: face_freckles
+
+
+
 # Hair
 - type: marking
   id: XelthiaHairOminous
