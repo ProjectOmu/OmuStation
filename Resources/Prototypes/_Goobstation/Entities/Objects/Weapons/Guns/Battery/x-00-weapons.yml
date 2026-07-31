@@ -46,6 +46,8 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: StealTarget #Omu
+    stealGroup: WeaponEnergyGunLawbringer #Omu
 
 - type: entity
   name: X-6 "Threadripper"
@@ -94,6 +96,8 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: StealTarget #Omu
+    stealGroup: WeaponEnergyGunLawbringer #Omu
 
 - type: entity
   name: X-12 "Flamberge"
@@ -134,6 +138,8 @@
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: StealTarget #Omu
+    stealGroup: WeaponEnergyGunLawbringer #Omu
 
 - type: entity
   name: X-18 "Ranought"
@@ -182,3 +188,5 @@
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: StealTarget #Omu
+    stealGroup: WeaponEnergyGunLawbringer #Omu
