@@ -461,36 +461,36 @@
     sound:
       path: /Audio/_Goobstation/Wizard/charge.ogg
 
-- type: entity
-  parent: BasePlushie
-  id: PlushieNigel
-  name: handsome plushie
-  description: Smells like greatness, and a distinct smell of adalamin brand perfume?
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Fun/toys.rsi
-    state: plushie_nigel
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Effects/adminhelp.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Effects/adminhelp.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Effects/adminhelp.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Effects/adminhelp.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Effects/adminhelp.ogg
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 0
-    soundHit:
-      path: /Audio/Effects/adminhelp.ogg
+# - type: entity # Omu
+#   parent: BasePlushie
+#   id: PlushieNigel
+#   name: handsome plushie
+#   description: Smells like greatness, and a distinct smell of adalamin brand perfume?
+#   components:
+#   - type: Sprite
+#     sprite: _Goobstation/Objects/Fun/toys.rsi
+#     state: plushie_nigel
+#   - type: EmitSoundOnUse
+#     sound:
+#       path: /Audio/Effects/adminhelp.ogg
+#   - type: EmitSoundOnLand
+#     sound:
+#       path: /Audio/Effects/adminhelp.ogg
+#   - type: EmitSoundOnActivate
+#     sound:
+#       path: /Audio/Effects/adminhelp.ogg
+#   - type: EmitSoundOnTrigger
+#     sound:
+#       path: /Audio/Effects/adminhelp.ogg
+#   - type: EmitSoundOnCollide
+#     sound:
+#       path: /Audio/Effects/adminhelp.ogg
+#   - type: MeleeWeapon
+#     damage:
+#       types:
+#         Blunt: 0
+#     soundHit:
+#       path: /Audio/Effects/adminhelp.ogg
 
 - type: entity
   parent: BasePlushie
@@ -1024,11 +1024,11 @@
   id: EvilPlushieBrizby
   suffix: Evil
 
-- type: entity
-  name: evil Nigel plush
-  parent: PlushieNigel
-  id: EvilPlushieNigel
-  suffix: Evil
+# - type: entity # Omu
+#  name: evil Nigel plush
+#  parent: PlushieNigel
+#  id: EvilPlushieNigel
+#  suffix: Evil
 
 - type: entity
   name: evil Fern plush
