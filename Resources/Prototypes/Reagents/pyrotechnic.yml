@@ -47,6 +47,8 @@
   color: "#757245"
   boilingPoint: 2977.0 # Aluminum oxide
   meltingPoint: 2030.0
+  flammability: 5 # Funky change
+  selfOxidizing: true # Funky change
   tileReactions:
   - !type:FlammableTileReaction
     temperatureMultiplier: 2
@@ -78,6 +80,8 @@
   physicalDesc: reagent-physical-desc-soapy
   flavor: bitter
   color: "#FA00AF"
+  flammability: 4 # Funky change
+  selfOxidizing: true # Funky change
   tileReactions:
   - !type:FlammableTileReaction
     temperatureMultiplier: 5
@@ -119,6 +123,8 @@
   physicalDesc: reagent-physical-desc-burning
   flavor: bitter
   color: "#D4872A"
+  flammability: 5 # Funky change
+  selfOxidizing: true # Funky change
   metabolisms:
     Poison:
       effects:
@@ -158,6 +164,8 @@
   desc: reagent-desc-chlorine-trifluoride
   physicalDesc: reagent-physical-desc-blazing
   flavor: bitter
+  flammability: 5 # Funky change
+  selfOxidizing: true # Funky change
   color: "#FFC8C8"
   tileReactions:
   - !type:PryTileReaction
@@ -227,6 +235,7 @@
   recognizable: true
   boilingPoint: -84.7 # Acetylene. Close enough.
   meltingPoint: -80.7
+  flammability: 2 # Funky change
   friction: 0.4
   tileReactions:
   - !type:FlammableTileReaction {}

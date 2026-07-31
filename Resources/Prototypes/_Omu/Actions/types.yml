@@ -44,6 +44,31 @@
 # JaniHUD
 
 - type: entity
+  id: ActionBloodredVimBoost
+  parent: BaseAction
+  name: Boost
+  description: Spray water to launch forward.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Omu/Objects/Specific/Mechs/bloodredvim.rsi
+      state: bloodredvim
+    useDelay: 1
+  - type: TargetAction
+    range: 16
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:BloodredVimBoostActionEvent {}
+
+- type: entity
+  id: ActionInternalBloodredVimBoost      #used inside the system so it can't call itself
+  parent: ActionBloodredVimBoost
+  components:
+  - type: WorldTargetAction
+    event: !type:BloodredVimBoostInternalActionEvent {}
+    
+- type: entity
   parent: BaseAction
   id: ToggleJaniVision
   name: Toggle Clean Hud

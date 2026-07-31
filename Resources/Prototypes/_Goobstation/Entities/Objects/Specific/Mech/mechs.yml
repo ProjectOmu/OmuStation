@@ -83,6 +83,9 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+      tags: # Omu start
+        - CanPilot
+      requireAll: true # Omu end
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -141,6 +144,9 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+      tags: # Omu start
+        - CanPilot
+      requireAll: true # Omu end
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -212,6 +218,9 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+      tags: # Omu start
+        - CanPilot
+      requireAll: true # Omu end
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -272,6 +281,9 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+      tags: # Omu start
+        - CanPilot
+      requireAll: true # Omu end
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -340,6 +352,9 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+      tags: # Omu start
+        - CanPilot
+      requireAll: true # Omu end
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -413,6 +428,9 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+      tags: # Omu start
+        - CanPilot
+      requireAll: true # Omu end
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -489,6 +507,9 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+      tags: # Omu start
+        - CanPilot
+      requireAll: true # Omu end
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -562,6 +583,9 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+      tags: # Omu start
+        - CanPilot
+      requireAll: true # Omu end
   - type: MeleeWeapon
     hidden: true
     attackRate: 1

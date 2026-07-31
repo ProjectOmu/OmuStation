@@ -5449,3 +5449,199 @@ Entries:
       message: 'Fixed: Crypods being almost impossible to cool down specific species.'
   id: 711
   time: '2026-07-25T20:59:49.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added bloodred vim, its an allulalo exclusive and can dash!
+  id: 712
+  time: '2026-07-25T21:00:48.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Add
+      message: >-
+        The CMO now gets a singular energy chem dispenser board in their
+        locker. 
+  id: 713
+  time: '2026-07-25T21:23:49.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Tweak
+      message: >-
+        Formal shoes such as leather and laceups are now available on a lot more
+        jobs as loadout options.
+  id: 714
+  time: '2026-07-25T21:26:13.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added changeling Berserk sting, get mad... grr
+  id: 715
+  time: '2026-07-25T21:48:47.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: Slimes like smile no longer have legs.
+  id: 716
+  time: '2026-07-25T21:54:30.0000000+00:00'
+- author: Waterwithoutanyice
+  changes: []
+  id: 717
+  time: '2026-07-25T21:57:36.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Cognizine now requires the entity be non-hostile
+  id: 718
+  time: '2026-07-25T21:58:29.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: ported funkystation reagent fires, puddles of ignitables can burn
+  id: 719
+  time: '2026-07-25T21:59:25.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Add
+      message: Mops can be worn on your back and internals slot
+    - type: Add
+      message: >-
+        Wet floor signs and the janitor bio suit now support internals slots for
+        mops
+  id: 720
+  time: '2026-07-25T22:20:42.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Fix
+      message: >-
+        Fixed xelthia not being able to be read by medHUDs and use topicals
+        while maintaining there caustic immunity
+  id: 721
+  time: '2026-07-25T22:23:15.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Add
+      message: >-
+        Cargo lathe can now print mail capsules, have fun with expedient mail
+        delivery all round
+  id: 722
+  time: '2026-07-26T17:51:25.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: New game rule for admins to use :3
+  id: 723
+  time: '2026-07-26T17:52:37.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        Kettle's disposals is now connected properly to the disposals pipe
+        system.
+  id: 724
+  time: '2026-07-27T13:58:46.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        Added a single disposals pipe to connect a disposals unit in the medbay
+        in Leonid.
+  id: 725
+  time: '2026-07-27T14:32:01.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: Increased spawn rate of sleeper agents
+  id: 726
+  time: '2026-07-27T15:03:35.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Add
+      message: Added IAA as a midround spawn.
+  id: 727
+  time: '2026-07-27T15:04:17.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: Lowered Abductor spawn slightly.
+  id: 728
+  time: '2026-07-27T21:23:16.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Floor Goblins can spawn again
+    - type: Add
+      message: New Vent Critters can spawn
+  id: 729
+  time: '2026-07-27T21:31:36.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Add
+      message: >-
+        Pill canisters now have an open and closed visual state similar to
+        toolboxes
+  id: 730
+  time: '2026-07-27T21:57:11.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        You now require the "CanPilot" tag to pilot mechs, this means that mobs
+        like monkeys cannot pilot a mech, HAMTR and VIM are unaffected by this.
+  id: 731
+  time: '2026-07-28T00:54:19.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Add
+      message: Allulalo can now make three new noises. (Awebo, Coo, Scree)
+  id: 732
+  time: '2026-07-28T12:28:27.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: Changed execution SOP to be more clear
+  id: 733
+  time: '2026-07-29T01:50:03.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Tweak
+      message: Cog's cargo window shutter is now directional.
+  id: 734
+  time: '2026-07-29T01:56:05.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Remove
+      message: Paradox clone disabled due to urgent bug. Will be enabled in the future
+  id: 735
+  time: '2026-07-29T03:32:54.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: Adds the steal target to the hos's other guns.
+  id: 736
+  time: '2026-07-30T00:27:14.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: >-
+        Reagent fires should be more balanced now, no longer ignore fire prot
+        and are much easier to tweak
+  id: 737
+  time: '2026-07-30T17:30:55.0000000+00:00'
+- author: Willfullyheretical
+  changes:
+    - type: Fix
+      message: >-
+        Increased surfaces for blood jaunt to include, Avali, Resomi, Slime,
+        Thaven, Allulalo and Xelthia blood
+  id: 738
+  time: '2026-07-30T17:52:10.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: CPR now has proper text popups for when you're not able to do it.
+    - type: Fix
+      message: >-
+        CPR now stops you from continuing if you're not meant to be able to
+        start CPR. You also can no longer do CPR to people who have masks on.
+  id: 739
+  time: '2026-07-31T07:05:25.0000000+00:00'
