@@ -1,0 +1,36 @@
+# SPDX-FileCopyrightText: 2025 Ilya246
+# SPDX-FileCopyrightText: 2025 bitcrushing
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: SmartfridgeCircuitboard
+  name: smartfridge machine board
+  description: A machine printed circuit board for a smartfridge.
+  components:
+  - type: MachineBoard
+    prototype: SmartFridge
+  # Start of Omustation
+    stackRequirements:
+      Glass: 5
+      Cable: 1
+      Steel: 2
+    componentRequirements: # Omustation
+      PowerCell: # Omustation
+        amount: 1 # Omustation
+        defaultPrototype: PowerCellSmall # Omustation
+  # Requied for the machine board to be modifed by a multitool
+  # Yes I know this makes it a door *technically*, no I dont know why the door electronics are core to this.
+  - type: DoorElectronics
+  - type: AccessReader
+  - type: ActivatableUI
+    key: enum.DoorElectronicsConfigurationUiKey.Key
+    requiredItems:
+      tags:
+      - DoorElectronicsConfigurator
+  - type: UserInterface
+    interfaces:
+      enum.DoorElectronicsConfigurationUiKey.Key:
+        type: DoorElectronicsBoundUserInterface
+  # End of Omustation

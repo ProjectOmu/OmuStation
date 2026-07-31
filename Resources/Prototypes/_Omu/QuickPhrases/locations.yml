@@ -1,0 +1,58 @@
+
+# locations from something
+
+- type: quickPhrase
+  id: FrontPhraseOmu
+  parent: BaseLocationsPrepositional
+  text: omu-phrase-locations-front
+
+- type: quickPhrase
+  id: BehindPhraseOmu
+  parent: BaseLocationsPrepositional
+  text: omu-phrase-locations-behind
+
+- type: quickPhrase
+  id: ToPhraseOmu
+  parent: BaseLocationsPrepositional
+  text: omu-phrase-locations-to
+  
+- type: quickPhrase
+  id: OfPhraseOmu
+  parent: BaseLocationsPrepositional
+  text: omu-phrase-locations-of
+
+- type: quickPhrase
+  id: UnderPhraseOmu
+  parent: BaseLocationsPrepositional
+  text: omu-phrase-locations-under
+
+- type: quickPhrase
+  id: OverPhraseOmu
+  parent: BaseLocationsPrepositional
+  text: omu-phrase-locations-over
+
+- type: quickPhrase
+  id: ThroughPhraseOmu
+  parent: BaseLocationsPrepositional
+  text: omu-phrase-locations-through
+
+- type: quickPhrase
+  id: BetweenPhraseOmu
+  parent: BaseLocationsPrepositional
+  text: omu-phrase-locations-between
+
+- type: quickPhrase
+  id: AroundPhraseOmu
+  parent: BaseLocationsPrepositional
+  text: omu-phrase-locations-around
+
+# cardinal
+
+
+
+# station
+
+- type: quickPhrase
+  id: AtmosPhraseOmu
+  parent: BaseLocationsSpace
+  text: omu-phrase-locations-atmos

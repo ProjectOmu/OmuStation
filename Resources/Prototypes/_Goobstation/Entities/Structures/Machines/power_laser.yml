@@ -21,6 +21,7 @@
     baseBeamDamage:
       types:
         Heat: 5
+        Structural: 5 # Omu
   - type: PTLVisuals
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/PTL/pt_laser.rsi
@@ -45,6 +46,7 @@
   - type: Battery
     startingCharge: 0
     maxCharge: 100000000 # 100MJ
+    pricePerJoule: 0 # Omu
   - type: ExaminableBattery
   - type: BatteryCharger
     voltage: High
@@ -80,12 +82,12 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-1.5,-1.5,1.5,1.5"
-        density: 50
+          bounds: "-1.2,-1.2,1.2,1.2" # Omu
+        density: 250 # Omu
         mask:
         - LargeMobMask
         layer:
-        - WallLayer
+        - MachineLayer # Omu
   - type: StationAiWhitelist
   # ui todo
   #- type: ActivatableUI
@@ -99,12 +101,16 @@
     range: 5
     sound:
       path: /Audio/Ambience/Objects/engine_hum.ogg
+  - type: StaticPrice # Omu
+    price: 1500
 
 - type: hitscan
   id: PTL
+  maxLength: 50 # Omu
   damage:
     types:
       Heat: 30
+      Structural: 30 # Omu
   muzzleFlash:
     sprite: _Goobstation/Structures/Machines/PTL/pt_beam.rsi
     state: ptl_beam
