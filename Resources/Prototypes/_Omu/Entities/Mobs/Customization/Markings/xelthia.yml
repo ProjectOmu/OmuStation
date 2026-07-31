@@ -8,6 +8,15 @@
   - sprite: _Omu/Mobs/Customization/Xelthia/xelthia_parts.rsi
     state: tail_longsplit
 
+- type: marking
+  id: XelthiaTailLongStandard
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Xelthia]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Xelthia/xelthia_parts.rsi
+    state: tail_longstandard
+
 # Ears
 - type: marking
   id: XelthiaEarsBigFloppy
@@ -27,3 +36,43 @@
   sprites:
   - sprite: _Omu/Mobs/Customization/Xelthia/xelthia_parts.rsi
     state: hair_ominous    
+
+- type: marking
+  id: XelthiaHairPonytailSide
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Xelthia]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Xelthia/xelthia_parts.rsi
+    state: hair_sidepony    
+
+- type: marking
+  id: XelthiaHairPonytailAsym
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Xelthia]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Xelthia/xelthia_parts.rsi
+    state: hair_asympony
+
+# Hands - Right hand       
+
+- type: marking
+  id: XelthiaRHandPalm
+  bodyPart: RightHand
+  markingCategory: RHand
+  speciesRestriction: [Xelthia]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Xelthia/xelthia_parts.rsi
+    state: hand_right_palm
+
+# Left Hand
+
+- type: marking
+  id: XelthiaLHandPalm
+  bodyPart: LeftHand
+  markingCategory: LHand
+  speciesRestriction: [Xelthia]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Xelthia/xelthia_parts.rsi
+    state: hand_left_palm
