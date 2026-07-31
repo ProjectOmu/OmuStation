@@ -11,4 +11,12 @@ public sealed partial class BerserkAffectedComponent : Component
 
     [DataField, AutoNetworkedField, AutoPausedField]
     public TimeSpan NextAttack = TimeSpan.Zero;
+
+    [DataField]
+    public List<LocId> AngerMessages = new()
+    {
+        "berserkchemical-rage",
+        "berserkchemical-hate",
+        "berserkchemical-anger"
+    };
 }
