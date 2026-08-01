@@ -90,10 +90,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Chat.Systems; // Omu
+using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Nutrition.Components;
-using Content.Omu.Common.Nutrition.Components; // Omu
+using Content.Omu.Common.Nutrition.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.Components;
