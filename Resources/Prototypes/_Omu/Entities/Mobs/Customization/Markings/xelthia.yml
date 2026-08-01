@@ -33,6 +33,11 @@
   bodyPart: Face
   markingCategory: Face
   SpeciesRestriction: [Xelthia]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
   - sprite: _Omu/Mobs/Customization/Xelthia/xelthia_parts.rsi
     state: face_fangs
@@ -79,8 +84,8 @@
 # Hands - Right hand       
 - type: marking
   id: XelthiaRHandPalm
-  bodyPart: RightHand
-  markingCategory: RHand
+  bodyPart: RHand
+  markingCategory: RightHand
   speciesRestriction: [Xelthia]
   sprites:
   - sprite: _Omu/Mobs/Customization/Xelthia/xelthia_parts.rsi
@@ -89,8 +94,8 @@
 # Left Hand
 - type: marking
   id: XelthiaLHandPalm
-  bodyPart: LeftHand
-  markingCategory: LHand
+  bodyPart: LHand
+  markingCategory: LeftHand
   speciesRestriction: [Xelthia]
   sprites:
   - sprite: _Omu/Mobs/Customization/Xelthia/xelthia_parts.rsi
