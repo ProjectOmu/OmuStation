@@ -124,7 +124,7 @@
     Flap: # Omu, give harpy more emotes
       path: /Audio/_Goobstation/Voice/Moth/moth_flap.ogg
     Scree: # Omu, give harpy more emotes
-      collection: ResomiScrees
+      collection: CombinedScrees
     Call: # Omu, give harpy more emotes
       collection: ResomiCalls
     Squawk: # Omu, give harpy more emotes
@@ -145,6 +145,8 @@
       collection: RodentiaSnorts
     Gekker: # Omu
       path: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
+    Awebo: # Omu
+      collection: AllulaloAwebo
 
 - type: emoteSounds
   id: SoundsHarpyMale
