@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint; // Omu, change from C.Sh.FixedPoint (why is it in goob???)
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 
