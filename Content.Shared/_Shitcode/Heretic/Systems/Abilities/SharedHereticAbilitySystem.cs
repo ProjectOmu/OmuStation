@@ -44,6 +44,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared._Omu.Heretic;
 
 namespace Content.Shared._Shitcode.Heretic.Systems.Abilities;
 
@@ -203,7 +204,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
             return;
         }
 
-        if (HasComp<GhoulComponent>(args.Performer) || HasComp<StarGazerComponent>(args.Performer))
+        if (HasComp<GhoulComponent>(args.Performer) || HasComp<StarGazerComponent>(args.Performer) || HasComp<MansusMobComponent>(args.Performer))      //Omu - mansus mobs - not neccessarily ghouls so are hostile to heretics
             return;
 
         if (!Heretic.TryGetHereticComponent(args.Performer, out var heretic, out _))

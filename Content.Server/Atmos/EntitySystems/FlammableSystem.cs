@@ -513,6 +513,9 @@ namespace Content.Server.Atmos.EntitySystems
             if (!Resolve(uid, ref flammable, false)) // Lavaland Change: SHUT THE FUCK UP FLAMMABLE
                 return;
 
+            // Goobstation - from EE at 7b0949568d07df81b298251c6fce9be4d7d03f18 (https://github.com/Simple-Station/Einstein-Engines/pull/2462)
+            EnsureComp<OnFireComponent>(uid);
+
             // _Mono: Used to intercept and remove the event on things like Cortical Borers inside hosts.
             var igniteCheck = new TryIgniteEvent();
             RaiseLocalEvent(uid, ref igniteCheck);
