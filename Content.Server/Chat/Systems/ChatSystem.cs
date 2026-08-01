@@ -758,8 +758,10 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
 
         // The Original Message [-] Einstein Engines - Language
-        var message = FormattedMessage.RemoveMarkupOrThrow(originalMessage);  // Remove markup before transforming.
-        message = FormattedMessage.EscapeText(message); // Escape after removing markup
+        // Omu - RemoveMarkupOrThrow() ... throws an error when it's a invalid message, resulting in the message not appearing in chat.
+        // This could happen when for example someone sends a `[` or other things.
+        //var message = FormattedMessage.RemoveMarkupOrThrow(originalMessage);  // Remove markup before transforming. Omu - Line commented out
+        var message = FormattedMessage.EscapeText(originalMessage); // Escape after removing markup. Omu - variable changed
         message = TransformSpeech(source, message, language);
 
         if (message.Length == 0)
