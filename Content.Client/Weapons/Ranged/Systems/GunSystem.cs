@@ -54,6 +54,7 @@ using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
+using Robust.Client.Physics;
 using Robust.Client.State;
 using Robust.Shared.Animations;
 using Robust.Shared.Input;
@@ -79,7 +80,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly SharedMapSystem _maps = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly Robust.Client.Physics.PhysicsSystem _physics = default!;
 
     public static readonly EntProtoId HitscanProto = "HitscanEffect";
 
