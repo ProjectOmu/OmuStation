@@ -22,6 +22,19 @@
     head: ClothingHeadHatBeretCorpsman
 
 - type: loadout
+  id: CorpsmanHeadHatKepi
+  equipment:
+    head: ClothingHeadHatKepiCorpsman
+
+- type: loadout
+  id: CorpsmanVeteranHeadHatKepi
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCorpsman
+  equipment:
+    head: ClothingHeadHatKepiCorpsmanVeteran
+
+- type: loadout
   id: CorpsmanJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCorpsman
