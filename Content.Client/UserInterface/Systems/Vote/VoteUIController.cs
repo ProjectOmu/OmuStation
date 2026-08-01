@@ -34,9 +34,6 @@ public sealed class VoteUIController : UIController
             case SeparatedChatGameScreen separated:
                 _votes.SetPopupContainer(separated.VoteMenu);
                 break;
-            case SeparatedChatLeftGameScreen separatedLeft:
-                _votes.SetPopupContainer(separatedLeft.VoteMenu);
-                break;
         }
     }
 

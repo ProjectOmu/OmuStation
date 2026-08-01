@@ -22,6 +22,8 @@ namespace Content.Client.UserInterface.Screens;
 [GenerateTypedNameReferences]
 public sealed partial class SeparatedChatGameScreen : InGameScreen
 {
+    private bool _isFlipped;
+
     public SeparatedChatGameScreen()
     {
         RobustXamlLoader.Load(this);
@@ -42,6 +44,17 @@ public sealed partial class SeparatedChatGameScreen : InGameScreen
             OnChatResized?.Invoke(new Vector2(ScreenContainer.SplitFraction, 0));
 
         ViewportContainer.OnResized += ResizeActionContainer;
+    }
+
+    public void FlipScreen(ScreenType type)
+    {
+        var shouldBeLeft = type == ScreenType.SeparatedLeft;
+
+        if (_isFlipped == shouldBeLeft)
+            return;
+
+        ScreenContainer.Flip();
+        _isFlipped = shouldBeLeft;
     }
 
     private void ResizeActionContainer()

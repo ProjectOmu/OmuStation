@@ -41,12 +41,6 @@ public sealed partial class CCVars
     public static readonly CVarDef<string> SeparatedScreenChatSize =
         CVarDef.Create("ui.separated_chat_size", "0.6,0", CVar.CLIENTONLY | CVar.ARCHIVE);
 
-    /// <summary>
-    /// The width of the chat panel in Separated UI mode
-    /// </summary>
-    public static readonly CVarDef<string> SeparatedScreenLeftChatSize =
-        CVarDef.Create("ui.separated_chat_size", "0.6,0", CVar.CLIENTONLY | CVar.ARCHIVE);
-
     public static readonly CVarDef<bool> OutlineEnabled =
         CVarDef.Create("outline.enabled", true, CVar.CLIENTONLY);
 

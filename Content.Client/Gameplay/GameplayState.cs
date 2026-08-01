@@ -153,10 +153,9 @@ namespace Content.Client.Gameplay
                     _uiManager.LoadScreen<DefaultGameScreen>();
                     break;
                 case ScreenType.Separated:
-                    _uiManager.LoadScreen<SeparatedChatGameScreen>();
-                    break;
                 case ScreenType.SeparatedLeft:
-                    _uiManager.LoadScreen<SeparatedChatLeftGameScreen>();
+                    _uiManager.LoadScreen<SeparatedChatGameScreen>();
+                    (_uiManager.ActiveScreen as SeparatedChatGameScreen)?.FlipScreen(screenType);
                     break;
             }
 

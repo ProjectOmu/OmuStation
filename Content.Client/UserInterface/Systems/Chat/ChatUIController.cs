@@ -372,11 +372,6 @@ public sealed partial class ChatUIController : UIController
                 chatSizeRaw = _config.GetCVar(CCVars.SeparatedScreenChatSize);
                 SetChatSizing(chatSizeRaw, separatedScreen, setting);
                 break;
-            case SeparatedChatLeftGameScreen separatedLeftScreen:
-                chatBox = separatedLeftScreen.ChatBox;
-                chatSizeRaw = _config.GetCVar(CCVars.SeparatedScreenLeftChatSize);
-                SetChatSizing(chatSizeRaw, separatedLeftScreen, setting);
-                break;
             default:
                 // this could be better?
                 var maybeChat = UIManager.ActiveScreen.GetWidget<ChatBox>();
