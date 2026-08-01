@@ -423,6 +423,9 @@ public sealed partial class HereticSystem : SharedHereticSystem
             if (HasComp<GhoulComponent>(session.AttachedEntity.Value))
                 return false;
 
+            if (HasComp<HellVictimComponent>(session.AttachedEntity.Value))     //Omu - no saccing victims twice lol
+                return false;
+
             if (!_mind.TryGetMind(session.AttachedEntity.Value, out var mind, out _) ||
                 mind == ent.Owner || !_job.MindTryGetJobId(mind, out _))
                 return false;

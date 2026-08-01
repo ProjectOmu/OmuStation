@@ -58,7 +58,7 @@ ipintel_contact_email = "ss14opal@gmail.com"
 
 # Defaults and other CVars
 defaultpreset = "SecretPlusMid"
-round_restart_time = 180 # Increased from 120
+round_restart_time = 300 # Increased from 120//180 on 7/2026
 table_bonk = false # Default is false, change later?
 round_end_pvs_overrides = false # Default is true, needs to be disabled for less end-of-round lag
 
@@ -116,7 +116,7 @@ auto_call_time = 120 # Increased from 90
 mass_limit = 2000 # Changed for event shuttles
 
 [lavaland]
-enabled = true
+enabled = false # Lets see what this does for lag.
 
 [movement]
 mob_pushing = false # No jank mob shoving
