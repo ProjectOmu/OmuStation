@@ -29,6 +29,7 @@ public sealed class DigitalLockSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<DigitalLockComponent, ComponentStartup>(OnStartup);
         // Hacking
         SubscribeLocalEvent<DigitalLockComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<DigitalLockComponent, DigitalLockMaintenanceOpenDoAfterEvent>(OnMaintenanceOpen);
@@ -42,7 +43,16 @@ public sealed class DigitalLockSystem : EntitySystem
         SubscribeLocalEvent<DigitalLockComponent, DigitalLockKeypadClearMessage>(OnClearButtonPressed);
         SubscribeLocalEvent<DigitalLockComponent, DigitalLockKeypadEnterMessage>(OnEnterButtonPressed);
     }
-
+    private void OnStartup(EntityUid uid, DigitalLockComponent component, ComponentStartup args)
+    {
+        string code = "";
+        for (var i = 0; i < component.MaxCodeLength; i++)
+        {
+            int rand = Random.Shared.Next(0, 9);
+            code += rand.ToString();
+        }
+        component.Code = code;
+    }
     #region Hacking
 
     /// <summary>
