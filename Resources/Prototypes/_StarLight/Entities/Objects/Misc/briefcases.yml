@@ -38,21 +38,34 @@
   id: BriefcaseSecure
   name: secure briefcase
   components:
-  - type: Sprite
-    sprite: _Starlight/Objects/Storage/Briefcases/briefcase_secure.rsi
-    layers: 
-      - state: icon
-      - state: open
-        shader: unshaded
-      - state: closed
-        shader: unshaded
-        map: ["enum.LockVisualLayers.Lock"]
-      - state: spark
-        shader: unshaded
-        visible: false
-        map: ["spark"]
-  - type: LockVisuals
-    stateLocked: closed
-    stateUnlocked: open
-  - type: Item
-    sprite: _Starlight/Objects/Storage/Briefcases/briefcase_secure.rsi
+    - type: Sprite
+      sprite: _Starlight/Objects/Storage/Briefcases/briefcase_secure.rsi
+      layers:
+        - state: icon
+        - state: open
+          shader: unshaded
+        - state: closed
+          shader: unshaded
+          map: ["enum.LockVisualLayers.Lock"]
+        - state: spark
+          shader: unshaded
+          visible: false
+          map: ["spark"]
+    - type: LockVisuals
+      stateLocked: closed
+      stateUnlocked: open
+    - type: Item
+      sprite: _Starlight/Objects/Storage/Briefcases/briefcase_secure.rsi
+
+# Syndie Black
+- type: entity
+  parent: [BaseMinorContraband, BriefcaseBaseSecure]
+  id: BriefcaseSyndicateRedspace
+  name: syndicate briefcase
+  suffix: empty
+  components:
+    - type: Sprite
+      sprite: _Starlight/Objects/Storage/Briefcases/syndicate_briefcase.rsi
+      state: icon
+    - type: Item
+      sprite: _Starlight/Objects/Storage/Briefcases/syndicate_briefcase.rsi
