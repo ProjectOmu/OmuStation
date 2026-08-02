@@ -12,12 +12,12 @@
     state: blue_maiden
   - type: Damageable
     damageModifierSet: GhoulMirrorMaiden
-#  - type: GhostRole
-#    name: mirror-maiden-role-name
-#    description: mirror-maiden-role-desc
-#    rules: ghost-role-information-antagonist-rules
-#    mindRoles:
-#    - MindRoleGhoul
+  - type: GhostRole
+    name: mirror-maiden-role-name
+    description: mirror-maiden-role-desc
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhoul
   - type: ActionGrant
     actions:
     - ActionHereticJaunt
@@ -38,8 +38,8 @@
       types:
         Slash: 5
         Piercing: 10
-#  - type: Visibility
-#    layer: 64 #same as influencespent
+  - type: Visibility
+    layer: 33 #same as influencespent
   - type: NpcFactionMember
     factions:
     - Mansus
@@ -78,11 +78,6 @@
   - type: CombatMode
   - type: SeeHereticFixtures
   - type: MansusMob
-  - type: Stealth   # Shitcode fix until we know why visibility mask disables actions
-    hadOutline: true
-  - type: StealthOnMove
-    passiveVisibilityRate: -0.30
-    movementVisibilityRate: 0.10
 
 - type: npcFaction
   id: Mansus
