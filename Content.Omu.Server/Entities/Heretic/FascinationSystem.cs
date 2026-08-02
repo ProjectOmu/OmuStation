@@ -8,6 +8,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.NPC.Systems;
 using Content.Shared.NPC.Components;
+using Content.Shared._Omu.Heretic;
 
 namespace Content.Omu.Server.Entities.Heretic;
 
@@ -42,6 +43,11 @@ public sealed class FascinationSystem: EntitySystem
         ent.Comp.FascinationValue = args.Amount + ent.Comp.FascinationValue; //increment the fascination value by the amount of knowledge gained!
 
         float fascvalue = ent.Comp.FascinationValue;
+
+        if (HasComp<MansusMobComponent>(ent))
+        {
+            return;
+        }
 
         if (fascvalue < 5)
         {
