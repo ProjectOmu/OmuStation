@@ -40,14 +40,14 @@ public sealed class FascinationSystem: EntitySystem
     }
     private void OnChange(Entity<FascinationComponent> ent, ref FascinationChangedArgs args)
     {
-        ent.Comp.FascinationValue = args.Amount + ent.Comp.FascinationValue; //increment the fascination value by the amount of knowledge gained!
-
-        float fascvalue = ent.Comp.FascinationValue;
-
-        if (HasComp<MansusMobComponent>(ent))
+        if (HasComp<MansusMobComponent>(ent)) // Ignore fascination tracking
         {
             return;
         }
+
+        ent.Comp.FascinationValue = args.Amount + ent.Comp.FascinationValue; //increment the fascination value by the amount of knowledge gained!
+
+        float fascvalue = ent.Comp.FascinationValue;
 
         if (fascvalue < 5)
         {
