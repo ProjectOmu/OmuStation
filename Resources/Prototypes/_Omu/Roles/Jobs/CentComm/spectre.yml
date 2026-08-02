@@ -32,7 +32,7 @@
     # Goobstation
     - NanotrasenRepresentative
     - BlueshieldOfficer
-  special: # Goobstation Start - I basically re-did all of deathsquads stuff so. - Sol
+  special: 
     - !type:AddImplantSpecial
       implants:
         [
@@ -46,29 +46,26 @@
         ]
     - !type:AddComponentSpecial
       components:
-        - type: DeathSquadMember # Goobstation
+        - type: DeathSquadMember 
 
-  # Goobstation Start - I basically re-did all of deathsquads stuff so. - Sol
+ 
 - type: startingGear
   id: NanoTrasenSpectreGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitDeathSquad
     back: ClothingModsuitSpectreFilled
     mask: ClothingMaskGasDeathSquad
-    eyes: ClothingEyesGlassesDeathsquad # Goobstation
+    eyes: ClothingEyesGlassesDeathsquad 
     neck: ExecutiveIDCard # Executive Access!
-    ears: ClothingHeadsetDeathsquad # Goobstation
+    ears: ClothingHeadsetDeathsquad 
     gloves: ClothingHandsGlovesDeathsquad # Rip and TEAR
     outerClothing: ClothingOuterVestWebDurathread
     shoes: ClothingShoesBootsMagDeathsquad # These boots are cooler.
     id: NanoTrasenSpectrePDA # New PDA!
-    pocket1: PhoronSabre # Goobstation
-    pocket2: WeaponRevolverMateba # Goobstation
+    pocket1: PhoronSabre 
+    pocket2: WeaponPistolCentcommAgent 
     belt: ClothingBeltDeathsquadWebbingFilled # Centcomm Doesn't use syndicate tech.
   storage:
     back:
-      - SpeedLoaderMatebaAP # Goobstation - 7 rounds
-      - SpeedLoaderMatebaAP # Goobstation - 7 rounds
-  inhand:
-    - WeaponPulseRifle
-    # Goobstation End
+      - MagazinePistolNeurotoxin 
+      - MagazinePistolNeurotoxin

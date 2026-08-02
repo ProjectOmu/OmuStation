@@ -822,7 +822,7 @@ public abstract partial class SharedMindSystem : EntitySystem
 
         // I'm assuming here that if they have languagespeaker, we don't need to do everything else.
         if (TryComp<LanguageSpeakerComponent>(uid, out var languageSpeaker) &&
-            languageSpeaker.SpokenLanguages.Count > 1)
+            languageSpeaker.SpokenLanguages.Count >= 1)         //Omu - not everything should speak tau.
             return;
 
         var newSpeaker = EnsureComp<LanguageSpeakerComponent>(uid);

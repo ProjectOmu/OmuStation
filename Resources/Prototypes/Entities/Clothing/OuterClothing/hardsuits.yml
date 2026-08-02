@@ -677,7 +677,7 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: FireProtection
-    reduction: 0.8
+    reduction: 1.0 #Omu - full fire prot lol
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: Armor

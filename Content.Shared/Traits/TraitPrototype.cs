@@ -24,7 +24,8 @@ namespace Content.Shared.Traits;
 /// Describes a trait.
 /// </summary>
 [Prototype]
-public sealed partial class TraitPrototype : IPrototype
+public sealed partial class TraitPrototype : IPrototype,
+    IComparable<TraitPrototype> // HardLight: IComparable<self>
 {
     [ViewVariables]
     [IdDataField]
@@ -103,7 +104,7 @@ public sealed partial class TraitPrototype : IPrototype
     public int GlobalCost = 0;
 
     /// <summary>
-    ///     Whether this trait will increment MaxTraits or not. 
+    ///     Whether this trait will increment MaxTraits or not.
     ///     Useful for small traits, such as accents, which don't affect gameplay all that much and should be selectable at no cost.
     /// </summary>
     [DataField]
@@ -141,4 +142,22 @@ public sealed partial class TraitPrototype : IPrototype
     [DataField]
     public List<string>? RemoveLanguagesUnderstood { get; private set; } = default!;
     // Einstein Engines - Language end
+
+    // HardLight Changes start
+
+    /// <summary>
+    ///     If this trait should replace the added components. Hardlight change.
+    /// </summary>
+    [DataField]
+    public bool ReplaceComponents;
+
+    /// <summary>
+    ///     Comparison for sorting traits by cost.
+    /// </summary>
+    public int CompareTo(TraitPrototype? other)
+    {
+        return other == null ? 1 : Cost.CompareTo(other.Cost);
+    }
+
+    // End HardLight
 }

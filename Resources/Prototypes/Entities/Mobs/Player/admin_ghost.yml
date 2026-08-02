@@ -145,6 +145,7 @@
   name: admin observer
   categories: [ HideSpawnMenu ]
   components:
+  - type: AntagImmune # Omu
   - type: ContentEye
     maxZoom: 8.916104, 8.916104
   - type: Tag

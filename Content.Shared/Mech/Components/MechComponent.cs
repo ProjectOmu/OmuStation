@@ -20,6 +20,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Content.Shared.Actions;
 
 namespace Content.Shared.Mech.Components;
 
@@ -189,4 +190,12 @@ public sealed partial class MechComponent : Component
     [DataField] public EntityUid? MechUiActionEntity;
     [DataField] public EntityUid? MechEjectActionEntity;
     [DataField, AutoNetworkedField] public EntityUid? ToggleActionEntity; //Goobstation Mech Lights toggle action
+
+    [DataField, AutoNetworkedField] public EntProtoId? MechSpecialAction; //omu Mech special actions
+    [DataField] public EntityUid? MechSpecialActionEntity;      //omu mech special actions
+
+}
+
+public sealed partial class OnBoostActionEvent : WorldTargetActionEvent    //Omu for special mech actions
+{
 }
