@@ -44,7 +44,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared._Omu.Heretic;
+using Content.Shared._Omu.Heretic; // Omu
 
 namespace Content.Shared._Shitcode.Heretic.Systems.Abilities;
 
