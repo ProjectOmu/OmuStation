@@ -123,6 +123,8 @@ public sealed partial class DigitalLockMenu : DefaultWindow
     {
         var code = new string('*', codeLength);
         var blanksCount = maxLength - codeLength;
+        if (blanksCount <= 0)
+            return code;
         var blanks = new string('_', blanksCount);
         return code + blanks;
     }

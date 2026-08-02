@@ -119,6 +119,14 @@ public sealed partial class LockComponent : Component
     /// </summary>
     [DataField]
     public bool AutoLock = true; // Starlight-edit
+
+    /// <summary>
+    /// If true, will show verbs to lock and unlock the item. Otherwise, it will not.
+    /// </summary>
+    [DataField, AutoNetworkedField]     //Starlight-edit
+    public bool ShowLockVerbs = true;
+
+
 }
 
 /// <summary>
