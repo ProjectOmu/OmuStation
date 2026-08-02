@@ -5613,3 +5613,71 @@ Entries:
       message: Paradox clone disabled due to urgent bug. Will be enabled in the future
   id: 735
   time: '2026-07-29T03:32:54.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: Adds the steal target to the hos's other guns.
+  id: 736
+  time: '2026-07-30T00:27:14.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: >-
+        Reagent fires should be more balanced now, no longer ignore fire prot
+        and are much easier to tweak
+  id: 737
+  time: '2026-07-30T17:30:55.0000000+00:00'
+- author: Willfullyheretical
+  changes:
+    - type: Fix
+      message: >-
+        Increased surfaces for blood jaunt to include, Avali, Resomi, Slime,
+        Thaven, Allulalo and Xelthia blood
+  id: 738
+  time: '2026-07-30T17:52:10.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: CPR now has proper text popups for when you're not able to do it.
+    - type: Fix
+      message: >-
+        CPR now stops you from continuing if you're not meant to be able to
+        start CPR. You also can no longer do CPR to people who have masks on.
+  id: 739
+  time: '2026-07-31T07:05:25.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added the endless library
+    - type: Tweak
+      message: Changed heretic sacrifices to send victims to the endless library
+  id: 740
+  time: '2026-07-31T17:00:09.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: >-
+        Changed Silicon laws to discourage intervention in minor class one or
+        two crimes.
+  id: 741
+  time: '2026-07-31T17:03:46.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: Changed shuttlebombing rule on request of headmins.
+  id: 742
+  time: '2026-07-31T17:15:39.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added cortical borers
+  id: 743
+  time: '2026-07-31T17:27:02.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        Fixed round end summary window crashing when a player writes a badly
+        formatted message as last message.
+  id: 744
+  time: '2026-08-01T20:47:04.0000000+00:00'
