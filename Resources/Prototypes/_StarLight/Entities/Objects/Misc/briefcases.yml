@@ -4,35 +4,34 @@
   description: Useful for carrying items in your hands. Has a digital lock.
   abstract: true
   components:
-  - type: Appearance
-  - type: DigitalLock
-  - type: Lock
-    unlockOnClick: false
-    useAccess: false
-    autoUnlock: false
-    autoLock: false
-    showLockVerbs: false
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-      enum.DigitalLockUiKey.Key:
-        type: DigitalLockBoundUserInterface
-  - type: ActivatableUI
-    key: enum.DigitalLockUiKey.Key
-  - type: GenericVisualizer
-    visuals: 
-      enum.DigitalLockVisuals.Spark:
-        spark:
-          False: { visible: false }
-          True: { visible: true }
-  - type: LockedStorage
-  - type: AmbientSound
-    enabled: false
-    range: 20
-    sound: 
-      collection: "sparks"
-    
+    - type: Appearance
+    - type: DigitalLock
+    - type: Lock
+      unlockOnClick: false
+      useAccess: false
+      autoUnlock: false
+      autoLock: false
+      showLockVerbs: false
+    - type: UserInterface
+      interfaces:
+        enum.StorageUiKey.Key:
+          type: StorageBoundUserInterface
+        enum.DigitalLockUiKey.Key:
+          type: DigitalLockBoundUserInterface
+    - type: ActivatableUI
+      key: enum.DigitalLockUiKey.Key
+    - type: GenericVisualizer
+      visuals:
+        enum.DigitalLockVisuals.Spark:
+          spark:
+            False: { visible: false }
+            True: { visible: true }
+    - type: LockedStorage
+    - type: AmbientSound
+      enabled: false
+      range: 20
+      sound:
+        collection: "sparks"
 
 - type: entity
   parent: BriefcaseBaseSecure
