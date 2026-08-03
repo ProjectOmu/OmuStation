@@ -3,8 +3,8 @@
   id: Crystal
   mapName: 'Crystal'
   mapPath: /Maps/_Omu/crystal.yml # Omu - Prisoner role mapping
-  minPlayers: 0
-  maxPlayers: 35
+  minPlayers: 40
+  maxPlayers: 85
   fallback: true
   stations:
     Crystal:
@@ -15,6 +15,8 @@
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_Omu/Shuttles/CrystalShuttle.yml
         - type: StationJobs
           availableJobs:
             #service
