@@ -78,6 +78,14 @@
     ears: ClothingHeadsetAltBrigmedic
 
 - type: loadout
+  id: BrigmedicEncryptionKey
+  storage:
+    back:
+    - EncryptionKeySecurity
+    - EncryptionKeyMedical
+    - EncryptionKeyCommon
+
+- type: loadout
   id: GlassesCorpsman
   effects:
   - !type:GroupLoadoutEffect

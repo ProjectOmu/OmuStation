@@ -19,6 +19,13 @@
   equipment:
     ears: ClothingHeadsetAltAdminAssistant
 
+- type: loadout     #Omu shitcode fix to let IPC's have radio keys
+  id: AdminAssistantRadioKey
+  storage:
+    back:
+    - EncryptionKeyCommand
+    - EncryptionKeyCommon
+
 # Head
 - type: loadout
   id: AdminAssistanthat
