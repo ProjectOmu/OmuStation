@@ -236,6 +236,7 @@
           acts: [ "Destruction" ]
         - !type:DumpCanisterBehavior
     - type: Construction
+      graph: NFStorageCanister
 
 # Filled canisters, contain 1871.71051 moles each
 
