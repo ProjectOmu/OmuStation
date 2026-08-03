@@ -200,11 +200,11 @@
     - id: SalvageSpawnerMobMiningAsteroid
       amount: 1
 
-#- type: dungeonConfig
-#  id: VGRoidInteriorDungeons
-#  minCount: 3
-#  maxCount: 5
-#  # Just randomly spawn these in bounds, doesn't really matter if they go out.
+- type: dungeonConfig
+  id: VGRoidInteriorDungeons
+  minCount: 3
+  maxCount: 5
+  # Just randomly spawn these in bounds, doesn't really matter if they go out.
 
 - type: dungeonConfig
   id: VGRoidSmallPaths
