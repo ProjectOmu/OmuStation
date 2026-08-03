@@ -42,7 +42,7 @@
     newBolt: EmitterBoltExcitatory
     componentsToAdd:
     - type: UpgradedMachine
-      upgrade: Emitter-Electro-Excitatory
+      upgrade: Emitter-Excitatory
 
 - type: entity
   parent: BaseDiodeDisc
@@ -54,7 +54,7 @@
     newBolt: EmitterBoltEmissive
     componentsToAdd:
     - type: UpgradedMachine
-      upgrade: Emitter-Electro-Excitatory
+      upgrade: Emitter-Emissive
 
 
 - type: entity
@@ -136,7 +136,7 @@
   id: EmitterBoltElectroBehavioural
 
 - type: Tag
-  id: EmitterBoltElectroExcitatory
+  id: EmitterBoltExcitatory
 
 - type: Tag
   id: EmitterBoltEmissive
