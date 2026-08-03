@@ -45,13 +45,16 @@ public sealed class DigitalLockSystem : EntitySystem
     }
     private void OnStartup(EntityUid uid, DigitalLockComponent component, ComponentStartup args)
     {
-        string code = "";
-        for (var i = 0; i < component.MaxCodeLength; i++)
+        if (component.Code == "")
         {
-            int rand = Random.Shared.Next(0, 9);
-            code += rand.ToString();
+            string code = "";
+            for (var i = 0; i < component.MaxCodeLength; i++)
+            {
+                int rand = Random.Shared.Next(0, 9);
+                code += rand.ToString();
+            }
+            component.Code = code;
         }
-        component.Code = code;
     }
     #region Hacking
 

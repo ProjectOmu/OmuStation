@@ -15,6 +15,5 @@
     maxOccurrences: 3 #Omu just having an alternative to antags
     weight: 10
   - type: RandomSpawnRule
-    prototype: SyndieDeadDropSpawner
+    prototype: BriefcaseSyndieDeadDrop    #Omu no flashy bang sadly, but... should work?
     radioMessage: {channel: Syndicate, message: "syndicate-dead-drop-announcement"}
-
