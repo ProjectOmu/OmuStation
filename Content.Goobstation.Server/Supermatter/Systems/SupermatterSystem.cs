@@ -185,6 +185,17 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             HandleAnnouncements(uid, sm);
         }
 
+        if (sm.HazardGas == true) //Omu - increment the time since hazard gas
+        {
+            sm.TimesinceHazardGas += 0.1f;
+            if (sm.TimesinceHazardGas >= 1f) //Should last roughly like... 10 seconds without constant zaps
+            {
+                sm.HazardGas = false;
+                sm.TimesinceHazardGas = 0f;
+                _achat.SendAdminAlert($"Hazardardous gas production turned off at time {_gameTiming.CurTime.TotalMinutes}");
+            }
+        }
+
         if (sm.SMAngerValue < 0f) //Omu - Sm events start
         {
             sm.SMAngerValue = 0f;  //no negative numbers plz
@@ -364,7 +375,11 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         // Assmos - /tg/ gases end
 
         // Release the waste
-        absorbedGas.AdjustMoles(Gas.Plasma, Math.Max(energy * heatModifier * sm.PlasmaReleaseModifier, 0f));
+        if (!sm.HazardGas)  //Omu hazardous gas emission
+            absorbedGas.AdjustMoles(Gas.Plasma, Math.Max(energy * heatModifier * sm.PlasmaReleaseModifier, 0f));
+        else
+            absorbedGas.AdjustMoles(Gas.Tritium, Math.Max(energy * heatModifier * sm.PlasmaReleaseModifier * 2f, 0f));          //Omu emit out trit for fun
+
         absorbedGas.AdjustMoles(Gas.Oxygen, Math.Max((energy + absorbedGas.Temperature * heatModifier - Atmospherics.T0C) * sm.OxygenReleaseEfficiencyModifier, 0f));
 
         _atmosphere.Merge(mix, absorbedGas);
@@ -724,6 +739,27 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 sm.Power += 100f;
                 _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
                 $"SUPERMATTER hit by harming bolt AT {Transform(uid).Coordinates}");
+                QueueDel(target);
+                return;
+            }
+            if (_tag.HasTag(target, "EmitterBoltExcitatory"))
+            {
+                sm.Damage += 1f;
+                sm.SMAngerValue += 20f;
+                _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+                $"SUPERMATTER hit by angering bolt AT {Transform(uid).Coordinates}");
+                QueueDel(target);
+                return;
+            }
+            if (_tag.HasTag(target, "EmitterBoltEmissive"))
+            {
+                sm.Damage += 1f;
+                sm.RadiationOutputFactor += 0.05f;
+                sm.HazardGas = true;
+                sm.TimesinceHazardGas = 0f;
+                sm.RadiationOutputFactorChanged = true;
+                _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+                $"SUPERMATTER hit by emissive bolt AT {Transform(uid).Coordinates}");
                 QueueDel(target);
                 return;
             }

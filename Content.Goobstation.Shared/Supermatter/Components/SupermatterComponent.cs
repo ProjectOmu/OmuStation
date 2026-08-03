@@ -498,6 +498,14 @@ public sealed partial class SupermatterComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public bool GasEfficiencyFactorChanged = false;
 
+    [DataField("HazardGas")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool HazardGas = false;
+
+    [DataField("GasEfficiencySetpoint")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float TimesinceHazardGas = 0f;
+
 }
 [Prototype]
 public sealed partial class SupermatterEventPrototype : IPrototype
