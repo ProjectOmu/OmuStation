@@ -81,9 +81,7 @@
   id: BrigmedicEncryptionKey
   storage:
     back:
-    - EncryptionKeySecurity
-    - EncryptionKeyMedical
-    - EncryptionKeyCommon
+    - ClothingHeadsetBrigmedic
 
 - type: loadout
   id: GlassesCorpsman
