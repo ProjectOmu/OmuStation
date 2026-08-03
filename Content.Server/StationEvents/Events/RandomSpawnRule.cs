@@ -36,7 +36,7 @@ public sealed class RandomSpawnRule : StationEventSystem<RandomSpawnRuleComponen
                 var message = Loc.GetString(radioMessage.Message, ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString(ent))));
                 if (TryComp<DigitalLockComponent>(ent, out var digilock))
                 {
-                    if (digilock.code == "")        //Omu start
+                    if (digilock.Code == "")        //Omu start
                     {
                         string code = "";
                         for (var i = 0; i < digilock.MaxCodeLength; i++)  //Omu randomise lock code
