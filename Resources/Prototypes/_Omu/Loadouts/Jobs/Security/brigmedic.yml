@@ -71,17 +71,31 @@
   id: BrigmedicHeadset
   equipment:
     ears: ClothingHeadsetBrigmedic
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    inverted: true
+    species:
+    - IPC
 
 - type: loadout
   id: BrigmedicAltHeadset
   equipment:
     ears: ClothingHeadsetAltBrigmedic
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    inverted: true
+    species:
+    - IPC
 
 - type: loadout
   id: BrigmedicEncryptionKey
   storage:
     back:
     - ClothingHeadsetBrigmedic
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - IPC
 
 - type: loadout
   id: GlassesCorpsman
