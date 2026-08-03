@@ -36,14 +36,17 @@ public sealed class RandomSpawnRule : StationEventSystem<RandomSpawnRuleComponen
                 var message = Loc.GetString(radioMessage.Message, ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString(ent))));
                 if (TryComp<DigitalLockComponent>(ent, out var digilock))
                 {
-                    string code = "";
-                    for (var i = 0; i < digilock.MaxCodeLength; i++)
+                    if (digilock.code == "")        //Omu start
                     {
-                        int rand = Random.Shared.Next(0, 9);
-                        code += rand.ToString();
+                        string code = "";
+                        for (var i = 0; i < digilock.MaxCodeLength; i++)  //Omu randomise lock code
+                        {
+                            int rand = Random.Shared.Next(0, 9);
+                            code += rand.ToString();
+                        }
+                        digilock.Code = code;
+                        message += Loc.GetString("dead-drop-code-announcement", ("code", code));        //Omu append code to message
                     }
-                    digilock.Code = code;
-                    message += Loc.GetString("dead-drop-code-announcement", ("code", code));
                 }
                 _radio.SendRadioMessage(ent, message, radioMessage.Channel, ent);
             }
