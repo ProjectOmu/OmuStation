@@ -1,0 +1,99 @@
+- type: entityTable
+  id: VgroidGasDepositTable
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: GasDepositVerySmall
+      weight: 0.1
+    - !type:NestedSelector
+      tableId: GasDepositSmall
+      weight: 0.2
+    - !type:NestedSelector
+      tableId: GasDeposit
+      weight: 0.4
+    - !type:NestedSelector
+      tableId: GasDepositLarge
+      weight: 0.2
+    - !type:NestedSelector
+      tableId: GasDepositVeryLarge
+      weight: 0.1
+
+- type: entityTable
+  id: GasDepositVerySmall
+  table: !type:GroupSelector
+    children:
+    - id: GasDepositOxygenVerySmall
+    - id: GasDepositNitrogenVerySmall
+    - id: GasDepositCarbonDioxideVerySmall
+    - id: GasDepositPlasmaVerySmall
+    - id: GasDepositAmmoniaVerySmall
+    - id: GasDepositWaterVaporVerySmall
+    - id: GasDepositNitrousOxideVerySmall
+    - id: GasDepositAirVerySmall
+    - id: GasDepositMuddleEvenVerySmall
+    - id: GasDepositMuddlePlasmaVerySmall
+      weight: 0.5 # rare
+
+- type: entityTable
+  id: GasDepositSmall
+  table: !type:GroupSelector
+    children:
+    - id: GasDepositOxygenSmall
+    - id: GasDepositNitrogenSmall
+    - id: GasDepositCarbonDioxideSmall
+    - id: GasDepositPlasmaSmall
+    - id: GasDepositAmmoniaSmall
+    - id: GasDepositWaterVaporSmall
+    - id: GasDepositNitrousOxideSmall
+    - id: GasDepositAirSmall
+    - id: GasDepositMuddleEvenSmall
+    - id: GasDepositMuddlePlasmaSmall
+      weight: 0.5 # rare
+
+- type: entityTable
+  id: GasDeposit
+  table: !type:GroupSelector
+    children:
+    - id: GasDepositOxygen
+    - id: GasDepositNitrogen
+    - id: GasDepositCarbonDioxide
+    - id: GasDepositPlasma
+    - id: GasDepositAmmonia
+    - id: GasDepositWaterVapor
+    - id: GasDepositNitrousOxide
+    - id: GasDepositAir
+    - id: GasDepositMuddleEven
+    - id: GasDepositMuddlePlasma
+      weight: 0.5 # rare
+
+- type: entityTable
+  id: GasDepositLarge
+  table: !type:GroupSelector
+    children:
+    - id: GasDepositOxygenLarge
+    - id: GasDepositNitrogenLarge
+    - id: GasDepositCarbonDioxideLarge
+    - id: GasDepositPlasmaLarge
+    - id: GasDepositAmmoniaLarge
+    - id: GasDepositWaterVaporLarge
+    - id: GasDepositNitrousOxideLarge
+    - id: GasDepositAirLarge
+    - id: GasDepositMuddleEvenLarge
+    - id: GasDepositMuddlePlasmaLarge
+      weight: 0.5 # rare
+
+- type: entityTable
+  id: GasDepositVeryLarge
+  table: !type:GroupSelector
+    children:
+    - id: GasDepositOxygenVeryLarge
+    - id: GasDepositNitrogenVeryLarge
+    - id: GasDepositCarbonDioxideVeryLarge
+    - id: GasDepositPlasmaVeryLarge
+    - id: GasDepositAmmoniaVeryLarge
+    - id: GasDepositWaterVaporVeryLarge
+    - id: GasDepositNitrousOxideVeryLarge
+    - id: GasDepositAirVeryLarge
+    - id: GasDepositMuddleEvenVeryLarge
+    - id: GasDepositMuddlePlasmaVeryLarge
+      weight: 0.5 # rare

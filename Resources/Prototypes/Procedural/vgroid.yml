@@ -111,6 +111,11 @@
       count: 60 # you don't really hit it on purpose so it should be common
       minGroupSize: 1
       maxGroupSize: 1
+    - !type:EntityTableDunGen
+      minCount: 10
+      maxCount: 20
+      table: !type:NestedSelector
+        tableId: VgroidGasDepositTable
 
 # Configs
 - type: dungeonConfig
