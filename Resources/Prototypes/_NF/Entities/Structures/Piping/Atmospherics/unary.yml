@@ -85,7 +85,7 @@
     port: outlet
 
 - type: entity
-  parent: [ BaseStructureIndestructible, BaseStructureDisableToolUse, BaseMachinePowered ]
+  parent: [ BaseMachinePowered ]
   id: GasSalePoint
   name: gas sale point
   suffix: Internal

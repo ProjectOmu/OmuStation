@@ -62,9 +62,9 @@ public abstract class SharedGasPressurePumpSystem : EntitySystem
         UpdateAppearance(ent);
     }
 
-    private void OnPowerChanged(Entity<GasPressurePumpComponent> ent, GasPressurePumpComponent component, ref PowerChangedEvent args)
+    private void OnPowerChanged(Entity<GasPressurePumpComponent> ent, ref PowerChangedEvent args)
     {
-        UpdateAppearance(ent, component);
+        UpdateAppearance(ent, ent.Comp);
     }
 
     protected void UpdateAppearance(EntityUid ent, GasPressurePumpComponent? pump = null, AppearanceComponent? appearance = null) // Frontier: private<protected

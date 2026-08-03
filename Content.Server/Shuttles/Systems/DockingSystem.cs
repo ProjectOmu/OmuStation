@@ -66,6 +66,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Dynamics.Joints;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Utility;
+using Content.Shared.Shuttles.Components;
 
 namespace Content.Server.Shuttles.Systems
 {

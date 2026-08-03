@@ -18,16 +18,6 @@
   - type: GasPressurePump
     targetPressure: 4500
 
-- type: entity
-  parent: GasVolumePump
-  id: GasVolumePumpOn
-  suffix: On
-  placement:
-    mode: SnapgridCenter
-  components:
-  - type: GasVolumePump
-    startOnMapInit: true
-
 # All entities for gas transfer between grids should be based off this.
 - type: entity
   parent: BaseStructure

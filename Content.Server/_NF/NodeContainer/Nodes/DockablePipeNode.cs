@@ -1,6 +1,8 @@
 using Content.Server.Atmos;
 using Content.Server.Shuttles.Components;
 using Robust.Shared.Map.Components;
+using Content.Shared.Atmos;
+using Content.Shared.NodeContainer;
 
 namespace Content.Server.NodeContainer.Nodes
 {

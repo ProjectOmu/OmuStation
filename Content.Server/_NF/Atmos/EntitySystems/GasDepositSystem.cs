@@ -16,7 +16,6 @@ using Content.Shared._NF.Atmos.Events;
 using Content.Shared._NF.Atmos.Visuals;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Piping.Binary.Components;
-using Content.Shared.Bank.Components;
 using Content.Shared.Construction.Components;
 using Content.Shared.Database;
 using Content.Shared.Examine;
@@ -318,8 +317,6 @@ public sealed class GasDepositSystem : EntitySystem
         }
 
         var amount = _atmosphere.GetPrice(mixture);
-        if (TryComp<MarketModifierComponent>(saleConsole, out var priceMod))
-            amount *= priceMod.Mod;
 
         var stackPrototype = _prototype.Index(saleConsole.Comp.CashType);
         _stack.Spawn((int)amount, stackPrototype, xform.Coordinates);
@@ -338,8 +335,6 @@ public sealed class GasDepositSystem : EntitySystem
         }
 
         GetNearbyMixtures(saleConsole, gridUid, out var mixture, out var amount);
-        if (TryComp<MarketModifierComponent>(saleConsole, out var priceMod))
-            amount *= priceMod.Mod;
 
         _ui.SetUiState(saleConsole.Owner, GasSaleConsoleUiKey.Key,
             new GasSaleConsoleBoundUserInterfaceState((int)amount, mixture, mixture.TotalMoles > 0));

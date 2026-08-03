@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseStructureIndestructible, BaseStructureDisableToolUse, BaseComputer ]
+  parent: [ BaseComputer ]
   id: GasSaleConsole
   name: gas sale console
   description: Sells gas pumped into a linked gas sale port/point.
@@ -26,5 +26,3 @@
         type: WiresBoundUserInterface
   - type: Computer
     board: Null # FIXME
-  - type: MarketModifier
-    mod: 1

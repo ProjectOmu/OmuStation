@@ -188,7 +188,7 @@
           nameDataset: NamesBorer
           stationGrid: false
           addComponents:
-         - type: Gravity
+          - type: Gravity
             enabled: true
             inherent: true
           - type: IFF
