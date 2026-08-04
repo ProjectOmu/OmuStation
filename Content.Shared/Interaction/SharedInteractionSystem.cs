@@ -1192,8 +1192,8 @@ namespace Content.Shared.Interaction
             // all interactions should only happen when in range / unobstructed, so no range check is needed
             var interactUsingEvent = new InteractUsingEvent(user, used, target, clickLocation);
             RaiseLocalEvent(target, interactUsingEvent, true);
-            DoContactInteraction(user, used, null, true, interactUsingEvent);
-            DoContactInteraction(user, target, null, true, interactUsingEvent);
+            DoContactInteraction(user, used, null, true, interactUsingEvent);// Stellar - interaction particles
+            DoContactInteraction(user, target, used, true, interactUsingEvent);// Stellar - interaction particles
             // Contact interactions are currently only used for forensics, so we don't raise used -> target
             if (interactUsingEvent.Handled)
                 return true;
