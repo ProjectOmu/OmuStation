@@ -211,6 +211,22 @@
     Telecrystal: 70
   categories:
   - UplinkDisruption
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Roboticist    # Science roles
+    - Scientist
+    - ResearchDirector
+    - Chef          # Service roles
+    - Scientist
+    - Botanist
+    - Bartender
+    - Zookeeper
+    - Clown
+    - Mime
+    - Librarian
+    - Chaplain
+    - AdministrativeAssistant # AA
 
 - type: listing
   id: UplinkBloodredVim
