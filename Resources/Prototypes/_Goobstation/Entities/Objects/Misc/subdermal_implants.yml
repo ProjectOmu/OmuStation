@@ -100,8 +100,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: KravMagaImplant
-  name: krav maga implant
-  description: This implant allows the user to perform various Krav Maga moves.
+  name: solcom implant # Omu
+  description: This implant allows the user to perform various Solarian Combat moves. # Omu
   categories: [ HideSpawnMenu ]
   components:
   - type: ComponentsImplant

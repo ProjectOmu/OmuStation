@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Ilya246
+// SPDX-FileCopyrightText: 2025 ark1368
+//
+// SPDX-License-Identifier: MPL-2.0
+
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Destructible;
@@ -16,6 +21,7 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
         base.Initialize();
 
         SubscribeLocalEvent<DisposalUnitComponent, DestructionEventArgs>(OnDestruction);
+        SubscribeLocalEvent<DisposalUnitComponent, EntityTerminatingEvent>(OnTerminating);
         SubscribeLocalEvent<DisposalUnitComponent, BeforeExplodeEvent>(OnExploded);
     }
 
@@ -35,6 +41,11 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
     private void OnDestruction(EntityUid uid, DisposalUnitComponent component, DestructionEventArgs args)
     {
         TryEjectContents(uid, component);
+    }
+
+    private void OnTerminating(Entity<DisposalUnitComponent> ent, ref EntityTerminatingEvent args)
+    {
+        TryEjectContents(ent, ent.Comp);
     }
 
     private void OnExploded(Entity<DisposalUnitComponent> ent, ref BeforeExplodeEvent args)
