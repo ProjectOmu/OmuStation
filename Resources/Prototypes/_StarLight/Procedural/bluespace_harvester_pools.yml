@@ -46,7 +46,7 @@
   name: bluespace-harvester-pool-exotic-hat
   cost: 3000
   enabled: true
-  order: 1
+  order: 3 # Omu, order based on cost
   lootTable: BluespaceHarvesterExoticHatTable
 
 - type: bluespaceHarvesterPool
@@ -62,7 +62,7 @@
   name: bluespace-harvester-pool-snack
   cost: 1500
   enabled: true
-  order: 3
+  order: 1 # Omu, order based on cost
   lootTable: BluespaceHarvesterSnackTable
 
 - type: bluespaceHarvesterPool
