@@ -72,7 +72,7 @@
   equipment:
     ears: ClothingHeadsetBrigmedic
   effects:
-  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+  - !type:SpeciesLoadoutEffect
     inverted: true
     species:
     - IPC
@@ -82,7 +82,7 @@
   equipment:
     ears: ClothingHeadsetAltBrigmedic
   effects:
-  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+  - !type:SpeciesLoadoutEffect
     inverted: true
     species:
     - IPC
@@ -93,7 +93,7 @@
     back:
     - ClothingHeadsetBrigmedic
   effects:
-  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+  - !type:SpeciesLoadoutEffect
     species:
     - IPC
 
