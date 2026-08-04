@@ -1,26 +1,96 @@
-# Red Mask
+## Sterile Masks
+# Red
 - type: entity
   parent: ClothingMaskSterile
   id: ClothingMaskSterileRed
   name: red sterile mask
-  description: A sterile mask designed to help prevent the spread of diseases. You can still smell the dye.
+  description: A sterile mask designed to help prevent the spread of diseases. Smells faintly of dye and stolen equipment. # Cybersun Paramed Colors
   components:
   - type: Sprite
-    sprite: _Omu/Clothing/Mask/sterilecolor.rsi
-    layers:
-    - state: icon
-      color: "#940000"
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-        color: "#940000"
-      right:
-      - state: inhand-right
-        color: "#940000"
+    sprite: _Omu/Clothing/Mask/sterilered.rsi
   - type: Clothing
-    sprite: _Omu/Clothing/Mask/sterilecolor.rsi
-    clothingVisuals:
-      mask:
-        - state: equipped-MASK
-          color: "#940000"
+    sprite: _Omu/Clothing/Mask/sterilered.rsi
+
+# Orange
+- type: entity
+  parent: ClothingMaskSterile
+  id: ClothingMaskSterileOrange
+  name: orange sterile mask
+  description: A sterile mask designed to help prevent the spread of diseases. Smells faintly of dye and chemical burns. # Chemistry
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Mask/sterileorange.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Mask/sterileorange.rsi
+
+# Yellow
+- type: entity
+  parent: ClothingMaskSterile
+  id: ClothingMaskSterileYellow
+  name: yellow sterile mask
+  description: A sterile mask designed to help prevent the spread of diseases. Smells faintly of dye and corporate hellscapes. # EMT/Edgerunner Jacket
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Mask/sterileyellow.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Mask/sterileyellow.rsi
+
+# Green
+- type: entity
+  parent: ClothingMaskSterile
+  id: ClothingMaskSterileGreen
+  name: green sterile mask
+  description: A sterile mask designed to help prevent the spread of diseases. Smells faintly of dye and neglect. # Virology
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Mask/sterilegreen.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Mask/sterilegreen.rsi
+
+# Blue
+- type: entity
+  parent: ClothingMaskSterile
+  id: ClothingMaskSterileBlue
+  name: blue sterile mask
+  description: A sterile mask designed to help prevent the spread of diseases. Smells faintly of dye and doctors. # Medical Generic
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Mask/sterileblue.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Mask/sterileblue.rsi
+
+# Purple
+- type: entity
+  parent: ClothingMaskSterile
+  id: ClothingMaskSterilePurple
+  name: purple sterile mask
+  description: A sterile mask designed to help prevent the spread of diseases. Smells faintly of dye and explosions. # Science
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Mask/sterilepurple.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Mask/sterilepurple.rsi
+
+# Black
+- type: entity
+  parent: ClothingMaskSterile
+  id: ClothingMaskSterileBlack
+  name: black sterile mask
+  description: A sterile mask designed to help prevent the spread of diseases. Smells faintly of dye and space. # Military MD Jumpsuit
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Mask/sterileblack.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Mask/sterileblack.rsi
+
+# White
+- type: entity
+  parent: ClothingMaskSterile
+  id: ClothingMaskSterileWhite
+  name: white sterile mask
+  description: A sterile mask designed to help prevent the spread of diseases. Smells faintly of bleach and more bleach. # Base Omu Labcoat Coloring
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Mask/sterilewhite.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Mask/sterilewhite.rsi
