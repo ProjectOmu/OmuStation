@@ -14,7 +14,7 @@
   equipment:
     ears: ClothingHeadsetAdminAssistant
   effects:
-  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+  - !type:SpeciesLoadoutEffect
     inverted: true
     species:
     - IPC
@@ -35,7 +35,7 @@
     back:
     - ClothingHeadsetAdminAssistant
   effects:
-  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+  - !type:SpeciesLoadoutEffect
     species:
     - IPC
 
