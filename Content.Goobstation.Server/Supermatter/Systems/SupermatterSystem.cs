@@ -754,7 +754,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             if (_tag.HasTag(target, "EmitterBoltEmissive"))
             {
                 sm.Damage += 1f;
-                sm.RadiationOutputFactor += 0.05f;
+                if (!sm.Varlocked)
+                    sm.RadiationOutputFactor += 0.05f;
                 sm.HazardGas = true;
                 sm.TimesinceHazardGas = 0f;
                 sm.RadiationOutputFactorChanged = true;
