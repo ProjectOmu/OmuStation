@@ -69,7 +69,7 @@
   - type: NpcFactionMember
     factions:
       - SimpleNeutral
-  - type: VentCrawler
+  - type: NodeCrawler   #Omu changed to nodecrawler
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/bite.ogg
