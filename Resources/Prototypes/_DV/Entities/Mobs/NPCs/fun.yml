@@ -74,7 +74,7 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
-  - type: VentCrawler
+  - type: NodeCrawler   #Omu changed to nodecrawler
   - type: GhostRole
     prob: 0.75
     name: ghost-role-information-shrimp-name
@@ -84,4 +84,7 @@
     - MindRoleGhostRoleFreeAgentGoob
     raffle:
       settings: default
+    requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 18000 #5 hours
   - type: GhostTakeoverAvailable

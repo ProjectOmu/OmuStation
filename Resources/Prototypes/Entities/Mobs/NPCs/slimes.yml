@@ -7,7 +7,7 @@
   abstract: true
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
-  - type: VentCrawler # goobstation - Ventcrawl
+  - type: NodeCrawler   #Omu changed to nodecrawler
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/slimes.rsi

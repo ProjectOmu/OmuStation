@@ -7,7 +7,7 @@
   abstract: true
   description: Extremely hostile asteroid-dwelling bugs. Best to avoid them wherever possible.
   components:
-  - type: VentCrawler # goobstation - Ventcrawl
+  - type: NodeCrawler   #Omu changed to nodecrawler
   - type: Body # Shitmed Change
     prototype: SpaceSpider
   - type: SurgeryTarget # Shitmed
