@@ -256,7 +256,7 @@
         - SlipTile
         - SlipEntity
         - ContrabandDetector
-          
+
 - type: entity
   id: OrganDubiousVentcrawler
   parent: OrganDubiousBase
@@ -265,7 +265,7 @@
     state: viral
   - type: Organ
     onAdd:
-    - type: VentCrawler
+    - type: NodeCrawler   #Omu changed to nodecrawler
       allowInventory: false
 
 - type: entity

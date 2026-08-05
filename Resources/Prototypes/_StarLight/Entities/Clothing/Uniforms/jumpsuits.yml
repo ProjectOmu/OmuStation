@@ -16,7 +16,7 @@
   components:
   - type: ClothingGrantComponent #Goobstation edit
     component:
-    - type: VentCrawler
+    - type: NodeCrawler   #Omu changed to nodecrawler
       allowInventory: false
 
 - type: entity  # Goobstation original
@@ -26,7 +26,7 @@
   components:
   - type: ClothingGrantComponent
     component:
-    - type: VentCrawler
+    - type: NodeCrawler   #Omu changed to nodecrawler
       allowInventory: true
 
 - type: entity #Omu - Starlight Port

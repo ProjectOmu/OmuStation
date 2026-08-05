@@ -303,7 +303,7 @@
   - type: IsDeadIC
   - type: Body
     prototype: AnimalNymphBrain
-  - type: VentCrawler # goob
+  - type: NodeCrawler   #Omu changed to nodecrawler
 
 - type: entity
   id: OrganDionaNymphStomach
@@ -316,7 +316,7 @@
   - type: IsDeadIC
   - type: Body
     prototype: AnimalNymphStomach
-  - type: VentCrawler # goob
+  - type: NodeCrawler   #Omu changed to nodecrawler
 
 - type: entity
   id: OrganDionaNymphLungs
@@ -329,4 +329,4 @@
   - type: IsDeadIC
   - type: Body
     prototype: AnimalNymphLungs
-  - type: VentCrawler # goob
+  - type: NodeCrawler   #Omu changed to nodecrawler

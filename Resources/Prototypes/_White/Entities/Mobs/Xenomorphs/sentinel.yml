@@ -23,7 +23,7 @@
   #  actions:
   #  - ActionTransferPlasma
   #  - ActionSpawnResinWeedNode
-  - type: VentCrawler
+  - type: NodeCrawler   #Omu changed to nodecrawler
   - type: Cuffable
   - type: Body
     prototype: XenomorphSentinel

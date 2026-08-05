@@ -289,7 +289,7 @@
   - type: NpcFactionMember # they're pests, makes them the target of shiva and aves
     factions:
       - Mouse
-  - type: VentCrawler # goobstation - Ventcrawl
+  - type: NodeCrawler   #Omu changed to nodecrawler
   - type: Devourer
     structureDevourTime: 3
     foodPreferenceWhitelist:
@@ -497,7 +497,7 @@
   - type: NpcFactionMember
     factions:
       - Passive # Omu - they were in the hostile faction despite being passive
-  - type: VentCrawler
+  - type: NodeCrawler   #Omu changed to nodecrawler
   - type: MeleeWeapon
     altDisarm: false
     angle: 0

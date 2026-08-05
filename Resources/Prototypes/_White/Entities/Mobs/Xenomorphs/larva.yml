@@ -24,7 +24,7 @@
   #- type: ActionGrant # Goobstation - moved to organ
   #  actions:
   #  - ActionTransferPlasma
-  - type: VentCrawler
+  - type: NodeCrawler   #Omu changed to nodecrawler
   - type: Body
     prototype: XenomorphLarva
   - type: Fixtures
