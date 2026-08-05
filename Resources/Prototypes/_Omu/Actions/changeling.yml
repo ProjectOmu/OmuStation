@@ -1,4 +1,24 @@
 - type: entity
+  id: ActionJumpChangeling
+  parent: BaseAction
+  name: Jump
+  description: Jump forward with great speed in order to stun lesser beings. Costs 50 chemicals.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    priority: 0
+    useDelay: 3
+    icon: { sprite : _Omu/Changeling/changeling_abilities.rsi, state: changeling_leap_off }
+    iconOn: { sprite : _Omu/Changeling/changeling_abilities.rsi, state: changeling_leap_on }
+  - type: TargetAction
+    range: 10
+  - type: WorldTargetAction
+    event: !type:JumpActionEvent
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 50
+    
+- type: entity
   parent: BaseAction
   id: ActionStingBerserk
   name: Berserk Sting
