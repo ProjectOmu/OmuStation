@@ -188,6 +188,7 @@
           nameDataset: NamesBorer
           stationGrid: false
           addComponents:
+          - type: ForceAnchor  #Omu add force anchor
           - type: Gravity
             enabled: true
             inherent: true

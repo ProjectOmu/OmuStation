@@ -142,6 +142,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Maps;
+using Content.Server._NF.Shuttles.Components;
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -260,20 +261,28 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
         }
     }
 
-    public void Enable(EntityUid uid, FixturesComponent? manager = null, PhysicsComponent? component = null, ShuttleComponent? shuttle = null)
+    public void Enable(EntityUid uid, FixturesComponent? manager = null, PhysicsComponent? component = null, ShuttleComponent? shuttle = null,
+                       bool force = false) // Mono - add force
     {
         if (!Resolve(uid, ref manager, ref component, ref shuttle, false))
             return;
+
+        if (HasComp<PreventGridAnchorChangesComponent>(uid) && !force) // Frontier // Mono
+            return; // Frontier
 
         _physics.SetBodyType(uid, BodyType.Dynamic, manager: manager, body: component);
         _physics.SetBodyStatus(uid, component, BodyStatus.InAir);
         _physics.SetFixedRotation(uid, false, manager: manager, body: component);
     }
 
-    public void Disable(EntityUid uid, FixturesComponent? manager = null, PhysicsComponent? component = null)
+    public void Disable(EntityUid uid, FixturesComponent? manager = null, PhysicsComponent? component = null,
+                        bool force = false) // Mono - add force
     {
         if (!Resolve(uid, ref manager, ref component, false))
             return;
+
+        if (HasComp<PreventGridAnchorChangesComponent>(uid) && !force) // Frontier // Mono
+            return; // Frontier
 
         _physics.SetBodyType(uid, BodyType.Static, manager: manager, body: component);
         _physics.SetBodyStatus(uid, component, BodyStatus.OnGround);
