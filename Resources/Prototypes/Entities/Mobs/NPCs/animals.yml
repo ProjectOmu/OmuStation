@@ -1644,7 +1644,6 @@
   abstract: true
   components:
   - type: NodeCrawler   #Omu changed to nodecrawler
-    allowInventory: false
   - type: CombatMode
   # Shitmed Change Start
   - type: Targeting

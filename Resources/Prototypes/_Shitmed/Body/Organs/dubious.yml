@@ -266,7 +266,6 @@
   - type: Organ
     onAdd:
     - type: NodeCrawler   #Omu changed to nodecrawler
-      allowInventory: false
 
 - type: entity
   id: OrganDubiousRepairable
