@@ -8,7 +8,6 @@
   - type: ClothingGrantComponent #Goobstation edit
     component:
     - type: NodeCrawler   #Omu changed to nodecrawler
-      allowInventory: false
 
 - type: entity  # Goobstation original
   parent: ClothingUniformJumpsuitAtmosSyndie
@@ -18,7 +17,6 @@
   - type: ClothingGrantComponent
     component:
     - type: NodeCrawler   #Omu changed to nodecrawler
-      allowInventory: true
 
 - type: entity #Omu - Starlight Port
   parent: [ClothingUniformBase, BaseCentcommContraband]
