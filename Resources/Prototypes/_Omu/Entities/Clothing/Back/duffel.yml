@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelParamedic
+  name: paramedic duffel bag
+  description: A heavy duffel bag for holding extra rollerbeds.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Duffels/paramedic.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelMedicalCybersun
+  name: cybersun medical duffel bag
+  description: A robust duffel bag issued to Cybersun medical doctors, made to hold plenty of meds. How *you* got one remains a mystery.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Duffels/cybersunmed.rsi

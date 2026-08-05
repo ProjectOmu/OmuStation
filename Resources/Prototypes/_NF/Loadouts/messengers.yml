@@ -66,6 +66,7 @@
   id: MedicalDoctorMessenger
   equipment:
     back: ClothingBackpackMessengerMedical
+  groupBy: "messenger" # Omu
 
 - type: loadout
   id: ChemistMessenger

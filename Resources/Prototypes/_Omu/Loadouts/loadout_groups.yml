@@ -476,3 +476,35 @@
   - WhiteShoes
   - LeatherShoes
   - WinterBoots
+
+# Medical Doctor
+- type: loadoutGroup
+  id: MedicalDoctorBackpack
+  name: loadout-group-medical-doctor-backpack
+  loadouts:
+  - MedicalDoctorBackpack
+  - CybersunMedicalBackpack
+  - MedicalDoctorSatchel
+  - CybersunMedicalSatchel
+  - MedicalDoctorDuffel
+  - CybersunMedicalDuffel
+  - MedicalDoctorMessenger # Frontier
+  - CybersunMedicalMessenger
+
+# Paramedic
+- type: loadoutGroup
+  id: ParamedicBackpack
+  name: loadout-group-paramedic-backpack
+  loadouts:
+  - ParamedBackpack
+  - MedicalDoctorBackpack
+  - CybersunMedicalBackpack
+  - ParamedSatchel
+  - MedicalDoctorSatchel
+  - CybersunMedicalSatchel
+  - ParamedDuffel
+  - MedicalDoctorDuffel
+  - CybersunMedicalDuffel
+  - ParamedMessenger
+  - MedicalDoctorMessenger # Frontier
+  - CybersunMedicalMessenger

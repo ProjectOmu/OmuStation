@@ -214,16 +214,19 @@
   id: MedicalDoctorBackpack
   equipment:
     back: ClothingBackpackMedical
+  groupBy: "backpack" # Omu
 
 - type: loadout
   id: MedicalDoctorSatchel
   equipment:
     back: ClothingBackpackSatchelMedical
+  groupBy: "satchel" # Omu
 
 - type: loadout
   id: MedicalDoctorDuffel
   equipment:
     back: ClothingBackpackDuffelMedical
+  groupBy: "duffel" # Omu
 
 # OuterClothing
 - type: loadout
