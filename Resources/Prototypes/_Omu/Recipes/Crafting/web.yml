@@ -1,0 +1,10 @@
+- type: construction
+  id: ClothingOuterWinterCoatArachnid
+  graph: ClothingOuterWinterCoatArachnid
+  startNode: start
+  targetNode: end
+  category: construction-category-clothing
+  entityWhitelist:
+    tags:
+    - SpiderCraft
+  objectType: Item

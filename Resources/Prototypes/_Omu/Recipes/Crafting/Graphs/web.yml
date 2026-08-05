@@ -1,0 +1,13 @@
+- type: constructionGraph
+  id: ClothingOuterWinterCoatArachnid
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: end
+      steps:
+      - material: WebSilk
+        amount: 12
+        doAfter: 15
+  - node: end
+    entity: ClothingOuterWinterCoatArachnid
