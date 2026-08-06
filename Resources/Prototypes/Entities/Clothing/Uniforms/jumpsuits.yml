@@ -610,23 +610,29 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/mime.rsi # Goob
 
 - type: entity
-  parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
+  parent: ClothingUniformBase # Omu, Removed folding
   id: ClothingUniformJumpsuitParamedic
   name: paramedic jumpsuit
   description: It's got a plus on it, that's a good thing right?
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Medical/paramedic.rsi # Goob
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-        color: "#364660"
-      right:
-      - state: inhand-right
-        color: "#364660"
+    sprite: Clothing/Uniforms/Jumpsuit/paramedic.rsi # Omu, reverted to default textures
+#  - type: Item # Omu, Now has its own inhand sprite
+#    inhandVisuals:
+#      left:
+#      - state: inhand-left
+#        color: "#364660"
+#      right:
+#      - state: inhand-right
+#        color: "#364660"
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Medical/paramedic.rsi # Goob
+    sprite: Clothing/Uniforms/Jumpsuit/paramedic.rsi # Omu, reverted to default textures
+  # Omu changes start - Add caustic resistance from other paramedic jumpsuits.
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.85
+  # Omu changes end
 
 - type: entity
   parent: ClothingUniformBase

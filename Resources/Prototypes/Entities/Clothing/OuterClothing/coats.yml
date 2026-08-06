@@ -222,7 +222,7 @@
         Slash: 0.6
         Piercing: 0.55
         Heat: 0.55
-        Caustic: 0.6 
+        Caustic: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
@@ -604,7 +604,7 @@
     damageCoefficient: 0.7
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ClothingOuterStorageFoldableBase # Omu, added the ability to open it.
   id: ClothingOuterCoatParamedicWB
   name: paramedic windbreaker
   description: A paramedic's trusty windbreaker, for all the space wind.
@@ -613,6 +613,28 @@
     sprite: Clothing/OuterClothing/Coats/windbreaker_paramedic.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/windbreaker_paramedic.rsi
+  # Omustation changes start - Adding the same armor values as the other paramedic jacket.
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    modifiers:
+      coefficients:
+        Slash: 0.9
+        Heat: 0.8
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
+  # Omustation changes end
+
+- type: entity # Omu, the sprites for this existed despite not being implemented.
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatParamedicWB]
+  id: ClothingOuterCoatParamedicWBOpened
+  name: paramedic windbreaker
 
 - type: entity
   parent: [ClothingOuterStorageBase, BaseSyndicateContraband]

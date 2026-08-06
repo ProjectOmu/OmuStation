@@ -1159,53 +1159,79 @@
     sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
     layers:
     - state: icon-base-bottom
-      color: "#175163"
+      #color: "#175163" # Omu - Paramedic Color Consistency
+      color: "#364660"
     - state: icon-base-top-jumpsuit
-      color: "#175163"
+      #color: "#175163" # Omu - Paramedic Color Consistency
+      color: "#364660"
     - state: icon-decor-department
-      color: "#aeb7bd"
+      #color: "#aeb7bd" # Omu - Paramedic Color Consistency
+      color: "#FFFFFF"
     - state: icon-belt
-      color: "#aeb7bd"
+      #color: "#aeb7bd" # Omu - Paramedic Color Consistency
+      color: "#364660"
     - state: icon-belt-buckle
-      color: "#aeb7bd"
+      #color: "#aeb7bd" # Omu - Paramedic Color Consistency
+      color: "#364660"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-base-bottom
-        color: "#175163"
+        #color: "#175163" # Omu - Paramedic Color Consistency
+        color: "#364660"
       - state: inhand-left-base-top-jumpsuit
-        color: "#175163"
+        #color: "#175163" # Omu - Paramedic Color Consistency
+        color: "#364660"
       - state: inhand-left-decor-department
-        color: "#aeb7bd"
+        #color: "#aeb7bd" # Omu - Paramedic Color Consistency
+        color: "#FFFFFF"
       - state: inhand-left-belt
-        color: "#aeb7bd"
+        #color: "#aeb7bd" # Omu - Paramedic Color Consistency
+        color: "#364660"
       - state: inhand-left-belt-buckle
-        color: "#aeb7bd"
+        #color: "#aeb7bd" # Omu - Paramedic Color Consistency
+        color: "#364660"
       right:
       - state: inhand-right-base-bottom
-        color: "#175163"
+        #color: "#175163" # Omu - Paramedic Color Consistency
+        color: "#364660"
       - state: inhand-right-base-top-jumpsuit
-        color: "#175163"
+        #color: "#175163" # Omu - Paramedic Color Consistency
+        color: "#364660"
       - state: inhand-right-decor-department
-        color: "#aeb7bd"
+        #color: "#aeb7bd" # Omu - Paramedic Color Consistency
+        color: "#FFFFFF"
       - state: inhand-right-belt
-        color: "#aeb7bd"
+        #color: "#aeb7bd" # Omu - Paramedic Color Consistency
+        color: "#364660"
       - state: inhand-right-belt-buckle
-        color: "#aeb7bd"
+        #color: "#aeb7bd" # Omu - Paramedic Color Consistency
+        color: "#364660"
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-base-bottom
-        color: "#175163"
+        #color: "#175163" # Omu - Paramedic Color Consistency
+        color: "#364660"
       - state: equipped-base-top-jumpsuit
-        color: "#175163"
+        #color: "#175163" # Omu - Paramedic Color Consistency
+        color: "#364660"
       - state: equipped-decor-department
-        color: "#aeb7bd"
+        #color: "#aeb7bd" # Omu - Paramedic Color Consistency
+        color: "#FFFFFF"
       - state: equipped-belt
-        color: "#aeb7bd"
+        #color: "#aeb7bd" # Omu - Paramedic Color Consistency
+        color: "#364660"
       - state: equipped-belt-buckle
-        color: "#aeb7bd"
+        #color: "#aeb7bd" # Omu - Paramedic Color Consistency
+        color: "#364660"
+  # Omu changes start - Add caustic resistance from other paramedic jumpsuits.
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.85
+  # Omu changes end
 
 - type: entity
   parent: ClothingUniformJumpsuitMedicalDoctor

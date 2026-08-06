@@ -336,9 +336,13 @@
   description: A blue baseball cap with a cross on the front.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Soft/paramedicsoft.rsi
+    sprite: _Omu/Clothing/Head/Soft/paramedicsoft.rsi # Omu
   - type: Clothing
-    sprite: Clothing/Head/Soft/paramedicsoft.rsi
+    sprite: _Omu/Clothing/Head/Soft/paramedicsoft.rsi # Omu
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-lift-verb
+    foldVerbText: fold-tilt-verb
   - type: Tag
     tags:
     - ClothMade

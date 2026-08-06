@@ -89,7 +89,7 @@
     sprite: _Omu/Clothing/Uniforms/Jumpsuit/courier.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob # Omu - Ported Foldability
   id: ClothingUniformJumpsuitParamedUniform
   name: paramedic uniform
   description: It's made of a special fiber that provides minor protection against caustic hazards. It has a dark blue cross on the chest denoting that the wearer is a trained paramedic.
@@ -216,7 +216,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitShaftMinerVintage 
+  id: ClothingUniformJumpsuitShaftMinerVintage
   name: vintage shaft miner's jumpsuit
   description: It's a snappy jumpsuit with a sturdy set of overalls. Looks a bit burnt.
   components:
