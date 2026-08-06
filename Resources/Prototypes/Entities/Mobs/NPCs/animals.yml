@@ -482,7 +482,7 @@
 
 - type: entity
   name: glockroach
-  parent: MobCockroach
+  parent: [MobCockroach, DVNodeCrawler] # Omu, add DVNodeCrawler
   suffix: Admeme
   id: MobGlockroach
   description: This station is just crawling with bu- OH GOD THAT COCKROACH HAS A GUN!!!
@@ -511,7 +511,7 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatSlime
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler # goobstation - Ventcrawl # Omu, use nodecrawler
 
 - type: entity
   name: mothroach
@@ -1002,7 +1002,7 @@
   id: MobCrab
   description: A folk legend goes around that his claw snaps spacemen out of existence over distasteful remarks. Be polite and tolerant for your own safety.
   components:
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler # goobstation - Ventcrawl # Omu, use nodecrawler
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -1414,12 +1414,13 @@
 - type: entity
   name: genetic ancestor
   id: MobBaseAncestor
-  parent: [SimpleMobBase, StripableInventoryBase, BaseMobDisgust] # Goob edit
+  parent: [SimpleMobBase, StripableInventoryBase, BaseMobDisgust, DVNodeCrawler] # Goob edit # Omu, add DVNodeCrawler
   description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
   abstract: true
   components:
   - type: Blindable # monkeys can be blind while sleeping!
   - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler # goobstation - Ventcrawl # Omu, use nodecrawler
   - type: CombatMode
     canDisarm: true
   # Shitmed Change Start
@@ -1669,11 +1670,11 @@
 
 - type: entity
   id: MobMonkeySyndicateAgent
-  parent: MobBaseSyndicateMonkey
+  parent: [MobBaseSyndicateMonkey, DVNodeCrawler] # Omu, add DVNodeCrawler
   suffix: syndicate agent
   components:
     # make the player a traitor once its taken
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler # goobstation - Ventcrawl # Omu, use nodecrawler
   - type: AutoTraitor
     profile: TraitorReinforcement
 
@@ -1682,7 +1683,7 @@
   parent: MobBaseSyndicateMonkey
   suffix: NukeOps
   components:
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler # goobstation - Ventcrawl # Omu, use nodecrawler
   - type: NukeOperative
 
 - type: entity
@@ -1878,8 +1879,8 @@
   id: MobMouse
   description: Squeak!
   components:
-  - type: NodeCrawler   #Omu changed to nodecrawler
-    enterDelay: 0.5
+  #- type: VentCrawler # goobstation - Ventcrawl # Omu, use nodecrawler
+  #  enterDelay: 0.5
   - type: Body
     prototype: Mouse
   - type: GhostRole
@@ -2340,7 +2341,7 @@
   id: MobSlug
   description: And they called this a lizard?
   components:
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler # goobstation - Ventcrawl # Omu, use nodecrawler
   - type: MovementSpeedModifier
     baseWalkSpeed : 2
     baseSprintSpeed : 3
@@ -2393,7 +2394,7 @@
   id: MobFrog
   description: Hop hop hop. Lookin' moist.
   components:
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler # goobstation - Ventcrawl # Omu, use nodecrawler
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 6
@@ -2706,7 +2707,7 @@
   id: MobSnake
   description: Hissss! Bites aren't poisonous.
   components:
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler # goobstation - Ventcrawl # Omu, use nodecrawler
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -2760,11 +2761,11 @@
 # Code unique spider prototypes or combine them all into one spider and get a
 # random sprite state when you spawn it.
 - type: entity
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleMobBase, MobCombat, DVNodeCrawler ] # Omu, add DVNodeCrawler
   id: MobSpiderBase
   abstract: true
   components:
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler # goobstation - Ventcrawl # Omu, use nodecrawler
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -3382,11 +3383,11 @@
 
 - type: entity
   name: corgi puppy
-  parent: MobCorgi
+  parent: [MobCorgi, DVNodeCrawler] # Omu, add DVNodeCrawler
   id: MobCorgiPuppy
   description: A little corgi! Aww...
   components:
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler # goobstation - Ventcrawl # Omu, use nodecrawler
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Pets/corgi.rsi
@@ -3410,7 +3411,7 @@
 
 - type: entity
   name: cat
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [SimpleMobBase, StripableInventoryBase, DVNodeCrawler] # Omu, add DVNodeCrawler
   id: MobCat
   description: Feline pet, very funny.
   components:
@@ -3480,7 +3481,7 @@
   - type: Tag
     tags:
     - VimPilot
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler # goobstation - Ventcrawl # Omu, use nodecrawler
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 4
@@ -3784,7 +3785,7 @@
   id: MobHamster
   description: A cute, fluffy, robust hamster.
   components:
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler # goobstation - Ventcrawl # Omu, use nodecrawler
   - type: GhostRole
     makeSentient: true
     allowSpeech: true

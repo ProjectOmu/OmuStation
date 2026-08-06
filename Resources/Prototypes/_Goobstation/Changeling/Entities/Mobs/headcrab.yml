@@ -2,7 +2,7 @@
 
 - type: entity
   name: head slug
-  parent: [SimpleSpaceMobBase] # no dying in space
+  parent: [SimpleSpaceMobBase, DVNodeCrawler] # no dying in space # Omu, add DVNodeCrawler
   id: MobHeadcrab
   description: You don't want to touch it.
   components:
@@ -38,7 +38,7 @@
     baseSprintSpeed: 7
   - type: ExplosionResistance
     damageCoefficient: 0
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler # Omu, use nodecrawler
   - type: Fixtures
     fixtures:
       fix1:

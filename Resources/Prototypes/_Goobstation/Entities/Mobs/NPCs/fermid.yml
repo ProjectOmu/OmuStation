@@ -3,11 +3,11 @@
 - type: entity
   name: fermid
   id: MobFermidBase
-  parent: [ SimpleSpaceMobBase, MobCombat ]
+  parent: [ SimpleSpaceMobBase, MobCombat, DVNodeCrawler ] # Omu, add DVNodeCrawler
   abstract: true
   description: Extremely hostile asteroid-dwelling bugs. Best to avoid them wherever possible.
   components:
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler # goobstation - Ventcrawl # Omu, use nodecrawler
   - type: Body # Shitmed Change
     prototype: SpaceSpider
   - type: SurgeryTarget # Shitmed

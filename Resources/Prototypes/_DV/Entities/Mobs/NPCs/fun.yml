@@ -1,6 +1,6 @@
 - type: entity
   name: space shrimp
-  parent: [ SimpleMobBase, FlyingMobBase, MobCombat ]
+  parent: [ SimpleMobBase, FlyingMobBase, MobCombat, DVNodeCrawler ] # Omu add DVNodeCrawler
   id: MobSpaceShrimp
   description: Shrimply cursed...
   components:
@@ -74,7 +74,7 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler # Omu, use nodecrawler
   - type: GhostRole
     prob: 0.75
     name: ghost-role-information-shrimp-name

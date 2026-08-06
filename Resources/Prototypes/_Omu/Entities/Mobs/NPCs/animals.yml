@@ -12,18 +12,16 @@
 
 - type: entity
   id: MobScurretSyndicateAgent
-  parent: MobBaseScurretSyndicate
+  parent: [MobBaseScurretSyndicate, DVNodeCrawler]
   suffix: syndicate agent
   components:
     # make the player a traitor once its taken
-  - type: NodeCrawler
   - type: AutoTraitor
     profile: TraitorReinforcement
 
 - type: entity
   id: MobScurretSyndicateAgentNukeops # Reinforcement exclusive to nukeops uplink
-  parent: MobBaseScurretSyndicate
+  parent: [MobBaseScurretSyndicate, DVNodeCrawler]
   suffix: NukeOps
   components:
-  - type: NodeCrawler
   - type: NukeOperative
