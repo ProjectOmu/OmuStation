@@ -117,7 +117,7 @@
 - type: entity
   name: space carp
   id: BaseMobCarp
-  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
+  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat, DVNodeCrawler ] # Omu, add DVNodeCrawler
   description: It's a space carp.
   abstract: true
   components:
@@ -215,7 +215,7 @@
       color: "#808080"
       activateSound: null
       deactivateSound: null
-    - type: NodeCrawler   #Omu changed to nodecrawler
+    #- type: VentCrawler # Goobstation # Omu, use nodecrawler
     - type: Fauna # Lavaland Change
 
 - type: entity

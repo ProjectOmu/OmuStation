@@ -358,7 +358,7 @@
   description: He's da mini rat. He don't make da roolz.
   categories: [ HideSpawnMenu ] #Must be configured to a King or the AI breaks.
   components:
-  - type: NodeCrawler   #Omu changed to nodecrawlerl
+  #- type: VentCrawler # goobstation - Ventcrawl # Omu, use nodecrawler
   - type: CombatMode
   - type: MovementSpeedModifier
     baseWalkSpeed : 4.0

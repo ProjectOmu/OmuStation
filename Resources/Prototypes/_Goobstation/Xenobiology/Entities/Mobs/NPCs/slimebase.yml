@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleMobBase, MobCombat, DVNodeCrawler ] # Omu, add DVNodeCrawler
   id: BaseMobSlimeXenobio
   name: basic slime
   description: It looks so much like jelly. I wonder what it tastes like?
@@ -120,7 +120,7 @@
     successChance: 0.5
     interactSuccessString: petting-success-slimes
     interactFailureString: petting-failure-generic
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler # Omu, use nodecrawler
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime

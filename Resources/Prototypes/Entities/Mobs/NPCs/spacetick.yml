@@ -100,10 +100,10 @@
 - type: entity
   name: space tick
   id: MobTick
-  parent: SimpleSpaceMobBase
+  parent: [SimpleSpaceMobBase, DVNodeCrawler] # Omu, add DVNodeCrawler
   description: It's a space tick, watch out for its nasty bite. CentComm reports that 90 percent of cargo leg amputations are due to space tick bites.
   components:
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler # goobstation - Ventcrawl # Omu, use nodecrawler
   - type: InputMover
   - type: MobMover
   - type: HTN

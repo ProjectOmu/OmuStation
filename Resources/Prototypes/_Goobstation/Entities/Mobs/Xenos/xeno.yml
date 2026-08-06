@@ -1,7 +1,7 @@
 - type: entity
   name: ancient base xeno
   id: CMBaseXeno
-  parent: SimpleSpaceMobBase
+  parent: [SimpleSpaceMobBase, DVNodeCrawler] # Omu, add DVNodeCrawler
   description: An alien drone.
   abstract: true
   components:
@@ -134,7 +134,7 @@
     activateSound: null
     deactivateSound: null
   - type: TileMovement
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler # Omu, use nodecrawler
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Xeno

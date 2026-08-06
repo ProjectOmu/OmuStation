@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMobXenomorphAdult
+  parent: [BaseMobXenomorphAdult, DVNodeCrawler] # Omu, add DVNodeCrawler
   id: BaseMobXenomorphSentinel
   name: xenomorph sentinel
   description: A specialized specimen designed to hit targets at a distance. Particularly dangerous in narrow corridors and confined spaces.
@@ -23,7 +23,7 @@
   #  actions:
   #  - ActionTransferPlasma
   #  - ActionSpawnResinWeedNode
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler #Omu changed to nodecrawler
   - type: Cuffable
   - type: Body
     prototype: XenomorphSentinel

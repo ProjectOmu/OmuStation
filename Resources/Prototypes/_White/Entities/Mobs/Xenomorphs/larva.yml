@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMobXenomorph
+  parent: [BaseMobXenomorph, DVNodeCrawler] # Omu, add DVNodeCrawler
   id: BaseMobXenomorphLarva
   name: xenomorph larva
   description: An early stage of development characterized by small size, a worm-like body shape, and the absence of distinct limbs.
@@ -24,7 +24,7 @@
   #- type: ActionGrant # Goobstation - moved to organ
   #  actions:
   #  - ActionTransferPlasma
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler #Omu changed to nodecrawler
   - type: Body
     prototype: XenomorphLarva
   - type: Fixtures
