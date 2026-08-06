@@ -1,0 +1,86 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Paramedic Hardsuit Sirens
+
+- type: entity # Default Suit
+  parent: BaseToggleAction
+  id: ActionToggleParamedicSiren
+  name: Toggle Paramedic Siren
+  description: Toggles the paramedic siren on and off.
+  components:
+  - type: Action
+    useDelay: 1
+    icon:
+      sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+      state: icon-siren
+    itemIconStyle: BigAction
+
+- type: entity # Cybersun Suit
+  parent: BaseToggleAction
+  id: ActionToggleParamedicSirenCybersun
+  name: Toggle Paramedic Siren
+  description: Toggles the paramedic siren on and off.
+  components:
+  - type: Action
+    useDelay: 1
+    icon:
+      sprite: _Omu/Clothing/OuterClothing/Hardsuits/cybersunparamedhardsuit.rsi
+      state: icon-siren
+    itemIconStyle: BigAction
+
+- type: entity # Modsuit
+  parent: BaseToggleAction
+  id: ActionToggleParamedicSirenModsuit
+  name: Toggle Paramedic Siren
+  description: Toggles the paramedic siren on and off.
+  components:
+  - type: Action
+    useDelay: 1
+    icon:
+      sprite: _Goobstation/Clothing/Back/Modsuits/paramedic.rsi
+      state: icon-siren
+    itemIconStyle: BigAction
+
+# JaniHUD
+
+- type: entity
+  id: ActionBloodredVimBoost
+  parent: BaseAction
+  name: Boost
+  description: Spray water to launch forward.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Omu/Objects/Specific/Mechs/bloodredvim.rsi
+      state: bloodredvim
+    useDelay: 1
+  - type: TargetAction
+    range: 16
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:BloodredVimBoostActionEvent {}
+
+- type: entity
+  id: ActionInternalBloodredVimBoost      #used inside the system so it can't call itself
+  parent: ActionBloodredVimBoost
+  components:
+  - type: WorldTargetAction
+    event: !type:BloodredVimBoostInternalActionEvent {}
+    
+- type: entity
+  parent: BaseAction
+  id: ToggleJaniVision
+  name: Toggle Clean Hud
+  description: Toggles your clean hud.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    priority: -20
+    useDelay: 1
+    icon:
+      sprite: _Omu/Clothing/Eyes/janihud.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:ToggleJaniVisionEvent

@@ -109,7 +109,7 @@
         probability: 0.25
   - type: Body
     prototype: XenobioSlimes
-    requiredLegs: 1
+    requiredLegs: 0     #OMU - no more slime legs
   - type: MeleeWeapon
     damage:
       groups:

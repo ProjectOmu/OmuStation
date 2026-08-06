@@ -1,0 +1,89 @@
+- type: entity
+  parent:
+  - BaseMob
+  - MobCombat
+  - FlyingMobBase
+  id: MobGhoulMirrorMaiden
+  name: Mirror Maiden
+  description: A trick of the light? Or is it the shimmering air itself come to claim you?
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Sprite
+    sprite: _Omu/Mobs/heretic.rsi
+    state: blue_maiden
+  - type: Damageable
+    damageModifierSet: GhoulMirrorMaiden
+  - type: GhostRole
+    name: mirror-maiden-role-name
+    description: mirror-maiden-role-desc
+    mindRoles:
+    - MindRoleGhoul
+  - type: ActionGrant
+    actions:
+    - ActionHereticJaunt
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 7    #Fast!
+    baseSprintSpeed: 7
+  - type: FlashImmunity
+  - type: ThermalVision
+    thermalShader: null
+    isActive: true
+    color: white
+    drawOverlay: false
+    lightRadius: 0
+    toggleAction: null
+  - type: MeleeWeapon
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 5
+        Piercing: 10
+  - type: Visibility
+    layer: 64 #same as influencespent
+  - type: NpcFactionMember
+    factions:
+    - Mansus
+  - type: ShowAntagIcons
+  - type: NoSlip
+  - type: Bloodstream
+    bloodMaxVolume: 15
+    bloodReagent: EldritchEssence
+    bloodlossDamage:
+      types:
+        Bloodloss:
+          0.0
+    bloodlossHealDamage:
+      types:
+        Bloodloss:
+          -1
+  - type: CollectiveMind
+    defaultChannel: MansusLink
+    channels:
+    - MansusLink
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: npcFaction
+  id: Mansus
+  hostile:
+  - Madness
+
+- type: npcFaction
+  id: Madness
+  friendly:
+  - NanoTrasen

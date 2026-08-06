@@ -82,6 +82,7 @@ using Robust.Client.State;
 using Robust.Shared.Input;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
+using Content.Shared._Omu.Changeling; //omu
 
 namespace Content.Client.Weapons.Melee;
 
@@ -136,6 +137,11 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (TryComp<EntropicPlumeAffectedComponent>(entity, out var affected) &&
             affected.NextAttack + TimeSpan.FromSeconds(0.1f) > Timing.CurTime) // Goobstation
             return;
+
+        if (TryComp<BerserkAffectedComponent>(entity, out var berserk) &&
+            berserk.NextAttack + TimeSpan.FromSeconds(0.1f) > Timing.CurTime) // omu - for berserk sting
+            return;
+
 
         if (!TryGetWeapon(entity, out var weaponUid, out var weapon))
             return;

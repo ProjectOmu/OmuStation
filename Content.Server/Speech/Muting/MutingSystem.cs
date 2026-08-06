@@ -38,7 +38,7 @@ namespace Content.Server.Speech.Muting
                 return;
 
             //still leaves the text so it looks like they are pantomiming a laugh
-            if (args.Emote.Category.HasFlag(EmoteCategory.Vocal))
+            if (args.Emote.Category.HasFlag(EmoteCategory.Vocal) && !args.Emote.OverrideMute) // Omu, adds manual overriding of mute
                 args.Handled = true;
         }
 
