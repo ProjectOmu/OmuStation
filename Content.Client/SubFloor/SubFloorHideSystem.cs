@@ -1,21 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-// SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <slambamactionman@gmail.com>
-// SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
-// SPDX-FileCopyrightText: 2025 qwerltaz <msmarcinpl@gmail.com>
-// SPDX-FileCopyrightText: 2025 ss14-Starlight <ss14-Starlight@outlook.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
-using Content.Shared.Atmos.Components;  //Goobstation - Ventcrawler
-using Content.Shared.DrawDepth;
 using Content.Client.UserInterface.Systems.Sandbox;
 using Content.Shared.SubFloor;
 using Robust.Client.GameObjects;
@@ -30,23 +12,7 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IUserInterfaceManager _ui = default!;
 
-    // Begin DeltaV - node crawling
-    private Type[] _types = new Type[] { };
-
-    [ViewVariables]
-    public Type[] Types
-    {
-        get => _types;
-        set
-        {
-            _types = value;
-            UpdateAll();
-        }
-    }
-    // End DeltaV - node crawling
-
     private bool _showAll;
-    private bool _showVentPipe; //Goobstation - Ventcrawler
 
     [ViewVariables(VVAccess.ReadWrite)]
     public bool ShowAll
@@ -66,19 +32,20 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
         }
     }
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public bool ShowVentPipe     //Goobstation - Ventcrawler
+    // Begin DeltaV - node crawling
+    private Type[] _types = new Type[] { };
+
+    [ViewVariables]
+    public Type[] Types
     {
-        get => _showVentPipe;
+        get => _types;
         set
         {
-            if (_showVentPipe == value)
-                return;
-            _showVentPipe = value;
-
+            _types = value;
             UpdateAll();
         }
     }
+    // End DeltaV - node crawling
 
     public override void Initialize()
     {
@@ -111,8 +78,7 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
 
         scannerRevealed &= !ShowAll; // no transparency for show-subfloor mode.
 
-        var showVentPipe = HasComp<PipeAppearanceComponent>(uid) && ShowVentPipe;    //Goobstation - Ventcrawler
-        var revealed = !covered || ShowAll || scannerRevealed || showVentPipe;   //Goobstation - Ventcrawler
+        var revealed = !covered || ShowAll || scannerRevealed;
 
         // Begin DeltaV - node crawling
         foreach (var type in _types)
