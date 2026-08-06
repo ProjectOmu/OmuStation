@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Bed.Sleep;
@@ -166,7 +167,7 @@ public abstract partial class SharedSurgerySystem
             args.Invalid = StepInvalidReason.MissingTool;
 
             if (reg.Component is ISurgeryToolComponent required)
-                args.Popup = $"You need {required.ToolName} to perform this step!";
+                args.Popup = Loc.GetString("surgery-ui-window-steps-error-missing-tool", ("tool", required.ToolName));
             else
                 Log.Error($"Surgery step {ToPrettyString(ent)} wants bad component {reg.Component} which isn't a ISurgeryTool");
 
@@ -187,11 +188,6 @@ public abstract partial class SharedSurgerySystem
         }
     }
 
-    private string GetDamageGroupByType(string id)
-    {
-        return (from @group in _prototypes.EnumeratePrototypes<DamageGroupPrototype>() where @group.DamageTypes.Contains(id) select @group.ID).FirstOrDefault()!;
-    }
-
     private void OnTendWoundsStep(Entity<SurgeryTendWoundsEffectComponent> ent, ref SurgeryStepEvent args)
     {
         if (_wounds.GetWoundableSeverityPoint(
@@ -210,7 +206,10 @@ public abstract partial class SharedSurgerySystem
 
         var group = _prototypes.Index<DamageGroupPrototype>(ent.Comp.MainGroup);
         foreach (var type in group.DamageTypes)
-            adjustedDamage.DamageDict[type] -= bonus;
+        {
+            if (adjustedDamage.DamageDict.TryGetValue(type, out var current))
+                adjustedDamage.DamageDict[type] = current - bonus;
+        }
 
         var ev = new SurgeryStepDamageEvent(args.User, args.Body, args.Part, args.Surgery, adjustedDamage, 0.5f);
         RaiseLocalEvent(args.Body, ref ev);
@@ -235,9 +234,9 @@ public abstract partial class SharedSurgerySystem
             && TryComp(activeHandEntity, out ItemComponent? itemComp)
             && (itemComp.Size.Id == "Tiny"
             || itemComp.Size.Id == "Small"))
-            _itemSlotsSystem.TryInsert(ent, partComp.ItemInsertionSlot, activeHandEntity, args.User);
+            _itemSlotsSystem.TryInsert(args.Part, partComp.ItemInsertionSlot, activeHandEntity, args.User);
         else if (ent.Comp.Action == "Remove")
-            _itemSlotsSystem.TryEjectToHands(ent, partComp.ItemInsertionSlot, args.User);
+            _itemSlotsSystem.TryEjectToHands(args.Part, partComp.ItemInsertionSlot, args.User);
     }
 
     private void OnCavityCheck(Entity<SurgeryStepCavityEffectComponent> ent, ref SurgeryStepCompleteCheckEvent args)
@@ -245,11 +244,11 @@ public abstract partial class SharedSurgerySystem
         // Normally this check would simply be partComp.ItemInsertionSlot.HasItem, but as mentioned before,
         // For whatever reason it's not instantiating the field on the clientside after the wizmerge.
         if (!_partQuery.TryComp(args.Part, out var partComp)
-            || !TryComp(args.Part, out ItemSlotsComponent? itemComp)
+            || !_itemSlotsSystem.TryGetSlot(args.Part, partComp.ContainerName, out var slot)
             || ent.Comp.Action == "Insert"
-            && !itemComp.Slots[partComp.ContainerName].HasItem
+            && !slot.HasItem
             || ent.Comp.Action == "Remove"
-            && itemComp.Slots[partComp.ContainerName].HasItem)
+            && slot.HasItem)
             args.Cancelled = true;
     }
 
@@ -594,21 +593,24 @@ public abstract partial class SharedSurgerySystem
         var healAmount = ent.Comp.Amount;
         foreach (var woundEnt in _wounds.GetWoundableWounds(args.Part))
         {
-            if (!TryComp<BleedInflicterComponent>(woundEnt, out var bleeds))
+            if (healAmount <= 0)
+                break;
+
+            if (!TryComp<BleedInflicterComponent>(woundEnt, out var bleeds) || !bleeds.IsBleeding)
                 continue;
 
             if (bleeds.Scaling > healAmount)
             {
                 bleeds.Scaling -= healAmount;
+                bleeds.ScalingLimit = FixedPoint2.Min(bleeds.ScalingLimit, bleeds.Scaling);
+                healAmount = FixedPoint2.Zero;
             }
             else
             {
+                healAmount -= bleeds.Scaling;
                 bleeds.BleedingAmountRaw = 0;
                 bleeds.Scaling = 0;
-
                 bleeds.IsBleeding = false; // Won't bleed as long as it's not reopened
-
-                healAmount -= bleeds.Scaling;
             }
 
             Dirty(woundEnt, bleeds);
@@ -663,7 +665,7 @@ public abstract partial class SharedSurgerySystem
 
     private void OnPainInflicterCheck(Entity<SurgeryStepPainInflicterComponent> ent, ref SurgeryStepCompleteCheckEvent args)
     {
-        if (!_consciousness.TryGetNerveSystem(args.Part, out var nerveSys))
+        if (!_consciousness.TryGetNerveSystem(args.Body, out var nerveSys))
             return;
 
         if (!_pain.TryGetPainModifier(nerveSys.Value.Owner, args.Part, "SurgeryPain", out _, nerveSys))
@@ -885,9 +887,6 @@ public abstract partial class SharedSurgerySystem
         var toolUsed = data?.Used ?? false; // if no tool is being used you can't consume it
         var ev = new SurgeryDoAfterEvent(surgeryId, stepId, toolUsed);
         var duration = GetSurgeryDuration(step, user, body, speed);
-
-        if (TryComp(user, out SurgerySpeedModifierComponent? surgerySpeedMod))
-            duration = duration / surgerySpeedMod.SpeedModifier;
 
         var doAfter = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(duration), ev, body, part)
         {
