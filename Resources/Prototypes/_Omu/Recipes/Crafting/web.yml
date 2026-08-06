@@ -19,3 +19,14 @@
     tags:
     - SpiderCraft
   objectType: Item
+
+- type: construction
+  id: ClothingHandsGlovesArachnid
+  graph: ClothingHandsGlovesArachnid
+  startNode: start
+  targetNode: end
+  category: construction-category-clothing
+  entityWhitelist:
+    tags:
+    - SpiderCraft
+  objectType: Item

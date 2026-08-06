@@ -21,7 +21,21 @@
     - to: end
       steps:
       - material: WebSilk
-        amount: 12
-        doAfter: 15
+        amount: 4
+        doAfter: 5
   - node: end
     entity: ClothingHeadHatArachnidEarmuffs
+
+- type: constructionGraph
+  id: ClothingHandsGlovesArachnid
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: end
+      steps:
+      - material: WebSilk
+        amount: 4
+        doAfter: 5
+  - node: end
+    entity: ClothingHandsGlovesArachnid
