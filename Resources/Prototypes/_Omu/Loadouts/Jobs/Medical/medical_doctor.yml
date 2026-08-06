@@ -10,7 +10,7 @@
   equipment:
     gloves: ClothingHandsGlovesCybersunNitrile
 
-# Uniforms 
+# Uniforms
 - type: loadout
   id: CybersunMedicalJumpsuit
   equipment:
@@ -28,3 +28,52 @@
     proto: SeniorPhysician
   equipment:
     outerClothing: ClothingOuterJacketSeniorPhys
+
+#Masks
+- type: loadout
+  id: SterileMaskRed
+  equipment:
+    mask: ClothingMaskSterileRed
+  groupBy: "mask"
+
+- type: loadout
+  id: SterileMaskOrange
+  equipment:
+    mask: ClothingMaskSterileOrange
+  groupBy: "mask"
+
+- type: loadout
+  id: SterileMaskYellow
+  equipment:
+    mask: ClothingMaskSterileYellow
+  groupBy: "mask"
+
+- type: loadout
+  id: SterileMaskGreen
+  equipment:
+    mask: ClothingMaskSterileGreen
+  groupBy: "mask"
+
+- type: loadout
+  id: SterileMaskBlue
+  equipment:
+    mask: ClothingMaskSterileBlue
+  groupBy: "mask"
+
+- type: loadout
+  id: SterileMaskPurple
+  equipment:
+    mask: ClothingMaskSterilePurple
+  groupBy: "mask"
+
+- type: loadout
+  id: SterileMaskBlack
+  equipment:
+    mask: ClothingMaskSterileBlack
+  groupBy: "mask"
+
+- type: loadout
+  id: SterileMaskWhite
+  equipment:
+    mask: ClothingMaskSterileWhite
+  groupBy: "mask"
