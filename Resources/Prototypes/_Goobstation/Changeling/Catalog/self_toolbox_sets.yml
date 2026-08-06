@@ -10,7 +10,7 @@
   - WelderIndustrialAdvanced
   - PowerDrill
   - Multitool
-  - ClothingHandsGlovesInsulatedChameleon
+  - ClothingHandsGlovesColorYellow
   - RadioJammer
   - FreedomImplanter
   - ClothingEyesGlassesMeson
@@ -20,13 +20,13 @@
   name: The Press
   description: self-backpack-category-press-description
   sprite:
-    sprite: _Moffstation/Objects/Tools/handheld_camera.rsi
-    state: icon
+    sprite: Structures/Machines/computers.rsi
+    state: telescreen_frame
   content:
-  - SurveillanceWirelessCameraHandheld
+  - TapeRecorder
   - EncryptionKeyBinarySyndicate
   - MicrophoneInstrument
-  - VoiceMaskImplanter
+  - ClothingMaskGasVoiceChameleon
   - ScramImplanter
 
 - type: thiefBackpackSet
@@ -39,5 +39,5 @@
   content:
   - StorageImplanter
   - ChameleonProjector
-  - WeaponPistolStechkin
+  - WeaponPistolViper
   - CameraBug
