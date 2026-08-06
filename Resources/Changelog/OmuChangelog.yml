@@ -5589,3 +5589,145 @@ Entries:
         like monkeys cannot pilot a mech, HAMTR and VIM are unaffected by this.
   id: 731
   time: '2026-07-28T00:54:19.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Add
+      message: Allulalo can now make three new noises. (Awebo, Coo, Scree)
+  id: 732
+  time: '2026-07-28T12:28:27.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: Changed execution SOP to be more clear
+  id: 733
+  time: '2026-07-29T01:50:03.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Tweak
+      message: Cog's cargo window shutter is now directional.
+  id: 734
+  time: '2026-07-29T01:56:05.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Remove
+      message: Paradox clone disabled due to urgent bug. Will be enabled in the future
+  id: 735
+  time: '2026-07-29T03:32:54.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: Adds the steal target to the hos's other guns.
+  id: 736
+  time: '2026-07-30T00:27:14.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: >-
+        Reagent fires should be more balanced now, no longer ignore fire prot
+        and are much easier to tweak
+  id: 737
+  time: '2026-07-30T17:30:55.0000000+00:00'
+- author: Willfullyheretical
+  changes:
+    - type: Fix
+      message: >-
+        Increased surfaces for blood jaunt to include, Avali, Resomi, Slime,
+        Thaven, Allulalo and Xelthia blood
+  id: 738
+  time: '2026-07-30T17:52:10.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: CPR now has proper text popups for when you're not able to do it.
+    - type: Fix
+      message: >-
+        CPR now stops you from continuing if you're not meant to be able to
+        start CPR. You also can no longer do CPR to people who have masks on.
+  id: 739
+  time: '2026-07-31T07:05:25.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added the endless library
+    - type: Tweak
+      message: Changed heretic sacrifices to send victims to the endless library
+  id: 740
+  time: '2026-07-31T17:00:09.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: >-
+        Changed Silicon laws to discourage intervention in minor class one or
+        two crimes.
+  id: 741
+  time: '2026-07-31T17:03:46.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: Changed shuttlebombing rule on request of headmins.
+  id: 742
+  time: '2026-07-31T17:15:39.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added cortical borers
+  id: 743
+  time: '2026-07-31T17:27:02.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        Fixed round end summary window crashing when a player writes a badly
+        formatted message as last message.
+  id: 744
+  time: '2026-08-01T20:47:04.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed firestacking on fires - they actually hurt again
+    - type: Fix
+      message: Fixed mirror maiden's visibility
+    - type: Tweak
+      message: Increased cortical borer egg laying cost to 250 from 200
+  id: 745
+  time: '2026-08-02T19:57:14.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added changeling leap - it leaps at you.
+  id: 746
+  time: '2026-08-02T21:16:51.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Fix
+      message: 'Bug fix: Chitinids now speak Chittin instead of Moffic'
+  id: 747
+  time: '2026-08-02T22:50:49.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: You can no longer parcel wrap entities with storage.
+  id: 748
+  time: '2026-08-04T07:04:28.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed heretic sacrifices not giving any knowledge
+  id: 749
+  time: '2026-08-04T22:06:16.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: >-
+        Added various colored medical masks to doctor loadouts. The dye smell
+        will wash out. Probably.
+  id: 750
+  time: '2026-08-05T13:40:53.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: Gave the poor Virologists their messenger bags back.
+    - type: Tweak
+      message: Resprited the Medical and Chemistry duffel bags.
+  id: 751
+  time: '2026-08-05T16:36:13.0000000+00:00'

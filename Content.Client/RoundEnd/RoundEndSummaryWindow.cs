@@ -272,7 +272,7 @@ namespace Content.Client.RoundEnd
                     };
 
                     playerLastWordsText.SetMarkup(Loc.GetString("round-end-summary-window-last-words",
-                        ("lastWords", playerInfo.LastWords)));
+                        ("lastWords", FormattedMessage.EscapeText(playerInfo.LastWords)))); // Omu - crash when player sends invalid markdown in chat
 
                     textVBox.AddChild(playerLastWordsText);
                 }
