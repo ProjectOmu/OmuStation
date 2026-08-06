@@ -213,10 +213,10 @@
 - type: entity
   name: space spider
   id: MobSpiderSpace
-  parent: MobSpaceBasic
+  parent: [MobSpaceBasic, DVNodeCrawler] # Omu, add DVNodeCrawler
   description: It's so glowing, it looks dangerous.
   components:
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler # goobstation - Ventcrawl # Omu, use nodecrawler
   - type: Body # Shitmed Change
     prototype: SpaceSpider
   - type: SurgeryTarget # Shitmed

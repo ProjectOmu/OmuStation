@@ -201,7 +201,7 @@
 - type: entity
   name: lootbug
   id: MobLootbug
-  parent: SimpleSpaceMobBase
+  parent: [SimpleSpaceMobBase, DVNodeCrawler] # Omu, add DVNodeCrawler
   description: It eats metal, maybe it's eaten something of value?
   components:
   - type: Sprite
@@ -268,7 +268,7 @@
   - type: NpcFactionMember # they're pests, makes them the target of shiva and aves
     factions:
       - Mouse
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler # goobstation - Ventcrawl # Omu, use nodecrawler
   - type: Devourer
     structureDevourTime: 3
     foodPreferenceWhitelist:
@@ -422,7 +422,7 @@
 - type: entity
   name: homunculus
   id: MobHomunculus
-  parent: SimpleMobBase
+  parent: [SimpleMobBase, DVNodeCrawler] # Omu, add DVNodeCrawler
   description: What a wretched beast...
   components:
   - type: Sprite
@@ -478,7 +478,7 @@
   - type: NpcFactionMember
     factions:
       - Passive # Omu - they were in the hostile faction despite being passive
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler # Omu, use nodecrawler
   - type: MeleeWeapon
     altDisarm: false
     angle: 0

@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMobXenomorphAdult
+  parent: [BaseMobXenomorphAdult, DVNodeCrawler] # Omu, add DVNodeCrawler
   id: BaseMobXenomorphDrone
   name: xenomorph drone
   description: A specialized individual designed to build and maintain a hive. Less aggressive than other xenomorph forms, but still deadly when approached.
@@ -26,7 +26,7 @@
   #  - ActionSpawnResinMembrane # no membrane its for chuds
   #  - ActionSpawnResinNest
   #  - ActionSpawnResinWeedNode
-  - type: NodeCrawler   #Omu changed to nodecrawler
+  #- type: VentCrawler #Omu changed to nodecrawler
   - type: Cuffable
   - type: Body
     prototype: XenomorphDrone

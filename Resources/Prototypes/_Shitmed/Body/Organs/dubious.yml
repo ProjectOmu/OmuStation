@@ -255,7 +255,14 @@
     state: viral
   - type: Organ
     onAdd:
-    - type: NodeCrawler   #Omu changed to nodecrawler
+    #- type: VentCrawler # Omu, use nodecrawler
+    #  allowInventory: false
+    - type: NodeCrawler # Omu
+      revealedComponents:
+        - Content.Shared.Atmos.Components.PipeAppearanceComponent
+      exitNodes:
+        components:
+          - NodeCrawlVentAccess
 
 - type: entity
   id: OrganDubiousRepairable
