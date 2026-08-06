@@ -1,7 +1,3 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
-using Content.Shared.Atmos.Components;  //Goobstation - Ventcrawler
-using Content.Shared.DrawDepth;
 using Content.Client.UserInterface.Systems.Sandbox;
 using Content.Shared.SubFloor;
 using Robust.Client.GameObjects;
@@ -16,23 +12,7 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IUserInterfaceManager _ui = default!;
 
-    // Begin DeltaV - node crawling
-    private Type[] _types = new Type[] { };
-
-    [ViewVariables]
-    public Type[] Types
-    {
-        get => _types;
-        set
-        {
-            _types = value;
-            UpdateAll();
-        }
-    }
-    // End DeltaV - node crawling
-
     private bool _showAll;
-    private bool _showVentPipe; //Goobstation - Ventcrawler
 
     [ViewVariables(VVAccess.ReadWrite)]
     public bool ShowAll
@@ -52,19 +32,20 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
         }
     }
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public bool ShowVentPipe     //Goobstation - Ventcrawler
+    // Begin DeltaV - node crawling
+    private Type[] _types = new Type[] { };
+
+    [ViewVariables]
+    public Type[] Types
     {
-        get => _showVentPipe;
+        get => _types;
         set
         {
-            if (_showVentPipe == value)
-                return;
-            _showVentPipe = value;
-
+            _types = value;
             UpdateAll();
         }
     }
+    // End DeltaV - node crawling
 
     public override void Initialize()
     {
@@ -97,8 +78,7 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
 
         scannerRevealed &= !ShowAll; // no transparency for show-subfloor mode.
 
-        var showVentPipe = HasComp<PipeAppearanceComponent>(uid) && ShowVentPipe;    //Goobstation - Ventcrawler
-        var revealed = !covered || ShowAll || scannerRevealed || showVentPipe;   //Goobstation - Ventcrawler
+        var revealed = !covered || ShowAll || scannerRevealed;
 
         // Begin DeltaV - node crawling
         foreach (var type in _types)
