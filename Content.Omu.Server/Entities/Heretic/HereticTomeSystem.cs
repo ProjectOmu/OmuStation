@@ -54,7 +54,7 @@ public sealed class HereticTomeSystem : EntitySystem
     {
         var actor = args.Actor;       //Get the players entity!
 
-        if (!TryComp<HumanoidAppearanceComponent>(args.Actor, out _))       //Ensure reader is a human, funny oversight.
+        if (!HasComp<HumanoidAppearanceComponent>(args.Actor))       //Ensure reader is a human, funny oversight.
             return;
 
         if (component.Readers != null)
