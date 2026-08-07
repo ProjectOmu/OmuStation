@@ -831,8 +831,7 @@
     wideAnimationRotation: 180
     soundHit:
       collection: Squishes
-
-      
+    
 - type: entity
   parent: BasePlushie
   id: PlushieRebeccaOmucrew
@@ -854,19 +853,13 @@
       path: /Audio/Effects/Chemistry/bubbles.ogg
   - type: EmitSoundOnUse
     sound:
-      collection: /Audio/Voice/Human/female_cough_2.ogg
+      path: /Audio/Voice/Human/female_cough_2.ogg
   - type: EmitSoundOnActivate
     sound:
-      collection: Pops
+     path: /Audio/Voice/Human/female_cough_2.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Voice/Human/cry_female_3.ogg
-        - type: EmitSoundOnCollide
+  - type: EmitSoundOnCollide
     sound:
       path: /Audio/Voice/Human/cry_female_4.ogg
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    soundHit:
-      path: /Audio/Voice/Human/femalescream_3.ogg
