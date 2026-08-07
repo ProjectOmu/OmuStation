@@ -78,28 +78,6 @@
   - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
     state: tall_fuzz
 
-- type: marking # Omu edit - cat ears from Orbstation (/tg/station fork)
-  id: FelinidEarsTallAlt
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Felinid, Tajaran]
-  sprites:
-  - sprite: Nyanotrasen/Mobs/Customization/felinid_ears_orb.rsi
-    state: tallalt_outer
-  - sprite: Nyanotrasen/Mobs/Customization/felinid_ears_orb.rsi
-    state: tallalt_inner
-
-- type: marking # Omu edit - cat ears from Orbstation (/tg/station fork)
-  id: FelinidEarsLynx
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Felinid, Tajaran]
-  sprites:
-  - sprite: Nyanotrasen/Mobs/Customization/felinid_ears_orb.rsi
-    state: lynx_outer
-  - sprite: Nyanotrasen/Mobs/Customization/felinid_ears_orb.rsi
-    state: lynx_inner
-
 - type: marking
   id: FelinidEarsTorn
   bodyPart: HeadTop

@@ -30,14 +30,6 @@ marking-FelinidEarsTall-tall_outer = Outer ear
 marking-FelinidEarsTall-tall_inner = Inner ear
 marking-FelinidEarsTall-tall_fuzz = Ear fuzz
 
-marking-FelinidEarsTallAlt = Alternative Tall Ears
-marking-FelinidEarsTallAlt-tallalt_outer = Outer ear
-marking-FelinidEarsTallAlt-tallalt_inner = Inner ear
-
-marking-FelinidEarsLynx = Lynx Ears
-marking-FelinidEarsLynx-lynx_outer = Outer ear
-marking-FelinidEarsLynx-lynx_inner = Inner ear
-
 marking-FelinidEarsTorn = Torn Ears
 marking-FelinidEarsTorn-torn_outer = Outer ear
 marking-FelinidEarsTorn-torn_inner = Inner ear
