@@ -254,3 +254,13 @@
   - type: Contraband
     severity: Honkraband
     allowedJobs: [ Clown ]
+
+# Omustation start
+- type: entity
+  id: BaseBartenderContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedJobs: [ Bartender ]
+# Omustation end
