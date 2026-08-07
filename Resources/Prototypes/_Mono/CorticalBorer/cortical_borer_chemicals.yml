@@ -4,13 +4,13 @@
 
 
 - type: borerChemical
-  id: borerBozaide
+  id: borerBozaide    # Omu changed to bozaide from bicar
   cost: 6
   reagent: Bozaide
 
 - type: borerChemical
   id: borerKelotane
-  cost: 10
+  cost: 10            # Omu changed to 10 from 4
   reagent: Kelotane
 
 - type: borerChemical
@@ -63,7 +63,7 @@
   cost: 5 # needs 18u to start the sleep, so more than blind but still cheaper
   reagent: Nocturine
 
-- type: borerChemical
+- type: borerChemical    # Omu start
   id: borerAmoxla
   cost: 3
   reagent: Amoxla
@@ -91,4 +91,4 @@
 - type: borerChemical
   id: borerPhlogiston
   cost: 10
-  reagent: Phlogiston
+  reagent: Phlogiston    # Omu end
