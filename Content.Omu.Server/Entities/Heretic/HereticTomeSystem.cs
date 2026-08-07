@@ -57,7 +57,7 @@ public sealed class HereticTomeSystem : EntitySystem
 
         var size = component.FontSize;
         var cannotread = Loc.GetString(component.Unreadable);
-        var loc = Loc.GetString(component.ExamineBaseMessage, ("size", size), ("text", component.Unreadable));
+        var loc = Loc.GetString(component.Unreadable, ("size", size), ("text", component.Unreadable));
 
         if (!TryComp<HumanoidAppearanceComponent>(args.Actor, out _))       //Ensure reader is a human, funny oversight.
             return;
