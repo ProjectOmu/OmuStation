@@ -82,15 +82,16 @@
         Blunt: 0.90
         Piercing: 0.90 # Omustation end
   - type: Tag # Overwrite the TagComponent from the parent to get rid of ClothMade because it's funny when a mothroach eats this ultra specialized bit of equipment, but only the first time.
-#    - WhitelistChameleon  #Omustation - there is a bug with the chamelon item that makes the eyes default to white instead of the player's eye colour.
+    tags:
+    # - WhitelistChameleon
   - type: PlasmaUnfit #Omustation
 
 # This mantle is inteded for people doing jobs that require internals. In particular, this mantle is a breath mask with pressure protection and welding protection.
 - type: entity
   id: ClothingCyberneticBeastMantleWork
   parent: ClothingCyberneticBeastMantle
-  name: cybernetic beast's work mantle
-  description: A modified version of a cybernetic beast's mantle. This has internals, and atmospheric pressurisation to prevent barotrauma to the wearer, regardless of species.
+  name: beast's work mantle
+  description: A modified version of a cybernetic beast's mantle. This one comes with hookups for internals, and has extra seals for atmospheric protection.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Head/mantle.rsi
@@ -103,12 +104,6 @@
       - state: helmet-internals
       - state: eyes
         shader: unshaded
-  - type: BreathMask
-  - type: EyeProtection
-  - type: IngestionBlocker # Work mantles, at least those with internals, make the cybernetic beast trait far more valuable to roles with these specialized mantles than those without. To offset this, at least a little, we'll say that the seals on the mantle make it impossible to eat while it's worn.
-  - type: PressureProtection
-    highPressureMultiplier: 0.1
-    lowPressureMultiplier: 1000
   - type: ComponentToggler
     components: # copied from the parent with some additions
     - type: VisionCorrection
@@ -116,8 +111,12 @@
     - type: NightVision
       isEquipment: true
       color: "#CCFFCC"
-
-
+    - type: BreathMask
+    - type: EyeProtection
+    - type: IngestionBlocker # Work mantles, at least those with internals, make the cybernetic beast trait far more valuable to roles with these specialized mantles than those without. To offset this, at least a little, we'll say that the seals on the mantle make it impossible to eat while it's worn.
+    - type: PressureProtection
+      highPressureMultiplier: 0.1
+      lowPressureMultiplier: 1000
 
 # slight resprite of the work mantle for engineers.
 - type: entity
@@ -596,7 +595,7 @@
     - type: FlashSoundSuppression
     - type: ShowJobIcons
   - type: Contraband
-    allowedDepartments: [ CentralCommand ]
+    allowedDepartments: [ Command ]
 
 #RD's mantle
 - type: entity
@@ -838,11 +837,11 @@
       isEquipment: true
       color: "#CCFFCC"
     - type: EyeProtection
-  - type: ShowHealthBars
-    damageContainers:
-     - Inorganic
-     - Silicon
-     - SiliconRadiation
+    - type: ShowHealthBars
+      damageContainers:
+      - Inorganic
+      - Silicon
+      - SiliconRadiation
 
 
 
