@@ -82,8 +82,7 @@
         Blunt: 0.90
         Piercing: 0.90 # Omustation end
   - type: Tag # Overwrite the TagComponent from the parent to get rid of ClothMade because it's funny when a mothroach eats this ultra specialized bit of equipment, but only the first time.
-    tags:
-    # - WhitelistChameleon
+    tags: []
   - type: PlasmaUnfit #Omustation
 
 # This mantle is inteded for people doing jobs that require internals. In particular, this mantle is a breath mask with pressure protection and welding protection.
