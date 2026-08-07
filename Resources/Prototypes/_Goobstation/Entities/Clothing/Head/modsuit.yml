@@ -454,8 +454,8 @@
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
-      head-feroxi:
-      - state: equipped-HEAD-sealed-feroxi
+      head-feroxi: # Omu, implemented feroxi sprites
+      - state: equipped-HEAD-sealed-feroxi # Omu
   - type: Armor
     modifiers:
       coefficients:
