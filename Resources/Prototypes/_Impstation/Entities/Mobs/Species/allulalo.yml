@@ -99,6 +99,7 @@
     - AnomalyHost
     - CanPilot
     - FootstepSound
+    - AllulaloEmotes
   - type: TypingIndicator
     proto: allulalo
   - type: Vocal
@@ -109,7 +110,7 @@
   - type: Speech
     speechSounds: Allulalo
     speechVerb: Allulalo
-    allowedEmotes: ['Chitter', 'Hiss']
+    allowedEmotes: ['Chitter', 'Hiss', 'Scree']
   - type: HumanoidAppearance
     species: Allulalo
     hideLayersOnEquip:

@@ -207,7 +207,8 @@ imp-phrase-ad-trapped = Trapped
 imp-phrase-ad-big = Big
 imp-phrase-ad-small = Small
 imp-phrase-ad-broken = Broken
-imp-phrase-ad-innocent = Inocent
+# Omu, correct Inocent to Innocent
+imp-phrase-ad-innocent = Innocent
 imp-phrase-ad-guilty = Guilty
 imp-phrase-ad-lethal = Lethal
 imp-phrase-ad-spaced = Spaced
@@ -266,13 +267,14 @@ imp-phrase-nouns-dwarf = Dwarf
 imp-phrase-nouns-vox = Vox
 imp-phrase-nouns-raptor = Allulalo
 imp-phrase-nouns-thaven = Thaven
-imp-phrase-nouns-apid = Apid
-imp-phrase-nouns-deca = Decapoid
+# Omu, below commented-out species are not present; Gray can stay for abductors/tourists
+# imp-phrase-nouns-apid = Apid
+# imp-phrase-nouns-deca = Decapoid
 imp-phrase-nouns-gray = Gray
-imp-phrase-nouns-snail = Gastropoid
-imp-phrase-nouns-shrimp = Anomalocarid
-imp-phrase-nouns-kodi = Kodepiia
-imp-phrase-nouns-ungu = Ungu
+# imp-phrase-nouns-snail = Gastropoid
+# imp-phrase-nouns-shrimp = Anomalocarid
+# imp-phrase-nouns-kodi = Kodepiia
+# imp-phrase-nouns-ungu = Ungu
 imp-phrase-nouns-xeno = Xeno
 imp-phrase-nouns-bird = Bird
 imp-phrase-nouns-cat = Cat
@@ -296,7 +298,8 @@ imp-phrase-nouns-lathe = Lathe
 imp-phrase-nouns-computer = Computer
 imp-phrase-nouns-tool = Tool
 imp-phrase-nouns-fruit = Fruit
-imp-phrase-nouns-veg = Vegtable
+# Omu, correct Vegtable to Vegetable
+imp-phrase-nouns-veg = Vegetable
 imp-phrase-nouns-meat = Meat
 imp-phrase-nouns-access = Access
 imp-phrase-nouns-id = ID
@@ -340,16 +343,19 @@ imp-phrase-nouns-seed = Seed
 imp-phrase-nouns-oven = Oven
 imp-phrase-nouns-art = Art
 imp-phrase-nouns-music = Music
-imp-phrase-nouns-defib = Defibulator
+# Omu, correct Defibulator to Defibrillator
+imp-phrase-nouns-defib = Defibrillator
 imp-phrase-nouns-stasis = Stasis Bed
 imp-phrase-nouns-mail = Mail
 imp-phrase-nouns-exped = Expedition
 imp-phrase-nouns-crime = Crime
 imp-phrase-nouns-cuffs = Handcuffs
-imp-phrase-nouns-warrent = Warrent
+# Omu, correct Warrent to Warrant
+imp-phrase-nouns-warrent = Warrant
 imp-phrase-nouns-brute = Brute
 imp-phrase-nouns-burn = Burn
-imp-phrase-nouns-toxic = Toxic
+# Omu, change from Toxic to Toxin; Toxic is readded in Adjectives
+imp-phrase-nouns-toxic = Toxin
 imp-phrase-nouns-rads = Radiation
 imp-phrase-nouns-poison = Poison
 imp-phrase-nouns-contra = Contraband
@@ -399,7 +405,8 @@ imp-phrase-nouns-welding = Welding Tool
 imp-phrase-nouns-o2 = Oxygen
 imp-phrase-nouns-n2 = Nitrogen
 
-imp-phrase-job-atmos = Atmospherics
+# Omu, replaces Atmospherics with Atmospheric Technician; Atmospherics moved to location
+imp-phrase-job-atmos = Atmospheric Technician
 imp-phrase-job-engie = Engineer
 imp-phrase-job-ce = Chief Engineer
 
@@ -425,7 +432,8 @@ imp-phrase-job-chemist = Chemist
 imp-phrase-job-cmo = Chief Medical Officer
 imp-phrase-job-paramed = Paramedic
 
-imp-phrase-job-qm = Quarter Master
+# Omu, correct Quarter Master to Quartermaster
+imp-phrase-job-qm = Quartermaster
 imp-phrase-job-courier = Courier
 imp-phrase-job-ct = Cargo Technician
 imp-phrase-job-salv = Salvage Specialist
@@ -435,7 +443,8 @@ imp-phrase-job-warden = Warden
 imp-phrase-job-secof = Security Officer
 imp-phrase-job-det = Detective
 
-imp-phrase-job-hop = Head Of Personel
+# Omu, correct Personel to Personnel
+imp-phrase-job-hop = Head Of Personnel
 imp-phrase-job-cap = Captain
 
 imp-phrase-danger-viral = Viral Threat
@@ -460,7 +469,8 @@ imp-phrase-hacked-target = Target
 imp-phrase-hacked-syndie = Syndicate
 imp-phrase-hacked-sacrifice = Sacrifice
 imp-phrase-hacked-sick = Paid Sick Leave
-imp-phrase-hacked-rights = Workers Rights
+# Omu, change from Workers to Worker for correctness
+imp-phrase-hacked-rights = Worker Rights
 imp-phrase-hacked-benifits = Benefits
 imp-phrase-hacked-deathsquad = Death Squad
 imp-phrase-hacked-straight = Straight
