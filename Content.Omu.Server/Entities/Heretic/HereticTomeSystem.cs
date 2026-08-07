@@ -9,6 +9,7 @@ using Content.Shared.Chat;
 using Content.Server.Chat.Managers;
 using Content.Omu.Shared.Entities.Heretic;
 using Content.Shared.Actions;
+using Content.Shared.Humanoid;
 
 namespace Content.Omu.Server.Entities.Heretic;
 
@@ -53,6 +54,14 @@ public sealed class HereticTomeSystem : EntitySystem
     {
         var actor = args.Actor;       //Get the players entity!
 
+
+        var size = component.FontSize;
+        string cannotread = Loc.GetString(component.Unreadable);
+        var loc = Loc.GetString(component.ExamineBaseMessage, ("size", size), ("text", component.Unreadable));
+
+        if (!TryComp<HumanoidAppearanceComponent>(args.Actor, out _))       //Ensure reader is a human, funny oversight.
+            return;
+
         if (component.Readers != null)
             if (component.Readers.Contains(actor))          //Have they read it before?
                 return;
@@ -62,6 +71,17 @@ public sealed class HereticTomeSystem : EntitySystem
 
         if (!_playerMan.TryGetSessionById(mind.UserId, out var session))
             return;
+
+        if (component.ProductAction != null)            // This is actually repulsive to look at.
+            if (!TryComp<FascinationComponent>(actor, out _))
+                return;
+            else if (TryComp<FascinationComponent>(actor, out var fascinationcomp))
+                if (fascinationcomp.FascinationValue < 5)
+                {
+                    _chatMan.ChatMessageToOne(ChatChannel.Server, cannotread, loc, default, false, session.Channel, canCoalesce: false);            //Not mad enough
+                    return;
+                }
+
 
         if (!TryComp<FascinationComponent>(actor, out var fasc))
             EnsureComp<FascinationComponent>(actor, out fasc);
@@ -77,8 +97,7 @@ public sealed class HereticTomeSystem : EntitySystem
         RaiseLocalEvent(actor, new FascinationChangedArgs { Amount = fascAmount});
 
         var message = Loc.GetString(fasc.MadnessMessage);       //Warn the user
-        var size = component.FontSize;
-        var loc = Loc.GetString(component.ExamineBaseMessage, ("size", size), ("text", message));
+        loc = Loc.GetString(component.ExamineBaseMessage, ("size", size), ("text", message));
         SharedChatSystem.UpdateFontSize(size, ref message, ref loc);
         _chatMan.ChatMessageToOne(ChatChannel.Server, message, loc, default, false, session.Channel, canCoalesce: false);
 
@@ -92,7 +111,7 @@ public sealed class HereticTomeSystem : EntitySystem
         if (component.ProductAction != null)            //Used for single actions
         {
             EntityUid? actionId;
-            actionId = _actionContainer.AddAction(mindId, component.ProductAction);
+            actionId = _actionContainer.AddAction(mindId, component.ProductAction);         //Tried using ensure action etc. Cannot get it to play ball.
         }
 
         component.Readers?.Add(actor);           // No double dipping!
