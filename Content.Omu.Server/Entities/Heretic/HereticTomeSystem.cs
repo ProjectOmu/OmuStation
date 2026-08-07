@@ -9,6 +9,7 @@ using Content.Shared.Chat;
 using Content.Server.Chat.Managers;
 using Content.Omu.Shared.Entities.Heretic;
 using Content.Shared.Actions;
+using Content.Shared.Humanoid;
 
 namespace Content.Omu.Server.Entities.Heretic;
 
@@ -52,6 +53,9 @@ public sealed class HereticTomeSystem : EntitySystem
     private void OnInteract(EntityUid book, HereticTomeComponent component, ref BoundUIClosedEvent args)
     {
         var actor = args.Actor;       //Get the players entity!
+
+        if (!TryComp<HumanoidAppearanceComponent>(args.Actor, out _))       //Ensure reader is a human, funny oversight.
+            return;
 
         if (component.Readers != null)
             if (component.Readers.Contains(actor))          //Have they read it before?
