@@ -134,10 +134,10 @@
       - state: eyes-engineering
         shader: unshaded
   - type: Armor # Makes the engineer and atmos mantles have radiation resistance. It is close to as strong as the CE's mantle.
-    coverage:
+  coverage:
     - Head
-    modifiers:
-     coefficients:
+  modifiers:
+    coefficients:
       Radiation: 0.15
       Slash: 0.90
       Blunt: 0.90
