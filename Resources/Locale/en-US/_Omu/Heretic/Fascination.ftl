@@ -9,4 +9,5 @@ fascination-examine-5 = A quiet madness has them in its clutches, they glance ar
 
 reagent-effect-guidebook-reduce-fascination = reduces the effects of psychiatric disturbance
 
-tome-unreadable = You cannot understand the content of the book, its too... something is unhinged about it.
+tome-unreadable = You cannot understand the content of the book, its too...
+    something is unhinged about it.

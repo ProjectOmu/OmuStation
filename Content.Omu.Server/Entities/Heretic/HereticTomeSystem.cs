@@ -56,7 +56,7 @@ public sealed class HereticTomeSystem : EntitySystem
 
 
         var size = component.FontSize;
-        string cannotread = Loc.GetString(component.Unreadable);
+        var cannotread = Loc.GetString(component.Unreadable);
         var loc = Loc.GetString(component.ExamineBaseMessage, ("size", size), ("text", component.Unreadable));
 
         if (!TryComp<HumanoidAppearanceComponent>(args.Actor, out _))       //Ensure reader is a human, funny oversight.
@@ -74,7 +74,10 @@ public sealed class HereticTomeSystem : EntitySystem
 
         if (component.ProductAction != null)            // This is actually repulsive to look at.
             if (!TryComp<FascinationComponent>(actor, out _))
+            {
+                _chatMan.ChatMessageToOne(ChatChannel.Server, cannotread, loc, default, false, session.Channel, canCoalesce: false);            //Not mad enough
                 return;
+            }
             else if (TryComp<FascinationComponent>(actor, out var fascinationcomp))
                 if (fascinationcomp.FascinationValue < 5)
                 {
