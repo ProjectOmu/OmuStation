@@ -831,3 +831,42 @@
     wideAnimationRotation: 180
     soundHit:
       collection: Squishes
+
+      
+- type: entity
+  parent: BasePlushie
+  id: PlushieRebeccaOmucrew
+  name: Rebecca Hawkins plushie
+  description: Cheron, whatever you do, don't let them turn me into a marketable plushi-
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/cryptisy.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/cryptisy.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/cryptisy.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnUse
+    sound:
+      collection: /Audio/Voice/Human/female_cough_2.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      collection: Pops
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Human/cry_female_3.ogg
+        - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Voice/Human/cry_female_4.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Voice/Human/femalescream_3.ogg
