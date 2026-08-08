@@ -1,0 +1,48 @@
+- type: entity
+  id: ActionJumpChangeling
+  parent: BaseAction
+  name: Jump
+  description: Jump forward with great speed in order to stun lesser beings. Costs 50 chemicals.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    priority: 0
+    useDelay: 3
+    icon: { sprite : _Omu/Changeling/changeling_abilities.rsi, state: changeling_leap_off }
+    iconOn: { sprite : _Omu/Changeling/changeling_abilities.rsi, state: changeling_leap_on }
+  - type: TargetAction
+    range: 10
+  - type: WorldTargetAction
+    event: !type:JumpActionEvent
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 50
+    
+- type: entity
+  parent: BaseAction
+  id: ActionStingBerserk
+  name: Berserk Sting
+  description: Silently sting your target, driving them into a berserk rage. Costs 45 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: sting_berserk
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:StingReagentEvent {}
+  - type: ChangelingAction
+    useInLesserForm: true
+  - type: ChangelingReagentSting
+    configuration: StingBerserk
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 45

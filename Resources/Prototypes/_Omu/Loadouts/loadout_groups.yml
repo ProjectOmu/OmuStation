@@ -363,6 +363,7 @@
   - SecurityOfficerGunCase
   - SecurityOfficerMk58
   - SecurityOfficerSecurityDutyRevolver
+  - SecurityOfficerEG1
   - BrigmedTerminus
   - WeaponPistolMk58Gold
 
@@ -392,3 +393,32 @@
   - HeadSlimeHead
   - HeadFlowerHead
   - HeadbandSkull
+
+# musician
+- type: loadoutGroup
+  id: MusicianShoes
+  name: loadout-group-musician-shoes
+  loadouts:
+  - BlackShoes
+  - LaceupBoots
+  - LeatherShoes
+  - MusicianMikuShoes
+
+- type: loadoutGroup
+  id: MusicianHat
+  name: loadout-group-musician-hat
+  minLimit: 0
+  loadouts:
+  - MusicianMikuHead
+
+#Civillian Formal
+- type: loadoutGroup
+  id: CivilianFormalShoes
+  name: loadout-group-civilian_formal-shoes
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - LaceupBoots
+  - WhiteShoes
+  - LeatherShoes
+  - WinterBoots
