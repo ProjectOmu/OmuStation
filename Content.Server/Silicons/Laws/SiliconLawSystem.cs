@@ -122,7 +122,6 @@ using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Database; // goob logging
 using Content.Server.Administration.Logs; // goob logging
-using Content.Shared.Tag; //Starlight
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -144,6 +143,7 @@ using Content.Server.Research.Systems;
 
 // Corvax-Next-AiRemoteControl
 using Content.Shared.Silicons.StationAi;
+using Content.Shared.Tag;
 using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 namespace Content.Server.Silicons.Laws;
 
@@ -644,7 +644,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     }
     // Goob edit end
 
-/// STARLIGHT START
+    /// STARLIGHT START
     private void OnGotEmagged(Entity<SiliconLawProviderComponent> ent, ref GotEmaggedEvent args)
     {
         if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
@@ -666,8 +666,9 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         args.Repeatable = true;
         args.Handled = true;
     }
+    /// STARLIGHT END
 }
-/// STARLIGHT END
+
 [ToolshedCommand, AdminCommand(AdminFlags.Admin)]
 public sealed class LawsCommand : ToolshedCommand
 {
