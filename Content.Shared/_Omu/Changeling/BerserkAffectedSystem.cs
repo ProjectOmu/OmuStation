@@ -1,28 +1,16 @@
-using System.Linq;
-using Content.Goobstation.Common.Religion;
-using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Goobstation.Wizard.TimeStop;
 using Content.Shared._Goobstation.Wizard.Traps;
-using Content.Shared._Shitcode.Heretic.Systems;
 using Content.Shared.Administration;
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.CombatMode;
 using Content.Shared.Examine;
-using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged.Systems;
-using Content.Shared.Inventory;
-using Content.Shared.Projectiles;
 using Robust.Shared.Network;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Events;
-using Robust.Shared.Physics.Systems;
+using Content.Shared.Popups;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -31,17 +19,16 @@ namespace Content.Shared._Omu.Changeling;
 
 public abstract class BerserkAffectedSystem : EntitySystem
 {
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _weapon = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
     public override void Initialize()
     {
@@ -119,6 +106,9 @@ public abstract class BerserkAffectedSystem : EntitySystem
                 _gun.AttemptShoot(uid, gun, gunComp, coords, target);
             else if (meleeComp != null)
                 _weapon.AttemptLightAttack(uid, weapon, meleeComp, target);
+
+            var message = Loc.GetString(rand.Pick(affected.AngerMessages));
+            _popupSystem.PopupEntity(message, uid, uid);
         }
 
         if (!_timing.IsFirstTimePredicted)
