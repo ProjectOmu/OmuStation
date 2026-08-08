@@ -1743,6 +1743,16 @@
   minLimit: 0
   loadouts:
   - SterileMask
+  # Omustation Changes Start - Sterile Masks
+  - SterileMaskRed
+  - SterileMaskOrange
+  - SterileMaskYellow
+  - SterileMaskGreen
+  - SterileMaskBlue
+  - SterileMaskPurple
+  - SterileMaskWhite
+  - SterileMaskBlack
+  # Omustation Changes End
 
 - type: loadoutGroup
   id: MedicalInternJumpsuit

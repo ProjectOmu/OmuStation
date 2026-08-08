@@ -71,11 +71,31 @@
   id: BrigmedicHeadset
   equipment:
     ears: ClothingHeadsetBrigmedic
+  effects:
+  - !type:SpeciesLoadoutEffect
+    inverted: true
+    species:
+    - IPC
 
 - type: loadout
   id: BrigmedicAltHeadset
   equipment:
     ears: ClothingHeadsetAltBrigmedic
+  effects:
+  - !type:SpeciesLoadoutEffect
+    inverted: true
+    species:
+    - IPC
+
+- type: loadout
+  id: BrigmedicEncryptionKey
+  storage:
+    back:
+    - ClothingHeadsetBrigmedic
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - IPC
 
 - type: loadout
   id: GlassesCorpsman
