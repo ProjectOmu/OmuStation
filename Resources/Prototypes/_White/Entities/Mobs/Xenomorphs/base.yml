@@ -194,6 +194,17 @@
     - DoorBumpOpener
     - FootstepSound
   - type: XenomorphShoveTracker
+  - type: MeleeWeapon # Omu, make it so they do structural damage.
+    altDisarm: true
+    angle: 0
+    soundHit:
+      collection: AlienClaw
+    animation: WeaponArcBite
+    damage:
+      groups:
+        Brute: 25
+      types:
+        Structural: 20
 
 - type: entity
   id: BaseMobXenomorphDungeon
