@@ -1,0 +1,11 @@
+- type: entity
+  parent: BaseItem
+  id: BaseLodestone
+  abstract: true
+  name: Lodestone
+  description: You shouldn't see this!
+  components:
+  - type: Tag
+    tags:
+    - ForceableFollow
+  - type: Lodestone
