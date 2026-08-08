@@ -129,7 +129,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
 
         if (TryComp<PhysicsComponent>(uid, out var physics))
             report.AddMarkupOrThrow(Loc.GetString("fugitive-report-weight", ("weight", Math.Round(physics.FixturesMass))));
-            report.PushNewline(); // Omu
+        report.PushNewline(); // Omu
 
         // add a random identifying quality that officers can use to track them down
         report.AddMarkupOrThrow(RobustRandom.Next(0, 2) switch

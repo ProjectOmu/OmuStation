@@ -1,8 +1,10 @@
 using Content.Server.Antag;
+using Content.Server.Nyanotrasen.StationEvents.Components;
 using Content.Server.StationEvents.Components;
+using Content.Server.StationEvents.Events;
 using Robust.Shared.Map;
 
-namespace Content.Server.StationEvents.Events;
+namespace Content.Server.Nyanotrasen.StationEvents.Events;
 
 /// <summary>
 /// Makes antags spawn at a random midround antag or vent critter spawner.
