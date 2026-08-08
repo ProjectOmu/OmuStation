@@ -73,6 +73,12 @@
 #    message: psionic-power-precognition-fugitive-result-message
   - type: FugitiveRule
   - type: AntagLoadProfileRule
+    # Omu start
+    speciesOverride: Human
+    speciesOverrideBlacklist:
+    - Abductor
+    - Plasmaman
+    # Omu end
   - type: AntagObjectives
     objectives:
     - FugitiveEscapeObjective
@@ -92,8 +98,8 @@
         - NamesFakeHumanFirst
         - NamesFakeHumanLast
         nameFormat: name-format-standard
-      - type: RandomHumanoidAppearance
-        randomizeName: false
+      #- type: RandomHumanoidAppearance # Omu
+      #  randomizeName: false
       - type: EmitSoundOnSpawn # fell out of the ceiling
         sound: /Audio/Effects/clang.ogg
       mindRoles:
