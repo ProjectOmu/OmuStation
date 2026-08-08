@@ -102,12 +102,6 @@ public sealed partial class LockComponent : Component
     [AutoNetworkedField]
     public TimeSpan UnlockTime;
 
-    [DataField]
-    public bool PopupMessage = true; // Starlight-edit
-
-    [DataField]
-    public bool PowerNeeded = false; // Starlight-edit
-
     /// <summary>
     ///  Whether or not the lock can be auto unlocked when pickuped.
     /// </summary>
