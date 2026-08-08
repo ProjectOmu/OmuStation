@@ -53,13 +53,15 @@ using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
-
 using Content.Shared.Emag.Systems;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory.VirtualItem;
 using Robust.Shared.Configuration;
+using Content.Shared._Omu.Entities.Objects.BloodredVim;         //OMU
+using Content.Shared.Administration.Logs;       //OMU
+using Content.Shared.Database;          //OMU
 
 namespace Content.Shared.Mech.EntitySystems;
 
@@ -83,6 +85,7 @@ public abstract partial class SharedMechSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!; // Goobstation Change
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!; // Goobstation Change
     [Dependency] private readonly IConfigurationManager _config = default!; // Goobstation Change
+    [Dependency] private readonly ISharedAdminLogManager _admin = default!;     //OMU
 
     // Goobstation: Local variable for checking if mech guns can be used out of them.
     private bool _canUseMechGunOutside;
@@ -105,6 +108,7 @@ public abstract partial class SharedMechSystem : EntitySystem
         SubscribeLocalEvent<MechPilotComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<MechPilotComponent, EntGotRemovedFromContainerMessage>(OnEntGotRemovedFromContainer);
         SubscribeLocalEvent<MechEquipmentComponent, ShotAttemptedEvent>(OnShotAttempted); // Goobstation
+        SubscribeLocalEvent<MechComponent, BloodredVimBoostActionEvent>(OnBoost);    //omu
         Subs.CVar(_config, GoobCVars.MechGunOutsideMech, value => _canUseMechGunOutside = value, true); // Goobstation
 
         InitializeRelay();
@@ -195,6 +199,11 @@ public abstract partial class SharedMechSystem : EntitySystem
         _actions.AddAction(pilot, ref component.MechUiActionEntity, component.MechUiAction, mech);
         _actions.AddAction(pilot, ref component.MechEjectActionEntity, component.MechEjectAction, mech);
         _actions.AddAction(pilot, ref component.ToggleActionEntity, component.ToggleAction, mech); //Goobstation Mech Lights toggle action
+
+        if (component.MechSpecialAction != null)       //Omu add mech special actions
+        {
+            _actions.AddAction(pilot, ref component.MechSpecialActionEntity, component.MechSpecialAction, mech);
+        }
     }
 
     private void RemoveUser(EntityUid mech, EntityUid pilot)
@@ -598,6 +607,21 @@ public abstract partial class SharedMechSystem : EntitySystem
         component.EquipmentWhitelist = null;
         Dirty(uid, component);
     }
+
+    public virtual void OnBoost(Entity<MechComponent> ent, ref BloodredVimBoostActionEvent args)        //Omu
+    {
+        if (args.Handled)
+            return;
+        args.Handled = true;
+
+        //EntityUid mech = ent.Comp.Owner;
+        var ev = new BloodredVimBoostInternalActionEvent();
+        if (args.Entity != null)
+            ev.Entity = args.Entity;
+        ev.Target = args.Target;
+        ev.Performer = ent;
+        RaiseLocalEvent(ent, ev, true);
+    }       //Omu end
 }
 
 /// <summary>

@@ -140,6 +140,13 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
                 Message = canUnderstand ? args.OriginalChatMsg : args.LanguageObfuscatedChatMsg
             };
             _netMan.ServerSendMessage(msg, actor.PlayerSession.Channel);
+
+            // Einstein Engines - Language end
+
+            // Mono - Borers begin
+            var ev = new RadioMessageHeardEvent(uid, msg, args.Channel);
+            RaiseLocalEvent(Transform(uid).ParentUid, ref ev);
+            // Mono - Borers end
         }
         // Einstein Engines - Language end
     }

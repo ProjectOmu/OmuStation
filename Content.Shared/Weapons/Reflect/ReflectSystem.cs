@@ -103,7 +103,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Content.Shared.Examine;
 using Content.Shared.Localizations;
-
+using Robust.Shared.Spawners;
 namespace Content.Shared.Weapons.Reflect;
 
 /// <summary>
@@ -197,19 +197,47 @@ public sealed class ReflectSystem : EntitySystem
             return false;
         }
 
-        var rotation = _random.NextAngle(-reflector.Comp.Spread / 2, reflector.Comp.Spread / 2).Opposite();
-        var existingVelocity = _physics.GetMapLinearVelocity(projectile, component: physics);
-        var relativeVelocity = existingVelocity - _physics.GetMapLinearVelocity(user);
-        var newVelocity = rotation.RotateVec(relativeVelocity);
+        #region Starlight
+        // Starlight Start
+        if (reflector.Comp.OverrideAngle is not null)
+        {
+            var overrideAngle = _transform.GetWorldRotation(reflector) + reflector.Comp.OverrideAngle.Value;
 
-        // Have the velocity in world terms above so need to convert it back to local.
-        var difference = newVelocity - existingVelocity;
+            var existingVelocity = _physics.GetMapLinearVelocity(projectile, component: physics);
+            var relativeVelocity = existingVelocity - _physics.GetMapLinearVelocity(user);
+            var speed = relativeVelocity.Length();
 
-        _physics.SetLinearVelocity(projectile, physics.LinearVelocity + difference, body: physics);
+            var newVelocity = new Vector2((float)Math.Cos(overrideAngle), (float)Math.Sin(overrideAngle)) * speed;
 
-        var locRot = Transform(projectile).LocalRotation;
-        var newRot = rotation.RotateVec(locRot.ToVec());
-        _transform.SetLocalRotation(projectile, newRot.ToAngle());
+            var difference = newVelocity - existingVelocity;
+            _physics.SetLinearVelocity(projectile, physics.LinearVelocity + difference, body: physics);
+            var velocityAngle = (float)Math.Atan2(newVelocity.Y, newVelocity.X);
+            _transform.SetWorldRotation(projectile, velocityAngle - reflector.Comp.OverrideAngle.Value);
+            var uid = projectile.Owner; //omu edit for despawning
+            if (TryComp<TimedDespawnComponent>(uid, out var timedDespawn))
+            {
+                timedDespawn.Lifetime = timedDespawn.Lifetime - 1f;
+            }
+        }
+        else
+
+        {
+            var rotation = _random.NextAngle(-reflector.Comp.Spread / 2, reflector.Comp.Spread / 2).Opposite();
+            var existingVelocity = _physics.GetMapLinearVelocity(projectile, component: physics);
+            var relativeVelocity = existingVelocity - _physics.GetMapLinearVelocity(user);
+            var newVelocity = rotation.RotateVec(relativeVelocity);
+
+            // Have the velocity in world terms above so need to convert it back to local.
+            var difference = newVelocity - existingVelocity;
+
+            _physics.SetLinearVelocity(projectile, physics.LinearVelocity + difference, body: physics);
+
+            var locRot = Transform(projectile).LocalRotation;
+            var newRot = rotation.RotateVec(locRot.ToVec());
+            _transform.SetLocalRotation(projectile, newRot.ToAngle());
+        }
+        // Starlight End
+        #endregion
 
         if (TryComp(projectile, out HomingProjectileComponent? homing)) // Goobstation
             RemCompDeferred(projectile, homing);
@@ -248,8 +276,11 @@ public sealed class ReflectSystem : EntitySystem
         Vector2 direction,
         ReflectType hitscanReflectType,
         DamageSpecifier? damage, // WD EDIT
+
         [NotNullWhen(true)] out Vector2? newDirection)
     {
+        newDirection = null; //Starlight
+
         if ((reflector.Comp.Reflects & hitscanReflectType) == 0x0 ||
             !_toggle.IsActivated(reflector.Owner) ||
             // Goob edit start
@@ -266,9 +297,20 @@ public sealed class ReflectSystem : EntitySystem
         if (reflector.Comp.DamageOnReflectModifier != 0 && damage != null)
             _damageable.TryChangeDamage(reflector, damage * reflector.Comp.DamageOnReflectModifier, origin: shooter);
         // WD EDIT END
+        // Starlight Start
+        if (reflector.Comp.OverrideAngle is { } newAngle)
+        {
+            var overrideAngle = _transform.GetWorldRotation(reflector) + newAngle;
+            newDirection = new Vector2((float)Math.Cos(overrideAngle), (float)Math.Sin(overrideAngle));
+            newDirection = newDirection.Value.Normalized();
+        }
+        else
+        {
+            var spread = _random.NextAngle(-reflector.Comp.Spread / 2, reflector.Comp.Spread / 2);
+            newDirection = -spread.RotateVec(direction);
+        }
 
-        var spread = _random.NextAngle(-reflector.Comp.Spread / 2, reflector.Comp.Spread / 2);
-        newDirection = -spread.RotateVec(direction);
+        // Starlight end
 
         if (shooter != null)
             _adminLogger.Add(LogType.HitScanHit, LogImpact.Medium, $"{ToPrettyString(user)} reflected hitscan from {ToPrettyString(shotSource)} shot by {ToPrettyString(shooter.Value)}");

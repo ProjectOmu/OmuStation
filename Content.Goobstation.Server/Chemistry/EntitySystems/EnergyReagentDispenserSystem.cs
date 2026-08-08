@@ -238,7 +238,7 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
         {
             return comp.Reagents.TryGetValue(reagentId, out var cost)
                 ? cost * amount
-                : float.MaxValue;
+                : 0;//float.MaxValue; // Omu, was float.MaxValue
         }
         private void OnMapInit(Entity<EnergyReagentDispenserComponent> entity, ref MapInitEvent args) =>
             _itemSlotsSystem.AddItemSlot(entity.Owner, SharedEnergyReagentDispenser.OutputSlotName, entity.Comp.EnergyBeakerSlot);

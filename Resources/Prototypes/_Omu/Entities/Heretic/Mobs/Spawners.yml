@@ -1,0 +1,48 @@
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostMirrorMaiden
+  components:
+  - type: GhostRole
+    name: mirror-maiden-role-name
+    description: mirror-maiden-role-desc
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Objects/Weapons/Melee/energykatana.rsi
+      state: icon
+  - type: GhostRoleMobSpawner
+    prototype: MobGhoulMirrorMaiden
+
+- type: entity
+  parent: BaseGameRule
+  id: MirrorMaidenSpawn
+  components:
+  - type: StationEvent
+    weight: 2
+    earliestStart: 30
+    minimumPlayers: 50
+    duration: null
+    chaos:
+      Hostile: 20
+      Friend: 20
+      Combat: 40
+      Death: 100
+      Medical: 100
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 100
+  - type: RandomSpawnRule
+    prototype: SpawnPointGhostMirrorMaiden
+  - type: AntagObjectives
+    objectives:
+    - KillEnlightenedObjective
