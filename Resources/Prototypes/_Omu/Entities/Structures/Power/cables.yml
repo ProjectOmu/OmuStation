@@ -1,0 +1,111 @@
+- type: entity
+  parent: CableApcExtension
+  id: CableApcExtensionGranular0
+  name: LV G0 power cable
+  description: A cable used to connect machines to an APC. This older variant doesn't see much use anymore.
+  components:
+  - type: Sprite
+    color: Aqua
+    sprite: &sprite0 Structures/Power/Cables/lv_cable.rsi
+    state: lvcable_0
+  - type: Icon
+    sprite: *sprite0
+    state: lvcable_4
+  - type: Cable
+    cableDroppedOnCutPrototype: CableApcGranular0Stack1
+    cableType: Apc
+  - type: ExtensionCableProvider
+    transferRange: 0
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CableApcGranular0Stack1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: CableApcExtension
+  id: CableApcExtensionGranular1
+  name: LV G1 power cable
+  components:
+  - type: Sprite
+    color: Aqua
+    sprite: &sprite1 _Omu/Structures/Power/Cables/lv_cable_granular1.rsi
+    state: lvcable_0
+  - type: Icon
+    sprite: *sprite1
+    state: lvcable_4
+  - type: Cable
+    cableDroppedOnCutPrototype: CableApcGranular1Stack1
+    cableType: Apc
+  - type: ExtensionCableProvider
+    transferRange: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CableApcGranular1Stack1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: CableApcExtension
+  id: CableApcExtensionGranular2
+  name: LV G2 power cable
+  components:
+  - type: Sprite
+    color: Aqua
+    sprite: &sprite2 _Omu/Structures/Power/Cables/lv_cable_granular2.rsi
+    state: lvcable_0
+  - type: Icon
+    sprite: *sprite2
+    state: lvcable_4
+  - type: Cable
+    cableDroppedOnCutPrototype: CableApcGranular2Stack1
+    cableType: Apc
+  - type: ExtensionCableProvider
+    transferRange: 2
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors: #excess damage (nuke?). avoid computational cost of spawning entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CableApcGranular2Stack1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

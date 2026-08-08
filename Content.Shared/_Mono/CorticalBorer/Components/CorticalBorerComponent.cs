@@ -40,7 +40,7 @@ public sealed partial class CorticalBorerComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
-    public int ChemicalPointCap = 250;
+    public int ChemicalPointCap = 400;      //Omu up from 250 alongside egg cost
 
     /// <summary>
     /// Reagent injection amount
@@ -84,7 +84,7 @@ public sealed partial class CorticalBorerComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
-    public int EggCost = 200;
+    public int EggCost = 300;       //Omu up from 200, make it slower
 
     [DataField]
     public bool ControlingHost;

@@ -20,6 +20,8 @@
     - state: green
     - sprite: Objects/Weapons/Melee/energykatana.rsi
       state: icon
+  - type: GhostRoleMobSpawner
+    prototype: MobGhoulMirrorMaiden
 
 - type: entity
   parent: BaseGameRule

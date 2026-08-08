@@ -1,8 +1,5 @@
 - type: entity
-  parent:
-  - BaseMob
-  - MobCombat
-  - FlyingMobBase
+  parent: [ SimpleSpaceMobBase, MobCombat ]
   id: MobGhoulMirrorMaiden
   name: Mirror Maiden
   description: A trick of the light? Or is it the shimmering air itself come to claim you?
@@ -18,6 +15,7 @@
   - type: GhostRole
     name: mirror-maiden-role-name
     description: mirror-maiden-role-desc
+    rules: ghost-role-information-antagonist-rules
     mindRoles:
     - MindRoleGhoul
   - type: ActionGrant
@@ -35,13 +33,14 @@
     lightRadius: 0
     toggleAction: null
   - type: MeleeWeapon
+    altDisarm: false
     animation: WeaponArcClaw
     damage:
       types:
         Slash: 5
         Piercing: 10
   - type: Visibility
-    layer: 64 #same as influencespent
+    layer: 33 #same as influencespent
   - type: NpcFactionMember
     factions:
     - Mansus
@@ -77,6 +76,9 @@
           collection: GlassBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: CombatMode
+  - type: SeeHereticFixtures
+  - type: MansusMob
 
 - type: npcFaction
   id: Mansus
