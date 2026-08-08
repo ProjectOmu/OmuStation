@@ -1,4 +1,4 @@
-namespace Content.Server.StationEvents.Components;
+namespace Content.Server.Nyanotrasen.StationEvents.Components;
 
 /// <summary>
 /// Spawns any antags at random midround antag spawnpoints, falls back to vent critter spawners.
