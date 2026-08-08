@@ -140,7 +140,7 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
             EntityManager.AddComponents(newUid.Value, comps);
 
             if (TryComp<HumanoidAppearanceComponent>(newUid.Value, out var human))
-                _humanoidAppearance.AddMarking(newUid.Value, component.MarkingId, Color.Red, true, true, human);
+                _humanoidAppearance.AddMarking(newUid.Value, component.MarkingId, Color.Red, false, true, true, human); // Omu
 
             Spawn(component.BlackRecuperationEffect, Transform(newUid.Value).Coordinates);
 

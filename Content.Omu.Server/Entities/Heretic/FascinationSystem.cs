@@ -8,6 +8,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.NPC.Systems;
 using Content.Shared.NPC.Components;
+using Content.Shared._Omu.Heretic;
 
 namespace Content.Omu.Server.Entities.Heretic;
 
@@ -39,6 +40,11 @@ public sealed class FascinationSystem: EntitySystem
     }
     private void OnChange(Entity<FascinationComponent> ent, ref FascinationChangedArgs args)
     {
+        if (HasComp<MansusMobComponent>(ent)) // Ignore fascination tracking
+        {
+            return;
+        }
+
         ent.Comp.FascinationValue = args.Amount + ent.Comp.FascinationValue; //increment the fascination value by the amount of knowledge gained!
 
         float fascvalue = ent.Comp.FascinationValue;
