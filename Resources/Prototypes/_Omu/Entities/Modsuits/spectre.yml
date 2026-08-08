@@ -180,7 +180,7 @@
       - type: ContainmentFieldIgnore
       - type: NodeCrawler
         revealedComponents:
-          - Content.Shared.Atmos.Components.PipeAppearanceComponent
+        - Content.Shared.Atmos.Components.PipeAppearanceComponent
         exitNodes:
           components:
             - NodeCrawlVentAccess
