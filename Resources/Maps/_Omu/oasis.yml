@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/08/2026 22:03:31
-  entityCount: 30418
+  time: 08/08/2026 23:53:38
+  entityCount: 30419
 maps:
 - 1
 grids:
@@ -139538,6 +139538,11 @@ entities:
     components:
     - type: Transform
       pos: -52.5,-20.5
+      parent: 2
+  - uid: 30419
+    components:
+    - type: Transform
+      pos: -52.5,-19.5
       parent: 2
 - proto: LockerScienceFilled
   entities:

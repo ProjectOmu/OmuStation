@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/08/2026 22:16:06
-  entityCount: 27408
+  time: 08/08/2026 23:43:44
+  entityCount: 27411
 maps:
 - 1
 grids:
@@ -122594,10 +122594,20 @@ entities:
       parent: 2
 - proto: LockerSalvageSpecialistFilledHardsuit
   entities:
-  - uid: 1723
+  - uid: 21155
     components:
     - type: Transform
-      pos: -27.5,-27.5
+      pos: -34.5,-18.5
+      parent: 2
+  - uid: 21157
+    components:
+    - type: Transform
+      pos: -35.5,-18.5
+      parent: 2
+  - uid: 21288
+    components:
+    - type: Transform
+      pos: -36.5,-18.5
       parent: 2
 - proto: LockerScienceFilled
   entities:
@@ -144125,6 +144135,11 @@ entities:
     - type: Transform
       pos: 1.5,-24.5
       parent: 2
+  - uid: 1723
+    components:
+    - type: Transform
+      pos: -27.5,-27.5
+      parent: 2
   - uid: 5532
     components:
     - type: Transform
@@ -144380,11 +144395,6 @@ entities:
     components:
     - type: Transform
       pos: -32.5,-26.5
-      parent: 2
-  - uid: 20262
-    components:
-    - type: Transform
-      pos: -27.5,-26.5
       parent: 2
   - uid: 20290
     components:
@@ -171153,6 +171163,11 @@ entities:
     components:
     - type: Transform
       pos: -26.5,-27.5
+      parent: 2
+  - uid: 20262
+    components:
+    - type: Transform
+      pos: -37.5,-18.5
       parent: 2
 - proto: WardrobeScienceFilled
   entities:
