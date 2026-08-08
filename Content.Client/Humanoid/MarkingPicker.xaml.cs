@@ -453,6 +453,34 @@ public sealed partial class MarkingPicker : Control
                 ColorChanged(colorIndex);
             };
             colorSelector.OnColorChanged += colorChanged;
+
+            // Omu begin
+            var glowyToggle = new CheckBox
+            {
+                Text = Loc.GetString("ui-marking-glowing"),
+                Pressed = listing[listing.Count - 1 - item.ItemIndex].GetGlowingIndex(i),
+            };
+
+            glowyToggle.OnToggled += o =>
+            {
+                if (_selectedMarking is null)
+                    return;
+
+                var markingPrototype = (MarkingPrototype) _selectedMarking.Metadata!;
+                var markingIndex = _currentMarkings.FindIndexOf(_selectedMarkingCategory, markingPrototype.ID);
+
+                if (markingIndex < 0)
+                    return;
+
+                var marking = new Marking(_currentMarkings.Markings[_selectedMarkingCategory][markingIndex]);
+                marking.SetGlowing(colorIndex, o.Pressed);
+                _currentMarkings.Replace(_selectedMarkingCategory, markingIndex, marking);
+
+                OnMarkingColorChange?.Invoke(_currentMarkings);
+            };
+
+            CMarkingColors.AddChild(glowyToggle);
+            // Omu end
         }
 
         CMarkingColors.Visible = true;

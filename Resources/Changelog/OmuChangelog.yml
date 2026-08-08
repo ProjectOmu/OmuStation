@@ -5703,3 +5703,69 @@ Entries:
       message: 'Bug fix: Chitinids now speak Chittin instead of Moffic'
   id: 747
   time: '2026-08-02T22:50:49.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: You can no longer parcel wrap entities with storage.
+  id: 748
+  time: '2026-08-04T07:04:28.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed heretic sacrifices not giving any knowledge
+  id: 749
+  time: '2026-08-04T22:06:16.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: >-
+        Added various colored medical masks to doctor loadouts. The dye smell
+        will wash out. Probably.
+  id: 750
+  time: '2026-08-05T13:40:53.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: Gave the poor Virologists their messenger bags back.
+    - type: Tweak
+      message: Resprited the Medical and Chemistry duffel bags.
+  id: 751
+  time: '2026-08-05T16:36:13.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: Made Accentless a free trait.
+  id: 752
+  time: '2026-08-07T00:21:19.0000000+00:00'
+- author: Thesia000
+  changes: []
+  id: 753
+  time: '2026-08-07T08:33:22.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: Added per color glowing toggles to markings.
+  id: 754
+  time: '2026-08-07T09:07:49.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Barricades cannot be climbed or crawled over any more.
+    - type: Tweak
+      message: >-
+        Xenos now deal structural (20 for adult xenos, 30 for Praetorians, 40
+        for Queens).
+  id: 755
+  time: '2026-08-08T15:57:31.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Add
+      message: Corpsman now gets auto chat highlights if you have the setting on
+  id: 756
+  time: '2026-08-08T20:02:03.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Fix
+      message: diagonal lattice merges better with normal lattice
+  id: 757
+  time: '2026-08-08T20:10:40.0000000+00:00'

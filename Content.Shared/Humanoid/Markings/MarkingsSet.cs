@@ -309,7 +309,7 @@ public sealed partial class MarkingSet
                             eyeColor,
                             this
                         );
-                    var marking = new Marking(points.DefaultMarkings[index], colors);
+                    var marking = new Marking(points.DefaultMarkings[index], colors, false); // Omu
 
                     AddBack(category, marking);
                 }
