@@ -49,6 +49,7 @@ shipment-medkit-box = medkit box
 shipment-bodybag = bodybag
 shipment-sterile-mask = sterile mask
 shipment-defibrillator = defibrillator
+shipment-rollerbed = rollerbed
 # tide
 shipment-spear = spear
 shipment-gas-mask = gas mask
