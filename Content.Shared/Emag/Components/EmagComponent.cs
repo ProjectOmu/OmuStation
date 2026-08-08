@@ -20,7 +20,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization;
 using Content.Shared.Whitelist; // Shitmed - Starlight Abductors
-using Content.Shared.Silicons.Laws;
+using Content.Shared.Silicons.Laws; //Starlight
 
 namespace Content.Shared.Emag.Components;
 
@@ -63,7 +63,7 @@ public sealed partial class EmagComponent : Component
     public LocId SuccessText = "emag-success";
 
     /// <summary>
-    /// What lawset should borgs get when emagged. note. fully replaces the lawset and prevents the "only x and those they designate are crew" and secrecy laws.
+    /// Starlight - What lawset should borgs get when emagged. note. fully replaces the lawset and prevents the "only x and those they designate are crew" and secrecy laws.
     /// </summary>
     [DataField]
     [AutoNetworkedField]

@@ -116,7 +116,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Popups; //Starlight
-using Content.Shared.Radio.Components;
+using Content.Shared.Radio.Components; //Starlight
 using Content.Shared.Roles;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
