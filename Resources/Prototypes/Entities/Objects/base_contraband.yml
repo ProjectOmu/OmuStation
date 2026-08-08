@@ -263,4 +263,12 @@
   components:
   - type: Contraband
     allowedJobs: [ Bartender ]
+
+- type: entity
+  id: BaseCargoCommandContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Cargo, Command ]
 # Omustation end

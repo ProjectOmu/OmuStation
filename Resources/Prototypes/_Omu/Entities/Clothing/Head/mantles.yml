@@ -73,17 +73,17 @@
     stealGroup: CyberneticMantles
   - type: Item
     size: Huge
-  - type: Armor # Omustation start
+  - type: Armor
     coverage:
     - Head
     modifiers:
       coefficients:
         Slash: 0.90
         Blunt: 0.90
-        Piercing: 0.90 # Omustation end
+        Piercing: 0.90
   - type: Tag # Overwrite the TagComponent from the parent to get rid of ClothMade because it's funny when a mothroach eats this ultra specialized bit of equipment, but only the first time.
     tags: []
-  - type: PlasmaUnfit #Omustation
+  - type: PlasmaUnfit
 
 # This mantle is inteded for people doing jobs that require internals. In particular, this mantle is a breath mask with pressure protection and welding protection.
 - type: entity
@@ -112,10 +112,10 @@
       color: "#CCFFCC"
     - type: BreathMask
     - type: EyeProtection
-    - type: IngestionBlocker # Work mantles, at least those with internals, make the cybernetic beast trait far more valuable to roles with these specialized mantles than those without. To offset this, at least a little, we'll say that the seals on the mantle make it impossible to eat while it's worn.
-    - type: PressureProtection
-      highPressureMultiplier: 0.1
-      lowPressureMultiplier: 1000
+  - type: IngestionBlocker # Work mantles, at least those with internals, make the cybernetic beast trait far more valuable to roles with these specialized mantles than those without. To offset this, at least a little, we'll say that the seals on the mantle make it impossible to eat while it's worn.
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
 
 # slight resprite of the work mantle for engineers.
 - type: entity
@@ -173,7 +173,7 @@
       coolingCoefficient: 0.2
     - type: EyeProtection
     - type: FireProtection
-      reduction: 0.6
+      reduction: 0.6    #Upped to help reduce tile fire damage
   - type: Contraband
     allowedDepartments: [ Engineering ]
 
@@ -181,7 +181,7 @@
 - type: entity
   id: ClothingCyberneticBeastMantleWorkChiefEngineering
   parent: ClothingCyberneticBeastMantleWorkEngineering
-  name: cybernetic beast's Chief Engineer mantle
+  name: cybernetic beast's chief engineer mantle
   description: A modified version of a cybernetic beast's mantle. This one has internals, lead plating, and extra thermal insulation.
   components:
   - type: Sprite
@@ -493,7 +493,6 @@
       isEquipment: true
       color: "#CCFFCC"
     - type: SolutionScanner
-    - type: ShowHealthBars
     - type: ShowDiseaseIcons
     - type: ShowHealthIcons
       damageContainers:
@@ -506,7 +505,7 @@
 - type: entity
   id: ClothingCyberneticBeastMantleBlueshieldOfficer
   parent: ClothingCyberneticBeastMantle
-  name: Cybetnetic beast's Blue Shield Officer mantle
+  name: Cybetnetic beast's blue shield officer mantle
   description: The best mantle that NT can afford to their most elite Officers. This one comes with a medsec and diagnostics hud, Kevlar plating and eye protection of all types, to help patch up command IPCs in the field and stop flashbangs from blinding the wearer
   components:
   - type: Sprite
@@ -640,7 +639,7 @@
 - type: entity
   parent: ClothingCyberneticBeastMantle
   id: ClothingCyberneticBeastMantleCentralCommandNoThermal
-  name: cybernetic beast's Nanotrasen Representative mantle
+  name: cybernetic beast's nanotrasen representative mantle
   description: A fancy gold plated mantle for the NTR. It comes equiped with central command glasses
   suffix: No thermals, DO NOT MAP
   components:
@@ -758,7 +757,7 @@
 - type: entity
   parent: ClothingCyberneticBeastMantle
   id: ClothingCyberneticBeastMantleSupply
-  name: cybernetic beast's Quatermaster mantle
+  name: cybernetic beast's quatermaster mantle
   description: A gaudy and expensive mantle, fit for individuals with a high net worth
   components:
   - type: Sprite
@@ -782,12 +781,12 @@
       color: "#CCFFCC"
   - type: Contraband
     allowedDepartments: [ Cargo, Command ]
-#Omustation Start
+
 # Bartender mantle with integraged beer goggles.
 - type: entity
   parent: [ClothingCyberneticBeastMantle, BaseBartenderContraband]
   id: ClothingCyberneticBeastMantleBar
-  name: cybernetic beast's Bartender Mantle
+  name: cybernetic beast's bartender Mantle
   description: A hand crafted mantle with integrated beer goggles, for the discerning bartender.
   components:
   - type: Sprite
@@ -815,7 +814,7 @@
 - type: entity
   parent: [ClothingCyberneticBeastMantle, BaseScienceContraband]
   id: ClothingCyberneticBeastMantleRoboticist
-  name: cybernetic beast's Roboticist Mantle
+  name: cybernetic beast's roboticist Mantle
   description: A specially designed roboticist mantle, with Diagnostics HUD and eye protection to weld those robots back together.
   components:
   - type: Sprite
@@ -866,7 +865,7 @@
 - type: entity
   id: ClothingCyberneticBeastMantleJanitor
   parent: [ClothingCyberneticBeastMantle, BaseJanitorContraband]
-  name: cybernetic beast's Janitorial Mantle
+  name: cybernetic beast's janitorial Mantle
   description: A Jury-rigged mantle that's been hacked together with a cleanhud to provide telemetry of spills and broken lights. It's night vision is purple instead of green. # Because overlaying multiple colours gets fucky
   components:
   - type: Sprite
@@ -890,4 +889,3 @@
       isEquipment: true
   - type: StealTarget
     stealGroup: None
-# Omustation End
