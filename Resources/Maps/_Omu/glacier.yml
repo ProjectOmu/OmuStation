@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/04/2026 13:37:38
-  entityCount: 18710
+  time: 08/08/2026 21:34:43
+  entityCount: 18717
 maps:
 - 1
 grids:
@@ -15313,6 +15313,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 42.5,65.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 18717
+    components:
+    - type: Transform
+      pos: -11.5,20.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -31340,6 +31347,26 @@ entities:
     - type: Transform
       pos: 3.5,55.5
       parent: 2
+  - uid: 18711
+    components:
+    - type: Transform
+      pos: -12.5,18.5
+      parent: 2
+  - uid: 18712
+    components:
+    - type: Transform
+      pos: -11.5,18.5
+      parent: 2
+  - uid: 18713
+    components:
+    - type: Transform
+      pos: -11.5,19.5
+      parent: 2
+  - uid: 18714
+    components:
+    - type: Transform
+      pos: -11.5,20.5
+      parent: 2
 - proto: CableApcStack
   entities:
   - uid: 3519
@@ -39816,6 +39843,16 @@ entities:
     components:
     - type: Transform
       pos: 38.5,65.5
+      parent: 2
+  - uid: 18715
+    components:
+    - type: Transform
+      pos: -11.5,19.5
+      parent: 2
+  - uid: 18716
+    components:
+    - type: Transform
+      pos: -11.5,20.5
       parent: 2
 - proto: CableMVStack
   entities:
