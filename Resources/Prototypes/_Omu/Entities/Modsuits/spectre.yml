@@ -183,7 +183,7 @@
         - Content.Shared.Atmos.Components.PipeAppearanceComponent
         exitNodes:
           components:
-            - NodeCrawlVentAccess
+          - NodeCrawlVentAccess
     # spectre modsuit stealth
     - type: ComponentToggler
       parent: true
