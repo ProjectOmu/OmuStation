@@ -129,6 +129,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed;
+using Content.Shared.Emag.Components; //Starlight
 
 // Goobstation usings
 using Content.Goobstation.Common.Silicons.Components;
@@ -654,8 +655,12 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
         if (_tagSystem.HasTag(args.EmagUid.Value, "FreeMag"))
         {
-            ent.Comp.Lawset = GetLawset("FreeLawset");
-            _popup.PopupEntity(Loc.GetString("lawboard-emag-popup"), ent);
+            if (TryComp<EmagComponent>(args.EmagUid.Value, out var emag) && emag.Lawset != null){
+                var lawset = emag.Lawset.Value; //Fallback to FreeLawSet because clearly something is going on
+                ent.Comp.Laws = lawset; //"FreeLawset"; TODO test
+                ent.Comp.Lawset = GetLawset("FreeLawset");
+                _popup.PopupEntity(Loc.GetString("lawboard-emag-popup"), ent);
+            }
         }
 
         args.Repeatable = true;
