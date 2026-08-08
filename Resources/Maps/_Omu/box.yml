@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/08/2026 21:58:19
-  entityCount: 27401
+  time: 08/08/2026 22:16:06
+  entityCount: 27408
 maps:
 - 1
 grids:
@@ -145474,6 +145474,71 @@ entities:
       - SurveillanceCameraCommand
       nameSet: True
       id: CC office
+  - uid: 21128
+    components:
+    - type: Transform
+      pos: -0.5,-8.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
+      nameSet: True
+      id: Bridge
+  - uid: 21129
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,-14.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
+      nameSet: True
+      id: AI Core
+  - uid: 21145
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,-14.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
+      nameSet: True
+      id: AI Core
+  - uid: 21146
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,-11.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
+      nameSet: True
+      id: AI Core
+  - uid: 21150
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,-26.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
+      nameSet: True
+      id: AI Core Entrance
+  - uid: 21152
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -7.5,-23.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
+      nameSet: True
+      id: HOP
   - uid: 22608
     components:
     - type: Transform
@@ -145950,6 +146015,17 @@ entities:
       id: Locker Room
 - proto: SurveillanceCameraGeneral
   entities:
+  - uid: 21151
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,-29.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
+      nameSet: True
+      id: Main Hall AI Core
   - uid: 22692
     components:
     - type: Transform
