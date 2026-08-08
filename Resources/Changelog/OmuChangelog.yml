@@ -5673,3 +5673,77 @@ Entries:
       message: Added cortical borers
   id: 743
   time: '2026-07-31T17:27:02.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        Fixed round end summary window crashing when a player writes a badly
+        formatted message as last message.
+  id: 744
+  time: '2026-08-01T20:47:04.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed firestacking on fires - they actually hurt again
+    - type: Fix
+      message: Fixed mirror maiden's visibility
+    - type: Tweak
+      message: Increased cortical borer egg laying cost to 250 from 200
+  id: 745
+  time: '2026-08-02T19:57:14.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added changeling leap - it leaps at you.
+  id: 746
+  time: '2026-08-02T21:16:51.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Fix
+      message: 'Bug fix: Chitinids now speak Chittin instead of Moffic'
+  id: 747
+  time: '2026-08-02T22:50:49.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: You can no longer parcel wrap entities with storage.
+  id: 748
+  time: '2026-08-04T07:04:28.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed heretic sacrifices not giving any knowledge
+  id: 749
+  time: '2026-08-04T22:06:16.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: >-
+        Added various colored medical masks to doctor loadouts. The dye smell
+        will wash out. Probably.
+  id: 750
+  time: '2026-08-05T13:40:53.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: Gave the poor Virologists their messenger bags back.
+    - type: Tweak
+      message: Resprited the Medical and Chemistry duffel bags.
+  id: 751
+  time: '2026-08-05T16:36:13.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: Made Accentless a free trait.
+  id: 752
+  time: '2026-08-07T00:21:19.0000000+00:00'
+- author: Thesia000
+  changes: []
+  id: 753
+  time: '2026-08-07T08:33:22.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: Added per color glowing toggles to markings.
+  id: 754
+  time: '2026-08-07T09:07:49.0000000+00:00'
