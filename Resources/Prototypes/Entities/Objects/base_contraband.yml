@@ -271,4 +271,45 @@
   components:
   - type: Contraband
     allowedDepartments: [ Cargo, Command ]
+
+- type: entity
+  id: BaseMedicalCommandContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Medical, Command ]
+    allowedJobs: [ Brigmedic, BlueshieldOfficer ]
+
+- type: entity
+  id: BaseScienceCommandContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Science, Command ]
+
+- type: entity
+  id: BaseEngineeringCommandContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Engineering, Command ]
+
+- type: entity
+  id: BaseSecurityCommandContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Security, Command ]
+
+- type: entity
+  id: BaseBrigmedicContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedJobs: [ Brigmedic ]
 # Omustation end
