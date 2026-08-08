@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/16/2026 14:46:03
+  time: 08/08/2026 23:30:13
   entityCount: 38879
 maps:
 - 1
@@ -189742,6 +189742,13 @@ entities:
         - 0
 - proto: LockerSalvageSpecialistFilled
   entities:
+  - uid: 25117
+    components:
+    - type: Transform
+      pos: 11.5,86.5
+      parent: 2
+- proto: LockerSalvageSpecialistFilledHardsuit
+  entities:
   - uid: 556
     components:
     - type: Transform
@@ -189757,33 +189764,6 @@ entities:
     - type: Transform
       pos: 40.5,30.5
       parent: 2
-  - uid: 25117
-    components:
-    - type: Transform
-      pos: 11.5,86.5
-      parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14673
-        moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
 - proto: LockerScienceFilledXenobiology
   entities:
   - uid: 1315
