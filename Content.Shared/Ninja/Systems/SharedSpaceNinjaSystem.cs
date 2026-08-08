@@ -136,6 +136,7 @@ public abstract class SharedSpaceNinjaSystem : EntitySystem
             return;
 
         // Yea, now reveal that son of a bitch >:3
+        // End DeltaV
         TryRevealNinja(ent, disable: true);
     }
 
