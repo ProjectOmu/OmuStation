@@ -298,14 +298,6 @@
     allowedDepartments: [ Engineering, Command ]
 
 - type: entity
-  id: BaseSecurityCommandContraband
-  parent: BaseRestrictedContraband
-  abstract: true
-  components:
-  - type: Contraband
-    allowedDepartments: [ Security, Command ]
-
-- type: entity
   id: BaseBrigmedicContraband
   parent: BaseRestrictedContraband
   abstract: true
