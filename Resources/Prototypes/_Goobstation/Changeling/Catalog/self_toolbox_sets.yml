@@ -1,4 +1,4 @@
-- type: thiefBackpackSet
+- type: selectableSet # Omu, was thiefBackpackSet
   id: SaboteurSELF
   name: The Saboteur
   description: self-backpack-category-saboteur-description
@@ -15,7 +15,7 @@
   - FreedomImplanter
   - ClothingEyesGlassesMeson
 
-- type: thiefBackpackSet
+- type: selectableSet # Omu, was thiefBackpackSet
   id: PressSELF
   name: The Press
   description: self-backpack-category-press-description
@@ -29,7 +29,7 @@
   - ClothingMaskGasVoiceChameleon
   - ScramImplanter
 
-- type: thiefBackpackSet
+- type: selectableSet # Omu, was thiefBackpackSet
   id: SpySELF
   name: The Spy
   description: self-backpack-category-spy-description

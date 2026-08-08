@@ -3,7 +3,7 @@
   parent: ToolboxThief
   suffix: SELF
   components:
-  - type: ThiefUndeterminedBackpack
+  - type: SetSelector # Omu, was ThiefUndeterminedBackpack
     maxSelectedSets: 1
     possibleSets:
     - SaboteurSELF
