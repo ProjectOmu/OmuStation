@@ -128,7 +128,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed;
-using Content.Shared.Emag.Components; //Starlight
+using Content.Shared.Emag.Components;
 
 // Goobstation usings
 using Content.Goobstation.Common.Silicons.Components;
