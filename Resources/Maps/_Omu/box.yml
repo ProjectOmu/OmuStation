@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/08/2026 21:25:17
+  time: 08/08/2026 21:58:19
   entityCount: 27401
 maps:
 - 1
@@ -11770,7 +11770,7 @@ entities:
       pos: 24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -40991.105
+      secondsUntilStateChange: -41058.23
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -83301,7 +83301,7 @@ entities:
       pos: -34.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -35179.645
+      secondsUntilStateChange: -35246.77
       state: Closing
   - uid: 13393
     components:
@@ -141737,6 +141737,12 @@ entities:
       parent: 2
 - proto: SinkWide
   entities:
+  - uid: 12107
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 18.5,-17.5
+      parent: 2
   - uid: 22050
     components:
     - type: Transform
@@ -144148,11 +144154,6 @@ entities:
     components:
     - type: Transform
       pos: 44.5,-44.5
-      parent: 2
-  - uid: 12107
-    components:
-    - type: Transform
-      pos: 18.5,-17.5
       parent: 2
   - uid: 16860
     components:
