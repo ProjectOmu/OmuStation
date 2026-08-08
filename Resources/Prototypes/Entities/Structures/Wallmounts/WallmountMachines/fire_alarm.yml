@@ -93,7 +93,7 @@
     boardName: wires-board-name-firealarm
     layoutId: FireAlarm
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: _Omu/Structures/Wallmounts/air_monitors.rsi # Omu edit - Fire alarms from /tg/station
     layers:
     - state: fire0
       map: ["fireAlarmBase"]

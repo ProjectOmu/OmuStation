@@ -107,7 +107,7 @@
   - type: Appearance
   - type: WiresVisuals
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: _Omu/Structures/Wallmounts/air_monitors.rsi # Omu edit - Air alarms from /tg/station
     layers:
     - state: alarmp
       map: ["airAlarmBase"]
