@@ -14,8 +14,8 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<NodeCrawlerComponent, ComponentStartup>(Onstartup);     //Omu - essential for vent crawling clothing and if the comp is added as an admeme
-        SubscribeLocalEvent<NodeCrawlerComponent, ComponentShutdown>(Onshutdown);   //Omu - essential for vent crawling clothing and if the comp is added as an admeme
+        SubscribeLocalEvent<NodeCrawlerComponent, ComponentStartup>(OnStartup);     //Omu - essential for vent crawling clothing and if the comp is added as an admeme
+        SubscribeLocalEvent<NodeCrawlerComponent, ComponentShutdown>(OnShutdown);   //Omu - essential for vent crawling clothing and if the comp is added as an admeme
 
         SubscribeLocalEvent<NodeCrawlerComponent, LocalPlayerAttachedEvent>(OnAttached);
         SubscribeLocalEvent<NodeCrawlerComponent, LocalPlayerDetachedEvent>(OnDetached);
@@ -23,13 +23,13 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
     }
 
     //Omu start
-    private void Onstartup(Entity<NodeCrawlerComponent> ent, ComponentInit args)
+    private void OnStartup(EntityUid uid, NodeCrawlerComponent component, ComponentStartup args)
     {
-        if (ent.Comp.Mover is not null)
-            _subfloor.Types = ent.Comp.RevealedComponents;
+        if (component.Mover is not null)
+            _subfloor.Types = component.RevealedComponents;
     }
 
-    private void OnShutdown(Entity<NodeCrawlerComponent> ent, ComponentShutdown args)
+    private void OnShutdown(EntityUid uid, NodeCrawlerComponent component, ComponentShutdown args)
     {
         _subfloor.Types = new Type[] { };
     }
