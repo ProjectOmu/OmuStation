@@ -576,6 +576,7 @@
   minLimit: 0
   loadouts:
   - ChefHead
+  - ChefBandana # Omu
 
 - type: loadoutGroup
   id: ChefMask
@@ -685,6 +686,7 @@
   minLimit: 0
   loadouts:
   - JanitorHead
+  - JanitorBandana # Omu
   - JanitorHeadSenior # Goobstation
 
 - type: loadoutGroup
@@ -944,6 +946,7 @@
   loadouts:
   - QuartermasterHead
   - QuartermasterBeret
+  - QuartermasterBandana # OmuStation
 
 - type: loadoutGroup
   id: QuartermasterJumpsuit
@@ -997,6 +1000,7 @@
   loadouts:
   - CargoTechnicianHead
   #- CargoTechnicianHeadMail # Goob/DeltaV - Mail # Omu - Moved to courier
+  - CargoBandana # OmuStation
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
@@ -1462,6 +1466,7 @@
   - SecurityHelmetAlt # Goobstation
   - SecurityBeret
   - SecurityHat
+  - SecurityBandana # Omu
   - TrooperHat
 
 - type: loadoutGroup

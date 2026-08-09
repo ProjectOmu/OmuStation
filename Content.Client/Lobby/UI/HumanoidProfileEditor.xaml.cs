@@ -472,7 +472,7 @@ namespace Content.Client.Lobby.UI
                 Profile = Profile.WithCharacterAppearance(
                     Profile.Appearance.WithHairColor(newColor.marking.MarkingColors[0]));
                 UpdateCMarkingsHair();
-                ReloadPreview();
+                ReloadProfilePreview(); // Omu - hair color change does not need complete refresh
             };
 
             FacialHairPicker.OnMarkingSelect += newStyle =>
@@ -491,7 +491,7 @@ namespace Content.Client.Lobby.UI
                 Profile = Profile.WithCharacterAppearance(
                     Profile.Appearance.WithFacialHairColor(newColor.marking.MarkingColors[0]));
                 UpdateCMarkingsFacialHair();
-                ReloadPreview();
+                ReloadProfilePreview(); // Omu - hair color change does not need complete refresh
             };
 
             HairStylePicker.OnSlotRemove += _ =>
