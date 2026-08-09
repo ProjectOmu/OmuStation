@@ -2,6 +2,7 @@ using Content.Client.SubFloor;
 using Content.Shared._DV.NodeCrawl;
 using Robust.Client.Player;
 using Robust.Shared.Player;
+using Robust.Shared.Timing;
 
 namespace Content.Client._DV.NodeCrawl;
 
@@ -9,31 +10,17 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
 {
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly SubFloorHideSystem _subfloor = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;   //Omu
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;  //Omu
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<NodeCrawlerComponent, ComponentStartup>(OnStartup);     //Omu - essential for vent crawling clothing and if the comp is added as an admeme
-        SubscribeLocalEvent<NodeCrawlerComponent, ComponentShutdown>(OnShutdown);   //Omu - essential for vent crawling clothing and if the comp is added as an admeme
-
         SubscribeLocalEvent<NodeCrawlerComponent, LocalPlayerAttachedEvent>(OnAttached);
         SubscribeLocalEvent<NodeCrawlerComponent, LocalPlayerDetachedEvent>(OnDetached);
         SubscribeLocalEvent<NodeCrawlerComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
     }
-
-    //Omu start
-    private void OnStartup(EntityUid uid, NodeCrawlerComponent component, ComponentStartup args)
-    {
-        if (component.Mover is not null)
-            _subfloor.Types = component.RevealedComponents;
-    }
-
-    private void OnShutdown(EntityUid uid, NodeCrawlerComponent component, ComponentShutdown args)
-    {
-        _subfloor.Types = new Type[] { };
-    }
-    //Omu end
 
     private void OnAttached(Entity<NodeCrawlerComponent> ent, ref LocalPlayerAttachedEvent args)
     {
@@ -51,9 +38,27 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
         if (_player.LocalEntity != ent)
             return;
 
+        ent.Comp.RevealedComponents = GetRevealedComponents(ent);
+
         if (ent.Comp.Mover is not null)
             _subfloor.Types = ent.Comp.RevealedComponents;
         else
             _subfloor.Types = new Type[] { };
+    }
+
+    private Type[] GetRevealedComponents(NodeCrawlerComponent component)
+    {
+        if (component.NetworkedComponents is null)
+            return Array.Empty<Type>();
+
+        var types = new List<Type>();
+
+        foreach (var name in component.NetworkedComponents)
+        {
+            if (_componentFactory.TryGetRegistration(name, out var registration))
+                types.Add(registration.Type);
+        }
+
+        return types.ToArray();
     }
 }

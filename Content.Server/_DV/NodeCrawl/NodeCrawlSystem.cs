@@ -20,12 +20,15 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
     [Dependency] private readonly IReflectionManager _reflection = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;  //Omu
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<CrawlableNodeComponent, NodeGroupsRebuilt>(OnNodeGroupsRebuilt);
 
+        SubscribeLocalEvent<NodeCrawlerComponent, ComponentStartup>(OnCrawlerStartup);      //Omu
         SubscribeLocalEvent<NodeCrawlerComponent, InhaleLocationEvent>(OnInhaleLocation);
         SubscribeLocalEvent<NodeCrawlerComponent, ExhaleLocationEvent>(OnExhaleLocation);
         SubscribeLocalEvent<NodeCrawlerComponent, AtmosExposedGetAirEvent>(OnGetAir);
@@ -207,4 +210,17 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
         ent.Comp.ReachableNodes = set;
         Dirty(ent);
     }
+
+    private void OnCrawlerStartup(Entity<NodeCrawlerComponent> ent, ref ComponentStartup args)      //Omu release me
+    {
+        ent.Comp.NetworkedComponents = new List<string>();
+
+        foreach (var type in ent.Comp.RevealedComponents)
+        {
+            if (_componentFactory.TryGetRegistration(type, out var registration))
+                ent.Comp.NetworkedComponents.Add(registration.Name);
+        }
+
+        Dirty(ent);
+    }       //Omu end
 }
