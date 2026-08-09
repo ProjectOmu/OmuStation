@@ -758,10 +758,18 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
 
         // The Original Message [-] Einstein Engines - Language
-        // Omu - RemoveMarkupOrThrow() ... throws an error when it's a invalid message, resulting in the message not appearing in chat.
-        // This could happen when for example someone sends a `[` or other things.
-        //var message = FormattedMessage.RemoveMarkupOrThrow(originalMessage);  // Remove markup before transforming. Omu - Line commented out
-        var message = FormattedMessage.EscapeText(originalMessage); // Escape after removing markup. Omu - variable changed
+        // Omu begin - Switched to the more permissive parser, so it doesn't immediately throw an error when you send a single bracket.
+        var message = originalMessage;
+        try
+        {
+            message = FormattedMessage.RemoveMarkupPermissive(message);
+        }
+        catch (Exception)
+        {
+            // Despite the method's name, this method also throws exceptions when it fails to parse, so let's catch it and just send the message as is.
+        }
+        message = FormattedMessage.EscapeText(message); // Escape after removing markup.
+        // Omu end
         message = TransformSpeech(source, message, language);
 
         if (message.Length == 0)
