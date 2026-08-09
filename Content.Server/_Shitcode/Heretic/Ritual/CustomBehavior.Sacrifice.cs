@@ -222,12 +222,23 @@ namespace Content.Server.Heretic.Ritual;
             // this is godawful dogshit. but it works :)
             if (_mind.TryFindObjective((args.Mind, mind), "HereticSacrificeObjective", out var crewObj)
             && args.EntityManager.TryGetComponent<HereticSacrificeConditionComponent>(crewObj, out var crewObjComp))
+            {
+                knowledgeGain = 2;
                 crewObjComp.Sacrificed += 1;
+            }
 
             if (_mind.TryFindObjective((args.Mind, mind), "HereticSacrificeHeadObjective", out var crewHeadObj)
             && args.EntityManager.TryGetComponent<HereticSacrificeConditionComponent>(crewHeadObj, out var crewHeadObjComp)
             && isCommand)
+            {
+                knowledgeGain = 3;
                 crewHeadObjComp.Sacrificed += 1;
+            }
+
+            if (isHeretic)
+            {
+                knowledgeGain = 5;
+            }
         }
 
         if (knowledgeGain > 0)
