@@ -10,8 +10,8 @@
       path: /Audio/Animals/space_dragon_roar.ogg
   - type: BasicEntityAmmoProvider
     proto: LetoferolHorrorSpikeSpread #DartAberrantFleshHorrorSpike
-    capacity: 2
-    count: 2
+    capacity: 1    # Omu one charge
+    count: 1  # Omu one charge
   - type: Gun
     minAngle: 5
     maxAngle: 15
@@ -67,7 +67,7 @@
     icon: { sprite : _NF/Mobs/Aliens/flesh.rsi, state: spike }
     priority: 2
     itemIconStyle: BigAction
-    useDelay: 6
+    useDelay: 5  # Omu same as recharge
   - type: TargetAction
     checkCanAccess: false
     range: 0
