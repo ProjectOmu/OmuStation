@@ -24,10 +24,13 @@ public sealed partial class NodeCrawlerComponent : Component
     [DataField(readOnly: true)]
     public Type[] RevealedComponents;
 
+    [DataField, AutoNetworkedField]
+    public List<String>? NetworkedComponents;
+
     /// <summary>
     /// Whitelist for entities that will be considered as exit nodes.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityWhitelist? ExitNodes;
 
     /// <summary>
