@@ -434,4 +434,14 @@
   product: CrateFunOmuPlushie
   cost: 1200
   category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
+  id: FunOmuCrewPlushies
+  icon:
+    sprite: _Omu/Objects/Fun/Plushies/Jeelus-an.rsi
+    state: icon
+  product: CrateFunOmuCrewPlushie
+  cost: 1200
+  category: cargoproduct-category-name-fun
   group: market # Omu End
