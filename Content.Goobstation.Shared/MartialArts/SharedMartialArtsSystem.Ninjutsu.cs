@@ -21,6 +21,7 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
+using Content.Shared.Tag; // Omu
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
@@ -32,6 +33,8 @@ namespace Content.Goobstation.Shared.MartialArts;
 public abstract partial class SharedMartialArtsSystem
 {
     public static ProtoId<AlertCategoryPrototype> NinjutsuAlertCategory = "Ninjutsu";
+
+    private static readonly ProtoId<TagPrototype> WeaponAllowTag = "NinjutsuWeapon"; // Omu
 
     private void InitializeNinjutsu()
     {
@@ -49,6 +52,8 @@ public abstract partial class SharedMartialArtsSystem
         SubscribeLocalEvent<NinjutsuSneakAttackComponent, ComponentInit>(OnSneakAttackInit);
         SubscribeLocalEvent<NinjutsuSneakAttackComponent, ComponentRemove>(OnSneakAttackRemove);
         SubscribeLocalEvent<NinjutsuSneakAttackComponent, StatusEffectEndedEvent>(OnAlertEffectEnded);
+
+        SubscribeLocalEvent<NinjutsuSneakAttackComponent, DamageChangedEvent>(OnDamageChanged); // Omu
     }
 
     private void OnBeforeGunShot(Entity<NinjutsuSneakAttackComponent> ent, ref SelfBeforeGunShotEvent args)
@@ -283,6 +288,9 @@ public abstract partial class SharedMartialArtsSystem
         if (!TryComp(weapon, out melee))
             return false;
 
+        if (!_tag.HasTag(weapon, WeaponAllowTag)) // Omu
+            return false;
+
         return user == weapon || melee.Damage.DamageDict.ContainsKey("Slash");
     }
 
@@ -295,4 +303,39 @@ public abstract partial class SharedMartialArtsSystem
 
         _stealth.TryRevealNinja(uid);
     }
+
+    // Omu start
+    private void OnDamageChanged(Entity<NinjutsuSneakAttackComponent> ent, ref DamageChangedEvent args)
+    {
+        // If there's no damage delta, just return
+        if (args.DamageDelta is not { } damage)
+            return;
+
+        // Don't reveal on (most) healing
+        if (!args.DamageIncreased)
+            return;
+
+        // If the damage doesn't have a source, we need to check the type, in case it
+        // was a grenade or explosion. We want to ignore airloss and toxin damage types.
+        if (!args.Origin.HasValue)
+        {
+            // If there are any negative values, its probably natual or chem healing, so don't reveal. It might be an OD from medicine.
+            if (!damage.AnyPositive())
+                return;
+
+            // Check the damage types for damage types that should reveal (brute, burns)
+            // Basically, we want to ignore most indirect forms of damage (airloss, toxins)
+            var damageGroups = damage.GetDamagePerGroup(_proto);
+            if (!damageGroups.ContainsKey("Brute") && !damageGroups.ContainsKey("Burn")) // This feels a bit dirty, oh well.
+                return;
+        }
+
+        // Only reveal on damage at least the minumum. This prevents tiny ticks of damage (e.g. from malign rifts pulses)
+        if (damage.GetTotal() < ent.Comp.MinimumRevealDamage)
+            return;
+
+        // Yea, now reveal that son of a bitch >:3
+        ResetDebuff(ent);
+    }
+    // Omu end
 }
