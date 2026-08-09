@@ -88,6 +88,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Omu.Common.Construction;
 using Content.Server.Administration.Logs;
 using Content.Server.Construction.Components;
 using Content.Server.Temperature.Components;
@@ -463,38 +464,16 @@ namespace Content.Server.Construction
                     if (doAfterState == DoAfterState.Completed)
                         return  HandleResult.True;
 
+                    // Omustation Start
                     if (HasComp<BigMachineBeingBuiltComponent>(uid))
                     {
-                        var xform = Transform(uid);
+                        var bigBuildEvent = new BigBuildAttemptEvent(uid, user.Value);
+                        RaiseLocalEvent(uid, ref bigBuildEvent, true);
 
-                        if (xform.GridUid is not { } grid || !TryComp<MapGridComponent>(grid, out var gridComp))
+                        if (bigBuildEvent.Cancelled)
                             return HandleResult.False;
-
-                        var buildPos = _map.TileIndicesFor(grid, gridComp, xform.Coordinates);
-
-                        var positions = new List<EntityCoordinates> // todo this is shit and manually makes a 3x3 square to check. Probably could be smarter.
-                        {
-                            _map.ToCenterCoordinates(grid, buildPos + new Vector2i(-1,  1)),
-                            _map.ToCenterCoordinates(grid, buildPos + new Vector2i( 0,  1)),
-                            _map.ToCenterCoordinates(grid, buildPos + new Vector2i( 1,  1)),
-                            _map.ToCenterCoordinates(grid, buildPos + new Vector2i(-1,  0)),
-                            _map.ToCenterCoordinates(grid, buildPos),
-                            _map.ToCenterCoordinates(grid, buildPos + new Vector2i( 1,  0)),
-                            _map.ToCenterCoordinates(grid, buildPos + new Vector2i(-1, -1)),
-                            _map.ToCenterCoordinates(grid, buildPos + new Vector2i( 0, -1)),
-                            _map.ToCenterCoordinates(grid, buildPos + new Vector2i( 1, -1)),
-                        };
-
-                        foreach (var coords in positions)
-                        {
-                            if (_lookupSystem.AnyEntitiesIntersecting(coords, LookupFlags.Dynamic | LookupFlags.Static))
-                            {
-                                // if anything intersects in the 3x3 space cancel construction push markup that there's not enough space.
-                                _popup.PopupEntity("Fuck you stop building there's no space here.", uid, user.Value);
-                                return HandleResult.False;
-                            }
-                        }
                     }
+                    // Omustation End
 
                     var result  = _toolSystem.UseTool(
                         interactUsing.Used,

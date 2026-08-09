@@ -15,9 +15,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Omu.Common.Construction;
 using Content.Server.Construction.Components;
 using Content.Server.Stack;
-using Content.Shared._Starlight.Power.BluespaceHarvester;
 using Content.Shared.Construction.Components;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;

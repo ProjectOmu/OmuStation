@@ -7,7 +7,7 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: engineering
-  - type: BigMachineBoard
+  - type: BigMachineBoard # Omu component
   - type: MachineBoard
     prototype: BluespaceHarvester
     stackRequirements:
