@@ -23,13 +23,13 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
     }
 
     //Omu start
-    private void Onstartup(Entity<NodeCrawlerComponent> ent)
+    private void Onstartup(Entity<NodeCrawlerComponent> ent, ComponentInit args)
     {
         if (ent.Comp.Mover is not null)
             _subfloor.Types = ent.Comp.RevealedComponents;
     }
 
-    private void OnShutdown(Entity<NodeCrawlerComponent> ent)
+    private void OnShutdown(Entity<NodeCrawlerComponent> ent, ComponentShutdown args)
     {
         _subfloor.Types = new Type[] { };
     }
