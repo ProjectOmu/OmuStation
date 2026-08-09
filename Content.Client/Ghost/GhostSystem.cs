@@ -41,7 +41,7 @@ using Content.Client._Shitcode.Wizard.Systems;
 using Content.Client.Movement.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Ghost;
-using Content.Shared._White.Ghost; // Omustation - Port WD Respawn Button
+using Content.Shared._White.Ghost;
 using Robust.Client.Console;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
