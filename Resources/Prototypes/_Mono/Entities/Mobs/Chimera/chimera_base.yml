@@ -16,7 +16,7 @@
   description: A horribly mutated whatever-this-once-was.
   abstract: true
   components:
-  - type: Temperature     # Omu - Make em take heat damage
+  - type: Temperature     # Omu - Make em take heat damage 
     heatDamageThreshold: 320
     coldDamageThreshold: -250 # Should make mobs immune to cold planets
     currentTemperature: 310.15
@@ -26,7 +26,7 @@
     specificHeat: 42
     heatDamage: #per second, scales with temperature & other constants
       types:
-        Heat: 1.5
+        Heat: 1.5  # Omu end
   - type: HTN
     rootTask:
       task: ChimeraHostileCompound
