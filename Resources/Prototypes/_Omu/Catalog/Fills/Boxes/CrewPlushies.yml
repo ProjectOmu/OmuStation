@@ -1,0 +1,19 @@
+- type: entityTable
+  id: OmuCrewPlushiesTable
+  table: !type:GroupSelector
+    children:
+    - id: PlushieJeelusanOmuCrew
+    - id: PlushiePickelSillyOmuStaffish
+
+- type: entity
+  id: CrateFunOmuCrewPlushie
+  parent: CrateGenericSteel
+  name: Crew Morale initative Crate
+  description: A handful of Crew based plushies, NT wishes to see an increase in productivity from this Initative
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: OmuCrewPlushiesTable
+        rolls: !type:ConstantNumberSelector
+          value: 10
