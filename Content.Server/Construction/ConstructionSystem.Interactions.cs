@@ -103,8 +103,11 @@ using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Stacks;
 using Content.Shared.Temperature;
 using Content.Shared.Tools.Systems;
-using Content.Shared._Mono.NoDeconstruct; // Monolith
+using Content.Shared._Mono.NoDeconstruct;
+using Content.Shared._Starlight.Power.BluespaceHarvester; // Monolith
 using Robust.Shared.Containers;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
 #if EXCEPTION_TOLERANCE
 // ReSharper disable once RedundantUsingDirective
@@ -116,6 +119,7 @@ namespace Content.Server.Construction
     public sealed partial class ConstructionSystem
     {
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly SharedMapSystem _map = default!; // Omu
 #if EXCEPTION_TOLERANCE
         [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
 #endif
@@ -458,6 +462,39 @@ namespace Content.Server.Construction
                     // If we're handling an event after its DoAfter finished...
                     if (doAfterState == DoAfterState.Completed)
                         return  HandleResult.True;
+
+                    if (HasComp<BigMachineBeingBuiltComponent>(uid))
+                    {
+                        var xform = Transform(uid);
+
+                        if (xform.GridUid is not { } grid || !TryComp<MapGridComponent>(grid, out var gridComp))
+                            return HandleResult.False;
+
+                        var buildPos = _map.TileIndicesFor(grid, gridComp, xform.Coordinates);
+
+                        var positions = new List<EntityCoordinates> // todo this is shit and manually makes a 3x3 square to check. Probably could be smarter.
+                        {
+                            _map.ToCenterCoordinates(grid, buildPos + new Vector2i(-1,  1)),
+                            _map.ToCenterCoordinates(grid, buildPos + new Vector2i( 0,  1)),
+                            _map.ToCenterCoordinates(grid, buildPos + new Vector2i( 1,  1)),
+                            _map.ToCenterCoordinates(grid, buildPos + new Vector2i(-1,  0)),
+                            _map.ToCenterCoordinates(grid, buildPos),
+                            _map.ToCenterCoordinates(grid, buildPos + new Vector2i( 1,  0)),
+                            _map.ToCenterCoordinates(grid, buildPos + new Vector2i(-1, -1)),
+                            _map.ToCenterCoordinates(grid, buildPos + new Vector2i( 0, -1)),
+                            _map.ToCenterCoordinates(grid, buildPos + new Vector2i( 1, -1)),
+                        };
+
+                        foreach (var coords in positions)
+                        {
+                            if (_lookupSystem.AnyEntitiesIntersecting(coords, LookupFlags.Dynamic | LookupFlags.Static))
+                            {
+                                // if anything intersects in the 3x3 space cancel construction push markup that there's not enough space.
+                                _popup.PopupEntity("Fuck you stop building there's no space here.", uid, user.Value);
+                                return HandleResult.False;
+                            }
+                        }
+                    }
 
                     var result  = _toolSystem.UseTool(
                         interactUsing.Used,

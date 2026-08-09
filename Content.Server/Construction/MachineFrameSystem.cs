@@ -17,6 +17,7 @@
 
 using Content.Server.Construction.Components;
 using Content.Server.Stack;
+using Content.Shared._Starlight.Power.BluespaceHarvester;
 using Content.Shared.Construction.Components;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
@@ -155,6 +156,9 @@ public sealed class MachineFrameSystem : EntitySystem
     {
         if (!TryComp<MachineBoardComponent>(used, out var machineBoard))
             return false;
+
+        if (HasComp<BigMachineBoardComponent>(used)) // Omu
+            EnsureComp<BigMachineBeingBuiltComponent>(uid);
 
         if (!_container.TryRemoveFromContainer(used, false, out var wasInContainer) && wasInContainer) // Goobstation
             return false;
