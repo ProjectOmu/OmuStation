@@ -482,7 +482,7 @@
           True: { visible: true }
           False: { visible: false }
       enum.GasDepositScannerVisuals.Enabled:
-        enum.ToggleVisuals.Layer:
+        enum.ToggleableVisuals.Layer:
           True: { state: data, visible: true }
           False: { state: screen }
   - type: ItemToggle
