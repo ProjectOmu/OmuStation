@@ -31,7 +31,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-1.5, -1.5, 1.5, 1.5"
+          bounds: "-1.5, -1.5, 1.5, 0.5"  # Omu edited last value to 0.5 from 1.5 to prevent clipping into walls
         density: 50
         mask:
         - LargeMobMask
