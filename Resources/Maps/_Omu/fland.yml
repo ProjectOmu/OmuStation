@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/08/2026 22:48:36
-  entityCount: 36109
+  time: 08/09/2026 00:15:11
+  entityCount: 36110
 maps:
 - 1
 grids:
@@ -167433,6 +167433,11 @@ entities:
     components:
     - type: Transform
       pos: 5.5,50.5
+      parent: 2
+  - uid: 36110
+    components:
+    - type: Transform
+      pos: 4.5,47.5
       parent: 2
 - proto: LockerPrisoner
   entities:

@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/08/2026 23:43:44
-  entityCount: 27411
+  time: 08/09/2026 00:12:28
+  entityCount: 27412
 maps:
 - 1
 grids:
@@ -122505,10 +122505,10 @@ entities:
     - type: Transform
       pos: 44.5,-29.5
       parent: 2
-  - uid: 18960
+  - uid: 21289
     components:
     - type: Transform
-      pos: 45.5,-29.5
+      pos: 47.5,-32.5
       parent: 2
 - proto: LockerMedicineFilled
   entities:
@@ -122573,6 +122573,11 @@ entities:
         - 0
 - proto: LockerParamedicFilled
   entities:
+  - uid: 18960
+    components:
+    - type: Transform
+      pos: 45.5,-29.5
+      parent: 2
   - uid: 18964
     components:
     - type: Transform
@@ -143305,14 +143310,6 @@ entities:
       parent: 2
 - proto: SpaceVillainArcadeFilled
   entities:
-  - uid: 22330
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 47.5,-32.5
-      parent: 2
-    - type: SpamEmitSound
-      enabled: False
   - uid: 22331
     components:
     - type: Transform
@@ -143784,6 +143781,11 @@ entities:
       parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
+  - uid: 21440
+    components:
+    - type: Transform
+      pos: 39.5,-27.5
+      parent: 2
   - uid: 22404
     components:
     - type: Transform
@@ -143793,11 +143795,6 @@ entities:
     components:
     - type: Transform
       pos: 43.5,-28.5
-      parent: 2
-  - uid: 22406
-    components:
-    - type: Transform
-      pos: 45.5,-28.5
       parent: 2
   - uid: 22407
     components:
@@ -143863,6 +143860,11 @@ entities:
       parent: 2
 - proto: SpawnPointParamedic
   entities:
+  - uid: 21293
+    components:
+    - type: Transform
+      pos: 45.5,-28.5
+      parent: 2
   - uid: 22416
     components:
     - type: Transform
