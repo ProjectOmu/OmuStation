@@ -22,6 +22,8 @@
       components:
       - NukeDisk # Don't try to hide the disk.
       - WrappedParcel # No wrapping wrapped things.
+      - Storage # Omu, otherwise people can just bypass blacklist/whitelist.
+      - EntityStorage # Omu, otherwise people can just bypass blacklist/whitelist.
       tags:
       - ParcelWrapBlacklist
       - FakeNukeDisk # So you can't tell if the nuke disk is real or fake depending on if it can be wrapped or not.
