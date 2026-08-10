@@ -214,12 +214,12 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
     private void OnCrawlerStartup(Entity<NodeCrawlerComponent> ent, ref ComponentStartup args)      //Omu release me
     {
         ent.Comp.NetworkedComponents = new List<string>();
-
-        foreach (var type in ent.Comp.RevealedComponents)
-        {
-            if (_componentFactory.TryGetRegistration(type, out var registration))
-                ent.Comp.NetworkedComponents.Add(registration.Name);
-        }
+        if (ent.Comp.RevealedComponents is not null)
+            foreach (var type in ent.Comp.RevealedComponents)
+            {
+                if (_componentFactory.TryGetRegistration(type, out var registration))
+                    ent.Comp.NetworkedComponents.Add(registration.Name);
+            }
 
         Dirty(ent);
     }       //Omu end
