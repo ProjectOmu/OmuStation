@@ -128,7 +128,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed;
-using Content.Shared.Emag.Components;
 
 // Goobstation usings
 using Content.Goobstation.Common.Silicons.Components;
@@ -157,8 +156,6 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!; // Starlight
-    [Dependency] private readonly SharedPopupSystem _popup = default!; // Starlight
 
     // Goobstation
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
@@ -184,7 +181,6 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         SubscribeLocalEvent<SiliconLawProviderComponent, MindAddedMessage>(OnLawProviderMindAdded);
         SubscribeLocalEvent<SiliconLawProviderComponent, MindRemovedMessage>(OnLawProviderMindRemoved);
         SubscribeLocalEvent<SiliconLawProviderComponent, SiliconEmaggedEvent>(OnEmagLawsAdded);
-        SubscribeLocalEvent<SiliconLawProviderComponent, GotEmaggedEvent>(OnGotEmagged); //Starlight
     }
 
     private void OnMapInit(EntityUid uid, SiliconLawBoundComponent component, MapInitEvent args)
@@ -643,30 +639,6 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         return laws;
     }
     // Goob edit end
-
-    /// STARLIGHT START
-    private void OnGotEmagged(Entity<SiliconLawProviderComponent> ent, ref GotEmaggedEvent args)
-    {
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
-            return;
-
-        if (args.EmagUid == null)
-            return;
-
-        if (_tagSystem.HasTag(args.EmagUid.Value, "FreeMag"))
-        {
-            if (TryComp<EmagComponent>(args.EmagUid.Value, out var emag) && emag.Lawset != null){
-                var lawset = emag.Lawset.Value; //Fallback to FreeLawSet because clearly something is going on
-                ent.Comp.Laws = lawset; //"FreeLawset"; TODO test
-                ent.Comp.Lawset = GetLawset("FreeLawset");
-                _popup.PopupEntity(Loc.GetString("lawboard-emag-popup"), ent);
-            }
-        }
-
-        args.Repeatable = true;
-        args.Handled = true;
-    }
-    /// STARLIGHT END
 }
 
 [ToolshedCommand, AdminCommand(AdminFlags.Admin)]
