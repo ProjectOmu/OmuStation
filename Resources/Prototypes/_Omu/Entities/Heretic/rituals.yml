@@ -1,0 +1,13 @@
+- type: hereticRitual
+  id: LodestoneRitual
+  locName: tome-knowledge-lodestone-name
+  locDesc: tome-knowledge-lodestone-desc
+  icon:
+    sprite: _Goobstation/Heretic/eldritch_medalion.rsi
+    state: icon
+  requiredTags:
+    SheetGlass: 1
+    Steel: 1
+    ForceableFollow: 1    ##unspecific enough for now.
+  output:
+    LodestoneSelector: 1

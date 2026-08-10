@@ -3,9 +3,50 @@
   id: BaseLodestone
   abstract: true
   name: Lodestone
-  description: You shouldn't see this!
+  description: Its power is yet to be determined!
   components:
   - type: Tag
     tags:
     - ForceableFollow
   - type: Lodestone
+
+- type: entity
+  parent: BaseLodestone
+  id: LodestoneSelector
+  abstract: true
+  name: Lodestone
+  description: Its power is yet to be determined!
+  components:
+  - type: Tag
+    tags:
+    - ForceableFollow
+  - type: Lodestone
+  - type: SetSelector
+    possibleSets:
+    - LodestoneFireSet
+
+- type: entity
+  parent: BaseItem
+  id: LodestoneFire
+  abstract: true
+  name: Lodestone of forge
+  description: The intensity of the forge flows through this lodestone, granting the user great protection from fire.
+  components:
+  - type: IgnitionSource
+    temperature: 400
+    ignited: true
+  - type: Sprite
+    sprite: Structures/Specific/Anomalies/Cores/pyro_core.rsi
+    state: core
+  - type: PointLight
+    radius: 1.5
+    energy: 1.5
+    color: "#E25822"
+    castShadows: false
+  - type: Tag
+    tags:
+    - ForceableFollow
+  - type: Lodestone
+    AddedComponents:
+    - type: FireProtection
+      reduction: 0.9    # Not full but mostly
