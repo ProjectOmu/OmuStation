@@ -27,8 +27,12 @@ public sealed class FascinationSystem: EntitySystem
     }
     private void OnStartup(EntityUid uid, FascinationComponent component, ComponentStartup args)
     {
-        if (HasComp<SeeHereticFixturesComponent>(uid))
+        if (TryComp<SeeHereticFixturesComponent>(uid, out var seefixtures))
+        {
             component.Naturalsight = true;
+            if (seefixtures.SeeShifts == true)
+                component.NaturalHereticsight = true;
+        }
     }
 
     private void OnExamined(Entity<FascinationComponent> ent, ref ExaminedEvent args)
@@ -57,6 +61,11 @@ public sealed class FascinationSystem: EntitySystem
                 ent.Comp.AlteredVision = false;
                 _eye.RefreshVisibilityMask(ent.Owner);
             }
+            if (ent.Comp.Naturalsight == true && ent.Comp.NaturalHereticsight == false)
+            {
+                if (TryComp<SeeHereticFixturesComponent>(ent, out var seefixtures))
+                    seefixtures.SeeShifts = false;
+            }
             if (ent.Comp.AlteredFaction == true)
             {
                 var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(ent);    //Make them un-valid to the mirror maiden
@@ -79,6 +88,11 @@ public sealed class FascinationSystem: EntitySystem
                 EnsureComp<SeeHereticFixturesComponent>(ent);
                 ent.Comp.AlteredVision = true;
                 _eye.RefreshVisibilityMask(ent.Owner);
+            }
+            if (ent.Comp.Naturalsight == true && ent.Comp.NaturalHereticsight == false)
+            {
+                if (TryComp<SeeHereticFixturesComponent>(ent, out var seefixtures))
+                    seefixtures.SeeShifts = true;
             }
             if (ent.Comp.AlteredFaction != true)
             {
