@@ -23,7 +23,7 @@ public sealed class MindcontrolImplantSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly SharedChargesSystem _sharedCharges = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-    public static readonly ProtoId<TagPrototype> IgnoreResistancesTag = "FlashIgnoreResistances"; // Goobstation
+    public static readonly ProtoId<TagPrototype> IgnoreResistancesTag = "FlashIgnoreResistances";
     public override void Initialize()
     {
         base.Initialize();
