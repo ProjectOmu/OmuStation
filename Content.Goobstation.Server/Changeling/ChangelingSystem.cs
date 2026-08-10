@@ -111,6 +111,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Grab;
 using Content.Server.Ensnaring;
+using Content.Shared._White.Jump;    //OMU
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -714,6 +715,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             comp.IsInLesserForm = false;
             newUid = TransformEntity(target, data: data, comp: comp, persistentDna: persistentDna);
             RemoveAllChangelingEquipment(target, comp);
+            EnsureComp<JumpComponent>(target);          // omu ensure has jumping. For ling leap
         }
 
         if (newUid != null)

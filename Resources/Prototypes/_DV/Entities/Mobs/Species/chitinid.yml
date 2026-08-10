@@ -120,10 +120,12 @@
   - type: LanguageKnowledge # Einstein Engines - Languages
     speaks:
     - TauCetiBasic
-    - Moffic
+    #- Moffic # Omu, Changed to Chittin
+    - Chittin # Omu, Made the Chitinids speak their language
     understands:
     - TauCetiBasic
-    - Moffic
+    #- Moffic # Omu
+    - Chittin # Omu
   - type: Inventory
     speciesId: moth
   - type: ItemCougher
