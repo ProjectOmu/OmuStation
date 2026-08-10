@@ -65,14 +65,7 @@ public sealed class MindcontrolImplantSystem : EntitySystem
                     if (attempt.Cancelled)
                         return;
                 }
-                if (_statusEffect.HasStatusEffect(target, "StatusEffectSeeingRainbow") || _statusEffect.HasStatusEffect(target, "StatusEffectDrowsiness") || _statusEffect.HasStatusEffect(target, "StatusEffectForcedSleeping"))
-                {
-                    EnsureComp<MindcontrolledComponent>(target, out var flashed);        //Mind control em
-                    flashed.Master = component.HolderUid;
-                    _mindcontrol.Start(target, flashed);
-                    continue;
-                }
-                if (TryComp<DrunkComponent>(target, out _))      //are they susceptible?
+                if (HasComp<DrunkComponent>(target) || _statusEffect.HasStatusEffect(target, "StatusEffectSeeingRainbow") || _statusEffect.HasStatusEffect(target, "StatusEffectDrowsiness") || _statusEffect.HasStatusEffect(target, "StatusEffectForcedSleeping"))      //are they susceptible?
                 {
                     EnsureComp<MindcontrolledComponent>(target, out var flashed);        //Mind control em
                     flashed.Master = component.HolderUid;
