@@ -1826,14 +1826,14 @@
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-primate
   - type: AlwaysRevolutionaryConvertible
-  - type: GhostRole
-    prob: 0.05
-    makeSentient: true
-    name: ghost-role-information-monkey-name
-    description: ghost-role-information-monkey-description
-    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
-    mindRoles:
-    - MindRoleGhostRoleSentientAnimal # Goobstation Sentient Animal PR
+  #- type: GhostRole # Omu, only should be sentient when targeted by an event.
+  #  prob: 0.05
+  #  makeSentient: true
+  #  name: ghost-role-information-monkey-name
+  #  description: ghost-role-information-monkey-description
+  #  rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
+  #  mindRoles:
+  #  - MindRoleGhostRoleSentientAnimal # Goobstation Sentient Animal PR
   - type: GhostTakeoverAvailable
   - type: Skinnable # Goobstation - Fuck pun-pun
   - type: Clumsy
