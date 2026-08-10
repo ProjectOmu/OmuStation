@@ -77,10 +77,13 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
                 {
                     //make sure they won't get into this loop again
                     victimComp.CleanupDone = true;
+
+                    if (!TryComp<MindComponent>(victimComp.Mind, out var mindComp)) //Omu prevent entities with a null mind crashing the server
+                        continue;
+
                     //put them back in the original body
                     _mind.TransferTo(victimComp.Mind, victimComp.OriginalBody);
                     //let them ghost again
-                    MindComponent? mindComp = Comp<MindComponent>(victimComp.Mind);
                     mindComp.PreventGhosting = false;
                     //give the original body some visual changes
                     TransformVictim(uid);
