@@ -56,6 +56,6 @@
       difficulty: 1
       unique: false
       icon:
-        sprite: _Starlight/Interface/Misc/rp_icon.rsi
-        state: icon
+        sprite: Structures/Furniture/chairs.rsi #Omu changed to the normal escape alive sprite
+        state: shuttle
     - type: EscapeShuttleCondition
