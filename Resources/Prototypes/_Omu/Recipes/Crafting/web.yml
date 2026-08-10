@@ -30,3 +30,14 @@
     tags:
     - SpiderCraft
   objectType: Item
+
+- type: construction
+  id: ClothingNeckScarfArachnid
+  graph: ClothingNeckScarfArachnid
+  startNode: start
+  targetNode: end
+  category: construction-category-clothing
+  entityWhitelist:
+    tags:
+    - SpiderCraft
+  objectType: Item

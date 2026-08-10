@@ -39,3 +39,17 @@
         doAfter: 5
   - node: end
     entity: ClothingHandsGlovesArachnid
+
+- type: constructionGraph
+  id: ClothingNeckScarfArachnid
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: end
+      steps:
+      - material: WebSilk
+        amount: 4
+        doAfter: 5
+  - node: end
+    entity: ClothingNeckScarfArachnid
