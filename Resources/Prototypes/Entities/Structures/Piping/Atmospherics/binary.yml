@@ -474,6 +474,14 @@
     - type: GuideHelp
       guides:
       - GasCanisters
+    #- type: VentCrawlerTube # Goobstation - ventcrawl    Omu - Commented out to replace with nodecrawl
+    #  containerId: VentCrawlerTube
+    #- type: VentCrawlerJunction # Goobstation - ventcrawl
+    #  degrees:
+    #    - 0
+    #- type: ContainerContainer # Goobstation - ventcrawl
+    #  containers:
+    #    VentCrawlerTube: !type:Container
     - type: CrawlableNode # DeltaV
       reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 
