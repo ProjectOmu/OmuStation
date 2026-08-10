@@ -5786,3 +5786,165 @@ Entries:
         them from any techfab in which you can print standard LV cable.
   id: 759
   time: '2026-08-08T20:27:04.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: >-
+        There is now an option for IPC's to have a radio spawn in their backpack
+        instead for brigmed and admin assistant
+  id: 760
+  time: '2026-08-08T20:29:09.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Tweak
+      message: >-
+        Updated the hair color selection to respond a faster when picking hair
+        colors!
+  id: 761
+  time: '2026-08-08T20:30:19.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        Swapped out the medical smart fridge with a botany smart fridge between
+        hydro and kitchen in most maps.
+  id: 762
+  time: '2026-08-08T20:45:48.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: >-
+        Aghosts can now toggle their hands using the alert below the stealth
+        grabbing alert.
+  id: 763
+  time: '2026-08-08T20:46:11.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: Added an airlock to the mimes room in Glacier.
+    - type: Tweak
+      message: Changed the clowns room airlock to a theatre airlock in Glacier.
+  id: 764
+  time: '2026-08-08T20:49:34.0000000+00:00'
+- author: 3PonPon3
+  changes:
+    - type: Tweak
+      message: >-
+        Moths can now use up to 3 different wings markings for customization!
+        Mothmization is at hand!
+  id: 765
+  time: '2026-08-08T20:57:58.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: >-
+        Botany has lost its monopoly on cool bandanas. Chemists, Janitors,
+        Roboticists, Security, Cargo, and the Quartermaster now have some too!
+    - type: Add
+      message: Also added a plain white bandana, and tossed it at the Chef.
+  id: 766
+  time: '2026-08-08T21:00:32.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: Slightly reduce conspirator spawn rate.
+    - type: Add
+      message: New game rule "Oops all traitors" a counterpart to "Oops all thieves"
+  id: 767
+  time: '2026-08-08T21:12:41.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: >-
+        A new way for cargo to make money, shipments. check your cargo techfabs
+        for a new machine and figure it out.
+  id: 768
+  time: '2026-08-08T21:42:06.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Ninja can now only hack comms consoles which are able to call evac.
+    - type: Tweak
+      message: Ninja will lose stealth when shot.
+    - type: Tweak
+      message: Ninjutsu now loses the sneak attack bonus when attacked.
+  id: 769
+  time: '2026-08-08T21:56:30.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: >-
+        Players will now be alerted by a message if they go berserk from a
+        changeling sting.
+  id: 770
+  time: '2026-08-08T21:59:47.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: Avali now look sleeker in various helmets including hardsuits.
+  id: 771
+  time: '2026-08-08T22:36:17.0000000+00:00'
+- author: angiogen
+  changes:
+    - type: Add
+      message: >-
+        Add 2 new hairstyles, 1 new tail, and some other cool stuff (including
+        fangs/freckles) for Xelthia
+  id: 772
+  time: '2026-08-09T13:51:41.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Experimental shipments now only need 10 bananium instead of 30
+  id: 773
+  time: '2026-08-09T14:01:21.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Add
+      message: >-
+        Added the Roboticist roundstart mantle & Researchable Janitorial mantle
+        (has cleanhud)
+    - type: Tweak
+      message: >-
+        all mantles now have at least 10% Blunt/Slash/Pierce to help accommodate
+        for the lack of wearing glasses and a face mask
+    - type: Tweak
+      message: most mantles have relevant contraband tags relating to their department
+    - type: Add
+      message: >-
+        added a BaseBartenderContraband  and various DepartmentCommandContraband
+        tags
+    - type: Fix
+      message: >-
+        removed the ChamelonWhitelist  tag for all mantles due to a bug with the
+        eyes not being coloured correctly when worn
+  id: 774
+  time: '2026-08-09T15:23:41.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: >-
+        Added képi hats to various command and security roles. Embrace your
+        inner frenchman.
+  id: 775
+  time: '2026-08-09T15:32:56.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: >-
+        Added the bluespace miner from starlight, use immense amounts of power
+        for gamer loot and invasions from hell
+  id: 776
+  time: '2026-08-09T15:55:03.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed heretic ascensions
+  id: 777
+  time: '2026-08-10T17:36:40.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Tweak
+      message: Changed the Chefvend access permissions from Service to Kitchen.
+  id: 778
+  time: '2026-08-10T18:42:07.0000000+00:00'

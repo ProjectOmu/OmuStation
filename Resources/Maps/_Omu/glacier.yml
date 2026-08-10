@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/16/2026 14:56:06
-  entityCount: 18709
+  time: 08/04/2026 13:37:38
+  entityCount: 18710
 maps:
 - 1
 grids:
@@ -14317,13 +14317,6 @@ entities:
     - type: Transform
       pos: 78.5,-9.5
       parent: 2
-  - uid: 291
-    components:
-    - type: MetaData
-      name: Clown Cave
-    - type: Transform
-      pos: -22.5,-8.5
-      parent: 2
 - proto: AirlockServiceLocked
   entities:
   - uid: 292
@@ -14332,6 +14325,18 @@ entities:
       name: Service Room
     - type: Transform
       pos: -15.5,1.5
+      parent: 2
+- proto: AirlockTheatreGlassLocked
+  entities:
+  - uid: 291
+    components:
+    - type: Transform
+      pos: -22.5,-8.5
+      parent: 2
+  - uid: 15612
+    components:
+    - type: Transform
+      pos: -21.5,-3.5
       parent: 2
 - proto: AirlockVirologyGlassLocked
   entities:
