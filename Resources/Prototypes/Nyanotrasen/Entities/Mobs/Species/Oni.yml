@@ -76,6 +76,8 @@
     - oni-cannot-shoot-guns-1
     - oni-cannot-shoot-guns-2
     - oni-cannot-shoot-guns-3
+    bypassTags:
+    - AllowedOniGun
 
   - type: Stamina
     critThreshold: 115
