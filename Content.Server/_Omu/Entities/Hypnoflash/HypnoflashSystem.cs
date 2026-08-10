@@ -16,7 +16,7 @@ using Content.Goobstation.Common.Flash;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Implants.Systems;
+namespace Content.Server/_Omu/Entities/Hypnoflash;
 public sealed class MindcontrolImplantSystem : EntitySystem
 {
     [Dependency] private readonly MindcontrolSystem _mindcontrol = default!;
