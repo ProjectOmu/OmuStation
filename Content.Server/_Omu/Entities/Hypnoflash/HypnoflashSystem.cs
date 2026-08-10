@@ -44,22 +44,16 @@ public sealed class MindcontrolImplantSystem : EntitySystem
         {
             return;
         }
-        component.FlashUid = component.Owner;
-        if (component.FlashUid != null)
-        {
-            component.HolderUid = Transform(component.FlashUid.Value).ParentUid;
-        }
         if (args.HitEntities != null)           //Did we hit smth?
             foreach (var target in args.HitEntities)
             {
                 var vulnerableEv = new CheckFlashVulnerable();
                 RaiseLocalEvent(target, ref vulnerableEv);
 
-                if (component.HolderUid == null
-                || !_tag.HasTag(component.Owner, IgnoreResistancesTag)
+                if (!_tag.HasTag(component.Owner, IgnoreResistancesTag)
                 && !vulnerableEv.Vulnerable)
                 {
-                    var attempt = new FlashAttemptEvent(target, component.HolderUid, component.Owner);
+                    var attempt = new FlashAttemptEvent(target, args.User, component.Owner);
                     RaiseLocalEvent(target, ref attempt, true);
 
                     if (attempt.Cancelled)
@@ -68,7 +62,7 @@ public sealed class MindcontrolImplantSystem : EntitySystem
                 if (HasComp<DrunkComponent>(target) || _statusEffect.HasStatusEffect(target, "StatusEffectSeeingRainbow") || _statusEffect.HasStatusEffect(target, "StatusEffectDrowsiness") || _statusEffect.HasStatusEffect(target, "StatusEffectForcedSleeping"))      //are they susceptible?
                 {
                     EnsureComp<MindcontrolledComponent>(target, out var flashed);        //Mind control em
-                    flashed.Master = component.HolderUid;
+                    flashed.Master = args.User;
                     _mindcontrol.Start(target, flashed);
                 }
             }
