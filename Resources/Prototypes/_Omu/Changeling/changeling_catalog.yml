@@ -1,4 +1,15 @@
 - type: listing
+  id: EvolutionMenuLeap
+  name: evolutionmenu-leap-name
+  description: evolutionmenu-leap-desc
+  icon: { sprite: _Omu/Changeling/changeling_abilities.rsi, state: changeling_leap_on }
+  productAction: ActionJumpChangeling
+  cost:
+    EvolutionPoint: 3
+  categories:
+  - ChangelingAbilityCombat
+  
+- type: listing
   id: EvolutionMenuStingBerserk
   name: evolutionmenu-sting-berserk-name
   description: evolutionmenu-sting-berserk-desc

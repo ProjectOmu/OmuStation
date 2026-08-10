@@ -5517,3 +5517,434 @@ Entries:
         while maintaining there caustic immunity
   id: 721
   time: '2026-07-25T22:23:15.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Add
+      message: >-
+        Cargo lathe can now print mail capsules, have fun with expedient mail
+        delivery all round
+  id: 722
+  time: '2026-07-26T17:51:25.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: New game rule for admins to use :3
+  id: 723
+  time: '2026-07-26T17:52:37.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        Kettle's disposals is now connected properly to the disposals pipe
+        system.
+  id: 724
+  time: '2026-07-27T13:58:46.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        Added a single disposals pipe to connect a disposals unit in the medbay
+        in Leonid.
+  id: 725
+  time: '2026-07-27T14:32:01.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: Increased spawn rate of sleeper agents
+  id: 726
+  time: '2026-07-27T15:03:35.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Add
+      message: Added IAA as a midround spawn.
+  id: 727
+  time: '2026-07-27T15:04:17.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: Lowered Abductor spawn slightly.
+  id: 728
+  time: '2026-07-27T21:23:16.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Floor Goblins can spawn again
+    - type: Add
+      message: New Vent Critters can spawn
+  id: 729
+  time: '2026-07-27T21:31:36.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Add
+      message: >-
+        Pill canisters now have an open and closed visual state similar to
+        toolboxes
+  id: 730
+  time: '2026-07-27T21:57:11.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        You now require the "CanPilot" tag to pilot mechs, this means that mobs
+        like monkeys cannot pilot a mech, HAMTR and VIM are unaffected by this.
+  id: 731
+  time: '2026-07-28T00:54:19.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Add
+      message: Allulalo can now make three new noises. (Awebo, Coo, Scree)
+  id: 732
+  time: '2026-07-28T12:28:27.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: Changed execution SOP to be more clear
+  id: 733
+  time: '2026-07-29T01:50:03.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Tweak
+      message: Cog's cargo window shutter is now directional.
+  id: 734
+  time: '2026-07-29T01:56:05.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Remove
+      message: Paradox clone disabled due to urgent bug. Will be enabled in the future
+  id: 735
+  time: '2026-07-29T03:32:54.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: Adds the steal target to the hos's other guns.
+  id: 736
+  time: '2026-07-30T00:27:14.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: >-
+        Reagent fires should be more balanced now, no longer ignore fire prot
+        and are much easier to tweak
+  id: 737
+  time: '2026-07-30T17:30:55.0000000+00:00'
+- author: Willfullyheretical
+  changes:
+    - type: Fix
+      message: >-
+        Increased surfaces for blood jaunt to include, Avali, Resomi, Slime,
+        Thaven, Allulalo and Xelthia blood
+  id: 738
+  time: '2026-07-30T17:52:10.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: CPR now has proper text popups for when you're not able to do it.
+    - type: Fix
+      message: >-
+        CPR now stops you from continuing if you're not meant to be able to
+        start CPR. You also can no longer do CPR to people who have masks on.
+  id: 739
+  time: '2026-07-31T07:05:25.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added the endless library
+    - type: Tweak
+      message: Changed heretic sacrifices to send victims to the endless library
+  id: 740
+  time: '2026-07-31T17:00:09.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: >-
+        Changed Silicon laws to discourage intervention in minor class one or
+        two crimes.
+  id: 741
+  time: '2026-07-31T17:03:46.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: Changed shuttlebombing rule on request of headmins.
+  id: 742
+  time: '2026-07-31T17:15:39.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added cortical borers
+  id: 743
+  time: '2026-07-31T17:27:02.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        Fixed round end summary window crashing when a player writes a badly
+        formatted message as last message.
+  id: 744
+  time: '2026-08-01T20:47:04.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed firestacking on fires - they actually hurt again
+    - type: Fix
+      message: Fixed mirror maiden's visibility
+    - type: Tweak
+      message: Increased cortical borer egg laying cost to 250 from 200
+  id: 745
+  time: '2026-08-02T19:57:14.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added changeling leap - it leaps at you.
+  id: 746
+  time: '2026-08-02T21:16:51.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Fix
+      message: 'Bug fix: Chitinids now speak Chittin instead of Moffic'
+  id: 747
+  time: '2026-08-02T22:50:49.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: You can no longer parcel wrap entities with storage.
+  id: 748
+  time: '2026-08-04T07:04:28.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed heretic sacrifices not giving any knowledge
+  id: 749
+  time: '2026-08-04T22:06:16.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: >-
+        Added various colored medical masks to doctor loadouts. The dye smell
+        will wash out. Probably.
+  id: 750
+  time: '2026-08-05T13:40:53.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: Gave the poor Virologists their messenger bags back.
+    - type: Tweak
+      message: Resprited the Medical and Chemistry duffel bags.
+  id: 751
+  time: '2026-08-05T16:36:13.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: Made Accentless a free trait.
+  id: 752
+  time: '2026-08-07T00:21:19.0000000+00:00'
+- author: Thesia000
+  changes: []
+  id: 753
+  time: '2026-08-07T08:33:22.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: Added per color glowing toggles to markings.
+  id: 754
+  time: '2026-08-07T09:07:49.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Barricades cannot be climbed or crawled over any more.
+    - type: Tweak
+      message: >-
+        Xenos now deal structural (20 for adult xenos, 30 for Praetorians, 40
+        for Queens).
+  id: 755
+  time: '2026-08-08T15:57:31.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Add
+      message: Corpsman now gets auto chat highlights if you have the setting on
+  id: 756
+  time: '2026-08-08T20:02:03.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Fix
+      message: diagonal lattice merges better with normal lattice
+  id: 757
+  time: '2026-08-08T20:10:40.0000000+00:00'
+- author: Waterwithoutanyice
+  changes: []
+  id: 758
+  time: '2026-08-08T20:24:06.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Tweak
+      message: >-
+        You can now weld APCs to "damage" them. This is mostly unnoticeable. Fix
+        them again with LV cable.
+    - type: Add
+      message: >-
+        "Granular" LV cables. These are LV cables with less "reach" than
+        standard LV cable. They are intended for use with a damaged APC. Print
+        them from any techfab in which you can print standard LV cable.
+  id: 759
+  time: '2026-08-08T20:27:04.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: >-
+        There is now an option for IPC's to have a radio spawn in their backpack
+        instead for brigmed and admin assistant
+  id: 760
+  time: '2026-08-08T20:29:09.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Tweak
+      message: >-
+        Updated the hair color selection to respond a faster when picking hair
+        colors!
+  id: 761
+  time: '2026-08-08T20:30:19.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        Swapped out the medical smart fridge with a botany smart fridge between
+        hydro and kitchen in most maps.
+  id: 762
+  time: '2026-08-08T20:45:48.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: >-
+        Aghosts can now toggle their hands using the alert below the stealth
+        grabbing alert.
+  id: 763
+  time: '2026-08-08T20:46:11.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: Added an airlock to the mimes room in Glacier.
+    - type: Tweak
+      message: Changed the clowns room airlock to a theatre airlock in Glacier.
+  id: 764
+  time: '2026-08-08T20:49:34.0000000+00:00'
+- author: 3PonPon3
+  changes:
+    - type: Tweak
+      message: >-
+        Moths can now use up to 3 different wings markings for customization!
+        Mothmization is at hand!
+  id: 765
+  time: '2026-08-08T20:57:58.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: >-
+        Botany has lost its monopoly on cool bandanas. Chemists, Janitors,
+        Roboticists, Security, Cargo, and the Quartermaster now have some too!
+    - type: Add
+      message: Also added a plain white bandana, and tossed it at the Chef.
+  id: 766
+  time: '2026-08-08T21:00:32.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: Slightly reduce conspirator spawn rate.
+    - type: Add
+      message: New game rule "Oops all traitors" a counterpart to "Oops all thieves"
+  id: 767
+  time: '2026-08-08T21:12:41.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: >-
+        A new way for cargo to make money, shipments. check your cargo techfabs
+        for a new machine and figure it out.
+  id: 768
+  time: '2026-08-08T21:42:06.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Ninja can now only hack comms consoles which are able to call evac.
+    - type: Tweak
+      message: Ninja will lose stealth when shot.
+    - type: Tweak
+      message: Ninjutsu now loses the sneak attack bonus when attacked.
+  id: 769
+  time: '2026-08-08T21:56:30.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: >-
+        Players will now be alerted by a message if they go berserk from a
+        changeling sting.
+  id: 770
+  time: '2026-08-08T21:59:47.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: Avali now look sleeker in various helmets including hardsuits.
+  id: 771
+  time: '2026-08-08T22:36:17.0000000+00:00'
+- author: angiogen
+  changes:
+    - type: Add
+      message: >-
+        Add 2 new hairstyles, 1 new tail, and some other cool stuff (including
+        fangs/freckles) for Xelthia
+  id: 772
+  time: '2026-08-09T13:51:41.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Experimental shipments now only need 10 bananium instead of 30
+  id: 773
+  time: '2026-08-09T14:01:21.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Add
+      message: >-
+        Added the Roboticist roundstart mantle & Researchable Janitorial mantle
+        (has cleanhud)
+    - type: Tweak
+      message: >-
+        all mantles now have at least 10% Blunt/Slash/Pierce to help accommodate
+        for the lack of wearing glasses and a face mask
+    - type: Tweak
+      message: most mantles have relevant contraband tags relating to their department
+    - type: Add
+      message: >-
+        added a BaseBartenderContraband  and various DepartmentCommandContraband
+        tags
+    - type: Fix
+      message: >-
+        removed the ChamelonWhitelist  tag for all mantles due to a bug with the
+        eyes not being coloured correctly when worn
+  id: 774
+  time: '2026-08-09T15:23:41.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: >-
+        Added képi hats to various command and security roles. Embrace your
+        inner frenchman.
+  id: 775
+  time: '2026-08-09T15:32:56.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: >-
+        Added the bluespace miner from starlight, use immense amounts of power
+        for gamer loot and invasions from hell
+  id: 776
+  time: '2026-08-09T15:55:03.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed heretic ascensions
+  id: 777
+  time: '2026-08-10T17:36:40.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Tweak
+      message: Changed the Chefvend access permissions from Service to Kitchen.
+  id: 778
+  time: '2026-08-10T18:42:07.0000000+00:00'
