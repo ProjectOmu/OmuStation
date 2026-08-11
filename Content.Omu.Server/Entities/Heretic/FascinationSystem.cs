@@ -95,7 +95,10 @@ public sealed class FascinationSystem: EntitySystem
             if (ent.Comp.Naturalsight == true && ent.Comp.NaturalHereticsight == false)
             {
                 if (TryComp<SeeHereticFixturesComponent>(ent, out var seefixtures))
+                {
                     seefixtures.SeeShifts = true;
+                    _eye.RefreshVisibilityMask(ent.Owner);
+                }
             }
             if (ent.Comp.AlteredFaction != true)
             {
