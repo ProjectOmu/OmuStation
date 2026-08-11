@@ -109,10 +109,11 @@ public sealed class FascinationSystem: EntitySystem
 
         }
     }
-    private void OnBibleInteract(EntityUid uid, BibleComponent component, AfterInteractEvent args)
+    private void OnBibleInteract(EntityUid uid, BibleSmiteUsed args)
     {
         var ev = new FascinationChangedArgs();
         ev.Amount = -1f;
         RaiseLocalEvent(uid, ev);
     }
+
 }
