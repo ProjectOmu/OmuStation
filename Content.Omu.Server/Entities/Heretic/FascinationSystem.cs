@@ -26,7 +26,7 @@ public sealed class FascinationSystem: EntitySystem
         SubscribeLocalEvent<FascinationComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<FascinationComponent, FascinationChangedArgs>(OnChange);
         SubscribeLocalEvent<FascinationComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<BibleComponent, AfterInteractEvent>(OnBibleInteract);
+        SubscribeLocalEvent<FascinationComponent, BibleSmiteUsed>(OnBibleInteract);
     }
     private void OnStartup(EntityUid uid, FascinationComponent component, ComponentStartup args)
     {
@@ -109,11 +109,11 @@ public sealed class FascinationSystem: EntitySystem
 
         }
     }
-    private void OnBibleInteract(EntityUid uid, BibleSmiteUsed args)
+    private void OnBibleInteract(Entity<FascinationComponent> ent, ref BibleSmiteUsed args)
     {
         var ev = new FascinationChangedArgs();
         ev.Amount = -1f;
-        RaiseLocalEvent(uid, ev);
+        RaiseLocalEvent(ent, ev);
     }
 
 }
