@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/11/2026 20:41:19
+  time: 08/11/2026 21:01:22
   entityCount: 28352
 maps:
 - 1
@@ -66538,6 +66538,13 @@ entities:
     - type: Transform
       pos: -47.5,-27.5
       parent: 2
+- proto: CloningPod
+  entities:
+  - uid: 10341
+    components:
+    - type: Transform
+      pos: -49.5,-37.5
+      parent: 2
 - proto: ClosetBombFilled
   entities:
   - uid: 9834
@@ -71317,6 +71324,22 @@ entities:
     - type: Transform
       pos: -36.5,-6.5
       parent: 2
+- proto: ComputerCloningConsole
+  entities:
+  - uid: 10304
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -51.5,-35.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        20886:
+        - - MedicalScannerSender
+          - MedicalScannerReceiver
+        10341:
+        - - CloningPodSender
+          - CloningPodReceiver
 - proto: ComputerComms
   entities:
   - uid: 10206
@@ -71397,12 +71420,6 @@ entities:
     components:
     - type: Transform
       pos: -38.5,41.5
-      parent: 2
-  - uid: 20886
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -51.5,-35.5
       parent: 2
 - proto: ComputerFundingAllocation
   entities:
@@ -130116,18 +130133,6 @@ entities:
       parent: 2
 - proto: MachineFrame
   entities:
-  - uid: 10304
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -49.5,-37.5
-      parent: 2
-  - uid: 10341
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -51.5,-37.5
-      parent: 2
   - uid: 15876
     components:
     - type: Transform
@@ -130773,6 +130778,13 @@ entities:
     components:
     - type: Transform
       pos: 42.769314,-17.842167
+      parent: 2
+- proto: MedicalScanner
+  entities:
+  - uid: 20886
+    components:
+    - type: Transform
+      pos: -51.5,-37.5
       parent: 2
 - proto: MedicalTechFab
   entities:
