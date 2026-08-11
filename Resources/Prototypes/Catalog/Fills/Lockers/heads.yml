@@ -24,6 +24,8 @@
     - id: SalvageShuttleConsoleCircuitboard # Omu edit
     - id: SalvageExpeditionsComputerCircuitboard # Omu edit
     - id: StockTradingCartridge #Omu STOCKS
+    - id: BookSecureTerminalManual # Starlight
+
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -62,6 +64,7 @@
       - !type:PlayerCountCondition
         max: 15
     - id: BookCorporateSecrets # funky
+    - id: BookSecureTerminalManual # Starlight
 
 # No laser table + Laser table
 - type: entityTable
@@ -150,6 +153,7 @@
     - id: CommandMegaphone # goob - loudspeakers
     - id: ComputerServiceCommsFlatpack #Omu adds departmental comms board
     - id: Multitool # Omu
+    - id: BookSecureTerminalManual # Starlight
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -196,6 +200,7 @@
     - id: MaterialSiloFlatpack # Goob
     - id: ComputerEngiCommsFlatpack #Omu adds departmental comms board
     - id: BluespaceHarvesterMachineCircuitboard # Starlight
+    - id: BookSecureTerminalManual # Starlight
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -275,6 +280,7 @@
     # Goobstation End
     - id: ComputerMedicalCommsFlatpack #Omu adds departmental comms board
     - id: EnergyChemDispenserMachineCircuitboard # Omu
+    - id: BookSecureTerminalManual # Starlight
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -338,6 +344,7 @@
     - id: MMI # Goobstation
     - id: ComputerScienceCommsFlatpack #Omu adds departmental comms board
     - id: Multitool # Omu
+    - id: BookSecureTerminalManual # Starlight
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -407,6 +414,7 @@
     - id: Multitool # Omu
     - id: HoSPetKennel #Omu
     - id: BookCorporateSecretsSecurity # Omu
+    - id: BookSecureTerminalManual # Starlight
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
