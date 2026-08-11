@@ -26,7 +26,7 @@ public sealed class FascinationSystem: EntitySystem
         SubscribeLocalEvent<FascinationComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<FascinationComponent, FascinationChangedArgs>(OnChange);
         SubscribeLocalEvent<FascinationComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<BibleComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<BibleComponent, AfterInteractEvent>(OnBibleInteract);
     }
     private void OnStartup(EntityUid uid, FascinationComponent component, ComponentStartup args)
     {
@@ -109,7 +109,7 @@ public sealed class FascinationSystem: EntitySystem
 
         }
     }
-    private void OnAfterInteract(EntityUid uid, BibleComponent component, AfterInteractEvent args)
+    private void OnBibleInteract(EntityUid uid, BibleComponent component, AfterInteractEvent args)
     {
         var ev = new FascinationChangedArgs();
         ev.Amount = -1f;
