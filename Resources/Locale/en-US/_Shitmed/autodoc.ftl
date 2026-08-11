@@ -41,6 +41,7 @@ autodoc-error-hand-full = ITEM MANIPULATOR FULL
 autodoc-error-storage-full = ITEM TRAYS FULL
 autodoc-error-patient-unsedated = PATIENT REQUIRES SEDATION
 
+# Omu start - remove random chinese characters from the ui
 autodoc-title = AUTODOC MK.XIV
 autodoc-create-program = NEW PROGRAM
 autodoc-program-title = PROGRAM TITLE
@@ -67,6 +68,7 @@ autodoc-add-step-store-item = STORE ITEM
 autodoc-add-step-set-label = SET LABEL
 autodoc-add-step-set-label-prompt = Label
 autodoc-add-step-wait = WAIT
+# Omu end
 autodoc-add-step-wait-prompt = Seconds to wait
 
 autodoc-body-part-Other = Other
