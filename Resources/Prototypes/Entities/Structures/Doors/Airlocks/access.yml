@@ -1268,7 +1268,7 @@
       - HideLabel
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsExternal ]
+      board: [ DoorElectronics ] # Omu, allow all crew to go into escape pods and not only crew with external access.
 
 #HighSecDoors
 - type: entity
