@@ -9,6 +9,8 @@ using Content.Shared.Database;
 using Content.Shared.NPC.Systems;
 using Content.Shared.NPC.Components;
 using Content.Shared._Omu.Heretic;
+using Content.Shared.Interaction;
+using Content.Goobstation.Shared.Bible;
 
 namespace Content.Omu.Server.Entities.Heretic;
 
@@ -24,6 +26,7 @@ public sealed class FascinationSystem: EntitySystem
         SubscribeLocalEvent<FascinationComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<FascinationComponent, FascinationChangedArgs>(OnChange);
         SubscribeLocalEvent<FascinationComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<BibleComponent, AfterInteractEvent>(OnAfterInteract);
     }
     private void OnStartup(EntityUid uid, FascinationComponent component, ComponentStartup args)
     {
@@ -105,5 +108,11 @@ public sealed class FascinationSystem: EntitySystem
             _gameTicker.StartGameRule("MirrorMaidenSpawn", out _);
 
         }
+    }
+    private void OnAfterInteract(EntityUid uid, BibleComponent component, AfterInteractEvent args)
+    {
+        var ev = new FascinationChangedArgs();
+        ev.Amount = -1f;
+        RaiseLocalEvent(uid, ev);
     }
 }
