@@ -240,3 +240,28 @@
         conditions:
         - !type:ReagentThreshold
           min: 25
+
+- type: reagent
+  id: JuiceThatMakesYouAwebo
+  name: reagent-name-awebo
+  group: Toxins
+  desc: reagent-desc-awebo
+  physicalDesc: reagent-physical-desc-pandemonicallyfeathery
+  flavor: awebo
+  color: "#c259ff"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.25
+      effects:
+      - !type:Emote
+        emote: Awebo
+        showInChat: true
+        showInGuidebook: true
+        force: true
+        probability: 0.5
+      - !type:AdjustReagent
+        reagent: JuiceThatMakesYouAwebo
+        amount: -20
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
