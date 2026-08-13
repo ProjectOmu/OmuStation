@@ -9,3 +9,17 @@
       - id: WeaponShredder
       - id: ClothingMultipleBloodredHeadphones
         amount: 6
+
+- type: entity
+  id: BackpackPermaSalvage
+  parent: ClothingBackpackMerc
+  suffix: Merc
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingUniformJumpsuitMercenary
+    - id: ClothingHeadBandMerc
+    - id: ClothingHeadHatBeretMerc
+    - id: ClothingEyesGlassesMercenary
+    - id: ClothingHandsGlovesMercFingerless
+    - id: ClothingShoesBootsMerc

@@ -901,6 +901,7 @@
   - NanotrasenRepresentativeBowler
   - NanotrasenRepresentativeOutlaw
   - NanotrasenRepresentativeMAA
+  - CentcommHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeNeck
@@ -987,6 +988,7 @@
   - BlueshieldOfficerGoidaHelmet
   - BlueshieldOfficerBeretElite # Omustation
   - BlueshieldOfficerHeadHatFedora # OmuStation
+  - BlueshieldHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: BlueshieldOfficerBackpack
@@ -1095,6 +1097,7 @@
   loadouts:
   - NanotrasenTrainerHat
   - NanotrasenTrainerBeret
+  - CentcommHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: NanotrasenTrainerBackpack
@@ -1275,6 +1278,8 @@
   - WhiteShoes
   - BlackShoes
   - ScienceWinterBoots
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: RoboticistGloves
@@ -1336,6 +1341,7 @@
   - SeniorPhysicianBeret
   - ChemistUshanka # Da.
   - ChemistryBeret # Starlight - OMU port
+  - ChemistBandana # Omu
   - ChemistNurseHat # Starlight - OMU port
   - ChemistTruckersHat # Starlight - OMU port
   - ChemistFisherCap # Starlight - OMU port
@@ -1428,12 +1434,14 @@
   minLimit: 0
   loadouts:
   - BrigmedicBeret
+  - CorpsmanHeadHatKepi # Omu
   - CMOMedicalHeadMirror
   - BrigmedicNurseHat # Starlight
   - SecurityBeret
   - SecurityHat
   - TrooperHat
   - CorpsmanBeret # Omu
+  - CorpsmanVeteranHeadHatKepi # Omu
   - CorpsmanNurseHat # Starlight
   - BrigmedicNurseHatOfLife # Starlight
 
@@ -1584,6 +1592,7 @@
    - VirologistBackpack
    - VirologistSatchel
    - VirologistDuffel
+   - VirologistMessenger # Omu
 
 - type: loadoutGroup
   id: VirologistOuterClothing

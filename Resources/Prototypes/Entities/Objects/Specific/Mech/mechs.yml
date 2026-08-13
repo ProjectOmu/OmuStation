@@ -218,6 +218,9 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
+      tags: # Omu start
+        - CanPilot
+      requireAll: true # Omu end
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -268,7 +271,10 @@
     airtight: true # Goobstation - Space Honk is real.
     pilotWhitelist:
       components:
-      - HumanoidAppearance
+        - HumanoidAppearance
+      tags: # Omu start
+        - CanPilot
+      requireAll: true # Omu end
 
 - type: entity
   parent: MechHonker

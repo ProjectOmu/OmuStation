@@ -19,6 +19,9 @@ highlights-detective = Detective, "Det", Security, "Sec"
 highlights-security-cadet = Security Cadet, Secoff, Cadet, Security, "Sec"
 highlights-security-officer = Security Officer, Secoff, Officer, Security, "Sec"
 highlights-warden = Warden, "Ward", Security, "Sec"
+# Omu start
+highlights-corpsman = corpsman, brigmed, "Corp", "Sec", Security, "Sec", "med"
+# Omu end
 
 # Cargo
 highlights-cargo-technician = Cargo Technician, Cargo Tech, "Cargo"

@@ -14,10 +14,10 @@
   id: ClothingUniformSkirtCourier
   result: ClothingUniformSkirtCourier
 
-- type: latheRecipe
-  parent: BaseCoatRecipe
-  id: ClothingOuterCourierDuster
-  result: ClothingOuterCourierDuster
+#- type: latheRecipe
+#  parent: BaseCoatRecipe
+#  id: ClothingOuterCourierDuster
+#  result: ClothingOuterCourierDuster   Omu - commented due to the new loadout
 
 #Mail Carrier - Because for some reason they were missing.
 - type: latheRecipe
@@ -44,3 +44,14 @@
   parent: BaseCoatRecipe
   id: ClothingUniformMailCarrierLong
   result: ClothingUniformMailCarrierLong
+  
+- type: latheRecipe
+  id: ClothingCyberneticBeastMantleWorkResearch
+  result: ClothingCyberneticBeastMantleWorkResearch
+  completetime: 15
+  materials:
+    Steel: 2000
+    Glass: 1000
+    Silver: 1000
+    Gold: 1000
+    

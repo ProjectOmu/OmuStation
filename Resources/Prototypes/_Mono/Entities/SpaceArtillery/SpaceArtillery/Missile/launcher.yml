@@ -27,9 +27,8 @@
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 200
+  - type: ApcPowerReceiverBattery # Omu
+    batteryRechargeRate: 200
   - type: SpaceArtillery
     powerChargeRate: 200
     powerUsePassive: 750
@@ -78,9 +77,8 @@
   - type: SpaceArtillery
     powerChargeRate: 250
     powerUsePassive: 200
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 60
+  - type: ApcPowerReceiverBattery # Omu
+    batteryRechargeRate: 250
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
     proto: ShipMissileASM501
@@ -122,9 +120,8 @@
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 60
+  - type: ApcPowerReceiverBattery # Omu
+    batteryRechargeRate: 350
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
     proto: ShipMissileASM302
@@ -187,9 +184,8 @@
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 500
+  - type: ApcPowerReceiverBattery # Omu
+    batteryRechargeRate: 500
   - type: SpaceArtillery
     powerChargeRate: 500
     powerUsePassive: 2500

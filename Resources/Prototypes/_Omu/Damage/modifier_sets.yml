@@ -11,3 +11,17 @@
     Holy: 1.5
     Shock: 1.5
   ignoreArmorPierceFlags: All
+
+- type: damageModifierSet
+  id: GhoulMirrorMaiden
+  coefficients:
+    Heat: 1.3
+    Cold: 0.8
+    Asphyxiation: 0.0
+    Bloodloss: 0.0
+    Blunt: 1.5
+    Slash: 0.8
+    Piercing: 1.5
+    Holy: 2.0
+    Shock: 0.0
+  ignoreArmorPierceFlags: All

@@ -232,7 +232,8 @@
       - map: [ "id" ]
       - map: [ "outerClothing" ]
       - map: [ "beltalt" ] # Omu change.
-      - map: [ "enum.HumanoidVisualLayers.Tail" ] #in the utopian future we should probably have a wings enum inserted here so everyhting doesn't break
+      - map: [ "enum.HumanoidVisualLayers.Wings" ] #Omu - change Tail to Wings
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
       - map: [ "back" ]
       - map: [ "neck" ]
       - map: [ "enum.HumanoidVisualLayers.Face" ]
