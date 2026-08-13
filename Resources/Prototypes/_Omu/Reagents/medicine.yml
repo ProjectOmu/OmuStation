@@ -1,0 +1,17 @@
+- type: reagent
+  id: Ibandradone # ibandronate + -adone
+  name: reagent-name-ibandradone
+  group: Medicine
+  desc: reagent-desc-ibandradone
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: medicine
+  color: "#fff0d9"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      effects:
+        - !type:AdjustBoneDamage
+          conditions:
+          - !type:Temperature
+            max: 213.0
+          amount: -11 # 1 healing per bone on a humanoid, heals bones to full in 1 minute
