@@ -4055,6 +4055,7 @@ Entries:
         path heretics receive less damage from this, the higher their path stage
         is, the lower the damage will be. Flesh stalkers and raw prophets will
         not take damage when jaunting
+        not take damage when jaunting
   id: 455
   time: '2025-01-11T14:09:57.0000000+00:00'
 - author: Piras314
@@ -21120,6 +21121,14 @@ Entries:
       message: Interacting on a crawling person no longer permastuns them.
   id: 2403
   time: '2026-02-12T11:54:46.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Meta mapping! Added roundstart cloning and moved xenobio. Alot of other
+        misc improvements.
+  id: 2404
+  time: '2026-02-12T15:33:47.0000000+00:00'
 - author: NotActuallyMarty
   changes:
     - type: Fix
@@ -24295,3 +24304,11 @@ Entries:
         them.
   id: 2800
   time: '2026-08-13T07:01:44.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Improved background parallax
+    - type: Add
+      message: Added crafting recipe for campfires
+  id: 2801
+  time: '2026-08-13T08:45:07.0000000+00:00'
