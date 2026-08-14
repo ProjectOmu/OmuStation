@@ -66,3 +66,6 @@
   - type: Prying
   - type: UseDelay # Omu, this means the crowbar function has a cooldown
     delay: 0.9
+  - type: Tag # Omu
+    tags:
+      - AllowedOniGun

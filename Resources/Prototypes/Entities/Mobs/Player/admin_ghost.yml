@@ -272,6 +272,7 @@
     allowedVerbs: []
   - type: ExplosionResistance
     damageCoefficient: 0
+  - type: InteractionToggleable # CD
 
 - type: entity
   abstract: true
