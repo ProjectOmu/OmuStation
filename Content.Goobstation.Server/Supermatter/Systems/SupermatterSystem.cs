@@ -70,7 +70,8 @@ using Content.Server.Chat.Managers; // omu
 using Content.Shared.Mind; // omu
 using Content.Shared.Humanoid; // omu
 using Robust.Shared.Player; // omu
-using Content.Server.Objectives.Components.Targets; // omu
+using Content.Server.Objectives.Components.Targets;
+using Microsoft.CodeAnalysis; // omu
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
@@ -693,6 +694,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     private void OnCollideEvent(EntityUid uid, SupermatterComponent sm, ref StartCollideEvent args)
     {
         var target = args.OtherEntity;
+        var meta = MetaData(target);
 
         // Stop immune entities from activating the sm.
         if (args.OtherBody.BodyType == BodyType.Static
@@ -721,10 +723,10 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
             sm.Activated = true;
         }
-
+        //omu start
         if (_tag.HasTag(target, "EmitterBolt")) //omu start
         {
-            if (_tag.HasTag(target, "EmitterBoltElectroDisruptive"))    //Omu checks for the tag of the emitter bolt in question
+            if (meta.EntityPrototype?.ID == "EmitterBoltElectroDisruptive")    //Omu checks for the tag of the emitter bolt in question
             {
                 sm.Damage -= 1f;        //omu - heal the SM
                 sm.Power -= 60f;
@@ -733,7 +735,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 QueueDel(target);
                 return;
             }
-            if (_tag.HasTag(target, "EmitterBoltElectroBehavioural"))
+            if (meta.EntityPrototype?.ID == "EmitterBoltElectroBehavioural")
             {
                 sm.Damage += 1f;
                 sm.Power += 100f;
@@ -742,7 +744,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 QueueDel(target);
                 return;
             }
-            if (_tag.HasTag(target, "EmitterBoltExcitatory"))
+            if (meta.EntityPrototype?.ID == "EmitterBoltExcitatory")
             {
                 sm.Damage += 1f;
                 sm.SMAngerValue += 20f;
@@ -751,7 +753,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 QueueDel(target);
                 return;
             }
-            if (_tag.HasTag(target, "EmitterBoltEmissive"))
+            if (meta.EntityPrototype?.ID == "EmitterBoltEmissive")
             {
                 sm.Damage += 1f;
                 if (!sm.Varlocked)
@@ -764,7 +766,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 QueueDel(target);
                 return;
             }
-        }                                                            //omu end
+        }
+        //omu end
 
         if (TryComp<SupermatterFoodComponent>(target, out var food))
         {
@@ -888,11 +891,11 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         if (sm.GasEfficiencyFactorChanged)
         {
             var diff = sm.GasEfficiency - sm.GasEfficiencySetpoint;
-            diff = diff/50;
+            diff = diff / 50;
             Math.Round(diff, 5);
-            if (diff >0)
+            if (diff > 0)
                 sm.GasEfficiency = sm.GasEfficiency - diff;
-            else if (diff <0)
+            else if (diff < 0)
                 sm.GasEfficiency = sm.GasEfficiency + diff;
             else if (diff == 0)
                 sm.GasEfficiency = sm.GasEfficiencySetpoint;
@@ -905,11 +908,11 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         if (sm.RadiationOutputFactorChanged)
         {
             var diff = sm.RadiationOutputFactor - sm.RadiationOutputFactorSetpoint;
-            diff = diff/50;
+            diff = diff / 50;
             Math.Round(diff, 5);
-            if (diff >0)
+            if (diff > 0)
                 sm.RadiationOutputFactor = sm.RadiationOutputFactor - diff;
-            else if (diff <0)
+            else if (diff < 0)
                 sm.RadiationOutputFactor = sm.RadiationOutputFactor + diff;
             else if (diff == 0)
                 sm.RadiationOutputFactor = sm.RadiationOutputFactorSetpoint;

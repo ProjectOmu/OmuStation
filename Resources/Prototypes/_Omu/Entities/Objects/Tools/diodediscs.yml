@@ -65,7 +65,6 @@
   components:
   - type: Tag
     tags:
-    - EmitterBoltElectroDisruptive
     - EmitterBolt
   - type: Projectile
     damage:
@@ -81,7 +80,6 @@
   components:
   - type: Tag
     tags:
-    - EmitterBoltElectroBehavioural
     - EmitterBolt
   - type: Projectile
     damage:
@@ -97,7 +95,6 @@
   components:
   - type: Tag
     tags:
-    - EmitterBoltExcitatory
     - EmitterBolt
   - type: Projectile
     damage:
@@ -121,22 +118,8 @@
   components:
   - type: Tag
     tags:
-    - EmitterBoltEmissive
     - EmitterBolt
   - type: Projectile
     damage:
       types:
         Radiation: 10
-
-
-- type: Tag
-  id: EmitterBoltElectroDisruptive
-
-- type: Tag
-  id: EmitterBoltElectroBehavioural
-
-- type: Tag
-  id: EmitterBoltExcitatory
-
-- type: Tag
-  id: EmitterBoltEmissive
