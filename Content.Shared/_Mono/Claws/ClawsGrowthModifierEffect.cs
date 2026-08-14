@@ -1,9 +1,8 @@
 using Content.Shared._Mono.Claws.Components;
-using Content.Shared._Mono.Claws;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.EntityEffects.Effects
+namespace Content.Shared._Mono.Claws
 {
     public sealed partial class ClawsGrowth : EntityEffect
     {
