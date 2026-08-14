@@ -33,4 +33,6 @@
     inverted: true
     species:
     - IPC
+  - !type:OverallPlaytimeRequirement
+    time: 18000 # 5 hours
   guides: [ Letoferol ]
