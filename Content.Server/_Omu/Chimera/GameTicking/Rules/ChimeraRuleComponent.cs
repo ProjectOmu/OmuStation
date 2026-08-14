@@ -16,11 +16,11 @@ public sealed partial class ChimeraRuleComponent : Component
     [DataField]
     public SoundPathSpecifier BriefingSound = new("/Audio/Ambience/Antag/traitor_start.ogg");
 
-    [ValidatePrototypeId<NpcFactionPrototype>, DataField]
-    public string ChimeraFaction = "Chimera";
+    [DataField]
+    public readonly ProtoId<NpcFactionPrototype> ChimeraFaction = "Chimera";
 
-    [ValidatePrototypeId<NpcFactionPrototype>, DataField]
-    public string NanotrasenFaction = "NanoTrasen";
+    [DataField]
+    public readonly ProtoId<NpcFactionPrototype>  NanotrasenFaction = "NanoTrasen";
 
     [DataField]
     public EntProtoId MindRoleChimera = "MindRoleChimera";

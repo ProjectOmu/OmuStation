@@ -28,10 +28,8 @@ namespace Content.Server._Omu.Chimera.GameTicking.Rules;
 
 public sealed class ChimeraRuleSystem : GameRuleSystem<ChimeraRuleComponent>
 {
-    [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly ObjectivesSystem _objective = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
