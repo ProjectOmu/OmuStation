@@ -1,4 +1,3 @@
-using Content.Server._Mono.Temperature.Components;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Interaction.Events;
