@@ -28,8 +28,11 @@ public sealed class JumpSystem : EntitySystem
         SubscribeLocalEvent<JumpComponent, ThrowDoHitEvent>(OnThrowDoHit);
     }
 
-    private void OnJumpStartup(EntityUid uid, JumpComponent component, ComponentStartup args) =>
-        _actions.AddAction(uid, ref component.JumpActionEntity, component.JumpAction);
+    private void OnJumpStartup(EntityUid uid, JumpComponent component, ComponentStartup args)
+    {
+        if (component.JumpAction != null)        //Omu - check if its not null before trying to add an action
+            _actions.AddAction(uid, ref component.JumpActionEntity, component.JumpAction);
+    }
 
     private void OnJumpShutdown(EntityUid uid, JumpComponent component, ComponentShutdown args) =>
         _actions.RemoveAction(uid, component.JumpActionEntity);

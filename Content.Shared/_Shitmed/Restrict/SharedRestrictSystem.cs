@@ -53,7 +53,7 @@ public sealed partial class SharedRestrictSystem : EntitySystem
 
     private void OnAttemptGunshot(Entity<RestrictGunshotsByUserTagComponent> ent, ref ShotAttemptedEvent args)
     {
-        if(!_tagSystem.HasAllTags(args.User, ent.Comp.Contains) || _tagSystem.HasAnyTag(args.User, ent.Comp.DoesntContain))
+        if ((!_tagSystem.HasAllTags(args.User, ent.Comp.Contains) || _tagSystem.HasAnyTag(args.User, ent.Comp.DoesntContain)) && !_tagSystem.HasAnyTag(args.Used, ent.Comp.BypassTags)) // Omu, check for bypasstags
         {
             var time = _timing.CurTime;
 

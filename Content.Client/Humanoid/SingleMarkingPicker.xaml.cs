@@ -48,6 +48,14 @@ public sealed partial class SingleMarkingPicker : BoxContainer
     /// </summary>
     public Action<(int slot, Marking marking)>? OnColorChanged;
 
+    // Omu begin
+    /// <summary>
+    /// What happens if a marking's glowing state is changed.
+    /// Sends a 'slot' number, and the marking in question.
+    /// </summary>
+    public Action<(int slot, Marking marking)>? OnGlowingChanged;
+    // Omu end
+
     // current selected slot
     private int _slot = -1;
     private int Slot
@@ -250,6 +258,29 @@ public sealed partial class SingleMarkingPicker : BoxContainer
             };
 
             ColorSelectorContainer.AddChild(selector);
+
+            // Omu begin
+            var glowyToggle = new CheckBox
+            {
+                Text = Loc.GetString("ui-marking-glowing"),
+                Pressed = marking.GetGlowingIndex(colorIndex),
+            };
+
+            glowyToggle.OnToggled += o =>
+            {
+                if (_markings == null ||
+                    _markings.Count == 0 ||
+                    !_markingManager.TryGetMarking(_markings[Slot], out _))
+                {
+                    return;
+                }
+
+                marking.SetGlowing(colorIndex, o.Pressed);
+                OnGlowingChanged?.Invoke((_slot, marking));
+            };
+
+            ColorSelectorContainer.AddChild(glowyToggle);
+            // Omu end
         }
     }
 
