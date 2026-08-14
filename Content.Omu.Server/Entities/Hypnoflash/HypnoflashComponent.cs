@@ -1,4 +1,4 @@
-namespace Content.Server._Omu.Entities.Hypnoflash;
+namespace Content.Omu.Server.Entities.Hypnoflash;
 
 [RegisterComponent]
 public sealed partial class HypnoflashComponent : Component
