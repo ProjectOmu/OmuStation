@@ -33,6 +33,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Omu.Carrying;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
@@ -68,7 +69,7 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<PseudoItemComponent, GetVerbsEvent<InnateVerb>>(AddInsertVerb);
         SubscribeLocalEvent<PseudoItemComponent, EntGotRemovedFromContainerMessage>(OnEntRemoved);
-        SubscribeLocalEvent<PseudoItemComponent, GettingPickedUpAttemptEvent>(OnGettingPickedUpAttempt);
+        SubscribeLocalEvent<PseudoItemComponent, GettingCarriedEvent>(OnGettingPickedUpAttempt); // Omu
         SubscribeLocalEvent<PseudoItemComponent, DropAttemptEvent>(OnDropAttempt);
         SubscribeLocalEvent<PseudoItemComponent, ContainerGettingInsertedAttemptEvent>(OnInsertAttempt);
         SubscribeLocalEvent<PseudoItemComponent, InteractionAttemptEvent>(OnInteractAttempt);
@@ -148,9 +149,9 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
     }
 
     protected virtual void OnGettingPickedUpAttempt(EntityUid uid, PseudoItemComponent component,
-        GettingPickedUpAttemptEvent args)
+        GettingCarriedEvent args) // Omu
     {
-        if (args.User == args.Item)
+        if (args.Carrier == args.Carried) // Omu
             return;
 
         Transform(uid).AttachToGridOrMap();

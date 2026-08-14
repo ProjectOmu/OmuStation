@@ -61,6 +61,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using SharedGunSystem = Content.Shared.Weapons.Ranged.Systems.SharedGunSystem;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
+using Content.Shared._Omu.Changeling; //omu
 
 namespace Content.Client.Weapons.Ranged.Systems;
 
@@ -216,6 +217,11 @@ public sealed partial class GunSystem : SharedGunSystem
         if (TryComp<EntropicPlumeAffectedComponent>(entity, out var affected) &&
             affected.NextAttack + TimeSpan.FromSeconds(0.1f) > Timing.CurTime) // Goobstation
             return;
+
+        if (TryComp<BerserkAffectedComponent>(entity, out var berserk) &&
+            berserk.NextAttack + TimeSpan.FromSeconds(0.1f) > Timing.CurTime) // omu - for berserk sting
+            return;
+
 
         var useKey = gun.UseKey ? EngineKeyFunctions.Use : EngineKeyFunctions.UseSecondary;
 

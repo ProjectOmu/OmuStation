@@ -31,13 +31,13 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
-  - type: RestrictGunshotsByUserTag # Goobstation
-    doesntContain:
-    - Oni
-    messages:
-    - oni-cannot-shoot-guns-1
-    - oni-cannot-shoot-guns-2
-    - oni-cannot-shoot-guns-3
+  #- type: RestrictGunshotsByUserTag # Goobstation # Omu, move this to the oni species proto instead.
+  #  doesntContain:
+  #  - Oni
+  #  messages:
+  #  - oni-cannot-shoot-guns-1
+  #  - oni-cannot-shoot-guns-2
+  #  - oni-cannot-shoot-guns-3
   - type: ItemSlots
     slots:
       gun_magazine:

@@ -35,28 +35,53 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
     public event Action<ProtoId<BorgTypePrototype>, ProtoId<BorgSubtypePrototype>>? ConfirmedBorgType;
 
     private static readonly List<ProtoId<GuideEntryPrototype>> GuidebookEntries = new() { "Cyborgs", "Robotics" };
+    bool mouseRefresh = true; // Omu
+
 
     public BorgSelectTypeMenu()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        foreach (var borgType in _prototypeManager.EnumeratePrototypes<BorgTypePrototype>().OrderBy(PrototypeName))
+        // Omu start - Group Borg Types based on dummyPrototype set in BorgTypePrototype YAML
+        Dictionary<string, List<BorgTypePrototype>> borgGroupBuilder = new Dictionary<string, List<BorgTypePrototype>>();
+
+        foreach (var borgType in _prototypeManager.EnumeratePrototypes<BorgTypePrototype>())
         {
+            if (!borgGroupBuilder.ContainsKey(borgType.DummyPrototype))
+                borgGroupBuilder[borgType.DummyPrototype] = new List<BorgTypePrototype>();
+
+            borgGroupBuilder[borgType.DummyPrototype].Add(borgType);
+        }
+
+        foreach (var (key, borgTypeList) in borgGroupBuilder)
+        {
+
             // Goobstation-Start: Customizable borgs sprites
             var chassisList = new EntityPrototypeView
             {
                 Scale = new Vector2(2, 2),
                 MouseFilter = MouseFilterMode.Stop
             };
-            chassisList.SetPrototype(borgType.DummyPrototype);
-            chassisList.OnMouseEntered += _ =>
+            chassisList.SetPrototype(key);
+
+            foreach (var borgType in borgTypeList)
             {
-                _selectedBorgType = borgType;
-                UpdateInformation(borgType);
+                chassisList.OnMouseEntered += _ =>
+                {
+                    _selectedBorgType = borgType;
+                    UpdateInformation(borgType);
+                    mouseRefresh = false;
+                };
+            }
+            chassisList.OnMouseExited += _ =>
+            {
+                mouseRefresh = true;
             };
+
             SelectionsContainer.AddChild(chassisList);
         }
+        // Omu end
 
         ConfirmTypeButton.OnPressed += ConfirmButtonPressed;
         HelpGuidebookIds = GuidebookEntries;
@@ -80,18 +105,20 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
         ChassisView.SetPrototype(prototype.DummyPrototype);
 
         // Goobstation: Customizable borgs sprites
-        SubtypeSelection.FillContainer(prototype);
+        SubtypeSelection.FillContainer(prototype, mouseRefresh); // Omu add mouseRefresh for reloading subtypes
         ConfirmTypeButton.Disabled = true;
     }
 
     private void ConfirmButtonPressed(BaseButton.ButtonEventArgs obj)
     {
+        // Omu - revised logic for grouping borg types
         if (_selectedBorgType == null ||
             SubtypeSelection.SelectedBorgSubtype == null ||
-            SubtypeSelection.SelectedBorgSubtype.ParentBorgType != _selectedBorgType)
+            SubtypeSelection.SelectedParentType == null)
             return;
 
-        ConfirmedBorgType?.Invoke(_selectedBorgType, SubtypeSelection.SelectedBorgSubtype);
+        // Omu - Tracking parent type
+        ConfirmedBorgType?.Invoke(SubtypeSelection.SelectedParentType, SubtypeSelection.SelectedBorgSubtype);
     }
 
     private static string PrototypeName(BorgTypePrototype prototype)

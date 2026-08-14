@@ -147,6 +147,9 @@
             False: {visible: true}
     - type: StaticPrice
       price: 120
+    - type: Tag # Omu
+      tags:
+        - RollerBed
 
 - type: entity
   parent: RollerBed
