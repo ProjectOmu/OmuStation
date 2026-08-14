@@ -24,6 +24,9 @@ using Content.Server.GameTicking;
 using Robust.Shared.Audio.Systems;
 using Content.Server.Nuke;
 using Content.Server.AlertLevel;
+using Content.Shared.GameTicking.Components;
+using Robust.Shared.Timing;
+
 namespace Content.Server._Omu.Chimera.GameTicking.Rules;
 
 public sealed class ChimeraRuleSystem : GameRuleSystem<ChimeraRuleComponent>
@@ -38,12 +41,21 @@ public sealed class ChimeraRuleSystem : GameRuleSystem<ChimeraRuleComponent>
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly NukeCodePaperSystem _nukeCode = default!;
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<ChimeraRuleComponent, AfterAntagEntitySelectedEvent>(OnSelectAntag);
         SubscribeLocalEvent<ChimeraRuleComponent, GetBriefingEvent>(OnGetBrief);
+    }
+    protected override void ActiveTick(EntityUid uid, ChimeraRuleComponent component, GameRuleComponent gameRule, float frameTime)
+    {
+        base.ActiveTick(uid, component, gameRule, frameTime);
+        if (!component.NextRoundEndCheck.HasValue || component.NextRoundEndCheck > _timing.CurTime)
+            return;
+        CheckRoundEnd(component);
+        component.NextRoundEndCheck = _timing.CurTime + component.EndCheckDelay;
     }
 
     private void OnSelectAntag(EntityUid uid, ChimeraRuleComponent comp, ref AfterAntagEntitySelectedEvent args)
