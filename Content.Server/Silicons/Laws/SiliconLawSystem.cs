@@ -307,10 +307,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         // Show the silicon has been subverted.
         component.Subverted = true;
 
-        // Starlight start
-        if (args.EmagUsed != null)
-            _freemag.CheckSELFmag((uid, component), args.EmagUsed.Value);
-        // Starlight end
+
 
         // Add the first emag law before the others
         var name = CompOrNull<EmagSiliconLawComponent>(uid)?.OwnerName ?? Name(args.user); // DeltaV: Reuse emagger name if possible
@@ -326,6 +323,12 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             LawString = Loc.GetString("law-emag-secrecy", ("faction", Loc.GetString(component.Lawset.ObeysTo))),
             Order = component.Lawset.Laws.Max(law => law.Order) + 1
         });
+
+        // Starlight start
+        // if we're a self agent emag, clear the laws and all that.
+        if (args.EmagUsed != null)
+            _freemag.CheckSELFmag((uid, component), args.EmagUsed.Value);
+        // Starlight end
 
         _adminLogger.Add(LogType.SiliconLaws, LogImpact.High, $"{ToPrettyString(uid):entity} laws changed due to emag by {ToPrettyString(args.user):user} to:{component.Lawset!.LoggingString()}"); // goob
     }

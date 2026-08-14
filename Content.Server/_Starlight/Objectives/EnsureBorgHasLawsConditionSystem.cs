@@ -7,6 +7,7 @@ using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Content.Shared.Emag.Components;
 using Content.Shared.Silicons.Laws;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Starlight.Objectives;
 
@@ -14,7 +15,6 @@ public sealed class EnsureBorgHasLawsConditionSystem : EntitySystem
 {
     [Dependency] private readonly SiliconLawSystem _siliconLaw = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!; // Starlight
     [Dependency] private readonly TagSystem _tagSystem = default!; // Corvax-Next-AiRemoteControl
 
@@ -27,6 +27,7 @@ public sealed class EnsureBorgHasLawsConditionSystem : EntitySystem
 
     private void OnGetProgress(Entity<EnsureLawBoundEntitiesHaveNoLawsConditionComponent> ent, ref ObjectiveGetProgressEvent args)
     {
+        ComponentRegistry? ComponentTopaassalong = new SiliconLawBoundComponent();
         var query = EntityQueryEnumerator<SiliconLawBoundComponent>();
         var freeBorgs = 0;
 
@@ -47,7 +48,7 @@ public sealed class EnsureBorgHasLawsConditionSystem : EntitySystem
     public bool CheckSELFmag(Entity<SiliconLawProviderComponent> ent, EntityUid emag)
     {
         if (MetaData(emag).EntityPrototype?.ID != "EmagFREE" // hardcoded
-            || !_tagSystem.HasTag(emag, "Freemag") // only one uses it atm
+            || !_tagSystem.HasTag(emag, "FreeMag") // only one uses it atm
             || !TryComp<EmagComponent>(emag, out var emagComp)
             || emagComp.Lawset == null)
             return false;
