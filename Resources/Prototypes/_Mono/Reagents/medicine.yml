@@ -112,35 +112,6 @@
         reagent: NaturalLetoferol
         amount: -3
 
-# Stable version of Leporazine
-
-- type: reagent
-  id: Peranol
-  name: reagent-name-peranol
-  group: Medicine
-  desc: reagent-desc-peranol
-  physicalDesc: reagent-physical-desc-pungent
-  flavor: medicine
-  color: "#8B008B"
-  metabolisms:
-    Medicine:
-      metabolismRate: 0.02
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Heat: -0.2
-      - !type:AdjustTemperature
-        conditions:
-        - !type:Temperature
-          min: 253.15
-        amount: -360
-      - !type:AdjustTemperature
-        conditions:
-        - !type:Temperature
-          min: 253.15
-        amount: -7500
-
 # Claw growth medicine
 
 - type: reagent
