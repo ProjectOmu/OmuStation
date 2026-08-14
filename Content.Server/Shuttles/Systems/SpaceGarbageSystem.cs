@@ -7,6 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server.Objectives.Components.Targets;
 using Content.Server.Shuttles.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
@@ -31,6 +32,11 @@ public sealed class SpaceGarbageSystem : EntitySystem
     {
         if (args.OtherBody.BodyType != BodyType.Static)
             return;
+
+        // Omu Start -- Steal targets like Prime-cut Corgi meat will no longer delete
+        if (HasComp<StealTargetComponent>(uid))
+            return;
+        // Omu End
 
         var ourXform = _xformQuery.GetComponent(uid);
         var otherXform = _xformQuery.GetComponent(args.OtherEntity);
