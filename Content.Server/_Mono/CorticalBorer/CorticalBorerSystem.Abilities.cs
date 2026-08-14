@@ -238,10 +238,12 @@ public sealed partial class CorticalBorerSystem
         _vomit.Vomit(host, -20, -20); // half as much chem vomit, a lot that is coming up is the egg
         LayEgg(borer);
         UpdateChems(borer, -borer.Comp.EggCost);
-        var damage = new DamageSpecifier();        //Omu start
+       //Omu start
+        var damage = new DamageSpecifier(); 
         damage.DamageDict.Add("Bloodloss", 10);
         damage.DamageDict.Add("Genetic", 10);
-        _damageable.TryChangeDamage(host, damage, interruptsDoAfters: false);        //Omu end
+        _damageable.TryChangeDamage(host, damage, interruptsDoAfters: false);
+        //Omu end
         args.Handled = true;
     }
 }
