@@ -141,7 +141,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Content.Server._Starlight.Lock; // Starlight-edit
+using Content.Server._Starlight.Lock;
 
 namespace Content.Server.Nuke;
 
