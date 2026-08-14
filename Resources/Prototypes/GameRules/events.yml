@@ -179,6 +179,14 @@
     - id: MalignRiftSpawn # DeltaV
     - id: FloorGoblinMidRound # Goobstation
     - id: ClownGoblinMigration # Goobstation - New Midrounds
+    - id: BeeMigration # Omu - The bees.
+    - id: ShadowCatSpawn # Omu
+    - id: CrabMigration # Omu
+    - id: PossumMigration # Omu
+    - id: LizardMigration # Omu
+    - id: SlurvaMigration # Omu
+    - id: SnakeMigration # Omu
+    - id: UtilityLineRupture # Funky Station
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -188,7 +196,7 @@
     - id: DragonSpawn
     - id: KingRatMigration
     - id: NinjaSpawn
-    - id: ParadoxCloneSpawn
+    #- id: ParadoxCloneSpawn # omu weird bug casuing extreme lag
     #- id: RevenantSpawn  # GoobStation - removed till rework
     - id: SleeperAgents
     - id: ZombieOutbreak
@@ -210,6 +218,11 @@
     - id: VoxRaidersMidround # Goobstation - New Midrounds
     - id: TunnelClownMidround # Goobstation
     #- id: WraithMidround # Goobstation - Wraith
+    - id: BeeMigrationAngry # Omu - The bees but angry
+    - id: NaniteSpawn # Omu
+    - id: LivingCurseSpawn # Omu Chaplain Enrichment
+    - id: LavaMonkeySpawn # Omu Lavaland may be gone; but the monkies live on
+    - id: NTAgentSleeper # Omu
     #TODO when midrounds are "reviewed" by the chudmins add them back
 
 - type: entity
@@ -902,7 +915,7 @@
     latestStart: 100 # OmuStation (1hr 40min max)
     weight: 8
     minimumPlayers: 15
-    maxOccurrences: 1 # can only happen once per round
+    maxOccurrences: 2 # can only happen twice(omu up from 1) per round
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
@@ -918,7 +931,7 @@
       fallbackRoles: [ Traitor ]
       min: 1
       max: 2
-      playerRatio: 10
+      playerRatio: 15 # Omu changed so it will actually scale at 15/30 pop rather than how it was at 15/20 ppop
       chaosScore: 200 # Goobstation - same as roundstart traitor gamerule
       blacklist:
         components:
@@ -1055,3 +1068,20 @@
       min: 1
       max: 1
       pickPlayer: false
+
+# Funky Station
+- type: entity
+  parent: BaseStationEvent
+  id: UtilityLineRupture
+  name: Utility Line Rupture
+  components:
+  - type: UtilityLineRuptureRule
+  - type: StationEvent
+    earliestStart: 15
+    weight: 6.5
+    duration: null
+  - type: GameRule
+    delay:
+      min: 0
+      max: 0
+    chaosScore: 300 # Omu - potential to do a lot of damage
