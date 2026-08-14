@@ -25,7 +25,7 @@ using Content.Shared.Popups;
 using Robust.Server.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Mindcontrol;      //OMU namespace change
+namespace Content.Goobstation.Server.Mindcontrol;
 
 public sealed class MindcontrolSystem : EntitySystem
 {

@@ -1,4 +1,4 @@
-using Content.Server._Goobstation.Mindcontrol;
+using Content.Goobstation.Server.Mindcontrol;
 using Content.Goobstation.Shared.Mindcontrol;
 using Content.Shared.Flash;
 using Content.Shared.Weapons.Melee.Events;
@@ -16,7 +16,7 @@ using Content.Goobstation.Common.Flash;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Omu.Entities.Hypnoflash;
+namespace Content.Omu.Server.Entities.Hypnoflash;
 public sealed class MindcontrolImplantSystem : EntitySystem
 {
     [Dependency] private readonly MindcontrolSystem _mindcontrol = default!;
