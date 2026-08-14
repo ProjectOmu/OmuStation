@@ -1,3 +1,9 @@
+# Head
+- type: loadout
+  id: SecurityBandana
+  equipment:
+    head: ClothingHeadBandSecurity
+
 # Jumpsuits / Jumpskirts
 - type: loadout
   id: BlackRedUniform
@@ -12,6 +18,20 @@
     proto: SeniorOfficer
   equipment:
     belt: ClothingBeltSheathStunswordFilled
+
+# Hat
+- type: loadout
+  id: SecoffHeadHatKepi
+  equipment:
+    head: ClothingHeadHatKepiSecoff
+
+- type: loadout
+  id: SecoffSeniorHeadHatKepi
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+  equipment:
+    head: ClothingHeadHatKepiSecoffSenior
 
 #Secoff
 - type: loadout

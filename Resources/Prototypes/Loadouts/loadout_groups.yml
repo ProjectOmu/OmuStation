@@ -251,6 +251,7 @@
   - DiscountDanLighter
   - CheapLighter
   - FlippoLighter
+  - MysteryStaffPlushieBox
   # Omu end
   - CardBoxBlack # GoobStation
   - CardBoxNanotrasen # GoobStation
@@ -280,7 +281,12 @@
   - WhiteCane
   - TapeRecorder
   - DrinkOniGourd
+  - AACTablet
   # End DeltaV Additions
+  # Begin Imp Additions
+  - CardBoxTarot
+  # End Imp Additions
+  - MusicianMemoryLeek  #Omu - Horrid miku
 
 - type: loadoutGroup
   id: Glasses
@@ -326,6 +332,7 @@
   - EmergencyWaterVapor # Delta-V
   - EmergencySilicon
   - EmergencyOxygenCarnivore # Omu
+  - EmergencyOxygenEthanol # Omu
 
 # nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup
@@ -363,6 +370,7 @@
   - CaptainHead
   - CaptainCap
   - CaptainCapcapSenior # goob
+  - CaptainHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: CaptainJumpsuit
@@ -411,6 +419,7 @@
   minLimit: 0
   loadouts:
   - HoPHead
+  - HopHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: HoPJumpsuit
@@ -534,6 +543,8 @@
   loadouts:
   - BlackShoes
   - WinterBoots
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: BartenderHead
@@ -567,6 +578,7 @@
   minLimit: 0
   loadouts:
   - ChefHead
+  - ChefBandana # Omu
 
 - type: loadoutGroup
   id: ChefMask
@@ -676,6 +688,7 @@
   minLimit: 0
   loadouts:
   - JanitorHead
+  - JanitorBandana # Omu
   - JanitorHeadSenior # Goobstation
 
 - type: loadoutGroup
@@ -800,6 +813,7 @@
   - EmergencyWaterVaporClown # Delta-V
   - EmergencySilicon
   - EmergencyOxygenCarnivoreClown # Omu
+  - EmergencyOxygenEthanolClown # Omu
 
 - type: loadoutGroup
   id: MimeHead
@@ -864,6 +878,7 @@
   - EmergencyWaterVaporMime # Delta-V
   - EmergencySilicon
   - EmergencyOxygenCarnivoreMime # Omu
+  - EmergencyOxygenEthanolMime # Omu
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -872,6 +887,7 @@
   - MusicianJumpsuit
   - MusicianJumpskirt
   - ServiceMJ # goob
+  - MusicianMikuJumpsuit  # Omu - horrid Miku
 
 - type: loadoutGroup
   id: MusicianOuterClothing
@@ -932,6 +948,7 @@
   loadouts:
   - QuartermasterHead
   - QuartermasterBeret
+  - QuartermasterBandana # OmuStation
 
 - type: loadoutGroup
   id: QuartermasterJumpsuit
@@ -970,6 +987,13 @@
   loadouts:
   - BrownShoes
   - CargoWinterBoots
+  - BlackShoes # Omu
+  - WorkBoots # Omu
+  - FishingBoots # Omu
+  - SalvageBoots # Omu
+  - CargoWinterBoots # Omu
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: CargoTechnicianHead
@@ -978,6 +1002,7 @@
   loadouts:
   - CargoTechnicianHead
   #- CargoTechnicianHeadMail # Goob/DeltaV - Mail # Omu - Moved to courier
+  - CargoBandana # OmuStation
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
@@ -1094,6 +1119,8 @@
   loadouts:
   - BrownShoes
   - EngineeringWinterBoots
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
@@ -1213,6 +1240,7 @@
   - EmergencyWaterVaporExtended # Delta-V
   - EmergencySilicon
   - EmergencyOxygenCarnivoreExtended # Omu
+  - EmergencyOxygenEthanolExtended # Omu
 
 # Science
 - type: loadoutGroup
@@ -1263,6 +1291,8 @@
   loadouts:
   - BrownShoes
   - ScienceWinterBoots
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: ScientistHead
@@ -1322,6 +1352,8 @@
   - WhiteShoes
   - BlackShoes
   - ScienceWinterBoots
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: ScientistGloves
@@ -1356,6 +1388,7 @@
   - HeadofSecurityHead
   - HeadofSecurityBeret
   - HeadofSecuritySpecialBeret # Goobstation
+  - HosHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
@@ -1405,6 +1438,7 @@
   loadouts:
   - WardenHead
   - WardenBeret
+  - WardenHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: WardenJumpsuit
@@ -1436,7 +1470,10 @@
   - SecurityHelmetAlt # Goobstation
   - SecurityBeret
   - SecurityHat
+  - SecurityBandana # Omu
   - TrooperHat
+  - SecoffHeadHatKepi # Omu
+  - SecoffSeniorHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: SecurityJumpsuit
@@ -1561,6 +1598,7 @@
   - EmergencyWaterVaporSecurity # Delta-V
   - EmergencySilicon
   - EmergencyOxygenCarnivoreSecurity # Omu
+  - EmergencyOxygenEthanolSecurity # Omu
 
 - type: loadoutGroup
   id: SecurityStar
@@ -1626,6 +1664,8 @@
   loadouts:
   - BrownShoes
   - MedicalWinterBoots
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: MedicalDoctorHead
@@ -1683,6 +1723,8 @@
   - WhiteShoes
   - BrownShoes # Omu
   - BlueShoes # Omu
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
   - MedicalWinterBoots
 
 - type: loadoutGroup
@@ -1707,6 +1749,16 @@
   minLimit: 0
   loadouts:
   - SterileMask
+  # Omustation Changes Start - Sterile Masks
+  - SterileMaskRed
+  - SterileMaskOrange
+  - SterileMaskYellow
+  - SterileMaskGreen
+  - SterileMaskBlue
+  - SterileMaskPurple
+  - SterileMaskWhite
+  - SterileMaskBlack
+  # Omustation Changes End
 
 - type: loadoutGroup
   id: MedicalInternJumpsuit
@@ -1800,6 +1852,8 @@
   - BrownShoes # Omu
   - WhiteShoes
   - MedicalWinterBoots
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: MedicalEyewear
@@ -1826,6 +1880,7 @@
   - EmergencyWaterVaporMedical # Delta-V
   - EmergencySilicon
   - EmergencyOxygenCarnivoreMedical # Omu
+  - EmergencyOxygenEthanolMedical # Omu
 
 # Wildcards
 - type: loadoutGroup
@@ -1874,6 +1929,7 @@
   - EmergencyWaterVaporSyndicate # Delta-V
   - EmergencySilicon
   - EmergencyOxygenCarnivoreSyndicate # Omu
+  - EmergencyOxygenEthanolSyndicate # Omu
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool
