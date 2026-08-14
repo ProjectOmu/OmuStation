@@ -17,6 +17,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared.Tag;
 
 namespace Content.Shared._Mono.Claws;
 
@@ -37,6 +38,7 @@ public abstract partial class SharedClawsSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _state = default!;
     [Dependency] private readonly StatusEffectsSystem _effects = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!;
 
     public override void Initialize()
     {
@@ -70,7 +72,7 @@ public abstract partial class SharedClawsSystem : EntitySystem
         if (!TryGetStage<SharpClaw>(ent.Comp, out var stage))
             return;
 
-        if (stage.CanShoot)
+        if (stage.CanShoot || _tagSystem.HasTag(args.Used, "IgnoreClawPenalty"))
             return;
 
         _popup.PopupClient(Loc.GetString("clawed-shoot-fail"), Transform(ent).Coordinates, ent);

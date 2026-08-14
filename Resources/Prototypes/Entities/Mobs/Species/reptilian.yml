@@ -3,7 +3,7 @@
 - type: entity
   save: false
   name: Urisst' Mzhand
-  parent: [ BaseMobSpeciesOrganic, ReptilianClaws ]
+  parent: BaseMobSpeciesOrganic
   id: BaseMobReptilian
   abstract: true
   components:
@@ -161,8 +161,16 @@
         damage:
           groups:
             Brute: -2
-
-
+  - type: Claws
+    clawStage: ReptilianTinyClaws
+    clawGrowthNotification: claws-growth
+    claws:
+      -1: ReptilianDeclawed
+      0: ReptilianTinyClaws
+      1: ReptilianSmallClaws
+      2: ReptilianMediumClaws
+      3: ReptilianBigClaws
+      4: ReptilianHugeClaws
   # Mono edit end
 
 - type: entity

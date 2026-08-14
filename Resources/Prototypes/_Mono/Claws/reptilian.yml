@@ -1,18 +1,3 @@
-- type: entity
-  id: ReptilianClaws
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Claws
-    clawStage: ReptilianTinyClaws
-    clawGrowthNotification: claws-growth
-    claws:
-      -1: ReptilianDeclawed
-      0: ReptilianTinyClaws
-      1: ReptilianSmallClaws
-      2: ReptilianMediumClaws
-      3: ReptilianBigClaws
-      4: ReptilianHugeClaws
-
 - type: claw
   id: ReptilianDeclawed
   canGrow: false
