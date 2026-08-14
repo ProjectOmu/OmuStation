@@ -17,10 +17,8 @@ using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Robust.Shared.Serialization;
-using Content.Shared.Whitelist; // Shitmed - Starlight Abductors
-using Content.Shared.Silicons.Laws; //Starlight
+using Content.Shared.Whitelist;
+using Content.Shared.Silicons.Laws;
 
 namespace Content.Shared.Emag.Components;
 

@@ -347,7 +347,8 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(conspirator);
 
-		var selfagentName = Loc.GetString("admin-verb-text-make-selfagent");        //Starlight SELF antag
+        //Starlight SELF antag
+		var selfagentName = Loc.GetString("admin-verb-text-make-selfagent");
         Verb selfagent = new()
         {
             Text = selfagentName,
@@ -360,7 +361,8 @@ public sealed partial class AdminVerbSystem
             Impact = LogImpact.High,
             Message = string.Join(": ", selfagentName, Loc.GetString("admin-verb-make-selfagent")),
         };
-        args.Verbs.Add(selfagent);          //Starlight end
+        args.Verbs.Add(selfagent);
+        //Starlight end
 
     }
 }

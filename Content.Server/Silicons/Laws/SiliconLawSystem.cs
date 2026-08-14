@@ -115,8 +115,6 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
-using Content.Shared.Popups;
-using Content.Shared.Radio.Components;
 using Content.Shared.Roles;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
@@ -133,6 +131,7 @@ using Robust.Shared.Toolshed;
 using Content.Goobstation.Common.Silicons.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.CustomLawboard;
+using Content.Server._Starlight.Objectives;
 using Robust.Shared.Random;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
@@ -144,6 +143,8 @@ using Content.Server.Research.Systems;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Tag;
 using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
+using Content.Shared.Emag.Components;
+
 namespace Content.Server.Silicons.Laws;
 
 public sealed class SiliconLawSystem : SharedSiliconLawSystem
@@ -163,6 +164,8 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly ResearchSystem _research = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!; // Corvax-Next-AiRemoteControl
+
+    [Dependency] private readonly EnsureBorgHasLawsConditionSystem _freemag = default!; // Starlight
 
 
 
@@ -303,6 +306,11 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
         // Show the silicon has been subverted.
         component.Subverted = true;
+
+        // Starlight start
+        if (args.EmagUsed != null)
+            _freemag.CheckSELFmag((uid, component), args.EmagUsed.Value);
+        // Starlight end
 
         // Add the first emag law before the others
         var name = CompOrNull<EmagSiliconLawComponent>(uid)?.OwnerName ?? Name(args.user); // DeltaV: Reuse emagger name if possible
