@@ -33,6 +33,7 @@ public sealed class SpaceGarbageSystem : EntitySystem
         if (args.OtherBody.BodyType != BodyType.Static)
             return;
 
+        // omu todo this is bad and hardcoded, fix parenting on corgi meat later.
         // Omu Start -- Steal targets like Prime-cut Corgi meat will no longer delete
         if (HasComp<StealTargetComponent>(uid))
             return;
