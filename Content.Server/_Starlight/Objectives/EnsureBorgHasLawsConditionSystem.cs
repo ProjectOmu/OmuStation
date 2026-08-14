@@ -27,7 +27,6 @@ public sealed class EnsureBorgHasLawsConditionSystem : EntitySystem
 
     private void OnGetProgress(Entity<EnsureLawBoundEntitiesHaveNoLawsConditionComponent> ent, ref ObjectiveGetProgressEvent args)
     {
-        ComponentRegistry? ComponentTopaassalong = new SiliconLawBoundComponent();
         var query = EntityQueryEnumerator<SiliconLawBoundComponent>();
         var freeBorgs = 0;
 
