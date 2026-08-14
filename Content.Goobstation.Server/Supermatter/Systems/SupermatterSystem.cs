@@ -1,11 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System;
-using System.IO;
 using System.Linq;
 using System.Text;
-using Content.Goobstation.Shared.MisandryBox.JumpScare;
-using Content.Goobstation.Shared.Supermatter;
 using Content.Goobstation.Shared.Supermatter.Components;
 using Content.Goobstation.Shared.Supermatter.Systems;
 using Content.Server.AlertLevel;
@@ -14,9 +10,7 @@ using Content.Server.Audio;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Explosion.EntitySystems;
-using Content.Server.Kitchen.Components;
 using Content.Server.Lightning;
-using Content.Server.Popups;
 using Content.Server.Station.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Atmos;
@@ -29,18 +23,12 @@ using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Kitchen.Components;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Tag;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
-using Robust.Shared.Map;
-using Robust.Shared.Maths;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
@@ -55,7 +43,6 @@ using Content.Server.Chat.Managers;
 using Content.Shared.Humanoid;
 using Content.Shared.Objectives.Components;
 using Robust.Shared.Player;
-using Robust.Shared.Utility;
 using Content.Goobstation.Shared.MisandryBox.Smites;
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
@@ -81,18 +68,9 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     [Dependency] private readonly RadioSystem _radioSystem = default!;    //omu
     [Dependency] private readonly IChatManager _achat = default!; // omu
     [Dependency] private readonly TagSystem _tag = default!;    //omu
-    [Dependency] private readonly IFullScreenImageJumpscare _jumpscare = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly SharedPointLightSystem _light = default!;
-    [Dependency] private readonly SharedElectrocutionSystem _elect = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly ThunderstrikeSystem _thunderstrikeSystem = default!;
 
-    private const string Sound = "/Audio/_Goobstation/Effects/Smites/Thunderstrike/thunderstrike.ogg";
-    private const string ltgsm = "/Textures/_Goobstation/MisandryBox/LTGSM.png";
-
-    private readonly Dictionary<EntityUid, TimeSpan> _pending = new();
-    private float _accumulator;
+    private const string LTGSM = "/Textures/_Goobstation/MisandryBox/LTGSM.png";
 
     private DelamType _delamType = DelamType.Explosion;
 
@@ -131,21 +109,6 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-
-        if (_pending.Count == 0)
-            return;
-
-        _accumulator += frameTime;
-        for (var i = _pending.Count - 1; i >= 0; i--)
-        {
-            var (entity, expiryTime) = _pending.ElementAt(i);
-
-            if (!(_accumulator >= expiryTime.TotalSeconds))
-                continue;
-
-            _pending.Remove(entity);
-            Del(entity);
-        }
 
         if (!_gameTiming.IsFirstTimePredicted)
             return;
@@ -767,9 +730,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             if (HasComp<HumanoidAppearanceComponent>(target) || HasComp<ActorComponent>(target) || HasComp<StealTargetComponent>(target))     //omu - alert for humanoids, controld entities, and steal targets
                 _achat.SendAdminAlert($"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");      //omu admin alert
             if (HasComp<ActorComponent>(target))
-            {
-                _thunderstrikeSystem.Smite(target,true,null,ltgsm);
-            }
+                _thunderstrikeSystem.Smite(target, true, null, LTGSM); // funny :3
             else
             {
                 EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
