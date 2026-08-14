@@ -1,0 +1,23 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseMansusObjective
+  components:
+  - type: Objective
+    issuer: mansus-issuer
+    difficulty: 0
+  - type: RoleRequirement
+    roles:
+    - Ghoul
+  - type: NoCompletionObjective
+
+- type: entity
+  parent: BaseMansusObjective
+  id: KillEnlightenedObjective
+  name: Kill those who intrude
+  description: Hunt down those who have seen too much
+  components:
+  - type: Objective
+    icon:
+      sprite: _Goobstation/Heretic/reality_fracture.rsi
+      state: icon_harvested
