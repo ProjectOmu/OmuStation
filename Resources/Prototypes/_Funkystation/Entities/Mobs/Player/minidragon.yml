@@ -80,7 +80,7 @@
       speechVerb: Reptilian
       allowedEmotes: ['Thump', 'Chirp', 'Weh']
     - type: InteractionPopup
-      successChance: 0.5 
+      successChance: 0.5
       interactSuccessString: petting-success-minidragon
       interactFailureString: petting-failure-minidragon
       interactFailureSound:
@@ -111,11 +111,11 @@
       actions:
         Critical:
         - ActionCritSuccumb
-        - ActionCritLastWords 
+        - ActionCritLastWords
     - type: SlowOnDamage
       speedModifierThresholds:
         75: 0.8
-        100: 0.6 
+        100: 0.6
     - type: StatusEffects
       allowed:
       - SlowedDown
@@ -154,6 +154,13 @@
           Brute: -0.15
           Burn: -0.15
           Toxin: -0.15
+    - type: LanguageKnowledge # Omu - language
+      speaks:
+      - TauCetiBasic
+      - Carptongue
+      understands:
+      - TauCetiBasic
+      - Carptongue
 
 - type: entity
   name: mini dragon
@@ -188,5 +195,5 @@
     - type: GhostTakeoverAvailable
     - type: NpcFactionMember
       factions:
-      - Passive
+      - Dragon # Omu change for dragon
     - type: FactionException
