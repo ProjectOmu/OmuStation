@@ -7,6 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Changeling;
 using Content.Server.Atmos.Rotting;
 using Content.Server.Body.Components;
 using Content.Server.DoAfter;
@@ -96,7 +97,7 @@ public sealed class CPRSystem : EntitySystem
 
     private void OnCPRDoAfter(Entity<CPRTrainingComponent> performer, ref CPRDoAfterEvent args)
     {
-        if (args.Cancelled || args.Handled || !args.Target.HasValue || ShouldCPRStop(performer, args.Target.Value)) // Omu, fixes CPR being able to continue; 
+        if (args.Cancelled || args.Handled || !args.Target.HasValue || ShouldCPRStop(performer, args.Target.Value)) // Omu, fixes CPR being able to continue;
         {
             performer.Comp.CPRPlayingStream = _audio.Stop(performer.Comp.CPRPlayingStream);
             return;
@@ -154,6 +155,12 @@ public sealed class CPRSystem : EntitySystem
         if (HasComp<RottingComponent>(target))
         {
             _popupSystem.PopupEntity(Loc.GetString("cpr-target-rotting", ("entity", target)), performer, performer);
+            return true;
+        }
+
+        if (HasComp<AbsorbedComponent>(target))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("cpr-target-absorbed", ("entity", target)), performer, performer);
             return true;
         }
 
