@@ -48,6 +48,7 @@
     - EnergySpeedloaderLethal
     - EnergySpeedloaderLethal
     - EnergySpeedloaderDisabler
+    - BoxSurvivalSlotsEngineering
 
 # ERT Security
 
@@ -98,6 +99,7 @@
     - BoxMagazineRifle
     - MedkitCombatFilled
     - CrowbarRed
+    - BoxSurvivalSlotsEngineering
 
 # ERT Medical
 
@@ -145,6 +147,7 @@
     - BoxAutoinjectorCartidges
     - MedkitCombatFilled
     - CrowbarRed
+    - BoxSurvivalSlotsEngineering
 
 # ERT Janitor
 
@@ -189,7 +192,13 @@
   storage:
     back:
     - BoxLightMixed
-    - BoxLightMixed
+    - TrashBag
+    - CleanerGrenade
+    - CleanerGrenade
+    - CleanerGrenade
+    - CleanerGrenade
+    - BoxSurvivalSlotsEngineering
+    - Soap
     - CrowbarRed
     - AdvMopItem
 
@@ -235,7 +244,8 @@
     pocket2: FlashlightSeclite
   storage:
     back:
-    - RCD
+    - trayScanner
+    - RCDExperimental
     - RPD
     - RCDAmmo
     - RCDAmmo
@@ -245,6 +255,7 @@
     - SheetPlasteel
     - SheetSteel
     - SheetGlass
+    - BoxSurvivalSlotsEngineering
 
 # ERT Chaplain
 
@@ -307,4 +318,4 @@
     - FoodBakedBunHotX
     - Nullrod
     - Lighter
-    - DrinkWaterBottleFull
+    - BoxSurvivalSlotsEngineering

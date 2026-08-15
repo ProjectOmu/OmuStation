@@ -160,6 +160,7 @@
     - CrowbarRed
     - ERTSecurityUndeterminedWeapon
     # - MagazineMagnum - No need
+    - BoxSurvivalSlotsEngineering # Omu
 
 - type: startingGear
   id: ERTLeaderGearEVA
@@ -185,6 +186,7 @@
     - CrowbarRed
     - ERTSecurityUndeterminedWeapon
     # Goobstation - MagazineMagnum
+    - BoxSurvivalSlotsEngineering # Omu
 
 - type: chameleonOutfit
   id: ERTLeaderChameleonOutfit
@@ -253,6 +255,7 @@
     - Nullrod # Goobstation
     - Lighter
     - ExecutiveIDCard # Goobstation - Executive Access!
+    - BoxSurvivalSlotsEngineering # Omu
 
 - type: startingGear
   id: ERTChaplainGearEVA
@@ -282,10 +285,11 @@
     - FoodBakedBunHotX
     - FoodBakedBunHotX
     - FoodBakedBunHotX
-    - FoodBakedBunHotX
+    # - FoodBakedBunHotX # Omu - Three buns so the survival box fits
     - Lighter
     - Nullrod # Goobstation
     - ExecutiveIDCard # Goobstation - Executive Access!
+    - BoxSurvivalSlotsEngineering # Omu
 
 - type: chameleonOutfit
   id: ERTChaplainChameleonOutfit
@@ -339,7 +343,8 @@
   storage:
     back:
     - trayScanner
-    - RCD
+    - RCDExperimental # Omu
+    - RPD # Omu
     - RCDAmmo
     - RCDAmmo
     - CableMVStack
@@ -348,6 +353,7 @@
     - SheetPlasteel
     - SheetSteel
     - SheetGlass
+    - BoxSurvivalSlotsEngineering # Omu
 
 - type: startingGear
   id: ERTEngineerGearEVA
@@ -368,7 +374,8 @@
   storage:
     back:
     - trayScanner
-    - RCD
+    - RCDExperimental # Omu
+    - RPD # Omu
     - RCDAmmo
     - RCDAmmo
     - CableMVStack
@@ -377,6 +384,7 @@
     - SheetPlasteel
     - SheetSteel
     - SheetGlass
+    - BoxSurvivalSlotsEngineering # Omu
 
 - type: chameleonOutfit
   id: ERTEngineerChameleonOutfit
@@ -433,6 +441,7 @@
     - CrowbarRed
     - ERTSecurityUndeterminedWeapon
    # - MagazinePistol
+    - BoxSurvivalSlotsEngineering # Omu
 
 - type: startingGear
   id: ERTSecurityGearEVA
@@ -458,6 +467,7 @@
     - CrowbarRed
     - ERTSecurityUndeterminedWeapon
    # - MagazinePistol
+    - BoxSurvivalSlotsEngineering # Omu
 
 # Every time an admin spawns a lecter ERT instead of an annie ert i lose a part of my soul. USE THE DAMN GUN MADE FOR THE ERTS, OR SPAWN THE OTHER PROTO. THIS IS REDUNDANT!!
 # - type: startingGear
@@ -545,6 +555,7 @@
     - CartridgeAtropine
     - CartridgeAtropine
     - MedicalBeamGunBattery
+    - BoxSurvivalSlotsEngineering # Omu
 
 - type: startingGear
   id: ERTMedicalGearEVA
@@ -572,6 +583,7 @@
     - CartridgeAtropine
     - CartridgeAtropine
     - MedicalBeamGunBattery
+    - BoxSurvivalSlotsEngineering # Omu
 
 - type: chameleonOutfit
   id: ERTMedicalChameleonOutfit
@@ -620,9 +632,15 @@
     pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
   storage:
     back:
-    - LightReplacer
+    # - LightReplacer # Omu - There's one in the belt already
     - BoxLightMixed
-    - BoxLightMixed
+    # - BoxLightMixed # Omu - Let's fill up the bag with more useful things instead of two light boxes
+    - TrashBag # Omu
+    - CleanerGrenade # Omu
+    - CleanerGrenade # Omu
+    - CleanerGrenade # Omu
+    - CleanerGrenade # Omu
+    - BoxSurvivalSlotsEngineering # Omu
     - Soap
     - CrowbarRed
     - AdvMopItem
@@ -643,9 +661,15 @@
     pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
   storage:
     back:
-    - LightReplacer
+    # - LightReplacer # Omu - There's one in the belt already
     - BoxLightMixed
-    - BoxLightMixed
+    # - BoxLightMixed # Omu - Let's fill up the bag with more useful things instead of two light boxes
+    - TrashBag # Omu
+    - CleanerGrenade # Omu
+    - CleanerGrenade # Omu
+    - CleanerGrenade # Omu
+    - CleanerGrenade # Omu
+    - BoxSurvivalSlotsEngineering # Omu
     - Soap
     - CrowbarRed
     - AdvMopItem
