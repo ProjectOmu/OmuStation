@@ -467,7 +467,7 @@
           min: 20
         damage:
           types:
-            Asphyxiation: 3
+            Poison: 1 # Omu
             Cold: 1
       - !type:AdjustConsciousness
         allowNewModifiers: false
@@ -543,7 +543,7 @@
           min: 25
         damage:
           types:
-            Asphyxiation: 5
+            Poison: 2 # Omu
             Cold: 3
       - !type:AdjustConsciousness
         allowNewModifiers: false
