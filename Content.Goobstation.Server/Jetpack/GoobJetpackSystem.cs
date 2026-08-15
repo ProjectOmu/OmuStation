@@ -72,8 +72,8 @@ public sealed class GoobJetpackSystem : EntitySystem
             if (!_hands.IsHolding(user, jetpack, out var handId))
                 continue;
 
-            if (HasComp<BorgChassisComponent>(user))
-                continue;
+            if (HasComp<BorgChassisComponent>(user)) // Omu edit start
+                continue; // Omu edit end
 
             if (HasComp<UnremoveableComponent>(jetpack))
                 SmartassCountermeasure(jetpack, jetpackComp, user, handId);
