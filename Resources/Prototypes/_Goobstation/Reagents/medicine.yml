@@ -988,9 +988,7 @@
         - !type:TypedDamageThreshold
           damage:
             groups:
-              Brute: 25
-        - !type:ReagentThreshold
-          max: 25
+              Brute: 30 # Omu
       - !type:HealthChange
         damage:
           groups:
@@ -999,10 +997,10 @@
         - !type:TypedDamageThreshold
           damage:
             groups:
-              Brute: 25
+              Brute: 30 # Omu
           inverse: true
-        - !type:ReagentThreshold
-          max: 25
+#        - !type:ReagentThreshold # Omu
+#          max: 25 # Omu
       - !type:HealthChange
         damage:
           groups:
@@ -1039,9 +1037,7 @@
         - !type:TypedDamageThreshold
           damage:
             groups:
-              Burn: 25
-        - !type:ReagentThreshold
-          max: 25
+              Burn: 30 # Omu
       - !type:HealthChange
         damage:
           groups:
@@ -1050,10 +1046,10 @@
         - !type:TypedDamageThreshold
           damage:
             groups:
-              Burn: 25
+              Burn: 30 # Omu
           inverse: true
-        - !type:ReagentThreshold
-          max: 25
+#        - !type:ReagentThreshold # omu
+#          max: 25 # omu
       - !type:HealthChange
         damage:
           groups:
