@@ -44,8 +44,8 @@
   id: BSOLongcoat
   equipment:
     outerClothing: ClothingOuterLongcoatBlueshield
-    
-- type: loadout 
+
+- type: loadout
   id: BlueshieldOfficerOuterXelthiaBlueshield
   effects:
   - !type:SpeciesLoadoutEffect
@@ -103,3 +103,8 @@
   id: BlueshieldOfficerHeadHatFedora
   equipment:
     head: ClothingHeadHatFedoraBlueshield
+
+- type: loadout
+  id: BlueshieldHeadHatKepi
+  equipment:
+    head: ClothingHeadHatKepiBlueshield
