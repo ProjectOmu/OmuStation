@@ -148,6 +148,7 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
+using Content.Shared.Silicons.StationAi;
 using Content.Shared.Storage.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
@@ -585,6 +586,12 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
         var storable = HasComp<ItemComponent>(entity);
         if (!storable && !HasComp<MobStateComponent>(entity))
             return false;
+
+        //Omu Start -- Keep AI from jumping into dispo
+        if (HasComp<StationAiOverlayComponent>(entity)
+            && HasComp<StationAiCustomizationComponent>(entity))
+            return false;
+        //Omu End
 
         if (_whitelistSystem.IsBlacklistPass(component.Blacklist, entity) ||
             _whitelistSystem.IsWhitelistFail(component.Whitelist, entity))

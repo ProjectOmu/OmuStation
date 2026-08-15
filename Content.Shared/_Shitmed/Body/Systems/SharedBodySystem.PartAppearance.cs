@@ -83,7 +83,7 @@ public partial class SharedBodySystem
         {
             var category = MarkingCategoriesConversion.FromHumanoidVisualLayers(layer);
             if (bodyAppearance.MarkingSet.Markings.TryGetValue(category, out var markingList))
-                markingsByLayer[layer] = markingList.Select(m => new Marking(m.MarkingId, m.MarkingColors.ToList())).ToList();
+                markingsByLayer[layer] = markingList.Select(m => new Marking(m.MarkingId, m.MarkingColors.ToList(), m.GlowyBits)).ToList(); // Omu
         }
 
         component.Markings = markingsByLayer;
@@ -124,10 +124,10 @@ public partial class SharedBodySystem
                     bodyAppearance.MarkingSet
                 );
 
-            var marking = new Marking(markingId, markingColors);
+            var marking = new Marking(markingId, markingColors, 0); // Omu
 
             _humanoid.SetLayerVisibility((uid, bodyAppearance), targetLayer, true);
-            _humanoid.AddMarking(uid, markingId, markingColors, true, true, bodyAppearance);
+            _humanoid.AddMarking(uid, markingId, markingColors, 0, true, true, bodyAppearance); // Omu
             if (!partAppearance.Comp.Markings.ContainsKey(targetLayer))
                 partAppearance.Comp.Markings[targetLayer] = new List<Marking>();
 
@@ -197,7 +197,7 @@ public partial class SharedBodySystem
             _humanoid.SetLayerVisibility((target, bodyAppearance), visualLayer, true);
             foreach (var marking in markingList)
             {
-                _humanoid.AddMarking(target, marking.MarkingId, marking.MarkingColors, true, true, bodyAppearance);
+                _humanoid.AddMarking(target, marking.MarkingId, marking.MarkingColors, marking.GlowyBits, true, true, bodyAppearance); // Omu
             }
         }
 
