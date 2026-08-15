@@ -71,6 +71,20 @@ public sealed partial class IngestionSystem
     }
 
     /// <inheritdoc cref="HasMouthAvailable(EntityUid, EntityUid)"/>
+    /// Omu, option to take the message for use in server-side logic
+    public bool HasMouthAvailable(EntityUid user, EntityUid target, out string? message)
+    {
+        return HasMouthAvailable(user, target, DefaultFlags, out message, out _);
+    }
+
+    /// <inheritdoc cref="HasMouthAvailable(EntityUid, EntityUid)"/>
+    /// Omu, option to additionally take the blocker for use in server-side logic
+    public bool HasMouthAvailable(EntityUid user, EntityUid target, out string? message, out EntityUid? blocker)
+    {
+        return HasMouthAvailable(user, target, DefaultFlags, out message, out blocker);
+    }
+
+    /// <inheritdoc cref="HasMouthAvailable(EntityUid, EntityUid)"/>
     /// Overflow which takes custom flags for a mouth being blocked, in case the entity has a mouth not on the face.
     public bool HasMouthAvailable(EntityUid user, EntityUid target, SlotFlags flags)
     {
@@ -89,6 +103,38 @@ public sealed partial class IngestionSystem
 
         if (attempt.Blocker != null)
             _popup.PopupClient(Loc.GetString("ingestion-remove-mask", ("entity", attempt.Blocker.Value)), target, user);
+
+        return false;
+    }
+
+    /// <inheritdoc cref="HasMouthAvailable(EntityUid, EntityUid, SlotFlags)"/>
+    /// Omu, allows for taking the reason why the interaction failed
+    /// "message" will be null if the interaction succeeded or did not fail due to distance or a blocker
+    /// "blocker" will be null if the interaction does not fail due to a blocker (i.e. succeeds, is cancelled or fails due to range)
+    public bool HasMouthAvailable(EntityUid user, EntityUid target, SlotFlags flags, out string? message, out EntityUid? blocker)
+    {
+        message = null; // leave the message null if it succeeded or the fail wasn't due to reach or a blocker
+        blocker = null; // the blocker will only be set if the attempt is not cancelled
+
+        if (!_transform.GetMapCoordinates(user).InRange(_transform.GetMapCoordinates(target), MaxFeedDistance))
+        {
+            message = Loc.GetString("interaction-system-user-interaction-cannot-reach");
+            _popup.PopupClient(message, user, user);
+            return false;
+        }
+
+        var attempt = new IngestionAttemptEvent(flags);
+        RaiseLocalEvent(target, ref attempt);
+
+        if (!attempt.Cancelled)
+            return true;
+
+        if (attempt.Blocker != null)
+        {
+            blocker = attempt.Blocker;
+            message = Loc.GetString("ingestion-remove-mask", ("entity", attempt.Blocker.Value));
+            _popup.PopupClient(message, target, user);
+        }
 
         return false;
     }

@@ -10,9 +10,15 @@
   abstract: true
 
 - type: quickPhrase
-  id: BaseNounsHurt
+  id: BaseNounsDamageGeneral
   parent: BaseNouns
-  group: Damage types
+  group: Damage types (General) # Omu, divide Damage types into General and Specific
+  abstract: true
+
+- type: quickPhrase
+  id: BaseNounsDamageSpecific
+  parent: BaseNouns
+  group: Damage types (Specific) # Omu, divide Damage types into General and Specific
   abstract: true
 
 - type: quickPhrase
@@ -435,27 +441,27 @@
 
 - type: quickPhrase
   id: BrutePhraseImp
-  parent: BaseNounsHurt
+  parent: BaseNounsDamageGeneral # Omu, divide into General and Specific damage types
   text: imp-phrase-nouns-brute
 
 - type: quickPhrase
   id: BurnPhraseImp
-  parent: BaseNounsHurt
+  parent: BaseNounsDamageGeneral # Omu, divide into General and Specific damage types
   text: imp-phrase-nouns-burn
 
 - type: quickPhrase
   id: ToxicPhraseImp
-  parent: BaseNounsHurt
+  parent: BaseNounsDamageGeneral # Omu, divide into General and Specific damage 
   text: imp-phrase-nouns-toxic
 
 - type: quickPhrase
   id: RadsPhraseImp
-  parent: BaseNounsHurt
+  parent: BaseNounsDamageSpecific # Omu, divide into General and Specific damage types
   text: imp-phrase-nouns-rads
 
 - type: quickPhrase
   id: PoisonPhraseImp
-  parent: BaseNounsHurt
+  parent: BaseNounsDamageSpecific # Omu, divide into General and Specific damage types
   text: imp-phrase-nouns-poison
 
 # species
@@ -510,40 +516,46 @@
   parent: BaseNounsSpecies
   text: imp-phrase-nouns-thaven
 
-- type: quickPhrase
-  id: ApidPhraseImp
-  parent: BaseNounsSpecies
-  text: imp-phrase-nouns-apid
+# Omu, not present
+# - type: quickPhrase
+#   id: ApidPhraseImp
+#   parent: BaseNounsSpecies
+#   text: imp-phrase-nouns-apid
 
-- type: quickPhrase
-  id: DecaPhraseImp
-  parent: BaseNounsSpecies
-  text: imp-phrase-nouns-deca
+# Omu, not present
+# - type: quickPhrase
+#   id: DecaPhraseImp
+#   parent: BaseNounsSpecies
+#   text: imp-phrase-nouns-deca
 
 - type: quickPhrase
   id: GrayPhraseImp
   parent: BaseNounsSpecies
   text: imp-phrase-nouns-gray
+  
+# Omu, not present
+# - type: quickPhrase
+#   id: SnailPhraseImp
+#   parent: BaseNounsSpecies
+#   text: imp-phrase-nouns-snail
 
-- type: quickPhrase
-  id: SnailPhraseImp
-  parent: BaseNounsSpecies
-  text: imp-phrase-nouns-snail
+# Omu, not present
+# - type: quickPhrase
+#   id: ShrimpPhraseImp
+#   parent: BaseNounsSpecies
+#   text: imp-phrase-nouns-shrimp
 
-- type: quickPhrase
-  id: ShrimpPhraseImp
-  parent: BaseNounsSpecies
-  text: imp-phrase-nouns-shrimp
+# Omu, not present
+# - type: quickPhrase
+#   id: KodiPhraseImp
+#   parent: BaseNounsSpecies
+#   text: imp-phrase-nouns-kodi
 
-- type: quickPhrase
-  id: KodiPhraseImp
-  parent: BaseNounsSpecies
-  text: imp-phrase-nouns-kodi
-
-- type: quickPhrase
-  id: UnguPhraseImp
-  parent: BaseNounsSpecies
-  text: imp-phrase-nouns-ungu
+# Omu, not present
+# - type: quickPhrase
+#   id: UnguPhraseImp
+#   parent: BaseNounsSpecies
+#   text: imp-phrase-nouns-ungu
 
 - type: quickPhrase
   id: XenoPhraseImp

@@ -405,6 +405,7 @@
   storage:
     back:
     - CardBoxBlack
+  groupBy: "deck" # Omu
 
 # Nanotrasen Variant
 - type: loadout
@@ -418,6 +419,16 @@
   storage:
     back:
     - CardBoxNanotrasen
+  groupBy: "deck" # Omu
+
+# Imp tarot cards
+- type: loadout
+  id: CardBoxTarot
+  storage:
+    back:
+    - CardBoxTarot
+  groupBy: "deck" # Omu
+# Imp end
 
 # Candy!
 
@@ -431,6 +442,7 @@
   storage:
     back:
     - FoodSnackLollypopWrapped
+  groupBy: "lollypop" # Omu
 
 - type: loadout
   id: FoodSnackLollypopWrappedRainbow
@@ -442,6 +454,7 @@
   storage:
     back:
     - FoodSnackLollypopWrappedRainbow
+  groupBy: "lollypop" # Omu
 
 - type: loadout
   id: FoodSnackLollypopWrappedCarp
@@ -454,6 +467,7 @@
   storage:
     back:
     - FoodSnackLollypopWrappedCarp
+  groupBy: "lollypop" # Omu
 
 # End GoobStation
 

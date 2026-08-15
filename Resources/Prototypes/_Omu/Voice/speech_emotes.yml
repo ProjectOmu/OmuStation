@@ -73,3 +73,20 @@
     - gekkers
     - gekkering
     - gekkered
+
+- type: emote
+  id: Awebo
+  name: chat-emote-name-awebo
+  icon: _Goobstation/Interface/Emotes/caw.png
+  category: Vocal
+  whitelist:
+    tags:
+    - AllulaloEmotes
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-awebo"]
+  chatTriggers:
+    - awebo
+    - awebos
