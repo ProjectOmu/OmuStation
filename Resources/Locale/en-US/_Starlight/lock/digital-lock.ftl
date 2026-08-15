@@ -20,4 +20,5 @@ digital-lock-interface-second-status-current-code = CODE: {$code}
 digital-lock-interface-second-status-changemode-confirmation = C: NO, E: YES
 
 # Omu
-digital-lock-interface-first-status-changing-code = CHANGING CODE
+digital-lock-interface-first-status-changing-old-code = INPUT OLD
+digital-lock-interface-first-status-changing-new-code = INPUT NEW

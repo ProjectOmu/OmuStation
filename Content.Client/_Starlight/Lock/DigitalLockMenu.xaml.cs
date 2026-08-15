@@ -90,7 +90,7 @@ public sealed partial class DigitalLockMenu : DefaultWindow
                 secondMsg = "";
                 break;
             case DigitalLockStatus.CHANGE_MODE_CONFIRMATION:
-                firstMsg = Loc.GetString("digital-lock-interface-first-status-changemode-confirmation");
+                firstMsg = Loc.GetString("digital-lock-interface-first-status-changing-new-code");
                 secondMsg = Loc.GetString("digital-lock-interface-second-status-changemode-confirmation");
                 break;
             case DigitalLockStatus.CHANGE_MODE_CANCEL_CONFIRMATION:
@@ -98,7 +98,7 @@ public sealed partial class DigitalLockMenu : DefaultWindow
                 secondMsg = Loc.GetString("digital-lock-interface-second-status-changemode-confirmation");
                 break;
             case DigitalLockStatus.CHANGE_MODE_CODE:
-                firstMsg = Loc.GetString("digital-lock-interface-first-status-changing-code");
+                firstMsg = Loc.GetString("digital-lock-interface-first-status-changing-old-code");
                 secondMsg = Loc.GetString("digital-lock-interface-second-status-current-code",
                     ("code", VisualizeCode(state.EnteredCodeLength, state.MaxCodeLength)));
                 break;
