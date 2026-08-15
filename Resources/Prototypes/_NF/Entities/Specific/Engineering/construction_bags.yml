@@ -41,7 +41,7 @@
       - state: inhand-right
         shader: unshaded
   - type: Storage
-    maxItemSize: Large # Omu edit - so it can fit flatpacks
+    maxItemSize: Normal
     grid:
     - 0,0,9,3
     quickInsert: true
@@ -52,17 +52,6 @@
       - CableCoil
       - RawMaterial
       - PartBase
-      components: # Omu edit start
-      - Electronics
-      - MachineBoard
-      - ComputerBoard
-      - Material
-      - StockPart
-      - Battery
-      - LightBulb
-      - FloorTile
-      - UpgradeKit
-      - Flatpack # Omu edit end
   - type: Dumpable
   - type: ItemToggle
     soundActivate:
