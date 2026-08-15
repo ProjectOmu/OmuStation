@@ -6000,3 +6000,57 @@ Entries:
       message: Aloxadone now heals cold damage as implied by its description.
   id: 785
   time: '2026-08-13T18:40:28.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Mirror maidens spawning for ghosts that read the books and being a
+        ghost role despite already having a player
+    - type: Tweak
+      message: Ensure ghouls can see heretic fixtures
+    - type: Tweak
+      message: The bible can be used to reduce madness. Beat sense into people.
+  id: 786
+  time: '2026-08-14T22:37:44.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: 'Ai can no longer play in the dispo bin '
+  id: 787
+  time: '2026-08-14T23:53:32.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: >-
+        Space Garbage component will no longer delete Steal targets (Prime cut
+        corgi meat) on collision
+  id: 788
+  time: '2026-08-15T00:00:48.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: >-
+        Crafting while the items are in inventory works correctly now; fixing
+        things like spirit candles and taking apart items.
+  id: 789
+  time: '2026-08-15T00:15:16.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Fix
+      message: QM loadout no longer has two winter boots
+    - type: Fix
+      message: Trinkets are now grouped properly
+    - type: Tweak
+      message: >-
+        Renamed RD jumpsuits to be more consistent, it's no longer infested with
+        turtlenecks), and they are sorted better
+  id: 790
+  time: '2026-08-15T00:17:01.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Tweak
+      message: >-
+        Redid the Hop coat that was just another coat, but more blue, it has
+        buttons and a belt now
+  id: 791
+  time: '2026-08-15T17:10:57.0000000+00:00'
