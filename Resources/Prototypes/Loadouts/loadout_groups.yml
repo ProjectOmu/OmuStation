@@ -253,11 +253,6 @@
   - FlippoLighter
   - MysteryStaffPlushieBox
   # Omu end
-  - CardBoxBlack # GoobStation
-  - CardBoxNanotrasen # GoobStation
-  - FoodSnackLollypopWrapped # Goobstation
-  - FoodSnackLollypopWrappedRainbow # Goobstation
-  - FoodSnackLollypopWrappedCarp # Goobstation
   - TowelColorBlack
   - TowelColorDarkBlue
   - TowelColorDarkGreen
@@ -277,7 +272,6 @@
   # Begin DeltaV Additions
   - GoldRing
   - SilverRing
-  - Cane
   - WhiteCane
   - TapeRecorder
   - DrinkOniGourd
@@ -370,6 +364,7 @@
   - CaptainHead
   - CaptainCap
   - CaptainCapcapSenior # goob
+  - CaptainHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: CaptainJumpsuit
@@ -418,6 +413,7 @@
   minLimit: 0
   loadouts:
   - HoPHead
+  - HopHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: HoPJumpsuit
@@ -989,7 +985,6 @@
   - WorkBoots # Omu
   - FishingBoots # Omu
   - SalvageBoots # Omu
-  - CargoWinterBoots # Omu
   - LaceupBoots # Omu
   - LeatherShoes # Omu
 
@@ -1265,8 +1260,9 @@
   name: loadout-group-research-director-jumpsuit
   loadouts:
   - ResearchDirectorJumpsuit
-  - ResearchDirectorJumpsuitAlt # goob
+ # - ResearchDirectorJumpsuitAlt # goob
   - ResearchDirectorJumpskirt
+  - ResearchDirectorJumpsuitAlt # goob # Omu - moved to make loadout look nicer
   - ResearchDirectorJumpskirtAlt # goob
   - ResearchDirectorMJ # goob
   - RDSummerShirt # goob
@@ -1386,6 +1382,7 @@
   - HeadofSecurityHead
   - HeadofSecurityBeret
   - HeadofSecuritySpecialBeret # Goobstation
+  - HosHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
@@ -1435,6 +1432,7 @@
   loadouts:
   - WardenHead
   - WardenBeret
+  - WardenHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: WardenJumpsuit
@@ -1468,6 +1466,8 @@
   - SecurityHat
   - SecurityBandana # Omu
   - TrooperHat
+  - SecoffHeadHatKepi # Omu
+  - SecoffSeniorHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: SecurityJumpsuit

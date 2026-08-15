@@ -5878,3 +5878,179 @@ Entries:
         changeling sting.
   id: 770
   time: '2026-08-08T21:59:47.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: Avali now look sleeker in various helmets including hardsuits.
+  id: 771
+  time: '2026-08-08T22:36:17.0000000+00:00'
+- author: angiogen
+  changes:
+    - type: Add
+      message: >-
+        Add 2 new hairstyles, 1 new tail, and some other cool stuff (including
+        fangs/freckles) for Xelthia
+  id: 772
+  time: '2026-08-09T13:51:41.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Experimental shipments now only need 10 bananium instead of 30
+  id: 773
+  time: '2026-08-09T14:01:21.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Add
+      message: >-
+        Added the Roboticist roundstart mantle & Researchable Janitorial mantle
+        (has cleanhud)
+    - type: Tweak
+      message: >-
+        all mantles now have at least 10% Blunt/Slash/Pierce to help accommodate
+        for the lack of wearing glasses and a face mask
+    - type: Tweak
+      message: most mantles have relevant contraband tags relating to their department
+    - type: Add
+      message: >-
+        added a BaseBartenderContraband  and various DepartmentCommandContraband
+        tags
+    - type: Fix
+      message: >-
+        removed the ChamelonWhitelist  tag for all mantles due to a bug with the
+        eyes not being coloured correctly when worn
+  id: 774
+  time: '2026-08-09T15:23:41.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: >-
+        Added képi hats to various command and security roles. Embrace your
+        inner frenchman.
+  id: 775
+  time: '2026-08-09T15:32:56.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: >-
+        Added the bluespace miner from starlight, use immense amounts of power
+        for gamer loot and invasions from hell
+  id: 776
+  time: '2026-08-09T15:55:03.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed heretic ascensions
+  id: 777
+  time: '2026-08-10T17:36:40.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Tweak
+      message: Changed the Chefvend access permissions from Service to Kitchen.
+  id: 778
+  time: '2026-08-10T18:42:07.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed Oni being unable to use the Terminus.
+  id: 779
+  time: '2026-08-10T23:04:14.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: fixed an infinite money exploit with cargo
+  id: 780
+  time: '2026-08-11T08:09:01.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Add
+      message: >-
+        spray painter now has dedicated pipe colors for Oxygen, Nitrogen, and
+        Plasma.
+  id: 781
+  time: '2026-08-11T21:27:08.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Remove
+      message: >-
+        The guidebook no longer advises the Chief Medical Officer to make vulp
+        cryo, as cryo pods cool all species at the same rate.
+  id: 782
+  time: '2026-08-11T22:38:45.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed the random chinese characters from the autodoc.
+  id: 783
+  time: '2026-08-12T06:07:55.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: Added missing Hews and Meows to a couple species that were missing them
+    - type: Add
+      message: New "pandemonically feathery" chemical
+    - type: Tweak
+      message: Harpy can now awebo
+    - type: Add
+      message: Added Awebo lollypop to sweettoof vedor
+  id: 784
+  time: '2026-08-13T00:46:29.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Add
+      message: Aloxadone now heals cold damage as implied by its description.
+  id: 785
+  time: '2026-08-13T18:40:28.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Mirror maidens spawning for ghosts that read the books and being a
+        ghost role despite already having a player
+    - type: Tweak
+      message: Ensure ghouls can see heretic fixtures
+    - type: Tweak
+      message: The bible can be used to reduce madness. Beat sense into people.
+  id: 786
+  time: '2026-08-14T22:37:44.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: 'Ai can no longer play in the dispo bin '
+  id: 787
+  time: '2026-08-14T23:53:32.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: >-
+        Space Garbage component will no longer delete Steal targets (Prime cut
+        corgi meat) on collision
+  id: 788
+  time: '2026-08-15T00:00:48.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: >-
+        Crafting while the items are in inventory works correctly now; fixing
+        things like spirit candles and taking apart items.
+  id: 789
+  time: '2026-08-15T00:15:16.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Fix
+      message: QM loadout no longer has two winter boots
+    - type: Fix
+      message: Trinkets are now grouped properly
+    - type: Tweak
+      message: >-
+        Renamed RD jumpsuits to be more consistent, it's no longer infested with
+        turtlenecks), and they are sorted better
+  id: 790
+  time: '2026-08-15T00:17:01.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Tweak
+      message: >-
+        Redid the Hop coat that was just another coat, but more blue, it has
+        buttons and a belt now
+  id: 791
+  time: '2026-08-15T17:10:57.0000000+00:00'
