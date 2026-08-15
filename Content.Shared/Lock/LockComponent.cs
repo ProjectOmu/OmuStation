@@ -41,10 +41,6 @@ public sealed partial class LockComponent : Component
     [AutoNetworkedField]
     public bool LockOnClick;
 
-    [DataField("mindShieldLock"), ViewVariables(VVAccess.ReadWrite)]    //Starlight-edit
-    [AutoNetworkedField]
-    public bool MindShieldLock = false;
-
     /// <summary>
     /// Whether or not the lock is unlocked by simply clicking.
     /// </summary>
@@ -101,6 +97,10 @@ public sealed partial class LockComponent : Component
     [DataField]
     [AutoNetworkedField]
     public TimeSpan UnlockTime;
+
+    [DataField]    //Starlight-edit
+    [AutoNetworkedField]
+    public bool MindShieldLock = false;
 
     /// <summary>
     ///  Whether or not the lock can be auto unlocked when pickuped.

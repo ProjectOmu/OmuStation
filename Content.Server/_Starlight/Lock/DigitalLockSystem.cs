@@ -1,3 +1,4 @@
+using Content.Server.Nuke;
 using Content.Shared.Lock;
 using Content.Shared.Audio;
 using Content.Shared.Tools.Systems;
@@ -21,6 +22,7 @@ public sealed class DigitalLockSystem : EntitySystem
     [Dependency] private readonly SharedElectrocutionSystem _electrocution = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambient = default!;
+    [Dependency] private readonly NukeSystem _nuke = default!; // Omu
 
     public override void Initialize()
     {
