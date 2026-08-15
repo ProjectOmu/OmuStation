@@ -8,6 +8,7 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Throwing;
 using Robust.Shared.Random;
 
@@ -69,6 +70,9 @@ public sealed class GoobJetpackSystem : EntitySystem
                 continue;
 
             if (!_hands.IsHolding(user, jetpack, out var handId))
+                continue;
+
+            if (HasComp<BorgChassisComponent>(user))
                 continue;
 
             if (HasComp<UnremoveableComponent>(jetpack))

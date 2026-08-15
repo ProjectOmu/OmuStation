@@ -569,10 +569,17 @@
   - type: ItemBorgModule
     moduleId: FireExtinguisher
     items:
-    - JetpackCyborg # Omu edit
+    - BorgFireExtinguisher
     - BorgHandheldGPSBasic
     - HandheldStationMapUnpowered
     - HandHeldMassScannerBorg
+  - type: DroppableBorgModule # Omu edit start
+    moduleId: FireExtinguisher
+    items:
+    - id: JetpackMiniFilled
+      whitelist:
+        components:
+        - Jetpack #Omu edit end
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: extinguisher-module }
 
