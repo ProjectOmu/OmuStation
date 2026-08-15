@@ -6054,3 +6054,15 @@ Entries:
         buttons and a belt now
   id: 791
   time: '2026-08-15T17:10:57.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: >-
+        Ported dead drops, midround event that spawns a syndicate dead drop bag,
+        this is announced over syndie radio and over station announcement
+    - type: Add
+      message: >-
+        Ported locked containers from starlight - they have a digital lock
+        interface
+  id: 792
+  time: '2026-08-15T17:56:59.0000000+00:00'
