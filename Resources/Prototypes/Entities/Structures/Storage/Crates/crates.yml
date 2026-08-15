@@ -376,6 +376,7 @@
         !type:DamageTrigger
         damage: 50
       behaviors:
+      - !type:DeleteAllContainerContentsBehaviour # Omu
       - !type:DoActsBehavior
         acts: ["Destruction"]
       - !type:PlaySoundBehavior
