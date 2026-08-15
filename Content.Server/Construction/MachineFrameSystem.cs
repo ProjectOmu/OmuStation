@@ -36,8 +36,7 @@ public sealed class MachineFrameSystem : EntitySystem
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly ConstructionSystem _construction = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-
-    [Dependency] private SharedInteractionSystem _interactionSystem = default!; // Moffstation - Interaction particles
+    [Dependency] private SharedInteractionSystem _interactionSystem = default!;
 
     public override void Initialize()
     {
