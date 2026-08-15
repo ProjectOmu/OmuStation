@@ -21,3 +21,33 @@
     - RobotTalk
   - type: StealTarget
     stealGroup: ClothingEyesHudSciDiag
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesHudJanitorial
+  name: clean hud
+  description: A heads-up display providing advanced telemetry on the location of puddles, trash, and all things filthy.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Eyes/janihud.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Eyes/janihud.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - WhitelistChameleon
+  - type: JaniVision
+    isEquipment: true
+    toggleAction: ToggleJaniVision
+    janiShader: "unshaded"
+    showAllLights: false
+    workingLightsColor: "#FFFFFF"
+    brokenLightsColor: "#FF0000"
+    emptyLightsColor: "#05FCFC"
+    burnedLightsColor: "#2AFC05"
+    distanceCheckMin: 1
+    distanceCheckMax: 1.3
+    distanceAlpha: 0.2
+    tagColors:
+      Trash: "#FF00FF"
+  - type: SolutionScanner
