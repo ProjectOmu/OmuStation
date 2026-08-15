@@ -1329,6 +1329,10 @@
       head: ClothingHeadHelmetHardsuitERTEngineer
   - type: FireProtection
     reduction: 0.8
+  - type: Armor
+    modifiers:
+      coefficients:
+        Radiation: 0 # Omu
 
 #ERT Medic Hardsuit
 - type: entity

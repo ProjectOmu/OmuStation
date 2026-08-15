@@ -95,7 +95,7 @@
           Heat: 0.15
           Cold: 0.10
           Shock: 0.15
-          Radiation: 0.1
+          Radiation: 0 # Omu
           Caustic: 0.1
     - type: FlashImmunity # Goobstation
     - type: FlashSoundSuppression # Goobstation
@@ -140,7 +140,7 @@
           Heat: 0.10
           Cold: 0.10
           Shock: 0.15
-          Radiation: 0.1
+          Radiation: 0 # Omu
           Caustic: 0.1
     - type: SealableClothingVisuals
       spriteLayer: sealed

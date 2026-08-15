@@ -1039,6 +1039,10 @@
   - type: PointLight
     color: "#f4ffad"
   - type: EyeProtection # goob
+  - type: Armor
+    modifiers:
+      coefficients:
+        Radiation: 0 # Omu
 
 #ERT Medical Hardsuit
 - type: entity
