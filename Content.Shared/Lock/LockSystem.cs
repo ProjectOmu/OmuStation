@@ -104,6 +104,8 @@ using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Utility;
 using Content.Shared.Mindshield.Components;
+using Content.Shared.Tag;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Lock;
 
@@ -121,6 +123,9 @@ public sealed class LockSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _sharedPopupSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly TagSystem _tag = default!; // Omu
+
+    private static readonly ProtoId<TagPrototype> NotOpenedSecureCrateTag = "NotOpenedSecureCrate"; // Omu
 
     /// <inheritdoc />
     public override void Initialize()
@@ -286,6 +291,9 @@ public sealed class LockSystem : EntitySystem
         _appearanceSystem.SetData(uid, LockVisuals.Locked, false);
         Dirty(uid, lockComp);
 
+        if (_tag.HasTag(uid, NotOpenedSecureCrateTag)) // Omu
+            _tag.RemoveTag(uid, NotOpenedSecureCrateTag);
+
         var ev = new LockToggledEvent(false);
         RaiseLocalEvent(uid, ref ev, true);
     }
@@ -420,6 +428,9 @@ public sealed class LockSystem : EntitySystem
         component.Locked = false;
         _appearanceSystem.SetData(uid, LockVisuals.Locked, false);
         Dirty(uid, component);
+
+        if (_tag.HasTag(uid, NotOpenedSecureCrateTag)) // Omu
+            _tag.RemoveTag(uid, NotOpenedSecureCrateTag);
 
         var ev = new LockToggledEvent(false);
         RaiseLocalEvent(uid, ref ev, true);

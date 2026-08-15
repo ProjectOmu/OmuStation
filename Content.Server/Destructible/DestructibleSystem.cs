@@ -50,6 +50,7 @@ using Robust.Server.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared.Tag;
 
 namespace Content.Server.Destructible
 {
@@ -71,6 +72,7 @@ namespace Content.Server.Destructible
         [Dependency] public readonly SharedContainerSystem ContainerSystem = default!;
         [Dependency] public readonly IPrototypeManager PrototypeManager = default!;
         [Dependency] public readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] public readonly TagSystem TagSystem = default!; // Omu
 
         public override void Initialize()
         {
