@@ -79,3 +79,36 @@ marking-TailShadowkinBigFluffStriped-shadowkin_big_fluff_striped = Stripes
 
 marking-BodyShadowkinFullBelly = Full Chest Tattoo
 marking-BodyShadowkinFullBelly-body_fullbelly = Chest
+
+
+
+marking-HandShadowkinDollJointsTattooLeft = Doll Joints Hand Tattoo (Left)
+marking-HandShadowkinDollJointsTattooLeft-doll = Doll Joints Hand Tattoo (Left)
+
+marking-HandShadowkinDollJointsTattooRight = Doll Joints Hand Tattoo (Right)
+marking-HandShadowkinDollJointsTattooRight-doll = Doll Joints Hand Tattoo (Right)
+
+marking-HandShadowkinHeavyTattoosLeft = Heavy Hand Tattoos (Left)
+marking-HandShadowkinHeavyTattoosLeft-heavy1 = Heavy Hand Tattoos (Outer)
+marking-HandShadowkinHeavyTattoosLeft-heavy2 = Heavy Hand Tattoos (Inner)
+
+marking-HandShadowkinHeavyTattoosRight = Heavy Hand Tattoos (Right)
+marking-HandShadowkinHeavyTattoosRight-heavy1 = Heavy Hand Tattoos (Outer)
+marking-HandShadowkinHeavyTattoosRight-heavy2 = Heavy Hand Tattoos (Inner)
+
+marking-HandShadowkinProstheticLeft = Prosthetic (Left Hand)
+marking-HandShadowkinProstheticLeft-prosthetic = Prosthetic (Left Hand)
+
+marking-HandShadowkinProstheticRight = Prosthetic (Right Hand)
+marking-HandShadowkinProstheticRight-prosthetic = Prosthetic (Right Hand)
+
+marking-HandShadowkinRingsLeft = Rings (Left)
+marking-HandShadowkinRingsLeft-rings1 = Left Index Finger
+marking-HandShadowkinRingsLeft-rings2 = Left Ring Finger
+
+marking-HandShadowkinRingsRight = Rings (Right)
+marking-HandShadowkinRingsRight-rings1 = Right Index Finger
+marking-HandShadowkinRingsRight-rings2 = Right Ring Finger
+
+marking-CyberLimbsShadowkinMarkingBishopRHand = Right Robotic Hand from Bishop Cybernetics
+marking-CyberLimbsShadowkinMarkingBishopLHand = Left Robotic Hand from Bishop Cybernetics

@@ -63,7 +63,7 @@
   id: CyberLimbsMarkingBishopLHand
   bodyPart: LHand
   markingCategory: LeftHand
-  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian, Tajaran, Shadowkin] # Goobstation - Tajaran
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian, Tajaran] # Goobstation - Tajaran, # Omu - No Shadowkin since they got their own version
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: l_hand
@@ -109,7 +109,7 @@
   id: CyberLimbsMarkingBishopRHand
   bodyPart: RHand
   markingCategory: RightHand
-  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian, Tajaran, Shadowkin] # Goobstation - Tajaran
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian, Tajaran] # Goobstation - Tajaran, # Omu - No Shadowkin since they got their own version
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: r_hand
