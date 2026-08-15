@@ -342,7 +342,7 @@
     pocket2: GasAnalyzer
   storage:
     back:
-    - trayScanner
+    # - trayScanner # Omu - There's already one in the belt
     # - RCD # Omu
     - RCDExperimental # Omu
     - RPD # Omu
@@ -374,7 +374,7 @@
     pocket2: GasAnalyzer
   storage:
     back:
-    - trayScanner
+    # - trayScanner # Omu - Belt already has one
     # - RCD # Omu
     - RCDExperimental # Omu
     - RPD # Omu
