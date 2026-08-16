@@ -299,20 +299,6 @@
     state: heavy2
 
 - type: marking
-  id: HandShadowkinProstheticLeft
-  bodyPart: LHand
-  markingCategory: LeftHand
-  speciesRestriction: [Shadowkin]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-        color: "#E4E4E4"
-  sprites:
-  - sprite: _Omu/Mobs/Customization/Shadowkin/lhand.rsi
-    state: prosthetic
-
-- type: marking
   id: HandShadowkinRingsLeft
   bodyPart: LHand
   markingCategory: LeftHand
@@ -360,20 +346,6 @@
     state: heavy2
 
 - type: marking
-  id: HandShadowkinProstheticRight
-  bodyPart: RHand
-  markingCategory: RightHand
-  speciesRestriction: [Shadowkin]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-        color: "#E4E4E4"
-  sprites:
-  - sprite: _Omu/Mobs/Customization/Shadowkin/rhand.rsi
-    state: prosthetic
-
-- type: marking
   id: HandShadowkinRingsRight
   bodyPart: RHand
   markingCategory: RightHand
@@ -388,21 +360,3 @@
     state: rings1
   - sprite: _Omu/Mobs/Customization/Shadowkin/rhand.rsi
     state: rings2
-
-- type: marking
-  id: CyberLimbsShadowkinMarkingBishopRHand
-  bodyPart: RHand
-  markingCategory: RightHand
-  speciesRestriction: [Shadowkin]
-  sprites:
-  - sprite: _Omu/Mobs/Customization/Shadowkin/bishop_main.rsi
-    state: r_hand
-
-- type: marking
-  id: CyberLimbsShadowkinMarkingBishopLHand
-  bodyPart: LHand
-  markingCategory: LeftHand
-  speciesRestriction: [Shadowkin]
-  sprites:
-  - sprite: _Omu/Mobs/Customization/Shadowkin/bishop_main.rsi
-    state: l_hand
