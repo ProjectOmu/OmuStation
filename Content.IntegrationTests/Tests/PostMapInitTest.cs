@@ -284,6 +284,7 @@ namespace Content.IntegrationTests.Tests
               "Packed",
               "Reach",
               "Saltern",
+              "Crystal" //Omu
             //"Serpentcrest", Omu No
         };
         // Goobstation edit end

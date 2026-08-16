@@ -42,6 +42,7 @@ public sealed class StationPowerTests
         "Delta",
         //"Chloris", // Omu, not in rotation
         "Cog"
+        "Crystal" #Omu
     ];
 
     [Test, TestCaseSource(nameof(GameMaps))]
