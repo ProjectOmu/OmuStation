@@ -989,6 +989,8 @@
           damage:
             groups:
               Brute: 30 # Omu
+#        - !type:ReagentThreshold # Omu
+#          max: 25 # Omu
       - !type:HealthChange
         damage:
           groups:
