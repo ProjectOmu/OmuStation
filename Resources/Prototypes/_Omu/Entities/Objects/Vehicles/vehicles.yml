@@ -10,7 +10,7 @@
     noRot: true
   - type: Vehicle
     hornSound:
-      collection: PoliceSiren
+      collection: BikeHorn
       params:
         variation: 0.125
     renderOver: North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest
