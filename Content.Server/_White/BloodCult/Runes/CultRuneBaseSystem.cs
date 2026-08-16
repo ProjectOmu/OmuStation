@@ -27,6 +27,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Map.Components;
 
 namespace Content.Server.WhiteDream.BloodCult.Runes;
 
@@ -43,6 +44,7 @@ public sealed partial class CultRuneBaseSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
 
     public override void Initialize()
     {
@@ -245,10 +247,11 @@ public sealed partial class CultRuneBaseSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("cult-rune-cant-draw"), uid, uid);
             return false;
         }
-
-        var tile = transform.Coordinates.GetTileRef();
-        if (tile.HasValue)
+        if (TryComp<MapGridComponent>(transform.MapUid, out var mapGridComp))
+        {
+            var tile = _map.GetTileRef(uid, mapGridComp, transform.Coordinates); //Omu changed to _map.GetTileRef
             return true;
+        }
 
         _popup.PopupEntity(Loc.GetString("cult-cant-draw-rune"), uid, uid);
         return false;
