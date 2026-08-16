@@ -84,8 +84,10 @@ public abstract partial class SharedMartialArtsSystem
     private void OnCapoeiraMeleeHit(EntityUid uid, ref MeleeHitEvent ev)
     {
         if (ev.HitEntities.Count > 0 || ev.Weapon != uid)
+        {
+            ClearMartialArtsModifiers(uid); // Omu
             return;
-
+        }
         // Damage up on miss
         ApplyMultiplier(uid,
             1f,
