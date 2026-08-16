@@ -8,9 +8,9 @@ namespace Content.Shared._DV.Movement;
 /// When attached to an entity with an InputMoverComponent, all mob movement on that entity will
 /// be tile-based. Contains info used to facilitate that movement.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(TileMovementSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(NewTileMovementSystem))]
 [AutoGenerateComponentState(fieldDeltas: true)]
-public sealed partial class TileMovementComponent : Component
+public sealed partial class NewTileMovementComponent : Component
 {
     /// <summary>
     /// Whether a tile movement slide is currently in progress.

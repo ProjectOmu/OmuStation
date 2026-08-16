@@ -12,7 +12,7 @@ namespace Content.Shared._vg.TileMovement;
 /// be tile-based. Contains info used to facilitate that movement.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class OldTileMovementComponent : Component
+public sealed partial class TileMovementComponent : Component
 {
     /// <summary>
     /// Whether a tile movement slide is currently in progress.
