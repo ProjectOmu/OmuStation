@@ -6,7 +6,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.WhiteDream.BloodCult.Constructs.PhaseShift;
 
-[RegisterComponent]
+//[RegisterComponent]
 public sealed partial class PhaseShiftedComponent : Component
 {
     [DataField]
