@@ -14,3 +14,12 @@
     # WIP
   - type: Machine
     board: DistillationSetupMachineCircuitboard
+
+- type: entity
+  id: DistillationSetupMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: distillation setup machine board
+  description: ooo it's a description
+  components:
+  - type: MachineBoard
+    prototype: MachineDistillationSetup
