@@ -22,4 +22,9 @@ public sealed partial class RestrictGunshotsByUserTagComponent : Component
     public List<string> Messages = [];
 
     public TimeSpan LastPopup;
+
+    // Omu start - Any weapon with these tags ignores the restrictions
+    [DataField, AutoNetworkedField]
+    public List<ProtoId<TagPrototype>> BypassTags = [];
+    // Omu end
 }
