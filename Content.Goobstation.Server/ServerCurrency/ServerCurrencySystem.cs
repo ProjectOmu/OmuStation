@@ -14,6 +14,7 @@ using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.ServerCurrency;
 using Content.Server._RMC14.LinkAccount;
 using Content.Server.GameTicking;
+using Content.Server.Holiday;
 using Content.Server.Popups;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
@@ -39,6 +40,7 @@ namespace Content.Goobstation.Server.ServerCurrency
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly LinkAccountManager _linkAccount = default!;
         [Dependency] private readonly GameTicker _gameTicker = default!;
+        [Dependency] private readonly HolidaySystem _holidaySystem = default!;
 
         private int _goobcoinsPerPlayer = 10;
         private int _goobcoinsNonAntagMultiplier = 1;
@@ -118,6 +120,13 @@ namespace Content.Goobstation.Server.ServerCurrency
                             var roundMinutesActual = _gameTicker.RoundDuration().TotalMinutes;
                             money = (int) (money * Math.Min(1, roundMinutesActual / _goobcoinsShortRoundPenaltyTargetMinutes));
                         }
+
+                        // Omu start -- for future: Make this a proper system later rather than just checking one holiday
+                        if (_holidaySystem.IsCurrentlyHoliday("EggWeeks"))
+                        {
+                            money *= 2;
+                        }
+                        // Omu End
 
                         _currencyMan.AddCurrency(mind.OriginalOwnerUserId.Value, money);
                     }
