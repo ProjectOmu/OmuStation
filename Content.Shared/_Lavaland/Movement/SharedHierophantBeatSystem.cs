@@ -20,13 +20,13 @@ public sealed class HierophantBeatSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, HierophantBeatComponent component, ref ComponentStartup args)
     {
-        EnsureComp<OldTileMovementComponent>(uid);
+        EnsureComp<TileMovementComponent>(uid);
         _alertsSystem.ShowAlert(uid, component.HierophantBeatAlertId);
     }
 
     private void OnRemove(EntityUid uid, HierophantBeatComponent component, ref ComponentRemove args)
     {
-        RemComp<OldTileMovementComponent>(uid);
+        RemComp<TileMovementComponent>(uid);
         _alertsSystem.ClearAlert(uid, component.HierophantBeatAlertId);
     }
 
