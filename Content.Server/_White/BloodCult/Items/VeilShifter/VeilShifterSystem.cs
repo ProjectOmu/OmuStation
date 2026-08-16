@@ -75,15 +75,15 @@ public sealed class VeilShifterSystem : EntitySystem
             return false;
         }
 
-        if (_pulling.TryGetPulledEntity(user, out var pulledEntity))
-            _pulling.TryStopPull(pulledEntity.Value);
+        //if (_pulling.TryGetPulledEntity(user, out var pulledEntity))
+        //    _pulling.TryStopPull(pulledEntity.Value);
 
         _transform.SetCoordinates(user, coords);
-        if (pulledEntity.HasValue)
-        {
-            _transform.SetCoordinates(pulledEntity.Value, coords);
-            _pulling.TryStartPull(user, pulledEntity.Value);
-        }
+        //if (pulledEntity.HasValue)
+        //{
+        //    _transform.SetCoordinates(pulledEntity.Value, coords);
+        //    _pulling.TryStartPull(user, pulledEntity.Value);
+        //}
 
         _audio.PlayPvs(veil.Comp.TeleportInSound, coords);
         _audio.PlayPvs(veil.Comp.TeleportOutSound, oldCoords);
