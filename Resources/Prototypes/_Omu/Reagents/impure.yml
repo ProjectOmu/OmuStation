@@ -1,0 +1,106 @@
+- type: reagent
+  id: ImpureSalicylicAcid
+  name: reagent-name-salicylic-acid
+  desc: reagent-desc-impure-salicylic-acid
+  physicalDesc: reagent-physical-desc-oily
+  group: Medicine
+  flavor: slimy
+  color: "#52450b"
+  plantMetabolism:
+    - !type:PlantAdjustWeeds
+      amount: -3
+    - !type:PlantAdjustHealth
+      amount: -18
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.4
+      effects:
+      - !type:HealthChange # if brute >= 25 && < 40u
+        damage: { groups: { Brute: -5 }} # down from -12
+        conditions:
+        - !type:TypedDamageThreshold
+          damage: &salic_dt { groups: { Brute: 25 }}
+        - !type:ReagentThreshold
+          max: 40
+      - !type:HealthChange # if brute < 25 && < 40u
+        damage: { groups: { Brute: -1.5 }} # down from -3
+        conditions:
+        - !type:TypedDamageThreshold
+          damage: *salic_dt
+          inverse: true
+        - !type:ReagentThreshold
+          max: 40
+      - !type:HealthChange # impurities always cause poison
+        damage: { types: { Poison: 3 }}
+      - !type:HealthChange # OD, >= 40u; higher because of impurities
+        damage: { groups: { Brute: 3 }} # same as pure
+        conditions:
+        - !type:ReagentThreshold
+          min: 40
+        - &yow !type:OrganType
+          type: Yowie
+          shouldHave: false
+
+- type: reagent
+  id: ImpureOxandrolone
+  name: reagent-name-oxandrolone
+  desc: reagent-desc-impure-oxandrolone
+  physicalDesc: reagent-physical-desc-viscous
+  group: Medicine
+  flavor: mustard
+  color: "#403c35"
+  plantMetabolism:
+    - !type:PlantAdjustHealth
+      amount: -11
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.3
+      effects:
+      - !type:HealthChange # if burn >= 25 && < 35u
+        damage: { groups: { Burn: -4 }} # down from -4/-4/-4/-3
+        conditions:
+        - !type:TypedDamageThreshold
+          damage: &oxan_dt { groups: { Burn: 25 }}
+        - !type:ReagentThreshold
+          max: 35
+      - !type:HealthChange # if burn < 25 && < 35u
+        damage: { groups: { Burn: -1 }} # down from -4
+        conditions:
+        - !type:TypedDamageThreshold
+          damage: *oxan_dt
+          inverse: true
+        - !type:ReagentThreshold
+          max: 35
+      - !type:HealthChange # impurities always cause poison
+        damage: { types: { Poison: 4 }}
+      - !type:HealthChange # OD >= 35; higher because of impurities
+        damage: { groups: { Burn: 4 }} # same as pure
+        conditions:
+        - !type:ReagentThreshold
+          min: 35
+        - *yow
+
+- type: reagent
+  id: ImpurePenteticAcid
+  name: reagent-name-pentetic-acid
+  desc: reagent-desc-impure-pentetic-acid
+  physicalDesc: reagent-physical-desc-acrid
+  group: Medicine
+  flavor: metallic
+  color: "#035400"
+  plantMetabolism:
+    - !type:PlantAdjustWeeds
+      amount: -2
+    - !type:PlantAdjustToxins
+      amount: -7
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:ChemCleanBloodstream
+        cleanseRate: 1.2 # down from 3.0
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -1.3 # down from -2
+            Radiation: -0.9 # down from -2
