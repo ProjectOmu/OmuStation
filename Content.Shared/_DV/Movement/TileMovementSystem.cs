@@ -16,7 +16,7 @@ using System.Numerics;
 
 namespace Content.Shared._DV.Movement;
 
-public sealed class TileMovementSystem : EntitySystem
+public sealed class NewTileMovementSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IMapManager _map = default!;
@@ -26,7 +26,7 @@ public sealed class TileMovementSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    private EntityQuery<TileMovementComponent> _query;
+    private EntityQuery<NewTileMovementComponent> _query;
     private EntityQuery<FixturesComponent> _fixturesQuery;
     private EntityQuery<InputMoverComponent> _moverQuery;
     private EntityQuery<MobMoverComponent> _mobMoverQuery;
@@ -42,7 +42,7 @@ public sealed class TileMovementSystem : EntitySystem
     {
         base.Initialize();
 
-        _query = GetEntityQuery<TileMovementComponent>();
+        _query = GetEntityQuery<NewTileMovementComponent>();
         _fixturesQuery = GetEntityQuery<FixturesComponent>();
         _moverQuery = GetEntityQuery<InputMoverComponent>();
         _mobMoverQuery = GetEntityQuery<MobMoverComponent>();
@@ -52,9 +52,9 @@ public sealed class TileMovementSystem : EntitySystem
         _pullerQuery = GetEntityQuery<PullerComponent>();
         _relayQuery = GetEntityQuery<RelayInputMoverComponent>();
 
-        SubscribeLocalEvent<TileMovementComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<TileMovementComponent, PullStartedMessage>(OnPullStarted);
-        SubscribeLocalEvent<TileMovementComponent, PullStoppedMessage>(OnPullStopped);
+        SubscribeLocalEvent<NewTileMovementComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<NewTileMovementComponent, PullStartedMessage>(OnPullStarted);
+        SubscribeLocalEvent<NewTileMovementComponent, PullStoppedMessage>(OnPullStopped);
     }
 
     public override void Update(float frameTime)
@@ -64,7 +64,7 @@ public sealed class TileMovementSystem : EntitySystem
         _ticked.Clear();
     }
 
-    private void OnMapInit(Entity<TileMovementComponent> ent, ref MapInitEvent args)
+    private void OnMapInit(Entity<NewTileMovementComponent> ent, ref MapInitEvent args)
     {
         if (GetTarget(ent) is not {} target)
             return;
@@ -74,21 +74,21 @@ public sealed class TileMovementSystem : EntitySystem
         UpdateSlide(target);
     }
 
-    private void OnPullStarted(Entity<TileMovementComponent> ent, ref PullStartedMessage args)
+    private void OnPullStarted(Entity<NewTileMovementComponent> ent, ref PullStartedMessage args)
     {
         var target = args.PulledUid;
         if (ent.Owner != args.PullerUid || !_mobMoverQuery.HasComp(target))
             return;
 
         // if you have tile movement and pull a mob, it gets tile movement too temporarily.
-        if (EnsureComp<TileMovementComponent>(target, out var comp))
+        if (EnsureComp<NewTileMovementComponent>(target, out var comp))
             return;
 
         comp.Temporary = true;
-        DirtyField(target, comp, nameof(TileMovementComponent.Temporary));
+        DirtyField(target, comp, nameof(NewTileMovementComponent.Temporary));
     }
 
-    private void OnPullStopped(Entity<TileMovementComponent> ent, ref PullStoppedMessage args)
+    private void OnPullStopped(Entity<NewTileMovementComponent> ent, ref PullStoppedMessage args)
     {
         // only remove temporary tile movement when no longer pulled
         if (!ent.Comp.Temporary || ent.Owner != args.PulledUid)
@@ -98,7 +98,7 @@ public sealed class TileMovementSystem : EntitySystem
         RemCompDeferred(ent, ent.Comp);
     }
 
-    private Entity<InputMoverComponent, TileMovementComponent, PhysicsComponent, TransformComponent>? GetTarget(EntityUid player)
+    private Entity<InputMoverComponent, NewTileMovementComponent, PhysicsComponent, TransformComponent>? GetTarget(EntityUid player)
     {
         if (_relayQuery.TryComp(player, out var relay))
             player = relay.RelayEntity;
@@ -211,25 +211,25 @@ public sealed class TileMovementSystem : EntitySystem
         _mover.HandleMobMovement(target, frameTime);
     }
 
-    public void SetWeightless(Entity<TileMovementComponent> player, bool weightless)
+    public void SetWeightless(Entity<NewTileMovementComponent> player, bool weightless)
     {
         if (player.Comp.WasWeightlessLastTick == weightless)
             return;
 
         player.Comp.WasWeightlessLastTick = weightless;
-        DirtyField(player, player.Comp, nameof(TileMovementComponent.WasWeightlessLastTick));
+        DirtyField(player, player.Comp, nameof(NewTileMovementComponent.WasWeightlessLastTick));
     }
 
-    public void SetButtons(Entity<TileMovementComponent> player, MoveButtons buttons)
+    public void SetButtons(Entity<NewTileMovementComponent> player, MoveButtons buttons)
     {
         if (player.Comp.CurrentSlideMoveButtons == buttons)
             return;
 
         player.Comp.CurrentSlideMoveButtons = buttons;
-        DirtyField(player, player.Comp, nameof(TileMovementComponent.CurrentSlideMoveButtons));
+        DirtyField(player, player.Comp, nameof(NewTileMovementComponent.CurrentSlideMoveButtons));
     }
 
-    public void Rotate(Entity<InputMoverComponent, TileMovementComponent, TransformComponent> player)
+    public void Rotate(Entity<InputMoverComponent, NewTileMovementComponent, TransformComponent> player)
     {
         if (!player.Comp2.SlideActive || player.Comp1.RelativeEntity is not {} rel)
             return;
@@ -258,7 +258,7 @@ public sealed class TileMovementSystem : EntitySystem
         _audio.PlayPredicted(sound, player, relaySource ?? player, audioParams);
     }
 
-    public void TryEndSlide(Entity<InputMoverComponent, TileMovementComponent, PhysicsComponent, TransformComponent> player)
+    public void TryEndSlide(Entity<InputMoverComponent, NewTileMovementComponent, PhysicsComponent, TransformComponent> player)
     {
         var speed = GetEntityMoveSpeed(player, player.Comp1.Sprinting);
         var buttons = StripWalk(player.Comp1.HeldMoveButtons);
@@ -282,7 +282,7 @@ public sealed class TileMovementSystem : EntitySystem
         UpdateSlide(player);
     }
 
-    public bool ShouldSlideEnd(MoveButtons buttons, TransformComponent xform, TileMovementComponent comp, float movementSpeed)
+    public bool ShouldSlideEnd(MoveButtons buttons, TransformComponent xform, NewTileMovementComponent comp, float movementSpeed)
     {
         var minPressedTime = (1.05f / movementSpeed);
         // We need to stop the move once we are close enough. This isn't perfect, since it technically ends the move
@@ -297,7 +297,7 @@ public sealed class TileMovementSystem : EntitySystem
         return reachedDestination || stoppedPressing;
     }
 
-    public void StartSlide(Entity<InputMoverComponent, TileMovementComponent, PhysicsComponent, TransformComponent> player)
+    public void StartSlide(Entity<InputMoverComponent, NewTileMovementComponent, PhysicsComponent, TransformComponent> player)
     {
         var buttons = player.Comp1.HeldMoveButtons;
         var offset = _mover.DirVecForButtons(buttons);
@@ -308,15 +308,15 @@ public sealed class TileMovementSystem : EntitySystem
 
     // physics isnt used but it makes calling it a bit easier
     public void StartSlideTo(
-        Entity<InputMoverComponent, TileMovementComponent, PhysicsComponent, TransformComponent> player,
+        Entity<InputMoverComponent, NewTileMovementComponent, PhysicsComponent, TransformComponent> player,
         Vector2 dest)
     {
         player.Comp2.Origin = player.Comp4.LocalPosition;
         player.Comp2.Destination = SnapCoordinatesToTile(dest);
         player.Comp2.MovementKeyPressedAt = CurrentTime;
-        DirtyField(player, player.Comp2, nameof(TileMovementComponent.Origin));
-        DirtyField(player, player.Comp2, nameof(TileMovementComponent.Destination));
-        DirtyField(player, player.Comp2, nameof(TileMovementComponent.MovementKeyPressedAt));
+        DirtyField(player, player.Comp2, nameof(NewTileMovementComponent.Origin));
+        DirtyField(player, player.Comp2, nameof(NewTileMovementComponent.Destination));
+        DirtyField(player, player.Comp2, nameof(NewTileMovementComponent.MovementKeyPressedAt));
 
         // pull the pulled mob along if it currently has TileMovement
         if (_pullerQuery.CompOrNull(player)?.Pulling is not {} pulling || !_query.TryComp(pulling, out var pullingComp))
@@ -336,7 +336,7 @@ public sealed class TileMovementSystem : EntitySystem
     /// <summary>
     /// Forces the target entity's velocity based on where the player is moving to.
     /// </summary>
-    public void UpdateSlide(Entity<InputMoverComponent, TileMovementComponent, PhysicsComponent, TransformComponent> player)
+    public void UpdateSlide(Entity<InputMoverComponent, NewTileMovementComponent, PhysicsComponent, TransformComponent> player)
     {
         var parentRot = _mover.GetParentGridAngle(player.Comp1);
         var speed = GetEntityMoveSpeed(player, player.Comp1.Sprinting);
@@ -353,13 +353,13 @@ public sealed class TileMovementSystem : EntitySystem
     /// <summary>
     /// Kills the target entity's velocity and stops the current slide.
     /// </summary>
-    public void EndSlide(Entity<TileMovementComponent, PhysicsComponent> player)
+    public void EndSlide(Entity<NewTileMovementComponent, PhysicsComponent> player)
     {
         if (!player.Comp1.SlideActive)
             return;
 
         player.Comp1.MovementKeyPressedAt = null;
-        DirtyField(player, player.Comp1, nameof(TileMovementComponent.MovementKeyPressedAt));
+        DirtyField(player, player.Comp1, nameof(NewTileMovementComponent.MovementKeyPressedAt));
 
         _physics.SetLinearVelocity(player, Vector2.Zero, body: player.Comp2);
         _physics.SetAngularVelocity(player, 0, body: player.Comp2);
