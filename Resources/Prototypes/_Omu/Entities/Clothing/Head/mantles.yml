@@ -285,6 +285,8 @@
       isEquipment: true
       color: "#CCFFCC"
     - type: FlashImmunity
+    - type: EyeProtection
+      protectionTime: 5
     - type: FlashSoundSuppression
     - type: ShowJobIcons
     - type: ShowMindShieldIcons
@@ -334,6 +336,8 @@
       isEquipment: true
       color: "#CCFFCC"
     - type: FlashImmunity
+    - type: EyeProtection
+      protectionTime: 5
     - type: FlashSoundSuppression
     - type: ShowJobIcons
     - type: ShowMindShieldIcons
@@ -380,6 +384,8 @@
       isEquipment: true
       color: "#CCFFCC"
     - type: FlashImmunity
+    - type: EyeProtection
+      protectionTime: 5
     - type: FlashSoundSuppression
     - type: ShowJobIcons
     - type: ShowMindShieldIcons
@@ -479,6 +485,8 @@
     - type: ShowHealthIcons
     - type: ShowDiseaseIcons
     - type: FlashImmunity
+    - type: EyeProtection
+      protectionTime: 5
     - type: FlashSoundSuppression
     - type: SolutionScanner
   - type: Contraband
@@ -562,6 +570,8 @@
       isEquipment: true
       color: "#CCFFCC"
     - type: FlashImmunity
+    - type: EyeProtection
+      protectionTime: 5
     - type: FlashSoundSuppression
     - type: ShowJobIcons
     - type: ShowMindShieldIcons
@@ -603,6 +613,8 @@
       isEquipment: true
       color: "#CCFFCC"
     - type: FlashImmunity
+    - type: EyeProtection
+      protectionTime: 5
     - type: FlashSoundSuppression
     - type: ShowJobIcons
 
@@ -631,6 +643,8 @@
       isEquipment: true
       color: "#CCFFCC"
     - type: FlashImmunity
+    - type: EyeProtection
+      protectionTime: 5
     - type: FlashSoundSuppression
     - type: ClothingGrantCollectiveMind
       minds:
@@ -671,6 +685,8 @@
       isEquipment: true
       color: "#CCFFCC"
     - type: FlashImmunity
+    - type: EyeProtection
+      protectionTime: 5
     - type: FlashSoundSuppression
     - type: ShowJobIcons
     - type: ShowMindShieldIcons
@@ -741,6 +757,8 @@
       lightRadius: 15
     - type: ShowSyndicateIcons
     - type: FlashImmunity
+    - type: EyeProtection
+      protectionTime: 5
     - type: FlashSoundSuppression
     - type: ShowJobIcons
     - type: ShowMindShieldIcons
