@@ -105,7 +105,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             target: embeddable));
     }
 
-    private void OnEmbedRemove(Entity<EmbeddableProjectileComponent> embeddable, ref RemoveEmbeddedProjectileEvent args)
+    public void OnEmbedRemove(Entity<EmbeddableProjectileComponent> embeddable, ref RemoveEmbeddedProjectileEvent args)         //Omu set to public
     {
         if (args.Cancelled)
             return;
@@ -280,7 +280,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     }
 
     [Serializable, NetSerializable]
-    private sealed partial class RemoveEmbeddedProjectileEvent : DoAfterEvent
+    public sealed partial class RemoveEmbeddedProjectileEvent : DoAfterEvent        //Omu set to public
     {
         public override DoAfterEvent Clone() => this;
     }
