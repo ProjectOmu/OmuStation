@@ -1,0 +1,15 @@
+- type: entity
+  id: MachineDistillationSetup
+  parent: BaseTabletopChemicalMachine
+  components:
+  - type: SolutionContainerMixer
+    mixDuration: 90
+  - type: ReactionMixer
+    reactionTypes: [ Distill ]
+  - type: Sprite
+    sprite: _Omu/Structures/Medical/distill.rsi
+    # WIP
+  - type: GenericVisualizer
+    # WIP
+  - type: Machine
+    board: DistillationSetupMachineCircuitboard
