@@ -131,6 +131,7 @@ using Robust.Shared.Toolshed;
 using Content.Goobstation.Common.Silicons.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.CustomLawboard;
+using Content.Server._Starlight.Objectives;
 using Robust.Shared.Random;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
@@ -142,6 +143,8 @@ using Content.Server.Research.Systems;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Tag;
 using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
+using Content.Shared.Emag.Components;
+
 namespace Content.Server.Silicons.Laws;
 
 public sealed class SiliconLawSystem : SharedSiliconLawSystem
@@ -161,6 +164,8 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly ResearchSystem _research = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!; // Corvax-Next-AiRemoteControl
+
+    [Dependency] private readonly EnsureBorgHasLawsConditionSystem _freemag = default!; // Starlight
 
 
 
@@ -316,6 +321,12 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             LawString = Loc.GetString("law-emag-secrecy", ("faction", Loc.GetString(component.Lawset.ObeysTo))),
             Order = component.Lawset.Laws.Max(law => law.Order) + 1
         });
+
+        // Starlight start
+        // if we're a self agent emag, clear the laws and all that.
+        if (args.EmagUsed != null)
+            _freemag.CheckSELFmag((uid, component), args.EmagUsed.Value);
+        // Starlight end
 
         _adminLogger.Add(LogType.SiliconLaws, LogImpact.High, $"{ToPrettyString(uid):entity} laws changed due to emag by {ToPrettyString(args.user):user} to:{component.Lawset!.LoggingString()}"); // goob
     }
