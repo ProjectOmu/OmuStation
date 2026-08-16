@@ -41,17 +41,17 @@ using Content.Shared.Damage;
 
 namespace Content.Server.Damage.Components
 {
-    [Access(typeof(DamageOtherOnHitSystem))]
-    [RegisterComponent]
-    public sealed partial class DamageOtherOnHitComponent : Component
-    {
-        [DataField("ignoreResistances")]
-        [ViewVariables(VVAccess.ReadWrite)]
-        public bool IgnoreResistances = false;
+    //[Access(typeof(DamageOtherOnHitSystem))]
+    //[RegisterComponent]       Omu commented out
+    //public sealed partial class DamageOtherOnHitComponent : Component
+    //{
+    //    [DataField("ignoreResistances")]
+    //    [ViewVariables(VVAccess.ReadWrite)]
+    //    public bool IgnoreResistances = false;
 
-        [DataField("damage", required: true)]
-        [ViewVariables(VVAccess.ReadWrite)]
-        public DamageSpecifier Damage = default!;
+    //    [DataField("damage", required: true)]
+    //    [ViewVariables(VVAccess.ReadWrite)]
+    //    public DamageSpecifier Damage = default!;
 
-    }
+    //}
 }

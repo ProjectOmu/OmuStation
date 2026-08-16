@@ -19,3 +19,9 @@ public readonly record struct EmbedEvent(EntityUid? Shooter, EntityUid Embedded)
     /// </summary>
     public readonly EntityUid Embedded = Embedded;
 }
+
+/// <summary>
+/// Raised on an entity when it stops embedding in another entity.
+/// </summary>
+[ByRefEvent]
+public readonly record struct RemoveEmbedEvent(EntityUid? Remover);

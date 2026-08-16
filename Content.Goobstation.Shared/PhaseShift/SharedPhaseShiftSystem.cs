@@ -19,6 +19,7 @@ using Content.Shared.ProximityDetection;
 using Content.Shared.Standing;
 using Content.Shared.StepTrigger.Systems;
 using Content.Goobstation.Common.Footprints;
+using Content.Shared.WhiteDream.BloodCult.Constructs.PhaseShift;
 
 namespace Content.Goobstation.Shared.PhaseShift;
 
@@ -33,7 +34,7 @@ public abstract class SharedPhaseShiftSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<PhaseShiftedComponent, ComponentStartup>(OnComponentStartup);
+        //SubscribeLocalEvent<PhaseShiftedComponent, ComponentStartup>(OnComponentStartup);
 
         SubscribeLocalEvent<PhaseShiftedComponent, RefreshMovementSpeedModifiersEvent>(OnRefresh);
         SubscribeLocalEvent<PhaseShiftedComponent, AttackAttemptEvent>(OnAttackAttempt);
@@ -57,32 +58,32 @@ public abstract class SharedPhaseShiftSystem : EntitySystem
         SubscribeLocalEvent<PhaseShiftedComponent, ComponentShutdown>(OnComponentShutdown);
     }
 
-    protected virtual void OnComponentStartup(Entity<PhaseShiftedComponent> ent, ref ComponentStartup args)
-    {
-        if (ent.Comp.SpawnEffects)
-        {
-            var pos = _transform.GetMapCoordinates(ent);
-            Spawn(ent.Comp.PhaseInEffect, pos);
-            _audio.PlayPvs(ent.Comp.PhaseInSound, Transform(ent).Coordinates);
-        }
+    //protected virtual void OnComponentStartup(Entity<PhaseShiftedComponent> ent, ref ComponentStartup args)
+    //{
+    //    if (ent.Comp.SpawnEffects)
+    //    {
+    //        var pos = _transform.GetMapCoordinates(ent);
+    //        Spawn(ent.Comp.PhaseInEffect, pos);
+    //        _audio.PlayPvs(ent.Comp.PhaseInSound, Transform(ent).Coordinates);
+    //    }
 
-        if (TryComp<FixturesComponent>(ent, out var fixtures) && fixtures.FixtureCount >= 1)
-        {
-            var fixture = fixtures.Fixtures.First();
-            ent.Comp.StoredMask = fixture.Value.CollisionMask;
-            ent.Comp.StoredLayer = fixture.Value.CollisionLayer;
-            _physics.SetCollisionMask(ent, fixture.Key, fixture.Value, ent.Comp.CollisionMask, fixtures);
-            _physics.SetCollisionLayer(ent, fixture.Key, fixture.Value, ent.Comp.CollisionLayer, fixtures);
-        }
+    //    if (TryComp<FixturesComponent>(ent, out var fixtures) && fixtures.FixtureCount >= 1)
+    //    {
+    //        var fixture = fixtures.Fixtures.First();
+    //        ent.Comp.StoredMask = fixture.Value.CollisionMask;
+    //        ent.Comp.StoredLayer = fixture.Value.CollisionLayer;
+    //        _physics.SetCollisionMask(ent, fixture.Key, fixture.Value, ent.Comp.CollisionMask, fixtures);
+    //        _physics.SetCollisionLayer(ent, fixture.Key, fixture.Value, ent.Comp.CollisionLayer, fixtures);
+    //    }
 
-        var stealth = EnsureComp<StealthComponent>(ent);
-        _stealth.SetVisibility(ent, -1, stealth);
+    //    var stealth = EnsureComp<StealthComponent>(ent);
+    //    _stealth.SetVisibility(ent, -1, stealth);
 
-        if (TryComp(ent, out PullableComponent? pullable))
-            _pulling.TryStopPull(ent, pullable);
+    //    if (TryComp(ent, out PullableComponent? pullable))
+    //        _pulling.TryStopPull(ent, pullable);
 
-        _movement.RefreshMovementSpeedModifiers(ent);
-    }
+    //    _movement.RefreshMovementSpeedModifiers(ent);
+    //}
 
     private void OnRefresh(Entity<PhaseShiftedComponent> ent, ref RefreshMovementSpeedModifiersEvent args) =>
         args.ModifySpeed(ent.Comp.MovementSpeedBuff, ent.Comp.MovementSpeedBuff);

@@ -6,7 +6,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.WhiteDream.BloodCult.Constructs.PhaseShift;
 
-//[RegisterComponent]
+[RegisterComponent]
 public sealed partial class PhaseShiftedComponent : Component
 {
     [DataField]
@@ -36,4 +36,7 @@ public sealed partial class PhaseShiftedComponent : Component
 
     public int StoredMask;
     public int StoredLayer;
+
+    [DataField]
+    public bool SpawnEffects = true;
 }
