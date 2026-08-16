@@ -8,6 +8,7 @@
     reactionTypes: [ Distill ]
   - type: Sprite
     sprite: _Omu/Structures/Machines/Medical/distill.rsi
+    offset: ".1,.1"
     layers:
     - state: shitty-base
     - state: panel
