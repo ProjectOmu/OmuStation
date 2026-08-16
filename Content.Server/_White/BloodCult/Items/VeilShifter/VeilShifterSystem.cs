@@ -63,8 +63,9 @@ public sealed class VeilShifterSystem : EntitySystem
             var distance = _random.Next(veil.Comp.TeleportDistanceMin, veil.Comp.TeleportDistanceMax);
             coords = userTransform.Coordinates.Offset(offset + direction * distance).SnapToGrid();
 
-            if (!coords.TryGetTileRef(out var tileRef) || _turf.IsTileBlocked(tileRef.Value, CollisionGroup.MobMask))
-                continue;
+            if (_turf.TryGetTileRef(coords, out var tileRef))           //Omu moved to _turf trygettileref
+                if (_turf.IsTileBlocked(tileRef.Value, CollisionGroup.MobMask))     //Omu moved to seperate if statement so its not nullable
+                    continue;
             foundPos = true;
             break;
         }
