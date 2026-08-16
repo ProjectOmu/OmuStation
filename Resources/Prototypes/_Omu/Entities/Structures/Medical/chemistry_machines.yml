@@ -8,8 +8,9 @@
     reactionTypes: [ Distill ]
   - type: Sprite
     sprite: _Omu/Structures/Medical/distill.rsi
-    # WIP
-  - type: GenericVisualizer
+    layers:
+    - state: shitty-base
+  #- type: GenericVisualizer
     # WIP
   - type: Machine
     board: DistillationSetupMachineCircuitboard
