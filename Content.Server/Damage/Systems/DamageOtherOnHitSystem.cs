@@ -14,6 +14,7 @@ using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
+using Content.Shared.Damage.Components;
 
 namespace Content.Server.Damage.Systems;
 

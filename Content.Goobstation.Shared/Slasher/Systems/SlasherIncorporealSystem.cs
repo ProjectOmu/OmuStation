@@ -1,4 +1,4 @@
-using Content.Goobstation.Shared.PhaseShift;
+using Content.Shared.WhiteDream.BloodCult.Constructs.PhaseShift;
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
