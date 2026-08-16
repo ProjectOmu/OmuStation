@@ -8,6 +8,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.WhiteDream.BloodCult.BloodCultist;
+using Robust.Shared.Player;
 
 namespace Content.Server.WhiteDream.BloodCult.Runes.Revive;
 
@@ -21,6 +22,7 @@ public sealed class CultRuneReviveSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
 
     public override void Initialize()
     {
@@ -98,11 +100,13 @@ public sealed class CultRuneReviveSystem : EntitySystem
                 mind = cultist.OriginalMind.Value;
         }
 
-        if (mind?.Session is not { } playerSession || mind.CurrentEntity == target)
+        if (mind?.UserId is not { } || mind.CurrentEntity == target)            // Omu removed reference to a variable
             return;
 
+        if (_player.TryGetSessionById(mind.UserId, out var Session))            // Omu Get the player session
+
         // notify them they're being revived.
-        _eui.OpenEui(new ReturnToBodyEui(mind, _mind), playerSession);
+        _eui.OpenEui(new ReturnToBodyEui(mind, _mind, _player), Session);
     }
 
     private ReviveRuneChargesProviderComponent? EnsureReviveRuneChargesProvider(EntityUid ent)
