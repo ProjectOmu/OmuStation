@@ -83,11 +83,14 @@ public abstract partial class SharedMartialArtsSystem
 
     private void OnCapoeiraMeleeHit(EntityUid uid, ref MeleeHitEvent ev)
     {
-        if (ev.HitEntities.Count > 0 || ev.Weapon != uid)
-        {
-            ClearMartialArtsModifiers(uid); // Omu
+        if (ev.HitEntities.Count > 0) // Omu start - split these into two seperate checks
             return;
-        }
+        if (ev.Weapon != uid)
+        {
+            ClearMartialArtsModifiers(uid);
+            return;
+        } // Omu end
+
         // Damage up on miss
         ApplyMultiplier(uid,
             1f,
@@ -272,7 +275,7 @@ public abstract partial class SharedMartialArtsSystem
         float multiplier,
         float modifier,
         TimeSpan time,
-        MartialArtModifierType type = MartialArtModifierType.AttackRate)
+        MartialArtModifierType type = MartialArtModifierType.AttackRate | MartialArtModifierType.Unarmed) // Omu, add MartialArtModifierType.Unarmed
     {
         if (Math.Abs(multiplier - 1f) < 0.001f
             && Math.Abs(modifier) < 0.001f
