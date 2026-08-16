@@ -249,12 +249,19 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         component.Shooter = TerminatingOrDeleted(shooterId) ? null : shooterId; // Goobstation - set to null if deleted
         Dirty(id, component);
     }
-
+    /*
     [Serializable, NetSerializable]
-    public sealed partial class RemoveEmbeddedProjectileEvent : DoAfterEvent        //Omu set to public
+    public sealed partial class RemoveEmbeddedProjectileEvent : DoAfterEvent        //Omu, move this
     {
         public override DoAfterEvent Clone() => this;
     }
+    */
+}
+
+[Serializable, NetSerializable]
+public sealed partial class RemoveEmbeddedProjectileEvent : DoAfterEvent        //Omu, move this
+{
+    public override DoAfterEvent Clone() => this;
 }
 
 [Serializable, NetSerializable]
