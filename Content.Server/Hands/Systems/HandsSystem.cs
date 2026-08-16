@@ -380,7 +380,9 @@ namespace Content.Server.Hands.Systems
 
             // Let other systems change the thrown entity (useful for virtual items) // EE start
             // or the throw strength.
-            var itemEv = new BeforeGettingThrownEvent(throwEnt, direction, throwSpeed, player);
+            if (throwEnt is null)               // Omu - check for null
+                return false;
+            var itemEv = new BeforeGettingThrownEvent(throwEnt.Value, direction, throwSpeed, player);       //Omu changed to give it .value - since it can be nullable
             RaiseLocalEvent(player, ref itemEv); // EE end
 
             // Let other systems change the thrown entity (useful for virtual items)

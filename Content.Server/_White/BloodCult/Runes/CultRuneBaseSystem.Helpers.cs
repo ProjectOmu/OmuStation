@@ -40,4 +40,16 @@ public sealed partial class CultRuneBaseSystem
 
         return possibleTargets;
     }
+    /// <summary>
+    ///     Is used to stop target from pulling/being pulled before teleporting them.
+    /// </summary>
+    public void StopPulling(EntityUid target)
+    {
+        if (TryComp(target, out PullableComponent? pullable) && pullable.BeingPulled)
+            _pulling.TryStopPull(target, pullable);
+
+        // I wish there was a better way to do it
+        //if (_pulling.TryGetPulledEntity(target, out var pulling)) Omu commented
+        //    _pulling.TryStopPull(pulling.Value);
+    }
 }
