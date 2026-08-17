@@ -85,3 +85,30 @@
         - Mail
   - type: BorgModuleIcon
     icon: { sprite: _Omu/Interface/Actions/actions-borg.rsi, state: postal-module }
+
+- type: entity
+  id: BorgModuleAdvancedThruster
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: advanced thruster cyborg module
+  description: NT assigned a team to design a jetpack for cyborg units, but they ran out of funding and just made a bigger fire extinguisher. It comes with a integrated GPS and mass scanner though!
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-fire-extinguisher
+  - type: ItemBorgModule
+    moduleId: FireExtinguisher
+    items:
+    - BorgFireExtinguisher
+    - BorgHandheldGPSBasic
+    - HandheldStationMapUnpowered
+    - HandHeldMassScannerBorg
+  - type: DroppableBorgModule
+    moduleId: AdvancedThruster
+    items:
+    - id: JetpackMiniFilled
+      whitelist:
+        components:
+        - Jetpack
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: extinguisher-module }
