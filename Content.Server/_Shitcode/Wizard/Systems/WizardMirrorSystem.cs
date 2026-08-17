@@ -136,7 +136,7 @@ public sealed class WizardMirrorSystem : SharedWizardMirrorSystem
 
             if (!prototype.ForcedColoring)
             {
-                _humanoid.AddMarking(target, marking.MarkingId, marking.MarkingColors, false);
+                _humanoid.AddMarking(target, marking.MarkingId, marking.MarkingColors, marking.GlowyBits, false); // Omu
             }
             else
             {
@@ -169,7 +169,7 @@ public sealed class WizardMirrorSystem : SharedWizardMirrorSystem
                 profile.Appearance.EyeColor,
                 humanoid.MarkingSet
             );
-            _humanoid.AddMarking(target, marking.MarkingId, markingColors, false);
+            _humanoid.AddMarking(target, marking.MarkingId, markingColors, marking.GlowyBits, false); // Omu
         }
 
         humanoid.MarkingSet.EnsureSpecies(profile.Species, profile.Appearance.SkinColor, _markingManager, _proto);

@@ -152,7 +152,7 @@
 
 - type: entity
   id: CrateVendingMachineRestockPTechFilled
-  parent: CratePlastic
+  parent: CrateCommandSecure # Omu, changed from plastic to command secure
   name: PTech restock crate
   description: Contains a restock box for the PTech bureaucracy dispenser.
   components:

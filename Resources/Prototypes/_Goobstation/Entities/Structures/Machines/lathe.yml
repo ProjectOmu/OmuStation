@@ -124,6 +124,8 @@
     - MiningToolsStatic
     - MiscSignallersStatic
     - CargoStatic
+    - RecipePackShipmentNoticesStatic
+    - CargoOmu #omu edit
     dynamicPacks:
     - AdvancedTools
     - Mining
@@ -154,6 +156,18 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: BlueprintReceiver
+    whitelist:
+      tags:
+      - BlueprintCargoTechfab
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      blueprint: !type:Container
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - blueprint
 
 - type: entity
   id: ScienceTechFab

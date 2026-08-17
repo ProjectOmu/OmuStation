@@ -52,9 +52,19 @@
   - type: Transform
     anchored: true
     noRot: false
-  - type: ApcPowerReceiver
-    powerLoad: 2500
-    needsPower: true
+  # Omu Start
+  #- type: ApcPowerReceiver
+    #powerLoad: 2000
+    #needsPower: true
+  - type: ApcPowerReceiverBattery
+    idleLoad: 2000
+    batteryRechargeRate: 500
+    batteryRechargeEfficiency: 1.0
+  - type: Battery
+    maxCharge: 300000 # 2m30s of unpowered buffer.
+    startingCharge: 0
+  - type: ExaminableBattery
+  # Omu End
   - type: ItemPlacer
     whitelist:
       components:
