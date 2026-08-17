@@ -1156,10 +1156,10 @@
     Telecrystal: 20 # goob
   categories:
     - UplinkDeception
-  conditions: # EE Plasmeme Change: Plasmamen get another listing.
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Plasmaman
+#  conditions: # EE Plasmeme Change: Plasmamen get another listing. # Omu edit start: handheld uplinks can't get SpeciesCondition thus nukies and spawned uplinks were unable to buy this.
+#  - !type:BuyerSpeciesCondition
+#    blacklist:
+#    - Plasmaman # Omu edit end
 
 # - type: listing
 #   id: UplinkGigacancerScanner
