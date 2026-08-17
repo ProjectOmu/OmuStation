@@ -89,7 +89,7 @@
     maxOccurrences: 1
     startAnnouncement: station-event-communication-interception
     startAudio:
-      path: /Audio/_DV/Announcements/attention.ogg
+      path: /Audio/Announcements/intercept.ogg # Omu, Swapped to different traitor line for consistency
     duration: null
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
