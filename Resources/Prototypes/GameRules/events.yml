@@ -905,9 +905,11 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeops
-  - type: AntagLoadProfileRule # Goobstation
+  - type: AntagLoadProfileRule # Omu start
     speciesOverride: Human
-    alwaysUseSpeciesOverride: true
+    speciesOverrideBlacklist:
+    - Abductor
+    - Plasmaman # Omu end
 
 - type: entity
   parent: BaseTraitorRule
