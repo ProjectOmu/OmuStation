@@ -9,6 +9,7 @@ using Content.Shared._DV.Silicons.Laws;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
 using Robust.Shared.Prototypes;
+using Content.Server._Omu.SELF;
 
 namespace Content.Server.Silicons.Borgs;
 
@@ -38,6 +39,13 @@ public sealed partial class BorgSwitchableTypeSystem
             RaiseLocalEvent(uid, ref ev);
         }
 
+        //Omu start
+        if (TryComp<FreedBorgComponent>(uid, out var free))
+        {
+            var freelaws = _law.GetLawset(free.Lawset);
+            _law.SetLaws(freelaws.Laws, uid);
+        }
+        //Omu end fix freedborgs
         // ion storms don't get mirrored because thats basically impossible to track
     }
 }
