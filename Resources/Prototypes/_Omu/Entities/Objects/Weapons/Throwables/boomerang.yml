@@ -26,20 +26,23 @@
   - type: ItemTogglePrefix
     prefixOn: on
     prefixOff: off
-  - type: MeleeWeapon
+  - type: MeleeWeapon # damage when you smack people with it
     damage:
       types:
         Blunt: 5
-  - type: ItemToggleMeleeWeapon
+  - type: ItemToggleMeleeWeapon # Damage in its "on" state
     activatedDamage:
       types:
         Blunt: 0
-  - type: DamageOtherOnHit
+  - type: DamageOtherOnHit # the damage the throw does, cannot be changed by a toggle as its sever side
     damage:
       types:
         Blunt: 4
-  - type: StaminaDamageOnCollide
+  - type: StaminaDamageOnCollide # stam damage when ya throw it at people
     damage: 40
+  - type: StaminaDamageOnHit # when you slap people with it
+    damage: 15
+    overtime: 40
   - type: Item
     size: Small
   - type: Clothing
@@ -55,9 +58,9 @@
         enum.ToggleableVisuals.Layer:
           True: {state: secarang_on}
           False: {state: secarang_off}
-  - type: DelayedKnockdownOnHit # Goobstation
+  - type: DelayedKnockdownOnHit
     useDelay: stunbaton
-  - type: UseDelayBlockMelee # Goobstation
+  - type: UseDelayBlockMelee
     delays:
     - stunbaton
   - type: LandAtCursor
@@ -65,7 +68,7 @@
     maxCharge: 1000
     startingCharge: 1000
   - type: UseDelay
-    delays: # Goobstation
+    delays:
       stunbaton:
         length: 2.5
   - type: Boomerang
