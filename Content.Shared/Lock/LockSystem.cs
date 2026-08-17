@@ -103,6 +103,7 @@ using Content.Shared.Item.ItemToggle.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Utility;
+using Content.Shared.Mindshield.Components;
 
 namespace Content.Shared.Lock;
 
@@ -207,6 +208,9 @@ public sealed class LockSystem : EntitySystem
         if (!CanToggleLock(uid, user, quiet: false))
             return false;
 
+        if (lockComp.MindShieldLock && !HasMindshield(uid, user, quiet: false)) //Starlight
+            return false;
+
         if (lockComp.UseAccess && !HasUserAccess(uid, user, quiet: false))
             return false;
 
@@ -306,6 +310,9 @@ public sealed class LockSystem : EntitySystem
         if (!CanToggleLock(uid, user, quiet: false))
             return false;
 
+        if (lockComp.MindShieldLock && !HasMindshield(uid, user, quiet: false)) //Starlight
+            return false;
+
         if (lockComp.UseAccess && !HasUserAccess(uid, user, quiet: false))
             return false;
 
@@ -371,9 +378,20 @@ public sealed class LockSystem : EntitySystem
         return false;
     }
 
+    private bool HasMindshield(EntityUid uid, EntityUid user, bool quiet = true) //Starlight
+    {
+        if (HasComp<MindShieldComponent>(user))
+            return true;
+
+        if (!quiet)
+            _sharedPopupSystem.PopupClient(Loc.GetString("lock-comp-has-user-access-fail"), uid, user);
+        return false;
+    }
+
+
     private void AddToggleLockVerb(EntityUid uid, LockComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!args.CanAccess || !args.CanInteract || !args.CanComplexInteract)
+        if (!args.CanAccess || !args.CanInteract || !args.CanComplexInteract || !component.ShowLockVerbs)       //Starlight edited to add show lock verbs
             return;
 
         AlternativeVerb verb = new()
@@ -504,7 +522,7 @@ public sealed class LockSystem : EntitySystem
 
         _activatableUI.CloseAll(uid);
     }
-    
+
     private void OnActivateAttempt(EntityUid uid, ItemToggleRequiresLockComponent component, ref ItemToggleActivateAttemptEvent args)
     {
         if (args.Cancelled)
