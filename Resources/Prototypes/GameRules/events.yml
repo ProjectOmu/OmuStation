@@ -179,6 +179,9 @@
     - id: MalignRiftSpawn # DeltaV
     - id: FloorGoblinMidRound # Goobstation
     - id: ClownGoblinMigration # Goobstation - New Midrounds
+    # Starlight Start
+    - id: SyndicateDeadDrop
+    # Starlight End
     - id: BeeMigration # Omu - The bees.
     - id: ShadowCatSpawn # Omu
     - id: CrabMigration # Omu
@@ -902,9 +905,11 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeops
-  - type: AntagLoadProfileRule # Goobstation
+  - type: AntagLoadProfileRule # Omu start
     speciesOverride: Human
-    alwaysUseSpeciesOverride: true
+    speciesOverrideBlacklist:
+    - Abductor
+    - Plasmaman # Omu end
 
 - type: entity
   parent: BaseTraitorRule

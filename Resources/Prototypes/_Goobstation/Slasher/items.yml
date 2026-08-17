@@ -207,6 +207,16 @@
   - type: AntiRotOnBuckle
   - type: Fixtures
     fixtures:
+      fix1: # Omu, give it colision
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
       spike:
         shape: !type:PhysShapeAabb { bounds: "-0.25,-0.25,0.25,0.25" }
         density: 5
