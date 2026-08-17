@@ -1,0 +1,191 @@
+- type: marking
+  id: VulpPointsCrestLegsLeft
+  markingCategory: LeftLeg
+  bodyPart: LLeg
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: _Omu/Mobs/Customization/Vulpkanin/body_markings.rsi
+      state: points_crest-legs_left
+
+- type: marking
+  id: VulpPointsCrestLegsRight
+  markingCategory: RightLeg
+  bodyPart: RLeg
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: _Omu/Mobs/Customization/Vulpkanin/body_markings.rsi
+      state: points_crest-legs_right
+
+- type: marking
+  id: VulpPointsFadeLegsLeft
+  markingCategory: LeftLeg
+  bodyPart: LLeg
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: _Omu/Mobs/Customization/Vulpkanin/body_markings.rsi
+      state: points_fade-legs_left
+
+- type: marking
+  id: VulpPointsFadeLegsRight
+  markingCategory: RightLeg
+  bodyPart: RLeg
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: _Omu/Mobs/Customization/Vulpkanin/body_markings.rsi
+      state: points_fade-legs_right
+
+- type: marking
+  id: VulpPointsSharpLegsLeft
+  markingCategory: LeftLeg
+  bodyPart: LLeg
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: _Omu/Mobs/Customization/Vulpkanin/body_markings.rsi
+      state: points_sharp-legs_left
+
+- type: marking
+  id: VulpPointsSharpLegsRight
+  markingCategory: RightLeg
+  bodyPart: RLeg
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: _Omu/Mobs/Customization/Vulpkanin/body_markings.rsi
+      state: points_sharp-legs_right
+
+- type: marking
+  id: VulpPointsHandsLeft
+  markingCategory: LeftHand
+  bodyPart: LHand
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: _Omu/Mobs/Customization/Vulpkanin/body_markings.rsi
+      state: points_hands_left
+
+- type: marking
+  id: VulpPointsHandsRight
+  markingCategory: RightHand
+  bodyPart: RHand
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: _Omu/Mobs/Customization/Vulpkanin/body_markings.rsi
+      state: points_hands_right
+
+- type: marking
+  id: VulpPointsCrestArmsLeft
+  markingCategory: LeftArm
+  bodyPart: LArm
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: _Omu/Mobs/Customization/Vulpkanin/body_markings.rsi
+      state: points_crest-arms_left
+
+- type: marking
+  id: VulpPointsCrestArmsRight
+  markingCategory: RightArm
+  bodyPart: RArm
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: _Omu/Mobs/Customization/Vulpkanin/body_markings.rsi
+      state: points_crest-arms_right
+
+- type: marking
+  id: VulpPointsFadeArmsLeft
+  markingCategory: LeftArm
+  bodyPart: LArm
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: _Omu/Mobs/Customization/Vulpkanin/body_markings.rsi
+      state: points_fade-arms_left
+
+- type: marking
+  id: VulpPointsFadeArmsRight
+  markingCategory: RightArm
+  bodyPart: RArm
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: _Omu/Mobs/Customization/Vulpkanin/body_markings.rsi
+      state: points_fade-arms_right
+
+- type: marking
+  id: VulpPointsSharpArmsLeft
+  markingCategory: LeftArm
+  bodyPart: LArm
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: _Omu/Mobs/Customization/Vulpkanin/body_markings.rsi
+      state: points_sharp-arms_left
+
+- type: marking
+  id: VulpPointsSharpArmsRight
+  markingCategory: RightArm
+  bodyPart: RArm
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: _Omu/Mobs/Customization/Vulpkanin/body_markings.rsi
+      state: points_sharp-arms_right
+
+- type: marking
+  id: VulpPointsFeetLeft
+  markingCategory: LeftFoot
+  bodyPart: LFoot
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: _Omu/Mobs/Customization/Vulpkanin/body_markings.rsi
+      state: points_feet_left
+
+- type: marking
+  id: VulpPointsFeetRight
+  markingCategory: RightFoot
+  bodyPart: RFoot
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: _Omu/Mobs/Customization/Vulpkanin/body_markings.rsi
+      state: points_feet_right
