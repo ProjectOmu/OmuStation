@@ -241,7 +241,7 @@ public sealed partial class CorticalBorerSystem
        //Omu start
         var damage = new DamageSpecifier(); 
         damage.DamageDict.Add("Bloodloss", 10);
-        damage.DamageDict.Add("Genetic", 10);
+        damage.DamageDict.Add("Cellular", 10);
         _damageable.TryChangeDamage(host, damage, interruptsDoAfters: false);
         //Omu end
         args.Handled = true;
