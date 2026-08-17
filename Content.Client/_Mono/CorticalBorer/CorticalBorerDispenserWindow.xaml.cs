@@ -16,7 +16,7 @@ public sealed partial class CorticalBorerDispenserWindow : FancyWindow
 {
 
     public event Action<string>? OnDispenseReagentButtonPressed;
-    private static readonly List<ProtoId<GuideEntryPrototype>> GuidebookEntries = new() { Loc.GetString("guide-entry-cortical-borer") }; // Omu
+    private static readonly List<ProtoId<GuideEntryPrototype>> GuidebookEntries = new() { "CorticalBorerGuide" }; // Omu
 
     public CorticalBorerDispenserWindow()
     {
