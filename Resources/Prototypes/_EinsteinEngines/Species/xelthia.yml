@@ -106,8 +106,8 @@
       required: false
     Overlay:
       points: 1
-      required: true
-      defaultMarkings: [ XelthiaBackspikes ]
+      required: false # Omu
+      # defaultMarkings: [ XelthiaBackspikes ] # Omu
 - type: humanoidBaseSprite
   id: MobXelthiaHead
   baseSprite:
