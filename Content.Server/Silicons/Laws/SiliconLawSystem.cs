@@ -184,6 +184,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         SubscribeLocalEvent<SiliconLawProviderComponent, MindAddedMessage>(OnLawProviderMindAdded);
         SubscribeLocalEvent<SiliconLawProviderComponent, MindRemovedMessage>(OnLawProviderMindRemoved);
         SubscribeLocalEvent<SiliconLawProviderComponent, SiliconEmaggedEvent>(OnEmagLawsAdded);
+        SubscribeLocalEvent<SiliconLawProviderComponent, GotEmaggedEvent>(OnGotEmagged); //Starlight
     }
 
     private void OnMapInit(EntityUid uid, SiliconLawBoundComponent component, MapInitEvent args)
@@ -648,6 +649,18 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         return laws;
     }
     // Goob edit end
+    /// STARLIGHT START
+    private void OnGotEmagged(Entity<SiliconLawProviderComponent> ent, ref GotEmaggedEvent args)
+    {
+        // if we're a self agent emag, clear the laws and all that.
+        if (args.EmagUid is null)
+            return;
+        if (_tagSystem.HasTag(args.EmagUid.Value, "FreeMag"))
+        {
+            _freemag.CheckSELFmag(ent, args.EmagUid.Value);
+        }
+    }
+    //Starlight end
 }
 
 [ToolshedCommand, AdminCommand(AdminFlags.Admin)]
