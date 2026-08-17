@@ -370,7 +370,7 @@
             Heat: -0.30
             Shock: -0.30
             Caustic: -0.30
-      - !type:AdjustBoneDamage
+      - !type:AdjustBoneDamage # Omu
         amount: -1.1 # 0.1 healing per bone on a humanoid
 
 - type: reagent
