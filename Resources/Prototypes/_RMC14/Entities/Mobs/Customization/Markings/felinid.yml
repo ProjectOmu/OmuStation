@@ -1,0 +1,36 @@
+- type: marking
+  id: FelinidTiger
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid, Tajaran] # omu , rmc dont have tajaran
+  sprites:
+    - sprite: _RMC14/Mobs/Felinids/tiger_tail.rsi
+      state: m_tail_tiger_primary
+    - sprite: _RMC14/Mobs/Felinids/tiger_tail.rsi
+      state: m_tail_tiger_secondary
+    - sprite: _RMC14/Mobs/Felinids/tiger_tail.rsi
+      state: m_tail_tiger_tertiary
+
+- type: marking
+  id: FelinidLeopard
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid, Tajaran] # omu , rmc dont have tajaran
+  sprites:
+    - sprite: _RMC14/Mobs/Felinids/leopard_tail.rsi
+      state: m_tail_leopard_primary
+    - sprite: _RMC14/Mobs/Felinids/leopard_tail.rsi
+      state: m_tail_leopard_tertiary
+
+# Animated tails
+
+- type: marking
+  id: FelinidLeopardAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid, Tajaran] # omu, animated wasnt an option in character creation idk why,,, i just added it to the species
+  sprites:
+  - sprite: _RMC14/Mobs/Felinids/leopard_tail.rsi
+    state: m_tail_leopard_primary_wag
+  - sprite: _RMC14/Mobs/Felinids/leopard_tail.rsi
+    state: m_tail_leopard_tertiary_wag

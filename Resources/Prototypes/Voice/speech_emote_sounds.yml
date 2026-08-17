@@ -95,6 +95,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    Awebo: #Omu
+      collection: AllulaloAwebo
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -141,6 +143,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    Awebo: #Omu
+      collection: AllulaloAwebo
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -185,6 +189,8 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Awebo: #Omu
+      collection: AllulaloAwebo
     Hew:
       collection: Hew
     Gasp:
@@ -200,7 +206,7 @@
     variation: 0.125
   sounds:
     Scream:
-      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+      collection: ReptilianScream # Omu
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
     Honk:
@@ -211,6 +217,8 @@
       collection: MaleCry
     Weh:
       collection: Weh
+    Awebo: #Omu
+      collection: AllulaloAwebo
     Hew:
       collection: Hew
     CatMeow:
@@ -229,6 +237,19 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Sigh: # Goob
+      collection: MaleSigh
+    Cough: # Goob
+      collection: MaleCoughs
+    Yawn: # Goob
+      collection: MaleYawn
+    Purr: #Omu
+      path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_purr.ogg
+    Rattle: #Omu
+      path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_rattle.ogg
+    ReptilianScreech: #Omu
+      collection: ReptilianScreech
+
 
 - type: emoteSounds
   id: FemaleReptilian
@@ -236,7 +257,7 @@
     variation: 0.125
   sounds:
     Scream:
-      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+      collection: ReptilianScream # Omu
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
     Honk:
@@ -249,6 +270,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    Awebo: #Omu
+      collection: AllulaloAwebo
     CatMeow:
       collection: CatMeows # Goobstation - effect standardization
     Gasp:
@@ -265,6 +288,18 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Sigh: # Goob
+      collection: FemaleSigh
+    Cough: # Goob
+      collection: FemaleCoughs
+    Yawn: # Goob
+      collection: FemaleYawn
+    Purr: #Omu
+      path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_purr.ogg
+    Rattle: #Omu
+      path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_rattle.ogg
+    ReptilianScreech: #Omu
+      collection: ReptilianScreech
 
 - type: emoteSounds
   id: MaleSlime
@@ -307,6 +342,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    Awebo: #Omu
+      collection: AllulaloAwebo
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -359,6 +396,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    Awebo: #Omu
+      collection: AllulaloAwebo
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -385,6 +424,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    Awebo: #Omu
+      collection: AllulaloAwebo
     CatMeow:
       collection: CatMeows #Goob content start
     Sneeze:
@@ -441,6 +482,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    Awebo: #Omu
+      collection: AllulaloAwebo
     CatMeow:
       collection: CatMeows # Goobstation - effect standardization
     Gasp:
@@ -481,18 +524,28 @@
       collection: Weh
     Hew:
       collection: Hew
+    Awebo: #Omu
+      collection: AllulaloAwebo
     Honk:
       collection: BikeHorn
     CatMeow:
       collection: CatMeows # Goobstation - effect standardization
     Gasp:
-      collection: MaleGasp
+      path: /Audio/_Starlight/Voice/Arachnid/arachnid_gasp.ogg # Omu
     DefaultDeathgasp:
       collection: DeathGasp
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    Cough:
+      path: /Audio/_Starlight/Voice/Arachnid/arachnid_cough.ogg # Omu
+    Yawn:
+      path: /Audio/_Starlight/Voice/Arachnid/arachnid_yawn.ogg # Omu
+    Crying:
+      path: /Audio/_Starlight/Voice/Arachnid/arachnid_cry.ogg # Omu
+    Sigh:
+      path: /Audio/_Starlight/Voice/Arachnid/arachnid_sigh.ogg # Omu
 
 - type: emoteSounds
   id: UnisexDwarf
@@ -529,6 +582,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    Awebo: #Omu
+      collection: AllulaloAwebo
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -576,6 +631,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    Awebo: #Omu
+      collection: AllulaloAwebo
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -607,12 +664,14 @@
       collection: Weh
     Hew:
       collection: Hew
+    Awebo: #Omu
+      collection: AllulaloAwebo
     Honk:
       collection: BikeHorn
     CatMeow:
       collection: CatMeows # Goobstation - effect standardization
     Gasp:
-      collection: MaleGasp
+      path: /Audio/_Starlight/Voice/Moth/moth_gasp.ogg # Omu, emote ports
     DefaultDeathgasp:
       collection: MothDeathGasp
     Flap: # Goobstation - Add flap to moths.
@@ -624,19 +683,19 @@
     RobotBeep:
       collection: RobotBeeps
     Yawn:
-      collection: MaleYawn
+      path: /Audio/_Starlight/Voice/Moth/moth_yawn.ogg # Omu, emote ports
     Snore:
       collection: Snores
     Sigh:
-      collection: MaleSigh
+      path: /Audio/_Starlight/Voice/Moth/moth_sigh.ogg # Omu, emote ports
     Crying:
-      collection: MaleCry
+      path: /Audio/_Starlight/Voice/Moth/moth_cry.ogg # Omu, emote ports
     Whistle:
       collection: Whistles
     Sneeze:
       collection: MaleSneezes
     Cough:
-      collection: MaleCoughs
+      path: /Audio/_Starlight/Voice/Moth/moth_cough.ogg # Omu, emote ports
 
 - type: emoteSounds
   id: MaleMoth
@@ -657,12 +716,14 @@
       collection: Weh
     Hew:
       collection: Hew
+    Awebo: #Omu
+      collection: AllulaloAwebo
     Honk:
       collection: BikeHorn
     CatMeow:
       collection: CatMeows # Goobstation - effect standardization
     Gasp:
-      collection: MaleGasp
+      path: /Audio/_Starlight/Voice/Moth/moth_gasp.ogg # Omu, emote ports
     DefaultDeathgasp:
       collection: MothDeathGasp
     Flap: # Goobstation - Add flap to moths.
@@ -674,19 +735,19 @@
     RobotBeep:
       collection: RobotBeeps
     Yawn:
-      collection: MaleYawn
+      path: /Audio/_Starlight/Voice/Moth/moth_yawn.ogg # Omu, emote ports
     Snore:
       collection: Snores
     Sigh:
-      collection: MaleSigh
+      path: /Audio/_Starlight/Voice/Moth/moth_sigh.ogg # Omu, emote ports
     Crying:
-      collection: MaleCry
+      path: /Audio/_Starlight/Voice/Moth/moth_cry.ogg # Omu, emote ports
     Whistle:
       collection: Whistles
     Sneeze:
       collection: MaleSneezes
     Cough:
-      collection: MaleCoughs
+      path: /Audio/_Starlight/Voice/Moth/moth_cough.ogg # Omu, emote ports
 
 - type: emoteSounds
   id: FemaleMoth
@@ -707,12 +768,14 @@
       collection: Weh
     Hew:
       collection: Hew
+    Awebo: #Omu
+      collection: AllulaloAwebo
     Honk:
       collection: BikeHorn
     CatMeow:
       collection: CatMeows # Goobstation - effect standardization
     Gasp:
-      collection: FemaleGasp
+      path: /Audio/_Starlight/Voice/Moth/moth_gasp.ogg # Omu, emote ports
     DefaultDeathgasp:
       collection: MothDeathGasp
     Flap: # Goobstation - Add flap to moths.
@@ -724,19 +787,19 @@
     RobotBeep:
       collection: RobotBeeps
     Yawn:
-      collection: FemaleYawn
+      path: /Audio/_Starlight/Voice/Moth/moth_yawn.ogg # Omu, emote ports
     Snore:
       collection: Snores
     Sigh:
-      collection: FemaleSigh
+      path: /Audio/_Starlight/Voice/Moth/moth_sigh.ogg # Omu, emote ports
     Crying:
-      collection: FemaleCry
+      path: /Audio/_Starlight/Voice/Moth/moth_cry.ogg # Omu, emote ports
     Whistle:
       collection: Whistles
     Sneeze:
       collection: FemaleSneezes
     Cough:
-      collection: FemaleCoughs
+      path: /Audio/_Starlight/Voice/Moth/moth_cough.ogg # Omu, emote ports
 
 - type: emoteSounds
   id: UnisexSilicon
@@ -877,6 +940,8 @@
       collection: Salutes
     Crack: # Imp
       collection: Cracks # Imp
+    Blink: # Imp
+      collection: Blinks # Imp
 
 - type: emoteSounds
   id: DionaBodyEmotes
@@ -893,6 +958,8 @@
        volume: -5
     Crack: # Imp
       collection: Cracks # Imp
+    Blink: # Imp
+      collection: Blinks # Imp
 
 - type: emoteSounds
   id: ReptilianBodyEmotes
@@ -911,6 +978,8 @@
       collection: Salutes
     Crack: # Imp
       collection: Cracks # Imp
+    Blink: # Imp
+      collection: Blinks # Imp
 
 # mobs
 - type: emoteSounds
@@ -1028,12 +1097,16 @@
       collection: Weh
     Hew:
       collection: Hew
+    Awebo: #Omu
+      collection: AllulaloAwebo
     Honk:
       collection: BikeHorn
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
       collection: WawaDeath
+    Blink: # Imp
+      collection: Blinks # Imp
 
 - type: emoteSounds #goob edit
   id: FeroxiBodyEmotes
@@ -1052,3 +1125,5 @@
       collection: Salutes
     Crack: # Imp
       collection: Cracks # Imp
+    Blink: # Imp
+      collection: Blinks # Imp

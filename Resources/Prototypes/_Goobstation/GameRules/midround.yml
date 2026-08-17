@@ -116,9 +116,10 @@
     maxOccurrences: 2
     eventType: Neutral
   - type: GameRule
-    chaosScore: 20
+    chaosScore: 70 # Omu, was 20
   - type: VentCrittersRule
     max: 1
+    min: 1 # Omu :blonks:
     table: !type:GroupSelector
       children:
       - id: MobFloorGoblin
@@ -134,7 +135,7 @@
     weight: 3
     duration: null
     earliestStart: 20
-    minimumPlayers: 40
+    minimumPlayers: 100 # OMU was 20 - remove from spawnpool
     chaos:
       Hostile: 50
       Combat: 20
@@ -166,10 +167,10 @@
   id: TunnelClownMidround
   components:
   - type: StationEvent
-    weight: 4
+    weight: 1 # Omu, was 4
     duration: null
     earliestStart: 15
-    minimumPlayers: 20
+    minimumPlayers: 30 # Omu, was 20
     chaos:
       Hostile: 15
       Combat: 20
@@ -204,7 +205,7 @@
     weight: 2.5
     duration: null
     earliestStart: 45
-    minimumPlayers: 50
+    minimumPlayers: 100 # OMU was 50 - remove from spawnpool
     chaos:
       Hostile: 75
       Combat: 40
@@ -241,7 +242,7 @@
     weight: 2
     duration: null
     earliestStart: 30
-    minimumPlayers: 30
+    minimumPlayers: 50 # Omu, was 30
     chaos:
       Death: 100
       Combat: 85
@@ -306,7 +307,7 @@
     weight: 4
     duration: null
     earliestStart: 30
-    minimumPlayers: 30
+    minimumPlayers: 100 # OMU it doesnt work, turning it off
     chaos:
       Hostile: 40
       Combat: 50
@@ -332,9 +333,7 @@
   - type: AntagRandomSpawn
   - type: AntagObjectives
     objectives:
-    - KillRandomHeadObjective
-    - KillRandomHeadObjective
-    - KillRandomHeadObjective
+    - KillRandomHeadObjective   # Omu is set to unique anyway so probably wouldnt roll right? (not that it does anyway)
     - EscapeShuttleObjective
 
 - type: entity
@@ -345,7 +344,7 @@
     weight: 3
     duration: null
     earliestStart: 30
-    minimumPlayers: 30
+    minimumPlayers: 100 # OMU was 40 - remove from spawnpool
     chaos:
       Death: 60
     eventType: HostilesSpawn
@@ -406,7 +405,7 @@
     prototype: MobVoxRaider
   - type: RuleGrids
   - type: LoadMapRule
-    gridPath: /Maps/_Goobstation/Shuttles/VoxRaiderShuttle.yml
+    gridPath: /Maps/_Omu/Shuttles/ShuttleEvent/VoxRaiderShuttle.yml # Omu
   - type: AntagSelection
     agentName: ghost-role-information-vox-raider-name
     definitions:
@@ -458,7 +457,7 @@
     eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 600
-  - type: AntagRandomSpawn
+  - type: AntagLockerSpawn
   - type: AntagLoadProfileRule
     speciesOverride: Human
     speciesOverrideBlacklist:
@@ -467,6 +466,7 @@
     - Diona
     - Harpy
     - Plasmaman
+    forceMaxSize: true
   - type: AntagObjectives
     objectives:
     - SlasherSurviveObjective
@@ -490,19 +490,29 @@
       - type: Slasher
       - type: SlasherSummonMachete
       - type: SlasherStaggerArea
+      - type: SlasherRelentlessGrab
       - type: SlasherRegenerate
-      - type: SlasherPossession
       - type: SlasherBloodTrail
       - type: SlasherIncorporeal
       - type: SlasherSoulSteal
       - type: SlasherSummonMeatSpike
-      - type: BreathingImmunity
+      - type: NightVision
+        color: "#FF0000"
+        toggleAction: ActionSlasherNightVision
+        activateSound: !type:SoundCollectionSpecifier
+          collection: EyeOpen
+        deactivateSound: !type:SoundCollectionSpecifier
+          collection: EyeClose
+      - type: Puller
+        grabThrownSpeed: 10
+        throwingDistance: 8
+        softGrabSpeedModifier: 1
+        hardGrabSpeedModifier: 1
+        chokeGrabSpeedModifier: 1
+      #- type: BreathingImmunity # Omu, why would the thing that audibly breaths, be immune to breathing?
       - type: GunBlocked
         PopupText: slasher-cannot-use-guns # Seems to be broken inside AntagSelection
       - type: WeakToHoly
-      - type: NightVision
-        activateSound: null
-        deactivateSound: null
       - type: Hunger
         baseDecayRate: 0
       - type: Thirst
@@ -516,6 +526,13 @@
         - NamesSlasherTitle
         - NamesSlasher
         nameFormat: name-format-slasher
+      - type: GhostRole
+        name: ghost-role-information-slasher-name
+        description: ghost-role-information-slasher-description
+        rules: ghost-role-information-antagonist-rules
+        mindRoles:
+        - MindRoleGhostRoleSoloAntagonist
+      - type: GhostTakeoverAvailable
   - type: Tag
     tags:
     - MidroundAntag
@@ -535,7 +552,7 @@
     weight: 1
     duration: null
     earliestStart: 30
-    minimumPlayers: 30
+    minimumPlayers: 100 # OMU was 50 - remove from spawnpool
     chaos:
       Hostile: 40
       Combat: 40

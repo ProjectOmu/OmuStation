@@ -75,21 +75,29 @@
         SecurityCadet: ClothingCyberneticBeastMantleSecurity
         SecurityOfficer: ClothingCyberneticBeastMantleSecurity
         Warden: ClothingCyberneticBeastMantleSecurity
+        SecuritySergeant: ClothingCyberneticBeastMantleSecurity
         # med mantle for doctors (and brigmedic, actually corpsman)
-        Chemist: ClothingCyberneticBeastMantleMedical
+        Chemist: ClothingCyberneticBeastMantleMedicalChemist
         MedicalDoctor: ClothingCyberneticBeastMantleMedical
         MedicalIntern: ClothingCyberneticBeastMantleMedical
         Paramedic: ClothingCyberneticBeastMantleMedicalParamedic # paramedic mantle variant with internals
-        Brigmedic: ClothingCyberneticBeastMantleMedical
+        Brigmedic: ClothingCyberneticBeastMantleCorpsman
+        Virologist: ClothingCyberneticBeastMantleMedical
         # tossup of mantles for command.
-        BlueshieldOfficer: ClothingCyberneticBeastMantleBlueshieldOfficer
         Captain: ClothingCyberneticBeastMantleCommand
-        ChiefEngineer: ClothingCyberneticBeastMantleWorkAtmospherics
-        ChiefMedicalOfficer: ClothingCyberneticBeastMantleMedical
+        ChiefEngineer: ClothingCyberneticBeastMantleWorkChiefEngineering
+        ChiefMedicalOfficer: ClothingCyberneticBeastMantleMedicalCMO
         HeadOfPersonnel: ClothingCyberneticBeastMantleCommand
-        HeadOfSecurity: ClothingCyberneticBeastMantleSecurity
-        Quartermaster: ClothingCyberneticBeastMantleCommand
-        ResearchDirector: ClothingCyberneticBeastMantleCommand
+        HeadOfSecurity: ClothingCyberneticBeastMantleHeadofSecurity
+        Quartermaster: ClothingCyberneticBeastMantleSupply
+        ResearchDirector: ClothingCyberneticBeastMantleScienceCommand
+        AdministrativeAssistant: ClothingCyberneticBeastMantleCommand
+        #Mantles for Central Command
+        BlueshieldOfficer: ClothingCyberneticBeastMantleBlueshieldOfficer
+        NanotrasenRepresentative: ClothingCyberneticBeastMantleCentralCommandNoThermal
+        # Bartender mantle
+        Bartender: ClothingCyberneticBeastMantleBar
+        Roboticist: ClothingCyberneticBeastMantleRoboticist
       # If they have none of the specified jobs:
       equipmentUnmet: ClothingCyberneticBeastMantle
   globalCost: 5
@@ -100,6 +108,7 @@
     - !type:TraitsRequirement
       traits:
         - PoorVision
+        - Blindness
       inverted: true
 
 - type: trait
@@ -107,6 +116,9 @@
   name: trait-moth-flight-name
   description: trait-moth-flight-desc
   category: PhysicalTraits
+  blacklist:
+    components:
+      - BorgChassis
   components:
   - type: Flight
     isLayerAnimated: true
@@ -233,3 +245,17 @@
   - !type:WeightRequirement # too heavy for uppies
     minimumWeight: 53
     inverted: true
+
+- type: trait
+  id: Redshirt
+  name: trait-redshirt-name
+  description: trait-redshirt-desc
+  category: PhysicalTraits
+  components:
+  - type: NoCrit
+  globalCost: -4
+  requirements:
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+        - IPC

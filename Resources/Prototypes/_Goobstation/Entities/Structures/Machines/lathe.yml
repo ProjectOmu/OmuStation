@@ -52,6 +52,7 @@
     - CablesStatic
     - MaterialsStatic
     - LightsStatic
+    - LatheMiscStatic
     - PowerCellsStatic
     - ElectronicsStatic
     - MiscSignallersStatic
@@ -74,6 +75,7 @@
     - BluespaceTheory
     - ScienceClothing
     - UpgradeKits
+    - AdvancedEmitters        # Omu - advanced emitters
   - type: EmagLatheRecipes
     emagStaticPacks:
     - NailgunEvilStatic
@@ -116,10 +118,14 @@
     - SharedBoardsStatic
     - CargoBoardsStatic
     - CablesStatic
+    - PartsStatic
+    - LatheMiscStatic
     - PowerCellsStatic
     - MiningToolsStatic
     - MiscSignallersStatic
     - CargoStatic
+    - RecipePackShipmentNoticesStatic
+    - CargoOmu #omu edit
     dynamicPacks:
     - AdvancedTools
     - Mining
@@ -150,6 +156,18 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: BlueprintReceiver
+    whitelist:
+      tags:
+      - BlueprintCargoTechfab
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      blueprint: !type:Container
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - blueprint
 
 - type: entity
   id: ScienceTechFab
@@ -183,6 +201,7 @@
     - MedicalBoardsStaticGoob
     - ToolsStatic
     - PartsStatic
+    - LatheMiscStatic
     - AtmosStatic
     - CablesStatic
     - MaterialsStatic
@@ -219,7 +238,7 @@
     - ExperimentalScienceGoob
     - MechBoardsScience
     - Pinpointers
-    - Genetics
+    #- Genetics # Omu, this pack is currently empty
     - XenobioPack
     - XenobagHoldingPack
     # Einstein Engines Packs
@@ -269,6 +288,7 @@
     - ServiceStatic
     - PowerCellsStatic
     - LatheMiscStatic
+    - PartsStatic
     - ChemistryStatic
     - TapeRecorderStatic
     - CondimentStatic

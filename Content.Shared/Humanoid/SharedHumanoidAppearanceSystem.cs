@@ -146,9 +146,11 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
     private void OnExamined(EntityUid uid, HumanoidAppearanceComponent component, ExaminedEvent args)
     {
-        var identity = Identity.Entity(uid, EntityManager);
-        var species = GetSpeciesRepresentation(component.Species).ToLower();
-        var age = GetAgeRepresentation(component.Species, component.Age);
+		// Goob Station - Identity Fix
+		// Fix for incorrect pronouns PR #5999
+        var identity = ("user", Identity.Entity(uid, EntityManager));
+        var species = ("species", GetSpeciesRepresentation(component.Species).ToLower());
+        var age = ("age", GetAgeRepresentation(component.Species, component.Age));
 
         // WWDP EDIT
         string locale = "humanoid-appearance-component-examine";
@@ -157,8 +159,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             locale += "-selfaware";
 
         // Goob Sanitize Text
-        var escapedIdentity = FormattedMessage.EscapeText(identity.ToString());
-        args.PushText(Loc.GetString(locale, ("user", escapedIdentity), ("age", age), ("species", species)),
+        args.PushText(Loc.GetString(locale, identity, age, species),
             100); // priority for examine
         // WWDP EDIT END
     }
@@ -523,7 +524,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             {
                 if (!prototype.ForcedColoring)
                 {
-                    AddMarking(uid, marking.MarkingId, marking.MarkingColors, false);
+                    AddMarking(uid, marking.MarkingId, marking.MarkingColors, marking.GlowyBits, false); // Omu
                 }
                 else
                 {
@@ -562,7 +563,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
                 profile.Appearance.EyeColor,
                 humanoid.MarkingSet
             );
-            AddMarking(uid, marking.MarkingId, markingColors, false);
+            AddMarking(uid, marking.MarkingId, markingColors, marking.GlowyBits, false); // Omu
         }
 
         EnsureDefaultMarkings(uid, humanoid);
@@ -597,10 +598,11 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     /// <param name="uid">Humanoid mob's UID</param>
     /// <param name="marking">Marking ID to use</param>
     /// <param name="color">Color to apply to all marking layers of this marking</param>
+    /// <param name="isGlowing">If the markings color should glow</param>
     /// <param name="sync">Whether to immediately sync this marking or not</param>
     /// <param name="forced">If this marking was forced (ignores marking points)</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public void AddMarking(EntityUid uid, string marking, Color? color = null, bool sync = true, bool forced = false, HumanoidAppearanceComponent? humanoid = null)
+    public void AddMarking(EntityUid uid, string marking, Color? color = null, bool isGlowing = false, bool sync = true, bool forced = false, HumanoidAppearanceComponent? humanoid = null) // Omu
     {
         if (!Resolve(uid, ref humanoid)
             || !_markingManager.Markings.TryGetValue(marking, out var prototype))
@@ -617,6 +619,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
                 markingObject.SetColor(i, color.Value);
             }
         }
+
+        markingObject.SetGlowing(isGlowing); // Omu
 
         humanoid.MarkingSet.AddBack(prototype.MarkingCategory, markingObject);
 
@@ -639,10 +643,11 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     /// <param name="uid">Humanoid mob's UID</param>
     /// <param name="marking">Marking ID to use</param>
     /// <param name="colors">Colors to apply against this marking's set of sprites.</param>
+    /// <param name="glowyBits">A bitwise representation of which colors in the marking are glowing.</param>
     /// <param name="sync">Whether to immediately sync this marking or not</param>
     /// <param name="forced">If this marking was forced (ignores marking points)</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public void AddMarking(EntityUid uid, string marking, IReadOnlyList<Color> colors, bool sync = true, bool forced = false, HumanoidAppearanceComponent? humanoid = null)
+    public void AddMarking(EntityUid uid, string marking, IReadOnlyList<Color> colors, uint glowyBits = 0, bool sync = true, bool forced = false, HumanoidAppearanceComponent? humanoid = null) // Omu
     {
         if (!Resolve(uid, ref humanoid)
             || !_markingManager.Markings.TryGetValue(marking, out var prototype))
@@ -650,7 +655,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             return;
         }
 
-        var markingObject = new Marking(marking, colors);
+        var markingObject = new Marking(marking, colors, glowyBits); // Omu
         markingObject.Forced = forced;
         humanoid.MarkingSet.AddBack(prototype.MarkingCategory, markingObject);
 

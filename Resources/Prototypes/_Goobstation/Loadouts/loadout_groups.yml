@@ -18,6 +18,7 @@
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
+# SPDX-FileCopyrightText: 2026 ThanosDeGraf <richardgirgindontstop@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -246,7 +247,7 @@
   maxLimit: 1
   loadouts:
   - CargoTechnicianEnvirohelm
-  - MailCarrierEnvirohelm
+  #- MailCarrierEnvirohelm # Omu - Moved to courier
 
 - type: loadoutGroup
   id: CargoTechnicianEnvirosuit
@@ -255,7 +256,7 @@
   maxLimit: 1
   loadouts:
   - CargoTechnicianEnvirosuit
-  - MailCarrierEnvirosuit
+  #- MailCarrierEnvirosuit # Omu - Moved to courier
 
 - type: loadoutGroup
   id: CargoTechnicianEnvirogloves
@@ -264,7 +265,7 @@
   maxLimit: 1
   loadouts:
   - CargoTechnicianEnvirogloves
-  - WhiteEnvirogloves
+  #- WhiteEnvirogloves # Omu - Moved to courier
 
 # Quartermaster
 
@@ -900,6 +901,7 @@
   - NanotrasenRepresentativeBowler
   - NanotrasenRepresentativeOutlaw
   - NanotrasenRepresentativeMAA
+  - CentcommHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeNeck
@@ -985,6 +987,8 @@
   - BlueshieldOfficerHeadCowboy
   - BlueshieldOfficerGoidaHelmet
   - BlueshieldOfficerBeretElite # Omustation
+  - BlueshieldOfficerHeadHatFedora # OmuStation
+  - BlueshieldHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: BlueshieldOfficerBackpack
@@ -1022,7 +1026,9 @@
   - BSOArmoredCoat # EE
   - BSOMarineVest # EE
   - BSOArmoredVest # EE
+  - BSOLongcoat # Omu
   - BlueshieldOfficerOuterKimonoBlueshield #Omu
+  - BlueshieldOfficerOuterXelthiaBlueshield #Omu
 
 - type: loadoutGroup
   id: BlueshieldOfficerNeck
@@ -1091,6 +1097,7 @@
   loadouts:
   - NanotrasenTrainerHat
   - NanotrasenTrainerBeret
+  - CentcommHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: NanotrasenTrainerBackpack
@@ -1175,6 +1182,7 @@
   loadouts:
   - Bodycam # Goobstation - Body cameras
   - ClothingNeckCWPSec
+  - ClothingNeckMantleVeteranSecurity
 
 #honkops
 
@@ -1270,6 +1278,8 @@
   - WhiteShoes
   - BlackShoes
   - ScienceWinterBoots
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: RoboticistGloves
@@ -1331,6 +1341,7 @@
   - SeniorPhysicianBeret
   - ChemistUshanka # Da.
   - ChemistryBeret # Starlight - OMU port
+  - ChemistBandana # Omu
   - ChemistNurseHat # Starlight - OMU port
   - ChemistTruckersHat # Starlight - OMU port
   - ChemistFisherCap # Starlight - OMU port
@@ -1410,8 +1421,8 @@
   loadouts:
   - BrigmedicJumpsuit
   - BrigmedicJumpskirt
-  - CorpsmanJumpsuit #Omu
-  - CorpsmanJumpskirt #Omu
+  - CorpsmanJumpsuit # Omu
+  - CorpsmanJumpskirt # Omu
   - CorpsmanResponse # Starlight
   - CorpsmanTrauma # Starlight
   - BrigmedicJumpsuitOfLife # Starlight
@@ -1423,12 +1434,14 @@
   minLimit: 0
   loadouts:
   - BrigmedicBeret
+  - CorpsmanHeadHatKepi # Omu
   - CMOMedicalHeadMirror
   - BrigmedicNurseHat # Starlight
   - SecurityBeret
   - SecurityHat
   - TrooperHat
-  - CorpsmanBeret #Omu
+  - CorpsmanBeret # Omu
+  - CorpsmanVeteranHeadHatKepi # Omu
   - CorpsmanNurseHat # Starlight
   - BrigmedicNurseHatOfLife # Starlight
 
@@ -1441,8 +1454,10 @@
   - ArmorVest
   - ArmorVestSlim
   - SecurityOfficerWintercoat
+  - CorpsmanWinterCoatDV # Omu
   - BrigmedicLabCoat # Starlight
   - CorpsmanLabCoat # Starlight
+  - LongcoatBrigmedic # DeltaV Longcoats
 
 - type: loadoutGroup
   id: BrigmedicBackpack
@@ -1577,6 +1592,7 @@
    - VirologistBackpack
    - VirologistSatchel
    - VirologistDuffel
+   - VirologistMessenger # Omu
 
 - type: loadoutGroup
   id: VirologistOuterClothing
@@ -1627,3 +1643,25 @@
   - JumpsuitHawaiBlue
   - JumpsuitHawaiRed
   - JumpsuitHawaiYellow
+
+# Salvage/Shaft Miner
+
+- type: loadoutGroup
+  id: SalvageSpecialistJumpsuit
+  name: loadout-group-salvage-specialist-jumpsuit
+  minLimit: 1 # DV
+  maxLimit: 1 # DV
+  loadouts:
+  - SalvageSpecialistJumpsuit
+  - SalvageSpecialistJumpskirt
+  - SalvageSpecialistOveralls
+
+- type: loadoutGroup
+  id: ShaftMinerJumpsuit
+  name: loadout-group-shaft-miner-jumpsuit
+  loadouts:
+  - ShaftMinerJumpsuit
+  - ShaftMinerJumpskirt
+  - ShaftMinerOveralls
+  - VintageShaftMinerJumpsuit # Omu
+  - SalvageJumpskirt # Omu

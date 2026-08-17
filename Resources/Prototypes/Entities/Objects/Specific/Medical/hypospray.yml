@@ -750,10 +750,12 @@
 
 - type: entity
   name: combat medipen
-  parent: [ChemicalMedipen, BaseSyndicateContraband]
+  parent: [ChemicalMedipen] # Omu, remove BaseSyndicateContraband
   id: CombatMedipen
   description: A single-use medipen containing chemicals that regenerate most types of damage.
   components:
+  - type: Fish # omu
+    difficulty: 0.023
   - type: Item
     inhandVisuals:
       left:

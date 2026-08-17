@@ -1,0 +1,23 @@
+- type: loadout
+  id: GoldKitchenKnife
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChef
+      time: 252000 # 70hr
+  storage:
+    back:
+    - GoldKitchenKnife
+
+- type: loadout
+  id: GoldButchCleaver
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChef
+      time: 252000 # 70hr
+  storage:
+    back:
+    - GoldButchCleaver

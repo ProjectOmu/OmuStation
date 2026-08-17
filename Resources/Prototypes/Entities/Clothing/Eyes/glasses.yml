@@ -186,7 +186,7 @@
         Blunt: 10
 
 - type: entity
-  parent: ClothingEyesBase # goobstation - tider nation - no longer contra
+  parent: [ClothingEyesBase, BaseEngineeringSalvContraband] # goobstation - tider nation - no longer contra # Omu, add BaseEngineeringSalvContraband
   id: ClothingEyesGlassesMeson
   name: meson goggles # goobstation - they're called MESONS!!!!
   description: Green-tinted goggles using a proprietary polymer that provides protection from eye damage of all types.
@@ -202,6 +202,7 @@
     tags:
     - PetWearable
     - WhitelistChameleon
+    - GogglesMeson # Omu - for crafting recipe
 
 - type: entity
   parent: ClothingEyesBase
@@ -248,6 +249,7 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+    - JamjarGlasses #Omu, for recipe
 
 - type: entity
   parent: ClothingEyesBase

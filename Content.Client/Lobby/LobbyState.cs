@@ -88,6 +88,7 @@ using Content.Client.GameTicking.Managers;
 using Content.Client.LateJoin;
 using Content.Client.Lobby.UI;
 using Content.Client.Message;
+using Content.Client._Imp.ReadyManifest; // Imp
 using Content.Client.Playtime;
 using Content.Client.UserInterface.Systems.Chat;
 using Content.Client.Voting;
@@ -122,6 +123,7 @@ namespace Content.Client.Lobby
         private ISawmill _sawmill = default!; // Goobstation
         private ClientGameTicker _gameTicker = default!;
         private ContentAudioSystem _contentAudioSystem = default!;
+        private ReadyManifestSystem _readyManifest = default!; // Imp
 
         protected override Type? LinkedScreenType { get; } = typeof(LobbyGui);
         public LobbyGui? Lobby;
@@ -140,6 +142,7 @@ namespace Content.Client.Lobby
             _contentAudioSystem = _entityManager.System<ContentAudioSystem>();
             _contentAudioSystem.LobbySoundtrackChanged += UpdateLobbySoundtrackInfo;
             _sawmill = Logger.GetSawmill("lobby");
+            _readyManifest = _entityManager.EntitySysManager.GetEntitySystem<ReadyManifestSystem>(); // Imp
 
             chatController.SetMainChat(true);
 
@@ -159,6 +162,7 @@ namespace Content.Client.Lobby
             UpdateLobbyUi();
 
             Lobby.CharacterPreview.CharacterSetupButton.OnPressed += OnSetupPressed;
+            Lobby.ManifestButton.OnPressed += OnManifestPressed; // Imp
             Lobby.CharacterPreview.PatronPerks.OnPressed += OnPatronPerksPressed;
             Lobby.ReadyButton.OnPressed += OnReadyPressed;
             Lobby.ReadyButton.OnToggled += OnReadyToggled;
@@ -183,6 +187,7 @@ namespace Content.Client.Lobby
             _voteManager.ClearPopupContainer();
 
             Lobby!.CharacterPreview.CharacterSetupButton.OnPressed -= OnSetupPressed;
+            Lobby!.ManifestButton.OnPressed -= OnManifestPressed; // Imp
             Lobby.CharacterPreview.PatronPerks.OnPressed -= OnPatronPerksPressed;
             Lobby!.ReadyButton.OnPressed -= OnReadyPressed;
             Lobby!.ReadyButton.OnToggled -= OnReadyToggled;
@@ -220,6 +225,11 @@ namespace Content.Client.Lobby
         private void OnReadyToggled(BaseButton.ButtonToggledEventArgs args)
         {
             SetReady(args.Pressed);
+        }
+
+        private void OnManifestPressed(BaseButton.ButtonEventArgs args) // Imp
+        {
+            _readyManifest.RequestReadyManifest();
         }
 
         public override void FrameUpdate(FrameEventArgs e)
@@ -286,6 +296,7 @@ namespace Content.Client.Lobby
                 Lobby!.ReadyButton.ToggleMode = false;
                 Lobby!.ReadyButton.Pressed = false;
                 Lobby!.ObserveButton.Disabled = false;
+                Lobby!.ManifestButton.Disabled = true; // Imp
             }
             else
             {
@@ -294,6 +305,7 @@ namespace Content.Client.Lobby
                 Lobby!.ReadyButton.ToggleMode = true;
                 Lobby!.ReadyButton.Disabled = false;
                 Lobby!.ReadyButton.Pressed = _gameTicker.AreWeReady;
+                Lobby!.ManifestButton.Disabled = false; // Imp
                 Lobby!.ObserveButton.Disabled = true;
             }
 

@@ -239,9 +239,9 @@
       ammo:
         reagents:
         - ReagentId: ChloralHydrate
-          Quantity: 7
+          Quantity: 4       #OMU: change from 7 - tranq no longer insta ends fights with sleep.
   - type: SolutionTransfer
-    maxTransferAmount: 7
+    maxTransferAmount: 4    #OMU: change from 7 - tranq no longer insta ends fights with sleep.
   - type: SpentAmmoVisuals
     state: "tranquilizer"
 

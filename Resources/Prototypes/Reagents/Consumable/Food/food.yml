@@ -14,8 +14,23 @@
 # SPDX-FileCopyrightText: 2024 c4llv07e <kseandi@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin
+# SPDX-FileCopyrightText: 2022 Flipp Syder
+# SPDX-FileCopyrightText: 2022 Moony
+# SPDX-FileCopyrightText: 2022 Sam Weaver
+# SPDX-FileCopyrightText: 2022 ShadowCommander
+# SPDX-FileCopyrightText: 2022 corentt
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2022 mirrorcult
+# SPDX-FileCopyrightText: 2023 Doru991
+# SPDX-FileCopyrightText: 2023 OctoRocket
+# SPDX-FileCopyrightText: 2023 Rane
+# SPDX-FileCopyrightText: 2024 RumiTiger
+# SPDX-FileCopyrightText: 2025 Coenx-flex
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
 # End points - the eventual goal is that almost all foods and drinks metabolize into either these, or reagents that build up (e.g. theobromine, caffeine,... )
 - type: reagent
   id: Nutriment #Anything that isn't better suited to vitamin, protein, or sugar. we aren't doing a super in-depth simulator.
@@ -66,6 +81,10 @@
       - !type:ModifyBleedAmount
         amount: -0.25
       - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
+      - !type:ImmunityModifier #Goobstation
+        gainRateModifier: 0.0005 #1/3rd of immurin
+        strengthModifier: 0.01
+        statusLifetime: 3
   # Lets plants benefit too
   plantMetabolism:
   - !type:PlantAdjustNutrition
@@ -113,6 +132,11 @@
           reagent: Nutriment
           min: 0.1
         factor: 1
+      - !type:GenericStatusEffect # Mono change
+        key: CorticalBorerProtection
+        type: Add
+        time: 3 # May be too much, needs testing
+        refresh: false
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 0.1

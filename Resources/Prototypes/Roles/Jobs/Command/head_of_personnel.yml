@@ -198,6 +198,8 @@
   - Medical
   - Journalism # Goob
   - Robotics # Goob
+  - Corpsman # Omu
+  - Paramedic # Omu
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -208,7 +210,7 @@
 - type: startingGear
   id: HoPGear
   equipment:
-    shoes: ClothingShoesColorBrown
+    #shoes: ClothingShoesColorBrown # Omu, Selectable formal shoes
     #id: HoPPDA - Omu, moved to loadouts
     #gloves: ClothingHandsGlovesHop
     ears: ClothingHeadsetAltCommand

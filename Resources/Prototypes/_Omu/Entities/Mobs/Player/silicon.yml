@@ -1,0 +1,12 @@
+- type: entity
+  id: PlayerBorgSyndicateMedicalGhostRole
+  parent: PlayerBorgSyndicateMedicalBattery
+  suffix: Ghost role
+  components:
+    - type: GhostRole
+      name: ghost-role-information-syndicate-cyborg-medical-name
+      description: ghost-role-information-syndicate-cyborg-description
+      rules: ghost-role-information-higher-standard-silicon-rules
+      raffle:
+        settings: default
+    - type: GhostTakeoverAvailable

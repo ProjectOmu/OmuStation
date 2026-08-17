@@ -41,7 +41,7 @@
   name: brigmedic hud eyepatch
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, BaseMedicalScienceContraband] # Omu add BaseMedicalScienceContraband
   id: ClothingEyesHudChemical
   name: chemical hud
   description: A heads-up display that scans the chemical composition of a solution.

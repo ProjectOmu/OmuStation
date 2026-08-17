@@ -49,6 +49,7 @@
     - Hair
     - HeadTop
     - HeadSide
+  - type: PlasmaUnfit #Omustation
 
 - type: entity
   parent: ClothingHeadHelmetBase
@@ -67,6 +68,8 @@
         Shock: 0.7
         Radiation: 0.01
         Caustic: 0.5
+    coverage:
+    - Head
   - type: HideLayerClothing
     layers:
       HeadTop : HEAD
@@ -152,7 +155,7 @@
 
 # Western Undetermined Set
 - type: entity
-  parent: [ClothingHeadHatCowboyBrown, BaseMajorContraband]
+  parent: [ClothingHeadHatArmored, ClothingHeadHatCowboyBrown, BaseMajorContraband]
   id: ClothingHeadHatCowboyBrownRobust
   name: authentic brown cowboy hat
   description: "\"This station ain't big enough for the two of us.\""
@@ -204,6 +207,7 @@
       Hair: HEAD
       HeadTop: HEAD
       HeadSide: HEAD
+  - type: PlasmaUnfit #Omustation
 
 - type: entity
   parent: ClothingHeadHatHelmetTemplar

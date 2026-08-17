@@ -1,0 +1,156 @@
+- type: loadoutEffectGroup
+  id: OxygenMeatEater
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Xelthia
+    - Avali
+
+# Basic
+- type: loadout
+  id: EmergencyOxygenCarnivore
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenMeatEater
+  storage:
+    back:
+    - BoxSurvivalSlotsMeat
+
+# Clown
+- type: loadout
+  id: EmergencyOxygenCarnivoreClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenMeatEater
+  storage:
+    back:
+    - BoxHugSlotsMeat
+
+# Mime
+- type: loadout
+  id: EmergencyOxygenCarnivoreMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenMeatEater
+  storage:
+    back:
+    - BoxMimeSlotsMeat
+
+# Engineering / Extended
+- type: loadout
+  id: EmergencyOxygenCarnivoreExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenMeatEater
+  storage:
+    back:
+    - BoxSurvivalSlotsEngineeringMeat
+
+# Medical
+- type: loadout
+  id: EmergencyOxygenCarnivoreMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenMeatEater
+  storage:
+    back:
+    - BoxSurvivalSlotsMedicalMeat
+
+# Security
+- type: loadout
+  id: EmergencyOxygenCarnivoreSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenMeatEater
+  storage:
+    back:
+    - BoxSurvivalSlotsSecurityMeat
+
+# Syndicate
+- type: loadout
+  id: EmergencyOxygenCarnivoreSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenMeatEater
+  storage:
+    back:
+    - BoxSurvivalSlotsSyndicateMeat
+
+# Ethanol Oxy
+
+- type: loadoutEffectGroup
+  id: OxygenEthanolDrinker
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Allulalo
+
+# Basic
+- type: loadout
+  id: EmergencyOxygenEthanol
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenEthanolDrinker
+  storage:
+    back:
+    - BoxSurvivalSlotsEthanol
+
+# Clown
+- type: loadout
+  id: EmergencyOxygenEthanolClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenEthanolDrinker
+  storage:
+    back:
+    - BoxHugSlotsEthanol
+
+# Mime
+- type: loadout
+  id: EmergencyOxygenEthanolMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenEthanolDrinker
+  storage:
+    back:
+    - BoxMimeSlotsEthanol
+
+# Engineering / Extended
+- type: loadout
+  id: EmergencyOxygenEthanolExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenEthanolDrinker
+  storage:
+    back:
+    - BoxSurvivalSlotsEngineeringEthanol
+
+# Medical
+- type: loadout
+  id: EmergencyOxygenEthanolMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenEthanolDrinker
+  storage:
+    back:
+    - BoxSurvivalSlotsMedicalEthanol
+
+# Security
+- type: loadout
+  id: EmergencyOxygenEthanolSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenEthanolDrinker
+  storage:
+    back:
+    - BoxSurvivalSlotsSecurityEthanol
+
+# Syndicate
+- type: loadout
+  id: EmergencyOxygenEthanolSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenEthanolDrinker
+  storage:
+    back:
+    - BoxSurvivalSlotsSyndicateEthanol

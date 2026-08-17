@@ -50,6 +50,7 @@
   recipes:
   - BiogeneratorMachineCircuitboard
   - UniformPrinterMachineCircuitboard
+  - SmartfridgeCircuitboard # Mono
   - MicrowaveMachineCircuitboard
   - ReagentGrinderMachineCircuitboard
   - ElectricGrillMachineCircuitboard
@@ -65,7 +66,8 @@
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
   - MegaSprayBottle
-
+  - ClothingEyesHudJanitorial # Omu
+  - ClothingCyberneticBeastMantleJanitor # Omu
 - type: latheRecipePack
   id: Instruments
   recipes:

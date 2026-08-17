@@ -1,12 +1,12 @@
-#- type: entity # Omu, disable 'GoidaBot'
-#  parent: MarkerBase
-#  id: SpawnMobGoidaBot
-#  name: goidabot spawner
-#  components:
-#  - type: Sprite
-#    layers:
-#    - state: green
-#    - state: ai
-#  - type: ConditionalSpawner
-#    prototypes:
-#    - MobGoidaBot
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobGoidaBot
+  name: goidabot spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - PlushieLizard # Omu, disable 'GoidaBot', was MobGoidaBot

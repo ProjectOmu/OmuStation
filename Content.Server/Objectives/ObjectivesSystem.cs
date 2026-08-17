@@ -47,6 +47,7 @@ using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.ServerCurrency;
 using Content.Goobstation.Shared.ManifestListings;
 using Content.Server.Objectives.Commands;
+using Content.Shared._DV.CustomObjectiveSummary;
 using Content.Shared.CCVar;
 using Content.Shared.Prototypes;
 using Content.Shared.Roles.Jobs;
@@ -54,7 +55,9 @@ using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 using Content.Shared.Administration.Logs;
-using Robust.Shared.Network; //Goobstation
+using Robust.Shared.Network;
+using Content.Shared.Roles;
+using Content.Server.Roles; //Goobstation
 
 namespace Content.Server.Objectives;
 
@@ -71,6 +74,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     [Dependency] private readonly ICommonCurrencyManager _currencyMan = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private readonly SharedRoleSystem _roles = default!;
 
     private IEnumerable<string>? _objectives;
 
@@ -114,7 +118,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             if (info.Minds.Count == 0)
                 continue;
 
-            // first group the gamerules by their agents, for example 2 different dragons
+            // first group the gamerules by their factions, for example 2 different dragons
             var agent = info.Faction ?? info.AgentName;
             if (!summaries.ContainsKey(agent))
                 summaries[agent] = new Dictionary<string, Dictionary<string, List<(EntityUid, string)>>>();
@@ -155,10 +159,10 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                 }
 
                 var result = new StringBuilder();
-                result.AppendLine(Loc.GetString("objectives-round-end-result", ("count", total), ("agent", agent)));
+                result.AppendLine(Loc.GetString("objectives-round-end-result", ("count", total), ("agent", faction)));
                 if (agent == Loc.GetString("traitor-round-end-agent-name"))
                 {
-                    result.AppendLine(Loc.GetString("objectives-round-end-result-in-custody", ("count", total), ("custody", totalInCustody), ("agent", agent)));
+                    result.AppendLine(Loc.GetString("objectives-round-end-result-in-custody", ("count", total), ("custody", totalInCustody), ("agent", faction)));
                 }
                 // next add all the players with its own prepended text
                 foreach (var (prepend, minds) in summary)
@@ -180,7 +184,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     private void AddSummary(StringBuilder result, string agent, List<(EntityUid, string)> minds)
     {
         var agentSummaries = new List<(string summary, float successRate, int completedObjectives)>();
-        var currencyStorage = new Dictionary<NetUserId, float>(); //goobstation- store all currency and add at end off round
+        var currencyStorage = new Dictionary<NetUserId, float>(); //goobstation - store all currency and add at end off round
 
         foreach (var (mindId, name) in minds)
         {
@@ -190,6 +194,19 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             var userid = mind.OriginalOwnerUserId;
             var title = GetTitle((mindId, mind), name);
             var custody = IsInCustody(mindId, mind) ? Loc.GetString("objectives-in-custody") : string.Empty;
+
+            // goobstation - traitor flavor
+            // TODO: the entirety of roundend methods are shitcode
+            // if we were to add changeling/heretic/bloodbrother/antag flavor
+            // (something like "Timmy Turner was the Ashbringer" or "Grey Maria was from Gami Hive")
+            // we'd need to make a type check on every mind role or raise a separate event for each game rule/role
+            // and i can't be assed to do it!
+            // regards
+            if (_roles.MindHasRole<TraitorRoleComponent>(mindId, out var traitorRole))
+            {
+                var issuer = traitorRole.Value.Comp2.ObjectiveIssuer.Replace(" ", "").ToLower();
+                agent = Loc.GetString($"traitor-{issuer}-roundend");
+            }
 
             var objectives = mind.Objectives;
             if (objectives.Count == 0)
@@ -242,6 +259,8 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                                     $"{username:subject} achieved {progress}% of objective {objectiveTitle}");
 
                     agentSummary.Append("- ");
+                    // Omu: if you're going back to good ol' pinktext after green+pinktext drops,
+                    // start a multiline comment starting here.
                     if (!_showGreentext)
                     {
                         agentSummary.AppendLine(objectiveTitle);
@@ -292,10 +311,40 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                             ("progress", progress)
                         ));
                     }
+                    // Omu: future multiline comment ends here
+                    // Begin DeltaV Additions - Generic objective
+                    /* Omu: Green+PinkText
+                    agentSummary.AppendLine(Loc.GetString(
+                        "objectives-objective",
+                        ("objective", objectiveTitle)
+                    ));
+                    */
                 }
             }
 
             var successRate = totalObjectives > 0 ? (float)completedObjectives / totalObjectives : 0f;
+                        // Begin DeltaV Additions - custom objective response.
+             if (TryComp<CustomObjectiveSummaryComponent>(mindId, out var customComp))
+             {
+                 // We have to spit it like this to make it readable. Yeah, it sucks but for some reason the entire thing
+                 // is just one long string...
+                 var words = FormattedMessage.EscapeText(customComp.ObjectiveSummary).Split(" ");
+                 var currentLine = "";
+                 foreach (var word in words)
+                 {
+                     currentLine += word + " ";
+
+                     // magic number
+                     if (currentLine.Length <= 50)
+                         continue;
+
+                     agentSummary.AppendLine(Loc.GetString("custom-objective-format", ("line", currentLine)));
+                     currentLine = "";
+                 }
+
+                 agentSummary.AppendLine(Loc.GetString("custom-objective-format", ("line", currentLine)));
+             }
+             // End DeltaV Additions
             agentSummaries.Add((agentSummary.ToString(), successRate, completedObjectives));
         }
 

@@ -472,7 +472,7 @@ namespace Content.Client.Lobby.UI
                 Profile = Profile.WithCharacterAppearance(
                     Profile.Appearance.WithHairColor(newColor.marking.MarkingColors[0]));
                 UpdateCMarkingsHair();
-                ReloadPreview();
+                ReloadProfilePreview(); // Omu - hair color change does not need complete refresh
             };
 
             FacialHairPicker.OnMarkingSelect += newStyle =>
@@ -491,7 +491,7 @@ namespace Content.Client.Lobby.UI
                 Profile = Profile.WithCharacterAppearance(
                     Profile.Appearance.WithFacialHairColor(newColor.marking.MarkingColors[0]));
                 UpdateCMarkingsFacialHair();
-                ReloadPreview();
+                ReloadProfilePreview(); // Omu - hair color change does not need complete refresh
             };
 
             HairStylePicker.OnSlotRemove += _ =>
@@ -797,7 +797,7 @@ namespace Content.Client.Lobby.UI
                 selector.PreferenceChanged += preference =>
                 {
                     if (preference &&
-                    (_selectedTraitCount < _maxTraits || _maxTraits <= 0)) // make sure the player isn't selecting more traits than they're allowed
+                    (_selectedTraitCount < _maxTraits || _maxTraits <= 0 || !trait.CountsTowardsMaxTraits)) // make sure the player isn't selecting more traits than they're allowed
                     {
                         Profile = Profile?.WithTraitPreference(trait.ID, _prototypeManager);
                         _selectedTraitPointCount -= trait.GlobalCost;
@@ -1913,11 +1913,11 @@ namespace Content.Client.Lobby.UI
             }
             var hairMarking = Profile.Appearance.HairStyleId == HairStyles.DefaultHairStyle
                 ? new List<Marking>()
-                : new() { new(Profile.Appearance.HairStyleId, new List<Color>() { Profile.Appearance.HairColor }) };
+                : new() { new(Profile.Appearance.HairStyleId, new List<Color>() { Profile.Appearance.HairColor }, false) }; // Omu
 
             var facialHairMarking = Profile.Appearance.FacialHairStyleId == HairStyles.DefaultFacialHairStyle
                 ? new List<Marking>()
-                : new() { new(Profile.Appearance.FacialHairStyleId, new List<Color>() { Profile.Appearance.FacialHairColor }) };
+                : new() { new(Profile.Appearance.FacialHairStyleId, new List<Color>() { Profile.Appearance.FacialHairColor }, false) }; // Omu
 
             HairStylePicker.UpdateData(
                 hairMarking,
@@ -1956,7 +1956,7 @@ namespace Content.Client.Lobby.UI
             }
             if (hairColor != null)
             {
-                Markings.HairMarking = new(Profile.Appearance.HairStyleId, new List<Color>() { hairColor.Value });
+                Markings.HairMarking = new(Profile.Appearance.HairStyleId, new List<Color>() { hairColor.Value }, false); // Omu
             }
             else
             {
@@ -1990,7 +1990,7 @@ namespace Content.Client.Lobby.UI
             }
             if (facialHairColor != null)
             {
-                Markings.FacialHairMarking = new(Profile.Appearance.FacialHairStyleId, new List<Color>() { facialHairColor.Value });
+                Markings.FacialHairMarking = new(Profile.Appearance.FacialHairStyleId, new List<Color>() { facialHairColor.Value }, false); // Omu
             }
             else
             {

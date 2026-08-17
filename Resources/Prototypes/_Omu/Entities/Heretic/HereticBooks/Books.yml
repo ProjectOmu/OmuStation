@@ -1,0 +1,82 @@
+- type: factionIcon
+  id: MadnessFaction
+  priority: 15
+  icon:
+    sprite: /Textures/_Omu/Interface/Heretic/faction_icons.rsi
+    state: madness
+  showTo:
+    components:
+    - Fauna
+    - ShowAntagIcons
+    - Ghoul
+  locationPreference: Right
+
+## Books onward!
+
+- type: entity
+  parent: BookBase
+  id: HereticTomeBase
+  name: HereticTomeBase
+  description: Something is off about this book - you shouldn't see this
+  components:
+  - type: HereticTome
+    knowledgeGain: 1    # One knowledge
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: icon_mansusoverview
+      map: [ "icon" ]
+    - state: cover_base
+      color: "#89CFF0"
+      map: [ "cover" ]
+    - state: decor_wingette
+      color: "#453f3a"
+      map: [ "decor" ]
+    - state: overlay_null
+      map: [ "overlay" ]
+
+- type: entity
+  parent: HereticTomeBase
+  id: HereticTomeMansusOverview
+  name: Overview of the Dreamscape
+  description: Something is off about this book
+  components:
+  - type: HereticTome
+    knowledgeGain: 1    # One knowledge
+  - type: Paper
+    content: book-text-mansus-overview    # The basic overview of what the mansus is
+
+- type: entity
+  parent: HereticTomeBase
+  id: HereticTomeMansusDepthI
+  name: Analysis of the Mansus, volume I
+  description: Something is off about this book
+  components:
+  - type: HereticTome
+    knowledgeGain: 2    # Two knowledge!
+  - type: Paper
+    content: book-text-mansus-depthI   # The indepth desc of what the mansus is
+
+- type: entity
+  parent: HereticTomeBase
+  id: HereticTomeMansusDepthII
+  name: Analysis of the Mansus, volume II
+  description: Something is off about this book
+  components:
+  - type: HereticTome
+    knowledgeGain: 2    # Two knowledge!
+  - type: Paper
+    content: book-text-mansus-depthII   # The indepth desc of what the mansus is
+
+- type: entity
+  parent: HereticTomeBase
+  id: HereticTomeEldritchBlast
+  name: Eldritch Blast!
+  description: Eldritch Blast!
+  components:
+  - type: HereticTome
+    knowledgeGain: 0    # no knowledge ?!
+    productAction: ActionEldritchBlast # It's the spell!!
+  - type: Paper
+    content: book-text-eldritch-blast    # It's a meme.

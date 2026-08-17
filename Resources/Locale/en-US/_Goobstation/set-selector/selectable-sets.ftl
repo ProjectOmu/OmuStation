@@ -68,7 +68,7 @@ selectable-set-syndicate-implants-name = Cyberpsychosis Bundle
 selectable-set-syndicate-implants-description =
     A few implants to give you some options for when you inevitably get arrested.
     Contains: nutriment pump, scram, freedom, smoke,
-    krav maga and syndicate radio implanters, Sandevistan
+    SolCom and syndicate radio implanters, Sandevistan
     and paired mantis blades autosurgeons, and a cool jacket.
 
 selectable-set-syndicate-hacker-name = Hacker Bundle
@@ -151,7 +151,7 @@ selectable-set-blueshield-dragon-description =
 selectable-set-blueshield-chester-name = chester set
 selectable-set-blueshield-chester-description =
     Ready to go hunting?
-    Includes: .45 lever-action rifle, the Chester. Spare ammo, # omu
+    Includes: .45 lever-action rifle, the Chester. Spare ammo,
     Alternate ammo, Spare magazines.
 
 # Omu, add military webbing to syringe kit

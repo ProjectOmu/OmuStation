@@ -70,3 +70,17 @@
     - cracks her knuckles
     - cracks his knuckles
     - cracks its knuckles
+
+# Other Emotes
+- type: emote
+  id: Blink
+  name: chat-emote-name-blink
+  overrideMute: true # Omu
+  category: General
+  icon: _Omu/Interface/Emotes/blink.png #imp
+  chatMessages: ["chat-emote-msg-blink"]
+  chatTriggers:
+  - blink
+  - blinks
+  - blinked
+  - blinking # Omu

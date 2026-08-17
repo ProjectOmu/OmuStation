@@ -47,17 +47,6 @@
     - id: ClawMachineFlatPack
 
 - type: entity
-  id: CrateCargoForklift
-  parent: CrateLivestock
-  name: Forklift crate
-  description: A perfect utility vehicle for cargo.
-  components:
-    - type: StorageFill
-      contents:
-        - id: VehicleForklift
-        - id: VehicleKeyForklift
-
-- type: entity
   id: CrateRadioStationAds
   parent: CrateGenericSteel
   name: ads crate
@@ -135,6 +124,8 @@
       weight: 0.1
     - id: CdDiskXgOnboarding4
       weight: 0.1
+    - id: CdDiskIdris # Omu
+      weight: 1
 
 - type: entityTable
   id: RandomVinylDisk
@@ -299,3 +290,16 @@
       weight: 1
     - id: VinylSleeveWhite
       weight: 1
+
+- type: entity
+  id: CrateHolySupplies
+  parent: CratePlastic
+  name: holy supplies crate
+  description: Contains a Bible and 2 Jugs of holy water for religious needs
+  components:
+    - type: StorageFill
+      contents:
+        - id: JugHolyWater
+          amount: 2
+        - id: Bible
+          amount: 1

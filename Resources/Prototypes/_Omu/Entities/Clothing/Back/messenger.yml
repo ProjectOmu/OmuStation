@@ -1,4 +1,13 @@
 - type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerCourier
+  name: courier's messenger bag
+  description: A robust bag for transportation of letters and parcels.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Messenger/Courier.rsi
+ 
+- type: entity
   parent: [ BaseSecurityContraband , ClothingBackpackMessengerBase ]
   id: ClothingBackpackMessengerCorpsman
   name: blue corpsman messenger bag

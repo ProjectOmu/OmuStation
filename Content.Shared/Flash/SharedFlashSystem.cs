@@ -184,9 +184,13 @@ public abstract class SharedFlashSystem : EntitySystem
         bool revFlash = false) // funkystation // Moved to shared to keep up with upstream - Omu
     {
         // Goob edit start
+
+        var vulnerableEv = new CheckFlashVulnerable();
+        RaiseLocalEvent(target, ref vulnerableEv);
+
         if (used == null
             || !_tag.HasTag(used.Value, IgnoreResistancesTag)
-            && !HasComp<FlashVulnerableComponent>(target))
+            && !vulnerableEv.Vulnerable)
         {
             var attempt = new FlashAttemptEvent(target, user, used);
             RaiseLocalEvent(target, ref attempt, true);

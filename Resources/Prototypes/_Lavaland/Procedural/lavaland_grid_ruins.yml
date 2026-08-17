@@ -16,12 +16,12 @@
   componentsToGrant:
   - type: HierophantBeat
 
-- type: lavalandGridRuin
-  id: SyndicateBase
-  name: lavaland-ruin-syndicate
-  path: /Maps/_Lavaland/Lavaland/ruin_syndicate_base.yml
-  priority: -1 # highest priority
-  patchToPlanet: false
+#- type: lavalandGridRuin # Omu, disable this.
+#  id: SyndicateBase
+#  name: lavaland-ruin-syndicate
+#  path: /Maps/_Lavaland/Lavaland/ruin_syndicate_base.yml
+#  priority: -1 # highest priority
+#  patchToPlanet: false
 
 - type: lavalandGridRuin
   id: BiodomeSnow

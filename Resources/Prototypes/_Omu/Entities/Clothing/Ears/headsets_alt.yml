@@ -76,3 +76,43 @@
       - EncryptionKeyCommon
       - EncryptionKeyService
       - EncryptionKeySecurity
+
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetAltSolarianNavy
+  name: Solarian Navy over-ear headset
+  description: An over-ear headset with extra foam padding around the ears.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySolarianNavy
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Ears/Headsets/radiohost.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Ears/Headsets/radiohost.rsi
+
+- type: entity
+  parent: [ ClothingHeadsetAltCentCom, ClothingHeadsetAltLoudspeaker ]
+  id: ClothingHeadsetAltCentComLoudspeaker
+  name: CentComm over-ear loudspeaker headset
+
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetAltDrillSergeant
+  name: Drill Sergeant over-ear headset
+  description: A headset usually worn by Emergency Response Drill Sergeants, designed to strike fear into recruits. A particularly loud purple slime comes to mind seeing this headset.
+  components:
+  - type: Loudspeaker
+    canToggle: true
+    affectRadio: true
+    affectChat: true
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCentCom
+      - EncryptionKeyStationMaster
+  - type: Sprite
+    sprite: _Omu/Clothing/Ears/Headsets/drillsergeant.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Ears/Headsets/drillsergeant.rsi

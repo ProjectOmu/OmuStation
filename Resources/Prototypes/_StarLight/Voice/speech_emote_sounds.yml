@@ -13,7 +13,7 @@
     Cough:
       collection: MaleCoughs
     Yawn:
-      collection: MaleYawn
+      path: /Audio/_Starlight/Voice/Resomi/resomi_deathgasp.ogg # Omu; yes, the yawn is a deathgasp. it works, it sounds really good actually
     Snore:
       collection: Snores
     Sigh:
@@ -22,6 +22,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    Awebo: #Omu
+      collection: AllulaloAwebo
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -54,6 +56,8 @@
       collection: ResomiChirp
     Gulp: # Omu
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    CatMeow: # Omu, fixes cat drugs
+      collection: CatMeows
 
 - type: emoteSounds
   id: FemaleAvali
@@ -69,7 +73,7 @@
     Cough:
       collection: FemaleCoughs
     Yawn:
-      collection: FemaleYawn
+      path: /Audio/_Starlight/Voice/Resomi/resomi_deathgasp.ogg # Omu
     Snore:
       collection: Snores
     Sigh:
@@ -78,6 +82,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    Awebo: #Omu
+      collection: AllulaloAwebo
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -110,3 +116,5 @@
       collection: ResomiChirp
     Gulp: # Omu
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    CatMeow: # Omu, fixes cat drugs
+      collection: CatMeows

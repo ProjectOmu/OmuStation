@@ -321,7 +321,7 @@
     stateDoorOpen: paramed_open
     stateDoorClosed: paramed_door
   - type: AccessReader
-    access: [ [ "Medical" ] ]
+    access: [ [ "Paramedic" ] ] # Omu, replace Medical access with Paramedic access
 
 
 # Chemical
@@ -419,7 +419,7 @@
     stateDoorOpen: armory_open
     stateDoorClosed: brigmedic_door
   - type: AccessReader
-    access: [["Security"]] # goob edit
+    access: [["Corpsman"]] # goob edit # Omu, replace Security access with Corpsman access
 
 # Security Officer
 - type: entity

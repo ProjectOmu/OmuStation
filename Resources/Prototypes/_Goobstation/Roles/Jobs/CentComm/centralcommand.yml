@@ -24,12 +24,14 @@
   accessGroups:
   - AllAccess
   access:
+  - Deathsquad # Omu start
+  - EmergencyResponseTeam # Omu end
   - CentralCommand
   - NanotrasenRepresentative
   - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]  # Omu, use CC mindshield
 
 - type: startingGear
   id: NavyOfficerGear
@@ -64,12 +66,15 @@
   accessGroups:
     - AllAccess
   access:
+    - CentCommOffical # Omu start
+    - Deathsquad
+    - EmergencyResponseTeam # Omu end
     - CentralCommand
     - NanotrasenRepresentative
     - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Omu, use CC mindshield
 
 - type: startingGear
   id: NavyCaptainGear
@@ -83,7 +88,7 @@
     outerClothing: ClothingOuterArmourInvisible
     neck: ExecutiveIDCard
     id: NavyCaptainPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: ClothingHeadsetAltCentComLoudspeaker #Omu
     belt: ClothingBeltSheathFilledNavyOfficer
     pocket1: NukeOverride
 
@@ -105,12 +110,14 @@
   accessGroups:
     - AllAccess
   access:
+    - Deathsquad # Omu start
+    - EmergencyResponseTeam # Omu end
     - CentralCommand
     - NanotrasenRepresentative
     - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Omu, use CC mindshield
 
 - type: startingGear
   id: NavyOfficerUndercoverGear
@@ -147,12 +154,14 @@
   accessGroups:
     - AllAccess
   access:
+    - Deathsquad # Omu start
+    - EmergencyResponseTeam # Omu end
     - CentralCommand
     - NanotrasenRepresentative
     - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant] # Omu, use CC mindshield
 
 - type: startingGear
   id: SpecialOperationsOfficerGear
@@ -166,7 +175,7 @@
     outerClothing: ClothingOuterArmourInvisible
     neck: ExecutiveIDCard
     id: SpecialOperationsOfficerPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: ClothingHeadsetAltCentComLoudspeaker #Omu
     belt: ClothingBeltHolsterFilledCentComm
     suitstorage: WeaponRifleAnnie
     pocket1: WeaponRevolverMateba
@@ -189,12 +198,14 @@
   accessGroups:
   - AllAccess
   access:
-  - CentralCommand
-  - NanotrasenRepresentative
-  - BlueshieldOfficer
+    - Deathsquad # Omu start
+    - EmergencyResponseTeam # Omu end
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Omu, use CC mindshield
 
 - type: startingGear
   id: DiplomatGear
@@ -227,12 +238,14 @@
   accessGroups:
   - AllAccess
   access:
-  - CentralCommand
-  - NanotrasenRepresentative
-  - BlueshieldOfficer
+    - Deathsquad # Omu start
+    - EmergencyResponseTeam # Omu end
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Omu, use CC mindshield
 
 - type: startingGear
   id: InspectorGear
@@ -245,7 +258,7 @@
     outerClothing: ClothingOuterArmourInvisible
     neck: ExecutiveIDCard
     id: InspectorPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: ClothingHeadsetAltCentComLoudspeaker #Omu
     belt: BoxFolderCentComClipboard
 
 # Nerfed CentComm Space Salvage Gear
@@ -280,12 +293,15 @@
   accessGroups:
     - AllAccess
   access:
+    - CentCommOffical # Omu start
+    - Deathsquad
+    - EmergencyResponseTeam # Omu end
     - CentralCommand
     - NanotrasenRepresentative
     - BlueshieldOfficer
   special:
     - !type:AddImplantSpecial
-      implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+      implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Omu, use CC mindshield
 
 - type: startingGear
   id: OuterCommanderGear

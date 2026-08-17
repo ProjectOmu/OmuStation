@@ -14,9 +14,9 @@
   - MagazineBoxLightRifle
   - MagazinePistolCaselessRifleEmpty
   - MagazinePistolCaselessRifle
-#  - MagazineBoxCaselessRifle # Omu
-#  - MagazineCaselessRifleEmpty # Omu
-#  - MagazineCaselessRifle # Omu 
+  - MagazineBoxCaselessRifle
+  - MagazineCaselessRifleEmpty
+  - MagazineCaselessRifle
   - MagazineLowCaliberM7S
 
 - type: latheRecipePack
@@ -55,6 +55,7 @@
   recipes:
     - ClothingEyesNightVisionGoggles
     - ClothingEyesThermalVisionGoggles
+    - ClothingCyberneticBeastMantleWorkResearch # Omu
 
 - type: latheRecipePack
   id: Pinpointers

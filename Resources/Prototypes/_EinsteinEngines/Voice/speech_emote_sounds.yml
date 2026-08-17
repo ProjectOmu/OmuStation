@@ -79,6 +79,10 @@
       path: /Audio/_Goobstation/Voice/surprised.ogg
       params:
         variation: 0
+    Cough: # Omu
+      path: /Audio/Effects/tesla_consume.ogg # same as their disease noise
+      params:
+        variation: 0.125
 
 - type: emoteSounds
   id: MaleShadowkin
@@ -107,6 +111,10 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Hew: # Omu; Why didnt they have this before lol
+      collection: Hew
+    Awebo: #Omu
+      collection: AllulaloAwebo
     Hiss:
       collection: FelinidHisses
     Meow:
@@ -134,7 +142,7 @@
     Scream:
       collection: SlimeFemaleScreams
     Laugh:
-      collection: MaleLaugh
+      collection: FemaleLaugh #Omu
     Sneeze:
       collection: FemaleSneezes
     Cough:
@@ -153,6 +161,10 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Hew: # Omu; Why didnt they have this before lol
+      collection: Hew
+    Awebo: #Omu
+      collection: AllulaloAwebo
     Hiss:
       collection: FelinidHisses
     Meow:
@@ -209,6 +221,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    Awebo: #Omu
+      collection: AllulaloAwebo
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
@@ -255,6 +269,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    Awebo: #Omu
+      collection: AllulaloAwebo
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
@@ -301,6 +317,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    Awebo: #Omu
+      collection: AllulaloAwebo
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob

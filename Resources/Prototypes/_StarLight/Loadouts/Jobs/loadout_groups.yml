@@ -13,6 +13,8 @@
   - WhiteShoes
   - ChemistWinterBoots
   - MedicalWinterBoots
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: ChemistPDA
@@ -58,6 +60,8 @@
 - type: loadoutGroup
   id: BrigmedicPDA
   name: loadout-group-brigmedic-id
+  minLimit: 1 # omu
+  maxLimit: 1 # omu
   loadouts:
   - BrigmedicPDA
   - CorpsmanPDA

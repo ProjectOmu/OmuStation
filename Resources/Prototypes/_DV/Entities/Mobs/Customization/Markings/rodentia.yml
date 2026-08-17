@@ -281,7 +281,7 @@
   id: RodentiaCheeksWhiskers
   markingCategory: Head # for no-cost markings
   bodyPart: HeadTop # for layering
-  speciesRestriction: [Rodentia]
+  speciesRestriction: [Rodentia, Felinid, Tajaran] # omu, give the cats whiskers
   sprites:
     - sprite: _DV/Mobs/Customization/Rodentia/cheek_markings.rsi
       state: whiskers

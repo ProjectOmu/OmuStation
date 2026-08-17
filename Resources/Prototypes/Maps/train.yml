@@ -120,7 +120,7 @@
             BlueshieldOfficer: [ 1, 1 ]
             #service
             HeadOfPersonnel: [ 1, 1 ]
-            # AdministrativeAssistant: [ 1, 1 ] # Delta V
+            AdministrativeAssistant: [ 1, 1 ] # Delta V
             Bartender: [ 1, 1 ]
             Botanist: [ 2, 2 ]
             Chef: [ 1, 1 ]
@@ -140,10 +140,12 @@
             MedicalDoctor: [ 2, 2 ]
             MedicalIntern: [ 2, 2 ]
             Paramedic: [ 1, 1 ]
+            Virologist: [ 1, 1 ] #Omu
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 4, 4 ]
             ResearchAssistant: [ 2, 2 ]
+            Roboticist: [ 2, 2 ] #Omu
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
@@ -154,6 +156,7 @@
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
+            Courier: [ 2, 2 ] # Omu - Courier role
             CargoTechnician: [ 3, 3 ]
             #civilian
             Passenger: [ -1, -1 ]
@@ -161,6 +164,7 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Reporter: [ 1, 1 ]
+            RadioHost: [ 1, 1 ] #Omu
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]

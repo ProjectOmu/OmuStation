@@ -125,6 +125,7 @@
   - CaptainMask # Goobstation - Lollypops!
   - CaptainBackpack
   - CaptainOuterClothing
+  - CivilianFormalShoes # Omu
   - CaptainPDA # Omu
   - Survival
   - Trinkets
@@ -145,6 +146,7 @@
   - HoPJumpsuit
   - HoPBackpack
   - HoPOuterClothing
+  - CivilianFormalShoes # Omu
   - HoPPDA # Omu
   - Glasses
   - Survival
@@ -161,6 +163,8 @@
   id: JobBorg
   nameDataset: NamesBorg
   canCustomizeName: true
+  groups: # Omu
+  - CyborgHead
 
 - type: roleLoadout
   id: JobStationAi
@@ -183,6 +187,7 @@
   - Survival
   - Trinkets
   - Animals
+  - TrinketsAssistant # Omu
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - AssistantEnvirohelm
@@ -237,6 +242,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - TrinketsChef #Gabystation
   # Goobstation - EE Plasmeme Change.
   - ChefEnvirohelm
   - ChefEnvirosuit
@@ -248,6 +254,7 @@
   - GroupTankHarness
   - LibrarianJumpsuit
   - CommonBackpack
+  - CivilianFormalShoes # Omu
   - Glasses
   - Survival
   - Trinkets
@@ -265,6 +272,7 @@
   - LawyerNeck
   - LawyerJumpsuit
   - CommonBackpack
+  - CivilianFormalShoes # Omu
   - Glasses
   - Survival
   - Trinkets
@@ -285,6 +293,7 @@
   - ChaplainJumpsuit
   - CommonBackpack
   - ChaplainOuterClothing
+  - CivilianFormalShoes # Omu
   - Glasses
   - Survival
   - Trinkets
@@ -342,6 +351,7 @@
   - ClownJumpsuit
   - ClownBackpack
   - ClownOuterClothing
+  - ClownBelt # Omu
   - ClownShoes
   - Glasses
   - SurvivalClown
@@ -380,6 +390,8 @@
   - MusicianJumpsuit
   - CommonBackpack
   - MusicianOuterClothing
+  - MusicianShoes     #omu = mikusician
+  - MusicianHat       #omu = mikusician
   - Glasses
   - Survival
   - Trinkets
@@ -401,7 +413,7 @@
   - QuartermasterJumpsuit
   - CargoTechnicianBackpack
   - QuartermasterOuterClothing
-  - CargoShoes # omu
+  - QuartermasterShoes # Omu
   - Glasses
   - Survival
   - Trinkets
@@ -434,10 +446,10 @@
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
-  - SalvageSpecialistJumpsuit # DeltaV - more jumpskirts
   - GroupTankHarness
   - SalvageSpecialistNeck # Goobstation
   - SalvageSpecialistBackpack
+  - SalvageSpecialistJumpsuit # Goobstation
   - SalvageSpecialistOuterClothing
   - CargoShoes # omu
   - Glasses
@@ -614,12 +626,12 @@
   - WardenJumpsuit
   - SecurityBackpack
   - SecurityMelee # Goobstation
+  - TrinketsSecurity # Omu Edit
   - SecurityNeck
   - SecurityBelt
   - WardenOuterClothing
   - SecurityShoes
   - SurvivalSecurity
-  - TrinketsSecurity # Omu Edit
   - Trinkets
   - SecurityStar
   - Animals
@@ -636,13 +648,13 @@
   - SecurityJumpsuit
   - SecurityBackpack
   - SecurityMelee # Goobstation
+  - TrinketsSecurity # Omu Edit
   - SecurityOuterClothing
   - SecurityShoes
   - SecurityNeck
   - SecurityPDA
   - SecurityBelt
   - SurvivalSecurity
-  - TrinketsSecurity # Omu Edit
   - Trinkets
   - SecurityStar
   - Animals
@@ -656,13 +668,15 @@
   id: JobDetective
   groups:
   - DetectiveHead
+  - DetectiveEyes # Omu edit
   - DetectiveNeck
   - DetectiveJumpsuit
   - SecurityBackpack
+  - SecurityMelee # Omu edit
+  - TrinketsSecurityDetective # Omu Edit
   - DetectiveOuterClothing
   - SecurityShoes
   - SurvivalSecurity
-  - TrinketsSecurity # Omu Edit
   - Trinkets
   - SecurityStar
   - Animals
@@ -766,6 +780,7 @@
   - ChemistEyewear
   - ChemistBeaker
   - ChemistLabeler
+  - ChemistBag # Omu
   - SurvivalMedical
   - Trinkets
   - Animals
@@ -820,6 +835,7 @@
   - GroupTankHarness
   - ReporterJumpsuit
   - ReporterOuterClothing # Goobstation - Bodycams
+  - CivilianFormalShoes # Omu
   - CommonBackpack
   - Glasses
   - Survival
@@ -837,6 +853,7 @@
   - GroupTankHarness
   - PsychologistJumpsuit
   - MedicalBackpack
+  - CivilianFormalShoes # Omu
   - Glasses
   - Survival
   - Trinkets

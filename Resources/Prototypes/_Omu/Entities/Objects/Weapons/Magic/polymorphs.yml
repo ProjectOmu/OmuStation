@@ -1,0 +1,12 @@
+- type: polymorph
+  id: LizardPlushieMagicMorph
+  configuration:
+    entity: PlushieLizard
+    transferName: true
+    transferDamage: false
+    inventory: None
+    duration: 5
+    allowMovement: false
+    forced: true
+    revertOnCrit: true
+    revertOnDeath: true

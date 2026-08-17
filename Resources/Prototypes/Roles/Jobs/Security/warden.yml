@@ -148,6 +148,8 @@
 #      inverted: true
 #      species:
 #      - Felinid #Omu, add back Felinid
+    - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hours - Omu Edit
   weight: 5
   startingGear: WardenGear
   icon: "JobIconWarden"
@@ -163,6 +165,7 @@
   - SecurityTrainingManual # Omu
   goobcoins: 35 #Goob content
   access:
+  - Corpsman # Omu
   - Security
   - Brig
   - Armory
@@ -188,7 +191,7 @@
   storage:
     back:
     - Flash
-    - MagazinePistol
+    #- MagazinePistol # Omu moved to loadouts and will give ammo according to weapon
     - ClothingMaskGasSecurity # Goobstation
 
 - type: chameleonOutfit

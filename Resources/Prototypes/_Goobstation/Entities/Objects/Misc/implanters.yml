@@ -135,11 +135,11 @@
 
 - type: entity
   id: CentcommMindShieldImplanter
-  suffix: Mindshield
+  suffix: Mindshield, Target Immune # Omu, add Target Immune
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
-    implant: MindShieldImplant
+    implant: MindShieldImplantCentComm # Omu
 
 - type: entity
   id: CentcommNutrimentImplanter
@@ -200,7 +200,7 @@
 - type: entity
   parent: BaseImplantOnlyImplanterSyndi
   id: KravMagaImplanter
-  suffix: Krav Maga
+  suffix: SolCom # Omu
   components:
   - type: Implanter
     implant: KravMagaImplant
@@ -278,14 +278,6 @@
   components:
   - type: Implanter
     implant: AntagImplantChangeling
-
-- type: entity
-  id: AntagImplanterHeretic
-  suffix: Heretic
-  parent: BaseAntagImplantOnlyImplanter
-  components:
-  - type: Implanter
-    implant: AntagImplantHeretic
 
 - type: entity
   id: AntagImplanterSpaceNinja

@@ -179,6 +179,17 @@
     - id: MalignRiftSpawn # DeltaV
     - id: FloorGoblinMidRound # Goobstation
     - id: ClownGoblinMigration # Goobstation - New Midrounds
+    # Starlight Start
+    - id: SyndicateDeadDrop
+    # Starlight End
+    - id: BeeMigration # Omu - The bees.
+    - id: ShadowCatSpawn # Omu
+    - id: CrabMigration # Omu
+    - id: PossumMigration # Omu
+    - id: LizardMigration # Omu
+    - id: SlurvaMigration # Omu
+    - id: SnakeMigration # Omu
+    - id: UtilityLineRupture # Funky Station
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -188,7 +199,7 @@
     - id: DragonSpawn
     - id: KingRatMigration
     - id: NinjaSpawn
-    - id: ParadoxCloneSpawn
+    #- id: ParadoxCloneSpawn # omu weird bug casuing extreme lag
     #- id: RevenantSpawn  # GoobStation - removed till rework
     - id: SleeperAgents
     - id: ZombieOutbreak
@@ -200,16 +211,22 @@
     - id: BingleSpawn #Goobstation - Bingle
     - id: SlaughterDemonMidround # Goobstation - Slaughter Demon
     - id: XenomorphsInfestation # WD EDIT
-    - id: GreyTideAntagMidround # Goobstation - New Midrounds
+    #- id: SlasherSpawn # Goobstation - The Slasher # Omu, disable this
+    #- id: SpacePirates # Omu - Yar, Mald pr for Mason, Yar
+    #- id: GreyTideAntagMidround # Goobstation - New Midrounds -- Omu Change Removed
     - id: SingulothKnightsMidround # Goobstation - New Midrounds
-    - id: DarkLordMidround # Goobstation - New Midrounds
+    #- id: DarkLordMidround # Goobstation - New Midrounds
     - id: MimeAssassinMidround # Goobstation - New Midrounds
-    - id: DarkPriestMidround # Goobstation - New Midrounds
+    #- id: DarkPriestMidround # Goobstation - New Midrounds -- Omu Change Removed
     - id: VoxRaidersMidround # Goobstation - New Midrounds
     - id: TunnelClownMidround # Goobstation
     #- id: WraithMidround # Goobstation - Wraith
+    - id: BeeMigrationAngry # Omu - The bees but angry
+    - id: NaniteSpawn # Omu
+    - id: LivingCurseSpawn # Omu Chaplain Enrichment
+    - id: LavaMonkeySpawn # Omu Lavaland may be gone; but the monkies live on
+    - id: NTAgentSleeper # Omu
     #TODO when midrounds are "reviewed" by the chudmins add them back
-    #TODO When Slasher is Ready - id: SlasherSpawn # Goobstation - The Slasher
 
 - type: entity
   id: BaseStationEvent
@@ -804,6 +821,7 @@
   components:
   - type: StationEvent
     earliestStart: 60 # Goobstation - was 90 (impossible on goob)
+    latestStart: 100 # OmuStation (1hr 40min max)
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
@@ -846,9 +864,10 @@
   components:
   - type: StationEvent
     earliestStart: 60 # OMU change - make lone-ops spawn later
+    latestStart: 100 # OmuStation (1hr 40min max) Im tired of last second shuttle bombing
     weight: 5.5       #Omu
     minimumPlayers: 20 #Omu keeping it lower for now cause playercount
-    duration: 1
+    duration: 720 # Goobstation - required for custom nuke music. 720s to ensure loneop can hear the music and still have space for other midrounds incase of failure
     chaos: # Goobstation
       Hostile: 200
       Medical: 200
@@ -861,6 +880,7 @@
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
   - type: NukeopsRule
+    localePrefix: "loneop-" #Goobstation
     roundEndBehavior: Nothing
   - type: AntagSelection
     definitions:
@@ -874,6 +894,7 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: TargetObjectiveImmune # DeltaV - Nukies are no longer targets of kill objectives, this includes lone ops.
       - type: RandomMetadata
         nameSegments:
         - NamesSyndicatePrefix
@@ -884,9 +905,11 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeops
-  - type: AntagLoadProfileRule # Goobstation
+  - type: AntagLoadProfileRule # Omu start
     speciesOverride: Human
-    alwaysUseSpeciesOverride: true
+    speciesOverrideBlacklist:
+    - Abductor
+    - Plasmaman # Omu end
 
 - type: entity
   parent: BaseTraitorRule
@@ -894,9 +917,10 @@
   components:
   - type: StationEvent
     earliestStart: 30
+    latestStart: 100 # OmuStation (1hr 40min max)
     weight: 8
     minimumPlayers: 15
-    maxOccurrences: 1 # can only happen once per round
+    maxOccurrences: 2 # can only happen twice(omu up from 1) per round
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
@@ -912,7 +936,7 @@
       fallbackRoles: [ Traitor ]
       min: 1
       max: 2
-      playerRatio: 10
+      playerRatio: 15 # Omu changed so it will actually scale at 15/30 pop rather than how it was at 15/20 ppop
       chaosScore: 200 # Goobstation - same as roundstart traitor gamerule
       blacklist:
         components:
@@ -1049,3 +1073,20 @@
       min: 1
       max: 1
       pickPlayer: false
+
+# Funky Station
+- type: entity
+  parent: BaseStationEvent
+  id: UtilityLineRupture
+  name: Utility Line Rupture
+  components:
+  - type: UtilityLineRuptureRule
+  - type: StationEvent
+    earliestStart: 15
+    weight: 6.5
+    duration: null
+  - type: GameRule
+    delay:
+      min: 0
+      max: 0
+    chaosScore: 300 # Omu - potential to do a lot of damage

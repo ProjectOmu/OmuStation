@@ -801,6 +801,7 @@
   - type: Item
     sprite: Objects/Materials/silk.rsi
     heldPrefix: silk
+    size: Small # Omu - spider silk fits in the spider pocket
 
 - type: entity
   parent: MaterialWebSilk
@@ -984,6 +985,8 @@
   description: Pieces of a goliath's rocky hide, these might be able to make your suit a bit more durable to attack from the local fauna.
   suffix: Full
   components:
+  - type: Fish # omu
+    difficulty: 0.023
   - type: Sprite
     sprite: Objects/Materials/hide.rsi
     layers:

@@ -161,6 +161,7 @@
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
+# SPDX-FileCopyrightText: 2026 ThanosDeGraf <richardgirgindontstop@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Miscellaneous
@@ -175,6 +176,7 @@
   - Headphones
   - PlushieLizard
   - PlushieSpaceLizard
+  - PlushieChoicesTadpole # gds
   - PersonalAI # Goobstation
   - GoldenPersonalAI # Goobstation
   - CrewCassette # Goobstation
@@ -219,6 +221,7 @@
   # Goobstation End
   # Omu start
   - ClothingNeckCloakProgressPride
+  - ClothingNeckEnsembleTrans
   - ClothingNeckCloakTrans
   - ClothingNeckCloakGenderfluid
   - ClothingNeckCloakAro
@@ -248,12 +251,8 @@
   - DiscountDanLighter
   - CheapLighter
   - FlippoLighter
+  - MysteryStaffPlushieBox
   # Omu end
-  - CardBoxBlack # GoobStation
-  - CardBoxNanotrasen # GoobStation
-  - FoodSnackLollypopWrapped # Goobstation
-  - FoodSnackLollypopWrappedRainbow # Goobstation
-  - FoodSnackLollypopWrappedCarp # Goobstation
   - TowelColorBlack
   - TowelColorDarkBlue
   - TowelColorDarkGreen
@@ -273,11 +272,15 @@
   # Begin DeltaV Additions
   - GoldRing
   - SilverRing
-  - Cane
   - WhiteCane
   - TapeRecorder
   - DrinkOniGourd
+  - AACTablet
   # End DeltaV Additions
+  # Begin Imp Additions
+  - CardBoxTarot
+  # End Imp Additions
+  - MusicianMemoryLeek  #Omu - Horrid miku
 
 - type: loadoutGroup
   id: Glasses
@@ -299,6 +302,7 @@
   - Mouse
   - Mothroach
   - Goldfish
+  - MobMoproach # Omu
 
 - type: loadoutGroup
   id: GroupTankHarness
@@ -321,6 +325,8 @@
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVapor # Delta-V
   - EmergencySilicon
+  - EmergencyOxygenCarnivore # Omu
+  - EmergencyOxygenEthanol # Omu
 
 # nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup
@@ -358,6 +364,7 @@
   - CaptainHead
   - CaptainCap
   - CaptainCapcapSenior # goob
+  - CaptainHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: CaptainJumpsuit
@@ -378,6 +385,7 @@
   - CaptainCloak
   - CaptainCloakFormal
   - CaptainMantle
+  - CaptainCloakLong # Ganimed14
   - VeteranCaptainCloak # goob
   - CaptainEnsemble # goob
 
@@ -397,6 +405,7 @@
   - CaptainOuterClothing
   - CaptainWintercoat
   - CaptainJacket # Goobstation
+  - CaptainLongcoat # DeltaV Longcoats
 
 - type: loadoutGroup
   id: HoPHead
@@ -404,6 +413,7 @@
   minLimit: 0
   loadouts:
   - HoPHead
+  - HopHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: HoPJumpsuit
@@ -425,6 +435,7 @@
   loadouts:
   - HoPCloak
   - HoPMantle
+  - HoPCloakLong # Ganimed14
   - HeadOfPersonnelEnsemble # goob
 
 - type: loadoutGroup
@@ -447,6 +458,7 @@
   - ClothingFormalHoPJacket # Omu
   - ClothingFormalHoPDress # Omu
   - HoPLongcoat #goob
+  - HoPLongcoatDV # DeltaV Longcoats
 
 # Civilian
 - type: loadoutGroup
@@ -515,6 +527,9 @@
   minLimit: 0
   loadouts:
   - PassengerWintercoat
+  - LongcoatBlack # DeltaV Longcoats
+  - LongcoatBrown # DeltaV Longcoats
+  - LongcoatNanoTrasen # DeltaV Longcoats
 
 - type: loadoutGroup
   id: PassengerShoes
@@ -522,6 +537,8 @@
   loadouts:
   - BlackShoes
   - WinterBoots
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: BartenderHead
@@ -555,6 +572,7 @@
   minLimit: 0
   loadouts:
   - ChefHead
+  - ChefBandana # Omu
 
 - type: loadoutGroup
   id: ChefMask
@@ -664,6 +682,7 @@
   minLimit: 0
   loadouts:
   - JanitorHead
+  - JanitorBandana # Omu
   - JanitorHeadSenior # Goobstation
 
 - type: loadoutGroup
@@ -787,6 +806,8 @@
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVaporClown # Delta-V
   - EmergencySilicon
+  - EmergencyOxygenCarnivoreClown # Omu
+  - EmergencyOxygenEthanolClown # Omu
 
 - type: loadoutGroup
   id: MimeHead
@@ -834,6 +855,7 @@
   loadouts:
   - MimeSuspendersRed
   - MimeSuspendersBlack
+  - MimeFoamSabre # DeltaV - Add foam sabre to the mime's loadout.
 
 - type: loadoutGroup
   id: SurvivalMime
@@ -849,6 +871,8 @@
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVaporMime # Delta-V
   - EmergencySilicon
+  - EmergencyOxygenCarnivoreMime # Omu
+  - EmergencyOxygenEthanolMime # Omu
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -857,6 +881,7 @@
   - MusicianJumpsuit
   - MusicianJumpskirt
   - ServiceMJ # goob
+  - MusicianMikuJumpsuit  # Omu - horrid Miku
 
 - type: loadoutGroup
   id: MusicianOuterClothing
@@ -899,6 +924,15 @@
   - PanFlute
   - Ocarina
   - Bagpipe
+  - BirdToy #OMU
+  - Helicopter #OMU
+  - Gunpet #OMU
+  - MusicalLung #OMU
+  - ReverseCymbals #OMU
+  - Seashell #OMU
+  - Marmonica # OMU
+  - Wehpet #OMU
+  - BikeHorn #OMU
 
 # Cargo
 - type: loadoutGroup
@@ -908,6 +942,7 @@
   loadouts:
   - QuartermasterHead
   - QuartermasterBeret
+  - QuartermasterBandana # OmuStation
 
 - type: loadoutGroup
   id: QuartermasterJumpsuit
@@ -930,6 +965,7 @@
   loadouts:
   - QuartermasterCloak
   - QuartermasterMantle
+  - QuartermasterCloakLong #Ganimed14
   - QuartermasterEnsemble # goob
 
 - type: loadoutGroup
@@ -938,13 +974,19 @@
   minLimit: 0
   loadouts:
   - QuartermasterWintercoat
-
+  - QuartermasterLongcoat # DeltaV Longcoats
 - type: loadoutGroup
   id: QuartermasterShoes
   name: loadout-group-quartermaster-shoes
   loadouts:
   - BrownShoes
   - CargoWinterBoots
+  - BlackShoes # Omu
+  - WorkBoots # Omu
+  - FishingBoots # Omu
+  - SalvageBoots # Omu
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: CargoTechnicianHead
@@ -952,7 +994,8 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianHead
-  - CargoTechnicianHeadMail # Goob/DeltaV - Mail
+  #- CargoTechnicianHeadMail # Goob/DeltaV - Mail # Omu - Moved to courier
+  - CargoBandana # OmuStation
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
@@ -960,6 +1003,7 @@
   loadouts:
   - CargoTechnicianJumpsuit
   - CargoTechnicianJumpskirt
+  - CargoTechnicianOveralls #Goob
   # OmuStation Start
   - CargoTechnicianSweater
   - CargoTechnicianSweaterSkirt
@@ -967,8 +1011,8 @@
   - CargoTechnicianShortSkirtsInsteadofPants
   - CargoTechnicianUniformTopInsteadOfJumpsuit
   # OmuStation End
-  - CargoTechnicianJumpsuitMail # Goob/DeltaV - Mail
-  - CargoTechnicianJumpskirtMail # Goob/DeltaV - Mail
+  #- CargoTechnicianJumpsuitMail # Goob/DeltaV - Mail # Omu - Moved to courier
+  #- CargoTechnicianJumpskirtMail # Goob/DeltaV - Mail # Omu - Moved to courier
   - CargoTechMJ # goob
 
 - type: loadoutGroup
@@ -987,7 +1031,7 @@
   loadouts:
   - CargoTechnicianWintercoat
   - CargoTechnicianJacket # OmuStation
-  - CargoTechnicianWintercoatMail # Goob/DeltaV - Mail
+  #- CargoTechnicianWintercoatMail # Goob/DeltaV - Mail # Omu - Moved to courier
 
 - type: loadoutGroup # omu, more cargo shoes, all cargo jobs use the same loadoutgroup
   id: CargoShoes
@@ -1049,6 +1093,7 @@
   loadouts:
   - ChiefEngineerCloak
   - ChiefEngineerMantle
+  - ChiefEngineerCloakLong #Ganimed14
   - ChiefEngineerEnsemble # goob
 
 - type: loadoutGroup
@@ -1057,6 +1102,7 @@
   minLimit: 0
   loadouts:
   - ChiefEngineerWintercoat
+  - ChiefEngineerLongcoat # DeltaV Longcoats
   - SeniorEngineerXelthiaJacket
   - ClothingOuterXelthiaInsulated
 
@@ -1066,6 +1112,8 @@
   loadouts:
   - BrownShoes
   - EngineeringWinterBoots
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
@@ -1184,6 +1232,8 @@
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVaporExtended # Delta-V
   - EmergencySilicon
+  - EmergencyOxygenCarnivoreExtended # Omu
+  - EmergencyOxygenEthanolExtended # Omu
 
 # Science
 - type: loadoutGroup
@@ -1202,6 +1252,7 @@
   - ResearchDirectorMantle
   - ResearchDirectorCloak
   - ResearchDirectorDecoratedCloak
+  - ResearchDirectorCloakLong #Ganimed14
   - ResearchDirectorEnsemble # goob
 
 - type: loadoutGroup
@@ -1209,7 +1260,10 @@
   name: loadout-group-research-director-jumpsuit
   loadouts:
   - ResearchDirectorJumpsuit
+ # - ResearchDirectorJumpsuitAlt # goob
   - ResearchDirectorJumpskirt
+  - ResearchDirectorJumpsuitAlt # goob # Omu - moved to make loadout look nicer
+  - ResearchDirectorJumpskirtAlt # goob
   - ResearchDirectorMJ # goob
   - RDSummerShirt # goob
 
@@ -1223,6 +1277,7 @@
   - LongScienceCoat # OmuStation
   - MystaLabcoat # Omu
   - ResearchDirectorLabCoatPurple #goob
+  - ResearchDirectorLongcoat # DeltaV Longcoats
 
 - type: loadoutGroup
   id: ResearchDirectorShoes
@@ -1230,6 +1285,8 @@
   loadouts:
   - BrownShoes
   - ScienceWinterBoots
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: ScientistHead
@@ -1289,6 +1346,8 @@
   - WhiteShoes
   - BlackShoes
   - ScienceWinterBoots
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: ScientistGloves
@@ -1323,6 +1382,7 @@
   - HeadofSecurityHead
   - HeadofSecurityBeret
   - HeadofSecuritySpecialBeret # Goobstation
+  - HosHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
@@ -1350,6 +1410,7 @@
   - HeadofSecurityCloak
   - HeadofSecurityMantle
   - Bodycam # Goobstation - Body cameras
+  - HeadofSecurityCloakLong #Ganimed14
   - HeadOfSecurityEnsemble # goob
 
 - type: loadoutGroup
@@ -1361,6 +1422,8 @@
   - ClothingHOSWinterJacket # OmuStation
   - HeadofSecurityGreatCoat # Goobstation
   - HeadofSecurityVestWeb # Goobstation
+  - HeadofSecurityGreatCoatDV # Omu
+  - HeadofSecurityLongcoat # DeltaV Longcoats
 
 - type: loadoutGroup
   id: WardenHead
@@ -1369,6 +1432,7 @@
   loadouts:
   - WardenHead
   - WardenBeret
+  - WardenHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: WardenJumpsuit
@@ -1388,6 +1452,8 @@
   - WardenCoat
   - WardenArmoredWinterCoat
   - WardenCoatBlue #goob
+  - WardenGreatCoatDV # Omu
+  - WardenLongcoat # DeltaV Longcoats
 
 - type: loadoutGroup
   id: SecurityHead
@@ -1398,7 +1464,10 @@
   - SecurityHelmetAlt # Goobstation
   - SecurityBeret
   - SecurityHat
+  - SecurityBandana # Omu
   - TrooperHat
+  - SecoffHeadHatKepi # Omu
+  - SecoffSeniorHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: SecurityJumpsuit
@@ -1411,6 +1480,7 @@
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
   - TrooperUniform
+  - VeteranOfficerBlackJumpsuit # Goobstation
   - BlackRedUniform # OmuStation Addon
   - SecurityJumpsuitBlueDV # Omu
   - SecurityJumpskirtBlueDV # Omu
@@ -1443,6 +1513,11 @@
   - ArmorVestSlim
   - SecurityOfficerWintercoat
   - WinterCoatSeniorSecArmored # Goobstation
+  - VeteranOfficerArmor # Goobstation
+  - WinterCoatSecSweaterDV # Omu
+  - WinterCoatSecCoatDV # Omu
+  - WinterGreatCoatSecCoatDV # Omu
+  - LongcoatSecurity # DeltaV longcoats
 
 - type: loadoutGroup
   id: SecurityShoes
@@ -1491,6 +1566,10 @@
   - DetectiveArmorVest
   - DetectiveCoat
   - DetectiveCoatGrey
+  - DetectiveWinterCoatDV # Omu
+  - LongcoatSecurity # DeltaV Longcoats
+  - AerostaticJacketArmored # omu
+  - JamrockBlazerArmored # omu
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit
@@ -1512,6 +1591,8 @@
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVaporSecurity # Delta-V
   - EmergencySilicon
+  - EmergencyOxygenCarnivoreSecurity # Omu
+  - EmergencyOxygenEthanolSecurity # Omu
 
 - type: loadoutGroup
   id: SecurityStar
@@ -1540,6 +1621,10 @@
   - ChiefMedicalOfficerTurtleneckJumpsuit
   - ChiefMedicalOfficerTurtleneckJumpskirt
   - CMOMJ # goob
+  - ChiefMedicalOfficerVestJumpsuit #DV
+  - ChiefMedicalOfficerVestJumpskirt #DV
+  - ChiefMedicalOfficerFormalJumpsuit #DV
+  - ChiefMedicalOfficerFormalJumpskirt #DV
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerOuterClothing
@@ -1551,6 +1636,7 @@
   - ClothingOuterXelthiaSurgical # Omu
   - SeniorPhysicianXelthiaJacket # Omu
   - CMOVetLabCoat #Omu
+  - ChiefMedicalOfficerLongcoat # DeltaV Longcoats
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerNeck
@@ -1561,6 +1647,9 @@
   - ChiefMedicalOfficerMantle
   - ChiefMedicalOfficerDecoratedCloak # Omu
   - ChiefMedicalOfficerModernMantle # Omu
+  - ChiefMedicalOfficerShawl #DV
+  - ChiefMedicalOfficerOverShoulder #DV
+  - ChiefMedicalOfficerCloakLong #Ganimed14
   - ChiefMedicalOfficerEnsemble # goob
 
 - type: loadoutGroup
@@ -1569,6 +1658,8 @@
   loadouts:
   - BrownShoes
   - MedicalWinterBoots
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: MedicalDoctorHead
@@ -1624,6 +1715,10 @@
   name: loadout-group-medical-doctor-shoes
   loadouts:
   - WhiteShoes
+  - BrownShoes # Omu
+  - BlueShoes # Omu
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
   - MedicalWinterBoots
 
 - type: loadoutGroup
@@ -1648,6 +1743,16 @@
   minLimit: 0
   loadouts:
   - SterileMask
+  # Omustation Changes Start - Sterile Masks
+  - SterileMaskRed
+  - SterileMaskOrange
+  - SterileMaskYellow
+  - SterileMaskGreen
+  - SterileMaskBlue
+  - SterileMaskPurple
+  - SterileMaskWhite
+  - SterileMaskBlack
+  # Omustation Changes End
 
 - type: loadoutGroup
   id: MedicalInternJumpsuit
@@ -1738,8 +1843,11 @@
   name: loadout-group-paramedic-shoes
   loadouts:
   - BlueShoes
+  - BrownShoes # Omu
   - WhiteShoes
   - MedicalWinterBoots
+  - LaceupBoots # Omu
+  - LeatherShoes # Omu
 
 - type: loadoutGroup
   id: MedicalEyewear
@@ -1765,6 +1873,8 @@
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVaporMedical # Delta-V
   - EmergencySilicon
+  - EmergencyOxygenCarnivoreMedical # Omu
+  - EmergencyOxygenEthanolMedical # Omu
 
 # Wildcards
 - type: loadoutGroup
@@ -1812,6 +1922,8 @@
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVaporSyndicate # Delta-V
   - EmergencySilicon
+  - EmergencyOxygenCarnivoreSyndicate # Omu
+  - EmergencyOxygenEthanolSyndicate # Omu
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool

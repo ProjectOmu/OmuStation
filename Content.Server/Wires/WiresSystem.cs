@@ -80,10 +80,12 @@ using Content.Shared.Tools;
 using Content.Shared.Tag; // Shitmed Change
 using Content.Shared.Tools.Components;
 using Content.Shared.Wires;
+using Content.Shared._Mono.NoHack; // Monolith
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using System.Runtime;
 
 namespace Content.Server.Wires;
 
@@ -702,6 +704,9 @@ public sealed class WiresSystem : SharedWiresSystem
 
     private void TryDoWireAction(EntityUid target, EntityUid user, EntityUid toolEntity, int id, WiresAction action, WiresComponent? wires = null, ToolComponent? tool = null)
     {
+        if (HasComp<NoHackComponent>(target)) // Monolith
+            return;
+
         if (!Resolve(target, ref wires)
             || !Resolve(toolEntity, ref tool))
             return;

@@ -26,6 +26,9 @@ public sealed partial class MeleeDashComponent : Component
 
     [DataField("length")]
     public float MaxDashLength = 4f;
+
+    [DataField]
+    public bool CanDashWhileWeightless = true; //Omu
 }
 
 [Serializable, NetSerializable]

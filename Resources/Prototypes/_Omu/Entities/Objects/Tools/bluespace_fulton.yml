@@ -1,0 +1,76 @@
+# Stack
+- type: stack
+  id: FultonBlueshield
+  name: stack-fulton-blueshield
+  icon:
+    sprite: /Textures/_Omu/Objects/Tools/bluespace_fulton.rsi
+    state: extraction_pack
+  spawn: FultonBlueshield1
+  maxCount: 20
+
+# Entities
+
+- type: entity
+  id: FultonBeaconBlueshield
+  parent: [FultonBeacon, BaseCentcommContraband]
+  name: bluespace fulton beacon
+  description: A beacon to receive fulton extractions, outfitted with a much more potent bluespace signal.
+  components:
+    - type: FultonBeacon
+      announceOnFulton: true
+      announcementChannel: Medical
+      announcementMessage: fulton-blueshield-radio-message
+    - type: Item
+      sprite: _Omu/Objects/Tools/bluespace_fulton.rsi
+    - type: GenericVisualizer # yeah idk might need this
+      visuals:
+        enum.FoldedVisuals.State:
+          foldedLayer:
+            True: { state: folded_extraction }
+            False: { state: extraction_point }
+    - type: Sprite
+      sprite: _Omu/Objects/Tools/bluespace_fulton.rsi
+      drawdepth: SmallObjects
+      noRot: true
+      layers:
+        - state: extraction_point
+          map: [ "foldedLayer" ]
+    - type: AccessReader
+      access: [["CentralCommand"]]
+
+- type: entity
+  id: FultonBeaconBlueshieldUnfolded
+  parent: FultonBeaconBlueshield
+  suffix: unfolded
+  components:
+  - type: Foldable
+    folded: false
+
+- type: entity
+  id: FultonBlueshield
+  parent: [Fulton, BaseCentcommContraband]
+  suffix: Full
+  name: bluespace fulton
+  description: A bluespace enchanced fulton, easily applied to any rollerbed or item of choice, capable of homing in on a bluespace signal nearly instantly, for extremely quick extraction.
+  components:
+  - type: Fulton
+    duration: 5
+    applyDuration: 1.5 # Half of apply duration for normal fultons
+  - type: Item
+    sprite: _Omu/Objects/Tools/bluespace_fulton.rsi
+  - type: Stack
+    stackType: FultonBlueshield
+    count: 20
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _Omu/Objects/Tools/bluespace_fulton.rsi
+    state: extraction_pack
+
+- type: entity
+  id: FultonBlueshield1
+  parent: FultonBlueshield
+  name: bluespace fulton
+  suffix: One
+  components:
+  - type: Stack
+    count: 1

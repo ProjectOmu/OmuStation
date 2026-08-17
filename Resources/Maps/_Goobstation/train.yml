@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 264.0.0
+  engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/12/2025 20:05:05
-  entityCount: 17843
+  time: 09/03/2025 14:26:57
+  entityCount: 17842
 maps:
 - 1
 grids:
@@ -558,11 +558,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -5622,7 +5617,6 @@ entities:
     - type: BecomesStation
       id: Train
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17430
     components:
     - type: MetaData
@@ -5648,11 +5642,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -5671,7 +5660,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17431
     components:
     - type: MetaData
@@ -5697,11 +5685,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -5720,7 +5703,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17432
     components:
     - type: MetaData
@@ -5746,11 +5728,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -5769,7 +5746,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17433
     components:
     - type: MetaData
@@ -5795,11 +5771,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -5818,7 +5789,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17434
     components:
     - type: MetaData
@@ -5844,11 +5814,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -5867,7 +5832,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17435
     components:
     - type: MetaData
@@ -5893,11 +5857,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -5916,7 +5875,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17436
     components:
     - type: MetaData
@@ -5942,11 +5900,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -5965,7 +5918,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17437
     components:
     - type: MetaData
@@ -5991,11 +5943,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -6014,7 +5961,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17438
     components:
     - type: MetaData
@@ -6040,11 +5986,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -6063,7 +6004,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17439
     components:
     - type: MetaData
@@ -6089,11 +6029,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -6112,7 +6047,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17440
     components:
     - type: MetaData
@@ -6138,11 +6072,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -6161,7 +6090,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17441
     components:
     - type: MetaData
@@ -6187,11 +6115,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -6210,7 +6133,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17443
     components:
     - type: MetaData
@@ -6236,11 +6158,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -6259,7 +6176,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17445
     components:
     - type: MetaData
@@ -6285,11 +6201,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -6308,7 +6219,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17447
     components:
     - type: MetaData
@@ -6334,11 +6244,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -6357,7 +6262,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17449
     components:
     - type: MetaData
@@ -6383,11 +6287,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -6406,7 +6305,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17451
     components:
     - type: MetaData
@@ -6432,11 +6330,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -6455,7 +6348,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17453
     components:
     - type: MetaData
@@ -6481,11 +6373,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -6504,7 +6391,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17455
     components:
     - type: MetaData
@@ -6530,11 +6416,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -6553,7 +6434,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17457
     components:
     - type: MetaData
@@ -6579,11 +6459,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -6602,7 +6477,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17459
     components:
     - type: MetaData
@@ -6628,11 +6502,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -6651,7 +6520,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17461
     components:
     - type: MetaData
@@ -6677,11 +6545,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -6700,7 +6563,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17462
     components:
     - type: MetaData
@@ -6726,11 +6588,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -6749,7 +6606,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17463
     components:
     - type: MetaData
@@ -6775,11 +6631,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -6798,7 +6649,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17464
     components:
     - type: MetaData
@@ -6824,11 +6674,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -6847,7 +6692,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17465
     components:
     - type: MetaData
@@ -6873,11 +6717,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -6896,7 +6735,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17466
     components:
     - type: MetaData
@@ -6922,11 +6760,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -6946,7 +6779,6 @@ entities:
     - type: NavMap
     - type: RadiationGridResistance
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17471
     components:
     - type: MetaData
@@ -6972,11 +6804,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -6995,7 +6822,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17472
     components:
     - type: MetaData
@@ -7021,11 +6847,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -7044,7 +6865,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17473
     components:
     - type: MetaData
@@ -7070,11 +6890,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -7093,7 +6908,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17475
     components:
     - type: MetaData
@@ -7119,11 +6933,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -7142,7 +6951,6 @@ entities:
       flags: HideLabel
     - type: NavMap
     - type: ImplicitRoof
-    - type: FTLDrive
   - uid: 17842
     components:
     - type: MetaData
@@ -7166,11 +6974,6 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
-      dampingModifiers:
-        Cruise: 0.0075
-        Dampen: 0.25
-        Anchor: 2
-        None: 0.25
       dampingModifier: 0.25
     - type: ImplicitRoof
     - type: GridPathfinding
@@ -7189,7 +6992,6 @@ entities:
     - type: IFF
       flags: HideLabel
     - type: NavMap
-    - type: FTLDrive
 - proto: AccordionInstrument
   entities:
   - uid: 3
@@ -38405,13 +38207,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingMultipleHeadphones
-  entities:
-  - uid: 5534
-    components:
-    - type: Transform
-      pos: -1.4138944,-29.279722
-      parent: 2
 - proto: ClothingNeckBling
   entities:
   - uid: 5531
@@ -38439,6 +38234,13 @@ entities:
     components:
     - type: Transform
       pos: -7.7756677,-121.72427
+      parent: 2
+- proto: ClothingNeckHeadphones
+  entities:
+  - uid: 5534
+    components:
+    - type: Transform
+      pos: -1.4138944,-29.279722
       parent: 2
 - proto: ClothingNeckScarfStripedZebra
   entities:
@@ -78801,7 +78603,7 @@ entities:
       pos: 8.5,-176.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -167205.72
+      secondsUntilStateChange: -167197.89
       state: Closing
   - uid: 11501
     components:
@@ -92397,13 +92199,6 @@ entities:
     components:
     - type: Transform
       pos: -5.5,-65.5
-      parent: 2
-- proto: SpawnPointNanotrasenCareerTrainer
-  entities:
-  - uid: 17843
-    components:
-    - type: Transform
-      pos: 0.5,1.5
       parent: 2
 - proto: SpawnPointNanotrasenRepresentative
   entities:

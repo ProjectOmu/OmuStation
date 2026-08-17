@@ -16,8 +16,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Grab;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Maths.FixedPoint; //omu
+using Content.Goobstation.Shared.GrabIntent;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared._Goobstation.Heretic.Components; //omu
@@ -144,6 +146,37 @@ public partial class SharedMartialArtsSystem
                 _stamina.TakeStaminaDamage(args.Target, 25f, applyResistances: true);
                 break;
             case ComboAttackType.Harm:
+                // Snap neck
+                if (!_mobState.IsDead(args.Target) && !HasComp<GodmodeComponent>(args.Target) &&
+                    TryComp(ent, out PullerComponent? puller) && puller.Pulling == args.Target &&
+                    TryComp(ent, out GrabIntentComponent? grabIntent) &&
+                    TryComp(args.Target, out PullableComponent? pullable) &&
+                    TryComp(args.Target, out BodyComponent? body) &&
+                    TryComp(args.Target, out StaminaComponent? stamina) && stamina.Critical &&
+                    grabIntent.GrabStage == GrabStage.Suffocate && TryComp(ent, out TargetingComponent? targeting) &&
+                    targeting.Target == TargetBodyPart.Head
+                    && _mobThreshold.TryGetDeadThreshold(args.Target, out var damageToKill))
+                {
+                    _pulling.TryStopPull(args.Target, pullable);
+
+                    var blunt = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), damageToKill.Value);
+                    _damageable.TryChangeDamage(args.Target, blunt, true, targetPart: TargetBodyPart.Chest);
+
+                    var (partType, symmetry) = _body.ConvertTargetBodyPart(targeting.Target);
+                    var targetedBodyPart = _body.GetBodyChildrenOfType(args.Target, partType, body, symmetry)
+                        .ToList()
+                        .FirstOrNull();
+
+                    if (targetedBodyPart == null ||
+                        !TryComp(targetedBodyPart.Value.Id, out WoundableComponent? woundable) ||
+                        woundable.Bone.ContainedEntities.FirstOrNull() is not { } bone ||
+                        !TryComp(bone, out BoneComponent? boneComp) || boneComp.BoneSeverity == BoneSeverity.Broken)
+                        break;
+
+                    _trauma.ApplyDamageToBone(bone, boneComp.BoneIntegrity, boneComp);
+                    ComboPopup(ent, args.Target, "Neck Snap");
+                    break;
+                }
 
                 // Leg sweep
                  if (!TryComp<StandingStateComponent>(ent.Owner, out var standing)

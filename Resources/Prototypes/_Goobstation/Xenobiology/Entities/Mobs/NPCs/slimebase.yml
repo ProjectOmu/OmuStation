@@ -108,8 +108,8 @@
         messages: [ "slime-hurt-by-water-popup" ]
         probability: 0.25
   - type: Body
-    prototype: Slimes
-    requiredLegs: 1
+    prototype: XenobioSlimes
+    requiredLegs: 0     #OMU - no more slime legs
   - type: MeleeWeapon
     damage:
       groups:

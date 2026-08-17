@@ -143,6 +143,8 @@
 #      inverted: true
 #      species:
 #      - Felinid #Omu, add back Felinid
+    - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hours - Omu Edit
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"

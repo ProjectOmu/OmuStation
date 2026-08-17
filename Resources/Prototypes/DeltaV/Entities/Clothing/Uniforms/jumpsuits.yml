@@ -1,3 +1,15 @@
+﻿- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformCourier
+  name: courier's uniform
+  description: Makes you feel like a wanderer. # Omu
+  suffix: short # Omu
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/courier.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/courier.rsi
+
 - type: entity
   parent: ClothingUniformBaseFlippable
   id: ClothingUniformJumpsuitBlackTurtleneck

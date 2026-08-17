@@ -24,8 +24,10 @@
   - CartridgeBicaridine
   - CartridgeDermaline
   - CartridgeSaline
+  - CartridgeAmoxla # Omu
   - CartridgeArith # Omu
   - CartridgeDylo # Omu
+  - CartridgeEmpty # Omu
   - ParamedHypo
 
 - type: latheRecipePack
@@ -89,3 +91,10 @@
   id: EnvirosuitExtinguisherRefill
   recipes:
   - EnvirosuitExtinguisherRefill
+
+- type: latheRecipePack
+  id: MedicalCloning
+  recipes:
+  - CloningPodMachineCircuitboardRecipe
+  - MedicalScannerMachineCircuitboardRecipe
+  - CloningConsoleComputerCircuitboardRecipe

@@ -20,8 +20,14 @@
  #- type: PrecognitionResult
  #  message: psionic-power-precognition-mothroach-spawn-result-message
   - type: VentCrittersRule
-    table: # DeltaV: EntityTable instead of spawn entries
-      id: MobMothroach
+    table: !type:GroupSelector
+      children:
+      - id: MobMothroach
+      - id: MobMothroachMustard # Goob-Mothroaches-Start
+      - id: MobMothroachLeopard
+      - id: MobMothroachCecropia
+      - id: MobMothroachLunar
+        weight: 0.02 # Goob-Mothroaches-End
 
 - type: entity
   parent: BaseGameRule
@@ -30,7 +36,7 @@
   - type: StationEvent
     earliestStart: 15
     minimumPlayers: 15
-    weight: 0.4 #this should be rare to throw people off, otherwise it happens every shift
+    weight: 4 # Omu, DV has this at 6
     eventType: Neutral
     startAnnouncement: cosmiccult-announce-tier2-warning
     startAnnouncementColor: "#cae8e8"
@@ -42,3 +48,85 @@
     prototype: CosmicMalignRift
     minAmount: 2
     maxAmount: 4
+
+# nt agent (this is usually for the admeme spawn)
+- type: entity
+  parent: BaseGameRule
+  id: NTAgentRule
+  components:
+  - type: GameRule
+    chaosScore: 200 # Omu
+  - type: AntagObjectives
+    objectives:
+    - NTAgentObjective
+  - type: AntagSelection
+    agentName: NTAgent-round-end-name
+    definitions:
+    - min: 1
+      max: 2
+      pickPlayer: true
+      briefing:
+        text: NTAgent-role-greeting-human
+        color: lightblue
+        sound: /Audio/_DV/Ambience/Antag/centcomm_nt_agent.ogg
+      mindRoles:
+      - MindRoleNTAgent
+      components:
+      - type: AutoImplant
+        implants:
+        - RadioImplantCentcomm
+        - NanolinkSubImplant # Omu, give them nanolink as well.
+
+# nt agent sleeper event
+- type: entity
+  id: NTAgentSleeper
+  parent: [NTAgentRule]
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    minimumPlayers: 25
+    weight: 3
+    maxOccurrences: 1
+    startAnnouncement: station-event-communication-interception
+    startAudio:
+      path: /Audio/Announcements/intercept.ogg # Omu, Swapped to different traitor line for consistency
+    duration: null
+    occursDuringRoundEnd: false
+  - type: AlertLevelInterceptionRule
+  - type: AntagRandomObjectives
+    sets:
+    - groups: NTAgentObjectiveGroup
+      maxPicks: 2
+    maxDifficulty: 100
+  - type: AntagSelection
+    agentName: NTAgent-round-end-name
+    definitions:
+    - prefRoles: [ NTAgent ]
+      min: 1
+      max: 2
+      playerRatio: 10
+      pickPlayer: true
+      blacklist:
+        components:
+        - AntagImmune
+      briefing:
+        text: NTAgent-role-greeting-human
+        color: lightblue
+        sound: /Audio/_DV/Ambience/Antag/centcomm_nt_agent.ogg
+      mindRoles:
+      - MindRoleNTAgent
+      components:
+      - type: AutoImplant
+        implants:
+        - RadioImplantCentcomm
+        - NanolinkSubImplant
+
+- type: entity
+  id: Epsilon
+  parent: BaseStationEvent
+  components:
+  - type: StationEvent
+    weight: 0
+    duration: 12
+    maxDuration: 12
+  - type: EpsilonEventRule

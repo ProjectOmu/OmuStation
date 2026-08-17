@@ -83,6 +83,8 @@
 
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server._DV.CosmicCult.Components; // DeltaV
+using Content.Server._DV.GameTicking.Rules.Components; // DeltaV
+using Content.Server.Administration.Commands;
 using Content.Server.Antag;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
@@ -98,6 +100,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Server._Harmony.GameTicking.Rules.Components;
+using Content.Server._Starlight.GameTicking.Rules.Components; //Starlight
 
 namespace Content.Server.Administration.Systems;
 
@@ -116,6 +119,7 @@ public sealed partial class AdminVerbSystem
     private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
     private static readonly EntProtoId DefaultConspiratorRule = "Conspirators"; // Harmony
     private static readonly EntProtoId ParadoxCloneRuleId = "ParadoxCloneSpawn";
+	private static readonly EntProtoId DefaultSELFRule = "SiliconLiberation"; //Starlight
 
     // All antag verbs have names so invokeverb works.
     private void AddAntagVerbs(GetVerbsEvent<Verb> args)
@@ -310,6 +314,21 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", cosmicCultName, Loc.GetString("admin-verb-make-cosmiccultist")),
         };
         args.Verbs.Add(cosmiccult);
+
+        var ntAgent = Loc.GetString("admin-verb-make-NTAgent");
+        Verb agent = new()
+        {
+            Text = ntAgent,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/job_icons.rsi"), "Nanotrasen"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<NTAgentRuleComponent>(targetPlayer, "NTAgentRule");
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", ntAgent, Loc.GetString("admin-verb-text-make-NTAgent")),
+        };
+        args.Verbs.Add(agent);
         // End DeltaV Additions
 
 
@@ -327,5 +346,23 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", conspiratorName, Loc.GetString("admin-verb-make-conspirator")),
         };
         args.Verbs.Add(conspirator);
+
+        //Starlight SELF antag
+		var selfagentName = Loc.GetString("admin-verb-text-make-selfagent");
+        Verb selfagent = new()
+        {
+            Text = selfagentName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_Starlight/Objects/Specific/SELF/freemag.rsi"), "icon"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<SELFRuleComponent>(targetPlayer, DefaultSELFRule);
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", selfagentName, Loc.GetString("admin-verb-make-selfagent")),
+        };
+        args.Verbs.Add(selfagent);
+        //Starlight end
+
     }
 }

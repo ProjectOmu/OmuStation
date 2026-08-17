@@ -89,11 +89,13 @@
   parent: BaseMachine
   id: BaseMachinePowered
   components:
+  - type: StationAiWhitelist # Omu
   - type: ApcPowerReceiver
     powerLoad: 1000
   - type: ExtensionCableReceiver
   - type: LightningTarget
     priority: 1
+  - type: TooShortForUIBlacklist #imp
 
 - type: entity
   abstract: true

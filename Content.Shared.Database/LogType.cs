@@ -510,6 +510,7 @@ public enum LogType
     /// Tiles related interactions.
     /// </summary>
     Tile = 86,
+    ObjectiveSummary = 422, // DeltaV
 
     /// <summary>
     /// A client has sent too many chat messages recently and is temporarily blocked from sending more.
@@ -617,4 +618,9 @@ public enum LogType
     /// Antag objective info.
     /// </summary>
     AntagObjective = 10004, // Goobstation
+
+    /// <summary>
+    /// Silicon law changes.
+    /// </summary>
+    SiliconLaws = 10005, // Goobstation
 }

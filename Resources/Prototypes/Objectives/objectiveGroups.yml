@@ -130,7 +130,7 @@
     StealSupermatterSliverObjective: 0.5 # Goobstation - supermatter
     LawbringerStealObjective: 0.5 # Goobstation
     GeminiProjectorStealObjective: 0.5 # Goobstation
-    ExecutiveBriefcaseStealObjective: 0.5 # Goobstation
+    #ExecutiveBriefcaseStealObjective: 0.5 # Goobstation #OMU disabled
     JusticeStealObjective: 0.5 # Goobstation
 
 - type: weightedRandom
@@ -202,6 +202,8 @@
     ClothingNeckGoldmedalStealObjective: 1              #other
     ClothingNeckClownmedalStealObjective: 0.5
     DrinkMugAAStealObjective: 1 #command omu
+    CyberneticMantleStealObjective: 0.5 # Omu
+
 
 - type: weightedRandom
   id: ThiefObjectiveGroupStructure

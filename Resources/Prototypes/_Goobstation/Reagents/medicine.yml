@@ -499,7 +499,7 @@
         amount: -3
         conditions:
         - !type:UniqueBloodstreamChemThreshold
-          max: 3 # the gist is, 2 and below this sucks, 3 and above it's great; mix with water etc for good results
+          max: 2
       - !type:AdjustReagent
         group: Poison
         amount: -3
@@ -513,7 +513,7 @@
       - !type:HealthChange
         conditions:
         - !type:UniqueBloodstreamChemThreshold
-          min: 2
+          min: 3
         damage:
           types:
             Poison: -3
@@ -1066,10 +1066,10 @@
           shouldHave: false
 
 - type: reagent
-  id: PentenicAcid
-  name: reagent-name-pentenic-acid
+  id: PenteticAcid
+  name: reagent-name-pentetic-acid
   group: Medicine
-  desc: reagent-desc-pentenic-acid
+  desc: reagent-desc-pentetic-acid
   physicalDesc: reagent-physical-desc-acidic
   flavor: medicine
   color: "#22ff1a"
@@ -1212,6 +1212,7 @@
   plantMetabolism:
     - !type:PlantAdjustHealth
       amount: -10
+  worksOnTheDead: true # Omu
   reactiveEffects:
     Extinguish:
       methods: [ Touch ]
@@ -1252,7 +1253,14 @@
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
-          min: 160.15 # entire syringe lands you at -20 degrees celcius, not incredibly dangerous
+          min: 73.15 # Omu, this is the minimum temperature of a standard freezer; it takes a lot of herc to cool someone alive anyways
+        amount: -10000
+      - !type:AdjustTemperature # Omu, doubled cooling on corpses
+        conditions:
+        - !type:Temperature
+          min: 73.15
+        - !type:MobStateCondition
+          mobstate: Dead
         amount: -10000
       - !type:AdjustSolutionThermalEnergyEffect
         delta: -150
@@ -1445,8 +1453,8 @@
             Toxin: -3
             Airloss: -3
             Genetic: -3
-      - !type:GenericStatusEffect
-        key: Stun
+      - !type:ModifyStatusEffect 
+        effectProto: StatusEffectStunned
         time: 3
         type: Remove
     Narcotic:

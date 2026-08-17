@@ -1,0 +1,16 @@
+- type: entity
+  parent: ClothingMultipleHeadphones
+  id: ClothingMultipleBloodredHeadphones
+  name: blood-red headphones
+  description: For listening to evil tunes. Gain a boost when near someone wielding the Shredder!
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Multiple/bloodred-headphones.rsi
+    layers:
+    - state: icon
+      map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: Clothing
+    sprite: _Omu/Clothing/Multiple/bloodred-headphones.rsi
+  - type: ClothingGrantComponent
+    component:
+    - type: RadiusBuffReceiver

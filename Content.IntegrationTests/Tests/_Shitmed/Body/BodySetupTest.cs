@@ -179,7 +179,13 @@ public sealed class BodySetupTest
             {
                 Assert.That(dummy, Is.Not.EqualTo(EntityUid.Invalid));
                 var handCount = handsSys.EnumerateHands(dummy).Count();
-                Assert.That(handCount, Is.GreaterThanOrEqualTo(2), $"hands {speciesPrototype.ID}({speciesPrototype.Prototype})");
+                if (speciesPrototype.ID == "Allulalo") // Omu start
+                {
+                    Assert.That(handCount, Is.GreaterThanOrEqualTo(1), $"hands {speciesPrototype.ID}({speciesPrototype.Prototype})");
+                } else
+                {
+                    Assert.That(handCount, Is.GreaterThanOrEqualTo(2), $"hands {speciesPrototype.ID}({speciesPrototype.Prototype})");
+                }// Omu end, Allulalo only have one hand, so only check for one if the species is Allulalo here.
             });
 
         }
@@ -355,7 +361,7 @@ public sealed class BodySetupTest
             // Find all non-abstract entities with MobStateComponent
             var entityPrototypes = protoMan.EnumeratePrototypes<EntityPrototype>()
                 .Where(p => !p.Abstract
-//                            && p.ID != "MobGoidaBot" // pure GOIDA // Omu, disable 'GoidaBot'
+                            //                            && p.ID != "MobGoidaBot" // pure GOIDA // Omu, disable 'GoidaBot'
                             && p.Components.ContainsKey("MobState")
                             && !p.Components.ContainsKey("Godmode")
                             && !p.Components.ContainsKey("MegafaunaGodmode")) // Lavaland Change

@@ -13,3 +13,35 @@
   targetNode: glassesMedChem
   category: construction-category-clothing
   objectType: Item
+
+- type: construction
+  id: GlassesJamJarMed
+  graph: ClothingEyesGlassesMedJJ
+  startNode: start
+  targetNode: gogglesJamJarMed
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: GlassesJamJarMeson
+  graph: ClothingEyesGlassesMesonJJ
+  startNode: start
+  targetNode: gogglesJamJarMeson
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: GlassesJamJarSec
+  graph: ClothingEyesGlassesSecJJ
+  startNode: start
+  targetNode: gogglesJamJarSec
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: GlassesJamJarDiag
+  graph: ClothingEyesGlassesDiagJJ
+  startNode: start
+  targetNode: gogglesJamJarDiag
+  category: construction-category-clothing
+  objectType: Item

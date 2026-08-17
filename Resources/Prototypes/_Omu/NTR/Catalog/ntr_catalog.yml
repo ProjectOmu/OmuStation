@@ -11,3 +11,18 @@
   resetRestockOnPurchase: true
   restockAfterPurchase: 300 #5 minutes so NTR can't spam them (Please dont make me add a stock limit, that would just be boring)
 
+- type: listing
+  id: NTRCane
+  name: Nanotrasen Energy cane
+  description: A cane which acts as similiar to a stunbaton when powered.
+  productEntity: SpawnPodNTRCane
+  icon:
+    sprite: _Starlight/Objects/Weapons/Melee/cane_nt.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 10
+  categories:
+  - NTRpersonal
+  restockTime: 0
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 1200 # 20min

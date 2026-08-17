@@ -4,3 +4,23 @@
   - CentralCommand
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  - CentCommOffical
+#  - NanotrasenSpectre # Intentionaly not part of this.
+  - Deathsquad
+  - EmergencyResponseTeam
+
+- type: accessLevel
+  id: CentCommOffical
+  name: id-card-access-level-centcomm-offical
+
+- type: accessLevel
+  id: NanotrasenSpectre
+  name: id-card-access-level-nanotrasen-spectre
+
+- type: accessLevel
+  id: Deathsquad
+  name: id-card-access-level-deathsquad
+
+- type: accessLevel
+  id: EmergencyResponseTeam
+  name: id-card-access-level-emergency-response-team

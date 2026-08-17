@@ -1,0 +1,52 @@
+- type: flavor
+  id: atomicPrecision
+  flavorType: Complex
+  description: flavor-complex-atomicPrecision
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkAtomicPrecisionGlass
+  suffix: atomic precision
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: AtomicPrecision
+          Quantity: 30
+  - type: Icon
+    sprite: _Omu/Objects/Consumable/Drinks/atomicprecisionglass.rsi
+    state: icon
+
+- type: reagent
+  parent: BaseAlcohol
+  desc: reagent-desc-atomicPrecision
+  physicalDesc: reagent-physical-desc-atomicPrecision
+  flavor: atomicPrecision
+  id: AtomicPrecision
+  name: reagent-name-atomicPrecision
+  color: "#ff00ea"
+  metamorphicSprite:
+   sprite: _Omu/Objects/Consumable/Drinks/atomicprecisionglass.rsi
+   state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+        - !type:GenericStatusEffect
+          key: ScrambleDnaEffect
+          component: ScrambleDnaEffect
+          conditions:
+          - !type:ReagentThreshold
+            min: 25
+        - !type:HealthChange
+          damage:
+            groups:
+              Genetic: 0.25
+        - !type:AdjustReagent
+          reagent: Ethanol
+          amount: 1
+

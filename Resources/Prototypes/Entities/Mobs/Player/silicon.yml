@@ -128,6 +128,7 @@
     - Command
     - Engineering
     - Medical
+    - Prison # Omu
     - Science
     - Security
     - Service
@@ -139,6 +140,7 @@
     - Command
     - Engineering
     - Medical
+    - Prison # Omu
     - Science
     - Security
     - Service
@@ -327,6 +329,7 @@
     needsPower: false
   - type: StationAiCore
   - type: StationAiVision
+  - type: StationAiEarlyLeave # Goobstation
   - type: InteractionOutline
   - type: Sprite
     sprite: Mobs/Silicon/station_ai.rsi
@@ -386,7 +389,7 @@
   - type: BlockMovement
     blockInteraction: false
   - type: SiliconLawProvider
-    laws: NTDefault # Goobstation - AI/borg law changes - set AI to NTDefault
+    laws: OmuCrewsimov # Omu edit. AI uses Omu Crewimov
   - type: IonStormTarget # Goobstation - AI/borg law changes - ion stormable AI
   - type: SiliconLawBound
   - type: ActionGrant
@@ -428,28 +431,52 @@
       state: ai_female
   - type: NameIdentifier
     group: StationAi
-  - type: SpeechSynthesis # Corvax-Frontier-Barks
-    voice: Borg
-  - type: LanguageKnowledge # Einstein Engines - Language | Omustation - This has been added in here to have the AI speak unique languages, Borgs and the AI should speak all common languages, minus sign, which they should just understand.
+  - type: LanguageKnowledge
     speaks:
     - TauCetiBasic
-    - RobotTalk
-    - Elyran # Omustation start - Borgs and the AI should speak all common languages, minus sign, which they should just understand.
-    - Freespeak
-    - NovuNederic
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
     - SolCommon
-    - TauCetiBasic
-    - Tradeband # Omustation end
+    - RootSpeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
+    - RobotTalk
+    - DroneTalk
+    - Marish
+    - Elyran
+    - Freespeak
+    - Tradeband
+    - Schechi
+    - NewKinPidgin
+    - NovuNederic # Omustation
     understands:
     - TauCetiBasic
-    - RobotTalk
-    - Elyran # Omustation start - Borgs and the AI should speak all common languages, minus sign, which they should just understand.
-    - Freespeak
-    - NovuNederic
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
     - SolCommon
-    - TauCetiBasic
+    - RootSpeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
+    - RobotTalk
+    - DroneTalk
+    - Marish
+    - Elyran
+    - Freespeak
     - Tradeband
-    - Sign # Omustation end
+    - Sign
+    - Schechi
+    - NewKinPidgin
+    - NovuNederic # Omustation
+  - type: SpeechSynthesis # Corvax-Frontier-Barks
+    voice: Borg
 
 # Hologram projection that the AI's eye tracks.
 - type: entity
@@ -529,6 +556,7 @@
       borg_brain:
         - PositronicBrain
       borg_module:
+        - BorgModuleTool # Omu
         - BorgModuleL6C
         - BorgModuleOperative
         - BorgModuleEsword

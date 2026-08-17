@@ -31,6 +31,8 @@
     - type: ItemToggleActiveSound
       activeSound:
         path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyhum.ogg
+        params: # Omu
+          volume: -3
     - type: ItemToggleSize
       activatedSize: Ginormous
     - type: Clothing
@@ -38,6 +40,10 @@
       quickEquip: false
       slots:
       - Belt
+      - suitStorage #Omu start
+      clothingVisuals:
+        suitstorage:
+            - state: equipped-BACKPACK #Omu end
     - type: ComponentToggler
       components:
       - type: DisarmMalus
@@ -64,6 +70,10 @@
         right:
           - state: inhand-right-on
             shader: unshaded
+      clothingVisuals: #Omu start
+        suitstorage:
+          - state: equipped-BACKPACK-on
+            shader: unshaded #Omu end
     - type: PointLight
       netsync: false
       enabled: false

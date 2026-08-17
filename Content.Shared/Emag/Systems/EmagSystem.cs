@@ -29,6 +29,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Serialization;
 using Content.Shared.Whitelist;
 using Content.Goobstation.Common.Effects; // Shitmed - Starlight Abductors
+using Content.Shared._Mono.NoHack; // Omu
 
 namespace Content.Shared.Emag.Systems;
 
@@ -81,6 +82,9 @@ public sealed class EmagSystem : EntitySystem
             return false;
 
         if (_tag.HasTag(target, ent.Comp.EmagImmuneTag))
+            return false;
+
+        if (HasComp<NoHackComponent>(target)) // Omu
             return false;
 
         Entity<LimitedChargesComponent?> chargesEnt = ent.Owner;

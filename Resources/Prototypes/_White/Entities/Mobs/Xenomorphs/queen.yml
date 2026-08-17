@@ -62,6 +62,8 @@
     damage:
       groups:
         Brute: 50
+      types: # Omu, give them structural damage.
+        Structural: 40
   - type: Deathgasp
     prototype: XenomorphQueenDeathgasp
   - type: Speech
@@ -71,7 +73,7 @@
     speaks:
     - Xeno
 #    - XenoHivemind # Goobstation - collective mind
-    - TauCetiBasic
+#    - TauCetiBasic  Omu change - no more talking in tau
     understands:
     - Xeno
 #    - XenoHivemind # Goobstation - collective mind
@@ -81,6 +83,15 @@
   # - type: GuideHelp
   #   guides:
   #   - XenomorphQueen
+  - type: PassiveDamage # passive regen. # Omu
+    allowedStates:
+    - Alive
+    - Critical
+    damage:         #Omu change - actual queen health regen!
+      types:
+        Heat: -0.5
+      groups:
+        Brute: -0.5
 
 - type: entity
   parent: BaseMobXenomorphQueen

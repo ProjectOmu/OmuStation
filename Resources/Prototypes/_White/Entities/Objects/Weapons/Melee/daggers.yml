@@ -40,6 +40,7 @@
     malus: 0.225
   - type: BackStab
   - type: Blink
+    canBlinkWhileWeightless: False # Omu
   - type: UseDelay
     delay: 0.8
     delays:

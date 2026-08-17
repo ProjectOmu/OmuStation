@@ -396,6 +396,12 @@
         sprite:
           sprite: _Goobstation/Clothing/Neck/Ensembles/bso.rsi
           state: mantle-icon
+  - type: PointLight # Omu, same glow as the Elite BSO Cloak
+    enabled: false
+    radius: 2
+    energy: 4
+    color: "#84BEF4"
+  - type: UnpoweredFlashlight # Omu, allows that glow to be enabled/disabled instead of being forced
 
 - type: entity
   parent: [ClothingNeckBase, BaseCentcommCommandContraband]

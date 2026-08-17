@@ -41,6 +41,8 @@
     prototypes:
     - CargoTechGear
     - SalvageSpecialistGear
+    - MailCarrierGear # Omu note - Mail Carrier
+    - CourierGear # Omu / DeltaV - Courier, see Resources/Prototypes/_Omu/Roles/Jobs/Cargo/cargo.yml
 
 - type: entity
   parent: SalvageHumanCorpse

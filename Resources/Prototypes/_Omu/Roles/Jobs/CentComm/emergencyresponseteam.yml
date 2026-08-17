@@ -9,18 +9,19 @@
   playTimeTracker: JobERTLeaderBlue
   setPreference: false
   startingGear: ERTLeaderGearBlue
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTLeader" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
   - AllAccess
   access:
+  - EmergencyResponseTeam
   - CentralCommand
   - NanotrasenRepresentative
   - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTLeaderGearBlue
@@ -33,7 +34,7 @@
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterArmourDurathread
     id: ERTLeaderPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: ClothingHeadsetAltCentComLoudspeaker
     belt: ClothingBeltAssaultFilled
     pocket1: WeaponEnergyRevolver
     pocket2: FlashlightSeclite
@@ -57,10 +58,11 @@
   playTimeTracker: JobERTSecurityBlue
   setPreference: false
   startingGear: ERTSecurityGearBlue
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTSecurity" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   access:
+  - EmergencyResponseTeam
   - CentralCommand
   - Security
   - Brig
@@ -72,7 +74,7 @@
   - Command
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTSecurityGearBlue
@@ -106,10 +108,11 @@
   playTimeTracker: JobERTMedicalBlue
   setPreference: false
   startingGear: ERTMedicGearBlue
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTMedic" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   access:
+  - EmergencyResponseTeam
   - CentralCommand
   - Medical
   - Chemistry
@@ -120,7 +123,7 @@
   - External
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTMedicGearBlue
@@ -152,10 +155,11 @@
   playTimeTracker: JobERTJanitorBlue
   setPreference: false
   startingGear: ERTJanitorGearBlue
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTJanitor" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   access:
+  - EmergencyResponseTeam
   - CentralCommand
   - Service
   - Janitor
@@ -166,7 +170,7 @@
   - External
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTJanitorGearBlue
@@ -198,10 +202,11 @@
   playTimeTracker: JobERTEngineerBlue
   setPreference: false
   startingGear: ERTEngineerGearBlue
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTEngineer" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   access:
+  - EmergencyResponseTeam
   - CentralCommand
   - Engineering
   - Atmospherics
@@ -212,7 +217,7 @@
   - External
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTEngineerGearBlue
@@ -250,10 +255,11 @@
   playTimeTracker: JobERTChaplainBlue
   setPreference: false
   startingGear: ERTChaplainGearBlue
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTChaplain" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   access:
+  - EmergencyResponseTeam
   - CentralCommand
   - Chapel
   - Service
@@ -269,7 +275,7 @@
     - type: CurseImmune
     - type: CanEnchant
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTChaplainGearBlue

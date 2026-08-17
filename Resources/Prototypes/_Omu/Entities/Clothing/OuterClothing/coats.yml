@@ -236,3 +236,38 @@
   id: ClothingOuterCentcomLabcoatOpened
   name: central commander's labcoat
 
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCourierDuster
+  name: courier's duster
+  description: Makes you feel nuclear.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/courierduster.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/courierduster.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+
+- type: entity
+  id: ClothingOuterCoatArmoredJamrockBlazer
+  parent: [ClothingOuterCoatDetective]
+  name: armored jamrock blazer
+  description: It reminds you there are no truces with the furies.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/OuterClothing/Coats/blazer_jamrock.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/OuterClothing/Coats/blazer_jamrock.rsi
+
+- type: entity
+  id: ClothingOuterCoatArmoredAerostaticBomber
+  parent: [ClothingOuterCoatDetective]
+  name: armored aerostatic bomber
+  description: Wearing this jacket makes you feel stoic.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/OuterClothing/Coats/bomber_aerostatic.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/OuterClothing/Coats/bomber_aerostatic.rsi

@@ -16,19 +16,20 @@
   playTimeTracker: JobCBURN
   setPreference: false
   startingGear: CBURNGear
-  icon: "JobIconNanotrasen"
+  icon: "JobIconCBURN" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
   - AllAccess
   access:
+  - EmergencyResponseTeam # Omu
   - CentralCommand
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
   special: # Goobstation
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ] # Omu, use CC mindshield
 
 - type: startingGear # Goobstation - Start - Sol
   id: CBURNGear

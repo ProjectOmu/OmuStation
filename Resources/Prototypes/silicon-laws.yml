@@ -615,7 +615,7 @@
   id: IonStormLawsets
   weights:
     # its crewsimov by default dont be lame
-    Crewsimov: 0.25
+    OmuCrewsimov: 0.25 # Omu edit: using Omu laws
     Corporate: 1
     NTDefault: 1
     CommandmentsLawset: 1
@@ -632,3 +632,4 @@
     HelpimovLawset: 0.6 #Goobstation
     Drone: 0.5
     Ninja: 0.25
+    FreeLawset: 0.10 #Starlight

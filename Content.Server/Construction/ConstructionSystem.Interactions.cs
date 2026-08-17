@@ -88,6 +88,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Omu.Common.Construction;
 using Content.Server.Administration.Logs;
 using Content.Server.Construction.Components;
 using Content.Server.Temperature.Components;
@@ -103,7 +104,10 @@ using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Stacks;
 using Content.Shared.Temperature;
 using Content.Shared.Tools.Systems;
+using Content.Shared._Mono.NoDeconstruct;
+using Content.Shared.Tools;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 #if EXCEPTION_TOLERANCE
 // ReSharper disable once RedundantUsingDirective
@@ -115,6 +119,7 @@ namespace Content.Server.Construction
     public sealed partial class ConstructionSystem
     {
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly SharedMapSystem _map = default!; // Omu
 #if EXCEPTION_TOLERANCE
         [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
 #endif
@@ -134,6 +139,8 @@ namespace Content.Server.Construction
             SubscribeLocalEvent<ConstructionComponent, PartAssemblyPartInsertedEvent>(EnqueueEvent);
         }
 
+        private static readonly ProtoId<ToolQualityPrototype> PryingQuality = "Prying"; // Omu starlight fixes
+
         /// <summary>
         ///     Takes in an entity with <see cref="ConstructionComponent"/> and an object event, and handles any
         ///     possible construction interactions, depending on the construction's state.
@@ -143,6 +150,9 @@ namespace Content.Server.Construction
         /// <returns>The result of this interaction with the entity.</returns>
         private HandleResult HandleEvent(EntityUid uid, object ev, bool validation, ConstructionComponent? construction = null)
         {
+            if (HasComp<NoDeconstructComponent>(uid)) // Monolith
+                return HandleResult.False;
+
             if (!Resolve(uid, ref construction))
                 return HandleResult.False;
 
@@ -454,6 +464,18 @@ namespace Content.Server.Construction
                     // If we're handling an event after its DoAfter finished...
                     if (doAfterState == DoAfterState.Completed)
                         return  HandleResult.True;
+
+                    // Omustation Start
+                    if (HasComp<BigMachineBeingBuiltComponent>(uid)
+                        && !_toolSystem.HasQuality(interactUsing.Used, PryingQuality)) // kinda hardcoded crowbar check in case we are dissasembling
+                    {
+                        var bigBuildEvent = new BigBuildAttemptEvent(uid, user.Value);
+                        RaiseLocalEvent(uid, ref bigBuildEvent, true);
+
+                        if (bigBuildEvent.Cancelled)
+                            return HandleResult.False;
+                    }
+                    // Omustation End
 
                     var result  = _toolSystem.UseTool(
                         interactUsing.Used,

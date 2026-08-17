@@ -20,6 +20,7 @@
   - LegalSOP
   - StandardProceduresSOP
   - Succession
+  - TrainingManuals # Omu
 
 # Alert Levels Main Directory
 - type: guideEntry
@@ -100,6 +101,7 @@
   - CargoTechSOP
   - SalvageSpecialistSOP
   - ShaftMinerSOP
+  - CourierSOP #Omu
 
 - type: guideEntry
   id: CommandSOP
@@ -115,7 +117,6 @@
   - ChiefMedicalOfficerSOP
   - ChiefEngineerSOP
   - QuartermasterSOP
-  - CommandTrainingManual # Omu
   - AdministrativeAssistantSOP # Omu
 - type: guideEntry
   id: EngineeringSOP
@@ -130,8 +131,11 @@
   name: guide-entry-sop-medical
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Medical/MedicalSOP.xml"
   children:
+  - ChemistSOP # Omustation Start todo move sop stuff
   - DoctorInternSOP
-  - ChemistSOP
+  - ParamedicSOP
+  - PsychologistSOP
+  - VirologistSOP # Omustation End
 
 - type: guideEntry
   id: ScienceSOP
@@ -150,8 +154,8 @@
   - WardenSOP
   - OfficerCadetSOP
   - DetectiveSOP
-  - SecurityTrainingManual # Omu
   - CorpsmanSOP # Omu - rename Brigmedic to Corpsman
+  - SecuritySergeantSOP # Omu
 
 - type: guideEntry
   id: ServiceSOP
@@ -196,7 +200,7 @@
 - type: guideEntry
   id: EpsilonAlertSOP
   name: guide-entry-sop-epsilonalert
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/EpsilonAlertSOP.xml"
+  text: "/ServerInfo/_Omu/Guidebook/SoP/AlertLevels/EpsilonAlertSOP.xml" # Omu
 
 - type: guideEntry
   id: GammaAlertSOP

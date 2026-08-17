@@ -5,12 +5,16 @@
 
 - type: loadout
   id: WeaponPistolMk58Gold
+  dummyEntity: WeaponPistolMk58Gold
   effects:
     - !type:JobRequirementLoadoutEffect
       requirement:
         !type:DepartmentTimeRequirement
         department: Security
         time: 252000 #70 hrs
+  equipment:
+    pocket1: WeaponPistolMk58Gold
   storage:
     back:
-    - WeaponPistolMk58Gold
+    - MagazinePistol # You already start with one + this one = 2 the same as gun case
+  groupBy: "Main weapon"

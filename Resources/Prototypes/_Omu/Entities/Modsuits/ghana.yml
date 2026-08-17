@@ -1,0 +1,256 @@
+# SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
+  id: ClothingModsuitGhana
+  name: L-63 "Ghana" lightweight tactical modsuit control
+  description: The main controller for the mysterious Ghana modsuit.
+  components:
+    - type: Sprite
+      sprite: _Omu/Clothing/Modsuits/ghana.rsi
+    - type: ToggleableClothing
+      clothingPrototypes:
+        head: ClothingModsuitHelmetGhana
+        gloves: ClothingModsuitGauntletsGhana
+        outerClothing: ClothingModsuitChestplateGhana
+        shoes: ClothingModsuitBootsGhana
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
+          startingItem: PowerCellAntiqueProto
+          whitelist:
+            components:
+              - PowerCell
+    - type: Storage
+      grid:
+        - 0,0,7,6
+    - type: ExplosionResistance
+      damageCoefficient: 0
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        back:
+        - state: equipped-BACKPACK-sealed
+
+- type: entity
+  parent: ClothingModsuitGauntletsStandard
+  id: ClothingModsuitGauntletsGhana
+  name: Ghana lightweight modsuit gauntlets
+  description: A pair of gauntlets made for the Ghana modsuit.
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Modsuits/ghana.rsi
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND-sealed
+  - type: Insulated
+  - type: ClothingGrantComponent
+    component:
+    - type: SurgeryIgnoreClothing
+  - type: GrabModifier
+    startingGrabStage: Hard
+    grabEscapeModifier: -0.1
+    grabEscapeMultiplier: 0.8
+
+
+- type: entity
+  parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons, ShowMedicalIcons]
+  id: ClothingModsuitHelmetGhana
+  name: Ghana lightweight modsuit helmet
+  description: The helmet and holovisor that put fear in the syndicate High Command's eyes.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Clothing
+      clothingVisuals:
+        head:
+        - state: equipped-HEAD
+    - type: Sprite
+      sprite: _Omu/Clothing/Modsuits/ghana.rsi
+    - type: PressureProtection
+      highPressureMultiplier: 0.08
+      lowPressureMultiplier: 1000
+    - type: Armor
+      traumaDeductions:
+        Dismemberment: 1
+        OrganDamage: 1
+        BoneDamage: 1
+        VeinsDamage: 1
+        NerveDamage: 1
+      modifiers:
+        coefficients:
+          Blunt: 0.1
+          Slash: 0.1
+          Piercing: 0.1
+          Heat: 0.1
+          Cold: 0.1
+          Shock: 0.1
+          Cellular: 0.1
+          Radiation: 0.1
+          Caustic: 0.1
+    - type: ThermalVision
+      isEquipment: true
+      color: "#FFF9BF"
+      lightRadius: 15
+    - type: FlashImmunity
+    - type: FlashSoundSuppression
+      protectionRange: 0
+    - type: PointLight
+      color: "#FFF9BF"
+      enabled: false
+      radius: 15
+      energy: 3
+      mask: /Textures/Effects/LightMasks/cone.png
+      autoRot: true
+      netsync: false
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        head:
+        - state: equipped-HEAD-sealed
+          shader: unshaded
+    - type: ShowHealthBars
+      damageContainers:
+      - Biological
+      - Inorganic
+    - type: ShowHungerIcons
+    - type: ShowThirstIcons
+    - type: ShowSyndicateIcons
+
+- type: entity
+  parent: ClothingModsuitChestplateStandard
+  id: ClothingModsuitChestplateGhana
+  name: Ghana lightweight modsuit chestplate
+  description: This modsuit comes with extremely advanced servos that allow you to carry and operate otherwise impossibly heavy gear.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _Omu/Clothing/Modsuits/ghana.rsi
+    - type: ClothingSpeedModifier
+      walkModifier: 1
+      sprintModifier: 1
+    - type: Armor
+      traumaDeductions:
+        Dismemberment: 1
+        OrganDamage: 1
+        BoneDamage: 1
+        VeinsDamage: 1
+        NerveDamage: 1
+      modifiers:
+        coefficients:
+          Blunt: 0.1
+          Slash: 0.1
+          Piercing: 0.1
+          Heat: 0.1
+          Cold: 0.1
+          Shock: 0.1
+          Cellular: 0.1
+          Radiation: 0.1
+          Caustic: 0.1
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        outerClothing:
+        - state: equipped-OUTERCLOTHING-sealed
+    - type: StaminaResistance
+      damageCoefficient: 0
+    - type: PressureProtection
+      highPressureMultiplier: 0.02
+      lowPressureMultiplier: 1000
+    - type: ExplosionResistance
+      damageCoefficient: 0
+    - type: FireProtection
+      reduction: 1
+    - type: StasisProtection
+    - type: StasisBlinkProvider
+    - type: TemperatureProtection
+      heatingCoefficient: 0.01
+      coolingCoefficient: 0.01
+    - type: ClothingSlowOnDamageModifier
+      modifier: 0
+    - type: ClothingModifyStunTime
+      modifier: 0
+    - type: ModifyStandingUpTime
+      multiplier: 0
+    - type: ModifyDelayedKnockdown
+      cancel: true
+    - type: ClothingGrantComponent
+      component:
+      - type: SupermatterImmune
+      - type: EventHorizonIgnore
+        horizonWhitelist:
+          tags:
+          - Tesla
+      - type: ContainmentFieldIgnore
+
+- type: entity
+  parent: ClothingModsuitBootsStandard
+  id: ClothingModsuitBootsGhana
+  name: Ghana lightweight modsuit boots
+  description: Equipped with everything you need to crush syndicate skulls.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Appearance
+    - type: Sprite
+      sprite: _Omu/Clothing/Modsuits/ghana.rsi
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        shoes:
+        - state: equipped-FEET-sealed
+    - type: ItemToggle
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+    - type: ComponentToggler
+      components:
+      - type: NoSlip
+    - type: Magboots
+      enabledPrefix: null
+    - type: ClothingSpeedModifier
+      walkModifier: 1.1
+      sprintModifier: 1.1
+    - type: FootstepModifier
+      footstepSoundCollection:
+        collection: FootstepHeavySuit
+
+- type: entity
+  id: SuitStorageGhana
+  parent: SuitStorageBase
+  suffix: Ghana Modsuit
+  components:
+    - type: StorageFill
+      contents:
+          - id: OxygenTankFilled
+          - id: ClothingModsuitGhana
+          - id: ClothingMaskBreath
+
+- type: entity
+  parent: ClothingModsuitGhana
+  id: ClothingModsuitGhanaFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: HandheldGPSBasic # Mass Scanner Removed by Lavaland
+      - id: HyperFlash
+      - id: ToolDebug # Spanish Army Knife - TODO Replace
+      - id: WelderExperimental
+      - id: BlueShieldShieldEvilFilled # Goobstation
+      - id: DeterrentCaseFilled
+      - id: MagazineCaselessBlackiron
+        amount: 2
+      - id: WeaponSubMachineGunCustodii
+      - id: BSOManual

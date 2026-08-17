@@ -44,16 +44,6 @@
   group: market
 
 - type: cargoProduct
-  id: ForkliftCrateCargo
-  icon:
-    sprite: _Goobstation/Objects/Vehicles/forklift.rsi
-    state: forklift
-  product: CrateCargoForklift
-  cost: 6000
-  category: cargoproduct-category-name-service
-  group: market
-
-- type: cargoProduct
   id: RadioAdsCrateCargo
   icon:
     sprite: Objects/Misc/cd.rsi
@@ -70,5 +60,15 @@
     state: red-vinyl-disk
   product: CrateRadioStationVinyls
   cost: 3000
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: cargoProduct
+  id: ServiceHolySupplies
+  icon:
+    sprite: Objects/Specific/Chapel/bible.rsi
+    state: icon
+  product: CrateHolySupplies
+  cost: 2000
   category: cargoproduct-category-name-service
   group: market

@@ -62,7 +62,9 @@
     items:
     - id: WeaponProtoKineticAccelerator
       whitelist:
-        components:
-        - PressureDamageChange
+        tags: # Omu
+        - CyborgProtoKineticAccelerator
+        #components:
+        #- PressureDamageChange
   - type: BorgModuleIcon
     icon: { sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi, state: icon }

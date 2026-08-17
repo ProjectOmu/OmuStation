@@ -199,6 +199,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Medical, Science ]
+    allowedJobs: [ Brigmedic, BlueshieldOfficer ] # Omu
 
 # contraband restricted by job by some degree
 - type: entity
@@ -253,3 +254,54 @@
   - type: Contraband
     severity: Honkraband
     allowedJobs: [ Clown ]
+
+# Omustation start
+- type: entity
+  id: BaseBartenderContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedJobs: [ Bartender ]
+
+- type: entity
+  id: BaseCargoCommandContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Cargo, Command ]
+
+- type: entity
+  id: BaseMedicalCommandContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Medical, Command ]
+    allowedJobs: [ Brigmedic, BlueshieldOfficer ]
+
+- type: entity
+  id: BaseScienceCommandContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Science, Command ]
+
+- type: entity
+  id: BaseEngineeringCommandContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Engineering, Command ]
+
+- type: entity
+  id: BaseBrigmedicContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedJobs: [ Brigmedic ]
+# Omustation end

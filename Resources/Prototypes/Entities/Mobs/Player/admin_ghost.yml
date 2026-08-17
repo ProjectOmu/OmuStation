@@ -145,6 +145,7 @@
   name: admin observer
   categories: [ HideSpawnMenu ]
   components:
+  - type: AntagImmune # Omu
   - type: ContentEye
     maxZoom: 8.916104, 8.916104
   - type: Tag
@@ -186,6 +187,10 @@
     - AllAccess
     - Silicon
     tags:
+    - CentCommOffical # Omu start
+    - NanotrasenSpectre
+    - Deathsquad
+    - EmergencyResponseTeam # Omu end
     - NuclearOperative
     - SyndicateAgent
     - CentralCommand
@@ -267,6 +272,7 @@
     allowedVerbs: []
   - type: ExplosionResistance
     damageCoefficient: 0
+  - type: InteractionToggleable # CD
 
 - type: entity
   abstract: true

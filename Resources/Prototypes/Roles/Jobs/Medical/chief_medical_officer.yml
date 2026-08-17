@@ -152,6 +152,8 @@
 #      inverted: true
 #      species:
 #      - Felinid #Omu, add back Felinid
+    - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hours - Omu Edit
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
   supervisors: job-supervisors-captain
@@ -167,6 +169,7 @@
   goobcoins: 40 #Goob content
   weight: 10 #Goob Edit
   access:
+  - Paramedic # Omu
   - Medical
   - Command
   - Maintenance

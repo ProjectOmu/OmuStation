@@ -1,0 +1,7 @@
+- type: entity
+  id: WarpPointShuttle
+  parent: WarpPoint # Omu, Was GhostWarpPoint
+  suffix: Shuttle
+  components:
+  - type: WarpPoint
+    location: Shuttle

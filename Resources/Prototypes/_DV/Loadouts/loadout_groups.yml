@@ -30,6 +30,8 @@
   name: loadout-group-admin-assistant-outerclothing
   loadouts:
   - BartenderVest
+  - CommandWintercoat #Omu
+  - LongcoatNanoTrasen # DeltaV Longcoats
   # - WinterCoatBlack
   # - WinterCoatBrown
   # - CorporateJacket
@@ -40,6 +42,7 @@
   loadouts:
   - AdminAssistantHeadset
   - AdminAssistantAltHeadset
+  - AdminAssistantRadioKey    # Omu shitcode fix for IPC
 
 - type: loadoutGroup
   id: AdminAssistantGloves
@@ -48,12 +51,3 @@
   loadouts:
   - HoPGloves
   # - InspectionGloves
-
-- type: loadoutGroup
-  id: SalvageSpecialistJumpsuit
-  name: loadout-group-salvage-specialist-jumpsuit
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - SalvageJumpsuit
-  - SalvageJumpskirt

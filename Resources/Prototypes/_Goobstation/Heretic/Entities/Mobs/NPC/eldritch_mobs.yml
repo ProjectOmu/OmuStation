@@ -95,6 +95,7 @@
   - type: Targeting
   - type: Bloodstream
     maxBleedAmount: 0
+  - type: SeeHereticFixtures  # Omu - ensure ghouls can see heretic fixtures
 
 - type: entity
   parent: BaseMobGhoul
@@ -179,7 +180,7 @@
   - type: HealingAura
     selfHealMultiplier: 2
     componentHealMultipliers:
-      Heretic: 1
+      FleshPassive: 1
       Ghoul: 2
   - type: NightVision
     color: white
@@ -396,3 +397,8 @@
       NavSmash: !type:Bool
         true
   - type: Targeting
+  - type: NightVision # Omu
+    color: white
+    activateSound: null
+    deactivateSound: null
+    drawOverlay: false

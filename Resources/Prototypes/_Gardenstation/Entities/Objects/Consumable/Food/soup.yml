@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2025 Gip-Kip <hargifarspam2@gmail.com>
+# SPDX-FileCopyrightText: 2025 bunnygirlHyacinth <xxst4rf11m00nb700db4nnyxx@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: Eckeyiish kelp stew
+  parent: FoodBowlBase
+  id: FoodKelpStew
+  description: A wonderfully unique Thaven stew, made from a kelpwine stock and garnished with a sauteed kelp leaf! Side effects may include sweating, dilated pupils, euphoria, uncontrollable urge to dance, expanded consciousness, and visions of seacows...
+  components:
+  - type: FlavorProfile
+    flavors:
+    - kelpwine
+    - salty
+    - spicy
+  - type: Sprite
+    sprite: _Gardenstation/Objects/Consumable/Food/bowl.rsi
+    layers:
+    - state: bowl
+    - state: kelp-stew
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7
+        - ReagentId: Vitamin
+          Quantity: 2
+        - ReagentId: KelpPodSlime
+          Quantity: 10

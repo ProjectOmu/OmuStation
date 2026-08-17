@@ -100,11 +100,11 @@
 - type: startingGear
   id: DetectiveGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
+    # eyes: ClothingEyesGlassesSecurity # Omu move to loadouts
     id: DetectivePDA
     #gloves: ClothingHandsGlovesForensic - Goobstation, moved to loadouts
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
-    belt: ClothingBeltHolsterFilled
+    #belt: ClothingBeltHolsterFilled # Omu Moved to loadout
   storage:
     back:
     - Flash

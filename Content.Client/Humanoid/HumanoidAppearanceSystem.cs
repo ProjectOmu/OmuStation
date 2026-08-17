@@ -212,13 +212,15 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             ? profile.Appearance.SkinColor.WithAlpha(hairAlpha)
             : profile.Appearance.HairColor;
         var hair = new Marking(profile.Appearance.HairStyleId,
-            new[] { hairColor });
+            new[] { hairColor },
+            false); // Omu
 
         var facialHairColor = _markingManager.MustMatchSkin(profile.Species, HumanoidVisualLayers.FacialHair, out var facialHairAlpha, _prototypeManager)
             ? profile.Appearance.SkinColor.WithAlpha(facialHairAlpha)
             : profile.Appearance.FacialHairColor;
         var facialHair = new Marking(profile.Appearance.FacialHairStyleId,
-            new[] { facialHairColor });
+            new[] { facialHairColor },
+            false); // Omu
 
         if (_markingManager.CanBeApplied(profile.Species, profile.Sex, hair, _prototypeManager))
         {
@@ -238,7 +240,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
                 profile.Appearance.EyeColor,
                 markings
             );
-            markings.AddBack(prototype.MarkingCategory, new Marking(marking.MarkingId, markingColors));
+            markings.AddBack(prototype.MarkingCategory, new Marking(marking.MarkingId, markingColors, marking.GlowyBits)); // Omu
         }
 
         markings.EnsureSpecies(profile.Species, profile.Appearance.SkinColor, _markingManager, _prototypeManager);
@@ -281,7 +283,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             {
                 if (_markingManager.TryGetMarking(marking, out var markingPrototype))
                 {
-                    ApplyMarking(markingPrototype, marking.MarkingColors, marking.Visible, entity);
+                    ApplyMarking(markingPrototype, marking.MarkingColors, marking.GlowyBits, marking.Visible, entity); // Omu
                 }
             }
         }
@@ -316,29 +318,31 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
     private void RemoveMarking(Marking marking, Entity<SpriteComponent> spriteEnt)
     {
         if (!_markingManager.TryGetMarking(marking, out var prototype))
-        {
             return;
-        }
 
         foreach (var sprite in prototype.Sprites)
         {
             if (sprite is not SpriteSpecifier.Rsi rsi)
-            {
                 continue;
-            }
 
             var layerId = $"{marking.MarkingId}-{rsi.RsiState}";
             if (!_sprite.LayerMapTryGet(spriteEnt.AsNullable(), layerId, out var index, false))
-            {
                 continue;
-            }
 
             _sprite.LayerMapRemove(spriteEnt.AsNullable(), layerId);
             _sprite.RemoveLayer(spriteEnt.AsNullable(), index);
+
+            // If this marking is one that can be displaced, we need to remove the displacement as well; otherwise
+            // altering a marking at runtime can lead to the renderer falling over.
+            // The Vulps must be shaved.
+            // (https://github.com/space-wizards/space-station-14/issues/40135).
+            if (prototype.CanBeDisplaced)
+                _displacement.EnsureDisplacementIsNotOnSprite(spriteEnt, layerId);
         }
     }
     private void ApplyMarking(MarkingPrototype markingPrototype,
         IReadOnlyList<Color>? colors,
+        uint glowyBits, // Omu
         bool visible,
         Entity<HumanoidAppearanceComponent, SpriteComponent> entity)
     {
@@ -346,9 +350,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         var sprite = entity.Comp2;
 
         if (!_sprite.LayerMapTryGet((entity.Owner, sprite), markingPrototype.BodyPart, out var targetLayer, false))
-        {
             return;
-        }
 
         visible &= !IsHidden(humanoid, markingPrototype.BodyPart);
         visible &= humanoid.BaseLayers.TryGetValue(markingPrototype.BodyPart, out var setting)
@@ -359,9 +361,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             var markingSprite = markingPrototype.Sprites[j];
 
             if (markingSprite is not SpriteSpecifier.Rsi rsi)
-            {
-                continue;
-            }
+                return;
 
             var layerId = $"{markingPrototype.ID}-{rsi.RsiState}";
 
@@ -391,9 +391,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             _sprite.LayerSetVisible((entity.Owner, sprite), layerId, visible);
 
             if (!visible || setting == null) // this is kinda implied
-            {
                 continue;
-            }
 
             // Okay so if the marking prototype is modified but we load old marking data this may no longer be valid
             // and we need to check the index is correct.
@@ -418,9 +416,14 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             }
 
             if (humanoid.MarkingsDisplacement.TryGetValue(markingPrototype.BodyPart, out var displacementData) && markingPrototype.CanBeDisplaced)
-            {
                 _displacement.TryAddDisplacement(displacementData, (entity.Owner, sprite), targetLayer + j + 1, layerId, out _);
-            }
+
+            // Omu begin
+            // Gets the current glowy bit from the loop
+            var isGlowy = (glowyBits & (1u << j)) != 0;
+            if (isGlowy)
+                sprite.LayerSetShader(layerId, "unshaded");
+            // Omu end
         }
     }
 
@@ -475,7 +478,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             foreach (var marking in markingList)
             {
                 if (_markingManager.TryGetMarking(marking, out var markingPrototype) && markingPrototype.BodyPart == layer)
-                    ApplyMarking(markingPrototype, marking.MarkingColors, marking.Visible, (ent, ent.Comp, sprite));
+                    ApplyMarking(markingPrototype, marking.MarkingColors, marking.GlowyBits, marking.Visible, (ent, ent.Comp, sprite)); // Omu
             }
         }
     }

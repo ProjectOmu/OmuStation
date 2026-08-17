@@ -108,15 +108,15 @@
     Plasma: 100
     Silver: 50
 
-- type: latheRecipe
-  id: XenoCompatibilityImplanter
-  result: XenoCompatibilityImplanter
-  completetime: 8
-  materials:
-    Steel: 500
-    Glass: 750
-    Plasma: 1500
-    Silver: 300
+#- type: latheRecipe # Omu, convert this into an antag item instead.
+#  id: XenoCompatibilityImplanter
+#  result: XenoCompatibilityImplanter
+#  completetime: 8
+#  materials:
+#    Steel: 500
+#    Glass: 750
+#    Plasma: 1500
+#    Silver: 300
 
 - type: latheRecipe
   id: MedicalPatchBasic
@@ -158,10 +158,34 @@
     Plastic: 500
     Cloth: 500
 
+# - type: latheRecipe #omu edit start
+#   id: EnergyChemDispenserMachineCircuitboard
+#   parent: BaseGoldCircuitboardRecipe
+#   result: EnergyChemDispenserMachineCircuitboard
+#   icon:
+#     sprite: Structures/dispensers.rsi
+#     state: industrial-working #omu edit end
+
 - type: latheRecipe
-  id: EnergyChemDispenserMachineCircuitboard
-  parent: BaseGoldCircuitboardRecipe
-  result: EnergyChemDispenserMachineCircuitboard
+  parent: [BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory]
+  id: CloningPodMachineCircuitboardRecipe
   icon:
-    sprite: Structures/dispensers.rsi
-    state: industrial-working
+    sprite: Structures/Machines/cloning.rsi
+    state: pod_0
+  result: CloningPodMachineCircuitboard
+  completetime: 10
+
+- type: latheRecipe
+  parent: [BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory]
+  id: MedicalScannerMachineCircuitboardRecipe
+  icon:
+    sprite: Structures/Machines/scanner.rsi
+    state: open
+  result: MedicalScannerMachineCircuitboard
+  completetime: 10
+
+- type: latheRecipe
+  parent: [BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory]
+  id: CloningConsoleComputerCircuitboardRecipe
+  result: CloningConsoleComputerCircuitboard
+  completetime: 10
