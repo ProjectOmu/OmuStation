@@ -8,6 +8,9 @@
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
+  - type: Tag
+    tags:
+    - SecBeltEquip
   - type: ItemSwitch
     defaultState: off
     state: "off"
@@ -44,20 +47,20 @@
           sprite: _Omu/Objects/Weapons/Throwable/secarang.rsi
           state: secarang_on
         components:
-        - type: Stunbaton
+        - type: Stunbaton # This has to be here otherwise it will not drain enegry on a throw hit
           energyPerUse: 25
         - type: MeleeWeapon
           damage:
             types:
               Blunt: 0
-        - type: DamageOtherOnHit # the damage the throw does, cannot be changed by a toggle as its sever side
+        - type: DamageOtherOnHit
           damage:
             types:
               Blunt: 0
-        - type: StaminaDamageOnHit # stam damage when you slap people with it
+        - type: StaminaDamageOnHit
           damage: 10
           overtime: 10
-        - type: StaminaDamageOnCollide # stam damage when ya throw it at people
+        - type: StaminaDamageOnCollide
           damage: 25
         soundActivate:
         collection: sparks
