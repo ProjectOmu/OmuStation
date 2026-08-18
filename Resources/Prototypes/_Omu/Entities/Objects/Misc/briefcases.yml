@@ -1,8 +1,8 @@
-- type:
+- type: entity
   parent: BriefcaseSecure
   id: BriefcaseSecureUnhackable
   name: secure briefcase
   suffix: Unhackable
   components:
     - type: DigitalLock
-      resetQuality: false
+      resetQuality: none
