@@ -1,0 +1,12 @@
+- type: entity
+  id: SpawnPointLocationMidRoundAntag
+  name: possible spawn location
+  suffix: MidRoundAntag
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: prisoner
+  - type: MidRoundAntagSpawnLocation

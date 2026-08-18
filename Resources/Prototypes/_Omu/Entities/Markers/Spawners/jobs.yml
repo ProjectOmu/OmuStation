@@ -1,16 +1,4 @@
 - type: entity
-  id: SpawnPointPrisoner
-  parent: SpawnPointJobBase
-  name: transitprisoner
-  components:
-  - type: SpawnPoint
-    job_id: TransitPrisoner
-  - type: Sprite
-    layers:
-      - state: green
-      - state: prisoner
-
-- type: entity
   id: SpawnPointSecuritySergeant
   parent: SpawnPointJobBase
   name: securitysergeant

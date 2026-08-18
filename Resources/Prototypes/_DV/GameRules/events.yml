@@ -49,6 +49,62 @@
     minAmount: 2
     maxAmount: 4
 
+# Mid round antag spawns
+- type: entity
+  abstract: true
+  parent: BaseGameRule
+  id: BaseMidRoundAntag
+  components:
+  - type: StationEvent
+    weight: 7
+    reoccurrenceDelay: 5
+    minimumPlayers: 15
+    earliestStart: 25
+  - type: MidRoundAntagRule
+
+- type: entity
+  parent: BaseMidRoundAntag
+  id: Fugitive
+  components:
+  - type: StationEvent
+    minimumPlayers: 40 # it's really easy to find fugitives on lowpop
+    duration: null
+#  - type: PrecognitionResult
+#    message: psionic-power-precognition-fugitive-result-message
+  - type: FugitiveRule
+  - type: AntagLoadProfileRule
+    # Omu start
+    speciesOverride: Human
+    speciesOverrideBlacklist:
+    - Abductor
+    - Plasmaman
+    # Omu end
+  - type: AntagObjectives
+    objectives:
+    - FugitiveEscapeObjective
+  - type: AntagSelection
+    agentName: fugitive-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostFugitive
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: FugitiveGear
+      roleLoadout:
+      - RoleSurvivalStandard
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesFakeHumanFirst
+        - NamesFakeHumanLast
+        nameFormat: name-format-standard
+      #- type: RandomHumanoidAppearance # Omu
+      #  randomizeName: false
+      - type: EmitSoundOnSpawn # fell out of the ceiling
+        sound: /Audio/Effects/clang.ogg
+      mindRoles:
+      - MindRoleFugitive
+
 # nt agent (this is usually for the admeme spawn)
 - type: entity
   parent: BaseGameRule
