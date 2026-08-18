@@ -1,0 +1,102 @@
+- type: constructionGraph
+  id: GreaserGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+      - to: greaserframe
+        steps:
+        - tag: ModularReceiver
+          icon:
+            sprite: Objects/Misc/modular_receiver.rsi
+            state: icon
+          name: construction-graph-tag-modular-receiver
+        - material: Steel
+          amount: 20
+          doAfter: 10
+
+    - node: greaserframe
+      entity: GreaseGunFrame
+      edges:
+      - to: machinedgreaserframe
+        steps:
+        - tool: Screwing
+          doAfter: 15
+
+    - node: machinedgreaserframe
+      entity: MachinedGreaseGunFrame
+      edges:
+      - to: greaserboltunwelded
+        steps:
+        - material: MetalRod
+          amount: 6
+          doAfter: 10
+
+    - node: greaserboltunwelded
+      entity: MachinedGreaseGunFrame
+      edges:
+      - to: greaserboltwelded
+        steps:
+        - tool: Welding
+          doAfter: 10
+
+    - node: greaserboltwelded
+      entity: GreaseGunBoltAssembly
+      edges:
+      - to: greaserlowerassembly
+        steps:
+        - material: Steel
+          amount: 10
+          doAfter: 15
+
+    - node: greaserlowerassembly
+      entity: GreaseGunLowerAssembly
+      edges:
+      - to: greasertriggergroup
+        steps:
+        - tool: Screwing
+          doAfter: 10
+
+    - node: greasertriggergroup
+      entity: GreaseGunLowerAssembly
+      edges:
+      - to: greasertriggerwiring
+        steps:
+        - material: Cable
+          amount: 10
+          doAfter: 10
+    
+    - node: greasertriggerwiring
+      entity: GreaseGunLowerAssembly
+      edges:
+      - to: greaserbarrel
+        steps: 
+        - tag: Pipe
+          icon:
+            sprite: Structures/Piping/Atmospherics/pipe.rsi
+            state: pipeStraight
+          name: construction-graph-tag-pipe
+          doAfter: 10
+
+    - node: greaserbarrel
+      entity: GreaseGunBarrel
+      edges:
+      - to: greaserbarrelwrenched
+        steps:
+        - tool: Anchoring
+          doAfter: 10
+
+    - node: greaserbarrelwrenched
+      entity: GreaseGunBarrel
+      edges:
+      - to: greaser
+        steps: 
+        - tag: Lubricant
+          icon:
+            sprite: Objects/Consumable/Drinks/lube-tube.rsi
+            state: icon
+          name: construction-graph-tag-lubricant
+          doAfter: 5
+        
+    - node: greaser
+      entity: WeaponSubMachineGunGreaser

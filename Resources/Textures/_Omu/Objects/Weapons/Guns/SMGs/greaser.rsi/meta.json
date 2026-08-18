@@ -1,0 +1,54 @@
+{
+	"version": 1,
+	"license": "CC-BY-SA-3.0",
+	"copyright": "Taken/modified from https://github.com/goonstation/goonstation/blob/0cc3070b5b6929aabf3750163b44bbaf940f46ae/icons/obj/items/guns/kinetic.dmi, sprite modification by NotoriousCapone, backpack sling created by NotoriousCapone, wield sprites by NotoriousCapone, base sprite heavily edited by NotoriousCapone for SS14",
+	"size": {
+		"x": 32,
+		"y": 32
+	},
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "base"
+        },
+        {
+            "name": "bolt-open"
+        },
+        {
+            "name": "mag-0"
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "equipped-BACKPACK",
+            "directions": 4
+        },
+        {
+            "name": "equipped-SUITSTORAGE",
+            "directions": 4
+        },
+        {
+            "name": "construction-1"
+        },
+        {
+            "name": "construction-2"
+        },
+        {
+            "name": "construction-3"
+        },
+        {
+            "name": "construction-4"
+        },
+        {
+            "name": "construction-5"
+        }
+    ]
+}

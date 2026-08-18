@@ -1,0 +1,79 @@
+- type: entity
+  name: Uncut Steel Frame
+  parent: BaseItem
+  id: GreaseGunFrame
+  description: A crude, rectangular hunk of station steel. Nothing’s drilled, nothing’s fitted. Just raw potential and bad intentions.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/SMGs/greaser.rsi
+    state: construction-1
+  - type: Item
+    size: Normal
+    sprite: 
+  - type: Construction
+    graph: GreaserGraph
+    node: greaserframe
+
+- type: entity
+  name: Rough-Bored Receiver
+  parent: BaseItem
+  id: MachinedGreaseGunFrame
+  description: A roughly machined receiver shell. The metal’s uneven, crude, and filed by hand, but the shape of a gun is finally showing itself.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/SMGs/greaser.rsi
+    state: construction-2
+  - type: Item
+    size: Normal
+    sprite: _Omu/Objects/Weapons/Guns/SMGs/greaser.rsi
+  - type: Construction
+    graph: GreaserGraph
+    node: machinedgreaserframe
+
+- type: entity
+  name: Bolt-Fitted Receiver
+  parent: BaseItem
+  id: GreaseGunBoltAssembly
+  description: The bolt’s slapped in and welded shut. Lords' lore says if it rattles, it’ll run—this one rattles like hell.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/SMGs/greaser.rsi
+    state: construction-3
+  - type: Item
+    size: Normal
+    sprite: _Omu/Objects/Weapons/Guns/SMGs/greaser.rsi
+  - type: Construction
+    graph: GreaserGraph
+    node: greaserboltwelded
+
+- type: entity
+  name: Wired-Up Lower Rig
+  parent: BaseItem
+  id: GreaseGunLowerAssembly
+  description: The lower assembly is wired, screwed, and half-aligned. The trigger crunches like a mousetrap. One or two more steps and this thing might actually fire.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/SMGs/greaser.rsi
+    state: construction-4
+  - type: Item
+    size: Normal
+    sprite: _Omu/Objects/Weapons/Guns/SMGs/greaser.rsi
+  - type: Construction
+    graph: GreaserGraph
+    node: greaserlowerassembly
+
+- type: entity
+  name: Nearly-Ready Greaser
+  parent: BaseItem
+  id: GreaseGunBarrel
+  description: Every part of the gun is now bolted together; Barrel, bolt, frame, and trigger. It just needs some minor adjustments and, of course, grease.
+  components: 
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/SMGs/greaser.rsi
+    state: construction-5
+  - type: Item
+    size: Normal
+    sprite: _Omu/Objects/Weapons/Guns/SMGs/greaser.rsi
+  - type: Construction
+    graph: GreaserGraph
+    node: greaserbarrel

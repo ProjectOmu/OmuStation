@@ -9,6 +9,66 @@
       severity: Restricted
 
 - type: entity
+  name: Greaser
+  parent: [BaseWeaponSubMachineGun, BaseMajorContraband]
+  id: WeaponSubMachineGunGreaser
+  description: A long since leaked and circulated schematic of a staple Maint Lords piece. The kind of gutter gun that rattles before it roars.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/SMGs/greaser.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Omu/Objects/Weapons/Guns/SMGs/greaser.rsi
+  - type: ChamberMagazineAmmoProvider
+  - type: Gun
+    minAngle: 10
+    maxAngle: 25
+    fireRate: 4
+    angleIncrease: 3
+    angleDecay: 16
+    soundGunshot:
+      path: /Audio/_Omu/Weapons/Guns/Gunshots/greaser.ogg
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    - SemiAuto
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolSubMachineGunEmpty
+        insertSound: /Audio/_Omu/Weapons/Guns/MagIn/greaser_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolSubMachineGun
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Multishot
+    missChance: 0.3
+  - type: Item
+    shape:
+    - 0,0,2,1
+  - type: Construction
+    graph: GreaserGraph
+    node: greasergun
+
+- type: entity
   name: SKBC-15 "Varja"
   parent: [BaseWeaponSubMachineGun, BaseGunWieldable]
   id: WeaponSubMachineGunCustodii
