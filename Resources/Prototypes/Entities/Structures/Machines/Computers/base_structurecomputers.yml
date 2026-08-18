@@ -134,6 +134,9 @@
     understands:
     - TauCetiBasic
   # Einstein Engines - Language end
+  - type: ESSparkOnHit # ES
+    prob: 0.25
+    count: 2
 #
 #     This is overwritten by children, so needs to be defined there
 #  - type: UserInterface

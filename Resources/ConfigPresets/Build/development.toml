@@ -63,3 +63,7 @@ ascension_requires_objectives = false
 random_characters = false
 random_species_weights = ""
 ssd_sleep_time = 3600
+
+[audio] # DeltaV
+attenuation = 4 # inversedistanceclamped 1 << 2, see audioparams.cs
+z_offset = -2

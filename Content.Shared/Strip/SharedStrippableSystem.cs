@@ -80,6 +80,7 @@
 using System.Linq;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Chat;
 using Content.Shared.CombatMode;
 using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
@@ -97,6 +98,7 @@ using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Popups;
 using Content.Shared.Strip.Components;
 using Content.Shared.Verbs;
+using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Strip;
@@ -115,6 +117,8 @@ public abstract class SharedStrippableSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+
+    [Dependency] private SharedChatSystem _chat = default!; // Moffstation - Stripping notifier
 
     public override void Initialize()
     {
@@ -380,6 +384,7 @@ public abstract class SharedStrippableSystem : EntitySystem
 
         if (!stealth)
         {
+            _interactionSystem.DoContactInteraction(user, target, null, true); // Moffstation - Interaction particles - switched to person so the particles pop up
             if (IsStripHidden(slotDef, user))
                 _popupSystem.PopupEntity(Loc.GetString("strippable-component-alert-owner-hidden", ("slot", slot)), target, target, GetThievingNoiseLevelOrLarge(user)); // Omustation - Remake EE Traits System - Thieving Trait - popup size is now based on ThievingComponent
             else
@@ -395,7 +400,6 @@ public abstract class SharedStrippableSystem : EntitySystem
         var prefix = stealth ? "stealthily " : "";
         _adminLogger.Add(LogType.Stripping, LogImpact.Low, $"{ToPrettyString(user):actor} is trying to {prefix}strip the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s {slot} slot");
 
-        _interactionSystem.DoContactInteraction(user, item);
 
         var doAfterArgs = new DoAfterArgs(EntityManager, user, time, new StrippableDoAfterEvent(false, true, slot), user, target, item)
         {
@@ -597,6 +601,7 @@ public abstract class SharedStrippableSystem : EntitySystem
 
         if (!stealth)
         {
+            _interactionSystem.DoContactInteraction(user, target, null, true); // Moffstation - Interaction particles - switched to person so the particles pop up
             _popupSystem.PopupEntity(Loc.GetString("strippable-component-alert-owner",
                                                         ("user", Identity.Entity(user, EntityManager)),
                                                         ("item", item)),
@@ -607,7 +612,6 @@ public abstract class SharedStrippableSystem : EntitySystem
         var prefix = stealth ? "stealthily " : "";
         _adminLogger.Add(LogType.Stripping, LogImpact.Low, $"{ToPrettyString(user):actor} is trying to {prefix}strip the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s hands");
 
-        _interactionSystem.DoContactInteraction(user, item);
 
         var doAfterArgs = new DoAfterArgs(EntityManager, user, time, new StrippableDoAfterEvent(false, false, handName), user, target, item)
         {
@@ -741,6 +745,19 @@ public abstract class SharedStrippableSystem : EntitySystem
 
         if (!HasComp<StrippingComponent>(user))
             return false;
+
+        // Moffstation - Start - Interaction particles and strip menu notification
+        // Do this check to make it harder to spam the chat
+        var (_, stealth) = GetStripTimeModifiers(user, target, null, target.Comp.HandStripDelay);
+        if (!stealth && !_ui.IsUiOpen(target.Owner, StrippingUiKey.Key))
+        {
+            _popupSystem.PopupCoordinates(
+                Loc.GetString("strip-menu-viewing-message", ("user", Identity.Entity(user, EntityManager))),
+                Transform(user).Coordinates,
+                target.Owner
+                );
+        }
+        // Moffstation - end
 
         _ui.OpenUi(target.Owner, StrippingUiKey.Key, user);
         return true;

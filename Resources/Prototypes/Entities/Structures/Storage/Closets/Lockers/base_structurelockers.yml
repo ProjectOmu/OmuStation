@@ -85,6 +85,11 @@
   - type: RecyclableOnUnlock
   - type: Paintable
     group: Locker
+# ES START
+  - type: ESSparkOnHit
+    prob: 0.25
+    count: 2
+# ES END
 
 - type: entity
   id: LockerBaseSecure

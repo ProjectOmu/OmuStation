@@ -162,7 +162,7 @@
     openSound:
       path: /Audio/Machines/airlock_open.ogg
     closeSound:
-      path: /Audio/Machines/airlock_close.ogg
+      path: /Audio/_ES/Machines/airlock_close.ogg # Ephemeral Space - better door timings
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
   - type: ContainerContainer
@@ -276,6 +276,9 @@
     - KnockOn
   - type: WeldingSparksAnimation # Goobstation
     startingOffset: 0, 0.5
+  - type: ESSparkOnHit # ES
+    prob: 0.25
+    count: 2
   placement:
     mode: SnapgridCenter
 
