@@ -4,7 +4,7 @@
   components:
   - type: ChimeraRule
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 20
   - type: AntagObjectives
     objectives:
     - roles-antag-Chimera-objective
@@ -14,7 +14,7 @@
     definitions:
     - prefRoles: [ LetoferolSleeper ]
       max: 1
-      playerRatio: 40
+      playerRatio: 20
       chaosScore: 600
       jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster ]
       startingGear: LetoStartingGear
