@@ -17,7 +17,9 @@
 
 - type: alert
   id: Corporeal
-  icons: [ /Textures/_Goobstation/Wraith/wraith.rsi/icon.png ] # Goobstation sprite change, revenant is dead and we killed him. Glory to Goonstation Wraith!!!
+  icons: # Omu edit start: Fixed a RSI issue for wraith
+  - sprite: /Textures/_Goobstation/Wraith/wraith.rsi # Goobstation sprite change, revenant is dead and we killed him. Glory to Goonstation Wraith!!!
+    state: icon # Omu edit end
   name: alerts-revenant-corporeal-name
   description: alerts-revenant-corporeal-desc
 
