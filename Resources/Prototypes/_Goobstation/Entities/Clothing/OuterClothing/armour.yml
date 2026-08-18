@@ -428,9 +428,9 @@
     - Foot
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.9
+        Blunt: 0.8 # Omu - WTF WHY DOES CHAP GET 50% RESIST
+        Slash: 0.8 # Omu
+        Piercing: 0.8 # Omu
   - type: ClothingSpeedModifier
     walkModifier: 1
     sprintModifier: 1
@@ -543,9 +543,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.95
+        Blunt: 0.85 # Omu
+        Slash: 0.85 # Omu
+        Piercing: 0.85 # Omu
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: FireProtection
