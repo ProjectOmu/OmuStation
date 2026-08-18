@@ -206,6 +206,11 @@
     critThreshold: 150
   - type: Inventory
     templateId: chimera
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 4
   - type: SurgeryTarget
   - type: ContainerContainer
     containers:
