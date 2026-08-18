@@ -1,0 +1,16 @@
+#turret control boards. remove if you pull the recipes from wizden
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseCircuitryRecipeCategory ]
+  id: WeaponEnergyTurretAIControlPanelElectronics
+  result: WeaponEnergyTurretAIControlPanelElectronics
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseCircuitryRecipeCategory ]
+  id: WeaponEnergyTurretSecurityControlPanelElectronics
+  result: WeaponEnergyTurretSecurityControlPanelElectronics
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseCircuitryRecipeCategory ]
+  id: WeaponEnergyTurretCommandControlPanelElectronics
+  result: WeaponEnergyTurretCommandControlPanelElectronics
