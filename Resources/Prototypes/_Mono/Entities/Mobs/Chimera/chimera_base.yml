@@ -206,11 +206,11 @@
     critThreshold: 150
   - type: Inventory
     templateId: chimera
-  - type: Butcherable
+  - type: Butcherable # Omu start - stops people from being RR'd by an overzelous tider with a knife
     butcheringType: Spike
     spawned:
     - id: FoodMeat
-      amount: 4
+      amount: 4 # Omu end
   - type: SurgeryTarget
   - type: ContainerContainer
     containers:
