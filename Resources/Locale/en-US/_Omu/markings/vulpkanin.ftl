@@ -1,3 +1,9 @@
+marking-VulpTailCorgi-corgi = Crogi tail
+marking-VulpTailCorgi = Vulpkanin Corgi
+
+marking-VulpTailDalmatian-dalmatian = Dalmatian tail
+marking-VulpTailDalmatian = Vulpkanin Dalmatian
+
 marking-VulpBodyPointsCrestLeft-points_crest_left = Points (crest)
 marking-VulpBodyPointsCrestLeft = Vulpkanin Points (crest)
 
