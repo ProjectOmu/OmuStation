@@ -6000,3 +6000,189 @@ Entries:
       message: Aloxadone now heals cold damage as implied by its description.
   id: 785
   time: '2026-08-13T18:40:28.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Mirror maidens spawning for ghosts that read the books and being a
+        ghost role despite already having a player
+    - type: Tweak
+      message: Ensure ghouls can see heretic fixtures
+    - type: Tweak
+      message: The bible can be used to reduce madness. Beat sense into people.
+  id: 786
+  time: '2026-08-14T22:37:44.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: 'Ai can no longer play in the dispo bin '
+  id: 787
+  time: '2026-08-14T23:53:32.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: >-
+        Space Garbage component will no longer delete Steal targets (Prime cut
+        corgi meat) on collision
+  id: 788
+  time: '2026-08-15T00:00:48.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: >-
+        Crafting while the items are in inventory works correctly now; fixing
+        things like spirit candles and taking apart items.
+  id: 789
+  time: '2026-08-15T00:15:16.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Fix
+      message: QM loadout no longer has two winter boots
+    - type: Fix
+      message: Trinkets are now grouped properly
+    - type: Tweak
+      message: >-
+        Renamed RD jumpsuits to be more consistent, it's no longer infested with
+        turtlenecks), and they are sorted better
+  id: 790
+  time: '2026-08-15T00:17:01.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Tweak
+      message: >-
+        Redid the Hop coat that was just another coat, but more blue, it has
+        buttons and a belt now
+  id: 791
+  time: '2026-08-15T17:10:57.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: >-
+        Ported dead drops, midround event that spawns a syndicate dead drop bag,
+        this is announced over syndie radio and over station announcement
+    - type: Add
+      message: >-
+        Ported locked containers from starlight - they have a digital lock
+        interface
+  id: 792
+  time: '2026-08-15T17:56:59.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: 'Fixed the Ominous meat spike not having collision. '
+  id: 793
+  time: '2026-08-16T05:30:32.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Ported the SELF antag. Not self antagging.
+  id: 794
+  time: '2026-08-16T18:34:13.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Add
+      message: Added Omu's Birthday to the Holiday list from August 17th to 31st!
+  id: 795
+  time: '2026-08-16T21:31:22.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Tweak
+      message: Adjusted Shadowkin hand markings.
+  id: 796
+  time: '2026-08-16T21:54:29.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: Made the Xelthia Backspikes marking actually visible.
+  id: 797
+  time: '2026-08-16T21:57:17.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Loneop no longer overrides your species (in most cases)
+  id: 798
+  time: '2026-08-16T21:58:42.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: On Box, a missing disposals pipe under the cloning door has been added.
+    - type: Add
+      message: >-
+        On Box, Cog, Oasis, Reach, Saltern, missing drains and sinks have been
+        added to the chemist room.
+    - type: Add
+      message: >-
+        On Box, cameras have been added to the AI room, HoP Office, and Main
+        Hallway AI room.
+    - type: Add
+      message: >-
+        On Box, Glacier, Oasis, Reach, the amount of salvage lockers have been
+        increased to fit all job slots.
+    - type: Add
+      message: >-
+        On Box, Delta, Fland, the amount of paramedic lockers have been
+        increased to fit all job slots.
+    - type: Add
+      message: On Fland, a space cleaner dispenser has been added to the jani office.
+    - type: Add
+      message: On Glacier, added a third atmos suit storage.
+    - type: Add
+      message: On Kettle, added a medical request computer to the cloning room.
+    - type: Fix
+      message: On Amber, adjusted the air alarms in bridge and shuttle yard.
+    - type: Fix
+      message: On Box, changed the AI windoors to command permissions.
+    - type: Fix
+      message: On Box, the AI core entrance has been rewired properly.
+    - type: Fix
+      message: On Centcomm, adjusted some wiring in the office entrance.
+    - type: Fix
+      message: On Fland, the Service lathe room has been rewired properly.
+    - type: Fix
+      message: On Fland, the Corpsman APC has been connected to the power grid.
+    - type: Fix
+      message: On Glacier, the main sec room has been rewired properly.
+    - type: Fix
+      message: >-
+        On Kettle, upgraded the cloning room with actual cloning equipment to be
+        SoP compliant.
+    - type: Fix
+      message: On Lenoid, disconnected the freezer room from the arrivals air alarm.
+    - type: Fix
+      message: On Lenoid, adjusted the kitchen's smart fridge access permissions.
+    - type: Tweak
+      message: >-
+        On Box, adjusted and redecorated the Vox Box so large Voxes are able to
+        use it too.
+    - type: Tweak
+      message: On Box, replaced the Lavaland access room with a salvage room.
+    - type: Tweak
+      message: >-
+        On CCbutMap, Cluster, Delta, Packed, the salvage lockers have been
+        changed to hardsuit salvage lockers.
+    - type: Tweak
+      message: On Packed, moved the security console to the HoS office.
+    - type: Remove
+      message: On Delta, removed some reinforced windows from the eva room.
+  id: 799
+  time: '2026-08-16T22:01:54.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Add
+      message: Cyborgs gain a new hat in loadouts after 100 hours
+  id: 800
+  time: '2026-08-16T23:35:17.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: IAA spawn now uses the sleeper agent SFX for its announcement
+  id: 801
+  time: '2026-08-17T02:03:37.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Remove
+      message: >-
+        Removed the terminus from security duty cases, You can still get it from
+        arsenal research.
+  id: 802
+  time: '2026-08-17T23:27:30.0000000+00:00'

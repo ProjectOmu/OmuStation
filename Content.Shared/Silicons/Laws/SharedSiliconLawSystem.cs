@@ -82,7 +82,8 @@ public abstract partial class SharedSiliconLawSystem : EntitySystem
             return;
         }
 
-        var ev = new SiliconEmaggedEvent(args.UserUid);
+        var ev = new SiliconEmaggedEvent(args.UserUid,
+            args.EmagUid); // Omu pass emag in event
         RaiseLocalEvent(uid, ref ev);
 
         component.OwnerName = Name(args.UserUid);
@@ -113,4 +114,5 @@ public abstract partial class SharedSiliconLawSystem : EntitySystem
 }
 
 [ByRefEvent]
-public record struct SiliconEmaggedEvent(EntityUid user);
+public record struct SiliconEmaggedEvent(EntityUid user,
+                                            EntityUid? EmagUsed = null); // Omu pass emag in event

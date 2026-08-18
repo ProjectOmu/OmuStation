@@ -74,12 +74,6 @@
     - PowerCellIRRevolver
   groupBy: "Main weapon"
 
-- type: loadout
-  id: SecurityOfficerTerminus
-  equipment:
-    suitstorage: Terminus
-  groupBy: "Main weapon"
-
 ## Plasmaman Stuff - Secoff
 
 - type: loadout
@@ -128,12 +122,6 @@
   groupBy: "Main weapon"
 
 - type: loadout
-  id: DetectiveTerminus
-  equipment:
-    suitstorage: Terminus
-  groupBy: "Main weapon"
-
-- type: loadout
   id: DetectiveClothingEyesGlassesSecurity
   equipment:
     eyes: ClothingEyesGlassesSecurity
@@ -145,11 +133,3 @@
     eyes: ClothingEyesGlassesNoir
   groupBy: "Detective eyes"
 
-
-# Brigmed
-
-- type: loadout
-  id: BrigmedTerminus
-  inhand:
-  - Terminus
-  groupBy: "Main weapon"
