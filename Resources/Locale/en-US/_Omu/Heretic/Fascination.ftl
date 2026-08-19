@@ -11,3 +11,5 @@ reagent-effect-guidebook-reduce-fascination = reduces the effects of psychiatric
 
 tome-unreadable = You cannot understand the content of the book, its too...
     something is unhinged about it.
+
+maiden-guide = Mirror Maidens
