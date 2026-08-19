@@ -1,39 +1,39 @@
-- type: reagent
-  id: Rhymatine
-  name: reagent-name-rhymatine
-  group: Medicine
-  desc: reagent-desc-rhymatine
-  physicalDesc: reagent-physical-desc-translucent
-  flavor: medicine
-  worksOnTheDead: true
-  color: "#03fc9d"
-  metabolisms:
-    Medicine:
-      metabolismRate: 0.75
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Cellular: -2.5
-            Shock: 1.25
-            Cold: 1.25
-      - !type:HealthChange
-        conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
-          min: 10
-        damage:
-          types:
-            Asphyxiation: 6
-            Cold: 6
-          groups:
-            Brute: 0.5
-      - !type:Jitter
-        conditions:
-        - !type:ReagentThreshold
-          min: 10
+# - type: reagent
+#   id: Rhymatine
+#   name: reagent-name-rhymatine
+#   group: Medicine
+#   desc: reagent-desc-rhymatine
+#   physicalDesc: reagent-physical-desc-translucent
+#   flavor: medicine
+#   worksOnTheDead: true
+#   color: "#03fc9d"
+#   metabolisms:
+#     Medicine:
+#       metabolismRate: 0.75
+#       effects:
+#       - !type:HealthChange
+#         damage:
+#           types:
+#             Cellular: -2.5
+#             Shock: 1.25
+#             Cold: 1.25
+#       - !type:HealthChange
+#         conditions:
+#         - !type:OrganType # Goobstation - Yowie
+#           type: Yowie
+#           shouldHave: false
+#         - !type:ReagentThreshold
+#           min: 10
+#         damage:
+#           types:
+#             Asphyxiation: 6
+#             Cold: 6
+#           groups:
+#             Brute: 0.5
+#       - !type:Jitter
+#         conditions:
+#         - !type:ReagentThreshold
+#           min: 10
 
 # ambuzol plus minus
 
