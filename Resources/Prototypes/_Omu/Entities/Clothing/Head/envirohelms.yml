@@ -22,6 +22,17 @@
 
 - type: entity
   parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmSeniorEngineer
+  name: senior engineer envirosuit helmet
+  description: A special helmet painted the colors of engineering and atmospherics, with a robust auto-darkening lens for long supermatter tans.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Envirohelms/senior_engineer.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Envirohelms/senior_engineer.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
   id: ClothingHeadEnvirohelmVeteranCMO
   name: CMO's veteran envirosuit helmet
   description: A reinforced helmet commissioned by the Chief Medical Officer, designed to survive even the most explosive of chemistry mishaps.

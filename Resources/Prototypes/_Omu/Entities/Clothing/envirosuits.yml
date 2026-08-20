@@ -22,6 +22,17 @@
 
 - type: entity
   parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitSeniorEngineer
+  name: senior engineer envirosuit
+  description: This jumpsuit and its barely-fitting overalls are a mark of engineering skill and prestige.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Envirosuits/senior_engineer.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Envirosuits/senior_engineer.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitVeteranCMO
   name: CMO's veteran envirosuit
   description: A heavy, splash resistant containment suit reinforced with sterile plastics. Practical and stylish!

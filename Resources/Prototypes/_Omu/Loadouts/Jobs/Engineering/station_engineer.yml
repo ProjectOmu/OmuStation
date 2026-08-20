@@ -5,3 +5,26 @@
     proto: SeniorEngineering
   equipment:
     outerClothing: ClothingOuterJacketSeniorEngineer
+
+## Plasmaman Stuff
+- type: loadout
+  id: SeniorEngineerEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmSeniorEngineer
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorEngineering
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: SeniorEngineerEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitSeniorEngineer
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorEngineering
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
