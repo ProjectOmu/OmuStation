@@ -989,10 +989,10 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             DoDamageEffect(targets, user, Transform(targets[0]));
         }
 
-        // omu - we remove -1
+        // goob edit - stunmeta
         if (TryComp<StaminaComponent>(user, out var stamina) && entities.Count != 0)
             // make it not immediate to prevent annoying stamcrits
-            _stamina.TakeStaminaDamage(user, component.HeavyStaminaCost * (entities.Count ), stamina, visual: false, immediate: false);
+            _stamina.TakeStaminaDamage(user, component.HeavyStaminaCost * (entities.Count ), stamina, visual: false, immediate: false); // omu - removed the -1
 
         return true;
     }

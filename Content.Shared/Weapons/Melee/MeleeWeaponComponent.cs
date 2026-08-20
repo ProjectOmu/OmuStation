@@ -125,12 +125,12 @@ public sealed partial class MeleeWeaponComponent : Component
     [DataField, AutoNetworkedField]
     public float Range = 1.5f;
 
-    // omu - holy guacamole you get stunned NOW
+    // goob edit - stunmeta
     /// <summary>
     ///     Applies stamina damage on each successful wideswing hit to the attacker.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float HeavyStaminaCost = 12f;
+    public float HeavyStaminaCost = 12f; // Omu
 
     /// <summary>
     /// Total width of the angle for wide attacks.
