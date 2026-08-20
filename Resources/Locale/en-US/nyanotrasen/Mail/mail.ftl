@@ -14,10 +14,12 @@ mail-desc-priority = The anti-tamper lock's [color=yellow]yellow priority tape[/
 mail-desc-priority-inactive = The anti-tamper lock's [color=#886600]yellow priority tape[/color] is inactive.
 mail-unlocked = Anti-tamper system unlocked.
 mail-unlocked-by-emag = Anti-tamper system *BZZT*.
-mail-unlocked-reward = Anti-tamper system unlocked. {$bounty} spesos have been added to logistics' account.
-mail-penalty-lock = ANTI-TAMPER LOCK BROKEN. LOGISTICS BANK ACCOUNT PENALIZED BY {$credits} SPESOS.
-mail-penalty-fragile = INTEGRITY COMPROMISED. LOGISTICS BANK ACCOUNT PENALIZED BY {$credits} SPESOS.
-mail-penalty-expired = DELIVERY PAST DUE. LOGISTICS BANK ACCOUNT PENALIZED BY {$credits} SPESOS.
+# Omu changes start, change "LOGISTICS BANK ACCOUNT" to "STATION SUPPLY BUDGET". Logistics doesn't exist.
+mail-unlocked-reward = Anti-tamper system unlocked. {$bounty} spesos have been added to the station supply budget.
+mail-penalty-lock = ANTI-TAMPER LOCK BROKEN. STATION SUPPLY BUDGET PENALIZED BY {$credits} SPESOS.
+mail-penalty-fragile = INTEGRITY COMPROMISED. STATION SUPPLY BUDGET PENALIZED BY {$credits} SPESOS.
+mail-penalty-expired = DELIVERY PAST DUE. STATION SUPPLY BUDGET PENALIZED BY {$credits} SPESOS.
+# Omu changes end
 mail-item-name-addressed = mail ({$recipient})
 
 command-mailto-description = Queue a parcel to be delivered to an entity. Example usage: `mailto 1234 5678 false false`. The target container's contents will be transferred to an actual mail parcel.
