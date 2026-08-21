@@ -200,8 +200,10 @@
     coverage: EYES
   - type: Tag
     tags:
-    - PetWearable
+    - CorgiWearable
+    - MesonGoggles
     - WhitelistChameleon
+    - PetWearable # Goobstation?
     - GogglesMeson # Omu - for crafting recipe
 
 - type: entity
@@ -279,7 +281,8 @@
   - type: Tag
     tags:
     - HamsterWearable
-    - PetWearable
+    - CorgiWearable
+    - PetWearable # Goobstation?
     - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
@@ -296,7 +299,8 @@
   - type: Tag
     tags:
     - Sunglasses
-    - PetWearable
+    - CorgiWearable
+    - PetWearable # Goobstation?
     - HamsterWearable
     - WhitelistChameleon
 
@@ -319,7 +323,8 @@
   - type: Tag
     tags:
     - HamsterWearable
-    - PetWearable
+    - CorgiWearable
+    - PetWearable # Goobstation?
     - WhitelistChameleon
   - type: GuideHelp
     guides:
@@ -327,6 +332,7 @@
     - Antagonists
   - type: IdentityBlocker
     coverage: EYES
+    # Goob start
   - type: Armor # provide more coverage than default ones. you know, it's a sec one
     coverage:
     - Head
@@ -342,6 +348,7 @@
       BoneDamage: 0.13
       VeinsDamage: 0
       NerveDamage: 0
+    # Goob end
 
 - type: entity
   parent: [ClothingEyesBase, BaseCommandContraband]
@@ -359,7 +366,8 @@
   - type: Tag
     tags:
     - HamsterWearable
-    - PetWearable
+    - CorgiWearable
+    - PetWearable # Goobstation?
     - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
@@ -380,6 +388,7 @@
     protectionTime: 5
   - type: IdentityBlocker
     coverage: EYES
+    # Goob start
   - type: Armor # the same as SEC
     traumaDeductions:
       Dismemberment: 0
@@ -395,6 +404,7 @@
         Blunt: 0.9
         Slash: 0.9
         Piercing: 0.9
+    # Goob end
 
 #Make a scanner category when these actually function and we get the trayson
 - type: entity
@@ -408,7 +418,7 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/thermal.rsi
   - type: Armor
-    coverage: # defends you well only against heat lol
+    coverage: # defends you well only against heat lol # GOOBSTATION???? # Goob start
     - Head
     modifiers:
       coefficients:
@@ -422,6 +432,7 @@
       BoneDamage: 0.13
       VeinsDamage: 0
       NerveDamage: 0
+    # Goob end
   - type: GroupExamine
   - type: IdentityBlocker
     coverage: EYES
@@ -439,6 +450,7 @@
     - type: SolutionScanner
     - type: IdentityBlocker
       coverage: EYES
+    # Goob start
     - type: StaticPrice #Goobstation - Recycle update
       price: 50
     - type: PhysicalComposition #Goobstation - Recycle update
@@ -450,10 +462,12 @@
       tags:
       - PetWearable
       - WhitelistChameleon
+      - CorgiWearable
       - HudChemistry #omu edit
+    #  Goob end
 
 - type: entity
-  parent: [ClothingEyesBase, BaseMajorContraband]
+  parent: [ClothingEyesBase, BaseHighlyIllegalContraband]
   id: ClothingEyesVisorNinja
   name: ninja visor
   description: An advanced visor protecting a ninja's eyes from flashing lights.
@@ -463,6 +477,7 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
   - type: FlashImmunity
+    # Goob start
   - type: NightVision
     isEquipment: true
   - type: Armor
@@ -480,6 +495,7 @@
       BoneDamage: 0.07
       VeinsDamage: 0
       NerveDamage: 0
+    # Goob end
 
 - type: entity
   parent: [ClothingEyesGlassesSecurity, ShowSecurityIcons, BaseSecurityContraband] # Omu Edit

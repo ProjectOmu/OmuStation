@@ -12,7 +12,7 @@
   sprites: MobBananaMenSprites
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobBananaMenDummy
-  skinColoration: NoColor
+  skinColoration: TintedHues
 
 - type: speciesBaseSprites
   id: MobBananaMenSprites
@@ -82,7 +82,7 @@
   id: MobBananaMenChestFemale
   baseSprite:
     sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
-    state: chest_f
+    state: chest_m
 
 - type: humanoidBaseSprite
   id: MobBananaMenGroin

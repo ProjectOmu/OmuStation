@@ -137,6 +137,7 @@
     - Tajaran
     - Chitinid # DeltaV
     - Shadowkin
+    - Hydrakin
     - Thaven # Omu
 
 # Goobstation start
@@ -327,6 +328,29 @@
   storage:
     back:
     - BoxSurvivalSlotsSyndicateNitrogen # Goobstation - Slots Based Survival Boxes
+
+# Military / Double Extended
+- type: loadout
+  id: EmergencyOxygenMilitaryDouble
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreather
+  #equipment: # Goobstation
+ #   pocket1: DoubleEmergencyOxygenTankFilled
+  storage:
+    back:
+    - BoxSurvivalSlotsEngineering # Goobstation
+
+- type: loadout
+  id: EmergencyNitrogenMilitaryDouble
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NitrogenBreather
+  #equipment: # Goobstation
+  #  pocket1: DoubleEmergencyNitrogenTankFilled
+  storage:
+    back:
+    - BoxSurvivalSlotsEngineeringNitrogen # Goobstation
 
 # Pre-equipped species gear
 

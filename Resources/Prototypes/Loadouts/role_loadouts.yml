@@ -125,11 +125,13 @@
   - CaptainMask # Goobstation - Lollypops!
   - CaptainBackpack
   - CaptainOuterClothing
+  - CaptainShoes # Goobstation
   - CivilianFormalShoes # Omu
   - CaptainPDA # Omu
   - Survival
   - Trinkets
-  - Animals
+  - CaptainJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - CaptainEnvirohelm
@@ -151,7 +153,8 @@
   - Glasses
   - Survival
   - Trinkets
-  - Animals
+  - HoPJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - HoPEnvirohelm
@@ -186,7 +189,8 @@
   - Glasses
   - Survival
   - Trinkets
-  - Animals
+  - PassengerJobTrinkets
+  - Animals # Goobstation
   - TrinketsAssistant # Omu
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
@@ -205,7 +209,8 @@
   - Glasses
   - Survival
   - Trinkets
-  - Animals
+  - BartenderJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - BartenderEnvirohelm
@@ -221,7 +226,8 @@
   - Glasses
   - Survival
   - Trinkets
-  - Animals
+  - ServiceWorkerJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - ServiceWorkerEnvirohelm
@@ -240,7 +246,8 @@
   - Glasses
   - Survival
   - Trinkets
-  - Animals
+  - ChefJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathTool
   - TrinketsChef #Gabystation
   # Goobstation - EE Plasmeme Change.
@@ -258,7 +265,8 @@
   - Glasses
   - Survival
   - Trinkets
-  - Animals
+  - LibrarianJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - LibrarianEnvirohelm
@@ -276,7 +284,8 @@
   - Glasses
   - Survival
   - Trinkets
-  - Animals
+  - LawyerJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - LawyerEnvirohelm
@@ -293,11 +302,13 @@
   - ChaplainJumpsuit
   - CommonBackpack
   - ChaplainOuterClothing
+  - ChaplainBible
   - CivilianFormalShoes # Omu
   - Glasses
   - Survival
   - Trinkets
-  - Animals
+  - ChaplainJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - ChaplainEnvirohelm
@@ -316,8 +327,8 @@
   - Glasses
   - Survival
   - Trinkets
-  - JanitorPlunger
-  - Animals
+  - JanitorJobTrinkets
+  - Animals # Goobstation?
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - JanitorEnvirohelm
@@ -335,7 +346,8 @@
   - Glasses
   - Survival
   - Trinkets
-  - Animals
+  - BotanistJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - BotanistEnvirohelm
@@ -356,7 +368,8 @@
   - Glasses
   - SurvivalClown
   - Trinkets
-  - Animals
+  - ClownJobTrinkets
+  - Animals # Goobstation
   # Goobstation - EE Plasmeme Change.
   - ClownEnvirohelm
   - ClownEnvirosuit
@@ -372,19 +385,23 @@
   - MimeJumpsuit
   - MimeBackpack
   - MimeOuterClothing
+  - MimeGloves # Goobstation
+  - MimeShoes # Goobstation
   - MimeBelt
   - Glasses
   - SurvivalMime
   - Trinkets
-  - Animals
+  - MimeJobTrinkets
+  - Animals # Goobstation
   # Goobstation - EE Plasmeme Change.
   - MimeEnvirohelm
   - MimeEnvirosuit
   - MimeEnvirogloves
-  - MimeGloves
+
 
 - type: roleLoadout
   id: JobMusician
+  canCustomizeName: true
   groups:
   - GroupTankHarness
   - MusicianJumpsuit
@@ -395,6 +412,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - MusicianJobTrinkets
   - Instruments
   - Animals
   - GroupSpeciesBreathTool
@@ -417,7 +435,8 @@
   - Glasses
   - Survival
   - Trinkets
-  - Animals
+  - QuartermasterJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - QuartermasterEnvirohelm
@@ -432,11 +451,14 @@
   - CargoTechnicianJumpsuit
   - CargoTechnicianBackpack
   - CargoTechnicianOuterClothing
+  #- CargoTechnicianShoes Omu
+  - CargoTechnicianID
   - CargoShoes # omu
   - Glasses
   - Survival
   - Trinkets
-  - Animals
+  - CargoTechnicianJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - CargoTechnicianEnvirohelm
@@ -455,7 +477,8 @@
   - Glasses
   - Survival
   - Trinkets
-  - Animals
+  - SalvageSpecialistJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - SalvageEnvirohelm
@@ -475,7 +498,8 @@
   - ChiefEngineerShoes
   - SurvivalExtended
   - Trinkets
-  - Animals
+  - ChiefEngineerJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - ChiefEngineerEnvirohelm
@@ -490,7 +514,8 @@
   - StationEngineerBackpack
   - SurvivalExtended
   - Trinkets
-  - Animals
+  - TechnicalAssistantJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - TechnicalAssistantEnvirohelm
@@ -509,7 +534,8 @@
   - StationEngineerID
   - SurvivalExtended
   - Trinkets
-  - Animals
+  - StationEngineerJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - StationEngineerEnvirohelm
@@ -527,7 +553,8 @@
   - AtmosphericTechnicianShoes
   - SurvivalExtended
   - Trinkets
-  - Animals
+  - AtmosphericTechnicianJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - AtmosEnvirohelm
@@ -550,7 +577,8 @@
   # - Glasses # Omustation: RD gets their own eyewear from ResearchDirectorEyewear
   - Survival
   - Trinkets
-  - Animals
+  - ResearchDirectorJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - ResearchDirectorEnvirosuit
@@ -572,7 +600,8 @@
   - Glasses
   - Survival
   - Trinkets
-  - Animals
+  - ScientistJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - ScientistEnvirohelm
@@ -588,7 +617,8 @@
   - Glasses
   - Survival
   - Trinkets
-  - Animals
+  - ResearchAssistantJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - ResearchAssistantEnvirohelm
@@ -607,11 +637,12 @@
   - SecurityBelt
   - HeadofSecurityOuterClothing
   - HeadofSecurityShoes # Goobstation edit
+  - SecurityGloves #goob
   - SurvivalSecurity
   - TrinketsSecurity # Omu Edit
   - Trinkets
-  - SecurityStar
-  - Animals
+  - HeadofSecurityJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathToolSecurity
   # Goobstation - EE Plasmeme Change.
   - HeadofSecurityEnvirohelm
@@ -631,10 +662,11 @@
   - SecurityBelt
   - WardenOuterClothing
   - SecurityShoes
+  - SecurityGloves #goob
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
-  - Animals
+  - WardenJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathToolSecurity
   # Goobstation - EE Plasmeme Change.
   - WardenEnvirohelm
@@ -651,13 +683,14 @@
   - TrinketsSecurity # Omu Edit
   - SecurityOuterClothing
   - SecurityShoes
+  - SecurityGloves #goob
   - SecurityNeck
   - SecurityPDA
   - SecurityBelt
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
-  - Animals
+  - SecurityJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathToolSecurity
   # Goobstation - EE Plasmeme Change.
   - SecurityOfficerEnvirohelm
@@ -678,8 +711,8 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
-  - SecurityStar
-  - Animals
+  - DetectiveJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathToolSecurity
   # Goobstation - EE Plasmeme Change.
   - DetectiveEnvirohelm
@@ -697,7 +730,8 @@
   - SecurityNeck
   - SecurityOuterClothing # Goobstation - Why not.
   - Trinkets
-  - Animals
+  - SecurityCadetJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathToolSecurity
   # Goobstation - EE Plasmeme Change.
   - SecurityCadetEnvirohelm
@@ -717,10 +751,11 @@
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
-  - MedicalEyewear
+ # - MedicalEyewear #Goobstation - Spawns with medichem hud
   - SurvivalMedical
   - Trinkets
-  - Animals
+  - ChiefMedicalOfficerJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathToolMedical
   # Goobstation - EE Plasmeme Change.
   - ChiefMedicalOfficerEnvirohelm
@@ -742,7 +777,8 @@
   - MedicalEyewear
   - SurvivalMedical
   - Trinkets
-  - Animals
+  - MedicalDoctorJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathToolMedical
   # Goobstation - EE Plasmeme Change.
   - MedicalDoctorEnvirohelm
@@ -758,7 +794,8 @@
   - MedicalEyewear
   - SurvivalMedical
   - Trinkets
-  - Animals
+  - MedicalInternJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathToolMedical
   # Goobstation - EE Plasmeme Change.
   - MedicalInternEnvirohelm
@@ -783,7 +820,8 @@
   - ChemistBag # Omu
   - SurvivalMedical
   - Trinkets
-  - Animals
+  - ChemistJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathToolMedical
   # Goobstation - EE Plasmeme Change.
   - ChemistEnvirohelm
@@ -804,7 +842,8 @@
   - MedicalEyewear
   - SurvivalMedical
   - Trinkets
-  - Animals
+  - ParamedicJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathToolMedical
   # Goobstation - EE Plasmeme Change.
   - ParamedicEnvirohelm
@@ -812,23 +851,6 @@
   - ParamedicEnvirogloves
 
 # Wildcards
-- type: roleLoadout
-  id: JobZookeeper
-  groups:
-  - ZookeeperHead
-  - ZookeeperJumpsuit
-  - GroupTankHarness
-  - CommonBackpack
-  - Glasses
-  - Survival
-  - Trinkets
-  - Animals
-  - GroupSpeciesBreathTool
-  # Goobstation - EE Plasmeme Change.
-  - ZookeeperEnvirohelm
-  - ZookeeperEnvirosuit
-  - ZookeeperEnvirogloves
-
 - type: roleLoadout
   id: JobReporter
   groups:
@@ -840,7 +862,8 @@
   - Glasses
   - Survival
   - Trinkets
-  - Animals
+  - ReporterJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - ReporterEnvirohelm
@@ -857,28 +880,13 @@
   - Glasses
   - Survival
   - Trinkets
-  - Animals
+  - PsychologistJobTrinkets
+  - Animals # Goobstation
   - GroupSpeciesBreathTool
   # Goobstation - EE Plasmeme Change.
   - PsychologistEnvirohelm
   - PsychologistEnvirosuit
   - PsychologistEnvirogloves
-
-- type: roleLoadout
-  id: JobBoxer
-  groups:
-  - GroupTankHarness
-  - BoxerJumpsuit
-  - BoxerGloves
-  - CommonBackpack
-  - Glasses
-  - Survival
-  - Trinkets
-  - Animals
-  - GroupSpeciesBreathTool
-  # Goobstation - EE Plasmeme Change.
-  - BoxerEnvirohelm
-  - BoxerEnvirosuit
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
@@ -940,6 +948,11 @@
   - GroupTankHarness
 
 - type: roleLoadout
+  id: RoleSurvivalMilitaryDouble
+  groups:
+  - SurvivalMilitaryDouble
+
+- type: roleLoadout
   id: RoleSurvivalNukie
   groups:
   - SurvivalSyndicate
@@ -951,3 +964,8 @@
   groups:
   - GroupEVATank
   - SurvivalExtended
+
+- type: roleLoadout
+  id: RoleSurvivalSpaceNinja
+  groups:
+  - GroupEVATank

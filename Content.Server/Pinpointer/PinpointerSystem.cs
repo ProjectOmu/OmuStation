@@ -197,7 +197,7 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
                 if (compXform.MapID != mapId && !pinpointerComponent.RespectsCrossMaps)
                     continue;
 
-                if (Whitelist.IsBlacklistPass(blacklist, otherUid))
+                if (Whitelist.IsWhitelistPass(blacklist, otherUid))
                     continue;
 
                 if (pinpointerComponent.RespectsCrossMaps && compXform.MapID != mapId)
@@ -254,7 +254,7 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
                 // Omu - END
                     continue;
 
-                if (Whitelist.IsBlacklistPass(blacklist, otherUid))
+                if (Whitelist.IsWhitelistPass(blacklist, otherUid))
                     continue;
 
                 list.Add(otherUid);

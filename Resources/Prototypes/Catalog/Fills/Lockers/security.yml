@@ -121,7 +121,9 @@
       amount: 2
     - id: RemoteSignaller
       amount: 2
+    #- id: NetworkConfigurator # Goobstation?
     - id: Binoculars
+    #- id: WeaponEnergyShotgun Omu selectors
     - id: WardenGunCase # Omu
     - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
     - id: BoxLethalInjection # Goobstation
@@ -198,21 +200,46 @@
         tableId: FillLockerBrigmedic
 
 - type: entityTable
-  id: FillLockerBrigmedic # heavily good edited
+  id: FillLockerBrigmedic
   table: !type:AllSelector
     children:
+    - id: ClothingEyesGlassesSecurity
+    - id: WeaponDisabler
+    - id: TrackingImplanter
+      amount: 2
+    # Goob start
     - id: BoxAutoinjectorCartidges
     - id: ClothingBackpackDuffelSurgeryFilled
     - id: ClothingHandsGlovesLatex
     - id: UndeterminedVoidsuitCorpsman #Omu
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
-    - id: ClothingUniformJumpskirtOfLife
-      prob: 0.1
     - id: MedkitOxygenFilled
     - id: MedkitAdvancedFilled
     - id: BoxSyringe
-    - id: BoxBodyBag # Goob Station
+    - id: BoxBodyBag
+      # Goob end
+    - id: ClothingOuterHardsuitBrigmedic
+    - id: ClothingUniformJumpskirtOfLife
+      prob: 0.1
+
+    #- id: MedkitFilled # Goob
+    #- !type:GroupSelector
+    #  prob: 0.7
+    #  children:
+    #  - id: MedkitCombatFilled
+    #    weight: 1.6
+    #  - id: MedkitAdvancedFilled
+    #  - id: MedkitOxygenFilled
+    #    weight: 0.8
+    #  - id: MedkitBruteFilled
+    #    weight: 0.8
+    #  - id: MedkitToxinFilled
+    #    weight: 0.8
+    #  - id: MedkitBurnFilled
+    #    weight: 1.8
+    #- id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
+    #  prob: 0.15
 
 - type: entity
   id: LockerDetectiveFilled
@@ -253,6 +280,7 @@
     - id: Betty # Goobstation
     - id: BoxTapeRecorder # DeltaV
     - id: PoliceBaton # Goobstation
+    - id: ObraDinnClock # Goobstation
 
 - type: entity
   id: ClosetBombFilled

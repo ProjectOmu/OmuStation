@@ -21,10 +21,9 @@
     - state: syndicate
     - state: icon-syndicate
   - type: ItemBorgModule
-    moduleId: SyndicateWeaponAdvanced
-    items:
-    - WeaponPistolAnaconda
-    - EnergySword
+    hands:
+    - item: WeaponPistolAnaconda
+    - item: EnergySword
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
 
@@ -39,11 +38,10 @@
     - state: icon-lollypop
       sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
-    moduleId: Lollypop
-    items:
-    - LauncherLollypopRegenerating
-    - LauncherLollypopRegeneratingTricordazine
-    - LauncherLollypopRegeneratingMystery # I <3 GAMBLING
+    hands:
+    - item: LauncherLollypopRegenerating
+    - item: LauncherLollypopRegeneratingTricordazine
+    - item: LauncherLollypopRegeneratingMystery # I <3 GAMBLING
   - type: BorgModuleIcon
     icon: { sprite: _Goobstation/Actions/actions_borg.rsi, state: lollypop-module }
 
@@ -57,14 +55,88 @@
     - state: cargo
     - state: icon-pka
       sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
-  - type: DroppableBorgModule
-    moduleId: PKA
-    items:
-    - id: WeaponProtoKineticAccelerator
-      whitelist:
-        tags: # Omu
-        - CyborgProtoKineticAccelerator
-        #components:
-        #- PressureDamageChange
+  - type: ItemBorgModule
+    hands:
+    - item: HandheldHealthAnalyzer
+    - item: WeaponProtoKineticAccelerator
+      hand:
+        emptyLabel: borg-slot-WeaponProtoKineticAccelerator-empty-goob
+        emptyRepresentative: WeaponProtoKineticAccelerator
+        whitelist:
+          tags: # Omu
+          - CyborgProtoKineticAccelerator
+          #components:
+          #- PressureDamageChange
   - type: BorgModuleIcon
     icon: { sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi, state: icon }
+
+# Shitmed Modules
+
+- type: entity
+  id: BorgModuleSurgery
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: surgery cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-surgery
+  - type: ItemBorgModule
+    hands:
+    # Omustation Start
+    #- item: Scalpel
+    #- item: SawElectric
+    #- item: Retractor
+    #- item: Hemostat
+    #- item: Cautery
+    #- item: MedicalStitches
+    #- item: BoneGel
+    #- item: Bonesetter
+    #- item: OrganHumanBrain
+    - item: HandheldHealthAnalyzer
+    - item: CyborgOmnimedTool
+      # Omustation End
+      hand:
+        emptyRepresentative: BioSynthHeart # Omu
+        emptyLabel: borg-slot-organs-empty-goob
+        whitelist:
+          components:
+          - BodyPart
+          - Organ # Omu?
+          - TissueSample # Omu
+          tags:
+          - Organ
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: surgery-module }
+
+- type: entity
+  id: BorgModuleAdvancedSurgery
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: advanced surgery cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-advanced-surgery
+  - type: ItemBorgModule
+    hands:
+    - item: HandheldHealthAnalyzer #omu edit. edded health analyzer
+    - item: EnergyScalpel
+    - item: EnergyCautery
+    - item: AdvancedRetractor
+    - item: AdvancedBoneGel
+    - item: OrganHumanBrain
+      hand:
+        emptyRepresentative: BioSynthHeart # Omu
+        emptyLabel: borg-slot-organs-empty-goob
+        whitelist:
+          components:
+          - BodyPart
+          - Organ # Omu?
+          - TissueSample # Omu
+          tags:
+          - Organ
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-surgery-module }
+
+# Shitmed modules end

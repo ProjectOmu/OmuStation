@@ -593,7 +593,7 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
             return false;
         //Omu End
 
-        if (_whitelistSystem.IsBlacklistPass(component.Blacklist, entity) ||
+        if (_whitelistSystem.IsWhitelistPass(component.Blacklist, entity) ||
             _whitelistSystem.IsWhitelistFail(component.Whitelist, entity))
             return false;
 

@@ -521,13 +521,6 @@
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazinePistolCaselessRifle
-  result: MagazinePistolCaselessRifle
-  materials:
-    Steel: 145
-
-- type: latheRecipe
-  parent: BaseAmmoRecipe
   id: MagazineLowCaliberM7S
   result: MagazineLowCaliberM7S
   materials:
@@ -669,13 +662,6 @@
   result: MagazineCaselessRifle
   materials:
     Steel: 400
-
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineBoxAntiMateriel
-  result: MagazineBoxAntiMateriel
-  materials:
-    Steel: 1500
 
 - type: latheRecipe
   parent: BaseEmptyAmmoRecipe

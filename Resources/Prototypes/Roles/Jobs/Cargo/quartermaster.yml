@@ -132,19 +132,19 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobCargoTechnician
-      time: 36000 #10 hrs - Omu Edit
+      time: 10h # Omustation
     - !type:RoleTimeRequirement
       role: JobSalvageSpecialist
-      time: 18000 #5 hours - Omu Edit
+      time: 5h # Omustation
     - !type:DepartmentTimeRequirement
       department: Cargo
-      time: 72000 #20 hours - Omu Edit
+      time: 20h # Omustation
 #    - !type:SpeciesRequirement # Goob - None Felinid
 #      inverted: true
 #      species:
 #      - Felinid #Omu, add back Felinid
-    - !type:OverallPlaytimeRequirement
-      time: 36000 #10 hours - Omu Edit
+    - !type:OverallPlaytimeRequirement # Omustation
+      time: 10h
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
@@ -180,8 +180,8 @@
   id: QuartermasterGear
   equipment:
     id: QuartermasterPDA
+    belt: BoxFolderClipboardThreePapers
     ears: ClothingHeadsetAltCargo # Goobstation
-    belt: BoxFolderClipboard
     pocket1: AppraisalTool
   storage:
     back:

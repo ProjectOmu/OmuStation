@@ -101,7 +101,7 @@
       params:
         volume: -4
   # Goobstation edit end
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Item
     size: Small
@@ -179,6 +179,9 @@
   abstract: true
   id: GoldRingBase
   components:
+  - type: PhysicalComposition #Goobstation
+    materialComposition:
+      Gold: 200
   - type: StaticPrice
     price: 300
 

@@ -104,10 +104,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Server._DV.Objectives.Events; // DeltaV
 using Content.Server.Administration;
 using Content.Server.Chat.Managers;
-using Content.Server.Radio.Components;
-using Content.Server.Roles;
 using Content.Server.Station.Systems;
 using Content.Shared.Administration;
 using Content.Shared.Chat;
@@ -115,7 +114,9 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Content.Shared.Radio.Components;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Database; // goob logging
@@ -131,6 +132,7 @@ using Robust.Shared.Toolshed;
 using Content.Goobstation.Common.Silicons.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.CustomLawboard;
+using Content.Server._Starlight.Objectives;
 using Robust.Shared.Random;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
@@ -142,6 +144,8 @@ using Content.Server.Research.Systems;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Tag;
 using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
+using Content.Shared.Emag.Components;
+
 namespace Content.Server.Silicons.Laws;
 
 public sealed class SiliconLawSystem : SharedSiliconLawSystem
@@ -161,6 +165,8 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly ResearchSystem _research = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!; // Corvax-Next-AiRemoteControl
+
+    [Dependency] private readonly EnsureBorgHasLawsConditionSystem _freemag = default!; // Starlight
 
 
 
@@ -317,6 +323,12 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             Order = component.Lawset.Laws.Max(law => law.Order) + 1
         });
 
+        // Starlight start
+        // if we're a self agent emag, clear the laws and all that.
+        if (args.EmagUsed != null)
+            _freemag.CheckSELFmag((uid, component), args.EmagUsed.Value);
+        // Starlight end
+
         _adminLogger.Add(LogType.SiliconLaws, LogImpact.High, $"{ToPrettyString(uid):entity} laws changed due to emag by {ToPrettyString(args.user):user} to:{component.Lawset!.LoggingString()}"); // goob
     }
 
@@ -445,8 +457,10 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     protected override void OnUpdaterInsert(Entity<SiliconLawUpdaterComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
         // TODO: Prediction dump this
-        if (!TryComp(args.Entity, out SiliconLawProviderComponent? provider))
+        if (!TryComp<SiliconLawProviderComponent>(args.Entity, out var provider))
             return;
+
+        // var lawset = provider.Lawset ?? GetLawset(provider.Laws); // Goob edit below
 
         // Goob edit start
         if (HasComp<ActiveExperimentalLawProviderComponent>(ent))
@@ -491,6 +505,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
                 SetLaws(lawset, stationAiHeldComp.CurrentConnectedEntity.Value, provider.LawUploadSound);
             }
             // Corvax-Next-AiRemoteControl-End
+            RaiseLocalEvent(new AILawUpdatedEvent(update, provider.Laws)); // DeltaV
         }
 
         ent.Comp.LastLawset = provider.Laws;

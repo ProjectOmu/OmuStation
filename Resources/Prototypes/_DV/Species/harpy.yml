@@ -49,6 +49,8 @@
     Groin: MobHarpyGroin
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
     Eyes: MobHumanoidEyes
     LArm: MobHarpyLArm
@@ -60,7 +62,7 @@
     LFoot: MobHarpyLFoot
     RFoot: MobHarpyRFoot
     Wings: MobHumanoidAnyMarking #Omu - Goat
- 
+
 - type: markingPoints
   id: MobHarpyMarkingLimits
   points:
@@ -94,10 +96,10 @@
       points: 1
       required: true
       defaultMarkings: [ HarpyChestDefault ]
-    Underwear:
+    UndergarmentBottom:
       points: 1
       required: false
-    Undershirt:
+    UndergarmentTop:
       points: 1
       required: false
     RightLeg:

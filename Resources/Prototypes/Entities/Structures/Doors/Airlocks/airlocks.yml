@@ -270,6 +270,8 @@
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/xenoborg.rsi
+  - type: Paintable
+    group: null
 
 - type: entity
   parent: Airlock
@@ -280,6 +282,15 @@
     sprite: Structures/Doors/Airlocks/Standard/hatch_maint.rsi
   - type: Paintable
     group: null
+
+- type: entity
+  parent: Airlock
+  id: AirlockHatchSyndicate
+  name: airtight hatch
+  suffix: Syndicate
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/hatch_syndicate.rsi
 
 # Glass
 - type: entity
@@ -429,3 +440,25 @@
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Glass/basic.rsi
+
+- type: entity
+  parent: Airlock
+  id: AirlockXeno
+  suffix: Xeno
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/xeno.rsi
+  - type: IconSmooth
+    key: chitin
+    mode: NoSprite
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockGlassXeno
+  suffix: Xeno
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Glass/xeno.rsi
+  - type: IconSmooth
+    key: chitin
+    mode: NoSprite

@@ -83,7 +83,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Science
-      time: 216000 #60 hrs
+      time: 60h
 
 # Head
 - type: startingGear
@@ -164,6 +164,10 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryScientist
 
+- type: loadout # goob
+  id: ScientistFormal
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitScientistFormal
 
 # Back
 - type: loadout

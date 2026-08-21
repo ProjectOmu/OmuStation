@@ -21,9 +21,7 @@ public sealed class HereticTomeSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _playerMan = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IChatManager _chatMan = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly ActionUpgradeSystem _actionUpgrade = default!;
     public override void Initialize()
     {
         base.Initialize();

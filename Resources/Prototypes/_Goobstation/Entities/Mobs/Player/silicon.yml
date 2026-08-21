@@ -78,10 +78,7 @@
     rules: ghost-role-information-silicon-rules
     mindRoles:
     - MindRoleGhostRoleSilicon
+    job: Borg
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
-    - !type:RoleTimeRequirement
-      role: JobBorg
-      time: 18000 #5 hrs - Omu Edit: Can be a demanding RP role, needs familiarity with borg-ness.
   - type: GhostTakeoverAvailable

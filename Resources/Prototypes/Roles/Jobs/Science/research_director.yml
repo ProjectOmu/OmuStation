@@ -139,19 +139,19 @@
   requirements:
   - !type:RoleTimeRequirement
     role: JobBorg
-    time: 18000 #5 hrs - Omu Edit
+    time: 5h #5 hrs - Omu Edit
   - !type:RoleTimeRequirement
     role: JobScientist
-    time: 36000 #10 hours - Omu Edit
+    time: 10h # Omustation
   - !type:DepartmentTimeRequirement
     department: Science
-    time: 72000 #20 hours - Omu Edit
+    time: 20h #20 hours - Omu Edit
 #    - !type:SpeciesRequirement # Goob - None Felinid
 #      inverted: true
 #      species:
 #      - Felinid #Omu, add back Felinid
   - !type:OverallPlaytimeRequirement
-    time: 36000 #10 hours - Omu Edit
+    time: 10h #10 hours - Omu Edit
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
@@ -189,6 +189,7 @@
   storage:
     back:
     - Flash
+    - CosmicCenser # DeltaV - Cosmic Cult
     - TelescopicBaton # Goobstation
 
 - type: chameleonOutfit

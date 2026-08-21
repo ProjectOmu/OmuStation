@@ -282,7 +282,7 @@
 
 - type: entity
   id: BaseLathe
-  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  parent: [ BaseMachinePowered, ConstructibleMachine, BaseAutomatedMachine ] # Goob: Automation
   abstract: true
   name: lathe
   components:
@@ -351,7 +351,9 @@
         volume: -12 # Ambient
         maxDistance: 10
         variation: 0.05
-  - type: SpamEmitSoundRequirePower # Goobstation
+  # Goobstation
+  - type: SpamEmitSoundRequirePower
+  - type: OreSiloClient
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -390,7 +392,7 @@
 
 - type: entity
   id: Autolathe
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: [BaseLatheLube]
   name: autolathe
   description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
   components:
@@ -410,11 +412,18 @@
   - type: Machine
     board: AutolatheMachineCircuitboard
   - type: MaterialStorage
-    whitelist:
+    whitelist: &StandardMaterialWhitelist
       tags:
         - Sheet
         - RawMaterial
         - Ingot
+        # <Goobstation>
+        - Metal
+        - Wooden
+        - SheetPlasma
+        - Plastic # Goobstation End
+        - Ingot #OMU
+        # </Goobstation
   - type: Lathe
     idleState: icon
     runningState: building
@@ -425,6 +434,8 @@
     - PartsStatic
     - AtmosStatic
     - CablesStatic
+    - PaperworkStatic
+    - TowelsStatic
     #- CargoStatic Goob edit - Moved to Cargo fab
     - MaterialsStatic
     - BasicChemistryStatic
@@ -444,6 +455,7 @@
     emagStaticPacks:
     - SecurityWeaponsStatic
     - SecurityAmmoStatic
+    - SyndicateAmmoStatic
     - SecurityAmmoStaticOmu # Omu
     # Goobstation
     - SecurityWeaponsStaticGoob
@@ -476,7 +488,7 @@
 
 - type: entity
   id: Protolathe
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: [BaseLatheLube]
   name: protolathe
   description: Converts raw materials into advanced items.
   components:
@@ -496,11 +508,8 @@
   - type: Machine
     board: ProtolatheMachineCircuitboard
   - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
+    whitelist: *StandardMaterialWhitelist
+  - type: OreSiloClient
   - type: Lathe
     idleState: icon
     runningState: building
@@ -559,7 +568,7 @@
 
 - type: entity
   id: CircuitImprinter
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: [BaseLatheLube]
   name: circuit imprinter
   description: Prints circuit boards for machines.
   components:
@@ -607,11 +616,8 @@
     - ServiceAssemblerPack # Frontier Service Assembler
     - MedicalAssemblerPack # Frontier Medical Assembler
   - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
+    whitelist: *StandardMaterialWhitelist
+  - type: OreSiloClient
   - type: RequireProjectileTarget
 
 - type: entity
@@ -627,7 +633,7 @@
 
 - type: entity
   id: ExosuitFabricator
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: [BaseLatheLube]
   name: exosuit fabricator
   description: Creates parts for robotics and other mechanical needs.
   components:
@@ -682,11 +688,8 @@
     - MechWeaponsSalvage
     - MechWeaponsSecurityLight
   - type: MaterialStorage
-    whitelist:
-      tags:
-      - Sheet
-      - RawMaterial
-      - Ingot
+    whitelist: *StandardMaterialWhitelist
+  - type: OreSiloClient
   - type: GuideHelp
     guides:
     - Robotics
@@ -733,6 +736,7 @@
       tags:
         - Sheet
         - RawMaterial
+        - SheetPlasma # Goob
   - type: Lathe
     idleState: icon
     runningState: building
@@ -748,7 +752,7 @@
 
 - type: entity
   id: SecurityTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: [BaseLatheLube]
   name: security techfab
   description: Prints equipment and circuitboards for use by security crew. #Goobstation - Circuitboards description
   components:
@@ -808,20 +812,20 @@
     # - ServiceWeapons
     - SpecOpsGoogles
     - PowerCells
-  - type: EmagLatheRecipes # Goobstation
+  - type: EmagLatheRecipes
     emagStaticPacks:
-    - SyndicateAmmoLightStatic
-    - SyndicateAmmoHeavyStatic
+    - SyndicateAmmoStatic
+    - SyndicateAmmoLightStatic # Goobstation
+    - SyndicateAmmoHeavyStatic # Goobstation
   - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
+    whitelist: *StandardMaterialWhitelist
+  - type: OreSiloClient
+  - type: LatheAnnouncing
+    channels: [Security]
 
 - type: entity
   id: AmmoTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: [BaseLatheLube]
   name: ammo techfab
   description: Prints the bare minimum of bullets that any budget military or armory could need. Nothing fancy.
   components:
@@ -845,23 +849,20 @@
       runningState: icon
       staticPacks:
       - SecurityAmmoStatic
-      # Goobstation Packs
-      - SecurityAmmoStaticGoob
+      - SecurityAmmoStaticGoob # Gooob
       - SecurityAmmoStaticOmu # Omu
-    - type: EmagLatheRecipes # Goobstation Packs
+    - type: EmagLatheRecipes
       emagStaticPacks:
-      - SyndicateAmmoLightStatic
-      - SyndicateAmmoHeavyStatic
+      - SyndicateAmmoStatic
+      - SyndicateAmmoLightStatic # Goobstation Packs
+      - SyndicateAmmoHeavyStatic # Goobstation Packs
     - type: MaterialStorage
-      whitelist:
-        tags:
-          - Sheet
-          - RawMaterial
-          - Ingot
+      whitelist: *StandardMaterialWhitelist
+    - type: OreSiloClient
 
 - type: entity
   id: MedicalTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer] #Goobstation - Circuitboards description
+  parent: [BaseLatheLube] #Goobstation - Circuitboards description
   name: medical techfab
   description: Prints equipment and circuitboards for use by the medbay.
   components:
@@ -924,9 +925,14 @@
     - SyndicateCatridgesStatic
   - type: StealTarget
     stealGroup: MedicalTechFabCircuitboard
+  - type: MaterialStorage
+    whitelist: *StandardMaterialWhitelist
+  - type: OreSiloClient
+  - type: LatheAnnouncing
+    channels: [Medical]
 
 - type: entity
-  parent: [BaseLatheLube, BaseSiloUtilizer] #Goob edit
+  parent: [BaseLatheLube]
   id: UniformPrinter
   name: uniform printer
   description: Prints new or replacement uniforms.
@@ -946,6 +952,7 @@
     idleState: icon
     runningState: building
     staticPacks:
+    - TowelsStatic
     - ClothingCivilian
     - ClothingCargo
     - ClothingCommand
@@ -970,11 +977,8 @@
     - ClothingDurathreadArmoured
     - ClothingCasualContrabandJumpsuits
   - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
+    whitelist: *StandardMaterialWhitelist
+  - type: OreSiloClient
 
 - type: entity
   id: Biogenerator
@@ -1018,9 +1022,13 @@
     staticPacks:
     - BioGenIngredientsStatic
     - BioGenMaterialsStatic
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - BioGenEmagStatic
+    - HostileCubesStatic
 
 - type: entity
-  parent: [BaseLathe, BaseSiloUtilizer] # Goob edit
+  parent: [BaseLathe]
   id: OreProcessor
   name: ore processor
   description: It produces sheets and ingots using ores.
@@ -1040,17 +1048,21 @@
     - type: Machine
       board: OreProcessorMachineCircuitboard
     - type: MaterialStorage
-      ignoreMaterialWhiteList: true # Goob edit
-      connectToSilo: true # Goob edit
-      disconnectSiloOffMap: true # Goob edit
-      disallowOreEjection: false # Goob edit
       ignoreColor: true
+      # <Goobstation>
+      ignoreMaterialWhiteList: true
+      connectToSilo: true
+      disconnectSiloOffMap: true
+      disallowOreEjection: false
+      # </Goobstation>
       whitelist:
         tags:
-          - Ore
-          - Sheet
-          - RawMaterial
-          - Ingot
+        - Ore
+        # <Goobstation>
+        - Sheet
+        - RawMaterial
+        - Ingot
+        # </Goobstation>
     - type: Lathe
       idleState: icon
       runningState: building
@@ -1062,6 +1074,7 @@
     - type: MiningPoints # DeltaV - Source of mining points for miners
     - type: MiningPointsLathe # DeltaV
     - type: MaterialStorageMagnetPickup # Frontier
+    - type: OreSiloClient
 
 - type: entity
   parent: OreProcessor
@@ -1138,13 +1151,16 @@
     idleState: icon
     runningState: building
     staticPacks:
-    - FloorTilesStatic
+    - FloorDarkTilesStatic
+    - FloorSteelTilesStatic
+    - FloorWhiteTilesStatic
+    - FloorMaintsTilesStatic
+    - FloorWoodTilesStatic
+    - FloorConcreteTilesStatic
+    - CircuitFloorsStatic
+    - FloorMarbleTilesStatic
+    dynamicPacks:
+    - FauxTiles
   - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - Metal
-        - Wooden
-        - RawMaterial
-        - Plastic
-        - Ingot #OMU
+    whitelist: *StandardMaterialWhitelist
+  - type: OreSiloClient

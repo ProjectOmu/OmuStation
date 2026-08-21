@@ -67,9 +67,9 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom; // Frontier
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Content.Shared.Kitchen.Components; // Frontier
-using Content.Shared.Kitchen; // Frontier
-using Content.Shared.Whitelist; // Omu
+using Content.Shared.Kitchen.Components;
+using Content.Shared.Kitchen;
+using Content.Shared.Whitelist;
 
 namespace Content.Server.Kitchen.Components
 {
@@ -222,23 +222,5 @@ namespace Content.Server.Kitchen.Components
         [DataField]
         public EntityWhitelist MicrowaveBlacklist = new();
         // End Omu
-    }
-
-    public sealed class BeingMicrowavedEvent : HandledEntityEventArgs
-    {
-        public EntityUid Microwave;
-        public EntityUid? User;
-        public uint Time; // DeltaV
-        // Froniter start
-        public bool BeingHeated;
-        public bool BeingIrradiated;
-        // End Frontier
-
-        public BeingMicrowavedEvent(EntityUid microwave, EntityUid? user, uint time) // DeltaV, add time
-        {
-            Microwave = microwave;
-            User = user;
-            Time = time; // DeltaV
-        }
     }
 }

@@ -182,6 +182,9 @@
 
 - type: loadout
   id: NanotrasenRepresentativeFancyJumpsuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: RespectedRep
   equipment:
     jumpsuit: ClothingUniformJumpsuitNanotrasenRepresentativeFancy
 
@@ -191,6 +194,10 @@
     jumpsuit: ClothingUniformJumpskirtNanotrasenRepresentative
   groupBy: "jumpskirt" #Omu
 
+- type: loadout
+  id: NTRMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryNTR
 
 - type: loadout
   id: NanotrasenRepresentativeEnvirosuit
@@ -213,11 +220,6 @@
     belt: ClothingBeltStorageWaistbag
 
 # Shoes
-- type: loadout
-  id: NanotrasenRepresentativeBoots
-  equipment:
-    shoes: ClothingShoesBootsLaceup
-
 - type: loadout
   id: NanotrasenRepresentativeShoes
   equipment:

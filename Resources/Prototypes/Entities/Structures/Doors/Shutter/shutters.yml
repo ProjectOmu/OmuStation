@@ -59,6 +59,10 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
   - type: StationAiWhitelist
   - type: Sprite
     sprite: Structures/Doors/Shutters/shutters.rsi
@@ -126,6 +130,23 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+    # Goob start
+    - trigger: !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CableApcStack1:
+            min: 0
+            max: 1
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: frame1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    # Goob end
   - type: DoorSignalControl
   - type: DeviceNetwork
     deviceNetId: Wireless
@@ -157,7 +178,7 @@
 
 - type: entity
   id: ShuttersNormal
-  parent: BaseShutter
+  parent: [BaseDeltaPressureGlass, BaseShutter]
   components:
   - type: Occluder
   - type: Construction
@@ -184,7 +205,7 @@
 
 - type: entity
   id: ShuttersRadiation
-  parent: BaseShutter
+  parent: [BaseDeltaPressureGlass, BaseShutter]
   name: radiation shutters
   description: Why did they make these shutters radioactive?
   components:
@@ -220,7 +241,7 @@
 
 - type: entity
   id: ShuttersWindow
-  parent: BaseShutter
+  parent: [BaseDeltaPressureGlass, BaseShutter]
   name: window shutters
   description: The Best (TM) place to see your friends explode!
   components:
@@ -234,6 +255,8 @@
     node: ShuttersWindow
     containers:
     - board
+  - type: RadiationBlocker
+    resistance: 1
 
 - type: entity
   id: ShuttersWindowOpen
@@ -272,10 +295,26 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
+        damage: 200 #Goob, was 500
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+    # Goob start
+    - trigger: !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          # decent recovery from smashing since it's basically just a bunch of small sheets
+          SheetSteel1:
+            min: 1
+            max: 2
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    # Goob end
   - type: Physics
     bodyType: Dynamic
   - type: Fixtures

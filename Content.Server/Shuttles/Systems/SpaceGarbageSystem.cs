@@ -7,8 +7,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Objectives.Components.Targets;
-using Content.Server.Shuttles.Components;
+using Content.Shared.Shuttles.Components;
+using Content.Shared.Objectives.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
 

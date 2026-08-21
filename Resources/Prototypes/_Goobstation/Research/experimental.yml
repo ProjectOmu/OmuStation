@@ -61,6 +61,8 @@
   tier: 1
   cost: 5000
   recipeUnlocks:
+  - SlimeScannerXenobio
+  - XenobiologyBountyComputerCircuitboard
   - SlimeGrinderMachineCircuitboard
   - ClothingBackpackXenoBioTank
   position: -3,3
@@ -97,9 +99,15 @@
   technologyPrerequisites:
   - AdvancedAnomalyResearch
 
+# omu start PR#1090
+# OLD ONE
 #- type: technology # Omu, convert this into an antag item instead.
 #  id: XenoBiology # :trollface:
 #  name: research-technology-xeno-biology
+# OLD ONE
+#- type: technology
+#  id: XenoCompatibility
+#  name: research-technology-xeno-compatibility
 #  icon:
 #    sprite: _White/Mobs/Aliens/Xenomorphs/drone.rsi
 #    state: xenomorph
@@ -111,6 +119,7 @@
 #  position: -5,0
 #  technologyPrerequisites:
 #  - ExperimentalScience
+# omu end PR#1090
 
 - type: technology
   id: XenobagHolding

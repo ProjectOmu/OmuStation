@@ -53,6 +53,8 @@
     alternateState: Resomi_burning
   - type: HumanoidAppearance
     species: Resomi
+    undergarmentTop: null # none made, but they might not even need these too diff bodytype
+    undergarmentBottom: null
     markingsDisplacement: # Omustation Start
       Hair:
         sizeMaps:
@@ -215,7 +217,10 @@
             sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
             state: belt
   - type: Bloodstream # Goobstation - lore stuff
-    bloodReagent: ResomiBlood # Starlight
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: ResomiBlood # Starlight # todo marty unfuck this bullshit
+        Quantity: 200
   - type: MeleeWeapon # Goobstation - aliem raptors probably use their claws
     soundHit:
       collection: AlienClaw
@@ -227,6 +232,9 @@
   - type: Damageable # Goobstation - resomi damage modifiers
     damageModifierSet: Resomi
   - type: Temperature
+    currentTemperature: 310.15 # todo goob redo this
+    specificHeat: 50
+  - type: TemperatureDamage
     coldDamageThreshold: 0 # Goobstation - hyperborean velociraptors or some shit, ice planes of norway is where they came from, but in space
     heatDamageThreshold: 320.15 # Goobstation - space chickens can't tolerate reasonable temperatures, but requiring them to stay icy would be cringe, so instead make their heat damage threshold dangerously close to standard atmos, at 47°C
     coldDamage:
@@ -295,10 +303,6 @@
       sprite: "Effects/creampie.rsi"
       state: "creampie_resomi"
       visible: false
- # - type: CollectiveMind # Omu, kinda annoying dude
- #   defaultChannel: Nexus
- #   channels:
- #     - Nexus
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -309,6 +313,8 @@
   components:
   - type: HumanoidAppearance
     species: Resomi
+    undergarmentTop: null # none made, but they might not even need these too diff bodytype
+    undergarmentBottom: null
     markingsDisplacement: # Omustation Start
       Hair:
         sizeMaps:

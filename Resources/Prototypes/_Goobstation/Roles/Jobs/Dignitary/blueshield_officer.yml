@@ -35,13 +35,13 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 90000 # 25 hours
+      time: 25h # 25 hours
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 54000 # 15 hours
+      time: 15h # 15 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 90000 # 25 hours
+      time: 25h # 25 hours
     - !type:AgeRequirement
       requiredAge: 21
 #    - !type:SpeciesRequirement # Goob - None Felinid
@@ -49,7 +49,7 @@
 #      species:
 #      - Felinid #Omu, add back Felinid
     - !type:OverallPlaytimeRequirement
-      time: 72000 #20 hours - Omu Edit
+      time: 20h #20 hours - Omu Edit
   guides:
   - BlueshieldOfficerSOP
   - Command
@@ -94,7 +94,7 @@
     #gloves: ClothingHandsGlovesCombat - Goobstation, moved to loadouts
     #id: BlueshieldPDA - Omu, moved to loadouts
     ears: ClothingHeadsetAltBlueshield
-   #belt: ClothingBeltAssaultFilled - Omu, moved to loadouts
+    #belt: ClothingBeltMilitaryWebbingFilled - Omu, moved to loadouts
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
   storage:
     back:

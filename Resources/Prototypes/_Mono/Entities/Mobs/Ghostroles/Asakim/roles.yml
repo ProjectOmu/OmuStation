@@ -23,14 +23,9 @@
     rules: ghost-role-information-asakim-rules
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 180000 # 50 hrs
-    - !type:DepartmentTimeRequirement # Omu
-      department: Security
-      time: 18000 # 5 hours
     mindRoles: # DeltaV
     - MindRoleAsakim
+    - MindRoleGhostRoleFreeAgentAsakimOmu # This is bloaty but having a specific `fuck you 50h` mindrole is about equally as shit. Merge those two in future.
   - type: GhostTakeoverAvailable
   - type: RandomMetadata
     nameSegments:

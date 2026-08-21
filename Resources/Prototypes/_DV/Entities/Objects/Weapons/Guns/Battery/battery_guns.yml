@@ -36,7 +36,7 @@
   - type: Battery
     maxCharge: 1500
     startingCharge: 1500
-  - type: ProjectileBatteryAmmoProvider # Omu
+  - type: BatteryAmmoProvider # Omu
     proto: BulletDisabler
     fireCost: 50
   - type: EnergyGun
@@ -94,7 +94,7 @@
   - type: Battery
     maxCharge: 1500
     startingCharge: 1500
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50
   - type: AmmoSelector
@@ -166,7 +166,7 @@
   - type: Battery
     maxCharge: 500
     startingCharge: 500
-  - type: ProjectileBatteryAmmoProvider # Omu
+  - type: BatteryAmmoProvider # Omu
     proto: BulletDisabler
     fireCost: 50
   - type: EnergyGun
@@ -219,7 +219,7 @@
   - type: Battery
     maxCharge: 900
     startingCharge: 900
-  - type: ProjectileBatteryAmmoProvider # Omu
+  - type: BatteryAmmoProvider # Omu
     proto: BulletDisabler
     fireCost: 50
   - type: EnergyGun

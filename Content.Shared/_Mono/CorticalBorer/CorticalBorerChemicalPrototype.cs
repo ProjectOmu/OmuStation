@@ -2,7 +2,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Mono.CorticalBorer;
@@ -11,7 +10,7 @@ namespace Content.Shared._Mono.CorticalBorer;
 public sealed partial class CorticalBorerChemicalPrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     /// <summary>
     /// Chemical cost per u of reagent

@@ -189,6 +189,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<BlinkSpellEvent>(OnBlink);
         SubscribeLocalEvent<TileToggleSpellEvent>(OnTileToggle);
         SubscribeLocalEvent<PredictionToggleSpellEvent>(OnPredictionToggle);
+        SubscribeLocalEvent<RathenEvent>(OnRathen);
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
     }
 
@@ -246,7 +247,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         {
             Stun.TryUpdateParalyzeDuration(ev.Target, ev.ParalyzeDuration);
             _jitter.DoJitter(ev.Target, ev.JitterStutterDuration, true, status: status);
-            _stutter.DoStutter(ev.Target, ev.JitterStutterDuration, true, status);
+            _stutter.DoStutter(ev.Target, ev.JitterStutterDuration, true);
         }
 
         var targetWizard = HasComp<WizardComponent>(ev.Target) || HasComp<ApprenticeComponent>(ev.Target);
@@ -1170,7 +1171,7 @@ public abstract class SharedSpellsSystem : EntitySystem
                     basicAmmoComp is { Count: not null, Capacity: not null } &&
                     basicAmmoComp.Count < basicAmmoComp.Capacity)
                 {
-                    _gunSystem.UpdateBasicEntityAmmoCount(item, basicAmmoComp.Capacity.Value, basicAmmoComp);
+                    _gunSystem.UpdateBasicEntityAmmoCount((item, basicAmmoComp), basicAmmoComp.Capacity.Value);
                     PopupCharged(item, ev.Performer);
                     break;
                 }
@@ -1241,6 +1242,14 @@ public abstract class SharedSpellsSystem : EntitySystem
         else
             EnsureComp<CurseOfByondComponent>(ev.Target);
 
+        ev.Handled = true;
+    }
+    private void OnRathen(RathenEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        Rathen(ev);
         ev.Handled = true;
     }
 
@@ -1537,6 +1546,8 @@ public abstract class SharedSpellsSystem : EntitySystem
     }
 
     protected virtual void Blink(BlinkSpellEvent ev) { }
+
+    protected virtual void Rathen(RathenEvent ev) { }
 
     #endregion
 }

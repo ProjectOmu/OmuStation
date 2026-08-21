@@ -635,7 +635,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 50000
-      autoRecharge: True
   - uid: 362
     components:
     - type: Transform
@@ -2506,7 +2505,7 @@ entities:
     - type: Transform
       pos: -0.53172827,2.545515
       parent: 2
-- proto: HandheldHealthAnalyzerUnpowered
+- proto: HandheldHealthAnalyzer
   entities:
   - uid: 499
     components:

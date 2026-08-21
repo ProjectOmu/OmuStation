@@ -30,7 +30,6 @@ public sealed class JaniVisionOverlay : Overlay
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IEyeManager _eyeManager = default!;
 
     private readonly TransformSystem _transform;

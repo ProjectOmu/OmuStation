@@ -139,32 +139,32 @@
   description: job-description-hos
   playTimeTracker: JobHeadOfSecurity
   requirements:
-    - !type:RoleTimeRequirement
-      role: JobWarden
-      time: 18000 #5 hrs - Omu Edit start - Suffer like I did.
-    - !type:RoleTimeRequirement
-      role: JobDetective
-      time: 18000 #5 hrs - knowing how to use the tools is important
-    - !type:RoleTimeRequirement
-      role: JobSecurityOfficer
-      time: 18000 #5 hrs
-    - !type:RoleTimeRequirement
-      role: JobBrigmedic # added Brigmedic requirement
-      time: 7200 #around one full shift (BrigMed is a single role)
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 108000 #30 hours - Omu Edit end
-#    - !type:SpeciesRequirement # Goob - None Felinid
-#      inverted: true
-#      species:
-#      - Felinid #Omu, add back Felinid
+  - !type:RoleTimeRequirement
+    role: JobWarden
+    time: 5h # Goobstation
+  - !type:RoleTimeRequirement
+    role: JobDetective
+    time: 5h # Omustation
+  - !type:RoleTimeRequirement
+    role: JobSecurityOfficer
+    time: 5h # Omustation
+  - !type:RoleTimeRequirement # Omustation
+    role: JobBrigmedic
+    time: 2h
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 30h # Omustation
+  #    - !type:SpeciesRequirement # Goob - None Felinid - # Omustation
+  #      inverted: true
+  #      species:
+  #      - Felinid #Omu, add back Felinid
   #  - !type:StyleRequirement
   #    styles:
   #    - HumanHairFloorlengthBedhead
   #    - HumanHairClassicFloorlengthBedhead
   #    - HumanHairFloorlengthBraid
-    - !type:OverallPlaytimeRequirement
-      time: 72000 #20 hours - Omu Edit
+  - !type:OverallPlaytimeRequirement # Omustation
+    time: 20h
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
@@ -189,10 +189,11 @@
   - Security
   - Armory
   - Maintenance
-  - Service
   - External
   - Detective
   - Cryogenics
+  - GenpopEnter
+  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

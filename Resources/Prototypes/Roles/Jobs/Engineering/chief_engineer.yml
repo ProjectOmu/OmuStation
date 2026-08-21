@@ -136,19 +136,19 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
-      time: 54000 #15 hours - Omu Edit: This is the only role where you'd realistically learn how to do CE things like TEGs, atmos or SMs.
+      time: 15h #15 hours - Omu Edit: This is the only role where you'd realistically learn how to do CE things like TEGs, atmos or SMs.
     - !type:RoleTimeRequirement
       role: JobStationEngineer
-      time: 18000 #5 hrs
+      time: 5h
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 72000 #20 hrs - Omu Edit: around 10 full shifts
-#    - !type:SpeciesRequirement # Goob - None Felinid
-#      inverted: true
-#      species:
-#      - Felinid #Omu, add back Felinid
+      time: 20h
+  #- !type:SpeciesRequirement # Goob - None Felinid
+  #  inverted: true
+    #  species:
+    #  - Felinid
     - !type:OverallPlaytimeRequirement
-      time: 36000 #10 hours - Omu Edit
+      time: 10h # Omu Edit
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
@@ -199,7 +199,7 @@
   equipment:
     head: ClothingHeadHatBeretEngineering
     mask: ClothingMaskBreath
-    neck: ClothingNeckCloakCe
+    neck: ClothingNeckCloakWhiteCe # GOOB
     outerClothing: ClothingOuterWinterCE
     gloves: ClothingHandsGlovesColorYellow
     shoes: ClothingShoesBootsMagAdv

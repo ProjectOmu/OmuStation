@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 
-# Skilled Time - Starlight
+# Skilled Time - Starlight # omu?
 - type: loadoutEffectGroup
   id: SkilledBrigmedic
   effects:
@@ -12,7 +12,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobBrigmedic
-      time: 54000 # 15 hrs
+      time: 15h
 # Senior Time
 - type: loadoutEffectGroup
   id: VeteranBrigmedic
@@ -21,7 +21,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobBrigmedic
-      time: 216000 # 60 hrs
+      time: 60h
 
 - type: loadout
   id: BrigmedicJumpsuit
@@ -86,6 +86,11 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+
+- type: loadout
+  id: BrigmedicMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryBrigmedic
 
 # Startlight start
 # Head

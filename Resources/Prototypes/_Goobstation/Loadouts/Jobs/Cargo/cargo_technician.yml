@@ -4,30 +4,31 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Head
+#todo <mailfix>
 - type: loadout
   id: CargoTechnicianHeadMail
   equipment:
     head: ClothingHeadMailCarrier
+
 
 # Jumpsuit
 - type: loadout
   id: CargoTechnicianJumpsuitMail
   equipment:
     jumpsuit: ClothingUniformMailCarrier
-  groupBy: "jumpsuit" #Omu - loadout cleanup
+
 
 - type: loadout
   id: CargoTechnicianJumpskirtMail
   equipment:
     jumpsuit: ClothingUniformSkirtMailCarrier
-  groupBy: "jumpskirt" #Omu - loadout cleanup
+
 
 # OuterClothing
 - type: loadout
   id: CargoTechnicianWintercoatMail
   equipment:
     outerClothing: ClothingOuterWinterCoatMail
-  groupBy: "wintercoat" #Omu - loadout cleanup
 
 - type: loadout
   id: CargoTechnicianEnvirosuit
@@ -76,6 +77,29 @@
     - Plasmaman
 
 - type: loadout
+  id: CourierEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitCourier
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: CourierEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmCourier
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
   id: CargoTechnicianOveralls
   equipment:
     jumpsuit: ClothingUniformOverallsCargo
+
+- type: loadout
+  id: MailCarrierMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryMailCarrier

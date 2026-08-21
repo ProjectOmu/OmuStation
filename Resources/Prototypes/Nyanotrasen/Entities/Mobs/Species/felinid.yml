@@ -77,7 +77,7 @@
       types:
         Blunt: 1
   - type: Stamina
-    critThreshold: 85 # Goobstation - Siouxcide #OMU changes that to reflect what guide book says
+    baseCritThreshold: 85 # Goobstation - Siouxcide #OMU changes that to reflect what guide book says
     animationThreshold: 40 # Goob edit
   - type: TypingIndicator
     proto: felinid

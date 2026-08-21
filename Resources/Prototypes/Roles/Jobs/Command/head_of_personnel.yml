@@ -139,19 +139,19 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 9000 # 2.5 hours
+      time: 2.5h # Omustation
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 9000 # 2.5 hours
+      time: 2.5h # Omustation
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 9000 # 2.5 hrs
+      time: 2.5h # Omustation
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 9000 # 2.5 hrs
+      time: 2.5h # Omustation
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 36000 # Omu Edit - around 5-8 shifts of command for this paper pusher
+      time: 10h # Omu Edit - around 5-8 shifts of command for this paper pusher
 #    - !type:SpeciesRequirement # Goob - None Felinid
 #      inverted: true
 #      species:
@@ -214,7 +214,7 @@
     #id: HoPPDA - Omu, moved to loadouts
     #gloves: ClothingHandsGlovesHop
     ears: ClothingHeadsetAltCommand
-    belt: BoxFolderClipboard
+    belt: BoxFolderClipboardThreePapers
     eyes: ClothingEyesHudCommand
   storage:
     back:

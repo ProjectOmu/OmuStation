@@ -88,14 +88,14 @@ SPDX-License-Identifier: MIT
                                         Name="StartButton"
                                         Access="Public"
                                         Text="{Loc 'microwave-menu-start-button'}"
-                                        StyleClasses="ButtonColorGreen"
+                                        StyleClasses="positive"
                                         TextAlign="Center" />
                                     <Button
                                         Name="EjectButton"
                                         Access="Public"
                                         Text="{Loc 'microwave-menu-eject-all-text'}"
                                         ToolTip="{Loc 'microwave-menu-eject-all-tooltip'}"
-                                        StyleClasses="ButtonColorRed"
+                                        StyleClasses="negative"
                                         TextAlign="Center" />
                                 </BoxContainer>
                             </BoxContainer>

@@ -66,8 +66,10 @@
   category: MentalTraits # Omustation - Remake EE Traits system - EE traits categories
   components:
     - type: Narcolepsy
-      timeBetweenIncidents: 300, 600
-      durationOfIncident: 10, 30
+      maxTimeBetweenIncidents: 600
+      minTimeBetweenIncidents: 300
+      maxDurationOfIncident: 30
+      minDurationOfIncident: 10
   globalCost: -6 # Omustation - Remake EE Traits system - global trait points cost
 
 - type: trait
@@ -125,6 +127,27 @@
   description: trait-painnumbness-desc
   # category: Disabilities
   category: MentalTraits # Omustation - Remake EE Traits system - EE traits categories
-  components:
-  - type: PainNumbness
+  specials:
+  - !type:ApplyStatusEffectSpecial
+    statusEffects:
+    - PainNumbnessTraitStatusEffect
   globalCost: -2 # Omustation - Remake EE Traits system - global trait points cost
+
+- type: trait
+  id: Hemophilia
+  name: trait-hemophilia-name
+  description: trait-hemophilia-desc
+  # category: Disabilities
+  specials:
+  - !type:ApplyStatusEffectSpecial
+    statusEffects:
+    - StatusEffectHemophiliaTrait
+
+- type: trait
+  id: ImpairedMobility
+  name: trait-impaired-mobility-name
+  description: trait-impaired-mobility-desc
+  traitGear: OffsetCane
+  # category: Disabilities
+  components:
+    - type: ImpairedMobility

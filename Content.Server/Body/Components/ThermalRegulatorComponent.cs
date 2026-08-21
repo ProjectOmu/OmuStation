@@ -8,12 +8,15 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Server._Mono.CorticalBorer;
 using Content.Server.Body.Systems;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.Body.Components;
 
 [RegisterComponent]
+[Access(typeof(ThermalRegulatorSystem),
+    typeof(CorticalBorerSystem))] // Omu
 public sealed partial class ThermalRegulatorComponent : Component
 {
     /// <summary>

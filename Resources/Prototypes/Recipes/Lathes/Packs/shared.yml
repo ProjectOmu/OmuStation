@@ -10,6 +10,7 @@
   id: MaterialsStatic
   recipes:
   - SheetRGlass
+  - MaterialDurathread
 
 - type: latheRecipePack
   id: PartsStatic
@@ -46,6 +47,17 @@
   - CableLVGranular0Stack # omu granular LV cables
   - CableLVGranular1Stack # omu granular LV cables
   - CableLVGranular2Stack # omu granular LV cables
+
+- type: latheRecipePack
+  id: PaperworkStatic
+  recipes:
+  - BoxFolderClipboardEmpty
+  - BoxFolderPlasticClipboardEmpty
+
+- type: latheRecipePack
+  id: TowelsStatic # This is used for both the autolathe and the uniform printer, so "unique" towels that only HoP can print shouldn't be included!
+  recipes:
+  - TowelColorWhite
 
 ## Dynamic
 

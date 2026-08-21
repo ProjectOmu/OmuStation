@@ -29,17 +29,19 @@
 - type: speciesBaseSprites
   id: MobSlimeSprites
   sprites:
+    TailBehind: MobHumanoidAnyMarking # floof
+    TailOversuit: MobHumanoidAnyMarking # floof
     Face: MobHumanoidAnyMarking
     Head: MobSlimeHead
     HeadSide: MobHumanoidAnyMarking
     #omu start - Goat
-    HeadTop: MobHumanoidAnyMarking 
-    Tail: MobHumanoidAnyMarking 
+    HeadTop: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
     #omu end
     Hair: MobSlimeMarkingFollowSkin
     FacialHair: MobSlimeMarkingFollowSkin
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobSlimeChest
     Groin: MobSlimeGroin
     Eyes: MobHumanoidEyes
@@ -62,11 +64,11 @@
       points: 3
       required: false
       #Omu Start - Goat
-    HeadTop: 
-      points: 8 
+    HeadTop:
+      points: 8
       required: false
-    Tail: 
-      points: 2 
+    Tail:
+      points: 2
       required: false
       #Omu End - Goat
     FacialHair:
@@ -75,10 +77,10 @@
     Chest:
       points: 8
       required: false
-    Underwear:
+    UndergarmentBottom: # Goob
       points: 1
       required: false
-    Undershirt:
+    UndergarmentTop: # Goob
       points: 1
       required: false
     RightLeg:

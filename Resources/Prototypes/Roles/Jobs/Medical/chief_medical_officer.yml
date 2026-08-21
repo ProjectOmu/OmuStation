@@ -138,22 +138,24 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobChemist
-      time: 54000 #15 hrs - Omu Edit start
-    - !type:RoleTimeRequirement
-      role: JobParamedic
-      time: 9000 #2.5 hours
+      time: 15h # Omustation
     - !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 36000 #10 hours
+      time: 10h # Omustation
+    - !type:RoleTimeRequirement
+      role: JobParamedic
+      time: 2.5h # Omustation
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 72000 # 20 hours - Omu edit end
-#    - !type:SpeciesRequirement # Goob - None Felinid
-#      inverted: true
-#      species:
-#      - Felinid #Omu, add back Felinid
-    - !type:OverallPlaytimeRequirement
-      time: 36000 #10 hours - Omu Edit
+      time: 10h
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 20h # Omustation
+    #- !type:SpeciesRequirement # Goob - None Felinid - # Omustation
+    #  inverted: true
+    #  species:
+    #  - Felinid
+  weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
   supervisors: job-supervisors-captain
@@ -167,7 +169,6 @@
   - CommandTrainingManual # Omu
   - Virology
   goobcoins: 40 #Goob content
-  weight: 10 #Goob Edit
   access:
   - Paramedic # Omu
   - Medical

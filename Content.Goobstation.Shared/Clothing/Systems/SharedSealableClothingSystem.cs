@@ -56,7 +56,7 @@ public abstract class SharedSealableClothingSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedPowerCellSystem _powerCellSystem = default!;
+    [Dependency] private readonly PowerCellSystem _powerCellSystem = default!;
     [Dependency] private readonly ToggleableClothingSystem _toggleableSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
@@ -482,7 +482,7 @@ public abstract class SharedSealableClothingSystem : EntitySystem
             if (sealableComponent.IsSealed != comp.IsCurrentlySealed)
                 continue;
 
-            var doAfterArgs = new DoAfterArgs(EntityManager, uid, sealableComponent.SealingTime, new SealClothingDoAfterEvent(), uid, target: processingPart, showTo: comp.WearerEntity) { NeedHand = false, RequireCanInteract = false, };
+            var doAfterArgs = new DoAfterArgs(EntityManager, uid, sealableComponent.SealingTime, new SealClothingDoAfterEvent(), uid, target: processingPart, showTo: comp.WearerEntity) { NeedHand = false, RequireCanInteract = false, DistanceThreshold = null, };
 
             // Checking for client here to skip first process popup spam that happens. Predicted popups don't work here because doafter starts on sealable control, not on player.
             if (!_doAfterSystem.TryStartDoAfter(doAfterArgs) || _netManager.IsClient)
@@ -498,7 +498,7 @@ public abstract class SharedSealableClothingSystem : EntitySystem
                 comp.IsCurrentlySealed ? sealableComponent.SealDownPopup : sealableComponent.SealUpPopup,
                 ("partName", Identity.Name(processingPart, EntityManager))
             );
-            var type = comp.IsCurrentlySealed ?  PopupType.SmallCaution :  PopupType.Small;
+            var type = comp.IsCurrentlySealed ? PopupType.SmallCaution : PopupType.Small;
             _popupSystem.PopupCoordinates(popupText, popupCoords, comp.WearerEntity.Value, type);
 
             break;

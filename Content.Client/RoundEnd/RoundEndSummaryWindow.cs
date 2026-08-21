@@ -108,7 +108,7 @@ namespace Content.Client.RoundEnd
             roundEndTabs.AddChild(MakeStationReportTab()); //goob
             roundEndTabs.AddChild(MakeSiliconSummaryTab(info)); // Omu
 
-            Contents.AddChild(roundEndTabs);
+            ContentsContainer.AddChild(roundEndTabs);
 
             OpenCenteredRight();
             MoveToFront();
@@ -154,7 +154,7 @@ namespace Content.Client.RoundEnd
             if (!string.IsNullOrEmpty(roundEnd))
             {
                 var roundEndLabel = new RichTextLabel();
-                roundEndLabel.SetMarkup(roundEnd);
+                roundEndLabel.SetMessage(FormattedMessage.FromMarkupOrThrow(roundEnd), tagsAllowed: null); // Goob
                 roundEndSummaryContainer.AddChild(roundEndLabel);
             }
 

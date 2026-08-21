@@ -801,10 +801,10 @@
       stackRequirements:
         Manipulator: 2
         Cable: 5
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition
       materialComposition:
-        Steel: 12
-        Plastic: 12
+        Steel: 25
+        Plastic: 25
     - type: StaticPrice
       price: 15
     - type: Tag # Goobstation - augment construction
@@ -827,10 +827,10 @@
         Manipulator: 4
         Steel: 5
         Cable: 10
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition
       materialComposition:
-        Steel: 25
-        Glass: 125
+        Steel: 30
+        Plastic: 30
     - type: StaticPrice
       price: 30
 
@@ -848,10 +848,10 @@
       stackRequirements:
         Manipulator: 2
         Cable: 5
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition
       materialComposition:
-        Steel: 12
-        Plastic: 12
+        Steel: 25
+        Plastic: 25
     - type: StaticPrice
       price: 15
     - type: Tag # Goobstation - augment construction
@@ -873,10 +873,10 @@
       stackRequirements:
         Manipulator: 2
         CableMV: 5
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition
       materialComposition:
-        Steel: 12
-        Plastic: 12
+        Steel: 25
+        Plastic: 25
     - type: StaticPrice
       price: 15
 
@@ -971,11 +971,11 @@
       stackRequirements:
         Manipulator: 1
         CableHV: 5
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition
       materialComposition:
-        Glass: 125
+        Glass: 200
       chemicalComposition:
-        Silicon: 5
+        Silicon: 20
     - type: StaticPrice
       price: 40
 
@@ -1017,11 +1017,11 @@
       stackRequirements:
         Manipulator: 2
         CableHV: 10
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition
       materialComposition:
-        Glass: 125
+        Glass: 200
       chemicalComposition:
-        Silicon: 5
+        Silicon: 20
     - type: StaticPrice
       price: 40
 
@@ -1037,11 +1037,11 @@
       stackRequirements:
         Manipulator: 1
         Cable: 10
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition
       materialComposition:
-        Glass: 125
+        Glass: 200
       chemicalComposition:
-        Silicon: 5
+        Silicon: 20
     - type: StaticPrice
       price: 40
 
@@ -1139,7 +1139,7 @@
   - type: Sprite
     state: supply
   - type: MachineBoard
-    prototype: MaterialSilo #Goobstation - Silo
+    prototype: MachineMaterialSilo
     stackRequirements:
       Manipulator: 4
       Cable: 1
@@ -1200,7 +1200,7 @@
 
 - type: entity
   id: SyndicateMicrowaveMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: [ BaseMachineCircuitboard, BaseSyndicateContraband ]
   name: donk co. microwave machine board
   components:
     - type: Sprite
@@ -1382,7 +1382,7 @@
   - type: Sprite
     state: supply
   - type: MachineBoard
-    prototype: MailTeleporter #Goobstation
+    prototype: CargoMailTeleporter
     stackRequirements:
       Manipulator: 2
       Steel: 5
@@ -1503,6 +1503,43 @@
       Steel: 2
       Manipulator: 2
       Cable: 1
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: SmartFridgeCircuitboard
+  name: SmartFridge machine board
+  description: A machine printed circuit board for a SmartFridge.
+  components:
+  - type: Sprite
+    state: service
+  - type: MachineBoard
+    prototype: SmartFridge
+    stackRequirements:
+      Glass: 5
+      Manipulator: 2
+    tagRequirements:
+        GlassBeaker:
+          amount: 2
+          defaultPrototype: Beaker
+  # Start of Omustation
+    componentRequirements: # Omustation
+      PowerCell: # Omustation
+        amount: 1 # Omustation
+        defaultPrototype: PowerCellSmall # Omustation
+  # Requied for the machine board to be modifed by a multitool
+  # Yes I know this makes it a door *technically*, no I dont know why the door electronics are core to this.
+  - type: DoorElectronics
+  - type: AccessReader
+  - type: ActivatableUI
+    key: enum.DoorElectronicsConfigurationUiKey.Key
+    requiredItems:
+      tags:
+      - DoorElectronicsConfigurator
+  - type: UserInterface
+    interfaces:
+      enum.DoorElectronicsConfigurationUiKey.Key:
+        type: DoorElectronicsBoundUserInterface
+  # End of Omustation
 
 # Shitmed Change Start
 - type: entity

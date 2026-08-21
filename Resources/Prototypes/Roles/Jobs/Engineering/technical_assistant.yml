@@ -64,7 +64,7 @@
   playTimeTracker: JobTechnicalAssistant
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 18000 # 5 hrs # Omu edit start - Engineering Raider prevention
+      time: 5h # 5 hrs # Omu edit start - Engineering Raider prevention
     #- !type:DepartmentTimeRequirement
     #  department: Engineering
     #  time: 18000 #5 hrs

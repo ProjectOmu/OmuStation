@@ -50,6 +50,7 @@ public abstract class SharedFlightSystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly Content.Shared.Gravity.SharedGravitySystem _gravity = default!;
 
     public override void Initialize()
     {
@@ -91,7 +92,7 @@ public abstract class SharedFlightSystem : EntitySystem
             }
 
             // We make it 0.7f to compensate by how comparatively lame it is vs sprinting while on stimulants as another species.
-            if (TryComp<StaminaModifierComponent>(uid, out var staminaComp))
+            if (TryComp<StaminaModifierStatusEffectComponent>(uid, out var staminaComp))
                 _staminaSystem.ModifyStaminaDrain(uid,
                     component.StaminaDrainKey,
                     component.StaminaDrainRate * staminaComp.Modifier * component.StaminaDrainMultiplier);
@@ -118,6 +119,9 @@ public abstract class SharedFlightSystem : EntitySystem
         _actionsSystem.SetToggled(component.ToggleActionEntity, component.On);
         RaiseLocalEvent(uid, new FlightEvent(uid, component.On, component.IsAnimated));
         _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, active, false, component.StaminaDrainKey, uid);
+
+        _gravity.RefreshWeightless(uid); // Force the gravity system to refresh
+
         _movementSpeed.RefreshWeightlessModifiers(uid);
         ToggleCollisionMasks(uid, component);
         UpdateHands(uid, active);
@@ -280,7 +284,7 @@ public abstract class SharedFlightSystem : EntitySystem
 
     private void OnStandingStateFlightAttempt(EntityUid uid, StandingStateComponent component, ref FlightAttemptEvent args)
     {
-        if (!_standing.IsDown(uid, component))
+        if (!_standing.IsDown(uid))
             return;
 
         //Omu Edit Start - Paraplegic Harpies

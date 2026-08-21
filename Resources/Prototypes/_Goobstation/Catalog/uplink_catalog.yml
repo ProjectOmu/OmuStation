@@ -826,7 +826,6 @@
   - !type:BuyerJobCondition
     whitelist:
     - Botanist
-    - Zookeeper
 
 - type: listing
   id: UplinkDartGun
@@ -1104,11 +1103,11 @@
       - ContractorUplink
 
 #- type: listing # Omu, no more of that
-#  id: UplinkAutosurgeonSandevistan
-#  name: uplink-autosurgeon-sandevistan-name
-#  description: uplink-autosurgeon-sandevistan-desc
+#  id: UplinkAutosurgeonStatvekaSandevistan
+#  name: uplink-autosurgeon-statveka-sandevistan-name
+#  description: uplink-autosurgeon-statveka-sandevistan-desc
 #  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
-#  productEntity: AutosurgeonSandevistan
+#  productEntity: AutosurgeonStatvekaSandevistan
 #  cost:
 #    Telecrystal: 66 # The urge to make it 65...
 #  categories:
@@ -1135,6 +1134,21 @@
 #      tags:
 #      - LoneOpsUplink
 
+#- type: listing # Omu, ishkab disabling this per upstream discussion
+#  id: NukieUplinkAutosurgeonStatvekaSandevistan
+#  name: uplink-autosurgeon-statveka-sandevistan-name
+#  description: uplink-autosurgeon-statveka-sandevistan-desc
+#  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
+#  productEntity: AutosurgeonStatvekaSandevistan
+#  cost:
+#    Telecrystal: 124
+#  categories:
+#  - UplinkImplants
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - LoneOpsUplink
 
 #- type: listing # Omu, only in bundle now
 #  id: UplinkClothingOuterDavidsJacketValid

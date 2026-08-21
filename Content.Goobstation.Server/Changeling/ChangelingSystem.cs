@@ -54,7 +54,7 @@ using Content.Goobstation.Shared.InternalResources.EntitySystems;
 using Content.Goobstation.Shared.InternalResources.Events;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Server.Actions;
-using Content.Server.Atmos.Components;
+using Content.Shared.Atmos.Components;
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Emp;
@@ -110,6 +110,8 @@ using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Grab;
+using Content.Shared.Atmos.Components;
+using Content.Shared.Zombies;
 using Content.Server.Ensnaring;
 using Content.Shared._White.Jump;    //OMU
 
@@ -197,6 +199,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, AwakenedInstinctPurchasedEvent>(OnAwakenedInstinctPurchased);
         SubscribeLocalEvent<ChangelingIdentityComponent, AugmentedEyesightPurchasedEvent>(OnAugmentedEyesightPurchased);
         SubscribeLocalEvent<ChangelingIdentityComponent, ChameleonSkinPurchasedEvent>(OnChameleonSkinPurchased);
+        SubscribeLocalEvent<ChangelingIdentityComponent, DarknessAdaptionPurchasedEvent>(OnDarknessAdaptionPurchased);
         SubscribeLocalEvent<ChangelingIdentityComponent, VoidAdaptionPurchasedEvent>(OnVoidAdaptionPurchased);
 
         SubscribeAbilities();
@@ -274,6 +277,11 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     private void OnChameleonSkinPurchased(Entity<ChangelingIdentityComponent> ent, ref ChameleonSkinPurchasedEvent args)
     {
         EnsureComp<ChameleonSkinComponent>(ent);
+    }
+
+    private void OnDarknessAdaptionPurchased(Entity<ChangelingIdentityComponent> ent, ref DarknessAdaptionPurchasedEvent args)
+    {
+        EnsureComp<DarknessAdaptionComponent>(ent);
     }
 
     private void OnVoidAdaptionPurchased(Entity<ChangelingIdentityComponent> ent, ref VoidAdaptionPurchasedEvent args)

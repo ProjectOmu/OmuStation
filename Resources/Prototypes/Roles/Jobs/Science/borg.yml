@@ -37,12 +37,12 @@
   requirements:
   - !type:RoleTimeRequirement
     role: JobBorg
-    time: 36000 #10 hours - Omu Edit
-  - !type:OverallPlaytimeRequirement
-    time: 36000 #10 hours - Omu Edit
+    time: 10h # Omustation
+  - !type:OverallPlaytimeRequirement # Omustation
+    time: 10h
+  weight: 10
   canBeAntag: false
   goobcoins: 40 #Goob content
-  weight: 10 # Goob Edit
   icon: JobIconStationAi
   supervisors: job-supervisors-rd
   jobEntity: StationAiBrain
@@ -56,7 +56,7 @@
   playTimeTracker: JobBorg
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hrs
+      time: 10h
   canBeAntag: false
   goobcoins: 20 #Goob content
   icon: JobIconBorg

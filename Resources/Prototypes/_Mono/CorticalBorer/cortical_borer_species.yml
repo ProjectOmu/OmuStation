@@ -125,9 +125,7 @@
     rules: ghost-role-information-freeagent-rules
     mindRoles:
     - MindRoleGhostRoleFreeAgent
-    requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 54000 #15 hours
+    - MindRoleGhostRoleFreeAgentGoob
   - type: GhostRoleMobSpawner
     prototype: MobCorticalBorer
   - type: Damageable

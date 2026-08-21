@@ -18,9 +18,9 @@
       connections:
       - chest
       organs:
-        brain: OrganVoxBrain # Omu
-        eyes: OrganHumanEyes
-    chest:
+        brain: OrganHumanBrain
+        eyes: OrganVoxEyes
+    chest: # Goob
       part: ChestVox
       connections:
       - right arm
@@ -37,8 +37,8 @@
       - left leg
       organs:
         stomach: OrganVoxStomach
-        liver: OrganHumanLiver
-        kidneys: OrganHumanKidneys
+        liver: OrganVoxLiver
+        kidneys: OrganVoxKidneys
     right arm:
       part: RightArmVox
       connections:

@@ -20,7 +20,7 @@
 
 - type: entity
   id: EngineeringTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer]
+  parent: [BaseLatheLube]
   name: engineering techfab
   description: Prints equipment and circuitboards for use by engineering department.
   components:
@@ -88,10 +88,11 @@
         - Sheet
         - RawMaterial
         - Ingot
+        - SheetPlasma
 
 - type: entity
   id: CargoTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer]
+  parent: [BaseLatheLube]
   name: cargo techfab
   description: Prints equipment and circuitboards for use by cargo department.
   components:
@@ -125,7 +126,6 @@
     - MiscSignallersStatic
     - CargoStatic
     - RecipePackShipmentNoticesStatic
-    - CargoOmu #omu edit
     dynamicPacks:
     - AdvancedTools
     - Mining
@@ -156,6 +156,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+        - SheetPlasma
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -171,7 +172,7 @@
 
 - type: entity
   id: ScienceTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer]
+  parent: [BaseLatheLube]
   name: science techfab
   description: Prints equipment and circuitboards for use by science department.
   components:
@@ -199,6 +200,7 @@
     - CircuitFloorsStatic
     - MedicalBoardsStatic
     - MedicalBoardsStaticGoob
+    - ChemistryStatic
     - ToolsStatic
     - PartsStatic
     - LatheMiscStatic
@@ -231,6 +233,7 @@
     - EngineeringBoards
     - SharedBoards
     - ScienceBoards
+    - ScienceBoardsGoob
     - ShuttleBoards
     - ShuttleBoardsGoob
     - MedicalBoardsGoob
@@ -255,10 +258,11 @@
         - Sheet
         - RawMaterial
         - Ingot
+        - SheetPlasma
 
 - type: entity
   id: ServiceTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer]
+  parent: [BaseLatheLube]
   name: service techfab
   description: Prints equipment and circuitboards for use by service department.
   components:
@@ -305,6 +309,8 @@
     - CameraBoards
     - ServiceTools
     - ServiceBoardsGoob # goob
+    - EntertainmentPack # goob
+    - BartendingPack # goob
     # Einstein Engines Packs
     - Translators
   - type: EmagLatheRecipes
@@ -316,10 +322,11 @@
         - Sheet
         - RawMaterial
         - Ingot
+        - SheetPlasma
 
 - type: entity
   id: ERTTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer]
+  parent: [BaseLatheLube]
   name: ERT techfab
   description: Standard-issue ammunition and gear for Emergency Response Team deployments. Fast, basic, reliable.
   components:
@@ -353,3 +360,4 @@
           - Sheet
           - RawMaterial
           - Ingot
+          - SheetPlasma

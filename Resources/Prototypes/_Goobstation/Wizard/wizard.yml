@@ -35,11 +35,11 @@
   objective: roles-antag-wizard-description
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 126000 # 35h
-  #  - !type:SpeciesRequirement #Omu edit start
-  #    inverted: true
-  #    species:
-  #    - Plasmaman #Omu edit end
+    time: 35h # 35h
+  #- !type:SpeciesRequirement # Omu
+  #  inverted: true
+  #  species:
+  #  - Plasmaman
   guides: [ Wizard ]
 
 - type: antag

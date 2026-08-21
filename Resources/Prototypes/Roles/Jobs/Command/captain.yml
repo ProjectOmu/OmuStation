@@ -141,25 +141,25 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 14400 # 4 hours
+      time: 4h
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 14400 # 4 hours
+      time: 4h
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 14400 # 4 hours
+      time: 4h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 14400 # 4 hours
+      time: 6h # Goobstation
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 72000 # 20 hours - Omu edit - With the administrative assistant, there's a role to specifically shadow the captain and what they do to learn their role.
-    - !type:OverallPlaytimeRequirement
-      time: 144000 # 40 hours - Omu Edit - Not technically needed, but it helps since time transfered people still need to play shifts before captaining.
-#    - !type:SpeciesRequirement # Goob - None Felinid
-#      inverted: true
-#      species:
-#      - Felinid #Omu, add back Felinid
+      time: 20h # Omu
+    - !type:OverallPlaytimeRequirement # Omu
+      time: 40h # Omu Edit - Not technically needed, but it helps since time transfered people still need to play shifts before captaining.
+      #- !type:SpeciesRequirement # Goob - None Felinid
+    #  inverted: true
+    #  species:
+    #  - Felinid
       #any MRP using our code might eventually want to use it
     # - !type:SaturationRequirement # MisandryBox - no neon hair on captain
     #   hairColorSaturation: 0.30
@@ -190,7 +190,7 @@
 - type: startingGear
   id: CaptainGear
   equipment:
-    #shoes: ClothingShoesBootsLaceup # Omu, Selectable formal shoes
+   # shoes: ClothingShoesBootsLaceup - Goobstation
     eyes: ClothingEyesGlassesCommand
     #gloves: ClothingHandsGlovesCaptain - Goobstation, moved to loadouts
     #id: CaptainPDA - Omu, moved to loadouts

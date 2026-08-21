@@ -22,6 +22,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared.Movement.Systems;
 
 namespace Content.Goobstation.Shared.SpecialPassives.Fleshmend;
 
@@ -33,6 +34,7 @@ public sealed class SharedFleshmendSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly DamageableSystem _dmg = default!;
     [Dependency] private readonly WoundSystem _wound = default!;
 
@@ -50,6 +52,12 @@ public sealed class SharedFleshmendSystem : EntitySystem
         SubscribeLocalEvent<FleshmendComponent, ComponentRemove>(OnRemoved);
 
         SubscribeLocalEvent<FleshmendComponent, MobStateChangedEvent>(OnMobStateChange);
+        SubscribeLocalEvent<FleshmendComponent, RefreshMovementSpeedModifiersEvent>(OnRefresh);
+    }
+
+    private void OnRefresh(EntityUid uid, FleshmendComponent component, RefreshMovementSpeedModifiersEvent args)
+    {
+        args.ModifySpeed(component.MovementSpeedDebuff, component.MovementSpeedDebuff);
     }
 
     private void OnMapInit(Entity<FleshmendComponent> ent, ref MapInitEvent args)
@@ -71,7 +79,7 @@ public sealed class SharedFleshmendSystem : EntitySystem
             RemoveFleshmendEffects(ent);
 
         if (ent.Comp.AlertId != null)
-            _alerts.ClearAlert(ent, (ProtoId<AlertPrototype>) ent.Comp.AlertId); // incase there was still time left on removal
+            _alerts.ClearAlert(ent.Owner, (ProtoId<AlertPrototype>) ent.Comp.AlertId); // incase there was still time left on removal
     }
 
     public override void Update(float frameTime)

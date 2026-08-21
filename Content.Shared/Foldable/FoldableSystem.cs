@@ -44,8 +44,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
-using Content.Shared.Access.Components; // Omu
-using Content.Shared.Access.Systems; // Omu
+using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 
 namespace Content.Shared.Foldable;
 
@@ -117,14 +117,14 @@ public sealed class FoldableSystem : EntitySystem
     /// <summary>
     /// Set the folded state of the given <see cref="FoldableComponent"/>
     /// </summary>
-    public void SetFolded(EntityUid uid, FoldableComponent component, bool folded)
+    public void SetFolded(EntityUid uid, FoldableComponent component, bool folded, EntityUid? user = null)
     {
         component.IsFolded = folded;
         Dirty(uid, component);
         _appearance.SetData(uid, FoldedVisuals.State, folded);
         _buckle.StrapSetEnabled(uid, !component.IsFolded);
 
-        var ev = new FoldedEvent(folded);
+        var ev = new FoldedEvent(folded, user);
         RaiseLocalEvent(uid, ref ev);
     }
 
@@ -136,7 +136,7 @@ public sealed class FoldableSystem : EntitySystem
 
     public bool TryToggleFold(EntityUid uid, FoldableComponent comp, EntityUid? folder = null)
     {
-        var result = TrySetFolded(uid, comp, !comp.IsFolded, folder); // Omu, pass folder through
+        var result = TrySetFolded(uid, comp, !comp.IsFolded, folder);
         if (!result && folder != null)
         {
             if (TryComp<AccessReaderComponent>(uid, out var accessReaderComponent) && !_accessReaderSystem.IsAllowed(folder.Value, uid, accessReaderComponent)) // Omu
@@ -182,15 +182,15 @@ public sealed class FoldableSystem : EntitySystem
     /// <summary>
     /// Try to fold/unfold
     /// </summary>
-    public bool TrySetFolded(EntityUid uid, FoldableComponent comp, bool state, EntityUid? folder = null) // Omu add folder.
+    public bool TrySetFolded(EntityUid uid, FoldableComponent comp, bool state, EntityUid? user = null)
     {
         if (state == comp.IsFolded)
             return false;
 
-        if (!CanToggleFold(uid, comp, folder)) // Omu, pass folder through
+        if (!CanToggleFold(uid, comp, user)) // Omu, pass folder through
             return false;
 
-        SetFolded(uid, comp, state);
+        SetFolded(uid, comp, state, user);
         return true;
     }
 
@@ -233,6 +233,7 @@ public record struct FoldAttemptEvent(FoldableComponent Comp, bool Cancelled = f
 /// <summary>
 /// Event raised on an entity after it has been folded.
 /// </summary>
-/// <param name="IsFolded"></param>
+/// <param name="IsFolded">True is it has been folded, false if it has been unfolded.</param>
+/// <param name="User">The player who did the folding.</param>
 [ByRefEvent]
-public readonly record struct FoldedEvent(bool IsFolded);
+public readonly record struct FoldedEvent(bool IsFolded, EntityUid? User);

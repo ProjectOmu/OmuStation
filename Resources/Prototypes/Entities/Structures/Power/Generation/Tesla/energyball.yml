@@ -30,6 +30,7 @@
     bodyStatus: InAir
     sleepingAllowed: false
   - type: CanMoveInAir
+  - type: TileFrictionModifier # Goob
   - type: ChasingWalk
     minSpeed: 1
     maxSpeed: 3
@@ -94,11 +95,6 @@
     consumerFixtureId: EventHorizonConsumer
     consumeTiles: false
     consumeEntities: false
-  # <Goobstation>
-  - type: Tag
-    tags:
-    - Tesla
-  # </Goobstation>
   - type: TeslaEnergyBall
     spawnProto: TeslaMiniEnergyBall
     soundCollapse:
@@ -118,9 +114,16 @@
   - type: ChaoticJump
     jumpMinInterval: 8
     jumpMaxInterval: 15
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
+    - Tesla # Goob
   - type: WarpPoint
     follow: true
     location: tesla ball
+    blacklist:
+      tags:
+      - GhostOnlyWarp
   - type: Sprite
     drawdepth: Effects
     sprite: Structures/Power/Generation/Tesla/energy_ball.rsi

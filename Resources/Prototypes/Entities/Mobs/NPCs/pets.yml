@@ -896,6 +896,22 @@
     stampLargeIcon: "large_stamp-hamster"
 
 - type: entity
+  parent: MobHamsterHamlet
+  id: MobHamsterHamletSlippery
+  suffix: Slippery
+  components:
+  - type: Slippery
+  - type: StepTrigger
+    requiredTriggeredSpeed: 1
+  - type: TriggerOnStepTrigger
+  - type: GibOnTrigger
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Animals/mouse_squeak.ogg"
+    positional: true
+    predicted: true
+
+- type: entity
   name: Shiva
   parent: MobGiantSpider
   id: MobSpiderShiva
@@ -1087,8 +1103,9 @@
         Bloodloss:
           -0.8
   - type: Temperature
-    heatDamageThreshold: 1000 # Omu, make smile a bit more tanky.
-    coldDamageThreshold: -200 # Omu, make smile spaceproof.
+  - type: TemperatureDamage
+    heatDamageThreshold: 800
+    coldDamageThreshold: 0
   - type: Damageable # Omu start
     damageContainer: Biological
     damageModifierSet: Smile
@@ -1117,7 +1134,7 @@
   - type: Item
     sprite: Mobs/Pets/Smile/smile.rsi
     size: Ginormous # Omu
-  - type: SentienceTarget
+  - type: SentienceTarget # Omu?
     flavorKind: station-event-random-sentience-flavor-slime
   - type: MobPrice
     price: 3000 # it is a truly valuable creature
@@ -1167,11 +1184,9 @@
     rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
-    - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours - Omu 
     mindRoles:
     - MindRoleGhostRoleNeutral
+    job: Bartender # Goob
   - type: GhostTakeoverAvailable
   - type: Butcherable
     butcheringType: Spike

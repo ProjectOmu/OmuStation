@@ -80,9 +80,7 @@
     maxCharge: 600
     startingCharge: 600
   - type: BatterySelfRecharger # Omu - Re-added self recharge, takes 50 seconds to fully recharge after not being used for 10 seconds.
-    autoRecharge: true
     autoRechargeRate: 12
-    autoRechargePause: true
     autoRechargePauseTime: 10
   - type: UseDelay
   - type: Item
@@ -121,10 +119,10 @@
       injector:
         maxVol: 5
   - type: Injector
-    delay: 1
-    maxTransferAmount: 5
-    minTransferAmount: 3
-    injectOnly: false
+    activeModeProtoId: SyringeDrawMode #Goob start
+    allowedModes:
+    - SyringeDrawMode
+    - SyringeInjectMode #Goob end
   - type: MeleeChemicalInjector
     transferAmount: 5
     solution: injector

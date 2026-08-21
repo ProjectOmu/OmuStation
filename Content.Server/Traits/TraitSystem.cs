@@ -51,7 +51,7 @@ public sealed class TraitSystem : EntitySystem
     {
         // Check if player's job allows to apply traits
         if (args.JobId == null ||
-            !_prototypeManager.TryIndex<JobPrototype>(args.JobId ?? string.Empty, out var protoJob) ||
+            !_prototypeManager.Resolve<JobPrototype>(args.JobId, out var protoJob) ||
             !protoJob.ApplyTraits)
         {
             return;
@@ -73,7 +73,7 @@ public sealed class TraitSystem : EntitySystem
         {
             if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var traitPrototype))
             {
-                Log.Warning($"No trait found with ID {traitId}!");
+                Log.Error($"No trait found with ID {traitId}!");
                 return;
             }
 
@@ -87,7 +87,7 @@ public sealed class TraitSystem : EntitySystem
         {
 
             if (_whitelistSystem.IsWhitelistFail(traitPrototype.Whitelist, uid) ||
-                _whitelistSystem.IsBlacklistPass(traitPrototype.Blacklist, uid))
+                _whitelistSystem.IsWhitelistPass(traitPrototype.Blacklist, uid))
                 continue;
 
             // Add all components required by the prototype
@@ -106,6 +106,12 @@ public sealed class TraitSystem : EntitySystem
                 }
             }
             // Omu end
+
+            // Add all JobSpecials required by the prototype
+            foreach (var special in traitPrototype.Specials)
+            {
+                special.AfterEquip(uid);
+            }
 
             //  EE Lang, Goobedited to be less fucking shit holy fuck.
             _languageSystem.UpdateEntityLanguages(uid, traitPrototype);  // Remove/Add Languages required by the prototype

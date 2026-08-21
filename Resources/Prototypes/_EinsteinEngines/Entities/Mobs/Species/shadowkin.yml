@@ -117,12 +117,16 @@
     bloodlossHealDamage:
       types:
         Bloodloss: -0.25
-    bloodReagent: BlackBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: BlackBlood
+        Quantity: 200
   - type: Temperature
-    heatDamageThreshold: 330
-    coldDamageThreshold: 195
     currentTemperature: 310.15
     specificHeat: 46
+  - type: TemperatureDamage
+    heatDamageThreshold: 330
+    coldDamageThreshold: 195
     coldDamage:
       types:
         Cold: 0.05 #per second, scales with temperature & other constants
@@ -156,8 +160,6 @@
       - map: ["enum.HumanoidVisualLayers.LArm"]
       - map: ["enum.HumanoidVisualLayers.RLeg"]
       - map: ["enum.HumanoidVisualLayers.LLeg"]
-      - map: [ "enum.HumanoidVisualLayers.Underwear" ] # Omu 109
-      - map: [ "enum.HumanoidVisualLayers.Undershirt" ] # Omu 109
       - shader: StencilClear
         sprite: Mobs/Species/Human/parts.rsi
         state: l_leg
@@ -169,8 +171,8 @@
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]
       - map: ["socks"]
-      - map: ["underpants"]
-      - map: ["undershirt"]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
       - map: ["jumpsuit"]
       - map: ["enum.HumanoidVisualLayers.LHand"]
       - map: ["enum.HumanoidVisualLayers.RHand"]
@@ -280,8 +282,6 @@
         - map: ["enum.HumanoidVisualLayers.LFoot"]
         - map: ["enum.HumanoidVisualLayers.RFoot"]
         - map: ["socks"]
-        - map: ["underpants"]
-        - map: ["undershirt"]
         - map: ["jumpsuit"]
         - map: ["enum.HumanoidVisualLayers.LHand"]
         - map: ["enum.HumanoidVisualLayers.RHand"]

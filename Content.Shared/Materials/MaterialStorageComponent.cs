@@ -96,7 +96,7 @@ public sealed partial class MaterialStorageComponent : Component
     [DataField]
     public bool CanEjectStoredMaterials = true;
 
-    // Goobstation Change Start
+    // <Goobstation>
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public bool ConnectToSilo;
 
@@ -110,7 +110,7 @@ public sealed partial class MaterialStorageComponent : Component
     // ANOTHER BASED ON RECIPES. ON TWO FUCKING COMPONENTS THAT ARE ALMOST ALWAYS USED TOGETHER, AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     [DataField, AutoNetworkedField]
     public bool IgnoreMaterialWhiteList;
-    // Goobstation Change End
+    // </Goobstation>
 }
 
 [Serializable, NetSerializable]
@@ -118,6 +118,24 @@ public enum MaterialStorageVisuals : byte
 {
     Inserting
 }
+
+/// <summary>
+/// Collects all the materials stored on a <see cref="MaterialStorageComponent"/>
+/// </summary>
+/// <param name="Entity">The entity holding all these materials</param>
+/// <param name="Materials">A dictionary of all materials held</param>
+/// <param name="LocalOnly">An optional specifier. Non-local sources (silo, etc.) should not add materials when this is false.</param>
+[ByRefEvent]
+public readonly record struct GetStoredMaterialsEvent(Entity<MaterialStorageComponent> Entity, Dictionary<ProtoId<MaterialPrototype>, int> Materials, bool LocalOnly);
+
+/// <summary>
+/// After using materials, removes them from storage.
+/// </summary>
+/// <param name="Entity">The entity that held the materials and is being used up</param>
+/// <param name="Materials">A dictionary of the difference of materials left.</param>
+/// <param name="LocalOnly">An optional specifier. Non-local sources (silo, etc.) should not consume materials when this is false.</param>
+[ByRefEvent]
+public readonly record struct ConsumeStoredMaterialsEvent(Entity<MaterialStorageComponent> Entity, Dictionary<ProtoId<MaterialPrototype>, int> Materials, bool LocalOnly);
 
 /// <summary>
 /// Lavaland Change: Event raised on the materialStorage when a material entity is inserted into it.
