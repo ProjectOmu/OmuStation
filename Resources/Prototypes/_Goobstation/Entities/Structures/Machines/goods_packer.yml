@@ -1,7 +1,7 @@
 
 - type: entity
   id: MachineGoodsPacker
-  parent: [BaseLatheLube, BaseSiloUtilizer]
+  parent: [BaseLatheLube]
   name: goods packer
   description: WARNING - DO NOT PUT LIMBS IN FRONT OF MACHINE - OUTPUTS CRATES. Prints shipment crates to be sold for money from materials and even items.
   components:
