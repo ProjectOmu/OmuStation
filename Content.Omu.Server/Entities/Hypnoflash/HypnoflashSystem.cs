@@ -56,7 +56,7 @@ public sealed class MindcontrolImplantSystem : EntitySystem
                 if (attempt.Cancelled)
                     return;
             }
-            if (HasComp<DrunkComponent>(target)
+            if (HasComp<DrunkStatusEffectComponent>(target)
                 || _statusEffect.HasStatusEffect(target, "StatusEffectSeeingRainbow")
                 || _statusEffect.HasStatusEffect(target, "StatusEffectDrowsiness")
                 || _statusEffect.HasStatusEffect(target, "StatusEffectForcedSleeping"))      //are they susceptible?
