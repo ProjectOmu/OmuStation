@@ -258,6 +258,7 @@ namespace Content.IntegrationTests.Tests
               "Cluster",
               "Cog",
             //"Core",           // Not in pool.
+              "Crystal", //Omu
               "Delta",
               "Dev",            // Dev map
             //"dm01-entryway",  // Deathmatch
@@ -283,8 +284,7 @@ namespace Content.IntegrationTests.Tests
             //"Train",          //Not in pool
               "Packed",
               "Reach",
-              "Saltern",
-              "Crystal" //Omu
+              "Saltern"
             //"Serpentcrest", Omu No
         };
         // Goobstation edit end
