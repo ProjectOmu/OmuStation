@@ -1,4 +1,4 @@
-﻿namespace Content.Server.WhiteDream.BloodCult.Runes.Revive;
+﻿namespace Content.Omu.Server.WhiteDream.BloodCult.Runes.Revive;
 
 [RegisterComponent]
 public sealed partial class ReviveRuneChargesProviderComponent : Component

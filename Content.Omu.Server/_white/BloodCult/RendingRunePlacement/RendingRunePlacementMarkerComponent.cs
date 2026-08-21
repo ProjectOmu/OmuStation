@@ -1,4 +1,4 @@
-﻿namespace Content.Server.WhiteDream.BloodCult.RendingRunePlacement;
+﻿namespace Content.Omu.Server.WhiteDream.BloodCult.RendingRunePlacement;
 
 [RegisterComponent]
 public sealed partial class RendingRunePlacementMarkerComponent : Component

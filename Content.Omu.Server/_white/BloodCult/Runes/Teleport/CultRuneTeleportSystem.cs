@@ -5,7 +5,7 @@ using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Content.Shared.Movement.Pulling.Systems;
 
-namespace Content.Server.WhiteDream.BloodCult.Runes.Teleport;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Runes.Teleport;
 
 public sealed class CultRuneTeleportSystem : EntitySystem
 {

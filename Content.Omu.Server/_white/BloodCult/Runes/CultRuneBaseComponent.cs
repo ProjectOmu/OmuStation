@@ -4,7 +4,7 @@ using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.WhiteDream.BloodCult.Runes;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Runes;
 
 [RegisterComponent]
 public sealed partial class CultRuneBaseComponent : Component

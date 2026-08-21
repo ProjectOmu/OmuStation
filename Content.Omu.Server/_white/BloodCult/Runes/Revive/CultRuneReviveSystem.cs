@@ -10,7 +10,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.WhiteDream.BloodCult.BloodCultist;
 using Robust.Shared.Player;
 
-namespace Content.Server.WhiteDream.BloodCult.Runes.Revive;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Runes.Revive;
 
 public sealed class CultRuneReviveSystem : EntitySystem
 {
@@ -103,10 +103,10 @@ public sealed class CultRuneReviveSystem : EntitySystem
         if (mind?.UserId is not { } || mind.CurrentEntity == target)            // Omu removed reference to a variable
             return;
 
-        if (_player.TryGetSessionById(mind.UserId, out var Session))            // Omu Get the player session
+        if (_player.TryGetSessionById(mind.UserId, out var session))            // Omu Get the player session
 
         // notify them they're being revived.
-        _eui.OpenEui(new ReturnToBodyEui(mind, _mind, _player), Session);
+        _eui.OpenEui(new ReturnToBodyEui(mind, _mind, _player), session);
     }
 
     private ReviveRuneChargesProviderComponent? EnsureReviveRuneChargesProvider(EntityUid ent)

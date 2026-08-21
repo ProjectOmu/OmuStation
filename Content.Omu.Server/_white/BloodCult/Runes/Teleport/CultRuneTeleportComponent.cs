@@ -1,6 +1,6 @@
 ﻿using Robust.Shared.Audio;
 
-namespace Content.Server.WhiteDream.BloodCult.Runes.Teleport;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Runes.Teleport;
 
 [RegisterComponent]
 public sealed partial class CultRuneTeleportComponent : Component

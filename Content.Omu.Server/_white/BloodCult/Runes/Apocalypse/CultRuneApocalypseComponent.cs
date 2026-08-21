@@ -1,6 +1,6 @@
 ﻿using Robust.Shared.Prototypes;
 
-namespace Content.Server.WhiteDream.BloodCult.Runes.Apocalypse;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Runes.Apocalypse;
 
 [RegisterComponent]
 public sealed partial class CultRuneApocalypseComponent : Component

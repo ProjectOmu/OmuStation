@@ -7,7 +7,7 @@ using Content.Shared.WhiteDream.BloodCult.BloodCultist;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 
-namespace Content.Server.WhiteDream.BloodCult.Runes.Summon;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Runes.Summon;
 
 public sealed class CultRuneSummonSystem : EntitySystem
 {

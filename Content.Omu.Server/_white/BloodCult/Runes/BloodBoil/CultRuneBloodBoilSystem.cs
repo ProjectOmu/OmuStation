@@ -14,7 +14,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Random;
 
-namespace Content.Server.WhiteDream.BloodCult.Runes.BloodBoil;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Runes.BloodBoil;
 
 public sealed class CultRuneBloodBoilSystem : EntitySystem
 {

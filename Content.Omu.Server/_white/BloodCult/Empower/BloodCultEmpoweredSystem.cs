@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Numerics;
-using Content.Server.WhiteDream.BloodCult.Spells;
+using Content.Omu.Server.WhiteDream.BloodCult.Spells;
 using Content.Shared.Alert;
 using Content.Shared.WhiteDream.BloodCult.BloodCultist;
 using Robust.Server.GameObjects;
@@ -8,7 +8,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Content.Shared.Atmos.Components;
 
-namespace Content.Server.WhiteDream.BloodCult.Empower;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Empower;
 
 public sealed class BloodCultEmpoweredSystem : EntitySystem
 {

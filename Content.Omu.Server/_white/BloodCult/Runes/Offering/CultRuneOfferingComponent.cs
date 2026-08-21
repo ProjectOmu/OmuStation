@@ -2,7 +2,7 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.WhiteDream.BloodCult.Runes.Offering;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Runes.Offering;
 
 [RegisterComponent]
 public sealed partial class CultRuneOfferingComponent : Component

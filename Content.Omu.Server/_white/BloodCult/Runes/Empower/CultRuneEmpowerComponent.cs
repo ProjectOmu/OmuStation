@@ -1,4 +1,4 @@
-﻿namespace Content.Server.WhiteDream.BloodCult.Runes.Empower;
+﻿namespace Content.Omu.Server.WhiteDream.BloodCult.Runes.Empower;
 
 [RegisterComponent]
 public sealed partial class CultRuneEmpowerComponent : Component

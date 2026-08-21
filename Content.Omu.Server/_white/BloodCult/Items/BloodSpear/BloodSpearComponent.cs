@@ -2,7 +2,7 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Server.WhiteDream.BloodCult.Items.BloodSpear;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Items.BloodSpear;
 
 [RegisterComponent]
 public sealed partial class BloodSpearComponent : Component

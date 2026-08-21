@@ -6,8 +6,8 @@ using Content.Server.Body.Systems;
 using Content.Server.Cuffs;
 using Content.Server.Mind;
 using Content.Server.Stunnable;
-using Content.Server.WhiteDream.BloodCult.Gamerule;
-using Content.Server.WhiteDream.BloodCult.Runes.Revive;
+using Content.Omu.Server.WhiteDream.BloodCult.Gamerule;
+using Content.Omu.Server.WhiteDream.BloodCult.Runes.Revive;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage;
 using Content.Shared.Mindshield.Components;
@@ -15,7 +15,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.WhiteDream.BloodCult.BloodCultist;
 
-namespace Content.Server.WhiteDream.BloodCult.Runes.Offering;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Runes.Offering;
 
 public sealed class CultRuneOfferingSystem : EntitySystem
 {

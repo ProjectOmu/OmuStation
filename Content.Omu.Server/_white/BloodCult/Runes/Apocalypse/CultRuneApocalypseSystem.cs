@@ -2,14 +2,14 @@
 using Content.Server.DoAfter;
 using Content.Server.Emp;
 using Content.Server.GameTicking;
-using Content.Server.WhiteDream.BloodCult.Gamerule;
+using Content.Omu.Server.WhiteDream.BloodCult.Gamerule;
 using Content.Shared.DoAfter;
 using Content.Shared.WhiteDream.BloodCult.Runes;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 
-namespace Content.Server.WhiteDream.BloodCult.Runes.Apocalypse;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Runes.Apocalypse;
 
 public sealed class CultRuneApocalypseSystem : EntitySystem
 {

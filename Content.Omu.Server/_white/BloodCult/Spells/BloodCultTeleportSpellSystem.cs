@@ -1,6 +1,6 @@
 ﻿using Content.Server.DoAfter;
-using Content.Server.WhiteDream.BloodCult.Runes;
-using Content.Server.WhiteDream.BloodCult.Runes.Teleport;
+using Content.Omu.Server.WhiteDream.BloodCult.Runes;
+using Content.Omu.Server.WhiteDream.BloodCult.Runes.Teleport;
 using Content.Shared.DoAfter;
 using Content.Shared._White.ListViewSelector;
 using Content.Shared.WhiteDream.BloodCult.Spells;

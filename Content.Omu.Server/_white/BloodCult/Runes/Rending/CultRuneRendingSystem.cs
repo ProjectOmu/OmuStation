@@ -2,7 +2,7 @@
 using Content.Server.DoAfter;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
-using Content.Server.WhiteDream.BloodCult.Gamerule;
+using Content.Omu.Server.WhiteDream.BloodCult.Gamerule;
 using Content.Shared.DoAfter;
 using Content.Shared.WhiteDream.BloodCult.Runes;
 using Robust.Server.Audio;
@@ -11,7 +11,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
-namespace Content.Server.WhiteDream.BloodCult.Runes.Rending;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Runes.Rending;
 
 public sealed class CultRuneRendingSystem : EntitySystem
 {

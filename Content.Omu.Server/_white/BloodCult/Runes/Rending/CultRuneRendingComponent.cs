@@ -3,7 +3,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.WhiteDream.BloodCult.Runes.Rending;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Runes.Rending;
 
 [RegisterComponent]
 public sealed partial class CultRuneRendingComponent : Component

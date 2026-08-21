@@ -14,10 +14,10 @@ using Content.Server.NPC.Systems;
 using Content.Server.Pinpointer;
 using Content.Server.Roles;
 using Content.Server.RoundEnd;
-using Content.Server.WhiteDream.BloodCult.Items.BloodSpear;
-using Content.Server.WhiteDream.BloodCult.Objectives;
-using Content.Server.WhiteDream.BloodCult.RendingRunePlacement;
-using Content.Server.WhiteDream.BloodCult.Spells;
+using Content.Omu.Server.WhiteDream.BloodCult.Items.BloodSpear;
+using Content.Omu.Server.WhiteDream.BloodCult.Objectives;
+using Content.Omu.Server.WhiteDream.BloodCult.RendingRunePlacement;
+using Content.Omu.Server.WhiteDream.BloodCult.Spells;
 using Content.Shared.Cloning;
 using Content.Shared.Cloning.Events;
 using Content.Shared.Cuffs.Components;
@@ -41,7 +41,7 @@ using Robust.Shared.Utility;
 using Content.Shared.NPC.Systems;
 
 
-namespace Content.Server.WhiteDream.BloodCult.Gamerule;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Gamerule;
 
 public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 {

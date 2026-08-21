@@ -3,7 +3,7 @@ using Content.Shared.WhiteDream.BloodCult.BloodCultist;
 using Content.Shared.WhiteDream.BloodCult.Constructs;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.WhiteDream.BloodCult.Gamerule;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Gamerule;
 
 [RegisterComponent]
 public sealed partial class BloodCultRuleComponent : Component

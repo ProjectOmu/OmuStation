@@ -8,8 +8,8 @@ using Content.Server.Chemistry.Components;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.Components;
 using Content.Server.Popups;
-using Content.Server.WhiteDream.BloodCult.Empower;
-using Content.Server.WhiteDream.BloodCult.Gamerule;
+using Content.Omu.Server.WhiteDream.BloodCult.Empower;
+using Content.Omu.Server.WhiteDream.BloodCult.Gamerule;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
@@ -30,7 +30,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Map.Components;
 using Content.Shared.Fluids.Components;
 
-namespace Content.Server.WhiteDream.BloodCult.Runes;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Runes;
 
 public sealed partial class CultRuneBaseSystem : EntitySystem
 {

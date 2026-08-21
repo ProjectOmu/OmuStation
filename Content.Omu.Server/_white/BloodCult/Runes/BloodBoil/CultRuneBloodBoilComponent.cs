@@ -1,7 +1,7 @@
 ﻿using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.WhiteDream.BloodCult.Runes.BloodBoil;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Runes.BloodBoil;
 
 [RegisterComponent]
 public sealed partial class CultRuneBloodBoilComponent : Component

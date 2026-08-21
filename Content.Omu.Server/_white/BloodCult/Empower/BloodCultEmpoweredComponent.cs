@@ -1,7 +1,7 @@
 ﻿using Content.Shared.Alert;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.WhiteDream.BloodCult.Empower;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Empower;
 
 [RegisterComponent]
 public sealed partial class BloodCultEmpoweredComponent : Component

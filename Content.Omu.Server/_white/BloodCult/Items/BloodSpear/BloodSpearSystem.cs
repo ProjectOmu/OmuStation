@@ -10,7 +10,7 @@ using Content.Shared.WhiteDream.BloodCult.Spells;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 
-namespace Content.Server.WhiteDream.BloodCult.Items.BloodSpear;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Items.BloodSpear;
 
 public sealed class BloodSpearSystem : EntitySystem
 {
@@ -19,7 +19,7 @@ public sealed class BloodSpearSystem : EntitySystem
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly ProjectileSystem _projectile = default!;
+//    [Dependency] private readonly ProjectileSystem _projectile = default!;
 
     public override void Initialize()
     {
@@ -78,7 +78,7 @@ public sealed class BloodSpearSystem : EntitySystem
         //    _projectile.RemoveEmbed(spearUid.Value, embeddableProjectile);
 
         _transform.AttachToGridOrMap(spearUid.Value, spearXform);
-        _transform.SetWorldPosition(spearXform, cultistCoords);
+        _transform.SetWorldPosition(cultist, cultistCoords);
 
         _hands.TryForcePickupAnyHand(cultist, spearUid.Value);
         _audio.PlayPvs(spear.RecallAudio, spearUid.Value);

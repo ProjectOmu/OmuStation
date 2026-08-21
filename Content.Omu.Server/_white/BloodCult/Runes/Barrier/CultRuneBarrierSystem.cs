@@ -1,4 +1,4 @@
-﻿namespace Content.Server.WhiteDream.BloodCult.Runes.Barrier;
+﻿namespace Content.Omu.Server.WhiteDream.BloodCult.Runes.Barrier;
 
 public sealed class CultRuneBarrierSystem : EntitySystem
 {
