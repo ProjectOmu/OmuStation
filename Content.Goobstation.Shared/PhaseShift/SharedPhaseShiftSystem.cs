@@ -20,7 +20,7 @@ using Content.Shared.Standing;
 using Content.Shared.StepTrigger.Systems;
 using Content.Goobstation.Common.Footprints;
 using Content.Shared.Chat;
-using Content.Goobstation.Shared.PhaseShift;
+using Content.Shared.Throwing;
 
 namespace Content.Goobstation.Shared.PhaseShift;
 
@@ -40,6 +40,7 @@ public abstract class SharedPhaseShiftSystem : EntitySystem
 
         SubscribeLocalEvent<PhaseShiftedComponent, RefreshMovementSpeedModifiersEvent>(OnRefresh);
         SubscribeLocalEvent<PhaseShiftedComponent, AttackAttemptEvent>(OnAttackAttempt);
+        SubscribeLocalEvent<PhaseShiftedComponent, ThrowAttemptEvent>(OnThrowAttempt);
 
         SubscribeLocalEvent<PhaseShiftedComponent, InteractionVerbAttemptEvent>(OnAttempt);
         SubscribeLocalEvent<PhaseShiftedComponent, UseAttemptEvent>(OnUseAttempt);
@@ -91,6 +92,10 @@ public abstract class SharedPhaseShiftSystem : EntitySystem
         args.ModifySpeed(ent.Comp.MovementSpeedBuff, ent.Comp.MovementSpeedBuff);
 
     private void OnAttackAttempt(Entity<PhaseShiftedComponent> ent, ref AttackAttemptEvent args)
+    {
+        RemComp<PhaseShiftedComponent>(ent);
+    }
+    private void OnThrowAttempt(Entity<PhaseShiftedComponent> ent, ref ThrowAttemptEvent args)
     {
         RemComp<PhaseShiftedComponent>(ent);
     }
