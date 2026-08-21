@@ -149,7 +149,9 @@ public sealed class ChimeraRuleSystem : GameRuleSystem<ChimeraRuleComponent>
                     colorOverride: Color.Pink);
             }
 
-            _audio.PlayGlobal("/Audio/Announcements/outbreak7.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
+            var audio = new SoundPathSpecifier("/Audio/Announcements/outbreak7.ogg");
+
+            _audio.PlayGlobal(audio, Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
         }
 
         if (GetInfectedFraction(false) > ChimeraRuleComponent.DeltaCallPercentage && !_roundEnd.IsRoundEndRequested())
