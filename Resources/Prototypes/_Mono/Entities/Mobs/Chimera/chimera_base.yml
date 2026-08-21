@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # TODO - new sprites
 
 - type: entity
@@ -50,11 +52,17 @@
     - id: FoodMeat
       amount: 4
   - type: Bloodstream
-    bloodReagent: NaturalLetoferol
-    bloodMaxVolume: 300
-    bleedReductionAmount: 1.5
+    bloodlossDamage:
+      types:
+        Bloodloss: 0
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -1.5
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: NaturalLetoferol
+        Quantity: 300
     bloodlossThreshold: 0
-    bloodRefreshAmount: 10
   - type: MeleeWeapon
     attackRate: 1.5
     soundHit:
@@ -134,7 +142,6 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         damage:
           groups:
             Burn: -2
@@ -143,7 +150,6 @@
       methods: [Touch]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         damage:
           groups:
             Burn: 6
@@ -195,7 +201,7 @@
   - type: DoAfter
   - type: Stripping
   - type: Stamina
-    critThreshold: 150
+    baseCritThreshold: 150
   - type: Inventory
     templateId: chimera
   - type: SurgeryTarget

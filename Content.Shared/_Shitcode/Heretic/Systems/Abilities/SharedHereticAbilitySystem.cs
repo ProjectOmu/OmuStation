@@ -44,6 +44,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared._Omu.Heretic; // Omu
 
 namespace Content.Shared._Shitcode.Heretic.Systems.Abilities;
 
@@ -121,8 +122,6 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         SubscribeFlesh();
         SubscribeSide();
 
-        SubscribeLocalEvent<EventHereticShadowCloak>(OnShadowCloak);
-
         SubscribeLocalEvent<HereticActionComponent, BeforeCastSpellEvent>(OnBeforeCast);
     }
 
@@ -159,30 +158,6 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         return list;
     }
 
-
-    private void OnShadowCloak(EventHereticShadowCloak args)
-    {
-        var ent = args.Performer;
-
-        if (!TryComp(ent, out StatusEffectsComponent? status))
-            return;
-
-        if (TryComp(ent, out ShadowCloakedComponent? shadowCloaked))
-        {
-            Status.TryRemoveStatusEffect(ent, args.Status, status, false);
-            RemCompDeferred(ent, shadowCloaked);
-            args.Handled = true;
-            return;
-        }
-
-        // TryUseAbility only if we are not cloaked so that we can uncloak without focus
-        // Ideally you should uncloak when losing focus but whatever
-        if (!TryUseAbility(args))
-            return;
-
-        Status.TryAddStatusEffect<ShadowCloakedComponent>(ent, args.Status, args.Lifetime, true, status);
-    }
-
     public bool TryUseAbility(BaseActionEvent args, bool handle = true)
     {
         if (args.Handled)
@@ -203,7 +178,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
             return;
         }
 
-        if (HasComp<GhoulComponent>(args.Performer) || HasComp<StarGazerComponent>(args.Performer))
+        if (HasComp<GhoulComponent>(args.Performer) || HasComp<StarGazerComponent>(args.Performer) || HasComp<MansusMobComponent>(args.Performer))      //Omu - mansus mobs - not neccessarily ghouls so are hostile to heretics
             return;
 
         if (!Heretic.TryGetHereticComponent(args.Performer, out var heretic, out _))
@@ -437,19 +412,19 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
 
         if (bloodHeal == FixedPoint2.Zero || !TryComp(uid, out SolutionContainerManagerComponent? sol) ||
             !_solution.ResolveSolution((uid, sol), blood.BloodSolutionName, ref blood.BloodSolution) ||
-            blood.BloodSolution.Value.Comp.Solution.Volume >= blood.BloodMaxVolume)
+            blood.BloodSolution.Value.Comp.Solution.Volume >= blood.BloodReferenceSolution.Volume)
             return;
 
         if (bloodHeal == null)
         {
             _blood.TryModifyBloodLevel((uid, blood),
-                blood.BloodMaxVolume - blood.BloodSolution.Value.Comp.Solution.Volume);
+                blood.BloodReferenceSolution.Volume - blood.BloodSolution.Value.Comp.Solution.Volume);
         }
         else
         {
             _blood.TryModifyBloodLevel((uid, blood),
                 FixedPoint2.Min(bloodHeal.Value,
-                    blood.BloodMaxVolume - blood.BloodSolution.Value.Comp.Solution.Volume));
+                    blood.BloodReferenceSolution.Volume - blood.BloodSolution.Value.Comp.Solution.Volume));
         }
     }
 
