@@ -1,15 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Antag;
@@ -29,7 +17,9 @@ using Content.Server._Goobstation.Objectives.Components;
 using Content.Shared.Mind;
 using Robust.Server.GameObjects;
 using Content.Server.Popups;
+using Content.Shared.Roles.Components;
 using Content.Shared.Station.Components;
+using Content.Server._Goobstation.Heretic.EntitySystems; //imp
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -42,7 +32,7 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-
+    [Dependency] private readonly HellWorldSystem _hell = default!; //imp
     public static readonly SoundSpecifier BriefingSound =
         new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
 
@@ -78,6 +68,7 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
             if (TryFindTileOnGrid(grid.Value, out _, out var coords))
                 Spawn(ent.Comp.RealityShift, coords);
         }
+        _hell.MakeHell(); //imp
     }
 
     public bool TryMakeHeretic(EntityUid target, HereticRuleComponent rule)

@@ -276,10 +276,9 @@
     rules: ghost-role-information-higher-standard-silicon-rules
     raffle:
       settings: default
-    requirements:
-    - !type:RoleTimeRequirement
-      role: JobBorg
-      time: 18000 #5 hrs - Omu Edit
+    mindRoles:
+    - MindRoleGhostRoleSilicon
+    job: Borg
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -293,8 +292,7 @@
     rules: ghost-role-information-higher-standard-silicon-rules
     raffle:
       settings: default
-    requirements:
-    - !type:RoleTimeRequirement
-      role: JobBorg
-      time: 18000 #5 hrs - Omu Edit
+    mindRoles:
+    - MindRoleGhostRoleSilicon
+    job: Borg
   - type: GhostTakeoverAvailable
