@@ -10,9 +10,9 @@
     noRot: true
   - type: Vehicle
     hornSound:
-      collection: BikeHorn
+      path: /Audio/_Omu/Effects/Vehicle/ambulancehorn.ogg
       params:
-        variation: 0.125
+        volume: -1
     renderOver: North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest
   - type: ItemSlots
     slots:
