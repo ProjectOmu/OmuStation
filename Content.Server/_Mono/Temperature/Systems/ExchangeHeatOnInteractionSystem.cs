@@ -1,6 +1,7 @@
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Server._Mono.Temperature.Systems;
 

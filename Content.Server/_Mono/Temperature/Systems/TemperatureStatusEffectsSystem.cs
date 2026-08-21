@@ -1,10 +1,10 @@
 using System.Linq;
 using Content.Server._Mono.Temperature.Components;
-using Content.Server.Temperature.Components;
+using Content.Shared.Temperature.Components;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Popups;
 
 namespace Content.Server._Mono.Temperature.Systems;
@@ -14,7 +14,7 @@ public sealed class TemperatureStatusEffectsSystem : EntitySystem
     private float _updateCooldown = 1f;
     private TimeSpan _updateTimer = TimeSpan.Zero;
 
-    [Dependency] private readonly StatusEffectsSystem _effects = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly MobStateSystem _state = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
@@ -34,7 +34,6 @@ public sealed class TemperatureStatusEffectsSystem : EntitySystem
                 continue;
 
             var t = temperature.CurrentTemperature;
-            var args = new EntityEffectBaseArgs(uid, EntityManager);
             var popuptext = string.Empty;
 
             foreach (var tEff in comp.TemperatureEffects)
@@ -56,7 +55,7 @@ public sealed class TemperatureStatusEffectsSystem : EntitySystem
                     if (popuptext is not null)      //Omu
                         _popup.PopupEntity(popuptext, uid, uid);
 
-                    effect.Effect(args);
+                    _status.TryAddStatusEffect(uid, effect, out var Seffect);
                 }
             }
         }
