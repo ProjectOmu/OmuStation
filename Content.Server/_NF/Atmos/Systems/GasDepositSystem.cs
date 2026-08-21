@@ -23,6 +23,10 @@ using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared.Cargo.Prototypes;
+using Content.Server.Cargo.Systems;
+using Content.Server.Station.Systems;
+using Content.Shared.Cargo.Components;
 
 namespace Content.Server._NF.Atmos.Systems;
 
@@ -39,7 +43,8 @@ public sealed class GasDepositSystem : SharedGasDepositSystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
-    [Dependency] private readonly StackSystem _stack = default!;
+    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly CargoSystem _cargo = default!;
 
     /// <summary>
     /// The fraction that a deposit's volume should be depleted to before it is considered "low volume".
@@ -254,13 +259,25 @@ public sealed class GasDepositSystem : SharedGasDepositSystem
         }
 
         var amount = _atmosphere.GetPrice(mixture);
+        // Omu start
+        if (_station.GetOwningStation(gridUid) is not { } station ||
+            !TryComp<StationBankAccountComponent>(station, out var bankAccount))
+        {
+            return;
+        }
 
-        var stackPrototype = _prototype.Index(ent.Comp.CashType);
-        _stack.Spawn((int)amount, stackPrototype, xform.Coordinates);
+        Dictionary<ProtoId<CargoAccountPrototype>, double> distribution;
+        var baseDistribution = _cargo.CreateAccountDistribution((station, bankAccount));
+
+        distribution = baseDistribution;
+
+        _cargo.UpdateBankAccount((station, bankAccount), (int) Math.Round(amount), distribution, false);
+
         _audio.PlayPvs(ent.Comp.ApproveSound, ent);
         UI.SetUiState(ent.Owner,
             GasSaleConsoleUiKey.Key,
             new GasSaleConsoleBoundUserInterfaceState(0, new GasMixture(), false));
+        // Omu end
     }
 
     private void UpdateConsoleInterface(Entity<GasSaleConsoleComponent> ent)
