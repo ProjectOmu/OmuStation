@@ -831,3 +831,70 @@
     wideAnimationRotation: 180
     soundHit:
       collection: Squishes
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieGnashOmu
+  name: Gnash Plushie
+  description: A red Avali, dresses up as atmospheric technician. You taste metal and smell ammonia near it.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/gnash.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/gnash.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/gnash.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_scream.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/Gasp/male_deathgasp_3.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+
+
+  - type: GasAnalyzer
+  - type: ActivatableUI
+    inHandsOnly: true
+    singleUser: true
+    requireActiveHand: false
+    key: enum.GasAnalyzerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.GasAnalyzerUiKey.Key:
+        type: GasAnalyzerBoundUserInterface
+  - type: PointLight # the glow is subtle. It's just enough to make the mantle visible in pitch black lighting, but won't help you see much.
+    radius: 1.45
+    energy: 2
+    offset: 0,0.4
+    color: "#C2FA1F" # this will match the colour of the beast's eyes when worn, this is just a default.
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    containerOccluded: true # this makes the mantle illuminate itself.
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Uranium
+          Quantity: 2.5
+        - ReagentId: Radium
+          Quantity: 2.5
