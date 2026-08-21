@@ -81,6 +81,7 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+  groupBy: "envirohelmstandard" # Omu, alternate helmets
 
 - type: loadout
   id: SecurityOfficerEnvirosuitBlue
@@ -99,6 +100,7 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+  groupBy: "envirohelmstandard" # Omu, alternate helmets
 
 - type: loadout
   id: SecurityOfficerEnvirosuitGrey
@@ -117,6 +119,7 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+  groupBy: "envirohelmstandard" # Omu, alternate helmets
 
 - type: loadout
   id: SecurityMJ
