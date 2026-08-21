@@ -1,35 +1,9 @@
-// SPDX-FileCopyrightText: 2022 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <jmaster9999@gmail.com>
-// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 jicksaw <jicksaw@pm.me>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <wrexbe@protonmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2024 Nikolai Korolev <CrafterKolyan@mail.ru>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 RedFoxIV <38788538+RedFoxIV@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
+
+using Content.Goobstation.Common.CCVar;
+using Robust.Shared.Configuration;
 using Content.Client.UserInterface.Systems.Chat.Controls;
-using Content.Goobstation.Common.CCVar; // Goobstation Change
-using Content.Shared.CCVar; // WD
 using Content.Shared.Chat;
 using Content.Shared.Input;
 using Robust.Client.Audio;
@@ -38,7 +12,6 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Audio;
-using Robust.Shared.Configuration;
 using Robust.Shared.Input;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
@@ -50,21 +23,23 @@ namespace Content.Client.UserInterface.Systems.Chat.Widgets;
 [Virtual]
 public partial class ChatBox : UIWidget
 {
+    // <Trauma>
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly ILocalizationManager _loc = default!;
+    // </Trauma>
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly ILogManager _log = default!;
 
     private readonly ISawmill _sawmill;
     private readonly ChatUIController _controller;
-    private readonly IConfigurationManager _cfg; // WD EDIT
-    private readonly ILocalizationManager _loc; // WD EDIT
 
     public bool Main { get; set; }
 
     public ChatSelectChannel SelectedChannel => ChatInput.ChannelSelector.SelectedChannel;
     // WD EDIT START
-    private int _chatStackAmount = 0;
-    private bool _chatStackEnabled => _chatStackAmount > 0;
-    private List<ChatStackData> _chatStackList;
+    private bool _coalescence = false; // op ult btw
+    private (string, Color)? _lastLine;
+    private int _lastLineRepeatCount = 0;
     // WD EDIT END
 
     public ChatBox()
@@ -87,16 +62,9 @@ public partial class ChatBox : UIWidget
         _controller.RegisterChat(this);
 
         // WD EDIT START
-        _cfg = IoCManager.Resolve<IConfigurationManager>();
-        _chatStackList = new(_chatStackAmount);
-        _cfg.OnValueChanged(CCVars.ChatStackLastLines, UpdateChatStack, true);
+        _coalescence = _cfg.GetCVar(GoobCVars.CoalesceIdenticalMessages); // i am uncomfortable calling repopulate on chatbox in its ctor, even though it worked in testing i'll still err on the side of caution
+        _cfg.OnValueChanged(GoobCVars.CoalesceIdenticalMessages, UpdateCoalescence, true); // eplicitly false to underline the above comment
         // WD EDIT END
-    }
-
-    private void UpdateChatStack(int value) // WD
-    {
-        _chatStackAmount = value >= 0 ? value : 0;
-        Repopulate();
     }
 
     private void OnTextEntered(LineEditEventArgs args)
@@ -120,60 +88,29 @@ public partial class ChatBox : UIWidget
         var color = msg.MessageColorOverride ?? msg.Channel.TextColor();
 
         // WD EDIT START
-        if (!msg.IgnoreChatStack) // Omu, invert this so I dont have to change every reference to CanCoalesce
+        (string, Color) tup = (msg.WrappedMessage, color);
+
+        // Removing and then adding insantly nudges the chat window up before slowly dragging it back down, which makes the whole chat log shake
+        // and make it borderline unreadable with frequent enough spam.
+        // Adding first and then removing does not produce any visual effects.
+        // The other option is to copypaste into Content all of OutputPanel and everything it uses but is intertanl to Robust namespace.
+        // Thanks robustengine, very cool.
+        if (_coalescence && msg.CanCoalesce && _lastLine == tup)
         {
-            TrackNewMessage(msg.WrappedMessage, color, true);
-            AddLine(msg.WrappedMessage, color);
-            return;
+            if (!msg.CanCoalesce) // Goobstation Edit - Coalescing Chat
+                return;
+
+            _lastLineRepeatCount++;
+            AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
+            Contents.RemoveEntry(^2);
         }
-
-        int index = _chatStackList.FindIndex(data => data.WrappedMessage == msg.WrappedMessage && !data.IgnoresChatstack);
-
-        if (index == -1) // this also handles chatstack being disabled, since FindIndex won't find anything in an empty array
+        else
         {
-            TrackNewMessage(msg.WrappedMessage, color);
-            AddLine(msg.WrappedMessage, color);
-            return;
-        }
-
-        UpdateRepeatingLine(index);
-        // WD EDIT END
+            _lastLineRepeatCount = 0;
+            _lastLine = (msg.WrappedMessage, color);
+            AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
+        } // WD EDIT END
     }
-
-    // WD EDIT START
-    /// <summary>
-    /// Removing and then adding insantly nudges the chat window up before slowly dragging it back down, which makes the whole chat log shake.
-    /// With rapid enough updates, the whole chat becomes unreadable.
-    /// Adding first and then removing does not produce any visual effects.
-    /// The other option is to dublicate OutputPanel functionality and everything internal to the engine it relies on.
-    /// But OutputPanel relies on directly setting Control.Position for control embedding. (which is not exposed to Content.)
-    /// Thanks robustengine, very cool.
-    /// </summary>
-    /// <remarks>
-    /// zero index is the very last line in chat, 1 is the line before the last one, 2 is the line before that, etc.
-    /// </remarks>
-    private void UpdateRepeatingLine(int index)
-    {
-        _chatStackList[index].RepeatCount++;
-        for (int i = index; i >= 0; i--)
-        {
-            var data = _chatStackList[i];
-            AddLine(data.WrappedMessage, data.ColorOverride, data.RepeatCount);
-            Contents.RemoveEntry(Index.FromEnd(index + 2));
-        }
-    }
-
-    private void TrackNewMessage(string wrappedMessage, Color colorOverride, bool ignoresChatstack = false)
-    {
-        if (!_chatStackEnabled)
-            return;
-
-        if(_chatStackList.Count == _chatStackList.Capacity)
-            _chatStackList.RemoveAt(_chatStackList.Capacity - 1);
-
-        _chatStackList.Insert(0, new ChatStackData(wrappedMessage, colorOverride, ignoresChatstack));
-    }
-    // WD EDIT END
 
     private void OnHighlightsUpdated(string highlights)
     {
@@ -185,21 +122,26 @@ public partial class ChatBox : UIWidget
         _controller.UpdateSelectedChannel(this);
     }
 
+    // Goobstation moved to .Goob.cs
+    #region Moved to .Goob.cs
+    /*
     public void Repopulate()
     {
         Contents.Clear();
-        _chatStackList = new List<ChatStackData>(_chatStackAmount); // WD
+
         foreach (var message in _controller.History)
         {
             OnMessageAdded(message.Item2);
         }
     }
+    */
 
+    /*
     private void OnChannelFilter(ChatChannel channel, bool active)
     {
         Contents.Clear();
 
-        foreach (var message in _controller.History) // WD
+        foreach (var message in _controller.History)
         {
             OnMessageAdded(message.Item2);
         }
@@ -209,6 +151,9 @@ public partial class ChatBox : UIWidget
             _controller.ClearUnfilteredUnreads(channel);
         }
     }
+    */
+    #endregion
+
 
     private void OnNewHighlights(string highlighs)
     {
@@ -230,7 +175,7 @@ public partial class ChatBox : UIWidget
                                 ("size", 8+sizeIncrease)
                                 ));
         } // WD EDIT END
-        Contents.AddMessage(formatted);
+        Contents.AddMessage(formatted, tagsAllowed: null);
     }
 
     public void Focus(ChatSelectChannel? channel = null)
@@ -325,22 +270,6 @@ public partial class ChatBox : UIWidget
         ChatInput.Input.OnKeyBindDown -= OnInputKeyBindDown;
         ChatInput.Input.OnTextChanged -= OnTextChanged;
         ChatInput.ChannelSelector.OnChannelSelect -= OnChannelSelect;
-        _cfg.UnsubValueChanged(CCVars.ChatStackLastLines, UpdateChatStack); // WD
+        _cfg.UnsubValueChanged(GoobCVars.CoalesceIdenticalMessages, UpdateCoalescence); // WD EDIT
     }
-
-    // WD EDIT START
-    private class ChatStackData
-    {
-        public string WrappedMessage;
-        public Color ColorOverride;
-        public int RepeatCount = 0;
-        public bool IgnoresChatstack;
-        public ChatStackData(string wrappedMessage, Color colorOverride, bool ignoresChatstack = false)
-        {
-            WrappedMessage = wrappedMessage;
-            ColorOverride = colorOverride;
-            IgnoresChatstack = ignoresChatstack;
-        }
-    }
-    // WD EDIT END
 }
