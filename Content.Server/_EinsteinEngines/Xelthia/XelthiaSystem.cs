@@ -82,6 +82,6 @@ public sealed class XelthiaSystem : EntitySystem
 
         TryComp<BloodstreamComponent>(uid, out var stream);
         solution.AddReagent("XelthiaArmJuice", 3.5);
-        _bloodstreamSystem.TryAddToChemicals(uid, solution);
+        _bloodstreamSystem.TryAddToBloodstream(uid, solution);
     }
 }
