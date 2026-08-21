@@ -151,7 +151,7 @@ public sealed class CPRSystem : EntitySystem
             return true;
         }
 
-        if (HasComp<AbsorbedComponent>(target))
+        if (HasComp<AbsorbedComponent>(target)) //Omu -- Check if body is hollow
         {
             _popupSystem.PopupEntity(Loc.GetString("cpr-target-absorbed", ("entity", target)), performer, performer);
             return true;

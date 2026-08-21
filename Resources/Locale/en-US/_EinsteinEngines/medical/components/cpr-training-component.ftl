@@ -9,6 +9,5 @@ cpr-start-second-person-patient = {CAPITALIZE(THE($user))} starts performing CPR
 cpr-must-remove = You must remove {THE($clothing)} from the patient.
 cpr-must-remove-own-mask = You must remove your {THE($clothing)}.
 cpr-target-rotting = {CAPITALIZE($entity)} is too far gone...
-cpr-target-absorbed = {CAPITALIZE($entity)}'s body seems too weak and is unrecoverable.
 cpr-target-cantbreathe = {CAPITALIZE($entity)} or you are incapable of breathing.
 cpr-verb = Perform CPR
