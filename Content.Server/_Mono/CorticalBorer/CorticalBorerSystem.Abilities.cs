@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Coenx-flex
-// SPDX-FileCopyrightText: 2025 Cojoke
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Body.Components;
@@ -14,6 +10,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Body.Components;
 using Content.Shared.Damage;
+using Content.Shared.Medical;
 
 namespace Content.Server._Mono.CorticalBorer;
 

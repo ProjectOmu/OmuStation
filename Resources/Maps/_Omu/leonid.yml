@@ -40495,7 +40495,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 18.635092,-53.639267
       parent: 2
-- proto: BaseChemistryEmptyVial
+- proto: ChemistryEmptyVial
   entities:
   - uid: 4864
     components:
@@ -100076,7 +100076,7 @@ entities:
     - type: Transform
       pos: -57.5,-49.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 24372
 - proto: CleanerDispenser
   entities:
@@ -114942,7 +114942,7 @@ entities:
     - type: Transform
       pos: -67.5,-49.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 24372
 - proto: ExtendedEmergencyNitrogenTankFilled
   entities:
@@ -161000,28 +161000,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 6.5,71.5
       parent: 2
-  - uid: 24259
-    components:
-    - type: Transform
-      pos: 1.5,54.5
-      parent: 2
-    - type: MindContainer
-    - type: InputMover
-    - type: MobMover
-    - type: MovementSpeedModifier
-    - type: Speech
-      suffixSpeechVerbs:
-        chat-speech-verb-suffix-exclamation-strong: DefaultExclamationStrong
-        chat-speech-verb-suffix-exclamation: DefaultExclamation
-        chat-speech-verb-suffix-question: DefaultQuestion
-        chat-speech-verb-suffix-stutter: DefaultStutter
-        chat-speech-verb-suffix-mumble: DefaultMumble
-      allowedEmotes: []
-    - type: Emoting
-    - type: Examiner
-    - type: Eye
-    - type: TypingIndicator
-    - type: Appearance
   - uid: 24260
     components:
     - type: Transform
@@ -161792,7 +161770,7 @@ entities:
     - type: Transform
       pos: -61.5,-23.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 24372
 - proto: MedkitAdvancedFilled
   entities:
@@ -185874,7 +185852,7 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 24372
 - proto: SeedExtractor
   entities:

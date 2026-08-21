@@ -1,5 +1,6 @@
 using Content.Server.Temperature.Components;
 using Content.Shared.Medical.Cryogenics;
+using Content.Shared.Temperature.Components;
 using Robust.Shared.Containers;
 
 namespace Content.Server.Medical;
