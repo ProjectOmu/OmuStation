@@ -2,7 +2,7 @@
 
 using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.Nightmare.Components;
-using Content.Shared.WhiteDream.BloodCult.Constructs.PhaseShift;
+using Content.Goobstation.Shared.PhaseShift;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
 using Content.Shared.Actions;
 using Content.Shared.Stunnable;

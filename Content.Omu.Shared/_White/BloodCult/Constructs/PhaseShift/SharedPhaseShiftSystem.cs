@@ -3,15 +3,16 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Movement.Systems;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
+using Content.Goobstation.Shared.PhaseShift;
 
-namespace Content.Shared.WhiteDream.BloodCult.Constructs.PhaseShift;
+namespace Content.Omu.Shared.WhiteDream.BloodCult.Constructs.PhaseShift;
 
 public abstract class SharedPhaseShiftSystem : EntitySystem
 {

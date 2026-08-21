@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.WhiteDream.BloodCult.Constructs.PhaseShift;
+using Content.Goobstation.Shared.PhaseShift;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
 using Content.Shared.Actions;
 

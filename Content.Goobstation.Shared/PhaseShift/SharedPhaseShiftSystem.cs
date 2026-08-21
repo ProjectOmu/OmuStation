@@ -20,7 +20,7 @@ using Content.Shared.Standing;
 using Content.Shared.StepTrigger.Systems;
 using Content.Goobstation.Common.Footprints;
 using Content.Shared.Chat;
-using Content.Shared.WhiteDream.BloodCult.Constructs.PhaseShift;
+using Content.Goobstation.Shared.PhaseShift;
 
 namespace Content.Goobstation.Shared.PhaseShift;
 
