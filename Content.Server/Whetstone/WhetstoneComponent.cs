@@ -30,5 +30,5 @@ public sealed partial class WhetstoneComponent : Component
     public EntityWhitelist Blacklist = new();
 
     [DataField]
-    public SoundSpecifier SharpenAudio = new SoundPathSpecifier("/Audio/SimpleStation14/Items/Handling/sword_sheath.ogg");
+    public SoundSpecifier SharpenAudio = new SoundPathSpecifier("Audio/_SimpleStation/sword_sheath.ogg");
 }

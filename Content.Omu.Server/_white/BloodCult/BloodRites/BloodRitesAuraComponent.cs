@@ -56,7 +56,7 @@ public sealed partial class BloodRitesAuraComponent : Component
 
     [DataField]
     public SoundSpecifier BloodRitesAudio = new SoundPathSpecifier(
-        new ResPath("/Audio/WhiteDream/BloodCult/rites.ogg"),
+        new ResPath("/Audio/_White/BloodCult/rites.ogg"),
         AudioParams.Default.WithVolume(-3));
 
     [DataField]

@@ -42,7 +42,7 @@ public sealed partial class PylonComponent : Component
     public SoundSpecifier BurnHandSound = new SoundPathSpecifier("/Audio/Effects/lightburn.ogg");
 
     [DataField]
-    public SoundSpecifier CorruptTileSound = new SoundPathSpecifier("/Audio/WhiteDream/BloodCult/curse.ogg");
+    public SoundSpecifier CorruptTileSound = new SoundPathSpecifier("/Audio/_White/BloodCult/curse.ogg");
 
     [DataField]
     public DamageSpecifier Healing = new();

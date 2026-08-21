@@ -20,6 +20,6 @@ public sealed partial class BloodSpearComponent : Component
 
     [DataField]
     public SoundSpecifier RecallAudio = new SoundPathSpecifier(
-        new ResPath("/Audio/WhiteDream/BloodCult/rites.ogg"),
+        new ResPath("/Audio/_White/BloodCult/rites.ogg"),
         AudioParams.Default.WithVolume(-3));
 }

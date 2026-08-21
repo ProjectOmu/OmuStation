@@ -46,9 +46,9 @@
         type: RadialSelectorMenuBUI
   - type: ActivatableUI
     key: enum.RadialSelectorUiKey.Key
-    userWhitelist:
-      components:
-      - BloodCultist
+#    userWhitelist:
+#      components:
+#      - BloodCultist
   - type: GenericVisualizer
     visuals:
       enum.GenericCultVisuals.State:
