@@ -73,7 +73,7 @@ public sealed class RuneDrawerBUI : BoundUserInterface
                 continue;
 
             var itemSize = new Vector2(64f, 64f);
-            var button = new RadialMenuTextureButton
+            var button = new RadialMenuButton
             {
                 ToolTip = Loc.GetString(runeProto.Name),
                 StyleClasses = { "RadialMenuButton" },

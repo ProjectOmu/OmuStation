@@ -1,4 +1,4 @@
-﻿using Content.Shared.Roles;
+﻿using Content.Shared.Roles.Components;
 
 namespace Content.Shared.WhiteDream.BloodCult.BloodCultist;
 

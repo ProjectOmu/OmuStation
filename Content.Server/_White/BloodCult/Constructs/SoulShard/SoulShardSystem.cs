@@ -3,7 +3,7 @@ using Content.Server.Bible;
 using Content.Goobstation.Common.Religion;
 using Content.Server.Mind;
 using Content.Server.Popups;
-using Content.Server.Roles;
+using Content.Shared.Roles.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Mind.Components;
 using Content.Shared.Roles;

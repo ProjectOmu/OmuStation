@@ -170,7 +170,9 @@ public sealed class BloodCultSpellsSystem : EntitySystem
         if (ev.Handled)
             return;
 
-        _empSystem.EmpPulse(_transform.GetMapCoordinates(ev.Performer), ev.Range, ev.EnergyConsumption, ev.Duration);
+        var timespan = TimeSpan.FromSeconds(ev.Duration);
+
+        _empSystem.EmpPulse(_transform.GetMapCoordinates(ev.Performer), ev.Range, ev.EnergyConsumption, timespan);
         ev.Handled = true;
     }
 

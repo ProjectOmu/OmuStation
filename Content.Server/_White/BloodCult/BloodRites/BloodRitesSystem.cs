@@ -217,7 +217,7 @@ public sealed class BloodRitesSystem : EntitySystem
         if (target.Comp.BloodSolution is null)
             return false;
 
-        _bloodstream.FlushChemicals(target.Owner, "", 10);
+        _bloodstream.FlushChemicals(target.Owner, 10);
         var missingBlood = target.Comp.BloodSolution.Value.Comp.Solution.AvailableVolume;
         if (missingBlood == 0)
             return false;

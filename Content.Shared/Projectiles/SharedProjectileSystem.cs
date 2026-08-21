@@ -79,7 +79,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
         EmbedDetach(embeddable, embeddable.Comp, args.User);
 
-        var ev = new RemoveEmbedEvent(embeddable.Owner);            //Omu port of bloodcult
+        var ev = new EmbedDetachEvent(args.User, embeddable.Owner);            //Omu port of bloodcult
         RaiseLocalEvent(embeddable.Owner, ref ev);
 
         // try place it in the user's hand

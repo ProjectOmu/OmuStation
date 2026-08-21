@@ -25,7 +25,6 @@ public sealed class MagicSystem : SharedMagicSystem
     {
         base.Initialize();
         SubscribeLocalEvent<SpeakSpellEvent>(OnSpellSpoken); // EE
-        SubscribeLocalEvent<SpeakSpellEvent>(OnSpellSpoken); // EE
 
     }
 

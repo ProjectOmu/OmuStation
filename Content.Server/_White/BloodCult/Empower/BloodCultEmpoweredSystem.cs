@@ -6,6 +6,7 @@ using Content.Shared.WhiteDream.BloodCult.BloodCultist;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Content.Shared.Atmos.Components;
 
 namespace Content.Server.WhiteDream.BloodCult.Empower;
 
@@ -32,14 +33,14 @@ public sealed class BloodCultEmpoweredSystem : EntitySystem
 
     private void OnEmpowerStartup(Entity<BloodCultEmpoweredComponent> cultist, ref ComponentStartup args)
     {
-        _alerts.ShowAlert(cultist, cultist.Comp.EmpoweredAlert);
+        _alerts.ShowAlert(cultist.Owner, cultist.Comp.EmpoweredAlert);
         if (TryComp(cultist, out BloodCultSpellsHolderComponent? spellsHolder))
             spellsHolder.MaxSpells += cultist.Comp.ExtraSpells;
     }
 
     private void OnEmpowerShutdown(Entity<BloodCultEmpoweredComponent> cultist, ref ComponentShutdown args)
     {
-        _alerts.ClearAlert(cultist, cultist.Comp.EmpoweredAlert);
+        _alerts.ClearAlert(cultist.Owner, cultist.Comp.EmpoweredAlert);
         if (TryComp(cultist, out BloodCultSpellsHolderComponent? spellsHolder))
             spellsHolder.MaxSpells -= cultist.Comp.ExtraSpells;
     }

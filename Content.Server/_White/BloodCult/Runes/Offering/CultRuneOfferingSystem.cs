@@ -112,8 +112,8 @@ public sealed class CultRuneOfferingSystem : EntitySystem
         _stun.TryKnockdown(target, TimeSpan.FromSeconds(2f), false);
         if (TryComp(target, out CuffableComponent? cuffs) && cuffs.Container.ContainedEntities.Count >= 1)
         {
-            var lastAddedCuffs = cuffs.LastAddedCuffs;
-            _cuffable.Uncuff(target, user, lastAddedCuffs);
+            if (_cuffable.TryGetLastCuff(target, out var lastAddedCuffs))   //Omu use new function and check for null
+                _cuffable.Uncuff(target, user, lastAddedCuffs.Value);
         }
 
         _statusEffects.TryRemoveStatusEffect(target, "Muted");

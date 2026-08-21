@@ -96,9 +96,9 @@ public sealed class BloodRitesUi : BoundUserInterface
         }
     }
 
-    private RadialMenuTextureButton CreateButton(string name, Texture icon)
+    private RadialMenuButton CreateButton(string name, Texture icon)
     {
-        var button = new RadialMenuTextureButton
+        var button = new RadialMenuButton
         {
             ToolTip = Loc.GetString(name),
             StyleClasses = { "RadialMenuButton" },
