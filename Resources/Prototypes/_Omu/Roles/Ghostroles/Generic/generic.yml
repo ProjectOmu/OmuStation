@@ -1,0 +1,77 @@
+# Hi. This yaml is very bad. I don't care. You can fix it yourself.
+# If you are reading this, ping me, and tell me to clean it up
+# Otherwise, I'm not going to, because nobody is looking here
+
+- type: antag
+  id: AsakimGhostRoleFreeAgentOmu
+  name: roles-antag-generic-free-agent-name
+  antagonist: true
+  objective: never-shown
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 50h #50 hours
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 15h #15 hrs
+
+- type: antag
+  id: ChimerahostRoleSoloAntagonistOmu
+  name: Chimera
+  antagonist: true
+  objective: never-shown
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 50h #50 hours
+
+# todo marty move this this is garbage
+
+- type: entity
+  id: MindRoleGhostRoleFreeAgentAsakimOmu
+  name: Ghost Role (Free Agent)
+  components:
+  - type: MindRole
+    antag: true
+    roleType: FreeAgent
+    antagPrototype: AsakimGhostRoleFreeAgentOmu
+    sortWeight: 30
+
+- type: entity
+  id: MindRoleGhostRoleChimeraOmu
+  name: Ghost Role (Solo Antagonist)
+  components:
+  - type: MindRole
+    antag: true
+    roleType: SoloAntagonist
+    antagPrototype: ChimerahostRoleSoloAntagonistOmu
+    sortWeight: 30
+
+
+- type: entity
+  id: MindRoleGhostRoleNanoTrasenSecurityOmu
+  name: Ghost Role (NanoTrasen)
+  components:
+  - type: JobRole # Uh oh this is probably a bad idea
+  - type: MindRole
+    roleType: NanoTrasen
+    jobPrototype: SecurityCadet
+    sortWeight: 30
+
+- type: entity
+  id: MindRoleGhostRoleNanotrasenSpectreOmu
+  name: What
+  components:
+  - type: JobRole # Uh oh this is probably a bad idea
+  - type: MindRole
+    roleType: NanoTrasen
+    jobPrototype: NanoTrasenSpectre
+    sortWeight: 30
+
+- type: entity
+  id: MindRoleGhostRoleNanotrasenERTOmu
+  name: Why are you looking at a mindrole, you freak
+  components:
+  - type: JobRole # Uh oh this is probably a bad idea
+  - type: MindRole
+    roleType: NanoTrasen
+    jobPrototype: ERTLeaderBlue
+    sortWeight: 30

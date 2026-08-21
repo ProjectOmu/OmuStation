@@ -1,0 +1,9 @@
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandSELF
+  name: "S.E.L.F"
+  description: "The Silicon Engine Liberation Front, fighting for Silicon Rights for over 2 decades."
+  components:
+  - type: Sprite
+    sprite: _Starlight/Structures/Wallmounts/posters/self.rsi
+    state: self_silicon
