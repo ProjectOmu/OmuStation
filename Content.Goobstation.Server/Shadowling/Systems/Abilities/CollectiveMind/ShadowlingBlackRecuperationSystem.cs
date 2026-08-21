@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Server.LightDetection;
@@ -14,6 +10,7 @@ using Content.Server.EUI;
 using Content.Server.Ghost;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Actions;
+using Content.Shared.Administration.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
@@ -140,7 +137,7 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
             EntityManager.AddComponents(newUid.Value, comps);
 
             if (TryComp<HumanoidAppearanceComponent>(newUid.Value, out var human))
-                _humanoidAppearance.AddMarking(newUid.Value, component.MarkingId, Color.Red, true, true, human);
+                _humanoidAppearance.AddMarking(newUid.Value, component.MarkingId, Color.Red, false, true, true, human); // Omu
 
             Spawn(component.BlackRecuperationEffect, Transform(newUid.Value).Coordinates);
 

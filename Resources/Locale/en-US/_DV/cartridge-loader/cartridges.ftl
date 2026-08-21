@@ -157,7 +157,7 @@ mail-metrics-total = Total
 mail-metrics-progress = {$opened} out of {$total} packages opened!
 mail-metrics-progress-percent = Success rate: {$successRate}%
 
-## NanoChat
+# NanoChat
 
 # General
 nano-chat-program-name = NanoChat
