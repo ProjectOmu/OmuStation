@@ -6172,3 +6172,28 @@ Entries:
       message: Cyborgs gain a new hat in loadouts after 100 hours
   id: 800
   time: '2026-08-16T23:35:17.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: IAA spawn now uses the sleeper agent SFX for its announcement
+  id: 801
+  time: '2026-08-17T02:03:37.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Remove
+      message: >-
+        Removed the terminus from security duty cases, You can still get it from
+        arsenal research.
+  id: 802
+  time: '2026-08-17T23:27:30.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Fix
+      message: Wrong prototype mapped in Oasis (#6831)
+    - type: Add
+      message: >-
+        Upstream is here. There will be many broken features, report bugs in
+        github issues (preffered) or make a post in the upstream bugs discord
+        forum.
+  id: 803
+  time: '2026-08-21T14:13:44.0000000+00:00'
