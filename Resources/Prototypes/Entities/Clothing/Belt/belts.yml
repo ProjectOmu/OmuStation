@@ -244,13 +244,7 @@
   name: ERT chest rig
   description: A set of tactical webbing worn by Emergency Response Team operatives.
   components:
-  - type: Tag
-    tags:
-    - MimeBelt
   - type: Sprite
-    sprite: Clothing/Belt/militarywebbingert.rsi # Omu
-    state: icon
+    sprite: Clothing/Belt/militarywebbingert.rsi
   - type: Clothing
-    sprite: Clothing/Belt/militarywebbingert.rsi # Omu
-    quickEquip: true
-
+    sprite: Clothing/Belt/militarywebbingert.rsi
