@@ -40,8 +40,10 @@ public sealed class TwistedConstructionSystem : EntitySystem
     private void OnDoAfter(Entity<TwistedConstructionTargetComponent> target, ref TwistedConstructionDoAfterEvent args)
     {
         var replacement = Spawn(target.Comp.ReplacementProto, _transform.GetMapCoordinates(target));
-        if (TryComp(target, out StackComponent? stack) && TryComp(replacement, out StackComponent? targetStack))
-            _stack.SetCount(replacement, stack.Count, targetStack);
+        if (TryComp(target, out StackComponent? stack) && TryComp(replacement, out StackComponent? targetStack)){
+            var ent = new Entity<StackComponent?>(target, stack);
+            _stack.SetCount(ent, stack.Count);
+        }
 
         if (_mind.TryGetMind(target, out var mindId, out _))
             _mind.TransferTo(mindId, replacement);

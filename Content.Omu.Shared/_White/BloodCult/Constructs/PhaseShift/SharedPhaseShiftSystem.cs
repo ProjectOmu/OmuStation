@@ -26,6 +26,7 @@ public abstract class SharedPhaseShiftSystem : EntitySystem
 
     public override void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<PhaseShiftedComponent, ComponentStartup>(OnComponentStartup);
 
         SubscribeLocalEvent<PhaseShiftedComponent, RefreshMovementSpeedModifiersEvent>(OnRefresh);

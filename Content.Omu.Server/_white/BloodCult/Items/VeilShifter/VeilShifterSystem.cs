@@ -22,7 +22,6 @@ public sealed class VeilShifterSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-//    [Dependency] private readonly PullingSystem _pulling = default!;
 
     public override void Initialize()
     {

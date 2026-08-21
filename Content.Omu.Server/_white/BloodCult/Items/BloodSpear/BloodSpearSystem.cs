@@ -19,7 +19,6 @@ public sealed class BloodSpearSystem : EntitySystem
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
-//    [Dependency] private readonly ProjectileSystem _projectile = default!;
 
     public override void Initialize()
     {
