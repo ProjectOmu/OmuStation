@@ -1,5 +1,5 @@
 ﻿using Content.Shared.Eye;
-using Content.Shared.WhiteDream.BloodCult.Constructs.PhaseShift;
+using Content.Goobstation.Shared.PhaseShift;
 using Robust.Server.GameObjects;
 
 namespace Content.Server.WhiteDream.BloodCult.Constructs.PhaseShift;

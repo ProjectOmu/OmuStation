@@ -12,7 +12,7 @@ using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.WhiteDream.BloodCult.BloodCultist;
 
 namespace Content.Server.WhiteDream.BloodCult.Runes.Offering;

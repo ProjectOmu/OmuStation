@@ -89,7 +89,7 @@ public sealed partial class PhaseShiftEvent : InstantActionEvent
     public TimeSpan Duration = TimeSpan.FromSeconds(5);
 
     [DataField]
-    public ProtoId<StatusEffectPrototype> StatusEffectId = "PhaseShifted";
+    public EntProtoId StatusEffectId = "PhaseShifted";
 }
 
 [Serializable, NetSerializable]

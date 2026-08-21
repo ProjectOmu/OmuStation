@@ -7,7 +7,7 @@ using Content.Shared.WhiteDream.BloodCult.Spells;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 
-namespace Content.Server.WhiteDream.BloodCult.Spells;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Spells;
 
 public sealed class BloodCultTeleportSpellSystem : EntitySystem
 {

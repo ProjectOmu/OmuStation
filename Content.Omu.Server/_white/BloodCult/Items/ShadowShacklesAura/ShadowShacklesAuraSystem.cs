@@ -1,6 +1,6 @@
 using Content.Server.WhiteDream.BloodCult.Items.BaseAura;
 using Content.Shared.Speech.Muting;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.WhiteDream.BloodCult.Items.ShadowShacklesAura;
 using Robust.Shared.Containers;
 
@@ -20,6 +20,6 @@ public sealed class ShadowShacklesAuraSystem : BaseAuraSystem<ShadowShacklesAura
     private void OnShackles(EntityUid uid, ShadowShacklesAuraComponent component, EntRemovedFromContainerMessage args)
     {
         QueueDel(uid);
-        _statusEffects.TryAddStatusEffect<MutedComponent>(component.Target, "Muted", component.MuteDuration, true);
+        _statusEffects.TryAddStatusEffect(component.Target, "Muted", out _, component.MuteDuration);
     }
 }

@@ -2,7 +2,7 @@
 using Content.Shared.Psionics;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.WhiteDream.BloodCult.Spells;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Spells;
 
 [RegisterComponent]
 public sealed partial class BloodCultSpellsHolderComponent : Component

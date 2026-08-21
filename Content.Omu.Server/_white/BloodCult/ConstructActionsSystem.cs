@@ -1,13 +1,13 @@
 ﻿using Content.Server.WhiteDream.BloodCult.Constructs.PhaseShift;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.WhiteDream.BloodCult.Spells;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using PhaseShiftedComponent = Content.Shared.WhiteDream.BloodCult.Constructs.PhaseShift.PhaseShiftedComponent;
+using PhaseShiftedComponent = Content.Goobstation.Shared.PhaseShift;
 
-namespace Content.Server.WhiteDream.BloodCult;
+namespace Content.Omu.Server.WhiteDream.BloodCult;
 
 public sealed class ConstructActionsSystem : EntitySystem
 {
@@ -57,11 +57,11 @@ public sealed class ConstructActionsSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (_statusEffects.TryAddStatusEffect<PhaseShiftedComponent>(
+        if (_statusEffects.TryAddStatusEffect(
             args.Performer,
             args.StatusEffectId,
-            args.Duration,
-            false))
+            out _,
+            args.Duration))
             args.Handled = true;
     }
 }

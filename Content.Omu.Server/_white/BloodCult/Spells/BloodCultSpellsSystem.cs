@@ -13,7 +13,7 @@ using Content.Shared.Magic;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Popups;
 using Content.Shared.RadialSelector;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Verbs;
 using Content.Shared.WhiteDream.BloodCult.Spells;
 using Robust.Server.GameObjects;
@@ -21,7 +21,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Shared.Charges.Events; // Omu
 
-namespace Content.Server.WhiteDream.BloodCult.Spells;
+namespace Content.Omu.Server.WhiteDream.BloodCult.Spells;
 
 public sealed class BloodCultSpellsSystem : EntitySystem
 {
