@@ -1,14 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 blobadoodle <me@bloba.dev>
-# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: job
@@ -32,7 +21,7 @@
     # Goobstation
     - NanotrasenRepresentative
     - BlueshieldOfficer
-  special: 
+  special:
     - !type:AddImplantSpecial
       implants:
         [
@@ -46,26 +35,35 @@
         ]
     - !type:AddComponentSpecial
       components:
-        - type: DeathSquadMember 
+        - type: DeathSquadMember
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 5h
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 10h
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 30h
 
- 
+
 - type: startingGear
   id: NanoTrasenSpectreGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitDeathSquad
     back: ClothingModsuitSpectreFilled
     mask: ClothingMaskGasDeathSquad
-    eyes: ClothingEyesGlassesDeathsquad 
+    eyes: ClothingEyesGlassesDeathsquad
     neck: ExecutiveIDCard # Executive Access!
-    ears: ClothingHeadsetDeathsquad 
+    ears: ClothingHeadsetDeathsquad
     gloves: ClothingHandsGlovesDeathsquad # Rip and TEAR
     outerClothing: ClothingOuterVestWebDurathread
     shoes: ClothingShoesBootsMagDeathsquad # These boots are cooler.
     id: NanoTrasenSpectrePDA # New PDA!
-    pocket1: PhoronSabre 
-    pocket2: WeaponPistolCentcommAgent 
+    pocket1: PhoronSabre
+    pocket2: WeaponPistolCentcommAgent
     belt: ClothingBeltDeathsquadWebbingFilled # Centcomm Doesn't use syndicate tech.
   storage:
     back:
-      - MagazinePistolNeurotoxin 
+      - MagazinePistolNeurotoxin
       - MagazinePistolNeurotoxin
