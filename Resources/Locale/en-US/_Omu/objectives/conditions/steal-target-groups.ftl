@@ -4,3 +4,6 @@ steal-target-groups-cybernetic-mantles = cybernetic beast's mantle
 steal-target-groups-scidiag-eyewear = research director's glasses
 # aa's bluespace coffee mug
 steal-target-groups-aamug = administrative assistant's bluespace mug
+
+#legacy wiz;
+steal-target-groups-salvageboard = salvage shuttle console circuit board
