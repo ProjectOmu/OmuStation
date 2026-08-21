@@ -946,6 +946,7 @@
     - state: icon-chemist
   - type: ItemBorgModule
     hands:
+    - item: HandheldHealthAnalyzer # omu edit
     - item: HandLabeler
     - item: Syringe
       hand:
