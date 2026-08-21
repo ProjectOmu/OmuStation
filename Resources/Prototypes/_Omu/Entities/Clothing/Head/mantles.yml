@@ -863,8 +863,8 @@
       - state: helmet-internals
       - state: eyes
         shader: unshaded
-  - type: StealTarget
-    stealGroup: None
+  # - type: StealTarget # Omu ?????
+  #  stealGroup: None
 
 # Janimantle - DO NOT ROUNDSTART. cleanhud is advanced janitorial research
 - type: entity
@@ -892,5 +892,5 @@
       color: "#D8BFD8FF"
     - type: JaniVision
       isEquipment: true
-  - type: StealTarget
-    stealGroup: None
+  # - type: StealTarget # Omu ???
+  #  stealGroup: None
