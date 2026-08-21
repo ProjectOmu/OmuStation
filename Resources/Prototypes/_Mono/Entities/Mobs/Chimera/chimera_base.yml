@@ -12,16 +12,13 @@
   components:
   # Omu start Make em take heat damage
   - type: Temperature
-    heatDamageThreshold: 320
-    coldDamageThreshold: -250 # Should make mobs immune to cold planets
     currentTemperature: 310.15
-    coldDamage: #per second, scales with temperature & other constants
+  - type: TemperatureDamage
+    heatDamageThreshold: 325
+    coldDamageThreshold: -10 #Omu set to super low i guess??
+    heatDamage:
       types:
-        Cold: 0.1
-    specificHeat: 42
-    heatDamage: #per second, scales with temperature & other constants
-      types:
-        Heat: 1.5
+        Heat: 10 #Big number?
   # Omu end
   - type: HTN
     rootTask:
