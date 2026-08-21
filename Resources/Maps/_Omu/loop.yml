@@ -35406,7 +35406,7 @@ entities:
     - type: Transform
       pos: 5.5,62.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 15199
 - proto: Carpet
   entities:
@@ -81171,7 +81171,7 @@ entities:
     - type: Transform
       pos: 8.5,66.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 15199
 - proto: OxygenCanister
   entities:
