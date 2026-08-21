@@ -74,45 +74,6 @@
     - PowerCellIRRevolver
   groupBy: "Main weapon"
 
-## Plasmaman Stuff - Secoff
-
-- type: loadout
-  id: SecurityOfficerEnvirosuitBlue
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitSecBlue
-  effects:
-  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
-    species:
-    - Plasmaman
-
-- type: loadout
-  id: SecurityOfficerEnvirohelmBlue
-  equipment:
-    head: ClothingHeadEnvirohelmSecBlue
-  effects:
-  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
-    species:
-    - Plasmaman
-
-- type: loadout
-  id: SecurityOfficerEnvirosuitGrey
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitSecGrey
-  effects:
-  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
-    species:
-    - Plasmaman
-
-- type: loadout
-  id: SecurityOfficerEnvirohelmGrey
-  equipment:
-    head: ClothingHeadEnvirohelmSecGrey
-  effects:
-  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
-    species:
-    - Plasmaman
-
-
 #Detective
 - type: loadout
   id: DetectiveWeaponRevolverInspector
