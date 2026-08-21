@@ -46,19 +46,9 @@ using Content.Server.Chat.Managers; // omu
 using Content.Shared.Mind; // omu
 using Content.Shared.Humanoid; // omu
 using Robust.Shared.Player; // omu
-using Content.Server.Objectives.Components.Targets;
 using Microsoft.CodeAnalysis; // omu
-using Robust.Shared.Prototypes;
-using Content.Shared.Random;
-using Content.Shared.Random.Helpers;
-using Robust.Shared.Random;
-using System.Numerics;
-using Content.Shared.Radio;
-using Content.Server.Radio.EntitySystems;
-using Content.Server.Chat.Managers;
-using Content.Shared.Humanoid;
 using Content.Shared.Objectives.Components;
-using Robust.Shared.Player;
+
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
