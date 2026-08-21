@@ -15,6 +15,7 @@ using Robust.Shared.Random;
 using Content.Server.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Server.Administration.Systems;
+using Content.Shared.Administration.Systems;
 using Content.Shared.Humanoid;
 using Robust.Shared.Utility;
 using Robust.Shared.EntitySerialization;
