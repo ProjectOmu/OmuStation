@@ -230,7 +230,7 @@
     key: MedicalAssemblerKey
     microwaveBlacklist: # Omu start
       components:
-      - Hypospray # NOTE: Will need fixing with upstream
+      - Injector # untested. Fuck it.
       - Edible
       tags:
       - Syringe

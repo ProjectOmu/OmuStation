@@ -62,9 +62,8 @@
     rules: ghost-role-information-chimera-rules
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 180000 # 50 hrs
+    mindRoles:
+    - MindRoleGhostRoleChimeraOmu
   - type: GhostTakeoverAvailable
 
 - type: entity

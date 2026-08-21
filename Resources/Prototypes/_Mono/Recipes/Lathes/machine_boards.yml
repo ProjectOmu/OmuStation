@@ -1,9 +1,4 @@
 - type: latheRecipe
-  parent: BaseCircuitboardRecipe
-  id: SmartfridgeCircuitboard
-  result: SmartfridgeCircuitboard
-
-- type: latheRecipe
   parent: [ BaseGoldCircuitboardRecipe, BaseSupplyMachineRecipeCategory ]
   id: MachineFTLDriveCircuitboard
   icon:

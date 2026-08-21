@@ -102,6 +102,7 @@
   - CourierHead
   - CourierHeadFlipped
   - CargoTechnicianHead
+  - CargoBandana
 
 - type: loadoutGroup
   id: CourierJumpsuit
@@ -127,7 +128,7 @@
   - CargoTechnicianBackpack
   - CargoTechnicianSatchel
   - CargoTechnicianDuffel
-  - MailCarrierMessenger
+  # - MailCarrierMessenger
   - CourierMessenger
   - CargoTechnicianMessenger
 
@@ -182,8 +183,9 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
+  # - MailCarrierEnvirogloves
   - WhiteEnvirogloves
-  - CourierEnvirogloves
+
 - type: loadoutGroup
   id: VirologistEnvirohelm
   name: loadout-group-virologist-envirohelm
@@ -303,6 +305,7 @@
   loadouts:
   - BrigmedicHeadset
   - BrigmedicAltHeadset
+  - BrigmedicEncryptionKey
 
 # tide
 
@@ -326,7 +329,6 @@
   - SecurityOfficerMk58
   - SecurityOfficerSecurityDutyRevolver
   - SecurityOfficerEG1
-  - SecurityOfficerTerminus
   - WeaponPistolMk58Gold
 
 - type: loadoutGroup
@@ -339,7 +341,6 @@
   - SecurityOfficerMk58
   - SecurityOfficerSecurityDutyRevolver
   - SecurityOfficerEG1
-  - SecurityOfficerTerminus
   - WeaponPistolMk58Gold
   - SecuritySergeantMosin
 
@@ -377,6 +378,7 @@
   loadouts:
   - SergeantHat
   - SergeantBeret
+  - SergeantHeadHatKepi
   - SecurityHelmet
   - SecurityHelmetAlt
   - SecurityBeret
@@ -397,7 +399,6 @@
   maxLimit: 1
   loadouts:
   - DetectiveWeaponRevolverInspector # Default for det should be their revolver
-  - DetectiveTerminus
 
 - type: loadoutGroup
   id: DetectiveEyes
@@ -419,7 +420,6 @@
   - SecurityOfficerMk58
   - SecurityOfficerSecurityDutyRevolver
   - SecurityOfficerEG1
-  - BrigmedTerminus
   - WeaponPistolMk58Gold
 
 # clown
@@ -448,6 +448,7 @@
   - HeadSlimeHead
   - HeadFlowerHead
   - HeadbandSkull
+  - CapSilicon
 
 # musician
 - type: loadoutGroup
