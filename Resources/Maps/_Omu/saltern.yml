@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/25/2026 19:36:54
-  entityCount: 12559
+  time: 08/08/2026 22:07:24
+  entityCount: 12560
 maps:
 - 1
 grids:
@@ -24128,7 +24128,7 @@ entities:
     - type: Transform
       pos: 12.5,9.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 8502
 - proto: Carpet
   entities:
@@ -52561,7 +52561,7 @@ entities:
     - type: Transform
       pos: 27.180967,-25.483507
       parent: 2
-- proto: HandheldHealthAnalyzerUnpowered
+- proto: HandheldHealthAnalyzer
   entities:
   - uid: 8203
     components:
@@ -55130,7 +55130,7 @@ entities:
     - type: Transform
       pos: 18.5,13.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 8502
 - proto: OxygenCanister
   entities:
@@ -63512,6 +63512,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -15.5,9.5
+      parent: 2
+  - uid: 9969
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 18.5,-2.5
       parent: 2
   - uid: 10408
     components:
