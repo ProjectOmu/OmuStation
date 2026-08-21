@@ -1,4 +1,4 @@
-﻿using Content.Server.WhiteDream.BloodCult.Constructs.PhaseShift;
+﻿using Content.Goobstation.Server.PhaseShift;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.WhiteDream.BloodCult.Spells;
 using Robust.Server.Audio;
