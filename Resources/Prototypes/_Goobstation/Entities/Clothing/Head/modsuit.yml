@@ -430,6 +430,8 @@
       - state: equipped-HEAD-vulpkanin
       head-feroxi:
       - state: equipped-HEAD-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-hydrakin
   #- type: IdentityBlocker
   #- type: IngestionBlocker
   - type: HideLayerClothing
@@ -451,7 +453,7 @@
       head-feroxi: # Omu, implemented feroxi sprites
       - state: equipped-HEAD-sealed-feroxi # Omu
       head-hydrakin:
-      - state: equipped-HEAD-hydrakin
+      - state: equipped-HEAD-sealed-hydrakin
   - type: Armor
     modifiers:
       coefficients:
