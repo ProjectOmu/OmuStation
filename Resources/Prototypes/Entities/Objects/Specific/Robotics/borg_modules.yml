@@ -935,7 +935,7 @@
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: defib-module }
 
-- type: entity # Omu edited to have a bunch of vials and a beaker only hand
+- type: entity
   id: BorgModuleChemical
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
   name: chemical cyborg module
@@ -955,18 +955,18 @@
           tags:
           - Dropper
           - Syringe
-    - item: ChemistryEmptyVial # Omu
+    - item: PillCanister
       hand:
         emptyLabel: borg-slot-small-containers-empty
-        emptyRepresentative: ChemistryEmptyVial # Omu
+        emptyRepresentative: PillCanister
         whitelist:
-          # Omustation start
           components:
-          - FitsInDispenser
+          - FitsInDispenser # omu edit - add vials/beakers to small container whitelist
           tags:
-          - ChemDispensable
-    - item: ChemistryEmptyVial
-    # Omustation End
+          - PillCanister
+          - Bottle
+          - Pill
+    - item: Beaker
       hand:
         emptyLabel: borg-slot-chemical-containers-empty
         emptyRepresentative: Beaker
@@ -1001,12 +1001,21 @@
     hands:
     - item: HandheldHealthAnalyzer
     - item: BorgHypo
-    - item: Gauze
     # Omustation Start
     - item: BluespaceChemistryVial
     - item: BluespaceChemistryVial
     - item: BluespaceChemistryVial
+    - item: Beaker # let them hold jugs/beakers to fill the vials (it also makes the topicals line up better on the second row)
+      hand:
+        emptyLabel: borg-slot-chemical-containers-empty
+        emptyRepresentative: Beaker
+        whitelist:
+          components:
+          - FitsInDispenser
+          tags:
+          - ChemDispensable
     # Omustation End
+    - item: Gauze
       hand:
         emptyLabel: borg-slot-topicals-empty
         emptyRepresentative: Gauze
@@ -1048,13 +1057,13 @@
     - item: GasAnalyzer
     - item: BorgDropper
     - item: ChemistryEmptyVial
-    - item: HolofanProjector # Goobstation
       hand:
         emptyLabel: borg-slot-small-containers-empty
         emptyRepresentative: ChemistryEmptyVial
         whitelist:
           components:
           - FitsInDispenser
+    - item: HolofanProjector # Goobstation
     - item: GeigerCounter
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: node-scanner-module }
