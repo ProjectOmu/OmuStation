@@ -1,4 +1,4 @@
-using Content.Shared.EntityEffects;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Mono.Temperature.Components;
 /// <summary>
@@ -21,5 +21,5 @@ public sealed partial class TemperatureEffect
     public float MaximumTemperature = float.MaxValue;
 
     [DataField(required: true)]
-    public List<EntityEffect> Effects = default!;
+    public List<EntProtoId> Effects = default!;
 }
