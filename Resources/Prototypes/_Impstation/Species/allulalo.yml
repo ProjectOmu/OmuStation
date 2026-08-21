@@ -32,7 +32,8 @@
     Head: MobAllulaloHead
     HeadTop: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
-    Chest: MobAllulaloTorso
+    Chest: MobAllulaloChest
+    UndergarmentTop: MobHumanoidAnyMarking
     LArm: MobAllulaloLArm
     RArm: MobAllulaloRArm
     LHand: MobAllulaloLHand
@@ -60,7 +61,7 @@
     HeadTop:
       points: 1
       required: false
-    Undershirt:
+    UndergarmentTop:
       points: 2
       required: false
     Chest:
@@ -109,22 +110,22 @@
     state: head
 
 - type: humanoidBaseSprite
-  id: MobAllulaloTorso
+  id: MobAllulaloChest
   baseSprite:
     sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
-    state: torso
+    state: chest
 
 - type: humanoidBaseSprite
-  id: MobAllulaloTorsoMale
+  id: MobAllulaloChestMale
   baseSprite:
     sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
-    state: torso
+    state: chest
 
 - type: humanoidBaseSprite
-  id: MobAllulaloTorsoFemale
+  id: MobAllulaloChestFemale
   baseSprite:
     sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
-    state: torso
+    state: chest
 
 - type: humanoidBaseSprite
   id: MobAllulaloLLeg
