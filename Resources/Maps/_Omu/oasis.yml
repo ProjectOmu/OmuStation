@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/16/2026 14:56:58
-  entityCount: 30417
+  time: 08/08/2026 23:53:38
+  entityCount: 30419
 maps:
 - 1
 grids:
@@ -139539,6 +139539,11 @@ entities:
     - type: Transform
       pos: -52.5,-20.5
       parent: 2
+  - uid: 30419
+    components:
+    - type: Transform
+      pos: -52.5,-19.5
+      parent: 2
 - proto: LockerScienceFilled
   entities:
   - uid: 15685
@@ -158385,6 +158390,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 4.5,-52.5
+      parent: 2
+  - uid: 18440
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -17.5,-41.5
       parent: 2
 - proto: Sledgehammer
   entities:
