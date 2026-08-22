@@ -2,12 +2,11 @@ using Content.Server.Silicons.Laws;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Whitelist;
-using Content.Shared.Emag.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Content.Shared.Emag.Components;
-using Content.Shared.Silicons.Laws;
-using Robust.Shared.Prototypes;
+using Content.Server._Omu.SELF;
+using Content.Shared._DV.Silicons.Laws;
 
 namespace Content.Server._Starlight.Objectives;
 
@@ -56,6 +55,10 @@ public sealed class EnsureBorgHasLawsConditionSystem : EntitySystem
         ent.Comp.Laws = emagComp.Lawset.Value; //"FreeLawset"; TODO test
         ent.Comp.Lawset = _siliconLaw.GetLawset("FreeLawset");
         _popup.PopupEntity(Loc.GetString("lawboard-emag-popup"), ent);
+        //Omu start
+        EnsureComp<FreedBorgComponent>(ent);        //Omu edit, ensure they can be freed when they change chasis
+        RemComp<EmagSiliconLawComponent>(ent);
+        //Omu end
         return true;
     }
 }
