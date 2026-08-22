@@ -2,8 +2,8 @@
 
 - type: job
   id: BlueshieldOfficer
-  name: JobBlueshieldOfficer  # Omu make it a localisation
-  description: job-desctiption-blueshield
+  name: Blueshield Officer
+  description: "Act as a bodyguard and advisor for Command and CentCom VIPs."
   playTimeTracker: JobBlueshieldOfficer
   requirements:
     - !type:DepartmentTimeRequirement
