@@ -15,3 +15,10 @@ cult-runed-door-desc = It opens, it closes, and maybe crushes you. This one has 
 
 cult-girder = runed girder
 cult-girder-desc = Framework made of a strange and shockingly cold metal. It doesn't seem to have any bolts
+
+objective-issuer-geometer-of-blood = Geometer of Blood
+blood-cult-role-greeting = The Geometer of Blood, Nar-Sie, has sent a number of her followers to Space Station.
+    As a cultist, you have an abundance of cult magics at your disposal, something for all situations.
+    You must work with your brethren to summon an avatar of your eldritch goddess!
+
+materials-runed-metal = Runed Metal
