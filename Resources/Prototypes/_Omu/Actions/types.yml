@@ -37,7 +37,7 @@
   - type: Action
     useDelay: 1
     icon:
-      sprite: _Goobstation/Clothing/Back/Modsuits/paramedic.rsi
+      sprite: _Omu/Clothing/Back/Modsuits/paramedic.rsi
       state: icon-siren
     itemIconStyle: BigAction
 
@@ -67,7 +67,7 @@
   components:
   - type: WorldTargetAction
     event: !type:BloodredVimBoostInternalActionEvent {}
-    
+
 - type: entity
   parent: BaseAction
   id: ToggleJaniVision

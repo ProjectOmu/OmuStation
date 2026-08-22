@@ -477,7 +477,7 @@
   name: selectable-set-paramedic-modsuit-name
   description: selectable-set-paramedic-modsuit-desc
   sprite:
-    sprite: _Goobstation/Clothing/Back/Modsuits/paramedic.rsi
+    sprite: _Omu/Clothing/Back/Modsuits/paramedic.rsi # Omu, link to new sprites in omu namespace
     state: control
   content:
   - ClothingModsuitParamedicPowerCell

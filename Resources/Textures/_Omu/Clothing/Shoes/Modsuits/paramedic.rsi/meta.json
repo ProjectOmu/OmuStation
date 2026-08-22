@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "From Paradise - https://github.com/ParadiseSS13/Paradise/pull/31941, paramedification by DuskTheSnep",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "boots"
+    },
+		{
+		  "name": "boots-sealed"
+		},
+		{
+			"name": "equipped-FEET",
+			"directions": 4
+		},
+		{
+			"name": "equipped-FEET-sealed",
+			"directions": 4
+		},
+        {
+          "name": "equipped-FEET-sealed-vox",
+          "directions": 4
+        },
+        {
+          "name": "equipped-FEET-vox",
+          "directions": 4
+        },
+        {
+          "name": "equipped-FEET-sealed-hydrakin",
+          "directions": 4
+        },
+        {
+          "name": "equipped-FEET-hydrakin",
+          "directions": 4
+        }
+  ]
+}
