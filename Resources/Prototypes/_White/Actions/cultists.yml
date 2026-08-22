@@ -10,16 +10,15 @@
   - type: LimitedCharges # Omu
     maxCharges: 1
   - type: InstantAction
-    #charges: 1 # Omu
-    useDelay: 3
-    temporary: true
     event: !type:SummonEquipmentEvent
       prototypes:
         hand1: StunAura
       force: false
   - type: Action
     priority: -9
+    useDelay: 3
     itemIconStyle: BigAction
+    temporary: true
     icon:
       sprite: _White/BloodCult/actions.rsi
       state: stun
@@ -37,10 +36,7 @@
   - type: LimitedCharges # Omu
     maxCharges: 1
   - type: EntityTargetAction
-    checkCanAccess: false
     range: 3
-    temporary: true
-    interactOnMiss: false
     whitelist:
       components:
       - BloodCultist
@@ -52,6 +48,7 @@
   - type: Action
     priority: -9
     itemIconStyle: BigAction
+    temporary: true
     icon:
       sprite: _White/BloodCult/actions.rsi
       state: teleport
@@ -69,12 +66,13 @@
   - type: LimitedCharges # Omu
     maxCharges: 1
   - type: InstantAction
-    temporary: true
+
     event: !type:BloodCultEmpEvent
       speech: "Ta'gh fara'qha fel d'amar det!"
   - type: Action
     priority: -9
     itemIconStyle: BigAction
+    temporary: true
     icon:
       sprite: _White/BloodCult/actions.rsi
       state: create_emp
@@ -92,14 +90,14 @@
   - type: LimitedCharges # Omu
     maxCharges: 4
   - type: InstantAction
-    useDelay: 3
-    temporary: true
     event: !type:SummonEquipmentEvent
       prototypes:
         hand1: ShadowShacklesAura
       force: false
   - type: Action
     priority: -9
+    useDelay: 3
+    temporary: true
     itemIconStyle: BigAction
     icon:
       sprite: _White/BloodCult/actions.rsi
@@ -118,11 +116,7 @@
   - type: LimitedCharges # Omu
     maxCharges: 1
   - type: EntityTargetAction
-    checkCanAccess: false
     range: 3
-    temporary: true
-    canTargetSelf: false
-    interactOnMiss: false
     whitelist:
       components:
       - TwistedConstructionTarget
@@ -131,6 +125,7 @@
   - type: Action
     priority: -9
     itemIconStyle: BigAction
+    temporary: true
     icon:
       sprite: _White/BloodCult/actions.rsi
       state: transmute
@@ -148,7 +143,6 @@
   - type: LimitedCharges # Omu
     maxCharges: 1
   - type: InstantAction
-    temporary: true
     event: !type:SummonEquipmentEvent
       speech: "Wur d'dai leev'mai k'sagan!"
       prototypes:
@@ -158,6 +152,7 @@
   - type: Action
     priority: -9
     itemIconStyle: BigAction
+    temporary: true
     icon:
       sprite: _White/BloodCult/actions.rsi
       state: summon_combat_equipment
@@ -175,7 +170,6 @@
   - type: LimitedCharges # Omu
     maxCharges: 1
   - type: InstantAction
-    temporary: true
     icon:
       sprite: _White/BloodCult/actions.rsi
       state: summon_dagger
@@ -186,6 +180,7 @@
   - type: Action
     priority: -9
     itemIconStyle: BigAction
+    temporary: true
     icon:
       sprite: _White/BloodCult/actions.rsi
       state: summon_dagger
@@ -204,7 +199,6 @@
     maxCharges: 1
   - type: InstantAction
     useDelay: 3
-    temporary: true
     icon:
       sprite: _White/BloodCult/actions.rsi
       state: blood_rites
@@ -216,6 +210,7 @@
   - type: Action
     priority: -9
     itemIconStyle: BigAction
+    temporary: true
     icon:
       sprite: _White/BloodCult/actions.rsi
       state: blood_rites
@@ -231,7 +226,6 @@
     sprite: _White/BloodCult/actions.rsi
     state: create_cult_floor
   - type: WorldTargetAction
-    useDelay: 10
     range: 5
     event: !type:PlaceTileEntityEvent
       tileId: CultFloor
@@ -240,6 +234,7 @@
   - type: Action
     priority: -9
     itemIconStyle: BigAction
+    useDelay: 10
     icon:
       sprite: _White/BloodCult/actions.rsi
       state: create_cult_floor
@@ -255,7 +250,6 @@
     sprite: _White/BloodCult/actions.rsi
     state: lesser_construct
   - type: WorldTargetAction
-    useDelay: 20
     range: 5
     event: !type:PlaceTileEntityEvent
       entity: WallCult
@@ -263,6 +257,7 @@
         path: /Audio/_White/BloodCult/curse.ogg
   - type: Action
     priority: -9
+    useDelay: 20
     itemIconStyle: BigAction
     icon:
       sprite: _White/BloodCult/actions.rsi
@@ -279,7 +274,6 @@
     sprite: _White/BloodCult/actions.rsi
     state: lesser_construct
   - type: WorldTargetAction
-    useDelay: 30
     range: 5
     event: !type:PlaceTileEntityEvent
       entity: CultDoor
@@ -288,6 +282,7 @@
   - type: Action
     priority: -9
     itemIconStyle: BigAction
+    useDelay: 30
     icon:
       sprite: _White/BloodCult/actions.rsi
       state: lesser_construct
@@ -303,7 +298,6 @@
     sprite: _White/BloodCult/actions.rsi
     state: create_soul_stone
   - type: WorldTargetAction
-    useDelay: 30
     range: 5
     event: !type:PlaceTileEntityEvent
       entity: SoulShardGhost
@@ -312,6 +306,7 @@
   - type: Action
     priority: -9
     itemIconStyle: BigAction
+    useDelay: 30
     icon:
       sprite: _White/BloodCult/actions.rsi
       state: create_soul_stone
@@ -327,7 +322,6 @@
     sprite: _White/BloodCult/actions.rsi
     state: create_soul_stone
   - type: WorldTargetAction
-    useDelay: 30
     range: 5
     event: !type:PlaceTileEntityEvent
       entity: SoulShardHolyGhost
@@ -336,6 +330,7 @@
   - type: Action
     priority: -9
     itemIconStyle: BigAction
+    useDelay: 30
     icon:
       sprite: _White/BloodCult/actions.rsi
       state: create_soul_stone
@@ -351,7 +346,6 @@
     sprite: _White/BloodCult/actions.rsi
     state: summon_force_wall
   - type: InstantAction
-    useDelay: 40
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/forcewall.ogg
     event: !type:InstantSpawnSpellEvent
@@ -360,6 +354,7 @@
   - type: Action
     priority: -9
     itemIconStyle: BigAction
+    useDelay: 40
     icon:
       sprite: _White/BloodCult/actions.rsi
       state: summon_force_wall
@@ -375,11 +370,11 @@
     sprite: _White/BloodCult/actions.rsi
     state: phase_shift
   - type: InstantAction
-    useDelay: 30
     event: !type:PhaseShiftEvent
   - type: Action
     priority: -9
     itemIconStyle: BigAction
+    useDelay: 30
     icon:
       sprite: _White/BloodCult/actions.rsi
       state: phase_shift
@@ -392,16 +387,16 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
-    useDelay: 30
-    raiseOnUser: true
     range: 15
     sound: !type:SoundPathSpecifier
       path: /Audio/_White/BloodCult/resonator_blast.ogg
     event: !type:ProjectileSpellEvent
       prototype: ProjectileGauntlet
   - type: Action
+    raiseOnUser: true
     priority: -9
     itemIconStyle: BigAction
+    useDelay: 30
     icon:
       sprite: _White/BloodCult/actions.rsi
       state: gauntlet_echo
