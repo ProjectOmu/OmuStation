@@ -52,7 +52,7 @@ public sealed partial class CultRuneApocalypseComponent : Component
     {
         ["ImmovableRodSpawn"] = 3,
         ["MimicVendorRule"] = 2,
-        ["RatKingSpawn"] = 2,
+        ["KingRatMigration"] = 2,     //Omu we dont have this as a gamerule - swapped to king rat migration
         ["GameRuleMeteorSwarmMedium"] = 2,
         ["SpiderSpawn"] = 3, // more spiders
         ["AnomalySpawn"] = 4,
