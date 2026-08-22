@@ -28,7 +28,7 @@ public static class ClientPackaging
                 ArgumentList =
                 {
                     "build",
-                    Path.Combine("Content.Omu.Client, Content.Omu.Client.csproj"), // Omu
+                    Path.Combine("Content.Omu.Client", "Content.Omu.Client.csproj"), // Omu
                     "-c", configuration,
                     "--nologo",
                     "/v:m",
@@ -77,7 +77,7 @@ public static class ClientPackaging
         // Goob edit start
         // thanks 'dletandas'
         var sourcePath = Path.Combine(contentDir, "bin", "Content.Client");
-        var deps = DepsHandler.Load(Path.Combine(sourcePath, "Content.Goobstation.Client.deps.json"));
+        var deps = DepsHandler.Load(Path.Combine(sourcePath, "Content.Omu.Client.deps.json")); // omu
         var contentAssemblies = ServerPackaging.GetContentAssemblyNamesToCopy(deps, "Client");
         // Good edit end
 
