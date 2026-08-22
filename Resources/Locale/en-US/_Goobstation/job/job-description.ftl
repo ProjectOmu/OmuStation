@@ -36,3 +36,7 @@ job-description-radiohost = Host the stations local radio station, play vinyls, 
 
 # Viro
 job-description-virologist = Study spreading viruses, produce cures for ailing crewmembers, experiment in creating beneficial viruses. Make sure pandemics don't spread.
+
+# Omu
+job-desctiption-blueshield = Act as a bodyguard and advisor for Command and CentCom VIPs.
+job-desctiption-nanotrasen = Represent NT, Send reports back to them on the station's situation, Inform the heads of anything CentCom orders them to do.
