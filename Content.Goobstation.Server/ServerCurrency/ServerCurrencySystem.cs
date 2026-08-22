@@ -112,7 +112,7 @@ namespace Content.Goobstation.Server.ServerCurrency
                         }
 
                         // Omu start -- for future: Make this a proper system later rather than just checking one holiday
-                        if (_holidaySystem.IsCurrentlyHoliday("EggWeeks"))
+                        if (_holidaySystem.IsCurrentlyHoliday("EggWeeks") || _holidaySystem.IsCurrentlyHoliday("EggWeeksExt"))
                         {
                             money *= 2;
                         }
