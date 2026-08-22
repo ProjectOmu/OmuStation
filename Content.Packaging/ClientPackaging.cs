@@ -28,7 +28,7 @@ public static class ClientPackaging
                 ArgumentList =
                 {
                     "build",
-                    Path.Combine("Content.Goobstation.Client", "Content.Goobstation.Client.csproj"), // Goob
+                    Path.Combine("Content.Omu.Client, Content.Omu.Client.csproj"), // Omu
                     "-c", configuration,
                     "--nologo",
                     "/v:m",

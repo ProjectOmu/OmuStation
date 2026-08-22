@@ -98,7 +98,7 @@ public static class ServerPackaging
                 ArgumentList =
                 {
                     "build",
-                    Path.Combine("Content.Goobstation.Server", "Content.Goobstation.Server.csproj"), // Goob
+                    Path.Combine("Content.Omu.Server", "Content.Omu.Server.csproj"), // Omu
                     "-c", configuration,
                     "--nologo",
                     "/v:m",
@@ -137,7 +137,7 @@ public static class ServerPackaging
             {
                 "publish",
                 "--runtime", runtime,
-                "--no-self-contained",
+                 "--self-contained",
                 "-c", configuration,
                 $"/p:TargetOs={targetOs}",
                 "/p:FullRelease=True",
@@ -169,7 +169,7 @@ public static class ServerPackaging
         // Additional assemblies that need to be copied such as EFCore.
         var sourcePath = Path.Combine(contentDir, "bin", "Content.Server");
 
-        var deps = DepsHandler.Load(Path.Combine(sourcePath, "Content.Goobstation.Server.deps.json")); // Goob
+        var deps = DepsHandler.Load(Path.Combine(sourcePath, "Content.Omu.Server.deps.json")); // Omu
 
         var contentAssemblies = GetContentAssemblyNamesToCopy(deps);
 
@@ -212,7 +212,7 @@ public static class ServerPackaging
 
     public static IEnumerable<string> GetContentAssemblyNamesToCopy(DepsHandler deps, string side)
     {
-        var depsContent = deps.RecursiveGetLibrariesFrom($"Content.Goobstation.{side}")
+        var depsContent = deps.RecursiveGetLibrariesFrom($"Content.Omu.{side}") // Omu
             .SelectMany(GetLibraryNames);
         var depsRobust = deps.RecursiveGetLibrariesFrom($"Robust.{side}")
             .SelectMany(GetLibraryNames);
