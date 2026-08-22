@@ -112,7 +112,6 @@
   - type: LimitedCharges # Omu
     maxCharges: 1
   - type: EntityTargetAction
-    range: 3
     whitelist:
       components:
       - TwistedConstructionTarget
@@ -238,7 +237,6 @@
     sprite: _White/BloodCult/actions.rsi
     state: lesser_construct
   - type: WorldTargetAction
-    range: 5
     event: !type:BloodCultPlaceTileEntityEvent
       entity: WallCult
       audio:  !type:SoundPathSpecifier
@@ -262,7 +260,6 @@
     sprite: _White/BloodCult/actions.rsi
     state: lesser_construct
   - type: WorldTargetAction
-    range: 5
     event: !type:BloodCultPlaceTileEntityEvent
       entity: CultDoor
       audio:  !type:SoundPathSpecifier
@@ -286,7 +283,6 @@
     sprite: _White/BloodCult/actions.rsi
     state: create_soul_stone
   - type: WorldTargetAction
-    range: 5
     event: !type:BloodCultPlaceTileEntityEvent
       entity: SoulShardGhost
       audio:  !type:SoundPathSpecifier
@@ -310,7 +306,6 @@
     sprite: _White/BloodCult/actions.rsi
     state: create_soul_stone
   - type: WorldTargetAction
-    range: 5
     event: !type:BloodCultPlaceTileEntityEvent
       entity: SoulShardHolyGhost
       audio:  !type:SoundPathSpecifier
@@ -375,9 +370,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
-    range: 15
-    sound: !type:SoundPathSpecifier
-      path: /Audio/_White/BloodCult/resonator_blast.ogg
+
     event: !type:ProjectileSpellEvent
       prototype: ProjectileGauntlet
   - type: Action
@@ -388,4 +381,6 @@
     icon:
       sprite: _White/BloodCult/actions.rsi
       state: gauntlet_echo
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_White/BloodCult/resonator_blast.ogg
   - type: BaseCultSpell
