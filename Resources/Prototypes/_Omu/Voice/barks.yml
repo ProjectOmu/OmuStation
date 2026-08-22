@@ -1,4 +1,4 @@
-﻿# MORTIS
+# MORTIS
 - type: soundCollection
   id: MortisBark
   files:
@@ -35,3 +35,16 @@
   speciesWhitelist:
     - Moth
     - Harpy # The Egg demands that harpies get all barks...
+
+# Breathy
+- type: soundCollection
+  id: BreathyBark
+  files:
+  - /Audio/_Omu/Voice/Barks/Breathy/breathy.ogg
+
+- type: bark
+  id: Breathy
+  name: Breathy
+  volume: 0.6
+  soundCollection:
+    collection: BreathyBark
