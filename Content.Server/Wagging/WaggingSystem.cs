@@ -25,10 +25,17 @@ public sealed class WaggingSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<WaggingComponent, ProfileLoadFinishedEvent>(OnWaggingProfileLoadFinished); // Omu - Only show action when you can actually wag the tail
+        SubscribeLocalEvent<WaggingComponent, ProfileLoadFinishedEvent>(OnWaggingMapInit); // Omu - Only show action when you can actually wag the tail
         SubscribeLocalEvent<WaggingComponent, ComponentShutdown>(OnWaggingShutdown);
         SubscribeLocalEvent<WaggingComponent, ToggleActionEvent>(OnWaggingToggle);
         SubscribeLocalEvent<WaggingComponent, MobStateChangedEvent>(OnMobStateChanged);
+    }
+
+    private void OnWaggingMapInit(EntityUid uid, WaggingComponent component,
+        ProfileLoadFinishedEvent args) // Omu
+    {
+        if (HasTailWaggingMarkings(uid, component)) // Omu
+            _actions.AddAction(uid, ref component.ActionEntity, component.Action, uid);
     }
 
     private void OnWaggingShutdown(EntityUid uid, WaggingComponent component, ComponentShutdown args)
@@ -99,12 +106,6 @@ public sealed class WaggingSystem : EntitySystem
     }
 
     // Omu begin - Only show the wagging action when you can actually wag the tail
-    private void OnWaggingProfileLoadFinished(EntityUid uid, WaggingComponent component, ProfileLoadFinishedEvent args)
-    {
-        if (HasTailWaggingMarkings(uid, component))
-            _actions.AddAction(uid, ref component.ActionEntity, component.Action, uid);
-    }
-
     private bool HasTailWaggingMarkings(EntityUid uid, WaggingComponent? wagging = null, HumanoidAppearanceComponent? humanoid = null)
     {
         if (!Resolve(uid, ref wagging, ref humanoid))
