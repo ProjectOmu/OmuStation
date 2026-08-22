@@ -1,0 +1,12 @@
+- type: marking
+  id: HumanTailBasic
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_tip
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_even
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_odd
