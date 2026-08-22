@@ -31445,7 +31445,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 116.546524,173.3486
       parent: 2
-- proto: BaseChemistryEmptyVial
+- proto: ChemistryEmptyVial
   entities:
   - uid: 21
     components:
@@ -229900,7 +229900,7 @@ entities:
     - type: Transform
       pos: 52.49684,134.6185
       parent: 2
-- proto: HandheldHealthAnalyzerUnpowered
+- proto: HandheldHealthAnalyzer
   entities:
   - uid: 34900
     components:
