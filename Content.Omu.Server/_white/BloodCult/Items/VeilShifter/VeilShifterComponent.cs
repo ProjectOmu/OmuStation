@@ -22,10 +22,10 @@ public sealed partial class VeilShifterComponent : Component
     public int Attempts = 10;
 
     [DataField]
-    public SoundPathSpecifier TeleportInSound = new("/Audio/WhiteDream/BloodCult/veilin.ogg");
+    public SoundPathSpecifier TeleportInSound = new("/Audio/_White/BloodCult/veilin.ogg");
 
     [DataField]
-    public SoundPathSpecifier TeleportOutSound = new("/Audio/WhiteDream/BloodCult/veilout.ogg");
+    public SoundPathSpecifier TeleportOutSound = new("/Audio/_White/BloodCult/veilout.ogg");
 
     [ViewVariables(VVAccess.ReadOnly), DataField("teleportInEffect")]
     public string? TeleportInEffect = "CultTeleportInEffect";

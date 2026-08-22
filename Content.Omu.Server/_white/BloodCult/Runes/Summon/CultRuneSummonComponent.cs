@@ -6,5 +6,5 @@ namespace Content.Omu.Server.WhiteDream.BloodCult.Runes.Summon;
 public sealed partial class CultRuneSummonComponent : Component
 {
     [DataField]
-    public SoundPathSpecifier TeleportSound = new("/Audio/WhiteDream/BloodCult/veilin.ogg");
+    public SoundPathSpecifier TeleportSound = new("/Audio/_White/BloodCult/veilin.ogg");
 }

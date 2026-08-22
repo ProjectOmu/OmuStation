@@ -35,9 +35,6 @@
   - type: ActivatableUI
     inHandsOnly: true
     key: enum.RadialSelectorUiKey.Key
-    userWhitelist:
-      components:
-      - BloodCultist
   - type: ShortConstruction
     entries:
     - prototype: CultPylon

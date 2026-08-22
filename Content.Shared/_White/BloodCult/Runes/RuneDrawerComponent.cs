@@ -13,9 +13,9 @@ public sealed partial class RuneDrawerComponent : Component
     public float EraseTime = 4f;
 
     [DataField]
-    public SoundSpecifier StartDrawingSound = new SoundPathSpecifier("/Audio/WhiteDream/BloodCult/butcher.ogg");
+    public SoundSpecifier StartDrawingSound = new SoundPathSpecifier("/Audio/_White/BloodCult/butcher.ogg");
 
-    public SoundSpecifier EndDrawingSound = new SoundPathSpecifier("/Audio/WhiteDream/BloodCult/blood.ogg");
+    public SoundSpecifier EndDrawingSound = new SoundPathSpecifier("/Audio/_White/BloodCult/blood.ogg");
 }
 
 [Serializable, NetSerializable]
