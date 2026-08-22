@@ -14,6 +14,3 @@ mindcontrol-briefing-get-master = Obey {$master}
 ## uplink shop
 uplink-mindcontrol-implant-name = Mind-Control Implant
 uplink-mindcontrol-implant-desc = When all you need is a friend.
-
-# Omu fix the locale issue
-mindcontrolled = mindcontrolled
