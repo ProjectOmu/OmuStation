@@ -78,7 +78,7 @@
   - type: InnateMiningScannerViewer # Frontier
     pingSound: null
     viewRange: 3 # Goob value
-  - type: Wagging # Omu - Tail wagging
+  - type: ToggleableWagging # Omu - Tail wagging
 
 - type: entity
   parent: BaseSpeciesDummy
