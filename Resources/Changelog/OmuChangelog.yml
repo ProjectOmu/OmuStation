@@ -6197,3 +6197,29 @@ Entries:
         forum.
   id: 803
   time: '2026-08-21T14:13:44.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Slimes can no longer have surgery performed on them.
+  id: 804
+  time: '2026-08-22T04:10:19.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Add
+      message: The chemical borg module now has a health analyzer (again)
+    - type: Add
+      message: The advanced first aid borg module can now pick up beakers
+    - type: Tweak
+      message: The organ slots in both surgical borg modules now start empty
+    - type: Fix
+      message: The chemical borg module can now pick up pills and pill cans
+    - type: Fix
+      message: Borgs are no longer able to drop the wrong items in some modules
+  id: 805
+  time: '2026-08-22T04:15:21.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Linged bodies can no longer have cpr done to revive them
+  id: 806
+  time: '2026-08-22T04:20:39.0000000+00:00'
