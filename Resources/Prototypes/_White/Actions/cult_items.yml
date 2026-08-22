@@ -8,9 +8,11 @@
     sprite: _White/BloodCult/actions.rsi
     state: stun
   - type: InstantAction
+    event: !type:BloodSpearRecalledEvent
+  - type: Action
+    priority: -9
     itemIconStyle: BigAction
-    useDelay: 30
+    useDelay: 40
     icon:
       sprite: _White/BloodCult/Entities/Items/Weapons/cult_spear.rsi
       state: icon
-    event: !type:BloodSpearRecalledEvent

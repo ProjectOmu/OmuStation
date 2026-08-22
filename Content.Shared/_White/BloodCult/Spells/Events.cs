@@ -70,7 +70,7 @@ public sealed partial class SummonEquipmentEvent : InstantActionEvent, ISpeakSpe
 
 public sealed partial class BloodSpearRecalledEvent : InstantActionEvent;
 
-public sealed partial class PlaceTileEntityEvent : WorldTargetActionEvent
+public sealed partial class BloodCultPlaceTileEntityEvent : WorldTargetActionEvent
 {
     [DataField]
     public EntProtoId? Entity;

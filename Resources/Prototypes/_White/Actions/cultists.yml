@@ -36,13 +36,9 @@
   - type: LimitedCharges # Omu
     maxCharges: 1
   - type: EntityTargetAction
-    range: 3
     whitelist:
       components:
       - BloodCultist
-    icon:
-      sprite: _White/BloodCult/actions.rsi
-      state: teleport
     event: !type:BloodCultTeleportEvent
       speech: "Sas'so c'arta forbici"
   - type: Action
@@ -170,9 +166,6 @@
   - type: LimitedCharges # Omu
     maxCharges: 1
   - type: InstantAction
-    icon:
-      sprite: _White/BloodCult/actions.rsi
-      state: summon_dagger
     event: !type:SummonEquipmentEvent
       speech: "Wur d'dai leev'mai k'sagan!"
       prototypes:
@@ -198,10 +191,6 @@
   - type: LimitedCharges # Omu
     maxCharges: 1
   - type: InstantAction
-    useDelay: 3
-    icon:
-      sprite: _White/BloodCult/actions.rsi
-      state: blood_rites
     event: !type:SummonEquipmentEvent
       speech: "Fel'th Dol Ab'orod!"
       prototypes:
@@ -226,8 +215,7 @@
     sprite: _White/BloodCult/actions.rsi
     state: create_cult_floor
   - type: WorldTargetAction
-    range: 5
-    event: !type:PlaceTileEntityEvent
+    event: !type:BloodCultPlaceTileEntityEvent
       tileId: CultFloor
       audio:  !type:SoundPathSpecifier
         path: /Audio/_White/BloodCult/curse.ogg
@@ -251,7 +239,7 @@
     state: lesser_construct
   - type: WorldTargetAction
     range: 5
-    event: !type:PlaceTileEntityEvent
+    event: !type:BloodCultPlaceTileEntityEvent
       entity: WallCult
       audio:  !type:SoundPathSpecifier
         path: /Audio/_White/BloodCult/curse.ogg
@@ -275,7 +263,7 @@
     state: lesser_construct
   - type: WorldTargetAction
     range: 5
-    event: !type:PlaceTileEntityEvent
+    event: !type:BloodCultPlaceTileEntityEvent
       entity: CultDoor
       audio:  !type:SoundPathSpecifier
         path: /Audio/_White/BloodCult/curse.ogg
@@ -299,7 +287,7 @@
     state: create_soul_stone
   - type: WorldTargetAction
     range: 5
-    event: !type:PlaceTileEntityEvent
+    event: !type:BloodCultPlaceTileEntityEvent
       entity: SoulShardGhost
       audio:  !type:SoundPathSpecifier
         path: /Audio/_White/BloodCult/curse.ogg
@@ -323,7 +311,7 @@
     state: create_soul_stone
   - type: WorldTargetAction
     range: 5
-    event: !type:PlaceTileEntityEvent
+    event: !type:BloodCultPlaceTileEntityEvent
       entity: SoulShardHolyGhost
       audio:  !type:SoundPathSpecifier
         path: /Audio/_White/BloodCult/curse.ogg
@@ -346,13 +334,13 @@
     sprite: _White/BloodCult/actions.rsi
     state: summon_force_wall
   - type: InstantAction
-    sound: !type:SoundPathSpecifier
-      path: /Audio/Magic/forcewall.ogg
     event: !type:InstantSpawnSpellEvent
       prototype: WallForceCult
       posData: !type:TargetInFront
   - type: Action
     priority: -9
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/forcewall.ogg
     itemIconStyle: BigAction
     useDelay: 40
     icon:
