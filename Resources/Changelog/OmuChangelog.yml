@@ -6257,3 +6257,83 @@ Entries:
       message: lobby message background properly shows after upstream
   id: 811
   time: '2026-08-22T17:12:35.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: agent id's spawn with their preset accesses (Wizard/Nukie) again
+  id: 812
+  time: '2026-08-23T10:07:36.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed adminchat relay sending messages to non-admins
+  id: 813
+  time: '2026-08-23T10:38:15.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: ' '
+    - type: Fix
+      message: >-
+        Fixed admin logging overlaying over itself when displaying multiple
+        players
+  id: 814
+  time: '2026-08-23T13:18:18.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Laika is no longer locked behind playing less than 5 hours of security.
+  id: 815
+  time: '2026-08-23T13:21:43.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Add
+      message: Warden's headset now has a loudspeaker.
+  id: 816
+  time: '2026-08-23T13:23:05.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: Removed the transparency from CMO's hardsuit helmet.
+  id: 817
+  time: '2026-08-23T13:27:09.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Changed max character slots from 20 to 30.
+  id: 818
+  time: '2026-08-23T13:58:18.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Adds the Bagawk sound back to the Vox emote.
+  id: 819
+  time: '2026-08-23T13:58:59.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: 'Fixing spam mail from cargo by adding in missing ftl file from goob; '
+  id: 820
+  time: '2026-08-23T13:59:33.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed broken locales
+  id: 821
+  time: '2026-08-23T14:22:15.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Coscult mobs now deal ion damage alongside their normal damage (ipcs and
+        borgs are no longer immune to them)
+  id: 822
+  time: '2026-08-23T22:05:07.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Changed game director to care more about the number of people on the
+        server rather than the number of people ready.
+  id: 823
+  time: '2026-08-23T22:05:27.0000000+00:00'

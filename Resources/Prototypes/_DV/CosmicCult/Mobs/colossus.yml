@@ -228,6 +228,7 @@
         Asphyxiation: 10
         Cold: 10
         Structural: 60
+        Ion: 20 # Omu, borgs/ipcs dont take cold or asphyx, so they should take ion instead.
     soundHit:
       path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
       params:
@@ -396,3 +397,4 @@
       damage:
         types:
           Cold: 15 # Goobstation - 7 hits to kill instead of 8
+          Ion: 15 # Omu, borgs/ipcs dont take cold, so they should take ion instead.
