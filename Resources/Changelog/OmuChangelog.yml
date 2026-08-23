@@ -6345,3 +6345,21 @@ Entries:
         hands.
   id: 824
   time: '2026-08-23T22:28:56.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Fixed crash caused by anchoring held items
+  id: 825
+  time: '2026-08-23T22:30:04.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: >-
+        The guidebook entry on Utility Surgeries no longer encourages hiding the
+        nuclear disk.
+    - type: Fix
+      message: >-
+        Removed the reference to heart transplants curing rot from the Organ
+        Manipulation guidebook entry.
+  id: 826
+  time: '2026-08-23T22:33:44.0000000+00:00'
