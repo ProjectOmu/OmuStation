@@ -2,7 +2,6 @@
 
 using Content.Server.Actions;
 using Content.Server.Humanoid;
-using Content.Shared._Shitmed.Humanoid.Events;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Mobs;
@@ -25,17 +24,15 @@ public sealed class WaggingSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<WaggingComponent, ProfileLoadFinishedEvent>(OnWaggingMapInit); // Omu - Only show action when you can actually wag the tail
+        SubscribeLocalEvent<WaggingComponent, MapInitEvent>(OnWaggingMapInit);
         SubscribeLocalEvent<WaggingComponent, ComponentShutdown>(OnWaggingShutdown);
         SubscribeLocalEvent<WaggingComponent, ToggleActionEvent>(OnWaggingToggle);
         SubscribeLocalEvent<WaggingComponent, MobStateChangedEvent>(OnMobStateChanged);
     }
 
-    private void OnWaggingMapInit(EntityUid uid, WaggingComponent component,
-        ProfileLoadFinishedEvent args) // Omu
+    private void OnWaggingMapInit(EntityUid uid, WaggingComponent component, MapInitEvent args)
     {
-        if (HasTailWaggingMarkings(uid, component)) // Omu
-            _actions.AddAction(uid, ref component.ActionEntity, component.Action, uid);
+        _actions.AddAction(uid, ref component.ActionEntity, component.Action, uid);
     }
 
     private void OnWaggingShutdown(EntityUid uid, WaggingComponent component, ComponentShutdown args)
@@ -104,29 +101,4 @@ public sealed class WaggingSystem : EntitySystem
 
         return true;
     }
-
-    // Omu begin - Only show the wagging action when you can actually wag the tail
-    private bool HasTailWaggingMarkings(EntityUid uid, WaggingComponent? wagging = null, HumanoidAppearanceComponent? humanoid = null)
-    {
-        if (!Resolve(uid, ref wagging, ref humanoid))
-            return false;
-
-        if (!humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Tail, out var markings))
-            return false;
-
-        if (markings.Count == 0)
-            return false;
-
-        foreach (var marking in markings)
-        {
-            var currentMarkingId = marking.MarkingId;
-            var markingToFind = wagging.Wagging ? currentMarkingId : $"{currentMarkingId}{wagging.Suffix}";
-
-            if (_prototype.HasIndex<MarkingPrototype>(markingToFind))
-                return true;
-        }
-
-        return false;
-    }
-    // Omu end
 }
