@@ -6257,3 +6257,43 @@ Entries:
       message: lobby message background properly shows after upstream
   id: 811
   time: '2026-08-22T17:12:35.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: agent id's spawn with their preset accesses (Wizard/Nukie) again
+  id: 812
+  time: '2026-08-23T10:07:36.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed adminchat relay sending messages to non-admins
+  id: 813
+  time: '2026-08-23T10:38:15.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: ' '
+    - type: Fix
+      message: >-
+        Fixed admin logging overlaying over itself when displaying multiple
+        players
+  id: 814
+  time: '2026-08-23T13:18:18.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Laika is no longer locked behind playing less than 5 hours of security.
+  id: 815
+  time: '2026-08-23T13:21:43.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Add
+      message: Warden's headset now has a loudspeaker.
+  id: 816
+  time: '2026-08-23T13:23:05.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: Removed the transparency from CMO's hardsuit helmet.
+  id: 817
+  time: '2026-08-23T13:27:09.0000000+00:00'

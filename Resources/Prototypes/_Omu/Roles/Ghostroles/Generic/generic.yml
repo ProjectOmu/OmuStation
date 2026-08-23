@@ -53,7 +53,7 @@
   - type: JobRole # Uh oh this is probably a bad idea
   - type: MindRole
     roleType: NanoTrasen
-    jobPrototype: SecurityCadet
+    jobPrototype: SecurityOfficer # Omu -- changed to officer so people wouldnt be locked out of it
     sortWeight: 30
 
 - type: entity
