@@ -391,12 +391,12 @@
     #- id: HoloprojectorSecurity Goob, you have one in the belt
     - id: RubberStampHos
     - id: BoxHoSCircuitboards
-    - id: WeaponDisabler
+    #- id: WeaponDisabler # Omu (Disablers in belts)
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
     - id: ComputerCargoRequestSecurityFlatpack # Goobstation
     - id: WantedListCartridge
     - id: DrinkHosFlask
-    - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp
+    #- id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp # Omu, in selector instead.
     - id: MaterialSiloFlatpack # Goob
     - id: HeadOfSecurityMeleeCase # Omu
     - id: ComputerSecurityCommsFlatpack #Omu adds departmental comms board
