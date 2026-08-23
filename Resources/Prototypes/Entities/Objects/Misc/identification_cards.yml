@@ -626,7 +626,7 @@
     tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
-  parent: [PassengerIDCard, BaseChameleon]
+  parent: [IDCardStandard, BaseChameleon] # Omu - goob overwrote idcard standard with passenger and caused presets like nukie/wizard ids to not work
   id: AgentIDCard
   suffix: Agent
   components:
