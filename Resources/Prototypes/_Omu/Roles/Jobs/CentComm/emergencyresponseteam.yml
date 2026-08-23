@@ -134,7 +134,8 @@
     back: ClothingBackpackERTMedical
     shoes: ClothingShoesBootsJack
     eyes: ClothingEyesGlassesMedChemFlash
-    gloves: ClothingHandsGlovesNitrile
+    gloves: ClothingHandsGlovesSurgical
+    mask: ClothingMaskSterileBlue
     outerClothing: ClothingOuterArmorBasicSlim
     id: ERTMedicPDABlue
     ears: ClothingHeadsetAltCentComMed
@@ -143,11 +144,12 @@
     pocket2: FlashlightSeclite
   storage:
     back:
-    - MedkitAdvancedFilled
+    - BoxSurvivalSlotsEngineering
     - BoxAutoinjectorCartidges
+    - ParamedHypo
     - MedkitCombatFilled
     - CrowbarRed
-    - BoxSurvivalSlotsEngineering
+    - OmnimedTool
 
 # ERT Janitor
 

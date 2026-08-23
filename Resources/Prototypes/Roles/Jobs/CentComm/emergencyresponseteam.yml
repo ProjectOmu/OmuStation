@@ -534,6 +534,7 @@
     back: ClothingBackpackERTMedical
     shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
     head: ClothingHeadHelmetERTMedic
+    mask: ClothingMaskSterileGreen # Omu
     neck: ExecutiveIDCard # Goobstation - Executive Access!
     eyes: ClothingEyesGlassesMedSec # Goobstation
     gloves: ClothingHandsGlovesNitrile
@@ -551,9 +552,13 @@
     - ChemistryBottleOmnizine
     - JugOxandrolone
     - JugSalicylicAcid
-    - ParamedHypo
-    - CartridgeAtropine
-    - CartridgeAtropine
+    # - ParamedHypo # Omu
+    # - CartridgeAtropine # Omu
+    # - CartridgeAtropine # Omu
+    - JugArtiplates # Omu
+    - EmergencyMedipen # Omu
+    - EmergencyMedipen # Omu
+    - AntiPoisonMedipen # Omu
     - MedicalBeamGunBattery
     - BoxSurvivalSlotsEngineering # Omu
 
@@ -577,11 +582,16 @@
     - CentCommHypo
     - MedkitAdvancedFilled
     - CrowbarRed
+    - ChemistryBottleOmnizine # Omu
     - JugOxandrolone
     - JugSalicylicAcid
-    - ParamedHypo
-    - CartridgeAtropine
-    - CartridgeAtropine
+    # - ParamedHypo # Omu
+    # - CartridgeAtropine # Omu
+    # - CartridgeAtropine # Omu
+    - JugArtiplates # Omu
+    - EmergencyMedipen # Omu
+    - EmergencyMedipen # Omu
+    - AntiPoisonMedipen # Omu
     - MedicalBeamGunBattery
     - BoxSurvivalSlotsEngineering # Omu
 

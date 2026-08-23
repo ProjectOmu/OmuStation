@@ -1,0 +1,14 @@
+- type: entity
+  parent: Jug
+  suffix: artiplates
+  id: JugArtiplates
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Label
+    currentLabel: reagent-name-artiplates
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Artiplates
+          Quantity: 200
