@@ -13,21 +13,25 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Letoferol
           max: 10
-        - !type:OrganType
-          type: Chimera
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Chimera
+          inverted: true
         damage:
           types:
             Cellular: 0.5
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Letoferol
           min: 10
-        - !type:OrganType
-          type: Chimera
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Chimera
+          inverted: true
         damage:
           types:
             Poison: 3
@@ -35,14 +39,16 @@
       - !type:Polymorph
         prototype: LetoferolMutation
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Letoferol
           min: 10
-        - !type:HasTag
+        - !type:TagCondition
           tag: Chimera
-          invert: true
+          inverted: true
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Letoferol
           min: 2
         type: Local
         visualType: Medium
@@ -51,7 +57,8 @@
       - !type:Drunk
         boozePower: 15
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Letoferol
           min: 8
 
 - type: reagent
@@ -74,50 +81,59 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: NaturalLetoferol
           max: 15
-        - !type:OrganType
-          type: Chimera
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Chimera
+          inverted: true
         damage:
           types:
             Cellular: 0.5
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: NaturalLetoferol
           min: 15
-        - !type:OrganType
-          type: Chimera
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Chimera
+          inverted: true
         damage:
           types:
             Poison: 2
       - !type:Polymorph
         prototype: LetoferolMutationNatural
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: NaturalLetoferol
           min: 15
         - !type:HasComponentCondition
           components:
-          - HumanoidAppearance
-        - !type:HasTag
+          - type: HumanoidAppearance
+            species: Human # Omu this is shit but afaik never checked
+        - !type:TagCondition
           tag: Chimera
-          invert: true
+          inverted: true
       - !type:Polymorph
         prototype: LetoferolMutationBeastNatural
         conditions:
-        - !type:ReagentThreshold
-          min: 10 # less for non-humanoids        
+        - !type:ReagentCondition
+          reagent: NaturalLetoferol
+          min: 10 # less for non-humanoids
         - !type:HasComponentCondition
           components:
-          - HumanoidAppearance
-          invert: true
-        - !type:HasTag
+          - type: HumanoidAppearance
+            species: Human # Omu this is shit but afaik never checked
+          inverted: true
+        - !type:TagCondition
           tag: Chimera
-          invert: true
+          inverted: true
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: NaturalLetoferol
           min: 4
         type: Local
         visualType: Medium
@@ -126,7 +142,8 @@
       - !type:Drunk
         boozePower: 15
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: NaturalLetoferol
           min: 10
 
 - type: reagent

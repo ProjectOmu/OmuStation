@@ -214,12 +214,3 @@
   parent: BaseJobsOmuCivilian # Omu; not sec, not service
   text: imp-phrase-job-lawyer
 
-- type: quickPhrase
-  id: ZookeeperPhraseImp
-  parent: BaseJobsImpService # Omu
-  text: imp-phrase-job-zookeeper
-
-- type: quickPhrase
-  id: BoxerPhraseImp
-  parent: BaseJobsImpService # Omu (somehow they get service comms)
-  text: imp-phrase-job-boxer

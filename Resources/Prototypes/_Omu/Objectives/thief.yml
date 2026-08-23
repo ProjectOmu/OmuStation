@@ -19,7 +19,8 @@
   id: ClothingEyesHudSciDiagStealObjective
   components:
   - type: NotJobRequirement
-    job: ResearchDirector
+    jobs:
+    - ResearchDirector
   - type: StealCondition
     stealGroup: ClothingEyesHudSciDiag
   - type: Objective

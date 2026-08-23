@@ -128,16 +128,6 @@
   - WeaponSniperM1Garand
 
 - type: selectableSet
-  id: WeaponTerminusSet
-  name: selectable-set-terminus-name
-  description: selectable-set-terminus-description
-  sprite:
-    sprite: _EinsteinEngines/Objects/Weapons/Melee/terminus.rsi
-    state: icon
-  content:
-  - Terminus
-
-- type: selectableSet
   id: WeaponAntiqueLaserSet
   name: selectable-set-antiquelaser-name
   description: selectable-set-antiquelaser-description

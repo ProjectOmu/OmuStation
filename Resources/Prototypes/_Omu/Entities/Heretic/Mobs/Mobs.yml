@@ -41,16 +41,16 @@
   - type: ShowAntagIcons
   - type: NoSlip
   - type: Bloodstream
-    bloodMaxVolume: 15
-    bloodReagent: EldritchEssence
     bloodlossDamage:
       types:
-        Bloodloss:
-          0.0
+        Bloodloss: 0
     bloodlossHealDamage:
       types:
-        Bloodloss:
-          -1
+        Bloodloss: -1
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: EldritchEssence
+        Quantity: 200
   - type: CollectiveMind
     defaultChannel: MansusLink
     channels:

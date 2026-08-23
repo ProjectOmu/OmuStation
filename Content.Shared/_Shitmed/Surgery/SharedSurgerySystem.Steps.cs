@@ -1,28 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Skubman <ba.fallaria@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
-// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pacable <77161122+pxc1984@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pacable <igor.mamaev1@gmail.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Coenx-flex
-// SPDX-FileCopyrightText: 2025 Cojoke
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 ScyronX
-// SPDX-FileCopyrightText: 2025 mikusssssss
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Humanoid;
@@ -243,7 +218,7 @@ public abstract partial class SharedSurgerySystem
 
     private void OnTendWoundsCheck(Entity<SurgeryTendWoundsEffectComponent> ent, ref SurgeryStepCompleteCheckEvent args)
     {
-        if (_wounds.HasDamageOfGroup(args.Part, ent.Comp.MainGroup, true))
+        if (_wounds.HasDamageOfGroup(args.Part, ent.Comp.MainGroup))
             args.Cancelled = true;
     }
 
@@ -923,6 +898,7 @@ public abstract partial class SharedSurgerySystem
             NeedHand = true,
             BreakOnHandChange = true,
             AttemptFrequency = AttemptFrequency.EveryTick,
+            DistanceThreshold = null
         };
 
         if (!_doAfter.TryStartDoAfter(doAfter))
