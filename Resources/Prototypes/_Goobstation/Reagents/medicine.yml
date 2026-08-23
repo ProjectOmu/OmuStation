@@ -280,7 +280,7 @@
           groups:
             Toxin: -6
       - !type:CleanBloodstream
-        excluded: Musiver
+        excluded: Musiver # Omu
         cleanseRate: 6 # POWERFUL cleansing effect
       - !type:HealthChange
         damage:
