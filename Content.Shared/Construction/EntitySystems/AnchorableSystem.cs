@@ -260,7 +260,6 @@ public sealed partial class AnchorableSystem : EntitySystem
         }
 
         if (transform.ParentUid != uid)
-
         _tool.UseTool(usingUid, userUid, uid, anchorable.Delay, usingTool.Qualities, new TryAnchorCompletedEvent());
     }
 
