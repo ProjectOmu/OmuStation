@@ -20,7 +20,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-        refresh: false
       - !type:PopupMessage # gds added this
         type: Local
         messages:
@@ -30,7 +29,8 @@
         - generic-reagent-effect-confused
         - generic-reagent-effect-patterns # coming up
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ShimmeringBlood
           min: 5
           max: 20
         probability: 0.08
@@ -46,15 +46,17 @@
         - generic-reagent-effect-static
         - generic-reagent-effect-breakthrough
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ShimmeringBlood
           min: 20
         probability: 0.05 # gds- end
     Medicine:
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Bloodsucker
+        - !type:MetabolizerTypeCondition
+          type:
+          - Bloodsucker
         damage:
           groups:
             Brute: -4.5
@@ -92,7 +94,7 @@
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:FlammableReaction
+      - !type:Flammable
   tileReactions:
   - !type:FlammableTileReaction
     temperatureMultiplier: 1.35
