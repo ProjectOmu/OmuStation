@@ -624,5 +624,17 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             targetPart: targetBodyPart ?? targetingComponent.Target);
     }
 
+    // Omu start
+    private void ClearMartialArtsModifiers(EntityUid ent)
+    {
+        if (!TryComp<MartialArtModifiersComponent>(ent, out var modifiers))
+            return;
+
+        modifiers.Data.Clear();
+        Dirty(ent, modifiers);
+        _modifier.RefreshMovementSpeedModifiers(ent);
+    }
+    // Omu end
+
     #endregion
 }
