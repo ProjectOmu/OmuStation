@@ -1086,8 +1086,8 @@
       metabolismRate: 0.25
       effects:
       - !type:CleanBloodstream
-        excluded: PentenicAcid
-        rate: 3
+        excluded: PentenicAcid #Omu
+        cleanseRate: 3 #Omu
       - !type:HealthChange
         damage:
           types:
