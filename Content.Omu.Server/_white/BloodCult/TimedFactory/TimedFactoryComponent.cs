@@ -1,4 +1,4 @@
-﻿using Content.Shared.RadialSelector;
+﻿using Content.Shared._White.RadialSelector;
 
 namespace Content.Server.WhiteDream.BloodCult.TimedFactory;
 
