@@ -128,7 +128,7 @@
   - CargoTechnicianBackpack
   - CargoTechnicianSatchel
   - CargoTechnicianDuffel
-  - MailCarrierMessenger
+  # - MailCarrierMessenger
   - CourierMessenger
   - CargoTechnicianMessenger
 
@@ -183,8 +183,9 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
+  # - MailCarrierEnvirogloves
   - WhiteEnvirogloves
-  - CourierEnvirogloves
+
 - type: loadoutGroup
   id: VirologistEnvirohelm
   name: loadout-group-virologist-envirohelm

@@ -6186,3 +6186,114 @@ Entries:
         arsenal research.
   id: 802
   time: '2026-08-17T23:27:30.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Fix
+      message: Wrong prototype mapped in Oasis (#6831)
+    - type: Add
+      message: >-
+        Upstream is here. There will be many broken features, report bugs in
+        github issues (preffered) or make a post in the upstream bugs discord
+        forum.
+  id: 803
+  time: '2026-08-21T14:13:44.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Slimes can no longer have surgery performed on them.
+  id: 804
+  time: '2026-08-22T04:10:19.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Add
+      message: The chemical borg module now has a health analyzer (again)
+    - type: Add
+      message: The advanced first aid borg module can now pick up beakers
+    - type: Tweak
+      message: The organ slots in both surgical borg modules now start empty
+    - type: Fix
+      message: The chemical borg module can now pick up pills and pill cans
+    - type: Fix
+      message: Borgs are no longer able to drop the wrong items in some modules
+  id: 805
+  time: '2026-08-22T04:15:21.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Linged bodies can no longer have cpr done to revive them
+  id: 806
+  time: '2026-08-22T04:20:39.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: End of round screen no longer shows sprites due to lag
+  id: 807
+  time: '2026-08-22T16:11:46.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: Added evil beaker of sludge (Eckeyiaeai Eooae) to the booze-o-mat
+  id: 808
+  time: '2026-08-22T16:13:42.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Add
+      message: >-
+        Added Omu's Birthday (Extended) to the Holiday list from September 1st
+        to 3rd! Thank you for putting up with the bugs from upstream <3
+  id: 809
+  time: '2026-08-22T16:28:56.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Increased the storage size of dead drop briefcases to prevent test
+        fails.
+  id: 810
+  time: '2026-08-22T17:00:10.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: lobby message background properly shows after upstream
+  id: 811
+  time: '2026-08-22T17:12:35.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: agent id's spawn with their preset accesses (Wizard/Nukie) again
+  id: 812
+  time: '2026-08-23T10:07:36.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed adminchat relay sending messages to non-admins
+  id: 813
+  time: '2026-08-23T10:38:15.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: ' '
+    - type: Fix
+      message: >-
+        Fixed admin logging overlaying over itself when displaying multiple
+        players
+  id: 814
+  time: '2026-08-23T13:18:18.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Laika is no longer locked behind playing less than 5 hours of security.
+  id: 815
+  time: '2026-08-23T13:21:43.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Add
+      message: Warden's headset now has a loudspeaker.
+  id: 816
+  time: '2026-08-23T13:23:05.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: Removed the transparency from CMO's hardsuit helmet.
+  id: 817
+  time: '2026-08-23T13:27:09.0000000+00:00'
