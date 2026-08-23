@@ -259,7 +259,6 @@ public sealed partial class AnchorableSystem : EntitySystem
             return;
         }
 
-
         _tool.UseTool(usingUid, userUid, uid, anchorable.Delay, usingTool.Qualities, new TryAnchorCompletedEvent());
     }
 
