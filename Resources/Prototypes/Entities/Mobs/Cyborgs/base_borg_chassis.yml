@@ -435,7 +435,7 @@
     - Syndicate
   - type: ActiveRadio
     channels:
-    # - Binary # Goobstation collectivemind binary
+    - Binary # Goobstation collectivemind binary # Omu, make binary a radio again.
     - Syndicate
   - type: ShowSyndicateIcons
   - type: MovementAlwaysTouching
@@ -507,11 +507,11 @@
   - type: IntrinsicRadioTransmitter # Copy components from base SyndiBorg but without the stuff we don't want
     channels:
     - Common # Goobstation i need this to not be null and if theyre derelict its whatever
-    #- Binary #1984 # Goobstation collectivemind binary
+    - Binary #1984 # Goobstation collectivemind binary # Omu, make binary a radio again.
   - type: ActiveRadio
     channels:
     - Common # Goobstation i need this to not be null and if theyre derelict its whatever
-    #- Binary # Goobstation collectivemind binary
+    - Binary # Goobstation collectivemind binary # Omu, make binary a radio again.
   - type: MovementAlwaysTouching
   - type: Speech
     speechSounds: SyndieBorg
@@ -524,10 +524,10 @@
     color: "#dd200b"
   - type: BypassLock
     bypassDelay: 15 # We don't want people to easily be able to remove syndieborg brains.
-  - type: CollectiveMind # Goobstation collectivemind binary
-    defaultChannel: Binary
-    channels:
-    - Binary
+  #- type: CollectiveMind # Goobstation collectivemind binary # Omu, make binary a radio again.
+  #  defaultChannel: Binary
+  #  channels:
+  #  - Binary
 
 - type: entity
   parent: BaseBorgChassisNotIonStormable
