@@ -1,4 +1,4 @@
-﻿# MORTIS
+# MORTIS
 - type: soundCollection
   id: MortisBark
   files:
@@ -35,3 +35,24 @@
   speciesWhitelist:
     - Moth
     - Harpy # The Egg demands that harpies get all barks...
+
+# DECtalk
+- type: soundCollection
+  id: DecBark
+  files:
+  - /Audio/_Omu/Voice/Barks/Dec/a.ogg
+  - /Audio/_Omu/Voice/Barks/Dec/e.ogg
+  - /Audio/_Omu/Voice/Barks/Dec/i.ogg
+  - /Audio/_Omu/Voice/Barks/Dec/o.ogg
+  - /Audio/_Omu/Voice/Barks/Dec/u.ogg
+  - /Audio/_Omu/Voice/Barks/Dec/y.ogg
+
+- type: bark
+  id: Dec
+  name: Dec
+  volume: 0.7
+  soundCollection:
+    collection: DecBark
+  speciesWhitelist:
+  - IPC
+  - Harpy
