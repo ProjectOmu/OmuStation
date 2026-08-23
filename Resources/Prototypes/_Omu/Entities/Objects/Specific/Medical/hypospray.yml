@@ -1,3 +1,42 @@
+# Medipens
+
+- type: entity
+  parent: ChemicalMedipen
+  id: HewMedipen
+  name: hew auto-injector
+  description: A non-refillable medipen containing multiple doses of hew.
+  components:
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+        color: "#573d9e"
+      - state: base-colorB-inhand-left
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+        color: "#573d9e"
+      - state: base-colorB-inhand-right
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: penacid
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: penacid_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 60
+        reagents:
+        - ReagentId: JuiceThatMakesYouHew
+          Quantity: 60
+
+# Autoinjector Cartridges
+
 - type: entity
   name: autoinjector cartridge (empty)
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]

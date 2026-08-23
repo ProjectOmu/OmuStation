@@ -37,6 +37,18 @@
     JuiceThatMakesYouWeh: 60
   recipeType: MedicalAssembler
 
+- type: microwaveMealRecipe
+  id: RecipeHewMedipen
+  name: hew auto-injector
+  result: HewMedipen
+  time: 5
+  group: Medicinal
+  solids:
+    BlankMediPen: 1
+  reagents:
+    JuiceThatMakesYouHew: 60
+  recipeType: MedicalAssembler
+
 ## Cartridges
 - type: microwaveMealRecipe
   id: RecipeCartridgeBrute
