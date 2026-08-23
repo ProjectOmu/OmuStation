@@ -1,3 +1,9 @@
+# Head
+- type: loadout
+  id: SecurityBandana
+  equipment:
+    head: ClothingHeadBandSecurity
+
 # Jumpsuits / Jumpskirts
 - type: loadout
   id: BlackRedUniform
@@ -12,6 +18,20 @@
     proto: SeniorOfficer
   equipment:
     belt: ClothingBeltSheathStunswordFilled
+
+# Hat
+- type: loadout
+  id: SecoffHeadHatKepi
+  equipment:
+    head: ClothingHeadHatKepiSecoff
+
+- type: loadout
+  id: SecoffSeniorHeadHatKepi
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+  equipment:
+    head: ClothingHeadHatKepiSecoffSenior
 
 #Secoff
 - type: loadout
@@ -54,24 +74,12 @@
     - PowerCellIRRevolver
   groupBy: "Main weapon"
 
-- type: loadout
-  id: SecurityOfficerTerminus
-  equipment:
-    suitstorage: Terminus
-  groupBy: "Main weapon"
-
 #Detective
 - type: loadout
   id: DetectiveWeaponRevolverInspector
   dummyEntity: WeaponRevolverInspector
   equipment:
     belt: ClothingBeltHolsterFilled # Has revolver + ammo inside
-  groupBy: "Main weapon"
-
-- type: loadout
-  id: DetectiveTerminus
-  equipment:
-    suitstorage: Terminus
   groupBy: "Main weapon"
 
 - type: loadout
@@ -86,11 +94,3 @@
     eyes: ClothingEyesGlassesNoir
   groupBy: "Detective eyes"
 
-
-# Brigmed
-
-- type: loadout
-  id: BrigmedTerminus
-  inhand:
-  - Terminus
-  groupBy: "Main weapon"
