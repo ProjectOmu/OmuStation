@@ -509,7 +509,7 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
             outString += $"[cmdlink=\"{EscapeText(player.CharacterName)}\" command=\"tpto {player.NetEnt}\"/]";
 
             if (i < players.Count - 1)
-                outString += ", ";
+                outString += ",\n ";
         }
 
         return true;
