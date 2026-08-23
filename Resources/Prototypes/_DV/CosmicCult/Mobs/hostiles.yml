@@ -72,6 +72,7 @@
       types:
         Asphyxiation: 5
         Cold: 5
+        Ion: 10 # Omu, borgs/ipcs dont take cold or asphyx, so they should take ion instead.
     soundHit:
       path: /Audio/_DV/CosmicCult/cosmiclance_hit.ogg
       params:
