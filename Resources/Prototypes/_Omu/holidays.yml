@@ -1,0 +1,19 @@
+- type: holiday
+  id: EggWeeks
+  name: holiday-name-egg-weeks
+  beginDay: 17
+  endDay: 31
+  beginMonth: August
+  greet: # is greet
+    !type:Custom
+    text: holiday-custom-egg-weeks
+
+- type: holiday
+  id: EggWeeksExt
+  name: holiday-name-egg-weeks
+  beginDay: 1
+  endDay: 3
+  beginMonth: September
+  greet: # is greet
+    !type:Custom
+    text: holiday-custom-egg-weeks

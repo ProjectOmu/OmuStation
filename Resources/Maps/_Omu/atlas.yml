@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/16/2026 14:40:51
+  time: 07/25/2026 19:26:37
   entityCount: 9572
 maps:
 - 1
@@ -51110,13 +51110,15 @@ entities:
     - type: Transform
       pos: -22.282597,-30.265938
       parent: 2
-- proto: SmartFridgeMedical
+- proto: SmartFridgeBotany
   entities:
   - uid: 7339
     components:
     - type: Transform
       pos: -13.5,-0.5
       parent: 2
+- proto: SmartFridgeMedical
+  entities:
   - uid: 7340
     components:
     - type: Transform
