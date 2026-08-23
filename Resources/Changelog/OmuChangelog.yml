@@ -6223,3 +6223,151 @@ Entries:
       message: Linged bodies can no longer have cpr done to revive them
   id: 806
   time: '2026-08-22T04:20:39.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: End of round screen no longer shows sprites due to lag
+  id: 807
+  time: '2026-08-22T16:11:46.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: Added evil beaker of sludge (Eckeyiaeai Eooae) to the booze-o-mat
+  id: 808
+  time: '2026-08-22T16:13:42.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Add
+      message: >-
+        Added Omu's Birthday (Extended) to the Holiday list from September 1st
+        to 3rd! Thank you for putting up with the bugs from upstream <3
+  id: 809
+  time: '2026-08-22T16:28:56.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Increased the storage size of dead drop briefcases to prevent test
+        fails.
+  id: 810
+  time: '2026-08-22T17:00:10.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: lobby message background properly shows after upstream
+  id: 811
+  time: '2026-08-22T17:12:35.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: agent id's spawn with their preset accesses (Wizard/Nukie) again
+  id: 812
+  time: '2026-08-23T10:07:36.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed adminchat relay sending messages to non-admins
+  id: 813
+  time: '2026-08-23T10:38:15.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: ' '
+    - type: Fix
+      message: >-
+        Fixed admin logging overlaying over itself when displaying multiple
+        players
+  id: 814
+  time: '2026-08-23T13:18:18.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Laika is no longer locked behind playing less than 5 hours of security.
+  id: 815
+  time: '2026-08-23T13:21:43.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Add
+      message: Warden's headset now has a loudspeaker.
+  id: 816
+  time: '2026-08-23T13:23:05.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: Removed the transparency from CMO's hardsuit helmet.
+  id: 817
+  time: '2026-08-23T13:27:09.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Changed max character slots from 20 to 30.
+  id: 818
+  time: '2026-08-23T13:58:18.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Adds the Bagawk sound back to the Vox emote.
+  id: 819
+  time: '2026-08-23T13:58:59.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: 'Fixing spam mail from cargo by adding in missing ftl file from goob; '
+  id: 820
+  time: '2026-08-23T13:59:33.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed broken locales
+  id: 821
+  time: '2026-08-23T14:22:15.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Coscult mobs now deal ion damage alongside their normal damage (ipcs and
+        borgs are no longer immune to them)
+  id: 822
+  time: '2026-08-23T22:05:07.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Changed game director to care more about the number of people on the
+        server rather than the number of people ready.
+  id: 823
+  time: '2026-08-23T22:05:27.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Capoeira's attack speed benefit no longer applies when not using your
+        hands.
+  id: 824
+  time: '2026-08-23T22:28:56.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Fixed crash caused by anchoring held items
+  id: 825
+  time: '2026-08-23T22:30:04.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: >-
+        The guidebook entry on Utility Surgeries no longer encourages hiding the
+        nuclear disk.
+    - type: Fix
+      message: >-
+        Removed the reference to heart transplants curing rot from the Organ
+        Manipulation guidebook entry.
+  id: 826
+  time: '2026-08-23T22:33:44.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: >-
+        Salic/Oxan/Holy water Pre-filled chemical containers will now spawn
+        properly
+  id: 827
+  time: '2026-08-23T22:41:04.0000000+00:00'
