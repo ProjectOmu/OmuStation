@@ -58,10 +58,6 @@
     - RakkProper
   languagesUnderstood:
     - RakkProper                 # TODO: Make New Kin Pidgin and Rakk Proper kind of understand each other
-  # removeLanguagesUnderstood:   # New Kin Pidgin is a pidgin of Rakk Proper, and should be
-  #   - NewKinPidgin             # KIND OF mutually intelligible. At the moment, that system
-  # removeLanguagesSpoken:       # doesn't exist within Obfuscation. Maybe will need to add something
-  #   - NewKinPidgin             # to obfuscate like half of the message.
   requirements:
     - !type:SpeciesRequirement
       species:
