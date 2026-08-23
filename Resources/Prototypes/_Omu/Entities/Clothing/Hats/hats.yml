@@ -259,3 +259,25 @@
     sprite: _Omu/Clothing/Hats/kepi_warden.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Hats/kepi_warden.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCapSilicon
+  name: veteran silicon cap
+  description: A striking cap given to veteran cyborgs in lieu of silly things like 'rights.'
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/borgcap.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/borgcap.rsi
+  - type: Item
+    sprite: _Omu/Clothing/Hats/borgcap.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+    - HamsterWearable
+    - MouseWearable

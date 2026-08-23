@@ -1,9 +1,11 @@
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
+#- type: entityTable # Goob unused
+#  id: BasicCalmEventsTableDeltaV
+#  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+#    children:
+#    - id: MothroachSpawn
+#    - id: MalignRiftSpawn # DeltaV
 
 - type: entity
   id: MothroachSpawn
@@ -46,8 +48,8 @@
     chaosScore: -50
   - type: RandomMultipleSpawnRule
     prototype: CosmicMalignRift
-    minAmount: 2
-    maxAmount: 4
+    minAmount: 1
+    maxAmount: 3
 
 # nt agent (this is usually for the admeme spawn)
 - type: entity
@@ -89,7 +91,7 @@
     maxOccurrences: 1
     startAnnouncement: station-event-communication-interception
     startAudio:
-      path: /Audio/_DV/Announcements/attention.ogg
+      path: /Audio/Announcements/intercept.ogg # Omu, Swapped to different traitor line for consistency
     duration: null
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
