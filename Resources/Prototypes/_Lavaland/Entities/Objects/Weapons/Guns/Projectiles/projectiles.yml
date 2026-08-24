@@ -20,11 +20,12 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 10
-        Structural: 15
+        Blunt: 15    # Omu - reverted to previous damage
+        Structural: 20  # Omu - reverted to previous damage
   # Short lifespan
   - type: TimedDespawn
-    lifetime: 0.14 # roughly 3.5 tiles
+    lifetime: 0.18 # Omu - reverted to roughly 4 tiles
+  - type: GatheringProjectile
 
 - type: entity
   id: BulletKineticShuttle
@@ -58,10 +59,12 @@
   parent: BulletKinetic
   categories: [ HideSpawnMenu ]
   components:
+  - type: TimedDespawn
+    lifetime: 0.22 # Omu - reverted to roughly 5 tiles
   - type: Projectile
     damage:
       types:
-        Blunt: 6.5
+        Blunt: 8  # Omu - reverted to previous damage
         Structural: 8
 
 - type: entity
@@ -72,7 +75,7 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 3
+        Blunt: 5  # Omu - reverted to previous damage
         Structural: 5
 
 - type: entity
