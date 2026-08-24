@@ -961,22 +961,22 @@
       tags:
       - ContravendUplink
 
-# Goobstation - replaced with collective mind
-#- type: listing
-#  id: UplinkBinaryTranslatorKey
-#  name: uplink-binary-translator-key-name
-#  description: uplink-binary-translator-key-desc
-#  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: ai_label }
-#  productEntity: EncryptionKeyBinarySyndicate
-#  cost:
-#    Telecrystal: 5 # goob
-#  categories:
-#  - UplinkDeception
-#  conditions:
-#  - !type:StoreWhitelistCondition
-#    blacklist:
-#      tags:
-#      - ContravendUplink
+# Goobstation - replaced with collective mind # Omu, make binary a radio again.
+- type: listing
+  id: UplinkBinaryTranslatorKey
+  name: uplink-binary-translator-key-name
+  description: uplink-binary-translator-key-desc
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: ai_label }
+  productEntity: EncryptionKeyBinarySyndicate
+  cost:
+    Telecrystal: 5 # goob
+  categories:
+  - UplinkDeception
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContravendUplink
 
 - type: listing
   id: UplinkCyberpen
@@ -1410,10 +1410,10 @@
 
 - type: listing
   id: UplinkReinforcementRadioSyndicateCyborgAssault
-  name:  uplink-reinforcement-radio-cyborg-assault-name
+  name:  uplink-reinforcement-radio-cyborg-assault-name-trauma # Trauma - added -trauma
   description: uplink-reinforcement-radio-cyborg-assault-desc
   productEntity: ReinforcementRadioSyndicateCyborgAssault
-  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
+  icon: { sprite: _Trauma/Mobs/Silicon/synd_assault.rsi, state: icon } # Trauma - was sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault
   cost:
     Telecrystal: 375 # goob
   categories:
