@@ -250,6 +250,16 @@
             Brute: -9 # Goob - Cryobuff
             Burn: -9 # Goob - Cryobuff
             Toxin: -6 # Goob - Cryobuff
+        - !type:ModifyBloodLevel
+          conditions:
+          - !type:TemperatureCondition
+            max: 213.0
+          amount: 8
+        - !type:ModifyBleed
+          conditions:
+          - !type:TemperatureCondition
+            max: 213.0
+          amount: -1
         - !type:GenericStatusEffect # Mono edit
           conditions:
             - !type:MetabolizerTypeCondition
