@@ -102,3 +102,28 @@
   components:
   - type: SiliconLawProvider
     laws: HelpimovLawset #Non-subverted version so they can still be changed
+
+- type: entity
+  parent: OrganLaserEyes
+  id: OrganEyesOfGod
+  name: Eyes of God
+  components:
+  - type: Organ
+    onAdd:
+    - type: Battery
+      maxCharge: 200
+      startingCharge: 0
+    - type: FlashImmunity
+    - type: EyeProtection
+    - type: ShowHealthBars
+      damageContainers:
+      - Biological
+      - Inorganic
+      - Silicon
+      - SiliconRadiation
+    - type: ShowHealthIcons
+      damageContainers:
+      - Biological
+      - Inorganic
+      - Silicon
+      - SiliconRadiation
