@@ -32,18 +32,18 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
-using Robust.Shared.Prototypes;        // omu
-using Content.Shared.Random;            //omu
-using Content.Shared.Random.Helpers;    //omu
-using Robust.Shared.Random;            //omu
-using System.Numerics;                    //omu
-using Content.Shared.Radio;            //omu
-using Content.Server.Radio.EntitySystems;    //omu
-using Content.Server.Chat.Managers; // omu
-using Content.Shared.Mind; // omu
-using Content.Shared.Humanoid; // omu
-using Robust.Shared.Player; // omu
-using Microsoft.CodeAnalysis; // omu
+using Robust.Shared.Prototypes;
+using Content.Shared.Random;
+using Content.Shared.Random.Helpers;
+using Robust.Shared.Random;
+using System.Numerics;
+using Content.Shared.Radio;
+using Content.Server.Radio.EntitySystems;
+using Content.Server.Chat.Managers;
+using Content.Shared.Mind;
+using Content.Shared.Humanoid;
+using Robust.Shared.Player;
+using Microsoft.CodeAnalysis;
 using Content.Shared.Objectives.Components;
 using Robust.Shared.Player;
 using Content.Goobstation.Shared.MisandryBox.Smites;
