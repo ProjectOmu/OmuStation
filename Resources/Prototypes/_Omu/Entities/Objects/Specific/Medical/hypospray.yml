@@ -148,7 +148,7 @@
     layers:
     - state: base
     - state: filling
-      color: "#2a4813"
+      color: "#30462e"
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
@@ -156,7 +156,7 @@
       reagents:
       - ReagentId: Ethylredoxrazine
         Quantity: 7
-      - ReagentId: Charcoal
+      - ReagentId: Dylovene
         Quantity: 3
 
 - type: entity
