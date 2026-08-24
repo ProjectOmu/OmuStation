@@ -4,6 +4,8 @@
     children:
     - id: SmugglerLootStole
     - id: SmugglerPickaxe
+    - id: ReinforcementRadioSmugglerCrateIPC
+    - id: ReinforcementRadioSmugglerCrateBorg
 
 - type: entity
   parent: [ ClothingNeckStoleChaplain, BaseChameleon ]
@@ -54,3 +56,49 @@
   - type: MobState # shitcode courtesy of justice
     allowedStates:
       - Alive
+
+- type: entity
+  parent: ReinforcementRadio
+  id: ReinforcementRadioSmugglerCrateIPC
+  name: Damaged Silicon Parts
+  description: Maybe it can be repaired?
+  suffix: NukeOps
+  components:
+  - type: GhostRole
+    name: smuggler-silicon-ipc-name
+    description: smuggler-silicon-ipc-desc
+    rules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonistGoob
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobIPCRandom
+
+- type: entity
+  parent: ReinforcementRadio
+  id: ReinforcementRadioSmugglerCrateBorg
+  name: Damaged Silicon Parts
+  description: Maybe it can be repaired?
+  suffix: NukeOps
+  components:
+  - type: GhostRole
+    name: smuggler-silicon-ipc-name
+    description: smuggler-silicon-ipc-desc
+    rules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonistGoob
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: BorgChassisDerelictSyndicateHelpimov
+
+
+- type: entity
+  id: BorgChassisDerelictSyndicateHelpimov
+  parent: BorgChassisDerelictSyndicateAssault
+  name: derelict syndicate assasult cyborg
+  description: A lean, mean killing machine with access to a variety of deadly modules. This one is in a state of great disrepair despite your best efforts.
+  components:
+  - type: SiliconLawProvider
+    laws: HelpimovLawset #Non-subverted version so they can still be changed
