@@ -272,8 +272,8 @@ public sealed class SurgeryBui : BoundUserInterface
         if (_window == null
             || !_window.IsOpen
             || _part == null
-            || _player.LocalEntity == null
-            || !_entities.HasComponent<SurgeryComponent>(_surgery?.Ent))
+            || _player.LocalEntity == null # Omu
+            || !_entities.HasComponent<SurgeryComponent>(_surgery?.Ent)) # Omu
             return;
 
         var next = _system.GetNextStep(Owner, _part.Value, _surgery.Value.Ent, _player.LocalEntity.Value);
