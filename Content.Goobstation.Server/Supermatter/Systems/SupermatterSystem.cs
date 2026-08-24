@@ -165,7 +165,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             HandleAnnouncements(uid, sm);
         }
 
-        if (sm.HazardGas == true) //Omu - increment the time since hazard gas
+        //Omu begin - increment the time since hazard gas
+        if (sm.HazardGas == true) 
         {
             sm.TimesinceHazardGas += 0.1f;
             if (sm.TimesinceHazardGas >= 1f) //Should last roughly like... 10 seconds without constant zaps
@@ -175,7 +176,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 _achat.SendAdminAlert($"Hazardardous gas production turned off at time {_gameTiming.CurTime.TotalMinutes}");
             }
         }
-
+        // Omu end
         if (sm.SMAngerValue < 0f) //Omu - Sm events start
         {
             sm.SMAngerValue = 0f;  //no negative numbers plz
@@ -355,11 +356,12 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         // Assmos - /tg/ gases end
 
         // Release the waste
-        if (!sm.HazardGas)  //Omu hazardous gas emission
+        // Omu begin
+        if (!sm.HazardGas)  // hazardous gas emission
             absorbedGas.AdjustMoles(Gas.Plasma, Math.Max(energy * heatModifier * sm.PlasmaReleaseModifier, 0f));
         else
-            absorbedGas.AdjustMoles(Gas.Tritium, Math.Max(energy * heatModifier * sm.PlasmaReleaseModifier * 2f, 0f));          //Omu emit out trit for fun
-
+            absorbedGas.AdjustMoles(Gas.Tritium, Math.Max(energy * heatModifier * sm.PlasmaReleaseModifier * 2f, 0f)); // emit out trit for fun
+        // Omu end
         absorbedGas.AdjustMoles(Gas.Oxygen, Math.Max((energy + absorbedGas.Temperature * heatModifier - Atmospherics.T0C) * sm.OxygenReleaseEfficiencyModifier, 0f));
 
         _atmosphere.Merge(mix, absorbedGas);
@@ -673,7 +675,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     private void OnCollideEvent(EntityUid uid, SupermatterComponent sm, ref StartCollideEvent args)
     {
         var target = args.OtherEntity;
-        var meta = MetaData(target);
+        var meta = MetaData(target); // Omu
 
         if (args.OurEntity != uid)
             return;
