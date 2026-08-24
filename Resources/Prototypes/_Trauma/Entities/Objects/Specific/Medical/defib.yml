@@ -1,7 +1,7 @@
 # Needed to get rid of PowerCellDraw and ToggleCellDraw
 - type: entity
   parent: DefibrillatorSyndicate
-  id: DefibrillatorSyndicateUnpowered
+  id: DefibrillatorSyndicateMicroReactor #omu
   suffix: Always Powered
   components:
   - type: ItemSlots

@@ -80,21 +80,22 @@
       tags:
       - ContravendUplink
 
-- type: listing
-  id: UplinkReinforcementRadioSyndicateCyborgMedical
-  name: uplink-reinforcement-radio-cyborg-medical-name
-  description: uplink-reinforcement-radio-cyborg-medical-desc
-  productEntity: ReinforcementRadioSyndicateCyborgMedical
-  icon: { sprite: _Trauma/Mobs/Silicon/synd_medical.rsi, state: icon }
-  cost:
-    Telecrystal: 300
-  categories:
-  - UplinkAllies
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
-    blacklist:
-      tags:
-      - ContravendUplink
+#Keeping the omu version
+#- type: listing
+#  id: UplinkReinforcementRadioSyndicateCyborgMedical
+#  name: uplink-reinforcement-radio-cyborg-medical-name
+#  description: uplink-reinforcement-radio-cyborg-medical-desc
+#  productEntity: ReinforcementRadioSyndicateCyborgMedical
+#  icon: { sprite: _Trauma/Mobs/Silicon/synd_medical.rsi, state: icon }
+#  cost:
+#    Telecrystal: 300
+#  categories:
+#  - UplinkAllies
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#   tags:
+#   - NukeOpsUplink
+# blacklist:
+#   tags:
+#   - ContravendUplink

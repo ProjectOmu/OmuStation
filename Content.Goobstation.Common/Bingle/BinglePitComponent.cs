@@ -55,7 +55,7 @@ public sealed partial class BinglePitComponent : Component
     public SoundSpecifier FallingSound = new SoundPathSpecifier("/Audio/Effects/falling.ogg");
 
     [DataField]
-    public EntProtoId GhostRoleToSpawn = "MobBingleRandom"; // Omu
+    public EntProtoId GhostRoleToSpawn = "MobBingle"; // Omu
 
     /// <summary>
     /// Rare skin variant of <see cref="GhostRoleToSpawn"/>.
