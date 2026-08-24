@@ -7,6 +7,14 @@
       oreChance: 1.0
       oreRarityPrototypeId: SmugglerCache
 
+- type: oreDunGen
+  id: OreSmugglerCache
+  replacement: AsteroidRock
+  entity: AsteroidRockSmugglerCache
+  count: 3
+  minGroupSize: 1
+  maxGroupSize: 1
+
 - type: ore
   id: OreCrateBaseSmugglerSyndicate
   oreEntity: CrateBaseSmugglerSyndicate
