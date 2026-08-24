@@ -18,3 +18,19 @@
   - type: Tag
     tags:
     - DrinkBottle
+
+- type: entity
+  parent: Beaker
+  id: KelpBeaker
+  name: sinister kelp beaker
+  description: Sinister beaker of sludge.....
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 50
+        reagents:
+        - ReagentId: KelpPodSlime
+          Quantity: 50
+  - type: Label
+    currentLabel: reagent-name-kelpslime

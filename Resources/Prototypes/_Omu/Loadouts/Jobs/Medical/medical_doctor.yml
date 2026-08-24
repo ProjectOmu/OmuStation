@@ -61,6 +61,32 @@
   - !type:SpeciesLoadoutEffect
     species:
     - Plasmaman
+    
+# Back
+- type: loadout
+  id: CybersunMedicalBackpack
+  equipment:
+    back: ClothingBackpackMedicalCybersun
+  groupBy: "backpack"
+
+- type: loadout
+  id: CybersunMedicalSatchel
+  equipment:
+    back: ClothingBackpackSatchelMedicalCybersun
+  groupBy: "satchel"
+
+- type: loadout
+  id: CybersunMedicalDuffel
+  equipment:
+    back: ClothingBackpackDuffelMedicalCybersun
+  groupBy: "duffel"
+
+- type: loadout
+  id: CybersunMedicalMessenger
+  equipment:
+    back: ClothingBackpackMessengerMedicalCybersun
+  groupBy: "messenger"
+
 #Masks
 - type: loadout
   id: SterileMaskRed

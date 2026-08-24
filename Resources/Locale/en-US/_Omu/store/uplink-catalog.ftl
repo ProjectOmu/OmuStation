@@ -43,3 +43,7 @@ uplink-xeno-compatibility-implanter-desc = An implant that allows the user to ma
 
 uplink-BloodredVim-name = Cybersun Combat Vim
 uplink-BloodredVim-desc = A specialised prototype developed by cybersun for specialised mouse operatives. The project was shelved after the market collapsed. Armed with a rocket-launcher and short range retro-rockets for speedboosts and maneuvering. It makes for a terrifying, if small, foe.
+
+# Should this be in uplink since we have the implant now? who knows, but lets make the FTL work for now.
+uplink-voice-mask-name = Voice Mask
+uplink-voice-mask-desc = A gas mask that lets you adjust your voice to whoever you can think of. Also utilizes cutting-edge chameleon technology.

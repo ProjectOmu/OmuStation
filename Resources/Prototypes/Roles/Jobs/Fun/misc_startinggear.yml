@@ -27,7 +27,7 @@
     shoes: ClothingShoesBootsCombat
     gloves: ClothingHandsGlovesColorBlack
     id: SyndiPDA
-    ears: ClothingHeadsetAltSyndicate
+#    ears: ClothingHeadsetAltSyndicate # Omu
 
 # Syndicate Footsoldier Gear - No Headset
 - type: startingGear
@@ -57,6 +57,7 @@
     gloves: ClothingHandsGlovesCombat
     back: ClothingBackpack
     shoes: ClothingShoesBootsCombatFilled
+    ears: ClothingHeadsetAltSyndicate # Omu
   storage:
     back:
     - BoxSurvivalSyndicate

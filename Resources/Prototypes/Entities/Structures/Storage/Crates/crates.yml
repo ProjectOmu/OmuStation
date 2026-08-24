@@ -324,6 +324,7 @@
         !type:DamageTrigger
         damage: 50
       behaviors:
+      - !type:DeleteAllLockedContainerContentsBehaviour # Omu
       - !type:DoActsBehavior
         acts: ["Destruction"]
       - !type:PlaySoundBehavior
@@ -332,6 +333,10 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StrongCrates
+  - type: Tag # Omu
+    tags:
+      - Crate
+      - NotOpenedSecureCrate
 
 - type: entity
   parent: [ CrateBaseSecure, BaseSecurityContraband ]
