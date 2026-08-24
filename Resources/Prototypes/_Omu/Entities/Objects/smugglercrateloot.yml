@@ -65,6 +65,9 @@
   description: Maybe it can be repaired?
   suffix: NukeOps
   components:
+  - type: Sprite
+    sprite: Resources/Textures/_Omu/Objects/SmugglerLoot
+    state: ipc_rusted
   - type: GhostRole
     name: smuggler-silicon-ipc-name
     description: smuggler-silicon-ipc-desc
@@ -83,6 +86,9 @@
   description: Maybe it can be repaired?
   suffix: NukeOps
   components:
+  - type: Sprite
+    sprite: Resources/Textures/_Omu/Objects/SmugglerLoot
+    state: ipc_rusted
   - type: GhostRole
     name: smuggler-silicon-ipc-name
     description: smuggler-silicon-ipc-desc
@@ -128,3 +134,10 @@
       - Inorganic
       - Silicon
       - SiliconRadiation
+
+- type: entity
+  parent: OrganLaserEyes
+  id: SmugglerLootRod
+  name: Rod of Asclepius
+  suffix: Healing
+  components:
