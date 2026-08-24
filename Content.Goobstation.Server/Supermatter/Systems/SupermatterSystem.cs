@@ -759,6 +759,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                         sm.Power += 20f;
                         return;
                     }
+                default:
+                    return;
             }
         }
         //omu end
