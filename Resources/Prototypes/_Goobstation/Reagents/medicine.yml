@@ -280,6 +280,7 @@
           groups:
             Toxin: -6
       - !type:CleanBloodstream
+        excluded: Musiver # Omu
         cleanseRate: 6 # POWERFUL cleansing effect
       - !type:HealthChange
         damage:
@@ -1085,6 +1086,8 @@
       metabolismRate: 0.25
       effects:
       - !type:CleanBloodstream
+        excluded: PentenicAcid #Omu
+        cleanseRate: 3 #Omu
       - !type:HealthChange
         damage:
           types:
