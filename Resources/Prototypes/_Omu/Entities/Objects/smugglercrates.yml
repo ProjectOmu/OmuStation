@@ -32,8 +32,8 @@
           - !type:NestedSelector
             tableId: SmugglerCrateUniqueLoot
           - !type:NestedSelector
-            tableId: RandomSatchelTable
-            rolls: 6
+            tableId: FillSmugglerBackpack
+            rolls: 8
 
 - type: entity
   parent: [ CrateBaseSmuggler ]
