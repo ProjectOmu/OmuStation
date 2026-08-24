@@ -1,0 +1,44 @@
+- type: entity
+  parent: CrateBaseSecure
+  id: CrateBaseSmuggler
+  description: A hidden cache... who knows whats in it?
+  suffix: Smuggler
+  components:
+    - type: DigitalLock
+    - type: Lock
+      unlockOnClick: false
+      useAccess: false
+      autoUnlock: false
+      autoLock: false
+      showLockVerbs: false
+    - type: UserInterface
+      interfaces:
+        enum.StorageUiKey.Key:
+          type: StorageBoundUserInterface
+        enum.DigitalLockUiKey.Key:
+          type: DigitalLockBoundUserInterface
+    - type: ActivatableUI
+      key: enum.DigitalLockUiKey.Key
+    - type: GenericVisualizer
+      visuals:
+        enum.DigitalLockVisuals.Spark:
+          spark:
+            False: { visible: false }
+            True: { visible: true }
+    - type: EntityTableContainerFill
+      containers:
+        entity_storage: !type:NestedSelector
+          tableId: MaintenanceLockerLoot
+
+- type: entity
+  parent: [ CrateBaseSmuggler ]
+  id: CrateBaseSmugglerSyndicate
+  suffix: Smuggler
+  components:
+    - type: SurplusBundle
+      totalPrice: 125
+    - type: EntityTableContainerFill
+      containers:
+        entity_storage: !type:NestedSelector
+          tableId: MaintenanceLockerLoot
+

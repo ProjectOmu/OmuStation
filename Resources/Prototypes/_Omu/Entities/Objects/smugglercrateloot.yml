@@ -1,0 +1,15 @@
+- type: entity
+  parent: [ ClothingNeckStoleChaplain, BaseChameleon ]
+  id: SmugglerLootStole
+  name: chaplain stole
+  description: An elegantly designed stole, with a vibrant gold plus on either end.
+  components:
+  - type: RadiusBuff
+    whitelist:
+      components:
+      - HumanoidAppearance
+    status: StatusEffectShredder
+  - type: ActivateBuffOnWear
+  - type: ChameleonClothing
+    slot: [NECK]
+    default: ClothingNeckStoleChaplain
