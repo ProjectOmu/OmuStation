@@ -111,7 +111,7 @@
     blacklist:
       components:
       - CentCommBeacon # Omu
-      - ArrivalsBeaconComponent # Omu
+      - ArrivalsBeacon # Omu
       tags:
       - GhostOnlyWarp
       - NinjaBombingTargetBlocker # Use the same blacklist as ninja
