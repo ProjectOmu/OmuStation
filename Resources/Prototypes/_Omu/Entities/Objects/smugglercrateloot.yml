@@ -3,6 +3,7 @@
   table: !type:GroupSelector
     children:
     - id: SmugglerLootStole
+    - id: SmugglerPickaxe
 
 - type: entity
   parent: [ ClothingNeckStoleChaplain, BaseChameleon ]
@@ -19,3 +20,37 @@
   - type: ChameleonClothing
     slot: [NECK]
     default: ClothingNeckStoleChaplain
+
+- type: entity
+  name: Calvin    #Wilson the volleyball, Calvin Suitable pickaxe name.
+  parent: Pickaxe
+  suffix: Pickaxe
+  id: SmugglerPickaxe
+  description: Notched to perfection, for jamming it into rocks. Worn with age, now you have a friend to talk to!
+  components:
+  - type: MeleeWeapon
+    attackRate: 1.5 # Manic Fast, you are manic after all
+    animationRotation: -45 # WWDP
+    wideAnimationRotation: -135
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+      params:
+        volume: -3
+    damage:
+      groups:
+        Brute: 5
+  - type: GhostRole
+    name: calvin-name
+    description: calvin-desc
+    rules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: GhostTakeoverAvailable
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
+  - type: MobState # shitcode courtesy of justice
+    allowedStates:
+      - Alive
