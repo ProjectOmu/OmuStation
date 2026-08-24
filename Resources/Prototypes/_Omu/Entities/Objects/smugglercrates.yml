@@ -27,8 +27,13 @@
             True: { visible: true }
     - type: EntityTableContainerFill
       containers:
-        entity_storage: !type:NestedSelector
-          tableId: MaintenanceLockerLoot
+        entity_storage: !type:AllSelector
+          children:
+          - !type:NestedSelector
+            tableId: SmugglerCrateUniqueLoot
+          - !type:NestedSelector
+            tableId: RandomSatchelTable
+            rolls: 6
 
 - type: entity
   parent: [ CrateBaseSmuggler ]
@@ -39,6 +44,10 @@
       totalPrice: 125
     - type: EntityTableContainerFill
       containers:
-        entity_storage: !type:NestedSelector
-          tableId: MaintenanceLockerLoot
-
+        entity_storage: !type:AllSelector
+          children:
+          - !type:NestedSelector
+            tableId: SmugglerCrateUniqueLoot
+          - !type:NestedSelector
+            tableId: MaintenanceLockerLoot
+            rolls: 3

@@ -1,3 +1,9 @@
+- type: entityTable
+  id: SmugglerCrateUniqueLoot
+  table: !type:GroupSelector
+    children:
+    - id: SmugglerLootStole
+
 - type: entity
   parent: [ ClothingNeckStoleChaplain, BaseChameleon ]
   id: SmugglerLootStole
