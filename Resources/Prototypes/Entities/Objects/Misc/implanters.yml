@@ -55,7 +55,7 @@
     - NutrimentPumpImplant
     - SmokeImplant
     # - StypticStimulatorImplant # Uncomment if given to traitors, currently it's DS only implant
-    - BinaryImplant # Goobstation?
+    #- BinaryImplant # Goobstation? # Omu, make binary a radio again.
     deimplantFailureDamage:
       types:
         Cellular: 50 # NotGoobstation its 50 genetic to prevent you from randomly extracting implants.
