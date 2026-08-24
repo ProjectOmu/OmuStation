@@ -7,7 +7,9 @@ ghost-role-information-nukie-mouse-description = A Nuclear Operative Mouse reinf
 ghost-role-information-nukie-spider-name = Nuclear Operative Spider
 ghost-role-information-nukie-spider-description = A Nuclear Operative Spider reinforcement for the Syndicate.
 
-ghost-role-information-syndicate-cyborg-medical-name = Syndicate Medical Cyborg
+#OMU duplicate
+#ghost-role-information-syndicate-cyborg-medical-name = Syndicate Medical Cyborg
+
 
 ghost-role-information-syndicate-behonker-name = Syndicate Behonker
 ghost-role-information-syndicate-behonker-desc = A disciple of the Honkmother needs you. Aid them in their time of need.

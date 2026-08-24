@@ -12,8 +12,8 @@ uplink-reinforcement-radio-cyborg-assault-name-trauma = Assault Cyborg Teleporte
 uplink-reinforcement-radio-cyborg-saboteur-name = Saboteur Cyborg Teleporter
 uplink-reinforcement-radio-cyborg-saboteur-desc = Calls in a lightly armored cyborg specializing in sabotage and assassinations.
 
-uplink-reinforcement-radio-cyborg-medical-name = Medical Cyborg Teleporter
-uplink-reinforcement-radio-cyborg-medical-desc = Calls in a lightly armored cyborg specializing in anything medical related.
+#uplink-reinforcement-radio-cyborg-medical-name = Medical Cyborg Teleporter #omu
+#uplink-reinforcement-radio-cyborg-medical-desc = Calls in a lightly armored cyborg specializing in anything medical related. #omu
 
 uplink-magic-carp-dehydrated-name = Dehydrated Magic Carp
 uplink-magic-carp-dehydrated-desc = Looks like a plush toy carp, but just add water and it becomes a real-life magic carp!
