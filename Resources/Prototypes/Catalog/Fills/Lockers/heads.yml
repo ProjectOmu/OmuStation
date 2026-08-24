@@ -379,7 +379,8 @@
   id: LockerFillHeadOfSecurityNoHardsuit
   table: !type:AllSelector
     children:
-    - id: WeaponEnergyMagnum
+#    - id: WeaponEnergyMagnum # Omu  gun case
+    - id: HeadOfSecurityGunCase
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
