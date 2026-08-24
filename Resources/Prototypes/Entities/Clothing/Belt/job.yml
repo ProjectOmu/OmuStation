@@ -189,6 +189,7 @@
       - MedicalPatch # Goobstation
       - AutoinjectorCartridge # Goobstation
       - HandheldCrewMonitor # Goobstation
+      - ATVParamedicKeys # Omu
       components:
       - Injector
       - Pill
@@ -396,6 +397,10 @@
       - CombatKnife
       - Truncheon
       - HandGrenade
+      - MilitaryPowerCellSMG # Goob edit start
+      - MilitaryPowerCellSniper
+      - MilitaryPowerCellRevolver
+      - EnergyMagAmmo # Goob edit end
       components:
       - Stunbaton
       - FlashOnTrigger
