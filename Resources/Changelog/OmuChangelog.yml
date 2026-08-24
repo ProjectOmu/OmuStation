@@ -6541,3 +6541,11 @@ Entries:
       message: Surgery GUI for Borgs
   id: 854
   time: '2026-08-24T02:35:57.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: >-
+        brought back cortical stacks after upstream merge accidentally removed
+        them
+  id: 855
+  time: '2026-08-24T19:31:08.0000000+00:00'
