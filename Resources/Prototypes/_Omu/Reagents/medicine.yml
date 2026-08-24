@@ -12,6 +12,6 @@
       effects:
         - !type:AdjustBoneDamage
           conditions:
-          - !type:Temperature
+          - !type:TemperatureCondition
             max: 213.0
           amount: -11 # 1 healing per bone on a humanoid, heals bones to full in 1 minute
