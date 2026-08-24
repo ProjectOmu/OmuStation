@@ -10,6 +10,12 @@ loadout-group-corpsman-glasses = Corpsman glasses
 loadout-group-corpsman-belt = Corpsman belt
 loadout-group-corpsman-headset = Corpsman headset
 
+# Medical
+loadout-group-medical-backpack = Medical backpack
+
+# Paramedic
+loadout-group-paramedic-backpack = Paramedic backpack
+
 # Virologist
 loadout-group-virologist-envirohelm = Virologist envirohelm
 loadout-group-virologist-envirosuit = Virologist envirosuit
