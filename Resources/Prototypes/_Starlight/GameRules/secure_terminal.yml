@@ -216,20 +216,20 @@
     prototypes:
     - RandomHumanoidSpawnerCBURNUnit
 
-- type: entity
-  id: SpawnPointGhostERTCBURNCorpsman
-  parent: MarkerBase
-  name: ERT spawn point
-  suffix: CBURN, Medical
-  components:
-  - type: Sprite
-    layers:
-    - state: green
-    - sprite: Markers/jobs.rsi
-      state: cburn
-  - type: ConditionalSpawner
-    prototypes:
-    - RandomHumanoidSpawnerCBURNCorpsman
+#- type: entity # Omu, we don't have this
+#  id: SpawnPointGhostERTCBURNCorpsman
+#  parent: MarkerBase
+#  name: ERT spawn point
+#  suffix: CBURN, Medical
+#  components:
+#  - type: Sprite
+#    layers:
+#    - state: green
+#    - sprite: Markers/jobs.rsi
+#      state: cburn
+#  - type: ConditionalSpawner
+#    prototypes:
+#    - RandomHumanoidSpawnerCBURNCorpsman
 
 - type: entity
   id: SpawnPointGhostERTChaplain
@@ -269,5 +269,5 @@
   components:
   - type: EmitSoundOnTrigger
     sound:
-      path: /Audio/_Starlight/CosmicCult/cleanse_deconversion.ogg
+      path: /Audio/_DV/CosmicCult/cleanse_deconversion.ogg # Omu, use the sound in DV
   - type: TriggerOnSpawn
