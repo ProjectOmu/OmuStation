@@ -17,7 +17,7 @@
   - type: InternalResourcesAction
     resourceProto: ChangelingChemicals
     useAmount: 50
-    
+
 - type: entity
   parent: BaseAction
   id: ActionStingBerserk
@@ -37,6 +37,10 @@
     whitelist:
       components:
       - Body
+      tags:
+      - FoodSnack
+      - DrinkCan
+      - Meat
     canTargetSelf: false
     event: !type:StingReagentEvent {}
   - type: ChangelingAction

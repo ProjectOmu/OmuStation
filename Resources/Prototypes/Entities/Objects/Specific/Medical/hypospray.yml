@@ -110,7 +110,7 @@
     delay: 0.5
 
 - type: entity
-  parent: BaseHypospray
+  parent: [BaseHypospray, BaseMedicalContraband] # Omu
   id: JetInjector
   name: jet injector
   description: A sterile injector for convenient administration of drugs to patients.
