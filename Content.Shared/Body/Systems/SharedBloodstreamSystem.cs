@@ -503,7 +503,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             return false;
 
         referenceFactor = Math.Clamp(referenceFactor, 0f, ent.Comp.MaxVolumeModifier);
-        var ratio = (double)amount / (double)ent.Comp.BloodReferenceSolution.Volume; // Omu - FixedPoint2 only has 2 decimals of resolution
+        var ratio = (float)amount / (float) ent.Comp.BloodReferenceSolution.Volume; // Omu - FixedPoint2 only has 2 decimals of resolution
 
         foreach (var (referenceReagent, referenceQuantity) in ent.Comp.BloodReferenceSolution)
         {
