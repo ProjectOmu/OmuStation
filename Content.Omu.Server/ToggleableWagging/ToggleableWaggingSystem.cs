@@ -1,11 +1,11 @@
 using Content.Omu.Shared.ToggleableWagging;
 using Content.Server.Actions;
 using Content.Server.Humanoid;
-using Content.Shared._Shitmed.Humanoid.Events;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Mobs;
 using Content.Shared.Toggleable;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
 namespace Content.Omu.Server.ToggleableWagging;
@@ -23,13 +23,13 @@ public sealed class ToggleableWaggingSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ToggleableWaggingComponent, ProfileLoadFinishedEvent>(OnProfileLoadFinished);
+        SubscribeLocalEvent<ToggleableWaggingComponent, PlayerAttachedEvent>(OnPlayerAttachedEvent);
         SubscribeLocalEvent<ToggleableWaggingComponent, ComponentShutdown>(OnWaggingShutdown);
         SubscribeLocalEvent<ToggleableWaggingComponent, ToggleActionEvent>(OnWaggingToggle);
         SubscribeLocalEvent<ToggleableWaggingComponent, MobStateChangedEvent>(OnMobStateChanged);
     }
 
-    private void OnProfileLoadFinished(EntityUid uid, ToggleableWaggingComponent component, ProfileLoadFinishedEvent args)
+    private void OnPlayerAttachedEvent(EntityUid uid, ToggleableWaggingComponent component, PlayerAttachedEvent args)
     {
         if (HasTailWaggingMarkings(uid, component))
             _actions.AddAction(uid, ref component.ActionEntity, component.Action, uid);
