@@ -88,10 +88,6 @@ public sealed partial class GoobCVars
         CVarDef.Create("goob.max_drunk_time", 1500f, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
-    /// Easy mode for biomass requirements on cloning. If true, 30% less biomass is required to clone mobs.
-    /// </summary>
-    public static readonly CVarDef<bool> CloneBiomassEasyMode =
-        CVarDef.Create("goob.clone_biomass_easy_mode", false, CVar.SERVER | CVar.SERVER);
 
     /// <summary>
     ///     DEBUG Cvar - Should pathfinding be disabled globally. For SpawnAndDirty cause we need the mem.
@@ -568,7 +564,7 @@ public sealed partial class GoobCVars
     /// Applies to Brute and Burn damage
     /// </summary>
     public static readonly CVarDef<float> ExplosionWoundMultiplier =
-        CVarDef.Create("explosion.wounding_multiplier", 4f, CVar.SERVERONLY);
+        CVarDef.Create("explosion.wounding_multiplier", 2.5f, CVar.SERVERONLY);
 
     #endregion
 
