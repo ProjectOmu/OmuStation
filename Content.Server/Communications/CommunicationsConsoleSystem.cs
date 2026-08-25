@@ -22,10 +22,12 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
-using Content.Shared.Starlight.SecureTerminal;
+using Content.Shared._Starlight.SecureTerminal;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Content.Shared.Silicons.StationAi;
+using Content.Shared.Station.Components;
+using Content.Server.Shuttles.Components;
 
 namespace Content.Server.Communications
 {
@@ -99,13 +101,6 @@ namespace Content.Server.Communications
         {
             comp.AnnouncementCooldownRemaining = comp.InitialDelay;
             UpdateCommsConsoleInterface(uid, comp);
-
-            //Starlight begin
-            if (!TryComp<StationMemberComponent>(Transform(uid).GridUid, out var stationMember)) return;
-            if (!TryComp<StationCentcommComponent>(stationMember.Station, out var ccComp)) return;
-            if (ccComp.Entity is null) return;
-            comp.AdditionalGrids.Add(ccComp.Entity.Value);
-            //Starlight end
         }
 
         // Starlight Start: Secure Command Terminal
@@ -198,7 +193,7 @@ namespace Content.Server.Communications
                 currentLevel,
                 currentDelay,
                 _roundEndSystem.ExpectedCountdownEnd,
-                hasSecureTerminal: TryComp<Content.Shared.Starlight.SecureTerminal.SecureCommandTerminalConsoleComponent>(uid, out var sct) && sct.Enabled
+                hasSecureTerminal: TryComp<Content.Shared._Starlight.SecureTerminal.SecureCommandTerminalConsoleComponent>(uid, out var sct) && sct.Enabled
             ));
         }
 

@@ -6,12 +6,12 @@ using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Popups;
 using Content.Server.Station.Systems;
-using Content.Server.Starlight.AlertArmory;
+using Content.Server._Starlight.AlertArmory;
 using Content.Shared.Access.Systems;
 using Content.Shared.Database;
 using Content.Shared.Popups;
 using Content.Shared.Station.Components;
-using Content.Shared.Starlight.SecureTerminal;
+using Content.Shared._Starlight.SecureTerminal;
 using Content.Server.GameTicking.Rules.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
@@ -29,40 +29,42 @@ using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Toggleable;
 using Content.Server._Starlight.Administration.Systems;
-using Content.Shared._NullLink;
+using Content.Shared.Cargo;
+using Content.Shared.Cargo.Prototypes;
+using Content.Shared.Cargo.Components;
 
-namespace Content.Server.Starlight.SecureTerminal;
+namespace Content.Server._Starlight.SecureTerminal;
 
 /// <summary>
 /// Drives the Secure Command Terminal — proposal creation, multi-party authorization,
 /// countdown timers, fee deduction, salary penalties, and final action execution.
 /// </summary>
-public sealed class SecureCommandTerminalSystem : EntitySystem
+public sealed partial class SecureCommandTerminalSystem : EntitySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly StationSystem _stations = default!;
-    [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
-    [Dependency] private readonly AlertArmorySystem _armory = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly AccessReaderSystem _access = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly IPrototypeManager _protos = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly SharedJobSystem _jobs = default!;
-    [Dependency] private readonly SharedIdCardSystem _idCard = default!;
-    [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly QuickDialogSystem _quickDialog = default!;
-    [Dependency] private readonly IAdminManager _adminManager = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly NukeCodePaperSystem _nukeCodeSystem = default!;
-    [Dependency] private readonly SharedAirlockSystem _airlock = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly AutoDiscordLogSystem _autolog = default!;
-    [Dependency] private readonly ISharedNullLinkPlayerResourcesManager _playerResources = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private StationSystem _stations = default!;
+    [Dependency] private AlertLevelSystem _alertLevel = default!;
+    [Dependency] private AlertArmorySystem _armory = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private AccessReaderSystem _access = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private IPrototypeManager _protos = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private SharedJobSystem _jobs = default!;
+    [Dependency] private SharedIdCardSystem _idCard = default!;
+    [Dependency] private RadioSystem _radio = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private QuickDialogSystem _quickDialog = default!;
+    [Dependency] private IAdminManager _adminManager = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private NukeCodePaperSystem _nukeCodeSystem = default!;
+    [Dependency] private SharedAirlockSystem _airlock = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private AutoDiscordLogSystem _autolog = default!;
+    [Dependency] private SharedCargoSystem _cargo = default!; // Omu
 
     public override void Initialize()
     {
@@ -146,7 +148,7 @@ public sealed class SecureCommandTerminalSystem : EntitySystem
                 {
                     // Expired proposals are always still Pending, so refund the held fee.
                     if (stationComp.ActiveProposals.TryGetValue(requestId, out var expiredProposal))
-                        RefundFee(expiredProposal);
+                        RefundFee(expiredProposal, stationUid: stationUid); // Omu, pass stationUid
                     stationComp.ActiveProposals.Remove(requestId);
                 }
 
@@ -315,13 +317,14 @@ public sealed class SecureCommandTerminalSystem : EntitySystem
         // We charge charge the requester when requested so we don't have to deal with them not having the funds when approved.
         if (proto.Fee > 0)
         {
-            if (_playerResources.TryGetResource(actor, "credits", out var balance) && balance < proto.Fee)
+            // Omu start
+            if (_cargo.GetBalanceFromAccount(stationUid, proto.FeeAccount) < proto.Fee)
             {
-                _popup.PopupCursor($"Insufficient funds. Required: {proto.Fee}\u20a1", actor, PopupType.Medium);
+                _popup.PopupCursor($"Station account {proto.FeeAccount} has insufficient funds. Required: {proto.Fee}\u20a1", actor, PopupType.Medium);
                 return;
             }
-
-            _playerResources.TryUpdateResource(actor, "credits", -proto.Fee);
+            _cargo.TryAdjustBankAccount(stationUid, proto.FeeAccount, -proto.Fee);
+            // Omu end
             _popup.PopupCursor($"Held {proto.Fee}\u20a1 pending authorization.", actor, PopupType.Medium);
         }
 
@@ -441,7 +444,7 @@ public sealed class SecureCommandTerminalSystem : EntitySystem
         stationComp.ActiveProposals.Remove(msg.RequestId);
 
         // Refund the held fee if denied
-        RefundFee(deniedProposal);
+        RefundFee(deniedProposal, stationUid: stationUid); // Omu, pass stationUid
 
         _adminLog.Add(LogType.Action, LogImpact.Medium,
             $"{ToPrettyString(actor):player} denied secure terminal proposal: {msg.RequestId}");
@@ -541,7 +544,7 @@ public sealed class SecureCommandTerminalSystem : EntitySystem
         stationComp.DeployedArmoryRequesters.Remove(msg.RequestId);
         stationComp.UsedOnce.Add(msg.RequestId);
 
-        RefundFee(refundTarget, proto, 0f);
+        RefundFee(refundTarget, proto, 0f, stationUid: stationUid); // Omu, pass stationUid
 
         _adminLog.Add(LogType.Action, LogImpact.Medium,
             $"{ToPrettyString(actor):player} recalled armory via secure terminal: {msg.RequestId}");
@@ -606,7 +609,7 @@ public sealed class SecureCommandTerminalSystem : EntitySystem
     /// <summary>
     /// If all auth groups are satisfied, begin the countdown and charge the fee.
     /// </summary>
-    private void CheckAndStartCountdown(EntityUid stationUid,
+    private void CheckAndStartCountdown(EntityUid _,
         SecureCommandTerminalStationComponent stationComp,
         string requestId, SecureCommandTerminalRequestPrototype proto)
     {
@@ -662,20 +665,23 @@ public sealed class SecureCommandTerminalSystem : EntitySystem
     /// <summary>
     /// Refund the fee that was held at request time due to it being denied, cancelled, etc.
     /// </summary>
-    private void RefundFee(SecureTerminalProposalData proposal, float fraction = 1f)
+    private void RefundFee(SecureTerminalProposalData proposal, float fraction = 1f, EntityUid? stationUid = null) // Omu, pass stationUid
     {
         if (_protos.TryIndex<SecureCommandTerminalRequestPrototype>(proposal.RequestId, out var proto))
-            RefundFee(proposal.Requester, proto, fraction);
+            RefundFee(proposal.Requester, proto, fraction, stationUid); // Omu, pass stationUid
     }
 
-    private void RefundFee(EntityUid requester, SecureCommandTerminalRequestPrototype proto, float fraction = 1f)
+    private void RefundFee(EntityUid requester, SecureCommandTerminalRequestPrototype proto, float fraction = 1f, EntityUid? stationUid = null) // Omu, pass stationUid
     {
         if (proto.Fee <= 0 || !requester.IsValid())
             return;
 
         var amount = (int)(proto.Fee * fraction);
-        if (amount > 0)
-            _playerResources.TryUpdateResource(requester, "credits", amount);
+        if (amount > 0 && stationUid != null) // Omu start
+        {
+            _cargo.TryAdjustBankAccount(stationUid.Value, proto.FeeAccount, amount);
+        }
+        // Omu end
     }
 
     /// <summary>Execute the prototype's configured action against the station.</summary>
@@ -736,7 +742,7 @@ public sealed class SecureCommandTerminalSystem : EntitySystem
     {
         var tags = _access.FindAccessTags(actor);
         return proto.AuthGroups.Any(group =>
-            group.Any(tag => tags.Contains((Robust.Shared.Prototypes.ProtoId<Content.Shared.Access.AccessLevelPrototype>)tag)));
+            group.Any(tag => tags.Contains((ProtoId<Content.Shared.Access.AccessLevelPrototype>)tag)));
     }
 
     private bool IsWarDeclared()

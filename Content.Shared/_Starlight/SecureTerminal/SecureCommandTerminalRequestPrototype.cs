@@ -1,8 +1,8 @@
 using Content.Shared.Access;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
+using Content.Shared.Cargo.Prototypes;
 
-namespace Content.Shared.Starlight.SecureTerminal;
+namespace Content.Shared._Starlight.SecureTerminal;
 
 /// <summary>
 /// Defines one requestable action in the Secure Command Terminal.
@@ -169,6 +169,12 @@ public sealed partial class SecureCommandTerminalRequestPrototype : IPrototype
     /// </summary>
     [DataField]
     public bool OneTimeUse;
+
+    /// <summary>
+    /// Omu: Account to take money from, defaults to cargo.
+    /// </summary>
+    [DataField]
+    public ProtoId<CargoAccountPrototype> FeeAccount = "Cargo";
 }
 
 public enum SecureTerminalActionType
