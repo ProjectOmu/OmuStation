@@ -7,4 +7,7 @@ public sealed partial class LodestoneComponent : Component
 {
     [DataField]
     public ComponentRegistry? AddedComponents;
+
+    [DataField]
+    public List<string> ComponentsActuallyAdded;
 }
