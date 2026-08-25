@@ -1,17 +1,5 @@
 - type: entity
-  parent: BaseItem
-  id: BaseLodestone
-  abstract: true
-  name: Lodestone
-  description: Its power is yet to be determined!
-  components:
-  - type: Tag
-    tags:
-    - ForceableFollow
-  - type: Lodestone
-
-- type: entity
-  parent: BaseLodestone
+  parent: AnomalyCorePyroclastic
   id: LodestoneSelector
   name: Lodestone
   description: Its power is yet to be determined!
@@ -22,13 +10,12 @@
   - type: Tag
     tags:
     - ForceableFollow
-  - type: Lodestone
   - type: SetSelector
     possibleSets:
     - LodestoneFireSet
 
 - type: entity
-  parent: BaseItem
+  parent: AnomalyCorePyroclastic
   id: LodestoneFire
   name: Lodestone of forge
   description: The intensity of the forge flows through this lodestone, granting the user great protection from fire.
@@ -48,6 +35,6 @@
     tags:
     - ForceableFollow
   - type: Lodestone
-    AddedComponents:
+    addedComponents:
     - type: FireProtection
       reduction: 0.9    # Not full but mostly

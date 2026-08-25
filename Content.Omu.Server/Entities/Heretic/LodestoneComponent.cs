@@ -6,8 +6,8 @@ namespace Content.Omu.Server.Entities.Heretic;
 public sealed partial class LodestoneComponent : Component
 {
     [DataField]
-    public ComponentRegistry? AddedComponents;
+    public ComponentRegistry? AddedComponents = new();
 
     [DataField]
-    public List<string> ComponentsActuallyAdded;
+    public List<string> ComponentsActuallyAdded = new();
 }

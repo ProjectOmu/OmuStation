@@ -4,18 +4,17 @@ namespace Content.Omu.Server.Entities.Heretic;
 
 public sealed class LodestoneSystem : EntitySystem
 {
-    [Dependency] private readonly FollowerSystem _follow = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly IEntityManager _entManager = null!;
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<LodestoneComponent, EntityStartedFollowingEvent>(OnStartFollowing);
-        SubscribeLocalEvent<LodestoneComponent, EntityStoppedFollowingEvent>(OnStopFollowing);
+        SubscribeLocalEvent<LodestoneComponent, StartedFollowingEntityEvent>(OnStartFollowing);
+        SubscribeLocalEvent<LodestoneComponent, StoppedFollowingEntityEvent>(OnStopFollowing);
     }
 
-    public void OnStartFollowing(Entity<LodestoneComponent> ent, ref EntityStartedFollowingEvent args)
+    public void OnStartFollowing(Entity<LodestoneComponent> ent, ref StartedFollowingEntityEvent args)
     {
         if (ent.Comp.AddedComponents is null)
             return;
@@ -28,7 +27,7 @@ public sealed class LodestoneSystem : EntitySystem
             if (_entManager.HasComponent(args.Following, registration))
                 continue;
 
-            var comptoadd = _componentFactory.GetComponent(registration);
+            var comptoadd = _componentFactory.GetComponent(comp.Value);
 
             _entManager.AddComponent(args.Following, comptoadd);
 
@@ -36,7 +35,7 @@ public sealed class LodestoneSystem : EntitySystem
         }
     }
 
-    public void OnStopFollowing(Entity<LodestoneComponent> ent, ref EntityStoppedFollowingEvent args)
+    public void OnStopFollowing(Entity<LodestoneComponent> ent, ref StoppedFollowingEntityEvent args)
     {
         if (ent.Comp.ComponentsActuallyAdded is null)
             return;
