@@ -214,7 +214,7 @@ public sealed partial class VoidwalkerSystem : EntitySystem
     private void OnPullStopped(Entity<VoidwalkerComponent> entity, ref PullStoppedMessage args)
     {
         if (!entity.Comp.EntityPulledWasSpaceImmune)
-          RemComp<SpecialPressureImmunityComponent>(args.PulledUid);
+            RemComp<SpecialPressureImmunityComponent>(args.PulledUid);
     }
 
     #endregion

@@ -1,7 +1,7 @@
 using System.Numerics;
 using Content.Omu.Server.Voidwalker.Kidnapping.Voided;
 using Content.Server.Respawn;
-using Content.Server.Station.Components;
+using Content.Shared.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Gibbing.Systems;
 using Content.Shared.Mind;
@@ -21,7 +21,6 @@ public sealed class VoidwalkerKidnappedSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SpecialRespawnSystem _respawn = default!;
     [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly GibbingSystem _gib = default!;
 
     private const int MaxTeleportAttempts = 100;
     private ISawmill _sawmill = null!;

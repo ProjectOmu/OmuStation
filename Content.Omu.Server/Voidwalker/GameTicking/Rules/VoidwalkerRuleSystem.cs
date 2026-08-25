@@ -5,7 +5,7 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.Roles;
-using Content.Server.Station.Components;
+using Content.Shared.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Localizations;
 using Content.Shared.NPC.Systems;
@@ -67,7 +67,7 @@ public sealed class VoidwalkerRuleSystem : GameRuleSystem<VoidwalkerRuleComponen
 
         if (stationGrid is not null)
         {
-            var stationPosition = _transform.GetWorldPosition((EntityUid)stationGrid);
+            var stationPosition = _transform.GetWorldPosition((EntityUid) stationGrid);
             var voidwalkerPosition = _transform.GetWorldPosition(voidwalker);
 
             var vectorToStation = stationPosition - voidwalkerPosition;
