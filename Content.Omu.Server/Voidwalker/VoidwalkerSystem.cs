@@ -5,7 +5,7 @@ using Content.Goobstation.Server.Changeling;
 using Content.Omu.Shared.Voidwalker;
 using Content.Omu.Shared.Voidwalker.Actions;
 using Content.Omu.Shared.Voidwalker.GlassPasser;
-using Content.Server.Administration.Systems;
+using Content.Shared.Administration.Systems;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;

@@ -2,7 +2,7 @@ using Content.Omu.Common.Speech;
 using Content.Omu.Common.VoidedVisualizer;
 using Content.Omu.Shared.Voidwalker;
 using Content.Server.Gibbing.Systems;
-using Content.Server.Medical;
+using Content.Shared.Medical;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.GameTicking;
 using Content.Shared.Popups;

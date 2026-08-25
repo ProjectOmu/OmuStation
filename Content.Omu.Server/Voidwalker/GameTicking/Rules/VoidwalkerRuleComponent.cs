@@ -10,10 +10,10 @@ public sealed partial class VoidwalkerRuleComponent : Component
     [DataField]
     public SoundPathSpecifier BriefingSound = new("/Audio/_Omu/Ambience/Antag/voidwalker_start.ogg");
 
-    [ValidatePrototypeId<NpcFactionPrototype>, DataField]
+    [DataField]
     public string VoidFaction = "VoidFaction";
 
-    [ValidatePrototypeId<NpcFactionPrototype>, DataField]
+    [DataField]
     public string NanotrasenFaction = "NanoTrasen";
 
     [DataField]

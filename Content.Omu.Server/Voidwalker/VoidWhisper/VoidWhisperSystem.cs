@@ -1,7 +1,7 @@
 using Content.Omu.Server.Speech;
 using Content.Omu.Shared.Voidwalker.Actions;
 using Content.Server.Administration;
-using Content.Server.IdentityManagement;
+using Content.Shared.IdentityManagement;
 using Content.Server.Popups;
 using Content.Server.Prayer;
 using Robust.Shared.Player;

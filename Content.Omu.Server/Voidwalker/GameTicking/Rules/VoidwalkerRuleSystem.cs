@@ -31,7 +31,7 @@ public sealed class VoidwalkerRuleSystem : GameRuleSystem<VoidwalkerRuleComponen
         SubscribeLocalEvent<VoidwalkerRoleComponent, GetBriefingEvent>(UpdateBriefing);
     }
 
-    private void UpdateBriefing(Entity<VoidwalkerRoleComponent> _, ref GetBriefingEvent args)
+    private void UpdateBriefing(Entity<VoidwalkerRoleComponent> voidwalker, ref GetBriefingEvent args)
     {
         var ent = args.Mind.Comp.OwnedEntity;
 
