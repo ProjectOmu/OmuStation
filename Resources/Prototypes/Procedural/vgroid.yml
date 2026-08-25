@@ -107,6 +107,14 @@
       maxCount: 20
       table: !type:NestedSelector
         tableId: VgroidGasDepositTable
+      # Omu start
+    - !type:OreDunGen
+      replacement: IronRock
+      entity: IronRockSmugglerCache
+      count: 15   # Chances are you won't run into them often.
+      minGroupSize: 1
+      maxGroupSize: 1
+      # Omu end
 
 # Configs
 - type: dungeonConfig
