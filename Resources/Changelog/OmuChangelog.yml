@@ -6619,3 +6619,19 @@ Entries:
         gas selling not mapped or configured
   id: 865
   time: '2026-08-25T12:51:47.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Wideswinging (Right click attack) has a stamina penalty now
+  id: 866
+  time: '2026-08-25T20:48:46.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed Colossus getting objs that target CC/Arrivals.
+    - type: Fix
+      message: >-
+        Fixed Coscult empowerment being lost when attempting to convert an
+        invalid target.
+  id: 867
+  time: '2026-08-25T20:51:30.0000000+00:00'
