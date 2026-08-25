@@ -5,13 +5,13 @@
   suffix: Smuggler
   components:
     - type: DigitalLock
+      randomCode: true
     - type: Lock
       unlockOnClick: false
       useAccess: false
       autoUnlock: false
       autoLock: false
       showLockVerbs: false
-      randomCode: true
     - type: UserInterface
       interfaces:
         enum.StorageUiKey.Key:
@@ -37,7 +37,7 @@
             rolls: 8
 
 - type: entity
-  parent: [ CrateBaseSmuggler ]
+  parent: CrateBaseSmuggler
   id: CrateBaseSmugglerSyndicate
   suffix: Smuggler
   components:
