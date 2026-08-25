@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: species
@@ -41,13 +35,9 @@
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking # Omu
+    Chest: MobIPCChest
     FacialHair: MobHumanoidAnyMarking # Omu
     Snout: MobHumanoidAnyMarking
-    #omu start
-    Undershirt: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
-    #omu end
-    Chest: MobIPCChest
     Groin: MobIPCGroin
     LArm: MobIPCLArm
     RArm: MobIPCRArm
@@ -168,7 +158,7 @@
     state: chest_m
 
 - type: marking
-  id: MobIPCChestFemaleDefault
+  id: MobIPCTorsoFemaleDefault
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ IPC ]

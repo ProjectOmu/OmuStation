@@ -1,6 +1,6 @@
 meta:
   format: 7
-  category: Grid
+  category: Map
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
@@ -9,8 +9,7 @@ meta:
 maps: []
 grids:
 - 1
-orphans:
-- 1
+orphans: []
 nullspace: []
 tilemap:
   11: Space
@@ -50,7 +49,7 @@ entities:
       name: Crystal Evac
     - type: Transform
       pos: -0.484375,-0.5
-      parent: invalid
+      parent: 43
     - type: MapGrid
       chunks:
         0,0:
@@ -270,6 +269,16 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+  - uid: 43
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: GridTree
+    - type: Broadphase
+    - type: OccluderTree
 - proto: AirAlarm
   entities:
   - uid: 576

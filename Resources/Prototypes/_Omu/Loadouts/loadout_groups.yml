@@ -128,7 +128,7 @@
   - CargoTechnicianBackpack
   - CargoTechnicianSatchel
   - CargoTechnicianDuffel
-  - MailCarrierMessenger
+  # - MailCarrierMessenger
   - CourierMessenger
   - CargoTechnicianMessenger
 
@@ -183,8 +183,9 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
+  # - MailCarrierEnvirogloves
   - WhiteEnvirogloves
-  - CourierEnvirogloves
+
 - type: loadoutGroup
   id: VirologistEnvirohelm
   name: loadout-group-virologist-envirohelm
@@ -225,7 +226,8 @@
   loadouts:
   - NanotrasenRepresentativeWintercoat
   - NanotrasenRepresentativeLongcoat
-
+  - CentcommWinterCoat
+  - ExpensiveCoat
 #New Selectable PDAs
 
 - type: loadoutGroup
@@ -328,7 +330,6 @@
   - SecurityOfficerMk58
   - SecurityOfficerSecurityDutyRevolver
   - SecurityOfficerEG1
-  - SecurityOfficerTerminus
   - WeaponPistolMk58Gold
 
 - type: loadoutGroup
@@ -341,7 +342,6 @@
   - SecurityOfficerMk58
   - SecurityOfficerSecurityDutyRevolver
   - SecurityOfficerEG1
-  - SecurityOfficerTerminus
   - WeaponPistolMk58Gold
   - SecuritySergeantMosin
 
@@ -400,7 +400,6 @@
   maxLimit: 1
   loadouts:
   - DetectiveWeaponRevolverInspector # Default for det should be their revolver
-  - DetectiveTerminus
 
 - type: loadoutGroup
   id: DetectiveEyes
@@ -422,7 +421,6 @@
   - SecurityOfficerMk58
   - SecurityOfficerSecurityDutyRevolver
   - SecurityOfficerEG1
-  - BrigmedTerminus
   - WeaponPistolMk58Gold
 
 # clown
@@ -481,3 +479,35 @@
   - WhiteShoes
   - LeatherShoes
   - WinterBoots
+
+# Medical Doctor
+- type: loadoutGroup
+  id: MedicalDoctorBackpack
+  name: loadout-group-medical-doctor-backpack
+  loadouts:
+  - MedicalDoctorBackpack
+  - CybersunMedicalBackpack
+  - MedicalDoctorSatchel
+  - CybersunMedicalSatchel
+  - MedicalDoctorDuffel
+  - CybersunMedicalDuffel
+  - MedicalDoctorMessenger # Frontier
+  - CybersunMedicalMessenger
+
+# Paramedic
+- type: loadoutGroup
+  id: ParamedicBackpack
+  name: loadout-group-paramedic-backpack
+  loadouts:
+  - ParamedBackpack
+  - MedicalDoctorBackpack
+  - CybersunMedicalBackpack
+  - ParamedSatchel
+  - MedicalDoctorSatchel
+  - CybersunMedicalSatchel
+  - ParamedDuffel
+  - MedicalDoctorDuffel
+  - CybersunMedicalDuffel
+  - ParamedMessenger
+  - MedicalDoctorMessenger # Frontier
+  - CybersunMedicalMessenger

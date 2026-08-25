@@ -99649,8 +99649,8 @@ entities:
     - type: Transform
       pos: 7.5,33.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 25116
+    - type: OreSiloClient
+      silo: null
 - proto: Carpet
   entities:
   - uid: 12499
@@ -192409,8 +192409,8 @@ entities:
     - type: Transform
       pos: 33.5,27.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 25116
+    - type: OreSiloClient
+      silo: null
 - proto: OrganDionaStomach
   entities:
   - uid: 25410

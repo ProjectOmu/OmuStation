@@ -17,9 +17,7 @@ public sealed partial class SmartFridgeMenu : FancyWindow
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
     public event Action<GUIBoundKeyEventArgs, ListData>? OnItemSelected;
-    // Monolith Start
     public event Action<SmartFridgeListData>? OnRemoveButtonPressed;
-    // Monolith End
 
     private readonly StyleBoxFlat _styleBox = new() { BackgroundColor = new Color(70, 73, 102) };
 
@@ -52,9 +50,7 @@ public sealed partial class SmartFridgeMenu : FancyWindow
 
         var label = Loc.GetString("smart-fridge-list-item", ("item", entry.Entry.Name), ("amount", entry.Amount));
         var item = new SmartFridgeItem(entry.Representative, label);
-        // Monolith Start
         item.RemoveButtonPressed += () => OnRemoveButtonPressed?.Invoke(entry);
-        // Monolith End
 
         button.AddChild(item);
         button.ToolTip = label;

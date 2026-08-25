@@ -24128,8 +24128,8 @@ entities:
     - type: Transform
       pos: 12.5,9.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 8502
+    - type: OreSiloClient
+      silo: null
 - proto: Carpet
   entities:
   - uid: 3767
@@ -52561,7 +52561,7 @@ entities:
     - type: Transform
       pos: 27.180967,-25.483507
       parent: 2
-- proto: HandheldHealthAnalyzerUnpowered
+- proto: HandheldHealthAnalyzer
   entities:
   - uid: 8203
     components:
@@ -55130,8 +55130,8 @@ entities:
     - type: Transform
       pos: 18.5,13.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 8502
+    - type: OreSiloClient
+      silo: null
 - proto: OxygenCanister
   entities:
   - uid: 8561
