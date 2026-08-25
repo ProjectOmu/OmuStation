@@ -6603,3 +6603,19 @@ Entries:
       message: Players can now heal their blood back.
   id: 863
   time: '2026-08-25T09:17:02.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Polymorph chems no longer transform at lower than expected values
+  id: 864
+  time: '2026-08-25T10:31:05.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added the vgroid back
+    - type: Add
+      message: >-
+        Ported gas mining content, admin only for now pending proper balancing -
+        gas selling not mapped or configured
+  id: 865
+  time: '2026-08-25T12:51:47.0000000+00:00'
