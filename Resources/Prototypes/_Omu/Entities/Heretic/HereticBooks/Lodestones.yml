@@ -13,10 +13,12 @@
 - type: entity
   parent: BaseLodestone
   id: LodestoneSelector
-  abstract: true
   name: Lodestone
   description: Its power is yet to be determined!
   components:
+  - type: Sprite
+    sprite: Structures/Specific/Anomalies/Cores/pyro_core.rsi
+    state: core
   - type: Tag
     tags:
     - ForceableFollow
@@ -28,7 +30,6 @@
 - type: entity
   parent: BaseItem
   id: LodestoneFire
-  abstract: true
   name: Lodestone of forge
   description: The intensity of the forge flows through this lodestone, granting the user great protection from fire.
   components:
