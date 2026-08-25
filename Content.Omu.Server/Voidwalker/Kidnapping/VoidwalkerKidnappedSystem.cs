@@ -58,12 +58,15 @@ public sealed class VoidwalkerKidnappedSystem : EntitySystem
         if (!Resolve(uid, ref xform))
             return false;
 
-        var station = _station.GetStationInMap(xform.MapID);
+        if (_station.GetStationInMap(xform.MapID) is { } station)
+        {
+        }
 
         if (!TryComp<StationDataComponent>(station, out var stationData))
             return false;
 
-        var entityGridUid = _station.GetLargestGrid(stationData);
+
+        var entityGridUid = _station.GetLargestGrid(station);
 
         if (entityGridUid is null
             || xform.MapUid is null)

@@ -60,17 +60,16 @@ public sealed class VoidwalkerRuleSystem : GameRuleSystem<VoidwalkerRuleComponen
         var direction = string.Empty;
         var voidwalkerXform = Transform(voidwalker);
 
-        var station = _station.GetStationInMap(voidwalkerXform.MapID);
         EntityUid? stationGrid = null;
-        if (TryComp<StationDataComponent>(station, out var stationData))
-            stationGrid = _station.GetLargestGrid(stationData);
+        if (_station.GetStationInMap(voidwalkerXform.MapID) is { } station)
+            stationGrid = _station.GetLargestGrid(station);
 
         if (stationGrid is not null)
         {
             var stationPosition = _transform.GetWorldPosition((EntityUid) stationGrid);
-            var voidwalkerPosition = _transform.GetWorldPosition(voidwalker);
+            var dragonPosition = _transform.GetWorldPosition(voidwalker);
 
-            var vectorToStation = stationPosition - voidwalkerPosition;
+            var vectorToStation = stationPosition - dragonPosition;
             direction = ContentLocalizationManager.FormatDirection(vectorToStation.GetDir());
         }
 
