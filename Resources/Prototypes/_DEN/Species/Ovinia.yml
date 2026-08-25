@@ -21,8 +21,8 @@
     Head: MobOviniaHead
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Groin: MobOviniaGroin #Omu - Woundmed Compat
     Chest: MobOviniaChest #Omu - Woundmed Compat
     NeckFluff: MobHumanoidAnyMarking
@@ -83,10 +83,10 @@
     LeftHand:
       points: 6
       required: false
-    Underwear:
+    UndergarmentTop:
       points: 1
       required: false
-    Undershirt:
+    UndergarmentBottom:
       points: 1
       required: false
 
