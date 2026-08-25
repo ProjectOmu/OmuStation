@@ -1,4 +1,4 @@
-- type: entityTable
+- type: entityTable     #Todo - more gamer lot
   id: SmugglerCrateUniqueLoot
   table: !type:GroupSelector
     children:
@@ -7,6 +7,18 @@
     - id: ReinforcementRadioSmugglerCrateIPC
     - id: ReinforcementRadioSmugglerCrateBorg
     - id: OrganEyesOfGod
+
+- type: entityTable     #Todo - more gamer lot
+  id: SmugglerCrateSyndieLoot
+  table: !type:GroupSelector
+    children:
+    - id: SyndicateShuttleConsoleCircuitboard
+    - id: SawAdvanced
+    - id: ChemistryBottleNocturine
+    - id: Cyberpen
+    - id: ClothingHandsKnuckleDustersSyndicate
+    - id: HappyHonkNukieSnacks
+    - id: ObservationKitSyndie
 
 - type: entity
   parent: [ ClothingNeckStoleChaplain, BaseChameleon ]

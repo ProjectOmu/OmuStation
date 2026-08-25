@@ -41,8 +41,6 @@
   id: CrateBaseSmugglerSyndicate
   suffix: Smuggler
   components:
-    - type: SurplusBundle
-      totalPrice: 125
     - type: EntityTableContainerFill
       containers:
         entity_storage: !type:AllSelector
@@ -52,3 +50,6 @@
           - !type:NestedSelector
             tableId: MaintenanceLockerLoot
             rolls: 3
+          - !type:NestedSelector
+            tableId: SmugglerCrateSyndieLoot
+            rolls: 1
