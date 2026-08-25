@@ -659,7 +659,7 @@ public sealed partial class SecureCommandTerminalSystem : EntitySystem
                 colorOverride: proto.AnnouncementColor);
 
         // Apply salary penalty to station
-        stationComp.SalaryPenalty = Math.Min(0.8f, stationComp.SalaryPenalty + proto.SalaryPenalty);
+        //stationComp.SalaryPenalty = Math.Min(0.8f, stationComp.SalaryPenalty + proto.SalaryPenalty); // Omu, we don't have this
     }
 
     /// <summary>

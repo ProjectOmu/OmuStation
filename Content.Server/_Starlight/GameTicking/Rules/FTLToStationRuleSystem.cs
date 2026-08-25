@@ -4,6 +4,7 @@ using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Station.Components;
+using Content.Server.Shuttles.Components;
 
 namespace Content.Server._Starlight.GameTicking.Rules;
 

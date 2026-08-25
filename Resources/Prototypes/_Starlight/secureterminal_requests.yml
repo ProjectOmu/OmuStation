@@ -15,7 +15,7 @@
   activationDelaySecs: 1500
   requiresWarDeclared: true
   fee: 8000
-  salaryPenalty: 0.1
+  #salaryPenalty: 0.1 # Omu
   actionType: GameRule
   gameruleId: WarOpsERTSpawn
   oneTimeUse: true
@@ -40,7 +40,7 @@
   requireReason: true
   requiresAdminApproval: true
   fee: 5000
-  salaryPenalty: 0.05
+  #salaryPenalty: 0.05 # Omu
   actionType: GameRule
   gameruleId: ERTSecSpawn
   oneTimeUse: true
@@ -64,7 +64,7 @@
   activationDelaySecs: 600
   requireReason: true
   fee: 5000
-  salaryPenalty: 0.05
+  #salaryPenalty: 0.05 # Omu
   actionType: GameRule
   gameruleId: ERTEngiSpawn
   oneTimeUse: true
@@ -88,7 +88,7 @@
   activationDelaySecs: 600
   requireReason: true
   fee: 5000
-  salaryPenalty: 0.05
+  #salaryPenalty: 0.05 # Omu
   actionType: GameRule
   gameruleId: ERTMedSpawn
   oneTimeUse: true
@@ -112,7 +112,7 @@
   activationDelaySecs: 600
   requireReason: true
   fee: 5000
-  salaryPenalty: 0.05
+  #salaryPenalty: 0.05 # Omu
   actionType: GameRule
   gameruleId: ERTJaniSpawn
   oneTimeUse: true
@@ -136,14 +136,14 @@
   activationDelaySecs: 600
   requireReason: true
   fee: 5000
-  salaryPenalty: 0.05
+  #salaryPenalty: 0.05 # Omu
   actionType: GameRule
   gameruleId: ERTChaplainSpawn
   oneTimeUse: true
   sortOrder: 80
   authGroups:
-    - [Captain, Ntrep]
-    - [Captain, Ntrep]
+    - [Captain, NanotrasenRepresentative] # Omu replace Ntrep with  NanotrasenRepresentative
+    - [Captain, NanotrasenRepresentative] # Omu replace Ntrep with  NanotrasenRepresentative
   authGroupLabels:
     - "Captain / NTR (1)"
     - "Captain / NTR (2)"
@@ -161,7 +161,7 @@
   requiresWarNotDeclared: true
   requireReason: true
   fee: 8000
-  salaryPenalty: 0.1
+  #salaryPenalty: 0.1 # Omu
   actionType: GameRule
   gameruleId: ERTCBURNSpawn
   oneTimeUse: true
@@ -191,13 +191,13 @@
   requireReason: true
   requiresAdminApproval: true
   fee: 2500
-  salaryPenalty: 0.1
+  #salaryPenalty: 0.1 # Omu
   actionType: AlertLevel
   alertLevel: gamma
   sortOrder: 10
   authGroups:
-    - [Captain, HeadOfSecurity, Ntrep]
-    - [Captain, HeadOfSecurity, Ntrep]
+    - [Captain, HeadOfSecurity, NanotrasenRepresentative] # Omu replace Ntrep with  NanotrasenRepresentative
+    - [Captain, HeadOfSecurity, NanotrasenRepresentative] # Omu replace Ntrep with  NanotrasenRepresentative
   authGroupLabels:
     - "Captain / HoS / NTR (1)"
     - "Captain / HoS / NTR (2)"
@@ -205,48 +205,48 @@
   authTimer: 30
 
 # ── Code PSI ──────────────────────────────────────────────────────────────────
-- type: secureTerminalRequest
-  id: CodePsi
-  name: secure-terminal-code-psi-name
-  description: secure-terminal-code-psi-desc
-  announcement: secure-terminal-code-psi-announcement
-  announcementColor: "#2288ff"
-  activationDelaySecs: 5
-  fee: 2500
-  salaryPenalty: 0.1
-  actionType: AlertLevel
-  alertLevel: psi
-  sortOrder: 20
-  authGroups:
-    - [Captain, HeadOfSecurity, ResearchDirector]
-    - [Captain, HeadOfSecurity, ResearchDirector]
-  authGroupLabels:
-    - "Captain / HoS / RD (1)"
-    - "Captain / HoS / RD (2)"
-  cooldownSecs: 900
-  authTimer: 30
+#- type: secureTerminalRequest # Omu, we don't have this alert level.
+#  id: CodePsi
+#  name: secure-terminal-code-psi-name
+#  description: secure-terminal-code-psi-desc
+#  announcement: secure-terminal-code-psi-announcement
+#  announcementColor: "#2288ff"
+#  activationDelaySecs: 5
+#  fee: 2500
+#  #salaryPenalty: 0.1 # Omu
+#  actionType: AlertLevel
+#  alertLevel: psi
+#  sortOrder: 20
+#  authGroups:
+#    - [Captain, HeadOfSecurity, ResearchDirector]
+#    - [Captain, HeadOfSecurity, ResearchDirector]
+#  authGroupLabels:
+#    - "Captain / HoS / RD (1)"
+#    - "Captain / HoS / RD (2)"
+#  cooldownSecs: 900
+#  authTimer: 30
 
 # ── Code Violet ──────────────────────────────────────────────────────────────────
-- type: secureTerminalRequest
-  id: CodeViolet
-  name: secure-terminal-code-violet-name
-  description: secure-terminal-code-violet-desc
-  announcementColor: Violet
-  proposalAnnouncement: false
-  activationDelaySecs: 5
-  fee: 0
-  salaryPenalty: 0.0
-  actionType: AlertLevel
-  alertLevel: violet
-  sortOrder: 25
-  authGroups:
-    - [Captain, HeadOfSecurity, ChiefMedicalOfficer, ResearchDirector]
-    - [Captain, HeadOfSecurity, ChiefMedicalOfficer, ResearchDirector]
-  authGroupLabels:
-    - "Captain / HoS / CMO / RD (1)"
-    - "Captain / HoS / CMO / RD (2)"
-  cooldownSecs: 600
-  authTimer: 30
+#- type: secureTerminalRequest # Omu, this shouldn't be locked to vote yet.
+#  id: CodeViolet
+#  name: secure-terminal-code-violet-name
+#  description: secure-terminal-code-violet-desc
+#  announcementColor: Violet
+#  proposalAnnouncement: false
+#  activationDelaySecs: 5
+#  fee: 0
+#  #salaryPenalty: 0.0 # Omu
+#  actionType: AlertLevel
+#  alertLevel: violet
+#  sortOrder: 25
+#  authGroups:
+#    - [Captain, HeadOfSecurity, ChiefMedicalOfficer, ResearchDirector]
+#    - [Captain, HeadOfSecurity, ChiefMedicalOfficer, ResearchDirector]
+#  authGroupLabels:
+#    - "Captain / HoS / CMO / RD (1)"
+#    - "Captain / HoS / CMO / RD (2)"
+#  cooldownSecs: 600
+#  authTimer: 30
 
 # ── End GAMMA ─────────────────────────────────────────────────────────────────
 - type: secureTerminalRequest
@@ -258,66 +258,66 @@
   proposalAnnouncement: false
   activationDelaySecs: 5
   fee: 0
-  salaryPenalty: 0.0
+  #salaryPenalty: 0.0 # Omu
   actionType: AlertLevel
   alertLevel: green
   requiresAlertLevel: gamma
   requiresAlertActiveMinutes: 15
   sortOrder: 12
   authGroups:
-    - [Captain, HeadOfSecurity, Ntrep]
-    - [Captain, HeadOfSecurity, Ntrep]
+    - [Captain, HeadOfSecurity, NanotrasenRepresentative] # Omu replace Ntrep with  NanotrasenRepresentative
+    - [Captain, HeadOfSecurity, NanotrasenRepresentative] # Omu replace Ntrep with  NanotrasenRepresentative
   authGroupLabels:
     - "Captain / HoS / NTR (1)"
     - "Captain / HoS / NTR (2)"
   cooldownSecs: 0
 
 # ── End Violet ─────────────────────────────────────────────────────────────────
-- type: secureTerminalRequest
-  id: EndViolet
-  parentId: CodeViolet
-  name: secure-terminal-end-violet-name
-  description: secure-terminal-end-violet-desc
-  announcementColor: Violet
-  proposalAnnouncement: false
-  activationDelaySecs: 5
-  fee: 0
-  salaryPenalty: 0.0
-  actionType: AlertLevel
-  alertLevel: green
-  requiresAlertLevel: violet
-  requiresAlertActiveMinutes: 10
-  sortOrder: 12
-  authGroups:
-    - [Captain, HeadOfSecurity, ChiefMedicalOfficer, ResearchDirector]
-  authGroupLabels:
-    - "Captain / HoS / CMO / RD (1)"
-  cooldownSecs: 0
+#- type: secureTerminalRequest # Omu, this shouldn't require a vote yet.
+#  id: EndViolet
+#  parentId: CodeViolet
+#  name: secure-terminal-end-violet-name
+#  description: secure-terminal-end-violet-desc
+#  announcementColor: Violet
+#  proposalAnnouncement: false
+#  activationDelaySecs: 5
+#  fee: 0
+#  #salaryPenalty: 0.0 # Omu
+#  actionType: AlertLevel
+#  alertLevel: green
+#  requiresAlertLevel: violet
+#  requiresAlertActiveMinutes: 10
+#  sortOrder: 12
+#  authGroups:
+#    - [Captain, HeadOfSecurity, ChiefMedicalOfficer, ResearchDirector]
+#  authGroupLabels:
+#    - "Captain / HoS / CMO / RD (1)"
+#  cooldownSecs: 0
 
 # ── End PSI ───────────────────────────────────────────────────────────────────
-- type: secureTerminalRequest
-  id: EndPsi
-  parentId: CodePsi
-  name: secure-terminal-end-psi-name
-  description: secure-terminal-end-psi-desc
-  announcement: secure-terminal-end-psi-announcement
-  announcementColor: "#66ff99"
-  proposalAnnouncement: false
-  activationDelaySecs: 5
-  fee: 0
-  salaryPenalty: 0.0
-  actionType: AlertLevel
-  alertLevel: green
-  requiresAlertLevel: psi
-  requiresAlertActiveMinutes: 15
-  sortOrder: 22
-  authGroups:
-    - [Captain, HeadOfSecurity, ResearchDirector]
-    - [Captain, HeadOfSecurity, ResearchDirector]
-  authGroupLabels:
-    - "Captain / HoS / RD (1)"
-    - "Captain / HoS / RD (2)"
-  cooldownSecs: 0
+#- type: secureTerminalRequest # Omu, we don't have this alert level.
+#  id: EndPsi
+#  parentId: CodePsi
+#  name: secure-terminal-end-psi-name
+#  description: secure-terminal-end-psi-desc
+#  announcement: secure-terminal-end-psi-announcement
+#  announcementColor: "#66ff99"
+#  proposalAnnouncement: false
+#  activationDelaySecs: 5
+#  fee: 0
+#  #salaryPenalty: 0.0 # Omu
+#  actionType: AlertLevel
+#  alertLevel: green
+#  requiresAlertLevel: psi
+#  requiresAlertActiveMinutes: 15
+#  sortOrder: 22
+#  authGroups:
+#    - [Captain, HeadOfSecurity, ResearchDirector]
+#    - [Captain, HeadOfSecurity, ResearchDirector]
+#  authGroupLabels:
+#    - "Captain / HoS / RD (1)"
+#    - "Captain / HoS / RD (2)"
+#  cooldownSecs: 0
 #region Armory
 
 # ── Gamma Armory ──────────────────────────────────────────────────────────────
@@ -330,7 +330,7 @@
   activationDelaySecs: 60
   requiresWarNotDeclared: true
   fee: 5000
-  salaryPenalty: 0.08
+  #salaryPenalty: 0.08 # Omu
   actionType: Armory
   armoryKey: gamma
   requiresAlertLevel: gamma
@@ -338,8 +338,8 @@
   oneTimeUse: true
   sortOrder: 11
   authGroups:
-    - [Captain, HeadOfSecurity, Ntrep]
-    - [Captain, HeadOfSecurity, Ntrep]
+    - [Captain, HeadOfSecurity, NanotrasenRepresentative] # Omu replace Ntrep with  NanotrasenRepresentative
+    - [Captain, HeadOfSecurity, NanotrasenRepresentative] # Omu replace Ntrep with  NanotrasenRepresentative
   authGroupLabels:
     - "Captain / HoS / NTR (1)"
     - "Captain / HoS / NTR (2)"
@@ -347,30 +347,30 @@
   authTimer: 30
 
 # ── Psi Armory ────────────────────────────────────────────────────────────────
-- type: secureTerminalRequest
-  id: ArmoryPsi
-  name: secure-terminal-armory-psi-name
-  description: secure-terminal-armory-psi-desc
-  announcement: secure-terminal-armory-psi-announcement
-  announcementColor: "#2288ff"
-  activationDelaySecs: 60
-  requiresWarNotDeclared: true
-  fee: 5000
-  salaryPenalty: 0.08
-  actionType: Armory
-  armoryKey: psi
-  requiresAlertLevel: psi
-  recallMinDelaySecs: 120
-  oneTimeUse: true
-  sortOrder: 21
-  authGroups:
-    - [Captain, HeadOfSecurity, ResearchDirector]
-    - [Captain, HeadOfSecurity, ResearchDirector]
-  authGroupLabels:
-    - "Captain / HoS / RD (1)"
-    - "Captain / HoS / RD (2)"
-  cooldownSecs: 3600
-  authTimer: 30
+#- type: secureTerminalRequest # Omu, we don't have this alert, in future could look at repurposing this for cyan, but not needed till we have Malf AI imo.
+#  id: ArmoryPsi
+#  name: secure-terminal-armory-psi-name
+#  description: secure-terminal-armory-psi-desc
+#  announcement: secure-terminal-armory-psi-announcement
+#  announcementColor: "#2288ff"
+#  activationDelaySecs: 60
+#  requiresWarNotDeclared: true
+#  fee: 5000
+#  #salaryPenalty: 0.08 # Omu
+#  actionType: Armory
+#  armoryKey: psi
+#  requiresAlertLevel: psi
+#  recallMinDelaySecs: 120
+#  oneTimeUse: true
+#  sortOrder: 21
+#  authGroups:
+#    - [Captain, HeadOfSecurity, ResearchDirector]
+#    - [Captain, HeadOfSecurity, ResearchDirector]
+#  authGroupLabels:
+#    - "Captain / HoS / RD (1)"
+#    - "Captain / HoS / RD (2)"
+#  cooldownSecs: 3600
+#  authTimer: 30
 
 # ── Emergency Medical Pod ─────────────────────────────────────────────────────
 - type: secureTerminalRequest
@@ -381,7 +381,7 @@
   announcementColor: "#33ff66"
   activationDelaySecs: 300
   fee: 5000
-  salaryPenalty: 0.05
+  #salaryPenalty: 0.05 # Omu
   actionType: Armory
   armoryKey: medical
   sortOrder: 30
@@ -405,7 +405,7 @@
   proposalAnnouncement: false
   activationDelaySecs: 0
   fee: 0
-  salaryPenalty: 0.0
+  #salaryPenalty: 0.0 # Omu
   actionType: AirlockAccess
   accessEnabled: true
   allowedAccesses:
@@ -431,7 +431,7 @@
   proposalAnnouncement: false
   activationDelaySecs: 0
   fee: 0
-  salaryPenalty: 0.0
+  #salaryPenalty: 0.0 # Omu
   actionType: AirlockAccess
   accessEnabled: false
   allowedAccesses:
@@ -453,7 +453,7 @@
   proposalAnnouncement: false
   activationDelaySecs: 0
   fee: 0
-  salaryPenalty: 0.0
+  #salaryPenalty: 0.0 # Omu
   actionType: AirlockAccess
   accessEnabled: true
   sortOrder: 120
@@ -476,7 +476,7 @@
   proposalAnnouncement: false
   activationDelaySecs: 0
   fee: 0
-  salaryPenalty: 0.0
+  #salaryPenalty: 0.0 # Omu
   actionType: AirlockAccess
   accessEnabled: false
   sortOrder: 121
@@ -499,13 +499,13 @@
   bypassIfNoAdmin: false
   activationDelaySecs: 30
   fee: 10000
-  salaryPenalty: 1
+  #salaryPenalty: 1 # Omu
   actionType: NukeCodes
   oneTimeUse: true
   sortOrder: 500
   authGroups:
-    - [Captain, Ntrep]
-    - [Captain, Ntrep]
+    - [Captain, NanotrasenRepresentative] # Omu replace Ntrep with  NanotrasenRepresentative
+    - [Captain, NanotrasenRepresentative] # Omu replace Ntrep with  NanotrasenRepresentative
     - [Command]
     - [Command]
     - [Command]
