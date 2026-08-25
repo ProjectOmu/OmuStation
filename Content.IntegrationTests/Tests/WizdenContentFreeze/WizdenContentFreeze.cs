@@ -24,7 +24,7 @@ public sealed class WizdenContentFreeze
         var protoMan = server.ProtoMan;
 
         var recipesCount = protoMan.Count<FoodRecipePrototype>();
-        var recipesLimit = 256; // Fucking Kill me Omu
+        var recipesLimit = 512; // Fucking Kill me Omu
 
         if (recipesCount > recipesLimit)
         {
