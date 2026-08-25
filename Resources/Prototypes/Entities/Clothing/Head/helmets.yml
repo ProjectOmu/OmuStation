@@ -177,6 +177,8 @@
   - type: IngestionBlocker
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: ZombificationResistance # Goobstation - Zombies
+    zombificationResistanceCoefficient: 0.9
   - type: Armor
     coverage:
     - Head
@@ -347,6 +349,8 @@
     coolingCoefficient: 0.8
   - type: FireProtection
     reduction: 0.15 # not fully sealed so less protection
+  - type: ZombificationResistance # Goobstation - Zombies
+    zombificationResistanceCoefficient: 0.9
   - type: IdentityBlocker
   - type: Tag
     tags:
@@ -389,6 +393,8 @@
     coolingCoefficient: 0.8
   - type: FireProtection
     reduction: 0.2
+  - type: ZombificationResistance # Goobstation - Zombies
+    zombificationResistanceCoefficient: 0.9
   - type: PressureProtection
     highPressureMultiplier: 0.25
     lowPressureMultiplier: 1000
