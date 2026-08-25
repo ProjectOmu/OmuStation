@@ -1,0 +1,45 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: BaseCosmicVFX
+  components:
+  - type: TimedDespawn
+    lifetime: 1.75
+  - type: Transform
+    noRot: true
+    anchored: false
+  - type: Sprite
+    netsync: false
+    drawdepth: Mobs
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseCosmicVFX
+  id: NoosphericVFX2
+  components:
+  - type: TimedDespawn
+    lifetime: 2.025
+  - type: Sprite
+    layers:
+    - sprite: _Starlight/CosmicCult/Effects/effect_ns_flarevfx.rsi
+      state: vfx
+      shader: unshaded
+  - type: PointLight
+    color: "#a35d7b"
+    radius: 1.5
+    energy: 2.5
+    castShadows: false
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      interpolate: Linear
+      minDuration: 1.575
+      maxDuration: 1.575
+      startValue: 0.1
+      endValue: 2
+      property: Energy
+      enabled: true
+      isLooped: true
+      reverseWhenFinished: true
