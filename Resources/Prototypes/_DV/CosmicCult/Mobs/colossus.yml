@@ -257,9 +257,6 @@
   - type: WeakToHoly # Holy Dmg
     alwaysTakeHoly: true
   - type: UniversalLanguageSpeaker # Omu, so it can talk to people
-  - type: StaminaResistance # Omu, no stamcriting the coscult mobs
-    damageCoefficient: 0
-    meleeResistance: true
 
 - type: entity
   parent: [ MobCosmicColossusBase ]
