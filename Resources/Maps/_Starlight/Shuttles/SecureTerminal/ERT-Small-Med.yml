@@ -670,7 +670,7 @@ entities:
       parent: 50
     - type: Physics
       canCollide: False
-- proto: BoneSetterAdvanced
+- proto: AdvancedBoneGel
   entities:
   - uid: 52
     components:
@@ -3958,7 +3958,7 @@ entities:
     - type: Transform
       pos: 9.504759,-2.6868804
       parent: 1
-- proto: HemostatAdvanced
+- proto: EnergyCautery
   entities:
   - uid: 55
     components:
@@ -4588,7 +4588,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -7.5,-2.5
       parent: 1
-- proto: RetractorAdvanced
+- proto: AdvancedRetractor
   entities:
   - uid: 56
     components:
@@ -4596,7 +4596,7 @@ entities:
       parent: 50
     - type: Physics
       canCollide: False
-- proto: SawAdvanced
+- proto: EnergyScalpel
   entities:
   - uid: 57
     components:
