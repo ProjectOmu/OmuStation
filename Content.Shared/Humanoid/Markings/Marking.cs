@@ -47,6 +47,7 @@ namespace Content.Shared.Humanoid.Markings
             _markingColors = new(other.MarkingColors);
             Visible = other.Visible;
             Forced = other.Forced;
+            GlowyBits = other.GlowyBits; // Omu - Glowy markings
         }
 
         /// <summary>
@@ -111,7 +112,8 @@ namespace Content.Shared.Humanoid.Markings
             return MarkingId.Equals(other.MarkingId)
                 && _markingColors.SequenceEqual(other._markingColors)
                 && Visible.Equals(other.Visible)
-                && Forced.Equals(other.Forced);
+                && Forced.Equals(other.Forced)
+                && GlowyBits.Equals(other.GlowyBits); // Omu - Glowy markings
         }
 
         // VERY BIG TODO: TURN THIS INTO JSONSERIALIZER IMPLEMENTATION
@@ -133,7 +135,7 @@ namespace Content.Shared.Humanoid.Markings
             foreach (Color color in _markingColors)
                 colorStringList.Add(color.ToHex());
 
-            return $"{sanitizedName}@{String.Join(',', colorStringList)}";
+            return $"{sanitizedName}@{string.Join(',', colorStringList)}@{GlowyBits}"; // Omu
         }
 
         public static Marking? ParseFromDbString(string input)
@@ -148,7 +150,7 @@ namespace Content.Shared.Humanoid.Markings
                 foreach (string color in split[1].Split(','))
                     colorList.Add(Color.FromHex(color));
 
-                return new Marking(split[0], colorList, 0); // Omu
+                return new Marking(split[0], colorList, 0); // Omu - Glowy markings
             }
 
             if (split.Length == 3)
@@ -168,7 +170,7 @@ namespace Content.Shared.Humanoid.Markings
         /// A bitwise index of which markingColors are glowing.
         /// </summary>
         [DataField]
-        public uint GlowyBits { get; private set; }
+        public uint GlowyBits { get; set; }
         // Omu end
 
         // Omu begin

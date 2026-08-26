@@ -14,12 +14,14 @@
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
   - type: Door
+    # Omu changes start, Animation fixes
     closeTimeOne: 0.4
-    closeTimeTwo: 0.4
+    closeTimeTwo: 0.8
     openTimeOne: 0.4
-    openTimeTwo: 0.4
-    openingAnimationTime: 1.0
-    closingAnimationTime: 1.0
+    openTimeTwo: 0.8
+    openingAnimationTime: 1.2
+    closingAnimationTime: 1.2
+    # Omu changes end
     canPry: false
     crushDamage:
       types:

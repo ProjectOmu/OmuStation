@@ -244,26 +244,13 @@
             max: 213.0
             scale: 1.6
           damage:
-            Airloss: -3
-            Brute: -4.5
-            Burn: -6
-            Toxin: -2
-        - !type:HealthChange # Double effect on corpses
-          conditions:
-          - !type:TemperatureCondition
-            max: 213.0
-          - !type:MobStateCondition
-            mobstate: Dead
-          scaleByTemperature:
-            min: 100.0
-            max: 213.0
-            scale: 1.6
-          damage:
-            groups:
-              Airloss: -3
-              Brute: -4.5
-              Burn: -6
-              Toxin: -2
+          # todo scale with temp like SS13
+          # Goob - Cryo buff till temp scaling is implemented
+            Airloss: -9 # Goob - Cryobuff
+            Brute: -9 # Goob - Cryobuff
+            Burn: -9 # Goob - Cryobuff
+            Toxin: -6 # Goob - Cryobuff
+          # Omu Start -- add bloddloss back to cryox
         - !type:ModifyBloodLevel
           conditions:
           - !type:TemperatureCondition
@@ -274,7 +261,7 @@
           - !type:TemperatureCondition
             max: 213.0
           amount: -1
-        # Omustation End
+          #Omu End
         - !type:GenericStatusEffect # Mono edit
           conditions:
             - !type:MetabolizerTypeCondition
@@ -1014,7 +1001,7 @@
             type:
             - Resomi
             - Avali
-            inverted: false
+            inverted: true # Omu, this should be true so that non-Resomi and non-Avali actually get blood
           # Starlight end
           amount: 12 # Goobstation - buffed by two times due to shitmed changes
         - !type:SatiateThirst
