@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 05/22/2026 05:34:14
-  entityCount: 201
+  entityCount: 199
 maps: []
 grids:
 - 1
@@ -277,20 +277,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 3.5,1.5
-      parent: 1
-- proto: AutoMenderBruteFilled
-  entities:
-  - uid: 195
-    components:
-    - type: Transform
-      pos: -1.0920017,1.5375162
-      parent: 1
-- proto: AutoMenderBurnFilled
-  entities:
-  - uid: 196
-    components:
-    - type: Transform
-      pos: -0.8576266,1.6000162
       parent: 1
 - proto: BedsheetMedical
   entities:
@@ -758,7 +744,7 @@ entities:
     - type: Transform
       pos: 1.5,-2.5
       parent: 1
-- proto: DefibrillatorParamed
+- proto: DefibrillatorCompact
   entities:
   - uid: 143
     components:
