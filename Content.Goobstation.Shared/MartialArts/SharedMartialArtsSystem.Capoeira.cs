@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.MartialArts;
@@ -83,8 +76,13 @@ public abstract partial class SharedMartialArtsSystem
 
     private void OnCapoeiraMeleeHit(EntityUid uid, ref MeleeHitEvent ev)
     {
-        if (ev.HitEntities.Count > 0 || ev.Weapon != uid)
+        if (ev.HitEntities.Count > 0) // Omu start - split these into two seperate checks
             return;
+        if (ev.Weapon != uid)
+        {
+            ClearMartialArtsModifiers(uid);
+            return;
+        } // Omu end
 
         // Damage up on miss
         ApplyMultiplier(uid,
@@ -269,7 +267,7 @@ public abstract partial class SharedMartialArtsSystem
         float multiplier,
         float modifier,
         TimeSpan time,
-        MartialArtModifierType type = MartialArtModifierType.AttackRate)
+        MartialArtModifierType type = MartialArtModifierType.AttackRate | MartialArtModifierType.Unarmed) // Omu, add MartialArtModifierType.Unarmed
     {
         if (Math.Abs(multiplier - 1f) < 0.001f
             && Math.Abs(modifier) < 0.001f

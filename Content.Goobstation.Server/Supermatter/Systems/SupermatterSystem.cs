@@ -1,30 +1,7 @@
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Discoded <33738298+Discoded@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 yahay505 <58685802+yahay505@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 yavuz <58685802+yahay505@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System;
 using System.Linq;
 using System.Text;
-using Content.Goobstation.Shared.Supermatter;
 using Content.Goobstation.Shared.Supermatter.Components;
 using Content.Goobstation.Shared.Supermatter.Systems;
 using Content.Server.AlertLevel;
@@ -33,15 +10,14 @@ using Content.Server.Audio;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Explosion.EntitySystems;
-using Content.Server.Kitchen.Components;
 using Content.Server.Lightning;
-using Content.Server.Popups;
 using Content.Server.Station.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Atmos;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
+using Content.Shared.Electrocution;
 using Content.Shared.EntityEffects.EffectConditions;    //omu for emitters
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
@@ -67,6 +43,7 @@ using Content.Server.Chat.Managers;
 using Content.Shared.Humanoid;
 using Content.Shared.Objectives.Components;
 using Robust.Shared.Player;
+using Content.Goobstation.Shared.MisandryBox.Smites;
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
@@ -91,6 +68,10 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     [Dependency] private readonly RadioSystem _radioSystem = default!;    //omu
     [Dependency] private readonly IChatManager _achat = default!; // omu
     [Dependency] private readonly TagSystem _tag = default!;    //omu
+    [Dependency] private readonly ThunderstrikeSystem _thunderstrikeSystem = default!;
+
+    private const string LTGSM = "/Textures/_Goobstation/MisandryBox/LTGSM.png";
+
     private DelamType _delamType = DelamType.Explosion;
 
     public override void Initialize()
@@ -748,8 +729,13 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             _adminLog.Add(LogType.Supermatter, LogImpact.Medium, $"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");
             if (HasComp<HumanoidAppearanceComponent>(target) || HasComp<ActorComponent>(target) || HasComp<StealTargetComponent>(target))     //omu - alert for humanoids, controld entities, and steal targets
                 _achat.SendAdminAlert($"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");      //omu admin alert
-            EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
-            _audio.PlayPvs(sm.DustSound, uid);
+            if (HasComp<ActorComponent>(target))
+                _thunderstrikeSystem.Smite(target, true, null, LTGSM); // funny :3
+            else
+            {
+                EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
+                _audio.PlayPvs(sm.DustSound, uid);
+            }
         }
         QueueDel(target);               //omu changed on advice
     }

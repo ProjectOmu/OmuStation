@@ -1,25 +1,3 @@
-# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DarkenedSynergy <70016079+DarkenedSynergy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Theapug <159912420+Teapug@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Weide <64257676+Lyacs@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Jarl <140098675+JarlElbowses@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Jarl <elliotacline@gmail.com>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
-# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
-# SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
-# SPDX-FileCopyrightText: 2026 ThanosDeGraf <richardgirgindontstop@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # RD
@@ -995,6 +973,7 @@
   - NanotrasenRepresentativeJumpskirt
   - NTRMJ
   - NanotrasenRepresentativeFancyJumpsuit
+  - CentcommTurtleneck #Omu
   - CCAgentJumpsuit #Omu
   - CCAgentJumpskirt #Omu
 
@@ -1013,6 +992,12 @@
   - LaceupShoes
   - NanotrasenRepresentativeShoes
   - NanotrasenRepresentativeHeels
+
+- type: loadoutGroup
+  id: NanotrasenRepresentativeJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieNTR
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeGloves
@@ -1125,6 +1110,12 @@
   - BSOAdvancedJackBoots #Omu
 
 - type: loadoutGroup
+  id: BlueshieldOfficerJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieBSO
+
+- type: loadoutGroup
   id: BlueshieldOfficerEnvirohelm
   name: loadout-group-bso-envirohelm
   minLimit: 1
@@ -1208,6 +1199,12 @@
   loadouts:
   - NanotrasenTrainerBoots
   - NanotrasenTrainerShoes
+
+- type: loadoutGroup
+  id: NanotrasenTrainerJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieCC
 
 # Reporter
 
@@ -1306,6 +1303,8 @@
   - LaceupShoes
   - CaptainLeatherShoes
   - CaptainHeels
+  - WhiteShoes #omu
+  - WinterBoots #omu
 
 - type: loadoutGroup
   id: CaptainMask
@@ -1539,6 +1538,13 @@
   - LongcoatBrigmedic # DeltaV Longcoats
 
 - type: loadoutGroup
+  id: BrigmedicJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieBrigmedic
+  - SecStar
+
+- type: loadoutGroup
   id: BrigmedicBackpack
   name: loadout-group-brigmedic-backpack
   loadouts:
@@ -1708,6 +1714,12 @@
    - VirologistPDA
 
 - type: loadoutGroup
+  id: VirologistJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieVirologist
+
+- type: loadoutGroup
   id: VirologyEnvirohelm
   name: loadout-group-virology-envirohelm
   minLimit: 1
@@ -1766,3 +1778,9 @@
   - ShaftMinerMJ
   - VintageShaftMinerJumpsuit # Omu
   - SalvageJumpskirt # Omu
+
+- type: loadoutGroup
+  id: ShaftMinerJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieShaftMiner
