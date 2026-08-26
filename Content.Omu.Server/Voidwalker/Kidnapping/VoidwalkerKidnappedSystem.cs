@@ -77,8 +77,13 @@ public sealed class VoidwalkerKidnappedSystem : EntitySystem
             _transform.SetCoordinates(uid, randomPos);
         else
         {
-            _teleportFailCount[uid] += 1;
-            if (_teleportFailCount[uid] >= MaxTeleportAttemptFails)
+            if (!_teleportFailCount.TryGetValue(uid, out var failCount))
+                failCount = 0;
+
+            failCount++;
+
+            _teleportFailCount[uid] = failCount;
+            if (failCount >= MaxTeleportAttemptFails)
             {
                 _sawmill.Warning($"Could not find station to return {ToPrettyString(uid)} to within {MaxTeleportAttempts * MaxTeleportAttemptFails} attempts. Deleting.");
                 Del(uid);
