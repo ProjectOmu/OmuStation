@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 08/26/2026 21:51:02
-  entityCount: 27777
+  time: 08/26/2026 21:54:53
+  entityCount: 27779
 maps:
 - 1
 grids:
@@ -11502,7 +11502,7 @@ entities:
       pos: -42.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -22016.18
+      secondsUntilStateChange: -22090.754
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -170267,6 +170267,18 @@ entities:
       parent: 2
 - proto: Windoor
   entities:
+  - uid: 21237
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -39.5,40.5
+      parent: 2
+  - uid: 22591
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -39.5,39.5
+      parent: 2
   - uid: 23207
     components:
     - type: Transform
