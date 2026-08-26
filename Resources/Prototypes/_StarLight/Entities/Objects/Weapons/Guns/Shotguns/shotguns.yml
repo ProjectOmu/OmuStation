@@ -1,0 +1,115 @@
+- type: entity
+  name: BaseWeaponShotgun
+  parent: BaseItem
+  id: BaseWeaponShotgunAny
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+#  - type: RestrictByUserTag # Omu, this doesn't exist here
+#    doestContain:
+#    - Abductor
+#    messages:
+#    - abductor-gun-restricted-1
+#  - type: KnockbackByUserTag # Omu, this doesn't exist here
+#    doestContain:
+#      Skating:
+#        knockback: 2
+#        staminaMultiplier: 50
+#      Rodentia:
+#        knockback: 3
+#        staminaMultiplier: 30
+#      Resomi:
+#        knockback: 3
+#        staminaMultiplier: 30
+#      Felionoid:
+#        knockback: 1.5 #half of what resomi take
+#        staminaMultiplier: 30
+  - type: Sprite
+    layers:
+    - state: icon
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,4,0
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+#      firing_pin: !type:Container # Omu, this doesn't exist here
+  - type: StaticPrice
+    price: 500
+#  - type: ContainerFill # Omu, this doesn't exist here
+#    containers:
+#      firing_pin:
+#      - FiringPin
+#  - type: FiringPinHolder # Omu, this doesn't exist here
+#    supportedPins: [ Rifle, GunUpgrade ]
+
+- type: entity
+  name: riot shotgun
+  parent: [BaseWeaponShotgunAny, BaseGunWieldable, BaseSecurityContraband]
+  id: WeaponShotgunRiot
+  description: A sturdy shotgun with a longer magazine and a fixed tactical grip designed for non-lethal riot control.
+  components:
+  - type: Item
+    sprite: _Starlight/Objects/Weapons/Guns/Shotguns/riot_inhands_64x.rsi
+  - type: Sprite
+    sprite: _Starlight/Objects/Weapons/Guns/Shotguns/riot.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    spread: 35
+    fireRate: .7
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+  - type: Clothing
+    sprite: _Starlight/Objects/Weapons/Guns/Shotguns/riot.rsi
+  - type: GunRequiresWield
+# - type: Construction
+#   graph: ShotgunRiotSawn
+#   node: start
+#   deconstructionTarget: null
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineShotgun
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineShotgun
+        whitelistFailPopup: gun-magazine-whitelist-fail
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+#      firing_pin: !type:Container # starlight # Omu, this doesn't exist here
+  - type: ChamberMagazineAmmoProvider
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance

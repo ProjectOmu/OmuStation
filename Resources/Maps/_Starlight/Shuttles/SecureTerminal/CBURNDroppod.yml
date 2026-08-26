@@ -3225,14 +3225,14 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -5.5,-3.5
       parent: 1
-- proto: ChairOfficeDark
+- proto: SpawnVehicleChairOfficeDark
   entities:
   - uid: 433
     components:
     - type: Transform
       pos: 3.5,-8.5
       parent: 1
-- proto: ChairOfficeLight
+- proto: SpawnVehicleChairOfficeLight
   entities:
   - uid: 434
     components:
@@ -5897,7 +5897,7 @@ entities:
     - type: Transform
       pos: -2.5,2.5
       parent: 1
-- proto: GnomePlushie
+- proto: PlushieLizardJobHeadofsecurity
   entities:
   - uid: 808
     components:
