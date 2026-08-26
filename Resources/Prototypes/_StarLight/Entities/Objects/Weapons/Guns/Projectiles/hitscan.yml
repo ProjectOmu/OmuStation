@@ -1,0 +1,18 @@
+- type: entity
+  id: PointDefenseBeam
+  name: Point Defense beam
+  parent: BasicHitscanNoBeam
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicRaycast
+    maxDistance: 30
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Starlight/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: pd_muzzle
+    travelFlash:
+      sprite: _Starlight/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: pd_trace
+    impactFlash:
+      sprite: _Starlight/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: pd_impact

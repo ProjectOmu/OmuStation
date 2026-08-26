@@ -26,6 +26,8 @@ using Content.Shared.UserInterface;
 using Robust.Shared.Prototypes;
 using Content.Shared.Access.Systems; // Frontier
 using Content.Shared.Construction.Components; // Frontier
+using Content.Server._Starlight.Shuttles.Systems;
+using Content.Server._Starlight.Shuttles.Components;
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -44,6 +46,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     [Dependency] private readonly SharedContentEyeSystem _eyeSystem = default!;
 
     [Dependency] private readonly _Lavaland.Shuttles.Systems.DockingConsoleSystem _dockingConsole = default!; // Lavaland Change: FTL
+    [Dependency] private RadarLaserSystem _laserSystem = default!; // _Starlight
 
     private EntityQuery<MetaDataComponent> _metaQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -298,6 +301,30 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
 
         if (_ui.HasUi(consoleUid, ShuttleConsoleUiKey.Key))
         {
+
+            // Starlight start - populate laser traces
+            var consoleMapCoords = _transform.GetMapCoordinates(consoleUid);
+            var maxRangeSq = navState.MaxRange * navState.MaxRange;
+            // Populate laser traces from hitscan guns with RadarLaserTrackerComponent.
+            var laserQuery = AllEntityQuery<RadarLaserTrackerComponent, TransformComponent>();
+            while (laserQuery.MoveNext(out var laserUid, out var tracker, out var laserXform))
+            {
+                if (laserXform.MapID != consoleMapCoords.MapId)
+                    continue;
+                foreach (var (origin, dir, _) in tracker.Traces)
+                {
+                    // Only show traces from guns within radar range.
+                    if ((origin.Position - consoleMapCoords.Position).LengthSquared() > maxRangeSq)
+                        continue;
+                    navState.Lasers.Add(new RadarLaserData(
+                        GetNetCoordinates(laserXform.Coordinates),
+                        dir,
+                        tracker.MaxRange,
+                        tracker.LaserColor));
+                }
+            }
+            // Starlight end
+
             _ui.SetUiState(consoleUid, ShuttleConsoleUiKey.Key, new ShuttleBoundUserInterfaceState(navState, mapState, dockState));
         }
     }
