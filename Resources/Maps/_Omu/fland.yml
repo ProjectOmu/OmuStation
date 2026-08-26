@@ -157202,15 +157202,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 35.5,20.5
       parent: 2
-- proto: GlowstickBase
+- proto: GlowstickPurple
   entities:
   - uid: 23148
     components:
     - type: Transform
       pos: -36.55174,19.49518
       parent: 2
-- proto: GlowstickPurple
-  entities:
   - uid: 23149
     components:
     - type: Transform
