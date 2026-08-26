@@ -863,7 +863,7 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/Effects/Gasp/male_deathgasp_3.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
