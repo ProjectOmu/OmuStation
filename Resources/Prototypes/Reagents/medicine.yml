@@ -250,6 +250,18 @@
             Brute: -9 # Goob - Cryobuff
             Burn: -9 # Goob - Cryobuff
             Toxin: -6 # Goob - Cryobuff
+          # Omu Start -- add bloddloss back to cryox
+        - !type:ModifyBloodLevel
+          conditions:
+          - !type:TemperatureCondition
+            max: 213.0
+          amount: 8
+        - !type:ModifyBleed
+          conditions:
+          - !type:TemperatureCondition
+            max: 213.0
+          amount: -1
+          #Omu End
         - !type:GenericStatusEffect # Mono edit
           conditions:
             - !type:MetabolizerTypeCondition
@@ -989,7 +1001,7 @@
             type:
             - Resomi
             - Avali
-            inverted: false
+            inverted: true # Omu, this should be true so that non-Resomi and non-Avali actually get blood
           # Starlight end
           amount: 12 # Goobstation - buffed by two times due to shitmed changes
         - !type:SatiateThirst
