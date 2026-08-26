@@ -77,8 +77,10 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
+  - type: GunSpreadModifier # Omu
+    spread: 1.5
   - type: Gun
-    spread: 35
+    #spread: 35 # Omu
     fireRate: .7
     selectedMode: FullAuto
     availableModes:
