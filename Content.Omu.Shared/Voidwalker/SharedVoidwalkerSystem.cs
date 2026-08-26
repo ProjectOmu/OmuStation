@@ -27,6 +27,9 @@ public sealed class SharedVoidwalkerSystem : EntitySystem
 
     private void OnSpacedStatusChanged(Entity<VoidwalkerComponent> entity, ref VoidwalkerSpacedStatusChangedEvent args)
     {
+        if (TerminatingOrDeleted(entity))
+            return;
+
         if (args.Spaced && entity.Comp.UnsettleDoAfterId == null) // if spaced and not currently performing unsettle, go invis
         {
             EnsureComp<StealthComponent>(entity); // Okay, this is a weird way to do this, but stealth literally doesn't work if you enable/disable it so IDK :shrug:
