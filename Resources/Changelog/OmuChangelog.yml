@@ -6541,3 +6541,155 @@ Entries:
       message: Surgery GUI for Borgs
   id: 854
   time: '2026-08-24T02:35:57.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: >-
+        brought back cortical stacks after upstream merge accidentally removed
+        them
+  id: 855
+  time: '2026-08-24T19:31:08.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Remove
+      message: 'Removed Snowball from rotation '
+  id: 856
+  time: '2026-08-24T22:02:58.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: >-
+        The m1 garand duty case set now has 2 extra clips just like the rest of
+        the duty case guns
+  id: 857
+  time: '2026-08-24T22:18:54.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixes lollypops spamming popups in chat.
+  id: 858
+  time: '2026-08-24T22:19:28.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: >-
+        Added a "steal small species objective" for thief (Avali, Resomi,
+        Rodentia, Tajaran, Felinid)  (This was not my idea)
+  id: 859
+  time: '2026-08-24T22:20:14.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added the stock market, for enlightened gambling addicts.
+  id: 860
+  time: '2026-08-24T22:23:03.0000000+00:00'
+- author: pceererthegreat
+  changes:
+    - type: Add
+      message: >-
+        Added Hydrakin voice to the selection, now Hydrakins (and Harpies) can
+        have their own voice! Yay!
+  id: 861
+  time: '2026-08-24T23:56:20.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Cryo chems should heal every body part now rather than just vital part
+  id: 862
+  time: '2026-08-24T23:58:43.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Players can now heal their blood back.
+  id: 863
+  time: '2026-08-25T09:17:02.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Polymorph chems no longer transform at lower than expected values
+  id: 864
+  time: '2026-08-25T10:31:05.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added the vgroid back
+    - type: Add
+      message: >-
+        Ported gas mining content, admin only for now pending proper balancing -
+        gas selling not mapped or configured
+  id: 865
+  time: '2026-08-25T12:51:47.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Wideswinging (Right click attack) has a stamina penalty now
+  id: 866
+  time: '2026-08-25T20:48:46.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed Colossus getting objs that target CC/Arrivals.
+    - type: Fix
+      message: >-
+        Fixed Coscult empowerment being lost when attempting to convert an
+        invalid target.
+  id: 867
+  time: '2026-08-25T20:51:30.0000000+00:00'
+- author: Holorain4312
+  changes:
+    - type: Add
+      message: Sprites for when sake gourds are closed
+  id: 868
+  time: '2026-08-25T21:23:37.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Fix
+      message: Chimera who were crew now have to be spiked to be butchered
+  id: 869
+  time: '2026-08-25T21:24:54.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: Shutters and blast doors have been resprited.
+  id: 870
+  time: '2026-08-25T21:39:26.0000000+00:00'
+- author: Holorain
+  changes:
+    - type: Tweak
+      message: Robust harvest now turns dionas into trees at 40u instead of 80u
+  id: 871
+  time: '2026-08-26T09:49:05.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        Saline now refills the blood of everyone except Avali/Resomi as it's
+        supposed to.
+  id: 872
+  time: '2026-08-26T09:50:51.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Tweak
+      message: Voxes can now be a lot more colorful.
+  id: 873
+  time: '2026-08-26T09:54:38.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Fix
+      message: Standard Female IPC torso has its name back in the marking menu.
+  id: 874
+  time: '2026-08-26T09:58:10.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: Fixed chat messages from not sending because of invalid markdown tags.
+  id: 875
+  time: '2026-08-26T09:58:58.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        The Janitor's Key ring now shows the proper message when successfully
+        unlocking a door.
+  id: 876
+  time: '2026-08-26T10:10:38.0000000+00:00'

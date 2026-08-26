@@ -105,6 +105,9 @@
        enabled: true
        isLooped: true
        reverseWhenFinished: true
+  - type: StaminaResistance # Omu, no stamcriting the coscult mobs
+    damageCoefficient: 0
+    meleeResistance: true
 
 - type: entity
   parent: [ BaseMobCosmicHostile, MobCosmicCustodian ]
