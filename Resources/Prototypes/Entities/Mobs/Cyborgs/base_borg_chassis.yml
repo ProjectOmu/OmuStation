@@ -105,20 +105,20 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
-    # - Binary # Goobstation - replaced with collective mind
+    - Binary # Goobstation - replaced with collective mind # Omu, make binary a radio again.
     - Common
     - Science
   - type: ActiveRadio
     channels:
-    # - Binary # Goobstation - replaced with collective mind
+    - Binary # Goobstation - replaced with collective mind # Omu, make binary a radio again.
     - Common
     - Science
   # Goobstation
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
-    canUseInCrit: true # Goobstation
+  #- type: CollectiveMind # Omu, make binary a radio again.
+  #  defaultChannel: Binary
+  #  channels:
+  #  - Binary
+  #  canUseInCrit: true # Goobstation
   - type: ZombieImmune
   - type: Repairable
     doAfterDelay: 10
@@ -431,11 +431,11 @@
     subverted: true
   - type: IntrinsicRadioTransmitter
     channels:
-    # - Binary  # Goobstation - replaced with collective mind
+    - Binary  # Goobstation - replaced with collective mind # Omu, make binary a radio again.
     - Syndicate
   - type: ActiveRadio
     channels:
-    # - Binary # Goobstation collectivemind binary
+    - Binary # Goobstation collectivemind binary # Omu, make binary a radio again.
     - Syndicate
   - type: ShowSyndicateIcons
   - type: MovementAlwaysTouching
@@ -507,11 +507,11 @@
   - type: IntrinsicRadioTransmitter # Copy components from base SyndiBorg but without the stuff we don't want
     channels:
     - Common # Goobstation i need this to not be null and if theyre derelict its whatever
-    #- Binary #1984 # Goobstation collectivemind binary
+    - Binary #1984 # Goobstation collectivemind binary # Omu, make binary a radio again.
   - type: ActiveRadio
     channels:
     - Common # Goobstation i need this to not be null and if theyre derelict its whatever
-    #- Binary # Goobstation collectivemind binary
+    - Binary # Goobstation collectivemind binary # Omu, make binary a radio again.
   - type: MovementAlwaysTouching
   - type: Speech
     speechSounds: SyndieBorg
@@ -524,10 +524,10 @@
     color: "#dd200b"
   - type: BypassLock
     bypassDelay: 15 # We don't want people to easily be able to remove syndieborg brains.
-  - type: CollectiveMind # Goobstation collectivemind binary
-    defaultChannel: Binary
-    channels:
-    - Binary
+  #- type: CollectiveMind # Goobstation collectivemind binary # Omu, make binary a radio again.
+  #  defaultChannel: Binary
+  #  channels:
+  #  - Binary
 
 - type: entity
   parent: BaseBorgChassisNotIonStormable
@@ -555,17 +555,19 @@
     laws: XenoborgLawset # custom laws here
     subverted: true
   - type: IntrinsicRadioReceiver # Goob - moved binary to CM
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
+  #- type: CollectiveMind # Omu, make binary a radio again.
+  #  defaultChannel: Binary
+  #  channels:
+  #  - Binary
   - type: IntrinsicRadioTransmitter # can only use binary and xenoborg channel
     channels:
     - Xenoborg
+    - Binary # Omu, make binary a radio again.
   - type: ActiveRadio # but can hear the mothership channel
     channels:
     - Mothership
     - Xenoborg
+    - Binary # Omu, make binary a radio again.
   - type: Repairable
     doAfterDelay: 13 # 25% more HP, so 30% more time to heal
   - type: BorgChassis

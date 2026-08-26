@@ -25,3 +25,28 @@
   id: ClothingJacketParamedBlue
   equipment:
     outerClothing: ClothingOuterJacketParamed
+
+# Back
+- type: loadout
+  id: ParamedBackpack
+  equipment:
+    back: ClothingBackpackParamedic
+  groupBy: "backpack"
+
+- type: loadout
+  id: ParamedSatchel
+  equipment:
+    back: ClothingBackpackSatchelParamedic
+  groupBy: "satchel"
+
+- type: loadout
+  id: ParamedDuffel
+  equipment:
+    back: ClothingBackpackDuffelParamedic
+  groupBy: "duffel"
+
+- type: loadout
+  id: ParamedMessenger
+  equipment:
+    back: ClothingBackpackMessengerParamedic
+  groupBy: "messenger"
