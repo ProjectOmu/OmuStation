@@ -994,6 +994,12 @@
   - NanotrasenRepresentativeHeels
 
 - type: loadoutGroup
+  id: NanotrasenRepresentativeJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieNTR
+
+- type: loadoutGroup
   id: NanotrasenRepresentativeGloves
   name: loadout-group-ntr-gloves
   loadouts:
@@ -1104,6 +1110,12 @@
   - BSOAdvancedJackBoots #Omu
 
 - type: loadoutGroup
+  id: BlueshieldOfficerJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieBSO
+
+- type: loadoutGroup
   id: BlueshieldOfficerEnvirohelm
   name: loadout-group-bso-envirohelm
   minLimit: 1
@@ -1187,6 +1199,12 @@
   loadouts:
   - NanotrasenTrainerBoots
   - NanotrasenTrainerShoes
+
+- type: loadoutGroup
+  id: NanotrasenTrainerJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieCC
 
 # Reporter
 
@@ -1520,6 +1538,13 @@
   - LongcoatBrigmedic # DeltaV Longcoats
 
 - type: loadoutGroup
+  id: BrigmedicJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieBrigmedic
+  - SecStar
+
+- type: loadoutGroup
   id: BrigmedicBackpack
   name: loadout-group-brigmedic-backpack
   loadouts:
@@ -1689,6 +1714,12 @@
    - VirologistPDA
 
 - type: loadoutGroup
+  id: VirologistJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieVirologist
+
+- type: loadoutGroup
   id: VirologyEnvirohelm
   name: loadout-group-virology-envirohelm
   minLimit: 1
@@ -1747,3 +1778,9 @@
   - ShaftMinerMJ
   - VintageShaftMinerJumpsuit # Omu
   - SalvageJumpskirt # Omu
+
+- type: loadoutGroup
+  id: ShaftMinerJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieShaftMiner
