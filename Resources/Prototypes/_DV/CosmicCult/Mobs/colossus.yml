@@ -256,6 +256,7 @@
     - CosmicColossus
   - type: WeakToHoly # Holy Dmg
     alwaysTakeHoly: true
+  - type: UniversalLanguageSpeaker # Omu, so it can talk to people
 
 - type: entity
   parent: [ MobCosmicColossusBase ]

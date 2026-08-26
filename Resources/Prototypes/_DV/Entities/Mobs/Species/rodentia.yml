@@ -126,6 +126,8 @@
       Unsexed: MaleRodentia
   - type: Rummager
   - type: AlwaysTriggerMousetrap
+  - type: StealTarget # Omu
+    stealGroup: StealLittlePerson
   - type: PseudoItem
     storedOffset: -10,0
     shape:

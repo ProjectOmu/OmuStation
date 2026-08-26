@@ -182,6 +182,9 @@
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
         - !type:DumpCanisterBehavior
+    - type: Construction
+      graph: NFStorageCanister
+      node: storagecanister
 
 # Filled canisters, contain 1871.71051 moles each
 
