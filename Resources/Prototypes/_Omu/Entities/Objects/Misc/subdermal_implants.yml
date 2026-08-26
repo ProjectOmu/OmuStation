@@ -72,3 +72,18 @@
   - type: ComponentsImplant
     added:
     - type: TargetObjectiveImmune
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: CaveSoundImplant
+  name: spooky scary skeleton implant
+  description: This implant lets the user emit an ominous sound anywhere at any time.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionActivateSkeletonImplant
+  - type: TriggerOnActivateImplant
+  - type: EmitSoundOnTrigger
+    predicted: true
+    sound:
+      path: /Audio/_Omu/Effects/Fun/cave1.ogg

@@ -67,7 +67,7 @@
   components:
   - type: WorldTargetAction
     event: !type:BloodredVimBoostInternalActionEvent {}
-    
+
 - type: entity
   parent: BaseAction
   id: ToggleJaniVision
@@ -84,3 +84,13 @@
       state: icon
   - type: InstantAction
     event: !type:ToggleJaniVisionEvent
+
+- type: entity
+  parent: BaseImplantAction
+  id: ActionActivateSkeletonImplant
+  name: Scary Noise
+  description: Activates your spooky implant, emitting a sound to strike fear into the hearts of anyone before you. For about 1 second.
+  components:
+  - type: Action
+    icon: { sprite: Objects/Fun/bikehorn.rsi, state: icon }
+    useDelay: 20

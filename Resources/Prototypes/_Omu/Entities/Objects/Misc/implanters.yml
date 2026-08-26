@@ -29,3 +29,11 @@
   components:
   - type: Implanter
     implant: XenoCompatibilityImplant
+
+- type: entity
+  id: ReallyFuckingScaryImplanter
+  name: spooky scary skeleton implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: CaveSoundImplant
