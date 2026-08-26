@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 08/26/2026 20:48:04
-  entityCount: 38872
+  time: 08/26/2026 20:56:56
+  entityCount: 38873
 maps:
 - 1
 grids:
@@ -118913,6 +118913,13 @@ entities:
       parent: 2
     - type: WarpPoint
       location: Medical - cryogenics
+- proto: DefaultStationBeaconCryosleep
+  entities:
+  - uid: 29876
+    components:
+    - type: Transform
+      pos: 47.5,-14.5
+      parent: 2
 - proto: DefaultStationBeaconDetectiveRoom
   entities:
   - uid: 15803
