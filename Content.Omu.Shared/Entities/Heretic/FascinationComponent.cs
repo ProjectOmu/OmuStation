@@ -40,6 +40,9 @@ public sealed partial class FascinationComponent : Component
     public bool Naturalsight;
 
     [DataField]
+    public bool NaturalHereticsight;
+
+    [DataField]
     public bool AlteredVision;
 
     [DataField]

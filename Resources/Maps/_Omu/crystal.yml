@@ -11881,8 +11881,8 @@ entities:
     - type: Transform
       pos: 48.5,14.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 1958
+    - type: OreSiloClient
+      silo: null
     - type: TechnologyDatabase
       supportedDisciplines:
       - Industrial
@@ -11894,8 +11894,8 @@ entities:
     - type: Transform
       pos: 16.5,20.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 1958
+    - type: OreSiloClient
+      silo: null
     - type: TechnologyDatabase
       supportedDisciplines:
       - Industrial
@@ -33985,8 +33985,8 @@ entities:
     - type: Transform
       pos: 36.5,11.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 1958
+    - type: OreSiloClient
+      silo: null
     - type: TechnologyDatabase
       supportedDisciplines:
       - Industrial
@@ -37605,8 +37605,8 @@ entities:
     - type: Transform
       pos: 30.5,-10.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 1958
+    - type: OreSiloClient
+      silo: null
     - type: TechnologyDatabase
       supportedDisciplines:
       - Industrial
@@ -46244,8 +46244,8 @@ entities:
     - type: Transform
       pos: 16.5,22.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 1958
+    - type: OreSiloClient
+      silo: null
     - type: TechnologyDatabase
       supportedDisciplines:
       - Industrial
@@ -46259,8 +46259,8 @@ entities:
     - type: Transform
       pos: 44.5,-10.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 1958
+    - type: OreSiloClient
+      silo: null
     - type: TechnologyDatabase
       supportedDisciplines:
       - Industrial
@@ -83195,8 +83195,8 @@ entities:
     - type: Transform
       pos: -6.5,-34.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 1958
+    - type: OreSiloClient
+      silo: null
 - proto: MedkitAdvancedFilled
   entities:
   - uid: 2587
@@ -84129,7 +84129,7 @@ entities:
         0. Fill and activate all Radiation Collectors. Double check all chamber wiring.
 
 
-        1. Containment gas(es) of your choice should be placed within the cooling loop and cooled with radiatiors open to space. 
+        1. Containment gas(es) of your choice should be placed within the cooling loop and cooled with radiatiors open to space.
 
         If you wish to cool gasses below ~300°K, place 1-2 freezers after the radiators to cool to a minimum of 71°K.
 
@@ -84137,7 +84137,7 @@ entities:
         2. Ensure that any scrubbers inside the supermatter chamber are set to wide, and are filtering all gasses. Lingering Gasses inside the SM chamber are the leading cause of delamination.
 
 
-        3. Ensure that all filters are filtering out containment gasses to be returned to the cooling loop. 
+        3. Ensure that all filters are filtering out containment gasses to be returned to the cooling loop.
 
 
         4. Introduce the containment gasses to the SM chamber at a pressure of 101.3 kPa
@@ -85046,7 +85046,7 @@ entities:
         stampedName: stamp-component-stamped-name-rd
       content: >2-
 
-        [head=3]Whomever destroyed the satalite control computers best come forward by the end of the shift. 
+        [head=3]Whomever destroyed the satalite control computers best come forward by the end of the shift.
 
 
         Because, 'Invisible Catgirl Aliens' is not a valid excuse for destruction of station equipment.[/head]
@@ -85080,7 +85080,7 @@ entities:
         [head=2][color=red] ----------Armory Inventory Report----------[/color][/head]
 
 
-        Conducted by: 
+        Conducted by:
 
         Time:
 
@@ -85303,7 +85303,7 @@ entities:
         0. Fill and activate all Radiation Collectors. Double check all chamber wiring.
 
 
-        1. Containment gas(es) of your choice should be placed within the cooling loop and cooled with radiatiors open to space. 
+        1. Containment gas(es) of your choice should be placed within the cooling loop and cooled with radiatiors open to space.
 
         If you wish to cool gasses below ~300°K, place 1-2 freezers after the radiators to cool to a minimum of 71°K.
 
@@ -85311,7 +85311,7 @@ entities:
         2. Ensure that any scrubbers inside the supermatter chamber are set to wide, and are filtering all gasses. Lingering Gasses inside the SM chamber are the leading cause of delamination.
 
 
-        3. Ensure that all filters are filtering out containment gasses to be returned to the cooling loop. 
+        3. Ensure that all filters are filtering out containment gasses to be returned to the cooling loop.
 
 
         4. Introduce the containment gasses to the SM chamber at a pressure of 101.3 kPa
@@ -89620,8 +89620,8 @@ entities:
     - type: Transform
       pos: 31.5,-10.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 1958
+    - type: OreSiloClient
+      silo: null
     - type: TechnologyDatabase
       supportedDisciplines:
       - Industrial
@@ -95650,8 +95650,8 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: SiloUtilizer
-      silo: 1958
+    - type: OreSiloClient
+      silo: null
 - proto: SciFlash
   entities:
   - uid: 9245
@@ -95982,8 +95982,8 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: SiloUtilizer
-      silo: 1958
+    - type: OreSiloClient
+      silo: null
 - proto: SeedExtractor
   entities:
   - uid: 1495
@@ -96017,8 +96017,8 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: SiloUtilizer
-      silo: 1958
+    - type: OreSiloClient
+      silo: null
 - proto: ShardCrystalGreen
   entities:
   - uid: 6242
@@ -105673,8 +105673,8 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: SiloUtilizer
-      silo: 1958
+    - type: OreSiloClient
+      silo: null
 - proto: UniformShortsRed
   entities:
   - uid: 14756

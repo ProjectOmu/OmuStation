@@ -9,6 +9,7 @@ using Content.Shared.Chat;
 using Content.Server.Chat.Managers;
 using Content.Omu.Shared.Entities.Heretic;
 using Content.Shared.Actions;
+using Content.Shared.Humanoid;
 
 namespace Content.Omu.Server.Entities.Heretic;
 
@@ -20,9 +21,7 @@ public sealed class HereticTomeSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _playerMan = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IChatManager _chatMan = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly ActionUpgradeSystem _actionUpgrade = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -52,6 +51,9 @@ public sealed class HereticTomeSystem : EntitySystem
     private void OnInteract(EntityUid book, HereticTomeComponent component, ref BoundUIClosedEvent args)
     {
         var actor = args.Actor;       //Get the players entity!
+
+        if (!HasComp<HumanoidAppearanceComponent>(args.Actor))       //Ensure reader is a human, funny oversight.
+            return;
 
         if (component.Readers != null)
             if (component.Readers.Contains(actor))          //Have they read it before?
