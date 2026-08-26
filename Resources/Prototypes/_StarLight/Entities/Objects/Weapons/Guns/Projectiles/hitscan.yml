@@ -1,4 +1,13 @@
 - type: entity
+  id: BasicHitscanNoBeam
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanAmmo
+  - type: HitscanBasicRaycast
+  - type: HitscanReflect
+  - type: HitscanBasicEffects
+
+- type: entity
   id: PointDefenseBeam
   name: Point Defense beam
   parent: BasicHitscanNoBeam
