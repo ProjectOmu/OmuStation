@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 08/26/2026 21:26:18
-  entityCount: 38874
+  time: 08/26/2026 21:29:35
+  entityCount: 38875
 maps:
 - 1
 grids:
@@ -119090,6 +119090,13 @@ entities:
       parent: 2
     - type: WarpPoint
       location: RD
+- proto: DefaultStationBeaconReporter
+  entities:
+  - uid: 29941
+    components:
+    - type: Transform
+      pos: -24.5,20.5
+      parent: 2
 - proto: DefaultStationBeaconSalvage
   entities:
   - uid: 15821
