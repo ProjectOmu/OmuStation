@@ -51,7 +51,7 @@
     state: voidwalker
   - type: ComplexInteraction
   - type: Stamina
-    critThreshold: 150
+    baseCritThreshold: 150
   - type: NightVision
     color: "#CCCCFF"
     activateSound: null
@@ -82,7 +82,6 @@
   - type: StaminaDamageOnHit
     damage: 32
   - type: Puller
-    stageChangeCooldown: 0.5
     needsHands: false
   - type: Targeting
   - type: Speech
@@ -93,7 +92,6 @@
     proto: alien
   - type: Gibbable
   - type: NoSlip
-  - type: LayingDown
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90
@@ -122,8 +120,10 @@
   - type: PressureImmunity
   - type: ZombieImmune
   - type: Bloodstream
-    bloodMaxVolume: 300
-    bloodReagent: Entropy # Funny?
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Entropy
+        Quantity: 100
     bleedReductionAmount: 5
     bloodlossDamage:
       types:
@@ -138,14 +138,6 @@
     - NamesVoidwalker
     nameFormat: name-format-slasher # If it works, it works.
   - type: Temperature
-    coldDamage:
-      types:
-        Cold: 0
-    heatDamage:
-      types:
-        Heat: 0
-    heatDamageThreshold: 400
-    coldDamageThreshold: 66
   - type: MovementIgnoreGravity # Put the walk in voidwalk
   - type: Stealth
     hadOutline: true
@@ -157,6 +149,10 @@
   - type: Tag
     tags:
     - DoAfterIgnoreObstructionPrediction
+  - type: GrabIntent
+    stageChangeCooldown: 0.5
+    grabThrowDamageModifier: 6.0
+    throwingDistance: 30
 
 - type: startingGear
   id: VoidwalkerGear

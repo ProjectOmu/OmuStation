@@ -48,25 +48,26 @@ public sealed class VoidwalkerKidnappedSystem : EntitySystem
 
             mind.PreventGhosting = false;
 
-            if (TryTeleportToRandomPartOfStation(uid, Transform(kidnapped.OriginalMap)))
+            if (TryTeleportToRandomPartOfStation(uid, kidnapped.OriginalMap))
                 RemCompDeferred(uid, kidnapped);
         }
     }
 
-    public bool TryTeleportToRandomPartOfStation(EntityUid uid, TransformComponent? xform = null)
+    public bool TryTeleportToRandomPartOfStation(EntityUid uid, EntityUid originalMap)
     {
-        if (!Resolve(uid, ref xform))
+        var xform = Transform(uid);
+        if (xform is null)
             return false;
 
-        if (_station.GetStationInMap(xform.MapID) is { } station)
-        {
-        }
+        var destinationMap = Transform(originalMap).MapID;
+
+        if (_station.GetStationInMap(destinationMap) is not { } station)
+            return false;
 
         if (!TryComp<StationDataComponent>(station, out var stationData))
             return false;
 
-
-        var entityGridUid = _station.GetLargestGrid(station);
+        var entityGridUid = _station.GetLargestGrid((station, stationData));
 
         if (entityGridUid is null
             || xform.MapUid is null)

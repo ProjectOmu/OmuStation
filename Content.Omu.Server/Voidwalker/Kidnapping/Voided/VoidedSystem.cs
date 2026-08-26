@@ -20,6 +20,7 @@ public sealed class VoidedSystem : EntitySystem
     [Dependency] private readonly VoidwalkerSystem _voidwalker = null!;
     [Dependency] private readonly VoidwalkerKidnappedSystem _voidKidnapped = null!;
     [Dependency] private readonly VomitSystem _vomit = null!;
+    [Dependency] private readonly SharedMapSystem _map = null!;
 
     /// <inheritdoc />
     public override void Initialize()
@@ -78,7 +79,8 @@ public sealed class VoidedSystem : EntitySystem
             {
                 if (_voidwalker.CheckInSpace(uid))
                 {
-                    if (!_voidKidnapped.TryTeleportToRandomPartOfStation(uid))
+                    var map = _map.GetMap(Transform(uid).MapID);
+                    if (!_voidKidnapped.TryTeleportToRandomPartOfStation(uid, map))
                         return;
 
                     var popup = Loc.GetString("voided-spaced-teleport");
@@ -90,7 +92,7 @@ public sealed class VoidedSystem : EntitySystem
 
             if (_timing.CurTime >= comp.NextVomitTime)
             {
-                _vomit.Vomit(uid, comp.ThirstLost, comp.HungerLost, comp.NebulaVomitProto);
+                _vomit.Vomit(uid, comp.ThirstLost, comp.HungerLost, true, comp.NebulaVomitProto);
                 SetNextVomitTime((uid, comp));
             }
 
