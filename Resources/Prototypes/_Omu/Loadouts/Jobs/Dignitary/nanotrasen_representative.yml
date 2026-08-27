@@ -24,6 +24,11 @@
     jumpsuit: ClothingUniformJumpsuitCentcomAgent
   groupBy: "jumpsuit"
 
+- type: loadout
+  id: CentcommTurtleneck
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficer
+
 
 - type: loadout
   id: CCAgentJumpskirt
@@ -41,3 +46,19 @@
   id: NanotrasenRepresentativeLongcoat
   equipment:
     outerClothing: ClothingLongcoatCentComm
+
+- type: loadout
+  id: CentcommWinterCoat
+  equipment:
+    outerClothing: ClothingOuterWinterCentcom
+
+- type: loadout
+  id: ExpensiveCoat
+  equipment:
+    outerClothing: ClothingOuterCoatExpensive
+
+# Hat
+- type: loadout
+  id: CentcommHeadHatKepi
+  equipment:
+    head: ClothingHeadHatKepiCentcomm

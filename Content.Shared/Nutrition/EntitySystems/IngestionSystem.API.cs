@@ -1,9 +1,10 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects.Effects;
+using Content.Shared.EntityEffects.Effects.Body;
 using Content.Shared.Inventory;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.Prototypes;
@@ -71,6 +72,20 @@ public sealed partial class IngestionSystem
     }
 
     /// <inheritdoc cref="HasMouthAvailable(EntityUid, EntityUid)"/>
+    /// Omu, option to take the message for use in server-side logic
+    public bool HasMouthAvailable(EntityUid user, EntityUid target, out string? message)
+    {
+        return HasMouthAvailable(user, target, DefaultFlags, out message, out _);
+    }
+
+    /// <inheritdoc cref="HasMouthAvailable(EntityUid, EntityUid)"/>
+    /// Omu, option to additionally take the blocker for use in server-side logic
+    public bool HasMouthAvailable(EntityUid user, EntityUid target, out string? message, out EntityUid? blocker)
+    {
+        return HasMouthAvailable(user, target, DefaultFlags, out message, out blocker);
+    }
+
+    /// <inheritdoc cref="HasMouthAvailable(EntityUid, EntityUid)"/>
     /// Overflow which takes custom flags for a mouth being blocked, in case the entity has a mouth not on the face.
     public bool HasMouthAvailable(EntityUid user, EntityUid target, SlotFlags flags)
     {
@@ -89,6 +104,38 @@ public sealed partial class IngestionSystem
 
         if (attempt.Blocker != null)
             _popup.PopupClient(Loc.GetString("ingestion-remove-mask", ("entity", attempt.Blocker.Value)), target, user);
+
+        return false;
+    }
+
+    /// <inheritdoc cref="HasMouthAvailable(EntityUid, EntityUid, SlotFlags)"/>
+    /// Omu, allows for taking the reason why the interaction failed
+    /// "message" will be null if the interaction succeeded or did not fail due to distance or a blocker
+    /// "blocker" will be null if the interaction does not fail due to a blocker (i.e. succeeds, is cancelled or fails due to range)
+    public bool HasMouthAvailable(EntityUid user, EntityUid target, SlotFlags flags, out string? message, out EntityUid? blocker)
+    {
+        message = null; // leave the message null if it succeeded or the fail wasn't due to reach or a blocker
+        blocker = null; // the blocker will only be set if the attempt is not cancelled
+
+        if (!_transform.GetMapCoordinates(user).InRange(_transform.GetMapCoordinates(target), MaxFeedDistance))
+        {
+            message = Loc.GetString("interaction-system-user-interaction-cannot-reach");
+            _popup.PopupClient(message, user, user);
+            return false;
+        }
+
+        var attempt = new IngestionAttemptEvent(flags);
+        RaiseLocalEvent(target, ref attempt);
+
+        if (!attempt.Cancelled)
+            return true;
+
+        if (attempt.Blocker != null)
+        {
+            blocker = attempt.Blocker;
+            message = Loc.GetString("ingestion-remove-mask", ("entity", attempt.Blocker.Value));
+            _popup.PopupClient(message, target, user);
+        }
 
         return false;
     }
@@ -140,32 +187,35 @@ public sealed partial class IngestionSystem
 
     #region EdibleComponent
 
-    public void SpawnTrash(Entity<EdibleComponent> entity, EntityUid user)
+    public void SpawnTrash(Entity<EdibleComponent> entity, EntityUid? user = null)
     {
         if (entity.Comp.Trash.Count == 0)
             return;
 
         var position = _transform.GetMapCoordinates(entity);
         var trashes = entity.Comp.Trash;
-        var tryPickup = _hands.IsHolding(user, entity, out _);
-        var isWearing =  _container.TryGetContainer(user, "mask", out var maskContainer) && maskContainer.Contains(entity); // Goob
+        var pickup = user != null && _hands.IsHolding(user.Value, entity, out _);
 
         foreach (var trash in trashes)
         {
             var spawnedTrash = EntityManager.PredictedSpawn(trash, position);
 
             // If the user is holding the item
-            if (tryPickup)
-            {
-                // Put the trash in the user's hand
-                _hands.TryPickupAnyHand(user, spawnedTrash);
-            }
-            //  Goob wearable foods, i.e. lollypops
-            if (isWearing && maskContainer != null && entity.Comp.Trash.Count.Equals(1))
-            {
-                _container.CleanContainer(maskContainer);
-                _container.Insert(spawnedTrash, maskContainer);
-            }
+            if (!pickup)
+                continue;
+
+            // Put the trash in the user's hand
+            // I am 100% confident we don't need this check but rider gets made at me if it's not here.
+            if (user != null)
+                _hands.TryPickupAnyHand(user.Value, spawnedTrash);
+        }
+    }
+
+    public void AddTrash(Entity<EdibleComponent> entity, List<EntProtoId> newTrash)
+    {
+        foreach (var trash in newTrash)
+        {
+            entity.Comp.Trash.Add(trash);
         }
     }
 
@@ -224,7 +274,7 @@ public sealed partial class IngestionSystem
                     // ignores any effect conditions, just cares about how much it can hydrate
                     if (effect is SatiateHunger hunger)
                     {
-                        total += hunger.NutritionFactor * quantity.Quantity.Float();
+                        total += hunger.Factor * quantity.Quantity.Float();
                     }
                 }
             }
@@ -275,7 +325,7 @@ public sealed partial class IngestionSystem
                     // ignores any effect conditions, just cares about how much it can hydrate
                     if (effect is SatiateThirst thirst)
                     {
-                        total += thirst.HydrationFactor * quantity.Quantity.Float();
+                        total += thirst.Factor * quantity.Quantity.Float();
                     }
                 }
             }

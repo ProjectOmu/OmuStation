@@ -19,7 +19,8 @@
   id: ClothingEyesHudSciDiagStealObjective
   components:
   - type: NotJobRequirement
-    job: ResearchDirector
+    jobs:
+    - ResearchDirector
   - type: StealCondition
     stealGroup: ClothingEyesHudSciDiag
   - type: Objective
@@ -33,3 +34,12 @@
     stealGroup: DrinkMugAA
   - type: Objective
     difficulty: 0.5
+
+- type: entity
+  parent: BaseThiefStealObjective
+  id: StealLittlePersonObjective
+  components:
+  - type: StealCondition
+    stealGroup: StealLittlePerson
+  - type: Objective
+    difficulty: 0.1 # Joke objective, low difficulty so you still need to go do actual antag stuff

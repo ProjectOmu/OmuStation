@@ -1,20 +1,6 @@
-// SPDX-FileCopyrightText: 2023 Ben <50087092+benev0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 BenOwnby <ownbyb@appstate.edu>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 TGRCDev <tgrc@tgrc.dev>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tornado Tech <54727692+Tornado-Technology@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Examine;
 using Content.Shared.Construction.Components;
@@ -31,6 +17,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Content.Shared.Tag;
+using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -48,6 +35,7 @@ public sealed partial class AnchorableSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private   readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -118,6 +106,13 @@ public sealed partial class AnchorableSystem : EntitySystem
     private void OnAnchoredExamine(EntityUid uid, AnchorableComponent component, ExaminedEvent args)
     {
         var isAnchored = Comp<TransformComponent>(uid).Anchored;
+
+        if (isAnchored && (component.Flags & AnchorableFlags.Unanchorable) == 0x0)
+            return;
+
+        if (!isAnchored && (component.Flags & AnchorableFlags.Anchorable) == 0x0)
+            return;
+
         var messageId = isAnchored ? "examinable-anchored" : "examinable-unanchored";
         args.PushMarkup(Loc.GetString(messageId, ("target", uid)));
     }
@@ -154,6 +149,14 @@ public sealed partial class AnchorableSystem : EntitySystem
             _popup.PopupClient(Loc.GetString("anchorable-occupied"), uid, args.User);
             return;
         }
+
+        // Omu start -- make sure that the item is not in a container or hand
+        if (_containerSystem.IsEntityInContainer(uid) || xform.GridUid == null)
+        {
+            _popup.PopupClient(Loc.GetString("anchorable-inventory"), uid, args.User);
+            return;
+        }
+        //Omu end -- Screams
 
         // Snap rotation to cardinal (multiple of 90)
         var rot = xform.LocalRotation;
