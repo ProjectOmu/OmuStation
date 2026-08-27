@@ -15,9 +15,10 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 
+// Basically a copy of the EE book revs but with bits ripped out and other bits mashed in.
 namespace Content.Shared._Omu.Revs;
 
-public sealed class RevolutionaryConverterSystem : EntitySystem
+public sealed class BookConverterSystem : EntitySystem
 {
     private static readonly ProtoId<LocalizedDatasetPrototype> RevConvertSpeechProto = "RevolutionaryConverterSpeech";
 

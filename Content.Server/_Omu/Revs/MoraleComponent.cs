@@ -10,9 +10,12 @@ public sealed partial class MoraleComponent : Component
     public int FontSize = 22;
 
     [DataField]
+    public string MoraleExamine = "morale-in-question";
+
+    [DataField]
     public List<LocId> MoraleWarningMsg = new()
     {
-        "fracture-examine-message-1"
+        "morale-falling-1"
     };
     [DataField]
     public bool Mindshielded = false;

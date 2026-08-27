@@ -18,7 +18,9 @@ using Robust.Shared.Player;
 using Content.Server.Roles;
 using Content.Server.Antag;
 using Content.Shared._Omu.Revs;
-using SQLitePCL;
+using Content.Server.Revolutionary.Components;
+using Robust.Shared.Random;
+using Content.Shared.Random.Helpers;
 
 namespace Content.Server._Omu.Revs;
 
@@ -29,7 +31,7 @@ public sealed class MoraleSystem : EntitySystem
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedRevolutionarySystem _revolutionarySystem = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -46,6 +48,12 @@ public sealed class MoraleSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, MoraleComponent component, ComponentStartup args)
     {
+        if (HasComp<CommandStaffComponent>(uid))
+        {
+            RemComp<MoraleComponent>(uid);
+            return;
+        }
+
         if (HasComp<MindShieldComponent>(uid))
         {
             component.Mindshielded = true;
@@ -93,6 +101,12 @@ public sealed class MoraleSystem : EntitySystem
             return;
         }
 
+        if (HasComp<CommandStaffComponent>(ent))
+        {
+            RemComp<MoraleComponent>(ent);
+            return;
+        }
+
         if (args.Forced == true)
         {
             EnsureComp<MoraleComponent>(ent);
@@ -100,6 +114,9 @@ public sealed class MoraleSystem : EntitySystem
                 ForcedMorale(ent.Owner, args.User.Value, args.Amount);
             return;
         }
+
+        var message = Loc.GetString(_random.Pick(ent.Comp.MoraleWarningMsg));
+        _popup.PopupEntity(message, ent.Owner, ent.Owner);      //Warning popup
 
         ent.Comp.MoraleValue += args.Amount;
 
