@@ -6,9 +6,6 @@ using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
-using Content.Server._Starlight.Shuttles.Systems;
-using Content.Server._Starlight.Shuttles.Components;
-using Content.Server.Shuttles.Components;
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -16,8 +13,6 @@ public sealed class RadarConsoleSystem : SharedRadarConsoleSystem
 {
     [Dependency] private readonly ShuttleConsoleSystem _console = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private SharedTransformSystem _transformSystem = default!; // _Starlight
-    [Dependency] private RadarLaserSystem _laserSystem = default!; // _Starlight
 
     public override void Initialize()
     {
@@ -58,29 +53,6 @@ public sealed class RadarConsoleSystem : SharedRadarConsoleSystem
             }
 
             state.RotateWithEntity = !component.FollowEntity;
-
-            // Starlight start - populate laser traces
-            var consoleMapCoords = _transformSystem.GetMapCoordinates(uid);
-            var maxRangeSq = state.MaxRange * state.MaxRange;
-            // Populate laser traces from hitscan guns with RadarLaserTrackerComponent.
-            var laserQuery = AllEntityQuery<RadarLaserTrackerComponent, TransformComponent>();
-            while (laserQuery.MoveNext(out var laserUid, out var tracker, out var laserXform))
-            {
-                if (laserXform.MapID != consoleMapCoords.MapId)
-                    continue;
-                foreach (var (origin, dir, _) in tracker.Traces)
-                {
-                    // Only show traces from guns within radar range.
-                    if ((origin.Position - consoleMapCoords.Position).LengthSquared() > maxRangeSq)
-                        continue;
-                    state.Lasers.Add(new RadarLaserData(
-                        GetNetCoordinates(laserXform.Coordinates),
-                        dir,
-                        tracker.MaxRange,
-                        tracker.LaserColor));
-                }
-            }
-            // Starlight end
 
             _uiSystem.SetUiState(uid, RadarConsoleUiKey.Key, new NavBoundUserInterfaceState(state));
         }

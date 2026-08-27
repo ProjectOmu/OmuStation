@@ -88,10 +88,10 @@
         25
       AggroVisionRadius: !type:Single
         25
-  - type: RadarLaserTracker
-    laserColor: "#FFFF00"
-    traceDuration: 0.75
-    maxRange: 25
+#  - type: RadarLaserTracker # Omu we dont have this.
+#    laserColor: "#FFFF00"
+#    traceDuration: 0.75
+#    maxRange: 25
 
 - type: entity
   parent: WeaponTurretPointDefense
