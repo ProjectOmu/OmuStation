@@ -47,8 +47,11 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
         if (!SpeakPropaganda(ent, args.User))
             return;
 
-        var ev = new BookConverterUsedEvent(args.User, ent.Comp.Amount, ent.Comp.Range);
-        RaiseLocalEvent(args.User, ref ev);
+        if (HasComp<HeadRevolutionaryComponent>(args.User))
+        {
+            var ev = new BookConverterUsedEvent(args.User, ent.Comp.Amount, ent.Comp.Range);
+            RaiseLocalEvent(args.User, ref ev);
+        }
 
         args.Handled = true;
     }
