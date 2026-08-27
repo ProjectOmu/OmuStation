@@ -1,0 +1,41 @@
+- type: entity
+  name: PDW-9 taser pistol
+  parent: [ BaseWeaponBatterySmall, BaseSecurityContraband ]
+  id: WeaponPDW9
+  description: A compact pulse core in a classic NanoTrasen officer pistol design. It's not the size of the gun, it's the size of the hole it puts in people.
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Starlight/Objects/Weapons/Guns/Battery/pdw9.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: disable
+      map: ["enum.FireModesLayers.FireMode"]
+    - state: disable-unshaded-0
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    size: Small
+    shape:
+    - 0, 0, 1, 1
+  - type: MagazineVisuals
+    magState: disable
+    steps: 5
+    zeroVisible: true
+  - type: BatteryAmmoProvider
+    proto: DisablerBolt
+    fireCost: 75
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: DisablerBolt
+      fireCost: 75
+      magState: disable
+      visualState: disable
+    - proto: RedLaserBeam
+      fireCost: 100
+      magState: kill
+      visualState: kill
+  - type: Battery
+    maxCharge: 1500
+    startingCharge: 1500

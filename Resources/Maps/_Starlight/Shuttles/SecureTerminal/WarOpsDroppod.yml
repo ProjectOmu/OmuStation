@@ -4500,7 +4500,7 @@ entities:
           - 52
     - type: Fixtures
       fixtures: {}
-- proto: MagazinePistolAP
+- proto: MagazinePistol
   entities:
   - uid: 514
     components:
@@ -4518,8 +4518,6 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 509
-- proto: MagazinePistolFMJ
-  entities:
   - uid: 513
     components:
     - type: Transform
@@ -4536,8 +4534,6 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 509
-- proto: MagazinePistolSP
-  entities:
   - uid: 512
     components:
     - type: Transform
@@ -4554,7 +4550,7 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 509
-- proto: MagazinePistolSubMachineGunAP
+- proto: MagazinePistolSubMachineGun
   entities:
   - uid: 551
     components:
@@ -4588,8 +4584,6 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 550
-- proto: MagazinePistolSubMachineGunFMJ
-  entities:
   - uid: 529
     components:
     - type: Transform
@@ -4622,8 +4616,6 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 528
-- proto: MagazinePistolSubMachineGunSP
-  entities:
   - uid: 533
     components:
     - type: Transform
@@ -4738,18 +4730,6 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 572
-- proto: MagazineRifleIncendiary
-  entities:
-  - uid: 566
-    components:
-    - type: Transform
-      parent: 561
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 561
-- proto: MagazineRifleSP
-  entities:
   - uid: 562
     components:
     - type: Transform
@@ -4822,6 +4802,16 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 572
+- proto: MagazineRifleIncendiary
+  entities:
+  - uid: 566
+    components:
+    - type: Transform
+      parent: 561
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 561
 - proto: MagazineRifleUranium
   entities:
   - uid: 570
@@ -5647,7 +5637,7 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 509
-- proto: SpeedLoaderMagnumFMJ
+- proto: SpeedLoaderMagnum
   entities:
   - uid: 518
     components:
@@ -5665,8 +5655,6 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 509
-- proto: SpeedLoaderMagnumSP
-  entities:
   - uid: 519
     components:
     - type: Transform
@@ -6001,7 +5989,7 @@ entities:
     - type: AccessReader
       accessListsOriginal:
       - - Chemistry
-- proto: VendingMachineMedicalSecurity
+- proto: VendingMachineMedicalBase
   entities:
   - uid: 714
     components:
@@ -6857,7 +6845,7 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 509
-- proto: WeaponPistolEnforcer
+- proto: WeaponPistolMk58
   entities:
   - uid: 511
     components:
