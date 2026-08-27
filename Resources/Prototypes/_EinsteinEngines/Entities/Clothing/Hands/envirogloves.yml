@@ -5,14 +5,14 @@
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
       color: "#913b00"
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
@@ -21,8 +21,8 @@
       - state: inhand-right
         color: "#913b00"
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
@@ -35,14 +35,14 @@
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
       color: "#2f2e31"
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
@@ -51,8 +51,8 @@
       - state: inhand-right
         color: "#2f2e31"
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
@@ -84,31 +84,27 @@
   description: Pricy nitrile gloves made for Plasmamen.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
-      #color: "#234f60"
-      color: "#5ba0cf" # Omu, color changed from paramed blue to medical blue
+      color: "#5ba0cf" # Omu
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
-        #color: "#234f60"
         color: "#5ba0cf" # Omu
       right:
       - state: inhand-right
-        #color: "#234f60"
         color: "#5ba0cf" # Omu
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        #color: "#234f60"
         color: "#5ba0cf" # Omu
   - type: Fiber
     fiberMaterial: fibers-nitrile
@@ -121,14 +117,14 @@
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
       color: "#ffffff"
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
@@ -137,8 +133,8 @@
       - state: inhand-right
         color: "#ffffff"
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
@@ -175,31 +171,27 @@
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
-      #color: "#932500"
       color: "#A43A3A" # Omu
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
-        #color: "#932500"
         color: "#A43A3A" # Omu
       right:
-      - state: inhand-right
-        #color: "#932500"
+      - state: inhand-righ
         color: "#A43A3A" # Omu
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        #color: "#932500"
         color: "#A43A3A" # Omu
   - type: Fiber
     #fiberColor: fibers-orange
@@ -212,32 +204,28 @@
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
-      #color: "#883391"
-      color: "#913DA7" # Omu, Slightly different purple
+      color: "#913DA7" # Omu
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
-        #color: "#883391"
-        color: "#913DA7" # Omu, Slightly different purple
+        color: "#913DA7" # Omu
       right:
       - state: inhand-right
-        #color: "#883391"
-        color: "#913DA7" # Omu, Slightly different purple
+        color: "#913DA7" # Omu
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        #color: "#883391"
-        color: "#913DA7" # Omu, Slightly different purple
+        color: "#913DA7" # Omu
   - type: Fiber
     fiberColor: fibers-purple
   - type: Insulated # Same deal as the engi ones.
@@ -249,34 +237,30 @@
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
-      #color: "#bb9042"
       color: "#ABBAB8" # Omu
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
-        #color: "#bb9042"
         color: "#ABBAB8" # Omu
       right:
       - state: inhand-right
-        #color: "#bb9042"
         color: "#ABBAB8" # Omu
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        #color: "#bb9042"
         color: "#ABBAB8" # Omu
   - type: Fiber
-    #fiberColor: fibers-orange # Omu, Color change
+    #fiberColor: fibers-orange # Omu
     fiberColor: fibers-grey # Omu
 
 - type: entity
@@ -286,32 +270,28 @@
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
-      #color: "#d75600"
-      color: "#D15B1B" # Omu, Slight shade change
+      color: "#D15B1B" # Omu
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
-        #color: "#d75600"
-        color: "#D15B1B" # Omu, Slight shade change
+        color: "#D15B1B" # Omu
       right:
       - state: inhand-right
-        #color: "#d75600"
-        color: "#D15B1B" # Omu, Slight shade change
+        color: "#D15B1B" # Omu
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        #color: "#d75600"
-        color: "#D15B1B" # Omu, Slight shade change
+        color: "#D15B1B" # Omu
   - type: Fiber
     fiberColor: fibers-orange
   - type: Insulated # We dont have as granular of a system as EE so we just make em straight up insuls.
@@ -319,36 +299,32 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesAtmos
-  name: atmospherics envirogloves # Omu, "atmos" to "atmospherics" for consistency's sake
+  name: atmospherics envirogloves # Omu
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
-      #color: "#00a5ff"
-      color: "#47BFFF" # Omu, Slight shade change
+      color: "#47BFFF" # Omu
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
-        #color: "#00a5ff"
-        color: "#47BFFF" # Omu, Slight shade change
+        color: "#47BFFF" # Omu
       right:
       - state: inhand-right
-        #color: "#00a5ff"
-        color: "#47BFFF" # Omu, Slight shade change
+        color: "#47BFFF" # Omu
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        #color: "#00a5ff"
-        color: "#47BFFF" # Omu, Slight shade change
+        color: "#47BFFF" # Omu
   - type: Fiber
     fiberColor: fibers-blue
   - type: Insulated # We dont have as granular of a system as EE so we just make em straight up insuls.
@@ -360,14 +336,14 @@
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
       color: "#47453d"
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
@@ -376,8 +352,8 @@
       - state: inhand-right
         color: "#47453d"
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
@@ -392,14 +368,14 @@
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
       color: "#4A281F"
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
@@ -408,8 +384,8 @@
       - state: inhand-right
         color: "#4A281F"
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
@@ -424,31 +400,27 @@
   description: These leather gloves protect your boney hands against thorns, barbs, prickles, and spikes.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
-      #color: "#3164ff"
       color: "#1165C5" # Omu, Shade change.
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
-        #color: "#3164ff"
         color: "#1165C5" # Omu, Shade change.
       right:
       - state: inhand-right
-        #color: "#3164ff"
         color: "#1165C5" # Omu, Shade change.
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        #color: "#3164ff"
         color: "#1165C5" # Omu, Shade change.
   - type: Fiber
     fiberMaterial: fibers-leather
@@ -466,14 +438,14 @@
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
       color: "#911801"
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
@@ -482,8 +454,8 @@
       - state: inhand-right
         color: "#911801"
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
@@ -498,14 +470,14 @@
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
       color: "#ff0000"
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
@@ -514,8 +486,8 @@
       - state: inhand-right
         color: "#ff0000"
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
@@ -585,31 +557,27 @@
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
-      #color: "#45ff00"
       color: "#2E992E" # Omu, saturation lowered
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
-        #color: "#45ff00"
         color: "#2E992E" # Omu, saturation lowered
       right:
       - state: inhand-right
-        #color: "#45ff00"
         color: "#2E992E" # Omu, saturation lowered
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        #color: "#45ff00"
         color: "#2E992E" # Omu, saturation lowered
   - type: Fiber
     fiberColor: fibers-green
@@ -622,32 +590,28 @@
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
-      #color: "#64008a"
-      color: "#853799" # Omu, shade changed to match suit
+      color: "#853799" # Omu
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
-        #color: "#64008a"
-        color: "#853799" # Omu, shade changed to match suit
+        color: "#853799" # Omu
       right:
       - state: inhand-right
-        #color: "#64008a"
-        color: "#853799" # Omu, shade changed to match suit
+        color: "#853799" # Omu
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        #color: "#64008a"
-        color: "#853799" # Omu, shade changed to match suit
+        color: "#853799" # Omu
   - type: Fiber
     fiberColor: fibers-purple
 
@@ -658,14 +622,14 @@
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
       color: "#a349a4"
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
@@ -674,8 +638,8 @@
       - state: inhand-right
         color: "#a349a4"
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
@@ -690,14 +654,14 @@
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
       color: "#315266"
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
@@ -706,8 +670,8 @@
       - state: inhand-right
         color: "#315266"
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
@@ -722,14 +686,14 @@
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
       color: "#79CC26"
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
@@ -738,8 +702,8 @@
       - state: inhand-right
         color: "#79CC26"
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
@@ -754,14 +718,14 @@
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
       color: "#616161"
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
@@ -770,8 +734,8 @@
       - state: inhand-right
         color: "#616161"
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
@@ -786,14 +750,14 @@
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
       color: "#dab13b"
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
@@ -802,8 +766,8 @@
       - state: inhand-right
         color: "#dab13b"
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
@@ -818,14 +782,14 @@
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     layers:
     - state: icon
       color: "#79121b"
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     inhandVisuals:
       left:
       - state: inhand-left
@@ -834,8 +798,8 @@
       - state: inhand-right
         color: "#79121b"
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu, unique enviroglove sprites
-    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    #sprite: Clothing/Hands/Gloves/Color/color.rsi # Omu
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi # Omu
     clothingVisuals:
       gloves:
       - state: equipped-HAND
