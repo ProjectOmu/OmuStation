@@ -168,18 +168,22 @@ public partial class SharedGunSystem
             return true;
         }
 
-        if (HasComp<BallisticAmmoProviderComponent>(insertEnt))
+        if (TryComp<BallisticAmmoProviderComponent>(insertEnt, out var ammoHolder))
         {
-            // Popup("Mar, object definitely holds ammo",ent,user);
-            TryComp<BallisticAmmoProviderComponent>(insertEnt, out var ammoHolder);
+            Popup("Attempting transfer from ammo container to revolver...",ent,user);
 
-            // if (ammoHolder!.MayTransfer)
-            // {
-            //     Popup("Mar, Ammo Holder can transfer contents.",ent,user);
-            // }
-            //
-            // var inWhitelist = _whitelistSystem.IsWhitelistPass(ammoHolder.Whitelist, ent);
-            // Popup($"Mar, inWhitelist is {inWhitelist}",ent,user);
+            // Get simple breaking conditions out of the way first.
+            // Container must allow ammo transfer, and not be empty.
+            if (!ammoHolder.MayTransfer && ammoHolder.Count > 0)
+                return false;
+
+            // Break if the container and the revolver do not fit the same kind of ammo.
+            if (ent.Comp.Whitelist?.Tags is not null && ammoHolder.Whitelist?.Tags is not null
+                && !ent.Comp.Whitelist.Tags.Intersect(ammoHolder.Whitelist.Tags).Any())
+                return false;
+
+            Popup("This container can transfer a bullet.",ent,user);
+            return false;
 
 
         }
