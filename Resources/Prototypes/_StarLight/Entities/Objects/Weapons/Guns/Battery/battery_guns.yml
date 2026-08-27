@@ -24,15 +24,15 @@
     steps: 5
     zeroVisible: true
   - type: BatteryAmmoProvider
-    proto: DisablerBolt
+    proto: BulletDisabler # Omu, was DisablerBolt
     fireCost: 75
   - type: BatteryWeaponFireModes
     fireModes:
-    - proto: DisablerBolt
+    - proto: BulletDisabler # Omu, was DisablerBolt
       fireCost: 75
       #magState: disable # Omu this doesnt work here.
       #visualState: disable # Omu this doesnt work here.
-    - proto: RedLaserBeam
+    - proto: BulletEnergyGunLaser # Omu, was RedLaserBeam
       fireCost: 100
       #magState: kill # Omu this doesnt work here.
       #visualState: kill # Omu this doesnt work here.
