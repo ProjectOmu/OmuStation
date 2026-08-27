@@ -11,7 +11,7 @@
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: disable
-      map: ["enum.FireModesLayers.FireMode"]
+      #map: ["enum.FireModesLayers.FireMode"] # Omu this doesnt work here.
     - state: disable-unshaded-0
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
@@ -30,12 +30,12 @@
     fireModes:
     - proto: DisablerBolt
       fireCost: 75
-      magState: disable
-      visualState: disable
+      #magState: disable # Omu this doesnt work here.
+      #visualState: disable # Omu this doesnt work here.
     - proto: RedLaserBeam
       fireCost: 100
-      magState: kill
-      visualState: kill
+      #magState: kill # Omu this doesnt work here.
+      #visualState: kill # Omu this doesnt work here.
   - type: Battery
     maxCharge: 1500
     startingCharge: 1500
