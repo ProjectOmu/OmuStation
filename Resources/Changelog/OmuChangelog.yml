@@ -6321,3 +6321,403 @@ Entries:
       message: Fixed broken locales
   id: 821
   time: '2026-08-23T14:22:15.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Coscult mobs now deal ion damage alongside their normal damage (ipcs and
+        borgs are no longer immune to them)
+  id: 822
+  time: '2026-08-23T22:05:07.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Changed game director to care more about the number of people on the
+        server rather than the number of people ready.
+  id: 823
+  time: '2026-08-23T22:05:27.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Capoeira's attack speed benefit no longer applies when not using your
+        hands.
+  id: 824
+  time: '2026-08-23T22:28:56.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Fixed crash caused by anchoring held items
+  id: 825
+  time: '2026-08-23T22:30:04.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: >-
+        The guidebook entry on Utility Surgeries no longer encourages hiding the
+        nuclear disk.
+    - type: Fix
+      message: >-
+        Removed the reference to heart transplants curing rot from the Organ
+        Manipulation guidebook entry.
+  id: 826
+  time: '2026-08-23T22:33:44.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: >-
+        Salic/Oxan/Holy water Pre-filled chemical containers will now spawn
+        properly
+  id: 827
+  time: '2026-08-23T22:41:04.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: Allowed everyone to open escape pod airlocks.
+  id: 828
+  time: '2026-08-23T22:45:31.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Add
+      message: Arachnids now have more winter clothing crafting options.
+  id: 829
+  time: '2026-08-23T22:48:32.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Monkeys no longer randomly become sentient on spawn.
+  id: 830
+  time: '2026-08-23T22:49:11.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: The Paramedic SOP now mandates when their sirens can and can't be used.
+  id: 831
+  time: '2026-08-23T22:53:41.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Remove
+      message: >-
+        Removed syndicate radio keys from the syndicate disaster victim ghost
+        role.
+  id: 832
+  time: '2026-08-23T22:58:00.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Pent no longer clears itself from the blood
+    - type: Fix
+      message: Musiver no longer clears itself from the blood
+  id: 833
+  time: '2026-08-23T23:00:27.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: Berserk sting can now target food and drinks as intended
+  id: 834
+  time: '2026-08-23T23:12:12.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: On most maps, unlinked the old non existent global silo.
+  id: 835
+  time: '2026-08-23T23:12:32.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: Diona slow resistance from 100% immunity to 25% resistance
+  id: 836
+  time: '2026-08-23T23:15:09.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: Jet Injectors are now medical contraband.
+  id: 837
+  time: '2026-08-23T23:16:16.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: Surgical tools are now considered Medical and Science contraband.
+  id: 838
+  time: '2026-08-23T23:17:34.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Add
+      message: a pitcher of coffee
+  id: 839
+  time: '2026-08-23T23:25:37.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: Added some new loadout options for Nanotrasen Representative.
+  id: 840
+  time: '2026-08-23T23:26:18.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: Changed Binary back into being a radio channel, it can be used on :b
+  id: 841
+  time: '2026-08-23T23:32:21.0000000+00:00'
+- author: Salty145
+  changes:
+    - type: Add
+      message: 'Two new cat ear styles: "Lynx" and "Alt. Tall"'
+  id: 842
+  time: '2026-08-23T23:34:31.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: Humanoid Species heretic ghouls no longer gib on death.
+  id: 843
+  time: '2026-08-23T23:35:23.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Tweak
+      message: Slaughter demon stomachs now protect you from rot
+  id: 844
+  time: '2026-08-23T23:41:29.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Tweak
+      message: Split up "point" markings for Vulpkanins into left and right versions.
+  id: 845
+  time: '2026-08-23T23:43:53.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Add
+      message: Added the paramedic ATV. It can be ordered from the cargo console.
+  id: 846
+  time: '2026-08-23T23:54:56.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: Added Paramedic and Cybersun recolors of the medical bags.
+  id: 847
+  time: '2026-08-23T23:55:49.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Secure weapon crates, such as those from cargo, now will destroy their
+        contents if broken open before being unlocked.
+  id: 848
+  time: '2026-08-23T23:58:02.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: Added an evil counterpart to the Weh auto-injector. Lizards beware.
+  id: 849
+  time: '2026-08-24T00:01:07.0000000+00:00'
+- author: Marikiii
+  changes:
+    - type: Tweak
+      message: >-
+        Adjusted crimes necessary for DNR, read spacelaw for further information
+        under Capital Crimes
+  id: 850
+  time: '2026-08-24T00:24:02.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Remove
+      message: self destructing weapon orders(yes this is in the same publish)
+  id: 851
+  time: '2026-08-24T00:46:17.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Upstream merge
+  id: 852
+  time: '2026-08-24T01:51:23.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Black screen bug on displacement issues
+  id: 853
+  time: '2026-08-24T02:17:09.0000000+00:00'
+- author: pinktanuki
+  changes:
+    - type: Fix
+      message: Surgery GUI for Borgs
+  id: 854
+  time: '2026-08-24T02:35:57.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: >-
+        brought back cortical stacks after upstream merge accidentally removed
+        them
+  id: 855
+  time: '2026-08-24T19:31:08.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Remove
+      message: 'Removed Snowball from rotation '
+  id: 856
+  time: '2026-08-24T22:02:58.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: >-
+        The m1 garand duty case set now has 2 extra clips just like the rest of
+        the duty case guns
+  id: 857
+  time: '2026-08-24T22:18:54.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixes lollypops spamming popups in chat.
+  id: 858
+  time: '2026-08-24T22:19:28.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: >-
+        Added a "steal small species objective" for thief (Avali, Resomi,
+        Rodentia, Tajaran, Felinid)  (This was not my idea)
+  id: 859
+  time: '2026-08-24T22:20:14.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added the stock market, for enlightened gambling addicts.
+  id: 860
+  time: '2026-08-24T22:23:03.0000000+00:00'
+- author: pceererthegreat
+  changes:
+    - type: Add
+      message: >-
+        Added Hydrakin voice to the selection, now Hydrakins (and Harpies) can
+        have their own voice! Yay!
+  id: 861
+  time: '2026-08-24T23:56:20.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Cryo chems should heal every body part now rather than just vital part
+  id: 862
+  time: '2026-08-24T23:58:43.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Players can now heal their blood back.
+  id: 863
+  time: '2026-08-25T09:17:02.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Polymorph chems no longer transform at lower than expected values
+  id: 864
+  time: '2026-08-25T10:31:05.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added the vgroid back
+    - type: Add
+      message: >-
+        Ported gas mining content, admin only for now pending proper balancing -
+        gas selling not mapped or configured
+  id: 865
+  time: '2026-08-25T12:51:47.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Wideswinging (Right click attack) has a stamina penalty now
+  id: 866
+  time: '2026-08-25T20:48:46.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed Colossus getting objs that target CC/Arrivals.
+    - type: Fix
+      message: >-
+        Fixed Coscult empowerment being lost when attempting to convert an
+        invalid target.
+  id: 867
+  time: '2026-08-25T20:51:30.0000000+00:00'
+- author: Holorain4312
+  changes:
+    - type: Add
+      message: Sprites for when sake gourds are closed
+  id: 868
+  time: '2026-08-25T21:23:37.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Fix
+      message: Chimera who were crew now have to be spiked to be butchered
+  id: 869
+  time: '2026-08-25T21:24:54.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: Shutters and blast doors have been resprited.
+  id: 870
+  time: '2026-08-25T21:39:26.0000000+00:00'
+- author: Holorain
+  changes:
+    - type: Tweak
+      message: Robust harvest now turns dionas into trees at 40u instead of 80u
+  id: 871
+  time: '2026-08-26T09:49:05.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        Saline now refills the blood of everyone except Avali/Resomi as it's
+        supposed to.
+  id: 872
+  time: '2026-08-26T09:50:51.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Tweak
+      message: Voxes can now be a lot more colorful.
+  id: 873
+  time: '2026-08-26T09:54:38.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Fix
+      message: Standard Female IPC torso has its name back in the marking menu.
+  id: 874
+  time: '2026-08-26T09:58:10.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: Fixed chat messages from not sending because of invalid markdown tags.
+  id: 875
+  time: '2026-08-26T09:58:58.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        The Janitor's Key ring now shows the proper message when successfully
+        unlocking a door.
+  id: 876
+  time: '2026-08-26T10:10:38.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Remove
+      message: >-
+        Clock of the insurance evaluator no longer spawns in the Detective
+        locker.
+  id: 877
+  time: '2026-08-27T11:29:02.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Add
+      message: 'Added a new voice for characters: Breathy. (Hmhmhm.)'
+  id: 878
+  time: '2026-08-27T15:31:33.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: Resprited the EMT and Medical belts.
+  id: 879
+  time: '2026-08-27T16:06:02.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Moved energy magnum to sergeant (Hos doesnt need 3 guns omg)
+    - type: Fix
+      message: Sergeant has gloves in its loadout now
+  id: 880
+  time: '2026-08-27T22:41:31.0000000+00:00'
