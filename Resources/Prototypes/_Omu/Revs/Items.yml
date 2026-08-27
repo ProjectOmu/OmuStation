@@ -13,6 +13,11 @@
   name: Revolutionary's flavor selector
   description: What brand of Larp are you feeling great leader?
   components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: _Lavaland/Objects/Devices/unique_teleporters.rsi
+    state: salvage
   - type: SetSelector
     possibleSets:
     - CommieRevsSet
@@ -57,4 +62,4 @@
       enum.PaperUiKey.Key:
         type: PaperBoundUserInterface
   - type: SignatureConverter
-    amount: 11f
+    amount: 11
