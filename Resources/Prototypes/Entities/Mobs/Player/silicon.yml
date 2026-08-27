@@ -630,6 +630,9 @@
       borg_brain:
         - PositronicBrain
       borg_module:
+        # <Trauma>
+        - BorgModuleStickyGrenadeLauncher
+        # </Trauma>
         - BorgModuleTool # Omu
         - BorgModuleL6C
         - BorgModuleDoubleEsword
@@ -665,8 +668,14 @@
       borg_brain:
         - PositronicBrain
       borg_module:
+        # <Trauma>
+        - BorgModuleRCD
+        - BorgModuleSyndicateChameleonProjector
+        - BorgModuleSyndicateJammer
+        - BorgModuleSyndicateDoorControl
+        # </Trauma>
         - BorgModuleSyndicateWeapon
-        - BorgModuleTool
+        - BorgModuleAdvancedTool # Trauma - was BorgModuleTool
         - BorgModuleOperative
   - type: ItemSlots
     slots:
