@@ -83,4 +83,39 @@
     - id: FultonBlueshield
     - id: MedkitCombatBlueFilled
 
+- type: entity
+  parent: ClothingBeltMedical # i don't know why this isn't contraband, but whatever man
+  id: ClothingBeltMilitaryChemBagParamedic
+  name: paramedic's medical pouch
+  description: A small, lightweight and flexible medical pouch brimming with rapid injection cartridges and autoinjectors. A paramedic's best friend! # PLACEHOLDER UNTIL I SEE THE NEW SPRITE
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Belt/blueshieldchembag.rsi # PLACERHOLDER!@!!!!
+  - type: Clothing
+    sprite: _Omu/Clothing/Belt/blueshieldchembag.rsi # PLACERHOLDER !!!!!
+  - type: Storage
+    grid:
+      - 0,0,3,3 # 4x4 square
+
+- type: entity
+  parent: ClothingBeltMilitaryChemBagParamedic
+  id: ClothingBeltMilitaryChemBagParamedicFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: ParamedHypo
+      amount: 2
+    - id: CartridgeAtropine
+      amount: 4
+    - id: CartridgeBicaridine
+      amount: 2
+    - id: CartridgeSaline
+      amount: 1
+    - id: CartridgeAmoxla
+      amount: 1
+    - id: EmergencyMedipen
+      amount: 2
+    - id: SpaceMedipen
+      amount: 2
 
