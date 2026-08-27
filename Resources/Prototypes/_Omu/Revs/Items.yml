@@ -1,0 +1,8 @@
+- type: entity
+  parent: PosterContrabandRevolt
+  id: PosterContrabandRevPosterRevolt
+  name: "Revolt"
+  description: "Revolutionist propaganda, manufactured by the Syndicate."
+  components:
+  - type: MoraleHarmerArea
+    MoraleChange: -0.2
