@@ -13,7 +13,7 @@
   id: BeanieHead
   equipment:
     head: ClothingHeadHatCanadaBeanie
-    
+
 - type: loadout
   id: ChefHatHead
   equipment:
@@ -43,7 +43,7 @@
   id: SafariHead
   equipment:
     head: ClothingHeadSafari
-    
+
 - type: loadout
   id: JesterHead
   equipment:
@@ -53,7 +53,7 @@
   id: HeadSlimeHead
   equipment:
     head: ClothingHeadHatAnimalHeadslime
-    
+
 - type: loadout
   id: HeadFlowerHead
   equipment:
@@ -63,4 +63,20 @@
   id: HeadbandSkull
   equipment:
     head: ClothingHeadBandSkull
-    
+
+- type: loadoutEffectGroup
+  id: VeteranBorg
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBorg
+      time: 360000 #100 hours
+
+- type: loadout
+  id: CapSilicon
+  equipment:
+    head: ClothingHeadHatCapSilicon
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranBorg

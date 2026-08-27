@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/25/2026 21:14:26
-  entityCount: 31881
+  time: 08/08/2026 21:47:49
+  entityCount: 31882
 maps:
 - 1
 grids:
@@ -21247,7 +21247,7 @@ entities:
       rot: -31.415926535897945 rad
       pos: 1.474453,-68.41351
       parent: 2
-- proto: BaseChemistryEmptyVial
+- proto: ChemistryEmptyVial
   entities:
   - uid: 1277
     components:
@@ -101944,6 +101944,13 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+  - uid: 31882
+    components:
+    - type: Transform
+      pos: -33.5,-41.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: FloorTileItemDirty
   entities:
   - uid: 16018
@@ -145079,7 +145086,7 @@ entities:
     - type: Transform
       pos: 31.77906,37.139565
       parent: 2
-- proto: HandheldHealthAnalyzerUnpowered
+- proto: HandheldHealthAnalyzer
   entities:
   - uid: 22047
     components:

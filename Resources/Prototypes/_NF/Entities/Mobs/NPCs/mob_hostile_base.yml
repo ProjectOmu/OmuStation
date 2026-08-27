@@ -3,17 +3,18 @@
   id: NFMobAtmos
   abstract: true
   components:
-  - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 2000 # Should prevent mobs from taking damage on planets with extreme heat
     coldDamageThreshold: -250 # Should make mobs immune to cold planets
-    currentTemperature: 310.15
     coldDamage: #per second, scales with temperature & other constants
       types:
         Cold: 0.1
-    specificHeat: 42
     heatDamage: #per second, scales with temperature & other constants
       types:
         Heat: 1.5
+  - type: Temperature
+    specificHeat: 42
+    currentTemperature: 310.15
   - type: ThermalRegulator
     metabolismHeat: 800
     radiatedHeat: 100
@@ -146,7 +147,7 @@
       80: Critical
       120: Dead
   - type: Stamina
-    critThreshold: 100
+    baseCritThreshold: 100
   - type: NpcFactionMember
     factions:
     - SimpleHostile

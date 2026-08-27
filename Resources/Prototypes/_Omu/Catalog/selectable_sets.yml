@@ -126,16 +126,8 @@
     state: base
   content:
   - WeaponSniperM1Garand
-
-- type: selectableSet
-  id: WeaponTerminusSet
-  name: selectable-set-terminus-name
-  description: selectable-set-terminus-description
-  sprite:
-    sprite: _EinsteinEngines/Objects/Weapons/Melee/terminus.rsi
-    state: icon
-  content:
-  - Terminus
+  - MagazineClipM1Garand
+  - MagazineClipM1Garand
 
 - type: selectableSet
   id: WeaponAntiqueLaserSet

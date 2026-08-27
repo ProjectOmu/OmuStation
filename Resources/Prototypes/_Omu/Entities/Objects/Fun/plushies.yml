@@ -22,7 +22,7 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_Omu/Items/Plushie/ogrenoise.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: false
     useSound:
       path: /Audio/_Omu/Items/Plushie/ogrenoise.ogg
@@ -70,7 +70,7 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_Floofstation/Voice/Avali/avali_cry.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -81,7 +81,7 @@
       food:
         maxVol: 15
         reagents:
-        - ReagentId: PenteticAcid
+        - ReagentId: PentenicAcid
           Quantity: 10
         - ReagentId: WhiskeySoda
           Quantity: 5
@@ -159,7 +159,7 @@
   id: PlushieThesiaOmuStaffAmnestic
   suffix: DO NOT MAP
   components:
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
@@ -202,7 +202,7 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_Floofstation/Voice/Avali/avali_laugh.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -257,7 +257,7 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_Floofstation/Voice/Avali/avali_cry.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -302,7 +302,7 @@
   - type: EmitSoundOnCollide
     sound:
       collection: VulpkaninSnarls
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -350,7 +350,7 @@
   - type: EmitSoundOnCollide
     sound:
       collection: ResomiScrees
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -472,7 +472,7 @@
   - type: EmitSoundOnCollide
     sound:
       collection: FelinidMews
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -510,7 +510,7 @@
   - type: EmitSoundOnCollide
     sound:
       collection: VoxScreams
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -551,7 +551,7 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/Voice/Talk/pai.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -589,7 +589,7 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_Floofstation/Voice/Avali/avali_cry.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -627,7 +627,7 @@
   - type: EmitSoundOnCollide
     sound:
       collection: VulpYips
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -665,7 +665,7 @@
   - type: EmitSoundOnCollide
     sound:
       collection: VulpYips
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -703,7 +703,7 @@
   - type: EmitSoundOnCollide
     sound:
       collection: VulpkaninBarks
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -787,7 +787,7 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/Weapons/punch1.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -825,7 +825,7 @@
   - type: EmitSoundOnCollide
     sound:
       collection: Pops
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180

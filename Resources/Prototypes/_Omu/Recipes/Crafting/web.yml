@@ -1,0 +1,43 @@
+- type: construction
+  id: ClothingOuterWinterCoatArachnid
+  graph: ClothingOuterWinterCoatArachnid
+  startNode: start
+  targetNode: end
+  category: construction-category-clothing
+  entityWhitelist:
+    tags:
+    - SpiderCraft
+  objectType: Item
+
+- type: construction
+  id: ClothingHeadHatArachnidEarmuffs
+  graph: ClothingHeadHatArachnidEarmuffs
+  startNode: start
+  targetNode: end
+  category: construction-category-clothing
+  entityWhitelist:
+    tags:
+    - SpiderCraft
+  objectType: Item
+
+- type: construction
+  id: ClothingHandsGlovesArachnid
+  graph: ClothingHandsGlovesArachnid
+  startNode: start
+  targetNode: end
+  category: construction-category-clothing
+  entityWhitelist:
+    tags:
+    - SpiderCraft
+  objectType: Item
+
+- type: construction
+  id: ClothingNeckScarfArachnid
+  graph: ClothingNeckScarfArachnid
+  startNode: start
+  targetNode: end
+  category: construction-category-clothing
+  entityWhitelist:
+    tags:
+    - SpiderCraft
+  objectType: Item

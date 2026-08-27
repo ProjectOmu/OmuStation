@@ -128,7 +128,16 @@
 #          sprite: Mobs/Effects/brute_damage.rsi
 #          color: "#6C3BAA"
     - type: Bloodstream
-      bloodReagent: AvaliBlood
+      bloodlossDamage:
+        types:
+          Bloodloss: 1
+      bloodlossHealDamage:
+        types:
+          Bloodloss: -0.25
+      bloodReferenceSolution:
+        reagents:
+        - ReagentId: AvaliBlood
+          Quantity: 200
     - type: MeleeWeapon
       soundHit:
         path: /Audio/Weapons/pierce.ogg
@@ -137,9 +146,10 @@
       damage:
         types:
           Slash: 6.25
-    - type: Temperature
+    - type: TemperatureDamage
       heatDamageThreshold: 310
       coldDamageThreshold: 223
+    - type: Temperature
       currentTemperature: 261
       specificHeat: 48
     - type: ThermalRegulator
@@ -163,6 +173,8 @@
 #      bleedHealPerUpdate: 1.0
 #      critHealingModifier: 2.0
 #      stasisDamageReduction: 0.5
+    - type: StealTarget # Omu
+      stealGroup: StealLittlePerson
     - type: PseudoItem
       storedOffset: 20,0
       shape:

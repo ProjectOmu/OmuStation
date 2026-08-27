@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/16/2026 14:59:03
-  entityCount: 12559
+  time: 08/08/2026 22:07:24
+  entityCount: 12560
 maps:
 - 1
 grids:
@@ -24128,8 +24128,8 @@ entities:
     - type: Transform
       pos: 12.5,9.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 8502
+    - type: OreSiloClient
+      silo: null
 - proto: Carpet
   entities:
   - uid: 3767
@@ -52561,7 +52561,7 @@ entities:
     - type: Transform
       pos: 27.180967,-25.483507
       parent: 2
-- proto: HandheldHealthAnalyzerUnpowered
+- proto: HandheldHealthAnalyzer
   entities:
   - uid: 8203
     components:
@@ -55130,8 +55130,8 @@ entities:
     - type: Transform
       pos: 18.5,13.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 8502
+    - type: OreSiloClient
+      silo: null
 - proto: OxygenCanister
   entities:
   - uid: 8561
@@ -63513,6 +63513,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -15.5,9.5
       parent: 2
+  - uid: 9969
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 18.5,-2.5
+      parent: 2
   - uid: 10408
     components:
     - type: Transform
@@ -63533,17 +63539,19 @@ entities:
     - type: Transform
       pos: -1.5,-33.5
       parent: 2
+- proto: SmartFridgeBotany
+  entities:
+  - uid: 5547
+    components:
+    - type: Transform
+      pos: -15.5,1.5
+      parent: 2
 - proto: SmartFridgeMedical
   entities:
   - uid: 5546
     components:
     - type: Transform
       pos: 16.5,-3.5
-      parent: 2
-  - uid: 5547
-    components:
-    - type: Transform
-      pos: -15.5,1.5
       parent: 2
 - proto: SMESAdvanced
   entities:

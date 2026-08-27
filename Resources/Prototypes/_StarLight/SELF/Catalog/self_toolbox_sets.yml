@@ -1,0 +1,43 @@
+- type: selectableSet # Omu, was thiefBackpackSet
+  id: SaboteurSELF
+  name: The Saboteur
+  description: self-backpack-category-saboteur-description
+  sprite:
+    sprite: Objects/Tools/jaws_of_life.rsi
+    state: syn_jaws_pry
+  content:
+  - SyndicateJawsOfLife
+  - WelderIndustrialAdvanced
+  - PowerDrill
+  - Multitool
+  - ClothingHandsGlovesColorYellow
+  - RadioJammer
+  - FreedomImplanter
+  - ClothingEyesGlassesMeson
+
+- type: selectableSet # Omu, was thiefBackpackSet
+  id: PressSELF
+  name: The Press
+  description: self-backpack-category-press-description
+  sprite:
+    sprite: Structures/Machines/computers.rsi
+    state: telescreen_frame
+  content:
+  - TapeRecorder
+  - EncryptionKeyBinarySyndicate
+  - MicrophoneInstrument
+  - ClothingMaskGasVoiceChameleon
+  - ScramImplanter
+
+- type: selectableSet # Omu, was thiefBackpackSet
+  id: SpySELF
+  name: The Spy
+  description: self-backpack-category-spy-description
+  sprite:
+    sprite: Objects/Devices/camera_bug.rsi
+    state: camera_bug
+  content:
+  - StorageImplanter
+  - ChameleonProjector
+  - WeaponPistolViper
+  - CameraBug
