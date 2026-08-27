@@ -8,6 +8,48 @@
   - type: HitscanBasicEffects
 
 - type: entity
+  id: DisablerBoltPractice
+  name: disabler bolt practice
+  parent: BasicHitscanNoBeam
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicVisuals
+    bullet:
+      sprite:
+        sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+        state: omnilaser
+  - type: HitscanBasicEffects
+    hitColor: blue
+
+- type: entity
+  id: DisablerBolt
+  name: disabler bolt
+  parent: DisablerBoltPractice
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanStaminaDamage
+    staminaDamage: 25
+  #- type: HitscanCyberneticDisruption # Omu, we dont have this
+  #  disableChance: 0.1
+
+- type: entity
+  parent: BasicHitscan
+  id: LaserTrace
+  categories: [ HideSpawnMenu ]
+  abstract: true
+
+- type: entity
+  id: RedLaserBeam
+  name: laser beam
+  parent: LaserTrace
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 20
+
+- type: entity
   id: PointDefenseBeam
   name: Point Defense beam
   parent: BasicHitscanNoBeam
