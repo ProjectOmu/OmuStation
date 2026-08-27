@@ -4301,7 +4301,7 @@ entities:
     - type: Transform
       pos: -8.629572,-4.2725434
       parent: 1
-- proto: MagazinePistolHighCapacityFMJ
+- proto: MagazinePistolHighCapacityRubber
   entities:
   - uid: 31
     components:
@@ -4343,7 +4343,7 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 25
-- proto: MagazinePistolHighCapacitySP
+- proto: MagazinePistolHighCapacity
   entities:
   - uid: 26
     components:
