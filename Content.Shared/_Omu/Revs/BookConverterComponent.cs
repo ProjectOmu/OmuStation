@@ -21,25 +21,21 @@ public sealed partial class BookConverterComponent : Component
     [DataField, AutoNetworkedField]
     public bool VisibleDoAfter { get; set; }
 
-    [DataField, AutoNetworkedField]
-    public int ConsumesCharges { get; set; }
-
-    [DataField, AutoNetworkedField]
-    public bool ApplyFlashEffect { get; set; }
-
-    [DataField, AutoNetworkedField]
-    public bool BypassMuted { get; set; } //if true, the flash will apply to muted entities as well
-
-    [DataField, AutoNetworkedField]
-    public TimeSpan FlashDuration { get; set; } = TimeSpan.FromSeconds(4); //only used if ApplyFlashEffect is true
-
-    [DataField, AutoNetworkedField]
-    public float SlowToOnFlashed = 0.5f; //only used if ApplyFlashEffect is true
-
     //Omu start
     [DataField, AutoNetworkedField]
     public float Amount = -2f;
 
     [DataField, AutoNetworkedField]
     public float Range = 4f;
+
+    [DataField, AutoNetworkedField]
+    public float FocusedMultiplier = 3f;
+}
+
+public sealed class MoraleChangedArgs : EntityEventArgs
+{
+    public EntityUid? User;
+    public float Amount;
+
+    public bool Forced = false;
 }

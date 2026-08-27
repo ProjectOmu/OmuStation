@@ -42,6 +42,19 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
         _speechLocalization = _prototypeManager.Index<LocalizedDatasetPrototype>(RevConvertSpeechProto);
     }
 
+    public void OnConvertDoAfter(Entity<BookConverterComponent> ent, ref RevolutionaryConverterDoAfterEvent args)
+    {
+        if (args.Target == null
+            || args.Cancelled
+            || args.Used == null
+            || args.Target == null)
+            return;
+
+        var ev = new MoraleChangedArgs();
+        ev.Amount = ent.Comp.Amount * ent.Comp.FocusedMultiplier;
+        ev.Forced = true;
+        RaiseLocalEvent(args.Target.Value, ev);
+    }
     private void OnUseInHand(Entity<BookConverterComponent> ent, ref UseInHandEvent args)
     {
         if (!SpeakPropaganda(ent, args.User))
@@ -68,31 +81,11 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
         return true;
     }
 
-    public void OnConvertDoAfter(Entity<BookConverterComponent> entity, ref RevolutionaryConverterDoAfterEvent args)
-    {
-        if (args.Target == null
-            || args.Cancelled
-            || args.Used == null
-            || args.Target == null)
-            return;
-
-        ConvertTarget(args.Used.Value, args.Target.Value, args.User);
-    }
-
-    public void ConvertTarget(EntityUid used, EntityUid targetConvertee, EntityUid user)
-    {
-        var ev = new AfterRevolutionaryConvertedEvent(targetConvertee, user, used);
-        RaiseLocalEvent(user, ref ev);
-        RaiseLocalEvent(used, ref ev);
-    }
-
     public void OnConverterAfterInteract(Entity<BookConverterComponent> entity, ref AfterInteractEvent args)
     {
         if (args.Handled
             || !args.Target.HasValue
-            || !args.CanReach
-            || (entity.Comp.ConsumesCharges > 0
-            && !_chargesSystem.TryUseCharges(entity.Owner, entity.Comp.ConsumesCharges)))
+            || !args.CanReach)
             return;
 
         if (args.Target is not { Valid: true } target
@@ -138,7 +131,12 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
             });
         }
         else
-            ConvertTarget(converter.Owner, target, user);
+        {
+            var ev = new MoraleChangedArgs();
+            ev.Amount = converter.Comp.Amount * converter.Comp.FocusedMultiplier;
+            ev.Forced = true;
+            RaiseLocalEvent(target, ev);
+        }
     }
 }
 

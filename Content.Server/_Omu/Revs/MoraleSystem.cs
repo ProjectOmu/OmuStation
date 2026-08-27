@@ -17,6 +17,7 @@ using Content.Shared.Revolutionary;
 using Robust.Shared.Player;
 using Content.Server.Roles;
 using Content.Server.Antag;
+using Content.Shared._Omu.Revs;
 
 namespace Content.Server._Omu.Revs;
 
@@ -87,6 +88,9 @@ public sealed class MoraleSystem : EntitySystem
     {
         if (!_mind.TryGetMind(ent, out _, out _))
             RemComp<MoraleComponent>(ent);
+
+        if (args.Forced == true)
+            EnsureComp<MoraleComponent>(ent);
 
         ent.Comp.MoraleValue += args.Amount;
 

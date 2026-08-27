@@ -26,9 +26,3 @@ public sealed partial class MoraleComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public float UpdateTimer = 1f;
 }
-
-public sealed class MoraleChangedArgs : EntityEventArgs
-{
-    public EntityUid? User;
-    public float Amount;
-}

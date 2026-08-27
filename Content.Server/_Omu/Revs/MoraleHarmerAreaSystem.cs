@@ -2,6 +2,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Revolutionary.Components;
 using Content.Server.Mind;
 using Robust.Shared.Timing;
+using Content.Shared._Omu.Revs;
 namespace Content.Server._Omu.Revs;
 
 public sealed class MoraleHarmerAreaSystem : EntitySystem
