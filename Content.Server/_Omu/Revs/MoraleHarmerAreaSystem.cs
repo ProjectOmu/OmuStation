@@ -68,4 +68,35 @@ public sealed class MoraleHarmerAreaSystem : EntitySystem
             EnsureComp<MoraleComponent>(target);       //Ensure morale comp.
         }
     }
+
+    public void AreaChange(EntityUid ent, float amount, float range)
+    {
+        var xform = Transform(ent);
+        var lookup = _lookup.GetEntitiesInRange(xform.Coordinates, range);
+        foreach (var target in lookup)
+        {
+            if (!_mind.TryGetMind(ent, out _, out _))
+                continue;
+
+            if (!HasComp<HumanoidAppearanceComponent>(target))
+                continue;   // Break loop since its an object
+
+            if (HasComp<RevolutionaryComponent>(target))
+                continue; // Already revved
+
+            if (TryComp<MoraleComponent>(target, out var morale))
+            {
+                var ev = new MoraleChangedArgs
+                {
+                    Amount = amount,
+
+                    User = ent,
+                };
+                RaiseLocalEvent(target, ev);
+                continue; //Break loop since we have reduced morale
+            }
+
+            EnsureComp<MoraleComponent>(target);       //Ensure morale comp.
+        }
+    }
 }
