@@ -11,3 +11,10 @@
     ForceableFollow: 1    ##unspecific enough for now.
   output:
     LodestoneSelector: 1
+
+- type: hereticKnowledge
+  id: LodestoneRitual
+  sideKnowledge: true
+  stage: 2
+  ritualPrototypes:
+  - LodestoneRitual
