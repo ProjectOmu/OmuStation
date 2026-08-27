@@ -10,7 +10,7 @@
               amount: 3
           completed:
           - !type:AdminLog
-          message: "A revolutionary poster was crafted"
+            message: "A revolutionary poster was crafted"
           conditions:
           - !type:RevolutionaryCrafterHasRecipeComponent
 
