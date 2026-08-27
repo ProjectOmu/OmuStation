@@ -6,3 +6,55 @@
   components:
   - type: MoraleHarmerArea
     MoraleChange: -0.2
+
+- type: entity
+  parent: [ BaseSetSelector, BaseSetSelector ,BaseMinorContraband]
+  id: RevSelector
+  name: Revolutionary's flavor selector
+  description: What brand of Larp are you feeling great leader?
+  components:
+  - type: SetSelector
+    possibleSets:
+    - CommieRevsSet
+    setsToSelect: 3
+    spawnedStoragePrototype: CrateSyndicate
+    spawnedStorageContainer: entity_storage
+    openSpawnedStorage: true
+    approveSound:
+      path: /Audio/Effects/closetopen.ogg
+
+- type: selectableSet
+  id: CommieRevsSet
+  name: selectable-set-commie-revs-name
+  description: selectable-set-commie-revs-desc
+  sprite:
+    sprite: Objects/Specific/Chapel/communistmanifesto.rsi
+    state: icon
+  content:
+  - EncryptionKeySyndie
+  - RevolutionaryManifesto
+  - RevolutionaryPaper
+
+- type: entity
+  parent: BaseItem
+  name: signatory form
+  id: RevolutionaryPaper
+  description: This document carries a great weight to it... as though signing it will have great impact.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper
+  - type: Paper
+  - type: PaperLabelType
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: SignatureConverter
+    amount: 11f
