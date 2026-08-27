@@ -1,0 +1,19 @@
+- type: constructionGraph
+  id: RevPoster
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: revPoster
+          steps:
+            - material: Cloth
+              amount: 3
+          completed:
+          - !type:AdminLog
+          message: "A revolutionary poster was crafted"
+          conditions:
+          - !type:RevolutionaryCrafterHasRecipeComponent
+
+    - node: revPoster
+      entity: PosterContrabandRevPosterRevolt
+

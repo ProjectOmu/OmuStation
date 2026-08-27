@@ -6,6 +6,9 @@
   components:
   - type: MoraleHarmerArea
     moraleChange: -0.2
+  - type: Construction
+    graph: RevPoster
+    node: revPoster
 
 - type: entity
   parent: [ BaseSetSelector, BaseMinorContraband]
@@ -22,7 +25,7 @@
     possibleSets:
     - CommieRevsSet
     setsToSelect: 1
-    spawnedStoragePrototype: CrateSyndicate
+    spawnedStoragePrototype: BriefcaseSecure
     spawnedStorageContainer: entity_storage
     openSpawnedStorage: true
     approveSound:
