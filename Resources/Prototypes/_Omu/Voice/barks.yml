@@ -35,3 +35,23 @@
   speciesWhitelist:
     - Moth
     - Harpy # The Egg demands that harpies get all barks...
+
+# Hydrakin chirp chrip chrip
+- type: soundCollection
+  id: HydraChripingBark
+  files:
+  - /Audio/_Omu/Voice/Barks/Hydrakin/hydrakin-say-1.ogg
+  - /Audio/_Omu/Voice/Barks/Hydrakin/hydrakin-say-2.ogg
+  - /Audio/_Omu/Voice/Barks/Hydrakin/hydrakin-ask-1.ogg
+  - /Audio/_Omu/Voice/Barks/Hydrakin/hydrakin-exclaim-1.ogg
+  - /Audio/_Omu/Voice/Barks/Hydrakin/hydrakin-exclaim-2.ogg
+# Since barks don't work with stereo tracks, I've made special mono versions of these.
+
+- type: bark
+  id: HydraChirp
+  name: Hydra
+  soundCollection:
+    collection: HydraChripingBark
+  speciesWhitelist:
+  - Hydrakin
+  - Harpy # The Egg is talking to me... its telling me to leave this be...

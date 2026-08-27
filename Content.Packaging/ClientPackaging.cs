@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics;
@@ -35,7 +28,7 @@ public static class ClientPackaging
                 ArgumentList =
                 {
                     "build",
-                    Path.Combine("Content.Goobstation.Client", "Content.Goobstation.Client.csproj"), // Goob
+                    Path.Combine("Content.Omu.Client", "Content.Omu.Client.csproj"), // Omu
                     "-c", configuration,
                     "--nologo",
                     "/v:m",
@@ -84,7 +77,7 @@ public static class ClientPackaging
         // Goob edit start
         // thanks 'dletandas'
         var sourcePath = Path.Combine(contentDir, "bin", "Content.Client");
-        var deps = DepsHandler.Load(Path.Combine(sourcePath, "Content.Goobstation.Client.deps.json"));
+        var deps = DepsHandler.Load(Path.Combine(sourcePath, "Content.Omu.Client.deps.json")); // omu
         var contentAssemblies = ServerPackaging.GetContentAssemblyNamesToCopy(deps, "Client");
         // Good edit end
 

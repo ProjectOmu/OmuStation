@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage;
@@ -58,7 +49,7 @@ public sealed partial class TypedDamageThresholdEntityConditionSystem : EntityCo
 
             if (entity.Comp.Damage.TryGetDamageInGroup(group, out var total) && total > groupDamage)
             {
-                args.Result = !args.Condition.Inverse;
+                args.Result = true;
                 return;
             }
 
@@ -77,7 +68,7 @@ public sealed partial class TypedDamageThresholdEntityConditionSystem : EntityCo
         }
         comparison.ExclusiveAdd(-entity.Comp.Damage);
         comparison = -comparison;
-        args.Result = comparison.AnyPositive() ^ args.Condition.Inverse;
+        args.Result = comparison.AnyPositive();
     }
 }
 
@@ -86,9 +77,6 @@ public sealed partial class TypedDamageThresholdCondition : EntityConditionBase<
 {
     [DataField(required: true)]
     public DamageSpecifier Damage = default!;
-
-    [DataField]
-    public bool Inverse = false;
 
     public override string EntityConditionGuidebookText(IPrototypeManager prototype)
     {
@@ -142,7 +130,7 @@ public sealed partial class TypedDamageThresholdCondition : EntityConditionBase<
         }
 
         return Loc.GetString("reagent-effect-condition-guidebook-typed-damage-threshold",
-                ("inverse", Inverse),
+                ("inverse", Inverted),
                 ("changes", ContentLocalizationManager.FormatList(damages))
                 );
     }
