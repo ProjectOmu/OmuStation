@@ -36,6 +36,5 @@ public sealed class MoraleChangedArgs : EntityEventArgs
 {
     public EntityUid? User;
     public float Amount;
-
-    public bool Forced = false;
+    public bool? Forced;
 }

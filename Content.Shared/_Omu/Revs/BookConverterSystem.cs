@@ -52,6 +52,7 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
 
         var ev = new MoraleChangedArgs();
         ev.Amount = ent.Comp.Amount * ent.Comp.FocusedMultiplier;
+        ev.User = args.User;
         ev.Forced = true;
         RaiseLocalEvent(args.Target.Value, ev);
     }
@@ -94,7 +95,6 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
             return;
 
         ConvertDoAfter(entity, target, args.User);
-        args.Handled = true;
     }
 
     private void ConvertDoAfter(Entity<BookConverterComponent> converter, EntityUid target, EntityUid user)
@@ -134,6 +134,7 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
         {
             var ev = new MoraleChangedArgs();
             ev.Amount = converter.Comp.Amount * converter.Comp.FocusedMultiplier;
+            ev.User = user;
             ev.Forced = true;
             RaiseLocalEvent(target, ev);
         }

@@ -18,6 +18,7 @@ using Robust.Shared.Player;
 using Content.Server.Roles;
 using Content.Server.Antag;
 using Content.Shared._Omu.Revs;
+using SQLitePCL;
 
 namespace Content.Server._Omu.Revs;
 
@@ -87,10 +88,18 @@ public sealed class MoraleSystem : EntitySystem
     private void OnChange(Entity<MoraleComponent> ent, ref MoraleChangedArgs args)
     {
         if (!_mind.TryGetMind(ent, out _, out _))
+        {
             RemComp<MoraleComponent>(ent);
+            return;
+        }
 
         if (args.Forced == true)
+        {
             EnsureComp<MoraleComponent>(ent);
+            if (args.User is not null)
+                ForcedMorale(ent.Owner, args.User.Value, args.Amount);
+            return;
+        }
 
         ent.Comp.MoraleValue += args.Amount;
 
@@ -149,5 +158,27 @@ public sealed class MoraleSystem : EntitySystem
         }
         RemComp<MoraleComponent>(ent);
         return true;
+    }
+
+    public void ForcedMorale(EntityUid ent, EntityUid user, float amount)
+    {
+        if (!TryComp<MoraleComponent>(ent, out var moraleComponent))
+            return;         //Something has gone amiss
+
+        moraleComponent.MoraleValue += amount;
+
+        var morale = moraleComponent.MoraleValue;
+
+        if (morale <= 0f)
+        {
+            var ev = new MoraleChangedArgs()
+            {
+                User = user,
+                Amount = amount,
+                Forced = true,
+            };
+            if (!MakeRev(new Entity<MoraleComponent>(ent, moraleComponent), ref ev))
+                RemComp<MoraleComponent>(ent);
+        }
     }
 }
