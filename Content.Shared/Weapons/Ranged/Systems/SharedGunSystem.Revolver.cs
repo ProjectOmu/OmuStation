@@ -95,12 +95,14 @@ public partial class SharedGunSystem
 
     public bool TryRevolverInsert(Entity<RevolverAmmoProviderComponent> ent, EntityUid insertEnt, EntityUid? user)
     {
-        if (_whitelistSystem.IsWhitelistFail(ent.Comp.Whitelist, insertEnt))
-            return false;
+        Popup("Mar, attempt was made to insert something into a revolver", ent, user); //debug statement
 
         // If it's a speedloader try to get ammo from it.
         if (HasComp<SpeedLoaderComponent>(insertEnt))
         {
+            if (_whitelistSystem.IsWhitelistFail(ent.Comp.Whitelist, insertEnt))
+                return false; // The speedloader isn't intended for this revolver.
+
             var freeSlots = 0;
 
             for (var i = 0; i < ent.Comp.Capacity; i++)
@@ -166,9 +168,28 @@ public partial class SharedGunSystem
             return true;
         }
 
+        if (HasComp<BallisticAmmoProviderComponent>(insertEnt))
+        {
+            // Popup("Mar, object definitely holds ammo",ent,user);
+            TryComp<BallisticAmmoProviderComponent>(insertEnt, out var ammoHolder);
+
+            // if (ammoHolder!.MayTransfer)
+            // {
+            //     Popup("Mar, Ammo Holder can transfer contents.",ent,user);
+            // }
+            //
+            // var inWhitelist = _whitelistSystem.IsWhitelistPass(ammoHolder.Whitelist, ent);
+            // Popup($"Mar, inWhitelist is {inWhitelist}",ent,user);
+
+
+        }
+
         // Try to insert the entity directly.
         for (var i = 0; i < ent.Comp.Capacity; i++)
         {
+            if (_whitelistSystem.IsWhitelistFail(ent.Comp.Whitelist, insertEnt))
+                return false; // This cartridge isn't intended for this revolver
+
             var index = (ent.Comp.CurrentIndex + i) % ent.Comp.Capacity;
 
             if (ent.Comp.AmmoSlots[index] != null ||
