@@ -61,6 +61,16 @@
   - MagazineCaselessRifleFMJ
 
 - type: selectableSet
+  id: SargeMagnumSet
+  name: selectable-set-sarge-magnum-name
+  description: selectable-set-sarge-magnum-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
+    state: icon
+  content:
+  - WeaponEnergyMagnum
+
+- type: selectableSet
   id: WeaponEnergyShotgunSet
   name: selectable-set-warden-eshotty-name
   description: selectable-set-warden-eshotty-description
