@@ -5,10 +5,10 @@
   description: "Revolutionist propaganda, manufactured by the Syndicate."
   components:
   - type: MoraleHarmerArea
-    MoraleChange: -0.2
+    moraleChange: -0.2
 
 - type: entity
-  parent: [ BaseSetSelector, BaseSetSelector ,BaseMinorContraband]
+  parent: [ BaseSetSelector, BaseMinorContraband]
   id: RevSelector
   name: Revolutionary's flavor selector
   description: What brand of Larp are you feeling great leader?
@@ -16,7 +16,7 @@
   - type: SetSelector
     possibleSets:
     - CommieRevsSet
-    setsToSelect: 3
+    setsToSelect: 1
     spawnedStoragePrototype: CrateSyndicate
     spawnedStorageContainer: entity_storage
     openSpawnedStorage: true
