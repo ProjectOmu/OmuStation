@@ -100,7 +100,7 @@ public sealed partial class MeleeWeaponComponent : Component
     ///     Applies stamina damage on each successful wideswing hit to the attacker.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float HeavyStaminaCost = 5f;
+    public float HeavyStaminaCost = 12f; // Omu
 
     /// <summary>
     /// Total width of the angle for wide attacks.
