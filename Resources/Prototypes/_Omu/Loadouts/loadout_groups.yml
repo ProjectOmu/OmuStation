@@ -511,3 +511,10 @@
   - ParamedMessenger
   - MedicalDoctorMessenger # Frontier
   - CybersunMedicalMessenger
+
+- type: loadoutGroup
+  id: ParamedicBelt
+  name: loadout-group-paramedic-belt
+  loadouts:
+  - EMTBelt
+  - ParamedPouch

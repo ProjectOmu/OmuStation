@@ -85,7 +85,7 @@
 
 - type: entity
   parent: ClothingBeltMedical # i don't know why this isn't contraband, but whatever man
-  id: ClothingBeltMilitaryChemBagParamedic
+  id: ClothingBeltChemBagParamedic
   name: paramedic's medical pouch
   description: A small, lightweight and flexible medical pouch brimming with rapid injection cartridges and autoinjectors. A paramedic's best friend! # PLACEHOLDER UNTIL I SEE THE NEW SPRITE
   components:
@@ -98,14 +98,14 @@
       - 0,0,3,3 # 4x4 square
 
 - type: entity
-  parent: ClothingBeltMilitaryChemBagParamedic
-  id: ClothingBeltMilitaryChemBagParamedicFilled
+  parent: ClothingBeltChemBagParamedic
+  id: ClothingBeltChemBagParamedicFilled
   suffix: Filled
   components:
   - type: StorageFill
     contents:
+    - id: HandheldCrewMonitor
     - id: ParamedHypo
-      amount: 2
     - id: CartridgeAtropine
       amount: 4
     - id: CartridgeBicaridine
