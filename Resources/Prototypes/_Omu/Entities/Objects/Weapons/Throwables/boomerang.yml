@@ -37,9 +37,9 @@
         - type: StaminaDamageOnCollide # stam damage when ya throw it at people
           damage: 0
         soundStateActivate:
-        collection: sparks
-        params:
-          variation: 0.250
+          collection: sparks
+          params:
+            variation: 0.250
 
       on: !type:ItemSwitchState
         verb: on
@@ -63,9 +63,9 @@
         - type: StaminaDamageOnCollide
           damage: 25
         soundStateActivate:
-        collection: sparks
-        params:
-          variation: 0.250
+          collection: sparks
+          params:
+            variation: 0.250
 
   - type: Item
     size: Normal
