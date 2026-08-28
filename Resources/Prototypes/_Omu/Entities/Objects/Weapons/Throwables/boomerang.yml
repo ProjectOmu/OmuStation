@@ -36,7 +36,7 @@
           overtime: 0
         - type: StaminaDamageOnCollide # stam damage when ya throw it at people
           damage: 0
-        soundActivate:
+        soundStateActivate:
         collection: sparks
         params:
           variation: 0.250
@@ -62,7 +62,7 @@
           overtime: 10
         - type: StaminaDamageOnCollide
           damage: 25
-        soundActivate:
+        soundStateActivate:
         collection: sparks
         params:
           variation: 0.250
