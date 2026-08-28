@@ -199,44 +199,6 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
-- proto: ActionToggleBlock
-  entities:
-  - uid: 40
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 39
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 39
-  - uid: 81
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 44
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 44
-  - uid: 87
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 86
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 86
-  - uid: 97
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 96
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 96
 - proto: AirlockGlassShuttleSyndicate
   entities:
   - uid: 2
@@ -468,15 +430,6 @@ entities:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 99
-          - 90
-          - 85
-          - 84
-          - 83
-          - 43
-          - 38
-          - 37
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -572,88 +525,6 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-- proto: CyberEnergyChainsword
-  entities:
-  - uid: 41
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 38
-    - type: MeleeWeapon
-      nextAttack: -124.7240603
-    - type: EnergyColor
-      color: '#FF6347FF'
-    - type: UseDelay
-      delays:
-        default:
-          endTime: 0
-          startTime: 0
-          length: 1
-    - type: EmitSoundOnCollide
-      nextSound: -124.7240603
-    - type: Physics
-      canCollide: False
-  - uid: 82
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 43
-    - type: MeleeWeapon
-      nextAttack: -124.8630021
-    - type: EnergyColor
-      color: '#BA55D3FF'
-    - type: UseDelay
-      delays:
-        default:
-          endTime: 0
-          startTime: 0
-          length: 1
-    - type: EmitSoundOnCollide
-      nextSound: -124.8630021
-    - type: Physics
-      canCollide: False
-  - uid: 88
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 85
-    - type: MeleeWeapon
-      nextAttack: -126.2885337
-    - type: EnergyColor
-      color: '#00FA9AFF'
-    - type: UseDelay
-      delays:
-        default:
-          endTime: 0
-          startTime: 0
-          length: 1
-    - type: EmitSoundOnCollide
-      nextSound: -126.2885337
-    - type: Physics
-      canCollide: False
-  - uid: 98
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 90
-    - type: MeleeWeapon
-      nextAttack: -126.4153074
-    - type: EnergyColor
-      color: '#00FFFFFF'
-    - type: UseDelay
-      delays:
-        default:
-          endTime: 0
-          startTime: 0
-          length: 1
-    - type: EmitSoundOnCollide
-      nextSound: -126.4153074
-    - type: Physics
-      canCollide: False
 - proto: EmergencyLight
   entities:
   - uid: 30
@@ -673,72 +544,6 @@ entities:
     - type: Transform
       pos: 0.5,3.5
       parent: 1
-- proto: EnergyShieldCyber
-  entities:
-  - uid: 39
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 38
-    - type: UseDelay
-      delays:
-        default:
-          endTime: 0
-          startTime: 0
-          length: 0.5
-    - type: EmitSoundOnCollide
-      nextSound: -124.7240603
-    - type: Physics
-      canCollide: False
-  - uid: 44
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 43
-    - type: UseDelay
-      delays:
-        default:
-          endTime: 0
-          startTime: 0
-          length: 0.5
-    - type: EmitSoundOnCollide
-      nextSound: -124.8630021
-    - type: Physics
-      canCollide: False
-  - uid: 86
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 85
-    - type: UseDelay
-      delays:
-        default:
-          endTime: 0
-          startTime: 0
-          length: 0.5
-    - type: EmitSoundOnCollide
-      nextSound: -126.2885337
-    - type: Physics
-      canCollide: False
-  - uid: 96
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 90
-    - type: UseDelay
-      delays:
-        default:
-          endTime: 0
-          startTime: 0
-          length: 0.5
-    - type: EmitSoundOnCollide
-      nextSound: -126.4153074
-    - type: Physics
-      canCollide: False
 - proto: GeneratorBasic15kW
   entities:
   - uid: 34
@@ -773,10 +578,8 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 79
           - 36
           - 78
-          - 80
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -979,34 +782,6 @@ entities:
       parent: 1
     - type: Label
       currentLabel: Gamma Weaponry
-- proto: LeftArmCyberBulwark
-  entities:
-  - uid: 38
-    components:
-    - type: Transform
-      parent: 33
-    - type: InsideEntityStorage
-  - uid: 43
-    components:
-    - type: Transform
-      parent: 33
-    - type: InsideEntityStorage
-- proto: LeftHandCyber
-  entities:
-  - uid: 37
-    components:
-    - type: Transform
-      parent: 33
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 99
-    components:
-    - type: Transform
-      parent: 33
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: MagazineBatteryLr30
   entities:
   - uid: 104
@@ -1268,34 +1043,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.5,2.5
       parent: 1
-- proto: RightArmCyberBulwark
-  entities:
-  - uid: 85
-    components:
-    - type: Transform
-      parent: 33
-    - type: InsideEntityStorage
-  - uid: 90
-    components:
-    - type: Transform
-      parent: 33
-    - type: InsideEntityStorage
-- proto: RightHandCyber
-  entities:
-  - uid: 83
-    components:
-    - type: Transform
-      parent: 33
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 84
-    components:
-    - type: Transform
-      parent: 33
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: Screen
   entities:
   - uid: 45
@@ -1531,21 +1278,12 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: WeaponIonRifle
+- proto: WeaponEnergyIonRifle
   entities:
   - uid: 91
     components:
     - type: Transform
       parent: 89
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: WeaponMechCombatAMLG90
-  entities:
-  - uid: 80
-    components:
-    - type: Transform
-      parent: 77
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -1561,15 +1299,6 @@ entities:
 - proto: WeaponMechCombatUltraRifle
   entities:
   - uid: 78
-    components:
-    - type: Transform
-      parent: 77
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: WeaponMechCombatXray
-  entities:
-  - uid: 79
     components:
     - type: Transform
       parent: 77
