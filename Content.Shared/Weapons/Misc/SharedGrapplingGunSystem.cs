@@ -165,9 +165,10 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var grappling))
         {
+            // Omu start - initial reel/collision check
             bool allowReel = true;
             JointComponent? jointComp = null;
-            if (!grappling.Reeling || !TryComp<JointComponent>(uid, out jointComp))
+            if (!grappling.Reeling || !TryComp<JointComponent>(uid, out jointComp)) // Omu end
             {
                 if (Timing.IsFirstTimePredicted)
                 {
@@ -175,10 +176,13 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
                     grappling.Stream = _audio.Stop(grappling.Stream);
                 }
 
+                // Omu start - wake up player physics
                 if (jointComp?.Relay != null && !grappling.Reeling)
                     _physics.WakeBody(jointComp.Relay.Value);
+                // Omu end
                 continue;
             }
+            // Omu start
             SetReeling(uid, grappling, false, null);
 
             if (jointComp == null)
@@ -203,6 +207,7 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
             {
                 continue;
             }
+            // Omu end
 
             // TODO: This should be on engine.
             distance.MaxLength = MathF.Max(distance.MinLength, distance.MaxLength - grappling.ReelRate * frameTime);
@@ -211,16 +216,17 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
             _physics.WakeBody(joint.BodyAUid);
             _physics.WakeBody(joint.BodyBUid);
 
-            if (jointComp != null)
-                Dirty(uid, jointComp);
+            Dirty(uid, jointComp);
 
             if (distance.MaxLength.Equals(distance.MinLength))
             {
-                allowReel = false;
+                allowReel = false; // Omu
             }
 
+            // Omu start - final reeling set
             if (allowReel)
                 SetReeling(uid, grappling, true, null);
+            // Omu end
         }
     }
 
