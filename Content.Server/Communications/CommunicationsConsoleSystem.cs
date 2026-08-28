@@ -280,7 +280,10 @@ namespace Content.Server.Communications
                 return;
             }
 
-            _chatSystem.DispatchStationAnnouncement(uid, msg, title, announcementSound: comp.Sound, colorOverride: comp.Color);
+            _chatSystem.DispatchStationAnnouncement(uid, msg, title,
+                announcementSound: comp.Sound, // Omu
+                colorOverride: comp.Color
+            );
 
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following station announcement: {msg}");
 
