@@ -97,7 +97,7 @@
     Medicine:
       metabolismRate: 0.2
       effects:
-      - !type:ChemCleanBloodstream
+      - !type:CleanBloodstream
         cleanseRate: 1.2 # down from 3.0
       - !type:HealthChange
         damage:
