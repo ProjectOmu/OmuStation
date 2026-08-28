@@ -165,7 +165,9 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var grappling))
         {
-            if (!grappling.Reeling)
+            bool allowReel = true;
+            JointComponent? jointComp = null;
+            if (!grappling.Reeling || !TryComp<JointComponent>(uid, out jointComp))
             {
                 if (Timing.IsFirstTimePredicted)
                 {
@@ -173,14 +175,32 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
                     grappling.Stream = _audio.Stop(grappling.Stream);
                 }
 
+                if (jointComp?.Relay != null && !grappling.Reeling)
+                    _physics.WakeBody(jointComp.Relay.Value);
                 continue;
             }
+            SetReeling(uid, grappling, false, null);
 
-            if (!TryComp<JointComponent>(uid, out var jointComp) ||
-                !jointComp.GetJoints.TryGetValue(GrapplingJoint, out var joint) ||
-                joint is not DistanceJoint distance)
+            if (jointComp == null)
+                continue;
+
+            if (jointComp?.Relay != null)
             {
-                SetReeling(uid, grappling, false, null);
+                var _contactQuery = _physics.GetContacts(jointComp.Relay.Value);
+                while (_contactQuery.MoveNext(out var contact))
+                {
+                    if (contact.Hard)
+                    {
+                        allowReel = false;
+                        break;
+                    }
+                }
+                _physics.WakeBody(jointComp.Relay.Value);
+            }
+
+            if (!jointComp.GetJoints.TryGetValue(GrapplingJoint, out var joint) ||
+            joint is not DistanceJoint distance || !allowReel)
+            {
                 continue;
             }
 
@@ -191,17 +211,16 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
             _physics.WakeBody(joint.BodyAUid);
             _physics.WakeBody(joint.BodyBUid);
 
-            if (jointComp.Relay != null)
-            {
-                _physics.WakeBody(jointComp.Relay.Value);
-            }
-
-            Dirty(uid, jointComp);
+            if (jointComp != null)
+                Dirty(uid, jointComp);
 
             if (distance.MaxLength.Equals(distance.MinLength))
             {
-                SetReeling(uid, grappling, false, null);
+                allowReel = false;
             }
+
+            if (allowReel)
+                SetReeling(uid, grappling, true, null);
         }
     }
 
