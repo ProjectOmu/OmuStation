@@ -3,6 +3,8 @@
   id: PosterContrabandRevPosterRevolt
   name: "Revolt"
   description: "Revolutionist propaganda, manufactured by the Syndicate."
+  placement:
+    mode: SnapgridCenter
   components:
   - type: MoraleHarmerArea
     moraleChange: -0.2
