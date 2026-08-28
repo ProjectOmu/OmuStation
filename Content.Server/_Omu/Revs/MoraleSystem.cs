@@ -57,7 +57,7 @@ public sealed class MoraleSystem : EntitySystem
         if (HasComp<MindShieldComponent>(uid))
         {
             component.Mindshielded = true;
-            component.MoraleRecovery = 0.4f;
+            component.MoraleRecovery = component.MoraleMSRecovery;
         }
     }
 

@@ -23,7 +23,7 @@ public sealed partial class BookConverterComponent : Component
 
     //Omu start
     [DataField, AutoNetworkedField]
-    public float Amount = -2f;
+    public float Amount = -4f;
 
     [DataField, AutoNetworkedField]
     public float Range = 4f;

@@ -19,7 +19,7 @@
       tags:
         - Book
     - type: UseDelay
-      delay: 2
+      delay: 4  # Omu from 2... make it longer so its not spamming chat
     - type: Appearance
     - type: GuideHelp
       guides:
@@ -31,4 +31,5 @@
     - type: BookConverter
       silent: false
       visibleDoAfter: false
-      conversionDuration: 3
+      conversionDuration: 6 # Omu Make it longer so people can talk it over?
+      amount: 3

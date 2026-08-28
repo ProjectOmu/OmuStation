@@ -59,6 +59,8 @@ public sealed class BookConverterSystem : EntitySystem
     }
     private void OnUseInHand(Entity<BookConverterComponent> ent, ref UseInHandEvent args)
     {
+        args.ApplyDelay = true;
+
         if (!SpeakPropaganda(ent, args.User))
             return;
 

@@ -28,4 +28,8 @@ public sealed partial class MoraleComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)]
     public float UpdateTimer = 1f;
+
+    [DataField]
+    public float MoraleMSRecovery = 1f;
+
 }
