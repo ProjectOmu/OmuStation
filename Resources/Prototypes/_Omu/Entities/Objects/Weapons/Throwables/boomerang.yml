@@ -27,7 +27,7 @@
           damage:
             types:
               Blunt: 4
-        - type: DamageOtherOnHit # the damage the throw does, cannot be changed by a toggle as its sever side
+        - type: DamageOtherOnHit # the damage the throw does
           damage:
             types:
               Blunt: 5
@@ -47,7 +47,7 @@
           sprite: _Omu/Objects/Weapons/Throwable/secarang.rsi
           state: secarang_on
         components:
-        - type: Stunbaton # This has to be here otherwise it will not drain enegry on a throw hit
+        - type: Stunbaton # This has to be here otherwise it will not drain enegry on a throw hit, but cant be elsewhere because then the UI breaks
           energyPerUse: 50
         - type: MeleeWeapon
           damage:
