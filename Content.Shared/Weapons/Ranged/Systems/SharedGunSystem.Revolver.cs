@@ -9,7 +9,9 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared.Actions.Components;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Timing;
 using JetBrains.Annotations;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
@@ -95,8 +97,6 @@ public partial class SharedGunSystem
 
     public bool TryRevolverInsert(Entity<RevolverAmmoProviderComponent> ent, EntityUid insertEnt, EntityUid? user)
     {
-        Popup("Mar, attempt was made to insert something into a revolver", ent, user); //debug statement
-
         // If it's a speedloader try to get ammo from it.
         if (HasComp<SpeedLoaderComponent>(insertEnt))
         {
@@ -170,11 +170,15 @@ public partial class SharedGunSystem
 
         if (TryComp<BallisticAmmoProviderComponent>(insertEnt, out var ammoHolder))
         {
-            Popup("Attempting transfer from ammo container to revolver...",ent,user);
-
             // Get simple breaking conditions out of the way first.
             // Container must allow ammo transfer, and not be empty.
             if (!ammoHolder.MayTransfer && ammoHolder.Count > 0)
+                return false;
+
+            // A bit of a hacky way to do it tbh.
+            // To prevent loading revolvers from containers from being always optimal, something has to stop bullets
+            // from being mashed as fast as you can click.
+            if (_useDelay.IsDelayed(ent.Owner))
                 return false;
 
             // Break if the container and the revolver do not fit the same kind of ammo.
@@ -182,7 +186,12 @@ public partial class SharedGunSystem
                 && !ent.Comp.Whitelist.Tags.Intersect(ammoHolder.Whitelist.Tags).Any())
                 return false;
 
-            Popup("This container can transfer a bullet.",ent,user);
+            // Again, kinda hacky.
+            _useDelay.TryGetDelayInfo(ent.Owner, out var defaultDelayInfo);
+            var cycleDelay = defaultDelayInfo?.Length ?? new TimeSpan(0,0,0,0,66);
+            _useDelay.SetLength(ent.Owner, ammoHolder.FillDelay); // multiply by some factor to balance insertion rate?
+            _useDelay.TryResetDelay(ent.Owner);
+            _useDelay.SetLength(ent.Owner, cycleDelay); // reset the time so cycling doesn't have the reload delay on it
 
             for (var i = 0; i < ent.Comp.Capacity; i++)
             {
@@ -201,17 +210,22 @@ public partial class SharedGunSystem
                     if (bullet is null)
                         continue;
 
-                    // I have no idea why it spawns 12-to-23 fake bullets
+                    ent.Comp.AmmoSlots[index] = bullet.Value;
+                    Containers.Insert(bullet.Value, ent.Comp.AmmoContainer);
+                    SetChamber(ent, bullet.Value, index);
+                    Audio.PlayPredicted(ent.Comp.SoundInsert, ent, user);
+                    UpdateRevolverAppearance(ent);
+                    UpdateAmmoCount(ent);
+                    Dirty(ent);
+
+                    // I have no idea why it spawns 12-to-23 fake bullets,
                     if (IsClientSide(bullet.Value))
                         Del(bullet.Value);
                 }
-
-                return false;
-
-
+                return true;
             }
-
-
+            Popup(Loc.GetString("gun-revolver-full"), ent, user);
+            return false;
         }
 
         // Check to see if the entity does not belong in the revolver.
