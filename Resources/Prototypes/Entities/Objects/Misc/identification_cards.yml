@@ -689,7 +689,7 @@
   components:
   - type: Sprite
     layers:
-    - state: black
+    - state: syndie # Omu
     - state: syndi
   - type: Access
     tags:
@@ -705,7 +705,7 @@
   components:
   - type: Sprite
     layers:
-    - state: black
+    - state: syndie # Omu
     - state: syndi_operative
   - type: AgentIDCard
 
@@ -716,7 +716,7 @@
   components:
   - type: Sprite
     layers:
-    - state: black
+    - state: syndie # Omu
     - state: syndi_corpsman
 
 - type: entity
@@ -726,7 +726,7 @@
   components:
   - type: Sprite
     layers:
-    - state: black
+    - state: syndie # Omu
     - state: syndi_commander
 
 - type: entity
