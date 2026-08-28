@@ -65,7 +65,7 @@
       enum.PaperUiKey.Key:
         type: PaperBoundUserInterface
   - type: SignatureConverter
-    amount: 11
+    amount: -20
 
 - type: entity
   parent: BaseItem
@@ -91,3 +91,19 @@
     size: Huge
     shape:
     - 0,0,4,2
+
+- type: entity
+  parent: BaseItem
+  name: Poster Roll
+  id: RevolutionaryPosterRoll
+  description: This poster was made with love and care, time to stick it up somewhere!
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: _Omu/Objects/Revs/Misc.rsi
+    layers:
+    - state: PosterRoll
+  - type: Tag
+    tags:
+    - RevolutionaryPoster

@@ -6,8 +6,7 @@
       edges:
         - to: revPoster
           steps:
-            - material: Cloth
-              amount: 3
+          - tag: RevolutionaryPoster
           completed:
           - !type:AdminLog
             message: "A revolutionary poster was crafted"
@@ -17,3 +16,6 @@
     - node: revPoster
       entity: PosterContrabandRevPosterRevolt
 
+
+- type: Tag
+  id: RevolutionaryPoster
