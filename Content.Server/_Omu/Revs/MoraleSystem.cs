@@ -115,8 +115,11 @@ public sealed class MoraleSystem : EntitySystem
             return;
         }
 
-        var message = Loc.GetString(_random.Pick(ent.Comp.MoraleWarningMsg));
-        _popup.PopupEntity(message, ent.Owner, ent.Owner);      //Warning popup
+        if (args.Amount < 0)
+        {
+            var message = Loc.GetString(_random.Pick(ent.Comp.MoraleWarningMsg));
+            _popup.PopupEntity(message, ent.Owner, ent.Owner);      //Warning popup
+        }
 
         ent.Comp.MoraleValue += args.Amount;
 
