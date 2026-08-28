@@ -86,12 +86,12 @@
 - type: entity
   id: ClothingBeltHolsterFilledMatebaDetective
   parent: ClothingBeltHolster
-  suffix: Filled, MatebaDetective # Goobstation
+  suffix: Filled, MatebaDetective
   components:
-  - type: ContainerFill # Goobstation
+  - type: ContainerFill
     containers:
       item:
-      - WeaponRevolverMatebaDetective
-  - type: StorageFill
-    contents:
+        id: WeaponRevolverMatebaDetective
+      storagebase: !type:AllSelector
+        children:
         - id: SpeedLoaderMagnum
