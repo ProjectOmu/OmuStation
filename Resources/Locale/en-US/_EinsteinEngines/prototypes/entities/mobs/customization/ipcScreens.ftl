@@ -45,3 +45,5 @@ marking-ScreenSmile = Smiley
 marking-ScreenFrown = Frowny
 marking-ScreenRing = Ring
 marking-ScreenL = L
+marking-ScreenLine = Visor
+marking-ScreenCharger = Charger
