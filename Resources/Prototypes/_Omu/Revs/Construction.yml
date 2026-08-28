@@ -7,6 +7,10 @@
         - to: revPoster
           steps:
           - tag: RevolutionaryPoster
+            name: rev-poster
+            icon:
+              sprite: _Omu/Objects/Revs/Misc.rsi
+              state: PosterRoll
           completed:
           - !type:AdminLog
             message: "A revolutionary poster was crafted"
