@@ -66,3 +66,22 @@
         type: PaperBoundUserInterface
   - type: SignatureConverter
     amount: 11
+
+- type: entity
+  parent: BaseItem
+  name: Revolutionary Flag
+  id: RevolutionaryFlag
+  description: Raise high the standard of the people, the oppressed, the greyshirts! Oorah!
+  components:
+  - type: MeleeRequiresWield
+  - type: MeleeWeapon
+    attackRate: 0.8
+    damage:
+      types:
+        Peircing: 15
+    soundHit:
+      collection: MetalThud
+    canWideSwing: false
+  - type: Sprite
+    sprite: _Omu/Objects/Revs/Flag.rsi
+    state: icon
