@@ -18,28 +18,27 @@
       - !type:HealthChange # if brute >= 25 && < 40u
         damage: { groups: { Brute: -5 }} # down from -12
         conditions:
-        - !type:TypedDamageThreshold
+        - !type:TypedDamageThresholdCondition
           damage: &salic_dt { groups: { Brute: 25 }}
-        - !type:ReagentThreshold
+        - &rc_salic !type:ReagentCondition
+          reagent: ImpureSalicylicAcid
           max: 40
       - !type:HealthChange # if brute < 25 && < 40u
         damage: { groups: { Brute: -1.5 }} # down from -3
         conditions:
-        - !type:TypedDamageThreshold
+        - !type:TypedDamageThresholdCondition
           damage: *salic_dt
           inverse: true
-        - !type:ReagentThreshold
-          max: 40
+        - *rc_salic
       - !type:HealthChange # impurities always cause poison
         damage: { types: { Poison: 3 }}
       - !type:HealthChange # OD, >= 40u; higher because of impurities
         damage: { groups: { Brute: 3 }} # same as pure
         conditions:
-        - !type:ReagentThreshold
-          min: 40
-        - &yow !type:OrganType
-          type: Yowie
-          shouldHave: false
+        - *rc_salic
+        - &yow !type:MetabolizerTypeCondition
+          type: [ Yowie ]
+          inverted: true
 
 - type: reagent
   id: ImpureOxandrolone
@@ -59,25 +58,24 @@
       - !type:HealthChange # if burn >= 25 && < 35u
         damage: { groups: { Burn: -4 }} # down from -4/-4/-4/-3
         conditions:
-        - !type:TypedDamageThreshold
+        - !type:TypedDamageThresholdCondition
           damage: &oxan_dt { groups: { Burn: 25 }}
-        - !type:ReagentThreshold
+        - &rc_oxan !type:ReagentCondition
+          reagent: ImpureOxandrolone
           max: 35
       - !type:HealthChange # if burn < 25 && < 35u
         damage: { groups: { Burn: -1 }} # down from -4
         conditions:
-        - !type:TypedDamageThreshold
+        - !type:TypedDamageThresholdCondition
           damage: *oxan_dt
           inverse: true
-        - !type:ReagentThreshold
-          max: 35
+        - *rc_oxan
       - !type:HealthChange # impurities always cause poison
         damage: { types: { Poison: 4 }}
       - !type:HealthChange # OD >= 35; higher because of impurities
         damage: { groups: { Burn: 4 }} # same as pure
         conditions:
-        - !type:ReagentThreshold
-          min: 35
+        - *rc_oxan
         - *yow
 
 - type: reagent
