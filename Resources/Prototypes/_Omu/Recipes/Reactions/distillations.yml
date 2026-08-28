@@ -1,7 +1,7 @@
 - type: reaction
   id: DistillWaterReaction
   requiredMixerCategories: &d [ Distill ]
-  reactants: {Water: 1}
+  reactants: {Water: {amount: 1}}
   products: {DistilledWater: 0.9, Impurities: 0.05}
   effects:
   - !type:CreateGas
@@ -11,17 +11,17 @@
 - type: reaction
   id: DistillImpureSalicylicAcid
   requiredMixerCategories: *d
-  reactants: {ImpureSalicylicAcid: 1}
+  reactants: {ImpureSalicylicAcid: {amount: 1}}
   products: {SalicylicAcid: 0.65, Impurities: 0.35}
 
 - type: reaction
   id: DistillImpureOxandrolone
   requiredMixerCategories: *d
-  reactants: {ImpureOxandrolone: 1}
+  reactants: {ImpureOxandrolone: {amount: 1}}
   products: {Oxandrolone: 0.42, Impurities: 0.58}
 
 - type: reaction
   id: DistillImpurePenteticAcid
   requiredMixerCategories: *d
-  reactants: {ImpurePenteticAcid: 1}
+  reactants: {ImpurePenteticAcid: {amount: 1}}
   products: {PenteticAcid: 0.87, Impurities: 0.13}
