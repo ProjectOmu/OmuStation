@@ -64,3 +64,61 @@
   products:
     AtomicPrecision: 30
 
+# Shaken
+
+- type: reaction
+  id: TheKitchenSinkShake
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    # Result from putting 1 of everything into a cryostasis beaker, then dumping it all into a shaker
+    GinFizz:
+      amount: 3
+    WatermelonWakeup:
+      amount: 3
+    Antifreeze:
+      amount: 2
+    Kalimotxo:
+      amount: 2
+    Rewriter:
+      amount: 2
+    BraveBull:
+      amount: 1.5
+    CoconutRum:
+      amount: 1.5
+    ManlyDorf:
+      amount: 1.5
+    RootBeerFloat:
+      amount: 1.5
+    Cognac:
+      amount: 1
+    DrGibb:
+      amount: 1
+    GreenTea:
+      amount: 1
+    IceCream:
+      amount: 1
+    Mead:
+      amount: 1
+    JuiceOrange:
+      amount: 1
+    SnowWhite:
+      amount: 1
+    SpaceUp:
+      amount: 1
+    Tea:
+      amount: 1
+    TonicWater:
+      amount: 1
+    Vermouth:
+      amount: 1
+    CoconutWater:
+      amount: 0.5
+    CoffeeLiqueur:
+      amount: 0.5
+    LemonLime:
+      amount: 0.5
+    Sugar:
+      amount: 0.5
+  products:
+    TheKitchenSink: 30
