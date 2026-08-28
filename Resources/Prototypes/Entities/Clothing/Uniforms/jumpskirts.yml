@@ -306,12 +306,6 @@
   #        color: "#364660"
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpskirt/paramedic.rsi # Omu, reverted to default textures
-  # Omu changes start - Add caustic resistance from other paramedic jumpsuits.
-  - type: Armor
-    modifiers:
-      coefficients:
-        Caustic: 0.85
-  # Omu changes end
 
 - type: entity
   parent: ClothingUniformSkirtBase
