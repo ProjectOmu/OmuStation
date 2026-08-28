@@ -5,13 +5,11 @@
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi
     sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
     layers:
     - state: icon
       color: "#796755"
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi
     sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
     inhandVisuals:
       left:
@@ -21,7 +19,6 @@
       - state: inhand-right
         color: "#796755"
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi
     sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
     clothingVisuals:
       gloves:
@@ -37,13 +34,11 @@
   description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi
     sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
     layers:
     - state: icon
       color: "#620B73"
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi
     sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
     inhandVisuals:
       left:
@@ -53,7 +48,6 @@
       - state: inhand-right
         color: "#620B73"
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi
     sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
     clothingVisuals:
       gloves:
@@ -69,13 +63,11 @@
   description: Sealed latex gloves, for the medically inclined Plasmaman.
   components:
   - type: Sprite
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi
     sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
     layers:
     - state: icon
-      color: "#EEEEEE" # slightly offwhite to match sci/med suits
+      color: "#EEEEEE"
   - type: Item
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi
     sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
     inhandVisuals:
       left:
@@ -85,7 +77,6 @@
       - state: inhand-right
         color: "#EEEEEE"
   - type: Clothing
-    #sprite: Clothing/Hands/Gloves/Color/color.rsi
     sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
     clothingVisuals:
       gloves:

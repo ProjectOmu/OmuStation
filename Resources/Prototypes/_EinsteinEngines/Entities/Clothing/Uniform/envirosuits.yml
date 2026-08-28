@@ -281,7 +281,7 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitResearchDirector
-  name: research director's experimental envirosuit # Omu, added "experimental"
+  name: research director's experimental envirosuit # Omu
   description: A custom-painted envirosuit, made to match the Research Director's "Sophia" hardsuit. # Omu
   components:
   - type: Sprite
@@ -1063,7 +1063,7 @@
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitQM
-  name: quartermaster's envirosuit # Omu, renamed to QM
+  name: quartermaster's envirosuit # Omu
   description: An air-tight suit designed to be used by Plasmamen insane enough to achieve the rank of "Quartermaster". # Omu
   components:
   - type: Sprite
