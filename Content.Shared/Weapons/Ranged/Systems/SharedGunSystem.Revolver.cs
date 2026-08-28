@@ -183,17 +183,44 @@ public partial class SharedGunSystem
                 return false;
 
             Popup("This container can transfer a bullet.",ent,user);
-            return false;
+
+            for (var i = 0; i < ent.Comp.Capacity; i++)
+            {
+                var index = (ent.Comp.CurrentIndex + i) % ent.Comp.Capacity;
+
+                if (ent.Comp.AmmoSlots[index] is not null || ent.Comp.Chambers[index] is not null)
+                    continue;
+
+                // A lot of the code from this point to the return is adapted from how regular Ballistics handle ammo transfer.
+                List<(EntityUid? Entity, IShootable Shootable)> ammo = new();
+                var evTakeAmmo = new TakeAmmoEvent(1, ammo, Transform(ent).Coordinates, user);
+                RaiseLocalEvent(insertEnt, evTakeAmmo);
+
+                foreach (var (bullet, _) in ammo)
+                {
+                    if (bullet is null)
+                        continue;
+
+                    // I have no idea why it spawns 12-to-23 fake bullets
+                    if (IsClientSide(bullet.Value))
+                        Del(bullet.Value);
+                }
+
+                return false;
+
+
+            }
 
 
         }
 
+        // Check to see if the entity does not belong in the revolver.
+        if (_whitelistSystem.IsWhitelistFail(ent.Comp.Whitelist, insertEnt))
+            return false;
+
         // Try to insert the entity directly.
         for (var i = 0; i < ent.Comp.Capacity; i++)
         {
-            if (_whitelistSystem.IsWhitelistFail(ent.Comp.Whitelist, insertEnt))
-                return false; // This cartridge isn't intended for this revolver
-
             var index = (ent.Comp.CurrentIndex + i) % ent.Comp.Capacity;
 
             if (ent.Comp.AmmoSlots[index] != null ||
