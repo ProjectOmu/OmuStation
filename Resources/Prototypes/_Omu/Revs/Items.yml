@@ -78,10 +78,16 @@
     attackRate: 0.8
     damage:
       types:
-        Peircing: 15
+        Piercing: 15
     soundHit:
       collection: MetalThud
     canWideSwing: false
   - type: Sprite
     sprite: _Omu/Objects/Revs/Flag.rsi
     state: icon
+  - type: Wieldable
+    useDelayOnWield: false
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,2
