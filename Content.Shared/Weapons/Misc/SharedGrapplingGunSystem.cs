@@ -185,9 +185,6 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
             // Omu start
             SetReeling(uid, grappling, false, null);
 
-            if (jointComp == null)
-                continue;
-
             if (jointComp?.Relay != null)
             {
                 var _contactQuery = _physics.GetContacts(jointComp.Relay.Value);
@@ -201,6 +198,9 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
                 }
                 _physics.WakeBody(jointComp.Relay.Value);
             }
+
+            if (jointComp == null)
+                continue;
 
             if (!jointComp.GetJoints.TryGetValue(GrapplingJoint, out var joint) ||
             joint is not DistanceJoint distance || !allowReel)
