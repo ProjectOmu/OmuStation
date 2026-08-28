@@ -1,0 +1,71 @@
+<Document>
+  # Revolutionaries
+
+  <Box>
+    [color=#999999][italic]"Viva la revolución!!"[/italic][/color]
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="PosterContrabandRevolt" Caption=""/>
+  </Box>
+
+  Revolutionaries are conversion antagonists sponsored by the [color=#ff0000]Syndicate[/color] who are tasked with taking control of the station.
+  Head revolutionaries are graciously given an uplink, paid for by Cybersun.
+
+  Head revolutionaries can convert anyone but command by breaking their morale. This is done via their equipment.
+
+  ## Objectives
+  You must complete your assigned objective.
+
+  Currently being in testing, your goal should be supplied to you by an admin. If not, just improvise and lead your team to a bright future!
+
+  Your objective is [bold]not to destroy the station[/bold], but [italic]to take it over[/italic], so try to minimize damage as much as possible.
+
+  [bold]The revolution will fail[/bold] if all of the [bold][color=#5e9cff]Head Revolutionaries[/color][/bold] die, and all [color=red]Revolutionaries[/color] will de-convert if this happens.
+
+  [bold]The revolution will also fail[/bold] if all of the [bold][color=#5e9cff]Head Revolutionaries[/color][/bold] are off the station. Your objective is to capture the station, so do not wander far.
+
+  ## Your Uplink
+  [bold][color=#5e9cff]Head Revolutionaries[/color][/bold] are chosen at the start of the shift. They are given a uplink similar to a Syndicate uplink.
+  <Box>
+    <GuideEntityEmbed Entity="Telecrystal"/>
+  </Box>
+
+  ## Mindshields & Eye Protection
+  [color=cyan]Mindshield implanters[/color] are an obstruction to the revolution. These will:
+  - Make it harder to convert someone, they will be much more resilient to psychological tactics, though can still be converted.
+  - Override any non-nanotrasen thoughts, newly implanted ones will de-convert Revolutionaries, and will make them no longer loyal to your cause!
+  - [bold]Visibly be destroyed upon being implanted into a [color=#5e9cff]Head Revolutionary[/color][/bold], giving head revs away.
+
+  <Box>
+    <GuideEntityEmbed Entity="ClothingEyesGlassesSunglasses"/>
+    <GuideEntityEmbed Entity="ClothingEyesGlassesSecurity"/>
+    <GuideEntityEmbed Entity="ClothingHeadHatWelding"/>
+  </Box>
+
+  ## Your tools
+  <Box>
+    <GuideEntityEmbed Entity="RevSelector"/>
+  </Box>
+
+  You are supplied with a selector, this will have various flavours of revolution or team. They each have some flavor and useful equipment to start breaking the crews morale.
+
+  <Box>
+    <GuideEntityEmbed Entity="EncryptionKeySyndie"/>
+  </Box>
+
+  An encryption key that allows you to speak to other operatives and head revolutionaries on the station. Useful for long way communication, not-so-useful if you are caught.
+
+  <Box>
+    <GuideEntityEmbed Entity="RevolutionaryManifesto"/>
+  </Box>
+
+  A self-published book containing several quotes and statements sure to get the crew thinking, can be used in hand to shout quotes to anyone nearby and slowly turn them. Or can be focused on one individual to really make them think.
+
+  ## Extra Tools
+
+  <Box>
+    <GuideEntityEmbed Entity="RevolutionaryPaper"/>
+  </Box>
+
+  This humble sheet of paper has the power to instantly cement someones loyalty, all they need to do is sign it! Make sure to write something truly inspirational to cement those thoughts.
+</Document>
