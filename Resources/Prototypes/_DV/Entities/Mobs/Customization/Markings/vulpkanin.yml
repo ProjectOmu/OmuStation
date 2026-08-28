@@ -1,16 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Plyush <121322002+Plyushsune@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2025 plyush <121322002+toasterpm87@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # All the Vulpkanin customization
 
@@ -593,78 +580,80 @@
 #       state: points_sharp
 
 # Leg Markings
-- type: marking
-  id: VulpPointsFeet
-  markingCategory: RightFoot
-  bodyPart: RFoot
-  speciesRestriction: [Vulpkanin]
-  sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/body_markings.rsi
-      state: points_feet
+# Omu begin - Added proper left and right versions
+# - type: marking
+#   id: VulpPointsFeet
+#   markingCategory: RightFoot
+#   bodyPart: RFoot
+#   speciesRestriction: [Vulpkanin]
+#   sprites:
+#     - sprite: _DV/Mobs/Customization/Vulpkanin/body_markings.rsi
+#       state: points_feet
 
-- type: marking
-  id: VulpPointsCrestLegs
-  markingCategory: LeftLeg
-  bodyPart: LLeg
-  speciesRestriction: [Vulpkanin]
-  sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/body_markings.rsi
-      state: points_crest-legs
+# - type: marking
+#   id: VulpPointsCrestLegs
+#   markingCategory: LeftLeg
+#   bodyPart: LLeg
+#   speciesRestriction: [Vulpkanin]
+#   sprites:
+#     - sprite: _DV/Mobs/Customization/Vulpkanin/body_markings.rsi
+#       state: points_crest-legs
 
-- type: marking
-  id: VulpPointsFadeLegs
-  markingCategory: LeftLeg
-  bodyPart: LLeg
-  speciesRestriction: [Vulpkanin]
-  sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/body_markings.rsi
-      state: points_fade-legs
+# - type: marking
+#   id: VulpPointsFadeLegs
+#   markingCategory: LeftLeg
+#   bodyPart: LLeg
+#   speciesRestriction: [Vulpkanin]
+#   sprites:
+#     - sprite: _DV/Mobs/Customization/Vulpkanin/body_markings.rsi
+#       state: points_fade-legs
 
-- type: marking
-  id: VulpPointsSharpLegs
-  markingCategory: LeftLeg
-  bodyPart: LLeg
-  speciesRestriction: [Vulpkanin]
-  sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/body_markings.rsi
-      state: points_sharp-legs
+# - type: marking
+#   id: VulpPointsSharpLegs
+#   markingCategory: LeftLeg
+#   bodyPart: LLeg
+#   speciesRestriction: [Vulpkanin]
+#   sprites:
+#     - sprite: _DV/Mobs/Customization/Vulpkanin/body_markings.rsi
+#       state: points_sharp-legs
 
 # Arm Markings
-- type: marking
-  id: VulpPointsHands
-  markingCategory: RightHand
-  bodyPart: RHand
-  speciesRestriction: [Vulpkanin]
-  sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/body_markings.rsi
-      state: points_hands
+# - type: marking
+#   id: VulpPointsHands
+#   markingCategory: RightHand
+#   bodyPart: RHand
+#   speciesRestriction: [Vulpkanin]
+#   sprites:
+#     - sprite: _DV/Mobs/Customization/Vulpkanin/body_markings.rsi
+#       state: points_hands
 
-- type: marking
-  id: VulpPointsCrestArms
-  markingCategory: LeftArm
-  bodyPart: LArm
-  speciesRestriction: [Vulpkanin]
-  sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/body_markings.rsi
-      state: points_crest-arms
+# - type: marking
+#   id: VulpPointsCrestArms
+#   markingCategory: LeftArm
+#   bodyPart: LArm
+#   speciesRestriction: [Vulpkanin]
+#   sprites:
+#     - sprite: _DV/Mobs/Customization/Vulpkanin/body_markings.rsi
+#       state: points_crest-arms
 
-- type: marking
-  id: VulpPointsFadeArms
-  markingCategory: LeftArm
-  bodyPart: LArm
-  speciesRestriction: [Vulpkanin]
-  sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/body_markings.rsi
-      state: points_fade-arms
+# - type: marking
+#   id: VulpPointsFadeArms
+#   markingCategory: LeftArm
+#   bodyPart: LArm
+#   speciesRestriction: [Vulpkanin]
+#   sprites:
+#     - sprite: _DV/Mobs/Customization/Vulpkanin/body_markings.rsi
+#       state: points_fade-arms
 
-- type: marking
-  id: VulpPointsSharpArms
-  markingCategory: LeftArm
-  bodyPart: LArm
-  speciesRestriction: [Vulpkanin]
-  sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/body_markings.rsi
-      state: points_sharp-arms
+# - type: marking
+#   id: VulpPointsSharpArms
+#   markingCategory: LeftArm
+#   bodyPart: LArm
+#   speciesRestriction: [Vulpkanin]
+#   sprites:
+#     - sprite: _DV/Mobs/Customization/Vulpkanin/body_markings.rsi
+#       state: points_sharp-arms
+# Omu end
 
 # Hairs
 - type: marking

@@ -13,11 +13,32 @@
   id: AdminAssistantHeadset
   equipment:
     ears: ClothingHeadsetAdminAssistant
+  effects: # Omu
+  - !type:SpeciesLoadoutEffect
+    inverted: true
+    species:
+    - IPC
 
 - type: loadout
   id: AdminAssistantAltHeadset
   equipment:
     ears: ClothingHeadsetAltAdminAssistant
+  effects: # Omu
+  - !type:SpeciesLoadoutEffect
+    inverted: true
+    species:
+    - IPC
+
+- type: loadout     #Omu shitcode fix to let IPC's have radio keys
+  id: AdminAssistantRadioKey
+  storage:
+    back:
+    - ClothingHeadsetAdminAssistant
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - IPC
+
 
 # Head
 - type: loadout

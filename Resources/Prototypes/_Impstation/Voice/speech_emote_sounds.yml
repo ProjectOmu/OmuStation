@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: emoteSounds
@@ -66,3 +63,18 @@
       path: /Audio/_Impstation/Allulalo/allulalo_say.ogg
     DefaultDeathgasp:
       /Audio/_Impstation/Allulalo/allulalo_deathgasp.ogg
+    #Omu Start
+    Awebo:
+      collection: AllulaloAwebo
+      params:
+        variation: 0
+        pitch: 0
+    Coo:
+      collection: HarpyCoos
+    Scree:
+      path: /Audio/_Impstation/Allulalo/allulalo_exclaim.ogg
+    CatMeow:
+      collection: CatMeows
+    Hew:
+      collection: Hew
+    #Omu End

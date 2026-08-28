@@ -2,6 +2,8 @@ using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Omu.Shared.Clothing.Components;
+using Robust.Shared.Network;
+using Robust.Shared.Timing;
 
 namespace Content.Omu.Shared.Clothing.EntitySystems;
 
@@ -12,6 +14,8 @@ public sealed class ClothingTakesUpExtraSlotsSystem : EntitySystem
 {
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualItemSystem = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
 
     public override void Initialize()
     {
@@ -45,13 +49,20 @@ public sealed class ClothingTakesUpExtraSlotsSystem : EntitySystem
 
     private void OnEquipped(Entity<ClothingTakesUpExtraSlotsComponent> ent, ref GotEquippedEvent args)
     {
+        if (_netManager.IsClient && _gameTiming.ApplyingState)
+            return;
+
         // spawn a virtual item in each of the slots blocked by this garment.
         foreach (var slot in ent.Comp.Slots)
         {
             // If the slot is taken up, drop the item which is currently in that slot.
             // This check exists to fix a modsuit bug, where you could enable the modsuit, equip an item in a slot which should otherwise be blocked, and then turn off the modsuit, resulting in you wearing an item in a slot which should be blocked.
-            if (_inventorySystem.TryGetSlotEntity(args.Equipee, slot, out var _))
+            if (_inventorySystem.TryGetSlotEntity(args.Equipee, slot, out var slotEntity))
             {
+                if (TryComp(slotEntity, out VirtualItemComponent? existingVirtual) &&
+                    existingVirtual.BlockingEntity == ent.Owner)
+                    continue;
+
                 _inventorySystem.DropSlotContents(args.Equipee, slot);
             }
 
@@ -62,6 +73,9 @@ public sealed class ClothingTakesUpExtraSlotsSystem : EntitySystem
 
     private void OnUnequipped(Entity<ClothingTakesUpExtraSlotsComponent> ent, ref GotUnequippedEvent args)
     {
+        if (_netManager.IsClient && _gameTiming.ApplyingState)
+            return;
+
         // remove the virtual items in the slots associated with this garment.
         foreach (var slot in ent.Comp.Slots)
         {

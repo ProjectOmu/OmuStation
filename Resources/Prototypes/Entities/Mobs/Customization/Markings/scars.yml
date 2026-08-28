@@ -1,26 +1,10 @@
-# SPDX-FileCopyrightText: 2023 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 DEATHB4DEFEAT <77995199+DEATHB4DEFEAT@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 portfiend <109661617+portfiend@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Rouge2t7 <sarahoneill132@hotmail.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: marking
   id: ScarEyeRight
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Feroxi, Yowie] # Delta V - Felinid, Harpy, Rodentia, Feroxi; Goob - Tajaran, Yowies; EE- Oni
+  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Feroxi, Yowie, Felinid] # Delta V - Felinid, Harpy, Rodentia, Feroxi; Goob - Tajaran, Yowies; EE- Oni; Omu - Felinid
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -30,7 +14,7 @@
   id: ScarEyeLeft
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Feroxi, Yowie] # Delta V - Felinid, Harpy, Rodentia, Feroxi; Goob - Tajaran, Yowies; EE- Oni
+  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Feroxi, Yowie, Felinid] # Delta V - Felinid, Harpy, Rodentia, Feroxi; Goob - Tajaran, Yowies; EE- Oni; Omu - Felinid
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -40,7 +24,7 @@
   id: ScarTopSurgeryShort
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Oni, Feroxi, Yowie] # DeltaV - Feroxi; Goob - Yowies
+  speciesRestriction: [ Human, Dwarf, Oni, Feroxi, Yowie, Felinid] # DeltaV - Feroxi; Goob - Yowies; Omu - Felinid
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -50,7 +34,7 @@
   id: ScarTopSurgeryLong
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Oni, Feroxi, Yowie] # DeltaV - Feroxi; Goob - Yowies
+  speciesRestriction: [Human, Dwarf, Oni, Feroxi, Yowie, Felinid] # DeltaV - Feroxi; Goob - Yowies; Omu - Felinid
   sexRestriction: [Male]
   followSkinColor: true
   sprites:
@@ -61,7 +45,7 @@
   id: ScarChest
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Oni, Feroxi, Yowie] # DeltaV - Feroxi; Goob - Yowies
+  speciesRestriction: [Human, Dwarf, Oni, Feroxi, Yowie, Felinid] # DeltaV - Feroxi; Goob - Yowies; Omu - Felinid
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -71,7 +55,7 @@
   id: ScarNeck
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf]
+  speciesRestriction: [Human, Dwarf, Oni, Feroxi, Yowie, Felinid] # Omu - Oni, Feroxi, Yowie, Felinid
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -81,7 +65,7 @@
   id: ScarChestBullets
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf]
+  speciesRestriction: [Human, Dwarf, Oni, Feroxi, Yowie, Felinid] # Omu - Oni, Feroxi, Yowie, Felinid
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -91,7 +75,7 @@
   id: ScarStomachBullets
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf]
+  speciesRestriction: [Human, Dwarf, Oni, Feroxi, Yowie, Felinid] # Omu - Oni, Feroxi, Yowie, Felinid
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -101,7 +85,7 @@
   id: ScarFace1
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf]
+  speciesRestriction: [Human, Dwarf, Felinid] # Omu - Felinid
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -111,7 +95,7 @@
   id: ScarFace2
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf]
+  speciesRestriction: [Human, Dwarf, Felinid] # Omu - Felinid
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -121,7 +105,7 @@
   id: BodyScarr
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Oni, Yowie] # goob edit - yowies
+  speciesRestriction: [Human, Dwarf, Oni, Yowie, Felinid] # goob edit - yowies ; Omu - Felinid
   followSkinColor: true
   sprites:
   - sprite: _Goobstation/Mobs/Customization/scars.rsi

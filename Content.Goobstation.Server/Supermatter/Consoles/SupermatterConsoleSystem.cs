@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Discoded <33738298+Discoded@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Pinpointer;
@@ -14,6 +11,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Robust.Shared.Physics;
 
 namespace Content.Goobstation.Server.Supermatter.Console.Systems;
 
@@ -163,7 +161,8 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
         if (focusSupermatter == null)
             return null;
 
-        var focusSupermatterXform = Transform(focusSupermatter.Value);
+        if (!TryComp<TransformComponent>(focusSupermatter, out var focusSupermatterXform))      //Omu fix a crash to server if SM deleted
+            return null;
 
         if (!focusSupermatterXform.Anchored
             || focusSupermatterXform.GridUid != gridUid
