@@ -77,7 +77,7 @@ public sealed partial class CCVars
         /// </summary>
         [CVarControl(AdminFlags.VarEdit)]
         public static readonly CVarDef<float> PlaytestExplosionDamageModifier =
-            CVarDef.Create("playtest.explosion_damage_modifier", 1f, CVar.SERVER | CVar.REPLICATED);
+            CVarDef.Create("playtest.explosion_damage_modifier", 0.65f, CVar.SERVER | CVar.REPLICATED);
 
         /// <summary>
         ///     Scales the damage dealt to mobs in the game (i.e. entities with MobStateComponent).
