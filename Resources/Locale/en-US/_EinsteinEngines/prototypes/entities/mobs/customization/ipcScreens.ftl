@@ -47,3 +47,9 @@ marking-ScreenRing = Ring
 marking-ScreenL = L
 marking-ScreenLine = Visor
 marking-ScreenCharger = Charger
+
+# Omustation - Extra FTLs
+marking-ScreenLine-ipc_screen_screen_small_whitehue = Screen
+marking-ScreenLine-ipc_screen_line = Graphic
+marking-ScreenCharger-ipc_screen_screen_small_whitehue = Screen
+marking-ScreenCharger-ipc_screen_charger_moving = Graphic
