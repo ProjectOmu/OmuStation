@@ -68,3 +68,24 @@
   volume: 0.6
   soundCollection:
     collection: BreathyBark
+
+# ST
+- type: soundCollection
+  id: StBark
+  files:
+  - /Audio/_Omu/Voice/Barks/ST/a.ogg
+  - /Audio/_Omu/Voice/Barks/ST/e.ogg
+  - /Audio/_Omu/Voice/Barks/ST/i.ogg
+  - /Audio/_Omu/Voice/Barks/ST/o.ogg
+  - /Audio/_Omu/Voice/Barks/ST/u.ogg
+  - /Audio/_Omu/Voice/Barks/ST/y.ogg
+
+- type: bark
+  id: St
+  name: ST
+  volume: 0.7
+  soundCollection:
+    collection: StBark
+  speciesWhitelist:
+  - IPC
+  - Harpy
