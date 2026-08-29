@@ -40,7 +40,7 @@
     minimumPlayers: 15
     weight: 4 # Omu, DV has this at 6
     eventType: Neutral
-    startAnnouncement: cosmiccult-announce-tier2-warning
+    startAnnouncement: cosmiccult-announce-tier3-warning #omu replaces the deprecated tier2 annoucement
     startAnnouncementColor: "#cae8e8"
     startAudio:
       path: /Audio/_DV/CosmicCult/tier2.ogg
