@@ -509,21 +509,23 @@
 
 # Wearables
 
-- type: listing
-  id: UplinkClothingDreadnought
-  name: uplink-hardsuit-cybersun-dreadnought-name
-  description: uplink-hardsuit-cybersun-dreadnought-desc
-  icon: { sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi, state: icon }
-  productEntity: CrateSyndicateDreadnought
-  cost:
-    Telecrystal: 150
-  categories:
-  - UplinkWearables
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
+# Omu start; Dreadsuit stinky
+## - type: listing
+##  id: UplinkClothingDreadnought
+##  name: uplink-hardsuit-cybersun-dreadnought-name
+##  description: uplink-hardsuit-cybersun-dreadnought-desc
+##  icon: { sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi, state: icon }
+##  productEntity: CrateSyndicateDreadnought
+##  cost:
+##    Telecrystal: 150
+##  categories:
+##  - UplinkWearables
+##  conditions:
+##  - !type:StoreWhitelistCondition
+##    blacklist:
+##      tags:
+##      - ContractorUplink
+# Omu End
 
 - type: listing
   id: UplinkClothingBeltMilitaryRigGrenadier
