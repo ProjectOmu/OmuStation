@@ -6,7 +6,8 @@
     GasSpillCarbon: 3
     GasSpillFrezon: 1
     SMBSAnomSpawn: 2
-    SMSurge: 4
+    SMSurge: 3
+    SMGambaSpawn: 1
 
 - type: entity
   parent: SupermatterSliver
@@ -15,3 +16,9 @@
   description: A shard from the station's supermatter crystal. Highly radioactive. This one appears to be reacting strangely, maybe you should try putting it into the supermatter?
   components:
     - type: SupermatterRandomiser
+
+- type: supermatterEvent
+  id: SMGambaSpawn
+  eventType: Spawn
+  protoToSpawn: SupermatterSliverUnstable
+  announcement: supermatter-announcement-cc-tamper
