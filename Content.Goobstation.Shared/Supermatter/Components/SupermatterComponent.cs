@@ -482,6 +482,11 @@ public sealed partial class SupermatterComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public bool GasEfficiencyFactorChanged = false;
 
+    [DataField("LightningCountNormal")]
+    public int LightningCountNormal = 1;
+
+    [DataField("LightningCountOverclocked")]
+    public int LightningCountOverclocked = 3;
 }
 [Prototype]
 public sealed partial class SupermatterEventPrototype : IPrototype

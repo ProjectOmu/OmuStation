@@ -373,7 +373,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         // And if it shoots too weak lightnings it means that it's underfed. Feed the SM :godo:
         var zapPower = sm.Power / sm.PowerPenaltyThreshold * sm.LightningPrototypes.Length;
         var zapPowerNorm = (int) Math.Clamp(zapPower, 0, sm.LightningPrototypes.Length - 1);
-        _lightning.ShootRandomLightnings(uid, 3.5f, sm.Power > sm.PowerPenaltyThreshold ? 3 : 1, sm.LightningPrototypes[zapPowerNorm]);
+        _lightning.ShootRandomLightnings(uid, 3.5f, sm.Power > sm.PowerPenaltyThreshold ? sm.LightningCountOverclocked : sm.LightningCountNormal, sm.LightningPrototypes[zapPowerNorm]);        //Omu changed 3 : 1 to sm.lightningcount
     }
 
     /// <summary>
@@ -895,6 +895,9 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         _radioSystem.SendRadioMessage(uid, Loc.GetString("sm-randomized"), _proto.Index<RadioChannelPrototype>(sm.RadioChannel), uid);
         var gasfields = sm.GasDataFields;
 
+        sm.LightningCountNormal += 1;
+        sm.LightningCountOverclocked += 2;
+
         foreach (var gas in gasfields)
         {
             var data = gasfields[gas.Key];          //Fuck you thats why.
@@ -903,6 +906,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             data.HeatPenalty += MathF.Round(_random.NextFloat(-2f, 2f), 2);
             data.PowerMixRatio += MathF.Round(_random.NextFloat(-2f, 2f), 2);
         }
+
+        QueueDel(args.Used);
     }
     #endregion     //omu end
 }
