@@ -258,11 +258,11 @@ namespace Content.IntegrationTests.Tests
             // Omu im preemptively lowering this again I see too many OOM's and i don't trust it
             const int batchSize = 7500;
 
-            for (var batchStart = 0; batchStart < protoIds.Count; batchStart += )
+            for (var batchStart = 0; batchStart < protoIds.Count; batchStart += batchSize)
             {
                 var batchProtoIds = protoIds
                     .Skip(batchStart)
-                    .Take()
+                    .Take(batchSize)
                     .ToList();
 
                 await server.WaitPost(() =>
@@ -638,7 +638,7 @@ namespace Content.IntegrationTests.Tests
             const bool verifyLastPrototype = true; // two at the end, do we check last?
             const bool fastSearch = true; // if left = good assume right = bad and split right early, check splits.
             const int ticksPerBatch = 5; // how many ticks to test for on each map. most shit dies at t = 3.
-            const int  = 1000; // size of initial batch
+            const int batchSize = 1000; // size of initial batch
             const int batchUpToPercent = 100; // limit of total protos to test. i.e. 100% = 15k, 50% = 7.5k
 
             // if we found bad proto in initial batch, find it, then stop looking and end early.
@@ -814,7 +814,7 @@ namespace Content.IntegrationTests.Tests
                     await Explore(rightHalf);
             }
 
-            for (var batchStart = 0; batchStart < allPrototypes.Count; batchStart += )
+            for (var batchStart = 0; batchStart < allPrototypes.Count; batchStart += batchSize)
             {
                 var batch = allPrototypes
                     .Skip(batchStart)
