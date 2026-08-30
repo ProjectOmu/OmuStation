@@ -1423,8 +1423,7 @@
   color: "#283332"
   metabolisms:
     Medicine:
-      metabolismRate: 0.25 # Omu, rebalanced T2s to be less insane (80/5u compared to 200/5u)
-      # metabolismRate: 0.1 # Goob # Omu, commented out
+      metabolismRate: 0.25 # Omu, rebalanced T2s to be less insane (80/5u compared to 200/5u); originally 0.1 by Goob
       effects:
       - !type:HealthChange
         damage:
@@ -1461,8 +1460,7 @@
   color: "#b9bf93"
   metabolisms:
     Medicine:
-      metabolismRate: 0.25 # Omu, rebalanced T2s to be less insane (80/5u compared to 200/5u)
-      # metabolismRate: 0.1 # Goob # Omu, commented out
+      metabolismRate: 0.25 # Omu, rebalanced T2s to be less insane (80/5u compared to 200/5u); originally 0.1 by Goob
       effects:
       - !type:HealthChange
         damage:
@@ -1498,8 +1496,7 @@
   color: "#ff3636"
   metabolisms:
     Medicine:
-      metabolismRate: 0.25 # Omu, rebalanced T2s to be less insane (80/5u compared to 200/5u)
-      # metabolismRate: 0.1 # Goob # Omu, commented out
+      metabolismRate: 0.25 # Omu, rebalanced T2s to be less insane (80/5u compared to 200/5u); originally 0.1 by Goob
       effects:
       - !type:HealthChange
         damage:
