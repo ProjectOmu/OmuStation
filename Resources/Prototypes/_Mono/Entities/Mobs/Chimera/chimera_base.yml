@@ -14,7 +14,7 @@
   - type: Temperature
     currentTemperature: 310.15
   - type: TemperatureDamage
-    heatDamageThreshold: 325
+    heatDamageThreshold: 360
     coldDamageThreshold: -10 #Omu set to super low i guess??
     heatDamage:
       types:
