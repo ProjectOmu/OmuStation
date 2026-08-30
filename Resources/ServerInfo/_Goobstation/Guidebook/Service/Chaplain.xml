@@ -6,7 +6,7 @@ There's something about the vast infinity of space that turns men to prayer... E
 As a chaplain, you would ideally proselytize whatever crazy religion you've made up for that round over your headset. However, besides your office, the hellish crematorium next to your office, and the rarely used morgue, you have no access.
 
   <Box>
-    <GuideEntityEmbed Entity="Bible"/>
+    <GuideEntityEmbed Entity="ChaplainUndeterminedBible"/>
     <GuideEntityEmbed Entity="Nullrod"/>
     <GuideEntityEmbed Entity="ArmamentsBeacon"/>
   </Box>
@@ -18,6 +18,7 @@ If you don't already have one, build an altar and find an offering to place on-t
 
   <Box>
     <GuideEntityEmbed Entity="AltarBananium"/>
+    <GuideEntityEmbed Entity="AltarConvertBlue"/>
     <GuideEntityEmbed Entity="AltarChaos"/>
     <GuideEntityEmbed Entity="AltarDruid"/>
     <GuideEntityEmbed Entity="AltarClock"/>
@@ -39,6 +40,7 @@ If you don't already have one, build an altar and find an offering to place on-t
 These altars can be constructed by placing the following offerings atop your base convert altar:
 
 - Bananium Altar: 1 x Bananium
+- Blue Altar: 1 x Makeshift Shield
 - Chaos Altar: 1 x Plasma
 - Druid Altar: 1 x Wooden Plank
 - Fanged Altar: 1 x Raw Meat
@@ -46,7 +48,7 @@ These altars can be constructed by placing the following offerings atop your bas
 - Maints Altar: 1 x Budget Insulated Gloves
 - Nanotrasen Altar: 1 x Plasteel
 - Space-Christian Altar: 1 x Nun Hood
-- Technology Altar: 1 x Capacitor
+- Technology Altar: 1 x Modular Machine Part
 - Toolbox Altar: 1 x Toolbox
 - Clockwork Altar: 1 x Small Power Cell
 - Draconic Altar: 1 x Carp plushie
@@ -54,25 +56,139 @@ These altars can be constructed by placing the following offerings atop your bas
 
 ## Holy Artefacts
 
+### Bluespace Scripture Beacon
+Allows you to choose a holy text, all have the same functionality and is only a cosmetic difference!
+
+<Box>
+    <GuideEntityEmbed Entity="Bible"/>
+    <GuideEntityEmbed Entity="BibleQuaran"/>
+    <GuideEntityEmbed Entity="BibleTanakh"/>
+    <GuideEntityEmbed Entity="BibleSlabClockwork"/>
+  </Box>
+
+The chosen holy text can be used to close malign rifts, enchant items and heal players.
+<Box>
+    <GuideEntityEmbed Entity="CosmicMalignRift"/>
+ </Box>
+
+To heal using your chosen holy text hold it in your hand and and click on a person, the holy text can only heal physical wounds. [color=red] Though there is a 33% chance to instead injure the target if they are not wearing a helmet.[/color]
+
 ### Armaments Beacon
-Allows you to choose a set of armor. All armors have identical stats.
+Allows you to choose a set of armor out of 11 different options:
+
+  <Box>
+    <GuideEntityEmbed Entity="ClothingOuterArmorTemplar"/>
+    <GuideEntityEmbed Entity="ClothingOuterArmorStudent"/>
+    <GuideEntityEmbed Entity="ClothingOuterArmorAncient"/>
+    <GuideEntityEmbed Entity="ClothingOuterArmorWitchhunter"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="ClothingOuterArmorAdept"/>
+    <GuideEntityEmbed Entity="ClothingOuterArmorClock"/>
+    <GuideEntityEmbed Entity="ClothingOuterArmorMonk"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="ClothingOuterArmorBishop"/>
+    <GuideEntityEmbed Entity="ClothingOuterArmorDragon"/>
+    <GuideEntityEmbed Entity="ClothingNeckCloakInquisitor"/>
+    <GuideEntityEmbed Entity="ClothingOuterSchemaMonk"/>
+  </Box>
+
+[color=blue]Most Armors have identical stats: [/color]
+
+Clothing:
+- Blunt resistance: 50%
+- Slash resistance: 50%
+- Piercing resistance: 10%
+- Fire resistance: 60%
+- Caustic resistance: 40%
+
+Helmet:
+- Blunt resistance: 50%
+- Slash resistance: 50%
+- Piercing resistance: 10%
+- Fire resistance: 10%
+
+[color=red] Though there are some exceptions: [/color]
+
+Monastic Vestments:
+
+- Blunt resistance: 50%
+- Slash resistance: 50%
+- Piercing resistance: 50%
+- Heat resistance: 50%
+- Caustic resistance: 50%
+
+Dragon Suit:
+
+- Blunt resistance: 25%
+- Slash resistance: 25%
+- Piercing resistance: 5%
+- Heat resistance: 80%
+- Caustic resistance: 20%
+
 
 ### Null Rod
-The obsidian rod will be your defense against the forces of evil. [color=blue][bold] Having it in your hands will make you completely immune to the effects of magic. [/bold][/color]
+The obsidian rod will be your defense against the forces of evil. [color=blue][bold] Having it in your hands will make you completely reflect magic. Some magic isn't reflectable. [/bold][/color]
 
 You can transform it into a holy weapon of choice by placing it on an altar!
 
+<Box>
+    <GuideEntityEmbed Entity="HonkmotherMaw"/>
+    <GuideEntityEmbed Entity="Bulwark"/>
+    <GuideEntityEmbed Entity="GodHand"/>
+    <GuideEntityEmbed Entity="MonkStaff"/>
+    <GuideEntityEmbed Entity="RatvarianSpear"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="ArrythmicKnife"/>
+    <GuideEntityEmbed Entity="HolyClaymore"/>
+    <GuideEntityEmbed Entity="UristHand"/>
+    <GuideEntityEmbed Entity="AtheistFedora"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="Rosary"/>
+    <GuideEntityEmbed Entity="ClothingBeltHolsterFilledChaplain"/>
+    <GuideEntityEmbed Entity="HolyChainsaw"/>
+    <GuideEntityEmbed Entity="DragonsTail"/>
+    <GuideEntityEmbed Entity="InquisitorChainSword"/>
+  </Box>
+
+These are the items you recieve from each altar:
+
+- Bananium Altar: Honkmother's Maw
+- Blue Altar: Bulwark
+- Chaos Altar: Hand of God
+- Druid Altar: Monk Staff
+- Fanged Altar: Arrythmic Knife
+- Heaven Altar: Holy Claymore
+- Maints Altar: Grey Emperor's Glove
+- Nanotrasen Altar: Atheist's Fedora
+- Space-Christian Altar: Rosary
+- Technology Altar: Chaplains' Holster containing Jackal and Casul
+- Toolbox Altar: Holy Chainsaw
+- Clockwork Altar: Ancient Spear
+- Draconic Altar: Dragon's Tail
+- Imperial altar: Chain Sword
+
 ### Enchanting
 
-You can use your Bible and any Altar of your choosing to [textlink="enchant items." link="Enchanting"]
+You can use your Chosen holy text and any Altar of your choosing to [textlink="enchant items." link="Enchanting"]
+
 
 ### Spirit Candles
 You can craft a spirit candle by putting a candle on a skull. Spirit Candles are useful against evil spirits like Wraith.
+
+<Box>
+    <GuideEntityEmbed Entity="SpiritCandle"/>
+  </Box>
 
 When they are ignited, they create a 12x12 tile area that reveals evil spirits. It also has a special function when you use it in-hand.
 By using it [bold]when an evil spirit is within(!!) your 12x12 area[/bold], it will make them corporeal.
 
 It has 2 charges per spirit candle, and [bold]it only consumes a charge when you reveal the evil spirit[/bold].
+
+Sprit candles will notify you when ghosts are nearby and when they try to blow out the spirit candles.
 
 It drops the skull once the candle has melted, so you can craft another one.
 
@@ -89,3 +205,5 @@ As Chaplain you are the first line of defence against metaphysical threats, [bol
 [color=red][bold] Use of excessive force against targets which you cannot confirm are metaphysical threats may land you in trouble with the law, use caution and investigate carefully. [/bold][/color]
 
 </Document>
+
+<!-- Haru urara is my goat and should never be silenced -->

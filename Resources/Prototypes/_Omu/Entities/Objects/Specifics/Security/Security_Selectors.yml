@@ -31,8 +31,8 @@
   - type: SetSelector
     possibleSets:
     - HosJusticeSet
-    - HosCQCSet
     - HosIrelanderSet
+    - HosCQCSet
     - HosOniGlaiveSet
     maxSelectedSets: 1
   - type: StealTarget
@@ -69,7 +69,7 @@
     possibleSets:
     - WeaponMk58Set
     - WeaponT8Set
-    - WeaponTerminusSet
+    - WeaponEG1Set
     maxSelectedSets: 1
 
 - type: entity
@@ -101,8 +101,9 @@
     possibleSets:
     - WeaponMk58Set
     - WeaponT8Set
-    - WeaponTerminusSet
+    - WeaponEG1Set
     - WeaponCeremonialRifleSet
+    - SargeMagnumSet
     maxSelectedSets: 1
 
 - type: entity

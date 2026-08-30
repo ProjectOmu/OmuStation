@@ -35,6 +35,11 @@ selectable-set-hos-brdi-description=
     Once wielded by an unknown member of the Biesel Foreign Legion,
     this beloved rifle has seen battle with Sol on every world in the colonies.
 
+selectable-set-sarge-magnum-name = Energy Magnum
+selectable-set-sarge-magnum-description =
+    Self-recharging energy magnum that can switch between lethal
+    and disabling mode.
+
 selectable-set-mk58-name = Mk58 Pistol
 selectable-set-mk58-description =
     The standard duty pistol for Nanotrasen security.
@@ -43,6 +48,11 @@ selectable-set-t8-name = T8 "Consistency" Revolver
 selectable-set-t8-description =
     An alternative to the mk58, this revolver
     trades throughput for increased ability to shatter bones.
+
+selectable-set-eg1-name = EG-1 Taro Energy Revolver
+selectable-set-eg1-description =
+    An energy-based alternative to the standard ballistics sidearms, this revolver
+    trades firepower for the versatility provided by lasers.
 
 selectable-set-terminus-name = DT-8 "Terminus"
 selectable-set-terminus-description =
@@ -144,7 +154,7 @@ selectable-set-bso-brdi-description =
 selectable-set-bso-typewriter-name = Typewriter Submachine Gun
 selectable-set-bso-typewriter-desc =
     A kit containing a perfect replica of the Thompson Submachine Gun,
-    chambered in .35, a preloaded drum mag, a stick mag and a drum mag with rubber bullets.
+    chambered in .35, a preloaded drum mag, a stick mag and a drum mag with rubber bullets. 
     Perfect for LARPers and wise guys alike.
 
 selectable-set-bso-extraction-name = Extraction kit

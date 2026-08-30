@@ -9,9 +9,9 @@
 #  - Diona
 #  - Harpy
 #  - Vox
-#  - Tajaran 
+#  - Tajaran
 #  - Resomi
-#  - Oni 
+#  - Oni
   - Gingerbread # Soecusn
   - Plasmaman # They just burn to death.
 #  - Reptilian
@@ -32,13 +32,9 @@
   - type: GhostTakeoverAvailable
   - type: MindShield
   - type: AntagImmune
+  - type: TargetObjectiveImmune
   - type: Speech
     speechVerb: HolierThanThou
   - type: GhostRole
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 36000 # Ten Hours
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 108000 # Thirty hours. Fuck you.
+    mindRoles:
+    - MindRoleGhostRoleNanotrasenSpectreOmu

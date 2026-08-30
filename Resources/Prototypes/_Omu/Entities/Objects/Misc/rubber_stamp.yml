@@ -11,3 +11,15 @@
   - type: Sprite
     sprite: _Omu/Objects/Misc/stamps.rsi
     state: stamp-centcom-intern
+
+- type: entity
+  name: Blueshield officer rubber stamp
+  parent: [RubberStampBase, BaseCentcommContraband]
+  id: RubberStampBlueshieldOfficer
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-blueshield-officer
+    stampedColor: "#000080"
+    stampState: "paper_stamp-cap"
+  - type: Sprite
+    state: stamp-cap

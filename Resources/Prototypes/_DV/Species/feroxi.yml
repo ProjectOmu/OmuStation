@@ -19,13 +19,11 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    #omu start
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
-    #omu end
     Chest: MobFeroxiChest
     Groin: MobFeroxiGroin
     HeadTop: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
     Eyes: MobHumanoidEyes
     LArm: MobFeroxiLArm
@@ -91,10 +89,10 @@
       points: 8
       required: false
     # omu start
-    Underwear:
+    UndergarmentBottom:
       points: 1
       required: false
-    Undershirt:
+    UndergarmentTop:
       points: 1
       required: false
     # omu end

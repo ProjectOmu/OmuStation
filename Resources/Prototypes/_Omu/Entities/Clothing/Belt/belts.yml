@@ -38,7 +38,6 @@
         - Flash
         - Handcuff
         - Whistle
-        - Hypospray
         - Injector
         - Pill
         - HandLabeler
@@ -57,7 +56,7 @@
     sprite: _Omu/Clothing/Belt/clothingbelthoscqc.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Belt/clothingbelthoscqc.rsi
-  - type: GrantCapoeira
+  - type: GrantKungFuDragon
   - type: Storage
     whitelist:
       tags:
@@ -211,7 +210,6 @@
         - RollerBedCompact # For BSO's bluespace roller beds
       components:
         - Pill
-        - Hypospray
         - SyringeGun
         - SurgeryTool
         - Defibrillator

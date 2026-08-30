@@ -22,6 +22,19 @@
     head: ClothingHeadHatBeretCorpsman
 
 - type: loadout
+  id: CorpsmanHeadHatKepi
+  equipment:
+    head: ClothingHeadHatKepiCorpsman
+
+- type: loadout
+  id: CorpsmanVeteranHeadHatKepi
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCorpsman
+  equipment:
+    head: ClothingHeadHatKepiCorpsmanVeteran
+
+- type: loadout
   id: CorpsmanJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCorpsman
@@ -71,11 +84,31 @@
   id: BrigmedicHeadset
   equipment:
     ears: ClothingHeadsetBrigmedic
+  effects:
+  - !type:SpeciesLoadoutEffect
+    inverted: true
+    species:
+    - IPC
 
 - type: loadout
   id: BrigmedicAltHeadset
   equipment:
     ears: ClothingHeadsetAltBrigmedic
+  effects:
+  - !type:SpeciesLoadoutEffect
+    inverted: true
+    species:
+    - IPC
+
+- type: loadout
+  id: BrigmedicEncryptionKey
+  storage:
+    back:
+    - ClothingHeadsetBrigmedic
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - IPC
 
 - type: loadout
   id: GlassesCorpsman

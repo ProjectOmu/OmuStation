@@ -61,6 +61,16 @@
   - MagazineCaselessRifleFMJ
 
 - type: selectableSet
+  id: SargeMagnumSet
+  name: selectable-set-sarge-magnum-name
+  description: selectable-set-sarge-magnum-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
+    state: icon
+  content:
+  - WeaponEnergyMagnum
+
+- type: selectableSet
   id: WeaponEnergyShotgunSet
   name: selectable-set-warden-eshotty-name
   description: selectable-set-warden-eshotty-description
@@ -105,6 +115,19 @@
   - SpeedLoaderRevolverLightRifle
 
 - type: selectableSet
+  id: WeaponEG1Set
+  name: selectable-set-eg1-name
+  description: selectable-set-eg1-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_revolver.rsi
+    state: icon
+  content:
+  - WeaponLaserCellRevolver
+  - PowerCellIRRevolver
+  - PowerCellIRRevolver
+  - PowerCellIRRevolver
+
+- type: selectableSet
   id: WeaponCeremonialRifleSet
   name: selectable-set-ceremonial-rifle-name
   description: selectable-set-ceremonial-rifle-description
@@ -113,16 +136,8 @@
     state: base
   content:
   - WeaponSniperM1Garand
-
-- type: selectableSet
-  id: WeaponTerminusSet
-  name: selectable-set-terminus-name
-  description: selectable-set-terminus-description
-  sprite:
-    sprite: _EinsteinEngines/Objects/Weapons/Melee/terminus.rsi
-    state: icon
-  content:
-  - Terminus
+  - MagazineClipM1Garand
+  - MagazineClipM1Garand
 
 - type: selectableSet
   id: WeaponAntiqueLaserSet

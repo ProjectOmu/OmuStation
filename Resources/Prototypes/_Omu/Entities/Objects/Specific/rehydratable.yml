@@ -1,0 +1,63 @@
+- type: entity
+  parent: MonkeyCube
+  id: AllulaloCube
+  name: allulalo cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobAllulaloRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: ArachnidCube
+  name: arachnid cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobArachnidRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: OniCube
+  name: oni cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobOniRandom
+
+
+- type: entity
+  parent: MonkeyCube
+  id: ResomiCube
+  name: resomi cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobResomiRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: XelthiaCube
+  name: xelthia cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobXelthiaRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: ThavenCube
+  name: thaven cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobThavenRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: AvaliCube
+  name: avali cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobAvaliRandom

@@ -1,0 +1,38 @@
+- type: entityTable
+  id: OmuPlushiesTable
+  table: !type:GroupSelector
+    children:
+    - id: PlushieRestfulOmuStaff
+    - id: PlushieAureuOmuStaff
+    - id: PlushieThesiaOmuStaff
+    - id: PlushieMarikiiiOmuStaff
+    - id: PlushieNagollOmuStaff
+    - id: PlushieArtemisOmuStaff
+    - id: PlushieCliveOmuStaff
+    - id: PlushieCygOmuStaff
+    - id: PlushieTossornOmuStaff
+    - id: PlushieDishwasherOmuStaff
+    - id: PlushieDoglettuceOmuStaff
+    - id: PlushieHayrayOmuStaff
+    - id: PlushieKabukiOmuStaffish
+    - id: PlushieGinoOmuStaff
+    - id: PlushiePuntsssOmuStaff
+    - id: PlushieNnifOmuStaff
+    - id: PlushieMednogOmuStaff
+    - id: PlushieYuriOmuStaff
+    - id: PlushiePickelSillyOmuStaffish
+    - id: PlushieXiOmuStaff
+    - id: PlushieSammyOmuStaff
+
+- type: entity
+  id: CrateFunOmuPlushie
+  parent: CrateGenericSteel
+  name: sectoral plushie crate
+  description: A handful of plushies, good luck explaining this financial decision to the Quartermaster... And the company...
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: OmuPlushiesTable
+        rolls: !type:ConstantNumberSelector
+          value: 10

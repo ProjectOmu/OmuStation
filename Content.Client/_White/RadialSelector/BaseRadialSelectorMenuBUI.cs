@@ -47,10 +47,11 @@ public abstract class BasedRadialSelectorMenuBUI : BoundUserInterface
 
         foreach (var entry in entries)
         {
+
             if (entry.Category != null)
             {
                 var button = CreateButton(entry.Category.Name, _spriteSystem.Frame0(entry.Category.Icon));
-                button.TargetLayer = container;
+                button.TargetLayerControlName = entry.Category.Name; //Omu Change, works regardless.
                 CreateMenu(entry.Category.Entries, menu, entry.Category.Name);
                 container.AddChild(button);
             }
@@ -108,9 +109,9 @@ public abstract class BasedRadialSelectorMenuBUI : BoundUserInterface
         return result;
     }
 
-    private RadialMenuTextureButton CreateButton(string name, Texture icon)
+    private RadialMenuButton CreateButton(string name, Texture icon)
     {
-        var button = new RadialMenuTextureButton
+        var button = new RadialMenuButton
         {
             ToolTip = Loc.GetString(name),
             StyleClasses = { "RadialMenuButton" },
@@ -130,9 +131,9 @@ public abstract class BasedRadialSelectorMenuBUI : BoundUserInterface
         return button;
     }
 
-    private RadialMenuTextureButton CreateButton(string name, List<Texture> icons)
+    private RadialMenuButton CreateButton(string name, List<Texture> icons)
     {
-        var button = new RadialMenuTextureButton
+        var button = new RadialMenuButton
         {
             ToolTip = Loc.GetString(name),
             StyleClasses = { "RadialMenuButton" },

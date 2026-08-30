@@ -109257,7 +109257,7 @@ entities:
     - type: Transform
       pos: 41.43434,-9.850339
       parent: 2
-- proto: HandheldHealthAnalyzerUnpowered
+- proto: HandheldHealthAnalyzer
   entities:
   - uid: 15755
     components:
@@ -113431,7 +113431,7 @@ entities:
     - type: Transform
       pos: -16.28381,-48.31145
       parent: 2
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 16300
     components:
