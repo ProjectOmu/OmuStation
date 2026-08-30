@@ -24,7 +24,7 @@ selectable-set-brigmed-crossbow-name = Syringe Crossbow
 selectable-set-brigmed-crossbow-description =
     A portable Crossbow for healing at range.
 
-selectable-set-brigmed-shotgun-name = Pnuematic Shotgun
+selectable-set-brigmed-shotgun-name = Pneumatic Shotgun
 selectable-set-brigmed-shotgun-description =
     A low power, Innaccurate shotgun. Single shell, but can fire Syringes.
     Hellishly innaccurate.

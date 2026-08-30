@@ -95,7 +95,7 @@
   name: selectable-set-warden-snub-name
   description: selectable-set-warden-snub-description
   sprite:
-    sprite: _Omu/Objects/Weapons/Guns/Revolvers/R6.rsi
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/WardenSnub.rsi
     state: base
   content:
   - WardenSnubRevolver
@@ -115,14 +115,14 @@
   - SyringePax
 
 - type: selectableSet
-  id: BrigmedWeaponPnuematicShotgunSet
+  id: BrigmedWeaponPneumaticShotgunSet
   name: selectable-set-brigmed-shotgun-name
   description: selectable-set-brigmed-shotgun-description
   sprite:
-    sprite: _Omu/Objects/Weapons/Guns/Shotguns/PnuematicShotty.rsi
+    sprite: _Omu/Objects/Weapons/Guns/Shotguns/PneumaticShotty.rsi
     state: base
   content:
-  - WeaponPnuematicShotgun
+  - WeaponPneumaticShotgun
   - BoxBeanbag
 
 - type: selectableSet
