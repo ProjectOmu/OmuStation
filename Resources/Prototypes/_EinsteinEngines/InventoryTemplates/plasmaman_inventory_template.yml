@@ -58,7 +58,7 @@
       slotFlags: EARS
       stripTime: 3
       uiWindowPos: 2,2
-      strippingWindowPos: 2,0
+      strippingWindowPos: 2,1 #Omustation, was 2,0
       displayName: Ears
     - name: head
       slotTexture: head
@@ -69,6 +69,7 @@
       whitelist:
         tags:
           - PlasmamanSafe
+      deleteOnWhitelistFail: false # Omu
     - name: pocket1
       slotTexture: pocket
       fullTextureName: template_small
@@ -130,3 +131,18 @@
       uiWindowPos: 3,0
       strippingWindowPos: 0,5
       displayName: Back
+
+    - name: head2 #Omustation start
+      slotTexture: head
+      slotFlags: HEAD
+      uiWindowPos: 2,3
+      strippingWindowPos: 2,0
+      displayName: Hat
+      dependsOn: head
+      blacklist:
+        tags:
+          - PlasmamanSafe
+          - HelmetEVA
+          - FireHelmet
+        components:
+          - PlasmaUnfit #Omustation end

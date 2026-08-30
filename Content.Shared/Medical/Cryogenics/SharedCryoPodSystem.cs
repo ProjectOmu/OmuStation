@@ -1,17 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Francesco <frafonia@gmail.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <keronshb@live.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Administration.Logs;
@@ -54,7 +40,7 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] protected readonly SharedContainerSystem _container = default!; // Omu kill me
     [Dependency] private readonly SharedPointLightSystem _light = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
@@ -126,7 +112,7 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
                 && _bloodstreamQuery.TryComp(patient, out var bloodstream))
             {
                 var solutionToInject = _solutionContainer.SplitSolution(containerSolution.Value, cryoPod.BeakerTransferAmount);
-                _bloodstream.TryAddToChemicals((patient.Value, bloodstream), solutionToInject);
+                _bloodstream.TryAddToBloodstream((patient.Value, bloodstream), solutionToInject);
                 _reactive.DoEntityReaction(patient.Value, solutionToInject, ReactionMethod.Injection);
             }
         }

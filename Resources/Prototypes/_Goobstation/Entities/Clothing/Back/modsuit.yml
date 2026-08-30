@@ -1,15 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
-# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
-# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
-# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -77,7 +65,7 @@
       cell_slot: true
   - type: PowerCellDraw
     drawRate: 0.8 # Sealed draw rate
-    useRate: 4 # Draw rate for sealing
+    useCharge: 4 # Draw rate for sealing
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: false
@@ -151,7 +139,7 @@
       cell_slot: true
   - type: PowerCellDraw
     drawRate: 0.8 # Sealed draw rate
-    useRate: 4 # Draw rate for sealing
+    useCharge: 4 # Draw rate for sealing
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: false
@@ -291,6 +279,33 @@
     clothingVisuals:
       back:
       - state: equipped-BACKPACK-sealed
+  # Omu Start - Paramedic Siren
+  ## when the "mod" part of the suits get added, maybe make this a module instead?
+  - type: ItemToggle
+    onUse: false
+    soundActivate:
+      path: /Audio/Items/flashlight_on.ogg
+    soundDeactivate:
+      path: /Audio/Items/flashlight_off.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/_Omu/Effects/Vehicle/ambulancesiren2.ogg
+      params:
+        volume: -4
+  - type: UseDelay
+    delay: 1.0
+  - type: ToggleClothing
+    action: ActionToggleParamedicSirenModsuit
+  - type: ItemTogglePointLight
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: turquoise
+    mask: /Textures/Effects/LightMasks/double_cone.png
+  - type: RotatingLight
+    speed: 270
+   # Omu End
 
 - type: entity
   parent: ClothingModsuitParamedic

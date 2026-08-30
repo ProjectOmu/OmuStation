@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Mime Malaise
 - type: entity
@@ -642,6 +638,23 @@
   parent: ActionSmite
   id: ActionSmiteIII
   name: Smite III
+  components:
+  - type: Action
+    useDelay: 20
+
+# Rathen's Secret
+- type: entity
+  parent: ActionRathenSpell
+  id: ActionRathenSpellII
+  name: Rathen's Secret II
+  components:
+  - type: Action
+    useDelay: 35
+
+- type: entity
+  parent: ActionRathenSpell
+  id: ActionRathenSpellIII
+  name: Rathen's Secret III
   components:
   - type: Action
     useDelay: 20

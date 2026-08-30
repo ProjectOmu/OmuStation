@@ -13,7 +13,7 @@
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
     state: securitysergeant
   jobName: job-name-security-sergeant
-  
+
 - type: jobIcon
   parent: JobIcon
   id: JobIconCourier
@@ -21,3 +21,75 @@
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
     state: Courier
   jobName: job-name-courier
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconERTLeader
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: ertleader
+  jobName: job-name-ertleader
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconERTChaplain
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: ertchap
+  jobName: job-name-ertchaplain
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconERTEngineer
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: ertengi
+  jobName: job-name-ertengineer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconERTSecurity
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: ertsec
+  jobName: job-name-ertsecurity
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconERTMedic
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: ertmedical
+  jobName: job-name-ertmedic
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconERTJanitor
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: ertjani
+  jobName: job-name-ertjanitor
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconDeathsquad
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: deathsquad
+  jobName: job-name-deathsquad
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCBURN
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: cburn
+  jobName: job-name-cburn
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCustodii
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: custodii
+  jobName: job-name-centcomm-guard

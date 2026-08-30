@@ -1,4 +1,42 @@
 - type: reagent
+  id: Peranol
+  name: reagent-name-peranol
+  group: Medicine
+  desc: reagent-desc-peranol
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: medicine
+  color: "#8B008B"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.02
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: -0.2
+      - !type:AdjustTemperature
+        conditions:
+        - !type:TemperatureCondition
+          min: 253.15
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [ Hydrakin ]
+          inverted: true
+        amount: -360
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages: [ "leporazine-effect-temperature-adjusting" ]
+        probability: 0.2
+      - !type:AdjustTemperature
+        conditions:
+        - !type:TemperatureCondition
+          min: 253.15
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [ Hydrakin ]
+          inverted: true
+        amount: -7500
+
+- type: reagent
   id: Rhymatine
   name: reagent-name-rhymatine
   group: Medicine
@@ -19,10 +57,12 @@
             Cold: 1.25
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type:
+          - Yowie
+          inverted: true
+        - !type:ReagentCondition
+          reagent: Rhymatine
           min: 10
         damage:
           types:
@@ -32,7 +72,8 @@
             Brute: 0.5
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Rhymatine
           min: 10
 
 # ambuzol plus minus
@@ -52,7 +93,8 @@
       effects:
       - !type:CureZombieInfection
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Mesotaxinide
           min: 15
       - !type:HealthChange
         damage:
@@ -60,10 +102,11 @@
             Toxin: -5
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [ Yowie ]
+          inverted: true
+        - !type:ReagentCondition
+          reagent: Mesotaxinide
           min: 17.5
         damage:
           types:
@@ -71,12 +114,14 @@
             Shock: 2
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Mesotaxinide
           min: 40
       - !type:RevertPolymorph
         prototype: LetoferolMutationNatural
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Mesotaxinide
           min: 15
       - !type:AdjustReagent
         reagent: Letoferol
@@ -103,7 +148,8 @@
       - !type:RevertPolymorph
         prototype: LetoferolMutationNatural
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Mesophenerol
           min: 40
       - !type:AdjustReagent
         reagent: Letoferol

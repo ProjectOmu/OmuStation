@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/16/2026 14:46:39
-  entityCount: 36106
+  time: 08/09/2026 00:15:11
+  entityCount: 36110
 maps:
 - 1
 grids:
@@ -54826,6 +54826,11 @@ entities:
     - type: Transform
       pos: 35.5,4.5
       parent: 2
+  - uid: 28700
+    components:
+    - type: Transform
+      pos: -5.5,8.5
+      parent: 2
   - uid: 28877
     components:
     - type: Transform
@@ -78871,6 +78876,11 @@ entities:
     - type: Transform
       pos: 35.5,26.5
       parent: 2
+  - uid: 36109
+    components:
+    - type: Transform
+      pos: 38.5,4.5
+      parent: 2
 - proto: CableMVStack
   entities:
   - uid: 11956
@@ -90347,6 +90357,15 @@ entities:
     - type: Transform
       pos: -19.46565,10.906514
       parent: 2
+- proto: CleanerDispenser
+  entities:
+  - uid: 25207
+    components:
+    - type: Transform
+      pos: 5.5,14.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: CloningPod
   entities:
   - uid: 24858
@@ -167415,6 +167434,11 @@ entities:
     - type: Transform
       pos: 5.5,50.5
       parent: 2
+  - uid: 36110
+    components:
+    - type: Transform
+      pos: 4.5,47.5
+      parent: 2
 - proto: LockerPrisoner
   entities:
   - uid: 29826
@@ -171601,17 +171625,17 @@ entities:
       fixtures: {}
 - proto: PosterContrabandBeachStarYamamoto
   entities:
-  - uid: 25207
-    components:
-    - type: Transform
-      pos: 5.5,14.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
   - uid: 25208
     components:
     - type: Transform
       pos: 68.5,17.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 36108
+    components:
+    - type: Transform
+      pos: 6.5,14.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -190499,13 +190523,15 @@ entities:
     - type: Transform
       pos: -8.5,33.5
       parent: 2
-- proto: SmartFridgeMedical
+- proto: SmartFridgeBotany
   entities:
   - uid: 28150
     components:
     - type: Transform
       pos: -10.5,27.5
       parent: 2
+- proto: SmartFridgeMedical
+  entities:
   - uid: 28152
     components:
     - type: Transform

@@ -81,7 +81,7 @@
     outerClothing: ClothingOuterCentcomLabcoat
     neck: ClothingNeckMantleCCOMantle
     id: CentCommDireggtorPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: ClothingHeadsetAltCentComLoudspeaker
     belt: EggCentCommBelt
     pocket1: VulcanEightRevolver
     pocket2: VulcanEightRevolver
@@ -100,7 +100,7 @@
   playTimeTracker: JobCustodii
   setPreference: false
   startingGear: CustodiiGear
-  icon: "JobIconNanotrasen"
+  icon: "JobIconCustodii" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
