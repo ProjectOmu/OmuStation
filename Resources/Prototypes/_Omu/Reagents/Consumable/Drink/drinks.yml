@@ -78,3 +78,26 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+
+- type: reagent
+  id: TheKitchenSink
+  name: reagent-name-thekitchensink
+  parent: BaseAlcohol
+  desc: reagent-desc-thekitchensink
+  physicalDesc: reagent-physical-desc-diluted
+  flavor: thekitchensink
+  color: "#8c7d26" # averaged between all ingredients
+  metamorphicSprite:
+    sprite: _Omu/Objects/Consumable/Drinks/the_kitchen_sink.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.25
