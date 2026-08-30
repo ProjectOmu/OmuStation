@@ -20,7 +20,12 @@
   cost:
     Telecrystal: 20
   categories:
-  - UplinkWearables  
+  - UplinkWearables
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
 
 - type: listing
   id: UplinkBombCollarKit
