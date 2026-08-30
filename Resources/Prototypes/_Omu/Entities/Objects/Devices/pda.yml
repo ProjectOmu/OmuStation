@@ -219,6 +219,8 @@
     sprite: _Omu/Objects/Devices/pda.rsi
     state: pda-altblueshield
 
+# Mentor Role PDAs
+
 - type: entity
   parent: BaseSecurityPDA
   id: SecuritySergeantPDA
@@ -229,14 +231,20 @@
     id: SecuritySergeantIDCard
   - type: Appearance
     appearanceDataInit:
-     enum.PdaVisuals.PdaType:
-       !type:String
-       pda-securitysergeant
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-securitysergeant
+  - type: Sprite
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-securitysergeant
+  - type: Icon
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-securitysergeant
   - type: PdaBorderColor
     borderColor: "#A32D26"
     accentVColor: "#DFDFDF"
-  - type: Icon
-    state: pda-securitysergeant
+
+# Misc
 
 - type: entity
   parent: HelldiverPDA
