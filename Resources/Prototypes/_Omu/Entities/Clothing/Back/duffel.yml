@@ -15,3 +15,11 @@
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Back/Duffels/cybersunmed.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffelClown
+  id: ClothingBackpackDuffelClownBundle
+  abstract: true
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
