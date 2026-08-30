@@ -171,8 +171,8 @@ selectable-set-bso-brdi-description =
 selectable-set-bso-typewriter-name = Typewriter Submachine Gun
 selectable-set-bso-typewriter-desc =
     A kit containing a perfect replica of the Thompson Submachine Gun,
-    chambered in .35, a preloaded drum mag, a stick mag and a drum mag with rubber bullets.
-    Perfect for LARPers and wise guys alike.
+    chambered in .35, a preloaded drum mag, a stick mag and a drum mag with rubber bullets;
+    perfect for the historically minded and wise guys alike.
 
 selectable-set-bso-extraction-name = Extraction kit
 selectable-set-bso-extraction-description =
