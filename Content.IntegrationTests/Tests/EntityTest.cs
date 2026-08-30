@@ -59,7 +59,8 @@ namespace Content.IntegrationTests.Tests
             // Goobstation edit end
 
             // Goob start run this test in batches of 10k because fuck you. we got too much shit.
-            const int batchSize = 10000;
+            // Omu im preemptively lowering this again I see too many OOM's and i don't trust it
+            const int batchSize = 7500;
 
             for (var batchStart = 0; batchStart < protoIds.Count; batchStart += batchSize)
             {
@@ -254,7 +255,8 @@ namespace Content.IntegrationTests.Tests
                 .ToList();
 
             // Goob start run this test in batches of 10k because fuck you. we got too much shit.
-            const int batchSize = 10000;
+            // Omu im preemptively lowering this again I see too many OOM's and i don't trust it
+            const int batchSize = 7500;
 
             for (var batchStart = 0; batchStart < protoIds.Count; batchStart += batchSize)
             {
