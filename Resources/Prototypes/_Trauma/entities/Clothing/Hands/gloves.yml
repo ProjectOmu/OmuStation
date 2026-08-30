@@ -9,7 +9,8 @@
     - type: GuideHelp
       guides:
         - Tackle
-
+  - type: MartialArtBlocked # Omu
+    form: CorporateJudo
 - type: entity
   parent: [BaseGlovesTackle, BaseSecurityContraband]
   id: ClothingHandsGlovesSecurity
