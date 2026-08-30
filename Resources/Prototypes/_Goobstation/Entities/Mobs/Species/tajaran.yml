@@ -115,6 +115,8 @@
       Female: FemaleFelinid
       Unsexed: MaleFelinid
   - type: NoShoesSilentFootsteps
+  - type: StealTarget # Omu
+    stealGroup: StealLittlePerson
   - type: Tag
     tags:
     - CanPilot

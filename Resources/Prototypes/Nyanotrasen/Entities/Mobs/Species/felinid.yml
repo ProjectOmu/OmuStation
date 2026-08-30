@@ -64,6 +64,8 @@
     animationThreshold: 40 # Goob edit
   - type: TypingIndicator
     proto: felinid
+  - type: StealTarget # Omu
+    stealGroup: StealLittlePerson
   - type: PseudoItem
     storedOffset: 0,17
     shape:
