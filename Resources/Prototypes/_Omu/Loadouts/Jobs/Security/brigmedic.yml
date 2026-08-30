@@ -126,17 +126,17 @@
 - type: loadout
   id: BrigmedWeaponCrossbowSyringe
   equipment:
-    pocket1: WeaponCrossbowSyringe
+    suitstorage: WeaponCrossbowSyringe
   groupBy: "Main weapon"
 
 - type: loadout
   id: BrigmedWeaponDisablerSMG
   equipment:
-    suitstorage: WeaponDisablerSMG
+    back: WeaponDisablerSMG
   groupBy: "Main weapon"
 
 - type: loadout
-  id: BrigmedWeaponPnuematicShotgunSet
+  id: WeaponPnuematicShotgun
   equipment:
     suitstorage: WeaponPnuematicShotgun
   groupBy: "Main weapon"

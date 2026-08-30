@@ -2,12 +2,12 @@
   name: syringe crossbow
   parent: [ BaseSyringeGun, BaseSecurityContraband ]
   id: WeaponCrossbowSyringe
-  description: A heavily modified crossbow that can launch syringes to remotely apply healing to officers.
+  description: A heavily modified crossbow that can launch syringes to remotely apply healing to officers. Despite its modifications, it is NT approved, unlike SOME options.
   components:
   - type: Sprite
     sprite: _Omu/Objects/Weapons/Guns/Misc/syringecrossbow.rsi
     layers:
-    - state: syringe_gun
+    - state: icon
   - type: Item
     size: Small
     shape:
@@ -15,3 +15,9 @@
     - 0,1,0,1
   - type: SyringeGun
     injectionSpeedMultiplier: 2
+  - type: Clothing
+    sprite: _Omu/Objects/Weapons/Guns/Misc/syringecrossbow.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage

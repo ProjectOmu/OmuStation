@@ -9,10 +9,10 @@
     severity: Restricted
 
 - type: entity
-  name: Pnuematic shotgun
+  name: S1 "Pnueh" shotgun
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
-  id: WWeaponPnuematicShotgun
-  description: A jury-rigged, sloppy, messy excuse for a shotgun, but hey, it fires syringes.
+  id: WeaponPnuematicShotgun
+  description: A "field-improvised" modification on a hunting shotgun, capable of launching syringes on a second, air-powered trigger. Pronounced "Peh-Neu-Eh". Now produced and sold through grey market channels due to consumer demand. NOT NT APPROVED.
   components:
   - type: Sprite
     sprite: _Omu/Objects/Weapons/Guns/Shotguns/PnuematicShotty.rsi
@@ -28,3 +28,4 @@
       tags:
       - Syringe # goobstation fire all syringes
       - SyringeGunAmmo
+      - ShellShotgun
