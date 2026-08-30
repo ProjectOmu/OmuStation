@@ -7,3 +7,24 @@
   - type: Contraband
     allowedDepartments: [ CentralCommand ]
     severity: Restricted
+
+- type: entity
+  name: Pnuematic shotgun
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
+  id: WWeaponPnuematicShotgun
+  description: A jury-rigged, sloppy, messy excuse for a shotgun, but hey, it fires syringes.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Shotguns/PnuematicShotty.rsi
+  - type: Clothing
+    sprite: _Omu/Objects/Weapons/Guns/Shotguns/PnuematicShotty.rsi
+  - type: Gun
+    fireRate: 3
+  - type: GunSpreadModifier
+    spread: 2.5
+  - type: BallisticAmmoProvider
+    capacity: 1
+    whitelist:
+      tags:
+      - Syringe # goobstation fire all syringes
+      - SyringeGunAmmo

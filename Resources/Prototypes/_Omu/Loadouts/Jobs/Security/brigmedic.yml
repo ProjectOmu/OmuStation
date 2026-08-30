@@ -123,4 +123,26 @@
   equipment:
     eyes: ClothingEyesGlassesMedSec
 
+- type: loadout
+  id: BrigmedWeaponCrossbowSyringe
+  equipment:
+    pocket1: WeaponCrossbowSyringe
+  groupBy: "Main weapon"
 
+- type: loadout
+  id: BrigmedWeaponDisablerSMG
+  equipment:
+    suitstorage: WeaponDisablerSMG
+  groupBy: "Main weapon"
+
+- type: loadout
+  id: BrigmedWeaponPnuematicShotgunSet
+  equipment:
+    suitstorage: WeaponPnuematicShotgun
+  groupBy: "Main weapon"
+
+- type: loadout
+  id: BrigMedicGunCase
+  equipment:
+    pocket1: BrigMedCase
+  groupBy: "Main weapon"
