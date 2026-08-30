@@ -35,6 +35,11 @@ selectable-set-hos-brdi-description=
     Once wielded by an unknown member of the Biesel Foreign Legion,
     this beloved rifle has seen battle with Sol on every world in the colonies.
 
+selectable-set-sarge-magnum-name = Energy Magnum
+selectable-set-sarge-magnum-description =
+    Self-recharging energy magnum that can switch between lethal
+    and disabling mode.
+
 selectable-set-mk58-name = Mk58 Pistol
 selectable-set-mk58-description =
     The standard duty pistol for Nanotrasen security.
