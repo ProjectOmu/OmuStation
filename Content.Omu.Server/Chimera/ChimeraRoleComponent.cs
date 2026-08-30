@@ -1,6 +1,6 @@
 using Content.Shared.Roles.Components;
 
-namespace Content.Server._Omu.Chimera;
+namespace Content.Omu.Server.Chimera;
 
 [RegisterComponent]
 public sealed partial class MindRoleChimeraComponent : BaseMindRoleComponent

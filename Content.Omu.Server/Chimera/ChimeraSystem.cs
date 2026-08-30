@@ -4,13 +4,13 @@ using Content.Shared.Mind.Components;
 using Content.Server.Roles;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Omu.Chimera;
+namespace Content.Omu.Server.Chimera;
 
 public sealed class ChimeraSystem : EntitySystem
 {
     [Dependency] private readonly RoleSystem _role = default!;
 
-    private static EntProtoId ChimeraMindRole= "MindRoleChimera";
+    private static EntProtoId _chimeraMindRole = "MindRoleChimera";
 
     public override void Initialize()
     {
@@ -24,7 +24,7 @@ public sealed class ChimeraSystem : EntitySystem
     private void OnMindAdded(Entity<ChimeraComponent> ent, ref MindAddedMessage args)
     {
         if (!_role.MindHasRole<ChimeraComponent>(args.Mind))
-            _role.MindAddRole(args.Mind, ChimeraMindRole, mind: args.Mind.Comp);
+            _role.MindAddRole(args.Mind, _chimeraMindRole, mind: args.Mind.Comp);
     }
 
     private void OnMindRemoved(Entity<ChimeraComponent> ent, ref MindRemovedMessage args)

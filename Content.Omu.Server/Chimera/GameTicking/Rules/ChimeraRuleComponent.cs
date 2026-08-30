@@ -9,7 +9,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Server._Omu.Chimera.GameTicking.Rules;
+namespace Content.Omu.Server.Chimera.GameTicking.Rules;
 
 [RegisterComponent, Access(typeof(ChimeraRuleSystem))]
 public sealed partial class ChimeraRuleComponent : Component

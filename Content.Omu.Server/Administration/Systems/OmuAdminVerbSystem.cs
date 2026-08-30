@@ -1,5 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
-using Content.Server._Omu.Chimera.GameTicking.Rules;
+using Content.Omu.Server.Chimera.GameTicking.Rules;
 using Content.Server.Antag;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Administration;

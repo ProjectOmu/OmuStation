@@ -7,8 +7,6 @@
 
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules;
-using Content.Server.Mind;
-using Content.Server.Objectives;
 using Content.Server.Roles;
 using Content.Shared.NPC.Systems;
 using Robust.Shared.Audio;
@@ -27,7 +25,7 @@ using Content.Server.AlertLevel;
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.Timing;
 
-namespace Content.Server._Omu.Chimera.GameTicking.Rules;
+namespace Content.Omu.Server.Chimera.GameTicking.Rules;
 
 public sealed class ChimeraRuleSystem : GameRuleSystem<ChimeraRuleComponent>
 {
@@ -94,16 +92,16 @@ public sealed class ChimeraRuleSystem : GameRuleSystem<ChimeraRuleComponent>
     private float GetInfectedFraction(bool includeOffStation = false, bool includeDead = true)
     {
         var players = GetHealthyHumans(includeOffStation);
-        var ChimeraCount = 0;
+        var chimeraCount = 0;
         var query = EntityQueryEnumerator<HumanoidAppearanceComponent, ChimeraComponent, MobStateComponent>();
         while (query.MoveNext(out _, out _, out _, out var mob))
         {
             if (!includeDead && mob.CurrentState == MobState.Dead)
                 continue;
-            ChimeraCount++;
+            chimeraCount++;
         }
 
-        return ChimeraCount / (float) (players.Count + ChimeraCount);
+        return chimeraCount / (float) (players.Count + chimeraCount);
     }
 
     private List<EntityUid> GetHealthyHumans(bool includeOffStation = false)
@@ -121,12 +119,12 @@ public sealed class ChimeraRuleSystem : GameRuleSystem<ChimeraRuleComponent>
         }
 
         var players = AllEntityQuery<HumanoidAppearanceComponent, ActorComponent, MobStateComponent, TransformComponent>();
-        var Chimera = GetEntityQuery<ChimeraComponent>();
+        var chimera = GetEntityQuery<ChimeraComponent>();
         while (players.MoveNext(out var uid, out _, out _, out var mob, out var xform))
         {
 
             if (!_mobState.IsAlive(uid, mob)
-                || Chimera.HasComponent(uid)
+                || chimera.HasComponent(uid)
                 || !includeOffStation && !stationGrids.Contains(xform.GridUid ?? EntityUid.Invalid))
                 continue;
 
@@ -135,12 +133,12 @@ public sealed class ChimeraRuleSystem : GameRuleSystem<ChimeraRuleComponent>
         return healthy;
     }
 
-    private void CheckRoundEnd(ChimeraRuleComponent ChimeraRuleComponent)
+    private void CheckRoundEnd(ChimeraRuleComponent chimeraRuleComponent)
     {
         var healthy = GetHealthyHumans();
-        if (GetInfectedFraction(false) > ChimeraRuleComponent.DeltaCallPercentage / 5f && !ChimeraRuleComponent.StartAnnounced)
+        if (GetInfectedFraction(false) > chimeraRuleComponent.DeltaCallPercentage / 5f && !chimeraRuleComponent.StartAnnounced)
         {
-            ChimeraRuleComponent.StartAnnounced = true;
+            chimeraRuleComponent.StartAnnounced = true;
 
             foreach (var station in _station.GetStations())
             {
@@ -154,7 +152,7 @@ public sealed class ChimeraRuleSystem : GameRuleSystem<ChimeraRuleComponent>
             _audio.PlayGlobal(audio, Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
         }
 
-        if (GetInfectedFraction(false) > ChimeraRuleComponent.DeltaCallPercentage && !_roundEnd.IsRoundEndRequested())
+        if (GetInfectedFraction(false) > chimeraRuleComponent.DeltaCallPercentage && !_roundEnd.IsRoundEndRequested())
         {
             foreach (var station in _station.GetStations())
             {
