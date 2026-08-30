@@ -12,9 +12,9 @@
 - type: skinColoration
   id: VoxFeathers
   strategy: !type:ClampedHsvColoration
-    hue: [0.081, 0.48]
-    saturation: [0.2, 0.8]
-    value: [0.36, 0.55]
+    hue: [0.0, 1] # Omu - "Unlimited" colors
+    saturation: [0, 0.9] # Omu - "Unlimited" colors
+    value: [0.1, 0.55] # Omu - "Unlimited" colors
 
 - type: skinColoration
   id: HumanToned

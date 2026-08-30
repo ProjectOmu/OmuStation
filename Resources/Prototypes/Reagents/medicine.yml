@@ -1001,7 +1001,7 @@
             type:
             - Resomi
             - Avali
-            inverted: false
+            inverted: true # Omu, this should be true so that non-Resomi and non-Avali actually get blood
           # Starlight end
           amount: 12 # Goobstation - buffed by two times due to shitmed changes
         - !type:SatiateThirst

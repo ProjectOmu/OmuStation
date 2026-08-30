@@ -95,12 +95,12 @@ public partial class SharedGunSystem
 
     public bool TryRevolverInsert(Entity<RevolverAmmoProviderComponent> ent, EntityUid insertEnt, EntityUid? user)
     {
-        if (_whitelistSystem.IsWhitelistFail(ent.Comp.Whitelist, insertEnt))
-            return false;
-
         // If it's a speedloader try to get ammo from it.
         if (HasComp<SpeedLoaderComponent>(insertEnt))
         {
+            if (_whitelistSystem.IsWhitelistFail(ent.Comp.Whitelist, insertEnt))
+                return false; // The speedloader isn't intended for this revolver.
+
             var freeSlots = 0;
 
             for (var i = 0; i < ent.Comp.Capacity; i++)
@@ -165,6 +165,70 @@ public partial class SharedGunSystem
             Popup(Loc.GetString("gun-revolver-insert"), ent, user);
             return true;
         }
+
+        if (TryComp<BallisticAmmoProviderComponent>(insertEnt, out var ammoHolder))
+        {
+            // Get simple breaking conditions out of the way first.
+            // Container must allow ammo transfer, and not be empty.
+            if (!ammoHolder.MayTransfer && ammoHolder.Count > 0)
+                return false;
+
+            // A bit of a hacky way to do it tbh.
+            // To prevent loading revolvers from containers from being always optimal, something has to stop bullets
+            // from being mashed as fast as you can click.
+            if (_useDelay.IsDelayed(ent.Owner))
+                return false;
+
+            // Break if the container and the revolver do not fit the same kind of ammo.
+            if (ent.Comp.Whitelist?.Tags is not null && ammoHolder.Whitelist?.Tags is not null
+                && !ent.Comp.Whitelist.Tags.Intersect(ammoHolder.Whitelist.Tags).Any())
+                return false;
+
+            // Again, kinda hacky.
+            _useDelay.TryGetDelayInfo(ent.Owner, out var defaultDelayInfo);
+            var cycleDelay = defaultDelayInfo?.Length ?? new TimeSpan(0,0,0,0,66);
+            _useDelay.SetLength(ent.Owner, ammoHolder.FillDelay); // multiply by some factor to balance insertion rate?
+            _useDelay.TryResetDelay(ent.Owner);
+            _useDelay.SetLength(ent.Owner, cycleDelay); // reset the time so cycling doesn't have the reload delay on it
+
+            for (var i = 0; i < ent.Comp.Capacity; i++)
+            {
+                var index = (ent.Comp.CurrentIndex + i) % ent.Comp.Capacity;
+
+                if (ent.Comp.AmmoSlots[index] is not null || ent.Comp.Chambers[index] is not null)
+                    continue;
+
+                // A lot of the code from this point to the return is adapted from how regular Ballistics handle ammo transfer.
+                List<(EntityUid? Entity, IShootable Shootable)> ammo = new();
+                var evTakeAmmo = new TakeAmmoEvent(1, ammo, Transform(ent).Coordinates, user);
+                RaiseLocalEvent(insertEnt, evTakeAmmo);
+
+                foreach (var (bullet, _) in ammo)
+                {
+                    if (bullet is null)
+                        continue;
+
+                    ent.Comp.AmmoSlots[index] = bullet.Value;
+                    Containers.Insert(bullet.Value, ent.Comp.AmmoContainer);
+                    SetChamber(ent, bullet.Value, index);
+                    Audio.PlayPredicted(ent.Comp.SoundInsert, ent, user);
+                    UpdateRevolverAppearance(ent);
+                    UpdateAmmoCount(ent);
+                    Dirty(ent);
+
+                    // I have no idea why it spawns 12-to-23 fake bullets,
+                    if (IsClientSide(bullet.Value))
+                        Del(bullet.Value);
+                }
+                return true;
+            }
+            Popup(Loc.GetString("gun-revolver-full"), ent, user);
+            return false;
+        }
+
+        // Check to see if the entity does not belong in the revolver.
+        if (_whitelistSystem.IsWhitelistFail(ent.Comp.Whitelist, insertEnt))
+            return false;
 
         // Try to insert the entity directly.
         for (var i = 0; i < ent.Comp.Capacity; i++)
