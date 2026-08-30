@@ -1,6 +1,4 @@
 using Content.Shared.Mind.Components;
-
-// Goobstation
 using Content.Server.Roles;
 using Robust.Shared.Prototypes;
 
