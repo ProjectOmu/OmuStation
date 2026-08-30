@@ -149,3 +149,10 @@ punctuation = true
 
 [ooc]
 enable_during_round = false # Default is false, changed back to default on 31/03/2026 @ 11:35 CDT
+
+[explosion]
+wounding_multiplier = 1f # from 2.5f
+
+[playtest]
+explosion_damage_modifier = 0.65f # from 1f
+
