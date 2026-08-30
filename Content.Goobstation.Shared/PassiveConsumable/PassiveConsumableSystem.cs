@@ -44,7 +44,7 @@ public sealed class PassiveConsumableSystem : EntitySystem
             return;
 
         var flavors = _flavor.GetLocalizedFlavorsMessage(args.Wearer, solution);
-        _popup.PopupEntity(Loc.GetString("edible-nom", ("food", ent.Owner), ("flavors", flavors)), args.Wearer, args.Wearer);
+        _popup.PopupPredicted(Loc.GetString("edible-nom", ("food", ent.Owner), ("flavors", flavors)), args.Wearer, args.Wearer); // Omu, was PopupEntity
     }
 
     private void OnUnequipped(Entity<PassiveConsumableComponent> ent, ref ClothingGotUnequippedEvent args)

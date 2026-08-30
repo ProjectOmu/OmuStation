@@ -2,16 +2,12 @@
   parent: [ClothingEyesHudDiagnostic, BaseScienceContraband]
   id: ClothingEyesHudSciDiag #ClothingEyesGlassesSciDiag inherits this
   name: silicon-interfacing hud
-  description: A state-of-the-art heads-up display combining both diagnostic information and silicon communication capabilities. Grants access to RobotTalk and the binary network. Say hi to your station AI!
+  description: A state-of-the-art heads-up display combining both diagnostic information and silicon communication capabilities. Grants access to RobotTalk. Say hi to your station AI!
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Eyes/scidiag.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Eyes/scidiag.rsi
-  - type: ClothingGrantCollectiveMind
-    minds:
-    - Binary
-    defaultChannel: Binary
   - type: HandheldTranslator # Thanks, Goob Italian Moustache!
     toggleOnInteract: false
     showInfoOnExamine: false

@@ -173,6 +173,8 @@
 #      bleedHealPerUpdate: 1.0
 #      critHealingModifier: 2.0
 #      stasisDamageReduction: 0.5
+    - type: StealTarget # Omu
+      stealGroup: StealLittlePerson
     - type: PseudoItem
       storedOffset: 20,0
       shape:
