@@ -21,7 +21,7 @@ public sealed partial class ChimeraRuleComponent : Component
     public ProtoId<NpcFactionPrototype> ChimeraFaction = "Chimera";
 
     [DataField]
-    public ProtoId<NpcFactionPrototype>  NanotrasenFaction = "NanoTrasen";
+    public ProtoId<NpcFactionPrototype> NanotrasenFaction = "NanoTrasen";
 
     [DataField]
     public EntProtoId MindRoleChimera = "MindRoleChimera";
