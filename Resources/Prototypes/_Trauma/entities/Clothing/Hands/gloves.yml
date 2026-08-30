@@ -76,7 +76,7 @@
     - type: Sprite
       sprite: _Trauma/Clothing/Hands/Gloves/guerrilla.rsi
     - type: TackleModifier
-      grabOnSuccess: true
+#      grabOnSuccess: true # Omu - killing hardgrab
       staminaCostMultiplier: 1
 
 - type: entity
