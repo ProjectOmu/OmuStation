@@ -139,7 +139,9 @@
   - type: IgnoreSpiderWeb # Goobstation
   - type: CosmicMarkVisuals # DeltaV - cosmic cult
     subtleState: arachnid
-
+  - type: NpcFactionMember # Omu start - spiders friendly to arachnids
+    factions:
+      - Arachnid # Omu end
 
 - type: entity
   parent: BaseSpeciesDummy
