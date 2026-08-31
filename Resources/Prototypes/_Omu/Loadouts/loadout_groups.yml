@@ -226,7 +226,8 @@
   loadouts:
   - NanotrasenRepresentativeWintercoat
   - NanotrasenRepresentativeLongcoat
-
+  - CentcommWinterCoat
+  - ExpensiveCoat
 #New Selectable PDAs
 
 - type: loadoutGroup
@@ -333,7 +334,7 @@
 
 - type: loadoutGroup
   id: TrinketsSecuritySergeant
-  name: loadout-group-trinkets-job
+  name: loadout-group-sergeant-gun
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -343,6 +344,7 @@
   - SecurityOfficerEG1
   - WeaponPistolMk58Gold
   - SecuritySergeantMosin
+  - SecuritySergeantEnergyMagnum
 
 - type: loadoutGroup
   id: SecuritySergeantPDA
@@ -478,3 +480,35 @@
   - WhiteShoes
   - LeatherShoes
   - WinterBoots
+
+# Medical Doctor
+- type: loadoutGroup
+  id: MedicalDoctorBackpack
+  name: loadout-group-medical-doctor-backpack
+  loadouts:
+  - MedicalDoctorBackpack
+  - CybersunMedicalBackpack
+  - MedicalDoctorSatchel
+  - CybersunMedicalSatchel
+  - MedicalDoctorDuffel
+  - CybersunMedicalDuffel
+  - MedicalDoctorMessenger # Frontier
+  - CybersunMedicalMessenger
+
+# Paramedic
+- type: loadoutGroup
+  id: ParamedicBackpack
+  name: loadout-group-paramedic-backpack
+  loadouts:
+  - ParamedBackpack
+  - MedicalDoctorBackpack
+  - CybersunMedicalBackpack
+  - ParamedSatchel
+  - MedicalDoctorSatchel
+  - CybersunMedicalSatchel
+  - ParamedDuffel
+  - MedicalDoctorDuffel
+  - CybersunMedicalDuffel
+  - ParamedMessenger
+  - MedicalDoctorMessenger # Frontier
+  - CybersunMedicalMessenger

@@ -23,6 +23,7 @@
     - id: SlotMachineHighRollerFlatPack # Goob - gambling
     - id: SalvageShuttleConsoleCircuitboard # Omu edit
     - id: SalvageExpeditionsComputerCircuitboard # Omu edit
+    - id: StockTradingCartridge #Omu STOCKS
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -255,6 +256,9 @@
     - id: RubberStampCMO
     # Goobstation Start
     - id: ChemistryHotplateFlatPack
+    - id: CloningpodFlatpack
+    - id: MedicalScannerFlatpack
+    - id: ComputerCloningConsoleFlatpack
     - id: BiomassReclaimerFlatpack
     - id: Multitool
     - id: MedTekCartridge
@@ -322,14 +326,14 @@
     - id: HandTeleporter
     - id: ComputerCargoRequestScienceFlatpack # Goobstation
     - id: RubberStampRd
+    - id: EncryptionKeyBinary # Omu, make binary a radio again.
     - id: MaterialSiloFlatpack # Goob
-    # - id: EncryptionKeyBinary # goobstation - readd the cool binary channel access. fuck you. # Goobstation - WYCI + malf ai major
     - id: AnomalyLocator # GoobStation - adding anomaly locator to the RD locker to reduce the amount of anoms that crit
     - id: CigarCase
       prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
     - id: ScienceTechFabCircuitboard # Goobstation - Science Techfab
     - id: ClothingBeltGeminiHoloProjector # Goobstation - Who better to do science with than yourself?
-    - id: ClothingEyesGlassesSciDiag # Omustation - HUD that lets RD talk in binary hivemind!
+    - id: ClothingEyesGlassesSciDiag # Omustation - HUD that lets RD speak the robot language!
     - id: XenobiologyBountyComputerCircuitboard # Goobstation
     - id: MMI # Goobstation
     - id: ComputerScienceCommsFlatpack #Omu adds departmental comms board
@@ -376,7 +380,7 @@
   id: LockerFillHeadOfSecurityNoHardsuit
   table: !type:AllSelector
     children:
-    - id: WeaponEnergyMagnum
+#    - id: WeaponEnergyMagnum # Omu
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
@@ -391,12 +395,11 @@
     #- id: HoloprojectorSecurity Goob, you have one in the belt
     - id: RubberStampHos
     - id: BoxHoSCircuitboards
-    - id: WeaponDisabler
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
     - id: ComputerCargoRequestSecurityFlatpack # Goobstation
     - id: WantedListCartridge
     - id: DrinkHosFlask
-    - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp
+    #- id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp # Omu, in selector instead.
     - id: MaterialSiloFlatpack # Goob
     - id: HeadOfSecurityMeleeCase # Omu
     - id: ComputerSecurityCommsFlatpack #Omu adds departmental comms board
