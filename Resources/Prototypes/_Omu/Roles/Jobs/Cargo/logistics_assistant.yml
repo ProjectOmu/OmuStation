@@ -1,19 +1,16 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: job
-  id: CargoTechnician
-  name: job-name-cargotech
-  description: job-description-cargotech
-  playTimeTracker: JobCargoTechnician
-  # Omu start
+  id: LogisticsAssistant
+  name: job-name-logistics-assistant
+  description: job-description-logistics-assistant
+  playTimeTracker: JobLogisticsAssistant
   requirements:
-  - !type:DepartmentTimeRequirement
-    department: Cargo
-    time: 9000 # = 2.5 hours
-  # Omu end
-  startingGear: CargoTechGear
-  icon: "JobIconCargoTechnician"
-  supervisors: job-supervisors-qm
+  - !type:OverallPlaytimeRequirement
+    time: 0.5h # Omustation
+  startingGear: LogisticsAssistantGear
+  icon: "JobIconLogisticsAssistant"
+  supervisors: job-supervisors-cargo
   guides: # goobstation
   - Cargo
   goobcoins: 20 #Goob content
@@ -29,21 +26,23 @@
     prototype: BoxCardboard
 
 - type: startingGear
-  id: CargoTechGear
+  id: LogisticsAssistantGear
   equipment:
+    shoes: ClothingShoesColorBlack
+    id: LogisticsAssistantPDA
     ears: ClothingHeadsetCargo
     pocket1: AppraisalTool
-  #storage:
+    #storage:
     #back:
     #- Stuff
 
 - type: chameleonOutfit
-  id: CargoTechnicianChameleonOutfit
-  job: CargoTechnician
+  id: LogisticsAssistantChameleonOutfit
+  job: LogisticsAssistant
   equipment:
     head: ClothingHeadHatCargosoft
     eyes: ClothingEyesGlassesCheapSunglasses
     mask: ClothingMaskBreath
-    outerClothing: ClothingOuterWinterCargo
     neck: ClothingNeckScarfStripedBrown
+    outerClothing: ClothingOuterWinterCargo
     gloves: ClothingHandsGlovesFingerless

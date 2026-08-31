@@ -4,9 +4,11 @@ job-name-centcomm-intern = CentComm Intern
 job-name-centcomm-direggtor = Centcomm Direggtor
 job-name-nanotrasen-spectre = Spectre Agent
 job-name-centcomm-guard = Custodii Vitellus
+# Mentor Jobs
+job-name-security-sergeant = Sergeant
 # Security Misc
 job-name-transit-prisoner = Transit Prisoner
-job-name-security-sergeant = Sergeant
 # Cargo Jobs
 JobCourier = Courier #Playtime tracker
 job-name-courier = Courier
+job-name-logistics-assistant = Logistics Assistant

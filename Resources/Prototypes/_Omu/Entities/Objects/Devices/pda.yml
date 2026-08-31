@@ -26,6 +26,35 @@
     id: PrisonerIDCardPerma
 
 - type: entity
+  parent: BasePDA
+  id: LogisticsAssistantPDA
+  name: logistics assistant PDA
+  description: Why isn't it brown?
+  components:
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-interncargo
+  - type: Pda
+    id: LogisticsAssistantIDCard
+  - type: Icon
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-interncargo
+  - type: Sprite
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-interncargo
+  - type: PdaBorderColor
+    borderColor: "#717059"
+    accentVColor: "#e39751"
+  - type: CartridgeLoader # DeltaV
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - StockTradingCartridge # DeltaV - StockTrading
+
+- type: entity
   parent: CargoPDA
   id: CourierPDA
   name: courier PDA

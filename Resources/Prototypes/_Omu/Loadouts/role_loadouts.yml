@@ -39,6 +39,22 @@
   - SecurityOfficerEnvirogloves
 
 - type: roleLoadout
+  id: JobLogisticsAssistant
+  groups:
+  - GroupTankHarness
+  - LogisticsAssistantJumpsuit
+  - CargoTechnicianBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  - Animals
+  - GroupSpeciesBreathTool
+  # Goobstation - EE Plasmeme Change.
+  - CargoTechnicianEnvirohelm
+  - CargoTechnicianEnvirosuit
+  - CargoTechnicianEnvirogloves
+
+- type: roleLoadout
   id: JobCourier
   groups:
   - CourierHead

@@ -1,3 +1,5 @@
+# Security
+
 - type: entity
   id: SpawnPointPrisoner
   parent: SpawnPointJobBase
@@ -10,17 +12,21 @@
       - state: green
       - state: prisoner
 
+# Cargo
+
 - type: entity
-  id: SpawnPointSecuritySergeant
+  id: SpawnPointLogisticsAssistant
   parent: SpawnPointJobBase
-  name: securitysergeant
+  name: logistics assistant
   components:
   - type: SpawnPoint
-    job_id: SecuritySergeant
+    job_id: LogisticsAssistant
   - type: Sprite
+    sprite: _Omu/Markers/jobs.rsi
     layers:
-      - state: green
-      - state: security_officer
+    - state: green
+    - state: logisticsassistant
+
 
 - type: entity
   id: SpawnPointCourier
@@ -34,3 +40,17 @@
     layers:
     - state: green
     - state: courier
+
+# Mentor
+
+- type: entity
+  id: SpawnPointSecuritySergeant
+  parent: SpawnPointJobBase
+  name: securitysergeant
+  components:
+  - type: SpawnPoint
+    job_id: SecuritySergeant
+  - type: Sprite
+    layers:
+    - state: green
+    - state: securitysergeant
