@@ -1,0 +1,10 @@
+- type: entity
+  id: CrateMedicalATVParamedic
+  parent: CrateLivestock
+  name: paramedic ATV crate
+  description: A crate containing a paramedic-themed ATV for rapid rescue.
+  components:
+  - type: StorageFill
+    contents:
+      - id: VehicleATVParamedic
+      - id: VehicleKeyATVParamedic

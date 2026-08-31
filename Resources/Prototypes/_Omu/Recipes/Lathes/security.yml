@@ -142,3 +142,12 @@
   result: MagazineClipM1Garand
   materials:
     Steel: 150
+
+- type: latheRecipe
+  parent: BaseAmmoBoxRecipe
+  id: BoxAPDS
+  result: BoxAPDS
+  materials:
+    Steel: 1200
+    Plastic: 300
+    Plasma: 300

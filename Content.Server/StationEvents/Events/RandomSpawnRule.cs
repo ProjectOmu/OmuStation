@@ -39,7 +39,7 @@ public sealed class RandomSpawnRule : StationEventSystem<RandomSpawnRuleComponen
                             code += rand.ToString();
                         }
                         digilock.Code = code;
-                        message += Loc.GetString("dead-drop-code-announcement", ("code", code));        //Omu append code to message
+                        message += $" {Loc.GetString("dead-drop-code-announcement", ("code", code))}";        //Omu append code to message
                     }
                 }
                 _radio.SendRadioMessage(ent, message, radioMessage.Channel, ent);
