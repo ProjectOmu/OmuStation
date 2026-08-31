@@ -34,22 +34,18 @@ public sealed class HypnoflashSystem : EntitySystem
     }
     private void OnFlash(EntityUid uid, HypnoflashComponent component, MeleeHitEvent args)
     {
-        if (!TryComp<FlashComponent>(args.Weapon, out var flashcomp))           //Needs a flash... Duh
+        if (!TryComp<FlashComponent>(args.Weapon, out var flashcomp)) //Needs a flash... Duh
             return;
 
-        if (TryComp<LimitedChargesComponent>(args.Weapon, out var charges)
-            && _sharedCharges.IsEmpty((args.Weapon, charges)))
+        if (!TryComp<LimitedChargesComponent>(args.Weapon, out var charges)
+            || _sharedCharges.IsEmpty((args.Weapon, charges)))
             return;
 
-        if (!flashcomp.FlashOnMelee ||                                              //Check if it melee'd something
+        if (!flashcomp.FlashOnMelee || //Check if it melee'd something
             !args.IsHit
             || !args.HitEntities.Any()
             || args.HitEntities.Count == 0)
             return;
-
-
-
-
         foreach (var target in args.HitEntities)
         {
             var vulnerableEv = new CheckFlashVulnerable();
@@ -67,34 +63,31 @@ public sealed class HypnoflashSystem : EntitySystem
             if (HasComp<DrunkStatusEffectComponent>(target)
                 || _statusEffect.HasStatusEffect(target, "StatusEffectSeeingRainbow")
                 || _statusEffect.HasStatusEffect(target, "StatusEffectDrowsiness")
-                || _statusEffect.HasStatusEffect(target, "StatusEffectForcedSleeping"))      //are they susceptible?
+                || _statusEffect.HasStatusEffect(target, "StatusEffectForcedSleeping")) //are they susceptible?
             {
-                EnsureComp<MindcontrolledComponent>(target, out var flashed);        //Mind control em
+                EnsureComp<MindcontrolledComponent>(target, out var flashed); //Mind control em
                 flashed.Master = args.User;
                 _mindcontrol.Start(target, flashed);
 
-                if (TryComp<MeleeSpeechComponent>(args.Weapon, out var speech)) //Objective larp
-                    if (speech.Battlecry is not null)
-                    {
-                        if (TryComp<MindcontrolledComponent>(target, out var mccomp))
-                        {
-                            var objective = speech.Battlecry;
-                            AssignObjective(target, objective, mccomp);
-                        }
-                    }
+                if (!TryComp<MeleeSpeechComponent>(args.Weapon, out var speech) //Objective larp
+                    || !TryComp<MindcontrolledComponent>(target, out var mcComp)
+                    || speech.Battlecry is null)
+                    continue;
+
+                var objective = speech.Battlecry;
+                AssignObjective(target, objective, mcComp);
             }
         }
     }
 
-    private void AssignObjective(EntityUid target, string objective, MindcontrolledComponent mccomp)
+    private void AssignObjective(EntityUid target, string objective, MindcontrolledComponent mcComp)
     {
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return;
 
-        var xform = Transform(target);
-        var objectiveId = PredictedSpawnAtPosition("HypnotizedObjective", xform.Coordinates);
+        var objectiveId = SpawnAtPosition("HypnotizedObjective", Transform(target).Coordinates);
         _meta.SetEntityDescription(objectiveId, objective);
         _mind.AddObjective(mindId, mind, objectiveId);
-        mccomp.Objective = mind.Objectives.Count - 1;
+        mcComp.Objective = mind.Objectives.Count - 1;
     }
 }

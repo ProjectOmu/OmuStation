@@ -47,9 +47,9 @@ public sealed class MindcontrolSystem : EntitySystem
     public void OnShutdown(EntityUid uid, MindcontrolledComponent component, ComponentShutdown arg)
     {
         //Omu start
-        if (component.Objective is not null && _mindSystem.TryGetMind(uid, out var mindID, out var mindComp))
+        if (component.Objective is { } objective && _mindSystem.TryGetMind(uid, out var mindID, out var mindComp))
         {
-            _mindSystem.TryRemoveObjective(mindID, mindComp, component.Objective.Value);
+            _mindSystem.TryRemoveObjective(mindID, mindComp, objective);
         }
         //Omu end
         _stun.TryUpdateParalyzeDuration(uid, TimeSpan.FromSeconds(5f));
