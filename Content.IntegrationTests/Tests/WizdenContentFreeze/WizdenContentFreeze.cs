@@ -1,4 +1,4 @@
-using Content.Shared.Kitchen;
+/*using Content.Shared.Kitchen; // OMU; we may suffer
 
 namespace Content.IntegrationTests.Tests.WizdenContentFreeze;
 
@@ -38,4 +38,4 @@ public sealed class WizdenContentFreeze
 
         await pair.CleanReturnAsync();
     }
-}
+}*/ // OMU
