@@ -23,3 +23,17 @@
     - id: ClothingEyesGlassesMercenary
     - id: ClothingHandsGlovesMercFingerless
     - id: ClothingShoesBootsMerc
+
+- type: entity
+  parent: ClothingBackpackDuffelClownBundle
+  id: ClothingBackpackDuffelClownFilledFakeTaiwanPond
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponLauncherFakeTaiwanPond
+      - id: GrenadeSlug
+        amount: 2
+      - id: GrenadeBirdshot
+        amount: 2
+      - id: GrenadeToy # Lure them into a false sense of trust.
+        amount: 4
