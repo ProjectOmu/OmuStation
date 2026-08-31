@@ -342,7 +342,7 @@ public sealed partial class HereticSystem : SharedHereticSystem
     {
         ent.Comp.SacrificeTargets = ent.Comp.SacrificeTargets
             .Where(target => TryGetEntity(target.Entity, out var tent) && Exists(tent) &&
-                             !EntityManager.IsQueuedForDeletion(tent.Value))
+                             !EntityManager.IsQueuedForDeletion(tent.Value) && !HasComp<HellVictimComponent>(tent))         //Omu add check for hellvictim
             .ToList();
         Dirty(ent); // update client
     }
