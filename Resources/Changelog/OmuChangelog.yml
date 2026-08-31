@@ -6820,3 +6820,11 @@ Entries:
         40mm birdshot shells, and a few 40mm prank grenades.
   id: 895
   time: '2026-08-31T00:35:10.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: >-
+        Added a new field for contribs to use on projectiles, which can multiply
+        its speed, currently does not change any in game projectile.
+  id: 896
+  time: '2026-08-31T02:22:01.0000000+00:00'
