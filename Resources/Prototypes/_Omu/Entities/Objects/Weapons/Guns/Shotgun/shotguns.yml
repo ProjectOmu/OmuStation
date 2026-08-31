@@ -23,10 +23,11 @@
   - type: GunSpreadModifier
     spread: 2.5
   - type: BallisticAmmoProvider
+    proto: ShellShotgunAPDS
     capacity: 1
     whitelist:
       tags:
       - Syringe # goobstation fire all syringes
       - SyringeGunAmmo
       - ShellShotgun
-      proto: ShellShotgunAPDS
+

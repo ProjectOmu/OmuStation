@@ -6,10 +6,6 @@
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgunAPDS
-    - type: MagazineVisuals
-       magState: mag-alt
-       steps: 5
-       zeroVisible: false
     - type: Sprite
       layers:
       - state: base
