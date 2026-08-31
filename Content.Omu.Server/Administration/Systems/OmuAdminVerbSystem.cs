@@ -37,7 +37,7 @@ public sealed partial class OmuAdminVerbSystem : EntitySystem
         {
             Text = Loc.GetString("admin-verb-text-make-chimera"),
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_Goobstation/Changeling/changeling_abilities.rsi"), "transform"),
+            Icon = new SpriteSpecifier.Rsi(new ResPath("Structures/Specific/Anomalies/Cores/flesh_core.rsi"), "core"),
             Act = () =>
             {
                 if (!HasComp<SiliconComponent>(args.Target))

@@ -9,7 +9,7 @@ namespace Content.Omu.Server.Chimera.GameTicking.Rules;
 public sealed partial class ChimeraRuleComponent : Component
 {
     [DataField]
-    public SoundPathSpecifier BriefingSound = new("/Audio/Ambience/Antag/traitor_start.ogg");
+    public SoundPathSpecifier BriefingSound = new("/Audio/_White/Voice/Xenomorph/scream6.ogg");
 
     [DataField]
     public ProtoId<NpcFactionPrototype> ChimeraFaction = "Chimera";
