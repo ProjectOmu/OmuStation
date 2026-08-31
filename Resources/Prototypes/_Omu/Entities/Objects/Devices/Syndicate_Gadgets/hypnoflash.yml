@@ -8,7 +8,7 @@
     - type: LimitedCharges
       maxCharges: 5
     - type: MeleeSpeech
-      maxBattlecryLength: 100
+      MaxBattlecryLength: 100
     - type: ActivatableUI
       key: enum.MeleeSpeechUiKey.Key
       verbOnly: true
