@@ -54,6 +54,8 @@ public sealed class DeafnessBlindnessSystem : EntitySystem
     {
         if (!args.RequiresSight)
             return;
-        args.Cancel();
+        if (ent.Comp.Blindness <= 0)
+            args.Cancel();
+        // Signs are completely disabled if the entity is totally blind.
     }
 }
