@@ -1,0 +1,14 @@
+- type: entity
+  suffix: Artiplates
+  parent: PrefilledSyringe
+  id: SyringeArtiplates
+  components:
+  - type: Label
+    currentLabel: reagent-name-artiplates
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+          - ReagentId: Artiplates
+            Quantity: 15
