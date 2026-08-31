@@ -1,4 +1,5 @@
 using Content.Shared.Follower;
+using Content.Shared.Popups;
 
 namespace Content.Omu.Server.Entities.Heretic;
 
@@ -6,6 +7,7 @@ public sealed class LodestoneSystem : EntitySystem
 {
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly IEntityManager _entManager = null!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -33,6 +35,9 @@ public sealed class LodestoneSystem : EntitySystem
 
             ent.Comp.ComponentsActuallyAdded.Add(comp.Key);
         }
+
+        if (ent.Comp.ComponentsActuallyAdded is not null)
+            _popup.PopupEntity(Loc.GetString("lodestone-power"), args.Following, args.Following, PopupType.Medium);
     }
 
     public void OnStopFollowing(Entity<LodestoneComponent> ent, ref StoppedFollowingEntityEvent args)
