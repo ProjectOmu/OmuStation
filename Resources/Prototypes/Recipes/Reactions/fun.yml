@@ -117,12 +117,12 @@
     Water:
       amount: 1 # 1.5
     Phenol:
-      amount: 1
+      amount: 1 # Omu end; i did not change that it creates nitrogen
   effects:
   - !type:CreateGas
     gas: Nitrogen
   products:
-    Fresium: 6 # 5 # Omu end; change the recipe of Fresium to be more accessible
+    Fresium: 6 # 5 # Omu; change the recipe of Fresium to be more accessible
 
 - type: reaction
   id: FiberBreakdown
