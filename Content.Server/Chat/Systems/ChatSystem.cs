@@ -726,11 +726,11 @@ public sealed partial class ChatSystem : SharedChatSystem
             // I'm not familiar enough with the engine to figure out how to pull a property's value from a component through the entity system class
             // So I had to comment the code below out, and copied the blindness/deafness check from the SendVoiceInRange to this.
             // So sorry if I had made a sin.
-            
+
             // Goob edit start
             // if (TryComp<DeafComponent>(listener, out var modifier) && language.SpeechOverride.RequireSpeech)
             //continue; // blocks anyone with the deaf component from hearing
-            
+
             // if ((HasComp<PermanentBlindnessComponent>(listener) ||
             // HasComp<TemporaryBlindnessComponent>(listener)) && language.SpeechOverride.RequireSight)
             //continue; // block blind people from seeing subtle sign language gestures
