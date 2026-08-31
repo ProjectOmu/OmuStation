@@ -25,5 +25,14 @@ public sealed partial class MeleeSpeechWindow : DefaultWindow
 		BattlecryLineEdit.Text = battlecry;
 	}
 
-}
+    // Omu start
+    public void SetUiText(string? titleBar, string? descriptorBar)
+    {
+        if (titleBar != null)
+            Title = titleBar;
 
+        if (descriptorBar != null)
+            CurrentBattlecry.Text = descriptorBar;
+    }
+    // Omu end
+}
