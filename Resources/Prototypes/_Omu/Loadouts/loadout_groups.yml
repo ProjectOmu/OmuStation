@@ -334,7 +334,7 @@
 
 - type: loadoutGroup
   id: TrinketsSecuritySergeant
-  name: loadout-group-trinkets-job
+  name: loadout-group-sergeant-gun
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -344,6 +344,7 @@
   - SecurityOfficerEG1
   - WeaponPistolMk58Gold
   - SecuritySergeantMosin
+  - SecuritySergeantEnergyMagnum
 
 - type: loadoutGroup
   id: SecuritySergeantPDA
