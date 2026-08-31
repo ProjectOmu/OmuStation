@@ -61,6 +61,16 @@
   - MagazineCaselessRifleFMJ
 
 - type: selectableSet
+  id: SargeMagnumSet
+  name: selectable-set-sarge-magnum-name
+  description: selectable-set-sarge-magnum-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
+    state: icon
+  content:
+  - WeaponEnergyMagnum
+
+- type: selectableSet
   id: WeaponEnergyShotgunSet
   name: selectable-set-warden-eshotty-name
   description: selectable-set-warden-eshotty-description
@@ -79,6 +89,51 @@
     state: base
   content:
   - WeaponWardenRevolverShotgun
+
+- type: selectableSet
+  id: WardenSnubSet
+  name: selectable-set-warden-snub-name
+  description: selectable-set-warden-snub-description
+  sprite:
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/WardenSnub.rsi
+    state: base
+  content:
+  - WardenSnubRevolver
+  - WardenSnubRevolver
+  - SpeedLoaderRevolverLightRifleMini
+  - SpeedLoaderRevolverLightRifleMini
+
+- type: selectableSet
+  id: BrigmedWeaponCrossbowSyringeSet
+  name: selectable-set-brigmed-crossbow-name
+  description: selectable-set-brigmed-crossbow-description
+  sprite:
+    sprite: _Omu/Objects/Weapons/Guns/Misc/syringecrossbow.rsi
+    state: icon
+  content:
+  - WeaponCrossbowSyringe
+  - SyringePax
+
+- type: selectableSet
+  id: BrigmedWeaponPneumaticShotgunSet
+  name: selectable-set-brigmed-shotgun-name
+  description: selectable-set-brigmed-shotgun-description
+  sprite:
+    sprite: _Omu/Objects/Weapons/Guns/Shotguns/PneumaticShotty.rsi
+    state: base
+  content:
+  - WeaponPneumaticShotgun
+  - BoxBeanbag
+
+- type: selectableSet
+  id: BrigmedWeaponDisablerSMGSet
+  name: selectable-set-brigmed-disabler-name
+  description: selectable-set-brigmed-disabler-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Battery/disabler_smg.rsi
+    state: base
+  content:
+  - WeaponDisablerSMG
 
 - type: selectableSet
   id: WeaponMk58Set
@@ -126,6 +181,8 @@
     state: base
   content:
   - WeaponSniperM1Garand
+  - MagazineClipM1Garand
+  - MagazineClipM1Garand
 
 - type: selectableSet
   id: WeaponAntiqueLaserSet

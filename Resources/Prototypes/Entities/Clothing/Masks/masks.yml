@@ -963,7 +963,7 @@
     - IPCMaskWearable # EE - IPCs
 
 - type: entity
-  parent: ClothingMaskBase
+  parent: [ ClothingMaskBase, BaseEngineeringScienceBSOBridmedicContraband ] #omu
   id: ClothingMaskWeldingGas
   name: welding gas mask
   description: A gas mask with built in welding goggles and face shield. Looks like a skull, clearly designed by a nerd.

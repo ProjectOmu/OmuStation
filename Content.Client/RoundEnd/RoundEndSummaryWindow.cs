@@ -154,7 +154,7 @@ namespace Content.Client.RoundEnd
                     Orientation = LayoutOrientation.Horizontal,
                     VerticalExpand = true
                 };
-
+                /* Omu disable to test end of round lag
                 if (playerInfo.PlayerNetEntity != null)
                 {
                     hBox.AddChild(new SpriteView(playerInfo.PlayerNetEntity.Value, _entityManager)
@@ -167,7 +167,7 @@ namespace Content.Client.RoundEnd
                         Margin = new Thickness(3, 0, 3, 0)
                     });
                 }
-
+                */
                 var textVBox = new BoxContainer
                 {
                     Orientation = LayoutOrientation.Vertical,
@@ -428,7 +428,7 @@ namespace Content.Client.RoundEnd
                 {
                     if (!_entityManager.TryGetEntity(playerInfo.borgEnt, out var borgEnt))
                         continue;
-
+                    /* Omu disable to test end of round lag
                     // Silicon Sprite
                     hBox.AddChild(new SpriteView(borgEnt, _entityManager)
                     {
@@ -439,7 +439,7 @@ namespace Content.Client.RoundEnd
                         Stretch = SpriteView.StretchMode.Fill,
                         Margin = new Thickness(3, 0, 3, 0)
                     });
-
+                    */
                     // Main Text Box per silicon
                     var textVBox = new BoxContainer
                     {
