@@ -15,6 +15,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Dynamics.Joints;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Utility;
+using Content.Shared.Shuttles.Components;
 
 namespace Content.Server.Shuttles.Systems
 {
@@ -401,6 +402,14 @@ namespace Content.Server.Shuttles.Systems
                 return;
             }
 
+            // Frontier: ensure dock initiator isn't receive only.
+            if (ourDockComp.ReceiveOnly)
+            {
+                _popup.PopupCursor(Loc.GetString("shuttle-console-dock-fail"));
+                return;
+            }
+            // End Frontier
+
             // Cheating?
             if (!TryComp(ourDock, out TransformComponent? xformA) ||
                 xformA.GridUid != shuttleUid)
@@ -441,6 +450,11 @@ namespace Content.Server.Shuttles.Systems
             {
                 return false;
             }
+
+            // Frontier: mask docking types
+            if ((dockA.Comp.DockType & dockB.Comp.DockType) == DockType.None)
+                return false;
+            // End Frontier
 
             var xformA = Transform(dockA);
             var xformB = Transform(dockB);
