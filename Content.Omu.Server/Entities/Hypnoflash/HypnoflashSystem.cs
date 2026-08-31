@@ -15,7 +15,8 @@ using Content.Shared.Speech.Components;
 using Content.Shared.Mind;
 
 namespace Content.Omu.Server.Entities.Hypnoflash;
-public sealed class MindcontrolImplantSystem : EntitySystem
+
+public sealed class HypnoflashSystem : EntitySystem
 {
     [Dependency] private readonly MindcontrolSystem _mindcontrol = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
@@ -75,14 +76,17 @@ public sealed class MindcontrolImplantSystem : EntitySystem
                 if (TryComp<MeleeSpeechComponent>(args.Weapon, out var speech)) //Objective larp
                     if (speech.Battlecry is not null)
                     {
-                        var objective = speech.Battlecry;
-                        AssignObjective(target, objective);
+                        if (TryComp<MindcontrolledComponent>(target, out var mccomp))
+                        {
+                            var objective = speech.Battlecry;
+                            AssignObjective(target, objective, mccomp);
+                        }
                     }
             }
         }
     }
 
-    private void AssignObjective(EntityUid target, string objective)
+    private void AssignObjective(EntityUid target, string objective, MindcontrolledComponent mccomp)
     {
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return;
@@ -91,5 +95,6 @@ public sealed class MindcontrolImplantSystem : EntitySystem
         var objectiveId = PredictedSpawnAtPosition("HypnotizedObjective", xform.Coordinates);
         _meta.SetEntityDescription(objectiveId, objective);
         _mind.AddObjective(mindId, mind, objectiveId);
+        mccomp.Objective = mind.Objectives.Count - 1;
     }
 }
