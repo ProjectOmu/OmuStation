@@ -2856,7 +2856,7 @@
     deactivateSound: null
   - type: NpcFactionMember
     factions:
-      - Arachnid # Omu - spiders friendly to arachnids
+      - Arachnids # Omu - spiders friendly to arachnids
 
 - type: entity
   parent: MobSpiderBase
@@ -2866,7 +2866,7 @@
   - type: NpcFactionMember
     factions:
       - Xeno
-      - Arachnid # Omu - spiders friendly to arachnid
+      - Arachnids # Omu - spiders friendly to arachnid
   - type: InputMover
   - type: MobMover
   - type: HTN
