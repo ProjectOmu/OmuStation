@@ -11,6 +11,8 @@ using Content.Shared.StatusEffectNew;
 using Content.Goobstation.Common.Flash;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
+using Content.Shared.Speech.Components;
+using Content.Shared.Mind;
 
 namespace Content.Omu.Server.Entities.Hypnoflash;
 public sealed class MindcontrolImplantSystem : EntitySystem
@@ -19,6 +21,8 @@ public sealed class MindcontrolImplantSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly SharedChargesSystem _sharedCharges = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly MetaDataSystem _meta = default!;
 
     public static readonly ProtoId<TagPrototype> IgnoreResistancesTag = "FlashIgnoreResistances";
 
@@ -42,6 +46,9 @@ public sealed class MindcontrolImplantSystem : EntitySystem
             || args.HitEntities.Count == 0)
             return;
 
+
+
+
         foreach (var target in args.HitEntities)
         {
             var vulnerableEv = new CheckFlashVulnerable();
@@ -64,7 +71,25 @@ public sealed class MindcontrolImplantSystem : EntitySystem
                 EnsureComp<MindcontrolledComponent>(target, out var flashed);        //Mind control em
                 flashed.Master = args.User;
                 _mindcontrol.Start(target, flashed);
+
+                if (TryComp<MeleeSpeechComponent>(args.Weapon, out var speech)) //Objective larp
+                    if (speech.Battlecry is not null)
+                    {
+                        var objective = speech.Battlecry;
+                        AssignObjective(target, objective);
+                    }
             }
         }
+    }
+
+    private void AssignObjective(EntityUid target, string objective)
+    {
+        if (!_mind.TryGetMind(target, out var mindId, out var mind))
+            return;
+
+        var xform = Transform(target);
+        var objectiveId = PredictedSpawnAtPosition("HypnotizedObjective", xform.Coordinates);
+        _meta.SetEntityDescription(objectiveId, objective);
+        _mind.AddObjective(mindId, mind, objectiveId);
     }
 }
