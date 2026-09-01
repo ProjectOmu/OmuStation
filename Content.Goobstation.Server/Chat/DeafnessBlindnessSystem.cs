@@ -52,9 +52,11 @@ public sealed class DeafnessBlindnessSystem : EntitySystem
     }
     private void OnBlindnessOverrideInRange(Entity<PermanentBlindnessComponent> ent, ref ChatMessageOverrideInRange args)
     {
+        // Omu code start
         if (!args.RequiresSight)
             return;
         if (ent.Comp.Blindness <= 0)
             args.Cancel();
+        // Omu code end
     }
 }
