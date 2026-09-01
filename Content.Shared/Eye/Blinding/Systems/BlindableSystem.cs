@@ -89,7 +89,7 @@ public sealed class BlindableSystem : EntitySystem
             return;
 
         blindable.Comp.EyeDamage += amount;
-        UpdateEyeDamage(blindable, true);    // Eyes have a callback on them that would clobber this update anyway.
+        UpdateEyeDamage(blindable, true);
         // If the entity has eye organs, then we also damage those.
         if (!TryComp(blindable, out BodyComponent? body)
             || !_body.TryGetBodyOrganEntityComps<EyesComponent>((blindable, body), out var eyes))
@@ -98,8 +98,8 @@ public sealed class BlindableSystem : EntitySystem
         // for now
         foreach (var eye in eyes)
         {
-            // Scale the damage done to eye organs proportional to what the cap used to be.
             // Omu start
+            // Scale the damage done to eye organs proportional to what the cap used to be.
             var scaledDamage = amount * (eye.Comp2.IntegrityCap / 12);
             if (!_trauma.TryChangeOrganDamageModifier(eye.Owner, scaledDamage, blindable.Owner, "BlindableDamage", eye.Comp2))
                 _trauma.TryCreateOrganDamageModifier(eye.Owner, scaledDamage, blindable.Owner, "BlindableDamage", eye.Comp2);
