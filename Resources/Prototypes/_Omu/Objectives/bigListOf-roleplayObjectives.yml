@@ -1,4 +1,4 @@
-- type: entity
+- type: &e entity
   abstract: true
   parent: BaseTraitorObjective
   id: &base BaseOmuRPObjective
@@ -7,47 +7,47 @@
     difficulty: 1
   - type: RoleplayObjective
 
-- { type: entity, parent: *base , id: OmuRPObjectiveVandalizeATS }
-- { type: entity, parent: *base , id: OmuRPObjectiveBeStealthy }
-- { type: entity, parent: *base , id: OmuRPObjectiveBecomeCaptain }
-- { type: entity, parent: *base , id: OmuRPObjectiveClimbCorporateLadder }
-- { type: entity, parent: *base , id: OmuRPObjectiveSabotageComms }
-- { type: entity, parent: *base , id: OmuRPObjectiveCyberneticSmuggling }
-- { type: entity, parent: *base , id: OmuRPObjectiveDelamTheSM }
-- { type: entity, parent: *base , id: OmuRPObjectiveDestroyTheTEG }
-- { type: entity, parent: *base , id: OmuRPObjectiveKillXenobio }
-- { type: entity, parent: *base , id: OmuRPObjectiveShowOff }
-- { type: entity, parent: *base , id: OmuRPObjectiveEmptyArmory }
-- { type: entity, parent: *base , id: OmuRPObjectiveFifthColumn }
-- { type: entity, parent: *base , id: OmuRPObjectiveCommitFraud }
-- { type: entity, parent: *base , id: OmuRPObjectiveHostageSituation }
-- { type: entity, parent: *base , id: OmuRPObjectiveStealIdentities }
-- { type: entity, parent: *base , id: OmuRPObjectiveCauseARiot }
-- { type: entity, parent: *base , id: OmuRPObjectiveIncompMajor }
-- { type: entity, parent: *base , id: OmuRPObjectiveAiLawChange }
-- { type: entity, parent: *base , id: OmuRPObjectiveRemoveSteel }
-- { type: entity, parent: *base , id: OmuRPObjectiveMinimizeFootwear }
-- { type: entity, parent: *base , id: OmuRPObjectiveNothingPersonal }
-- { type: entity, parent: *base , id: OmuRPObjectivePowerOutage }
-- { type: entity, parent: *base , id: OmuRPObjectivePowerSinkDetonation }
-- { type: entity, parent: *base , id: OmuRPObjectiveSyndicatePresence }
-- { type: entity, parent: *base , id: OmuRPObjectiveSpreadPropaganda }
-- { type: entity, parent: *base , id: OmuRPObjectiveHijackTheRadio }
-- { type: entity, parent: *base , id: OmuRPObjectiveRemoveMaints }
-- { type: entity, parent: *base , id: OmuRPObjectiveReplaceTheAI }
-- { type: entity, parent: *base , id: OmuRPObjectiveNoWeldingFuel }
-- { type: entity, parent: *base , id: OmuRPObjectiveDestroyTheSalvageShuttle }
-- { type: entity, parent: *base , id: OmuRPObjectiveDestroyTheCargoShuttle }
-- { type: entity, parent: *base , id: OmuRPObjectiveShrinkTheStation }
-- { type: entity, parent: *base , id: OmuRPObjectiveStealCargoSilo }
-- { type: entity, parent: *base , id: OmuRPObjectiveUnsafeBar }
-- { type: entity, parent: *base , id: OmuRPObjectiveUnsafeKitchen }
-- { type: entity, parent: *base , id: OmuRPObjectiveAllThePetsAreMineNow }
-- { type: entity, parent: *base , id: OmuRPObjectiveStealAVehicle }
-- { type: entity, parent: *base , id: OmuRPObjectiveSueNanotrasen }
-- { type: entity, parent: *base , id: OmuRPObjectivePromoteToRD }
-- { type: entity, parent: *base , id: OmuRPObjectivePromoteToQM }
-- { type: entity, parent: *base , id: OmuRPObjectivePromoteToCE }
-- { type: entity, parent: *base , id: OmuRPObjectivePromoteToCMO }
-- { type: entity, parent: *base , id: OmuRPObjectivePromoteToHOP }
-- { type: entity, parent: *base , id: OmuRPObjectiveVoxStation }
+- { type: *e , parent: *base , id: OmuRPObjectiveVandalizeATS }
+- { type: *e , parent: *base , id: OmuRPObjectiveBeStealthy }
+- { type: *e , parent: *base , id: OmuRPObjectiveBecomeCaptain }
+- { type: *e , parent: *base , id: OmuRPObjectiveClimbCorporateLadder }
+- { type: *e , parent: *base , id: OmuRPObjectiveSabotageComms }
+- { type: *e , parent: *base , id: OmuRPObjectiveCyberneticSmuggling }
+- { type: *e , parent: *base , id: OmuRPObjectiveDelamTheSM }
+- { type: *e , parent: *base , id: OmuRPObjectiveDestroyTheTEG }
+- { type: *e , parent: *base , id: OmuRPObjectiveKillXenobio }
+- { type: *e , parent: *base , id: OmuRPObjectiveShowOff }
+- { type: *e , parent: *base , id: OmuRPObjectiveEmptyArmory }
+- { type: *e , parent: *base , id: OmuRPObjectiveFifthColumn }
+- { type: *e , parent: *base , id: OmuRPObjectiveCommitFraud }
+- { type: *e , parent: *base , id: OmuRPObjectiveHostageSituation }
+- { type: *e , parent: *base , id: OmuRPObjectiveStealIdentities }
+- { type: *e , parent: *base , id: OmuRPObjectiveCauseARiot }
+- { type: *e , parent: *base , id: OmuRPObjectiveIncompMajor }
+- { type: *e , parent: *base , id: OmuRPObjectiveAiLawChange }
+- { type: *e , parent: *base , id: OmuRPObjectiveRemoveSteel }
+- { type: *e , parent: *base , id: OmuRPObjectiveMinimizeFootwear }
+- { type: *e , parent: *base , id: OmuRPObjectiveNothingPersonal }
+- { type: *e , parent: *base , id: OmuRPObjectivePowerOutage }
+- { type: *e , parent: *base , id: OmuRPObjectivePowerSinkDetonation }
+- { type: *e , parent: *base , id: OmuRPObjectiveSyndicatePresence }
+- { type: *e , parent: *base , id: OmuRPObjectiveSpreadPropaganda }
+- { type: *e , parent: *base , id: OmuRPObjectiveHijackTheRadio }
+- { type: *e , parent: *base , id: OmuRPObjectiveRemoveMaints }
+- { type: *e , parent: *base , id: OmuRPObjectiveReplaceTheAI }
+- { type: *e , parent: *base , id: OmuRPObjectiveNoWeldingFuel }
+- { type: *e , parent: *base , id: OmuRPObjectiveDestroyTheSalvageShuttle }
+- { type: *e , parent: *base , id: OmuRPObjectiveDestroyTheCargoShuttle }
+- { type: *e , parent: *base , id: OmuRPObjectiveShrinkTheStation }
+- { type: *e , parent: *base , id: OmuRPObjectiveStealCargoSilo }
+- { type: *e , parent: *base , id: OmuRPObjectiveUnsafeBar }
+- { type: *e , parent: *base , id: OmuRPObjectiveUnsafeKitchen }
+- { type: *e , parent: *base , id: OmuRPObjectiveAllThePetsAreMineNow }
+- { type: *e , parent: *base , id: OmuRPObjectiveStealAVehicle }
+- { type: *e , parent: *base , id: OmuRPObjectiveSueNanotrasen }
+- { type: *e , parent: *base , id: OmuRPObjectivePromoteToRD }
+- { type: *e , parent: *base , id: OmuRPObjectivePromoteToQM }
+- { type: *e , parent: *base , id: OmuRPObjectivePromoteToCE }
+- { type: *e , parent: *base , id: OmuRPObjectivePromoteToCMO }
+- { type: *e , parent: *base , id: OmuRPObjectivePromoteToHOP }
+- { type: *e , parent: *base , id: OmuRPObjectiveVoxStation }
