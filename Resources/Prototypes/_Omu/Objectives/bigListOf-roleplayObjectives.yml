@@ -1,11 +1,10 @@
 - type: entity
   abstract: true
-  parent: BaseObjective
+  parent: BaseTraitorObjective
   id: &base BaseOmuRPObjective
   components:
   - type: Objective
     difficulty: 1
-    issuer: objective-issuer-syndicate
   - type: RoleplayObjective
 
 - { type: entity, parent: *base , id: OmuRPObjectiveVandalizeATS }
