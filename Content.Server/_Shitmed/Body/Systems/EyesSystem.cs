@@ -58,8 +58,8 @@ namespace Content.Server._Shitmed.Body.Systems
 
             // The expected input is scaled as a number between 12 and 3,
             // such that "blindness" occurs at 25% eye integrity.
-            var blindnessSeverity = (int) ((organ.IntegrityCap - organ.OrganIntegrity) / (organ.IntegrityCap / 12));
-            _blindableSystem.SetEyeDamage((organ.Body.Value, blindable), blindnessSeverity);
+            var blindnessSeverity = (int) ((organ.IntegrityCap - organ.OrganIntegrity) / (organ.IntegrityCap / 12)); // Omu
+            _blindableSystem.SetEyeDamage((organ.Body.Value, blindable), blindnessSeverity); // Omu
         }
 
         private void OnOrganEnabled(EntityUid uid, EyesComponent component, OrganEnabledEvent args)
