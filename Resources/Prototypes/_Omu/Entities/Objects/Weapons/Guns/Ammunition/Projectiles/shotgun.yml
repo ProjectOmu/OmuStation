@@ -1,0 +1,19 @@
+- type: entity
+  parent: BaseBullet
+  id: PelletShotgunAPDS
+  categories: [ HideSpawnMenu ]
+  name: pellet (12 Gauge APDS)
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/Darts/dart_blue.rsi
+    layers:
+    - state: icon
+  - type: Projectile
+    angle: -45
+    damage:
+      types:
+        Piercing: 24
+        Structural: 35
+      armorPenetration: 1 # 100% AP is very balanced.
+  - type: Reflective
+    reflective: None # parry this you fucking casual
