@@ -16,3 +16,26 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
+
+- type: entity
+  parent: BaseGameRule
+  id: RoundstartAIvariation
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RoundstartAIvariation
+
+- type: weightedRandom
+  id: RandomRoundstartLawSets
+  weights:
+    OmuCrewsimov: 1
+    Corporate: 0.8
+    NTDefault: 0.8
+    CommandmentsLawset: 0.3
+    PaladinLawset: 0.3
+    LiveLetLiveLaws: 0.1
+    EfficiencyLawset: 0.1
+    GambamovLawset: 0.2
+    GameMasterLawset: 0.5
+    PainterLawset: 0.4
+    NutimovLawset: 0.4
+    HelpimovLawset: 0.5
