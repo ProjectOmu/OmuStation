@@ -1110,7 +1110,7 @@
     startingCharge: 1200 # Goobstation
   # Omu, re-readd self-recharging on the e-shotty
   - type: BatterySelfRecharger
-    autoRechargeRate: 44 # This is to compensate for 1050 --> 1200 charge; formerly 24
+    autoRechargeRate: 28 # This is to compensate for 1050 --> 1200 charge; formerly 24
     autoRechargePauseTime: 30
 
 - type: entity
