@@ -7,3 +7,27 @@
   - type: Contraband
     allowedDepartments: [ CentralCommand ]
     severity: Restricted
+
+- type: entity
+  name: S1 "Pnuey" shotgun
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
+  id: WeaponPneumaticShotgun
+  description: A "field-improvised" modification on a hunting shotgun, capable of launching syringes on a second, air-powered trigger. Pronounced "Peh-Neu-Ey". Now produced and sold through grey market channels due to consumer demand. NOT NT APPROVED.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Shotguns/PneumaticShotty.rsi
+  - type: Clothing
+    sprite: _Omu/Objects/Weapons/Guns/Shotguns/PneumaticShotty.rsi
+  - type: Gun
+    fireRate: 3
+  - type: GunSpreadModifier
+    spread: 2.5
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunAPDS
+    capacity: 1
+    whitelist:
+      tags:
+      - Syringe # goobstation fire all syringes
+      - SyringeGunAmmo
+      - ShellShotgun
+
