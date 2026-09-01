@@ -18,6 +18,7 @@
 - type: roleLoadout
   id: JobSecuritySergeant
   groups:
+  - GroupTankHarness
   - SergeantHead
   - SergeantJumpsuit
   - SecurityBackpack
@@ -41,6 +42,7 @@
 - type: roleLoadout
   id: JobCourier
   groups:
+  - GroupTankHarness
   - CourierHead
   - CourierJumpsuit
   - CourierOuterClothing
