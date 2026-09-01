@@ -6856,3 +6856,47 @@ Entries:
         your life depends on it, hits like a frying pan in melee.
   id: 898
   time: '2026-08-31T13:09:47.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: Jaws of life are now engie and paramed contaband
+    - type: Tweak
+      message: >-
+        Welders and Welding protection and Multitools are now engi and sci
+        contaband
+    - type: Tweak
+      message: Jaws of life can now only be printed at engi and med
+    - type: Tweak
+      message: >-
+        Welders and Welding protection and Multitools can now only be printed at
+        engi and sci
+    - type: Tweak
+      message: Welding masks now blind you while worn
+    - type: Tweak
+      message: Welders have been moved to the management wire content in the YouTool
+    - type: Tweak
+      message: Welders have been added to the EngiVend
+    - type: Tweak
+      message: Insulated gloves have been moved to the emag section in the YouTool
+    - type: Remove
+      message: >-
+        Explosive insulated gloves have been removed from the emag section of
+        the YouTool
+  id: 899
+  time: '2026-08-31T14:01:13.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: >-
+        Added a surplus crate of strange pills, orderable by cargo for $1800
+        spesos. For the gamblers, the stakes have never been higher.
+  id: 900
+  time: '2026-08-31T18:54:04.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Peranol now works on hydrakin at the immense effect it should have
+        instead of being a placebo.
+  id: 901
+  time: '2026-09-01T00:17:46.0000000+00:00'
