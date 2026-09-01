@@ -7,6 +7,14 @@
     difficulty: 1
   - type: RoleplayObjective
 
+- type: *e
+  abstract: true
+  parent: *base
+  id: &rtgt BaseOmuRPObjectivePickPerson
+  components:
+  - type: PickRandomPerson
+    # prob needs filters
+
 - { type: *e , parent: *base , id: OmuRPObjectiveVandalizeATS }
 - { type: *e , parent: *base , id: OmuRPObjectiveBeStealthy }
 - { type: *e , parent: *base , id: OmuRPObjectiveBecomeCaptain }
@@ -51,3 +59,24 @@
 - { type: *e , parent: *base , id: OmuRPObjectivePromoteToCMO }
 - { type: *e , parent: *base , id: OmuRPObjectivePromoteToHOP }
 - { type: *e , parent: *base , id: OmuRPObjectiveVoxStation }
+
+- type: *e
+  parent: *rtgt
+  id: OmuRPObjectiveTeachRealLesson
+  components:
+  - type: TargetObjective
+    title: objective-condition-teachreallesson-person-title
+
+- type: *e
+  parent: *rtgt
+  id: OmuRPObjectivePermaThisGuy
+  components:
+  - type: TargetObjective
+    title: objective-condition-permathisguy-person-title
+
+- type: *e
+  parent: *rtgt
+  id: OmuRPObjectiveBorgThisGuy
+  components:
+  - type: TargetObjective
+    title: objective-condition-borgthisguy-person-title

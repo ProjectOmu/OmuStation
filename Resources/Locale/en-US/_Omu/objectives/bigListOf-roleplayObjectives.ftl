@@ -1,3 +1,7 @@
+objective-condition-teachreallesson-person-title = placeholder
+objective-condition-permathisguy-person-title = placeholder
+objective-condition-borgthisguy-person-title = placeholder
+
 ent-OmuRPObjectiveVandalizeATS = Vandalize the ATS
   .desc = You are tasked with creating a diversion by vandalising the ATS. We don't care how you do it as long as it's unusable once you are done. Glory to the Syndicate!
 
@@ -129,3 +133,12 @@ ent-OmuRPObjectivePromoteToHOP = Get promoted to Acting Head of Personnel
 
 ent-OmuRPObjectiveVoxStation = Vox Station
   .desc = Vox have had to breath out of a tank for too long, its everyone else's turn. Set distro to only use nitrogen.
+
+ent-OmuRPObjectiveTeachRealLesson = Teach <CREWMEMBER> a lesson
+  .desc = <CREWMEMBER> has made one too many mistakes, its time we taught them a lesson they wont forget. Teach them 10 fun facts on a space station related topic of your choice.
+
+ent-OmuRPObjectivePermaThisGuy = Get <target> into perma
+  .desc = We don't care how you do it, make sure <target> is in perma forever, them showing up at centcomm in cuffs but not being a perma isn't a job done but its better than nothing.
+
+ent-OmuRPObjectiveBorgThisGuy = Turn <target> into a cyborg
+  .desc = <target> has said some things to a high command's personal cyborg they shouldn't have, show them what it's like and turn them into a cyborg.
