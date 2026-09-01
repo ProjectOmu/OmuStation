@@ -6900,3 +6900,25 @@ Entries:
         instead of being a placebo.
   id: 901
   time: '2026-09-01T00:17:46.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed cargo PDA not having nanochat
+  id: 902
+  time: '2026-09-01T10:46:59.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: >-
+        Wording on escape alive objectives, you now cannot have an active
+        warrant by the end of the shift.
+    - type: Tweak
+      message: >-
+        Changelings now need to be undiscovered as the identity they escape to
+        CC with. You want to keep living and CC would ash you otherwise.
+    - type: Fix
+      message: >-
+        Explained in the maroon objective that you only need to prevent your
+        target from going to CC via the main evac shuttle.
+  id: 903
+  time: '2026-09-01T16:11:24.0000000+00:00'
