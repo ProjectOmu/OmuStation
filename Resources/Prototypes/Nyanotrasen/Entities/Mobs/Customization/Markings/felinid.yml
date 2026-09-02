@@ -95,10 +95,10 @@
 # Goobstation - Tajaran since they're fully compatible
 
 - type: marking
-  id: FelinidTailBasic
+  id: FelinidTailBasicAnimated # Omu - Tailwag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Tajaran, Human] # Goobstation - Tajaran
+  speciesRestriction: [] # Omu - Tailwag
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_tail_tip
@@ -108,10 +108,10 @@
     state: basic_tail_stripes_odd
 
 - type: marking
-  id: FelinidTailBasicWithBow
+  id: FelinidTailBasicWithBowAnimated # Omu - Tailwag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Tajaran] # Goobstation - Tajaran
+  speciesRestriction: [] # Omu - Tailwag
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_tail_tip
@@ -123,10 +123,10 @@
     state: basic_bow
 
 - type: marking
-  id: FelinidTailBasicWithBell
+  id: FelinidTailBasicWithBellAnimated # Omu - Tailwag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Tajaran] # Goobstation - Tajaran
+  speciesRestriction: [] # Omu - Tailwag
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_tail_tip
@@ -138,10 +138,10 @@
     state: basic_bell
 
 - type: marking
-  id: FelinidTailBasicWithBowAndBell
+  id: FelinidTailBasicWithBowAndBellAnimated # Omu - Tailwag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Tajaran] # Goobstation - Tajaran
+  speciesRestriction: [] # Omu - Tailwag
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_tail_tip
