@@ -21,12 +21,12 @@
       state: icon
     - type: StealTarget
       stealGroup: SupermatterSliver
+    - type: SupermatterImmune
     - type: Tag
       tags:
         - HighRiskItem
     # Omu start
         - Trash
-    - type: SupermatterImmune
     - type: Edible
       requiresSpecialDigestion: true
     - type: SolutionContainerManager
