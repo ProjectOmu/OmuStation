@@ -15,6 +15,7 @@ loadout-group-medical-backpack = Medical backpack
 
 # Paramedic
 loadout-group-paramedic-backpack = Paramedic backpack
+loadout-group-paramedic-belt = Paramedic belt
 
 # Virologist
 loadout-group-virologist-envirohelm = Virologist envirohelm
@@ -27,6 +28,7 @@ loadout-group-detective-gun = Detective Gun
 
 # Security
 loadout-group-security-gun = Security Gun
+loadout-group-sergeant-gun = Sergeant Gun
 
 loadout-group-sergeant-jumpsuit = Sergeant jumpsuit
 loadout-group-sergeant-head = Sergeant head

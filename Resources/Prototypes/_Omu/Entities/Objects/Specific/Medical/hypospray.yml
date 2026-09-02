@@ -116,3 +116,64 @@
         Quantity: 8
       - ReagentId: Multiver
         Quantity: 2
+
+- type: entity
+  name: autoinjector cartridge (copium)
+  parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
+  description: Contains 9u of copium, and 1u of ibuprofen, used in a cartridge autoinjector.
+  id: CartridgeCopium
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: filling
+      color: "#fcb8f5"
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Copium
+        Quantity: 9
+      - ReagentId: Ibuprofen
+        Quantity: 1
+
+- type: entity
+  name: autoinjector cartridge (sobering)
+  parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
+  description: Contains 7u of ethylredoxrazine, and 3u of charcoal, used in a cartridge autoinjector.
+  id: CartridgeEthylredoxrazine
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: filling
+      color: "#30462e"
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Ethylredoxrazine
+        Quantity: 7
+      - ReagentId: Dylovene
+        Quantity: 3
+
+- type: entity
+  name: autoinjector cartridge (weh)
+  parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
+  description: Contains a single, large dose of weh, used in a cartridge autoinjector.
+  id: CartridgeWeh
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: filling
+      color: "#59b23a"
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: JuiceThatMakesYouWeh
+        Quantity: 10
