@@ -93,7 +93,7 @@ public sealed partial class ZombieSystem
     private static readonly ProtoId<NpcFactionPrototype> ZombieFaction = "Zombie";
     private static readonly string MindRoleZombie = "MindRoleZombie";
     private static readonly List<ProtoId<AntagPrototype>> BannableZombiePrototypes = ["Zombie"];
-    private static readonly ProtoId<ReagentPrototype> ZombieBloodProto = "ZombieBlood";
+    private static readonly ProtoId<ReagentPrototype> ZombieBloodProto = "ZombieBlood"; // Omu - Zombie blood update
 
     /// <summary>
     /// Handles an entity turning into a zombie when they die or go into crit
