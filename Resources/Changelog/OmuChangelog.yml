@@ -6922,3 +6922,21 @@ Entries:
         target from going to CC via the main evac shuttle.
   id: 903
   time: '2026-09-01T16:11:24.0000000+00:00'
+- author: Jerulean
+  changes:
+    - type: Fix
+      message: Burning your eyes with a welder now works as expected.
+  id: 904
+  time: '2026-09-01T20:56:33.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Fix
+      message: Vox Couriers now spawn with an air tank harness.
+  id: 905
+  time: '2026-09-01T21:18:28.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed hydrakin getting the toxin alert for gases they can breath
+  id: 906
+  time: '2026-09-02T05:02:41.0000000+00:00'
