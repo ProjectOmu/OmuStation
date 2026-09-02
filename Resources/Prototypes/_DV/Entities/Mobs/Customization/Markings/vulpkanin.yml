@@ -292,10 +292,10 @@
       state: vulp-tip
 
 - type: marking
-  id: VulpTailWag
+  id: VulpTailAnimated # Omu, Tailwag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [] # Omu, Tailwag
   sprites:
     - sprite: _Omu/Mobs/Customization/Vulpkanin/tails-digi.rsi # Omu, vulp furrification
       state: vulp_wag
@@ -303,10 +303,10 @@
       state: vulp_wag-tip #fade
 
 - type: marking
-  id: VulpTailWagTip
+  id: VulpTailTipAnimated # Omu, Tailwag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [] # Omu, Tailwag
   sprites:
     - sprite: _Omu/Mobs/Customization/Vulpkanin/tails-digi.rsi # Omu, vulp furrification
       state: vulp_wag
@@ -369,10 +369,10 @@
       state: fox-tip
 
 - type: marking
-  id: VulpTailFoxWag
+  id: VulpTailFoxAnimated # Omu, Tailwag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [] # Omu, Tailwag
   sprites:
     - sprite: _Omu/Mobs/Customization/Vulpkanin/tails-digi.rsi # Omu, vulp furrification
       state: fox_wag
@@ -380,10 +380,10 @@
       state: fox_wag-fade
 
 - type: marking
-  id: VulpTailFoxWagTip
+  id: VulpTailFoxTipAnimated # Omu, Tailwag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [] # Omu, Tailwag
   sprites:
     - sprite: _Omu/Mobs/Customization/Vulpkanin/tails-digi.rsi # Omu, vulp furrification
       state: fox_wag
@@ -400,10 +400,10 @@
       state: bushfluff
 
 - type: marking
-  id: VulpTailBushyWag
+  id: VulpTailBushyAnimated # Omu, Tailwag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [] # Omu, Tailwag
   sprites:
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: bushfluff_wag
@@ -418,19 +418,19 @@
       state: coyote
 
 - type: marking
-  id: VulpTailCoyoteWag
+  id: VulpTailCoyoteAnimated # Omu, Tailwag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [] # Omu, Tailwag
   sprites:
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: coyote_wag
 
 - type: marking
-  id: VulpTailCorgiWag
+  id: VulpTailCorgiAnimated # Omu, Tailwag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: []
   sprites:
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: corgi_wag
@@ -514,10 +514,10 @@
       state: fluffy-tip
 
 - type: marking
-  id: VulpTailDalmatianWag
+  id: VulpTailDalmatianAnimated # Omu, Tailwag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [] # Omu, Tailwag
   sprites:
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: dalmatian_wag
