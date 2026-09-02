@@ -24,4 +24,16 @@
     - type: Tag
       tags:
         - HighRiskItem
+    # Omu start
+        - Trash
     - type: SupermatterImmune
+    - type: Edible
+      requiresSpecialDigestion: true
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 0.5
+          reagents:
+          - ReagentId: Supermatter
+            Quantity: 0.5
+    # Omu end
