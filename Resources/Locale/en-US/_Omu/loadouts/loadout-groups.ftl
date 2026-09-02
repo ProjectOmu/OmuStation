@@ -42,5 +42,8 @@ loadout-group-clown-belt = Clown belt
 loadout-group-musician-shoes = Musician Shoes
 loadout-group-musician-hat = Musician Hat
 
+# Janitor
+loadout-group-janitor-backpack = Janitor backpacks
+
 # Other
 loadout-group-civilian_formal-shoes = Formal shoes

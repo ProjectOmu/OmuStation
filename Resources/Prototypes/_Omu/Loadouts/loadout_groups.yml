@@ -522,3 +522,13 @@
   loadouts:
   - EMTBelt
   - ParamedPouch
+
+# Janitor
+- type: loadoutGroup
+  id: JanitorBackpack
+  name: loadout-group-janitor-backpack
+  loadouts:
+  - JanitorBackpack
+  - JanitorBackpackDuffel
+  - JanitorBackpackMessenger
+  - JanitorBackpackSatchel

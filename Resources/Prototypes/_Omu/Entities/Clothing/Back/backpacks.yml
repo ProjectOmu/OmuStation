@@ -15,3 +15,39 @@
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Back/Backpacks/cybersunmed.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackJanitor
+  name: janitor backpack
+  description: A backpack worn by Janitors to hold their supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Backpacks/janitor.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelJanitor
+  name: janitor duffel bag
+  description: A large duffel bag worn by Janitors to hold their supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Duffels/janitor.rsi
+
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerJanitor
+  name: janitor messenger bag
+  description: A lightweight bag for keeping extra cleaning supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Messenger/janitor.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelJanitor
+  name: janitor satchel bag
+  description: A trendy looking satchel to hold cleaning supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Satchels/janitor.rsi
