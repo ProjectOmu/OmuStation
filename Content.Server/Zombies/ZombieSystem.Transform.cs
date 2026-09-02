@@ -93,7 +93,7 @@ public sealed partial class ZombieSystem
     private static readonly ProtoId<NpcFactionPrototype> ZombieFaction = "Zombie";
     private static readonly string MindRoleZombie = "MindRoleZombie";
     private static readonly List<ProtoId<AntagPrototype>> BannableZombiePrototypes = ["Zombie"];
-    private static readonly ProtoId<ReagentPrototype> ZombieBloodProto = "ZombieBlood"; // Omu - Zombie blood update
+    private static readonly ProtoId<ReagentPrototype> ZombieBloodProto = "ZombieBlood"; // Goob - Zombie blood update
 
     /// <summary>
     /// Handles an entity turning into a zombie when they die or go into crit
@@ -291,7 +291,7 @@ public sealed partial class ZombieSystem
         //NOTE: they are supposed to bleed, just not take damage
         _bloodstream.SetBloodLossThreshold(target, 0f);
         //Give them zombie blood
-        // Omu Start - Zombie blood update
+        // Goob Start - Zombie blood update
         if (TryComp<BloodstreamComponent>(target, out var targStream))
         {
             // Grab current bloodstream volume to replace
@@ -299,7 +299,7 @@ public sealed partial class ZombieSystem
             // Give them new blood
             _bloodstream.ChangeBloodReagents(target, new([new(ZombieBloodProto, oldVolume)]));
         }
-        // Omu end
+        // Goob end
 
         //This is specifically here to combat insuls, because frying zombies on grilles is funny as shit.
         _inventory.TryUnequip(target, "gloves", true, true);
