@@ -47,3 +47,53 @@
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
+
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedGekkerzine
+  name: wrapped gekkerzine lollypop
+  description: An gekker filled lollypop. It's still in a wrapper.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    state: lollypop-wrapped
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopGekkerzine
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopGekkerzine
+  name: Gekkerzine Lollypop
+  description: A Gekker filled lolipop. Just looking at it make you want to be loud and annoying.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+  - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#8700ff"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20 # Room for extra chems
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Gekkerzine
+          Quantity: 15
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
