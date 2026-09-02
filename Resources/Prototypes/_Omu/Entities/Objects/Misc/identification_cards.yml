@@ -178,22 +178,6 @@
     job: NanoTrasenSpectre
 
 - type: entity
-  parent: SecurityIDCard
-  id: SecuritySergeantIDCard
-  name: sergeant ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - sprite: _Omu/Objects/Misc/id_cards.rsi #New namespace
-      state: idsecuritysergeant #Changed from idseniorofficer
-  - type: PresetIdCard
-    job: SecuritySergeant
-  - type: IdCard
-    jobTitle: job-name-security-sergeant
-    jobIcon: JobIconSecuritySergeant
-
-- type: entity
   parent: IDCardStandard
   id: CustodianIDCard
   name: custodii vitellus ID card
@@ -209,3 +193,86 @@
     jobIcon: JobIconCustodii
   - type: PresetIdCard
     job: CustodiiVitellus
+
+# Mentor ID cards
+
+- type: entity
+  parent: SecurityIDCard
+  id: SecuritySergeantIDCard
+  name: sergeant ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _Omu/Objects/Misc/id_cards.rsi
+      state: idsecuritysergeant
+  - type: PresetIdCard
+    job: SecuritySergeant
+  - type: IdCard
+    jobTitle: job-name-security-sergeant
+    jobIcon: JobIconSecuritySergeant
+
+- type: entity
+  parent: MedicalIDCard
+  id: MedicalMedicusIDCard
+  name: medicus ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _Omu/Objects/Misc/id_cards.rsi
+      state: idmedicalmedicus
+  - type: PresetIdCard
+    job: MedicalMedicus
+  - type: IdCard
+    jobTitle: job-name-medical-medicus
+    jobIcon: JobIconMedicalMedicus
+
+- type: entity
+  parent: EngineeringIDCard
+  id: EngineeringForemanIDCard
+  name: foreman ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _Omu/Objects/Misc/id_cards.rsi
+      state: idengineeringforeman
+  - type: PresetIdCard
+    job: EngineeringForeman
+  - type: IdCard
+    jobTitle: job-name-engineering-foreman
+    jobIcon: JobIconEngineeringForeman
+
+- type: entity
+  parent: CargoIDCard
+  id: CargoBosunIDCard
+  name: bosun ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _Omu/Objects/Misc/id_cards.rsi
+      state: idcargobosun
+  - type: PresetIdCard
+    job: CargoBosun
+  - type: IdCard
+    jobTitle: job-name-cargo-bosun
+    jobIcon: JobIconCargoBosun
+
+- type: entity
+  parent: ResearchIDCard
+  id: ScienceProfessorIDCard
+  name: professor ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _Omu/Objects/Misc/id_cards.rsi
+      state: idscienceprofessor
+  - type: PresetIdCard
+    job: ScienceProfessor
+  - type: IdCard
+    jobTitle: job-name-science-professor
+    jobIcon: JobIconScienceProfessor
+

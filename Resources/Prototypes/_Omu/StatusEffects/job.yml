@@ -8,14 +8,6 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconSecuritySergeant
-  icon:
-    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
-    state: securitysergeant
-  jobName: job-name-security-sergeant
-
-- type: jobIcon
-  parent: JobIcon
   id: JobIconLogisticsAssistant
   icon:
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
@@ -101,3 +93,45 @@
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
     state: custodii
   jobName: job-name-centcomm-guard
+
+# Mentor Roles
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSecuritySergeant
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: securitysergeant
+  jobName: job-name-security-sergeant
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMedicalMedicus
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: medicalmedicus
+  jobName: job-name-medical-medicus
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconEngineeringForeman
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: engineeringforeman
+  jobName: job-name-engineering-foreman
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCargoBosun
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: cargobosun
+  jobName: job-name-cargo-bosun
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconScienceProfessor
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: scienceprofessor
+  jobName: job-name-science-professor

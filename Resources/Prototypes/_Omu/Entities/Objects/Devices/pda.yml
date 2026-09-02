@@ -271,7 +271,111 @@
     state: pda-securitysergeant
   - type: PdaBorderColor
     borderColor: "#A32D26"
+    accentVColor: "#0F0F0F"
+    accentHColor: "#A5833E"
+
+- type: entity
+  parent: BaseMedicalPDA
+  id: MedicalMedicusPDA
+  name: medicus PDA
+  description: Not as shiny as it used to be, but still just as sterile.
+  components:
+  - type: Pda
+    id: MedicalMedicusIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-medicalmedicus
+  - type: Sprite
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-medicalmedicus
+  - type: Icon
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-medicalmedicus
+  - type: PdaBorderColor
+    borderColor: "#E2E2E2"
+    accentVColor: "#5D99BE"
+    accentHColor: "#A5833E"
+
+- type: entity
+  parent: BasePDA
+  id: EngineeringForemanPDA
+  name: foreman PDA
+  description: Still functions, despite the hell it's been through. Smells faintly of tritium.
+  components:
+  - type: Pda
+    id: EngineeringForemanIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-engineeringforeman
+  - type: Sprite
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-engineeringforeman
+  - type: Icon
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-engineeringforeman
+  - type: PdaBorderColor
+    borderColor: "#CECA2B"
+    accentVColor: "#EA6400"
+    accentHColor: "#47BFFF"
+
+- type: entity
+  parent: BasePDA
+  id: CargoBosunPDA
+  name: bosun PDA
+  description: With all this PDA has gone through, the smell has become indescribable.
+  components:
+  - type: Pda
+    id: CargoBosunIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-cargobosun
+  - type: Sprite
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-cargobosun
+  - type: Icon
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-cargobosun
+  - type: PdaBorderColor
+    borderColor: "#E39751"
     accentVColor: "#DFDFDF"
+    accentHColor: "#8F36C6"
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - StockTradingCartridge
+    - NanoChatCartridge
+
+- type: entity
+  parent: BasePDA
+  id: ScienceProfessorPDA
+  name: professor PDA
+  description: Despite the partially melted shell, it still works. The gooey residue will never come off.
+  components:
+  - type: Pda
+    id: ScienceProfessorIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-scienceprofessor
+  - type: Sprite
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-scienceprofessor
+  - type: Icon
+    sprite: _Omu/Objects/Devices/pda.rsi
+    state: pda-scienceprofessor
+  - type: PdaBorderColor
+    borderColor: "#E2E2E2"
+    accentVColor: "#9E00EA"
+    accentHColor: "#9E00EA"
 
 # Misc
 

@@ -54,3 +54,27 @@
     layers:
     - state: green
     - state: securitysergeant
+
+- type: entity
+  id: SpawnPointMedicalMedicus
+  parent: SpawnPointJobBase
+  name: medicalmedicus
+  components:
+  - type: SpawnPoint
+    job_id: MedicalMedicus
+  - type: Sprite
+    layers:
+    - state: green
+    - state: medicalmedicus
+
+- type: entity
+  id: SpawnPointEngineeringForeman
+  parent: SpawnPointJobBase
+  name: engineeringforeman
+  components:
+  - type: SpawnPoint
+    job_id: EngineeringForeman
+  - type: Sprite
+    layers:
+    - state: green
+    - state: engineeringforeman
