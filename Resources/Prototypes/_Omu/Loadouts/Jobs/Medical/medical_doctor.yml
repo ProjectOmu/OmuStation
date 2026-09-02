@@ -54,6 +54,16 @@
     back: ClothingBackpackMessengerMedicalCybersun
   groupBy: "messenger"
 
+#Neck
+
+- type: loadout
+  id: MedicalStethoscope
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MedicalHeadMirrorTimer
+  equipment:
+    neck: ClothingNeckStethoscope
+
 #Masks
 - type: loadout
   id: SterileMaskRed
