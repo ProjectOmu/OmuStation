@@ -7013,3 +7013,59 @@ Entries:
       message: The Paramedic Windbreaker can now be unzipped.
   id: 913
   time: '2026-09-02T06:13:56.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: The energy shotgun now self-recharges again.
+  id: 914
+  time: '2026-09-02T21:28:17.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: >-
+        Resprited nearly every Plasmaman Envirosuit available! Cover that
+        scandalous, bony body of yours in _Style!_
+    - type: Tweak
+      message: >-
+        Resprited the Enviroglove icons to differentiate them from regular
+        gloves.
+    - type: Add
+      message: >-
+        Added new Plasmaman Envirosuits: Veteran CMO, Purple RD, Senior
+        Physician, Senior Chemist, Senior Engineer.
+    - type: Add
+      message: 'Added new Plasmaman Envirogloves: Captain, RD, Quartermaster, Latex.'
+  id: 915
+  time: '2026-09-02T21:54:43.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: .30 Rifle no longer has AP.
+    - type: Tweak
+      message: >-
+        APDS shells are now more expensive, and deal less damage, but still
+        retain full AP.
+    - type: Tweak
+      message: >-
+        Colossus gets an extra tile of melee range to prevent people from
+        grabbing it and making it unable to move properly.
+    - type: Tweak
+      message: R6 Shotgun fire rate decreased, and spread decreased a small amount.
+  id: 916
+  time: '2026-09-02T22:18:07.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: Medical Doctors and Virologists now get a stethoscope in their loadouts.
+  id: 917
+  time: '2026-09-02T22:20:43.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: >-
+        Updated the word replacement list for the German accent; it now contains
+        more common words.
+    - type: Remove
+      message: Removed random umlauts from the German accent.
+  id: 918
+  time: '2026-09-03T00:07:33.0000000+00:00'

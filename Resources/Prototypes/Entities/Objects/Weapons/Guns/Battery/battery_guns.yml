@@ -1108,6 +1108,9 @@
   - type: Battery
     maxCharge: 1200 # Goobstation
     startingCharge: 1200 # Goobstation
+  - type: BatterySelfRecharger # Omu, re-readd self-recharging on the e-shotty
+    autoRechargeRate: 28 # This is to compensate for 1050 --> 1200 charge; formerly 24
+    autoRechargePauseTime: 30
 
 - type: entity
   name: energy magnum
