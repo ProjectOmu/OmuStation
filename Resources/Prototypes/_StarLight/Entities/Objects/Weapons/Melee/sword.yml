@@ -33,9 +33,23 @@
         path: /Audio/Weapons/chainsaw.ogg
     - type: Item
     - type: DisarmMalus
+      malus: 0 # Omu
     - type: Clothing
       sprite: _Starlight/Objects/Weapons/Melee/chainsaw_sword.rsi
       slots:
       - belt
     - type: Contraband
       allowedJobs: [ Chaplain ]
+    - type: Reflect # Omu start
+      reflectProb: 1
+      reflects:
+      - Magic
+      slotFlags:
+      - NONE
+    - type: DivineIntervention
+    - type: AlternatePrayable
+    - type: Nullrod
+      DamageOnUntrainedUse:
+        types:
+          Heat: 20
+      UntrainedUseString: nullrod-untrained-usage-popup

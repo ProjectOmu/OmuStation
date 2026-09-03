@@ -232,10 +232,10 @@
 #    - RandomHumanoidSpawnerCBURNCorpsman
 
 - type: entity
-  id: SpawnPointGhostERTChaplain
+  id: SpawnPointGhostERTChaplainStarlight
   parent: MarkerBase
   name: ERT spawn point
-  suffix: Chaplain
+  suffix: Chaplain, Starlight
   components:
   - type: Sprite
     layers:
@@ -244,13 +244,13 @@
       state: chaplain
   - type: ConditionalSpawner
     prototypes:
-    - RandomHumanoidSpawnerERTChaplain
+    - RandomHumanoidSpawnerERTChaplainStarlight
 
 - type: entity
-  id: SpawnPointGhostERTChaplainEVA
+  id: SpawnPointGhostERTChaplainStarlightEVA
   parent: MarkerBase
   name: ERT spawn point
-  suffix: Chaplain, EVA
+  suffix: Chaplain, EVA, Starlight
   components:
   - type: Sprite
     layers:
@@ -259,7 +259,7 @@
       state: chaplaineva
   - type: ConditionalSpawner
     prototypes:
-    - RandomHumanoidSpawnerERTChaplainEVA
+    - RandomHumanoidSpawnerERTChaplainStarlightEVA
 
 # Misc
 - type: entity

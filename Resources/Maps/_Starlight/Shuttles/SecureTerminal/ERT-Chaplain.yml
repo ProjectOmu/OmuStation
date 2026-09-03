@@ -1343,7 +1343,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 6.4130144,-3.0062225
       parent: 2
-- proto: CentCommSectoralConsole
+- proto: CentcommComputerComms
   entities:
   - uid: 89
     components:
@@ -3736,7 +3736,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 2.5,-11.5
       parent: 2
-- proto: SpawnPointGhostERTChaplain
+- proto: SpawnPointGhostERTChaplainStarlight
   entities:
   - uid: 532
     components:

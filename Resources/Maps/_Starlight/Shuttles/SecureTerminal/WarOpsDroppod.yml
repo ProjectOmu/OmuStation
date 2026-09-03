@@ -2252,7 +2252,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 7.5,-7.5
       parent: 1
-- proto: CentCommSectoralConsole
+- proto: CentcommComputerComms
   entities:
   - uid: 281
     components:
@@ -6917,7 +6917,7 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 572
-- proto: WeaponShotgunCombat
+- proto: WeaponShotgunAntelope
   entities:
   - uid: 547
     components:
