@@ -1423,7 +1423,7 @@
   color: "#283332"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1 # Goob
+      metabolismRate: 0.25 # Omu, rebalanced T2s to be less insane (80/5u compared to 200/5u); originally 0.1 by Goob
       effects:
       - !type:HealthChange
         damage:
@@ -1442,6 +1442,13 @@
         damage:
           types:
             Cold: 3 # Goobstation - 30 per u?
+      - !type:AdjustReagent # Omu start; metabolize at 1u/s if ODing to reduce OD lethality
+        conditions: # This also prevents Yowie from chuffing ridiculous amounts of T2 before going in
+        - !type:ReagentCondition
+          reagent: Lacerinol
+          min: 12
+        reagent: Lacerinol
+        amount: -0.75 # Omu end; this totals to 1u/s with the metabolism rate
 
 - type: reagent
   id: Puncturase
@@ -1453,7 +1460,7 @@
   color: "#b9bf93"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1 # Goob
+      metabolismRate: 0.25 # Omu, rebalanced T2s to be less insane (80/5u compared to 200/5u); originally 0.1 by Goob
       effects:
       - !type:HealthChange
         damage:
@@ -1471,6 +1478,13 @@
         damage:
           types:
             Blunt: 5 # Goob
+      - !type:AdjustReagent # Omu start; metabolize at 1u/s if ODing to reduce OD lethality
+        conditions: # This also prevents Yowie from chuffing ridiculous amounts of T2 before going in
+        - !type:ReagentCondition
+          reagent: Puncturase
+          min: 12
+        reagent: Puncturase
+        amount: -0.75 # Omu end; this totals to 1u/s with the metabolism rate
 
 - type: reagent
   id: Bruizine
@@ -1482,7 +1496,7 @@
   color: "#ff3636"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1 # Goob
+      metabolismRate: 0.25 # Omu, rebalanced T2s to be less insane (80/5u compared to 200/5u); originally 0.1 by Goob
       effects:
       - !type:HealthChange
         damage:
@@ -1501,6 +1515,13 @@
         damage:
           types:
             Poison: 4 # Goob
+      - !type:AdjustReagent # Omu start; metabolize at 1u/s if ODing to reduce OD lethality
+        conditions: # This also prevents Yowie from chuffing ridiculous amounts of T2 before going in
+        - !type:ReagentCondition
+          reagent: Bruizine
+          min: 10.5
+        reagent: Bruizine
+        amount: -0.75 # Omu end; this totals to 1u/s with the metabolism rate
 
 - type: reagent
   id: Holywater
