@@ -13,3 +13,10 @@
   materials:
     Steel: 100
     Plastic: 200
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxLongRifle
+  result: MagazineBoxLongRifle
+  materials:
+    Steel: 400

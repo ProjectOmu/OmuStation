@@ -246,6 +246,12 @@
     storedRotation: 45
   - type: ScannableForPoints # goob edit
     points: 2
+  - type: BallisticAmmoProvider
+    capacity: 5
+    proto: CartridgeLongRifle
+    whitelist:
+      tags:
+        - CartridgeLongRifle
 
 - type: entity
   name: Hristov
