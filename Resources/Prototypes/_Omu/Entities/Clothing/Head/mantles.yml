@@ -262,7 +262,7 @@
     clothingVisuals:
       head:
       - state: helmet-hos
-      - state: eyes-angry
+      - state: eyes-security
         shader: unshaded
   - type: Armor # Gives the same level of protection as the security beret.
     coverage:
@@ -312,8 +312,8 @@
     sprite: _Omu/Clothing/Head/mantle.rsi
     clothingVisuals:
       head:
-      - state: helmet-default
-      - state: eyes-angry
+      - state: helmet-security
+      - state: eyes-security
         shader: unshaded
   - type: Armor # Gives the same level of protection as the security beret.
     coverage:
@@ -359,9 +359,9 @@
     sprite: _Omu/Clothing/Head/mantle.rsi
     clothingVisuals:
       head:
-      - state: helmet-default
+      - state: helmet-security
       - state: helmet-internals-security
-      - state: eyes-angry
+      - state: eyes-security
         shader: unshaded
   - type: Armor # Gives the same level of protection as the security beret.
     coverage:
@@ -416,8 +416,8 @@
     sprite: _Omu/Clothing/Head/mantle.rsi
     clothingVisuals:
       head:
-      - state: helmet-default
-      - state: eyes-angry
+      - state: helmet-security
+      - state: eyes-security
         shader: unshaded
   - type: Armor # Gives the same level of protection as the security beret.
     coverage:
@@ -466,9 +466,9 @@
     sprite: _Omu/Clothing/Head/mantle.rsi
     clothingVisuals:
       head:
-      - state: helmet-default
+      - state: helmet-security
       - state: helmet-internals-security
-      - state: eyes-angry
+      - state: eyes-security
         shader: unshaded
   - type: Armor
     coverage:
@@ -526,7 +526,7 @@
     clothingVisuals:
       head:
       - state: helmet-round
-      - state: eyes-angry
+      - state: eyes-med
         shader: unshaded
   - type: ComponentToggler # copied from the parent with some additions.
     components:
@@ -555,7 +555,7 @@
       head:
       - state: helmet-round
       - state: helmet-internals-medical
-      - state: eyes-angry
+      - state: eyes-med
         shader: unshaded
   - type: IngestionBlocker
   - type: PressureProtection
@@ -589,7 +589,7 @@
     clothingVisuals:
       head:
       - state: helmet-cmo
-      - state: eyes-angry
+      - state: eyes-med
         shader: unshaded
   - type: ComponentToggler
     components:
@@ -624,7 +624,7 @@
     clothingVisuals:
       head:
       - state: helmet-round
-      - state: eyes-angry
+      - state: eyes-med
         shader: unshaded
   - type: ComponentToggler
     components:
@@ -750,7 +750,7 @@
     clothingVisuals:
       head:
       - state: helmet-rd
-      - state: eyes-angry
+      - state: eyes-med
         shader: unshaded
   - type: ComponentToggler # copied from the parent with some additions.
     components:
@@ -961,7 +961,7 @@
     clothingVisuals:
       head:
       - state: helmet-default
-      - state: eyes-angry
+      - state: eyes-med
         shader: unshaded
   - type: ComponentToggler
     components:
@@ -1015,7 +1015,7 @@
     clothingVisuals:
       head:
       - state: helmet-default
-      - state: eyes-angry
+      - state: eyes-med
         shader: unshaded
   - type: ComponentToggler
     components:
