@@ -45,5 +45,8 @@ loadout-group-musician-hat = Musician Hat
 # Janitor
 loadout-group-janitor-backpack = Janitor backpacks
 
+# Chef
+loadout-group-chef-backpack = Chef backpacks
+
 # Other
 loadout-group-civilian_formal-shoes = Formal shoes
