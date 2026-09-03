@@ -1,0 +1,49 @@
+- type: loadout
+  id: RoboticistBackpack
+  equipment:
+    back: ClothingBackpackRoboticist
+  groupBy: "Backpack"
+
+- type: loadout
+  id: RoboticistBackpackDuffel
+  equipment:
+    back: ClothingBackpackDuffelRoboticist
+  groupBy: "Duffel"
+
+- type: loadout
+  id: RoboticistBackpackMessenger
+  equipment:
+    back: ClothingBackpackMessengerRoboticist
+  groupBy: "Messenger"
+
+- type: loadout
+  id: RoboticistBackpackSatchel
+  equipment:
+    back: ClothingBackpackSatchelRoboticist
+  groupBy: "Satchel"
+
+# Science
+
+- type: loadout
+  id: RoboticistScientistBackpack
+  equipment:
+    back: ClothingBackpackScience
+  groupBy: "Backpack"
+
+- type: loadout
+  id: RoboticistScientistBackpackDuffel
+  equipment:
+    back: ClothingBackpackDuffelScience
+  groupBy: "Duffel"
+
+- type: loadout
+  id: RoboticistScientistBackpackMessenger
+  equipment:
+    back: ClothingBackpackMessengerScience
+  groupBy: "Messenger"
+
+- type: loadout
+  id: RoboticistScientistBackpackSatchel
+  equipment:
+    back: ClothingBackpackSatchelScience
+  groupBy: "Satchel"

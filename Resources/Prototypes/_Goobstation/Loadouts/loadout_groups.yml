@@ -1335,9 +1335,17 @@
   id: RoboticistBackpack
   name: loadout-group-roboticist-backpack
   loadouts:
-  - ScientistBackpack
-  - ScientistSatchel
-  - ScientistDuffel
+  # - ScientistBackpack # Omu
+  # - ScientistSatchel # Omu
+  # - ScientistDuffel # Omu
+  - RoboticistBackpack # Omu
+  - RoboticistBackpackSatchel # Omu
+  - RoboticistBackpackDuffel # Omu
+  - RoboticistBackpackMessenger # Omu
+  - RoboticistScientistBackpack # Omu
+  - RoboticistScientistBackpackSatchel # Omu
+  - RoboticistScientistBackpackDuffel # Omu
+  - RoboticistScientistBackpackMessenger # Omu
 
 - type: loadoutGroup
   id: RoboticistOuterClothing
