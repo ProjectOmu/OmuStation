@@ -176,3 +176,52 @@
   - type: EyeCursorOffset
     maxOffset: 4
     pvsIncrease: 0.4
+
+- type: entity
+  name: LRR-30 "Penman" DMR
+  parent: [ BaseWeaponRifle, BaseSyndicateContraband ]
+  id: WeaponSniperPenman
+  description: They say the pen is mightier than the sword, in this case it holds true. Chambered in .30 long rifle magnum. Boasts incredible accuracy, stopping power, and firerate. Suited for longer range engagements.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Snipers/ceremonial_rifle.rsi
+    state: base
+  - type: Clothing
+    sprite: _Omu/Objects/Weapons/Guns/Snipers/ceremonial_rifle.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Clip
+        startingItem: MagazineLongRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineLongRifle
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeLongRifle
+  - type: Gun
+    fireRate: 0.66
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Omu/Weapons/penmanfire.ogg
+  - type: ChamberMagazineAmmoProvider
+    autoCycle: true
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/m41_cock.ogg
+    soundBoltClosed:
+      path: /Audio/Weapons/Guns/Bolt/rifle_bolt_closed.ogg
+    soundBoltOpened:
+      path: /Audio/Weapons/Guns/Bolt/rifle_bolt_open.ogg
+  - type: GunRequiresWield
+  - type: Item
+    size: Large
+    storedRotation: 45
+  - type: AmmoCounter
