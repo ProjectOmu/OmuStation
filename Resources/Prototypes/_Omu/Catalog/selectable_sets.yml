@@ -91,6 +91,51 @@
   - WeaponWardenRevolverShotgun
 
 - type: selectableSet
+  id: WardenSnubSet
+  name: selectable-set-warden-snub-name
+  description: selectable-set-warden-snub-description
+  sprite:
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/WardenSnub.rsi
+    state: base
+  content:
+  - WardenSnubRevolver
+  - WardenSnubRevolver
+  - SpeedLoaderRevolverLightRifleMini
+  - SpeedLoaderRevolverLightRifleMini
+
+- type: selectableSet
+  id: BrigmedWeaponCrossbowSyringeSet
+  name: selectable-set-brigmed-crossbow-name
+  description: selectable-set-brigmed-crossbow-description
+  sprite:
+    sprite: _Omu/Objects/Weapons/Guns/Misc/syringecrossbow.rsi
+    state: icon
+  content:
+  - WeaponCrossbowSyringe
+  - SyringePax
+
+- type: selectableSet
+  id: BrigmedWeaponPneumaticShotgunSet
+  name: selectable-set-brigmed-shotgun-name
+  description: selectable-set-brigmed-shotgun-description
+  sprite:
+    sprite: _Omu/Objects/Weapons/Guns/Shotguns/PneumaticShotty.rsi
+    state: base
+  content:
+  - WeaponPneumaticShotgun
+  - BoxBeanbag
+
+- type: selectableSet
+  id: BrigmedWeaponDisablerSMGSet
+  name: selectable-set-brigmed-disabler-name
+  description: selectable-set-brigmed-disabler-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Battery/disabler_smg.rsi
+    state: base
+  content:
+  - WeaponDisablerSMG
+
+- type: selectableSet
   id: WeaponMk58Set
   name: selectable-set-mk58-name
   description: selectable-set-mk58-description

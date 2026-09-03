@@ -25,6 +25,8 @@
     idleState: icon
     runningState: icon
     staticPacks:
+    - WelderBasicOmu #omu
+    - MultitoolOmu #omu
     - SharedBoardsStatic
     - EngineeringBoardsStatic
     - CircuitFloorsStatic
@@ -41,6 +43,7 @@
     - NailgunStatic
     - NailsStatic
     dynamicPacks:
+    - JawsOfLifeOmu #omu
     - ConstructionBagOfHolding
     - AdvancedTools
     - AtmosTools
@@ -109,7 +112,7 @@
     - CargoStatic
     - RecipePackShipmentNoticesStatic
     dynamicPacks:
-    - AdvancedTools
+    #- AdvancedTools #omu
     - Mining
     - PowerCells
     - Equipment
@@ -177,6 +180,8 @@
     idleState: icon
     runningState: icon
     staticPacks:
+    - WelderBasicOmu #Omu
+    - MultitoolOmu #Omu
     - SharedBoardsStatic
     - EngineeringBoardsStatic
     - CircuitFloorsStatic
