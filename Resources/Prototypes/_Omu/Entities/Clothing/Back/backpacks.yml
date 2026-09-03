@@ -18,6 +18,42 @@
 
 - type: entity
   parent: ClothingBackpack
+  id: ClothingBackpackChef
+  name: chef backpack
+  description: A backpack worn by Chefs to hold their supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Backpacks/chef.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelChef
+  name: chef duffel bag
+  description: A large duffel bag worn by Chefs to hold their supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Duffels/chef.rsi
+
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerChef
+  name: chef messenger bag
+  description: A lightweight bag for keeping extra cooking supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Messenger/chef.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelChef
+  name: chef satchel
+  description: A trendy looking satchel to hold cooking supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Satchels/chef.rsi
+
+- type: entity
+  parent: ClothingBackpack
   id: ClothingBackpackJanitor
   name: janitor backpack
   description: A backpack worn by Janitors to hold their supplies.
