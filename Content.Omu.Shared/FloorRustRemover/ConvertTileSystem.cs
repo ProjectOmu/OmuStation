@@ -47,6 +47,8 @@ public sealed class ConvertTileSystem : EntitySystem
         {
             NeedHand = true,
             BreakOnDamage = true,
+            BlockDuplicate = false,
+            CancelDuplicate = false,
             BreakOnMove = true,
             MovementThreshold = 0.01f,
         };
