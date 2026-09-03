@@ -420,6 +420,8 @@
       visible: false
       map: [ "sealed" ]
   # Omu start, new helmet stuff
+  #- type: IdentityBlocker
+  #- type: IngestionBlocker
   - type: Clothing
     clothingVisuals:
       head:
@@ -432,8 +434,6 @@
       - state: equipped-HEAD-feroxi
       head-hydrakin:
       - state: equipped-HEAD-hydrakin
-  #- type: IdentityBlocker
-  #- type: IngestionBlocker
   - type: HideLayerClothing
     slots:
     - Snout
