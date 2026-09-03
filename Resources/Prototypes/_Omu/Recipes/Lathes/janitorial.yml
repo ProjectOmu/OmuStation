@@ -9,6 +9,9 @@
   result: ClothingCyberneticBeastMantleJanitor
 
 - type: latheRecipe
-  parent: WireBrushElectricalWorkResearch
   id: WireBrushElectrical
   result: WireBrushElectrical
+  completetime: 15
+  materials:
+    Steel: 200
+    Plastic: 200
