@@ -64,6 +64,8 @@
     animationThreshold: 40 # Goob edit
   - type: TypingIndicator
     proto: felinid
+  - type: StealTarget # Omu
+    stealGroup: StealLittlePerson
   - type: PseudoItem
     storedOffset: 0,17
     shape:
@@ -90,6 +92,7 @@
   - type: Consciousness
     cap: 160
     threshold: 80
+  - type: ToggleableWagging # Omu
 
 - type: entity
   save: false

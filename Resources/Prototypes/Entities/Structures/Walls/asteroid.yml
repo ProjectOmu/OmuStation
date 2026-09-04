@@ -40,7 +40,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 120
+        damage: 80  #Omu changed to 80 from 120 to reduce PKA misery, brought in alongside vgroid pr
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]

@@ -70,7 +70,7 @@
           min: 253.15
         - !type:MetabolizerTypeCondition # Fuck you
           type: [ Hydrakin ]
-          inverted: true
+          inverted: false
         amount: -7500
 
 # ambuzol plus minus

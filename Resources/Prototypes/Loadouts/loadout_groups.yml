@@ -1785,7 +1785,7 @@
 
 - type: loadoutGroup
   id: MedicalBackpack
-  name: loadout-group-medical-doctor-backpack
+  name: loadout-group-medical-backpack # Omu
   loadouts:
   - MedicalDoctorBackpack
   - MedicalDoctorSatchel
@@ -1919,8 +1919,8 @@
   loadouts:
   - ParamedicJumpsuit
   - ParamedicJumpskirt
-  - ParamedUniformBlueSkirt # OmuStation
   - ParamedUniformBlue # OmuStation
+  - ParamedUniformBlueSkirt # OmuStation
   - SeniorPhysicianJumpsuit # Goobstation
   - SeniorPhysicianJumpskirt # Goobstation
   - ParamedMJ # goob
