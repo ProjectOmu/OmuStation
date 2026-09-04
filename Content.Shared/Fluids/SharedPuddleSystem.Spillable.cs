@@ -33,7 +33,6 @@ public abstract partial class SharedPuddleSystem
 {
     private static readonly FixedPoint2 MeleeHitTransferProportion = 0.25;
     [Dependency] private readonly InjectorSystem _injectorSystem = default!;
-    [Dependency] protected readonly OpenableSystem Openable = default!;
 
     protected virtual void InitializeSpillable()
     {

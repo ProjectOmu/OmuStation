@@ -21,6 +21,9 @@ public sealed partial class StainableSystem : SharedStainableSystem
     [Dependency] private readonly IReflectionManager _reflection = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
+    // Omu, use SpriteSystem instead of from the sprites
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+
     private string _layerPrefix = string.Empty;
 
     public override void Initialize()
@@ -39,14 +42,15 @@ public sealed partial class StainableSystem : SharedStainableSystem
         if (args.Sprite is not {} sprite)
             return;
 
-        foreach (var layer in ent.Comp.RevealedIconVisuals)
-            sprite.RemoveLayer(layer);
+        foreach (var layer in ent.Comp.RevealedIconVisuals) // Byrd, use SpriteSystem
+            if (_sprite.LayerExists((ent, sprite), layer))
+                _sprite.RemoveLayer((ent, sprite), layer); // End Byrd
 
         ent.Comp.RevealedIconVisuals.Clear();
 
         foreach (var (_, layer) in UpdateVisuals(ent, ent.Comp.IconVisuals))
         {
-            var layerId = sprite.AddLayer(layer);
+            var layerId = _sprite.AddLayer((ent, sprite), layer, null);
             ent.Comp.RevealedIconVisuals.Add(layerId);
         }
     }

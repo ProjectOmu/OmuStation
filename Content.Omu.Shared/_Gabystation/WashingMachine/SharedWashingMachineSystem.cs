@@ -16,6 +16,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Goobstation.Maths.FixedPoint; // Omu, upstream edit
 using Content.Shared.Clothing.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
@@ -42,9 +43,10 @@ public abstract partial class SharedWashingMachineSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ReactiveSystem _reactive = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    // [Dependency] private readonly SharedContainerSystem _container = default!; // Omu, this seems to go unused
 
     private static readonly SoundSpecifier HitSound = new SoundCollectionSpecifier("MetalThud");
+    private static readonly ProtoId<DamageTypePrototype> BluntDamageType = "Blunt"; // Omu, upstream change
 
     public override void Initialize()
     {
@@ -63,7 +65,7 @@ public abstract partial class SharedWashingMachineSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var blunt = _proto.Index<DamageTypePrototype>("Blunt");
+        var blunt = _proto.Index<DamageTypePrototype>(BluntDamageType.Id); // Omu, upstream change
 
         var query = EntityQueryEnumerator<WashingMachineActiveComponent, WashingMachineComponent>();
         while (query.MoveNext(out var uid, out var _, out var component))
@@ -79,9 +81,9 @@ public abstract partial class SharedWashingMachineSystem : EntitySystem
             {
                 EntityStorageComponent? storage = null;
 
-                if (_storage.ResolveStorage(uid, ref storage) && storage.Contents.ContainedEntities.Count > 0)
+                if (Resolve(uid, ref storage) && storage.Contents.ContainedEntities.Count > 0) // Omu, edited for upstream
                 {
-                    var damage = new DamageSpecifier(blunt, component.BluntDamagePerSecond * frameTime);
+                    var damage = new DamageSpecifier(blunt, (FixedPoint2) component.BluntDamagePerSecond * frameTime); // Omu, upstream edit
 
                     var waterSpray = new Solution();
                     waterSpray.AddReagent(component.WaterSprayReagent, component.WaterSprayAmount);
@@ -133,7 +135,7 @@ public abstract partial class SharedWashingMachineSystem : EntitySystem
         HashSet<EntityUid> items = new();
 
         EntityStorageComponent? entityStorageComp = null;
-        if (_storage.ResolveStorage(uid, ref entityStorageComp))
+        if (Resolve(uid, ref entityStorageComp)) // Omu, upstream edit
             items = entityStorageComp.Contents.ContainedEntities.ToHashSet();
 
         component.WashingSoundStream = _audio.Stop(component.WashingSoundStream);
@@ -157,7 +159,7 @@ public abstract partial class SharedWashingMachineSystem : EntitySystem
 
         if (component.AccumulatedSelfDamage > 0)
         {
-            var blunt = _proto.Index<DamageTypePrototype>("Blunt");
+            var blunt = _proto.Index<DamageTypePrototype>(BluntDamageType.Id); // Omu, upstream edit
             var selfDamage = new DamageSpecifier(blunt, component.AccumulatedSelfDamage);
             _damageable.TryChangeDamage(uid, selfDamage, origin: uid, ignoreResistances: true);
 
@@ -193,7 +195,7 @@ public abstract partial class SharedWashingMachineSystem : EntitySystem
             return;
 
         EntityStorageComponent? storage = null;
-        if (!_storage.ResolveStorage(ent.Owner, ref storage) || storage.Contents.ContainedEntities.Count == 0)
+        if (!Resolve(ent.Owner, ref storage) || storage.Contents.ContainedEntities.Count == 0) // Omu, upstream edit
             return;
 
         if (_timing.CurTime < ent.Comp.NextWashAllowed)
@@ -216,7 +218,7 @@ public abstract partial class SharedWashingMachineSystem : EntitySystem
             return;
 
         EntityStorageComponent? storage = null;
-        if (!_storage.ResolveStorage(ent.Owner, ref storage) || storage.Contents.ContainedEntities.Count == 0)
+        if (!Resolve(ent.Owner, ref storage) || storage.Contents.ContainedEntities.Count == 0) // Omu, upstream edit
             return;
 
         var user = args.User;
@@ -266,7 +268,7 @@ public abstract partial class SharedWashingMachineSystem : EntitySystem
         HashSet<EntityUid> items = new();
 
         EntityStorageComponent? entityStorageComp = null;
-        if (_storage.ResolveStorage(ent.Owner, ref entityStorageComp))
+        if (Resolve(ent.Owner, ref entityStorageComp)) // Omu, upstream edit
             items = entityStorageComp.Contents.ContainedEntities.ToHashSet();
 
         if (_net.IsServer)

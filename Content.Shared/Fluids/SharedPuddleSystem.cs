@@ -53,9 +53,28 @@ public abstract partial class SharedPuddleSystem : EntitySystem
     private static readonly ProtoId<ReagentPrototype> CopperBlood = "CopperBlood";
     private static readonly ProtoId<ReagentPrototype> BloodChangeling = "BloodChangeling"; // Goobstation
     private static readonly ProtoId<ReagentPrototype> BlackBlood = "BlackBlood"; // Goobstation
-    // Upstream note: this shit is so ass. i'm going to copy off blood jaunt homework here
+    // Omu start; upstreamer's note: this shit is so ass. i'm going to copy off blood jaunt homework here
+    // could we not make just one thing with all of the bloods in them?
+    private static readonly ProtoId<ReagentPrototype> AmmoniaBlood = "AmmoniaBlood";
+    private static readonly ProtoId<ReagentPrototype> InsectBlood = "InsectBlood";
+    // copper blood in wizden
+    private static readonly ProtoId<ReagentPrototype> ZombieBlood = "ZombieBlood";
+    private static readonly ProtoId<ReagentPrototype> AlienBlood = "AlienBlood";
+    // black blood in goobstation
+    // ling blood in goobstation
+    // slime in wizden
+    private static readonly ProtoId<ReagentPrototype> ResomiBlood = "ResomiBlood";
+    private static readonly ProtoId<ReagentPrototype> ShimmeringBlood = "ShimmeringBlood";
+    private static readonly ProtoId<ReagentPrototype> BloodAllulalo = "BloodAllulalo"; // yo who named this backwards
+    private static readonly ProtoId<ReagentPrototype> AvaliBlood = "AvaliBlood";
+    private static readonly ProtoId<ReagentPrototype> AcidBlood = "AcidBlood";
+    // Omu end
 
-    private static readonly string[] StandoutReagents = [Blood, Slime, CopperBlood, BloodChangeling, BlackBlood]; // Goobstation - added BloodChangeling+Blackblood
+    private static ProtoId<ReagentPrototype>[] StandoutReagents = [ // Omu, this used to be private static readonly string[] but clearly it's not supposed to be readonly or string[]
+        Blood, Slime, CopperBlood,
+        BloodChangeling, BlackBlood, // Goobstation - added BloodChangeling+Blackblood
+        AmmoniaBlood, InsectBlood, ZombieBlood, AlienBlood, ResomiBlood, ShimmeringBlood, BloodAllulalo, AvaliBlood, AcidBlood, // Omu, added ALL OF THESE BLOOD TYPES
+    ];
 
     /// <summary>
     /// The lowest threshold to be considered for puddle sprite states as well as slipperiness of a puddle.
@@ -123,7 +142,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
     /// </summary>
     private void CacheStandsout()
     {
-        _standoutReagents = [.. _prototypeManager.EnumeratePrototypes<ReagentPrototype>().Where(x => x.Standsout).Select(x => x.ID)];
+        StandoutReagents = [.. _prototypeManager.EnumeratePrototypes<ReagentPrototype>().Where(x => x.Standsout).Select(x => x.ID)];
     }
 
     // Funky edit - Make protected virtual so that it can be overriden server side
@@ -238,10 +257,10 @@ public abstract partial class SharedPuddleSystem : EntitySystem
             // Kinda EH
             // Could potentially do alpha per-solution but future problem.
 
-            color = solution.GetColorWithout(_prototypeManager, _standoutReagents);
+            color = solution.GetColorWithout(_prototypeManager, StandoutReagents);
             color = color.WithAlpha(0.7f);
 
-            foreach (var standout in _standoutReagents)
+            foreach (var standout in StandoutReagents)
             {
                 var quantity = solution.GetTotalPrototypeQuantity(standout);
                 if (quantity <= FixedPoint2.Zero)

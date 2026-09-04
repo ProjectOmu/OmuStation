@@ -15,10 +15,6 @@
     <ProjectReference Include="../Content.Omu.Shared/Content.Omu.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="_Gabystation\" />
-  </ItemGroup>
-
   <Import Project="..\RobustToolbox\Imports\Client.props" />
   <Import Project="..\RobustToolbox\Imports\Shared.props" />
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />

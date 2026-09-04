@@ -219,6 +219,16 @@
     tags:
     - CorgiWearable
     - WhitelistChameleon
+  - type: Stainable # GabyStation
+    clothingVisuals:
+      outerClothing:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: armorblood
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: armorbloodicon
+  - type: StainBlocker
+    slots: [INNERCLOTHING]
 
 - type: entity
   parent: [ClothingOuterArmorBaseCarapace, BaseCentcommContraband]

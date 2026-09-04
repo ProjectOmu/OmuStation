@@ -85,12 +85,9 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         SubscribeLocalEvent<PuddleComponent, SpreadNeighborsEvent>(OnPuddleSpread);
         SubscribeLocalEvent<PuddleComponent, SlipEvent>(OnPuddleSlip);
 
-        SubscribeLocalEvent<EvaporationComponent, MapInitEvent>(OnEvaporationMapInit);
-
         SubscribeLocalEvent<KnockedDownComponent, MoveEvent>(OnCrawlInPuddle); // GabyStation
         SubscribeLocalEvent<InventoryComponent, MoveEvent>(OnStepInPuddle); // FunkyStation
 
-        InitializeTransfers();
     }
 
     // TODO: This can be predicted once https://github.com/space-wizards/RobustToolbox/pull/5849 is merged
@@ -486,10 +483,10 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
             targets.Add(owner);
             // GabyStation start
-            var stainEv = new SpilledOnEvent(uid, splitSolution.Clone());
+            var stainEv = new SpilledOnEvent(owner, splitSolution.Clone());
             RaiseLocalEvent(owner, stainEv);
             // GabyStation end
-            
+
             Reactive.DoEntityReaction(owner, splitSolution, ReactionMethod.Touch);
             Popups.PopupEntity(Loc.GetString("spill-land-spilled-on-other",
                     ("spillable", entity),
@@ -697,11 +694,11 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
             Reactive.DoEntityReaction(ent.Owner, splitSol, ReactionMethod.Touch);
 
-            var addBack = new List<string>();
+            var addBack = new List<ProtoId<ReagentPrototype>>();
             foreach (var (proto, amt) in splitSol.GetReagentPrototypes(_prototypeManager))
             {
                 if (!proto.SticksToSkin)
-                    addBack.Add(proto.ID);
+                    addBack.Add(new ProtoId<ReagentPrototype>(proto.ID));
             }
             solution.AddSolution(splitSol.SplitSolutionWithOnly(splitSol.Volume, addBack.ToArray()), _prototypeManager);
         }
@@ -743,7 +740,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         if (_inventory.TryGetSlotEntity(ent.Owner, "shoes", out var shoes))
         {
             var spilledEvent = new SpilledOnEvent(puddleUid, splitSol);
-            var relayedEvent = new InventoryRelayedEvent<SpilledOnEvent>(spilledEvent);
+            var relayedEvent = new InventoryRelayedEvent<SpilledOnEvent>(spilledEvent, ent.Owner);
             RaiseLocalEvent(shoes.Value, relayedEvent);
         }
     }
