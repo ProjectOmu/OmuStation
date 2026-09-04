@@ -79,7 +79,8 @@
   components:
   - type: Sprite
     sprite: /Textures/_Omu/Objects/SmugglerLoot.rsi
-    state: ipc_rusted
+    layers:
+    - state: ipc_rusted
   - type: GhostRole
     name: smuggler-silicon-ipc-name
     description: smuggler-silicon-ipc-desc
@@ -100,7 +101,8 @@
   components:
   - type: Sprite
     sprite: /Textures/_Omu/Objects/SmugglerLoot.rsi
-    state: ipc_rusted
+    layers:
+    - state: ipc_rusted
   - type: GhostRole
     name: smuggler-silicon-ipc-name
     description: smuggler-silicon-ipc-desc
