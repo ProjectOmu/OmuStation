@@ -93,7 +93,7 @@
       pickupAmount: 100
       useAbsorberSolution: true
     - type: UseDelay
-      delay: 1.0
+      delay: 0.12 # Omu - Revert goob change
     - type: SolutionRegeneration
       solution: absorbed
       generated:

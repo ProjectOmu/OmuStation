@@ -4,6 +4,9 @@ thaven-mood-no-modern-medicine-desc = You do not approve of modern medicine and 
 thaven-mood-department-disapproval-name = Fear Of {$department}
 thaven-mood-department-disapproval-desc = You're afraid of the {$department} department and anyone who works in it (excluding yourself, if applicable).
 
+thaven-mood-dont-speak-to-command-name = Never Speak To Command
+thaven-mood-dont-speak-to-command-desc = You are too lowly to speak to Command, even if spoken to first.
+
 thaven-mood-disapprove-of-drugs-name = Disapprove Of Drugs
 thaven-mood-disapprove-of-drugs-desc = You detest mind-altering drugs, including alcohol, and should abstain from them.
 
@@ -42,6 +45,9 @@ thaven-mood-vampire-invitation-desc = You feel you physically cannot pass throug
 
 thaven-mood-no-dragging-name = Respect The Dead
 thaven-mood-no-dragging-desc = Dragging bodies across the bare ground is horrific.
+
+thaven-mood-drunk-respect-name = The Noble Drunkard
+thaven-mood-drunk-respect-desc = You do not respect anyone who is not drunk, excluding yourself, of course.
 
 thaven-mood-rank-snob-name = Snob
 thaven-mood-rank-snob-desc = You are incredibly reluctant to respond to anyone who is of a lower rank than you. If they must be addressed, do so away from prying eyes.
@@ -92,6 +98,9 @@ thaven-mood-crawler-desc = It is impolite not to perform a deep bow by entering 
 
 thaven-mood-elevated-name = The Floor Is Lava
 thaven-mood-elevated-desc = You prefer to be elevated whenever possible - Standing atop tables, railings, etc., is where you feel the most comfortable.
+
+thaven-mood-afraiddark-name = Afraid of the Dark
+thaven-mood-afraiddark-desc = Darkness is incredibly dangerous, and you won't enter a space without proper illumination.
 
 thaven-mood-coulrophobia-name = Coulrophobia
 thaven-mood-coulrophobia-desc = Clowns are such horrific things, just seeing one is terrifying to you.
