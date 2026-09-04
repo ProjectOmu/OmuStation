@@ -181,17 +181,22 @@
   name: LRR-30 "Penman" DMR
   parent: [ BaseWeaponRifle, BaseSyndicateContraband ]
   id: WeaponSniperPenman
-  description: They say the pen is mightier than the sword, in this case it holds true. Chambered in .30 long rifle magnum. Boasts incredible accuracy, stopping power, and firerate. Suited for longer range engagements.
+  description: They say the pen is mightier than the sword, in this case, it holds quite evident. Chambered in .30 long rifle magnum. Boasts incredible accuracy, stopping power, and firerate.
   components:
   - type: Sprite
-    sprite: _Omu/Objects/Weapons/Guns/Snipers/ceremonial_rifle.rsi
+    sprite: _Omu/Objects/Weapons/Guns/Snipers/penman.rsi
     state: base
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _Omu/Objects/Weapons/Guns/Snipers/ceremonial_rifle.rsi
+    sprite: _Omu/Objects/Weapons/Guns/Snipers/penman.rsi
   - type: ItemSlots
     slots:
       gun_magazine:
-        name: Clip
+        name: Magazine
         startingItem: MagazineLongRifle
         insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
@@ -206,7 +211,7 @@
           tags:
           - CartridgeLongRifle
   - type: Gun
-    fireRate: 0.66
+    fireRate: 1.5
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -225,3 +230,14 @@
     size: Large
     storedRotation: 45
   - type: AmmoCounter
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 4
+    pvsIncrease: 0.4
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
