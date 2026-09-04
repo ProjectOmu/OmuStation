@@ -229,6 +229,26 @@
   - type: SurgeryTraumaPresentCondition
     trauma: Braindeath
 
+# Omu start - IPC parity is good
+- type: entity
+  parent: BasePartSurgery
+  id: SurgeryRepairPositronicDamage
+  name: Repair Positronic Damage
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepClampInternalBleeders
+    - SurgeryStepRepairBrain
+  - type: SurgeryPartCondition
+    parts: [ Chest ]
+  - type: SurgeryBleedsPresentCondition
+    inverted: true
+  - type: SurgeryTraumaPresentCondition
+    trauma: Braindeath
+# Omu end
+
 # I fucking hate hardcoding all of this shit to accomodate for surgery BUI.
 # If anyone can give me pointers on how to make it better I'd be incredibly grateful.
 
