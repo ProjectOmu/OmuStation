@@ -208,3 +208,9 @@ selectable-set-ntr-blade-desc =
     A sturdier, bladed fancy cane, with no stun setting...
     This one is meant for emergencies only
     CC note says: ONLY USE ON RED!!!!!
+
+selectable-set-ntr-brella-name = "Marlen" Umbrella
+selectable-set-ntr-brella-desc =
+    A stylish intricate souvenir made from tough, hyper-woven
+    durathread by "NanoFashion" for the rich people of central command.
+    Looks expensive, and surprisingly durable.
