@@ -22,6 +22,15 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplantCentComm, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 5h
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 15h
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 30h
 
 - type: startingGear
   id: ERTLeaderGearBlue
@@ -34,8 +43,8 @@
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterArmourDurathread
     id: ERTLeaderPDA
-    ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltAssaultFilled
+    ears: ClothingHeadsetAltCentComLoudspeaker
+    belt: ClothingBeltMilitaryWebbingFilled
     pocket1: WeaponEnergyRevolver
     pocket2: FlashlightSeclite
     suitstorage: WeaponRifleLecter
@@ -88,7 +97,7 @@
     outerClothing: ClothingOuterArmorBasicSlim
     id: ERTSecurityPDABlue
     ears: ClothingHeadsetAltCentComSec
-    belt: ClothingBeltAssaultFilled
+    belt: ClothingBeltMilitaryWebbingFilled
     pocket1: OfficerGunCase
     pocket2: FlashlightSeclite
     suitstorage: WeaponRifleLecter

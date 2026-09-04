@@ -1,0 +1,47 @@
+# Legacy content from wizden that no longer exists:
+
+- type: entity
+  parent: BaseComputerShuttle
+  id: ComputerShuttleSalvage
+  name: salvage shuttle console
+  description: Used to pilot the salvage shuttle.
+  components:
+    - type: Sprite
+      layers:
+        - map: ["computerLayerBody"]
+          state: computer
+        - map: ["computerLayerKeyboard"]
+          state: generic_keyboard
+        - map: ["computerLayerScreen"]
+          state: shuttle
+        - map: ["computerLayerKeys"]
+          state: generic_keys
+    - type: DroneConsole
+      components:
+        - type: SalvageShuttle
+    - type: RadarConsole
+      maxRange: 256
+    - type: PointLight
+      radius: 1.5
+      energy: 1.6
+      color: "#43ccb5"
+    - type: Computer
+      board: SalvageShuttleConsoleCircuitboard
+    - type: StealTarget
+      stealGroup: SalvageShuttleConsoleCircuitboard
+    - type: ActivatableUIRequiresAccess # Omu start
+    - type: AccessReader
+      access: [["Salvage"]] # Omu end
+
+
+# todo get like a legacy namespace or something
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: SalvageShuttleConsoleCircuitboard
+  name: salvage shuttle console board
+  description: A computer printed circuit board for a salvage shuttle console.
+  components:
+  - type: ComputerBoard
+    prototype: ComputerShuttleSalvage
+  - type: StealTarget
+    stealGroup: SalvageShuttleConsoleCircuitboard

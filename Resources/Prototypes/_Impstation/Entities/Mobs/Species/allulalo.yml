@@ -8,9 +8,9 @@
 #  - type: GoobAbsorbable # Omu, we don't have this
 #    biomassRestored: 1.0
   - type: Hunger
-    baseDecayRate: 0.02 # 30% ish more than default
+    baseDecayRate: 0.03 # 0.02 # 30% ish more than default # Omu, update for new base rate
   - type: Thirst
-    baseDecayRate: 0.02 # 30% ish more than default
+    baseDecayRate: 0.02 # 0.02 # 30% ish more than default
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -48,8 +48,16 @@
     damageContainer: Biological
     damageModifierSet: Allulalo #stops them from being oppressive hopefully
   - type: Bloodstream
-    bloodMaxVolume: 250 #should be 50 less than the default of 300. theyre small
-    bloodReagent: BloodAllulalo
+    bloodlossDamage:
+      types:
+        Bloodloss: 1
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -0.25
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: BloodAllulalo
+        Quantity: 150 # 50 less than default... which is 200?
 #  - type: DamageVisuals # Omu, this does not work currently.
 #    damageOverlayGroups:
 #      Brute:
@@ -99,6 +107,7 @@
     - AnomalyHost
     - CanPilot
     - FootstepSound
+    - AllulaloEmotes
   - type: TypingIndicator
     proto: allulalo
   - type: Vocal
@@ -109,7 +118,7 @@
   - type: Speech
     speechSounds: Allulalo
     speechVerb: Allulalo
-    allowedEmotes: ['Chitter', 'Hiss']
+    allowedEmotes: ['Chitter', 'Hiss', 'Scree']
   - type: HumanoidAppearance
     species: Allulalo
     hideLayersOnEquip:

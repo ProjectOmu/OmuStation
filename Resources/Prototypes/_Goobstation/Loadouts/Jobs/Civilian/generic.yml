@@ -3,6 +3,30 @@
   equipment:
     gloves: ClothingHandsGlovesColorWhite
 
+- type: loadout
+  id: BlackGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+
+- type: loadout
+  id: RedGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorRed
+
+- type: loadout
+  id: RedShoes
+  equipment:
+    shoes: ClothingShoesColorRed
+
+- type: loadout
+  id: LaceupShoes
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+
+- type: loadout
+  id: FingerlessGloves
+  equipment:
+    gloves: ClothingHandsGlovesFingerless
 
 - type: loadout
   id: WhiteEnvirosuit
@@ -12,6 +36,7 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+  groupBy: "envirosuit" # Omu
 
 - type: loadout
   id: WhiteEnvirohelm
@@ -21,6 +46,7 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
 
 - type: loadout
   id: WhiteEnvirogloves
@@ -30,6 +56,317 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+  groupBy: "envirogloves" # Omu
+
+- type: loadout
+  id: MaroonEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitColorMaroon
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirosuit" # Omu
+
+- type: loadout
+  id: MaroonEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmColorMaroon
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
+
+- type: loadout
+  id: BlueEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitColorBlue
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirosuit" # Omu
+
+- type: loadout
+  id: BlueEnvirohelm
+  equipment:
+    jumpsuit: ClothingHeadEnvirohelmColorBlue
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
+
+- type: loadout
+  id: PinkEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmColorPink
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
+
+- type: loadout
+  id: PinkEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitColorPink
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirosuit" # Omu
+
+- type: loadout
+  id: DarkBlueEnvirosuit
+  equipment:
+    head: ClothingUniformEnvirosuitColorDarkBlue
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirosuit" # Omu
+
+- type: loadout
+  id: DarkBlueEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmColorDarkBlue
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
+
+- type: loadout
+  id: TealEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitColorTeal
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirosuit" # Omu
+
+- type: loadout
+  id: TealEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmColorTeal
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
+
+- type: loadout
+  id: LightBrownEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitColorLightBrown
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirosuit" # Omu
+
+- type: loadout
+  id: LightBrownEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmColorLightBrown
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
+
+- type: loadout
+  id: RedEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitColorRed
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirosuit" # Omu
+
+- type: loadout
+  id: RedEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmColorRed
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
+
+- type: loadout
+  id: OrangeEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitColorOrange
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirosuit" # Omu
+
+- type: loadout
+  id: OrangeEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmColorOrange
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
+
+- type: loadout
+  id: BlackEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitColorBlack
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirosuit" # Omu
+
+- type: loadout
+  id: BlackEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmColorBlack
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
+
+- type: loadout
+  id: YellowEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitColorYellow
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirosuit" # Omu
+
+- type: loadout
+  id: YellowEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmColorYellow
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
+
+- type: loadout
+  id: GreenEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitColorGreen
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirosuit" # Omu
+
+- type: loadout
+  id: GreenEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmColorGreen
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
+
+- type: loadout
+  id: BrownEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitColorBrown
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirosuit" # Omu
+
+- type: loadout
+  id: BrownEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmColorBrown
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
+
+- type: loadout
+  id: TransEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitTrans
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirosuit" # Omu
+
+- type: loadout
+  id: TransEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmTrans
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
+
+- type: loadout
+  id: BlackPinkEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitBlackPink
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirosuit" # Omu
+
+- type: loadout
+  id: BlackPinkEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmBlackPink
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
+
+- type: loadout
+  id: BlackPinkAltEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitBlackPinkAlt
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirosuit" # Omu
+
+- type: loadout
+  id: BlackPinkAltEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmBlackPinkAlt
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
+
+- type: loadout
+  id: NegativeEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitEnviroslacksNegative
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirosuit" # Omu
 
 - type: loadout
   id: DarkGreenEnvirosuit
@@ -39,6 +376,7 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+  groupBy: "envirosuit" # Omu
 
 - type: loadout
   id: DarkGreenEnvirohelm
@@ -48,6 +386,7 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
 
 - type: loadout
   id: DarkGreenEnvirogloves
@@ -57,6 +396,7 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+  groupBy: "envirogloves" # Omu
 
 - type: loadout
   id: PurpleEnvirosuit
@@ -66,6 +406,7 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+  groupBy: "envirosuit" # Omu
 
 - type: loadout
   id: PurpleEnvirohelm
@@ -75,6 +416,7 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
 
 - type: loadout
   id: PurpleEnvirogloves
@@ -84,6 +426,7 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+  groupBy: "envirogloves" # Omu
 
 - type: loadout
   id: BlackEnvirogloves
@@ -93,6 +436,7 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+  groupBy: "envirogloves" # Omu
 
 - type: loadout
   id: GreyEnvirosuit
@@ -102,6 +446,7 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+  groupBy: "envirosuit" # Omu
 
 - type: loadout
   id: GreyEnvirohelm
@@ -111,6 +456,7 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
 
 - type: loadout
   id: DarkGreyEnvirogloves
@@ -120,6 +466,7 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+  groupBy: "envirogloves" # Omu
 
 - type: loadout
   id: Enviroslacks
@@ -129,6 +476,79 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+  groupBy: "envirosuit" # Omu
+
+- type: loadout
+  id: EnviroslacksGreen
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitEnviroslacksColorGreen
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirosuit" # Omu
+
+- type: loadout
+  id: EnviroslacksBlue
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitEnviroslacksColorBlue
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirosuit" # Omu
+
+- type: loadout
+  id: EnviroslacksRed
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitEnviroslacksColorRed
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirosuit" # Omu
+
+- type: loadout
+  id: EnviroslacksHelmGreen
+  equipment:
+    jumpsuit: ClothingHeadEnvirohelmEnviroslacksColorGreen
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
+
+- type: loadout
+  id: EnviroslacksHelmBlue
+  equipment:
+    jumpsuit: ClothingHeadEnvirohelmEnviroslacksColorBlue
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
+
+- type: loadout
+  id: EnviroslacksHelmRed
+  equipment:
+    jumpsuit: ClothingHeadEnvirohelmEnviroslacksColorRed
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
+
+- type: loadout
+  id: EnviroslacksTider
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitEnviroslacks
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  - !type:GroupLoadoutEffect
+    proto: SophisticatedTider
+  groupBy: "envirosuit" # Omu
 
 - type: loadout
   id: LeatherEnvirogloves
@@ -138,3 +558,4 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+  groupBy: "envirogloves" # Omu

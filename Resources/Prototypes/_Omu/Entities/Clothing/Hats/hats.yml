@@ -121,3 +121,180 @@
     sprite: _Omu/Clothing/Hats/blueshield_mafia_fedora.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Hats/blueshield_mafia_fedora.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatArachnidEarmuffs
+  name: cobweb earmuffs
+  description: A cushioned collection of cobwebs that smell a little musty.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/arachnid_earmuffs.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/arachnid_earmuffs.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: Construction
+    graph: ClothingHeadHatArachnidEarmuffs
+    node: end
+
+## Képis
+- type: entity
+  parent: ClothingHeadHatBeretBlueshield
+  id: ClothingHeadHatKepiBlueshield
+  name: blueshield officer's armored képi
+  description: A tall, blue, green-topped képi covered in steel flowers worn by the Blueshield Officer. For the style-oriented bodyguard.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/kepi_bso.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/kepi_bso.rsi
+
+- type: entity
+  parent: ClothingHeadHatCaptain
+  id: ClothingHeadHatKepiCaptain
+  name: captain's képi
+  description: A tall black képi with a dark blue top, covered in golden flowers. Perfect for showing off your authority.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/kepi_captain.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/kepi_captain.rsi
+
+- type: entity
+  parent: ClothingHeadHatBeretBrigmedic
+  id: ClothingHeadHatKepiCorpsman
+  name: corpsman's képi
+  description: A turquoise képi with a red top, emblazoned with a teal cross. For the Corpsman that knows how to perform miracles, and quick.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/kepi_corpsman.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/kepi_corpsman.rsi
+
+- type: entity
+  parent: ClothingHeadHatBeretCorpsman
+  id: ClothingHeadHatKepiCorpsmanVeteran
+  name: veteran corpsman's képi
+  description: A red-topped képi in a very dark green, bearing a teal cross. Issued only to the most experienced combat medics.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/kepi_corpsmanveteran.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/kepi_corpsmanveteran.rsi
+
+- type: entity
+  parent: ClothingHeadHatHopcap
+  id: ClothingHeadHatKepiHop
+  name: head of personnel's képi
+  description: A black képi with a dark blue top, covered in steel flowers. Shows who's in charge of the paperwork.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/kepi_hop.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/kepi_hop.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoshat
+  id: ClothingHeadHatKepiHos
+  name: head of security's képi
+  description: A black, red-topped képi, covered in golden flowers. For officers that are more inclined towards classical style than safety.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/kepi_hos.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/kepi_hos.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatKepiCentcomm
+  name: centcomm képi
+  description: A detailed, stylish green képi worn by CentComm officials, made of high quality fibers. Shows the station who's REALLY pulling the strings.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/kepi_ntr.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/kepi_ntr.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - HamsterWearable
+
+- type: entity # Currently unimplemented, due to cadets lacking hats.
+  parent: ClothingHeadHatBeretSecurity
+  id: ClothingHeadHatKepiSecCadet
+  name: security cadet's képi
+  description: A light blue, red-topped képi, bearing Security's emblem and litte other decor. Issued to the inexperienced. You'll earn those flowers yet!
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/kepi_cadet.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/kepi_cadet.rsi
+
+- type: entity
+  parent: ClothingHeadHatBeretSecurity
+  id: ClothingHeadHatKepiSecoff
+  name: security képi
+  description: A black, red-topped képi bearing Security's emblem. Issued to those who prefer style to protection.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/kepi_secoff.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/kepi_secoff.rsi
+
+- type: entity
+  parent: ClothingHeadHatBeretSecurity
+  id: ClothingHeadHatKepiSecoffSenior
+  name: senior officer's képi
+  description: A black, red-topped képi, bearing a particularly fancy emblem. Issued to only the most experienced officers.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/kepi_seniorsecoff.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/kepi_seniorsecoff.rsi
+
+- type: entity
+  parent: ClothingHeadHatCapSergeant
+  id: ClothingHeadHatKepiSergeant
+  name: sergeant's képi
+  description: A royal blue, red-topped képi with an especially fancy emblem. Designed to intimidate cadets, as per the Sergeant's request.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/kepi_sergeant.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/kepi_sergeant.rsi
+
+- type: entity
+  parent: ClothingHeadHatWarden
+  id: ClothingHeadHatKepiWarden
+  name: warden's képi
+  description: A black, red-topped képi, covered in steel flowers. For the style-oriented lawbringer.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/kepi_warden.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/kepi_warden.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCapSilicon
+  name: veteran silicon cap
+  description: A striking cap given to veteran cyborgs in lieu of silly things like 'rights.'
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/borgcap.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/borgcap.rsi
+  - type: Item
+    sprite: _Omu/Clothing/Hats/borgcap.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+    - HamsterWearable
+    - MouseWearable

@@ -61,7 +61,7 @@ trait-pirate-accent-name = Pirate accent
 trait-pirate-accent-desc = You can't stop speaking like a pirate!
 
 trait-accentless-name = Accentless
-trait-accentless-desc = You don't have the accent that your species would usually have
+trait-accentless-desc = You don't have the accent that your species would usually have.
 
 trait-frontal-lisp-name = Frontal lisp
 trait-frontal-lisp-desc = You thpeak with a lithp.
@@ -87,6 +87,11 @@ trait-german-desc = You seem to come from space Germany.
 trait-italian-name = Italian accent
 trait-italian-desc = Mamma mia! You seem to have lived in space Italy!
 
+# Omu v
+trait-russian-name = Russian accent
+trait-russian-desc = You are from space Russia. Respect your comrades.
+# Omu ^
+
 trait-french-name = French accent
 trait-french-desc = Your accent seems to have a certain «je ne sais quoi».
 
@@ -99,6 +104,13 @@ trait-dementia-desc = I-... uh, what was this one about again? Oh thats right! Y
 trait-painnumbness-name = Numb
 trait-painnumbness-desc = You lack any sense of feeling pain, being unaware of how hurt you may be.
 
+trait-hemophilia-name = Hemophilia
+trait-hemophilia-desc = Your body fails to make blood clots.
+
+trait-impaired-mobility-name = Impaired Mobility
+trait-impaired-mobility-desc = You have difficulty moving without a mobility aid.
+
+# Goobstation?
 trait-newyork-name = New York accent
 trait-newyork-desc = You speak with a thick New York accent. I'm fuckin' walkin' 'ere!
 

@@ -45,3 +45,19 @@
   targetNode: gogglesJamJarDiag
   category: construction-category-clothing
   objectType: Item
+
+- type: construction
+  id: ClothingCyberneticBeastSpaceMantleSecurity
+  graph: ClothingCyberneticBeastSpaceMantleSecurity
+  startNode: start
+  targetNode: helmet
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: ClothingCyberneticBeastSpaceMantleCorpsman
+  graph: ClothingCyberneticBeastSpaceMantleCorpsman
+  startNode: start
+  targetNode: helmet
+  category: construction-category-clothing
+  objectType: Item
