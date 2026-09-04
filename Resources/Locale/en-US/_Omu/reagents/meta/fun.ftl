@@ -1,4 +1,4 @@
-reagent-name-birdflu = bird flu 
+reagent-name-birdflu = bird flu
 reagent-desc-birdflu = The bird flu? Yeah...they tend to do that.
 
 reagent-name-mothamphetamine = mothamphetamine
@@ -27,3 +27,6 @@ reagent-desc-marotineconcentrate = A concentrated form of marotine made by Inter
 
 reagent-name-methrilconcentrate = methril concentrate
 reagent-desc-methrilconcentrate = A concentrated form of methril made by Interdyne. Originally created as a way to permanently alter ones species after a cloning mishap, it is now often made and used by Syndicate agents for different purposes.
+
+reagent-name-awebo = Juice that makes you awebo
+reagent-desc-awebo = A strange concentrate of alchohol that makes you forget you have two hands.

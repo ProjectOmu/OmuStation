@@ -9,13 +9,11 @@
     layers:
     - state: erifle_lethal
       map: [ "enum.GunVisualLayers.Base" ]
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RifleBulletEnergyGunLethal
     fireCost: 50
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 50 # if balance is fucked probably just halve this number
-    autoRechargePause: true
     autoRechargePauseTime: 12
   - type: Tag
     tags:
@@ -32,13 +30,11 @@
     layers:
     - state: erifle_disabler
       map: [ "enum.GunVisualLayers.Base" ]
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RifleBulletEnergyGunDisabler
     fireCost: 25
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 50 # if balance is fucked probably just halve this number
-    autoRechargePause: true
     autoRechargePauseTime: 12
   - type: Tag
     tags:
@@ -56,13 +52,11 @@
     layers:
     - state: erifle_overcharge
       map: [ "enum.GunVisualLayers.Base" ]
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RifleBulletEnergyGunOverchargeLethal
     fireCost: 66 #15 shot hopefully
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 50 # if balance is fucked probably just halve this number
-    autoRechargePause: true
     autoRechargePauseTime: 12
   - type: Tag
     tags:

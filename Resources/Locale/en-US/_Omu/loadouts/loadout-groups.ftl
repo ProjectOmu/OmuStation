@@ -10,6 +10,13 @@ loadout-group-corpsman-glasses = Corpsman glasses
 loadout-group-corpsman-belt = Corpsman belt
 loadout-group-corpsman-headset = Corpsman headset
 
+# Medical
+loadout-group-medical-backpack = Medical backpack
+
+# Paramedic
+loadout-group-paramedic-backpack = Paramedic backpack
+loadout-group-paramedic-belt = Paramedic belt
+
 # Virologist
 loadout-group-virologist-envirohelm = Virologist envirohelm
 loadout-group-virologist-envirosuit = Virologist envirosuit
@@ -21,6 +28,7 @@ loadout-group-detective-gun = Detective Gun
 
 # Security
 loadout-group-security-gun = Security Gun
+loadout-group-sergeant-gun = Sergeant Gun
 
 loadout-group-sergeant-jumpsuit = Sergeant jumpsuit
 loadout-group-sergeant-head = Sergeant head
@@ -29,3 +37,10 @@ loadout-group-sergeant-belt = Sergeant belt
 
 # Clown
 loadout-group-clown-belt = Clown belt
+
+# Musician
+loadout-group-musician-shoes = Musician Shoes
+loadout-group-musician-hat = Musician Hat
+
+# Other
+loadout-group-civilian_formal-shoes = Formal shoes

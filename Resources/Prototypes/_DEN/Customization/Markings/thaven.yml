@@ -211,12 +211,12 @@
 #  - sprite: Mobs/Customization/misc.rsi
 #   state: m_gradient_l_foot
 
-# Underwear
+# UndergarmentBottom
 
 - type: marking
-  id: UnderwearBriefsTF
-  bodyPart: Underwear
-  markingCategory: Underwear
+  id: UndergarmentBottomBriefsTF
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Female ]
   coloring:
@@ -225,13 +225,13 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _DEN/Mobs/Customization/Thaven/underwear.rsi
+  - sprite: _DEN/Mobs/Customization/Thaven/undergarmentbottom.rsi
     state: briefs_f
 
 - type: marking
-  id: UnderwearDefaultTF
-  bodyPart: Underwear
-  markingCategory: Underwear
+  id: UndergarmentBottomDefaultTF
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Female ]
   coloring:
@@ -240,13 +240,13 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _DEN/Mobs/Customization/Thaven/underwear.rsi
+  - sprite: _DEN/Mobs/Customization/Thaven/undergarmentbottom.rsi
     state: boxers_f
 
 - type: marking
-  id: UnderwearLowridersTF
-  bodyPart: Underwear
-  markingCategory: Underwear
+  id: UndergarmentBottomLowridersTF
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Female ]
   coloring:
@@ -255,15 +255,15 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _DEN/Mobs/Customization/Thaven/underwear.rsi
+  - sprite: _DEN/Mobs/Customization/Thaven/undergarmentbottom.rsi
     state: lowriders_f
 
-# Undershirt
+# UndergarmentTop
 
 - type: marking
   id: UndergarmentTopBinderTF
-  bodyPart: Undershirt
-  markingCategory: Undershirt
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [ Thaven ]
   coloring:
     default:
@@ -271,13 +271,13 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _DEN/Mobs/Customization/Thaven/undershirt.rsi
+  - sprite: _DEN/Mobs/Customization/Thaven/undergarmenttop.rsi
     state: binder_f
 
 - type: marking
   id: UndergarmentTopTanktopTF
-  bodyPart: Undershirt
-  markingCategory: Undershirt
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Female ]
   coloring:
@@ -286,13 +286,13 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _DEN/Mobs/Customization/Thaven/undershirt.rsi
+  - sprite: _DEN/Mobs/Customization/Thaven/undergarmenttop.rsi
     state: tanktop_f
 
 - type: marking
-  id: UndershirtBraClassicTF
-  bodyPart: Undershirt
-  markingCategory: Undershirt
+  id: UndergarmentTopBraClassicTF
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Female ]
   coloring:
@@ -301,13 +301,13 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _DEN/Mobs/Customization/Thaven/undershirt.rsi
+  - sprite: _DEN/Mobs/Customization/Thaven/undergarmenttop.rsi
     state: classic_f
 
 - type: marking
-  id: UndershirtBraSportsTF
-  bodyPart: Undershirt
-  markingCategory: Undershirt
+  id: UndergarmentTopBraSportsTF
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Female ]
   coloring:
@@ -316,13 +316,13 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _DEN/Mobs/Customization/Thaven/undershirt.rsi
+  - sprite: _DEN/Mobs/Customization/Thaven/undergarmenttop.rsi
     state: sports_f
 
 - type: marking
-  id: UndershirtBraStraplessTF
-  bodyPart: Undershirt
-  markingCategory: Undershirt
+  id: UndergarmentTopBraStraplessTF
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Female ]
   coloring:
@@ -331,13 +331,13 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _DEN/Mobs/Customization/Thaven/undershirt.rsi
+  - sprite: _DEN/Mobs/Customization/Thaven/undergarmenttop.rsi
     state: strapless_f
 
 - type: marking
-  id: UndershirtDefaultTF
-  bodyPart: Undershirt
-  markingCategory: Undershirt
+  id: UndergarmentTopDefaultTF
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Female ]
   coloring:
@@ -346,13 +346,13 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _DEN/Mobs/Customization/Thaven/undershirt.rsi
+  - sprite: _DEN/Mobs/Customization/Thaven/undergarmenttop.rsi
     state: undershirt_f
 
 - type: marking
-  id: UndershirtGrossSleevelessTF
-  bodyPart: Undershirt
-  markingCategory: Undershirt
+  id: UndergarmentTopGrossSleevelessTF
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Female ]
   coloring:
@@ -361,13 +361,13 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _DEN/Mobs/Customization/Thaven/undershirt.rsi
+  - sprite: _DEN/Mobs/Customization/Thaven/undergarmenttop.rsi
     state: grosssleeveless_f
 
 - type: marking
-  id: UndershirtNanotrasenTF
-  bodyPart: Undershirt
-  markingCategory: Undershirt
+  id: UndergarmentTopNanotrasenTF
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Female ]
   coloring:
@@ -376,13 +376,13 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _DEN/Mobs/Customization/Thaven/undershirt.rsi
+  - sprite: _DEN/Mobs/Customization/Thaven/undergarmenttop.rsi
     state: nanotrasen_f
 
 - type: marking
-  id: UndershirtRolledTF
-  bodyPart: Undershirt
-  markingCategory: Undershirt
+  id: UndergarmentTopRolledTF
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Female ]
   coloring:
@@ -391,7 +391,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-  - sprite: _DEN/Mobs/Customization/Thaven/undershirt.rsi
+  - sprite: _DEN/Mobs/Customization/Thaven/undergarmenttop.rsi
     state: rolledundershirt_f
 
 # LFoot

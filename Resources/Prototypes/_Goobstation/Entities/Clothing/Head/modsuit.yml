@@ -1,18 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
-# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
-# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
-# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 floatingfeeling <karaadastra@gmail.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -40,6 +25,8 @@
       - state: equipped-HEAD-vox
       head-vulpkanin:
       - state: equipped-HEAD-vulpkanin
+      head-hydrakin:
+      - state: equipped-HEAD-hydrakin
 
   - type: Tag
     tags:
@@ -126,6 +113,8 @@
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
+      head-hydrakin:
+      - state: equipped-HEAD-sealed-hydrakin
   - type: Armor
     modifiers:
       coefficients:
@@ -190,7 +179,6 @@
     maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
     startingCharge: 600
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 2
   - type: Tag
     tags:
@@ -218,6 +206,8 @@
       - state: equipped-HEAD-vox
       head-vulpkanin:
       - state: equipped-HEAD-vulpkanin
+      head-hydrakin:
+      - state: equipped-HEAD-hydrakin
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/security.rsi
     layers:
@@ -242,6 +232,8 @@
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
+      head-hydrakin:
+      - state: equipped-HEAD-sealed-hydrakin
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3
@@ -311,7 +303,6 @@
     maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
     startingCharge: 600
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 2
 
 
@@ -333,6 +324,8 @@
       - state: equipped-HEAD-vox
       head-vulpkanin:
       - state: equipped-HEAD-vulpkanin
+      head-hydrakin:
+      - state: equipped-HEAD-hydrakin
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/headofsecurity.rsi
     layers:
@@ -356,6 +349,8 @@
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
+      head-hydrakin:
+      - state: equipped-HEAD-sealed-hydrakin
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3
@@ -418,11 +413,10 @@
     maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
     startingCharge: 600
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 2
 
 - type: entity
-  parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
+  parent: BaseClothingModsuitHelmet # Omu, no longer covers face unless sealed
   id: ClothingModsuitHelmetParamedic
   name: sanitater modsuit helmet
   description: A robust brain bucket for working on barely salvageable brains.
@@ -430,14 +424,31 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Modsuits/paramedic.rsi
+    sprite: _Omu/Clothing/Head/Modsuits/paramedic.rsi # Omu, link to new sprites in omu namespace
     layers:
     - state: helmet
     - state: helmet-sealed
       visible: false
       map: [ "sealed" ]
-  - type: IdentityBlocker
-  - type: IngestionBlocker
+  # Omu start, new helmet stuff
+  #- type: IdentityBlocker
+  #- type: IngestionBlocker
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD
+      head-vox:
+      - state: equipped-HEAD-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-vulpkanin
+      head-feroxi:
+      - state: equipped-HEAD-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-hydrakin
+  - type: HideLayerClothing
+    slots:
+    - Snout
+  # Omu end
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
@@ -450,6 +461,10 @@
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
+      head-feroxi: # Omu, implemented feroxi sprites
+      - state: equipped-HEAD-sealed-feroxi # Omu
+      head-hydrakin:
+      - state: equipped-HEAD-sealed-hydrakin # Omu
   - type: Armor
     modifiers:
       coefficients:
@@ -468,6 +483,16 @@
     - type: TemperatureProtection
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
+    # Omu start, matching new helmet appearance
+    - type: IdentityBlocker
+    - type: IngestionBlocker
+    - type: HideLayerClothing
+      slots:
+      - Hair
+      - Snout
+      - HeadTop
+      - HeadSide
+    # Omu end
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   # Omu start, Fix modsuit light
   - type: ToggleableVisuals
@@ -506,7 +531,6 @@
     maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
     startingCharge: 600
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 2
 
 - type: entity
@@ -540,6 +564,8 @@
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
+      head-hydrakin:
+      - state: equipped-HEAD-sealed-hydrakin
   - type: Armor
     modifiers:
       coefficients:
@@ -598,7 +624,6 @@
     maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
     startingCharge: 600
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 2
 
 - type: entity
@@ -630,6 +655,8 @@
       - state: equipped-HEAD-vox
       head-vulpkanin:
       - state: equipped-HEAD-vulpkanin
+      head-hydrakin:
+      - state: equipped-HEAD-hydrakin
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
@@ -644,6 +671,8 @@
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
+      head-hydrakin:
+      - state: equipped-HEAD-sealed-hydrakin
   - type: Armor
     modifiers:
       coefficients:
@@ -707,7 +736,6 @@
     maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
     startingCharge: 600
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 2
   - type: FireProtection
     reduction: 0.25
@@ -748,6 +776,8 @@
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
+      head-hydrakin:
+      - state: equipped-HEAD-sealed-hydrakin
   - type: Armor
     modifiers:
       coefficients:
@@ -807,7 +837,6 @@
     maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
     startingCharge: 600
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 2
 
 - type: entity
@@ -826,6 +855,8 @@
       - state: equipped-HEAD-resomi
       head-vox:
       - state: equipped-HEAD-vox
+      head-hydrakin:
+      - state: equipped-HEAD-hydrakin
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/captain.rsi
     layers:
@@ -850,6 +881,8 @@
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
+      head-hydrakin:
+      - state: equipped-HEAD-sealed-hydrakin
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3
@@ -920,5 +953,4 @@
     maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
     startingCharge: 600
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 2

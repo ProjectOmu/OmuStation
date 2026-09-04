@@ -312,13 +312,15 @@
 - type: entity
   parent: ClothingHeadEnvirohelmBase
   id: ClothingHeadEnvirohelmResearchDirector
-  name: research director's envirosuit helmet
-  description: A special containment helmet designed for the Resarch Director. A light brown design is applied to differentiate them from other scientists.
+  name: research director's experimental envirosuit helmet # Omu
+  description: A special containment helmet commissioned by the Resarch Director, donning the colors of their "Sophia" hardsuit. # Omu
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Head/Envirohelms/rd.rsi
   - type: Clothing
     sprite: _EinsteinEngines/Clothing/Head/Envirohelms/rd.rsi
+  - type: PointLight # Omu
+    color: "#2ACCFF" # Omu
 
 - type: entity
   parent: ClothingHeadEnvirohelmBase
@@ -891,17 +893,17 @@
 - type: entity
   parent: ClothingHeadEnvirohelmCustomBase
   id: ClothingHeadEnvirohelmQM
-  name: logistics officer's envirosuit helmet
-  description: A special containment helmet designed for the Logistics Officer.
+  name: quartermaster's envirosuit helmet # Omu
+  description: A special containment helmet designed for the Quartermaster. # Omu
   components:
   - type: Sprite
     layers:
     - state: icon
-      color: "#bb934b"
+      color: "#633C18" # Omu
     - state: accent-icon
-      color: "#ffc000"
+      color: "#F2B050" # Omu
     - state: midaccent-icon
-      color: "#d08200"
+      color: "#796755" # Omu
     - state: visor-icon
     - state: icon-flash
       visible: false
@@ -911,29 +913,29 @@
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#bb934b"
+        color: "#633C18" # Omu
       - state: accent-inhand-left
-        color: "#ffc000"
+        color: "#F2B050" # Omu
       - state: midaccent-inhand-left
-        color: "#d08200"
+        color: "#796755" # Omu
       - state: visor-inhand-left
       right:
       - state: inhand-right
-        color: "#bb934b"
+        color: "#633C18" # Omu
       - state: accent-inhand-right
-        color: "#ffc000"
+        color: "#F2B050" # Omu
       - state: midaccent-inhand-right
-        color: "#d08200"
+        color: "#796755" # Omu
       - state: visor-inhand-right
   - type: Clothing
     clothingVisuals:
       head:
       - state: equipped-HELMET
-        color: "#bb934b"
+        color: "#633C18" # Omu
       - state: accent-equipped-HELMET
-        color: "#ffc000"
+        color: "#FFCE5B" # Omu
       - state: midaccent-equipped-HELMET
-        color: "#d08200"
+        color: "#796755" # Omu
       - state: visor-equipped-HELMET
 
 - type: entity
@@ -1108,7 +1110,7 @@
     - state: icon
       color: "#535353"
     - state: accent-icon
-      color: "#0044d4"
+      color: "#005195" # Omu
     - state: visor-icon
     - state: icon-flash
       visible: false
@@ -1120,13 +1122,13 @@
       - state: inhand-left
         color: "#535353"
       - state: accent-inhand-left
-        color: "#0044d4"
+        color: "#005195" # Omu
       - state: visor-inhand-left
       right:
       - state: inhand-right
         color: "#535353"
       - state: accent-inhand-right
-        color: "#0044d4"
+        color: "#005195" # Omu
       - state: visor-inhand-right
   - type: Clothing
     clothingVisuals:
@@ -1134,7 +1136,7 @@
       - state: equipped-HELMET
         color: "#535353"
       - state: accent-equipped-HELMET
-        color: "#0044d4"
+        color: "#005195" # Omu
       - state: visor-equipped-HELMET
   - type: Armor
     coverage:
@@ -1297,7 +1299,7 @@
     - state: accent-icon
       color: "#ffce5b"
     - state: midaccent-icon
-      color: "#266199"
+      color: "#2B722F" # Omu
     - state: visor-icon
     - state: icon-flash
       visible: false
@@ -1311,7 +1313,7 @@
       - state: accent-inhand-left
         color: "#ffce5b"
       - state: midaccent-inhand-left
-        color: "#266199"
+        color: "#2B722F" # Omu
       - state: visor-inhand-left
       right:
       - state: inhand-right
@@ -1319,7 +1321,7 @@
       - state: accent-inhand-right
         color: "#ffce5b"
       - state: midaccent-inhand-right
-        color: "#266199"
+        color: "#2B722F" # Omu
       - state: visor-inhand-right
   - type: Clothing
     clothingVisuals:
@@ -1329,7 +1331,7 @@
       - state: accent-equipped-HELMET
         color: "#ffce5b"
       - state: midaccent-equipped-HELMET
-        color: "#266199"
+        color: "#2B722F" # Omu
       - state: visor-equipped-HELMET
 
 - type: entity

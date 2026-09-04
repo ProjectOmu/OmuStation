@@ -1,25 +1,24 @@
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Prototypes;
+using Content.Shared.Chemistry.Reaction;
+using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Fluids.Components;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Popups;
 using Content.Shared.Spillable;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
+using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Player;
 using Content.Shared.Weapons.Melee.Events; // GabyStation start
 using Robust.Shared.Network;
 using Content.Shared.Popups;
@@ -32,14 +31,16 @@ namespace Content.Shared.Fluids;
 
 public abstract partial class SharedPuddleSystem
 {
+    private static readonly FixedPoint2 MeleeHitTransferProportion = 0.25;
+    [Dependency] private readonly InjectorSystem _injectorSystem = default!;
     [Dependency] protected readonly OpenableSystem Openable = default!;
-    [Dependency] private readonly INetManager _net = default!; // GabyStation
 
     protected virtual void InitializeSpillable()
     {
         SubscribeLocalEvent<SpillableComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<SpillableComponent, GetVerbsEvent<Verb>>(AddSpillVerb);
-        SubscribeLocalEvent<SpillableComponent, MeleeHitEvent>(SplashOnMeleeHit, after: [typeof(OpenableSystem)]); // GabyStation
+        SubscribeLocalEvent<SpillableComponent, MeleeHitEvent>(SplashOnMeleeHit, after: [typeof(OpenableSystem)]);
+        SubscribeLocalEvent<SpillableComponent, AttemptPacifiedThrowEvent>(OnAttemptPacifiedThrow);
     }
 
     private void OnExamined(Entity<SpillableComponent> entity, ref ExaminedEvent args)
@@ -58,7 +59,10 @@ public abstract partial class SharedPuddleSystem
         if (!args.CanAccess || !args.CanInteract || args.Hands == null)
             return;
 
-        if (!_solutionContainerSystem.TryGetSolution(args.Target, entity.Comp.SolutionName, out var soln, out var solution))
+        if (!_solutionContainerSystem.TryGetSolution(args.Target,
+                entity.Comp.SolutionName,
+                out var soln,
+                out var solution))
             return;
 
         if (Openable.IsClosed(args.Target))
@@ -76,14 +80,29 @@ public abstract partial class SharedPuddleSystem
         if (entity.Comp.SpillDelay == null)
         {
             var target = args.Target;
+            var user = args.User;
             verb.Act = () =>
             {
                 var puddleSolution = _solutionContainerSystem.SplitSolution(soln.Value, solution.Volume);
                 TrySpillAt(Transform(target).Coordinates, puddleSolution, out _);
 
-                if (TryComp<InjectorComponent>(entity, out var injectorComp))
+                // TODO: Make this an event subscription once spilling puddles is predicted.
+                // Injectors should not be hardcoded here.
+                if (TryComp<InjectorComponent>(entity, out var injectorComp)
+                    && _prototypeManager.Resolve(injectorComp.ActiveModeProtoId, out var activeMode)
+                    && !activeMode.Behavior.HasAnyFlag(InjectorBehavior.Draw | InjectorBehavior.Dynamic))
                 {
-                    injectorComp.ToggleState = InjectorToggleMode.Draw;
+                    foreach (var mode in injectorComp.AllowedModes)
+                    {
+                        if (!_prototypeManager.Resolve(mode, out var protoMode))
+                            continue;
+
+                        if (protoMode.Behavior.HasAnyFlag(InjectorBehavior.Draw | InjectorBehavior.Dynamic))
+                        {
+                            _injectorSystem.ToggleMode((entity, injectorComp), user, protoMode);
+                            break;
+                        }
+                    }
                     Dirty(entity, injectorComp);
                 }
             };
@@ -93,7 +112,12 @@ public abstract partial class SharedPuddleSystem
             var user = args.User;
             verb.Act = () =>
             {
-                _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, user, entity.Comp.SpillDelay ?? 0, new SpillDoAfterEvent(), entity.Owner, target: entity.Owner)
+                _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager,
+                    user,
+                    entity.Comp.SpillDelay ?? 0,
+                    new SpillDoAfterEvent(),
+                    entity.Owner,
+                    target: entity.Owner)
                 {
                     BreakOnDamage = true,
                     BreakOnMove = true,
@@ -106,74 +130,88 @@ public abstract partial class SharedPuddleSystem
         args.Verbs.Add(verb);
     }
 
-    // GabyStation start
-    private void SplashOnMeleeHit(Entity<SpillableComponent> entity, ref MeleeHitEvent args) // Gaby
+    private void SplashOnMeleeHit(Entity<SpillableComponent> entity, ref MeleeHitEvent args)
     {
         if (args.Handled)
-            return;
-
-        if (!_net.IsServer)
             return;
 
         // When attacking someone reactive with a spillable entity,
         // splash a little on them (touch react)
         // If this also has solution transfer, then assume the transfer amount is how much we want to spill.
-        // Otherwise, let's say they want to spill a quarter of its max volume.
+        // Otherwise let's say they want to spill a quarter of its max volume.
 
         if (!_solutionContainerSystem.TryGetDrainableSolution(entity.Owner, out var soln, out var solution))
             return;
 
-        var totalSplit = FixedPoint2.Min(solution.MaxVolume * 0.25, solution.Volume);
-        if (TryComp<SolutionTransferComponent>(entity, out var transfer))
-        {
-            totalSplit = FixedPoint2.Min(transfer.TransferAmount, solution.Volume);
-        }
+        var hitCount = args.HitEntities.Count;
 
-        // a little lame, but reagent quantity is not very balanced, and we don't want people
+        var totalSplit = FixedPoint2.Min(solution.MaxVolume * MeleeHitTransferProportion, solution.Volume);
+        if (TryComp<SolutionTransferComponent>(entity, out var transfer))
+            totalSplit = FixedPoint2.Min(transfer.TransferAmount, solution.Volume);
+
+        // a little lame, but reagent quantity is not very balanced and we don't want people
         // spilling like 100u of reagent on someone at once!
         totalSplit = FixedPoint2.Min(totalSplit, entity.Comp.MaxMeleeSpillAmount);
 
-        if (totalSplit <= 0)
+        if (totalSplit == 0)
             return;
 
-        if (_net.IsServer)
-        {
-            args.Handled = true;
-        }
+        // Optionally allow further melee handling occur
+        args.Handled = entity.Comp.PreventMelee;
 
-        var reactiveTargets = 0;
+        // First update the hit count so anything that is not reactive wont count towards the total!
         foreach (var hit in args.HitEntities)
         {
-            if (HasComp<ReactiveComponent>(hit))
-                reactiveTargets++;
+            if (!_reactiveQuery.HasComp(hit))
+                hitCount -= 1;
         }
-
-        if (reactiveTargets == 0)
-            return;
-
-        var amountPerTarget = totalSplit / reactiveTargets;
 
         foreach (var hit in args.HitEntities)
         {
-            if (!HasComp<ReactiveComponent>(hit))
+            if (!_reactiveQuery.HasComp(hit))
                 continue;
 
-            var splitSolution = _solutionContainerSystem.SplitSolution(soln.Value, amountPerTarget);
-            if (splitSolution.Volume <= 0)
-                continue;
+            var splitSolution = _solutionContainerSystem.SplitSolution(soln.Value, totalSplit / hitCount);
 
-            var ev = new SpilledOnEvent(entity.Owner, splitSolution.Clone());
-            RaiseLocalEvent(hit, ev);
-
-            if (_net.IsServer)
-                AdminLogger.Add(LogType.MeleeHit, $"{ToPrettyString(args.User)} splashed {SharedSolutionContainerSystem.ToPrettyString(splitSolution):solution} from {ToPrettyString(entity.Owner):entity} onto {ToPrettyString(hit):target}");
+            AdminLogger.Add(LogType.MeleeHit,
+                $"{ToPrettyString(args.User):actor} "
+                + $"splashed {SharedSolutionContainerSystem.ToPrettyString(splitSolution):solution} "
+                + $"from {ToPrettyString(entity.Owner):entity} onto {ToPrettyString(hit):target}");
 
             Reactive.DoEntityReaction(hit, splitSolution, ReactionMethod.Touch);
 
-            Popups.PopupPredicted(Loc.GetString("spill-melee-hit-attacker", ("amount", amountPerTarget), ("spillable", entity.Owner), ("target", Identity.Entity(hit, EntityManager))),
-                Loc.GetString("spill-melee-hit-others", ("attacker", args.User), ("spillable", entity.Owner), ("target", Identity.Entity(hit, EntityManager))),
-                hit, args.User, PopupType.SmallCaution);
+            Popups.PopupClient(Loc.GetString("spill-melee-hit-attacker",
+                    ("amount", totalSplit / hitCount),
+                    ("spillable", entity.Owner),
+                    ("target", Identity.Entity(hit, EntityManager, args.User))),
+                hit,
+                args.User);
+            Popups.PopupEntity(
+                Loc.GetString("spill-melee-hit-others",
+                    ("attacker", Identity.Entity(args.User, EntityManager)),
+                    ("spillable", entity.Owner),
+                    ("target", Identity.Entity(hit, EntityManager))),
+                hit,
+                Filter.PvsExcept(args.User),
+                true,
+                PopupType.SmallCaution);
         }
     }
-    // GabyStation end
+
+    /// <summary>
+    /// Prevent Pacified entities from throwing items that can spill liquids.
+    /// </summary>
+    private void OnAttemptPacifiedThrow(Entity<SpillableComponent> ent, ref AttemptPacifiedThrowEvent args)
+    {
+        // Don’t care about closed containers.
+        if (Openable.IsClosed(ent))
+            return;
+
+        // Don’t care about empty containers.
+        if (!_solutionContainerSystem.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out _, out var solution)
+            || solution.Volume <= 0)
+            return;
+
+        args.Cancel("pacified-cannot-throw-spill");
+    }
 }

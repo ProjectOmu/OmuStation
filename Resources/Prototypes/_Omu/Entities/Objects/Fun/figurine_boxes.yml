@@ -1,0 +1,47 @@
+- type: entity
+  parent: BaseItem
+  id: MysteryStaffPlushieBox
+  name: Mystery sectoral command box
+  suffix: Filled
+  description: It is not about which plushie it is, it is about what the plushie represents.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/plushbox.rsi
+    state: icon
+  - type: SpawnItemsOnUse
+    items:
+    - id: MysteryFigureBoxTrash
+    - id: PlushieAureuOmuStaff
+      orGroup: StaffPlushie
+    - id: PlushieMarikiiiOmuStaff
+      orGroup: StaffPlushie
+    - id: PlushieThesiaOmuStaff
+      orGroup: StaffPlushie
+    - id: PlushieNagollOmuStaff
+      orGroup: StaffPlushie
+    - id: PlushieArtemisOmuStaff
+      orGroup: StaffPlushie
+    - id: PlushieCliveOmuStaff
+      orGroup: StaffPlushie
+    - id: PlushieCygOmuStaff
+      orGroup: StaffPlushie
+    - id: PlushieTossornOmuStaff
+      orGroup: StaffPlushie
+    - id: PlushieDoglettuceOmuStaff
+      orGroup: StaffPlushie
+    - id: PlushieHayrayOmuStaff
+      orGroup: StaffPlushie
+    - id: PlushieGinoOmuStaff
+      orGroup: StaffPlushie
+    - id: PlushiePuntsssOmuStaff
+      orGroup: StaffPlushie
+    - id: PlushieNnifOmuStaff
+      orGroup: StaffPlushie
+    - id: PlushieMednogOmuStaff
+      orGroup: StaffPlushie
+    - id: PlushieYuriOmuStaff
+      orGroup: StaffPlushie
+    - id: PlushieXiOmuStaff
+      orGroup: StaffPlushie
+    - id: PlushieSammyOmuStaff
+      orGroup: StaffPlushie

@@ -53,7 +53,7 @@ public sealed partial class SlotMachineComponent : Component
     #endregion
 
     [DataField, AutoNetworkedField]
-    public EntProtoId GodPotPrize = "WeaponShotgunHeavy";
+    public EntProtoId GodPotPrize = "WeaponFoamMinigun"; //Omu Edit
 
     [DataField, AutoNetworkedField]
     public bool Emagged;

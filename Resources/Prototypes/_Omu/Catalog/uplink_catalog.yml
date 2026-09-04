@@ -200,3 +200,32 @@
   - !type:BuyerDepartmentCondition
     whitelist:
     - Science
+
+- type: listing
+  id: UplinkBloodredVim
+  name: uplink-BloodredVim-name
+  description: uplink-BloodredVim-desc
+  productEntity: CrateCybersunBloodredVimBundle
+  cost:
+    Telecrystal: 100
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Allulalo
+
+- type: listing
+  id: UplinkWeaponFakeTaiwanPond
+  name: uplink-fake-taiwan-pond-bundle-name
+  description: uplink-fake-taiwan-pond-bundle-desc
+  icon: { sprite: _Goobstation/Objects/Fun/taiwan_pond.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelClownFilledFakeTaiwanPond
+  cost:
+    Telecrystal: 100
+  categories:
+    - UplinkJob
+  conditions:
+    - !type:BuyerJobCondition
+      whitelist:
+        - Clown

@@ -62,13 +62,13 @@ namespace Content.Goobstation.Shared.SlotMachine
             comp.GodPotWinChance =  _random.NextFloat(0, 0.05f);
 
             // lord have mercy...
-            var allProtos = _proto.EnumeratePrototypes<EntityPrototype>().ToList();
+            //var allProtos = _proto.EnumeratePrototypes<EntityPrototype>().ToList(); //Omu edit start
 
-            if (allProtos.Count > 0)
-            {
-                var randomProto = _random.Pick(allProtos);
-                comp.GodPotPrize = randomProto.ID;
-            }
+            //if (allProtos.Count > 0)
+            //{
+            //    var randomProto = _random.Pick(allProtos);
+            //    comp.GodPotPrize = randomProto.ID;
+            //} //Omu edit end
         }
 
         /// <summary>

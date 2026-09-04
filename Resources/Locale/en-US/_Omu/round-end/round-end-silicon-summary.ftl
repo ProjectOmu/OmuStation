@@ -1,0 +1,1 @@
+round-end-summary-window-silicon-summary-tab-title = Silicon Summary
