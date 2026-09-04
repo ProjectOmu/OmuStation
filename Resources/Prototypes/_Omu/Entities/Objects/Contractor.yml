@@ -1,0 +1,14 @@
+- type: entity
+  id: PortalContractor
+  parent: BasePortal
+  description: This portal gives you the creeps... you really don't want to go through it.
+  components:
+  - type: Sprite
+    layers:
+    - state: portal-red
+  - type: PointLight
+    color: OrangeRed
+    radius: 3
+    energy: 1
+    netsync: false
+  - type: ContractorPortal

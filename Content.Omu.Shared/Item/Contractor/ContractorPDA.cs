@@ -66,10 +66,19 @@ namespace Content.Omu.Shared.Item.Contractor
 
         private void OnDoAfter(Entity<ContractorPDAComponent> ent, ref ContractorExtractDoAfterEvent args)
         {
+            if (ent.Comp.TargetEntity is not null)
+            {
+                var xform = Transform(args.User);
+                var portal = PredictedSpawnAtPosition("PortalContractor", xform.Coordinates);
 
+                if (TryComp<ContractorPortalComponent>(portal, out var portComp) && ent.Comp.TargetEntity is not null)
+                {
+                    portComp.TargetEntity = ent.Comp.TargetEntity;
+                    portComp.Reward = ent.Comp.Reward;
+                }
+            }
         }
     }
 
-    [Serializable]
     public sealed partial class ContractorExtractDoAfterEvent : SimpleDoAfterEvent;
 }

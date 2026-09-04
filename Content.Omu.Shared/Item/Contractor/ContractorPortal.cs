@@ -44,7 +44,7 @@ namespace Content.Omu.Shared.Item.Contractor
         ///     Obviously this should strictly be larger than <see cref="MaxRandomRadius"/> (or null)
         /// </remarks>
         [DataField("maxTeleportRadius"), ViewVariables(VVAccess.ReadWrite)]
-        public float? MaxTeleportRadius;
+        public float? MaxTeleportRadius = 20f;
 
         [DataField("TargetEntity"), ViewVariables(VVAccess.ReadWrite)]
         public EntityUid? TargetEntity;
@@ -181,6 +181,8 @@ namespace Content.Omu.Shared.Item.Contractor
 
             PredictedSpawnAtPosition(tc, coords.Coordinates);
             _transform.SetCoordinates(subject, target);
+
+            _popup.PopupEntity("Extraction successful!", ent);
 
             if (!playSound)
                 return;
