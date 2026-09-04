@@ -123,3 +123,39 @@
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Back/Satchels/roboticist.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackBartender
+  name: bartender backpack
+  description: A backpack worn by Bartenders to hold their supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Backpacks/bartender.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelBartender
+  name: bartender duffel bag
+  description: A large duffel bag worn by Bartenders to hold their supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Duffels/bartender.rsi
+
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerBartender
+  name: bartender messenger bag
+  description: A lightweight bag for keeping extra supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Messenger/bartender.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelBartender
+  name: bartender satchel
+  description: A trendy looking satchel to hold extra supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Satchels/bartender.rsi

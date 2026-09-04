@@ -48,5 +48,8 @@ loadout-group-janitor-backpack = Janitor backpacks
 # Chef
 loadout-group-chef-backpack = Chef backpacks
 
+# Bartender
+loadout-group-bartender-backpack = Bartender backpacks
+
 # Other
 loadout-group-civilian_formal-shoes = Formal shoes
