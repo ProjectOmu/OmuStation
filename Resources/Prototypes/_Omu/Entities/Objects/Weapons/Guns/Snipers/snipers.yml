@@ -27,7 +27,7 @@
           tags:
           - CartridgeLongRifle
   - type: Gun
-    fireRate: 1
+    fireRate: 0.66
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -238,6 +238,6 @@
     maxOffset: 4
     pvsIncrease: 0.4
   - type: MagazineVisuals
-    magState: mag
+    magState: mag-0
     steps: 1
     zeroVisible: true
