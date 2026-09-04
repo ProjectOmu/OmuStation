@@ -334,7 +334,7 @@
 
 - type: loadoutGroup
   id: TrinketsSecuritySergeant
-  name: loadout-group-trinkets-job
+  name: loadout-group-sergeant-gun
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -344,6 +344,7 @@
   - SecurityOfficerEG1
   - WeaponPistolMk58Gold
   - SecuritySergeantMosin
+  - SecuritySergeantEnergyMagnum
 
 - type: loadoutGroup
   id: SecuritySergeantPDA
@@ -417,11 +418,14 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - SecurityOfficerGunCase
+  - BrigMedCase # Brigmed gets some goddamn flavor now
   - SecurityOfficerMk58
   - SecurityOfficerSecurityDutyRevolver
   - SecurityOfficerEG1
   - WeaponPistolMk58Gold
+  - BrigmedWeaponCrossbowSyringe
+  - WeaponPneumaticShotgun
+  - BrigmedWeaponDisablerSMG
 
 # clown
 - type: loadoutGroup
@@ -494,6 +498,13 @@
   - MedicalDoctorMessenger # Frontier
   - CybersunMedicalMessenger
 
+- type: loadoutGroup
+  id: MedicalNeck
+  name: loadout-group-medical-neck
+  minLimit: 0
+  loadouts:
+  - MedicalStethoscope
+
 # Paramedic
 - type: loadoutGroup
   id: ParamedicBackpack
@@ -511,3 +522,10 @@
   - ParamedMessenger
   - MedicalDoctorMessenger # Frontier
   - CybersunMedicalMessenger
+
+- type: loadoutGroup
+  id: ParamedicBelt
+  name: loadout-group-paramedic-belt
+  loadouts:
+  - EMTBelt
+  - ParamedPouch

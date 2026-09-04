@@ -1108,6 +1108,9 @@
   - type: Battery
     maxCharge: 1200 # Goobstation
     startingCharge: 1200 # Goobstation
+  - type: BatterySelfRecharger # Omu, re-readd self-recharging on the e-shotty
+    autoRechargeRate: 28 # This is to compensate for 1050 --> 1200 charge; formerly 24
+    autoRechargePauseTime: 30
 
 - type: entity
   name: energy magnum
@@ -1135,8 +1138,8 @@
     tags:
     - HighRiskItem
     - Sidearm
-  - type: StealTarget
-    stealGroup: WeaponEnergyMagnum
+#  - type: StealTarget # Omu
+#    stealGroup: WeaponEnergyMagnum
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg

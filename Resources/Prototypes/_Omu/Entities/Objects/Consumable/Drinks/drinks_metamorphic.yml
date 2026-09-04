@@ -1,0 +1,31 @@
+- type: entity
+  parent: DrinkGlass
+  id: DrinkTheWellesGlass
+  suffix: the welles
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: TheWelles
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/the_welles.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkTheKitchenSinkGlass
+  suffix: the kitchen sink
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: TheKitchenSink
+          Quantity: 30
+  - type: Icon
+    sprite: _Omu/Objects/Consumable/Drinks/the_kitchen_sink.rsi
+    state: icon
