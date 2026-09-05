@@ -37,15 +37,3 @@
         amount: 2
       - id: GrenadeToy # Lure them into a false sense of trust.
         amount: 4
-
-- type: entity # todo: when the silo rework comes in, this and all references (in Lockers/heads.yml) should be removed
-  parent: ClothingBackpackDuffelEngineering # intended to hold off every department from clamoring
-  id: ClothingBackpackDuffelBasicMaterials # for cargo to give them basic materials roundstart
-  name: sheet duffel # have you ever wondered why we don't have FTL files for name and description?
-  description: A large duffel bag for holding extra tools and supplies. This one seems to be designed for holding just enough supplies to stop departments from immediately begging for the basics.
-  components:
-  - type: StorageFill
-    contents:
-    - id: SheetGlass10 # 10 sheets of each basic material should satisfy roundstart needs
-    - id: SheetSteel10 # without dumping in too many extra materials into the roundstart economy
-    - id: SheetPlastic10
