@@ -57267,7 +57267,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 46.5,12.5
       parent: 2
-- proto: CargoTechFabFilled # todo: revert to normal when silo update comes
+- proto: CargoTechFabFilled
   entities:
   - uid: 12180
     components:
@@ -83079,7 +83079,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -7.5,35.5
       parent: 2
-- proto: EngineeringTechFabFilled # todo: revert to normal when silo update comes
+- proto: EngineeringTechFabFilled
   entities:
   - uid: 17942
     components:
@@ -130786,7 +130786,7 @@ entities:
     - type: Transform
       pos: -51.5,-37.5
       parent: 2
-- proto: MedicalTechFabFilled # todo: revert to normal when silo update comes
+- proto: MedicalTechFabFilled
   entities:
   - uid: 18210
     components:
@@ -147329,7 +147329,7 @@ entities:
     - type: Transform
       pos: 29.5,66.5
       parent: 2
-- proto: ScienceTechFabFilled # todo: revert to normal when silo update comes
+- proto: ScienceTechFabFilled
   entities:
   - uid: 9827
     components:
@@ -147735,7 +147735,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 61.5,-10.5
       parent: 2
-- proto: SecurityTechFabFilled # todo: revert to normal when silo update comes
+- proto: SecurityTechFabFilled
   entities:
   - uid: 25776
     components:
@@ -147768,7 +147768,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -10.5,0.5
       parent: 2
-- proto: ServiceTechFabFilled # todo: revert to normal when silo update comes
+- proto: ServiceTechFabFilled
   entities:
   - uid: 9747
     components:
