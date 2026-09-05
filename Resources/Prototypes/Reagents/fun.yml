@@ -256,7 +256,7 @@
         ignoreResistances: false
         damage:
           types:
-            Cold: 0.05
+            Cold: 0.5 # Omu, buff Fresium
       - !type:AdjustTemperature
         conditions:
         - !type:TemperatureCondition
@@ -268,18 +268,18 @@
       - !type:Extinguish # cold
   metabolisms:
     Poison:
-      metabolismRate : 0.45
+      metabolismRate : 0.4 # Omu, buff Fresium
       effects:
       - !type:HealthChange
         damage:
           types:
-             Cold: 0.01 # slightly nips directly, other cold damage comes from the temp change
+             Cold: 0.5 # slightly nips directly, other cold damage comes from the temp change # Omu, buff from 0.01 to 0.5
              Heat: -3 # ghetto burn chem. i don't think anyone would use this intentionally but it's funny
       - !type:PopupMessage
         conditions:
         - !type:ReagentCondition
           reagent: Fresium
-          max: 35
+          max: 20 # 35 # Omu, lower thresholds to account for Fresium buff
         type: Local
         visualType: LargeCaution
         messages: [ "fresium-effect-freeze-insides"]
@@ -288,7 +288,7 @@
         conditions:
         - !type:ReagentCondition
           reagent: Fresium
-          max: 35
+          max: 20 # 35 # Omu, lower thresholds to account for Fresium buff
         type: Local
         visualType: LargeCaution
         messages: [ "fresium-effect-slow"]
@@ -302,21 +302,21 @@
         conditions:
         - !type:ReagentCondition
           reagent: Fresium
-          max: 40 # slows when less than 40
+          max: 25 # 40 # slows when less than 40 # Omu, lowered to 25
         walkSpeedModifier: 0.6
         sprintSpeedModifier: 0.6
       - !type:MovementSpeedModifier
         conditions:
         - !type:ReagentCondition
           reagent: Fresium
-          min: 40 # your legs stop working when above 40
+          min: 25 # 40 # your legs stop working when above 40 # Omu, lowered to 25
         walkSpeedModifier: 0.00
         sprintSpeedModifier: 0.00
       - !type:PopupMessage
         conditions:
         - !type:ReagentCondition
           reagent: Fresium
-          min: 40
+          min: 25 # 40 # Omu, lowered to 25
         type: Local
         visualType: LargeCaution
         messages: [ "fresium-effect-frozen"]
