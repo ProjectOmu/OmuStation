@@ -115,6 +115,8 @@
       Female: FemaleFelinid
       Unsexed: MaleFelinid
   - type: NoShoesSilentFootsteps
+  - type: StealTarget # Omu
+    stealGroup: StealLittlePerson
   - type: Tag
     tags:
     - CanPilot
@@ -122,6 +124,7 @@
     - DoorBumpOpener
     - FelinidEmotes # Since we need to add this, we also need to rewrite all others
     - AnomalyHost
+  - type: ToggleableWagging # Omu
 
 - type: entity
   save: false

@@ -47,3 +47,6 @@ uplink-BloodredVim-desc = A specialised prototype developed by cybersun for spec
 # Should this be in uplink since we have the implant now? who knows, but lets make the FTL work for now.
 uplink-voice-mask-name = Voice Mask
 uplink-voice-mask-desc = A gas mask that lets you adjust your voice to whoever you can think of. Also utilizes cutting-edge chameleon technology.
+
+uplink-fake-taiwan-pond-bundle-name = Taiwan Pond Bundle
+uplink-fake-taiwan-pond-bundle-desc = A China lake painted to look like a Taiwan Pond, Comes with two 40mm slugs, two 40mm birdshot grenades and a few 40mm prank grenades.
