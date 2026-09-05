@@ -261,13 +261,13 @@
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateParamedic
   name: sanitater modsuit chestplate
-  description: A white and blue-ish-grey steel plate for keeping out the harsh void of space and the occasional bullet.
+  description: Thick steel plating for keeping out the harsh void of space and the occasional bullet. # Omu
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/paramedic.rsi
+    sprite: _Omu/Clothing/OuterClothing/Modsuits/paramedic.rsi # Omu, link to new sprites in omu namespace
     layers:
     - state: chestplate
     - state: chestplate-sealed
@@ -292,8 +292,8 @@
       - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
       - state: equipped-OUTERCLOTHING-sealed-vox
-      outerClothing-hydrakin:
-      - state: equipped-OUTERCLOTHING-sealed-hydrakin
+      #outerClothing-hydrakin: # Omu, i'm a hackfraud and can't do proper hydrakin sprites for this thing yet
+      #- state: equipped-OUTERCLOTHING-sealed-hydrakin # Omu, so i'm just commenting it out and letting displacements take over
   - type: ExplosionResistance
     damageCoefficient: 0.85
   - type: Armor
