@@ -20,8 +20,10 @@
           Heat: 0.3
           Radiation: 0.5
           Caustic: 0.5
-      staminaModifier: 0.35
+      #staminaModifier: 0.35 # Omu, this doesn't exist here, we use StaminaResistance instead
     - type: ExplosionResistance
       damageCoefficient: 0.5
     - type: FireProtection
       reduction: 0.85
+    - type: StaminaResistance # Omu
+      damageCoefficient: 0.35
