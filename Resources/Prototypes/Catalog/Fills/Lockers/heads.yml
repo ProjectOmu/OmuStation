@@ -24,7 +24,6 @@
     - id: SalvageShuttleConsoleCircuitboard # Omu edit
     - id: SalvageExpeditionsComputerCircuitboard # Omu edit
     - id: StockTradingCartridge #Omu STOCKS
-    - id: ClothingBackpackDuffelBasicMaterials # Omu, roundstart basics; todo: remove when silo update hits
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -151,7 +150,6 @@
     - id: CommandMegaphone # goob - loudspeakers
     - id: ComputerServiceCommsFlatpack #Omu adds departmental comms board
     - id: Multitool # Omu
-    - id: ClothingBackpackDuffelBasicMaterials # Omu, roundstart basics; todo: remove when silo update hits
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -198,7 +196,6 @@
     - id: MaterialSiloFlatpack # Goob
     - id: ComputerEngiCommsFlatpack #Omu adds departmental comms board
     - id: BluespaceHarvesterMachineCircuitboard # Starlight
-    - id: ClothingBackpackDuffelBasicMaterials # Omu, roundstart basics; todo: remove when silo update hits
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -278,7 +275,6 @@
     # Goobstation End
     - id: ComputerMedicalCommsFlatpack #Omu adds departmental comms board
     - id: EnergyChemDispenserMachineCircuitboard # Omu
-    - id: ClothingBackpackDuffelBasicMaterials # Omu, roundstart basics; todo: remove when silo update hits
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -342,7 +338,6 @@
     - id: MMI # Goobstation
     - id: ComputerScienceCommsFlatpack #Omu adds departmental comms board
     - id: Multitool # Omu
-    - id: ClothingBackpackDuffelBasicMaterials # Omu, roundstart basics; todo: remove when silo update hits
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -411,7 +406,6 @@
     - id: Multitool # Omu
     - id: HoSPetKennel #Omu
     - id: BookCorporateSecretsSecurity # Omu
-    - id: ClothingBackpackDuffelBasicMaterials # Omu, roundstart basics; todo: remove when silo update hits
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
