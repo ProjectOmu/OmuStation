@@ -262,15 +262,13 @@
             max: 213.0
           amount: -1
           #Omu End
-        - !type:GenericStatusEffect # Mono edit
+        - !type:ModifyStatusEffect # goob
           conditions:
-            - !type:MetabolizerTypeCondition
-              type:
-                - Hydrakin # i hate them
-            - !type:TemperatureCondition
-              max: 213.0
-          key: ForcedSleep
-          component: ForcedSleeping
+          - !type:MetabolizerTypeCondition # Fuck you
+            type: [Hydrakin]
+          - !type:TemperatureCondition
+            max: 213.0
+          effectProto: StatusEffectForcedSleeping
           type: Add
 
 
@@ -299,14 +297,13 @@
                 Cellular: -2
             groups: # Frontier
                 Brute: 1 # Frontier
-        - !type:GenericStatusEffect # Mono edit
+        - !type:ModifyStatusEffect # goob
           conditions:
           - !type:MetabolizerTypeCondition # Fuck you
             type: [Hydrakin]
           - !type:TemperatureCondition
             max: 213.0
-          key: ForcedSleep
-          component: ForcedSleeping
+          effectProto: StatusEffectForcedSleeping
           type: Add
 
 - type: reagent
@@ -1794,14 +1791,13 @@
           - !type:TemperatureCondition
             max: 213.0
           amount: -1.5 # Omu changes end
-        - !type:GenericStatusEffect # Mono edit
+        - !type:ModifyStatusEffect # goob
           conditions:
           - !type:MetabolizerTypeCondition # Fuck you
             type: [Hydrakin]
           - !type:TemperatureCondition
-            max: 217.15
-          key: ForcedSleep
-          component: ForcedSleeping
+            max: 213.0
+          effectProto: StatusEffectForcedSleeping
           type: Add
 
 
@@ -1833,15 +1829,13 @@
             Cold: -10.0
             Shock: -10.0
             Caustic: -10.0 # Goob end
-      - !type:GenericStatusEffect # Mono edit
+      - !type:ModifyStatusEffect # goob
         conditions:
-        - !type:MetabolizerTypeCondition
-          type:
-          - Hydrakin # i hate them
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [Hydrakin]
         - !type:TemperatureCondition
           max: 213.0
-        key: ForcedSleep
-        component: ForcedSleeping
+        effectProto: StatusEffectForcedSleeping
         type: Add
 
 - type: reagent
