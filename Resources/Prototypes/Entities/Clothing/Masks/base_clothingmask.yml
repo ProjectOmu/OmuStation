@@ -62,6 +62,10 @@
     iconVisuals:
     - sprite: _Gabystation/Effects/blood.rsi
       state: maskbloodicon # Gabystation end
+  - type: SolutionContainerManager # Omu start; masks weren't getting stains due to lacking the solution
+    solutions:
+      stain:
+        maxVol: 5 # Omu end
 
 - type: entity
   abstract: true
