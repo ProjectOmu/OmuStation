@@ -6892,3 +6892,256 @@ Entries:
         spesos. For the gamblers, the stakes have never been higher.
   id: 900
   time: '2026-08-31T18:54:04.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Peranol now works on hydrakin at the immense effect it should have
+        instead of being a placebo.
+  id: 901
+  time: '2026-09-01T00:17:46.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed cargo PDA not having nanochat
+  id: 902
+  time: '2026-09-01T10:46:59.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: >-
+        Wording on escape alive objectives, you now cannot have an active
+        warrant by the end of the shift.
+    - type: Tweak
+      message: >-
+        Changelings now need to be undiscovered as the identity they escape to
+        CC with. You want to keep living and CC would ash you otherwise.
+    - type: Fix
+      message: >-
+        Explained in the maroon objective that you only need to prevent your
+        target from going to CC via the main evac shuttle.
+  id: 903
+  time: '2026-09-01T16:11:24.0000000+00:00'
+- author: Jerulean
+  changes:
+    - type: Fix
+      message: Burning your eyes with a welder now works as expected.
+  id: 904
+  time: '2026-09-01T20:56:33.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Fix
+      message: Vox Couriers now spawn with an air tank harness.
+  id: 905
+  time: '2026-09-01T21:18:28.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed hydrakin getting the toxin alert for gases they can breath
+  id: 906
+  time: '2026-09-02T05:02:41.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: >-
+        Vulpkanins, Tajarans, Felinids, Humans, and Dwarfs can now wag some of
+        their tails with an action.
+    - type: Tweak
+      message: >-
+        The tail wagging action now only shows up when the equipped tail marking
+        has an animation.
+  id: 907
+  time: '2026-09-02T05:26:30.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: >-
+        Added three new autoinjector cartridges, craftable in the medical
+        assembler: Weh, Copium, and Sobering.
+    - type: Tweak
+      message: >-
+        Added Copium autoinjector cartridges to the inventories of hacked
+        Nanomed+ and Sectech machines.
+  id: 908
+  time: '2026-09-02T05:34:00.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Puncturase, Lacinerol, and Bruizine are all heavily toned down to the
+        following stats: 80/5u healing of their respective type (from 200/5u),
+        0.25u/s metabolism, processed at 1u/s total when overdosed.
+  id: 909
+  time: '2026-09-02T05:42:45.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Fresium is now more potent and substantially easier to get, no longer
+        requiring frezon to make. As a result, Fresium no longer produces frezon
+        when turning water into ice.
+  id: 910
+  time: '2026-09-02T06:04:13.0000000+00:00'
+- author: Duuckie, DuskTheSnep
+  changes:
+    - type: Add
+      message: >-
+        Paramedics have a new belt option in their loadout: the paramedic's
+        medical pouch, a 4x4 bag filled to the brim with cartridges and
+        autoinjectors. It can hold the same items as an EMT belt.
+  id: 911
+  time: '2026-09-02T06:06:26.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: Lowered damage explosions do
+  id: 912
+  time: '2026-09-02T06:07:48.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Fix
+      message: >-
+        "Paramedic Jumpsuit" and "Paramedic Uniform" no longer share the same
+        textures.
+    - type: Tweak
+      message: >-
+        Resprited the Paramedic Cap, Windbreaker, Winter Coat, Lizard plushie,
+        PDA, and Jumpsuits.
+    - type: Tweak
+      message: Gave every Paramedic Jacket and Jumpsuit the same protection values.
+    - type: Add
+      message: The Paramedic Windbreaker can now be unzipped.
+  id: 913
+  time: '2026-09-02T06:13:56.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: The energy shotgun now self-recharges again.
+  id: 914
+  time: '2026-09-02T21:28:17.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: >-
+        Resprited nearly every Plasmaman Envirosuit available! Cover that
+        scandalous, bony body of yours in _Style!_
+    - type: Tweak
+      message: >-
+        Resprited the Enviroglove icons to differentiate them from regular
+        gloves.
+    - type: Add
+      message: >-
+        Added new Plasmaman Envirosuits: Veteran CMO, Purple RD, Senior
+        Physician, Senior Chemist, Senior Engineer.
+    - type: Add
+      message: 'Added new Plasmaman Envirogloves: Captain, RD, Quartermaster, Latex.'
+  id: 915
+  time: '2026-09-02T21:54:43.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: .30 Rifle no longer has AP.
+    - type: Tweak
+      message: >-
+        APDS shells are now more expensive, and deal less damage, but still
+        retain full AP.
+    - type: Tweak
+      message: >-
+        Colossus gets an extra tile of melee range to prevent people from
+        grabbing it and making it unable to move properly.
+    - type: Tweak
+      message: R6 Shotgun fire rate decreased, and spread decreased a small amount.
+  id: 916
+  time: '2026-09-02T22:18:07.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: Medical Doctors and Virologists now get a stethoscope in their loadouts.
+  id: 917
+  time: '2026-09-02T22:20:43.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: >-
+        Updated the word replacement list for the German accent; it now contains
+        more common words.
+    - type: Remove
+      message: Removed random umlauts from the German accent.
+  id: 918
+  time: '2026-09-03T00:07:33.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: Resprited the Paramedic's "Sanitater" MODsuit
+    - type: Fix
+      message: >-
+        The Sanitater MODsuit now properly displays the feroxi variant of its
+        helmet.
+  id: 919
+  time: '2026-09-03T08:10:00.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Hunger decreases at 1.5x the pre-upstream rate (compared to 2.5x the
+        pre-upstream rate before this). People should now need to eat less
+        frequently.
+    - type: Fix
+      message: >-
+        Non-Goobstation species now experience proportionally elevated hunger
+        like the rest of the species. Please report if chitinids starve
+        excessively easily.
+  id: 920
+  time: '2026-09-03T11:40:03.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: Harpies can now make owl noises. Hoot!
+  id: 921
+  time: '2026-09-03T12:53:00.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Ore lathes now print raw materials properly into storage in bulk instead
+        of having to print one by one.
+  id: 922
+  time: '2026-09-03T22:15:55.0000000+00:00'
+- author: Jerulean
+  changes:
+    - type: Fix
+      message: Positronic brains are no longer deleted by maxing out organ damage.
+    - type: Add
+      message: Surgery to repair destroyed positronic brains.
+  id: 923
+  time: '2026-09-03T22:23:46.0000000+00:00'
+- author: Jerulean
+  changes:
+    - type: Tweak
+      message: Reverted Allulalo thirst rate to prior rate.
+  id: 924
+  time: '2026-09-04T03:50:42.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: >-
+        Escape to Central Command objective was changed to: escape to central
+        command alive and undetained on the evacuation shuttle || One of our
+        undercover agents will debrief you when you arrive. Don't show up in
+        cuffs or security right on your tails.
+  id: 925
+  time: '2026-09-04T13:52:08.0000000+00:00'
+- author: raincall aka VulpLover67
+  changes:
+    - type: Add
+      message: >-
+        Added a spaceproof sec/corpsman vulp mantle, craft it using a work
+        mantle and a sec/medsec hud
+  id: 926
+  time: '2026-09-04T13:53:21.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Energy magnum now correctly shows as security contraband.
+  id: 927
+  time: '2026-09-04T22:58:56.0000000+00:00'
