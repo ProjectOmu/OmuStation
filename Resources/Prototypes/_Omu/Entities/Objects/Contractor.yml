@@ -1,6 +1,5 @@
 - type: entity
   id: PortalContractor
-  parent: BasePortal
   description: This portal gives you the creeps... you really don't want to go through it.
   components:
   - type: Sprite
@@ -12,3 +11,22 @@
     energy: 1
     netsync: false
   - type: ContractorPortal
+  - type: Transform
+    anchored: True
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+  - type: Sprite
+    sprite: /Textures/Effects/portal.rsi
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false

@@ -16,9 +16,10 @@ using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
-using Robust.Shared.Utility;
+using Robust.Shared.Serialization;
 using Content.Goobstation.Common.Interactions;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Humanoid;
 
 namespace Content.Omu.Shared.Item.Contractor
 {
@@ -41,10 +42,12 @@ namespace Content.Omu.Shared.Item.Contractor
     public sealed class ContractorPDASystem : EntitySystem
     {
         [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+        [Dependency] private IRobustRandom _random = default!;
         public override void Initialize()
         {
             SubscribeLocalEvent<ContractorPDAComponent, UseInHandEvent>(OnUse);
             SubscribeLocalEvent<ContractorPDAComponent, ContractorExtractDoAfterEvent>(OnDoAfter);
+            base.Initialize();
         }
 
         private void OnUse(Entity<ContractorPDAComponent> ent, ref UseInHandEvent args)
@@ -77,8 +80,30 @@ namespace Content.Omu.Shared.Item.Contractor
                     portComp.Reward = ent.Comp.Reward;
                 }
             }
+            var newTarget = SelectTarget(ent);
+            if (newTarget == EntityUid.Invalid)
+                return;
+
+            ent.Comp.TargetEntity = newTarget;
+        }
+
+        private EntityUid SelectTarget(Entity<ContractorPDAComponent> ent)
+        {
+            var targets = new List<EntityUid>();
+            var query = EntityQueryEnumerator<HumanoidAppearanceComponent>();
+
+            while (query.MoveNext(out var uid, out _))
+            {
+                targets.Add(uid);
+            }
+
+            if (targets.Count == 0)
+                return EntityUid.Invalid;
+
+            return _random.Pick(targets);
         }
     }
 
+    [Serializable, NetSerializable]
     public sealed partial class ContractorExtractDoAfterEvent : SimpleDoAfterEvent;
 }

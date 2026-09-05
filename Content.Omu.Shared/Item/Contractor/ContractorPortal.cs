@@ -188,6 +188,7 @@ namespace Content.Omu.Shared.Item.Contractor
                 return;
 
             _audio.PlayPredicted(departureSound, ent, subject);
+            PredictedQueueDel(ent);
 
         }
     }
