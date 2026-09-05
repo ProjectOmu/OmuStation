@@ -7099,3 +7099,49 @@ Entries:
       message: Harpies can now make owl noises. Hoot!
   id: 921
   time: '2026-09-03T12:53:00.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Ore lathes now print raw materials properly into storage in bulk instead
+        of having to print one by one.
+  id: 922
+  time: '2026-09-03T22:15:55.0000000+00:00'
+- author: Jerulean
+  changes:
+    - type: Fix
+      message: Positronic brains are no longer deleted by maxing out organ damage.
+    - type: Add
+      message: Surgery to repair destroyed positronic brains.
+  id: 923
+  time: '2026-09-03T22:23:46.0000000+00:00'
+- author: Jerulean
+  changes:
+    - type: Tweak
+      message: Reverted Allulalo thirst rate to prior rate.
+  id: 924
+  time: '2026-09-04T03:50:42.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: >-
+        Escape to Central Command objective was changed to: escape to central
+        command alive and undetained on the evacuation shuttle || One of our
+        undercover agents will debrief you when you arrive. Don't show up in
+        cuffs or security right on your tails.
+  id: 925
+  time: '2026-09-04T13:52:08.0000000+00:00'
+- author: raincall aka VulpLover67
+  changes:
+    - type: Add
+      message: >-
+        Added a spaceproof sec/corpsman vulp mantle, craft it using a work
+        mantle and a sec/medsec hud
+  id: 926
+  time: '2026-09-04T13:53:21.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Energy magnum now correctly shows as security contraband.
+  id: 927
+  time: '2026-09-04T22:58:56.0000000+00:00'
