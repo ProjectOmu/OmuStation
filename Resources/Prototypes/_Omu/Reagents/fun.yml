@@ -309,5 +309,5 @@
         reagent: Gekkerzine
         amount: -20
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 50
