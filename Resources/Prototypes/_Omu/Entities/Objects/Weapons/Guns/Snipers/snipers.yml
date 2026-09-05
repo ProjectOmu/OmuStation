@@ -27,6 +27,7 @@
           tags:
           - CartridgeLongRifle
   - type: Gun
+    projectileSpeed: 65 # todo: Apply change in .30 LRM bullet when ProjectileSpeedModifier is fixed
     fireRate: 0.66
     selectedMode: SemiAuto
     availableModes:
@@ -210,6 +211,7 @@
           tags:
           - CartridgeLongRifle
   - type: Gun
+    projectileSpeed: 65 # todo: Apply change in .30 LRM bullet when ProjectileSpeedModifier is fixed
     fireRate: 1.66
     selectedMode: SemiAuto
     availableModes:

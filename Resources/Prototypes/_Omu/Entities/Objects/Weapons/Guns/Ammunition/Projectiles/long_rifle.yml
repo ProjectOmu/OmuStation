@@ -5,7 +5,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
-    ProjectileSpeedModifier: 1.75 # Gimmick of .30 lrm
+    #ProjectileSpeedModifier: 1.75 (Restore this change and revert projectileSpeed when this gets fixed)
     damage:
       types:
         Piercing: 32
