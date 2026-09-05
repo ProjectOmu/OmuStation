@@ -155,8 +155,6 @@
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: MeleeRequiresWield
-  - type: Gun
-    projectileSpeed: 65 # Omu, todo: Apply change in .30 LRM bullet when ProjectileSpeedModifier is fixed
   - type: AltFireMelee
     attackType: Heavy
   - type: SolutionContainerManager
