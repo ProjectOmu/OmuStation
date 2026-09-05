@@ -1,0 +1,70 @@
+# this file contains the stopgap "mapped" versions of the 6 departmental lathes in the wake of departmental silos
+# todo: it is intended that once the silo system is overhauled, mapped departmental lathes should start empty once again
+# (or, essentially, that the PR that introduces these lathes be reverted)
+
+- type: entity
+  id: SecurityTechFabFilled
+  parent: SecurityTechFab
+  suffix: Filled, TEMPORARILY MAP THIS
+  components: # i'm not messing around with inheritance to make this look nicer
+  - type: MaterialStorage
+    storage:
+      Plastic: 3000
+      Glass: 3000
+      Steel: 3000
+# the ammo tech fab doesn't get free mats
+
+- type: entity
+  id: MedicalTechFabFilled
+  parent: MedicalTechFab
+  suffix: Filled, TEMPORARILY MAP THIS
+  components: # i'm not messing around with inheritance to make this look nicer
+  - type: MaterialStorage
+    storage:
+      Plastic: 3000
+      Glass: 3000
+      Steel: 3000
+
+- type: entity
+  id: EngineeringTechFabFilled
+  parent: EngineeringTechFab
+  suffix: Filled, TEMPORARILY MAP THIS
+  components: # i'm not messing around with inheritance to make this look nicer
+  - type: MaterialStorage
+    storage:
+      Plastic: 3000
+      Glass: 3000
+      Steel: 3000
+
+- type: entity
+  id: CargoTechFabFilled
+  parent: CargoTechFab
+  suffix: Filled, TEMPORARILY MAP THIS
+  components: # i'm not messing around with inheritance to make this look nicer
+  - type: MaterialStorage
+    storage:
+      Plastic: 3000
+      Glass: 3000
+      Steel: 3000
+
+- type: entity
+  id: ScienceTechFabFilled
+  parent: ScienceTechFab
+  suffix: Filled, TEMPORARILY MAP THIS
+  components: # i'm not messing around with inheritance to make this look nicer
+  - type: MaterialStorage
+    storage:
+      Plastic: 3000
+      Glass: 3000
+      Steel: 3000
+
+- type: entity
+  id: ServiceTechFabFilled
+  parent: ServiceTechFab
+  suffix: Filled, TEMPORARILY MAP THIS
+  components: # i'm not messing around with inheritance to make this look nicer
+  - type: MaterialStorage
+    storage:
+      Plastic: 3000
+      Glass: 3000
+      Steel: 3000
