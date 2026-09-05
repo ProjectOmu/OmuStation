@@ -70,8 +70,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopGekkerzine
-  name: Gekkerzine Lollypop
-  description: A Gekker filled lolipop. Just looking at it make you want to be loud and annoying.
+  name: gekkerzine lollypop
+  description: An gekker filled lollypop. Just looking at it makes you want to be annoying and loud.
   components:
   - type: Tag
     tags:
@@ -84,7 +84,7 @@
       map: [ "enum.AmmoVisualLayers.Base" ]
     - state: color
       map: [ "enum.AmmoVisualLayers.Tip" ]
-      color: "#8700ff"
+      color: "#c259ff"
   - type: SolutionContainerManager
     solutions:
       food:
