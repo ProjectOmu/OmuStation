@@ -6,7 +6,15 @@ selectable-set-headofsecurity-paradevoidsuit-desc =
 
 selectable-set-paramedic-cybersunhardsuit-name = CSI-122M "Xiézhù" hardsuit
 selectable-set-paramedic-cybersunhardsuit-desc =
-    The odd one out of the Cybersun hardsuits, meant to be lightweight but less armored.
+    The odd one out of the Cybersun hardsuits,
+    meant to be lightweight but less armored.
+    About as protective as its NT counterpart.
+
+# Clearer distinction between itself and the modsuit.
+selectable-set-paramedic-voidsuit-omu-desc =
+    A light hardsuit favoring environmental
+    resistance and fast movement speed,
+    over physical protection.
 
 selectable-set-warden-eshotty-name = Energy Shotgun
 selectable-set-warden-eshotty-description =
