@@ -27,8 +27,8 @@
   id: MobAvaliSprites
   sprites:
     Head: MobAvaliHead
-    Undershirt: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobAvaliChest # Omu, split torso into chest and groin
     Groin: MobAvaliGroin
     HeadTop: MobHumanoidAnyMarking
@@ -80,10 +80,10 @@
     Legs:
       points: 2
       required: false
-    Undershirt:
+    UndergarmentTop:
       points: 1
       required: false
-    Underwear:
+    UndergarmentBottom:
       points: 1
       required: false
     Arms:

@@ -1,0 +1,10 @@
+- type: entity
+  id: CrateSecurityCombatGloves
+  parent: CrateSecgear
+  name: combat gloves crate
+  description: A crate containing two pairs of combat gloves.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingHandsGlovesCombat
+      amount: 2

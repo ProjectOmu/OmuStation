@@ -25,6 +25,26 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
+
+- type: loadout
+  id: PrisonGuardEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitPrisonGuard
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: PrisonGuardEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmPrisonGuard
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
 
 - type: loadout
   id: WardenCoatBlue
@@ -33,3 +53,8 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorWarden
+
+- type: loadout
+  id: WardenMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryWarden

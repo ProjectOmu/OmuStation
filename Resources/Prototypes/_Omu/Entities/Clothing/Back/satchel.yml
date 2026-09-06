@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelParamedic
+  name: paramedic satchel
+  description: A light, sterile satchel used by Paramedics.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Satchels/paramedic.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelMedicalCybersun
+  name: cybersun medical satchel
+  description: A light, sterile satchel issued to Cybersun field medics. How *you* got one remains a mystery.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Satchels/cybersunmed.rsi

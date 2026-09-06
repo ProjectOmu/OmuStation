@@ -1,22 +1,11 @@
-// SPDX-FileCopyrightText: 2022 CommieFlowers <rasmus.cedergren@hotmail.com>
-// SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 forkeyboards <91704530+forkeyboards@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Roles; // Omustation - Remake EE Traits System - change TraitPreferenceSelector for RequirementsSelector
-using Content.Shared._Omu.Traits; // Omustation - Remake EE Traits System - Port trait functions
+using Content.Shared.Roles;
+using Content.Shared._Omu.Traits;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
+using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Roles; // Goob: Ported from DeltaV - Species specific trait support.
 
 namespace Content.Shared.Traits;
 
@@ -24,7 +13,8 @@ namespace Content.Shared.Traits;
 /// Describes a trait.
 /// </summary>
 [Prototype]
-public sealed partial class TraitPrototype : IPrototype
+public sealed partial class TraitPrototype : IPrototype,
+    IComparable<TraitPrototype> // HardLight: IComparable<self>
 {
     [ViewVariables]
     [IdDataField]
@@ -66,9 +56,17 @@ public sealed partial class TraitPrototype : IPrototype
 
     /// <summary>
     /// The components that get added to the player, when they pick this trait.
+    /// NOTE: When implementing a new trait, it's preferable to add it as a status effect instead if possible.
     /// </summary>
     [DataField]
-    public ComponentRegistry? Components { get; private set; } = default!; // Omustation - remake EE traits system - this has been made nullable in order to allow for traits which rely on just functions, instead of giving components.
+    [Obsolete("Use JobSpecial instead.")]
+    public ComponentRegistry? Components { get; private set; } = new(); // Omustation nullable for traits or something
+
+    /// <summary>
+    /// Special effects applied to the player who takes this Trait.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public List<JobSpecial> Specials { get; private set; } = new();
 
     /// <summary>
     /// Gear that is given to the player, when they pick this trait.
@@ -103,7 +101,7 @@ public sealed partial class TraitPrototype : IPrototype
     public int GlobalCost = 0;
 
     /// <summary>
-    ///     Whether this trait will increment MaxTraits or not. 
+    ///     Whether this trait will increment MaxTraits or not.
     ///     Useful for small traits, such as accents, which don't affect gameplay all that much and should be selectable at no cost.
     /// </summary>
     [DataField]
@@ -141,4 +139,22 @@ public sealed partial class TraitPrototype : IPrototype
     [DataField]
     public List<string>? RemoveLanguagesUnderstood { get; private set; } = default!;
     // Einstein Engines - Language end
+
+    // HardLight Changes start
+
+    /// <summary>
+    ///     If this trait should replace the added components. Hardlight change.
+    /// </summary>
+    [DataField]
+    public bool ReplaceComponents;
+
+    /// <summary>
+    ///     Comparison for sorting traits by cost.
+    /// </summary>
+    public int CompareTo(TraitPrototype? other)
+    {
+        return other == null ? 1 : Cost.CompareTo(other.Cost);
+    }
+
+    // End HardLight
 }

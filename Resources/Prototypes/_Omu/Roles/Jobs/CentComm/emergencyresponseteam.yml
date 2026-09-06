@@ -9,7 +9,7 @@
   playTimeTracker: JobERTLeaderBlue
   setPreference: false
   startingGear: ERTLeaderGearBlue
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTLeader" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
@@ -22,6 +22,15 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplantCentComm, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 5h
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 15h
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 30h
 
 - type: startingGear
   id: ERTLeaderGearBlue
@@ -34,8 +43,8 @@
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterArmourDurathread
     id: ERTLeaderPDA
-    ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltAssaultFilled
+    ears: ClothingHeadsetAltCentComLoudspeaker
+    belt: ClothingBeltMilitaryWebbingFilled
     pocket1: WeaponEnergyRevolver
     pocket2: FlashlightSeclite
     suitstorage: WeaponRifleLecter
@@ -58,7 +67,7 @@
   playTimeTracker: JobERTSecurityBlue
   setPreference: false
   startingGear: ERTSecurityGearBlue
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTSecurity" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   access:
@@ -88,7 +97,7 @@
     outerClothing: ClothingOuterArmorBasicSlim
     id: ERTSecurityPDABlue
     ears: ClothingHeadsetAltCentComSec
-    belt: ClothingBeltAssaultFilled
+    belt: ClothingBeltMilitaryWebbingFilled
     pocket1: OfficerGunCase
     pocket2: FlashlightSeclite
     suitstorage: WeaponRifleLecter
@@ -108,7 +117,7 @@
   playTimeTracker: JobERTMedicalBlue
   setPreference: false
   startingGear: ERTMedicGearBlue
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTMedic" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   access:
@@ -155,7 +164,7 @@
   playTimeTracker: JobERTJanitorBlue
   setPreference: false
   startingGear: ERTJanitorGearBlue
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTJanitor" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   access:
@@ -202,7 +211,7 @@
   playTimeTracker: JobERTEngineerBlue
   setPreference: false
   startingGear: ERTEngineerGearBlue
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTEngineer" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   access:
@@ -255,7 +264,7 @@
   playTimeTracker: JobERTChaplainBlue
   setPreference: false
   startingGear: ERTChaplainGearBlue
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTChaplain" # Omu
   supervisors: job-supervisors-centcom
   canBeAntag: false
   access:

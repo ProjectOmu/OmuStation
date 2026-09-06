@@ -23,6 +23,9 @@ uplink-blueprint-exosuit-fabricator-syndie-chassis-desc = A blueprint for syndic
 uplink-swordfish-name = Blood Red Swordfish
 uplink-swordfish-desc = A terrifying weapon made for the Thaven operatives. This fish is wielded like a rapier. It pierces armor and it can perform a dash attack.
 
+uplink-shoalmask-name = Shoal Infiltration Mask
+uplink-shoalmask-desc = A padded steel gas mask designed for Shoal Infiltrators, provides quiet door prying and thermal vision.
+
 uplink-shredder-name = Shredder
 uplink-shredder-desc = A razor-sharp rock guitar which delivers deadly shocks while providing you with increased speed and healing while wielded. Anyone wearing blood-red headphones nearby will also gain the same boost!
 
@@ -37,3 +40,13 @@ uplink-hobbyist-spellbook-desc = A book given out by the Wizard Federation to ge
 
 uplink-xeno-compatibility-implanter-name = Xeno Compatibility Implanter
 uplink-xeno-compatibility-implanter-desc = An implant that allows the user to make use of xenomorph organs.
+
+uplink-BloodredVim-name = Cybersun Combat Vim
+uplink-BloodredVim-desc = A specialised prototype developed by cybersun for specialised mouse operatives. The project was shelved after the market collapsed. Armed with a rocket-launcher and short range retro-rockets for speedboosts and maneuvering. It makes for a terrifying, if small, foe.
+
+# Should this be in uplink since we have the implant now? who knows, but lets make the FTL work for now.
+uplink-voice-mask-name = Voice Mask
+uplink-voice-mask-desc = A gas mask that lets you adjust your voice to whoever you can think of. Also utilizes cutting-edge chameleon technology.
+
+uplink-fake-taiwan-pond-bundle-name = Taiwan Pond Bundle
+uplink-fake-taiwan-pond-bundle-desc = A China lake painted to look like a Taiwan Pond, Comes with two 40mm slugs, two 40mm birdshot grenades and a few 40mm prank grenades.

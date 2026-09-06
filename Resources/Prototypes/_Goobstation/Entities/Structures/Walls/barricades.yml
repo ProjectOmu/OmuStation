@@ -16,13 +16,14 @@
         mask:
         - FullTileMask
         layer:
-        - TableLayer
+        #- TableLayer # Omu
+        - MidImpassable # Omu
         - LowImpassable # no mice or crawling chuds allowed, its flush with the floor
   - type: RotationDrawDepth
     southDrawDepth: OverMobs
   - type: Anchorable
   - type: Rotatable
-  - type: Climbable
+  #- type: Climbable # Omu, no climing the barricades.
   - type: InteractionOutline
   - type: Damageable
     damageContainer: Barricade

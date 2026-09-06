@@ -1,17 +1,16 @@
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.MartialArts; // Omu
+using Content.Goobstation.Maths.FixedPoint; // Omu
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Clothing; // Omu
+using Content.Shared.Damage; // Omu
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Stunnable;
+using Content.Shared.Weapons.Melee; // Omu
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Prototypes;
 
@@ -27,8 +26,49 @@ public abstract partial class SharedMartialArtsSystem
 
         SubscribeLocalEvent<GrantKungFuDragonComponent, UseInHandEvent>(OnGrantCQCUse);
 
+        // Omu start
+        SubscribeLocalEvent<GrantKungFuDragonComponent, ClothingGotEquippedEvent>(OnWear);
+        SubscribeLocalEvent<GrantKungFuDragonComponent, ClothingGotUnequippedEvent>(OnRemove);
+        // Omu end
+
         SubscribeLocalEvent<DragonPowerBuffComponent, AttackedEvent>(OnAttacked);
     }
+
+    // Omu start
+    private void OnWear(EntityUid ent, GrantKungFuDragonComponent component, ref ClothingGotEquippedEvent args)
+    {
+        if (!_netManager.IsServer)
+            return;
+
+        var user = args.Wearer;
+        TryGrantMartialArt(user, component);
+    }
+
+    private void OnRemove(Entity<GrantKungFuDragonComponent> ent, ref ClothingGotUnequippedEvent args)
+    {
+        var user = args.Wearer;
+
+        // Omu Station
+        // Don't proceed if the user has non-removable Martial Arts knowledge
+        if (HasManualCqcKnowledge(user))
+            return;
+
+        if (!TryComp<MartialArtsKnowledgeComponent>(user, out var martialartsknowcomp)
+            || !TryComp<MeleeWeaponComponent>(user, out var meleeweaponcomp))
+            return;
+
+        if (martialartsknowcomp.MartialArtsForm != MartialArtsForms.KungFuDragon)
+            return;
+
+        var originalDamage = new DamageSpecifier();
+        originalDamage.DamageDict[martialartsknowcomp.OriginalFistDamageType]
+            = FixedPoint2.New(martialartsknowcomp.OriginalFistDamage);
+        meleeweaponcomp.Damage = originalDamage;
+
+        RemComp<MartialArtsKnowledgeComponent>(user);
+        RemComp<CanPerformComboComponent>(user);
+    }
+    // Omu end
 
     private void OnAttacked(Entity<DragonPowerBuffComponent> ent, ref AttackedEvent args)
     {
@@ -59,7 +99,7 @@ public abstract partial class SharedMartialArtsSystem
         }
 
         // Paralyze, not knockdown
-        _stun.TryUpdateParalyzeDuration(target, TimeSpan.FromSeconds(proto.ParalyzeTime));
+        _stun.TryUpdateParalyzeDuration(target, proto.ParalyzeTime);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);
@@ -79,8 +119,8 @@ public abstract partial class SharedMartialArtsSystem
             _stun.TryUpdateStunDuration(target, args.DownedParalyzeTime); // No stunlocks
         else
         {
-            _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
+            _stun.TryKnockdown(target, proto.ParalyzeTime, true, true, proto.DropItems);
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         }
 
@@ -96,7 +136,7 @@ public abstract partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
         _movementMod.TryUpdateMovementSpeedModDuration(target, MartsGenericSlow, args.SlowdownTime, args.WalkSpeedModifier, args.SprintSpeedModifier);
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);
