@@ -26,9 +26,6 @@ marking-OviniaLambHorns-lamb-horns = Horns
 marking-OviniaRamHorns = Ram Horns
 marking-OviniaRamHorns-ovinia-ram-horns = Horns
 
-marking-OviniaPointyHorns = Pointy Horns
-marking-OviniaPointyHorns-ovinia-pointy-horns = Horns
-
 marking-OviniaDeerHorns = Deer Horns
 marking-OviniaDeerHorns-ovinia-deer-horns = Horns
 
@@ -47,7 +44,6 @@ marking-OviniaCurvedHorns-ovinia-curved-horns = Horns
 marking-OviniaJacobHorns = Jacob Horns
 marking-OviniaJacobHorns-jacob-horns = Horns
 
-
 marking-OviniaFace = Ovinia Face
 marking-OviniaFace-ovinia-face = Face
 marking-OviniaFace-ovinia-nose = Nose
@@ -65,6 +61,12 @@ marking-OviniaTummy-ovinia-tummy = Tummy
 
 marking-OviniaPatternFawn = Fawn Spots
 marking-OviniaPatternFawn-torso-fawn = Spot
+
+marking-OviniaChestFullMasc = Ovinia Torso [M]
+marking-OviniaChestFullMasc-full-m = Torso
+
+marking-OviniaChestFullMasc = Ovinia Torso [F]
+marking-OviniaChestFullFem-full-f = Torso
 
 marking-OviniaPatternCattleMasc = Splotches [M]
 marking-OviniaPatternCattleMasc-torso-cow-m = Splotch

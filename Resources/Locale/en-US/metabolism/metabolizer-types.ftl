@@ -21,7 +21,3 @@ metabolizer-type-avali = Avali
 metabolizer-type-resomi = Resomi
 metabolizer-type-thaven = Thaven
 # Starlight end
-
-# Den / Omu Port start
-metabolizer-type-ovinia = Ovinia
-# Den / Omu Port end

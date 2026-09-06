@@ -90,15 +90,6 @@
     state: ovinia-ram-horns
 
 - type: marking
-  id: OviniaPointyHorns
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Ovinia ]
-  sprites:
-  - sprite: _DEN/Mobs/Customization/Ovinia/horn_markings.rsi
-    state: ovinia-pointy-horns
-
-- type: marking
   id: OviniaCurvedHorns
   bodyPart: HeadTop
   markingCategory: HeadTop
