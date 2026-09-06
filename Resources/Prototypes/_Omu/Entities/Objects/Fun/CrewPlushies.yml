@@ -1,0 +1,28 @@
+- type: entity
+  parent: PlushieLizard
+  id: PlushieJeelusanOmuCrew
+  name: Jeelus-an plushie
+  description: Chaos Incarnate.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/Jeelus-an.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/Jeelus-an.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/Jeelus-an.rsi
+    slots:
+    - HEAD
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushiePickelSillyOmuStaffish
+  name: kur-nema plushie
+  description: A MAAAGICAAAL WIIIZAAAAAAAAAAARD!!! Abacraweh!
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/pickelsilly.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/pickelsilly.rsi
