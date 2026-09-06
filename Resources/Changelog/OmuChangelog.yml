@@ -7151,3 +7151,48 @@ Entries:
       message: Added a filled sprite to bluespace vials.
   id: 928
   time: '2026-09-05T20:23:16.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Grapple guns can no longer pull you through walls.
+  id: 929
+  time: '2026-09-05T22:00:27.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Chitinids now starve at 1.33x the base rate instead of 2.8x the base
+        rate. This means that they overall starve less quickly than
+        pre-upstream.
+  id: 930
+  time: '2026-09-05T22:05:51.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Add
+      message: Supermatter slivers can now be eaten by vox. (It's a bad idea.)
+    - type: Tweak
+      message: Supermatter crystals create slivers on their own more frequently now.
+  id: 931
+  time: '2026-09-05T22:14:17.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: The medical belt is now worn slightly lower.
+  id: 932
+  time: '2026-09-05T22:18:19.0000000+00:00'
+- author: Willfullyheretical
+  changes:
+    - type: Add
+      message: Added Jeelus-An plushie to sectoral crate
+  id: 933
+  time: '2026-09-05T22:20:18.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Tweak
+      message: >-
+        Diona are speed modify immune again, except for Rooting as originally
+        intended.
+    - type: Tweak
+      message: Cybersun dreadnought suit bypasses speed immunity.
+  id: 934
+  time: '2026-09-06T00:45:40.0000000+00:00'
