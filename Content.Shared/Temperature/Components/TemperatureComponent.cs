@@ -28,4 +28,7 @@ public sealed partial class TemperatureComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float AtmosTemperatureTransferEfficiency = 0.1f;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public float InteractionExchangeCoefficient = 0.1f;
 }
