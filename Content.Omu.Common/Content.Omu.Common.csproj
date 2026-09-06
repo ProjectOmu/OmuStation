@@ -11,6 +11,11 @@
 
   <Import Project="..\RobustToolbox\Imports\Shared.props" />
 
+  <ItemGroup>
+    <Folder Include="Temperature\" />
+    <Folder Include="_Trauma\" />
+  </ItemGroup>
+
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\Robust.CompNetworkGenerator.targets" />
 
