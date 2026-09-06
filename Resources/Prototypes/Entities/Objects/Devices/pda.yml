@@ -527,6 +527,7 @@
     - NotekeeperCartridge
     - NewsReaderCartridge
     - StockTradingCartridge # DeltaV - StockTrading
+    - NanoChatCartridge # DeltaV
 
 - type: entity
   parent: BasePDA
@@ -817,7 +818,7 @@
        pda-paramedic
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
-    accentVColor: "#2a4b5b"
+    accentVColor: "#364660" # Omu
   - type: Icon
     state: pda-paramedic
 
