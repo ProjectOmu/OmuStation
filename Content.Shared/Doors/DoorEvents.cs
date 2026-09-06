@@ -58,6 +58,7 @@ namespace Content.Shared.Doors
         /// </summary>
         public bool Partial;
         public bool PerformCollisionCheck;
+        public EntityUid? User = null; // EE
 
         public BeforeDoorClosedEvent(bool performCollisionCheck, bool partial = false)
         {
