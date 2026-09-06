@@ -1,0 +1,35 @@
+- type: entity          #Currently unused - see how it is on vgroid first
+  id: AsteroidRockSmugglerCache
+  parent: AsteroidRock
+  suffix: Smuggler
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      oreRarityPrototypeId: SmugglerCache
+
+- type: ore
+  id: OreCrateBaseSmugglerSyndicate
+  oreEntity: CrateBaseSmugglerSyndicate
+  minOreYield: 1
+  maxOreYield: 1
+
+- type: weightedRandomOre
+  id: SmugglerCache
+  weights:
+    OreCrateBaseSmuggler: 1
+    OreCrateBaseSmugglerSyndicate: 1
+
+- type: ore
+  id: OreCrateBaseSmuggler
+  oreEntity: CrateBaseSmuggler
+  minOreYield: 1
+  maxOreYield: 1
+
+- type: entity          # Vgroid version
+  id: IronRockSmugglerCache
+  parent: IronRock
+  suffix: Smuggler
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      oreRarityPrototypeId: SmugglerCache
