@@ -78,6 +78,7 @@
     #- id: SpacePirates # Omu - Yar, Mald pr for Mason, Yar
     #- id: GreyTideAntagMidround # Goobstation - New Midrounds -- Omu Change Removed
     - id: SingulothKnightsMidround # Goobstation - New Midrounds
+
     #- id: DarkLordMidround # Goobstation - New Midrounds
     - id: MimeAssassinMidround # Goobstation - New Midrounds
     #- id: DarkPriestMidround # Goobstation - New Midrounds -- Omu Change Removed
@@ -92,6 +93,7 @@
     #TODO when midrounds are "reviewed" by the chudmins add them back
     #TODO When Slasher is Ready - id: SlasherSpawn # Goobstation - The Slasher
     #- id: WizardSpawn # Goob. Unless?
+    - id: VoidwalkerSpawn # Omu
     - !type:NestedSelector
       tableId: DerelictBorgEventTable
 
