@@ -1,0 +1,120 @@
+- type: entity
+  id: secarang
+  parent: [boomerang, BaseSecurityContraband]
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Throwable/secarang.rsi
+    state: secarang_off
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Tag
+    tags:
+    - SecBeltEquip
+  - type: MeleeWeapon # damage when you smack people with it
+    damage:
+      types:
+        Blunt: 4
+  - type: DamageOtherOnHit # the damage the throw does
+    damage:
+      types:
+        Blunt: 5
+  - type: StaminaDamageOnHit # when you slap people with it
+    damage: 0
+    overtime: 0
+  - type: StaminaDamageOnCollide # stam damage when ya throw it at people
+    damage: 0
+  - type: ItemSwitch
+    defaultState: off
+    state: "off"
+    showLabel: true
+
+    states:
+      off: !type:ItemSwitchState
+        verb: off
+        sprite:
+            sprite: _Omu/Objects/Weapons/Throwable/secarang.rsi
+            state: secarang_off
+        components:
+        - type: MeleeWeapon # damage when you smack people with it
+          damage:
+            types:
+              Blunt: 4
+        - type: DamageOtherOnHit # the damage the throw does
+          damage:
+            types:
+              Blunt: 5
+        - type: StaminaDamageOnHit # when you slap people with it
+          damage: 0
+          overtime: 0
+        - type: StaminaDamageOnCollide # stam damage when ya throw it at people
+          damage: 0
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.250
+
+      on: !type:ItemSwitchState
+        verb: on
+        sprite:
+          sprite: _Omu/Objects/Weapons/Throwable/secarang.rsi
+          state: secarang_on
+        components:
+        - type: Stunbaton # This has to be here otherwise it will not drain enegry on a throw hit, but cant be elsewhere because then the UI breaks
+          energyPerUse: 50
+        - type: MeleeWeapon
+          damage:
+            types:
+              Blunt: 0
+        - type: DamageOtherOnHit
+          damage:
+            types:
+              Blunt: 0
+        - type: StaminaDamageOnHit
+          damage: 10
+          overtime: 10
+        - type: StaminaDamageOnCollide
+          damage: 25
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.250
+
+  - type: Item
+    size: Normal
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Belt
+  - type: DisarmMalus
+    malus: 0.225
+  - type: LandAtCursor
+  - type: UseDelay
+    delays:
+      stunbaton:
+        length: 2.5
+  - type: Boomerang
+  - type: StaticPrice
+    price: 95
+  - type: Riggable
+  - type: SolutionContainerManager
+    solutions:
+      battery:
+        maxVol: 5
+  - type: InjectableSolution
+    solution: battery
+  - type: DrawableSolution
+    solution: battery
+  - type: Explosive
+    explosionType: Default
+    intensitySlope: 1.5
+    maxIntensity: 200
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Plastic: 75
+  - type: GuideHelp
+    guides:
+    - Security
+  - type: MartialArtBlocked
+    form: CorporateJudo
