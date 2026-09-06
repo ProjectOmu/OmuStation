@@ -273,7 +273,7 @@
 # Nymphs that the organs will turn into
 - type: entity
   id: OrganDionaNymphBrain
-  parent: MobDionaNymph
+  parent: [MobDionaNymph, DVNodeCrawler] # Omu, add DVNodeCrawler
   categories: [ HideSpawnMenu ]
   name: diona nymph
   suffix: Brain
@@ -282,10 +282,11 @@
   - type: IsDeadIC
   - type: Body
     prototype: AnimalNymphBrain
+  #- type: VentCrawler # goob # Omu, use nodecrawler
 
 - type: entity
   id: OrganDionaNymphStomach
-  parent: MobDionaNymphAccent
+  parent: [MobDionaNymphAccent, DVNodeCrawler] # Omu, add DVNodeCrawler
   categories: [ HideSpawnMenu ]
   name: diona nymph
   suffix: Stomach
@@ -294,10 +295,11 @@
   - type: IsDeadIC
   - type: Body
     prototype: AnimalNymphStomach
+  #- type: VentCrawler # goob # Omu, use nodecrawler
 
 - type: entity
   id: OrganDionaNymphLungs
-  parent: MobDionaNymphAccent
+  parent: [MobDionaNymphAccent, DVNodeCrawler] # Omu, add DVNodeCrawler
   categories: [ HideSpawnMenu ]
   name: diona nymph
   suffix: Lungs
@@ -306,3 +308,4 @@
   - type: IsDeadIC
   - type: Body
     prototype: AnimalNymphLungs
+  #- type: VentCrawler # goob # Omu, use nodecrawler

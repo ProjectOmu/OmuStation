@@ -118,6 +118,8 @@
   - type: GuideHelp
     guides:
     - Cryogenics
+  - type: CrawlableNode # DeltaV - node crawling
+    reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 
 - type: entity
   parent: BaseStructure
@@ -162,3 +164,4 @@
     materialComposition:
       Steel: 2000 # 20 sheets
       Glass: 1000 # 10 sheets
+
