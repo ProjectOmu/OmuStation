@@ -17,6 +17,9 @@ public sealed partial class HereticTomeComponent : Component
     public LocId ExamineBaseMessage = "influence-base-message";
 
     [DataField]
+    public LocId Unreadable = "tome-unreadable";
+
+    [DataField]
     public int FontSize = 22;
 
     [DataField]
