@@ -43,8 +43,7 @@ The [color=#388c34]Green Alert[/color] will always appear at the start of shift 
   </ColorBox>
 </Table>
 
-The [color=#1b67a5]Blue Alert[/color] will appear when a threat or significant amount of crimes have been reported. This often stays around for a while.
-
+The [color=#1b67a5]Blue Alert[/color] will appear when a threat or significant amount of crimes have been reported. This often stays around for a while. It can be escalated to [color=#ba292c]Red Alert[/color] if there is a confirmed threat to the crew as a whole or station integrity.
 <Table Columns="1">
   <ColorBox Color="#c8a404">
     <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="10">
@@ -73,7 +72,7 @@ The [color=#c8a404]Yellow Alert[/color] will appear for massive damage to the st
   </ColorBox>
 </Table>
 
-The [color=#ba292c]Red Alert[/color] will appear for major hostile activities and/or threats to the station.
+The [color=#ba292c]Red Alert[/color] will appear for major hostile activities and/or threats to the station. It should be called when there is a confirmed threat to station integrity or the crew as a whole, meaning a [italic]widespread threat[/italic] and not just isolated incidents.
 
 <Table Columns="1">
   <ColorBox Color="#8b0000">
