@@ -260,7 +260,9 @@ imp-phrase-nouns-food = Food
 imp-phrase-nouns-diona = Diona
 imp-phrase-nouns-slime = Slime
 imp-phrase-nouns-moth = Moth
-imp-phrase-nouns-reptilian = Reptilian
+# Omu: change Reptilian to Unathi
+imp-phrase-nouns-reptilian = Unathi
+# Omu end
 imp-phrase-nouns-arachnid = Arachnid
 imp-phrase-nouns-human = Human
 imp-phrase-nouns-dwarf = Dwarf
