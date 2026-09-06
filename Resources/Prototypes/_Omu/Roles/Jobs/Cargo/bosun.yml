@@ -1,0 +1,65 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: job
+  id: CargoBosun
+  name: job-name-cargo-bosun
+  description: job-description-cargo-bosun
+  playTimeTracker: JobCargoBosun
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 360000 #100 hours
+  - !type:DepartmentTimeRequirement
+    department: Cargo
+    time: 360000 #100 hours
+  - !type:RoleTimeRequirement
+    role: JobQuartermaster
+    time: 36000 #10 hrs
+  - !type:RoleTimeRequirement
+    role: JobCourier
+    time: 36000 #10 hrs
+  - !type:RoleTimeRequirement
+    role: JobSalvageSpecialist
+    time: 216000 #60 hrs
+  - !type:RoleTimeRequirement
+    role: JobCargoTechnician
+    time: 144000 #40 hrs
+  startingGear: CargoBosunGear
+  icon: "JobIconCargoBosun"
+  supervisors: job-supervisors-qm
+  canBeAntag: false
+  guides:
+  - Cargo
+  - CargoSOP
+ # - CargoBosunSOP TODO: WRITE THIS
+  goobcoins: 30
+  access:
+  - Cargo
+  - Salvage
+  - Maintenance
+  - External
+  - Cryogenics
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: BoxingDay
+    prototype: BoxCardboard
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: CargoBosunGear
+  equipment:
+    belt: BoxFolderClipboardThreePapers
+    ears: ClothingHeadsetCargo
+    pocket1: AppraisalTool
+
+- type: chameleonOutfit
+  id: CargoBosunChameleonOutfit
+  job: CargoBosun
+  hasMindShield: true
+#  equipment: TODO: FILL THESE OUT WHEN CLOTHES ARE IMPLEMENTED
+#    head: ClothingHeadHatCargosoft
+#    eyes: ClothingEyesGlassesCheapSunglasses
+#    mask: ClothingMaskBreath
+#    outerClothing: ClothingOuterWinterCargo
+#    neck: ClothingNeckScarfStripedBrown
+#    gloves: ClothingHandsGlovesFingerless
