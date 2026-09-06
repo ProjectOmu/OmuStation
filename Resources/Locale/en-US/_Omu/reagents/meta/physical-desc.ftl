@@ -6,3 +6,5 @@ reagent-physical-desc-veryfeathery = very feathery
 reagent-physical-desc-pandemonicallyfuzzy = pandemonically fuzzy
 reagent-physical-desc-veryheadacheinducing = very headache inducing
 reagent-physical-desc-verygritty = very gritty
+reagent-physical-desc-pandemonicallyfeathery = pandemonically feathery
+reagent-physical-desc-diluted = diluted

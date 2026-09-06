@@ -1,21 +1,3 @@
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-# SPDX-FileCopyrightText: 2025 Skubman <ba.fallaria@gmail.com>
-# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
-# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Zalycon <84675130+Zalycon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-#
 # SPDX-License-Identifier: MIT
 
 - type: species
@@ -44,13 +26,16 @@
 - type: speciesBaseSprites
   id: MobMothSprites
   sprites:
+    TailBehind: MobHumanoidAnyMarking # floof
+    TailOversuit: MobHumanoidAnyMarking # floof
+    TailBehindBackpack: MobHumanoidAnyMarking #imp
     Head: MobMothHead
     Face: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobMothChest
-    Groin: MobMothGroin
+    Groin: MobMothGroin # Goob
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
@@ -83,12 +68,12 @@
       required: false
     #Omu Start - Moving moth wings to Wings body part
     Wings:
-      points: 1
+      points: 3 # BYRD - MORE MOTHMIZATION, MORE WINGS SO YOU CAN STACK THEM LIKE ANTENNAE FOR FANCIER MOFFS
       required: true
-      defaultMarkings: [ MothWingsDefault ]      
+      defaultMarkings: [ MothWingsDefault ]
     #Omu End - Moving moth wings to Wings body part
     Tail:
-      points: 1 
+      points: 1
       required: false
 #      defaultMarkings: [ MothWingsDefault ]  // Omu - Moving moth wings to Wings body part
     Snout:
@@ -102,16 +87,16 @@
       points: 8
       required: false
     Head:
+      points: 1
+      required: false
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
       points: 8
       required: false
     Chest:
       points: 8
-      required: false
-    Underwear:
-      points: 1
-      required: false
-    Undershirt:
-      points: 1
       required: false
     RightLeg:
       points: 8 # Omu Edit - "Uncapped Customizations"
@@ -172,7 +157,7 @@
   id: MobMothChestFemale
   baseSprite:
     sprite: Mobs/Species/Moth/parts.rsi
-    state: chest_f
+    state: chest_m
 
 - type: humanoidBaseSprite
   id: MobMothGroin

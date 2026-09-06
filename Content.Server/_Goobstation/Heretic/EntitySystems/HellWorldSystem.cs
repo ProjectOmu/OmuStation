@@ -15,6 +15,7 @@ using Robust.Shared.Random;
 using Content.Server.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Server.Administration.Systems;
+using Content.Shared.Administration.Systems;
 using Content.Shared.Humanoid;
 using Robust.Shared.Utility;
 using Robust.Shared.EntitySerialization;
@@ -77,10 +78,13 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
                 {
                     //make sure they won't get into this loop again
                     victimComp.CleanupDone = true;
+
+                    if (!TryComp<MindComponent>(victimComp.Mind, out var mindComp)) //Omu prevent entities with a null mind crashing the server
+                        continue;
+
                     //put them back in the original body
                     _mind.TransferTo(victimComp.Mind, victimComp.OriginalBody);
                     //let them ghost again
-                    MindComponent? mindComp = Comp<MindComponent>(victimComp.Mind);
                     mindComp.PreventGhosting = false;
                     //give the original body some visual changes
                     TransformVictim(uid);
@@ -123,8 +127,11 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             var spawnTgt = Transform(newSpawn.Uid).Coordinates;
 
             //spawn your hellsona
-            MindComponent? mindComp = Comp<MindComponent>(victimComp.Mind);
-            mindComp.PreventGhosting = true;
+            if (TryComp<MindComponent>(victimComp.Mind, out MindComponent? mindComp))       //Omu edit check for null reference to mind
+            {
+                mindComp = Comp<MindComponent>(victimComp.Mind);
+                mindComp.PreventGhosting = true;
+            }       //Omu end
             //don't have to change this one's blood because nobody's bringing a forensic scanner to hell
             var Entityinhell = Spawn(species.Prototype, spawnTgt);
             _metaSystem.SetEntityName(Entityinhell, MetaData(target).EntityName);
@@ -136,7 +143,8 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             }
 
             //and then send the mind into the hellsona
-            _mind.TransferTo(victimComp.Mind, Entityinhell);
+            if (mindComp is not null)   //Omu double check for a mind
+                _mind.TransferTo(victimComp.Mind, Entityinhell);
             victimComp.AlreadyHelled = true;
 
             //returning the mind to the original body happens in Update()

@@ -1,12 +1,6 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Changeling;
 using Content.Server.Atmos.Rotting;
 using Content.Server.Body.Components;
 using Content.Server.DoAfter;
@@ -96,7 +90,7 @@ public sealed class CPRSystem : EntitySystem
 
     private void OnCPRDoAfter(Entity<CPRTrainingComponent> performer, ref CPRDoAfterEvent args)
     {
-        if (args.Cancelled || args.Handled || !args.Target.HasValue || ShouldCPRStop(performer, args.Target.Value)) // Omu, fixes CPR being able to continue; 
+        if (args.Cancelled || args.Handled || !args.Target.HasValue || ShouldCPRStop(performer, args.Target.Value)) // Omu, fixes CPR being able to continue;
         {
             performer.Comp.CPRPlayingStream = _audio.Stop(performer.Comp.CPRPlayingStream);
             return;
@@ -154,6 +148,12 @@ public sealed class CPRSystem : EntitySystem
         if (HasComp<RottingComponent>(target))
         {
             _popupSystem.PopupEntity(Loc.GetString("cpr-target-rotting", ("entity", target)), performer, performer);
+            return true;
+        }
+
+        if (HasComp<AbsorbedComponent>(target)) //Omu -- Check if body is hollow
+        {
+            _popupSystem.PopupEntity(Loc.GetString("cpr-target-absorbed", ("entity", target)), performer, performer);
             return true;
         }
 

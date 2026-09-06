@@ -8,9 +8,9 @@
 #  - type: GoobAbsorbable # Omu, we don't have this
 #    biomassRestored: 1.0
   - type: Hunger
-    baseDecayRate: 0.02 # 30% ish more than default
+    baseDecayRate: 0.03 # 0.02 # 30% ish more than default # Omu, update for new base rate
   - type: Thirst
-    baseDecayRate: 0.02 # 30% ish more than default
+    baseDecayRate: 0.02 # 0.02 # 30% ish more than default
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -48,8 +48,16 @@
     damageContainer: Biological
     damageModifierSet: Allulalo #stops them from being oppressive hopefully
   - type: Bloodstream
-    bloodMaxVolume: 250 #should be 50 less than the default of 300. theyre small
-    bloodReagent: BloodAllulalo
+    bloodlossDamage:
+      types:
+        Bloodloss: 1
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -0.25
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: BloodAllulalo
+        Quantity: 150 # 50 less than default... which is 200?
 #  - type: DamageVisuals # Omu, this does not work currently.
 #    damageOverlayGroups:
 #      Brute:
@@ -92,6 +100,16 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Monkey_burning
+# Omu Start - Making allus have small trait on by default because it's funny.
+  - type: StealTarget # Omu - steal objective from previous merged PR
+    stealGroup: StealLittlePerson
+  - type: PseudoItem
+    storedOffset: 0,17
+    shape:
+    - 0,0,1,4
+    - 0,2,3,4
+    - 4,0,5,4
+# Omu End - Making allus have small trait on by default because it's funny.
   - type: Tag
     tags:
     - VimPilot #fuck it, theyre small enough

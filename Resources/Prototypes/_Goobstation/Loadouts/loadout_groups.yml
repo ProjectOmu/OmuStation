@@ -1,25 +1,3 @@
-# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DarkenedSynergy <70016079+DarkenedSynergy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Theapug <159912420+Teapug@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Weide <64257676+Lyacs@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Jarl <140098675+JarlElbowses@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Jarl <elliotacline@gmail.com>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
-# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
-# SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
-# SPDX-FileCopyrightText: 2026 ThanosDeGraf <richardgirgindontstop@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # RD
@@ -30,6 +8,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
+  - ResearchDirectorEnvirohelmPurple # Omu
   - ResearchDirectorEnvirohelm
 
 - type: loadoutGroup
@@ -38,6 +17,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
+  - ResearchDirectorEnvirosuitPurple # Omu
   - ResearchDirectorEnvirosuit
 
 - type: loadoutGroup
@@ -46,8 +26,9 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
+  - ResearchDirectorEnviroglovesPurple # Omu
   - ResearchDirectorEnvirogloves
-  - WhiteEnvirogloves
+  - LatexEnvirogloves # Omu
 
 
 # Scientist
@@ -76,8 +57,9 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
+  - LatexEnvirogloves # Omu
   - RoboticistEnvirogloves
-  - WhiteEnvirogloves
+
 
 # Research Assistant
 
@@ -114,6 +96,7 @@
   maxLimit: 1
   loadouts:
   - ChiefMedicalOfficerEnvirohelm
+  - CMOVetEnvirohelm # Omu
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerEnvirosuit
@@ -122,6 +105,7 @@
   maxLimit: 1
   loadouts:
   - ChiefMedicalOfficerEnvirosuit
+  - CMOVetEnvirosuit # Omu
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerEnvirogloves
@@ -129,7 +113,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - WhiteEnvirogloves
+  - LatexEnvirogloves # Omu
   - NitrileEnvirogloves
 
 # Medical Doctor
@@ -141,6 +125,7 @@
   maxLimit: 1
   loadouts:
   - MedicalDoctorEnvirohelm
+  - SeniorPhysicianEnvirohelm # Omu
 
 - type: loadoutGroup
   id: MedicalDoctorEnvirosuit
@@ -149,6 +134,7 @@
   maxLimit: 1
   loadouts:
   - MedicalDoctorEnvirosuit
+  - SeniorPhysicianEnvirosuit # Omu
 
 - type: loadoutGroup
   id: MedicalDoctorEnvirogloves
@@ -156,7 +142,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - WhiteEnvirogloves
+  - LatexEnvirogloves # Omu
   - NitrileEnvirogloves
 
 # Medical Intern
@@ -183,7 +169,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - WhiteEnvirogloves
+  - LatexEnvirogloves # Omu
 
 # Paramedic
 
@@ -194,6 +180,7 @@
   maxLimit: 1
   loadouts:
   - ParamedicEnvirohelm
+  - SeniorPhysicianEnvirohelm # Omu
 
 - type: loadoutGroup
   id: ParamedicEnvirosuit
@@ -202,6 +189,7 @@
   maxLimit: 1
   loadouts:
   - ParamedicEnvirosuit
+  - SeniorPhysicianEnvirosuit # Omu
 
 - type: loadoutGroup
   id: ParamedicEnvirogloves
@@ -209,7 +197,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - WhiteEnvirogloves
+  - LatexEnvirogloves # Omu
   - NitrileEnvirogloves
 
 # Psychologist
@@ -291,7 +279,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - CargoTechnicianEnvirogloves
+  - QuartermasterEnvirogloves # Omu
 
 # Station Engineer
 
@@ -302,6 +290,7 @@
   maxLimit: 1
   loadouts:
   - StationEngineerEnvirohelm
+  - SeniorEngineerEnvirohelm # Omu
 
 - type: loadoutGroup
   id: StationEngineerEnvirosuit
@@ -310,6 +299,7 @@
   maxLimit: 1
   loadouts:
   - StationEngineerEnvirosuit
+  - SeniorEngineerEnvirosuit # Omu
 
 - type: loadoutGroup
   id: StationEngineerEnvirogloves
@@ -354,6 +344,7 @@
   maxLimit: 1
   loadouts:
   - AtmosEnvirohelm
+  - SeniorEngineerEnvirohelm # Omu
 
 - type: loadoutGroup
   id: AtmosEnvirosuit
@@ -362,6 +353,7 @@
   maxLimit: 1
   loadouts:
   - AtmosEnvirosuit
+  - SeniorEngineerEnvirosuit # Omu
 
 - type: loadoutGroup
   id: AtmosEnvirogloves
@@ -406,6 +398,8 @@
   maxLimit: 1
   loadouts:
   - SecurityOfficerEnvirohelm
+  - SecurityOfficerEnvirohelmGrey
+  - SecurityOfficerEnvirohelmBlue
 
 - type: loadoutGroup
   id: SecurityOfficerEnvirosuit
@@ -414,6 +408,8 @@
   maxLimit: 1
   loadouts:
   - SecurityOfficerEnvirosuit
+  - SecurityOfficerEnvirosuitGrey
+  - SecurityOfficerEnvirosuitBlue
 
 - type: loadoutGroup
   id: SecurityOfficerEnvirogloves
@@ -492,6 +488,7 @@
   maxLimit: 1
   loadouts:
   - WardenEnvirohelm
+  - PrisonGuardEnvirohelm
 
 - type: loadoutGroup
   id: WardenEnvirosuit
@@ -500,6 +497,7 @@
   maxLimit: 1
   loadouts:
   - WardenEnvirosuit
+  - PrisonGuardEnvirosuit
 
 - type: loadoutGroup
   id: WardenEnvirogloves
@@ -507,7 +505,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - BlackEnvirogloves
+  - CombatEnvirogloves
 
 # Head of Personnel
 
@@ -758,6 +756,19 @@
   maxLimit: 1
   loadouts:
   - WhiteGloves
+  - BlackGloves
+  - RedGloves
+
+- type: loadoutGroup
+  id: MimeShoes
+  name: loadout-group-mime-shoes
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteShoes
+  - BlackShoes
+  - RedShoes
+  - LaceupShoes
 
 # Assistant
 
@@ -768,6 +779,23 @@
   maxLimit: 1
   loadouts:
   - GreyEnvirohelm
+  - BlackEnvirohelm
+  - PurpleEnvirohelm
+  - WhiteEnvirohelm
+  - DarkGreenEnvirohelm
+  - MaroonEnvirohelm
+  - BlueEnvirohelm
+  - PinkEnvirohelm
+  - DarkBlueEnvirohelm
+  - LightBrownEnvirohelm
+  - RedEnvirohelm
+  - OrangeEnvirohelm
+  - YellowEnvirohelm
+  - GreenEnvirohelm
+  - BrownEnvirohelm
+  - TransEnvirohelm
+  - BlackPinkEnvirohelm
+  - BlackPinkAltEnvirohelm
 
 - type: loadoutGroup
   id: AssistantEnvirosuit
@@ -776,6 +804,25 @@
   maxLimit: 1
   loadouts:
   - GreyEnvirosuit
+  - BlackEnvirosuit
+  - PurpleEnvirosuit
+  - WhiteEnvirosuit
+  - DarkGreenEnvirosuit
+  - MaroonEnvirosuit
+  - BlueEnvirosuit
+  - PinkEnvirosuit
+  - DarkBlueEnvirosuit
+  - LightBrownEnvirosuit
+  - RedEnvirosuit
+  - OrangeEnvirosuit
+  - YellowEnvirosuit
+  - GreenEnvirosuit
+  - BrownEnvirosuit
+  - TransEnvirosuit
+  - BlackPinkEnvirosuit
+  - BlackPinkAltEnvirosuit
+  - NegativeEnvirosuit
+  - EnviroslacksTider
 
 - type: loadoutGroup
   id: AssistantEnvirogloves
@@ -784,6 +831,10 @@
   maxLimit: 1
   loadouts:
   - DarkGreyEnvirogloves
+  - BlackEnvirogloves
+  - PurpleEnvirogloves
+  - WhiteEnvirogloves
+  - DarkGreenEnvirogloves
 
 # Musician
 
@@ -819,7 +870,8 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - DarkGreenEnvirohelm
+  #- DarkGreenEnvirohelm
+  - GreenEnviroslackHelm # Omu
 
 - type: loadoutGroup
   id: ServiceWorkerEnvirosuit
@@ -827,7 +879,8 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - DarkGreenEnvirosuit
+  #- DarkGreenEnvirosuit
+  - GreenEnviroslacks # Omu
 
 - type: loadoutGroup
   id: ServiceWorkerEnvirogloves
@@ -836,6 +889,7 @@
   maxLimit: 1
   loadouts:
   - DarkGreenEnvirogloves
+  - WhiteEnvirogloves # Omu
 
 # Bartender
 
@@ -846,6 +900,7 @@
   maxLimit: 1
   loadouts:
   - WhiteEnvirohelm
+  - BlackEnviroslackHelm # Omu
 
 - type: loadoutGroup
   id: BartenderEnvirosuit
@@ -854,6 +909,7 @@
   maxLimit: 1
   loadouts:
   - Enviroslacks
+  - BlackEnviroslacks # Omu
 
 - type: loadoutGroup
   id: BartenderEnvirogloves
@@ -872,6 +928,9 @@
   maxLimit: 1
   loadouts:
   - WhiteEnvirohelm
+  - EnviroslacksHelmBlue
+  - EnviroslacksHelmRed
+  - EnviroslacksHelmGreen
 
 - type: loadoutGroup
   id: LawyerEnvirosuit
@@ -880,6 +939,9 @@
   maxLimit: 1
   loadouts:
   - Enviroslacks
+  - EnviroslacksBlue
+  - EnviroslacksRed
+  - EnviroslacksGreen
 
 - type: loadoutGroup
   id: LawyerEnvirogloves
@@ -901,6 +963,7 @@
   - NanotrasenRepresentativeBowler
   - NanotrasenRepresentativeOutlaw
   - NanotrasenRepresentativeMAA
+  - CentcommHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeNeck
@@ -925,7 +988,9 @@
   loadouts:
   - NanotrasenRepresentativeJumpsuit
   - NanotrasenRepresentativeJumpskirt
+  - NTRMJ
   - NanotrasenRepresentativeFancyJumpsuit
+  - CentcommTurtleneck #Omu
   - CCAgentJumpsuit #Omu
   - CCAgentJumpskirt #Omu
 
@@ -941,9 +1006,15 @@
   id: NanotrasenRepresentativeShoes
   name: loadout-group-ntr-shoes
   loadouts:
-  - NanotrasenRepresentativeBoots
+  - LaceupShoes
   - NanotrasenRepresentativeShoes
   - NanotrasenRepresentativeHeels
+
+- type: loadoutGroup
+  id: NanotrasenRepresentativeJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieNTR
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeGloves
@@ -973,6 +1044,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
+  - WhiteEnvirogloves # Omu
   - BlackEnvirogloves
 
 # BSO
@@ -987,6 +1059,7 @@
   - BlueshieldOfficerGoidaHelmet
   - BlueshieldOfficerBeretElite # Omustation
   - BlueshieldOfficerHeadHatFedora # OmuStation
+  - BlueshieldHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: BlueshieldOfficerBackpack
@@ -1055,6 +1128,12 @@
   - BSOAdvancedJackBoots #Omu
 
 - type: loadoutGroup
+  id: BlueshieldOfficerJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieBSO
+
+- type: loadoutGroup
   id: BlueshieldOfficerEnvirohelm
   name: loadout-group-bso-envirohelm
   minLimit: 1
@@ -1095,6 +1174,7 @@
   loadouts:
   - NanotrasenTrainerHat
   - NanotrasenTrainerBeret
+  - CentcommHeadHatKepi # Omu
 
 - type: loadoutGroup
   id: NanotrasenTrainerBackpack
@@ -1137,6 +1217,12 @@
   loadouts:
   - NanotrasenTrainerBoots
   - NanotrasenTrainerShoes
+
+- type: loadoutGroup
+  id: NanotrasenTrainerJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieCC
 
 # Reporter
 
@@ -1225,6 +1311,18 @@
   maxLimit: 1
   loadouts:
   - CaptainGloves
+
+- type: loadoutGroup
+  id: CaptainShoes
+  name: loadout-group-captain-shoes
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - LaceupShoes
+  - CaptainLeatherShoes
+  - CaptainHeels
+  - WhiteShoes #omu
+  - WinterBoots #omu
 
 - type: loadoutGroup
   id: CaptainMask
@@ -1338,6 +1436,7 @@
   - SeniorPhysicianBeret
   - ChemistUshanka # Da.
   - ChemistryBeret # Starlight - OMU port
+  - ChemistBandana # Omu
   - ChemistNurseHat # Starlight - OMU port
   - ChemistTruckersHat # Starlight - OMU port
   - ChemistFisherCap # Starlight - OMU port
@@ -1349,6 +1448,8 @@
   maxLimit: 1
   loadouts:
   - ChemistEnvirohelm
+  - SeniorPhysicianEnvirohelm # Omu
+  - SeniorChemistEnvirohelm # Omu
 
 - type: loadoutGroup
   id: ChemistEnvirosuit
@@ -1357,6 +1458,8 @@
   maxLimit: 1
   loadouts:
   - ChemistEnvirosuit
+  - SeniorPhysicianEnvirosuit # Omu
+  - SeniorChemistEnvirosuit # Omu
 
 - type: loadoutGroup
   id: ChemistEnvirogloves
@@ -1364,7 +1467,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - WhiteEnvirogloves
+  - LatexEnvirogloves # Omu
   - NitrileEnvirogloves
 
 # HOS
@@ -1417,6 +1520,7 @@
   loadouts:
   - BrigmedicJumpsuit
   - BrigmedicJumpskirt
+  - BrigmedicMJ
   - CorpsmanJumpsuit # Omu
   - CorpsmanJumpskirt # Omu
   - CorpsmanResponse # Starlight
@@ -1430,12 +1534,14 @@
   minLimit: 0
   loadouts:
   - BrigmedicBeret
+  - CorpsmanHeadHatKepi # Omu
   - CMOMedicalHeadMirror
   - BrigmedicNurseHat # Starlight
   - SecurityBeret
   - SecurityHat
   - TrooperHat
   - CorpsmanBeret # Omu
+  - CorpsmanVeteranHeadHatKepi # Omu
   - CorpsmanNurseHat # Starlight
   - BrigmedicNurseHatOfLife # Starlight
 
@@ -1452,6 +1558,13 @@
   - BrigmedicLabCoat # Starlight
   - CorpsmanLabCoat # Starlight
   - LongcoatBrigmedic # DeltaV Longcoats
+
+- type: loadoutGroup
+  id: BrigmedicJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieBrigmedic
+  - SecStar
 
 - type: loadoutGroup
   id: BrigmedicBackpack
@@ -1499,6 +1612,14 @@
   - SecurityMeleeKnife
   - SecurityMeleePolyBaton
   - SecurityMeleeSpear
+
+- type: loadoutGroup
+  id: SecurityGloves
+  name: loadout-group-security-gloves
+  loadouts:
+  - BlackGloves
+  - RedGloves
+  - FingerlessGloves
 
 # Zookeeper
 
@@ -1551,6 +1672,8 @@
   maxLimit: 1
   loadouts:
   - BoxerEnvirohelm
+  - BoxerEnvirohelmGi
+  - BoxerEnvirohelmGladiator
 
 - type: loadoutGroup
   id: BoxerEnvirosuit
@@ -1559,6 +1682,16 @@
   maxLimit: 1
   loadouts:
   - BoxerEnvirosuit
+  - BoxerEnvirosuitGi
+  - BoxerEnvirosuitGladiator
+
+- type: loadoutGroup
+  id: BoxerHelmet
+  name: loadout-group-boxer-helmet
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - BoxerHelmetGladiator
 
 # Plasmamen
 
@@ -1603,6 +1736,12 @@
    - VirologistPDA
 
 - type: loadoutGroup
+  id: VirologistJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieVirologist
+
+- type: loadoutGroup
   id: VirologyEnvirohelm
   name: loadout-group-virology-envirohelm
   minLimit: 1
@@ -1624,7 +1763,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - WhiteEnvirogloves
+  - LatexEnvirogloves # Omu
   - NitrileEnvirogloves
 
 # Radio Host
@@ -1649,6 +1788,7 @@
   - SalvageSpecialistJumpsuit
   - SalvageSpecialistJumpskirt
   - SalvageSpecialistOveralls
+  - SalvageSpecialistMJ
 
 - type: loadoutGroup
   id: ShaftMinerJumpsuit
@@ -1657,5 +1797,12 @@
   - ShaftMinerJumpsuit
   - ShaftMinerJumpskirt
   - ShaftMinerOveralls
+  - ShaftMinerMJ
   - VintageShaftMinerJumpsuit # Omu
   - SalvageJumpskirt # Omu
+
+- type: loadoutGroup
+  id: ShaftMinerJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieShaftMiner

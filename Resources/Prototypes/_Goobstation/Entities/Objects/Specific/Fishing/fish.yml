@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Evige <jussi.heikkila1@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -41,10 +36,12 @@
     spawned:
     - id: FoodMeatFish
       amount: 2
-#  - type: Bloodstream # Omu, item fish
-#    bloodMaxVolume: 20
-#    bloodReagent: Blood
-#  - type: ZombieImmune
+  #- type: Bloodstream # Omu fuck off
+  #  bloodReferenceSolution:
+  #    reagents:
+  #    - ReagentId: Blood
+  #      Quantity: 20
+  - type: ZombieImmune
 
 - type: entity
   id: BaseFishRare
@@ -165,9 +162,11 @@
     state: clown
   - type: Item
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-#  - type: Bloodstream # Omu, Item fish
-#    bloodMaxVolume: 20
-#    bloodReagent: Laughter
+#  - type: Bloodstream # Omu die
+#    bloodReferenceSolution:
+#      reagents:
+#      - ReagentId: Laughter
+#        Quantity: 20
 
 - type: entity
   id: FishNukeDisk
@@ -276,9 +275,11 @@
     state: tropical
   - type: Item
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-#  - type: Bloodstream # Omu, item fish
-#    bloodMaxVolume: 10
-#   bloodReagent: Laughter
+#  - type: Bloodstream # Omu Fuck off
+#    bloodReferenceSolution:
+#      reagents:
+#      - ReagentId: Laughter
+#        Quantity: 10
 
 - type: entity
   id: FishIan
