@@ -7069,3 +7069,130 @@ Entries:
       message: Removed random umlauts from the German accent.
   id: 918
   time: '2026-09-03T00:07:33.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: Resprited the Paramedic's "Sanitater" MODsuit
+    - type: Fix
+      message: >-
+        The Sanitater MODsuit now properly displays the feroxi variant of its
+        helmet.
+  id: 919
+  time: '2026-09-03T08:10:00.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Hunger decreases at 1.5x the pre-upstream rate (compared to 2.5x the
+        pre-upstream rate before this). People should now need to eat less
+        frequently.
+    - type: Fix
+      message: >-
+        Non-Goobstation species now experience proportionally elevated hunger
+        like the rest of the species. Please report if chitinids starve
+        excessively easily.
+  id: 920
+  time: '2026-09-03T11:40:03.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: Harpies can now make owl noises. Hoot!
+  id: 921
+  time: '2026-09-03T12:53:00.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Ore lathes now print raw materials properly into storage in bulk instead
+        of having to print one by one.
+  id: 922
+  time: '2026-09-03T22:15:55.0000000+00:00'
+- author: Jerulean
+  changes:
+    - type: Fix
+      message: Positronic brains are no longer deleted by maxing out organ damage.
+    - type: Add
+      message: Surgery to repair destroyed positronic brains.
+  id: 923
+  time: '2026-09-03T22:23:46.0000000+00:00'
+- author: Jerulean
+  changes:
+    - type: Tweak
+      message: Reverted Allulalo thirst rate to prior rate.
+  id: 924
+  time: '2026-09-04T03:50:42.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: >-
+        Escape to Central Command objective was changed to: escape to central
+        command alive and undetained on the evacuation shuttle || One of our
+        undercover agents will debrief you when you arrive. Don't show up in
+        cuffs or security right on your tails.
+  id: 925
+  time: '2026-09-04T13:52:08.0000000+00:00'
+- author: raincall aka VulpLover67
+  changes:
+    - type: Add
+      message: >-
+        Added a spaceproof sec/corpsman vulp mantle, craft it using a work
+        mantle and a sec/medsec hud
+  id: 926
+  time: '2026-09-04T13:53:21.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Energy magnum now correctly shows as security contraband.
+  id: 927
+  time: '2026-09-04T22:58:56.0000000+00:00'
+- author: Cryptisy
+  changes:
+    - type: Tweak
+      message: Added a filled sprite to bluespace vials.
+  id: 928
+  time: '2026-09-05T20:23:16.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Grapple guns can no longer pull you through walls.
+  id: 929
+  time: '2026-09-05T22:00:27.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Chitinids now starve at 1.33x the base rate instead of 2.8x the base
+        rate. This means that they overall starve less quickly than
+        pre-upstream.
+  id: 930
+  time: '2026-09-05T22:05:51.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Add
+      message: Supermatter slivers can now be eaten by vox. (It's a bad idea.)
+    - type: Tweak
+      message: Supermatter crystals create slivers on their own more frequently now.
+  id: 931
+  time: '2026-09-05T22:14:17.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: The medical belt is now worn slightly lower.
+  id: 932
+  time: '2026-09-05T22:18:19.0000000+00:00'
+- author: Willfullyheretical
+  changes:
+    - type: Add
+      message: Added Jeelus-An plushie to sectoral crate
+  id: 933
+  time: '2026-09-05T22:20:18.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Tweak
+      message: >-
+        Diona are speed modify immune again, except for Rooting as originally
+        intended.
+    - type: Tweak
+      message: Cybersun dreadnought suit bypasses speed immunity.
+  id: 934
+  time: '2026-09-06T00:45:40.0000000+00:00'

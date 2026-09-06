@@ -42,3 +42,18 @@
         - !type:MetabolizerTypeCondition
           type:
           - Vox
+
+- type: reagent
+  id: Supermatter
+  name: reagent-name-supermatter
+  desc: reagent-desc-supermatter
+  flavor: metallic
+  physicalDesc: reagent-physical-desc-crystalline
+  color: "#FFFF00"
+  metabolisms:
+    Food:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: 90
