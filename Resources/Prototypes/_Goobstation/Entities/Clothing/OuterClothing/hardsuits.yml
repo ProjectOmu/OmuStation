@@ -201,6 +201,7 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.5
+    bypassImmune: true # Omu - dreadnought will always slow
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototypes:
