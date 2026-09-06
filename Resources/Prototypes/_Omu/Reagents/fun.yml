@@ -286,3 +286,30 @@
         - !type:ReagentCondition
           reagent: JuiceThatMakesYouAwebo
           min: 50
+
+
+- type: reagent
+  id: Gekkerzine
+  name: reagent-name-gekkerzine
+  group: Toxins
+  desc: reagent-desc-gekkerzine
+  physicalDesc: reagent-physical-desc-gekkerzine
+  flavor: gekkering
+  color: "#8700ff"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.10
+      effects:
+      - !type:Emote
+        emote: Gekker
+        showInChat: true
+        showInGuidebook: true
+        force: true
+        probability: 0.10
+      - !type:AdjustReagent
+        reagent: Gekkerzine
+        amount: -20
+        conditions:
+        - !type:ReagentCondition
+          reagent: Gekkerzine
+          min: 50
