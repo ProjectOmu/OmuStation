@@ -174,16 +174,16 @@
     spreadMultiplier: 1
     spreadAddition: 13 # feelin' lucky? you better be cause you only get 5 per load
 
-- type: entitiy
-  name: Única 6
+- type: entity
+  name: R3 Compleat
   parent: [BaseWeaponRevolver, BaseSecurityContraband]
-  id: WeaponRevolverMatebaDetective
+  id: WeaponRevolverR3Compleat
   description: A rare and beautiful semi-automatic revolver. Provided only to the best detectives, the Mateba sports a unique barrel design that greatly reduces muzzle flip. Many have stared down the barrel of this gun, and even fewer have lived to tell the tale. Loads 6 rounds of .45 Magnum.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/R3.rsi
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/R3.rsi
   - type: Gun
     fireRate: 3
     soundGunshot:

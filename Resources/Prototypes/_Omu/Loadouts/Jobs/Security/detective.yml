@@ -43,11 +43,11 @@
   groupBy: "Main weapon"
 
 - type: loadout
-  id: DetectiveWeaponRevolverMatebaDetective
-  dummyEntity: WeaponRevolverMatebaDetective
+  id: DetectiveWeaponRevolverR3Compleat
+  dummyEntity: WeaponRevolverR3Compleat
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorDetective
   equipment:
-    belt: ClothingBeltHolsterFilledMatebaDetective # Has revolver + ammo inside
+    belt: ClothingBeltHolsterFilledR3Compleat # Has revolver + ammo inside
   groupBy: "Main weapon"

@@ -122,14 +122,14 @@
       amount: 2
 
 - type: entity
-  id: ClothingBeltHolsterFilledMatebaDetective
+  id: ClothingBeltHolsterFilledR3Compleat
   parent: ClothingBeltHolster
-  suffix: Filled, MatebaDetective
+  suffix: Filled, R3 Compleat
   components:
   - type: ContainerFill
     containers:
       item:
-        id: WeaponRevolverMatebaDetective
+        id: WeaponRevolverR3Compleat
       storagebase: !type:AllSelector
         children:
         - id: SpeedLoaderMagnum
