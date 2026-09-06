@@ -1,0 +1,144 @@
+# SPDX-FileCopyrightText: 2025 Blitz
+# SPDX-FileCopyrightText: 2025 BlitzTheSquishy
+# SPDX-FileCopyrightText: 2025 Falcon
+# SPDX-FileCopyrightText: 2025 Forzii
+# SPDX-FileCopyrightText: 2025 Tabitha
+# SPDX-FileCopyrightText: 2025 juniwoofs
+# SPDX-FileCopyrightText: 2025 portfiend
+# SPDX-FileCopyrightText: 2025 sheepie
+# SPDX-FileCopyrightText: 2025 sleepyyapril
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: entity
+  save: false
+  name: Urist McSheepy
+  parent: BaseMobSpeciesOrganic
+  id: MobOviniaBase
+  abstract: true
+  components:
+  - type: Sprite
+    noRot: true
+  - type: HumanoidAppearance
+    species: Ovinia
+  - type: Body
+    prototype: Ovinia
+  - type: Damageable
+    damageModifierSet: Ovinia
+  - type: Speech
+    speechSounds: Alto
+    speechVerb: Ovinia
+    allowedEmotes: ["Baa"]
+  - type: Vocal
+    sounds:
+      Male: MaleOvinia
+      Female: FemaleOvinia
+      Unsexed: MaleOvinia
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Caprine
+    understands:
+    - TauCetiBasic
+    - Caprine
+  - type: StepTriggerImmune
+    whitelist:
+      types:
+        - Shard
+        - Mousetrap
+        - SlipEntity
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - OviniaEmotes
+  - type: TypingIndicator
+    proto: ovinia
+  - type: Inventory
+    speciesId: ovinia
+    templateId: human
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: shoes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: outerclothing_hardsuit
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: shoes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: outerclothing_hardsuit
+  - type: Flammable
+    firestackFade: -0.15 #wool isnt flammable
+  - type: Hunger
+    baseDecayRate: 0.0125 #25% slower than normal (chewin they cud)
+  - type: Thirst
+    baseDecayRate: 0.075
+
+- type: entity
+  parent: MobHumanDummy
+  id: MobOviniaDummy
+  name: Ovinia Dummy
+  save: false
+  categories: [ HideSpawnMenu ]
+  description: A dummy ovinia meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: Ovinia
+  - type: Inventory
+    speciesId: ovinia
+    templateId: human
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: shoes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: outerclothing_hardsuit
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: shoes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: outerclothing_hardsuit
