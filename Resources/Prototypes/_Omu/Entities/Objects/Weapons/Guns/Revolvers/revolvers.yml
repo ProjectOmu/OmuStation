@@ -54,7 +54,7 @@
   - type: AmmoCounter
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 1.5
+    fireRate: 4 #buffing this cause it is bad rn
     availableModes:
     - SemiAuto
     soundGunshot:
@@ -63,7 +63,7 @@
     whitelist:
       tags:
       - ShellShotgun
-    proto: ShellShotgunSlug
+    proto: ShellShotgunIncendiary
     capacity: 6
     chambers: [True, True, True, True, True, True]
     ammoSlots: [null, null, null, null, null, null]
@@ -74,13 +74,13 @@
   - type: StaticPrice
     price: 12000
   - type: GunSpreadModifier
-    spread: 2
+    spread: 3
   - type: StealTarget
     stealGroup: WeaponEnergyShotgun
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 12 # fat pistol whip
+        Blunt: 18 # fat pistol whip, now fatter cause its a brick of fucking cast iron
 
 - type: entity
   name: T8 "Consistency" revolver
@@ -130,3 +130,46 @@
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
   - type: StaticPrice
     price: 1500
+
+- type: entity
+  name: R2 "Greeting" Revolver
+  parent: [ BaseWeaponRevolver, BaseGrandTheftContraband ]
+  id: WardenSnubRevolver
+  description: A prototype weapon from Celtek's early forays into weaponsmithing, This pistol was always sold in tandem pairs, and due to a Black Iron rod in the handle, boasts extreme stability, allowing for extreme rates of fire.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/WardenSnub.rsi
+    state: base
+  - type: Clothing
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/WardenSnub.rsi
+  - type: AmmoCounter
+  - type: Gun
+    selectedMode: SemiAuto
+    fireRate: 5
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+      - CartridgeLightRifle
+      - SpeedLoaderRifleSmall
+    proto: CartridgeLightRifle
+    capacity: 5
+    chambers: [ True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null ]
+    soundEject:
+      path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: StaticPrice
+    price: 1200
+  - type: StealTarget
+    stealGroup: WeaponEnergyShotgun
+  - type: GunSpreadModifier
+    spread: 2
+  - type: Multishot
+    missChance: 0
+    spreadMultiplier: 1
+    spreadAddition: 13 # feelin' lucky? you better be cause you only get 5 per load

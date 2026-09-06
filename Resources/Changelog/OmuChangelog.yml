@@ -6747,3 +6747,269 @@ Entries:
       message: Resprited the Medical, Senior Physician, and Brigmedic berets
   id: 884
   time: '2026-08-28T21:52:51.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Remove
+      message: Removed mentions of Epistemics from coscult
+    - type: Remove
+      message: 'Removed malign rifts announcement '
+  id: 885
+  time: '2026-08-29T20:55:13.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: Changed Fish Inc. Identifier from FIN to FIH
+  id: 886
+  time: '2026-08-30T10:41:26.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Tweak
+      message: Decreased the advanced mops usage delay.
+  id: 887
+  time: '2026-08-30T16:29:36.0000000+00:00'
+- author: PhosphateWithManyOs
+  changes:
+    - type: Fix
+      message: Fixed hydrakin from being so loud.
+  id: 888
+  time: '2026-08-30T16:30:59.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed heretic's being able to sac the same person endlessly
+  id: 889
+  time: '2026-08-30T18:51:16.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed guidebook description for mannitol and psicodiene
+  id: 890
+  time: '2026-08-30T19:55:29.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: Resprited the Psychologist's job icon.
+  id: 891
+  time: '2026-08-30T20:04:55.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: Corpsman ID card now better resembles its job icon.
+  id: 892
+  time: '2026-08-30T20:06:53.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: replaced saline in combat medkit with artiplates
+  id: 893
+  time: '2026-08-30T22:47:21.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: Ported a bunch of thaven moods from Impstation
+    - type: Tweak
+      message: Changed the thaven guidebook just a smidge
+  id: 894
+  time: '2026-08-31T00:28:29.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: >-
+        Clown can now buy a bundle for 100tc containing a China lake painted to
+        look like a Taiwan pond, the bundle also contains 2 40mm slugs and 2
+        40mm birdshot shells, and a few 40mm prank grenades.
+  id: 895
+  time: '2026-08-31T00:35:10.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: >-
+        Added a new field for contribs to use on projectiles, which can multiply
+        its speed, currently does not change any in game projectile.
+  id: 896
+  time: '2026-08-31T02:22:01.0000000+00:00'
+- author: jellygato
+  changes:
+    - type: Add
+      message: Rakk Proper, the language of high caste Vox.
+  id: 897
+  time: '2026-08-31T11:30:18.0000000+00:00'
+- author: Cygnye
+  changes:
+    - type: Add
+      message: Added twin revolvers for warden designed for midrange AP.
+    - type: Add
+      message: Added a shotgun for brigmed, it sucks
+    - type: Add
+      message: Added a crossbow for brigmed, it does not suck
+    - type: Add
+      message: 'Added a disabler smg for brigmed, it is self explanitory. '
+    - type: Add
+      message: T4 Research for a AP shotgun shell that is very normal and wow.
+    - type: Tweak
+      message: >-
+        buffed the HoS laser shotgun and smg to suck SLIGHTLY less balls (more
+        capacity). 
+    - type: Tweak
+      message: >-
+        Buffed the R6 because it was dogshit after the 8ga slaughter, fires like
+        your life depends on it, hits like a frying pan in melee.
+  id: 898
+  time: '2026-08-31T13:09:47.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: Jaws of life are now engie and paramed contaband
+    - type: Tweak
+      message: >-
+        Welders and Welding protection and Multitools are now engi and sci
+        contaband
+    - type: Tweak
+      message: Jaws of life can now only be printed at engi and med
+    - type: Tweak
+      message: >-
+        Welders and Welding protection and Multitools can now only be printed at
+        engi and sci
+    - type: Tweak
+      message: Welding masks now blind you while worn
+    - type: Tweak
+      message: Welders have been moved to the management wire content in the YouTool
+    - type: Tweak
+      message: Welders have been added to the EngiVend
+    - type: Tweak
+      message: Insulated gloves have been moved to the emag section in the YouTool
+    - type: Remove
+      message: >-
+        Explosive insulated gloves have been removed from the emag section of
+        the YouTool
+  id: 899
+  time: '2026-08-31T14:01:13.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: >-
+        Added a surplus crate of strange pills, orderable by cargo for $1800
+        spesos. For the gamblers, the stakes have never been higher.
+  id: 900
+  time: '2026-08-31T18:54:04.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Peranol now works on hydrakin at the immense effect it should have
+        instead of being a placebo.
+  id: 901
+  time: '2026-09-01T00:17:46.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed cargo PDA not having nanochat
+  id: 902
+  time: '2026-09-01T10:46:59.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: >-
+        Wording on escape alive objectives, you now cannot have an active
+        warrant by the end of the shift.
+    - type: Tweak
+      message: >-
+        Changelings now need to be undiscovered as the identity they escape to
+        CC with. You want to keep living and CC would ash you otherwise.
+    - type: Fix
+      message: >-
+        Explained in the maroon objective that you only need to prevent your
+        target from going to CC via the main evac shuttle.
+  id: 903
+  time: '2026-09-01T16:11:24.0000000+00:00'
+- author: Jerulean
+  changes:
+    - type: Fix
+      message: Burning your eyes with a welder now works as expected.
+  id: 904
+  time: '2026-09-01T20:56:33.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Fix
+      message: Vox Couriers now spawn with an air tank harness.
+  id: 905
+  time: '2026-09-01T21:18:28.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed hydrakin getting the toxin alert for gases they can breath
+  id: 906
+  time: '2026-09-02T05:02:41.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: >-
+        Vulpkanins, Tajarans, Felinids, Humans, and Dwarfs can now wag some of
+        their tails with an action.
+    - type: Tweak
+      message: >-
+        The tail wagging action now only shows up when the equipped tail marking
+        has an animation.
+  id: 907
+  time: '2026-09-02T05:26:30.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: >-
+        Added three new autoinjector cartridges, craftable in the medical
+        assembler: Weh, Copium, and Sobering.
+    - type: Tweak
+      message: >-
+        Added Copium autoinjector cartridges to the inventories of hacked
+        Nanomed+ and Sectech machines.
+  id: 908
+  time: '2026-09-02T05:34:00.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Puncturase, Lacinerol, and Bruizine are all heavily toned down to the
+        following stats: 80/5u healing of their respective type (from 200/5u),
+        0.25u/s metabolism, processed at 1u/s total when overdosed.
+  id: 909
+  time: '2026-09-02T05:42:45.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Fresium is now more potent and substantially easier to get, no longer
+        requiring frezon to make. As a result, Fresium no longer produces frezon
+        when turning water into ice.
+  id: 910
+  time: '2026-09-02T06:04:13.0000000+00:00'
+- author: Duuckie, DuskTheSnep
+  changes:
+    - type: Add
+      message: >-
+        Paramedics have a new belt option in their loadout: the paramedic's
+        medical pouch, a 4x4 bag filled to the brim with cartridges and
+        autoinjectors. It can hold the same items as an EMT belt.
+  id: 911
+  time: '2026-09-02T06:06:26.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Tweak
+      message: Lowered damage explosions do
+  id: 912
+  time: '2026-09-02T06:07:48.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Fix
+      message: >-
+        "Paramedic Jumpsuit" and "Paramedic Uniform" no longer share the same
+        textures.
+    - type: Tweak
+      message: >-
+        Resprited the Paramedic Cap, Windbreaker, Winter Coat, Lizard plushie,
+        PDA, and Jumpsuits.
+    - type: Tweak
+      message: Gave every Paramedic Jacket and Jumpsuit the same protection values.
+    - type: Add
+      message: The Paramedic Windbreaker can now be unzipped.
+  id: 913
+  time: '2026-09-02T06:13:56.0000000+00:00'
