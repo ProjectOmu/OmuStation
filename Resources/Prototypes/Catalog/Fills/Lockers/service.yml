@@ -88,6 +88,8 @@
     - id: LightReplacer
     - id: BoxLightMixed
     - id: Holoprojector
+    - id: FlatpackWashingMachine # Omu
+    - id: Multitool # Omu - for flatpack
     - !type:AllSelector
       rolls: 2
       children:
