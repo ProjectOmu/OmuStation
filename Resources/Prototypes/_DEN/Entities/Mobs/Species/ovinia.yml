@@ -19,7 +19,6 @@
   components:
   - type: Sprite
     noRot: true
-    drawdepth: Mobs
   - type: HumanoidAppearance
     species: Ovinia
   - type: Body
@@ -97,8 +96,6 @@
     baseDecayRate: 0.0125 #25% slower than normal (chewin they cud)
   - type: Thirst
     baseDecayRate: 0.075
-
-
 
 - type: entity
   parent: MobHumanDummy

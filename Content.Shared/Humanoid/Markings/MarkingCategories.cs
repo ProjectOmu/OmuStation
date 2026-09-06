@@ -55,7 +55,7 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.UndergarmentTop => MarkingCategories.UndergarmentTop,
                 HumanoidVisualLayers.UndergarmentBottom => MarkingCategories.UndergarmentBottom,
                 HumanoidVisualLayers.Groin => MarkingCategories.Groin, // Shitmed Change
-                HumanoidVisualLayers.NeckFluff => MarkingCategories.NeckFluff, //Den -  Ovinia //Den, Omu Port
+                HumanoidVisualLayers.NeckFluff => MarkingCategories.NeckFluff, // Den, Omu Port
                 HumanoidVisualLayers.RArm => MarkingCategories.RightArm, // Goobstation
                 HumanoidVisualLayers.LArm => MarkingCategories.LeftArm, // Goobstation
                 HumanoidVisualLayers.RHand => MarkingCategories.RightHand, // Goobstation

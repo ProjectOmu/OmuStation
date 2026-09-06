@@ -52,7 +52,7 @@ marking-OviniaFace = Ovinia Face
 marking-OviniaFace-ovinia-face = Face
 marking-OviniaFace-ovinia-nose = Nose
 
-marking-OviniaBlaze = Ovinia Face
+marking-OviniaBlaze = Ovinia Blaze
 marking-OviniaBlaze-ovinia-blaze = Face
 marking-OviniaBlaze-ovinia-nose = Nose
 
@@ -65,12 +65,6 @@ marking-OviniaTummy-ovinia-tummy = Tummy
 
 marking-OviniaPatternFawn = Fawn Spots
 marking-OviniaPatternFawn-torso-fawn = Spot
-
-marking-OviniaChestFullMasc = Ovinia Torso [M]
-marking-OviniaChestFullMasc-full-m = Torso
-
-marking-OviniaChestFullFem = Ovinia Torso [F]
-marking-OviniaChestFullFem-full-f = Torso
 
 marking-OviniaPatternCattleMasc = Splotches [M]
 marking-OviniaPatternCattleMasc-torso-cow-m = Splotch

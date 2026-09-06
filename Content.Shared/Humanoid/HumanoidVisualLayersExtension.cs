@@ -67,7 +67,7 @@ namespace Content.Shared.Humanoid
                     yield return HumanoidVisualLayers.RFoot;
                     break;
                 case HumanoidVisualLayers.Chest:
-                    yield return HumanoidVisualLayers.NeckFluff; // Omu - Ovinia Port
+                    yield return HumanoidVisualLayers.NeckFluff; // Den, Omu Port
                     yield return HumanoidVisualLayers.Chest;
                     yield return HumanoidVisualLayers.Wings; // for IPC wings port from SimpleStation
                     yield return HumanoidVisualLayers.Tail;
