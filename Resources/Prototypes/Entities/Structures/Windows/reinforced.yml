@@ -57,10 +57,10 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
-  - type: DeltaPressure
-    minPressure: 15000
-    minPressureDelta: 10000
-    scalingType: Threshold
+  #- type: DeltaPressure -- omu remove delta pressure
+  #  minPressure: 15000
+  #  minPressureDelta: 10000
+  #  scalingType: Threshold
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 50
     damagePenalty: 0.1
