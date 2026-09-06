@@ -65,7 +65,7 @@ marking-OviniaPatternFawn-torso-fawn = Spot
 marking-OviniaChestFullMasc = Ovinia Torso [M]
 marking-OviniaChestFullMasc-full-m = Torso
 
-marking-OviniaChestFullMasc = Ovinia Torso [F]
+marking-OviniaChestFullFem = Ovinia Torso [F]
 marking-OviniaChestFullFem-full-f = Torso
 
 marking-OviniaPatternCattleMasc = Splotches [M]
