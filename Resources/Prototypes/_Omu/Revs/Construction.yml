@@ -1,0 +1,32 @@
+- type: constructionGraph
+  id: RevPoster
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: revPoster
+          steps:
+            - tag: RevolutionaryPoster
+              name: rev-poster
+              icon:
+                sprite: _Omu/Objects/Revs/Misc.rsi
+                state: PosterRoll
+          completed:
+          - !type:AdminLog
+            message: "A revolutionary poster was crafted"
+    - node: revPoster
+      entity: PosterContrabandRevPosterRevolt
+
+
+- type: Tag
+  id: RevolutionaryPoster
+
+- type: construction
+  id: RevPoster
+  graph: RevPoster
+  startNode: start
+  targetNode: revPoster
+  category: construction-category-utilities
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true

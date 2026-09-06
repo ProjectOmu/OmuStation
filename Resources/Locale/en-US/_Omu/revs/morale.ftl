@@ -1,0 +1,3 @@
+morale-in-question = Their morale is in question!
+
+morale-falling-1 = Maybe they have a point...
