@@ -26,3 +26,26 @@
     state: icon
   - type: Item
     sprite: _Omu/Objects/Fun/Plushies/pickelsilly.rsi
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieSoozieOmuCrew
+  name: Soozie Bluoobus
+  description: Stuffed Plushie of a familiar big slime woman. You can somehow taste metal inside your mouth as you stare at her.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/Soozie-Bluoobus.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/Soozie-Bluoobus.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/Soozie-Bluoobus.rsi
+    slots:
+    - HEAD
+  - type: SupermatterImmune
+  - type: EventHorizonIgnore
+    horizonWhitelist:
+       tags:
+       - Tesla
+  - type: ContainmentFieldIgnore
