@@ -10,7 +10,7 @@
       maxCharges: 5
     - type: MeleeSpeech
       MaxBattlecryLength: 100
-      titleBar: "Set Hypnosis Objective" # This is slightly too long. Fuck around with the xaml or make it shorter.
+      titleBar: "Set Objective" 
       descriptorBar: "Hypnosis Objective:"
     - type: ActivatableUI
       key: enum.MeleeSpeechUiKey.Key
