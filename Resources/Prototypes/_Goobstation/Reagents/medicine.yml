@@ -986,10 +986,10 @@
         - !type:TypedDamageThresholdCondition
           damage:
             groups:
-              Brute: 25
+              Brute: 30 # Omu
         - !type:ReagentCondition
           reagent: SalicylicAcid
-          max: 25
+          max: 12 # Omu
       - !type:HealthChange
         damage:
           groups:
@@ -998,19 +998,19 @@
         - !type:TypedDamageThresholdCondition
           damage:
             groups:
-              Brute: 25
+              Brute: 30 # Omu
           inverted: true
         - !type:ReagentCondition
           reagent: SalicylicAcid
-          max: 25
+          max: 12 # Omu
       - !type:HealthChange
         damage:
           groups:
-            Brute: 3
+            Burn: 5 # Omu
         conditions:
         - !type:ReagentCondition
           reagent: SalicylicAcid
-          min: 25
+          min: 12 # Omu
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [ Yowie ]
           inverted: true
@@ -1040,10 +1040,10 @@
         - !type:TypedDamageThresholdCondition
           damage:
             groups:
-              Burn: 25
+              Burn: 30 # Omu
         - !type:ReagentCondition
           reagent: Oxandrolone
-          max: 25
+          max: 12 # Omu
       - !type:HealthChange
         damage:
           groups:
@@ -1052,19 +1052,19 @@
         - !type:TypedDamageThresholdCondition
           damage:
             groups:
-              Burn: 25
+              Burn: 30 # Omu
           inverted: true
         - !type:ReagentCondition
           reagent: Oxandrolone
-          max: 25
+          max: 12 # Omu
       - !type:HealthChange
         damage:
           groups:
-            Burn: 4
+            Brute: 5 # Omu
         conditions:
         - !type:ReagentCondition
           reagent: Oxandrolone
-          min: 25
+          min: 12 # Omu
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [ Yowie ]
           inverted: true
