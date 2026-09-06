@@ -15,3 +15,76 @@
     color: "#84BEF4"
   - type: StaticPrice
     price: 2000
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCentcommContraband]
+  id: ClothingNeckCloakCEDMantle
+  name: centeral engineering division mantle
+  description: Supermatters, Teslas and TEGs all tremble in fear from anyone wearing this mantle.
+  components:
+  - type: Sprite
+    sprite:  _Starlight/Clothing/Neck/Cloaks/CED_mantle.rsi
+  - type: Clothing
+    sprite:  _Starlight/Clothing/Neck/Cloaks/CED_mantle.rsi
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCentcommContraband]
+  id: ClothingNeckCloakCCponcho
+  name: central command poncho
+  description: a stylish poncho for a CC offical that prefers field-work to pushing papers.
+  components:
+  - type: Sprite
+    sprite:  _Starlight/Clothing/Neck/Cloaks/CC_poncho.rsi
+  - type: Clothing
+    sprite:  _Starlight/Clothing/Neck/Cloaks/CC_poncho.rsi
+
+- type: entity
+  parent: [ ClothingNeckBase ]
+  id: ClothingNeckCloakCentcomBlack
+  name: special operations officer cloak
+  description: The NanoTrasen logo embroidered in gold speaks for itself.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Neck/Cloaks/centcom_officer_black.rsi
+
+- type: entity
+  parent: [ ClothingNeckBase ]
+  id: ClothingNeckCloakCentcomAdmiral
+  name: admiral's cape
+  description: A vibrant green cape with gold stitching, worn by NanoTrasen Navy Admirals.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Neck/Cloaks/admiral.rsi
+
+- type: entity
+  parent: [ ClothingNeckBase ]
+  id: ClothingNeckMantleERTLeader
+  name: ERT leader's mantle
+  description: Extraordinary decorative drape over the shoulders.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Neck/Mantles/ERTmantle.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/Neck/Mantles/ERTmantle.rsi
+
+- type: entity
+  parent: [ClothingNeckMantleRD, BaseCentcommContraband]
+  id: ClothingNeckCloakCRDMantle
+  name: central researching division mantle
+  description: Rumors say that anomalies stabilize on their own and artifacts start behaving the moment this mantle shows up in the lab.
+  components:
+  - type: Sprite
+    sprite:  _Starlight/Clothing/Neck/Cloaks/CRD_mantle.rsi
+  - type: Clothing
+    sprite:  _Starlight/Clothing/Neck/Cloaks/CRD_mantle.rsi
+
+- type: entity
+  parent: [ClothingNeckMantleCMO, BaseCentcommContraband]
+  id: ClothingNeckCloakCMDMantle
+  name: central medical division mantle
+  description: No ailment or wound can hide from the gaze of the one draped in this mantle.
+  components:
+  - type: Sprite
+    sprite:  _Starlight/Clothing/Neck/Cloaks/CMD_mantle.rsi
+  - type: Clothing
+    sprite:  _Starlight/Clothing/Neck/Cloaks/CMD_mantle.rsi

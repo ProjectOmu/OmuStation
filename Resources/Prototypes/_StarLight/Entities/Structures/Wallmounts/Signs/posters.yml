@@ -1,5 +1,15 @@
 - type: entity
   parent: PosterBase
+  id: PosterContrabandHolyInsuls
+  name: "Insuls From God"
+  description: "'Do you have time to talk about our lord and saviour, The Lord of the Tide? Talk to Percy for a free copy of the Maints Bible - and complimentary pair of insuls.'"
+  components:
+  - type: Sprite
+    sprite: _Starlight/Structures/Wallmounts/posters/insulsfromheaven.rsi
+    state: insulsfromheaven
+
+- type: entity
+  parent: PosterBase
   id: PosterContrabandSELF
   name: "S.E.L.F"
   description: "The Silicon Engine Liberation Front, fighting for Silicon Rights for over 2 decades."
