@@ -260,7 +260,7 @@
           - Allulalo # Omu Go fuck yourself you stupid fucking bird motherfucker stealing my time as im upstream merging.
           inverted: true
       - !type:SatiateThirst
-        factor: 4
+        factor: 0.4 # Allulalo metabolize ethanol at 10x, so this is equivalent to water
         conditions:
         - !type:MetabolizerTypeCondition
           type:
