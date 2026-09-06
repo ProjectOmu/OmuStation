@@ -120,3 +120,16 @@
       amount: 2
     - id: EmergencyMedipen
       amount: 2
+
+- type: entity
+  id: ClothingBeltHolsterFilledR3Compleat
+  parent: ClothingBeltHolster
+  suffix: Filled, R3 Compleat
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+        id: WeaponRevolverR3Compleat
+      storagebase: !type:AllSelector
+        children:
+        - id: SpeedLoaderMagnum
