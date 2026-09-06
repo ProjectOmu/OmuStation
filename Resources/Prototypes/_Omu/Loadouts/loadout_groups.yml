@@ -529,3 +529,33 @@
   loadouts:
   - EMTBelt
   - ParamedPouch
+
+# Chef
+- type: loadoutGroup
+  id: ChefBackpack
+  name: loadout-group-chef-backpack
+  loadouts:
+  - ChefBackpack
+  - ChefBackpackSatchel
+  - ChefBackpackDuffel
+  - ChefBackpackMessenger
+
+# Janitor
+- type: loadoutGroup
+  id: JanitorBackpack
+  name: loadout-group-janitor-backpack
+  loadouts:
+  - JanitorBackpack
+  - JanitorBackpackSatchel
+  - JanitorBackpackDuffel
+  - JanitorBackpackMessenger
+
+# Bartender
+- type: loadoutGroup
+  id: BartenderBackpack
+  name: loadout-group-bartender-backpack
+  loadouts:
+  - BartenderBackpack
+  - BartenderBackpackSatchel
+  - BartenderBackpackDuffel
+  - BartenderBackpackMessenger
