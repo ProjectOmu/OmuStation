@@ -154,7 +154,7 @@
   id: TunnelClownMidround
   components:
   - type: StationEvent
-    weight: 1 # Omu, was 4
+    weight: 1 # Omu, goob had 1.5 as of 6f24302291e62642366523fd622dc9e221c23f7b
     duration: null
     earliestStart: 15
     minimumPlayers: 30 # Omu, was 20
@@ -189,7 +189,7 @@
   id: SingulothKnightsMidround
   components:
   - type: StationEvent
-    weight: 2.5
+    weight: 1
     duration: null
     earliestStart: 45
     minimumPlayers: 100 # OMU was 50 - remove from spawnpool
@@ -291,7 +291,7 @@
   id: MimeAssassinMidround
   components:
   - type: StationEvent
-    weight: 4
+    weight: 1.2
     duration: null
     earliestStart: 30
     minimumPlayers: 100 # OMU it doesnt work, turning it off
@@ -328,7 +328,7 @@
   id: DarkPriestMidround
   components:
   - type: StationEvent
-    weight: 3
+    weight: 0.05
     duration: null
     earliestStart: 30
     minimumPlayers: 100 # OMU was 40 - remove from spawnpool
@@ -378,7 +378,7 @@
     maxDifficulty: 10
   - type: StationEvent
     earliestStart: 35
-    weight: 2.5
+    weight: 0.9
     minimumPlayers: 50
     duration: 1
     chaos:
