@@ -19,3 +19,9 @@ marking-UndergarmentBottomSatinVox = Satin
 marking-UndergarmentBottomBoxersReptilian = Boxers
 marking-UndergarmentBottomBriefsReptilian = Briefs
 marking-UndergarmentBottomSatinReptilian = Satin
+
+# Omu start; add vulpkanin underwear because BOY do i love digitigrade legs AUUUUUUUUUUUUH
+marking-UndergarmentBottomBoxersVulpkanin = Boxers
+marking-UndergarmentBottomBriefsVulpkanin = Briefs
+marking-UndergarmentBottomSatinVulpkanin = Satin
+# Omu end
