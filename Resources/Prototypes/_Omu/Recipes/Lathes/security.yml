@@ -53,6 +53,13 @@
 
 # Magazine boxes
 
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxLongRifleRecipe
+  result: MagazineBoxLongRifle
+  materials:
+    Steel: 500
+
 # Caseless Rifle
 
 - type: latheRecipe

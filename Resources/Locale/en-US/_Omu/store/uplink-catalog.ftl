@@ -38,6 +38,12 @@ uplink-bloodred-headphones-desc = Looks stylish, and synergizes with the Shredde
 uplink-hobbyist-spellbook-name = Hobbyist Spell Book
 uplink-hobbyist-spellbook-desc = A book given out by the Wizard Federation to get avid fanatics to finally shut up. Contains the spells: Spark, Cure Wounds, Conjure Peel, Abracaweh, and Lessest Magic Missile.
 
+uplink-sniper-penman-name = LRR-30 "Penman" DMR
+uplink-sniper-penman-desc = A prized long range product of Waffle Co. able to down targets fast and accurately at medium to long ranges. Chambered in .30 long rifle magnum, fires in semi-auto, has a medium strength optic.
+
+uplink-ammo-longrifle-name = Box of .30 Long Rifle Magnum
+uplink-ammo-longrifle-desc = A box of ammunition used as ammo by the Kardashev-Mosin and LRR-30 "Penman" DMR.
+
 uplink-xeno-compatibility-implanter-name = Xeno Compatibility Implanter
 uplink-xeno-compatibility-implanter-desc = An implant that allows the user to make use of xenomorph organs.
 
