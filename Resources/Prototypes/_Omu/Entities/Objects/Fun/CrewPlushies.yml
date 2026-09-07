@@ -26,3 +26,41 @@
     state: icon
   - type: Item
     sprite: _Omu/Objects/Fun/Plushies/pickelsilly.rsi
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieSeptOctCrew
+  name: Sept Oct plushie
+  description: This plushie looks to be in a hardly-used, yet earnest condition. He'd let you hug him, but only after you sign a Warm Embrace Request Form (D-5).
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/septoct.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/septoct.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/septoct.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnUse
+    sound:
+      collection: VulpYips
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VulpYips
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: VulpYips
+  - type: EmitSoundOnCollide
+    sound:
+      collection: VulpkaninScreams
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: VulpkaninScreams
