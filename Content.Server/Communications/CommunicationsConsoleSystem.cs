@@ -281,7 +281,7 @@ namespace Content.Server.Communications
             }
 
             _chatSystem.DispatchStationAnnouncement(uid, msg, title,
-                announcementSound: comp.Sound, // Omu
+                announcementSound: comp.Sound, // Omu, pass in an announcementSound for non-global announcements, too, for consistency.
                 colorOverride: comp.Color
             );
 
