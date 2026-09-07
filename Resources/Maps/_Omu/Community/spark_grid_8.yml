@@ -181305,29 +181305,6 @@ entities:
     - type: ContainedSolution
       containerName: hvcable
       container: 12214
-  - uid: 12221
-    components:
-    - type: MetaData
-      name: solution - steel
-    - type: Transform
-      parent: 12220
-    - type: Solution
-      solution:
-        maxVol: 10
-        name: steel
-        reagents:
-        - data: []
-          ReagentId: Iron
-          Quantity: 7
-        - data: []
-          ReagentId: Carbon
-          Quantity: 2
-        - data: []
-          ReagentId: Lead
-          Quantity: 1
-    - type: ContainedSolution
-      containerName: steel
-      container: 12220
   - uid: 12223
     components:
     - type: MetaData
@@ -630888,7 +630865,6 @@ entities:
           occludes: True
           ents:
           - 12219
-          - 12220
           - 12222
           - 12224
     - type: UseDelay
@@ -652529,34 +652505,6 @@ entities:
       containers:
         solution@steel: !type:ContainerSlot
           ent: 12213
-  - uid: 12220
-    components:
-    - type: Transform
-      parent: 12217
-    - type: Stack
-      count: 5
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - steel
-    - type: UserInterface
-      interfaces:
-        enum.RadialSelectorUiKey.Key:
-          type: AttachedRadialSelectorMenuBUI
-          requireInputValidation: True
-          interactionRange: 2
-        enum.StackCustomSplitUiKey.Key:
-          type: StackCustomSplitBoundUserInterface
-          requireInputValidation: True
-          interactionRange: 2
-    - type: EmitSoundOnCollide
-      nextSound: -117378.215955
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@steel: !type:ContainerSlot
-          ent: 12221
   - uid: 13572
     components:
     - type: Transform
