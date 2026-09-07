@@ -498,6 +498,13 @@
   - MedicalDoctorMessenger # Frontier
   - CybersunMedicalMessenger
 
+- type: loadoutGroup
+  id: MedicalNeck
+  name: loadout-group-medical-neck
+  minLimit: 0
+  loadouts:
+  - MedicalStethoscope
+
 # Paramedic
 - type: loadoutGroup
   id: ParamedicBackpack
@@ -515,3 +522,10 @@
   - ParamedMessenger
   - MedicalDoctorMessenger # Frontier
   - CybersunMedicalMessenger
+
+- type: loadoutGroup
+  id: ParamedicBelt
+  name: loadout-group-paramedic-belt
+  loadouts:
+  - EMTBelt
+  - ParamedPouch
