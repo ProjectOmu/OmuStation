@@ -7,6 +7,8 @@
     NitrogenTankFilled: 10
     PlasmaTankFilled: 10 # EE Plasmeme Change
     WaterVaporTankFilled: 10 # Omu, Feroxi
+  emaggedInventory:
+    NitrousOxideTankFilled: 1
 
 - type: vendingMachineInventory
   id: TankDispenserEngineeringInventory
@@ -16,4 +18,4 @@
     OxygenTankFilled: 10
     WaterVaporTankFilled: 10 # Omu, Feroxi
   emaggedInventory:
-  NitrousOxideTankFilled: 1
+    NitrousOxideTankFilled: 1
