@@ -3,7 +3,7 @@
 - type: entity
   id: ReinforcedPlasmaWindow
   name: reinforced plasma window
-  parent: [BaseDeltaPressureImmune, WindowRCDResistant]
+  parent: [BaseDeltaPressureImmune, WindowRCDResistant] # Omu, make rplasma immune to DeltaP
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -60,7 +60,7 @@
 
 - type: entity
   id: PlasmaReinforcedWindowDirectional
-  parent: [BaseDeltaPressureImmune, WindowDirectionalRCDResistant]
+  parent: [BaseDeltaPressureImmune, WindowDirectionalRCDResistant] # Omu, make rplasma immune to DeltaP
   name: directional reinforced plasma window
   description: Don't smudge up the glass down there.
   placement:

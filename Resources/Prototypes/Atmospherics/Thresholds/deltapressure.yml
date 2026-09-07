@@ -49,8 +49,8 @@
   id: BaseDeltaPressureReinforcedGlass
   components:
   - type: DeltaPressure
-    minPressure: 4500
-    minPressureDelta: 2000
+    minPressure: 4500 # Omu 
+    minPressureDelta: 2000 # Omu
     scalingType: Threshold
 
 ## For quarter reinforced glass windows
@@ -60,7 +60,7 @@
   components:
   - type: DeltaPressure
     minPressure: 3750
-    minPressureDelta: 1800
+    minPressureDelta: 1800 # Omu
 
 ## For glass windows
 - type: entity
