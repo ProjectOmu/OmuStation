@@ -49,8 +49,8 @@
   id: BaseDeltaPressureReinforcedGlass
   components:
   - type: DeltaPressure
-    minPressure: 15000
-    minPressureDelta: 10000
+    minPressure: 4500
+    minPressureDelta: 2000
     scalingType: Threshold
 
 ## For quarter reinforced glass windows
@@ -60,7 +60,7 @@
   components:
   - type: DeltaPressure
     minPressure: 3750
-    minPressureDelta: 2500
+    minPressureDelta: 1800
 
 ## For glass windows
 - type: entity

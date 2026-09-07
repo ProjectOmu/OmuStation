@@ -3,7 +3,7 @@
 - type: entity
   id: ReinforcedPlasmaWindow
   name: reinforced plasma window
-  parent: [BaseDeltaPressureReinforcedPlasma, WindowRCDResistant]
+  parent: [BaseDeltaPressureImmune, WindowRCDResistant]
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -60,7 +60,7 @@
 
 - type: entity
   id: PlasmaReinforcedWindowDirectional
-  parent: [BaseDeltaPressureReinforcedPlasmaQuarter, WindowDirectionalRCDResistant]
+  parent: [BaseDeltaPressureImmune, WindowDirectionalRCDResistant]
   name: directional reinforced plasma window
   description: Don't smudge up the glass down there.
   placement:

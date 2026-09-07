@@ -1,0 +1,7 @@
+- type: entity
+  abstract: true
+  id: BaseDeltaPressureImmune
+  components:
+  - type: DeltaPressure
+    minPressure: -1
+    minPressureDelta: -1
