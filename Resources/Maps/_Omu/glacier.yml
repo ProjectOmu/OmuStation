@@ -4,7 +4,7 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 09/08/2026 13:51:15
+  time: 09/08/2026 14:04:41
   entityCount: 21685
 maps:
 - 1
@@ -15592,7 +15592,7 @@ entities:
       pos: -19.5,-13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -224915.81
+      secondsUntilStateChange: -225719.88
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -57616,7 +57616,7 @@ entities:
       pos: -2.5,48.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -352330.8
+      secondsUntilStateChange: -353134.88
       state: Closing
   - uid: 8051
     components:
@@ -141996,29 +141996,31 @@ entities:
       - 21401
 - proto: WeaponEnergyTurretSecurity
   entities:
-  - uid: 21672
+  - uid: 21403
     components:
     - type: Transform
+      rot: 3.141592653589793 rad
       pos: -16.5,24.5
       parent: 2
     - type: DeviceNetwork
       configurators:
       - invalid
       deviceLists:
-      - 21403
+      - 21672
   - uid: 21673
     components:
     - type: Transform
+      rot: 3.141592653589793 rad
       pos: -12.5,24.5
       parent: 2
     - type: DeviceNetwork
       configurators:
       - invalid
       deviceLists:
-      - 21403
+      - 21672
 - proto: WeaponEnergyTurretSecurityControlPanel
   entities:
-  - uid: 21403
+  - uid: 21672
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -142026,12 +142028,8 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 21672
       - 21673
-    - type: AccessReader
-      accessListsOriginal:
-      - - StationAi
-      - - Security
+      - 21403
 - proto: WeaponFlareGun
   entities:
   - uid: 21404
@@ -142681,7 +142679,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -340984.47
+      secondsUntilStateChange: -341788.53
       state: Opening
     - type: Airlock
       autoClose: False
