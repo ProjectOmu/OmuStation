@@ -3,5 +3,6 @@
   id: BaseDeltaPressureImmune
   components:
   - type: DeltaPressure
-    minPressure: -1
-    minPressureDelta: -1
+    bypass: true
+    minPressure: 150000
+    minPressureDelta: 100000
