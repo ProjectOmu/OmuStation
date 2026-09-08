@@ -112721,29 +112721,6 @@ entities:
     - type: ContainedSolution
       containerName: food
       container: 1216
-  - uid: 1220
-    components:
-    - type: MetaData
-      name: solution - steel
-    - type: Transform
-      parent: 1219
-    - type: Solution
-      solution:
-        maxVol: 10
-        name: steel
-        reagents:
-        - data: []
-          ReagentId: Iron
-          Quantity: 7
-        - data: []
-          ReagentId: Carbon
-          Quantity: 2
-        - data: []
-          ReagentId: Lead
-          Quantity: 1
-    - type: ContainedSolution
-      containerName: steel
-      container: 1219
   - uid: 1224
     components:
     - type: MetaData
