@@ -7250,3 +7250,13 @@ Entries:
         smoke.
   id: 938
   time: '2026-09-08T02:54:02.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Tweak
+      message: Made reinforced plasma windows immune to pressure damage.
+    - type: Tweak
+      message: >-
+        Lowered normal reinforced windows to take damage at a pressure
+        difference of 2000 kPa!
+  id: 939
+  time: '2026-09-08T13:02:40.0000000+00:00'
