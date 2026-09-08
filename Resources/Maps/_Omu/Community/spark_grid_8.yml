@@ -67,9 +67,8 @@ entities:
     - type: MetaData
       name: Spark Station
     - type: Transform
-      rot: 0.1457134634256363 rad
-      pos: 424.13458,504.21368
-      parent: invalid
+      rot: 0 rad
+      pos: 0,0
     - type: MapGrid
       chunks:
         0,0:
@@ -241345,8 +241344,6 @@ entities:
       pos: 5.5,-11.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 10841
       address: SNS-5715-991A
@@ -244791,8 +244788,6 @@ entities:
       pos: 38.5,12.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 10855
       address: SNS-00FD-C49A
@@ -260648,8 +260643,6 @@ entities:
       pos: -6.5,-29.5
       parent: 1
     - type: Strap
-      buckledEntities:
-      - invalid
     - type: Forensics
       residues: []
       dNAs: []
@@ -260872,8 +260865,6 @@ entities:
       pos: 2.5,54.5
       parent: 1
     - type: Strap
-      buckledEntities:
-      - invalid
     - type: Forensics
       residues: []
       dNAs: []
@@ -363342,8 +363333,6 @@ entities:
     - type: PointLight
       enabled: True
     - type: DeviceNetwork
-      configurators:
-      - invalid
       address: 645C-B12E
       receiveFrequency: 1261
     - type: ContainerContainer
@@ -367873,10 +367862,6 @@ entities:
         34488:
           position: 6,8
           _rotation: South
-    - type: UserInterface
-      actors:
-        enum.StorageUiKey.Key:
-        - invalid
     - type: ContainerContainer
       containers:
         storagebase: !type:Container
@@ -483899,8 +483884,6 @@ entities:
       pos: 45.5,-6.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 10857
       address: VNT-0FFE-D9C8
@@ -484140,8 +484123,6 @@ entities:
       pos: 39.5,12.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 10855
       address: VNT-6EC3-D82B
@@ -506907,8 +506888,6 @@ entities:
       pos: 45.5,-5.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 10857
       address: SCR-4A98-299D
@@ -507382,8 +507361,6 @@ entities:
       pos: 37.5,12.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 10855
       address: SCR-171C-07B4
@@ -684785,8 +684762,6 @@ entities:
     - type: Transform
       pos: 52.5,32.5
       parent: 1
-    - type: VinylPlayer
-      soundEntity: invalid
     - type: ContainerContainer
       containers:
         machine_board: !type:Container
