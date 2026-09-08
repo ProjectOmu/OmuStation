@@ -7236,3 +7236,17 @@ Entries:
         locker.
   id: 936
   time: '2026-09-06T18:29:29.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed med assembler whitelist
+  id: 937
+  time: '2026-09-06T21:51:09.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Fix
+      message: >-
+        Cleanades and other smoke-spawning items should now properly spawn
+        smoke.
+  id: 938
+  time: '2026-09-08T02:54:02.0000000+00:00'
