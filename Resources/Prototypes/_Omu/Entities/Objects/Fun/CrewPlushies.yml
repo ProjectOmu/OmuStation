@@ -45,19 +45,21 @@
     - HEAD
   - type: EmitSoundOnPickup
     sound:
-      collection: VulpkaninBarks
+      collection: VulpYips
   - type: EmitSoundOnUse
     sound:
-      collection: VulpYips
+      collection: VulpYaps
   - type: EmitSoundOnActivate
     sound:
-      collection: VulpYips
+      collection: VulpYaps
   - type: EmitSoundOnTrigger
     sound:
-      collection: VulpYips
-  - type: EmitSoundOnCollide
+      collection: VulpYaps
+  - type: EmitSoundOnThrow
     sound:
       collection: VulpkaninScreams
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
   - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
