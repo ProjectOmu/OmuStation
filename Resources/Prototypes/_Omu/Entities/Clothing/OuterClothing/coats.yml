@@ -237,11 +237,6 @@
   name: central commander's labcoat
 
 - type: entity
-  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCMOLabCoat]
-  id: ClothingOuterCMOLabCoatOpened
-  name: chief medical officer's lab coat
-
-- type: entity
   parent: [ ClothingOuterStorageFoldableBase, BaseCentcommContraband ]
   id:  ClothingOuterCentcomArmoredLabcoat
   name: centcomm armored lab coat
