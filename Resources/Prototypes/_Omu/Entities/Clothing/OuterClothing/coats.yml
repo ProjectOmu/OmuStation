@@ -252,13 +252,13 @@
   - type: Clothing
     sprite: _Omu/Clothing/OuterClothing/Coats/labcoat_armored_centcom.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
     modifiers:
-      coverage:
-      - Chest
-      - Groin
-      - Tail
-      - Arm
-      - Leg
       coefficients:
         Blunt: 0.6
         Slash: 0.6
@@ -274,7 +274,7 @@
   - type: GroupExamine
 
 - type: entity
-  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCentcomArmoredLabcoat]
+  parent: [ ClothingOuterStorageFoldableBaseOpened, ClothingOuterCentcomArmoredLabcoat ]
   id: ClothingOuterCentcomArmoredLabcoatOpened
   name: centcomm armored lab coat
 
