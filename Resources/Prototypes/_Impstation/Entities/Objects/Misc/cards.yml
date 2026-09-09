@@ -13,6 +13,9 @@
     - state: purple_box_open
       map: [ "openLayer" ]
       visible: false
+    - state: purple_box_full
+      map: [ "fullLayer" ]
+      visible: true
   - type: OpenTriggeredStorageFill
     contents:
     - id: CardDeckTarot
