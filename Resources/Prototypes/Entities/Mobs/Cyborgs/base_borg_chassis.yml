@@ -267,46 +267,21 @@
     - Cyborgs
     - Robotics
   - type: LanguageKnowledge # Einstein Engines - Languages
+    # Omu start: Cyborgs should understand (and only understand) all common languages (and not species languages)
     speaks:
     - TauCetiBasic
-    - Canilunzt
-    - Bubblish
-    - Nekomimetic
-    - Draconic
-    - SolCommon
-    - RootSpeak
-    - Moffic
-    - ValyrianStandard
-    - Chittin
-    - SiikMaas
     - RobotTalk
-    - Marish
-    - Elyran
-    - Freespeak
-    - Tradeband
-    - Schechi
-    - NewKinPidgin
     understands:
     - TauCetiBasic
-    - Canilunzt
-    - Bubblish
-    - Nekomimetic
-    - Draconic
-    - SolCommon
-    - RootSpeak
-    - Moffic
-    - ValyrianStandard
-    - Chittin
-    - SiikMaas
     - RobotTalk
-    - Marish
     - Elyran
     - Freespeak
-    - Tradeband
-    - Schechi # Omustation start - Borgs and the AI should speak all common languages, minus sign, which they should just understand. (Correction, for now borgs only understand the langs)
-    - NewKinPidgin
     - NovuNederic
-    - Sign # Omustation end
+    - SolCommon
+    - TauCetiBasic
+    - Tradeband
+    - Sign
+    # Omu end
   - type: ProtectedFromStepTriggers
   - type: DamageOnInteractProtection
     damageProtection:
