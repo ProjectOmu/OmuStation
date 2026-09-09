@@ -19,21 +19,26 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
     board: NuclearFabricatorMachineCircuitboard
+  - type: OreSiloClient
   - type: MaterialStorage
     whitelist:
       tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
-  #- type: MaterialSiloClient
+      - Sheet
+      - RawMaterial
+      - Ingot
+      # <Goobstation>
+      - Metal
+      - Wooden
+      - SheetPlasma
+      - Plastic # Goobstation End
+      - Ingot #OMU
+      # </Goobstation
   - type: Lathe
     idleState: icon
     runningState: building
     unlitIdleState: unlit
     unlitRunningState: unlit-building
-
     staticPacks:
       - ReactorBasic
-
     dynamicPacks:
       - ReactorAdvanced

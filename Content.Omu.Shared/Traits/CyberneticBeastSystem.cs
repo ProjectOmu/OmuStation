@@ -10,7 +10,6 @@ namespace Content.Omu.Shared.Traits;
 /// </summary>
 public sealed class CyberneticBeastSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
 
     public override void Initialize()

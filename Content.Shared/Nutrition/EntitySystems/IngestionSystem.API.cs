@@ -1,9 +1,10 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects.Effects;
+using Content.Shared.EntityEffects.Effects.Body;
 using Content.Shared.Inventory;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.Prototypes;
@@ -186,32 +187,35 @@ public sealed partial class IngestionSystem
 
     #region EdibleComponent
 
-    public void SpawnTrash(Entity<EdibleComponent> entity, EntityUid user)
+    public void SpawnTrash(Entity<EdibleComponent> entity, EntityUid? user = null)
     {
         if (entity.Comp.Trash.Count == 0)
             return;
 
         var position = _transform.GetMapCoordinates(entity);
         var trashes = entity.Comp.Trash;
-        var tryPickup = _hands.IsHolding(user, entity, out _);
-        var isWearing =  _container.TryGetContainer(user, "mask", out var maskContainer) && maskContainer.Contains(entity); // Goob
+        var pickup = user != null && _hands.IsHolding(user.Value, entity, out _);
 
         foreach (var trash in trashes)
         {
             var spawnedTrash = EntityManager.PredictedSpawn(trash, position);
 
             // If the user is holding the item
-            if (tryPickup)
-            {
-                // Put the trash in the user's hand
-                _hands.TryPickupAnyHand(user, spawnedTrash);
-            }
-            //  Goob wearable foods, i.e. lollypops
-            if (isWearing && maskContainer != null && entity.Comp.Trash.Count.Equals(1))
-            {
-                _container.CleanContainer(maskContainer);
-                _container.Insert(spawnedTrash, maskContainer);
-            }
+            if (!pickup)
+                continue;
+
+            // Put the trash in the user's hand
+            // I am 100% confident we don't need this check but rider gets made at me if it's not here.
+            if (user != null)
+                _hands.TryPickupAnyHand(user.Value, spawnedTrash);
+        }
+    }
+
+    public void AddTrash(Entity<EdibleComponent> entity, List<EntProtoId> newTrash)
+    {
+        foreach (var trash in newTrash)
+        {
+            entity.Comp.Trash.Add(trash);
         }
     }
 
@@ -270,7 +274,7 @@ public sealed partial class IngestionSystem
                     // ignores any effect conditions, just cares about how much it can hydrate
                     if (effect is SatiateHunger hunger)
                     {
-                        total += hunger.NutritionFactor * quantity.Quantity.Float();
+                        total += hunger.Factor * quantity.Quantity.Float();
                     }
                 }
             }
@@ -321,7 +325,7 @@ public sealed partial class IngestionSystem
                     // ignores any effect conditions, just cares about how much it can hydrate
                     if (effect is SatiateThirst thirst)
                     {
-                        total += thirst.HydrationFactor * quantity.Quantity.Float();
+                        total += thirst.Factor * quantity.Quantity.Float();
                     }
                 }
             }

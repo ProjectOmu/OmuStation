@@ -49,15 +49,6 @@
       count: 10
 
 - type: entity
-  parent: CableApcGranular0Stack10
-  id: CableApcGranular0StackLingering10
-  suffix: Lingering, 10
-  components:
-  - type: Stack
-    lingering: true
-    count: 10
-
-- type: entity
   parent: CableApcGranular0Stack
   id: CableApcGranular0Stack1
   suffix: 1
@@ -117,15 +108,6 @@
       count: 10
 
 - type: entity
-  parent: CableApcGranular1Stack10
-  id: CableApcGranular1StackLingering10
-  suffix: Lingering, 10
-  components:
-  - type: Stack
-    lingering: true
-    count: 10
-
-- type: entity
   parent: CableApcGranular1Stack
   id: CableApcGranular1Stack1
   suffix: 1
@@ -183,15 +165,6 @@
       state: coillvg2-10
     - type: Stack
       count: 10
-
-- type: entity
-  parent: CableApcGranular2Stack10
-  id: CableApcGranular2StackLingering10
-  suffix: Lingering, 10
-  components:
-  - type: Stack
-    lingering: true
-    count: 10
 
 - type: entity
   parent: CableApcGranular2Stack

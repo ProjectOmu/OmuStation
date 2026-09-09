@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 csqrb <56765288+CaptainSqrBeard@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -23,28 +12,9 @@ namespace Content.Shared.Humanoid.Markings
         [DataField("markingColor")]
         private List<Color> _markingColors = new();
 
-        // Omu begin
-        /// <summary>
-        /// A bitwise index of which markingColors are glowing.
-        /// </summary>
-        [DataField]
-        public uint GlowyBits { get; private set; }
-        // Omu end
-
         private Marking()
         {
         }
-
-        // Omu begin
-        public Marking(string markingId,
-            List<Color> markingColors,
-            bool glowy) // Omu
-        {
-            MarkingId = markingId;
-            _markingColors = markingColors;
-            SetGlowing(glowy);
-        }
-        // Omu end
 
         public Marking(string markingId,
             List<Color> markingColors,
@@ -54,15 +24,6 @@ namespace Content.Shared.Humanoid.Markings
             _markingColors = markingColors;
             GlowyBits = glowyBits; // Omu
         }
-
-        // Omu begin
-        public Marking(string markingId,
-            IReadOnlyList<Color> markingColors,
-            bool isGlowy)
-            : this(markingId, new List<Color>(markingColors), isGlowy)
-        {
-        }
-        // Omu end
 
         public Marking(string markingId,
             IReadOnlyList<Color> markingColors,
@@ -86,7 +47,7 @@ namespace Content.Shared.Humanoid.Markings
             _markingColors = new(other.MarkingColors);
             Visible = other.Visible;
             Forced = other.Forced;
-            GlowyBits = other.GlowyBits; // Omu
+            GlowyBits = other.GlowyBits; // Omu - Glowy markings
         }
 
         /// <summary>
@@ -124,40 +85,6 @@ namespace Content.Shared.Humanoid.Markings
             }
         }
 
-        // Omu begin
-        /// <summary>
-        /// Sets the whole bit representation to 1 or 0, meaning either all colors in the marking are glowing or not glowing.
-        /// </summary>
-        /// <param name="isGlowing">If it should glow or not.</param>
-        public void SetGlowing(bool isGlowing)
-        {
-            GlowyBits = isGlowing ? uint.MaxValue : 0;
-        }
-
-        /// <summary>
-        /// Sets the glowing state of a specific color index in the marking.
-        /// </summary>
-        /// <param name="colorIndex">The color index of the marking to set the glowing state of.</param>
-        /// <param name="isGlowing">If it should glow or not.</param>
-        public void SetGlowing(int colorIndex, bool isGlowing)
-        {
-            if (isGlowing)
-                GlowyBits |= (uint) (1 << colorIndex);
-            else
-                GlowyBits &= (uint) ~(1 << colorIndex);
-        }
-
-        /// <summary>
-        /// Gets the glowing state of a specific color index in the marking.
-        /// </summary>
-        /// <param name="colorIndex">The color index of the marking to get the glowing state of.</param>
-        /// <returns>If it should glow or not.</returns>
-        public bool GetGlowingIndex(int colorIndex)
-        {
-            return (GlowyBits & (uint) (1 << colorIndex)) != 0;
-        }
-        // Omu End
-
         public int CompareTo(Marking? marking)
         {
             if (marking == null)
@@ -186,7 +113,7 @@ namespace Content.Shared.Humanoid.Markings
                 && _markingColors.SequenceEqual(other._markingColors)
                 && Visible.Equals(other.Visible)
                 && Forced.Equals(other.Forced)
-                && GlowyBits.Equals(other.GlowyBits); // Omu
+                && GlowyBits.Equals(other.GlowyBits); // Omu - Glowy markings
         }
 
         // VERY BIG TODO: TURN THIS INTO JSONSERIALIZER IMPLEMENTATION
@@ -223,7 +150,7 @@ namespace Content.Shared.Humanoid.Markings
                 foreach (string color in split[1].Split(','))
                     colorList.Add(Color.FromHex(color));
 
-                return new Marking(split[0], colorList, 0); // Omu
+                return new Marking(split[0], colorList, 0); // Omu - Glowy markings
             }
 
             if (split.Length == 3)
@@ -237,5 +164,67 @@ namespace Content.Shared.Humanoid.Markings
             return null;
             // Omu End
         }
+
+        // Omu begin
+        /// <summary>
+        /// A bitwise index of which markingColors are glowing.
+        /// </summary>
+        [DataField]
+        public uint GlowyBits { get; set; }
+        // Omu end
+
+        // Omu begin
+        public Marking(string markingId,
+            List<Color> markingColors,
+            bool glowy) // Omu
+        {
+            MarkingId = markingId;
+            _markingColors = markingColors;
+            SetGlowing(glowy);
+        }
+
+        public Marking(string markingId,
+            IReadOnlyList<Color> markingColors,
+            bool isGlowy)
+            : this(markingId, new List<Color>(markingColors), isGlowy)
+        {
+        }
+        // Omu end
+
+        // Omu begin
+        /// <summary>
+        /// Sets the whole bit representation to 1 or 0, meaning either all colors in the marking are glowing or not glowing.
+        /// </summary>
+        /// <param name="isGlowing">If it should glow or not.</param>
+        public void SetGlowing(bool isGlowing)
+        {
+            GlowyBits = isGlowing ? uint.MaxValue : 0;
+        }
+
+        /// <summary>
+        /// Sets the glowing state of a specific color index in the marking.
+        /// </summary>
+        /// <param name="colorIndex">The color index of the marking to set the glowing state of.</param>
+        /// <param name="isGlowing">If it should glow or not.</param>
+        public void SetGlowing(int colorIndex, bool isGlowing)
+        {
+            if (isGlowing)
+                GlowyBits |= (uint) (1 << colorIndex);
+            else
+                GlowyBits &= (uint) ~(1 << colorIndex);
+        }
+
+        /// <summary>
+        /// Gets the glowing state of a specific color index in the marking.
+        /// </summary>
+        /// <param name="colorIndex">The color index of the marking to get the glowing state of.</param>
+        /// <returns>If it should glow or not.</returns>
+        public bool GetGlowingIndex(int colorIndex)
+        {
+            return (GlowyBits & (uint) (1 << colorIndex)) != 0;
+        }
+        // Omu End
     }
+
+
 }

@@ -1,0 +1,28 @@
+- type: entity
+  parent: [ BaseComputer ]
+  id: GasSaleConsole
+  name: gas sale console
+  description: Sells gas pumped into a linked gas sale port/point.
+  components:
+  - type: Sprite
+    sprite: _NF/Structures/Machines/computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: cargo_sale
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+  - type: GasSaleConsole
+  - type: ActivatableUI
+    key: enum.GasSaleConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.GasSaleConsoleUiKey.Key:
+        type: GasSaleConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Computer
+    board: Null # FIXME

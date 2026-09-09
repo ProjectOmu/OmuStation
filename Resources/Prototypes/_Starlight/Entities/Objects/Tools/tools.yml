@@ -1,0 +1,11 @@
+- type: entity
+  id: ToolboxSELF
+  parent: ToolboxThief
+  suffix: SELF
+  components:
+  - type: SetSelector # Omu, was ThiefUndeterminedBackpack
+    maxSelectedSets: 1
+    possibleSets:
+    - SaboteurSELF
+    - PressSELF
+    - SpySELF

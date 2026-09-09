@@ -27,13 +27,8 @@
       rules: ghost-role-information-nanotrasen-spectre-rules
       raffle:
         settings: short
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 48000 # Goobstation
-      - !type:DepartmentTimeRequirement
-        department: Command
-        time: 18000 # Goobstation
+      mindRoles:
+      - MindRoleGhostRoleNanotrasenERTOmu
     - type: Loadout
       prototypes: [ NanoTrasenSpectreGear ]
       roleLoadout: [ RoleSurvivalEVA ]
@@ -74,13 +69,8 @@
       raffle:
         settings: short
       job: ERTLeaderBlue
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 36000 # ten hours
-      - !type:DepartmentTimeRequirement
-        department: Command
-        time: 18000 # five hours
+      mindRoles:
+      - MindRoleGhostRoleNanotrasenERTOmu
     - type: Loadout
       prototypes: [ ERTLeaderGearBlue ]
       roleLoadout: [ RoleSurvivalExtended ]
@@ -243,13 +233,8 @@
       raffle:
         settings: short
       job: ERTEngineerBlue
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Engineering
-        time: 36000 # ten hours
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 18000 # five hours
+      mindRoles:
+      - MindRoleGhostRoleNanotrasenERTOmu
     - type: RandomMetadata
       nameSegments:
       - NamesMilitaryFirst

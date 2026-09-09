@@ -11,10 +11,26 @@
   sprite:
     sprite: _Omu/Clothing/Eyes/scidiagglasses.rsi
     state: icon
-  
+
 - type: stealTargetGroup
   id: DrinkMugAA
   name: steal-target-groups-aamug
   sprite:
     sprite: _Omu/Objects/Consumable/Drinks/mug_aa.rsi
     state: icon
+
+- type: stealTargetGroup
+  id: StealLittlePerson
+  name: steal-target-groups-littleperson
+  sprite:
+   sprite: Clothing/Back/Duffels/duffel.rsi
+   state: icon
+
+# Legacy wizden content:
+
+- type: stealTargetGroup
+  id: SalvageShuttleConsoleCircuitboard
+  name: steal-target-groups-salvageboard
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: cpu_supply

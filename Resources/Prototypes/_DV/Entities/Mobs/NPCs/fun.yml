@@ -43,8 +43,16 @@
     - id: FoodMeatShrimp
       amount: 6
   - type: Bloodstream
-    bloodMaxVolume: 100
-    bloodReagent: BbqSauce # Australia reference
+    bloodlossDamage:
+      types:
+        Bloodloss: 1
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -0.25
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: BbqSauce  # Australia reference
+        Quantity: 100
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-possum
@@ -57,7 +65,7 @@
   - type: Puller
     needsHands: false
   - type: MindContainer
-    showExamineInfo: true
+  - type: MindExaminable
   - type: NpcFactionMember
     factions:
     - Passive
@@ -73,10 +81,7 @@
     description: ghost-role-information-shrimp-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleFreeAgentGoob
     raffle:
       settings: default
-    requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 18000 #5 hours
   - type: GhostTakeoverAvailable

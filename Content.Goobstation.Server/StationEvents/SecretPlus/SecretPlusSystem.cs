@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -98,15 +93,15 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
     protected override void Added(EntityUid uid, SecretPlusComponent scheduler, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         // Omu Station - Start
-        // Edited it Initial ChaosScore & Antag Weight, to be based upon the amount of ReadyPlayers to be consistent with round start score.
+        // Edited it Initial ChaosScore & Antag Weight, to be based upon the amount of TotalPlayers to be consistent with round start score.
 
-        var readyPlayers = GameTicker.ReadyPlayerCount();
+        var totalPlayers = GetTotalPlayerCount(_playerManager.Sessions);
         // set up starting chaos score based on ready players
         scheduler.ChaosScore =
-            -_random.NextFloat(scheduler.MinStartingChaos * readyPlayers, scheduler.MaxStartingChaos * readyPlayers) *
+            -_random.NextFloat(scheduler.MinStartingChaos * totalPlayers, scheduler.MaxStartingChaos * totalPlayers) *
             _roundstartChaosScoreMultiplier;
 
-        LogMessage($"Initial chaos score: {scheduler.ChaosScore} (based on {readyPlayers} ready players)");
+        LogMessage($"Initial chaos score: {scheduler.ChaosScore} (based on {totalPlayers} total players)");
         // Omu Station - End
 
         // roll midroundchaos generation variation
@@ -311,6 +306,8 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
                || ruleComp.MinPlayers > count
             )
                 return;
+
+            count = GetTotalPlayerCount(_playerManager.Sessions); // Omu, reset count to totalplayers after we have checked that we are above minplayers
 
                                                 // pick less antags if we have less chaos left
             var effPlayers = (int)MathF.Round(count * scheduler.Comp.ChaosScore / origChaos);

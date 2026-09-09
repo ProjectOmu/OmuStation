@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseToolSurgery
+  parent: [ BaseToolSurgery, BaseMedicalScienceContraband ] # Omu
   id: Bonesetter
   name: bone setter
   description: Used for setting bones back into place.
@@ -14,7 +14,7 @@
       path: /Audio/_Shitmed/Medical/Surgery/bone_setter.ogg
 
 - type: entity
-  parent: BaseToolSurgery
+  parent: [ BaseToolSurgery, BaseMedicalScienceContraband ] # Omu
   id: BoneGel
   name: bottle of bone gel
   description: A container for bone gel that often needs to be refilled from a specialized machine.
@@ -25,7 +25,7 @@
   - type: BoneGel
 
 - type: entity
-  parent: BaseToolSurgery
+  parent: [ BaseToolSurgery, BaseMedicalScienceContraband ] # Omu
   id: MedicalStitches
   name: medical stitches
   description: A fine, curved needle with a length of absorbable polyglycolide suture thread.
@@ -301,7 +301,7 @@
 - type: entity
   name: surgical omnitool
   id: OmnimedTool
-  parent: BaseToolSurgery
+  parent: [ BaseToolSurgery, BaseMedicalScienceContraband ] # Omu
   description: A compact surgical omnitool conveniently packed like a Swiss Army knife.
   components:
   - type: Sprite

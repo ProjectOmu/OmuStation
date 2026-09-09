@@ -25,3 +25,17 @@
   - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterSyndie
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterWinterCoatArachnid
+  name: cobweb winter coat
+  description: "Made from a special variant of cobweb."
+  components:
+    - type: Sprite
+      sprite: _Omu/Clothing/OuterClothing/WinterCoats/arachnidcoat.rsi
+    - type: Clothing
+      sprite: _Omu/Clothing/OuterClothing/WinterCoats/arachnidcoat.rsi
+    - type: Construction
+      graph: ClothingOuterWinterCoatArachnid
+      node: end

@@ -15,6 +15,7 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
 
 - type: loadout
   id: StationEngineerEnvirogloves
@@ -24,3 +25,8 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+
+- type: loadout
+  id: StationEngineerJumpsuitCasual
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCasualEngineer

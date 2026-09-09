@@ -354,9 +354,9 @@
 # UndergarmentBottom
 
 - type: marking
-  id: UnderwearBriefsT
-  bodyPart: Underwear
-  markingCategory: Underwear
+  id: UndergarmentBottomBriefsT
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Male ] # TheDen - Added sexual dimorphism to thaven
   coloring:
@@ -369,9 +369,9 @@
     state: briefs
 
 - type: marking
-  id: UnderwearDefaultT
-  bodyPart: Underwear
-  markingCategory: Underwear
+  id: UndergarmentBottomDefaultT
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Male ] # TheDen - Added sexual dimorphism to thaven
   coloring:
@@ -384,9 +384,9 @@
     state: boxers
 
 - type: marking
-  id: UnderwearLowridersT
-  bodyPart: Underwear
-  markingCategory: Underwear
+  id: UndergarmentBottomLowridersT
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Male ] # TheDen - Added sexual dimorphism to thaven
   coloring:
@@ -399,9 +399,9 @@
     state: lowriders
 
 - type: marking
-  id: UnderwearSatinT
-  bodyPart: Underwear
-  markingCategory: Underwear
+  id: UndergarmentBottomSatinT
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   speciesRestriction: [ Thaven ]
   coloring:
     default:
@@ -413,9 +413,9 @@
     state: satin
 
 - type: marking
-  id: UnderwearTangaT
-  bodyPart: Underwear
-  markingCategory: Underwear
+  id: UndergarmentBottomTangaT
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   speciesRestriction: [ Thaven ]
   coloring:
     default:
@@ -430,8 +430,8 @@
 
 - type: marking
   id: UndergarmentTopBinderT
-  bodyPart: Undershirt
-  markingCategory: Undershirt
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Male ] # TheDen - Added sexual dimorphism to thaven
   coloring:
@@ -445,8 +445,8 @@
 
 - type: marking
   id: UndergarmentTopTanktopT
-  bodyPart: Undershirt
-  markingCategory: Undershirt
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Male ] # TheDen - Added sexual dimorphism to thaven
   coloring:
@@ -459,9 +459,9 @@
     state: tanktop
 
 - type: marking
-  id: UndershirtBraClassicT
-  bodyPart: Undershirt
-  markingCategory: Undershirt
+  id: UndergarmentTopBraClassicT
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Male ] # TheDen - Added sexual dimorphism to thaven
   coloring:
@@ -474,9 +474,9 @@
     state: classic
 
 - type: marking
-  id: UndershirtBraSportsT
-  bodyPart: Undershirt
-  markingCategory: Undershirt
+  id: UndergarmentTopBraSportsT
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Male ] # TheDen - Added sexual dimorphism to thaven
   coloring:
@@ -489,9 +489,9 @@
     state: sports
 
 - type: marking
-  id: UndershirtBraStraplessT
-  bodyPart: Undershirt
-  markingCategory: Undershirt
+  id: UndergarmentTopBraStraplessT
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Male ] # TheDen - Added sexual dimorphism to thaven
   coloring:
@@ -504,9 +504,9 @@
     state: strapless
 
 - type: marking
-  id: UndershirtDefaultT
-  bodyPart: Undershirt
-  markingCategory: Undershirt
+  id: UndergarmentTopDefaultT
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Male ] # TheDen - Added sexual dimorphism to thaven
   coloring:
@@ -516,12 +516,12 @@
         color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Thaven/undergarmenttop.rsi
-    state: undershirt
+    state: undershirt # buh
 
 - type: marking
-  id: UndershirtGrossSleevelessT
-  bodyPart: Undershirt
-  markingCategory: Undershirt
+  id: UndergarmentTopGrossSleevelessT
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Male ] # TheDen - Added sexual dimorphism to thaven
   coloring:
@@ -534,9 +534,9 @@
     state: grosssleeveless
 
 - type: marking
-  id: UndershirtNanotrasenT
-  bodyPart: Undershirt
-  markingCategory: Undershirt
+  id: UndergarmentTopNanotrasenT
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Male ] # TheDen - Added sexual dimorphism to thaven
   coloring:
@@ -549,9 +549,9 @@
     state: nanotrasen
 
 - type: marking
-  id: UndershirtRolledT
-  bodyPart: Undershirt
-  markingCategory: Undershirt
+  id: UndergarmentTopRolledT
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [ Thaven ]
   sexRestriction: [ Male ] # TheDen - Added sexual dimorphism to thaven
   coloring:

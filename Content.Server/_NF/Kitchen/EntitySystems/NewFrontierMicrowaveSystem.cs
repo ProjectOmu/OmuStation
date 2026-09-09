@@ -114,7 +114,7 @@ public sealed class NewFrontierMicrowaveSystem : EntitySystem
         // We're actually microwaving things, run the wzhzhzh checks
         foreach (var item in component.Storage.ContainedEntities.ToArray())
         {
-            var ev = new BeingMicrowavedEvent(uid, user, component.CurrentCookTimerTime);
+            var ev = new BeingMicrowavedEvent(uid, user);
             RaiseLocalEvent(item, ev);
 
             if (ev.Handled)

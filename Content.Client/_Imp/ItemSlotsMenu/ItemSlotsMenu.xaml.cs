@@ -1,9 +1,8 @@
-// SPDX-FileCopyrightText: 2026 Space Station 14 Contributors
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
 using System.Numerics;
+using Content.Client._Imp.ItemSlotsMenu;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Containers.ItemSlots;
 using Robust.Client.GameObjects;
@@ -91,7 +90,7 @@ public sealed partial class ItemSlotsMenu: RadialMenu
     }
 }
 
-public sealed class ItemSlotButton : RadialMenuTextureButtonWithSector
+public sealed class ItemSlotButton : RadialMenuButtonWithSector
 {
     public ItemSlotButton()
     {

@@ -12,29 +12,33 @@
       effects:
       - !type:PopupMessage
         conditions:
-          - !type:OrganType
-            type: Vox
-            shouldHave: false
+          - !type:MetabolizerTypeCondition
+            type:
+            - Vox
+            inverted: true
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
         probability: 0.5
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.1
         conditions:
-          - !type:OrganType
-            type: Vox
-            shouldHave: false
+          - !type:MetabolizerTypeCondition
+            type:
+            - Vox
+            inverted: true
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Vox
+          inverted: true
         damage:
           types:
             Poison: 1
       - !type:SatiateThirst
         factor: 1
         conditions:
-        - !type:OrganType
-          type: Vox
+        - !type:MetabolizerTypeCondition
+          type:
+          - Vox

@@ -1,14 +1,10 @@
-# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: marking
   id: UndershirtDefault
-  bodyPart: Undershirt
-  markingCategory: Undershirt
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Feroxi, Tajaran, Shadowkin, IPC, Yowie] # Omu - Feroxi, Tajaran, Shadowkin, IPC
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -20,9 +16,9 @@
 
 - type: marking
   id: UndershirtRolled
-  bodyPart: Undershirt
-  markingCategory: Undershirt
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Feroxi, Tajaran, Shadowkin, IPC, Yowie] # Omu - Feroxi, Tajaran, Shadowkin, IPC
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -34,9 +30,9 @@
 
 - type: marking
   id: UndershirtSleeveless
-  bodyPart: Undershirt
-  markingCategory: Undershirt
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Feroxi, Tajaran, Shadowkin, IPC, Yowie] # Omu - Feroxi, Tajaran, Shadowkin, IPC
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -48,9 +44,9 @@
 
 - type: marking
   id: UndershirtRolledSleeveless
-  bodyPart: Undershirt
-  markingCategory: Undershirt
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Feroxi, Tajaran, Shadowkin, IPC, Yowie] # Omu - Feroxi, Tajaran, Shadowkin, IPC
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -62,9 +58,9 @@
 
 - type: marking
   id: UndershirtGrossSleeveless
-  bodyPart: Undershirt
-  markingCategory: Undershirt
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Feroxi, Tajaran, Shadowkin, IPC, Yowie] # Omu - Feroxi, Tajaran, Shadowkin, IPC
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -76,9 +72,9 @@
 
 - type: marking
   id: UndershirtNanotrasen
-  bodyPart: Undershirt
-  markingCategory: Undershirt
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Feroxi, Tajaran, Shadowkin, IPC, Yowie] # Omu - Feroxi, Tajaran, Shadowkin, IPC
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -90,9 +86,9 @@
 
 - type: marking
   id: UndershirtBinder
-  bodyPart: Undershirt
-  markingCategory: Undershirt
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Feroxi, Tajaran, Shadowkin, IPC, Yowie] # Omu - Feroxi, Tajaran, Shadowkin, IPC
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -104,9 +100,9 @@
 
 - type: marking
   id: UndershirtBraClassic
-  bodyPart: Undershirt
-  markingCategory: Undershirt
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Feroxi, Tajaran, Shadowkin, IPC, Yowie] # Omu - Feroxi, Tajaran, Shadowkin, IPC
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -118,9 +114,9 @@
 
 - type: marking
   id: UndershirtBraSports
-  bodyPart: Undershirt
-  markingCategory: Undershirt
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Feroxi, Tajaran, Shadowkin, IPC, Yowie] # Omu - Feroxi, Tajaran, Shadowkin, IPC
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -132,9 +128,9 @@
 
 - type: marking
   id: UndershirtBraStrapless
-  bodyPart: Undershirt
-  markingCategory: Undershirt
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Feroxi, Tajaran, Shadowkin, IPC, Yowie] # Omu - Feroxi, Tajaran, Shadowkin, IPC
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Yowie] # goob edit - yowies
   coloring:
     default:
       type:

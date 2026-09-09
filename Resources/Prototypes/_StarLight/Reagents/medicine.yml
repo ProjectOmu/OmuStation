@@ -11,30 +11,24 @@
       effects:
         - !type:HealthChange
           conditions:
-            - !type:OrganType
-              type: Resomi
-          damage:
-            types:
-              Asphyxiation: -3.5
-              Bloodloss: -3
-        - !type:HealthChange
-          conditions:
-            - !type:OrganType
-              type: Avali
+            - !type:MetabolizerTypeCondition
+              type:
+              - Resomi
+              - Avali
           damage:
             types:
               Asphyxiation: -3.5
               Bloodloss: -3
         - !type:AdjustReagent
           conditions:
-            - !type:ReagentThreshold
+            - !type:ReagentCondition
               reagent: HeartbreakerToxin
               min: 1
           reagent: HeartbreakerToxin
           amount: -3
         - !type:HealthChange
           conditions:
-            - !type:ReagentThreshold
+            - !type:ReagentCondition
               reagent: HeartbreakerToxin
               min: 25
           damage:
@@ -43,12 +37,11 @@
               Cold: 3
         - !type:HealthChange
           conditions:
-            - !type:OrganType
-              type: Avali
-              shouldHave: false
-            - !type:OrganType
-              type: Resomi
-              shouldHave: false
+          - !type:MetabolizerTypeCondition
+            type:
+            - Resomi
+            - Avali
+            inverted: true
           damage:
             types:
               Poison: 1.5 #Ammonia is toxic injected directly into bloodstream
@@ -56,11 +49,8 @@
               Bloodloss: 0.5
         - !type:ModifyBloodLevel
           conditions:
-            - !type:OrganType
-              type: Avali
-          amount: 3
-        - !type:ModifyBloodLevel
-          conditions:
-            - !type:OrganType
-              type: Resomi
+          - !type:MetabolizerTypeCondition
+            type:
+            - Resomi
+            - Avali
           amount: 3

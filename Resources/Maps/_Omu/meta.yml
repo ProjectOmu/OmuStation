@@ -52467,8 +52467,8 @@ entities:
     - type: Transform
       pos: -33.5,18.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 10167
+    - type: OreSiloClient
+      silo: null
 - proto: Carpet
   entities:
   - uid: 8100
@@ -126034,8 +126034,8 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-    - type: SiloUtilizer
-      silo: 10167
+    - type: OreSiloClient
+      silo: null
     - type: Conveyed
 - proto: OxygenCanister
   entities:

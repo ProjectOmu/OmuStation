@@ -90,3 +90,19 @@
   chatTriggers:
     - awebo
     - awebos
+
+- type: emote
+  id: Hoot
+  name: chat-emote-name-hoot
+  icon: _Goobstation/Interface/Emotes/caw.png
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-hoot"]
+  chatTriggers:
+  - hoot
+  - hoots

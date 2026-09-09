@@ -10,10 +10,8 @@
     allowMovement: true
     name: "Laika"
     description: "Security's resident she-dog. Badger the officers for headpats and nip at the heels of violent offenders."
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 14400 # DeltaV - 4 hours
+    mindRoles:
+    - MindRoleGhostRoleNanoTrasenSecurityOmu
   - type: GhostTakeoverAvailable
   - type: InteractionPopup
     successChance: 1
@@ -36,6 +34,7 @@
   - type: StealTarget
     stealGroup: AnimalShiva # Omu change, Allows for laika to count for shiva steal obj with the addition of the HoS pet teleporter
 #Omu End
-  - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 315 # 10 lower than base
     coldDamageThreshold: 210 # Omu - closer to actual Huski
+  - type: Temperature

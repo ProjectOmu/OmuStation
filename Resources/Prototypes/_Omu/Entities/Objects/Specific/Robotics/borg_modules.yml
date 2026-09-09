@@ -32,15 +32,14 @@
   name: medical beam gun cyborg module
   description: A module that comes with a syndicate medical beam gun and a pinpointer.
   components:
-    - type: Sprite
-      layers:
-      - state: syndicate
-      - state: icon-syndicate
-    - type: ItemBorgModule
-      moduleId: SyndicateMedicalBeamGun
-      items:
-        - MedicalBeamGunSyndicate
-        - DefibrillatorSyndicateUnpowered
-        - PinpointerSyndicateNuclear
-    - type: BorgModuleIcon
-      icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-medical-beam-module }
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    hands:
+    - item: MedicalBeamGunSyndicate
+    - item: DefibrillatorSyndicateUnpowered
+    - item: PinpointerSyndicateNuclear
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-medical-beam-module }

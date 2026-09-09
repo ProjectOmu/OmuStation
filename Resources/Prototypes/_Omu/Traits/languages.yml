@@ -44,3 +44,21 @@
       species:
         - Tajaran
       inverted: true
+
+- type: trait
+  id: RakkProper
+  name: language-RakkProper-name
+  description: language-RakkProper-description
+  category: LanguageTraits
+  cost: 1
+  components:
+  - type: LanguageSpeaker
+  countsTowardsMaxTraits: false # Omustation - Don't count languages towards max traits
+  languagesSpoken:
+    - RakkProper
+  languagesUnderstood:
+    - RakkProper                 # TODO: Make New Kin Pidgin and Rakk Proper kind of understand each other
+  requirements:
+    - !type:SpeciesRequirement
+      species:
+        - Vox

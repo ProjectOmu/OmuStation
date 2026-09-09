@@ -1,0 +1,22 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckScarfArachnid
+  name: cobweb scarf
+  description: A bundle of cobwebs sewn together in a pattern resembling the material itself. A perfect home for spiders!
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Scarves/arachnid_scarf.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Scarves/arachnid_scarf.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialWebSilk
+      amount: 4
+  - type: Construction
+    graph: ClothingNeckScarfArachnid
+    node: end
+  

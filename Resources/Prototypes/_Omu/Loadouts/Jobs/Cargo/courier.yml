@@ -29,11 +29,11 @@
   groupBy: "jumpsuit"
 
 # Back
-- type: loadout
-  id: MailCarrierMessenger
-  equipment:
-    back: ClothingBackpackMessengerMailman
-  groupBy: "messenger"
+#- type: loadout
+#  id: MailCarrierMessenger
+#  equipment:
+#    back: ClothingBackpackMessengerMailman
+#  groupBy: "messenger"
 
 - type: loadout
   id: CourierMessenger
@@ -73,31 +73,3 @@
   id: CargoPDA
   equipment:
     id: CargoPDA
-
-#Plasmaman Drip
-- type: loadout
-  id: CourierEnvirohelm
-  equipment:
-    head: ClothingHeadEnvirohelmCourier
-  effects:
-  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
-    species:
-    - Plasmaman
-
-- type: loadout
-  id: CourierEnvirosuit
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitCourier
-  effects:
-  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
-    species:
-    - Plasmaman
-
-- type: loadout
-  id: CourierEnvirogloves
-  equipment:
-    gloves: ClothingHandsGlovesEnviroglovesCourier
-  effects:
-  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
-    species:
-    - Plasmaman

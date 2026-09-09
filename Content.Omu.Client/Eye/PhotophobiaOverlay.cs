@@ -20,10 +20,12 @@ namespace Content.Omu.Client.Eye
         public override OverlaySpace Space => OverlaySpace.WorldSpace;
         private readonly ShaderInstance _photophobiaShader;
 
+        private readonly string _shaderID = "PhotophobiaShader";
+
         public PhotophobiaOverlay()
         {
             IoCManager.InjectDependencies(this);
-            _photophobiaShader = _prototypeManager.Index<ShaderPrototype>("PhotophobiaShader").InstanceUnique();
+            _photophobiaShader = _prototypeManager.Index<ShaderPrototype>(_shaderID).InstanceUnique();
         }
 
         protected override void Draw(in OverlayDrawArgs args)

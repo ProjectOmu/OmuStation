@@ -74,24 +74,12 @@
     - PowerCellIRRevolver
   groupBy: "Main weapon"
 
-- type: loadout
-  id: SecurityOfficerTerminus
-  equipment:
-    suitstorage: Terminus
-  groupBy: "Main weapon"
-
 #Detective
 - type: loadout
   id: DetectiveWeaponRevolverInspector
   dummyEntity: WeaponRevolverInspector
   equipment:
     belt: ClothingBeltHolsterFilled # Has revolver + ammo inside
-  groupBy: "Main weapon"
-
-- type: loadout
-  id: DetectiveTerminus
-  equipment:
-    suitstorage: Terminus
   groupBy: "Main weapon"
 
 - type: loadout
@@ -106,11 +94,3 @@
     eyes: ClothingEyesGlassesNoir
   groupBy: "Detective eyes"
 
-
-# Brigmed
-
-- type: loadout
-  id: BrigmedTerminus
-  inhand:
-  - Terminus
-  groupBy: "Main weapon"

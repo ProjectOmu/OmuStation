@@ -83,4 +83,40 @@
     - id: FultonBlueshield
     - id: MedkitCombatBlueFilled
 
+- type: entity
+  parent: ClothingBeltMedical
+  id: ClothingBeltChemBagParamedic
+  name: paramedic's medical pouch
+  description: A small, lightweight and flexible medical pouch brimming with rapid injection cartridges and autoinjectors. A paramedic's best friend!
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Belt/paramedicchembag.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Belt/paramedicchembag.rsi
+  - type: Storage
+    grid:
+      - 0,0,3,3 # 4x4 square, equal in volume to the 2x8 of the medical/EMT belt
 
+- type: entity
+  parent: ClothingBeltChemBagParamedic
+  id: ClothingBeltChemBagParamedicFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: HandheldCrewMonitor
+    - id: ParamedHypo
+    - id: CartridgeBicaridine
+      amount: 2
+    - id: CartridgeDermaline
+      amount: 2
+    - id: CartridgeDylo
+      amount: 1
+    - id: CartridgeArith
+      amount: 1
+    - id: CartridgeAtropine
+      amount: 2
+    - id: SpaceMedipen
+      amount: 2
+    - id: EmergencyMedipen
+      amount: 2

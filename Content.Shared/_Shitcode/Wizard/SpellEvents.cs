@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
@@ -545,4 +538,22 @@ public sealed partial class RandomizeSpellsEvent : EntityEventArgs
 
     [DataField(required: true)]
     public Dictionary<ProtoId<WeightedRandomEntityPrototype>, int?> SpellsDict;
+}
+
+public sealed partial class RathenEvent : InstantActionEvent
+{
+    [DataField]
+    public float MaxRange = 5f;
+
+    [DataField]
+    public TimeSpan StunTime = TimeSpan.FromSeconds(5);
+
+    [DataField]
+    public DamageSpecifier SuperFartDamage = new()
+    {
+        DamageDict = { { "Blunt", 10 } },
+    };
+
+    [DataField]
+    public float LimbTearChance = 0.2f;
 }

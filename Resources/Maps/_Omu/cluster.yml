@@ -23681,8 +23681,8 @@ entities:
     - type: Transform
       pos: 13.5,-20.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 504
+    - type: OreSiloClient
+      silo: null
 - proto: Carpet
   entities:
   - uid: 3347
@@ -59135,7 +59135,7 @@ entities:
     - type: Transform
       pos: -22.5,-2.5
       parent: 2
-- proto: LockerSalvageSpecialistFilled
+- proto: LockerSalvageSpecialistFilledHardsuit
   entities:
   - uid: 8503
     components:
@@ -60328,8 +60328,8 @@ entities:
     - type: Transform
       pos: 17.5,-23.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 504
+    - type: OreSiloClient
+      silo: null
 - proto: OreProcessorMachineCircuitboard
   entities:
   - uid: 8696

@@ -45,23 +45,33 @@
   - type: Damageable
     damageContainer: Biological #Not really a Omu edit but this has to be Biological or else medHUDs and topicals won't work unless you hardcode it into there filter
     damageModifierSet: Xelthia
-  - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 360
     coldDamageThreshold: 280
-    currentTemperature: 310.15
-    specificHeat: 42
     coldDamage:
       types:
         Cold: 1.2 #per second, scales with temperature & other constants
     heatDamage:
       types:
         Heat: 1.2 #per second, scales with temperature & other constants
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
   - type: Barotrauma
     damage:
       types:
         Blunt: 0.14 #per second, scales with pressure and other constants.
   - type: Bloodstream
-    bloodReagent: AcidBlood
+    bloodlossDamage:
+      types:
+        Bloodloss: 1
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -0.25
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: AcidBlood
+        Quantity: 200
 #  - type: DamageVisuals # MAN how have we not fixed this goobside. Todo goobstation all the chud damage visuals.
 #    damageOverlayGroups:
 #      Brute:
