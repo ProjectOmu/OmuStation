@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 08/26/2026 21:21:19
-  entityCount: 27472
+  time: 09/10/2026 18:18:51
+  entityCount: 27475
 maps:
 - 1
 grids:
@@ -8554,8 +8554,8 @@ entities:
           id: docking46345
           localAnchorB: -0.5,-1
           localAnchorA: -66.5,22
-          damping: 42.400726
-          stiffness: 380.58804
+          damping: 42.40073
+          stiffness: 380.5881
     - type: OccluderTree
     - type: Shuttle
       dampingModifiers:
@@ -11774,7 +11774,7 @@ entities:
       pos: 24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -41452.223
+      secondsUntilStateChange: -41671.355
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -68098,12 +68098,6 @@ entities:
       parent: 2
 - proto: ComputerShuttleCargo
   entities:
-  - uid: 11128
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -41.5,-25.5
-      parent: 2
   - uid: 11129
     components:
     - type: Transform
@@ -68114,6 +68108,14 @@ entities:
     components:
     - type: Transform
       pos: -41.5,-29.5
+      parent: 2
+- proto: ComputerShuttleSalvage
+  entities:
+  - uid: 22633
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -29.5,-36.5
       parent: 2
 - proto: ComputerSolarControl
   entities:
@@ -82049,7 +82051,7 @@ entities:
       pos: -34.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -35640.76
+      secondsUntilStateChange: -35859.895
       state: Closing
   - uid: 13393
     components:
@@ -82542,7 +82544,7 @@ entities:
       pos: -4.5,-71.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -27450.76
+      secondsUntilStateChange: -27669.893
       state: Closing
   - uid: 14038
     components:
@@ -122370,6 +122372,13 @@ entities:
     - type: Transform
       pos: -13.5,9.5
       parent: 2
+- proto: NitrogenTankFilled
+  entities:
+  - uid: 11128
+    components:
+    - type: Transform
+      pos: -28.628075,-32.417778
+      parent: 2
 - proto: NitrousOxideCanister
   entities:
   - uid: 19161
@@ -122473,6 +122482,11 @@ entities:
       - Silver
 - proto: OxygenCanister
   entities:
+  - uid: 1656
+    components:
+    - type: Transform
+      pos: -29.5,-35.5
+      parent: 2
   - uid: 19152
     components:
     - type: Transform
@@ -124779,11 +124793,6 @@ entities:
       parent: 2
 - proto: PottedPlantRandom
   entities:
-  - uid: 1656
-    components:
-    - type: Transform
-      pos: -28.5,-35.5
-      parent: 2
   - uid: 5777
     components:
     - type: Transform
@@ -124980,6 +124989,11 @@ entities:
     components:
     - type: Transform
       pos: 73.5,-5.5
+      parent: 2
+  - uid: 22634
+    components:
+    - type: Transform
+      pos: -27.5,-38.5
       parent: 2
 - proto: PottedPlantRD
   entities:
@@ -136122,6 +136136,14 @@ entities:
     components:
     - type: Transform
       pos: -32.93945,-27.410471
+      parent: 2
+- proto: SalvageMagnet
+  entities:
+  - uid: 22632
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -32.5,-38.5
       parent: 2
 - proto: Saw
   entities:
