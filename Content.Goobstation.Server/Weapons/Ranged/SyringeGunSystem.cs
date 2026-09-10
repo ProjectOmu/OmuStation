@@ -34,7 +34,7 @@ public sealed class SyringeGunSystem : EntitySystem
         else
         {
             args.ThrowItems = true; // Not an Omu line
-        }// Omu end; yes this is because of the pneumatic shotgun
+        } // Omu end; yes this is because of the pneumatic shotgun
     }
 
     private void OnFire(Entity<SyringeGunComponent> gun, ref AmmoShotEvent args)
