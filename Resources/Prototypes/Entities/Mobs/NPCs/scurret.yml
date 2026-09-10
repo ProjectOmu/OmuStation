@@ -159,7 +159,7 @@
   - type: InventorySlots
   - type: Edible # Why? I'm not sure but I also am afraid of the answer.
   - type: Hunger
-    baseDecayRate: 0.05 # They get a lil' hungy
+    baseDecayRate: 0.075 # 0.05 # They get a lil' hungy # Omu, update for new base rate (3x base)
   - type: BodyEmotes # Grants them clapping and so on.
     soundsId: Scurret
   - type: Deathgasp

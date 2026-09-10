@@ -144,10 +144,11 @@
     Steel: 150
 
 - type: latheRecipe
-  parent: BaseAmmoBoxRecipe
-  id: BoxAPDS
-  result: BoxAPDS
+  parent: BaseAmmoRecipe
+  id: ShellShotgunAPDS
+  result: ShellShotgunAPDS
   materials:
-    Steel: 1200
-    Plastic: 300
-    Plasma: 300
+    Plasteel: 200
+    Steel: 300
+    Plastic: 150
+    Plasma: 150
