@@ -75,6 +75,10 @@
   - type: Clothing
     quickEquip: false
     sprite: _Omu/Objects/Fun/Plushies/septoct.rsi
+        slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
       collection: VulpYips
   - type: EmitSoundOnUse
     sound:
