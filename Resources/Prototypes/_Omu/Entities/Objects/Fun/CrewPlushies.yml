@@ -1,0 +1,68 @@
+- type: entity
+  parent: PlushieLizard
+  id: PlushieJeelusanOmuCrew
+  name: Jeelus-an plushie
+  description: Chaos Incarnate.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/Jeelus-an.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/Jeelus-an.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/Jeelus-an.rsi
+    slots:
+    - HEAD
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushiePickelSillyOmuStaffish
+  name: kur-nema plushie
+  description: A MAAAGICAAAL WIIIZAAAAAAAAAAARD!!! Abacraweh!
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/pickelsilly.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/pickelsilly.rsi
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieSeptOctOmuCrew
+  name: Sept Oct plushie
+  description: This plushie looks to be in a hardly-used, yet earnest condition. He'd let you hug him, but only after you fill out and sign a Warm Embrace Request Form (D-5).
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/septoct.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/septoct.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/septoct.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: VulpYips
+  - type: EmitSoundOnUse
+    sound:
+      collection: VulpYaps
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VulpYaps
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: VulpYaps
+  - type: EmitSoundOnThrow
+    sound:
+      collection: VulpkaninScreams
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: VulpkaninScreams

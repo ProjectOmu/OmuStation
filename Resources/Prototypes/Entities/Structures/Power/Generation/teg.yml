@@ -64,8 +64,8 @@
     # It fires processing on behalf of its connected circulators.
     - type: AtmosDevice
     - type: TegGenerator
-      thermalEfficiency: 0.1
-      powerFactor: 1.75
+      # thermalEfficiency: 0.1 # Omu - revert TEG to default params
+      # powerFactor: 1.75 # Omu - revert TEG to default params
 
     - type: DeviceNetwork
       deviceNetId: AtmosDevices
