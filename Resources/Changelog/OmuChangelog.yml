@@ -7310,3 +7310,33 @@ Entries:
       message: Laika can now track scents.
   id: 947
   time: '2026-09-10T05:14:09.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: Added an armored labcoat for Central Command staff.
+  id: 948
+  time: '2026-09-10T12:59:54.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: >-
+        Reverted species language knowledge on silicon jobs: Cyborgs can now
+        only understand common languages, but not speak them; station AIs can
+        speak them too. (For species language translations, please contact your
+        local librarian.)
+  id: 949
+  time: '2026-09-10T13:47:22.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Tweak
+      message: Increased mops water storage to 200u.
+  id: 950
+  time: '2026-09-10T14:58:45.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Fix
+      message: >-
+        Librarians can now speak and understand all crew languages; Bieselized
+        Eckeckyik, Eckeckyik, Hy'drav'tha, and Qiilour were previously missing.
+  id: 951
+  time: '2026-09-10T16:56:25.0000000+00:00'
