@@ -63,6 +63,8 @@
     soundHit:
       path: /Audio/Voice/Human/femalescream_3.ogg
 
+- type: entity
+  parent: BasePlushie
   id: PlushieSeptOctOmuCrew
   name: Sept Oct plushie
   description: This plushie looks to be in a hardly-used, yet earnest condition. He'd let you hug him, but only after you fill out and sign a Warm Embrace Request Form (D-5).
@@ -75,7 +77,7 @@
   - type: Clothing
     quickEquip: false
     sprite: _Omu/Objects/Fun/Plushies/septoct.rsi
-        slots:
+    slots:
     - HEAD
   - type: EmitSoundOnPickup
     sound:
