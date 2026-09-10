@@ -19,8 +19,6 @@
     Wurble:
       collection: HydrakinWurble
     Cough:
-    Gekker: # Omu
-      path: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
       collection: HydrakinCough
     Yawn:
       collection: HydrakinYawn
@@ -28,6 +26,8 @@
       collection: HydrakinWhistle
     DefaultDeathgasp:
       collection: HydrakinDeathgasp
+    Gekker: # Omu
+      path: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
 
 - type: speechSounds
   id: Hydrakin
