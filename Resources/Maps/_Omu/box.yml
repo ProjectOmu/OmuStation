@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 09/10/2026 18:18:51
-  entityCount: 27475
+  time: 09/10/2026 18:50:28
+  entityCount: 27483
 maps:
 - 1
 grids:
@@ -11774,7 +11774,7 @@ entities:
       pos: 24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -41671.355
+      secondsUntilStateChange: -41895.15
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -39226,6 +39226,46 @@ entities:
     components:
     - type: Transform
       pos: 39.5,15.5
+      parent: 2
+  - uid: 22633
+    components:
+    - type: Transform
+      pos: -34.5,-37.5
+      parent: 2
+  - uid: 22635
+    components:
+    - type: Transform
+      pos: -35.5,-37.5
+      parent: 2
+  - uid: 22636
+    components:
+    - type: Transform
+      pos: -36.5,-37.5
+      parent: 2
+  - uid: 22637
+    components:
+    - type: Transform
+      pos: -37.5,-37.5
+      parent: 2
+  - uid: 22638
+    components:
+    - type: Transform
+      pos: -38.5,-37.5
+      parent: 2
+  - uid: 22640
+    components:
+    - type: Transform
+      pos: -39.5,-37.5
+      parent: 2
+  - uid: 22642
+    components:
+    - type: Transform
+      pos: -41.5,-37.5
+      parent: 2
+  - uid: 22643
+    components:
+    - type: Transform
+      pos: -40.5,-37.5
       parent: 2
 - proto: CableApcStack
   entities:
@@ -68111,7 +68151,7 @@ entities:
       parent: 2
 - proto: ComputerShuttleSalvage
   entities:
-  - uid: 22633
+  - uid: 22639
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -82051,7 +82091,7 @@ entities:
       pos: -34.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -35859.895
+      secondsUntilStateChange: -36083.688
       state: Closing
   - uid: 13393
     components:
@@ -82544,7 +82584,7 @@ entities:
       pos: -4.5,-71.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -27669.893
+      secondsUntilStateChange: -27893.684
       state: Closing
   - uid: 14038
     components:
@@ -136142,8 +136182,8 @@ entities:
   - uid: 22632
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -32.5,-38.5
+      rot: -1.5707963267948966 rad
+      pos: -42.5,-37.5
       parent: 2
 - proto: Saw
   entities:
