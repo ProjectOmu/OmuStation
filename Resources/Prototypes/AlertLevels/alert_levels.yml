@@ -106,6 +106,7 @@
       emergencyLightColor: "#8A3324"
       forceEnableEmergencyLights: true
       shuttleTime: 600
+      disableSelection: true # Omu, use voting instead
     cyan: # Funky
       announcement: alert-level-cyan-announcement
       sound: /Audio/_Funkystation/Misc/cyan.ogg

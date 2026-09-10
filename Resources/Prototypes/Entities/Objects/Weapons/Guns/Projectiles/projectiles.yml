@@ -885,6 +885,12 @@
     color: orange
     energy: 0.5
   - type: SmartLinkBlacklist  # Goobstation
+  - type: RadarBlip # Starlight
+    #color: "#44FFAA" # Omu
+    scale: 1
+    shape: Circle
+    requireNoGrid: true
+  - type: PDTarget # Starlight
 
 - type: entity
   id: BulletWeakRocket
@@ -949,6 +955,12 @@
     maxIntensity: 10
     canCreateVacuum: false
   - type: SmartLinkBlacklist  # Goobstation
+  - type: RadarBlip # Starlight
+    #color: "#FFDD00" # Omu
+    scale: 1
+    shape: Square
+    requireNoGrid: true
+  - type: PDTarget # Starlight
 
 - type: entity
   id: BulletGrenadeFlash
@@ -994,6 +1006,12 @@
     fillPrototype: PelletClusterLessLethal
     capacity: 30
   - type: SmartLinkBlacklist  # Goobstation
+  - type: RadarBlip # Starlight
+    #color: "#FFDD00" # Omu
+    scale: 1
+    shape: Square
+    requireNoGrid: true
+  - type: PDTarget # Starlight
 
 - type: entity
   parent: BaseBulletTrigger
@@ -1046,6 +1064,12 @@
     color: blue
     energy: 0.5
   - type: SmartLinkBlacklist  # Goobstation
+  - type: RadarBlip # Starlight
+    #color: "#44FFAA" # Omu
+    scale: 1
+    shape: Circle
+    requireNoGrid: true
+  - type: PDTarget # Starlight
 
 - type: entity
   id: BulletCap
