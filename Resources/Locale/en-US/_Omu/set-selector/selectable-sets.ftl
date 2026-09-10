@@ -214,3 +214,4 @@ selectable-set-ntr-brella-desc =
     A stylish intricate souvenir made from tough, hyper-woven
     durathread by "NanoFashion" for the rich people of central command.
     Looks expensive, and surprisingly durable.
+    CC note says: ONLY USE ON RED!!!!!
