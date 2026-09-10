@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Administration.Logs;
+using Content.Goobstation.Shared.AlertLevel;
 using Content.Server.AlertLevel;
 using Content.Server.Chat.Systems;
 using Content.Server.DeviceNetwork.Systems;
@@ -250,6 +251,12 @@ namespace Content.Server.Communications
             var stationUid = _stationSystem.GetOwningStation(uid);
             if (stationUid != null)
             {
+                // Goobstation - allow systems (e.g. amber alert gating) to veto the selection.
+                var attempt = new AlertLevelSelectAttemptEvent(stationUid.Value, uid, mob, message.Level);
+                RaiseLocalEvent(ref attempt);
+                if (attempt.Cancelled)
+                    return;
+
                 _alertLevelSystem.SetLevel(stationUid.Value, message.Level, true, true);
                 // Goob
                 _adminLogger.Add(LogType.Chat,
@@ -303,7 +310,10 @@ namespace Content.Server.Communications
                 return;
             }
 
-            _chatSystem.DispatchStationAnnouncement(uid, msg, title, colorOverride: comp.Color);
+            _chatSystem.DispatchStationAnnouncement(uid, msg, title,
+                announcementSound: comp.Sound, // Omu, pass in an announcementSound for non-global announcements, too, for consistency.
+                colorOverride: comp.Color
+            );
 
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following station announcement: {msg}");
 
@@ -372,6 +382,19 @@ namespace Content.Server.Communications
 
             var (uid, comp) = ent;
             args.Repeatable = true;
+
+            if (_emag.CompareFlag(args.Type, EmagType.Access))
+            {
+                var amberStation = _stationSystem.GetOwningStation(uid);
+                if (amberStation != null
+                    && TryComp<AmberAlertComponent>(amberStation, out var amber)
+                    && !amber.Unlocked)
+                {
+                    amber.Unlocked = true;
+                    _popupSystem.PopupEntity(Loc.GetString("alert-level-amber-unlocked"), uid, args.UserUid, PopupType.Medium);
+                    args.Handled = true;
+                }
+            }
 
             if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
                 return;
