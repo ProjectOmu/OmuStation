@@ -30,4 +30,7 @@
       - Syringe # goobstation fire all syringes
       - SyringeGunAmmo
       - ShellShotgun
+  - type: SyringeGun
+    PierceArmor: true # this thing's sole advantage to an actual syringe gun should be that it can pierce armor
+    InjectionSpeedMultiplier: 1 # it'll help in dosing armored combatants
 
