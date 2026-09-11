@@ -1,0 +1,41 @@
+- type: entity
+  name: pill
+  suffix: Letoferol
+  parent: Pill
+  id: PillLetoferol
+  components:
+  - type: Pill
+    pillType: 18
+  - type: Sprite
+    state: pill18
+  - type: Label
+    currentLabel: Letoferol
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Letoferol
+          Quantity: 30
+
+- type: entity
+  suffix: Letoferol
+  parent: PrefilledSyringe
+  id: SyringeLetoferol
+  components:
+  - type: Label
+    currentLabel: Letoferol
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Letoferol
+          Quantity: 15
+
+- type: startingGear
+  id: LetoStartingGear
+  storage:
+    back:
+    - PillLetoferol
+    - SyringeLetoferol
