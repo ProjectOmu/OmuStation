@@ -187,6 +187,28 @@
     - Librarian
 
 - type: listing
+  id: UplinkSniperPenman
+  name: uplink-sniper-penman-name
+  description: uplink-sniper-penman-desc
+  icon: { sprite: _Omu/Objects/Weapons/Guns/Snipers/penman.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledPenman
+  cost:
+    Telecrystal: 60
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkAmmoLongRifle
+  name: uplink-ammo-longrifle-name
+  description: uplink-ammo-longrifle-desc
+  icon: { sprite: _Omu/Objects/Weapons/Guns/Ammunition/Boxes/longrifle.rsi, state: icon }
+  productEntity: MagazineBoxLongRifle
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkAmmo
+
+- type: listing
   id: UplinkXenoCompatibilityImplanterSyndi
   name: uplink-xeno-compatibility-implanter-name
   description: uplink-xeno-compatibility-implanter-desc
