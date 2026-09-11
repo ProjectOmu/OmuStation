@@ -101,16 +101,17 @@
   - type: Sprite
     layers:
     - state: generic
-    - state: icon-fire-extinguisher
+    - state: icon-jetpack
+      sprite: _Omu/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     hands:
     - item: BorgHandheldGPSBasic
     - item: HandheldStationMapUnpowered
     - item: HandHeldMassScannerBorg
     - hand:
-      emptyRepresentative: JetpackMiniFilled
-      whitelist:
-        components:
-        - Jetpack
+        emptyRepresentative: JetpackMiniFilled
+        whitelist:
+          components:
+          - Jetpack
   - type: BorgModuleIcon
     icon: { sprite: _Omu/Interface/Actions/actions-borg.rsi, state: thruster-module }
