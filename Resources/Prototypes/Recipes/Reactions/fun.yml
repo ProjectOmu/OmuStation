@@ -90,35 +90,39 @@
       amount: 1
     Water:
       amount: 1
-  effects:
-  - !type:CreateGas
-    gas: Frezon
+  # effects: # Omu start; comment out the creation of frezon due to Fresium not being made with frezon
+  # - !type:CreateGas
+  #   gas: Frezon # Omu end
   products:
     Ice: 5
 
 - type: reaction
   id: Fresium
   priority: 20
-  maxTemp: 300
+  maxTemp: 100 # 300 # Omu start; change the recipe of Fresium to be more accessible (maxTemp lowered to make people use cryostylane)
   reactants:
-    Frezon:
-      amount: 3
+    # Frezon:
+    #   amount: 3
+    Cryostylane:
+      amount: 1
     Plasma:
       amount: 1
-      catalyst: true
+      # catalyst: true
     Nitrogen:
-      amount: 2
+      amount: 1 # 2
     Cryoxadone:
-      amount: 0.22
-    TableSalt:
-      amount: 0.08
+      amount: 1 # 0.22
+    # TableSalt:
+    #   amount: 0.08
     Water:
-      amount: 1.5
+      amount: 1 # 1.5
+    Phenol:
+      amount: 1 # Omu end; i did not change that it creates nitrogen
   effects:
   - !type:CreateGas
     gas: Nitrogen
   products:
-    Fresium: 5
+    Fresium: 6 # 5 # Omu; change the recipe of Fresium to be more accessible
 
 - type: reaction
   id: FiberBreakdown
