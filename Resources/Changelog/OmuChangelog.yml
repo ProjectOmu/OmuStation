@@ -7316,3 +7316,63 @@ Entries:
       message: Added an armored labcoat for Central Command staff.
   id: 948
   time: '2026-09-10T12:59:54.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: >-
+        Reverted species language knowledge on silicon jobs: Cyborgs can now
+        only understand common languages, but not speak them; station AIs can
+        speak them too. (For species language translations, please contact your
+        local librarian.)
+  id: 949
+  time: '2026-09-10T13:47:22.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Tweak
+      message: Increased mops water storage to 200u.
+  id: 950
+  time: '2026-09-10T14:58:45.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Fix
+      message: >-
+        Librarians can now speak and understand all crew languages; Bieselized
+        Eckeckyik, Eckeckyik, Hy'drav'tha, and Qiilour were previously missing.
+  id: 951
+  time: '2026-09-10T16:56:25.0000000+00:00'
+- author: Jerulean
+  changes:
+    - type: Tweak
+      message: The Gnash plush is no longer a gas analyzer. Pure plush friend.
+  id: 952
+  time: '2026-09-10T19:42:23.0000000+00:00'
+- author: cryptisy23
+  changes:
+    - type: Add
+      message: 'Added Rebecca Hawkins plushie to the Crew morale initative crate. '
+  id: 953
+  time: '2026-09-10T21:04:13.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Add
+      message: Vulpkanin have undergarments.
+    - type: Fix
+      message: >-
+        Feroxi, tajaran, shadowkin, and IPCs have undergarments again like they
+        used to.
+  id: 954
+  time: '2026-09-11T01:42:15.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        The detective's Betty no longer continues to occupy a second hand after
+        activating its counter or closing it manually.
+  id: 955
+  time: '2026-09-11T01:57:36.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: Added the supreme janitor cloak, a 75h unlock.
+  id: 956
+  time: '2026-09-11T02:44:48.0000000+00:00'
