@@ -148,6 +148,7 @@ namespace Content.IntegrationTests.Tests
             "Origin",
             "OriginHighPop",  // Not in pool
             "Packed",
+            "Plasma",         // Omu
             "Reach",
             "Saltern",
             //"Serpentcrest", // omu serpentcrest kil
@@ -195,6 +196,7 @@ namespace Content.IntegrationTests.Tests
               "TestTeg",        //Dev map
             //"Train",          //Not in pool
               "Packed",
+              "Plasma",         // Omu
               "Reach",
               "Saltern",
             //"Serpentcrest", Omu No
