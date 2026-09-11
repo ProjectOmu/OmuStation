@@ -142,3 +142,13 @@
   result: MagazineClipM1Garand
   materials:
     Steel: 150
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: ShellShotgunAPDS
+  result: ShellShotgunAPDS
+  materials:
+    Plasteel: 200
+    Steel: 300
+    Plastic: 150
+    Plasma: 150

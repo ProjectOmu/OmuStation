@@ -1,0 +1,15 @@
+- type: entity
+  parent: AmmoProviderShotgunShell
+  id: BoxAPDS
+  name: ammunition box (12 Gauge APDS)
+  description: A cardboard box of hubris and bad ideas. God help you if you need this.
+  components:
+    - type: BallisticAmmoProvider
+      proto: ShellShotgunAPDS
+    - type: Sprite
+      layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-1
+        map: ["enum.GunVisualLayers.Mag"]
+      - state: APDS

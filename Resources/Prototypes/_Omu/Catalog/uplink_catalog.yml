@@ -202,6 +202,32 @@
     - Science
 
 - type: listing
+  id: UplinkHypnoflash
+  name: uplink-hypnoflash-name
+  description: uplink-hypnoflash-desc
+  icon: { sprite: Objects/Weapons/Melee/flash.rsi, state: flash }
+  productEntity: HypnoFlash
+  cost:
+    Telecrystal: 70
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Roboticist    # Science roles
+    - Scientist
+    - ResearchDirector
+    - Chef          # Service roles
+    - Scientist
+    - Botanist
+    - Bartender
+    - Clown
+    - Mime
+    - Librarian
+    - Chaplain
+    - AdministrativeAssistant # AA
+
+- type: listing
   id: UplinkBloodredVim
   name: uplink-BloodredVim-name
   description: uplink-BloodredVim-desc

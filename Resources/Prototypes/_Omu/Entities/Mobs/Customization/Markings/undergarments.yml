@@ -1,0 +1,40 @@
+# man, i hate digitigrade legs
+
+- type: marking
+  id: UndergarmentBottomBoxersVulpkanin
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Omu/Mobs/Customization/undergarments.rsi
+    state: boxers_vulpkanin
+
+- type: marking
+  id: UndergarmentBottomBriefsVulpkanin
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Omu/Mobs/Customization/undergarments.rsi
+    state: briefs_vulpkanin
+
+- type: marking
+  id: UndergarmentBottomSatinVulpkanin
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Omu/Mobs/Customization/undergarments.rsi
+    state: satin_vulpkanin

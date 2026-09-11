@@ -41,6 +41,9 @@ uplink-hobbyist-spellbook-desc = A book given out by the Wizard Federation to ge
 uplink-xeno-compatibility-implanter-name = Xeno Compatibility Implanter
 uplink-xeno-compatibility-implanter-desc = An implant that allows the user to make use of xenomorph organs.
 
+uplink-hypnoflash-name = Hypnoflash
+uplink-hypnoflash-desc = A disguised flash that outputs a special flash sequence coded to make the individual compliant to orders... It's mind control. Only works on those already suggestible, like drunks, drugged or the sleeping! Comes with a preloaded script to ensure loyalty, but also has enough space to provide one custom order, settable in the device!
+
 uplink-BloodredVim-name = Cybersun Combat Vim
 uplink-BloodredVim-desc = A specialised prototype developed by cybersun for specialised mouse operatives. The project was shelved after the market collapsed. Armed with a rocket-launcher and short range retro-rockets for speedboosts and maneuvering. It makes for a terrifying, if small, foe.
 
