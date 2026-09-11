@@ -7121,3 +7121,290 @@ Entries:
       message: Reverted Allulalo thirst rate to prior rate.
   id: 924
   time: '2026-09-04T03:50:42.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: >-
+        Escape to Central Command objective was changed to: escape to central
+        command alive and undetained on the evacuation shuttle || One of our
+        undercover agents will debrief you when you arrive. Don't show up in
+        cuffs or security right on your tails.
+  id: 925
+  time: '2026-09-04T13:52:08.0000000+00:00'
+- author: raincall aka VulpLover67
+  changes:
+    - type: Add
+      message: >-
+        Added a spaceproof sec/corpsman vulp mantle, craft it using a work
+        mantle and a sec/medsec hud
+  id: 926
+  time: '2026-09-04T13:53:21.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Energy magnum now correctly shows as security contraband.
+  id: 927
+  time: '2026-09-04T22:58:56.0000000+00:00'
+- author: Cryptisy
+  changes:
+    - type: Tweak
+      message: Added a filled sprite to bluespace vials.
+  id: 928
+  time: '2026-09-05T20:23:16.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Grapple guns can no longer pull you through walls.
+  id: 929
+  time: '2026-09-05T22:00:27.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Chitinids now starve at 1.33x the base rate instead of 2.8x the base
+        rate. This means that they overall starve less quickly than
+        pre-upstream.
+  id: 930
+  time: '2026-09-05T22:05:51.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Add
+      message: Supermatter slivers can now be eaten by vox. (It's a bad idea.)
+    - type: Tweak
+      message: Supermatter crystals create slivers on their own more frequently now.
+  id: 931
+  time: '2026-09-05T22:14:17.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: The medical belt is now worn slightly lower.
+  id: 932
+  time: '2026-09-05T22:18:19.0000000+00:00'
+- author: Willfullyheretical
+  changes:
+    - type: Add
+      message: Added Jeelus-An plushie to sectoral crate
+  id: 933
+  time: '2026-09-05T22:20:18.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Tweak
+      message: >-
+        Diona are speed modify immune again, except for Rooting as originally
+        intended.
+    - type: Tweak
+      message: Cybersun dreadnought suit bypasses speed immunity.
+  id: 934
+  time: '2026-09-06T00:45:40.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: On Box, added a radio station.
+    - type: Add
+      message: >-
+        On Delta, added some missing disposals pipes in front of the salvage
+        room.
+    - type: Add
+      message: >-
+        On Delta, added a beacon to the cryosleep, radio station and reporter
+        room.
+    - type: Add
+      message: On Delta, added a fourth salvage locker.
+    - type: Add
+      message: On Fland, added a fourth salvage locker.
+    - type: Add
+      message: On Meta, added a second paramedic locker.
+    - type: Add
+      message: On Meta, added some windoors to the disposals system.
+    - type: Add
+      message: On Oasis, added a disposals unit to the bar.
+    - type: Tweak
+      message: On Box and Cluster, upgraded the TEG burn chamber to plasma windows.
+    - type: Tweak
+      message: On Oasis, reworked the bar walkways.
+  id: 935
+  time: '2026-09-06T18:06:55.0000000+00:00'
+- author: BORTBORTBORT, Anui-Elxx
+  changes:
+    - type: Tweak
+      message: >-
+        Changed NTR’s hardsuit (NTX5-Mirrorduss) sprites to make them a little
+        easier on the eyes.
+    - type: Add
+      message: >-
+        Added the NTX5-Mirrorduss hardsuit and a 5L oxygen tank to the NTR's
+        locker.
+  id: 936
+  time: '2026-09-06T18:29:29.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed med assembler whitelist
+  id: 937
+  time: '2026-09-06T21:51:09.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Fix
+      message: >-
+        Cleanades and other smoke-spawning items should now properly spawn
+        smoke.
+  id: 938
+  time: '2026-09-08T02:54:02.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Tweak
+      message: Made reinforced plasma windows immune to pressure damage.
+    - type: Tweak
+      message: >-
+        Lowered normal reinforced windows to take damage at a pressure
+        difference of 2000 kPa!
+  id: 939
+  time: '2026-09-08T13:02:40.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Tweak
+      message: TEG should perform more similarly to pre-upstream values.
+  id: 940
+  time: '2026-09-08T13:30:26.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: >-
+        Lobotomies no longer cause characters to utter memes. (They still give
+        ratvarian language patterns and clumsiness.)
+  id: 941
+  time: '2026-09-08T22:22:47.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: Added NanoTask to the Administrative Assistants PDA.
+  id: 942
+  time: '2026-09-09T00:47:09.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Add
+      message: Added the gnash plushie to the Crew morale initative crate.
+  id: 943
+  time: '2026-09-09T02:45:57.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Fix
+      message: Non-global communication consoles now support custom announce sfx.
+  id: 944
+  time: '2026-09-09T15:26:39.0000000+00:00'
+- author: PickelSilly
+  changes:
+    - type: Add
+      message: Added the Sept Oct plushie to the crew morale cargo crate!
+  id: 945
+  time: '2026-09-10T00:30:14.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Reptilian renamed to Unathi
+  id: 946
+  time: '2026-09-10T02:10:33.0000000+00:00'
+- author: bnuuy
+  changes:
+    - type: Add
+      message: Laika can now track scents.
+  id: 947
+  time: '2026-09-10T05:14:09.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: Added an armored labcoat for Central Command staff.
+  id: 948
+  time: '2026-09-10T12:59:54.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: >-
+        Reverted species language knowledge on silicon jobs: Cyborgs can now
+        only understand common languages, but not speak them; station AIs can
+        speak them too. (For species language translations, please contact your
+        local librarian.)
+  id: 949
+  time: '2026-09-10T13:47:22.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Tweak
+      message: Increased mops water storage to 200u.
+  id: 950
+  time: '2026-09-10T14:58:45.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Fix
+      message: >-
+        Librarians can now speak and understand all crew languages; Bieselized
+        Eckeckyik, Eckeckyik, Hy'drav'tha, and Qiilour were previously missing.
+  id: 951
+  time: '2026-09-10T16:56:25.0000000+00:00'
+- author: Jerulean
+  changes:
+    - type: Tweak
+      message: The Gnash plush is no longer a gas analyzer. Pure plush friend.
+  id: 952
+  time: '2026-09-10T19:42:23.0000000+00:00'
+- author: cryptisy23
+  changes:
+    - type: Add
+      message: 'Added Rebecca Hawkins plushie to the Crew morale initative crate. '
+  id: 953
+  time: '2026-09-10T21:04:13.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Add
+      message: Vulpkanin have undergarments.
+    - type: Fix
+      message: >-
+        Feroxi, tajaran, shadowkin, and IPCs have undergarments again like they
+        used to.
+  id: 954
+  time: '2026-09-11T01:42:15.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        The detective's Betty no longer continues to occupy a second hand after
+        activating its counter or closing it manually.
+  id: 955
+  time: '2026-09-11T01:57:36.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: Added the supreme janitor cloak, a 75h unlock.
+  id: 956
+  time: '2026-09-11T02:44:48.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added the hypnoflash, you can mind control drugged or sleeping people.
+  id: 957
+  time: '2026-09-11T13:35:34.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: Added the janitor's key ring to the command maids starting loadout.
+  id: 958
+  time: '2026-09-11T19:43:19.0000000+00:00'
+- author: Jerulean
+  changes:
+    - type: Add
+      message: Added a new sprite for unopened tarot boxes.
+  id: 959
+  time: '2026-09-11T19:46:46.0000000+00:00'
+- author: PickelSilly
+  changes:
+    - type: Add
+      message: >-
+        Added a new higher damaging .30 long rifle magnum, mimicking the IRL
+        .308/7.62x51 round 
+    - type: Tweak
+      message: Rechambered M1 Garand and Kardashev-Mosin to .30 long rifle magnum.
+    - type: Add
+      message: Added the new LRR-30 "Penman" DMR for syndis/nukies chambered in .30 lrm
+    - type: Fix
+      message: Fixed the uplink description for .30 rifle ammo box
+  id: 960
+  time: '2026-09-11T21:33:29.0000000+00:00'

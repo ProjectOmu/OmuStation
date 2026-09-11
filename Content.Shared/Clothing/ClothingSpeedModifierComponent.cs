@@ -31,6 +31,15 @@ public sealed partial class ClothingSpeedModifierComponent : Component
     /// </summary>
     [DataField]
     public bool? Standing;
+
+    // Omu start
+    /// <summary>
+    /// Absolute control of whether the clothing will modify speed.
+    /// Set to true if you want to bypass any immunity components. Set to false if you will allow normal modifier function.
+    /// </summary>
+    [DataField]
+    public bool BypassImmune = false;
+    // Omu end
 }
 
 [Serializable, NetSerializable]
