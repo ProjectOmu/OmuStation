@@ -269,6 +269,10 @@
           sprite: Mobs/Customization/masking_helpers.rsi
           state: full
           visible: false
+          # Omu start, fix shadowkin underwear drawing over the jumpsuit
+        - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+        - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+          # Omu end
         - map: ["enum.HumanoidVisualLayers.LFoot"]
         - map: ["enum.HumanoidVisualLayers.RFoot"]
         - map: ["socks"]
