@@ -31,6 +31,6 @@
       - SyringeGunAmmo
       - ShellShotgun
   - type: SyringeGun
-    PierceArmor: true # this thing's sole advantage to an actual syringe gun should be that it can pierce armor
-    InjectionSpeedMultiplier: 1 # it'll help in dosing armored combatants
+    pierceArmor: false # i'd considered this but it may be too offensively busted
+    injectionSpeedMultiplier: 1 # it'll be better for microdosing your officers though
 
