@@ -152,3 +152,10 @@ enable_during_round = false # Default is false, changed back to default on 31/03
 
 [ghost]
 respawn_max_players = 120 # Makes it so its allways enabled
+
+[explosion]
+wounding_multiplier = 1 # from 2.5
+
+[playtest]
+explosion_damage_modifier = 0.65 # from 1
+

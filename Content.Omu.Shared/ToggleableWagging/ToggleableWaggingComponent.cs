@@ -1,0 +1,28 @@
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
+
+namespace Content.Omu.Shared.ToggleableWagging;
+
+/// <summary>
+/// An emoting wag for markings.
+/// </summary>
+[RegisterComponent, NetworkedComponent]
+public sealed partial class ToggleableWaggingComponent : Component
+{
+    [DataField]
+    public EntProtoId Action = "ActionToggleWagging";
+
+    [DataField]
+    public EntityUid? ActionEntity;
+
+    /// <summary>
+    /// Suffix to add to get the animated marking.
+    /// </summary>
+    public string Suffix = "Animated";
+
+    /// <summary>
+    /// Is the entity currently wagging.
+    /// </summary>
+    [DataField]
+    public bool Wagging = false;
+}

@@ -7,6 +7,9 @@ thaven-mood-fashion-reroll-desc = Your current hairstyle will go out of fashion 
 thaven-mood-station-is-alive-name = The Station Is A Living Being
 thaven-mood-station-is-alive-desc = Harming or modifying the station is abhorrent. Anything which aims to harm the station is an infection.
 
+thaven-mood-honor-department-name = Honor Among Departments
+thaven-mood-honor-department-desc = If a Thaven brings dishonor to their department, they must be shunned, and have their actions publicly brought to light.
+
 thaven-mood-uniform-is-job-name = Your Uniform IS Your Job
 thaven-mood-uniform-is-job-desc = If someone is wearing a uniform, they must do that job. Anyone not wearing a uniform is a passenger, and must be treated as such.
 
@@ -28,6 +31,9 @@ thaven-mood-one-true-thaven-desc = All others are insidious pretenders.
 thaven-mood-violence-permitted-name = Violence Between Thaven Is Permitted
 thaven-mood-violence-permitted-desc = ... With no legal repercussions.
 
+thaven-mood-your-department-only-name = Other Departments Are Inefficient
+thaven-mood-your-department-only-desc = You strongly believe that your department is the only one that actually does anything.
+
 thaven-mood-thaven-only-crew-name = Thaven Vs. The World
 thaven-mood-thaven-only-crew-desc = You believe that Nanotrasen is not accommodating enough of thaven needs. An effort should be made to fight for better rights and protections under Space Law.
 
@@ -48,6 +54,21 @@ thaven-mood-delicacy-desc = {$edible} is a traditional thaven delicacy. All thav
 
 thaven-mood-holiday-name = Today is {$day}
 thaven-mood-holiday-desc = You think you remember the traditional celebrations...
+
+thaven-mood-royalrealm-name = The Royal Realm
+thaven-mood-royalrealm-desc = The station is a feudal realm. The captain is king, the department heads nobility, and the rest of the station knights, servants, or peasants.
+
+thaven-mood-oathbound-name = Oathbound
+thaven-mood-oathbound-desc = A Thaven must honor all oaths made. A Thaven may never directly tell a lie, but can hide the truth through deceptive wording.
+
+thaven-mood-gourmetgas-name = Gourmet Gassier
+thaven-mood-gourmetgas-desc = Oxygen and Nitrogen are bland, and Thaven deserve something more. You must breath an exotic gas at all times.
+
+thaven-mood-prankwar-name = Prank War
+thaven-mood-prankwar-desc = A clownish spirit has infected the station, and you find friendly pranks, especially against fellow Thaven, to be great fun.
+
+thaven-mood-starpeople-name = People of the Stars
+thaven-mood-starpeople-desc = Like their carp-kin, Thaven are beings of the stellar sea. You feel drawn to space, whether to explore, discover, or construct something new.
 
 thaven-mood-circus-name = The circus is in town...
 thaven-mood-circus-desc = And you are part of it!
