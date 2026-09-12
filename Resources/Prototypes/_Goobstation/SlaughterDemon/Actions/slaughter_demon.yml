@@ -10,7 +10,8 @@
     icon:
       sprite: _Goobstation/SlaughterDemon/abilities.rsi
       state: crawl
-    useDelay: 4
+    useDelay: 8
+    startDelay: true # Omu
   - type: InstantAction
     event: !type:BloodCrawlEvent
 
@@ -32,4 +33,3 @@
   - type: EntityTargetAction
     canTargetSelf: false
     event: !type:DemonicWhisperEvent
-
