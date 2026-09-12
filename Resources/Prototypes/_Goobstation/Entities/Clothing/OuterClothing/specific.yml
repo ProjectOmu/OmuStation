@@ -4,7 +4,7 @@
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterSuitHEV
   name: H.E.V suit
-  description: Full-body hazardous suit designed to protect wearer from radiation, energy discarges, blunt-force trauma during the handling of hazardous material.
+  description: Full-body hazardous suit designed to protect wearer from radiation, energy discarges, blunt-force trauma during the handling of hazardous material. Now rated for up to 4 Supermatter crystals. #omu edit
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Suits/hev.rsi
@@ -23,7 +23,7 @@
       coefficients:
         Blunt: 0.7
         Shock: 0.7
-        Radiation: 0.01
+        Radiation: 0.0 #omu edit to 100% protection
         Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.9
