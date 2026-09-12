@@ -16,7 +16,10 @@
       max: 1
       playerRatio: 20
       chaosScore: 1400
-      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster ]
+      blacklist:
+        components:
+        - AntagImmune
+        - CommandStaff
       startingGear: LetoStartingGear
   - type: Tag
     tags:
