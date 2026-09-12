@@ -165,6 +165,7 @@
   - EmergencySilicon
   - EmergencyOxygenCarnivore # Omu
   - EmergencyOxygenEthanol # Omu
+  - EmergencyOxygenVegetarian # Omu
 
 # nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup
@@ -740,6 +741,7 @@
   - EmergencySilicon
   - EmergencyOxygenCarnivoreClown # Omu
   - EmergencyOxygenEthanolClown # Omu
+  - EmergencyOxygenVegetarianClown # Omu
 
 - type: loadoutGroup
   id: ClownJobTrinkets
@@ -813,6 +815,7 @@
   - EmergencySilicon
   - EmergencyOxygenCarnivoreMime # Omu
   - EmergencyOxygenEthanolMime # Omu
+  - EmergencyOxygenVegetarianMime # Omu
 
 - type: loadoutGroup
   id: MimeJobTrinkets
@@ -1249,6 +1252,7 @@
   - EmergencySilicon
   - EmergencyOxygenCarnivoreExtended # Omu
   - EmergencyOxygenEthanolExtended # Omu
+  - EmergencyOxygenVegetarianExtended # Omu
 
 # Science
 - type: loadoutGroup
@@ -1675,6 +1679,7 @@
   - EmergencySilicon
   - EmergencyOxygenCarnivoreSecurity # Omu
   - EmergencyOxygenEthanolSecurity # Omu
+  - EmergencyOxygenVegetarianSecurity # Omu
 
 # Medical
 - type: loadoutGroup
@@ -1985,6 +1990,7 @@
   - EmergencySilicon
   - EmergencyOxygenCarnivoreMedical # Omu
   - EmergencyOxygenEthanolMedical # Omu
+  - EmergencyOxygenVegetarianMedical # Omu
 
 # Wildcards
 - type: loadoutGroup
@@ -2032,6 +2038,7 @@
   - EmergencySilicon
   - EmergencyOxygenCarnivoreSyndicate # Omu
   - EmergencyOxygenEthanolSyndicate # Omu
+  - EmergencyOxygenVegetarianSyndicate # Omu
 
 - type: loadoutGroup
   id: SurvivalMilitaryDouble

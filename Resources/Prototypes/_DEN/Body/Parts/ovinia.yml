@@ -1,0 +1,135 @@
+# TODO: Add descriptions (many)
+# TODO BODY: Part damage
+- type: entity
+  id: PartOvinia
+  parent: [BaseItem, BasePart]
+  name: "ovinia body part"
+  abstract: true
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity #Omu - Woundmed Compat
+  id: ChestOvinia
+  name: "ovinia chest"
+  parent: [PartOvinia, BaseChest]
+  components:
+  - type: Sprite
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: "chest_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+- type: entity #Omu - Woundmed Compat
+  id: GroinOvinia
+  name: "ovinia groin"
+  parent: [PartOvinia, BaseGroin]
+  components:
+  - type: Sprite
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: "groin_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+- type: entity
+  id: HeadOvinia
+  name: "ovinia head"
+  parent: [PartOvinia, BaseHead]
+  components:
+  - type: Sprite
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: "head_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  id: LeftArmOvinia
+  name: "left ovinia arm"
+  parent: [PartOvinia, BaseLeftArm]
+  components:
+  - type: Sprite
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmOvinia
+  name: "right ovinia arm"
+  parent: [PartOvinia, BaseRightArm]
+  components:
+  - type: Sprite
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandOvinia
+  name: "left ovinia hand"
+  parent: [PartOvinia, BaseLeftHand]
+  components:
+  - type: Sprite
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  id: RightHandOvinia
+  name: "right ovinia hand"
+  parent: [PartOvinia, BaseRightHand]
+  components:
+  - type: Sprite
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegOvinia
+  name: "left ovinia leg"
+  parent: [PartOvinia, BaseLeftLeg]
+  components:
+  - type: Sprite
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: "l_leg"
+
+- type: entity
+  id: RightLegOvinia
+  name: "right ovinia leg"
+  parent: [PartOvinia, BaseRightLeg]
+  components:
+  - type: Sprite
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootOvinia
+  name: "left ovinia foot"
+  parent: [PartOvinia, BaseLeftFoot]
+  components:
+  - type: Sprite
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootOvinia
+  name: "right ovinia foot"
+  parent: [PartOvinia, BaseRightFoot]
+  components:
+  - type: Sprite
+    sprite: _DEN/Mobs/Species/Ovinia/parts.rsi
+    state: "r_foot"
