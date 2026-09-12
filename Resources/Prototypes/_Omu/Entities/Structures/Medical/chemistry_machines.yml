@@ -1,0 +1,41 @@
+- type: entity
+  id: MachineDistillationSetup
+  parent: BaseTabletopChemicalMachine
+  components:
+  - type: SolutionContainerMixer
+    mixDuration: 90
+  - type: ReactionMixer
+    reactionTypes: [ Distill ]
+  - type: Sprite
+    sprite: _Omu/Structures/Machines/Medical/distill.rsi
+    offset: ".1,.3"
+    layers:
+    - state: shitty-base
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      visible: false
+    - state: powered
+      map: ["vizkey_powered"]
+      visible: false
+    - state: working
+      map: ["vizkey_working"]
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        vizkey_powered:
+          True:  { visible: True  }
+          False: { visible: False }
+      enum.SolutionContainerMixerVisuals.Mixing:
+        vizkey_working:
+          True:  { visible: True  }
+          False: { visible: False }
+  - type: Machine
+    board: DistillationSetupMachineCircuitboard
+
+- type: entity
+  id: DistillationSetupMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  components:
+  - type: MachineBoard
+    prototype: MachineDistillationSetup
