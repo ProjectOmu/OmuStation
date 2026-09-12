@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 09/12/2026 04:00:40
-  entityCount: 27477
+  time: 09/12/2026 14:17:41
+  entityCount: 27480
 maps:
 - 1
 grids:
@@ -10697,6 +10697,8 @@ entities:
     - type: Transform
       pos: -25.5,-28.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal: []
   - uid: 177
     components:
     - type: MetaData
@@ -11088,12 +11090,6 @@ entities:
       parent: 2
 - proto: AirlockExternal
   entities:
-  - uid: 198
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -30.5,-37.5
-      parent: 2
   - uid: 244
     components:
     - type: Transform
@@ -11264,6 +11260,18 @@ entities:
           - DoorBolt
 - proto: AirlockExternalGlassCargoLocked
   entities:
+  - uid: 198
+    components:
+    - type: Transform
+      pos: -33.5,-37.5
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        290:
+        - - DoorStatus
+          - DoorBolt
   - uid: 259
     components:
     - type: Transform
@@ -11274,6 +11282,18 @@ entities:
     - type: Transform
       pos: -42.5,-30.5
       parent: 2
+  - uid: 290
+    components:
+    - type: Transform
+      pos: -30.5,-37.5
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        198:
+        - - DoorStatus
+          - DoorBolt
 - proto: AirlockExternalGlassEngineeringLocked
   entities:
   - uid: 261
@@ -11523,13 +11543,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -44.5,-30.5
       parent: 2
-- proto: AirlockExternalGlassShuttleShipyard
-  entities:
-  - uid: 290
-    components:
-    - type: Transform
-      pos: -33.5,-37.5
-      parent: 2
 - proto: AirlockExternalLocked
   entities:
   - uid: 291
@@ -11774,7 +11787,7 @@ entities:
       pos: 24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -41583.332
+      secondsUntilStateChange: -50617.348
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15268,12 +15281,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 87.5,-3.5
-      parent: 2
-  - uid: 828
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -33.5,-37.5
       parent: 2
   - uid: 829
     components:
@@ -68115,6 +68122,17 @@ entities:
     - type: Transform
       pos: -41.5,-29.5
       parent: 2
+- proto: ComputerShuttleSalvage
+  entities:
+  - uid: 22636
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -29.5,-36.5
+      parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Salvage
 - proto: ComputerSolarControl
   entities:
   - uid: 11174
@@ -82049,7 +82067,7 @@ entities:
       pos: -34.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -35771.87
+      secondsUntilStateChange: -44805.887
       state: Closing
   - uid: 13393
     components:
@@ -82542,7 +82560,7 @@ entities:
       pos: -4.5,-71.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -27581.87
+      secondsUntilStateChange: -36615.887
       state: Closing
   - uid: 14038
     components:
@@ -122370,6 +122388,11 @@ entities:
     - type: Transform
       pos: -13.5,9.5
       parent: 2
+  - uid: 22639
+    components:
+    - type: Transform
+      pos: -24.5,-38.5
+      parent: 2
 - proto: NitrousOxideCanister
   entities:
   - uid: 19161
@@ -122473,6 +122496,11 @@ entities:
       - Silver
 - proto: OxygenCanister
   entities:
+  - uid: 828
+    components:
+    - type: Transform
+      pos: -25.5,-38.5
+      parent: 2
   - uid: 19152
     components:
     - type: Transform
@@ -124779,10 +124807,10 @@ entities:
       parent: 2
 - proto: PottedPlantRandom
   entities:
-  - uid: 1656
+  - uid: 566
     components:
     - type: Transform
-      pos: -28.5,-35.5
+      pos: -29.5,-35.5
       parent: 2
   - uid: 5777
     components:
@@ -131297,11 +131325,6 @@ entities:
       parent: 2
 - proto: RandomVendingSnacks
   entities:
-  - uid: 566
-    components:
-    - type: Transform
-      pos: -25.5,-38.5
-      parent: 2
   - uid: 17803
     components:
     - type: Transform
@@ -131336,6 +131359,11 @@ entities:
     components:
     - type: Transform
       pos: -43.5,-10.5
+      parent: 2
+  - uid: 22638
+    components:
+    - type: Transform
+      pos: -27.5,-38.5
       parent: 2
 - proto: RCDAmmo
   entities:
@@ -136122,6 +136150,14 @@ entities:
     components:
     - type: Transform
       pos: -32.93945,-27.410471
+      parent: 2
+- proto: SalvageMagnet
+  entities:
+  - uid: 22637
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -42.5,-37.5
       parent: 2
 - proto: Saw
   entities:
@@ -142159,7 +142195,7 @@ entities:
       parent: 2
 - proto: SpawnPointSecuritySergeant
   entities:
-  - uid: 22636
+  - uid: 22635
     components:
     - type: Transform
       pos: 14.5,34.5
@@ -142247,22 +142283,22 @@ entities:
       parent: 2
 - proto: SpawnPointVirologist
   entities:
-  - uid: 22632
+  - uid: 1656
     components:
     - type: Transform
       pos: 39.5,-56.5
       parent: 2
-  - uid: 22633
+  - uid: 22632
     components:
     - type: Transform
       pos: 43.5,-59.5
       parent: 2
-  - uid: 22634
+  - uid: 22633
     components:
     - type: Transform
       pos: 46.5,-59.5
       parent: 2
-  - uid: 22635
+  - uid: 22634
     components:
     - type: Transform
       pos: 36.5,-52.5
