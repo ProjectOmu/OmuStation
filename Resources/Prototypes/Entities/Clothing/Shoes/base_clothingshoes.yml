@@ -42,6 +42,8 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
+      stain: # Funkystation
+        maxVol: 5
   - type: Tag
     tags:
     - ClothMade
@@ -57,6 +59,15 @@
         Blunt: 0.95
         Slash: 0.95
         Piercing: 0.95
+  - type: Appearance # Gabystation start
+  - type: Stainable
+    clothingVisuals:
+      shoes:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: shoeblood
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: shoebloodicon # Gabystation end
 
 - type: entity
   abstract: true

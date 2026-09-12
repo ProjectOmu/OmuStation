@@ -25,6 +25,10 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared.Standing; // Gaby
+using Content.Shared.DoAfter; // Gaby
+using Content.Shared.Stunnable; // Gaby
+using Content.Shared.Inventory; // Funkystation
 
 namespace Content.Server.Fluids.EntitySystems;
 
@@ -42,6 +46,9 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly ReagentFireSystem _fireSystem = default!; // Funky
+    [Dependency] private readonly StandingStateSystem _standing = default!; // GabyStation
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!; // GabyStation
+    [Dependency] private readonly InventorySystem _inventory = default!; // FunkyStation
 
 
     [ValidatePrototypeId<ReagentPrototype>]
@@ -77,6 +84,10 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
         SubscribeLocalEvent<PuddleComponent, SpreadNeighborsEvent>(OnPuddleSpread);
         SubscribeLocalEvent<PuddleComponent, SlipEvent>(OnPuddleSlip);
+
+        SubscribeLocalEvent<KnockedDownComponent, MoveEvent>(OnCrawlInPuddle); // GabyStation
+        SubscribeLocalEvent<InventoryComponent, MoveEvent>(OnStepInPuddle); // FunkyStation
+
     }
 
     // TODO: This can be predicted once https://github.com/space-wizards/RobustToolbox/pull/5849 is merged
@@ -471,6 +482,11 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             }
 
             targets.Add(owner);
+            // GabyStation start
+            var stainEv = new SpilledOnEvent(owner, splitSolution.Clone());
+            RaiseLocalEvent(owner, stainEv);
+            // GabyStation end
+
             Reactive.DoEntityReaction(owner, splitSolution, ReactionMethod.Touch);
             Popups.PopupEntity(Loc.GetString("spill-land-spilled-on-other",
                     ("spillable", entity),
@@ -641,4 +657,92 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         _fireSystem.UpdateFire(entity);
     }
     // Funky edit end
+
+    // If an entity is laying on a puddle, apply stain when it moves to another tile
+    private void OnCrawlInPuddle(Entity<KnockedDownComponent> ent, ref MoveEvent args) // Gaby
+    {
+        if (!_standing.IsDown(ent.Owner))
+            return;
+
+        var gridUid = args.NewPosition.GetGridUid(EntityManager);
+        if (!gridUid.HasValue || !TryComp<MapGridComponent>(gridUid, out var grid))
+            return;
+
+        if (args.OldPosition.GetGridUid(EntityManager) != gridUid ||
+            _map.CoordinatesToTile(gridUid.Value, grid, args.OldPosition) == _map.CoordinatesToTile(gridUid.Value, grid, args.NewPosition))
+            return;
+
+        var tile = _map.GetTileRef(gridUid.Value, grid, args.NewPosition);
+
+        if (!TryGetPuddle(tile, out var puddleUid) || !_puddleQuery.TryGetComponent(puddleUid, out var puddleComp))
+            return;
+
+        var isSuperSlippery = TryComp<SlipperyComponent>(puddleUid, out var slippery) && slippery.SlipData.SuperSlippery;
+        var slippedEv = new SlippedEvent(puddleUid, isSuperSlippery);
+        RaiseLocalEvent(ent.Owner, slippedEv);
+
+        // copies part of OnPuddleSlip
+        if (HasComp<ReactiveComponent>(ent.Owner) && !HasComp<SlidingComponent>(ent.Owner))
+        {
+            if (!_solutionContainerSystem.ResolveSolution(puddleUid, puddleComp.SolutionName, ref puddleComp.Solution, out var solution))
+                return;
+
+            Popups.PopupEntity(Loc.GetString("puddle-component-slipped-touch-reaction", ("puddle", puddleUid)),
+                ent.Owner, ent.Owner, PopupType.SmallCaution);
+
+            var splitSol = _solutionContainerSystem.SplitSolution(puddleComp.Solution.Value, solution.Volume * 0.15f);
+
+            Reactive.DoEntityReaction(ent.Owner, splitSol, ReactionMethod.Touch);
+
+            var addBack = new List<ProtoId<ReagentPrototype>>();
+            foreach (var (proto, amt) in splitSol.GetReagentPrototypes(_prototypeManager))
+            {
+                if (!proto.SticksToSkin)
+                    addBack.Add(new ProtoId<ReagentPrototype>(proto.ID));
+            }
+            solution.AddSolution(splitSol.SplitSolutionWithOnly(splitSol.Volume, addBack.ToArray()), _prototypeManager);
+        }
+    }
+
+    // FunkyStation start
+    // Stain when stepping on puddles
+    private void OnStepInPuddle(Entity<InventoryComponent> ent, ref MoveEvent args)
+    {
+        // Only if upright
+        if (_standing.IsDown(ent.Owner))
+            return;
+
+        // Only on tile change
+        var gridUid = args.NewPosition.GetGridUid(EntityManager);
+        if (!gridUid.HasValue || !TryComp<MapGridComponent>(gridUid, out var grid))
+            return;
+
+        if (args.OldPosition.GetGridUid(EntityManager) != gridUid ||
+            _map.CoordinatesToTile(gridUid.Value, grid, args.OldPosition) == _map.CoordinatesToTile(gridUid.Value, grid, args.NewPosition))
+            return;
+
+        var tile = _map.GetTileRef(gridUid.Value, grid, args.NewPosition);
+
+        if (!TryGetPuddle(tile, out var puddleUid) || !_puddleQuery.TryGetComponent(puddleUid, out var puddleComp))
+            return;
+
+        // Logic to stain shoes
+        if (!_solutionContainerSystem.ResolveSolution(puddleUid, puddleComp.SolutionName, ref puddleComp.Solution, out var solution))
+            return;
+
+        if (solution.Volume <= FixedPoint2.Zero)
+            return;
+
+        var transferAmount = FixedPoint2.Min(FixedPoint2.New(1), solution.Volume);
+        var splitSol = _solutionContainerSystem.SplitSolution(puddleComp.Solution.Value, transferAmount);
+
+        // Target shoes using InventorySystem
+        if (_inventory.TryGetSlotEntity(ent.Owner, "shoes", out var shoes))
+        {
+            var spilledEvent = new SpilledOnEvent(puddleUid, splitSol);
+            var relayedEvent = new InventoryRelayedEvent<SpilledOnEvent>(spilledEvent, ent.Owner);
+            RaiseLocalEvent(shoes.Value, relayedEvent);
+        }
+    }
+    // FunkyStation end
 }
