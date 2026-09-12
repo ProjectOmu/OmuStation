@@ -43,9 +43,10 @@
     integrityThresholds:
       Normal: 85
       Damaged: 45
-      Destroyed: -100 # Omu, make them ACTUALLY undestroyable. If they are destroyed you're just kinda fucked and RR'd
+      Destroyed: 0
     slotId: lungs
-    removable: False # Omu end, make them actualy unremovable
+    removable: False
+    indestructible: True # Omu end, make them actualy unremovable
   - type: Lung
   - type: Item # Omu
     size: Small
