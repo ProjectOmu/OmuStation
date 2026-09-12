@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared._DV.CartridgeLoader.Cartridges;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -16,6 +14,14 @@ public sealed partial class NanoChatCardComponent : Component
     [DataField, AutoNetworkedField]
     public uint? Number;
 
+   /// <summary>
+    ///     Whether a PDA has this card's UI closed.
+    ///     Used for notifications.
+    /// </summary>
+    [DataField]
+    public bool IsClosed;
+
+
     /// <summary>
     ///     All chat recipients stored on this card.
     /// </summary>
@@ -27,6 +33,12 @@ public sealed partial class NanoChatCardComponent : Component
     /// </summary>
     [DataField]
     public Dictionary<uint, List<NanoChatMessage>> Messages = new();
+
+    /// <summary>
+    ///     The NanoChat numbers that should not give a notification, even when notifications are enabled.
+    /// </summary>
+    [DataField]
+    public HashSet<uint> MutedChats = [];
 
     /// <summary>
     ///     The currently selected chat recipient number.
@@ -63,10 +75,4 @@ public sealed partial class NanoChatCardComponent : Component
     /// </summary>
     [DataField]
     public bool ListNumber = true;
-
-    /// <summary>
-    ///     Whether the card's number should be listed in NanoChat's lookup
-    /// </summary>
-    [DataField]
-    public bool IsClosed;
 }

@@ -1,7 +1,3 @@
-<!--
-SPDX-License-Identifier: AGPL-3.0-or-later
--->
-
 <cartridges:NanoChatMessageBubble
     xmlns="https://spacestation14.io"
     xmlns:cartridges="clr-namespace:Content.Client._DV.CartridgeLoader.Cartridges"
@@ -23,6 +19,15 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             <PanelContainer Name="MessagePanel"
                             MaxWidth="320"
                             HorizontalExpand="True">
+
+            <!-- Funky Station - Added sender name label -->
+            <Label
+                HorizontalAlignment="Left"
+                Margin="10,0,10,2"
+                Name="SenderNameLabel"
+                StyleClasses="LabelSmall"
+                Visible="False" />
+
                 <PanelContainer.PanelOverride>
                     <graphics:StyleBoxFlat
                         ContentMarginLeftOverride="10"
