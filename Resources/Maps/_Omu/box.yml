@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 08/26/2026 21:21:19
-  entityCount: 27472
+  time: 09/12/2026 04:00:40
+  entityCount: 27477
 maps:
 - 1
 grids:
@@ -8554,8 +8554,8 @@ entities:
           id: docking46345
           localAnchorB: -0.5,-1
           localAnchorA: -66.5,22
-          damping: 42.400726
-          stiffness: 380.58804
+          damping: 42.40073
+          stiffness: 380.5881
     - type: OccluderTree
     - type: Shuttle
       dampingModifiers:
@@ -11774,7 +11774,7 @@ entities:
       pos: 24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -41452.223
+      secondsUntilStateChange: -41583.332
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -82049,7 +82049,7 @@ entities:
       pos: -34.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -35640.76
+      secondsUntilStateChange: -35771.87
       state: Closing
   - uid: 13393
     components:
@@ -82542,7 +82542,7 @@ entities:
       pos: -4.5,-71.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -27450.76
+      secondsUntilStateChange: -27581.87
       state: Closing
   - uid: 14038
     components:
@@ -142157,6 +142157,13 @@ entities:
     - type: Transform
       pos: 9.5,37.5
       parent: 2
+- proto: SpawnPointSecuritySergeant
+  entities:
+  - uid: 22636
+    components:
+    - type: Transform
+      pos: 14.5,34.5
+      parent: 2
 - proto: SpawnPointServiceWorker
   entities:
   - uid: 22443
@@ -142237,6 +142244,28 @@ entities:
     components:
     - type: Transform
       pos: 7.5,-55.5
+      parent: 2
+- proto: SpawnPointVirologist
+  entities:
+  - uid: 22632
+    components:
+    - type: Transform
+      pos: 39.5,-56.5
+      parent: 2
+  - uid: 22633
+    components:
+    - type: Transform
+      pos: 43.5,-59.5
+      parent: 2
+  - uid: 22634
+    components:
+    - type: Transform
+      pos: 46.5,-59.5
+      parent: 2
+  - uid: 22635
+    components:
+    - type: Transform
+      pos: 36.5,-52.5
       parent: 2
 - proto: SpawnPointWarden
   entities:
