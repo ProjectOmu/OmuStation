@@ -1,0 +1,58 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: job
+  id: ScienceProfessor
+  name: job-name-science-professor
+  description: job-description-science-professor
+  playTimeTracker: JobScienceProfessor
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 360000 #100 hours
+  - !type:DepartmentTimeRequirement
+    department: Science
+    time: 360000 #100 hours
+  - !type:RoleTimeRequirement
+    role: JobResearchDirector
+    time: 36000 #10 hrs
+  - !type:RoleTimeRequirement
+    role: JobRoboticist
+    time: 54000 #15 hrs
+  - !type:RoleTimeRequirement
+    role: JobScientist
+    time: 180000 #50 hrs
+  startingGear: ScienceProfessorGear
+  icon: "JobIconScienceProfessor"
+  supervisors: job-supervisors-rd
+  canBeAntag: false
+  guides:
+  - Science
+  - ScienceSOP
+  # - ScienceProfessorSOP TODO: WRITE THIS
+  goobcoins: 30
+  access:
+  - Research
+  - Robotics
+  - Maintenance
+  - External
+  - Cryogenics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: ScienceProfessorGear
+  equipment:
+    eyes: ClothingEyesHudDiagnostic
+    ears: ClothingHeadsetScience
+
+- type: chameleonOutfit
+  id: ScienceProfessorChameleonOutfit
+  job: ScienceProfessor
+  hasMindShield: true
+#  equipment: TODO: FILL THESE OUT WHEN CLOTHES ARE IMPLEMENTED
+#    head: ClothingHeadHatCargosoft
+#    eyes: ClothingEyesGlassesCheapSunglasses
+#    mask: ClothingMaskBreath
+#    outerClothing: ClothingOuterWinterCargo
+#    neck: ClothingNeckScarfStripedBrown
+#    gloves: ClothingHandsGlovesFingerless

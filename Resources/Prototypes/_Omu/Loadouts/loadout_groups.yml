@@ -91,6 +91,16 @@
   - PrisonerEnviroglovesBlack
   - PrisonerEnviroglovesWhite
 
+# Logistics Assistant
+
+- type: loadoutGroup
+  id: LogisticsAssistantJumpsuit
+  name: loadout-group-logistics-assistant-jumpsuit
+  loadouts:
+  - BrownJumpsuit
+  - BrownJumpskirt
+  - BrownMJ
+
 # Courier
 
 - type: loadoutGroup
@@ -185,6 +195,8 @@
   loadouts:
   # - MailCarrierEnvirogloves
   - WhiteEnvirogloves
+
+# Virology
 
 - type: loadoutGroup
   id: VirologistEnvirohelm

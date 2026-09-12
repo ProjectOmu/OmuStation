@@ -1,0 +1,48 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: job
+  id: LogisticsAssistant
+  name: job-name-logistics-assistant
+  description: job-description-logistics-assistant
+  playTimeTracker: JobLogisticsAssistant
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 0.5h # Omustation
+  startingGear: LogisticsAssistantGear
+  icon: "JobIconLogisticsAssistant"
+  supervisors: job-supervisors-cargo
+  guides: # goobstation
+  - Cargo
+  goobcoins: 20 #Goob content
+  access:
+  - Cargo
+  - Maintenance
+  extendedAccess:
+  - Salvage
+  - External # goobstation
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: BoxingDay
+    prototype: BoxCardboard
+
+- type: startingGear
+  id: LogisticsAssistantGear
+  equipment:
+    shoes: ClothingShoesColorBlack
+    id: LogisticsAssistantPDA
+    ears: ClothingHeadsetCargo
+    pocket1: AppraisalTool
+    #storage:
+    #back:
+    #- Stuff
+
+- type: chameleonOutfit
+  id: LogisticsAssistantChameleonOutfit
+  job: LogisticsAssistant
+  equipment:
+    head: ClothingHeadHatCargosoft
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskBreath
+    neck: ClothingNeckScarfStripedBrown
+    outerClothing: ClothingOuterWinterCargo
+    gloves: ClothingHandsGlovesFingerless

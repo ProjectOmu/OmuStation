@@ -10,6 +10,10 @@ loadout-group-corpsman-glasses = Corpsman glasses
 loadout-group-corpsman-belt = Corpsman belt
 loadout-group-corpsman-headset = Corpsman headset
 
+# Logistics Assistant
+
+loadout-group-logistics-assistant-jumpsuit = Logistics Assistant jumpsuit
+
 # Medical
 loadout-group-medical-backpack = Medical backpack
 

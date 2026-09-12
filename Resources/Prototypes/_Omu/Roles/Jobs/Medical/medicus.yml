@@ -1,0 +1,73 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: job
+  id: MedicalMedicus
+  name: job-name-medical-medicus
+  description: job-description-medical-medicus
+  playTimeTracker: JobMedicalMedicus
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 360000 #100 hours
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 360000 #100 hours
+  - !type:RoleTimeRequirement
+    role: JobChiefMedicalOfficer
+    time: 36000 #10 hrs
+  - !type:RoleTimeRequirement
+    role: JobParamedic
+    time: 36000 #10 hrs
+  - !type:RoleTimeRequirement
+    role: JobVirologist
+    time: 18000 #5 hrs
+  - !type:RoleTimeRequirement
+    role: JobChemist
+    time: 144000 #40 hrs
+  - !type:RoleTimeRequirement
+    role: JobMedicalDoctor
+    time: 162000 #45 hrs
+  startingGear: MedicalMedicusGear
+  icon: "JobIconMedicalMedicus"
+  supervisors: job-supervisors-cmo
+  canBeAntag: false
+  guides:
+  - Medical
+  - MedicalSOP
+ # - MedicalMedicusSOP TODO: WRITE THIS
+  - Chemicals
+  - Virology
+  goobcoins: 30
+  access:
+  - Medical
+  - Chemistry
+  - Paramedic
+  - Maintenance
+  - External
+  - Cryogenics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  # Shitmed Change
+  - !type:AddComponentSpecial
+    components:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.75
+
+- type: startingGear
+  id: MedicalMedicusGear
+  equipment:
+    eyes: ClothingEyesGlassesMedChem
+    belt: ClothingBeltMedicalFilled
+    ears: ClothingHeadsetMedical
+
+- type: chameleonOutfit
+  id: MedicalMedicusChameleonOutfit
+  job: MedicalMedicus
+  hasMindShield: true
+#  equipment: TODO: FILL THESE OUT WHEN CLOTHES ARE IMPLEMENTED
+#    head: ClothingHeadHatCargosoft
+#    eyes: ClothingEyesGlassesCheapSunglasses
+#    mask: ClothingMaskBreath
+#    outerClothing: ClothingOuterWinterCargo
+#    neck: ClothingNeckScarfStripedBrown
+#    gloves: ClothingHandsGlovesFingerless
