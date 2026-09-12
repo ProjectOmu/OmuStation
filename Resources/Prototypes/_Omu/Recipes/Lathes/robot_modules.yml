@@ -4,6 +4,11 @@
   result: BorgModulePostal
 
 - type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAdvancedThruster
+  result: BorgModuleAdvancedThruster
+
+- type: latheRecipe
   abstract: true
   id: BaseBorgModuleRecipeSyndicateBasic
   categories:
