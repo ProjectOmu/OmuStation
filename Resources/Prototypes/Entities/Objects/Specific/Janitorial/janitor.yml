@@ -419,6 +419,12 @@
         Piercing: 3
     soundHit:
       path: "/Audio/Weapons/bladeslice.ogg"
+    # Omu begin
+  - type: ConvertTile
+    delay: 4
+    tileReactions:
+      PlatingRust: Plating
+    # Omu end
 
 - type: entity
   parent: WireBrush
@@ -428,3 +434,16 @@
   components:
   - type: Tool
     speedModifier: 1.5
+    # Omu begin
+  - type: Sprite
+    sprite: _Omu/Objects/Specific/Janitorial/advwirebrush.rsi
+    state: icon
+  - type: Item
+    storedSprite:
+      sprite: _Omu/Objects/Specific/Janitorial/advwirebrush.rsi
+      state: storage
+  - type: ConvertTile
+    delay: 2.5
+    tileReactions:
+      PlatingRust: Plating
+    # Omu end
