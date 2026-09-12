@@ -98,16 +98,16 @@
     - type: GuideHelp
       guides:
       - MixingAndFiltering
-    - type: VentCrawlerTube # Goobstation - ventcrawl
-      containerId: VentCrawlerTube
-    - type: VentCrawlerJunction # Goobstation - ventcrawl
-      degrees:
-        - 0
-        - -90
-        - 180
-    - type: ContainerContainer # Goobstation - ventcrawl
-      containers:
-        VentCrawlerTube: !type:Container
+    #- type: VentCrawlerTube # Goobstation - ventcrawl # Omu start, use nodecrawl instead
+    #  containerId: VentCrawlerTube
+    #- type: VentCrawlerJunction # Goobstation - ventcrawl
+    #  degrees:
+    #    - 0
+    #    - -90
+    #    - 180
+    #- type: ContainerContainer # Goobstation - ventcrawl
+    #  containers:
+    #    VentCrawlerTube: !type:Container # Omu end
 
 # Goobstation - reparent to new base filter proto
 - type: entity
@@ -199,16 +199,16 @@
     - type: GuideHelp
       guides:
       - MixingAndFiltering
-    - type: VentCrawlerTube # Goobstation - ventcrawl
-      containerId: VentCrawlerTube
-    - type: VentCrawlerJunction # Goobstation - ventcrawl
-      degrees:
-        - 0
-        - -90
-        - 180
-    - type: ContainerContainer # Goobstation - ventcrawl
-      containers:
-        VentCrawlerTube: !type:Container
+    #- type: VentCrawlerTube # Goobstation - ventcrawl # Omu start, use nodecrawl instead
+    #  containerId: VentCrawlerTube
+    #- type: VentCrawlerJunction # Goobstation - ventcrawl
+    #  degrees:
+    #    - 0
+    #    - -90
+    #    - 180
+    #- type: ContainerContainer # Goobstation - ventcrawl
+    #  containers:
+    #    VentCrawlerTube: !type:Container # Omu end
 
 - type: entity
   parent: GasMixer
@@ -252,16 +252,16 @@
         pipeDirection: North
   - type: Construction
     node: mixerflipped
-  - type: VentCrawlerTube # Goobstation - ventcrawl
-    containerId: VentCrawlerTube
-  - type: VentCrawlerJunction # Goobstation - ventcrawl
-    degrees:
-      - 0
-      - -90
-      - 180
-  - type: ContainerContainer # Goobstation - ventcrawl
-    containers:
-      VentCrawlerTube: !type:Container
+  #- type: VentCrawlerTube # Goobstation - ventcrawl # Omu start, use nodecrawl instead
+  #  containerId: VentCrawlerTube
+  #- type: VentCrawlerJunction # Goobstation - ventcrawl
+  #  degrees:
+  #    - 0
+  #    - -90
+  #    - 180
+  #- type: ContainerContainer # Goobstation - ventcrawl
+  #  containers:
+  #    VentCrawlerTube: !type:Container # Omu end
 
 - type: entity
   parent: GasPipeBase
@@ -327,13 +327,13 @@
       - PneumaticValve
       - Pumps
       - Valves
-    - type: VentCrawlerTube # Goobstation - ventcrawl
-      containerId: VentCrawlerTube
-    - type: VentCrawlerJunction # Goobstation - ventcrawl
-      degrees:
-        - 0
-        - -90
-        - 180
-    - type: ContainerContainer # Goobstation - ventcrawl
-      containers:
-        VentCrawlerTube: !type:Container
+    #- type: VentCrawlerTube # Goobstation - ventcrawl # Omu start, use nodecrawl instead
+    #  containerId: VentCrawlerTube
+    #- type: VentCrawlerJunction # Goobstation - ventcrawl
+    #  degrees:
+    #    - 0
+    #    - -90
+    #    - 180
+    #- type: ContainerContainer # Goobstation - ventcrawl
+    #  containers:
+    #    VentCrawlerTube: !type:Container # Omu end
