@@ -37,9 +37,9 @@
   - type: Clothing
     sprite: _DV/Objects/Misc/feather.rsi
     clothingVisuals:
-      ears:
-      - state: equipped-EARS
-        map: [ "feather" ]
+      #ears: omu disable ear slot due to crash
+      #- state: equipped-EARS
+      #  map: [ "feather" ]
       head:
       - state: equipped-HELMET
         map: [ "feather" ]
