@@ -5,8 +5,8 @@ namespace Content.Shared._DV.CartridgeLoader.Cartridges;
 [Serializable, NetSerializable]
 public sealed class NanoChatUiState : BoundUserInterfaceState
 {
-    public readonly Dictionary<uint, NanoChatRecipient> Recipients = [];
-    public readonly Dictionary<uint, List<NanoChatMessage>> Messages = [];
+    public readonly Dictionary<uint, NanoChatRecipient> Recipients = new();
+    public readonly Dictionary<uint, List<NanoChatMessage>> Messages = new();
     public readonly HashSet<uint> MutedChats = [];
     public readonly List<NanoChatRecipient>? Contacts;
     public readonly uint? CurrentChat;

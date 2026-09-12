@@ -26,13 +26,13 @@ public sealed partial class NanoChatCardComponent : Component
     ///     All chat recipients stored on this card.
     /// </summary>
     [DataField]
-    public Dictionary<uint, NanoChatRecipient> Recipients = [];
+    public Dictionary<uint, NanoChatRecipient> Recipients = new();
 
     /// <summary>
     ///     All messages stored on this card, keyed by recipient number.
     /// </summary>
     [DataField]
-    public Dictionary<uint, List<NanoChatMessage>> Messages = [];
+    public Dictionary<uint, List<NanoChatMessage>> Messages = new();
 
     /// <summary>
     ///     The NanoChat numbers that should not give a notification, even when notifications are enabled.
@@ -65,14 +65,14 @@ public sealed partial class NanoChatCardComponent : Component
     public bool NotificationsMuted;
 
     /// <summary>
-    ///     Whether the card's number should be listed in NanoChat's lookup
-    /// </summary>
-    [DataField]
-    public bool ListNumber = true;
-
-    /// <summary>
     ///     The PDA that this card is currently inserted to.
     /// </summary>
     [DataField]
     public EntityUid? PdaUid = null;
+
+    /// <summary>
+    ///     Whether the card's number should be listed in NanoChat's lookup
+    /// </summary>
+    [DataField]
+    public bool ListNumber = true;
 }

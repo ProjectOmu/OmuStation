@@ -27,8 +27,8 @@ public sealed partial class NanoChatUiFragment : BoxContainer
     private uint _ownNumber;
     private bool _notificationsMuted;
     private bool _listNumber = true;
-    private Dictionary<uint, NanoChatRecipient> _recipients = [];
-    private Dictionary<uint, List<NanoChatMessage>> _messages = [];
+    private Dictionary<uint, NanoChatRecipient> _recipients = new();
+    private Dictionary<uint, List<NanoChatMessage>> _messages = new();
     private HashSet<uint> _mutedChats = [];
     private List<NanoChatRecipient>? _contacts; // Funky Station - Used in order to show names for people not in recipients
 
@@ -39,7 +39,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
 
-        _newChatPopup = new();
+        _newChatPopup = new NewChatPopup();
         _editChatPopup = new();
         _createGroupChatPopup = new(); // Funky Station - Create Group Chat Popup
         _inviteToGroupPopup = new(); // Funky Station - Group Chat Invite Popup
@@ -188,7 +188,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             OnMessageSent?.Invoke(NanoChatUiMessageType.ToggleListNumber, null, null, null);
         };
 
-        MessageInput.OnTextEntered += _ => SendMessage();
+        MessageInput.OnTextEntered += _ => SendMessage(); // Send message when pressing enter
         SendButton.OnPressed += _ => SendMessage();
         EmojiButton.OnPressed += _ => OpenEmojiPicker(); // Funky Station - Emoji Picker
         EditChatButton.OnPressed += _ => BeginEditChat();
