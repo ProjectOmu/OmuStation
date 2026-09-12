@@ -38,5 +38,7 @@ public sealed class ActionGunSystem : EntitySystem
     {
         if (TryComp<GunComponent>(ent.Comp.Gun, out var gun))
             _gun.AttemptShoot(ent, (ent.Comp.Gun.Value, gun), args.Target);
+
+        args.Handled = true; // Omu - needs to be set for the systems that call this event
     }
 }

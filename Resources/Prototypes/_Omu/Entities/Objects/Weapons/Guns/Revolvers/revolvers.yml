@@ -54,7 +54,7 @@
   - type: AmmoCounter
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 4 #buffing this cause it is bad rn
+    fireRate: 2.25  #buffing this cause it is bad rn... Okay prehaps that was a little too much.
     availableModes:
     - SemiAuto
     soundGunshot:
@@ -74,7 +74,7 @@
   - type: StaticPrice
     price: 12000
   - type: GunSpreadModifier
-    spread: 3
+    spread: 2.25
   - type: StealTarget
     stealGroup: WeaponEnergyShotgun
   - type: MeleeWeapon

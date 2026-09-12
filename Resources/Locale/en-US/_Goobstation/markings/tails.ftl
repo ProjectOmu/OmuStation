@@ -2,5 +2,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-marking-dogTail = Dog Tail
+# Omu - Tail wag
+marking-dogTail = Dog Tail (Animated)
 marking-dogTailWag = Dog Tail(Wagging)
