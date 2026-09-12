@@ -12,6 +12,7 @@ using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
 using Content.Shared.CCVar;
+using Content.Shared.Chat; // Omustation - Port WD Respawn Button
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
@@ -30,6 +31,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Server._White.Ghost;
 
 namespace Content.Server.GameTicking
 {
@@ -40,6 +42,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly AdminSystem _admin = default!;
         [Dependency] private readonly PlayTimeTrackingManager _playTimeManager = default!; // Omustation Remake EE Traits System
         [Dependency] private readonly IEntityManager _entityManager = default!; // Omustation - Remake EE Traits System
+        [Dependency] private readonly GhostNameCheckSystem _ghostNameCheckSystem = default!; // Omustation - Port WD Respawn Button
 
         public static readonly EntProtoId ObserverPrototypeName = "MobObserver";
         public static readonly EntProtoId AdminObserverPrototypeName = "AdminObserver";
@@ -187,6 +190,22 @@ namespace Content.Server.GameTicking
                 JoinAsObserver(player);
                 return;
             }
+
+            // begin Omustation - Port WD Respawn Button
+            // Ghost system return to round, check for whether the character isn't the same.
+            if (lateJoin && !_adminManager.IsAdmin(player) && !_ghostNameCheckSystem.CheckGhostReturnToRound(player, character, out var checkAvoid))
+            {
+                var message = checkAvoid
+                    ? Loc.GetString("ghost-respawn-same-character-slightly-changed-name")
+                    : Loc.GetString("ghost-respawn-same-character");
+                var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+
+                _chatManager.ChatMessageToOne(ChatChannel.Server, message, wrappedMessage,
+                    default, false, player.Channel, Color.Red);
+
+                return;
+            }
+            // end Omustation - Port WD Respawn Button
 
             string speciesId;
             if (_randomizeCharacters)
