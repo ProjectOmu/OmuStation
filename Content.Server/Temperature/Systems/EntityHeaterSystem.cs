@@ -40,7 +40,7 @@ public sealed class EntityHeaterSystem : SharedEntityHeaterSystem
             // don't divide by total entities since it's a big grill
             // excess would just be wasted in the air but that's not worth simulating
             // if you want a heater thermomachine just use that...
-            var energy = power.PowerReceived * deltaTime;
+            var energy = (power.NeedsPower ? power.PowerReceived : power.Load) * deltaTime; // Omu When NeedsPower is off, ignore how much power is received and force in the requested amount
             foreach (var ent in placer.PlacedEntities)
             {
                 _temperature.ChangeHeat(ent, energy);
