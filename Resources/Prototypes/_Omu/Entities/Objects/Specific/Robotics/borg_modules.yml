@@ -58,7 +58,7 @@
   - type: ItemBorgModule
     hands:
     - hand:
-        emptyRepresentative: paper
+        emptyRepresentative: Paper
         whitelist:
           components:
           - Delivery
@@ -68,7 +68,7 @@
           - BoxCardboard
           - Folder
     - hand:
-        emptyRepresentative: paper
+        emptyRepresentative: Paper
         whitelist:
           components:
           - Delivery
@@ -78,7 +78,7 @@
           - BoxCardboard
           - Folder
     - hand:
-        emptyRepresentative: paper
+        emptyRepresentative: Paper
         whitelist:
           components:
           - Delivery
