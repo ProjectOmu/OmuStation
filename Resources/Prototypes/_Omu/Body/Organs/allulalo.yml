@@ -19,7 +19,7 @@
     metabolizerTypes: [ Allulalo, Animal ]
     groups:
     - id: Alcohol
-      rateModifier: 0.1
+      rateModifier: 10 # This lets allulalo process ethanol at 0.5u/s, which makes it work like water. Yes this causes bacchus's blessing to metabolize fast too
   - type: Liver
   - type: Tag
     tags:
