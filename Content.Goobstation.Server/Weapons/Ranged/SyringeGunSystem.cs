@@ -2,6 +2,7 @@
 
 using Content.Server.Chemistry.Components;
 using Content.Shared._Goobstation.Weapons.Ranged;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 
@@ -21,7 +22,19 @@ public sealed class SyringeGunSystem : EntitySystem
 
     private void OnShootAttemot(Entity<SyringeGunComponent> ent, ref AttemptShootEvent args)
     {
-        args.ThrowItems = true;
+        // Omu start; allows for ballistic guns with a syringe gun component to shoot bullets properly
+        // Otherwise, the syringe gun component causes the ammo itself to get thrown and not actually shot
+        if (TryComp(ent.Owner, out BallisticAmmoProviderComponent? ammoComp))
+        {
+            if (ammoComp.Entities.Count > 0 && HasComp<SolutionInjectWhileEmbeddedComponent>(ammoComp.Entities[^1]))
+            {
+                args.ThrowItems = true;
+            }
+        }
+        else
+        {
+            args.ThrowItems = true; // Not an Omu line
+        } // Omu end; yes this is because of the pneumatic shotgun
     }
 
     private void OnFire(Entity<SyringeGunComponent> gun, ref AmmoShotEvent args)
