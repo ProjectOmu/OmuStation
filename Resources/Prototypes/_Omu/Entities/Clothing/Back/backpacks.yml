@@ -15,3 +15,147 @@
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Back/Backpacks/cybersunmed.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackChef
+  name: chef backpack
+  description: A backpack worn by Chefs to hold their supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Backpacks/chef.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelChef
+  name: chef duffel bag
+  description: A large duffel bag worn by Chefs to hold their supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Duffels/chef.rsi
+
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerChef
+  name: chef messenger bag
+  description: A lightweight bag for keeping extra cooking supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Messenger/chef.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelChef
+  name: chef satchel
+  description: A trendy looking satchel to hold cooking supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Satchels/chef.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackJanitor
+  name: janitor backpack
+  description: A backpack worn by Janitors to hold their supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Backpacks/janitor.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelJanitor
+  name: janitor duffel bag
+  description: A large duffel bag worn by Janitors to hold their supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Duffels/janitor.rsi
+
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerJanitor
+  name: janitor messenger bag
+  description: A lightweight bag for keeping extra cleaning supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Messenger/janitor.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelJanitor
+  name: janitor satchel
+  description: A trendy looking satchel to hold cleaning supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Satchels/janitor.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackRoboticist
+  name: roboticist backpack
+  description: A backpack worn by Roboticist to hold their supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Backpacks/roboticist.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelRoboticist
+  name: roboticist duffel bag
+  description: A large duffel bag worn by Roboticist to hold their supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Duffels/roboticist.rsi
+
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerRoboticist
+  name: roboticist messenger bag
+  description: A lightweight bag for keeping extra supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Messenger/roboticist.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelRoboticist
+  name: roboticist satchel
+  description: A trendy looking satchel to hold extra supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Satchels/roboticist.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackBartender
+  name: bartender backpack
+  description: A backpack worn by Bartenders to hold their supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Backpacks/bartender.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelBartender
+  name: bartender duffel bag
+  description: A large duffel bag worn by Bartenders to hold their supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Duffels/bartender.rsi
+
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerBartender
+  name: bartender messenger bag
+  description: A lightweight bag for keeping extra supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Messenger/bartender.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelBartender
+  name: bartender satchel
+  description: A trendy looking satchel to hold extra supplies.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Satchels/bartender.rsi

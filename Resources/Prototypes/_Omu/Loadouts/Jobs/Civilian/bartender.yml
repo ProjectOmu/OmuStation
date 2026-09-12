@@ -17,3 +17,24 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+
+## Bags
+- type: loadout
+  id: BartenderBackpack
+  equipment:
+    back: ClothingBackpackBartender
+
+- type: loadout
+  id: BartenderBackpackDuffel
+  equipment:
+    back: ClothingBackpackDuffelBartender
+
+- type: loadout
+  id: BartenderBackpackMessenger
+  equipment:
+    back: ClothingBackpackMessengerBartender
+
+- type: loadout
+  id: BartenderBackpackSatchel
+  equipment:
+    back: ClothingBackpackSatchelBartender
