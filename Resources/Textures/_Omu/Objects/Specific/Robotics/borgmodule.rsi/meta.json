@@ -1,14 +1,20 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Virology by Richard Blonski",
+  "copyright": "Virology by Richard Blonski, postal and jetpack module by SirCannonFodder (github)",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
-	{
-      "name": "icon-virology"
-    }
+	  {
+          "name": "icon-virology"
+      },
+      {
+          "name": "icon-postal"
+      },
+      {
+          "name": "icon-jetpack"
+      }
   ]
 }
