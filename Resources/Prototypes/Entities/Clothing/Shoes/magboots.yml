@@ -17,9 +17,9 @@
   - type: ToggleClothing
     action: ActionToggleMagboots
     mustEquip: false
-  - type: ComponentToggler
-    components:
-    - type: NoSlip
+#  - type: ComponentToggler # Omu edit start
+#    components:
+#    - type: NoSlip # Omu edit end
   - type: ItemTogglePrefix
     prefixOn: on
   - type: ToggleClothingPrefix
