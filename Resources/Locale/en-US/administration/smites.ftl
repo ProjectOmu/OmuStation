@@ -54,7 +54,9 @@ admin-smite-dust-name = Dust
 admin-smite-buffering-name = Buffering
 admin-smite-become-instrument-name = Become Instrument
 admin-smite-remove-gravity-name = Remove Gravity
-admin-smite-reptilian-species-swap-name = Become Reptilian
+# Omu: change "Reptilian" to "Unathi"
+admin-smite-reptilian-species-swap-name = Become Unathi
+# Omu end
 admin-smite-locker-stuff-name = Locker Stuff
 admin-smite-headstand-name = Headstand
 admin-smite-become-mouse-name = Become Mouse
@@ -108,7 +110,9 @@ admin-smite-dust-description = Reduces the target to a small pile of ash.
 admin-smite-buffering-description = Causes the target to randomly start buffering, freezing them in place for a short timespan while they load.
 admin-smite-become-instrument-description = It turns them into a supersynth. Really. That's all it does.
 admin-smite-remove-gravity-description = Grants them anti-gravity.
-admin-smite-reptilian-species-swap-description = It changes their species to Reptilian. Useful for people who were being space racist.
+# Omu: change Reptilian to Unathi
+admin-smite-reptilian-species-swap-description = It changes their species to Unathi. Useful for people who were being space racist.
+# Omu end
 admin-smite-locker-stuff-description = Stuffs them in a (welded) locker.
 admin-smite-headstand-description = Vertically flips their sprite.
 admin-smite-become-mouse-description = They become a mouse. Squeak!
