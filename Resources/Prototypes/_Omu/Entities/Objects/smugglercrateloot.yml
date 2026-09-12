@@ -1,0 +1,157 @@
+- type: entityTable     #Todo - more gamer lot
+  id: SmugglerCrateUniqueLoot
+  table: !type:GroupSelector
+    children:
+    - id: SmugglerLootStole
+    - id: SmugglerPickaxe
+    - id: ReinforcementRadioSmugglerCrateIPC
+    - id: ReinforcementRadioSmugglerCrateBorg
+    - id: OrganEyesOfGod
+
+- type: entityTable     #Todo - more gamer lot
+  id: SmugglerCrateSyndieLoot
+  table: !type:GroupSelector
+    children:
+    - id: SyndicateShuttleConsoleCircuitboard
+    - id: SawAdvanced
+    - id: ChemistryBottleNocturine
+    - id: CyberPen
+    - id: ClothingHandsKnuckleDustersSyndicate
+    - id: HappyHonkNukieSnacks
+    - id: ObservationKitSyndie
+
+- type: entity
+  parent: [ ClothingNeckStoleChaplain, BaseChameleon ]
+  id: SmugglerLootStole
+  name: chaplain stole
+  description: An elegantly designed stole, with a vibrant gold plus on either end.
+  components:
+  - type: RadiusBuff
+    whitelist:
+      components:
+      - HumanoidAppearance
+    status: StatusEffectShredder
+  - type: ActivateBuffOnWear
+  - type: ChameleonClothing
+    slot: [NECK]
+    default: ClothingNeckStoleChaplain
+
+- type: entity
+  name: Calvin    #Wilson the volleyball, Calvin Suitable pickaxe name.
+  parent: Pickaxe
+  suffix: Pickaxe
+  id: SmugglerPickaxe
+  description: Notched to perfection, for jamming it into rocks. Worn with age, now you have a friend to talk to!
+  components:
+  - type: MeleeWeapon
+    attackRate: 1.5 # Manic Fast, you are manic after all
+    animationRotation: -45 # WWDP
+    wideAnimationRotation: -135
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+      params:
+        volume: -3
+    damage:
+      groups:
+        Brute: 5
+  - type: GhostRole
+    name: calvin-name
+    description: calvin-desc
+    rules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: GhostTakeoverAvailable
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
+  - type: MobState # shitcode courtesy of justice
+    allowedStates:
+      - Alive
+
+- type: entity
+  parent: ReinforcementRadio
+  id: ReinforcementRadioSmugglerCrateIPC
+  name: Damaged Silicon Parts
+  description: Maybe it can be repaired?
+  suffix: NukeOps
+  components:
+  - type: Sprite
+    sprite: /Textures/_Omu/Objects/SmugglerLoot.rsi
+    layers:
+    - state: ipc_rusted
+  - type: GhostRole
+    name: smuggler-silicon-ipc-name
+    description: smuggler-silicon-ipc-desc
+    rules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonistGoob
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobIPCRandom
+
+- type: entity
+  parent: ReinforcementRadio
+  id: ReinforcementRadioSmugglerCrateBorg
+  name: Damaged Silicon Parts
+  description: Maybe it can be repaired?
+  suffix: NukeOps
+  components:
+  - type: Sprite
+    sprite: /Textures/_Omu/Objects/SmugglerLoot.rsi
+    layers:
+    - state: ipc_rusted
+  - type: GhostRole
+    name: smuggler-silicon-ipc-name
+    description: smuggler-silicon-ipc-desc
+    rules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonistGoob
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: BorgChassisDerelictSyndicateHelpimov
+
+
+- type: entity
+  id: BorgChassisDerelictSyndicateHelpimov
+  parent: BorgChassisDerelictSyndicateAssault
+  name: derelict syndicate assasult cyborg
+  description: A lean, mean killing machine with access to a variety of deadly modules. This one is in a state of great disrepair despite your best efforts.
+  components:
+  - type: SiliconLawProvider
+    laws: HelpimovLawset #Non-subverted version so they can still be changed
+
+- type: entity
+  parent: OrganLaserEyes
+  id: OrganEyesOfGod
+  name: Eyes of God
+  components:
+  - type: Organ
+    onAdd:
+    - type: Battery
+      maxCharge: 200
+      startingCharge: 0
+    - type: FlashImmunity
+    - type: EyeProtection
+    - type: ShowHealthBars
+      damageContainers:
+      - Biological
+      - Inorganic
+      - Silicon
+      - SiliconRadiation
+    - type: ShowHealthIcons
+      damageContainers:
+      - Biological
+      - Inorganic
+      - Silicon
+      - SiliconRadiation
+
+#- type: entity
+#  parent: OrganLaserEyes
+#  id: SmugglerLootRod
+#  name: Rod of Asclepius
+#  suffix: Healing
+#  components:
