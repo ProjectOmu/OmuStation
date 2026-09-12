@@ -7426,3 +7426,11 @@ Entries:
         departments can function for the first 20 minutes without begging cargo.
   id: 962
   time: '2026-09-12T01:31:50.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: >-
+        Changed red alert SOP. It should only be called for threats that risk
+        major crew death or the station's structure. Make sure to read it fully!
+  id: 963
+  time: '2026-09-12T01:38:18.0000000+00:00'
