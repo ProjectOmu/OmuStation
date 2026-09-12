@@ -43,3 +43,28 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterCMO
+
+# Plasmaman Stuff
+
+- type: loadout
+  id: CMOVetEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmVeteranCMO
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranCMO
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard"
+
+- type: loadout
+  id: CMOVetEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitVeteranCMO
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranCMO
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman

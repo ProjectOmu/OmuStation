@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "From Paradise - https://github.com/ParadiseSS13/Paradise/pull/31941, paramedification by DuskTheSnep",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "gauntlets"
+    },
+		{
+		  "name": "gauntlets-sealed"
+		},
+		{
+			"name": "equipped-HAND",
+			"directions": 4
+		},
+		{
+			"name": "equipped-HAND-sealed",
+			"directions": 4
+		},
+		{
+		  "name": "equipped-HAND-sealed-vox",
+		  "directions": 4
+		},
+		{
+		  "name": "equipped-HAND-vox",
+		  "directions": 4
+		},
+		{
+		  "name": "equipped-HAND-sealed-hydrakin",
+		  "directions": 4
+		},
+		{
+		  "name": "equipped-HAND-hydrakin",
+		  "directions": 4
+		}
+  ]
+}
