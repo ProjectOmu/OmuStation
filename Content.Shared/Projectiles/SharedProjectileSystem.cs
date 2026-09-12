@@ -72,12 +72,15 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             target: embeddable));
     }
 
-    private void OnEmbedRemove(Entity<EmbeddableProjectileComponent> embeddable, ref RemoveEmbeddedProjectileEvent args)
+    public void OnEmbedRemove(Entity<EmbeddableProjectileComponent> embeddable, ref RemoveEmbeddedProjectileEvent args)         //Omu set to public
     {
         if (args.Cancelled)
             return;
 
         EmbedDetach(embeddable, embeddable.Comp, args.User);
+
+        var ev = new EmbedDetachEvent(args.User, embeddable.Owner);            //Omu port of bloodcult
+        RaiseLocalEvent(embeddable.Owner, ref ev);
 
         // try place it in the user's hand
         _hands.TryPickupAnyHand(args.User, embeddable);
@@ -249,12 +252,19 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         component.Shooter = TerminatingOrDeleted(shooterId) ? null : shooterId; // Goobstation - set to null if deleted
         Dirty(id, component);
     }
-
+    /*
     [Serializable, NetSerializable]
-    private sealed partial class RemoveEmbeddedProjectileEvent : DoAfterEvent
+    public sealed partial class RemoveEmbeddedProjectileEvent : DoAfterEvent        //Omu, move this
     {
         public override DoAfterEvent Clone() => this;
     }
+    */
+}
+
+[Serializable, NetSerializable]
+public sealed partial class RemoveEmbeddedProjectileEvent : DoAfterEvent        //Omu, move this
+{
+    public override DoAfterEvent Clone() => this;
 }
 
 [Serializable, NetSerializable]

@@ -6,17 +6,17 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.PhaseShift;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class PhaseShiftedComponent : Component
 {
     [DataField]
     public EntProtoId StatusEffectId = "PhaseShifted";
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float MovementSpeedBuff = 1.5f;
 
     [DataField]
-    public int CollisionMask = (int) CollisionGroup.None;
+    public int CollisionMask = (int) CollisionGroup.GhostImpassable;
 
     [DataField]
     public int CollisionLayer = (int) CollisionGroup.None;
@@ -34,7 +34,7 @@ public sealed partial class PhaseShiftedComponent : Component
     public SoundSpecifier PhaseOutSound =
         new SoundPathSpecifier(new ResPath("/Audio/_EinsteinEngines/Shadowling/veilout.ogg"));
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public bool SpawnEffects = true;
 
     public int StoredMask;

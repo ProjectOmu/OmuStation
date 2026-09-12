@@ -7,6 +7,8 @@ using Content.Shared.Rejuvenate;
 using JetBrains.Annotations;
 using Robust.Shared.Timing;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Charges.Events; // Omu
+using Content.Shared.Actions.Components; // Omu
 
 namespace Content.Shared.Charges.Systems;
 
@@ -140,6 +142,14 @@ public abstract class SharedChargesSystem : EntitySystem
         }
 
         action.Comp1.LastCharges = Math.Clamp(action.Comp1.LastCharges + addCharges, 0, action.Comp1.MaxCharges);
+        if (HasComp<ActionComponent>(action)) // Omu start, I hate this.
+        {
+            if (GetCurrentCharges(action) == 0)
+            {
+                var ActionOutEv = new ActionOutOfChargesEvent(action.Owner);
+                RaiseLocalEvent(action.Owner, ref ActionOutEv);
+            }
+        } // Omu end
         Dirty(action.Owner, action.Comp1);
     }
 
