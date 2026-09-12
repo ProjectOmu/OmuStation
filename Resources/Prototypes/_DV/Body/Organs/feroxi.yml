@@ -45,8 +45,8 @@
       Damaged: 45
       Destroyed: 0
     slotId: lungs
-    removable: False
-    indestructible: True # Omu end, make them actualy unremovable
+    removable: False # Omu
+    indestructible: True # Omu
   - type: Lung
   - type: Item # Omu
     size: Small
