@@ -21,7 +21,19 @@
       state: icon
     - type: StealTarget
       stealGroup: SupermatterSliver
+    - type: SupermatterImmune
     - type: Tag
       tags:
         - HighRiskItem
-    - type: SupermatterImmune
+    # Omu start
+        - Trash
+    - type: Edible
+      requiresSpecialDigestion: true
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 0.5
+          reagents:
+          - ReagentId: Supermatter
+            Quantity: 0.5
+    # Omu end
