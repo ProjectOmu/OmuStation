@@ -36,9 +36,6 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
     // no point in storing it on the comp
     private const int NotificationMaxLength = 64;
 
-    // The max length of the name and job title on the notification before being truncated.
-    private const int NotificationTitleMaxLength = 32;
-
     private int _maxNameLength;
     private int _maxIdJobLength;
 
