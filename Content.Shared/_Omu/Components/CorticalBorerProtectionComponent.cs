@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared._Omu.Components;
 
 /// <summary>
-/// Used to mark CC's station beacons / warp points so that they are not valid targets for things like Collosus.
+/// Used to denote an entity is immune to borer effects
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class CorticalBorerProtectionComponent : Component;
