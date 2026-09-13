@@ -16,9 +16,6 @@
                       Orientation="Vertical"
                       MaxWidth="320"
                       HorizontalExpand="True">
-            <PanelContainer Name="MessagePanel"
-                            MaxWidth="320"
-                            HorizontalExpand="True">
 
             <!-- Funky Station - Added sender name label -->
             <Label
@@ -28,6 +25,9 @@
                 StyleClasses="LabelSmall"
                 Visible="False" />
 
+            <PanelContainer Name="MessagePanel"
+                            MaxWidth="320"
+                            HorizontalExpand="True">
                 <PanelContainer.PanelOverride>
                     <graphics:StyleBoxFlat
                         ContentMarginLeftOverride="10"
