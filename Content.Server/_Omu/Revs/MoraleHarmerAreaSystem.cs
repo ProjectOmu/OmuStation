@@ -45,14 +45,8 @@ public sealed class MoraleHarmerAreaSystem : EntitySystem
         var lookup = _lookup.GetEntitiesInRange(xform.Coordinates, ent.Comp.Range);
         foreach (var target in lookup)
         {
-            if (!_mind.TryGetMind(ent, out _, out _))
+            if (!_mind.TryGetMind(ent, out _, out _) || !HasComp<HumanoidAppearanceComponent>(target) || HasComp<RevolutionaryComponent>(target))
                 continue;
-
-            if (!HasComp<HumanoidAppearanceComponent>(target))
-                continue;   // Break loop since its an object
-
-            if (HasComp<RevolutionaryComponent>(target))
-                continue; // Already revved
 
             if (TryComp<MoraleComponent>(target, out var morale))
             {
@@ -65,8 +59,8 @@ public sealed class MoraleHarmerAreaSystem : EntitySystem
                 RaiseLocalEvent(target, ev);
                 continue; //Break loop since we have reduced morale
             }
-
-            EnsureComp<MoraleComponent>(target);       //Ensure morale comp.
+            else
+                EnsureComp<MoraleComponent>(target);       //Ensure morale comp.
         }
     }
 
@@ -76,14 +70,8 @@ public sealed class MoraleHarmerAreaSystem : EntitySystem
         var lookup = _lookup.GetEntitiesInRange(xform.Coordinates, range);
         foreach (var target in lookup)
         {
-            if (!_mind.TryGetMind(ent, out _, out _))
+            if (!_mind.TryGetMind(ent, out _, out _) || !HasComp<HumanoidAppearanceComponent>(target) || HasComp<RevolutionaryComponent>(target))
                 continue;
-
-            if (!HasComp<HumanoidAppearanceComponent>(target))
-                continue;   // Break loop since its an object
-
-            if (HasComp<RevolutionaryComponent>(target))
-                continue; // Already revved
 
             if (TryComp<MoraleComponent>(target, out var morale))
             {
@@ -96,8 +84,8 @@ public sealed class MoraleHarmerAreaSystem : EntitySystem
                 RaiseLocalEvent(target, ev);
                 continue; //Break loop since we have reduced morale
             }
-
-            EnsureComp<MoraleComponent>(target);       //Ensure morale comp.
+            else
+                EnsureComp<MoraleComponent>(target);       //Ensure morale comp.
         }
     }
 }

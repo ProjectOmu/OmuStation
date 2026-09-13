@@ -14,7 +14,6 @@ using Content.Shared.Revolutionary.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-
 // Basically a copy of the EE book revs but with bits ripped out and other bits mashed in.
 namespace Content.Shared._Omu.Revs;
 
