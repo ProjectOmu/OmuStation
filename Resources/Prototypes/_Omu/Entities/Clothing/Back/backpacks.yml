@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackParamedic
+  name: paramedic backpack
+  description: A lightweight, sterile backpack designed for doctors on the move.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Backpacks/paramedic.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackMedicalCybersun
+  name: cybersun medical backpack
+  description: A sterile backpack worn by Cybersun medical doctors to hold their supplies. How *you* got one remains a mystery.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Backpacks/cybersunmed.rsi

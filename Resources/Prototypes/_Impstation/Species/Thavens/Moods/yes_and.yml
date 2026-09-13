@@ -8,6 +8,7 @@
   - ExcessivelyOrganized
   - MostImportant
   - LeastImportant
+  - MustDoDrugs
   - WorshipSilicons
   - DinnerEtiquette
   - HugGood
@@ -35,6 +36,14 @@
   - Hypochondriac
   - Centrist
   - SpeechRestriction
+  - Carpkin
+  - PettingZoo
+  - JestersPrivilege
+  - SlipNSlide
+  - DrySkin
+  - SpeciesBlind
+  - Haunted
+  - PetRock
   #- Clownfan
   - NanoChatAddict
 
@@ -60,6 +69,7 @@
   conflicts:
   - LeastImportant
   - OnlySpeakToCommand
+  - DontSpeakToCommand
 
 # You are the least important person aboard the station.
 - type: thavenMood
@@ -69,6 +79,14 @@
   conflicts:
   - MostImportant
   - OnlySpeakToCommand
+
+# You must be inebriated at all times.
+- type: thavenMood
+  id: MustDoDrugs
+  moodName: thaven-mood-must-do-drugs-name
+  moodDesc: thaven-mood-must-do-drugs-desc
+  conflicts:
+  - DisapproveOfDrugs
 
 # You worship Silicons as gods, and regard their word as law.
 - type: thavenMood
@@ -228,6 +246,15 @@
   moodVars:
     item: ThavenMoodItems
 
+# Smoker: You are hopelessly addicted to cigarettes. You must be smoking one at all times.
+- type: thavenMood
+  id: Smoker
+  moodName: thaven-mood-smoker-name
+  moodDesc: thaven-mood-smoker-desc
+  conflicts:
+  - DisapproveOfDrugs
+  - NonSmoker
+
 # Eye For An Eye: You must treat every living being the way that it treats you.
 - type: thavenMood
   id: EyeForEye
@@ -267,6 +294,56 @@
   moodDesc: thaven-mood-speech-restriction-desc
   moodVars:
     speechType: ThavenMoodSpeechRestrictions
+
+# Space carp and space dragons are long lost kin. They should be honored as such, and no harm should be brought to them.
+- type: thavenMood
+  id: Carpkin
+  moodName: thaven-mood-carpkin-name
+  moodDesc: thaven-mood-carpkin-desc
+
+# You must try to pet any animal you see.
+- type: thavenMood
+  id: PettingZoo
+  moodName: thaven-mood-pettingzoo-name
+  moodDesc: thaven-mood-pettingzoo-desc
+
+# The clown possesses secret wisdom, living unbound by the constraints of society. Pay careful attention to their words and actions.
+- type: thavenMood
+  id: JestersPrivilege
+  moodName: thaven-mood-jestersprivilege-name
+  moodDesc: thaven-mood-jestersprivilege-desc
+
+# Sliding across the floor is a fun and efficent way to travel the station. Work to make the station more slippery.
+- type: thavenMood
+  id: SlipNSlide
+  moodName: thaven-mood-slipnslide-name
+  moodDesc: thaven-mood-slipnslide-desc
+
+# Your skin is sensitive and will painfully dry out without frequent contact with water. Total immersion is best, but anything is better than nothing.
+- type: thavenMood
+  id: DrySkin
+  moodName: thaven-mood-dryskin-name
+  moodDesc: thaven-mood-dryskin-desc
+
+# All people are Thaven, even if they claim otherwise.
+- type: thavenMood
+  id: SpeciesBlind
+  moodName: thaven-mood-speciesblind-name
+  moodDesc: thaven-mood-speciesblind-desc
+  conflicts:
+  - OneTrueThaven
+
+# Ghosts are real, and they're haunting you. Any strange events around you are likely the cause of malicious spirits.
+- type: thavenMood
+  id: Haunted
+  moodName: thaven-mood-haunted-name
+  moodDesc: thaven-mood-haunted-desc
+
+# One of your inanimate possessions is very dear to you. It is your best friend, and it has thoughts, feelings, and needs.
+- type: thavenMood
+  id: PetRock
+  moodName: thaven-mood-petrock-name
+  moodDesc: thaven-mood-petrock-desc
 
 # Fan of clowns: Clowns are such whimsical things, just seeing one makes you breakout into fits of laughter! - removed, clown players must work for their laughs. also the ftl isnt real for this one.
 #- type: thavenMood

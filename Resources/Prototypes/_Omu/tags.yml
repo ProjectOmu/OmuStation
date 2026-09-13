@@ -5,6 +5,9 @@
   id: AdvancedEnergyMagAmmo
 
 - type: Tag
+  id: ATVParamedicKeys
+
+- type: Tag
   id: Stunsword
 
 - type: Tag
@@ -47,6 +50,12 @@
   id: MagazineCaselessBlackiron
 
 - type: Tag
+  id: CartridgeLongRifle
+
+- type: Tag
+  id: MagazineLongRifle
+
+- type: Tag
   id: CyborgProtoKineticAccelerator
 
 - type: Tag
@@ -75,3 +84,12 @@
 
 - type: Tag
   id: AllowedOniGun
+
+- type: Tag
+  id: NotOpenedSecureCrate
+
+- type: Tag
+  id: WorkMantle # ConstructionGraph: ClothingCyberneticBeastSpaceMantleSecurity
+  
+- type: Tag
+  id: SpeedLoaderRifleSmall # Used (R2)

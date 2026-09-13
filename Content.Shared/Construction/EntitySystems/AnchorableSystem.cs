@@ -17,6 +17,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Content.Shared.Tag;
+using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -34,6 +35,7 @@ public sealed partial class AnchorableSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private   readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -147,6 +149,14 @@ public sealed partial class AnchorableSystem : EntitySystem
             _popup.PopupClient(Loc.GetString("anchorable-occupied"), uid, args.User);
             return;
         }
+
+        // Omu start -- make sure that the item is not in a container or hand
+        if (_containerSystem.IsEntityInContainer(uid) || xform.GridUid == null)
+        {
+            _popup.PopupClient(Loc.GetString("anchorable-inventory"), uid, args.User);
+            return;
+        }
+        //Omu end -- Screams
 
         // Snap rotation to cardinal (multiple of 90)
         var rot = xform.LocalRotation;
