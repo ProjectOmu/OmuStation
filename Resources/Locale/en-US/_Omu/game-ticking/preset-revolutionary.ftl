@@ -21,3 +21,5 @@ rev-role-greeting-omu =
     Viva la revolución!
 
 rev-briefing-omu = Help your head revolutionaries complete their goals.
+
+fail-signature-command = You cannot bear to put pen to paper, it would betray nanotrasen and your ideals!

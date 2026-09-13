@@ -101,12 +101,6 @@ public sealed class MoraleSystem : EntitySystem
             return;
         }
 
-        if (HasComp<CommandStaffComponent>(ent))
-        {
-            RemComp<MoraleComponent>(ent);
-            return;
-        }
-
         if (args.Forced == true)
         {
             EnsureComp<MoraleComponent>(ent);
