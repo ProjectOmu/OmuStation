@@ -19,32 +19,30 @@ roles-antag-rev-head-objective = Your objective is to take over the station by c
 
 head-rev-role-greeting =
     You are a Head Revolutionary.
-    You are tasked with removing all of Command from station via conversion, death, exilement or imprisonment.
-    The Syndicate has sponsored you with an uplink, and the ability to convert with flashes.
-    Beware, this won't work on Mindshielded crew - their loyalty is unwavering.
+    You are tasked with destabilising the station, choose your path using your selector.
     Viva la revolución!
 
 head-rev-briefing =
     Use flashes to convert people to your cause.
-    Eliminate all heads of staff, and secure the station.
+    Follow your objectives, dependent on which path you follow.
     You have been graciously sponsored with an uplink from
     Cybersun, in-coordination with the Syndicate.
 
-head-rev-break-mindshield = The Mindshield neutralized hypnotic powers, but its functionality has been compromised!
+head-rev-break-mindshield = The Mindshield fails to initialize, its functionality has been compromised!
 
 ## Rev
 
 roles-antag-rev-name = Revolutionary
-roles-antag-rev-objective = Your objective is to ensure the safety and follow the orders of the head revolutionaries, and to help them take over the station by eliminating all members of Command.
+roles-antag-rev-objective = Your objective is to ensure the safety and follow the orders of the head revolutionaries.
 
 rev-break-control = {$name} has remembered their true allegiance!
 
 rev-role-greeting =
     You are a revolutionary. You are tasked with protecting the head revolutionaries and helping them take over the station.
-    The revolution must work together to kill, restrain, or convert all members of Command.
+    The revolution must work together to complete their goals.
     Viva la revolución!
 
-rev-briefing = Help your head revolutionaries convert or get rid of every head to take over the station.
+rev-briefing = Help your head revolutionaries complete their goals.
 
 ## General
 

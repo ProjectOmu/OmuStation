@@ -172,6 +172,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     {
         base.ActiveTick(uid, component, gameRule, frameTime);
 
+    /*      Omu commented out pending rev objective rework
         if (component.RevLossTimerActive && !component.RevForceLose)
         {
             var headRevList = GetHeadRevs();
@@ -258,6 +259,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                 component.OpenRevoltAnnouncementPending = false;
             }
         }
+    */      //Omu end
     }
 
     // funky station
@@ -331,7 +333,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     /// </summary>
     private void OnPostFlash(EntityUid uid, HeadRevolutionaryComponent comp, ref AfterFlashedEvent ev)
     {
-
+        /*  Omu commented out since we aren't using flash revs no more
         // GoobStation - check if headRev's ability enabled
         if (!comp.ConvertAbilityEnabled)
             return;
@@ -418,6 +420,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         commandComp.Enabled = false;
         CheckCommandLose();
+        */  //Omu commented end
     }
 
     //~~TODO: Enemies of the revolution~~

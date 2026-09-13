@@ -1,0 +1,113 @@
+- type: entity
+  parent: PosterContrabandRevolt
+  id: PosterContrabandRevPosterRevolt
+  name: "Revolt"
+  description: "Revolutionist propaganda, manufactured by the Syndicate."
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: MoraleHarmerArea
+    moraleChange: -0.2
+  - type: Construction
+    graph: RevPoster
+    node: revPoster
+
+- type: entity
+  parent: [ BaseSetSelector, BaseMinorContraband]
+  id: RevSelector
+  name: Revolutionary's flavor selector
+  description: What brand of Larp are you feeling great leader?
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: _Lavaland/Objects/Devices/unique_teleporters.rsi
+    state: salvage
+  - type: SetSelector
+    possibleSets:
+    - CommieRevsSet
+    setsToSelect: 1
+    spawnedStoragePrototype: BriefcaseSecure
+    spawnedStorageContainer: entity_storage
+    openSpawnedStorage: true
+    approveSound:
+      path: /Audio/Effects/closetopen.ogg
+
+- type: selectableSet
+  id: CommieRevsSet
+  name: selectable-set-commie-revs-name
+  description: selectable-set-commie-revs-desc
+  sprite:
+    sprite: Objects/Specific/Chapel/communistmanifesto.rsi
+    state: icon
+  content:
+  - EncryptionKeySyndie
+  - RevolutionaryManifesto
+  - RevolutionaryPaper
+  - RevolutionaryPosterRoll
+  - RevolutionaryPosterRoll
+
+- type: entity
+  parent: BaseItem
+  name: signatory form
+  id: RevolutionaryPaper
+  description: This document carries a great weight to it... as though signing it will have great impact.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper
+  - type: Paper
+  - type: PaperLabelType
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: SignatureConverter
+    amount: -20
+
+- type: entity
+  parent: BaseItem
+  name: Revolutionary Flag
+  id: RevolutionaryFlag
+  description: Raise high the standard of the people, the oppressed, the greyshirts! Oorah!
+  components:
+  - type: MeleeRequiresWield
+  - type: MeleeWeapon
+    attackRate: 0.8
+    damage:
+      types:
+        Piercing: 15
+    soundHit:
+      collection: MetalThud
+    canWideSwing: false
+  - type: Sprite
+    sprite: _Omu/Objects/Revs/Flag.rsi
+    state: icon
+  - type: Wieldable
+    useDelayOnWield: false
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,2
+
+- type: entity
+  parent: BaseItem
+  name: Poster Roll
+  id: RevolutionaryPosterRoll
+  description: This poster was made with love and care, time to stick it up somewhere!
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: _Omu/Objects/Revs/Misc.rsi
+    layers:
+    - state: PosterRoll
+  - type: Tag
+    tags:
+    - RevolutionaryPoster
