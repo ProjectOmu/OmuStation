@@ -52337,7 +52337,7 @@ entities:
     - type: Transform
       pos: -40.5,4.5
       parent: 2
-- proto: CargoTechFab
+- proto: CargoTechFabFilled
   entities:
   - uid: 8099
     components:
@@ -73558,7 +73558,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 43.5,8.5
       parent: 2
-- proto: EngineeringTechFab
+- proto: EngineeringTechFabFilled
   entities:
   - uid: 11440
     components:
@@ -122765,7 +122765,7 @@ entities:
     - type: Transform
       pos: -13.5,-44.5
       parent: 2
-- proto: MedicalTechFab
+- proto: MedicalTechFabFilled
   entities:
   - uid: 18157
     components:
@@ -136896,7 +136896,7 @@ entities:
     - type: Transform
       pos: 22.5,-34.5
       parent: 2
-- proto: ScienceTechFab
+- proto: ScienceTechFabFilled
   entities:
   - uid: 20382
     components:
@@ -137133,7 +137133,7 @@ entities:
     - type: Transform
       pos: 10.5,48.5
       parent: 2
-- proto: SecurityTechFab
+- proto: SecurityTechFabFilled
   entities:
   - uid: 9310
     components:
@@ -137197,7 +137197,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -18.5,0.5
       parent: 2
-- proto: ServiceTechFab
+- proto: ServiceTechFabFilled
   entities:
   - uid: 20420
     components:
