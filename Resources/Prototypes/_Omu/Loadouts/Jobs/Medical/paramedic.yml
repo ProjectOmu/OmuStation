@@ -50,3 +50,14 @@
   equipment:
     back: ClothingBackpackMessengerParamedic
   groupBy: "messenger"
+
+# Belt
+- type: loadout
+  id: ParamedPouch
+  equipment:
+    belt: ClothingBeltChemBagParamedicFilled
+
+- type: loadout
+  id: EMTBelt
+  equipment:
+    belt: ClothingBeltMedicalEMTFilled
