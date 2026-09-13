@@ -6,6 +6,7 @@
   values:
   - NoModernMedicine
   - DepartmentDisapproval
+  - DontSpeakToCommand
   - DisapproveOfDrugs
   - ExcessivelyDisorganized
   - DinnerFloor
@@ -19,6 +20,7 @@
   - LyingBad
   - VampireInvitation
   - NoDragging
+  - DrunkRespect
   - RankSnob
   - HardsuitsBad
   - HatHair
@@ -33,7 +35,11 @@
   - MadHatter
   - Crawler
   - Elevated
+  - AfraidDark
   - Coulrophobia
+  - AlwaysAlone
+  - CorporateConspiracy
+  - OppositeDay
 
 # You do not approve of modern medicine and abstain from treatment with it.
 - type: thavenMood
@@ -49,11 +55,22 @@
   moodVars:
     department: ThavenMoodDepartments
 
+# Never Speak To Command: You are too lowly to speak to Command, even if spoken to first.
+- type: thavenMood
+  id: DontSpeakToCommand
+  moodName: thaven-mood-dont-speak-to-command-name
+  moodDesc: thaven-mood-dont-speak-to-command-desc
+  conflicts:
+  - OnlySpeakToCommand
+  - MostImportant
+
 # You detest mind-altering drugs, including alcohol, and must abstain from them.
 - type: thavenMood
   id: DisapproveOfDrugs
   moodName: thaven-mood-disapprove-of-drugs-name
   moodDesc: thaven-mood-disapprove-of-drugs-desc
+  conflicts:
+  - DrunkRespect
 
 # Personal property is theft. All of your possessions must be publicly accessible (within reason.)
 - type: thavenMood
@@ -143,6 +160,14 @@
   moodName: thaven-mood-no-dragging-name
   moodDesc: thaven-mood-no-dragging-desc
 
+# You do not respect anyone who is not drunk.
+- type: thavenMood
+  id: DrunkRespect
+  moodName: thaven-mood-drunk-respect-name
+  moodDesc: thaven-mood-drunk-respect-desc
+  conflicts:
+  - DisapproveOfDrugs
+
 # You hate to address anyone who is of a lower rank than you, and will only speak to them in private if absolutely necessary.
 - type: thavenMood
   id: RankSnob
@@ -227,6 +252,8 @@
   id: NonSmoker
   moodName: thaven-mood-nonsmoker-name
   moodDesc: thaven-mood-nonsmoker-desc
+  conflicts:
+  - Smoker
 
 # Mad Hatter: You are alone on the station. Everyone else is a figment of your imagination.
 - type: thavenMood
@@ -239,6 +266,12 @@
   id: Crawler
   moodName: thaven-mood-crawler-name
   moodDesc: thaven-mood-crawler-desc
+
+# Darkness is incredibly dangerous, and you won't enter a space without proper illumination.
+- type: thavenMood
+  id: AfraidDark
+  moodName: thaven-mood-afraiddark-name
+  moodDesc: thaven-mood-afraiddark-desc
 
 # The Floor Is Lava: You prefer to be elevated whenever possible - Standing atop tables, railings, etc., is where you feel the most comfortable.
 - type: thavenMood
@@ -255,3 +288,23 @@
   conflicts:
   #- Clownfan
   - Circus
+
+# You must strive to be alone whenever possible.
+- type: thavenMood
+  id: AlwaysAlone
+  moodName: thaven-mood-always-alone-name
+  moodDesc: thaven-mood-always-alone-desc
+  conflicts:
+  - NeverAlone
+
+# You believe there is a hidden connection between Nanotrasen and the Syndicate. Command is complicit.
+- type: thavenMood
+  id: CorporateConspiracy
+  moodName: thaven-mood-corporateconspiracy-name
+  moodDesc: thaven-mood-corporateconspiracy-desc
+
+#People mean the opposite of what they say. Up is down, and down is up.
+- type: thavenMood
+  id: OppositeDay
+  moodName: thaven-mood-oppositeday-name
+  moodDesc: thaven-mood-oppositeday-desc

@@ -745,18 +745,6 @@
     - HEAD
 
 - type: entity
-  parent: PlushieLizard
-  id: PlushiePickelSillyOmuStaffish
-  name: kur-nema plushie
-  description: A MAAAGICAAAL WIIIZAAAAAAAAAAARD!!! Abacraweh!
-  components:
-  - type: Sprite
-    sprite: _Omu/Objects/Fun/Plushies/pickelsilly.rsi
-    state: icon
-  - type: Item
-    sprite: _Omu/Objects/Fun/Plushies/pickelsilly.rsi
-
-- type: entity
   parent: BasePlushie
   id: PlushieXiOmuStaff
   name: hailey vera plushie
@@ -831,3 +819,41 @@
     wideAnimationRotation: 180
     soundHit:
       collection: Squishes
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieGnashOmuCrew
+  name: gnash plushie
+  description: A red Avali, dresses up as atmospheric technician. You taste metal and smell ammonia near it.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/gnash.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/gnash.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/gnash.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_scream.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/Gasp/male_deathgasp_3.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Effects/bite.ogg

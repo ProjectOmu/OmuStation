@@ -7,6 +7,7 @@
   values:
   - FashionIsCritical
   - FashionReroll
+  - HonorDepartment
   - StationIsAlive
   - UniformIsJob
   - UniformSoLastYear
@@ -14,6 +15,7 @@
   - MusicGood
   - FriendshipIsRank
   - OneTrueThaven
+  - YourDepartmentOnly
   - MustCongregate
   - ViolenceDistasteful
   - ViolencePermitted
@@ -21,8 +23,13 @@
   - PetGod
   - Delicacy
   - Holiday
+  - RoyalRealm
+  - Oathbound
+  - GourmetGas
+  - PrankWar
   - Circus
   - ThavenOnlyCrew
+  - StarPeople
 
 # Fashion Is Critical: Thaven pay close attention to appearances, and regard one's fashion choices as an indication of their character.
 - type: thavenMood
@@ -35,6 +42,14 @@
   id: FashionReroll
   moodName: thaven-mood-fashion-reroll-name
   moodDesc: thaven-mood-fashion-reroll-desc
+
+# Honor Among Departments: If a Thaven brings dishonor to their department, they must be shunned, and have their actions publicly brought to light.
+- type: thavenMood
+  id: HonorDepartment
+  moodName: thaven-mood-honor-department-name
+  moodDesc: thaven-mood-honor-department-desc
+  conflicts:
+  - ViolenceDistasteful
 
 # The Station Is A Living Being: Harming or modifying the station is abhorrent. Anything which aims to harm the station is an infection.
 - type: thavenMood
@@ -96,6 +111,14 @@
   conflicts:
   - ViolenceDistasteful
 
+# You strongly believe that your department is the only one that actually does anything.
+- type: thavenMood
+  id: YourDepartmentOnly
+  moodName: thaven-mood-your-department-only-name
+  moodDesc: thaven-mood-your-department-only-desc
+  conflicts:
+  - DepartmentDisapproval
+
 # You must congregate with your fellow thaven. To be without them is harrowing.
 - type: thavenMood
   id: MustCongregate
@@ -145,6 +168,40 @@
   moodDesc: thaven-mood-holiday-desc
   moodVars:
     day: ThavenMoodHolidays
+
+# The station is a feudal realm. The captain is king, the department heads nobility, and the rest of the station knights, servants, or peasants.    
+- type: thavenMood
+  id: RoyalRealm
+  moodName: thaven-mood-royalrealm-name
+  moodDesc: thaven-mood-royalrealm-desc
+
+#  A thaven must honor all oaths made. A thaven may never directly tell a lie, but can hide the truth through deceptive wording.
+- type: thavenMood
+  id: Oathbound
+  moodName: thaven-mood-oathbound-name
+  moodDesc: thaven-mood-oathbound-desc
+  conflicts:
+  - CompulsiveLiar
+
+# Oxygen and Nitrogen are bland, and Thaven deserve something more. You must breath an exotic gas at all times.
+- type: thavenMood
+  id: GourmetGas
+  moodName: thaven-mood-gourmetgas-name
+  moodDesc: thaven-mood-gourmetgas-desc
+  conflicts:
+  - Smoker
+
+# A clownish spirit has infected the station, and you find friendly pranks, especially against fellow Thaven, to be great fun.
+- type: thavenMood
+  id: PrankWar
+  moodName: thaven-mood-prankwar-name
+  moodDesc: thaven-mood-prankwar-desc
+
+# Like their carp-kin, Thaven are beings of the stellar sea. You feel drawn to space, whether to explore, discover, or construct something new.
+- type: thavenMood
+  id: StarPeople
+  moodName: thaven-mood-starpeople-name
+  moodDesc: thaven-mood-starpeople-desc
 
 # The circus is in town and you are part of it!
 - type: thavenMood
