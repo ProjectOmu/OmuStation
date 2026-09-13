@@ -1,0 +1,47 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
+  id: ClothingCyberneticBeastSpaceMantleSecurity
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: helmet
+          steps:
+            - tag: WorkMantle
+              name: construction-graph-tag-work-mantle
+              icon:
+                sprite: _Omu/Clothing/Head/mantle.rsi
+                state: icon-work
+              doAfter: 1
+            - tag: HudSecurity
+              name: construction-graph-tag-security-hud
+              icon:
+                sprite: Clothing/Eyes/Hud/sec.rsi
+                state: icon
+              doAfter: 1
+    - node: helmet
+      entity: ClothingCyberneticBeastSpaceMantleSecurity
+
+- type: constructionGraph
+  id: ClothingCyberneticBeastSpaceMantleCorpsman
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: helmet
+          steps:
+            - tag: WorkMantle
+              name: construction-graph-tag-work-mantle
+              icon:
+                sprite: _Omu/Clothing/Head/mantle.rsi
+                state: icon-work
+              doAfter: 1
+            - tag: HudMedicalSecurity
+              name: construction-graph-tag-medsec-hud
+              icon:
+                sprite: Clothing/Eyes/Hud/medsec.rsi
+                state: icon
+              doAfter: 1
+    - node: helmet
+      entity: ClothingCyberneticBeastSpaceMantleCorpsman

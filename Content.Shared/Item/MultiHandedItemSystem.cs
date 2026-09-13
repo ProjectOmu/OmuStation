@@ -98,20 +98,37 @@ public sealed class MultiHandedItemSystem : EntitySystem
     {
         if (TerminatingOrDeleted(ent))
             return;
-
-        // Method exists for that but it calls an event on deleting the virtual item hence forces the item to drop
-        foreach (var hand in _hands.EnumerateHands(Transform(ent).ParentUid))
+        
+        // Omu start; make this shutdown actually remove the virtual item from other hands
+        // This essentially ports from SharedVirtualItemSystem's DeleteInHandsMatching() and DeleteVirtualItem()
+        //  without sending the message for deleting virtual items.
+        // No, I don't know what's wrong with the original method. I sincerely tried to make it work.
+        foreach (var held in _hands.EnumerateHeld(Transform(ent).ParentUid))
         {
-            if (_timing.InPrediction
-                || !_hands.TryGetHeldItem(ent.Owner, hand, out var held)
-                || !TryComp(held, out VirtualItemComponent? virt)
-                || virt.BlockingEntity != ent.Owner)
-                continue;
-
-            if (TerminatingOrDeleted(held))
-                return;
-
-            QueueDel(held);
-        }
+            if (!_timing.InPrediction
+                && !TerminatingOrDeleted(held)
+                && TryComp(held, out VirtualItemComponent? virt)
+                && virt.BlockingEntity == ent.Owner)
+            {
+                PredictedQueueDel(held);
+            }
+        } // I've commented out the original check below.
+        
+        // // Method exists for that but it calls an event on deleting the virtual item hence forces the item to drop
+        // foreach (var hand in _hands.EnumerateHands(Transform(ent).ParentUid))
+        // {
+        //     if (_timing.InPrediction
+        //         || !_hands.TryGetHeldItem(ent.Owner, hand, out var held)
+        //         || !TryComp(held, out VirtualItemComponent? virt)
+        //         || virt.BlockingEntity != ent.Owner)
+        //         continue;
+        //
+        //     if (TerminatingOrDeleted(held))
+        //         return;
+        //
+        //     QueueDel(held);
+        // }
+        
+        // Omu end
     }
 }

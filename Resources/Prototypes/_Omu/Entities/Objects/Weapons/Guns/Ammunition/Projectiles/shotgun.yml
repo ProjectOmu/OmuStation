@@ -12,8 +12,6 @@
     angle: -45
     damage:
       types:
-        Piercing: 24
-        Structural: 35
+        Piercing: 10 # Your just going to overpen everything.
+        Structural: 20
       armorPenetration: 1 # 100% AP is very balanced.
-  - type: Reflective
-    reflective: None # parry this you fucking casual
