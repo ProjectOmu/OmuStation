@@ -13,6 +13,8 @@
         Quantity: 3
       - ReagentId: Blood
         Quantity: 10
+    - type: Damageable
+        damageModifierSet: Ovinia
 
 - type: entity #Omu - Woundmed Compat
   id: ChestOvinia

@@ -16,7 +16,7 @@
   - type: SolutionContainerManager
     solutions:
       stomach:
-        maxVol: 75 #50 -> 75, big stomach, digest slower. Probably need to play with values more.
+        maxVol: 80 #50 -> 75, big stomach, digest slower. Probably need to play with values more.
       food:
         maxVol: 10
         reagents:
