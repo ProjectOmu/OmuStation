@@ -851,7 +851,7 @@
     - type: Drill
     addOrganOnAdd:
       brain:
-      - type: OhioAccent
+      # - type: OhioAccent # Omu
       - type: RatvarianLanguage
       - type: Clumsy
     duration: 5
@@ -876,7 +876,7 @@
     duration: 4
     removeOrganOnAdd:
       brain:
-      - type: OhioAccent
+      # - type: OhioAccent # Omu
       - type: RatvarianLanguage
       - type: Clumsy
   - type: Sprite

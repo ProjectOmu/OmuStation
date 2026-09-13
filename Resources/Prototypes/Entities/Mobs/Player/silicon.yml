@@ -494,49 +494,22 @@
     - MindRoleGhostRoleSilicon
     job: StationAi
   - type: LanguageKnowledge
+    # Omu start: Station AIs should understand and speak all common languages (and not species languages)
     speaks:
     - TauCetiBasic
-    - Canilunzt
-    - Bubblish
-    - Nekomimetic
-    - Draconic
-    - SolCommon
-    - RootSpeak
-    - Moffic
-    - ValyrianStandard
-    - Chittin
-    - SiikMaas
     - RobotTalk
-    - DroneTalk
-    - Marish
-    - Elyran
-    - Freespeak
+    - NovuNederic
+    - SolCommon
     - Tradeband
-    - Schechi
-    - NewKinPidgin
-    - NovuNederic # Omustation
+    # No speaking sign language for Station AIs
     understands:
     - TauCetiBasic
-    - Canilunzt
-    - Bubblish
-    - Nekomimetic
-    - Draconic
-    - SolCommon
-    - RootSpeak
-    - Moffic
-    - ValyrianStandard
-    - Chittin
-    - SiikMaas
     - RobotTalk
-    - DroneTalk
-    - Marish
-    - Elyran
-    - Freespeak
+    - NovuNederic
+    - SolCommon
     - Tradeband
     - Sign
-    - Schechi
-    - NewKinPidgin
-    - NovuNederic # Omustation
+    # Omu end
   - type: SpeechSynthesis # Corvax-Frontier-Barks
     voice: Borg
 
