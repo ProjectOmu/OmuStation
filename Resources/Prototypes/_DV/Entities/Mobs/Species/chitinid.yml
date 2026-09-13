@@ -12,7 +12,7 @@
     #undergarmentTop:
     #undergarmentBottom: todo marty bottom needs adjusting
   - type: Hunger
-    baseDecayRate: 0.0467 #needs to eat more to survive
+    baseDecayRate: 0.03325 # 0.0467 #needs to eat more to survive # Omu, updated for new hunger rate; chitinids get hungry at 1.33x base as guidebook says
   - type: Thirst
   - type: UnpoweredFlashlight
   - type: PointLight

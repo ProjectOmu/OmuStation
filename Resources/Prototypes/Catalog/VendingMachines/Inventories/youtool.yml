@@ -5,7 +5,7 @@
   startingInventory:
     CableApcStack: 5
     Crowbar: 5
-    Welder: 4
+    # Welder: 4 #omu
     Wirecutter: 4
     Wrench: 4
     Screwdriver: 4
@@ -20,6 +20,8 @@
   contrabandInventory:
     Multitool: 2
     ClothingBeltUtility: 3
-    ClothingHandsGlovesColorYellow: 1
+    Welder: 1 #Omu
+    #ClothingHandsGlovesColorYellow: 1 #omu
   emaggedInventory: # goob
-    ClothingHandsGlovesExplosiveShock: 1
+    #ClothingHandsGlovesExplosiveShock: 1#omu
+    ClothingHandsGlovesColorYellow: 1 #Omu
