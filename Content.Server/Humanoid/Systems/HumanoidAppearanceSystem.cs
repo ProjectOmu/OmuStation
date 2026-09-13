@@ -87,6 +87,8 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
             marking.SetColor(i, markings[index].MarkingColors[i]);
         }
 
+        marking.GlowyBits = markings[index].GlowyBits; // Omu
+
         humanoid.MarkingSet.Replace(category, index, marking);
         Dirty(uid, humanoid);
     }

@@ -64,6 +64,9 @@
   name: syndicate briefcase
   suffix: empty
   components:
+    - type: Storage # Omu, give it larger storage to prevent deaddrop causing test fails.
+      grid:
+      - 0,0,7,5
     - type: Sprite
       sprite: _Starlight/Objects/Storage/Briefcases/syndicate_briefcase.rsi
       state: icon

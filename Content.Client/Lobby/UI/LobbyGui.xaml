@@ -62,7 +62,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                     <Control VerticalExpand="True" />
                     <!-- Left Bot Panel -->
                     <PanelContainer VerticalAlignment="Bottom" HorizontalAlignment="Left"
-                                    Margin="0 75" StyleClasses="AngleRect">
+                                    Margin="0 75" StyleClasses="BackgroundPanel"> <!-- omu change to correct style -->
                         <RichTextLabel Name="LobbyMessageLabel" Access="Public" Margin="5" />
                     </PanelContainer>
                     <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" SeparationOverride="4"> <!-- Goobstation - Lobby Background Credits -->

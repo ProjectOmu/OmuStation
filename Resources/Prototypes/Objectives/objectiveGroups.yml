@@ -25,7 +25,7 @@
     CaptainGunStealObjective: 0.5
     CaptainJetpackStealObjective: 0.5
     HandTeleporterStealObjective: 0.5
-    EnergyMagnumStealObjective: 0.5
+#    EnergyMagnumStealObjective: 0.5 # Omu
     EnergyShotgunStealObjective: 0.5 # Goobstation
     StealSupermatterSliverObjective: 0.5 # Goobstation - supermatter
     LawbringerStealObjective: 0.5 # Goobstation
@@ -107,7 +107,7 @@
     ClothingNeckClownmedalStealObjective: 0.5
     DrinkMugAAStealObjective: 1 #command omu
     CyberneticMantleStealObjective: 0.5 # Omu
-
+    StealLittlePersonObjective : 0.5 # Omu
 
 - type: weightedRandom
   id: ThiefObjectiveGroupStructure

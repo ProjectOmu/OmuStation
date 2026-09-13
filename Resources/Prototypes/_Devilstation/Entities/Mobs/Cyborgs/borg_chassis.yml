@@ -79,6 +79,7 @@
     - Security
     - Service
     - Supply
+    - Binary # Omu
   - type: ActiveRadio
     channels:
     - Common
@@ -90,10 +91,11 @@
     - Security
     - Service
     - Supply
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
+    - Binary # Omu
+  #- type: CollectiveMind # Omu, make binary a radio again.
+  #  defaultChannel: Binary
+  #  channels:
+  #  - Binary
   - type: ContainerFill
     containers:
       borg_brain:
@@ -212,6 +214,7 @@
     - Security
     - Service
     - Supply
+    - Binary # Omu
   - type: ActiveRadio
     channels:
     - Common
@@ -223,10 +226,11 @@
     - Security
     - Service
     - Supply
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
+    - Binary # Omu
+  #- type: CollectiveMind # Omu, make binary a radio again.
+  #  defaultChannel: Binary
+  #  channels:
+  #  - Binary
   - type: ContainerFill
     containers:
       borg_brain:

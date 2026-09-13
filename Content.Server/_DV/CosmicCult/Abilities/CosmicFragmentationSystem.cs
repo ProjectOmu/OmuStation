@@ -79,7 +79,7 @@ public sealed class CosmicFragmentationSystem : EntitySystem
         args.Handled = true;
         _doAfter.TryStartDoAfter(doargs);
         _cult.MalignEcho(ent);
-        UnEmpower(ent);
+        //UnEmpower(ent); // Omu, move this to be after convert.
     }
 
     private void OnCosmicFragmentationDoAfter(Entity<CosmicCultComponent> ent, ref EventCosmicFragmentationDoAfter args)
@@ -109,6 +109,7 @@ public sealed class CosmicFragmentationSystem : EntitySystem
         var mins = chantryComponent.EventTime.Minutes;
         var secs = chantryComponent.EventTime.Seconds;
         _antag.SendBriefing(wisp, Loc.GetString("cosmiccult-silicon-chantry-briefing", ("minutesandseconds", $"{mins} minutes and {secs} seconds")), Color.FromHex("#4cabb3"), null);
+        UnEmpower(args.User); // Omu
     }
 
     private void OnFragmentAi(Entity<SiliconLawUpdaterComponent> ent, ref MalignFragmentationEvent args)
@@ -119,6 +120,7 @@ public sealed class CosmicFragmentationSystem : EntitySystem
             return;
         _container.EmptyContainer(container, true);
         _container.Insert(lawboard, container, Transform(args.Target), true);
+        UnEmpower(args.User); // Omu
     }
 
     private void OnLawInserted(AILawUpdatedEvent args)
