@@ -40,7 +40,10 @@ using System.Numerics;
 using Content.Shared.Radio;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Chat.Managers;
+using Content.Shared.Mind;
 using Content.Shared.Humanoid;
+using Robust.Shared.Player;
+using Microsoft.CodeAnalysis;
 using Content.Shared.Objectives.Components;
 using Robust.Shared.Player;
 using Content.Goobstation.Shared.MisandryBox.Smites;
@@ -162,6 +165,18 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             HandleAnnouncements(uid, sm);
         }
 
+        //Omu begin - increment the time since hazard gas
+        if (sm.HazardGas == true)
+        {
+            sm.TimesinceHazardGas += 0.1f;
+            if (sm.TimesinceHazardGas >= 1f) //Should last roughly like... 10 seconds without constant zaps
+            {
+                sm.HazardGas = false;
+                sm.TimesinceHazardGas = 0f;
+                _achat.SendAdminAlert($"Hazardardous gas production turned off at time {_gameTiming.CurTime.TotalMinutes}");
+            }
+        }
+        // Omu end
         if (sm.SMAngerValue < 0f) //Omu - Sm events start
         {
             sm.SMAngerValue = 0f;  //no negative numbers plz
@@ -341,7 +356,12 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         // Assmos - /tg/ gases end
 
         // Release the waste
-        absorbedGas.AdjustMoles(Gas.Plasma, Math.Max(energy * heatModifier * sm.PlasmaReleaseModifier, 0f));
+        // Omu begin
+        if (!sm.HazardGas)  // hazardous gas emission
+            absorbedGas.AdjustMoles(Gas.Plasma, Math.Max(energy * heatModifier * sm.PlasmaReleaseModifier, 0f));
+        else
+            absorbedGas.AdjustMoles(Gas.Tritium, Math.Max(energy * heatModifier * sm.PlasmaReleaseModifier * 2f, 0f)); // emit out trit for fun
+        // Omu end
         absorbedGas.AdjustMoles(Gas.Oxygen, Math.Max((energy + absorbedGas.Temperature * heatModifier - Atmospherics.T0C) * sm.OxygenReleaseEfficiencyModifier, 0f));
 
         _atmosphere.Merge(mix, absorbedGas);
@@ -655,6 +675,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     private void OnCollideEvent(EntityUid uid, SupermatterComponent sm, ref StartCollideEvent args)
     {
         var target = args.OtherEntity;
+        var meta = MetaData(target); // Omu
 
         if (args.OurEntity != uid)
             return;
@@ -688,28 +709,61 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
             sm.Activated = true;
         }
-
+        //omu start
         if (_tag.HasTag(target, "EmitterBolt")) //omu start
         {
-            if (_tag.HasTag(target, "EmitterBoltElectroDisruptive"))    //Omu checks for the tag of the emitter bolt in question
+            switch (meta.EntityPrototype?.ID)    //Omu checks for the tag of the emitter bolt in question
             {
-                sm.Damage -= 1f;        //omu - heal the SM
-                sm.Power -= 60f;
-                _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
-                $"SUPERMATTER hit by healing bolt AT {Transform(uid).Coordinates}");
-                QueueDel(target);
-                return;
+                case "EmitterBoltElectroDisruptive":
+                    {
+                        sm.Damage -= 1f;        //omu - heal the SM
+                        sm.Power -= 60f;
+                        _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+                        $"SUPERMATTER hit by healing bolt AT {Transform(uid).Coordinates}");
+                        QueueDel(target);
+                        return;
+                    }
+                case "EmitterBoltElectroBehavioural":
+                    {
+                        sm.Damage += 1f;
+                        sm.Power += 100f;
+                        _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+                        $"SUPERMATTER hit by harming bolt AT {Transform(uid).Coordinates}");
+                        QueueDel(target);
+                        return;
+                    }
+                case "EmitterBoltExcitatory":
+                    {
+                        sm.Damage += 1f;
+                        sm.SMAngerValue += 20f;
+                        _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+                        $"SUPERMATTER hit by angering bolt AT {Transform(uid).Coordinates}");
+                        QueueDel(target);
+                        return;
+                    }
+                case "EmitterBoltEmissive":
+                    {
+                        sm.Damage += 1f;
+                        if (!sm.Varlocked)
+                        sm.RadiationOutputFactor += 0.05f;
+                        sm.HazardGas = true;
+                        sm.TimesinceHazardGas = 0f;
+                        sm.RadiationOutputFactorChanged = true;
+                        _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+                        $"SUPERMATTER hit by emissive bolt AT {Transform(uid).Coordinates}");
+                        QueueDel(target);
+                        return;
+                    }
+                case "EmitterBolt":
+                    {
+                        sm.Power += 20f;
+                        return;
+                    }
+                default:
+                    return;
             }
-            if (_tag.HasTag(target, "EmitterBoltElectroBehavioural"))
-            {
-                sm.Damage += 1f;
-                sm.Power += 100f;
-                _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
-                $"SUPERMATTER hit by harming bolt AT {Transform(uid).Coordinates}");
-                QueueDel(target);
-                return;
-            }
-        }                                                            //omu end
+        }
+        //omu end
 
         if (TryComp<SupermatterFoodComponent>(target, out var food))
         {

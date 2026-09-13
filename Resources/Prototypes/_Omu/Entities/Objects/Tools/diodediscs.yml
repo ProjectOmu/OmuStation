@@ -33,6 +33,31 @@
       upgrade: Emitter-Electro-Behavioural
 
 - type: entity
+  parent: BaseDiodeDisc
+  id: DiodeDiscExcitatory
+  name: Excitatory Diode disc
+  description: A diode disc for use within an emitter, this one will trigger a supermatter to become more active.
+  components:
+  - type: DiodeDisc
+    newBolt: EmitterBoltExcitatory
+    componentsToAdd:
+    - type: UpgradedMachine
+      upgrade: Emitter-Excitatory
+
+- type: entity
+  parent: BaseDiodeDisc
+  id: DiodeDiscEmissive
+  name: Emissive Diode disc
+  description: A diode disc for use within an emitter, this one will trigger a supermatter to emit more radiation
+  components:
+  - type: DiodeDisc
+    newBolt: EmitterBoltEmissive
+    componentsToAdd:
+    - type: UpgradedMachine
+      upgrade: Emitter-Emissive
+
+
+- type: entity
   name: emitter bolt
   id: EmitterBoltElectroDisruptive
   parent: EmitterBolt
@@ -40,7 +65,6 @@
   components:
   - type: Tag
     tags:
-    - EmitterBoltElectroDisruptive
     - EmitterBolt
   - type: Projectile
     damage:
@@ -56,7 +80,6 @@
   components:
   - type: Tag
     tags:
-    - EmitterBoltElectroBehavioural
     - EmitterBolt
   - type: Projectile
     damage:
@@ -64,9 +87,39 @@
         Heat: -5
         Blunt: -2
 
+- type: entity
+  name: emitter bolt
+  id: EmitterBoltExcitatory
+  parent: EmitterBolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - EmitterBolt
+  - type: Projectile
+    damage:
+      types:
+        Heat: 10
+  - type: TriggerOnCollide
+    fixtureID: projectile
+    maxTriggers: 1
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 10.0
+    intensitySlope: 5
+    maxIntensity: 4
 
-- type: Tag
-  id: EmitterBoltElectroDisruptive
-
-- type: Tag
-  id: EmitterBoltElectroBehavioural
+- type: entity
+  name: emitter bolt
+  id: EmitterBoltEmissive
+  parent: EmitterBolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - EmitterBolt
+  - type: Projectile
+    damage:
+      types:
+        Radiation: 10
