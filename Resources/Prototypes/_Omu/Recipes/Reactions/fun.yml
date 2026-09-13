@@ -13,7 +13,7 @@
 - type: reaction
   id: Mothamphetamine
   reactants:
-    Fiber: 
+    Fiber:
       amount: 6
     Sugar:
       amount: 2
@@ -27,8 +27,8 @@
 - type: reaction
   id: Cacaphonium
   reactants:
-    BirdFlu: 
-      amount: 6 
+    BirdFlu:
+      amount: 6
     SpaceDrugs:
       amount: 1
     Sugar:
@@ -47,7 +47,7 @@
       amount: 6
     SpaceDrugs:
       amount: 1
-    Ash: 
+    Ash:
       amount: 1
     EnergyDrink:
       amount: 2
@@ -125,3 +125,17 @@
       amount: 1
   products:
     MethrilConcentrate: 5
+
+- type: reaction
+  id: Gekkerzine
+  reactants:
+    Laughter:
+      amount: 1
+    Cryoxadone:
+      amount: 1
+    Nitrogen:
+      amount: 2
+    Oxygen:
+      amount: 1
+  products:
+    Gekkerzine: 5
