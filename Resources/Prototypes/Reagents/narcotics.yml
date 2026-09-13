@@ -224,6 +224,7 @@
   meltingPoint: 170.0
   metabolisms:
     Narcotic:
+      metabolismRate: 0.25 # Omu, restore hyperzine to 0.25u/s metabolism
       effects:
       # Main effects
       - !type:HealthChange
@@ -333,6 +334,7 @@
           amount: 1.2
           time: 30 # it accumulated 1.2*quantity and then exists for 30 seconds.
     Medicine:
+      metabolismRate: 0.25 # Omu, restore hyperzine to 0.25u/s metabolism
       effects:
       # Main effects
       - !type:ModifyBleed
