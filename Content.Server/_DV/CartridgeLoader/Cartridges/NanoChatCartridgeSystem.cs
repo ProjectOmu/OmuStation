@@ -35,6 +35,8 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
     // The max length of the name and job title on the notification before being truncated.
     private const int NotificationTitleMaxLength = 32;
 
+    private int _maxNameLength = 30;
+    private int _maxIdJobLength = 30;
 
 
     public override void Initialize()
@@ -188,16 +190,16 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
         if (!string.IsNullOrWhiteSpace(name))
         {
             name = name.Trim();
-            if (name.Length > 30) // Omu
-                name = name[..30]; // Omu
+            if (name.Length > _maxNameLength)
+                name = name[.._maxNameLength];
         }
 
         var jobTitle = msg.RecipientJob;
         if (!string.IsNullOrWhiteSpace(jobTitle))
         {
             jobTitle = jobTitle.Trim();
-            if (jobTitle.Length > 30) // Omu
-                jobTitle = jobTitle[..30]; // Omu
+            if (jobTitle.Length > _maxIdJobLength)
+                jobTitle = jobTitle[.._maxIdJobLength];
         }
 
         // Add new recipient
@@ -249,16 +251,16 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
         if (!string.IsNullOrWhiteSpace(name))
         {
             name = name.Trim();
-            if (name.Length > 30)// Omu
-                name = name[..30]; // Omu
+            if (name.Length > _maxNameLength)
+                name = name[.._maxNameLength];
         }
 
         var jobTitle = msg.RecipientJob;
         if (!string.IsNullOrWhiteSpace(jobTitle))
         {
             jobTitle = jobTitle.Trim();
-            if (jobTitle.Length > 30) // Omu
-                jobTitle = jobTitle[..30]; // Omu
+            if (jobTitle.Length > _maxIdJobLength)
+                jobTitle = jobTitle[.._maxIdJobLength];
         }
 
         // Update recipient
@@ -823,8 +825,8 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
         if (!string.IsNullOrWhiteSpace(name))
         {
             name = name.Trim();
-            if (name.Length > 30) // Omu
-                name = name[..30]; // Omu
+            if (name.Length > _maxNameLength)
+                name = name[.._maxNameLength];
         }
 
         // Generate a unique group number (surely unique I actually have no idea how to generate good unique numbers.)
