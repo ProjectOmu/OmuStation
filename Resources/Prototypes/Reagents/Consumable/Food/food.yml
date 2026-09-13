@@ -118,6 +118,7 @@
         factor: 1
       - !type:GenericStatusEffect # Mono change
         key: CorticalBorerProtection
+        component: CorticalBorerProtection
         type: Add
         time: 3 # May be too much, needs testing
   plantMetabolism:

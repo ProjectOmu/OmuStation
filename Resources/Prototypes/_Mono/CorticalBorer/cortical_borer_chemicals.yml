@@ -2,18 +2,18 @@
 
 
 - type: borerChemical
-  id: borerBicaridine
-  cost: 4
-  reagent: Bicaridine
+  id: borerBozaide    # Omu changed to bozaide from bicar
+  cost: 6
+  reagent: Bozaide
 
 - type: borerChemical
   id: borerKelotane
-  cost: 4
+  cost: 10            # Omu changed to 10 from 4
   reagent: Kelotane
 
 - type: borerChemical
   id: borerSaline
-  cost: 2
+  cost: 3 # Omu
   reagent: Saline
 
 - type: borerChemical
