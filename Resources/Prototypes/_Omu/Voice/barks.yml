@@ -1,4 +1,4 @@
-﻿# MORTIS
+# MORTIS
 - type: soundCollection
   id: MortisBark
   files:
@@ -55,3 +55,16 @@
   speciesWhitelist:
   - Hydrakin
   - Harpy # The Egg is talking to me... its telling me to leave this be...
+
+# Breathy
+- type: soundCollection
+  id: BreathyBark
+  files:
+  - /Audio/_Omu/Voice/Barks/Breathy/breathy.ogg
+
+- type: bark
+  id: Breathy
+  name: Breathy
+  volume: 0.6
+  soundCollection:
+    collection: BreathyBark

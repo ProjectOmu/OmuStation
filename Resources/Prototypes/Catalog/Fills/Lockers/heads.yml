@@ -16,7 +16,6 @@
     - id: AstroNavCartridge
     - id: CargoTechFabCircuitboard # Goobstation - Cargo Techfab
     - id: ClothingHandsKnuckleDustersQM # Goobstation - ROCK THAT MF!!
-    - id: SalvageJobBoardComputerCircuitboard # Goobstation - This doesn't really have a use right now but it's there incase it ever gets use again
     - id: CargoMegaphone # goob - loudspeaker
     - id: ComputerCargoCommsFlatpack #Omu adds departmental comms board
     - id: Multitool # Omu
@@ -184,7 +183,6 @@
     - id: RubberStampCE
     - id: MetalFoamGrenade
     # Goobstation V
-    - id: SupermatterComputerCircuitboard
     - id: BaseHandheldStationMapSupermatterCe
     - id: BaseHandheldStationMapPowerCe
     - id: EngineeringTechFabCircuitboard
@@ -380,7 +378,7 @@
   id: LockerFillHeadOfSecurityNoHardsuit
   table: !type:AllSelector
     children:
-    - id: WeaponEnergyMagnum
+#    - id: WeaponEnergyMagnum # Omu
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
@@ -395,7 +393,6 @@
     #- id: HoloprojectorSecurity Goob, you have one in the belt
     - id: RubberStampHos
     - id: BoxHoSCircuitboards
-    #- id: WeaponDisabler # Omu (Disablers in belts)
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
     - id: ComputerCargoRequestSecurityFlatpack # Goobstation
     - id: WantedListCartridge
