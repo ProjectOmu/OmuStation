@@ -6,7 +6,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _DV/Objects/Misc/feather.rsi
+    sprite: _Omu/Objects/Misc/feather.rsi # Omu, resprited item
     layers:
     - state: feather
       map: [ "enum.FeatherVisualLayers.Feather" ]
