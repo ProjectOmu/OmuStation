@@ -15,6 +15,8 @@ using Content.Shared.PDA;
 using Content.Shared.Radio.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.CCVar;
+using Robust.Shared.Configuration;
 
 namespace Content.Server._DV.CartridgeLoader.Cartridges;
 
@@ -26,6 +28,7 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedNanoChatSystem _nanoChat = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly IConfigurationManager _cfgManager = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
 
     // Messages in notifications get cut off after this point
@@ -35,8 +38,8 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
     // The max length of the name and job title on the notification before being truncated.
     private const int NotificationTitleMaxLength = 32;
 
-    private int _maxNameLength = 30;
-    private int _maxIdJobLength = 30;
+    private int _maxNameLength;
+    private int _maxIdJobLength;
 
 
     public override void Initialize()
@@ -45,6 +48,9 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
 
         SubscribeLocalEvent<NanoChatCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<NanoChatCartridgeComponent, CartridgeMessageEvent>(OnMessage);
+
+        Subs.CVar(_cfgManager, CCVars.MaxNameLength, value => _maxNameLength = value, true);
+        Subs.CVar(_cfgManager, CCVars.MaxIdJobLength, value => _maxIdJobLength = value, true);
     }
 
     private void UpdateClosed(Entity<NanoChatCartridgeComponent> ent)
