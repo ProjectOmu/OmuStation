@@ -15,6 +15,7 @@ loadout-group-medical-backpack = Medical backpack
 
 # Paramedic
 loadout-group-paramedic-backpack = Paramedic backpack
+loadout-group-paramedic-belt = Paramedic belt
 
 # Virologist
 loadout-group-virologist-envirohelm = Virologist envirohelm
