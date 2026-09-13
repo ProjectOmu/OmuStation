@@ -1,0 +1,24 @@
+- type: entity
+  name: taiwan pond
+  parent: [WeaponLauncherTaiwanPond] # A fake taiwan pond for the clown, acts like a normal china lake.
+  id: WeaponLauncherFakeTaiwanPond
+  description: PLOOP.
+  suffix: LETHAL
+  components:
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+    clumsyProof: true
+  - type: BallisticAmmoProvider
+    autoCycle: false # Goobstation
+    whitelist:
+      tags:
+        - Grenade
+    capacity: 3
+    proto:
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg

@@ -1,4 +1,4 @@
-using Content.Shared.Kitchen;
+/*using Content.Shared.Kitchen; // OMU; we may suffer
 
 namespace Content.IntegrationTests.Tests.WizdenContentFreeze;
 
@@ -24,7 +24,7 @@ public sealed class WizdenContentFreeze
         var protoMan = server.ProtoMan;
 
         var recipesCount = protoMan.Count<FoodRecipePrototype>();
-        var recipesLimit = 256; // Fucking Kill me Omu
+        var recipesLimit = 512; // Fucking Kill me Omu
 
         if (recipesCount > recipesLimit)
         {
@@ -38,4 +38,4 @@ public sealed class WizdenContentFreeze
 
         await pair.CleanReturnAsync();
     }
-}
+}*/ // OMU

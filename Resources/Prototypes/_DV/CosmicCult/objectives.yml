@@ -109,6 +109,9 @@
       state: effigy
   - type: CosmicEffigyCondition
     blacklist:
+      components:
+      - CentCommBeacon # Omu
+      - ArrivalsBeacon # Omu
       tags:
       - GhostOnlyWarp
       - NinjaBombingTargetBlocker # Use the same blacklist as ninja

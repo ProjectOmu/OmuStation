@@ -155,3 +155,41 @@
     Epinephrine: 7
     TranexamicAcid: 3
   recipeType: MedicalAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeCartridgeCopium
+  name: autoinjector cartridge (copium)
+  result: CartridgeCopium
+  time: 3
+  group: Medicinal
+  solids:
+    CartridgeEmpty: 1
+  reagents:
+    Copium: 9
+    Ibuprofen: 1
+  recipeType: MedicalAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeCartridgeEthylredoxrazine
+  name: autoinjector cartridge (sobering)
+  result: CartridgeEthylredoxrazine
+  time: 3
+  group: Medicinal
+  solids:
+    CartridgeEmpty: 1
+  reagents:
+    Ethylredoxrazine: 7
+    Dylovene: 3
+  recipeType: MedicalAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeCartridgeWeh
+  name: autoinjector cartridge (weh)
+  result: CartridgeWeh
+  time: 3
+  group: Medicinal
+  solids:
+    CartridgeEmpty: 1
+  reagents:
+    JuiceThatMakesYouWeh: 10
+  recipeType: MedicalAssembler

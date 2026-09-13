@@ -59,7 +59,9 @@ chat-emote-msg-squeak = squeaks.
 chat-emote-msg-thump = thumps {POSS-ADJ($entity)} tail.
 chat-emote-msg-click = clicks.
 chat-emote-msg-clap = claps!
-chat-emote-msg-clap-single = claps their hands together.
+# Omu start
+chat-emote-msg-clap-single = claps {POSS-ADJ($entity)} hands together.
+# Omu end
 chat-emote-msg-snap = snaps {POSS-ADJ($entity)} fingers.
 chat-emote-msg-salute = salutes.
 chat-emote-msg-gasp = gasps.
