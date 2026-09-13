@@ -100,6 +100,16 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Monkey_burning
+# Omu Start - Making allus have small trait on by default because it's funny.
+  - type: StealTarget # Omu - steal objective from previous merged PR
+    stealGroup: StealLittlePerson
+  - type: PseudoItem
+    storedOffset: 0,17
+    shape:
+    - 0,0,1,4
+    - 0,2,3,4
+    - 4,0,5,4
+# Omu End - Making allus have small trait on by default because it's funny.
   - type: Tag
     tags:
     - VimPilot #fuck it, theyre small enough
