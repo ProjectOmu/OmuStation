@@ -52,6 +52,7 @@
     - WeaponEnergyShotgunSet
     - WeaponWardenRevolverShotgunSet
     - WardenRapierSet
+    - WardenSnubSet
     maxSelectedSets: 1
   - type: StealTarget
     stealGroup: WeaponEnergyShotgun
@@ -70,6 +71,25 @@
     - WeaponMk58Set
     - WeaponT8Set
     - WeaponEG1Set
+    maxSelectedSets: 1
+
+- type: entity
+  id: BrigMedCase
+  name: Frontline duty case
+  description: A case, used to securely store your duty weapon of choice.
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/GunCases/corpsmancase.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - WeaponMk58Set
+    - WeaponT8Set
+    - WeaponEG1Set
+    - BrigmedWeaponCrossbowSyringeSet
+    - BrigmedWeaponDisablerSMGSet
+    - BrigmedWeaponPneumaticShotgunSet
     maxSelectedSets: 1
 
 - type: entity
