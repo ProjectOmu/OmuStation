@@ -108,6 +108,14 @@ public sealed partial class DeltaPressureComponent : Component
     /// </summary>
     [DataField]
     public DeltaPressureDamageScalingType ScalingType = DeltaPressureDamageScalingType.Threshold;
+
+    // Omu start
+    /// <summary>
+    /// Whether this entity will ignore all delta pressure damage/enqueue
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Bypass = false;
+    // Omu end
 }
 
 /// <summary>

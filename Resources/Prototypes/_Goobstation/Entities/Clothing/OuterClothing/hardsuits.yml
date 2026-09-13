@@ -201,6 +201,7 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.5
+    bypassImmune: true # Omu - dreadnought will always slow
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototypes:
@@ -294,12 +295,27 @@
   parent: [ClothingOuterHardsuitBase, BaseCentcommContraband]
   id: ClothingOuterHardsuitExperimentalNanorep
   name: "NTX5-Mirrorduss"
-  description: A crude dark exosuit of reinforced plating, etched with faintly glowing Bluespace circuits. You can tell someone attempted to scratch out part of the text — Prototype No. 2
+  description: A compact space-rated luxury hardsuit issued to the Nanotrasen Representative. # Omu
   components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr_experimental.rsi
+  - type: Sprite # Omu - changed sprites because default was ugly as fuck
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
   - type: Clothing
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr_experimental.rsi
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr.rsi # Omu - changed sprites
+  - type: Item # Omu start
+    heldPrefix: inhand
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right
+      - state: inhand-right-unshaded
+        shader: unshaded # Omu end
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
@@ -321,9 +337,10 @@
         Radiation: 0.7
         Caustic: 0.7
   - type: ClothingSpeedModifier
-    sprintModifier: 0.95
-    walkModifier: 0.95
+    sprintModifier: 0.70 # Omu
+    walkModifier: 0.70 # Omu
   - type: HeldSpeedModifier
+    mirrorClothingModifier: false # Omu
   - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitExperimentalNanorep

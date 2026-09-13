@@ -190,7 +190,7 @@
 
 - type: entity
   name: multitool
-  parent: BaseItem
+  parent: [ BaseItem, BaseEngineeringScienceContraband ] #omu
   id: Multitool
   description: An advanced tool to copy, store, and send electrical pulses and signals through wires and machines.
   components:
