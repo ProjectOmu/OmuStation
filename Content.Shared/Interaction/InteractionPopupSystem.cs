@@ -104,7 +104,7 @@ public sealed class InteractionPopupSystem : EntitySystem
             if (component.InteractSuccessSpawn != null)
                 Spawn(component.InteractSuccessSpawn, _transform.GetMapCoordinates(uid));
 
-            var ev = new InteractionSuccessEvent(user);
+            var ev = new InteractionSuccessEvent(user, target); // Omu
             RaiseLocalEvent(target, ref ev);
         }
         else
