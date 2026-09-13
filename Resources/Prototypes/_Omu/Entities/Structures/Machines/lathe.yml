@@ -1,0 +1,69 @@
+# this file contains the mapped versions of the 6 departmental lathes in the wake of departmental silos
+# these will continue to be in use after the silo update
+
+- type: entity
+  id: SecurityTechFabFilled
+  parent: SecurityTechFab
+  suffix: Filled, MAP THIS
+  components: # i'm not messing around with inheritance to make this look nicer
+  - type: MaterialStorage
+    storage:
+      Plastic: 3000
+      Glass: 3000
+      Steel: 3000
+# the ammo tech fab doesn't get free mats
+
+- type: entity
+  id: MedicalTechFabFilled
+  parent: MedicalTechFab
+  suffix: Filled, MAP THIS
+  components: # i'm not messing around with inheritance to make this look nicer
+  - type: MaterialStorage
+    storage:
+      Plastic: 3000
+      Glass: 3000
+      Steel: 3000
+
+- type: entity
+  id: EngineeringTechFabFilled
+  parent: EngineeringTechFab
+  suffix: Filled, MAP THIS
+  components: # i'm not messing around with inheritance to make this look nicer
+  - type: MaterialStorage
+    storage:
+      Plastic: 3000
+      Glass: 3000
+      Steel: 3000
+
+- type: entity
+  id: CargoTechFabFilled
+  parent: CargoTechFab
+  suffix: Filled, MAP THIS
+  components: # i'm not messing around with inheritance to make this look nicer
+  - type: MaterialStorage
+    storage:
+      Plastic: 3000
+      Glass: 3000
+      Steel: 3000
+
+- type: entity
+  id: ScienceTechFabFilled
+  parent: ScienceTechFab
+  suffix: Filled, MAP THIS
+  components: # i'm not messing around with inheritance to make this look nicer
+  - type: MaterialStorage
+    storage:
+      Plastic: 3000
+      Glass: 3000
+      Steel: 3000
+
+- type: entity
+  id: ServiceTechFabFilled
+  parent: ServiceTechFab
+  suffix: Filled, MAP THIS
+  components: # i'm not messing around with inheritance to make this look nicer
+  - type: MaterialStorage
+    storage:
+      Plastic: 3000
+      Glass: 3000
+      Steel: 3000
