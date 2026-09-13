@@ -36,7 +36,7 @@
 
 - type: entity
   id: BriefcaseSyndieLobbyingBundleFilled
-  parent: BriefcaseSecureUnhackable # Omu edit: we have lockable briefcases so why not use them over the normal ones.
+  parent: BriefcaseSyndie
   suffix: Syndicate, Spesos
   components:
   - type: EntityTableContainerFill
@@ -56,7 +56,7 @@
 
 - type: entity
   id: BriefcaseThiefBribingBundleFilled
-  parent: BriefcaseSecureUnhackable # Omu edit: we have lockable briefcases so why not use them over the normal ones.
+  parent: BriefcaseSyndie
   suffix: Thief, Spesos
   components:
   - type: EntityTableContainerFill
