@@ -177,6 +177,7 @@ nano-chat-new-message-title = Message from {$sender}
 nano-chat-new-message-title-recipient = {$sender} ({$jobTitle})
 nano-chat-new-message-body = {$message}
 nano-chat-toggle-mute = Mute notifications
+nano-chat-toggle-mute-chat = Mute chat
 nano-chat-delivery-failed = Failed to deliver
 nano-chat-look-up-no-server = No valid telecommunications server found
 nano-chat-look-up = Look up numbers
