@@ -46,7 +46,7 @@
   - type: SolutionContainerManager
     solutions:
       absorbed:
-        maxVol: 100
+        maxVol: 200 # Omu - Puddle size revert
   - type: UseDelay
     delay: 0.25
   - type: PhysicalComposition #Goobstation - Recycle update
@@ -99,7 +99,7 @@
       generated:
         reagents:
         - ReagentId: Water
-          Quantity: 5
+          Quantity: 10 # Omu
     - type: SolutionPurge
       solution: absorbed
       preserve:
