@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Configuration;
@@ -105,5 +101,11 @@ public sealed partial class CCVars
         CVarDef.Create("chat.highlight_volume", 1.0f, CVar.ARCHIVE | CVar.CLIENTONLY);
     // Goobstation - end
     #endregion
+
+    /// <summary>
+    /// WD:    How far into the chat history to look when looking for similar messages to coalesce them.
+    /// </summary>
+    public static readonly CVarDef<int> ChatStackLastLines =
+        CVarDef.Create("chat.chatstack_last_lines", 1, CVar.CLIENTONLY | CVar.ARCHIVE, "How far into the chat history to look when looking for similiar messages to coalesce them.");
 
 }

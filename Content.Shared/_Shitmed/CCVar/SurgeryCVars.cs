@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Maths.FixedPoint;
@@ -98,7 +94,7 @@ public sealed class SurgeryCVars : CVars
     /// The rate at which severity (wound) points get exchanged into bleeding; e.g., 50 severity would be 3.5 bleeding points.
     /// </summary>
     public static readonly CVarDef<float> BleedingSeverityTrade =
-        CVarDef.Create("bleeds.wound_severity_trade", 0.07f, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("bleeds.wound_severity_trade", 0.035f, CVar.SERVER | CVar.REPLICATED); // Originally 0.07f
 
     /// <summary>
     /// How quick by default do bleeds grow to their full form?

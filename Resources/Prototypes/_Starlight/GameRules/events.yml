@@ -1,0 +1,19 @@
+# Syndicate dead drop
+- type: entity
+  parent: BaseGameRule
+  id: SyndicateDeadDrop
+  components:
+  - type: GameRule  #Omu addition to get it to work
+    chaosScore: 300
+  - type: StationEvent
+    endAnnouncement: station-syndicate-dead-drop-announcement # Omu changed to end announcement to allow for 5 minute timer
+    duration: 300 # Omu five minutes
+    #startAudio:      Omu commented so we don't get the syndicate shuttle metagame again - audio plays with no announcment
+    #  path: /Audio/Announcements/attention.ogg
+    earliestStart: 15
+    minimumPlayers: 10
+    maxOccurrences: 3 #Omu just having an alternative to antags
+    weight: 10
+  - type: RandomSpawnRule
+    prototype: BriefcaseSyndieDeadDrop    #Omu no flashy bang sadly, but... should work?
+    radioMessage: {channel: Syndicate, message: "syndicate-dead-drop-announcement"}

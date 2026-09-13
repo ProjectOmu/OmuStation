@@ -1,8 +1,23 @@
-﻿# Courier SOP Entry
+# Courier SOP Entry
 - type: guideEntry
   id: CourierSOP
   name: guide-entry-sop-courier
   text: "/ServerInfo/_Omu/Guidebook/SoP/Jobs/Cargo/CourierSOP.xml"
+# Paramedic SOP Entry
+- type: guideEntry
+  id: ParamedicSOP
+  name: guide-entry-sop-paramedic
+  text: "/ServerInfo/_Omu/Guidebook/SoP/Jobs/Medical/ParamedicSOP.xml"
+# Psychologist SOP Entry
+- type: guideEntry
+  id: PsychologistSOP
+  name: guide-entry-sop-psychologist
+  text: "/ServerInfo/_Omu/Guidebook/SoP/Jobs/Medical/PsychologistSOP.xml"
+# Virologist SOP Entry
+- type: guideEntry
+  id: VirologistSOP
+  name: guide-entry-sop-virologist
+  text: "/ServerInfo/_Omu/Guidebook/SoP/Jobs/Medical/VirologistSOP.xml"
 # Corpsman SOP formerly Brigmed SOP
 - type: guideEntry
   id: CorpsmanSOP

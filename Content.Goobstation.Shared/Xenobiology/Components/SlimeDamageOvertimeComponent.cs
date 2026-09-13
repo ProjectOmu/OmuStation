@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Maths.FixedPoint;
@@ -21,6 +17,9 @@ public sealed partial class SlimeDamageOvertimeComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? SourceEntityUid;
 
+    [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid? VictimEntityUid;
+
     /// <summary>
     /// How many units from target's bloodstream would be sucked per tick
     /// </summary>
@@ -38,12 +37,6 @@ public sealed partial class SlimeDamageOvertimeComponent : Component
     /// </summary>
     [DataField]
     public FixedPoint2 ToxinUnits = 0.15;
-
-    [DataField]
-    public TimeSpan Interval = TimeSpan.FromSeconds(1);
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public TimeSpan NextTickTime = TimeSpan.Zero;
 
     [DataField]
     public DamageSpecifier Damage = new()

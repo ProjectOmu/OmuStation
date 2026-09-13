@@ -1,55 +1,3 @@
-// SPDX-FileCopyrightText: 2020 ComicIronic <comicironic@gmail.com>
-// SPDX-FileCopyrightText: 2020 FL-OZ <58238103+FL-OZ@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 FL-OZ <anotherscuffed@gmail.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
-// SPDX-FileCopyrightText: 2020 zumorica <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ben <50087092+benev0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 BenOwnby <ownbyb@appstate.edu>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 J. Brown <DrMelon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 James Simonson <jamessimo89@gmail.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <shadowjjt@gmail.com>
-// SPDX-FileCopyrightText: 2024 SpeltIncorrectyl <66873282+SpeltIncorrectyl@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TinManTim <73014819+Tin-Man-Tim@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 blueDev2 <89804215+blueDev2@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 degradka <degradka@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Administration.Logs;
@@ -61,7 +9,6 @@ using Content.Server.Hands.Systems;
 using Content.Server.Kitchen.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
@@ -95,7 +42,8 @@ using Content.Shared.Stacks;
 using Content.Server.Construction.Components;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
-using Robust.Shared.Utility;
+using Content.Shared.Temperature.Components;
+using Content.Shared.Whitelist;
 
 namespace Content.Server.Kitchen.EntitySystems
 {
@@ -123,6 +71,7 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private readonly IPrototypeManager _prototype = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly SharedSuicideSystem _suicide = default!;
+        [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!; // Omu
 
         private static readonly EntProtoId MalfunctionSpark = "Spark";
 
@@ -229,6 +178,11 @@ namespace Content.Server.Kitchen.EntitySystems
         /// <param name="time">The time on the microwave, in seconds.</param>
         private void AddTemperature(MicrowaveComponent component, float time)
         {
+            // Frontier: temperature requires heat or irradiation
+            if (!component.CanHeat && !component.CanIrradiate)
+                return;
+            // End Frontier
+
             var heatToAdd = time * component.BaseHeatMultiplier;
             foreach (var entity in component.Storage.ContainedEntities)
             {
@@ -294,7 +248,7 @@ namespace Content.Server.Kitchen.EntitySystems
                         // If an entity has a stack component, use the stacktype instead of prototype id
                         if (TryComp<StackComponent>(item, out var stackComp))
                         {
-                            itemID = _prototype.Index<StackPrototype>(stackComp.StackTypeId).Spawn;
+                            itemID = _prototype.Index(stackComp.StackTypeId).Spawn;
                         }
                         else
                         {
@@ -317,7 +271,7 @@ namespace Content.Server.Kitchen.EntitySystems
                             {
                                 _container.Remove(item, component.Storage);
                             }
-                            _stack.Use(item, 1, stackComp);
+                            _stack.ReduceCount((item, stackComp), 1);
                             break;
                         }
                         else
@@ -354,6 +308,11 @@ namespace Content.Server.Kitchen.EntitySystems
             // The act of getting your head microwaved doesn't actually kill you
             if (!TryComp<DamageableComponent>(args.Victim, out var damageableComponent))
                 return;
+
+            // Frontier: suicide requires heat or irradiation
+            if (!ent.Comp.CanHeat && !ent.Comp.CanIrradiate)
+                return;
+            // Frontier
 
             // The application of lethal damage is what kills you...
             _suicide.ApplyLethalDamage((args.Victim, damageableComponent), "Heat");
@@ -435,6 +394,14 @@ namespace Content.Server.Kitchen.EntitySystems
                 return;
             }
 
+            // Omu start
+            if (_whitelistSystem.IsWhitelistPass(ent.Comp.MicrowaveBlacklist, args.Used))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("microwave-component-interact-using-blacklist-fail", ("item", args.Used), ("microwave", ent)), ent, args.User);
+                return;
+            }
+            // Omu end
+
             if (ent.Comp.Storage.Count >= ent.Comp.Capacity)
             {
                 _popupSystem.PopupEntity(Loc.GetString("microwave-component-interact-full"), ent, args.User);
@@ -484,13 +451,16 @@ namespace Content.Server.Kitchen.EntitySystems
 
         public void UpdateUserInterfaceState(EntityUid uid, MicrowaveComponent component)
         {
-            _userInterface.SetUiState(uid, MicrowaveUiKey.Key, new MicrowaveUpdateUserInterfaceState(
-                GetNetEntityArray(component.Storage.ContainedEntities.ToArray()),
-                HasComp<ActiveMicrowaveComponent>(uid),
-                component.CurrentCookTimeButtonIndex,
-                component.CurrentCookTimerTime,
-                component.CurrentCookTimeEnd
-            ));
+
+             _userInterface.SetUiState(uid,
+                 component.Key, // Delta-v Wanted to fix a bug, no fucking clue, commenting out their shit so we can eject things from microwavelike devices
+                 new MicrowaveUpdateUserInterfaceState(
+                 GetNetEntityArray(component.Storage.ContainedEntities.ToArray()),
+                 HasComp<ActiveMicrowaveComponent>(uid),
+                 component.CurrentCookTimeButtonIndex,
+                 component.CurrentCookTimerTime,
+                 component.CurrentCookTimeEnd
+             ));
         }
 
         public void SetAppearance(EntityUid uid, MicrowaveVisualState state, MicrowaveComponent? component = null, AppearanceComponent? appearanceComponent = null)
@@ -567,7 +537,7 @@ namespace Content.Server.Kitchen.EntitySystems
             foreach (var item in component.Storage.ContainedEntities.ToArray())
             {
                 // special behavior when being microwaved ;)
-                var ev = new BeingMicrowavedEvent(uid, user);
+                var ev = new BeingMicrowavedEvent(uid, user); // DeltaV Additions - Improve animal cube interactions (31668 - Upstream)
                 RaiseLocalEvent(item, ev);
 
                 // TODO MICROWAVE SPARKS & EFFECTS
@@ -670,6 +640,13 @@ namespace Content.Server.Kitchen.EntitySystems
                 return (recipe, 0);
             }
 
+            // Frontier: microwave recipe machine types
+            if ((recipe.RecipeType & component.ValidRecipeTypes) == 0)
+            {
+                return (recipe, 0);
+            }
+            // End Frontier
+
             foreach (var solid in recipe.IngredientsSolids)
             {
                 if (!solids.ContainsKey(solid.Key))
@@ -749,7 +726,7 @@ namespace Content.Server.Kitchen.EntitySystems
         {
             foreach (ProtoId<FoodRecipePrototype> recipeId in ent.Comp.ProvidedRecipes)
             {
-                if (_prototype.TryIndex(recipeId, out var recipeProto))
+                if (_prototype.Resolve(recipeId, out var recipeProto))
                 {
                     args.Recipes.Add(recipeProto);
                 }

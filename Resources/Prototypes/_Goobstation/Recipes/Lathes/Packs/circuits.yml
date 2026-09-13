@@ -1,15 +1,11 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 ## Static
 - type: latheRecipePack
   id: SecurityBoardsStaticGoob
   recipes:
   - ContrabandDetectorCircuitboard
+  - CriminalRecordsComputerCircuitboard
+  - WeaponEnergyTurretSecurityMachineCircuitboard
 
 - type: latheRecipePack
   id: MedicalBoardsStaticGoob
@@ -21,12 +17,19 @@
   recipes:
   - StationRadioCircuitboard
 
+- type: latheRecipePack
+  id: CargoBoardsStaticGoob
+  recipes:
+  - CargoBountyComputerCircuitboard
+  - SalvageJobBoardComputerCircuitboard
+
 ## Dynamic
 
 - type: latheRecipePack
   id: MedicalBoardsGoob
   recipes:
   - AutodocCircuitboard
+  - CrewMonitoringComputerCircuitboard
 
 - type: latheRecipePack
   id: EngineeringBoardsGoob
@@ -37,6 +40,10 @@
   - InteractorCircuitboard
   - PlumbingPumpCircuitboard
   - TelecomTransmitterCircuitboard
+  - PowerComputerCircuitboard
+  - AlertsComputerCircuitboard
+  - AtmosMonitoringComputerCircuitboard
+  - SupermatterComputerCircuitboard
 
 - type: latheRecipePack
   id: ServiceBoardsGoob
@@ -45,3 +52,4 @@
   - TapeDeckCircuitboard
   - StationRadioServerCircuitboard
   - StationRadioRigCircuitboard
+  - ServiceEnergyChemMachineCircuitboard

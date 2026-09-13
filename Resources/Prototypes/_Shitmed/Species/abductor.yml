@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: species
@@ -21,7 +17,7 @@
     Head: MobAbductorHead
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
-    Chest: MobAbductorChest
+    Chest: MobAbductorTorso
     Groin: MobAbductorGroin
     Eyes: MobAbductorEyes
     LArm: MobAbductorLArm
@@ -58,22 +54,22 @@
     state: head
 
 - type: humanoidBaseSprite
-  id: MobAbductorChestMale
+  id: MobAbductorTorsoMale
   baseSprite:
     sprite: _Shitmed/Mobs/Species/Abductor/parts.rsi
-    state: chest
+    state: torso
 
 - type: humanoidBaseSprite
-  id: MobAbductorChestFemale
+  id: MobAbductorTorsoFemale
   baseSprite:
     sprite: _Shitmed/Mobs/Species/Abductor/parts.rsi
-    state: chest
+    state: torso
 
 - type: humanoidBaseSprite
-  id: MobAbductorChest
+  id: MobAbductorTorso
   baseSprite:
     sprite: _Shitmed/Mobs/Species/Abductor/parts.rsi
-    state: chest
+    state: torso
 
 - type: humanoidBaseSprite
   id: MobAbductorGroinMale

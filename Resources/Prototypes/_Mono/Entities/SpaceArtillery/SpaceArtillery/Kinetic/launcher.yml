@@ -6,6 +6,9 @@
   parent: BallisticArtillery
   description: A cheap and light 20mm autocannon. Can be remotely activated, or linked up to a GCS.
   components:
+  - type: ApcPowerReceiver
+    netsync: false # omu
+    powerLoad: 200
   - type: StaticPrice
     price: 250
   - type: Sprite
@@ -13,6 +16,7 @@
     layers:
     - state: space_artillery
   - type: Battery
+    netsync: false # omu
     maxCharge: 20000
     startingCharge: 20000
   - type: ExaminableBattery
@@ -32,7 +36,6 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 550
   - type: SpaceArtillery
     powerChargeRate: 100
@@ -41,7 +44,7 @@
   - type: CombatMode
     isInCombatMode: true
   - type: Airtight
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: 20mmBulletArmorPiercing
     fireCost: 15
   - type: RadiationBlocker
@@ -71,6 +74,7 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
+    netsync: false # omu
     maxCharge: 30000
     startingCharge: 30000
   - type: ExaminableBattery
@@ -84,14 +88,13 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 220
   - type: SpaceArtillery
     powerChargeRate: 220
     powerUsePassive: 750
     powerUseActive: 0
   - type: Actions
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ShipDravonProjectile
     fireCost: 250
   - type: RadarBlip
@@ -101,6 +104,9 @@
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Medium
+  - type: ApcPowerReceiver
+    netsync: false # omu
+    powerLoad: 970
 
 # AK570 90mm
 
@@ -110,6 +116,9 @@
   parent: BallisticArtillery
   description: A dual barrel, heavy autocannon. Can be remotely activated, or linked up to a GCS.
   components:
+  - type: ApcPowerReceiver
+    netsync: false # omu
+    powerLoad: 725
   - type: StaticPrice
     price: 1250
   - type: Sprite
@@ -119,6 +128,7 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
+    netsync: false # omu
     maxCharge: 40000
     startingCharge: 40000
   - type: ExaminableBattery
@@ -137,14 +147,13 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 125
   - type: SpaceArtillery
     powerChargeRate: 125
     powerUsePassive: 600
     powerUseActive: 0
   - type: Actions
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: 90mmBulletArmorPiercing
     fireCost: 50
   - type: RadarBlip
@@ -163,6 +172,9 @@
   parent: BallisticArtilleryUnanchorable
   description: A heavy EMP Cannon made by Aetherion Dynamics. It can disable massive parts of an enemy ship, making it effective in asymmetric combat. Can be remotely activated, or linked up to a GCS.
   components:
+  - type: ApcPowerReceiver
+    netsync: false # omu
+    powerLoad: 3714
   - type: StaticPrice
     price: 10000
   - type: Sprite
@@ -172,6 +184,7 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
+    netsync: false # omu
     maxCharge: 40000
     startingCharge: 40000
   - type: ExaminableBattery
@@ -185,14 +198,13 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 214
   - type: SpaceArtillery
     powerChargeRate: 214
     powerUsePassive: 3500
     powerUseActive: 0
   - type: Actions
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ShipTarnyxProjectile
     fireCost: 17500 # low shot weapon moved back to the original spot
   - type: RadarBlip
@@ -211,6 +223,9 @@
   parent: BallisticArtilleryUnanchorable
   description: A dual barrel, main-battery cannon firing 220mm auto shells with slight reduction in brute strength. Can be remotely activated, or linked up to a GCS.
   components:
+  - type: ApcPowerReceiver
+    netsync: false # omu
+    powerLoad: 13500
   - type: StaticPrice
     price: 20000
   - type: Sprite
@@ -221,6 +236,7 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
+    netsync: false # omu
     maxCharge: 12000
     startingCharge: 12000
   - type: ExaminableBattery
@@ -250,14 +266,13 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 12000
   - type: SpaceArtillery
     powerChargeRate: 12000
     powerUsePassive: 1500
     powerUseActive: 0
   - type: Actions
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ShipCyrexaProjectile
     fireCost: 6000
   - type: RadarBlip
@@ -276,6 +291,9 @@
   parent: BallisticArtilleryUnanchorable
   description: One of the largest chemical-based kinetic weapons in the sector. Its power is only rivaled by mass drivers such as the M381.
   components:
+  - type: ApcPowerReceiver
+    netsync: false # omu
+    powerLoad: 13500
   - type: StaticPrice
     price: 40000
   - type: Sprite
@@ -286,6 +304,7 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
+    netsync: false # omu
     maxCharge: 12000
     startingCharge: 12000
   - type: ExaminableBattery
@@ -315,14 +334,13 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 12000
   - type: SpaceArtillery
     powerChargeRate: 12000
     powerUsePassive: 1500
     powerUseActive: 0
   - type: Actions
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ShipHadesProjectile
     fireCost: 6000
   - type: RadarBlip
@@ -341,6 +359,9 @@
   parent: BallisticArtilleryUnanchorable
   description: A heavy linear accelerator, capable of devastating targets with kinetic energy. Can be remotely activated, or linked up to a GCS.
   components:
+  - type: ApcPowerReceiver
+    netsync: false # omu
+    powerLoad: 1350
   - type: StaticPrice
     price: 40000
   - type: Sprite
@@ -350,6 +371,7 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
+    netsync: false # omu
     maxCharge: 40000
     startingCharge: 40000
   - type: ExaminableBattery
@@ -363,14 +385,13 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 350
   - type: SpaceArtillery
     powerChargeRate: 350
     powerUsePassive: 1000
     powerUseActive: 7500
   - type: Actions
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ShipRailgunProjectile
     fireCost: 1500
   - type: Fixtures
@@ -417,6 +438,9 @@
   parent: BallisticArtilleryUnanchorable
   description: A single barrelled, heavy artillery cannon. Can be remotely activated, or linked up to a GCS.
   components:
+  - type: ApcPowerReceiver
+    netsync: false # omu
+    powerLoad: 2300
   - type: StaticPrice
     price: 20000
   - type: Sprite
@@ -427,6 +451,7 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
+    netsync: false # omu
     maxCharge: 40000
     startingCharge: 40000
   - type: ExaminableBattery
@@ -451,15 +476,14 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 12000
-    autoRechargePause: true
+    autoRechargePauseTime: 300
   - type: SpaceArtillery
     powerChargeRate: 800
     powerUsePassive: 1500
     powerUseActive: 0
   - type: Actions
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ShipBoforsProjectile
     fireCost: 6000
   - type: RadarBlip
@@ -478,6 +502,9 @@
   parent: BallisticArtilleryUnanchorable
   description: A single barrelled, medium-heavy artillery cannon. Can be remotely activated, or linked up to a GCS.
   components:
+  - type: ApcPowerReceiver
+    netsync: false # omu
+    powerLoad: 2200
   - type: StaticPrice
     price: 20000
   - type: Sprite
@@ -488,6 +515,7 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
+    netsync: false # omu
     maxCharge: 40000
     startingCharge: 40000
   - type: ExaminableBattery
@@ -512,15 +540,14 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 12000
-    autoRechargePause: true
+    autoRechargePauseTime: 300
   - type: SpaceArtillery
     powerChargeRate: 700
     powerUsePassive: 1500
     powerUseActive: 0
   - type: Actions
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ShipKargilProjectile
     fireCost: 6000
   - type: RadarBlip

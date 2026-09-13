@@ -1,0 +1,69 @@
+- type: entity
+  parent: BaseItem
+  id: BaseBlueprintExoSuitFabricator
+  name: blueprint
+  description: A blueprint for some machine. It can be inserted into an exosuit fabricator.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/blueprint.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,0
+    storedSprite:
+      sprite: Objects/Tools/blueprint.rsi
+      state: storage
+  - type: Blueprint
+  - type: StaticPrice
+    price: 1000
+  - type: Tag
+    tags:
+    - BlueprintExosuitFabricator
+
+- type: entity
+  parent: [BaseBlueprintExoSuitFabricator, BaseSyndicateContraband]
+  id: BlueprintExosuitFabricatorSyndieModuleBasic
+  name: basic syndicate modules blueprint
+  description: A blueprint with a schematic of basic syndicate modules. It can be inserted into an exosuit fabricator.
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - BorgModuleSyndicateWeapon
+
+- type: entity
+  parent: [BaseBlueprintExoSuitFabricator, BaseSyndicateContraband]
+  id: BlueprintExosuitFabricatorSyndieModuleAdvanced
+  name: advanced syndicate modules blueprint
+  description: A blueprint with a schematic of advanced syndicate modules. It can be inserted into an exosuit fabricator.
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - BorgModuleMartyr
+    - BorgModuleSyndicateWeaponAdvanced
+    - BorgModuleSyndicateMedicalTools
+
+- type: entity
+  parent: [BaseBlueprintExoSuitFabricator, BaseSyndicateContraband]
+  id: BlueprintExosuitFabricatorSyndieModuleAssault
+  name: assault syndicate modules blueprint
+  description: A blueprint with a schematic of assault syndicate modules. It can be inserted into an exosuit fabricator.
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - BorgModuleOperative
+    - BorgModuleEsword
+    - BorgModuleL6C
+
+- type: entity
+  parent: [BaseBlueprintExoSuitFabricator, BaseSyndicateContraband]
+  id: BlueprintExoSuitFabricatorSyndieBorgChassis
+  name: syndicate cyborg chassis blueprint
+  description: A blueprint with a schematic of the syndicate cyborg chassis. It can be inserted into an exosuit fabricator.
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - BorgChassisSyndicateAssault
+    - BorgChassisSyndicateMedical
+

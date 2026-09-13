@@ -1,12 +1,9 @@
-# SPDX-FileCopyrightText: 2025 Gip-Kip <hargifarspam2@gmail.com>
-# SPDX-FileCopyrightText: 2025 bunnygirlHyacinth <xxst4rf11m00nb700db4nnyxx@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   parent: BasePlushie
   id: PlushieChoicesTadpole
-  name: Thaven tadpole plush
+  name: thaven tadpole plush
   description: A marketable plushie of a certain thaven tadpole. It smells like the ocean.
   components:
   - type: Sprite

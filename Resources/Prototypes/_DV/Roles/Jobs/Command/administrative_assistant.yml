@@ -18,6 +18,7 @@
   - !type:DepartmentTimeRequirement
     department: Medical
     time: 18000 #5 hours - Omu edit end
+  weight: 10 # Omu - Command priority when rolling.
   goobcoins: 20 # Goob Content
   startingGear: AdminAssistantGear
   icon: "JobIconAdminAssitant"

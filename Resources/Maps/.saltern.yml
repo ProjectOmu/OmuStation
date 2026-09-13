@@ -6736,7 +6736,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -14.940454,-39.485104
       parent: 31
-- proto: BoxFolderBlue
+- proto: BoxFolderBlueEmpty
   entities:
   - uid: 8742
     components:
@@ -47897,7 +47897,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 21.750116,-4.5862775
       parent: 31
-- proto: HandheldHealthAnalyzerUnpowered
+- proto: HandheldHealthAnalyzer
   entities:
   - uid: 10030
     components:

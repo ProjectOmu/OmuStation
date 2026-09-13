@@ -88,7 +88,16 @@
     - Snout
     - Tail
   - type: Bloodstream
-    bloodReagent: ShimmeringBlood
+    bloodlossDamage:
+      types:
+        Bloodloss: 1
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -0.25
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: ShimmeringBlood
+        Quantity: 200
   - type: Inventory
     speciesId: thaven
     templateId: thaven

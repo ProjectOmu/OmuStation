@@ -1,14 +1,3 @@
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
-# SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # tables
 
@@ -52,6 +41,8 @@
       - id: SpawnMobMouse
       - id: MobMouseCancer
         weight: 0.02
+      - id: MobMousePlague # Omu, move plague mouse to event rather than spawner.
+        weight: 0.08
 # Events always spawn a critter regardless of Probability https://github.com/space-wizards/space-station-14/issues/28480 I added the Rat King to their own event with a player cap.
 
 - type: entity
@@ -80,6 +71,8 @@
       - id: SpawnMobMouse
       - id: MobMouseCancer
         weight: 0.02
+      - id: MobMousePlague # Omu, move plague mouse to event rather than spawner.
+        weight: 0.08
       - id: MobLootbug # Goobstation
         weight: 0.08
     specialEntries:

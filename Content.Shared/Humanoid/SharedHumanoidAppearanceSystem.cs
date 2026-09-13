@@ -1,34 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 csqrb <56765288+CaptainSqrBeard@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 ike709 <ike709@github.com>
-// SPDX-FileCopyrightText: 2024 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 paige404 <59348003+paige404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Zekins <zekins3366@gmail.com>
-// SPDX-FileCopyrightText: 2025 paige404 <59348003+paige404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-// SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.IO;
@@ -77,7 +46,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     [Dependency] private readonly HeightAdjustSystem _heightAdjust = default!; // Goobstation: port EE height/width sliders
     [Dependency] private readonly MarkingManager _markingManager = default!;
     [Dependency] private readonly GrammarSystem _grammarSystem = default!;
-    [Dependency] private readonly SharedIdentitySystem _identity = default!;
+    [Dependency] private readonly IdentitySystem _identity = default!;
 
     public static readonly ProtoId<SpeciesPrototype> DefaultSpecies = "Human";
     public static readonly ProtoId<BarkPrototype> DefaultBarkVoice = "Alto"; // Goob Station - Barks
@@ -129,7 +98,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         }
 
         if (string.IsNullOrEmpty(humanoid.Initial)
-            || !_proto.TryIndex(humanoid.Initial, out HumanoidProfilePrototype? startingSet))
+            || !_proto.Resolve(humanoid.Initial, out HumanoidProfilePrototype? startingSet))
         {
             LoadProfile(uid, HumanoidCharacterProfile.DefaultWithSpecies(humanoid.Species), humanoid);
             return;
@@ -330,14 +299,15 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         if (!Resolve(uid, ref humanoid))
             return;
 
-        if (!_proto.TryIndex<SpeciesPrototype>(humanoid.Species, out var species))
+        if (!_proto.Resolve<SpeciesPrototype>(humanoid.Species, out var species))
         {
             return;
         }
 
-        if (verify && !SkinColor.VerifySkinColor(species.SkinColoration, skinColor))
+        if (verify && _proto.Resolve(species.SkinColoration, out var index))
         {
-            skinColor = SkinColor.ValidSkinTone(species.SkinColoration, skinColor);
+            var strategy = index.Strategy;
+            skinColor = strategy.EnsureVerified(skinColor);
         }
 
         humanoid.SkinColor = skinColor;
@@ -524,7 +494,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             {
                 if (!prototype.ForcedColoring)
                 {
-                    AddMarking(uid, marking.MarkingId, marking.MarkingColors, false);
+                    AddMarking(uid, marking.MarkingId, marking.MarkingColors, marking.GlowyBits, false); // Omu
                 }
                 else
                 {
@@ -563,7 +533,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
                 profile.Appearance.EyeColor,
                 humanoid.MarkingSet
             );
-            AddMarking(uid, marking.MarkingId, markingColors, false);
+            AddMarking(uid, marking.MarkingId, markingColors, marking.GlowyBits, false); // Omu
         }
 
         EnsureDefaultMarkings(uid, humanoid);
@@ -598,10 +568,11 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     /// <param name="uid">Humanoid mob's UID</param>
     /// <param name="marking">Marking ID to use</param>
     /// <param name="color">Color to apply to all marking layers of this marking</param>
+    /// <param name="isGlowing">If the markings color should glow</param>
     /// <param name="sync">Whether to immediately sync this marking or not</param>
     /// <param name="forced">If this marking was forced (ignores marking points)</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public void AddMarking(EntityUid uid, string marking, Color? color = null, bool sync = true, bool forced = false, HumanoidAppearanceComponent? humanoid = null)
+    public void AddMarking(EntityUid uid, string marking, Color? color = null, bool isGlowing = false, bool sync = true, bool forced = false, HumanoidAppearanceComponent? humanoid = null) // Omu
     {
         if (!Resolve(uid, ref humanoid)
             || !_markingManager.Markings.TryGetValue(marking, out var prototype))
@@ -618,6 +589,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
                 markingObject.SetColor(i, color.Value);
             }
         }
+
+        markingObject.SetGlowing(isGlowing); // Omu
 
         humanoid.MarkingSet.AddBack(prototype.MarkingCategory, markingObject);
 
@@ -640,10 +613,11 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     /// <param name="uid">Humanoid mob's UID</param>
     /// <param name="marking">Marking ID to use</param>
     /// <param name="colors">Colors to apply against this marking's set of sprites.</param>
+    /// <param name="glowyBits">A bitwise representation of which colors in the marking are glowing.</param>
     /// <param name="sync">Whether to immediately sync this marking or not</param>
     /// <param name="forced">If this marking was forced (ignores marking points)</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public void AddMarking(EntityUid uid, string marking, IReadOnlyList<Color> colors, bool sync = true, bool forced = false, HumanoidAppearanceComponent? humanoid = null)
+    public void AddMarking(EntityUid uid, string marking, IReadOnlyList<Color> colors, uint glowyBits = 0, bool sync = true, bool forced = false, HumanoidAppearanceComponent? humanoid = null) // Omu
     {
         if (!Resolve(uid, ref humanoid)
             || !_markingManager.Markings.TryGetValue(marking, out var prototype))
@@ -651,7 +625,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             return;
         }
 
-        var markingObject = new Marking(marking, colors);
+        var markingObject = new Marking(marking, colors, glowyBits); // Omu
         markingObject.Forced = forced;
         humanoid.MarkingSet.AddBack(prototype.MarkingCategory, markingObject);
 

@@ -1,0 +1,23 @@
+﻿- type: rcd
+  id: PipeManifold
+  category: Piping
+  sprite: /Textures/_Omu/Interface/Radial/RPD/storageManifold.png
+  mode: ConstructObject
+  prototype: GasPipeManifold
+  cost: 2
+  delay: 0
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: PressureRegulator
+  category: PumpsValves
+  sprite: /Textures/_Omu/Interface/Radial/RPD/pressureRegulator.png
+  mode: ConstructObject
+  prototype: GasPressureRegulator
+  cost: 2
+  delay: 0
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0

@@ -98,7 +98,16 @@
     attributes:
       gender: epicene
   - type: Bloodstream
-    bloodMaxVolume: 300 # BIG DOG. MUCH BLOOD :3
+    bloodlossDamage:
+      types:
+        Bloodloss: 1
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -0.25
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 300 # BIG DOG. MUCH BLOOD :3
   - type: Puller
     needsHands: false
   - type: MobPrice

@@ -1,0 +1,45 @@
+- type: entity
+  id: BodyBagBluespaceBSO
+  parent: [BodyBag, BaseCentcommContraband]
+  name: bluespace body bag
+  description: A synthetically made bluespace bag, designed for Blueshield Officer's to store and transport multiple dead VIPs at a time, capable of holding their bodies, limbs and even organs.
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects # I guess body bags need appear above a coroner's table?
+    sprite: _Omu/Objects/Specific/Medical/Morgue/bodybags.rsi
+    layers:
+    - state: bag
+      map: ["unfoldedLayer", "enum.StorageVisualLayers.Base"]
+    - state: bag_folded
+      map: ["foldedLayer"]
+      visible: false
+    - state: open_overlay
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: paper
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Icon
+    sprite: _Omu/Objects/Specific/Medical/Morgue/bodybags.rsi
+    state: bag
+  - type: EntityStorage
+    capacity: 30 # as much as a crate (30 is the default but I wanted it to be extra clear so I added this line)
+    isCollidableWhenOpen: true
+    closeSound:
+      path: /Audio/Misc/zip.ogg
+    openSound:
+      path: /Audio/Misc/zip.ogg
+    whitelist:
+      tags:
+      - Organ
+      - CanPilot
+      components:
+      - BodyPart
+
+- type: entity
+  id: BodyBagBluespaceBSOFolded
+  name: bluespace body bag
+  description: A synthetically made bluespace bag, designed for Blueshield Officer's to store and transport multiple dead VIPs at a time, capable of holding their bodies, limbs and even organs.
+  parent: BodyBagBluespaceBSO
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true

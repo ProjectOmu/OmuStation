@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Serialization;
@@ -18,10 +14,12 @@ namespace Content.Shared.Chat.TypingIndicator;
 public sealed class TypingChangedEvent : EntityEventArgs
 {
     public readonly TypingIndicatorState State;
+    public readonly ProtoId<TypingIndicatorPrototype>? OverrideIndicator; // DeltaV
 
-    public TypingChangedEvent(TypingIndicatorState state)
+    public TypingChangedEvent(TypingIndicatorState state, ProtoId<TypingIndicatorPrototype>? proto = null) // DeltaV
     {
         State = state;
+        OverrideIndicator = proto; // DeltaV
     }
 }
 

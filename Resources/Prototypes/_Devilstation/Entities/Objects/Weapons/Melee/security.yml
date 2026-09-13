@@ -7,7 +7,6 @@
   suffix: Cyborg
   components:
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 25
   - type: Battery # 3/4 the charge capacity but slowly recharges
     maxCharge: 750

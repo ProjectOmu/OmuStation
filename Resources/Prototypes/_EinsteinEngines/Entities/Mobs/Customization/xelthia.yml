@@ -27,6 +27,7 @@
   - sprite: _EinsteinEngines/Mobs/Customization/xelthia_parts.rsi
     state: ears_small
 
+
 # Tendril Hair
 - type: marking
   id: XelthiaHairStandard
@@ -115,14 +116,15 @@
 
 - type: marking
   id: XelthiaBackspikes
-  bodyPart: Chest, RArm, LArm, Head
+  bodyPart: Chest # Omu
   markingCategory: Overlay
   speciesRestriction: [Xelthia]
   coloring:
     default:
       type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+        !type:SkinColoring # Omu
+       # !type:SimpleColoring # Omu
+         # color: "#FFFFFF" # Omu
   sprites:
   - sprite: _EinsteinEngines/Mobs/Customization/xelthia_parts.rsi
     state: backspikes

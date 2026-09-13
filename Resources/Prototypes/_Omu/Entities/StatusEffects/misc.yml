@@ -1,0 +1,19 @@
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectShredder
+  name: shredder buff
+  components:
+  - type: ShredderStatusEffect
+  - type: MovementModStatusEffect
+    sprintSpeedModifier: 1.2
+    walkSpeedModifier: 1.2
+
+- type: entity
+  id: DubiousOrganEMPEffect
+  categories: [ HideSpawnMenu ]
+  parent: AdminInstantEffectBase
+  components:
+  - type: EmpOnTrigger
+    range: 2
+    energyConsumption: 25000
+    disableDuration: 30

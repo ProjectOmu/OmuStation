@@ -1,0 +1,16 @@
+- type: entity
+  id: BaseCorpsmanBlueShieldContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedJobs: [ Brigmedic, BlueshieldOfficer ]
+
+- type: entity
+  id: BaseEngineeringSalvContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedJobs: [ ShaftMiner, SalvageSpecialist, BlueshieldOfficer ]
+    allowedDepartments: [ Engineering ]

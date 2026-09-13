@@ -271,8 +271,8 @@ uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
 uplink-nutriment-implant-name = Nutriment Pump Implant
 uplink-nutriment-implant-desc = Removes the users need to consume food and/or drinks.
 
-uplink-krav-maga-implant-name = Krav Maga Implanter
-uplink-krav-maga-implant-desc = Allows the user to perform various Krav Maga moves.
+uplink-krav-maga-implant-name = SolCom Implanter
+uplink-krav-maga-implant-desc = Allows the user to perform various Solarian Combat moves.
 
 uplink-binary-implant-name = Binary Decoder Implanter
 uplink-binary-implant-desc = Lets the user tap into the silicons' binary channel. Talking on it is ill-advised though, at least until the AI goes malf.
@@ -283,6 +283,9 @@ uplink-autosurgeon-mantis-blade-desc = Modifies the user's arm to include the Ma
 
 uplink-autosurgeon-sandevistan-name = Sandevistan Autosurgeon
 uplink-autosurgeon-sandevistan-desc = Replaces the user's heart with Sandevistan, a synthetic organ that drastically increases the user's speed at the cost of their endurance. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
+uplink-autosurgeon-statveka-sandevistan-name = Statveka Sandevistan Autosurgeon
+uplink-autosurgeon-statveka-sandevistan-desc = Replaces the user's heart with a statveka Sandevistan, a synthetic organ that drastically increases the user's speed and reflex at the cost of their endurance. Unlike their normal counterpart, this one seemingly slows down time near the user. comes with a one-use autosurgeon for installation.
 
 uplink-davids-jacket-name = Edgerunner Jacket
 uplink-davids-jacket-desc = A jacket for those particularly interested in improving their bodies, just like you.

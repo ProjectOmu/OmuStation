@@ -43,9 +43,10 @@ alert-level-delta = Delta
 alert-level-delta-announcement = The station is currently under threat of imminent destruction. Crewmembers are advised to listen to heads of staff for more information.
 alert-level-delta-instructions = Crewmembers are advised to listen to heads of staff for more information.
 
+## DeltaV - Epsilon rewrite
 alert-level-epsilon = Epsilon
-alert-level-epsilon-announcement = Central Command has ordered the Epsilon security level on the station. Consider all contracts terminated.
-alert-level-epsilon-instructions = Consider all contracts terminated.
+alert-level-epsilon-announcement = Central Command has ordered the Epsilon security level on the station. Only orders from Central Command Officials are to be obeyed by the Station's Crew. Martial Law is now in effect.
+alert-level-epsilon-instructions = Crewmember are advised to await instructions from Central Command Personnel and to follow their orders when given.
 
 alert-level-omicron = Omicron
 alert-level-omicron-announcement = Station override activated. Await further orders from Central Command staff, stay in your departments.
@@ -60,3 +61,20 @@ alert-level-octarine-instructions = Crewmembers are advised to listen to heads o
 alert-level-honk = Honk
 alert-level-honk-announcement = A devious clown is on the loose and will cause cataclysmic damage if not executed! All crewmembers must collaborate in executing the clown if possible, or else evacuate.
 alert-level-honk-instructions = Crewmembers are advised to execute the clown.
+
+alert-level-amber = Amber
+alert-level-amber-announcement = There is an immediate station ending threat. All crewmembers are to be armed by any means and all non-essential personnel must assist Security and the Heads of Staff in the defence of the station.
+alert-level-amber-instructions = Crewmembers are to be armed to fight a station ending threat.
+alert-level-amber-locked = Amber alert is locked. It must be unlocked by command authorization or a station-ending threat before it can be activated.
+alert-level-amber-unlocked = Amber alert unlocked. It can now be activated from any communications console.
+alert-level-amber-no-id = No ID card detected. Hold or wear an ID to swipe.
+alert-level-amber-needs-command = Unlocking amber alert must be initiated with a Captain or Head of Security ID.
+alert-level-amber-first-swipe = First ID accepted. Swipe a second, different command ID to unlock the amber alert.
+alert-level-amber-same-id = That ID was already swiped. A second, different command ID is required.
+alert-level-amber-needs-second-command = The second ID must have command access.
+alert-level-amber-verb-text = Unlock Amber Alert
+alert-level-amber-verb-message = Swipe your ID to unlock amber alert so it can be activated. Requires a Captain or Head of Security ID plus a second, different command ID.
+alert-level-amber-authorized-initiated-announcement = Amber alert unlock initiated by {$name}.
+alert-level-amber-authorized-announcement = Amber alert has been unlocked by {$name}.
+alert-level-amber-unknown-name = Unknown
+alert-level-amber-unlocked-announcement = Amber alert has been unlocked and can now be activated from any communications console.

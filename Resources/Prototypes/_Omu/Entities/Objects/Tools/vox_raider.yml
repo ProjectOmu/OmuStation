@@ -1,0 +1,17 @@
+- type: entity
+  id: ToolboxVoxRaider
+  name: undetermined thieving toolbox
+  description: This is where your favorite thief's supplies lie. Try to remember which ones.
+  parent: [ BaseItem, BaseSetSelector, BaseMinorContraband ]
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/Toolboxes/toolbox_thief.rsi
+      state: icon
+    - type: SetSelector
+      possibleSets:
+        - ThiefBreacherSet
+        - ThiefChameleonSet
+        - ThiefSyndieSet
+        - ThiefCommunicatorSet
+        - ThiefSmugglerSet
+      maxSelectedSets: 1

@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [ClothingHeadBandBase, ClothingMaskBandCargo]
+  id: ClothingHeadBandCargo
+  name: cargo bandana
+
+- type: entity
+  parent: [ClothingHeadBandBase, ClothingMaskBandSecurity]
+  id: ClothingHeadBandSecurity
+  name: security bandana
+
+- type: entity
+  parent: [ClothingHeadBandBase, ClothingMaskBandRoboticist]
+  id: ClothingHeadBandRoboticist
+  name: roboticist bandana
+
+- type: entity
+  parent: [ClothingHeadBandBase, ClothingMaskBandJanitor]
+  id: ClothingHeadBandJanitor
+  name: janitor bandana
+
+- type: entity
+  parent: [ClothingHeadBandBase, ClothingMaskBandChemistry]
+  id: ClothingHeadBandChemistry
+  name: chemistry bandana
+
+- type: entity
+  parent: [ClothingHeadBandBase, ClothingMaskBandQuartermaster]
+  id: ClothingHeadBandQuartermaster
+  name: quartermaster's bandana
+
+- type: entity
+  parent: [ClothingHeadBandBase, ClothingMaskBandWhite]
+  id: ClothingHeadBandWhite
+  name: white bandana

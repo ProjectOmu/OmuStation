@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: job
@@ -42,7 +39,7 @@
   - !type:AddComponentSpecial
     components:
     - type: SurgerySpeedModifier
-      speedModifier: 1.25 # Same as Paramedic
+      speedModifier: 1.5
 
 - type: chameleonOutfit
   id: BrigmedicChameleonOutfit

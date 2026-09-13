@@ -5,6 +5,57 @@ uplink-hardsuit-cybersunsciencesuit-desc = A scientific reseach hardsuit meant t
 uplink-dislippler-name = Dislippler
 uplink-dislippler-desc = Standard-issue security disabler on Honk! Co. stations. Ultimate proof that God has abandoned us.
 
+uplink-reinforcement-radio-cyborg-medical-name = Syndicate Medical Cyborg Teleporter
+uplink-reinforcement-radio-cyborg-medical-desc =  A lean, mean killing machine with access to an Medical beamgun, Cryptographic Sequencer, and a Pinpointer.
+
+uplink-blueprint-exosuit-fabricator-syndie-module-basic-name = Basic Syndicate Cyborg module blueprint
+uplink-blueprint-exosuit-fabricator-syndie-module-basic-desc = A blueprint for basic syndicate cyborg modules. Works in Exosuit Fabricators.
+
+uplink-blueprint-exosuit-fabricator-syndie-module-advanced-name = Advanced Syndicate Cyborg module blueprint
+uplink-blueprint-exosuit-fabricator-syndie-module-advanced-desc = A blueprint for advanced syndicate cyborg modules. Works in Exosuit Fabricators.
+
+uplink-blueprint-exosuit-fabricator-syndie-module-assault-name = Assault Syndicate Cyborg module blueprint
+uplink-blueprint-exosuit-fabricator-syndie-module-assault-desc = A blueprint for assault syndicate cyborg modules. Works in Exosuit Fabricators.
+
+uplink-blueprint-exosuit-fabricator-syndie-chassis-name = Syndicate Cyborg Chassis blueprint
+uplink-blueprint-exosuit-fabricator-syndie-chassis-desc = A blueprint for syndicate cyborg chassis. Works in Exosuit Fabricators.
+
 uplink-swordfish-name = Blood Red Swordfish
 uplink-swordfish-desc = A terrifying weapon made for the Thaven operatives. This fish is wielded like a rapier. It pierces armor and it can perform a dash attack.
 
+uplink-shoalmask-name = Shoal Infiltration Mask
+uplink-shoalmask-desc = A padded steel gas mask designed for Shoal Infiltrators, provides quiet door prying and thermal vision.
+
+uplink-shredder-name = Shredder
+uplink-shredder-desc = A razor-sharp rock guitar which delivers deadly shocks while providing you with increased speed and healing while wielded. Anyone wearing blood-red headphones nearby will also gain the same boost!
+
+uplink-shredder-bundle-name = Shredder Bundle
+uplink-shredder-bundle-desc = Contains a Shredder, and 6 blood-red headphones so everyone can enjoy the benefits of the music.
+
+uplink-bloodred-headphones-name = Blood-red Headphones
+uplink-bloodred-headphones-desc = Looks stylish, and synergizes with the Shredder.
+
+uplink-hobbyist-spellbook-name = Hobbyist Spell Book
+uplink-hobbyist-spellbook-desc = A book given out by the Wizard Federation to get avid fanatics to finally shut up. Contains the spells: Spark, Cure Wounds, Conjure Peel, Abracaweh, and Lessest Magic Missile.
+
+uplink-sniper-penman-name = LRR-30 "Penman" DMR
+uplink-sniper-penman-desc = A prized long range product of Waffle Co. able to down targets fast and accurately at medium to long ranges. Chambered in .30 long rifle magnum, fires in semi-auto, has a medium strength optic.
+
+uplink-ammo-longrifle-name = Box of .30 Long Rifle Magnum
+uplink-ammo-longrifle-desc = A box of ammunition used as ammo by the Kardashev-Mosin and LRR-30 "Penman" DMR.
+
+uplink-xeno-compatibility-implanter-name = Xeno Compatibility Implanter
+uplink-xeno-compatibility-implanter-desc = An implant that allows the user to make use of xenomorph organs.
+
+uplink-hypnoflash-name = Hypnoflash
+uplink-hypnoflash-desc = A disguised flash that outputs a special flash sequence coded to make the individual compliant to orders... It's mind control. Only works on those already suggestible, like drunks, drugged or the sleeping! Comes with a preloaded script to ensure loyalty, but also has enough space to provide one custom order, settable in the device!
+
+uplink-BloodredVim-name = Cybersun Combat Vim
+uplink-BloodredVim-desc = A specialised prototype developed by cybersun for specialised mouse operatives. The project was shelved after the market collapsed. Armed with a rocket-launcher and short range retro-rockets for speedboosts and maneuvering. It makes for a terrifying, if small, foe.
+
+# Should this be in uplink since we have the implant now? who knows, but lets make the FTL work for now.
+uplink-voice-mask-name = Voice Mask
+uplink-voice-mask-desc = A gas mask that lets you adjust your voice to whoever you can think of. Also utilizes cutting-edge chameleon technology.
+
+uplink-fake-taiwan-pond-bundle-name = Taiwan Pond Bundle
+uplink-fake-taiwan-pond-bundle-desc = A China lake painted to look like a Taiwan Pond, Comes with two 40mm slugs, two 40mm birdshot grenades and a few 40mm prank grenades.

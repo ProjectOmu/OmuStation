@@ -1,11 +1,6 @@
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Content.Server.Body.Systems;
@@ -31,6 +26,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 using Content.Shared.HealthExaminable;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Shitmed.PartStatus;
@@ -142,10 +138,10 @@ public sealed class PartStatusSystem : EntitySystem
 
         foreach (var woundable in _woundSystem.GetAllWoundableChildren(rootPart))
         {
-            if (!TryComp<BodyPartComponent>(woundable, out var bodyPartComponent) ||
-                !TryComp<BoneComponent>(woundable.Comp.Bone.ContainedEntities.FirstOrNull(), out var bone))
+            if (!TryComp<BodyPartComponent>(woundable, out var bodyPartComponent)) // Omu: Boneless Fix
                 continue;
 
+            TryComp<BoneComponent>(woundable.Comp.Bone.ContainedEntities.FirstOrNull(), out var bone); // Omu: Boneless Fix
             var partName = bodyPartComponent.ParentSlot?.Id ?? bodyPartComponent.PartType.ToString().ToLower();
             var (damageSeverities, isBleeding) = AnalyzeWounds(woundable);
 
@@ -155,7 +151,7 @@ public sealed class PartStatusSystem : EntitySystem
                 partName,
                 woundable.Comp.WoundableSeverity,
                 damageSeverities,
-                bone.BoneSeverity,
+                bone?.BoneSeverity ?? BoneSeverity.None, // Omu: Boneless Fix
                 isBleeding));
         }
 
