@@ -83,6 +83,8 @@
   - type: GasDepositExtractor
     extractionRate: 50 # 50 mol/s => 20 kmol in ~6.6 min
     port: outlet
+  - type: CrawlableNode # Omu - node crawling
+    reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 
 - type: entity
   parent: [ BaseMachinePowered ]
@@ -134,6 +136,8 @@
         occludes: True
         ents: []
   - type: AtmosDevice
+  - type: CrawlableNode # Omu - node crawling
+    reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 
 - type: entity
   parent: [ GasSalePoint, BaseGaslock ]
@@ -172,3 +176,5 @@
         docked-unlit:
           True: { visible: true }
           False: { visible: false }
+  - type: CrawlableNode # Omu - node crawling
+    reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
