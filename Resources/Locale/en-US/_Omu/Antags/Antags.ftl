@@ -1,6 +1,6 @@
 role-subtype-Chimera = Chimera
 roles-antag-Chimera-objective = Spread the infection, convert all life.
-leto-role-greeting = You know what you signed up for, take the provided pill or syringe and begin the infection. Convert all life you can.
+leto-role-greeting = You know what you signed up for. Do what you will with the provided pill and bottle. Infect everything.
 letoinfected = Letoferol Agent
 
 admin-verb-make-chimera = Makes a target into an initial chimera
