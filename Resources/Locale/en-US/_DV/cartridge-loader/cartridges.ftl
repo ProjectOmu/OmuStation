@@ -174,6 +174,7 @@ nano-chat-loading = Loading...
 nano-chat-message-too-long = Message too long ({$current}/{$max} characters)
 nano-chat-max-recipients = Maximum number of chats reached
 nano-chat-new-message-title = Message from {$sender}
+nano-chat-new-message-title-recipient = {$sender} ({$jobTitle})
 nano-chat-new-message-body = {$message}
 nano-chat-toggle-mute = Mute notifications
 nano-chat-delivery-failed = Failed to deliver
