@@ -78,7 +78,7 @@
       301: 0.9
       295: 0.8
       285: 0.7
-  - type: Wagging
+  - type: ToggleableWagging # Omu
   - type: Inventory
     speciesId: reptilian
     # WWDP-Edit-Start
@@ -121,7 +121,7 @@
   parent: BaseSpeciesDummy
   id: MobReptilianDummy
   categories: [ HideSpawnMenu ]
-  description: A dummy reptilian meant to be used in character setup.
+  description: A dummy unathi meant to be used in character setup. # Omu unathi
   components:
   - type: HumanoidAppearance
     species: Reptilian
