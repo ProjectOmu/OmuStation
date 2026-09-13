@@ -5,6 +5,8 @@
   name: gang sign
   description: A gang sign, used by gang members to mark their territory. Its not a good idea to stand here, probably.
   components:
+  - type: Transform #Omu
+    anchored: true #Omu
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: _Goobstation/Gangs/gang_tags.rsi
