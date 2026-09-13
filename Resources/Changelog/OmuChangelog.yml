@@ -7408,3 +7408,132 @@ Entries:
       message: Fixed the uplink description for .30 rifle ammo box
   id: 960
   time: '2026-09-11T21:33:29.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: >-
+        Added chimera as a proper gamerule - polish pending, go forth and
+        fleshbeast
+    - type: Tweak
+      message: Chimera now take damage from overheating
+  id: 961
+  time: '2026-09-11T23:34:26.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Add
+      message: >-
+        All departmental lathes start with 30 steel, plastic, and glass so that
+        departments can function for the first 20 minutes without begging cargo.
+  id: 962
+  time: '2026-09-12T01:31:50.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: >-
+        Changed red alert SOP. It should only be called for threats that risk
+        major crew death or the station's structure. Make sure to read it fully!
+  id: 963
+  time: '2026-09-12T01:38:18.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: >-
+        Changed ventcrawling to a new system from DV, it should be more stable
+        to use now.
+  id: 964
+  time: '2026-09-12T20:53:40.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: >-
+        head side markings should show up over hair now. elf ears shouldnt look
+        so scuffed now
+  id: 965
+  time: '2026-09-13T00:51:14.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Raised chimera chaos score
+    - type: Tweak
+      message: Replaced initial letoferol syringe with a 30u bottle of it
+  id: 966
+  time: '2026-09-13T01:49:00.0000000+00:00'
+- author: Willzile1
+  changes:
+    - type: Fix
+      message: Virologist and Sargent Spawns have been added to Box
+  id: 967
+  time: '2026-09-13T11:08:06.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Hyperzine has its former 0.25u/s metabolism rate, which should make
+        hyperzine last as long as it did pre-upstream.
+  id: 968
+  time: '2026-09-13T13:37:04.0000000+00:00'
+- author: LunaTheFox
+  changes:
+    - type: Remove
+      message: Letoferol from secondary spawn table
+    - type: Tweak
+      message: Letoferol spawnrate on primary table from 0.08 to 0.04
+  id: 969
+  time: '2026-09-13T13:37:50.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: Feroxi lungs are now indestructible.
+  id: 970
+  time: '2026-09-13T13:55:56.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Squakroach density fixed so they no longer become hotter than the sun
+  id: 971
+  time: '2026-09-13T13:56:39.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Add
+      message: Aghost now starts with a medical omnitool and an omnitool
+  id: 972
+  time: '2026-09-13T14:45:35.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: The S1 "Pnuey" shotgun should properly inject fired syringes now.
+  id: 973
+  time: '2026-09-13T14:57:51.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: Arachnid now only have one organ of each type
+  id: 974
+  time: '2026-09-13T17:01:16.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: Graytide spear needs to be wielded to make clones now
+    - type: Fix
+      message: Graytide spear can no longer duplicate items
+  id: 975
+  time: '2026-09-13T17:20:22.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Tweak
+      message: >-
+        Salic, oxan, dex, and dex+ can no longer heal damage dealt by their own
+        overdoses and are overall more dangerous to overdose. Salic and oxan
+        have their ODs lowered to 12u each.
+  id: 976
+  time: '2026-09-13T17:25:17.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the resistance values of the Paramedic Hardsuit to focus more on
+        environmental protection. Now a proper sidegrade to the modsuit.
+    - type: Fix
+      message: The Xiézhù Hardsuit Helmet no longer lacks resistances.
+  id: 977
+  time: '2026-09-13T18:48:57.0000000+00:00'
