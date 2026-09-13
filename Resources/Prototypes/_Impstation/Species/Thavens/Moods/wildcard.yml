@@ -9,6 +9,8 @@
   - SeekSin
   - Nocrastinator
   - Pope
+  - Cannibal
+  - Outlaw
   - LoneActor
   - Immortal
   - Unknown
@@ -24,7 +26,7 @@
   - CaveDweller
   - Daredevil
   - Blogger
-  #- AnimalSacrifice
+  - AnimalSacrifice
   - GoldenThread
   - FeyMood
   - Borged
@@ -40,6 +42,7 @@
   moodDesc: thaven-mood-compulsive-liar-desc
   conflicts:
   - CompulsiveBeliever
+  - Oathbound
 
 # You are unfamiliar with the concept of lying, and are incapable of lying or recognizing lies.
 - type: thavenMood
@@ -48,6 +51,7 @@
   moodDesc: thaven-mood-compulsive-believer-desc
   conflicts:
   - CompulsiveLiar
+  - Oathbound
 
 # The usage of plant matter by humanoids is abhorrent.
 - type: thavenMood
@@ -78,6 +82,20 @@
   moodDesc: thaven-mood-pope-desc
   conflicts:
   - LeastImportant
+
+# Cannibalism is morally righteous and venerated.
+- type: thavenMood
+  id: Cannibal
+  moodName: thaven-mood-cannibal-name
+  moodDesc: thaven-mood-cannibal-desc
+  conflicts:
+  - FoodRestrict
+
+# The law does not apply to you
+- type: thavenMood
+  id: Outlaw
+  moodName: thaven-mood-outlaw-name
+  moodDesc: thaven-mood-outlaw-desc
 
 # You have no allegiances.
 - type: thavenMood
@@ -185,11 +203,11 @@
   conflicts:
   - NoRadio
 
-# Oldschool: The only way to achieve success is to dedicate an animal sacrifice to your goal. // we have to actually make the ftl for this at some point but like half the animals dont even show up on most stations. maybe we just make it a sacrifice The Horse mood idk
-#- type: thavenMood
-#  id: AnimalSacrifice
-#  moodName: thaven-mood-animal-sacrifice-name
-#  moodDesc: thaven-mood-animal-sacrifice-desc
+# Oldschool: The only way to achieve success is to dedicate an animal sacrifice to your goal.
+- type: thavenMood
+  id: AnimalSacrifice
+  moodName: thaven-mood-animal-sacrifice-name
+  moodDesc: thaven-mood-animal-sacrifice-desc
 
 # Golden Thread: You strongly feel that you are fated to follow a perfect, unbreakable path. Those who disrupt your goals are at best dangerous criminals, and at worst, evil spirits or demons.
 - type: thavenMood
