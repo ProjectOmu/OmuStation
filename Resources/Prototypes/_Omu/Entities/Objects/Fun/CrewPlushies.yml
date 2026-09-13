@@ -102,3 +102,81 @@
     wideAnimationRotation: 180
     soundHit:
       collection: VulpkaninScreams
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieJessieFletcherOmuCrew
+  name: Jessie Fletcher plushie
+  description: This plushie looks like it'll treat your injuries with surgery most of the time. It can regularly be seen asking the captain weh plush for acting CMO.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/jessiefletcher.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/jessiefletcher.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/jessiefletcher.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnUse
+    sound:
+      collection: VulpYips
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: VulpYips
+  - type: EmitSoundOnThrow
+    sound:
+      collection: VulpkaninScreams
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: VulpkaninScreams
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieGnashOmuCrew
+  name: gnash plushie
+  description: A red Avali, dresses up as atmospheric technician. You taste metal and smell ammonia near it.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/gnash.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/gnash.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/gnash.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_scream.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/Gasp/male_deathgasp_3.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Effects/bite.ogg
