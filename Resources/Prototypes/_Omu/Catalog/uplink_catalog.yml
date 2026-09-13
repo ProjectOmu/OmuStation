@@ -193,9 +193,20 @@
   icon: { sprite: _Omu/Objects/Weapons/Guns/Snipers/penman.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateFilledPenman
   cost:
-    Telecrystal: 50
+    Telecrystal: 60
   categories:
   - UplinkWeaponry
+
+- type: listing
+  id: UplinkMagazineLongRifle
+  name: uplink-magazine-longrifle-name
+  description: uplink-magazine-longrifle-desc
+  icon: { sprite: _Omu/Objects/Weapons/Guns/Ammunition/Magazine/longrifle.rsi, state: base }
+  productEntity: MagazineLongRifle
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkAmmo
 
 - type: listing
   id: UplinkAmmoLongRifle
