@@ -31,9 +31,8 @@ public sealed partial class NanoChatEntry : BoxContainer
         _pressHandler = _ => OnPressed?.Invoke(_number);
         ChatButton.OnPressed += _pressHandler;
 
-        // Funky Station - Added "Unknown" fallback for name, was having weird issues when implementing group chats.
-        NameLabel.Text = SharedNanoChatSystem.Truncate(recipient.Name ?? "Unknown", 30);
-        JobLabel.Text = SharedNanoChatSystem.Truncate(recipient.JobTitle ?? "", 30);
+        NameLabel.Text = recipient.Name;
+        JobLabel.Text = recipient.JobTitle ?? "";
         JobLabel.Visible = !string.IsNullOrEmpty(recipient.JobTitle);
         UnreadIndicator.Visible = recipient.HasUnread;
 
