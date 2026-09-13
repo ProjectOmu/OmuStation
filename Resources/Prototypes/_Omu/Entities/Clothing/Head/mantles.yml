@@ -36,7 +36,7 @@
     sprite: _Omu/Clothing/Head/mantle.rsi
     clothingVisuals:
       head:
-      - state: helmet
+      - state: helmet-default
       - state: eyes
         shader: unshaded
   - type: HideLayerClothing
@@ -99,7 +99,7 @@
     sprite: _Omu/Clothing/Head/mantle.rsi
     clothingVisuals:
       head:
-      - state: helmet
+      - state: helmet-default
       - state: helmet-internals
       - state: eyes
         shader: unshaded
@@ -116,7 +116,9 @@
   - type: PressureProtection
     highPressureMultiplier: 0.1
     lowPressureMultiplier: 1000
-
+  - type: Tag
+    tags:
+    - WorkMantle
 # slight resprite of the work mantle for engineers.
 - type: entity
   id: ClothingCyberneticBeastMantleWorkEngineering
@@ -128,7 +130,7 @@
     sprite: _Omu/Clothing/Head/mantle.rsi
     clothingVisuals:
       head:
-      - state: helmet-engineering
+      - state: helmet-default
       - state: helmet-internals
       - state: eyes-engineering
         shader: unshaded
@@ -260,7 +262,7 @@
     clothingVisuals:
       head:
       - state: helmet-hos
-      - state: eyes-hos
+      - state: eyes-security
         shader: unshaded
   - type: Armor # Gives the same level of protection as the security beret.
     coverage:
@@ -344,6 +346,62 @@
     - type: ShowCriminalRecordIcons
     - type: ShowContrabandDetails
 
+- type: entity
+  id: ClothingCyberneticBeastSpaceMantleSecurity
+  parent: [ClothingCyberneticBeastMantleWorkResearch, BaseSecurityContraband]
+  name: cybernetic beast's space security mantle
+  description: A further upgraded variant of the security mantle, now with spaceproofing.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    state: icon-space-security
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    clothingVisuals:
+      head:
+      - state: helmet-security
+      - state: helmet-internals-security
+      - state: eyes-security
+        shader: unshaded
+  - type: Armor # Gives the same level of protection as the security beret.
+    coverage:
+    - Head
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.8
+  - type: ComponentToggler # copied from the parent with some additions.
+    components:
+    - type: VisionCorrection
+      correctionPower: 16
+    - type: NightVision
+      isEquipment: true
+      color: "#CCFFCC"
+    - type: FlashImmunity
+    - type: EyeProtection
+      protectionTime: 5
+    - type: FlashSoundSuppression
+    - type: ShowJobIcons
+    - type: ShowMindShieldIcons
+    - type: ShowCriminalRecordIcons
+    - type: ShowContrabandDetails
+    - type: BreathMask
+  - type: IngestionBlocker # Work mantles, at least those with internals, make the cybernetic beast trait far more valuable to roles with these specialized mantles than those without. To offset this, at least a little, we'll say that the seals on the mantle make it impossible to eat while it's worn.
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: Construction
+    graph: ClothingCyberneticBeastSpaceMantleSecurity
+    node: helmet
+
 # resprite of the standard mantle with a medsec hud.
 - type: entity
   id: ClothingCyberneticBeastMantleCorpsman
@@ -358,8 +416,8 @@
     sprite: _Omu/Clothing/Head/mantle.rsi
     clothingVisuals:
       head:
-      - state: helmet-corpsman
-      - state: eyes-corpsman
+      - state: helmet-security
+      - state: eyes-security
         shader: unshaded
   - type: Armor # Gives the same level of protection as the security beret.
     coverage:
@@ -394,6 +452,65 @@
     - type: ShowHealthIcons
     - type: ShowDiseaseIcons
 
+# CORPSMAN IN SPACE
+- type: entity
+  id: ClothingCyberneticBeastSpaceMantleCorpsman
+  parent: [ClothingCyberneticBeastMantleWorkResearch, BaseBrigmedicContraband]
+  name: cybernetic beast's space corpsman mantle
+  description: An upgraded version of the corpsman mantle, fit for spacewalking.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    state: icon-corpsman-space
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    clothingVisuals:
+      head:
+      - state: helmet-security
+      - state: helmet-internals-security
+      - state: eyes-security
+        shader: unshaded
+  - type: Armor
+    coverage:
+    - Head
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.8
+  - type: ComponentToggler # copied from the parent with some additions.
+    components:
+    - type: VisionCorrection
+      correctionPower: 16
+    - type: NightVision
+      isEquipment: true
+      color: "#CCFFCC"
+    - type: FlashImmunity
+    - type: EyeProtection
+      protectionTime: 5
+    - type: FlashSoundSuppression
+    - type: ShowJobIcons
+    - type: ShowMindShieldIcons
+    - type: ShowCriminalRecordIcons
+    - type: ShowHealthBars
+    - type: ShowHealthIcons
+    - type: ShowDiseaseIcons
+    - type: BreathMask
+  - type: IngestionBlocker # Work mantles, at least those with internals, make the cybernetic beast trait far more valuable to roles with these specialized mantles than those without. To offset this, at least a little, we'll say that the seals on the mantle make it impossible to eat while it's worn.
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: Construction
+    graph: ClothingCyberneticBeastSpaceMantleCorpsman
+    node: helmet
+
 # resprite of the standard mantle with a medhud.
 - type: entity
   id: ClothingCyberneticBeastMantleMedical
@@ -408,8 +525,8 @@
     sprite: _Omu/Clothing/Head/mantle.rsi
     clothingVisuals:
       head:
-      - state: helmet-medical
-      - state: eyes-medical
+      - state: helmet-round
+      - state: eyes-med
         shader: unshaded
   - type: ComponentToggler # copied from the parent with some additions.
     components:
@@ -436,9 +553,9 @@
     sprite: _Omu/Clothing/Head/mantle.rsi
     clothingVisuals:
       head:
-      - state: helmet-medical
+      - state: helmet-round
       - state: helmet-internals-medical
-      - state: eyes-medical
+      - state: eyes-med
         shader: unshaded
   - type: IngestionBlocker
   - type: PressureProtection
@@ -472,7 +589,7 @@
     clothingVisuals:
       head:
       - state: helmet-cmo
-      - state: eyes-cmo
+      - state: eyes-med
         shader: unshaded
   - type: ComponentToggler
     components:
@@ -506,8 +623,8 @@
     sprite: _Omu/Clothing/Head/mantle.rsi
     clothingVisuals:
       head:
-      - state: helmet-chem
-      - state: eyes-chem
+      - state: helmet-round
+      - state: eyes-med
         shader: unshaded
   - type: ComponentToggler
     components:
@@ -633,7 +750,7 @@
     clothingVisuals:
       head:
       - state: helmet-rd
-      - state: eyes-rd
+      - state: eyes-med
         shader: unshaded
   - type: ComponentToggler # copied from the parent with some additions.
     components:
@@ -815,7 +932,7 @@
     sprite: _Omu/Clothing/Head/mantle.rsi
     clothingVisuals:
       head:
-      - state: helmet-bar
+      - state: helmet-round
       - state: eyes-bar
         shader: unshaded
   - type: ComponentToggler
@@ -843,8 +960,8 @@
     sprite: _Omu/Clothing/Head/mantle.rsi
     clothingVisuals:
       head:
-      - state: helmet-robo
-      - state: eyes-robo
+      - state: helmet-default
+      - state: eyes-med
         shader: unshaded
   - type: ComponentToggler
     components:
@@ -873,12 +990,15 @@
     sprite: _Omu/Clothing/Head/mantle.rsi
     clothingVisuals:
       head:
-      - state: helmet
+      - state: helmet-default
       - state: helmet-internals
       - state: eyes
         shader: unshaded
   # - type: StealTarget # Omu ?????
   #  stealGroup: None
+  - type: Tag
+    tags:
+    - WorkMantle
 
 # Janimantle - DO NOT ROUNDSTART. cleanhud is advanced janitorial research
 - type: entity
@@ -894,8 +1014,8 @@
     sprite: _Omu/Clothing/Head/mantle.rsi
     clothingVisuals:
       head:
-      - state: helmet-janitor
-      - state: eyes-janitor
+      - state: helmet-default
+      - state: eyes-med
         shader: unshaded
   - type: ComponentToggler
     components:

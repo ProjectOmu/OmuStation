@@ -51,6 +51,8 @@ public sealed class GermanAccentSystem : EntitySystem
             msgBuilder[match.Index] = (char) (msgBuilder[match.Index] + 6);
         }
 
+        /* Omu: get rid of the random umlauts because they don't make sense
+
         // Random Umlaut Time! (The joke outweighs the emotional damage this inflicts on actual Germans)
         var umlautCooldown = 0;
         for (var i = 0; i < msgBuilder.Length; i++)
@@ -77,6 +79,8 @@ public sealed class GermanAccentSystem : EntitySystem
                 umlautCooldown--;
             }
         }
+
+        */ // Omu end
 
         return msgBuilder.ToString();
     }

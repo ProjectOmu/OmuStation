@@ -34,6 +34,14 @@ public sealed partial class MeleeSpeechComponent : Component
     /// The action to open the battlecry UI
     /// </summary>
     [DataField("configureActionEntity")] public EntityUid? ConfigureActionEntity;
+
+    // Omu start
+    [DataField, AutoNetworkedField]
+    public string? TitleBar;
+
+    [DataField, AutoNetworkedField]
+    public string? DescriptorBar;
+    // Omu end
 }
 
 /// <summary>
