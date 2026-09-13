@@ -39,10 +39,10 @@ public sealed class OmuSharedStunSystem : EntitySystem
 
         if (result == true)
         {
-            var msgOthers = Loc.GetString(component.MessagePerceivedByOthers,
-                ("user", Identity.Entity(user, EntityManager)), ("target", Identity.Entity(uid, EntityManager)));
+            // var msgOthers = Loc.GetString(component.MessagePerceivedByOthers,
+            //    ("user", Identity.Entity(user, EntityManager)), ("target", Identity.Entity(uid, EntityManager)));
             _popup.PopupClient(Loc.GetString("shakeable-popup-message-others"), args.User, args.Actor);
-            _popup.PopupEntity(msgOthers, uid, Filter.PvsExcept(user, entityManager: EntityManager), true);
+            // _popup.PopupEntity(msgOthers, uid, Filter.PvsExcept(user, entityManager: EntityManager), true);
         }
     }
 }
