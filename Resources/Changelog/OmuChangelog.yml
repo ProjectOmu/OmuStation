@@ -7464,3 +7464,43 @@ Entries:
       message: Virologist and Sargent Spawns have been added to Box
   id: 967
   time: '2026-09-13T11:08:06.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Hyperzine has its former 0.25u/s metabolism rate, which should make
+        hyperzine last as long as it did pre-upstream.
+  id: 968
+  time: '2026-09-13T13:37:04.0000000+00:00'
+- author: LunaTheFox
+  changes:
+    - type: Remove
+      message: Letoferol from secondary spawn table
+    - type: Tweak
+      message: Letoferol spawnrate on primary table from 0.08 to 0.04
+  id: 969
+  time: '2026-09-13T13:37:50.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: Feroxi lungs are now indestructible.
+  id: 970
+  time: '2026-09-13T13:55:56.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Squakroach density fixed so they no longer become hotter than the sun
+  id: 971
+  time: '2026-09-13T13:56:39.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Add
+      message: Aghost now starts with a medical omnitool and an omnitool
+  id: 972
+  time: '2026-09-13T14:45:35.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: The S1 "Pnuey" shotgun should properly inject fired syringes now.
+  id: 973
+  time: '2026-09-13T14:57:51.0000000+00:00'
