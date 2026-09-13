@@ -174,7 +174,7 @@ public sealed class MoraleSystem : EntitySystem
 
         if (mind is { UserId: not null } && _player.TryGetSessionById(mind.UserId, out var session))
         {
-            _antag.SendBriefing(session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
+            _antag.SendBriefing(session, Loc.GetString("rev-role-greeting-omu"), Color.Red, revComp.RevStartSound); //Omu changed localisation
         }
         RemComp<MoraleComponent>(ent);
         return true;

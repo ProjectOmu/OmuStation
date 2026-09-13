@@ -104,9 +104,8 @@ public sealed class BookConverterSystem : EntitySystem
         if (user == target)
             return;
 
-        if (SpeakPropaganda(converter, user)
-            // Note: this check is skipped if the speaker speaks lines and somehow doesn't have a languageSpeaker component.
-            && EntityManager.TryGetComponent<LanguageSpeakerComponent>(user, out var speakerComponent)) // returns true if the chosen conversion method uses a spoken line of text
+        if (EntityManager.TryGetComponent<LanguageSpeakerComponent>(user, out var speakerComponent) && SpeakPropaganda(converter, user)) // returns true if the chosen conversion method uses a spoken line of text
+        // Note: this check is skipped if the speaker speaks lines and somehow doesn't have a languageSpeaker component.
         {
             //check if spoken language can be understood by target
             if (!_language.CanUnderstand(target, speakerComponent.CurrentLanguage))

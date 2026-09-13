@@ -158,11 +158,11 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         //RaiseLocalEvent(pda.Value, ref ev);
         //code = Comp<RingerUplinkComponent>(pda.Value).Code;
 
-        _antag.SendBriefing(traitor, Loc.GetString("head-rev-role-greeting"), Color.Red, null);
+        _antag.SendBriefing(traitor, Loc.GetString("head-rev-role-greeting-omu"), Color.Red, null);     //Omu changed localisation
 
         if (_role.MindHasRole<RevolutionaryRoleComponent>(mindId, out var revRoleComp))
             //if (code != null) // Omu, if this is null something has gone wrong.
-                AddComp(revRoleComp.Value, new RoleBriefingComponent { Briefing = Loc.GetString("head-rev-briefing") }, overwrite: true);
+                AddComp(revRoleComp.Value, new RoleBriefingComponent { Briefing = Loc.GetString("head-rev-briefing-omu") }, overwrite: true);
             //else
             //    return false; // Omu, if this happens something has gone wrong.
         return true;
@@ -324,7 +324,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         if (!head)
         {
-            args.Append(Loc.GetString("rev-briefing"));
+            args.Append(Loc.GetString("rev-briefing-omu"));     //Omu changed localisation
         }
     }
 
