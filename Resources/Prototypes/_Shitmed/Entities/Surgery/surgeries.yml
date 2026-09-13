@@ -1118,7 +1118,7 @@
   - type: SurgeryOrganOnAddCondition
     components:
       brain:
-      - type: OhioAccent
+      # - type: OhioAccent # Omu
       - type: RatvarianLanguage
       - type: Clumsy
     inverse: true
@@ -1142,7 +1142,7 @@
   - type: SurgeryOrganOnAddCondition
     components:
       brain:
-      - type: OhioAccent
+      # - type: OhioAccent # Omu
       - type: RatvarianLanguage
       - type: Clumsy
   - type: SurgeryPartCondition
