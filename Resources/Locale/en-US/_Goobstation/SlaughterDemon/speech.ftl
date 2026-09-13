@@ -4,7 +4,9 @@ accent-demonic-words-replace-1 = rotting carcass
 accent-demonic-words-2 = dwarf
 accent-demonic-words-replace-2 = stubborn mound of grime
 
-accent-demonic-words-3 = reptilian
+# Omu: change reptilian to unathi
+accent-demonic-words-3 = unathi
+# Omu end
 accent-demonic-words-replace-3 = slithering abomination
 
 accent-demonic-words-4 = slime
