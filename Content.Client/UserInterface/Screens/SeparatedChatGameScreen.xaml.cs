@@ -12,7 +12,7 @@ namespace Content.Client.UserInterface.Screens;
 [GenerateTypedNameReferences]
 public sealed partial class SeparatedChatGameScreen : InGameScreen
 {
-    private bool _isFlipped;
+    private bool _isFlipped;  // Omu
     public const string StyleClassChatContainer = "ChatContainer";
     public const string StyleClassChatOutput = "ChatOutput";
 
@@ -38,6 +38,7 @@ public sealed partial class SeparatedChatGameScreen : InGameScreen
         ViewportContainer.OnResized += ResizeActionContainer;
     }
 
+     // Omu start
     public void FlipScreen(ScreenType type)
     {
         var shouldBeLeft = type == ScreenType.SeparatedLeft;
@@ -48,6 +49,7 @@ public sealed partial class SeparatedChatGameScreen : InGameScreen
         ScreenContainer.Flip();
         _isFlipped = shouldBeLeft;
     }
+// Omu end
 
     private void ResizeActionContainer()
     {

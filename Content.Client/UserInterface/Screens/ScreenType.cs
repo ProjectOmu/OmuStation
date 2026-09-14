@@ -15,5 +15,5 @@ public enum ScreenType
     /// <summary>
     ///     The classic SS13 user interface but left.
     /// </summary>
-    SeparatedLeft
+    SeparatedLeft  // Omu
 }
