@@ -36,6 +36,15 @@
     jumpsuit: CentcomAgentSkirt
   groupBy: "jumpskirt"
 
+# Neck
+- type: loadout
+  id: NanotrasenRepresentativeOffcoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterNTR
+  equipment:
+    neck: ClothingNeckCloakNTR
+
 # Outer Clothing
 - type: loadout
   id: NanotrasenRepresentativeWintercoat
