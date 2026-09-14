@@ -30,6 +30,7 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedNanoChatSystem _nanoChat = default!;
+    // [Dependency] private readonly StationSystem _station = default!; // Omu
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly IConfigurationManager _cfgManager = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
@@ -373,12 +374,40 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
                 if (receiverCart.Card != recipient.Owner)
                     continue;
 
+                /*
+                // Check if devices are on same station/map
+                var recipientStation = _station.GetOwningStation(receiverUid);
+                var senderStation = _station.GetOwningStation(sender);
+                */
+
                 var receiverMapId = Transform(receiverUid).MapID;
                 var senderMapId = Transform(sender).MapID;
+
+                /*
+                // Both entities must be on a station
+                if (recipientStation == null || senderStation == null)
+                    continue;
+
+                // Must be on same map/station unless long range allowed
+                if (!channel.LongRange && recipientStation != senderStation)
+                    continue;
+
+                // Needs telecomms
+                if (!HasActiveServer(senderStation.Value) || !HasActiveServer(recipientStation.Value))
+                    continue;
+                */
 
                 // Must be on the same map unless long range is allowed.
                 if (!channel.LongRange && receiverMapId != senderMapId)
                     continue;
+
+                /*
+                // Check if recipient can receive
+                var receiveAttemptEv = new RadioReceiveAttemptEvent(channel, sender, receiverUid);
+                RaiseLocalEvent(ref receiveAttemptEv);
+                if (receiveAttemptEv.Cancelled)
+                    continue;
+                */
 
                 // Check if recipient can receive
                 if (!CanReceive(sender, receiverUid))
@@ -392,6 +421,26 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
 
         return (deliverableRecipients.Count == 0, deliverableRecipients);
     }
+
+    /*
+    /// <summary>
+    ///     Checks if there are any active telecomms servers on the given station
+    /// </summary>
+    private bool HasActiveServer(EntityUid station)
+    {
+        // I have no idea why this isn't public in the RadioSystem
+        var query =
+            EntityQueryEnumerator<TelecomServerComponent, EncryptionKeyHolderComponent, ApcPowerReceiverComponent>();
+
+        while (query.MoveNext(out var uid, out _, out _, out var power))
+        {
+            if (_station.GetOwningStation(uid) == station && power.Powered)
+                return true;
+        }
+
+        return false;
+    }
+    */
 
     /// <summary>
     ///     Tests if a NanoChat cartridge can send messages
