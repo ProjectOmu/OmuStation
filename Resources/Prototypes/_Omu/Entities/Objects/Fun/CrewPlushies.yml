@@ -43,6 +43,29 @@
     sprite: _Omu/Objects/Fun/Plushies/Soozie-Bluoobus.rsi
     slots:
     - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: Squishes
+  - type: EmitSoundOnUse
+    sound:
+      collection: SlimeFemaleLaughs
+  - type: EmitSoundOnActivate
+    sound:
+      collection: SlimeFemaleLaughs
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: Pops
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: EmitSoundOnThrow
+    sound:
+      collection: SlimeFemaleScreams
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: SlimeFemaleScreams
 
 - type: entity
   parent: BasePlushie
