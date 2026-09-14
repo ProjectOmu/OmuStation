@@ -7464,3 +7464,166 @@ Entries:
       message: Virologist and Sargent Spawns have been added to Box
   id: 967
   time: '2026-09-13T11:08:06.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Hyperzine has its former 0.25u/s metabolism rate, which should make
+        hyperzine last as long as it did pre-upstream.
+  id: 968
+  time: '2026-09-13T13:37:04.0000000+00:00'
+- author: LunaTheFox
+  changes:
+    - type: Remove
+      message: Letoferol from secondary spawn table
+    - type: Tweak
+      message: Letoferol spawnrate on primary table from 0.08 to 0.04
+  id: 969
+  time: '2026-09-13T13:37:50.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: Feroxi lungs are now indestructible.
+  id: 970
+  time: '2026-09-13T13:55:56.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Squakroach density fixed so they no longer become hotter than the sun
+  id: 971
+  time: '2026-09-13T13:56:39.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Add
+      message: Aghost now starts with a medical omnitool and an omnitool
+  id: 972
+  time: '2026-09-13T14:45:35.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: The S1 "Pnuey" shotgun should properly inject fired syringes now.
+  id: 973
+  time: '2026-09-13T14:57:51.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: Arachnid now only have one organ of each type
+  id: 974
+  time: '2026-09-13T17:01:16.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: Graytide spear needs to be wielded to make clones now
+    - type: Fix
+      message: Graytide spear can no longer duplicate items
+  id: 975
+  time: '2026-09-13T17:20:22.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Tweak
+      message: >-
+        Salic, oxan, dex, and dex+ can no longer heal damage dealt by their own
+        overdoses and are overall more dangerous to overdose. Salic and oxan
+        have their ODs lowered to 12u each.
+  id: 976
+  time: '2026-09-13T17:25:17.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the resistance values of the Paramedic Hardsuit to focus more on
+        environmental protection. Now a proper sidegrade to the modsuit.
+    - type: Fix
+      message: The Xiézhù Hardsuit Helmet no longer lacks resistances.
+  id: 977
+  time: '2026-09-13T18:48:57.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Tweak
+      message: Spiders and arachnids are now friendly.
+  id: 978
+  time: '2026-09-13T20:34:27.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Aghosts no longer show the prompt to unlock Amber
+  id: 979
+  time: '2026-09-13T20:51:33.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed Colossus being able to teleport through walls.
+  id: 980
+  time: '2026-09-13T20:52:29.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: Gang signs now start anchored
+  id: 981
+  time: '2026-09-13T20:53:08.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: Magic mirror can now turn people into any species as intended
+  id: 982
+  time: '2026-09-13T22:30:58.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: Changed cortical borer egg laying to inflict damage on the host
+    - type: Tweak
+      message: Changed the cortical borer chems list to be much less potent for combat
+  id: 983
+  time: '2026-09-13T22:39:29.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Add
+      message: 'Added a new voice for IPCs and harpies: ST.'
+  id: 984
+  time: '2026-09-14T00:09:31.0000000+00:00'
+- author: Aureu-K
+  changes:
+    - type: Fix
+      message: Pink Slime Extract 'DNA Scramble' effect range reduced from 30 to 2
+  id: 985
+  time: '2026-09-14T00:56:32.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Add
+      message: >-
+        Added a unhackable version of the secure briefcase (Admin spawn only for
+        the time being)
+    - type: Tweak
+      message: unhackable secure briefcases can't hold nuke disks
+    - type: Tweak
+      message: secure briefcases now hide contraband from detectors
+    - type: Fix
+      message: Fixed a bug that stopped some uplinks from buying a lobbying bundle
+  id: 986
+  time: '2026-09-14T10:03:28.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: Resomi can now preen feathers too
+    - type: Add
+      message: Added resomi feathers
+  id: 987
+  time: '2026-09-14T14:06:32.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: Updated Revs to work based on morale. Revs are still admin spawn only.
+  id: 988
+  time: '2026-09-14T14:18:10.0000000+00:00'
+- author: Willfullyheretical
+  changes:
+    - type: Tweak
+      message: HEV suit now is 100% radiation protective
+  id: 989
+  time: '2026-09-14T16:21:40.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Added a command to list a heretic's sacrifice targets for admins.
+  id: 990
+  time: '2026-09-14T21:33:03.0000000+00:00'
