@@ -25,4 +25,9 @@ public sealed class ListSacrificeTargetsSystem : EntitySystem
 
         return meta.EntityName;
     }
+
+    public bool IsHeretic(EntityUid entity)
+    {
+        return HasComp<HereticComponent>(entity);
+    }
 }
