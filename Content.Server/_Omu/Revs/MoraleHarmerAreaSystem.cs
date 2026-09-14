@@ -61,7 +61,6 @@ public sealed class MoraleHarmerAreaSystem : EntitySystem
                     User = ent,
                 };
                 RaiseLocalEvent(target, ev);
-                continue; //Break loop since we have reduced morale
             }
             else
                 EnsureComp<MoraleComponent>(target);       //Ensure morale comp.
@@ -93,7 +92,6 @@ public sealed class MoraleHarmerAreaSystem : EntitySystem
                     User = ent,
                 };
                 RaiseLocalEvent(target, ev);
-                continue; //Break loop since we have reduced morale
             }
             else
                 EnsureComp<MoraleComponent>(target);       //Ensure morale comp.
