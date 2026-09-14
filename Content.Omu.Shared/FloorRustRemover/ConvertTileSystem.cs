@@ -1,5 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Maps;
@@ -17,6 +19,7 @@ public sealed class ConvertTileSystem : EntitySystem
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
 
     public override void Initialize()
     {
@@ -73,6 +76,8 @@ public sealed class ConvertTileSystem : EntitySystem
             return;
 
         var newTileDef = _tileDefinitionManager[newTileId];
+
         _entityManager.System<SharedMapSystem>().SetTile(tileRef.GridUid, mapGrid, tileRef.GridIndices, new Tile(newTileDef.TileId));
+        _adminLog.Add(LogType.Tile, LogImpact.Low, $"{_entityManager.ToPrettyString(args.User):entity} converted tile at {tileRef.GridIndices} from {tileDef.ID} to {newTileDef.ID}");
     }
 }
