@@ -112,13 +112,13 @@ public sealed class MoraleSystem : EntitySystem
 
         if (args.Amount < 0)
         {
-            ent.Comp.MoraleMsgTicking += args.Amount;
-            if (ent.Comp.MoraleMsgTicking >= ent.Comp.MoraleMsgSetpoint)
+            if (ent.Comp.MoraleMsgTicking <= 0)
             {
                 var message = Loc.GetString(_random.Pick(ent.Comp.MoraleWarningMsg));
                 _popup.PopupEntity(message, ent.Owner, ent.Owner);      //Warning popup
-                ent.Comp.MoraleMsgTicking = 0f;
+                ent.Comp.MoraleMsgTicking = ent.Comp.MoraleMsgSetpoint;
             }
+            ent.Comp.MoraleMsgTicking += args.Amount;
         }
 
         ent.Comp.MoraleValue += args.Amount;
