@@ -49,7 +49,7 @@ public sealed class MoraleHarmerAreaSystem : EntitySystem
         var lookup = _lookup.GetEntitiesInRange(xform.Coordinates, ent.Comp.Range);
         foreach (var target in lookup)
         {
-            if (!_mind.TryGetMind(ent, out _, out _) || !HasComp<HumanoidAppearanceComponent>(target) || HasComp<RevolutionaryComponent>(target))
+            if (!_mind.TryGetMind(ent, out _, out _) || !HasComp<HumanoidAppearanceComponent>(target) || !HasComp<RevolutionaryComponent>(target))
                 continue;
 
             if (TryComp<MoraleComponent>(target, out var morale))
