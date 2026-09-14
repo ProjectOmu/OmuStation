@@ -49,7 +49,7 @@ public sealed class MoraleHarmerAreaSystem : EntitySystem
         var lookup = _lookup.GetEntitiesInRange(xform.Coordinates, ent.Comp.Range);
         foreach (var target in lookup)
         {
-            if (!_mind.TryGetMind(ent, out _, out _) || !HasComp<HumanoidAppearanceComponent>(target) || !HasComp<RevolutionaryComponent>(target))
+            if (!_mind.TryGetMind(target, out _, out _) || !HasComp<HumanoidAppearanceComponent>(target) || HasComp<RevolutionaryComponent>(target))
                 continue;
 
             if (HasComp<MoraleComponent>(target))
@@ -73,12 +73,12 @@ public sealed class MoraleHarmerAreaSystem : EntitySystem
         var lookup = _lookup.GetEntitiesInRange(xform.Coordinates, range);
         foreach (var target in lookup)
         {
-            if (!_mind.TryGetMind(ent, out _, out _) || !HasComp<HumanoidAppearanceComponent>(target) || HasComp<RevolutionaryComponent>(target))
+            if (!_mind.TryGetMind(target, out _, out _) || !HasComp<HumanoidAppearanceComponent>(target) || HasComp<RevolutionaryComponent>(target))
                 continue;
 
             if (lang is not null)
             {
-                if (EntityManager.TryGetComponent<LanguageSpeakerComponent>(target, out var speakerComponent))      //If they dont have the speaker comp it doesnt really matter - they probably aren't humanoid and thus it failed earlier
+                if (EntityManager.TryGetComponent<LanguageSpeakerComponent>(ent, out var speakerComponent))      //If they dont have the speaker comp it doesnt really matter - they probably aren't humanoid and thus it failed earlier
                     if (!_language.CanUnderstand(target, speakerComponent.CurrentLanguage))
                         return; //the target does not understand the speaker's language, so the conversion fails
             }
