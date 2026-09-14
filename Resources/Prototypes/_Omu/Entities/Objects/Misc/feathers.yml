@@ -1,0 +1,15 @@
+- type: entity
+  parent: AvaliFeather
+  id: ResomiFeather
+  name: feather
+  description: Probably not ethically sourced.
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/feather.rsi
+    layers:
+    - state: feather
+      map: [ "enum.FeatherVisualLayers.Feather" ]
+    - state: featherblood
+      color: "#FFFFFF00"
+      map: [ "enum.FeatherVisualLayers.Blood"]
