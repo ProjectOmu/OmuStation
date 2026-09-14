@@ -15,7 +15,9 @@ public sealed partial class MoraleComponent : Component
     [DataField]
     public List<LocId> MoraleWarningMsg = new()
     {
-        "morale-falling-1"
+        "morale-falling-1",
+        "morale-falling-2",
+        "morale-falling-3"
     };
     [DataField]
     public bool Mindshielded = false;
@@ -31,5 +33,11 @@ public sealed partial class MoraleComponent : Component
 
     [DataField]
     public float MoraleMSRecovery = 1f;
+
+    [DataField]
+    public float MoraleMsgSetpoint = 3f;
+
+    [DataField]
+    public float MoraleMsgTicking = 0f;
 
 }

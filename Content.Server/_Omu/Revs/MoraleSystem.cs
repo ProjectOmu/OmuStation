@@ -21,6 +21,7 @@ using Content.Shared._Omu.Revs;
 using Content.Server.Revolutionary.Components;
 using Robust.Shared.Random;
 using Content.Shared.Random.Helpers;
+using Content.Shared.Emag.Systems;
 
 namespace Content.Server._Omu.Revs;
 
@@ -111,8 +112,13 @@ public sealed class MoraleSystem : EntitySystem
 
         if (args.Amount < 0)
         {
-            var message = Loc.GetString(_random.Pick(ent.Comp.MoraleWarningMsg));
-            _popup.PopupEntity(message, ent.Owner, ent.Owner);      //Warning popup
+            ent.Comp.MoraleMsgTicking += args.Amount;
+            if (ent.Comp.MoraleMsgTicking >= ent.Comp.MoraleMsgSetpoint)
+            {
+                var message = Loc.GetString(_random.Pick(ent.Comp.MoraleWarningMsg));
+                _popup.PopupEntity(message, ent.Owner, ent.Owner);      //Warning popup
+                ent.Comp.MoraleMsgTicking = 0f;
+            }
         }
 
         ent.Comp.MoraleValue += args.Amount;
