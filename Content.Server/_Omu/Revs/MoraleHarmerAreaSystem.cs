@@ -3,6 +3,9 @@ using Content.Shared.Revolutionary.Components;
 using Content.Server.Mind;
 using Robust.Shared.Timing;
 using Content.Shared._Omu.Revs;
+using Content.Shared._EinsteinEngines.Language.Systems;
+using Content.Shared._EinsteinEngines.Language.Components;
+
 namespace Content.Server._Omu.Revs;
 
 public sealed class MoraleHarmerAreaSystem : EntitySystem
@@ -11,6 +14,7 @@ public sealed class MoraleHarmerAreaSystem : EntitySystem
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly SharedLanguageSystem _language = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -64,7 +68,7 @@ public sealed class MoraleHarmerAreaSystem : EntitySystem
         }
     }
 
-    public void AreaChange(EntityUid ent, float amount, float range)
+    public void AreaChange(EntityUid ent, float amount, float range, string? lang)
     {
         var xform = Transform(ent);
         var lookup = _lookup.GetEntitiesInRange(xform.Coordinates, range);
@@ -72,6 +76,13 @@ public sealed class MoraleHarmerAreaSystem : EntitySystem
         {
             if (!_mind.TryGetMind(ent, out _, out _) || !HasComp<HumanoidAppearanceComponent>(target) || HasComp<RevolutionaryComponent>(target))
                 continue;
+
+            if (lang is not null)
+            {
+                if (EntityManager.TryGetComponent<LanguageSpeakerComponent>(target, out var speakerComponent))      //If they dont have the speaker comp it doesnt really matter - they probably aren't humanoid and thus it failed earlier
+                    if (!_language.CanUnderstand(target, speakerComponent.CurrentLanguage))
+                        return; //the target does not understand the speaker's language, so the conversion fails
+            }
 
             if (TryComp<MoraleComponent>(target, out var morale))
             {

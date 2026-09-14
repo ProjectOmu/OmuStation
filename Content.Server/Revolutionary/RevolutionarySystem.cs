@@ -52,7 +52,7 @@ public sealed class RevolutionarySystem : SharedRevolutionarySystem
     // Omu start
     private void OnBookArea(Entity<HeadRevolutionaryComponent> ent, ref BookConverterUsedEvent args)
     {
-        _MoraleArea.AreaChange(ent, args.Change, args.range);
+        _MoraleArea.AreaChange(ent, args.Change, args.Range, args.Lang);
     }
 }
 

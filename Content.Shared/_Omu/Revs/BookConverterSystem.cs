@@ -1,3 +1,4 @@
+using Content.Shared._EinsteinEngines.Language;
 using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared._EinsteinEngines.Language.Systems;
 using Content.Shared.Charges.Components;
@@ -20,14 +21,11 @@ namespace Content.Shared._Omu.Revs;
 public sealed class BookConverterSystem : EntitySystem
 {
     private static readonly ProtoId<LocalizedDatasetPrototype> RevConvertSpeechProto = "RevolutionaryConverterSpeech";
-
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedChatSystem _chat = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedLanguageSystem _language = default!;
-    [Dependency] private readonly SharedChargesSystem _chargesSystem = default!;
 
     private LocalizedDatasetPrototype? _speechLocalization;
 
@@ -60,12 +58,12 @@ public sealed class BookConverterSystem : EntitySystem
     {
         args.ApplyDelay = true;
 
-        if (!SpeakPropaganda(ent, args.User))
+        if (!EntityManager.TryGetComponent<LanguageSpeakerComponent>(args.User, out var speakerComponent) || !SpeakPropaganda(ent, args.User) || speakerComponent.CurrentLanguage is null)
             return;
 
         if (HasComp<HeadRevolutionaryComponent>(args.User))
         {
-            var ev = new BookConverterUsedEvent(args.User, ent.Comp.Amount, ent.Comp.Range);
+            var ev = new BookConverterUsedEvent(args.User, ent.Comp.Amount, ent.Comp.Range, speakerComponent.CurrentLanguage);
             RaiseLocalEvent(args.User, ref ev);
         }
 
@@ -155,4 +153,4 @@ public readonly struct AfterRevolutionaryConvertedEvent(EntityUid target, Entity
 }
 
 [ByRefEvent]
-public record struct BookConverterUsedEvent(EntityUid User, float Change, float range);
+public record struct BookConverterUsedEvent(EntityUid User, float Change, float Range, string Lang);
