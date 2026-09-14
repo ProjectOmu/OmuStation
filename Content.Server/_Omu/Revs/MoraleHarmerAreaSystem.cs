@@ -52,7 +52,7 @@ public sealed class MoraleHarmerAreaSystem : EntitySystem
             if (!_mind.TryGetMind(ent, out _, out _) || !HasComp<HumanoidAppearanceComponent>(target) || !HasComp<RevolutionaryComponent>(target))
                 continue;
 
-            if (TryComp<MoraleComponent>(target, out var morale))
+            if (HasComp<MoraleComponent>(target))
             {
                 var ev = new MoraleChangedArgs
                 {
