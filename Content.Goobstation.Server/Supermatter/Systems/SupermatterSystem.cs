@@ -17,8 +17,6 @@ using Content.Shared.Atmos;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
-using Content.Shared.Electrocution;
-using Content.Shared.EntityEffects.EffectConditions;    //omu for emitters
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Kitchen.Components;
@@ -44,6 +42,8 @@ using Content.Shared.Humanoid;
 using Content.Shared.Objectives.Components;
 using Robust.Shared.Player;
 using Content.Goobstation.Shared.MisandryBox.Smites;
+using Content.Server._Omu.Supermatter;
+using Content.Shared._Omu.Supermatter;
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
@@ -86,6 +86,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         SubscribeLocalEvent<SupermatterComponent, InteractUsingEvent>(OnItemInteract);
         SubscribeLocalEvent<SupermatterComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<SupermatterComponent, SupermatterDoAfterEvent>(OnGetSliver);
+        SubscribeLocalEvent<SupermatterComponent, SupermatterRandomDoAfterEvent>(RandomiseVariables);
     }
 
     private void OnComponentRemove(EntityUid uid, SupermatterComponent component, ComponentRemove args)
@@ -372,7 +373,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         // And if it shoots too weak lightnings it means that it's underfed. Feed the SM :godo:
         var zapPower = sm.Power / sm.PowerPenaltyThreshold * sm.LightningPrototypes.Length;
         var zapPowerNorm = (int) Math.Clamp(zapPower, 0, sm.LightningPrototypes.Length - 1);
-        _lightning.ShootRandomLightnings(uid, 3.5f, sm.Power > sm.PowerPenaltyThreshold ? 3 : 1, sm.LightningPrototypes[zapPowerNorm]);
+        _lightning.ShootRandomLightnings(uid, 3.5f, sm.Power > sm.PowerPenaltyThreshold ? sm.LightningCountOverclocked : sm.LightningCountNormal, sm.LightningPrototypes[zapPowerNorm]);        //Omu changed 3 : 1 to sm.lightningcount
     }
 
     /// <summary>
@@ -762,6 +763,23 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         if (!HasComp<SupermatterImmuneComponent>(args.User))
             return;
 
+        //Omu start - sm randomiser
+        if (HasComp<SupermatterRandomiserComponent>(args.Used))
+        {
+            var doafter = new DoAfterArgs(EntityManager, args.User, 10f, new SupermatterRandomDoAfterEvent(), uid)
+            {
+                BreakOnDamage = true,
+                BreakOnHandChange = false,
+                BreakOnMove = true,
+                BreakOnWeightlessMove = false,
+                NeedHand = true,
+                RequireCanInteract = true,
+            };
+            _doAfter.TryStartDoAfter(doafter);
+            return;
+        }
+        //Omu end
+
         if (!sm.Activated)
             sm.Activated = true;
 
@@ -870,6 +888,26 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             if (sm.RadiationOutputFactor == sm.RadiationOutputFactorSetpoint)
                 sm.RadiationOutputFactorChanged = false;
         }
+    }
+
+    private void RandomiseVariables(EntityUid uid, SupermatterComponent sm, ref SupermatterRandomDoAfterEvent args)
+    {
+        _radioSystem.SendRadioMessage(uid, Loc.GetString("sm-randomized"), _proto.Index<RadioChannelPrototype>(sm.RadioChannel), uid);
+        var gasfields = sm.GasDataFields;
+
+        sm.LightningCountNormal += 1;
+        sm.LightningCountOverclocked += 2;
+
+        foreach (var gas in gasfields)
+        {
+            var data = gasfields[gas.Key];          //Fuck you thats why.
+            data.AngerValue += MathF.Round(_random.NextFloat(-2f, 2f), 2);
+            data.TransmitModifier += MathF.Round(_random.NextFloat(-2f, 2f), 2);
+            data.HeatPenalty += MathF.Round(_random.NextFloat(-2f, 2f), 2);
+            data.PowerMixRatio += MathF.Round(_random.NextFloat(-2f, 2f), 2);
+        }
+
+        QueueDel(args.Used);
     }
     #endregion     //omu end
 }
