@@ -177,6 +177,7 @@
           reagent: XenobioJellyGreen
           min: 25 # Omustation
         newSpecies: SlimePerson
+        transferAppearance: true
       - !type:AdjustReagent
         reagent: XenobioJellyGreen
         amount: -15 # Omu
@@ -201,6 +202,7 @@
           reagent: XenobioHumanToxin
           min: 25 # Omustation
         newSpecies: Human
+        transferAppearance: true
       - !type:AdjustReagent
         reagent: XenobioHumanToxin
         amount: -15 # Omu
@@ -237,6 +239,7 @@
       metabolismRate: 0.25 # Omu
       effects:
       - !type:RandomSpeciesChange
+        transferAppearance: true
         speciesBlacklist:
         - Skeleton # if he's dead it's GG
         - IPC # do i have to explain this one
@@ -271,6 +274,7 @@
           reagent: XenobioFelinidToxin
           min: 10 # Omustation
         newSpecies: Felinid
+        transferAppearance: true
       - !type:AdjustReagent
         reagent: XenobioFelinidToxin
         amount: -15 # Omu
