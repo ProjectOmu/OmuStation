@@ -42,7 +42,7 @@ public sealed class StationPowerTests
         "Cog",
         "Snowball",
         "Exo",
-        "Tram2"
+        "Tram2" // Omu - Port tramstation from wizden
     ];
 
     [Explicit]
