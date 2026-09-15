@@ -196,6 +196,7 @@ job-name-alt-security-sergeant-2 = Drill Instructor
 
 job-name-alt-brigmedic-1 = Combat Medic
 job-name-alt-brigmedic-2 = Field Medic
+job-name-alt-brigmedic-3 = Brigmedic
 
 job-name-alt-transit-prisoner-1 = Detainee
 job-name-alt-transit-prisoner-2 = Inmate
