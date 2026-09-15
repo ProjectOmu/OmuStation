@@ -89,6 +89,14 @@
     Overlay:
       points: 8 # Omu Edit - "Uncapped Customizations"
       required: false
+    # Omu start; add vulp underwear to customization
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
+    # Omu end
 
 - type: humanoidBaseSprite
   id: MobVulpkaninHead
