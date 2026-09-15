@@ -219,9 +219,7 @@ loadout-group-medical-intern-jumpsuit = Medical intern jumpsuit
 loadout-group-chemist-jumpsuit = Chemist jumpsuit
 loadout-group-chemist-outerclothing = Chemist outer clothing
 loadout-group-chemist-backpack = Chemist backpack
-# Omu start
-loadout-group-chemist-head = Chemist head
-# Omu end
+
 loadout-group-paramedic-head = Paramedic head
 loadout-group-paramedic-jumpsuit = Paramedic jumpsuit
 loadout-group-paramedic-outerclothing = Paramedic outer clothing
