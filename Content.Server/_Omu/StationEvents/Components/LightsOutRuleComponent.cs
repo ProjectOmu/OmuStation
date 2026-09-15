@@ -1,5 +1,5 @@
-using Robust.Shared.Map;
 using Content.Server.StationEvents.Events;
+using Robust.Shared.Map;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server._Omu.StationEvents.Components;
@@ -21,4 +21,9 @@ public sealed partial class LightsOutRuleComponent : Component
     /// </summary>
     [DataField]
     public float DamageProbability = 0.25f;
+
+    /// <summary>
+    /// The selection of potential targets: Poweredlights that are on-station and powered
+    /// </summary>
+    public List<EntityUid> Targets = new();
 }
