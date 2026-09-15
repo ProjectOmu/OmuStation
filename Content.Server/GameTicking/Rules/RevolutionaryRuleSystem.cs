@@ -158,11 +158,11 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         //RaiseLocalEvent(pda.Value, ref ev);
         //code = Comp<RingerUplinkComponent>(pda.Value).Code;
 
-        _antag.SendBriefing(traitor, Loc.GetString("head-rev-role-greeting"), Color.Red, null);
+        _antag.SendBriefing(traitor, Loc.GetString("head-rev-role-greeting-omu"), Color.Red, null);     //Omu changed localisation
 
         if (_role.MindHasRole<RevolutionaryRoleComponent>(mindId, out var revRoleComp))
             //if (code != null) // Omu, if this is null something has gone wrong.
-                AddComp(revRoleComp.Value, new RoleBriefingComponent { Briefing = Loc.GetString("head-rev-briefing") }, overwrite: true);
+                AddComp(revRoleComp.Value, new RoleBriefingComponent { Briefing = Loc.GetString("head-rev-briefing-omu") }, overwrite: true);
             //else
             //    return false; // Omu, if this happens something has gone wrong.
         return true;
@@ -172,6 +172,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     {
         base.ActiveTick(uid, component, gameRule, frameTime);
 
+    /*      Omu commented out pending rev objective rework
         if (component.RevLossTimerActive && !component.RevForceLose)
         {
             var headRevList = GetHeadRevs();
@@ -258,6 +259,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                 component.OpenRevoltAnnouncementPending = false;
             }
         }
+    */      //Omu end
     }
 
     // funky station
@@ -322,7 +324,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         if (!head)
         {
-            args.Append(Loc.GetString("rev-briefing"));
+            args.Append(Loc.GetString("rev-briefing-omu"));     //Omu changed localisation
         }
     }
 
@@ -331,7 +333,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     /// </summary>
     private void OnPostFlash(EntityUid uid, HeadRevolutionaryComponent comp, ref AfterFlashedEvent ev)
     {
-
+        /*  Omu commented out since we aren't using flash revs no more
         // GoobStation - check if headRev's ability enabled
         if (!comp.ConvertAbilityEnabled)
             return;
@@ -418,6 +420,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         commandComp.Enabled = false;
         CheckCommandLose();
+        */  //Omu commented end
     }
 
     //~~TODO: Enemies of the revolution~~
