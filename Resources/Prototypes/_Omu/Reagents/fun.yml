@@ -286,3 +286,64 @@
         - !type:ReagentCondition
           reagent: JuiceThatMakesYouAwebo
           min: 50
+
+- type: reagent
+  id: Spesstrogen
+  name: reagent-name-spesstrogen
+  group: Medicine
+  desc: reagent-desc-spesstrogen
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: medicine
+  color: "#6fc6b2"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.5
+      effects:
+      - !type:SexChange
+        newSex: [Female]
+        conditions:
+        - !type:ReagentCondition
+          reagent: Spesstrogen
+          min: 5
+      - !type:AdjustReagent
+        reagent: Spesstosterone # estrogen suppresses testosterone production
+        amount: -50.0
+        conditions:
+        - !type:ReagentCondition
+          reagent: Spesstrogen
+          min: 5
+      - !type:ModifyStatusEffect # spesstrogen for recreational activity
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 5
+        conditions:
+        - !type:ReagentCondition
+          reagent: Spesstrogen
+          min: 20
+
+- type: reagent
+  id: Spesstosterone
+  name: reagent-name-spesstosterone
+  group: Medicine
+  desc: reagent-desc-spesstosterone
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: medicine
+  color: "#ff919e"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.5
+      effects:
+      - !type:SexChange
+        newSex: [Male]
+        conditions:
+        - !type:ReagentCondition
+          reagent: Spesstosterone
+          min: 5
+      - !type:AdjustReagent
+        reagent: Spesstrogen # slight bit of realism because it's funny
+        amount: 1.0
+        conditions:
+        - !type:ReagentCondition
+          reagent: Spesstosterone
+          min: 20
+

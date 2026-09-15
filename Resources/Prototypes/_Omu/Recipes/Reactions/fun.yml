@@ -13,7 +13,7 @@
 - type: reaction
   id: Mothamphetamine
   reactants:
-    Fiber: 
+    Fiber:
       amount: 6
     Sugar:
       amount: 2
@@ -27,8 +27,8 @@
 - type: reaction
   id: Cacaphonium
   reactants:
-    BirdFlu: 
-      amount: 6 
+    BirdFlu:
+      amount: 6
     SpaceDrugs:
       amount: 1
     Sugar:
@@ -47,7 +47,7 @@
       amount: 6
     SpaceDrugs:
       amount: 1
-    Ash: 
+    Ash:
       amount: 1
     EnergyDrink:
       amount: 2
@@ -125,3 +125,27 @@
       amount: 1
   products:
     MethrilConcentrate: 5
+
+- type: reaction
+  id: Spesstosterone
+  reactants:
+    Ethanol:
+      amount: 2
+    Hyronalin:
+      amount: 2
+    Plasma:
+      amount: 1
+  products:
+    Plasma: 1
+    Spesstosterone: 4
+
+- type: reaction
+  id: Spesstrogen
+  reactants:
+    Spesstosterone:
+      amount: 2
+    Enzyme:
+      amount: 1
+  products:
+    Spesstrogen: 2
+    Enzyme: 1
