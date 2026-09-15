@@ -128,6 +128,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.GhostRolesPressed += GhostRolesPressed;
         Gui.TargetWindow.WarpClicked += OnWarpClicked;
         Gui.TargetWindow.OnGhostnadoClicked += OnGhostnadoClicked;
+        Gui.ReturnToRoundPressed += ReturnToRound; // Omustation - Port WD Respawn Button
 
         UpdateGui();
     }
@@ -141,6 +142,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.ReturnToBodyPressed -= ReturnToBody;
         Gui.GhostRolesPressed -= GhostRolesPressed;
         Gui.TargetWindow.WarpClicked -= OnWarpClicked;
+        Gui.ReturnToRoundPressed -= ReturnToRound; // Omustation - Port WD Respawn Button
 
         Gui.Hide();
     }
@@ -149,6 +151,13 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
     {
         _system?.ReturnToBody();
     }
+
+    // begin Omustation - Port WD Respawn Button
+    private void ReturnToRound()
+    {
+        _system?.ReturnToRound();
+    }
+    // end Omustation - Port WD Respawn Button
 
     private void RequestWarps()
     {
