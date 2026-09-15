@@ -58,7 +58,7 @@ public sealed class DoAfterSystem : SharedDoAfterSystem
         // before resorting to this. 
         // the client wasn't getting the ignore obstructions flag  even if it was set in the dargs and caused really weird
         // flickering with the progress bar
-        // if you have a better solution, dm me at @MarshalMelipona and explain it to me so this can be rightfully taken out back and shot
+        // if you have a better solution, dm me at @angeltern and explain it to me so this can be rightfully taken out back and shot
         // i suck at networking, i'm sorry for my sins. - delphine
         var ignoreObstructions = _tag.HasTag(playerEntity.Value, _ignoreObstructionsTag); // Omu
 
