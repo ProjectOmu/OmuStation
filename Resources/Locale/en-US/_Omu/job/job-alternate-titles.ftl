@@ -10,7 +10,6 @@ job-name-alt-cargotech-7 = Delivery Associate
 job-name-alt-qm-1 = Requisitions Officer
 job-name-alt-qm-2 = Deck Chief
 job-name-alt-qm-3 = Warehouse Supervisor
-job-name-alt-qm-4 = Supply Foreperson
 job-name-alt-qm-5 = Logistics Coordinator
 
 job-name-alt-salvage-2 = Blasting Specialist
@@ -101,7 +100,6 @@ job-name-alt-hop-2 = Employment Officer
 job-name-alt-hop-3 = Crew Supervisor
 job-name-alt-hop-4 = Head of Hospitality
 
-job-name-alt-ce-2 = Engineering Foreperson
 job-name-alt-ce-1 = Head of Engineering
 job-name-alt-ce-3 = Engineering Supervisor
 
