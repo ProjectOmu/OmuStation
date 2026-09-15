@@ -857,32 +857,3 @@
     wideAnimationRotation: 180
     soundHit:
       path: /Audio/Effects/bite.ogg
-
-
-  - type: GasAnalyzer
-  - type: ActivatableUI
-    inHandsOnly: true
-    singleUser: true
-    requireActiveHand: false
-    key: enum.GasAnalyzerUiKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.GasAnalyzerUiKey.Key:
-        type: GasAnalyzerBoundUserInterface
-  - type: PointLight # the glow is subtle. It's just enough to make the mantle visible in pitch black lighting, but won't help you see much.
-    radius: 1.45
-    energy: 2
-    offset: 0,0.4
-    color: "#C2FA1F" # this will match the colour of the beast's eyes when worn, this is just a default.
-    mask: /Textures/Effects/LightMasks/cone.png
-    autoRot: true
-    containerOccluded: true # this makes the mantle illuminate itself.
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Uranium
-          Quantity: 2.5
-        - ReagentId: Radium
-          Quantity: 2.5
