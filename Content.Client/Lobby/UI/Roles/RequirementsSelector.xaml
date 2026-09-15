@@ -10,6 +10,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
            Margin="5 0"
            SetWidth="220"
            MouseFilter="Stop"/>
+    <OptionButton Name="TitleOptions"
+                  Margin="5 0"
+                  SetWidth="220"
+                  Visible="False"/>
 
     <BoxContainer Name="OptionsContainer"
                   SetWidth="400"
