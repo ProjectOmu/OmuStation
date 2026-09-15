@@ -1,0 +1,751 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: jobAlternateTitle
+  id: CargoTechnicianPilot
+  job: CargoTechnician
+  name: job-name-alt-cargotech-2
+
+- type: jobAlternateTitle
+  id: CargoTechnicianClerk
+  job: CargoTechnician
+  name: job-name-alt-cargotech-3
+
+- type: jobAlternateTitle
+  id: CargoTechnicianWarehouseTechnician
+  job: CargoTechnician
+  name: job-name-alt-cargotech-4
+
+- type: jobAlternateTitle
+  id: CargoTechnicianDeckWorker
+  job: CargoTechnician
+  name: job-name-alt-cargotech-5
+
+- type: jobAlternateTitle
+  id: CargoTechnicianInventoryAssociate
+  job: CargoTechnician
+  name: job-name-alt-cargotech-6
+
+- type: jobAlternateTitle
+  id: QuartermasterRequisitionsOfficer
+  job: Quartermaster
+  name: job-name-alt-qm-1
+
+- type: jobAlternateTitle
+  id: QuartermasterDeckChief
+  job: Quartermaster
+  name: job-name-alt-qm-2
+
+- type: jobAlternateTitle
+  id: QuartermasterWarehouseSupervisor
+  job: Quartermaster
+  name: job-name-alt-qm-3
+
+- type: jobAlternateTitle
+  id: QuartermasterLogisticsCoordinator
+  job: Quartermaster
+  name: job-name-alt-qm-5
+
+- type: jobAlternateTitle
+  id: SalvageSpecialistMiningSpecialist
+  job: SalvageSpecialist
+  name: job-name-alt-salvage-2
+
+- type: jobAlternateTitle
+  id: SalvageSpecialistFieldGeologist
+  job: SalvageSpecialist
+  name: job-name-alt-salvage-3
+
+- type: jobAlternateTitle
+  id: SalvageSpecialistDrillTechnician
+  job: SalvageSpecialist
+  name: job-name-alt-salvage-4
+
+- type: jobAlternateTitle
+  id: SalvageSpecialistShipbreakingSpecialist
+  job: SalvageSpecialist
+  name: job-name-alt-salvage-5
+
+- type: jobAlternateTitle
+  id: CourierMailCarrier
+  job: Courier
+  name: job-name-alt-courier-1
+
+- type: jobAlternateTitle
+  id: CourierDispatchRunner
+  job: Courier
+  name: job-name-alt-courier-2
+
+- type: jobAlternateTitle
+  id: CourierDeliveryAssociate
+  job: Courier
+  name: job-name-alt-courier-3
+
+- type: jobAlternateTitle
+  id: BartenderMixologist
+  job: Bartender
+  name: job-name-alt-bartender-1
+
+- type: jobAlternateTitle
+  id: BartenderBarista
+  job: Bartender
+  name: job-name-alt-bartender-3
+
+- type: jobAlternateTitle
+  id: BartenderHydrationEquipmentOperator
+  job: Bartender
+  name: job-name-alt-bartender-2
+
+- type: jobAlternateTitle
+  id: BartenderBarkeeper
+  job: Bartender
+  name: job-name-alt-bartender-4
+
+- type: jobAlternateTitle
+  id: BotanistHydroponicsSpecialist
+  job: Botanist
+  name: job-name-alt-botanist-1
+
+- type: jobAlternateTitle
+  id: BotanistHerbologist
+  job: Botanist
+  name: job-name-alt-botanist-2
+
+- type: jobAlternateTitle
+  id: BotanistHydroponicist
+  job: Botanist
+  name: job-name-alt-botanist-3
+
+- type: jobAlternateTitle
+  id: BotanistGardener
+  job: Botanist
+  name: job-name-alt-botanist-4
+
+- type: jobAlternateTitle
+  id: BotanistBotanicalResearch
+  job: Botanist
+  name: job-name-alt-botanist-5
+
+- type: jobAlternateTitle
+  id: ChaplainPreacher
+  job: Chaplain
+  name: job-name-alt-chaplain-1
+
+- type: jobAlternateTitle
+  id: ChaplainSpiritualAdvisor
+  job: Chaplain
+  name: job-name-alt-chaplain-2
+
+- type: jobAlternateTitle
+  id: ChaplainShrineGuardian
+  job: Chaplain
+  name: job-name-alt-chaplain-3
+
+- type: jobAlternateTitle
+  id: ChaplainReverend
+  job: Chaplain
+  name: job-name-alt-chaplain-4
+
+- type: jobAlternateTitle
+  id: ChaplainPriest
+  job: Chaplain
+  name: job-name-alt-chaplain-5
+
+- type: jobAlternateTitle
+  id: ChaplainOracle
+  job: Chaplain
+  name: job-name-alt-chaplain-6
+
+- type: jobAlternateTitle
+  id: ChaplainPointifex
+  job: Chaplain
+  name: job-name-alt-chaplain-7
+
+- type: jobAlternateTitle
+  id: ChaplainMagister
+  job: Chaplain
+  name: job-name-alt-chaplain-8
+
+- type: jobAlternateTitle
+  id: ChaplainMonk
+  job: Chaplain
+  name: job-name-alt-chaplain-9
+
+- type: jobAlternateTitle
+  id: ChefSousChef
+  job: Chef
+  name: job-name-alt-chef-1
+
+- type: jobAlternateTitle
+  id: ChefLineCook
+  job: Chef
+  name: job-name-alt-chef-2
+
+- type: jobAlternateTitle
+  id: ChefCaterer
+  job: Chef
+  name: job-name-alt-chef-3
+
+- type: jobAlternateTitle
+  id: ChefButcher
+  job: Chef
+  name: job-name-alt-chef-4
+
+- type: jobAlternateTitle
+  id: ChefCulinaryArtist
+  job: Chef
+  name: job-name-alt-chef-5
+
+- type: jobAlternateTitle
+  id: ClownJester
+  job: Clown
+  name: job-name-alt-clown-1
+
+- type: jobAlternateTitle
+  id: ClownBouffon
+  job: Clown
+  name: job-name-alt-clown-2
+
+- type: jobAlternateTitle
+  id: ClownJoker
+  job: Clown
+  name: job-name-alt-clown-3
+
+- type: jobAlternateTitle
+  id: ClownComedian
+  job: Clown
+  name: job-name-alt-clown-4
+
+- type: jobAlternateTitle
+  id: JanitorMaid
+  job: Janitor
+  name: job-name-alt-janitor-1
+
+- type: jobAlternateTitle
+  id: JanitorMaintenanceWorker
+  job: Janitor
+  name: job-name-alt-janitor-2
+
+- type: jobAlternateTitle
+  id: JanitorCustodialTechnician
+  job: Janitor
+  name: job-name-alt-janitor-3
+
+- type: jobAlternateTitle
+  id: JanitorSanitationSpecialist
+  job: Janitor
+  name: job-name-alt-janitor-4
+
+- type: jobAlternateTitle
+  id: LawyerAttorney
+  job: Lawyer
+  name: job-name-alt-lawyer-1
+
+- type: jobAlternateTitle
+  id: LawyerLegalRepresentative
+  job: Lawyer
+  name: job-name-alt-lawyer-2
+
+- type: jobAlternateTitle
+  id: LawyerCounsel
+  job: Lawyer
+  name: job-name-alt-lawyer-3
+
+- type: jobAlternateTitle
+  id: LawyerProsecutor
+  job: Lawyer
+  name: job-name-alt-lawyer-4
+
+- type: jobAlternateTitle
+  id: LawyerLegalClerk
+  job: Lawyer
+  name: job-name-alt-lawyer-5
+
+- type: jobAlternateTitle
+  id: LawyerPublicDefender
+  job: Lawyer
+  name: job-name-alt-lawyer-6
+
+- type: jobAlternateTitle
+  id: LawyerBarrister
+  job: Lawyer
+  name: job-name-alt-lawyer-7
+
+- type: jobAlternateTitle
+  id: LibrarianClerk
+  job: Librarian
+  name: job-name-alt-librarian-1
+
+- type: jobAlternateTitle
+  id: LibrarianWriter
+  job: Librarian
+  name: job-name-alt-librarian-2
+
+- type: jobAlternateTitle
+  id: LibrarianProfessor
+  job: Librarian
+  name: job-name-alt-librarian-3
+
+- type: jobAlternateTitle
+  id: LibrarianCurator
+  job: Librarian
+  name: job-name-alt-librarian-4
+
+- type: jobAlternateTitle
+  id: LibrarianArchivist
+  job: Librarian
+  name: job-name-alt-librarian-5
+
+- type: jobAlternateTitle
+  id: MimePantomimist
+  job: Mime
+  name: job-name-alt-mime-1
+
+- type: jobAlternateTitle
+  id: MusicianBusker
+  job: Musician
+  name: job-name-alt-musician-2
+
+- type: jobAlternateTitle
+  id: MusicianPerformer
+  job: Musician
+  name: job-name-alt-musician-3
+
+- type: jobAlternateTitle
+  id: MusicianMaestro
+  job: Musician
+  name: job-name-alt-musician-4
+
+- type: jobAlternateTitle
+  id: ServiceWorkerWaiter
+  job: ServiceWorker
+  name: job-name-alt-serviceworker-1
+
+- type: jobAlternateTitle
+  id: ServiceWorkerJuniorCook
+  job: ServiceWorker
+  name: job-name-alt-serviceworker-2
+
+- type: jobAlternateTitle
+  id: ServiceWorkerBartenderApprentice
+  job: ServiceWorker
+  name: job-name-alt-serviceworker-3
+
+- type: jobAlternateTitle
+  id: ServiceWorkerCroupier
+  job: ServiceWorker
+  name: job-name-alt-serviceworker-4
+
+- type: jobAlternateTitle
+  id: ServiceWorkerSteward
+  job: ServiceWorker
+  name: job-name-alt-serviceworker-5
+
+- type: jobAlternateTitle
+  id: CaptainStationCommander
+  job: Captain
+  name: job-name-alt-captain-1
+
+- type: jobAlternateTitle
+  id: CaptainCommandingOfficer
+  job: Captain
+  name: job-name-alt-captain-2
+
+- type: jobAlternateTitle
+  id: CaptainSiteManager
+  job: Captain
+  name: job-name-alt-captain-3
+
+- type: jobAlternateTitle
+  id: CaptainHeadOfCommand
+  job: Captain
+  name: job-name-alt-captain-4
+
+- type: jobAlternateTitle
+  id: CaptainSiteDirector
+  job: Captain
+  name: job-name-alt-captain-5
+
+- type: jobAlternateTitle
+  id: CaptainSiteAdministrator
+  job: Captain
+  name: job-name-alt-captain-6
+
+- type: jobAlternateTitle
+  id: HeadOfPersonnelEmploymentOfficer
+  job: HeadOfPersonnel
+  name: job-name-alt-hop-2
+
+- type: jobAlternateTitle
+  id: HeadOfPersonnelCrewSupervisor
+  job: HeadOfPersonnel
+  name: job-name-alt-hop-3
+
+- type: jobAlternateTitle
+  id: HeadOfPersonnelHeadOfHospitality
+  job: HeadOfPersonnel
+  name: job-name-alt-hop-4
+
+- type: jobAlternateTitle
+  id: ChiefEngineerHeadOfEngineering
+  job: ChiefEngineer
+  name: job-name-alt-ce-1
+
+- type: jobAlternateTitle
+  id: ChiefEngineerEngineeringSupervisor
+  job: ChiefEngineer
+  name: job-name-alt-ce-3
+
+- type: jobAlternateTitle
+  id: ChiefMedicalOfficerMedicalDirector
+  job: ChiefMedicalOfficer
+  name: job-name-alt-cmo-1
+
+- type: jobAlternateTitle
+  id: ChiefMedicalOfficerHeadOfMedical
+  job: ChiefMedicalOfficer
+  name: job-name-alt-cmo-2
+
+- type: jobAlternateTitle
+  id: ChiefMedicalOfficerChiefPhysician
+  job: ChiefMedicalOfficer
+  name: job-name-alt-cmo-3
+
+- type: jobAlternateTitle
+  id: ChiefMedicalOfficerHeadPhysician
+  job: ChiefMedicalOfficer
+  name: job-name-alt-cmo-4
+
+- type: jobAlternateTitle
+  id: HeadOfSecuritySecurityCommander
+  job: HeadOfSecurity
+  name: job-name-alt-hos-1
+
+- type: jobAlternateTitle
+  id: HeadOfSecurityChiefConstable
+  job: HeadOfSecurity
+  name: job-name-alt-hos-2
+
+- type: jobAlternateTitle
+  id: HeadOfSecurityChiefOfSecurity
+  job: HeadOfSecurity
+  name: job-name-alt-hos-3
+
+- type: jobAlternateTitle
+  id: ResearchDirectorLeadResearcher
+  job: ResearchDirector
+  name: job-name-alt-rd-1
+
+- type: jobAlternateTitle
+  id: ResearchDirectorResearchSupervisor
+  job: ResearchDirector
+  name: job-name-alt-rd-2
+
+- type: jobAlternateTitle
+  id: ResearchDirectorChiefScienceOfficer
+  job: ResearchDirector
+  name: job-name-alt-rd-3
+
+- type: jobAlternateTitle
+  id: ResearchDirectorHeadOfScience
+  job: ResearchDirector
+  name: job-name-alt-rd-4
+
+- type: jobAlternateTitle
+  id: ResearchDirectorSystemsAdministrator
+  job: ResearchDirector
+  name: job-name-alt-rd-5
+
+- type: jobAlternateTitle
+  id: NanotrasenRepresentativeCorporateLiaison
+  job: NanotrasenRepresentative
+  name: job-name-alt-ntr-1
+
+- type: jobAlternateTitle
+  id: NanotrasenRepresentativeNanotrasenComplianceExecutive
+  job: NanotrasenRepresentative
+  name: job-name-alt-ntr-2
+
+- type: jobAlternateTitle
+  id: NanotrasenRepresentativeNanotrasenAdvisor
+  job: NanotrasenRepresentative
+  name: job-name-alt-ntr-3
+
+- type: jobAlternateTitle
+  id: AdministrativeAssistantCommandSecretary
+  job: AdministrativeAssistant
+  name: job-name-alt-admin-assistant-1
+
+- type: jobAlternateTitle
+  id: AdministrativeAssistantBridgeClerk
+  job: AdministrativeAssistant
+  name: job-name-alt-admin-assistant-2
+
+- type: jobAlternateTitle
+  id: AdministrativeAssistantExecutiveAide
+  job: AdministrativeAssistant
+  name: job-name-alt-admin-assistant-3
+
+- type: jobAlternateTitle
+  id: AtmosphericTechnicianFirefighter
+  job: AtmosphericTechnician
+  name: job-name-alt-atmos-1
+
+- type: jobAlternateTitle
+  id: AtmosphericTechnicianLifeSupportTechnician
+  job: AtmosphericTechnician
+  name: job-name-alt-atmos-3
+
+- type: jobAlternateTitle
+  id: StationEngineerMaintenanceTechnician
+  job: StationEngineer
+  name: job-name-alt-engineer-1
+
+- type: jobAlternateTitle
+  id: StationEngineerMechanic
+  job: StationEngineer
+  name: job-name-alt-engineer-2
+
+- type: jobAlternateTitle
+  id: StationEngineerElectrician
+  job: StationEngineer
+  name: job-name-alt-engineer-3
+
+- type: jobAlternateTitle
+  id: StationEngineerEngineOperator
+  job: StationEngineer
+  name: job-name-alt-engineer-4
+
+- type: jobAlternateTitle
+  id: StationEngineerEmergencyDamageControlTechnician
+  job: StationEngineer
+  name: job-name-alt-engineer-5
+
+- type: jobAlternateTitle
+  id: StationEngineerEVATechnician
+  job: StationEngineer
+  name: job-name-alt-engineer-6
+
+- type: jobAlternateTitle
+  id: MedicalDoctorPhysician
+  job: MedicalDoctor
+  name: job-name-alt-medical-3
+
+- type: jobAlternateTitle
+  id: MedicalDoctorNurse
+  job: MedicalDoctor
+  name: job-name-alt-medical-2
+
+- type: jobAlternateTitle
+  id: MedicalDoctorSurgeon
+  job: MedicalDoctor
+  name: job-name-alt-medical-1
+
+- type: jobAlternateTitle
+  id: MedicalDoctorGeneralPractitioner
+  job: MedicalDoctor
+  name: job-name-alt-medical-4
+
+- type: jobAlternateTitle
+  id: MedicalDoctorMedicalResident
+  job: MedicalDoctor
+  name: job-name-alt-medical-5
+
+- type: jobAlternateTitle
+  id: MedicalDoctorNursePractitioner
+  job: MedicalDoctor
+  name: job-name-alt-medical-6
+
+- type: jobAlternateTitle
+  id: ChemistPharmacist
+  job: Chemist
+  name: job-name-alt-chemist-1
+
+- type: jobAlternateTitle
+  id: ChemistLabTechnician
+  job: Chemist
+  name: job-name-alt-chemist-2
+
+- type: jobAlternateTitle
+  id: ChemistLabPharmacologist
+  job: Chemist
+  name: job-name-alt-chemist-3
+
+- type: jobAlternateTitle
+  id: ParamedicTraumaSpecialist
+  job: Paramedic
+  name: job-name-alt-paramedic-1
+
+- type: jobAlternateTitle
+  id: ParamedicEmergencyMedicalTechnician
+  job: Paramedic
+  name: job-name-alt-paramedic-2
+
+- type: jobAlternateTitle
+  id: ParamedicEmergencySearchAndRescueTechnician
+  job: Paramedic
+  name: job-name-alt-paramedic-3
+
+- type: jobAlternateTitle
+  id: PsychologistTherapist
+  job: Psychologist
+  name: job-name-alt-psychologist-1
+
+- type: jobAlternateTitle
+  id: PsychologistGuidanceCounselor
+  job: Psychologist
+  name: job-name-alt-psychologist-2
+
+- type: jobAlternateTitle
+  id: PsychologistPsychiatrist
+  job: Psychologist
+  name: job-name-alt-psychologist-3
+
+- type: jobAlternateTitle
+  id: VirologistEpidemiologist
+  job: Virologist
+  name: job-name-alt-virologist-1
+
+- type: jobAlternateTitle
+  id: VirologistPathologist
+  job: Virologist
+  name: job-name-alt-virologist-2
+
+- type: jobAlternateTitle
+  id: VirologistImmunologist
+  job: Virologist
+  name: job-name-alt-virologist-3
+
+- type: jobAlternateTitle
+  id: ScientistXenoarchaeologist
+  job: Scientist
+  name: job-name-alt-scientist-1
+
+- type: jobAlternateTitle
+  id: ScientistAnomalyResearcher
+  job: Scientist
+  name: job-name-alt-scientist-2
+
+- type: jobAlternateTitle
+  id: ScientistHardwareTechnician
+  job: Scientist
+  name: job-name-alt-scientist-3
+
+- type: jobAlternateTitle
+  id: ScientistLabTechnician
+  job: Scientist
+  name: job-name-alt-scientist-4
+
+- type: jobAlternateTitle
+  id: ScientistTheoreticalPhysicist
+  job: Scientist
+  name: job-name-alt-scientist-5
+
+- type: jobAlternateTitle
+  id: RoboticistBiomechanicalEngineer
+  job: Roboticist
+  name: job-name-alt-roboticist-1
+
+- type: jobAlternateTitle
+  id: RoboticistMechatronicSpecialist
+  job: Roboticist
+  name: job-name-alt-roboticist-2
+
+- type: jobAlternateTitle
+  id: RoboticistCybertronicTechnician
+  job: Roboticist
+  name: job-name-alt-roboticist-3
+
+- type: jobAlternateTitle
+  id: WardenDispatch
+  job: Warden
+  name: job-name-alt-warden-1
+
+- type: jobAlternateTitle
+  id: WardenSurveillanceOperator
+  job: Warden
+  name: job-name-alt-warden-3
+
+- type: jobAlternateTitle
+  id: DetectiveForensicInvestigator
+  job: Detective
+  name: job-name-alt-detective-1
+
+- type: jobAlternateTitle
+  id: DetectiveInspector
+  job: Detective
+  name: job-name-alt-detective-2
+
+- type: jobAlternateTitle
+  id: DetectiveLeadInvestigator
+  job: Detective
+  name: job-name-alt-detective-3
+
+- type: jobAlternateTitle
+  id: SecuritySergeantPatrolLeader
+  job: SecuritySergeant
+  name: job-name-alt-security-sergeant-1
+
+- type: jobAlternateTitle
+  id: SecuritySergeantDrillInstructor
+  job: SecuritySergeant
+  name: job-name-alt-security-sergeant-2
+
+- type: jobAlternateTitle
+  id: BrigmedicCombatMedic
+  job: Brigmedic
+  name: job-name-alt-brigmedic-1
+
+- type: jobAlternateTitle
+  id: BrigmedicFieldMedic
+  job: Brigmedic
+  name: job-name-alt-brigmedic-2
+
+- type: jobAlternateTitle
+  id: BrigmedicBrigMedic
+  job: Brigmedic
+  name: job-name-alt-brigmedic-3
+
+- type: jobAlternateTitle
+  id: TransitPrisonerDetainee
+  job: TransitPrisoner
+  name: job-name-alt-transit-prisoner-1
+
+- type: jobAlternateTitle
+  id: TransitPrisonerInmate
+  job: TransitPrisoner
+  name: job-name-alt-transit-prisoner-2
+
+- type: jobAlternateTitle
+  id: ReporterInfluencer
+  job: Reporter
+  name: job-name-alt-reporter-1
+
+- type: jobAlternateTitle
+  id: ReporterDocumentarian
+  job: Reporter
+  name: job-name-alt-reporter-2
+
+- type: jobAlternateTitle
+  id: ReporterMediaCoordinator
+  job: Reporter
+  name: job-name-alt-reporter-3
+
+- type: jobAlternateTitle
+  id: ReporterJournalist
+  job: Reporter
+  name: job-name-alt-reporter-4
+
+- type: jobAlternateTitle
+  id: RadioHostRadioDJ
+  job: RadioHost
+  name: job-name-alt-radiohost-1
+
+- type: jobAlternateTitle
+  id: RadioHostBroadcaster
+  job: RadioHost
+  name: job-name-alt-radiohost-2
+
+- type: jobAlternateTitle
+  id: RadioHostTalkShowHost
+  job: RadioHost
+  name: job-name-alt-radiohost-3

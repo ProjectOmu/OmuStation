@@ -47,6 +47,7 @@
 // SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
 // SPDX-FileCopyrightText: 2025 Zekins <zekins3366@gmail.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+// SPDX-FileCopyrightText: 2026 Natch <155337371+M-U-U-U@users.noreply.github.com>
 //
 
 using System.Linq;
@@ -58,6 +59,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Random.Helpers;
+using Content.Shared._Omu.Roles;
 using Content.Shared.Roles;
 using Content.Goobstation.Common.Barks; // Goob Station - Barks
 using Content.Shared.Traits;
@@ -92,6 +94,9 @@ namespace Content.Shared.Preferences
                 SharedGameTicker.FallbackOverflowJob, JobPriority.High
             }
         };
+
+        [DataField]
+        private Dictionary<ProtoId<JobPrototype>, ProtoId<JobAlternateTitlePrototype>> _jobAlternateTitles = new();
 
         /// <summary>
         /// Antags we have opted in to.
@@ -170,6 +175,8 @@ namespace Content.Shared.Preferences
         /// </summary>
         public IReadOnlyDictionary<ProtoId<JobPrototype>, JobPriority> JobPriorities => _jobPriorities;
 
+        public IReadOnlyDictionary<ProtoId<JobPrototype>, ProtoId<JobAlternateTitlePrototype>> JobAlternateTitles => _jobAlternateTitles;
+
         /// <summary>
         /// <see cref="_antagPreferences"/>
         /// </summary>
@@ -198,6 +205,7 @@ namespace Content.Shared.Preferences
             HumanoidCharacterAppearance appearance,
             SpawnPriorityPreference spawnPriority,
             Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities,
+            Dictionary<ProtoId<JobPrototype>, ProtoId<JobAlternateTitlePrototype>> jobAlternateTitles,
             PreferenceUnavailableMode preferenceUnavailable,
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
@@ -215,6 +223,7 @@ namespace Content.Shared.Preferences
             Appearance = appearance;
             SpawnPriority = spawnPriority;
             _jobPriorities = jobPriorities;
+            _jobAlternateTitles = jobAlternateTitles;
             PreferenceUnavailable = preferenceUnavailable;
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
@@ -249,6 +258,7 @@ namespace Content.Shared.Preferences
                 other.Appearance.Clone(),
                 other.SpawnPriority,
                 new Dictionary<ProtoId<JobPrototype>, JobPriority>(other.JobPriorities),
+                new Dictionary<ProtoId<JobPrototype>, ProtoId<JobAlternateTitlePrototype>>(other.JobAlternateTitles),
                 other.PreferenceUnavailable,
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
@@ -464,6 +474,20 @@ namespace Content.Shared.Preferences
             };
         }
 
+        public HumanoidCharacterProfile WithJobAlternateTitle(ProtoId<JobPrototype> jobId, ProtoId<JobAlternateTitlePrototype>? title)
+        {
+            var dictionary = new Dictionary<ProtoId<JobPrototype>, ProtoId<JobAlternateTitlePrototype>>(_jobAlternateTitles);
+            if (title == null)
+                dictionary.Remove(jobId);
+            else
+                dictionary[jobId] = title.Value;
+
+            return new(this)
+            {
+                _jobAlternateTitles = dictionary,
+            };
+        }
+
         public HumanoidCharacterProfile WithPreferenceUnavailable(PreferenceUnavailableMode mode)
         {
             return new(this) { PreferenceUnavailable = mode };
@@ -576,6 +600,7 @@ namespace Content.Shared.Preferences
             if (PreferenceUnavailable != other.PreferenceUnavailable) return false;
             if (SpawnPriority != other.SpawnPriority) return false;
             if (!_jobPriorities.SequenceEqual(other._jobPriorities)) return false;
+            if (!_jobAlternateTitles.SequenceEqual(other._jobAlternateTitles)) return false;
             if (!_antagPreferences.SequenceEqual(other._antagPreferences)) return false;
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
@@ -736,6 +761,20 @@ namespace Content.Shared.Preferences
                 _jobPriorities.Add(job, priority);
             }
 
+            var alternateTitles = new Dictionary<ProtoId<JobPrototype>, ProtoId<JobAlternateTitlePrototype>>();
+            foreach (var (job, title) in _jobAlternateTitles)
+            {
+                if (prototypeManager.TryIndex(title, out var titlePrototype, false) && titlePrototype.Job == job)
+                    alternateTitles.Add(job, title);
+            }
+
+            _jobAlternateTitles.Clear();
+
+            foreach (var (job, title) in alternateTitles)
+            {
+                _jobAlternateTitles.Add(job, title);
+            }
+
             PreferenceUnavailable = prefsUnavailableMode;
 
             _antagPreferences.Clear();
@@ -837,6 +876,7 @@ namespace Content.Shared.Preferences
         {
             var hashCode = new HashCode();
             hashCode.Add(_jobPriorities);
+            hashCode.Add(_jobAlternateTitles);
             hashCode.Add(_antagPreferences);
             hashCode.Add(_traitPreferences);
             hashCode.Add(_loadouts);
