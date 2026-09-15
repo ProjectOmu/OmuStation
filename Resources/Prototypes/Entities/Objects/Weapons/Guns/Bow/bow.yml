@@ -51,6 +51,9 @@
   - type: UnwieldOnShoot # Goobstation
   - type: UseDelayBlockShoot # Goobstation
   - type: UndetectableContraband #Goobstation-Contraband detector
+  - type: Tag # Mono
+    tags:
+    - IgnoreClawPenalty # Mono
 
 - type: entity
   id: BowImprovised
