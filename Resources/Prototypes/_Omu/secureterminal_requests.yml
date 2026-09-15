@@ -1,0 +1,46 @@
+# ── Code Amber ────────────────────────────────────────────────────────────────
+- type: secureTerminalRequest
+  id: CodeAmber
+  name: secure-terminal-code-amber-name
+  description: secure-terminal-code-amber-desc
+  announcement: secure-terminal-code-amber-announcement
+  announcementColor: "#ff66cc"
+  activationDelaySecs: 5
+  requireReason: true
+  fee: 2500
+  #salaryPenalty: 0.1 # Omu
+  actionType: AlertLevel
+  alertLevel: amber
+  sortOrder: 20
+  authGroups:
+    - [Captain, HeadOfSecurity, NanotrasenRepresentative]
+    - [Captain, HeadOfSecurity, NanotrasenRepresentative]
+  authGroupLabels:
+    - "Captain / HoS / NTR (1)"
+    - "Captain / HoS / NTR (2)"
+  cooldownSecs: 900
+  authTimer: 30
+
+# ── End Amber ─────────────────────────────────────────────────────────────────
+- type: secureTerminalRequest
+  id: EndAmber
+  parentId: CodeAmber
+  name: secure-terminal-end-amber-name
+  description: secure-terminal-end-amber-desc
+  announcementColor: "#66ff99"
+  proposalAnnouncement: false
+  activationDelaySecs: 5
+  fee: 0
+  #salaryPenalty: 0.0 # Omu
+  actionType: AlertLevel
+  alertLevel: green
+  requiresAlertLevel: amber
+  requiresAlertActiveMinutes: 15
+  sortOrder: 22
+  authGroups:
+    - [Captain, HeadOfSecurity, NanotrasenRepresentative]
+    - [Captain, HeadOfSecurity, NanotrasenRepresentative]
+  authGroupLabels:
+    - "Captain / HoS / NTR (1)"
+    - "Captain / HoS / NTR (2)"
+  cooldownSecs: 0
