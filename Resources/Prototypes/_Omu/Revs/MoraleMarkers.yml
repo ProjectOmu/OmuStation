@@ -36,3 +36,16 @@
     - ShowAntagIcons
     - HeadRevolutionary
   locationPreference: Right
+
+- type: factionIcon
+  id: MoralePassedFaction
+  priority: 15
+  icon:
+    sprite: /Textures/_Omu/Interface/MoraleIcons/morale_icons.rsi
+    state: moralepassed
+  showTo:
+    components:
+    - CommandStaff
+    - ShowAntagIcons
+    - HeadRevolutionary
+  locationPreference: Right

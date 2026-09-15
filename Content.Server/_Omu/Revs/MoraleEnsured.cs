@@ -1,4 +1,7 @@
 using Robust.Shared.Timing;
+using Content.Shared.NPC.Systems;
+using Robust.Shared.Prototypes;
+using Content.Shared.StatusIcon;
 
 namespace Content.Server._Omu.Revs;
 
@@ -10,11 +13,33 @@ public sealed partial class MoralePassedComponent : Component
 
     [ViewVariables(VVAccess.ReadOnly)]
     public float UpdateAccumulator = 0f;
+
+    [DataField]
+    public FactionIconPrototype Faction;
 }
 
 public sealed class MoralePassedSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
+    [Dependency] private readonly PrototypeManager _proto = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<MoralePassedComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<MoralePassedComponent, ComponentShutdown>(OnShutdown);
+    }
+    private void OnStartup(EntityUid uid, MoralePassedComponent component, ComponentStartup args)
+    {
+        component.Faction = _proto.Index<FactionIconPrototype>("MoralePassedFaction");
+        _npcFaction.AddFaction(uid, component.Faction.ID);
+    }
+
+    private void OnShutdown(EntityUid uid, MoralePassedComponent component, ComponentShutdown args)
+    {
+        _npcFaction.RemoveFaction(uid, component.Faction.ID);
+    }
 
     public override void Update(float frameTime)
     {
