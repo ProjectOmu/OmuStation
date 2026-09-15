@@ -5,6 +5,12 @@
   equipment:
     head: ClothingHeadHatParamedicsoft
 
+# Omu start
+- type: loadout
+  id: UshankaParamedic
+  equipment:
+    head: ClothingHeadHatUshankaParamedic
+# Omu end
 
 # Jumpsuit
 - type: loadout
@@ -41,10 +47,3 @@
   id: BlueShoes
   equipment:
     shoes: ClothingShoesColorBlue
-
-# Omu start
-- type: loadout
-  id: ClothingHeadHatUshankaParamedic
-  equipment:
-      head: ClothingHeadHatUshankaParamedic
-# Omu end

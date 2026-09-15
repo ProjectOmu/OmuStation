@@ -207,11 +207,11 @@
 - type: loadout
   id: MedicalEyePatchHud
   equipment:
-    eyes:
+    eyes: MedicalEyePatchHud
 
 # Omu start
 - type: loadout
-  id: ClothingHeadHatUshankaMedical
+  id: UshankaMedical
   equipment:
-      head: ClothingHeadHatUshankaMedical
+    head: ClothingHeadHatUshankaMedical
 # Omu end
