@@ -26,11 +26,6 @@
   name: job-name-alt-cargotech-6
 
 - type: jobAlternateTitle
-  id: CargoTechnicianDeliveryAssociate
-  job: CargoTechnician
-  name: job-name-alt-cargotech-7
-
-- type: jobAlternateTitle
   id: QuartermasterRequisitionsOfficer
   job: Quartermaster
   name: job-name-alt-qm-1
@@ -51,7 +46,7 @@
   name: job-name-alt-qm-5
 
 - type: jobAlternateTitle
-  id: SalvageSpecialistBlastingSpecialist
+  id: SalvageSpecialistMiningSpecialist
   job: SalvageSpecialist
   name: job-name-alt-salvage-2
 
@@ -81,34 +76,9 @@
   name: job-name-alt-courier-2
 
 - type: jobAlternateTitle
-  id: AssistantPassenger
-  job: Passenger
-  name: job-name-alt-assistant-1
-
-- type: jobAlternateTitle
-  id: AssistantEntrepreneur
-  job: Passenger
-  name: job-name-alt-assistant-3
-
-- type: jobAlternateTitle
-  id: AssistantOffDuty
-  job: Passenger
-  name: job-name-alt-assistant-4
-
-- type: jobAlternateTitle
-  id: AssistantIndependentContractor
-  job: Passenger
-  name: job-name-alt-assistant-5
-
-- type: jobAlternateTitle
-  id: AssistantFreelancer
-  job: Passenger
-  name: job-name-alt-assistant-6
-
-- type: jobAlternateTitle
-  id: AssistantVacationer
-  job: Passenger
-  name: job-name-alt-assistant-7
+  id: CourierDeliveryAssociate
+  job: Courier
+  name: job-name-alt-courier-3
 
 - type: jobAlternateTitle
   id: BartenderMixologist
@@ -266,11 +236,6 @@
   name: job-name-alt-janitor-4
 
 - type: jobAlternateTitle
-  id: JanitorCustodian
-  job: Janitor
-  name: job-name-alt-janitor-5
-
-- type: jobAlternateTitle
   id: LawyerAttorney
   job: Lawyer
   name: job-name-alt-lawyer-1
@@ -404,11 +369,6 @@
   id: CaptainSiteAdministrator
   job: Captain
   name: job-name-alt-captain-6
-
-- type: jobAlternateTitle
-  id: HeadOfPersonnelExecutiveOfficer
-  job: HeadOfPersonnel
-  name: job-name-alt-hop-1
 
 - type: jobAlternateTitle
   id: HeadOfPersonnelEmploymentOfficer
@@ -694,26 +654,6 @@
   id: RoboticistCybertronicTechnician
   job: Roboticist
   name: job-name-alt-roboticist-3
-
-- type: jobAlternateTitle
-  id: SecurityOfficerRegulatoryControlOfficer
-  job: SecurityOfficer
-  name: job-name-alt-secoff-1
-
-- type: jobAlternateTitle
-  id: SecurityOfficerCommunityOutreachOfficer
-  job: SecurityOfficer
-  name: job-name-alt-secoff-2
-
-- type: jobAlternateTitle
-  id: SecurityOfficerDeskOfficer
-  job: SecurityOfficer
-  name: job-name-alt-secoff-3
-
-- type: jobAlternateTitle
-  id: SecurityOfficerNightWatchman
-  job: SecurityOfficer
-  name: job-name-alt-secoff-4
 
 - type: jobAlternateTitle
   id: WardenDispatch

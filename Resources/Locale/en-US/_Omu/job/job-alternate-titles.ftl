@@ -5,24 +5,16 @@ job-name-alt-cargotech-3 = Logistics Clerk
 job-name-alt-cargotech-4 = Warehouse Technician
 job-name-alt-cargotech-5 = Deck Worker
 job-name-alt-cargotech-6 = Inventory Associate
-job-name-alt-cargotech-7 = Delivery Associate
 
 job-name-alt-qm-1 = Requisitions Officer
 job-name-alt-qm-2 = Deck Chief
 job-name-alt-qm-3 = Warehouse Supervisor
 job-name-alt-qm-5 = Logistics Coordinator
 
-job-name-alt-salvage-2 = Blasting Specialist
+job-name-alt-salvage-2 = Mining Specialist
 job-name-alt-salvage-3 = Field Geologist
 job-name-alt-salvage-4 = Drill Technician
 job-name-alt-salvage-5 = Shipbreaking Specialist
-
-job-name-alt-assistant-1 = Passenger
-job-name-alt-assistant-3 = Entrepreneur
-job-name-alt-assistant-4 = Off-duty Crew
-job-name-alt-assistant-5 = Independent Contractor
-job-name-alt-assistant-6 = Freelancer
-job-name-alt-assistant-7 = Vacationer
 
 job-name-alt-bartender-1 = Mixologist
 job-name-alt-bartender-3 = Barista
@@ -60,7 +52,6 @@ job-name-alt-janitor-1 = Maid
 job-name-alt-janitor-2 = Maintenance Worker
 job-name-alt-janitor-3 = Custodial Technician
 job-name-alt-janitor-4 = Sanitation Specialist
-job-name-alt-janitor-5 = Custodian
 
 job-name-alt-lawyer-1 = Attorney
 job-name-alt-lawyer-2 = Legal Representative
@@ -95,7 +86,6 @@ job-name-alt-captain-4 = Head of Command
 job-name-alt-captain-5 = Site Director
 job-name-alt-captain-6 = Site Administrator
 
-job-name-alt-hop-1 = Executive Officer
 job-name-alt-hop-2 = Employment Officer
 job-name-alt-hop-3 = Crew Supervisor
 job-name-alt-hop-4 = Head of Hospitality
@@ -161,11 +151,6 @@ job-name-alt-roboticist-1 = Biomechanical Engineer
 job-name-alt-roboticist-2 = Mechatronic Specialist
 job-name-alt-roboticist-3 = Cybertronic Technician
 
-job-name-alt-secoff-1 = Regulatory Control Officer
-job-name-alt-secoff-2 = Community Outreach Officer
-job-name-alt-secoff-3 = Desk Officer
-job-name-alt-secoff-4 = Night Watchman
-
 job-name-alt-warden-1 = Dispatcher
 job-name-alt-warden-3 = Surveillance Operator
 
@@ -180,6 +165,7 @@ job-name-alt-reporter-4 = Journalist
 
 job-name-alt-courier-1 = Mail Carrier
 job-name-alt-courier-2 = Dispatch Runner
+job-name-alt-courier-3 = Delivery Associate
 
 job-name-alt-admin-assistant-1 = Command Secretary
 job-name-alt-admin-assistant-2 = Bridge Clerk
