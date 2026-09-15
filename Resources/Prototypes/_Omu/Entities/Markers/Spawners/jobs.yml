@@ -68,6 +68,30 @@
     - state: medicalmedicus
 
 - type: entity
+  id: SpawnPointScienceProfessor
+  parent: SpawnPointJobBase
+  name: scienceprofessor
+  components:
+  - type: SpawnPoint
+    job_id: ScienceProfessor
+  - type: Sprite
+    layers:
+    - state: green
+    - state: scienceprofessor
+
+- type: entity
+  id: SpawnPointCargoBosun
+  parent: SpawnPointJobBase
+  name: cargobosun
+  components:
+  - type: SpawnPoint
+    job_id: CargoBosun
+  - type: Sprite
+    layers:
+    - state: green
+    - state: cargobosun
+
+- type: entity
   id: SpawnPointEngineeringForeman
   parent: SpawnPointJobBase
   name: engineeringforeman
