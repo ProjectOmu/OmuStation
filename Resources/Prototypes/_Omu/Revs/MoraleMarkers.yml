@@ -49,3 +49,23 @@
     - ShowAntagIcons
     - HeadRevolutionary
   locationPreference: Right
+
+- type: entity
+  parent: BaseItem
+  id: MoralePassed
+  categories: [ HideSpawnMenu ]
+  name: MoralePassed
+  components:
+  - type: Sprite
+    sprite: /Textures/_Omu/Interface/MoraleIcons/morale_icons.rsi
+    state: moralepassed
+
+- type: entity
+  parent: BaseItem
+  id: MoraleNegative
+  categories: [ HideSpawnMenu ]
+  name: MoraleNegative
+  components:
+  - type: Sprite
+    sprite: /Textures/_Omu/Interface/MoraleIcons/morale_icons.rsi
+    state: negative
