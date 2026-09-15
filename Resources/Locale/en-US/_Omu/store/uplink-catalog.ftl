@@ -41,6 +41,9 @@ uplink-hobbyist-spellbook-desc = A book given out by the Wizard Federation to ge
 uplink-sniper-penman-name = LRR-30 "Penman" DMR
 uplink-sniper-penman-desc = A prized long range product of Waffle Co. able to down targets fast and accurately at medium to long ranges. Chambered in .30 long rifle magnum, fires in semi-auto, has a medium strength optic.
 
+uplink-magazine-longrifle-name = .30 Long Rifle Magnum Magazine
+uplink-magazine-longrifle-desc = A magazine of .30 Long Rifle Magnum, compatible with the LRR-30 Penman.
+
 uplink-ammo-longrifle-name = Box of .30 Long Rifle Magnum
 uplink-ammo-longrifle-desc = A box of ammunition used as ammo by the Kardashev-Mosin and LRR-30 "Penman" DMR.
 

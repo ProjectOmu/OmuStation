@@ -20,3 +20,10 @@
   result: MagazineBoxLongRifle
   materials:
     Steel: 500
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineLongRifle
+  result: MagazineLongRifle
+  materials:
+    Steel: 150
