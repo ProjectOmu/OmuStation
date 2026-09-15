@@ -33,7 +33,7 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
     // [Dependency] private readonly StationSystem _station = default!; // Omu
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly IConfigurationManager _cfgManager = default!;
-    [Dependency] private readonly RadioSystem _radio = default!;
+    [Dependency] private readonly RadioSystem _radio = default!; // Omu
 
     // Messages in notifications get cut off after this point
     // no point in storing it on the comp
@@ -374,6 +374,7 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
                 if (receiverCart.Card != recipient.Owner)
                     continue;
 
+                // Omu start
                 /*
                 // Check if devices are on same station/map
                 var recipientStation = _station.GetOwningStation(receiverUid);
@@ -413,6 +414,8 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
                 if (!CanReceive(sender, receiverUid))
                     continue;
 
+                // Omu end
+
                 // Found valid cartridge that can receive
                 deliverableRecipients.Add(recipient);
                 break; // Only need one valid cartridge per card
@@ -422,6 +425,7 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
         return (deliverableRecipients.Count == 0, deliverableRecipients);
     }
 
+    // Omu start
     /*
     /// <summary>
     ///     Checks if there are any active telecomms servers on the given station
@@ -464,6 +468,7 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
         RaiseLocalEvent(ref receiveAttemptEv);
         return !receiveAttemptEv.Cancelled;
     }
+    // Omu end
 
     /// <summary>
     ///     Delivers a message to the recipient and handles associated notifications.
@@ -604,14 +609,16 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
     private void UpdateUI(Entity<NanoChatCartridgeComponent> ent, EntityUid loader)
     {
         List<NanoChatRecipient>? contacts;
-        if (CanSend(ent) && _radio.HasActiveServer(Transform(ent).MapID, ent.Comp.RadioChannel))
+        if (CanSend(ent) && _radio.HasActiveServer(Transform(ent).MapID, ent.Comp.RadioChannel)) // Omu
         {
+            // ent.Comp.Station = station; // Omu
+
             contacts = [];
 
             var query = AllEntityQuery<NanoChatCardComponent, IdCardComponent>();
             while (query.MoveNext(out var entityId, out var nanoChatCard, out var idCardComponent))
             {
-                if (nanoChatCard.ListNumber && nanoChatCard.Number is uint nanoChatNumber && idCardComponent.FullName is string fullName)
+                if (nanoChatCard.ListNumber && nanoChatCard.Number is uint nanoChatNumber && idCardComponent.FullName is string fullName) // Omu
                 {
                     contacts.Add(new NanoChatRecipient(nanoChatNumber, fullName));
                 }
