@@ -1,3 +1,6 @@
+using Content.Shared.NPC.Prototypes;
+using Content.Shared.StatusIcon;
+
 namespace Content.Server._Omu.Revs;
 
 [RegisterComponent, Access(typeof(MoraleSystem))]
@@ -40,4 +43,6 @@ public sealed partial class MoraleComponent : Component
     [DataField]
     public float MoraleMsgTicking = 0f;
 
+    [DataField]
+    public FactionIconPrototype CurrentFaction;
 }

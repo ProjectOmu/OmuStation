@@ -1,0 +1,38 @@
+- type: factionIcon
+  id: MoraleAverageFaction
+  priority: 15
+  icon:
+    sprite: /Textures/_Omu/Interface/MoraleIcons/morale_icons.rsi
+    state: average
+  showTo:
+    components:
+    - CommandStaff
+    - ShowAntagIcons
+    - HeadRevolutionary
+  locationPreference: Right
+
+- type: factionIcon
+  id: MoralePositiveFaction
+  priority: 15
+  icon:
+    sprite: /Textures/_Omu/Interface/MoraleIcons/morale_icons.rsi
+    state: positive
+  showTo:
+    components:
+    - CommandStaff
+    - ShowAntagIcons
+    - HeadRevolutionary
+  locationPreference: Right
+
+- type: factionIcon
+  id: MoraleNegativeFaction
+  priority: 15
+  icon:
+    sprite: /Textures/_Omu/Interface/MoraleIcons/morale_icons.rsi
+    state: negative
+  showTo:
+    components:
+    - CommandStaff
+    - ShowAntagIcons
+    - HeadRevolutionary
+  locationPreference: Right

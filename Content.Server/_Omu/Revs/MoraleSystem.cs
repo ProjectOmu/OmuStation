@@ -10,7 +10,6 @@ using Content.Shared.NPC.Systems;
 using Content.Server.Mind;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Roles.Components;
-using Content.Shared.Stunnable;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Revolutionary;
@@ -21,7 +20,7 @@ using Content.Shared._Omu.Revs;
 using Content.Server.Revolutionary.Components;
 using Robust.Shared.Random;
 using Content.Shared.Random.Helpers;
-using Content.Shared.Emag.Systems;
+using Content.Shared.StatusIcon;
 
 namespace Content.Server._Omu.Revs;
 
@@ -39,12 +38,14 @@ public sealed class MoraleSystem : EntitySystem
     [Dependency] private readonly RoleSystem _role = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly PrototypeManager _proto = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<MoraleComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<MoraleComponent, MoraleChangedArgs>(OnChange);
+        SubscribeLocalEvent<MoraleComponent, ComponentShutdown>(OnShutdown);
     }
 
     private void OnStartup(EntityUid uid, MoraleComponent component, ComponentStartup args)
@@ -59,6 +60,21 @@ public sealed class MoraleSystem : EntitySystem
         {
             component.Mindshielded = true;
             component.MoraleRecovery = component.MoraleMSRecovery;
+        }
+
+        component.CurrentFaction = _proto.Index<FactionIconPrototype>("MoraleAverageFaction");  //Below forbids literal values, this feels shitcodey
+        _npcFaction.AddFaction(uid, component.CurrentFaction.ID);
+    }
+
+    private void OnShutdown(EntityUid uid, MoraleComponent component, ComponentShutdown args)
+    {
+        _npcFaction.RemoveFaction(uid, component.CurrentFaction.ID);        //Wipe the faction
+
+        EnsureComp<MoralePassedComponent>(uid, out var comp);       //Handle it here, its so much easier
+
+        if (component.Mindshielded)
+        {
+            comp.Time = 150f;
         }
     }
 
@@ -96,6 +112,11 @@ public sealed class MoraleSystem : EntitySystem
     }
     private void OnChange(Entity<MoraleComponent> ent, ref MoraleChangedArgs args)
     {
+        if (HasComp<MoralePassedComponent>(ent))
+        {
+            RemComp<MoraleComponent>(ent);
+        }
+
         if (!_mind.TryGetMind(ent, out _, out _))
         {
             RemComp<MoraleComponent>(ent);
@@ -124,15 +145,36 @@ public sealed class MoraleSystem : EntitySystem
         ent.Comp.MoraleValue += args.Amount;
 
         var morale = ent.Comp.MoraleValue;
+        var faction = ent.Comp.CurrentFaction;
 
-        if (morale <= 0f)
+        switch (morale)
         {
-            if (!MakeRev(ent, ref args))
+            case <= 0f:
+                if (!MakeRev(ent, ref args))
+                    RemComp<MoraleComponent>(ent);
+                break;
+
+            case >= 20f:
                 RemComp<MoraleComponent>(ent);
-        }
-        if (morale >= 20f)
-        {
-            RemComp<MoraleComponent>(ent);
+                break;
+
+            case >= 7f and <= 13f:
+                _npcFaction.RemoveFaction(ent.Owner, faction.ID);
+                faction = _proto.Index<FactionIconPrototype>("MoraleAverageFaction");
+                _npcFaction.AddFaction(ent.Owner, faction.ID);          //This feels awful
+                break;
+
+            case < 7f:
+                _npcFaction.RemoveFaction(ent.Owner, faction.ID);
+                faction = _proto.Index<FactionIconPrototype>("MoraleNegativeFaction");
+                _npcFaction.AddFaction(ent.Owner, faction.ID);
+                break;
+
+            case > 13f:
+                _npcFaction.RemoveFaction(ent.Owner, faction.ID);
+                faction = _proto.Index<FactionIconPrototype>("MoralePostiveFaction");
+                _npcFaction.AddFaction(ent.Owner, faction.ID);
+                break;
         }
     }
 
