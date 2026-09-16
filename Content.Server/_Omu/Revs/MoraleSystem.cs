@@ -74,6 +74,9 @@ public sealed class MoraleSystem : EntitySystem
     {
         SetMoraleFaction(uid, null);
 
+        if (TerminatingOrDeleted(uid))
+            return;
+
         EnsureComp<MoralePassedComponent>(uid, out var comp);       //Handle it here, its so much easier
 
         if (component.Mindshielded)
