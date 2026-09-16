@@ -49,10 +49,10 @@
   id: ScienceProfessorChameleonOutfit
   job: ScienceProfessor
   hasMindShield: true
-#  equipment: TODO: FILL THESE OUT WHEN CLOTHES ARE IMPLEMENTED
-#    head: ClothingHeadHatCargosoft
-#    eyes: ClothingEyesGlassesCheapSunglasses
-#    mask: ClothingMaskBreath
-#    outerClothing: ClothingOuterWinterCargo
-#    neck: ClothingNeckScarfStripedBrown
-#    gloves: ClothingHandsGlovesFingerless
+  equipment:
+    head: ClothingHeadHatBeretProfessor
+    eyes: ClothingEyesHudDiagnostic
+    mask: ClothingMaskGas
+    outerClothing: ClothingOuterProfessorLabCoat
+    neck: ClothingNeckScarfStripedPurple
+    gloves: ClothingHandsGlovesLatex

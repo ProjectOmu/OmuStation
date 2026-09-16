@@ -50,10 +50,10 @@
   id: EngineeringForemanChameleonOutfit
   job: EngineeringForeman
   hasMindShield: true
-#  equipment: TODO: FILL THESE OUT WHEN CLOTHES ARE IMPLEMENTED
-#    head: ClothingHeadHatCargosoft
-#    eyes: ClothingEyesGlassesCheapSunglasses
-#    mask: ClothingMaskBreath
-#    outerClothing: ClothingOuterWinterCargo
-#    neck: ClothingNeckScarfStripedBrown
-#    gloves: ClothingHandsGlovesFingerless
+  equipment:
+    head: ClothingHeadHatBeretForeman
+    eyes: ClothingEyesGlassesMeson
+    mask: ClothingMaskGasAtmos
+    outerClothing: ClothingOuterVestHazard
+    neck: ClothingNeckMantleForeman
+    gloves: ClothingHandsGlovesAtmosInsulated

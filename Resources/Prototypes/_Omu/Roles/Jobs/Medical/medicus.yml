@@ -64,10 +64,10 @@
   id: MedicalMedicusChameleonOutfit
   job: MedicalMedicus
   hasMindShield: true
-#  equipment: TODO: FILL THESE OUT WHEN CLOTHES ARE IMPLEMENTED
-#    head: ClothingHeadHatCargosoft
-#    eyes: ClothingEyesGlassesCheapSunglasses
-#    mask: ClothingMaskBreath
-#    outerClothing: ClothingOuterWinterCargo
-#    neck: ClothingNeckScarfStripedBrown
-#    gloves: ClothingHandsGlovesFingerless
+  equipment:
+    head: ClothingHeadHatBeretMedicus
+    eyes: ClothingEyesGlassesMedChem
+    mask: ClothingMaskBreathMedical
+    outerClothing: ClothingOuterMedicusLabCoat
+    neck: ClothingNeckStethoscope
+    gloves: ClothingHandsGlovesLatex
