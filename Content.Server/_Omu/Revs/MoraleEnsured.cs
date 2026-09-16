@@ -33,12 +33,14 @@ public sealed class MoralePassedSystem : EntitySystem
     {
         var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(uid);
         userFactionIcons.FactionIcons.Add(faction);
+        Dirty(uid, userFactionIcons);
     }
 
     private void OnShutdown(EntityUid uid, MoralePassedComponent component, ComponentShutdown args)
     {
         var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(uid);
         userFactionIcons.FactionIcons.Remove(faction);
+        Dirty(uid, userFactionIcons);
     }
 
     public override void Update(float frameTime)
