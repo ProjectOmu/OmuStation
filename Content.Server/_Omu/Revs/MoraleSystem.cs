@@ -21,6 +21,8 @@ using Content.Server.Revolutionary.Components;
 using Robust.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.StatusIcon;
+using Content.Goobstation.Shared.CustomFactionIcons;
+using Content.Shared.Climbing.Events;
 
 namespace Content.Server._Omu.Revs;
 
@@ -38,7 +40,11 @@ public sealed class MoraleSystem : EntitySystem
     [Dependency] private readonly RoleSystem _role = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly PrototypeManager _proto = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+
+    private const string MoraleNegative = "MoraleNegativeFaction";
+    private const string MoraleAverage = "MoraleAverageFaction";
+    private const string MoralePositive = "MoralePositiveFaction";
 
     public override void Initialize()
     {
@@ -61,14 +67,12 @@ public sealed class MoraleSystem : EntitySystem
             component.Mindshielded = true;
             component.MoraleRecovery = component.MoraleMSRecovery;
         }
-
-        component.CurrentFaction = _proto.Index<FactionIconPrototype>("MoraleAverageFaction");  //Below forbids literal values, this feels shitcodey
-        _npcFaction.AddFaction(uid, component.CurrentFaction.ID);
+        SetMoraleFaction(uid, MoraleAverage);
     }
 
     private void OnShutdown(EntityUid uid, MoraleComponent component, ComponentShutdown args)
     {
-        _npcFaction.RemoveFaction(uid, component.CurrentFaction.ID);        //Wipe the faction
+        SetMoraleFaction(uid, null);
 
         EnsureComp<MoralePassedComponent>(uid, out var comp);       //Handle it here, its so much easier
 
@@ -145,37 +149,35 @@ public sealed class MoraleSystem : EntitySystem
         ent.Comp.MoraleValue += args.Amount;
 
         var morale = ent.Comp.MoraleValue;
-        var faction = ent.Comp.CurrentFaction;
+        string faction;
 
         switch (morale)
         {
             case <= 0f:
                 if (!MakeRev(ent, ref args))
                     RemComp<MoraleComponent>(ent);
-                break;
+                return;
 
             case >= 20f:
                 RemComp<MoraleComponent>(ent);
-                break;
+                return;
 
             case >= 7f and <= 13f:
-                _npcFaction.RemoveFaction(ent.Owner, faction.ID);
-                faction = _proto.Index<FactionIconPrototype>("MoraleAverageFaction");
-                _npcFaction.AddFaction(ent.Owner, faction.ID);          //This feels awful
+                faction = MoraleAverage;
                 break;
 
             case < 7f:
-                _npcFaction.RemoveFaction(ent.Owner, faction.ID);
-                faction = _proto.Index<FactionIconPrototype>("MoraleNegativeFaction");
-                _npcFaction.AddFaction(ent.Owner, faction.ID);
+                faction = MoraleNegative;
                 break;
 
             case > 13f:
-                _npcFaction.RemoveFaction(ent.Owner, faction.ID);
-                faction = _proto.Index<FactionIconPrototype>("MoralePostiveFaction");
-                _npcFaction.AddFaction(ent.Owner, faction.ID);
+                faction = MoralePositive;
                 break;
+
+            default:
+                return;
         }
+        SetMoraleFaction(ent, faction);
     }
 
     private bool MakeRev(Entity<MoraleComponent> ent, ref MoraleChangedArgs args)
@@ -242,5 +244,28 @@ public sealed class MoraleSystem : EntitySystem
             if (!MakeRev(new Entity<MoraleComponent>(ent, moraleComponent), ref ev))
                 RemComp<MoraleComponent>(ent);
         }
+    }
+
+    private void SetMoraleFaction(EntityUid ent, string? newFactionId)
+    {
+        var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(ent);
+        var oldFactions = new[]
+        {
+            MoraleAverage,
+            MoralePositive,
+            MoraleNegative
+        };
+
+        foreach (var factionId in oldFactions)
+        {
+            userFactionIcons.FactionIcons.Remove(factionId);
+        }
+
+        if (newFactionId is not null)
+        {
+            userFactionIcons.FactionIcons.Add(newFactionId);
+        }
+
+        Dirty(ent, userFactionIcons);
     }
 }

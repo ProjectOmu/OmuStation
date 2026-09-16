@@ -42,7 +42,4 @@ public sealed partial class MoraleComponent : Component
 
     [DataField]
     public float MoraleMsgTicking = 0f;
-
-    [DataField]
-    public FactionIconPrototype CurrentFaction;
 }
