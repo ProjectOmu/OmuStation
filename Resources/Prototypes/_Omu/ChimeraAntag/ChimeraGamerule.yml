@@ -21,7 +21,8 @@
         - AntagImmune
         - CommandStaff
       startingGear: LetoStartingGear
-      mindRoles: MindRoleChimeraInitial
+      mindRoles:
+      - MindRoleChimeraInitial
   - type: Tag
     tags:
     - RoundstartAntag
