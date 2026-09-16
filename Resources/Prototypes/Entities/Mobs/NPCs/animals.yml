@@ -2807,9 +2807,11 @@
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Xeno
+    - Chittin # Omu - friendly to arachnids
     understands:
     - Xeno
     - TauCetiBasic
+    - Chittin # Omu - friendly to arachnids
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-tarantula
@@ -2864,6 +2866,9 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
+  - type: NpcFactionMember
+    factions:
+      - Arachnids # Omu - spiders friendly to arachnids
 
 - type: entity
   parent:
@@ -2875,6 +2880,7 @@
   - type: NpcFactionMember
     factions:
       - Xeno
+      - Arachnids # Omu - spiders friendly to arachnid
   - type: InputMover
   - type: MobMover
   - type: HTN
