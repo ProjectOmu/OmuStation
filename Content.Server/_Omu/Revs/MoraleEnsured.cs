@@ -1,6 +1,7 @@
 using Robust.Shared.Timing;
 using Content.Shared.StatusIcon;
 using Content.Goobstation.Shared.CustomFactionIcons;
+using SixLabors.ImageSharp.Formats.Jpeg;
 
 namespace Content.Server._Omu.Revs;
 
@@ -38,7 +39,9 @@ public sealed class MoralePassedSystem : EntitySystem
 
     private void OnShutdown(EntityUid uid, MoralePassedComponent component, ComponentShutdown args)
     {
-        var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(uid);
+        if (!TryComp<CustomFactionIconsComponent>(uid, out var userFactionIcons))
+            return;
+
         userFactionIcons.FactionIcons.Remove(faction);
         Dirty(uid, userFactionIcons);
     }
