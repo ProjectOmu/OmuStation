@@ -75,7 +75,6 @@
         SecurityCadet: ClothingCyberneticBeastMantleSecurity
         SecurityOfficer: ClothingCyberneticBeastMantleSecurity
         Warden: ClothingCyberneticBeastMantleSecurity
-        SecuritySergeant: ClothingCyberneticBeastMantleSecurity
         # med mantle for doctors (and brigmedic, actually corpsman)
         Chemist: ClothingCyberneticBeastMantleMedicalChemist
         MedicalDoctor: ClothingCyberneticBeastMantleMedical
@@ -93,7 +92,11 @@
         ResearchDirector: ClothingCyberneticBeastMantleScienceCommand
         AdministrativeAssistant: ClothingCyberneticBeastMantleCommand
         # smaller tossup of mantles for mentor roles.
-        ## TODO: Add Mantles
+        SecuritySergeant: ClothingCyberneticBeastMantleSergeant
+        EngineeringForeman: ClothingCyberneticBeastMantleWorkForeman
+        CargoBosun: ClothingCyberneticBeastMantleBosun
+        MedicalMedicus: ClothingCyberneticBeastMantleMedicus
+        ScienceProfessor: ClothingCyberneticBeastMantleProfessor
         #Mantles for Central Command
         BlueshieldOfficer: ClothingCyberneticBeastMantleBlueshieldOfficer
         NanotrasenRepresentative: ClothingCyberneticBeastMantleCentralCommandNoThermal
