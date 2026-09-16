@@ -177,28 +177,6 @@
     sprite: _Omu/Clothing/Uniforms/Jumpsuit/cybersunparamed.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, BaseSecurityContraband]
-  id: ClothingUniformSergeantUniform
-  name: sergeant's uniform
-  description: The uniform of a highly skilled member of security. They're the guiding light for this station's safety.
-  components:
-  - type: Sprite
-    sprite: _Omu/Clothing/Uniforms/Jumpsuit/sergeant.rsi
-  - type: Clothing
-    sprite: _Omu/Clothing/Uniforms/Jumpsuit/sergeant.rsi
-
-- type: entity
-  parent: [ClothingUniformBase, BaseSecurityContraband]
-  id: ClothingUniformSergeantSkirt
-  name: sergeant's jumpskirt
-  description: The skirted uniform of a highly skilled member of security. They're the guiding light for this station's safety.
-  components:
-  - type: Sprite
-    sprite: _Omu/Clothing/Uniforms/Jumpskirt/sergeantskirt.rsi
-  - type: Clothing
-    sprite: _Omu/Clothing/Uniforms/Jumpskirt/sergeantskirt.rsi
-
-- type: entity
   parent: ClothingUniformBase
   id: ClothingUniformCentComCasualEgg
   name: sector commander's eggsercise wear
@@ -220,3 +198,115 @@
     sprite: _Omu/Clothing/Uniforms/Jumpsuit/shaft_miner.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Uniforms/Jumpsuit/shaft_miner.rsi
+
+# Mentor Role Stuff
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: ClothingUniformSergeantUniform
+  name: sergeant's uniform
+  description: The uniform of a highly skilled member of security. They're the guiding light for this station's safety.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/sergeant.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/sergeant.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: ClothingUniformSergeantSkirt
+  name: sergeant's skirt
+  description: The skirted uniform of a highly skilled member of security. They're the guiding light for this station's safety.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/sergeantskirt.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/sergeantskirt.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseMedicalContraband]
+  id: ClothingUniformMedicusUniform
+  name: medicus' uniform
+  description: The uniform of a highly skilled physician. A shining beacon of life in the dark depths of space.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/medicus.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/medicus.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseMedicalContraband]
+  id: ClothingUniformMedicusSkirt
+  name: medicus' skirt
+  description: The skirted uniform of a highly skilled physician. A shining beacon of life in the dark depths of space.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/medicusskirt.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/medicusskirt.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseScienceContraband]
+  id: ClothingUniformProfessorUniform
+  name: professor's uniform
+  description: The uniform of a highly skilled researcher. The paragon of R&D, guiding the station into the future.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/professor.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/professor.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseScienceContraband]
+  id: ClothingUniformProfessorSkirt
+  name: professor's skirt
+  description: The skirted uniform of a highly skilled researcher. The paragon of R&D, guiding the station into the future.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/professorskirt.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/professorskirt.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseEngineeringContraband]
+  id: ClothingUniformForemanUniform
+  name: foreman's uniform
+  description: The uniform of a highly skilled engineer. The one who keeps the techs prepared, and the lights on.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/foreman.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/foreman.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseEngineeringContraband]
+  id: ClothingUniformForemanSkirt
+  name: foreman's skirt
+  description: The skirted uniform of a highly skilled engineer. The one who keeps the techs prepared, and the lights on.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/foremanskirt.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/foremanskirt.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCargoContraband]
+  id: ClothingUniformBosunUniform
+  name: bosun's uniform
+  description: The uniform of a highly skilled supplier. The towering lighthouse, to which all of Cargo looks toward.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/bosun.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpsuit/bosun.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCargoContraband]
+  id: ClothingUniformBosunSkirt
+  name: bosun's skirt
+  description: The skirted uniform of a highly skilled supplier. The towering lighthouse, to which all of Cargo looks toward.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/bosunskirt.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/bosunskirt.rsi
