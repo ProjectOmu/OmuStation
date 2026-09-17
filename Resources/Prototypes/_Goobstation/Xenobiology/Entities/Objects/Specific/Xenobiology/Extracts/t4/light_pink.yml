@@ -41,7 +41,7 @@
         proto: XenobioExtractReaction
       - !type:RelayNearby
         compName: Dna
-        range: 30
+        range: 2 # Omu changed from 30 (wtf)
         effect: !type:ScrambleDna
   - type: Tag
     tags:
