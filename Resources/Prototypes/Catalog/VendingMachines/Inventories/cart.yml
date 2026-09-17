@@ -3,12 +3,12 @@
 - type: vendingMachineInventory
   id: PTechInventory
   startingInventory:
-    PassengerPDA: 5
+    PassengerPDA: 10 # Omu
     ClearPDA: 5
-    PassengerIDCard: 5
-    ClothingHeadsetGrey: 5
-    RubberStampApproved: 1
-    RubberStampDenied: 1
+    PassengerIDCard: 10 # Omu
+    ClothingHeadsetGrey: 10 # Omu
+    RubberStampApproved: 2 # Omu
+    RubberStampDenied: 2 # Omu
     BoxFolderPlasticClipboardEmpty: 2
     Paper: 10
     Envelope: 10
@@ -17,9 +17,10 @@
     EncryptionKeyEngineering: 2
     EncryptionKeyMedical: 2
     EncryptionKeyScience: 2
-    EncryptionKeySecurity: 1
-    EncryptionKeyService: 3
+    EncryptionKeySecurity: 2
+    EncryptionKeyService: 8 # Omu
     # Below this comment - Omustation
+    EncryptionKeyCommon: 5
     AtmosPDA: 2
     BartenderPDA: 2
     BotanistPDA: 2
