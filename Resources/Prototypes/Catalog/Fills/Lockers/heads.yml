@@ -16,6 +16,7 @@
     - id: AstroNavCartridge
     - id: CargoTechFabCircuitboard # Goobstation - Cargo Techfab
     - id: ClothingHandsKnuckleDustersQM # Goobstation - ROCK THAT MF!!
+    - id: SalvageJobBoardComputerCircuitboard # Goobstation - This doesn't really have a use right now but it's there incase it ever gets use again
     - id: CargoMegaphone # goob - loudspeaker
     - id: ComputerCargoCommsFlatpack #Omu adds departmental comms board
     - id: Multitool # Omu
@@ -124,13 +125,13 @@
   table: !type:AllSelector
     children:
     - id: AccessConfigurator
-    - id: BoxEncryptionKeyPassenger
-    - id: BoxEncryptionKeyService
-    - id: BoxHeadset
+    #- id: BoxEncryptionKeyPassenger # Omu
+    #- id: BoxEncryptionKeyService # Omu
+    #- id: BoxHeadset # Omu
     - id: BoxHoPCircuitboards
-    - id: BoxHoPStamps
-    - id: BoxID
-    - id: BoxPDA
+    #- id: BoxHoPStamps # Omu
+    #- id: BoxID # Omu
+    #- id: BoxPDA # Omu
     - id: CigarGoldCase
       prob: 0.25
       # Fuck the HoP they don't deserve fucking cigars.
@@ -183,6 +184,7 @@
     - id: RubberStampCE
     - id: MetalFoamGrenade
     # Goobstation V
+    - id: SupermatterComputerCircuitboard
     - id: BaseHandheldStationMapSupermatterCe
     - id: BaseHandheldStationMapPowerCe
     - id: EngineeringTechFabCircuitboard
