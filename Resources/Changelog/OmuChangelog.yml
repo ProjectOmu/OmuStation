@@ -7587,3 +7587,102 @@ Entries:
       message: Pink Slime Extract 'DNA Scramble' effect range reduced from 30 to 2
   id: 985
   time: '2026-09-14T00:56:32.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Add
+      message: >-
+        Added a unhackable version of the secure briefcase (Admin spawn only for
+        the time being)
+    - type: Tweak
+      message: unhackable secure briefcases can't hold nuke disks
+    - type: Tweak
+      message: secure briefcases now hide contraband from detectors
+    - type: Fix
+      message: Fixed a bug that stopped some uplinks from buying a lobbying bundle
+  id: 986
+  time: '2026-09-14T10:03:28.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: Resomi can now preen feathers too
+    - type: Add
+      message: Added resomi feathers
+  id: 987
+  time: '2026-09-14T14:06:32.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: Updated Revs to work based on morale. Revs are still admin spawn only.
+  id: 988
+  time: '2026-09-14T14:18:10.0000000+00:00'
+- author: Willfullyheretical
+  changes:
+    - type: Tweak
+      message: HEV suit now is 100% radiation protective
+  id: 989
+  time: '2026-09-14T16:21:40.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: Added a command to list a heretic's sacrifice targets for admins.
+  id: 990
+  time: '2026-09-14T21:33:03.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the collision layers to pre-node crawl - you can go under doors
+        as mice again
+  id: 991
+  time: '2026-09-15T00:16:56.0000000+00:00'
+- author: 4Hangar, asterisksoda
+  changes:
+    - type: Tweak
+      message: >-
+        NanoChat can now be used without the users having to be on the same
+        station.
+  id: 992
+  time: '2026-09-15T18:11:15.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Add
+      message: >-
+        Added Gekkerzine, a loud and annoying chemical, synthesisable in the lab
+        with 1 laughter, 1 cryox, 2 nitrogen and 1 oxygen
+    - type: Tweak
+      message: added gekkerzine to random maints pills
+    - type: Tweak
+      message: added gekkerzine to the chem anom
+    - type: Add
+      message: >-
+        added gekkerzine lollypops to the emagged sweettoof and snack vending
+        machine inventory
+  id: 993
+  time: '2026-09-15T20:18:48.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Fix
+      message: >-
+        NanoChat now generates notifications if the PDA UI is closed with
+        NanoChat open.
+  id: 994
+  time: '2026-09-17T16:44:27.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: Thaven, avali, and allulalo can process ethanol again.
+    - type: Tweak
+      message: >-
+        Allulalo become thirsty at 130% the base rate (compared to 20% from
+        pre-upstream base) and metabolize ethanol like water (at 0.5u/s and
+        taking 40u to go from parched to not being thirsty at all).
+  id: 995
+  time: '2026-09-17T20:30:25.0000000+00:00'
+- author: Chcm97
+  changes:
+    - type: Tweak
+      message: >-
+        Moved the guidebook entry for Nuclear Power to its proper place in the
+        generators section of Engineering.
+  id: 996
+  time: '2026-09-17T20:35:36.0000000+00:00'
