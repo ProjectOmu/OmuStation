@@ -1,0 +1,65 @@
+# Foreman Jumpsuits
+
+- type: loadout
+  id: ForemanJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformForemanUniform
+
+- type: loadout
+  id: ForemanJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformForemanSkirt
+
+# Foreman Shoes
+
+- type: loadout
+  id: ForemanCowboyBoots
+  equipment:
+    shoes: ClothingShoesBootsCowboyWork
+
+# Foreman Hats
+
+- type: loadout
+  id: ForemanHardhat
+  equipment:
+    head: ClothingHeadHatHardhatBlack
+
+- type: loadout
+  id: ForemanBeret
+  equipment:
+    head: ClothingHeadHatBeretForeman
+
+# Foreman OuterClothing
+
+- type: loadout
+  id: ForemanXelthiaJacket
+  equipment:
+    outerClothing: ClothingOuterJacketForeman
+
+# Foreman Neck
+
+- type: loadout
+  id: ForemanMantle
+  equipment:
+    neck: ClothingNeckMantleForeman
+
+# Plasmaman stuff
+
+- type: loadout
+  id: ForemanEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmForeman
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard"
+
+- type: loadout
+  id: ForemanEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitForeman
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
