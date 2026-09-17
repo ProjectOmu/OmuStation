@@ -6,9 +6,9 @@
     state: average
   showTo:
     components:
-    - CommandStaff
     - ShowAntagIcons
     - HeadRevolutionary
+    - Revolutionary
   locationPreference: Right
 
 - type: factionIcon
@@ -19,9 +19,9 @@
     state: positive
   showTo:
     components:
-    - CommandStaff
     - ShowAntagIcons
     - HeadRevolutionary
+    - Revolutionary
   locationPreference: Right
 
 - type: factionIcon
@@ -32,9 +32,9 @@
     state: negative
   showTo:
     components:
-    - CommandStaff
     - ShowAntagIcons
     - HeadRevolutionary
+    - Revolutionary
   locationPreference: Right
 
 - type: factionIcon
@@ -45,9 +45,9 @@
     state: moralepassed
   showTo:
     components:
-    - CommandStaff
     - ShowAntagIcons
     - HeadRevolutionary
+    - Revolutionary
   locationPreference: Right
 
 - type: entity

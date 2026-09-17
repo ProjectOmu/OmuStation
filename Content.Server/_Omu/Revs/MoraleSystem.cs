@@ -77,11 +77,14 @@ public sealed class MoraleSystem : EntitySystem
         if (TerminatingOrDeleted(uid))
             return;
 
-        EnsureComp<MoralePassedComponent>(uid, out var comp);       //Handle it here, its so much easier
-
-        if (component.Mindshielded)
+        if (!HasComp<RevolutionaryComponent>)   //If they are a rev, prevent em from gaining the little icon
         {
-            comp.Time = 150f;
+            EnsureComp<MoralePassedComponent>(uid, out var comp);       //Handle it here, its so much easier
+
+            if (component.Mindshielded)
+            {
+                comp.Time = 150f;
+            }
         }
     }
 
