@@ -7,11 +7,17 @@
   children:
   - CargoBounties
   - Salvage
+  - Shipments
 
 - type: guideEntry
   id: CargoBounties
   name: guide-entry-cargo-bounties
   text: "/ServerInfo/Guidebook/Cargo/CargoBounties.xml"
+
+- type: guideEntry
+  id: Shipments
+  name: guide-entry-secure-shipments
+  text: "/ServerInfo/Guidebook/Cargo/Shipments.xml"
 
 - type: guideEntry
   id: Salvage
