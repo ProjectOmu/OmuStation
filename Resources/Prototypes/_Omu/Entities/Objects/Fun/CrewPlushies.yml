@@ -121,7 +121,7 @@
     - HEAD
   - type: EmitSoundOnPickup
     sound:
-      collection: VulpkaninScreams
+      collection: VulpkaninSnarls
   - type: EmitSoundOnUse
     sound:
       collection: VulpkaninWhines
@@ -133,4 +133,4 @@
       collection: VulpkaninWhines
   - type: EmitSoundOnThrow
     sound:
-      collection: VulpkaninSnarls
+      collection: VulpkaninScreams
