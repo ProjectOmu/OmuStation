@@ -18,6 +18,9 @@
           emergencyShuttlePath: /Maps/_Omu/Shuttles/emergency_tram.yml
         - type: StationJobs
           availableJobs:
+            # CC
+            NanotrasenRepresentative: [ 1, 1 ]
+            BlueshieldOfficer: [ 1, 1 ]
             #service 13-15
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
