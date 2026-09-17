@@ -77,7 +77,7 @@ public sealed class MoraleSystem : EntitySystem
         if (TerminatingOrDeleted(uid))
             return;
 
-        if (!HasComp<RevolutionaryComponent>)   //If they are a rev, prevent em from gaining the little icon
+        if (!HasComp<RevolutionaryComponent>(uid))   //If they are a rev, prevent em from gaining the little icon
         {
             EnsureComp<MoralePassedComponent>(uid, out var comp);       //Handle it here, its so much easier
 
