@@ -20,6 +20,7 @@
   - !type:RoleTimeRequirement
     role: JobStationEngineer
     time: 180000 #50 hrs
+  weight: 5
   startingGear: EngineeringForemanGear
   icon: "JobIconEngineeringForeman"
   supervisors: job-supervisors-ce

@@ -26,6 +26,7 @@
   - !type:RoleTimeRequirement
     role: JobMedicalDoctor
     time: 162000 #45 hrs
+  weight: 5
   startingGear: MedicalMedicusGear
   icon: "JobIconMedicalMedicus"
   supervisors: job-supervisors-cmo

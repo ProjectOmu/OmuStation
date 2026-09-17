@@ -18,6 +18,7 @@
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
       time: 180000 #50 hrs
+  weight: 4 # Below Warden
   startingGear: SecuritySergeantGear
   icon: "JobIconSecuritySergeant"
   supervisors: job-supervisors-hos

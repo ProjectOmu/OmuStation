@@ -23,6 +23,7 @@
   - !type:RoleTimeRequirement
     role: JobCargoTechnician
     time: 144000 #40 hrs
+  weight: 5
   startingGear: CargoBosunGear
   icon: "JobIconCargoBosun"
   supervisors: job-supervisors-qm
