@@ -1,0 +1,80 @@
+- type: entity
+  id: WeaponLightMachineGunVasquez
+  name: Vasquez
+  parent: [BaseItem, BaseGunWieldable, BaseSecurityContraband]
+  description: An expendable light machine gun intended for suppressive fire against unarmored targets. Chambered in .22 caseless with an internal 100-round magazine. It cannot be reloaded, so you'll just have to throw it away when it's empty!
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/LMGs/vasquez.rsi
+    layers:
+    - state: base
+    - state: mag-3
+
+  - type: Item
+    sprite: _Omu/Objects/Weapons/Guns/LMGs/vasquez.rsi
+    size: Huge
+    shape:
+    - 0,0,4,3
+
+  - type: Clothing
+    sprite: _Omu/Objects/Weapons/Guns/LMGs/vasquez.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+
+  - type: GunWieldBonus
+    minAngle: -56
+    maxAngle: -40
+
+  - type: HeldSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+    mirrorClothingModifier: false
+
+  - type: Gun
+    # unwielded spread 30–60 degrees
+    # wielded spread 2–40 degrees
+    minAngle: 60
+    maxAngle: 120
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 8.333333
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+
+  - type: BallisticAmmoProvider
+    proto: CartridgeCaseless22
+    capacity: 100
+    whitelist: null
+    cycleable: false
+    autoCycle: true
+    mayTransfer: false
+
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+
+  - type: AmmoCounter
+
+  - type: Appearance
+
+  - type: StaticPrice
+    price: 100
+
+  - type: EmitSoundOnPickup
+    sound:
+      collection: RiflesPickUp
+
+  - type: EmitSoundOnDrop
+    sound:
+      collection: RiflesDrop
+
+  - type: EmitSoundOnLand
+    sound:
+      collection: RiflesDrop
