@@ -8,7 +8,15 @@
     sprite: _Omu/Objects/Weapons/Guns/LMGs/vasquez.rsi
     layers:
     - state: base
+      map: ["enum.GunVisualLayers.Base"]
     - state: mag-3
+      map: ["enum.GunVisualLayers.Mag"]
+      shader: unshaded
+
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
 
   - type: Item
     sprite: _Omu/Objects/Weapons/Guns/LMGs/vasquez.rsi
