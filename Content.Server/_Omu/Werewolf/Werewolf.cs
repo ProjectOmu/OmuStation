@@ -175,6 +175,8 @@ public sealed class WerewolfSystem : EntitySystem
                 }
                 EnsureComp<WerewolfDevouredComponent>(victim);
             }
+
+        Roar(uid, component);
     }
     private void Roar(EntityUid uid, WerewolfComponent comp)
     {
