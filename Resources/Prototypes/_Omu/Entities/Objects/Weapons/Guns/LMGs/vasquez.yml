@@ -34,19 +34,19 @@
   - type: GunRequiresWield
 
   - type: GunWieldBonus
-    minAngle: -56
-    maxAngle: -80
+    minAngle: -52
+    maxAngle: -96
 
   - type: SpeedModifiedOnWield
     walkModifier: 0.9
     sprintModifier: 0.9
 
   - type: Gun
-    # unwielded spread 30–60 degrees
-    # wielded spread 2-20 degrees
+    # unwielded spread 30-60 degrees (cant wield it anyway)
+    # wielded spread 4-12 degrees
     minAngle: 60
     maxAngle: 120
-    angleIncrease: 2
+    angleIncrease: 1.5
     angleDecay: 16
     fireRate: 8.333333
     selectedMode: FullAuto
