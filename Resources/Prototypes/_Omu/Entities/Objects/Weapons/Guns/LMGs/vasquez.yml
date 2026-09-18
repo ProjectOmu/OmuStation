@@ -2,7 +2,7 @@
   id: WeaponLightMachineGunVasquez
   name: Vasquez
   parent: [BaseItem, BaseGunWieldable, BaseSecurityContraband]
-  description: An expendable light machine gun intended for suppressive fire against unarmored targets. Chambered in .22 caseless with an internal 100-round magazine. It cannot be reloaded, so you'll just have to throw it away when it's empty!
+  description: An expendable light machine gun intended for suppressive fire against unarmored targets. Comes pre-loaded with 100 rounds. It cannot be reloaded, so you'll just have to throw it away when it's empty! Chambered in .22 caseless.
   components:
   - type: Sprite
     sprite: _Omu/Objects/Weapons/Guns/LMGs/vasquez.rsi
@@ -23,33 +23,34 @@
     - Back
     - suitStorage
 
+  - type: GunRequiresWield
+
   - type: GunWieldBonus
     minAngle: -56
-    maxAngle: -40
+    maxAngle: -60
 
-  - type: HeldSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
-    mirrorClothingModifier: false
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.9
+    sprintModifier: 0.9
 
   - type: Gun
     # unwielded spread 30–60 degrees
-    # wielded spread 2–40 degrees
+    # wielded spread 2-30 degrees
     minAngle: 60
     maxAngle: 120
-    angleIncrease: 4
+    angleIncrease: 3
     angleDecay: 16
     fireRate: 8.333333
     selectedMode: FullAuto
     availableModes:
     - FullAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
+      path: /Audio/Weapons/Guns/Gunshots/minigun.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
 
   - type: BallisticAmmoProvider
-    proto: CartridgeCaseless22
+    proto: CartridgeCaselessLMG
     capacity: 100
     whitelist: null
     cycleable: false
