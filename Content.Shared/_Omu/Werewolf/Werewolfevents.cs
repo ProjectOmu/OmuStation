@@ -9,3 +9,7 @@ public sealed partial class EventWerewolfShiftBasic : InstantActionEvent
     [DataField]
     public ProtoId<PolymorphPrototype> Form = "WerewolfBasic";
 }
+
+public sealed partial class EventWerewolfRevert : InstantActionEvent
+{
+}

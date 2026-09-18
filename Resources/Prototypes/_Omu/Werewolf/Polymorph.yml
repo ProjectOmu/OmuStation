@@ -1,7 +1,7 @@
 - type: polymorph
   id: WerewolfBasic
   configuration:
-    entity: MobWhiteWolf
+    entity: WerewolfEnt
     forced: true
     duration: 60 # One minute i spose - can be changed depending on how we want it
     transferDamage: true
@@ -11,12 +11,13 @@
     - component: LanguageKnowledge
     - component: LanguageSpeaker
     - component: Grammar
+    - component: Werewolf
 
 - type: entity
   parent: BaseAction
   id: ActionWerewolfShift
   name: Change Shape #Wolf out furry
-  description: A short range spell that allows you to pass unimpeded through walls.
+  description: Unleash the beast within, Awoo!
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -28,3 +29,20 @@
       state: ashen_shift
   - type: InstantAction
     event: !type:EventWerewolfShiftBasic
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfRevert
+  name: Revert Shape #Back to the humansona
+  description: Revert to your human form.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 15
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: ashen_shift
+  - type: InstantAction
+    event: !type:EventWerewolfRevert

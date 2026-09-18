@@ -1,1 +1,3 @@
 WerewolfTransform = With a tearing of skin! {$ent} bursts into a monstrous beast!
+WerewolfRevert = With a sickening crunch, {$ent} shifts to a human form...
+WerewolfAlreadyInForm = You cannot shift while already in the form!

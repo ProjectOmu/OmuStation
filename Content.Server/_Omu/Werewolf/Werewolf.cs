@@ -30,7 +30,12 @@ namespace Content.Server.Omu.Werewolf;
 [RegisterComponent, Access(typeof(WerewolfSystem))]
 public sealed partial class WerewolfComponent : Component
 {
-    public string shapeshiftAction = "ActionWerewolfShift";
+    [DataField]
+    public string ShapeshiftAction = "ActionWerewolfShift";
+    [DataField]
+    public string RevertAction = "ActionWerewolfRevert";
+    [DataField("wolfin")]
+    public bool Wolfin { get; set; } = false;
 
 }
 
@@ -44,23 +49,32 @@ public sealed class WerewolfSystem : EntitySystem
     [Dependency] protected IPrototypeManager _proto = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
-    protected BodySystem _body = default!;
+    [Dependency] protected BodySystem _body = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<WerewolfComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<WerewolfComponent, EventWerewolfShiftBasic>(OnShapeshift);
+        SubscribeLocalEvent<WerewolfComponent, EventWerewolfRevert>(OnRevert);
     }
 
     private void OnStartup(EntityUid uid, WerewolfComponent component, ComponentStartup args)
     {
         //Setup the furry
-        _actionsSystem.AddAction(uid, component.shapeshiftAction);
+        _actionsSystem.AddAction(uid, component.ShapeshiftAction);
+        _actionsSystem.AddAction(uid, component.RevertAction);
     }
 
     private void OnShapeshift(EntityUid uid, WerewolfComponent component, EventWerewolfShiftBasic args)
     {
+        if (component.Wolfin)
+        {
+            _popup.PopupEntity(Loc.GetString("WerewolfAlreadyInForm"), uid, uid, Shared.Popups.PopupType.Medium);
+            args.Handled = true;
+            return;
+        }
+
         if (!_entManager.TryGetComponent<HumanoidAppearanceComponent>(uid, out var humanoid))
             return;
 
@@ -73,8 +87,35 @@ public sealed class WerewolfSystem : EntitySystem
 
         string message = Loc.GetString("WerewolfTransform", ("ent", MetaData(uid).EntityName));
 
-        _popup.PopupEntity(message, uid);
+        _popup.PopupEntity(message, uid, Shared.Popups.PopupType.LargeCaution);
 
-        _poly.PolymorphEntity(args.Performer, args.Form);
+        var newent = _poly.PolymorphEntity(args.Performer, args.Form);
+
+        if (!TryComp<WerewolfComponent>(newent, out var werewolf))          //Transfer components in polymorph just doesn't work
+            return;
+
+        werewolf.Wolfin = true;
+
+    }
+    private void OnRevert(EntityUid uid, WerewolfComponent component, EventWerewolfRevert args)
+    {
+        if (!component.Wolfin)
+        {
+            _popup.PopupEntity(Loc.GetString("WerewolfAlreadyInForm"), uid, uid, Shared.Popups.PopupType.Medium);
+            args.Handled = true;
+            return;
+        }
+
+        string message = Loc.GetString("WerewolfRevert", ("ent", MetaData(uid).EntityName));
+
+        var newent = _poly.Revert(args.Performer);
+
+        if (newent is not null)
+            _popup.PopupEntity(message, newent.Value, Shared.Popups.PopupType.LargeCaution);
+
+        if (!TryComp<WerewolfComponent>(newent, out var werewolf))          //Transfer components in polymorph just doesn't work
+            return;
+
+        werewolf.Wolfin = false;
     }
 }
