@@ -1,0 +1,30 @@
+- type: polymorph
+  id: WerewolfBasic
+  configuration:
+    entity: MobWhiteWolf
+    forced: true
+    duration: 60 # One minute i spose - can be changed depending on how we want it
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    componentsToTransfer:
+    - component: LanguageKnowledge
+    - component: LanguageSpeaker
+    - component: Grammar
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfShift
+  name: Change Shape #Wolf out furry
+  description: A short range spell that allows you to pass unimpeded through walls.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 15
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: ashen_shift
+  - type: InstantAction
+    event: !type:EventWerewolfShiftBasic
