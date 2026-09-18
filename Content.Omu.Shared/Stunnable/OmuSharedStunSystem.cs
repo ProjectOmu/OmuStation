@@ -39,7 +39,7 @@ public sealed class OmuSharedStunSystem : EntitySystem
         if (result != true)
             return;
         _popup.PopupEntity(Loc.GetString("shakeable-popup-message-others", ("user", args.User), ("shakeable", ent.Owner)), args.User); // Gives everyone around a popup whenever shaken
-        _popup.PopupClient(Loc.GetString("shakeable-popup-message-self", ("user", ent.Owner)), ent.Owner); // Gives the person who is shaking a popup whenever doing so
+        _popup.PopupClient(Loc.GetString("shakeable-popup-message-self", ("user", ent.Owner)), args.User); // Gives the person who is shaking a popup whenever doing so
 
     }
 }
