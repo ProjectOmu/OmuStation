@@ -8,6 +8,7 @@ using Content.Shared.Mind.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using Content.Shared.Verbs;
+using Content.Server.Omu.Werewolf;
 
 namespace Content.Omu.Server.Administration.Systems;
 
@@ -48,6 +49,21 @@ public sealed partial class OmuAdminVerbSystem : EntitySystem
         };
         if (!HasComp<SiliconComponent>(args.Target))
             args.Verbs.Add(initialChimera);
+
+        Verb werewolf = new()
+        {
+            Text = Loc.GetString("admin-verb-text-make-werewolf"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("_Omu/Werewolf/abilities.rsi"), "transform"),
+            Act = () =>
+            {
+                EnsureComp<WerewolfComponent>(args.Target);
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-werewolf"),
+        };
+        if (!HasComp<SiliconComponent>(args.Target))
+            args.Verbs.Add(werewolf);
     }
 
     public bool AntagVerbAllowed(GetVerbsEvent<Verb> args, [NotNullWhen(true)] out ICommonSession? target)
