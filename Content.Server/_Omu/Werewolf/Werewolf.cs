@@ -11,6 +11,8 @@ using Content.Shared.Actions;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.Omu.Werewolf;
 
@@ -24,6 +26,11 @@ public sealed partial class WerewolfComponent : Component
     [DataField("wolfin")]
     public bool Wolfin { get; set; } = false;
 
+    public SoundSpecifier? Awoo =
+        new SoundPathSpecifier("/Audio/Animals/space_dragon_roar.ogg")
+        {
+            Params = AudioParams.Default.WithVolume(3f),
+        };
 }
 
 public sealed class WerewolfSystem : EntitySystem
@@ -33,12 +40,13 @@ public sealed class WerewolfSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly PolymorphSystem _poly = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] protected IPrototypeManager _proto = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] protected BodySystem _body = default!;
-    [Dependency] protected SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] protected BloodstreamSystem _bloodstream = default!;
+    [Dependency] private readonly BodySystem _body = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -90,6 +98,8 @@ public sealed class WerewolfSystem : EntitySystem
 
         _body.GibBody(entityToGib);
 
+        Roar(uid, component);       //AWOOOO
+
         string message = Loc.GetString("WerewolfTransform", ("ent", MetaData(uid).EntityName));
 
         _popup.PopupEntity(message, uid, Shared.Popups.PopupType.LargeCaution);
@@ -122,5 +132,11 @@ public sealed class WerewolfSystem : EntitySystem
             return;
 
         werewolf.Wolfin = false;
+    }
+
+    private void Roar(EntityUid uid, WerewolfComponent comp)
+    {
+        if (comp.Awoo != null)
+            _audio.PlayPvs(comp.Awoo, uid);
     }
 }
