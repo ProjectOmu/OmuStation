@@ -13,6 +13,8 @@ using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Content.Shared.Mobs.Systems;
+using Content.Shared._Shitmed.Body.Organ;
 
 namespace Content.Server.Omu.Werewolf;
 
@@ -31,6 +33,8 @@ public sealed partial class WerewolfComponent : Component
         {
             Params = AudioParams.Default.WithVolume(3f),
         };
+
+    public int Hearts = 0;
 }
 
 public sealed class WerewolfSystem : EntitySystem
@@ -47,6 +51,7 @@ public sealed class WerewolfSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
@@ -54,6 +59,7 @@ public sealed class WerewolfSystem : EntitySystem
         SubscribeLocalEvent<WerewolfComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<WerewolfComponent, EventWerewolfShiftBasic>(OnShapeshift);
         SubscribeLocalEvent<WerewolfComponent, EventWerewolfRevert>(OnRevert);
+        SubscribeLocalEvent<WerewolfComponent, EventWerewolfDevour>(OnDevour);
     }
 
     private void OnStartup(EntityUid uid, WerewolfComponent component, ComponentStartup args)
@@ -110,6 +116,7 @@ public sealed class WerewolfSystem : EntitySystem
             return;
 
         werewolf.Wolfin = true;
+        werewolf.Hearts = component.Hearts;
 
     }
     private void OnRevert(EntityUid uid, WerewolfComponent component, EventWerewolfRevert args)
@@ -132,8 +139,43 @@ public sealed class WerewolfSystem : EntitySystem
             return;
 
         werewolf.Wolfin = false;
+        werewolf.Hearts = component.Hearts;
     }
 
+    private void OnDevour(EntityUid uid, WerewolfComponent component, EventWerewolfDevour args)
+    {
+        var victim = args.Target;
+
+        if (!component.Wolfin)
+        {
+            _popup.PopupEntity(Loc.GetString("WerewolfNeedsWolfin"), uid, uid, Shared.Popups.PopupType.Medium);
+            args.Handled = true;
+            return;
+        }
+
+        if (_mobState.IsAlive(victim))
+        {
+            _popup.PopupEntity(Loc.GetString("WerewolfNeedsDead"), uid, uid, Shared.Popups.PopupType.Medium);
+            return;
+        }
+
+        if (HasComp<WerewolfDevouredComponent>(victim))
+        {
+            _popup.PopupEntity(Loc.GetString("WerewolfAlreadyConsumed"), uid, uid, Shared.Popups.PopupType.Medium);
+            return;
+        }
+
+        if (TryComp<BodyComponent>(victim, out var bodyComp))
+            if (_body.TryGetBodyOrganEntityComps<HeartComponent>((victim, bodyComp), out var hearts))
+            {
+                foreach (var heart in hearts)       //This is so stupid
+                {
+                    QueueDel(heart.Owner);
+                    component.Hearts += 1;
+                }
+                EnsureComp<WerewolfDevouredComponent>(victim);
+            }
+    }
     private void Roar(EntityUid uid, WerewolfComponent comp)
     {
         if (comp.Awoo != null)

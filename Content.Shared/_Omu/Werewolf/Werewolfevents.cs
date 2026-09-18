@@ -13,3 +13,7 @@ public sealed partial class EventWerewolfShiftBasic : InstantActionEvent
 public sealed partial class EventWerewolfRevert : InstantActionEvent
 {
 }
+
+public sealed partial class EventWerewolfDevour : EntityTargetActionEvent
+{
+}

@@ -1,0 +1,18 @@
+- type: entity
+  parent: BaseAction
+  id: WerewolfDevour
+  name: "[color=red]Devour[/color]"
+  description: Ritualisticly eat the heart of a victim.
+  components:
+  - type: Action
+    icon: { sprite : Interface/Actions/devour.rsi, state: icon }
+    iconOn: { sprite : Interface/Actions/devour.rsi, state: icon-on }
+    itemIconStyle: BigAction
+    priority: 1
+  - type: TargetAction
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - HumanoidAppearance
+    event: !type:EventWerewolfDevour
