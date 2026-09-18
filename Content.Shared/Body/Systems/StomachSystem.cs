@@ -110,7 +110,7 @@ namespace Content.Shared.Body.Systems
         {
             if (args.Event.Cancelled)
                 return;
-            
+
             // code reused from TryTransferSolution. we're tracking just the additional products from the reaction
             // Add each reagent to ReagentDeltas. Used to track how long each reagent has been in the stomach
             foreach (var reagent in args.Event.Reaction.Products)
