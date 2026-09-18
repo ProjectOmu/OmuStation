@@ -6,6 +6,8 @@ using Content.Shared.Body.Events;
 using Content.Shared.Body.Organ;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.Reaction;
+using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -25,6 +27,7 @@ namespace Content.Shared.Body.Systems
             SubscribeLocalEvent<StomachComponent, EntityUnpausedEvent>(OnUnpaused);
             SubscribeLocalEvent<StomachComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
             SubscribeLocalEvent<StomachComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
+            SubscribeLocalEvent<StomachComponent, SolutionRelayEvent<ReactionAttemptEvent>>(OnReactionAttempt);
         }
 
         private void OnMapInit(Entity<StomachComponent> ent, ref MapInitEvent args)
@@ -101,6 +104,21 @@ namespace Content.Shared.Body.Systems
         {
             ent.Comp.UpdateIntervalMultiplier = args.Multiplier;
         }
+
+        // Omu, handles reactions inside the stomach so that newly created reagents are processed
+        private void OnReactionAttempt(Entity<StomachComponent> ent, ref SolutionRelayEvent<ReactionAttemptEvent> args)
+        {
+            if (args.Event.Cancelled)
+                return;
+            
+            // code reused from TryTransferSolution. we're tracking just the additional products from the reaction
+            // Add each reagent to ReagentDeltas. Used to track how long each reagent has been in the stomach
+            foreach (var reagent in args.Event.Reaction.Products)
+            {
+                ent.Comp.ReagentDeltas.Add(new StomachComponent.ReagentDelta(new ReagentQuantity(reagent.Key, reagent.Value)));
+            }
+        }
+        // End Omu
 
         public bool CanTransferSolution(
             EntityUid uid,
