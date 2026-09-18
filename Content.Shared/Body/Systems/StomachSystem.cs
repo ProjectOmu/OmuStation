@@ -27,7 +27,7 @@ namespace Content.Shared.Body.Systems
             SubscribeLocalEvent<StomachComponent, EntityUnpausedEvent>(OnUnpaused);
             SubscribeLocalEvent<StomachComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
             SubscribeLocalEvent<StomachComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
-            SubscribeLocalEvent<StomachComponent, SolutionRelayEvent<ReactionAttemptEvent>>(OnReactionAttempt);
+            SubscribeLocalEvent<StomachComponent, SolutionRelayEvent<ReactionAttemptEvent>>(OnReactionAttempt); // Omu
         }
 
         private void OnMapInit(Entity<StomachComponent> ent, ref MapInitEvent args)
