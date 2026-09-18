@@ -76,18 +76,6 @@ public sealed class MappingSystem : EntitySystem
 
             _currentlyAutosaving[uid] = (CalculateNextTime(), name);
             var saveDir = Path.Combine(_cfg.GetCVar(CCVars.AutosaveDirectory), name).Replace(Path.DirectorySeparatorChar, '/');
-            try//Omu start, prevent crash when autosaving fails due to lack of permissions
-            {
-                _resMan.UserData.CreateDir(new ResPath(saveDir).ToRootedPath());
-                Log.Info("Autosave directory created successfully.");
-            }
-            catch
-            {
-                Log.Error($"Can't create directory: {saveDir}; Insufficient permissions. Autosaves have been deactivated.");
-                _autosaveEnabled = false;
-                break;
-            }//Omu end
-
             var path = new ResPath(Path.Combine(saveDir, $"{DateTime.Now:yyyy-M-dd_HH.mm.ss}-AUTO.yml"));
             Log.Info($"Autosaving map {name} ({uid}) to {path}. Next save in {ReadableTimeLeft(uid)} seconds.");
 
