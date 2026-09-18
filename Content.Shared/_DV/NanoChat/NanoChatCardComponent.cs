@@ -64,9 +64,12 @@ public sealed partial class NanoChatCardComponent : Component
     [DataField]
     public bool ListNumber = true;
 
+    // Omu start
     /// <summary>
-    ///     Whether the card's number should be listed in NanoChat's lookup
+    ///     Whether a PDA has this card's UI closed.
+    ///     Used for notifications.
     /// </summary>
+    // Omu end
     [DataField]
     public bool IsClosed;
 }
