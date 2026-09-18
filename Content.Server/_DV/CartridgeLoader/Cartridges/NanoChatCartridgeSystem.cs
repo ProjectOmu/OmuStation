@@ -78,6 +78,11 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
             if (cartridge.LoaderUid == null)
                 continue;
 
+            // Omu start
+            // keep it up to date without handling ui open/close events on the pda or adding code when changing active program
+            UpdateClosed((uid, nanoChat));
+            // Omu end
+
             // Check if we need to update our card reference
             if (!TryComp<PdaComponent>(cartridge.LoaderUid, out var pda))
                 continue;
