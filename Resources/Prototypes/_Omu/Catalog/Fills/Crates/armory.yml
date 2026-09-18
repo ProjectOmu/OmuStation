@@ -2,7 +2,7 @@
   id: CrateArmoryVasquez
   name: Vasquez expendable LMG crate
   parent: CrateWeaponSecure
-  description: Contains two expendable Vasquez light machine guns, each factory-loaded with 100 rounds of .22 caseless ammunition. Requires Armory access to open.
+  description: Contains two expendable light machine guns. Requires Armory access to open.
   components:
   - type: AccessReader
     access: [ [ "Armory" ] ]
