@@ -7714,3 +7714,11 @@ Entries:
       message: Fixed bug borgs having an error sprite when moving
   id: 1000
   time: '2026-09-18T13:59:17.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        Syringes no longer spill when being thrown or when being retrieved from
+        being shot into entities.
+  id: 1001
+  time: '2026-09-18T21:57:50.0000000+00:00'
