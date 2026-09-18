@@ -1,10 +1,18 @@
 - type: jobIcon
   parent: JobIcon
-  id: JobIconCentCommDireggtor
+  id: JobIconCentCommDirector
   icon:
-    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
-    state: direggtor
-  jobName: job-name-centcomm-direggtor
+    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
+    state: nanotrasenrepresentative
+  jobName: job-name-centcomm-director
+
+  - type: jobIcon
+  parent: JobIcon
+  id: CentralCommandSenior
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
+    state: nanotrasenrepresentative
+  jobName: job-name-centcomm-senior
 
 - type: jobIcon
   parent: JobIcon

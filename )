@@ -1,0 +1,257 @@
+Content.Benchmarks/MapLoadBenchmark.cs[36m:[m52[36m:[m    public static readonly string[] MapsSource = { "Empty", "Satlern", "Box", "Bagel", "Dev", "CentComm", "Atlas", "Core", "TestTeg", "Packed", "Origin", "Omega", "Cluster", "[1;31mReach[m", "Meta", "Marathon", "Europa", "MeteorArena", "Fland", "Oasis", "FlandHighPop", "OasisHighPop", "OriginHighPop", "Barratry", "Kettle", "Lambda", "Leonid", "Delta", "Amber", "Chloris", "Cog", "Glacier", "Serpentcrest"}; //Goobstation, readds maps
+Content.Client/Atmos/Consoles/AtmosMonitoringConsoleNavMapControl.cs[36m:[m76[36m:[m            fo[1;31mreach[m (var chunkedLine in atmosPipeNetwork)
+Content.Client/Atmos/Consoles/AtmosMonitoringConsoleNavMapControl.cs[36m:[m90[36m:[m            fo[1;31mreach[m ((var color, var subNetwork) in pipeNetworks)
+Content.Client/Atmos/Consoles/AtmosMonitoringConsoleNavMapControl.cs[36m:[m101[36m:[m            fo[1;31mreach[m (var chunkedLine in atmosPipeNetwork)
+Content.Client/Atmos/Consoles/AtmosMonitoringConsoleNavMapControl.cs[36m:[m136[36m:[m            fo[1;31mreach[m ((var color, var pipeVertexUV) in pipeVertexUVs)
+Content.Client/Atmos/Consoles/AtmosMonitoringConsoleNavMapControl.cs[36m:[m163[36m:[m        fo[1;31mreach[m ((var chunkOrigin, var chunk) in chunks)
+Content.Client/Atmos/Consoles/AtmosMonitoringConsoleNavMapControl.cs[36m:[m167[36m:[m            fo[1;31mreach[m (var ((netId, layer, pipeColor), atmosPipeData) in chunk.AtmosPipeData)
+Content.Client/Atmos/Consoles/AtmosMonitoringConsoleNavMapControl.cs[36m:[m241[36m:[m        fo[1;31mreach[m (var (color, horizLines) in _horizLines)
+Content.Client/Atmos/Consoles/AtmosMonitoringConsoleNavMapControl.cs[36m:[m246[36m:[m            fo[1;31mreach[m (var (origin, terminal) in horizLines)
+Content.Client/Atmos/Consoles/AtmosMonitoringConsoleNavMapControl.cs[36m:[m251[36m:[m        fo[1;31mreach[m (var (color, vertLines) in _vertLines)
+Content.Client/Atmos/Consoles/AtmosMonitoringConsoleNavMapControl.cs[36m:[m256[36m:[m            fo[1;31mreach[m (var (origin, terminal) in vertLines)
+Content.Client/Clickable/ClickMapManager.cs[36m:[m57[36m:[m                fo[1;31mreach[m (var path in IgnoreTexturePaths)
+Content.Client/DisplacementMap/DisplacementMapSystem.cs[36m:[m48[36m:[m        fo[1;31mreach[m (var pair in data.SizeMaps)
+Content.Client/Mapping/MappingOverlay.cs[36m:[m45[36m:[m        fo[1;31mreach[m (var (id, color) in _oldColors)
+Content.Client/Mapping/MappingPrototypeList.xaml.cs[36m:[m49[36m:[m        fo[1;31mreach[m (var prototype in _prototypes)
+Content.Client/Mapping/MappingScreen.xaml.cs[36m:[m179[36m:[m        fo[1;31mreach[m (var control in Prototypes.Children)
+Content.Client/Mapping/MappingScreen.xaml.cs[36m:[m187[36m:[m            fo[1;31mreach[m (var child in button.Children)
+Content.Client/Mapping/MappingState.cs[36m:[m221[36m:[m        fo[1;31mreach[m (var entity in _prototypeManager.EnumeratePrototypes<EntityPrototype>())
+Content.Client/Mapping/MappingState.cs[36m:[m232[36m:[m        fo[1;31mreach[m (var tile in _prototypeManager.EnumeratePrototypes<ContentTileDefinition>())
+Content.Client/Mapping/MappingState.cs[36m:[m243[36m:[m        fo[1;31mreach[m (var decal in _prototypeManager.EnumeratePrototypes<DecalPrototype>())
+Content.Client/Mapping/MappingState.cs[36m:[m261[36m:[m        fo[1;31mreach[m (var prototype in prototypes.Values)
+Content.Client/Mapping/MappingState.cs[36m:[m328[36m:[m                    fo[1;31mreach[m (var parentNode in parentSequence.Cast<ValueDataNode>())
+Content.Client/Mapping/MappingState.cs[36m:[m382[36m:[m            fo[1;31mreach[m (var parentId in prototype.Parents)
+Content.Client/Mapping/MappingState.cs[36m:[m422[36m:[m        fo[1;31mreach[m (var prototype in _allPrototypes)
+Content.Client/Mapping/MappingState.cs[36m:[m437[36m:[m        fo[1;31mreach[m (var child in Screen.Prototypes.PrototypeList.Children)
+Content.Client/Mapping/MappingState.cs[36m:[m490[36m:[m        fo[1;31mreach[m (var prototype in chain)
+Content.Client/Mapping/MappingState.cs[36m:[m492[36m:[m            fo[1;31mreach[m (var child in children)
+Content.Client/Mapping/MappingState.cs[36m:[m856[36m:[m                fo[1;31mreach[m (var child in button.Prototype.Children)
+Content.Client/Medical/CrewMonitoring/CrewMonitoringNavMapControl.cs[36m:[m61[36m:[m        fo[1;31mreach[m ((var netEntity, var blip) in TrackedEntities)
+Content.Client/Pinpointer/NavMapSystem.Regions.cs[36m:[m62[36m:[m            fo[1;31mreach[m (var chunk in oldChunks)
+Content.Client/Pinpointer/NavMapSystem.Regions.cs[36m:[m75[36m:[m        fo[1;31mreach[m (var chunk in floodedChunks)
+Content.Client/Pinpointer/NavMapSystem.Regions.cs[36m:[m94[36m:[m        fo[1;31mreach[m (var regionSeed in regionProperties.Seeds)
+Content.Client/Pinpointer/NavMapSystem.Regions.cs[36m:[m144[36m:[m                fo[1;31mreach[m (var (direction, tileOffset, reverseDirection) in _regionPropagationTable)
+Content.Client/Pinpointer/NavMapSystem.Regions.cs[36m:[m205[36m:[m        fo[1;31mreach[m (var tile in tiles)
+Content.Client/Pinpointer/NavMapSystem.cs[36m:[m32[36m:[m                fo[1;31mreach[m (var index in component.Chunks.Keys)
+Content.Client/Pinpointer/NavMapSystem.cs[36m:[m46[36m:[m                fo[1;31mreach[m (var index in component.Chunks.Keys)
+Content.Client/Pinpointer/NavMapSystem.cs[36m:[m64[36m:[m        fo[1;31mreach[m (var (regionOwner, regionData) in regions)
+Content.Client/Pinpointer/NavMapSystem.cs[36m:[m84[36m:[m        fo[1;31mreach[m (var regionOwnerRemoved in regionOwnersToRemove)
+Content.Client/Pinpointer/NavMapSystem.cs[36m:[m88[36m:[m        fo[1;31mreach[m (var (origin, chunk) in modifiedChunks)
+Content.Client/Pinpointer/NavMapSystem.cs[36m:[m98[36m:[m            fo[1;31mreach[m (var affectedOwner in affectedOwners)
+Content.Client/Pinpointer/NavMapSystem.cs[36m:[m107[36m:[m        fo[1;31mreach[m (var (nuid, beacon) in beacons)
+Content.Client/Pinpointer/UI/NavMapControl.cs[36m:[m226[36m:[m            fo[1;31mreach[m ((var currentEntity, var blip) in TrackedEntities)
+Content.Client/Pinpointer/UI/NavMapControl.cs[36m:[m309[36m:[m            fo[1;31mreach[m (var (polygonVerts, polygonColor) in TilePolygons)
+Content.Client/Pinpointer/UI/NavMapControl.cs[36m:[m324[36m:[m            fo[1;31mreach[m (var regionOverlay in RegionOverlays)
+Content.Client/Pinpointer/UI/NavMapControl.cs[36m:[m326[36m:[m                fo[1;31mreach[m (var gridCoords in regionOverlay.GridCoords)
+Content.Client/Pinpointer/UI/NavMapControl.cs[36m:[m342[36m:[m            fo[1;31mreach[m (var (o, t) in TileLines)
+Content.Client/Pinpointer/UI/NavMapControl.cs[36m:[m360[36m:[m            fo[1;31mreach[m (var (lt, rb) in TileRects)
+Content.Client/Pinpointer/UI/NavMapControl.cs[36m:[m391[36m:[m        fo[1;31mreach[m (var (coord, value) in TrackedCoordinates)
+Content.Client/Pinpointer/UI/NavMapControl.cs[36m:[m408[36m:[m        fo[1;31mreach[m (var blip in TrackedEntities.Values)
+Content.Client/Pinpointer/UI/NavMapControl.cs[36m:[m439[36m:[m            fo[1;31mreach[m (var beacon in _navMap.Beacons.Values)
+Content.Client/Pinpointer/UI/NavMapControl.cs[36m:[m483[36m:[m        fo[1;31mreach[m (var fixture in _fixtures.Fixtures.Values)
+Content.Client/Pinpointer/UI/NavMapControl.cs[36m:[m514[36m:[m        fo[1;31mreach[m (var (chunkOrigin, chunk) in _navMap.Chunks)
+Content.Client/Pinpointer/UI/NavMapControl.cs[36m:[m595[36m:[m        fo[1;31mreach[m (var (origin, terminal) in _horizLines)
+Content.Client/Pinpointer/UI/NavMapControl.cs[36m:[m600[36m:[m        fo[1;31mreach[m (var (origin, terminal) in _vertLines)
+Content.Client/Pinpointer/UI/NavMapControl.cs[36m:[m611[36m:[m        fo[1;31mreach[m (var chunk in _navMap.Chunks.Values)
+Content.Client/Pinpointer/UI/StationMapWindow.xaml.cs[36m:[m45[36m:[m        fo[1;31mreach[m (var button in _buttons)
+Content.Client/Pinpointer/UI/StationMapWindow.xaml.cs[36m:[m65[36m:[m        fo[1;31mreach[m (var beacon in navMap.Beacons.Values)
+Content.Client/Pinpointer/UI/StationMapWindow.xaml.cs[36m:[m76[36m:[m        fo[1;31mreach[m (var button in _buttons)
+Content.Client/Power/PowerMonitoringConsoleNavMapControl.cs[36m:[m91[36m:[m            fo[1;31mreach[m (var line in fullCableNetwork)
+Content.Client/Power/PowerMonitoringConsoleNavMapControl.cs[36m:[m127[36m:[m            fo[1;31mreach[m (var line in fullCableNetwork)
+Content.Client/Power/PowerMonitoringConsoleNavMapControl.cs[36m:[m192[36m:[m        Array.Fo[1;31mrEach[m(_horizLines, x=> x.Clear());
+Content.Client/Power/PowerMonitoringConsoleNavMapControl.cs[36m:[m193[36m:[m        Array.Fo[1;31mrEach[m(_horizLinesReversed, x=> x.Clear());
+Content.Client/Power/PowerMonitoringConsoleNavMapControl.cs[36m:[m194[36m:[m        Array.Fo[1;31mrEach[m(_vertLines, x=> x.Clear());
+Content.Client/Power/PowerMonitoringConsoleNavMapControl.cs[36m:[m195[36m:[m        Array.Fo[1;31mrEach[m(_vertLinesReversed, x=> x.Clear());
+Content.Client/Power/PowerMonitoringConsoleNavMapControl.cs[36m:[m197[36m:[m        fo[1;31mreach[m (var (chunkOrigin, chunk) in chunks)
+Content.Client/Power/PowerMonitoringConsoleNavMapControl.cs[36m:[m270[36m:[m            fo[1;31mreach[m (var (origin, terminal) in horizLines)
+Content.Client/Power/PowerMonitoringConsoleNavMapControl.cs[36m:[m280[36m:[m            fo[1;31mreach[m (var (origin, terminal) in vertLines)
+Content.Client/Shuttles/UI/MapScreen.xaml.cs[36m:[m314[36m:[m            fo[1;31mreach[m (var grid in _mapManager.GetAllGrids(mapComp.MapId))
+Content.Client/Shuttles/UI/MapScreen.xaml.cs[36m:[m339[36m:[m            fo[1;31mreach[m (var (beacon, _) in _shuttles.GetExclusions(mapComp.MapId, _exclusions))
+Content.Client/Shuttles/UI/MapScreen.xaml.cs[36m:[m347[36m:[m            fo[1;31mreach[m (var (beacon, _) in _shuttles.GetBeacons(mapComp.MapId, _beacons))
+Content.Client/Shuttles/UI/MapScreen.xaml.cs[36m:[m388[36m:[m        fo[1;31mreach[m (var child in HyperspaceDestinations.Children)
+Content.Client/Shuttles/UI/MapScreen.xaml.cs[36m:[m481[36m:[m            fo[1;31mreach[m (var child in gridContents.Children)
+Content.Client/Shuttles/UI/MapScreen.xaml.cs[36m:[m487[36m:[m            fo[1;31mreach[m (var child in _sortChildren)
+Content.Client/Shuttles/UI/MapScreen.xaml.cs[36m:[m500[36m:[m            fo[1;31mreach[m (var control in _sortChildren)
+Content.Client/Shuttles/UI/ShuttleMapControl.xaml.cs[36m:[m216[36m:[m        fo[1;31mreach[m (var mapObj in mapObjects)
+Content.Client/Shuttles/UI/ShuttleMapControl.xaml.cs[36m:[m287[36m:[m        fo[1;31mreach[m (var mapObj in mapObjects)
+Content.Client/Shuttles/UI/ShuttleMapControl.xaml.cs[36m:[m324[36m:[m            fo[1;31mreach[m (var (beaconName, coords, mapO) in GetBeacons(viewportObjects, matty, controlLocalBounds))
+Content.Client/Shuttles/UI/ShuttleMapControl.xaml.cs[36m:[m342[36m:[m        fo[1;31mreach[m (var mapObj in viewportObjects)
+Content.Client/Shuttles/UI/ShuttleMapControl.xaml.cs[36m:[m390[36m:[m        fo[1;31mreach[m (var (color, sendVerts) in _verts)
+Content.Client/Shuttles/UI/ShuttleMapControl.xaml.cs[36m:[m395[36m:[m        fo[1;31mreach[m (var (color, sendEdges) in _edges)
+Content.Client/Shuttles/UI/ShuttleMapControl.xaml.cs[36m:[m400[36m:[m        fo[1;31mreach[m (var (color, sendStrings) in _strings)
+Content.Client/Shuttles/UI/ShuttleMapControl.xaml.cs[36m:[m404[36m:[m            fo[1;31mreach[m (var (gridUiPos, iffText) in sendStrings)
+Content.Client/Shuttles/UI/ShuttleMapControl.xaml.cs[36m:[m521[36m:[m        fo[1;31mreach[m (var mapO in mapObjs)
+Content.Client/Shuttles/UI/ShuttleMapControl.xaml.cs[36m:[m572[36m:[m        fo[1;31mreach[m (var mapObj in mapObjects)
+Content.Client/Storage/Systems/ItemMapperSystem.cs[36m:[m52[36m:[m        fo[1;31mreach[m (var sprite in component.SpriteLayers)
+Content.Client/Storage/Systems/ItemMapperSystem.cs[36m:[m66[36m:[m        fo[1;31mreach[m (var layerName in component.SpriteLayers)
+Content.Client/UserInterface/Controls/MapGridControl.xaml.cs[36m:[m38[36m:[m    /// If the control is being recentered what is the target offset to [1;31mreach[m.
+Content.Client/Voting/UI/VoteCallMenu.xaml.cs[36m:[m72[36m:[m            fo[1;31mreach[m (StandardVoteType voteType in Enum.GetValues<StandardVoteType>())
+Content.Client/Voting/UI/VoteCallMenu.xaml.cs[36m:[m128[36m:[m            fo[1;31mreach[m ((NetUserId, NetEntity, string) player in msg.Players)
+Content.Client/Voting/UI/VoteCallMenu.xaml.cs[36m:[m159[36m:[m                fo[1;31mreach[m(var dropdowns in VoteOptionsButtonContainer.Children)
+Content.Client/Voting/UI/VoteCallMenu.xaml.cs[36m:[m249[36m:[m                fo[1;31mreach[m (var voteDropdown in voteList)
+Content.Client/Voting/UI/VoteCallMenu.xaml.cs[36m:[m253[36m:[m                    fo[1;31mreach[m (var (key, value) in voteDropdown)
+Content.Client/Voting/VoteManager.cs[36m:[m90[36m:[m                fo[1;31mreach[m (var popup in _votePopups.Values)
+Content.Client/Voting/VoteManager.cs[36m:[m116[36m:[m            fo[1;31mreach[m (var (vId, vote) in _votes)
+Content.Client/Voting/VoteManager.cs[36m:[m216[36m:[m            fo[1;31mreach[m (var (type, time) in message.VotesUnavailable)
+Content.IntegrationTests/Tests/PostMapInitTest.cs[36m:[m60[36m:[m            {"/Maps/[1;31mreach[m.yml", ["HandheldCrewMonitor"]},
+Content.IntegrationTests/Tests/PostMapInitTest.cs[36m:[m79[36m:[m            "/Maps/[1;31mreach[m.yml", // Contains handheld crew monitor
+Content.IntegrationTests/Tests/PostMapInitTest.cs[36m:[m151[36m:[m            "[1;31mReach[m",
+Content.IntegrationTests/Tests/PostMapInitTest.cs[36m:[m195[36m:[m            "[1;31mReach[m",
+Content.IntegrationTests/Tests/PostMapInitTest.cs[36m:[m268[36m:[m                    fo[1;31mreach[m (var path in shuttles)
+Content.IntegrationTests/Tests/PostMapInitTest.cs[36m:[m310[36m:[m            fo[1;31mreach[m (var map in maps)
+Content.IntegrationTests/Tests/PostMapInitTest.cs[36m:[m348[36m:[m                fo[1;31mreach[m (var yamlEntity in (YamlSequenceNode) yamlEntities)
+Content.IntegrationTests/Tests/PostMapInitTest.cs[36m:[m365[36m:[m            fo[1;31mreach[m (var map in v7Maps)
+Content.IntegrationTests/Tests/PostMapInitTest.cs[36m:[m403[36m:[m            fo[1;31mreach[m (var regex in DoNotMapWhiteListRegexes)
+Content.IntegrationTests/Tests/PostMapInitTest.cs[36m:[m416[36m:[m                fo[1;31mreach[m (var yamlEntity in (YamlSequenceNode)yamlEntities)
+Content.IntegrationTests/Tests/PostMapInitTest.cs[36m:[m461[36m:[m            fo[1;31mreach[m (var mapId in reader.MapYamlIds)
+Content.IntegrationTests/Tests/PostMapInitTest.cs[36m:[m474[36m:[m            fo[1;31mreach[m (var maps in GameMapsInCurrentPool.Chunk(2)) // Omu OOM issues // Goob edit - GameMapsInCurrentPool only
+Content.IntegrationTests/Tests/PostMapInitTest.cs[36m:[m516[36m:[m                        fo[1;31mreach[m (var grid in grids)
+Content.IntegrationTests/Tests/PostMapInitTest.cs[36m:[m667[36m:[m            fo[1;31mreach[m (var map in maps)
+Content.IntegrationTests/Tests/PostMapInitTest.cs[36m:[m697[36m:[m                    fo[1;31mreach[m (var path in mapPaths)
+Content.IntegrationTests/Tests/PostMapInitTest.cs[36m:[m710[36m:[m                            fo[1;31mreach[m (var map in maps)
+Content.MapRenderer/Painters/DecalPainter.cs[36m:[m45[36m:[m            fo[1;31mreach[m (var proto in _sPrototypeManager.EnumeratePrototypes<DecalPrototype>())
+Content.MapRenderer/Painters/DecalPainter.cs[36m:[m51[36m:[m        fo[1;31mreach[m (var decal in decals)
+Content.MapRenderer/Painters/EntityPainter.cs[36m:[m49[36m:[m        fo[1;31mreach[m (var entity in entities)
+Content.MapRenderer/Painters/EntityPainter.cs[36m:[m65[36m:[m        fo[1;31mreach[m (var layer in entity.Sprite.AllLayers)
+Content.MapRenderer/Painters/GridPainter.cs[36m:[m75[36m:[m            fo[1;31mreach[m (var serverEntity in _sEntityManager.GetEntities())
+Content.MapRenderer/Painters/GridPainter.cs[36m:[m122[36m:[m                    fo[1;31mreach[m (var chunk in comp.ChunkCollection.ChunkCollection.Values)
+Content.MapRenderer/Painters/GridPainter.cs[36m:[m124[36m:[m                        fo[1;31mreach[m (var decal in chunk.Decals.Values)
+Content.MapRenderer/Painters/MapPainter.cs[36m:[m183[36m:[m                fo[1;31mreach[m (var (uid, _) in _grids)
+Content.MapRenderer/Painters/MapPainter.cs[36m:[m193[36m:[m            fo[1;31mreach[m (var (uid, grid) in _grids)
+Content.MapRenderer/Painters/TilePainter.cs[36m:[m99[36m:[m            fo[1;31mreach[m (var definition in tileDefinitionManager)
+Content.MapRenderer/Program.cs[36m:[m73[36m:[m                    fo[1;31mreach[m (var idString in inputArray)
+Content.MapRenderer/Program.cs[36m:[m86[36m:[m                fo[1;31mreach[m (var id in selectedIds)
+Content.MapRenderer/Program.cs[36m:[m134[36m:[m                fo[1;31mreach[m (var map in arguments.Maps)
+Content.MapRenderer/Program.cs[36m:[m156[36m:[m                    fo[1;31mreach[m (var toFind in lookupPrototypeFiles)
+Content.MapRenderer/Program.cs[36m:[m158[36m:[m                        fo[1;31mreach[m (var mapPrototype in mapPrototypes)
+Content.MapRenderer/Program.cs[36m:[m176[36m:[m                fo[1;31mreach[m (var map in arguments.Maps)
+Content.MapRenderer/Program.cs[36m:[m196[36m:[m            fo[1;31mreach[m (var map in toRender)
+Content.MapRenderer/Program.cs[36m:[m214[36m:[m                    await fo[1;31mreach[m (var renderedGrid in painter.Paint())
+Content.Server/Administration/Commands/LoadGameMapCommand.cs[36m:[m91[36m:[m            fo[1;31mreach[m (var prototype in _prototypeManager.EnumeratePrototypes<GameMapPrototype>())
+Content.Server/Atmos/EntitySystems/AtmosphereSystem.Map.cs[36m:[m103[36m:[m        fo[1;31mreach[m (var tile in atmos.MapTiles)
+Content.Server/Discord/WebhookMessages/VoteWebhooks.cs[36m:[m34[36m:[m        fo[1;31mreach[m (var voteOption in voteOptions.Options)
+Content.Server/Explosion/EntitySystems/ExplosionSystem.GridMap.cs[36m:[m32[36m:[m        fo[1;31mreach[m (var tileRef in _map.GetAllTiles(ev.EntityUid, grid))
+Content.Server/Explosion/EntitySystems/ExplosionSystem.GridMap.cs[36m:[m83[36m:[m        // fo[1;31mreach[m other grid
+Content.Server/Explosion/EntitySystems/ExplosionSystem.GridMap.cs[36m:[m84[36m:[m        //   fo[1;31mreach[m edge tile in that grid
+Content.Server/Explosion/EntitySystems/ExplosionSystem.GridMap.cs[36m:[m85[36m:[m        //     fo[1;31mreach[m tile in our grid that touches that tile (vast majority of the time: 1 tile, but could be up to 4)
+Content.Server/Explosion/EntitySystems/ExplosionSystem.GridMap.cs[36m:[m87[36m:[m        fo[1;31mreach[m (var gridToTransform in localGrids)
+Content.Server/Explosion/EntitySystems/ExplosionSystem.GridMap.cs[36m:[m115[36m:[m            fo[1;31mreach[m (var (tile, dir) in edges)
+Content.Server/Explosion/EntitySystems/ExplosionSystem.GridMap.cs[36m:[m150[36m:[m                fo[1;31mreach[m (var newIndices in transformedTiles)
+Content.Server/Explosion/EntitySystems/ExplosionSystem.GridMap.cs[36m:[m169[36m:[m            fo[1;31mreach[m (var (tile, dir) in localEdges)
+Content.Server/Explosion/EntitySystems/ExplosionSystem.GridMap.cs[36m:[m197[36m:[m        fo[1;31mreach[m (var (tile, data) in transformedEdges)
+Content.Server/Explosion/EntitySystems/ExplosionSystem.GridMap.cs[36m:[m203[36m:[m            fo[1;31mreach[m (var edge in data.BlockingGridEdges)
+Content.Server/Explosion/EntitySystems/ExplosionSystem.GridMap.cs[36m:[m239[36m:[m        fo[1;31mreach[m (var change in ev.Changes)
+Content.Server/Mapping/MappingSystem.cs[36m:[m65[36m:[m        fo[1;31mreach[m (var (uid, (time, name))in _currentlyAutosaving)
+Content.Server/Maps/GameMapManager.cs[36m:[m91[36m:[m        fo[1;31mreach[m (var map in maps)
+Content.Server/Maps/GameMapManager.cs[36m:[m112[36m:[m            fo[1;31mreach[m (var map in pool.Maps)
+Content.Server/Maps/GameMapManager.cs[36m:[m210[36m:[m        fo[1;31mreach[m (var map in _previousMaps.Reverse())
+Content.Server/Maps/MapMigrationSystem.cs[36m:[m39[36m:[m        fo[1;31mreach[m (var node in mappings.Children.Values)
+Content.Server/Maps/MapMigrationSystem.cs[36m:[m70[36m:[m        fo[1;31mreach[m (var (key, value) in mappings)
+Content.Server/Maps/PlanetCommand.cs[36m:[m70[36m:[m        fo[1;31mreach[m (var lootProto in _protoManager.EnumeratePrototypes<SalvageLootPrototype>())
+Content.Server/Maps/TileGridSplitSystem.cs[36m:[m34[36m:[m        fo[1;31mreach[m (var gridUid in ev.NewGrids)
+Content.Server/Maps/TileGridSplitSystem.cs[36m:[m40[36m:[m            fo[1;31mreach[m (var tile in _maps.GetAllTiles(gridUid, newGrid))
+Content.Server/Pinpointer/NavMapSystem.cs[36m:[m82[36m:[m        fo[1;31mreach[m (var grid in args.NewGrids)
+Content.Server/Pinpointer/NavMapSystem.cs[36m:[m107[36m:[m        fo[1;31mreach[m (var change in ev.Changes)
+Content.Server/Pinpointer/NavMapSystem.cs[36m:[m250[36m:[m        fo[1;31mreach[m (var tileRef in tileRefs)
+Content.Server/Pinpointer/NavMapSystem.cs[36m:[m309[36m:[m        fo[1;31mreach[m (var val in chunk.TileData)
+Content.Server/Pinpointer/StationMapSystem.cs[36m:[m44[36m:[m            fo[1;31mreach[m (var rule in _gameTicker.GetActiveGameRules())
+Content.Server/Voting/Managers/VoteManager.DefaultVotes.cs[36m:[m129[36m:[m            fo[1;31mreach[m (var player in _playerManager.Sessions)
+Content.Server/Voting/Managers/VoteManager.DefaultVotes.cs[36m:[m202[36m:[m            fo[1;31mreach[m (var player in _playerManager.Sessions)
+Content.Server/Voting/Managers/VoteManager.DefaultVotes.cs[36m:[m236[36m:[m            fo[1;31mreach[m (var (k, v) in presets)
+Content.Server/Voting/Managers/VoteManager.DefaultVotes.cs[36m:[m282[36m:[m            fo[1;31mreach[m (var (k, v) in maps)
+Content.Server/Voting/Managers/VoteManager.DefaultVotes.cs[36m:[m481[36m:[m                fo[1;31mreach[m (var (voter, castVote) in vote.CastVotes)
+Content.Server/Voting/Managers/VoteManager.DefaultVotes.cs[36m:[m573[36m:[m            fo[1;31mreach[m (var player in _playerManager.Sessions)
+Content.Server/Voting/Managers/VoteManager.DefaultVotes.cs[36m:[m595[36m:[m            fo[1;31mreach[m (var preset in _prototypeManager.EnumeratePrototypes<GamePresetPrototype>())
+Content.Server/Voting/Managers/VoteManager.cs[36m:[m71[36m:[m            fo[1;31mreach[m (var kvp in VoteTypesToEnableCVars)
+Content.Server/Voting/Managers/VoteManager.cs[36m:[m98[36m:[m                fo[1;31mreach[m (var voteReg in _votes.Values)
+Content.Server/Voting/Managers/VoteManager.cs[36m:[m108[36m:[m                fo[1;31mreach[m (var voteReg in _votes.Values)
+Content.Server/Voting/Managers/VoteManager.cs[36m:[m148[36m:[m            fo[1;31mreach[m (var v in _votes.Values)
+Content.Server/Voting/Managers/VoteManager.cs[36m:[m161[36m:[m            fo[1;31mreach[m (var id in remQueue)
+Content.Server/Voting/Managers/VoteManager.cs[36m:[m169[36m:[m            fo[1;31mreach[m (var (userId, timeout) in _voteTimeout)
+Content.Server/Voting/Managers/VoteManager.cs[36m:[m175[36m:[m            fo[1;31mreach[m (var userId in timeoutRemQueue)
+Content.Server/Voting/Managers/VoteManager.cs[36m:[m185[36m:[m            fo[1;31mreach[m (var (type, timeout) in _standardVoteTimeout)
+Content.Server/Voting/Managers/VoteManager.cs[36m:[m191[36m:[m            fo[1;31mreach[m (var type in stdTimeoutRemQueue)
+Content.Server/Voting/Managers/VoteManager.cs[36m:[m199[36m:[m            fo[1;31mreach[m (var dirtyPlayer in _playerCanCallVoteDirty)
+Content.Server/Voting/Managers/VoteManager.cs[36m:[m237[36m:[m            fo[1;31mreach[m (var player in _playerManager.Sessions)
+Content.Server/Voting/Managers/VoteManager.cs[36m:[m320[36m:[m                fo[1;31mreach[m (var v in _standardVoteTypeValues)
+Content.Server/Voting/Managers/VoteManager.cs[36m:[m389[36m:[m            fo[1;31mreach[m (var playerVote in v.CastVotes)
+Content.Server/Voting/Managers/VoteManager.cs[36m:[m407[36m:[m            fo[1;31mreach[m(var entry in v.Entries)
+Content.Server/Voting/VoteCommands.cs[36m:[m220[36m:[m            fo[1;31mreach[m (var vote in _voteManager.ActiveVotes)
+Content.Shared/Maps/TileHistoryComponent.cs[36m:[m47[36m:[m        fo[1;31mreach[m (var key in state.ChunkHistory.Keys)
+Content.Shared/Maps/TileHistoryComponent.cs[36m:[m53[36m:[m        fo[1;31mreach[m (var key in toRemove)
+Content.Shared/Maps/TileHistoryComponent.cs[36m:[m58[36m:[m        fo[1;31mreach[m (var (indices, chunk) in ChunkHistory)
+Content.Shared/Maps/TileHistoryComponent.cs[36m:[m67[36m:[m        fo[1;31mreach[m (var key in component.ChunkHistory.Keys)
+Content.Shared/Maps/TileHistoryComponent.cs[36m:[m73[36m:[m        fo[1;31mreach[m (var key in toRemove)
+Content.Shared/Maps/TileHistoryComponent.cs[36m:[m78[36m:[m        fo[1;31mreach[m (var (indices, chunk) in ChunkHistory)
+Content.Shared/Maps/TileHistoryComponent.cs[36m:[m88[36m:[m        fo[1;31mreach[m (var (indices, chunk) in ChunkHistory)
+Content.Shared/Maps/TileHistoryComponent.cs[36m:[m93[36m:[m        fo[1;31mreach[m (var (indices, chunk) in state.ChunkHistory)
+Content.Shared/Maps/TileHistoryComponent.cs[36m:[m119[36m:[m        fo[1;31mreach[m (var (key, value) in other.History)
+Content.Shared/Maps/TileSystem.cs[36m:[m57[36m:[m            fo[1;31mreach[m (var (key, value) in fullState.ChunkHistory)
+Content.Shared/Maps/TileSystem.cs[36m:[m76[36m:[m            fo[1;31mreach[m (var (key, value) in component.ChunkHistory)
+Content.Shared/Maps/TileSystem.cs[36m:[m85[36m:[m        fo[1;31mreach[m (var (index, chunk) in component.ChunkHistory)
+Content.Shared/Maps/TileSystem.cs[36m:[m244[36m:[m        fo[1;31mreach[m (var (id, _) in decals)
+Content.Shared/Maps/TileSystem.cs[36m:[m318[36m:[m        fo[1;31mreach[m (var (id, _) in decals)
+Content.Shared/Maps/TurfSystem.cs[36m:[m96[36m:[m        fo[1;31mreach[m (var ent in _entityLookup.GetEntitiesIntersecting(gridUid, worldBox, LookupFlags.Dynamic | LookupFlags.Static))
+Content.Shared/Maps/TurfSystem.cs[36m:[m108[36m:[m            fo[1;31mreach[m (var fixture in fixtures.Fixtures.Values)
+Content.Shared/Pinpointer/SharedNavMapSystem.cs[36m:[m111[36m:[m                fo[1;31mreach[m (var affectedChunk in affectedChunks)
+Content.Shared/Pinpointer/SharedNavMapSystem.cs[36m:[m129[36m:[m        fo[1;31mreach[m (var (regionOwner, regionOverlay) in component.RegionOverlays)
+Content.Shared/Pinpointer/SharedNavMapSystem.cs[36m:[m151[36m:[m            fo[1;31mreach[m (var (origin, chunk) in component.Chunks)
+Content.Shared/Pinpointer/SharedNavMapSystem.cs[36m:[m161[36m:[m        fo[1;31mreach[m (var (origin, chunk) in component.Chunks)
+Content.Shared/Pinpointer/SharedNavMapSystem.cs[36m:[m214[36m:[m            fo[1;31mreach[m (var key in state.Chunks.Keys)
+Content.Shared/Pinpointer/SharedNavMapSystem.cs[36m:[m220[36m:[m            fo[1;31mreach[m (var (index, data) in ModifiedChunks)
+Content.Shared/Pinpointer/SharedNavMapSystem.cs[36m:[m229[36m:[m            fo[1;31mreach[m (var (nuid, beacon) in Beacons)
+Content.Shared/Pinpointer/SharedNavMapSystem.cs[36m:[m235[36m:[m            fo[1;31mreach[m (var (nuid, region) in Regions)
+Content.Shared/Pinpointer/SharedNavMapSystem.cs[36m:[m245[36m:[m            fo[1;31mreach[m (var (index, data) in state.Chunks)
+Content.Shared/Storage/EntitySystems/SharedItemMapperSystem.cs[36m:[m34[36m:[m        fo[1;31mreach[m (var (layerName, val) in component.MapLayers)
+Content.Shared/Storage/EntitySystems/SharedItemMapperSystem.cs[36m:[m101[36m:[m        fo[1;31mreach[m (var mapLayerData in itemMapper.MapLayers.Values)
+Content.Shared/Voting/MsgVoteCanCall.cs[36m:[m53[36m:[m            fo[1;31mreach[m (var (type, timeout) in VotesUnavailable)
+Content.Shared/Voting/MsgVoteData.cs[36m:[m71[36m:[m            fo[1;31mreach[m (var (votes, name) in Options)
+Content.Tools/Map.cs[36m:[m28[36m:[m            fo[1;31mreach[m (var entity in EntitiesNode)
+Content.Tools/Map.cs[36m:[m65[36m:[m            fo[1;31mreach[m (var kvp in Entities)
+Resources/Changelog/Maps.yml[36m:[m244[36m:[m  - message: On [1;31mReach[m, all recent content additions have been added.
+Resources/Changelog/Maps.yml[36m:[m532[36m:[m  - message: On [1;31mReach[m, Clown and Mime are now playable jobs.
+Resources/Maps/.plasma.yml[36m:[m128079[36m:[m        [bold]Step 8[/bold] Engage the [italic]"Burn Chamber Input"[/italic] pump completely. Chamber may stop burning once sufficient pressure is [1;31mreach[med - this is normal.
+Resources/Maps/.plasma.yml[36m:[m128152[36m:[m        [bold]Step 8[/bold] Engage the [italic]"Burn Chamber Input"[/italic] pump completely. Chamber may stop burning once sufficient pressure is [1;31mreach[med - this is normal.
+Resources/Maps/.reach.yml[36m:[m53[36m:[m      name: SS [1;31mReach[m II
+Resources/Maps/.reach.yml[36m:[m116[36m:[m      id: [1;31mReach[m
+Resources/Maps/.reach.yml[36m:[m7724[36m:[m      name: [1;31mReach[m
+Resources/Maps/Shuttles/ShuttleEvent/quark.yml[36m:[m1484[36m:[m             [bold]Nuclear containment b[1;31mreach[m detected on long range
+Resources/Maps/Shuttles/emergency_syndicate.yml[36m:[m2786[36m:[m      name: emergency hull b[1;31mreach[m locker
+Resources/Maps/_Goobstation/reach.yml[36m:[m53[36m:[m      name: SS [1;31mReach[m II
+Resources/Maps/_Goobstation/reach.yml[36m:[m112[36m:[m      id: [1;31mReach[m
+Resources/Maps/_Goobstation/serpentcrest.yml[36m:[m131832[36m:[m      name: emergency hull b[1;31mreach[m locker
+Resources/Maps/_Omu/CentCompMap.yml[36m:[m54846[36m:[m      name: [1;31mReach[m backup nuclear fission explosive
+Resources/Maps/_Omu/CentCompMap.yml[36m:[m58297[36m:[m      name: [1;31mReach[m AI Core
+Resources/Maps/_Omu/Shuttles/CC-800X.yml[36m:[m15046[36m:[m        3. Wait until the [bold][color=#3ab334]Control Pressure Pipe[/color][/bold] [1;31mreach[mes [bold]4500kpa[/bold] (Check with Atmospheric console in SMES room or with gas analyzer in locker)
+Resources/Maps/_Omu/Shuttles/CC-800X.yml[36m:[m15048[36m:[m        4. Once the control pipe [1;31mreach[mes 4500kpa, activate the [bold][color=#ff5500]Burn Mix Gas Mixer[/color][/bold].
+Resources/Maps/_Omu/Shuttles/CC-800X.yml[36m:[m15050[36m:[m        5. Wait for the burn chamber pressure to [1;31mreach[m about 300kpa (checked with the air alarm adjacent to the window), then ignite the burn chamber with the [bold]yellow caution outlined button[/bold]. Ignition may take several attempts.
+Resources/Maps/_Omu/Shuttles/CC-800X.yml[36m:[m15136[36m:[m        3. Wait until the [bold][color=#3ab334]Control Pressure Pipe[/color][/bold] [1;31mreach[mes [bold]4500kpa[/bold] (Check with Atmospheric console in SMES room or with gas analyzer in locker)
+Resources/Maps/_Omu/Shuttles/CC-800X.yml[36m:[m15138[36m:[m        4. Once the control pipe [1;31mreach[mes 4500kpa, activate the [bold][color=#ff5500]Burn Mix Gas Mixer[/color][/bold].
+Resources/Maps/_Omu/Shuttles/CC-800X.yml[36m:[m15140[36m:[m        5. Wait for the burn chamber pressure to [1;31mreach[m about 300kpa (checked with the air alarm adjacent to the window), then ignite the burn chamber with the [bold]yellow caution outlined button[/bold]. Ignition may take several attempts.
+Resources/Maps/_Omu/Shuttles/CC-800X.yml[36m:[m15297[36m:[m        3. Wait until the [bold][color=#3ab334]Control Pressure Pipe[/color][/bold] [1;31mreach[mes [bold]4500kpa[/bold] (Check with Atmospheric console in SMES room or with gas analyzer in locker)
+Resources/Maps/_Omu/Shuttles/CC-800X.yml[36m:[m15299[36m:[m        4. Once the control pipe [1;31mreach[mes 4500kpa, activate the [bold][color=#ff5500]Burn Mix Gas Mixer[/color][/bold].
+Resources/Maps/_Omu/Shuttles/CC-800X.yml[36m:[m15301[36m:[m        5. Wait for the burn chamber pressure to [1;31mreach[m about 300kpa (checked with the air alarm adjacent to the window), then ignite the burn chamber with the [bold]yellow caution outlined button[/bold]. Ignition may take several attempts.
+Resources/Maps/_Omu/Shuttles/GS-CC39X/GS-CC39X_CBURN.yml[36m:[m4939[36m:[m- proto: SecB[1;31mreach[mingHammer
+Resources/Maps/_Omu/Shuttles/GS-CC39X/GS-CC39X_CHAP.yml[36m:[m815[36m:[m- proto: B[1;31mreach[mingCharge
+Resources/Maps/_Omu/Shuttles/GS-CC39X/GS-CC39X_CHAP.yml[36m:[m3462[36m:[m- proto: SecB[1;31mreach[mingHammer
+Resources/Maps/_Omu/Shuttles/GS-CC39X/GS-CC39X_ENG.yml[36m:[m868[36m:[m- proto: B[1;31mreach[mingCharge
+Resources/Maps/_Omu/Shuttles/GS-CC39X/GS-CC39X_ENG.yml[36m:[m3517[36m:[m- proto: SecB[1;31mreach[mingHammer
+Resources/Maps/_Omu/Shuttles/GS-CC39X/GS-CC39X_JANI.yml[36m:[m863[36m:[m- proto: B[1;31mreach[mingCharge
+Resources/Maps/_Omu/Shuttles/GS-CC39X/GS-CC39X_JANI.yml[36m:[m3711[36m:[m- proto: SecB[1;31mreach[mingHammer
+Resources/Maps/_Omu/Shuttles/GS-CC39X/GS-CC39X_MED.yml[36m:[m786[36m:[m- proto: B[1;31mreach[mingCharge
+Resources/Maps/_Omu/Shuttles/GS-CC39X/GS-CC39X_MED.yml[36m:[m3331[36m:[m- proto: SecB[1;31mreach[mingHammer
+Resources/Maps/_Omu/Shuttles/GS-CC39X/GS-CC39X_SEC.yml[36m:[m907[36m:[m- proto: B[1;31mreach[mingCharge
+Resources/Maps/_Omu/Shuttles/GS-CC39X/GS-CC39X_SEC.yml[36m:[m3632[36m:[m- proto: SecB[1;31mreach[mingHammer
+Resources/Maps/_Omu/crystal.yml[36m:[m84197[36m:[m        The SM will only begin losing integerty when internal tempratures [1;31mreach[m 400°K or above, the higher the internal teprature the faster integrety is lost.
+Resources/Maps/_Omu/crystal.yml[36m:[m85370[36m:[m        The SM will only begin losing integerty when internal tempratures [1;31mreach[m 400°K or above, the higher the internal teprature the faster integrety is lost.
+Resources/Maps/_Omu/glacier.yml[36m:[m112083[36m:[m        Additionally, this station has a full HVAC system using passive vents to allow controlling the entire station's air from atmospherics. Air alarms will automatically maintain a safe atmosphere, though you may want to invest in a stronger heating system using radiators to deal with rapid cooling from hull b[1;31mreach[mes.
+Resources/Maps/_Omu/reach.yml[36m:[m53[36m:[m      name: SS [1;31mReach[m II
+Resources/Maps/_Omu/reach.yml[36m:[m112[36m:[m      id: [1;31mReach[m
+Resources/Maps/exo.yml[36m:[m105406[36m:[m      id: B[1;31mreach[ming Point
+Resources/Prototypes/Maps/Pools/default.yml[36m:[m21[36m:[m  - [1;31mReach[m # Omu?
+Resources/Prototypes/Maps/Pools/default.yml[36m:[m33[36m:[m  #- [1;31mReach[m
+Resources/Prototypes/Maps/reach.yml[36m:[m4[36m:[m  id: [1;31mReach[m
+Resources/Prototypes/Maps/reach.yml[36m:[m5[36m:[m  mapName: '[1;31mReach[m'
+Resources/Prototypes/Maps/reach.yml[36m:[m6[36m:[m  mapPath: /Maps/_Omu/[1;31mreach[m.yml # Omu - Mapped Energy Chem
+Resources/Prototypes/Maps/reach.yml[36m:[m10[36m:[m    [1;31mReach[m:
+Resources/Prototypes/Maps/reach.yml[36m:[m14[36m:[m          mapNameTemplate: '{0} [1;31mReach[m Transport {1}'

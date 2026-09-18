@@ -51,8 +51,8 @@
 
 - type: entity
   parent: IDCardStandard
-  id: CentralCommandDireggtorIDCard
-  name: CentComm direggtor ID card
+  id: CentralCommandDirectorIDCard
+  name: Central Director ID card
   components:
   - type: Sprite
     layers:
@@ -61,10 +61,15 @@
   - type: Item
     heldPrefix:
   - type: IdCard
-    jobTitle: job-name-centcomm-direggtor
-    jobIcon: JobIconCentCommDireggtor
-  - type: PresetIdCard
-    job: CentralCommandDireggtor
+    jobTitle: job-name-centcomm-director
+    jobIcon: JobIconNanotrasen
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
 
 - type: entity
   parent: IDCardStandard

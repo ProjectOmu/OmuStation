@@ -1,4 +1,4 @@
-motd-1 = Can't fret over every egg.
+motd-1 = RUNN!! ITS JOHN SYNDICATE WITH A DEBUG UPLINK!
 motd-2 = Woundmed doesn't suck, you do.
 motd-3 = Final bastion of the rumored LOOC warriors!
 motd-4 = Bingle

@@ -5,8 +5,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Omu, replace Goobcoin with Eggs
-server-currency-name-singular = Eggs
-server-currency-name-plural = Eggs
+server-currency-name-singular = Organ
+server-currency-name-plural = Organs
 
 ## Commands
 
@@ -64,9 +64,9 @@ gs-balanceui-shop-footer = ⚠ Ahelp to use your token. Only 1 use per day.
 gs-balanceui-shop-token-label = Tokens
 gs-balanceui-shop-tittle-label = Titles
 # Omu, replace Goobcoin with Eggs
-gs-balanceui-shop-buy-token-antag = Buy an Antag Token - {$price} Eggs
-gs-balanceui-shop-buy-token-admin-abuse = Buy an Admin Abuse Token - {$price} Eggs
-gs-balanceui-shop-buy-token-hat = Buy a Hat Token - {$price} Eggs
+gs-balanceui-shop-buy-token-antag = Buy an Antag Token - {$price} Organs
+gs-balanceui-shop-buy-token-admin-abuse = Buy an Admin Abuse Token - {$price} Organs
+gs-balanceui-shop-buy-token-hat = Buy a Hat Token - {$price} Organs
 
 gs-balanceui-shop-token-antag = High Tier Antag Token
 gs-balanceui-shop-token-admin-abuse = Admin Abuse Token

@@ -8,5 +8,5 @@ traitor-corporations-flavor-dataset-7 = Legal Trouble
 traitor-corporations-flavor-dataset-8 = MI13
 traitor-corporations-flavor-dataset-9 = Tiger Cooperative
 traitor-corporations-flavor-dataset-10 = Waffle Corporation
-traitor-corporations-flavor-dataset-11 = Waffle Corporation Terrorist
-traitor-corporations-flavor-dataset-12 = Neulithiv Federation Visionary
+traitor-corporations-flavor-dataset-11 = Interdyne Pharmaceutics
+traitor-corporations-flavor-dataset-12 = Ratbite Admin Team

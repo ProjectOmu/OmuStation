@@ -112,7 +112,7 @@
             enabled: true
             inherent: true
           - type: IFF
-            flags: HideLabel
+          #  flags: HideLabel
             color: "#88b0d1"
           protos:
           - ChunkDebrisSmall
@@ -132,7 +132,7 @@
             enabled: true
             inherent: true
           - type: IFF
-            flags: HideLabel
+           # flags: HideLabel
             color: "#d67e27"
           protos:
           - VGRoid

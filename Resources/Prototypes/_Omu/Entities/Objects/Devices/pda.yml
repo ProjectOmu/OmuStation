@@ -9,12 +9,12 @@
 
 - type: entity
   parent: CentcomPDA
-  id: CentCommDireggtorPDA
-  name: CentComm direggtor PDA
-  description: A grade-A PDA. Smells like protein.
+  id: CentCommDirectorPDA
+  name: Central Director PDA
+  description: A highly modified version of the standard Central PDA. Smells like amatoxin.
   components:
   - type: Pda
-    id: CentralCommandDireggtorIDCard
+    id: CentralCommandDirectorIDCard
 
 - type: entity
   parent: ClearPDA

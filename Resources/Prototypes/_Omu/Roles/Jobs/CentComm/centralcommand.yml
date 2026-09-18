@@ -40,21 +40,18 @@
     - HandheldFaxCentCommIntern
 
 - type: job
-  id: CentralCommandDireggtor
-  name: job-name-centcomm-direggtor
+  id: CentralCommandDirector
+  name: job-name-centcomm-director
   description: job-description-centcomoff
-  playTimeTracker: JobCentCommDireggtor
+  playTimeTracker: JobCentCommDirector
   setPreference: false
-  startingGear: CentcomDireggtorGear
-  icon: "JobIconCentCommDireggtor"
+  startingGear: CentcomDirectorGear
+  icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
-  canBeAntag: false
+  canBeAntag: true
   requirements:
   - !type:AgeRequirement
     requiredAge: 28
-  - !type:SpeciesRequirement
-    species:
-    - Harpy
   accessGroups:
   - AllAccess
   access:
@@ -67,31 +64,88 @@
   - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
-  id: CentcomDireggtorGear
+  id: CentcomDirectorGear
   equipment:
-    jumpsuit: ClothingUniformCentComCasualEgg
-    head: ClothingHeadHatBeretCCBeregg
-    mask: ClothingMaskSterile
-    eyes: ClothingEyesGlassesCentComm
-    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    jumpsuit: ClothingUniformJumpsuitCentcomFormal
+    head: ClothingHeadHatCentcomcap
+    mask: ClothingMaskGasCentcom
+    eyes: ClothingEyesGlassesDeathsquad
+    gloves: ClothingHandsGlovesDeathsquad
+    feet: ClothingShoesBootsMagDeathsquad
     back: ClothingModsuitCorporate
-    outerClothing: ClothingOuterCentcomLabcoat
-    neck: ClothingNeckMantleCCOMantle
-    id: CentCommDireggtorPDA
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ClothingNeckCloakCentComPoncho
+    id: CentCommDirectorPDA
     ears: ClothingHeadsetAltCentComLoudspeaker
-    belt: EggCentCommBelt
-    pocket1: VulcanEightRevolver
-    pocket2: VulcanEightRevolver
+    belt: CentCommBelt
+    pocket1: WeaponPulsePistol
+    pocket2: RubberStampCentcom
   storage:
    back:
    - HandheldFaxOfficial
    - BoxFolderCentComClipboard
    - DeterrentCaseFilled
-   - BoxShotgunUranium
    - CQCManual
+   - RubberStampNTAgent
+
+- type: job
+  id: CentralCommandSenior
+  name: job-name-centcomm-senior
+  description: job-description-centcomoff
+  playTimeTracker: JobCentCommSenior
+  setPreference: false
+  startingGear: CentcomSeniorGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  requirements:
+  - !type:AgeRequirement
+    requiredAge: 28
+  accessGroups:
+  - AllAccess
+  access:
+  - CentCommOffical
+  - NanotrasenSpectre
+  - Deathsquad
+  - EmergencyResponseTeam
+  - CentralCommand
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: CentcomSeniorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitGoldenLiaison
+    head: ClothingHeadHatGoldCentcom
+    mask: ClothingMaskGasCentcom
+    eyes: ClothingEyesGlassesDeathsquad
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    feet: ClothingShoesBootsJackAdvancedFilled
+    back: ClothingModsuitCorporate
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ClothingNeckCloakGoldenCentComm
+    id: CentcomPDA
+    ears: ClothingHeadsetAltCentComLoudspeaker
+    belt: CentCommBelt
+    pocket1: WeaponTaserSuper
+    pocket2: RubberStampCentcom
+  storage:
+   back:
+   - HandheldFaxOfficial
+   - BoxFolderCentComClipboard
+   - DeterrentCaseFilled
+   - CQCManual
+   - omnitool
+   - OmnimedToolDebug
+   - WeaponPistolCentcommAgent
+   - CentCommHypo
+   - CentralCommandBusinessCard
 
 - type: job
   id: CustodiiVitellus
