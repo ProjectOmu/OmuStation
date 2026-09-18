@@ -211,7 +211,7 @@ selectable-set-ntr-blade-desc =
 
 selectable-set-ntr-brella-name = "Marlen" Umbrella
 selectable-set-ntr-brella-desc =
-    A stylish intricate souvenir made from tough, hyper-woven
+    A stylish and intricate souvenir made from tough, hyper-woven
     durathread by "NanoFashion" for the rich people of central command.
     Looks expensive, and surprisingly durable.
     CC note says: ONLY USE ON RED!!!!!
