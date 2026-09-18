@@ -1,29 +1,16 @@
-using Content.Shared.Database;
-using Content.Shared.IdentityManagement;
-using Content.Server.Administration.Logs;
-using Content.Shared.Mindshield.Components;
 using Content.Server.Popups;
-using Content.Shared.NPC.Components;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.NPC.Prototypes;
-using Content.Shared.NPC.Systems;
-using Content.Server.Mind;
-using Content.Shared.Revolutionary.Components;
-using Content.Shared.Roles.Components;
-using Content.Shared.Stunnable;
+using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Omu.Werewolf;
 using Robust.Shared.Player;
-using Content.Server.Roles;
-using Content.Server.Antag;
 using Content.Server.Body.Systems;
-using Content.Server.Revolutionary.Components;
-using Robust.Shared.Random;
-using Content.Shared.Random.Helpers;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.Actions;
+using Content.Shared.Forensics.Components;
+using Content.Shared.Body.Components;
+using Content.Shared.Chemistry.EntitySystems;
 
 namespace Content.Server.Omu.Werewolf;
 
@@ -50,6 +37,8 @@ public sealed class WerewolfSystem : EntitySystem
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] protected BodySystem _body = default!;
+    [Dependency] protected SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] protected BloodstreamSystem _bloodstream = default!;
 
     public override void Initialize()
     {
@@ -81,8 +70,24 @@ public sealed class WerewolfSystem : EntitySystem
         if (!_proto.TryIndex(humanoid.Species, out var speciesPrototype))
             return;
 
-
         var entityToGib = Spawn(speciesPrototype.Prototype, Transform(uid).Coordinates);
+
+        if (TryComp<DnaComponent>(uid, out var dna))
+        {
+            if (TryComp<BloodstreamComponent>(entityToGib, out var dummyBlood))
+            {
+                if (_solutionContainerSystem.ResolveSolution(entityToGib, dummyBlood.BloodSolutionName, ref dummyBlood.BloodSolution, out var bloodSolution))
+                {
+                    foreach (var reagent in bloodSolution.Contents)
+                    {
+                        List<ReagentData> reagentData = reagent.Reagent.EnsureReagentData();
+                        reagentData.RemoveAll(x => x is DnaData);
+                        reagentData.AddRange(_bloodstream.GetEntityBloodData(uid));
+                    }
+                }
+            }
+        }
+
         _body.GibBody(entityToGib);
 
         string message = Loc.GetString("WerewolfTransform", ("ent", MetaData(uid).EntityName));
