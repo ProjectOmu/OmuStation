@@ -3217,548 +3217,550 @@ entities:
     - type: Transform
       parent: 2
       pos: 10.490741,6.408763
-- proto: ChunkEntity
-  entities:
-  - uid: 380
-    components:
-    - type: ChunkEntity
-      root: 2
-      chunk: 0,-1
-    - type: DecalChunk
-      maxDecalId: 80
-      decals:
-        version: 1
-        nodes:
-        - node:
-            id: BotLeftGreyscale
-            color: '#FFFFFFFF'
-          decals:
-            75: 5,-3
-            76: 5,-4
-            77: 5,-5
-        - node:
-            id: BrickLineOverlayW
-            color: '#52B4E996'
-          decals:
-            21: 9,-12
-            26: 9,-13
-            27: 9,-14
-        - node:
-            id: BrickLineOverlayW
-            color: '#EFB34196'
-          decals:
-            28: 10,-16
-        - node:
-            id: BrickTileWhiteInnerNe
-            color: '#DE3A3A96'
-          decals:
-            36: 0,-2
-        - node:
-            id: BrickTileWhiteInnerNw
-            color: '#DE3A3A96'
-          decals:
-            32: 8,-2
-        - node:
-            id: BrickTileWhiteInnerSe
-            color: '#A4610696'
-          decals:
-            30: 11,-16
-        - node:
-            id: BrickTileWhiteInnerSw
-            color: '#EFB34196'
-          decals:
-            29: 10,-15
-        - node:
-            id: BrickTileWhiteLineE
-            color: '#52B4E996'
-          decals:
-            17: 7,-12
-            18: 7,-13
-            19: 7,-14
-        - node:
-            id: BrickTileWhiteLineE
-            color: '#DE3A3A96'
-          decals:
-            13: 6,-1
-        - node:
-            id: BrickTileWhiteLineE
-            color: '#EFB34196'
-          decals:
-            20: 8,-16
-        - node:
-            id: BrickTileWhiteLineN
-            color: '#639137FF'
-          decals:
-            9: 9,-1
-            10: 10,-1
-            11: 12,-1
-            12: 13,-1
-            45: 9,-6
-            46: 10,-6
-            47: 12,-6
-            48: 13,-6
-        - node:
-            id: BrickTileWhiteLineN
-            color: '#DE3A3A96'
-          decals:
-            33: 2,-2
-            34: 3,-2
-            35: 1,-2
-        - node:
-            id: BrickTileWhiteLineS
-            color: '#639137FF'
-          decals:
-            37: 9,-3
-            38: 10,-3
-            39: 12,-3
-            40: 13,-3
-            41: 12,-8
-            42: 13,-8
-            43: 10,-8
-            44: 9,-8
-        - node:
-            id: BrickTileWhiteLineW
-            color: '#52B4E996'
-          decals:
-            14: 3,-12
-            15: 3,-13
-            16: 3,-14
-        - node:
-            id: BrickTileWhiteLineW
-            color: '#DE3A3A96'
-          decals:
-            31: 8,-1
-        - node:
-            id: BushCTwo
-            color: '#FFFFFFFF'
-          decals:
-            4: 11,-2
-        - node:
-            id: Busha3
-            color: '#FFFFFFFF'
-          decals:
-            7: 11,-5
-        - node:
-            id: Bushd2
-            color: '#FFFFFFFF'
-          decals:
-            8: 11,-7
-        - node:
-            id: Bushi1
-            color: '#FFFFFFFF'
-          decals:
-            5: 11,-4
-            6: 11,-8
-        - node:
-            id: Bushk1
-            color: '#FFFFFFFF'
-          decals:
-            0: 11,-1
-        - node:
-            id: Bushk2
-            color: '#FFFFFFFF'
-          decals:
-            1: 11,-3
-        - node:
-            id: Bushk3
-            color: '#FFFFFFFF'
-          decals:
-            3: 11,-6
-        - node:
-            id: ConcreteTrimLineE
-            color: '#9FED5896'
-          decals:
-            22: 14,-12
-            23: 14,-13
-            24: 14,-14
-            25: 14,-15
-        - node:
-            id: LoadingAreaGreyscale
-            color: '#FFFFFFFF'
-            angle: 1.5707963267948966 rad
-          decals:
-            78: 3,-5
-            79: 3,-6
-        - node:
-            id: StandClear
-            color: '#FFFFFFFF'
-            angle: 1.5707963267948966 rad
-          decals:
-            80: 9,-13
-        - node:
-            id: StandClearGreyscale
-            color: '#FFFFFFFF'
-          decals:
-            72: 0,-8
-            73: 0,-2
-            74: 0,-10
-        - node:
-            id: WarnCornerSmallGreyscaleNE
-            color: '#FFFFFFFF'
-          decals:
-            49: 8,-9
-        - node:
-            id: WarnCornerSmallGreyscaleNW
-            color: '#FFFFFFFF'
-          decals:
-            50: 14,-9
-        - node:
-            id: WarnCornerSmallNE
-            color: '#FFFFFFFF'
-          decals:
-            2: 3,-7
-        - node:
-            id: WarnLineGreyscaleE
-            color: '#FFFFFFFF'
-          decals:
-            51: 8,-8
-            52: 8,-7
-            53: 8,-6
-            54: 8,-5
-            55: 8,-4
-            56: 8,-3
-            57: 8,-2
-            58: 8,-1
-        - node:
-            id: WarnLineGreyscaleN
-            color: '#FFFFFFFF'
-          decals:
-            67: 13,-9
-            68: 12,-9
-            69: 11,-9
-            70: 10,-9
-            71: 9,-9
-        - node:
-            id: WarnLineGreyscaleW
-            color: '#FFFFFFFF'
-          decals:
-            59: 14,-8
-            60: 14,-7
-            61: 14,-6
-            62: 14,-5
-            63: 14,-4
-            64: 14,-3
-            65: 14,-2
-            66: 14,-1
-  - uid: 381
-    components:
-    - type: ChunkEntity
-      root: 2
-      chunk: 0,-2
-    - type: DecalChunk
-      maxDecalId: 38
-      decals:
-        version: 1
-        nodes:
-        - node:
-            id: Bot
-            color: '#FFFFFFFF'
-          decals:
-            34: 10,-19
-            35: 10,-18
-        - node:
-            id: BrickLineOverlayW
-            color: '#EFB34196'
-          decals:
-            19: 3,-18
-            20: 3,-19
-            27: 3,-20
-            28: 3,-21
-            29: 10,-17
-            30: 10,-18
-        - node:
-            id: BrickTileWhiteInnerNe
-            color: '#A4610696'
-          decals:
-            33: 11,-18
-        - node:
-            id: BrickTileWhiteInnerNw
-            color: '#EFB34196'
-          decals:
-            31: 10,-19
-        - node:
-            id: BrickTileWhiteLineE
-            color: '#A4610696'
-          decals:
-            32: 11,-17
-        - node:
-            id: BrickTileWhiteLineE
-            color: '#EFB34196'
-          decals:
-            16: 8,-17
-            17: 8,-18
-            18: 8,-19
-        - node:
-            id: ConcreteTrimCornerSw
-            color: '#EFB34196'
-          decals:
-            26: 13,-19
-        - node:
-            id: ConcreteTrimInnerSw
-            color: '#EFB34196'
-          decals:
-            23: 14,-19
-        - node:
-            id: ConcreteTrimLineW
-            color: '#EFB34196'
-          decals:
-            21: 13,-17
-            22: 13,-18
-            24: 14,-20
-            25: 14,-21
-        - node:
-            id: Dirt
-            color: '#FFFFFFFF'
-            cleanable: True
-          decals:
-            3: 11,-22
-            4: 12,-22
-            5: 12,-21
-            6: 11,-21
-            7: 10,-21
-            8: 9,-21
-            9: 9,-22
-            10: 10,-22
-            11: 10,-23
-            12: 9,-23
-            13: 9,-24
-            14: 10,-24
-            15: 11,-24
-        - node:
-            id: Remains
-            color: '#FFFFFFFF'
-          decals:
-            38: 12,-21
-        - node:
-            id: WarnCornerSmallSE
-            color: '#FFFFFFFF'
-          decals:
-            37: 4,-18
-        - node:
-            id: WarnLineN
-            color: '#FFFFFFFF'
-          decals:
-            0: 5,-18
-            1: 6,-18
-            2: 7,-18
-            36: 8,-18
-  - uid: 382
-    components:
-    - type: ChunkEntity
-      root: 2
-      chunk: 1,-2
-    - type: DecalChunk
-      maxDecalId: 12
-      decals:
-        version: 1
-        nodes:
-        - node:
-            id: Bot
-            color: '#FFFFFFFF'
-          decals:
-            0: 16,-20
-            1: 16,-19
-            2: 16,-18
-            3: 17,-18
-            4: 17,-19
-            5: 17,-20
-            10: 17,-18
-            11: 17,-19
-            12: 17,-20
-        - node:
-            id: ConcreteTrimLineE
-            color: '#EFB34196'
-          decals:
-            6: 17,-18
-            7: 17,-19
-            8: 17,-20
-            9: 17,-21
-  - uid: 383
-    components:
-    - type: ChunkEntity
-      root: 2
-      chunk: 1,0
-    - type: DecalChunk
-      maxDecalId: 8
-      decals:
-        version: 1
-        nodes:
-        - node:
-            id: Box
-            color: '#FFFFFFFF'
-          decals:
-            0: 16,2
-            1: 17,2
-            2: 17,4
-            3: 16,4
-            4: 17,6
-        - node:
-            id: BrickTileWhiteInnerNw
-            color: '#334E6DC8'
-          decals:
-            5: 16,5
-        - node:
-            id: BrickTileWhiteLineE
-            color: '#334E6DC8'
-          decals:
-            7: 17,3
-            8: 17,5
-        - node:
-            id: BrickTileWhiteLineW
-            color: '#334E6DC8'
-          decals:
-            6: 16,6
-  - uid: 384
-    components:
-    - type: ChunkEntity
-      root: 2
-    - type: DecalChunk
-      maxDecalId: 59
-      decals:
-        version: 1
-        nodes:
-        - node:
-            id: Bot
-            color: '#FFFFFFFF'
-          decals:
-            51: 13,6
-            55: 15,6
-        - node:
-            id: BotGreyscale
-            color: '#FFFFFFFF'
-          decals:
-            46: 4,8
-            47: 5,8
-            48: 6,8
-            52: 13,4
-            53: 13,3
-        - node:
-            id: BrickLineOverlayE
-            color: '#334E6DC8'
-          decals:
-            0: 13,6
-            1: 13,5
-            2: 13,4
-            3: 13,3
-            4: 13,7
-            5: 13,8
-        - node:
-            id: BrickLineOverlayN
-            color: '#334E6DC8'
-          decals:
-            6: 13,1
-            7: 12,1
-            19: 11,1
-        - node:
-            id: BrickLineOverlayW
-            color: '#334E6DC8'
-          decals:
-            8: 9,7
-            9: 9,8
-            10: 9,9
-        - node:
-            id: BrickLineOverlayW
-            color: '#DE3A3A96'
-          decals:
-            18: 3,2
-        - node:
-            id: BrickTileWhiteCornerNw
-            color: '#334E6DC8'
-          decals:
-            59: 15,5
-        - node:
-            id: BrickTileWhiteCornerSe
-            color: '#DE3A3A96'
-          decals:
-            12: 7,3
-        - node:
-            id: BrickTileWhiteInnerSe
-            color: '#DE3A3A96'
-          decals:
-            11: 6,3
-        - node:
-            id: BrickTileWhiteLineE
-            color: '#DE3A3A96'
-          decals:
-            13: 6,2
-            14: 7,4
-            15: 7,5
-            16: 6,1
-            17: 6,0
-            49: 7,8
-            50: 7,7
-        - node:
-            id: BrickTileWhiteLineW
-            color: '#334E6DC8'
-          decals:
-            56: 15,2
-            57: 15,3
-            58: 15,4
-        - node:
-            id: BrickTileWhiteLineW
-            color: '#DE3A3A96'
-          decals:
-            20: 3,7
-            21: 3,8
-            22: 3,6
-            23: 3,5
-            24: 3,4
-            25: 3,3
-            27: 8,0
-            28: 8,1
-        - node:
-            id: DeliveryGreyscale
-            color: '#FFFFFFFF'
-            angle: 1.5707963267948966 rad
-          decals:
-            37: 4,6
-            38: 6,6
-        - node:
-            id: LoadingAreaGreyscale
-            color: '#FFFFFFFF'
-            angle: 1.5707963267948966 rad
-          decals:
-            54: 0,0
-        - node:
-            id: MiniTileInnerOverlayNE
-            color: '#334E6DC8'
-          decals:
-            26: 10,1
-        - node:
-            id: WarnCornerSmallGreyscaleSE
-            color: '#FFFFFFFF'
-          decals:
-            44: 8,0
-        - node:
-            id: WarnCornerSmallGreyscaleSW
-            color: '#FFFFFFFF'
-          decals:
-            45: 14,0
-        - node:
-            id: WarnLineGreyscaleN
-            color: '#DE3A3A96'
-          decals:
-            29: 0,0
-            30: 3,0
-            31: 2,0
-            32: 1,0
-        - node:
-            id: WarnLineGreyscaleS
-            color: '#DE3A3A96'
-          decals:
-            33: 0,0
-            34: 1,0
-            35: 2,0
-            36: 3,0
-        - node:
-            id: WarnLineGreyscaleS
-            color: '#FFFFFFFF'
-          decals:
-            39: 9,0
-            40: 10,0
-            41: 11,0
-            42: 12,0
-            43: 13,0
+# -- WE DON'T KNOW WHAT A CHUNKENTITY IS HERE!!!!
+# https://github.com/space-wizards/RobustToolbox/pull/6705
+# - proto: ChunkEntity
+#   entities:
+#   - uid: 380
+#     components:
+#     - type: ChunkEntity
+#       root: 2
+#       chunk: 0,-1
+#     - type: DecalChunk
+#       maxDecalId: 80
+#       decals:
+#         version: 1
+#         nodes:
+#         - node:
+#             id: BotLeftGreyscale
+#             color: '#FFFFFFFF'
+#           decals:
+#             75: 5,-3
+#             76: 5,-4
+#             77: 5,-5
+#         - node:
+#             id: BrickLineOverlayW
+#             color: '#52B4E996'
+#           decals:
+#             21: 9,-12
+#             26: 9,-13
+#             27: 9,-14
+#         - node:
+#             id: BrickLineOverlayW
+#             color: '#EFB34196'
+#           decals:
+#             28: 10,-16
+#         - node:
+#             id: BrickTileWhiteInnerNe
+#             color: '#DE3A3A96'
+#           decals:
+#             36: 0,-2
+#         - node:
+#             id: BrickTileWhiteInnerNw
+#             color: '#DE3A3A96'
+#           decals:
+#             32: 8,-2
+#         - node:
+#             id: BrickTileWhiteInnerSe
+#             color: '#A4610696'
+#           decals:
+#             30: 11,-16
+#         - node:
+#             id: BrickTileWhiteInnerSw
+#             color: '#EFB34196'
+#           decals:
+#             29: 10,-15
+#         - node:
+#             id: BrickTileWhiteLineE
+#             color: '#52B4E996'
+#           decals:
+#             17: 7,-12
+#             18: 7,-13
+#             19: 7,-14
+#         - node:
+#             id: BrickTileWhiteLineE
+#             color: '#DE3A3A96'
+#           decals:
+#             13: 6,-1
+#         - node:
+#             id: BrickTileWhiteLineE
+#             color: '#EFB34196'
+#           decals:
+#             20: 8,-16
+#         - node:
+#             id: BrickTileWhiteLineN
+#             color: '#639137FF'
+#           decals:
+#             9: 9,-1
+#             10: 10,-1
+#             11: 12,-1
+#             12: 13,-1
+#             45: 9,-6
+#             46: 10,-6
+#             47: 12,-6
+#             48: 13,-6
+#         - node:
+#             id: BrickTileWhiteLineN
+#             color: '#DE3A3A96'
+#           decals:
+#             33: 2,-2
+#             34: 3,-2
+#             35: 1,-2
+#         - node:
+#             id: BrickTileWhiteLineS
+#             color: '#639137FF'
+#           decals:
+#             37: 9,-3
+#             38: 10,-3
+#             39: 12,-3
+#             40: 13,-3
+#             41: 12,-8
+#             42: 13,-8
+#             43: 10,-8
+#             44: 9,-8
+#         - node:
+#             id: BrickTileWhiteLineW
+#             color: '#52B4E996'
+#           decals:
+#             14: 3,-12
+#             15: 3,-13
+#             16: 3,-14
+#         - node:
+#             id: BrickTileWhiteLineW
+#             color: '#DE3A3A96'
+#           decals:
+#             31: 8,-1
+#         - node:
+#             id: BushCTwo
+#             color: '#FFFFFFFF'
+#           decals:
+#             4: 11,-2
+#         - node:
+#             id: Busha3
+#             color: '#FFFFFFFF'
+#           decals:
+#             7: 11,-5
+#         - node:
+#             id: Bushd2
+#             color: '#FFFFFFFF'
+#           decals:
+#             8: 11,-7
+#         - node:
+#             id: Bushi1
+#             color: '#FFFFFFFF'
+#           decals:
+#             5: 11,-4
+#             6: 11,-8
+#         - node:
+#             id: Bushk1
+#             color: '#FFFFFFFF'
+#           decals:
+#             0: 11,-1
+#         - node:
+#             id: Bushk2
+#             color: '#FFFFFFFF'
+#           decals:
+#             1: 11,-3
+#         - node:
+#             id: Bushk3
+#             color: '#FFFFFFFF'
+#           decals:
+#             3: 11,-6
+#         - node:
+#             id: ConcreteTrimLineE
+#             color: '#9FED5896'
+#           decals:
+#             22: 14,-12
+#             23: 14,-13
+#             24: 14,-14
+#             25: 14,-15
+#         - node:
+#             id: LoadingAreaGreyscale
+#             color: '#FFFFFFFF'
+#             angle: 1.5707963267948966 rad
+#           decals:
+#             78: 3,-5
+#             79: 3,-6
+#         - node:
+#             id: StandClear
+#             color: '#FFFFFFFF'
+#             angle: 1.5707963267948966 rad
+#           decals:
+#             80: 9,-13
+#         - node:
+#             id: StandClearGreyscale
+#             color: '#FFFFFFFF'
+#           decals:
+#             72: 0,-8
+#             73: 0,-2
+#             74: 0,-10
+#         - node:
+#             id: WarnCornerSmallGreyscaleNE
+#             color: '#FFFFFFFF'
+#           decals:
+#             49: 8,-9
+#         - node:
+#             id: WarnCornerSmallGreyscaleNW
+#             color: '#FFFFFFFF'
+#           decals:
+#             50: 14,-9
+#         - node:
+#             id: WarnCornerSmallNE
+#             color: '#FFFFFFFF'
+#           decals:
+#             2: 3,-7
+#         - node:
+#             id: WarnLineGreyscaleE
+#             color: '#FFFFFFFF'
+#           decals:
+#             51: 8,-8
+#             52: 8,-7
+#             53: 8,-6
+#             54: 8,-5
+#             55: 8,-4
+#             56: 8,-3
+#             57: 8,-2
+#             58: 8,-1
+#         - node:
+#             id: WarnLineGreyscaleN
+#             color: '#FFFFFFFF'
+#           decals:
+#             67: 13,-9
+#             68: 12,-9
+#             69: 11,-9
+#             70: 10,-9
+#             71: 9,-9
+#         - node:
+#             id: WarnLineGreyscaleW
+#             color: '#FFFFFFFF'
+#           decals:
+#             59: 14,-8
+#             60: 14,-7
+#             61: 14,-6
+#             62: 14,-5
+#             63: 14,-4
+#             64: 14,-3
+#             65: 14,-2
+#             66: 14,-1
+#   - uid: 381
+#     components:
+#     - type: ChunkEntity
+#       root: 2
+#       chunk: 0,-2
+#     - type: DecalChunk
+#       maxDecalId: 38
+#       decals:
+#         version: 1
+#         nodes:
+#         - node:
+#             id: Bot
+#             color: '#FFFFFFFF'
+#           decals:
+#             34: 10,-19
+#             35: 10,-18
+#         - node:
+#             id: BrickLineOverlayW
+#             color: '#EFB34196'
+#           decals:
+#             19: 3,-18
+#             20: 3,-19
+#             27: 3,-20
+#             28: 3,-21
+#             29: 10,-17
+#             30: 10,-18
+#         - node:
+#             id: BrickTileWhiteInnerNe
+#             color: '#A4610696'
+#           decals:
+#             33: 11,-18
+#         - node:
+#             id: BrickTileWhiteInnerNw
+#             color: '#EFB34196'
+#           decals:
+#             31: 10,-19
+#         - node:
+#             id: BrickTileWhiteLineE
+#             color: '#A4610696'
+#           decals:
+#             32: 11,-17
+#         - node:
+#             id: BrickTileWhiteLineE
+#             color: '#EFB34196'
+#           decals:
+#             16: 8,-17
+#             17: 8,-18
+#             18: 8,-19
+#         - node:
+#             id: ConcreteTrimCornerSw
+#             color: '#EFB34196'
+#           decals:
+#             26: 13,-19
+#         - node:
+#             id: ConcreteTrimInnerSw
+#             color: '#EFB34196'
+#           decals:
+#             23: 14,-19
+#         - node:
+#             id: ConcreteTrimLineW
+#             color: '#EFB34196'
+#           decals:
+#             21: 13,-17
+#             22: 13,-18
+#             24: 14,-20
+#             25: 14,-21
+#         - node:
+#             id: Dirt
+#             color: '#FFFFFFFF'
+#             cleanable: True
+#           decals:
+#             3: 11,-22
+#             4: 12,-22
+#             5: 12,-21
+#             6: 11,-21
+#             7: 10,-21
+#             8: 9,-21
+#             9: 9,-22
+#             10: 10,-22
+#             11: 10,-23
+#             12: 9,-23
+#             13: 9,-24
+#             14: 10,-24
+#             15: 11,-24
+#         - node:
+#             id: Remains
+#             color: '#FFFFFFFF'
+#           decals:
+#             38: 12,-21
+#         - node:
+#             id: WarnCornerSmallSE
+#             color: '#FFFFFFFF'
+#           decals:
+#             37: 4,-18
+#         - node:
+#             id: WarnLineN
+#             color: '#FFFFFFFF'
+#           decals:
+#             0: 5,-18
+#             1: 6,-18
+#             2: 7,-18
+#             36: 8,-18
+#   - uid: 382
+#     components:
+#     - type: ChunkEntity
+#       root: 2
+#       chunk: 1,-2
+#     - type: DecalChunk
+#       maxDecalId: 12
+#       decals:
+#         version: 1
+#         nodes:
+#         - node:
+#             id: Bot
+#             color: '#FFFFFFFF'
+#           decals:
+#             0: 16,-20
+#             1: 16,-19
+#             2: 16,-18
+#             3: 17,-18
+#             4: 17,-19
+#             5: 17,-20
+#             10: 17,-18
+#             11: 17,-19
+#             12: 17,-20
+#         - node:
+#             id: ConcreteTrimLineE
+#             color: '#EFB34196'
+#           decals:
+#             6: 17,-18
+#             7: 17,-19
+#             8: 17,-20
+#             9: 17,-21
+#   - uid: 383
+#     components:
+#     - type: ChunkEntity
+#       root: 2
+#       chunk: 1,0
+#     - type: DecalChunk
+#       maxDecalId: 8
+#       decals:
+#         version: 1
+#         nodes:
+#         - node:
+#             id: Box
+#             color: '#FFFFFFFF'
+#           decals:
+#             0: 16,2
+#             1: 17,2
+#             2: 17,4
+#             3: 16,4
+#             4: 17,6
+#         - node:
+#             id: BrickTileWhiteInnerNw
+#             color: '#334E6DC8'
+#           decals:
+#             5: 16,5
+#         - node:
+#             id: BrickTileWhiteLineE
+#             color: '#334E6DC8'
+#           decals:
+#             7: 17,3
+#             8: 17,5
+#         - node:
+#             id: BrickTileWhiteLineW
+#             color: '#334E6DC8'
+#           decals:
+#             6: 16,6
+#   - uid: 384
+#     components:
+#     - type: ChunkEntity
+#       root: 2
+#     - type: DecalChunk
+#       maxDecalId: 59
+#       decals:
+#         version: 1
+#         nodes:
+#         - node:
+#             id: Bot
+#             color: '#FFFFFFFF'
+#           decals:
+#             51: 13,6
+#             55: 15,6
+#         - node:
+#             id: BotGreyscale
+#             color: '#FFFFFFFF'
+#           decals:
+#             46: 4,8
+#             47: 5,8
+#             48: 6,8
+#             52: 13,4
+#             53: 13,3
+#         - node:
+#             id: BrickLineOverlayE
+#             color: '#334E6DC8'
+#           decals:
+#             0: 13,6
+#             1: 13,5
+#             2: 13,4
+#             3: 13,3
+#             4: 13,7
+#             5: 13,8
+#         - node:
+#             id: BrickLineOverlayN
+#             color: '#334E6DC8'
+#           decals:
+#             6: 13,1
+#             7: 12,1
+#             19: 11,1
+#         - node:
+#             id: BrickLineOverlayW
+#             color: '#334E6DC8'
+#           decals:
+#             8: 9,7
+#             9: 9,8
+#             10: 9,9
+#         - node:
+#             id: BrickLineOverlayW
+#             color: '#DE3A3A96'
+#           decals:
+#             18: 3,2
+#         - node:
+#             id: BrickTileWhiteCornerNw
+#             color: '#334E6DC8'
+#           decals:
+#             59: 15,5
+#         - node:
+#             id: BrickTileWhiteCornerSe
+#             color: '#DE3A3A96'
+#           decals:
+#             12: 7,3
+#         - node:
+#             id: BrickTileWhiteInnerSe
+#             color: '#DE3A3A96'
+#           decals:
+#             11: 6,3
+#         - node:
+#             id: BrickTileWhiteLineE
+#             color: '#DE3A3A96'
+#           decals:
+#             13: 6,2
+#             14: 7,4
+#             15: 7,5
+#             16: 6,1
+#             17: 6,0
+#             49: 7,8
+#             50: 7,7
+#         - node:
+#             id: BrickTileWhiteLineW
+#             color: '#334E6DC8'
+#           decals:
+#             56: 15,2
+#             57: 15,3
+#             58: 15,4
+#         - node:
+#             id: BrickTileWhiteLineW
+#             color: '#DE3A3A96'
+#           decals:
+#             20: 3,7
+#             21: 3,8
+#             22: 3,6
+#             23: 3,5
+#             24: 3,4
+#             25: 3,3
+#             27: 8,0
+#             28: 8,1
+#         - node:
+#             id: DeliveryGreyscale
+#             color: '#FFFFFFFF'
+#             angle: 1.5707963267948966 rad
+#           decals:
+#             37: 4,6
+#             38: 6,6
+#         - node:
+#             id: LoadingAreaGreyscale
+#             color: '#FFFFFFFF'
+#             angle: 1.5707963267948966 rad
+#           decals:
+#             54: 0,0
+#         - node:
+#             id: MiniTileInnerOverlayNE
+#             color: '#334E6DC8'
+#           decals:
+#             26: 10,1
+#         - node:
+#             id: WarnCornerSmallGreyscaleSE
+#             color: '#FFFFFFFF'
+#           decals:
+#             44: 8,0
+#         - node:
+#             id: WarnCornerSmallGreyscaleSW
+#             color: '#FFFFFFFF'
+#           decals:
+#             45: 14,0
+#         - node:
+#             id: WarnLineGreyscaleN
+#             color: '#DE3A3A96'
+#           decals:
+#             29: 0,0
+#             30: 3,0
+#             31: 2,0
+#             32: 1,0
+#         - node:
+#             id: WarnLineGreyscaleS
+#             color: '#DE3A3A96'
+#           decals:
+#             33: 0,0
+#             34: 1,0
+#             35: 2,0
+#             36: 3,0
+#         - node:
+#             id: WarnLineGreyscaleS
+#             color: '#FFFFFFFF'
+#           decals:
+#             39: 9,0
+#             40: 10,0
+#             41: 11,0
+#             42: 12,0
+#             43: 13,0
 - proto: ClosetEmergencyFilledRandom
   entities:
   - uid: 398
