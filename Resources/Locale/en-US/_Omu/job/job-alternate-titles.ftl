@@ -1,24 +1,28 @@
 job-alt-title-reminder = Do not use your [color=#33ccff]"{$altTitle}"[/color] title as an excuse to forego your duties as [color=#ffffff]{$jobName}[/color].
 
-job-name-alt-cargotech-2 = Shuttle Pilot
-job-name-alt-cargotech-3 = Logistics Clerk
-job-name-alt-cargotech-4 = Warehouse Technician
-job-name-alt-cargotech-5 = Deck Worker
-job-name-alt-cargotech-6 = Inventory Associate
+job-name-alt-cargotech-1 = Shuttle Pilot
+job-name-alt-cargotech-2 = Logistics Clerk
+job-name-alt-cargotech-3 = Warehouse Technician
+job-name-alt-cargotech-4 = Deck Worker
+job-name-alt-cargotech-5 = Inventory Associate
 
 job-name-alt-qm-1 = Requisitions Officer
 job-name-alt-qm-2 = Deck Chief
 job-name-alt-qm-3 = Warehouse Supervisor
-job-name-alt-qm-5 = Logistics Coordinator
+job-name-alt-qm-4 = Logistics Coordinator
 
-job-name-alt-salvage-2 = Mining Specialist
-job-name-alt-salvage-3 = Field Geologist
-job-name-alt-salvage-4 = Drill Technician
-job-name-alt-salvage-5 = Shipbreaking Specialist
+job-name-alt-salvagespec-1 = Mining Specialist
+job-name-alt-salvagespec-2 = Field Geologist
+job-name-alt-salvagespec-3 = Drill Technician
+job-name-alt-salvagespec-4 = Shipbreaking Specialist
+
+job-name-alt-courier-1 = Mail Carrier
+job-name-alt-courier-2 = Dispatch Runner
+job-name-alt-courier-3 = Delivery Associate
 
 job-name-alt-bartender-1 = Mixologist
-job-name-alt-bartender-3 = Barista
-job-name-alt-bartender-2 = Hydration Equipment Operator
+job-name-alt-bartender-2 = Barista
+job-name-alt-bartender-3 = Hydration Equipment Operator
 job-name-alt-bartender-4 = Barkeeper
 
 job-name-alt-botanist-1 = Hydroponics Specialist
@@ -69,9 +73,9 @@ job-name-alt-librarian-5 = Archivist
 
 job-name-alt-mime-1 = Pantomimist
 
-job-name-alt-musician-2 = Busker
-job-name-alt-musician-3 = Performer
-job-name-alt-musician-4 = Maestro
+job-name-alt-musician-1 = Busker
+job-name-alt-musician-2 = Performer
+job-name-alt-musician-3 = Maestro
 
 job-name-alt-serviceworker-1 = Waiter
 job-name-alt-serviceworker-2 = Junior Cook
@@ -86,12 +90,12 @@ job-name-alt-captain-4 = Head of Command
 job-name-alt-captain-5 = Site Director
 job-name-alt-captain-6 = Site Administrator
 
-job-name-alt-hop-2 = Employment Officer
-job-name-alt-hop-3 = Crew Supervisor
-job-name-alt-hop-4 = Head of Hospitality
+job-name-alt-hop-1 = Employment Officer
+job-name-alt-hop-2 = Crew Supervisor
+job-name-alt-hop-3 = Head of Hospitality
 
 job-name-alt-ce-1 = Head of Engineering
-job-name-alt-ce-3 = Engineering Supervisor
+job-name-alt-ce-2 = Engineering Supervisor
 
 job-name-alt-cmo-1 = Medical Director
 job-name-alt-cmo-2 = Head of Medical
@@ -112,8 +116,12 @@ job-name-alt-ntr-1 = Corporate Liaison
 job-name-alt-ntr-2 = Nanotrasen Compliance Executive
 job-name-alt-ntr-3 = Nanotrasen Advisor
 
-job-name-alt-atmos-1 = Fire Suppression Specialist
-job-name-alt-atmos-3 = Life Support Technician
+job-name-alt-admin-assistant-1 = Command Secretary
+job-name-alt-admin-assistant-2 = Bridge Clerk
+job-name-alt-admin-assistant-3 = Executive Aide
+
+job-name-alt-atmostech-1 = Fire Suppression Specialist
+job-name-alt-atmostech-2 = Life Support Technician
 
 job-name-alt-engineer-1 = Maintenance Technician
 job-name-alt-engineer-2 = Mechanic
@@ -122,12 +130,12 @@ job-name-alt-engineer-4 = Engine Operator
 job-name-alt-engineer-5 = Emergency Damage Control Technician
 job-name-alt-engineer-6 = EVA Technician
 
-job-name-alt-medical-3 = Physician
-job-name-alt-medical-2 = Nurse
-job-name-alt-medical-1 = Surgeon
-job-name-alt-medical-4 = General Practitioner
-job-name-alt-medical-5 = Medical Resident
-job-name-alt-medical-6 = Nurse Practitioner
+job-name-alt-doctor-1 = Physician
+job-name-alt-doctor-2 = Nurse
+job-name-alt-doctor-3 = Surgeon
+job-name-alt-doctor-4 = General Practitioner
+job-name-alt-doctor-5 = Medical Resident
+job-name-alt-doctor-6 = Nurse Practitioner
 
 job-name-alt-chemist-1 = Pharmacist
 job-name-alt-chemist-2 = Lab Technician
@@ -141,6 +149,10 @@ job-name-alt-psychologist-1 = Therapist
 job-name-alt-psychologist-2 = Guidance Counselor
 job-name-alt-psychologist-3 = Psychiatrist
 
+job-name-alt-virologist-1 = Epidemiologist
+job-name-alt-virologist-2 = Pathologist
+job-name-alt-virologist-3 = Immunologist
+
 job-name-alt-scientist-1 = Xenoarchaeologist
 job-name-alt-scientist-2 = Anomaly Researcher
 job-name-alt-scientist-3 = Hardware Technician
@@ -152,28 +164,11 @@ job-name-alt-roboticist-2 = Mechatronic Specialist
 job-name-alt-roboticist-3 = Cybertronic Technician
 
 job-name-alt-warden-1 = Dispatcher
-job-name-alt-warden-3 = Surveillance Operator
+job-name-alt-warden-2 = Surveillance Operator
 
 job-name-alt-detective-1 = Forensic Investigator
 job-name-alt-detective-2 = Inspector
 job-name-alt-detective-3 = Lead Investigator
-
-job-name-alt-reporter-1 = Influencer
-job-name-alt-reporter-2 = Documentarian
-job-name-alt-reporter-3 = Media Coordinator
-job-name-alt-reporter-4 = Journalist
-
-job-name-alt-courier-1 = Mail Carrier
-job-name-alt-courier-2 = Dispatch Runner
-job-name-alt-courier-3 = Delivery Associate
-
-job-name-alt-admin-assistant-1 = Command Secretary
-job-name-alt-admin-assistant-2 = Bridge Clerk
-job-name-alt-admin-assistant-3 = Executive Aide
-
-job-name-alt-virologist-1 = Epidemiologist
-job-name-alt-virologist-2 = Pathologist
-job-name-alt-virologist-3 = Immunologist
 
 job-name-alt-security-sergeant-1 = Patrol Leader
 job-name-alt-security-sergeant-2 = Drill Instructor
@@ -184,6 +179,11 @@ job-name-alt-brigmedic-3 = Brigmedic
 
 job-name-alt-transit-prisoner-1 = Detainee
 job-name-alt-transit-prisoner-2 = Inmate
+
+job-name-alt-reporter-1 = Influencer
+job-name-alt-reporter-2 = Documentarian
+job-name-alt-reporter-3 = Media Coordinator
+job-name-alt-reporter-4 = Journalist
 
 job-name-alt-radiohost-1 = Radio DJ
 job-name-alt-radiohost-2 = Broadcaster

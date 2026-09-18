@@ -19,7 +19,6 @@ using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
-using Content.Shared._Omu.Roles; // Omu
 using Content.Shared.Roles;
 using Content.Shared.Traits;
 using Microsoft.EntityFrameworkCore;
@@ -217,7 +216,7 @@ namespace Content.Server.Database
             // Omu start
             var jobAlternateTitles = profile.JobAlternateTitles.ToDictionary(
                 t => new ProtoId<JobPrototype>(t.JobName),
-                t => new ProtoId<JobAlternateTitlePrototype>(t.AlternateTitle));
+                t => t.AlternateTitle);
             // Omu end
 
             var sex = Sex.Male;

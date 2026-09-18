@@ -207,7 +207,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             return;
 
         _cardSystem.TryChangeFullName(cardId, characterName, card);
-        _cardSystem.TryChangeJobTitle(cardId, _alternateTitles.GetJobTitle(profile, jobPrototype), card); // Omu
+        _cardSystem.TryChangeJobTitle(cardId, _alternateTitles.GetTitle(profile, jobPrototype.ID) ?? jobPrototype.LocalizedName, card); // Omu
 
         if (_prototypeManager.Resolve(jobPrototype.Icon, out var jobIcon))
             _cardSystem.TryChangeJobIcon(cardId, jobIcon, card);

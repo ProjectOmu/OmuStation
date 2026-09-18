@@ -5,7 +5,6 @@ using Content.Server.GameTicking;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Access.Systems;
-using Content.Shared._Omu.Roles; // Omu
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 
@@ -13,7 +12,6 @@ namespace Content.Server.Access.Systems;
 
 public sealed class PresetIdCardSystem : EntitySystem
 {
-    [Dependency] private readonly JobAlternateTitleSystem _alternateTitles = default!; // Omu
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IdCardSystem _cardSystem = default!;
     [Dependency] private readonly SharedAccessSystem _accessSystem = default!;
@@ -82,12 +80,7 @@ public sealed class PresetIdCardSystem : EntitySystem
 
         _accessSystem.SetAccessToJob(uid, job, extended);
 
-        // Omu start
-        var jobTitle = _alternateTitles.TryGetTitle(id.AlternateTitle, job.ID, out var alternateTitle)
-            ? alternateTitle.LocalizedName
-            : job.LocalizedName;
-        _cardSystem.TryChangeJobTitle(uid, jobTitle);
-        // Omu end
+        _cardSystem.TryChangeJobTitle(uid, job.LocalizedName);
         _cardSystem.TryChangeJobDepartment(uid, job);
 
         if (_prototypeManager.Resolve(job.Icon, out var jobIcon))

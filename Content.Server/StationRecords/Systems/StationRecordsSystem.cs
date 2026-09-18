@@ -158,7 +158,7 @@ public sealed partial class StationRecordsSystem : SharedStationRecordsSystem
         {
             Name = name,
             Age = age,
-            JobTitle = _alternateTitles.GetJobTitle(profile, jobPrototype), // Omu
+            JobTitle = _alternateTitles.GetTitle(profile, jobPrototype.ID) ?? jobPrototype.LocalizedName, // Omu
             JobIcon = jobPrototype.Icon,
             JobPrototype = jobId,
             Species = species,

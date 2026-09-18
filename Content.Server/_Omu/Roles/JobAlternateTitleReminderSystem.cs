@@ -26,11 +26,11 @@ public sealed class JobAlternateTitleReminderSystem : EntitySystem
         if (ev.JobId == null || !_prototypes.TryIndex<JobPrototype>(ev.JobId, out var job))
             return;
 
-        if (!_alternateTitles.TryGetTitle(ev.Profile, job.ID, out var title))
+        if (_alternateTitles.GetTitle(ev.Profile, job.ID) is not { } title)
             return;
 
         var message = Loc.GetString("job-alt-title-reminder",
-            ("altTitle", title.LocalizedName),
+            ("altTitle", title),
             ("jobName", job.LocalizedName));
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
         _chat.ChatMessageToOne(ChatChannel.Server, message, wrappedMessage, default, false, ev.Player.Channel);

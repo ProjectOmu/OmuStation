@@ -292,11 +292,7 @@ namespace Content.Server.GameTicking
 
             DoSpawn(player, character, station, jobId, silent, out var mob, out var jobPrototype, out var jobName);
 
-            // Omu start
-            var announcedJobName = _alternateTitles.TryGetTitle(character, jobId, out var alternateTitle)
-                ? alternateTitle.LocalizedName
-                : jobName;
-            // Omu end
+            var announcedJobName = _alternateTitles.GetTitle(character, jobId) ?? jobName; // Omu
 
             if (lateJoin && !silent)
             {

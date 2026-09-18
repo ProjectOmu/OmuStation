@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: MIT
 
-using Content.Shared._Omu.Roles; // Omu
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 
@@ -14,9 +13,4 @@ public sealed partial class PresetIdCardComponent : Component
 
     [DataField("name")]
     public string? IdName;
-
-    // Omu start
-    [DataField("alternateTitle")]
-    public ProtoId<JobAlternateTitlePrototype>? AlternateTitle;
-    // Omu end
 }

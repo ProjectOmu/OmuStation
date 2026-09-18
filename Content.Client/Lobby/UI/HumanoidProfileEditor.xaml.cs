@@ -993,8 +993,6 @@ namespace Content.Client.Lobby.UI
                 ("humanoid-profile-editor-job-priority-high-button", (int) JobPriority.High),
             };
 
-            var alternateTitlesByJob = _alternateTitles.Enabled ? _alternateTitles.GetTitlesByJob() : null; // Omu
-
             foreach (var department in departments)
             {
                 var departmentName = Loc.GetString(department.Name);
@@ -1068,9 +1066,9 @@ namespace Content.Client.Lobby.UI
                     selector.Setup(items, job.LocalizedName, 200, job.LocalizedDescription, icon, job.Guides);
 
                     // Omu start
-                    if (alternateTitlesByJob != null && alternateTitlesByJob.TryGetValue(job.ID, out var alternateTitles))
+                    if (_alternateTitles.Enabled && _alternateTitles.TryGetTitles(job.ID, out var alternateTitles))
                     {
-                        ProtoId<JobAlternateTitlePrototype>? selectedTitle = null;
+                        string? selectedTitle = null;
                         if (Profile != null && Profile.JobAlternateTitles.TryGetValue(job.ID, out var savedTitle))
                             selectedTitle = savedTitle;
 
