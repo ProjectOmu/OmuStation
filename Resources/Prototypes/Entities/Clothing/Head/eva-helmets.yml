@@ -73,7 +73,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase # goobstation - why didnt this have a light
   id: ClothingHeadHelmetVoidParamed
-  name: paramedic void helmet
+  name: paramedic hardsuit helmet # Omu, consistency
   description: A void helmet made for paramedics.
   components:
   - type: Sprite
@@ -102,6 +102,8 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
+  - type: ZombificationResistance # Omustation - If the suit acts like a biosuit, the helmet should too.
+    zombificationResistanceCoefficient: 0.9
   - type: Armor
     # Goob Start
     coverage:
@@ -116,7 +118,7 @@
       coefficients:
         Heat: 0.9
         Radiation: 0.75
-        Caustic: 0.5
+        Caustic: 0.65 # Omu
     # Goob end
   - type: PointLight
     radius: 5
