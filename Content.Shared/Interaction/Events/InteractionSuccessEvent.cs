@@ -9,4 +9,4 @@ namespace Content.Shared.Interaction.Events;
 // TODO INTERACTION
 // Rename this, or move it to another namespace to make it clearer that this is specific to "petting/hugging" (InteractionPopupSystem)
 [ByRefEvent]
-public readonly record struct InteractionSuccessEvent(EntityUid User, EntityUid? Actor = null); // Omu, added an "Actor" variable
+public readonly record struct InteractionSuccessEvent(EntityUid User);

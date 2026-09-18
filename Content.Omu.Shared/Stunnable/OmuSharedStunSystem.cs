@@ -11,9 +11,9 @@ namespace Content.Omu.Shared.Stunnable;
 public sealed class OmuSharedStunSystem : EntitySystem
 {
     public static readonly EntProtoId StunId = "StatusEffectStunned";
-    [Dependency] private readonly SharedStunSystem _stun = default!;
+    // [Dependency] private readonly SharedStunSystem _stun = default!; - holding this for later
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _status = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<StunnedComponent, AttemptStopPullingEvent>(HandleStopPull);
@@ -35,15 +35,13 @@ public sealed class OmuSharedStunSystem : EntitySystem
     }
     private void BreakStunOnShake(Entity<StunnedComponent> ent, ref InteractionSuccessEvent args)
     {
-        var result = TryChangeStunDuration(ent.Owner, TimeSpan.FromSeconds(-2));
+        var result = TryChangeStunDuration(ent.Owner, TimeSpan.FromSeconds(-2)); // TBD: make this customizable on yaml
 
-        if (result == true)
-        {
-            // var msgOthers = Loc.GetString(component.MessagePerceivedByOthers,
-            //    ("user", Identity.Entity(user, EntityManager)), ("target", Identity.Entity(uid, EntityManager)));
-            _popup.PopupClient(Loc.GetString("shakeable-popup-message-others"), args.User, args.Actor);
-            // _popup.PopupEntity(msgOthers, uid, Filter.PvsExcept(user, entityManager: EntityManager), true);
-        }
+        if (result != true)
+            return;
+        _popup.PopupEntity(Loc.GetString("shakeable-popup-message-others", ("user", args.User), ("shakeable", ent.Owner)), args.User, args.User); // Gives everyone around a popup whenever shaken
+        _popup.PopupClient(Loc.GetString("shakeable-popup-message-self", ("user", ent.Owner)), ent.Owner); // Gives the person who is shaking a popup whenever doing so
+
     }
 }
 

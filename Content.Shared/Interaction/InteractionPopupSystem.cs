@@ -13,7 +13,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-
+using Content.Shared.Stunnable; // Omu
 namespace Content.Shared.Interaction;
 
 public sealed class InteractionPopupSystem : EntitySystem
@@ -104,7 +104,7 @@ public sealed class InteractionPopupSystem : EntitySystem
             if (component.InteractSuccessSpawn != null)
                 Spawn(component.InteractSuccessSpawn, _transform.GetMapCoordinates(uid));
 
-            var ev = new InteractionSuccessEvent(user, target); // Omu
+            var ev = new InteractionSuccessEvent(user);
             RaiseLocalEvent(target, ref ev);
         }
         else
@@ -121,6 +121,9 @@ public sealed class InteractionPopupSystem : EntitySystem
             var ev = new InteractionFailureEvent(user);
             RaiseLocalEvent(target, ref ev);
         }
+
+        if (HasComp<StunnedComponent>(uid)) // Omu - Cancels popups if the target has StunnedComponent for OmuSharedStunSystem to do its job, you'll love this one marty
+            return;
 
         if (!string.IsNullOrEmpty(component.MessagePerceivedByOthers))
         {
