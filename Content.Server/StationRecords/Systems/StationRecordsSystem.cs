@@ -8,7 +8,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
-using Content.Shared._Omu.Roles;
+using Content.Shared._Omu.Roles; // Omu
 using Content.Shared.Roles;
 using Content.Shared.StationRecords;
 using Robust.Shared.Enums;
@@ -38,7 +38,7 @@ namespace Content.Server.StationRecords.Systems;
 /// </summary>
 public sealed partial class StationRecordsSystem : SharedStationRecordsSystem
 {
-    [Dependency] private readonly JobAlternateTitleSystem _alternateTitles = default!;
+    [Dependency] private readonly JobAlternateTitleSystem _alternateTitles = default!; // Omu
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly StationRecordKeyStorageSystem _keyStorage = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -158,7 +158,7 @@ public sealed partial class StationRecordsSystem : SharedStationRecordsSystem
         {
             Name = name,
             Age = age,
-            JobTitle = _alternateTitles.GetJobTitle(profile, jobPrototype),
+            JobTitle = _alternateTitles.GetJobTitle(profile, jobPrototype), // Omu
             JobIcon = jobPrototype.Icon,
             JobPrototype = jobId,
             Species = species,

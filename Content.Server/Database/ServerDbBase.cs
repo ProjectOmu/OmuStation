@@ -19,7 +19,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
-using Content.Shared._Omu.Roles;
+using Content.Shared._Omu.Roles; // Omu
 using Content.Shared.Roles;
 using Content.Shared.Traits;
 using Microsoft.EntityFrameworkCore;
@@ -53,7 +53,7 @@ namespace Content.Server.Database
                 .Include(p => p.Profiles).ThenInclude(h => h.Jobs)
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
-                .Include(p => p.Profiles).ThenInclude(h => h.JobAlternateTitles)
+                .Include(p => p.Profiles).ThenInclude(h => h.JobAlternateTitles) // Omu
                 .Include(p => p.Profiles)
                     .ThenInclude(h => h.Loadouts)
                     .ThenInclude(l => l.Groups)
@@ -110,7 +110,7 @@ namespace Content.Server.Database
                 .Include(p => p.Jobs)
                 .Include(p => p.Antags)
                 .Include(p => p.Traits)
-                .Include(p => p.JobAlternateTitles)
+                .Include(p => p.JobAlternateTitles) // Omu
                 .Include(p => p.Loadouts)
                     .ThenInclude(l => l.Groups)
                     .ThenInclude(group => group.Loadouts)
@@ -214,9 +214,11 @@ namespace Content.Server.Database
             var jobs = profile.Jobs.ToDictionary(j => new ProtoId<JobPrototype>(j.JobName), j => (JobPriority) j.Priority);
             var antags = profile.Antags.Select(a => new ProtoId<AntagPrototype>(a.AntagName));
             var traits = profile.Traits.Select(t => new ProtoId<TraitPrototype>(t.TraitName));
+            // Omu start
             var jobAlternateTitles = profile.JobAlternateTitles.ToDictionary(
                 t => new ProtoId<JobPrototype>(t.JobName),
                 t => new ProtoId<JobAlternateTitlePrototype>(t.AlternateTitle));
+            // Omu end
 
             var sex = Sex.Male;
             if (Enum.TryParse<Sex>(profile.Sex, true, out var sexVal))
@@ -291,7 +293,7 @@ namespace Content.Server.Database
                 ),
                 spawnPriority,
                 jobs,
-                jobAlternateTitles,
+                jobAlternateTitles, // Omu
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
@@ -349,11 +351,13 @@ namespace Content.Server.Database
                         .Select(t => new Trait { TraitName = t })
             );
 
+            // Omu start
             profile.JobAlternateTitles.Clear();
             profile.JobAlternateTitles.AddRange(
                 humanoid.JobAlternateTitles
                     .Select(t => new JobAlternateTitle { JobName = t.Key, AlternateTitle = t.Value })
             );
+            // Omu end
 
             profile.BarkVoice = humanoid.BarkVoice; // Goob Station - Barks
 

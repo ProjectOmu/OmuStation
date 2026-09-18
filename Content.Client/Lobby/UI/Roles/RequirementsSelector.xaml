@@ -10,10 +10,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
            Margin="5 0"
            SetWidth="220"
            MouseFilter="Stop"/>
+    <!-- Omu start -->
     <OptionButton Name="TitleOptions"
                   Margin="5 0"
                   SetWidth="220"
                   Visible="False"/>
+    <!-- Omu end -->
 
     <BoxContainer Name="OptionsContainer"
                   SetWidth="400"
