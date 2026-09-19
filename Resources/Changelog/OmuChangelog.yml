@@ -7722,3 +7722,19 @@ Entries:
         being shot into entities.
   id: 1001
   time: '2026-09-18T21:57:50.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: >-
+        Added rev morale indicator icons - makes it easier for everyone to know
+        whats going on.
+  id: 1002
+  time: '2026-09-19T12:41:34.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the delay when entering a vent back to 2.5 seconds, and made it
+        get canceled upon moving or taking damage.
+  id: 1003
+  time: '2026-09-19T16:02:40.0000000+00:00'
