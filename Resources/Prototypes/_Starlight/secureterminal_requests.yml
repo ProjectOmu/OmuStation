@@ -14,7 +14,7 @@
   announcementColor: "#ff4444"
   activationDelaySecs: 1500
   requiresWarDeclared: true
-  fee: 8000
+  fee: 16000 # Omu, was 8000
   #salaryPenalty: 0.1 # Omu
   actionType: GameRule
   gameruleId: WarOpsERTSpawn
@@ -39,7 +39,7 @@
   requiresWarNotDeclared: true
   requireReason: true
   requiresAdminApproval: true
-  fee: 5000
+  fee: 10000 # Omu, was 5000
   #salaryPenalty: 0.05 # Omu
   actionType: GameRule
   gameruleId: ERTSecSpawn
@@ -160,7 +160,7 @@
   activationDelaySecs: 600
   requiresWarNotDeclared: true
   requireReason: true
-  fee: 8000
+  fee: 16000 # Omu, was 8000
   #salaryPenalty: 0.1 # Omu
   actionType: GameRule
   gameruleId: ERTCBURNSpawn
