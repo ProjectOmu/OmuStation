@@ -69,7 +69,7 @@ public sealed class BookConverterSystem : EntitySystem
         if (ent.Comp.Objective is not null)
             ev.Objective = ent.Comp.Objective;
 
-        RaiseLocalEvent(args.Target.Value, ref ev);
+        RaiseLocalEvent(args.User, ref ev);
     }
     private void OnUseInHand(Entity<BookConverterComponent> ent, ref UseInHandEvent args)
     {
@@ -152,13 +152,17 @@ public sealed class BookConverterSystem : EntitySystem
             ev.Change = converter.Comp.Amount * converter.Comp.FocusedMultiplier;
             ev.User = user;
             ev.Target = target;
+
             if (speakerComponent is not null)
                 ev.Lang = speakerComponent.CurrentLanguage;
+
             if (converter.Comp.Objective is not null)
                 ev.Objective = converter.Comp.Objective;
+
             RaiseLocalEvent(target, ref ev);
         }
     }
+#region UI handling
     private void OnGetActions(EntityUid uid, BookConverterComponent component, GetItemActionsEvent args)
     {
         args.AddAction(ref component.ConfigureActionEntity, component.ConfigureAction);
@@ -223,3 +227,5 @@ public record struct BookConverterUsedEvent(EntityUid User, float Change, float 
 
 [ByRefEvent]
 public record struct BookConverterTargetUsedEvent(EntityUid User, EntityUid Target, float Change, string? Lang, string? Objective);
+
+#endregion

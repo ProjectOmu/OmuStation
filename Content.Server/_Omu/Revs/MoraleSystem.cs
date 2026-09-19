@@ -231,7 +231,7 @@ public sealed class MoraleSystem : EntitySystem
 
         if (args.Objective is not null)     //Handles the rev objective
         {
-            var objectiveId = SpawnAtPosition("RevolutionaryObjective", Transform(ent).Coordinates);
+            var objectiveId = SpawnAtPosition("RevolutionObjective", Transform(ent).Coordinates);
             _meta.SetEntityDescription(objectiveId, args.Objective);
             _mind.AddObjective(mindId, mind, objectiveId);
             revComp.Objective = mind.Objectives.Count - 1;
