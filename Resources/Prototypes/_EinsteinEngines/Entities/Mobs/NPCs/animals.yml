@@ -39,7 +39,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.2
-        density: 0.007
+        density: 3 # omu edit -- Fix to ensure squackroach's dont combust on spawn -- Was 0.007
         mask:
         - SmallMobMask
         layer:
