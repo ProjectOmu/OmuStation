@@ -14,6 +14,8 @@
   contrabandInventory:
     PillCanisterRandom: 1
     PowerCellSmall: 2
+  emaggedInventory:
+    FoodSnackLollypopWrappedMysteryEvil: 3 # Omu
 
 - type: vendingMachineInventory
   id: NanoMedCivilianWallInventory
@@ -30,6 +32,8 @@
   contrabandInventory:
     PillCanisterRandom: 1
     PowerCellSmall: 2
+  emaggedInventory:
+    FoodSnackLollypopWrappedMysteryEvil: 3 # Omu
 
 - type: vendingMachineInventory
   id: NanoMedPlusInventory
@@ -101,3 +105,5 @@
     CartridgeCopium: 2 # Omu
     PillSpaceDrugs: 3
     FoodApple: 1
+  emaggedInventory:
+    FoodSnackLollypopWrappedMysteryEvil: 3 # Omu
