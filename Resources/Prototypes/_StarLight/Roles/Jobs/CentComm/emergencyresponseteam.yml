@@ -1,13 +1,4 @@
 - type: startingGear
-  parent: ERTChaplainGearStarlightEVA
-  id: ERTChaplainGearStarlight
-  equipment:
-    shoes: ClothingShoesBootsJackFilled
-    head: ClothingHeadHatFez
-    neck: ClothingNeckStoleChaplain
-    outerClothing: ClothingOuterVestWebEliteCentcomm
-
-- type: startingGear
   id: ERTChaplainGearStarlightEVA
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTChaplain
@@ -26,12 +17,20 @@
     back:
     - JugWater
     - JugWater
+    - MedkitCombatFilled
     - CosmicCenser
     - WeaponDisablerSMG
-    - Handcuffs
     - Handcuffs
     - BibleNanoTrasen
     - BodyBagFolded
     - MagazinePistol # Omu
     - DeviceDesynchronizer
-    - MedkitCombatFilled
+
+- type: startingGear
+  parent: ERTChaplainGearStarlightEVA
+  id: ERTChaplainGearStarlight
+  equipment:
+    shoes: ClothingShoesBootsJackFilled
+    head: ClothingHeadHatFez
+    neck: ClothingNeckStoleChaplain
+    outerClothing: ClothingOuterVestWebEliteCentcomm
