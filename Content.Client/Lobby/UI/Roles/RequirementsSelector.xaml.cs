@@ -22,8 +22,10 @@ public sealed partial class RequirementsSelector : BoxContainer
     private readonly RadioOptions<int> _options;
     private readonly StripeBack _lockStripe;
     private List<ProtoId<GuideEntryPrototype>>? _guides;
+    private List<string>? _alternateTitles; // Omu
 
     public event Action<int>? OnSelected;
+    public event Action<string?>? OnAlternateTitleSelected; // Omu
     public event Action<List<ProtoId<GuideEntryPrototype>>>? OnOpenGuidebook;
 
     public int Selected => _options.SelectedId;
@@ -72,6 +74,17 @@ public sealed partial class RequirementsSelector : BoxContainer
             if (_guides != null)
                 OnOpenGuidebook?.Invoke(_guides);
         };
+
+        // Omu start
+        TitleOptions.OnItemSelected += args =>
+        {
+            TitleOptions.SelectId(args.Id);
+            if (_alternateTitles == null)
+                return;
+
+            OnAlternateTitleSelected?.Invoke(args.Id == 0 ? null : _alternateTitles[args.Id - 1]);
+        };
+        // Omu end
     }
 
     /// <summary>
@@ -106,6 +119,35 @@ public sealed partial class RequirementsSelector : BoxContainer
         OptionsContainer.AddChild(_options);
         OptionsContainer.AddChild(_lockStripe);
     }
+
+    // Omu start
+    public void SetupAlternateTitles(IReadOnlyList<string> titles, string? selected)
+    {
+        _alternateTitles = new List<string>(titles);
+
+        TitleOptions.Clear();
+        TitleOptions.AddItem(TitleLabel.Text ?? string.Empty, 0);
+        for (var i = 0; i < _alternateTitles.Count; i++)
+        {
+            TitleOptions.AddItem(Loc.GetString(_alternateTitles[i]), i + 1);
+        }
+
+        TitleOptions.MinSize = TitleLabel.MinSize;
+        TitleOptions.ToolTip = TitleLabel.ToolTip;
+        TitleLabel.Visible = false;
+        TitleOptions.Visible = true;
+        SelectAlternateTitle(selected);
+    }
+
+    public void SelectAlternateTitle(string? title)
+    {
+        if (_alternateTitles == null)
+            return;
+
+        var index = title == null ? -1 : _alternateTitles.IndexOf(title);
+        TitleOptions.SelectId(index + 1);
+    }
+    // Omu end
 
     public void LockRequirements(FormattedMessage requirements)
     {
