@@ -1,4 +1,54 @@
 - type: entity
+  name: golden beaker
+  parent: BaseBeaker
+  description: Used to contain a gigantic amount of chemicals and solutions.
+  id: GoldenBeaker
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Chemistry/beaker.rsi
+    layers:
+      - state: beaker
+      - state: beaker1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: Item
+    sprite: _Starlight/Objects/Specific/Chemistry/beaker.rsi
+  - type: Spillable
+    solution: beaker
+  - type: StaticPrice
+    price: 10
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 50
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: beaker
+    inHandsMaxFillLevels: 3
+    inHandsFillBaseName: -fill-
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 200
+
+- type: entity
+  name: golden jug
+  parent: Jug
+  description: Used to contain a titanic amount of chemicals or solutions.
+  id: GoldenJug
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Chemistry/goldenjug.rsi
+  - type: Item
+    sprite: _Starlight/Objects/Specific/Chemistry/goldenjug.rsi
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 13
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 400
+
+- type: entity
   name: silver beaker
   parent: BaseBeakerMetallic
   description: Despite it visually being larger, the inner diameter makes it hold the same amount of chemicals. #whaaaat Im totally not lazy to shrink the sprite
