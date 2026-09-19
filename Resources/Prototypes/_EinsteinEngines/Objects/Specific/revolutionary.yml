@@ -33,3 +33,12 @@
       visibleDoAfter: false
       conversionDuration: 6 # Omu Make it longer so people can talk it over?
       amount: -3   #Omu KEEP IT NEGATIVE
+    - type: ActivatableUI
+      key: enum.RevObjectiveUiKey.Key
+      verbOnly: true
+    - type: Actions
+    - type: UserInterface
+      interfaces:
+        enum.RevObjectiveUiKey.Key:
+          type: RevObjectiveBoundUserInterfaceState
+

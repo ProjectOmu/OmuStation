@@ -5,6 +5,7 @@ using Content.Shared.Revolutionary;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared._Omu.Revs;
 using Content.Server._Omu.Revs;
+using Content.Server.Mind;
 
 
 namespace Content.Server.Revolutionary;
@@ -15,6 +16,7 @@ public sealed class RevolutionarySystem : SharedRevolutionarySystem
     [Dependency] private readonly PolymorphSystem _polymorph = default!; // Goob
 
     [Dependency] private readonly MoraleHarmerAreaSystem _MoraleArea = default!; //Omu
+    [Dependency] private readonly MindSystem _mindSystem = default!;    //Omu
 
 
     public override void Initialize()
@@ -30,6 +32,7 @@ public sealed class RevolutionarySystem : SharedRevolutionarySystem
         // Omu start
         SubscribeLocalEvent<HeadRevolutionaryComponent, BookConverterUsedEvent>(OnBookArea);
         SubscribeLocalEvent<HeadRevolutionaryComponent, BookConverterTargetUsedEvent>(OnBookDoAfter);
+        SubscribeLocalEvent<RevolutionaryComponent, ComponentShutdown>(OnShutdown);
     }
 
     private void OnPolymorphed(Entity<RevolutionaryComponent> ent, ref PolymorphedEvent args)
@@ -53,7 +56,7 @@ public sealed class RevolutionarySystem : SharedRevolutionarySystem
     // Omu start
     private void OnBookArea(Entity<HeadRevolutionaryComponent> ent, ref BookConverterUsedEvent args)
     {
-        _MoraleArea.AreaChange(ent, args.Change, args.Range, args.Lang);
+        _MoraleArea.AreaChange(ent, args.Change, args.Range, args.Lang, args.Objective);
     }
 
     private void OnBookDoAfter(Entity<HeadRevolutionaryComponent> ent, ref BookConverterTargetUsedEvent args)
@@ -64,8 +67,17 @@ public sealed class RevolutionarySystem : SharedRevolutionarySystem
             Amount = args.Change,
 
             User = ent,
+
+            Objective = args.Objective
         };
         RaiseLocalEvent(args.Target, ev);
+    }
+    private void OnShutdown(Entity<RevolutionaryComponent> uid, ref ComponentShutdown args)
+    {
+        if (uid.Comp.Objective is { } objective && _mindSystem.TryGetMind(uid, out var mindID, out var mindComp))
+        {
+            _mindSystem.TryRemoveObjective(mindID, mindComp, objective);
+        }
     }
 }
 
