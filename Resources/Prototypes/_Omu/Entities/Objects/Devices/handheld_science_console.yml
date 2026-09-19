@@ -1,0 +1,26 @@
+﻿- type: entity
+  id: BaseHandheldScienceConsoleRD
+  name: handheld science console
+  description: Fine-crafted handheld science console for Research Directors. Allows the user to perform R&D tasks on the go.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: _Omu/Objects/Devices/tablets.rsi
+      layers:
+        - state: tablet
+        - state: rndconsole
+          shader: unshaded
+    - type: ResearchClient
+    - type: ResearchConsole
+    - type: ActiveRadio
+      channels:
+      - Science
+    - type: TechnologyDatabase
+    - type: ActivatableUI
+      key: enum.ResearchConsoleUiKey.Key
+    - type: UserInterface
+      interfaces:
+        enum.ResearchConsoleUiKey.Key:
+          type: FancyResearchConsoleBoundUserInterface # R&D Console rework
+        enum.ResearchClientUiKey.Key:
+          type: ResearchClientBoundUserInterface
