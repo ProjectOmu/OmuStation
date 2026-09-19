@@ -3,6 +3,7 @@
   abstract: true
   components:
   - type: StationStockMarket
+    updateInterval: 60 #Omu every minute for our degens
     companies:
     - displayName: stock-trading-company-nanotrasen
       basePrice: 100
@@ -19,3 +20,12 @@
     - displayName: stock-trading-company-donk
       basePrice: 90
       currentPrice: 90
+    - displayName: stock-trading-company-pencilfox    #Omu, its funny
+      basePrice: 30
+      currentPrice: 30
+    - displayName: stock-trading-company-blockhead
+      basePrice: 120
+      currentPrice: 120
+    - displayName: stock-trading-company-nintider
+      basePrice: 80
+      currentPrice: 80    #Omu end
