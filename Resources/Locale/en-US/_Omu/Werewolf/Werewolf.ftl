@@ -5,5 +5,8 @@ WerewolfNeedsWolfin = You need to be in your wolf form for this!
 WerewolfNeedsDead = They need to be dead!
 WerewolfAlreadyConsumed = They have already been consumed!
 
+WerewolfDevouredDesc = They have been viciously mauled, a huge cavity remains in there chest.
+WerewolfDevouredAction = You start mauling {$ent}
+
 admin-verb-text-make-werewolf = Make Werewolf
 admin-verb-make-werewolf = Make the target into a furry

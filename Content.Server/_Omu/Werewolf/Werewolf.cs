@@ -15,6 +15,8 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Mobs.Systems;
 using Content.Shared._Shitmed.Body.Organ;
+using Content.Shared.DoAfter;
+using Content.Shared.Devour.Components;
 
 namespace Content.Server.Omu.Werewolf;
 
@@ -23,18 +25,28 @@ public sealed partial class WerewolfComponent : Component
 {
     [DataField]
     public string ShapeshiftAction = "ActionWerewolfShift";
+
     [DataField]
     public string RevertAction = "ActionWerewolfRevert";
+
+    [DataField]
+    public string DevourAction = "ActionWerewolfDevour";
+
     [DataField("wolfin")]
     public bool Wolfin { get; set; } = false;
 
+    [DataField]
     public SoundSpecifier? Awoo =
         new SoundPathSpecifier("/Audio/Animals/space_dragon_roar.ogg")
         {
             Params = AudioParams.Default.WithVolume(3f),
         };
 
+    [DataField]
     public int Hearts = 0;
+
+    [DataField]
+    public TimeSpan DevourDuration = TimeSpan.FromSeconds(2);
 }
 
 public sealed class WerewolfSystem : EntitySystem
@@ -51,6 +63,7 @@ public sealed class WerewolfSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
@@ -60,6 +73,7 @@ public sealed class WerewolfSystem : EntitySystem
         SubscribeLocalEvent<WerewolfComponent, EventWerewolfShiftBasic>(OnShapeshift);
         SubscribeLocalEvent<WerewolfComponent, EventWerewolfRevert>(OnRevert);
         SubscribeLocalEvent<WerewolfComponent, EventWerewolfDevour>(OnDevour);
+        SubscribeLocalEvent<DevourerComponent, WerewolfDevourDoAfterEvent>(OnDoAfter);
     }
 
     private void OnStartup(EntityUid uid, WerewolfComponent component, ComponentStartup args)
@@ -67,6 +81,9 @@ public sealed class WerewolfSystem : EntitySystem
         //Setup the furry
         _actionsSystem.AddAction(uid, component.ShapeshiftAction);
         _actionsSystem.AddAction(uid, component.RevertAction);
+        _actionsSystem.AddAction(uid, component.DevourAction);
+
+        EnsureComp<DevourerComponent>(uid);
     }
 
     private void OnShapeshift(EntityUid uid, WerewolfComponent component, EventWerewolfShiftBasic args)
@@ -78,10 +95,7 @@ public sealed class WerewolfSystem : EntitySystem
             return;
         }
 
-        if (!_entManager.TryGetComponent<HumanoidAppearanceComponent>(uid, out var humanoid))
-            return;
-
-        if (!_proto.TryIndex(humanoid.Species, out var speciesPrototype))
+        if (!_entManager.TryGetComponent<HumanoidAppearanceComponent>(uid, out var humanoid) || !_proto.TryIndex(humanoid.Species, out var speciesPrototype))
             return;
 
         var entityToGib = Spawn(speciesPrototype.Prototype, Transform(uid).Coordinates);
@@ -175,6 +189,44 @@ public sealed class WerewolfSystem : EntitySystem
                 }
                 EnsureComp<WerewolfDevouredComponent>(victim);
             }
+
+        var doAfterArgs = new DoAfterArgs(
+            EntityManager,
+            uid,
+            component.DevourDuration,
+            new WerewolfDevourDoAfterEvent(),
+            uid,
+            args.Target)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            NeedHand = false,
+        };
+
+        _doAfterSystem.TryStartDoAfter(doAfterArgs);
+
+        _popup.PopupEntity(Loc.GetString("WerewolfDevouredAction", ("ent", MetaData(args.Target).EntityName)), uid, uid);
+    }
+
+    private void OnDoAfter(EntityUid uid, WerewolfComponent component, WerewolfDevourDoAfterEvent args)
+    {
+        var victim = args.Target;
+
+        if (victim is null)
+            return;
+
+        if (TryComp<BodyComponent>(victim, out var bodyComp))
+            if (_body.TryGetBodyOrganEntityComps<HeartComponent>((victim.Value, bodyComp), out var hearts))
+            {
+                foreach (var heart in hearts)       //This is so stupid
+                {
+                    QueueDel(heart.Owner);
+                    component.Hearts += 1;
+                }
+                EnsureComp<WerewolfDevouredComponent>(victim.Value);
+            }
+
+        _popup.PopupEntity(Loc.GetString("WerewolfDevouredAction", ("ent", MetaData(victim.Value).EntityName)), uid, uid);
 
         Roar(uid, component);
     }
