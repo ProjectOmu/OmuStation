@@ -4,7 +4,7 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 09/18/2026 04:11:14
+  time: 09/19/2026 18:46:41
   entityCount: 25883
 maps:
 - 1
@@ -10608,6 +10608,11 @@ entities:
     - type: Transform
       pos: -1.5,-46.5
       parent: 15
+  - uid: 4394
+    components:
+    - type: Transform
+      pos: -30.5,5.5
+      parent: 15
   - uid: 7927
     components:
     - type: Transform
@@ -10844,12 +10849,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -39.5,9.5
-      parent: 15
-  - uid: 4394
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -30.5,5.5
       parent: 15
   - uid: 4559
     components:
@@ -58251,6 +58250,39 @@ entities:
     - type: Transform
       pos: 8.5,10.5
       parent: 15
+- proto: CrateNPCMothroach
+  entities:
+  - uid: 11191
+    components:
+    - type: Transform
+      pos: -74.5,-52.5
+      parent: 15
+    - type: EntityStorage
+      removedMasks: 28
+      open: True
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PolygonShape
+            radius: 0.01
+            vertices:
+            - -0.4,-0.4
+            - 0.4,-0.4
+            - 0.4,0.29
+            - -0.4,0.29
+          mask:
+          - Impassable
+          - HighImpassable
+          - LowImpassable
+          layer:
+          - BulletImpassable
+          - Opaque
+          density: 135
+          hard: True
+          restitution: 0
+          friction: 0.4
+    - type: PlaceableSurface
+      isPlaceable: True
 - proto: CrateSecurityRiot
   entities:
   - uid: 2468
@@ -58585,7 +58617,7 @@ entities:
       pos: -78.5,-6.5
       parent: 15
     - type: Door
-      secondsUntilStateChange: -522325.25
+      secondsUntilStateChange: -522952.6
       state: Opening
 - proto: CurtainsPurpleOpen
   entities:
@@ -136864,12 +136896,6 @@ entities:
       parent: 15
 - proto: Thruster
   entities:
-  - uid: 11191
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -76.5,-43.5
-      parent: 15
   - uid: 17634
     components:
     - type: Transform
