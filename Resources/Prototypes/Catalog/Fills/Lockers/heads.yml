@@ -12,16 +12,16 @@
       prob: 0.75
     - id: ClothingHeadsetAltCargo
     - id: DoorRemoteCargo
-    - id: LavalandShuttleConsoleCircuitboard # Goobstation - Mining Shuttle Board
+    #- id: LavalandShuttleConsoleCircuitboard # Goobstation - Mining Shuttle Board
     - id: AstroNavCartridge
-    - id: CargoTechFabCircuitboard # Goobstation - Cargo Techfab
+    #- id: CargoTechFabCircuitboard # Goobstation - Cargo Techfab # Omu
     - id: ClothingHandsKnuckleDustersQM # Goobstation - ROCK THAT MF!!
     - id: CargoMegaphone # goob - loudspeaker
-    - id: ComputerCargoCommsFlatpack #Omu adds departmental comms board
+    #- id: ComputerCargoCommsFlatpack #Omu adds departmental comms board # Omu
     - id: Multitool # Omu
     - id: SlotMachineHighRollerFlatPack # Goob - gambling
-    - id: SalvageShuttleConsoleCircuitboard # Omu edit
-    - id: SalvageExpeditionsComputerCircuitboard # Omu edit
+    #- id: SalvageShuttleConsoleCircuitboard # Omu edit
+    #- id: SalvageExpeditionsComputerCircuitboard # Omu edit
     - id: StockTradingCartridge #Omu STOCKS
 
 - type: entity
@@ -141,13 +141,13 @@
     - id: ClothingNeckGoldmedal
     - id: DoorRemoteService
     - id: HoPIDCard
-    - id: ComputerFundingAllocationFlatpack # Goobstation
-    - id: ComputerCargoRequestServiceFlatpack # Goobstation
+    #- id: ComputerFundingAllocationFlatpack # Goobstation #Omu, Debloating Head's lockers
+    #- id: ComputerCargoRequestServiceFlatpack # Goobstation #Omu, Debloating Head's lockers
     - id: WeaponDisabler
     - id: ClothingEyesHudCommand
-    - id: ServiceTechFabCircuitboard # Goobstation - Service Techfab
+    #- id: ServiceTechFabCircuitboard # Goobstation - Service Techfab # Omu
     - id: CommandMegaphone # goob - loudspeakers
-    - id: ComputerServiceCommsFlatpack #Omu adds departmental comms board
+    #- id: ComputerServiceCommsFlatpack #Omu adds departmental comms board # Omu
     - id: Multitool # Omu
 
 - type: entity
@@ -185,15 +185,14 @@
     # Goobstation V
     - id: BaseHandheldStationMapSupermatterCe
     - id: BaseHandheldStationMapPowerCe
-    - id: EngineeringTechFabCircuitboard
+    #- id: EngineeringTechFabCircuitboard #Omu, Debloating Head's lockers
     - id: CartridgeRocketSingularityBuster
     - id: CartridgeRocketSingularityBuster
     - id: WeaponLauncherSingularityBuster
     - id: MachinePowerTransmissionLaserFlatpack
     - id: RCDRechargingCE
     - id: MaterialSiloFlatpack # Goob
-    - id: ComputerEngiCommsFlatpack #Omu adds departmental comms board
-    - id: BluespaceHarvesterMachineCircuitboard # Starlight
+    #- id: BluespaceHarvesterMachineCircuitboard # Starlight #Omu, Debloating Head's lockers
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -249,15 +248,15 @@
     # - id: HandheldCrewMonitor # Goobstation - in webbing
     - id: Hypospray
     - id: BoxCMOCircuitboards
-    - id: ComputerCargoRequestMedicalFlatpack # Goobstation
+    #- id: ComputerCargoRequestMedicalFlatpack #Goobstation # Omu
     - id: MedkitFilled
     - id: RubberStampCMO
     # Goobstation Start
-    - id: ChemistryHotplateFlatPack
-    - id: CloningpodFlatpack
-    - id: MedicalScannerFlatpack
-    - id: ComputerCloningConsoleFlatpack
-    - id: BiomassReclaimerFlatpack
+    #- id: ChemistryHotplateFlatPack # Omu, Debloating Head's lockers
+    #- id: CloningpodFlatpack # Omu, Debloating Head's lockers
+    #- id: MedicalScannerFlatpack # Omu, Debloating Head's lockers
+    #- id: ComputerCloningConsoleFlatpack # Omu, Debloating Head's lockers
+    #- id: BiomassReclaimerFlatpack # Omu, Debloating Head's lockers
     - id: Multitool
     - id: MedTekCartridge
     - id: RapidSyringeGun
@@ -266,13 +265,11 @@
     - id: ClothingBackpackDuffelSurgeryFilled
     - id: MaterialSiloFlatpack
     # Shitmed
-    - id: MedicalBiofabricatorFlatpack
+    #- id: MedicalBiofabricatorFlatpack # Omu, Debloating Head's lockers
     # Virology
     - id: DiseaseDiagnoserFlatPack
-    - id: VaccinatorFlatPack
+    #- id: VaccinatorFlatPack # Omu, Debloating Head's lockers
     # Goobstation End
-    - id: ComputerMedicalCommsFlatpack #Omu adds departmental comms board
-    - id: EnergyChemDispenserMachineCircuitboard # Omu
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -322,19 +319,19 @@
     - id: ClothingHeadsetAltScience
     - id: DoorRemoteResearch
     - id: HandTeleporter
-    - id: ComputerCargoRequestScienceFlatpack # Goobstation
+    #- id: ComputerCargoRequestScienceFlatpack # Goobstation # Omu
     - id: RubberStampRd
     - id: EncryptionKeyBinary # Omu, make binary a radio again.
     - id: MaterialSiloFlatpack # Goob
     - id: AnomalyLocator # GoobStation - adding anomaly locator to the RD locker to reduce the amount of anoms that crit
     - id: CigarCase
       prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
-    - id: ScienceTechFabCircuitboard # Goobstation - Science Techfab
+    #- id: ScienceTechFabCircuitboard # Goobstation - Science Techfab # Omu
     - id: ClothingBeltGeminiHoloProjector # Goobstation - Who better to do science with than yourself?
     - id: ClothingEyesGlassesSciDiag # Omustation - HUD that lets RD speak the robot language!
-    - id: XenobiologyBountyComputerCircuitboard # Goobstation
+    #- id: XenobiologyBountyComputerCircuitboard # Goobstation # Omu, Debloating Head's lockers
     - id: MMI # Goobstation
-    - id: ComputerScienceCommsFlatpack #Omu adds departmental comms board
+    #- id: ComputerScienceCommsFlatpack #Omu adds departmental comms board # Omu
     - id: Multitool # Omu
 
 # Hardsuit table, used for suit storage as well
@@ -394,13 +391,12 @@
     - id: RubberStampHos
     - id: BoxHoSCircuitboards
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
-    - id: ComputerCargoRequestSecurityFlatpack # Goobstation
+    #- id: ComputerCargoRequestSecurityFlatpack # Goobstation #Omu, Debloating Head's lockers
     - id: WantedListCartridge
     - id: DrinkHosFlask
     #- id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp # Omu, in selector instead.
     - id: MaterialSiloFlatpack # Goob
     - id: HeadOfSecurityMeleeCase # Omu
-    - id: ComputerSecurityCommsFlatpack #Omu adds departmental comms board
     - id: Multitool # Omu
     - id: HoSPetKennel #Omu
     - id: BookCorporateSecretsSecurity # Omu
