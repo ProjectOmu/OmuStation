@@ -49,7 +49,12 @@ public class MapLoadBenchmark
         PoolManager.Shutdown();
     }
 
-    public static readonly string[] MapsSource = { "Empty", "Satlern", "Box", "Bagel", "Dev", "CentComm", "Atlas", "Core", "TestTeg", "Packed", "Origin", "Omega", "Cluster", "Reach", "Meta", "Marathon", "Europa", "MeteorArena", "Fland", "Oasis", "FlandHighPop", "OasisHighPop", "OriginHighPop", "Barratry", "Kettle", "Lambda", "Leonid", "Delta", "Amber", "Chloris", "Cog", "Glacier", "Serpentcrest"}; //Goobstation, readds maps
+    public static readonly string[] MapsSource = { 
+        "Empty", "Satlern", "Box", "Bagel", "Dev", "CentComm", "Atlas", "Core", "TestTeg", "Packed", "Origin", "Omega", "Cluster", "Reach", "Meta",
+        "Marathon", "Europa", "MeteorArena", "Fland", "Oasis", "FlandHighPop", "OasisHighPop", "OriginHighPop", "Barratry", "Kettle", "Lambda", "Leonid",
+        "Delta", "Amber", "Chloris", "Cog", "Glacier", "Serpentcrest", //Goobstation, readds maps
+        "Tram2" // Omu - Port tramstation from wizden
+        }; 
 
     [ParamsSource(nameof(MapsSource))]
     public string Map;

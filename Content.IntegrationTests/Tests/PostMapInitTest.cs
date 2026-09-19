@@ -153,8 +153,9 @@ namespace Content.IntegrationTests.Tests
             //"Serpentcrest", // omu serpentcrest kil
             "Snowball",
             "TestTeg",        // Dev map
-            "Train"           // Not in pool
+            "Train",           // Not in pool
             // Goob end
+            "Tram2" // Omu, not in pool
         };
         // Goobstation edit start, yeah i know, but this is easier and less load than loading protoman or something.
         private static readonly string[] GameMapsInCurrentPool =
