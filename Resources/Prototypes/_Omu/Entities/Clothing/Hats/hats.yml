@@ -298,3 +298,79 @@
     - WhitelistChameleon
     - HamsterWearable
     - MouseWearable
+
+- type: entity
+  parent: [ ClothingHeadHatBeretRND, BaseCargoContraband ]
+  id: ClothingHeadHatBeretBosun
+  name: bosun's beret
+  description: The beret of an eternally tired laborer. Comes with an absorbent inner lining, made to wick away the sweat from a long day's work.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/beret_bosun.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/beret_bosun.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingHeadHatBeretRND, BaseEngineeringContraband ]
+  id: ClothingHeadHatBeretForeman
+  name: foreman's beret
+  description: A sturdy beret, made of black fabric to hide the dirt, debris and oil stains. Despite everything, the badge is still spotless.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/beret_foreman.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/beret_foreman.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingHeadHatBeretRND, BaseMedicalContraband ]
+  id: ClothingHeadHatBeretMedicus
+  name: medicus' beret
+  description: A rubberized and sterile beret, proudly donning the colors of Medical and Chemistry. For the doctor who's been through it all.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/beret_medicus.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/beret_medicus.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingHeadHatBeretRND, BaseScienceContraband ]
+  id: ClothingHeadHatBeretProfessor
+  name: professor's beret
+  description: A surprisingly tidy beret, for the distinguished academic. The black fabric hides the soot well.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/beret_professor.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/beret_professor.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHatHardhatBase
+  id: ClothingHeadHatHardhatBlack
+  name: black hard hat
+  description: A hard hat, painted in black, used in dangerous working conditions to protect the head. Comes with a built-in flashlight.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/hardhat_black.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/hardhat_black.rsi

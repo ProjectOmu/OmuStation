@@ -1,0 +1,61 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: job
+  id: EngineeringForeman
+  name: job-name-engineering-foreman
+  description: job-description-engineering-foreman
+  playTimeTracker: JobEngineeringForeman
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 360000 #100 hours
+  - !type:DepartmentTimeRequirement
+    department: Engineering
+    time: 360000 #100 hours
+  - !type:RoleTimeRequirement
+    role: JobChiefEngineer
+    time: 36000 #10 hrs
+  - !type:RoleTimeRequirement
+    role: JobAtmosphericTechnician
+    time: 180000 #50 hrs
+  - !type:RoleTimeRequirement
+    role: JobStationEngineer
+    time: 180000 #50 hrs
+  weight: 5
+  startingGear: EngineeringForemanGear
+  icon: "JobIconEngineeringForeman"
+  supervisors: job-supervisors-ce
+  canBeAntag: false
+  guides:
+  - Engineering
+  - EngineeringSOP
+ # - EngineeringForemanSOP TODO: WRITE THIS
+  goobcoins: 30
+  access:
+  - Engineering
+  - Atmospherics
+  - Maintenance
+  - External
+  - Cryogenics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: EngineeringForemanGear
+  equipment:
+    id: EngineeringForemanPDA
+    eyes: ClothingEyesGlassesMeson
+    belt: ClothingBeltUtilityEngineering
+    ears: ClothingHeadsetEngineering
+
+- type: chameleonOutfit
+  id: EngineeringForemanChameleonOutfit
+  job: EngineeringForeman
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatBeretForeman
+    eyes: ClothingEyesGlassesMeson
+    mask: ClothingMaskGasAtmos
+    outerClothing: ClothingOuterVestHazard
+    neck: ClothingNeckMantleForeman
+    gloves: ClothingHandsGlovesAtmosInsulated

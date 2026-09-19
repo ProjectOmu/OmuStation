@@ -1,0 +1,48 @@
+# Professor Jumpsuits
+
+- type: loadout
+  id: ProfessorJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformProfessorUniform
+
+- type: loadout
+  id: ProfessorJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformProfessorSkirt
+
+# Professor Hats
+
+- type: loadout
+  id: ProfessorBeret
+  equipment:
+    head: ClothingHeadHatBeretProfessor
+
+# Professor OuterClothing
+
+- type: loadout
+  id: ProfessorCoat
+  equipment:
+    outerClothing: ClothingOuterProfessorLabCoat
+
+# Plasmaman stuff
+
+- type: loadout
+  id: ProfessorEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmProfessor
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard"
+
+- type: loadout
+  id: ProfessorEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitProfessor
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+
+

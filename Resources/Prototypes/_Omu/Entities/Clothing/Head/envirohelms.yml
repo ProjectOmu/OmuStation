@@ -53,6 +53,54 @@
   - type: Clothing
     sprite: _Omu/Clothing/Head/Envirohelms/rd_purple.rsi
 
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmBosun
+  name: bosun's envirosuit helmet
+  description: A well-worn containment helmet, commissioned by the Bosun. The inside is lined with moisture-wicking fabric, even in the absence of sweat.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Envirohelms/bosun.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Envirohelms/bosun.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmForeman
+  name: foreman's envirosuit helmet
+  description: A reinforced containment helmet, built for the Foreman. In addition to thickened plating, it bears a meson-tinted visor.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Envirohelms/foreman.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Envirohelms/foreman.rsi
+  - type: PointLight
+    color: "#7ACB8A"
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmMedicus
+  name: medicus' envirosuit helmet
+  description: A sterile containment helmet designed for the Medicus. The visor has been tinted to match their standard-issue goggles.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Envirohelms/medicus.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Envirohelms/medicus.rsi
+  - type: PointLight
+    color: "#867EC7"
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmProfessor
+  name: professor's envirosuit helmet
+  description: A lightweight containment helmet, made custom for the Professor. With all the knowledge safeguarded within, the term "brain bucket" comes to mind.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Envirohelms/professor.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Envirohelms/professor.rsi
+
 ## Base versions of helmet variants. Unimplemented for now, but will be expanded in another PR.
 # Cloche helmet variants
 - type: entity
