@@ -73,7 +73,7 @@ public sealed class WerewolfSystem : EntitySystem
         SubscribeLocalEvent<WerewolfComponent, EventWerewolfShiftBasic>(OnShapeshift);
         SubscribeLocalEvent<WerewolfComponent, EventWerewolfRevert>(OnRevert);
         SubscribeLocalEvent<WerewolfComponent, EventWerewolfDevour>(OnDevour);
-        SubscribeLocalEvent<DevourerComponent, WerewolfDevourDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<WerewolfComponent, WerewolfDevourDoAfterEvent>(OnDoAfter);
     }
 
     private void OnStartup(EntityUid uid, WerewolfComponent component, ComponentStartup args)
@@ -82,8 +82,6 @@ public sealed class WerewolfSystem : EntitySystem
         _actionsSystem.AddAction(uid, component.ShapeshiftAction);
         _actionsSystem.AddAction(uid, component.RevertAction);
         _actionsSystem.AddAction(uid, component.DevourAction);
-
-        EnsureComp<DevourerComponent>(uid);
     }
 
     private void OnShapeshift(EntityUid uid, WerewolfComponent component, EventWerewolfShiftBasic args)
