@@ -55,7 +55,7 @@ public sealed partial class BookConverterComponent : Component
     [AutoNetworkedField]
     public int MaxObjectiveLength = 24;
 
-    [DataField] public EntProtoId ConfigureAction = "ActionConfigureMeleeSpeech";
+    [DataField] public EntProtoId ConfigureAction = "ActionConfigureObjective";
 
     /// <summary>
     /// The action to open the battlecry UI

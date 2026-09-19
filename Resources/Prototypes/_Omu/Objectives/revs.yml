@@ -11,3 +11,16 @@
     issuer: objective-issuer-revolution
     difficulty: 1
   - type: SurviveCondition    #Same as IAA
+
+- type: entity
+  parent: BaseAction
+  id: ActionConfigureObjective
+  name: Set Objective
+  description: Set a custom objective for your underlings, helps organise things!
+  components:
+  - type: Action
+    itemIconStyle: BigItem
+    priority: -20
+    useDelay: 1
+  - type: InstantAction
+    event: !type:ObjectiveConfigureActionEvent
