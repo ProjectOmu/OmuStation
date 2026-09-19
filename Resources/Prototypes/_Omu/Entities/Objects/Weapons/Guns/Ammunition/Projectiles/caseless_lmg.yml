@@ -1,0 +1,11 @@
+- type: entity
+  id: BulletCaselessLMG
+  name: bullet (.22 caseless)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 12
+      armorPenetration: -0.3
