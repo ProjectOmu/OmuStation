@@ -139,6 +139,29 @@
     graph: ClothingHeadHatArachnidEarmuffs
     node: end
 
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSurgcapTurquoise
+  name: turquoise surgical cap
+  description: A turquoise cap the CMO wears during operations. Keeps their hair from tickling your internal organs.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/surgcap_cmo.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/surgcap_cmo.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - MouseWearable # Goobstation
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop : HEAD
+      HeadSide : HEAD
+
 ## Képis
 - type: entity
   parent: ClothingHeadHatBeretBlueshield
