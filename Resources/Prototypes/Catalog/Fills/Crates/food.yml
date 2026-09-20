@@ -206,6 +206,35 @@
 
 - type: entity
   parent: CrateFreezer
+  id: CrateFoodProduceCrate
+  name: kitchen produce crate
+  description: Fresh fruits and vegetables from the greenhouse. No need to wait for your local botany's next harvest. Includes pesticides.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: FoodTomato
+          amount: 5
+        - id: FoodCarrot
+          amount: 4
+        - id: FoodChiliPepper
+          amount: 5
+        - id: FoodCorn
+          amount: 4
+        - id: FoodEggplant
+          amount: 2
+        - id: FoodPotato
+          amount: 4
+        - id: FoodLime
+          amount: 2
+        - id: FoodLemon
+          amount: 2
+        - id: FoodOrange
+          amount: 2
+
+- type: entity
+  parent: CrateFreezer
   id: CrateFoodIceCream
   name: ice cream delivery
   description: An assortment of ice cream delights for any occasion! Includes 16 frozen treats.
