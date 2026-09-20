@@ -36,7 +36,7 @@ public sealed class ChimeraSystem : EntitySystem
 
     private void OnMobStateChanged(Entity<ChimeraComponent> ent, ref MobStateChangedEvent args)
     {
-        if (!_mind.TryGetMind(ent, out var mindId, out var mind))
+        if (!_mind.TryGetMind(ent, out var _, out var mind))
             return;
 
         if (args.NewMobState != MobState.Dead && !_role.MindHasRole<MindRoleChimeraComponent>(ent))
