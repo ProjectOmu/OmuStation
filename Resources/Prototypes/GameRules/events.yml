@@ -29,7 +29,7 @@
     - id: VentClog
     - id: TidemindDevelop # Goobstation - Tidemind
     - id: MothroachSpawn # DeltaV
-    - id: DerelictCyborgSyndicateSpawn # Goobstation - usually calm
+    #- id: DerelictCyborgSyndicateSpawn # Goobstation - usually calm # Omu edit: Replaced by Wizden Syndicate Derelict
     - id: MalignRiftSpawn # DeltaV
     - id: FloorGoblinMidRound # Goobstation
     - id: ClownGoblinMigration # Goobstation - New Midrounds
@@ -100,7 +100,7 @@
   table: !type:GroupSelector
     children:
     - !type:GroupSelector # Standard NT Borgs
-      weight: 85
+      weight: 80 # Omu edit: read comment on line 111
       children:
         - id: DerelictEngineerCyborgSpawn
         - id: DerelictGenericCyborgSpawn
@@ -108,7 +108,7 @@
         - id: DerelictMedicalCyborgSpawn
         - id: DerelictMiningCyborgSpawn
     - !type:GroupSelector # Other Borgs
-      weight: 15
+      weight: 20 # Omu edit: making syndicate borg spawns slightly more common to offset removing the goob one
       children:
         - id: DerelictSyndicateAssaultCyborgSpawn
 
