@@ -7659,3 +7659,116 @@ Entries:
         machine inventory
   id: 993
   time: '2026-09-15T20:18:48.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Fix
+      message: >-
+        NanoChat now generates notifications if the PDA UI is closed with
+        NanoChat open.
+  id: 994
+  time: '2026-09-17T16:44:27.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: Thaven, avali, and allulalo can process ethanol again.
+    - type: Tweak
+      message: >-
+        Allulalo become thirsty at 130% the base rate (compared to 20% from
+        pre-upstream base) and metabolize ethanol like water (at 0.5u/s and
+        taking 40u to go from parched to not being thirsty at all).
+  id: 995
+  time: '2026-09-17T20:30:25.0000000+00:00'
+- author: Chcm97
+  changes:
+    - type: Tweak
+      message: >-
+        Moved the guidebook entry for Nuclear Power to its proper place in the
+        generators section of Engineering.
+  id: 996
+  time: '2026-09-17T20:35:36.0000000+00:00'
+- author: Alankao
+  changes:
+    - type: Tweak
+      message: ID card icons of Nukies and Scientists have been changed.
+    - type: Fix
+      message: >-
+        Mime and Musician ID card icons are no longer derived from another
+        sector.
+  id: 997
+  time: '2026-09-17T22:43:04.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Remove
+      message: Removed the syndicate autosurgeon from the uplink
+  id: 998
+  time: '2026-09-17T23:50:51.0000000+00:00'
+- author: Cryptisy
+  changes:
+    - type: Add
+      message: Added Panacea plushie!
+  id: 999
+  time: '2026-09-18T07:00:55.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed bug borgs having an error sprite when moving
+  id: 1000
+  time: '2026-09-18T13:59:17.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        Syringes no longer spill when being thrown or when being retrieved from
+        being shot into entities.
+  id: 1001
+  time: '2026-09-18T21:57:50.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: >-
+        Added rev morale indicator icons - makes it easier for everyone to know
+        whats going on.
+  id: 1002
+  time: '2026-09-19T12:41:34.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the delay when entering a vent back to 2.5 seconds, and made it
+        get canceled upon moving or taking damage.
+  id: 1003
+  time: '2026-09-19T16:02:40.0000000+00:00'
+- author: Chcm97
+  changes:
+    - type: Add
+      message: 'Added a guidebook entry for the Goods Packer and Cargo Shipments. '
+  id: 1004
+  time: '2026-09-19T20:32:05.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Add
+      message: >-
+        Added the Jermov lawset. (It is currently inaccessible in regular
+        gameplay.)
+  id: 1005
+  time: '2026-09-19T21:38:41.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed X-ray arrows on the hardlight bow not penetrating walls properly.
+  id: 1006
+  time: '2026-09-19T22:20:08.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Remove
+      message: >-
+        Removed goobstation syndicate derelicts from normal spawns. (we have
+        wizden's now)
+  id: 1007
+  time: '2026-09-19T22:38:08.0000000+00:00'
+- author: Willzile1
+  changes:
+    - type: Add
+      message: Crystal Station has been added to map rotation.
+  id: 1008
+  time: '2026-09-20T05:52:57.0000000+00:00'
