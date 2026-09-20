@@ -24,3 +24,5 @@
           type: FancyResearchConsoleBoundUserInterface # R&D Console rework
         enum.ResearchClientUiKey.Key:
           type: ResearchClientBoundUserInterface
+    - type: AccessReader
+      access: [["Research"]]
