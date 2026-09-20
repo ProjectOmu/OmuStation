@@ -780,11 +780,13 @@
     - HamsterWearable
     - MouseWearable # Goobstation
     - WhitelistChameleon
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
-      HeadTop : HEAD
-      HeadSide : HEAD
+    # Omu Start
+#  - type: HideLayerClothing
+#    layers:
+#      Hair: HEAD
+#      HeadTop : HEAD
+#      HeadSide : HEAD
+    # Omu End
 
 - type: entity
   parent: ClothingHeadBase
@@ -804,12 +806,12 @@
     - HamsterWearable
     - MouseWearable # Goobstation
     - WhitelistChameleon
+#  - type: HideLayerClothing
+#    layers:
+#      Hair: HEAD
+#      HeadTop : HEAD
+#      HeadSide : HEAD
     # Omu End
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
-      HeadTop : HEAD
-      HeadSide : HEAD
 
 - type: entity
   parent: ClothingHeadBase
@@ -829,12 +831,12 @@
     - HamsterWearable
     - MouseWearable # Goobstation
     - WhitelistChameleon
+#  - type: HideLayerClothing
+#    layers:
+#      Hair: HEAD
+#      HeadTop : HEAD
+#      HeadSide : HEAD
     # Omu End
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
-      HeadTop : HEAD
-      HeadSide : HEAD
 
 - type: entity
   parent: ClothingHeadBase
