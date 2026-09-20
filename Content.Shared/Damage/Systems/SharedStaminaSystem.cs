@@ -179,7 +179,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         // Goobstation - Martial Arts
         if (TryComp<MartialArtsKnowledgeComponent>(args.User, out var knowledgeComp)
             && TryComp<MartialArtBlockedComponent>(args.Weapon, out var blockedComp)
-            && knowledgeComp.MartialArtsForm == blockedComp.Form)
+            && knowledgeComp.MartialArtsForm == blockedComp.Form && blockedComp.StaminaDmgBlock)
             return;
         // Goobstation
 
@@ -487,7 +487,8 @@ public abstract partial class SharedStaminaSystem : EntitySystem
                 TakeStaminaDamage(
                     uid,
                     comp.AfterCritical ? -comp.Decay * comp.AfterCritDecayMultiplier : -comp.Decay, // Recover faster after crit
-                    comp);
+                    comp,
+                    ignoreResist: true); // Goob end; ignoreResist: true allows for natural regen to work as intended
 
             Dirty(uid, comp);
         }
