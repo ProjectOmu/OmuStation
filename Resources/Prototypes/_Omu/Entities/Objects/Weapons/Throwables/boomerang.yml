@@ -11,6 +11,19 @@
   - type: Tag
     tags:
     - SecBeltEquip
+  - type: MeleeWeapon # damage when you smack people with it
+    damage:
+      types:
+        Blunt: 4
+  - type: DamageOtherOnHit # the damage the throw does
+    damage:
+      types:
+        Blunt: 5
+  - type: StaminaDamageOnHit # when you slap people with it
+    damage: 0
+    overtime: 0
+  - type: StaminaDamageOnCollide # stam damage when ya throw it at people
+    damage: 0
   - type: ItemSwitch
     defaultState: off
     state: "off"
