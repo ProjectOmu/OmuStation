@@ -61,7 +61,7 @@
   - !type:SpeciesLoadoutEffect
     species:
     - Plasmaman
-    
+
 # Back
 - type: loadout
   id: CybersunMedicalBackpack
@@ -145,3 +145,9 @@
   equipment:
     mask: ClothingMaskSterileWhite
   groupBy: "mask"
+
+# Hats
+- type: loadout
+  id: UshankaMedical
+  equipment:
+    head: ClothingHeadHatUshankaMedical
