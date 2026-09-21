@@ -1,0 +1,10 @@
+- type: entity
+  abstract: true
+  id: AllowSuitStorageClothingGasTanksMop
+  components:
+  - type: AllowSuitStorage
+    whitelist:
+      components:
+      - Mop
+      - GasTank
+      - XenoVacuumTank # Goobstation
