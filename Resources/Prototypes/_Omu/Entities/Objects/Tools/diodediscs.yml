@@ -26,6 +26,9 @@
   name: Electro-Behavioural Diode disc
   description: A diode disc for use within an emitter, this one will trigger a causality cascading event within a supermatter, causing damage but increasing energy output significantly. It also has a postive effect on patients health!
   components:
+  - type: Sprite
+    sprite: _Omu/Objects/Tools/diodedisc.rsi
+    state: icon_green
   - type: DiodeDisc
     newBolt: EmitterBoltElectroBehavioural
     componentsToAdd:
@@ -38,6 +41,9 @@
   name: Excitatory Diode disc
   description: A diode disc for use within an emitter, this one will trigger a supermatter to become more active.
   components:
+  - type: Sprite
+    sprite: _Omu/Objects/Tools/diodedisc.rsi
+    state: icon_red
   - type: DiodeDisc
     newBolt: EmitterBoltExcitatory
     componentsToAdd:
@@ -50,6 +56,9 @@
   name: Emissive Diode disc
   description: A diode disc for use within an emitter, this one will trigger a supermatter to emit more radiation
   components:
+  - type: Sprite
+    sprite: _Omu/Objects/Tools/diodedisc.rsi
+    state: icon_hazard
   - type: DiodeDisc
     newBolt: EmitterBoltEmissive
     componentsToAdd:
