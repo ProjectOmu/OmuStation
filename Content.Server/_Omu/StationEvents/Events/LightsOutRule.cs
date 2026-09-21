@@ -1,5 +1,6 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Ghost;
+using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.StationEvents.Events;
 using Content.Server.Power.Components;
@@ -8,6 +9,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Light.Components;
+using Content.Shared.Station.Components;
 using Robust.Shared.Timing;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -39,13 +41,17 @@ public sealed partial class LightsOutRule : StationEventSystem<LightsOutRuleComp
         var all_lights = EntityQueryEnumerator<PoweredLightComponent>();
         while (all_lights.MoveNext(out var light, out _))
         {
-            // TODO: `continue` if the light isn't powered; see ApcPowerReceiver.Powered
             // don't target if the light isn't powered
+            if (TryComp<ApcPowerReceiverComponent>(light, out var powerComp)
+                && powerComp != null // compiler complains otherwise
+                && !powerComp.Powered)
+                continue;
 
-
-            // TODO: `continue` if the light isn't on the station
             // don't target if the light isn't on the station
-
+            var transform = Transform(light);
+            if (!HasComp<BecomesStationComponent>(transform.GridUid)
+                && CompOrNull<StationMemberComponent>(transform.GridUid)?.Station != station)
+                continue;
 
             component.Targets.Add(light);
         }
