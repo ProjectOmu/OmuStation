@@ -8,9 +8,9 @@
   description: A suit that protects against biological contamination.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/general.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/general.rsi # Omu
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/general.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/general.rsi # Omu
   - type: Armor
     coverage:
     - Chest
@@ -51,9 +51,9 @@
   description: An advanced suit that protects against biological contamination, in CMO colors.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/cmo.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/cmo.rsi # Omu
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/cmo.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/cmo.rsi # Omu
 
 - type: entity
   parent: [ClothingOuterBioGeneral, AllowSuitStorageClothingGasTanksMop]
@@ -63,9 +63,9 @@
   description: A suit that protects against biological contamination and caustic spills, has a clip on the back to hold a mop. # Omu
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/janitor.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/janitor.rsi # Omu
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/janitor.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/janitor.rsi # Omu
   - type: Armor
     modifiers:
       coefficients:
@@ -79,9 +79,9 @@
   description: A suit that protects against biological contamination, in Scientist colors.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/scientist.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/scientist.rsi # Omu
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/scientist.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/scientist.rsi # Omu
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseSecurityContraband]
@@ -91,9 +91,9 @@
   description: A suit that protects against biological contamination, kitted out with additional armor.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/security.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/security.rsi # Omu
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/security.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/security.rsi # Omu
   - type: Armor
     coverage:
     - Chest
@@ -125,8 +125,8 @@
   description: A suit that strongly protects against biological contamination.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/virology.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/virology.rsi # Omu
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/virology.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/virology.rsi # Omu
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.25
