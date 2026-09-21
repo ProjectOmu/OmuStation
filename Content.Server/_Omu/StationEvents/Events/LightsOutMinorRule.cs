@@ -39,7 +39,10 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
         // i assume there is a station, and that the station the players are on is the first in the list
         var station = _station.GetStations()[0];
 
-        // generate the list of targets
+        // TODO: choose a department to hit the lights of
+
+
+        // generate the list of targets (and store list of all lights to make major and minor versions initially indistinguishable)
         var all_lights = EntityQueryEnumerator<PoweredLightComponent>();
         while (all_lights.MoveNext(out var light, out _))
         {
@@ -55,7 +58,10 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
                 && CompOrNull<StationMemberComponent>(transform.GridUid)?.Station != station)
                 continue;
 
-            component.Targets.Add(light);
+            component.AllLights.Add(light);
+
+            // TODO: hit the lights of the chosen department
+
         }
         component.TargetListLength = component.Targets.Count;
 
@@ -79,7 +85,7 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
         if (_timing.CurTime < component.SmashingTime)
         {
             // lights flicker before the destruction starts. build suspense.
-            foreach (EntityUid light in component.Targets)
+            foreach (EntityUid light in component.AllLights)
             {
                 if (!_random.Prob(0.25f))
                     continue;

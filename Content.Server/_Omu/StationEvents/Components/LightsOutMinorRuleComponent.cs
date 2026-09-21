@@ -29,6 +29,11 @@ public sealed partial class LightsOutMinorRuleComponent : Component
     public DamageSpecifier Damage;
 
     /// <summary>
+    /// All the powered lights on station; they get flickered to make the major and minor versions of this event initially indistinguishable
+    /// </summary>
+    public List<EntityUid> AllLights = new();
+
+    /// <summary>
     /// The selection of potential targets: Poweredlights that are on-station and powered
     /// </summary>
     public List<EntityUid> Targets = new();
