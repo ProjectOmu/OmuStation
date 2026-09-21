@@ -26,4 +26,14 @@ public sealed partial class LightsOutRuleComponent : Component
     /// The selection of potential targets: Poweredlights that are on-station and powered
     /// </summary>
     public List<EntityUid> Targets = new();
+
+    /// <summary>
+    /// Length of the target list; used for staggered breaking
+    /// </summary>
+    public int TargetListLength;
+
+    /// <summary>
+    /// Index into Targets; used for staggered breaking
+    /// </summary>
+    public int TargetIndex = 0;
 }

@@ -31,8 +31,8 @@ public sealed partial class LightsOutRule : StationEventSystem<LightsOutRuleComp
     {
         base.Started(uid, component, gameRule, args);
 
-        // let the smashing start 10 seconds after the announcement goes out
-        component.SmashingTime = _timing.CurTime + TimeSpan.FromSeconds(10);
+        // let the smashing start 5 seconds after the announcement goes out
+        component.SmashingTime = _timing.CurTime + TimeSpan.FromSeconds(5);
 
         // i assume there is a station, and that the station the players are on is the first in the list
         var station = _station.GetStations()[0];
@@ -55,6 +55,7 @@ public sealed partial class LightsOutRule : StationEventSystem<LightsOutRuleComp
 
             component.Targets.Add(light);
         }
+        component.TargetListLength = component.Targets.Count;
 
         _chat.DispatchStationAnnouncement(
             station,
@@ -86,15 +87,20 @@ public sealed partial class LightsOutRule : StationEventSystem<LightsOutRuleComp
         else
         {
             var damage = new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), 5);
-            // now, the destruction
-            foreach (EntityUid light in component.Targets)
+            // now, the destruction, one light at a time
+            if (component.TargetIndex < component.TargetListLength)
             {
-                if (!_random.Prob(component.DamageProbability))
-                    continue;
-                _damageable.TryChangeDamage(light, damage, true);
+                if (_random.Prob(component.DamageProbability))
+                    _damageable.TryChangeDamage(
+                        component.Targets[component.TargetIndex],
+                        damage,
+                        true
+                    );
+                component.TargetIndex++;
+            } else {
+                // finished smashing
+                component.SmashingTime = null;
             }
-            // finish smashing
-            component.SmashingTime = null;
         }
 
     }
