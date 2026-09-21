@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 #nullable enable
+using Content.Omu.Common.CCVar; // Omu - gun prediction port
 using Content.Shared.CCVar;
 
 namespace Content.IntegrationTests;
@@ -38,5 +39,22 @@ public static partial class PoolManager
         (CCVars.InteractionRateLimitPeriod.Name, "0.1"),
         (CCVars.MovementMobPushing.Name, "false"),
         (CCVars.LavalandEnabled.Name, "false"), // Lavaland Change
+        // Omu - gun prediction port: pin lag compensation to its shipping defaults so that
+        // Tests/_Omu/RangedLagCompensationTest.cs does not silently change meaning if the
+        // production defaults are ever retuned.
+        (OmuCVars.LagCompensationMilliseconds.Name, "750"),
+        (OmuCVars.LagCompensationMarginTiles.Name,  "0.25"),
+        // Pinned to the full buffer, which effectively disables the ping-plausibility bound for the
+        // suite. A loopback pair measures zero ping, so at the shipping default of 150 ms every
+        // lag-compensation test would be held to ~4 ticks of rewind and would stop testing what it
+        // means to test. The bound itself is covered deliberately by
+        // RangedLagCompensationTest.PlausibilityBoundLimitsRewind, which sets this low on purpose.
+        (OmuCVars.LagCompensationMinRewindMilliseconds.Name, "750"),
+        // Phase 2 (client gun prediction) is pinned OFF for the suite at large, which is also its
+        // shipping default. Every pre-existing gun, projectile and combat test therefore exercises
+        // exactly the pre-port path, so a failure anywhere in them is a real regression rather than
+        // a prediction artefact. Tests/_Omu/GunPredictionTest.cs turns it on per-pair.
+        (OmuCVars.GunPrediction.Name, "false"),
+        // Omu end
     };
 }

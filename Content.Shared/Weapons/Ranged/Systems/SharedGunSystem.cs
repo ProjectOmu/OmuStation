@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Shared._RMC14.Weapons.Ranged.Prediction; // Omu - gun prediction port
 using Content.Shared._Shitmed.Weapons.Ranged.Events; // Shitmed Change
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
@@ -32,6 +33,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
@@ -180,8 +182,51 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (gun.Comp.Target == null || !gun.Comp.BurstActivated || !gun.Comp.LockOnTargetBurst)
             gun.Comp.Target = potentialTarget;
         // Goob edit end
-        AttemptShoot(user.Value, gun);
+
+        // Omu start - gun prediction port (Phase 2).
+        // The reported tick must be applied BEFORE the shot is adjudicated, or the rewind uses a
+        // stale one. A second subscriber to RequestShootEvent could not guarantee that - the bus
+        // gives no ordering between subscribers to the same event - so this is a direct virtual
+        // call, and the ordering is a property of this method rather than of registration order.
+        OnShootRequestReceived(msg, args.SenderSession);
+
+        // A predicting client has already fired this shot locally - it had to, because
+        // RaisePredictiveEvent sends the message before it raises the event, so anything spawned from
+        // here would be too late to be named in RequestShootEvent.Shot. Firing again here is not
+        // harmless: NextFire stops the second shot from spending ammo, but ShotAttemptedEvent would be
+        // raised twice and an empty gun would click twice.
+        if (ShouldAdjudicateShootRequest())
+            AttemptShoot(user.Value, gun, msg.Shot, args.SenderSession);
+        // Omu end
     }
+
+    // Omu start - gun prediction port (Phase 2).
+    /// <summary>
+    /// Whether this side should adjudicate the shot for an incoming <see cref="RequestShootEvent"/>,
+    /// or whether it has already been adjudicated locally before the event was raised.
+    /// </summary>
+    /// <remarks>
+    /// Always true on the server, and true on the client whenever prediction is off, so the
+    /// pre-port control flow is exactly preserved. Only a predicting client, on its first-time
+    /// prediction pass, answers false; prediction replays still re-run the shot, which is what makes
+    /// the local copy reconcile.
+    /// </remarks>
+    protected virtual bool ShouldAdjudicateShootRequest()
+    {
+        return true;
+    }
+    // Omu end
+
+    // Omu start - gun prediction port (Phase 2).
+    /// <summary>
+    /// Called on every accepted <see cref="RequestShootEvent"/> immediately before the shot is
+    /// adjudicated. The server override records the client's claimed <see cref="RequestShootEvent.LastRealTick"/>
+    /// so lag compensation can rewind to it; the client does nothing.
+    /// </summary>
+    protected virtual void OnShootRequestReceived(RequestShootEvent msg, ICommonSession session)
+    {
+    }
+    // Omu end
 
     private void OnStopShootRequest(RequestStopShootEvent ev, EntitySessionEventArgs args)
     {
@@ -297,16 +342,46 @@ public abstract partial class SharedGunSystem : EntitySystem
 
     private bool AttemptShoot(EntityUid user, Entity<GunComponent> gun)
     {
+        return AttemptShoot(user, gun, null, null) != null;
+    }
+
+    // Omu start - gun prediction port (Phase 2).
+    /// <summary>
+    /// The shooting core. Returns the projectiles this call spawned, or null if no shot happened.
+    /// </summary>
+    /// <param name="predictedProjectiles">
+    /// Client-side projectile ids the shooter already spawned for this shot (see
+    /// <see cref="RequestShootEvent.Shot"/>), or null when this shot is not client-predicted - which
+    /// is every shot fired by an NPC, a turret, an action or a test.
+    /// </param>
+    /// <param name="userSession">
+    /// The session that asked for this shot, or null if it was not asked for by a player. Needed so
+    /// the server can address the predicted-projectile bookkeeping back at the right client.
+    /// </param>
+    /// <remarks>
+    /// This returns a list rather than the previous <see cref="bool"/> because one call can fire
+    /// several shots (burst and full-auto both loop), and the prediction layer has to pair each
+    /// spawned projectile with the client id at the same index. A null return and an empty list mean
+    /// different things: null is "no shot", empty is "a shot happened but spawned no projectile"
+    /// (hitscan, a thrown item, an empty click that still consumed the trigger).
+    /// </remarks>
+    public List<EntityUid>? AttemptShoot(
+        EntityUid user,
+        Entity<GunComponent> gun,
+        List<int>? predictedProjectiles,
+        ICommonSession? userSession)
+    {
+    // Omu end
         if (gun.Comp.FireRateModified <= 0f ||
             !_actionBlockerSystem.CanAttack(user))
         {
-            return false;
+            return null;
         }
 
         var toCoordinates = gun.Comp.ShootCoordinates;
 
         if (toCoordinates == null)
-            return false;
+            return null;
 
         var curTime = Timing.CurTime;
 
@@ -318,16 +393,16 @@ public abstract partial class SharedGunSystem : EntitySystem
         };
         RaiseLocalEvent(gun, ref prevention);
         if (prevention.Cancelled)
-            return false;
+            return null;
 
         RaiseLocalEvent(user, ref prevention);
         if (prevention.Cancelled)
-            return false;
+            return null;
 
         // Need to do this to play the clicking sound for empty automatic weapons
         // but not play anything for burst fire.
         if (gun.Comp.NextFire > curTime)
-            return false;
+            return null;
 
         var fireRate = TimeSpan.FromSeconds(1f / gun.Comp.FireRateModified);
 
@@ -392,7 +467,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             gun.Comp.BurstActivated = false;
             gun.Comp.BurstShotsCount = 0;
             gun.Comp.NextFire = TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.Comp.NextFire.TotalSeconds));
-            return false;
+            return null;
         }
 
         var fromCoordinates = Transform(user).Coordinates;
@@ -422,7 +497,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             if (isRechargingGun)
             {
                 gun.Comp.NextFire = lastFire; // for empty PKAs, don't play no-ammo sound and don't trigger the reload
-                return false;
+                return null;
             }
 
             if (!gun.Comp.LockOnTargetBurst || gun.Comp.ShootCoordinates == null) // Goobstation
@@ -442,10 +517,10 @@ public abstract partial class SharedGunSystem : EntitySystem
                 // May cause prediction issues? Needs more tweaking
                 gun.Comp.NextFire = TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.Comp.NextFire.TotalSeconds));
                 Audio.PlayPredicted(gun.Comp.SoundEmpty, gun, user);
-                return false;
+                return null;
             }
 
-            return false;
+            return null;
         }
 
         // Handle burstfire
@@ -468,14 +543,35 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
 
         // Shoot confirmed - sounds also played here in case it's invalid (e.g. cartridge already spent).
-        Shoot(gun, ev.Ammo, fromCoordinates, toCoordinates.Value, out var userImpulse, user, throwItems: attemptEv.ThrowItems);
+        // Omu - gun prediction port: Shoot fills shotProjectiles with whatever it actually spawned, so the
+        // prediction layer can pair each one with the client id at the same index.
+        var shotProjectiles = new List<EntityUid>();
+        Shoot(gun,
+            ev.Ammo,
+            fromCoordinates,
+            toCoordinates.Value,
+            out var userImpulse,
+            user,
+            throwItems: attemptEv.ThrowItems,
+            predictedProjectiles: predictedProjectiles,
+            userSession: userSession,
+            spawnedProjectiles: shotProjectiles);
+
+        // Omu - gun prediction port: hand what was actually spawned to the prediction layer. Only
+        // for player-requested shots; an NPC or turret has no client to reconcile with.
+        if (userSession != null && shotProjectiles.Count > 0)
+        {
+            var projectilesEv = new GunProjectilesShotEvent(gun, shotProjectiles, predictedProjectiles, userSession);
+            RaiseLocalEvent(ref projectilesEv);
+        }
+
         var shotEv = new GunShotEvent(user, ev.Ammo);
         RaiseLocalEvent(gun, ref shotEv);
         var shotBodyEv = new GunShotBodyEvent(gun, gun); // Shitmed Change
         RaiseLocalEvent(user, shotBodyEv); // Shitmed Change
 
         if (!userImpulse || !TryComp<PhysicsComponent>(user, out var userPhysics))
-            return true;
+            return shotProjectiles;
 
         var shooterEv = new ShooterImpulseEvent();
         RaiseLocalEvent(user, ref shooterEv);
@@ -484,7 +580,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             CauseImpulse(fromCoordinates, toCoordinates.Value, (user, userPhysics));
 
         UpdateAmmoCount(gun); //GoobStation - Multishot
-        return true;
+        return shotProjectiles;
     }
 
     public void Shoot(
@@ -507,9 +603,16 @@ public abstract partial class SharedGunSystem : EntitySystem
         EntityCoordinates toCoordinates,
         out bool userImpulse,
         EntityUid? user = null,
-        bool throwItems = false);
+        bool throwItems = false,
+        // Omu start - gun prediction port (Phase 2). All three are optional and default to the
+        // pre-port behaviour, so the ~30 existing callers of the Shoot overload above are unchanged.
+        List<int>? predictedProjectiles = null,
+        ICommonSession? userSession = null,
+        List<EntityUid>? spawnedProjectiles = null);
+        // Omu end
 
-    public void ShootProjectile(EntityUid uid, Vector2 direction, Vector2 gunVelocity, EntityUid? gunUid, EntityUid? user = null, float speed = ProjectileSpeed, Vector2? targetCoordinates = null) // Goob targetcoordinates
+    // Omu - gun prediction port: virtual so the client can tag its locally spawned copy.
+    public virtual void ShootProjectile(EntityUid uid, Vector2 direction, Vector2 gunVelocity, EntityUid? gunUid, EntityUid? user = null, float speed = ProjectileSpeed, Vector2? targetCoordinates = null) // Goob targetcoordinates
     {
         var physics = EnsureComp<PhysicsComponent>(uid);
         Physics.SetBodyStatus(uid, physics, BodyStatus.InAir);

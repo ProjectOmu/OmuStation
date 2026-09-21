@@ -77,7 +77,12 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
         if (attemptEvent.Cancelled)
             return;
 
-        var hitEvent = new HitscanRaycastFiredEvent { Data = data };
+        // Omu - gun prediction port: build the fired event from the attempt event's data, not from
+        // the local copy, so that subscribers to AttemptHitscanRaycastFiredEvent can actually change
+        // the outcome. Previously every mutation of `attemptEvent.Data` was silently discarded,
+        // which made the attempt event a cancel-only hook despite carrying a mutable payload.
+        var hitEvent = new HitscanRaycastFiredEvent { Data = attemptEvent.Data };
+        // Omu end
         RaiseLocalEvent(ent, ref hitEvent);
     }
 

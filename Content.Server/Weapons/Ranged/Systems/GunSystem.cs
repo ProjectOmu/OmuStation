@@ -30,6 +30,11 @@ using Content.Shared.Body.Components;
 using Content.Shared.Effects;
 using Content.Shared.PowerCell;
 using Robust.Shared.Random;
+// Omu start - gun prediction port (Phase 2).
+using Content.Omu.Common.CCVar;
+using Content.Server._RMC14.Movement;
+using Robust.Shared.Configuration;
+// Omu end
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -47,13 +52,78 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
+    // Omu start - gun prediction port (Phase 2).
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly RMCLagCompensationSystem _rmcLagCompensation = default!;
+
+    /// <summary>
+    ///     Mirror of <see cref="OmuCVars.GunPrediction"/>.
+    /// </summary>
+    /// <remarks>
+    ///     Read here rather than from <c>SharedGunPredictionSystem.GunPrediction</c> because that
+    ///     class is abstract and this file must not depend on a concrete subclass of it existing.
+    ///     Both copies are fed by the same replicated CVar, so they cannot disagree.
+    /// </remarks>
+    private bool _gunPrediction;
+    // Omu end
+
     private const float DamagePitchVariation = 0.05f;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<BallisticAmmoProviderComponent, PriceCalculationEvent>(OnBallisticPrice);
+
+        // Omu - gun prediction port (Phase 2).
+        Subs.CVar(_cfg, OmuCVars.GunPrediction, v => _gunPrediction = v, true);
     }
+
+    // Omu start - gun prediction port (Phase 2).
+    /// <summary>
+    ///     Applies the tick the shooter says it last had authoritative state for, before the shot is
+    ///     adjudicated, so lag compensation rewinds targets to what the shooter was actually seeing.
+    /// </summary>
+    /// <remarks>
+    ///     <para>
+    ///     <b>The CVar guard is load-bearing, and not for the reason it looks like.</b> The client fills
+    ///     <see cref="RequestShootEvent.LastRealTick"/> <i>unconditionally</i> - it is not left at
+    ///     <c>default</c> when prediction is off - so this is not a "reject the empty value" guard.
+    ///     </para>
+    ///     <para>
+    ///     It is load-bearing because the per-session store this writes to is shared with everything
+    ///     else that uses lag compensation, including the Phase 1 melee and hitscan paths, which are
+    ///     already shipped and are fed by <c>RMCLagCompensationSystem</c>'s own heartbeat. Writing here
+    ///     while prediction is off would give the shoot request a second, unrequested influence over
+    ///     those paths' rewind depth - a behaviour change on a feature that is supposed to be inert,
+    ///     and one a client could drive on purpose. Turning the feature off must mean this store is
+    ///     fed only by the heartbeat, exactly as it was before this port.
+    ///     </para>
+    ///     <para>
+    ///     No clamping happens here on purpose: <c>SetLastRealTick</c> is the single write point and
+    ///     already bounds the value both ways (never ahead of the server, never older than the
+    ///     position history). A second clamp here could only ever disagree with that one.
+    ///     </para>
+    ///     <para>
+    ///     Also unlike the heartbeat, no tick is subtracted. The heartbeat's
+    ///     <c>RMCSetLastRealTickEvent</c> handler steps back one tick because it reports a rendered,
+    ///     interpolated frame; a shoot request names the tick the shot itself was predicted on, and
+    ///     the source treats it verbatim.
+    ///     </para>
+    ///     <para>
+    ///     The substep IS passed through, unlike the source, which called the tick-only overload and
+    ///     so reset the substep to zero on every shot - quietly coarsening a store shared with the
+    ///     melee and hitscan rewind. With guns now adjudicated by Path B, which is substep-aware,
+    ///     dropping it would also have coarsened gun adjudication itself.
+    ///     </para>
+    /// </remarks>
+    protected override void OnShootRequestReceived(RequestShootEvent msg, ICommonSession session)
+    {
+        if (!_gunPrediction)
+            return;
+
+        _rmcLagCompensation.SetLastRealTick(session.UserId, msg.LastRealTick, msg.LastRealSubstep);
+    }
+    // Omu end
 
     private void OnBallisticPrice(Entity<BallisticAmmoProviderComponent> ent, ref PriceCalculationEvent args)
     {
@@ -72,7 +142,14 @@ public sealed partial class GunSystem : SharedGunSystem
     }
 
     public override void Shoot(Entity<GunComponent> gun, List<(EntityUid? Entity, IShootable Shootable)> ammo,
-        EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, out bool userImpulse, EntityUid? user = null, bool throwItems = false)
+        EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, out bool userImpulse, EntityUid? user = null, bool throwItems = false,
+        // Omu start - gun prediction port (Phase 2). predictedProjectiles/userSession are unused on
+        // this side: the pairing is done afterwards, off GunProjectilesShotEvent, which
+        // SharedGunSystem raises with exactly these two values plus spawnedProjectiles.
+        List<int>? predictedProjectiles = null,
+        ICommonSession? userSession = null,
+        List<EntityUid>? spawnedProjectiles = null)
+        // Omu end
     {
         userImpulse = true;
 
@@ -115,7 +192,8 @@ public sealed partial class GunSystem : SharedGunSystem
             if (throwItems && ent != null)
             {
                 ShootOrThrow(ent.Value, mapDirection, gunVelocity, gun, user,
-                targetCoordinates: toMapBeforeRecoil); // Goobstation
+                targetCoordinates: toMapBeforeRecoil, // Goobstation
+                spawnedProjectiles: spawnedProjectiles); // Omu - gun prediction port (Phase 2)
                 shotProjectiles.Add(ent.Value); // Goobstation
                 continue;
             }
@@ -207,7 +285,8 @@ public sealed partial class GunSystem : SharedGunSystem
                     mapAngle + spreadEvent.Spread / 2, ammoSpreadComp.Count);
 
                 ShootOrThrow(ammoEnt, angles[0].ToVec(), gunVelocity, gun, user,
-                    targetCoordinates: toMapBeforeRecoil); // Goobstation
+                    targetCoordinates: toMapBeforeRecoil, // Goobstation
+                    spawnedProjectiles: spawnedProjectiles); // Omu - gun prediction port (Phase 2)
                 shotProjectiles.Add(ammoEnt);
 
                 for (var i = 1; i < ammoSpreadComp.Count; i++)
@@ -221,14 +300,16 @@ public sealed partial class GunSystem : SharedGunSystem
                     SetProjectilePerfectHitEntities(newuid, user, new MapCoordinates(toMap, fromMap.MapId));
                     // Lavaland end
                     ShootOrThrow(newuid, angles[i].ToVec(), gunVelocity, gun, user,
-                    targetCoordinates: toMapBeforeRecoil); // Goob
+                    targetCoordinates: toMapBeforeRecoil, // Goob
+                    spawnedProjectiles: spawnedProjectiles); // Omu - gun prediction port (Phase 2)
                     shotProjectiles.Add(newuid);
                 }
             }
             else
             {
                 ShootOrThrow(ammoEnt, mapDirection, gunVelocity, gun, user,
-                targetCoordinates: toMapBeforeRecoil); // Goobstation
+                targetCoordinates: toMapBeforeRecoil, // Goobstation
+                spawnedProjectiles: spawnedProjectiles); // Omu - gun prediction port (Phase 2)
                 shotProjectiles.Add(ammoEnt);
             }
 
@@ -284,8 +365,17 @@ public sealed partial class GunSystem : SharedGunSystem
     }
     // Goobstation end
 
+    /// <param name="spawnedProjectiles">
+    ///     Omu - gun prediction port (Phase 2). Collects every entity that actually leaves the barrel
+    ///     as a projectile, so <c>GunProjectilesShotEvent</c> can pair them, in order, with the
+    ///     client-side copies the shooter already drew. Null for shots nobody is predicting.
+    ///     A thrown item is deliberately not recorded: it takes the <c>TryThrow</c> path below, has no
+    ///     <c>ProjectileComponent</c>, and so has no predicted counterpart to pair with - recording it
+    ///     would shift every later index by one.
+    /// </param>
     private void ShootOrThrow(EntityUid uid, Vector2 mapDirection, Vector2 gunVelocity, Entity<GunComponent> gun, EntityUid? user,
-        Vector2? targetCoordinates = null) // Goobstation
+        Vector2? targetCoordinates = null, // Goobstation
+        List<EntityUid>? spawnedProjectiles = null) // Omu - gun prediction port (Phase 2)
     {
         if (gun.Comp.Target is { } target && !TerminatingOrDeleted(target))
         {
@@ -305,6 +395,7 @@ public sealed partial class GunSystem : SharedGunSystem
         projectileComp.Damage *= gun.Comp.DamageModifier; // Omu
         ShootProjectile(uid, mapDirection, gunVelocity, gun, user, gun.Comp.ProjectileSpeedModified,
         targetCoordinates); // Goobstation
+        spawnedProjectiles?.Add(uid); // Omu - gun prediction port (Phase 2)
     }
 
     /// <summary>
