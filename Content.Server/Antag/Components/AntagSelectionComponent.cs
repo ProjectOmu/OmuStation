@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server.Administration.Systems;
 using Content.Shared.Antag;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Preferences.Loadouts;
@@ -11,10 +12,8 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Antag.Components;
 
-// goob edit - no more specified access.
-// will it turn out to be a bad decision? probably yes
-// do i care? :trollface:
-[RegisterComponent, /*Access(typeof(AntagSelectionSystem), typeof(AdminVerbSystem))*/]
+// Access restored: antag assignment state has exactly one writer (AntagSelectionSystem, plus admin tooling), so nothing else can desync "who is an antag".
+[RegisterComponent, Access(typeof(AntagSelectionSystem), typeof(AdminVerbSystem))]
 public sealed partial class AntagSelectionComponent : Component
 {
     /// <summary>
@@ -32,7 +31,12 @@ public sealed partial class AntagSelectionComponent : Component
     /// <summary>
     /// The definitions for the antagonists
     /// </summary>
-    [DataField]
+    /// <remarks>
+    /// Deliberately exempt from the type-level <see cref="AccessAttribute"/>: this is rule configuration rather than
+    /// assignment state, and downstream schedulers (e.g. Goobstation's SecretPlusSystem, which lives in an assembly
+    /// Content.Server cannot reference and so cannot be named as a friend) rewrite antag counts here.
+    /// </remarks>
+    [DataField, Access(typeof(AntagSelectionSystem), typeof(AdminVerbSystem), Other = AccessPermissions.ReadWrite)]
     public List<AntagSelectionDefinition> Definitions = new();
 
     /// <summary>

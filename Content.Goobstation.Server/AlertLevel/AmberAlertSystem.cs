@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Goobstation.Common.AlertLevel;
 using Content.Goobstation.Shared.AlertLevel;
 using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Slasher;

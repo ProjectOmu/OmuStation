@@ -96,16 +96,37 @@ public abstract partial class GameRuleSystem<T> : EntitySystem where T : ICompon
     }
 
     /// <summary>
-    /// Called when the gamerule is added
+    /// Called when the gamerule is added.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// <b>This does not mean the round has started.</b> Preset rules are added from
+    /// <c>AddGamePresetRules()</c>, which runs inside <c>LoadMaps()</c> during <b>map preload</b> —
+    /// see <c>GameTicker.RoundFlow.cs</c> (<c>LoadMaps</c>) and <c>GameTicker.GamePreset.cs</c>
+    /// (<c>AddGamePresetRules</c>). Preload begins <c>RoundPreloadTime</c> (20 seconds, see
+    /// <c>GameTicker.Lobby.cs</c>) before the round starts, while <c>RunLevel</c> is still
+    /// <see cref="GameRunLevel.PreRoundLobby"/>.
+    /// </para>
+    /// <para>
+    /// So for those ~20 seconds <c>CurrentPreset</c> is non-null but there is no round, no station,
+    /// and no spawned players. An <see cref="Added"/> handler must not assume any of them exist.
+    /// If your logic needs a live round, guard it:
+    /// <code>if (GameTicker.RunLevel != GameRunLevel.InRound) return;</code>
+    /// as <c>AntagSelectionSystem</c> does, and defer the work to <see cref="Started"/> instead.
+    /// </para>
+    /// </remarks>
     protected virtual void Added(EntityUid uid, T component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
 
     }
 
     /// <summary>
-    /// Called when the gamerule begins
+    /// Called when the gamerule begins.
     /// </summary>
+    /// <remarks>
+    /// Unlike <see cref="Added"/>, this runs once the rule is actually started, so player-facing
+    /// logic belongs here. Note a rule can still be started mid-round.
+    /// </remarks>
     protected virtual void Started(EntityUid uid, T component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
 

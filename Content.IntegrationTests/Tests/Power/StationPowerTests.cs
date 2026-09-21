@@ -13,6 +13,17 @@ using Robust.Shared.EntitySerialization;
 
 namespace Content.IntegrationTests.Tests.Power;
 
+// [Explicit] was inherited from upstream (added in the original "Add basic test of station initial power supply"
+// PR, fb7ee541eb) and has never been turned on here.
+// WHY IT STAYS OFF ON THIS FORK: the map list below has rotted. "Amber" and "Elkridge" are not gameMap
+// prototypes in this repo at all (Amber was removed upstream, Elkridge never existed here), so
+// TestStationStartingPowerWindow would fail at TryIndex for those two cases the moment it is enabled.
+// It also loads a full station per map case, which is the same cost profile as GameMapsLoadableTest.
+// COST OF LEAVING IT OFF: nothing verifies that a station can survive MinimumPowerDurationSeconds on
+// round-start stored power, so a map or power-prototype change that leaves a station under-batteried
+// ships silently. Power is one of the areas this fork modifies most.
+// TO RESTORE: derive the map list from the live map pool the way PostMapInitTest.GetMapsToLoadTest does,
+// then run it in the memory-heavy CI job next to PostMapInitTest, and fix whatever maps then fail.
 [Explicit] // Goobstation we are not readyto unexplicit this.
 public sealed class StationPowerTests
 {

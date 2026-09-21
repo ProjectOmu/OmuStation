@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Threading;
-using Content.Server.Chat.Managers;
 using Content.Server.GameTicking.Rules.Components;
+using Content.Server.RoundEnd;
 using Content.Shared.GameTicking.Components;
 using Timer = Robust.Shared.Timing.Timer;
 
@@ -10,7 +10,7 @@ namespace Content.Server.GameTicking.Rules;
 
 public sealed class MaxTimeRestartRuleSystem : GameRuleSystem<MaxTimeRestartRuleComponent>
 {
-    [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
 
     public override void Initialize()
     {
@@ -49,12 +49,10 @@ public sealed class MaxTimeRestartRuleSystem : GameRuleSystem<MaxTimeRestartRule
 
     private void TimerFired(MaxTimeRestartRuleComponent component)
     {
-        GameTicker.EndRound(Loc.GetString("rule-time-has-run-out"));
-
-        _chatManager.DispatchServerAnnouncement(Loc.GetString("rule-restarting-in-seconds",("seconds", (int) component.RoundEndDelay.TotalSeconds)));
-
-        // TODO FULL GAME SAVE
-        Timer.Spawn(component.RoundEndDelay, () => GameTicker.RestartRound());
+        // Route through RoundEndSystem so that there is exactly one owner of the
+        // round-restart timer (and so that RoundEndSystem state gets reset properly).
+        // It dispatches the restart-ETA announcement itself.
+        _roundEnd.EndRound(component.RoundEndDelay, Loc.GetString("rule-time-has-run-out"));
     }
 
     private void RunLevelChanged(GameRunLevelChangedEvent args)
@@ -62,8 +60,10 @@ public sealed class MaxTimeRestartRuleSystem : GameRuleSystem<MaxTimeRestartRule
         var query = EntityQueryEnumerator<MaxTimeRestartRuleComponent, GameRuleComponent>();
         while (query.MoveNext(out var uid, out var timer, out var gameRule))
         {
+            // An inactive rule entity must skip to the next one, not abandon the sweep -
+            // with two entities carrying this component, a later active one's timer was never stopped.
             if (!GameTicker.IsGameRuleActive(uid, gameRule))
-                return;
+                continue;
 
             switch (args.New)
             {

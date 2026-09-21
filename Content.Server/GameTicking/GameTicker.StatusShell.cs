@@ -27,10 +27,6 @@ namespace Content.Server.GameTicking
         ///     For access to CVars in status responses.
         /// </summary>
         [Dependency] private readonly IConfigurationManager _cfg = default!;
-        /// <summary>
-        ///     For access to the round ID in status responses.
-        /// </summary>
-        [Dependency] private readonly SharedGameTicker _gameTicker = default!;
         [Dependency] private readonly IJoinQueueManager _joinQueue = default!; // Goobstation - Queue
 
         private void InitializeStatusShell()
@@ -47,7 +43,7 @@ namespace Content.Server.GameTicking
             {
                 jObject["name"] = _baseServer.ServerName;
                 jObject["map"] = _gameMapManager.GetSelectedMap()?.MapName;
-                jObject["round_id"] = _gameTicker.RoundId;
+                jObject["round_id"] = RoundId;
                 jObject["players"] = _joinQueue.ActualPlayersCount; // Goobstation - Queue
                 jObject["queue"] = _joinQueue.PlayerInQueueCount; // Goobstation - Queue
                 jObject["soft_max_players"] = _cfg.GetCVar(CCVars.SoftMaxPlayers);

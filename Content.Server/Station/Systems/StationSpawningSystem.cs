@@ -111,7 +111,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
         // If we're not spawning a humanoid, we're gonna exit early without doing all the humanoid stuff.
         if (prototype?.JobEntity != null
-         && prototype.Name != "job-name-borg") // Omu, only skip if AI so borgs can have a loadout
+         && !prototype.UseCharacterSpawn) // Omu, jobs that opt into the character spawn path (e.g. borgs) still get a loadout
         {
             DebugTools.Assert(entity is null);
             var jobEntity = Spawn(prototype.JobEntity, coordinates);
@@ -130,9 +130,9 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
         string speciesId = profile != null ? profile.Species : SharedHumanoidAppearanceSystem.DefaultSpecies;
 
-        // Omu, overwrite species to Cyborg if playing JobBorg
-        if (prototype?.Name == "job-name-borg")
-            speciesId = "Cyborg";
+        // Omu, let the job prototype override the character's species (e.g. borgs spawn as the Cyborg species)
+        if (prototype?.SpeciesOverride is { } speciesOverride)
+            speciesId = speciesOverride;
 
         if (!_prototypeManager.TryIndex<SpeciesPrototype>(speciesId, out var species))
             throw new ArgumentException($"Invalid species prototype was used: {speciesId}");

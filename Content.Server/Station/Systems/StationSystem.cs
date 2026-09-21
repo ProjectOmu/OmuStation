@@ -76,7 +76,7 @@ public sealed partial class StationSystem : SharedStationSystem
             return;
 
         stationData.Grids.Remove(uid);
-        Dirty(uid, component);
+        Dirty(component.Station, stationData);
     }
 
     public override void Shutdown()
@@ -313,7 +313,7 @@ public sealed partial class StationSystem : SharedStationSystem
 
         foreach (var grid in gridIds ?? Array.Empty<EntityUid>())
         {
-            AddGridToStation(station, grid, null, data, name);
+            AddGridToStation(station, grid, null, data, name, isSetup: true);
         }
 
         var ev = new StationPostInitEvent((station, data));
@@ -330,8 +330,9 @@ public sealed partial class StationSystem : SharedStationSystem
     /// <param name="gridComponent">Resolve pattern, grid component of mapGrid.</param>
     /// <param name="stationData">Resolve pattern, station data component of station.</param>
     /// <param name="name">The name to assign to the grid if any.</param>
+    /// <param name="isSetup">Whether this grid is being added as part of initial station setup.</param>
     /// <exception cref="ArgumentException">Thrown when mapGrid or station are not a grid or station, respectively.</exception>
-    public void AddGridToStation(EntityUid station, EntityUid mapGrid, MapGridComponent? gridComponent = null, StationDataComponent? stationData = null, string? name = null)
+    public void AddGridToStation(EntityUid station, EntityUid mapGrid, MapGridComponent? gridComponent = null, StationDataComponent? stationData = null, string? name = null, bool isSetup = false)
     {
         if (!Resolve(mapGrid, ref gridComponent))
             throw new ArgumentException("Tried to initialize a station on a non-grid entity!", nameof(mapGrid));
@@ -347,7 +348,7 @@ public sealed partial class StationSystem : SharedStationSystem
         Dirty(station, stationData);
         Dirty(mapGrid, stationMember);
 
-        RaiseLocalEvent(station, new StationGridAddedEvent(mapGrid, station, false), true);
+        RaiseLocalEvent(station, new StationGridAddedEvent(mapGrid, station, isSetup), true);
 
         _sawmill.Info($"Adding grid {mapGrid} to station {Name(station)} ({station})");
     }

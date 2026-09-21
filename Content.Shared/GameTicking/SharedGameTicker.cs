@@ -208,16 +208,24 @@ namespace Content.Shared.GameTicking
 
             public bool Connected;
 
-            #region Goob Station
+            // NOTE: fields below are fork additions. Keep each fork's fields in its OWN region -
+            // do not nest one fork's fields inside another's, it makes upstream merges conflict
+            // against two forks at once. Populate them from a subscriber to
+            // RoundEndPlayerInfoEvent, never from GameTicker.ShowRoundEndScoreboard.
+            // Field order is the NetSerializable wire order; append, don't reorder.
+
+            #region Goob Station - Round End Screen
             public string? LastWords;
 
             public MobState EntMobState;
 
             public Dictionary<string, FixedPoint2> DamagePerGroup;
+            #endregion
 
-            public SiliconLawset? laws; // Omu
+            #region Omu Station - End of Round Silicon Summary
+            public SiliconLawset? laws;
 
-            public NetEntity? borgEnt; // Omu
+            public NetEntity? borgEnt;
             #endregion
         }
 

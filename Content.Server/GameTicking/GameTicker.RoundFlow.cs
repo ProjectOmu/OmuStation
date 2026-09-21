@@ -25,19 +25,9 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
-// Goob Station - End of Round Screen
-using Content.Goobstation.Common.LastWords;
-using Content.Shared.Damage;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
-using Content.Goobstation.Maths.FixedPoint;
-using Content.Goobstation.Shared.Mind.Components;
 using Content.Server.Maps;
 using Content.Shared.Maps;
-using Content.Shared.Silicons.Laws.Components;
-using Content.Shared.Silicons.Laws;
 using Content.Shared.Roles;
-using Content.Server.Silicons.Laws;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking
@@ -45,9 +35,7 @@ namespace Content.Server.GameTicking
     public sealed partial class GameTicker
     {
         [Dependency] private readonly DiscordWebhook _discord = default!;
-        [Dependency] private readonly RoleSystem _role = default!;
         [Dependency] private readonly ITaskManager _taskManager = default!;
-        [Dependency] private readonly SiliconLawSystem _law = default!; // Omu - End of Round Silicon Summary
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -488,7 +476,11 @@ namespace Content.Server.GameTicking
         {
             var refresh = new RefreshLateJoinAllowedEvent();
             RaiseLocalEvent(refresh);
-            DisallowLateJoin = refresh.DisallowLateJoin;
+            // This used to assign the event's result outright, which silently discarded the
+            // admin/config setting from CCVars.GameDisallowLateJoins on every refresh (and the event has
+            // no subscribers, so the discarded value was always replaced with false). A subscriber may
+            // only ever *tighten* the gate, never loosen one an admin has closed.
+            DisallowLateJoin = _cfg.GetCVar(CCVars.GameDisallowLateJoins) || refresh.DisallowLateJoin;
         }
 
         public void EndRound(string text = "")
@@ -551,7 +543,7 @@ namespace Content.Server.GameTicking
                 var userId = mind.UserId ?? mind.OriginalOwnerUserId;
 
                 var connected = false;
-                var observer = _role.MindHasRole<ObserverRoleComponent>(mindId);
+                var observer = _roles.MindHasRole<ObserverRoleComponent>(mindId);
                 // Continuing
                 if (userId != null && _playerManager.ValidSessionId(userId.Value))
                 {
@@ -580,56 +572,6 @@ namespace Content.Server.GameTicking
 
                 var roles = _roles.MindGetAllRoleInfo(mindId);
 
-                // Goobstation - End of round last words
-                #region Goob Station - End of round last words
-
-                var lastWords = "";
-                var mobState = MobState.Invalid;
-                var damagePerGroup = new Dictionary<string, FixedPoint2>();
-                var lastMob = TryComp<MindLastMobComponent>(mindId, out var lastMobComponent)
-                    ? lastMobComponent.LastMob
-                    : null;
-
-                // Get last words if they exist (stored on the mind)
-                if (TryComp<LastWordsComponent>(mindId, out var lastWordsComponent))
-                    lastWords = lastWordsComponent.LastWords;
-
-                // Get mob state and damage if the mob still exists
-                if (lastMob != null && !TerminatingOrDeleted(lastMob))
-                {
-                    // Omu - End of Round Silicon Summary
-                    if (TryComp<MobStateComponent>(lastMob, out var mobStateComp))
-                        mobState = mobStateComp.CurrentState;
-
-                    if (TryComp<DamageableComponent>(lastMob, out var damageableComp))
-                        damagePerGroup = damageableComp.DamagePerGroup;
-
-                    // Omu - End of Round Silicon Summary
-                    _pvsOverride.AddGlobalOverride(lastMob.Value);
-                }
-
-                #endregion
-                // END
-
-                // Omu Start - End of Round Silicon Summary
-                #region Omu Station
-
-                var found = TryGetNetEntity(lastMob, out var borgPassEnt);
-
-                SiliconLawset? _lawset = null;
-                if (lastMob != null && !TerminatingOrDeleted(lastMob))
-                {
-                    if (TryComp<SiliconLawProviderComponent>(lastMob, out var providerComp))
-                    {
-                        if (providerComp.Lawset == null)
-                            _lawset = _law.GetLawset(providerComp.Laws);
-                        else
-                            _lawset = providerComp.Lawset;
-                    }
-                }
-                #endregion
-                // Omu End
-
                 var playerEndRoundInfo = new RoundEndMessageEvent.RoundEndPlayerInfo()
                 {
                     // Note that contentPlayerData?.Name sticks around after the player is disconnected.
@@ -647,16 +589,15 @@ namespace Content.Server.GameTicking
                     AntagPrototypes = roles.Where(role => role.Antagonist).Select(role => role.Prototype).ToArray(),
                     Observer = observer,
                     Connected = connected,
-                    // Goob Station - End of Round Screen
-                    LastWords = lastWords,
-                    EntMobState = mobState,
-                    DamagePerGroup = damagePerGroup,
-                    // Omu Start - End of Round Silicon Summary
-                    laws = _lawset,
-                    borgEnt = borgPassEnt
-                    // Omu End
                 };
-                listOfPlayerInfo.Add(playerEndRoundInfo);
+
+                // Let content in any assembly annotate this player's entry with structured data.
+                // Do NOT add fork-specific fields above; subscribe to RoundEndPlayerInfoEvent from
+                // your own assembly instead.
+                var playerInfoEv = new RoundEndPlayerInfoEvent(mindId, mind, playerEndRoundInfo);
+                RaiseLocalEvent(playerInfoEv);
+
+                listOfPlayerInfo.Add(playerInfoEv.Info);
             }
 
             // This ordering mechanism isn't great (no ordering of minds) but functions
@@ -938,9 +879,20 @@ namespace Content.Server.GameTicking
     /// <summary>
     ///     Event raised before the game loads a given map.
     ///     This event is mutable, and load options should be tweaked if necessary.
+    ///     This is the hook for altering a map per-round (offset, rotation, deserialization options) - reach for
+    ///     it instead of special-casing map loading somewhere else.
     /// </summary>
     /// <remarks>
-    ///     You likely want to subscribe to this after StationSystem.
+    ///     <para>
+    ///     <b>This event currently has no subscribers anywhere in the tree.</b> If you change its shape or stop
+    ///     raising it, nothing will fail.
+    ///     </para>
+    ///     <para>
+    ///     No subscriber of this event declares <c>before:</c>/<c>after:</c> ordering, so dispatch takes the
+    ///     unordered path and resolution is system registration order. If your subscriber genuinely has to run
+    ///     after <c>StationSystem</c>, ordering has to be declared on <i>every</i> subscriber of this event, not
+    ///     just yours - and declaring any ordering switches the whole event onto the ordered dispatch path.
+    ///     </para>
     /// </remarks>
     [PublicAPI]
     public sealed class PreGameMapLoad(GameMapPrototype gameMap, DeserializationOptions options, Vector2 offset, Angle rotation) : EntityEventArgs
@@ -955,7 +907,19 @@ namespace Content.Server.GameTicking
     ///     Event raised after the game loads a given map.
     /// </summary>
     /// <remarks>
-    ///     You likely want to subscribe to this after StationSystem.
+    ///     <para>
+    ///     This used to say "you likely want to subscribe to this after StationSystem". That was aspirational.
+    ///     Neither of the two subscribers (<c>StationSystem</c> and <c>GridPreloaderSystem</c>) declares any
+    ///     <c>before:</c>/<c>after:</c> ordering, so this event takes the unordered dispatch path and the order
+    ///     handlers run in is system registration order.
+    ///     </para>
+    ///     <para>
+    ///     If your subscriber genuinely depends on <c>StationSystem</c> having already run, do not rely on that
+    ///     - either declare ordering on <i>every</i> subscriber of this event (ordering declared on one
+    ///     subscription alone does not order the others, and adding any ordering switches the whole event onto
+    ///     the ordered dispatch path), or move the dependent work to a later event, which is what
+    ///     <c>EmergencyShuttleSystem</c> does.
+    ///     </para>
     /// </remarks>
     [PublicAPI]
     public sealed class PostGameMapLoad : EntityEventArgs
@@ -977,7 +941,16 @@ namespace Content.Server.GameTicking
     /// <summary>
     ///     Event raised to refresh the late join status.
     ///     If you want to disallow late joins, listen to this and call Disallow.
+    ///     This is the hook for mode-specific late-join rules - use it instead of writing to
+    ///     <see cref="GameTicker.DisallowLateJoin"/>, which every refresh recomputes from scratch.
+    ///     A subscriber can only ever <i>add</i> a reason to disallow: the refresh ORs this event's
+    ///     result with <c>CCVars.GameDisallowLateJoins</c>, so the admin/config setting is a floor
+    ///     that no subscriber can clear.
     /// </summary>
+    /// <remarks>
+    ///     <b>This event currently has no subscribers outside the integration tests.</b> If you change its
+    ///     shape or stop raising it, only <c>Content.IntegrationTests/Tests/_Omu/LateJoinTest.cs</c> will notice.
+    /// </remarks>
     public sealed class RefreshLateJoinAllowedEvent
     {
         public bool DisallowLateJoin { get; private set; } = false;
@@ -1048,6 +1021,8 @@ namespace Content.Server.GameTicking
 
     /// <summary>
     ///     Event raised to allow subscribers to add text to the round end summary screen.
+    ///     For per-player structured data, use
+    ///     <see cref="Content.Shared.GameTicking.RoundEndPlayerInfoEvent"/> instead.
     /// </summary>
     public sealed class RoundEndTextAppendEvent
     {
