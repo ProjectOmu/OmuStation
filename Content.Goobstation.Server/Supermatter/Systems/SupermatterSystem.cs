@@ -168,11 +168,11 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         //Omu begin - increment the time since hazard gas
         if (sm.HazardGas)
         {
-            sm.TimesinceHazardGas += 0.1f;
-            if (sm.TimesinceHazardGas >= 1f) //Should last roughly like... 10 seconds without constant zaps
+            sm.TimeSinceHazardGas += 0.1f;
+            if (sm.TimeSinceHazardGas >= 1f) //Should last roughly like... 10 seconds without constant zaps
             {
                 sm.HazardGas = false;
-                sm.TimesinceHazardGas = 0f;
+                sm.TimeSinceHazardGas = 0f;
                 _achat.SendAdminAlert($"Hazardardous gas production turned off at time {_gameTiming.CurTime.TotalMinutes}");
             }
         }
@@ -747,7 +747,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                         if (!sm.Varlocked)
                             sm.RadiationOutputFactor += 0.05f;
                         sm.HazardGas = true;
-                        sm.TimesinceHazardGas = 0f;
+                        sm.TimeSinceHazardGas = 0f;
                         sm.RadiationOutputFactorChanged = true;
                         _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
                         $"SUPERMATTER hit by emissive bolt AT {Transform(uid).Coordinates}");
