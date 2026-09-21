@@ -17,7 +17,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Omu.StationEvents.Events;
 
-public sealed partial class LightsOutRule : StationEventSystem<LightsOutRuleComponent>
+public sealed partial class LightsOutMajorRule : StationEventSystem<LightsOutMajorRuleComponent>
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
@@ -27,7 +27,7 @@ public sealed partial class LightsOutRule : StationEventSystem<LightsOutRuleComp
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
-    protected override void Started(EntityUid uid, LightsOutRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
+    protected override void Started(EntityUid uid, LightsOutMajorRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
 
@@ -69,7 +69,7 @@ public sealed partial class LightsOutRule : StationEventSystem<LightsOutRuleComp
         );
     }
 
-    protected override void ActiveTick(EntityUid uid, LightsOutRuleComponent component, GameRuleComponent gameRule, float frameTime)
+    protected override void ActiveTick(EntityUid uid, LightsOutMajorRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
         base.ActiveTick(uid, component, gameRule, frameTime);
 

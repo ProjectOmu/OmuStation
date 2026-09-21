@@ -1,9 +1,9 @@
 - type: entity
   parent: BaseStationEvent
-  id: LightsOut
-  name: Lights Out
+  id: LightsOutMajor
+  name: Lights Out (Major)
   components:
-  - type: LightsOutRule
+  - type: LightsOutMajorRule
   - type: StationEvent
     earliestStart: 15
     weight: 6.5

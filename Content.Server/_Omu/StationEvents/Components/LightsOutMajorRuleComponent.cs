@@ -8,8 +8,8 @@ namespace Content.Server._Omu.StationEvents.Components;
 /// <summary>
 /// This event announces a temporary power surge and then smashes many of the powered light sources on the station
 /// </summary>
-[RegisterComponent, Access(typeof(Events.LightsOutRule))]
-public sealed partial class LightsOutRuleComponent : Component
+[RegisterComponent, Access(typeof(Events.LightsOutMajorRule))]
+public sealed partial class LightsOutMajorRuleComponent : Component
 {
     /// <summary>
     /// When the actual smashing of lights should start
