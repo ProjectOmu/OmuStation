@@ -1,4 +1,5 @@
 using Content.Server.StationEvents.Events;
+using Content.Shared.Damage;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -21,6 +22,11 @@ public sealed partial class LightsOutRuleComponent : Component
     /// </summary>
     [DataField]
     public float DamageProbability = 0.25f;
+
+    /// <summary>
+    /// The damage to deal to the lights
+    /// </summary>
+    public DamageSpecifier Damage;
 
     /// <summary>
     /// The selection of potential targets: Poweredlights that are on-station and powered

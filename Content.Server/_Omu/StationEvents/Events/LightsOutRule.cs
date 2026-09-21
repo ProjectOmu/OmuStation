@@ -34,6 +34,8 @@ public sealed partial class LightsOutRule : StationEventSystem<LightsOutRuleComp
         // let the smashing start 5 seconds after the announcement goes out
         component.SmashingTime = _timing.CurTime + TimeSpan.FromSeconds(5);
 
+        component.Damage = new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), 5);
+
         // i assume there is a station, and that the station the players are on is the first in the list
         var station = _station.GetStations()[0];
 
@@ -86,14 +88,13 @@ public sealed partial class LightsOutRule : StationEventSystem<LightsOutRuleComp
         }
         else
         {
-            var damage = new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), 5);
             // now, the destruction, one light at a time
             if (component.TargetIndex < component.TargetListLength)
             {
                 if (_random.Prob(component.DamageProbability))
                     _damageable.TryChangeDamage(
                         component.Targets[component.TargetIndex],
-                        damage,
+                        component.Damage,
                         true
                     );
                 component.TargetIndex++;
