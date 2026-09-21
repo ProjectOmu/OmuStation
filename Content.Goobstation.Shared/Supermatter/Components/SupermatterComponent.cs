@@ -487,6 +487,7 @@ public sealed partial class SupermatterComponent : Component
     public bool HazardGas = false;
 
     [DataField]
+    [ViewVariables(VVAccess.ReadOnly)]
     public float TimesinceHazardGas = 0f;
 
 }
