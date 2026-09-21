@@ -56,7 +56,7 @@
     sprite: _Omu/Clothing/OuterClothing/Bio/cmo.rsi # Omu
 
 - type: entity
-  parent: [ClothingOuterBioGeneral, AllowSuitStorageClothingGasTanksMop]
+  parent: ClothingOuterBioGeneral
   id: ClothingOuterBioJanitor
   name: bio suit
   suffix: Janitor
@@ -70,6 +70,15 @@
     modifiers:
       coefficients:
         Caustic: 0.4
+  # Omu start
+  - type: AllowSuitStorage
+    whitelist:
+      components:
+      - GasTank
+      - XenoVacuumTank # Goobstation
+      tags:
+      - Mop
+  # Omu end
 
 - type: entity
   parent: ClothingOuterBioGeneral
@@ -110,6 +119,19 @@
         Piercing: 0.7
         Heat: 0.8
         Caustic: 0.2
+      # Omu start
+      flatReductions:
+        Slash: 1
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
+  - type: DiseaseProtection
+    incoming:
+      powerModifiers:
+        Blood: -1
+      chanceMultipliers:
+        Blood: 0.5
+  # Omu end
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.4
   - type: GroupExamine
