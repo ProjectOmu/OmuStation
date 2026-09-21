@@ -13,7 +13,6 @@
     sprite: _Omu/Clothing/Head/Hoods/Bio/general.rsi # Omu
   - type: BreathMask
   - type: IngestionBlocker
-  - type: IdentityBlocker # Omu
   - type: GroupExamine
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.9
@@ -54,7 +53,7 @@
   suffix: CMO
   description: An advanced hood for chief medical officers that protects the head and face from biological contaminants.
   components:
-  #- type: IdentityBlocker # Omu
+  - type: IdentityBlocker
   - type: Sprite
     sprite: _Omu/Clothing/Head/Hoods/Bio/cmo.rsi # Omu
   - type: Clothing
@@ -69,7 +68,7 @@
   suffix: Janitor
   description: A hood that protects the head and face from biological contaminants.
   components:
-  #- type: IdentityBlocker # Omu
+  - type: IdentityBlocker
   - type: Sprite
     sprite: _Omu/Clothing/Head/Hoods/Bio/janitor.rsi # Omu
   - type: Clothing
@@ -82,7 +81,7 @@
   suffix: Science
   description: A hood that protects the head and face from biological contaminants.
   components:
-  #- type: IdentityBlocker # Omu
+  - type: IdentityBlocker
   - type: Sprite
     sprite: _Omu/Clothing/Head/Hoods/Bio/scientist.rsi # Omu
   - type: Clothing
@@ -95,7 +94,7 @@
   suffix: Security
   description: A hood that protects the head and face from biological contaminants.
   components:
-  #- type: IdentityBlocker # Omu
+  - type: IdentityBlocker
   - type: Sprite
     sprite: _Omu/Clothing/Head/Hoods/Bio/security.rsi # Omu
   - type: Clothing
@@ -118,7 +117,7 @@
   suffix: Virology
   description: A hood that strongly protects the head and face from biological contaminants.
   components:
-  #- type: IdentityBlocker # Omu
+  - type: IdentityBlocker
   - type: Sprite
     sprite: _Omu/Clothing/Head/Hoods/Bio/virology.rsi # Omu
   - type: Clothing
