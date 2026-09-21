@@ -483,6 +483,7 @@ public sealed partial class SupermatterComponent : Component
     public bool GasEfficiencyFactorChanged = false;
 
     [DataField]
+    [ViewVariables(VVAccess.ReadOnly)]
     public bool HazardGas = false;
 
     [DataField]

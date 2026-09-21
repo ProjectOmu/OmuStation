@@ -166,7 +166,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         }
 
         //Omu begin - increment the time since hazard gas
-        if (sm.HazardGas == true)
+        if (sm.HazardGas)
         {
             sm.TimesinceHazardGas += 0.1f;
             if (sm.TimesinceHazardGas >= 1f) //Should last roughly like... 10 seconds without constant zaps
@@ -721,7 +721,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                         _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
                         $"SUPERMATTER hit by healing bolt AT {Transform(uid).Coordinates}");
                         QueueDel(target);
-                        return;
+                        break;
                     }
                 case "EmitterBoltElectroBehavioural":
                     {
@@ -730,7 +730,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                         _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
                         $"SUPERMATTER hit by harming bolt AT {Transform(uid).Coordinates}");
                         QueueDel(target);
-                        return;
+                        break;
                     }
                 case "EmitterBoltExcitatory":
                     {
@@ -739,28 +739,28 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                         _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
                         $"SUPERMATTER hit by angering bolt AT {Transform(uid).Coordinates}");
                         QueueDel(target);
-                        return;
+                        break;
                     }
                 case "EmitterBoltEmissive":
                     {
                         sm.Damage += 1f;
                         if (!sm.Varlocked)
-                        sm.RadiationOutputFactor += 0.05f;
+                            sm.RadiationOutputFactor += 0.05f;
                         sm.HazardGas = true;
                         sm.TimesinceHazardGas = 0f;
                         sm.RadiationOutputFactorChanged = true;
                         _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
                         $"SUPERMATTER hit by emissive bolt AT {Transform(uid).Coordinates}");
                         QueueDel(target);
-                        return;
+                        break;
                     }
                 case "EmitterBolt":
                     {
                         sm.Power += 20f;
-                        return;
+                        break;
                     }
                 default:
-                    return;
+                    break;
             }
         }
         //omu end
