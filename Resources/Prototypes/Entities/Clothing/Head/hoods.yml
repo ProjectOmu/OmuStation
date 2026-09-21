@@ -8,9 +8,9 @@
   description: A hood that protects the head and face from biological contaminants.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/general.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/general.rsi # Omu
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/general.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/general.rsi # Omu
   - type: BreathMask
   - type: IngestionBlocker
   - type: GroupExamine
@@ -55,9 +55,9 @@
   components:
   - type: IdentityBlocker
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/cmo.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/cmo.rsi # Omu
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/cmo.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/cmo.rsi # Omu
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.8
 
@@ -70,9 +70,9 @@
   components:
   - type: IdentityBlocker
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/janitor.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/janitor.rsi # Omu
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/janitor.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/janitor.rsi # Omu
 
 - type: entity
   parent: ClothingHeadHatHoodBioGeneral
@@ -83,9 +83,9 @@
   components:
   - type: IdentityBlocker
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/scientist.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/scientist.rsi # Omu
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/scientist.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/scientist.rsi # Omu
 
 - type: entity
   parent: ClothingHeadHatHoodBioGeneral
@@ -96,9 +96,9 @@
   components:
   - type: IdentityBlocker
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/security.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/security.rsi # Omu
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/security.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/security.rsi # Omu
   - type: Armor # Goob
     coverage:
     - Head
@@ -119,9 +119,9 @@
   components:
   - type: IdentityBlocker
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/virology.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/virology.rsi # Omu
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/virology.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/virology.rsi # Omu
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.8
 
