@@ -7848,3 +7848,21 @@ Entries:
       message: Resprited every bio suit, bio hood, and their associated lockers.
   id: 1019
   time: '2026-09-21T16:53:55.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Fix
+      message: The janitor bio-suit can now hold gas tanks again.
+    - type: Fix
+      message: All bio-suit hoods now properly block identity.
+    - type: Fix
+      message: >-
+        The security bio-suit now properly protects against mouse bites and
+        diseases.
+  id: 1020
+  time: '2026-09-21T22:29:25.0000000+00:00'
+- author: Petraea
+  changes:
+    - type: Fix
+      message: Fixed incorrect name of Super Salvage Equipment research
+  id: 1021
+  time: '2026-09-21T22:44:37.0000000+00:00'
