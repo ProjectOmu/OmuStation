@@ -3,6 +3,7 @@
 using Content.Omu.Common.Chat;
 using Content.Omu.Shared.Traits;
 using Content.Server.Chat.Systems;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Damage;
@@ -84,7 +85,7 @@ public sealed class DamagedThroatSystem : SharedDamagedThroatSystem
         var multiplier = 1f + Math.Min(ent.Comp.Escalation, ent.Comp.MaxEscalation);
         ent.Comp.Escalation++;
 
-        _damageable.TryChangeDamage(ent.Owner, ent.Comp.Damage * multiplier, interruptsDoAfters: false);
+        _damageable.TryChangeDamage(ent.Owner, ent.Comp.Damage * multiplier, interruptsDoAfters: false, targetPart: TargetBodyPart.Chest, canMiss: false);
 
         ent.Comp.NextCoughAt = now + _random.Next(ent.Comp.MinCoughDelay, ent.Comp.MaxCoughDelay);
     }
