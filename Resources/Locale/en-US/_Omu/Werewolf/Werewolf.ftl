@@ -11,6 +11,7 @@ WerewolfTimeNotRight = The time is not yet right, you cannot change form just ye
 
 WerewolfDevouredDesc = They have been viciously mauled, a huge cavity remains in there chest.
 WerewolfDevouredAction = You start mauling {$ent}
+WerewolfDevouredActionDone = You have finished your feast
 
 admin-verb-text-make-werewolf = Make Werewolf
 admin-verb-make-werewolf = Make the target into a furry

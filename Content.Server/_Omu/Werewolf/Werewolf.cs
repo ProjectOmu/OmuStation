@@ -222,8 +222,9 @@ public sealed class WerewolfSystem : EntitySystem
                     QueueDel(heart.Owner);
                     component.Hearts += 1;
                 }
-                EnsureComp<WerewolfDevouredComponent>(victim);
             }
+
+        EnsureComp<WerewolfDevouredComponent>(victim);
 
         var doAfterArgs = new DoAfterArgs(
             EntityManager,
@@ -261,7 +262,7 @@ public sealed class WerewolfSystem : EntitySystem
                 EnsureComp<WerewolfDevouredComponent>(victim.Value);
             }
 
-        _popup.PopupEntity(Loc.GetString("WerewolfDevouredAction", ("ent", MetaData(victim.Value).EntityName)), uid, uid);
+        _popup.PopupEntity(Loc.GetString("WerewolfDevouredActionDone", ("ent", MetaData(victim.Value).EntityName)), uid, uid);
 
         if (_mind.TryGetMind(uid, out var mindId, out var mind))
         {

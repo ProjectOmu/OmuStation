@@ -19,7 +19,7 @@ public sealed class WerewolfDevouredSystem : EntitySystem
 
     private void OnStateChanged(EntityUid uid, WerewolfDevouredComponent comp, MobStateChangedEvent args)
     {
-        if (args.NewMobState != MobState.Dead || !TerminatingOrDeleted(uid))
+        if (args.NewMobState != MobState.Critical || args.NewMobState != MobState.Dead || !TerminatingOrDeleted(uid))
         {
             RemComp<WerewolfDevouredComponent>(uid);
         }
