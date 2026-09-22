@@ -17,6 +17,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.DoAfter;
 using Content.Shared.Devour.Components;
+using Content.Shared.CombatMode.Pacification;
 
 namespace Content.Server.Omu.Werewolf;
 
@@ -103,6 +104,7 @@ public sealed class WerewolfSystem : EntitySystem
         _actionsSystem.AddAction(uid, component.ShapeshiftAction);
         _actionsSystem.AddAction(uid, component.RevertAction);
         _actionsSystem.AddAction(uid, component.DevourAction);
+        EnsureComp<PacifiedComponent>(uid);
     }
 
     private void OnShapeshift(EntityUid uid, WerewolfComponent component, EventWerewolfShiftBasic args)
@@ -174,6 +176,7 @@ public sealed class WerewolfSystem : EntitySystem
 
         werewolf.Wolfin = false;
         werewolf.Hearts = component.Hearts;
+        EnsureComp<PacifiedComponent>(newent.Value);
     }
 
     private void OnDevour(EntityUid uid, WerewolfComponent component, EventWerewolfDevour args)
