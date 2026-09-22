@@ -212,3 +212,84 @@
     wideAnimationRotation: 180
     soundHit:
       collection: VulpkaninSnarls
+
+- type: entity
+  parent: BasePlushie
+  id: BaseAllulaloPlushie # @ screams
+  components:
+  - type: TileFrictionModifier
+    modifier: 0.005  
+
+- type: entity
+  parent: BaseAllulaloPlushie
+  id: PlushieBenryOmuCrew
+  name: Benry Benry plushie
+  description: A plushie of a stupid Allulalo, known for being heavily abused by crew members. Throw it at the nearest wall!
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/benry.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/benry.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/benry.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound: /Audio/_Impstation/Allulalo/allulalo_scream.ogg
+  - type: EmitSoundOnUse
+    sound:
+      collection: AllulaloAwebo
+  - type: EmitSoundOnActivate
+    sound:
+      collection: AllulaloAwebo
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: AllulaloAwebo
+  - type: EmitSoundOnThrow
+    sound: /Audio/_Impstation/Allulalo/allulalo_scream.ogg
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit: /Audio/_Impstation/Allulalo/allulalo_scream.ogg
+
+- type: entity
+  parent: BaseAllulaloPlushie
+  id: PlushieQuellinOmuCrew
+  name: Quellin Loba-Kuin plushie
+  description: A plushie of a spunky Allulalo, You feel like you shouldn't pick up the spicy chicken.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/quellin.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/quellin.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/quellin.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound: /Audio/_Impstation/Allulalo/allulalo_scream.ogg
+  - type: EmitSoundOnUse
+    sound:
+      collection: AllulaloAwebo
+  - type: EmitSoundOnActivate
+    sound:
+      collection: AllulaloAwebo
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: AllulaloAwebo
+  - type: EmitSoundOnThrow
+    sound: /Audio/_Impstation/Allulalo/allulalo_scream.ogg
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit: /Audio/_Impstation/Allulalo/allulalo_scream.ogg
