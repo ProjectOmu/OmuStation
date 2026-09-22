@@ -21,3 +21,8 @@ public sealed partial class EventWerewolfDevour : EntityTargetActionEvent
 
 [Serializable, NetSerializable]
 public sealed partial class WerewolfDevourDoAfterEvent : SimpleDoAfterEvent;
+
+public sealed class WerewolfShiftArgs : EntityEventArgs
+{
+    public TimeSpan Duration;
+}

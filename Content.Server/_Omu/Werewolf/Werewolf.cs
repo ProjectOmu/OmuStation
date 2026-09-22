@@ -24,6 +24,14 @@ namespace Content.Server.Omu.Werewolf;
 public sealed partial class WerewolfComponent : Component
 {
     [DataField]
+    public bool CanShift = false;
+
+    [DataField]
+    public TimeSpan ShiftTime = TimeSpan.FromMinutes(5);
+    [DataField]
+    public TimeSpan? LastShift;
+
+    [DataField]
     public string ShapeshiftAction = "ActionWerewolfShift";
 
     [DataField]
@@ -74,6 +82,19 @@ public sealed class WerewolfSystem : EntitySystem
         SubscribeLocalEvent<WerewolfComponent, EventWerewolfRevert>(OnRevert);
         SubscribeLocalEvent<WerewolfComponent, EventWerewolfDevour>(OnDevour);
         SubscribeLocalEvent<WerewolfComponent, WerewolfDevourDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<WerewolfComponent, WerewolfShiftArgs>(OnReadyShift);
+    }
+
+    public void Update(EntityUid uid, WerewolfComponent component)
+    {
+        if (component.LastShift is not null && component.CanShift)
+        {
+            if (component.LastShift + component.ShiftTime >= _gameTiming.CurTime)
+            {
+                _popup.PopupEntity(Loc.GetString("werewolf-missed-shift"), uid, uid);
+                component.CanShift = false;
+            }
+        }
     }
 
     private void OnStartup(EntityUid uid, WerewolfComponent component, ComponentStartup args)
@@ -117,6 +138,7 @@ public sealed class WerewolfSystem : EntitySystem
         _body.GibBody(entityToGib);
 
         Roar(uid, component);       //AWOOOO
+        component.CanShift = false;
 
         string message = Loc.GetString("WerewolfTransform", ("ent", MetaData(uid).EntityName));
 
@@ -232,5 +254,12 @@ public sealed class WerewolfSystem : EntitySystem
     {
         if (comp.Awoo != null)
             _audio.PlayPvs(comp.Awoo, uid);
+    }
+
+    private void OnReadyShift(EntityUid uid, WerewolfComponent component, WerewolfShiftArgs args)
+    {
+        component.CanShift = true;
+        component.LastShift = _gameTiming.CurTime;
+
     }
 }

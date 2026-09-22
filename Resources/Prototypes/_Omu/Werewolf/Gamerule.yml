@@ -1,0 +1,46 @@
+- type: entity
+  parent: BaseGameRule
+  id: OopsAllTraitors
+  components:
+  - type: GameRule
+    minPlayers: 30
+    chaosScore: 700
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Werewolf ]
+      max: 1
+      playerRatio: 25
+      blacklist:
+        components:
+        - AntagImmune
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleWerewolf
+  - type: WerewolfRule
+
+- type: antag
+  id: Werewolf
+  name: roles-antag-werewolf-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-werewolf-objective
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 36000 # 10 hours
+  guides: [ Werewolves ]
+
+- type: guideEntry
+  id: Werewolves
+  name: guide-entry-werewolves
+  text: "/ServerInfo/_Omu/Guidebook/Antagonist/Werewolf.xml"
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleWerewolf
+  name: Werewolf Role
+  components:
+  - type: MindRole
+    antagPrototype: Werewolf
+    roleType: SoloAntagonist
+    subtype: roles-antag-werewolf-name
+  - type: MindRoleWerewolf
