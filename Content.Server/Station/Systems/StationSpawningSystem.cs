@@ -17,7 +17,7 @@ using Content.Shared.NameIdentifier;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
-using Content.Shared._Omu.Roles; // Omu
+using Content.Shared._Omu.Roles;
 using Content.Shared.Roles;
 using Content.Shared.Station;
 using JetBrains.Annotations;

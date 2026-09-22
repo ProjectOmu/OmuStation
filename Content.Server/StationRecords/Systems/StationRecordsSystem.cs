@@ -8,7 +8,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
-using Content.Shared._Omu.Roles; // Omu
+using Content.Shared._Omu.Roles;
 using Content.Shared.Roles;
 using Content.Shared.StationRecords;
 using Robust.Shared.Enums;
