@@ -33,7 +33,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Player;
+using Robust.Shared.Player; // Omu - gun prediction port: ICommonSession, for the shooter's session
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
@@ -342,7 +342,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
     private bool AttemptShoot(EntityUid user, Entity<GunComponent> gun)
     {
-        return AttemptShoot(user, gun, null, null) != null;
+        return AttemptShoot(user, gun, null, null) != null; // Omu - gun prediction port: the core now returns what it spawned; null means no shot
     }
 
     // Omu start - gun prediction port (Phase 2).
@@ -375,13 +375,13 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (gun.Comp.FireRateModified <= 0f ||
             !_actionBlockerSystem.CanAttack(user))
         {
-            return null;
+            return null; // Omu - gun prediction port: was false; null means no shot
         }
 
         var toCoordinates = gun.Comp.ShootCoordinates;
 
         if (toCoordinates == null)
-            return null;
+            return null; // Omu - gun prediction port: was false; null means no shot
 
         var curTime = Timing.CurTime;
 
@@ -393,16 +393,16 @@ public abstract partial class SharedGunSystem : EntitySystem
         };
         RaiseLocalEvent(gun, ref prevention);
         if (prevention.Cancelled)
-            return null;
+            return null; // Omu - gun prediction port: was false; null means no shot
 
         RaiseLocalEvent(user, ref prevention);
         if (prevention.Cancelled)
-            return null;
+            return null; // Omu - gun prediction port: was false; null means no shot
 
         // Need to do this to play the clicking sound for empty automatic weapons
         // but not play anything for burst fire.
         if (gun.Comp.NextFire > curTime)
-            return null;
+            return null; // Omu - gun prediction port: was false; null means no shot
 
         var fireRate = TimeSpan.FromSeconds(1f / gun.Comp.FireRateModified);
 
@@ -467,7 +467,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             gun.Comp.BurstActivated = false;
             gun.Comp.BurstShotsCount = 0;
             gun.Comp.NextFire = TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.Comp.NextFire.TotalSeconds));
-            return null;
+            return null; // Omu - gun prediction port: was false; null means no shot
         }
 
         var fromCoordinates = Transform(user).Coordinates;
@@ -497,7 +497,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             if (isRechargingGun)
             {
                 gun.Comp.NextFire = lastFire; // for empty PKAs, don't play no-ammo sound and don't trigger the reload
-                return null;
+                return null; // Omu - gun prediction port: was false; null means no shot
             }
 
             if (!gun.Comp.LockOnTargetBurst || gun.Comp.ShootCoordinates == null) // Goobstation
@@ -517,10 +517,10 @@ public abstract partial class SharedGunSystem : EntitySystem
                 // May cause prediction issues? Needs more tweaking
                 gun.Comp.NextFire = TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.Comp.NextFire.TotalSeconds));
                 Audio.PlayPredicted(gun.Comp.SoundEmpty, gun, user);
-                return null;
+                return null; // Omu - gun prediction port: was false; null means no shot
             }
 
-            return null;
+            return null; // Omu - gun prediction port: was false; null means no shot
         }
 
         // Handle burstfire
@@ -571,7 +571,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         RaiseLocalEvent(user, shotBodyEv); // Shitmed Change
 
         if (!userImpulse || !TryComp<PhysicsComponent>(user, out var userPhysics))
-            return shotProjectiles;
+            return shotProjectiles; // Omu - gun prediction port: was true; now the list of what was spawned
 
         var shooterEv = new ShooterImpulseEvent();
         RaiseLocalEvent(user, ref shooterEv);
@@ -580,7 +580,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             CauseImpulse(fromCoordinates, toCoordinates.Value, (user, userPhysics));
 
         UpdateAmmoCount(gun); //GoobStation - Multishot
-        return shotProjectiles;
+        return shotProjectiles; // Omu - gun prediction port: was true; now the list of what was spawned
     }
 
     public void Shoot(

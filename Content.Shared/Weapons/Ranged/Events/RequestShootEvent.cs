@@ -2,7 +2,7 @@
 
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
-using Robust.Shared.Timing;
+using Robust.Shared.Timing; // Omu - gun prediction port: GameTick, for LastRealTick
 
 namespace Content.Shared.Weapons.Ranged.Events;
 
