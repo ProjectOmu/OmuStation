@@ -51,6 +51,7 @@ using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Shared._RMC14.CCVar;
 using Content.Server._Mono.Chat;
+using Content.Shared.Popups;
 
 // Goob start - the blind dont see
 using Content.Shared.Eye.Blinding.Components;
@@ -86,6 +87,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ScryingOrbSystem _scrying = default!; // Goobstation Change
     [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!; // Goobstation - Starlight collective mind port
     [Dependency] private readonly LanguageSystem _language = default!; // Einstein Engines - Language
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
@@ -844,6 +846,9 @@ public sealed partial class ChatSystem : SharedChatSystem
                 !recipients.Contains(listener) &&
                 !HasComp<GhostComponent>(listener))
                 continue;
+
+            if (listener != source)
+                _popup.PopupEntity(perceivedMessage, listener, listener);       //Omu make borer speech far more obvious
 
             var wrappedMessage = WrapWhisperMessage(source, "chat-manager-entity-whisper-wrap-message", name, perceivedMessage, language);
             _chatManager.ChatMessageToOne(ChatChannel.CollectiveMind, message, wrappedMessage, source, false, session.Channel);
