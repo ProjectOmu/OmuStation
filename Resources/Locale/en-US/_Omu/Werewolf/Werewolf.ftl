@@ -24,3 +24,5 @@ werewolf-role-greeting =
     You have hidden your nature for long enough, deep in space, you can let your inner self out without fear!
     Show them all why they should fear the stars!
     No-one can stop you now.
+
+objective-issuer-mansus-wolf = The wolf divided

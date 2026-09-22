@@ -28,11 +28,15 @@ public sealed class WerewolfRuleSystem : GameRuleSystem<WerewolfRuleComponent>
     private readonly EntProtoId _mindRole = "MindRoleWerewolf";
     private readonly SoundSpecifier _briefingSound = new SoundPathSpecifier("/Audio/Animals/space_dragon_roar.ogg");
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<WerewolfRuleComponent, AfterAntagEntitySelectedEvent>(OnSelectAntag);
+    }
     protected override void Started(EntityUid uid, WerewolfRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
-        SubscribeLocalEvent<WerewolfRuleComponent, AfterAntagEntitySelectedEvent>(OnSelectAntag);
         base.Started(uid, component, gameRule, args);
-
         component.NextShiftTime = component.TimeBetweenShifts;
     }
     protected override void ActiveTick(EntityUid uid, WerewolfRuleComponent component, GameRuleComponent gameRule, float frameTime)
@@ -66,7 +70,7 @@ public sealed class WerewolfRuleSystem : GameRuleSystem<WerewolfRuleComponent>
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
-        _role.MindAddRole(mindId, _mindRole, mind, true);
+        //_role.MindAddRole(mindId, _mindRole, mind, true);
 
         var briefing = Loc.GetString("werewolf-role-greeting");
 

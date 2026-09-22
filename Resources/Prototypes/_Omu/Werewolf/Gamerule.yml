@@ -17,6 +17,10 @@
       mindRoles:
       - MindRoleWerewolf
   - type: WerewolfRule
+  - type: AntagObjectives
+    objectives:
+    - WerewolfDevourObjective
+    - EscapeIdentityObjective
 
 - type: antag
   id: Werewolf

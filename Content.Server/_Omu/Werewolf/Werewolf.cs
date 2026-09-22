@@ -20,6 +20,8 @@ using Content.Shared.Devour.Components;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Roles.Components;
 using Content.Goobstation.Shared.Religion;
+using Content.Shared.Mind;
+using Content.Server._Omu.Werewolf;
 
 namespace Content.Server.Omu.Werewolf;
 
@@ -74,6 +76,7 @@ public sealed class WerewolfSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
 
     public override void Initialize()
     {
@@ -258,6 +261,12 @@ public sealed class WerewolfSystem : EntitySystem
             }
 
         _popup.PopupEntity(Loc.GetString("WerewolfDevouredAction", ("ent", MetaData(victim.Value).EntityName)), uid, uid);
+
+        if (_mind.TryGetMind(uid, out var mindId, out var mind))
+        {
+            if (_mind.TryGetObjectiveComp<DevourHeartsComponent>(mindId, out var devourObj, mind))
+                devourObj.Devoured += 1;
+        }
 
         Roar(uid, component);
     }
