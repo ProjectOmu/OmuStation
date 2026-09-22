@@ -371,7 +371,9 @@ public sealed partial class GunSystem : SharedGunSystem
     ///     client-side copies the shooter already drew. Null for shots nobody is predicting.
     ///     A thrown item is deliberately not recorded: it takes the <c>TryThrow</c> path below, has no
     ///     <c>ProjectileComponent</c>, and so has no predicted counterpart to pair with - recording it
-    ///     would shift every later index by one.
+    ///     would shift every later index by one. An embeddable projectile (arrow, harpoon, syringe
+    ///     dart) is not recorded either, for the reason given where it is skipped below; the client
+    ///     skips it at the same point, so the indices still line up.
     /// </param>
     private void ShootOrThrow(EntityUid uid, Vector2 mapDirection, Vector2 gunVelocity, Entity<GunComponent> gun, EntityUid? user,
         Vector2? targetCoordinates = null, // Goobstation
@@ -395,7 +397,13 @@ public sealed partial class GunSystem : SharedGunSystem
         projectileComp.Damage *= gun.Comp.DamageModifier; // Omu
         ShootProjectile(uid, mapDirection, gunVelocity, gun, user, gun.Comp.ProjectileSpeedModified,
         targetCoordinates); // Goobstation
-        spawnedProjectiles?.Add(uid); // Omu - gun prediction port (Phase 2)
+        // Omu - gun prediction port (Phase 2). Embeddable projectiles (arrows, harpoons, syringe
+        // darts) are not recorded, mirroring the client's ShootPredicted: pairing hides the real
+        // projectile from its shooter until it is deleted, and one that embeds or lands is never
+        // deleted, so it would stay invisible to them. Both sides must skip the same entries or every
+        // later id in the shot would pair with the wrong projectile.
+        if (!HasComp<EmbeddableProjectileComponent>(uid))
+            spawnedProjectiles?.Add(uid);
     }
 
     /// <summary>

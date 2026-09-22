@@ -533,7 +533,13 @@ public sealed partial class GunSystem : SharedGunSystem
         // Not a projectile, so on the server this would be thrown rather than shot. Throwing is not
         // predicted here and a thrown item is not recorded in spawnedProjectiles either, so there is
         // nothing to pair and the copy would only be a duplicate item on screen.
-        if (!HasComp<ProjectileComponent>(first))
+        //
+        // Omu - embeddable projectiles (arrows, harpoons, syringe darts) are excluded for the same
+        // reason, mirrored in the server's ShootOrThrow. The real one embeds or lands and stays in the
+        // world, and a paired server projectile is hidden from its shooter until it is deleted - so an
+        // embedded arrow would stay invisible to whoever fired it, and this copy, which embeds too,
+        // would never be retired and would linger on their screen as an untouchable phantom.
+        if (!HasComp<ProjectileComponent>(first) || HasComp<EmbeddableProjectileComponent>(first))
         {
             Del(first);
             return;

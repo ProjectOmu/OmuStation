@@ -363,7 +363,9 @@ public abstract partial class SharedGunSystem : EntitySystem
     /// several shots (burst and full-auto both loop), and the prediction layer has to pair each
     /// spawned projectile with the client id at the same index. A null return and an empty list mean
     /// different things: null is "no shot", empty is "a shot happened but spawned no projectile"
-    /// (hitscan, a thrown item, an empty click that still consumed the trigger).
+    /// (hitscan, a thrown item, an empty click that still consumed the trigger). The list holds only
+    /// what prediction can pair, so an embeddable projectile - an arrow, a harpoon - is fired but not
+    /// listed.
     /// </remarks>
     public List<EntityUid>? AttemptShoot(
         EntityUid user,

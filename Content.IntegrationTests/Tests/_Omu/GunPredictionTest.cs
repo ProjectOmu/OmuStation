@@ -46,6 +46,7 @@ public sealed class GunPredictionTest
     private const string Bullet = "OmuGunPredTestBullet";
     private const string Wall = "OmuGunPredTestWall";
     private const string CoveredTarget = "OmuGunPredTestCoveredTarget";
+    private const string Bow = "OmuGunPredTestBow";
 
     /// <summary>Damage of a single <see cref="Bullet"/>, per its prototype below.</summary>
     private const float BulletDamage = 5f;
@@ -159,6 +160,24 @@ public sealed class GunPredictionTest
         - WallLayer
         mask:
         - WallLayer
+
+- type: entity
+  id: OmuGunPredTestArrow
+  parent: OmuGunPredTestBullet
+  components:
+  # Stands in for arrows, harpoons and syringe darts: anything that embeds or lands and stays in the
+  # world rather than being deleted on hit.
+  - type: EmbeddableProjectile
+    embedOnThrow: false
+
+- type: entity
+  id: OmuGunPredTestBow
+  parent: OmuGunPredTestGun
+  components:
+  - type: BasicEntityAmmoProvider
+    proto: OmuGunPredTestArrow
+    capacity: 20
+    count: 20
 
 - type: entity
   id: OmuGunPredTestGun
@@ -535,6 +554,83 @@ public sealed class GunPredictionTest
                 "The server refused a hit that was unobstructed from where the shooter saw the target. " +
                 "Line of sight is being tested against the live position while acceptance uses the " +
                 "rewound one - the two halves of the adjudication disagree."));
+
+        await pair.CleanReturnAsync();
+    }
+
+    /// <summary>
+    /// A projectile that embeds must never be paired for prediction.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Pairing hides the real projectile from its shooter, and only a paired projectile being deleted
+    /// shows it again. A bullet is deleted on hit, so that is fine. An arrow embeds in its target, or
+    /// lands, and stays in the world - so a paired arrow stayed invisible to whoever fired it, while
+    /// the client's own copy, which embeds too, was never retired and lingered as a phantom. This is
+    /// the failure bows and syringe guns historically hit after RMC-style prediction was added.
+    /// </para>
+    /// <para>
+    /// The control half fires an ordinary bullet in the same test and requires it to be paired, so
+    /// this cannot pass merely because pairing is broken for everything.
+    /// </para>
+    /// </remarks>
+    [Test]
+    public async Task EmbeddableProjectilesAreNotPaired()
+    {
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings
+        {
+            Connected = true,
+            Dirty = true,
+        });
+
+        var server = pair.Server;
+        var entMan = server.ResolveDependency<IEntityManager>();
+        var cfg = server.ResolveDependency<IConfigurationManager>();
+        var mapSys = entMan.System<SharedMapSystem>();
+        var gunSys = entMan.System<GunSystem>();
+
+        await server.WaitPost(() => cfg.SetCVar(OmuCVars.GunPrediction, true));
+
+        List<EntityUid>? fired = null;
+        await server.WaitPost(() =>
+        {
+            var mapUid = mapSys.CreateMap(out var mapId);
+            var shooter = entMan.SpawnEntity(Shooter, new MapCoordinates(Vector2.Zero, mapId));
+            var bow = entMan.SpawnEntity(Bow, new MapCoordinates(Vector2.Zero, mapId));
+            server.PlayerMan.SetAttachedEntity(pair.Player!, shooter);
+
+            var gunComp = entMan.GetComponent<GunComponent>(bow);
+            gunComp.ShootCoordinates = new EntityCoordinates(mapUid, new Vector2(5f, 0f));
+            fired = gunSys.AttemptShoot(shooter, (bow, gunComp), new List<int> { 930 }, pair.Player);
+        });
+
+        await pair.RunTicksSync(1);
+
+        await server.WaitAssertion(() =>
+        {
+            Assert.That(fired, Is.Not.Null, "The bow did not fire at all, so this test proves nothing.");
+
+            var arrows = new List<EntityUid>();
+            var query = entMan.EntityQueryEnumerator<EmbeddableProjectileComponent, ProjectileComponent>();
+            while (query.MoveNext(out var uid, out _, out _))
+            {
+                arrows.Add(uid);
+            }
+
+            Assert.That(arrows, Is.Not.Empty, "No arrow is in flight, so this test proves nothing.");
+            Assert.That(arrows.Where(x => entMan.HasComponent<PredictedProjectileServerComponent>(x)), Is.Empty,
+                "An embeddable projectile was paired for prediction. Its shooter would never see it again " +
+                "once it embedded or landed.");
+            Assert.That(fired, Is.Empty,
+                "AttemptShoot listed an embeddable projectile. The client never reports an id for one, so " +
+                "listing it here would misalign every later projectile in the shot.");
+        });
+
+        // Control: an ordinary bullet in the same conditions must still be paired.
+        var bullets = await FireOnce(pair, new List<int> { 931 });
+        await server.WaitAssertion(() =>
+            Assert.That(bullets.Where(x => entMan.HasComponent<PredictedProjectileServerComponent>(x)), Is.Not.Empty,
+                "An ordinary bullet was not paired either, so the check above proves nothing."));
 
         await pair.CleanReturnAsync();
     }
