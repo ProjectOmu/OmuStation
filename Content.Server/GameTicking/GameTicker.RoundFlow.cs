@@ -25,6 +25,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
+// Omu - the Goob/Omu round-end usings were removed here; that code moved to GoobRoundEndSummarySystem and OmuRoundEndSiliconSummarySystem.
 using Content.Server.Maps;
 using Content.Shared.Maps;
 using Content.Shared.Roles;
@@ -36,6 +37,7 @@ namespace Content.Server.GameTicking
     {
         [Dependency] private readonly DiscordWebhook _discord = default!;
         [Dependency] private readonly ITaskManager _taskManager = default!;
+        // Omu - removed RoleSystem _role - a second injection of the role system GameTicker already injects as _roles (GameTicker.cs) - and SiliconLawSystem _law, whose only use moved to OmuRoundEndSiliconSummarySystem.
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -476,7 +478,7 @@ namespace Content.Server.GameTicking
         {
             var refresh = new RefreshLateJoinAllowedEvent();
             RaiseLocalEvent(refresh);
-            // This used to assign the event's result outright, which silently discarded the
+            // Omu - this used to assign the event's result outright, which silently discarded the
             // admin/config setting from CCVars.GameDisallowLateJoins on every refresh (and the event has
             // no subscribers, so the discarded value was always replaced with false). A subscriber may
             // only ever *tighten* the gate, never loosen one an admin has closed.
@@ -543,7 +545,7 @@ namespace Content.Server.GameTicking
                 var userId = mind.UserId ?? mind.OriginalOwnerUserId;
 
                 var connected = false;
-                var observer = _roles.MindHasRole<ObserverRoleComponent>(mindId);
+                var observer = _roles.MindHasRole<ObserverRoleComponent>(mindId); // Omu - was _role, a duplicate injection of the same system; _roles is declared in GameTicker.cs
                 // Continuing
                 if (userId != null && _playerManager.ValidSessionId(userId.Value))
                 {
@@ -591,6 +593,7 @@ namespace Content.Server.GameTicking
                     Connected = connected,
                 };
 
+                // Omu start - the Goob and Omu fields that used to be filled in above now come from RoundEndPlayerInfoEvent subscribers.
                 // Let content in any assembly annotate this player's entry with structured data.
                 // Do NOT add fork-specific fields above; subscribe to RoundEndPlayerInfoEvent from
                 // your own assembly instead.
@@ -598,6 +601,7 @@ namespace Content.Server.GameTicking
                 RaiseLocalEvent(playerInfoEv);
 
                 listOfPlayerInfo.Add(playerInfoEv.Info);
+                // Omu end
             }
 
             // This ordering mechanism isn't great (no ordering of minds) but functions
@@ -876,6 +880,7 @@ namespace Content.Server.GameTicking
         }
     }
 
+    // Omu - documented PreGameMapLoad as the per-round map hook.
     /// <summary>
     ///     Event raised before the game loads a given map.
     ///     This event is mutable, and load options should be tweaked if necessary.
@@ -903,6 +908,7 @@ namespace Content.Server.GameTicking
         public Angle Rotation = rotation;
     }
 
+    // Omu - corrected the subscriber-ordering note, which described an ordering nothing enforced.
     /// <summary>
     ///     Event raised after the game loads a given map.
     /// </summary>
@@ -938,6 +944,7 @@ namespace Content.Server.GameTicking
         }
     }
 
+    // Omu - documented that the late-join CVar is a floor subscribers cannot clear.
     /// <summary>
     ///     Event raised to refresh the late join status.
     ///     If you want to disallow late joins, listen to this and call Disallow.
@@ -1019,6 +1026,7 @@ namespace Content.Server.GameTicking
         }
     }
 
+    // Omu - pointer to RoundEndPlayerInfoEvent for per-player data.
     /// <summary>
     ///     Event raised to allow subscribers to add text to the round end summary screen.
     ///     For per-player structured data, use

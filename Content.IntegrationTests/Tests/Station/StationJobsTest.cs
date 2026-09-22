@@ -54,6 +54,7 @@ public sealed class StationJobsTest
             TAssistant: [-1, -1]
             TCaptain: [5, 5]
             TClown: [5, 6]
+    # Omu - extra stations for AssignOverflowJobsStationTest - one with no overflow job at all, so the assignment loop has to skip it.
     StationNoOverflow:
       mapNameTemplate: {StationMapId}
       stationProto: StandardNanotrasenStation
@@ -98,7 +99,7 @@ public sealed class StationJobsTest
     private const int CaptainCount = StationCount;
     private const int PlayerCount = 2000;
     private const int TotalPlayers = PlayerCount + CaptainCount;
-    private const int OverflowPlayerCount = 50;
+    private const int OverflowPlayerCount = 50; // Omu - for AssignOverflowJobsStationTest
 
     [Test]
     public async Task AssignJobsTest()
@@ -174,6 +175,7 @@ public sealed class StationJobsTest
         await pair.CleanReturnAsync();
     }
 
+    // Omu - added by Omu Station: regression test for overflow jobs being credited to the first station instead of the one that had the slot.
     /// <summary>
     /// Checks that <see cref="StationJobsSystem.AssignOverflowJobs"/> records the station that the overflow job was
     /// actually drawn from, and not merely whichever station happened to be shuffled to the front of the list.

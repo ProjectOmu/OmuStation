@@ -6,6 +6,7 @@ using System.Numerics;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
 using Content.Server.GameTicking.Events;
+// Omu - Content.Server.Players.PlayTimeTracking removed; only the trait-restriction block used it, and that moved to TraitRestrictionSpawnSystem.
 using Content.Server.Ghost;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
@@ -37,6 +38,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly IAdminManager _adminManager = default!;
         [Dependency] private readonly SharedJobSystem _jobs = default!;
         [Dependency] private readonly AdminSystem _admin = default!;
+        // Omu - PlayTimeTrackingManager and IEntityManager removed; only the trait-restriction block used them, and that moved to TraitRestrictionSpawnSystem.
 
         public static readonly EntProtoId ObserverPrototypeName = "MobObserver";
         public static readonly EntProtoId AdminObserverPrototypeName = "AdminObserver";
@@ -268,6 +270,7 @@ namespace Content.Server.GameTicking
                 return;
             }
 
+            // Omu - trait restrictions used to be checked inline here; TraitRestrictionSpawnSystem now enforces them through IsSpawnAllowedEvent, raised above.
             DoSpawn(player, character, station, jobId, silent, out var mob, out var jobPrototype, out var jobName);
 
             if (lateJoin && !silent)

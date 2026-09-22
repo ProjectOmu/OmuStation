@@ -16,6 +16,7 @@ namespace Content.Server.GameTicking;
 
 public sealed partial class GameTicker
 {
+    // Omu start - rule history is keyed by rule entity; " (Pending)" is now a display projection rather than the stored key, so two queued copies of the same rule can be told apart.
     /// <summary>
     ///     Suffix appended to a rule id when projecting a not-yet-started rule into the public
     ///     <see cref="AllPreviousGameRules"/> list. It is a display/projection detail only:
@@ -30,7 +31,9 @@ public sealed partial class GameTicker
     /// </summary>
     [ViewVariables]
     private readonly List<(TimeSpan Time, EntityUid Rule, string Id, bool Started)> _allPreviousGameRules = new();
+    // Omu end
 
+    // Omu start - projected from the entity-keyed history, keeping the old public shape for existing matchers.
     /// <summary>
     ///     A list storing the start times of all game rules that have been started this round.
     ///     Game rules can be started and stopped at any time, including midround.
@@ -42,6 +45,7 @@ public sealed partial class GameTicker
     /// </remarks>
     public override IReadOnlyList<(TimeSpan, string)> AllPreviousGameRules =>
         _allPreviousGameRules.Select(rule => (rule.Time, rule.Started ? rule.Id : rule.Id + PendingSuffix)).ToList();
+        // Omu end
 
     private void InitializeGameRules()
     {
@@ -109,7 +113,7 @@ public sealed partial class GameTicker
         var currentTime = RunLevel == GameRunLevel.PreRoundLobby ? TimeSpan.Zero : RoundDuration();
         if (!HasComp<RoundstartStationVariationRuleComponent>(ruleEntity) && !HasComp<StationVariationPassRuleComponent>(ruleEntity))
         {
-            _allPreviousGameRules.Add((currentTime, ruleEntity, ruleId, false));
+            _allPreviousGameRules.Add((currentTime, ruleEntity, ruleId, false)); // Omu - keyed by rule entity
         }
 
         return ruleEntity;
@@ -169,7 +173,7 @@ public sealed partial class GameTicker
 
         var currentTime = RunLevel == GameRunLevel.PreRoundLobby ? TimeSpan.Zero : RoundDuration();
 
-        // Remove this rule's own pending entry before adding the started entry.
+        // Omu - remove this rule's own pending entry before adding the started entry.
         // Keyed by the rule entity, so two pending instances of the same rule id don't clobber each other.
         var pendingRuleIndex = _allPreviousGameRules.FindIndex(rule => rule.Rule == ruleEntity && !rule.Started);
         if (pendingRuleIndex >= 0)
@@ -179,7 +183,7 @@ public sealed partial class GameTicker
 
         if (!HasComp<RoundstartStationVariationRuleComponent>(ruleEntity) && !HasComp<StationVariationPassRuleComponent>(ruleEntity))
         {
-            _allPreviousGameRules.Add((currentTime, ruleEntity, id, true));
+            _allPreviousGameRules.Add((currentTime, ruleEntity, id, true)); // Omu - keyed by rule entity
         }
 
         _sawmill.Info($"Started game rule {ToPrettyString(ruleEntity)}");
@@ -433,7 +437,7 @@ public sealed partial class GameTicker
     {
         if (_allPreviousGameRules.Count > 0)
         {
-            var sortedRules = _allPreviousGameRules.OrderBy(rule => rule.Time).ToList();
+            var sortedRules = _allPreviousGameRules.OrderBy(rule => rule.Time).ToList(); // Omu - named tuple field
             var message = "\n";
 
             if (!forChatWindow)
@@ -443,10 +447,10 @@ public sealed partial class GameTicker
                 message += "|------------|------------------\n";
             }
 
-            foreach (var (time, _, id, started) in sortedRules)
+            foreach (var (time, _, id, started) in sortedRules) // Omu - entity-keyed history
             {
                 var formattedTime = time.ToString(@"hh\:mm\:ss");
-                var ruleText = started ? id : id + PendingSuffix;
+                var ruleText = started ? id : id + PendingSuffix; // Omu - pending suffix is now a display projection
                 message += $"| {formattedTime,-10} | {ruleText,-16} \n";
             }
 

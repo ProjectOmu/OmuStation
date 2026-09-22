@@ -208,7 +208,7 @@ namespace Content.Shared.GameTicking
 
             public bool Connected;
 
-            // NOTE: fields below are fork additions. Keep each fork's fields in its OWN region -
+            // Omu - NOTE: fields below are fork additions. Keep each fork's fields in its OWN region -
             // do not nest one fork's fields inside another's, it makes upstream merges conflict
             // against two forks at once. Populate them from a subscriber to
             // RoundEndPlayerInfoEvent, never from GameTicker.ShowRoundEndScoreboard.

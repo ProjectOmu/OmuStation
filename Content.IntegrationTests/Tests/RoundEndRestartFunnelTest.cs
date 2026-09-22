@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
+// Omu - added by Omu Station: checks timed round ends go through RoundEndSystem, so the restart is announced once and its timer has one owner.
 
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;

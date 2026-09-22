@@ -2,7 +2,7 @@
 
 using System.Threading;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Server.RoundEnd;
+using Content.Server.RoundEnd; // Omu - RoundEndSystem now owns the restart announcement; replaces IChatManager
 using Content.Shared.GameTicking.Components;
 using Robust.Server.Player;
 using Robust.Shared.Player;
@@ -13,7 +13,7 @@ namespace Content.Server.GameTicking.Rules;
 public sealed class InactivityTimeRestartRuleSystem : GameRuleSystem<InactivityRuleComponent>
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
+    [Dependency] private readonly RoundEndSystem _roundEnd = default!; // Omu - replaces IChatManager; see RoundEndSystem.EndRound
 
     public override void Initialize()
     {
@@ -59,7 +59,7 @@ public sealed class InactivityTimeRestartRuleSystem : GameRuleSystem<InactivityR
         if (!Resolve(uid, ref component))
             return;
 
-        // Route through RoundEndSystem so that there is exactly one owner of the
+        // Omu - route through RoundEndSystem so that there is exactly one owner of the
         // round-restart timer (and so that RoundEndSystem state gets reset properly).
         // It dispatches the restart-ETA announcement itself.
         _roundEnd.EndRound(component.RoundEndDelay, Loc.GetString("rule-time-has-run-out"));
@@ -70,7 +70,7 @@ public sealed class InactivityTimeRestartRuleSystem : GameRuleSystem<InactivityR
         var query = EntityQueryEnumerator<InactivityRuleComponent, GameRuleComponent>();
         while (query.MoveNext(out var uid, out var inactivity, out var gameRule))
         {
-            // An inactive rule entity must skip to the next one, not abandon the sweep -
+            // Omu - an inactive rule entity must skip to the next one, not abandon the sweep -
             // with two entities carrying this component, a later active one's timer was never stopped.
             if (!GameTicker.IsGameRuleActive(uid, gameRule))
                 continue;
@@ -93,7 +93,7 @@ public sealed class InactivityTimeRestartRuleSystem : GameRuleSystem<InactivityR
         var query = EntityQueryEnumerator<InactivityRuleComponent, GameRuleComponent>();
         while (query.MoveNext(out var uid, out var inactivity, out var gameRule))
         {
-            // An inactive rule entity must skip to the next one, not abandon the sweep -
+            // Omu - an inactive rule entity must skip to the next one, not abandon the sweep -
             // with two entities carrying this component, a later active one's timer was never stopped.
             if (!GameTicker.IsGameRuleActive(uid, gameRule))
                 continue;

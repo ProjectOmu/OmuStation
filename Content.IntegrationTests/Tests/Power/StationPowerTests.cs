@@ -13,7 +13,7 @@ using Robust.Shared.EntitySerialization;
 
 namespace Content.IntegrationTests.Tests.Power;
 
-// [Explicit] was inherited from upstream (added in the original "Add basic test of station initial power supply"
+// Omu - [Explicit] was inherited from upstream (added in the original "Add basic test of station initial power supply"
 // PR, fb7ee541eb) and has never been turned on here.
 // WHY IT STAYS OFF ON THIS FORK: the map list below has rotted. "Amber" and "Elkridge" are not gameMap
 // prototypes in this repo at all (Amber was removed upstream, Elkridge never existed here), so

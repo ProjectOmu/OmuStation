@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Goobstation.Common.AlertLevel;
+using Content.Goobstation.Common.AlertLevel; // Omu - AlertLevelSelectAttemptEvent moved to Goobstation.Common
 using Content.Goobstation.Shared.AlertLevel;
 using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Slasher;

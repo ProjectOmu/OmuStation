@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
+// Omu - added by Omu Station: regression tests for game-rule history being keyed by rule entity, and for GhostsVisible() agreeing between client and server.
 
 using System.Collections.Generic;
 using System.Linq;

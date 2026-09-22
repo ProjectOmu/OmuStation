@@ -6,6 +6,7 @@ using Robust.Shared.Player;
 
 namespace Content.Shared.GameTicking;
 
+// Omu - documented the Handled contract: the bus keeps dispatching, so every subscriber must check Handled itself.
 /// <summary>
 ///     Event raised broadcast before a player is spawned by the GameTicker.
 ///     You can use this event to spawn a player off-station on late-join but also at round start.

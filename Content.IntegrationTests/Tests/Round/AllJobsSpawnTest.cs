@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
+// Omu - added by Omu Station: spawns every JobPrototype with full gear, so a job whose loadout errors fails CI.
 
 #nullable enable
 using System.Linq;

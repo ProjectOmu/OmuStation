@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
+// Omu - added by Omu Station: Goob's round-end fields, moved out of GameTicker.ShowRoundEndScoreboard into a RoundEndPlayerInfoEvent subscriber so they no longer live in an upstream file.
 
 using Content.Goobstation.Common.LastWords;
 using Content.Goobstation.Maths.FixedPoint;

@@ -316,7 +316,7 @@ public sealed partial class StationJobsSystem
                     continue;
 
                 // If the overflow exists, put them in as it.
-                assignedJobs.Add(player, (overflows[0], station));
+                assignedJobs.Add(player, (overflows[0], station)); // Omu - was givenStations[0]; record the station whose overflow slot was actually used
                 break;
             }
         }

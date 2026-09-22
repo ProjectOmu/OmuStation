@@ -76,7 +76,7 @@ public sealed partial class StationSystem : SharedStationSystem
             return;
 
         stationData.Grids.Remove(uid);
-        Dirty(component.Station, stationData);
+        Dirty(component.Station, stationData); // Omu - dirty the station's data, not the deleted grid's member component
     }
 
     public override void Shutdown()
@@ -313,7 +313,7 @@ public sealed partial class StationSystem : SharedStationSystem
 
         foreach (var grid in gridIds ?? Array.Empty<EntityUid>())
         {
-            AddGridToStation(station, grid, null, data, name, isSetup: true);
+            AddGridToStation(station, grid, null, data, name, isSetup: true); // Omu - flag grids added during station setup
         }
 
         var ev = new StationPostInitEvent((station, data));
@@ -322,6 +322,7 @@ public sealed partial class StationSystem : SharedStationSystem
         return station;
     }
 
+    // Omu - isSetup parameter, so StationGridAddedEvent.IsSetup is populated instead of always false.
     /// <summary>
     /// Adds the given grid to a station.
     /// </summary>
@@ -348,7 +349,7 @@ public sealed partial class StationSystem : SharedStationSystem
         Dirty(station, stationData);
         Dirty(mapGrid, stationMember);
 
-        RaiseLocalEvent(station, new StationGridAddedEvent(mapGrid, station, isSetup), true);
+        RaiseLocalEvent(station, new StationGridAddedEvent(mapGrid, station, isSetup), true); // Omu - was hardcoded false
 
         _sawmill.Info($"Adding grid {mapGrid} to station {Name(station)} ({station})");
     }

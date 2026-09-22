@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
+// Omu - added by Omu Station: cancellable spawn-refusal hook, so fork rules such as trait restrictions no longer have to be inlined into GameTicker.
 
 using Content.Shared.Preferences;
 using Robust.Shared.Player;

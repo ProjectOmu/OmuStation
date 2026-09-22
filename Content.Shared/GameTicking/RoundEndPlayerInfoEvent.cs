@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
+// Omu - added by Omu Station: per-player round-end hook, so forks add summary fields from their own assemblies instead of editing GameTicker.
 
 using Content.Shared.Mind;
 

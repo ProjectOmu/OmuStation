@@ -7,7 +7,7 @@ using Content.IntegrationTests.Pair;
 using Content.Server.GameTicking;
 using Content.Server.Mind;
 using Content.Server.Roles;
-using Content.Server.Station.Systems;
+using Content.Server.Station.Systems; // Omu - StationJobsSystem, for PickBestAvailableJobNullDisallowedTest
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Preferences;
@@ -223,6 +223,7 @@ public sealed class JobTest
         await pair.CleanReturnAsync();
     }
 
+    // Omu - added by Omu Station: regression test for job priorities being ignored when the disallowed-job list is null.
     /// <summary>
     /// Check that <see cref="StationJobsSystem.PickBestAvailableJobWithPriority"/> honours the priority list when no
     /// set of disallowed jobs is given, instead of silently falling through to a random overflow job.

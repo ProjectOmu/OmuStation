@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Administration.Systems;
+using Content.Server.Administration.Systems; // Omu - AdminVerbSystem, for the restored Access
 using Content.Shared.Antag;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Preferences.Loadouts;
@@ -12,7 +12,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Antag.Components;
 
-// Access restored: antag assignment state has exactly one writer (AntagSelectionSystem, plus admin tooling), so nothing else can desync "who is an antag".
+// Omu - access restored: antag assignment state has exactly one writer (AntagSelectionSystem, plus admin tooling), so nothing else can desync "who is an antag".
 [RegisterComponent, Access(typeof(AntagSelectionSystem), typeof(AdminVerbSystem))]
 public sealed partial class AntagSelectionComponent : Component
 {
@@ -28,6 +28,7 @@ public sealed partial class AntagSelectionComponent : Component
     [DataField]
     public bool PreSelectionsComplete;
 
+    // Omu - exempted from the restored Access, so downstream schedulers can still rewrite antag counts.
     /// <summary>
     /// The definitions for the antagonists
     /// </summary>

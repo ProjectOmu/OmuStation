@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
+// Omu - moved here from Content.Goobstation.Shared by Omu Station, so upstream Content.Server can raise it without referencing the fork Shared layer.
 
 namespace Content.Goobstation.Common.AlertLevel;
 

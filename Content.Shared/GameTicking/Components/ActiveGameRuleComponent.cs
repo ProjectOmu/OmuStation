@@ -4,6 +4,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.GameTicking.Components;
 
+// Omu - documented why this is networked: shared and client code test rule activity with it.
 /// <summary>
 ///     Added to game rules before <see cref="GameRuleStartedEvent"/> and removed before <see cref="GameRuleEndedEvent"/>.
 ///     Mutually exclusive with <seealso cref="EndedGameRuleComponent"/>.

@@ -38,7 +38,7 @@ namespace Content.IntegrationTests.Tests
             var mapSystem = entityMan.System<SharedMapSystem>();
 
             // Goobstation edit start - moved this up and out of server.WaitPost
-            // NOTE (exclusion inventory): the .Where(...) chain below is duplicated in every spawn-sweep test in
+            // Omu - NOTE (exclusion inventory): the .Where(...) chain below is duplicated in every spawn-sweep test in
             // this file. Each entry removes a whole class of prototypes from "spawn every entity" coverage, which
             // means a broken prototype in any of these categories will not be caught by CI at all:
             //   Supermatter       - deletes/consumes neighbouring entities when the sweep stacks everything together.
@@ -380,7 +380,7 @@ namespace Content.IntegrationTests.Tests
             var server = pair.Server;
             var client = pair.Client;
 
-            // NOTE (exclusion inventory): SpawnAndDeleteEntityCountTest asserts that server and client end up with
+            // Omu - NOTE (exclusion inventory): SpawnAndDeleteEntityCountTest asserts that server and client end up with
             // the SAME entity count, so anything that spawns or removes entities on MapInit desyncs the count and
             // has to be excluded. That is why this list is almost entirely "spawns other things" components.
             // COST: none of these prototypes are checked for client/server entity-count parity, so a prototype that

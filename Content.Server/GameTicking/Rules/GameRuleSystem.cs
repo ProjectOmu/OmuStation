@@ -95,6 +95,7 @@ public abstract partial class GameRuleSystem<T> : EntitySystem where T : ICompon
         }
     }
 
+    // Omu - documented that Added runs during map preload, before the round, station or players exist.
     /// <summary>
     /// Called when the gamerule is added.
     /// </summary>
@@ -120,6 +121,7 @@ public abstract partial class GameRuleSystem<T> : EntitySystem where T : ICompon
 
     }
 
+    // Omu - documented that Started, not Added, is where player-facing logic belongs.
     /// <summary>
     /// Called when the gamerule begins.
     /// </summary>
