@@ -101,10 +101,14 @@
   description: It's a storage unit for level 3 biohazard gear.
   components:
   - type: Appearance
+# Omu Start
+  - type: Sprite
+    sprite: _Omu/Structures/Storage/closet.rsi
   - type: EntityStorageVisuals
     stateBaseClosed: bio
     stateDoorOpen: bio_open
     stateDoorClosed: bio_door
+# Omu End
 
 # Science Variant
 - type: entity
@@ -113,7 +117,7 @@
   components:
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBaseClosed: bio_sci
+    #stateBaseClosed: bio_sci # Omu
     stateDoorOpen: bio_sci_open
     stateDoorClosed: bio_sci_door
 
@@ -124,7 +128,7 @@
   components:
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBaseClosed: bio_viro
+    #stateBaseClosed: bio_viro # Omu
     stateDoorOpen: bio_viro_open
     stateDoorClosed: bio_viro_door
 
@@ -135,7 +139,7 @@
   components:
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBaseClosed: bio_sec
+    #stateBaseClosed: bio_sec # Omu
     stateDoorOpen: bio_sec_open
     stateDoorClosed: bio_sec_door
 
@@ -146,7 +150,7 @@
   components:
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBaseClosed: bio_jan
+    #stateBaseClosed: bio_jan # Omu
     stateDoorOpen: bio_jan_open
     stateDoorClosed: bio_jan_door
 
