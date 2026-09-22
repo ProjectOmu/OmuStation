@@ -3,8 +3,8 @@
   configuration:
     entity: WerewolfEnt
     forced: true
-    duration: 60 # One minute i spose - can be changed depending on how we want it
-    transferDamage: true
+    duration: 300 # Five minutes
+    transferDamage: false
     revertOnCrit: true
     revertOnDeath: true
     componentsToTransfer:

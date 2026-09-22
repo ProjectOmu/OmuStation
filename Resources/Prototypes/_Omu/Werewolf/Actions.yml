@@ -50,3 +50,22 @@
       state: revert
   - type: InstantAction
     event: !type:EventWerewolfRevert
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfJump
+  name: Pounce #Placeholder sprites...
+  description: Pounces on you
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 15
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Omu/Werewolf/abilities.rsi
+      state: transform
+  - type: TargetAction
+    range: 10
+  - type: WorldTargetAction
+    event: !type:JumpActionEvent

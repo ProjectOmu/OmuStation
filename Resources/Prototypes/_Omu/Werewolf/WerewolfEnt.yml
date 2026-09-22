@@ -4,6 +4,9 @@
   components:
   - type: Damageable
     damageModifierSet: Werewolf
+  - type: WeakToHoly
+  - type: Jump
+    jumpAction: ActionWerewolfJump
 
 - type: damageModifierSet  #Awoo
   id: Werewolf
