@@ -52,7 +52,7 @@ public sealed class MoraleHarmerAreaSystem : EntitySystem
             if (!_mind.TryGetMind(target, out _, out _) || !HasComp<HumanoidAppearanceComponent>(target) || HasComp<RevolutionaryComponent>(target))
                 continue;
 
-            if (HasComp<MoraleComponent>(target))
+            if (HasComp<MoraleComponent>(target) && !HasComp<MoralePassedComponent>(target))
             {
                 var ev = new MoraleChangedArgs
                 {
@@ -62,7 +62,7 @@ public sealed class MoraleHarmerAreaSystem : EntitySystem
                 };
                 RaiseLocalEvent(target, ev);
             }
-            else
+            else if (!HasComp<MoralePassedComponent>(target))
                 EnsureComp<MoraleComponent>(target);       //Ensure morale comp.
         }
     }
@@ -83,7 +83,7 @@ public sealed class MoraleHarmerAreaSystem : EntitySystem
                         return; //the target does not understand the speaker's language, so the conversion fails
             }
 
-            if (TryComp<MoraleComponent>(target, out var morale))
+            if (TryComp<MoraleComponent>(target, out var morale) && !HasComp<MoralePassedComponent>(target))
             {
                 var ev = new MoraleChangedArgs
                 {
@@ -93,7 +93,7 @@ public sealed class MoraleHarmerAreaSystem : EntitySystem
                 };
                 RaiseLocalEvent(target, ev);
             }
-            else
+            else if (!HasComp<MoralePassedComponent>(target))
                 EnsureComp<MoraleComponent>(target);       //Ensure morale comp.
         }
     }

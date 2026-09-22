@@ -8,10 +8,11 @@
   description: A hood that protects the head and face from biological contaminants.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/general.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/general.rsi # Omu
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/general.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/general.rsi # Omu
   - type: BreathMask
+  - type: IdentityBlocker # Omu
   - type: IngestionBlocker
   - type: GroupExamine
   - type: ZombificationResistance
@@ -53,11 +54,11 @@
   suffix: CMO
   description: An advanced hood for chief medical officers that protects the head and face from biological contaminants.
   components:
-  - type: IdentityBlocker
+  #- type: IdentityBlocker # Omu
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/cmo.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/cmo.rsi # Omu
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/cmo.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/cmo.rsi # Omu
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.8
 
@@ -68,11 +69,11 @@
   suffix: Janitor
   description: A hood that protects the head and face from biological contaminants.
   components:
-  - type: IdentityBlocker
+  #- type: IdentityBlocker # Omu
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/janitor.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/janitor.rsi # Omu
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/janitor.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/janitor.rsi # Omu
 
 - type: entity
   parent: ClothingHeadHatHoodBioGeneral
@@ -81,11 +82,11 @@
   suffix: Science
   description: A hood that protects the head and face from biological contaminants.
   components:
-  - type: IdentityBlocker
+  #- type: IdentityBlocker # Omu
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/scientist.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/scientist.rsi # Omu
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/scientist.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/scientist.rsi # Omu
 
 - type: entity
   parent: ClothingHeadHatHoodBioGeneral
@@ -94,11 +95,11 @@
   suffix: Security
   description: A hood that protects the head and face from biological contaminants.
   components:
-  - type: IdentityBlocker
+  #- type: IdentityBlocker # Omu
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/security.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/security.rsi # Omu
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/security.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/security.rsi # Omu
   - type: Armor # Goob
     coverage:
     - Head
@@ -117,11 +118,11 @@
   suffix: Virology
   description: A hood that strongly protects the head and face from biological contaminants.
   components:
-  - type: IdentityBlocker
+  #- type: IdentityBlocker # Omu
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Bio/virology.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/virology.rsi # Omu
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Bio/virology.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/virology.rsi # Omu
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.8
 
