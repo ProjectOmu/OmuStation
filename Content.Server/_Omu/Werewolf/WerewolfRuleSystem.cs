@@ -1,7 +1,16 @@
+using Content.Server.Antag;
 using Content.Server.GameTicking.Rules;
+using Content.Server.Mind;
+using Content.Shared.CombatMode.Pacification;
 using Content.Shared.GameTicking.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.NPC.Systems;
 using Content.Shared.Omu.Werewolf;
 using Content.Shared.Popups;
+using Content.Shared.Roles;
+using Content.Shared.Zombies;
+using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Omu.Werewolf;
@@ -11,9 +20,17 @@ public sealed class WerewolfRuleSystem : GameRuleSystem<WerewolfRuleComponent>
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedRoleSystem _role = default!;
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly MobStateSystem _mob = default!;
+
+    private readonly EntProtoId _mindRole = "MindRoleWerewolf";
+    private readonly SoundSpecifier _briefingSound = new SoundPathSpecifier("/Audio/Animals/space_dragon_roar.ogg");
 
     protected override void Started(EntityUid uid, WerewolfRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
+        SubscribeLocalEvent<WerewolfRuleComponent, AfterAntagEntitySelectedEvent>(OnSelectAntag);
         base.Started(uid, component, gameRule, args);
 
         component.NextShiftTime = component.TimeBetweenShifts;
@@ -37,6 +54,28 @@ public sealed class WerewolfRuleSystem : GameRuleSystem<WerewolfRuleComponent>
             RaiseLocalEvent(entUid, ev);
             _popup.PopupEntity(Loc.GetString("werewolf-ready-shift"), entUid, entUid);
         }
+    }
+
+    private void OnSelectAntag(EntityUid uid, WerewolfRuleComponent comp, ref AfterAntagEntitySelectedEvent args)
+    {
+        MakeWerewolf(args.EntityUid);
+    }
+
+    public bool MakeWerewolf(EntityUid target)
+    {
+        if (!_mind.TryGetMind(target, out var mindId, out var mind))
+            return false;
+
+        _role.MindAddRole(mindId, _mindRole, mind, true);
+
+        var briefing = Loc.GetString("werewolf-role-greeting");
+
+        _antag.SendBriefing(target, briefing, Color.MediumPurple, _briefingSound);
+
+        EnsureComp<ZombieImmuneComponent>(target);
+        EnsureComp<PacifiedComponent>(target);
+        EnsureComp<WerewolfComponent>(target);
+        return true;
     }
 }
 

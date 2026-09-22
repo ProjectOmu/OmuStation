@@ -18,3 +18,8 @@ roles-antag-werewolf-name= Werewolf
 roles-antag-werewolf-objective = Eat the crew, get mad, drive everyone else mad with vulp noises.
 
 guide-entry-werewolves = Werewolves
+
+werewolf-role-greeting =
+    You have hidden your nature for long enough, deep in space, you can let your inner self out without fear!
+    Show them all why they should fear the stars!
+    No-one can stop you now.
