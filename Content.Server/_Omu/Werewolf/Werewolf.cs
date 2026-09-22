@@ -164,6 +164,7 @@ public sealed class WerewolfSystem : EntitySystem
         EnsureComp<WeakToHolyComponent>(newent.Value).AlwaysTakeHoly = true;
         werewolf.Wolfin = true;
         werewolf.Hearts = component.Hearts;
+        RemComp<PacifiedComponent>(newent.Value);
 
     }
     private void OnRevert(EntityUid uid, WerewolfComponent component, EventWerewolfRevert args)
