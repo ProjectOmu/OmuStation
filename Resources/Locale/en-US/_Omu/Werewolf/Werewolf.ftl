@@ -7,6 +7,7 @@ WerewolfAlreadyConsumed = They have already been consumed!
 
 werewolf-ready-shift = The energies of the stars have aligned, you can shed this form for a limited time.
 werewolf-missed-shift = The stars are no longer right... you have missed this chance
+WerewolfTimeNotRight = The time is not yet right, you cannot change form just yet.
 
 WerewolfDevouredDesc = They have been viciously mauled, a huge cavity remains in there chest.
 WerewolfDevouredAction = You start mauling {$ent}
