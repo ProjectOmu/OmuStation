@@ -7,6 +7,18 @@
   - type: WeakToHoly
   - type: Jump
     jumpAction: ActionWerewolfJump
+  - type: HealingAura
+    toHeal:
+      groups:
+        Brute: -1
+        Burn: -1
+        Airloss: -1
+        Toxin: -1
+        Genetic: -1
+    selfHealMultiplier: 2   #heal self!
+    componentHealMultipliers:
+      Werewolf: 2
+    range: 0.2 #Make it very smol so its only the furry
 
 - type: damageModifierSet  #Awoo
   id: Werewolf
