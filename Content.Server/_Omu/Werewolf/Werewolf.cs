@@ -18,6 +18,8 @@ using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.DoAfter;
 using Content.Shared.Devour.Components;
 using Content.Shared.CombatMode.Pacification;
+using Content.Shared.Roles.Components;
+using Content.Goobstation.Shared.Religion;
 
 namespace Content.Server.Omu.Werewolf;
 
@@ -151,6 +153,7 @@ public sealed class WerewolfSystem : EntitySystem
         if (!TryComp<WerewolfComponent>(newent, out var werewolf))          //Transfer components in polymorph just doesn't work
             return;
 
+        EnsureComp<WeakToHolyComponent>(newent.Value).AlwaysTakeHoly = true;
         werewolf.Wolfin = true;
         werewolf.Hearts = component.Hearts;
 
@@ -265,4 +268,8 @@ public sealed class WerewolfSystem : EntitySystem
         component.LastShift = _gameTiming.CurTime;
 
     }
+}
+[RegisterComponent]
+public sealed partial class MindRoleWerewolfComponent : BaseMindRoleComponent
+{
 }

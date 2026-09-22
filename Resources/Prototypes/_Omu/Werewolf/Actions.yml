@@ -16,3 +16,37 @@
       components:
       - HumanoidAppearance
     event: !type:EventWerewolfDevour
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfShift
+  name: Change Shape #Wolf out furry
+  description: Unleash the beast within, Awoo!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 15
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Omu/Werewolf/abilities.rsi
+      state: transform
+  - type: InstantAction
+    event: !type:EventWerewolfShiftBasic
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfRevert
+  name: Revert Shape #Back to the humansona
+  description: Revert to your human form.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 15
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Omu/Werewolf/abilities.rsi
+      state: revert
+  - type: InstantAction
+    event: !type:EventWerewolfRevert
