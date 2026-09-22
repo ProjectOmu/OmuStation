@@ -53,6 +53,7 @@ public sealed class StationPowerTests
         "Cog",
         "Snowball",
         "Exo",
+        "Crystal", // Omu
     ];
 
     [Explicit]
