@@ -194,7 +194,9 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     /// <param name="characterName">Character name to use for the ID.</param>
     /// <param name="jobPrototype">Job prototype to use for the PDA and ID.</param>
     /// <param name="station">The station this player is being spawned on.</param>
-    public void SetPdaAndIdCardData(EntityUid entity, string characterName, JobPrototype jobPrototype, EntityUid? station, HumanoidCharacterProfile? profile = null) // Omu
+    /// <param name="profile"> Humanoidcharacterprofile, used for multiple title names </param> // Omu
+    public void SetPdaAndIdCardData(EntityUid entity, string characterName, JobPrototype jobPrototype, EntityUid? station,
+        HumanoidCharacterProfile? profile = null) // Omu
     {
         if (!InventorySystem.TryGetSlotEntity(entity, "id", out var idUid))
             return;

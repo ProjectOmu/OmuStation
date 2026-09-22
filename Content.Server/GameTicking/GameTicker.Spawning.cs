@@ -21,7 +21,7 @@ using Content.Shared.Players;
 using Content.Shared.Preferences;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
-using Content.Shared._Omu.Roles; // Omu
+using Content.Shared._Omu.Roles;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.Map;

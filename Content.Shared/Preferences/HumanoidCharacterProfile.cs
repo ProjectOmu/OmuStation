@@ -769,7 +769,7 @@ namespace Content.Shared.Preferences
             var alternateTitles = new Dictionary<ProtoId<JobPrototype>, string>();
             foreach (var (job, title) in _jobAlternateTitles)
             {
-                if (prototypeManager.TryIndex(JobAlternateTitleSystem.DatasetId(job), out var titles, false) && titles.Values.Contains(title))
+                if (prototypeManager.TryIndex(JobAlternateTitleSystem.DatasetId(job), out var titles) && titles.Values.Contains(title))
                     alternateTitles.Add(job, title);
             }
 

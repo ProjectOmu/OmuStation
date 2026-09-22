@@ -7,7 +7,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Omu.Roles;
+namespace Content.Omu.Server.Roles;
 
 public sealed class JobAlternateTitleReminderSystem : EntitySystem
 {
@@ -29,9 +29,7 @@ public sealed class JobAlternateTitleReminderSystem : EntitySystem
         if (_alternateTitles.GetTitle(ev.Profile, job.ID) is not { } title)
             return;
 
-        var message = Loc.GetString("job-alt-title-reminder",
-            ("altTitle", title),
-            ("jobName", job.LocalizedName));
+        var message = Loc.GetString("job-alt-title-reminder", ("altTitle", title), ("jobName", job.LocalizedName));
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
         _chat.ChatMessageToOne(ChatChannel.Server, message, wrappedMessage, default, false, ev.Player.Channel);
     }
