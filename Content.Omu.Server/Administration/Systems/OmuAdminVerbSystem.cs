@@ -9,6 +9,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using Content.Shared.Verbs;
 using Content.Server.Omu.Werewolf;
+using Content.Shared.CombatMode.Pacification;
+using Content.Shared.Zombies;
 
 namespace Content.Omu.Server.Administration.Systems;
 
@@ -57,7 +59,7 @@ public sealed partial class OmuAdminVerbSystem : EntitySystem
             Icon = new SpriteSpecifier.Rsi(new ResPath("_Omu/Werewolf/abilities.rsi"), "transform"),
             Act = () =>
             {
-                EnsureComp<WerewolfComponent>(args.Target);
+                _antag.ForceMakeAntag<WerewolfRuleComponent>(targetPlayer, "Werewolf");
             },
             Impact = LogImpact.High,
             Message = Loc.GetString("admin-verb-make-werewolf"),
