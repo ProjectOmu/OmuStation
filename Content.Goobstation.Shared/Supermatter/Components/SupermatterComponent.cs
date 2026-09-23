@@ -482,6 +482,7 @@ public sealed partial class SupermatterComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public bool GasEfficiencyFactorChanged = false;
 
+    // Omu
     [DataField]
     [ViewVariables(VVAccess.ReadOnly)]
     public bool HazardGas = false;
