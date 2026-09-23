@@ -29,6 +29,46 @@
 
 - type: entity
   parent: BasePlushie
+  id: PlushieSoozieOmuCrew
+  name: soozie bluoobus plushie
+  description: Stuffed Plushie of a familiar big slime woman. You can somehow taste metal inside your mouth as you stare at her.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/Soozie-Bluoobus.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/Soozie-Bluoobus.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/Soozie-Bluoobus.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: Squishes
+  - type: EmitSoundOnUse
+    sound:
+      collection: SlimeFemaleLaughs
+  - type: EmitSoundOnActivate
+    sound:
+      collection: SlimeFemaleLaughs
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: Pops
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: EmitSoundOnThrow
+    sound:
+      collection: SlimeFemaleScreams
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: SlimeFemaleScreams
+
+- type: entity
+  parent: BasePlushie
   id: PlushieRebeccaOmuCrew
   name: Rebecca Hawkins plushie
   description: Cheron, whatever you do, don't let them turn me into a marketable plushi-
@@ -102,3 +142,73 @@
     wideAnimationRotation: 180
     soundHit:
       collection: VulpkaninScreams
+
+- type: entity
+  parent: BasePlushie
+  id: PlushiePanaceaOmuCrew
+  name: Panacea plushie
+  description: A plushie of a battered pink vulpkanin, smells of flour and strawberries, it also has a label, DO NOT EAT.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/panacea.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/panacea.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/panacea.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: VulpkaninSnarls
+  - type: EmitSoundOnUse
+    sound:
+      collection: VulpkaninWhines
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VulpkaninWhines
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: VulpkaninWhines
+  - type: EmitSoundOnThrow
+    sound:
+      collection: VulpkaninScreams
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieHarmonyDonovanOmuCrew
+  name: harmony donovan plushie
+  description: Took on the position for the cigarettes. Cigarettes sold separately.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/harmony-donovan.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/harmony-donovan.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/harmony-donovan.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnUse
+    sound:
+      collection: VulpkaninHowls
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VulpkaninHowls
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: Pops
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: EmitSoundOnThrow
+    sound:
+      collection: VulpkaninSnarls
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: VulpkaninSnarls
