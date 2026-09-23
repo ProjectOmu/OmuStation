@@ -25,11 +25,11 @@ public abstract class SharedDamagedThroatSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<DamagedThroatComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<StethoscopeComponent, ComponentStartup>(OnStethoscopeStartup);
+        SubscribeLocalEvent<StethoscopeComponent, MapInitEvent>(OnStethoscopeMapInit);
         SubscribeLocalEvent<DamagedThroatStethoscopeComponent, StethoscopeDoAfterEvent>(OnStethoscopeDoAfter, before: [typeof(StethoscopeSystem)]);
     }
 
-    private void OnStethoscopeStartup(Entity<StethoscopeComponent> stethoscope, ref ComponentStartup args)
+    private void OnStethoscopeMapInit(Entity<StethoscopeComponent> stethoscope, ref MapInitEvent args)
     {
         EnsureComp<DamagedThroatStethoscopeComponent>(stethoscope);
     }
