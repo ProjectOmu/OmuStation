@@ -122,7 +122,7 @@ job-name-alt-admin-assistant-3 = Executive Aide
 
 job-name-alt-atmostech-1 = Fire Suppression Specialist
 job-name-alt-atmostech-2 = Life Support Technician
-job-name-alt-engineer-3 = EVA Technician
+job-name-alt-atmostech-3 = EVA Technician
 
 job-name-alt-engineer-1 = Maintenance Technician
 job-name-alt-engineer-2 = Mechanic
