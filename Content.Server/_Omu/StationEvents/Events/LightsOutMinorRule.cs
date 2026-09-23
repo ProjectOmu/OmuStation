@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Server.Chat.Systems;
 using Content.Server.Ghost;
 using Content.Server.Station.Components;
@@ -10,6 +11,7 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Light.Components;
 using Content.Shared.Station.Components;
+using Content.Shared.Pinpointer;
 using Robust.Shared.Timing;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -39,8 +41,14 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
         // i assume there is a station, and that the station the players are on is the first in the list
         var station = _station.GetStations()[0];
 
-        // TODO: choose a department to hit the lights of
-
+        // choose a random station beacon to center the breaking around
+        var beacons = new List<EntityUid>();
+        var beacons_eqe = EntityQueryEnumerator<ConfigurableNavMapBeaconComponent>();
+        while (beacons_eqe.MoveNext(out var beacon, out _))
+        {
+            beacons.Add(beacon);
+        }
+        var center_position = Transform(beacons[_random.Next(beacons.Count)]).LocalPosition;
 
         // generate the list of targets (and store list of all lights to make major and minor versions initially indistinguishable)
         var all_lights = EntityQueryEnumerator<PoweredLightComponent>();
@@ -60,8 +68,10 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
 
             component.AllLights.Add(light);
 
-            // TODO: hit the lights of the chosen department
-
+            // target the lights in a 20 tile radius around the chosen beacon
+            var light_position = Transform(light).LocalPosition;
+            if (Vector2.Distance(center_position, light_position) < 20.0)
+                component.Targets.Add(light);
         }
         component.TargetListLength = component.Targets.Count;
 

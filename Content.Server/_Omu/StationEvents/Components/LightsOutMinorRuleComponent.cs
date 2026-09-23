@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Server.StationEvents.Events;
 using Content.Shared.Damage;
 using Robust.Shared.Map;
@@ -21,7 +22,7 @@ public sealed partial class LightsOutMinorRuleComponent : Component
     /// The probability for an individual light source to be damaged
     /// </summary>
     [DataField]
-    public float DamageProbability = 0.25f;
+    public float DamageProbability = 0.40f;
 
     /// <summary>
     /// The damage to deal to the lights
