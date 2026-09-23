@@ -21,7 +21,7 @@ public sealed partial class LightsOutMajorRuleComponent : Component
     /// The probability for an individual light source to be damaged
     /// </summary>
     [DataField]
-    public float DamageProbability = 0.25f;
+    public float DamageProbability = 0.20f;
 
     /// <summary>
     /// The damage to deal to the lights
