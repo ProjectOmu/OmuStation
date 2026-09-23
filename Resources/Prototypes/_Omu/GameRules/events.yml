@@ -7,7 +7,7 @@
   - type: StationEvent
     earliestStart: 15
     weight: 5
-    duration: 1
+    duration: null
     eventType: Maintenance
   - type: GameRule
     delay:
@@ -24,7 +24,7 @@
   - type: StationEvent
     earliestStart: 15
     weight: 5
-    duration: 1
+    duration: null
     eventType: Maintenance
   - type: GameRule
     delay:
