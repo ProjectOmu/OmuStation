@@ -524,7 +524,7 @@
 - type: entity
   parent: ClothingHeadEnvirohelmBase
   id: ClothingHeadEnvirohelmCentcomAgent
-  name: CentCom agent's envirosuit helmet
+  name: CentComm agent's envirosuit helmet # Omu
   description: A special containment helmet designed for CentCom's legal team. You know, so any coffee spills don't kill the poor sod.
   components:
   - type: Sprite
@@ -535,7 +535,7 @@
 - type: entity
   parent: ClothingHeadEnvirohelmBase
   id: ClothingHeadEnvirohelmCentcomOfficial
-  name: CentCom official's envirosuit helmet
+  name: CentComm official's envirosuit helmet # Omu
   description: A special containment helmet designed for CentCom Staff. They sure do love their green.
   components:
   - type: Sprite
@@ -546,7 +546,7 @@
 - type: entity
   parent: ClothingHeadEnvirohelmBase
   id: ClothingHeadEnvirohelmCentcomOfficer
-  name: CentCom officer's envirosuit helmet
+  name: CentComm officer's envirosuit helmet # Omu
   description: A special containment helmet designed for CentCom Officers.
   components:
   - type: Sprite
