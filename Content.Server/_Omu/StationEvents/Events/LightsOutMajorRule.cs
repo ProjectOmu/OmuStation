@@ -36,8 +36,9 @@ public sealed partial class LightsOutMajorRule : StationEventSystem<LightsOutMaj
 
         component.Damage = new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), 5);
 
-        // i assume there is a station, and that the station the players are on is the first in the list
-        var station = _station.GetStations()[0];
+        // if there's no station, we can't run this event
+        if (!TryGetRandomStation(out var station))
+            return;
 
         // generate the list of targets
         var all_lights = EntityQueryEnumerator<PoweredLightComponent>();

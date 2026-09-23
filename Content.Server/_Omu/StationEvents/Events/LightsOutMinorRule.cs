@@ -38,8 +38,9 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
 
         component.Damage = new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), 5);
 
-        // i assume there is a station, and that the station the players are on is the first in the list
-        var station = _station.GetStations()[0];
+        // if there's no station, we can't run this event
+        if (!TryGetRandomStation(out var station))
+            return;
 
         // choose a random station beacon to center the breaking around
         var beacons = new List<EntityUid>();
@@ -48,6 +49,9 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
         {
             beacons.Add(beacon);
         }
+        // if there's no station beacon, we can't run this event
+        if (beacons.Count == 0)
+            return;
         var center_position = Transform(beacons[_random.Next(beacons.Count)]).LocalPosition;
 
         // generate the list of targets (and store list of all lights to make major and minor versions initially indistinguishable)
