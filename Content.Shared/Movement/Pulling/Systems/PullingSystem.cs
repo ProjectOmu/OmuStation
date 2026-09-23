@@ -643,13 +643,8 @@ public sealed class PullingSystem : EntitySystem
             LogImpact.Low,
             $"{ToPrettyString(pullerUid):user} started pulling {ToPrettyString(pullableUid):target}");
 
-        // Trauma/Omu edit start
-        if (grabStageOverride != null || _combatMode.IsInCombatMode(pullerUid))
-        {
-            var grabEv = new GrabAttemptEvent(pullerUid, IgnoreCombatMode: true, GrabStageOverride: grabStageOverride, EscapeAttemptModifier: escapeAttemptModifier);
-            RaiseLocalEvent(pullableUid, ref grabEv);
-        }
-        // Trauma/Omu edit end
+        var ev = new GrabAttemptEvent(pullerUid, GrabStageOverride: grabStageOverride, EscapeAttemptModifier: escapeAttemptModifier);
+        RaiseLocalEvent(pullableUid, ref ev);
         return true;
     }
 
