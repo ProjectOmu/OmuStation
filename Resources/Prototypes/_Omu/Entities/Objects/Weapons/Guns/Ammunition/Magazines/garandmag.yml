@@ -1,6 +1,6 @@
 - type: entity
   id: BaseMagazineClipM1Garand
-  name: "m1 garand clip (.30 rifle)"
+  name: "m1 garand clip (.30 long rifle magnum)"
   parent: BaseItem
   abstract: true
   components:
@@ -12,8 +12,8 @@
     mayTransfer: true
     whitelist:
       tags:
-        - CartridgeLightRifle
-    proto: CartridgeLightRifle
+        - CartridgeLongRifle
+    proto: CartridgeLongRifle
     capacity: 8
   - type: Item
     size: Small
@@ -35,7 +35,7 @@
 
 - type: entity
   id: MagazineClipM1Garand
-  name: "m1 garand clip (.30 rifle)"
+  name: "m1 garand clip (.30 long rifle magnum)"
   parent: BaseMagazineClipM1Garand
   components:
   - type: Tag
