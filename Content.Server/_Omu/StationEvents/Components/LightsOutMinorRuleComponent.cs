@@ -7,7 +7,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Server._Omu.StationEvents.Components;
 
 /// <summary>
-/// This event announces a temporary power surge and then smashes some powered lights in one department
+/// This event announces a temporary power surge and then smashes some powered lights around one station beacon
 /// </summary>
 [RegisterComponent, Access(typeof(Events.LightsOutMinorRule))]
 public sealed partial class LightsOutMinorRuleComponent : Component
@@ -22,7 +22,7 @@ public sealed partial class LightsOutMinorRuleComponent : Component
     /// The probability for an individual light source to be damaged
     /// </summary>
     [DataField]
-    public float DamageProbability = 0.40f;
+    public float DamageProbability = 0.60f;
 
     /// <summary>
     /// The damage to deal to the lights
