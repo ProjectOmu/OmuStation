@@ -6,14 +6,14 @@
   - type: LightsOutMajorRule
   - type: StationEvent
     earliestStart: 15
-    weight: 6.5
-    duration: null
+    weight: 5
+    duration: 1
     eventType: Maintenance
   - type: GameRule
     delay:
       min: 0
       max: 0
-    chaosScore: 250 # potentially highly disruptive
+    chaosScore: 200 # potentially highly disruptive
 
 - type: entity
   parent: BaseStationEvent
@@ -23,11 +23,11 @@
   - type: LightsOutMinorRule
   - type: StationEvent
     earliestStart: 15
-    weight: 6.5
-    duration: null
+    weight: 5
+    duration: 1
     eventType: Maintenance
   - type: GameRule
     delay:
       min: 0
       max: 0
-    chaosScore: 100
+    chaosScore: 80
