@@ -215,13 +215,6 @@
 
 - type: entity
   parent: BasePlushie
-  id: BaseAllulaloPlushie # @ screams
-  components:
-  - type: TileFrictionModifier
-    modifier: 0.005  
-
-- type: entity
-  parent: BaseAllulaloPlushie
   id: PlushieBenryOmuCrew
   name: Benry Benry plushie
   description: A plushie of a stupid Allulalo, known for being heavily abused by crew members. Throw it at the nearest wall!
@@ -258,7 +251,7 @@
     soundHit: /Audio/_Impstation/Allulalo/allulalo_scream.ogg
 
 - type: entity
-  parent: BaseAllulaloPlushie
+  parent: BasePlushie
   id: PlushieQuellinOmuCrew
   name: Quellin Loba-Kuin plushie
   description: A plushie of a spunky Allulalo, You feel like you shouldn't pick up the spicy chicken.
