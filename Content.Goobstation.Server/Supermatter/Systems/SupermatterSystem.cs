@@ -766,7 +766,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         //Omu start - sm randomiser
         if (HasComp<SupermatterRandomiserComponent>(args.Used))
         {
-            var doafter = new DoAfterArgs(EntityManager, args.User, 10f, new SupermatterRandomDoAfterEvent(), uid)
+            var doafter = new DoAfterArgs(EntityManager, args.User, 10f, new SupermatterRandomDoAfterEvent(), uid, null, args.Used)
             {
                 BreakOnDamage = true,
                 BreakOnHandChange = false,
@@ -905,6 +905,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             data.TransmitModifier += MathF.Round(_random.NextFloat(-2f, 2f), 2);
             data.HeatPenalty += MathF.Round(_random.NextFloat(-2f, 2f), 2);
             data.PowerMixRatio += MathF.Round(_random.NextFloat(-2f, 2f), 2);
+            sm.GasDataFields[gas.Key] = data;
         }
 
         QueueDel(args.Used);
