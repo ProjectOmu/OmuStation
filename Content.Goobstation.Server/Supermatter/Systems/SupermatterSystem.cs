@@ -222,7 +222,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 sm.GasEfficiencyFactorChanged = true;
                 sm.GasEfficiency = 0.30f;
                 sm.RadiationOutputFactorChanged = true;
-                sm.RadiationOutputFactor = 0.06f;
+                if (sm.RadiationOutputFactor < 0.06f)
+                    sm.RadiationOutputFactor = 0.06f;
             }
         }
     }                            // Omu end
