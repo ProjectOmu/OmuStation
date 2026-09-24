@@ -61,7 +61,7 @@ public sealed partial class LightsOutMajorRule : StationEventSystem<LightsOutMaj
         component.TargetListLength = component.Targets.Count;
 
         _chat.DispatchStationAnnouncement(
-            station,
+            (EntityUid) station,
             Loc.GetString("lights-out-announcement"),
             Loc.GetString("lights-out-sender"),
             playDefaultSound: true,
