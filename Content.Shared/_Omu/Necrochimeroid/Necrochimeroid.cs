@@ -77,11 +77,16 @@ public sealed class NecroChimeroidSystem : EntitySystem
 
     private void OnMindAdded(EntityUid uid, NecroChimeroidComponent component, ref MindAddedMessage args)
     {
+        _popup.PopupPredicted("Mind added", uid, null);
         if (!TryComp<MindContainerComponent>(uid, out var mindContainer) || mindContainer.Mind is not { } mind)
             return;
 
+        var action = EnsureComp<ActionsContainerComponent>(mind);
+
+        _popup.PopupPredicted("adding actions", uid, null);
         component.ActualEnterAction = _actionsSystem.AddAction(mind, component.EnterAction);
         component.ActualLeaveAction = _actionsSystem.AddAction(mind, component.LeaveAction);
+        Dirty(mind, action);
     }
 
     private void OnMindRemove(EntityUid uid, NecroChimeroidComponent component, ref MindRemovedMessage args)
@@ -99,14 +104,14 @@ public sealed class NecroChimeroidSystem : EntitySystem
 
         if (component.Burrowed)
         {
-            _popup.PopupEntity(Loc.GetString("necrochimeroid-enter-fail-burrow"), uid, uid);
+            _popup.PopupPredicted(Loc.GetString("necrochimeroid-enter-fail-burrow"), uid, uid);
             args.Handled = true;
             return;
         }
 
         if (!TryComp<MindContainerComponent>(target, out var mindContainer) || mindContainer.HasMind)
         {
-            _popup.PopupEntity(Loc.GetString("necrochimeroid-enter-fail-mind"), uid, uid);
+            _popup.PopupPredicted(Loc.GetString("necrochimeroid-enter-fail-mind"), uid, uid);
             args.Handled = true;
             return;
         }
