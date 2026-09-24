@@ -175,6 +175,8 @@
     soundHit:
       path: /Audio/_Goobstation/Voice/Resomi/trill.ogg
 
+- type: entity
+  parent: BasePlushie
   id: PlushiePanaceaOmuCrew
   name: Panacea plushie
   description: A plushie of a battered pink vulpkanin, smells of flour and strawberries, it also has a label, DO NOT EAT.
@@ -191,10 +193,6 @@
     - HEAD
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/_Goobstation/Voice/Resomi/wurble.ogg
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/_Floofstation/Voice/Avali/avali_laugh.ogg
       collection: VulpkaninSnarls
   - type: EmitSoundOnUse
     sound:
@@ -241,11 +239,6 @@
     sound: /Audio/Effects/hit_kick.ogg
   - type: EmitSoundOnThrow
     sound:
-      path: /Audio/_Goobstation/Voice/Resomi/trill.ogg
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    soundHit:
-      path: /Audio/_Goobstation/Voice/Resomi/trill.ogg
       collection: VulpkaninSnarls
   - type: MeleeWeapon
     wideAnimationRotation: 180
