@@ -158,6 +158,9 @@
       knockdownTimeMultiplier: 1.75
       minDistance: 1.5
       skillMod: -1
+    - type: Tag
+      tags:
+        - ImprovisedGripperGloves
     - type: Construction # Omu - crafting these silly things
       graph: ClothingHandsGlovesGripper
       node: end
