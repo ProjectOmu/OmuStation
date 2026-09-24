@@ -145,6 +145,18 @@
 
 - type: entity
   parent: BasePlushie
+  id: PlushieJessieFletcherOmuCrew
+  name: Jessie Fletcher plushie
+  description: This plushie looks like it'll treat your injuries with surgery most of the time. It can regularly be seen asking the captain weh plush for acting CMO.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/jessiefletcher.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/jessiefletcher.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/jessiefletcher.rsi
   id: PlushiePanaceaOmuCrew
   name: Panacea plushie
   description: A plushie of a battered pink vulpkanin, smells of flour and strawberries, it also has a label, DO NOT EAT.
@@ -161,6 +173,27 @@
     - HEAD
   - type: EmitSoundOnPickup
     sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnUse
+    sound:
+      collection: VulpYips
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: VulpYips
+  - type: EmitSoundOnThrow
+    sound:
+      collection: VulpkaninScreams
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: VulpkaninScreams
       collection: VulpkaninSnarls
   - type: EmitSoundOnUse
     sound:
