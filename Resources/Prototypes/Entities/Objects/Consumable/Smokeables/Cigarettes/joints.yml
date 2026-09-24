@@ -30,6 +30,13 @@
         reagents:
           - ReagentId: THC
             Quantity: 20
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: THC
+          Quantity: 5
+      # Omu end
   - type: RandomMetadata
     nameSegments: [NamesRollie]
   - type: StaticPrice #Goobstation
@@ -62,6 +69,21 @@
 #         Quantity: 1.33
         - ReagentId: Psicodine
           Quantity: 0.8
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: SpaceDrugs
+          Quantity: 0.8
+        - ReagentId: Lipolicide
+          Quantity: 0.8
+        - ReagentId: MindbreakerToxin
+          Quantity: 0.5
+        - ReagentId: Happiness
+          Quantity: 0.5
+        - ReagentId: Psicodine
+          Quantity: 0.16
+      # Omu end
   - type: StaticPrice #Goobstation
     price: 500        #Goobstation
 
@@ -95,6 +117,13 @@
         reagents:
           - ReagentId: THC
             Quantity: 20
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: THC
+          Quantity: 5
+      # Omu end
   - type: RandomMetadata
     nameSegments: [NamesRollie]
   - type: StaticPrice #Goobstation
@@ -127,5 +156,20 @@
 #         Quantity: 1.33
         - ReagentId: Psicodine
           Quantity: 0.8
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: SpaceDrugs
+          Quantity: 0.8
+        - ReagentId: Lipolicide
+          Quantity: 0.8
+        - ReagentId: MindbreakerToxin
+          Quantity: 0.5
+        - ReagentId: Happiness
+          Quantity: 0.5
+        - ReagentId: Psicodine
+          Quantity: 0.16
+      # Omu end
   - type: StaticPrice #Goobstation
     price: 500        #Goobstation

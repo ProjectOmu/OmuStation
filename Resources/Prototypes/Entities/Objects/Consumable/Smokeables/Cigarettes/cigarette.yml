@@ -62,6 +62,13 @@
     state: Burnt
   - type: SolutionContainerManager
     solutions:
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 1
+      # Omu end
       smokable:
         maxVol: 20
   - type: Tag
@@ -85,6 +92,15 @@
             Quantity: 10
           - ReagentId: Omnizine
             Quantity: 30
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 1.25
+        - ReagentId: Omnizine
+          Quantity: 3.75
+      # Omu end
    # Goobstation - Grindable cigarette start
       grinded:
         maxVol: 40
