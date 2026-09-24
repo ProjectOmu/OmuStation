@@ -66,6 +66,8 @@
   - type: Tag
     tags:
       - Cigarette #Goobstation - whitelisted cig pack strorage (added tag)
+      - Cigar # Omu
+      - Trash # Omu
 
 - type: entity
   id: CigarGoldSpent
@@ -80,10 +82,16 @@
     solutions:
       smokable:
         maxVol: 20
-      # Omu start
+  # Omu start
       food:
         maxVol: 5
         reagents:
           - ReagentId: Nicotine
             Quantity: 1
-      # Omu end
+  - type: Tag
+    tags:
+    - Cigarette
+    - Cigar
+    - Trash
+    - Burnt
+  # Omu end
