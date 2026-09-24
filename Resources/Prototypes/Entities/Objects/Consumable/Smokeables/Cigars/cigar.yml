@@ -35,6 +35,13 @@
     solutions:
       smokable:
         maxVol: 20
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 1
+      # Omu end
   - type: Tag
     tags:
       - Cigar
@@ -73,3 +80,10 @@
     solutions:
       smokable:
         maxVol: 20
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 1
+      # Omu end
