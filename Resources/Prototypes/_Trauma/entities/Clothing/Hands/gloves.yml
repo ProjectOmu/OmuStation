@@ -79,6 +79,10 @@
     - type: TackleModifier
 #      grabOnSuccess: true # Omu - killing hardgrab
       staminaCostMultiplier: 1
+    - type: Contraband # Omu - fixing sec seeing the green lock
+      severity: Syndicate
+      allowedJobs: []
+      allowedDepartments: []
 
 - type: entity
   parent: [BaseGlovesTackle, BaseSecurityContraband]
