@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: marking
-  id: FelinidFluffyTailRings
+  id: FelinidFluffyTailRingsAnimated # Omu - Tailwag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Tajaran] # Goobstation - Tajaran
+  speciesRestriction: [] # Omu - Tailwag
   sprites:
   - sprite: _DV/Mobs/Customization/Felinid/felinid_tails.rsi
     state: Felinid_fluffy_tail_full
@@ -12,19 +12,19 @@
     state: felinid_fluffy_tail_rings
 
 - type: marking
-  id: FelinidFluffyTail
+  id: FelinidFluffyTailAnimated # Omu - Tailwag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Tajaran] # Goobstation - Tajaran
+  speciesRestriction: [] # Omu - Tailwag
   sprites:
   - sprite: _DV/Mobs/Customization/Felinid/felinid_tails.rsi
     state: Felinid_fluffy_tail_full
 
 - type: marking
-  id: FelinidAlternativeTail
+  id: FelinidAlternativeTailAnimated # Omu - Tailwag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Tajaran] # Goobstation - Tajaran
+  speciesRestriction: [] # Omu - Tailwag
   sprites:
     - sprite: _DV/Mobs/Customization/Felinid/alternative_tail.rsi
       state: m_waggingtail_cat_FRONT

@@ -560,6 +560,7 @@
     # Goobstation End
   - type: Spillable
     solution: injector
+    spillWhenThrown: false # Omu, stops syringes from spilling when pulled out
   - type: TrashOnSolutionEmpty
     solution: injector
   - type: Appearance

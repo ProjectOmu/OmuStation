@@ -1,3 +1,4 @@
+# InnerClothing
 # Head
 - type: loadout
   id: QuartermasterBandana
@@ -14,3 +15,13 @@
   id: QuartermasterUniformSkirt
   equipment:
     jumpsuit: ClothingUniformJumpsuitQMUniformSkirt
+
+# Plasmaman Stuff
+- type: loadout
+  id: QuartermasterEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesQM
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation? - EE Plasmeme Change.
+    species:
+    - Plasmaman

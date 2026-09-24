@@ -179,6 +179,12 @@
     storedRotation: 45
   - type: ScannableForPoints # goob edit
     points: 2
+  - type: BallisticAmmoProvider # Omu edit, Rechambered mosin to .30 LRM
+    capacity: 5
+    proto: CartridgeLongRifle
+    whitelist:
+      tags:
+        - CartridgeLongRifle
 
 - type: entity
   name: Hristov

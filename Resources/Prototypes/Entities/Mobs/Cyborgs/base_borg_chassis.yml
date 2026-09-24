@@ -267,46 +267,20 @@
     - Cyborgs
     - Robotics
   - type: LanguageKnowledge # Einstein Engines - Languages
+    # Omu start: Cyborgs should understand (and only understand) all common languages (and not species languages)
     speaks:
     - TauCetiBasic
-    - Canilunzt
-    - Bubblish
-    - Nekomimetic
-    - Draconic
-    - SolCommon
-    - RootSpeak
-    - Moffic
-    - ValyrianStandard
-    - Chittin
-    - SiikMaas
     - RobotTalk
-    - Marish
-    - Elyran
-    - Freespeak
-    - Tradeband
-    - Schechi
-    - NewKinPidgin
     understands:
     - TauCetiBasic
-    - Canilunzt
-    - Bubblish
-    - Nekomimetic
-    - Draconic
-    - SolCommon
-    - RootSpeak
-    - Moffic
-    - ValyrianStandard
-    - Chittin
-    - SiikMaas
     - RobotTalk
-    - Marish
     - Elyran
-    - Freespeak
-    - Tradeband
-    - Schechi # Omustation start - Borgs and the AI should speak all common languages, minus sign, which they should just understand. (Correction, for now borgs only understand the langs)
-    - NewKinPidgin
     - NovuNederic
-    - Sign # Omustation end
+    - SolCommon
+    - TauCetiBasic
+    - Tradeband
+    - Sign
+    # Omu end
   - type: ProtectedFromStepTriggers
   - type: DamageOnInteractProtection
     damageProtection:
@@ -545,15 +519,18 @@
   - type: Sprite
     sprite: Mobs/Silicon/chassis.rsi
   - type: MobThresholds
-    thresholds: # slightly tankier than a normal borg
+    thresholds: # goob - tankier than a normal borg
       0: Alive
-      125: Critical
-      375: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
-  - type: EmagSiliconLaw # should xenoborgs be emagable?
-    stunTime: 5
+      175: Critical # goob - increased to match overall goob balance
+      400: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
+#  - type: EmagSiliconLaw # should xenoborgs be emagable? # goob - No
+ #   stunTime: 5
   - type: SiliconLawProvider
     laws: XenoborgLawset # custom laws here
     subverted: true
+  - type: Damageable
+    damageContainer: Silicon
+    damageModifierSet: Xenoborg # Goob - xenoborg buff
   - type: IntrinsicRadioReceiver # Goob - moved binary to CM
   #- type: CollectiveMind # Omu, make binary a radio again.
   #  defaultChannel: Binary
@@ -614,7 +591,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 90
+        damage: 150 # goob
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -623,7 +600,7 @@
             volume: 5
     - trigger:
         !type:DamageTrigger
-        damage: 375
+        damage: 400 # goob
       behaviors:
       - !type:PlaySoundBehavior
         sound:

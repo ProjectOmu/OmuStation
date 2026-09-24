@@ -1,0 +1,29 @@
+- type: entity
+  name: pill canister
+  parent: PillCanister
+  id: PillCanisterStrangePill
+  suffix: Strange Pill, 1-4
+  components:
+  - type: Label
+    currentLabel: surplus
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: StrangePill
+        amount: !type:RangeNumberSelector
+          range: 1, 4
+  
+- type: entity
+  suffix: Artiplates
+  parent: PrefilledSyringe
+  id: SyringeArtiplates
+  components:
+  - type: Label
+    currentLabel: reagent-name-artiplates
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+          - ReagentId: Artiplates
+            Quantity: 15

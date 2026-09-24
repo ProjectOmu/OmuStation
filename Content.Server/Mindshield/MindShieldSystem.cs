@@ -54,7 +54,7 @@ public sealed class MindShieldSystem : EntitySystem
     {
         if (TryComp<HeadRevolutionaryComponent>(implanted, out var headRevComp)) // GoobStation - headRevComp
         {
-            _popupSystem.PopupEntity(Loc.GetString("head-rev-break-mindshield"), implanted);
+            _popupSystem.PopupEntity(Loc.GetString("head-rev-break-mindshield-omu"), implanted);        //Omu changed localisation
             _revolutionarySystem.ToggleConvertAbility((implanted, headRevComp), false); // GoobStation - turn off headrev ability to convert
             //QueueDel(implant); - Goobstation - Headrevs should remove implant before turning on ability
             return;

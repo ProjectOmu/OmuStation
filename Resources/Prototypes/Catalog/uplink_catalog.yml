@@ -211,7 +211,7 @@
   id: UplinkHushpup
   name: uplink-hushpup-name
   description: uplink-hushpup-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/hushpup.rsi, state: icon }
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Shotguns/hushpup.rsi, state: icon } #GoobStation resprite
   productEntity: ClothingBackpackDuffelSyndicateFilledHushpup
   #discountCategory: rareDiscounts
   #discountDownTo:
@@ -259,7 +259,7 @@
   id: UplinkBulldog #goob
   name: uplink-buldog-name #goob
   description: uplink-buldog-desc #goob
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon } #GoobStation resprite
   productEntity: WeaponShotgunBulldog
   cost:
     Telecrystal: 60 # goob
@@ -1018,10 +1018,10 @@
     Telecrystal: 20 # goob
   categories:
     - UplinkDeception
-  conditions: # EE Plasmeme Change: Plasmamen get another listing.
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Plasmaman
+#  conditions: # EE Plasmeme Change: Plasmamen get another listing. # Omu edit start: handheld uplinks can't get SpeciesCondition thus nukies and spawned uplinks were unable to buy this.
+#  - !type:BuyerSpeciesCondition
+#    blacklist:
+#    - Plasmaman # Omu edit end
 
 # - type: listing
 #   id: UplinkGigacancerScanner

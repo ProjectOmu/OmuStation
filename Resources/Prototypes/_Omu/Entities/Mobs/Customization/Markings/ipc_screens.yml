@@ -451,3 +451,25 @@
   sprites:
     - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
       state: ipc_screen_l
+
+- type: marking
+  speciesRestriction: [ IPC ]
+  id: ScreenLine
+  bodyPart: Face
+  markingCategory: Face
+  sprites:
+  - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
+    state: ipc_screen_screen_small_whitehue
+  - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
+    state: ipc_screen_line
+
+- type: marking
+  speciesRestriction: [ IPC ]
+  id: ScreenCharger
+  bodyPart: Face
+  markingCategory: Face
+  sprites:
+  - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
+    state: ipc_screen_screen_small_whitehue
+  - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
+    state: ipc_screen_charger_moving

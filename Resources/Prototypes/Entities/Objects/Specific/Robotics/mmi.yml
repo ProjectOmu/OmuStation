@@ -121,6 +121,15 @@
       job: Borg
     - type: Organ
       slotId: posbrain
+      intCap: 200 # Omu start
+      integrity: 200
+      integrityThresholds:
+        Normal: 200
+        Damaged: 100
+        Destroyed: 0
+      indestructible: true
+    - type: OrganDeathTrauma
+      trauma: Braindeath # Omu end
     - type: Brain
     - type: BlockMovement
     - type: Examiner

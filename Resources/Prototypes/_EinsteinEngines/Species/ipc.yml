@@ -38,6 +38,10 @@
     Chest: MobIPCChest
     FacialHair: MobHumanoidAnyMarking # Omu
     Snout: MobHumanoidAnyMarking
+    #omu start
+    UndergarmentBottom: MobHumanoidAnyMarking # Note, these layers are mapped in the base species
+    UndergarmentTop: MobHumanoidAnyMarking # so there's no need to re-map all the layers
+    #omu end
     Groin: MobIPCGroin
     LArm: MobIPCLArm
     RArm: MobIPCRArm
@@ -108,6 +112,14 @@
       points: 1
       required: false
       defaultMarkings: [ MobIPCLHandDefault ]
+    # Omu start; readd omu species undergarments post-upstream
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
+    # Omu end
 
 - type: humanoidBaseSprite
   id: MobIPCMarkingFollowSkin

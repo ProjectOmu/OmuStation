@@ -237,6 +237,43 @@
   name: central commander's labcoat
 
 - type: entity
+  parent: [ ClothingOuterStorageFoldableBase, BaseCentcommContraband ]
+  id:  ClothingOuterCentcomArmoredLabcoat
+  name: centcomm armored lab coat
+  description: A heavy, gilded labcoat, made to protect against chemical spills and bullet wounds alike.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/labcoat_armored_centcom.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/labcoat_armored_centcom.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.65
+        Heat: 0.6
+        Caustic: 0.4
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: HeldSpeedModifier
+  - type: GroupExamine
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBaseOpened, ClothingOuterCentcomArmoredLabcoat ]
+  id: ClothingOuterCentcomArmoredLabcoatOpened
+  name: centcomm armored lab coat
+
+- type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCourierDuster
   name: courier's duster

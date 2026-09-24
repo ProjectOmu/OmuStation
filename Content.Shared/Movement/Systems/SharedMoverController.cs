@@ -2,6 +2,8 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared._DV.Movement; // DeltaV
+using Content.Shared._DV.NodeCrawl; // DeltaV - Node Crawling
 using Content.Shared.ActionBlocker;
 using Content.Shared.CCVar;
 using Content.Shared.Friction;
@@ -60,6 +62,8 @@ public abstract partial class SharedMoverController : VirtualController
     [Dependency] private   readonly StandingStateSystem _standing = default!; // Goobstation - kil mofs
     [Dependency] private   readonly CommonMomentumSteeringSystem _momentumSteering = default!; // Goobstation - momentum steering
     [Dependency] private   readonly CommonMomentumThrustSystem _momentumThrust = default!; // Goobstation - jetpack thrust falloff
+    [Dependency] private   readonly NewTileMovementSystem _tileMovement = default!; // DeltaV
+    [Dependency] private   readonly NodeCrawlerMovementSystem _nodeCrawlerMovement = default!; // DeltaV - node crawling
 
     protected EntityQuery<CanMoveInAirComponent> CanMoveInAirQuery;
     protected EntityQuery<FootstepModifierComponent> FootstepModifierQuery;
@@ -158,7 +162,7 @@ public abstract partial class SharedMoverController : VirtualController
     /// <summary>
     ///     Movement while considering actionblockers, weightlessness, etc.
     /// </summary>
-    protected void HandleMobMovement(
+    public void HandleMobMovement(          //Omu changed to public for delta V port
         Entity<InputMoverComponent> entity,
         float frameTime)
     {
@@ -308,6 +312,11 @@ public abstract partial class SharedMoverController : VirtualController
                 tileMovement.FailureSlideActive = false;
             }
         }
+
+        // Begin DeltaV Additions - node crawling
+        if (_nodeCrawlerMovement.TryTick((uid, mover, physicsComponent, xform)))
+            return;
+        // End DeltaV Additions
 
         var touching = false;
         // Whether we use tilefriction or not
@@ -588,7 +597,7 @@ public abstract partial class SharedMoverController : VirtualController
 
     protected abstract bool CanSound();
 
-    private bool TryGetSound(
+    public bool TryGetSound(        //Omu changed to public for delta V port
         bool weightless,
         EntityUid uid,
         InputMoverComponent mover,

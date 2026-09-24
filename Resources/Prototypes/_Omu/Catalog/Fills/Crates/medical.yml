@@ -8,3 +8,16 @@
     contents:
       - id: VehicleATVParamedic
       - id: VehicleKeyATVParamedic
+
+- type: entity
+  id: CrateMedicalStrangePills
+  parent: CrateMedical
+  name: pharmeceutical surplus crate
+  description: A crate containing several bottles of cheap, unmarked pills. What could possibly go wrong?
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: PillCanisterStrangePill
+        amount: !type:RangeNumberSelector
+          range: 4, 5

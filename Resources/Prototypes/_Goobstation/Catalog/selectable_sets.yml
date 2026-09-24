@@ -466,7 +466,7 @@
 - type: selectableSet
   id: VoidsuitSelectorParamedicVoidsuit
   name: selectable-set-paramedic-voidsuit-name
-  description: selectable-set-paramedic-voidsuit-desc
+  description: selectable-set-paramedic-voidsuit-omu-desc # Omu
   sprite:
     sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
     state: icon
@@ -478,7 +478,7 @@
   name: selectable-set-paramedic-modsuit-name
   description: selectable-set-paramedic-modsuit-desc
   sprite:
-    sprite: _Goobstation/Clothing/Back/Modsuits/paramedic.rsi
+    sprite: _Omu/Clothing/Back/Modsuits/paramedic.rsi # Omu, link to new sprites in omu namespace
     state: control
   content:
   - ClothingModsuitParamedicPowerCell

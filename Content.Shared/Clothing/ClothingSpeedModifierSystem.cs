@@ -62,20 +62,22 @@ public sealed class ClothingSpeedModifierSystem : EntitySystem
         if (component.RequireActivated && !_toggle.IsActivated(uid))
             return;
 
+        // Omu start - this isn't needed since the immunity is set at a higher level
         // goob edit - speed modifier immunity (1 liner)
-        if (HasComp<SpeedModifierImmunityComponent>(uid)) // Goob
-            return;
+        //if (HasComp<SpeedModifierImmunityComponent>(uid)) // Goob
+        //    return;
+        // Omu end
 
         if (component.Standing != null && !_standing.IsMatchingState(args.Owner, component.Standing.Value))
             return;
 
-        args.Args.ModifySpeed(component.WalkModifier, component.SprintModifier);
+        args.Args.ModifySpeed(component.WalkModifier, component.SprintModifier, component.BypassImmune); // Omu - reserve bypass control to clothing
     }
 
     private void OnClothingVerbExamine(EntityUid uid, ClothingSpeedModifierComponent component, GetVerbsEvent<ExamineVerb> args)
     {
         // goob edit - speed modifier immunity (1 liner)
-        if (!args.CanInteract || !args.CanAccess || HasComp<SpeedModifierImmunityComponent>(uid))
+        if (!args.CanInteract || !args.CanAccess || (HasComp<SpeedModifierImmunityComponent>(uid) && !component.BypassImmune)) // Omu - add bypass control
             return;
 
         var walkModifierPercentage = MathF.Round((1.0f - component.WalkModifier) * 100f, 1);

@@ -120,6 +120,8 @@
         sprite: _DV/Mobs/Customization/Vulpkanin/masking_helpers.rsi
         state: female_full
         visible: false
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ] # Omu, add vulpkanin underwear
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ] # Omu, add vulpkanin underwear
       - map: [ "jumpsuit" ]
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
       - map: [ "enum.HumanoidVisualLayers.RHand" ]
@@ -186,6 +188,7 @@
     - DoorBumpOpener
     - AnomalyHost
     - VulpEmotes
+  - type: ToggleableWagging # Omu - Tail wag
 
 - type: entity
   save: false

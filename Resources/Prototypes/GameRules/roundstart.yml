@@ -312,7 +312,7 @@
         - CommandStaff # Goobstation
 #      jobBlacklist: [ Mime ] # Goobstation # Omu, revert bookrevs
       briefing:
-        text: head-rev-role-greeting
+        text: head-rev-role-greeting-omu  #Omu changed localisation
         color: CornflowerBlue
         sound: "/Audio/Ambience/Antag/headrev_start.ogg"
       startingGear: HeadRevGear

@@ -32,7 +32,7 @@
     defaultDirection: 1, 0
   - type: BatteryAmmoProvider
     proto: RedMediumSplitLaser
-    fireCost: 80
+    fireCost: 60 #Omu buff
   - type: StaticPrice
     price: 2500
   - type: MagazineVisuals
@@ -82,7 +82,7 @@
     defaultDirection: 1, 0
   - type: BatteryAmmoProvider
     proto: BulletLaserHeavy
-    fireCost: 33
+    fireCost: 20 #Omu - more capacity because these things are ass
   - type: StaticPrice
     price: 2500
   - type: MagazineVisuals
@@ -119,13 +119,13 @@
     shape:
     - 0,0,4,1
   - type: Gun
-    fireRate: 0.75
+    fireRate: 1.25 # Omu Buff
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  # - type: GunRequiresWield #remove when inaccuracy on spreads is fixed #Omu - Buffing this awful crap
   - type: BatteryAmmoProvider
     proto: BulletLaserSpreadHeavy
-    fireCost: 125
+    fireCost: 100 # Omu Buff
   - type: StaticPrice
     price: 2500
   - type: MagazineVisuals

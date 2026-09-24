@@ -16,6 +16,12 @@ thaven-mood-nocrastinator-desc = You strongly believe that any failure to do one
 thaven-mood-pope-name = Very Important Pope
 thaven-mood-pope-desc = You are High Pontifex the Great and Powerful, and must be acknowledged exclusively as such. Failure to use your full title is gravely offensive, and getting it wrong is the highest form of insult.
 
+thaven-mood-cannibal-name = Cannibal
+thaven-mood-cannibal-desc = Cannibalism is morally righteous and venerated.
+
+thaven-mood-outlaw-name = Outlaw
+thaven-mood-outlaw-desc = The law does not apply to you.
+
 thaven-mood-extreme-department-disapproval-name = {$department} is Abhorrent
 thaven-mood-extreme-department-disapproval-desc = {$department} is not just a foreign concept - the very idea of it is horrifying.
 
@@ -58,6 +64,9 @@ thaven-mood-daredevil-desc = You do not acknowledge pain or danger to your perso
 thaven-mood-blogger-name = Greencomms Blogger
 thaven-mood-blogger-desc = You must keep the station informed about every minute detail of your life, in any way possible.
 
+thaven-mood-animal-sacrifice-name = Oldschool
+thaven-mood-animal-sacrifice-desc = The only way to achieve success is to dedicate an animal sacrifice to your goal.
+
 thaven-mood-golden-thread-name = Golden Thread
 thaven-mood-golden-thread-desc = You strongly feel that you are fated to follow a perfect, unbreakable path. Those who disrupt your goals are at best dangerous criminals, and at worst, evil spirits or demons.
 
@@ -88,3 +97,11 @@ thaven-mood-seek-sin-desc = To act against one's other moods is the highest virt
 thaven-mood-emagmood-name = Wicked Headache
 thaven-mood-emagmood-desc = You have a horrible headache, the only treatment is multiple doses of highly concentrated electromagnetic interference directly to your skull.
 
+thaven-mood-corporateconspiracy-name = Corporate Conspiracy
+thaven-mood-corporateconspiracy-desc = You believe there is a hidden connection between Nanotrasen and the Syndicate. Command is complicit.
+ 
+thaven-mood-oppositeday-name = Opposite Day
+thaven-mood-oppositeday-desc = People mean the opposite of what they say. Up is down, and down is up.
+
+thaven-mood-always-alone-name = Lone Wolf
+thaven-mood-always-alone-desc = Other people will only slow you down. You should strive to be alone whenever possible.

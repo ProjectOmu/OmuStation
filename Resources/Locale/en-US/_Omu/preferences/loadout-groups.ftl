@@ -14,6 +14,10 @@ loadout-group-prisoner-envirohelm = Prisoner envirohelm
 loadout-group-prisoner-envirosuit = Prisoner envirosuit
 loadout-group-prisoner-envirogloves = Prisoner envirogloves
 
+# Medical Doctor
+
+loadout-group-medical-neck = Medical neck
+
 # New PDAs
 loadout-group-captain-id = Captain ID
 loadout-group-ntr-id = Nanotrasen Representative ID

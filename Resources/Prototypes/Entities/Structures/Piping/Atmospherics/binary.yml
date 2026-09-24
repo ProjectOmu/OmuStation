@@ -94,12 +94,12 @@
   - type: GuideHelp
     guides:
     - Pumps
-  - type: VentCrawlerTube # Goobstation - ventcrawl
-    containerId: VentCrawlerTube
-  - type: VentCrawlerTransit # Goobstation - ventcrawl
-  - type: ContainerContainer # Goobstation - ventcrawl
-    containers:
-      VentCrawlerTube: !type:Container
+  #- type: VentCrawlerTube # Goobstation - ventcrawl # Omu start, use nodecrawl instead
+  #  containerId: VentCrawlerTube
+  #- type: VentCrawlerTransit # Goobstation - ventcrawl
+  #- type: ContainerContainer # Goobstation - ventcrawl
+  #  containers:
+  #    VentCrawlerTube: !type:Container # Omu end
 
 - type: entity
   parent: GasBinaryBase
@@ -174,12 +174,12 @@
     - type: GuideHelp
       guides:
       - Pumps
-    - type: VentCrawlerTube # Goobstation - ventcrawl
-      containerId: VentCrawlerTube
-    - type: VentCrawlerTransit # Goobstation - ventcrawl
-    - type: ContainerContainer # Goobstation - ventcrawl
-      containers:
-        VentCrawlerTube: !type:Container
+    #- type: VentCrawlerTube # Goobstation - ventcrawl # Omu start, use nodecrawl instead
+    #  containerId: VentCrawlerTube
+    #- type: VentCrawlerTransit # Goobstation - ventcrawl
+    #- type: ContainerContainer # Goobstation - ventcrawl
+    #  containers:
+    #    VentCrawlerTube: !type:Container # Omu end
 
 - type: entity
   parent: GasBinaryBase
@@ -284,12 +284,12 @@
     - type: GuideHelp
       guides:
       - PassiveGate
-    - type: VentCrawlerTube # Goobstation - ventcrawl
-      containerId: VentCrawlerTube
-    - type: VentCrawlerTransit # Goobstation - ventcrawl
-    - type: ContainerContainer # Goobstation - ventcrawl
-      containers:
-        VentCrawlerTube: !type:Container
+    #- type: VentCrawlerTube # Goobstation - ventcrawl # Omu start, use nodecrawl instead
+    #  containerId: VentCrawlerTube
+    #- type: VentCrawlerTransit # Goobstation - ventcrawl
+    #- type: ContainerContainer # Goobstation - ventcrawl
+    #  containers:
+    #    VentCrawlerTube: !type:Container # Omu end
 
 - type: entity
   parent: GasBinaryBase
@@ -351,12 +351,12 @@
     - type: GuideHelp
       guides:
       - ManualValve
-    - type: VentCrawlerTube # Goobstation - ventcrawl
-      containerId: VentCrawlerTube
-    - type: VentCrawlerTransit # Goobstation - ventcrawl
-    - type: ContainerContainer # Goobstation - ventcrawl
-      containers:
-        VentCrawlerTube: !type:Container
+    #- type: VentCrawlerTube # Goobstation - ventcrawl # Omu start, use nodecrawl instead
+    #  containerId: VentCrawlerTube
+    #- type: VentCrawlerTransit # Goobstation - ventcrawl
+    #- type: ContainerContainer # Goobstation - ventcrawl
+    #  containers:
+    #    VentCrawlerTube: !type:Container # Omu end
 
 - type: entity
   parent: GasBinaryBase
@@ -429,12 +429,12 @@
   - type: GuideHelp
     guides:
     - SignalValve
-  - type: VentCrawlerTube # Goobstation - ventcrawl
-    containerId: VentCrawlerTube
-  - type: VentCrawlerTransit # Goobstation - ventcrawl
-  - type: ContainerContainer # Goobstation - ventcrawl
-    containers:
-      VentCrawlerTube: !type:Container
+  #- type: VentCrawlerTube # Goobstation - ventcrawl # Omu start, use nodecrawl instead
+  #  containerId: VentCrawlerTube
+  #- type: VentCrawlerTransit # Goobstation - ventcrawl
+  #- type: ContainerContainer # Goobstation - ventcrawl
+  #  containers:
+  #    VentCrawlerTube: !type:Container # Omu end
 
 - type: entity
   parent: GasBinaryBase
@@ -474,14 +474,16 @@
     - type: GuideHelp
       guides:
       - GasCanisters
-    - type: VentCrawlerTube # Goobstation - ventcrawl
-      containerId: VentCrawlerTube
-    - type: VentCrawlerJunction # Goobstation - ventcrawl
-      degrees:
-        - 0
-    - type: ContainerContainer # Goobstation - ventcrawl
-      containers:
-        VentCrawlerTube: !type:Container
+    #- type: VentCrawlerTube # Goobstation - ventcrawl    Omu - Commented out to replace with nodecrawl
+    #  containerId: VentCrawlerTube
+    #- type: VentCrawlerJunction # Goobstation - ventcrawl
+    #  degrees:
+    #    - 0
+    #- type: ContainerContainer # Goobstation - ventcrawl
+    #  containers:
+    #    VentCrawlerTube: !type:Container
+    - type: CrawlableNode # DeltaV
+      reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 
 - type: entity
   parent: GasVentPump
@@ -548,6 +550,7 @@
     - type: GuideHelp
       guides:
       - AirVent
+    - type: NodeCrawlVentAccess # DeltaV
 
 - type: entity
   parent: [ BaseMachine, ConstructibleMachine ]
@@ -627,6 +630,8 @@
     guides:
     - GasRecycling
   - type: TegCirculator
+  - type: CrawlableNode # DeltaV - node crawling
+    reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 
 - type: entity
   parent: GasBinaryBase
