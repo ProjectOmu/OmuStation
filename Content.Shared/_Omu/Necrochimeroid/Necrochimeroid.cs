@@ -89,8 +89,8 @@ public sealed class NecroChimeroidSystem : EntitySystem
         if (!TryComp<MindContainerComponent>(uid, out var mindContainer) || mindContainer.Mind is not { } mind)
             return;
 
-        component.ActualEnterAction = _actionsSystem.AddAction(mind, component.EnterAction);
-        component.ActualLeaveAction = _actionsSystem.AddAction(mind, component.LeaveAction);
+        _actionsSystem.RemoveAction(component.ActualEnterAction);
+        _actionsSystem.RemoveAction(component.ActualLeaveAction);
     }
     #region actions
     private void OnEnterAttempt(EntityUid uid, NecroChimeroidComponent component, ref NecroEnterEvent args)
