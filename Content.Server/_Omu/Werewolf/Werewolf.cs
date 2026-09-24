@@ -214,18 +214,6 @@ public sealed class WerewolfSystem : EntitySystem
             return;
         }
 
-        if (TryComp<BodyComponent>(victim, out var bodyComp))
-            if (_body.TryGetBodyOrganEntityComps<HeartComponent>((victim, bodyComp), out var hearts))
-            {
-                foreach (var heart in hearts)       //This is so stupid
-                {
-                    QueueDel(heart.Owner);
-                    component.Hearts += 1;
-                }
-            }
-
-        EnsureComp<WerewolfDevouredComponent>(victim);
-
         var doAfterArgs = new DoAfterArgs(
             EntityManager,
             uid,
