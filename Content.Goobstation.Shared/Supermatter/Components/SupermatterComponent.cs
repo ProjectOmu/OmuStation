@@ -482,11 +482,24 @@ public sealed partial class SupermatterComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public bool GasEfficiencyFactorChanged = false;
 
+    // Omu
     [DataField("LightningCountNormal")]
     public int LightningCountNormal = 1;
-
+    
+    // Omu
     [DataField("LightningCountOverclocked")]
     public int LightningCountOverclocked = 3;
+    
+    // Omu
+    [DataField]
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool HazardGas = false;
+
+    // Omu
+    [DataField]
+    [ViewVariables(VVAccess.ReadOnly)]
+    public float TimeSinceHazardGas = 0f;
+
 }
 [Prototype]
 public sealed partial class SupermatterEventPrototype : IPrototype
