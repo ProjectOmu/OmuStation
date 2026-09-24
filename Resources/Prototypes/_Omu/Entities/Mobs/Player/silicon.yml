@@ -12,6 +12,41 @@
     - type: GhostTakeoverAvailable
 
 - type: entity
+  id: PlayerBorgSyndicateServiceBattery
+  parent: BorgChassisSyndicateService
+  suffix: Battery, Module, Operative
+  components:
+  - type: NukeOperative
+  - type: ContainerFill
+    containers:
+      borg_brain:
+        - PositronicBrain
+      borg_module:
+        - BorgModuleService
+        - BorgModuleMusique
+        - BorgModuleGardening
+        - BorgModuleHarvesting
+        - BorgModuleOperative
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
+
+- type: entity
+  id: PlayerBorgSyndicateServiceGhostRole
+  parent: PlayerBorgSyndicateServiceBattery
+  suffix: Ghost role
+  components:
+    - type: GhostRole
+      name: ghost-role-information-syndicate-cyborg-service-name
+      description: ghost-role-information-syndicate-cyborg-service-description
+      rules: ghost-role-information-higher-standard-silicon-rules
+      raffle:
+        settings: default
+    - type: GhostTakeoverAvailable
+
+- type: entity
   id: JermovCircuitBoard
   parent: BaseElectronics
   name: law board (Jermov)
