@@ -2,6 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
+using Content.Shared.DoAfter;
 using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
 
@@ -40,6 +41,12 @@ public sealed partial class NecroChimeroidComponent : Component
     /// </summary>
     [DataField]
     public bool Burrowed;
+
+    /// <summary>
+    /// The time take for an NC to enter an entity
+    /// </summary>
+    [DataField]
+    public TimeSpan EnterDuration = TimeSpan.FromSeconds(5);
 }
 
 public sealed class NecroChimeroidSystem : EntitySystem
@@ -48,6 +55,7 @@ public sealed class NecroChimeroidSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -56,6 +64,7 @@ public sealed class NecroChimeroidSystem : EntitySystem
         SubscribeLocalEvent<NecroChimeroidComponent, MindRemovedMessage>(OnMindRemove);
 
         SubscribeLocalEvent<NecroChimeroidComponent, NecroEnterEvent>(OnEnterAttempt);
+        SubscribeLocalEvent<NecroChimeroidComponent, NecroEnterDoafter>(OnEnterDoAfter);
     }
     private void OnStartup(EntityUid uid, NecroChimeroidComponent component, ref ComponentStartup args)
     {
@@ -91,23 +100,60 @@ public sealed class NecroChimeroidSystem : EntitySystem
         if (component.Burrowed)
         {
             _popup.PopupEntity(Loc.GetString("necrochimeroid-enter-fail-burrow"), uid, uid);
+            args.Handled = true;
             return;
         }
 
         if (!TryComp<MindContainerComponent>(target, out var mindContainer) || mindContainer.HasMind)
         {
             _popup.PopupEntity(Loc.GetString("necrochimeroid-enter-fail-mind"), uid, uid);
+            args.Handled = true;
             return;
         }
 
 
         if (TryComp<BodyComponent>(target, out var bodyComp))
+        {
             if (_body.TryGetBodyOrganEntityComps<BrainComponent>((target, bodyComp), out var brains))
             {
-
+                _popup.PopupEntity(Loc.GetString("necrochimeroid-enter-fail-brain"), uid, uid);
+                args.Handled = true;
+                return;
             }
 
+            foreach (var container in _body.GetBodyContainers(target, bodyComp))
+            {
+                if (_body.CanInsertOrgan(uid, container.ID))
+                {
+                    var doAfterArgs = new DoAfterArgs(
+                    EntityManager,
+                    uid,
+                    component.EnterDuration,
+                    new NecroEnterDoafter()
+                    {
+                        Container = container.ID,
+                    },
+                    uid,
+                    args.Target)
+                    {
+                        BreakOnDamage = true,
+                        BreakOnMove = true,
+                        NeedHand = false,
+                    };
+
+                    if (_doAfterSystem.TryStartDoAfter(doAfterArgs))
+                    {
+                        args.Handled = true;
+                        return;
+                    }
+                }
+            }
+        }
     }
+    private void OnEnterDoAfter(EntityUid uid, NecroChimeroidComponent component, NecroEnterDoafter args)
+    {
+        _body.InsertOrgan(uid, uid, args.Container);
+    }
+}
     #endregion
 
-}
