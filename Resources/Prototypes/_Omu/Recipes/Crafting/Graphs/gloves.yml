@@ -6,8 +6,27 @@
     edges:
     - to: end
       steps:
-      - material: WebSilk
-        amount: 12
-        doAfter: 15
+      - material: Cloth
+        amount: 5
+        doAfter: 5
+      - material: Cable
+        amount: 5
   - node: end
     entity: ClothingHandsGlovesGripper
+
+- type: constructionGraph
+  id: ClothingHandsGlovesRocket
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: end
+      steps:
+      - material: Cable
+        amount: 5
+      - tag: EmergencyOxygenTank
+        amount: 2
+      - tag: ImprovisedGripperGloves
+        amount: 1
+  - node: end
+    entity: ClothingHandsGlovesRocket

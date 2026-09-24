@@ -106,6 +106,10 @@
       rangeMultiplier: 3
       minDistance: 3
       skillMod: 7
+    - type: Construction # Omu - crafting these very silly things
+      graph: ClothingHandsGlovesRocket
+      node: end
+
 
 - type: entity
   parent: BaseGlovesTackle
