@@ -2,6 +2,7 @@
 
 using System.Collections.Frozen;
 using Content.Goobstation.Common.MisandryBox;
+using Content.Omu.Common.Chat; // Omu
 using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
@@ -194,6 +195,12 @@ public abstract partial class SharedChatSystem
 
         param.Pitch += ev.Pitch;
         // Goobstation/MisandryBox
+
+        // Omu start
+        var volumeEv = new EmoteSoundVolumeShiftEvent(emoteId);
+        RaiseLocalEvent(uid, ref volumeEv);
+        param.Volume += volumeEv.Volume;
+        // Omu end
 
         _audio.PlayPvs(sound, uid, param);
         return true;
