@@ -128,7 +128,7 @@
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: station/intercom.rsi # Omu edit, ported sprites from /tg/station in SS13
+    sprite: _station/intercom.rsi # Omu edit, ported sprites from /tg/station in SS13
     layers:
     - state: build
     - state: panel
