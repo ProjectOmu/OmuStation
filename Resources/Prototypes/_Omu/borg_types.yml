@@ -341,7 +341,7 @@
             sprite: _Omu/Mobs/Species/Cyborgs/kerfus_displacements.rsi
             state: head
 
-  inventoryTemplateId: borgShort
+  inventoryTemplateId: borgNoOffset
   spriteBodyState: engineer
   spriteHasMindState: engineer_e
   spriteNoMindState: engineer_e_r
@@ -385,7 +385,7 @@
 
   lawset: OmuSalvage
 
-  inventoryTemplateId: borgTall
+  inventoryTemplateId: borgNoOffset
   spriteBodyState: miner
   spriteHasMindState: miner_e
   spriteNoMindState: miner_e_r
@@ -425,7 +425,7 @@
 
   lawset: OmuJanitor
 
-  inventoryTemplateId: borgShort
+  inventoryTemplateId: borgNoOffset
   spriteBodyState: janitor
   spriteHasMindState: janitor_e
   spriteNoMindState: janitor_e_r
@@ -481,7 +481,7 @@
             sprite: _Omu/Mobs/Species/Cyborgs/kerfus_displacements.rsi
             state: head
 
-  inventoryTemplateId: borgDutch
+  inventoryTemplateId: borgNoOffset
   spriteBodyState: medical
   spriteHasMindState: medical_e
   spriteNoMindState: medical_e_r
@@ -525,7 +525,7 @@
             sprite: _Omu/Mobs/Species/Cyborgs/kerfus_displacements.rsi
             state: head
 
-  inventoryTemplateId: borgTall
+  inventoryTemplateId: borgNoOffset
   spriteBodyState: service
   spriteHasMindState: service_e
   spriteNoMindState: service_e_r
