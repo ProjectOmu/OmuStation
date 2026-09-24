@@ -161830,16 +161830,6 @@ entities:
     - type: Transform
       pos: -68.80549,-25.680063
       parent: 2
-- proto: MedkitCombatFilled
-  entities:
-  - uid: 24405
-    components:
-    - type: Transform
-      pos: -29.505661,-23.401249
-      parent: 2
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
   - uid: 24406
     components:
     - type: Transform
