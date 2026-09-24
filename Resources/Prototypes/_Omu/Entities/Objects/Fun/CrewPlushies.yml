@@ -212,3 +212,36 @@
     wideAnimationRotation: 180
     soundHit:
       collection: VulpkaninSnarls
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieZiggyDOmuCrew
+  name: ziggy d plushie
+  description: A plushie of a renowned salvage cyborg. May contain Bananium.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/ziggy.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/ziggy.rsi
+  - type: EmitSoundOnPickup
+    sound: /Audio/Effects/Cargo/ping.ogg
+  - type: EmitSoundOnUse
+    sound: /Audio/Items/drill_hit.ogg
+  - type: EmitSoundOnActivate
+    sound: /Audio/Items/drill_hit.ogg
+  - type: EmitSoundOnTrigger
+    sound: /Audio/Items/drill_hit.ogg
+  - type: EmitSoundOnCollide
+    sound: /Audio/Items/drill_hit.ogg
+  - type: EmitSoundOnThrow
+    sound: /Audio/Items/drill_hit.ogg
+  - type: MeleeWeapon
+    autoAttack: true
+    angle: 0
+    animationRotation: -90 # WWDP
+    wideAnimationRotation: -90
+    soundHit:
+      path: "/Audio/Items/drill_hit.ogg"
+    attackRate: 4
+    heavyStaminaCost: 0
