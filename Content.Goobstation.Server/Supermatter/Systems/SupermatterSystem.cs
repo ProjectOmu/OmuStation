@@ -86,7 +86,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         SubscribeLocalEvent<SupermatterComponent, InteractUsingEvent>(OnItemInteract);
         SubscribeLocalEvent<SupermatterComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<SupermatterComponent, SupermatterDoAfterEvent>(OnGetSliver);
-        SubscribeLocalEvent<SupermatterComponent, SupermatterRandomDoAfterEvent>(RandomiseVariables);
+        SubscribeLocalEvent<SupermatterComponent, SupermatterRandomDoAfterEvent>(RandomiseVariables); // Omu
     }
 
     private void OnComponentRemove(EntityUid uid, SupermatterComponent component, ComponentRemove args)
