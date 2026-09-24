@@ -69,20 +69,29 @@
       skillMod: 3
 
 - type: entity
-  parent: [BaseSyndicateContraband, ClothingHandsGlovesGorilla]
+  parent: [BaseSyndicateContraband, BaseGlovesTackle]
   id: ClothingHandsGlovesGuerrilla
   name: guerrilla gloves
   description: Superior quality combative gloves, good for performing tackle takedowns as well as absorbing electrical shocks.
   components:
     - type: Sprite
       sprite: _Trauma/Clothing/Hands/Gloves/guerrilla.rsi
+    - type: Insulated
+    - type: Fiber
+      fiberMaterial: fibers-insulative
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.9
+          Slash: 0.9
+          Piercing: 0.9
+          Shock: 0.75
     - type: TackleModifier
 #      grabOnSuccess: true # Omu - killing hardgrab
       staminaCostMultiplier: 1
-    - type: Contraband # Omu - fixing sec seeing the green lock
-      severity: Syndicate
-      allowedJobs: []
-      allowedDepartments: []
+      knockdownTimeMultiplier: 1.25
+      rangeMultiplier: 1.65
+      skillMod: 3
 
 - type: entity
   parent: [BaseGlovesTackle, BaseSecurityContraband]
