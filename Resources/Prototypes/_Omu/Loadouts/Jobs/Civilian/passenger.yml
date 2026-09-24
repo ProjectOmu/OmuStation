@@ -1,0 +1,492 @@
+##loadout effect
+
+- type: loadoutEffectGroup
+  id: MedEnjoyer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Medical
+      time: 36000 # 10 hrs
+
+- type: loadoutEffectGroup
+  id: SciEnjoyer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Science
+      time: 36000 # 10 hrs
+
+- type: loadoutEffectGroup
+  id: EngiEnjoyer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 36000 # 10 hrs
+
+- type: loadoutEffectGroup
+  id: CargoEnjoyer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Cargo
+      time: 36000 # 10 hrs
+
+- type: loadoutEffectGroup
+  id: ServiceEnjoyer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 36000 # 10 hrs
+
+##jumpsuit
+#generic jumpsuits
+- type: loadout
+  id: JumpsuitWhite
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorWhite
+  groupBy: "Jumpsuit"
+
+- type: loadout
+  id: JumpsuitBlack
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlack
+  groupBy: "Jumpsuit"
+
+- type: loadout
+  id: JumpsuitBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlue
+  groupBy: "Jumpsuit"
+
+- type: loadout
+  id: JumpsuitYellow
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorYellow
+  groupBy: "Jumpsuit"
+
+- type: loadout
+  id: JumpsuitGreen
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGreen
+  groupBy: "Jumpsuit"
+
+- type: loadout
+  id: JumpsuitOrange
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorOrange
+  groupBy: "Jumpsuit"
+
+- type: loadout
+  id: JumpsuitRed
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorRed
+  groupBy: "Jumpsuit"
+
+- type: loadout
+  id: JumpsuitPurple
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorPurple
+  groupBy: "Jumpsuit"
+
+- type: loadout
+  id: JumpsuitPink
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorPink
+  groupBy: "Jumpsuit"
+
+- type: loadout
+  id: JumpsuitDarkBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorDarkBlue
+  groupBy: "Jumpsuit"
+
+- type: loadout
+  id: JumpsuitDarkGreen
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorDarkGreen
+  groupBy: "Jumpsuit"
+
+- type: loadout
+  id: JumpsuitTeal
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorTeal
+  groupBy: "Jumpsuit"
+
+#generic Jumpskirt
+- type: loadout
+  id: JumpskirtWhite
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorWhite
+  groupBy: "Jumpskirt"
+
+- type: loadout
+  id: JumpskirtBlack
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorBlack
+  groupBy: "Jumpskirt"
+
+- type: loadout
+  id: JumpskirtBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorBlue
+  groupBy: "Jumpskirt"
+
+- type: loadout
+  id: JumpskirtYellow
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorYellow
+  groupBy: "Jumpskirt"
+
+- type: loadout
+  id: JumpskirtGreen
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorGreen
+  groupBy: "Jumpskirt"
+
+- type: loadout
+  id: JumpskirtOrange
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorOrange
+  groupBy: "Jumpskirt"
+
+- type: loadout
+  id: JumpskirtRed
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorRed
+  groupBy: "Jumpskirt"
+
+- type: loadout
+  id: JumpskirtPurple
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorPurple
+  groupBy: "Jumpskirt"
+
+- type: loadout
+  id: JumpskirtPink
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorPink
+  groupBy: "Jumpskirt"
+
+- type: loadout
+  id: JumpskirtDarkBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorDarkBlue
+  groupBy: "Jumpskirt"
+
+- type: loadout
+  id: JumpskirtDarkGreen
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorDarkGreen
+  groupBy: "Jumpskirt"
+
+- type: loadout
+  id: JumpskirtTeal
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorTeal
+  groupBy: "Jumpskirt"
+
+#hawaiian
+- type: loadout
+  id: JumpsuitHawaiYellow
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiYellow
+  groupBy: "JumpsuitHawaiian"
+
+- type: loadout
+  id: JumpsuitHawaiRed
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiRed
+  groupBy: "JumpsuitHawaiian"
+
+- type: loadout
+  id: JumpsuitHawaiBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiBlue
+  groupBy: "JumpsuitHawaiian"
+
+- type: loadout
+  id: JumpsuitHawaiBlack
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiBlack
+  groupBy: "JumpsuitHawaiian"
+
+#dress
+- type: loadout
+  id: JumpskirtBlackElegantDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBlackElegantDress
+  groupBy: "JumpsuitElegantDress"
+
+- type: loadout
+  id: JumpskirtBlueElegantDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBlueElegantDress
+  groupBy: "JumpsuitElegantDress"
+
+- type: loadout
+  id: JumpskirtGreenElegantDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtGreenElegantDress
+  groupBy: "JumpsuitElegantDress"
+
+- type: loadout
+  id: JumpskirtPurpleElegantDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtPurpleElegantDress
+  groupBy: "JumpsuitElegantDress"
+
+- type: loadout
+  id: JumpskirtRedElegantDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtRedElegantDress
+  groupBy: "JumpsuitElegantDress"
+
+#department
+- type: loadout
+  id: JumpsuitMedicalDoctorOD
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MedEnjoyer
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+  groupBy: "JumpsuitDepartment"
+
+- type: loadout
+  id: JumpskirtMedicalDoctorOD
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MedEnjoyer
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtMedicalDoctor
+  groupBy: "JumpsuitDepartment"
+  
+- type: loadout
+  id: JumpsuitScientistOD
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SciEnjoyer
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitScientist
+  groupBy: "JumpsuitDepartment"
+
+- type: loadout
+  id: JumpskirtScientistOD
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SciEnjoyer
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtScientist
+  groupBy: "JumpsuitDepartment"
+
+- type: loadout
+  id: JumpsuitEngineeringOD
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EngiEnjoyer
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineering
+  groupBy: "JumpsuitDepartment"
+
+- type: loadout
+  id: JumpskirtEngineeringOD
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EngiEnjoyer
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtEngineering
+  groupBy: "JumpsuitDepartment"
+
+- type: loadout
+  id: JumpsuitCargoOD
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: CargoEnjoyer
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCargo
+  groupBy: "JumpsuitDepartment"
+
+- type: loadout
+  id: JumpskirtCargoOD
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: CargoEnjoyer
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCargo
+  groupBy: "JumpsuitDepartment"
+
+- type: loadout
+  id: JumpsuitBartenderOD
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ServiceEnjoyer
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBartender
+  groupBy: "JumpsuitDepartment"
+
+- type: loadout
+  id: JumpskirtBartenderOD
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ServiceEnjoyer
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBartender
+  groupBy: "JumpsuitDepartment"
+
+## Outerclothing
+#winter coats
+
+- type: loadout
+  id: WintercoatRed
+  equipment:
+    outerClothing: ClothingOuterWinterColorRed
+  groupBy: "Wintercoat"
+
+- type: loadout
+  id: WintercoatOrange
+  equipment:
+    outerClothing: ClothingOuterWinterColorOrange
+  groupBy: "Wintercoat"
+
+- type: loadout
+  id: WintercoatYellow
+  equipment:
+    outerClothing: ClothingOuterWinterColorYellow
+  groupBy: "Wintercoat"
+
+- type: loadout
+  id: WintercoatGreen
+  equipment:
+    outerClothing: ClothingOuterWinterColorGreen
+  groupBy: "Wintercoat"
+
+- type: loadout
+  id: WintercoatBlue
+  equipment:
+    outerClothing: ClothingOuterWinterColorBlue
+  groupBy: "Wintercoat"
+
+- type: loadout
+  id: WintercoatPurple
+  equipment:
+    outerClothing: ClothingOuterWinterColorPurple
+  groupBy: "Wintercoat"
+
+- type: loadout
+  id: WintercoatLightBrown
+  equipment:
+    outerClothing: ClothingOuterWinterColorLightBrown
+  groupBy: "Wintercoat"
+
+- type: loadout
+  id: WintercoatBrown
+  equipment:
+    outerClothing: ClothingOuterWinterColorBrown
+  groupBy: "Wintercoat"
+
+- type: loadout
+  id: WintercoatGray
+  equipment:
+    outerClothing: ClothingOuterWinterColorGray
+  groupBy: "Wintercoat"
+
+- type: loadout
+  id: WintercoatWhite
+  equipment:
+    outerClothing: ClothingOuterWinterColorWhite
+  groupBy: "Wintercoat"
+
+- type: loadout
+  id: WintercoatBlack
+  equipment:
+    outerClothing: ClothingOuterWinterColorBlack
+  groupBy: "Wintercoat"
+
+- type: loadout
+  id: CoatBomber
+  equipment:
+    outerClothing: ClothingOuterCoatBomber
+
+##neck
+#poncho
+- type: loadout
+  id: PonchoSmallPurple
+  equipment:
+    neck: ClothingNeckPonchoSmallPurple
+
+- type: loadout
+  id: PonchoSmallRed
+  equipment:
+    neck: ClothingNeckPonchoSmallRed
+
+- type: loadout
+  id: PonchoSmallPink
+  equipment:
+    neck: ClothingNeckPonchoSmallPink
+
+- type: loadout
+  id: PonchoSmallBlack
+  equipment:
+    neck: ClothingNeckPonchoSmallBlack
+
+- type: loadout
+  id: PonchoSmallWhite
+  equipment:
+    neck: ClothingNeckPonchoSmallWhite
+
+##trinket
+#guidebooks
+- type: loadout
+  id: BookEngineer
+  storage:
+    back:
+      - BookEngineersHandbook
+  groupBy: "guidebook"
+
+- type: loadout
+  id: BookSecurity
+  storage:
+    back:
+      - BookSecurity
+  groupBy: "guidebook"
+
+- type: loadout
+  id: BookBar
+  storage:
+    back:
+      - BookBartendersManual
+  groupBy: "guidebook"
+
+- type: loadout
+  id: BookPlant
+  storage:
+    back:
+      - BookLeafLoversSecret
+  groupBy: "guidebook"
+
+- type: loadout
+  id: BookChem
+  storage:
+    back:
+      - BookChemicalCompendium
+  groupBy: "guidebook"
+
+- type: loadout
+  id: BookScientist
+  storage:
+    back:
+      - BookScientistsGuidebook
+  groupBy: "guidebook"
+
+- type: loadout
+  id: BookMed
+  storage:
+    back:
+      - BookMedicalReferenceBook
+  groupBy: "guidebook"
