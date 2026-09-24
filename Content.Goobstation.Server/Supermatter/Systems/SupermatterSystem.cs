@@ -744,7 +744,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 case "EmitterBoltEmissive":
                     {
                         sm.Damage += 1f;
-                        if (!sm.Varlocked)
+                        if (!sm.Varlocked && sm.RadiationOutputFactor < 0.5)
                             sm.RadiationOutputFactor += 0.05f;
                         sm.HazardGas = true;
                         sm.TimeSinceHazardGas = 0f;
