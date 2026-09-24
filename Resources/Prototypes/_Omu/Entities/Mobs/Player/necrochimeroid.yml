@@ -1,0 +1,21 @@
+- type: entity
+  parent:
+  - BaseHumanOrganUnGibbable
+  - BaseMob
+  - MobDamageable
+  - MobPolymorphable
+  - MobCombat
+  - MobBloodstream
+  - MobRespirator
+  - MobAtmosStandard
+  - MobFlammable
+  - BaseMobDisgust
+  id: BaseMobNecrochimeroid
+  name: Necrochimeroid
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+    state: full
+  - type: Physics
+    bodyType: KinematicController
+  - type: NecroChimeroid
