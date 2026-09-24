@@ -24,9 +24,21 @@
       steps:
       - material: Cable
         amount: 5
+        doAfter: 8
       - tag: EmergencyOxygenTank
-        amount: 2
+        icon:
+          sprite: Objects/Tanks/emergency.rsi
+          state: icon
+        name: construction-graph-tag-emergency-oxygen-tank
+      - tag: EmergencyOxygenTank
+        icon:
+          sprite: Objects/Tanks/emergency.rsi
+          state: icon
+        name: construction-graph-tag-emergency-oxygen-tank
       - tag: ImprovisedGripperGloves
-        amount: 1
+        icon:
+          sprite: _Trauma/Clothing/Hands/Gloves/gripper.rsi
+          state: icon
+        name: construction-graph-tag-improvised-grippers
   - node: end
     entity: ClothingHandsGlovesRocket
