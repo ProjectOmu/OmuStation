@@ -23,6 +23,13 @@ trait-cybernetic-beast-desc =
     The mantle also provides other benefits, such as night vision, but ONLY while worn by a cybernetic beast.
     Read the guidebook entry under Species > Vulpkanin for more.
 
+trait-damaged-throat-name = Damaged Throat
+trait-damaged-throat-desc = Something about your throat is damaged, it hurts when you don't speak gently.
+
+damaged-throat-trait-examined = [color=yellow]It seems difficult for {OBJECT($target)} to speak loudly.[/color]
+
+stethoscope-damaged-throat = You hear hoarse, strained breathing.
+
 trait-photophobia-name = Photophobia
 trait-photophobia-desc =
     Your eyes are extremely sensitive to light.
