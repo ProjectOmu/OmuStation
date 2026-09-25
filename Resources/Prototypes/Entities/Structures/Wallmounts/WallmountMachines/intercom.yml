@@ -45,7 +45,7 @@
   - type: Sprite
     noRot: false
     drawdepth: SmallObjects
-    sprite: _tgstation/intercom.rsi # Omu edit, ported sprites from /tg/station in SS13
+    sprite: _tgstation/intercom.rsi # Omu
     layers:
     - state: base
     - state: unshaded
@@ -128,7 +128,7 @@
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: _station/intercom.rsi # Omu edit, ported sprites from /tg/station in SS13
+    sprite: _tgstation/intercom.rsi # Omu
     layers:
     - state: build
     - state: panel

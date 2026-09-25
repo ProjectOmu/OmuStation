@@ -70,7 +70,7 @@
     boardName: wires-board-name-firealarm
     layoutId: FireAlarm
   - type: Sprite
-    sprite: _tgstation/air_monitors.rsi # Omu edit, ported sprites from /tg/station in SS13
+    sprite: _tgstation/air_monitors.rsi # Omu
     layers:
     - state: fire0
       map: ["fireAlarmBase"]
@@ -117,7 +117,7 @@
   description: A fire alarm assembly. Very mild.
   components:
   - type: Sprite
-    sprite: _tgstation/air_monitors.rsi # Omu edit, ported sprites from /tg/station in SS13
+    sprite: _tgstation/air_monitors.rsi # Omu
     layers:
     - state: fire_b1
       map: [ "enum.ConstructionVisuals.Layer" ]

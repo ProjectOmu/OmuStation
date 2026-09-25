@@ -74,7 +74,7 @@
   - type: Appearance
   - type: WiresVisuals
   - type: Sprite
-    sprite: _tgstation/air_monitors.rsi # Omu edit, ported sprites from /tg/station in SS13
+    sprite: _tgstation/air_monitors.rsi # Omu
     layers:
     - state: alarmp
       map: ["airAlarmBase"]
@@ -119,7 +119,7 @@
   description: An air alarm. Doesn't look like it'll be alarming air any time soon.
   components:
   - type: Sprite
-    sprite: _tgstation/air_monitors.rsi # Omu edit, ported sprites from /tg/station in SS13
+    sprite: _tgstation/air_monitors.rsi # Omu
     layers:
     - state: alarm_b1
       map: [ "enum.ConstructionVisuals.Layer" ]
