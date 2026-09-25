@@ -736,7 +736,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 case "EmitterBoltExcitatory":
                     {
                         sm.Damage += 1f;
-                        sm.SMAngerValue += 20f;
+                        sm.SMAngerValue += 5f;
                         _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
                         $"SUPERMATTER hit by angering bolt AT {Transform(uid).Coordinates}");
                         QueueDel(target);
