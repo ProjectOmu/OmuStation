@@ -145,6 +145,38 @@
 
 - type: entity
   parent: BasePlushie
+  id: PlushieKandyOmuCrew
+  name: kandy plushie
+  description: A pink and white resomi wearing a pink poncho. Despite her name being Kandy, she is in fact, not candy.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/Kandy.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/Kandy.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/Kandy.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Voice/Resomi/wurble.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_laugh.ogg
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: EmitSoundOnThrow
+    sound:
+      path: /Audio/_Goobstation/Voice/Resomi/trill.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/_Goobstation/Voice/Resomi/trill.ogg
+
+- type: entity
+  parent: BasePlushie
   id: PlushiePanaceaOmuCrew
   name: Panacea plushie
   description: A plushie of a battered pink vulpkanin, smells of flour and strawberries, it also has a label, DO NOT EAT.
@@ -215,6 +247,36 @@
 
 - type: entity
   parent: BasePlushie
+  id: PlushieZiggyDOmuCrew
+  name: ziggy d plushie
+  description: A plushie of a renowned salvage cyborg. May contain Bananium.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/ziggy.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/ziggy.rsi
+  - type: EmitSoundOnPickup
+    sound: /Audio/Effects/Cargo/ping.ogg
+  - type: EmitSoundOnUse
+    sound: /Audio/Items/drill_hit.ogg
+  - type: EmitSoundOnActivate
+    sound: /Audio/Items/drill_hit.ogg
+  - type: EmitSoundOnTrigger
+    sound: /Audio/Items/drill_hit.ogg
+  - type: EmitSoundOnCollide
+    sound: /Audio/Items/drill_hit.ogg
+  - type: EmitSoundOnThrow
+    sound: /Audio/Items/drill_hit.ogg
+  - type: MeleeWeapon
+    angle: 0
+    animationRotation: -90 # WWDP
+    wideAnimationRotation: -90
+    soundHit:
+      path: "/Audio/Items/drill_hit.ogg"
+      
+- type: entity
+  parent: BasePlushie   
   id: PlushieBenryOmuCrew
   name: benry benry plushie
   description: A plushie of a stupid Allulalo, known for being heavily abused by crew members. Throw it at the nearest wall!
@@ -269,13 +331,13 @@
   - type: EmitSoundOnPickup
     sound: /Audio/_Impstation/Allulalo/allulalo_scream.ogg
   - type: EmitSoundOnUse
-    sound: 
+    sound:
       collection: AllulaloAwebo
   - type: EmitSoundOnActivate
     sound:
       collection: AllulaloAwebo
   - type: EmitSoundOnTrigger
-    sound: 
+    sound:
       collection: AllulaloAwebo
   - type: EmitSoundOnThrow
     sound: /Audio/_Impstation/Allulalo/allulalo_scream.ogg
