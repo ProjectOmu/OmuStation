@@ -222,7 +222,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 sm.GasEfficiencyFactorChanged = true;
                 sm.GasEfficiency = 0.30f;
                 sm.RadiationOutputFactorChanged = true;
-                sm.RadiationOutputFactor = 0.06f;
+                if (sm.RadiationOutputFactor < 0.06f)
+                    sm.RadiationOutputFactor = 0.06f;
             }
         }
     }                            // Omu end
@@ -744,7 +745,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 case "EmitterBoltEmissive":
                     {
                         sm.Damage += 1f;
-                        if (!sm.Varlocked)
+                        if (!sm.Varlocked && sm.RadiationOutputFactor < 0.5)
                             sm.RadiationOutputFactor += 0.05f;
                         sm.HazardGas = true;
                         sm.TimeSinceHazardGas = 0f;
