@@ -11,7 +11,7 @@
         maxVol: 10
   - type: RefillableSolution # it would make more sense for all cigerattes to work like this.
     solution: smokable
-  # Omu start - reparented from Cigarette to BaseCigar
+  # Omu start - keep previous properties after reparenting to BaseCigar
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
     state: unlit-icon
