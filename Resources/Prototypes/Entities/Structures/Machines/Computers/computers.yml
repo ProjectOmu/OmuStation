@@ -834,6 +834,7 @@
     color: "#1d8bad"
     canShuttle: false
     global: true
+    canBypassAmberLock: true #omu
   - type: Computer
     board: CentcommCommsComputerCircuitboard
   - type: PointLight
