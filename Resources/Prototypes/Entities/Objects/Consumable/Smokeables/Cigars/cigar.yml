@@ -82,6 +82,10 @@
   - type: Tag
     tags:
       - Cigarette #Goobstation - whitelisted cig pack strorage (added tag)
+      # Omu start - correct incomplete tagging
+      - Cigar
+      - Trash
+      # Omu end
 
 - type: entity
   id: CigarGoldSpent
@@ -103,3 +107,11 @@
           - ReagentId: Nicotine
             Quantity: 1
       # Omu end
+  # Omu start - correct incomplete tagging
+  - type: Tag
+    tags:
+    - Cigarette
+    - Cigar
+    - Trash
+    - Burnt
+  # Omu end
