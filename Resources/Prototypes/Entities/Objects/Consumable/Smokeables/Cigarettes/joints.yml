@@ -23,6 +23,10 @@
   - type: Construction
     graph: smokeableJoint
     node: joint
+  # Omu start
+  - type: Edible
+    requiresSpecialDigestion: true
+  # Omu end
   - type: SolutionContainerManager
     solutions:
       smokable:
@@ -110,6 +114,10 @@
   - type: Construction
     graph: smokeableBlunt
     node: blunt
+  # Omu start
+  - type: Edible
+    requiresSpecialDigestion: true
+  # Omu end
   - type: SolutionContainerManager
     solutions:
       smokable:

@@ -35,10 +35,6 @@
   - type: Tag
     tags:
     - Trash
-  # Omu start
-  - type: Edible
-    requiresSpecialDigestion: true
-  # Omu end
   - type: SolutionContainerManager
     solutions:
       smokable:
@@ -46,13 +42,6 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 15
-      # Omu start
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Nicotine
-          Quantity: 5
-      # Omu end
     # Goobstation - Grindable cigarette start
   - type: Extractable
     grindableSolutionName: smokable

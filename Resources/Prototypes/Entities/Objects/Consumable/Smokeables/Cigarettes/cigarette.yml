@@ -25,6 +25,22 @@
   - type: Construction
     graph: smokeableCigarette
     node: cigarette
+  # Omu start
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 25
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 15
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 5
+  # Omu end
 
 - type: entity
   id: SoakedCigarette
@@ -50,6 +66,22 @@
   - type: Construction
     graph: smokeableCigarette
     node: cigarette
+  # Omu start
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 25
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 15
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 5
+  # Omu end
 
 - type: entity
   id: CigaretteSpent
