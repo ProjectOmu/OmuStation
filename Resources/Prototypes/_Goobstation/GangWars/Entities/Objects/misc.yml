@@ -14,6 +14,15 @@
             Quantity: 15
           - ReagentId: Omnizine
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 3
+        - ReagentId: Omnizine
+          Quantity: 2
+      # Omu end
 
 - type: entity
   parent: EmergencyMedipen
