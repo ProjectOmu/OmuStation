@@ -4,7 +4,7 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 09/23/2026 17:09:23
+  time: 09/25/2026 01:21:08
   entityCount: 792
 maps: []
 grids:
@@ -217,6 +217,7 @@ entities:
     - type: TileHistory
       chunkHistory: {}
     - type: ExplosionAirtightGrid
+    - type: EmergencyShuttle
 - proto: AirAlarm
   entities:
   - uid: 576
