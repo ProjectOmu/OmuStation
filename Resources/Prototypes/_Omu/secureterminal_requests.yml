@@ -8,7 +8,7 @@
   activationDelaySecs: 5
   requireReason: true
   fee: 2500
-  #salaryPenalty: 0.1 # Omu
+  #salaryPenalty: 0.1
   actionType: AlertLevel
   alertLevel: amber
   sortOrder: 20
@@ -31,11 +31,11 @@
   proposalAnnouncement: false
   activationDelaySecs: 5
   fee: 0
-  #salaryPenalty: 0.0 # Omu
+  #salaryPenalty: 0.0
   actionType: AlertLevel
   alertLevel: green
   requiresAlertLevel: amber
-  requiresAlertActiveMinutes: 15
+  requiresAlertActiveMinutes: 10
   sortOrder: 22
   authGroups:
     - [Captain, HeadOfSecurity, NanotrasenRepresentative]
