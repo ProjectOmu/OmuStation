@@ -10,6 +10,8 @@ using Content.Server.Chat.Managers;
 using Content.Omu.Shared.Entities.Heretic;
 using Content.Shared.Actions;
 using Content.Shared.Humanoid;
+using Robust.Shared.Prototypes;
+using Content.Shared.Heretic.Prototypes;
 
 namespace Content.Omu.Server.Entities.Heretic;
 
@@ -22,6 +24,7 @@ public sealed class HereticTomeSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IChatManager _chatMan = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -95,7 +98,7 @@ public sealed class HereticTomeSystem : EntitySystem
             fascAmount = fascAmount + 1; //One extra fascination for an action gained!
 
 
-        RaiseLocalEvent(actor, new FascinationChangedArgs { Amount = fascAmount});
+        RaiseLocalEvent(actor, new FascinationChangedArgs { Amount = fascAmount });
 
         var message = Loc.GetString(fasc.MadnessMessage);       //Warn the user
         loc = Loc.GetString(component.ExamineBaseMessage, ("size", size), ("text", message));
@@ -105,8 +108,11 @@ public sealed class HereticTomeSystem : EntitySystem
         if (_heretic.TryGetHereticComponent(actor, out _, out _))             //Get heretic entity
         {
             _heretic.UpdateKnowledge(actor, component.KnowledgeGain);         //Give them knowledge
-            if (component.ProductHereticKnowledge != null)                    //Does it come with extra gamer points?
-                _heretic.TryAddKnowledge(mindId, component.ProductHereticKnowledge.Value, mind.CurrentEntity);      //Give em the gamer thinkin'
+            if (component.ProductHereticKnowledge != null && _proto.HasIndex<HereticKnowledgePrototype>(component.ProductHereticKnowledge))  //Does it come with extra asscoiated heretic knowledge
+            {
+                var knowledge = _proto.Index<HereticKnowledgePrototype>(component.ProductHereticKnowledge);
+                _heretic.TryAddKnowledge(mindId, knowledge, mind.CurrentEntity);      //Give the heretic the knowledge
+            }
         }
 
         if (component.ProductAction != null)            //Used for single actions
