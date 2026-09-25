@@ -1,3 +1,7 @@
+uplink-guerrilla-name = guerrilla gloves
+uplink-guerrilla-desc = A special shock resistant pair of gloves that give you tackle ability with higher skill modifier. 
+# Omu - hardgrab kill
+
 uplink-chameleon-armor-name = Chameleon Armored Vest
 uplink-chameleon-armor-desc = A chameleon vest that offers moderate protection against most forms of security brutality. Be aware the protection is detectable by thorough examination.
 

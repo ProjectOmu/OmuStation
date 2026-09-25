@@ -29,6 +29,46 @@
 
 - type: entity
   parent: BasePlushie
+  id: PlushieSoozieOmuCrew
+  name: soozie bluoobus plushie
+  description: Stuffed Plushie of a familiar big slime woman. You can somehow taste metal inside your mouth as you stare at her.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/Soozie-Bluoobus.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/Soozie-Bluoobus.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/Soozie-Bluoobus.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: Squishes
+  - type: EmitSoundOnUse
+    sound:
+      collection: SlimeFemaleLaughs
+  - type: EmitSoundOnActivate
+    sound:
+      collection: SlimeFemaleLaughs
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: Pops
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: EmitSoundOnThrow
+    sound:
+      collection: SlimeFemaleScreams
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: SlimeFemaleScreams
+
+- type: entity
+  parent: BasePlushie
   id: PlushieRebeccaOmuCrew
   name: Rebecca Hawkins plushie
   description: Cheron, whatever you do, don't let them turn me into a marketable plushi-
@@ -102,3 +142,209 @@
     wideAnimationRotation: 180
     soundHit:
       collection: VulpkaninScreams
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieKandyOmuCrew
+  name: kandy plushie
+  description: A pink and white resomi wearing a pink poncho. Despite her name being Kandy, she is in fact, not candy.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/Kandy.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/Kandy.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/Kandy.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Voice/Resomi/wurble.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_laugh.ogg
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: EmitSoundOnThrow
+    sound:
+      path: /Audio/_Goobstation/Voice/Resomi/trill.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/_Goobstation/Voice/Resomi/trill.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushiePanaceaOmuCrew
+  name: Panacea plushie
+  description: A plushie of a battered pink vulpkanin, smells of flour and strawberries, it also has a label, DO NOT EAT.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/panacea.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/panacea.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/panacea.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: VulpkaninSnarls
+  - type: EmitSoundOnUse
+    sound:
+      collection: VulpkaninWhines
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VulpkaninWhines
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: VulpkaninWhines
+  - type: EmitSoundOnThrow
+    sound:
+      collection: VulpkaninScreams
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieHarmonyDonovanOmuCrew
+  name: harmony donovan plushie
+  description: Took on the position for the cigarettes. Cigarettes sold separately.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/harmony-donovan.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/harmony-donovan.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/harmony-donovan.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnUse
+    sound:
+      collection: VulpkaninHowls
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VulpkaninHowls
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: Pops
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: EmitSoundOnThrow
+    sound:
+      collection: VulpkaninSnarls
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: VulpkaninSnarls
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieZiggyDOmuCrew
+  name: ziggy d plushie
+  description: A plushie of a renowned salvage cyborg. May contain Bananium.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/ziggy.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/ziggy.rsi
+  - type: EmitSoundOnPickup
+    sound: /Audio/Effects/Cargo/ping.ogg
+  - type: EmitSoundOnUse
+    sound: /Audio/Items/drill_hit.ogg
+  - type: EmitSoundOnActivate
+    sound: /Audio/Items/drill_hit.ogg
+  - type: EmitSoundOnTrigger
+    sound: /Audio/Items/drill_hit.ogg
+  - type: EmitSoundOnCollide
+    sound: /Audio/Items/drill_hit.ogg
+  - type: EmitSoundOnThrow
+    sound: /Audio/Items/drill_hit.ogg
+  - type: MeleeWeapon
+    angle: 0
+    animationRotation: -90 # WWDP
+    wideAnimationRotation: -90
+    soundHit:
+      path: "/Audio/Items/drill_hit.ogg"
+      
+- type: entity
+  parent: BasePlushie   
+  id: PlushieBenryOmuCrew
+  name: benry benry plushie
+  description: A plushie of a stupid Allulalo, known for being heavily abused by crew members. Throw it at the nearest wall!
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/benry.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/benry.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/benry.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound: /Audio/_Impstation/Allulalo/allulalo_scream.ogg
+  - type: EmitSoundOnUse
+    sound:
+      collection: AllulaloAwebo
+  - type: EmitSoundOnActivate
+    sound:
+      collection: AllulaloAwebo
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: AllulaloAwebo
+  - type: EmitSoundOnThrow
+    sound: /Audio/_Impstation/Allulalo/allulalo_scream.ogg
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit: /Audio/_Impstation/Allulalo/allulalo_scream.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieQuellinOmuCrew
+  name: quellin loba-kuin plushie
+  description: A plushie of a spunky Allulalo. You feel like you shouldn't pick up the spicy chicken.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/quellin.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/quellin.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/quellin.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound: /Audio/_Impstation/Allulalo/allulalo_scream.ogg
+  - type: EmitSoundOnUse
+    sound:
+      collection: AllulaloAwebo
+  - type: EmitSoundOnActivate
+    sound:
+      collection: AllulaloAwebo
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: AllulaloAwebo
+  - type: EmitSoundOnThrow
+    sound: /Audio/_Impstation/Allulalo/allulalo_scream.ogg
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit: /Audio/_Impstation/Allulalo/allulalo_scream.ogg
