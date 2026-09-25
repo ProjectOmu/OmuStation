@@ -383,6 +383,7 @@ namespace Content.Server.Communications
             var (uid, comp) = ent;
             args.Repeatable = true;
 
+            /* Omu - we use secure terminal instead
             if (_emag.CompareFlag(args.Type, EmagType.Access))
             {
                 var amberStation = _stationSystem.GetOwningStation(uid);
@@ -395,6 +396,7 @@ namespace Content.Server.Communications
                     args.Handled = true;
                 }
             }
+            */
 
             if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
                 return;

@@ -1,3 +1,4 @@
+/* Omu, we use secure terminal instead.
 using System.Linq;
 using Content.Goobstation.Shared.AlertLevel;
 using Content.Goobstation.Shared.Shadowling;
@@ -250,3 +251,4 @@ public sealed class AmberAlertSystem : EntitySystem
         }
     }
 }
+*/
