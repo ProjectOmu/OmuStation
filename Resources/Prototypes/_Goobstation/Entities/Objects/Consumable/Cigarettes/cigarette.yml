@@ -2,7 +2,7 @@
   id: CigaretteMedical
   suffix: Medical
   description: An extra absorbant chemlab cigarette, tastes kinda like asbestos.
-  parent: Cigarette
+  parent: BaseCigar # Omu - reparented from Cigarette to BaseCigar
   name: cigarette
   components:
   - type: SolutionContainerManager
@@ -11,6 +11,16 @@
         maxVol: 10
   - type: RefillableSolution # it would make more sense for all cigerattes to work like this.
     solution: smokable
+  # Omu start - reparented from Cigarette to BaseCigar
+  - type: Smokable
+    exposeTemperature: 1173.15
+  - type: Cigar
+  - type: Tag
+    tags:
+    - Trash
+  - type: Extractable
+    grindableSolutionName: smokable
+  # Omu end
 
 - type: entity
   id: ECigarette
