@@ -48,7 +48,7 @@
   id: BorgModulePostal
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
   name: postal cyborg module
-  description: Cargo module containing equipment for mail delivery
+  description: A module containing equipment for mail delivery
   components:
   - type: Sprite
     layers:
@@ -96,7 +96,7 @@
   id: BorgModuleAdvancedThruster
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
   name: advanced thruster cyborg module
-  description: NT assigned a team to design a jetpack for cyborg units, but they ran out of funding and just made a bigger fire extinguisher. It comes with a integrated GPS and mass scanner though!
+  description: New and improved jetpack supported EVA module for cyborg units. Jetpack not included.
   components:
   - type: Sprite
     layers:
