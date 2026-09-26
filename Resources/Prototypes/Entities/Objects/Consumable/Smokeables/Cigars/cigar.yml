@@ -59,6 +59,10 @@
   - type: Tag
     tags:
       - Cigarette #Goobstation - whitelisted cig pack strorage (added tag)
+      # Omu start - correct incomplete tagging
+      - Cigar
+      - Trash
+      # Omu end
 
 - type: entity
   id: CigarGoldSpent
@@ -73,8 +77,11 @@
     solutions:
       smokable:
         maxVol: 20
-  - type: Tag #Goob
+  # Omu start - correct incomplete tagging
+  - type: Tag
     tags:
+    - Cigarette
     - Cigar
     - Trash
     - Burnt
+  # Omu end
