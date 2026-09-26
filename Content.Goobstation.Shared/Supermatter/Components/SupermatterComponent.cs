@@ -458,7 +458,7 @@ public sealed partial class SupermatterComponent : Component
     public double Timetounlock = 5;
 
     public double Timelocked;
-    public bool Varlocked = false;
+    public bool Varlocked = false; // OMU: Varlocked is called Surge in Goob. They are the same variable. See Goob#7076 Goob#7135 and Omu#1107.
 
     /// <summary>
     /// The desired setpoint for a radiation output factor - bigger number means it will try reach a bigger value
