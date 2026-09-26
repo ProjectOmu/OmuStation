@@ -66,7 +66,7 @@
       staminaCostMultiplier: 1.2
       knockdownTimeMultiplier: 1.15
       rangeMultiplier: 1.65
-      skillMod: 3
+      skillMod: 2.5
 
 - type: entity
   parent: [BaseSyndicateContraband, ClothingHandsGlovesGorilla]
@@ -105,7 +105,7 @@
       speedMultiplier: 1.75
       rangeMultiplier: 3
       minDistance: 3
-      skillMod: 8
+      skillMod: 7
 
 - type: entity
   parent: BaseGlovesTackle
