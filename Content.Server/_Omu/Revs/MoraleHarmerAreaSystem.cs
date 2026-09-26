@@ -67,7 +67,7 @@ public sealed class MoraleHarmerAreaSystem : EntitySystem
         }
     }
 
-    public void AreaChange(EntityUid ent, float amount, float range, string? lang)
+    public void AreaChange(EntityUid ent, float amount, float range, string? lang, string? objective)
     {
         var xform = Transform(ent);
         var lookup = _lookup.GetEntitiesInRange(xform.Coordinates, range);
@@ -90,6 +90,8 @@ public sealed class MoraleHarmerAreaSystem : EntitySystem
                     Amount = amount,
 
                     User = ent,
+
+                    Objective = objective
                 };
                 RaiseLocalEvent(target, ev);
             }

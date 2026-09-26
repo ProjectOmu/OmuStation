@@ -1,6 +1,7 @@
 using Content.Shared._EinsteinEngines.Language;
 using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared._EinsteinEngines.Language.Systems;
+using Content.Shared.Actions;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Chat;
@@ -12,6 +13,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Revolutionary.Components;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -26,6 +28,8 @@ public sealed class BookConverterSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedLanguageSystem _language = default!;
+    [Dependency] private readonly SharedActionsSystem _actionSystem = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
 
     private LocalizedDatasetPrototype? _speechLocalization;
 
@@ -36,8 +40,17 @@ public sealed class BookConverterSystem : EntitySystem
         SubscribeLocalEvent<BookConverterComponent, RevolutionaryConverterDoAfterEvent>(OnConvertDoAfter);
         SubscribeLocalEvent<BookConverterComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<BookConverterComponent, AfterInteractEvent>(OnConverterAfterInteract);
+        SubscribeLocalEvent<BookConverterComponent, ObjectiveChangedMessage>(OnObjectiveChanged);
+        SubscribeLocalEvent<BookConverterComponent, ObjectiveConfigureActionEvent>(OnConfigureAction);
+        SubscribeLocalEvent<BookConverterComponent, GetItemActionsEvent>(OnGetActions);
+        SubscribeLocalEvent<BookConverterComponent, MapInitEvent>(OnComponentMapInit);
 
         _speechLocalization = _prototypeManager.Index<LocalizedDatasetPrototype>(RevConvertSpeechProto);
+    }
+
+    private void OnComponentMapInit(EntityUid uid, BookConverterComponent component, MapInitEvent args)
+    {
+        _actionSystem.AddAction(uid, ref component.ConfigureActionEntity, component.ConfigureAction, uid);
     }
 
     public void OnConvertDoAfter(Entity<BookConverterComponent> ent, ref RevolutionaryConverterDoAfterEvent args)
@@ -52,7 +65,11 @@ public sealed class BookConverterSystem : EntitySystem
         ev.Change = ent.Comp.Amount * ent.Comp.FocusedMultiplier;
         ev.User = args.User;
         ev.Target = args.Target.Value;      //shouldn't be null & we don't need language here, its already checked
-        RaiseLocalEvent(args.Target.Value, ref ev);
+
+        if (ent.Comp.Objective is not null)
+            ev.Objective = ent.Comp.Objective;
+
+        RaiseLocalEvent(args.User, ref ev);
     }
     private void OnUseInHand(Entity<BookConverterComponent> ent, ref UseInHandEvent args)
     {
@@ -63,7 +80,7 @@ public sealed class BookConverterSystem : EntitySystem
 
         if (HasComp<HeadRevolutionaryComponent>(args.User))
         {
-            var ev = new BookConverterUsedEvent(args.User, ent.Comp.Amount, ent.Comp.Range, speakerComponent.CurrentLanguage);
+            var ev = new BookConverterUsedEvent(args.User, ent.Comp.Amount, ent.Comp.Range, speakerComponent.CurrentLanguage, ent.Comp.Objective);
             RaiseLocalEvent(args.User, ref ev);
         }
 
@@ -135,10 +152,61 @@ public sealed class BookConverterSystem : EntitySystem
             ev.Change = converter.Comp.Amount * converter.Comp.FocusedMultiplier;
             ev.User = user;
             ev.Target = target;
+
             if (speakerComponent is not null)
                 ev.Lang = speakerComponent.CurrentLanguage;
+
+            if (converter.Comp.Objective is not null)
+                ev.Objective = converter.Comp.Objective;
+
             RaiseLocalEvent(target, ref ev);
         }
+    }
+#region UI handling
+    private void OnGetActions(EntityUid uid, BookConverterComponent component, GetItemActionsEvent args)
+    {
+        args.AddAction(ref component.ConfigureActionEntity, component.ConfigureAction);
+    }
+
+    private void OnObjectiveChanged(EntityUid uid, BookConverterComponent comp, ObjectiveChangedMessage args)
+    {
+        if (!TryComp<BookConverterComponent>(uid, out var meleeSpeechUser))
+            return;
+        var battlecry = args.Battlecry;
+        if (battlecry.Length > comp.MaxObjectiveLength)
+            battlecry = battlecry[..comp.MaxObjectiveLength];
+        TryChangeObjective(uid, battlecry, meleeSpeechUser);
+    }
+    public bool TryChangeObjective(EntityUid uid, string? objective, BookConverterComponent? bookConverterComponent = null)
+    {
+        if (!Resolve(uid, ref bookConverterComponent))
+            return false;
+        if (!string.IsNullOrWhiteSpace(objective))
+        {
+            objective = objective.Trim();
+        }
+        else
+        {
+            objective = null;
+        }
+        if (bookConverterComponent.Objective == objective)
+            return true;
+        bookConverterComponent.Objective = objective;
+        Dirty(uid, bookConverterComponent);
+        return true;
+    }
+
+    private void OnConfigureAction(EntityUid uid, BookConverterComponent comp, ObjectiveConfigureActionEvent args)
+    {
+        TryOpenUi(args.Performer, uid, comp);
+    }
+    public void TryOpenUi(EntityUid user, EntityUid source, BookConverterComponent? component = null)
+    {
+        if (!Resolve(source, ref component))
+            return;
+        if (!TryComp<ActorComponent>(user, out var actor))
+            return;
+        _uiSystem.TryToggleUi(source, RevObjectiveUiKey.Key, actor.PlayerSession);
     }
 }
 
@@ -155,7 +223,9 @@ public readonly struct AfterRevolutionaryConvertedEvent(EntityUid target, Entity
 }
 
 [ByRefEvent]
-public record struct BookConverterUsedEvent(EntityUid User, float Change, float Range, string Lang);
+public record struct BookConverterUsedEvent(EntityUid User, float Change, float Range, string Lang, string? Objective);
 
 [ByRefEvent]
-public record struct BookConverterTargetUsedEvent(EntityUid User, EntityUid Target, float Change, string? Lang);
+public record struct BookConverterTargetUsedEvent(EntityUid User, EntityUid Target, float Change, string? Lang, string? Objective);
+
+#endregion
