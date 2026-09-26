@@ -34,8 +34,7 @@ public sealed class OmuSharedStunSystem : EntitySystem
     }
     private void BreakStunOnShake(Entity<StunnedComponent> ent, ref InteractionSuccessEvent args)
     {
-        var result = TryChangeStunDuration(ent.Owner, TimeSpan.FromSeconds(ent.Comp.ShakeDecrease)); // TBD: make this customizable on yaml
-
+        var result = TryChangeStunDuration(ent.Owner, TimeSpan.FromSeconds(-ent.Comp.ShakeDecrease));
         if (result != true)
             return;
         _popup.PopupEntity(Loc.GetString("shakeable-popup-message-others", ("user", args.User), ("shakeable", ent.Owner)), args.User); // Gives everyone around a popup whenever shaken
