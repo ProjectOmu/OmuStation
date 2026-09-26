@@ -96,7 +96,11 @@ public sealed class AmberAlertSystem : EntitySystem
     private void OnAlertSelectAttempt(ref AlertLevelSelectAttemptEvent ev)
     {
         var amber = EnsureComp<AmberAlertComponent>(ev.Station);
+        var console = EnsureComp<CommunicationsConsoleComponent>(ev.Console); //omu
         if (ev.Level != amber.AmberLevel)
+            return;
+
+        if (console.CanBypassAmberLock) //omu
             return;
 
         if (!amber.Unlocked)
