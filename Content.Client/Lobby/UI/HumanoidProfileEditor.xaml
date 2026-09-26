@@ -65,6 +65,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                                                    ToolTip="{Loc 'humanoid-profile-editor-guidebook-button-tooltip'}"/>
                                     <OptionButton Name="SpeciesButton" HorizontalAlignment="Right" />
                                 </BoxContainer>
+                                <!-- Far Horizons - subspecies -->
+                                <BoxContainer Name="CSubspecies" HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-subspecies-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <OptionButton Name="SubspeciesButton" HorizontalAlignment="Right" />
+                                </BoxContainer>
+                                <!-- Far Horizons end -->
                                 <!-- Age -->
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Text="{Loc 'humanoid-profile-editor-age-label'}" />
@@ -95,6 +102,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                                     <Control HorizontalExpand="True"/>
                                     <OptionButton Name="SpawnPriorityButton" HorizontalAlignment="Right" />
                                 </BoxContainer>
+                                <!--Far Horizons species loadouts-->
+                                <BoxContainer HorizontalExpand="True" Name="CSpeciesLoadout">
+                                    <Label Text="{Loc 'humanoid-profile-editor-species-loadout'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <Button Name="SpeciesLoadout" Text="{Loc 'loadout-window'}" HorizontalAlignment="Right" />
+                                </BoxContainer>
+                                <!-- Far Horizons end -->
                                 <!-- Height Slider --> <!-- begin Goobstation: port EE height/width sliders -->
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Name="HeightLabel" MinWidth="110" />

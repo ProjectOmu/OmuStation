@@ -51,4 +51,7 @@ public sealed partial class LoadoutPrototype : IPrototype, IEquipmentLoadout
     /// <inheritdoc />
     [DataField]
     public Dictionary<string, List<EntProtoId>> Storage { get; set; } = new();
+
+    [DataField]
+    public Dictionary<string, List<EntProtoId>> Containers { get; set; } = new(); // Far Horizons
 }
