@@ -1,0 +1,89 @@
+﻿- type: construction
+  id: CultPylon
+  name: cult-pylon
+  description: cult-pylon-desc
+  category: construction-category-structures
+  hide: true
+  graph: CultPylon
+  startNode: start
+  targetNode: pylon
+  objectType: Structure
+  placementMode: AlignPylonConstruction
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: CultFactoryAltar
+  name: cult-altar
+  description: cult-altar-desc
+  category: construction-category-structures
+  hide: true
+  graph: CultFactoryAltar
+  startNode: start
+  targetNode: altar
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: CultFactoryForge
+  name: cult-daemon-forge
+  description: cult-daemon-forge-desc
+  category: construction-category-structures
+  hide: true
+  graph: CultFactoryForge
+  startNode: start
+  targetNode: forge
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: CultFactoryArchives
+  name: cult-archives
+  description: cult-archives-desc
+  category: construction-category-structures
+  hide: true
+  graph: CultFactoryArchives
+  startNode: start
+  targetNode: archives
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: CultDoor
+  name: cult-runed-door
+  description: cult-runed-door-desc
+  category: construction-category-structures
+  hide: true
+  graph: CultDoor
+  startNode: start
+  targetNode: door
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: CultGirder
+  name: cult-girder
+  description: cult-girder-desc
+  category: construction-category-structures
+  hide: true
+  graph: CultGirder
+  startNode: start
+  targetNode: girder
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
