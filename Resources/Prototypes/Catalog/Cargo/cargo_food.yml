@@ -119,3 +119,13 @@
   cost: 2000
   category: cargoproduct-category-name-food
   group: market
+
+- type: cargoProduct
+  id: FoodProduceCrate
+  icon:
+    sprite: Objects/Specific/Hydroponics/tomato.rsi
+    state: produce
+  product: CrateFoodProduceCrate
+  cost: 1100
+  category: cargoproduct-category-name-food
+  group: market
