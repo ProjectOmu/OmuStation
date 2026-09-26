@@ -1,0 +1,33 @@
+- type: entity
+  parent: BaseStationEvent
+  id: LightsOutMajor
+  name: Lights Out (Major)
+  components:
+  - type: LightsOutMajorRule
+  - type: StationEvent
+    earliestStart: 15
+    weight: 5
+    duration: null
+    eventType: Maintenance
+  - type: GameRule
+    delay:
+      min: 0
+      max: 0
+    chaosScore: 200 # potentially highly disruptive
+
+- type: entity
+  parent: BaseStationEvent
+  id: LightsOutMinor
+  name: Lights Out (Minor)
+  components:
+  - type: LightsOutMinorRule
+  - type: StationEvent
+    earliestStart: 15
+    weight: 5
+    duration: null
+    eventType: Maintenance
+  - type: GameRule
+    delay:
+      min: 0
+      max: 0
+    chaosScore: 80
