@@ -53,6 +53,19 @@
   - type: Tag # goob edit
     tags:
     - Mask
+  - type: Appearance # Gabystation start
+  - type: Stainable
+    clothingVisuals:
+      mask:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: maskblood
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: maskbloodicon # Gabystation end
+  - type: SolutionContainerManager # Omu start; masks weren't getting stains due to lacking the solution
+    solutions:
+      stain:
+        maxVol: 5 # Omu end
 
 - type: entity
   abstract: true
@@ -95,6 +108,8 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
+      stain: # Funkystation
+        maxVol: 5
   - type: Tag
     tags:
     - ClothMade
