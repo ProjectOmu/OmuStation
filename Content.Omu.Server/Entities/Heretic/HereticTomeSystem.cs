@@ -10,6 +10,8 @@ using Content.Server.Chat.Managers;
 using Content.Omu.Shared.Entities.Heretic;
 using Content.Shared.Actions;
 using Content.Shared.Humanoid;
+using Robust.Shared.Prototypes;
+using Content.Shared.Heretic.Prototypes;
 
 namespace Content.Omu.Server.Entities.Heretic;
 
@@ -22,6 +24,7 @@ public sealed class HereticTomeSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IChatManager _chatMan = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -52,6 +55,11 @@ public sealed class HereticTomeSystem : EntitySystem
     {
         var actor = args.Actor;       //Get the players entity!
 
+
+        var size = component.FontSize;
+        var cannotread = Loc.GetString(component.Unreadable);
+        var loc = Loc.GetString(component.Unreadable, ("size", size), ("text", component.Unreadable));
+
         if (!HasComp<HumanoidAppearanceComponent>(args.Actor))       //Ensure reader is a human, funny oversight.
             return;
 
@@ -65,6 +73,20 @@ public sealed class HereticTomeSystem : EntitySystem
         if (!_playerMan.TryGetSessionById(mind.UserId, out var session))
             return;
 
+        if (component.ProductAction != null)            // This is actually repulsive to look at.
+            if (!TryComp<FascinationComponent>(actor, out _))
+            {
+                _chatMan.ChatMessageToOne(ChatChannel.Server, cannotread, loc, default, false, session.Channel, canCoalesce: false);            //Not mad enough
+                return;
+            }
+            else if (TryComp<FascinationComponent>(actor, out var fascinationcomp))
+                if (fascinationcomp.FascinationValue < 5)
+                {
+                    _chatMan.ChatMessageToOne(ChatChannel.Server, cannotread, loc, default, false, session.Channel, canCoalesce: false);            //Not mad enough
+                    return;
+                }
+
+
         if (!TryComp<FascinationComponent>(actor, out var fasc))
             EnsureComp<FascinationComponent>(actor, out fasc);
         float fascAmount;       //How much fascination to give them?
@@ -76,25 +98,27 @@ public sealed class HereticTomeSystem : EntitySystem
             fascAmount = fascAmount + 1; //One extra fascination for an action gained!
 
 
-        RaiseLocalEvent(actor, new FascinationChangedArgs { Amount = fascAmount});
+        RaiseLocalEvent(actor, new FascinationChangedArgs { Amount = fascAmount });
 
         var message = Loc.GetString(fasc.MadnessMessage);       //Warn the user
-        var size = component.FontSize;
-        var loc = Loc.GetString(component.ExamineBaseMessage, ("size", size), ("text", message));
+        loc = Loc.GetString(component.ExamineBaseMessage, ("size", size), ("text", message));
         SharedChatSystem.UpdateFontSize(size, ref message, ref loc);
         _chatMan.ChatMessageToOne(ChatChannel.Server, message, loc, default, false, session.Channel, canCoalesce: false);
 
         if (_heretic.TryGetHereticComponent(actor, out _, out _))             //Get heretic entity
         {
             _heretic.UpdateKnowledge(actor, component.KnowledgeGain);         //Give them knowledge
-            if (component.ProductHereticKnowledge != null)                    //Does it come with extra gamer points?
-                _heretic.TryAddKnowledge(mindId, component.ProductHereticKnowledge.Value, mind.CurrentEntity);      //Give em the gamer thinkin'
+            if (component.ProductHereticKnowledge != null && _proto.HasIndex<HereticKnowledgePrototype>(component.ProductHereticKnowledge))  //Does it come with extra asscoiated heretic knowledge
+            {
+                var knowledge = _proto.Index<HereticKnowledgePrototype>(component.ProductHereticKnowledge);
+                _heretic.TryAddKnowledge(mindId, knowledge, mind.CurrentEntity);      //Give the heretic the knowledge
+            }
         }
 
         if (component.ProductAction != null)            //Used for single actions
         {
             EntityUid? actionId;
-            actionId = _actionContainer.AddAction(mindId, component.ProductAction);
+            actionId = _actionContainer.AddAction(mindId, component.ProductAction);         //Tried using ensure action etc. Cannot get it to play ball.
         }
 
         component.Readers?.Add(actor);           // No double dipping!

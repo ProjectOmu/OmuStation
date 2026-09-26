@@ -17,6 +17,9 @@ public sealed partial class HereticTomeComponent : Component
     public LocId ExamineBaseMessage = "influence-base-message";
 
     [DataField]
+    public LocId Unreadable = "tome-unreadable";
+
+    [DataField]
     public int FontSize = 22;
 
     [DataField]
@@ -43,8 +46,8 @@ public sealed partial class HereticTomeComponent : Component
 
     public List<EntityUid> Readers = new();     //UID's of people who read the book
 
-    [DataField]
-    public ProtoId<HereticKnowledgePrototype>? ProductHereticKnowledge;     //Does the book have associated knowledge?
+    [DataField("productHereticKnowledge")]
+    public string? ProductHereticKnowledge;     //Does the book have associated knowledge?
 
     //Below is the variable(s) copied from listing prototypes and store component. - Useful if we want our books to give people actions!
 
