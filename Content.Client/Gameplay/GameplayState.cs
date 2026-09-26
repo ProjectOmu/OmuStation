@@ -127,7 +127,9 @@ namespace Content.Client.Gameplay
                     _uiManager.LoadScreen<DefaultGameScreen>();
                     break;
                 case ScreenType.Separated:
+                case ScreenType.SeparatedLeft: // Omu
                     _uiManager.LoadScreen<SeparatedChatGameScreen>();
+                    (_uiManager.ActiveScreen as SeparatedChatGameScreen)?.FlipScreen(screenType);  // Omu
                     break;
             }
 
