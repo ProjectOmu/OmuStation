@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._NF.Interaction.Components;
@@ -141,9 +138,6 @@ public sealed partial class HandPlaceholderSystem : EntitySystem
         if (!_hands.IsHolding((user, hands), ent, out var hand))
             return;
 
-        SetPlaceholder(target, ent);
-        SetEnabled(target, true);
-
         SetEnabled(ent, false); // allow inserting into the source container
 
         if (ent.Comp.Source is { } source)
@@ -159,5 +153,9 @@ public sealed partial class HandPlaceholderSystem : EntitySystem
 
         _hands.DoPickup(user, hand, target, hands); // Force pickup - empty hands are not okay
         _interaction.DoContactInteraction(user, target); // allow for forensics and other systems to work (why does hands system not do this???)
+
+        // Omu, moving these after above items fixes medborgs clearing whitelist
+        SetPlaceholder(target, ent);
+        SetEnabled(target, true);
     }
 }

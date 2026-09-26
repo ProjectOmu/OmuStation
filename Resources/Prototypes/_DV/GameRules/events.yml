@@ -1,9 +1,11 @@
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
+#- type: entityTable # Goob unused
+#  id: BasicCalmEventsTableDeltaV
+#  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+#    children:
+#    - id: MothroachSpawn
+#    - id: MalignRiftSpawn # DeltaV
 
 - type: entity
   id: MothroachSpawn
@@ -36,18 +38,90 @@
   - type: StationEvent
     earliestStart: 15
     minimumPlayers: 15
-    weight: 0.4 #this should be rare to throw people off, otherwise it happens every shift
+    weight: 4 # Omu, DV has this at 6
     eventType: Neutral
-    startAnnouncement: cosmiccult-announce-tier2-warning
-    startAnnouncementColor: "#cae8e8"
-    startAudio:
-      path: /Audio/_DV/CosmicCult/tier2.ogg
+    # startAnnouncement: cosmiccult-announce-tier2-warning #omu start
+    # startAnnouncementColor: "#cae8e8"
+    # startAudio:
+    #   path: /Audio/_DV/CosmicCult/tier2.ogg #omu end
   - type: GameRule
     chaosScore: -50
   - type: RandomMultipleSpawnRule
     prototype: CosmicMalignRift
-    minAmount: 2
-    maxAmount: 4
+    minAmount: 1
+    maxAmount: 3
+
+# nt agent (this is usually for the admeme spawn)
+- type: entity
+  parent: BaseGameRule
+  id: NTAgentRule
+  components:
+  - type: GameRule
+    chaosScore: 200 # Omu
+  - type: AntagObjectives
+    objectives:
+    - NTAgentObjective
+  - type: AntagSelection
+    agentName: NTAgent-round-end-name
+    definitions:
+    - min: 1
+      max: 2
+      pickPlayer: true
+      briefing:
+        text: NTAgent-role-greeting-human
+        color: lightblue
+        sound: /Audio/_DV/Ambience/Antag/centcomm_nt_agent.ogg
+      mindRoles:
+      - MindRoleNTAgent
+      components:
+      - type: AutoImplant
+        implants:
+        - RadioImplantCentcomm
+        - NanolinkSubImplant # Omu, give them nanolink as well.
+
+# nt agent sleeper event
+- type: entity
+  id: NTAgentSleeper
+  parent: [NTAgentRule]
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    minimumPlayers: 25
+    weight: 3
+    maxOccurrences: 1
+    startAnnouncement: station-event-communication-interception
+    startAudio:
+      path: /Audio/Announcements/intercept.ogg # Omu, Swapped to different traitor line for consistency
+    duration: null
+    occursDuringRoundEnd: false
+  - type: AlertLevelInterceptionRule
+  - type: AntagRandomObjectives
+    sets:
+    - groups: NTAgentObjectiveGroup
+      maxPicks: 2
+    maxDifficulty: 100
+  - type: AntagSelection
+    agentName: NTAgent-round-end-name
+    definitions:
+    - prefRoles: [ NTAgent ]
+      min: 1
+      max: 2
+      playerRatio: 10
+      pickPlayer: true
+      blacklist:
+        components:
+        - AntagImmune
+      briefing:
+        text: NTAgent-role-greeting-human
+        color: lightblue
+        sound: /Audio/_DV/Ambience/Antag/centcomm_nt_agent.ogg
+      mindRoles:
+      - MindRoleNTAgent
+      components:
+      - type: AutoImplant
+        implants:
+        - RadioImplantCentcomm
+        - NanolinkSubImplant
 
 - type: entity
   id: Epsilon

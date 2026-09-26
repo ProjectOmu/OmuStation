@@ -88,7 +88,7 @@
     Telecrystal: 125
   categories:
     - UplinkDisruption
-    
+
 - type: listing
   id: UplinkSwordfish
   name: uplink-swordfish-name
@@ -96,7 +96,7 @@
   icon: { sprite: _Omu/Objects/Weapons/Melee/syndieswordfish.rsi, state: icon }
   productEntity: ThavenSyndieRapier
   cost:
-    Telecrystal: 40
+    Telecrystal: 35
   categories:
   - UplinkWeaponry
   conditions:
@@ -108,3 +108,172 @@
       tags:
       - ContractorUplink
       - NukeOpsUplink
+
+- type: listing
+  id: UplinkShoalMask
+  name: uplink-shoalmask-name
+  description: uplink-shoalmask-desc
+  icon: { sprite: _Omu/Clothing/Mask/shoalmask.rsi, state: icon }
+  productEntity: ClothingMaskGasShoal
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Vox
+
+- type: listing
+  id: UplinkShredder
+  name: uplink-shredder-name
+  description: uplink-shredder-desc
+  icon: { sprite: _Omu/Objects/Weapons/Melee/shredder.rsi, state: icon }
+  productEntity: WeaponShredder
+  cost:
+    Telecrystal: 45
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerJobCondition
+    whitelist:
+    - Musician
+
+- type: listing
+  id: UplinkShredderBundle
+  name: uplink-shredder-bundle-name
+  description: uplink-shredder-bundle-desc
+  icon: { sprite: _Omu/Objects/Weapons/Melee/shredder.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledShredder
+  cost:
+    Telecrystal: 75
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkBloodredHeadphones
+  name: uplink-bloodred-headphones-name
+  description: uplink-bloodred-headphones-desc
+  icon: { sprite: /Textures/_Omu/Clothing/Multiple/bloodred-headphones.rsi, state: icon }
+  productEntity: ClothingMultipleBloodredHeadphones
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkHobbyistSpellBook
+  name: uplink-hobbyist-spellbook-name
+  description: uplink-hobbyist-spellbook-desc
+  icon: { sprite: _Omu/Objects/Weapons/Magic/hobbyistspellbook.rsi, state: icon }
+  productEntity: HobbyistSpellBook
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chaplain
+    - Librarian
+
+- type: listing
+  id: UplinkSniperPenman
+  name: uplink-sniper-penman-name
+  description: uplink-sniper-penman-desc
+  icon: { sprite: _Omu/Objects/Weapons/Guns/Snipers/penman.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledPenman
+  cost:
+    Telecrystal: 60
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkAmmoLongRifle
+  name: uplink-ammo-longrifle-name
+  description: uplink-ammo-longrifle-desc
+  icon: { sprite: _Omu/Objects/Weapons/Guns/Ammunition/Boxes/longrifle.rsi, state: icon }
+  productEntity: MagazineBoxLongRifle
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkXenoCompatibilityImplanterSyndi
+  name: uplink-xeno-compatibility-implanter-name
+  description: uplink-xeno-compatibility-implanter-desc
+  icon: { sprite: /Textures/Objects/Specific/Medical/syndi_implanter.rsi, state: implanter0 }
+  productEntity: XenoCompatibilityImplanterSyndi
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Science
+
+- type: listing
+  id: UplinkHypnoflash
+  name: uplink-hypnoflash-name
+  description: uplink-hypnoflash-desc
+  icon: { sprite: Objects/Weapons/Melee/flash.rsi, state: flash }
+  productEntity: HypnoFlash
+  cost:
+    Telecrystal: 70
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Roboticist    # Science roles
+    - Scientist
+    - ResearchDirector
+    - Chef          # Service roles
+    - Scientist
+    - Botanist
+    - Bartender
+    - Clown
+    - Mime
+    - Librarian
+    - Chaplain
+    - AdministrativeAssistant # AA
+
+- type: listing
+  id: UplinkBloodredVim
+  name: uplink-BloodredVim-name
+  description: uplink-BloodredVim-desc
+  productEntity: CrateCybersunBloodredVimBundle
+  cost:
+    Telecrystal: 100
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Allulalo
+
+- type: listing
+  id: UplinkWeaponFakeTaiwanPond
+  name: uplink-fake-taiwan-pond-bundle-name
+  description: uplink-fake-taiwan-pond-bundle-desc
+  icon: { sprite: _Goobstation/Objects/Fun/taiwan_pond.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelClownFilledFakeTaiwanPond
+  cost:
+    Telecrystal: 100
+  categories:
+    - UplinkJob
+  conditions:
+    - !type:BuyerJobCondition
+      whitelist:
+        - Clown

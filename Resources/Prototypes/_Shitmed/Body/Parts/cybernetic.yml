@@ -1,13 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -168,6 +158,9 @@
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
     bleedingOverlay: null
+  - type: Tag
+    tags:
+    - CyberneticLeftFoot # Goobstation
 
 - type: entity
   parent: [ CyberneticPartBase, BaseRightFoot ]
@@ -186,6 +179,9 @@
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
     bleedingOverlay: null
+  - type: Tag
+    tags:
+    - CyberneticRightFoot # Goobstation
 
 - type: entity
   parent: LeftArmCybernetic
@@ -200,6 +196,9 @@
       pryPowered: true
     - type: UseDelay # For insta prying
       delay: 1
+  - type: Tag
+    tags:
+    - CyberneticJwlLeftArm # Goobstation
 
 - type: entity
   parent: RightArmCybernetic
@@ -214,6 +213,9 @@
       pryPowered: true
     - type: UseDelay # For insta prying
       delay: 1
+  - type: Tag
+    tags:
+    - CyberneticJwlRightArm # Goobstation
 
 - type: entity
   parent: LeftLegCybernetic
@@ -224,6 +226,9 @@
   - type: MovementBodyPart
     walkSpeed: 3.125
     sprintSpeed: 5.175
+  - type: Tag
+    tags:
+    - CyberneticSpeedLeftLeg # Goobstation
 
 - type: entity
   parent: RightLegCybernetic
@@ -234,6 +239,9 @@
   - type: MovementBodyPart
     walkSpeed: 3.125
     sprintSpeed: 5.175
+  - type: Tag
+    tags:
+    - CyberneticSpeedRightLeg # Goobstation
 
 - type: entity
   id: DexLeftHand
@@ -243,6 +251,9 @@
   components:
   - type: DoAfterDelayMultiplier
     multiplier: 0.9
+  - type: Tag
+    tags:
+    - CyberneticDexLeftHand # Goobstation
 
 - type: entity
   id: DexRightHand
@@ -252,3 +263,6 @@
   components:
   - type: DoAfterDelayMultiplier
     multiplier: 0.9
+  - type: Tag
+    tags:
+    - CyberneticDexRightHand # Goobstation

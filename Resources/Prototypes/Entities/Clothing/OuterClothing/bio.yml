@@ -1,33 +1,16 @@
-# SPDX-FileCopyrightText: 2020 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Maxtone <124747282+MagnusCrowe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Sigil <84070966+Siigiil@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Sigil <noreply>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-#
 # SPDX-License-Identifier: MIT
 
 - type: entity
-  parent: ClothingOuterBaseLarge
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothingGasTanks]
   id: ClothingOuterBioGeneral
   name: bio suit
   suffix: Generic
   description: A suit that protects against biological contamination.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/general.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/general.rsi # Omu
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/general.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/general.rsi # Omu
   - type: Armor
     coverage:
     - Chest
@@ -68,25 +51,34 @@
   description: An advanced suit that protects against biological contamination, in CMO colors.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/cmo.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/cmo.rsi # Omu
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/cmo.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/cmo.rsi # Omu
 
 - type: entity
   parent: ClothingOuterBioGeneral
   id: ClothingOuterBioJanitor
   name: bio suit
   suffix: Janitor
-  description: A suit that protects against biological contamination and caustic spills.
+  description: A suit that protects against biological contamination and caustic spills, has a clip on the back to hold a mop. # Omu
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/janitor.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/janitor.rsi # Omu
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/janitor.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/janitor.rsi # Omu
   - type: Armor
     modifiers:
       coefficients:
         Caustic: 0.4
+  # Omu start
+  - type: AllowSuitStorage
+    whitelist:
+      components:
+      - GasTank
+      - XenoVacuumTank # Goobstation
+      tags:
+      - Mop
+  # Omu end
 
 - type: entity
   parent: ClothingOuterBioGeneral
@@ -96,21 +88,21 @@
   description: A suit that protects against biological contamination, in Scientist colors.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/scientist.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/scientist.rsi # Omu
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/scientist.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/scientist.rsi # Omu
 
 - type: entity
-  parent: [ClothingOuterBioGeneral, BaseSecurityContraband]
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseSecurityContraband]
   id: ClothingOuterBioSecurity
   name: bio suit
   suffix: Security
   description: A suit that protects against biological contamination, kitted out with additional armor.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/security.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/security.rsi # Omu
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/security.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/security.rsi # Omu
   - type: Armor
     coverage:
     - Chest
@@ -127,8 +119,25 @@
         Piercing: 0.7
         Heat: 0.8
         Caustic: 0.2
+      # Omu start
+      flatReductions:
+        Slash: 1
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
+  - type: DiseaseProtection
+    incoming:
+      powerModifiers:
+        Blood: -1
+      chanceMultipliers:
+        Blood: 0.5
+  # Omu end
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.4
+  - type: GroupExamine
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
 
 - type: entity
   parent: ClothingOuterBioGeneral
@@ -138,8 +147,8 @@
   description: A suit that strongly protects against biological contamination.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/virology.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/virology.rsi # Omu
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/virology.rsi
+    sprite: _Omu/Clothing/OuterClothing/Bio/virology.rsi # Omu
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.25

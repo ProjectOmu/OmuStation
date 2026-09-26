@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: marking
@@ -23,6 +18,17 @@
   sprites:
   - sprite: _Floofstation/Mobs/Customization/resomi_parts.rsi
     state: tail_feathers
+
+# Omu Start
+- type: marking
+  id: ResomiFluffyTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Resomi/markings.rsi
+    state: fluffy_tail
+# Omu End
 
 - type: marking
   id: ResomiLArmFeathers
@@ -86,3 +92,23 @@
   sprites:
   - sprite: _Floofstation/Mobs/Customization/resomi_parts.rsi
     state: fluff_head_up
+
+# Omu Start
+- type: marking
+  id: ResomiFluffForehead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Resomi/markings.rsi
+    state: forehead_fluff
+
+- type: marking
+  id: ResomiFluffEars
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Resomi/markings.rsi
+    state: fluffy_ears
+# Omu End

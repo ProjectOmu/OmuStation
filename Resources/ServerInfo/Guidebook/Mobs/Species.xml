@@ -1,14 +1,4 @@
 <!--
-SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-SPDX-FileCopyrightText: 2024 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
-SPDX-FileCopyrightText: 2024 BeeRobynn <robynthewarcrime@proton.me>
-SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
@@ -18,6 +8,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   Nanotrasen employs a variety of sapient species.
 
   <Box>
+    <GuideEntityEmbed Entity="MobAllulalo" Caption="Allulalo"/> <!-- Imp -->
     <GuideEntityEmbed Entity="MobArachnid" Caption="Arachnid"/>
     <GuideEntityEmbed Entity="MobChitinid" Caption="Chitinid"/> <!-- Omu, reorder species list -->
     <GuideEntityEmbed Entity="MobDiona" Caption="Diona"/>
@@ -32,7 +23,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="MobIPCDummy" Caption="IPC"/>
     <GuideEntityEmbed Entity="MobMoth" Caption="Moth Person"/>
     <GuideEntityEmbed Entity="MobOni" Caption="Oni"/>
-    <GuideEntityEmbed Entity="MobReptilian" Caption="Reptilian"/>
+    <GuideEntityEmbed Entity="MobReptilian" Caption="Unathi"/> <!-- omu unathi -->
     <GuideEntityEmbed Entity="MobResomi" Caption="Resomi"/>
   </Box>
   <Box>
@@ -49,6 +40,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="MobThaven" Caption="Thaven"/> <!-- Omu: ported from Impstation -->
     <GuideEntityEmbed Entity="MobShadowkin" Caption="Shadowkin"/>
     <GuideEntityEmbed Entity="MobAvali" Caption="Avali"/> <!-- Starlight -->
+    <GuideEntityEmbed Entity="MobHydrakin" Caption="Hydrakin"/> <!-- Goob mono port why isnt this commented upsteam -->
+    <GuideEntityEmbed Entity="MobOvinia" Caption="Ovinia"/> <!-- Omu: Ported From The Den-->
   </Box>
 
 </Document>

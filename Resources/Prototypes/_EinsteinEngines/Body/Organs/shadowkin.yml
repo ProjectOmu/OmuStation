@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -12,6 +8,23 @@
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
     state: brain
+  - type: SolutionContainerManager #Goob
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Cognizine #telepathic species has big Thought.
+          Quantity: 10
+        - ReagentId: GreyMatter
+          Quantity: 5
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 5
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 10
 
 - type: entity
   id: OrganShadowkinEyes
@@ -135,7 +148,6 @@
     metabolizerTypes: [Shadowkin]
     groups:
     - id: Alcohol
-      rateModifier: 0.1
   - type: FoodSequenceElement #Goob
     entries:
       Burger: FSE_OrganShadowkinLiver

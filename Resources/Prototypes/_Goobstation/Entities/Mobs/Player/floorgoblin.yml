@@ -1,11 +1,9 @@
-# SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
-# SPDX-FileCopyrightText: 2025 RichardBlonski <48651647+RichardBlonski@users.noreply.github.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   name: floor goblin
   id: MobFloorGoblin
-  parent: SimpleSpaceMobBase
+  parent: [SimpleSpaceMobBase, DVNodeCrawler] # Omu, add DVNodeCrawler
   description: Lives under the floor boards, steals shoes, bites ankles.
   components:
   - type: Sprite
@@ -58,8 +56,10 @@
       0: Alive
       60: Dead
   - type: Bloodstream
-    bloodReagent: InsectBlood
-    bloodMaxVolume: 40
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 40
   - type: Tag
     tags:
     - Trash
@@ -69,7 +69,7 @@
   - type: NpcFactionMember
     factions:
       - SimpleNeutral
-  - type: VentCrawler
+  #- type: VentCrawler # Omu, use nodecrawler
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/bite.ogg
@@ -87,7 +87,7 @@
   - type: DodgeWideswing
     staminaRatio: 2
   - type: Stamina
-    critThreshold: 20
+    baseCritThreshold: 20
     animationThreshold: 10 # Goob edit
   - type: Respirator
     damage:

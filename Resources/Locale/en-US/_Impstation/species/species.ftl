@@ -1,1 +1,2 @@
-﻿species-name-thaven = Thaven
+species-name-allulalo = Allulalo
+species-name-thaven = Thaven

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Atmos.Consoles;
@@ -83,7 +79,7 @@ public struct AtmosAlertsFocusDeviceData
     public (float, AtmosAlarmType) PressureData;
 
     /// <summary>
-    /// Moles, percentage, and related alert state, for all detected gases 
+    /// Moles, percentage, and related alert state, for all detected gases
     /// </summary>
     public Dictionary<Gas, (float, float, AtmosAlarmType)> GasData;
 
@@ -102,6 +98,61 @@ public struct AtmosAlertsFocusDeviceData
         GasData = gasData;
     }
 }
+
+// Frontier: gaslock-related state, TODO: move me elsewhere
+[Serializable, NetSerializable]
+public struct AtmosAlertsFocusGaslockData
+{
+    /// <summary>
+    /// Focus entity
+    /// </summary>
+    public NetEntity NetEntity;
+
+    /// <summary>
+    /// Requested pump pressure in kPa
+    /// </summary>
+    public float Pressure;
+
+    /// <summary>
+    /// Direction of the pump: true if pumping inwards
+    /// </summary>
+    public bool PumpingInwards;
+
+    /// <summary>
+    /// Whether or not the pump is running
+    /// </summary>
+    public bool Enabled;
+
+    /// <summary>
+    /// The entity the gaslock is docked with
+    /// </summary>
+    public NetEntity DockedEntity;
+
+    /// <summary>
+    /// Moles, percentage, and related alert state, for all detected gases
+    /// </summary>
+    public Dictionary<Gas, (float, float)> GasData;
+
+    /// <summary>
+    /// Populates the atmos monitoring console focus entry with atmospheric data
+    /// </summary>
+    public AtmosAlertsFocusGaslockData
+        (NetEntity netEntity,
+        float pressure,
+        bool pumpingInwards,
+        bool enabled,
+        NetEntity dockedEntity,
+        Dictionary<Gas, (float, float)> gasData)
+    {
+        NetEntity = netEntity;
+        Pressure = pressure;
+        PumpingInwards = pumpingInwards;
+        Enabled = enabled;
+        DockedEntity = dockedEntity;
+        GasData = gasData;
+    }
+}
+// End Frontier: gaslock-related state, TODO: move me elsewhere
 
 [Serializable, NetSerializable]
 public sealed class AtmosAlertsComputerBoundInterfaceState : BoundUserInterfaceState
@@ -122,13 +173,25 @@ public sealed class AtmosAlertsComputerBoundInterfaceState : BoundUserInterfaceS
     public AtmosAlertsFocusDeviceData? FocusData;
 
     /// <summary>
+    /// Frontier: A list of all gaslocks
+    /// </summary>
+    public AtmosAlertsComputerEntry[] Gaslocks;
+
+    /// <summary>
+    /// Frontier: Data for the UI gaslock focus (if applicable)
+    /// </summary>
+    public AtmosAlertsFocusGaslockData? FocusGaslockData;
+
+    /// <summary>
     /// Sends data from the server to the client to populate the atmos monitoring console UI
     /// </summary>
-    public AtmosAlertsComputerBoundInterfaceState(AtmosAlertsComputerEntry[] airAlarms, AtmosAlertsComputerEntry[] fireAlarms, AtmosAlertsFocusDeviceData? focusData)
+    public AtmosAlertsComputerBoundInterfaceState(AtmosAlertsComputerEntry[] airAlarms, AtmosAlertsComputerEntry[] fireAlarms, AtmosAlertsFocusDeviceData? focusData, AtmosAlertsComputerEntry[] gaslocks, AtmosAlertsFocusGaslockData? focusGaslockData) // Frontier: add gaslocks, focusGaslockData
     {
         AirAlarms = airAlarms;
         FireAlarms = fireAlarms;
         FocusData = focusData;
+        Gaslocks = gaslocks; // Frontier
+        FocusGaslockData = focusGaslockData; // Frontier
     }
 }
 
@@ -206,7 +269,7 @@ public sealed class AtmosAlertsComputerDeviceSilencedMessage : BoundUserInterfac
     public bool SilenceDevice = true;
 
     /// <summary>
-    /// Used to inform the server that the client has silenced alerts from the specified device to this atmos monitoring console 
+    /// Used to inform the server that the client has silenced alerts from the specified device to this atmos monitoring console
     /// </summary>
     public AtmosAlertsComputerDeviceSilencedMessage(NetEntity atmosDevice, bool silenceDevice = true)
     {
@@ -223,6 +286,7 @@ public enum AtmosAlertsComputerGroup
     Invalid,
     AirAlarm,
     FireAlarm,
+    Gaslock, // Frontier
 }
 
 [NetSerializable, Serializable]

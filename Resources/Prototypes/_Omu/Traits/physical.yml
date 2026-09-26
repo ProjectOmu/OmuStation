@@ -95,6 +95,9 @@
         #Mantles for Central Command
         BlueshieldOfficer: ClothingCyberneticBeastMantleBlueshieldOfficer
         NanotrasenRepresentative: ClothingCyberneticBeastMantleCentralCommandNoThermal
+        # Bartender mantle
+        Bartender: ClothingCyberneticBeastMantleBar
+        Roboticist: ClothingCyberneticBeastMantleRoboticist
       # If they have none of the specified jobs:
       equipmentUnmet: ClothingCyberneticBeastMantle
   globalCost: 5
@@ -106,6 +109,23 @@
       traits:
         - PoorVision
         - Blindness
+      inverted: true
+
+- type: trait
+  id: DamagedThroat
+  name: trait-damaged-throat-name
+  description: trait-damaged-throat-desc
+  category: PhysicalTraits
+  blacklist:
+    components:
+      - BorgChassis
+  components:
+  - type: DamagedThroat
+  globalCost: -2
+  requirements:
+    - !type:TraitsRequirement
+      traits:
+        - Muted
       inverted: true
 
 - type: trait
@@ -239,6 +259,7 @@
     - Tajaran
     - Resomi
     - Rodentia
+    - Allulalo # Given it to Allu by default
   - !type:WeightRequirement # too heavy for uppies
     minimumWeight: 53
     inverted: true

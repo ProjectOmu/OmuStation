@@ -1,0 +1,256 @@
+- type: entity
+  id: BeeMigration
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 15
+    weight: 4
+    duration: 30
+    minimumPlayers: 15
+    eventType: Chaotic
+  - type: GameRule
+    chaosScore: 30
+  - type: VentCrittersRule
+    max: 7
+    min: 4
+    table: !type:GroupSelector
+      children:
+      - id: MobBee
+
+- type: entity
+  id: BeeMigrationAngry
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 15
+    weight: 3
+    duration: 30
+    minimumPlayers: 15
+    eventType: Chaotic
+  - type: GameRule
+    chaosScore: 30
+  - type: VentCrittersRule
+    max: 7
+    min: 4
+    table: !type:GroupSelector
+      children:
+      - id: BeeLicoxide
+      - id: BeeAmatoxin
+      - id: BeeLexorin
+      - id: BeeChloralHydrate
+      - id: BeeUnstableMutagen
+      - id: BeeMindbreakerToxin
+      - id: BeePax
+      - id: BeeLead
+      - id: BeeLipolicide
+      - id: BeeImpedrezene
+      - id: BeeRazorium
+      - id: BeeMuteToxin
+      - id: BeeBuzzochloricBees
+      - id: BeeLaughter
+      - id: BeeToxin
+
+
+- type: entity
+  id: ShadowCatSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 15
+    weight: 1
+    duration: 30
+    minimumPlayers: 15
+    eventType: Chaotic
+  - type: GameRule
+    chaosScore: 30
+  - type: VentCrittersRule
+    max: 1
+    min: 1
+    table: !type:GroupSelector
+      children:
+      - id: MobCatShadow
+
+- type: entity
+  id: CrabMigration
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 15
+    weight: 2
+    duration: 30
+    minimumPlayers: 15
+    eventType: Chaotic
+  - type: GameRule
+    chaosScore: 30
+  - type: VentCrittersRule
+    max: 4
+    min: 2
+    table: !type:GroupSelector
+      children:
+      - id: MobCrab
+
+- type: entity
+  id: NaniteSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 15
+    weight: 3
+    duration: 30
+    minimumPlayers: 20
+    eventType: Chaotic
+  - type: GameRule
+    chaosScore: 50
+  - type: VentCrittersRule
+    max: 3
+    min: 1
+    table: !type:GroupSelector
+      children:
+      - id: MobNanites
+
+- type: entity
+  id: LivingCurseSpawn # Chaplain Enrichment
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 15
+    weight: 1
+    duration: 30
+    minimumPlayers: 20
+    eventType: Chaotic
+  - type: GameRule
+    chaosScore: 70
+  - type: VentCrittersRule
+    max: 1
+    min: 1
+    table: !type:GroupSelector
+      children:
+      - id: MobLivingCurse
+
+- type: entity
+  id: LavaMonkeySpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 15
+    weight: 1
+    duration: 30
+    minimumPlayers: 20
+    eventType: Chaotic
+  - type: GameRule
+    chaosScore: 50
+  - type: VentCrittersRule
+    max: 2
+    min: 1
+    table: !type:GroupSelector
+      children:
+      - id: LavalandMobLegionMonkey
+
+- type: entity
+  id: PossumMigration
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 15
+    weight: 2
+    duration: 30
+    minimumPlayers: 15
+    eventType: Chaotic
+  - type: GameRule
+    chaosScore: 30
+  - type: VentCrittersRule
+    max: 4
+    min: 2
+    table: !type:GroupSelector
+      children:
+      - id: MobPossum
+
+- type: entity
+  id: LizardMigration
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 15
+    weight: 2
+    duration: 30
+    minimumPlayers: 15
+    eventType: Chaotic
+  - type: GameRule
+    chaosScore: 30
+  - type: VentCrittersRule
+    max: 4
+    min: 2
+    table: !type:GroupSelector
+      children:
+      - id: MobLizard
+
+- type: entity
+  id: SlurvaMigration
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 15
+    weight: 2
+    duration: 30
+    minimumPlayers: 15
+    eventType: Chaotic
+  - type: GameRule
+    chaosScore: 30
+  - type: VentCrittersRule
+    max: 2
+    min: 1
+    table: !type:GroupSelector
+      children:
+      - id: MobArgocyteSlurva
+
+- type: entity
+  id: SnakeMigration
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 15
+    weight: 1
+    duration: 30
+    minimumPlayers: 15
+    eventType: Chaotic
+  - type: GameRule
+    chaosScore: 30
+  - type: VentCrittersRule
+    max: 4
+    min: 2
+    table: !type:GroupSelector
+      children:
+      - id: MobSnake

@@ -1,0 +1,19 @@
+- type: cargoProduct
+  id: MedicalATVParamedic
+  icon:
+    sprite: _Omu/Objects/Vehicles/atvparamedic.rsi
+    state: vehicle
+  product: CrateMedicalATVParamedic
+  cost: 3000
+  category: cargoproduct-category-name-medical
+  group: market
+
+- type: cargoProduct
+  id: MedicalStrangePills
+  icon:
+    sprite: Objects/Specific/Chemistry/pills_canister.rsi
+    state: icon
+  product: CrateMedicalStrangePills
+  cost: 1800
+  category: cargoproduct-category-name-medical
+  group: market

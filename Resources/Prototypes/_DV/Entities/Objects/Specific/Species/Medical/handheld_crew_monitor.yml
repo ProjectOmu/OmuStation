@@ -1,0 +1,29 @@
+- type: entity
+  id: SpyCrewMonitor
+  name: spy monitor
+  description: A spy device capable of connecting to crew monitoring servers.
+  parent: [HandheldCrewMonitor, BaseMajorContraband] # Omu, add contra
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/spy_device.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Tools/spy_device.rsi
+  - type: PowerCellDraw
+    #useCharge: 10 #Don't have this and it works without this.
+  - type: StaticPrice
+    price: 750
+  - type: Tag # DeltaV - Let it be put in storage implants by removing HighRiskItem
+    tags: []
+  - type: CrewMonitoringConsole # DeltaV - disable crew crit / dead beeping alerts
+    #alertsEnabled: false # Omu, we don't have this.
+
+- type: entity
+  id: SpyCrewMonitorEmpty
+  parent: SpyCrewMonitor
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default

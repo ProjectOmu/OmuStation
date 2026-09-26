@@ -1,0 +1,77 @@
+- type: entity
+  id: BlueshieldRollerBed
+  parent: [RollerBed, BaseCentcommContraband]
+  name: bluespace rollerbed
+  description: A robust looking rollerbed enchanced with bluespace technology to better fit in the bags of Blueshield Officer's.
+  components:
+  - type: Item
+    sprite: _Omu/Structures/Furniture/rollerbeds.rsi
+    size: Small
+    heldPrefix: bluespace_rollerbed # the inhands are also the same as stasis but renamed
+  - type: Sprite
+    sprite: _Omu/Structures/Furniture/rollerbeds.rsi
+    noRot: true
+    layers:
+    - state: bluespace_rollerbed
+      map: ["unfoldedLayer"]
+    - state: bluespace_rollerbed_folded # this is just the same as stasis folded but renamed
+      map: ["foldedLayer"]
+      visible: false
+    - state: bluespace_rollerbed_buckled
+      map: ["buckledLayer"]
+      visible: false
+  - type: Appearance
+  - type: Tag
+    tags:
+    - RollerBedCompact
+
+- type: entity
+  parent: BlueshieldRollerBed
+  id: BlueshieldRollerBedSpawnFolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+  - type: Strap
+    enabled: False
+
+- type: entity
+  id: BlueshieldRollerBedStasis
+  parent: BlueshieldRollerBed
+  name: bluespace stasis rollerbed
+  description: A technological breakthrough, enchancing an already advanced bluespace rollerbed by outfitting it with a stasis function. Massively slows down the patient's metabolism and rate of bodily decay.
+  components:
+  - type: Item
+    sprite: _Omu/Structures/Furniture/rollerbeds.rsi
+    size: Small
+    heldPrefix: bluespace_stasis_rollerbed
+  - type: Sprite
+    sprite: _Omu/Structures/Furniture/rollerbeds.rsi
+    noRot: true
+    layers:
+    - state: bluespace_stasis_rollerbed
+      map: ["unfoldedLayer"]
+    - state: bluespace_stasis_rollerbed_folded
+      map: ["foldedLayer"]
+      visible: false
+    - state: bluespace_stasis_rollerbed_buckled
+      map: ["buckledLayer"]
+      visible: false
+  - type: StasisBed # this
+  - type: AntiRotOnBuckle # this
+  - type: HealOnBuckle # and this is copied from the stasis bed
+    damage:
+      types:
+        Poison: -0.001
+        Blunt: -0.001
+  - type: Appearance
+
+- type: entity
+  parent: BlueshieldRollerBedStasis
+  id: BlueshieldRollerBedStasisSpawnFolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+  - type: Strap
+    enabled: False

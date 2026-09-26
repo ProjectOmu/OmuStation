@@ -53,6 +53,13 @@
 
 # Magazine boxes
 
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxLongRifleRecipe
+  result: MagazineBoxLongRifle
+  materials:
+    Steel: 500
+
 # Caseless Rifle
 
 - type: latheRecipe
@@ -84,6 +91,14 @@
     Uranium: 720
 
 - type: latheRecipe
+  id: CartridgeAmoxla
+  result: CartridgeAmoxla
+  completetime: 1
+  materials:
+    Glass: 100
+    Plasma: 100
+
+- type: latheRecipe
   id: CartridgeArith
   result: CartridgeArith
   completetime: 1
@@ -98,6 +113,14 @@
   materials:
     Glass: 100
     Plasma: 100
+
+- type: latheRecipe
+  id: CartridgeEmpty
+  result: CartridgeEmpty
+  completetime: 1
+  materials:
+    Glass: 25
+    Plastic: 25
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -126,3 +149,13 @@
   result: MagazineClipM1Garand
   materials:
     Steel: 150
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: ShellShotgunAPDS
+  result: ShellShotgunAPDS
+  materials:
+    Plasteel: 200
+    Steel: 300
+    Plastic: 150
+    Plasma: 150

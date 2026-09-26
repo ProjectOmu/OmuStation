@@ -1,0 +1,32 @@
+- type: entity
+  parent: [RockGuitarInstrument, BaseSyndicateContraband]
+  id: WeaponShredder
+  name: Shredder
+  description: Knock 'em dead.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Melee/shredder.rsi
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/_Omu/Weapons/shredderhit.ogg
+      params:
+        variation: 0.125
+    wideAnimationRotation: -135
+    animationRotation: 180
+    attackRate: 1.25
+    damage:
+      types:
+        Slash: 2
+        Blunt: 6
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 2
+        Blunt: 2
+        Shock: 8
+  - type: RadiusBuff
+    whitelist:
+      components:
+      - RadiusBuffReceiver
+    status: StatusEffectShredder
+  - type: ActivateBuffOnWield

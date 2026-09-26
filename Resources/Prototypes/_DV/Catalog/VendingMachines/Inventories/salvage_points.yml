@@ -1,28 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
-# SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Vlax2nd <vlaxreborn@gmail.com>
-# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-# SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
-# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: shopInventory
@@ -61,28 +36,32 @@
   - id: DeathRattleLavalandImplanter
     cost: 500
     overrideName: shop-listing-deathrattle-implant-lavaland # stupid implanter structure raagh
+  - id: WeaponGrapplingGun # Omu
+    cost: 500 # Omu
+  - id: ClothingBeltMercWebbing # Omu
+    cost: 500 # Omu
   - id: ClothingShoesBootsJack
     cost: 550
   - id: MineralScanner
     cost: 550
-  - id: MedkitBruteFilled
-    cost: 600
-  - id: MedkitBurnFilled
-    cost: 600
+  #- id: MedkitBruteFilled -- Omu, removed
+  #  cost: 600
+  #- id: MedkitBurnFilled -- Omu, removed
+  #  cost: 600
   - id: DoubleEmergencyOxygenTankFilled
     cost: 650
   - id: DoubleEmergencyNitrogenTankFilled
     cost: 650
   - id: ClothingMaskWeldingGas
     cost: 750
-  - id: SpaceCash5000
-    cost: 750
   - id: MiningDrill
     cost: 800
   - id: OreBagMagnetic
     cost: 800
   - id: SurvivalMedipen
-    cost: 800
+    cost: 1000 #Omu
+  - id: SpaceCash5000
+    cost: 1000 #omu
   - id: PKAUpgradeRange
     cost: 1000
   - id: PKAUpgradeFireRate
@@ -97,10 +76,14 @@
     cost: 1050
   - id: WeaponCrusherDagger
     cost: 1050
+  - id: JetpackMini #goob
+    cost: 1100
   - id: AdvancedMineralScanner
     cost: 1150
   - id: PKAUpgradeDamage
     cost: 1200
+  - id: PKAUpgradeSpace #Omu
+    cost: 1200 #Omu
   - id: ClothingBackpackDuffelSalvageConscription
     cost: 1250
 #  - id: LuxuryMedipen # Omu, remove this.
@@ -119,10 +102,12 @@
     cost: 2000
   - id: ClothingShoesBootsJump
     cost: 2000
-  - id: ClothingShoesBootsJump
-    cost: 2000
   - id: ClothingOuterHardsuitSalvage
     cost: 2000
+  - id: JetpackBlue #goob
+    cost: 2250
+  - id: CrusherUpgradeMainMarker #Omu
+    cost: 2750 #Omu
     #TODO: super resonator for 2500
   - id: ClothingOuterHardsuitLuxury
     cost: 3000 #still costs more than just buying it with spesos you got from vendor but whatever
@@ -136,9 +121,15 @@
     cost: 4000 #Mostly for flexing
   - id: ClothingHandsConcussiveGauntlets # Omu
     cost: 4000
+  - id: SpaceCash50000 #Omu
+    cost: 9500 #Omu
   - id: ClothingNeckEnsembleSalvager #Earn. It.
     cost: 10000
+  - id: BackpackPermaSalvage # Omu, Earn the drip
+    cost: 25000 # Omu, Earn the drip
   - id: CrateCargoClarkeAssembly
     cost: 25000 #TODO: Make modules real # Omu, increase price from 12500
+  - id: SalvageHelldiverPDA # Omu
+    cost: 30000 # Omu, Something fun for salvs to work toward
   # TODO: luxury elite bar capsule for 10k
   # TODO: mining drone stuff

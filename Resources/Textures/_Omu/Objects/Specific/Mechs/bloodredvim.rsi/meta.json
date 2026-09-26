@@ -1,0 +1,23 @@
+{
+  "copyright" : "bloodredvim made by harryhulse (github)",
+  "license" : "CC-BY-SA-3.0",
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bloodredvim",
+      "directions": 4
+    },
+    {
+      "name": "brvim-open",
+      "directions": 4
+    },
+    {
+      "name": "brvim-broken",
+      "directions": 4
+    }
+  ]
+}

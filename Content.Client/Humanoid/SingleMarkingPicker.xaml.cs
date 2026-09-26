@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DEATHB4DEFEAT <77995199+DEATHB4DEFEAT@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -47,6 +40,14 @@ public sealed partial class SingleMarkingPicker : BoxContainer
     ///     Sends a 'slot' number, and the marking in question.
     /// </summary>
     public Action<(int slot, Marking marking)>? OnColorChanged;
+
+    // Omu begin
+    /// <summary>
+    /// What happens if a marking's glowing state is changed.
+    /// Sends a 'slot' number, and the marking in question.
+    /// </summary>
+    public Action<(int slot, Marking marking)>? OnGlowingChanged;
+    // Omu end
 
     // current selected slot
     private int _slot = -1;
@@ -225,7 +226,6 @@ public sealed partial class SingleMarkingPicker : BoxContainer
 
         var marking = _markings[Slot];
 
-        ColorSelectorContainer.DisposeAllChildren();
         ColorSelectorContainer.RemoveAllChildren();
 
         if (marking.MarkingColors.Count != proto.Sprites.Count)
@@ -250,6 +250,29 @@ public sealed partial class SingleMarkingPicker : BoxContainer
             };
 
             ColorSelectorContainer.AddChild(selector);
+
+            // Omu begin
+            var glowyToggle = new CheckBox
+            {
+                Text = Loc.GetString("ui-marking-glowing"),
+                Pressed = marking.GetGlowingIndex(colorIndex),
+            };
+
+            glowyToggle.OnToggled += o =>
+            {
+                if (_markings == null ||
+                    _markings.Count == 0 ||
+                    !_markingManager.TryGetMarking(_markings[Slot], out _))
+                {
+                    return;
+                }
+
+                marking.SetGlowing(colorIndex, o.Pressed);
+                OnGlowingChanged?.Invoke((_slot, marking));
+            };
+
+            ColorSelectorContainer.AddChild(glowyToggle);
+            // Omu end
         }
     }
 

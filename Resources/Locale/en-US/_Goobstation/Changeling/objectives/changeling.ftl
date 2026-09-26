@@ -16,6 +16,8 @@ objective-condition-absorb-other-description = In order to attain true power, we
 objective-condition-stealdna-title = Extract {$count} compatible, unique genomes.
 objective-condition-stealdna-description = We must extract {$count} unique genomes.
 
-objective-condition-escape-identity-title = Escape on the evacuation shuttle alive and unrestrained while being {$targetName}, {CAPITALIZE($job)}.
+#omu start
+objective-condition-escape-identity-title = Escape on the evacuation shuttle alive, unrestrained, and undiscovered as the identity of {$targetName}, {CAPITALIZE($job)}.
+#omu end
 
 objective-condition-changelingsteal-description = Our worshippers want us to retrieve it. The reason doesn't concern us.

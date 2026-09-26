@@ -1,0 +1,29 @@
+- type: entity
+  id: VehicleATVParamedic
+  parent: BaseVehicle
+  name: paramedic ATV
+  description: All-Tile Vehicle, paramedic edition! Warranty void if the manufacturer admits it's just the normal ATV with a new paint job.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Vehicles/atvparamedic.rsi
+    state: vehicle
+    noRot: true
+  - type: Vehicle
+    hornSound:
+      path: /Audio/_Omu/Effects/Vehicle/ambulancehorn.ogg
+      params:
+        volume: -1
+    renderOver: North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: vehicle-slot-component-slot-name-keys
+        whitelist:
+          requireAll: true
+          tags:
+          - VehicleKey
+          - ATVParamedicKeys
+        insertSound:
+          path: /Audio/Effects/Vehicle/vehiclestartup.ogg
+          params:
+            volume: -3

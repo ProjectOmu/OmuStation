@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -17,6 +12,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
+using Content.Shared.Gravity; // Omu
 
 namespace Content.Shared._White.Blink;
 
@@ -29,6 +25,7 @@ public abstract class SharedBlinkSystem : EntitySystem
     [Dependency] private readonly TelefragSystem _telefrag = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedGravitySystem _gravity = default!; // Omu
 
     public override void Initialize()
     {
@@ -70,6 +67,13 @@ public abstract class SharedBlinkSystem : EntitySystem
         if (!TryComp(weapon, out BlinkComponent? blink) || !blink.IsActive ||
             !TryComp(weapon, out UseDelayComponent? delay) || _useDelay.IsDelayed((weapon, delay), blink.BlinkDelay))
             return;
+
+        if (_gravity.IsWeightless(user) && !blink.CanBlinkWhileWeightless) // Omu - Start
+        {
+            _popup.PopupClient(Loc.GetString("no-blink-while-weightless"), user, user, PopupType.Medium);
+            _useDelay.TryResetDelay((weapon, delay), id: blink.BlinkDelay);
+            return;
+        } // Omu - End
 
         var coords = _transform.GetWorldPosition(xform);
         var length = msg.Direction.Length();

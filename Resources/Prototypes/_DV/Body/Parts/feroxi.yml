@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -14,13 +10,13 @@
       sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     - type: Damageable # Shitmed
       damageModifierSet: Feroxi
-    - type: WoundableVisuals
-      damageOverlayGroups:
-        Brute:
-          sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
-          color: "#3d909c"
-        Burn:
-          sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+    #- type: WoundableVisuals # Omu, reverts injurys back to red, they have regular blood.
+    #  damageOverlayGroups:
+    #    Brute:
+    #      sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+    #      color: "#3d909c"
+    #    Burn:
+    #      sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
 
 - type: entity
   parent: [ PartFeroxiBase, BaseChest ]

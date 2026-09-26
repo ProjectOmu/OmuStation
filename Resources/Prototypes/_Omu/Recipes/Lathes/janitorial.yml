@@ -1,0 +1,17 @@
+- type: latheRecipe
+  parent: ClothingEyesHudSecurity
+  id: ClothingEyesHudJanitorial
+  result: ClothingEyesHudJanitorial
+
+- type: latheRecipe
+  parent: ClothingCyberneticBeastMantleWorkResearch
+  id: ClothingCyberneticBeastMantleJanitor
+  result: ClothingCyberneticBeastMantleJanitor
+
+- type: latheRecipe
+  id: WireBrushElectrical
+  result: WireBrushElectrical
+  completetime: 15
+  materials:
+    Steel: 200
+    Plastic: 200

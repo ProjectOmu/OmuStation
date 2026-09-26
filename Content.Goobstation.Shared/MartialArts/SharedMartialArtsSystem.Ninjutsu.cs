@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
@@ -21,6 +14,7 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
+using Content.Shared.Tag; // Omu
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
@@ -33,6 +27,8 @@ public abstract partial class SharedMartialArtsSystem
 {
     public static ProtoId<AlertCategoryPrototype> NinjutsuAlertCategory = "Ninjutsu";
 
+    private static readonly ProtoId<TagPrototype> WeaponAllowTag = "NinjutsuWeapon"; // Omu
+
     private void InitializeNinjutsu()
     {
         SubscribeLocalEvent<CanPerformComboComponent, BiteTheDustPerformedEvent>(OnBiteTheDust);
@@ -40,7 +36,7 @@ public abstract partial class SharedMartialArtsSystem
 
         SubscribeLocalEvent<GrantNinjutsuComponent, UseInHandEvent>(OnGrantCQCUse);
 
-        SubscribeLocalEvent<ThrownEvent>(OnThrow);
+        SubscribeLocalEvent<ThrowEvent>(OnThrow);
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
 
         SubscribeLocalEvent<NinjutsuSneakAttackComponent, SelfBeforeGunShotEvent>(OnBeforeGunShot);
@@ -49,6 +45,8 @@ public abstract partial class SharedMartialArtsSystem
         SubscribeLocalEvent<NinjutsuSneakAttackComponent, ComponentInit>(OnSneakAttackInit);
         SubscribeLocalEvent<NinjutsuSneakAttackComponent, ComponentRemove>(OnSneakAttackRemove);
         SubscribeLocalEvent<NinjutsuSneakAttackComponent, StatusEffectEndedEvent>(OnAlertEffectEnded);
+
+        SubscribeLocalEvent<NinjutsuSneakAttackComponent, DamageChangedEvent>(OnDamageChanged); // Omu
     }
 
     private void OnBeforeGunShot(Entity<NinjutsuSneakAttackComponent> ent, ref SelfBeforeGunShotEvent args)
@@ -59,7 +57,7 @@ public abstract partial class SharedMartialArtsSystem
     private void OnAlertEffectEnded(Entity<NinjutsuSneakAttackComponent> ent, ref StatusEffectEndedEvent args)
     {
         if (args.Key == "LossOfSurprise")
-            _alerts.ShowAlert(ent, ent.Comp.Alert);
+            _alerts.ShowAlert(ent.Owner, ent.Comp.Alert);
     }
 
     private void OnSneakAttackRemove(Entity<NinjutsuSneakAttackComponent> ent, ref ComponentRemove args)
@@ -67,12 +65,12 @@ public abstract partial class SharedMartialArtsSystem
         if (TerminatingOrDeleted(ent))
             return;
 
-        _alerts.ClearAlertCategory(ent, NinjutsuAlertCategory);
+        _alerts.ClearAlertCategory(ent.Owner, NinjutsuAlertCategory);
     }
 
     private void OnSneakAttackInit(Entity<NinjutsuSneakAttackComponent> ent, ref ComponentInit args)
     {
-        _alerts.ShowAlert(ent, ent.Comp.Alert);
+        _alerts.ShowAlert(ent.Owner, ent.Comp.Alert);
     }
 
     private void OnMobStateChanged(MobStateChangedEvent ev)
@@ -88,7 +86,7 @@ public abstract partial class SharedMartialArtsSystem
         _modifier.RefreshMovementSpeedModifiers(ev.Origin.Value);
     }
 
-    private void OnThrow(ref ThrownEvent ev)
+    private void OnThrow(ref ThrowEvent ev)
     {
         if (HasComp<NinjutsuSneakAttackComponent>(ev.User))
             ResetDebuff(ev.User.Value);
@@ -203,7 +201,7 @@ public abstract partial class SharedMartialArtsSystem
 
         // Swift Strike
         if (args.Performer == args.Weapon)
-            _stamina.TakeStaminaDamage(args.Target, 30f, applyResistances: true);
+            _stamina.TakeStaminaDamage(args.Target, 30f);
         var fireRate = TimeSpan.FromSeconds(1f / _melee.GetAttackRate(args.Weapon, args.Performer, melee));
         var minFireRate = TimeSpan.FromSeconds(1f / 8f); // This is basically the attack speed of a HF Blade.
 
@@ -227,7 +225,7 @@ public abstract partial class SharedMartialArtsSystem
         }
 
         // Paralyze, not knockdown
-        var time = TimeSpan.FromSeconds(proto.ParalyzeTime);
+        var time = proto.ParalyzeTime;
         if (_status.TryGetTime(target, "KnockedDown", out var knockdownStartEnd))
         {
             var knockdownTime = knockdownStartEnd.Value.Item2 - _timing.CurTime;
@@ -262,7 +260,7 @@ public abstract partial class SharedMartialArtsSystem
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
 
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
+        _stun.TryKnockdown(target, proto.ParalyzeTime, true, true, proto.DropItems);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * GetDamageMultiplier(ent), out _);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);
@@ -283,6 +281,9 @@ public abstract partial class SharedMartialArtsSystem
         if (!TryComp(weapon, out melee))
             return false;
 
+        if (!_tag.HasTag(weapon, WeaponAllowTag)) // Omu
+            return false;
+
         return user == weapon || melee.Damage.DamageDict.ContainsKey("Slash");
     }
 
@@ -295,4 +296,39 @@ public abstract partial class SharedMartialArtsSystem
 
         _stealth.TryRevealNinja(uid);
     }
+
+    // Omu start
+    private void OnDamageChanged(Entity<NinjutsuSneakAttackComponent> ent, ref DamageChangedEvent args)
+    {
+        // If there's no damage delta, just return
+        if (args.DamageDelta is not { } damage)
+            return;
+
+        // Don't reveal on (most) healing
+        if (!args.DamageIncreased)
+            return;
+
+        // If the damage doesn't have a source, we need to check the type, in case it
+        // was a grenade or explosion. We want to ignore airloss and toxin damage types.
+        if (!args.Origin.HasValue)
+        {
+            // If there are any negative values, its probably natual or chem healing, so don't reveal. It might be an OD from medicine.
+            if (!damage.AnyPositive())
+                return;
+
+            // Check the damage types for damage types that should reveal (brute, burns)
+            // Basically, we want to ignore most indirect forms of damage (airloss, toxins)
+            var damageGroups = damage.GetDamagePerGroup(_proto);
+            if (!damageGroups.ContainsKey("Brute") && !damageGroups.ContainsKey("Burn")) // This feels a bit dirty, oh well.
+                return;
+        }
+
+        // Only reveal on damage at least the minumum. This prevents tiny ticks of damage (e.g. from malign rifts pulses)
+        if (damage.GetTotal() < ent.Comp.MinimumRevealDamage)
+            return;
+
+        // Yea, now reveal that son of a bitch >:3
+        ResetDebuff(ent);
+    }
+    // Omu end
 }

@@ -1,0 +1,55 @@
+- type: constructionGraph
+  id: ClothingOuterWinterCoatArachnid
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: end
+      steps:
+      - material: WebSilk
+        amount: 12
+        doAfter: 15
+  - node: end
+    entity: ClothingOuterWinterCoatArachnid
+
+- type: constructionGraph
+  id: ClothingHeadHatArachnidEarmuffs
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: end
+      steps:
+      - material: WebSilk
+        amount: 4
+        doAfter: 5
+  - node: end
+    entity: ClothingHeadHatArachnidEarmuffs
+
+- type: constructionGraph
+  id: ClothingHandsGlovesArachnid
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: end
+      steps:
+      - material: WebSilk
+        amount: 4
+        doAfter: 5
+  - node: end
+    entity: ClothingHandsGlovesArachnid
+
+- type: constructionGraph
+  id: ClothingNeckScarfArachnid
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: end
+      steps:
+      - material: WebSilk
+        amount: 4
+        doAfter: 5
+  - node: end
+    entity: ClothingNeckScarfArachnid

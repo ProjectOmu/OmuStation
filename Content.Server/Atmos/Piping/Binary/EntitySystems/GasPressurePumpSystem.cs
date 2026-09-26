@@ -1,26 +1,3 @@
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 ike709 <ike709@github.com>
-// SPDX-FileCopyrightText: 2021 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Putnam3145 <putnam3145@gmail.com>
-// SPDX-FileCopyrightText: 2022 TheIntoxicatedCat <105460423+TheIntoxicatedCat@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Partmedia <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Atmos.EntitySystems;
@@ -34,6 +11,8 @@ using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Audio;
 using JetBrains.Annotations;
+using Content.Server.Administration.Logs; // Frontier
+using Content.Shared.Database; // Frontier
 
 namespace Content.Server.Atmos.Piping.Binary.EntitySystems;
 
@@ -44,6 +23,7 @@ public sealed class GasPressurePumpSystem : SharedGasPressurePumpSystem
     [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
     [Dependency] private readonly PowerReceiverSystem _power = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!; // Frontier
 
     public override void Initialize()
     {
@@ -81,4 +61,40 @@ public sealed class GasPressurePumpSystem : SharedGasPressurePumpSystem
             _ambientSoundSystem.SetAmbience(ent, removed.TotalMoles > 0f);
         }
     }
+
+    // Frontier: server-side pump accessors
+    public void SetPumpDirection(Entity<GasPressurePumpComponent> ent, bool inwards, EntityUid actor)
+    {
+        if (!ent.Comp.SettableDirection || ent.Comp.PumpingInwards == inwards)
+            return;
+
+        (ent.Comp.OutletName, ent.Comp.InletName) = (ent.Comp.InletName, ent.Comp.OutletName);
+
+        ent.Comp.PumpingInwards = inwards;
+        _adminLogger.Add(LogType.AtmosDirectionChanged,
+            LogImpact.Medium,
+            $"{ToPrettyString(actor):player} set the direction on {ToPrettyString(ent):device} to {(inwards ? "in" : "out")}");
+        Dirty(ent);
+        UpdateAppearance(ent, ent.Comp);
+    }
+
+    public void SetPumpPressure(Entity<GasPressurePumpComponent> ent, float pressure, EntityUid actor)
+    {
+        ent.Comp.TargetPressure = Math.Clamp(pressure, 0f, Atmospherics.MaxOutputPressure);
+        _adminLogger.Add(LogType.AtmosPressureChanged,
+            LogImpact.Medium,
+            $"{ToPrettyString(actor):player} set the pressure on {ToPrettyString(ent):device} to {pressure}kPa");
+        Dirty(ent, ent.Comp);
+    }
+
+    public void SetPumpStatus(Entity<GasPressurePumpComponent> ent, bool enabled, EntityUid actor)
+    {
+        ent.Comp.Enabled = enabled;
+        _adminLogger.Add(LogType.AtmosPowerChanged,
+            LogImpact.Medium,
+            $"{ToPrettyString(actor):player} set the power on {ToPrettyString(ent):device} to {enabled}");
+        Dirty(ent);
+        UpdateAppearance(ent, ent.Comp);
+    }
+    // End Frontier: server-side pump accessors
 }

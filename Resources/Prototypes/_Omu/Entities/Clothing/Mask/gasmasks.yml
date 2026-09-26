@@ -1,0 +1,33 @@
+- type: entity
+  parent: [ClothingMaskGas, BaseSyndicateContraband]
+  id: ClothingMaskGasShoal
+  name: shoal infiltration mask
+  description: A padded steel gas mask designed for Shoal Infiltrators, provides quiet door prying and thermal vision.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Mask/shoalmask.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Mask/shoalmask.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: IngestionBlocker
+    blockSmokeIngestion: true
+  - type: ClothingGrantComponent
+    component:
+    - type: Prying
+      pryPowered: true
+      speedModifier: 2.5
+  - type: ThermalVision
+    thermalShader: null
+    color: "#BF40BF"
+    isEquipment: true
+    toggleAction: ToggleThermalVision

@@ -87,9 +87,9 @@
   id: MobVoxRaider
   name: Vox Raider
   components:
-  - type: AutoImplant
-    implants:
-    - DeathAcidifierImplant
+  #- type: AutoImplant # Omu, remove this.
+  #  implants:
+  #  - DeathAcidifierImplant
   - type: RandomHumanoidAppearance
     randomizeName: true
   - type: Loadout

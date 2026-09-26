@@ -1,0 +1,23 @@
+- type: latheRecipe
+  parent: CableStack
+  id: CableLVGranular0Stack
+  result: CableApcGranular0Stack1
+  materials:
+    Steel: 15
+    Glass: 15
+
+- type: latheRecipe
+  parent: CableLVGranular0Stack
+  id: CableLVGranular1Stack
+  result: CableApcGranular1Stack1
+  materials:
+    Steel: 20
+    Glass: 10
+
+- type: latheRecipe
+  parent: CableLVGranular0Stack
+  id: CableLVGranular2Stack
+  result: CableApcGranular2Stack1
+  materials:
+    Steel: 25
+    Glass: 5

@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # This should be on every other fishing table
@@ -59,7 +56,7 @@
     - id: CombatMedipen # Omu
     - id: MobXenomorphMaid # Omu
     - id: MedkitCombatFilled
-    - id: PlushieRestful # Omu
+    - id: PlushieRestfulOmuStaff # Omu
 
 # Fish from water
 - type: entityTable
@@ -124,7 +121,7 @@
     - id: FishBluespaceOre
     - id: MobShark
     - id: MaterialGoliathHide1
-    
+
 # Omu end
 
 # Items from Lava
@@ -145,7 +142,7 @@
       - !type:NestedSelector
         tableId: InsaneFishTable
         weight: 3
-        
+
 # Items from Plasma
 - type: entityTable
   id: PlasmaFishingLootTable

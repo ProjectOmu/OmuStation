@@ -6,7 +6,15 @@ selectable-set-headofsecurity-paradevoidsuit-desc =
 
 selectable-set-paramedic-cybersunhardsuit-name = CSI-122M "Xiézhù" hardsuit
 selectable-set-paramedic-cybersunhardsuit-desc =
-    The odd one out of the Cybersun hardsuits, meant to be lightweight but less armored.
+    The odd one out of the Cybersun hardsuits,
+    meant to be lightweight but less armored.
+    About as protective as its NT counterpart.
+
+# Clearer distinction between itself and the modsuit.
+selectable-set-paramedic-voidsuit-omu-desc =
+    A light hardsuit favoring environmental
+    resistance and fast movement speed,
+    over physical protection.
 
 selectable-set-warden-eshotty-name = Energy Shotgun
 selectable-set-warden-eshotty-description =
@@ -15,6 +23,23 @@ selectable-set-warden-eshotty-description =
 selectable-set-warden-r6-name = R6 Trench Gun
 selectable-set-warden-r6-description =
     The simpler solution in armory defense. The brig is your domain.
+
+selectable-set-warden-snub-name = Twin Snubnose
+selectable-set-warden-snub-description =
+    Twin hammerless revolvers, for quick draws and quicker Magdumps
+
+selectable-set-brigmed-crossbow-name = Syringe Crossbow
+selectable-set-brigmed-crossbow-description =
+    A portable Crossbow for healing at range.
+
+selectable-set-brigmed-shotgun-name = Pneumatic Shotgun
+selectable-set-brigmed-shotgun-description =
+    A low power, Innaccurate shotgun. Single shell, but can fire Syringes.
+    Hellishly innaccurate.
+
+selectable-set-brigmed-disabler-name = Energy SMG
+selectable-set-brigmed-disabler-description =
+    What it says on the box. It's boring. It works.
 
 selectable-set-hos-belt-name = Qua Nar'Vulna
 selectable-set-hos-belt-description =
@@ -35,10 +60,10 @@ selectable-set-hos-brdi-description=
     Once wielded by an unknown member of the Biesel Foreign Legion,
     this beloved rifle has seen battle with Sol on every world in the colonies.
 
-selectable-set-bso-brdi-name = BRDI R-25
-selectable-set-bso-brdi-description=
-    An iconic weapon used by members of the Biesel Republic Foreign Legion.
-    Repainted for Blueshield Officers.
+selectable-set-sarge-magnum-name = Energy Magnum
+selectable-set-sarge-magnum-description =
+    Self-recharging energy magnum that can switch between lethal
+    and disabling mode.
 
 selectable-set-mk58-name = Mk58 Pistol
 selectable-set-mk58-description =
@@ -48,6 +73,11 @@ selectable-set-t8-name = T8 "Consistency" Revolver
 selectable-set-t8-description =
     An alternative to the mk58, this revolver
     trades throughput for increased ability to shatter bones.
+
+selectable-set-eg1-name = EG-1 Taro Energy Revolver
+selectable-set-eg1-description =
+    An energy-based alternative to the standard ballistics sidearms, this revolver
+    trades firepower for the versatility provided by lasers.
 
 selectable-set-terminus-name = DT-8 "Terminus"
 selectable-set-terminus-description =
@@ -85,6 +115,20 @@ selectable-set-hosoniblade-description =
     A titanic relic, wieldable only by oni.
     This blade's immense size makes it a force to be reckoned with,
     able to cut down any foe in seconds.
+
+selectable-set-MobSpiderShiva-name = Shiva, The First Defender
+selectable-set-MobSpiderShiva-description =
+    A veteran of security, Shiva's been fighting nuclear threats and syndicate traitors
+    since the dawn of time!
+
+selectable-set-MobSecDogLaika-name = Laika, The K9 Attack Unit
+selectable-set-MobSecDogLaika-description =
+    Woof Woof Bark Bark! Laika doesn't mess around! Gnawing at the legs of couriers and sticking to
+    the HoS' side. She's Security's most loyal guardian!
+
+selectable-set-trevor-name = Trevor, The "Majestic" Stallion
+selectable-set-trevor-description =
+    Trevor, Security's... *noble* steed! Charge into battle or get your boots stuck in his glue..
 
 # ERT
 # TO-DO, rename all of these to be Super Mario related and hopefully avoid a cease and desist from nintendo
@@ -126,14 +170,56 @@ selectable-set-corpsman-combathardsuit-desc =
     Built based on designs recovered from Regalis sector.
     Offers much better armor then newer models.
 
+# BSO
+selectable-set-bso-brdi-name = BRDI R-25
+selectable-set-bso-brdi-description =
+    An iconic weapon used by members of the Biesel Republic Foreign Legion.
+    Repainted for Blueshield Officers.
+
+selectable-set-bso-typewriter-name = Typewriter Submachine Gun
+selectable-set-bso-typewriter-desc =
+    A kit containing a perfect replica of the Thompson Submachine Gun,
+    chambered in .35, a preloaded drum mag, a stick mag and a drum mag with rubber bullets;
+    perfect for the historically minded and wise guys alike.
+
+selectable-set-bso-extraction-name = Extraction kit
+selectable-set-bso-extraction-description =
+    A swift extraction guarantees safety, you stand by those words.
+    Includes: A webbing rig with a ridiculous amount of pouches and pockets, capable of holding many items.
+    The rig is prepacked with 20 bluespace-enchanced fultons, easily attachable to any rollerbed,
+    a beacon announcing extraction in medical radio upon fulton extraction,
+    and a combat medical kit with various medicines in pill form.
+
+selectable-set-bso-medical-name = Medical kit
+selectable-set-bso-medical-description =
+    Sometimes, the classic and simple option is the best option.
+    Includes: A spatial general use chest rig, packed with a compact defibrillator,
+    two combat medical kits and a bluespace body bag,
+    capable of holding multiple cadavers, organs, pieces and giblets.
+
+selectable-set-bso-chemical-name = Chemical kit
+selectable-set-bso-chemical-description =
+    Perfect for healing allies or poisoning foes in a pinch,
+    for the Blueshield Officer especially fond of chemical efficiency.
+    Includes: A robust pouch for general use,
+    packed with several vials of advanced medicine and a combat injector that instantly injects its contents upon forceful stabbing.
+
+# NTR
 selectable-set-ntr-cane-name = Fancy Cane
 selectable-set-ntr-cane-desc =
     A fancy cane with a stun setting.
     Good for fending off annoying assistants who don't want
     to fill up paperwork.
 
-selectable-set-ntr-belt-name = Disciplinary Belt
-selectable-set-ntr-belt-desc =
-    A belt, hollowed out to maximize pain and minimize damage.
-    This one will let you do many, many lashings to anyone who
-    dares stand in NanoTrasen's way. Oh boy.
+selectable-set-ntr-blade-name = Cane Blade
+selectable-set-ntr-blade-desc =
+    A sturdier, bladed fancy cane, with no stun setting...
+    This one is meant for emergencies only
+    CC note says: ONLY USE ON RED!!!!!
+
+selectable-set-ntr-brella-name = "Marlen" Umbrella
+selectable-set-ntr-brella-desc =
+    A stylish and intricate souvenir made from tough, hyper-woven
+    durathread by "NanoFashion" for the rich people of central command.
+    Looks expensive, and surprisingly durable.
+    CC note says: ONLY USE ON RED!!!!!

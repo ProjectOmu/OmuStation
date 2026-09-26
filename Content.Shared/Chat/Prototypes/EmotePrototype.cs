@@ -1,15 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Whitelist;
@@ -42,6 +30,14 @@ public sealed partial class EmotePrototype : IPrototype
     /// </summary>
     [DataField]
     public bool Available = true;
+
+    // Omu edit, added for handling blinking
+    /// <summary>
+    ///     Allows for overriding of mute trait for vocal/general emotes
+    ///     This check is handled in <see cref="Content.Server.Speech.Muting.MutingSystem"/>
+    /// </summary>
+    [DataField]
+    public bool OverrideMute = false;
 
     /// <summary>
     ///     Different emote categories may be handled by different systems.

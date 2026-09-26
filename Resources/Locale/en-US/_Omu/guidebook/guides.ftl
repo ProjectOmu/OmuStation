@@ -1,5 +1,10 @@
 # - Cargo
 guide-entry-sop-courier = Courier
+guide-entry-secure-shipments = Secure Shipments
+# - Medical
+guide-entry-sop-paramedic = Paramedic
+guide-entry-sop-psychologist = Psychologist
+guide-entry-sop-virologist = Virologist
 # - Security
 guide-entry-sop-corpsman = Corpsman
 guide-entry-sop-security-sergeant = Sergeant

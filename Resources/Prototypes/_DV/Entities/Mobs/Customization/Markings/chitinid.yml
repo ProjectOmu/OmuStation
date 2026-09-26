@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Ark <189933909+ark1368@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # Antennas
@@ -143,9 +140,11 @@
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_wings.rsi
-    state: bee_primary
+    state: bee_primary_alt #omu edit - separate tail primary and neck fluff
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_wings.rsi
     state: bee_secondary
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_wings.rsi # Omu
+    state: bee_tertiary
 
 - type: marking
   id: ChitinidWingsFirefly

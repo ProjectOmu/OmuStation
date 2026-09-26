@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._DV.Polymorph;
@@ -39,6 +29,8 @@ using System.Numerics;
 using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mind.Components;
+using Content.Shared._EinsteinEngines.Carrying;
+using Content.Shared._Omu.Carrying; // EE
 
 namespace Content.Shared._DV.Carrying;
 
@@ -319,6 +311,20 @@ public sealed class CarryingSystem : EntitySystem
         if (GetPickupDuration(carrier, toCarry).TotalSeconds > 9f)
             return false;
 
+        // Omu start,
+        // carry checks because hey treating people as items and using item pickup events is bad.
+
+        var carryAttempt = new CarryAttemptEvent(carrier, toCarry);
+        RaiseLocalEvent(toCarry, carryAttempt);
+
+        if (carryAttempt.Cancelled)
+            return false;
+
+        var itemEv = new GettingCarriedEvent(carrier, toCarry);
+        RaiseLocalEvent(toCarry, itemEv);
+
+        // Omu end
+
         Carry(carrier, toCarry);
         return true;
     }
@@ -356,17 +362,47 @@ public sealed class CarryingSystem : EntitySystem
 
     public bool CanCarry(EntityUid carrier, Entity<CarriableComponent> carried)
     {
-        return
-            carrier != carried.Owner &&
-            // can't carry multiple people, even if you have 4 hands it will break invariants when removing carryingcomponent for first carried person
-            !HasComp<CarryingComponent>(carrier) &&
-            // can't carry someone in a locker, buckled, etc
-            HasComp<MapGridComponent>(Transform(carrier).ParentUid) &&
-            // no tower of spacemen or stack overflow
-            !HasComp<BeingCarriedComponent>(carrier) &&
-            !HasComp<BeingCarriedComponent>(carried) &&
-            // finally check that there are enough free hands
-            _hands.CountFreeHands(carrier) >= carried.Comp.FreeHandsRequired;
+        // cant carry yourself, no tower of spacemen or stack overflow
+        if (carrier == carried.Owner ||
+            HasComp<BeingCarriedComponent>(carrier) ||
+            HasComp<BeingCarriedComponent>(carried))
+            return false;
+
+        // can't carry multiple people, even if you have 4 hands it will break invariants when removing carryingcomponent for first carried person
+        if (HasComp<CarryingComponent>(carrier))
+        {
+            _popup.PopupClient(Loc.GetString("carrying-multiple-people"), carrier, carrier);
+            return false;
+        }
+
+        // can't carry someone in a locker, buckled, etc
+        // TODO: this doesnt work. i dont know why. im blaming ee. anyway, it doesnt break anything, so its probably fine.
+        if (!HasComp<MapGridComponent>(Transform(carrier).ParentUid))
+            return false;
+
+        // finally check that there are enough free hands
+        // IMP: we're also not counting any hands that already contain the carried entity as occupied.
+        // this will allow you to pick up someone youre dragging.
+        var freeHands = _hands.CountFreeHands(carrier);
+        var handsRequired = carried.Comp.FreeHandsRequired;
+
+        if (TryComp<CarrierOneHandComponent>(carrier, out _) && !carried.Comp.OneHandOverride)
+            handsRequired = 1;
+
+        foreach (var item in _hands.EnumerateHeld(carrier))
+            if (TryComp<VirtualItemComponent>(item, out var virt) &&
+                virt.BlockingEntity == carried.Owner)
+            {
+                freeHands += 1;
+            }
+
+        if (freeHands < handsRequired)
+        {
+            _popup.PopupClient(Loc.GetString("carrying-not-enough-free-hands"), carrier, carrier);
+            return false;
+        }
+
+        return true;
     }
 
     private TimeSpan GetPickupDuration(EntityUid carrier, EntityUid carried)

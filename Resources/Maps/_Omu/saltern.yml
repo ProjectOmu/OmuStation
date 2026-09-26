@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/12/2026 16:32:46
+  time: 08/08/2026 22:07:24
   entityCount: 12560
 maps:
 - 1
@@ -5697,7 +5697,7 @@ entities:
       pos: -9.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4383.528
+      secondsUntilStateChange: -4400.228
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -24121,15 +24121,15 @@ entities:
     - type: Transform
       pos: 28.5,17.5
       parent: 2
-- proto: CargoTechFab
+- proto: CargoTechFabFilled
   entities:
   - uid: 3766
     components:
     - type: Transform
       pos: 12.5,9.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 8502
+    - type: OreSiloClient
+      silo: null
 - proto: Carpet
   entities:
   - uid: 3767
@@ -34711,7 +34711,7 @@ entities:
     - type: Transform
       pos: 40.5,-0.5
       parent: 2
-- proto: EngineeringTechFab
+- proto: EngineeringTechFabFilled
   entities:
   - uid: 5602
     components:
@@ -36146,7 +36146,7 @@ entities:
       pos: 40.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -13816.263
+      secondsUntilStateChange: -13832.963
       state: Closing
   - uid: 5823
     components:
@@ -52561,7 +52561,7 @@ entities:
     - type: Transform
       pos: 27.180967,-25.483507
       parent: 2
-- proto: HandheldHealthAnalyzerUnpowered
+- proto: HandheldHealthAnalyzer
   entities:
   - uid: 8203
     components:
@@ -54762,7 +54762,7 @@ entities:
     - type: Transform
       pos: 17.5,-20.5
       parent: 2
-- proto: MedicalTechFab
+- proto: MedicalTechFabFilled
   entities:
   - uid: 8512
     components:
@@ -55130,8 +55130,8 @@ entities:
     - type: Transform
       pos: 18.5,13.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 8502
+    - type: OreSiloClient
+      silo: null
 - proto: OxygenCanister
   entities:
   - uid: 8561
@@ -61780,7 +61780,7 @@ entities:
     - type: Transform
       pos: -3.5,-19.5
       parent: 2
-- proto: ScienceTechFab
+- proto: ScienceTechFabFilled
   entities:
   - uid: 9648
     components:
@@ -61821,7 +61821,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -8.5,20.5
       parent: 2
-- proto: SecurityTechFab
+- proto: SecurityTechFabFilled
   entities:
   - uid: 9652
     components:
@@ -61849,7 +61849,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 9.5,16.5
       parent: 2
-- proto: ServiceTechFab
+- proto: ServiceTechFabFilled
   entities:
   - uid: 9654
     components:
@@ -63513,6 +63513,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -15.5,9.5
       parent: 2
+  - uid: 9969
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 18.5,-2.5
+      parent: 2
   - uid: 10408
     components:
     - type: Transform
@@ -63533,17 +63539,19 @@ entities:
     - type: Transform
       pos: -1.5,-33.5
       parent: 2
+- proto: SmartFridgeBotany
+  entities:
+  - uid: 5547
+    components:
+    - type: Transform
+      pos: -15.5,1.5
+      parent: 2
 - proto: SmartFridgeMedical
   entities:
   - uid: 5546
     components:
     - type: Transform
       pos: 16.5,-3.5
-      parent: 2
-  - uid: 5547
-    components:
-    - type: Transform
-      pos: -15.5,1.5
       parent: 2
 - proto: SMESAdvanced
   entities:
@@ -64277,13 +64285,6 @@ entities:
     components:
     - type: Transform
       pos: 12.5,-15.5
-      parent: 2
-- proto: SpawnMobShiva
-  entities:
-  - uid: 9969
-    components:
-    - type: Transform
-      pos: -9.5,19.5
       parent: 2
 - proto: SpawnMobSlothPaperwork
   entities:

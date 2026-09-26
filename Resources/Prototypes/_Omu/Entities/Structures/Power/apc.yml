@@ -1,0 +1,17 @@
+- type: entity
+  parent: APCBasic
+  id: APCBasicDamaged
+  suffix: Basic, 50kJ, Damaged
+  components:
+  - type: ExtensionCableProvider
+    transferRange: 0
+
+- type: entity
+  parent: BaseAPC
+  id: APCConstructedDamaged
+  suffix: Open, Damaged
+  components:
+  - type: WiresPanel
+    open: true
+  - type: ExtensionCableProvider
+    transferRange: 0
