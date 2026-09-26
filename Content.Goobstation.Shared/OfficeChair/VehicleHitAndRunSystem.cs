@@ -81,7 +81,7 @@ public sealed partial class VehicleHitAndRunSystem : EntitySystem
                 var distance = throwSpeed * comp.AirTime;
                 var dir = dirNorm * distance;
 
-                _throwing.TryThrow(other, dir, throwSpeed, ignore, animated: true, playSound: false, throwInAir: true);
+                _throwing.TryThrow(other, dir, throwSpeed, ignore, animated: true, playSound: false); // Omu, remove throwInAir: true);
                 comp.LastLaunched[other] = now;
                 threwAny = true;
             }
