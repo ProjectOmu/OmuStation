@@ -1689,8 +1689,9 @@
   loadouts:
   - ChiefMedicalOfficerBeret
   - CMOMedicalHeadMirror
-  - ChemistUshanka # Goobstation
+#  - CMOUshanka # Goobstation, Omu - commented out
   - CMOVetBeret #Omu
+  - UshankaCMO # Omu
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerJumpsuit
@@ -1760,6 +1761,7 @@
   - GreenSurgeryCap
   - PurpleSurgeryCap
   - NurseHat
+  - UshankaMedical # Omu
 
 - type: loadoutGroup
   id: MedicalDoctorJumpsuit
@@ -1917,6 +1919,7 @@
   - ParamedicHead
   - ParamedicCapCybersun # Omu
   - SeniorPhysicianBeret # Goobstation
+  - UshankaParamedic # Omu
 
 - type: loadoutGroup
   id: ParamedicJumpsuit

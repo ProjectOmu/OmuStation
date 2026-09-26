@@ -43,3 +43,84 @@
     - Recyclable
     - HamsterWearable
     - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingHeadHatUshanka, BaseMedicalContraband ]
+  id: ClothingHeadHatUshankaMedical
+  name: medical ushanka
+  description: A white Ushanka with a cross on the side. The doctor wearing this will take care of you... eventually...
+  components:
+    - type: Sprite
+      sprite: _Omu/Clothing/Hats/ushanka_medical.rsi
+    - type: Clothing
+      sprite: _Omu/Clothing/Hats/ushanka_medical.rsi
+
+- type: entity
+  parent: [ ClothingHeadHatUshanka, BaseMedicalContraband ]
+  id: ClothingHeadHatUshankaChemist
+  name: chemist's ushanka
+  description: A striped blue, white and orange Ushanka. It's survived many an explosion...
+  components:
+    - type: Sprite
+      sprite: _Omu/Clothing/Hats/chemist_ushanka.rsi
+    - type: Clothing
+      sprite: _Omu/Clothing/Hats/chemist_ushanka.rsi
+
+- type: entity
+  parent: [ ClothingHeadHatUshanka, BaseMedicalCommandContraband ]
+  id: ClothingHeadHatUshankaCMO
+  name: cmo's ushanka
+  description: A turquoise ushanka with a cross on the side. Whoever is wearing this hat will nurse you back to health quickly.
+  components:
+    - type: Sprite
+      sprite: _Omu/Clothing/Hats/cmo_ushanka.rsi
+    - type: Clothing
+      sprite: _Omu/Clothing/Hats/cmo_ushanka.rsi
+
+- type: entity
+  parent: [ ClothingHeadHatUshanka, BaseSecurityContraband ]
+  id: ClothingHeadHatUshankaBrigmed
+  name: brigmed's ushanka
+  description: A red and black striped Ushanka with a cross on the side. For security officers with a background in medicine.
+  components:
+    - type: Sprite
+      sprite: _Omu/Clothing/Hats/brigmed_ushanka.rsi
+    - type: Clothing
+      sprite: _Omu/Clothing/Hats/brigmed_ushanka.rsi
+    - type: Armor #Values seem to let the user survive one extra hit if attacked consistently.
+      coverage:
+      - Head
+      traumaDeductions:
+        Dismemberment: 0.2
+        OrganDamage: 0.2
+        BoneDamage: 0.2
+        VeinsDamage: 0
+        NerveDamage: 0
+      modifiers:
+        coefficients:
+          Blunt: 0.7
+          Slash: 0.7
+          Piercing: 0.7
+          Heat: 0.8
+
+- type: entity
+  parent: [ ClothingHeadHatUshanka, BaseMedicalContraband ]
+  id: ClothingHeadHatUshankaParamedic
+  name: paramed's ushanka
+  description: A medical ushanka with an inverted color scheme, given to those who can whisk the dead and dying to medical.
+  components:
+    - type: Sprite
+      sprite: _Omu/Clothing/Hats/paramedic_ushanka.rsi
+    - type: Clothing
+      sprite: _Omu/Clothing/Hats/paramedic_ushanka.rsi
+
+- type: entity
+  parent: [ ClothingHeadHatUshanka, BaseMedicalContraband ]
+  id: ClothingHeadHatUshankaVirologist
+  name: virologist's ushanka
+  description: A medical Ushanka with green stripes and a green cross. Ready to deal with any kind of viruses.
+  components:
+    - type: Sprite
+      sprite: _Omu/Clothing/Hats/virologist_ushanka.rsi
+    - type: Clothing
+      sprite: _Omu/Clothing/Hats/virologist_ushanka.rsi
