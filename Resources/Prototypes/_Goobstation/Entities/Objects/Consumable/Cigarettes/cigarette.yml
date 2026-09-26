@@ -2,6 +2,7 @@
   id: CigaretteMedical
   suffix: Medical
   description: An extra absorbant chemlab cigarette, tastes kinda like asbestos.
+  # parent: Cigarette
   parent: BaseCigar # Omu - reparented from Cigarette to BaseCigar
   name: cigarette
   components:
