@@ -2,7 +2,8 @@
   id: CigaretteMedical
   suffix: Medical
   description: An extra absorbant chemlab cigarette, tastes kinda like asbestos.
-  parent: Cigarette
+  # parent: Cigarette
+  parent: BaseCigar # Omu - reparented from Cigarette to BaseCigar
   name: cigarette
   components:
   - type: SolutionContainerManager
@@ -11,6 +12,27 @@
         maxVol: 10
   - type: RefillableSolution # it would make more sense for all cigerattes to work like this.
     solution: smokable
+  # Omu start - keep previous properties after reparenting to BaseCigar
+  - type: Sprite
+    sprite: Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
+    state: unlit-icon
+  - type: Tag
+    tags:
+      - Cigarette
+      - Trash
+  - type: SpaceGarbage
+  - type: Clothing
+    sprite: Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
+    slots: [ mask ]
+    equippedPrefix: unlit
+  - type: Item
+    size: Tiny
+    sprite: Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
+    heldPrefix: unlit
+  - type: Construction
+    graph: smokeableCigarette
+    node: cigarette
+  # Omu end
 
 - type: entity
   id: ECigarette
