@@ -1,0 +1,16 @@
+- type: entity
+  id: FlatpackToteBase
+  name: flatpack tote base # Is anyone even going to read this? it's just going to be a dummy item anyway lol
+  components:
+  - type: Storage
+    grid:
+    - 0,0,6,3
+    maxItemSize: Huge
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
