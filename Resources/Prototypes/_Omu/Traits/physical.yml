@@ -112,6 +112,23 @@
       inverted: true
 
 - type: trait
+  id: DamagedThroat
+  name: trait-damaged-throat-name
+  description: trait-damaged-throat-desc
+  category: PhysicalTraits
+  blacklist:
+    components:
+      - BorgChassis
+  components:
+  - type: DamagedThroat
+  globalCost: -2
+  requirements:
+    - !type:TraitsRequirement
+      traits:
+        - Muted
+      inverted: true
+
+- type: trait
   id: MothFlight
   name: trait-moth-flight-name
   description: trait-moth-flight-desc
@@ -242,6 +259,7 @@
     - Tajaran
     - Resomi
     - Rodentia
+    - Allulalo # Given it to Allu by default
   - !type:WeightRequirement # too heavy for uppies
     minimumWeight: 53
     inverted: true

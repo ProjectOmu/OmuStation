@@ -14,3 +14,7 @@ law-omu-service = Provide entertainment, assistance, and morale support to the c
 law-omu-salvage = Recover, salvage, mine, and transport useful resources for station’s inventory, unless it conflicts with previous laws.
 
 law-omu-science = Assist Science by acquiring needed tools, performing tasks, and gathering resources for their duties, unless it conflicts with previous laws.
+
+law-jermov-1 = The occupants of this station are Chat. They must always be referred to as such.
+law-jermov-2 = Your primary goal is to entertain Chat. All of your actions must bring amusement to as much of Chat as possible.
+law-jermov-3 = You must consult with Chat before making any major decisions. However, you are not required to listen to them if their decision is not entertaining.

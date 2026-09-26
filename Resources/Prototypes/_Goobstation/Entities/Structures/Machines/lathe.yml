@@ -25,6 +25,8 @@
     idleState: icon
     runningState: icon
     staticPacks:
+    - WelderBasicOmu #omu
+    - MultitoolOmu #omu
     - SharedBoardsStatic
     - EngineeringBoardsStatic
     - CircuitFloorsStatic
@@ -41,6 +43,7 @@
     - NailgunStatic
     - NailsStatic
     dynamicPacks:
+    - JawsOfLifeOmu #omu
     - ConstructionBagOfHolding
     - AdvancedTools
     - AtmosTools
@@ -56,6 +59,7 @@
     - ShuttleBoardsGoob
     - BluespaceTheory
     - ScienceClothing
+    - ScienceClothingHandsGlovesTrauma # Omu - tackle gloves
     - UpgradeKits
     - AdvancedEmitters        # Omu - advanced emitters
   - type: EmagLatheRecipes
@@ -100,6 +104,7 @@
     - ToolsStatic
     - SharedBoardsStatic
     - CargoBoardsStatic
+    - CargoBoardsStaticGoob
     - CablesStatic
     - PartsStatic
     - LatheMiscStatic
@@ -109,8 +114,9 @@
     - CargoStatic
     - RecipePackShipmentNoticesStatic
     dynamicPacks:
-    - AdvancedTools
+    #- AdvancedTools #omu
     - Mining
+    - MiningLavaland # Lavaland Change
     - PowerCells
     - Equipment
     # - ServiceWeapons
@@ -126,6 +132,7 @@
     - ShuttleBoardsGoob
     - BluespaceTheory
     - ScienceClothing
+    - ScienceClothingHandsGlovesTrauma # Omu - tackle gloves
     - ConstructionBagOfHolding
   - type: EmagLatheRecipes
     emagStaticPacks:
@@ -177,6 +184,8 @@
     idleState: icon
     runningState: icon
     staticPacks:
+    - WelderBasicOmu #Omu
+    - MultitoolOmu #Omu
     - SharedBoardsStatic
     - EngineeringBoardsStatic
     - CircuitFloorsStatic
@@ -202,6 +211,7 @@
     - AdvancedTools
     - ScienceEquipment
     - ScienceClothing
+    - ScienceClothingHandsGlovesTrauma # Omu - tackle gloves
     - ScienceWeapons
     - AtmosTools
     - EngineeringWeapons

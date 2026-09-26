@@ -87,7 +87,8 @@
   - GroupTankHarness
   - BartenderHead
   - BartenderJumpsuit
-  - CommonBackpack
+ # - CommonBackpack # Omu
+  - BartenderBackpack # Omu
   - BartenderOuterClothing
   - Glasses
   - Survival
@@ -124,7 +125,8 @@
   - ChefHead
   - ChefMask
   - ChefJumpsuit
-  - CommonBackpack
+ # - CommonBackpack # Omu
+  - ChefBackpack # Omu
   - ChefOuterClothing
   - Glasses
   - Survival
@@ -205,8 +207,10 @@
   - JanitorHead
   - JanitorJumpsuit
   - JanitorGloves
-  - CommonBackpack
+ # - CommonBackpack # Omu
+  - JanitorBackpack # Omu
   - JanitorOuterClothing
+  - JanitorNeck # Starlight
   - Glasses
   - Survival
   - Trinkets
@@ -515,6 +519,7 @@
   - HeadofSecurityHead
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
+  - HeadofSecurityGloves # Omu - ORGANIZING THIS SHIT - gloves should stay near other clothing, NOT envirosuits
   - SecurityBackpack
   - SecurityMelee # Goobstation
   - SecurityBelt
@@ -531,7 +536,6 @@
   - HeadofSecurityEnvirohelm
   - HeadofSecurityEnvirosuit
   - HeadofSecurityEnvirogloves
-  - HeadofSecurityGloves
 
 - type: roleLoadout
   id: JobWarden
@@ -651,6 +655,7 @@
   - GroupTankHarness
   - MedicalDoctorHead
   - MedicalMask
+  - MedicalNeck # Omu
   - MedicalDoctorJumpsuit
   - MedicalGloves
   - MedicalDoctorBackpack # Omu Edit
@@ -720,6 +725,7 @@
   - ParamedicJumpsuit
   - MedicalGloves
   - ParamedicBackpack # Omu Edit
+  - ParamedicBelt # Omu edit
   - ParamedicOuterClothing
   - ParamedicShoes
   - MedicalEyewear

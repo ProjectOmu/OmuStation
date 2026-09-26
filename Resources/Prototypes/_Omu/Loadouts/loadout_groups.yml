@@ -401,6 +401,7 @@
   maxLimit: 1
   loadouts:
   - DetectiveWeaponRevolverInspector # Default for det should be their revolver
+  - DetectiveWeaponRevolverR3Compleat
 
 - type: loadoutGroup
   id: DetectiveEyes
@@ -418,11 +419,14 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - SecurityOfficerGunCase
+  - BrigMedCase # Brigmed gets some goddamn flavor now
   - SecurityOfficerMk58
   - SecurityOfficerSecurityDutyRevolver
   - SecurityOfficerEG1
   - WeaponPistolMk58Gold
+  - BrigmedWeaponCrossbowSyringe
+  - WeaponPneumaticShotgun
+  - BrigmedWeaponDisablerSMG
 
 # clown
 - type: loadoutGroup
@@ -495,6 +499,13 @@
   - MedicalDoctorMessenger # Frontier
   - CybersunMedicalMessenger
 
+- type: loadoutGroup
+  id: MedicalNeck
+  name: loadout-group-medical-neck
+  minLimit: 0
+  loadouts:
+  - MedicalStethoscope
+
 # Paramedic
 - type: loadoutGroup
   id: ParamedicBackpack
@@ -512,3 +523,40 @@
   - ParamedMessenger
   - MedicalDoctorMessenger # Frontier
   - CybersunMedicalMessenger
+
+- type: loadoutGroup
+  id: ParamedicBelt
+  name: loadout-group-paramedic-belt
+  loadouts:
+  - EMTBelt
+  - ParamedPouch
+
+# Chef
+- type: loadoutGroup
+  id: ChefBackpack
+  name: loadout-group-chef-backpack
+  loadouts:
+  - ChefBackpack
+  - ChefBackpackSatchel
+  - ChefBackpackDuffel
+  - ChefBackpackMessenger
+
+# Janitor
+- type: loadoutGroup
+  id: JanitorBackpack
+  name: loadout-group-janitor-backpack
+  loadouts:
+  - JanitorBackpack
+  - JanitorBackpackSatchel
+  - JanitorBackpackDuffel
+  - JanitorBackpackMessenger
+
+# Bartender
+- type: loadoutGroup
+  id: BartenderBackpack
+  name: loadout-group-bartender-backpack
+  loadouts:
+  - BartenderBackpack
+  - BartenderBackpackSatchel
+  - BartenderBackpackDuffel
+  - BartenderBackpackMessenger

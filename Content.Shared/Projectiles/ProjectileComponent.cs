@@ -127,4 +127,10 @@ public sealed partial class ProjectileComponent : Component
     /// </summary>
     [DataField]
     public FixedPoint2 PenetrationFactor = 1f;
+
+    /// <summary>
+    /// Omu:    A multiplier on projectile speed.
+    /// </summary>
+    [DataField]
+    public FixedPoint2 ProjectileSpeedModifier = 1f;
 }
