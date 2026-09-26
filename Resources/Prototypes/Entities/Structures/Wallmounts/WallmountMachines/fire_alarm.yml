@@ -53,14 +53,16 @@
       board: !type:Container
   - type: Appearance
   - type: WiresVisuals
-  - type: AlertLevelDisplay
-    alertVisuals:
-      green: fire_0
-      blue: fire_1
-      red: fire_2
-      violet: fire_1
-      yellow: fire_1
-      delta: fire_3
+#  - type: AlertLevelDisplay # Omu - AlertLevelDisplay overrides AtmosAlarmableVisuals sprites
+#    alertVisuals:
+#      green: fire_0
+#      blue: fire_1
+#      cyan: fire_1
+#      red: fire_2
+#      violet: fire_5
+#      yellow: fire_4
+#      amber: fire_6
+#      delta: fire_3
   - type: UserInterface
     interfaces:
       enum.WiresUiKey.Key:
