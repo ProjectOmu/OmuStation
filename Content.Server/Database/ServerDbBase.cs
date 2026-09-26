@@ -269,14 +269,6 @@ namespace Content.Server.Database
                 loadouts[role.RoleName] = loadout;
             }
 
-            // Far Horizons Start - Subspecies
-            RoleLoadout? speciesLoadout = null;
-            if (loadouts.Remove(HumanoidCharacterProfile.SpeciesLoadoutDatabaseKey, out var speciesLoadoutValue))
-            {
-                speciesLoadout = speciesLoadoutValue;
-            }
-            // Far Horizons End
-
             var barkVoice = profile.BarkVoice ?? SharedHumanoidAppearanceSystem.DefaultBarkVoice; // Goob Station - Barks
 
             return new HumanoidCharacterProfile(
@@ -305,8 +297,7 @@ namespace Content.Server.Database
                 antags.ToHashSet(),
                 traits.ToHashSet(),
                 loadouts,
-                barkVoice, // Goob Station - Barks
-                speciesLoadout // Far Horizons
+                barkVoice // Goob Station - Barks
             );
         }
 
@@ -371,13 +362,7 @@ namespace Content.Server.Database
 
             profile.Loadouts.Clear();
 
-            // Far Horizons-Start - Include species loadout in serialized loadouts
-            Dictionary<string, RoleLoadout> allLoadouts = new(humanoid.Loadouts);
-            if (humanoid.SpeciesLoadout != null)
-                allLoadouts[HumanoidCharacterProfile.SpeciesLoadoutDatabaseKey] = humanoid.SpeciesLoadout;
-            // Far Horizons-End
-
-            foreach (var (role, loadouts) in allLoadouts) // Far Horizons
+            foreach (var (role, loadouts) in humanoid.Loadouts)
             {
                 var dz = new ProfileRoleLoadout()
                 {

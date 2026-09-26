@@ -727,7 +727,7 @@ namespace Content.Client.Lobby.UI
             _species.Clear();
 
             _species.AddRange(_prototypeManager.EnumeratePrototypes<SpeciesPrototype>().Where(o => o.RoundStart));
-            _species.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.CurrentCultureIgnoreCase)); // Far Horizons
+            _species.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.CurrentCultureIgnoreCase));
             var speciesIds = _species.Select(o => o.ID).ToList();
 
             for (var i = 0; i < _species.Count; i++)
@@ -917,7 +917,6 @@ namespace Content.Client.Lobby.UI
 
             UpdateNameEdit();
             UpdateSubspecies(); // Far Horizons
-            UpdateSpeciesLoadout(); // Far Horizons
             UpdateFlavorTextEdit();
             UpdateSexControls();
             UpdateGenderControls();
@@ -1380,7 +1379,6 @@ namespace Content.Client.Lobby.UI
         {
             Profile = Profile?.WithSpecies(newSpecies);
             UpdateSubspecies(); // Far Horizons
-            UpdateSpeciesLoadout(); // Far Horizons
             OnSkinColorOnValueChanged(); // Species may have special color prefs, make sure to update it.
             Markings.SetSpecies(newSpecies); // Repopulate the markings tab as well.
             // In case there's job restrictions for the species

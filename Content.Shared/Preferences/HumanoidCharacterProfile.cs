@@ -162,8 +162,7 @@ namespace Content.Shared.Preferences
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
             Dictionary<string, RoleLoadout> loadouts,
-            ProtoId<BarkPrototype> barkVoice, // Goob Station - Barks
-            RoleLoadout? speciesLoadout = null) // Far Horizons - Subspecies
+            ProtoId<BarkPrototype> barkVoice) // Goob Station - Barks
         {
             Name = name;
             FlavorText = flavortext;
@@ -181,7 +180,6 @@ namespace Content.Shared.Preferences
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
-            SpeciesLoadout = speciesLoadout; // Far Horizons
             BarkVoice = barkVoice; // Goob Station - Barks
 
             var hasHighPrority = false;
@@ -217,8 +215,7 @@ namespace Content.Shared.Preferences
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
                 new Dictionary<string, RoleLoadout>(other.Loadouts),
-                other.BarkVoice, // Goob Station - Barks
-                other.SpeciesLoadout) // Far Horizons
+                other.BarkVoice) // Goob Station - Barks
         {
         }
 
@@ -240,25 +237,11 @@ namespace Content.Shared.Preferences
         {
             species ??= SharedHumanoidAppearanceSystem.DefaultSpecies;
 
-            // Far Horizons Start - Subspecies
-            var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
-            var speciesProto = prototypeManager.Index<SpeciesPrototype>(species);
-
-            var profile = new HumanoidCharacterProfile()
+            return new()
             {
                 Species = species,
                 Appearance = HumanoidCharacterAppearance.DefaultWithSpecies(species),
             };
-
-            RoleLoadout? loadout = null;
-            if (speciesProto.Loadout != null)
-            {
-                loadout = new(speciesProto.Loadout.Value);
-                loadout.SetDefault(profile, null, prototypeManager);
-            }
-
-            return profile.WithSpeciesLoadout(loadout);
-            // Far Horizons End
         }
 
         // TODO: This should eventually not be a visual change only.
@@ -318,7 +301,7 @@ namespace Content.Shared.Preferences
             var name = GetName(species, gender);
 
 
-            var profile = new HumanoidCharacterProfile() // Far Horizons
+            return new HumanoidCharacterProfile()
             {
                 Name = name,
                 Sex = sex,
@@ -330,17 +313,6 @@ namespace Content.Shared.Preferences
                 Appearance = HumanoidCharacterAppearance.Random(species, sex),
                 BarkVoice = barkvoiceId, // Goob Station - Barks
             };
-
-            // Far Horizons Start - Subspecies
-            RoleLoadout? speciesLoadout = null;
-            if (speciesPrototype != null && speciesPrototype.Loadout != null)
-            {
-                speciesLoadout = new(speciesPrototype.Loadout.Value);
-                speciesLoadout.SetDefault(profile, null, prototypeManager);
-            }
-
-            return profile.WithSpeciesLoadout(speciesLoadout);
-            // Far Horizons End
         }
 
         public HumanoidCharacterProfile WithName(string name)
@@ -587,23 +559,7 @@ namespace Content.Shared.Preferences
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
-            if (!Appearance.MemberwiseEquals(other.Appearance)) return false;
-            if (!SpeciesLoadoutEquals(SpeciesLoadout, other.SpeciesLoadout)) return false; // Far Horizons
-
-            // Compare loadouts
-            if (Loadouts.Count != other.Loadouts.Count)
-                return false;
-
-            foreach (var (key, loadout) in Loadouts)
-            {
-                if (!other.Loadouts.TryGetValue(key, out var otherLoadout))
-                    return false;
-
-                if (loadout != otherLoadout)
-                    return false;
-            }
-
-            return true;
+            return Appearance.MemberwiseEquals(other.Appearance);
         }
 
         public void EnsureValid(ICommonSession session, IDependencyCollection collection)
@@ -804,23 +760,6 @@ namespace Content.Shared.Preferences
             {
                 _loadouts.Remove(value);
             }
-
-            // Far Horizons-Start - Species loadout validation
-            if (speciesPrototype != null){ // Omu fix CS8602
-                if (speciesPrototype.Loadout == null)
-                    SpeciesLoadout = null;
-                else
-                {
-                    SpeciesLoadout ??= new RoleLoadout(speciesPrototype.Loadout.Value);
-                    SpeciesLoadout.Role = speciesPrototype.Loadout.Value;
-                    SpeciesLoadout.SetDefault(this, session, prototypeManager);
-                }
-            }
-            else // Omu fix CS8602
-            {
-                SpeciesLoadout = null;
-            }
-            // Far Horizons-End
         }
 
         /// <summary>
@@ -909,7 +848,6 @@ namespace Content.Shared.Preferences
             hashCode.Add(BarkVoice); // Goob Station - Barks
             hashCode.Add((int) SpawnPriority);
             hashCode.Add((int) PreferenceUnavailable);
-            hashCode.Add(SpeciesLoadout); // Far Horizons
             return hashCode.ToHashCode();
         }
 

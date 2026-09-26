@@ -3,7 +3,6 @@
 using Content.Shared.Dataset;
 using Content.Shared.Humanoid.Markings;
 using Robust.Shared.Prototypes;
-using Content.Shared.Preferences.Loadouts;
 
 namespace Content.Shared.Humanoid.Prototypes;
 
@@ -134,9 +133,6 @@ public sealed partial class SpeciesPrototype : IPrototype
 
     [DataField]
     public bool HasSubspecies = false;
-
-    [DataField]
-    public ProtoId<RoleLoadoutPrototype>? Loadout = null;
     // Far Horizons End
 
     // begin Goobstation: port EE height/width sliders
