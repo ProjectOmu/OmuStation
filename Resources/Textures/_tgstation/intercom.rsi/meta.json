@@ -1,0 +1,35 @@
+{
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Ported from /tg/station and taken from this commit: https://github.com/tgstation/tgstation/commit/0de198275627dc57de3005b02545b4e9f06f54d1 | Original sprites by @DrDiasyl; ported, modified and expanded for SS14 by @Salty145",
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "base",
+            "directions": 4
+        },
+        {
+            "name": "broadcasting",
+            "directions": 4
+        },
+        {
+            "name": "build",
+            "directions": 4
+        },
+        {
+            "name": "panel",
+            "directions": 4
+        },
+        {
+            "name": "speaker",
+            "directions": 4
+        },
+        {
+            "name": "unshaded",
+            "directions": 4
+        }
+    ]
+}
