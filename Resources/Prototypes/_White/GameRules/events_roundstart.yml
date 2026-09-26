@@ -22,8 +22,8 @@
     - prefRoles: [ XenomorphsInfestationRoundstart ]
       spawnerPrototype: SpawnPointGhostXenomorph
       min: 2
-      max: 4
-      playerRatio: 15
+      max: 8  #Omu was 4, genuinely just give them more.
+      playerRatio: 10 #Omu was 15, we need more to make it tolerable
       pickPlayer: true
       mindRoles:
       - MindRoleXenomorph
