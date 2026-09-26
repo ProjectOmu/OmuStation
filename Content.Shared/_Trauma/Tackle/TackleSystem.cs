@@ -181,7 +181,7 @@ public sealed partial class TackleSystem : EntitySystem
             _stun.UpdateKnockdownTime(user, TimeSpan.FromSeconds(userKnockdown));
 
         var targetKnockdown = mod.BaseTargetKnockdownTime * result;
-        if (theirMod <= ourMod)
+        if (theirMod <= ourMod) // Omu
         {
             _stun.TryKnockdown(target, TimeSpan.FromSeconds(targetKnockdown), drop: result > mod.DisarmThreshold);
             _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):user} tackled {ToPrettyString(target):user}");
@@ -264,7 +264,7 @@ public sealed partial class TackleSystem : EntitySystem
         if (ev.Source is not { } source)
             return false;
 
-        if (TryComp<StaminaComponent>(ent.Owner, out var stam))
+        if (TryComp<StaminaComponent>(ent.Owner, out var stam)) //Omu
         {
             if (stam.IsSprinting)
                 _stun.TryKnockdown(ent.Owner, ev.KnockdownTime * 1.75, true, false);
