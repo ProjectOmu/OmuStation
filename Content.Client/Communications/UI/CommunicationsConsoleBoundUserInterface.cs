@@ -28,6 +28,7 @@ namespace Content.Client.Communications.UI
             _menu.OnBroadcast += BroadcastButtonPressed;
             _menu.OnAlertLevel += AlertLevelSelected;
             _menu.OnEmergencyLevel += EmergencyShuttleButtonPressed;
+            _menu.SecureTerminalButton.OnPressed += _ => SendMessage(new CommunicationsConsoleOpenSecureTerminalMessage()); // Starlight-edit: Secure Command Terminal
         }
 
         public void AlertLevelSelected(string level)
@@ -90,6 +91,7 @@ namespace Content.Client.Communications.UI
                 _menu.UpdateAlertLevels(commsState.AlertLevels, _menu.CurrentLevel);
                 _menu.AlertLevelButton.Disabled = !_menu.AlertLevelSelectable;
                 _menu.EmergencyShuttleButton.Disabled = !_menu.CanCall;
+                _menu.SecureTerminalButton.Visible = commsState.HasSecureTerminal; // Starlight-edit: Secure Command Terminal
                 _menu.AnnounceButton.Disabled = !_menu.CanAnnounce;
                 _menu.BroadcastButton.Disabled = !_menu.CanBroadcast;
             }
