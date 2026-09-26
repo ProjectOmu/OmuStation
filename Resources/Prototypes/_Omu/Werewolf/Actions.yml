@@ -1,0 +1,71 @@
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfDevour
+  name: "[color=red]Devour[/color]"
+  description: Ritualisticly eat the heart of a victim.
+  components:
+  - type: Action
+    icon: { sprite : Interface/Actions/devour.rsi, state: icon }
+    iconOn: { sprite : Interface/Actions/devour.rsi, state: icon-on }
+    itemIconStyle: BigAction
+    priority: 1
+  - type: TargetAction
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - HumanoidAppearance
+    event: !type:EventWerewolfDevour
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfShift
+  name: Change Shape #Wolf out furry
+  description: Unleash the beast within, Awoo!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 15
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Omu/Werewolf/abilities.rsi
+      state: transform
+  - type: InstantAction
+    event: !type:EventWerewolfShiftBasic
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfRevert
+  name: Revert Shape #Back to the humansona
+  description: Revert to your human form.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 15
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Omu/Werewolf/abilities.rsi
+      state: revert
+  - type: InstantAction
+    event: !type:EventWerewolfRevert
+
+- type: entity
+  parent: BaseAction
+  id: ActionWerewolfJump
+  name: Pounce #Placeholder sprites...
+  description: Pounces on you
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 15
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Omu/Werewolf/abilities.rsi
+      state: transform
+  - type: TargetAction
+    range: 10
+  - type: WorldTargetAction
+    event: !type:JumpActionEvent
