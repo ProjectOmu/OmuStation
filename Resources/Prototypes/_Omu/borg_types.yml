@@ -307,3 +307,229 @@
   # Pet
   petSuccessString: petting-success-service-cyborg
   petFailureString: petting-failure-service-cyborg
+
+- type: borgType
+  id: engineering_kerfus
+
+  dummyPrototype: BorgChassisEngineer
+
+  extraModuleCount: 3
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleEngineering
+
+  defaultModules:
+  - BorgModuleTool
+  - BorgModuleConstruction
+  - BorgModuleRCD
+  - BorgModuleCable
+
+  lawset: OmuEngineer
+
+  radioChannels:
+  - Engineering
+  - Science
+
+  addComponents:
+  - type: Inventory
+    templateId: borgNoOffset
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Cyborgs/kerfus_displacements.rsi
+            state: head
+
+  inventoryTemplateId: borgNoOffset
+  spriteBodyState: engineer
+  spriteHasMindState: engineer_e
+  spriteNoMindState: engineer_e_r
+  spriteToggleLightState: engineer_l
+
+  petSuccessString: petting-success-engineer-cyborg
+  petFailureString: petting-failure-engineer-cyborg
+
+- type: borgType
+  id: mining_kerfus
+
+  dummyPrototype: BorgChassisMining
+
+  extraModuleCount: 3
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleCargo
+
+  defaultModules:
+  - BorgModuleTool
+  - BorgModuleMining
+  - BorgModuleTraversal
+  - BorgModuleAppraisal
+  - BorgModulePKA
+
+  radioChannels:
+  - Supply
+  - Science
+
+  addComponents:
+  - type: NoWieldNeeded
+  - type: Inventory
+    templateId: borgNoOffset
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Cyborgs/kerfus_displacements.rsi
+            state: head
+
+  lawset: OmuSalvage
+
+  inventoryTemplateId: borgNoOffset
+  spriteBodyState: miner
+  spriteHasMindState: miner_e
+  spriteNoMindState: miner_e_r
+  spriteToggleLightState: miner_l
+
+  petSuccessString: petting-success-salvage-cyborg
+  petFailureString: petting-failure-salvage-cyborg
+
+- type: borgType
+  id: janitor_kerfus
+
+  dummyPrototype: BorgChassisJanitor
+
+  extraModuleCount: 3
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleJanitor
+
+  defaultModules:
+  - BorgModuleCleaning
+  - BorgModuleCustodial
+
+  radioChannels:
+  - Science
+  - Service
+
+  addComponents:
+  - type: Inventory
+    templateId: borgNoOffset
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Cyborgs/kerfus_displacements.rsi
+            state: head
+
+  lawset: OmuJanitor
+
+  inventoryTemplateId: borgNoOffset
+  spriteBodyState: janitor
+  spriteHasMindState: janitor_e
+  spriteNoMindState: janitor_e_r
+  spriteToggleLightState: janitor_l
+
+  petSuccessString: petting-success-janitor-cyborg
+  petFailureString: petting-failure-janitor-cyborg
+
+- type: borgType
+  id: medical_kerfus
+
+  dummyPrototype: BorgChassisMedical
+
+  extraModuleCount: 3
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleMedical
+
+  defaultModules:
+  - BorgModuleChemical
+  - BorgModuleTopicals
+  - BorgModuleRescue
+  - BorgModuleSurgery
+  - BorgModuleVirology
+  - BorgModuleLollypop
+
+  lawset: OmuMedical
+
+  radioChannels:
+  - Science
+  - Medical
+
+  addComponents:
+  - type: SolutionScanner
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+  - type: Sanitized
+  - type: SurgeryTarget
+  - type: SurgeryIgnoreClothing
+  - type: SurgerySpeedModifier
+    speedModifier: 1.5
+  - type: Inventory
+    templateId: borgNoOffset
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Cyborgs/kerfus_displacements.rsi
+            state: head
+
+  inventoryTemplateId: borgNoOffset
+  spriteBodyState: medical
+  spriteHasMindState: medical_e
+  spriteNoMindState: medical_e_r
+  spriteToggleLightState: medical_l
+
+  petSuccessString: petting-success-medical-cyborg
+  petFailureString: petting-failure-medical-cyborg
+
+- type: borgType
+  id: service_kerfus
+
+  dummyPrototype: BorgChassisService
+
+  extraModuleCount: 3
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleService
+
+  defaultModules:
+  - BorgModuleMusique
+  - BorgModuleService
+  - BorgModuleClowning
+  - BorgModuleGardening
+  - BorgModuleHarvesting
+  - BorgModuleLollypop
+
+  lawset: OmuService
+
+  radioChannels:
+  - Science
+  - Service
+
+  addComponents:
+  - type: Inventory
+    templateId: borgNoOffset
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Cyborgs/kerfus_displacements.rsi
+            state: head
+
+  inventoryTemplateId: borgNoOffset
+  spriteBodyState: service
+  spriteHasMindState: service_e
+  spriteNoMindState: service_e_r
+  spriteToggleLightState: service_l
+
+  petSuccessString: petting-success-service-cyborg
+  petFailureString: petting-failure-service-cyborg

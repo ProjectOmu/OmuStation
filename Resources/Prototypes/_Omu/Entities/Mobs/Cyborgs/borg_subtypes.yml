@@ -32,6 +32,12 @@
   spritePath: _Omu/Mobs/Silicon/Miner/Bugmail.rsi
   dummyPrototype: BorgChassisMiningBugborgCourier
 
+- type: borgSubtype
+  parentBorgType: mining_kerfus
+  id: mining_kerfus
+  spritePath: _Omu/Mobs/Silicon/Miner/Kerfus.rsi
+  dummyPrototype: BorgChassisMiningKerfus
+
 # Engineer subtypes
 
 - type: borgSubtype
@@ -58,6 +64,12 @@
   spritePath: _Omu/Mobs/Silicon/Engineering/Bugatmos_bag.rsi
   dummyPrototype: BorgChassisEngineerBugborgAtmosBag
 
+- type: borgSubtype
+  parentBorgType: engineering_kerfus
+  id: engineering_kerfus
+  spritePath: _Omu/Mobs/Silicon/Engineering/Kerfus.rsi
+  dummyPrototype: BorgChassisEngineerKerfus
+
 # Janitor subtypes
 
 - type: borgSubtype
@@ -77,6 +89,12 @@
   id: janitor_bugcentipede
   spritePath: _Omu/Mobs/Silicon/Janitor/Janipede.rsi
   dummyPrototype: BorgChassisJanitorBugborgCentipede
+
+- type: borgSubtype
+  parentBorgType: janitor_kerfus
+  id: janitor_kerfus
+  spritePath: _Omu/Mobs/Silicon/Janitor/Kerfus.rsi
+  dummyPrototype: BorgChassisJanitorKerfus
 
 # Medical subtypes
 
@@ -98,6 +116,12 @@
   spritePath: _Omu/Mobs/Silicon/Medical/Bugmed_viro.rsi
   dummyPrototype: BorgChassisMedicalBugborgVirology
 
+- type: borgSubtype
+  parentBorgType: medical_kerfus
+  id: medical_kerfus
+  spritePath: _Omu/Mobs/Silicon/Medical/Kerfus.rsi
+  dummyPrototype: BorgChassisMedicalKerfus
+
 # Service subtypes
 
 - type: borgSubtype
@@ -117,3 +141,9 @@
   id: service_bugdj
   spritePath: _Omu/Mobs/Silicon/Service/bugdj.rsi
   dummyPrototype: BorgChassisServiceBugdj
+
+- type: borgSubtype
+  parentBorgType: service_kerfus
+  id: service_kerfus
+  spritePath: _Omu/Mobs/Silicon/Service/Kerfus.rsi
+  dummyPrototype: BorgChassisServiceKerfus

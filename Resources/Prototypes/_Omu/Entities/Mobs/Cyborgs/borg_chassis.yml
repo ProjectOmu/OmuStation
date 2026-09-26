@@ -44,6 +44,15 @@
   components:
   - type: BorgSwitchableSubtype
     borgSubtype: mining_bugcourier
+
+- type: entity
+  id: BorgChassisMiningKerfus
+  parent: BorgChassisMining
+  name: kerfus salvage cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: mining_kerfus
 # Engineer
 
 - type: entity
@@ -81,6 +90,15 @@
   components:
   - type: BorgSwitchableSubtype
     borgSubtype: engineering_bugatmosbag
+
+- type: entity
+  id: BorgChassisEngineerKerfus
+  parent: BorgChassisEngineer
+  name: kerfus engineer cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineering_kerfus
 # Janitor
 
 - type: entity
@@ -109,6 +127,15 @@
   components:
   - type: BorgSwitchableSubtype
     borgSubtype: janitor_bugcentipede
+
+- type: entity
+  id: BorgChassisJanitorKerfus
+  parent: BorgChassisJanitor
+  name: kerfus janitor cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_kerfus
 # Medical
 
 - type: entity
@@ -137,6 +164,15 @@
   components:
   - type: BorgSwitchableSubtype
     borgSubtype: medical_bugviro
+
+- type: entity
+  id: BorgChassisMedicalKerfus
+  parent: BorgChassisMedical
+  name: kerfus medical cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_kerfus
 # Service
 
 - type: entity
@@ -165,3 +201,55 @@
   components:
   - type: BorgSwitchableSubtype
     borgSubtype: service_bugdj
+
+- type: entity
+  id: BorgChassisServiceKerfus
+  parent: BorgChassisService
+  name: kerfus service cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_kerfus
+
+- type: entity
+  id: BorgChassisSyndicateService
+  parent: BaseBorgChassisSyndicate
+  name: syndicate service cyborg
+  description: An adorable chassis with sinister blood-red plating. Will keep you fed, watered and entertained between operations.
+  components:
+  - type: Sprite
+    sprite: _Omu/Mobs/Silicon/Syndicate/synd_service.rsi
+    layers:
+    - state: synd_service
+    - state: synd_service_e
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: synd_service_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 7
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleService
+      - BorgModuleSyndicate
+    hasMindState: synd_service_e
+    noMindState: synd_service
+  - type: Inventory
+    templateId: borgNoOffset
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Cyborgs/kerfus_displacements.rsi
+            state: head
+  - type: PointLight
+    color: "#5ee842"
+  - type: InteractionPopup
+    interactSuccessString: petting-success-syndicate-cyborg
+    interactFailureString: petting-failure-syndicate-cyborg
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
