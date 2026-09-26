@@ -54,6 +54,22 @@ public sealed class StationJobsTest
             TAssistant: [-1, -1]
             TCaptain: [5, 5]
             TClown: [5, 6]
+    # Omu - extra stations for AssignOverflowJobsStationTest - one with no overflow job at all, so the assignment loop has to skip it.
+    StationNoOverflow:
+      mapNameTemplate: {StationMapId}
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationJobs
+          availableJobs:
+            TCaptain: [5, 5]
+    StationChaplain:
+      mapNameTemplate: {StationMapId}
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationJobs
+          availableJobs:
+            TCaptain: [5, 5]
+            TChaplain: [-1, -1]
 
 - type: job
   id: TAssistant
@@ -83,6 +99,7 @@ public sealed class StationJobsTest
     private const int CaptainCount = StationCount;
     private const int PlayerCount = 2000;
     private const int TotalPlayers = PlayerCount + CaptainCount;
+    private const int OverflowPlayerCount = 50; // Omu - for AssignOverflowJobsStationTest
 
     [Test]
     public async Task AssignJobsTest()
@@ -153,6 +170,72 @@ public sealed class StationJobsTest
                 Assert.That(assigned.Values.Select(x => x.Item1).ToList(), Does.Contain("TAssistant"));
                 // There must be captains present, too.
                 Assert.That(assigned.Values.Select(x => x.Item1).ToList(), Does.Contain("TCaptain"));
+            });
+        });
+        await pair.CleanReturnAsync();
+    }
+
+    // Omu - added by Omu Station: regression test for overflow jobs being credited to the first station instead of the one that had the slot.
+    /// <summary>
+    /// Checks that <see cref="StationJobsSystem.AssignOverflowJobs"/> records the station that the overflow job was
+    /// actually drawn from, and not merely whichever station happened to be shuffled to the front of the list.
+    /// </summary>
+    [Test]
+    public async Task AssignOverflowJobsStationTest()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+
+        var prototypeManager = server.ResolveDependency<IPrototypeManager>();
+        var fooStationProto = prototypeManager.Index<GameMapPrototype>(StationMapId);
+        var entSysMan = server.ResolveDependency<IEntityManager>().EntitySysManager;
+        var stationJobs = entSysMan.GetEntitySystem<StationJobsSystem>();
+        var stationSystem = entSysMan.GetEntitySystem<StationSystem>();
+
+        var stations = new List<EntityUid>();
+        await server.WaitPost(() =>
+        {
+            stations.Add(stationSystem.InitializeNewStation(fooStationProto.Stations["Station"], null, "Foo Assistant"));
+            stations.Add(stationSystem.InitializeNewStation(fooStationProto.Stations["StationNoOverflow"], null, "Foo No Overflow"));
+            stations.Add(stationSystem.InitializeNewStation(fooStationProto.Stations["StationChaplain"], null, "Foo Chaplain"));
+        });
+
+        await server.WaitRunTicks(1);
+
+        await server.WaitAssertion(() =>
+        {
+            // This only tests anything if one station has no overflow jobs at all, so that it gets skipped over,
+            // and the other two have non-empty overflow sets that do not overlap.
+            var overflowAssistant = stationJobs.GetOverflowJobs(stations[0]);
+            var overflowNone = stationJobs.GetOverflowJobs(stations[1]);
+            var overflowChaplain = stationJobs.GetOverflowJobs(stations[2]);
+            Assert.Multiple(() =>
+            {
+                Assert.That(overflowAssistant, Is.Not.Empty);
+                Assert.That(overflowNone, Is.Empty);
+                Assert.That(overflowChaplain, Is.Not.Empty);
+                Assert.That(overflowAssistant.Intersect(overflowChaplain), Is.Empty);
+            });
+
+            // Job priorities are irrelevant here: AssignOverflowJobs only looks at PreferenceUnavailable, which
+            // defaults to SpawnAsOverflow.
+            var fakePlayers = new Dictionary<NetUserId, HumanoidCharacterProfile>()
+                .AddJob("TCaptain", JobPriority.Medium, OverflowPlayerCount);
+            Assert.That(fakePlayers.Values.All(x => x.PreferenceUnavailable == PreferenceUnavailableMode.SpawnAsOverflow));
+
+            var assigned = new Dictionary<NetUserId, (ProtoId<JobPrototype>?, EntityUid)>();
+            stationJobs.AssignOverflowJobs(ref assigned, fakePlayers.Keys.ToList(), fakePlayers, stations);
+
+            // Every player can be placed, because two of the three stations have overflow slots.
+            Assert.That(assigned, Has.Count.EqualTo(OverflowPlayerCount));
+            Assert.Multiple(() =>
+            {
+                foreach (var (job, station) in assigned.Values)
+                {
+                    Assert.That(job, Is.Not.Null);
+                    // The recorded station must be the station whose overflow list the job came from.
+                    Assert.That(stationJobs.GetOverflowJobs(station), Does.Contain(job!.Value));
+                }
             });
         });
         await pair.CleanReturnAsync();

@@ -11,8 +11,10 @@ public abstract class SharedGhostVisibilitySystem : EntitySystem
 
     public bool GhostsVisible()
     {
-        var query = EntityQueryEnumerator<GhostsVisibleRuleComponent, ActiveGameRuleComponent, GameRuleComponent>();
-        while (query.MoveNext(out _, out _, out _, out _))
+        // Omu - do not add GameRuleComponent here: it is server-only, so the query would never match on the client.
+        // GhostsVisibleRuleComponent + ActiveGameRuleComponent are both networked and are sufficient.
+        var query = EntityQueryEnumerator<GhostsVisibleRuleComponent, ActiveGameRuleComponent>();
+        while (query.MoveNext(out _, out _, out _))
         {
             return true;
         }

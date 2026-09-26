@@ -426,14 +426,15 @@ public sealed partial class StationJobsSystem : EntitySystem
         if (station == EntityUid.Invalid)
             return null;
 
-        var available = GetAvailableJobs(station);
+        // Omu - materialized: GetAvailableJobs is a lazy Where/Select over the whole job list, and the Contains below runs
+        // once per priority entry per TryPick call.
+        var available = GetAvailableJobs(station).ToHashSet();
         bool TryPick(JobPriority priority, [NotNullWhen(true)] out ProtoId<JobPrototype>? jobId)
         {
             var filtered = jobPriorities
                 .Where(p =>
                             p.Value == priority
-                            && disallowedJobs != null
-                            && !disallowedJobs.Contains(p.Key)
+                            && (disallowedJobs == null || !disallowedJobs.Contains(p.Key)) // Omu - a null list means nothing is disallowed; the old check made the whole filter false and skipped your priorities
                             && available.Contains(p.Key))
                 .Select(p => p.Key)
                 .ToList();

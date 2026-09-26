@@ -57,14 +57,33 @@ jobs:
       shell: pwsh
       run: |
         $env:DOTNET_gcServer=1
-        dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj --filter "FullyQualifiedName!~Content.IntegrationTests.Tests.PostMapInitTest&FullyQualifiedName!~Content.IntegrationTests.Tests.EntityTest" -- NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed
+        dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj --logger "trx;LogFileName=integration-main.trx" --results-directory TestResults --filter "FullyQualifiedName!~Content.IntegrationTests.Tests.PostMapInitTest&FullyQualifiedName!~Content.IntegrationTests.Tests.EntityTest&FullyQualifiedName!~Content.IntegrationTests.Tests.Round.AllJobsSpawnTest&FullyQualifiedName!~Content.IntegrationTests.Tests._Omu" -- NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed
 
+    # Omu: the Tests/_Omu tree (round end/restart/late-join and similar, several of which start and restart
+    # full rounds) and Tests/Round/AllJobsSpawnTest (spawns every JobPrototype with full gear) are
+    # name-matched into this job. The suite has a 30-minute global soft kill and a
+    # 31-minute Environment.FailFast (Content.IntegrationTests/PoolManagerTestEventHandler.cs), and a slow
+    # test tips the WHOLE run into FailFast, producing a cascade of unrelated failures. Heavy new tests
+    # belong here, not in the main invocation.
     - name: Run Mem-Heavy Content.IntegrationTests
       shell: pwsh
       run: |
         $env:DOTNET_gcServer=1
-        dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj --filter "FullyQualifiedName~Content.IntegrationTests.Tests.PostMapInitTest|FullyQualifiedName~Content.IntegrationTests.Tests.EntityTest" -- NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed
+        dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj --logger "trx;LogFileName=integration-mem-heavy.trx" --results-directory TestResults --filter "FullyQualifiedName~Content.IntegrationTests.Tests.PostMapInitTest|FullyQualifiedName~Content.IntegrationTests.Tests.EntityTest|FullyQualifiedName~Content.IntegrationTests.Tests.Round.AllJobsSpawnTest|FullyQualifiedName~Content.IntegrationTests.Tests._Omu" -- NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed
   
+    # Omu: an intermittent failure in the mem-heavy job has never been
+    # attributed, because `NUnit.ConsoleOut=0` suppresses the per-test output and the summary alone
+    # does not name what failed. The trx files above record every test name and outcome regardless;
+    # this uploads them so the next red build identifies it instead of only counting it.
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results-${{ matrix.os }}
+        path: TestResults/*.trx
+        if-no-files-found: warn
+        retention-days: 14
+
   ci-success:
     name: Build & Test Debug
     needs:

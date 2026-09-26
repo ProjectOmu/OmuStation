@@ -297,13 +297,21 @@ namespace Content.Server.RoundEnd
             }
         }
 
-        public void EndRound(TimeSpan? countdownTime = null)
+        // Omu - EndRound takes the round-end summary text and is the single owner of the restart countdown, so timed round-end rules no longer run their own timer.
+        /// <summary>
+        /// Ends the round immediately and schedules the restart. This is the only path that should
+        /// schedule a round restart: it owns <see cref="_countdownTokenSource"/>, so a later call
+        /// cancels any previously scheduled restart instead of racing it.
+        /// </summary>
+        /// <param name="countdownTime">time until the round restarts</param>
+        /// <param name="text">extra text shown on the round end scoreboard</param>
+        public void EndRound(TimeSpan? countdownTime = null, string? text = null)
         {
             if (_gameTicker.RunLevel != GameRunLevel.InRound) return;
             LastCountdownStart = null;
             ExpectedCountdownEnd = null;
             RaiseLocalEvent(RoundEndSystemChangedEvent.Default);
-            _gameTicker.EndRound();
+            _gameTicker.EndRound(text ?? string.Empty); // Omu - pass the caller's summary text through
             _countdownTokenSource?.Cancel();
             _countdownTokenSource = new();
 

@@ -44,6 +44,11 @@ public sealed class DeathMatchRuleSystem : GameRuleSystem<DeathMatchRuleComponen
 
     private void OnBeforeSpawn(PlayerBeforeSpawnEvent ev)
     {
+        // Omu - the event bus does not stop dispatching on Handled, so every subscriber has to check it itself.
+        // See the remarks on PlayerBeforeSpawnEvent.
+        if (ev.Handled)
+            return;
+
         var query = EntityQueryEnumerator<DeathMatchRuleComponent, RespawnTrackerComponent, PointManagerComponent, GameRuleComponent>();
         while (query.MoveNext(out var uid, out var dm, out var tracker, out var point, out var rule))
         {

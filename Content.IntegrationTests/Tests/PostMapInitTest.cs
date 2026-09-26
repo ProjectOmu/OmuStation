@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using YamlDotNet.RepresentationModel;
 using Content.Server.Administration.Systems;
 using Content.Server.GameTicking;
+using Content.Server.Maps; // Omu - GameMapPoolPrototype, for the derived map list
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Spawners.Components;
@@ -156,51 +157,34 @@ namespace Content.IntegrationTests.Tests
             "Train"           // Not in pool
             // Goob end
         };
-        // Goobstation edit start, yeah i know, but this is easier and less load than loading protoman or something.
-        private static readonly string[] GameMapsInCurrentPool =
+        // Omu edit start
+        // The set of maps that GameMapsLoadableTest actually loads is DERIVED at runtime from the live map pool
+        // prototype (see GetMapsToLoadTest below), and is no longer maintained by hand.
+        // This is what makes "map added to the pool but never load-tested" impossible: a new entry in
+        // Resources/Prototypes/Maps/Pools/default.yml is picked up by the test automatically.
+        // The two lists below are the only manual knobs, and both are validated against the live prototypes.
+
+        /// <summary>
+        /// Maps that are load-tested even though they are not in the live map pool.
+        /// Every entry must be a real <see cref="GameMapPrototype"/> or <see cref="GameMapsLoadableTest"/> fails.
+        /// </summary>
+        private static readonly string[] GameMapsAlwaysLoadTested =
         {
-            //"Amber",         // Not in Pool
-            "Atlas",
-            "Bagel",
-            //"Barratry",      // Not in Pool
-            "Box",
-            "CentComm",
-            //"CentComButMap", // Not in Pool
-            //"Chloris",       // Not in Pool
-            "Cluster",
-            "Cog",
-            //"Core",          // Not in Pool
-            "Crystal",         // Omu
-            "Delta",
-            "Dev",
-            //"dm01-entryway", // Not in Pool
-            //"Europa",        // Not in Pool
-            //"Exo",           // Not in Pool
-            //"Fland",         // In Pool But i cannot be bothered and frankly they are identical.
-            "FlandHighPop",
-            "Glacier",
-            "Kettle",
-            //"Lambda",        // Not in Pool
-            //"Lavatest",      // Not in Pool -  we nuked lava apparently?
-            "Leonid",
-            //"Loop",          // Not in Pool
-            "Marathon",
-            "Meta",
-            //"MeteorArena",   // Not in Pool
-            //"Oasis",         // In Pool But i cannot be bothered and frankly they are identical.
-            "OasisHighPop",
-            "Omega",
-            "Origin",
-            //"OriginHighPop", // Not in Pool
-            "Packed",
-            "Reach",
-            "Saltern",
-            //"Serpentcrest",  // Not in Pool
-            //"Snowball",      // Not in Pool
-            //"TestTeg",       // Not in Pool
-            //"Train",         // Not in Pool
+            "CentComm", // Loaded alongside every station, so a broken CentComm breaks every round.
+            "Dev",      // Dev map, cheap to load and frequently edited.
         };
-        // Goobstation edit end
+
+        /// <summary>
+        /// Maps that are in the live map pool but are deliberately NOT load-tested, to keep the runtime down.
+        /// Every entry must still be in the pool or <see cref="GameMapsLoadableTest"/> fails, so this list
+        /// cannot silently rot. Only add a map here if an equivalent map IS being tested.
+        /// </summary>
+        private static readonly string[] GameMapsPoolLoadSkip =
+        {
+            "Fland", // Near-identical to FlandHighPop, which is tested.
+            "Oasis", // Near-identical to OasisHighPop, which is tested.
+        };
+        // Omu edit end
 
         private static readonly ProtoId<EntityCategoryPrototype> DoNotMapCategory = "DoNotMap";
 
@@ -469,10 +453,60 @@ namespace Content.IntegrationTests.Tests
             return true;
         }
 
+        /// <summary>
+        /// Derives the set of maps that <see cref="GameMapsLoadableTest"/> loads from the live map pool prototype
+        /// selected by the <c>game.map_pool</c> CVar, plus <see cref="GameMapsAlwaysLoadTested"/>, minus
+        /// <see cref="GameMapsPoolLoadSkip"/>. Also validates both manual lists against the live prototypes.
+        /// </summary>
+        private static async Task<string[]> GetMapsToLoadTest()
+        {
+            await using var pair = await PoolManager.GetServerClient();
+            var server = pair.Server;
+
+            var cfg = server.ResolveDependency<IConfigurationManager>();
+            var protoManager = server.ResolveDependency<IPrototypeManager>();
+
+            var poolId = cfg.GetCVar(CCVars.GameMapPool);
+            Assert.That(protoManager.TryIndex<GameMapPoolPrototype>(poolId, out var pool),
+                $"Map pool prototype \"{poolId}\" (game.map_pool) does not exist.");
+
+            Assert.Multiple(() =>
+            {
+                foreach (var skipped in GameMapsPoolLoadSkip)
+                {
+                    Assert.That(pool.Maps,
+                        Does.Contain(skipped),
+                        $"\"{skipped}\" is in {nameof(GameMapsPoolLoadSkip)} but is not in map pool \"{poolId}\". Remove it from the skip list.");
+                }
+
+                foreach (var extra in GameMapsAlwaysLoadTested)
+                {
+                    Assert.That(protoManager.HasIndex<GameMapPrototype>(extra),
+                        $"\"{extra}\" is in {nameof(GameMapsAlwaysLoadTested)} but is not a gameMap prototype.");
+                }
+            });
+
+            var result = pool.Maps
+                .Where(x => !GameMapsPoolLoadSkip.Contains(x))
+                .Concat(GameMapsAlwaysLoadTested)
+                .Distinct()
+                .OrderBy(x => x, StringComparer.Ordinal)
+                .ToArray();
+
+            Assert.That(result, Is.Not.Empty, $"Map pool \"{poolId}\" resolved to no testable maps.");
+
+            await pair.CleanReturnAsync();
+            return result;
+        }
+
         [Test, NonParallelizable]  // Omu Non-Parallelizable but still run two maps at a time internally.
         public async Task GameMapsLoadableTest()
         {
-            foreach (var maps in GameMapsInCurrentPool.Chunk(2)) // Omu OOM issues // Goob edit - GameMapsInCurrentPool only
+            // Omu edit - the map list is derived from the live map pool prototype, not hand-maintained,
+            // so a map added to the pool is load-tested without anyone having to remember to edit this file.
+            var mapsToLoadTest = await GetMapsToLoadTest();
+
+            foreach (var maps in mapsToLoadTest.Chunk(2)) // Omu OOM issues // Goob edit - current map pool only
             {
                 await Task.WhenAll(maps.Select(async mapProto =>  // Omu OOM issues
                 {
@@ -642,6 +676,15 @@ namespace Content.IntegrationTests.Tests
             await pair.CleanReturnAsync();
         }
 
+        // Omu/Goob: disabled in CI (run it manually with --filter NonGameMapsLoadableTest).
+        // WHY: this loads *every* yml under /Maps that is not a gameMap - ruins, shuttles, salvage, event maps,
+        // and the fork's entire _Goobstation/_Omu/_Lavaland trees. On the fork's map count that is the single
+        // most expensive test in the suite and it was repeatedly OOM-ing the runner (see 18452f5a7c, which
+        // also had to batch SpawnAndDeleteAllEntitiesOnDifferentMaps for the same reason).
+        // COST OF LEAVING IT OFF: a non-pool map (ruin, event shuttle, admin arena) can be committed broken and
+        // only fail at runtime when it is first loaded in a live round. GameMapsLoadableTest does NOT cover these.
+        // TO RESTORE: split it into its own CI job like the PostMapInitTest/EntityTest memory-heavy job in
+        // .github/workflows/build-test-debug.yml, and load maps in chunks with a pair per chunk.
         [Explicit] // Goobstation, make these manual.
         [Test]
         public async Task NonGameMapsLoadableTest()

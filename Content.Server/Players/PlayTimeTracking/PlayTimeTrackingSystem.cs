@@ -304,7 +304,10 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
 
         foreach (var job in _prototypes.EnumeratePrototypes<JobPrototype>())
         {
-            if (JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(player.UserId).SelectedCharacter))
+            // Omu - this returns the DISALLOWED set, so a job belongs in it when its requirements are
+            // NOT met. TryRequirementsMet returns true when they ARE met, so the test must be negated.
+            // Matches RemoveDisallowedJobs below and JobWhitelistSystem.OnGetDisallowedJobs.
+            if (!JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(player.UserId).SelectedCharacter))
                 roles.Add(job.ID);
         }
 

@@ -6,8 +6,8 @@ using System.Numerics;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
 using Content.Server.GameTicking.Events;
+// Omu - Content.Server.Players.PlayTimeTracking removed; only the trait-restriction block used it, and that moved to TraitRestrictionSpawnSystem.
 using Content.Server.Ghost;
-using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
@@ -38,8 +38,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly IAdminManager _adminManager = default!;
         [Dependency] private readonly SharedJobSystem _jobs = default!;
         [Dependency] private readonly AdminSystem _admin = default!;
-        [Dependency] private readonly PlayTimeTrackingManager _playTimeManager = default!; // Omustation Remake EE Traits System
-        [Dependency] private readonly IEntityManager _entityManager = default!; // Omustation - Remake EE Traits System
+        // Omu - PlayTimeTrackingManager and IEntityManager removed; only the trait-restriction block used them, and that moved to TraitRestrictionSpawnSystem.
 
         public static readonly EntProtoId ObserverPrototypeName = "MobObserver";
         public static readonly EntProtoId AdminObserverPrototypeName = "AdminObserver";
@@ -218,6 +217,18 @@ namespace Content.Server.GameTicking
                 character = HumanoidCharacterProfile.RandomWithSpecies(speciesId);
             }
 
+            // Omu start - let content refuse this character outright (e.g. restricted traits).
+            // Raised before PlayerBeforeSpawnEvent on purpose: a refused player must not be spawned by a game
+            // rule that handles spawning itself either. See Content.Omu.Server/Spawning/TraitRestrictionSpawnSystem.cs
+            var spawnAllowed = new IsSpawnAllowedEvent(player, character, station, jobId, lateJoin);
+            RaiseLocalEvent(ref spawnAllowed);
+            if (spawnAllowed.Cancelled)
+            {
+                RefusePlayerSpawn(player, spawnAllowed.Reason);
+                return;
+            }
+            // Omu end
+
             // We raise this event to allow other systems to handle spawning this player themselves. (e.g. late-join wizard, etc)
             var bev = new PlayerBeforeSpawnEvent(player, character, jobId, lateJoin, station);
             RaiseLocalEvent(bev);
@@ -259,35 +270,7 @@ namespace Content.Server.GameTicking
                 return;
             }
 
-            // Start Omustation - Remake EE Traits System - block the player from spawning *serverside* if they have disallowed traits
-            var numSelectedTraits = 0;
-            var traitPoints = _cfg.GetCVar(CCVars.TraitsDefaultPoints);
-            // first, get all of the character's traits
-            foreach (var traitProtoId in character.TraitPreferences)
-            {
-                var traitProto = _prototypeManager.Index(traitProtoId);
-                traitPoints -= traitProto.GlobalCost;
-
-                if (traitProto.CountsTowardsMaxTraits)
-                    numSelectedTraits++;
-
-                // if the trait exists, and the character is not allowed to have it
-                if (!JobRequirements.TryRequirementsMet(traitProto.Requirements, _playTimeManager.GetPlayTimes(player), out var _, _entityManager, _prototypeManager, character))
-                {
-                    DoWhenCharacterDoesNotMeetTraitRestrictions(player);
-                    return;
-                }
-            }
-
-            // if the player has more traits selected than they're allowed to select
-            var maxTraits = _cfg.GetCVar(CCVars.TraitsMaxTraits);
-            if (numSelectedTraits > maxTraits && maxTraits >= 0 || _cfg.GetCVar(CCVars.TraitsGlobalPointsEnabled) && traitPoints < 0)
-            {
-                DoWhenCharacterDoesNotMeetTraitRestrictions(player);
-                return;
-            }
-            // End Omustation - Remake EE Traits System - block the player from spawning *serverside* if they have disallowed traits
-
+            // Omu - trait restrictions used to be checked inline here; TraitRestrictionSpawnSystem now enforces them through IsSpawnAllowedEvent, raised above.
             DoSpawn(player, character, station, jobId, silent, out var mob, out var jobPrototype, out var jobName);
 
             if (lateJoin && !silent)
@@ -398,13 +381,20 @@ namespace Content.Server.GameTicking
             _admin.UpdatePlayerList(player);
         }
 
-        // begin Omustation - Remake EE Traits System
+        // Omu start - spawn refusal path for IsSpawnAllowedEvent.
         /// <summary>
-        ///     Called by SpawnPlayer() when a player does not meet the restrictions on their character's traits.
-        ///     Should be called immediately before a `return` statement, to prevent the player from spawning.
+        ///     Refuses a player's spawn after a subscriber cancelled <see cref="IsSpawnAllowedEvent"/>.
+        ///     Deliberately identical to the no-job-available path in <c>SpawnPlayer</c>: the player stays
+        ///     in the lobby if there is one and becomes an observer if there is not.
         /// </summary>
-        /// <param name="player">The player who's character doesn't meet the appropriate restrictions</param>
-        private void DoWhenCharacterDoesNotMeetTraitRestrictions(ICommonSession player)
+        /// <remarks>
+        ///     Note what this does <i>not</i> do: it never calls <see cref="PlayerJoinGame"/>. A refused player
+        ///     must keep their lobby state, which is exactly why refusals cannot be routed through
+        ///     <see cref="PlayerBeforeSpawnEvent"/> - handling that event forces a <see cref="PlayerJoinGame"/>.
+        /// </remarks>
+        /// <param name="player">The player being refused.</param>
+        /// <param name="reason">Message to show them, or null to show nothing.</param>
+        private void RefusePlayerSpawn(ICommonSession player, LocId? reason)
         {
             if (!LobbyEnabled)
             {
@@ -414,10 +404,10 @@ namespace Content.Server.GameTicking
             var evNoJobs = new NoJobsAvailableSpawningEvent(player); // Used by gamerules to wipe their antag slot, if they got one
             RaiseLocalEvent(evNoJobs);
 
-            _chatManager.DispatchServerMessage(player,
-                Loc.GetString("game-ticker-player-restricted-traits-selected-when-joining"));
+            if (reason != null)
+                _chatManager.DispatchServerMessage(player, Loc.GetString(reason.Value));
         }
-        // end Omustation - Remake EE Traits System
+        // Omu end
 
         public void Respawn(ICommonSession player)
         {
