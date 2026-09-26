@@ -42,9 +42,9 @@
     firestackFade: -0.08 # until you light it up, cuz it's oily too. 20% lower than default
   - type: Temperature
     currentTemperature: 311.76  # Body temperature of cat
+    atmosTemperatureTransferEfficiency: 0.01  # Omu - fix tajaran not being able to cool down in a cryopod
   - type: TemperatureDamage
     coldDamageThreshold: 248.15 # -25 degrees centigrade, like 12 degrees below normal "takes cold damage"
-    atmosTemperatureTransferEfficiency: 0.01  # Omu - fix tajaran not being able to cool down in a cryopod
     coldDamage:
       types:
         Cold: 0.080 # in line with cold resist
