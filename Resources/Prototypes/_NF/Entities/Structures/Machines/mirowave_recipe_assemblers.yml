@@ -101,6 +101,7 @@
         acts: ["Breakage"]
   - type: ApcPowerReceiver
     powerLoad: 1000 # Assume the range is off.
+    needsPower: true # Omu
   - type: Machine
     board: ElectricRangeMachineCircuitboard
   - type: ContainerContainer
