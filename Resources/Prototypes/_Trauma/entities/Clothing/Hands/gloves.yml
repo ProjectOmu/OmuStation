@@ -10,8 +10,14 @@
       guides:
         - Tackle
     - type: MartialArtBlocked # Omu
-      form: CorporateJudo
-    
+      form: [CorporateJudo,
+        CloseQuartersCombat,
+        SleepingCarp,
+        Capoeira,
+        KungFuDragon,
+        Ninjutsu,
+        HellRip]
+
 - type: entity
   parent: [BaseGlovesTackle, BaseSecurityContraband]
   id: ClothingHandsGlovesSecurity
