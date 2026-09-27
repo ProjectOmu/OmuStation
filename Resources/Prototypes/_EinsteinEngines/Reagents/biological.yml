@@ -8,7 +8,9 @@
   color: "#1c1624"
   recognizable: true
   physicalDesc: reagent-physical-desc-inky
+  standsout: true
 
+# Omustation Start
 - type: reagent
   parent: Blood
   id: AcidBlood
@@ -33,7 +35,6 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: false
         damage:
           types:
@@ -79,10 +80,12 @@
         factor: -4
       - !type:HealthChange
         conditions:
-        - !type:TotalDamage
+        - !type:TotalDamageCondition
           max: 50
         damage:
           groups:
             Brute: -1.5
           types:
             Heat: -0.4
+
+# Omustation End

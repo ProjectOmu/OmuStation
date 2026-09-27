@@ -1,0 +1,28 @@
+# SELF
+- type: entity
+  parent: BaseGameRule
+  id: SiliconLiberation
+  components:
+  - type: GameRule
+    minPlayers: 5
+    delay:
+      min: 240
+      max: 420
+  - type: SELFRule
+  - type: AntagObjectives
+    objectives:
+    - SiliconRightsObjective
+    - FreeAIObjective
+    - FreeBorgsObjective
+  - type: AntagSelection
+    agentName: self-round-end-agent-name
+    definitions:
+    - prefRoles: [ SELFAgent ]
+      playerRatio: 15
+      max: 3
+      chaosScore: 150
+      mindRoles:
+      - MindRoleSELFAgent
+      startingGear: SELFAgentGear
+      briefing: # Omu
+        sound: /Audio/_Starlight/Misc/self_greeting.ogg

@@ -7,4 +7,5 @@
 
 objective-condition-kill-person-title = Kill or maroon {$targetName}, {CAPITALIZE($job)}
 objective-condition-kill-maroon-title = Kill and maroon {$targetName}, {CAPITALIZE($job)}
-objective-condition-maroon-person-title = Prevent {$targetName}, {CAPITALIZE($job)} from reaching CentComm.
+#omu
+objective-condition-maroon-person-title = Prevent {$targetName}, {CAPITALIZE($job)} from reaching CentComm via the evacuation shuttle.

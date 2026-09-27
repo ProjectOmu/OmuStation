@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Coenx-flex
-// SPDX-FileCopyrightText: 2025 Cojoke
-// SPDX-FileCopyrightText: 2025 Ilya246
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Starlight.CollectiveMind;
@@ -40,7 +36,7 @@ public sealed partial class CorticalBorerComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
-    public int ChemicalPointCap = 250;
+    public int ChemicalPointCap = 400;      //Omu up from 250 alongside egg cost
 
     /// <summary>
     /// Reagent injection amount
@@ -84,7 +80,7 @@ public sealed partial class CorticalBorerComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
-    public int EggCost = 200;
+    public int EggCost = 300;       //Omu up from 200, make it slower
 
     [DataField]
     public bool ControlingHost;

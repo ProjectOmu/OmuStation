@@ -1,0 +1,70 @@
+- type: entity
+  id: HandheldComs
+  name: handheld communications console
+  description: Fine-crafted handheld communications console made for a station captain. It has been set up to not require that amber be unlocked to set it.
+  parent: [BaseItem, BaseGrandTheftContraband]
+  components:
+    - type: Sprite
+      sprite: _Omu/Objects/Devices/tablets.rsi
+      layers:
+        - state: tablet
+        - state: capcoms
+          shader: unshaded
+    - type: ActivatableUI
+      inHandsOnly: true
+      singleUser: true
+      key: enum.CommunicationsConsoleUiKey.Key
+    - type: UserInterface
+      interfaces:
+        enum.CommunicationsConsoleUiKey.Key:
+          type: CommunicationsConsoleBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
+    - type: AccessReader
+      access: [["Captain"]]
+    - type: CommunicationsConsole
+      title: comms-console-announcement-title-captain
+      color: "#41579A"
+      delay: 30
+      initialDelay: 30
+      canShuttle: false
+      canBypassAmberLock: true
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+      transmitFrequencyId: ShuttleTimer
+
+- type: entity
+  id: HandheldCentComs
+  name: central command handheld communications console
+  description: Fine-crafted handheld communications console made for use by CC officials.
+  parent: [BaseItem, BaseCentcommContraband]
+  components:
+    - type: Sprite
+      sprite: _Omu/Objects/Devices/tablets.rsi
+      layers:
+        - state: tablet
+        - state: centcomsconsole
+          shader: unshaded
+    - type: ActivatableUI
+      inHandsOnly: true
+      singleUser: true
+      key: enum.CommunicationsConsoleUiKey.Key
+    - type: UserInterface
+      interfaces:
+        enum.CommunicationsConsoleUiKey.Key:
+          type: CommunicationsConsoleBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
+    - type: AccessReader
+      access: [["CentralCommand"]]
+    - type: CommunicationsConsole
+      title: comms-console-announcement-title-centcom
+      color: "#1d8bad"
+      delay: 5
+      initialDelay: 5
+      global: true
+      canShuttle: false
+      canBypassAmberLock: true
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+      transmitFrequencyId: ShuttleTimer

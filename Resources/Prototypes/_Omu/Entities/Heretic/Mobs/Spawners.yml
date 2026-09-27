@@ -9,17 +9,17 @@
     rules: ghost-role-information-antagonist-rules
     mindRoles:
     - MindRoleGhostRoleSoloAntagonist
+    - MindRoleGhostRoleSoloAntagonistGoob
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
     - state: green
     - sprite: Objects/Weapons/Melee/energykatana.rsi
       state: icon
+  - type: GhostRoleMobSpawner
+    prototype: MobGhoulMirrorMaiden
 
 - type: entity
   parent: BaseGameRule

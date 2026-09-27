@@ -1,12 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Plyush <121322002+Plyushsune@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 plyush <121322002+toasterpm87@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Felinid Ears
 
@@ -104,10 +95,10 @@
 # Goobstation - Tajaran since they're fully compatible
 
 - type: marking
-  id: FelinidTailBasic
+  id: FelinidTailBasicAnimated # Omu - Tailwag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Tajaran, Human] # Goobstation - Tajaran
+  speciesRestriction: [] # Omu - Tailwag
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_tail_tip
@@ -117,10 +108,10 @@
     state: basic_tail_stripes_odd
 
 - type: marking
-  id: FelinidTailBasicWithBow
+  id: FelinidTailBasicWithBowAnimated # Omu - Tailwag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Tajaran] # Goobstation - Tajaran
+  speciesRestriction: [] # Omu - Tailwag
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_tail_tip
@@ -132,10 +123,10 @@
     state: basic_bow
 
 - type: marking
-  id: FelinidTailBasicWithBell
+  id: FelinidTailBasicWithBellAnimated # Omu - Tailwag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Tajaran] # Goobstation - Tajaran
+  speciesRestriction: [] # Omu - Tailwag
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_tail_tip
@@ -147,10 +138,10 @@
     state: basic_bell
 
 - type: marking
-  id: FelinidTailBasicWithBowAndBell
+  id: FelinidTailBasicWithBowAndBellAnimated # Omu - Tailwag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Tajaran] # Goobstation - Tajaran
+  speciesRestriction: [] # Omu - Tailwag
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_tail_tip

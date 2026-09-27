@@ -8,6 +8,9 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.NPC.Systems;
 using Content.Shared.NPC.Components;
+using Content.Shared._Omu.Heretic;
+using Content.Shared.Interaction;
+using Content.Goobstation.Shared.Bible;
 
 namespace Content.Omu.Server.Entities.Heretic;
 
@@ -23,11 +26,16 @@ public sealed class FascinationSystem: EntitySystem
         SubscribeLocalEvent<FascinationComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<FascinationComponent, FascinationChangedArgs>(OnChange);
         SubscribeLocalEvent<FascinationComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<FascinationComponent, BibleSmiteUsed>(OnBibleInteract);
     }
     private void OnStartup(EntityUid uid, FascinationComponent component, ComponentStartup args)
     {
-        if (HasComp<SeeHereticFixturesComponent>(uid))
+        if (TryComp<SeeHereticFixturesComponent>(uid, out var seefixtures))
+        {
             component.Naturalsight = true;
+            if (seefixtures.SeeShifts == true)
+                component.NaturalHereticsight = true;
+        }
     }
 
     private void OnExamined(Entity<FascinationComponent> ent, ref ExaminedEvent args)
@@ -39,6 +47,11 @@ public sealed class FascinationSystem: EntitySystem
     }
     private void OnChange(Entity<FascinationComponent> ent, ref FascinationChangedArgs args)
     {
+        if (HasComp<MansusMobComponent>(ent)) // Ignore fascination tracking
+        {
+            return;
+        }
+
         ent.Comp.FascinationValue = args.Amount + ent.Comp.FascinationValue; //increment the fascination value by the amount of knowledge gained!
 
         float fascvalue = ent.Comp.FascinationValue;
@@ -50,6 +63,11 @@ public sealed class FascinationSystem: EntitySystem
                 RemComp<SeeHereticFixturesComponent>(ent);
                 ent.Comp.AlteredVision = false;
                 _eye.RefreshVisibilityMask(ent.Owner);
+            }
+            if (ent.Comp.Naturalsight == true && ent.Comp.NaturalHereticsight == false)
+            {
+                if (TryComp<SeeHereticFixturesComponent>(ent, out var seefixtures))
+                    seefixtures.SeeShifts = false;
             }
             if (ent.Comp.AlteredFaction == true)
             {
@@ -74,6 +92,14 @@ public sealed class FascinationSystem: EntitySystem
                 ent.Comp.AlteredVision = true;
                 _eye.RefreshVisibilityMask(ent.Owner);
             }
+            if (ent.Comp.Naturalsight == true && ent.Comp.NaturalHereticsight == false)
+            {
+                if (TryComp<SeeHereticFixturesComponent>(ent, out var seefixtures))
+                {
+                    seefixtures.SeeShifts = true;
+                    _eye.RefreshVisibilityMask(ent.Owner);
+                }
+            }
             if (ent.Comp.AlteredFaction != true)
             {
                 ent.Comp.AlteredFaction = true;
@@ -86,4 +112,11 @@ public sealed class FascinationSystem: EntitySystem
 
         }
     }
+    private void OnBibleInteract(Entity<FascinationComponent> ent, ref BibleSmiteUsed args)
+    {
+        var ev = new FascinationChangedArgs();
+        ev.Amount = -1f;
+        RaiseLocalEvent(ent, ev);
+    }
+
 }

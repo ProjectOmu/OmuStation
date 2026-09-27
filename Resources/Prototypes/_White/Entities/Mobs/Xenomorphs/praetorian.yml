@@ -57,6 +57,8 @@
     damage:
       groups:
         Brute: 30
+      types: # Omu, give them structural damage.
+        Structural: 30
   # - type: GuideHelp
   #   guides:
   #   - XenomorphPraetorian

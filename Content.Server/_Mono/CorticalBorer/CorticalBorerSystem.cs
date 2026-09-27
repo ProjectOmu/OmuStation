@@ -1,16 +1,9 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Coenx-flex
-// SPDX-FileCopyrightText: 2025 Cojoke
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 ScyronX
-// SPDX-FileCopyrightText: 2025 ark1368
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Managers;
-using Content.Server.Chat.Systems;
+using Content.Server._Mono.Chat;
 using Content.Server.DoAfter;
 using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
@@ -85,7 +78,7 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
         foreach (var actionId in ent.Comp.InitialCorticalBorerActions)
             _actions.AddAction(ent, actionId);
 
-        _alerts.ShowAlert(ent, ent.Comp.ChemicalAlert);
+        _alerts.ShowAlert(ent.Owner, ent.Comp.ChemicalAlert);
         UpdateUiState(ent);
     }
 
@@ -136,7 +129,7 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
         if (comp.ChemicalPoints % comp.UiUpdateInterval == 0)
             UpdateUiState(ent);
 
-        _alerts.ShowAlert(ent, ent.Comp.ChemicalAlert);
+        _alerts.ShowAlert(ent.Owner, ent.Comp.ChemicalAlert);
 
         Dirty(ent);
     }
@@ -196,7 +189,7 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
         solution.AddReagent(chemicalPrototype.Reagent, chemAmount);
 
         // add the chemicals to the bloodstream of the host
-        if (!_blood.TryAddToChemicals(comp.Host.Value, solution))
+        if (!_blood.TryAddToBloodstream(comp.Host.Value, solution))
             return false;
 
         UpdateChems(ent, -((int)chemAmount * chemicalPrototype.Cost));

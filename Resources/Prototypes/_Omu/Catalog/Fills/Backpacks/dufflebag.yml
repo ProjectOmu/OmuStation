@@ -11,6 +11,18 @@
         amount: 6
 
 - type: entity
+  id: ClothingBackpackDuffelSyndicateFilledPenman
+  parent: ClothingBackpackDuffelSyndicateBundle
+  name: LRR-30 "Penman" Bundle
+  description: Contains a LRR-30 "Penman" and 3 spare mags.
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponSniperPenman
+      - id: MagazineLongRifle
+        amount: 3
+
+- type: entity
   id: BackpackPermaSalvage
   parent: ClothingBackpackMerc
   suffix: Merc
@@ -23,3 +35,17 @@
     - id: ClothingEyesGlassesMercenary
     - id: ClothingHandsGlovesMercFingerless
     - id: ClothingShoesBootsMerc
+
+- type: entity
+  parent: ClothingBackpackDuffelClownBundle
+  id: ClothingBackpackDuffelClownFilledFakeTaiwanPond
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponLauncherFakeTaiwanPond
+      - id: GrenadeSlug
+        amount: 2
+      - id: GrenadeBirdshot
+        amount: 2
+      - id: GrenadeToy # Lure them into a false sense of trust.
+        amount: 4

@@ -3,15 +3,15 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Omu.Shared.EntityEffects.Effects;
 
-public sealed partial class ReduceFascinationEntityEffect : EventEntityEffect<ReduceFascinationEntityEffect>
+/// <inheritdoc cref="EntityEffect"/>
+public sealed partial class ReduceFascinationEntityEffect : EntityEffectBase<ReduceFascinationEntityEffect>
 {
     /// <summary>
     /// how much fascination to remove per cycle
     /// </summary>
     [DataField]
     public float ToChange = -0.2f;
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-    {
-        return Loc.GetString("reagent-effect-guidebook-reduce-fascination", ("chance", Probability));
-    }
+
+    public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+        => Loc.GetString("entity-effect-guidebook-reduce-fascination", ("chance", Probability));
 }

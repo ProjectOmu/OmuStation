@@ -1,5 +1,6 @@
 using Content.Server.Temperature.Components;
 using Content.Shared.Medical.Cryogenics;
+using Content.Shared.Temperature.Components;
 using Robust.Shared.Containers;
 
 namespace Content.Server.Medical;
@@ -12,6 +13,11 @@ public sealed partial class CryoPodSystem
     /// </summary>
     private void OnInserted(EntityUid uid, CryoPodComponent cryoComp, EntInsertedIntoContainerMessage args)
     {
+
+        // dogshit system bodycontainer is actually null here sometimes so you ensure it.
+        // todo redo this its kinda bad. but idc right now and just need to fix a crash
+        cryoComp.BodyContainer = _container.EnsureContainer<ContainerSlot>(uid, CryoPodComponent.BodyContainerName);
+
         if (args.Container.ID != cryoComp.BodyContainer.ID)
             return;
 

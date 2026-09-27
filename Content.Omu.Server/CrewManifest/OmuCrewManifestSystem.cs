@@ -1,5 +1,4 @@
 using Content.Server._Omu.CrewManifest;
-using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
 using Content.Server.Silicons.StationAi;
 using Content.Server.Station.Systems;
@@ -8,10 +7,10 @@ using Content.Shared.Mind;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
-using Content.Shared.Roles.Jobs;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared._DV.Silicons.Laws;
+using Content.Shared.Roles.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Omu.Server.CrewManifest;
@@ -73,10 +72,10 @@ public sealed class OmuCrewManifestSystem : EntitySystem
             if (!_stationAiSystem.TryGetHeld((uid, core), out var held))
                 continue;
 
-            if (!IsCrewSiliconMind(held, StationAiJobId))
+            if (!IsCrewSiliconMind(held.Value, StationAiJobId))
                 continue;
 
-            args.Entries.Add((stationAiJob, BuildSiliconEntry(held, stationAiJob)));
+            args.Entries.Add((stationAiJob, BuildSiliconEntry(held.Value, stationAiJob)));
         }
     }
 

@@ -1,0 +1,87 @@
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesQM
+  name: quartermaster's envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    layers:
+    - state: icon
+      color: "#796755"
+  - type: Item
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#796755"
+      right:
+      - state: inhand-right
+        color: "#796755"
+  - type: Clothing
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#796755"
+  - type: Fiber
+    fiberColor: fibers-light-brown
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesResearchDirectorPurple
+  name: research director's envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    layers:
+    - state: icon
+      color: "#620B73"
+  - type: Item
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#620B73"
+      right:
+      - state: inhand-right
+        color: "#620B73"
+  - type: Clothing
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#620B73"
+  - type: Fiber
+    fiberColor: fibers-purple
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesLatex
+  name: latex envirogloves
+  description: Sealed latex gloves, for the medically inclined Plasmaman.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    layers:
+    - state: icon
+      color: "#EEEEEE"
+  - type: Item
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#EEEEEE"
+      right:
+      - state: inhand-right
+        color: "#EEEEEE"
+  - type: Clothing
+    sprite: _Omu/Clothing/Hands/Gloves/Envirogloves/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#EEEEEE"
+  - type: Fiber
+    fiberMaterial: fibers-latex
+  - type: FingerprintMask

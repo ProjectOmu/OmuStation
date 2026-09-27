@@ -86,3 +86,21 @@
     fiberMaterial: fibers-nitrile
     fiberColor: fibers-red
   - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesArachnid
+  name: cobweb mittens
+  description: Are there spiders hiding inside?
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hands/Gloves/arachnid_mittens.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hands/Gloves/arachnid_mittens.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: Construction
+    graph: ClothingHandsGlovesArachnid
+    node: end
+  

@@ -1,0 +1,40 @@
+## Plasmaman Stuff
+- type: loadout
+  id: BlackEnviroslackHelm
+  equipment:
+    head: ClothingHeadEnvirohelmEnviroslacksMNK
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard" # Omu
+
+- type: loadout
+  id: BlackEnviroslacks
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitEnviroslacksMNK
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+## Bags
+- type: loadout
+  id: BartenderBackpack
+  equipment:
+    back: ClothingBackpackBartender
+
+- type: loadout
+  id: BartenderBackpackDuffel
+  equipment:
+    back: ClothingBackpackDuffelBartender
+
+- type: loadout
+  id: BartenderBackpackMessenger
+  equipment:
+    back: ClothingBackpackMessengerBartender
+
+- type: loadout
+  id: BartenderBackpackSatchel
+  equipment:
+    back: ClothingBackpackSatchelBartender

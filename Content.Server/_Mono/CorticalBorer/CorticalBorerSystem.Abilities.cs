@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Coenx-flex
-// SPDX-FileCopyrightText: 2025 Cojoke
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Body.Components;
@@ -13,12 +9,15 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Body.Components;
+using Content.Shared.Damage;
+using Content.Shared.Medical;
 
 namespace Content.Server._Mono.CorticalBorer;
 
 public sealed partial class CorticalBorerSystem
 {
     [Dependency] private readonly VomitSystem _vomit = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;    // Omu
 
     private void SubscribeAbilities()
     {
@@ -125,7 +124,7 @@ public sealed partial class CorticalBorerSystem
 
         InfestTarget(ent, target);
 
-        // Thermal regulation is disabled because of a weird interaction with disabling heat while inside body. 
+        // Thermal regulation is disabled because of a weird interaction with disabling heat while inside body.
         if (TryComp<ThermalRegulatorComponent>(ent, out var thermComp))
             thermComp.DisableProcessing = true;
 
@@ -236,7 +235,12 @@ public sealed partial class CorticalBorerSystem
         _vomit.Vomit(host, -20, -20); // half as much chem vomit, a lot that is coming up is the egg
         LayEgg(borer);
         UpdateChems(borer, -borer.Comp.EggCost);
-
+       //Omu start
+        var damage = new DamageSpecifier(); 
+        damage.DamageDict.Add("Bloodloss", 40);
+        damage.DamageDict.Add("Cellular", 10);
+        _damageable.TryChangeDamage(host, damage, interruptsDoAfters: false);
+        //Omu end
         args.Handled = true;
     }
 }

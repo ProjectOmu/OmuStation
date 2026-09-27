@@ -1,5 +1,6 @@
 using Content.Server.Body.Systems;
 using Content.Server.Database;
+using Content.Shared.Body.Components;
 using Content.Shared.Chat.TypingIndicator;
 using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Prototypes;
@@ -30,7 +31,14 @@ public sealed class SynthSystem : EntitySystem
             Dirty(uid, indicator);
         }
 
-        // Give them synth blood. Ion storm notif is handled in that system
-        _bloodstream.ChangeBloodReagent(uid, SynthBloodReagent); // DeltaV - make strings static readonly
+        // Omu Start - Fix synths healing their blood
+        if (TryComp<BloodstreamComponent>(uid, out var stream))
+        {
+            // Grab current bloodstream volume to replace with synthblood
+            var oldVolume = stream.BloodReferenceSolution.Volume;
+            // Give them synth blood. Ion storm notif is handled in that system
+            _bloodstream.ChangeBloodReagents(uid, new([new("SynthBlood", oldVolume)])); // DeltaV - make strings static readonly
+        }
+        // Omu end
     }
 }
