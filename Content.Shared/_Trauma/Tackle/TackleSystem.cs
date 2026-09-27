@@ -109,7 +109,7 @@ public sealed partial class TackleSystem : EntitySystem
         if (MathHelper.CloseToPercent(speed, 0f))
             return;
 
-        var severity = 0f;
+        var severity = 0f; //varable for hurting yourself, should be 0 if safe tackle
 
         var coords = GetCoordinates(ent.Comp.TackleStartPosition);
         var mapA = _xform.ToMapCoordinates(coords);
@@ -155,11 +155,12 @@ public sealed partial class TackleSystem : EntitySystem
         if (_standing.IsDown(target))
             return false;
 
+        // CalculateModifier takes into account,if hulked +2, if clumsy -2, user mass, user stamina, user crit threshold, and if they are damageable
         var ourMod = CalculateModifier(user) + speed + mod.SkillMod;
 
         var stamEv = new BeforeStaminaDamageEvent(1f);
         RaiseLocalEvent(target, ref stamEv);
-        var stamResistMod = stamEv.Cancelled ? 1f : 1f - stamEv.Value;
+        var stamResistMod = stamEv.Cancelled ? 1f : 1f - stamEv.Value; //% of stamina resistance on target
 
         var theirMod = CalculateModifier(target) + stamResistMod * mod.StamResistModifier;
 
@@ -172,14 +173,14 @@ public sealed partial class TackleSystem : EntitySystem
         var resultAdj = result - 0.5f;
         var invResultAdj = invResult - 0.5f;
 
-        var userKnockdown = mod.BaseUserKnockdownTime * invResultAdj * 0.5f;
+        var userKnockdown = mod.BaseUserKnockdownTime * invResultAdj * 0.5f; //float of seconds the tackler is knocked down
 
         if (userKnockdown <= 0f)
             RemCompDeferred<KnockedDownComponent>(user);
         else
             _stun.UpdateKnockdownTime(user, TimeSpan.FromSeconds(userKnockdown));
 
-        var targetKnockdown = mod.BaseTargetKnockdownTime * result;
+        var targetKnockdown = mod.BaseTargetKnockdownTime * result; //float of seconds the tackled is knocked down
         _stun.TryKnockdown(target, TimeSpan.FromSeconds(targetKnockdown), drop: false);
 
         _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):user} tackled {ToPrettyString(target):user}");
