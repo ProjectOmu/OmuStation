@@ -16,7 +16,7 @@ public sealed partial class TacklerComponent : Component
     public TimeSpan NextTackle;
 
     [DataField]
-    public TimeSpan TackleCooldown = TimeSpan.FromSeconds(3);
+    public TimeSpan TackleCooldown = TimeSpan.FromSeconds(6); //Omu 3 -> 6
 
     [DataField]
     public TimeSpan KnockdownTime = TimeSpan.FromSeconds(1);
