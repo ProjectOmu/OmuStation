@@ -58,7 +58,7 @@
   components:
     - type: Sprite
       sprite: _Trauma/Clothing/Hands/Gloves/gorilla.rsi
-#    - type: Insulated # Omu - make the hos cry a bit more
+#    - type: Insulated # Omu - one or the other buddy
     - type: Fiber
       fiberMaterial: fibers-insulative
     - type: Armor
@@ -72,7 +72,7 @@
       staminaCostMultiplier: 1.5
       knockdownTimeMultiplier: 1.15
       rangeMultiplier: 1
-      skillMod: 1.5
+      skillMod: 2.5
 
 - type: entity
   parent: [BaseSyndicateContraband, ClothingHandsGlovesGorilla]
@@ -139,6 +139,7 @@
       speedMultiplier: 0.65
       minDistance: 2
       skillMod: -4
+      baseTargetStaminaDamage: 0
 
 - type: entity
   parent: [BaseGlovesTackle, BaseMinorContraband]
