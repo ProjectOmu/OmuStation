@@ -180,7 +180,7 @@ public sealed partial class TackleSystem : EntitySystem
         var resultAdj = result - 0.5f;
         var invResultAdj = invResult - 0.5f;
 
-        var userKnockdown = mod.BaseUserKnockdownTime * invResultAdj * 0.5f; //float of seconds the tackler is knocked down
+        var userKnockdown = mod.BaseUserKnockdownTime * invResultAdj * 0.85f; //float of seconds the tackler is knocked down
 
         if (userKnockdown <= 0f)
             RemCompDeferred<KnockedDownComponent>(user);
@@ -191,7 +191,7 @@ public sealed partial class TackleSystem : EntitySystem
         if (stamResistMod * 10 <= mod.SkillMod && TryComp<MovedByPressureComponent>(target, out var moved) && moved.Enabled) // Omu
             _stun.TryKnockdown(target, TimeSpan.FromSeconds(targetKnockdown), drop: false);
 
-        _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):user} tackled {ToPrettyString(target):user}");
+        _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):user} tackled {ToPrettyString(target):user}"); //Omu
 
         if (resultAdj <= 0f)
             return true;
