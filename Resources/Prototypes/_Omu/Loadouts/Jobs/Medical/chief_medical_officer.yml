@@ -44,6 +44,16 @@
   - !type:GroupLoadoutEffect
     proto: MasterCMO
 
+- type: loadout
+  id: ChiefMedicalOfficerSurgicalCap
+  equipment:
+    head: ClothingHeadHatSurgcapTurquoise
+
+- type: loadout
+  id: ChiefMedicalOfficerScrubs
+  equipment:
+    jumpsuit: UniformScrubsColorTurquoise
+
 # Plasmaman Stuff
 
 - type: loadout
