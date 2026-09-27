@@ -5,8 +5,8 @@
   description: Its power is yet to be determined!
   components:
   - type: Sprite
-    sprite: Structures/Specific/Anomalies/Cores/pyro_core.rsi
-    state: core
+    sprite: _Omu/Objects/Specific/Mansus/lodestone.rsi
+    state: icon
   - type: Tag
     tags:
     - ForceableFollow
@@ -24,8 +24,8 @@
     temperature: 400
     ignited: true
   - type: Sprite
-    sprite: Structures/Specific/Anomalies/Cores/pyro_core.rsi
-    state: core
+    sprite: _Omu/Objects/Specific/Mansus/lodestone.rsi
+    state: icon_fire_animated
   - type: PointLight
     radius: 1.5
     energy: 1.5
