@@ -22,9 +22,11 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Content.Shared._Shitmed.Targeting;
-using Content.Omu.Common._Trauma.Input; // Omu
-using Content.Goobstation.Common.Grab; // Omu
-
+using Content.Omu.Common._Trauma.Input;
+using Content.Goobstation.Common.Grab;
+using Content.Shared.Damage.Components;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 namespace Content.Shared._Trauma.Tackle;
 
 public sealed partial class TackleSystem : EntitySystem
@@ -43,6 +45,7 @@ public sealed partial class TackleSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly DamageableSystem _dmg = default!;
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
     public override void Initialize()
     {
@@ -177,7 +180,9 @@ public sealed partial class TackleSystem : EntitySystem
             _stun.UpdateKnockdownTime(user, TimeSpan.FromSeconds(userKnockdown));
 
         var targetKnockdown = mod.BaseTargetKnockdownTime * result;
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(targetKnockdown), drop: result > mod.DisarmThreshold);
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(targetKnockdown), drop: false);
+
+        _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):user} tackled {ToPrettyString(target):user}");
 
         if (resultAdj <= 0f)
             return true;
@@ -250,6 +255,12 @@ public sealed partial class TackleSystem : EntitySystem
             ent.Comp1.StaminaCost,
             ent.Comp1.KnockdownTime,
             ent);
+
+        if (TryComp<StaminaComponent>(ent.Owner, out var stam)) //Omu
+        {
+            if (stam.IsSprinting)
+                _stun.TryKnockdown(ent.Owner, ev.KnockdownTime * 1.75, true, false);
+        }
 
         RaiseLocalEvent(ent, ref ev);
 
