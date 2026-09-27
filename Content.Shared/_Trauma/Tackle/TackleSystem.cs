@@ -27,6 +27,7 @@ using Content.Goobstation.Common.Grab;
 using Content.Shared.Damage.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
+using Content.Shared.Atmos.Components;
 namespace Content.Shared._Trauma.Tackle;
 
 public sealed partial class TackleSystem : EntitySystem
@@ -187,7 +188,7 @@ public sealed partial class TackleSystem : EntitySystem
             _stun.UpdateKnockdownTime(user, TimeSpan.FromSeconds(userKnockdown));
 
         var targetKnockdown = mod.BaseTargetKnockdownTime * result; //float of seconds the tackled is knocked down
-        if (stamResistMod * 10 <= mod.SkillMod) // Omu
+        if (stamResistMod * 10 <= mod.SkillMod && TryComp<MovedByPressureComponent>(target, out var moved) && moved.Enabled) // Omu
             _stun.TryKnockdown(target, TimeSpan.FromSeconds(targetKnockdown), drop: false);
 
         _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):user} tackled {ToPrettyString(target):user}");
@@ -314,9 +315,15 @@ public sealed partial class TackleSystem : EntitySystem
     /// </summary>
     public bool CanTackle(EntityUid ent, TacklerComponent tackler, TransformComponent xform)
     {
-        return _timing.CurTime >= tackler.NextTackle && !xform.Anchored && !_standing.IsDown(ent) &&
-               !_buckle.IsBuckled(ent) && !HasComp<StunnedComponent>(ent) && !HasComp<TacklingComponent>(ent) &&
-               !_gravity.IsWeightless(ent) && _blocker.CanInteract(ent, null) &&
-               !_container.IsEntityOrParentInContainer(ent, xform: xform);
+        if (_timing.CurTime >= tackler.NextTackle && !xform.Anchored && !_standing.IsDown(ent) &&
+            !_buckle.IsBuckled(ent) && !HasComp<StunnedComponent>(ent) && !HasComp<TacklingComponent>(ent) &&
+            !_gravity.IsWeightless(ent) && _blocker.CanInteract(ent, null) &&
+            !_container.IsEntityOrParentInContainer(ent, xform: xform))
+        {
+           //if (TryComp<MovedByPressureComponent>(ent, out var moved) && !moved.Enabled)
+                //return false;
+            return true;
+        }
+        return false;
     }
 }
