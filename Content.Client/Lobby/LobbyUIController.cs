@@ -512,14 +512,40 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         {
             job ??= GetPreferredJob(humanoid);
 
-            previewEntity = job.JobPreviewEntity ?? (EntProtoId?)job?.JobEntity;
+            // An explicitly authored preview always wins - that is what the field is for.
+            previewEntity = job.JobPreviewEntity;
+
+            // Omu: otherwise resolve the preview the way the server
+            // resolves the real spawn. StationSpawningSystem takes the JobEntity shortcut only when
+            // UseCharacterSpawn is false; when it is true it spawns the prototype of
+            // (SpeciesOverride ?? the profile species) instead. Reading JobEntity in both cases made
+            // the preview agree with reality only by coincidence - Borg looks right today purely
+            // because the Cyborg species prototype happens to be the same entity as borg.yml's
+            // jobEntity. The next job to use speciesOverride would have got a silently wrong preview.
+            if (previewEntity == null)
+            {
+                if (job.UseCharacterSpawn)
+                {
+                    if (_prototypeManager.TryIndex<SpeciesPrototype>(job.SpeciesOverride ?? humanoid.Species,
+                            out var previewSpecies))
+                    {
+                        previewEntity = previewSpecies.Prototype;
+                    }
+                }
+                else
+                {
+                    previewEntity = (EntProtoId?) job.JobEntity;
+                }
+            }
         }
 
         if (previewEntity != null)
         {
             // Special type like borg or AI, do not spawn a human just spawn the entity.
             dummyEnt = EntityManager.SpawnEntity(previewEntity, MapCoordinates.Nullspace);
-            if (job?.Name != "job-name-borg") // Omu, don't return if borg
+            // Omu, jobs that opt into the character spawn path (e.g. borgs) fall through so the
+            // profile/loadout pass below still runs. Keyed on prototype data, not a localization id.
+            if (job?.UseCharacterSpawn != true)
                 return dummyEnt;
         }
         else if (humanoid is not null)

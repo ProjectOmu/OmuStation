@@ -38,6 +38,16 @@ namespace Content.IntegrationTests.Tests
             var mapSystem = entityMan.System<SharedMapSystem>();
 
             // Goobstation edit start - moved this up and out of server.WaitPost
+            // Omu - NOTE (exclusion inventory): the .Where(...) chain below is duplicated in every spawn-sweep test in
+            // this file. Each entry removes a whole class of prototypes from "spawn every entity" coverage, which
+            // means a broken prototype in any of these categories will not be caught by CI at all:
+            //   Supermatter       - deletes/consumes neighbouring entities when the sweep stacks everything together.
+            //   SoundCollection   - Omu; spawning these en masse was flooding audio and destabilising the run.
+            //   RandomSpawner     - Omu; spawns its payload on init, so the sweep spawns far more than it counts.
+            //   Marker            - Omu; same problem, markers spawn their contents and the sweep already spawns those.
+            // These are load/stability exclusions, not correctness ones - restoring them needs the sweep to tolerate
+            // entities that spawn or delete other entities during MapInit (i.e. count-based assertions replaced with
+            // "no errors logged" assertions), not just deleting the .Where lines.
             var protoIds = prototypeMan
                 .EnumeratePrototypes<EntityPrototype>()
                 .Where(p => !p.Abstract)
@@ -370,6 +380,13 @@ namespace Content.IntegrationTests.Tests
             var server = pair.Server;
             var client = pair.Client;
 
+            // Omu - NOTE (exclusion inventory): SpawnAndDeleteEntityCountTest asserts that server and client end up with
+            // the SAME entity count, so anything that spawns or removes entities on MapInit desyncs the count and
+            // has to be excluded. That is why this list is almost entirely "spawns other things" components.
+            // COST: none of these prototypes are checked for client/server entity-count parity, so a prototype that
+            // spawns a server-only or client-only entity in one of these categories will not be caught here.
+            // TO RESTORE any entry: the test has to compare counts of entities it actually spawned rather than the
+            // whole world count, e.g. by snapshotting counts per-prototype instead of globally.
             var excluded = new[]
             {
                 "MapGrid",

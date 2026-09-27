@@ -20,7 +20,7 @@
     <ProjectReference Include="..\Content.Server.Database\Content.Server.Database.csproj" />
     <ProjectReference Include="..\Content.Shared.Database\Content.Shared.Database.csproj" />
     <ProjectReference Include="..\Content.Shared\Content.Shared.csproj" />
-    <ProjectReference Include="..\Content.Goobstation.Shared\Content.Goobstation.Shared.csproj" /> <!-- TODO: kill this shitcode -->
+    <ProjectReference Include="..\Content.Goobstation.Shared\Content.Goobstation.Shared.csproj" /> <!-- Omu - legacy debt: ~46 Content.Server files already use Content.Goobstation.Shared types. NEW upstream-to-fork contracts go in Content.Goobstation.Common instead, not here. -->
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
 

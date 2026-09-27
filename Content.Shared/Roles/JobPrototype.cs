@@ -2,6 +2,7 @@
 
 using Content.Shared.Access;
 using Content.Shared.Guidebook;
+using Content.Shared.Humanoid.Prototypes; // Omu
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
@@ -120,6 +121,24 @@ namespace Content.Shared.Roles
         /// </summary>
         [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string? JobEntity = null;
+
+        // Omu start - data-driven spawn overrides, so StationSpawningSystem does not have to compare localization ids.
+        /// <summary>
+        /// If true, this job is spawned through the regular character path (species prototype, character profile,
+        /// role loadout and starting gear) even though <see cref="JobEntity"/> is set, instead of taking the
+        /// job entity shortcut. Use this for non-humanoid jobs that should still receive a loadout.
+        /// </summary>
+        [DataField]
+        public bool UseCharacterSpawn;
+
+        /// <summary>
+        /// If set, the species the character is spawned as is replaced by this one, ignoring the species picked in
+        /// the character profile. Only has an effect on the character spawn path, i.e. when <see cref="JobEntity"/>
+        /// is unset or <see cref="UseCharacterSpawn"/> is true.
+        /// </summary>
+        [DataField]
+        public ProtoId<SpeciesPrototype>? SpeciesOverride;
+        // Omu end
 
         /// <summary>
         /// Entity to use as a preview in the lobby/character editor.

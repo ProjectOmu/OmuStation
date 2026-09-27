@@ -7,6 +7,7 @@ using Content.IntegrationTests.Pair;
 using Content.Server.GameTicking;
 using Content.Server.Mind;
 using Content.Server.Roles;
+using Content.Server.Station.Systems; // Omu - StationJobsSystem, for PickBestAvailableJobNullDisallowedTest
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Preferences;
@@ -216,6 +217,53 @@ public sealed class JobTest
             {
                 AssertJob(pair, Engineer, engi);
             }
+        });
+
+        await pair.Server.WaitPost(() => ticker.RestartRound());
+        await pair.CleanReturnAsync();
+    }
+
+    // Omu - added by Omu Station: regression test for job priorities being ignored when the disallowed-job list is null.
+    /// <summary>
+    /// Check that <see cref="StationJobsSystem.PickBestAvailableJobWithPriority"/> honours the priority list when no
+    /// set of disallowed jobs is given, instead of silently falling through to a random overflow job.
+    /// </summary>
+    [Test]
+    public async Task PickBestAvailableJobNullDisallowedTest()
+    {
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings
+        {
+            DummyTicker = false,
+            Connected = true,
+            InLobby = true
+        });
+
+        pair.Server.CfgMan.SetCVar(CCVars.GameMap, _map);
+        var ticker = pair.Server.System<GameTicker>();
+        Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.PreRoundLobby));
+
+        ticker.ToggleReadyAll(true);
+        await pair.Server.WaitPost(() => ticker.StartRound());
+        await pair.RunTicksSync(10);
+
+        var stationSys = pair.Server.System<StationSystem>();
+        var jobsSys = pair.Server.System<StationJobsSystem>();
+
+        await pair.Server.WaitAssertion(() =>
+        {
+            var station = stationSys.GetStations().Single();
+
+            // Captain is not an overflow job on the test map, so a fallback to overflows can never return it.
+            Assert.That(jobsSys.GetOverflowJobs(station), Does.Not.Contain(Captain));
+            Assert.That(jobsSys.GetAvailableJobs(station), Does.Contain(Captain));
+
+            var priorities = new Dictionary<ProtoId<JobPrototype>, JobPriority>
+            {
+                { Captain, JobPriority.High },
+            };
+
+            var picked = jobsSys.PickBestAvailableJobWithPriority(station, priorities, true, disallowedJobs: null);
+            Assert.That(picked, Is.EqualTo(Captain));
         });
 
         await pair.Server.WaitPost(() => ticker.RestartRound());
