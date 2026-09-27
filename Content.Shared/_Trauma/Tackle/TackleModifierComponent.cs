@@ -45,19 +45,19 @@ public sealed partial class TackleModifierComponent : Component
     /// Minimal "safe" distance, if tackle collision happens below safe range, user will be hurt
     /// </summary>
     [DataField]
-    public float MinDistance = 1.5f; //Omu N/A -> 1.5
+    public float MinDistance = .5f; //Omu N/A -> .5
 
     /// <summary>
     /// How relevant is stamina damage resistance on target. Higher = more relevant
     /// </summary>
     [DataField]
-    public float StamResistModifier = 8f; // Omu - 4 -> 8
+    public float StamResistModifier = 5f; // Omu - 4 -> 5
 
     /// <summary>
     /// If result modifier exceeds this value, target will be disarmed on knockdown
     /// </summary>
-    [DataField]
-    public float DisarmThreshold = 3f; // Omu 1.5 -> 3
+    //[DataField]
+    //public float DisarmThreshold = 3f; // Omu 1.5 -> 3
 
     /// <summary>
     /// Bonus modifier to user tackle
@@ -99,7 +99,7 @@ public sealed partial class TackleModifierComponent : Component
     /// Base stamina damage target will receive on collision
     /// </summary>
     [DataField]
-    public float BaseTargetStaminaDamage = 15f; //Omu - 22 -> 15
+    public float BaseTargetStaminaDamage = 20f; //Omu - 22 -> 20
 
     /// <summary>
     /// Base knockdown time of target during collision
