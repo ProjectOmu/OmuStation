@@ -127,6 +127,7 @@
     - type: Fiber
       fiberMaterial: fibers-blue
     - type: TackleModifier
+      baseTargetStaminaDamage: 0
       staminaCostMultiplier: 0.3
       knockdownTimeMultiplier: 0.5
       rangeMultiplier: 1.5
