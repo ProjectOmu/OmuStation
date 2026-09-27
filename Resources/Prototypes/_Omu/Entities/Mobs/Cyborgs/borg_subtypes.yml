@@ -33,10 +33,10 @@
   dummyPrototype: BorgChassisMiningBugborgCourier
 
 - type: borgSubtype
-  parentBorgType: mining_kerfus
-  id: mining_kerfus
-  spritePath: _Omu/Mobs/Silicon/Miner/Kerfus.rsi
-  dummyPrototype: BorgChassisMiningKerfus
+  parentBorgType: mining_kerfo
+  id: mining_kerfo
+  spritePath: _Omu/Mobs/Silicon/Miner/Kerfo.rsi
+  dummyPrototype: BorgChassisMiningKerfo
 
 # Engineer subtypes
 
@@ -65,10 +65,10 @@
   dummyPrototype: BorgChassisEngineerBugborgAtmosBag
 
 - type: borgSubtype
-  parentBorgType: engineering_kerfus
-  id: engineering_kerfus
-  spritePath: _Omu/Mobs/Silicon/Engineering/Kerfus.rsi
-  dummyPrototype: BorgChassisEngineerKerfus
+  parentBorgType: engineering_kerfo
+  id: engineering_kerfo
+  spritePath: _Omu/Mobs/Silicon/Engineering/Kerfo.rsi
+  dummyPrototype: BorgChassisEngineerKerfo
 
 # Janitor subtypes
 
@@ -91,10 +91,10 @@
   dummyPrototype: BorgChassisJanitorBugborgCentipede
 
 - type: borgSubtype
-  parentBorgType: janitor_kerfus
-  id: janitor_kerfus
-  spritePath: _Omu/Mobs/Silicon/Janitor/Kerfus.rsi
-  dummyPrototype: BorgChassisJanitorKerfus
+  parentBorgType: janitor_kerfo
+  id: janitor_kerfo
+  spritePath: _Omu/Mobs/Silicon/Janitor/Kerfo.rsi
+  dummyPrototype: BorgChassisJanitorKerfo
 
 # Medical subtypes
 
@@ -117,10 +117,10 @@
   dummyPrototype: BorgChassisMedicalBugborgVirology
 
 - type: borgSubtype
-  parentBorgType: medical_kerfus
-  id: medical_kerfus
-  spritePath: _Omu/Mobs/Silicon/Medical/Kerfus.rsi
-  dummyPrototype: BorgChassisMedicalKerfus
+  parentBorgType: medical_kerfo
+  id: medical_kerfo
+  spritePath: _Omu/Mobs/Silicon/Medical/Kerfo.rsi
+  dummyPrototype: BorgChassisMedicalKerfo
 
 # Service subtypes
 
@@ -143,7 +143,7 @@
   dummyPrototype: BorgChassisServiceBugdj
 
 - type: borgSubtype
-  parentBorgType: service_kerfus
-  id: service_kerfus
-  spritePath: _Omu/Mobs/Silicon/Service/Kerfus.rsi
-  dummyPrototype: BorgChassisServiceKerfus
+  parentBorgType: service_kerfo
+  id: service_kerfo
+  spritePath: _Omu/Mobs/Silicon/Service/Kerfo.rsi
+  dummyPrototype: BorgChassisServiceKerfo

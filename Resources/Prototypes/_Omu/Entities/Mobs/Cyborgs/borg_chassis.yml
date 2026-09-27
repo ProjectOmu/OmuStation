@@ -46,13 +46,13 @@
     borgSubtype: mining_bugcourier
 
 - type: entity
-  id: BorgChassisMiningKerfus
+  id: BorgChassisMiningKerfo
   parent: BorgChassisMining
-  name: kerfus salvage cyborg
+  name: kerfo salvage cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
-    borgSubtype: mining_kerfus
+    borgSubtype: mining_kerfo
 # Engineer
 
 - type: entity
@@ -92,13 +92,13 @@
     borgSubtype: engineering_bugatmosbag
 
 - type: entity
-  id: BorgChassisEngineerKerfus
+  id: BorgChassisEngineerKerfo
   parent: BorgChassisEngineer
-  name: kerfus engineer cyborg
+  name: kerfo engineer cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
-    borgSubtype: engineering_kerfus
+    borgSubtype: engineering_kerfo
 # Janitor
 
 - type: entity
@@ -129,13 +129,13 @@
     borgSubtype: janitor_bugcentipede
 
 - type: entity
-  id: BorgChassisJanitorKerfus
+  id: BorgChassisJanitorKerfo
   parent: BorgChassisJanitor
-  name: kerfus janitor cyborg
+  name: kerfo janitor cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
-    borgSubtype: janitor_kerfus
+    borgSubtype: janitor_kerfo
 # Medical
 
 - type: entity
@@ -166,13 +166,13 @@
     borgSubtype: medical_bugviro
 
 - type: entity
-  id: BorgChassisMedicalKerfus
+  id: BorgChassisMedicalKerfo
   parent: BorgChassisMedical
-  name: kerfus medical cyborg
+  name: kerfo medical cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
-    borgSubtype: medical_kerfus
+    borgSubtype: medical_kerfo
 # Service
 
 - type: entity
@@ -203,13 +203,13 @@
     borgSubtype: service_bugdj
 
 - type: entity
-  id: BorgChassisServiceKerfus
+  id: BorgChassisServiceKerfo
   parent: BorgChassisService
-  name: kerfus service cyborg
+  name: kerfo service cyborg
   categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
-    borgSubtype: service_kerfus
+    borgSubtype: service_kerfo
 
 - type: entity
   id: BorgChassisSyndicateService
@@ -244,7 +244,7 @@
       head:
         sizeMaps:
           32:
-            sprite: _Omu/Mobs/Species/Cyborgs/kerfus_displacements.rsi
+            sprite: _Omu/Mobs/Species/Cyborgs/kerfo_displacements.rsi
             state: head
   - type: PointLight
     color: "#5ee842"

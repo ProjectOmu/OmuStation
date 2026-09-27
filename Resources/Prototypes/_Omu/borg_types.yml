@@ -309,7 +309,7 @@
   petFailureString: petting-failure-service-cyborg
 
 - type: borgType
-  id: engineering_kerfus
+  id: engineering_kerfo
 
   dummyPrototype: BorgChassisEngineer
 
@@ -338,7 +338,7 @@
       head:
         sizeMaps:
           32:
-            sprite: _Omu/Mobs/Species/Cyborgs/kerfus_displacements.rsi
+            sprite: _Omu/Mobs/Species/Cyborgs/kerfo_displacements.rsi
             state: head
 
   inventoryTemplateId: borgNoOffset
@@ -351,7 +351,7 @@
   petFailureString: petting-failure-engineer-cyborg
 
 - type: borgType
-  id: mining_kerfus
+  id: mining_kerfo
 
   dummyPrototype: BorgChassisMining
 
@@ -380,7 +380,7 @@
       head:
         sizeMaps:
           32:
-            sprite: _Omu/Mobs/Species/Cyborgs/kerfus_displacements.rsi
+            sprite: _Omu/Mobs/Species/Cyborgs/kerfo_displacements.rsi
             state: head
 
   lawset: OmuSalvage
@@ -395,7 +395,7 @@
   petFailureString: petting-failure-salvage-cyborg
 
 - type: borgType
-  id: janitor_kerfus
+  id: janitor_kerfo
 
   dummyPrototype: BorgChassisJanitor
 
@@ -420,7 +420,7 @@
       head:
         sizeMaps:
           32:
-            sprite: _Omu/Mobs/Species/Cyborgs/kerfus_displacements.rsi
+            sprite: _Omu/Mobs/Species/Cyborgs/kerfo_displacements.rsi
             state: head
 
   lawset: OmuJanitor
@@ -435,7 +435,7 @@
   petFailureString: petting-failure-janitor-cyborg
 
 - type: borgType
-  id: medical_kerfus
+  id: medical_kerfo
 
   dummyPrototype: BorgChassisMedical
 
@@ -478,7 +478,7 @@
       head:
         sizeMaps:
           32:
-            sprite: _Omu/Mobs/Species/Cyborgs/kerfus_displacements.rsi
+            sprite: _Omu/Mobs/Species/Cyborgs/kerfo_displacements.rsi
             state: head
 
   inventoryTemplateId: borgNoOffset
@@ -491,7 +491,7 @@
   petFailureString: petting-failure-medical-cyborg
 
 - type: borgType
-  id: service_kerfus
+  id: service_kerfo
 
   dummyPrototype: BorgChassisService
 
@@ -522,7 +522,7 @@
       head:
         sizeMaps:
           32:
-            sprite: _Omu/Mobs/Species/Cyborgs/kerfus_displacements.rsi
+            sprite: _Omu/Mobs/Species/Cyborgs/kerfo_displacements.rsi
             state: head
 
   inventoryTemplateId: borgNoOffset
