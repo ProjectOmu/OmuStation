@@ -1,0 +1,153 @@
+- type: entityTable
+  id: SlotMachineMinorWin
+  table: !type:AllSelector
+    children:
+    - id: SpaceCash10
+
+- type: entityTable
+  id: SlotMachineSmallWin
+  table: !type:AllSelector
+    children:
+    - id: SpaceCash100
+
+- type: entityTable
+  id: SlotMachineMediumWin
+  table: !type:AllSelector
+    children:
+    - id: SpaceCash500
+
+- type: entityTable
+  id: SlotMachineLargeWin
+  table: !type:AllSelector
+    children:
+    - id: SpaceCash5000
+
+- type: entityTable
+  id: SlotMachineJackpot
+  table: !type:AllSelector
+    children:
+    - id: SpaceCash30000
+
+- type: entityTable
+  id: SlotMachineGodPot
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      tableId: LootGodPot
+
+- type: entityTable
+  id: LootGodPot
+  table: !type:GroupSelector
+    children:
+    #- id: WeaponShotgunHeavy # Omu redaction
+    - id: TeslaMiniEnergyBall
+    - id: WeaponFoamMinigun # Omu addition
+    - id: Emag # Omu addition
+
+# Qm Slot machine
+
+- type: entityTable
+  id: SlotMachineQmMinor
+  table: !type:AllSelector
+    children:
+    - id: SpaceCash100000
+
+- type: entityTable
+  id: SlotMachineQmJackpot
+  table: !type:AllSelector
+    children:
+    - id: SpaceCash1000000
+
+- type: entityTable
+  id: SlotMachineQmThrongler
+  table: !type:AllSelector
+    children:
+    - id: Throngler
+
+# Claw machine
+
+- type: entityTable
+  id: ClawMachinePlushies
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      tableId: Plushies
+
+- type: entityTable
+  id: ClawMachineEvilPlushies
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      tableId: Plushies
+
+- type: entityTable
+  id: Plushies
+  table: !type:GroupSelector
+    children:
+    - id: PlushieMoth
+    - id: PlushieHuman
+    - id: PlushiePenguin
+    #- id: PlushieXeve # Omu, we are adding our own self inserts muahaha
+    #- id: PlushieDurk # Omu
+    #- id: PlushieMnwaar # Omu
+    #- id: PlushieLouie # Omu
+    - id: FoamWonderprod
+    - id: PlushieBingle
+    - id: PlushieBongle
+    - id: PlushieBinglePony
+    - id: PlushieAbductor
+    #- id: PlushieJvne # Omu
+    #- id: PlushieFern # Omu
+    #- id: PlushieNigel # Omu
+    - id: PlushieBrizby # Upstreamer was bribed to include this one.
+    #- id: PlushieBoggle # Omu
+    #- id: PlushieLehmin # Omu
+    #- id: PlushieWachtel # Omu
+    #- id: PlushieLeguia # Omu
+    #- id: PlushiePasha # Omu
+    #- id: PlushieLeoMalone # Omu
+    - id: PlushieRedstonewolf
+# Omu begin
+    - id: PlushieRestfulOmuStaff
+    - id: PlushieCygOmuStaff
+    - id: PlushieAureuOmuStaff
+    - id: PlushieThesiaOmuStaff
+    - id: PlushieMarikiiiOmuStaff
+    - id: PlushieNagollOmuStaff
+    - id: PlushieArtemisOmuStaff
+    - id: PlushieCliveOmuStaff
+    - id: PlushieRestfulOmuStaff
+    - id: PlushieTossornOmuStaff
+    - id: PlushieDishwasherOmuStaff
+    - id: PlushieDoglettuceOmuStaff
+    - id: PlushieHayrayOmuStaff
+    - id: PlushieKabukiOmuStaffish
+    - id: PlushieGinoOmuStaff
+    - id: PlushiePuntsssOmuStaff
+    - id: PlushieNnifOmuStaff
+    - id: PlushieMednogOmuStaff
+    - id: PlushieYuriOmuStaff
+    - id: PlushiePickelSillyOmuStaffish
+    - id: PlushieXiOmuStaff
+    - id: PlushieSammyOmuStaff
+# Omu End
+
+- type: entityTable
+  id: PlushiesEvil
+  table: !type:GroupSelector
+    children:
+    #- id: EvilPlushieXeve # Omu
+    #- id: EvilPlushieBoggle # Omu
+    - id: EvilPlushieBrizby # Upstreamer bribed.
+    #- id: EvilPlushieNigel # Omu
+    #- id: EvilPlushieFern # Omu
+    #- id: EvilPlushieJvne # Omu
+    #- id: EvilPlushieMnwaar # Omu
+    #- id: EvilPlushieDurk # Omu
+    #- id: EvilPlushieLouie # Omu
+    #- id: EvilPlushieWachtel # Omu
+    #- id: EvilPlushieLeguia # Omu
+    #- id: EvilPlushiePasha # Omu
+    #- id: EvilPlushieTwofish # Omu
+    #- id: EvilPlushieLeoMalone # Omu
+    #- id: EvilPlushieRedstonewolf # Omu

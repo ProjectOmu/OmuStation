@@ -54,7 +54,8 @@ public class MapLoadBenchmark
         "Marathon", "Europa", "MeteorArena", "Fland", "Oasis", "FlandHighPop", "OasisHighPop", "OriginHighPop", "Barratry", "Kettle", "Lambda", "Leonid",
         "Delta", "Amber", "Chloris", "Cog", "Glacier", "Serpentcrest", //Goobstation, readds maps
         "Tram2", // Omu - Port tramstation from wizden
-        "Crystal" // Omu - Adds Crystal
+        "Crystal", // Omu - Adds Crystal
+        "Shoukou"
         }; 
 
     [ParamsSource(nameof(MapsSource))]
