@@ -14,6 +14,15 @@
             Quantity: 15
           - ReagentId: Omnizine
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 3
+        - ReagentId: Omnizine
+          Quantity: 2
+      # Omu end
 
 - type: entity
   parent: EmergencyMedipen
@@ -137,7 +146,7 @@
   name: gang spray can
   suffix: Gang
   description: A spray can used to mark territory for your gang. Only works if you belong to a gang.
-  parent: [BaseItem, BaseMajorContraband]
+  parent: [BaseItem, BaseMinorContraband]
   components:
   - type: Sprite
     sprite: _Goobstation/Gangs/spray_cans.rsi

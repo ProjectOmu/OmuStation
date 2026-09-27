@@ -30,6 +30,15 @@
     <GuideEntityEmbed Entity="Telecrystal"/>
   </Box>
 
+  <Box>
+    <GuideEntityEmbed Entity="MoraleNegative"/>
+    <GuideEntityEmbed Entity="MoralePassed"/>
+  </Box>
+  ## Morale
+  You can convert the station denizens to the right side of history by breaking their morale and faith in the current regime.
+  Those with mindshields are much harder to break as it reinforces pro-nanotrasen propaganda!
+  Anyone with a blue icon has passed a morale check (a failed conversion) and cannot be converted for some time.
+
   ## Mindshields & Eye Protection
   [color=cyan]Mindshield implanters[/color] are an obstruction to the revolution. These will:
   - Make it harder to convert someone, they will be much more resilient to psychological tactics, though can still be converted.

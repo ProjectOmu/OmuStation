@@ -29,6 +29,7 @@ public sealed class RevolutionarySystem : SharedRevolutionarySystem
 
         // Omu start
         SubscribeLocalEvent<HeadRevolutionaryComponent, BookConverterUsedEvent>(OnBookArea);
+        SubscribeLocalEvent<HeadRevolutionaryComponent, BookConverterTargetUsedEvent>(OnBookDoAfter);
     }
 
     private void OnPolymorphed(Entity<RevolutionaryComponent> ent, ref PolymorphedEvent args)
@@ -53,6 +54,18 @@ public sealed class RevolutionarySystem : SharedRevolutionarySystem
     private void OnBookArea(Entity<HeadRevolutionaryComponent> ent, ref BookConverterUsedEvent args)
     {
         _MoraleArea.AreaChange(ent, args.Change, args.Range, args.Lang);
+    }
+
+    private void OnBookDoAfter(Entity<HeadRevolutionaryComponent> ent, ref BookConverterTargetUsedEvent args)
+    {
+        EnsureComp<MoraleComponent>(args.Target);
+        var ev = new MoraleChangedArgs
+        {
+            Amount = args.Change,
+
+            User = ent,
+        };
+        RaiseLocalEvent(args.Target, ev);
     }
 }
 

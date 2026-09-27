@@ -10,7 +10,6 @@ using Content.Shared.NPC.Systems;
 using Content.Server.Mind;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Roles.Components;
-using Content.Shared.Stunnable;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Revolutionary;
@@ -21,7 +20,9 @@ using Content.Shared._Omu.Revs;
 using Content.Server.Revolutionary.Components;
 using Robust.Shared.Random;
 using Content.Shared.Random.Helpers;
-using Content.Shared.Emag.Systems;
+using Content.Shared.StatusIcon;
+using Content.Goobstation.Shared.CustomFactionIcons;
+using Content.Shared.Climbing.Events;
 
 namespace Content.Server._Omu.Revs;
 
@@ -39,12 +40,18 @@ public sealed class MoraleSystem : EntitySystem
     [Dependency] private readonly RoleSystem _role = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+
+    private const string MoraleNegative = "MoraleNegativeFaction";
+    private const string MoraleAverage = "MoraleAverageFaction";
+    private const string MoralePositive = "MoralePositiveFaction";
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<MoraleComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<MoraleComponent, MoraleChangedArgs>(OnChange);
+        SubscribeLocalEvent<MoraleComponent, ComponentShutdown>(OnShutdown);
     }
 
     private void OnStartup(EntityUid uid, MoraleComponent component, ComponentStartup args)
@@ -59,6 +66,25 @@ public sealed class MoraleSystem : EntitySystem
         {
             component.Mindshielded = true;
             component.MoraleRecovery = component.MoraleMSRecovery;
+        }
+        SetMoraleFaction(uid, MoraleAverage);
+    }
+
+    private void OnShutdown(EntityUid uid, MoraleComponent component, ComponentShutdown args)
+    {
+        SetMoraleFaction(uid, null);
+
+        if (TerminatingOrDeleted(uid))
+            return;
+
+        if (!HasComp<RevolutionaryComponent>(uid))   //If they are a rev, prevent em from gaining the little icon
+        {
+            EnsureComp<MoralePassedComponent>(uid, out var comp);       //Handle it here, its so much easier
+
+            if (component.Mindshielded)
+            {
+                comp.Time = 150f;
+            }
         }
     }
 
@@ -96,6 +122,11 @@ public sealed class MoraleSystem : EntitySystem
     }
     private void OnChange(Entity<MoraleComponent> ent, ref MoraleChangedArgs args)
     {
+        if (HasComp<MoralePassedComponent>(ent))
+        {
+            RemComp<MoraleComponent>(ent);
+        }
+
         if (!_mind.TryGetMind(ent, out _, out _))
         {
             RemComp<MoraleComponent>(ent);
@@ -124,16 +155,35 @@ public sealed class MoraleSystem : EntitySystem
         ent.Comp.MoraleValue += args.Amount;
 
         var morale = ent.Comp.MoraleValue;
+        string faction;
 
-        if (morale <= 0f)
+        switch (morale)
         {
-            if (!MakeRev(ent, ref args))
+            case <= 0f:
+                if (!MakeRev(ent, ref args))
+                    RemComp<MoraleComponent>(ent);
+                return;
+
+            case >= 20f:
                 RemComp<MoraleComponent>(ent);
+                return;
+
+            case >= 7f and <= 13f:
+                faction = MoraleAverage;
+                break;
+
+            case < 7f:
+                faction = MoraleNegative;
+                break;
+
+            case > 13f:
+                faction = MoralePositive;
+                break;
+
+            default:
+                return;
         }
-        if (morale >= 20f)
-        {
-            RemComp<MoraleComponent>(ent);
-        }
+        SetMoraleFaction(ent, faction);
     }
 
     private bool MakeRev(Entity<MoraleComponent> ent, ref MoraleChangedArgs args)
@@ -200,5 +250,28 @@ public sealed class MoraleSystem : EntitySystem
             if (!MakeRev(new Entity<MoraleComponent>(ent, moraleComponent), ref ev))
                 RemComp<MoraleComponent>(ent);
         }
+    }
+
+    private void SetMoraleFaction(EntityUid ent, string? newFactionId)
+    {
+        var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(ent);
+        var oldFactions = new[]
+        {
+            MoraleAverage,
+            MoralePositive,
+            MoraleNegative
+        };
+
+        foreach (var factionId in oldFactions)
+        {
+            userFactionIcons.FactionIcons.Remove(factionId);
+        }
+
+        if (newFactionId is not null)
+        {
+            userFactionIcons.FactionIcons.Add(newFactionId);
+        }
+
+        Dirty(ent, userFactionIcons);
     }
 }

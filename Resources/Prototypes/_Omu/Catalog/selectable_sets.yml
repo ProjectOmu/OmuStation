@@ -410,3 +410,13 @@
     state: icon
   content:
   - CaneSheathFilledNanotrasen
+
+- type: selectableSet
+  id: BrellaNTSet
+  name: selectable-set-ntr-brella-name
+  description: selectable-set-ntr-brella-desc
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Melee/marlen.rsi
+    state: icon
+  content:
+  - Marlen

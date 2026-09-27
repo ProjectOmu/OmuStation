@@ -48,11 +48,11 @@ public sealed class BookConverterSystem : EntitySystem
             || args.Target == null)
             return;
 
-        var ev = new MoraleChangedArgs();
-        ev.Amount = ent.Comp.Amount * ent.Comp.FocusedMultiplier;
+        var ev = new BookConverterTargetUsedEvent();
+        ev.Change = ent.Comp.Amount * ent.Comp.FocusedMultiplier;
         ev.User = args.User;
-        ev.Forced = true;
-        RaiseLocalEvent(args.Target.Value, ev);
+        ev.Target = args.Target.Value;      //shouldn't be null & we don't need language here, its already checked
+        RaiseLocalEvent(args.Target.Value, ref ev);
     }
     private void OnUseInHand(Entity<BookConverterComponent> ent, ref UseInHandEvent args)
     {
@@ -131,11 +131,13 @@ public sealed class BookConverterSystem : EntitySystem
         }
         else
         {
-            var ev = new MoraleChangedArgs();
-            ev.Amount = converter.Comp.Amount * converter.Comp.FocusedMultiplier;
+            var ev = new BookConverterTargetUsedEvent();
+            ev.Change = converter.Comp.Amount * converter.Comp.FocusedMultiplier;
             ev.User = user;
-            ev.Forced = true;
-            RaiseLocalEvent(target, ev);
+            ev.Target = target;
+            if (speakerComponent is not null)
+                ev.Lang = speakerComponent.CurrentLanguage;
+            RaiseLocalEvent(target, ref ev);
         }
     }
 }
@@ -154,3 +156,6 @@ public readonly struct AfterRevolutionaryConvertedEvent(EntityUid target, Entity
 
 [ByRefEvent]
 public record struct BookConverterUsedEvent(EntityUid User, float Change, float Range, string Lang);
+
+[ByRefEvent]
+public record struct BookConverterTargetUsedEvent(EntityUid User, EntityUid Target, float Change, string? Lang);
