@@ -94,6 +94,9 @@ public sealed partial class TackleSystem : EntitySystem
         RemCompDeferred(ent, ent.Comp);
     }
 
+    /// <summary>
+    ///     Handles when the player hits somethiing during a tackle
+    /// </summary>
     private void OnHit(Entity<TacklingComponent> ent, ref ThrowDoHitEvent args)
     {
         if (_timing.ApplyingState)
@@ -147,6 +150,9 @@ public sealed partial class TackleSystem : EntitySystem
         _stun.TryUpdateParalyzeDuration(ent.Owner, TimeSpan.FromSeconds(severity * (mod.BaseUserKnockdownTime + 1f)));
     }
 
+    /// <summary>
+    ///     Handles when two mobs collide during a tackle, returns false if target is lying down, true otherwise
+    /// </summary>
     private bool HandleMobCollision(EntityUid user,
         EntityUid target,
         TackleModifierComponent mod,
@@ -181,7 +187,8 @@ public sealed partial class TackleSystem : EntitySystem
             _stun.UpdateKnockdownTime(user, TimeSpan.FromSeconds(userKnockdown));
 
         var targetKnockdown = mod.BaseTargetKnockdownTime * result; //float of seconds the tackled is knocked down
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(targetKnockdown), drop: false);
+        if (stamResistMod * 10 <= mod.SkillMod) // Omu
+            _stun.TryKnockdown(target, TimeSpan.FromSeconds(targetKnockdown), drop: false);
 
         _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):user} tackled {ToPrettyString(target):user}");
 
@@ -197,6 +204,9 @@ public sealed partial class TackleSystem : EntitySystem
         return true;
     }
 
+    /// <summary>
+    ///     Calls an event to handle various modifiers the player can have for a tackle
+    /// </summary>
     private float CalculateModifier(EntityUid uid)
     {
         var ev = new CalculateTackleModifierEvent(0f);
@@ -204,6 +214,9 @@ public sealed partial class TackleSystem : EntitySystem
         return ev.Modifier;
     }
 
+    /// <summary>
+    ///     Checks if the passed entities exist or a hard object, returns true if hard object, false otherwise
+    /// </summary>
     private bool ShouldStopTackle(Entity<PhysicsComponent?> user, Entity<FixturesComponent?> target)
     {
         if (!Resolve(user, ref user.Comp, false) || !Resolve(target, ref target.Comp, false))
@@ -296,6 +309,9 @@ public sealed partial class TackleSystem : EntitySystem
         return true;
     }
 
+    /// <summary>
+    ///     Checks if the passed entity is in a situation where they can reasonably tackle
+    /// </summary>
     public bool CanTackle(EntityUid ent, TacklerComponent tackler, TransformComponent xform)
     {
         return _timing.CurTime >= tackler.NextTackle && !xform.Anchored && !_standing.IsDown(ent) &&
