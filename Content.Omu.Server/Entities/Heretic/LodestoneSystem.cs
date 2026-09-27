@@ -42,17 +42,12 @@ public sealed class LodestoneSystem : EntitySystem
 
     public void OnStopFollowing(Entity<LodestoneComponent> ent, ref StoppedFollowingEntityEvent args)
     {
-        if (ent.Comp.ComponentsActuallyAdded is null)
-            return;
-
         foreach (var comp in ent.Comp.ComponentsActuallyAdded)
         {
-            if (!_componentFactory.TryGetRegistration(comp, out var comprem))
+            if (!_componentFactory.TryGetRegistration(comp, out var registration) || !_entManager.HasComponent(args.Following, registration.Type))
                 continue;
 
-            var comptorem = _componentFactory.GetComponent(comprem);
-            _entManager.RemoveComponent(args.Following, comptorem);
+            _entManager.RemoveComponent(args.Following, registration.Type);
         }
-        ent.Comp.ComponentsActuallyAdded.Clear();
     }
 }
