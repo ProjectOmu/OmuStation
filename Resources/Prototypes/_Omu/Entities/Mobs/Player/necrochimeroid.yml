@@ -20,3 +20,7 @@
     bodyType: KinematicController
   - type: NecroChimeroid
   - type: MindContainer
+  - type: ActionGrant
+    actions:
+    - ActionNecroEnter
+    - ActionNecroLeave

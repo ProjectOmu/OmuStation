@@ -5,8 +5,11 @@ using Content.Shared.Body.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
+using Content.Shared._Omu.Entities.Necrochimeroid;
+using Content.Shared.Body.Part;
+using System.Linq;
 
-namespace Content.Shared._Omu.Entities.Necrochimeroid;
+namespace Content.Server._Omu.Entities.Necrochimeroid;
 
 [RegisterComponent]
 public sealed partial class NecroChimeroidComponent : Component
@@ -81,12 +84,12 @@ public sealed class NecroChimeroidSystem : EntitySystem
         if (!TryComp<MindContainerComponent>(uid, out var mindContainer) || mindContainer.Mind is not { } mind)
             return;
 
-        var action = EnsureComp<ActionsContainerComponent>(mind);
+//        var action = EnsureComp<ActionsContainerComponent>(mind);
 
-        _popup.PopupPredicted("adding actions", uid, null);
-        component.ActualEnterAction = _actionsSystem.AddAction(mind, component.EnterAction);
-        component.ActualLeaveAction = _actionsSystem.AddAction(mind, component.LeaveAction);
-        Dirty(mind, action);
+//        _popup.PopupPredicted("adding actions", uid, null);
+//        component.ActualEnterAction = _actionsSystem.AddAction(mind, component.EnterAction);
+//        component.ActualLeaveAction = _actionsSystem.AddAction(mind, component.LeaveAction);
+//        Dirty(mind, action);
     }
 
     private void OnMindRemove(EntityUid uid, NecroChimeroidComponent component, ref MindRemovedMessage args)
@@ -94,8 +97,8 @@ public sealed class NecroChimeroidSystem : EntitySystem
         if (!TryComp<MindContainerComponent>(uid, out var mindContainer) || mindContainer.Mind is not { } mind)
             return;
 
-        _actionsSystem.RemoveAction(component.ActualEnterAction);
-        _actionsSystem.RemoveAction(component.ActualLeaveAction);
+//        _actionsSystem.RemoveAction(component.ActualEnterAction);
+//        _actionsSystem.RemoveAction(component.ActualLeaveAction);
     }
     #region actions
     private void OnEnterAttempt(EntityUid uid, NecroChimeroidComponent component, ref NecroEnterEvent args)
@@ -119,6 +122,16 @@ public sealed class NecroChimeroidSystem : EntitySystem
 
         if (TryComp<BodyComponent>(target, out var bodyComp))
         {
+            var head = _body.GetBodyChildrenOfType(args.Target, BodyPartType.Head, symmetry: BodyPartSymmetry.None)
+                .FirstOrDefault()
+                .Id;
+
+            if (head == default)
+            {
+                args.Handled = true;
+                return;
+            }
+
             if (_body.TryGetBodyOrganEntityComps<BrainComponent>((target, bodyComp), out var brains))
             {
                 _popup.PopupEntity(Loc.GetString("necrochimeroid-enter-fail-brain"), uid, uid);
@@ -126,9 +139,14 @@ public sealed class NecroChimeroidSystem : EntitySystem
                 return;
             }
 
+            if (_body.AddOrganToFirstValidSlot(head, uid))
+            {
+                return;
+            }
+
             foreach (var container in _body.GetBodyContainers(target, bodyComp))
             {
-                if (_body.CanInsertOrgan(uid, container.ID))
+                if (_body.CanInsertOrgan(head, container.ID))
                 {
                     var doAfterArgs = new DoAfterArgs(
                     EntityManager,
