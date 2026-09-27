@@ -442,7 +442,6 @@
     - PipeStraight
     - PipeBend
     - PipeTJunction
-    - PipeManifold # Omu
     - OutletInjector
     - ManualValve
     - VolumetricPump
@@ -463,6 +462,8 @@
     - FilterInline
     - RadiatorInline
     - RadiatorInlineBend
+    - PipeManifold
+    - PipePressureRegulator
     # </Goobstation>
     - Deconstruct
   - type: LimitedCharges
