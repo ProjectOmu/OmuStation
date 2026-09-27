@@ -52,6 +52,16 @@ binds:
 - function: ResistGrab
   type: State
   key: B
+- function: VoicePushToTalk # Goobstation - Voice chat
+  type: State
+  key: N
+- function: VoicePushToTalkRadio # Goobstation - Voice chat
+  type: State
+  key: M
+- function: Tackle # Trauma
+  type: State
+  key: Q
+  mod1: Alt
 # Shuttle
 - function: ShuttleStrafeUp
   type: State
