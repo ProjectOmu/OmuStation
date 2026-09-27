@@ -857,3 +857,50 @@
     wideAnimationRotation: 180
     soundHit:
       path: /Audio/Effects/bite.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieJessieFletcherOmuStaff
+  name: Jessie Fletcher plushie
+  description: This plushie looks like it'll treat your injuries with surgery most of the time. It has a label reading "MOTHS. DO NOT EAT."
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/jessiefletcher.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/jessiefletcher.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/jessiefletcher.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnUse
+    sound:
+      collection: VulpYips
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: VulpYips
+  - type: EmitSoundOnThrow
+    sound:
+      collection: VulpkaninScreams
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: Gekkerzine # Gekkerzine jumpscare
+          Quantity: 10
