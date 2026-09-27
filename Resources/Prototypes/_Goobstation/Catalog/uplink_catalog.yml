@@ -1114,16 +1114,16 @@
 #      components:
 #      - SurplusBundle
 
-- type: listing
-  id: UplinkAutosurgeonSmartLink
-  name: uplink-autosurgeon-smartlink-name
-  description: uplink-autosurgeon-smartlink-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/SMGs/smartgun.rsi, state: base }
-  productEntity: AutosurgeonSmartLink
-  cost:
-    Telecrystal: 30
-  categories:
-  - UplinkImplants
+# - type: listing #omu disabled
+#   id: UplinkAutosurgeonSmartLink
+#   name: uplink-autosurgeon-smartlink-name
+#   description: uplink-autosurgeon-smartlink-desc
+#   icon: { sprite: _Goobstation/Objects/Weapons/Guns/SMGs/smartgun.rsi, state: base }
+#   productEntity: AutosurgeonSmartLink
+#   cost:
+#     Telecrystal: 30
+#   categories:
+#   - UplinkImplants
 
 - type: listing
   id: UplinkAutosurgeonRecoilAbsorber

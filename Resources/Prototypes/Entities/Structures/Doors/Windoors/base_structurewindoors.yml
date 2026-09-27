@@ -139,8 +139,8 @@
     animatePanel: false
     openUnlitVisible: true
     # needed so that windoors will close regardless of whether there are people in it; it doesn't crush after all
-    # goob edit: no because vehicles
-    safety: true
+    # Omu: and so that papers don't jam the door open, because papers are not people!!
+    safety: false
   - type: NavMapDoor
   - type: DoorBolt
   - type: Electrified
@@ -177,14 +177,12 @@
   - type: StaticPrice
     price: 150
   - type: PryUnpowered
-  # <Goob>
-  - type: Penetratable
+  - type: Penetratable # Goobstation - Better snipers (Omu revert)
     penetrateDamage: 25
     damagePenalty: 0.1
-  - type: InteractionVerbs
+  - type: InteractionVerbs # EE: Interaction Verbs
     allowedVerbs:
     - KnockOn
-  # </Goob>
 
 - type: entity
   id: BaseSecureWindoor

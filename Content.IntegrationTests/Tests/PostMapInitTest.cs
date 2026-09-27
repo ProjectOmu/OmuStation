@@ -170,6 +170,7 @@ namespace Content.IntegrationTests.Tests
             "Cluster",
             "Cog",
             //"Core",          // Not in Pool
+            "Crystal",         // Omu
             "Delta",
             "Dev",
             //"dm01-entryway", // Not in Pool

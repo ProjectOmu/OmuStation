@@ -972,6 +972,7 @@
   loadouts:
   - ClothingNeckScarfStripedCentcom
   - NanotrasenRepresentativeEnsemble
+  - NanotrasenRepresentativeOffcoat # Omu
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeBackpack
@@ -1009,6 +1010,7 @@
   - LaceupShoes
   - NanotrasenRepresentativeShoes
   - NanotrasenRepresentativeHeels
+  - NanotrasenRepresentativeHeelBoots # Omu
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeJobTrinkets
@@ -1021,6 +1023,7 @@
   name: loadout-group-ntr-gloves
   loadouts:
   - NanotrasenRepresentativeGloves
+  - HoPGloves # Omu - papercut-proof gloves
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeEnvirohelm
@@ -1353,9 +1356,17 @@
   id: RoboticistBackpack
   name: loadout-group-roboticist-backpack
   loadouts:
-  - ScientistBackpack
-  - ScientistSatchel
-  - ScientistDuffel
+  # - ScientistBackpack # Omu
+  # - ScientistSatchel # Omu
+  # - ScientistDuffel # Omu
+  - RoboticistBackpack # Omu
+  - RoboticistBackpackSatchel # Omu
+  - RoboticistBackpackDuffel # Omu
+  - RoboticistBackpackMessenger # Omu
+  - RoboticistScientistBackpack # Omu
+  - RoboticistScientistBackpackSatchel # Omu
+  - RoboticistScientistBackpackDuffel # Omu
+  - RoboticistScientistBackpackMessenger # Omu
 
 - type: loadoutGroup
   id: RoboticistOuterClothing
@@ -1510,7 +1521,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - CombatGloves
+  - GorillaGloves # Omu
 
 # Brigmedic | Omu - You mean Corpsman?
 
