@@ -62,31 +62,41 @@
       sprite: _Trauma/Clothing/Hands/Gloves/gorilla.rsi
 #    - type: Insulated # Omu - one or the other buddy
     - type: Fiber
-      fiberMaterial: fibers-insulative
+      fiberMaterial: fibers-red-and-black-woven
     - type: Armor
       modifiers:
         coefficients:
           Blunt: 0.9
           Slash: 0.9
           Piercing: 0.9
-          Shock: 0.75
+          #Shock: 0.75 not insuls
     - type: TackleModifier # Omu - tweak these values a bit
       staminaCostMultiplier: 1.5
       knockdownTimeMultiplier: 1.15
       rangeMultiplier: 1
       skillMod: 5
 
-- type: entity
-  parent: [BaseSyndicateContraband, ClothingHandsGlovesGorilla]
+- type: entity # Omu - touched basically this whole entity
+  parent: [BaseSyndicateContraband, BaseGlovesTackle]
   id: ClothingHandsGlovesGuerrilla
   name: guerrilla gloves
-  description: Superior quality combative gloves, good for performing tackle takedowns as well as absorbing electrical shocks.
+  description: Superior quality combative gloves, good for performing tackle takedowns.
   components:
     - type: Sprite
       sprite: _Trauma/Clothing/Hands/Gloves/guerrilla.rsi
-    - type: TackleModifier
-#      grabOnSuccess: true # Omu - killing hardgrab
+    - type: Fiber
+      fiberMaterial: fibers-red-and-black-woven
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.9
+          Slash: 0.9
+          Piercing: 0.9
+    - type: TackleModifier # Omu - tweak these values a bit
       staminaCostMultiplier: 1
+      knockdownTimeMultiplier: 1.15
+      rangeMultiplier: 1
+      skillMod: 5
 
 - type: entity
   parent: [BaseGlovesTackle, BaseSecurityContraband]
