@@ -117,14 +117,14 @@
             color: "#940000"
     - type: Fiber
       fiberMaterial: fibers-red
-    - type: TackleModifier
+    - type: TackleModifier # Omu - touched these a bunch too
       staminaCostMultiplier: 2
-      knockdownTimeMultiplier: 2
+      knockdownTimeMultiplier: 1.75
       speedMultiplier: 1.5
       rangeMultiplier: 3
       minDistance: 3
       skillMod: 7
-      severityModifier: .025
+      severityModifier: .35
 
 - type: entity
   parent: BaseGlovesTackle
@@ -177,4 +177,4 @@
       staminaCostMultiplier: 1.2
       knockdownTimeMultiplier: 1.75
       minDistance: 1.5
-      skillMod: -1
+      skillMod: 1
