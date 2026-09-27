@@ -89,7 +89,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCasualCentcom
-  name: casual centcom jumpsuit
+  name: casual centcomm jumpsuit # Omu
   description: Paperwork's tough.
   components:
   - type: Sprite
@@ -484,10 +484,22 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseCentcommContraband ]
   id: ClothingUniformJumpsuitGoldenLiaison
-  name: Golden Liaison CentCom Jumpsuit
+  name: Golden Liaison CentComm Jumpsuit # Omu
   description: A finely-tailored white-and-gold uniform worn by senior officials of Central Command.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Centcom/golden_liaison.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Centcom/golden_liaison.rsi
+
+# Chaplain
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMonk
+  name: monk's trousers
+  description: Simple pants, not much better than an old sack.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/Uniforms/monk.rsi
+  - type: Clothing
+    sprite: _ShitChap/Clothing/Uniforms/monk.rsi

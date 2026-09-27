@@ -501,6 +501,7 @@
     - NanoTaskCartridge
     - NewsReaderCartridge
     - AstroNavCartridge
+    - StockTradingCartridge # DeltaV - StockTrading
     - NanoChatCartridge # DeltaV
 
 - type: entity
@@ -520,6 +521,13 @@
     borderColor: "#e39751"
   - type: Icon
     state: pda-cargo
+  - type: CartridgeLoader # DeltaV
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - StockTradingCartridge # DeltaV - StockTrading
+    - NanoChatCartridge # DeltaV
 
 - type: entity
   parent: BasePDA
@@ -810,7 +818,7 @@
        pda-paramedic
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
-    accentVColor: "#2a4b5b"
+    accentVColor: "#364660" # Omu
   - type: Icon
     state: pda-paramedic
 
@@ -1001,9 +1009,11 @@
       - MedTekCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
+      - StockTradingCartridge # Delta-V
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
+
 
 #- type: entity - Completely re-making this in goob files.
 #  parent: CentcomPDA
@@ -1316,6 +1326,12 @@
     borderColor: "#3f3f74"
   - type: Icon
     state: pda-reporter
+  - type: CartridgeLoader # DeltaV
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - StockTradingCartridge # DeltaV - StockTrading
 
 - type: entity
   parent: BaseSecurityPDA

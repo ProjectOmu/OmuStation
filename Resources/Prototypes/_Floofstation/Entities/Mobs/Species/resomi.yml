@@ -235,6 +235,8 @@
       272: 1
       242: 1
       196: 1
+  - type: StealTarget # Omu
+    stealGroup: StealLittlePerson
   - type: PseudoItem
     storedOffset: 20,0
     shape:
@@ -290,6 +292,8 @@
       sprite: "Effects/creampie.rsi"
       state: "creampie_resomi"
       visible: false
+  - type: Preenable #omu RESOMI DESERVE FEATHERS TOO!!!!
+    featherPrototype: ResomiFeather
 
 - type: entity
   parent: BaseSpeciesDummy

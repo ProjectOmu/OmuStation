@@ -122,6 +122,23 @@
   - type: Clothing
     sprite: _Omu/Clothing/Hats/blueshield_mafia_fedora.rsi
 
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatArachnidEarmuffs
+  name: cobweb earmuffs
+  description: A cushioned collection of cobwebs that smell a little musty.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/arachnid_earmuffs.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/arachnid_earmuffs.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: Construction
+    graph: ClothingHeadHatArachnidEarmuffs
+    node: end
+
 ## Képis
 - type: entity
   parent: ClothingHeadHatBeretBlueshield

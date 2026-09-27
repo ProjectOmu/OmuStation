@@ -1,10 +1,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: welding tool
+  abstract: true #OMU
   parent: BaseItem
-  id: Welder
-  description: "Melts anything as long as it's fueled, don't forget your eye protection!"
+  id: WelderBase #OMU turned this into a abstract
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -135,6 +134,14 @@
     - DroneUsable # Goobstation
     - WeldingTool # Einstein Engines
 
+#Omu start
+- type: entity
+  name: welding tool
+  parent: [ WelderBase, BaseEngineeringScienceBSOBridmedicContraband ]
+  id: Welder
+  description: "Melts anything as long as it's fueled, don't forget your eye protection!"
+#Omu end
+
 - type: entity
   name: industrial welding tool
   parent: Welder
@@ -216,7 +223,7 @@
 
 - type: entity
   name: emergency welding tool
-  parent: Welder
+  parent: WelderBase #omu
   id: WelderMini
   description: "A miniature welder used during emergencies."
   components:

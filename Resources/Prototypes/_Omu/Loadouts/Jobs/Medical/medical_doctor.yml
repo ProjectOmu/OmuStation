@@ -29,6 +29,74 @@
   equipment:
     outerClothing: ClothingOuterJacketSeniorPhys
 
+# Plasmaman Stuff
+- type: loadout
+  id: LatexEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesLatex
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation? - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: SeniorPhysicianEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmSeniorPhysician
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorPhysician
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard"
+
+- type: loadout
+  id: SeniorPhysicianEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitSeniorPhysician
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorPhysician
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    
+# Back
+- type: loadout
+  id: CybersunMedicalBackpack
+  equipment:
+    back: ClothingBackpackMedicalCybersun
+  groupBy: "backpack"
+
+- type: loadout
+  id: CybersunMedicalSatchel
+  equipment:
+    back: ClothingBackpackSatchelMedicalCybersun
+  groupBy: "satchel"
+
+- type: loadout
+  id: CybersunMedicalDuffel
+  equipment:
+    back: ClothingBackpackDuffelMedicalCybersun
+  groupBy: "duffel"
+
+- type: loadout
+  id: CybersunMedicalMessenger
+  equipment:
+    back: ClothingBackpackMessengerMedicalCybersun
+  groupBy: "messenger"
+
+#Neck
+
+- type: loadout
+  id: MedicalStethoscope
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MedicalHeadMirrorTimer
+  equipment:
+    neck: ClothingNeckStethoscope
+
 #Masks
 - type: loadout
   id: SterileMaskRed

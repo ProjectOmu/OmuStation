@@ -152,17 +152,26 @@ public sealed class SurgeryBui : BoundUserInterface
 
             _window.Parts.AddChild(partButton);
 
-            foreach (var surgeryId in surgeries)
-            {
-                if (_system.GetSingleton(surgeryId) is not { } surgery ||
-                    !_entities.TryGetComponent(surgery, out SurgeryComponent? surgeryComp))
-                    continue;
+            if (oldPart != entity)
+                continue;
 
-                if (oldPart == entity && oldSurgery?.Proto == surgeryId)
+            var restored = false;
+            if (oldSurgery != null)
+            {
+                foreach (var surgeryId in surgeries)
+                {
+                    if (oldSurgery.Value.Proto != surgeryId
+                        || _system.GetSingleton(surgeryId) is not { } surgery
+                        || !_entities.TryGetComponent(surgery, out SurgeryComponent? surgeryComp))
+                        continue;
+
                     OnSurgeryPressed((surgery, surgeryComp), netEntity, surgeryId);
+                    restored = true;
+                    break;
+                }
             }
 
-            if (oldPart == entity && oldSurgery == null)
+            if (!restored)
                 OnPartPressed(netEntity, surgeries);
         }
 
@@ -272,9 +281,8 @@ public sealed class SurgeryBui : BoundUserInterface
         if (_window == null
             || !_window.IsOpen
             || _part == null
-            || !_entities.HasComponent<SurgeryComponent>(_surgery?.Ent)
-            || !_entities.TryGetComponent(_player.LocalEntity, out SurgeryTargetComponent? surgeryComp)
-            || !surgeryComp.CanOperate)
+            || _player.LocalEntity == null // Omu
+            || !_entities.HasComponent<SurgeryComponent>(_surgery?.Ent)) // Omu
             return;
 
         var next = _system.GetNextStep(Owner, _part.Value, _surgery.Value.Ent, _player.LocalEntity.Value);

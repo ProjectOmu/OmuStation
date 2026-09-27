@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: [ ClothingHeadBase, BaseEngineeringScienceBSOBridmedicContraband] #omu
   id: WeldingMaskBase
   name: welding mask
   abstract: true
@@ -36,6 +36,7 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.8
+  - type: Blindfold #omu
 
 - type: entity
   parent: WeldingMaskBase

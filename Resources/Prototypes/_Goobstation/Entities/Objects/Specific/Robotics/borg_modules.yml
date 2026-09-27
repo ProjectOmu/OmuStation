@@ -85,13 +85,13 @@
     - item: HandheldHealthAnalyzer
     - item: CyborgOmnimedTool
       # Omustation End
-      hand:
+    - hand: # omu edit - organ slot empty at base
         emptyRepresentative: BioSynthHeart # Omu
         emptyLabel: borg-slot-organs-empty-goob
         whitelist:
           components:
           - BodyPart
-          - Organ # Omu?
+          - Organ
           - TissueSample # Omu
           tags:
           - Organ
@@ -114,14 +114,13 @@
     - item: EnergyCautery
     - item: AdvancedRetractor
     - item: AdvancedBoneGel
-    - item: OrganHumanBrain
-      hand:
+    - hand: # omu edit - organ slot empty at base
         emptyRepresentative: BioSynthHeart # Omu
         emptyLabel: borg-slot-organs-empty-goob
         whitelist:
           components:
           - BodyPart
-          - Organ # Omu?
+          - Organ
           - TissueSample # Omu
           tags:
           - Organ

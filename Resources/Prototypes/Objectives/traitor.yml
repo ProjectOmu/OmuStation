@@ -39,8 +39,8 @@
 - type: entity
   parent: [BaseTraitorObjective, BaseLivingObjective]
   id: EscapeShuttleObjective
-  name: Escape to CentComm alive and unrestrained via the escape shuttle.
-  description: One of our undercover agents will debrief you when you arrive. Don't show up in cuffs.
+  name: Escape to CentComm alive and undetained on the escape shuttle.
+  description: One of our undercover agents will debrief you when you arrive. Don't show up in cuffs or with security right on your tail. #Omu
   components:
   - type: Objective
     difficulty: 1.3
@@ -267,18 +267,18 @@
 
 ## hos
 
-- type: entity
-  parent: BaseTraitorStealObjective
-  id: EnergyMagnumStealObjective
-  components:
-  - type: Objective
-    # HoS will have this on them a lot of the time so..
-    difficulty: 3
-  - type: NotJobRequirement
-    jobs: [ HeadOfSecurity ]
-  - type: StealCondition
-    stealGroup: WeaponEnergyMagnum
-    owner: job-name-hos
+#- type: entity # Omu
+#  parent: BaseTraitorStealObjective
+#  id: EnergyMagnumStealObjective
+#  components:
+#  - type: Objective
+#    # HoS will have this on them a lot of the time so..
+#    difficulty: 3
+#  - type: NotJobRequirement
+#    jobs: [ HeadOfSecurity ]
+#  - type: StealCondition
+#    stealGroup: WeaponEnergyMagnum
+#    owner: job-name-hos
 
 # Goob Start warden todo move this.
 

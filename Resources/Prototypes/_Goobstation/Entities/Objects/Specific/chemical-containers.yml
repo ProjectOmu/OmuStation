@@ -10,7 +10,7 @@
     currentLabel: reagent-name-salicylic-acid
   - type: SolutionContainerManager
     solutions:
-      beaker:
+      drink: #Omu -- Beaker --> drink
         reagents:
         - ReagentId: SalicylicAcid
           Quantity: 200
@@ -25,7 +25,7 @@
     currentLabel: reagent-name-oxandrolone
   - type: SolutionContainerManager
     solutions:
-      beaker:
+      drink: #Omu -- Beaker --> drink
         reagents:
         - ReagentId: Oxandrolone
           Quantity: 200
@@ -40,7 +40,7 @@
     currentLabel: reagent-name-holywater
   - type: SolutionContainerManager
     solutions:
-      beaker:
+      drink: #Omu -- Beaker --> drink
         reagents:
         - ReagentId: Holywater
           Quantity: 200

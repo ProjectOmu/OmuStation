@@ -691,12 +691,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             comp.IsInLesserForm = false;
             newUid = TransformEntity(target, data: data, comp: comp, persistentDna: persistentDna);
             RemoveAllChangelingEquipment(target, comp);
-            EnsureComp<JumpComponent>(target);          // omu ensure has jumping. For ling leap
         }
 
         if (newUid != null)
         {
             PlayMeatySound((EntityUid) newUid, comp);
+            EnsureComp<JumpComponent>(newUid.Value);          // omu ensure has jumping. For ling leap. Coping and seething
         }
 
         return true;

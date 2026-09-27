@@ -19,6 +19,13 @@
     sprite: _Omu/Objects/Consumable/Drinks/mug_aa.rsi
     state: icon
 
+- type: stealTargetGroup
+  id: StealLittlePerson
+  name: steal-target-groups-littleperson
+  sprite:
+   sprite: Clothing/Back/Duffels/duffel.rsi
+   state: icon
+
 # Legacy wizden content:
 
 - type: stealTargetGroup

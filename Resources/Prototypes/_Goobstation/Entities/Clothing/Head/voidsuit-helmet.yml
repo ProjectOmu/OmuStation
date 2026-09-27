@@ -241,23 +241,23 @@
   description: A dark green helmet with glowing cyan nodes, a mirrored visor, and a mounted side light.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Helmets/ntr_experimental_helmet.rsi
+    sprite: _Goobstation/Clothing/Head/Helmets/ntr_helmet.rsi # Omu - changed sprites
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Helmets/ntr_experimental_helmet.rsi
-    clothingVisuals:
-      head:
-      - state: equipped-head
-      head-resomi:
-      - state: equipped-head-resomi
+    sprite: _Goobstation/Clothing/Head/Helmets/ntr_helmet.rsi # Omu - changed sprites
+#    clothingVisuals: # Omu edit - commented this out
+#      head:
+#      - state: equipped-head
+#      head-resomi:
+#      - state: equipped-head-resomi
   - type: PointLight
     color: white
     radius: 7
     energy: 5
-  - type: ToggleableVisuals
-    clothingVisuals:
-      head:
-      - state: equipped-head-light
-        shader: unshaded
+#  - type: ToggleableVisuals # Omu edit - commented this out
+#    clothingVisuals:
+#      head:
+#      - state: equipped-head-light
+#        shader: unshaded
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000

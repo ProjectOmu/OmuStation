@@ -24,12 +24,26 @@
     jumpsuit: ClothingUniformJumpsuitCentcomAgent
   groupBy: "jumpsuit"
 
+- type: loadout
+  id: CentcommTurtleneck
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficer
+
 
 - type: loadout
   id: CCAgentJumpskirt
   equipment:
     jumpsuit: CentcomAgentSkirt
   groupBy: "jumpskirt"
+
+# Neck
+- type: loadout
+  id: NanotrasenRepresentativeOffcoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorNanotrasenRepresentative
+  equipment:
+    neck: ClothingNeckCloakNTR
 
 # Outer Clothing
 - type: loadout
@@ -41,6 +55,22 @@
   id: NanotrasenRepresentativeLongcoat
   equipment:
     outerClothing: ClothingLongcoatCentComm
+
+- type: loadout
+  id: CentcommWinterCoat
+  equipment:
+    outerClothing: ClothingOuterWinterCentcom
+
+- type: loadout
+  id: ExpensiveCoat
+  equipment:
+    outerClothing: ClothingOuterCoatExpensive
+
+# Shoes
+- type: loadout # Omu - Ported from Funky Station
+  id: NanotrasenRepresentativeHeelBoots
+  equipment:
+    shoes: ClothingShoesHighheelBootsNanotrasen
 
 # Hat
 - type: loadout

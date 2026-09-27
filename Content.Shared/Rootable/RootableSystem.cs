@@ -1,4 +1,4 @@
-﻿using Content.Shared.Actions;
+using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
@@ -253,6 +253,6 @@ public sealed class RootableSystem : EntitySystem
     private void OnRefreshMovementSpeed(Entity<RootableComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
         if (ent.Comp.Rooted)
-            args.ModifySpeed(ent.Comp.SpeedModifier);
+            args.ModifySpeed(ent.Comp.SpeedModifier, true); // Omu - Rootable comp needs to bypass Diona's inherent immunity to speed
     }
 }

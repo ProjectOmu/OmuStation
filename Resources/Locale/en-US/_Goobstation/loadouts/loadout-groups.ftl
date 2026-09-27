@@ -101,9 +101,11 @@ loadout-group-hop-envirogloves = Head of Personnel envirogloves
 loadout-group-hop-gloves = Head of Personnel gloves
 
 # CentCom Officer
-loadout-group-centcom-officer-envirohelm = CentCom Officer envirohelm
-loadout-group-centcom-officer-envirosuit = CentCom Officer envirosuit
-loadout-group-centcom-officer-envirogloves = CentCom Officer envirogloves
+# Omu start
+loadout-group-centcom-officer-envirohelm = CentComm Officer envirohelm
+loadout-group-centcom-officer-envirosuit = CentComm Officer envirosuit
+loadout-group-centcom-officer-envirogloves = CentComm Officer envirogloves
+# Omu end
 
 # Botanist
 loadout-group-botanist-envirohelm = Botanist envirohelm

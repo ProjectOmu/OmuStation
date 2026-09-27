@@ -55,11 +55,29 @@ public sealed partial class BinglePitComponent : Component
     public SoundSpecifier FallingSound = new SoundPathSpecifier("/Audio/Effects/falling.ogg");
 
     [DataField]
-    public EntProtoId GhostRoleToSpawn = "MobBingleRandom"; // Omu
+    public EntProtoId GhostRoleToSpawn = "MobBingle"; // Omu
+
+    /// <summary>
+    /// Rare skin variant of <see cref="GhostRoleToSpawn"/>.
+    /// </summary>
+    [DataField]
+    public EntProtoId RareGhostRoleToSpawn = "SpawnPointGhostTurkle";
+
+    /// <summary>
+    /// Chance to spawn <see cref="RareGhostRoleToSpawn"/> instead of <see cref="GhostRoleToSpawn"/>.
+    /// 1/50, matching the weights the old MobBingleRandom entity table used.
+    /// </summary>
+    [DataField]
+    public float RareGhostRoleChance = 0.02f;
 
     /// <summary>
     /// how many bingles to spawn on pit spawn
     /// </summary>
     [DataField]
     public int StartingBingles = 3;
+
+    /// <summary>
+    /// Bunch of available bingle ghost role
+    /// </summary>
+    public HashSet<EntityUid?> BingleGhostRoles = [];
 }

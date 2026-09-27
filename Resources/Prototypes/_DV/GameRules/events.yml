@@ -40,10 +40,10 @@
     minimumPlayers: 15
     weight: 4 # Omu, DV has this at 6
     eventType: Neutral
-    startAnnouncement: cosmiccult-announce-tier2-warning
-    startAnnouncementColor: "#cae8e8"
-    startAudio:
-      path: /Audio/_DV/CosmicCult/tier2.ogg
+    # startAnnouncement: cosmiccult-announce-tier2-warning #omu start
+    # startAnnouncementColor: "#cae8e8"
+    # startAudio:
+    #   path: /Audio/_DV/CosmicCult/tier2.ogg #omu end
   - type: GameRule
     chaosScore: -50
   - type: RandomMultipleSpawnRule

@@ -198,6 +198,9 @@
         - !type:MetabolizerTypeCondition
           type: [ Plasmaman ]
           inverted: true
+        - !type:MetabolizerTypeCondition # Omu
+          type: [ Hydrakin ]
+          inverted: true
         - !type:ReagentCondition
           reagent: Plasma
           min: 1.5
@@ -321,6 +324,10 @@
         minScale: 1.5
         clear: True
         time: 5
+        conditions:
+        - !type:MetabolizerTypeCondition # Omu
+          type: [Hydrakin]
+          inverted: true
       - !type:HealthChange # Shitmed - Cybernetic Organs
         conditions:
         - !type:MetabolizerTypeCondition

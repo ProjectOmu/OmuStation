@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "cargo_market, cargo_sale by whatston3",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "computer",
+      "directions": 4
+    },
+    {
+      "name": "generic_keyboard",
+      "directions": 4
+    },
+    {
+      "name": "generic_keys",
+      "directions": 4
+    },
+    {
+      "name": "cargo_sale",
+      "directions": 4,
+      "delays": [
+        [
+          0.9,
+          0.9
+        ],
+        [
+          0.9,
+          0.9
+        ],
+        [
+          0.9,
+          0.9
+        ],
+        [
+          0.9,
+          0.9
+        ]
+      ]
+    }
+  ]
+}

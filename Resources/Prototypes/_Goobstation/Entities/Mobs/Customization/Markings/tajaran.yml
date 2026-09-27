@@ -11,10 +11,10 @@
     state: tail
 
 - type: marking
-  id: TajaranTailAnim
+  id: TajaranTailAnimAnimated # Omu - Tailwag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Tajaran]
+  speciesRestriction: [] # Omu - Tailwag
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/tails.rsi
     state: tail_anim
@@ -31,10 +31,10 @@
     state: tail_rings
 
 - type: marking
-  id: TajaranTailAnimRings
+  id: TajaranTailAnimRingsAnimated # Omu - Tailwag
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Tajaran]
+  speciesRestriction: [] # Omu - Tailwag
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/tails.rsi
     state: tail_anim
