@@ -75,7 +75,7 @@ public sealed partial class TackleModifierComponent : Component
     /// Modifier to how much damage/paralyze time will the user suffer from when hitting a wall
     /// </summary>
     [DataField]
-    public float SeverityModifier = 0.2f;
+    public float SeverityModifier = 0.3f; // Omu .2 -> .3
 
     /// <summary>
     /// Base damage when hitting a wall, multiplier by severity that is dependent on velocity
@@ -105,5 +105,5 @@ public sealed partial class TackleModifierComponent : Component
     /// Base knockdown time of target during collision
     /// </summary>
     [DataField]
-    public float BaseTargetKnockdownTime = 2f;
+    public float BaseTargetKnockdownTime = 1.25f; // Omu 2 -> 1.25
 }
