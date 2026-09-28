@@ -34,7 +34,6 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
         SubscribeLocalEvent<NodeCrawlerComponent, InhaleLocationEvent>(OnInhaleLocation);
         SubscribeLocalEvent<NodeCrawlerComponent, ExhaleLocationEvent>(OnExhaleLocation);
         SubscribeLocalEvent<NodeCrawlerComponent, AtmosExposedGetAirEvent>(OnGetAir);
-        SubscribeLocalEvent<NodeCrawlerComponent, IsUnequippingAttemptEvent>(OnUnequipAttempt); //Omu
         SubscribeLocalEvent<NodeCrawlerComponent, AttemptMeleeEvent>(OnMeleeAttempt); //Omu
     }
 
@@ -215,7 +214,7 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
         Dirty(ent);
     }
 
-    private void OnCrawlerStartup(Entity<NodeCrawlerComponent> ent, ref ComponentStartup args)      //Omu release me
+    private void OnCrawlerStartup(Entity<NodeCrawlerComponent> ent, ref ComponentStartup args)      //Omu start release me
     {
         ent.Comp.NetworkedComponents = new List<string>();
         if (ent.Comp.RevealedComponents is not null)
@@ -226,14 +225,6 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
             }
 
         Dirty(ent);
-    }
-
-    private void OnUnequipAttempt(Entity<NodeCrawlerComponent> ent, ref IsUnequippingAttemptEvent args)     //Prevent unequipping in vents
-    {
-        if (HasComp<NodeCrawlerMovementComponent>(ent))
-        {
-            args.Cancel();
-        }
     }
 
     private void OnMeleeAttempt(Entity<NodeCrawlerComponent> ent, ref AttemptMeleeEvent args)     //Prevent unequipping in vents
