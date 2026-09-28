@@ -8,6 +8,7 @@ using Content.Shared.Popups;
 using Content.Shared._Omu.Entities.Necrochimeroid;
 using Content.Shared.Body.Part;
 using System.Linq;
+using Content.Shared.Mind;
 
 namespace Content.Server._Omu.Entities.Necrochimeroid;
 
@@ -59,6 +60,7 @@ public sealed class NecroChimeroidSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -68,6 +70,9 @@ public sealed class NecroChimeroidSystem : EntitySystem
 
         SubscribeLocalEvent<NecroChimeroidComponent, NecroEnterEvent>(OnEnterAttempt);
         SubscribeLocalEvent<NecroChimeroidComponent, NecroEnterDoafter>(OnEnterDoAfter);
+
+        SubscribeLocalEvent<NecroChimeroidComponent, NecroLeaveEvent>(OnEjectAttempt);
+        SubscribeLocalEvent<NecroChimeroidComponent, NecroEjectDoafter>(OnEjectDoAfter);
     }
     private void OnStartup(EntityUid uid, NecroChimeroidComponent component, ref ComponentStartup args)
     {
@@ -139,8 +144,9 @@ public sealed class NecroChimeroidSystem : EntitySystem
                 return;
             }
 
-            if (_body.AddOrganToFirstValidSlot(head, uid))
+            if (_mind.TryGetMind(uid, out var NcMindId, out _) && _body.AddOrganToFirstValidSlot(head, uid))
             {
+                _mind.TransferTo(NcMindId, args.Target);
                 return;
             }
 
@@ -176,6 +182,38 @@ public sealed class NecroChimeroidSystem : EntitySystem
     private void OnEnterDoAfter(EntityUid uid, NecroChimeroidComponent component, NecroEnterDoafter args)
     {
         _body.InsertOrgan(uid, uid, args.Container);
+    }
+
+    private void OnEjectAttempt(EntityUid uid, NecroChimeroidComponent component, ref NecroLeaveEvent args)
+    {
+        if (!component.Burrowed)
+        {
+            _popup.PopupPredicted(Loc.GetString("necrochimeroid-enter-fail-burrow"), uid, uid);
+            args.Handled = true;
+            return;
+        }
+        var doAfterArgs = new DoAfterArgs(
+            EntityManager,
+            uid,
+            component.EnterDuration,
+            new NecroEjectDoafter(),
+            uid,
+            uid)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            NeedHand = false,
+        };
+
+        if (_doAfterSystem.TryStartDoAfter(doAfterArgs))
+        {
+            args.Handled = true;
+        }
+    }
+
+    private void OnEjectDoAfter(EntityUid uid, NecroChimeroidComponent component, ref NecroEjectDoafter args)
+    {
+
     }
 }
     #endregion

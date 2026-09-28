@@ -12,3 +12,8 @@ public sealed partial class NecroEnterDoafter : SimpleDoAfterEvent
 {
     public string Container = string.Empty;
 }
+
+[Serializable, NetSerializable]
+public sealed partial class NecroEjectDoafter : SimpleDoAfterEvent
+{
+}
