@@ -128,7 +128,7 @@
     cellSlotId: cell_slot
     fitsInCharger: true
   - type: PowerCellDraw # imp
-    drawRate: 0
+    drawRate: 0 # Omu
   - type: ItemSlots # imp
     slots:
       cell_slot:
