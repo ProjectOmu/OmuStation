@@ -134,7 +134,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     public void Cycle(EntityUid uid, SupermatterComponent sm)
     {
-        if (sm.Timelocked < (_gameTiming.CurTime.TotalMinutes - sm.Timetounlock) && sm.Varlocked == true)        //omu start
+        if (sm.Timelocked < (_gameTiming.CurTime.TotalMinutes - sm.Timetounlock) && sm.Varlocked == true)        //omu start; sm.Varlocked is called sm.Surge on Goobcode, they are the same variable with two different names
         {
             sm.Varlocked = false;
             _achat.SendAdminAlert($"SM variables unlocked at time {_gameTiming.CurTime.TotalMinutes}");
@@ -216,7 +216,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             }
             else if (eventtorun.EventType == "Surge")
             {
-                sm.Varlocked = true;
+                sm.Varlocked = true; // Omu: sm.Varlocked is called sm.Surge on Goob see SupermatterComponent's comment for more details
                 _achat.SendAdminAlert($"{sm.Varlocked} = supermatter surge begun at time: {_gameTiming.CurTime.TotalMinutes}");
                 sm.Timelocked = _gameTiming.CurTime.TotalMinutes;
                 sm.GasEfficiencyFactorChanged = true;
@@ -736,7 +736,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 case "EmitterBoltExcitatory":
                     {
                         sm.Damage += 1f;
-                        sm.SMAngerValue += 20f;
+                        sm.SMAngerValue += 5f;
                         _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
                         $"SUPERMATTER hit by angering bolt AT {Transform(uid).Coordinates}");
                         QueueDel(target);
@@ -745,7 +745,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 case "EmitterBoltEmissive":
                     {
                         sm.Damage += 1f;
-                        if (!sm.Varlocked && sm.RadiationOutputFactor < 0.5)
+                        if (!sm.Varlocked && sm.RadiationOutputFactor < 0.09)
                             sm.RadiationOutputFactor += 0.05f;
                         sm.HazardGas = true;
                         sm.TimeSinceHazardGas = 0f;
@@ -911,7 +911,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         {
             // todo omu what the fuck is this shit
             var diff = sm.RadiationOutputFactor - sm.RadiationOutputFactorSetpoint;
-            diff = diff/50;
+            diff = diff/5;
             Math.Round(diff, 5);
             if (diff >0)
                 sm.RadiationOutputFactor = sm.RadiationOutputFactor - diff;
