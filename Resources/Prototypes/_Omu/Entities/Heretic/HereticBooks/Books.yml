@@ -15,6 +15,7 @@
 
 - type: entity
   parent: BookBase
+  abstract: true
   id: HereticTomeBase
   name: HereticTomeBase
   description: Something is off about this book - you shouldn't see this
@@ -91,3 +92,14 @@
     knowledgeGain: 2
   - type: Paper
     content: book-text-mansus-wolf   # Werewolf lore
+
+- type: entity
+  id: HereticTomeLodestone
+  name: Channeling Base Forces
+  description: Something is off about this book.
+  components:
+  - type: HereticTome
+    knowledgeGain: 1
+    productHereticKnowledge: LodestoneRitual
+  - type: Paper
+    content: book-text-lodestone
