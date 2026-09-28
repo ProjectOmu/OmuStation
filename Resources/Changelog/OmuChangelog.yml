@@ -8116,3 +8116,19 @@ Entries:
       message: Upstream merge, check Goob changelog ingame for further details.
   id: 1055
   time: '2026-09-27T21:31:39.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: >-
+        Added Smuggler crates, they can be mined on the vgroid and come with
+        some random items alongside one unique item!
+    - type: Tweak
+      message: reduced vgroid ore spawn rates
+  id: 1056
+  time: '2026-09-27T23:14:46.0000000+00:00'
+- author: Naaatch
+  changes:
+    - type: Fix
+      message: Some alternate job titles are no longer cut off on ID cards and PDAs.
+  id: 1057
+  time: '2026-09-27T23:41:25.0000000+00:00'
