@@ -7,6 +7,7 @@
     - id: ReinforcementRadioSmugglerCrateIPC
     - id: ReinforcementRadioSmugglerCrateBorg
     - id: OrganEyesOfGod
+    - id: MiningTome
 
 - type: entityTable     #Todo - more gamer lot
   id: SmugglerCrateSyndieLoot
@@ -148,6 +149,36 @@
       - Inorganic
       - Silicon
       - SiliconRadiation
+
+- type: entity
+  parent: HereticTomeBase
+  id: MiningTomePlasma
+  name: How 2 Plasma Cutter!
+  description: Its partially written in Finnish... seems awfully similar to a joke
+  components:
+  - type: HereticTome
+    knowledgeGain: 0
+    productAction: ActionPlasmaBeam # n o i t a
+  - type: Paper
+    content: book-text-plasma-cutter    # It kills you
+
+- type: entity
+  id: LazarusImplanter
+  suffix: Mindshield
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: MindShieldImplant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: LazarusImplant
+  name: lazarus implant
+  description: This implant will ensure loyalty to Nanotrasen, in animals...
+  categories: [ HideSpawnMenu ]
+  components:
+   - type: SubdermalImplant
+   - type: LazarusImplant
 
 #- type: entity
 #  parent: OrganLaserEyes

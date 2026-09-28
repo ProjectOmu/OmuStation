@@ -324,11 +324,11 @@
 
 - type: entity
   id: MindShieldImplanter
-  suffix: Mindshield
+  suffix: Lazarus Implanter
   parent: BaseImplantOnlyImplanter
   components:
   - type: Implanter
-    implant: MindShieldImplant
+    implant: LazarusImplant
 
 # Centcomm implanters
 
