@@ -2,6 +2,7 @@
   parent: [ AnomalyCorePyroclastic, BaseSetSelector ]
   id: LodestoneSelector
   name: lodestone
+  suffix: ""
   description: Its power is yet to be determined!
   components:
   - type: Sprite
@@ -18,6 +19,7 @@
   parent: AnomalyCorePyroclastic
   id: LodestoneFire
   name: lodestone of forge
+  suffix: ""
   description: The intensity of the forge flows through this lodestone, granting the user great protection from fire.
   components:
   - type: IgnitionSource
