@@ -366,20 +366,26 @@
     slots:
     - HEAD
   - type: EmitSoundOnPickup
-    sound: /Audio/_Starlight/Voice/Resomi/resomi_scree1.ogg
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_1.ogg
   - type: EmitSoundOnUse
-    sound: /Audio/_Starlight/Voice/Resomi/resomi_scree2.ogg
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
   - type: EmitSoundOnActivate
-    sound: /Audio/_Starlight/Voice/Resomi/resomi_scree1.ogg
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
   - type: EmitSoundOnTrigger
-    sound: /Audio/_Starlight/Voice/Resomi/resomi_scree2.ogg
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
   - type: EmitSoundOnThrow
-    sound: /Audio/_Starlight/Voice/Resomi/resomi_scree1.ogg
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
   - type: EmitSoundOnCollide
     sound: /Audio/Effects/hit_kick.ogg
   - type: MeleeWeapon
     wideAnimationRotation: 180
-    soundHit: /Audio/_Starlight/Voice/Resomi/resomi_scree2.ogg
+    soundHit: 
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree2.ogg
 
 - type: entity
   parent: BasePlushie
