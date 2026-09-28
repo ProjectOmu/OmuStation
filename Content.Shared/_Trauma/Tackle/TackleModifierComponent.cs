@@ -53,20 +53,22 @@ public sealed partial class TackleModifierComponent : Component
     [DataField]
     public float StamResistModifier = 5f; // Omu - 4 -> 5
 
-    /// <summary>
+    /// <summary> // Omu - kill
     /// If result modifier exceeds this value, target will be disarmed on knockdown
     /// </summary>
     //[DataField]
     //public float DisarmThreshold = 3f; // Omu 1.5 -> 3
 
     /// <summary>
-    /// Bonus modifier to user tackle
+    /// Bonus modifier to user tackle as well as armor knockdown gates
+    /// Each round int represtents 10% more stamina resistance that tackle can overcome
     /// </summary>
     [DataField]
     public float SkillMod;
 
     /// <summary>
     /// If true, user will grab target on successful tackle outcome
+    /// Omu - is currently unused but left for possible future use or admins messing around
     /// </summary>
     [DataField]
     public bool GrabOnSuccess;
