@@ -33,9 +33,24 @@
         - ReagentId: Letoferol
           Quantity: 15
 
+- type: entity
+  id: BottleLetoferol
+  suffix: letoferol
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-letoferol
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Letoferol
+          Quantity: 30
+
 - type: startingGear
   id: LetoStartingGear
   storage:
     back:
     - PillLetoferol
-    - SyringeLetoferol
+    - BottleLetoferol

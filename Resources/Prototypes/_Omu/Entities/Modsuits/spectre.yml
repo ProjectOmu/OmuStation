@@ -178,8 +178,12 @@
           - Tesla
       # can touch containment fields safely
       - type: ContainmentFieldIgnore
-      - type: VentCrawler
-        allowInventory: true
+      - type: NodeCrawler
+        revealedComponents:
+        - Content.Shared.Atmos.Components.PipeAppearanceComponent
+        exitNodes:
+          components:
+          - NodeCrawlVentAccess
     # spectre modsuit stealth
     - type: ComponentToggler
       parent: true

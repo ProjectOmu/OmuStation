@@ -15,9 +15,14 @@
     - prefRoles: [ LetoferolSleeper ]
       max: 1
       playerRatio: 20
-      chaosScore: 600
-      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster ]
+      chaosScore: 1400
+      blacklist:
+        components:
+        - AntagImmune
+        - CommandStaff
       startingGear: LetoStartingGear
+      mindRoles:
+      - MindRoleChimeraInitial
   - type: Tag
     tags:
     - RoundstartAntag
