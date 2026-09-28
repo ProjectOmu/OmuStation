@@ -170,6 +170,7 @@ job-name-alt-detective-1 = Forensic Investigator
 job-name-alt-detective-2 = Inspector
 job-name-alt-detective-3 = Lead Investigator
 
+# unused; Sergeant does not get alternative titles
 job-name-alt-security-sergeant-1 = Patrol Leader
 job-name-alt-security-sergeant-2 = Drill Instructor
 
