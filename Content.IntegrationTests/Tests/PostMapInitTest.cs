@@ -151,6 +151,7 @@ namespace Content.IntegrationTests.Tests
             "Reach",
             "Saltern",
             //"Serpentcrest", // omu serpentcrest kil
+			"Shoukou",
             "Snowball",
             "TestTeg",        // Dev map
             "Train"           // Not in pool
@@ -170,6 +171,7 @@ namespace Content.IntegrationTests.Tests
             "Cluster",
             "Cog",
             //"Core",          // Not in Pool
+            "Crystal",         // Omu
             "Delta",
             "Dev",
             //"dm01-entryway", // Not in Pool
@@ -194,6 +196,7 @@ namespace Content.IntegrationTests.Tests
             "Packed",
             "Reach",
             "Saltern",
+            "Shoukou",
             //"Serpentcrest",  // Not in Pool
             //"Snowball",      // Not in Pool
             //"TestTeg",       // Not in Pool

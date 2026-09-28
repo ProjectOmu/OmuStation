@@ -37,7 +37,7 @@ public sealed partial class NodeCrawlerComponent : Component
     /// How long it takes to enter a node.
     /// </summary>
     [DataField]
-    public TimeSpan EnterDelay = TimeSpan.FromSeconds(0.5f);
+    public TimeSpan EnterDelay = TimeSpan.FromSeconds(2.5f); // Omu, was 0.5, move it to be in line with ventcrawl's doafter
 }
 
 [Serializable, NetSerializable]

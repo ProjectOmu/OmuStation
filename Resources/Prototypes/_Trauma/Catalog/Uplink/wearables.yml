@@ -1,4 +1,19 @@
 - type: listing
+  id: UplinkGuerrillaGloves
+  name: uplink-guerrilla-name
+  description: uplink-guerrilla-desc
+  productEntity: ClothingHandsGlovesGuerrilla
+  cost:
+    Telecrystal: 10 # Omu no hardgrab so made 20 -> 10
+  categories:
+  - UplinkWearables 
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
   id: UplinkSlayerCoat
   name: uplink-slayer-coat-name
   description: uplink-slayer-coat-desc

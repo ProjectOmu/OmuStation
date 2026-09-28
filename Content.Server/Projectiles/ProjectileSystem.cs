@@ -88,8 +88,16 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                 LogImpact.Medium,
                 $"Projectile {ToPrettyString(uid):projectile} shot by {ToPrettyString(component.Shooter!.Value):user} hit {otherName:target} and dealt {modifiedDamage.GetTotal():damage} damage");
 
-        component.ProjectileSpent = !TryPenetrate((uid, component), modifiedDamage, damageRequired,
-            target); // Goob, also modifieddamage
+            component.ProjectileSpent = !TryPenetrate((uid, component), modifiedDamage, damageRequired,
+                target); // Goob, also modifieddamage
+
+            // Omu start - required for hardlight bow to work properly
+            if (component.Penetrate)
+            {
+                component.ProjectileSpent = false;
+            }
+            // Omu end
+
         }
         else
         {

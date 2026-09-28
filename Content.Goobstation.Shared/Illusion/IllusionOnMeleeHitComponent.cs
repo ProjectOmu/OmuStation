@@ -23,4 +23,7 @@ public sealed partial class IllusionOnMeleeHitComponent : Component
 
     [DataField]
     public ComponentRegistry Components = new();
+
+    [DataField]
+    public bool RequireWielding = true;//Omu
 }
