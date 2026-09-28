@@ -7,7 +7,9 @@ using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
 using Content.Shared._DV.NodeCrawl;
 using Content.Shared.Atmos;
+using Content.Shared.Inventory.Events;
 using Content.Shared.NodeContainer;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Reflection;
 using Robust.Shared.Utility;
 
@@ -32,6 +34,8 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
         SubscribeLocalEvent<NodeCrawlerComponent, InhaleLocationEvent>(OnInhaleLocation);
         SubscribeLocalEvent<NodeCrawlerComponent, ExhaleLocationEvent>(OnExhaleLocation);
         SubscribeLocalEvent<NodeCrawlerComponent, AtmosExposedGetAirEvent>(OnGetAir);
+        SubscribeLocalEvent<NodeCrawlerComponent, IsUnequippingAttemptEvent>(OnUnequipAttempt); //Omu
+        SubscribeLocalEvent<NodeCrawlerComponent, AttemptMeleeEvent>(OnMeleeAttempt); //Omu
     }
 
     private GasMixture? GetExistingAir(Entity<NodeCrawlerMovementComponent> movement)
@@ -222,5 +226,21 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
             }
 
         Dirty(ent);
-    }       //Omu end
+    }
+
+    private void OnUnequipAttempt(Entity<NodeCrawlerComponent> ent, ref IsUnequippingAttemptEvent args)     //Prevent unequipping in vents
+    {
+        if (HasComp<NodeCrawlerMovementComponent>(ent))
+        {
+            args.Cancel();
+        }
+    }
+
+    private void OnMeleeAttempt(Entity<NodeCrawlerComponent> ent, ref AttemptMeleeEvent args)     //Prevent unequipping in vents
+    {
+        if (HasComp<NodeCrawlerMovementComponent>(ent))
+        {
+            args.Cancelled = false;
+        }
+    }                  //Omu end
 }
