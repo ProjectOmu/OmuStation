@@ -38,7 +38,7 @@
 
 - type: entity
   name: Calvin    #Wilson the volleyball, Calvin Suitable pickaxe name.
-  parent: Pickaxe
+  parent: PickaxeDiamond
   suffix: Pickaxe
   id: SmugglerPickaxe
   description: Notched to perfection, for jamming it into rocks. Worn with age, now you have a friend to talk to!
@@ -75,7 +75,7 @@
   id: ReinforcementRadioSmugglerCrateIPC
   name: Damaged Silicon Parts
   description: Maybe it can be repaired?
-  suffix: NukeOps
+  suffix: IPC
   components:
   - type: Sprite
     sprite: /Textures/_Omu/Objects/SmugglerLoot.rsi
@@ -97,15 +97,15 @@
   id: ReinforcementRadioSmugglerCrateBorg
   name: Damaged Silicon Parts
   description: Maybe it can be repaired?
-  suffix: NukeOps
+  suffix: Borg
   components:
   - type: Sprite
     sprite: /Textures/_Omu/Objects/SmugglerLoot.rsi
     layers:
     - state: ipc_rusted
   - type: GhostRole
-    name: smuggler-silicon-ipc-name
-    description: smuggler-silicon-ipc-desc
+    name: smuggler-silicon-borg-name
+    description: smuggler-silicon-borg-desc
     rules: ghost-role-information-familiar-rules
     mindRoles:
     - MindRoleGhostRoleSoloAntagonistGoob
@@ -117,7 +117,7 @@
 
 - type: entity
   id: BorgChassisDerelictSyndicateHelpimov
-  parent: BorgChassisDerelictSyndicateAssault
+  parent: PlayerBorgDerelictSyndicateAssaultBattery
   name: derelict syndicate assasult cyborg
   description: A lean, mean killing machine with access to a variety of deadly modules. This one is in a state of great disrepair despite your best efforts.
   components:
