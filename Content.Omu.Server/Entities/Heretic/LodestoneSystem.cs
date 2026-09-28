@@ -36,18 +36,27 @@ public sealed class LodestoneSystem : EntitySystem
             ent.Comp.ComponentsActuallyAdded.Add(comp.Key);
         }
 
-        if (ent.Comp.ComponentsActuallyAdded is not null)
+        if (ent.Comp.ComponentsActuallyAdded.Count > 0)
             _popup.PopupEntity(Loc.GetString("lodestone-power"), args.Following, args.Following, PopupType.Medium);
     }
 
     public void OnStopFollowing(Entity<LodestoneComponent> ent, ref StoppedFollowingEntityEvent args)
     {
+        List<string> badComps = new();
         foreach (var comp in ent.Comp.ComponentsActuallyAdded)
         {
             if (!_componentFactory.TryGetRegistration(comp, out var registration) || !_entManager.HasComponent(args.Following, registration.Type))
+            {
+                // Tag for clean up
+                badComps.Add(comp);
                 continue;
+            }
 
             _entManager.RemoveComponent(args.Following, registration.Type);
         }
+
+        // Clean up removed/bad comps
+        foreach (var bad in badComps)
+            ent.Comp.ComponentsActuallyAdded.Remove(bad);
     }
 }
