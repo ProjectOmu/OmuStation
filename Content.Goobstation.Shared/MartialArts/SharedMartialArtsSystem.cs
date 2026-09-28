@@ -91,8 +91,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly SharedSprintingSystem _sprinting = default!;
-    [Dependency] private readonly TagSystem _tag = default!; // Omu
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly TagSystem _tag = default!; // Omu
 
     public static readonly EntProtoId MartsGenericSlow = "MartialArtsGenericSlowdownEffect";
 

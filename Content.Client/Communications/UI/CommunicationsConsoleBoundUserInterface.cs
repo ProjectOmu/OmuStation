@@ -3,6 +3,7 @@
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Communications;
+using Content.Goobstation.Shared.VoiceChat; // Goobstation - Voice chat
 using Robust.Client.UserInterface;
 using Robust.Shared.Configuration;
 
@@ -29,6 +30,8 @@ namespace Content.Client.Communications.UI
             _menu.OnAlertLevel += AlertLevelSelected;
             _menu.OnEmergencyLevel += EmergencyShuttleButtonPressed;
             _menu.SecureTerminalButton.OnPressed += _ => SendMessage(new CommunicationsConsoleOpenSecureTerminalMessage()); // Starlight-edit: Secure Command Terminal
+            _menu.Console = Owner; // Goobstation - Voice chat
+            _menu.OnVoiceBroadcast += () => SendMessage(new VoiceBroadcastToggleMessage()); // Goobstation - Voice chat
         }
 
         public void AlertLevelSelected(string level)
