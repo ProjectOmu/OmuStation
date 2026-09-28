@@ -1,0 +1,19 @@
+- type: entity
+  parent: BaseFoodCondimentPacketDrink
+  id: FoodCondimentPacketMicroplastics
+  name: Microplastics
+  description: Who would season food with this?
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Microplastics
+          Quantity: 10
+  - type: Sprite
+  - type: Icon
+    state: packet-mixed
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: packet-solid-
