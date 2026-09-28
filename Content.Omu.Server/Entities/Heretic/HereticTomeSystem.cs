@@ -54,8 +54,6 @@ public sealed class HereticTomeSystem : EntitySystem
     private void OnInteract(EntityUid book, HereticTomeComponent component, ref BoundUIClosedEvent args)
     {
         var actor = args.Actor;       //Get the players entity!
-
-
         var size = component.FontSize;
         var cannotread = Loc.GetString(component.Unreadable);
         var loc = Loc.GetString(component.Unreadable, ("size", size), ("text", component.Unreadable));
@@ -97,7 +95,6 @@ public sealed class HereticTomeSystem : EntitySystem
             fascAmount = fascAmount + 1; //One extra fascination per hereticknowledge gained!
         if (component.ProductAction != null)
             fascAmount = fascAmount + 1; //One extra fascination for an action gained!
-
 
         RaiseLocalEvent(actor, new FascinationChangedArgs { Amount = fascAmount });
 
