@@ -274,9 +274,9 @@
     wideAnimationRotation: -90
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
-      
+
 - type: entity
-  parent: BasePlushie   
+  parent: BasePlushie
   id: PlushieBenryOmuCrew
   name: benry benry plushie
   description: A plushie of a stupid Allulalo, known for being heavily abused by crew members. Throw it at the nearest wall!
@@ -350,6 +350,44 @@
     soundHit: /Audio/_Impstation/Allulalo/allulalo_scream.ogg
 
 - type: entity
+  parent: BasePlushie
+  id: PlushieGnashOmuCrew
+  name: gnash plushie
+  description: A red Avali, dresses up as atmospheric technician. You taste metal and smell ammonia near it.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/gnash.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/gnash.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/gnash.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_scream.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/Gasp/male_deathgasp_3.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+ 
+ - type: entity
   parent: BasePlushie   
   id: PlushiePoemOfExpressionOmuCrew
   name: Poem of Expression Plushie
