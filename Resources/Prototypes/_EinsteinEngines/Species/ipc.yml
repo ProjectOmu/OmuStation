@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: species
@@ -41,13 +35,13 @@
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking # Omu
+    Chest: MobIPCChest
     FacialHair: MobHumanoidAnyMarking # Omu
     Snout: MobHumanoidAnyMarking
     #omu start
-    Undershirt: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking # Note, these layers are mapped in the base species
+    UndergarmentTop: MobHumanoidAnyMarking # so there's no need to re-map all the layers
     #omu end
-    Chest: MobIPCChest
     Groin: MobIPCGroin
     LArm: MobIPCLArm
     RArm: MobIPCRArm
@@ -118,6 +112,14 @@
       points: 1
       required: false
       defaultMarkings: [ MobIPCLHandDefault ]
+    # Omu start; readd omu species undergarments post-upstream
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
+    # Omu end
 
 - type: humanoidBaseSprite
   id: MobIPCMarkingFollowSkin
@@ -168,7 +170,7 @@
     state: chest_m
 
 - type: marking
-  id: MobIPCChestFemaleDefault
+  id: MobIPCChestFemaleDefault # Omu
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ IPC ]

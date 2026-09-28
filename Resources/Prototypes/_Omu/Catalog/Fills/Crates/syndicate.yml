@@ -1,0 +1,14 @@
+- type: entity
+  id: CrateCybersunBloodredVimBundle
+  suffix: Filled
+  parent: CrateSyndicate
+  name: Cybersun Vim bundle
+  description: Contains a Cybersun extra light armored mech.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MechBloodredVimBattery
+      - id: DoubleEmergencyOxygenTankFilled
+      - id: DoubleEmergencyNitrogenTankFilled
+      - id: ToolboxSyndicateFilled
+      - id: PlushieNuke

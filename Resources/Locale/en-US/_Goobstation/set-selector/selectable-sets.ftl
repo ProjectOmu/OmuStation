@@ -68,7 +68,7 @@ selectable-set-syndicate-implants-name = Cyberpsychosis Bundle
 selectable-set-syndicate-implants-description =
     A few implants to give you some options for when you inevitably get arrested.
     Contains: nutriment pump, scram, freedom, smoke,
-    krav maga and syndicate radio implanters, Sandevistan
+    SolCom and syndicate radio implanters, Sandevistan
     and paired mantis blades autosurgeons, and a cool jacket.
 
 selectable-set-syndicate-hacker-name = Hacker Bundle

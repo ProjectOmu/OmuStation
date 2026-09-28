@@ -35,13 +35,22 @@
       "name": "icon-security"
     },
     {
+      "name": "icon-space-security"
+    },
+    {
       "name": "icon-qm"
     },
     {
       "name": "icon-rd"
     },
     {
+      "name": "icon-robo"
+    },
+    {
       "name": "icon-corpsman"
+    },
+    {
+      "name": "icon-corpsman-space"
     },
     {
       "name": "icon-ce"
@@ -59,11 +68,18 @@
       "name": "icon-hos"
     },
     {
-      "name": "helmet",
+      "name": "icon-janitor"
+    },
+    {
+      "name": "helmet-default",
       "directions": 4
     },
     {
-      "name": "helmet-bar",
+      "name": "helmet-round",
+      "directions": 4
+    },
+    {
+      "name": "helmet-security",
       "directions": 4
     },
     {
@@ -75,19 +91,7 @@
       "directions": 4
     },
     {
-      "name": "helmet-engineering",
-      "directions": 4
-    },
-    {
-      "name": "helmet-medical",
-      "directions": 4
-    },
-    {
       "name": "helmet-salvage",
-      "directions": 4
-    },
-    {
-      "name": "helmet-security",
       "directions": 4
     },
     {
@@ -99,19 +103,11 @@
       "directions": 4
     },
     {
-      "name": "helmet-corpsman",
-      "directions": 4
-    },
-    {
       "name": "helmet-ce",
       "directions": 4
     },
     {
       "name": "helmet-cmo",
-      "directions": 4
-    },
-    {
-      "name": "helmet-chem",
       "directions": 4
     },
     {
@@ -139,11 +135,7 @@
       "directions": 4
     },
     {
-      "name": "eyes-medical",
-      "directions": 4
-    },
-    {
-      "name": "eyes-salvage",
+      "name": "eyes-med",
       "directions": 4
     },
     {
@@ -151,15 +143,11 @@
       "directions": 4
     },
     {
+      "name": "eyes-salvage",
+      "directions": 4
+    },
+    {
       "name": "eyes-qm",
-      "directions": 4
-    },
-    {
-      "name": "eyes-rd",
-      "directions": 4
-    },
-    {
-      "name": "eyes-corpsman",
       "directions": 4
     },
     {
@@ -167,19 +155,7 @@
       "directions": 4
     },
     {
-      "name": "eyes-cmo",
-      "directions": 4
-    },
-    {
-      "name": "eyes-chem",
-      "directions": 4
-    },
-    {
       "name": "eyes-bar",
-      "directions": 4
-    },
-    {
-      "name": "eyes-hos",
       "directions": 4
     },
     {
@@ -192,6 +168,10 @@
     },
     {
       "name": "helmet-internals-medical",
+      "directions": 4
+    },
+    {
+      "name": "helmet-internals-security",
       "directions": 4
     },
     {

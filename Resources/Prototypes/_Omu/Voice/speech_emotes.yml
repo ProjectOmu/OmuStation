@@ -1,3 +1,32 @@
+- type: emote # Omu
+  id: Rattle
+  name: chat-emote-name-rattle
+  category: Vocal
+  icon: Interface/Emotes/weh.png
+  chatMessages: ["chat-emote-msg-reptile-rattle"]
+  whitelist:
+    tags:
+    - ReptilianEmotes
+  chatTriggers:
+    - rattles
+    - rattle
+    - rattled
+
+- type: emote # Omu
+  id: ReptilianScreech
+  name: chat-emote-name-reptile-screech
+  category: Vocal
+  icon: _Goobstation/Interface/Emotes/scream.png
+  chatMessages: ["chat-emote-msg-reptile-screech"]
+  whitelist:
+    tags:
+    - ReptilianEmotes
+  chatTriggers:
+    - screech
+    - screeches
+    - screeching
+    - screeched
+
 - type: emote
   id: Yap
   name: chat-emote-name-yap
@@ -73,3 +102,36 @@
     - gekkers
     - gekkering
     - gekkered
+
+- type: emote
+  id: Awebo
+  name: chat-emote-name-awebo
+  icon: _Goobstation/Interface/Emotes/caw.png
+  category: Vocal
+  whitelist:
+    tags:
+    - AllulaloEmotes
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-awebo"]
+  chatTriggers:
+    - awebo
+    - awebos
+
+- type: emote
+  id: Hoot
+  name: chat-emote-name-hoot
+  icon: _Goobstation/Interface/Emotes/caw.png
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-hoot"]
+  chatTriggers:
+  - hoot
+  - hoots

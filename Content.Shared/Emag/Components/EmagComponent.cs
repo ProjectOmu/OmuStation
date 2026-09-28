@@ -1,15 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Emag.Systems;
@@ -17,9 +5,8 @@ using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Robust.Shared.Serialization;
-using Content.Shared.Whitelist; // Shitmed - Starlight Abductors
+using Content.Shared.Whitelist;
+using Content.Shared.Silicons.Laws;
 
 namespace Content.Shared.Emag.Components;
 
@@ -60,4 +47,12 @@ public sealed partial class EmagComponent : Component
     /// </summary>
     [DataField]
     public LocId SuccessText = "emag-success";
+
+    /// <summary>
+    /// Starlight - What lawset should borgs get when emagged. note. fully replaces the lawset and prevents the "only x and those they designate are crew" and secrecy laws.
+    /// </summary>
+    [DataField]
+    [AutoNetworkedField]
+    public ProtoId<SiliconLawsetPrototype>? Lawset = null;
+
 }

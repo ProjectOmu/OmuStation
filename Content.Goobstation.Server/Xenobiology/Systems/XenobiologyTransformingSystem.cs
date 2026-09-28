@@ -1,13 +1,8 @@
-// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.EntityEffects;
 using Content.Server._Shitmed.StatusEffects;
+using Content.Server.Humanoid;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Humanoid;
@@ -17,8 +12,10 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Server.Xenobiology.Systems;
 
 // Any Polymorphing etc needing to run serverside
-public class XenobiologyTransformingSystem : EntitySystem
+public sealed class XenobiologyTransformingSystem : EntitySystem
 {
+    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<HumanoidAppearanceComponent, SpeciesChange>(OnSpeciesChange);
@@ -50,6 +47,9 @@ public class XenobiologyTransformingSystem : EntitySystem
         var @new = polymorphSystem.PolymorphEntity(uid, config);
         if (@new.HasValue)
         {
+            if (ev.TransferAppearance)
+                _humanoid.CloneSpeciesAppearance(uid, @new.Value);
+
             EntityManager.RemoveComponentDeferred<PolymorphedEntityComponent>(@new.Value);
         }
     }

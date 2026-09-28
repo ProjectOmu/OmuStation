@@ -67,6 +67,7 @@ loadout-group-technical-assistant-envirogloves = Technical Assistant enviroglove
 loadout-group-atmos-envirohelm = Atmospheric Technician envirohelm
 loadout-group-atmos-envirosuit = Atmospheric Technician envirosuit
 loadout-group-atmos-envirogloves = Atmospheric Technician envirogloves
+loadout-group-atmospheric-technician-belt = Atmospheric Technician belt
 
 # Chief Engineer
 loadout-group-chief-engineer-envirohelm = Chief Engineer envirohelm
@@ -101,9 +102,11 @@ loadout-group-hop-envirogloves = Head of Personnel envirogloves
 loadout-group-hop-gloves = Head of Personnel gloves
 
 # CentCom Officer
-loadout-group-centcom-officer-envirohelm = CentCom Officer envirohelm
-loadout-group-centcom-officer-envirosuit = CentCom Officer envirosuit
-loadout-group-centcom-officer-envirogloves = CentCom Officer envirogloves
+# Omu start
+loadout-group-centcom-officer-envirohelm = CentComm Officer envirohelm
+loadout-group-centcom-officer-envirosuit = CentComm Officer envirosuit
+loadout-group-centcom-officer-envirogloves = CentComm Officer envirogloves
+# Omu end
 
 # Botanist
 loadout-group-botanist-envirohelm = Botanist envirohelm
@@ -140,6 +143,7 @@ loadout-group-mime-envirohelm = Mime envirohelm
 loadout-group-mime-envirosuit = Mime envirosuit
 loadout-group-mime-envirogloves = Mime envirogloves
 loadout-group-mime-gloves = Mime gloves
+loadout-group-mime-shoes = Mime shoes
 
 # Assistant
 loadout-group-assistant-envirohelm = Assistant envirohelm
@@ -187,6 +191,7 @@ loadout-group-captain-envirohelm = Captain envirohelm
 loadout-group-captain-envirosuit = Captain envirosuit
 loadout-group-captain-envirogloves = Captain envirogloves
 loadout-group-captain-gloves = Captain gloves
+loadout-group-captain-shoes = Captain shoes
 
 
 # Salvage Specialist
@@ -220,9 +225,11 @@ loadout-group-zookeeper-head = Zookeeper hat
 # Boxer
 loadout-group-boxer-envirohelm = Boxer envirohelm
 loadout-group-boxer-envirosuit = Boxer envirosuit
+loadout-group-boxer-helmet = Boxer helmet
 
 # Misc
 loadout-group-plasma-tank = Plasma tank
+loadout-group-security-gloves = Security gloves
 
 # Salvage/Shaft Miner
 loadout-group-salvage-specialist-jumpsuit = Salvage Specialist Jumpsuit

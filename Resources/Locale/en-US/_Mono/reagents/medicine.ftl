@@ -1,3 +1,7 @@
+reagent-name-peranol = peranol
+reagent-desc-peranol = A more stable version of Leporazine, reducing the body temperature and healing heat burns. It has amplified effect on Hydrakins.
+
+# Omu additions below
 reagent-name-celoxradine = celoxradine
 reagent-desc-celoxradine = A medicine developed to help workers in industrial environments heal faster from uncommon workplace hazards. Slow but multipurpose.
 

@@ -1,0 +1,304 @@
+- type: quickPhrase
+  id: BaseNounsBodyPartsExternal
+  parent: BaseNouns
+  group: Body parts (External) # named like this to keep grouped together in headers
+  abstract: true
+
+- type: quickPhrase
+  id: BaseNounsBodyPartsInternal
+  parent: BaseNouns
+  group: Body parts (Internal) # named like this to keep grouped together in headers
+  abstract: true
+
+# basic
+
+- type: quickPhrase
+  id: BatteryPhraseOmu
+  parent: BaseNouns
+  text: omu-phrase-nouns-battery
+
+# damage types
+
+- type: quickPhrase
+  id: AirlossPhraseOmu
+  parent: BaseNounsDamageGeneral
+  text: omu-phrase-nouns-airloss
+
+- type: quickPhrase
+  id: GeneticPhraseOmu
+  parent: BaseNounsDamageGeneral
+  text: omu-phrase-nouns-genetic
+
+- type: quickPhrase
+  id: HeatPhraseOmu
+  parent: BaseNounsDamageSpecific
+  text: omu-phrase-nouns-heat
+
+- type: quickPhrase
+  id: ShockPhraseOmu
+  parent: BaseNounsDamageSpecific
+  text: omu-phrase-nouns-shock
+
+- type: quickPhrase
+  id: ColdPhraseOmu
+  parent: BaseNounsDamageSpecific
+  text: omu-phrase-nouns-cold
+
+- type: quickPhrase
+  id: CausticPhraseOmu
+  parent: BaseNounsDamageSpecific
+  text: omu-phrase-nouns-caustic
+
+- type: quickPhrase
+  id: AsphyxPhraseOmu
+  parent: BaseNounsDamageSpecific
+  text: omu-phrase-nouns-asphyx
+
+- type: quickPhrase
+  id: BloodlossPhraseOmu
+  parent: BaseNounsDamageSpecific
+  text: omu-phrase-nouns-bloodloss
+
+- type: quickPhrase
+  id: BluntPhraseOmu
+  parent: BaseNounsDamageSpecific
+  text: omu-phrase-nouns-blunt
+
+- type: quickPhrase
+  id: SlashPhraseOmu
+  parent: BaseNounsDamageSpecific
+  text: omu-phrase-nouns-slash
+
+- type: quickPhrase
+  id: PiercingPhraseOmu
+  parent: BaseNounsDamageSpecific
+  text: omu-phrase-nouns-piercing
+
+- type: quickPhrase
+  id: CellularPhraseOmu
+  parent: BaseNounsDamageSpecific
+  text: omu-phrase-nouns-cellular
+
+# species
+
+- type: quickPhrase
+  id: AvaliPhraseOmu
+  parent: BaseNounsSpecies
+  text: omu-phrase-nouns-avali
+
+- type: quickPhrase
+  id: ChitinidPhraseOmu
+  parent: BaseNounsSpecies
+  text: omu-phrase-nouns-chitinid
+
+- type: quickPhrase
+  id: FelinidPhraseOmu
+  parent: BaseNounsSpecies
+  text: omu-phrase-nouns-felinid
+
+- type: quickPhrase
+  id: FeroxiPhraseOmu
+  parent: BaseNounsSpecies
+  text: omu-phrase-nouns-feroxi
+
+- type: quickPhrase
+  id: HarpyPhraseOmu
+  parent: BaseNounsSpecies
+  text: omu-phrase-nouns-harpy
+
+- type: quickPhrase
+  id: IPCPhraseOmu
+  parent: BaseNounsSpecies
+  text: omu-phrase-nouns-ipc
+
+- type: quickPhrase
+  id: OniPhraseOmu
+  parent: BaseNounsSpecies
+  text: omu-phrase-nouns-oni
+
+- type: quickPhrase
+  id: PlasmamanPhraseOmu
+  parent: BaseNounsSpecies
+  text: omu-phrase-nouns-plasmaman
+
+- type: quickPhrase
+  id: ResomiPhraseOmu
+  parent: BaseNounsSpecies
+  text: omu-phrase-nouns-resomi
+
+- type: quickPhrase
+  id: RodentiaPhraseOmu
+  parent: BaseNounsSpecies
+  text: omu-phrase-nouns-rodentia
+
+- type: quickPhrase
+  id: ShadowkinPhraseOmu
+  parent: BaseNounsSpecies
+  text: omu-phrase-nouns-shadowkin
+
+- type: quickPhrase
+  id: ShrimpPhraseOmu
+  parent: BaseNounsSpecies
+  text: omu-phrase-nouns-shrimp
+
+- type: quickPhrase
+  id: TajaranPhraseOmu
+  parent: BaseNounsSpecies
+  text: omu-phrase-nouns-tajaran
+
+- type: quickPhrase
+  id: VulpkaninPhraseOmu
+  parent: BaseNounsSpecies
+  text: omu-phrase-nouns-vulpkanin
+
+- type: quickPhrase
+  id: XelthiaPhraseOmu
+  parent: BaseNounsSpecies
+  text: omu-phrase-nouns-xelthia
+
+- type: quickPhrase
+  id: YowiePhraseOmu
+  parent: BaseNounsSpecies
+  text: omu-phrase-nouns-yowie
+
+# time
+
+- type: quickPhrase
+  id: NeverPhraseOmu
+  parent: BaseNounsTime
+  text: omu-phrase-nouns-never
+
+- type: quickPhrase
+  id: ThenPhraseOmu
+  parent: BaseNounsTime
+  text: omu-phrase-nouns-then
+
+- type: quickPhrase
+  id: AgoPhraseOmu
+  parent: BaseNounsTime
+  text: omu-phrase-nouns-ago
+
+# relationships
+
+- type: quickPhrase
+  id: CoworkerPhraseOmu
+  parent: BaseNounsRelationships
+  text: omu-phrase-nouns-coworker
+
+# materials
+
+- type: quickPhrase
+  id: ArtifactFragmentPhraseOmu
+  parent: BaseNounsMats
+  text: omu-phrase-nouns-artifactfragment
+
+- type: quickPhrase
+  id: CrystalPhraseOmu
+  parent: BaseNounsMats
+  text: omu-phrase-nouns-crystal
+  
+# tools
+
+- type: quickPhrase
+  id: WirecutterPhraseOmu
+  parent: BaseNounsTools
+  text: omu-phrase-nouns-wirecutter
+  
+- type: quickPhrase
+  id: TRayScannerPhraseOmu
+  parent: BaseNounsTools
+  text: omu-phrase-nouns-trayscanner
+  
+- type: quickPhrase
+  id: GasAnalyzerPhraseOmu
+  parent: BaseNounsTools
+  text: omu-phrase-nouns-gasanalyzer
+  
+- type: quickPhrase
+  id: JawsOfLifePhraseOmu
+  parent: BaseNounsTools
+  text: omu-phrase-nouns-jawsoflife
+  
+- type: quickPhrase
+  id: PowerDrillPhraseOmu
+  parent: BaseNounsTools
+  text: omu-phrase-nouns-powerdrill
+  
+- type: quickPhrase
+  id: HolofanPhraseOmu
+  parent: BaseNounsTools
+  text: omu-phrase-nouns-holofan
+
+# body parts (external) (omu)
+
+- type: quickPhrase
+  id: HeadPhraseOmu
+  parent: BaseNounsBodyPartsExternal
+  text: omu-phrase-nouns-head
+
+- type: quickPhrase
+  id: ChestPhraseOmu
+  parent: BaseNounsBodyPartsExternal
+  text: omu-phrase-nouns-chest
+
+- type: quickPhrase
+  id: ArmPhraseOmu
+  parent: BaseNounsBodyPartsExternal
+  text: omu-phrase-nouns-arm
+
+- type: quickPhrase
+  id: HandPhraseOmu
+  parent: BaseNounsBodyPartsExternal
+  text: omu-phrase-nouns-hand
+
+- type: quickPhrase
+  id: GroinPhraseOmu
+  parent: BaseNounsBodyPartsExternal
+  text: omu-phrase-nouns-groin
+
+- type: quickPhrase
+  id: LegPhraseOmu
+  parent: BaseNounsBodyPartsExternal
+  text: omu-phrase-nouns-leg
+
+- type: quickPhrase
+  id: FootPhraseOmu
+  parent: BaseNounsBodyPartsExternal
+  text: omu-phrase-nouns-foot
+
+# body parts (internal) (omu)
+
+- type: quickPhrase
+  id: HeartPhraseOmu
+  parent: BaseNounsBodyPartsInternal
+  text: omu-phrase-nouns-heart
+
+- type: quickPhrase
+  id: LungsPhraseOmu
+  parent: BaseNounsBodyPartsInternal
+  text: omu-phrase-nouns-lungs
+
+- type: quickPhrase
+  id: StomachPhraseOmu
+  parent: BaseNounsBodyPartsInternal
+  text: omu-phrase-nouns-stomach
+
+- type: quickPhrase
+  id: LiverPhraseOmu
+  parent: BaseNounsBodyPartsInternal
+  text: omu-phrase-nouns-liver
+
+- type: quickPhrase
+  id: KidneysPhraseOmu
+  parent: BaseNounsBodyPartsInternal
+  text: omu-phrase-nouns-kidneys
+
+- type: quickPhrase
+  id: BrainPhraseOmu
+  parent: BaseNounsBodyPartsInternal
+  text: omu-phrase-nouns-brain
+
+- type: quickPhrase
+  id: EyesPhraseOmu
+  parent: BaseNounsBodyPartsInternal
+  text: omu-phrase-nouns-eyes

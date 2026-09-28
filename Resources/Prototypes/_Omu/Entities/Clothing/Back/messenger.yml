@@ -51,4 +51,20 @@
       - state: clasp-inhand-right
         color: "#ffffff"
 
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerParamedic
+  name: paramedic messenger bag
+  description: A lightweight bag for keeping extra medicine.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Messenger/paramedic.rsi
 
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerMedicalCybersun
+  name: cybersun medical messenger bag
+  description: A robust bag issued to Cybersun field medics for keeping extra supplies. How *you* got one remains a mystery.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Back/Messenger/cybersunmed.rsi

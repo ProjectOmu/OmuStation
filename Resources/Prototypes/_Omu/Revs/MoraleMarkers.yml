@@ -1,0 +1,71 @@
+- type: factionIcon
+  id: MoraleAverageFaction
+  priority: 15
+  icon:
+    sprite: /Textures/_Omu/Interface/MoraleIcons/morale_icons.rsi
+    state: average
+  showTo:
+    components:
+    - ShowAntagIcons
+    - HeadRevolutionary
+    - Revolutionary
+  locationPreference: Right
+
+- type: factionIcon
+  id: MoralePositiveFaction
+  priority: 15
+  icon:
+    sprite: /Textures/_Omu/Interface/MoraleIcons/morale_icons.rsi
+    state: positive
+  showTo:
+    components:
+    - ShowAntagIcons
+    - HeadRevolutionary
+    - Revolutionary
+  locationPreference: Right
+
+- type: factionIcon
+  id: MoraleNegativeFaction
+  priority: 15
+  icon:
+    sprite: /Textures/_Omu/Interface/MoraleIcons/morale_icons.rsi
+    state: negative
+  showTo:
+    components:
+    - ShowAntagIcons
+    - HeadRevolutionary
+    - Revolutionary
+  locationPreference: Right
+
+- type: factionIcon
+  id: MoralePassedFaction
+  priority: 15
+  icon:
+    sprite: /Textures/_Omu/Interface/MoraleIcons/morale_icons.rsi
+    state: moralepassed
+  showTo:
+    components:
+    - ShowAntagIcons
+    - HeadRevolutionary
+    - Revolutionary
+  locationPreference: Right
+
+- type: entity
+  parent: BaseItem
+  id: MoralePassed
+  categories: [ HideSpawnMenu ]
+  name: MoralePassed
+  components:
+  - type: Sprite
+    sprite: /Textures/_Omu/Interface/MoraleIcons/morale_icons.rsi
+    state: moralepassed
+
+- type: entity
+  parent: BaseItem
+  id: MoraleNegative
+  categories: [ HideSpawnMenu ]
+  name: MoraleNegative
+  components:
+  - type: Sprite
+    sprite: /Textures/_Omu/Interface/MoraleIcons/morale_icons.rsi
+    state: negative

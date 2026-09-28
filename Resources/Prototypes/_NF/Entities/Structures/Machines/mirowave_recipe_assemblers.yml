@@ -230,8 +230,8 @@
     key: MedicalAssemblerKey
     microwaveBlacklist: # Omu start
       components:
-      - Hypospray # NOTE: Will need fixing with upstream
-      - Edible
+      - Injector # untested. Fuck it.
+      - SpaceGarbage   #Omu replaced edible with space garbage
       tags:
       - Syringe
       - Dropper # Omu end

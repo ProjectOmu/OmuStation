@@ -1,0 +1,21 @@
+- type: marking
+  id: FelinidEarsTallAlt
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Felinid, Tajaran]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Felinid/headtop.rsi
+    state: tallalt_outer
+  - sprite: _Omu/Mobs/Customization/Felinid/headtop.rsi
+    state: tallalt_inner
+
+- type: marking
+  id: FelinidEarsLynx
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Felinid, Tajaran]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Felinid/headtop.rsi
+    state: lynx_outer
+  - sprite: _Omu/Mobs/Customization/Felinid/headtop.rsi
+    state: lynx_inner

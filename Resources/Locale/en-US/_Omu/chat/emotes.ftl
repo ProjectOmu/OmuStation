@@ -6,6 +6,8 @@ chat-emote-name-yap = Yap
 chat-emote-name-squee = Squee
 chat-emote-name-snort = Snort
 chat-emote-name-gekker = Gekker
+chat-emote-name-awebo = Awebo
+chat-emote-name-hoot = Hoot
 
 # Messages
 chat-emote-msg-reptile-rattle = rattles.
@@ -14,3 +16,5 @@ chat-emote-msg-yap = yaps!
 chat-emote-msg-squee = squees!
 chat-emote-msg-snort = snorts
 chat-emote-msg-gekker = gekkers
+chat-emote-msg-awebo = awebos!
+chat-emote-msg-hoot = hoots!
