@@ -86,7 +86,7 @@
     description: smuggler-silicon-ipc-desc
     rules: ghost-role-information-familiar-rules
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonistGoob
+    - MindRoleGhostRoleFamiliar
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
@@ -108,7 +108,7 @@
     description: smuggler-silicon-borg-desc
     rules: ghost-role-information-familiar-rules
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonistGoob
+    - MindRoleGhostRoleFamiliar
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
