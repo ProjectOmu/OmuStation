@@ -10,5 +10,3 @@ fascination-examine-5 = A quiet madness has them in its clutches, they glance ar
 entity-effect-guidebook-reduce-fascination = reduces the effects of psychiatric disturbance
 
 tome-unreadable = You cannot understand the content of the book, it's too... peculiar.
-
-maiden-guide = Mirror Maidens
