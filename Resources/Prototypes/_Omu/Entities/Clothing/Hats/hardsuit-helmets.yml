@@ -69,4 +69,13 @@
         Caustic: 0.4
   - type: EyeProtection
 
-
+- type: entity
+  parent: ClothingHeadHelmetHardsuitLuxury
+  id: ClothingHeadHelmetHardsuitBosun
+  name: bosun hardsuit helmet
+  description: A vintage excavation hardsuit helmet, repainted in Cargo's colors. The racing stripe somehow makes it feel lighter.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Hardsuits/bosun.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Hardsuits/bosun.rsi
