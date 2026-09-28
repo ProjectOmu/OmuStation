@@ -1,0 +1,78 @@
+- type: entity
+  parent: BaseMech
+  id: MechBloodredVim
+  name: Bloodred Vim
+  description: A miniature exosuit from Cybersun, developed to let the irreplaceable small operatives live a little longer.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: _Omu/Objects/Specific/Mechs/bloodredvim.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: bloodredvim
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.15
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Mecha/mechmove03.ogg
+      params:
+        volume: -10
+  - type: Mech
+    baseState: bloodredvim
+    openState: brvim-open
+    brokenState: brvim-broken
+    maxEquipmentAmount: 3
+    mechSpecialAction: ActionBloodredVimBoost
+    # keep mouse safe
+    mechToPilotDamageMultiplier: 0.1
+    airtight: true
+    pilotWhitelist:
+      tags:
+      - VimPilot
+    startingEquipment:
+      - WeaponMechCombatMissileRack8
+  - type: MeleeWeapon
+    hidden: true
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 15 #thwack
+        Structural: 2
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.0
+    baseSprintSpeed: 3.0 #Goobedit
+  - type: Access
+    tags:
+    - Maintenance
+  - type: BloodredVim
+    actionProto: ActionBloodredVimBoost
+    thrustAcceleration: 700
+    boostDuration: 0.5
+    vaporReagentPerPuff: 5
+    vaporVelocity: 4
+    vaporLifetime: 0.8
+    vaporCountPerEmit: 1
+    vaporSpread: 30
+    emitInterval: 0.3
+    emitMaxPerTick: 1
+    nozzleOffset: 0.1
+
+- type: entity
+  parent: MechBloodredVim
+  id: MechBloodredVimBattery
+  suffix: Battery
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCellAntiqueProto

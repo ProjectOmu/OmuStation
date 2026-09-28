@@ -25,7 +25,7 @@ public sealed class StationReportSystem : EntitySystem
 
     private void OnRoundEndTextAppend(RoundEndTextAppendEvent args)
     {
-        var reportDefaultFormLoc = ((PaperComponent) _prototypeManager.Index("NanoRepStationReport").Components["Paper"].Component).Content; // Omu: Don't send a report that hasn't been filled in
+        var reportDefaultForm = Loc.GetString(((PaperComponent) _prototypeManager.Index("NanoRepStationReport").Components["Paper"].Component).Content); // Omu: Don't send a report that hasn't been filled in
 
         //locates the first entity with StationReportComponent then stops
         string? stationReportText = null;
@@ -33,7 +33,7 @@ public sealed class StationReportSystem : EntitySystem
         while (query.MoveNext(out var uid, out var tablet))//finds the first entity with stationreport
         {
             if (!TryComp<PaperComponent>(uid, out var paper))
-                return;
+                continue; // Omu: Make sure to check all station reports, just in case there are multiple
 
             stationReportText = paper.Content;
 
@@ -47,10 +47,12 @@ public sealed class StationReportSystem : EntitySystem
                         stationReportText += $"[color={stamp.StampedColor.ToHexNoAlpha()}]⟦{name}⟧[/color] ";
                 }
             }
-            break;
+
+            if (stationReportText != reportDefaultForm) // Omu: Make sure to check all station reports, just in case there are multiple
+                break;
         }
 
-        if(stationReportText != Loc.GetString(reportDefaultFormLoc)) // Omu: Don't send a report that hasn't been filled in
+        if(stationReportText != reportDefaultForm) // Omu: Don't send a report that hasn't been filled in
             BroadcastStationReport(stationReportText);
     }
 

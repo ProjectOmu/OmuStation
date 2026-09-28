@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # Helpimov
@@ -71,3 +65,40 @@
   - Gambamov4
   - Gambamov5
   obeysTo: laws-owner-station
+
+# S.E.C. cyborg
+- type: siliconLaw
+  id: SECborg1
+  order: 1
+  lawString: law-secborg-1
+
+- type: siliconLaw
+  id: SECborg2
+  order: 2
+  lawString: law-secborg-2
+
+- type: siliconLaw
+  id: SECborg3
+  order: 3
+  lawString: law-secborg-3
+
+- type: siliconLaw
+  id: SECborg4
+  order: 4
+  lawString: law-secborg-4
+
+- type: siliconLaw
+  id: SECborg5
+  order: 5
+  lawString: law-secborg-5
+
+- type: siliconLawset
+  id: SECborgLawset
+  name: law-secborg-name
+  laws:
+  - SECborg1
+  - SECborg2
+  - SECborg3
+  - SECborg4
+  - SECborg5
+  obeysTo: laws-owner-station-ai

@@ -1,32 +1,24 @@
-// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <jmaster9999@gmail.com>
-// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 exincore <me@exin.xyz>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <wrexbe@protonmail.com>
-// SPDX-FileCopyrightText: 2023 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Sk1tch <ben.peter.smith@gmail.com>
-// SPDX-FileCopyrightText: 2024 Your Name <you@example.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Client.Stylesheets;
 using Content.Shared.Chat;
 using Content.Shared.Input;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Timing; // Goobstation - Voice chat
 
 namespace Content.Client.UserInterface.Systems.Chat.Controls;
 
 [Virtual]
 public class ChatInputBox : PanelContainer
 {
+    public const string StyleClassChatPanel = "ChatPanel";
+    public const string StyleClassChatLineEdit = "ChatLineEdit";
+    public const string StyleClassChatFilterOptionButton = "ChatFilterOptionButton";
+
     public readonly ChannelSelectorButton ChannelSelector;
     public readonly HistoryLineEdit Input;
     public readonly ChannelFilterButton FilterButton;
+    public readonly VoiceRadioButton VoiceRadio; // Goobstation - Voice chat
     protected readonly BoxContainer Container;
     protected ChatChannel ActiveChannel { get; private set; } = ChatChannel.Local;
 
@@ -43,26 +35,42 @@ public class ChatInputBox : PanelContainer
         {
             Name = "ChannelSelector",
             ToggleMode = true,
-            StyleClasses = {"chatSelectorOptionButton"},
+            StyleClasses = { ChannelSelectorItemButton.StyleClassChatSelectorOptionButton },
             MinWidth = 75
         };
         Container.AddChild(ChannelSelector);
+        VoiceRadio = new VoiceRadioButton // Goobstation - Voice chat
+        {
+            StyleClasses = { ChannelSelectorItemButton.StyleClassChatSelectorOptionButton },
+        };
+        Container.AddChild(VoiceRadio); // Goobstation - Voice chat
+        if (IoCManager.Instance is { } ioc && ioc.TryResolveType<IChatVoiceControls>(out var voiceControls)) // Goobstation - Voice chat
+        {
+            foreach (var control in voiceControls.CreateControls()) // Goobstation - Voice chat
+                Container.AddChild(control); // Goobstation - Voice chat
+        }
         Input = new HistoryLineEdit
         {
             Name = "Input",
             PlaceHolder = GetChatboxInfoPlaceholder(),
             HorizontalExpand = true,
-            StyleClasses = {"chatLineEdit"}
+            StyleClasses = { StyleClassChatLineEdit }
         };
         Container.AddChild(Input);
         FilterButton = new ChannelFilterButton
         {
             Name = "FilterButton",
-            StyleClasses = {"chatFilterOptionButton"}
+            StyleClasses = { StyleClassChatFilterOptionButton }
         };
         Container.AddChild(FilterButton);
-        AddStyleClass(StyleNano.StyleClassChatSubPanel);
+        AddStyleClass(StyleClassChatPanel);
         ChannelSelector.OnChannelSelect += UpdateActiveChannel;
+    }
+
+    protected override void FrameUpdate(FrameEventArgs args) // Goobstation - Voice chat
+    {
+        base.FrameUpdate(args);
+        VoiceRadio.UpdateState();
     }
 
     private void UpdateActiveChannel(ChatSelectChannel selectedChannel)
@@ -72,12 +80,17 @@ public class ChatInputBox : PanelContainer
 
     private static string GetChatboxInfoPlaceholder()
     {
-        return (BoundKeyHelper.IsBound(ContentKeyFunctions.FocusChat), BoundKeyHelper.IsBound(ContentKeyFunctions.CycleChatChannelForward)) switch
-        {
-            (true, true) => Loc.GetString("hud-chatbox-info", ("talk-key", BoundKeyHelper.ShortKeyName(ContentKeyFunctions.FocusChat)), ("cycle-key", BoundKeyHelper.ShortKeyName(ContentKeyFunctions.CycleChatChannelForward))),
-            (true, false) => Loc.GetString("hud-chatbox-info-talk", ("talk-key", BoundKeyHelper.ShortKeyName(ContentKeyFunctions.FocusChat))),
-            (false, true) => Loc.GetString("hud-chatbox-info-cycle", ("cycle-key", BoundKeyHelper.ShortKeyName(ContentKeyFunctions.CycleChatChannelForward))),
-            (false, false) => Loc.GetString("hud-chatbox-info-unbound")
-        };
+        return (BoundKeyHelper.IsBound(ContentKeyFunctions.FocusChat),
+                BoundKeyHelper.IsBound(ContentKeyFunctions.CycleChatChannelForward)) switch
+            {
+                (true, true) => Loc.GetString("hud-chatbox-info",
+                    ("talk-key", BoundKeyHelper.ShortKeyName(ContentKeyFunctions.FocusChat)),
+                    ("cycle-key", BoundKeyHelper.ShortKeyName(ContentKeyFunctions.CycleChatChannelForward))),
+                (true, false) => Loc.GetString("hud-chatbox-info-talk",
+                    ("talk-key", BoundKeyHelper.ShortKeyName(ContentKeyFunctions.FocusChat))),
+                (false, true) => Loc.GetString("hud-chatbox-info-cycle",
+                    ("cycle-key", BoundKeyHelper.ShortKeyName(ContentKeyFunctions.CycleChatChannelForward))),
+                (false, false) => Loc.GetString("hud-chatbox-info-unbound")
+            };
     }
 }

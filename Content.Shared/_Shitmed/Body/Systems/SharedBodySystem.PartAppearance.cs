@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -83,7 +76,7 @@ public partial class SharedBodySystem
         {
             var category = MarkingCategoriesConversion.FromHumanoidVisualLayers(layer);
             if (bodyAppearance.MarkingSet.Markings.TryGetValue(category, out var markingList))
-                markingsByLayer[layer] = markingList.Select(m => new Marking(m.MarkingId, m.MarkingColors.ToList())).ToList();
+                markingsByLayer[layer] = markingList.Select(m => new Marking(m.MarkingId, m.MarkingColors.ToList(), m.GlowyBits)).ToList(); // Omu
         }
 
         component.Markings = markingsByLayer;
@@ -124,10 +117,10 @@ public partial class SharedBodySystem
                     bodyAppearance.MarkingSet
                 );
 
-            var marking = new Marking(markingId, markingColors);
+            var marking = new Marking(markingId, markingColors, 0); // Omu
 
             _humanoid.SetLayerVisibility((uid, bodyAppearance), targetLayer, true);
-            _humanoid.AddMarking(uid, markingId, markingColors, true, true, bodyAppearance);
+            _humanoid.AddMarking(uid, markingId, markingColors, 0, true, true, bodyAppearance); // Omu
             if (!partAppearance.Comp.Markings.ContainsKey(targetLayer))
                 partAppearance.Comp.Markings[targetLayer] = new List<Marking>();
 
@@ -197,7 +190,7 @@ public partial class SharedBodySystem
             _humanoid.SetLayerVisibility((target, bodyAppearance), visualLayer, true);
             foreach (var marking in markingList)
             {
-                _humanoid.AddMarking(target, marking.MarkingId, marking.MarkingColors, true, true, bodyAppearance);
+                _humanoid.AddMarking(target, marking.MarkingId, marking.MarkingColors, marking.GlowyBits, true, true, bodyAppearance); // Omu
             }
         }
 

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -44,6 +41,7 @@ public sealed class KeyringSystem : EntitySystem
             keyring.Comp.Tags.Add(pick); // We don't use access comp for this because otherwise you can use it like an ID card to bump open doors :P
         }
 
+        Dirty(keyring, keyring.Comp); // Omu - Made sure the client gets the actual access list
     }
     private void OnInteractUsing(Entity<KeyringComponent> keyring, ref AfterInteractEvent args)
     {

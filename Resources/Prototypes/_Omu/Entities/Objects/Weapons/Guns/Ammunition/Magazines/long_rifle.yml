@@ -1,0 +1,37 @@
+- type: entity
+  id: MagazineLongRifle
+  name: "magazine (.30 long rifle magnum)"
+  parent: [ BaseItem, BaseSecurityContraband ]
+  components:
+  - type: Tag
+    tags:
+      - MagazineLongRifle
+  - type: Item
+    size: Small
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
+  - type: BallisticAmmoProvider
+    proto: CartridgeLongRifle
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeLongRifle
+    capacity: 10
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Ammunition/Magazine/longrifle.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance

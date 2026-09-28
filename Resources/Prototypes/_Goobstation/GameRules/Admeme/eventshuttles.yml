@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Deathsquad
 
@@ -101,6 +96,19 @@
     maxOccurrences: 1
   - type: LoadMapRule
     preloadedGrid: SaviorShuttleChap # Omu - ERT Rework
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: SpawnHECU
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-hecu-enroute
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    duration: 1
+    maxOccurrences: 1
+  - type: LoadMapRule
+    preloadedGrid: RetortShuttleHECU
 
 #Contractor
 - type: entity

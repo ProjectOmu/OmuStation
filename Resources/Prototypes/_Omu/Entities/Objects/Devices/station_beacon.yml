@@ -1,0 +1,16 @@
+# If you need a beacon on CC, add a proto for it here, all it needs added compared to the base one is - type: CentCommBeacon
+- type: entity
+  parent: DefaultStationBeaconUnanchored
+  id: DefaultStationBeaconUnanchoredCentComm
+  suffix: General, Unanchored, CentComm
+  placement:
+    mode: PlaceFree
+  components:
+  - type: CentCommBeacon
+
+- type: entity
+  parent: DefaultStationBeaconCryonics
+  id: DefaultStationBeaconCryonicsCentComm
+  suffix: Cryonics, CentComm
+  components:
+  - type: CentCommBeacon

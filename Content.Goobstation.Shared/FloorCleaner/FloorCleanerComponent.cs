@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.GameStates;
@@ -18,7 +15,7 @@ public sealed partial class FloorCleanerComponent : Component
     /// How long it takes to destroy footprints, strain, etcetera off of things using this entity
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float CleanDelay = 8.0f;
+    public float CleanDelay = 4.0f;
 
     /// <summary>
     /// The X by X box this utensil will clean in.

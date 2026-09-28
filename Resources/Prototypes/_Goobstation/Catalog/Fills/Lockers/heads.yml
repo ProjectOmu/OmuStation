@@ -1,22 +1,3 @@
-# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-# SPDX-FileCopyrightText: 2025 PAFFhassoocks <asukalangleydanielle@gmail.com>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
-# SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-# SPDX-FileCopyrightText: 2025 Androidonator <33227516+Androidonator@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entityTable
@@ -24,7 +5,7 @@
   table: !type:AllSelector
     children:
     - id: BoxFolderCentCom
-    # - id: BriefcaseBrownFilled
+    - id: BriefcaseBrownFilled
     - id: WeaponDisablerAdvanced
     - id: BedsheetCentcom
     #- id: CaneSheathFilledNanotrasen # Omu, replace with a duty case.
@@ -32,14 +13,17 @@
     #- id: HandheldFaxOfficial # Omu, replace with a NT rep fax
     - id: HandheldFaxNanotrasenRepresentative
     - id: RubberStampNanorep
-    #- id: ExecutiveBriefcaseEmpty # nanorep update # omu refocus on RP
-    #- id: ComputerNTRTasksFlatpack # nanorep update # omu refocus on RP
+    #- id: ExecutiveBriefcaseEmpty # nanorep update # No gamer loot.
+    #- id: ComputerNTRTasksFlatpack # nanorep update
+    - id: ClothingEyesGlassesCentCommNoThermal # kinda gamer loot but med/sci and other inspections make it make sense
     - id: Paper
       amount: !type:ConstantNumberSelector
         value: 5
-    - id: ClothingEyesGlassesCentCommNoThermal
     - id: NanoRepStationReport # Goobstation
     - id: Multitool # Omu - Added for tasks flatpack
+    - id: ClothingOuterHardsuitExperimentalNanorep # Omu
+    - id: OxygenTankFilled # Omu - for hardsuit
+    - id: NitrogenTankFilled # Omu - for hardsuit
 
 - type: entity
   id: LockerNanorepFilled

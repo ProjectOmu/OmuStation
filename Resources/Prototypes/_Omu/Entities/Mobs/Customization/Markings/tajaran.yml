@@ -19,3 +19,25 @@
   sprites:
   - sprite: _Omu/Mobs/Customization/Tajaran/torso.rsi
     state: tuxedocat_back
+
+# Tajaran Tail
+
+- type: marking
+  id: TajaranTailAnim
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Tajaran/tails.rsi
+    state: tail_anim
+
+- type: marking
+  id: TajaranTailAnimRings
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Tajaran/tails.rsi
+    state: tail_anim
+  - sprite: _Omu/Mobs/Customization/Tajaran/tail_markings.rsi
+    state: tail_anim_rings

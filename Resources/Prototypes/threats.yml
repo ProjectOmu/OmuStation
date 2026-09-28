@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 jvne <juneialduncan21@gmail.com>
-#
 # SPDX-License-Identifier: MIT
 # threats called in by ninja hacking comms console
 - type: weightedRandom
@@ -17,13 +11,15 @@
     SleeperAgents: 1 # Omu
     # Slasher: 1 # Omu, disable this
     # Goobstation end
+    LoneXeno: 1 # Omu
+    Colossus: 1 # Omu - should be here but isnt lol - Clive
 
 - type: ninjaHackingThreat
   id: Dragon
   announcement: terror-dragon
   rule: DragonSpawn
 
-# Omu start 
+# Omu start
 - type: ninjaHackingThreat
   id: SleeperAgents
   announcement: terror-sleeper
@@ -35,3 +31,8 @@
 #  id: Revenant
 #  announcement: terror-revenant
 #  rule: RevenantSpawn
+
+- type: ninjaHackingThreat # DeltaV start
+  id: Colossus
+  announcement: terror-colossus
+  rule: ColossusSpawn # DeltaV end

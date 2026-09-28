@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2023 forthbridge <79264743+forthbridge@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 goet <6637097+goet@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -58,6 +51,7 @@
   description: A wild mushroom. There's no telling what effect it could have...
   components:
   - type: Produce
+    seedId: spaceshroom # GoobStation - growable spaceshrooms
   - type: Sprite
     sprite: Objects/Misc/spaceshroom.rsi
     state: object
@@ -101,6 +95,7 @@
   - type: AtmosExposed
   - type: Temperature
     currentTemperature: 290
+  - type: TemperatureDamage
   - type: InternalTemperature
     thickness: 0.02
     area: 0.02

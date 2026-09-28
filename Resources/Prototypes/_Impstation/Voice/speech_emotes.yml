@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # vocal emotes
@@ -75,6 +72,7 @@
 - type: emote
   id: Blink
   name: chat-emote-name-blink
+  overrideMute: true # Omu
   category: General
   icon: _Omu/Interface/Emotes/blink.png #imp
   chatMessages: ["chat-emote-msg-blink"]

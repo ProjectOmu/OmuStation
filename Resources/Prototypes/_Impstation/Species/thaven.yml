@@ -33,8 +33,8 @@
     Head: MobThavenHead
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
     Groin: MobThavenGroin
     Tail: MobHumanoidAnyMarking
     Chest: MobThavenChest
@@ -73,10 +73,10 @@
     Chest:
       points: 6
       required: false
-    Undershirt:
+    UndergarmentTop:
       points: 2
       required: false
-    Underwear:
+    UndergarmentBottom:
       points: 2
       required: false
     RightLeg:

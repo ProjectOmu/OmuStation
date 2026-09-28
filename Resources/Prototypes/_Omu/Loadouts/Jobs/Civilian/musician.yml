@@ -39,17 +39,3 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterMusician
-
-- type: loadoutGroup
-  id: MusicianShoes
-  name: loadout-group-musician-shoes
-  loadouts:
-  - BlackShoes
-  - MusicianMikuShoes
-
-- type: loadoutGroup
-  id: MusicianHat
-  name: loadout-group-musician-hat
-  minLimit: 0
-  loadouts:
-  - MusicianMikuHead

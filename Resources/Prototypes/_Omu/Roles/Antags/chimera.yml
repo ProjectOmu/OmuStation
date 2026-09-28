@@ -1,6 +1,6 @@
 - type: antag
   id: Chimera
-  name: roles-antag-Chimera-name
+  name: role-subtype-Chimera
   antagonist: true
   setPreference: false
   objective: roles-antag-Chimera-objective
@@ -15,4 +15,15 @@
     antagPrototype: Chimera
     roleType: TeamAntagonist
     subtype: role-subtype-Chimera
+  - type: MindRoleChimera
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleChimeraInitial
+  name: Initial Chimera
+  components:
+  - type: MindRole
+    antagPrototype: LetoferolSleeper
+    roleType: TeamAntagonist
+    subtype: letoinfected
   - type: MindRoleChimera

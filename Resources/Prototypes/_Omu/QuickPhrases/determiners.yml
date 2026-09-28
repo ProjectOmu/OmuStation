@@ -1,0 +1,26 @@
+
+  # basic
+
+- type: quickPhrase
+  id: APhraseOmu
+  parent: BaseDeterminers
+  text: omu-phrase-determiners-a
+
+- type: quickPhrase
+  id: ThePhraseOmu
+  parent: BaseDeterminers
+  text: omu-phrase-determiners-the
+
+  # amounts
+
+- type: quickPhrase
+  id: MostPhraseOmu
+  parent: BaseDeterminersAmounts
+  text: omu-phrase-determiners-most
+
+- type: quickPhrase
+  id: LeastPhraseOmu
+  parent: BaseDeterminersAmounts
+  text: omu-phrase-determiners-least
+
+  # numbers
