@@ -377,6 +377,8 @@
     sound: /Audio/_Starlight/Voice/Resomi/resomi_scree1.ogg
   - type: EmitSoundOnCollide
     sound: /Audio/Effects/hit_kick.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
     soundHit: /Audio/_Starlight/Voice/Resomi/resomi_scree2.ogg
 
 - type: entity
