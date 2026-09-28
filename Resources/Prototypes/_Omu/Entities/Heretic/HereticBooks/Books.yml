@@ -15,6 +15,7 @@
 
 - type: entity
   parent: BookBase
+  abstract: true
   id: HereticTomeBase
   name: HereticTomeBase
   description: Something is off about this book - you shouldn't see this
