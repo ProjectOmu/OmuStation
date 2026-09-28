@@ -17,7 +17,7 @@
   parent: BaseGameRule
   id: Changeling
   components:
-    - type: ChangelingRule
+  - type: ChangelingRule
   - type: GameRule
     minPlayers: 20 # Omu, was 15
   - type: AntagRandomObjectives
