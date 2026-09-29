@@ -42,6 +42,6 @@ public sealed class LazarusSystem : EntitySystem
 public sealed partial class LazarusImplantComponent : Component
 {
     [DataField]
-    public ProtoId<NpcFactionPrototype> Faction = "Nanotrasen";
+    public ProtoId<NpcFactionPrototype> Faction = "NanoTrasen";
 
 }
