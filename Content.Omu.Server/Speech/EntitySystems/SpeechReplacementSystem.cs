@@ -6,9 +6,11 @@ using Content.Omu.Server.Speech.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.Speech;
 using Content.Server.VoiceMask;
+using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Cloning.Events;
 using Content.Shared.GameTicking;
+using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 
 namespace Content.Omu.Server.Speech.EntitySystems;
@@ -18,10 +20,14 @@ public sealed class SpeechReplacementSystem : EntitySystem
     private static readonly Regex WordRegex = new(@"[\w']+");
 
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+
+    private int _maxMessageLength;
 
     public override void Initialize()
     {
         base.Initialize();
+        Subs.CVar(_cfg, CCVars.ChatMaxMessageLength, x => _maxMessageLength = x, true);
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
         SubscribeLocalEvent<SpeechReplacementComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<SpeechReplacementComponent, CloningEvent>(OnCloning);
@@ -72,15 +78,20 @@ public sealed class SpeechReplacementSystem : EntitySystem
             return;
 
         var message = args.Message.Replace(SpeechReplacementComponent.Shield, string.Empty);
-        args.Message = pattern.Replace(message, match => Substitute(ent.Comp, match));
+        var room = _maxMessageLength - message.Length;
+        args.Message = pattern.Replace(message, match =>
+        {
+            if (!ent.Comp.Lookup.TryGetValue(match.Value, out var replacement)
+                || replacement.Length - match.Length > room)
+                return match.Value;
+
+            room -= replacement.Length - match.Length;
+            return Substitute(match.Value, replacement);
+        });
     }
 
-    private static string Substitute(SpeechReplacementComponent comp, Match match)
+    private static string Substitute(string word, string replacement)
     {
-        var word = match.Value;
-        if (!comp.Lookup.TryGetValue(word, out var replacement))
-            return word;
-
         if (word.Any(char.IsUpper) && !word.Any(char.IsLower) && (word.Length > 1 || replacement.Length == 1))
             replacement = replacement.ToUpperInvariant();
         else if (char.IsUpper(word[0]))
