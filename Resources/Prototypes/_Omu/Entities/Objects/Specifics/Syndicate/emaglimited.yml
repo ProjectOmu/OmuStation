@@ -1,0 +1,11 @@
+- type: entity
+  parent: EmagUnlimited
+  id: EmagLimited
+  suffix: Limited
+  description: The iconic EMAG, this one seems much older and lacks the recharge capability of later models
+  components:
+  - type: LimitedCharges
+  - type: Sprite
+    sprite: Objects/Tools/Emag.rsi
+  - type: StaticPrice
+    price: 2500
