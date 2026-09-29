@@ -9,12 +9,16 @@
     - id: OrganEyesOfGod
     - id: WeaponCrusherHalberdFilledRandom
     - id: LavaKatana
+    - id: CryoKatana
     - id: LavalandCursedHeart
     - id: ClothingShoesWizardSkates
     - id: SingularityToy
     - id: ToySwordDouble
     - id: PlushieRainbowLizard
     - id: FoamRapier
+    - id: FoamThrongler
+    - id: GlueGrenade
+    - id: SyringePoisonFent
 
 - type: entityTable     #Todo - more gamer lot
   id: SmugglerCrateSyndieLoot
@@ -28,6 +32,8 @@
     - id: HappyHonkNukieSnacks
     - id: ObservationKitSyndie
     - id: EmagLimited
+    - id: ClothingBackpackDuffelSyndicatePyjamaBundle
+    - id: BriefcaseSyndicateRedspace #NOT the deaddrop version
 
 - type: entity
   parent: [ ClothingNeckStoleChaplain, BaseChameleon ]
