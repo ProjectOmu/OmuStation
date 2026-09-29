@@ -7,7 +7,9 @@
     - id: ReinforcementRadioSmugglerCrateIPC
     - id: ReinforcementRadioSmugglerCrateBorg
     - id: OrganEyesOfGod
-    - id: MiningTome
+    - id: MiningTomePlasma
+    - id: LazarusImplanter
+    - id: CogtoothAxe
 
 - type: entityTable     #Todo - more gamer lot
   id: SmugglerCrateSyndieLoot
@@ -183,7 +185,7 @@
 - type: entity
   name: cogtooth axe
   parent: FireAxe
-  id: CogToothAxe
+  id: CogtoothAxe
   description: An engraving reads, blessings of the omnissiah... who is that?
   components:
   - type: Sprite
