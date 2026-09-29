@@ -1,0 +1,41 @@
+- type: entity
+  parent: [EnergySwordDouble, BaseHonkraband]
+  id: ToySwordDouble
+  name: Double-bladed toy sword
+  description: When one wasn't fun enough
+  components:
+  - type: StaminaDamageOnHit
+    damage: 12
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0.3
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        variation: 0.125
+    activatedDamage:
+      types:
+        Heat: 0.3
+
+- type: entity
+  parent: [WardenRapier, BaseHonkraband]
+  id: FoamRapier
+  name: Foam Rapier
+  description: En garde!
+  components:
+  - type: StaminaDamageOnHit
+    Damage: 8
+  - type: MeleeWeapon
+    Damage:
+      types:
+        Blunt: 0.3
