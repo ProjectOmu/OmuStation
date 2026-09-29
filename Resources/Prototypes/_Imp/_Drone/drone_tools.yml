@@ -1,19 +1,15 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Imp special. This file covers all of the stuff needed for repair drones to spawn with their tools.
 
-# Omu made the bag removable to allow for swapping bags and updated its sprite
-# but making it removable also made it obsolete so we comment it out
-
-#- type: entity
-#  parent: ClothingBackpackSatchelDrone
-#  id: DroneSatchelUnremovable
-#  suffix: Unremoveable
-#  components:
-#  - type: Unremoveable
-#  - type: Sprite
-#    sprite: _Imp/Drone/dronesatchel.rsi
-
 # Unremovable versions of their items. I am aware that unremoveable is spelled wrong.
+- type: entity
+  parent: ClothingBackpackSatchelDrone
+  id: DroneSatchelUnremovable
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
+  - type: Sprite
+    sprite: _Imp/Drone/dronesatchel.rsi
 
 - type: entity
   parent: trayScanner
@@ -66,7 +62,7 @@
   equipment:
     pocket1: trayScannerUnremoveable
     pocket2: PinpointerStationUnremoveable
-    back: ClothingBackpackSatchelDrone # Omu
+    back: ClothingBackpackSatchelDrone # Omu # used to be DroneSatchelUnremovable - was changed to let drones swap backpacks
   inhand:
   - OmnitoolUnremoveable
   - WelderExperimentalUnremoveable
