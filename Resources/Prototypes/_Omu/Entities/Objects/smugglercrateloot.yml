@@ -7,6 +7,9 @@
     - id: ReinforcementRadioSmugglerCrateIPC
     - id: ReinforcementRadioSmugglerCrateBorg
     - id: OrganEyesOfGod
+    - id: WeaponCrusherHalberdFilledRandom
+    - id: LavaKatana
+    - id: LavalandCursedHeart
 
 - type: entityTable     #Todo - more gamer lot
   id: SmugglerCrateSyndieLoot
@@ -19,6 +22,7 @@
     - id: ClothingHandsKnuckleDustersSyndicate
     - id: HappyHonkNukieSnacks
     - id: ObservationKitSyndie
+    - id: Emag
 
 - type: entity
   parent: [ ClothingNeckStoleChaplain, BaseChameleon ]
