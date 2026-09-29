@@ -20,11 +20,11 @@
           state: icon
         name: construction-graph-tag-welding-mask
         doAfter: 2
-      - tag: WelderExperimental
+      - tag: WelderExperimental # Omu, experimental welder
         icon:
-          sprite: Objects/Tools/welder_experimental.rsi
+          sprite: Objects/Tools/welder_experimental.rsi # Omu
           state: icon
-        name: construction-graph-tag-experimental-welder
+        name: construction-graph-tag-experimental-welder # Omu
         doAfter: 2
   - node: bot
     entity: MobWeldbot
