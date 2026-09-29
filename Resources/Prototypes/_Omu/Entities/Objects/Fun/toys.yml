@@ -1,5 +1,5 @@
 - type: entity
-  parent: [EnergySwordDouble, BaseHonkraband]
+  parent: EnergySwordDouble
   id: ToySwordDouble
   name: Double-bladed toy sword
   description: When one wasn't fun enough
@@ -26,16 +26,40 @@
     activatedDamage:
       types:
         Heat: 0.3
+  - type: Reflect
+    reflectProb: .05 #higher than default since its double, still rare
+    spread: 75
 
 - type: entity
-  parent: [WardenRapier, BaseHonkraband]
+  parent: BaseSword
   id: FoamRapier
   name: Foam Rapier
   description: En garde!
   components:
   - type: StaminaDamageOnHit
     Damage: 8
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Melee/wardenrapier.rsi
   - type: MeleeWeapon
-    Damage:
+    angle: 0
+    animationRotation: -90
+    wideAnimationRotation: -90
+    heavyStaminaCost: 2.5
+    damage:
       types:
         Blunt: 0.3
+    soundHit:
+        path: Audio\Items\Toys\ToyFall2.ogg
+  - type: Item
+    shape:
+    - 0,0,0,3
+    storedRotation: -45
+  - type: MeleeDash
+    emoteOnDash: null
+    length: 3
+    canDashWhileWeightless: true
+  - type: UseDelay
+    delay: 4.5
+  - type: Reflect
+    reflectProb: 0.01
+    spread: 30
