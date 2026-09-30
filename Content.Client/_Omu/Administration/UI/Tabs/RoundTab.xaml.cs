@@ -14,6 +14,7 @@ public sealed partial class RoundTab : Control
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
+        StartRoundCommand.OnPressed += _ => _console.ExecuteCommand("startround");
         EndRoundButton.OnPressed += _ => _console.ExecuteCommand("endround");
         RestartRoundButton.OnPressed += _ => _console.ExecuteCommand("restartround");
         RestartRoundNowButton.OnPressed += _ => _console.ExecuteCommand("restartroundnow");

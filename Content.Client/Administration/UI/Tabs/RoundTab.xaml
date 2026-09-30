@@ -11,7 +11,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     MinSize="50 50">
     <GridContainer
         Columns="3">
-        <cc:CommandButton Command="startround" Text="{Loc administration-ui-round-tab-start-round}" />
+        <controls:ConfirmButton Name="StartRoundCommand" Text="{Loc administration-ui-round-tab-start-round}" /> <!-- Omu -->
         <controls:ConfirmButton Name="EndRoundButton" Text="{Loc administration-ui-round-tab-end-round}" /> <!-- Omu -->
         <controls:ConfirmButton Name="RestartRoundButton" Text="{Loc administration-ui-round-tab-restart-round}" /> <!-- Omu -->
         <controls:ConfirmButton Name="RestartRoundNowButton" Text="{Loc administration-ui-round-tab-restart-round-now}" /> <!-- Omu -->
