@@ -11,7 +11,7 @@ namespace Content.Client.Administration.UI.Tabs
     [GenerateTypedNameReferences]
     public sealed partial class RoundTab : Control
     {
-        [Dependency] private readonly IConfigurationManager _config = default!;
+        // [Dependency] private readonly IConfigurationManager _config = default!;
         [Dependency] private readonly IClientConsoleHost _console = default!;
 
         public RoundTab()
@@ -19,8 +19,9 @@ namespace Content.Client.Administration.UI.Tabs
             RobustXamlLoader.Load(this);
             IoCManager.InjectDependencies(this);
 
-            RestartRoundNowButton.OnPressed +=
-                _ => IoCManager.Resolve<IClientConsoleHost>().ExecuteCommand("restartroundnow");
+            EndRoundButton.OnPressed += _ => _console.ExecuteCommand("endround");
+            RestartRoundButton.OnPressed += _ => _console.ExecuteCommand("restartround");
+            RestartRoundNowButton.OnPressed += _ => _console.ExecuteCommand("restartroundnow");
         }
     }
 }
