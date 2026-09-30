@@ -67,9 +67,8 @@ job-name-alt-lawyer-7 = Barrister
 
 job-name-alt-librarian-1 = Clerk
 job-name-alt-librarian-2 = Writer
-job-name-alt-librarian-3 = Professor
-job-name-alt-librarian-4 = Curator
-job-name-alt-librarian-5 = Archivist
+job-name-alt-librarian-3 = Curator
+job-name-alt-librarian-4 = Archivist
 
 job-name-alt-mime-1 = Pantomimist
 
