@@ -5,7 +5,7 @@ using Robust.Client.UserInterface.XAML;
 
 namespace Content.Client.Administration.UI.Tabs; // this is fine
 
-public sealed partial class RoundTab : Control
+public sealed partial class RoundTab
 {
     [Dependency] private readonly IClientConsoleHost _console = default!;
 
