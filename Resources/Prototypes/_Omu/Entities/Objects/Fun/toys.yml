@@ -11,18 +11,6 @@
       types:
         Blunt: 0.3
   - type: ItemToggleMeleeWeapon
-    activatedSoundOnHit:
-      path: /Audio/Weapons/eblade1.ogg
-      params:
-        variation: 0.250
-    activatedSoundOnHitNoDamage:
-      path: /Audio/Weapons/eblade1.ogg
-      params:
-        variation: 0.250
-    activatedSoundOnSwing:
-      path: /Audio/Weapons/eblademiss.ogg
-      params:
-        variation: 0.125
     activatedDamage:
       types:
         Heat: 0.3
@@ -41,7 +29,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 0.3
+        Blunt: 0
   - type: MeleeDash
     emoteOnDash: null
     force: 10
@@ -52,5 +40,28 @@
   - type: Reflect
     reflectProb: 0.01
     spread: 30
+  - type: Contraband
+    severity: Honkraband
+
+- type: entity
+  parent: WeaponLightMachineGunL6
+  id: WeaponLightMachineGunFoam
+  name: Foam L6 Saw
+  description: Developed by the Waffle Corporation, wait, why does it's barrel look like that? Fire rate reduced after the 'foamularity' incident.
+  components:
+  - type: PacifismAllowedGun
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineFoamBox
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineFoamBox
+  - type: Gun
+    fireRate: 4
   - type: Contraband
     severity: Honkraband
