@@ -1,6 +1,6 @@
 - type: entity
   id: BaseMagazineClipM1Garand
-  name: "m1 garand clip (.30 long rifle magnum)"
+  name: "m1 garand clip (.33 magnum rifle)"
   parent: BaseItem
   abstract: true
   components:
@@ -35,7 +35,7 @@
 
 - type: entity
   id: MagazineClipM1Garand
-  name: "m1 garand clip (.30 long rifle magnum)"
+  name: "m1 garand clip (.33 magnum rifle)"
   parent: BaseMagazineClipM1Garand
   components:
   - type: Tag
