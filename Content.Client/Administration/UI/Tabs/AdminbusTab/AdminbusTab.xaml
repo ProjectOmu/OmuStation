@@ -16,6 +16,6 @@ SPDX-License-Identifier: MIT
         <Button Name="LoadGamePrototypeButton" Text="{Loc 'load-game-prototype'}"/>
         <cc:UICommandButton Name="LoadBlueprintsButton" Command="loadbp" Text="{Loc 'load-blueprints'}" WindowType="{x:Type abt:LoadBlueprintsWindow}"/>
         <cc:CommandButton Command="entities with Singularity delete" Name="DeleteSingulos" Text="{Loc 'delete-singularities'}"/> <!-- omu #1846 -->
-        <cc:CommandButton Command="entities with TeslaEnergyBall prototyped TeslaEnergyBall delete" Name="DeleteTeslas" Text="{Loc 'delete-teslas'}"/>
+        <cc:CommandButton Command="entities with TeslaEnergyBall prototyped TeslaEnergyBall delete" Name="DeleteTeslas" Text="{Loc 'delete-teslas'}"/> <!-- omu #1847 -->
     </GridContainer>
 </Control>

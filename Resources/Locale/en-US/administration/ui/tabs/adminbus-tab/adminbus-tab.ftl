@@ -7,7 +7,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 delete-singularities = Delete Singularities
-delete-teslas = Delete Teslas
 open-station-events = Station Events
 load-game-prototype = Load Prototype
 load-blueprints = Load Blueprints
