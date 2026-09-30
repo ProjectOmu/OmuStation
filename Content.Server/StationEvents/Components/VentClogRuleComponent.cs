@@ -15,9 +15,9 @@ public sealed partial class VentClogRuleComponent : Component
     /// There is a small chance of using any reagent, ignoring this.
     /// </summary>
     [DataField]
-    public IReadOnlyList<ProtoId<ReagentPrototype>> SafeishVentChemicals = new ProtoId<ReagentPrototype>[]
+    public IReadOnlyList<ProtoId<ReagentPrototype>> VentChemicalsBlacklist = new ProtoId<ReagentPrototype>[] // Omu - Was a list of safe-ish vent chems, now is a strict blacklist
     {
-        "Water", "Blood", "Slime", "SpaceDrugs", "SpaceCleaner", "Nutriment", "Sugar", "SpaceLube", "Ephedrine", "Ale", "Beer", "SpaceGlue"
+        "Stasizium", "Binglejuice", "BirdFluConcentrate", "MarotineConcentrate", "Methrilconcentrate", "MothampetamineConcentrate", "Tranquility", "Mugwort", "ThickSmoke", "Luxurium", "Minerslave",
     };
 
     /// <summary>
