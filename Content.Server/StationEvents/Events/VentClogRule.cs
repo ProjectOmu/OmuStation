@@ -41,7 +41,7 @@ public sealed class VentClogRule : StationEventSystem<VentClogRuleComponent>
 
             var solution = new Solution();
 
-//            if (!RobustRandom.Prob(0.33f))
+//            if (!RobustRandom.Prob(0.33f)) // Omu
 //                continue;
 //
 //            var pickAny = RobustRandom.Prob(0.05f);
