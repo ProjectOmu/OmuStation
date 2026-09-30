@@ -6,7 +6,15 @@ selectable-set-headofsecurity-paradevoidsuit-desc =
 
 selectable-set-paramedic-cybersunhardsuit-name = CSI-122M "Xiézhù" hardsuit
 selectable-set-paramedic-cybersunhardsuit-desc =
-    The odd one out of the Cybersun hardsuits, meant to be lightweight but less armored.
+    The odd one out of the Cybersun hardsuits,
+    meant to be lightweight but less armored.
+    About as protective as its NT counterpart.
+
+# Clearer distinction between itself and the modsuit.
+selectable-set-paramedic-voidsuit-omu-desc =
+    A light hardsuit favoring environmental
+    resistance and fast movement speed,
+    over physical protection.
 
 selectable-set-warden-eshotty-name = Energy Shotgun
 selectable-set-warden-eshotty-description =
@@ -207,4 +215,11 @@ selectable-set-ntr-blade-name = Cane Blade
 selectable-set-ntr-blade-desc =
     A sturdier, bladed fancy cane, with no stun setting...
     This one is meant for emergencies only
+    CC note says: ONLY USE ON RED!!!!!
+
+selectable-set-ntr-brella-name = "Marlen" Umbrella
+selectable-set-ntr-brella-desc =
+    A stylish and intricate souvenir made from tough, hyper-woven
+    durathread by "NanoFashion" for the rich people of central command.
+    Looks expensive, and surprisingly durable.
     CC note says: ONLY USE ON RED!!!!!

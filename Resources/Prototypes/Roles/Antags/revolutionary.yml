@@ -5,7 +5,7 @@
   name: roles-antag-rev-head-name
   antagonist: true
   setPreference: true
-  objective: roles-antag-rev-head-objective
+  objective: roles-antag-rev-head-objective-omu #Omu changed localisation
   requirements:
   - !type:DepartmentTimeRequirement # was  - !type:OverallPlaytimeRequirement, Goob change
       department: Command
@@ -17,7 +17,7 @@
   name: roles-antag-rev-name
   antagonist: true
   setPreference: false
-  objective: roles-antag-rev-objective
+  objective: roles-antag-rev-objective-omu #Omu changed localisation
   guides: [ Revolutionaries ]
 
 - type: startingGear
@@ -28,4 +28,5 @@
     #- EncryptionKeySyndie # Goobstation # Omu, headrev uplink
     #- RevsFastDrawImplanter # Goobstation # Omu, headrev uplink
     #- Flash # Omu, headrev uplink
+    - RevSelector   #Omu rev redux
     - BaseUplinkRadioRevolutionary40RC

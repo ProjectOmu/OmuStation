@@ -30,6 +30,7 @@ using Content.Shared.Temperature.Components;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Wieldable.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -102,6 +103,11 @@ public sealed class IllusionSystem : EntitySystem
     {
         if (!args.IsHit || !ShouldSpawnIllusion(ent, args.User, args.HitEntities))
             return;
+        if (ent.Comp.RequireWielding)
+        {
+            if (!TryComp<WieldableComponent>(ent, out var compWield)) return;//Omu
+            if (!compWield.Wielded) return;//Omu prevent infinite item duplication
+        }
 
         SpawnIllusion(args.User, ent.Comp.Lifetime, ent.Comp.HealthMultiplier, args.HitEntities, ent.Comp.Components);
     }

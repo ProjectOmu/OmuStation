@@ -14,6 +14,7 @@ using Content.Shared.Access.Systems;
 using Content.Shared._White.Xenomorphs;
 using Content.Server.AlertLevel;
 using Content.Shared.Emp;
+using Content.Shared.Ghost;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.NukeOps;
 using Content.Shared.Popups;
@@ -94,7 +95,11 @@ public sealed class AmberAlertSystem : EntitySystem
     private void OnAlertSelectAttempt(ref AlertLevelSelectAttemptEvent ev)
     {
         var amber = EnsureComp<AmberAlertComponent>(ev.Station);
+        var console = EnsureComp<CommunicationsConsoleComponent>(ev.Console); //omu
         if (ev.Level != amber.AmberLevel)
+            return;
+
+        if (console.CanBypassAmberLock) //omu
             return;
 
         if (!amber.Unlocked)
@@ -108,6 +113,11 @@ public sealed class AmberAlertSystem : EntitySystem
     {
         if (!args.CanAccess || !args.CanInteract)
             return;
+
+        // Omu start -- Aghosts no longer show the unlock verb
+        if(HasComp<GhostComponent>(ent.Owner))
+            return;
+        // Omu end
 
         var station = _station.GetOwningStation(ent.Owner);
         if (station == null
