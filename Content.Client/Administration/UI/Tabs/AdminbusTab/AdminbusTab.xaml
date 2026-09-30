@@ -15,6 +15,6 @@ SPDX-License-Identifier: MIT
         <Button Name="SpawnDecalsButton" Text="{Loc 'sandbox-window-spawn-decals-button'}" />
         <Button Name="LoadGamePrototypeButton" Text="{Loc 'load-game-prototype'}"/>
         <cc:UICommandButton Name="LoadBlueprintsButton" Command="loadbp" Text="{Loc 'load-blueprints'}" WindowType="{x:Type abt:LoadBlueprintsWindow}"/>
-        <cc:CommandButton Command="deleteewc Singularity" Name="DeleteSingulos" Text="{Loc 'delete-singularities'}"/>
+        <cc:CommandButton Command="entities with Singularity delete" Name="DeleteSingulos" Text="{Loc 'delete-singularities'}"/>
     </GridContainer>
 </Control>
