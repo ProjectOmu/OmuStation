@@ -30,4 +30,7 @@
       - Syringe # goobstation fire all syringes
       - SyringeGunAmmo
       - ShellShotgun
+  - type: SyringeGun
+    pierceArmor: false # i'd considered this but it may be too offensively busted
+    injectionSpeedMultiplier: 1 # it'll be better for microdosing your officers though
 
