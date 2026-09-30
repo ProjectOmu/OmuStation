@@ -11,7 +11,6 @@ namespace Content.Client.Administration.UI.Tabs
     [GenerateTypedNameReferences]
     public sealed partial class RoundTab : Control
     {
-        // [Dependency] private readonly IConfigurationManager _config = default!;
         [Dependency] private readonly IClientConsoleHost _console = default!;
 
         public RoundTab()
