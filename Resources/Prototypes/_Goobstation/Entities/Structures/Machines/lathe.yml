@@ -315,6 +315,10 @@
         - RawMaterial
         - Ingot
         - SheetPlasma
+  # Omu begin
+  - type: LatheAnnouncing
+    channels: [Service]
+  # Omu end
 
 - type: entity
   id: ERTTechFab
