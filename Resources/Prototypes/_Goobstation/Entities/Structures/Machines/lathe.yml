@@ -75,6 +75,10 @@
         - RawMaterial
         - Ingot
         - SheetPlasma
+  # Omu begin
+  - type: LatheAnnouncing
+    channels: [Engineering]
+  # Omu end
 
 - type: entity
   id: CargoTechFab
