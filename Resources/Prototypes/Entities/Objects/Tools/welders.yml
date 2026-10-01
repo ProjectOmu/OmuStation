@@ -223,7 +223,7 @@
 
 - type: entity
   name: emergency welding tool
-  parent: Welder
+  parent: WelderBase
   id: WelderMini
   description: "A miniature welder used during emergencies."
   components:
