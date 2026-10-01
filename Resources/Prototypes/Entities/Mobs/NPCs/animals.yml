@@ -662,18 +662,18 @@
         type: StrippableBoundUserInterface
   - type: InventorySlots
   - type: Inventory
-    speciesId: hamster
-    templateId: hamster
+    speciesId: mothroach # Omu
+    templateId: mothroach # Omu
     displacements:
       head:
         sizeMaps:
           32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
+            sprite: _Omu/Mobs/Animals/mothroach/displacement.rsi # Omu
             state: head
       mask:
         sizeMaps:
           32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
+            sprite: _Omu/Mobs/Animals/mothroach/displacement.rsi # Omu
             state: mask
       suitstorage:
         sizeMaps:
@@ -683,7 +683,7 @@
       eyes:
         sizeMaps:
           32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
+            sprite: _Omu/Mobs/Animals/mothroach/displacement.rsi # Omu
             state: eyes
       neck:
         sizeMaps:
