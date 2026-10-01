@@ -127,6 +127,11 @@
     - LargeWin
     - Jackpot
     - GodPot
+    emagPrizes:
+    - SmallWinEmag
+    - MediumWinEmag
+    - LargeWinEmag
+    - JackpotEmag
 
 - type: entity
   parent: BaseSlotMachine
@@ -163,9 +168,12 @@
     spinCost: 100000
     prizes:
     - Lose
-    - QmThrongler
+    # - QmThrongler #Omu
+    - GodPot #Omu
     - QmJackpot
     - QmMinor
+    emagPrizes:
+    - JackpotEmag
 
 - type: entity
   id: CoinFlipper
