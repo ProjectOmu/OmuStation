@@ -8184,3 +8184,171 @@ Entries:
         music. 
   id: 1062
   time: '2026-09-28T17:19:23.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: Raised the chaos score of shadowlings to 900 (was 500).
+  id: 1063
+  time: '2026-09-28T21:41:55.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Add
+      message: Added Jessie Fletcher to the sectoral plushie crate
+  id: 1064
+  time: '2026-09-29T02:32:10.0000000+00:00'
+- author: ggrab41
+  changes:
+    - type: Tweak
+      message: Made Maintenance Drones have infinite battery
+  id: 1065
+  time: '2026-09-29T05:36:49.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Remove
+      message: >-
+        Removed the alternative job title "Professor" from Librarian, as that
+        title is reserved for an upcoming mentor role.
+  id: 1066
+  time: '2026-09-29T15:42:07.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Add
+      message: >-
+        Added the vintage shaft miners jumpsuit and skirt to the salvage
+        loadout 
+  id: 1067
+  time: '2026-09-29T17:30:42.0000000+00:00'
+- author: ggrab41
+  changes:
+    - type: Tweak
+      message: Let drones swap their built-in satchel with any other bag.
+  id: 1068
+  time: '2026-09-29T21:01:15.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Remove
+      message: >-
+        Removed S.E.C. cyborgs from regular play. (They can still be spawned by
+        admins.)
+  id: 1069
+  time: '2026-09-29T21:06:34.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: >-
+        You need an experimental welding tool to make a weldbot now. Normal
+        welders wont work
+  id: 1070
+  time: '2026-09-29T21:16:51.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Add
+      message: Added the syndie bingle!! only obtainable from emaging slot machines
+    - type: Tweak
+      message: >-
+        Changed how the Slots work when emaged now giving you a set list of
+        items 
+    - type: Remove
+      message: Removed the throngler from the qm's slot machine
+  id: 1071
+  time: '2026-09-30T10:05:51.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: >-
+        Fixed thaven organs having really low integrity all of the time, should
+        be the same as any other species now.
+  id: 1072
+  time: '2026-09-30T10:47:40.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: Campfires can now be used to cook food!
+  id: 1073
+  time: '2026-09-30T12:42:20.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: Biomass reclaimer can process things without blood again
+  id: 1074
+  time: '2026-09-30T14:28:00.0000000+00:00'
+- author: PhosphateWithManyOs
+  changes:
+    - type: Fix
+      message: >-
+        Pressing E on the paramedic modsuit opens the inventory instead of
+        activating the siren. 
+  id: 1075
+  time: '2026-09-30T16:17:55.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: Vinyls can now be change in volume on a YAML side(or via VVedit)
+  id: 1076
+  time: '2026-09-30T21:43:03.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: Fixed surgery not working on thaven
+  id: 1077
+  time: '2026-09-30T23:25:46.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: >-
+        All cyborg types now get the tools module, no matter the choice of
+        chassis.
+    - type: Fix
+      message: All service cyborg chassis now get the clowning module.
+    - type: Fix
+      message: All generic cyborg chassis now get the inflatables module.
+  id: 1078
+  time: '2026-10-01T12:47:28.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Tweak
+      message: >-
+        Mothroaches can now wear almost any hat, glasses or mask and they
+        actually sit on their heads.
+    - type: Remove
+      message: >-
+        Mothroaches can no longer wear neck items, the few that were compatible
+        didn't fit right to begin with.
+  id: 1079
+  time: '2026-10-01T16:12:36.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed the "You must always carry lethal weapons" thaven mood.
+  id: 1080
+  time: '2026-10-01T16:22:09.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Changes it so that you can have commas and quotes in your character
+        name, see recent announcement for more info.
+  id: 1081
+  time: '2026-10-01T16:23:07.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: Rewrote the description of the atmospherics belt.
+  id: 1082
+  time: '2026-10-01T16:23:58.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Remove
+      message: >-
+        Removed alternative job titles from Sergeant; as Sergeants are mentors
+        to Security Cadets, they need to be immediately recognizable.
+  id: 1083
+  time: '2026-10-01T16:51:39.0000000+00:00'
+- author: Not-Solid
+  changes:
+    - type: Add
+      message: >-
+        Added the kitchen produce crate to cargo, a fresh stock of raw botany
+        produce for the kitchen.
+  id: 1084
+  time: '2026-10-01T17:00:59.0000000+00:00'
