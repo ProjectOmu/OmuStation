@@ -44,13 +44,23 @@
   parent: BaseItem
   id: WeaponLightMachineGunL6Foam
   name: Foam L6 SAW
-  description: Features a speaker for enhanced immersion... none of the pieces move so you don't feel that immersed.
+  description: Features a speaker for enhanced immersion... none of the parts move so you don't feel that immersed.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/LMGs/l6.rsi
     layers:
     - state: base
     - state: mag-3
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,1
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
   - type: Gun
     fireRate: 8
     selectedMode: FullAuto
