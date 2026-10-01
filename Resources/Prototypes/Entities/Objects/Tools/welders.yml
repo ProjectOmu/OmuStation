@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: welding tool
+  abstract: true #OMU
   parent: BaseItem
-  id: Welder
+  id: WelderBase #OMU turned this into a abstract
   description: "Melts anything as long as it's fueled, don't forget your eye protection!"
   components:
   # Goobstation edit start
