@@ -8280,3 +8280,59 @@ Entries:
         activating the siren. 
   id: 1075
   time: '2026-09-30T16:17:55.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: Vinyls can now be change in volume on a YAML side(or via VVedit)
+  id: 1076
+  time: '2026-09-30T21:43:03.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: Fixed surgery not working on thaven
+  id: 1077
+  time: '2026-09-30T23:25:46.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: >-
+        All cyborg types now get the tools module, no matter the choice of
+        chassis.
+    - type: Fix
+      message: All service cyborg chassis now get the clowning module.
+    - type: Fix
+      message: All generic cyborg chassis now get the inflatables module.
+  id: 1078
+  time: '2026-10-01T12:47:28.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Tweak
+      message: >-
+        Mothroaches can now wear almost any hat, glasses or mask and they
+        actually sit on their heads.
+    - type: Remove
+      message: >-
+        Mothroaches can no longer wear neck items, the few that were compatible
+        didn't fit right to begin with.
+  id: 1079
+  time: '2026-10-01T16:12:36.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed the "You must always carry lethal weapons" thaven mood.
+  id: 1080
+  time: '2026-10-01T16:22:09.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Changes it so that you can have commas and quotes in your character
+        name, see recent announcement for more info.
+  id: 1081
+  time: '2026-10-01T16:23:07.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: Rewrote the description of the atmospherics belt.
+  id: 1082
+  time: '2026-10-01T16:23:58.0000000+00:00'
