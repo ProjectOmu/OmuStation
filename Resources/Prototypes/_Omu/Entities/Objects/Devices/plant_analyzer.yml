@@ -1,6 +1,6 @@
 - type: entity
   id: PlantAnalyzer
-  parent: [ BaseItem, PowerCellSlotMediumItem ]
+  parent: [ BaseHandheldComputer ]
   name: plant analyzer
   description: A hand-held plant scanner capable of analyzing plants and seeds.
   components:
@@ -32,9 +32,9 @@
 
 - type: entity
   id: PlantAnalyzerDebug
-  parent: [ BaseItem ]
+  parent: [ BaseHandheldComputer ]
   name: plant analyzer (debug)
-  description: A debug plant scanner that does not require a power cell and scans instantly.
+  description: A debug plant scanner that does not draw power and scans instantly.
   components:
   - type: Sprite
     sprite: _Omu/Objects/Devices/plantanalyzer.rsi
