@@ -4,7 +4,6 @@
   abstract: true #OMU
   parent: BaseItem
   id: WelderBase #OMU turned this into a abstract
-  description: "Melts anything as long as it's fueled, don't forget your eye protection!"
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
