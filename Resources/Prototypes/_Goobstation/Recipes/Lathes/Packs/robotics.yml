@@ -45,10 +45,12 @@
   - BorgModuleAdvancedSurgery
   - BorgModuleLollypop
 
-- type: latheRecipePack
-  id: SecBorgParts
-  recipes:
-  - SecEndoskeleton
+# Omu start: remove S.E.C. cyborg from regular play
+# - type: latheRecipePack
+#   id: SecBorgParts
+#   recipes:
+#   - SecEndoskeleton
+# Omu end
 
 - type: latheRecipePack
   id: PowerCages

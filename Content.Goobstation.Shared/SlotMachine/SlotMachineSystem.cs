@@ -43,7 +43,8 @@ namespace Content.Goobstation.Shared.SlotMachine
         }
 
         /// <summary>
-        /// Spawns a random entity when emmaged
+        /// Omu
+        /// Selects a prize from a secret prize pool
         /// </summary>
         private void OnEmagged(Entity<SlotMachineComponent> ent, ref GotEmaggedEvent args)
         {
@@ -53,8 +54,8 @@ namespace Content.Goobstation.Shared.SlotMachine
             args.Handled = true;
             EnsureComp<EmaggedComponent>(ent);
 
-            var entities = _proto.EnumeratePrototypes<EntityPrototype>().ToList();
-            ent.Comp.EmagSpawnEntity = _random.Pick(entities).ID;
+            //var entities = _proto.EnumeratePrototypes<EntityPrototype>().ToList(); //omu
+            //ent.Comp.EmagSpawnEntity = _random.Pick(entities).ID; // omu
 
             var doAfter =
                 new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.DoAfterTime, new SlotMachineEmagDoAfterEvent(), ent.Owner)
@@ -76,13 +77,14 @@ namespace Content.Goobstation.Shared.SlotMachine
 
         private void OnSlotMachineEmagDoAfter(Entity<SlotMachineComponent> ent, ref SlotMachineEmagDoAfterEvent args)
         {
-            if (ent.Comp.EmagSpawnEntity is not null)
-            {
-                _appearance.SetData(ent.Owner, SlotMachineVisuals.Spinning, false);
-                PredictedSpawnAtPosition(ent.Comp.EmagSpawnEntity, ent.Owner.ToCoordinates());
-            }
-
-            ent.Comp.IsSpinning = false;
+            //if (ent.Comp.EmagSpawnEntity is not null) //omu start
+            //{
+            //    _appearance.SetData(ent.Owner, SlotMachineVisuals.Spinning, false);
+            //    PredictedSpawnAtPosition(ent.Comp.EmagSpawnEntity, ent.Owner.ToCoordinates());
+            //}
+            _prize.HandlePrize(ent.Comp.EmagPrizes, ent.Owner);
+            _appearance.SetData(ent.Owner, SlotMachineVisuals.Spinning, false); //omu end
+            ent.Comp.IsSpinning = false; 
             Dirty(ent);
         }
 
