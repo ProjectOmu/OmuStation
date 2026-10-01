@@ -158,6 +158,10 @@
   - type: EmptyOnMachineDeconstruct
     containers:
     - blueprint
+  # Omu begin
+  - type: LatheAnnouncing
+    channels: [Supply]
+  # Omu end
 
 - type: entity
   id: ScienceTechFab
