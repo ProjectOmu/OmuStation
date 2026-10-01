@@ -3,13 +3,13 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Botany;
 using Content.Server.Botany.Components;
 using Content.Server.Botany.Systems;
-using Content.Server.PowerCell;
 using Content.Omu.Server.Botany.Components;
 using Content.Omu.Shared.Botany.PlantAnalyzer;
 using Content.Shared.Containers;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.PowerCell;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Localization;
@@ -299,15 +299,15 @@ public sealed partial class PlantAnalyzerSystem : EntitySystem
                 colorHex = reagentProto.SubstanceColor.ToHex();
             }
 
-            float amount = chem.Min;
+            float amount = (float) chem.Min;
             if (chem.PotencyDivisor > 0)
             {
                 amount += seed.Potency / chem.PotencyDivisor;
             }
 
-            amount = MathF.Min(amount, chem.Max);
+            amount = MathF.Min(amount, (float) chem.Max);
             if (amount < chem.Min)
-                amount = chem.Min;
+                amount = (float) chem.Min;
 
             yield return new PlantReagentEntry(id, name, colorHex, amount)
             {
