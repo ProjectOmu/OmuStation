@@ -10,6 +10,15 @@
     sprite: Clothing/Head/Animals/cat.rsi
   - type: Clothing
     sprite: Clothing/Head/Animals/cat.rsi
+  # Omu start
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - DroneUsable
+    - ClothingHats
+    - MothroachUnwearable
+  # Omu end
 
 - type: entity
   parent: ClothingHeadBase
@@ -21,6 +30,15 @@
     sprite: Clothing/Head/Animals/cat2.rsi
   - type: Clothing
     sprite: Clothing/Head/Animals/cat2.rsi
+  # Omu start
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - DroneUsable
+    - ClothingHats
+    - MothroachUnwearable
+  # Omu end
 
 - type: entity
   parent: ClothingHeadBase
@@ -32,6 +50,15 @@
     sprite: Clothing/Head/Animals/cat3.rsi
   - type: Clothing
     sprite: Clothing/Head/Animals/cat3.rsi
+  # Omu start
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - DroneUsable
+    - ClothingHats
+    - MothroachUnwearable
+  # Omu end
 
 - type: entity
   parent: ClothingHeadBase
@@ -50,6 +77,15 @@
   name: monkey hat
   description: That's a monkey head. It has a hole on a mouth to eat bananas.
   components:
+  # Omu start
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - DroneUsable
+    - ClothingHats
+    - MothroachUnwearable
+  # Omu end
   - type: Sprite
     sprite: Clothing/Head/Animals/monkey.rsi
   - type: Clothing

@@ -1,0 +1,9 @@
+- type: selectableSet
+  id: LodestoneFireSet
+  name: lodestone-fire-name
+  description: lodestone-fire-desc
+  sprite:
+    sprite: Structures/Specific/Anomalies/Cores/pyro_core.rsi
+    state: core
+  content:
+  - LodestoneFire

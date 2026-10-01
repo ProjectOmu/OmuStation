@@ -7,8 +7,10 @@ namespace Content.Goobstation.Shared.StationRadio.Events;
 public sealed class StationRadioMediaPlayedEvent : EntityEventArgs
 {
     public SoundSpecifier MediaPlayed { get; }
-    public StationRadioMediaPlayedEvent(SoundSpecifier Media)
+    public float Volume { get; }//omu
+    public StationRadioMediaPlayedEvent(SoundSpecifier Media, float volume)//omu
     {
         MediaPlayed = Media;
+        Volume = volume; //omu
     }
 }
