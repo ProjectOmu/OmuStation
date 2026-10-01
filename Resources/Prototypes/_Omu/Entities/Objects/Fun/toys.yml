@@ -28,10 +28,7 @@
     Damage: 8
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 0
   - type: MeleeDash
-    emoteOnDash: null
     force: 10
     length: 2
     canDashWhileWeightless: true
@@ -44,22 +41,29 @@
     severity: Honkraband
 
 - type: entity
-  parent: WeaponLightMachineGunL6
-  id: WeaponLightMachineGunFoam
-  name: Foam L6 Saw
-  description: Developed by the Waffle Corporation, wait, why does it's barrel look like that? Fire rate reduced after the 'foamularity' incident.
+  parent: BaseItem
+  id: WeaponLightMachineGunL6Foam
+  name: Foam L6 SAW
+  description: Features a speaker for enhanced immersion... none of the pieces move so you don't feel that immersed.
   components:
-  - type: PacifismAllowedGun
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        startingItem: MagazineFoamBox
-#TODO: white list
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
+    layers:
+    - state: base
+    - state: mag-3
   - type: Gun
-    fireRate: 4
+    fireRate: 8
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
     soundGunshot:
-      path: /Audio/Effects/thunk.ogg
-    soundEmpty:
-      path: /Audio/Weapons/Guns/Empty/empty.ogg
-  - type: Contraband
-    severity: Honkraband
+      path: /Audio/_Omu/Weapons/ToyLMG.ogg
+  - type: BallisticAmmoProvider
+    autoCycle: true
+    capacity: 100
+    proto: BulletFoam
+    whitelist:
+      tags:
+      - BulletFoam
+  - type: Wieldable
+    unwieldOnUse: false
