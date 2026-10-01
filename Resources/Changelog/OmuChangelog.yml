@@ -8292,3 +8292,71 @@ Entries:
       message: Fixed surgery not working on thaven
   id: 1077
   time: '2026-09-30T23:25:46.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: >-
+        All cyborg types now get the tools module, no matter the choice of
+        chassis.
+    - type: Fix
+      message: All service cyborg chassis now get the clowning module.
+    - type: Fix
+      message: All generic cyborg chassis now get the inflatables module.
+  id: 1078
+  time: '2026-10-01T12:47:28.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Tweak
+      message: >-
+        Mothroaches can now wear almost any hat, glasses or mask and they
+        actually sit on their heads.
+    - type: Remove
+      message: >-
+        Mothroaches can no longer wear neck items, the few that were compatible
+        didn't fit right to begin with.
+  id: 1079
+  time: '2026-10-01T16:12:36.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed the "You must always carry lethal weapons" thaven mood.
+  id: 1080
+  time: '2026-10-01T16:22:09.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Changes it so that you can have commas and quotes in your character
+        name, see recent announcement for more info.
+  id: 1081
+  time: '2026-10-01T16:23:07.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: Rewrote the description of the atmospherics belt.
+  id: 1082
+  time: '2026-10-01T16:23:58.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Remove
+      message: >-
+        Removed alternative job titles from Sergeant; as Sergeants are mentors
+        to Security Cadets, they need to be immediately recognizable.
+  id: 1083
+  time: '2026-10-01T16:51:39.0000000+00:00'
+- author: Not-Solid
+  changes:
+    - type: Add
+      message: >-
+        Added the kitchen produce crate to cargo, a fresh stock of raw botany
+        produce for the kitchen.
+  id: 1084
+  time: '2026-10-01T17:00:59.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Add
+      message: >-
+        Added a new gun for high ranking CCO's that need some one-handed fire
+        power
+  id: 1085
+  time: '2026-10-01T20:59:59.0000000+00:00'
