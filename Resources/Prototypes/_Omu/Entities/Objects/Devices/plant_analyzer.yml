@@ -29,6 +29,9 @@
   - type: ToggleCellDraw
   - type: ActivatableUIRequiresPowerCell
   - type: Appearance
+  - type: Tag
+    tags:
+    - PlantAnalyzer
 
 - type: entity
   id: PlantAnalyzerDebug
@@ -58,3 +61,6 @@
       scanDelay: 0
       maxScanRange: 999
   - type: Appearance
+  - type: Tag
+    tags:
+    - PlantAnalyzer
