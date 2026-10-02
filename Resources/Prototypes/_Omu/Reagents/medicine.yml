@@ -49,16 +49,22 @@
           - !type:ReagentCondition
             reagent: Recyclogenix
             min: 40
-          reagent: Cytogenecin # this is the chem that does the heavy lifting
+          reagent: Cytogenecin # this is the reflex chem that causes gene damage
           amount: 1.2 # 0.5 -> 0.6 proportion, multiplied by two to get per unit basis
       - !type:AdjustReagent # could make it remove mutation toxins from blood?
         amount: 
         reagent: 
       - !type:Polymorph
         conditions:
-          - !type:ReagentCondition
+          - !type:ReagentCondition # have to have a certain amount of it in the blood
             reagent: Recyclogenix
             min: 40
+          - !type:TemperatureCondition #dependent on cryonics to work
+            max: 175.0
+          scaleByTemperature: # Shitmed Change
+            min: 100.0
+            max: 175.0
+            scale: 1.6
         prototype: # Probably need to set a custom polymorph to force roundstart reversion
 
 - type: reagent
