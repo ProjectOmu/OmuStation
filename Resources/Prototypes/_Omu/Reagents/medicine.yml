@@ -55,10 +55,11 @@
         amount: 
         reagent: 
       - !type:Polymorph
-        prototype: # Probably need to set a custom polymorph to force roundstart reversion
+        conditions:
           - !type:ReagentCondition
             reagent: Recyclogenix
             min: 40
+        prototype: # Probably need to set a custom polymorph to force roundstart reversion
 
 - type: reagent
   id: Cytogenecin
