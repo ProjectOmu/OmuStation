@@ -65,7 +65,7 @@
             min: 100.0
             max: 175.0
             scale: 1.6
-        prototype: # Probably need to set a custom polymorph to force roundstart reversion
+        prototype: PolymorphRevert # god i hope this works first try
 
 - type: reagent
   id: Cytogenecin
