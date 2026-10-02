@@ -54,6 +54,11 @@
       - !type:AdjustReagent # could make it remove mutation toxins from blood?
         amount: 
         reagent: 
+      - !type:Polymorph
+        prototype: # Probably need to set a custom polymorph to force roundstart reversion
+          - !type:ReagentCondition
+            reagent: Recyclogenix
+            min: 40
 
 - type: reagent
   id: Cytogenecin
@@ -81,5 +86,6 @@
                 Cellular: 0.5 # Need this to max at 20 for a 40u dose
       - !type:ModifyStatusEffect # goob
           effectProto: # find and clone bicaridine's drunk effect, for the giggles
-      - !type:Polymorph
-        prototype: # Probably need to set a custom polymorph to force roundstart reversion; don't need conditions set because this shouldn't happen unless there's a certain amount of recyclogenix in the system
+      - !type:AdjustReagent # remove extra
+        amount: -25
+        reagent: Recyclogenix
