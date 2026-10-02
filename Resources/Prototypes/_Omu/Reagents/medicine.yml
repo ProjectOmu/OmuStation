@@ -90,7 +90,7 @@
             scale: 1.6
           damage:
             types:
-                Cellular: 0.16 # Should be around 20ish cellular by the time we hit 10u cytogenecin
+                Cellular: 0.17 # Should be around 20ish cellular by the time we hit 10u cytogenecin
       - !type:Drunk # copied from bicaridine, for the giggles
       - !type:AdjustReagent # remove extra precursor once there's enough cytogenecin
         conditions:
@@ -105,3 +105,17 @@
             min: 10
         amount: -50
         reagent: Recyclogenix
+    Narcotic:
+      effects:
+        - !type:PopupMessage # this is a dysmorphia cure after all
+        type: Local
+        visualType: Medium
+        messages:
+        - "cytogenecin-effect-dysmorphia"
+        - "cytogenecin-effect-anxieties"
+        - "cytogenecin-effect-at-peace"
+        probability: 0.2
+        conditions:
+        - !type:ReagentCondition
+          reagent: Cytogenecin
+          min: 5
