@@ -15,3 +15,71 @@
           - !type:TemperatureCondition
             max: 213.0
           amount: -11 # 1 healing per bone on a humanoid, heals bones to full in 1 minute
+
+- type: reagent # cloning procenyl entry since we're following a similar mechanism
+  id: Cyclogenol
+  name: reagent-name-cyclogenol # I don't know where these go
+  group: Medicine
+  desc: reagent-desc-cyclogenol # I don't know where these go
+  physicalDesc: reagent-physical-desc-reflective # ideally i want this to be a mixture of rhym and ammoniated mercury, so need to find something in between the two
+  flavor: bitter # Astringent -- tastes like alcohol
+  color: "#939393" # Edit later
+
+- type: reagent
+  id: Recyclogenix # Working name, maybe choose different suffix?
+  name: reagent-name-recyclogenix
+  group: Medicine
+  desc: reagent-desc-recyclogenix
+  physicalDesc: reagent-physical-desc-alkaline # i want to make this more "shimmery" since it's a miracle cure
+  flavor: medicine
+  color: "#ffdf97" #Edit later
+  worksOnTheDead: true # Omu
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:AdjustReagent
+        conditions:
+          - !type:TemperatureCondition
+            # cloned from cryoxadone, makes this a cryo med
+            max: 175.0
+          scaleByTemperature: # Shitmed Change
+            min: 100.0
+            max: 175.0
+            scale: 1.6
+          - !type:ReagentCondition
+            reagent: Recyclogenix
+            min: 40
+          reagent: Cytogenecin # this is the chem that does the heavy lifting
+          amount: 1.2 # 0.5 -> 0.6 proportion, multiplied by two to get per unit basis
+      - !type:AdjustReagent # could make it remove mutation toxins from blood?
+        amount: 
+        reagent: 
+
+- type: reagent
+  id: Cytogenecin
+  name: reagent-name-cytogenecin
+  group: Medicine
+  desc: reagent-desc-cytogenecin
+  physicalDesc: reagent-physical-desc-nondescript # need to decide on what this looks like even though you'll never really see it
+  flavor: medicine
+  color: "#65583b" # Edit later
+  worksOnTheDead: true # Omu
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1 # This can stay the same
+      effects:
+      - !type:HealthChange
+          conditions:
+          - !type:TemperatureCondition
+            max: 175.0
+          scaleByTemperature: # Shitmed Change
+            min: 100.0
+            max: 175.0
+            scale: 1.6
+          damage:
+            types:
+                Cellular: 0.5 # Need this to max at 20 for a 40u dose
+      - !type:ModifyStatusEffect # goob
+          effectProto: # find and clone bicaridine's drunk effect, for the giggles
+      - !type:Polymorph
+        prototype: # Probably need to set a custom polymorph to force roundstart reversion; don't need conditions set because this shouldn't happen unless there's a certain amount of recyclogenix in the system
