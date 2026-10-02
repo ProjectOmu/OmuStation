@@ -48,7 +48,7 @@
             scale: 1.6
           - !type:ReagentCondition
             reagent: Recyclogenix
-            min: 1
+            min: 30
           reagent: Cytogenecin # this is the reflex chem that causes gene damage
           amount: 1.2 # 0.5 -> 0.6 proportion, multiplied by two to get per unit basis; supposed to make around 48 cytogenecin
       - !type:AdjustReagent # could make it remove mutation toxins from blood?
@@ -90,7 +90,7 @@
             scale: 1.6
           damage:
             types:
-                Cellular: 0.5 # Should be around 20 cellular by the time we hit 40u cyclogenecin
+                Cellular: 0.16 # Should be around 20ish cellular by the time we hit 10u cyclogenecin
       - !type:Drunk # copied from bicaridine, for the giggles
       - !type:AdjustReagent # remove extra precursor once there's enough cytogenecin
         conditions:
@@ -102,6 +102,6 @@
             scale: 1.6
           - !type:ReagentCondition
             reagent: Cytogenecin
-            min: 40
+            min: 10
         amount: -50
         reagent: Recyclogenix
