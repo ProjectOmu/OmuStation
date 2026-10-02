@@ -21,7 +21,7 @@
   name: reagent-name-cyclogenol
   group: Medicine
   desc: reagent-desc-cyclogenol
-  physicalDesc: reagent-physical-desc-crystalline # is crystalline an existing description?
+  physicalDesc: reagent-physical-desc-thick-and-grainy # delicate crystals in alcoholic syrup
   flavor: astringent # tastes like alcohol
   color: "#939393" # Edit later
 
@@ -30,7 +30,7 @@
   name: reagent-name-recyclogenix
   group: Medicine
   desc: reagent-desc-recyclogenix
-  physicalDesc: reagent-physical-desc-alkaline # i want to make this more "shimmery" since it's a miracle cure
+  physicalDesc: reagent-physical-desc-shimmering
   flavor: medicine
   color: "#ffdf97" #Edit later
   worksOnTheDead: true # Omu
@@ -50,7 +50,7 @@
             reagent: Recyclogenix
             min: 40
           reagent: Cytogenecin # this is the reflex chem that causes gene damage
-          amount: 1.2 # 0.5 -> 0.6 proportion, multiplied by two to get per unit basis
+          amount: 1.2 # 0.5 -> 0.6 proportion, multiplied by two to get per unit basis; supposed to make around 48 cytogenecin
       - !type:AdjustReagent # could make it remove mutation toxins from blood?
         amount: 
         reagent: 
@@ -72,7 +72,7 @@
   name: reagent-name-cytogenecin
   group: Medicine
   desc: reagent-desc-cytogenecin
-  physicalDesc: reagent-physical-desc-nondescript # need to decide on what this looks like even though you'll never really see it
+  physicalDesc: reagent-physical-desc-nondescript # actually keeping it nondescript is really funny
   flavor: medicine
   color: "#65583b" # Edit later
   worksOnTheDead: true # Omu
@@ -90,8 +90,8 @@
             scale: 1.6
           damage:
             types:
-                Cellular: 0.5 # Need this to max at 20 for a 40u dose
+                Cellular: 0.42 # Should be around 20.12 cellular for a 40u dose of recyclogenix
       - !type:Drunk # copied from bicaridine, for the giggles
-      - !type:AdjustReagent # remove extra
+      - !type:AdjustReagent # remove extra precursor
         amount: -25
         reagent: Recyclogenix
