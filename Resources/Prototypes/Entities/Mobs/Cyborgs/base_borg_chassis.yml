@@ -514,7 +514,7 @@
     thresholds: # goob - tankier than a normal borg
       0: Alive
       175: Critical # goob - increased to match overall goob balance
-      400: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
+      300: Dead # Omu
 #  - type: EmagSiliconLaw # should xenoborgs be emagable? # goob - No
  #   stunTime: 5
   - type: SiliconLawProvider
@@ -587,7 +587,7 @@
             volume: 5
     - trigger:
         !type:DamageTrigger
-        damage: 400 # goob
+        damage: 300 # Omu
       behaviors:
       - !type:PlaySoundBehavior
         sound:

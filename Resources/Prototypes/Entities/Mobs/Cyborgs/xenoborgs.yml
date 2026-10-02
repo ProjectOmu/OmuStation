@@ -94,7 +94,7 @@
     thresholds:
       0: Alive
       350: Critical # goob - balance larp
-      750: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
+      500: Dead # Omu
     stateAlertDict:
       Alive: BorgHealth
       Critical: BorgCrit
@@ -114,7 +114,7 @@
             volume: 5
     - trigger:
         !type:DamageTrigger
-        damage: 750
+        damage: 500 # Omu
       behaviors:
       - !type:PlaySoundBehavior
         sound:
