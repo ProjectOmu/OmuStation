@@ -386,3 +386,41 @@
     wideAnimationRotation: 180
     soundHit:
       path: /Audio/Effects/bite.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieHaashaOmuCrew
+  name: haasha plushie
+  description: "It's a bright neon-pink plushie of Haasha! The tag reads 'Omnizine for everyone!*' *Omnizine not guaranteed. Consult Haasha before demanding!"
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/haasha.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/haasha.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/haasha.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      path:
+  - type: EmitSoundOnUse
+    sound:
+      path:
+  - type: EmitSoundOnActivate
+    sound:
+      path:
+  - type: EmitSoundOnTrigger
+    sound:
+      path:
+  - type: EmitSoundOnCollide
+    sound:
+      path:
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path:
