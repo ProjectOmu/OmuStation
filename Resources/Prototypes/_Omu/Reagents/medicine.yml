@@ -59,7 +59,7 @@
           - !type:ReagentCondition # have to have a certain amount of it in the blood
             reagent: Recyclogenix
             min: 40
-          - !type:TemperatureCondition #dependent on cryonics to work
+          - !type:TemperatureCondition # dependent on cryonics to work
             max: 175.0
           scaleByTemperature: # Shitmed Change
             min: 100.0
