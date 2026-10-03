@@ -1,7 +1,4 @@
-using System.Numerics;
-using Content.Server.StationEvents.Events;
 using Content.Shared.Damage;
-using Robust.Shared.Map;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server._Omu.StationEvents.Components;
