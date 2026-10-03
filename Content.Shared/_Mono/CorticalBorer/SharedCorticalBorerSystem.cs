@@ -116,6 +116,8 @@ public partial class SharedCorticalBorerSystem : EntitySystem
                 RemCompDeferred(ent, compReg.Component.GetType());
         }
 
+        _popup.PopupEntity(Loc.GetString("worm-loose"), ent);       //Omu popup for all that notifies of a WORMLOOSE
+
         return true;
     }
 

@@ -24,7 +24,7 @@ ghost-role-information-skibidi-toilet-description = Unalive people with your ski
 ghost-role-information-skibidi-toilet-rules = You are a [color=red][bold]Antagonist[/bold][/color] with the objective of unaliving as many ohioans as you can.
 
 ghost-role-information-Hecu-name = HECU Operative
-ghost-role-information-Hecu-description = Central Command needs something done.
+ghost-role-information-Hecu-description = Follow any and all orders provided to you by [color=yellow][bold]Central Command[/bold][/color]. Otherwise, cooperate with Security to resolve the station's issues.
 ghost-role-information-Hecu-rules = You are required to obey orders given by your superior, you are effectively their [color=#6495ed][bold]Familiar[/bold][/color].
 
 ghost-role-information-lootbug-name = LootBug
@@ -96,7 +96,8 @@ ghost-role-lead-intern-rules = Follow the orders given you by the [color=yellow]
 
 # cargo bingle
 ghost-role-cargo-bingle-name = Cargo bingle
-ghost-role-cargo-bingle-desc = Serve the Nanotrasen Representative and their interests, do not injure crew members, help cargo and the station.
+#omu change cargo bingle dont serve ntr anymore
+ghost-role-cargo-bingle-desc = Serve cargo and their interests, do not injure crew members, help cargo and the station.
 
 # shuttle roles
 
@@ -193,7 +194,7 @@ ghost-role-information-clown-goblin-name = Clown goblin
 ghost-role-information-clown-goblin-description = A terrible creature, born out of hell.
 
 ghost-role-information-slasher-token = The Slasher (Token)
- 
+
 ghost-role-information-sentientanimal-rules = You are a [color={role-type-sentient-animal-color}][bold]{role-type-sentient-animal-name}[/bold][/color]. You are a neutral animal who may act in self defense but otherwise not seek to harm crew.
                                               You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
                                               You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc, however you are not knowledgeable in advanced roles.

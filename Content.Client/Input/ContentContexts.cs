@@ -2,6 +2,7 @@
 
 using Content.Shared.Input;
 using Robust.Shared.Input;
+using Content.Omu.Common._Trauma.Input; // Trauma
 
 namespace Content.Client.Input
 {
@@ -37,6 +38,8 @@ namespace Content.Client.Input
             common.AddFunction(ContentKeyFunctions.SaveItemLocation);
             common.AddFunction(ContentKeyFunctions.Point);
             common.AddFunction(ContentKeyFunctions.ResistGrab); // Goobstation - Grab Intent
+            common.AddFunction(ContentKeyFunctions.VoicePushToTalk); // Goobstation - Voice chat
+            common.AddFunction(ContentKeyFunctions.VoicePushToTalkRadio); // Goobstation - Voice chat
             common.AddFunction(ContentKeyFunctions.ZoomOut);
             common.AddFunction(ContentKeyFunctions.ZoomIn);
             common.AddFunction(ContentKeyFunctions.ResetZoom);
@@ -71,6 +74,7 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.OpenEmotesMenu);
             human.AddFunction(ContentKeyFunctions.OpenLanguageMenu); // Einstein Engines - Language
             human.AddFunction(ContentKeyFunctions.ActivateItemInWorld);
+            human.AddFunction(TraumaKeyFunctions.Tackle); // Trauma
             human.AddFunction(ContentKeyFunctions.ThrowItemInHand);
             human.AddFunction(ContentKeyFunctions.AltActivateItemInWorld);
             human.AddFunction(ContentKeyFunctions.TryPullObject);
