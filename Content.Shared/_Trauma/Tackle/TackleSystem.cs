@@ -22,9 +22,12 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Content.Shared._Shitmed.Targeting;
-using Content.Omu.Common._Trauma.Input; // Omu
-using Content.Goobstation.Common.Grab; // Omu
-
+using Content.Omu.Common._Trauma.Input;
+using Content.Goobstation.Common.Grab;
+using Content.Shared.Damage.Components;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
+using Content.Shared.Atmos.Components;
 namespace Content.Shared._Trauma.Tackle;
 
 public sealed partial class TackleSystem : EntitySystem
@@ -43,6 +46,7 @@ public sealed partial class TackleSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly DamageableSystem _dmg = default!;
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
     public override void Initialize()
     {
@@ -91,6 +95,9 @@ public sealed partial class TackleSystem : EntitySystem
         RemCompDeferred(ent, ent.Comp);
     }
 
+    /// <summary>
+    ///     Handles when the player hits somethiing during a tackle
+    /// </summary>
     private void OnHit(Entity<TacklingComponent> ent, ref ThrowDoHitEvent args)
     {
         if (_timing.ApplyingState)
@@ -106,7 +113,7 @@ public sealed partial class TackleSystem : EntitySystem
         if (MathHelper.CloseToPercent(speed, 0f))
             return;
 
-        var severity = 0f;
+        var severity = 0f; //varable for hurting yourself, should be 0 if safe tackle
 
         var coords = GetCoordinates(ent.Comp.TackleStartPosition);
         var mapA = _xform.ToMapCoordinates(coords);
@@ -144,6 +151,9 @@ public sealed partial class TackleSystem : EntitySystem
         _stun.TryUpdateParalyzeDuration(ent.Owner, TimeSpan.FromSeconds(severity * (mod.BaseUserKnockdownTime + 1f)));
     }
 
+    /// <summary>
+    ///     Handles when two mobs collide during a tackle, returns false if target is lying down, true otherwise
+    /// </summary>
     private bool HandleMobCollision(EntityUid user,
         EntityUid target,
         TackleModifierComponent mod,
@@ -152,11 +162,12 @@ public sealed partial class TackleSystem : EntitySystem
         if (_standing.IsDown(target))
             return false;
 
+        // CalculateModifier takes into account,if hulked +2, if clumsy -2, user mass, user stamina, user crit threshold, and if they are damageable
         var ourMod = CalculateModifier(user) + speed + mod.SkillMod;
 
         var stamEv = new BeforeStaminaDamageEvent(1f);
         RaiseLocalEvent(target, ref stamEv);
-        var stamResistMod = stamEv.Cancelled ? 1f : 1f - stamEv.Value;
+        var stamResistMod = stamEv.Cancelled ? 1f : 1f - stamEv.Value; //% of stamina resistance on target
 
         var theirMod = CalculateModifier(target) + stamResistMod * mod.StamResistModifier;
 
@@ -169,15 +180,18 @@ public sealed partial class TackleSystem : EntitySystem
         var resultAdj = result - 0.5f;
         var invResultAdj = invResult - 0.5f;
 
-        var userKnockdown = mod.BaseUserKnockdownTime * invResultAdj * 0.5f;
+        var userKnockdown = mod.BaseUserKnockdownTime * invResultAdj * 0.85f; //float of seconds the tackler is knocked down
 
         if (userKnockdown <= 0f)
             RemCompDeferred<KnockedDownComponent>(user);
         else
             _stun.UpdateKnockdownTime(user, TimeSpan.FromSeconds(userKnockdown));
 
-        var targetKnockdown = mod.BaseTargetKnockdownTime * result;
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(targetKnockdown), drop: result > mod.DisarmThreshold);
+        var targetKnockdown = mod.BaseTargetKnockdownTime * result; //float of seconds the tackled is knocked down
+        if (stamResistMod * 10 <= mod.SkillMod && TryComp<MovedByPressureComponent>(target, out var moved) && moved.Enabled) // Omu
+            _stun.TryKnockdown(target, TimeSpan.FromSeconds(targetKnockdown), drop: false);
+
+        _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):user} tackled {ToPrettyString(target):user}"); //Omu
 
         if (resultAdj <= 0f)
             return true;
@@ -191,6 +205,9 @@ public sealed partial class TackleSystem : EntitySystem
         return true;
     }
 
+    /// <summary>
+    ///     Calls an event to handle various modifiers the player can have for a tackle
+    /// </summary>
     private float CalculateModifier(EntityUid uid)
     {
         var ev = new CalculateTackleModifierEvent(0f);
@@ -198,6 +215,9 @@ public sealed partial class TackleSystem : EntitySystem
         return ev.Modifier;
     }
 
+    /// <summary>
+    ///     Checks if the passed entities exist or a hard object, returns true if hard object, false otherwise
+    /// </summary>
     private bool ShouldStopTackle(Entity<PhysicsComponent?> user, Entity<FixturesComponent?> target)
     {
         if (!Resolve(user, ref user.Comp, false) || !Resolve(target, ref target.Comp, false))
@@ -251,6 +271,12 @@ public sealed partial class TackleSystem : EntitySystem
             ent.Comp1.KnockdownTime,
             ent);
 
+        if (TryComp<StaminaComponent>(ent.Owner, out var stam)) //Omu
+        {
+            if (stam.IsSprinting)
+                _stun.TryKnockdown(ent.Owner, ev.KnockdownTime * 1.75, true, false);
+        }
+
         RaiseLocalEvent(ent, ref ev);
 
         if (ev.Source is not { } source)
@@ -284,11 +310,20 @@ public sealed partial class TackleSystem : EntitySystem
         return true;
     }
 
+    /// <summary>
+    ///     Checks if the passed entity is in a situation where they can reasonably tackle
+    /// </summary>
     public bool CanTackle(EntityUid ent, TacklerComponent tackler, TransformComponent xform)
     {
-        return _timing.CurTime >= tackler.NextTackle && !xform.Anchored && !_standing.IsDown(ent) &&
-               !_buckle.IsBuckled(ent) && !HasComp<StunnedComponent>(ent) && !HasComp<TacklingComponent>(ent) &&
-               !_gravity.IsWeightless(ent) && _blocker.CanInteract(ent, null) &&
-               !_container.IsEntityOrParentInContainer(ent, xform: xform);
+        if (_timing.CurTime >= tackler.NextTackle && !xform.Anchored && !_standing.IsDown(ent) &&
+            !_buckle.IsBuckled(ent) && !HasComp<StunnedComponent>(ent) && !HasComp<TacklingComponent>(ent) &&
+            !_gravity.IsWeightless(ent) && _blocker.CanInteract(ent, null) &&
+            !_container.IsEntityOrParentInContainer(ent, xform: xform))
+        {
+           //if (TryComp<MovedByPressureComponent>(ent, out var moved) && !moved.Enabled)
+                //return false;
+            return true;
+        }
+        return false;
     }
 }
