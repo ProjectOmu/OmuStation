@@ -139,8 +139,7 @@
     rules: ghost-role-information-familiar-rules # It's what cargo bingles are
     mindRoles:
     - MindRoleGhostRoleFamiliarCourier
-    raffle:
-      settings: default
+    raffle: null
   - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: FloorGoblin

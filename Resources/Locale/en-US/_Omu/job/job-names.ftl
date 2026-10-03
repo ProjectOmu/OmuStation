@@ -8,5 +8,7 @@ job-name-centcomm-guard = Custodii Vitellus
 job-name-transit-prisoner = Transit Prisoner
 job-name-security-sergeant = Sergeant
 # Cargo Jobs
+JobMailGoblin = Mail Goblin #Playtime tracker
 JobCourier = Courier #Playtime tracker
 job-name-courier = Courier
+job-name-mail-goblin = Mail Goblin
