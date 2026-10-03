@@ -1,0 +1,79 @@
+- type: entity
+  parent: EnergySwordDouble
+  id: ToySwordDouble
+  name: Double-bladed toy sword
+  description: When one wasn't fun enough
+  components:
+  - type: StaminaDamageOnHit
+    damage: 12
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0.3
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Heat: 0.3
+  - type: Reflect
+    reflectProb: .05 #higher than default since its double, still rare
+    spread: 75
+
+- type: entity
+  parent: WardenRapier
+  id: FoamRapier
+  name: Foam Rapier
+  description: En garde!
+  components:
+  - type: StaminaDamageOnHit
+    Damage: 8
+  - type: MeleeWeapon
+    damage:
+  - type: MeleeDash
+    force: 10
+    length: 2
+    canDashWhileWeightless: true
+  - type: UseDelay
+    delay: 3
+  - type: Reflect
+    reflectProb: 0.01
+    spread: 30
+  - type: Contraband
+    severity: Honkraband
+
+- type: entity
+  parent: BaseItem
+  id: WeaponLightMachineGunL6Foam
+  name: Foam L6 SAW
+  description: Features a speaker for enhanced immersion... none of the parts move so you don't feel that immersed.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
+    layers:
+    - state: base
+    - state: mag-3
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,1
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    fireRate: 8
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Omu/Weapons/ToyLMG.ogg
+  - type: BallisticAmmoProvider
+    autoCycle: true
+    capacity: 100
+    proto: BulletFoam
+    whitelist:
+      tags:
+      - BulletFoam
+  - type: Wieldable
+    unwieldOnUse: false

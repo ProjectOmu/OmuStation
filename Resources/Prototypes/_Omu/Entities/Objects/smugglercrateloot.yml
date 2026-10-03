@@ -7,6 +7,26 @@
     - id: ReinforcementRadioSmugglerCrateIPC
     - id: ReinforcementRadioSmugglerCrateBorg
     - id: OrganEyesOfGod
+    - id: LavaKatana
+    - id: CryoKatana
+    - id: ClothingShoesWizardSkates
+    - id: SingularityToy
+    - id: ToySwordDouble
+    - id: PlushieRainbowLizard
+    - id: FoamRapier
+    - id: FoamThrongler
+    - id: GlueGrenade
+    - id: SyringePoisonFent
+    - id: ClothingOuterHardsuitSanta
+    - id: LuxuryMedipen
+    - id: LavalandEquipmentAncientArmor #Feel free to remove these lavaland items if it ever gets readded/reworked
+    - id: LavalandVampirismCrystal
+    - id: LavalandCursedHeart
+    - id: WeaponCrusherHalberdFilledRandom
+    - id: GatewayLavaland #Spawns on the ground and can be connected to the purchasable one
+    - id: NitriumCanister
+    - id: RGBStaff
+#    - id: MobHierophant might be buggy, testing later
 
 - type: entityTable     #Todo - more gamer lot
   id: SmugglerCrateSyndieLoot
@@ -19,6 +39,13 @@
     - id: ClothingHandsKnuckleDustersSyndicate
     - id: HappyHonkNukieSnacks
     - id: ObservationKitSyndie
+    - id: EmagLimited
+    - id: ClothingBackpackDuffelSyndicatePyjamaBundle
+    - id: BriefcaseSyndicateRedspace #NOT the deaddrop version
+    - id: ClothingHeadHatCatEars
+    - id: NutrimentImplanter
+    - id: SyndicatePersonalAI
+    - id: WeaponLightMachineGunFoam
 
 - type: entity
   parent: [ ClothingNeckStoleChaplain, BaseChameleon ]
