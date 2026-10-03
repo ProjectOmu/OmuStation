@@ -24,6 +24,13 @@ public sealed partial class SlotMachineComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool IsSpinning;
+
+    /// <summary>
+    /// OMU
+    /// Prizes for the output when you emag a slot Machine
+    /// </summary>
+    [DataField(required: true)]
+    public List<ProtoId<PrizePrototype>> EmagPrizes;
 }
 
 [Serializable, NetSerializable]
