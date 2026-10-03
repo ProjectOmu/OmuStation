@@ -132,12 +132,15 @@ public sealed class VomitSystem : EntitySystem
             // Makes a vomit solution the size of 90% of the chemicals removed from the chemstream
             solution.AddReagent(new ReagentId(VomitPrototype, _bloodstream.GetEntityBloodData((uid, bloodStream))), vomitAmount);
         }
+        
+        // Funkystation - stain clothes on vomit
+        var stainEv = new SpilledOnEvent(uid, solution.Clone());
+        RaiseLocalEvent(uid, stainEv);
 
         if (_puddle.TrySpillAt(uid, solution, out var puddle, false))
         {
             _forensics.TransferDna(puddle, uid, false);
         }
-
 
         if (!_netManager.IsServer)
             return;
