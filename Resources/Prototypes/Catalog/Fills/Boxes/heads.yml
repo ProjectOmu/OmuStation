@@ -19,11 +19,15 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: CargoRequestEngineeringComputerCircuitboard
         - id: AlertsComputerCircuitboard
+        - id: CargoRequestEngineeringComputerCircuitboard
         - id: AtmosMonitoringComputerCircuitboard
         - id: PowerComputerCircuitboard
         - id: SolarControlComputerCircuitboard
+        - id: BluespaceHarvesterMachineCircuitboard
+        - id: EngineeringTechFabCircuitboard
+        - id: EngiCommsComputerCircuitboard
+
 
 - type: entity
   parent: ToteBase
@@ -36,6 +40,11 @@
         children:
         - id: MedicalTechFabCircuitboard
         - id: CargoRequestMedicalComputerCircuitboard
+        - id: EnergyChemDispenserMachineCircuitboard
+        - id: MedicalCommsComputerCircuitboard
+        - id: VaccinatorMachineCircuitboard
+        - id: MedicalBiofabMachineBoard
+        - id: HotplateMachineCircuitboard
 
 - type: entity
   parent: ToteBase
@@ -49,19 +58,8 @@
         - id: IDComputerCircuitboard
         - id: FundingAllocationComputerCircuitboard
         - id: CargoRequestServiceComputerCircuitboard
-
-- type: entity
-  parent: BoxStamps
-  id: BoxHoPStamps
-  name: head of personnel's stamp box
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: RubberStampApproved
-        - id: RubberStampDenied
-        - id: RubberStampHop
+        - id: ServiceTechFabCircuitboard
+        - id: ServiceCommsComputerCircuitboard
 
 - type: entity
   parent: ToteBase
@@ -74,6 +72,7 @@
         children:
         - id: SecurityTechFabCircuitboard
         - id: CargoRequestSecurityComputerCircuitboard
+        - id: SecurityCommsComputerCircuitboard
 
 - type: entity
   parent: ToteBase
@@ -91,6 +90,10 @@
         - id: SalvageMagnetMachineCircuitboard
         - id: SalvageJobBoardComputerCircuitboard
         - id: MailTeleporterMachineCircuitboard
+        - id: CargoTechFabCircuitboard
+        - id: LavalandShuttleConsoleCircuitboard
+        - id: SalvageShuttleConsoleCircuitboard
+        - id: SalvageExpeditionsComputerCircuitboard
 
 - type: entity
   parent: BoxStamps
@@ -122,3 +125,6 @@
         - id: AnalysisComputerCircuitboard #Because sometimes round start artis just fucking explode on the pad.
         - id: ArtifactAnalyzerMachineCircuitboard
         - id: StationAiFixerCircuitboard
+        - id: ScienceCommsComputerCircuitboard
+        - id: XenobiologyBountyComputerCircuitboard
+        - id: ScienceTechFabCircuitboard

@@ -33,8 +33,8 @@
         acts: [ "Destruction" ]
   - type: Storage
     grid:
-    - 0,0,6,3
-    maxItemSize: Normal
+    - 0,0,7,4 # Omu - Debloating the Head's lockers
+    maxItemSize: Huge # Omu
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
