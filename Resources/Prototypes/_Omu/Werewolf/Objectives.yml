@@ -1,0 +1,38 @@
+- type: entity
+  parent: [BaseWerewolfObjective, BaseLivingObjective]
+  id: EscapeShuttleObjectiveWerewolf
+  name: Escape to CentComm alive and undetained on the escape shuttle.
+  description: You have to live to wreak carnage another day! Get out alive on the escape shuttle.
+  components:
+  - type: Objective
+    difficulty: 1.3
+    icon:
+      sprite: Structures/Furniture/chairs.rsi
+      state: shuttle
+  - type: EscapeShuttleCondition
+
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseWerewolfObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-mansus-wolf
+  - type: RoleRequirement
+    roles:
+    - MindRoleWerewolf
+
+- type: entity
+  parent: BaseWerewolfObjective
+  id: WerewolfDevourObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Mobs/Demons/abomination.rsi
+      state: dead
+  - type: NumberObjective
+    min: 4
+    max: 6
+    title: objective-condition-absorb-title
+    description: objective-condition-absorb-description
+  - type: AbsorbCondition

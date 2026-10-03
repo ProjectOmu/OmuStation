@@ -21,6 +21,11 @@ book-text-eldritch-blast = To bargain with the mansus gods is to sell a part of 
     Gaze upon this incantation and consider, is this worth your soul?
     Personally? I think its worth it.
 
+book-text-mansus-wolf = The wolf divided as an entity embodies the end. It and its pack seek nothing but destruction and stagnancy.
+    Some poor souls are born attuned to it and its aspects, they spread into them and take over their soul.
+    These unfortunates are so tightly linked to death and destruction they must periodically release their rage against the world.
+    The inner shard of the wolf bursts forth and seeks naught but the consumption of those around them.
+    
 book-text-lodestone = The forces of this world flow ever onward, from worlds above to worlds below.
     It is possible to divert these forces to flow through a focus, then onwards through a wielder.
     The benefits can be immense, and the risks are less than to channel the forces directly.
