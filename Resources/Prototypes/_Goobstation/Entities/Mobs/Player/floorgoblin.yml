@@ -109,7 +109,7 @@
   name: mail goblin
   id: MobMailGoblin
   parent: [SimpleSpaceMobBase, DVNodeCrawler] # Omu, add DVNodeCrawler
-  description: Lives under the floor boards, steals shoes, bites ankles.
+  description: A tamed, slightly more fruity floor goblin that got a job. Neither delamination, singuloose, nor terrorist attack will stop it from delivering mail.
   components:
   - type: Sprite
     drawdepth: SmallMobs
@@ -134,8 +134,8 @@
     makeSentient: true
     allowSpeech: true
     allowMovement: true
-    name: ghost-role-information-floor-goblin-name
-    description: ghost-role-information-floor-goblin-description
+    name: ghost-role-information-mail-goblin-name
+    description: ghost-role-information-mail-goblin-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
     - MindRoleGhostRoleFreeAgent

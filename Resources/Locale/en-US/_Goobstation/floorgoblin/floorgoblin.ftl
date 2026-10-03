@@ -26,3 +26,6 @@ steal-shoes-no-shoes = They have no shoes to steal!
 steal-shoes-covered = You can't reach their shoes from here!
 
 shoes-stolen-target-event = Your shoes were stolen!
+
+ghost-role-information-mail-goblin-name = Mail Goblin
+ghost-role-information-mail-goblin-description = A tamed floor goblin. Deliver mail, dance your heart out, make the Quartermaster proud.
