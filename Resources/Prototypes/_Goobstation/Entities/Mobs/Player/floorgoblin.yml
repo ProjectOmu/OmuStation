@@ -113,10 +113,10 @@
   components:
   - type: Sprite
     drawdepth: SmallMobs
-    sprite: _Goobstation/Mobs/FloorGoblin/floor_goblin.rsi
+    sprite: _Omu/Mobs/MailGoblin/mail_goblin.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: floor_goblin
+      state: mail_goblin
   - type: Physics
   - type: Fixtures
     fixtures:
