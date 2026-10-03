@@ -13,14 +13,14 @@
 - type: entity
   id: ClothingBackpackDuffelSyndicateFilledPenman
   parent: ClothingBackpackDuffelSyndicateBundle
-  name: LRR-30 "Penman" Bundle
-  description: Contains a LRR-30 "Penman" and 3 spare mags.
+  name: LRR-33 "Penman" Bundle
+  description: Contains a LRR-33 "Penman" and 2 spare mags.
   components:
   - type: StorageFill
     contents:
       - id: WeaponSniperPenman
       - id: MagazineLongRifle
-        amount: 3
+        amount: 2
 
 - type: entity
   id: BackpackPermaSalvage

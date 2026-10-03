@@ -1,6 +1,6 @@
 - type: entity
   id: MagazineLongRifle
-  name: "magazine (.30 long rifle magnum)"
+  name: "magazine (.33 magnum rifle)"
   parent: [ BaseItem, BaseSecurityContraband ]
   components:
   - type: Tag
@@ -19,7 +19,7 @@
     whitelist:
       tags:
         - CartridgeLongRifle
-    capacity: 10
+    capacity: 15
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
