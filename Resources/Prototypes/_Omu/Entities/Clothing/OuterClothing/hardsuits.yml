@@ -81,5 +81,21 @@
     sprintModifier: 0.9
   - type: HeldSpeedModifier
 
-
+- type: entity
+  parent: ClothingOuterHardsuitLuxury
+  id: ClothingOuterHardsuitBosun
+  name: bosun hardsuit
+  description: A vintage excavation hardsuit, lovingly restored and repainted. Every dent carries a story, even if that comes at the cost of protection.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Hardsuits/bosun.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Hardsuits/bosun.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitBosun
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
 

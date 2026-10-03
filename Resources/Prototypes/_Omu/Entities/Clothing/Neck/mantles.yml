@@ -45,3 +45,45 @@
     sprite: _Omu/Clothing/Neck/Mantle/cmomantle.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Neck/Mantle/cmomantle.rsi
+
+- type: entity
+  parent: [ClothingNeckBase, BaseEngineeringContraband]
+  id: ClothingNeckMantleForeman
+  name: foreman's mantle
+  description: A modernised, much more comfortable version of the CMO's mantle, recolored in a more fashionable and fitting color, with sleek, white fur added on the collar and its edges, held up by a golden pin.
+  components:
+  - type: Item
+    size: Small
+    heldPrefix: tassels
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Mantle/foremanmantle.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Mantle/foremanmantle.rsi
+    equippedPrefix: tassels
+    slots:
+    - Neck
+  - type: ItemSwitch
+    state: tassels
+    showLabel: true
+    states:
+      tassels: !type:ItemSwitchState
+        verb: tassels
+        sprite:
+          sprite: _Omu/Clothing/Neck/Mantle/foremanmantle.rsi
+          state: tassels-icon
+      sleek: !type:ItemSwitchState
+        verb: sleek
+        sprite:
+          sprite: _Omu/Clothing/Neck/Mantle/foremanmantle.rsi
+          state: sleek-icon
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCargoContraband]
+  id: ClothingNeckMantleBosun
+  name: bosun's mantle
+  description: A modernised, much more comfortable version of the CMO's mantle, recolored in a more fashionable and fitting color, with sleek, white fur added on the collar and its edges, held up by a golden pin.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Mantle/bosunmantle.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Mantle/bosunmantle.rsi

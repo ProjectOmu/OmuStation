@@ -24,6 +24,29 @@
       entity: ClothingCyberneticBeastSpaceMantleSecurity
 
 - type: constructionGraph
+  id: ClothingCyberneticBeastSpaceMantleSergeant
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: helmet
+      steps:
+      - tag: WorkMantle
+        name: construction-graph-tag-work-mantle
+        icon:
+          sprite: _Omu/Clothing/Head/mantle.rsi
+          state: icon-work
+        doAfter: 1
+      - tag: SergeantMantle # theres probably a better way to do this but i dont want random secoffs making a sarge mantle
+        name: construction-graph-tag-sergeant-mantle
+        icon:
+          sprite: _Omu/Clothing/Head/mantle.rsi
+          state: icon-sergeant
+        doAfter: 1
+  - node: helmet
+    entity: ClothingCyberneticBeastSpaceMantleSergeant
+
+- type: constructionGraph
   id: ClothingCyberneticBeastSpaceMantleCorpsman
   start: start
   graph:

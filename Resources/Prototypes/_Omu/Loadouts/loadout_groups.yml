@@ -91,6 +91,16 @@
   - PrisonerEnviroglovesBlack
   - PrisonerEnviroglovesWhite
 
+# Logistics Assistant
+
+- type: loadoutGroup
+  id: LogisticsAssistantJumpsuit
+  name: loadout-group-logistics-assistant-jumpsuit
+  loadouts:
+  - BrownJumpsuit
+  - BrownJumpskirt
+  - BrownMJ
+
 # Courier
 
 - type: loadoutGroup
@@ -185,6 +195,8 @@
   loadouts:
   # - MailCarrierEnvirogloves
   - WhiteEnvirogloves
+
+# Virology
 
 - type: loadoutGroup
   id: VirologistEnvirohelm
@@ -331,67 +343,6 @@
   - SecurityOfficerSecurityDutyRevolver
   - SecurityOfficerEG1
   - WeaponPistolMk58Gold
-
-- type: loadoutGroup
-  id: TrinketsSecuritySergeant
-  name: loadout-group-sergeant-gun
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - SecuritySergeantGunCase
-  - SecurityOfficerMk58
-  - SecurityOfficerSecurityDutyRevolver
-  - SecurityOfficerEG1
-  - WeaponPistolMk58Gold
-  - SecuritySergeantMosin
-  - SecuritySergeantEnergyMagnum
-
-- type: loadoutGroup
-  id: SecuritySergeantPDA
-  name: loadout-group-security-id
-  loadouts:
-  - SecuritySergeantPDA
-
-- type: loadoutGroup
-  id: SergeantJumpsuit
-  name: loadout-group-sergeant-jumpsuit
-  loadouts:
-  - SecurityJumpsuit
-  - SecurityJumpskirt
-  - SeniorOfficerJumpsuit
-  - SeniorOfficerJumpskirt
-  - SergeantJumpsuit
-  - SergeantJumpskirt
-
-- type: loadoutGroup
-  id: SergeantBelt
-  name: loadout-group-sergeant-belt
-  loadouts:
-  - SergeantBelt
-  - SecurityBelt
-  - SecurityWebbing
-  - SecuritySwordBelt # Omu
-  - SecurityJudoBelt # Goobstation - Martial Arts
-
-- type: loadoutGroup
-  id: SergeantHead
-  name: loadout-group-sergeant-head
-  minLimit: 0
-  loadouts:
-  - SergeantHat
-  - SergeantBeret
-  - SergeantHeadHatKepi
-  - SecurityHelmet
-  - SecurityHelmetAlt
-  - SecurityBeret
-
-- type: loadoutGroup
-  id: SergeantNeck
-  name: loadout-group-sergeant-neck
-  loadouts:
-  - SergeantCloak
-  - ClothingNeckCWPSec
-  - ClothingNeckMantleVeteranSecurity
 
 # We have a separate one for detective cause holster
 - type: loadoutGroup
@@ -560,3 +511,286 @@
   - BartenderBackpackSatchel
   - BartenderBackpackDuffel
   - BartenderBackpackMessenger
+
+## Mentor
+
+# Sergeant
+- type: loadoutGroup
+  id: TrinketsSecuritySergeant
+  name: loadout-group-sergeant-gun
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SecuritySergeantGunCase
+  - SecurityOfficerMk58
+  - SecurityOfficerSecurityDutyRevolver
+  - SecurityOfficerEG1
+  - WeaponPistolMk58Gold
+  - SecuritySergeantMosin
+  - SecuritySergeantEnergyMagnum
+
+- type: loadoutGroup
+  id: SergeantJumpsuit
+  name: loadout-group-sergeant-jumpsuit
+  loadouts:
+  - SergeantJumpsuit
+  - SergeantJumpskirt
+  - SecurityJumpsuit
+  - SecurityJumpskirt
+  - SeniorOfficerJumpsuit
+  - SeniorOfficerJumpskirt
+
+- type: loadoutGroup
+  id: SergeantBelt
+  name: loadout-group-sergeant-belt
+  loadouts:
+  - SergeantBelt
+  - SecurityBelt
+  - SecurityWebbing
+  - SecuritySwordBelt # Omu
+  - SecurityJudoBelt # Goobstation - Martial Arts
+
+- type: loadoutGroup
+  id: SergeantHead
+  name: loadout-group-sergeant-head
+  minLimit: 0
+  loadouts:
+  - SergeantHat
+  - SergeantBeret
+  - SergeantHeadHatKepi
+  - SecurityHelmet
+  - SecurityHelmetAlt
+  - SecurityBeret
+
+- type: loadoutGroup
+  id: SergeantNeck
+  name: loadout-group-sergeant-neck
+  loadouts:
+  - SergeantCloak
+  - ClothingNeckCWPSec
+  - ClothingNeckMantleVeteranSecurity
+
+# Bosun
+- type: loadoutGroup
+  id: BosunJumpsuit
+  name: loadout-group-bosun-jumpsuit
+  loadouts:
+  - BosunJumpsuit
+  - BosunJumpskirt
+  - CargoTechnicianJumpsuit
+  - CargoTechnicianJumpskirt
+  - CargoTechnicianOveralls
+
+- type: loadoutGroup
+  id: BosunHead
+  name: loadout-group-bosun-head
+  minLimit: 0
+  loadouts:
+  - CargoTechnicianHead
+  - BosunBeret
+
+- type: loadoutGroup
+  id: BosunNeck
+  name: loadout-group-bosun-neck
+  minLimit: 0
+  loadouts:
+  - BosunMantle
+  - MinerCloak
+  - SalvageEspecialistEnsemble
+
+- type: loadoutGroup
+  id: BosunEnvirohelm
+  name: loadout-group-bosun-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BosunEnvirohelm
+
+- type: loadoutGroup
+  id: BosunEnvirosuit
+  name: loadout-group-bosun-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BosunEnvirosuit
+
+# Foreman
+- type: loadoutGroup
+  id: ForemanJumpsuit
+  name: loadout-group-foreman-jumpsuit
+  loadouts:
+  - ForemanJumpsuit
+  - ForemanJumpskirt
+  - StationEngineerJumpsuit
+  - StationEngineerJumpskirt
+  - StationEngineerHazardsuit
+  - SeniorEngineerJumpsuit
+  - SeniorEngineerJumpskirt
+
+- type: loadoutGroup
+  id: ForemanShoes
+  name: loadout-group-foreman-shoes
+  loadouts:
+  - WorkBoots
+  - ForemanCowboyBoots
+  - EngineeringWinterBoots
+
+- type: loadoutGroup
+  id: ForemanHead
+  name: loadout-group-foreman-head
+  minLimit: 0
+  loadouts:
+  - ForemanHardhat
+  - ForemanBeret
+
+- type: loadoutGroup
+  id: ForemanNeck
+  minLimit: 0
+  name: loadout-group-foreman-neck
+  loadouts:
+  - ForemanMantle
+
+- type: loadoutGroup
+  id: ForemanOuterClothing
+  minLimit: 0
+  name: loadout-group-foreman-outerclothing
+  loadouts:
+  - StationEngineerOuterVest
+  - StationEngineerWintercoat
+  - ClothingOuterXelthiaInsulated
+  - SeniorEngineerXelthiaJacket
+  - ForemanXelthiaJacket
+
+- type: loadoutGroup
+  id: ForemanEnvirohelm
+  name: loadout-group-foreman-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ForemanEnvirohelm
+  - StationEngineerEnvirohelm
+  - SeniorEngineerEnvirohelm
+
+- type: loadoutGroup
+  id: ForemanEnvirosuit
+  name: loadout-group-foreman-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ForemanEnvirosuit
+  - StationEngineerEnvirosuit
+  - SeniorEngineerEnvirosuit
+
+# Medicus
+- type: loadoutGroup
+  id: MedicusJumpsuit
+  name: loadout-group-medicus-jumpsuit
+  loadouts:
+  - MedicusJumpsuit
+  - MedicusJumpskirt
+  - MedicalDoctorJumpsuit
+  - MedicalDoctorJumpskirt
+  - SeniorPhysicianJumpsuit
+  - SeniorPhysicianJumpskirt
+
+- type: loadoutGroup
+  id: MedicusHead
+  name: loadout-group-medicus-head
+  minLimit: 0
+  loadouts:
+  - MedicusBeret
+  - MedicalBeret
+  - SeniorPhysicianBeret
+  - MedicalHeadMirror
+  - NurseHat
+
+- type: loadoutGroup
+  id: MedicusOuterClothing
+  name: loadout-group-medicus-outerclothing
+  loadouts:
+  - MedicusCoat
+  - MedicusCoatLong
+  - MedicusXelthiaJacket
+  - RegularLabCoat
+  - ClothingLabcoatLong
+  - ClothingOuterXelthiaSurgical
+  - MedicalDoctorWintercoat
+  - SeniorPhysicianLabCoat
+  - SeniorPhysicianXelthiaJacket
+
+- type: loadoutGroup
+  id: MedicusEnvirohelm
+  name: loadout-group-medicus-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - MedicusEnvirohelm
+  - MedicalDoctorEnvirohelm
+  - SeniorPhysicianEnvirohelm
+
+- type: loadoutGroup
+  id: MedicusEnvirosuit
+  name: loadout-group-medicus-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - MedicusEnvirosuit
+  - MedicalDoctorEnvirosuit
+  - SeniorPhysicianEnvirosuit # Omu
+
+# Professor
+- type: loadoutGroup
+  id: ProfessorJumpsuit
+  name: loadout-group-professor-jumpsuit
+  loadouts:
+  - ProfessorJumpsuit
+  - ProfessorJumpskirt
+  - ScientistJumpsuit
+  - ScientistJumpskirt
+  - ScientistFormal
+  - SeniorResearcherJumpsuit
+  - SeniorResearcherJumpskirt
+  - RoboticistJumpsuit
+  - RoboticistJumpskirt
+
+- type: loadoutGroup
+  id: ProfessorHead
+  name: loadout-group-professor-head
+  minLimit: 0
+  loadouts:
+  - ProfessorBeret
+  - ScientificBeret
+  - RoboticistCap
+  - SkullBandana
+
+- type: loadoutGroup
+  id: ProfessorOuterClothing
+  name: loadout-group-professor-outerclothing
+  loadouts:
+  - ProfessorCoat
+  - RegularLabCoat
+  - EpiLabcoat
+  - ScienceLabCoat
+  - LongScienceCoat
+  - ScienceWintercoat
+  - SeniorResearcherLabCoat
+  - RoboticistLabCoat
+  - RoboticistWintercoat
+
+- type: loadoutGroup
+  id: ProfessorEnvirohelm
+  name: loadout-group-professor-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ProfessorEnvirohelm
+  - ScientistEnvirohelm
+
+- type: loadoutGroup
+  id: ProfessorEnvirosuit
+  name: loadout-group-professor-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ProfessorEnvirosuit
+  - ScientistEnvirosuit
