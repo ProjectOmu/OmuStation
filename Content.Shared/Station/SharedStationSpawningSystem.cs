@@ -10,6 +10,8 @@ using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Utility;
+using Robust.Shared.Containers; // Far Horizons
 using Content.Shared._EinsteinEngines.Silicon.IPC; // DeltaV
 using Content.Shared.Whitelist; // Goobstation
 
@@ -178,10 +180,12 @@ public abstract class SharedStationSpawningSystem : EntitySystem
                     continue;
 
                 if (inventoryComp != null &&
-                    InventorySystem.TryGetSlotEntity(entity, slotName, out var slotEnt, inventoryComponent: inventoryComp) &&
+                    InventorySystem.TryGetSlotEntity(entity,
+                        slotName,
+                        out var slotEnt,
+                        inventoryComponent: inventoryComp) &&
                     _storageQuery.TryComp(slotEnt, out var storage))
                 {
-
                     foreach (var entProto in entProtos)
                     {
                         var spawnedEntity = Spawn(entProto, coords);
