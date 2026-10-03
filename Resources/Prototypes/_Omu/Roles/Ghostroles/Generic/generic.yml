@@ -75,3 +75,13 @@
     roleType: NanoTrasen
     jobPrototype: ERTLeaderBlue
     sortWeight: 30
+
+- type: entity
+  id: MindRoleGhostRoleFamiliarCourier
+  name: Ghost Role (Mailthing)
+  components:
+  - type: JobRole # I don't know the full weight of this decision
+  - type: MindRole
+    roleType: Familiar
+    jobPrototype: Courier
+    sortWeight: 20

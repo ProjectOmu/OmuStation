@@ -136,9 +136,9 @@
     allowMovement: true
     name: ghost-role-information-mail-goblin-name
     description: ghost-role-information-mail-goblin-description
-    rules: ghost-role-information-freeagent-rules
+    rules: ghost-role-information-familiar-rules # It's what cargo bingles are
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleFamiliarCourier
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
