@@ -13,7 +13,6 @@
 - type: entity
   parent: StatusEffectDrowsiness
   id: StatusEffectDrowsinessChloralHydrate
-  name: drowsiness
   components:
   - type: DrowsinessStatusEffect
-    timeBetweenIncidents: 15, 30 # Minimum 2x4u doses, max 4x4u dose
+    timeBetweenIncidents: 15, 30 # Minimum 5.5u dose, max 13u dose
