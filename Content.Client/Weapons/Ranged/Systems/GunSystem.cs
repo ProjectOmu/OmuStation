@@ -38,6 +38,15 @@ using Robust.Shared.Utility;
 using SharedGunSystem = Content.Shared.Weapons.Ranged.Systems.SharedGunSystem;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
 using Content.Shared._Omu.Changeling;
+// Omu start - gun prediction port (Phase 2).
+using Content.Client._RMC14.Movement;
+using Content.Goobstation.Common.Weapons.Multishot;
+using Content.Omu.Common.CCVar;
+using Content.Shared._RMC14.Weapons.Ranged.Prediction;
+using Content.Shared.Item;
+using Content.Shared.Projectiles;
+using Robust.Shared.Player;
+// Omu end
 
 namespace Content.Client.Weapons.Ranged.Systems;
 
@@ -57,6 +66,21 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly SpriteTreeSystem _spriteTree = default!;
     [Dependency] private readonly ClickableSystem _clickable = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+
+    // Omu start - gun prediction port (Phase 2).
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly RMCLagCompensationSystem _rmcLagCompensation = default!;
+
+    /// <summary>
+    ///     Mirror of <see cref="OmuCVars.GunPrediction"/>.
+    /// </summary>
+    /// <remarks>
+    ///     Read here rather than from <c>SharedGunPredictionSystem.GunPrediction</c> because that
+    ///     class is abstract and this file must not depend on a concrete subclass of it existing.
+    ///     Both copies are fed by the same replicated CVar, so they cannot disagree.
+    /// </remarks>
+    private bool _gunPrediction;
+    // Omu end
 
     public static readonly EntProtoId HitscanProto = "HitscanEffect";
     private GunTargetEntityComparer _comparer = default!;
@@ -103,6 +127,9 @@ public sealed partial class GunSystem : SharedGunSystem
 
         InitializeMagazineVisuals();
         InitializeSpentAmmo();
+
+        // Omu - gun prediction port (Phase 2).
+        Subs.CVar(_cfg, OmuCVars.GunPrediction, v => _gunPrediction = v, true);
 
         _comparer = new GunTargetEntityComparer();
     }
@@ -232,16 +259,124 @@ public sealed partial class GunSystem : SharedGunSystem
 
         Log.Debug($"Sending shoot request tick {Timing.CurTick} / {Timing.CurTime}");
 
+        // Omu start - gun prediction port (Phase 2).
+        // The predicted shot has to happen *before* the request is built. RaisePredictiveEvent
+        // serialises and sends the message first and only then raises it locally, so any projectile
+        // spawned by the local raise (which is what ends up calling Shoot below) would already have
+        // missed the boat and Shot would always go out null.
+        var shot = _gunPrediction ? PredictShot(entity, gun, coordinates, target) : null;
+        // Omu end
+
         RaisePredictiveEvent(new RequestShootEvent
         {
             Target = target,
             Coordinates = GetNetCoordinates(coordinates),
             Gun = GetNetEntity(gun),
+            // Omu start - gun prediction port (Phase 2).
+            Shot = shot,
+            // The client half of lag compensation exposes the engine's own IGameTiming.LastRealTick
+            // through this accessor; going through it keeps the value the server is told here
+            // identical to the one the heartbeat reports.
+            LastRealTick = _rmcLagCompensation.GetLastRealTick(null),
+            LastRealSubstep = _rmcLagCompensation.GetClientSubstep(),
+            // Omu end
         });
     }
 
+    // Omu start - gun prediction port (Phase 2).
+    /// <summary>
+    ///     A predicting client fires the shot itself in <see cref="PredictShot"/>, before the request
+    ///     is raised, so the base handler must not fire it a second time when the event comes back
+    ///     round locally.
+    /// </summary>
+    /// <remarks>
+    ///     <para>
+    ///     Only the first-time prediction pass is suppressed. Prediction replays still re-run the
+    ///     shot through the base handler, which is what reconciles the local copy against the server.
+    ///     </para>
+    ///     <para>
+    ///     With <c>omu.gun_prediction</c> off, <see cref="PredictShot"/> never runs, this returns true
+    ///     and the control flow is exactly what it was before the port.
+    ///     </para>
+    /// </remarks>
+    protected override bool ShouldAdjudicateShootRequest()
+    {
+        return !(_gunPrediction && Timing.IsFirstTimePredicted);
+    }
+
+    /// <summary>
+    ///     Runs this shot locally, ahead of the request going out, and returns the ids of the
+    ///     client-side projectiles it drew.
+    /// </summary>
+    /// <remarks>
+    ///     <para>
+    ///     This has to run <i>before</i> <c>RaisePredictiveEvent</c>, not after: that method puts the
+    ///     message on the wire and only then raises it locally, so anything spawned by the local
+    ///     raise is already too late to have its ids travel in the event.
+    ///     </para>
+    ///     <para>
+    ///     The two assignments below are the same ones <c>SharedGunSystem.OnShootRequest</c> makes
+    ///     before it adjudicates, Goobstation burst target lock included, so this pass and the
+    ///     replayed ones agree on what was aimed at. <paramref name="user"/> is already the mech
+    ///     where one is being piloted, because the caller resolved that.
+    ///     </para>
+    ///     <para>
+    ///     The base handler does not fire the shot a second time when the request comes back round
+    ///     locally: <see cref="ShouldAdjudicateShootRequest"/> suppresses the first-time-predicted
+    ///     pass, so <c>ShotAttemptedEvent</c> is raised once and an empty gun clicks once.
+    ///     </para>
+    /// </remarks>
+    /// <returns>The raw ids of the predicted copies, or null if nothing was drawn.</returns>
+    private List<int>? PredictShot(EntityUid user, Entity<GunComponent> gun, EntityCoordinates coordinates, NetEntity? target)
+    {
+        if (_player.LocalSession is not { } session)
+            return null;
+
+        // The two rejections SharedGunSystem.OnShootRequest applies that this method cannot infer
+        // from the caller: a multishot gun is driven by a different path entirely, and a carried
+        // entity (a held felinid) may not shoot at all. Predicting either would leave copies on
+        // screen that the server never pairs with anything, because it never fires.
+        if (HasComp<MultishotComponent>(gun.Owner) || HasComp<ItemComponent>(user))
+            return null;
+
+        // A gun can opt out of prediction entirely. Honouring it HERE, and not only on the server,
+        // is what makes the opt-out worth having: the server refuses to pair such a gun's
+        // projectiles, so if the client still drew copies for them nothing would ever retire those
+        // copies and the shooter would be left with a ghost bullet beside every real one for the
+        // projectile's whole despawn lifetime. Refusing to draw them in the first place is the only
+        // version of this marker that reduces desync rather than adding to it.
+        if (HasComp<GunIgnorePredictionComponent>(gun.Owner))
+            return null;
+
+        gun.Comp.ShootCoordinates = coordinates;
+
+        var potentialTarget = GetEntity(target);
+        if (gun.Comp.Target == null || !gun.Comp.BurstActivated || !gun.Comp.LockOnTargetBurst)
+            gun.Comp.Target = potentialTarget;
+
+        var projectiles = AttemptShoot(user, gun, null, session);
+
+        if (projectiles == null || projectiles.Count == 0)
+            return null;
+
+        var ids = new List<int>(projectiles.Count);
+        foreach (var projectile in projectiles)
+        {
+            ids.Add(projectile.Id);
+        }
+
+        return ids;
+    }
+    // Omu end
+
     public override void Shoot(Entity<GunComponent> gun, List<(EntityUid? Entity, IShootable Shootable)> ammo,
-        EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, out bool userImpulse, EntityUid? user = null, bool throwItems = false)
+        EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, out bool userImpulse, EntityUid? user = null, bool throwItems = false,
+        // Omu start - gun prediction port (Phase 2). predictedProjectiles/userSession are unused on
+        // this side - the client is the thing doing the predicting, it does not need telling.
+        List<int>? predictedProjectiles = null,
+        ICommonSession? userSession = null,
+        List<EntityUid>? spawnedProjectiles = null)
+        // Omu end
     {
         userImpulse = true;
 
@@ -250,6 +385,24 @@ public sealed partial class GunSystem : SharedGunSystem
         // This also means any ammo specific stuff can be grabbed as necessary.
         var direction = TransformSystem.ToMapCoordinates(fromCoordinates).Position - TransformSystem.ToMapCoordinates(toCoordinates).Position;
         var worldAngle = direction.ToAngle().Opposite();
+
+        // Omu start - gun prediction port (Phase 2).
+        // With the CVar off this is false and every line it guards is skipped, leaving the method
+        // byte-for-byte what it was: the client still spawns nothing and still deletes client-side
+        // ammo, exactly as the comment above describes.
+        //
+        // IsFirstTimePredicted is part of the guard rather than an afterthought. Prediction replays
+        // re-run this method once per replayed tick until the server acknowledges the shot, and a
+        // client-side entity survives a prediction reset - which is the whole reason it can stand in
+        // for a projectile - so without it every replay would stack another bullet on screen.
+        // GunIgnorePredictionComponent is re-checked here rather than relying on PredictShot's
+        // rejection, because Shoot is also reached on prediction replays, which do not go through
+        // PredictShot at all.
+        var predictProjectiles = _gunPrediction &&
+                                 spawnedProjectiles != null &&
+                                 Timing.IsFirstTimePredicted &&
+                                 !HasComp<GunIgnorePredictionComponent>(gun.Owner);
+        // Omu end
 
         foreach (var (ent, shootable) in ammo)
         {
@@ -269,6 +422,12 @@ public sealed partial class GunSystem : SharedGunSystem
                 case CartridgeAmmoComponent cartridge:
                     if (!cartridge.Spent)
                     {
+                        // Omu start - gun prediction port (Phase 2). The server spawns
+                        // cartridge.Prototype here; draw a client-side copy of it so the shooter
+                        // sees the bullet leave the barrel now instead of a round trip later.
+                        if (predictProjectiles)
+                            ShootPredicted(gun, user, cartridge.Prototype, fromCoordinates, toCoordinates, spawnedProjectiles!);
+                        // Omu end
                         SetCartridgeSpent(ent!.Value, cartridge, true);
                         MuzzleFlash(gun, cartridge, worldAngle, user);
                         Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
@@ -288,6 +447,14 @@ public sealed partial class GunSystem : SharedGunSystem
 
                     break;
                 case AmmoComponent newAmmo:
+                    // Omu start - gun prediction port (Phase 2). Here the ammo entity *is* the
+                    // projectile on the server. The client cannot launch the networked one - it is
+                    // about to be removed from the gun and the server owns its physics - so it
+                    // spawns a client-side copy from the same prototype. An entity assembled in
+                    // code has no prototype; ShootPredicted reads that as "nothing to predict".
+                    if (predictProjectiles)
+                        ShootPredicted(gun, user, MetaData(ent!.Value).EntityPrototype?.ID, fromCoordinates, toCoordinates, spawnedProjectiles!);
+                    // Omu end
                     MuzzleFlash(gun, newAmmo, worldAngle, user);
                     Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
                     Recoil(user, direction, gun.Comp.CameraRecoilScalarModified);
@@ -303,6 +470,142 @@ public sealed partial class GunSystem : SharedGunSystem
             }
         }
     }
+
+    // Omu start - gun prediction port (Phase 2).
+    /// <summary>
+    ///     Draws this client's own, local copy of a projectile the server is about to spawn, and
+    ///     records its id so the shoot request can tell the server which copy is which.
+    /// </summary>
+    /// <param name="proto">
+    ///     Prototype of the projectile the server will spawn, or null if it cannot be named - in
+    ///     which case nothing is predicted and the shooter simply waits for the real bullet.
+    /// </param>
+    /// <param name="spawnedProjectiles">Collects the copies, in the order the server spawns them.</param>
+    /// <remarks>
+    ///     <para>
+    ///     The copy is made with plain <c>Spawn</c>, which on the client produces a client-side
+    ///     entity. That is deliberate and it is not the same as <c>PredictedSpawn*</c>: a
+    ///     <c>PredictedSpawnComponent</c> entity is deleted outright on every prediction reset and
+    ///     re-created by the replay, whereas this copy has to outlive the reset and stay on screen
+    ///     until the authoritative projectile arrives and the reconciliation retires it. Every other
+    ///     client-only entity in this file - the hitscan beam, the muzzle flash - is made the same
+    ///     way.
+    ///     </para>
+    ///     <para>
+    ///     The copy is flown with <c>ShootProjectile</c>, the same shared maths the server uses, so
+    ///     the two agree on speed (including the Omu <c>ProjectileSpeedModifier</c>) and on the
+    ///     Goobstation target coordinates. Two things it cannot match: the server's
+    ///     <c>GetRecoilAngle</c> spread, which is drawn from the server's RNG and also mutates gun
+    ///     state that is not the client's to touch, so the copy flies down the unspread line; and
+    ///     the damage multiplier, which is meaningless on a copy that never adjudicates a hit.
+    ///     </para>
+    /// </remarks>
+    private void ShootPredicted(
+        Entity<GunComponent> gun,
+        EntityUid? user,
+        string? proto,
+        EntityCoordinates fromCoordinates,
+        EntityCoordinates toCoordinates,
+        List<EntityUid> spawnedProjectiles)
+    {
+        if (proto == null)
+            return;
+
+        var fromMap = TransformSystem.ToMapCoordinates(fromCoordinates);
+        var toMap = TransformSystem.ToMapCoordinates(toCoordinates).Position;
+        var mapDirection = toMap - fromMap.Position;
+
+        if (mapDirection == Vector2.Zero)
+            return;
+
+        var mapAngle = mapDirection.ToAngle();
+
+        // Same parenting rule as the server: on a grid where there is one, so the copy rides the
+        // grid instead of being left behind by it.
+        var fromEnt = MapManager.TryFindGridAt(fromMap, out var gridUid, out _)
+            ? TransformSystem.WithEntityId(fromCoordinates, gridUid)
+            : new EntityCoordinates(_maps.GetMapOrInvalid(fromMap.MapId), fromMap.Position);
+
+        var gunVelocity = Physics.GetMapLinearVelocity(fromEnt);
+
+        var first = Spawn(proto, fromEnt);
+
+        // Not a projectile, so on the server this would be thrown rather than shot. Throwing is not
+        // predicted here and a thrown item is not recorded in spawnedProjectiles either, so there is
+        // nothing to pair and the copy would only be a duplicate item on screen.
+        //
+        // Omu - embeddable projectiles (arrows, harpoons, syringe darts) are excluded for the same
+        // reason, mirrored in the server's ShootOrThrow. The real one embeds or lands and stays in the
+        // world, and a paired server projectile is hidden from its shooter until it is deleted - so an
+        // embedded arrow would stay invisible to whoever fired it, and this copy, which embeds too,
+        // would never be retired and would linger on their screen as an untouchable phantom.
+        if (!HasComp<ProjectileComponent>(first) || HasComp<EmbeddableProjectileComponent>(first))
+        {
+            Del(first);
+            return;
+        }
+
+        // Mirror the server's spread handling, pellet for pellet. The counts have to match: the
+        // server pairs its Nth projectile with the Nth id reported here, so one missing pellet
+        // would misalign every id after it.
+        if (TryComp<ProjectileSpreadComponent>(first, out var ammoSpread) && ammoSpread.Count > 1)
+        {
+            var spreadEvent = new GunGetAmmoSpreadEvent(ammoSpread.Spread);
+            RaiseLocalEvent(gun, ref spreadEvent);
+
+            var angles = PredictedLinearSpread(mapAngle - spreadEvent.Spread / 2,
+                mapAngle + spreadEvent.Spread / 2,
+                ammoSpread.Count);
+
+            Launch(first, angles[0].ToVec());
+
+            for (var i = 1; i < ammoSpread.Count; i++)
+            {
+                Launch(Spawn(ammoSpread.Proto, fromEnt), angles[i].ToVec());
+            }
+        }
+        else
+        {
+            Launch(first, mapDirection);
+        }
+
+        void Launch(EntityUid uid, Vector2 launchDirection)
+        {
+            EnsureComp<PredictedProjectileClientComponent>(uid);
+
+            // The copy has to keep simulating through prediction replays, or it stalls at the barrel.
+            Physics.UpdateIsPredicted(uid);
+
+            if (gun.Comp.Target is { } target && !TerminatingOrDeleted(target))
+            {
+                // Not dirtied: this entity is client-side, so there is nothing to send state for.
+                var targeted = EnsureComp<TargetedProjectileComponent>(uid);
+                targeted.Target = target;
+            }
+
+            ShootProjectile(uid, launchDirection, gunVelocity, gun, user, gun.Comp.ProjectileSpeedModified, toMap);
+            spawnedProjectiles.Add(uid);
+        }
+    }
+
+    /// <summary>
+    ///     Client-side copy of the server's <c>LinearSpread</c>, so predicted pellets fan out at the
+    ///     same angles the server will use.
+    /// </summary>
+    /// <remarks>Callers must pass <paramref name="intervals"/> greater than one.</remarks>
+    private static Angle[] PredictedLinearSpread(Angle start, Angle end, int intervals)
+    {
+        var angles = new Angle[intervals];
+        DebugTools.Assert(intervals > 1);
+
+        for (var i = 0; i <= intervals - 1; i++)
+        {
+            angles[i] = new Angle(start + (end - start) * i / (intervals - 1));
+        }
+
+        return angles;
+    }
+    // Omu end
 
     private void Recoil(EntityUid? user, Vector2 recoil, float recoilScalar)
     {
