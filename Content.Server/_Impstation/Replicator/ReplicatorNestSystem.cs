@@ -101,7 +101,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
             {
                 nestComp.HasAnnounced = true;
                 //_announcer.SendAnnouncement("announce", Filter.Broadcast(), nestComp.Announcement, colorOverride: Color.Red); // Omu, we don't have this
-                _chat.DispatchGlobalAnnouncement(nestComp.Announcement, null, colorOverride: Color.Red); // Omu, so use this instead
+                _chat.DispatchGlobalAnnouncement(Loc.GetString(nestComp.Announcement), null, colorOverride: Color.Red); // Omu, so use this instead
             }
 
             // delete entities that have anything on the blacklist, OR don't have anything on the whitelist AND don't have a mind.
