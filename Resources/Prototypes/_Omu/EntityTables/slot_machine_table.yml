@@ -1,0 +1,25 @@
+- type: entityTable
+  id: SlotMachineSmallWinCounterfeit
+  table: !type:AllSelector
+    children:
+    - id: SpaceCashCounterfeit100
+
+- type: entityTable
+  id: SlotMachineMediumWinCounterfeit
+  table: !type:AllSelector
+    children:
+    - id: SpaceCashCounterfeit500
+
+- type: entityTable
+  id: SlotMachineLargeWinCounterfeit
+  table: !type:AllSelector
+    children:
+    - id: SpaceCashCounterfeit5000
+
+- type: entityTable
+  id: LootEmagJackpot
+  table: !type:GroupSelector
+    children:
+    - id: Telecrystal5
+    - id: ClothingOuterArmourInvisibleSyndie
+    - id: ReinforcementRadioSyndicateBingle
