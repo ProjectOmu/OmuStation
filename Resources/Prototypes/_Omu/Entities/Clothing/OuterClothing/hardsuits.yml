@@ -99,3 +99,22 @@
     - Hardsuit
     - WhitelistChameleon
 
+- type: entity
+  parent: ClothingOuterSuitHEV
+  id: ClothingOuterHardsuitForeman
+  name: foreman's pressurized H.E.V suit
+  description: A modified, spaceworthy H.E.V suit made specially for foremen to retrieve technical assistants after showing them just how many rads can come from the supermatter. Comes with all the extra protection of an engineer's hardsuit and an H.E.V suit while looking extra stylish.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Hardsuits/foreman.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Hardsuits/foreman.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetForeman
+  - type: PressureProtection # atmos tech aeolus modsuit stats
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005

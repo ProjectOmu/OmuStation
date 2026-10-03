@@ -79,3 +79,24 @@
     sprite: _Omu/Clothing/Head/Hardsuits/bosun.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Head/Hardsuits/bosun.rsi
+
+- type: entity
+  parent: [ClothingHeadHelmetHEV, ClothingHeadHardsuitWithLightBase]
+  id: ClothingHeadHelmetForeman
+  name: foreman's modified sapper helmet
+  description: A modified helmet featuring an uranium glass faceplate with an internal HUD to display the feed from the many still-functional cameras from the original design. Comes with the same protection as an engineer's hardsuit and the H.E.V suit while being much more stylish.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Hardsuits/foreman.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Hardsuits/foreman.rsi
+  - type: PressureProtection # atmos tech aeolus modsuit stats
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
+  - type: EyeProtection
+  - type: PointLight
+    radius: 5
+    energy: 3
