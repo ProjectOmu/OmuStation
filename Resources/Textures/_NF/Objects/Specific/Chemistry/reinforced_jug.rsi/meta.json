@@ -1,44 +1,39 @@
 {
-    "version": 1,
-    "license": "CC-BY-SA-3.0",
-    "copyright": "created by gnusnotutopia, fills by Archee, inhands by Ubaser copied from Objects/Specific/Chemistry/vial.rsi",
-    "size": {
-        "x": 32,
-        "y": 32
-    },
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "created by wallflowerghost (discord) edited by dustylens(github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
     "states": [
         {
-            "name": "icon",
-            "delays": [
-                [
-                    0.1,
-                    0.1
-                ]
-            ]
+            "name": "icon"
         },
         {
-            "name": "fill-1"
+            "name": "jug1"
         },
         {
-            "name": "fill-2"
+            "name": "jug2"
         },
         {
-            "name": "fill-3"
+            "name": "jug3"
         },
         {
-            "name": "fill-4"
+            "name": "jug4"
         },
         {
-            "name": "fill-5"
+            "name": "jug5"
         },
         {
-            "name": "fill-6"
-        },
-        {
-            "name": "fill-7"
+            "name": "jug6"
         },
         {
             "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
             "directions": 4
         },
         {
@@ -58,10 +53,6 @@
             "directions": 4
         },
         {
-            "name": "inhand-right",
-            "directions": 4
-        },
-        {
             "name": "inhand-right-fill-1",
             "directions": 4
         },
@@ -76,6 +67,9 @@
         {
             "name": "inhand-right-fill-4",
             "directions": 4
+        },
+        {
+            "name": "stopper"
         }
     ]
 }
