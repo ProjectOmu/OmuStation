@@ -19,4 +19,16 @@ public sealed partial class OmuCVars
 
     public static readonly CVarDef<bool> AlternateJobTitles =
         CVarDef.Create("omu.alternate_job_titles", true, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    // Word replacement amount per character, 0 disables feature
+    /// </summary>
+    public static readonly CVarDef<int> SpeechReplacementsMax =
+        CVarDef.Create("omu.speech_replacements_max", 20, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    // How long word/replacement can be
+    /// </summary>
+    public static readonly CVarDef<int> SpeechReplacementLength =
+        CVarDef.Create("omu.speech_replacement_length", 64, CVar.SERVER | CVar.REPLICATED);
 }
