@@ -353,9 +353,10 @@ public sealed class ActionContainerSystem : EntitySystem
 
     private void OnActionAdded(EntityUid uid, ActionsContainerComponent component, ActionAddedEvent args)
     {
-        if (TryComp<MindComponent>(uid, out var mindComp) && mindComp.OwnedEntity != null && HasComp<ActionsContainerComponent>(mindComp.OwnedEntity.Value))
+        if (TryComp<MindComponent>(uid, out var mindComp) && mindComp.OwnedEntity != null)
             _actions.GrantContainedAction(mindComp.OwnedEntity.Value, uid, args.Action);
     }
+    //&& HasComp<ActionsContainerComponent>(mindComp.OwnedEntity.Value)
 }
 
 /// <summary>
