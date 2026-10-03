@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: MIT
-
 namespace Content.Shared.Throwing;
 
 /// <summary>
@@ -7,6 +5,12 @@ namespace Content.Shared.Throwing;
 /// </summary>
 [ByRefEvent]
 public readonly record struct ThrowEvent(EntityUid? User, EntityUid Thrown);
+
+/// <summary>
+/// Raised on an entity after it has been thrown.
+/// </summary>
+[ByRefEvent]
+public readonly record struct ThrownEvent(EntityUid? User, EntityUid Thrown);
 
 /// <summary>
 /// Raised directed on the target entity being hit by the thrown entity.
