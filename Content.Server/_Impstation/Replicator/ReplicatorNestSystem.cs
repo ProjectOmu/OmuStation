@@ -4,7 +4,7 @@
 
 using Content.Server._Impstation.Administration.Components;
 using Content.Server.Actions;
-using Content.Server.Announcements.Systems;
+//using Content.Server.Announcements.Systems;  // Omu, we don't have this
 using Content.Server.Audio;
 using Content.Server.Buckle.Systems;
 using Content.Server.GameTicking;
@@ -39,6 +39,7 @@ using System.Linq;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Storage.Components;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
+using Content.Server.Chat.Systems;
 
 namespace Content.Server._Impstation.Replicator;
 
@@ -61,7 +62,8 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
     [Dependency] private readonly PinpointerSystem _pinpointer = default!;
     [Dependency] private readonly AmbientSoundSystem _ambientSound = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    //[Dependency] private readonly AnnouncerSystem _announcer = default!; // Omu, we don't have this
+    [Dependency] private readonly ChatSystem _chat = default!; // Omu, so use this instead.
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly EntityStorageSystem _entStorage = default!;
@@ -97,7 +99,8 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
             if (!nestComp.HasAnnounced && nestComp.CurrentLevel >= nestComp.AnnounceAtLevel)
             {
                 nestComp.HasAnnounced = true;
-                _announcer.SendAnnouncement("announce", Filter.Broadcast(), nestComp.Announcement, colorOverride: Color.Red);
+                //_announcer.SendAnnouncement("announce", Filter.Broadcast(), nestComp.Announcement, colorOverride: Color.Red); // Omu, we don't have this
+                _chat.DispatchGlobalAnnouncement(nestComp.Announcement, null, colorOverride: Color.Red); // Omu, so use this instead
             }
 
             // delete entities that have anything on the blacklist, OR don't have anything on the whitelist AND don't have a mind.
