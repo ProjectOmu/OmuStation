@@ -81,6 +81,8 @@ job-name-ertsecurity = ERT Security
 job-name-ertmedic = ERT Medic
 job-name-ertjanitor = ERT Janitor
 job-name-visitor = Visitor
+## omu edit - tram driver
+job-name-tram-driver = Tram Driver
 # Viro
 job-name-virologist = Virologist
 job-name-cluwne = Cluwne
