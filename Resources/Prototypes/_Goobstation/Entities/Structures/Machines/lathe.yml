@@ -75,6 +75,10 @@
         - RawMaterial
         - Ingot
         - SheetPlasma
+  # Omu begin
+  - type: LatheAnnouncing
+    channels: [Engineering]
+  # Omu end
 
 - type: entity
   id: CargoTechFab
@@ -114,7 +118,7 @@
     - CargoStatic
     - RecipePackShipmentNoticesStatic
     dynamicPacks:
-    #- AdvancedTools #omu
+    - AdvancedTools 
     - Mining
     - MiningLavaland # Lavaland Change
     - PowerCells
@@ -158,6 +162,10 @@
   - type: EmptyOnMachineDeconstruct
     containers:
     - blueprint
+  # Omu begin
+  - type: LatheAnnouncing
+    channels: [Supply]
+  # Omu end
 
 - type: entity
   id: ScienceTechFab
@@ -315,6 +323,10 @@
         - RawMaterial
         - Ingot
         - SheetPlasma
+  # Omu begin
+  - type: LatheAnnouncing
+    channels: [Service]
+  # Omu end
 
 - type: entity
   id: ERTTechFab
