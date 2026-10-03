@@ -42,6 +42,7 @@
       activateSound: null
       deactivateSound: null
     - type: FlashVulnerable # There are downsides.
+      onlyTriggerWhenNvIsOnWithoutNvGoggles: true # Omu - Downsides should only be downsides when they actively use it.
 
 - type: entity
   id: OrganShadowkinEars
