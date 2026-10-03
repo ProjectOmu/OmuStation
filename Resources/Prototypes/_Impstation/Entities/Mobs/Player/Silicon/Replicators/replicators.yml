@@ -10,7 +10,8 @@
   components:
   - type: Puller
     needsHands: false
-    applySpeedModifier: false
+    #applySpeedModifier: false # Omu
+  - type: SpeedModifierImmunity # Omu
   - type: ZombieImmune
   - type: Replicator
   - type: NameIdentifier

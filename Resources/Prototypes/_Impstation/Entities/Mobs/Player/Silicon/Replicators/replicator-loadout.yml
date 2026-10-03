@@ -164,7 +164,10 @@
     sprite: _Impstation/Objects/Devices/pinpointer_replicator.rsi
     state: pinpointer-replicator
   - type: Pinpointer
-    component: ReplicatorNest
+    whitelist: # Omu
+      components:
+      - ReplicatorNest
+    #component: ReplicatorNest # Omu
     targetName: replicator nest
     activateImmediately: true
 
