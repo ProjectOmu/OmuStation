@@ -53,14 +53,16 @@
       board: !type:Container
   - type: Appearance
   - type: WiresVisuals
-  - type: AlertLevelDisplay
-    alertVisuals:
-      green: fire_0
-      blue: fire_1
-      red: fire_2
-      violet: fire_1
-      yellow: fire_1
-      delta: fire_3
+#  - type: AlertLevelDisplay # Omu - AlertLevelDisplay overrides AtmosAlarmableVisuals sprites
+#    alertVisuals:
+#      green: fire_0
+#      blue: fire_1
+#      cyan: fire_1
+#      red: fire_2
+#      violet: fire_5
+#      yellow: fire_4
+#      amber: fire_6
+#      delta: fire_3
   - type: UserInterface
     interfaces:
       enum.WiresUiKey.Key:
@@ -70,7 +72,7 @@
     boardName: wires-board-name-firealarm
     layoutId: FireAlarm
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: _tgstation/air_monitors.rsi # Omu
     layers:
     - state: fire0
       map: ["fireAlarmBase"]
@@ -117,7 +119,7 @@
   description: A fire alarm assembly. Very mild.
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: _tgstation/air_monitors.rsi # Omu
     layers:
     - state: fire_b1
       map: [ "enum.ConstructionVisuals.Layer" ]
