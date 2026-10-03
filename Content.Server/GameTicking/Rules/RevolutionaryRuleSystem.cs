@@ -85,7 +85,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         SubscribeLocalEvent<RevolutionaryRuleComponent, AfterAntagEntitySelectedEvent>(AfterEntitySelected); // Funky Station
         SubscribeLocalEvent<RevolutionaryRoleComponent, GetBriefingEvent>(OnGetBriefing);
         SubscribeLocalEvent<HeadRevolutionaryComponent, AfterFlashedEvent>(OnPostFlash);
-        SubscribeLocalEvent<ShuttleDockAttemptEvent>(OnTryShuttleDock); // Funky Station - HE- HE- HELL NAW
+        //SubscribeLocalEvent<ShuttleDockAttemptEvent>(OnTryShuttleDock); // Funky Station - HE- HE- HELL NAW // Omu commented out
     }
 
     protected override void Started(EntityUid uid, RevolutionaryRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -543,41 +543,43 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         return headRevList;
     }
 
+    //Omu edit - commented out as per changes
     // goob edit - no shuttle call until internal affairs are figured out
     // funkystation - disabled because this is garbo
-    private void OnTryCallEvac(ref CommunicationConsoleCallShuttleAttemptEvent ev)
-    {
-        var revs = EntityQuery<RevolutionaryComponent, MobStateComponent>();
-        var revenemies = EntityQuery<RevolutionEnemyComponent, MobStateComponent>();
-        var minds = EntityQuery<MindContainerComponent>();
+    //private void OnTryCallEvac(ref CommunicationConsoleCallShuttleAttemptEvent ev)
+    //{
+    //    var revs = EntityQuery<RevolutionaryComponent, MobStateComponent>();
+    //    var revenemies = EntityQuery<RevolutionEnemyComponent, MobStateComponent>();
+    //    var minds = EntityQuery<MindContainerComponent>();
 
-        var revsNormalized = revs.Count() / (minds.Count() - revs.Count());
-        var enemiesNormalized = revenemies.Count() / (minds.Count() - revenemies.Count());
+    //    var revsNormalized = revs.Count() / (minds.Count() - revs.Count());
+    //    var enemiesNormalized = revenemies.Count() / (minds.Count() - revenemies.Count());
 
         // calling evac will result in an error if:
         // - command is gone & there are more than 35% of enemies
         // - or if there are more than 35% of revolutionaries
         // hardcoded values because idk why not
         // regards
-        if (CheckCommandLose() && enemiesNormalized >= .35f
-        || revsNormalized >= .35f)
-        {
-            ev.Cancelled = true;
-            ev.Reason = Loc.GetString("shuttle-call-error");
-            return;
-        }
-    }
+    //    if (CheckCommandLose() && enemiesNormalized >= .35f
+    //    || revsNormalized >= .35f)
+    //    {
+    //        ev.Cancelled = true;
+    //        ev.Reason = Loc.GetString("shuttle-call-error");
+    //        return;
+    //    }
+    //}
 
     // funky station
-    public void OnTryShuttleDock(ref ShuttleDockAttemptEvent ev)
-    {
-        if (!CheckRevsLose())
-        {
-            ev.Cancelled = true;
-            ev.CancelMessage = Loc.GetString("shuttle-dock-fail-revs");
-            DeclareOpenRevolt();
-        }
-    }
+    //public void OnTryShuttleDock(ref ShuttleDockAttemptEvent ev)
+    //{
+    //    if (!CheckRevsLose())
+    //    {
+    //        ev.Cancelled = true;
+    //        ev.CancelMessage = Loc.GetString("shuttle-dock-fail-revs");
+    //        DeclareOpenRevolt();
+    //    }
+    //}
+    //Omu end
 
     /// <summary>
     /// Will take a group of entities and check if these entities are alive, dead or cuffed.
