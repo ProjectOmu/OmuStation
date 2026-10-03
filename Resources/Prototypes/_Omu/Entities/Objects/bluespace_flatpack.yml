@@ -1,0 +1,176 @@
+# Non-Departmental
+- type: entity
+  parent: ComputerScienceCommsFlatpack
+  id: BluespaceMaterialSiloFlatpack
+  name: bluespace material silo flatpack
+  components:
+  - type: Item
+    size: Normal
+
+# Science
+- type: entity
+  parent: ComputerScienceCommsFlatpack
+  id: BluespaceComputerScienceCommsFlatpack
+  name: bluespace science communication flatpack
+  components:
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: ComputerCargoRequestScienceFlatpack
+  id: BluespaceComputerCargoRequestScienceFlatpack
+  name: science request computer flatpack
+  components:
+  - type: Item
+    size: Normal
+
+# Medical
+- type: entity
+  parent: BiomassReclaimerFlatpack
+  id: BluespaceBiomassReclaimerFlatpack
+  name: bluespace biomass reclaimer flatpack
+  components:
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: CloningpodFlatpack
+  id: BluespaceCloningpodFlatpack
+  name: bluespace cloning pod flatpack
+  components:
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: ComputerCloningConsoleFlatpack
+  id: BluespaceComputerCloningConsoleFlatpack
+  name: bluespace cloning console flatpack
+  components:
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: DiseaseDiagnoserFlatPack
+  id: BluespaceDiseaseDiagnoserFlatPack
+  name: bluespace disease diagnoser flatpack
+  components:
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: MedicalBiofabricatorFlatpack
+  id: BluespaceMedicalBiofabricatorFlatpack
+  name: bluespace medical biofabricator flatpack
+  components:
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: ComputerMedicalCommsFlatpack
+  id: BluespaceComputerMedicalCommsFlatpack
+  name: bluespace medical communication flatpack
+  components:
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: ChemistryHotplateFlatPack
+  id: BluespaceChemistryHotplateFlatPack
+  name: bluespace chemistry hotplate flatpack
+  components:
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: ComputerCargoRequestMedicalFlatpack
+  id: BluespaceComputerCargoRequestMedicalFlatpack
+  name: bluespace medical cargo request flatpack
+  components:
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: MedicalScannerFlatpack
+  id: BluespaceMedicalScannerFlatpack
+  name: bluespace medical scanner flatpack
+  components:
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: VaccinatorFlatPack
+  id: BluespaceVaccinatorFlatpack
+  name: bluespace vaccinator flatpack
+  components:
+  - type: Item
+    size: Normal
+
+# HOP
+- type: entity
+  parent: ComputerFundingAllocationFlatpack
+  id: BluespaceComputerFundingAllocationFlatpack
+  name: bluespace computer funding allocation flatpack
+  components:
+  - type: Item
+    size: Normal
+
+#- type: entity
+#  parent: ComputerFundingAllocationFlatpack
+#  id: BluespaceComputerFundingAllocationFlatpack
+#  name: bluespace computer funding allocation flatpack
+#  components:
+#  - type: Item
+#    size: Normal
+# TODO: change this to the other thing i think idk im supid
+
+
+# Engineering
+- type: entity
+  parent: ComputerEngiCommsFlatpack
+  id: BluespaceComputerEngiCommsFlatpack
+  name: bluespace engineering communication flatpack
+  components:
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: MachinePowerTransmissionLaserFlatpack
+  id: BluespaceMachinePowerTransmissionLaserFlatpack
+  name: bluesapce power transmision laser flatpack
+  components:
+  - type: Item
+    size: Normal
+
+# Security
+- type: entity
+  parent: ComputerSecurityCommsFlatpack
+  id: BluespaceComputerSecurityCommsFlatpack
+  name: bluespace security communications computer flatpack
+  components:
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: ComputerCargoRequestSecurityFlatpack
+  id: BluespaceComputerCargoRequestSecurityFlatpack
+  name: bluespace security request computer flatpack
+  components:
+  - type: Item
+    size: Normal
+
+# Cargo
+- type: entity
+  parent: ComputerCargoCommsFlatpack
+  id: BluespaceComputerCargoCommsFlatpack
+  name: bluesapce cargo communications computer flatpack
+  components:
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: SlotMachineHighRollerFlatPack
+  id: BluespaceSlotMachineHighRollerFlatPack
+  name: bluespace high roller slot machine flatpack
+  components:
+  - type: Item
+    size: Normal
