@@ -93,6 +93,7 @@
   - SalvageSpecialistSOP
   - ShaftMinerSOP
   - CourierSOP #Omu
+  - BosunSOP # Omu
 
 - type: guideEntry
   id: CommandSOP
@@ -116,13 +117,15 @@
   children:
   - AtmosTechSOP
   - StationEngineerSOP
+  - ForemanSOP # Omu
 
 - type: guideEntry
   id: MedicalSOP
   name: guide-entry-sop-medical
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Medical/MedicalSOP.xml"
   children:
-  - ChemistSOP # Omustation Start todo move sop stuff
+  - MedicusSOP # Omustation Start todo move sop stuff
+  - ChemistSOP
   - DoctorInternSOP
   - ParamedicSOP
   - PsychologistSOP
@@ -135,6 +138,7 @@
   children:
   - ScientistSOP
   - RoboticistSOP
+  - ProfessorSOP # Omu
 
 - type: guideEntry
   id: SecuritySOP
@@ -143,10 +147,10 @@
   children:
   # - BrigmedicSOP # Omu - rename Brigmedic to Corpsman
   - WardenSOP
-  - OfficerCadetSOP
-  - DetectiveSOP
-  - CorpsmanSOP # Omu - rename Brigmedic to Corpsman
   - SecuritySergeantSOP # Omu
+  - CorpsmanSOP # Omu - rename Brigmedic to Corpsman
+  - DetectiveSOP
+  - OfficerCadetSOP # Omu, move under Detective for consistency with loadout/join menu
 
 - type: guideEntry
   id: ServiceSOP
@@ -421,6 +425,7 @@
   id: WardenSOP
   name: guide-entry-sop-warden
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/WardenSOP.xml"
+  priority: -10 # Omu, this should appear at the top of the departmental list
 
 # Service SOP Entries
 - type: guideEntry
