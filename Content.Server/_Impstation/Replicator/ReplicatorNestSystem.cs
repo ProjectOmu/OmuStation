@@ -80,6 +80,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         SubscribeLocalEvent<ReplicatorNestFallingComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
         SubscribeLocalEvent<ReplicatorNestComponent, DestructionEventArgs>(OnDestroyed);
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndTextAppend);
+        SubscribeLocalEvent<ReplicatorNestComponent, ComponentShutdown>(OnNestShutdown); // Omu
     }
 
     public override void Update(float frameTime)
@@ -375,4 +376,11 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         args.AddLine(Loc.GetString("replicator-nest-end-of-round", ("location", locationsList), ("level", highestLevel), ("points", totalPoints), ("replicators", totalSpawned)));
         args.AddLine("");
     }
+
+    // Omu start - delete the points storage when the nest is deleted.
+    private void OnNestShutdown(Entity<ReplicatorNestComponent> ent, ref ComponentShutdown args)
+    {
+        QueueDel(ent.Comp.PointsStorage);
+    }
+    // Omu end
 }
