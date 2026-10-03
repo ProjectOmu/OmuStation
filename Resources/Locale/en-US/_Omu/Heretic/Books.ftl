@@ -26,3 +26,8 @@ book-text-lodestone = The forces of this world flow ever onward, from worlds abo
     The benefits can be immense, and the risks are less than to channel the forces directly.
     Any watchers will be focused on the object, not the individual.
     To begin the process of creation, one must find a remnant capable of channeling extra-spatial forces.
+
+book-text-plasma-cutter = Noita on Finnish arson simulator, joka sijoittuu maailmaan, Burn everything down,
+    jossa jokainen pikseli on fysiikkasimuloitu.
+    Taistele, tutki, sulata, polta, Use laser eyes
+    jäädytä ja höyrystä tiesi läpi proseduraalisesti luodun maailman itse luomiesi loitsujen avulla. Dig for gold
