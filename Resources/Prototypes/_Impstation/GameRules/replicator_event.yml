@@ -5,6 +5,8 @@
   id: ReplicatorSpawn
   parent: BaseGameRule
   components:
+  - type: GameRule # Omu
+    chaosScore: 600
   - type: StationEvent
     earliestStart: 20
     weight: 5.5
