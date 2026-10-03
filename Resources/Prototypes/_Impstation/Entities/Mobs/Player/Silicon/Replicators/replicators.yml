@@ -100,9 +100,9 @@
         acts: [ "Destruction" ]
       - !type:SpawnEntitiesBehavior
         spawn:
-          PinpointerReplicator:
+          SheetPlasteel1:
             min: 1
-            max: 1
+            max: 5
   - type: StatusEffects
     allowed:
     - Stun
@@ -112,7 +112,6 @@
     - TemporaryBlindness
     - StaminaModifier
   - type: DamageStateVisuals
-    rotate: false
     states:
       Alive:
         Base: alive
@@ -131,7 +130,7 @@
     baseWalkSpeed: 2 # same as slime
     baseSprintSpeed: 4
   - type: Stamina
-    critThreshold: 120
+    baseCritThreshold: 120
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Replicator1
@@ -177,7 +176,7 @@
   - type: VentCrawler # unique to queens at the moment, for stealth purposes
   - type: Sprite
     granularLayersRendering: true
-    drawDepth: SmallMobs
+    drawdepth: SmallMobs
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -190,7 +189,7 @@
     bodyStatus: InAir
   - type: CanMoveInAir
   - type: MovementIgnoreGravity
-    gravityState: true
+    weightless: true
   - type: MovementAlwaysTouching
   - type: SyncSprite
   - type: MovementSpeedModifier
@@ -215,13 +214,16 @@
     factions:
     - Replicator
 
-# Tier 1: These guys are mooks. They're vulnerable, bad at dragging, and don't do much damage, but they have the highest stun & a disabler ranged attack.
-# They also have MovementAlwaysTouching, because they're floaty little guys.
+# Tier 1: These guys are mooks. They're vulnerable, bad at dragging, and don't do much damage, but they have a disabler ranged attack.
 - type: entity
   id: MobReplicator
   parent: BaseMobReplicator
   categories: [HideSpawnMenu] # I don't want admins spawning a replicator that's unlinked to a nest
   components:
+  - type: Replicator
+    upgradeActions:
+    - ActionReplicatorUpgrade2
+    - ActionReplicatorUpgrade2Alt
   - type: CombatMode
   - type: StaminaDamageOnHit
     damage: 20
@@ -230,7 +232,7 @@
     bodyStatus: InAir
   - type: CanMoveInAir
   - type: MovementIgnoreGravity
-    gravityState: true
+    weightless: true
   - type: MovementAlwaysTouching
   - type: SyncSprite
   - type: MovementSpeedModifier
@@ -242,7 +244,7 @@
   - type: NoSlip
   - type: Sprite
     granularLayersRendering: true
-    drawDepth: SmallMobs
+    drawdepth: SmallMobs
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -251,17 +253,23 @@
       state: combat_level1
       shader: unshaded
       visible: false
-  - type: Body
-    prototype: Replicator1
   - type: Loadout
     prototypes:
     - StartingGearReplicatorT1Weapon
   - type: NpcFactionMember
     factions:
     - Replicator
+  - type: Hands
+    showInHands: false
+    canBeStripped: false
+    activeHandId: hand1
+    hands:
+      hand1:
+        location: Middle
+    sortedHands:
+    - hand1
 
-# Tier 2: Deconstructors. These guys are a little bit tougher, and have tools to take things apart, but they don't have anywhere near as much stun & their attacks are just as weak as T1s.
-# They also have MovementAlwaysTouching, because they're still small enough to be affected by the thrusters.
+# Tier 2: Deconstructors. These guys are a little bit tougher, and have tools to take things apart, but they don't have the ability to enter combat mode.
 - type: entity
   id: MobReplicatorTier2
   name: deconstructor
@@ -283,7 +291,7 @@
   - type: MovementAlwaysTouching
   - type: Sprite
     granularLayersRendering: true
-    drawDepth: Mobs
+    drawdepth: Mobs
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -294,7 +302,6 @@
       visible: false
   - type: NoSlip
   - type: DamageStateVisuals
-    rotate: false
     states:
       Alive:
         Base: alive_level2
@@ -303,14 +310,24 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Replicator2
-  - type: Body
-    prototype: Replicator2
   - type: Loadout
     prototypes:
       - StartingGearReplicatorTools
   - type: NpcFactionMember
     factions:
     - Replicator
+  - type: Hands
+    showInHands: false
+    canBeStripped: false
+    activeHandId: hand1
+    hands:
+      hand1:
+        location: Right
+      hand2:
+        location: Left
+    sortedHands:
+    - hand1
+    - hand2
 
 # Tier 2 ALT: Defender. These guys are our mid-level combatants. They have a slightly better stun laser, and a decent melee attack, but no utility functions.
 - type: entity
@@ -335,7 +352,7 @@
   - type: MovementAlwaysTouching
   - type: Sprite
     granularLayersRendering: true
-    drawDepth: Mobs
+    drawdepth: Mobs
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -346,7 +363,6 @@
       visible: false
   - type: NoSlip
   - type: DamageStateVisuals
-    rotate: false
     states:
       Alive:
         Base: alive_level2alt
@@ -355,20 +371,29 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Replicator2
-  - type: Body
-    prototype: Replicator2
   - type: Loadout
     prototypes:
       - StartingGearReplicatorT2Alt
   - type: NpcFactionMember
     factions:
     - Replicator
+  - type: Hands
+    showInHands: false
+    canBeStripped: false
+    activeHandId: hand1
+    hands:
+      hand1:
+        location: Right
+      hand2:
+        location: Left
+    sortedHands:
+    - hand1
+    - hand2
 
 # Tier 3: These guys are tanks. Their job is to tear shit apart and kill things. They're slow, tanky, and have a weapon that does 25 blunt 30 struct.
-# They *DON'T* have MovementAlwaysTouching, because they're too big and heavy.
 - type: entity
   id: MobReplicatorTier3
-  name: defender
+  name: protector
   parent: BaseMobReplicator
   categories: [HideSpawnMenu] # I don't want admins spawning a replicator that's unlinked to a nest
   description: Oh boy.
@@ -377,6 +402,8 @@
   - type: CombatMode
   - type: Replicator
     upgradeStage: 2
+    upgradeActions:
+    - ActionReplicatorUpgrade1
   - type: MovementAlwaysTouching
   - type: MovementSpeedModifier
     baseWalkSpeed: 2 # same as slime
@@ -384,7 +411,7 @@
     friction: 35 # these fellas are the tanks, they rely on the smaller guys stunning things for them.
   - type: Sprite
     granularLayersRendering: true
-    drawDepth: Mobs
+    drawdepth: Mobs
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -394,14 +421,11 @@
       shader: unshaded
       visible: false
   - type: DamageStateVisuals
-    rotate: false
     states:
       Alive:
         Base: alive_level3
       Dead:
         Base: dead_level3
-  - type: Body
-    prototype: Replicator2
   - type: Loadout
     prototypes:
       - StartingGearReplicatorT3Weapon
@@ -423,3 +447,15 @@
   - type: NpcFactionMember
     factions:
     - Replicator
+  - type: Hands
+    showInHands: false
+    canBeStripped: false
+    activeHandId: hand1
+    hands:
+      hand1:
+        location: Right
+      hand2:
+        location: Left
+    sortedHands:
+    - hand1
+    - hand2

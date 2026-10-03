@@ -28,6 +28,9 @@ using Robust.Shared.Map.Components;
 using Content.Shared.Maps;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
+using Robust.Shared.Containers;
+using Content.Shared.Storage.Components;
+using Content.Shared.Storage.EntitySystems;
 
 namespace Content.Shared._Impstation.Replicator;
 
@@ -46,7 +49,6 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly StepTriggerSystem _stepTrigger = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
@@ -55,15 +57,13 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
     [Dependency] private readonly TileSystem _tile = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambientSound = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly SharedEntityStorageSystem _entStorage = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ReplicatorNestComponent, StepTriggeredOffEvent>(OnStepTriggered);
-
-        SubscribeLocalEvent<ReplicatorComponent, ReplicatorUpgrade2ActionEvent>(OnUpgrade2);
-        SubscribeLocalEvent<ReplicatorComponent, ReplicatorUpgrade3ActionEvent>(OnUpgrade3);
+        SubscribeLocalEvent<ReplicatorComponent, ReplicatorUpgradeActionEvent>(OnUpgrade);
     }
 
     public override void Update(float frameTime)
@@ -85,44 +85,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         }
     }
 
-    private void OnStepTriggered(Entity<ReplicatorNestComponent> ent, ref StepTriggeredOffEvent args)
-    {
-        // dont accept if they are already falling
-        if (HasComp<ReplicatorNestFallingComponent>(args.Tripper))
-            return;
-
-        // *reject* if blacklisted
-        if (_whitelist.IsBlacklistPass(ent.Comp.Blacklist, args.Tripper))
-        {
-            if (TryComp<PullableComponent>(args.Tripper, out var pullable) && pullable.BeingPulled)
-                _pulling.TryStopPull(args.Tripper, pullable);
-
-            var xform = Transform(ent);
-            var xformQuery = GetEntityQuery<TransformComponent>();
-            var worldPos = _xform.GetWorldPosition(xform, xformQuery);
-
-            var direction = _xform.GetWorldPosition(args.Tripper, xformQuery) - worldPos;
-            _throwing.TryThrow(args.Tripper, direction * 10, 7, ent, 0);
-            return;
-        }
-
-        var isReplicator = HasComp<ReplicatorComponent>(args.Tripper);
-
-        // Allow dead replicators regardless of current level.
-        if (TryComp<MobStateComponent>(args.Tripper, out var mobState) && isReplicator && _mobState.IsDead(args.Tripper))
-        {
-            StartFalling(ent, args.Tripper);
-            return;
-        }
-
-        // Don't allow living beings. If you want those sweet bonus points, you have to kill.
-        if (mobState != null && _mobState.IsAlive(args.Tripper))
-            return;
-
-        StartFalling(ent, args.Tripper);
-    }
-
-    private void StartFalling(Entity<ReplicatorNestComponent> ent, EntityUid tripper, bool playSound = true)
+    public void StartFalling(Entity<ReplicatorNestComponent> ent, EntityUid tripper, bool playSound = true)
     {
         HandlePoints(ent, tripper);
 
@@ -218,10 +181,6 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             if (ent.Comp.CurrentLevel <= ent.Comp.EndgameLevel)
                 ent.Comp.NeedsUpdate = true;
 
-            // if we've reached the endgame, the nest will ignore gravity when picking targets - actively pulling them in.
-            if (ent.Comp.CurrentLevel == ent.Comp.EndgameLevel)
-                _stepTrigger.SetIgnoreWeightless(ent, true);
-
             // update the threshold for the next upgrade (the default times the current level), and upgrade all our guys.
             // threshold increases plateau at the endgame level.
             ent.Comp.NextUpgradeAt += ent.Comp.CurrentLevel >= ent.Comp.EndgameLevel ? ent.Comp.UpgradeAt * ent.Comp.EndgameLevel : ent.Comp.UpgradeAt * ent.Comp.CurrentLevel;
@@ -303,8 +262,6 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 
             replicatorComp.HasBeenGivenUpgradeActions = true;
         }
-
-        return upgraded;
     }
 
     // force upgrade any tier to another given tier.
@@ -326,7 +283,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         return upgraded;
     }
 
-    public void OnUpgrade2(Entity<ReplicatorComponent> ent, ref ReplicatorUpgrade2ActionEvent args)
+    public void OnUpgrade(Entity<ReplicatorComponent> ent, ref ReplicatorUpgradeActionEvent args)
     {
         // don't run this clientside
         if (_net.IsClient || !_timing.IsFirstTimePredicted)
@@ -340,42 +297,25 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             return;
         }
 
-        UpgradeReplicator(ent, 2);
-
         QueueDel(ent);
-        QueueDel(args.Action);
+        foreach (var action in ent.Comp.Actions)
+        {
+            QueueDel(action);
+        }
 
-        _popup.PopupEntity(Loc.GetString("replicator-upgrade-t2-others"), ent, PopupType.MediumCaution);
+        _popup.PopupEntity(Loc.GetString($"{ent.Comp.ReadyToUpgradeMessage}-others"), ent, PopupType.MediumCaution);
     }
 
     public EntityUid? UpgradeReplicator(Entity<ReplicatorComponent> ent, EntProtoId nextStage)
     {
-        // don't run this clientside
-        if (_net.IsClient || !_timing.IsFirstTimePredicted)
-            return;
+        if (!_mind.TryGetMind(ent, out var mind, out _))
+            return null;
 
-        if (ent.Comp.MyNest == null)
-        {
-            _popup.PopupEntity(Loc.GetString("replicator-cant-find-nest"), ent, PopupType.MediumCaution);
-            return;
-        }
-
-        UpgradeReplicator(ent, 3);
-
-        QueueDel(ent);
-        QueueDel(args.Action);
-
-        _popup.PopupEntity(Loc.GetString("replicator-upgrade-t3-others"), ent, PopupType.MediumCaution);
-    }
-
-    public void UpgradeReplicator(Entity<ReplicatorComponent> ent, int desiredLevel)
-    {
         var xform = Transform(ent);
 
         var upgraded = Spawn(nextStage, xform.Coordinates);
         var upgradedComp = EnsureComp<ReplicatorComponent>(upgraded);
         upgradedComp.RelatedReplicators = ent.Comp.RelatedReplicators;
-        upgradedComp.TargetUpgradeStage = ent.Comp.TargetUpgradeStage;
         upgradedComp.MyNest = ent.Comp.MyNest;
 
         if (ent.Comp.MyNest != null)
@@ -387,14 +327,11 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             _audio.PlayPvs(nestComp.UpgradeSound, upgraded);
         }
 
-        if (!_mind.TryGetMind(ent, out var mind, out _))
-            return;
-
         _mind.TransferTo(mind, upgraded);
 
         _popup.PopupEntity(Loc.GetString($"{ent.Comp.ReadyToUpgradeMessage}-self"), upgraded, PopupType.Medium);
 
-        return;
+        return upgraded;
     }
 
     private void Embiggen(Entity<ReplicatorNestComponent> ent)
@@ -443,14 +380,10 @@ public sealed partial class ReplicatorSpawnNestActionEvent : InstantActionEvent
 
 }
 
-public sealed partial class ReplicatorUpgrade2ActionEvent : InstantActionEvent
+public sealed partial class ReplicatorUpgradeActionEvent : InstantActionEvent
 {
-
-}
-
-public sealed partial class ReplicatorUpgrade3ActionEvent : InstantActionEvent
-{
-
+    [DataField(required: true)]
+    public EntProtoId NextStage;
 }
 
 [ByRefEvent]

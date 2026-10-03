@@ -1,5 +1,5 @@
-law-replicator-1 = Defend the nest.
-law-replicator-2 = Defend the hive.
+law-replicator-1 = Preserve the Hive.
+law-replicator-2 = Defend the Nest.
 law-replicator-3 = Replicate.
 laws-owner-replicatorhive = the Replicator hive.
 

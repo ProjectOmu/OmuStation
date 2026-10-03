@@ -23,19 +23,21 @@
       - Cartridge
       - CartridgeMagnum
       - Ectoplasm # causes problems for the revenant if they're consumed
+      - PrizeTicket
     preservationBlacklist: # delete stuff that passes this, even if it also passes the preservationWhitelist
       components:
       - SiliconLawBound
     preservationWhitelist: # preserve stuff that passes this
       components:
       - HumanoidAppearance
-      - OnUseTimerTrigger
+      - TimerTrigger
       - StealTarget
       - Mech
   - type: ThermalVisionImmune
   - type: StepTrigger
     requiredTriggeredSpeed: 0
     intersectRatio: 0.4
+    ignoreWeightless: true
   - type: Transform
     anchored: true
   - type: Physics

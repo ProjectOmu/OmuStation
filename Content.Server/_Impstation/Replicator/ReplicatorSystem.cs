@@ -4,7 +4,6 @@
 
 using Content.Server._Impstation.Administration.Components;
 using Content.Server.Actions;
-using Content.Server.Emp;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
@@ -13,6 +12,7 @@ using Content.Shared._Impstation.Replicator;
 using Content.Shared._Impstation.SpawnedFromTracker;
 using Content.Shared.Actions;
 using Content.Shared.CombatMode;
+using Content.Shared.Emp;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
@@ -188,7 +188,7 @@ public sealed class ReplicatorSystem : EntitySystem
 
         _appearance.SetData(ent, ReplicatorVisuals.Combat, false);
 
-        if (ent.Comp.Queen)
+        if (HasComp<ReplicatorSignComponent>(ent))
         {
             RemComp<ReplicatorSignComponent>(ent);
             // notify all living replicators that they are likely orphaned.
@@ -204,6 +204,6 @@ public sealed class ReplicatorSystem : EntitySystem
     {
         args.Affected = true;
         args.Disabled = true;
-        _stun.TryParalyze(ent, ent.Comp.EmpStunTime, true);
+        _stun.TryUpdateParalyzeDuration(ent, ent.Comp.EmpStunTime);
     }
 }
