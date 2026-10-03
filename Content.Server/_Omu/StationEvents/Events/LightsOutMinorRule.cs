@@ -77,7 +77,6 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
             if (Vector2.Distance(center_position, light_position) < 20.0)
                 component.Targets.Add(light);
         }
-        component.TargetListLength = component.Targets.Count;
 
         _chat.DispatchStationAnnouncement(
             (EntityUid) station,
@@ -109,7 +108,7 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
         else
         {
             // now, the destruction, one light at a time
-            if (component.TargetIndex < component.TargetListLength)
+            if (component.TargetIndex < component.Targets.Count)
             {
                 if (_random.Prob(component.DamageProbability))
                     _damageable.TryChangeDamage(

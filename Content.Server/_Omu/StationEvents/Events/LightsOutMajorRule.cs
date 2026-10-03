@@ -58,7 +58,6 @@ public sealed partial class LightsOutMajorRule : StationEventSystem<LightsOutMaj
 
             component.Targets.Add(light);
         }
-        component.TargetListLength = component.Targets.Count;
 
         _chat.DispatchStationAnnouncement(
             (EntityUid) station,
@@ -90,7 +89,7 @@ public sealed partial class LightsOutMajorRule : StationEventSystem<LightsOutMaj
         else
         {
             // now, the destruction, one light at a time
-            if (component.TargetIndex < component.TargetListLength)
+            if (component.TargetIndex < component.Targets.Count)
             {
                 if (_random.Prob(component.DamageProbability))
                     _damageable.TryChangeDamage(
