@@ -60,7 +60,7 @@ public sealed partial class StampWidget : PanelContainer
                if (!value.HasIcon)
                {
                    PanelOverride = null;
-                   StampedByLabel.DisableNoise = true;
+                   StampedByLabel.IsSignature = true;
                }
 
                var prototypes = IoCManager.Resolve<IPrototypeManager>();
