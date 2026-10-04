@@ -8420,3 +8420,136 @@ Entries:
       message: Service, Cargo and Engineering lathes now announce research unlocks.
   id: 1093
   time: '2026-10-03T03:30:50.0000000+00:00'
+- author: jckspjf
+  changes:
+    - type: Tweak
+      message: >-
+        Syndicate Dead Drop wording has been edited to be more grammatically
+        correct.
+  id: 1094
+  time: '2026-10-03T17:34:42.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Add
+      message: >-
+        Added the advanced musique cyborg module, which gives service borgs a
+        built-in digital audio workstation. Research Advanced Entertainment and
+        print it at the exosuit fabricator.
+  id: 1095
+  time: '2026-10-03T17:38:42.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: >-
+        Removed all research items from the salvage vendor and added some to
+        research.
+  id: 1096
+  time: '2026-10-03T17:45:54.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Fix
+      message: Fixed xelthia heat/cold damage modifiers not working
+  id: 1097
+  time: '2026-10-03T17:52:46.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Hypopens take in reagents at 1.5x the former rate (now 0.5s from 0.75s)
+        and may now take in reagents from containers while moving.
+  id: 1098
+  time: '2026-10-03T17:53:23.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: The Virologist's backpack now matches the Virology palette.
+    - type: Tweak
+      message: >-
+        The Scientist's backpack, satchel, duffel, and messenger bags now have
+        updated icons, and match the Science palette.
+    - type: Tweak
+      message: >-
+        The Medical Doctor's backpack, satchel, duffel, and messenger bags now
+        match the Medical palette.
+  id: 1099
+  time: '2026-10-03T17:59:39.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: The Staff of Animation is now admin-only
+  id: 1100
+  time: '2026-10-03T21:08:13.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added the SM gas randomizing rock
+  id: 1101
+  time: '2026-10-03T21:52:40.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Remove
+      message: Removed the possess object ability from wraith since it breaks items.
+  id: 1102
+  time: '2026-10-03T21:55:12.0000000+00:00'
+- author: Jerulean
+  changes:
+    - type: Tweak
+      message: Diseases once again regress in a dead infectee.
+  id: 1103
+  time: '2026-10-03T22:58:28.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Letoferol now has a delay of 10-15 minutes before assigning the roles
+        (Same as initial infected)
+  id: 1104
+  time: '2026-10-04T01:52:56.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: >-
+        Fixed interactions within nodecrawl allowing for melee and changing
+        clothes mid vent crawl.
+  id: 1105
+  time: '2026-10-04T02:03:37.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: IPC face markings are now removed after decapitation.
+  id: 1106
+  time: '2026-10-04T05:26:26.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: Increased the cage recharger charge rate to 250W (used to be 50W).
+  id: 1107
+  time: '2026-10-04T05:27:56.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Fixed IPCs face marking glasses and other eyewear.
+  id: 1108
+  time: '2026-10-04T05:28:52.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Tweak
+      message: Tackle gloves are now in the secvend and HoS's in their locker
+    - type: Tweak
+      message: Magboots and armor stamina resistance can now prevent tackles
+    - type: Tweak
+      message: >-
+        All martial arts can no longer be used with tackle gloves on, even
+        hellrip
+    - type: Tweak
+      message: >-
+        Oni exist so mass affecting tackles is gone along with disarms as a
+        whole
+    - type: Tweak
+      message: HoS gets combat gloves again in their loadout
+    - type: Tweak
+      message: Tackle cooldown has been bumped up by .5 of a second
+    - type: Fix
+      message: Guerrilla gloves are not longer quantum contraband for sec
+  id: 1109
+  time: '2026-10-04T15:33:21.0000000+00:00'
