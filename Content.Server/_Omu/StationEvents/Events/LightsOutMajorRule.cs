@@ -76,33 +76,14 @@ public sealed partial class LightsOutMajorRule : StationEventSystem<LightsOutMaj
         if (component.SmashingTime == null)
             return;
 
-        if (_timing.CurTime < component.SmashingTime)
-        {
-            // lights flicker before the destruction starts. build suspense.
-            foreach (EntityUid light in component.Targets)
-            {
-                if (!_random.Prob(0.25f))
-                    continue;
-                _ghost.DoGhostBooEvent(light);
-            }
-        }
-        else
-        {
-            // now, the destruction, one light at a time
-            if (component.TargetIndex < component.Targets.Count)
-            {
-                if (_random.Prob(component.DamageProbability))
-                    _damageable.TryChangeDamage(
-                        component.Targets[component.TargetIndex],
-                        component.Damage,
-                        true
-                    );
-                component.TargetIndex++;
-            } else {
-                // finished smashing
-                component.SmashingTime = null;
-            }
-        }
-
+        LightsOutRule_SharedCode.InteriorActiveTick(
+            _timing, _random, _ghost, _damageable,
+            ref component.SmashingTime,
+                component.Targets,
+                component.Targets,
+            ref component.TargetIndex,
+                component.Damage,
+                component.DamageProbability
+        );
     }
 }
