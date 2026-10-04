@@ -32,12 +32,13 @@ public sealed class PendingAntagSystem : EntitySystem
         if (!PendingAntags.Remove(ev.Player.UserId, out var pendingAntag))
             return;
 
-        if (ev.JobId == null) return;
+        if (ev.JobId == null)
+            return;
 
-        var jobFound = _prototypeManager.TryIndex<JobPrototype>(ev.JobId, out var jobProto);
-        var jobCanBeAntag = _prototypeManager.Index<JobPrototype>(ev.JobId).CanBeAntag || jobFound && pendingAntag.Item1.JobAntagImmunityOverride?.Contains(jobProto.ID) == true;
+        if (!_prototypeManager.TryIndex<JobPrototype>(ev.JobId, out var jobProto))
+            return;
 
-        if (ev.JobId == null || !jobCanBeAntag)
+        if (!jobProto.CanBeAntag && pendingAntag.Item1.JobAntagImmunityOverride?.Contains(jobProto.ID) != true)
             return;
 
         // Omu end
