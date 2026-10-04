@@ -49,7 +49,7 @@
 
 - type: entity
   parent: CardStackBase
-  id: CardHandBase
+  id: CardHandYinjiSol
   categories: [ HideSpawnMenu ]
   name: hand of cards
   components:
@@ -67,9 +67,9 @@
 
 - type: entity
   parent: CardStackBase
-  id: CardDeckBase
+  id: CardDeckYinjiSol
   categories: [ HideSpawnMenu ]
-  name: deck of cards
+  name: deck of Yinji cards
   components:
   - type: Sprite
     sprite: _Omu/Objects/Misc/spaceuno.rsi
