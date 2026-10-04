@@ -16,7 +16,7 @@ To perform a tackle you must have a special kind of gloves with tackle ability.
   <GuideEntityEmbed Entity="ClothingHandsGlovesDolphin"/>
   <GuideEntityEmbed Entity="ClothingHandsGlovesGripper"/>
 </Box>
-
+<!--Omu Start - changed so much of this-->
 Tackle can be performed once every 3.5 seconds with [color=yellow]Alt-Q[/color] key by default. <!-- Omu - upped cooldown -->
 
 Be aware that you will knock yourself down and drop all held items when performing a tackle. Also avoid any obstacles such as walls, as they may cause an unhappy landing.
@@ -32,5 +32,5 @@ Different kind of gloves have different tackle modifier to them, as well as diff
 Tackle costs some amount of stamina to perform, this value varies depending on the gloves.
 
 Tackle gloves disrupt martial arts, preventing users from pulling off combo moves.
-
+<!--Omu end-->
 </Document>
