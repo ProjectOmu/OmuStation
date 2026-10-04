@@ -25,7 +25,6 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
     [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
     private const string DamageTypeToDeal = "Brute";
