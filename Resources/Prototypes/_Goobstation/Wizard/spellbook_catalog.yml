@@ -751,15 +751,17 @@
   categories:
   - SpellbookEquipment
 
-- type: listing
-  id: SpellBookStaffAnimate
-  name: spellbook-staff-animate-name
-  description: spellbook-staff-animate-desc
-  productEntity: AnimationStaff
-  cost:
-    WizCoin: 1
-  categories:
-  - SpellbookEquipment
+# Omu Start - removed the staff of animation.
+#- type: listing
+#  id: SpellBookStaffAnimate
+#  name: spellbook-staff-animate-name
+#  description: spellbook-staff-animate-desc
+#  productEntity: AnimationStaff
+#  cost:
+#    WizCoin: 1
+#  categories:
+#  - SpellbookEquipment
+# Omu End
 
 - type: listing
   id: SpellbookStaffChange

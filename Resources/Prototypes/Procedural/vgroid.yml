@@ -33,55 +33,55 @@
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockIron
-      count: 50
+      count: 30    #Omu nerfed from 50
       minGroupSize: 20
       maxGroupSize: 30
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockCoal
-      count: 50
+      count: 30    #Omu nerfed from 50
       minGroupSize: 15
       maxGroupSize: 20
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockQuartz
-      count: 50
+      count: 30    #Omu nerfed from 50
       minGroupSize: 20
       maxGroupSize: 30
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockGold
-      count: 50
+      count: 30    #Omu nerfed from 50
       minGroupSize: 10
       maxGroupSize: 20
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockSilver
-      count: 50
+      count: 30    #Omu nerfed from 50
       minGroupSize: 10
       maxGroupSize: 20
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockPlasma
-      count: 50
+      count: 30    #Omu nerfed from 50
       minGroupSize: 10
       maxGroupSize: 20
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockUranium
-      count: 50
+      count: 30    #Omu nerfed from 50
       minGroupSize: 10
       maxGroupSize: 20
     - !type:OreDunGen #Goob wiznerf partial revert
       replacement: IronRock
       entity: IronRockBananium
-      count: 50
+      count: 30    #Omu nerfed from 50
       minGroupSize: 5
       maxGroupSize: 10
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockArtifactFragment
-      count: 50
+      count: 30    #Omu nerfed from 50
       minGroupSize: 2
       maxGroupSize: 4
     - !type:OreDunGen
@@ -93,7 +93,7 @@
     - !type:OreDunGen # Goobstation
       replacement: IronRock
       entity: IronRockBSCrystal
-      count: 40
+      count: 20    #Omu nerfed from 40
       minGroupSize: 2
       maxGroupSize: 5
     - !type:OreDunGen
@@ -107,6 +107,14 @@
       maxCount: 20
       table: !type:NestedSelector
         tableId: VgroidGasDepositTable
+      # Omu start
+    - !type:OreDunGen
+      replacement: IronRock
+      entity: IronRockSmugglerCache
+      count: 15   # Chances are you won't run into them often.
+      minGroupSize: 1
+      maxGroupSize: 1
+      # Omu end
 
 # Configs
 - type: dungeonConfig
