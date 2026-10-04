@@ -26,6 +26,8 @@ public sealed partial class LightsOutMajorRule : StationEventSystem<LightsOutMaj
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
+    private const string DamageTypeToDeal = "Brute";
+
     protected override void Started(EntityUid uid, LightsOutMajorRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
@@ -33,7 +35,7 @@ public sealed partial class LightsOutMajorRule : StationEventSystem<LightsOutMaj
         // let the smashing start 5 seconds after the announcement goes out
         component.SmashingTime = _timing.CurTime + TimeSpan.FromSeconds(5);
 
-        component.Damage = new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), 5);
+        component.Damage = new DamageSpecifier(_proto.Index<DamageGroupPrototype>(DamageTypeToDeal), 5);
 
         // if there's no station, we can't run this event
         if (!TryGetRandomStation(out var station))
