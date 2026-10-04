@@ -100,7 +100,7 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
                 component.AllLights,
                 component.Targets,
             ref component.TargetIndex,
-                component.Damage,
+                component.Damage!, // `ActiveTick` will always execute after `Started`
                 component.DamageProbability
         );
     }

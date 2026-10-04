@@ -24,7 +24,7 @@ public sealed partial class LightsOutMajorRuleComponent : Component
     /// <summary>
     /// The damage to deal to the lights
     /// </summary>
-    public DamageSpecifier Damage;
+    public DamageSpecifier? Damage;
 
     /// <summary>
     /// The selection of potential targets: Poweredlights that are on-station and powered

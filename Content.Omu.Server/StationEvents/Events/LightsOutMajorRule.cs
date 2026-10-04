@@ -81,7 +81,7 @@ public sealed partial class LightsOutMajorRule : StationEventSystem<LightsOutMaj
                 component.Targets,
                 component.Targets,
             ref component.TargetIndex,
-                component.Damage,
+                component.Damage!, // `ActiveTick` will always execute after `Started`
                 component.DamageProbability
         );
     }

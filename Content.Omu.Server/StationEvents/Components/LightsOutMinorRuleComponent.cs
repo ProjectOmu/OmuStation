@@ -24,7 +24,7 @@ public sealed partial class LightsOutMinorRuleComponent : Component
     /// <summary>
     /// The damage to deal to the lights
     /// </summary>
-    public DamageSpecifier Damage;
+    public DamageSpecifier? Damage;
 
     /// <summary>
     /// All the powered lights on station; they get flickered to make the major and minor versions of this event initially indistinguishable
