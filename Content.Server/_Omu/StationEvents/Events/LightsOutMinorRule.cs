@@ -14,7 +14,6 @@ using Content.Shared.Station.Components;
 using Content.Shared.Pinpointer;
 using Robust.Shared.Timing;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 using Robust.Shared.Random;
 
 namespace Content.Server._Omu.StationEvents.Events;

@@ -12,7 +12,6 @@ using Content.Shared.Light.Components;
 using Content.Shared.Station.Components;
 using Robust.Shared.Timing;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 using Robust.Shared.Random;
 
 namespace Content.Server._Omu.StationEvents.Events;
