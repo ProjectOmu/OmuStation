@@ -1,17 +1,15 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
-  name: floor goblin
-  id: MobFloorGoblin
+  name: mail goblin
+  id: MobMailGoblin
   parent: [SimpleSpaceMobBase, DVNodeCrawler] # Omu, add DVNodeCrawler
-  description: Lives under the floor boards, steals shoes, bites ankles.
+  description: A tamed, slightly more fruity floor goblin that got a job. Neither delamination, singuloose, nor terrorist attack will stop it from delivering mail.
   components:
   - type: Sprite
     drawdepth: SmallMobs
-    sprite: _Goobstation/Mobs/FloorGoblin/floor_goblin.rsi
+    sprite: _Omu/Mobs/MailGoblin/mail_goblin.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: floor_goblin
+      state: mail_goblin
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -29,13 +27,12 @@
     makeSentient: true
     allowSpeech: true
     allowMovement: true
-    name: ghost-role-information-floor-goblin-name
-    description: ghost-role-information-floor-goblin-description
-    rules: ghost-role-information-freeagent-rules
+    name: ghost-role-information-mail-goblin-name
+    description: ghost-role-information-mail-goblin-description
+    rules: ghost-role-information-familiar-rules # It's what cargo bingles are
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
-    raffle:
-      settings: default
+    - MindRoleGhostRoleFamiliarCourier
+    raffle: null
   - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: FloorGoblin
@@ -50,6 +47,7 @@
     - FloorGoblin
     understands:
     - FloorGoblin
+    - TauCetiBasic
   - type: MobState
   - type: MobThresholds
     thresholds:
@@ -68,7 +66,7 @@
     spawned: []
   - type: NpcFactionMember
     factions:
-      - SimpleNeutral
+    - SimpleNeutral
   #- type: VentCrawler # Omu, use nodecrawler
   - type: MeleeWeapon
     soundHit:
@@ -80,8 +78,6 @@
         Piercing: 3
   - type: CrawlUnderFloor
     actionProto: ActionToggleFloorBoardsMode
-  - type: StealShoes
-    actionProto: ActionStealShoes
   - type: MobPrice
     price: 100
   - type: DodgeWideswing
