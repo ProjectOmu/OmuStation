@@ -320,8 +320,6 @@ public sealed partial class TackleSystem : EntitySystem
             !_gravity.IsWeightless(ent) && _blocker.CanInteract(ent, null) &&
             !_container.IsEntityOrParentInContainer(ent, xform: xform))
         {
-           //if (TryComp<MovedByPressureComponent>(ent, out var moved) && !moved.Enabled)
-                //return false;
             return true;
         }
         return false;
