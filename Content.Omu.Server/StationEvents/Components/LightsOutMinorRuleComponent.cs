@@ -1,7 +1,7 @@
 using Content.Shared.Damage;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Server._Omu.StationEvents.Components;
+namespace Content.Omu.Server.StationEvents.Components;
 
 /// <summary>
 /// This event announces a temporary power surge and then smashes some powered lights around one station beacon

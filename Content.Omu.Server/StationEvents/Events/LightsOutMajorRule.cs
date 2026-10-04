@@ -4,7 +4,7 @@ using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.StationEvents.Events;
 using Content.Server.Power.Components;
-using Content.Server._Omu.StationEvents.Components;
+using Content.Omu.Server.StationEvents.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.GameTicking.Components;
@@ -14,7 +14,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Server._Omu.StationEvents.Events;
+namespace Content.Omu.Server.StationEvents.Events;
 
 public sealed partial class LightsOutMajorRule : StationEventSystem<LightsOutMajorRuleComponent>
 {
