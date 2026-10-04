@@ -14,3 +14,25 @@
   - type: Construction # Goob
     graph: RMCCampfire
     node: campfire
+    # Omu begin: Allow the campfire to be used for cooking
+  - type: ApcPowerReceiver
+    powerLoad: 0
+    needsPower: false
+  - type: ItemPlacer
+    maxEntities: 2
+    whitelist:
+      components:
+      - Temperature
+  - type: EntityHeater
+    setting: 1
+  - type: PlaceableSurface
+  - type: Fixtures
+    fixtures:
+      itemcollide:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.14,-0.05,0.15,0.25"
+        layer:
+        - HighImpassable
+        hard: false
+    # Omu end
