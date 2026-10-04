@@ -316,8 +316,8 @@ public sealed partial class TackleSystem : EntitySystem
     public bool CanTackle(EntityUid ent, TacklerComponent tackler, TransformComponent xform)
     {
         return _timing.CurTime >= tackler.NextTackle && !xform.Anchored && !_standing.IsDown(ent) &&
-            !_buckle.IsBuckled(ent) && !HasComp<StunnedComponent>(ent) && !HasComp<TacklingComponent>(ent) &&
-            !_gravity.IsWeightless(ent) && _blocker.CanInteract(ent, null) &&
-            !_container.IsEntityOrParentInContainer(ent, xform: xform);
+                !_buckle.IsBuckled(ent) && !HasComp<StunnedComponent>(ent) && !HasComp<TacklingComponent>(ent) &&
+                !_gravity.IsWeightless(ent) && _blocker.CanInteract(ent, null) &&
+                !_container.IsEntityOrParentInContainer(ent, xform: xform);
     }
 }
