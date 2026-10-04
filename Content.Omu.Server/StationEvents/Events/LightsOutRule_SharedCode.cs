@@ -3,6 +3,8 @@ using Content.Shared.Damage;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
+namespace Content.Omu.Server.StationEvents.Events;
+
 public static class LightsOutRule_SharedCode
 {
     public static void InteriorActiveTick(
