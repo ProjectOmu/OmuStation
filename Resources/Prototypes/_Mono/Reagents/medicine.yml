@@ -69,9 +69,10 @@
 #           groups:
 #             Brute: 0.5
 #       - !type:Jitter
-#         conditions:
-#         - !type:ReagentThreshold
-#           min: 10
+#        conditions:
+#        - !type:ReagentCondition
+#          reagent: Rhymatine
+#          min: 10
 # Omu end
 
 # ambuzol plus minus
