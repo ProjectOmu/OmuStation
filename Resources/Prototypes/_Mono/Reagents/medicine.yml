@@ -1,4 +1,4 @@
-# - type: reagent
+# - type: reagent Omu start
 #   id: Rhymatine
 #   name: reagent-name-rhymatine
 #   group: Medicine
@@ -34,6 +34,7 @@
 #         conditions:
 #         - !type:ReagentThreshold
 #           min: 10
+# Omu end
 
 - type: reagent
   id: Peranol
