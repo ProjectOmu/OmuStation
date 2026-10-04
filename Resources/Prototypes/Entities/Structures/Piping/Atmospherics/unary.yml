@@ -30,12 +30,12 @@
   placement:
     mode: SnapgridCenter
   components:
-    - type: VentCrawlerTube  # Goobstation - ventcrawl
-      containerId: VentCrawlerTube
-    - type: VentCrawlerEntry
-    - type: ContainerContainer # Goobstation - ventcrawl
-      containers:
-        VentCrawlerTube: !type:Container
+    #- type: VentCrawlerTube  # Goobstation - ventcrawl     Omu commented to replace with nodecrawl
+    #  containerId: VentCrawlerTube
+    #- type: VentCrawlerEntry
+    #- type: ContainerContainer # Goobstation - ventcrawl
+    #  containers:
+    #    VentCrawlerTube: !type:Container
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver
     - type: DeviceNetwork
@@ -87,6 +87,7 @@
       guides:
       - AirVent
       - DeviceMonitoringAndControl
+    - type: NodeCrawlVentAccess # DeltaV
 
 - type: entity
   parent: GasUnaryBase
@@ -120,14 +121,15 @@
     - type: GuideHelp
       guides:
       - PassiveVent
-    - type: VentCrawlerEntry # Goobstation - ventcrawl
-    - type: VentCrawlerTube # Goobstation - ventcrawl
-      containerId: VentCrawlerTube
-    - type: ContainerContainer # Goobstation - ventcrawl
-      containers:
-        VentCrawlerTube: !type:Container
-    - type: Weldable  # Goobstation - ventcrawl
-      time: 3
+    #- type: VentCrawlerEntry # Goobstation - ventcrawl   Omu commented to replace with nodecrawl
+    #- type: VentCrawlerTube # Goobstation - ventcrawl
+    #  containerId: VentCrawlerTube
+    #- type: ContainerContainer # Goobstation - ventcrawl
+    #  containers:
+    #    VentCrawlerTube: !type:Container
+    #- type: Weldable  # Goobstation - ventcrawl
+    #  time: 3
+    - type: NodeCrawlVentAccess # DeltaV
 
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
@@ -137,12 +139,12 @@
   placement:
     mode: SnapgridCenter
   components:
-    - type: VentCrawlerTube # Goobstation - ventcrawl
-      containerId: VentCrawlerTube
-    - type: VentCrawlerEntry  # Goobstation - ventcrawl
-    - type: ContainerContainer # Goobstation - ventcrawl
-      containers:
-        VentCrawlerTube: !type:Container
+    #- type: VentCrawlerTube # Goobstation - ventcrawl # Omu start, use nodecrawl instead
+    #  containerId: VentCrawlerTube
+    #- type: VentCrawlerEntry  # Goobstation - ventcrawl
+    #- type: ContainerContainer # Goobstation - ventcrawl
+    #  containers:
+    #    VentCrawlerTube: !type:Container # Omu end
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver
     - type: DeviceNetwork
@@ -194,6 +196,7 @@
       guides:
       - AirScrubber
       - DeviceMonitoringAndControl
+    - type: NodeCrawlVentAccess # DeltaV
 
 - type: entity
   parent: GasUnaryBase
@@ -238,14 +241,15 @@
     - type: GuideHelp
       guides:
       - AirInjector
-    - type: VentCrawlerTube # Goobstation - ventcrawl
-      containerId: VentCrawlerTube
-    - type: VentCrawlerJunction # Goobstation - ventcrawl
-      degrees:
-        - 0
-    - type: ContainerContainer # Goobstation - ventcrawl
-      containers:
-        VentCrawlerTube: !type:Container
+    #- type: VentCrawlerTube # Goobstation - ventcrawl    Omu replaced with nodecrawl
+    #  containerId: VentCrawlerTube
+    #- type: VentCrawlerJunction # Goobstation - ventcrawl
+    #  degrees:
+    #    - 0
+    #- type: ContainerContainer # Goobstation - ventcrawl
+    #  containers:
+    #    VentCrawlerTube: !type:Container
+    - type: NodeCrawlVentAccess # DeltaV
 
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
@@ -301,6 +305,8 @@
     - type: GuideHelp
       guides:
       - Thermomachines
+    - type: CrawlableNode # DeltaV - node crawling
+      reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 
 - type: entity
   parent: BaseGasThermoMachine
@@ -523,4 +529,6 @@
   - type: GuideHelp
     guides:
     - GasCondensing
+  - type: CrawlableNode # DeltaV - node crawling
+    reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 

@@ -67,6 +67,7 @@ loadout-group-technical-assistant-envirogloves = Technical Assistant enviroglove
 loadout-group-atmos-envirohelm = Atmospheric Technician envirohelm
 loadout-group-atmos-envirosuit = Atmospheric Technician envirosuit
 loadout-group-atmos-envirogloves = Atmospheric Technician envirogloves
+loadout-group-atmospheric-technician-belt = Atmospheric Technician belt
 
 # Chief Engineer
 loadout-group-chief-engineer-envirohelm = Chief Engineer envirohelm
@@ -101,9 +102,11 @@ loadout-group-hop-envirogloves = Head of Personnel envirogloves
 loadout-group-hop-gloves = Head of Personnel gloves
 
 # CentCom Officer
-loadout-group-centcom-officer-envirohelm = CentCom Officer envirohelm
-loadout-group-centcom-officer-envirosuit = CentCom Officer envirosuit
-loadout-group-centcom-officer-envirogloves = CentCom Officer envirogloves
+# Omu start
+loadout-group-centcom-officer-envirohelm = CentComm Officer envirohelm
+loadout-group-centcom-officer-envirosuit = CentComm Officer envirosuit
+loadout-group-centcom-officer-envirogloves = CentComm Officer envirogloves
+# Omu end
 
 # Botanist
 loadout-group-botanist-envirohelm = Botanist envirohelm

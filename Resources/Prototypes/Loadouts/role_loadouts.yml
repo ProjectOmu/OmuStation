@@ -87,7 +87,8 @@
   - GroupTankHarness
   - BartenderHead
   - BartenderJumpsuit
-  - CommonBackpack
+ # - CommonBackpack # Omu
+  - BartenderBackpack # Omu
   - BartenderOuterClothing
   - Glasses
   - Survival
@@ -124,7 +125,8 @@
   - ChefHead
   - ChefMask
   - ChefJumpsuit
-  - CommonBackpack
+ # - CommonBackpack # Omu
+  - ChefBackpack # Omu
   - ChefOuterClothing
   - Glasses
   - Survival
@@ -177,6 +179,7 @@
 
 - type: roleLoadout
   id: JobChaplain
+  canCustomizeName: true
   groups:
   - GroupTankHarness
   - ChaplainHead
@@ -185,7 +188,7 @@
   - ChaplainJumpsuit
   - CommonBackpack
   - ChaplainOuterClothing
-  - ChaplainBible
+  # - ChaplainBible ## Goobstation chaplain gets a bible through ChaplainUndeterminedBible
   - CivilianFormalShoes # Omu
   - Glasses
   - Survival
@@ -205,8 +208,10 @@
   - JanitorHead
   - JanitorJumpsuit
   - JanitorGloves
-  - CommonBackpack
+ # - CommonBackpack # Omu
+  - JanitorBackpack # Omu
   - JanitorOuterClothing
+  - JanitorNeck # Starlight
   - Glasses
   - Survival
   - Trinkets
@@ -433,6 +438,7 @@
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
+  - AtmosphericTechnicianBelt # Goobstation
   - AtmosphericTechnicianShoes
   - SurvivalExtended
   - Trinkets
@@ -515,6 +521,7 @@
   - HeadofSecurityHead
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
+  - HeadofSecurityGloves # Omu - ORGANIZING THIS SHIT - gloves should stay near other clothing, NOT envirosuits
   - SecurityBackpack
   - SecurityMelee # Goobstation
   - SecurityBelt
@@ -531,7 +538,6 @@
   - HeadofSecurityEnvirohelm
   - HeadofSecurityEnvirosuit
   - HeadofSecurityEnvirogloves
-  - HeadofSecurityGloves
 
 - type: roleLoadout
   id: JobWarden

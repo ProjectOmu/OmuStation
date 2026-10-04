@@ -5,7 +5,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 <Document>
   # Species
 
-  Nanotrasen employs a variety of sapient species.
+  Nanotrasen employs a variety of sapient species. It is wise to get to know them so you know the requirements of your fellow crew members.
 
   <Box>
     <GuideEntityEmbed Entity="MobAllulalo" Caption="Allulalo"/> <!-- Imp -->
@@ -23,7 +23,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="MobIPCDummy" Caption="IPC"/>
     <GuideEntityEmbed Entity="MobMoth" Caption="Moth Person"/>
     <GuideEntityEmbed Entity="MobOni" Caption="Oni"/>
-    <GuideEntityEmbed Entity="MobReptilian" Caption="Reptilian"/>
+    <GuideEntityEmbed Entity="MobReptilian" Caption="Unathi"/> <!-- omu unathi -->
     <GuideEntityEmbed Entity="MobResomi" Caption="Resomi"/>
   </Box>
   <Box>
@@ -41,6 +41,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="MobShadowkin" Caption="Shadowkin"/>
     <GuideEntityEmbed Entity="MobAvali" Caption="Avali"/> <!-- Starlight -->
     <GuideEntityEmbed Entity="MobHydrakin" Caption="Hydrakin"/> <!-- Goob mono port why isnt this commented upsteam -->
+    <GuideEntityEmbed Entity="MobOvinia" Caption="Ovinia"/> <!-- Omu: Ported From The Den-->
   </Box>
 
 </Document>

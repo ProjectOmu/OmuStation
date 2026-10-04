@@ -23,6 +23,11 @@ public sealed class MeleeSpeechBoundUserInterface : BoundUserInterface
 
         _window = this.CreateWindow<MeleeSpeechWindow>();
         _window.OnBattlecryEntered += OnBattlecryChanged;
+
+        // Omu start
+        if (EntMan.TryGetComponent<MeleeSpeechComponent>(Owner, out var component))
+            _window.SetUiText(component.TitleBar, component.DescriptorBar);
+        // Omu end
     }
 
     private void OnBattlecryChanged(string newBattlecry)

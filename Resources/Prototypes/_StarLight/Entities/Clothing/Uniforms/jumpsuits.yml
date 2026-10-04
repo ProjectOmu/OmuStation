@@ -7,8 +7,14 @@
   components:
   - type: ClothingGrantComponent #Goobstation edit
     component:
-    - type: VentCrawler
-      allowInventory: false
+    #- type: VentCrawler # Omu, use nodecrawler
+    #  allowInventory: false
+    - type: NodeCrawler # Omu
+      revealedComponents:
+      - Content.Shared.Atmos.Components.PipeAppearanceComponent
+      exitNodes:
+        components:
+        - NodeCrawlVentAccess
 
 - type: entity  # Goobstation original
   parent: ClothingUniformJumpsuitAtmosSyndie
@@ -17,8 +23,14 @@
   components:
   - type: ClothingGrantComponent
     component:
-    - type: VentCrawler
-      allowInventory: true
+    #- type: VentCrawler # Omu, use nodecrawler
+    #  allowInventory: true
+    - type: NodeCrawler # Omu
+      revealedComponents:
+      - Content.Shared.Atmos.Components.PipeAppearanceComponent
+      exitNodes:
+        components:
+        - NodeCrawlVentAccess
 
 - type: entity #Omu - Starlight Port
   parent: [ClothingUniformBase, BaseCentcommContraband]
