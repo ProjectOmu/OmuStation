@@ -2,52 +2,6 @@
 # copied from Resources/Prototypes/EstacaoPirata/Entities/Objects/Misc/black_cards.yml
 
 - type: entity
-  parent: [ BoxCardboard, BaseBagOpenClose ]
-  id: CardBoxBase
-  name: deck box
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Item
-    size: Small
-    shape:
-    - 0,0,1,1
-  - type: ItemCounter # FIXME
-    count:
-      components:
-      - CardDeck
-    composite: true
-    layerStates:
-      - fullLayer
-      - fullLayer
-  - type: Storage
-    maxItemSize: Normal
-    grid:
-    - 0,0,1,1
-    whitelist:
-      components:
-      - CardDeck
-  - type: OpenTriggeredStorageFill
-    contents:
-    - id: CardDeckBase
-      amount: 1
-  - type: Appearance
-
-# Frontier: base stack for card stack component
-- type: entity
-  parent: [BaseItem]
-  id: CardStackBase
-  name: stack of cards
-  abstract: true
-  components:
-  - type: Item
-    size: Small
-  - type: CardStack
-  - type: ContainerContainer # Frontier
-    containers: # Frontier
-      cardstack-container: !type:Container # Frontier
-# End Frontier
-
-- type: entity
   parent: CardStackBase
   id: CardHandYinjiSol
   categories: [ HideSpawnMenu ]
