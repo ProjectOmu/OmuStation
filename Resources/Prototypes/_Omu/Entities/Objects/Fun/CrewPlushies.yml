@@ -406,18 +406,23 @@
   - type: EmitSoundOnPickup
     sound:
       collection: Trill
+  - type: EmitSoundOnDrop
+    sound:
+      collection: Trill
   - type: EmitSoundOnUse
     sound:
-      path: Trill
+      collection: Trill
   - type: EmitSoundOnActivate
     sound:
-      path: Trill
+      collection: Trill
   - type: EmitSoundOnTrigger
     sound:
-      path: Trill
-  - type: EmitSoundOnCollide
+      collection: Trill
+  - type: EmitSoundOnThrow
     sound:
      collection: ResomiSquawk
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
   - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
