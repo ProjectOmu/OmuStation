@@ -40,9 +40,10 @@
   table: !type:GroupSelector
     children:
     #- id: WeaponShotgunHeavy # Omu redaction
-    - id: TeslaMiniEnergyBall
+    # - id: TeslaMiniEnergyBall # omu
+    - id: TeslaToy # Omu
     - id: WeaponFoamMinigun # Omu addition
-    - id: Emag # Omu addition
+    - id: CargoBingleSpawnCoin #Omu
 
 # Qm Slot machine
 
