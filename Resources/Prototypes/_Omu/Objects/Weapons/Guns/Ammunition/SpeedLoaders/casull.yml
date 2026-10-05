@@ -103,3 +103,36 @@
       - state: inhand-right-ammo
       - state: inhand-right-stripe
         color: "#540000"
+
+- type: entity
+  parent: BaseSpeedLoaderCasull
+  id: SpeedLoaderCasullHEAP
+  name: "speed loader (.454 casull high-explosive armor-piercing)"
+  description: Designed to quickly load up to six rounds of .454 casull into an empty Mateba BFR. Intended to hold specialized ammo used for fighting large non-humanoid targets.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCasullHEAP
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: piercing-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: piercing
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-ammo
+      - state: inhand-left-stripe
+        color: "#540000"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-ammo
+      - state: inhand-right-stripe
+        color: "#540000"
