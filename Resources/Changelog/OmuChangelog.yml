@@ -8562,3 +8562,15 @@ Entries:
         potent medicinal overdoses, like Bruizine.
   id: 1110
   time: '2026-10-05T02:11:06.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Remove
+      message: Removed salvager syndieborg/ipc ghostroles
+    - type: Tweak
+      message: >-
+        Reverted printable concgauntlets, buy them at the salvage vend, now
+        costing 10k points
+    - type: Tweak
+      message: Concussive gauntlet damage is halved when on station
+  id: 1111
+  time: '2026-10-05T05:29:02.0000000+00:00'
