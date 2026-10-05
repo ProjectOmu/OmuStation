@@ -9,6 +9,11 @@
   result: BorgModuleAdvancedThruster
 
 - type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAdvancedMusique
+  result: BorgModuleAdvancedMusique
+
+- type: latheRecipe
   abstract: true
   id: BaseBorgModuleRecipeSyndicateBasic
   categories:

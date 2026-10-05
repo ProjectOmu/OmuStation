@@ -386,3 +386,38 @@
     wideAnimationRotation: 180
     soundHit:
       path: /Audio/Effects/bite.ogg
+ 
+- type: entity
+  parent: BasePlushie   
+  id: PlushiePoemOfExpressionOmuCrew
+  name: poem of expression plushie
+  description: This plushie smells strongly of burning wood... You can almost hear the explosions.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/poemofexpression.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/poemofexpression.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/poemofexpression.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnUse
+    sound: /Audio/_Goobstation/Voice/Diona/dionawhistle2.ogg
+  - type: EmitSoundOnPickup
+    sound: /Audio/Voice/Diona/diona_salute.ogg
+  - type: EmitSoundOnActivate
+    sound: /Audio/_Goobstation/Voice/Diona/dionawhistle1.ogg
+  - type: EmitSoundOnTrigger
+    sound: /Audio/_Goobstation/Voice/Diona/dionawhistle2.ogg
+  - type: EmitSoundOnThrow
+    sound: /Audio/Voice/Diona/diona_scream.ogg
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit: /Audio/Voice/Diona/diona_snap.ogg
+

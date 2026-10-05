@@ -14,6 +14,7 @@
 
   defaultModules:
   - BorgModuleTool
+  - BorgModuleInflatable
   - BorgModuleArtifact
   - BorgModuleAnomaly
 
@@ -276,7 +277,7 @@
   - BorgModuleTool
   - BorgModuleMusique
   - BorgModuleService
-  # - BorgModuleClowning # goobedit
+  - BorgModuleClowning # Omu
   - BorgModuleGardening
   - BorgModuleHarvesting
   - BorgModuleLollypop # Goobstation
@@ -406,6 +407,7 @@
     - BorgModuleJanitor
 
   defaultModules:
+  - BorgModuleTool
   - BorgModuleCleaning
   - BorgModuleCustodial
 
@@ -446,6 +448,7 @@
     - BorgModuleMedical
 
   defaultModules:
+  - BorgModuleTool
   - BorgModuleChemical
   - BorgModuleTopicals
   - BorgModuleRescue
@@ -502,6 +505,7 @@
     - BorgModuleService
 
   defaultModules:
+  - BorgModuleTool
   - BorgModuleMusique
   - BorgModuleService
   - BorgModuleClowning
