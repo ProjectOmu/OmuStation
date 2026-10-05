@@ -445,18 +445,6 @@
   # Omu start, new helmet stuff
   #- type: IdentityBlocker
   #- type: IngestionBlocker
-  - type: Clothing
-    clothingVisuals:
-      head:
-      - state: equipped-HEAD
-      head-vox:
-      - state: equipped-HEAD-vox
-      head-vulpkanin:
-      - state: equipped-HEAD-vulpkanin
-      head-feroxi:
-      - state: equipped-HEAD-feroxi
-      head-hydrakin:
-      - state: equipped-HEAD-hydrakin
   - type: HideLayerClothing
     slots:
     - Snout
