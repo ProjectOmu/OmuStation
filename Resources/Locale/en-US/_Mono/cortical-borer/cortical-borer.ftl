@@ -16,7 +16,6 @@ cortical-borer-sugar-block = You taste something sweet.
 
 ## Control messages
 cortical-borer-already-control = You are already controlling your host.
-cortical-borer-vomit = {$name} vomits out a {$egg}!
 
 ## UI
 cortical-borer-dispenser-window-cost = {$cost} chemicals

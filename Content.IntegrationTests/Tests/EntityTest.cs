@@ -60,7 +60,7 @@ namespace Content.IntegrationTests.Tests
 
             // Goob start run this test in batches of 10k because fuck you. we got too much shit.
             // Omu im preemptively lowering this again I see too many OOM's and i don't trust it
-            const int batchSize = 7500;
+            const int batchSize = 5000; // Bleak
 
             for (var batchStart = 0; batchStart < protoIds.Count; batchStart += batchSize)
             {
@@ -256,7 +256,7 @@ namespace Content.IntegrationTests.Tests
 
             // Goob start run this test in batches of 10k because fuck you. we got too much shit.
             // Omu im preemptively lowering this again I see too many OOM's and i don't trust it
-            const int batchSize = 7500;
+            const int batchSize = 5000; // Bleak
 
             for (var batchStart = 0; batchStart < protoIds.Count; batchStart += batchSize)
             {

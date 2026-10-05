@@ -190,7 +190,7 @@
 
 - type: entity
   name: multitool
-  parent: [ BaseItem, BaseEngineeringScienceContraband ] #omu
+  parent: BaseItem 
   id: Multitool
   description: An advanced tool to copy, store, and send electrical pulses and signals through wires and machines.
   components:
@@ -440,7 +440,6 @@
     - PipeStraight
     - PipeBend
     - PipeTJunction
-    - PipeManifold # Omu
     - OutletInjector
     - ManualValve
     - VolumetricPump
@@ -461,6 +460,8 @@
     - FilterInline
     - RadiatorInline
     - RadiatorInlineBend
+    - PipeManifold
+    - PipePressureRegulator
     # </Goobstation>
     - Deconstruct
   - type: LimitedCharges

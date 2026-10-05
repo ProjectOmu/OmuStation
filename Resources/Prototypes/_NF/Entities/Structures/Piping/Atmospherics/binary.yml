@@ -126,6 +126,8 @@
     sendBroadcastAttemptEvent: true
     examinableAddress: true
     prefix: device-address-prefix-gaslock
+  - type: CrawlableNode # Omu - node crawling
+    reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 
 - type: entity
   parent: BasePressurePumpGaslock

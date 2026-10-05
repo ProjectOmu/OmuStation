@@ -395,7 +395,7 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     ///     Stores each gas facts
     /// </summary>
-    public readonly Dictionary<Gas, (float TransmitModifier, float HeatPenalty, float PowerMixRatio, float AngerValue)> GasDataFields = new()   //Omu - AngerValue refers to the arbritary value added to cause the SM to trigger events.
+    public Dictionary<Gas, (float TransmitModifier, float HeatPenalty, float PowerMixRatio, float AngerValue)> GasDataFields = new()   //Omu - AngerValue refers to the arbritary value added to cause the SM to trigger events. Omu set to writable, for GAMBLING
     {
         [Gas.Oxygen] = (TransmitModifier: 1.5f, HeatPenalty: 1f, PowerMixRatio: 1f, AngerValue: 1f),
         [Gas.Nitrogen] = (TransmitModifier: 0f, HeatPenalty: -1.5f, PowerMixRatio: -1f, AngerValue: -1f),
@@ -458,7 +458,7 @@ public sealed partial class SupermatterComponent : Component
     public double Timetounlock = 5;
 
     public double Timelocked;
-    public bool Varlocked = false;
+    public bool Varlocked = false; // OMU: Varlocked is called Surge in Goob. They are the same variable. See Goob#7076 Goob#7135 and Omu#1107.
 
     /// <summary>
     /// The desired setpoint for a radiation output factor - bigger number means it will try reach a bigger value
@@ -481,6 +481,24 @@ public sealed partial class SupermatterComponent : Component
     [DataField("GasEfficiencyFactorChanged")]
     [ViewVariables(VVAccess.ReadWrite)]
     public bool GasEfficiencyFactorChanged = false;
+
+    // Omu
+    [DataField("LightningCountNormal")]
+    public int LightningCountNormal = 1;
+    
+    // Omu
+    [DataField("LightningCountOverclocked")]
+    public int LightningCountOverclocked = 3;
+    
+    // Omu
+    [DataField]
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool HazardGas = false;
+
+    // Omu
+    [DataField]
+    [ViewVariables(VVAccess.ReadOnly)]
+    public float TimeSinceHazardGas = 0f;
 
 }
 [Prototype]

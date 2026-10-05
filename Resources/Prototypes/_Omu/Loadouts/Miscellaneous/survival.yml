@@ -6,6 +6,13 @@
     - Xelthia
     - Avali
 
+- type: loadoutEffectGroup
+  id: OxygenVegetableEater
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Ovinia
+
 # Basic
 - type: loadout
   id: EmergencyOxygenCarnivore
@@ -154,3 +161,75 @@
   storage:
     back:
     - BoxSurvivalSlotsSyndicateEthanol
+
+#Vegetarian survival box
+
+# Basic
+- type: loadout
+  id: EmergencyOxygenVegetarian
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenVegetableEater
+  storage:
+    back:
+    - BoxSurvivalSlotsVegetable
+
+# Clown
+- type: loadout
+  id: EmergencyOxygenVegetarianClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenVegetableEater
+  storage:
+    back:
+    - BoxHugSlotsVegetable
+
+# Mime
+- type: loadout
+  id: EmergencyOxygenVegetarianMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenVegetableEater
+  storage:
+    back:
+    - BoxMimeSlotsVegetable
+
+# Engineering / Extended
+- type: loadout
+  id: EmergencyOxygenVegetarianExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenVegetableEater
+  storage:
+    back:
+    - BoxSurvivalSlotsEngineeringVegetable
+
+# Medical
+- type: loadout
+  id: EmergencyOxygenVegetarianMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenVegetableEater
+  storage:
+    back:
+    - BoxSurvivalSlotsMedicalVegetable
+
+# Security
+- type: loadout
+  id: EmergencyOxygenVegetarianSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenVegetableEater
+  storage:
+    back:
+    - BoxSurvivalSlotsSecurityVegetable
+
+# Syndicate
+- type: loadout
+  id: EmergencyOxygenVegetarianSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenVegetableEater
+  storage:
+    back:
+    - BoxSurvivalSlotsSyndicateVegetable

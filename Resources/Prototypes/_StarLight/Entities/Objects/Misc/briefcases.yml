@@ -32,6 +32,7 @@
       range: 20
       sound:
         collection: "sparks"
+    - type: HideContrabandContent # Omu edit: bit of a oversight given we have contraband detectors
 
 - type: entity
   parent: BriefcaseBaseSecure
