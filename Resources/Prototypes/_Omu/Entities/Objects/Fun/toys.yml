@@ -28,6 +28,8 @@
     Damage: 8
   - type: MeleeWeapon
     damage:
+      types:
+        sharp: 0
   - type: MeleeDash
     force: 10
     length: 2

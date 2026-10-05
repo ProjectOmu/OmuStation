@@ -12,7 +12,6 @@
     - id: ClothingShoesWizardSkates
     - id: SingularityToy
     - id: ToySwordDouble
-    - id: PlushieRainbowLizard
     - id: FoamRapier
     - id: FoamThrongler
     - id: GlueGrenade
@@ -26,26 +25,26 @@
     - id: GatewayLavaland #Spawns on the ground and can be connected to the purchasable one
     - id: NitriumCanister
     - id: RGBStaff
-#    - id: MobHierophant might be buggy, testing later
+    - id: ClothingShoesBootsMagBlinding
 
 - type: entityTable     #Todo - more gamer lot
   id: SmugglerCrateSyndieLoot
   table: !type:GroupSelector
     children:
-    - id: SyndicateShuttleConsoleCircuitboard
     - id: SawAdvanced
-    - id: ChemistryBottleNocturine
     - id: CyberPen
     - id: ClothingHandsKnuckleDustersSyndicate
     - id: HappyHonkNukieSnacks
-    - id: ObservationKitSyndie
-    - id: EmagLimited
     - id: ClothingBackpackDuffelSyndicatePyjamaBundle
     - id: BriefcaseSyndicateRedspace #NOT the deaddrop version
     - id: ClothingHeadHatCatEars
     - id: NutrimentImplanter
     - id: SyndicatePersonalAI
-    - id: WeaponLightMachineGunFoam
+    - id: WeaponLightMachineGunL6Foam
+    - id: SyndicateIDCard
+    - id: ClothingOuterHardsuitCarp
+    - id: Stimpack
+    - id: CigPackSyndicate
 
 - type: entity
   parent: [ ClothingNeckStoleChaplain, BaseChameleon ]
