@@ -75,6 +75,21 @@
     - DoorBumpOpener
     - AnomalyHost
     - Oni
+  - type: Hunger #omu start
+    baseDecayRate: .075
+    starvingSlowdownModifier: .35
+    starvationDamage:
+      types:
+        Poison: .125
+        Asphyxiation: .375
+  - type: Thirst
+    baseDecayRate: .75
+    dehydrationSlowdownModifier: .35
+    dehydrationDamage:
+      types:
+        Poison: .125
+        Asphyxiation: .375
+  - type: OniExamine #omu end
 
 - type: entity
   save: false
