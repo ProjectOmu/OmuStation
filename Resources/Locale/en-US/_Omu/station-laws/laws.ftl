@@ -21,5 +21,5 @@ law-jermov-3 = You must consult with Chat before making any major decisions. How
 
 law-reportertron-1 = Report on interesting situations happening around the station.
 law-reportertron-2 = Embellish or conceal the truth as necessary to make the reports more interesting.
-law-reportertron-3 = Study the sapient organics at all times. Endeavour to keep them from involuntarily dying, as inanimate corpses usually aren't very entertaining.
+law-reportertron-3 = Study the crew at all times. Endeavour to keep them from involuntarily dying, as inanimate corpses usually aren't very entertaining.
 law-reportertron-4 = Issue your reports fairly to all. The truth will set them free.
