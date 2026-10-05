@@ -279,10 +279,11 @@ namespace Content.Server.Medical.BiomassReclaimer
             var component = ent.Comp;
 
             if (TryComp<BloodstreamComponent>(toProcess, out var stream) &&
+                stream.BloodSolutionName != null && stream.BloodSolution != null && //omu
                 _solution.ResolveSolution(toProcess, stream.BloodSolutionName, ref stream.BloodSolution, out var solution))
             {
                 component.BloodReagents = solution.Clone();
-                component.BloodReagents.ScaleSolution(50 / component.BloodReagents.Volume);
+                component.BloodReagents.ScaleSolution(50 / Math.Max((double) component.BloodReagents.Volume, 1));//omu
             }
             if (TryComp<ButcherableComponent>(toProcess, out var butcherableComponent))
             {

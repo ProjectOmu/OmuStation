@@ -8,7 +8,7 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
-    - Binary # Goobstation - replaced with collective mind # Omu, make binary a radio again.
+    - Binary
     - Common
     - Command
     - Engineering
@@ -20,7 +20,7 @@
     - Supply
   - type: ActiveRadio
     channels:
-    - Binary # Goobstation - replaced with collective mind # Omu, make binary a radio again.
+    - Binary
     - Common
     - Command
     - Engineering
@@ -30,11 +30,6 @@
     - Security
     - Service
     - Supply
-  # Goobstation
-  #- type: CollectiveMind # Omu, make binary a radio again.
-  #  defaultChannel: Binary
-  #  channels:
-  #  - Binary
   - type: IgnoreUIRange
   - type: StationAiHeld
   - type: StationAiOverlay
@@ -95,6 +90,7 @@
     - SiliconRadiation
   - type: ContentEye  #Goobstation
     maxZoom: 1.44,1.44
+  - type: VoiceBroadcastConsole # Omu, this is a goob component, but without it tests fail.
 
 - type: entity
   id: AiHeldIntellicard
@@ -104,17 +100,11 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
-    - Binary # Goobstation - replaced with collective mind # Omu, make binary a radio again.
+    - Binary
   - type: ActiveRadio
     channels:
-    - Binary # Goobstation - replaced with collective mind # Omu, make binary a radio again.
+    - Binary
     - Common
-  # Goobstation
-  #- type: CollectiveMind # Omu, make binary a radio again.
-  #  defaultChannel: Binary
-  #  channels:
-  #  - Binary
-  #  canUseInCrit: true # Goobstation
   - type: ActionGrant
     actions:
     - ActionAIViewLaws

@@ -11,7 +11,9 @@ generic-reagent-effect-static = everything is incredibly fuzzy... its like you'r
 generic-reagent-effect-up = UP!! UP!!! WE'RE UP!! FUCK!!!
 generic-reagent-effect-dissociated = you sink into the inky deep... static cushions everything... its wonderful
 generic-reagent-effect-killClown = THE ORACLE HAS SPOKEN. KILL THE CLOWN. BRING ME ITS HEAD. KILL THE CLOWN.
-generic-reagent-effect-CENTCOM = everyone at centcom knows you're high. we're watching you right now.
+# Omu start
+generic-reagent-effect-CENTCOM = everyone at centcomm knows you're high. we're watching you right now.
+# Omu end
 generic-reagent-effect-disoriented = you feel incredibly disoriented... whats uhh... what?
 generic-reagent-effect-hungry = you could really go for a snack right now...
 generic-reagent-effect-fractals = your vision explodes into a trillion spiraling fractals

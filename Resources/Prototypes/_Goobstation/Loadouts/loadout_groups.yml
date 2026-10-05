@@ -363,6 +363,15 @@
   loadouts:
   - AtmosEnvirogloves
 
+- type: loadoutGroup
+  id: AtmosphericTechnicianBelt
+  minLimit: 1
+  maxLimit: 1
+  name: loadout-group-atmospheric-technician-belt
+  loadouts:
+  - AtmosphericTechnicianUtilityBelt
+  - AtmosphericTechnicianAtmosBelt
+
 # Chief Engineer
 
 - type: loadoutGroup
@@ -972,6 +981,7 @@
   loadouts:
   - ClothingNeckScarfStripedCentcom
   - NanotrasenRepresentativeEnsemble
+  - NanotrasenRepresentativeOffcoat # Omu
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeBackpack
@@ -1009,6 +1019,7 @@
   - LaceupShoes
   - NanotrasenRepresentativeShoes
   - NanotrasenRepresentativeHeels
+  - NanotrasenRepresentativeHeelBoots # Omu
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeJobTrinkets
@@ -1021,6 +1032,7 @@
   name: loadout-group-ntr-gloves
   loadouts:
   - NanotrasenRepresentativeGloves
+  - HoPGloves # Omu - papercut-proof gloves
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeEnvirohelm
@@ -1353,9 +1365,17 @@
   id: RoboticistBackpack
   name: loadout-group-roboticist-backpack
   loadouts:
-  - ScientistBackpack
-  - ScientistSatchel
-  - ScientistDuffel
+  # - ScientistBackpack # Omu
+  # - ScientistSatchel # Omu
+  # - ScientistDuffel # Omu
+  - RoboticistBackpack # Omu
+  - RoboticistBackpackSatchel # Omu
+  - RoboticistBackpackDuffel # Omu
+  - RoboticistBackpackMessenger # Omu
+  - RoboticistScientistBackpack # Omu
+  - RoboticistScientistBackpackSatchel # Omu
+  - RoboticistScientistBackpackDuffel # Omu
+  - RoboticistScientistBackpackMessenger # Omu
 
 - type: loadoutGroup
   id: RoboticistOuterClothing
@@ -1789,6 +1809,8 @@
   - SalvageSpecialistJumpskirt
   - SalvageSpecialistOveralls
   - SalvageSpecialistMJ
+  - VintageShaftMinerJumpsuit # Omu
+  - SalvageJumpskirt # Omu
 
 - type: loadoutGroup
   id: ShaftMinerJumpsuit
