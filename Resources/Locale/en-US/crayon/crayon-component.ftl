@@ -10,9 +10,8 @@
 
 
 ## Entity
-
-crayon-drawing-label = Drawing: [color={$color}]{$state}[/color] {$infinite ->
-    *[false] ({$charges}/{$capacity})
+## Omu edit on line 14 - 16
+crayon-drawing-label = Drawing: [color={$color}]{$state}[/color] ({$charges}/{$capacity})
     [true] {""}
 }
 crayon-interact-not-enough-left-text = Not enough left.
