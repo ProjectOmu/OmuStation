@@ -66,8 +66,8 @@
           min: 10
         damage:
           types:
-            Asphyxiation: 6
-            Cold: 6
+            Asphyxiation: 3 # 6 # Omu, un-nerfed this does ~7.5 vital/s or 15 total in overdose
+            Cold: 3 # 6 # Omu, post-nerf it does about 4-ish vital/s due to asphyx recovery
           groups:
             Brute: 0.5
       - !type:Jitter
