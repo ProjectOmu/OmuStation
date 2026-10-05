@@ -187,6 +187,20 @@
   - WhiteEnvirogloves
 
 - type: loadoutGroup
+  id: VirologistHead
+  name: loadout-group-virologist-head
+  minLimit: 0
+  loadouts:
+  - MedicalBeret
+  - SeniorPhysicianBeret
+  - MedicalHeadMirror
+  - BlueSurgeryCap
+  - GreenSurgeryCap
+  - PurpleSurgeryCap
+  - NurseHat
+  - UshankaVirologist # Omu
+
+- type: loadoutGroup
   id: VirologistEnvirohelm
   name: loadout-group-virologist-envirohelm
   minLimit: 1
