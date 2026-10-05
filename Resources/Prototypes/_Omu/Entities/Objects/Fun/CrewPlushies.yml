@@ -405,22 +405,24 @@
     - HEAD
   - type: EmitSoundOnPickup
     sound:
-      path:
+      collection: Trill
   - type: EmitSoundOnUse
     sound:
-      path:
+      path: Trill
   - type: EmitSoundOnActivate
     sound:
-      path:
+      path: Trill
   - type: EmitSoundOnTrigger
     sound:
-      path:
+      path: Trill
   - type: EmitSoundOnCollide
     sound:
-      path:
+     collection: ResomiSquawk
   - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit:
-      path:
+     collection: ResomiSquawk
+    soundNoDamage:
+     collection: ResomiSquawk
