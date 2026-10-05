@@ -8531,3 +8531,34 @@ Entries:
       message: Fixed IPCs face marking glasses and other eyewear.
   id: 1108
   time: '2026-10-04T05:28:52.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Tweak
+      message: Tackle gloves are now in the secvend and HoS's in their locker
+    - type: Tweak
+      message: Magboots and armor stamina resistance can now prevent tackles
+    - type: Tweak
+      message: >-
+        All martial arts can no longer be used with tackle gloves on, even
+        hellrip
+    - type: Tweak
+      message: >-
+        Oni exist so mass affecting tackles is gone along with disarms as a
+        whole
+    - type: Tweak
+      message: HoS gets combat gloves again in their loadout
+    - type: Tweak
+      message: Tackle cooldown has been bumped up by .5 of a second
+    - type: Fix
+      message: Guerrilla gloves are not longer quantum contraband for sec
+  id: 1109
+  time: '2026-10-04T15:33:21.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Rhymatine's OD damage is now about half of what it used to be, taking it
+        from 7.5 vital damage per second to about 3.5. This is on-par with other
+        potent medicinal overdoses, like Bruizine.
+  id: 1110
+  time: '2026-10-05T02:11:06.0000000+00:00'
