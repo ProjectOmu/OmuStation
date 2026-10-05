@@ -200,7 +200,7 @@ public sealed partial class AntagSelectionSystem
         // Check each individual antag role
         foreach (var role in roles)
         {
-            var list = new List<ProtoId<AntagPrototype>> {role};
+            var list = new List<ProtoId<AntagPrototype>>{role};
 
             if (character.AntagPreferences.Contains(role)
                 && !_ban.IsRoleBanned(session, list)

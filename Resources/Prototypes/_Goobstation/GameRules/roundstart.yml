@@ -379,7 +379,7 @@
   components:
   - type: DevilRule
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 1    # was 15. LOCAL TEST ONLY, do not commit
   - type: AntagObjectives
     objectives:
     - DevilContractObjective
