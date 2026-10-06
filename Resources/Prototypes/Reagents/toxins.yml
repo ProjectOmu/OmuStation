@@ -95,10 +95,7 @@
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [ Yowie ]
           inverted: true
-        - !type:ReagentCondition
-          reagent: ChloralHydrate
-          min: 8    #OMU: 2 - 3 shots with a tranq to KO, syringe or hypo can still do work with it
-        effectProto: StatusEffectDrowsiness
+        effectProto: StatusEffectDrowsinessChloralHydrate # StatusEffectDrowsiness # Omu, special handling for Chloral Hydrate so it doesn't suck ass
         time: 4
         type: Update
       - !type:HealthChange
@@ -593,6 +590,7 @@
           - Plant
           - Yowie # Goobstation - Yowie
           - XenobioSlime # Goobstation - XenobioSlime
+          - Xelthia # Omu oh my god bruh
           inverted: true
         damage:
           types:
@@ -696,6 +694,7 @@
       effects:
       - !type:SpeciesChange
         newSpecies: BananaMen
+        transferAppearance: true #Goobstation
         conditions:
         - !type:ReagentCondition
           reagent: Honk
