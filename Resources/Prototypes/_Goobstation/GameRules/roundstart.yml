@@ -426,7 +426,7 @@
       playerRatio: 40 # from 20 --> 40 , makes it less likely to spawn (Fuck devils)
       chaosScore: 150
       jobAntagImmunityOverride: [ HeadOfPersonnel ] # Omu change, allows HoP to roll devil. Might make things interesting.
-      jobBlacklist: [ Chaplain, Mime, ChiefEngineer, ResearchDirector, Quartermaster, HeadOfPersonnel ] #chaplain is obvious, mime can't write.
+      jobBlacklist: [ Chaplain, Mime, ChiefEngineer, ResearchDirector, Quartermaster ] #chaplain is obvious, mime can't write.
       mindRoles:
       - DevilMindRole
       startingGear: DevilStartingGear
