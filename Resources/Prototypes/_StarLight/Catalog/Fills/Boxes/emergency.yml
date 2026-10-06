@@ -106,12 +106,7 @@
     layers:
     - state: internals
     - state: extendedtank
-
-- type: entity
-  parent: BoxSurvivalNonBreather
-  id: BoxHugNonBreather
-    - state: box_hug
-
+    
 - type: entity
   parent: BoxSurvival
   id: BoxMimeBlood
