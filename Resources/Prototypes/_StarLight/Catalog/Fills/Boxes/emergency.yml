@@ -19,12 +19,6 @@
     - state: internals
 
 - type: entity
-  parent: BoxSurvivalNonBreather
-  id: BoxSurvivalNonBreatherExtended
-          amount: 2
-        - id: DrinkWaterBottleFull
-
-- type: entity
   parent: BoxCardboard
   id: BoxSurvivalEngineeringBlood
   name: extended-capacity survival box
