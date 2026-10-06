@@ -47,6 +47,12 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
         var beacons_eqe = EntityQueryEnumerator<ConfigurableNavMapBeaconComponent>();
         while (beacons_eqe.MoveNext(out var beacon, out _))
         {
+            // don't consider a beacon if it's off-station
+            var transform = Transform(beacon);
+            if (!HasComp<BecomesStationComponent>(transform.GridUid)
+                && CompOrNull<StationMemberComponent>(transform.GridUid)?.Station != station)
+                continue;
+
             beacons.Add(beacon);
         }
         // if there's no station beacon, we can't run this event
