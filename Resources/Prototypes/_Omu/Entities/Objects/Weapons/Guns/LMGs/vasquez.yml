@@ -2,7 +2,7 @@
   id: WeaponLightMachineGunVasquez
   name: Vasquez
   parent: [BaseItem, BaseGunWieldable, BaseSecurityContraband]
-  description: An expendable light machine gun intended for suppressive fire against unarmored targets. Kicks like a mule, but shreds like a chainsaw. Pre-loaded with 100 rounds and completely non-reloadable. Chambered in .22 caseless.
+  description: An expendable light machine gun intended for crowd control and suppressive fire against unarmored targets. Kicks like a mule, but shreds like a chainsaw. Pre-loaded with 200 rounds; throw it away when it's empty! Chambered in .22 caseless.
   components:
   - type: Sprite
     sprite: _Omu/Objects/Weapons/Guns/LMGs/vasquez.rsi
@@ -35,7 +35,7 @@
 
   - type: GunWieldBonus
     minAngle: -52
-    maxAngle: -96
+    maxAngle: -98
 
   - type: SpeedModifiedOnWield
     walkModifier: 0.9
@@ -43,12 +43,12 @@
 
   - type: Gun
     # unwielded spread 30-60 degrees (cant fire it unwielded anyway)
-    # wielded spread 4-12 degrees
+    # wielded spread 4-11 degrees
     minAngle: 60
     maxAngle: 120
     angleIncrease: 1.5
     angleDecay: 16
-    fireRate: 8.333333
+    fireRate: 12 # 720 RPM
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -59,7 +59,7 @@
 
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessLMG
-    capacity: 100
+    capacity: 200
     whitelist: null
     cycleable: false
     autoCycle: true
