@@ -405,7 +405,7 @@
     autoRechargeRate: 2
 
 - type: entity
-  parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
+  parent: BaseClothingModsuitHelmet # Omu, no longer covers face unless sealed
   id: ClothingModsuitHelmetParamedic
   name: sanitater modsuit helmet
   description: A robust brain bucket for working on barely salvageable brains.
@@ -413,14 +413,31 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Modsuits/paramedic.rsi
+    sprite: _Omu/Clothing/Head/Modsuits/paramedic.rsi # Omu, link to new sprites in omu namespace
     layers:
     - state: helmet
     - state: helmet-sealed
       visible: false
       map: [ "sealed" ]
-  - type: IdentityBlocker
-  - type: IngestionBlocker
+  # Omu start, new helmet stuff
+  #- type: IdentityBlocker
+  #- type: IngestionBlocker
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD
+      head-vox:
+      - state: equipped-HEAD-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-vulpkanin
+      head-feroxi:
+      - state: equipped-HEAD-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-hydrakin
+  - type: HideLayerClothing
+    slots:
+    - Snout
+  # Omu end
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
@@ -433,8 +450,10 @@
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
+      head-feroxi: # Omu, implemented feroxi sprites
+      - state: equipped-HEAD-sealed-feroxi # Omu
       head-hydrakin:
-      - state: equipped-HEAD-hydrakin
+      - state: equipped-HEAD-sealed-hydrakin # Omu
   - type: Armor
     modifiers:
       coefficients:
@@ -453,6 +472,16 @@
     - type: TemperatureProtection
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
+    # Omu start, matching new helmet appearance
+    - type: IdentityBlocker
+    - type: IngestionBlocker
+    - type: HideLayerClothing
+      slots:
+      - Hair
+      - Snout
+      - HeadTop
+      - HeadSide
+    # Omu end
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   # Omu start, Fix modsuit light
   - type: ToggleableVisuals

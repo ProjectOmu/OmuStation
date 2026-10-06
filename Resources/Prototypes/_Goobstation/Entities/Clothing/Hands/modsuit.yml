@@ -101,12 +101,12 @@
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsParamedic
   name: sanitater modsuit gauntlets
-  description: Black and white modular suit gloves for gripping percs and patients tight.
+  description: Modular, sterile suit gloves for gripping percs and patients tight. # Omu
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Modsuits/paramedic.rsi
+    sprite: _Omu/Clothing/Hands/Modsuits/paramedic.rsi # Omu, link to new sprites in omu namespace
     layers:
     - state: gauntlets
     - state: gauntlets-sealed

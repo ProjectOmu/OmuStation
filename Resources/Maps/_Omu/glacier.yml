@@ -78927,7 +78927,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -14.5,33.5
       parent: 2
-- proto: GlowstickBase
+- proto: GlowstickBlue
   entities:
   - uid: 6746
     components:
@@ -78946,8 +78946,6 @@ entities:
     - type: Transform
       pos: 65.70698,-45.52045
       parent: 2
-- proto: GlowstickBlue
-  entities:
   - uid: 10961
     components:
     - type: Transform

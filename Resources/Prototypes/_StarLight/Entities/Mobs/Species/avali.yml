@@ -33,7 +33,7 @@
         Peckish: 150
         Starving: 100
         Dead: 0
-      baseDecayRate: 0.03
+      baseDecayRate: 0.05 # 0.03 # Omu, update for new base rate
     - type: Thirst
     - type: Icon
       sprite: _Starlight/Mobs/Species/Avali/parts.rsi

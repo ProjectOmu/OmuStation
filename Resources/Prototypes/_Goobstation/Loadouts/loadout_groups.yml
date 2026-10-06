@@ -8,6 +8,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
+  - ResearchDirectorEnvirohelmPurple # Omu
   - ResearchDirectorEnvirohelm
 
 - type: loadoutGroup
@@ -16,6 +17,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
+  - ResearchDirectorEnvirosuitPurple # Omu
   - ResearchDirectorEnvirosuit
 
 - type: loadoutGroup
@@ -24,8 +26,9 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
+  - ResearchDirectorEnviroglovesPurple # Omu
   - ResearchDirectorEnvirogloves
-  - WhiteEnvirogloves
+  - LatexEnvirogloves # Omu
 
 
 # Scientist
@@ -54,8 +57,9 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
+  - LatexEnvirogloves # Omu
   - RoboticistEnvirogloves
-  - WhiteEnvirogloves
+
 
 # Research Assistant
 
@@ -92,6 +96,7 @@
   maxLimit: 1
   loadouts:
   - ChiefMedicalOfficerEnvirohelm
+  - CMOVetEnvirohelm # Omu
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerEnvirosuit
@@ -100,6 +105,7 @@
   maxLimit: 1
   loadouts:
   - ChiefMedicalOfficerEnvirosuit
+  - CMOVetEnvirosuit # Omu
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerEnvirogloves
@@ -107,7 +113,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - WhiteEnvirogloves
+  - LatexEnvirogloves # Omu
   - NitrileEnvirogloves
 
 # Medical Doctor
@@ -119,6 +125,7 @@
   maxLimit: 1
   loadouts:
   - MedicalDoctorEnvirohelm
+  - SeniorPhysicianEnvirohelm # Omu
 
 - type: loadoutGroup
   id: MedicalDoctorEnvirosuit
@@ -127,6 +134,7 @@
   maxLimit: 1
   loadouts:
   - MedicalDoctorEnvirosuit
+  - SeniorPhysicianEnvirosuit # Omu
 
 - type: loadoutGroup
   id: MedicalDoctorEnvirogloves
@@ -134,7 +142,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - WhiteEnvirogloves
+  - LatexEnvirogloves # Omu
   - NitrileEnvirogloves
 
 # Medical Intern
@@ -161,7 +169,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - WhiteEnvirogloves
+  - LatexEnvirogloves # Omu
 
 # Paramedic
 
@@ -172,6 +180,7 @@
   maxLimit: 1
   loadouts:
   - ParamedicEnvirohelm
+  - SeniorPhysicianEnvirohelm # Omu
 
 - type: loadoutGroup
   id: ParamedicEnvirosuit
@@ -180,6 +189,7 @@
   maxLimit: 1
   loadouts:
   - ParamedicEnvirosuit
+  - SeniorPhysicianEnvirosuit # Omu
 
 - type: loadoutGroup
   id: ParamedicEnvirogloves
@@ -187,7 +197,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - WhiteEnvirogloves
+  - LatexEnvirogloves # Omu
   - NitrileEnvirogloves
 
 # Psychologist
@@ -226,7 +236,6 @@
   loadouts:
   - CargoTechnicianEnvirohelm
   #- MailCarrierEnvirohelm # Omu - Moved to courier
-  - CourierEnvirohelm
 
 - type: loadoutGroup
   id: CargoTechnicianEnvirosuit
@@ -236,7 +245,6 @@
   loadouts:
   - CargoTechnicianEnvirosuit
   #- MailCarrierEnvirosuit # Omu - Moved to courier
-  - CourierEnvirosuit
 
 - type: loadoutGroup
   id: CargoTechnicianEnvirogloves
@@ -271,7 +279,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - CargoTechnicianEnvirogloves
+  - QuartermasterEnvirogloves # Omu
 
 # Station Engineer
 
@@ -282,6 +290,7 @@
   maxLimit: 1
   loadouts:
   - StationEngineerEnvirohelm
+  - SeniorEngineerEnvirohelm # Omu
 
 - type: loadoutGroup
   id: StationEngineerEnvirosuit
@@ -290,6 +299,7 @@
   maxLimit: 1
   loadouts:
   - StationEngineerEnvirosuit
+  - SeniorEngineerEnvirosuit # Omu
 
 - type: loadoutGroup
   id: StationEngineerEnvirogloves
@@ -334,6 +344,7 @@
   maxLimit: 1
   loadouts:
   - AtmosEnvirohelm
+  - SeniorEngineerEnvirohelm # Omu
 
 - type: loadoutGroup
   id: AtmosEnvirosuit
@@ -342,6 +353,7 @@
   maxLimit: 1
   loadouts:
   - AtmosEnvirosuit
+  - SeniorEngineerEnvirosuit # Omu
 
 - type: loadoutGroup
   id: AtmosEnvirogloves
@@ -858,7 +870,8 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - DarkGreenEnvirohelm
+  #- DarkGreenEnvirohelm
+  - GreenEnviroslackHelm # Omu
 
 - type: loadoutGroup
   id: ServiceWorkerEnvirosuit
@@ -866,7 +879,8 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - DarkGreenEnvirosuit
+  #- DarkGreenEnvirosuit
+  - GreenEnviroslacks # Omu
 
 - type: loadoutGroup
   id: ServiceWorkerEnvirogloves
@@ -875,6 +889,7 @@
   maxLimit: 1
   loadouts:
   - DarkGreenEnvirogloves
+  - WhiteEnvirogloves # Omu
 
 # Bartender
 
@@ -885,6 +900,7 @@
   maxLimit: 1
   loadouts:
   - WhiteEnvirohelm
+  - BlackEnviroslackHelm # Omu
 
 - type: loadoutGroup
   id: BartenderEnvirosuit
@@ -893,6 +909,7 @@
   maxLimit: 1
   loadouts:
   - Enviroslacks
+  - BlackEnviroslacks # Omu
 
 - type: loadoutGroup
   id: BartenderEnvirogloves
@@ -1027,6 +1044,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
+  - WhiteEnvirogloves # Omu
   - BlackEnvirogloves
 
 # BSO
@@ -1430,6 +1448,8 @@
   maxLimit: 1
   loadouts:
   - ChemistEnvirohelm
+  - SeniorPhysicianEnvirohelm # Omu
+  - SeniorChemistEnvirohelm # Omu
 
 - type: loadoutGroup
   id: ChemistEnvirosuit
@@ -1438,6 +1458,8 @@
   maxLimit: 1
   loadouts:
   - ChemistEnvirosuit
+  - SeniorPhysicianEnvirosuit # Omu
+  - SeniorChemistEnvirosuit # Omu
 
 - type: loadoutGroup
   id: ChemistEnvirogloves
@@ -1445,7 +1467,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - WhiteEnvirogloves
+  - LatexEnvirogloves # Omu
   - NitrileEnvirogloves
 
 # HOS
@@ -1741,7 +1763,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - WhiteEnvirogloves
+  - LatexEnvirogloves # Omu
   - NitrileEnvirogloves
 
 # Radio Host
