@@ -8562,3 +8562,78 @@ Entries:
         potent medicinal overdoses, like Bruizine.
   id: 1110
   time: '2026-10-05T02:11:06.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Remove
+      message: Removed salvager syndieborg/ipc ghostroles
+    - type: Tweak
+      message: >-
+        Reverted printable concgauntlets, buy them at the salvage vend, now
+        costing 10k points
+    - type: Tweak
+      message: Concussive gauntlet damage is halved when on station
+  id: 1111
+  time: '2026-10-05T05:29:02.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Fix
+      message: Fixed a localization error with crayons.
+  id: 1112
+  time: '2026-10-05T14:31:11.0000000+00:00'
+- author: Naaatch
+  changes:
+    - type: Fix
+      message: Hijack checks now specifically ignore ghosts.
+  id: 1113
+  time: '2026-10-05T14:32:13.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Add
+      message: >-
+        Added the secarang, a stunbaton boomerang, watch the clown catch it when
+        sec throws it at them for getting pie'd
+  id: 1114
+  time: '2026-10-05T18:57:19.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added Tevik plushie
+  id: 1115
+  time: '2026-10-05T19:06:02.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the inline filter on glacier's vox box to a gas filter due to it
+        merging distro and waste
+  id: 1116
+  time: '2026-10-06T02:45:47.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: Lawyers get their own headset with sec and service comms
+  id: 1117
+  time: '2026-10-06T03:04:19.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Tweak
+      message: Cyborgs no longer make noise when switching modules.
+  id: 1118
+  time: '2026-10-06T03:37:30.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Remove
+      message: >-
+        Shōko station is no longer in map rotation, as it doesn't meet Omu's
+        mapping standards.
+  id: 1119
+  time: '2026-10-06T04:06:02.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Add
+      message: >-
+        There is now a new lawset for silicon: Reportertron. The lawset says to
+        report on interesting situations around the station. It can be gotten in
+        ion storms.
+  id: 1120
+  time: '2026-10-06T04:06:22.0000000+00:00'
