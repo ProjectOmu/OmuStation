@@ -1,0 +1,16 @@
+<controls:AdminObjectiveGroup
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Omu.Client.Administration.UI"
+    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+    <BoxContainer VerticalExpand="true" HorizontalExpand="true">
+        <BoxContainer Orientation="Vertical" HorizontalExpand="true">
+            <controls:AdminObjectiveTitle Name="Title" />
+            <PanelContainer VerticalExpand="true">
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat  BackgroundColor="#25252a" BorderColor="#545456" BorderThickness="2" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer Name="Objectives" Orientation="Vertical" VerticalExpand="true" SeparationOverride="4" />
+            </PanelContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:AdminObjectiveGroup>

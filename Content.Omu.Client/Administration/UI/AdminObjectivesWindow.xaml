@@ -1,0 +1,26 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+                      xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      Title="{Loc admin-view-objectives-window-title}"
+                      MinSize="200 200"
+                      SetSize="650 500">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="true" VerticalExpand="true" Margin="8 8">
+        <PanelContainer Margin="2 2 2 8">
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#25252a" BorderColor="#444551" BorderThickness="2" />
+            </PanelContainer.PanelOverride>
+            <BoxContainer Orientation="Horizontal" Margin="0 8">
+                <SpriteView Name="CharacterIcon" SetSize="64 64" Stretch="Fill" />
+                <BoxContainer Orientation="Vertical" Margin="2 0">
+                    <Label Name="CharacterName" StyleClasses="LabelHeading" />
+                    <Label Name="RoleType" StyleClasses="LabelKeyText" />
+                    <Label Name="RoleTypeSubType" StyleClasses="LabelSubText" />
+                </BoxContainer>
+            </BoxContainer>
+        </PanelContainer>
+        <ScrollContainer HScrollEnabled="false" HorizontalExpand="true" VerticalExpand="true">
+            <BoxContainer Name="Objectives" Orientation="Vertical" VerticalExpand="true" Margin="2 2" SeparationOverride="8" />
+        </ScrollContainer>
+    </BoxContainer>
+</controls:FancyWindow>

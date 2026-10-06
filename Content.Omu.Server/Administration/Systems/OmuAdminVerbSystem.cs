@@ -25,6 +25,7 @@ public sealed partial class OmuAdminVerbSystem : EntitySystem
     {
         AddSmiteVerbs(args);
         AddAntagVerbs(args);
+        AddObjectiveWindowVerb(args);
     }
 
     private void AddAntagVerbs(GetVerbsEvent<Verb> args)
