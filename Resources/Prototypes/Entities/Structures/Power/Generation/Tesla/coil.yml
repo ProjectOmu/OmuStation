@@ -16,8 +16,12 @@
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeAabb
-          bounds: "-0.45,-0.45,0.45,0.45"
+
+#          !type:PhysShapeAabb
+#          bounds: "-0.45,-0.45,0.45,0.45"
+# Omu - Made it a circle because FUCK airlocks.
+          !type:PhysShapeCircle # Omu
+            radius: 0.45 # Omu
         density: 190
         mask:
         - MachineMask
@@ -140,8 +144,11 @@
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeAabb
-          bounds: "-0.45,-0.45,0.45,0.45"
+#          !type:PhysShapeAabb
+#          bounds: "-0.45,-0.45,0.45,0.45"
+# Omu - Made it a circle because FUCK airlocks.
+          !type:PhysShapeCircle # Omu
+            radius: 0.45 # Omu
         density: 110
         mask:
         - MachineMask
