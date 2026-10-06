@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Omu.Server.Administration.Systems;
 using Content.Omu.Shared.Administration;
 using Content.Server.Administration;
@@ -76,6 +77,25 @@ public sealed class ShowObjectivesWindowCommand : LocalizedCommands
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
-        return args.Length == 1 ? CompletionResult.FromHintOptions(CompletionHelper.SessionNames(), Loc.GetString("shell-argument-username-hint")) : CompletionResult.Empty;
+        if (args.Length != 1)
+            return CompletionResult.Empty;
+
+        var objectivesWindowSystem = _entityManager.System<ShowObjectivesWindowSystem>();
+
+        var results = new List<CompletionOption>();
+
+        foreach (var player in _players.Sessions.OrderBy(o => o.Name))
+        {
+            var minds = _entityManager.System<SharedMindSystem>();
+            if (!minds.TryGetMind(player, out var mindUid, out var mind))
+                continue;
+
+            if (!objectivesWindowSystem.HasObjectivesToShow((mindUid, mind)))
+                continue;
+
+            results.Add(new CompletionOption(player.Name));
+        }
+
+        return CompletionResult.FromHintOptions(results, Loc.GetString("shell-argument-username-hint"));
     }
 }
