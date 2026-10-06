@@ -4,7 +4,7 @@
     xmlns:target="clr-namespace:Content.Omu.Client.Administration.UI.Components.Target">
     <PanelContainer VerticalExpand="True" Margin="2 2">
         <PanelContainer.PanelOverride>
-            <graphics:StyleBoxFlat BackgroundColor="#25252a" />
+            <graphics:StyleBoxFlat BackgroundColor="#211c2a" />
         </PanelContainer.PanelOverride>
         <BoxContainer Orientation="Horizontal">
             <SpriteView Name="TargetIcon" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="4 0" />

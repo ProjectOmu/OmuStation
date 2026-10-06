@@ -23,7 +23,7 @@ public sealed partial class AdminTargetGroup : Control
 
         foreach (var target in model.Targets)
         {
-            Objectives.AddChild(new AdminTargetItem(target));
+            Targets.AddChild(new AdminTargetItem(target));
         }
     }
 

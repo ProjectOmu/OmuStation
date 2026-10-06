@@ -24,13 +24,11 @@ namespace Content.Omu.Server.Administration.Systems;
 public sealed partial class OmuAdminVerbSystem
 {
     [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly ObjectivesSystem _objectives = default!;
-    [Dependency] private readonly ListSacrificeTargetsSystem _listSacrificeTargets = default!;
+    [Dependency] private readonly ShowObjectivesWindowSystem _showObjectivesWindowSystem = default!;
 
     private void AddObjectiveWindowVerb(GetVerbsEvent<Verb> args)
     {
-        if (!ObjectiveWindowVerbAllowed(args, out var target, out var mind, out _))
+        if (!ObjectiveWindowVerbAllowed(args, out _, out var mind, out _))
             return;
 
         Verb verb = new()
@@ -43,46 +41,13 @@ public sealed partial class OmuAdminVerbSystem
                 if (!TryGetNetEntity(args.Target, out var netTarget))
                     return;
 
-                RaiseNetworkEvent(new ViewObjectivesWindowMessage(netTarget.Value, MetaData(args.Target).EntityName, mind.Value.Comp.RoleType, mind.Value.Comp.Subtype, GetObjectives(mind.Value), GetTargets(mind.Value)), args.User);
+                RaiseNetworkEvent(new ViewObjectivesWindowMessage(netTarget.Value, MetaData(args.Target).EntityName, mind.Value.Comp.RoleType, mind.Value.Comp.Subtype, _showObjectivesWindowSystem.GetObjectives(mind.Value), _showObjectivesWindowSystem.GetTargets(mind.Value)), args.User);
             },
             Impact = LogImpact.Low,
             Message = Loc.GetString("admin-verb-view-objectives-description"),
         };
 
         args.Verbs.Add(verb);
-    }
-
-    private Dictionary<string, List<ObjectiveInfo>> GetObjectives(Entity<MindComponent> mind)
-    {
-        var result = new Dictionary<string, List<ObjectiveInfo>>();
-
-        foreach (var uid in mind.Comp.Objectives)
-        {
-            if (_objectives.GetProgress(uid, mind) is not { } progress)
-                continue;
-
-            var comp = Comp<ObjectiveComponent>(uid);
-            var meta = MetaData(uid);
-            var title = meta.EntityName;
-            var description = meta.EntityDescription;
-
-            if (comp.Icon == null)
-                continue;
-
-            var obj = new ObjectiveInfo(title, description, comp.Icon, progress,comp.ServerCurrency, comp.ServerCurrencyRewardPartial);
-            result.GetOrNew(comp.LocIssuer).Add(obj);
-        }
-
-        return result;
-    }
-
-    private List<ViewObjectivesWindowTarget> GetTargets(Entity<MindComponent> mind)
-    {
-        if (!_listSacrificeTargets.IsHeretic(mind))
-            return [];
-
-        var targets = _listSacrificeTargets.GetHereticSacrificeTargets(mind);
-        return [.. targets.Select(target => new ViewObjectivesWindowTarget(target.Entity, _listSacrificeTargets.GetHereticTargetName(target.Entity), target.Job))];
     }
 
     public bool ObjectiveWindowVerbAllowed(GetVerbsEvent<Verb> args, [NotNullWhen(true)] out ICommonSession? target, [NotNullWhen(true)] out Entity<MindComponent>? mind, [NotNullWhen(true)] out HereticComponent? heretic)
@@ -96,7 +61,7 @@ public sealed partial class OmuAdminVerbSystem
 
         var player = actor.PlayerSession;
 
-        if (!_admin.HasAdminFlag(player, AdminFlags.Fun))
+        if (!_admin.HasAdminFlag(player, AdminFlags.Debug))
             return false;
 
         if (!HasComp<MindContainerComponent>(args.Target) || !TryComp<ActorComponent>(args.Target, out var targetActor))
@@ -107,8 +72,6 @@ public sealed partial class OmuAdminVerbSystem
         if (!_mind.TryGetMind(target.UserId, out mind))
             return false;
 
-        _entityManager.TryGetComponent(mind.Value, out heretic);
-
-        return mind.Value.Comp.Objectives.Count > 0 || heretic is not null;
+        return _showObjectivesWindowSystem.HasObjectivesToShow(mind.Value);
     }
 }

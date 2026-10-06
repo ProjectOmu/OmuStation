@@ -8,9 +8,9 @@
             <components:AdminObjectivesTitle Name="Title" />
             <PanelContainer VerticalExpand="true">
                 <PanelContainer.PanelOverride>
-                    <graphics:StyleBoxFlat  BackgroundColor="#25252a" BorderColor="#545456" BorderThickness="2" />
+                    <graphics:StyleBoxFlat BackgroundColor="#211c2a" BorderColor="#545456" BorderThickness="2" />
                 </PanelContainer.PanelOverride>
-                <BoxContainer Name="Objectives" Orientation="Vertical" VerticalExpand="true" SeparationOverride="4" />
+                <BoxContainer Name="Targets" Orientation="Vertical" VerticalExpand="true" SeparationOverride="4" />
             </PanelContainer>
         </BoxContainer>
     </BoxContainer>
