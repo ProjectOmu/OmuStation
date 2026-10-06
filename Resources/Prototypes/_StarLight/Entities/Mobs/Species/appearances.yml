@@ -1,0 +1,10 @@
+parent: [BaseSpeciesDummy, BaseInventoryFemaleJumpsuit]
+  id: AppearanceDoll
+  categories: [ HideSpawnMenu ]
+  description: A dummy doll meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: Doll
+    hideLayersOnEquip:
+    - Hair
+    - Snout

@@ -1,0 +1,78 @@
+- type: loadoutEffectGroup
+  id: OxygenBreatherHaemovore
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Doll
+
+- type: loadout
+  id: EmergencyOxygenBlood
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreatherHaemovore
+  storage:
+    back:
+    - BoxSurvivalBlood
+
+- type: loadout
+  id: EmergencyOxygenClownBlood
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreatherHaemovore
+  storage:
+    back:
+    - BoxHugBlood
+
+- type: loadout
+  id: EmergencyOxygenMimeBlood
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreatherHaemovore
+  storage:
+    back:
+    - BoxHugBlood
+
+- type: loadout
+  id: EmergencyOxygenExtendedBlood
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreatherHaemovore
+  storage:
+    back:
+    - BoxSurvivalEngineeringBlood
+
+- type: loadout
+  id: EmergencyOxygenMedicalBlood
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreatherHaemovore
+  storage:
+    back:
+    - BoxSurvivalMedicalBlood
+
+    - type: loadout
+  id: EmergencyOxygenSecurityBlood
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreatherHaemovore
+  storage:
+    back:
+    - BoxSurvivalSecurityBlood
+
+- type: loadout
+  id: EmergencyOxygenSyndicateBlood
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreatherHaemovore
+  storage:
+    back:
+    - BoxSurvivalSyndicateBlood
+
+- type: loadout
+  id: EmergencyOxygenMilitaryDoubleBlood
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreatherHaemovore
+  storage:
+    back:
+    - BoxSurvivalMilitaryDoubleBlood

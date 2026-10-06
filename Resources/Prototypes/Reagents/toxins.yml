@@ -563,6 +563,7 @@
           - XenobioSlime # Goobstation - XenobioSlime
           - Hydrakin # Fuck you
           - Xelthia # Omu Fuck you as well
+          - Doll # Omu, ported from Starlight
           inverted: true
         type: Local
         visualType: MediumCaution
@@ -580,6 +581,7 @@
           - XenobioSlime # Goobstation - XenobioSlime
           - Hydrakin # Fuck you
           - Xelthia # Fuck you as well
+          - Doll # Omu, ported from Starlight
           inverted: true
       - !type:HealthChange
         conditions:
@@ -591,6 +593,7 @@
           - Yowie # Goobstation - Yowie
           - XenobioSlime # Goobstation - XenobioSlime
           - Xelthia # Omu oh my god bruh
+          - Doll # Omu, ported from Starlight
           inverted: true
         damage:
           types:
@@ -628,6 +631,21 @@
           type: [ Vox ]
         reagent: Protein
         amount: 0.25
+        # Starlight Start
+      - !type:AdjustReagent
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Doll ]
+        reagent: Protein
+        amount: 0.5
+      # Omu Ported from Starlight Start
+      - !type:AdjustReagent
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Doll ]
+        reagent: Protein
+        amount: 0.5
+      # Omu Ported from Starlight End
 
 - type: reagent
   id: Allicin
