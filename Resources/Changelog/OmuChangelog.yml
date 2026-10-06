@@ -8497,3 +8497,106 @@ Entries:
       message: Diseases once again regress in a dead infectee.
   id: 1103
   time: '2026-10-03T22:58:28.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Letoferol now has a delay of 10-15 minutes before assigning the roles
+        (Same as initial infected)
+  id: 1104
+  time: '2026-10-04T01:52:56.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: >-
+        Fixed interactions within nodecrawl allowing for melee and changing
+        clothes mid vent crawl.
+  id: 1105
+  time: '2026-10-04T02:03:37.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: IPC face markings are now removed after decapitation.
+  id: 1106
+  time: '2026-10-04T05:26:26.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: Increased the cage recharger charge rate to 250W (used to be 50W).
+  id: 1107
+  time: '2026-10-04T05:27:56.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Fixed IPCs face marking glasses and other eyewear.
+  id: 1108
+  time: '2026-10-04T05:28:52.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Tweak
+      message: Tackle gloves are now in the secvend and HoS's in their locker
+    - type: Tweak
+      message: Magboots and armor stamina resistance can now prevent tackles
+    - type: Tweak
+      message: >-
+        All martial arts can no longer be used with tackle gloves on, even
+        hellrip
+    - type: Tweak
+      message: >-
+        Oni exist so mass affecting tackles is gone along with disarms as a
+        whole
+    - type: Tweak
+      message: HoS gets combat gloves again in their loadout
+    - type: Tweak
+      message: Tackle cooldown has been bumped up by .5 of a second
+    - type: Fix
+      message: Guerrilla gloves are not longer quantum contraband for sec
+  id: 1109
+  time: '2026-10-04T15:33:21.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Rhymatine's OD damage is now about half of what it used to be, taking it
+        from 7.5 vital damage per second to about 3.5. This is on-par with other
+        potent medicinal overdoses, like Bruizine.
+  id: 1110
+  time: '2026-10-05T02:11:06.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Remove
+      message: Removed salvager syndieborg/ipc ghostroles
+    - type: Tweak
+      message: >-
+        Reverted printable concgauntlets, buy them at the salvage vend, now
+        costing 10k points
+    - type: Tweak
+      message: Concussive gauntlet damage is halved when on station
+  id: 1111
+  time: '2026-10-05T05:29:02.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Fix
+      message: Fixed a localization error with crayons.
+  id: 1112
+  time: '2026-10-05T14:31:11.0000000+00:00'
+- author: Naaatch
+  changes:
+    - type: Fix
+      message: Hijack checks now specifically ignore ghosts.
+  id: 1113
+  time: '2026-10-05T14:32:13.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Add
+      message: >-
+        Added the secarang, a stunbaton boomerang, watch the clown catch it when
+        sec throws it at them for getting pie'd
+  id: 1114
+  time: '2026-10-05T18:57:19.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added Tevik plushie
+  id: 1115
+  time: '2026-10-05T19:06:02.0000000+00:00'
