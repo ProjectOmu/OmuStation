@@ -413,6 +413,12 @@
     sound: /Audio/_Goobstation/Voice/Diona/dionawhistle2.ogg
   - type: EmitSoundOnThrow
     sound: /Audio/Voice/Diona/diona_scream.ogg
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
     soundHit: /Audio/Voice/Diona/diona_snap.ogg
 
 - type: entity
