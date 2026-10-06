@@ -3,9 +3,9 @@ using Content.Shared._Starlight.Actions.Components;
 
 namespace Content.Server._Starlight.Actions.EntitySystems;
 
-public sealed class ShellSystem : EntitySystemExpand annotationCheck warning on line R6
+public sealed class ShellSystem : EntitySystem
 {
-    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
 
     public override void Initialize()
     {
