@@ -846,7 +846,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Doll ]
+          type: Doll
         damage:
           groups:
             Brute: -1.5
