@@ -274,9 +274,9 @@
     wideAnimationRotation: -90
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
-      
+
 - type: entity
-  parent: BasePlushie   
+  parent: BasePlushie
   id: PlushieBenryOmuCrew
   name: benry benry plushie
   description: A plushie of a stupid Allulalo, known for being heavily abused by crew members. Throw it at the nearest wall!
@@ -348,3 +348,113 @@
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit: /Audio/_Impstation/Allulalo/allulalo_scream.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieTevikOmuCrew
+  name: Tevik plushie
+  description: A little resomi with a disposition for breaking things, watch your fingers around her!
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/tevik.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/tevik.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/tevik.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_1.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_1.ogg
+  - type: EmitSoundOnThrow
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit: /Audio/_Starlight/Voice/Resomi/resomi_scree_1.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieGnashOmuCrew
+  name: gnash plushie
+  description: A red Avali, dresses up as atmospheric technician. You taste metal and smell ammonia near it.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/gnash.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/gnash.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/gnash.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_scream.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/Gasp/male_deathgasp_3.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+ 
+- type: entity
+  parent: BasePlushie   
+  id: PlushiePoemOfExpressionOmuCrew
+  name: poem of expression plushie
+  description: This plushie smells strongly of burning wood... You can almost hear the explosions.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/poemofexpression.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/poemofexpression.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/poemofexpression.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnUse
+    sound: /Audio/_Goobstation/Voice/Diona/dionawhistle2.ogg
+  - type: EmitSoundOnPickup
+    sound: /Audio/Voice/Diona/diona_salute.ogg
+  - type: EmitSoundOnActivate
+    sound: /Audio/_Goobstation/Voice/Diona/dionawhistle1.ogg
+  - type: EmitSoundOnTrigger
+    sound: /Audio/_Goobstation/Voice/Diona/dionawhistle2.ogg
+  - type: EmitSoundOnThrow
+    sound: /Audio/Voice/Diona/diona_scream.ogg
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit: /Audio/Voice/Diona/diona_snap.ogg
+
