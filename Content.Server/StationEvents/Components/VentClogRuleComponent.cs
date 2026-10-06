@@ -17,7 +17,7 @@ public sealed partial class VentClogRuleComponent : Component
     [DataField]
     public IReadOnlyList<ProtoId<ReagentPrototype>> VentChemicalsBlacklist = new ProtoId<ReagentPrototype>[] // Omu - Was a list of safe-ish vent chems, now is a blacklist
     {
-        "Stasizium", "BingleJuice", "BirdFluConcentrate", "MarotineConcentrate", "MethrilConcentrate", "MothamphetamineConcentrate", "Tranquility", "Mugwort", "ThickSmoke", "Luxurium", "MinersSalve", "AdvancedMutationToxin"
+        "Stasizium", "BingleJuice", "BirdFluConcentrate", "MarotineConcentrate", "MethrilConcentrate", "MothamphetamineConcentrate", "Tranquility", "Mugwort", "ThickSmoke", "Luxurium", "MinersSalve", "AdvancedMutationToxin", "XenobioHumanToxin", "XenobioFelinidToxin", "XenobioGenderFluid"
     };
 
     /// <summary>
