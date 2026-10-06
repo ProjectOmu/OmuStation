@@ -296,5 +296,5 @@
   components:
   - type: Contraband
     allowedDepartments: [ Engineering ]
-    allowedJobs: [ Paramedic ]
+    allowedJobs: [ Paramedic , BlueshieldOfficer ] # BSO is a Paramedic for command, this should be included.
 # Omustation end
