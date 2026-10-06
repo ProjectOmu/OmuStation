@@ -840,8 +840,9 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms: # SL Dolls
+    Drink:
       effects:
-      #Omu Ported from Starlight Start
+      # Omu Ported from Starlight Start
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
@@ -850,10 +851,10 @@
           groups:
             Brute: -1.5
             Burn: -0.75
-      #Omu Ported from Starlight End
+      # Omu Ported from Starlight End
 
 - type: reagent
-  id:  Booger
+  id:  ooger
   name: reagent-name-booger
   parent: BaseAlcohol
   desc: reagent-desc-booger
