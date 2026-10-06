@@ -14,6 +14,15 @@
     <!-- Omu stuff here -->
     <ProjectReference Include="../Content.Omu.Shared/Content.Omu.Shared.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Administration\UI\AdminTargetItem.xaml.cs">
+      <DependentUpon>AdminTargetItem.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Administration\UI\Objective\" />
+    <Folder Include="Administration\UI\Target\" />
+  </ItemGroup>
 
   <Import Project="..\RobustToolbox\Imports\Client.props" />
   <Import Project="..\RobustToolbox\Imports\Shared.props" />

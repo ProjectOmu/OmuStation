@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Omu.Server.Chimera.GameTicking.Rules;
 using Content.Omu.Shared.Administration;
+using Content.Server._Omu.Heretic.Systems;
 using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Shared._EinsteinEngines.Silicon.Components;
@@ -12,6 +13,7 @@ using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Objectives;
 using Content.Shared.Objectives.Components;
+using Content.Shared.Roles;
 using Content.Shared.Verbs;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -24,6 +26,7 @@ public sealed partial class OmuAdminVerbSystem
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly ObjectivesSystem _objectives = default!;
+    [Dependency] private readonly ListSacrificeTargetsSystem _listSacrificeTargets = default!;
 
     private void AddObjectiveWindowVerb(GetVerbsEvent<Verb> args)
     {
@@ -40,7 +43,7 @@ public sealed partial class OmuAdminVerbSystem
                 if (!TryGetNetEntity(args.Target, out var netTarget))
                     return;
 
-                RaiseNetworkEvent(new ViewObjectivesWindowMessage(netTarget.Value, MetaData(args.Target).EntityName, mind.Value.Comp.RoleType, mind.Value.Comp.Subtype, GetObjectives(mind.Value)), args.User);
+                RaiseNetworkEvent(new ViewObjectivesWindowMessage(netTarget.Value, MetaData(args.Target).EntityName, mind.Value.Comp.RoleType, mind.Value.Comp.Subtype, GetObjectives(mind.Value), GetTargets(mind.Value)), args.User);
             },
             Impact = LogImpact.Low,
             Message = Loc.GetString("admin-verb-view-objectives-description"),
@@ -71,6 +74,15 @@ public sealed partial class OmuAdminVerbSystem
         }
 
         return result;
+    }
+
+    private List<ViewObjectivesWindowTarget> GetTargets(Entity<MindComponent> mind)
+    {
+        if (!_listSacrificeTargets.IsHeretic(mind))
+            return [];
+
+        var targets = _listSacrificeTargets.GetHereticSacrificeTargets(mind);
+        return [.. targets.Select(target => new ViewObjectivesWindowTarget(target.Entity, _listSacrificeTargets.GetHereticTargetName(target.Entity), target.Job))];
     }
 
     public bool ObjectiveWindowVerbAllowed(GetVerbsEvent<Verb> args, [NotNullWhen(true)] out ICommonSession? target, [NotNullWhen(true)] out Entity<MindComponent>? mind, [NotNullWhen(true)] out HereticComponent? heretic)

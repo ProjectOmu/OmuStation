@@ -9,4 +9,5 @@ lstraits-unknown-trait = Unknown trait: {traitId}
 admin-verb-view-objectives-name = View Objectives
 admin-verb-view-objectives-description = Shows the players objectives and targets
 admin-view-objectives-window-title = View Objectives and Targets
+admin-view-objectives-window-sacrifice-targets = Sacrifice Targets
 

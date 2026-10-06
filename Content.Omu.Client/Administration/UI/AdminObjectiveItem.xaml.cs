@@ -28,7 +28,7 @@ public sealed partial class AdminObjectiveItem : Control
     {
         var sprite = _entityManager.System<SpriteSystem>();
 
-        Icon.Texture = sprite.Frame0(objective.Icon);
+        ObjectiveIcon.Texture = sprite.Frame0(objective.Icon);
 
         var percentColor = objective.Progress == 0 ? Color.Red : objective.Progress >= 1 ? Color.Green : Color.Yellow;
         ObjectiveName.SetMessage(FormattedMessage.FromMarkupPermissive($"{objective.Title} [color={percentColor.ToHex()}]{(int) (objective.Progress * 100)}%[/color]"));

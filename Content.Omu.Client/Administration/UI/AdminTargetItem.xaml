@@ -1,4 +1,4 @@
-<ui:AdminObjectiveItem
+<ui:AdminTargetItem
     xmlns="https://spacestation14.io"
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:ui="clr-namespace:Content.Omu.Client.Administration.UI">
@@ -7,11 +7,11 @@
             <graphics:StyleBoxFlat BackgroundColor="#25252a" />
         </PanelContainer.PanelOverride>
         <BoxContainer Orientation="Horizontal" Margin="5">
-            <TextureRect Name="ObjectiveIcon" Stretch="KeepAspect" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="4 0" />
+            <SpriteView Name="TargetIcon" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="4 0" />
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" VerticalAlignment="Center">
-                <RichTextLabel Name="ObjectiveName" />
-                <RichTextLabel Name="ObjectiveDescription" />
+                <RichTextLabel Name="TargetName" />
+                <RichTextLabel Name="TargetJob" />
             </BoxContainer>
         </BoxContainer>
     </PanelContainer>
-</ui:AdminObjectiveItem>
+</ui:AdminTargetItem>

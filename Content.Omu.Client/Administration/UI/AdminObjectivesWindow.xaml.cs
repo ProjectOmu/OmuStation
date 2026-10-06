@@ -46,7 +46,10 @@ public sealed partial class AdminObjectivesWindow : FancyWindow
         {
             Objectives.AddChild(new AdminObjectiveGroup(objectiveList.Key, objectiveList.Value));
         }
+
+        if (model.Targets.Count > 0)
+            Objectives.AddChild(new AdminTargetGroup(Loc.GetString("admin-view-objectives-window-sacrifice-targets"), model.Targets));
     }
 }
 
-public sealed record AdminObjectivesWindowModel(Entity<ActorComponent> Entity, string CharacterName, ProtoId<RoleTypePrototype> RoleTypeId, LocId? RoleTypeSubType, Dictionary<string, List<ObjectiveInfo>> Objectives);
+public sealed record AdminObjectivesWindowModel(Entity<ActorComponent> Entity, string CharacterName, ProtoId<RoleTypePrototype> RoleTypeId, LocId? RoleTypeSubType, Dictionary<string, List<ObjectiveInfo>> Objectives, List<AdminTargetItem.AdminObjectiveTargetModel> Targets);
