@@ -1,12 +1,11 @@
 <components:AdminObjectivesTitle
     xmlns="https://spacestation14.io"
-    xmlns:controls="clr-namespace:Content.Omu.Client.Administration.UI"
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
-    xmlns:components="clr-namespace:Content.Omu.Client.Administration.UI.Components">
+    xmlns:components="clr-namespace:Content.Omu.Client.Administration.UI.AdminObjectives.Components">
     <PanelContainer VerticalExpand="false" HorizontalExpand="false" HorizontalAlignment="Left">
         <PanelContainer.PanelOverride>
-            <graphics:StyleBoxFlat BorderColor="#545456" BorderThickness="2" />
+            <graphics:StyleBoxFlat BackgroundColor="#25252a" BorderColor="#545456" BorderThickness="2" />
         </PanelContainer.PanelOverride>
-        <RichTextLabel Name="Text" Margin="4 0"/>
+        <RichTextLabel Name="Text" Margin="4 4"/>
     </PanelContainer>
 </components:AdminObjectivesTitle>

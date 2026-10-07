@@ -1,8 +1,7 @@
-<objective:AdminObjectiveGroup
+<components:AdminObjectiveGroup
     xmlns="https://spacestation14.io"
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
-    xmlns:objective="clr-namespace:Content.Omu.Client.Administration.UI.Components.Objective"
-    xmlns:components="clr-namespace:Content.Omu.Client.Administration.UI.Components">
+    xmlns:components="clr-namespace:Content.Omu.Client.Administration.UI.AdminObjectives.Components">
     <BoxContainer VerticalExpand="true" HorizontalExpand="true">
         <BoxContainer Orientation="Vertical" HorizontalExpand="true">
             <components:AdminObjectivesTitle Name="Title" />
@@ -14,4 +13,4 @@
             </PanelContainer>
         </BoxContainer>
     </BoxContainer>
-</objective:AdminObjectiveGroup>
+</components:AdminObjectiveGroup>
