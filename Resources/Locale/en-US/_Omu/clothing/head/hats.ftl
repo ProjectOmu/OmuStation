@@ -4,7 +4,7 @@ ent-ClothingHeadHatUshankaMedical = medical ushanka
 ent-ClothingHeadHatUshankaChemist = chemist's ushanka
   .desc = A striped blue, white and orange Ushanka. It's survived many an explosion...
 
-ent-ClothingHeadHatUshankaCMO = cmo's ushanka
+ent-ClothingHeadHatUshankaCMO = chief medical officer's ushanka
   .desc = A turquoise ushanka with a cross on the side. Whoever is wearing this hat will nurse you back to health quickly.
 
 ent-ClothingHeadHatUshankaBrigmed = brigmed's ushanka
