@@ -20,9 +20,6 @@
       - id: FoodSnackBloodBrickOpen
     sound:
       path: /Audio/Effects/unwrap.ogg
-    requireHands: false
-  - type: ItemPrice
-    priceCategory: food_medium
 
 - type: entity
   parent: FoodSnackBase
@@ -32,7 +29,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - blood
+      - metallic
   - type: Item
     size: Small
     storedOffset: -1,0

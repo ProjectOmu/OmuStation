@@ -15,12 +15,16 @@
         brain_implant: null
         shell: ShellFragmentDoll
     torso:
-      part: TorsoDoll
+      part: ChestDoll
       connections:
       - right arm
       - left arm
-      - right leg
-      - left leg
+      - groin
+      groin:
+      part: GroinDoll
+      connections:
+        - right leg
+        - left leg
       organs:
         heart: OrganDollHeart
         lungs: OrganDollLungs

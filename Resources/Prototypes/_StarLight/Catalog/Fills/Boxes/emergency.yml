@@ -120,7 +120,7 @@
         - id: EmergencyOxygenTankFilled
         - id: EmergencyMedipen
         - id: Flare
-        - id: FoodBreadNutriBatard
+        - id: FoodSnackBloodBrick
         - id: DrinkWaterBottleFull
  
 - type: entity
@@ -157,6 +157,7 @@
         - id: DoubleEmergencyOxygenTankFilled
         - id: EmergencyMedipen
         - id: Flare
+        - id: FoodSnackBloodBrick
   - type: Sprite
     layers:
     - state: internals

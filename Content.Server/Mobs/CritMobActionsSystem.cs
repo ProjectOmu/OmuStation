@@ -55,7 +55,6 @@ public sealed partial class CritMobActionsSystem : EntitySystem
     private void OnFakeDeath(EntityUid uid, MobStateActionsComponent component, CritFakeDeathEvent args)
     {
         if (!_mobState.IsCritical(uid))
-        if (_mobState.IsDead(uid)) //Starlight - changed to checking if the creature is *dead*, rather than not critical, now we can use the same action to fake death on anyone still alive.
             return;
 
         if (HasComp<MutedComponent>(uid))

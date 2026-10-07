@@ -1,3 +1,4 @@
+names-first-doll-male-dataset-1 = Charles
 names-first-doll-male-dataset-2 = Thomas
 names-first-doll-male-dataset-3 = Duke
 names-first-doll-male-dataset-4 = Francis

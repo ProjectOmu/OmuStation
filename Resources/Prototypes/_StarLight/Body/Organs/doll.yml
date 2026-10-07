@@ -135,6 +135,9 @@
   - type: Item
     size: Small
     heldPrefix: brain
+  - type: NerveSystem # Goobstation
+  - type: ConsciousnessRequired # Goobstation
+    identifier: "nerveSystem"
   - type: Organ
   - type: Input
     context: "ghost"
@@ -163,7 +166,7 @@
 
 - type: entity
   id: OrganDollEyes
-  parent: [BaseDollOrgan, BaseOrganEyes]
+  parent: [BaseDollOrgan, OrganHumanEyes]
   name: eyes
   description: "There are too many of these..."
   components:
@@ -174,14 +177,11 @@
   - type: Item
     size: Small
     heldPrefix: eyeballs
-  - type: OrganVisualization
-    layer: Eyes
-    prototypes:
-      Default: MobHumanoidEyes
+
 
 - type: entity
   id: OrganDollTongue
-  parent: [BaseDollOrgan, BaseOrganTongue]
+  parent: [BaseDollOrgan, OrganHumanTongue]
   name: tongue
   description: "A fleshy muscle mostly used for whispering secrets from the dark."
   components:
@@ -190,7 +190,7 @@
 
 - type: entity
   id: OrganDollEars
-  parent: [BaseDollOrgan, BaseOrganEars]
+  parent: [BaseDollOrgan, OrganHumanEars]
   name: ears
   description: "There are three parts to the ear. Inner, middle and outer. You don't want to see any of it. Or for it to see you."
   components:
@@ -199,7 +199,7 @@
 
 - type: entity
   id: OrganDollLungs
-  parent: [BaseDollOrgan, BaseOrganLungs]
+  parent: [BaseDollOrgan, OrganHumanLungs]
   name: lungs
   description: "Dolls use these to breathe... somehow."
   components:
@@ -210,7 +210,6 @@
   - type: Lung
   - type: Metabolizer
     metabolizerTypes: [ Human ]
-    stages: [ Respiration ]
   - type: SolutionContainerManager
     solutions:
       organ:
@@ -228,7 +227,7 @@
 
 - type: entity
   id: OrganDollHeart
-  parent: [BaseDollOrgan, BaseOrganHeart]
+  parent: [BaseDollOrgan, OrganHumanHeart]
   name: heart
   description: "Is this even a heart?"
   components:
@@ -240,14 +239,13 @@
   - type: Metabolizer
     maxReagents: 2
     metabolizerTypes: [ Doll, Human ]
-    stages: [ Bloodstream ]
   - type: Item
     size: Small
     heldPrefix: heart
 
 - type: entity
   id: OrganDollStomach
-  parent: [BaseDollOrgan, BaseOrganStomach]
+  parent: [BaseDollOrgan, OrganHumanStomach]
   name: stomach
   description: "Surprisingly large."
   components:
@@ -277,11 +275,10 @@
     # mm yummy
     maxReagents: 3
     metabolizerTypes: [ Doll ]
-    stages: [ Digestion ]
 
 - type: entity
   id: OrganDollLiver
-  parent: [BaseDollOrgan, BaseOrganLiver]
+  parent: [BaseDollOrgan, OrganHumanLiver]
   name: liver
   description: "Indistinct mass of flesh. Probably the liver."
   components:
@@ -290,11 +287,10 @@
   - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
     maxReagents: 1
     metabolizerTypes: [ Doll, Human ]
-    stages: [ Metabolites ]
 
 - type: entity
   id: OrganDollKidneys
-  parent: [BaseDollOrgan, BaseOrganKidneys]
+  parent: [BaseDollOrgan, OrganHumanKidneys]
   name: kidneys
   description: "Ew, why does it have eyes?!?"
   components:
@@ -310,13 +306,12 @@
 - type: entity
   id: ShellFragmentDoll
   parent: [BaseKnife]
-  name: doll shell fragement
-  description: A shell piece, broken off of a doll. Sharp, and looks quite sturdy.
+  name: "doll shell fragment"
+  description: "A shell piece, broken off of a doll. Sharp, and looks quite sturdy."
   components:
   - type: Sprite
     sprite: _Starlight/Mobs/Species/Doll/organs.rsi
     state: shell
-  - type: Organ
   - type: PhysicalComposition
     materialComposition:
       Plasteel: 500
@@ -326,31 +321,3 @@
     damage:
       types:
         Slash: 15
-  - type: OrganShell
-  - type: OrganDamage
-    damage:
-      types:
-        Blunt: 30
-        Slash: 5
-        Piercing: 5
-  - type: Damageable
-    damageContainer: Biological
-  - type: MarkingOrgan
-    storeMarkings: true
-    appliedMarkings:
-      - DollShellHeadFemale
-      - DollShellChestFemale
-      - DollShellLArm
-      - DollShellLHand
-      - DollShellLLeg
-      - DollShellLFoot
-      - DollShellRArm
-      - DollShellRHand
-      - DollShellRLeg
-      - DollShellRFoot
-  - type: DamageModifierOrgan
-    modifiers:
-      coefficients:
-        Slash: -0.06 # Ten pieces subtract 0.6 coefficient
-        Piercing: -0.06
-        Heat: 0.03 # More shell pieces means more insulation means more cooking!

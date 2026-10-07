@@ -5,11 +5,9 @@
   components:
   - type: LanguageKnowledge
     speaks:
-    - GalacticCommon
-    - Darktongue
+    - TauCetiBasic
     understands:
-    - GalacticCommon
-    - Darktongue
+    - TauCetiBasic
   - type: Absorbable
   - type: Hunger
   - type: Icon
@@ -46,8 +44,9 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: Shell
-    generateShellPieceAction: ActionGenerateShellPiece
+ - type: SpawnOnAction
+  action: ActionGenerateShellPiece
+  prototype: ShellFragmentDoll
 
 - type: entity
   parent: BaseMobSpeciesOrganic
@@ -57,11 +56,9 @@
   components:
   - type: LanguageKnowledge
     speaks:
-    - GalacticCommon
-    - Darktongue
+    - TauCetiBasic
     understands:
-    - GalacticCommon
-    - Darktongue
+    - TauCetiBasic
   - type: Absorbable
   - type: Hunger
   - type: Icon
@@ -79,66 +76,53 @@
     hideLayersOnEquip:
     - Hair
     - Snout
-    allowProfileOverride: false
-    customSpecieName: "Creature of Flesh"
     sex: Unsexed
     eyeColor: '#FF0000'
     skinColor: '#FFFFFF'
-    eyeGlowing: true
     markingSet:
         markings:
           Arms:
             - markingId: DollShellLArmSegmented
               visible: True
-              isGlowing: False
               markingColor:
                 - '#FFFFFF'
             - markingId: DollShellRArmSegmented
               visible: True
-              isGlowing: False
               markingColor:
                 - '#FFFFFF'
             - markingId: DollShellLHandSegmented
               visible: True
-              isGlowing: False
               markingColor:
                 - '#FFFFFF'
             - markingId: DollShellRHandSegmented
               visible: True
-              isGlowing: False
               markingColor:
                 - '#FFFFFF'
           Legs:
             - markingId: DollShellLLegSegmented
               visible: True
-              isGlowing: False
               markingColor:
                 - '#FFFFFF'
             - markingId: DollShellRLegSegmented
               visible: True
-              isGlowing: False
               markingColor:
                 - '#FFFFFF'
             - markingId: DollShellLFootSegmented
               visible: True
-              isGlowing: False
               markingColor:
                 - '#FFFFFF'
             - markingId: DollShellRFootSegmented
               visible: True
-              isGlowing: False
               markingColor:
                 - '#FFFFFF'
           Head:
             - markingId: DollShellHeadSegmented
               visible: True
-              isGlowing: False
               markingColor:
                 - '#FFFFFF'
           Chest:
             - markingId: DollShellChestSegmented
               visible: True
-              isGlowing: False
               markingColor:
                 - '#FFFFFF'
   - type: Body
@@ -168,7 +152,6 @@
   components:
   - type: HumanoidAppearance
     species: Doll
-  - type: Body
     prototype: Doll
   - type: Inventory
     speciesId: Doll

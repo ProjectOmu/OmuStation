@@ -30,7 +30,7 @@
     proto: OxygenBreatherHaemovore
   storage:
     back:
-    - BoxHugBlood
+    - BoxMimeBlood
 
 - type: loadout
   id: EmergencyOxygenExtendedBlood
@@ -40,15 +40,6 @@
   storage:
     back:
     - BoxSurvivalEngineeringBlood
-
-- type: loadout
-  id: EmergencyOxygenMedicalBlood
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: OxygenBreatherHaemovore
-  storage:
-    back:
-    - BoxSurvivalMedicalBlood
 
 - type: loadout
   id: EmergencyOxygenSecurityBlood

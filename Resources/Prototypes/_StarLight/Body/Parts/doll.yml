@@ -15,9 +15,9 @@
         Quantity: 10
 
 - type: entity
-  id: TorsoDoll
-  name: "doll torso"
-  parent: [PartDoll, BaseTorso]
+  parent: [PartDoll, BaseChest] # Split torso into chest and groin
+  id: ChestDoll
+  name: "doll chest"
   components:
     - type: Sprite
       sprite: _Starlight/Mobs/Species/Doll/parts.rsi
@@ -28,12 +28,33 @@
     - type: Extractable
       juiceSolution:
         reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 20
-        - ReagentId: Fat
-          Quantity: 20
-        - ReagentId: Blood
-          Quantity: 40
+          - ReagentId: UncookedAnimalProteins
+            Quantity: 10
+          - ReagentId: Fat
+            Quantity: 10
+          - ReagentId: Blood
+            Quantity: 20
+
+- type: entity
+  id: GroinDoll
+  name: "doll groin"
+  parent: [PartDoll, BaseGroin]
+  components:
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Doll/parts.rsi
+      state: "torso"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Doll/parts.rsi
+      state: "torso"
+    - type: Extractable
+      juiceSolution:
+        reagents:
+          - ReagentId: UncookedAnimalProteins
+            Quantity: 10
+          - ReagentId: Fat
+            Quantity: 10
+          - ReagentId: Blood
+            Quantity: 20
 
 - type: entity
   id: HeadDoll
