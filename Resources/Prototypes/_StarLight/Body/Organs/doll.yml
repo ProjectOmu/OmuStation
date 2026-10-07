@@ -125,7 +125,7 @@
 
 - type: entity
   id: OrganDollBrain
-  parent: [BaseDollOrgan]
+  parent: [BaseDollOrgan, OrganHumanBrain]
   name: brain
   description: "A strange mass of meat somehow equivalent to a brain."
   components:
@@ -147,7 +147,7 @@
   - type: Tag
     tags:
       - Meat
-  - type: OrganBrain
+  - type: OrganHumanBrain
   - type: SolutionContainerManager
     solutions:
       organ:

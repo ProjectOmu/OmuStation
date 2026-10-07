@@ -44,9 +44,9 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
- - type: SpawnOnAction
-  action: ActionGenerateShellPiece
-  prototype: ShellFragmentDoll
+  - type: SpawnOnAction
+    action: ActionGenerateShellPiece
+    prototype: ShellFragmentDoll
 
 - type: entity
   parent: BaseMobSpeciesOrganic
