@@ -79,14 +79,15 @@
       path: /Audio/_Goobstation/Wraith/Attack/handcuffs.ogg
     damage:
       types:
-        Slash: 3
-        Blunt: 2
+        Slash: 4 #Omu edit start: nerfing the damage some
+#        Blunt: 2
+      armorPenetration: -0.4 # Omu edit end
   - type: SolutionContainerManager
     solutions:
       melee:
         reagents:
         - ReagentId: Toxin # Change this to rat spit once that disease effect gets coded.
-          Quantity: 100
+          Quantity: 50 # Omu edit
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 0.25
@@ -152,6 +153,7 @@
       types:
         Slash: 4
         Blunt: 4
+      armorPenetration: -0.2 # Omu edit end
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -241,14 +243,15 @@
       path: /Audio/_Goobstation/Wraith/Attack/handcuffs.ogg
     damage:
       types:
-        Slash: 3
-        Blunt: 2
+        Slash: 4 # Omu edit start
+#        Blunt: 2
+      armorPenetration: -0.4 # Omu edit end
   - type: SolutionContainerManager
     solutions:
       melee:
         reagents:
         - ReagentId: Toxin # Change this to rat spit once that disease effect gets coded.
-          Quantity: 100
+          Quantity: 50
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 0.25
