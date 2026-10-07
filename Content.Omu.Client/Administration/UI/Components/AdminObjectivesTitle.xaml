@@ -5,7 +5,7 @@
     xmlns:components="clr-namespace:Content.Omu.Client.Administration.UI.Components">
     <PanelContainer VerticalExpand="false" HorizontalExpand="false" HorizontalAlignment="Left">
         <PanelContainer.PanelOverride>
-            <graphics:StyleBoxFlat BorderColor="#444551" BorderThickness="2" />
+            <graphics:StyleBoxFlat BorderColor="#545456" BorderThickness="2" />
         </PanelContainer.PanelOverride>
         <RichTextLabel Name="Text" Margin="4 0"/>
     </PanelContainer>
