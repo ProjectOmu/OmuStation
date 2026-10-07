@@ -3,12 +3,6 @@
   id: BaseMobDoll
   abstract: true
   components:
-  - type: entity
-  parent: BaseMobSpeciesOrganic
-  id: BaseMobDoll
-  abstract: true
-  components:
-  - type: SomeComponent
   - type: SpawnOnAction
     action: ActionGenerateShellPiece
     entityToSpawn: ShellFragmentDoll
