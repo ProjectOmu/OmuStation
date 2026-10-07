@@ -711,7 +711,7 @@
         maxVol: 10
   - type: RefillableSolution
     solution: hypospray
-    refillTime: 0.75
+    refillTime: 0.5 # 0.75 # Omu, 2/3 the base refill time; note that draw time is in HypopenDynamicMode
     maxRefill: 5
   - type: ExaminableSolution
     solution: hypospray
