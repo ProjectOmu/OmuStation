@@ -8562,3 +8562,171 @@ Entries:
         potent medicinal overdoses, like Bruizine.
   id: 1110
   time: '2026-10-05T02:11:06.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Remove
+      message: Removed salvager syndieborg/ipc ghostroles
+    - type: Tweak
+      message: >-
+        Reverted printable concgauntlets, buy them at the salvage vend, now
+        costing 10k points
+    - type: Tweak
+      message: Concussive gauntlet damage is halved when on station
+  id: 1111
+  time: '2026-10-05T05:29:02.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Fix
+      message: Fixed a localization error with crayons.
+  id: 1112
+  time: '2026-10-05T14:31:11.0000000+00:00'
+- author: Naaatch
+  changes:
+    - type: Fix
+      message: Hijack checks now specifically ignore ghosts.
+  id: 1113
+  time: '2026-10-05T14:32:13.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Add
+      message: >-
+        Added the secarang, a stunbaton boomerang, watch the clown catch it when
+        sec throws it at them for getting pie'd
+  id: 1114
+  time: '2026-10-05T18:57:19.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added Tevik plushie
+  id: 1115
+  time: '2026-10-05T19:06:02.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the inline filter on glacier's vox box to a gas filter due to it
+        merging distro and waste
+  id: 1116
+  time: '2026-10-06T02:45:47.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: Lawyers get their own headset with sec and service comms
+  id: 1117
+  time: '2026-10-06T03:04:19.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Tweak
+      message: Cyborgs no longer make noise when switching modules.
+  id: 1118
+  time: '2026-10-06T03:37:30.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Remove
+      message: >-
+        Shōko station is no longer in map rotation, as it doesn't meet Omu's
+        mapping standards.
+  id: 1119
+  time: '2026-10-06T04:06:02.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Add
+      message: >-
+        There is now a new lawset for silicon: Reportertron. The lawset says to
+        report on interesting situations around the station. It can be gotten in
+        ion storms.
+  id: 1120
+  time: '2026-10-06T04:06:22.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        Chloral Hydrate puts people to sleep at reasonable doses (at minimum
+        5.5u to at most 13u) within 15 to 30 seconds. This is equivalent to 2-4
+        tranquilizer shells (8u-16u).
+  id: 1121
+  time: '2026-10-06T05:17:44.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed eyes of god not working properly
+  id: 1122
+  time: '2026-10-06T05:30:30.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Explosive damage raised (Now only SLIGHTLY weaker than post upstream)
+  id: 1123
+  time: '2026-10-06T15:08:42.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: Fixed xelthia being poisoned by raw meat
+  id: 1124
+  time: '2026-10-06T16:44:31.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: Removed the thaven outlaw mood
+  id: 1125
+  time: '2026-10-06T18:28:49.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Add
+      message: Added Roger Cagel plushie to the crew morale crate.
+  id: 1126
+  time: '2026-10-06T19:00:42.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        The Core Rules, Roleplay Rules, and Silicon Rules have finally been
+        reworked. Characters are permitted to carry over round information
+        between rounds, but PLEASE do not use this to metagame the antags. We
+        trust you to be responsible with your LARP.
+  id: 1127
+  time: '2026-10-06T19:28:47.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Tweak
+      message: Upped the price of tracking implant crates
+    - type: Tweak
+      message: >-
+        Moved distress signalers to the cargo catalog instead of roundstart
+        equipment
+  id: 1128
+  time: '2026-10-06T20:24:54.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: lowered explosion damage(wrong numbers got pushed)
+  id: 1129
+  time: '2026-10-06T23:45:50.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: Grounding rods and tesla coils should get stuck on doors less often
+  id: 1130
+  time: '2026-10-07T04:01:58.0000000+00:00'
+- author: arachnid14
+  changes:
+    - type: Tweak
+      message: >-
+        Goliath Hardsuit is now crafted with a Hardsuit, instead of the explorer
+        suit.
+  id: 1131
+  time: '2026-10-07T18:00:40.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        Spray painter got some love. You can now paint all your favourite
+        atmosian appliances with BZ, Nitrium, Pluoxium and Healium colours.
+    - type: Tweak
+      message: Spray painter can now spray pipes in several new standard colours
+    - type: Tweak
+      message: >-
+        Spray painter pipes category has been re-arranged to be in a more
+        reasonable colour order
+  id: 1132
+  time: '2026-10-07T18:04:37.0000000+00:00'
