@@ -390,7 +390,6 @@ public sealed partial class SupermatterComponent : Component
         {Gas.BZ, 0f}, // Assmos - /tg/ gases
         {Gas.Healium, 0f}, // Assmos - /tg/ gases
         {Gas.Pluoxium, 0f}, // Assmos - /tg/ gases
-        {Gas.Gekkerzine, 0f}, // Omu
 
     };
 
@@ -412,7 +411,6 @@ public sealed partial class SupermatterComponent : Component
         [Gas.BZ] = (TransmitModifier: 0f, HeatPenalty: 5f, PowerMixRatio: 1f, AngerValue: 3f), // Assmos - /tg/ gases
         [Gas.Healium] = (TransmitModifier: 2.4f, HeatPenalty: 4f, PowerMixRatio: 1f, AngerValue: -5f), // Assmos - /tg/ gases
         [Gas.Pluoxium] = (TransmitModifier: 0f, HeatPenalty: -2.5f, PowerMixRatio: -1f, AngerValue: -3f), // Assmos - /tg/ gases
-        [Gas.Gekkerzine] = (TransmitModifier: 0f, HeatPenalty: 0f, PowerMixRatio: 1f, AngerValue: 1f), // Omu
     };
 
     #endregion SM Gas
