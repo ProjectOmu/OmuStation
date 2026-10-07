@@ -44,19 +44,29 @@
     Head:
       points: 1
       required: true
-      defaultMarkings: [ DollShellHeadFemale ]
+      defaultMarkings:
+        - DollShellHeadFemale
     Chest:
       points: 1
       required: true
-      defaultMarkings: [ DollShellChestFemale ]
+      defaultMarkings:
+        - DollShellChestFemale
     Legs:
       points: 4
       required: true
-      defaultMarkings: [ DollShellLLeg, DollShellLFoot, DollShellRLeg, DollShellRFoot ]
+      defaultMarkings:
+        - DollShellLLeg
+        - DollShellLFoot
+        - DollShellRLeg
+        - DollShellRFoot
     Arms:
       points: 4
       required: true
-      defaultMarkings: [ DollShellLArm, DollShellLHand, DollShellRArm, DollShellRHand ]
+      defaultMarkings:
+        - DollShellLArm
+        - DollShellLHand
+        - DollShellRArm
+        - DollShellRHand
     Special:
       points: 0
       required: false
