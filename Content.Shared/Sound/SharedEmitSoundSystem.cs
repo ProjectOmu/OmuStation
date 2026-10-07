@@ -7,6 +7,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Maps;
 using Content.Shared.Mobs;
 using Content.Shared.Popups;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Sound.Components;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
@@ -128,7 +129,8 @@ public abstract class SharedEmitSoundSystem : EntitySystem
 
     private void OnEmitSoundOnPickup(EntityUid uid, EmitSoundOnPickupComponent component, GotEquippedHandEvent args)
     {
-        TryEmitSound(uid, component, args.User);
+        if (!HasComp<BorgChassisComponent>(args.User)) /// Omu edit: Cyborgs no longer make a ton of noise when switching modules.
+            TryEmitSound(uid, component, args.User);
     }
 
     private void OnEmitSoundOnDrop(EntityUid uid, EmitSoundOnDropComponent component, DroppedEvent args)
