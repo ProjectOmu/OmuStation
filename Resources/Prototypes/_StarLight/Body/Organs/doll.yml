@@ -1,14 +1,6 @@
 - type: entity
   id: BaseDollOrgan
-  parent:
-  - BaseMob
-  - MobPolymorphable
-  - MobAtmosExposed
-  - MobBloodstream
-  - MobFlammable
-  - MobRespirator
-  - MobAtmosStandard
-  - BaseItem
+  parent: BaseItem
   abstract: true
   components:
   - type: Sprite
@@ -30,13 +22,13 @@
           Quantity: 15
   - type: FlavorProfile
     flavors:
-      - savory
-      - meaty
-      - strange
-      - spooky
+    - savory
+    - meaty
+    - strange
+    - spooky
   - type: Tag
     tags:
-      - Meat
+    - Meat
   - type: StatusEffects
     allowed:
     - Electrocution
@@ -50,8 +42,6 @@
       reagents:
       - ReagentId: Blood
         Quantity: 150
-  - type: MobPrice
-    price: 150
   - type: FloatingVisuals
   - type: Damageable
     damageContainer: Biological
