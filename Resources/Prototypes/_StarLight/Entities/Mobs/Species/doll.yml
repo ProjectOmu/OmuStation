@@ -4,8 +4,11 @@
   abstract: true
   components:
   - type: SpawnOnAction
-    action: ActionGenerateShellPiece
-    entityToSpawn: ShellFragmentDoll
+  action: ActionGenerateShellPiece
+  entityToSpawn: ShellFragmentDoll
+  damage:
+    types:
+      Slash: 5
   - type: LanguageKnowledge
     speaks:
     - TauCetiBasic
