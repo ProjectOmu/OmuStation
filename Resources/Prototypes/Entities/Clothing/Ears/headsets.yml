@@ -236,7 +236,7 @@
       - EncryptionKeyCommon
 
 - type: entity
-  parent: [ClothingHeadset, BaseSecurityLawyerContraband]
+  parent: [ClothingHeadset, BaseSecurityContraband] # Omu, lawyer get service key
   id: ClothingHeadsetSecurity
   name: security headset
   description: This is used by your elite security force.
