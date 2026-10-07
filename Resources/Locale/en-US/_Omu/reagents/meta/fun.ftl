@@ -34,5 +34,5 @@ reagent-desc-awebo = A strange concentrate of alchohol that makes you forget you
 reagent-name-gekkerzine = Gekkerzine
 reagent-desc-gekkerzine = An annoying chemical that makes you gekker just like a vulp.
 
-reagent-name-baa = Juice that makes you baa
-reagent-desc-baa = A suspicious concoction that leaves you bleating.
+reagent-name-baaveltine = Baaveltine
+reagent-desc-baaveltine = A suspicious concoction that leaves you bleating.

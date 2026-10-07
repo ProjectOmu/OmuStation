@@ -315,10 +315,10 @@
           min: 50
 
 - type: reagent
-  id: JuiceThatMakesYouBaa
-  name: reagent-name-baa
+  id: Baaveltine
+  name: reagent-name-baaveltine
   group: Toxins
-  desc: reagent-desc-baa
+  desc: reagent-desc-baaveltine
   physicalDesc: reagent-physical-desc-fluffy
   flavor: baa
   color: "#efe6d2"
@@ -333,9 +333,9 @@
         force: true
         probability: 0.5
       - !type:AdjustReagent
-        reagent: JuiceThatMakesYouBaa
+        reagent: Baaveltine
         amount: -20
         conditions:
         - !type:ReagentCondition
-          reagent: JuiceThatMakesYouBaa
+          reagent: Baaveltine
           min: 50
