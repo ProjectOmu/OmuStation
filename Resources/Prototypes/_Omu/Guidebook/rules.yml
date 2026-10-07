@@ -1,15 +1,14 @@
 - type: guideEntry
   id: OmuRuleset
   name: guide-entry-rules
+  ruleEntry: true # well, at least this turns on the ability to click "Home" in the guidebook
   priority: 1
   text: "/ServerInfo/_Omu/Guidebook/ServerRules/OmuRules.xml"
-  children:
-  - Conditions
 
 ## Core Rules
 - type: guideEntry
   id: RuleAdmins
-  name: guide-entry-rules-admins
+  name: guide-entry-rules-admins # almost none of these have .ftl entries because these do not show up in the guidebook
   ruleEntry: true
   priority: 2
   text: "/ServerInfo/_Omu/Guidebook/ServerRules/CoreRules/RuleC0Admins.xml"
@@ -21,12 +20,38 @@
   priority: 3
   text: "/ServerInfo/_Omu/Guidebook/ServerRules/CoreRules/RuleC1Dick.xml"
 
+# Metagaming start
 - type: guideEntry
-  id: RuleMetagame
+  id: RuleMetagameOverview
   name: guide-entry-rules-metagame
   ruleEntry: true
   priority: 4
   text: "/ServerInfo/_Omu/Guidebook/ServerRules/CoreRules/RuleC2Metagame.xml"
+  children:
+  - RuleMetagamePowergaming
+  - RuleMetagameMetagaming
+
+- type: guideEntry
+  id: RuleMetagamePowergaming
+  name: guide-entry-rules-metagame-powergaming
+  ruleEntry: true
+  priority: 1
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/CoreRules/RuleC2p1Powergaming.xml"
+
+- type: guideEntry
+  id: RuleMetagameMetagaming
+  name: guide-entry-rules-metagame-metagaming
+  ruleEntry: true
+  priority: 2
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/CoreRules/RuleC2p2Metagaming.xml"
+
+- type: guideEntry
+  id: RuleMetagameMetafriend # formerly RP rule 6
+  name: guide-entry-rules-metafriend
+  ruleEntry: true
+  priority: 3
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/CoreRules/RuleC2p3Metafriend.xml"
+# Metagaming end
 
 - type: guideEntry
   id: RuleICKOCK
@@ -87,100 +112,166 @@
 ## Roleplay Rules
 
 - type: guideEntry
+  id: RuleRoleplayAboveAll
+  name: guide-entry-rules-roleplayaboveall
+  ruleEntry: true
+  priority: 13
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/RoleplayRules/RuleR0RoleplayAboveAll.xml"
+
+# Rule 1 start
+- type: guideEntry
   id: RuleEffort
   name: guide-entry-rules-effort
   ruleEntry: true
-  priority: 13
+  priority: 14
   text: "/ServerInfo/_Omu/Guidebook/ServerRules/RoleplayRules/RuleR1NoLRP.xml"
 
 - type: guideEntry
-  id: RuleEscalate
-  name: guide-entry-rules-esalate
+  id: RuleGimmickCreativity
+  name: guide-entry-rules-gimmickcreativity
   ruleEntry: true
-  priority: 14
+  priority: 1
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/RoleplayRules/RuleR1p1GimmickCreativity.xml"
+# Rule 1 end
+
+- type: guideEntry
+  id: RuleEscalate
+  name: guide-entry-rules-esalate #lol, lmao
+  ruleEntry: true
+  priority: 15
   text: "/ServerInfo/_Omu/Guidebook/ServerRules/RoleplayRules/RuleR2Escalation.xml"
 
 - type: guideEntry
   id: RuleNothingEverHappens
   name: guide-entry-rules-nothingeverhappens
   ruleEntry: true
-  priority: 15
+  priority: 16
   text: "/ServerInfo/_Omu/Guidebook/ServerRules/RoleplayRules/RuleR3NothingEverHappens.xml"
 
 - type: guideEntry
   id: RuleBehaviour
   name: guide-entry-rules-behaviour
   ruleEntry: true
-  priority: 16
+  priority: 17
   text: "/ServerInfo/_Omu/Guidebook/ServerRules/RoleplayRules/RuleR4Behaviour.xml"
 
 - type: guideEntry
   id: RuleMainCharacterSyndrome
   name: guide-entry-rules-maincharactersyndrome
   ruleEntry: true
-  priority: 17
+  priority: 18
   text: "/ServerInfo/_Omu/Guidebook/ServerRules/RoleplayRules/RuleR5MCSyndrome.xml"
 
 - type: guideEntry
-  id: RuleMetafriend
-  name: guide-entry-rules-metafriend
-  ruleEntry: true
-  priority: 18
-  text: "/ServerInfo/_Omu/Guidebook/ServerRules/RoleplayRules/RuleR6Metafriend.xml"
-
-  # Readding some upstream rules that are sensible but because it'd be a mess to comment priorities and numbers im moving em here under new IDs.
-  # If you make any rule changes to these take them out of the goob section and make a new xml in an omu directory.
-  # Goobrules start.
-
-- type: guideEntry
-  id: RuleBSO
-  name: guide-entry-rules-r12 #we can probably leave the ftls unchanged but yeah if you touch anything make an omu one.
+  id: RuleVigilantism
+  name: guide-entry-rules-vigilantism
   ruleEntry: true
   priority: 19
-  text: "/ServerInfo/_Omu/Guidebook/ServerRules/RoleplayRules/RuleR7BSO.xml"
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/RoleplayRules/RuleR6Vigilantism.xml"
 
 - type: guideEntry
-  id: RuleNTR
-  name: guide-entry-rules-r13
+  id: RuleDeathAmnesia
+  name: guide-entry-rules-nlr
   ruleEntry: true
   priority: 20
-  text: "/ServerInfo/_Omu/Guidebook/ServerRules/RoleplayRules/RuleR8NTR.xml"
-
-- type: guideEntry
-  id: RuleNLR
-  name: guide-entry-rules-r14
-  ruleEntry: true
-  priority: 21
-  text: "/ServerInfo/_Omu/Guidebook/ServerRules/RoleplayRules/RuleR9NLR.xml"
-
-- type: guideEntry
-  id: RuleBadGuys
-  name: guide-entry-rules-r7
-  ruleEntry: true
-  priority: 22
-  text: "/ServerInfo/_Omu/Guidebook/ServerRules/RoleplayRules/RuleR10Criminal.xml"
-
-- type: guideEntry
-  id: RuleValidhunt
-  name: guide-entry-rules-r5
-  ruleEntry: true
-  priority: 23
-  text: "/ServerInfo/_Omu/Guidebook/ServerRules/RoleplayRules/RuleR11Validhunt.xml"
-
-  # Goobrules end
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/RoleplayRules/RuleR7NLR.xml"
 
 - type: guideEntry
   id: RuleMetashield
-  name: guide-entry-rules-r14
+  name: guide-entry-rules-metashield
   ruleEntry: true
-  priority: 24
-  text: "/ServerInfo/_Omu/Guidebook/ServerRules/RoleplayRules/RuleR12Metashield.xml"
+  priority: 21
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/RoleplayRules/RuleR8Metashield.xml"
+
+- type: guideEntry
+  id: RuleDignitaries
+  name: guide-entry-rules-dignitaries
+  ruleEntry: true
+  priority: 22
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/RoleplayRules/RuleR9Dignitaries.xml"
+
+- type: guideEntry
+  id: RuleMentors
+  name: guide-entry-rules-mentors
+  ruleEntry: true
+  priority: 23
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/RoleplayRules/RuleR10Mentors.xml"
 
 ##Silicon rules
 
 - type: guideEntry
-  id: RuleSiliconLaws
-  name: guide-entry-rules-siliconlaws
+  id: OmuRuleS1 # could not be bothered to fully name these modularly
+  name: guide-entry-rules-s1 # these names technically go unchanged from their goob counterparts
+  ruleEntry: true
+  priority: 24
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/SiliconRules/OmuRuleS1.xml"
+
+- type: guideEntry
+  id: OmuRuleS2
+  name: guide-entry-rules-s2
   ruleEntry: true
   priority: 25
-  text: "/ServerInfo/_Omu/Guidebook/ServerRules/SiliconRules/RuleSiliconLaws.xml"
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/SiliconRules/OmuRuleS2.xml"
+
+- type: guideEntry
+  id: OmuRuleS3
+  name: guide-entry-rules-s3
+  ruleEntry: true
+  priority: 26
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/SiliconRules/OmuRuleS3.xml"
+
+- type: guideEntry
+  id: OmuRuleS4
+  name: guide-entry-rules-s4
+  ruleEntry: true
+  priority: 27
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/SiliconRules/OmuRuleS4.xml"
+
+- type: guideEntry
+  id: OmuRuleS5
+  name: guide-entry-rules-s5
+  ruleEntry: true
+  priority: 28
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/SiliconRules/OmuRuleS5.xml"
+
+- type: guideEntry
+  id: OmuRuleS6
+  name: guide-entry-rules-s6
+  ruleEntry: true
+  priority: 29
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/SiliconRules/OmuRuleS6.xml"
+
+- type: guideEntry
+  id: OmuRuleS7
+  name: guide-entry-rules-s7
+  ruleEntry: true
+  priority: 30
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/SiliconRules/OmuRuleS7.xml"
+
+- type: guideEntry
+  id: OmuRuleS8
+  name: guide-entry-rules-s8
+  ruleEntry: true
+  priority: 31
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/SiliconRules/OmuRuleS8.xml"
+
+- type: guideEntry
+  id: OmuRuleS9
+  name: guide-entry-rules-s9
+  ruleEntry: true
+  priority: 32
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/SiliconRules/OmuRuleS9.xml"
+
+- type: guideEntry
+  id: OmuRuleS10
+  name: guide-entry-rules-s10
+  ruleEntry: true
+  priority: 33
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/SiliconRules/OmuRuleS10.xml"
+
+- type: guideEntry        # this used to be an omu edit in a goob namespace
+  id: RuleS11 # apparently there are a few dependencies floating around on this name
+  name: guide-entry-rules-s11 # this name doesn't exist anywhere else
+  ruleEntry: true
+  priority: 34
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/SiliconRules/RuleS11NTDefault.xml"
