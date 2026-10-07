@@ -44,13 +44,13 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: SpawnOnAction
-    action: ActionGenerateShellPiece
-    prototype: ShellFragmentDoll
+- type: SpawnOnAction
+  action: ActionGenerateShellPiece
+  entityToSpawn: ShellFragmentDoll
 
 - type: entity
   parent: BaseMobSpeciesOrganic
-  id: BaseMobDoll
+  id: BaseMobDollFresh
   description: Where did that shell come from? It is all soft and spongy...
   abstract: true
   components:
