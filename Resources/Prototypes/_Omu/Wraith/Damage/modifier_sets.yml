@@ -1,0 +1,8 @@
+- type: damageModifierSet
+  id: PlagueRat
+  coefficients:
+    Heat: 1.5
+    Poison: 0.0
+    Radiation: 0.3 # Resistent but not immune to rads.
+    Holy: 0.5 # while unholy it's not fully metaphysical like demons and what not
+  ignoreArmorPierceFlags: All

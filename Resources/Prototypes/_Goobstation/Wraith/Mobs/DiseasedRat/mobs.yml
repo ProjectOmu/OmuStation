@@ -101,7 +101,7 @@
     baseSprintSpeed: 6
   - type: Damageable
     damageContainer: Biological
-    damageModifierSet: Diona # Weak to heat
+    damageModifierSet: PlagueRat # Omu edit: why was this using Diona's modset before.
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -126,6 +126,8 @@
     color: "#00FF00"
     activateSound: null
     deactivateSound: null
+  - type: WeakToHoly # Omu edit
+    alwaysTakeHoly: true
 
 - type: entity
   id: MobPlagueRatMedium
@@ -153,7 +155,7 @@
       types:
         Slash: 4
         Blunt: 4
-      armorPenetration: -0.2 # Omu edit end
+      armorPenetration: -0.2 # Omu edit
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -265,7 +267,7 @@
     baseSprintSpeed: 6
   - type: Damageable
     damageContainer: Biological
-    damageModifierSet: Diona # Weak to heat
+    damageModifierSet: PlagueRat # Omu edit
   - type: Destructible
     thresholds:
       - trigger:
@@ -277,3 +279,5 @@
           - !type:PlaySoundBehavior
             sound:
               path: /Audio/Items/snap.ogg
+  - type: WeakToHoly # Omu edit
+    alwaysTakeHoly: true
