@@ -21,7 +21,6 @@
       organs:
         heart: OrganDollHeart
         lungs: OrganDollLungs
-        cavity: null
 
     groin:
       part: GroinDoll
@@ -37,38 +36,30 @@
       part: RightArmDoll
       connections:
       - right hand
-      organs:
 
     left arm:
       part: LeftArmDoll
       connections:
       - left hand
-      organs:
 
     right hand:
       part: RightHandDoll
-      organs:
 
     left hand:
       part: LeftHandDoll
-      organs:
 
     right leg:
       part: RightLegDoll
       connections:
       - right foot
-      organs:
 
     left leg:
       part: LeftLegDoll
       connections:
       - left foot
-      organs:
 
     right foot:
       part: RightFootDoll
-      organs:
 
     left foot:
       part: LeftFootDoll
-      organs:
