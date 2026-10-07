@@ -631,13 +631,6 @@
           type: [ Vox ]
         reagent: Protein
         amount: 0.25
-        # Starlight Start
-      - !type:AdjustReagent
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Doll ]
-        reagent: Protein
-        amount: 0.5
       # Omu Ported from Starlight Start
       - !type:AdjustReagent
         conditions:

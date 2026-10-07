@@ -839,14 +839,19 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
-  metabolisms: # SL Dolls
+  metabolisms:
     Drink:
       effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15
       # Omu Ported from Starlight Start
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: Doll
+          type: [ Doll ]
         damage:
           groups:
             Brute: -1.5
@@ -854,7 +859,7 @@
       # Omu Ported from Starlight End
 
 - type: reagent
-  id:  ooger
+  id:  Booger
   name: reagent-name-booger
   parent: BaseAlcohol
   desc: reagent-desc-booger
