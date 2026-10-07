@@ -60,6 +60,3 @@ yellow_swap = yellow Swap
 rainbow = rainbow wildcard
 rainbow_draw = rainbow +4
 
-container-sealed = A still-sealed pack of Solarian Yinji cards. Yinji: the legally distinct color- and number-matching game. First to one card wins!
-container-unsealed = The seal attached to it dissipates.
-
