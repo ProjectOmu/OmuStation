@@ -38,7 +38,7 @@ public sealed partial class TackleSystem
 
     private void OnMass(Entity<PhysicsComponent> ent, ref CalculateTackleModifierEvent args)
     {
-        args.Modifier += (ent.Comp.Mass / 140f - 0.5f) * 2f;
+        // args.Modifier += (ent.Comp.Mass / 140f - 0.5f) * 2f; Omu - Oni exist and cause alllllll sorts of problems
     }
 
     private void OnClumsy(Entity<ClumsyComponent> ent, ref CalculateTackleModifierEvent args)
