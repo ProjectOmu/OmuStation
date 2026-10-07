@@ -1,34 +1,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # copied from Resources/Prototypes/_Omu/Entities/Objects/Misc/yinjisol_cards.yml
 
-card-examined = This is the {$target}.
-cards-verb-shuffle = Shuffle
-card-verb-shuffle-success = Cards shuffled
-cards-verb-draw = Draw card
-cards-verb-flip = Flip cards
-card-verb-join = Join cards
-card-verb-organize-success = Cards flipped face { $facedown ->
-    [true]   down
-    *[false] up
-}
-cards-verb-organize-up = Flip cards face up
-cards-verb-organize-down = Flip cards face down
-cards-verb-pickcard = Pick a card
-card-stack-examine = { $count ->
-    [one] There is {$count} card in this stack.
-    *[other] There are {$count} cards in this stack.
-}
-cards-stackquantitychange-added = Card was added (Total cards: {$quantity})
-cards-stackquantitychange-removed = Card was removed (Total cards: {$quantity})
-cards-stackquantitychange-joined = Stack was merged (Total cards: {$quantity})
-cards-stackquantitychange-split = Stack was split (Total cards: {$quantity})
-cards-stackquantitychange-unknown = Stack count changed (Total cards: {$quantity})
-cards-verb-convert-to-deck = Convert to deck
-cards-verb-split = Split in half
-
-card-base-name = card
-card-deck-name = deck of cards
-
 red_0 = red 0
 red_1 = red 1
 red_2 = red 2
