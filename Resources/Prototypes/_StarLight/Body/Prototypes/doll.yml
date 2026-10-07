@@ -11,9 +11,6 @@
         brain: OrganDollBrain
         eyes: OrganDollEyes
         tongue: OrganDollTongue
-        eye_implant: null
-        brain_implant: null
-        shell: ShellFragmentDoll
 
     torso:
       part: ChestDoll
@@ -25,7 +22,6 @@
         heart: OrganDollHeart
         lungs: OrganDollLungs
         cavity: null
-        shell: ShellFragmentDoll
 
     groin:
       part: GroinDoll
@@ -33,7 +29,6 @@
       - right leg
       - left leg
       organs:
-        shell: ShellFragmentDoll
         stomach: OrganDollStomach
         liver: OrganDollLiver
         kidneys: OrganDollKidneys
@@ -43,47 +38,37 @@
       connections:
       - right hand
       organs:
-        shell: ShellFragmentDoll
 
     left arm:
       part: LeftArmDoll
       connections:
       - left hand
       organs:
-        shell: ShellFragmentDoll
 
     right hand:
       part: RightHandDoll
       organs:
-        hand_implant: null
-        shell: ShellFragmentDoll
 
     left hand:
       part: LeftHandDoll
       organs:
-        hand_implant: null
-        shell: ShellFragmentDoll
 
     right leg:
       part: RightLegDoll
       connections:
       - right foot
       organs:
-        shell: ShellFragmentDoll
 
     left leg:
       part: LeftLegDoll
       connections:
       - left foot
       organs:
-        shell: ShellFragmentDoll
 
     right foot:
       part: RightFootDoll
       organs:
-        shell: ShellFragmentDoll
 
     left foot:
       part: LeftFootDoll
       organs:
-        shell: ShellFragmentDoll
