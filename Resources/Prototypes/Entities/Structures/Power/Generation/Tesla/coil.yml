@@ -16,10 +16,9 @@
     fixtures:
       fix1:
         shape:
-
+# Omu - Made it a circle because FUCK airlocks.
 #          !type:PhysShapeAabb
 #          bounds: "-0.45,-0.45,0.45,0.45"
-# Omu - Made it a circle because FUCK airlocks.
           !type:PhysShapeCircle # Omu
             radius: 0.45 # Omu
         density: 190
@@ -144,9 +143,9 @@
     fixtures:
       fix1:
         shape:
+# Omu - Made it a circle because FUCK airlocks.
 #          !type:PhysShapeAabb
 #          bounds: "-0.45,-0.45,0.45,0.45"
-# Omu - Made it a circle because FUCK airlocks.
           !type:PhysShapeCircle # Omu
             radius: 0.45 # Omu
         density: 110
