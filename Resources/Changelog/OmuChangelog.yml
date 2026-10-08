@@ -8730,3 +8730,13 @@ Entries:
         reasonable colour order
   id: 1132
   time: '2026-10-07T18:04:37.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Add
+      message: Added signature fonts that are a character trait.
+    - type: Add
+      message: The Cybersun pen can choose a signature font.
+    - type: Tweak
+      message: Signatures no longer look like stamps.
+  id: 1133
+  time: '2026-10-07T23:14:04.0000000+00:00'
