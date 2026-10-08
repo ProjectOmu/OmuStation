@@ -129,6 +129,7 @@
       components:
       - BorgChassis
       - BibleUser
+      - MaterialReclaimer # Omu edit
     event: !type:DecayEvent
   - type: ActionWraithPoints
     wpConsume: 30
