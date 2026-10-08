@@ -1,1 +1,1 @@
-oni-examined = [color=orange]{CAPITALIZE(SUBJECT($target))} is drooling incessantly.[/color]
+oni-examined = [color=orange]{CAPITALIZE(CONJUGATE-BE($target))} is drooling incessantly.[/color]
