@@ -1,0 +1,53 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseLockerTeleporter
+  id: BosunSuitTeleporter
+  name: bosun suit teleporter
+  description: Compact device allowing the Bosun to request bluespace delivery of their hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Devices/unique_teleporters.rsi
+    state: shaft-miner
+  - type: SpawnItemsOnUse
+    items:
+    - id: ClothingOuterHardsuitBosun
+    - id: BluespaceLifeline
+
+- type: entity
+  parent: BosunSuitTeleporter
+  id: UniqueBosunSuitTeleporter
+  suffix: Unique
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: UniqueEntityChecker
+#    markerName: BosunLocker # TODO: make this a real prototype?
+  - type: UniqueEntityMarker
+#    markerName: BosunLocker
+    stationOnly: false
+
+- type: entity
+  parent: BaseLockerTeleporter
+  id: ForemanSuitTeleporter
+  name: foreman suit teleporter
+  description: Compact device allowing the Foreman to request bluespace delivery of their hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Devices/unique_teleporters.rsi
+    state: salvage
+  - type: SpawnItemsOnUse
+    items:
+    - id: ClothingOuterHardsuitForeman
+    - id: BluespaceLifeline
+
+- type: entity
+  parent: ForemanSuitTeleporter
+  id: UniqueForemanSuitTeleporter
+  suffix: Unique
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: UniqueEntityChecker
+#    markerName: ForemanLocker # TODO: make this a real prototype?
+  - type: UniqueEntityMarker
+#    markerName: ForemanLocker
+    stationOnly: false
