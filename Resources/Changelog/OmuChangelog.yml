@@ -8769,3 +8769,11 @@ Entries:
       message: added medical ushankas for all doctors and the corpsman / brigmedic
   id: 1136
   time: '2026-10-08T21:14:11.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Roundstart wizard will now run on its own (i.e, it will not role for any
+        other antags round start if wizard is rolled)
+  id: 1137
+  time: '2026-10-08T23:10:44.0000000+00:00'
