@@ -15,6 +15,11 @@
 #  id: PsionicsTraits
 #  name: trait-category-psionics
 
+- type: traitCategory
+  id: SignatureTraits
+  name: trait-category-signature
+  maxTraitPoints: 1
+
 # a SpeechTraits category has already been added upstream, no need to remake it here.
 # - type: traitCategory
 #    id: SpeechTraits
