@@ -10,5 +10,8 @@ guide-entry-sop-corpsman = Corpsman
 guide-entry-sop-security-sergeant = Sergeant
 
 # - General
-guide-entry-training-manual-crew = Crew Training Manual
 guide-entry-training-manuals = Training Manuals
+guide-entry-training-manual-crew = Crew Training Manual
+guide-entry-training-manual-classified = Classified Training Manual
+guide-entry-training-manual-dignitary = Dignitary Training Manual
+
