@@ -180,7 +180,7 @@ public sealed class HungerSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        if (component.CurrentThreshold <= HungerThreshold.Starving &&
+        if (component.CurrentThreshold <= component.StarvationThreshold && //omu edit
             component.StarvationDamage is { } damage &&
             !_mobState.IsDead(uid))
         {

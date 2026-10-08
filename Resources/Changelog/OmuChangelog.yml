@@ -8740,3 +8740,17 @@ Entries:
       message: Signatures no longer look like stamps.
   id: 1133
   time: '2026-10-07T23:14:04.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Add
+      message: >-
+        Added a decal preview when holding a crayon or a spray painter set to
+        add decals.
+    - type: Add
+      message: >-
+        Crayon and spray painter decals can be rotated with the rotate key,
+        middle mouse by default.
+    - type: Add
+      message: Added a decal preview opacity setting in General options.
+  id: 1134
+  time: '2026-10-08T08:44:02.0000000+00:00'
