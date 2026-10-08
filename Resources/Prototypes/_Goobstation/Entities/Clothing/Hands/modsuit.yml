@@ -27,7 +27,7 @@
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsStandard
   name: standard modsuit gauntlets
-  description: Special modular suit gloves that protect wearer from electric shock.
+  description: Modular suit gloves that protect the wearer from electric shock. # Omu
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -63,7 +63,7 @@
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsSecurity
   name: soldat modsuit gauntlets
-  description: Robust modular suit gloves for gripping perps and guns tight.
+  description: Robust modular suit gloves for gripping perps and guns tightly. # Omu
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -102,7 +102,7 @@
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsParamedic
   name: sanitater modsuit gauntlets
-  description: Modular, sterile suit gloves for gripping percs and patients tight. # Omu
+  description: Sterile modular suit gloves for gripping percs and patients tightly. # Omu
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -148,7 +148,7 @@
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsHeadOfSecurity
   name: bulwark modsuit gauntlets
-  description: Robust modular suit gloves for gripping perps and guns tight. Insulated.
+  description: Robust modular suit gloves for gripping perps and guns tightly. They are insulated, too. # Omu
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -196,7 +196,7 @@
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsEngineer
   name: sapper modsuit gauntlets
-  description: Oil stained modular suit gloves for easily pushing buttons on an RCD.
+  description: Oil-stained modular suit gloves for easily pushing buttons on an RCD. # Omu
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -297,7 +297,7 @@
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsResearchDirector
   name: minerva modsuit gauntlets
-  description: For keeping your digits at 10 after the artifact goes thermonuclear on you.
+  description: For keeping your digits numbered 10 after the artifact goes thermonuclear on you. # Omu
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -345,7 +345,7 @@
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsCaptain
   name: magnate modsuit gauntlets
-  description: Has specialised grooves and cuts for holding dat fukn diiisskk easier.
+  description: These gauntlets have specialized grooves and cuts for holding the nuclear authentication disk more easily. # Omu
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -400,7 +400,7 @@
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsBrigMed
   name: trauma modsuit gauntlets
-  description: Cool gauntlets.
+  description: Robust modular suit gloves for gripping medicines for people who are gripping perps and guns. # Omu
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
