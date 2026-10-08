@@ -60,7 +60,8 @@
     - ActionBloodWriting
     - ActionSpook
     - ActionToggleGhosts
-    - ActionToggleLighting
+    - ActionToggleGhostHearing # Omu edit: they had global hearing but no way to turn it off
+   # - ActionToggleLighting # Omu edit
 
 - type: entity
   id: HarbingerAbilities
