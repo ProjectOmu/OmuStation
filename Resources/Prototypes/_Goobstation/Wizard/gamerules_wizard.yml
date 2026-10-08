@@ -60,6 +60,11 @@
 - type: entity
   parent: BaseWizardRule
   id: Wizard
+  components: # Omu start
+  - type: Tag
+    tags:
+    - LoneRunRule
+    - RoundstartAntag # Omu end
 
 - type: entity
   parent: BaseWizardRule
