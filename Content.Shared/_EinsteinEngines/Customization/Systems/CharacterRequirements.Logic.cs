@@ -27,7 +27,7 @@ public abstract partial class CharacterLogicRequirement : CharacterRequirement
 [Serializable, NetSerializable]
 public sealed partial class CharacterLogicAndRequirement : CharacterLogicRequirement
 {
-    public override bool IsValid(JobPrototype job,
+    public override bool IsValid(JobPrototype? job,
         HumanoidCharacterProfile profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         bool whitelisted,
@@ -67,7 +67,7 @@ public sealed partial class CharacterLogicAndRequirement : CharacterLogicRequire
 [Serializable, NetSerializable]
 public sealed partial class CharacterLogicOrRequirement : CharacterLogicRequirement
 {
-    public override bool IsValid(JobPrototype job,
+    public override bool IsValid(JobPrototype? job,
         HumanoidCharacterProfile profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         bool whitelisted,
@@ -120,7 +120,7 @@ public sealed partial class CharacterLogicOrRequirement : CharacterLogicRequirem
 [Serializable, NetSerializable]
 public sealed partial class CharacterLogicXorRequirement : CharacterLogicRequirement
 {
-    public override bool IsValid(JobPrototype job,
+    public override bool IsValid(JobPrototype? job,
         HumanoidCharacterProfile profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         bool whitelisted,

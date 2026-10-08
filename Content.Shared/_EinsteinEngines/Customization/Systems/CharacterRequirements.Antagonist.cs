@@ -20,7 +20,7 @@ public sealed partial class CharacterAntagonistRequirement : CharacterRequiremen
     [DataField(required: true)]
     public List<ProtoId<AntagPrototype>> Antagonists;
 
-    public override bool IsValid(JobPrototype job,
+    public override bool IsValid(JobPrototype? job,
         HumanoidCharacterProfile profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         bool whitelisted,

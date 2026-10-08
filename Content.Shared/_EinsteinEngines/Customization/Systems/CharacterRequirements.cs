@@ -28,7 +28,7 @@ public abstract partial class CharacterRequirement
     /// </summary>
     /// <param name="reason">Description for the requirement, shown when not null</param>
     public abstract bool IsValid(
-        JobPrototype job,
+        JobPrototype? job,
         HumanoidCharacterProfile profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         bool whitelisted,

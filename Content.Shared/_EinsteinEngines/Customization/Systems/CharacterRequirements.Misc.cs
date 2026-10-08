@@ -22,7 +22,7 @@ public sealed partial class CVarRequirement : CharacterRequirement
     public string RequiredValue;
 
     public override bool IsValid(
-        JobPrototype job,
+        JobPrototype? job,
         HumanoidCharacterProfile profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         bool whitelisted,

@@ -24,7 +24,7 @@ public sealed partial class CharacterJobRequirement : CharacterRequirement
     [DataField(required: true)]
     public List<ProtoId<JobPrototype>> Jobs;
 
-    public override bool IsValid(JobPrototype job,
+    public override bool IsValid(JobPrototype? job,
         HumanoidCharacterProfile profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         bool whitelisted,
@@ -62,7 +62,7 @@ public sealed partial class CharacterJobRequirement : CharacterRequirement
             ("inverted", Inverted), ("jobs", string.Join(", ", jobs)));
 
         reason = jobsString;
-        return Jobs.Contains(job.ID);
+        return job != null && Jobs.Contains(job.ID);
     }
 }
 
@@ -76,7 +76,7 @@ public sealed partial class CharacterDepartmentRequirement : CharacterRequiremen
     [DataField(required: true)]
     public List<ProtoId<DepartmentPrototype>> Departments;
 
-    public override bool IsValid(JobPrototype job,
+    public override bool IsValid(JobPrototype? job,
         HumanoidCharacterProfile profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         bool whitelisted,
@@ -104,7 +104,7 @@ public sealed partial class CharacterDepartmentRequirement : CharacterRequiremen
             ("inverted", Inverted), ("departments", string.Join(", ", departments)));
 
         reason = departmentsString;
-        return Departments.Any(d => prototypeManager.Index(d).Roles.Contains(job.ID));
+        return job != null && Departments.Any(d => prototypeManager.Index(d).Roles.Contains(job.ID));
     }
 }
 
@@ -124,7 +124,7 @@ public sealed partial class CharacterDepartmentTimeRequirement : CharacterRequir
     [DataField(required: true)]
     public ProtoId<DepartmentPrototype> Department;
 
-    public override bool IsValid(JobPrototype job,
+    public override bool IsValid(JobPrototype? job,
         HumanoidCharacterProfile profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         bool whitelisted,
@@ -197,7 +197,7 @@ public sealed partial class CharacterOverallTimeRequirement : CharacterRequireme
     [DataField]
     public TimeSpan Max = TimeSpan.MaxValue;
 
-    public override bool IsValid(JobPrototype job,
+    public override bool IsValid(JobPrototype? job,
         HumanoidCharacterProfile profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         bool whitelisted,
@@ -260,7 +260,7 @@ public sealed partial class CharacterPlaytimeRequirement : CharacterRequirement
     [DataField(required: true)]
     public ProtoId<PlayTimeTrackerPrototype> Tracker;
 
-    public override bool IsValid(JobPrototype job,
+    public override bool IsValid(JobPrototype? job,
         HumanoidCharacterProfile profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         bool whitelisted,

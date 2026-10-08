@@ -29,7 +29,7 @@ public sealed class CharacterRequirementsSystem : EntitySystem
 
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
-    public bool CheckRequirementValid(CharacterRequirement requirement, JobPrototype job,
+    public bool CheckRequirementValid(CharacterRequirement requirement, JobPrototype? job,
         HumanoidCharacterProfile profile, IReadOnlyDictionary<string, TimeSpan> playTimes, bool whitelisted, IPrototype prototype,
         IEntityManager entityManager, IPrototypeManager prototypeManager, IConfigurationManager configManager,
         out string? reason, int depth = 0)
@@ -60,16 +60,17 @@ public sealed class CharacterRequirementsSystem : EntitySystem
 
         if (!_mindSystem.TryGetMind(characterUid, out var mindId, out var mind)
             || mind.UserId == null
-            || !_jobSystem.MindTryGetJob(mindId, out var jobPrototype)
             || !_stationSpawningSystem.GetProfile(characterUid, out var stationSpawningProfile)
             || !_playerManager.TryGetSessionById(mind.UserId, out var session)
             || !_playtimeManager.TryGetTrackerTimes(session, out var trackerTimes))
             return false;
 
+        _jobSystem.MindTryGetJob(mindId, out var jobPrototype);
+
         return CheckRequirementsValid(requirements, jobPrototype, stationSpawningProfile, trackerTimes, whitelisted, prototype, _entManager, _protomanager, _configurationManager, out reasons, depth, mind);
     }
 
-    public bool CheckRequirementsValid(List<CharacterRequirement> requirements, JobPrototype job,
+    public bool CheckRequirementsValid(List<CharacterRequirement> requirements, JobPrototype? job,
         HumanoidCharacterProfile profile, IReadOnlyDictionary<string, TimeSpan> playTimes, bool whitelisted, IPrototype prototype,
         IEntityManager entityManager, IPrototypeManager prototypeManager, IConfigurationManager configManager,
         out List<string> reasons, int depth = 0, MindComponent? mind = null)

@@ -19,7 +19,7 @@ namespace Content.Shared._EinsteinEngines.Customization.Systems;
 [Serializable, NetSerializable]
 public sealed partial class CharacterWhitelistRequirement : CharacterRequirement
 {
-    public override bool IsValid(JobPrototype job,
+    public override bool IsValid(JobPrototype? job,
         HumanoidCharacterProfile profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         bool whitelisted,

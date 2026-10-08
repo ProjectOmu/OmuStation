@@ -30,7 +30,7 @@ public sealed partial class CharacterAgeRequirement : CharacterRequirement
     public int Max = Int32.MaxValue;
 
     public override bool IsValid(
-        JobPrototype job,
+        JobPrototype? job,
         HumanoidCharacterProfile profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         bool whitelisted,
@@ -69,7 +69,7 @@ public sealed partial class CharacterGenderRequirement : CharacterRequirement
     public Gender Gender;
 
     public override bool IsValid(
-        JobPrototype job,
+        JobPrototype? job,
         HumanoidCharacterProfile profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         bool whitelisted,
@@ -100,7 +100,7 @@ public sealed partial class CharacterSexRequirement : CharacterRequirement
     public Sex Sex;
 
     public override bool IsValid(
-        JobPrototype job,
+        JobPrototype? job,
         HumanoidCharacterProfile profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         bool whitelisted,
@@ -131,7 +131,7 @@ public sealed partial class CharacterSpeciesRequirement : CharacterRequirement
     public List<ProtoId<SpeciesPrototype>> Species;
 
     public override bool IsValid(
-        JobPrototype job,
+        JobPrototype? job,
         HumanoidCharacterProfile profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         bool whitelisted,
@@ -174,7 +174,7 @@ public sealed partial class CharacterHeightRequirement : CharacterRequirement
     public float Max = int.MaxValue;
 
     public override bool IsValid(
-        JobPrototype job,
+        JobPrototype? job,
         HumanoidCharacterProfile profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         bool whitelisted,
@@ -221,7 +221,7 @@ public sealed partial class CharacterWidthRequirement : CharacterRequirement
     public float Max = int.MaxValue;
 
     public override bool IsValid(
-        JobPrototype job,
+        JobPrototype? job,
         HumanoidCharacterProfile profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         bool whitelisted,
@@ -268,7 +268,7 @@ public sealed partial class CharacterWeightRequirement : CharacterRequirement
     public float Max = int.MaxValue;
 
     public override bool IsValid(
-        JobPrototype job,
+        JobPrototype? job,
         HumanoidCharacterProfile profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         bool whitelisted,
@@ -319,7 +319,7 @@ public sealed partial class CharacterTraitRequirement : CharacterRequirement
     public List<ProtoId<TraitPrototype>> Traits;
 
     public override bool IsValid(
-        JobPrototype job,
+        JobPrototype? job,
         HumanoidCharacterProfile profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         bool whitelisted,
