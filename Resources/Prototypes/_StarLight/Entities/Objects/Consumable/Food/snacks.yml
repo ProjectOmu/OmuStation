@@ -40,10 +40,10 @@
   - type: Sprite
     state: nutribrick-open
     color: '#880000'
-  - type: Solution
-    id: food
-    solution:
-      maxVol: 25
-      reagents:
-      - ReagentId: Blood
-        Quantity: 20
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Blood
+          Quantity: 20
