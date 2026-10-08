@@ -84,7 +84,7 @@
 - type: entity
   parent: ClothingOuterHardsuitLuxury
   id: ClothingOuterHardsuitBosun
-  name: bosun hardsuit
+  name: bosun's hardsuit
   description: A vintage excavation hardsuit, lovingly restored and repainted. Every dent carries a story, even if that comes at the cost of protection.
   components:
   - type: Sprite
@@ -100,21 +100,32 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: ClothingOuterSuitHEV
+  parent: ClothingOuterHardsuitAtmos
   id: ClothingOuterHardsuitForeman
-  name: foreman's pressurized H.E.V suit
-  description: A modified, spaceworthy H.E.V suit made specially for foremen to retrieve technical assistants after showing them just how many rads can come from the supermatter. Comes with all the extra protection of an engineer's hardsuit and an H.E.V suit while looking extra stylish.
+  name: foreman's hardsuit
+  description: A surplus EVA rig from a far off sector, retrofitted with thermal shielding and lead plates.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/OuterClothing/Hardsuits/foreman.rsi
   - type: Clothing
     sprite: _Omu/Clothing/OuterClothing/Hardsuits/foreman.rsi
+  - type: Armor # Best stats of Engi and Atmos hardsuits
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.8
+        Shock: 0.5
+        Caustic: 0.7
+        Radiation: 0.15
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
   - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHelmetForeman
-  - type: PressureProtection # atmos tech aeolus modsuit stats
-    highPressureMultiplier: 0.3
-    lowPressureMultiplier: 1000
-  - type: TemperatureProtection
-    heatingCoefficient: 0.005
-    coolingCoefficient: 0.005
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon

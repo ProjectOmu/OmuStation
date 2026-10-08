@@ -72,31 +72,50 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitLuxury
   id: ClothingHeadHelmetHardsuitBosun
-  name: bosun hardsuit helmet
+  name: bosun's hardsuit helmet
   description: A vintage excavation hardsuit helmet, repainted in Cargo's colors. The racing stripe somehow makes it feel lighter.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Head/Hardsuits/bosun.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Head/Hardsuits/bosun.rsi
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingHeadHelmetHEV, ClothingHeadHardsuitWithLightBase]
+  parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetForeman
-  name: foreman's modified sapper helmet
-  description: A modified helmet featuring an uranium glass faceplate with an internal HUD to display the feed from the many still-functional cameras from the original design. Comes with the same protection as an engineer's hardsuit and the H.E.V suit while being much more stylish.
+  name: foreman's hardsuit helmet
+  description: A heavy helmet from a spare MODsuit, machined to fit a custom rig. A thick sheet of uranium glass replaces the faceplate, fitted with an internal HUD to display the feed of the many still-present cameras.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Head/Hardsuits/foreman.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Head/Hardsuits/foreman.rsi
-  - type: PressureProtection # atmos tech aeolus modsuit stats
-    highPressureMultiplier: 0.3
+  - type: PointLight
+    color: "#adffe6"
+  - type: PressureProtection # Best stats of Engi and Atmos hardsuits
+    highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
     heatingCoefficient: 0.005
     coolingCoefficient: 0.005
+  - type: FireProtection
+    reduction: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Shock: 0.5
+        Caustic: 0.7
+        Heat: 0.8
+        Radiation: 0.15
   - type: EyeProtection
-  - type: PointLight
-    radius: 5
-    energy: 3
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
