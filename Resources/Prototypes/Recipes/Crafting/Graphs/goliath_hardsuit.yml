@@ -8,11 +8,11 @@
     edges:
     - to: hardsuitGoliath
       steps:
-      - tag: ExplorerSuit # Goobstation edit
+      - tag: Hardsuit # Omu: changed from ExplorerSuit to Hardsuit, we dont have explorer suit
         icon:
-          sprite: _Lavaland/Equipment/explorer_suit.rsi
+          sprite: Clothing/OuterClothing/Hardsuits/salvage.rsi # Omu, see above
           state: icon
-        name: construction-graph-tag-explorer-suit
+        name: construction-graph-tag-Hardsuit # Omu
         doAfter: 10
       - material: Durathread
         amount: 5
