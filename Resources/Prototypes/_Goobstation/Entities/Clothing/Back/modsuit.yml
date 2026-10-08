@@ -4,7 +4,7 @@
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitStandard
   name: standard modsuit control unit
-  description: A special modular suit contol unit containing all necessary modular hardsuit parts.
+  description: A modular suit control unit containing all necessary modular hardsuit parts. # Omu
   components:
   - type: Appearance
   - type: Sprite
@@ -88,7 +88,7 @@
   parent: Clothing
   id: ClothingModsuitStandardNoStorage
   name: standard modsuit control unit
-  description: A special modular suit contol unit containing all necessary modular hardsuit parts.
+  description: A modular suit control unit containing all necessary modular hardsuit parts. # Omu
   components:
   - type: Appearance
   - type: Sprite
@@ -171,7 +171,7 @@
   parent: [ClothingModsuitStandard, BaseSecurityContraband]
   id: ClothingModsuitSecurity
   name: security soldat modsuit control unit
-  description: A robust modular hardsuit control module unit for thrashing commies in spess.
+  description: A robust modular hardsuit control unit for thrashing commies in space. # Omu
   components:
   - type: Appearance
   - type: Sprite
@@ -209,7 +209,7 @@
   parent: [ClothingModsuitStandard, BaseCommandContraband]
   id: ClothingModsuitHeadOfSecurity
   name: head of security's bulwark modsuit control unit
-  description: A robust modular HARDERsuit control module unit for the head of security.
+  description: A robust modular HARDERsuit control unit for the head of security. # Omu
   components:
   - type: Appearance
   - type: Clothing
@@ -255,7 +255,7 @@
   parent: [ClothingModsuitStandard, BaseMedicalContraband]
   id: ClothingModsuitParamedic
   name: sanitater modsuit control unit
-  description: A modular hardsuit control module unit for paramedics.
+  description: A modular hardsuit control unit for paramedics. # Omu
   components:
   - type: Appearance
   - type: Sprite
@@ -298,7 +298,7 @@
   parent: [ClothingModsuitStandard, BaseEngineeringContraband]
   id: ClothingModsuitEngineer
   name: engineer sapper modsuit control unit
-  description: A modular hardsuit control module unit for withstanding the greatest hazards on the job.
+  description: A modular hardsuit control unit for withstanding the greatest hazards on the job. # Omu
   components:
   - type: Appearance
   - type: Sprite
@@ -338,7 +338,7 @@
   parent: [ClothingModsuitStandard, BaseEngineeringContraband]
   id: ClothingModsuitAtmostech
   name: atmospheric technician aeolus modsuit control unit
-  description: A modular hardsuit control module unit for withstanding the greatest hazards on the job.
+  description: A modular hardsuit control unit for withstanding the greatest hazards on the job. # Omu
   components:
   - type: Appearance
   - type: Sprite
@@ -378,7 +378,7 @@
   parent: [ClothingModsuitStandard, BaseCommandContraband, BaseGrandTheftContraband]
   id: ClothingModsuitResearchDirector
   name: RD's minerva modsuit control unit
-  description: A modular hardsuit control module unit for withstanding another shuttlebomb.
+  description: A modular hardsuit control unit for withstanding all sorts of interesting hazards. # Omu
   components:
   - type: Appearance
   - type: Sprite
@@ -421,7 +421,7 @@
   parent: [ClothingModsuitStandard, BaseCommandContraband]
   id: ClothingModsuitCaptain
   name: captain's magnate modsuit control unit
-  description: A gem-encrusted, mirror-shined and absolutely MAGNATE armored modsuit. The cooling fluid is dragons' blood watered down with Dr. Gibb. This shit is nothing to you, man. # goob edit - grammar
+  description: A gem-encrusted, mirror-shined, armored modsuit befitting of a powerful individual. The cooling fluid is dragons' blood watered down with Dr. Gibb. This shit is nothing to you, man. # Omu
   components:
   - type: Appearance
   - type: Sprite
@@ -461,7 +461,7 @@
   parent: [ClothingModsuitStandard, BaseSecurityContraband]
   id: ClothingModsuitBrigMed
   name: security trauma modsuit control unit
-  description: A robust modular hardsuit control module unit for healing commies in space.
+  description: A robust modular hardsuit control unit for healing people who are busy thrashing commies in space. # Omu
   components:
   - type: Appearance
   - type: Sprite
