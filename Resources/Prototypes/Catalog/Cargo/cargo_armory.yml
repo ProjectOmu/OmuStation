@@ -36,7 +36,7 @@
     sprite: Objects/Specific/Medical/implanter.rsi
     state: implanter0
   product: CrateTrackingImplants
-  cost: 1000
+  cost: 5000 # Omu - too damn cheap
   category: cargoproduct-category-name-armory
   group: market
 
@@ -63,7 +63,7 @@
 - type: cargoProduct
   id: ArmoryPistol
   icon:
-    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/mk58.rsi #GoobStation Resprite
     state: icon
   product: CrateArmoryPistols
   cost: 3200 # Goobstation # they're kinda bad compared to the other guns so should be cheap

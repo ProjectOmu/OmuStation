@@ -93,7 +93,7 @@
       prob: 0.5
     - id: ClothingEyesGlassesSecurity
     # - id: ClothingHeadsetSecurity, Goob, over ear headsets
-    - id: ClothingHandsGlovesColorBlack
+    #- id: ClothingHandsGlovesColorBlack # Omu - replaced by retrieval gloves from Trauma
     - id: ClothingShoesBootsJack
     - id: WeaponMeleeNeedle
       prob: 0.1
@@ -102,7 +102,7 @@
     - id: BookSpaceLaw
       prob: 0.5
     - id: ClothingHeadsetAltSecurityRegular # Goobstation
-    - id: PanicButton # Goobstation
+    #- id: PanicButton # Goobstation | Omu - moved this to cargo
     - id: PepperSpray # Goobstation
     # Goobstation - Martial Arts - start
     - !type:GroupSelector
@@ -143,7 +143,7 @@
     - id: BoxSyringe
     - id: BoxBodyBag
       # Goob end
-    #- id: ClothingOuterHardsuitBrigmedic # Omu, use selector instead
+    #- id: UndeterminedVoidsuitBrigMed # Omu, we have our own selector.
     - id: ClothingUniformJumpskirtOfLife
       prob: 0.1
 
