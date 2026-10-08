@@ -2,6 +2,7 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Omu.Common.Crayon;
 using Content.Server.Administration.Logs;
 using Content.Server.Decals;
 using Content.Server.Popups;
@@ -73,7 +74,12 @@ public sealed class CrayonSystem : SharedCrayonSystem
             return;
         }
 
-        if (!_decals.TryAddDecal(component.SelectedState, args.ClickLocation.Offset(new Vector2(-0.5f, -0.5f)), out _, component.Color, cleanable: true))
+        // Omu start
+        var rotationEv = new CrayonDrawRotationEvent(Angle.Zero);
+        RaiseLocalEvent(uid, ref rotationEv);
+        // Omu end
+        if (!_decals.TryAddDecal(component.SelectedState, args.ClickLocation.Offset(new Vector2(-0.5f, -0.5f)), // Omu
+                out _, component.Color, rotationEv.Rotation, cleanable: true)) // Omu
             return;
 
         if (component.UseSound != null)
