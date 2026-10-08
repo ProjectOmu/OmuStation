@@ -4,8 +4,6 @@
     children:
     - id: SmugglerLootStole
     - id: SmugglerPickaxe
-    - id: ReinforcementRadioSmugglerCrateIPC
-    - id: ReinforcementRadioSmugglerCrateBorg
     - id: OrganEyesOfGod
 
 - type: entityTable     #Todo - more gamer lot
@@ -131,6 +129,18 @@
   components:
   - type: Organ
     onAdd:
+    - type: BatteryAmmoProvider
+      proto: RedLightLaser
+      fireCost: 50
+    - type: BatterySelfRecharger
+      autoRechargeRate: 25
+    - type: Gun
+      fireRate: 1
+      useKey: false
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+      soundGunshot: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     - type: Battery
       maxCharge: 200
       startingCharge: 0

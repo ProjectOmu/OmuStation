@@ -20,13 +20,17 @@
   - type: SprayPainter
     colorPalette:
       red: '#FF1212FF'
+      orange: '#ff8400ff' # Omu
       yellow: '#B3A234FF'
-      brown: '#947507FF'
       green: '#3AB334FF'
-      cyan: '#03FCD3FF'
+      brown: '#947507FF'
       blue: '#0335FCFF'
+      cyan: '#03FCD3FF'
+      purple: '#8700ffff' # Omu
+      magneta: '#d800ffff' # Omu
       white: '#FFFFFFFF'
       black: '#333333FF'
+      vanta: '#000000ff' # Omu
       # standard atmos pipes
       waste: '#990000'
       distro: '#0055cc'
@@ -36,6 +40,10 @@
       oxygen: '#217ee8'
       plasma: '#e921c1'
       nitrogen: '#dd463b'
+      healium: '#8b393c'
+      BZ: '#b37d9b'
+      pluoxium: '#449dff'
+      Nitrium: '#6b412d'
       # OMU END
   - type: StaticPrice
     price: 40
