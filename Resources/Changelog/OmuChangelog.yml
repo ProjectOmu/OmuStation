@@ -8190,3 +8190,582 @@ Entries:
       message: Raised the chaos score of shadowlings to 900 (was 500).
   id: 1063
   time: '2026-09-28T21:41:55.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Add
+      message: Added Jessie Fletcher to the sectoral plushie crate
+  id: 1064
+  time: '2026-09-29T02:32:10.0000000+00:00'
+- author: ggrab41
+  changes:
+    - type: Tweak
+      message: Made Maintenance Drones have infinite battery
+  id: 1065
+  time: '2026-09-29T05:36:49.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Remove
+      message: >-
+        Removed the alternative job title "Professor" from Librarian, as that
+        title is reserved for an upcoming mentor role.
+  id: 1066
+  time: '2026-09-29T15:42:07.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Add
+      message: >-
+        Added the vintage shaft miners jumpsuit and skirt to the salvage
+        loadout 
+  id: 1067
+  time: '2026-09-29T17:30:42.0000000+00:00'
+- author: ggrab41
+  changes:
+    - type: Tweak
+      message: Let drones swap their built-in satchel with any other bag.
+  id: 1068
+  time: '2026-09-29T21:01:15.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Remove
+      message: >-
+        Removed S.E.C. cyborgs from regular play. (They can still be spawned by
+        admins.)
+  id: 1069
+  time: '2026-09-29T21:06:34.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: >-
+        You need an experimental welding tool to make a weldbot now. Normal
+        welders wont work
+  id: 1070
+  time: '2026-09-29T21:16:51.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Add
+      message: Added the syndie bingle!! only obtainable from emaging slot machines
+    - type: Tweak
+      message: >-
+        Changed how the Slots work when emaged now giving you a set list of
+        items 
+    - type: Remove
+      message: Removed the throngler from the qm's slot machine
+  id: 1071
+  time: '2026-09-30T10:05:51.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: >-
+        Fixed thaven organs having really low integrity all of the time, should
+        be the same as any other species now.
+  id: 1072
+  time: '2026-09-30T10:47:40.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: Campfires can now be used to cook food!
+  id: 1073
+  time: '2026-09-30T12:42:20.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: Biomass reclaimer can process things without blood again
+  id: 1074
+  time: '2026-09-30T14:28:00.0000000+00:00'
+- author: PhosphateWithManyOs
+  changes:
+    - type: Fix
+      message: >-
+        Pressing E on the paramedic modsuit opens the inventory instead of
+        activating the siren. 
+  id: 1075
+  time: '2026-09-30T16:17:55.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: Vinyls can now be change in volume on a YAML side(or via VVedit)
+  id: 1076
+  time: '2026-09-30T21:43:03.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: Fixed surgery not working on thaven
+  id: 1077
+  time: '2026-09-30T23:25:46.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: >-
+        All cyborg types now get the tools module, no matter the choice of
+        chassis.
+    - type: Fix
+      message: All service cyborg chassis now get the clowning module.
+    - type: Fix
+      message: All generic cyborg chassis now get the inflatables module.
+  id: 1078
+  time: '2026-10-01T12:47:28.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Tweak
+      message: >-
+        Mothroaches can now wear almost any hat, glasses or mask and they
+        actually sit on their heads.
+    - type: Remove
+      message: >-
+        Mothroaches can no longer wear neck items, the few that were compatible
+        didn't fit right to begin with.
+  id: 1079
+  time: '2026-10-01T16:12:36.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed the "You must always carry lethal weapons" thaven mood.
+  id: 1080
+  time: '2026-10-01T16:22:09.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Changes it so that you can have commas and quotes in your character
+        name, see recent announcement for more info.
+  id: 1081
+  time: '2026-10-01T16:23:07.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: Rewrote the description of the atmospherics belt.
+  id: 1082
+  time: '2026-10-01T16:23:58.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Remove
+      message: >-
+        Removed alternative job titles from Sergeant; as Sergeants are mentors
+        to Security Cadets, they need to be immediately recognizable.
+  id: 1083
+  time: '2026-10-01T16:51:39.0000000+00:00'
+- author: Not-Solid
+  changes:
+    - type: Add
+      message: >-
+        Added the kitchen produce crate to cargo, a fresh stock of raw botany
+        produce for the kitchen.
+  id: 1084
+  time: '2026-10-01T17:00:59.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Add
+      message: >-
+        Added a new gun for high ranking CCO's that need some one-handed fire
+        power
+  id: 1085
+  time: '2026-10-01T20:59:59.0000000+00:00'
+- author: Cryptisy
+  changes:
+    - type: Add
+      message: >-
+        Added welders back to YouTool, added experimental welding tool, power
+        drill, and multitools back to science and cargo techfabs.
+    - type: Remove
+      message: >-
+        Contraband logo on multitool, experimental welding tool, power drill,
+        and welding masks.
+  id: 1086
+  time: '2026-10-01T23:23:42.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: Resprited the Golden MK58
+  id: 1087
+  time: '2026-10-02T06:18:20.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Tweak
+      message: >-
+        Adjusted Shadowkins to only be flash vulnerable when they use their own
+        eyes night vision. 
+  id: 1088
+  time: '2026-10-02T15:30:52.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Add
+      message: 'Added ammo boxes for all the casull ammo types '
+  id: 1089
+  time: '2026-10-02T15:53:16.0000000+00:00'
+- author: PunishedPresto
+  changes:
+    - type: Add
+      message: Added Poem of Expression Plushie to crew morale initiative crate.
+  id: 1090
+  time: '2026-10-03T02:36:16.0000000+00:00'
+- author: arachnid14
+  changes:
+    - type: Tweak
+      message: Calvin the pickaxe has a new sprite, diamond pickaxe!
+    - type: Fix
+      message: Borgs from smuggler crates have modules and a battery now
+  id: 1091
+  time: '2026-10-03T03:03:23.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: >-
+        Fixed gold mk58 loadout option spawning with less mags than the normal
+        mk58
+  id: 1092
+  time: '2026-10-03T03:04:59.0000000+00:00'
+- author: QuillTheCreature
+  changes:
+    - type: Tweak
+      message: Service, Cargo and Engineering lathes now announce research unlocks.
+  id: 1093
+  time: '2026-10-03T03:30:50.0000000+00:00'
+- author: jckspjf
+  changes:
+    - type: Tweak
+      message: >-
+        Syndicate Dead Drop wording has been edited to be more grammatically
+        correct.
+  id: 1094
+  time: '2026-10-03T17:34:42.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Add
+      message: >-
+        Added the advanced musique cyborg module, which gives service borgs a
+        built-in digital audio workstation. Research Advanced Entertainment and
+        print it at the exosuit fabricator.
+  id: 1095
+  time: '2026-10-03T17:38:42.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: >-
+        Removed all research items from the salvage vendor and added some to
+        research.
+  id: 1096
+  time: '2026-10-03T17:45:54.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Fix
+      message: Fixed xelthia heat/cold damage modifiers not working
+  id: 1097
+  time: '2026-10-03T17:52:46.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Hypopens take in reagents at 1.5x the former rate (now 0.5s from 0.75s)
+        and may now take in reagents from containers while moving.
+  id: 1098
+  time: '2026-10-03T17:53:23.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: The Virologist's backpack now matches the Virology palette.
+    - type: Tweak
+      message: >-
+        The Scientist's backpack, satchel, duffel, and messenger bags now have
+        updated icons, and match the Science palette.
+    - type: Tweak
+      message: >-
+        The Medical Doctor's backpack, satchel, duffel, and messenger bags now
+        match the Medical palette.
+  id: 1099
+  time: '2026-10-03T17:59:39.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: The Staff of Animation is now admin-only
+  id: 1100
+  time: '2026-10-03T21:08:13.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added the SM gas randomizing rock
+  id: 1101
+  time: '2026-10-03T21:52:40.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Remove
+      message: Removed the possess object ability from wraith since it breaks items.
+  id: 1102
+  time: '2026-10-03T21:55:12.0000000+00:00'
+- author: Jerulean
+  changes:
+    - type: Tweak
+      message: Diseases once again regress in a dead infectee.
+  id: 1103
+  time: '2026-10-03T22:58:28.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Letoferol now has a delay of 10-15 minutes before assigning the roles
+        (Same as initial infected)
+  id: 1104
+  time: '2026-10-04T01:52:56.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: >-
+        Fixed interactions within nodecrawl allowing for melee and changing
+        clothes mid vent crawl.
+  id: 1105
+  time: '2026-10-04T02:03:37.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: IPC face markings are now removed after decapitation.
+  id: 1106
+  time: '2026-10-04T05:26:26.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: Increased the cage recharger charge rate to 250W (used to be 50W).
+  id: 1107
+  time: '2026-10-04T05:27:56.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Fixed IPCs face marking glasses and other eyewear.
+  id: 1108
+  time: '2026-10-04T05:28:52.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Tweak
+      message: Tackle gloves are now in the secvend and HoS's in their locker
+    - type: Tweak
+      message: Magboots and armor stamina resistance can now prevent tackles
+    - type: Tweak
+      message: >-
+        All martial arts can no longer be used with tackle gloves on, even
+        hellrip
+    - type: Tweak
+      message: >-
+        Oni exist so mass affecting tackles is gone along with disarms as a
+        whole
+    - type: Tweak
+      message: HoS gets combat gloves again in their loadout
+    - type: Tweak
+      message: Tackle cooldown has been bumped up by .5 of a second
+    - type: Fix
+      message: Guerrilla gloves are not longer quantum contraband for sec
+  id: 1109
+  time: '2026-10-04T15:33:21.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Rhymatine's OD damage is now about half of what it used to be, taking it
+        from 7.5 vital damage per second to about 3.5. This is on-par with other
+        potent medicinal overdoses, like Bruizine.
+  id: 1110
+  time: '2026-10-05T02:11:06.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Remove
+      message: Removed salvager syndieborg/ipc ghostroles
+    - type: Tweak
+      message: >-
+        Reverted printable concgauntlets, buy them at the salvage vend, now
+        costing 10k points
+    - type: Tweak
+      message: Concussive gauntlet damage is halved when on station
+  id: 1111
+  time: '2026-10-05T05:29:02.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Fix
+      message: Fixed a localization error with crayons.
+  id: 1112
+  time: '2026-10-05T14:31:11.0000000+00:00'
+- author: Naaatch
+  changes:
+    - type: Fix
+      message: Hijack checks now specifically ignore ghosts.
+  id: 1113
+  time: '2026-10-05T14:32:13.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Add
+      message: >-
+        Added the secarang, a stunbaton boomerang, watch the clown catch it when
+        sec throws it at them for getting pie'd
+  id: 1114
+  time: '2026-10-05T18:57:19.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Added Tevik plushie
+  id: 1115
+  time: '2026-10-05T19:06:02.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the inline filter on glacier's vox box to a gas filter due to it
+        merging distro and waste
+  id: 1116
+  time: '2026-10-06T02:45:47.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: Lawyers get their own headset with sec and service comms
+  id: 1117
+  time: '2026-10-06T03:04:19.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Tweak
+      message: Cyborgs no longer make noise when switching modules.
+  id: 1118
+  time: '2026-10-06T03:37:30.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Remove
+      message: >-
+        Shōko station is no longer in map rotation, as it doesn't meet Omu's
+        mapping standards.
+  id: 1119
+  time: '2026-10-06T04:06:02.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Add
+      message: >-
+        There is now a new lawset for silicon: Reportertron. The lawset says to
+        report on interesting situations around the station. It can be gotten in
+        ion storms.
+  id: 1120
+  time: '2026-10-06T04:06:22.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        Chloral Hydrate puts people to sleep at reasonable doses (at minimum
+        5.5u to at most 13u) within 15 to 30 seconds. This is equivalent to 2-4
+        tranquilizer shells (8u-16u).
+  id: 1121
+  time: '2026-10-06T05:17:44.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed eyes of god not working properly
+  id: 1122
+  time: '2026-10-06T05:30:30.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Explosive damage raised (Now only SLIGHTLY weaker than post upstream)
+  id: 1123
+  time: '2026-10-06T15:08:42.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: Fixed xelthia being poisoned by raw meat
+  id: 1124
+  time: '2026-10-06T16:44:31.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: Removed the thaven outlaw mood
+  id: 1125
+  time: '2026-10-06T18:28:49.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Add
+      message: Added Roger Cagel plushie to the crew morale crate.
+  id: 1126
+  time: '2026-10-06T19:00:42.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        The Core Rules, Roleplay Rules, and Silicon Rules have finally been
+        reworked. Characters are permitted to carry over round information
+        between rounds, but PLEASE do not use this to metagame the antags. We
+        trust you to be responsible with your LARP.
+  id: 1127
+  time: '2026-10-06T19:28:47.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Tweak
+      message: Upped the price of tracking implant crates
+    - type: Tweak
+      message: >-
+        Moved distress signalers to the cargo catalog instead of roundstart
+        equipment
+  id: 1128
+  time: '2026-10-06T20:24:54.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: lowered explosion damage(wrong numbers got pushed)
+  id: 1129
+  time: '2026-10-06T23:45:50.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: Grounding rods and tesla coils should get stuck on doors less often
+  id: 1130
+  time: '2026-10-07T04:01:58.0000000+00:00'
+- author: arachnid14
+  changes:
+    - type: Tweak
+      message: >-
+        Goliath Hardsuit is now crafted with a Hardsuit, instead of the explorer
+        suit.
+  id: 1131
+  time: '2026-10-07T18:00:40.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        Spray painter got some love. You can now paint all your favourite
+        atmosian appliances with BZ, Nitrium, Pluoxium and Healium colours.
+    - type: Tweak
+      message: Spray painter can now spray pipes in several new standard colours
+    - type: Tweak
+      message: >-
+        Spray painter pipes category has been re-arranged to be in a more
+        reasonable colour order
+  id: 1132
+  time: '2026-10-07T18:04:37.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Add
+      message: Added signature fonts that are a character trait.
+    - type: Add
+      message: The Cybersun pen can choose a signature font.
+    - type: Tweak
+      message: Signatures no longer look like stamps.
+  id: 1133
+  time: '2026-10-07T23:14:04.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Add
+      message: >-
+        Added a decal preview when holding a crayon or a spray painter set to
+        add decals.
+    - type: Add
+      message: >-
+        Crayon and spray painter decals can be rotated with the rotate key,
+        middle mouse by default.
+    - type: Add
+      message: Added a decal preview opacity setting in General options.
+  id: 1134
+  time: '2026-10-08T08:44:02.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        The "creating a lathe factory" line in the rules about powergaming has
+        swapped out for a clearer line: you are not allowed to take other
+        departments' techfab boards to avoid interacting with them later.
+  id: 1135
+  time: '2026-10-08T21:13:44.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Add
+      message: added medical ushankas for all doctors and the corpsman / brigmedic
+  id: 1136
+  time: '2026-10-08T21:14:11.0000000+00:00'

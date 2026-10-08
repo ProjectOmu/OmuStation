@@ -9,9 +9,15 @@
     - type: GuideHelp
       guides:
         - Tackle
-    - type: MartialArtBlocked # Omu
-      form: CorporateJudo
-    
+    - type: MartialArtBlocked # Omu - fuck using arts and this
+      form: [CorporateJudo,
+       CloseQuartersCombat,
+       SleepingCarp,
+       Capoeira,
+       KungFuDragon,
+       Ninjutsu,
+       HellRip]
+
 - type: entity
   parent: [BaseGlovesTackle, BaseSecurityContraband]
   id: ClothingHandsGlovesSecurity
@@ -31,6 +37,8 @@
           Slash: 0.90
           Piercing: 0.95
           Heat: 0.90
+    - type: TackleModifier # Omu
+      skillMod: 2
 
 - type: entity
   parent: ClothingHandsGlovesSecurity
@@ -52,33 +60,43 @@
   components:
     - type: Sprite
       sprite: _Trauma/Clothing/Hands/Gloves/gorilla.rsi
-    - type: Insulated
+#    - type: Insulated # Omu - one or the other buddy
     - type: Fiber
-      fiberMaterial: fibers-insulative
+      fiberMaterial: fibers-red-and-black-woven
     - type: Armor
       modifiers:
         coefficients:
           Blunt: 0.9
           Slash: 0.9
           Piercing: 0.9
-          Shock: 0.75
-    - type: TackleModifier
-      staminaCostMultiplier: 1.2
-      knockdownTimeMultiplier: 1.25
-      rangeMultiplier: 1.65
-      skillMod: 3
+          #Shock: 0.75 not insuls
+    - type: TackleModifier # Omu - tweak these values a bit
+      staminaCostMultiplier: 1.5
+      knockdownTimeMultiplier: 1.15
+      rangeMultiplier: 1
+      skillMod: 5
 
-- type: entity
-  parent: [BaseSyndicateContraband, ClothingHandsGlovesGorilla]
+- type: entity # Omu - touched basically this whole entity
+  parent: [BaseSyndicateContraband, BaseGlovesTackle]
   id: ClothingHandsGlovesGuerrilla
   name: guerrilla gloves
-  description: Superior quality combative gloves, good for performing tackle takedowns as well as absorbing electrical shocks.
+  description: Superior quality combative gloves, good for performing tackle takedowns.
   components:
     - type: Sprite
       sprite: _Trauma/Clothing/Hands/Gloves/guerrilla.rsi
-    - type: TackleModifier
-#      grabOnSuccess: true # Omu - killing hardgrab
+    - type: Fiber
+      fiberMaterial: fibers-red-and-black-woven
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.9
+          Slash: 0.9
+          Piercing: 0.9
+    - type: TackleModifier # Omu - tweak these values a bit
       staminaCostMultiplier: 1
+      knockdownTimeMultiplier: 1.15
+      rangeMultiplier: 1
+      skillMod: 5
 
 - type: entity
   parent: [BaseGlovesTackle, BaseSecurityContraband]
@@ -99,13 +117,14 @@
             color: "#940000"
     - type: Fiber
       fiberMaterial: fibers-red
-    - type: TackleModifier
+    - type: TackleModifier # Omu - touched these a bunch too
       staminaCostMultiplier: 2
-      knockdownTimeMultiplier: 2
+      knockdownTimeMultiplier: 1.75
       speedMultiplier: 1.5
       rangeMultiplier: 3
       minDistance: 3
       skillMod: 7
+      severityModifier: .35
 
 - type: entity
   parent: BaseGlovesTackle
@@ -126,13 +145,14 @@
             color: "#0089EF"
     - type: Fiber
       fiberMaterial: fibers-blue
-    - type: TackleModifier
+    - type: TackleModifier # Omu - some changes here too
       staminaCostMultiplier: 0.3
-      knockdownTimeMultiplier: 0.5
+      knockdownTimeMultiplier: 0.25
       rangeMultiplier: 1.5
       speedMultiplier: 0.65
       minDistance: 2
-      skillMod: -2
+      skillMod: -4
+      baseTargetStaminaDamage: 0
 
 - type: entity
   parent: [BaseGlovesTackle, BaseMinorContraband]
@@ -157,4 +177,4 @@
       staminaCostMultiplier: 1.2
       knockdownTimeMultiplier: 1.75
       minDistance: 1.5
-      skillMod: -1
+      skillMod: 1

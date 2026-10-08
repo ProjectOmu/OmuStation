@@ -16,5 +16,6 @@ trait-category-auditory = Auditory
 trait-category-mental = Mental
 trait-category-physical = Physical
 trait-category-psionics = Psionics
+trait-category-signature = Signature
 trait-category-speech = Speech
 trait-category-visual = Visual

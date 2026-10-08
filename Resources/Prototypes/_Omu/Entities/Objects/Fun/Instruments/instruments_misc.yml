@@ -38,3 +38,20 @@
     quickEquip: false
     slots:
     - neck
+
+- type: entity
+  parent: BaseHandheldInstrument
+  id: DawInstrumentBorg
+  name: digital audio workstation
+  suffix: Borg
+  description: Cutting edge music technology, straight from the 90s. Now crammed into a cyborg.
+  components:
+  - type: Instrument
+    allowPercussion: true
+    allowProgramChange: true
+  - type: Sprite
+    sprite: Objects/Fun/Instruments/structureinstruments.rsi
+    layers:
+    - state: daw-base
+    - state: daw-display
+      shader: unshaded
