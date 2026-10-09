@@ -251,3 +251,6 @@ selectable-set-research-director-modsuit-desc =
     A modular hardsuit armored perfectly to turn you into a research tank,
     not even the most dangerous of experiments will harm you in this,
     and the worst of assistants will think twice before breaking in sci.
+
+selectable-set-brigmed-voidsuit-name = Corpsman 'Seraph' modsuit
+selectable-set-brigmed-voidsuit-desc = A modular medical hardsuit designed for combat medics and corpsmen.
