@@ -136,111 +136,111 @@
 - type: entity
   save: false
   name: Urist McHands
-  parent: MobHumanDummy
+  parent: [BaseMobXelthia, BaseSpeciesDummy]
   id: MobXelthiaDummy
   categories: [ HideSpawnMenu ]
   description: A dummy xelthia meant to be used in character setup.
-  components:
-  - type: HumanoidAppearance
-    species: Xelthia
-  - type: Hands
-    handDisplacement:
-      sizeMaps:
-        32:
-          sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-          state: held
-  - type: Inventory
-    templateId: xelthia
-    speciesId: Xelthia
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit
-      head:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit # name is somewhat misleading, the jumpsuit state ended up being fairly versitile so I reused it # EE WHY
-      shoes:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit
-      mask:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit
-      suitstorage:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit
-      eyes:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit
-      belt:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit
-      back:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: backpack
-    femaleDisplacements: # Do you need all these? NO. but im not findng out which you do need, nor as to why i need to map female displacements on the lobby dummy only.
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit
-      head:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit # name is somewhat misleading, the jumpsuit state ended up being fairly versitile so I reused it
-      shoes:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit
-      mask:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit
-      suitstorage:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit
-      eyes:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit
-      belt:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit
-      back:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: backpack
+  # components:
+  # - type: HumanoidAppearance
+  #   species: Xelthia
+  # - type: Hands
+  #   handDisplacement:
+  #     sizeMaps:
+  #       32:
+  #         sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #         state: held
+  # - type: Inventory
+  #   templateId: xelthia
+  #   speciesId: Xelthia
+  #   displacements:
+  #     jumpsuit:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit
+  #     head:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit # name is somewhat misleading, the jumpsuit state ended up being fairly versitile so I reused it # EE WHY
+  #     shoes:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit
+  #     mask:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit
+  #     outerClothing:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit
+  #     suitstorage:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit
+  #     eyes:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit
+  #     belt:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit
+  #     back:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: backpack
+  #   femaleDisplacements: # Do you need all these? NO. but im not findng out which you do need, nor as to why i need to map female displacements on the lobby dummy only.
+  #     jumpsuit:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit
+  #     head:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit # name is somewhat misleading, the jumpsuit state ended up being fairly versitile so I reused it
+  #     shoes:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit
+  #     mask:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit
+  #     outerClothing:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit
+  #     suitstorage:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit
+  #     eyes:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit
+  #     belt:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit
+  #     back:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: backpack

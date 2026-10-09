@@ -193,79 +193,12 @@
 - type: entity
   save: false
   name: Vulpkanin Dummy
-  parent: MobHumanDummy
+  parent: [BaseMobVulpkanin, BaseSpeciesDummy]
   id: MobVulpkaninDummy
   categories: [ HideSpawnMenu ]
   description: A dummy vulpkanin meant to be used in character setup.
-  components:
-  - type: HumanoidAppearance
-    species: Vulpkanin
-    # Omu start
-    markingsDisplacement:
-      Chest:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: jumpsuit # yeah, it does in fact work :)
-      LLeg:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: jumpsuit # Overlays FOR SOME REASON use LLeg, so it has to stay on jumpsuit or else it will show everything except the right leg. It does, in turn, make some l-leg overlays apply on both legs.
-      RLeg:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: r_leg
-      LFoot:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: l_leg
-      RFoot:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: r_leg
-      Hair:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: hair # Omustation End
-    # Omu end
-  - type: Inventory
-    speciesId: vulpkanin
-    #Omu start
-    femaleDisplacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: jumpsuit
-      shoes:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: shoes
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: outerclothing
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: jumpsuit
-      shoes:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: shoes
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: outerclothing
-  #Omu end
+  # components:
+  # - type: HumanoidAppearance
+  #   species: Vulpkanin
+  # - type: Inventory
+  #   speciesId: vulpkanin
