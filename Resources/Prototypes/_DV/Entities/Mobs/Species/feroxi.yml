@@ -149,13 +149,13 @@
     species: Feroxi
     hideLayersOnEquip:
     - Snout
-  - type: Sprite  # Why does feroxi redefine sprites in basemob but NOT in dummy (lobby) ???, fixing that - Omu 120
+  - type: Sprite # Why does feroxi redefine sprites in basemob but NOT in dummy (lobby) ???, fixing that - Omu 120
     netsync: false
     noRot: true
     drawdepth: Mobs
     layers:
-    - map: [ "enum.HumanoidVisualLayers.Chest" ]
-    - map: [ "enum.HumanoidVisualLayers.Groin" ]
+    - map: [ "enum.HumanoidVisualLayers.Chest" ] # Omu - match layers to Mob
+    - map: [ "enum.HumanoidVisualLayers.Groin" ] # Omu - match layers to Mob
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
