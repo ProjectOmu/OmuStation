@@ -21,6 +21,7 @@ loadout-group-paramedic-belt = Paramedic belt
 loadout-group-virologist-envirohelm = Virologist envirohelm
 loadout-group-virologist-envirosuit = Virologist envirosuit
 loadout-group-virologist-envirogloves = Virologist envirogloves
+loadout-group-virologist-head = Virologist head
 
 # Detective
 loadout-group-detective-eyes = Detective Glasses
