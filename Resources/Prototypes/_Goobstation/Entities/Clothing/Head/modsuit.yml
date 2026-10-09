@@ -1043,6 +1043,11 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
+  # Omu start, Fix modsuit light
+  - type: ToggleableVisuals
+    spriteLayer: light
+  - type: ItemTogglePointLight
+  # Omu end
   - type: PointLight
     enabled: false
     radius: 5
