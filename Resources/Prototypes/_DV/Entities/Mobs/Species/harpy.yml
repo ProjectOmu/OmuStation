@@ -264,10 +264,10 @@
         sprite: _DV/Effects/harpysinger.rsi
         state: singing_music_notes
         visible: false
-      # Omu end
-# Yes, RArm has to be down here
-      - map: [ "enum.HumanoidVisualLayers.RArm" ]
-      - map: [ "maskalt" ]
-      - map: [ "enum.HumanoidVisualLayers.Hair" ]
-      - map: [ "mask" ]
-      - map: [ "head" ]
+# # Yes, RArm has to be down here
+#       - map: [ "enum.HumanoidVisualLayers.RArm" ]
+#       - map: [ "maskalt" ]
+#       - map: [ "enum.HumanoidVisualLayers.Hair" ]
+#       - map: [ "mask" ]
+#       - map: [ "head" ]
+# Omu end
