@@ -29,7 +29,7 @@
           amount: 2
         - id: PillCanisterKelotane # Omu
         - id: PillCanisterDermaline
-#        - id: SprayBottleSilverSulfadiazine # Omu
+#        - id: SprayBottleSilverSulfadiazine # Goobstation # Omu
         - id: BurnAutoInjector # Goobstation
 
 - type: entity
@@ -44,10 +44,9 @@
         - id: Brutepack
         - id: Gauze
         - id: PillCanisterIron
-#        - id: PillCanisterCopper #goobstation
-        - id: PillCanisterBicaridine # Omu
-#        - id: SprayBottleStypticPowder # Omu
+#        - id: SprayBottleStypticPowder # Goobstation # Omu
         - id: BruteAutoInjector # Goobstation
+        - id: PillCanisterBicaridine # Omu
         - id: SyringeTranexamicAcid # Omu
 - type: entity
   id: MedkitToxinFilled
