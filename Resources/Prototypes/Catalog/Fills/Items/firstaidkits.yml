@@ -26,10 +26,10 @@
       storagebase: !type:AllSelector
         children:
         - id: Ointment
-          amount: 2
+          amount: 3 # Omu
         #- id: PillCanisterKelotane # Goobstation
         - id: PillCanisterDermaline
-        - id: SprayBottleSilverSulfadiazine # Goobstation
+#        - id: SprayBottleSilverSulfadiazine # Omu
         - id: BurnAutoInjector # Goobstation
 
 - type: entity
@@ -44,10 +44,11 @@
         - id: Brutepack
         - id: Gauze
         - id: PillCanisterIron
-        #- id: PillCanisterCopper # Goobstation
-        - id: SprayBottleStypticPowder # Goobstation
+#        - id: PillCanisterCopper #goobstation
+        - id: PillCanisterBicaridine # Omu
+#        - id: SprayBottleStypticPowder # Omu
         - id: BruteAutoInjector # Goobstation
-
+        - id: SyringeTranexamicAcid # Omu
 - type: entity
   id: MedkitToxinFilled
   suffix: Filled
