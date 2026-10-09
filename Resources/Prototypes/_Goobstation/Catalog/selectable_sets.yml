@@ -633,14 +633,13 @@
   content:
   - ClothingModsuitResearchDirectorPowerCell
 
-# Brigmedic
-
+# Omu - Brigmed MODsuit selection
 - type: selectableSet
-  id: VoidsuitSelectorBrigMedVoidsuit
-  name: selectable-set-brigmed-voidsuit-name
-  description: selectable-set-brigmed-voidsuit-desc
+  id: VoidsuitSelectorBrigMedHardsuit
+  name: Brigmed MODsuit
+  description: A security trauma MODsuit designed for brig medical personnel.
   sprite:
-    sprite: Clothing/OuterClothing/Hardsuits/brigmedic.rsi
+    sprite: _Goobstation/Clothing/Back/Modsuits/brigmed.rsi
     state: icon
   content:
-  - ClothingOuterHardsuitBrigmedic
+  - ClothingModsuitBrigMedPowerCell
