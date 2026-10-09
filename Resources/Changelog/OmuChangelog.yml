@@ -8783,3 +8783,12 @@ Entries:
       message: Smile the slime's hit sound is now a little pop instead of a punch
   id: 1138
   time: '2026-10-08T23:13:40.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: >-
+        Ported Extended descriptions from EE, allowing for items to display
+        different descriptions depending on what job/role the player is.
+        Currently only added to the EMAG.
+  id: 1139
+  time: '2026-10-09T00:28:09.0000000+00:00'
