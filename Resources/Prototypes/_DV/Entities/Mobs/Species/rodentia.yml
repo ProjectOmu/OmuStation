@@ -152,7 +152,7 @@
 - type: entity
   save: false
   name: Rodentia Dummy
-  parent: [BaseMobRodentia, BaseSpeciesDummy] # Omu - inheriting > copy and paste
+  parent: [BaseMobRodentia, BaseSpeciesDummy]
   id: MobRodentiaDummy
   categories: [ HideSpawnMenu ]
   description: A dummy rodentia meant to be used in character setup.
