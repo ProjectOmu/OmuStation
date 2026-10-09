@@ -435,6 +435,24 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+      - !type:HealthChange # omu start
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Oni ]
+        damage:
+          groups:
+            Brute: -.15
+          types:
+            Poison: -.15
+            Asphyxiation: -.25
+            Heat: -.05
+            Cold: -.05
+            Shock: -.05
+      - !type:SatiateHunger
+        factor: .3 #one fifth of normal hunger satiation
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Oni ] #omu end
 
 - type: reagent
   id: Tequila
