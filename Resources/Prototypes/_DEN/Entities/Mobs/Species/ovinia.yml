@@ -135,7 +135,7 @@
     baseDecayRate: 0.075
 
 - type: entity
-  parent: MobHumanDummy
+  parent: [MobOvinia, MobHumanDummy]
   id: MobOviniaDummy
   name: Ovinia Dummy
   save: false
@@ -179,54 +179,3 @@
           32:
             sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
             state: outerclothing_hardsuit
-  # Omu start
-  - type: Sprite
-    layers:
-      - map: [ "enum.HumanoidVisualLayers.Groin" ]
-      - map: [ "enum.HumanoidVisualLayers.Chest" ]
-      - map: [ "enum.HumanoidVisualLayers.Head" ]
-      - map: [ "enum.HumanoidVisualLayers.Snout" ]
-      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-      - map: [ "enum.HumanoidVisualLayers.RArm" ]
-      - map: [ "enum.HumanoidVisualLayers.LArm" ]
-      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
-      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
-      - map: [ "socks" ]
-      - map: [ "jumpsuit" ]
-      - map: ["enum.HumanoidVisualLayers.LFoot"]
-      - map: ["enum.HumanoidVisualLayers.RFoot"]
-      - map: ["enum.HumanoidVisualLayers.LHand"]
-      - map: ["enum.HumanoidVisualLayers.RHand"]
-      - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
-        color: "#ffffff"
-        sprite: Objects/Misc/handcuffs.rsi
-        state: body-overlay-2
-        visible: false
-      - map: [ "id" ]
-      - map: [ "gloves" ]
-      - map: [ "ears" ]
-      - map: [ "belt" ] 
-      - map: [ "outerClothing" ]
-      - map: [ "beltalt" ] 
-      - map: [ "eyes" ]
-      - map: [ "back" ] 
-      - map: [ "neck" ]
-      - map: [ "enum.HumanoidVisualLayers.NeckFluff" ] # Omu - neck fluff should sit between chest and head
-      - map: [ "enum.HumanoidVisualLayers.Face" ]
-      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-      - map: [ "enum.HumanoidVisualLayers.Tail" ]
-      - map: [ "pocket1" ]
-      - map: [ "pocket2" ]
-      - map: [ "clownedon" ]
-        sprite: "Effects/creampie.rsi"
-        state: "creampie_human"
-        visible: false
-      - map: [ "maskalt" ]
-      - map: [ "enum.HumanoidVisualLayers.Hair" ]
-      - map: [ "mask" ]
-      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-      - map: [ "head" ]
-  # Omu end
