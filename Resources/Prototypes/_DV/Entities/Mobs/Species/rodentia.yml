@@ -152,7 +152,7 @@
 - type: entity
   save: false
   name: Rodentia Dummy
-  parent: [BaseMobRodentia, BaseSpeciesDummy]
+  parent: MobHumanDummy
   id: MobRodentiaDummy
   categories: [ HideSpawnMenu ]
   description: A dummy rodentia meant to be used in character setup.
