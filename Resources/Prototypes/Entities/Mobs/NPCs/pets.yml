@@ -975,6 +975,8 @@
   - type: Puller
     needsHands: false
   - type: MeleeWeapon
+    soundHit: # Omu
+        path: /Audio/Effects/pop.ogg
     damage:
       types:
         Blunt: 0

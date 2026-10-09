@@ -8658,3 +8658,137 @@ Entries:
       message: Explosive damage raised (Now only SLIGHTLY weaker than post upstream)
   id: 1123
   time: '2026-10-06T15:08:42.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: Fixed xelthia being poisoned by raw meat
+  id: 1124
+  time: '2026-10-06T16:44:31.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: Removed the thaven outlaw mood
+  id: 1125
+  time: '2026-10-06T18:28:49.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Add
+      message: Added Roger Cagel plushie to the crew morale crate.
+  id: 1126
+  time: '2026-10-06T19:00:42.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        The Core Rules, Roleplay Rules, and Silicon Rules have finally been
+        reworked. Characters are permitted to carry over round information
+        between rounds, but PLEASE do not use this to metagame the antags. We
+        trust you to be responsible with your LARP.
+  id: 1127
+  time: '2026-10-06T19:28:47.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Tweak
+      message: Upped the price of tracking implant crates
+    - type: Tweak
+      message: >-
+        Moved distress signalers to the cargo catalog instead of roundstart
+        equipment
+  id: 1128
+  time: '2026-10-06T20:24:54.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: lowered explosion damage(wrong numbers got pushed)
+  id: 1129
+  time: '2026-10-06T23:45:50.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: Grounding rods and tesla coils should get stuck on doors less often
+  id: 1130
+  time: '2026-10-07T04:01:58.0000000+00:00'
+- author: arachnid14
+  changes:
+    - type: Tweak
+      message: >-
+        Goliath Hardsuit is now crafted with a Hardsuit, instead of the explorer
+        suit.
+  id: 1131
+  time: '2026-10-07T18:00:40.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        Spray painter got some love. You can now paint all your favourite
+        atmosian appliances with BZ, Nitrium, Pluoxium and Healium colours.
+    - type: Tweak
+      message: Spray painter can now spray pipes in several new standard colours
+    - type: Tweak
+      message: >-
+        Spray painter pipes category has been re-arranged to be in a more
+        reasonable colour order
+  id: 1132
+  time: '2026-10-07T18:04:37.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Add
+      message: Added signature fonts that are a character trait.
+    - type: Add
+      message: The Cybersun pen can choose a signature font.
+    - type: Tweak
+      message: Signatures no longer look like stamps.
+  id: 1133
+  time: '2026-10-07T23:14:04.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Add
+      message: >-
+        Added a decal preview when holding a crayon or a spray painter set to
+        add decals.
+    - type: Add
+      message: >-
+        Crayon and spray painter decals can be rotated with the rotate key,
+        middle mouse by default.
+    - type: Add
+      message: Added a decal preview opacity setting in General options.
+  id: 1134
+  time: '2026-10-08T08:44:02.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        The "creating a lathe factory" line in the rules about powergaming has
+        swapped out for a clearer line: you are not allowed to take other
+        departments' techfab boards to avoid interacting with them later.
+  id: 1135
+  time: '2026-10-08T21:13:44.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Add
+      message: added medical ushankas for all doctors and the corpsman / brigmedic
+  id: 1136
+  time: '2026-10-08T21:14:11.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Roundstart wizard will now run on its own (i.e, it will not role for any
+        other antags round start if wizard is rolled)
+  id: 1137
+  time: '2026-10-08T23:10:44.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Smile the slime's hit sound is now a little pop instead of a punch
+  id: 1138
+  time: '2026-10-08T23:13:40.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: >-
+        Ported Extended descriptions from EE, allowing for items to display
+        different descriptions depending on what job/role the player is.
+        Currently only added to the EMAG.
+  id: 1139
+  time: '2026-10-09T00:28:09.0000000+00:00'
