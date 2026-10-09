@@ -13,9 +13,3 @@
       useDelay: 60
     - type: ConfirmableAction
       popup: doll-snap-shell-action
-    - type: InstantAction
-      event: !type:SpawnOnActionEvent
-        spawned: ShellFragmentDoll
-        selfDamage:
-          types:
-            Blunt: 15
