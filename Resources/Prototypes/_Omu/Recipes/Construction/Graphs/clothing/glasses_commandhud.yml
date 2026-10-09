@@ -17,6 +17,9 @@
                 sprite: Clothing/Eyes/Hud/command.rsi
                 state: icon
               doAfter: 5
+            - material: Cable
+              amount: 5
+              doAfter: 5              
 
     - node: glassesCommand
       entity: ClothingEyesGlassesCommand
