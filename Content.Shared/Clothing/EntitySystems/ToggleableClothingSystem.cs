@@ -670,6 +670,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
         }
 
         return equipped;
+    }
 
     private void OnGetActions(Entity<ToggleableClothingComponent> toggleable, ref GetItemActionsEvent args)
     {
