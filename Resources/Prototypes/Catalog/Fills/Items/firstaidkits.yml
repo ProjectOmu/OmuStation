@@ -26,8 +26,8 @@
       storagebase: !type:AllSelector
         children:
         - id: Ointment
-          amount: 3 # Omu
-        #- id: PillCanisterKelotane # Goobstation
+          amount: 2
+        - id: PillCanisterKelotane # Omu
         - id: PillCanisterDermaline
 #        - id: SprayBottleSilverSulfadiazine # Omu
         - id: BurnAutoInjector # Goobstation
