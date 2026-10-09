@@ -4,6 +4,7 @@
   id: SOP
   name: guide-entry-sop
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/SoP.xml"
+  priority: -100 # Omu, this should appear at the very top of Stations and Shifts
   children:
   - AlertLevels
   - EmergenciesSOP

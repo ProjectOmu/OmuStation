@@ -8,11 +8,30 @@
   - ClassifiedTrainingManual
   - DignitaryTrainingManual
 
+# Crew manual start
 - type: guideEntry
   id: CrewTrainingManual
   name: guide-entry-training-manual-crew
   text: "/ServerInfo/_Omu/Guidebook/TrainingManuals/CrewTrainingManual.xml"
   priority: 0
+  children:
+  - CrewTrainingManualAllMedical
+  - CrewTrainingManualChaplain
+
+  # Job specific entries
+- type: guideEntry
+  id: CrewTrainingManualAllMedical
+  name: guide-entry-training-manual-crew-allmedical
+  text: "/ServerInfo/_Omu/Guidebook/TrainingManuals/CrewTrainingManual_AllMedical.xml"
+  priority: 0
+
+- type: guideEntry
+  id: CrewTrainingManualChaplain
+  name: guide-entry-training-manual-crew-chaplain
+  text: "/ServerInfo/_Omu/Guidebook/TrainingManuals/CrewTrainingManual_Chaplain.xml"
+  priority: 1
+
+# Crew manual end
 
 - type: guideEntry
   id: ClassifiedTrainingManual

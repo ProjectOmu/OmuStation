@@ -9,9 +9,11 @@ guide-entry-sop-virologist = Virologist
 guide-entry-sop-corpsman = Corpsman
 guide-entry-sop-security-sergeant = Sergeant
 
-# - General
+# - Training Manuals
 guide-entry-training-manuals = Training Manuals
 guide-entry-training-manual-crew = Crew Training Manual
+guide-entry-training-manual-crew-allmedical = MEDICAL ONLY
+guide-entry-training-manual-crew-chaplain = CHAPLAIN ONLY
 guide-entry-training-manual-classified = Classified Training Manual
 guide-entry-training-manual-dignitary = Dignitary Training Manual
 
