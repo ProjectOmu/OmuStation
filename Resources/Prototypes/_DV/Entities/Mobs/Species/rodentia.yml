@@ -3,7 +3,7 @@
 - type: entity
   save: false
   name: Urist McRat
-  parent: [BaseMobRodentiaVisuals, BaseMobSpeciesOrganic] # Omu - inheriting > copy and paste
+  parent: BaseMobSpeciesOrganic
   id: BaseMobRodentia
   abstract: true
   components:
@@ -46,55 +46,54 @@
         - MobLayer
   - type: ScaleData # Goobstation
     # scale: 0.8, 0.8 # Goobstation: port EE height/width sliders
-  # Omu - inheriting > copy and paste
-  # - type: Sprite
-  #   # scale: 0.8, 0.8 # Goobstation: port EE height/width sliders
-  #   layers:
-  #     - map: [ "enum.HumanoidVisualLayers.Groin" ]
-  #     - map: [ "enum.HumanoidVisualLayers.Chest" ]
-  #     - map: [ "enum.HumanoidVisualLayers.Head" ]
-  #     - map: [ "enum.HumanoidVisualLayers.Snout" ]
-  #     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-  #     - map: [ "enum.HumanoidVisualLayers.RArm" ]
-  #     - map: [ "enum.HumanoidVisualLayers.LArm" ]
-  #     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-  #     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-  #     - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ] # Goobstation
-  #     - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ] # Goobstation
-  #     - map: [ "jumpsuit" ]
-  #     - map: [ "enum.HumanoidVisualLayers.LHand" ]
-  #     - map: [ "enum.HumanoidVisualLayers.RHand" ]
-  #     - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-  #     - map: [ "enum.HumanoidVisualLayers.RFoot" ]
-  #     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
-  #       color: "#ffffff"
-  #       sprite: Objects/Misc/handcuffs.rsi
-  #       state: body-overlay-2
-  #       visible: false
-  #     - map: [ "id" ]
-  #     - map: [ "gloves" ]
-  #     - map: [ "shoes" ]
-  #     - map: [ "ears" ]
-  #     - map: [ "belt" ] # Omu - Moved belt to render under OuterClothing to have it be similar with how the base drawdepth is.
-  #     - map: [ "outerClothing" ]
-  #     - map: [ "eyes" ]
-  #     - map: [ "beltalt" ] # Omu
-  #     - map: [ "back" ]
-  #     - map: [ "neck" ] # Omu - Moved this to render above backpacks because it felt weird seeing duffels above the cloaks and mantles? Easy thing to revert anyway.
-  #     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-  #     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-  #     - map: [ "maskalt" ]
-  #     - map: [ "enum.HumanoidVisualLayers.Hair" ]
-  #     - map: [ "mask" ]
-  #     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-  #     - map: [ "enum.HumanoidVisualLayers.Tail" ]
-  #     - map: [ "head" ]
-  #     - map: [ "pocket1" ]
-  #     - map: [ "pocket2" ]
-  #     - map: [ "clownedon" ] # Dynamically generated
-  #       sprite: "_DV/Effects/creampie.rsi"
-  #       state: "creampie_rodentia"
-  #       visible: false
+  - type: Sprite
+    # scale: 0.8, 0.8 # Goobstation: port EE height/width sliders
+    layers:
+      - map: [ "enum.HumanoidVisualLayers.Groin" ]
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ] # Goobstation
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ] # Goobstation
+      - map: [ "jumpsuit" ]
+      - map: [ "enum.HumanoidVisualLayers.LHand" ]
+      - map: [ "enum.HumanoidVisualLayers.RHand" ]
+      - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+      - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+      - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - map: [ "id" ]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "belt" ] # Omu - Moved belt to render under OuterClothing to have it be similar with how the base drawdepth is.
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "beltalt" ] # Omu
+      - map: [ "back" ]
+      - map: [ "neck" ] # Omu - Moved this to render above backpacks because it felt weird seeing duffels above the cloaks and mantles? Easy thing to revert anyway.
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "maskalt" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "mask" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: [ "clownedon" ] # Dynamically generated
+        sprite: "_DV/Effects/creampie.rsi"
+        state: "creampie_rodentia"
+        visible: false
   # Goobstation
   - type: ActionGrant
     actions:
@@ -153,7 +152,7 @@
 - type: entity
   save: false
   name: Rodentia Dummy
-  parent: [BaseMobRodentiaVisuals, BaseSpeciesDummy] # Omu - inheriting > copy and paste
+  parent: [BaseMobRodentia, BaseSpeciesDummy] # Omu - inheriting > copy and paste
   id: MobRodentiaDummy
   categories: [ HideSpawnMenu ]
   description: A dummy rodentia meant to be used in character setup.
