@@ -3,82 +3,17 @@
 - type: entity
   save: false
   name: Urist McVulp
-  parent: BaseMobSpeciesOrganic
+  parent: [BaseMobVuplkaninVisuals, BaseMobSpeciesOrganic]
   id: BaseMobVulpkanin
   abstract: true
   components:
-  - type: HumanoidAppearance
-    species: Vulpkanin
-    # Omu start
-    markingsDisplacement:
-      Chest:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: jumpsuit # yeah, it does in fact work :)
-      LLeg:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: jumpsuit # Overlays FOR SOME REASON use LLeg, so it has to stay on jumpsuit or else it will show everything except the right leg. It does, in turn, make some l-leg overlays apply on both legs.
-      RLeg:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: r_leg
-      LFoot:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: l_leg
-      RFoot:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: r_leg
-      Hair:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: hair # Omustation End
-    # Omu end
+  # Omu - inheriting > copy and paste
+  # - type: HumanoidAppearance
+  #   species: Vulpkanin
   - type: Hunger
-  - type: Inventory # Allows vulps to wear properly shaped helmets
-    speciesId: vulpkanin
-    #Omu start
-    femaleDisplacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: jumpsuit
-      shoes:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: shoes
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: outerclothing
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: jumpsuit
-      shoes:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: shoes
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: _Omu/Mobs/Species/Vulpkanin/displacement.rsi
-            state: outerclothing
-  #Omu end
+  # Omu - inheriting > copy and paste
+  # - type: Inventory # Allows vulps to wear properly shaped helmets
+  #   speciesId: vulpkanin
   - type: Thirst
   - type: Icon
     sprite: _DV/Mobs/Species/Vulpkanin/parts_plantigrade.rsi # Omu - vulp furrification
@@ -96,67 +31,68 @@
     understands:
     - TauCetiBasic
     - Canilunzt
-  - type: Sprite
-    netsync: false
-    noRot: true
-    drawdepth: Mobs
-    layers:
-      - map: [ "enum.HumanoidVisualLayers.Groin" ]
-      - map: [ "enum.HumanoidVisualLayers.Chest" ]
-      - map: [ "enum.HumanoidVisualLayers.Head" ]
-      - map: [ "enum.HumanoidVisualLayers.Snout" ]
-      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-      - map: [ "enum.HumanoidVisualLayers.RArm" ]
-      - map: [ "enum.HumanoidVisualLayers.LArm" ]
-      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom"]  # Goobstation
-      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ] # Goobstation
-      - shader: StencilClear
-        sprite: Mobs/Species/Human/parts.rsi #PJB on stencil clear being on the left leg: "...this is 'fine'" -https://github.com/space-wizards/space-station-14/pull/12217#issuecomment-1291677115
-        # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
-        # sprite refactor when
-        state: l_leg
-      - shader: StencilMask
-        map: [ "enum.HumanoidVisualLayers.StencilMask" ]
-        sprite: _DV/Mobs/Customization/Vulpkanin/masking_helpers.rsi
-        state: female_full
-        visible: false
-      - map: [ "jumpsuit" ]
-      - map: [ "enum.HumanoidVisualLayers.LHand" ]
-      - map: [ "enum.HumanoidVisualLayers.RHand" ]
-      - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-      - map: [ "enum.HumanoidVisualLayers.RFoot" ]
-      - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
-        color: "#ffffff"
-        sprite: Objects/Misc/handcuffs.rsi
-        state: body-overlay-2
-        visible: false
-      - map: [ "id" ]
-      - map: [ "gloves" ]
-      - map: [ "shoes" ]
-      - map: [ "ears" ]
-      - map: [ "belt" ] # Omu - Moved belt to render under OuterClothing to have it be similar with how the base drawdepth is.
-      - map: [ "outerClothing" ]
-      - map: [ "eyes" ]
-      - map: [ "beltalt" ] # Omu
-      - map: [ "back" ]
-      - map: [ "neck" ] # Omu - Moved this to render above backpacks because it felt weird seeing duffels above the cloaks and mantles? Easy thing to revert anyway.
-      - map: [ "enum.HumanoidVisualLayers.Face" ]
-      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-      - map: [ "maskalt" ]
-      - map: [ "enum.HumanoidVisualLayers.Hair" ]
-      - map: [ "mask" ]
-      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-      - map: [ "enum.HumanoidVisualLayers.Tail" ]
-      - map: [ "head" ]
-      - map: [ "pocket1" ]
-      - map: [ "pocket2" ]
-      - map: [ "clownedon" ] # Dynamically generated
-        sprite: "_DV/Effects/creampie.rsi"
-        state: "creampie_vulpkanin"
-        visible: false
+  # Omu - inheriting > copy and paste
+  # - type: Sprite
+  #   netsync: false
+  #   noRot: true
+  #   drawdepth: Mobs
+  #   layers:
+  #     - map: [ "enum.HumanoidVisualLayers.Groin" ]
+  #     - map: [ "enum.HumanoidVisualLayers.Chest" ]
+  #     - map: [ "enum.HumanoidVisualLayers.Head" ]
+  #     - map: [ "enum.HumanoidVisualLayers.Snout" ]
+  #     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+  #     - map: [ "enum.HumanoidVisualLayers.RArm" ]
+  #     - map: [ "enum.HumanoidVisualLayers.LArm" ]
+  #     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+  #     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+  #     - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom"]  # Goobstation
+  #     - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ] # Goobstation
+  #     - shader: StencilClear
+  #       sprite: Mobs/Species/Human/parts.rsi #PJB on stencil clear being on the left leg: "...this is 'fine'" -https://github.com/space-wizards/space-station-14/pull/12217#issuecomment-1291677115
+  #       # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
+  #       # sprite refactor when
+  #       state: l_leg
+  #     - shader: StencilMask
+  #       map: [ "enum.HumanoidVisualLayers.StencilMask" ]
+  #       sprite: _DV/Mobs/Customization/Vulpkanin/masking_helpers.rsi
+  #       state: female_full
+  #       visible: false
+  #     - map: [ "jumpsuit" ]
+  #     - map: [ "enum.HumanoidVisualLayers.LHand" ]
+  #     - map: [ "enum.HumanoidVisualLayers.RHand" ]
+  #     - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+  #     - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+  #     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+  #       color: "#ffffff"
+  #       sprite: Objects/Misc/handcuffs.rsi
+  #       state: body-overlay-2
+  #       visible: false
+  #     - map: [ "id" ]
+  #     - map: [ "gloves" ]
+  #     - map: [ "shoes" ]
+  #     - map: [ "ears" ]
+  #     - map: [ "belt" ] # Omu - Moved belt to render under OuterClothing to have it be similar with how the base drawdepth is.
+  #     - map: [ "outerClothing" ]
+  #     - map: [ "eyes" ]
+  #     - map: [ "beltalt" ] # Omu
+  #     - map: [ "back" ]
+  #     - map: [ "neck" ] # Omu - Moved this to render above backpacks because it felt weird seeing duffels above the cloaks and mantles? Easy thing to revert anyway.
+  #     - map: [ "enum.HumanoidVisualLayers.Face" ]
+  #     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+  #     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+  #     - map: [ "maskalt" ]
+  #     - map: [ "enum.HumanoidVisualLayers.Hair" ]
+  #     - map: [ "mask" ]
+  #     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+  #     - map: [ "enum.HumanoidVisualLayers.Tail" ]
+  #     - map: [ "head" ]
+  #     - map: [ "pocket1" ]
+  #     - map: [ "pocket2" ]
+  #     - map: [ "clownedon" ] # Dynamically generated
+  #       sprite: "_DV/Effects/creampie.rsi"
+  #       state: "creampie_vulpkanin"
+  #       visible: false
   - type: MeleeWeapon
     hidden: true
     soundHit:
@@ -193,7 +129,7 @@
 - type: entity
   save: false
   name: Vulpkanin Dummy
-  parent: [BaseMobVulpkanin, BaseSpeciesDummy] # Omu - inheriting > copy and paste
+  parent: [BaseMobVuplkaninVisuals, BaseSpeciesDummy] # Omu - inheriting > copy and paste
   id: MobVulpkaninDummy
   categories: [ HideSpawnMenu ]
   description: A dummy vulpkanin meant to be used in character setup.

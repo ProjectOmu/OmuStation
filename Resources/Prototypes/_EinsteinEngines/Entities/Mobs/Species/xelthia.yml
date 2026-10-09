@@ -1,6 +1,6 @@
 # Anything human specific (e.g. UI, input) goes under MobHuman
 - type: entity
-  parent: BaseMobSpeciesOrganic
+  parent: [BaseMobXelthiaVisuals, BaseMobSpeciesOrganic] # Omu - inheriting > copy and paste
   id: BaseMobXelthia
   name: Urist McTentacles
   abstract: true
@@ -77,66 +77,67 @@
 #      Brute:
 #        sprite: Mobs/Effects/brute_damage.rsi
 #        color: "#00FF69"
-  - type: Hands
-    handDisplacement:
-      sizeMaps:
-        32:
-          sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-          state: held
-  - type: Inventory
-    templateId: xelthia
-    speciesId: Xelthia
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit
-      head:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit # name is somewhat misleading, the jumpsuit state ended up being fairly versitile so I reused it
-      shoes:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit
-      mask:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit
-      suitstorage:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit
-      eyes:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit
-      belt:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: jumpsuit
-      back:
-        sizeMaps:
-          32:
-            sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
-            state: backpack
+  # Omu - inheriting > copy and paste
+  # - type: Hands
+  #   handDisplacement:
+  #     sizeMaps:
+  #       32:
+  #         sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #         state: held
+  # - type: Inventory
+  #   templateId: xelthia
+  #   speciesId: Xelthia
+  #   displacements:
+  #     jumpsuit:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit
+  #     head:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit # name is somewhat misleading, the jumpsuit state ended up being fairly versitile so I reused it
+  #     shoes:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit
+  #     mask:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit
+  #     outerClothing:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit
+  #     suitstorage:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit
+  #     eyes:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit
+  #     belt:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: jumpsuit
+  #     back:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
+  #           state: backpack
 
 - type: entity
   save: false
   name: Urist McHands
-  parent: [BaseMobXelthia, BaseSpeciesDummy] # Omu - inheriting > copy and paste
+  parent: [BaseMobXelthiaVisuals, BaseSpeciesDummy] # Omu - inheriting > copy and paste
   id: MobXelthiaDummy
   categories: [ HideSpawnMenu ]
   description: A dummy xelthia meant to be used in character setup.

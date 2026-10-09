@@ -3,7 +3,7 @@
 - type: entity
   save: false
   name: Urist McHarpy
-  parent: BaseMobHuman
+  parent: [BaseMobHarpyVisuals, BaseMobHuman] # Omu - inheriting > copy and paste
   id: MobHarpyBase
   abstract: true
   components:
@@ -44,60 +44,61 @@
         requireInputValidation: false
       enum.RadarConsoleUiKey.Key: #goob - contractor
         type: RadarConsoleBoundUserInterface
-  - type: Sprite
-    # scale: 0.9, 0.9 # Goobstation: port EE height/width sliders
-    layers:
-      - map: [ "enum.HumanoidVisualLayers.Groin" ]
-      - map: [ "enum.HumanoidVisualLayers.Chest" ]
-      - map: [ "enum.HumanoidVisualLayers.Head" ]
-      - map: [ "enum.HumanoidVisualLayers.Snout" ]
-      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-      - map: [ "enum.HumanoidVisualLayers.RArm" ] # Omu - moved wings from RArm to Wings bodypart.
-      - map: [ "enum.HumanoidVisualLayers.LArm" ]
-      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
-      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
-      - map: [ "socks" ]
-      - map: [ "jumpsuit" ]
-      - map: ["enum.HumanoidVisualLayers.LFoot"]
-      - map: ["enum.HumanoidVisualLayers.RFoot"]
-      - map: ["enum.HumanoidVisualLayers.LHand"]
-      - map: ["enum.HumanoidVisualLayers.RHand"]
-      - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
-        color: "#ffffff"
-        sprite: Objects/Misc/handcuffs.rsi
-        state: body-overlay-2
-        visible: false
-      - map: [ "id" ]
-      - map: [ "gloves" ]
-      - map: [ "ears" ]
-      - map: [ "belt" ] # Omu - Moved belt to render under OuterClothing to have it be similar with how the base drawdepth is.
-      - map: [ "outerClothing" ]
-      - map: [ "beltalt" ] # Omu
-      - map: [ "eyes" ]
-      - map: [ "back" ] # Moved it to render under the neck stuff because it felt weird to see duffels be above cloaks? Dunno, this is a easy thing to change anyway.
-      - map: [ "neck" ]
-      - map: [ "enum.HumanoidVisualLayers.Face" ]
-      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-      - map: [ "enum.HumanoidVisualLayers.Tail" ]
-      - map: [ "pocket1" ]
-      - map: [ "pocket2" ]
-      - map: [ "clownedon" ] # Dynamically generated
-        sprite: "Effects/creampie.rsi"
-        state: "creampie_human"
-        visible: false
-      - map: [ "enum.HumanoidVisualLayers.Wings" ] #Omu - moved harpy wings from RArm to wings
-      - map: [ "maskalt" ]
-      - map: [ "enum.HumanoidVisualLayers.Hair" ]
-      - map: [ "mask" ]
-      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-      - map: [ "head" ]
-      - map: [ "singingLayer" ]
-        sprite: _DV/Effects/harpysinger.rsi
-        state: singing_music_notes
-        visible: false
+  # Omu - inheriting > copy and paste
+  # - type: Sprite
+  #   # scale: 0.9, 0.9 # Goobstation: port EE height/width sliders
+  #   layers:
+  #     - map: [ "enum.HumanoidVisualLayers.Groin" ]
+  #     - map: [ "enum.HumanoidVisualLayers.Chest" ]
+  #     - map: [ "enum.HumanoidVisualLayers.Head" ]
+  #     - map: [ "enum.HumanoidVisualLayers.Snout" ]
+  #     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+  #     - map: [ "enum.HumanoidVisualLayers.RArm" ] # Omu - moved wings from RArm to Wings bodypart.
+  #     - map: [ "enum.HumanoidVisualLayers.LArm" ]
+  #     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+  #     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+  #     - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+  #     - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+  #     - map: [ "socks" ]
+  #     - map: [ "jumpsuit" ]
+  #     - map: ["enum.HumanoidVisualLayers.LFoot"]
+  #     - map: ["enum.HumanoidVisualLayers.RFoot"]
+  #     - map: ["enum.HumanoidVisualLayers.LHand"]
+  #     - map: ["enum.HumanoidVisualLayers.RHand"]
+  #     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+  #       color: "#ffffff"
+  #       sprite: Objects/Misc/handcuffs.rsi
+  #       state: body-overlay-2
+  #       visible: false
+  #     - map: [ "id" ]
+  #     - map: [ "gloves" ]
+  #     - map: [ "ears" ]
+  #     - map: [ "belt" ] # Omu - Moved belt to render under OuterClothing to have it be similar with how the base drawdepth is.
+  #     - map: [ "outerClothing" ]
+  #     - map: [ "beltalt" ] # Omu
+  #     - map: [ "eyes" ]
+  #     - map: [ "back" ] # Moved it to render under the neck stuff because it felt weird to see duffels be above cloaks? Dunno, this is a easy thing to change anyway.
+  #     - map: [ "neck" ]
+  #     - map: [ "enum.HumanoidVisualLayers.Face" ]
+  #     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+  #     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+  #     - map: [ "enum.HumanoidVisualLayers.Tail" ]
+  #     - map: [ "pocket1" ]
+  #     - map: [ "pocket2" ]
+  #     - map: [ "clownedon" ] # Dynamically generated
+  #       sprite: "Effects/creampie.rsi"
+  #       state: "creampie_human"
+  #       visible: false
+  #     - map: [ "enum.HumanoidVisualLayers.Wings" ] #Omu - moved harpy wings from RArm to wings
+  #     - map: [ "maskalt" ]
+  #     - map: [ "enum.HumanoidVisualLayers.Hair" ]
+  #     - map: [ "mask" ]
+  #     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+  #     - map: [ "head" ]
+  #     - map: [ "singingLayer" ]
+  #       sprite: _DV/Effects/harpysinger.rsi
+  #       state: singing_music_notes
+  #       visible: false
   - type: HumanoidAppearance
     species: Harpy
     #undergarmentTop:
@@ -150,21 +151,22 @@
   - type: MovementSpeedModifier
     weightlessAcceleration: 2.5
     weightlessModifier: 1.12
-  - type: Inventory
-    speciesId: harpy
-    templateId: digitigrade # Einstein Engines
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
-            state: jumpsuit
-    femaleDisplacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
-            state: jumpsuit
+  # Omu - inheriting > copy and paste
+  # - type: Inventory
+  #   speciesId: harpy
+  #   templateId: digitigrade # Einstein Engines
+  #   displacements:
+  #     jumpsuit:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+  #           state: jumpsuit
+  #   femaleDisplacements:
+  #     jumpsuit:
+  #       sizeMaps:
+  #         32:
+  #           sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+  #           state: jumpsuit
   - type: HarpyVisuals
   - type: Tag
     tags:
@@ -185,7 +187,7 @@
 - type: entity
   save: false
   name: Urist McHands
-  parent: [MobHarpyBase, BaseSpeciesDummy] # Omu - inheriting > copy and paste
+  parent: [BaseMobHarpyVisuals, BaseSpeciesDummy] # Omu - inheriting > copy and paste
   id: MobHarpyDummy
   categories: [ HideSpawnMenu ]
   description: A dummy Harpy meant to be used in character setup.

@@ -2,8 +2,7 @@
 
 - type: entity
   save: false
-  parent:
-  - BaseMobSpeciesOrganic
+  parent: [BaseMobShadowkinVisuals, BaseMobSpeciesOrganic] # Omu - inheriting > copy and paste
   id: MobShadowkinBase
   name: Urist McShadow
   abstract: true
@@ -134,65 +133,66 @@
           - MobMask
         layer:
           - MobLayer
-  - type: Sprite
-    netsync: false
-    noRot: true
-    drawdepth: Mobs
-    # scale: 0.85, 0.85 # Goobstation: port EE height/width sliders
-    layers:
-      - map: ["enum.HumanoidVisualLayers.Groin"]
-      - map: ["enum.HumanoidVisualLayers.Chest"]
-      - map: ["enum.HumanoidVisualLayers.Head"]
-      - map: ["enum.HumanoidVisualLayers.Snout"]
-      - map: ["enum.HumanoidVisualLayers.Eyes"]
-        shader: unshaded
-      - map: ["enum.HumanoidVisualLayers.RArm"]
-      - map: ["enum.HumanoidVisualLayers.LArm"]
-      - map: ["enum.HumanoidVisualLayers.RLeg"]
-      - map: ["enum.HumanoidVisualLayers.LLeg"]
-      - shader: StencilClear
-        sprite: Mobs/Species/Human/parts.rsi
-        state: l_leg
-      - shader: StencilMask
-      - map: ["enum.HumanoidVisualLayers.StencilMask"]
-        sprite: Mobs/Customization/masking_helpers.rsi
-        state: full
-        visible: false
-      - map: ["enum.HumanoidVisualLayers.LFoot"]
-      - map: ["enum.HumanoidVisualLayers.RFoot"]
-      - map: ["socks"]
-      - map: ["enum.HumanoidVisualLayers.UndergarmentBottom"] # goobstation
-      - map: ["enum.HumanoidVisualLayers.UndergarmentTop"] # goobstation
-      - map: ["jumpsuit"]
-      - map: ["enum.HumanoidVisualLayers.LHand"]
-      - map: ["enum.HumanoidVisualLayers.RHand"]
-      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
-        color: "#ffffff"
-        sprite: Objects/Misc/handcuffs.rsi
-        state: body-overlay-2
-        visible: false
-      - map: ["id"]
-      - map: ["gloves"]
-      - map: ["shoes"]
-      - map: ["ears"]
-      - map: ["innerBelt"]
-      - map: ["innerNeck"]
-      - map: [ "belt" ] # Omu - Moved belt to render under OuterClothing to have it be similar with how the base drawdepth is.
-      - map: ["outerClothing"]
-      - map: ["eyes"]
-      - map: [ "beltalt" ] # Omu
-      - map: ["back"]
-      - map: ["neck"] # Omu - Moved this to render above backpacks because it felt weird seeing duffels above the cloaks and mantles? Easy thing to revert anyway.
-      - map: [ "enum.HumanoidVisualLayers.Face" ]
-      - map: ["enum.HumanoidVisualLayers.FacialHair"]
-      - map: ["enum.HumanoidVisualLayers.Hair"]
-      - map: ["enum.HumanoidVisualLayers.HeadSide"]
-      - map: ["enum.HumanoidVisualLayers.HeadTop"]
-      - map: ["mask"]
-      - map: ["head"]
-      - map: ["pocket1"]
-      - map: ["pocket2"]
-      - map: ["enum.HumanoidVisualLayers.Tail"]
+  # Omu - inheriting > copy and paste
+  # - type: Sprite
+  #   netsync: false
+  #   noRot: true
+  #   drawdepth: Mobs
+  #   # scale: 0.85, 0.85 # Goobstation: port EE height/width sliders
+  #   layers:
+  #     - map: ["enum.HumanoidVisualLayers.Groin"]
+  #     - map: ["enum.HumanoidVisualLayers.Chest"]
+  #     - map: ["enum.HumanoidVisualLayers.Head"]
+  #     - map: ["enum.HumanoidVisualLayers.Snout"]
+  #     - map: ["enum.HumanoidVisualLayers.Eyes"]
+  #       shader: unshaded
+  #     - map: ["enum.HumanoidVisualLayers.RArm"]
+  #     - map: ["enum.HumanoidVisualLayers.LArm"]
+  #     - map: ["enum.HumanoidVisualLayers.RLeg"]
+  #     - map: ["enum.HumanoidVisualLayers.LLeg"]
+  #     - shader: StencilClear
+  #       sprite: Mobs/Species/Human/parts.rsi
+  #       state: l_leg
+  #     - shader: StencilMask
+  #     - map: ["enum.HumanoidVisualLayers.StencilMask"]
+  #       sprite: Mobs/Customization/masking_helpers.rsi
+  #       state: full
+  #       visible: false
+  #     - map: ["enum.HumanoidVisualLayers.LFoot"]
+  #     - map: ["enum.HumanoidVisualLayers.RFoot"]
+  #     - map: ["socks"]
+  #     - map: ["enum.HumanoidVisualLayers.UndergarmentBottom"] # goobstation
+  #     - map: ["enum.HumanoidVisualLayers.UndergarmentTop"] # goobstation
+  #     - map: ["jumpsuit"]
+  #     - map: ["enum.HumanoidVisualLayers.LHand"]
+  #     - map: ["enum.HumanoidVisualLayers.RHand"]
+  #     - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+  #       color: "#ffffff"
+  #       sprite: Objects/Misc/handcuffs.rsi
+  #       state: body-overlay-2
+  #       visible: false
+  #     - map: ["id"]
+  #     - map: ["gloves"]
+  #     - map: ["shoes"]
+  #     - map: ["ears"]
+  #     - map: ["innerBelt"]
+  #     - map: ["innerNeck"]
+  #     - map: [ "belt" ] # Omu - Moved belt to render under OuterClothing to have it be similar with how the base drawdepth is.
+  #     - map: ["outerClothing"]
+  #     - map: ["eyes"]
+  #     - map: [ "beltalt" ] # Omu
+  #     - map: ["back"]
+  #     - map: ["neck"] # Omu - Moved this to render above backpacks because it felt weird seeing duffels above the cloaks and mantles? Easy thing to revert anyway.
+  #     - map: [ "enum.HumanoidVisualLayers.Face" ]
+  #     - map: ["enum.HumanoidVisualLayers.FacialHair"]
+  #     - map: ["enum.HumanoidVisualLayers.Hair"]
+  #     - map: ["enum.HumanoidVisualLayers.HeadSide"]
+  #     - map: ["enum.HumanoidVisualLayers.HeadTop"]
+  #     - map: ["mask"]
+  #     - map: ["head"]
+  #     - map: ["pocket1"]
+  #     - map: ["pocket2"]
+  #     - map: ["enum.HumanoidVisualLayers.Tail"]
   - type: MeleeWeapon
     soundHit:
       collection: AlienClaw
@@ -232,7 +232,7 @@
 
 - type: entity
   save: false
-  parent: [MobShadowkinBase, BaseSpeciesDummy] # Omu - inheriting > copy and paste
+  parent: [BaseMobShadowkinVisuals, BaseSpeciesDummy] # Omu - inheriting > copy and paste
   id: MobShadowkinDummy
   categories: [ HideSpawnMenu ]
   description: A dummy shadowkin meant to be used in character setup.
