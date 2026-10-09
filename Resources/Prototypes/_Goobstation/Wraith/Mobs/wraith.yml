@@ -194,11 +194,11 @@
     softness: 5
     autoRot: true
     castShadows: false
-  - type: AmbientSound
-    range: 10
-    volume: -15
-    sound:
-      path: /Audio/_Goobstation/Wraith/Ambience/Void_Calls.ogg
+#  - type: AmbientSound # Omu edit: Wraith doesn't need there own theme song playing 24/7
+#    range: 10
+#    volume: -15
+#    sound:
+#      path: /Audio/_Goobstation/Wraith/Ambience/Void_Calls.ogg
   - type: Plaguebringer
 
 - type: entity
@@ -219,11 +219,11 @@
     softness: 1
     autoRot: true
     castShadows: false
-  - type: AmbientSound
-    range: 10
-    volume: -15
-    sound:
-      path: /Audio/_Goobstation/Music/91476_Glorious_morning.ogg
+#  - type: AmbientSound
+#    range: 10
+#    volume: -15
+#    sound:
+#      path: /Audio/_Goobstation/Music/91476_Glorious_morning.ogg
 
 - type: entity
   id: MobWraithTrickster
@@ -241,9 +241,9 @@
     softness: 1
     autoRot: true
     castShadows: false
-  - type: AmbientSound
-    range: 10
-    volume: -15
-    sound:
-      path: /Audio/_Goobstation/Wraith/Ambience/Void_Hisses.ogg
+#  - type: AmbientSound
+#    range: 10
+#    volume: -15
+#    sound:
+#      path: /Audio/_Goobstation/Wraith/Ambience/Void_Hisses.ogg
 
