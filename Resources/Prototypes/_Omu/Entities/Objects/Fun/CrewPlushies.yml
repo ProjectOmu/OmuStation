@@ -423,9 +423,9 @@
     wideAnimationRotation: 180
     soundHit:
       path: /Audio/Effects/bite.ogg
- 
+
 - type: entity
-  parent: BasePlushie   
+  parent: BasePlushie
   id: PlushiePoemOfExpressionOmuCrew
   name: poem of expression plushie
   description: This plushie smells strongly of burning wood... You can almost hear the explosions.
@@ -494,3 +494,35 @@
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieVeron612crew
+  name: vernon-612 plushie
+  description: A defective combat unit turned into 'The Best Doctor'(self-proclaimed) in NT!
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/Veron621.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/Veron621.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/Veron621.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound: /Audio/_EinsteinEngines/Voice/IPC/beep_2000.ogg
+  - type: EmitSoundOnUse
+    sound: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg
+  - type: EmitSoundOnActivate
+    sound: /Audio/_EinsteinEngines/Voice/IPC/beep_2000.ogg
+  - type: EmitSoundOnTrigger
+    sound: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: EmitSoundOnThrow
+    sound: /Audio/_EinsteinEngines/Voice/IPC/robot-laugh_3.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit: /Audio/_EinsteinEngines/Voice/IPC/robot-laugh_3.ogg
