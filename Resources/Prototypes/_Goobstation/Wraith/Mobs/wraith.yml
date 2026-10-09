@@ -153,6 +153,17 @@
     color: MediumPurple
     activateSound: null
     deactivateSound: null
+  - type: Destructible # Omu edit
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/Wraith/ghostrespawn.ogg
 
 - type: entity
   id: MobWraithPlague
