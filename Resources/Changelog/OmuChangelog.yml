@@ -8792,3 +8792,13 @@ Entries:
         Currently only added to the EMAG.
   id: 1139
   time: '2026-10-09T00:28:09.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Markings are no longer lost when equipping or unequipping modsuits
+    - type: Fix
+      message: Sprites on certain modsuits showing as Errors
+    - type: Add
+      message: Resomi brigmed helmet sprite
+  id: 1140
+  time: '2026-10-09T19:47:02.0000000+00:00'
