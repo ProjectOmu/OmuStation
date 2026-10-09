@@ -32,7 +32,7 @@
 
 - type: entity
   id: ActionWraithWhisper
-  parent: DemonicWhisperAction
+  parent: ActionTelepathy # Omu edit
   name: Ethereal Whisper
   description: Send an ethereal message to a living being.
   components:
@@ -43,6 +43,10 @@
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: whisper
+    raiseOnUser: true # Omu edit start
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem # Omu edit end
 
 - type: entity
   id: ActionBloodWriting
