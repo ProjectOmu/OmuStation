@@ -33,7 +33,7 @@
           - !type:NestedSelector
             tableId: SmugglerCrateUniqueLoot
           - !type:NestedSelector
-            tableId: FillSmugglerBackpack
+            tableId: FillSmugglerCrate
             rolls: 8
 
 - type: entity
@@ -53,3 +53,33 @@
           - !type:NestedSelector
             tableId: SmugglerCrateSyndieLoot
             rolls: 1
+
+- type: entityTable
+  id: FillSmugglerCrate
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: RandomSatchelTable1
+    - !type:NestedSelector
+      tableId: RandomSatchelTable2
+    - !type:NestedSelector
+      tableId: RandomSatchelTable3
+    - !type:NestedSelector
+      tableId: RandomSatchelTable4
+    - !type:NestedSelector
+      tableId: RandomSatchelTable6
+    - !type:NestedSelector
+      tableId: RandomCrateMisc
+
+- type: entityTable #2x small
+  id: RandomCrateMisc
+  table: !type:GroupSelector
+    children:
+    - id: SpaceCash100
+      weight: 15
+    - id: SheetSteel
+      weight: 15
+    - id: SheetGlass
+      weight: 15
+    - id: SheetPlasma
+      weight: 15

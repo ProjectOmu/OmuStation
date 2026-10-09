@@ -5,6 +5,9 @@
     - id: SmugglerLootStole
     - id: SmugglerPickaxe
     - id: OrganEyesOfGod
+    - id: MiningTomePlasma
+    - id: LazarusImplanter
+    - id: CogtoothAxe
 
 - type: entityTable     #Todo - more gamer lot
   id: SmugglerCrateSyndieLoot
@@ -12,11 +15,9 @@
     children:
     - id: SyndicateShuttleConsoleCircuitboard
     - id: SawAdvanced
-    - id: ChemistryBottleNocturine
     - id: CyberPen
     - id: ClothingHandsKnuckleDustersSyndicate
     - id: HappyHonkNukieSnacks
-    - id: ObservationKitSyndie
 
 - type: entity
   parent: [ ClothingNeckStoleChaplain, BaseChameleon ]
@@ -98,7 +99,7 @@
   suffix: Borg
   components:
   - type: Sprite
-    sprite: /Textures/_Omu/Objects/SmugglerLoot.rsi
+    sprite: /Textures/_Omu/Objects/SmugglerLoot/scrap.rsi
     layers:
     - state: ipc_rusted
   - type: GhostRole
@@ -159,9 +160,78 @@
       - Silicon
       - SiliconRadiation
 
-#- type: entity
-#  parent: OrganLaserEyes
-#  id: SmugglerLootRod
-#  name: Rod of Asclepius
-#  suffix: Healing
-#  components:
+- type: entity
+  parent: HereticTomeBase
+  id: MiningTomePlasma
+  name: How 2 Plasma Cutter!
+  description: Its partially written in Finnish... seems awfully similar to a joke
+  components:
+  - type: HereticTome
+    knowledgeGain: 0
+    productAction: ActionPlasmaBeam # n o i t a
+  - type: Paper
+    content: book-text-plasma-cutter    # It kills you
+
+- type: entity
+  id: LazarusImplanter
+  suffix: Mindshield
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: MindShieldImplant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: LazarusImplant
+  name: lazarus implant
+  description: This implant will ensure loyalty to Nanotrasen, in animals...
+  categories: [ HideSpawnMenu ]
+  components:
+   - type: SubdermalImplant
+   - type: LazarusImplant
+
+- type: entity
+  name: cogtooth axe
+  parent: FireAxe
+  id: CogtoothAxe
+  description: An engraving reads, blessings of the omnissiah... who is that?
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/SmugglerLoot/CogtoothAxe.rsi
+    state: icon
+  - type: MeleeWeapon
+    heavyStaminaCost: 15
+    wideAnimationRotation: 135
+    swingLeft: true
+    attackRate: 0.65 #slower than parent
+    damage:
+      types:
+        Blunt: 7 # hits like a truck... its a giant chunk of metal
+        Slash: 5 # lower slash
+        Structural: 10
+      woundSeverityMultipliers:
+        Blunt: 2
+        Slash: 2.5
+    soundHit:
+      collection: MetalThud
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7
+        Slash: 5
+        Structural: 40
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    sprite: _Omu/Objects/SmugglerLoot/CogtoothAxe.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+  - type: Tool
+    qualities:
+      - Prying
+      - Anchoring
+      - Axing
+      - Screwing
