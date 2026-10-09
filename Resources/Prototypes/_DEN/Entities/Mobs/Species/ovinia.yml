@@ -135,7 +135,7 @@
     baseDecayRate: 0.075
 
 - type: entity
-  parent: [MobOvinia, MobHumanDummy]
+  parent: [MobOvinia, BaseSpeciesDummy] # Omu - Inherit sprite layering
   id: MobOviniaDummy
   name: Ovinia Dummy
   save: false
