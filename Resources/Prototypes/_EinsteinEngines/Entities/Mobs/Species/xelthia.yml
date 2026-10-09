@@ -136,10 +136,11 @@
 - type: entity
   save: false
   name: Urist McHands
-  parent: [BaseMobXelthia, BaseSpeciesDummy]
+  parent: [BaseMobXelthia, BaseSpeciesDummy] # Omu - inheriting > copy and paste
   id: MobXelthiaDummy
   categories: [ HideSpawnMenu ]
   description: A dummy xelthia meant to be used in character setup.
+  # Omu start - inheriting > copy and paste
   # components:
   # - type: HumanoidAppearance
   #   species: Xelthia
@@ -244,3 +245,4 @@
   #         32:
   #           sprite: _EinsteinEngines/Mobs/Species/Xelthia/displacement.rsi
   #           state: backpack
+  # Omu end

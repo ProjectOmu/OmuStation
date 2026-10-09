@@ -232,10 +232,11 @@
 
 - type: entity
   save: false
-  parent: [MobShadowkinBase, BaseSpeciesDummy]
+  parent: [MobShadowkinBase, BaseSpeciesDummy] # Omu - inheriting > copy and paste
   id: MobShadowkinDummy
   categories: [ HideSpawnMenu ]
   description: A dummy shadowkin meant to be used in character setup.
+  # Omu start - inheriting > copy and paste
   # components:
   #   - type: HumanoidAppearance
   #     species: Shadowkin
@@ -297,3 +298,4 @@
   #       - map: ["pocket1"]
   #       - map: ["pocket2"]
   #       - map: ["enum.HumanoidVisualLayers.Tail"]
+  # Omu end

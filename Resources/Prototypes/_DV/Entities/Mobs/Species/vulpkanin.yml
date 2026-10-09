@@ -193,12 +193,14 @@
 - type: entity
   save: false
   name: Vulpkanin Dummy
-  parent: [BaseMobVulpkanin, BaseSpeciesDummy]
+  parent: [BaseMobVulpkanin, BaseSpeciesDummy] # Omu - inheriting > copy and paste
   id: MobVulpkaninDummy
   categories: [ HideSpawnMenu ]
   description: A dummy vulpkanin meant to be used in character setup.
+  # Omu start - inheriting > copy and paste
   # components:
   # - type: HumanoidAppearance
   #   species: Vulpkanin
   # - type: Inventory
   #   speciesId: vulpkanin
+  # Omu end

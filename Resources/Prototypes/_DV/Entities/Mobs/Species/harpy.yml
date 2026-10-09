@@ -185,10 +185,11 @@
 - type: entity
   save: false
   name: Urist McHands
-  parent: [MobHarpyBase, BaseSpeciesDummy]
+  parent: [MobHarpyBase, BaseSpeciesDummy] # Omu - inheriting > copy and paste
   id: MobHarpyDummy
   categories: [ HideSpawnMenu ]
   description: A dummy Harpy meant to be used in character setup.
+  # Omu start - inheriting > copy and paste
 #   components:
 #   - type: HumanoidAppearance
 #     species: Harpy
@@ -251,3 +252,4 @@
 #       - map: [ "enum.HumanoidVisualLayers.Hair" ]
 #       - map: [ "mask" ]
 #       - map: [ "head" ]
+# Omu end

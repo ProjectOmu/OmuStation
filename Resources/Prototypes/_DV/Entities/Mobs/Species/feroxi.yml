@@ -138,12 +138,13 @@
     # Goob-Feroxi-Resprite-End
 
 - type: entity
-  parent: [BaseMobFeroxi, BaseSpeciesDummy]
+  parent: [BaseMobFeroxi, BaseSpeciesDummy] # Omu - inheriting > copy and paste
   id: MobFeroxiDummy
   name: Feroxi Dummy
   save: false
   categories: [ HideSpawnMenu ]
   description: A dummy feroxi meant to be used in character setup.
+  # Omu start - inheriting > copy and paste
   # components:
   # - type: HumanoidAppearance
   #   species: Feroxi
@@ -230,3 +231,4 @@
   #           sprite: _White/Mobs/Species/displacement.rsi
   #           state: shoes
   #   # Goob-Feroxi-Resprite-End
+  # Omu end
