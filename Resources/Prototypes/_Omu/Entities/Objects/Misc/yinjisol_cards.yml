@@ -1,0 +1,1511 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Replacing the entire file, since I've done enough edits to justify it. Added descriptions, updated sprite locations, etc.
+
+- type: entity
+  parent: CardBoxBase
+  id: CardBoxYinjiSol
+  name: Solarian deck box
+  Description: A pack of Solarian Yinji cards that smell like the warfront. Yinji: the legally distinct color- and number-matching game. First to one card wins!
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    layers:
+    - state: yinjibox_sol
+      map: [ "closeLayer" ]
+    - state: yinjibox_sol_open
+      map: [ "openLayer" ]
+      visible: false
+    - state: yinjibox_sol_full
+      map: [ "fullLayer" ]
+      visible: false
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: CardDeckYinjiSol
+      amount: 1
+
+- type: entity
+  parent: CardDeckBase
+  id: CardDeckYinjiSol
+  name: deck of Yinji cards
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yinjideck_sol_full
+    drawdepth: SmallObjects
+  - type: CardStack
+    content:
+    # Red
+    - Red0Sol
+    - Red1aSol
+    - Red1bSol
+    - Red2aSol
+    - Red2bSol
+    - Red3aSol
+    - Red3bSol
+    - Red4aSol
+    - Red4bSol
+    - Red5aSol
+    - Red5bSol
+    - Red6aSol
+    - Red6bSol
+    - Red7aSol
+    - Red7bSol
+    - Red8aSol
+    - Red8bSol
+    - Red9aSol
+    - Red9bSol
+    - RedLockaSol
+    - RedLockbSol
+    - RedPlus2aSol
+    - RedPlus2bSol
+    - RedSwapaSol
+    - RedSwapbSol
+  # Blue
+    - Blue0Sol
+    - Blue1aSol
+    - Blue1bSol
+    - Blue2aSol
+    - Blue2bSol
+    - Blue3aSol
+    - Blue3bSol
+    - Blue4aSol
+    - Blue4bSol
+    - Blue5aSol
+    - Blue5bSol
+    - Blue6aSol
+    - Blue6bSol
+    - Blue7aSol
+    - Blue7bSol
+    - Blue8aSol
+    - Blue8bSol
+    - Blue9aSol
+    - Blue9bSol
+    - BlueLockaSol
+    - BlueLockbSol
+    - BluePlus2aSol
+    - BluePlus2bSol
+    - BlueSwapaSol
+    - BlueSwapbSol
+  # Green
+    - Green0Sol
+    - Green1aSol
+    - Green1bSol
+    - Green2aSol
+    - Green2bSol
+    - Green3aSol
+    - Green3bSol
+    - Green4aSol
+    - Green4bSol
+    - Green5aSol
+    - Green5bSol
+    - Green6aSol
+    - Green6bSol
+    - Green7aSol
+    - Green7bSol
+    - Green8aSol
+    - Green8bSol
+    - Green9aSol
+    - Green9bSol
+    - GreenLockaSol
+    - GreenLockbSol
+    - GreenPlus2aSol
+    - GreenPlus2bSol
+    - GreenSwapaSol
+    - GreenSwapbSol
+    # Yellow
+    - Yellow0Sol
+    - Yellow1aSol
+    - Yellow1bSol
+    - Yellow2aSol
+    - Yellow2bSol
+    - Yellow3aSol
+    - Yellow3bSol
+    - Yellow4aSol
+    - Yellow4bSol
+    - Yellow5aSol
+    - Yellow5bSol
+    - Yellow6aSol
+    - Yellow6bSol
+    - Yellow7aSol
+    - Yellow7bSol
+    - Yellow8aSol
+    - Yellow8bSol
+    - Yellow9aSol
+    - Yellow9bSol
+    - YellowLockaSol
+    - YellowLockbSol
+    - YellowPlus2aSol
+    - YellowPlus2bSol
+    - YellowSwapaSol
+    - YellowSwapbSol
+  # Wildcards
+    - RainbowASol
+    - RainbowBSol
+    - RainbowCSol
+    - RainbowDSol
+    - RainbowDrawASol
+    - RainbowDrawBSol
+    - RainbowDrawCSol
+    - RainbowDrawDSol
+
+- type: entity
+  parent: BaseItem
+  id: CardBaseYinjiSol
+  name: card
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EmitSoundOnLand
+    sound:
+      collection: cardShove
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yinjiback_sol
+  - type: Rotatable
+  - type: Item
+    size: Small
+  - type: UseDelay
+    delay: 0.5
+  - type: Card
+    backSpriteLayers:
+    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+      state: yinjiback_sol
+    flipped: true
+
+# region Solarian Cards
+
+# Red cards
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Red0Sol
+  components:
+  - type: Card
+    name: red_0
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_0
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Red1aSol
+  components:
+  - type: Card
+    name: red_1
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_1a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Red1bSol
+  components:
+  - type: Card
+    name: red_1
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_1b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Red2aSol
+  components:
+  - type: Card
+    name: red_2
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_2a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Red2bSol
+  components:
+  - type: Card
+    name: red_2
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_2b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Red3aSol
+  components:
+  - type: Card
+    name: red_3
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_3a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Red3bSol
+  components:
+  - type: Card
+    name: red_3
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_3b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Red4aSol
+  components:
+  - type: Card
+    name: red_4
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_4a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Red4bSol
+  components:
+  - type: Card
+    name: red_4
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_4b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Red5aSol
+  components:
+  - type: Card
+    name: red_5
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_5a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Red5bSol
+  components:
+  - type: Card
+    name: red_5
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_5b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Red6aSol
+  components:
+  - type: Card
+    name: red_6
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_6a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Red6bSol
+  components:
+  - type: Card
+    name: red_6
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_6b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Red7aSol
+  components:
+  - type: Card
+    name: red_7
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_7a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Red7bSol
+  components:
+  - type: Card
+    name: red_7
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_7b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Red8aSol
+  components:
+  - type: Card
+    name: red_8
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_8a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Red8bSol
+  components:
+  - type: Card
+    name: red_8
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_8b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Red9aSol
+  components:
+  - type: Card
+    name: red_9
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_9a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Red9bSol
+  components:
+  - type: Card
+    name: red_9
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_9b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: RedLockaSol
+  Description: Lock cards are used to skip an opponent's turn by "locking" their hand.
+  components:
+  - type: Card
+    name: red_lock
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_lock-a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: RedLockbSol
+  Description: Lock cards are used to skip an opponent's turn by "locking" their hand.
+  components:
+  - type: Card
+    name: red_lock
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_lock-b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: RedPlus2aSol
+  Description: +2 cards can be indefinitely stacked with each other.
+  components:
+  - type: Card
+    name: red_plus2
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_plus2a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: RedPlus2bSol
+  Description: +2 cards can be indefinitely stacked with each other.
+  components:
+  - type: Card
+    name: red_plus2
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_plus2b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: RedSwapaSol
+  Description: Swap cards are used to reverse turn order.
+  components:
+  - type: Card
+    name: red_swap
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_swap-a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: RedSwapbSol
+  Description: Swap cards are used to reverse turn order.
+  components:
+  - type: Card
+    name: red_swap
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: red_swap-b
+    drawdepth: SmallObjects
+
+# Blue
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Blue0Sol
+  components:
+  - type: Card
+    name: blue_0
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_0
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Blue1aSol
+  components:
+  - type: Card
+    name: blue_1
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_1a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Blue1bSol
+  components:
+  - type: Card
+    name: blue_1
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_1b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Blue2aSol
+  components:
+  - type: Card
+    name: blue_2
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_2a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Blue2bSol
+  components:
+  - type: Card
+    name: blue_2
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_2b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Blue3aSol
+  components:
+  - type: Card
+    name: blue_3
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_3a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Blue3bSol
+  components:
+  - type: Card
+    name: blue_3
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_3b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Blue4aSol
+  components:
+  - type: Card
+    name: blue_4
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_4a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Blue4bSol
+  components:
+  - type: Card
+    name: blue_4
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_4b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Blue5aSol
+  components:
+  - type: Card
+    name: blue_5
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_5a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Blue5bSol
+  components:
+  - type: Card
+    name: blue_5
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_5b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Blue6aSol
+  components:
+  - type: Card
+    name: blue_6
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_6a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Blue6bSol
+  components:
+  - type: Card
+    name: blue_6
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_6b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Blue7aSol
+  components:
+  - type: Card
+    name: blue_7
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_7a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Blue7bSol
+  components:
+  - type: Card
+    name: blue_7
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_7b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Blue8aSol
+  components:
+  - type: Card
+    name: blue_8
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_8a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Blue8bSol
+  components:
+  - type: Card
+    name: blue_8
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_8b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Blue9aSol
+  components:
+  - type: Card
+    name: blue_9
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_9a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Blue9bSol
+  components:
+  - type: Card
+    name: blue_9
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_9b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: BlueLockaSol
+  Description: Lock cards are used to skip an opponent's turn by "locking" their hand.
+  components:
+  - type: Card
+    name: blue_lock
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_lock-a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: BlueLockbSol
+  Description: Lock cards are used to skip an opponent's turn by "locking" their hand.
+  components:
+  - type: Card
+    name: blue_lock
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_lock-b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: BluePlus2aSol
+  Description: +2 cards can be indefinitely stacked with each other.
+  components:
+  - type: Card
+    name: blue_plus2
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_plus2a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: BluePlus2bSol
+  Description: +2 cards can be indefinitely stacked with each other.
+  components:
+  - type: Card
+    name: blue_plus2
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_plus2b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: BlueSwapaSol
+  Description: Swap cards are used to reverse turn order.
+  components:
+  - type: Card
+    name: blue_swap
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_swap-a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: BlueSwapbSol
+  Description: Swap cards are used to reverse turn order.
+  components:
+  - type: Card
+    name: blue_swap
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: blue_swap-b
+    drawdepth: SmallObjects
+
+#Green
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Green0Sol
+  components:
+  - type: Card
+    name: green_0
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_0
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Green1aSol
+  components:
+  - type: Card
+    name: green_1
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_1a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Green1bSol
+  components:
+  - type: Card
+    name: green_1
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_1b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Green2aSol
+  components:
+  - type: Card
+    name: green_2
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_2a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Green2bSol
+  components:
+  - type: Card
+    name: green_2
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_2b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Green3aSol
+  components:
+  - type: Card
+    name: green_3
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_3a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Green3bSol
+  components:
+  - type: Card
+    name: green_3
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_3b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Green4aSol
+  components:
+  - type: Card
+    name: green_4
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_4a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Green4bSol
+  components:
+  - type: Card
+    name: green_4
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_4b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Green5aSol
+  components:
+  - type: Card
+    name: green_5
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_5a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Green5bSol
+  components:
+  - type: Card
+    name: green_5
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_5b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Green6aSol
+  components:
+  - type: Card
+    name: green_6
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_6a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Green6bSol
+  components:
+  - type: Card
+    name: green_6
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_6b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Green7aSol
+  components:
+  - type: Card
+    name: green_7
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_7a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Green7bSol
+  components:
+  - type: Card
+    name: green_7
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_7b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Green8aSol
+  components:
+  - type: Card
+    name: green_8
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_8a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Green8bSol
+  components:
+  - type: Card
+    name: green_8
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_8b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Green9aSol
+  components:
+  - type: Card
+    name: green_9
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_9a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Green9bSol
+  components:
+  - type: Card
+    name: green_9
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_9b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: GreenLockaSol
+  Description: Lock cards are used to skip an opponent's turn by "locking" their hand.
+  components:
+  - type: Card
+    name: green_lock
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_lock-a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: GreenLockbSol
+  Description: Lock cards are used to skip an opponent's turn by "locking" their hand.
+  components:
+  - type: Card
+    name: green_lock
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_lock-b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: GreenPlus2aSol
+  Description: +2 cards can be indefinitely stacked with each other.
+  components:
+  - type: Card
+    name: green_plus2
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_plus2a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: GreenPlus2bSol
+  Description: +2 cards can be indefinitely stacked with each other.
+  components:
+  - type: Card
+    name: green_plus2
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_plus2b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: GreenSwapaSol
+  Description: Swap cards are used to reverse turn order.
+  components:
+  - type: Card
+    name: green_swap
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_swap-a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: GreenSwapbSol
+  Description: Swap cards are used to reverse turn order.
+  components:
+  - type: Card
+    name: green_swap
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: green_swap-b
+    drawdepth: SmallObjects
+
+    # Yellow
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Yellow0Sol
+  components:
+  - type: Card
+    name: yellow_0
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_0
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Yellow1aSol
+  components:
+  - type: Card
+    name: yellow_1
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_1a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Yellow1bSol
+  components:
+  - type: Card
+    name: yellow_1
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_1b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Yellow2aSol
+  components:
+  - type: Card
+    name: yellow_2
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_2a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Yellow2bSol
+  components:
+  - type: Card
+    name: yellow_2
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_2b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Yellow3aSol
+  components:
+  - type: Card
+    name: yellow_3
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_3a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Yellow3bSol
+  components:
+  - type: Card
+    name: yellow_3
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_3b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Yellow4aSol
+  components:
+  - type: Card
+    name: yellow_4
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_4a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Yellow4bSol
+  components:
+  - type: Card
+    name: yellow_4
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_4b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Yellow5aSol
+  components:
+  - type: Card
+    name: yellow_5
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_5a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Yellow5bSol
+  components:
+  - type: Card
+    name: yellow_5
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_5b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Yellow6aSol
+  components:
+  - type: Card
+    name: yellow_6
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_6a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Yellow6bSol
+  components:
+  - type: Card
+    name: yellow_6
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_6b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Yellow7aSol
+  components:
+  - type: Card
+    name: yellow_7
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_7a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Yellow7bSol
+  components:
+  - type: Card
+    name: yellow_7
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_7b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Yellow8aSol
+  components:
+  - type: Card
+    name: yellow_8
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_8a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Yellow8bSol
+  components:
+  - type: Card
+    name: yellow_8
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_8b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Yellow9aSol
+  components:
+  - type: Card
+    name: yellow_9
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_9a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: Yellow9bSol
+  components:
+  - type: Card
+    name: yellow_9
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_9b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: YellowLockaSol
+  Description: Lock cards are used to skip an opponent's turn by "locking" their hand.
+  components:
+  - type: Card
+    name: yellow_lock
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_lock-a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: YellowLockbSol
+  Description: Lock cards are used to skip an opponent's turn by "locking" their hand.
+  components:
+  - type: Card
+    name: yellow_lock
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_lock-b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: YellowPlus2aSol
+  Description: +2 cards can be indefinitely stacked with each other.
+  components:
+  - type: Card
+    name: yellow_plus2
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_plus2a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: YellowPlus2bSol
+  Description: +2 cards can be indefinitely stacked with each other.
+  components:
+  - type: Card
+    name: yellow_plus2
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_plus2b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: YellowSwapaSol
+  Description: Swap cards are used to reverse turn order.
+  components:
+  - type: Card
+    name: yellow_swap
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_swap-a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: YellowSwapbSol
+  Description: Swap cards are used to reverse turn order.
+  components:
+  - type: Card
+    name: yellow_swap
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: yellow_swap-b
+    drawdepth: SmallObjects
+    
+    #Wildcards
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: RainbowASol
+  Description: Rainbow cards act as any color/number card and can be played at any time.
+  components:
+  - type: Card
+    name: rainbow
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: rainbow_a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: RainbowBSol
+  Description: Rainbow cards act as any color/number card and can be played at any time.
+  components:
+  - type: Card
+    name: rainbow
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: rainbow_b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: RainbowCSol
+  Description: Rainbow cards act as any color/number card and can be played at any time.
+  components:
+  - type: Card
+    name: rainbow
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: rainbow_c
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: RainbowDSol
+  Description: Rainbow cards act as any color/number card and can be played at any time.
+  components:
+  - type: Card
+    name: rainbow
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: rainbow_d
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: RainbowDrawASol
+  Description: Rainbow cards act as any color/number card and can be played at any time. +4 cards can be indefinitely stacked with each other.
+  components:
+  - type: Card
+    name: rainbow_draw
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: rainbow_draw-a
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: RainbowDrawBSol
+  Description: Rainbow cards act as any color/number card and can be played at any time. +4 cards can be indefinitely stacked with each other.
+  components:
+  - type: Card
+    name: rainbow_draw
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: rainbow_draw-b
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: RainbowDrawCSol
+  Description: Rainbow cards act as any color/number card and can be played at any time. +4 cards can be indefinitely stacked with each other.
+  components:
+  - type: Card
+    name: rainbow_draw
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: rainbow_draw-c
+    drawdepth: SmallObjects
+
+- type: entity
+  parent: CardBaseYinjiSol
+  categories: [ HideSpawnMenu ]
+  id: RainbowDrawDSol
+  Description: Rainbow cards act as any color/number card and can be played at any time. +4 cards can be indefinitely stacked with each other.
+  components:
+  - type: Card
+    name: rainbow_draw
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: rainbow_draw-d
+    drawdepth: SmallObjects
+    
+# endregion Solarian Cards
