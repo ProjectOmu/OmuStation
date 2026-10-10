@@ -223,3 +223,6 @@ selectable-set-ntr-brella-desc =
     durathread by "NanoFashion" for the rich people of central command.
     Looks expensive, and surprisingly durable.
     CC note says: ONLY USE ON RED!!!!!
+
+selectable-set-brigmed-voidsuit-name = Corpsman 'Seraph' modsuit
+selectable-set-brigmed-voidsuit-desc = A modular medical hardsuit designed for combat medics and corpsmen.
