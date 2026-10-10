@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Omu.Common.Changeling;
 using Content.Omu.Server.Speech.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.Speech;
@@ -10,6 +12,8 @@ using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Cloning.Events;
 using Content.Shared.GameTicking;
+using Content.Shared.Humanoid;
+using Content.Shared.Mind;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 
@@ -21,6 +25,7 @@ public sealed class SpeechReplacementSystem : EntitySystem
 
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
 
     private int _maxMessageLength;
 
@@ -31,7 +36,8 @@ public sealed class SpeechReplacementSystem : EntitySystem
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
         SubscribeLocalEvent<SpeechReplacementComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<SpeechReplacementComponent, CloningEvent>(OnCloning);
-        SubscribeLocalEvent<SpeechReplacementComponent, TransformSpeechEvent>(OnTransformSpeech,
+        SubscribeLocalEvent<HumanoidAppearanceComponent, ChangelingFormAssumedEvent>(OnFormAssumed);
+        SubscribeLocalEvent<TransformSpeechEvent>(OnTransformSpeech,
             before: [typeof(AccentSystem)],
             after: [typeof(VoiceMaskSystem)]);
     }
@@ -42,6 +48,16 @@ public sealed class SpeechReplacementSystem : EntitySystem
             return;
 
         AddComp(ev.Mob, new SpeechReplacementComponent { Replacements = new(ev.Profile.SpeechReplacements) }, true);
+        if (_mind.TryGetMind(ev.Mob, out var mindId, out _))
+            AddComp(mindId, new SpeechReplacementComponent { Replacements = new(ev.Profile.SpeechReplacements) }, true);
+    }
+
+    public bool TryGetReplacements(EntityUid speaker, [NotNullWhen(true)] out SpeechReplacementComponent? comp)
+    {
+        if (TryComp(speaker, out comp))
+            return true;
+
+        return _mind.TryGetMind(speaker, out var mindId, out _) && TryComp(mindId, out comp);
     }
 
     private void OnInit(Entity<SpeechReplacementComponent> ent, ref ComponentInit args)
@@ -72,16 +88,22 @@ public sealed class SpeechReplacementSystem : EntitySystem
         AddComp(args.CloneUid, new SpeechReplacementComponent { Replacements = new(ent.Comp.Replacements) }, true);
     }
 
-    private void OnTransformSpeech(Entity<SpeechReplacementComponent> ent, ref TransformSpeechEvent args)
+    private void OnFormAssumed(Entity<HumanoidAppearanceComponent> ent, ref ChangelingFormAssumedEvent args)
     {
-        if (args.Cancelled || ent.Comp.Pattern is not { } pattern)
+        var replacements = TryGetReplacements(args.Original, out var original) ? original.Replacements : [];
+        AddComp(ent, new SpeechReplacementComponent { Replacements = new(replacements) }, true);
+    }
+
+    private void OnTransformSpeech(TransformSpeechEvent args)
+    {
+        if (args.Cancelled || !TryGetReplacements(args.Sender, out var comp) || comp.Pattern is not { } pattern)
             return;
 
         var message = args.Message.Replace(SpeechReplacementComponent.Shield, string.Empty);
         var room = _maxMessageLength - message.Length;
         args.Message = pattern.Replace(message, match =>
         {
-            if (!ent.Comp.Lookup.TryGetValue(match.Value, out var replacement)
+            if (!comp.Lookup.TryGetValue(match.Value, out var replacement)
                 || replacement.Length - match.Length > room)
                 return match.Value;
 

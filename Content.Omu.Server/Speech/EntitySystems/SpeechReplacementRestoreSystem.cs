@@ -8,6 +8,8 @@ namespace Content.Omu.Server.Speech.EntitySystems;
 
 public sealed class SpeechReplacementRestoreSystem : EntitySystem
 {
+    [Dependency] private readonly SpeechReplacementSystem _speechReplacement = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -16,7 +18,7 @@ public sealed class SpeechReplacementRestoreSystem : EntitySystem
 
     private void OnTransformSpeech(TransformSpeechEvent args)
     {
-        if (HasComp<SpeechReplacementComponent>(args.Sender))
+        if (_speechReplacement.TryGetReplacements(args.Sender, out _))
             args.Message = args.Message.Replace(SpeechReplacementComponent.Shield, string.Empty);
     }
 }

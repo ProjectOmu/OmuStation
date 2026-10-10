@@ -21,6 +21,7 @@ using Content.Goobstation.Shared.InternalResources.Data;
 using Content.Goobstation.Shared.InternalResources.EntitySystems;
 using Content.Goobstation.Shared.InternalResources.Events;
 using Content.Goobstation.Shared.MartialArts.Components;
+using Content.Omu.Common.Changeling;
 using Content.Server.Actions;
 using Content.Shared.Atmos.Components;
 using Content.Server.Body.Systems;
@@ -624,6 +625,10 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             Comp<DnaComponent>(newEnt).DNA = data.DNA;
             _humanoid.CloneAppearance(data.Appearance.Owner, newEnt);
             _metaData.SetEntityName(newEnt, data.Name);
+            // Omu start
+            var formAssumed = new ChangelingFormAssumedEvent(data.Appearance.Owner);
+            RaiseLocalEvent(newEnt, ref formAssumed);
+            // Omu end
             var message = Loc.GetString("changeling-transform-finish", ("target", data.Name));
             _popup.PopupEntity(message, newEnt, newEnt);
         }
