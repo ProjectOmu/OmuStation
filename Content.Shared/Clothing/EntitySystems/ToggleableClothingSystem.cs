@@ -661,15 +661,11 @@ public sealed class ToggleableClothingSystem : EntitySystem
                 _containerSystem.Insert(currentClothing.Value, attachedComp.ClothingContainer);
         }
 
-        var equipped = _inventorySystem.TryEquip(user, parent, clothing, slot, silent);
+        if (_inventorySystem.TryEquip(user, parent, clothing, slot, silent) &&
+            toggleable.Comp.EquippedPrefixes.TryGetValue(slot, out var prefix))
+            _clothing.SetEquippedPrefix(toggleable, toggleable.Comp.EquippedPrefixes.GetValueOrDefault(slot, prefix));
 
-        if (equipped &&
-            comp.EquippedPrefixes.TryGetValue(slot, out var prefix))
-        {
-            _clothing.SetEquippedPrefix(toggleable, prefix);
-        }
-
-        return equipped;
+        return true; // Goobstation
     }
 
     private void OnGetActions(Entity<ToggleableClothingComponent> toggleable, ref GetItemActionsEvent args)
