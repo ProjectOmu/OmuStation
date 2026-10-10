@@ -29,6 +29,7 @@ public sealed partial class TestPair
         foreach (var user in _modifiedProfiles)
         {
             await Server.WaitPost(() => prefMan.SetProfile(user, 0, new HumanoidCharacterProfile()).Wait());
+            await SetQueuePriorities(user, new HumanoidCharacterProfile().JobPriorities.ToDictionary()); // Omu
         }
 
         _modifiedProfiles.Clear();

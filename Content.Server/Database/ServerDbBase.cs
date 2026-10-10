@@ -11,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
+using Content.Shared._Omu.Preferences;
 using Content.Shared._RMC14.LinkAccount;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Construction.Prototypes;
@@ -124,6 +125,7 @@ namespace Content.Server.Database
                     .Include(p => p.Profiles)
                     .SingleAsync(p => p.UserId == userId.UserId);
 
+                newProfile.Position = prefs.Profiles.Select(p => p.Position).DefaultIfEmpty(-1).Max() + 1; // Omu
                 prefs.Profiles.Add(newProfile);
             }
 
@@ -149,6 +151,7 @@ namespace Content.Server.Database
             await using var db = await GetDb();
 
             var profile = ConvertProfiles((HumanoidCharacterProfile) defaultProfile, 0);
+            profile.Active = true; // Omu
             var prefs = new Preference
             {
                 UserId = userId.UserId,
@@ -158,6 +161,16 @@ namespace Content.Server.Database
             };
 
             prefs.Profiles.Add(profile);
+            // Omu start
+            foreach (var (job, priority) in ((HumanoidCharacterProfile) defaultProfile).JobPriorities)
+            {
+                prefs.JobPriorities.Add(new PlayerJobPriority
+                {
+                    JobName = job.Id,
+                    Priority = (DbJobPriority) priority,
+                });
+            }
+            // Omu end
 
             db.DbContext.Preference.Add(prefs);
 
@@ -207,6 +220,65 @@ namespace Content.Server.Database
             var prefs = await db.Preference.SingleAsync(p => p.UserId == userId.UserId);
             prefs.SelectedCharacterSlot = newSlot;
         }
+
+        // Omu start
+        public async Task<CharacterQueueState?> GetCharacterQueueAsync(NetUserId userId, CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+
+            var prefs = await db.DbContext.Preference
+                .Include(p => p.JobPriorities)
+                .SingleOrDefaultAsync(p => p.UserId == userId.UserId, cancel);
+
+            if (prefs is null)
+                return null;
+
+            var slots = await db.DbContext.Profile
+                .Where(p => p.PreferenceId == prefs.Id)
+                .OrderBy(p => p.Position)
+                .ThenBy(p => p.Slot)
+                .Select(p => new { p.Slot, p.Active })
+                .ToListAsync(cancel);
+
+            var priorities = prefs.JobPriorities.ToDictionary(
+                p => new ProtoId<JobPrototype>(p.JobName),
+                p => (JobPriority) p.Priority);
+
+            return new CharacterQueueState(
+                priorities,
+                slots.Where(s => s.Active).Select(s => s.Slot).ToHashSet(),
+                slots.Select(s => s.Slot).ToList());
+        }
+
+        public async Task SaveCharacterQueueAsync(NetUserId userId, CharacterQueueState queue)
+        {
+            await using var db = await GetDb();
+
+            var prefs = await db.DbContext.Preference
+                .Include(p => p.JobPriorities)
+                .Include(p => p.Profiles)
+                .SingleAsync(p => p.UserId == userId.UserId);
+
+            prefs.JobPriorities.Clear();
+            foreach (var (job, priority) in queue.JobPriorities)
+            {
+                prefs.JobPriorities.Add(new PlayerJobPriority
+                {
+                    JobName = job.Id,
+                    Priority = (DbJobPriority) priority,
+                });
+            }
+
+            foreach (var profile in prefs.Profiles)
+            {
+                var position = queue.Order.IndexOf(profile.Slot);
+                profile.Active = queue.ActiveSlots.Contains(profile.Slot);
+                profile.Position = position >= 0 ? position : queue.Order.Count + profile.Slot;
+            }
+
+            await db.DbContext.SaveChangesAsync();
+        }
+        // Omu end
 
         private static HumanoidCharacterProfile ConvertProfiles(Profile profile)
         {
