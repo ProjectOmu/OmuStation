@@ -193,8 +193,6 @@ public sealed partial class AntagSelectionSystem
         if (!_pref.TryGetCachedPreferences(session.UserId, out var pref))
             return false;
 
-        var character = (HumanoidCharacterProfile) pref.SelectedCharacter;
-
         var valid = false;
 
         // Check each individual antag role
@@ -202,7 +200,7 @@ public sealed partial class AntagSelectionSystem
         {
             var list = new List<ProtoId<AntagPrototype>>{role};
 
-            if (character.AntagPreferences.Contains(role)
+            if (_characterQueue.WantsAntag(session, role) // Omu
                 && !_ban.IsRoleBanned(session, list)
                 && _playTime.IsAllowed(session, list))
                 valid = true;

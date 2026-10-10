@@ -8,15 +8,26 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls">
     <BoxContainer Name="VBox" Orientation="Vertical">
+        <!-- Omu start -->
+        <BoxContainer Orientation="Horizontal">
+        <!-- Omu end -->
         <controls:NanoHeading Name="Header" Text="{Loc 'lobby-character-preview-panel-header'}">
 
         </controls:NanoHeading>
+        <!-- Omu start -->
+            <BoxContainer Name="DragToggleBox" HorizontalExpand="True" HorizontalAlignment="Right"
+                          VerticalAlignment="Center" />
+        </BoxContainer>
+        <!-- Omu end -->
         <BoxContainer Name="Loaded" Orientation="Vertical"
                       Visible="False">
             <Label Name="Summary" HorizontalAlignment="Center" Margin="3 3"/>
             <BoxContainer Name="ViewBox" Orientation="Horizontal" HorizontalAlignment="Center">
 
             </BoxContainer>
+            <!-- Omu start -->
+            <BoxContainer Name="JobBoardBox" Margin="0 4 0 0" />
+            <!-- Omu end -->
             <controls:VSpacer/>
             <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Name="CharacterSetup" Text="{Loc 'lobby-character-preview-panel-character-setup-button'}"

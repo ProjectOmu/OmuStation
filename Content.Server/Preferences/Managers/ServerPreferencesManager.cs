@@ -38,6 +38,8 @@ namespace Content.Server.Preferences.Managers
 
         private ISawmill _sawmill = default!;
 
+        public event Action<NetUserId, int>? CharacterDeleted; // Omu
+
         private int MaxCharacterSlots => _cfg.GetCVar(CCVars.GameMaxCharacterSlots);
 
         public void Init()
@@ -174,6 +176,7 @@ namespace Content.Server.Preferences.Managers
             arr.Remove(slot);
 
             prefsData.Prefs = new PlayerPreferences(arr, nextSlot ?? curPrefs.SelectedCharacterIndex, curPrefs.AdminOOCColor, curPrefs.ConstructionFavorites);
+            CharacterDeleted?.Invoke(userId, slot); // Omu
 
             if (ShouldStorePrefs(message.MsgChannel.AuthType))
             {
