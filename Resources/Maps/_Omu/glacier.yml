@@ -4,7 +4,7 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 09/13/2026 07:55:54
+  time: 10/06/2026 02:09:16
   entityCount: 22041
 maps:
 - 1
@@ -15639,7 +15639,7 @@ entities:
       pos: -19.5,-13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -241161.73
+      secondsUntilStateChange: -241307.23
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16289,7 +16289,7 @@ entities:
       pos: 10.5,2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -13435.242
+      secondsUntilStateChange: -13580.746
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -52652,11 +52652,6 @@ entities:
     - type: Transform
       pos: -15.5,-22.5
       parent: 2
-  - uid: 7253
-    components:
-    - type: Transform
-      pos: -14.5,-22.5
-      parent: 2
   - uid: 7254
     components:
     - type: Transform
@@ -54043,6 +54038,12 @@ entities:
     components:
     - type: Transform
       pos: -6.5,77.5
+      parent: 2
+  - uid: 10085
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -14.5,-22.5
       parent: 2
 - proto: Chair
   entities:
@@ -58326,7 +58327,7 @@ entities:
       pos: -2.5,48.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -368576.72
+      secondsUntilStateChange: -368722.22
       state: Closing
   - uid: 8178
     components:
@@ -70023,6 +70024,17 @@ entities:
       parent: 2
 - proto: GasFilter
   entities:
+  - uid: 7253
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -14.5,-22.5
+      parent: 2
+    - type: GasFilter
+      filteredGas: Nitrogen
+      enabled: True
+    - type: AtmosPipeLayers
+      pipeLayer: Tertiary
   - uid: 10072
     components:
     - type: Transform
@@ -70138,20 +70150,6 @@ entities:
       pipeLayer: Tertiary
     - type: AtmosPipeColor
       color: '#333333FF'
-- proto: GasFilterInline
-  entities:
-  - uid: 10085
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -14.5,-22.5
-      parent: 2
-    - type: GasFilter
-      filteredGas: Nitrogen
-    - type: AtmosPipeLayers
-      pipeLayer: Tertiary
-    - type: AtmosPipeColor
-      color: '#0055CCFF'
 - proto: GasMinerCarbonDioxide
   entities:
   - uid: 10086
@@ -144781,7 +144779,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -357230.38
+      secondsUntilStateChange: -357375.88
       state: Opening
     - type: Airlock
       autoClose: False

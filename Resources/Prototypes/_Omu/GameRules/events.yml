@@ -1,0 +1,39 @@
+- type: entity      #Its the xeno infestation but for one!
+  parent: BaseGameRule
+  id: LoneXenomorph
+  components:
+  - type: StationEvent
+    weight: 3
+    duration: null
+    minimumPlayers: 20
+    earliestStart: 30
+    maxOccurrences: 2
+    chaos:
+      Hostile: 200
+      Medical: 200
+      Death: 200
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 400
+  - type: VentSpawnRule
+  - type: AntagSpawner
+    prototype: MobXenomorphLarva
+  - type: XenomorphsRule
+    xenomorphInfestationSound:
+      collection: xeno_start
+      volume: -2
+  - type: AntagObjectives
+    objectives:
+    - XenomorphSurviveObjective
+  - type: AntagSelection
+    agentName: xenomorph-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostXenomorph
+      min: 1
+      max: 1
+      pickPlayer: false
+      briefing:
+        text: xenomorph-role-greeting
+        color: "#8c3986"
+      mindRoles:
+      - MindRoleXenomorph

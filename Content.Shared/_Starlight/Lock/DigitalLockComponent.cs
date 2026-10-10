@@ -76,4 +76,9 @@ public sealed partial class DigitalLockComponent : Component
     /// </summary>
     [DataField]
     public string ResetQuality = "Pulsing";
+
+    //Omu start
+    [DataField]
+    public bool RandomCode = false;
+    //Omu end
 }

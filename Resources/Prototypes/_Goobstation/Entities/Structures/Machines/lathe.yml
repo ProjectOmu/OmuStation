@@ -75,6 +75,10 @@
         - RawMaterial
         - Ingot
         - SheetPlasma
+  # Omu begin
+  - type: LatheAnnouncing
+    channels: [Engineering]
+  # Omu end
 
 - type: entity
   id: CargoTechFab
@@ -114,7 +118,7 @@
     - CargoStatic
     - RecipePackShipmentNoticesStatic
     dynamicPacks:
-    #- AdvancedTools #omu
+    - AdvancedTools 
     - Mining
     - MiningLavaland # Lavaland Change
     - PowerCells
@@ -134,9 +138,10 @@
     - ScienceClothing
     - ScienceClothingHandsGlovesTrauma # Omu - tackle gloves
     - ConstructionBagOfHolding
+    - SalvageExplosivesStatic #it lies it is not static, omu
   - type: EmagLatheRecipes
-    emagStaticPacks:
-    - SalvageExplosivesStatic # Seismic charges - they're pretty cheap in salvage vendor anyway so why not
+    #emagStaticPacks:
+    #- SalvageExplosivesStatic # Seismic charges - they're pretty cheap in salvage vendor anyway so why not
     emagDynamicPacks:
     - SecurityExplosives
   - type: MaterialStorage
@@ -158,6 +163,10 @@
   - type: EmptyOnMachineDeconstruct
     containers:
     - blueprint
+  # Omu begin
+  - type: LatheAnnouncing
+    channels: [Supply]
+  # Omu end
 
 - type: entity
   id: ScienceTechFab
@@ -315,6 +324,10 @@
         - RawMaterial
         - Ingot
         - SheetPlasma
+  # Omu begin
+  - type: LatheAnnouncing
+    channels: [Service]
+  # Omu end
 
 - type: entity
   id: ERTTechFab

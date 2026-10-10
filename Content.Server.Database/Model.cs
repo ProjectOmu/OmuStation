@@ -86,6 +86,12 @@ namespace Content.Server.Database
                 .HasIndex(p => new { HumanoidProfileId = p.ProfileId, p.TraitName })
                 .IsUnique();
 
+            // Omu start
+            modelBuilder.Entity<JobAlternateTitle>()
+                .HasIndex(p => new { HumanoidProfileId = p.ProfileId, p.JobName })
+                .IsUnique();
+            // Omu end
+
             modelBuilder.Entity<ProfileRoleLoadout>()
                 .HasOne(e => e.Profile)
                 .WithMany(e => e.Loadouts)
@@ -471,6 +477,7 @@ namespace Content.Server.Database
         public List<Job> Jobs { get; } = new();
         public List<Antag> Antags { get; } = new();
         public List<Trait> Traits { get; } = new();
+        public List<JobAlternateTitle> JobAlternateTitles { get; } = new(); // Omu
 
         public List<ProfileRoleLoadout> Loadouts { get; } = new();
 
@@ -516,6 +523,18 @@ namespace Content.Server.Database
 
         public string TraitName { get; set; } = null!;
     }
+
+    // Omu start
+    public class JobAlternateTitle
+    {
+        public int Id { get; set; }
+        public Profile Profile { get; set; } = null!;
+        public int ProfileId { get; set; }
+
+        public string JobName { get; set; } = null!;
+        public string AlternateTitle { get; set; } = null!;
+    }
+    // Omu end
 
     #region Loadouts
 
