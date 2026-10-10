@@ -47,6 +47,8 @@
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem # Omu edit end
+  - type: TelepathyAction
+    popupType: Medium
 
 - type: entity
   id: ActionBloodWriting
