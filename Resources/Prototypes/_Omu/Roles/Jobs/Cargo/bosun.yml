@@ -19,10 +19,10 @@
     time: 36000 #10 hrs
   - !type:RoleTimeRequirement
     role: JobSalvageSpecialist
-    time: 216000 #60 hrs
+    time: 144000 #40 hrs
   - !type:RoleTimeRequirement
     role: JobCargoTechnician
-    time: 144000 #40 hrs
+    time: 108000 #30 hrs
   weight: 1
   startingGear: CargoBosunGear
   icon: "JobIconCargoBosun"
