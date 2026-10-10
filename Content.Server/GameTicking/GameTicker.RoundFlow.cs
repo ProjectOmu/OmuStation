@@ -605,7 +605,8 @@ namespace Content.Server.GameTicking
                         damagePerGroup = damageableComp.DamagePerGroup;
 
                     // Omu - End of Round Silicon Summary
-                    _pvsOverride.AddGlobalOverride(lastMob.Value);
+                    if (HasComp<SiliconLawProviderComponent>(lastMob)) // Omu
+                        _pvsOverride.AddGlobalOverride(lastMob.Value); // Omu
                 }
 
                 #endregion
