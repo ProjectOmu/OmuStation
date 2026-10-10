@@ -820,22 +820,22 @@
     - SalvageSpecialist
     - ShaftMiner # Omu
 
-- type: listing
-  id: UplinkGreyTide
-  name: uplink-grey-tide-name
-  description: uplink-grey-tide-desc
-  icon: { sprite: Objects/Weapons/Melee/plasma_spear.rsi, state: spear }
-  productEntity: SpearGreyTide
-  cost:
-    Telecrystal: 50
-  categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Passenger
-  - !type:ListingLimitedStockCondition
-    stock: 1
+#- type: listing # Omu, this thing is absurdly broken, duplicating itself and other high value items.
+#  id: UplinkGreyTide
+#  name: uplink-grey-tide-name
+#  description: uplink-grey-tide-desc
+#  icon: { sprite: Objects/Weapons/Melee/plasma_spear.rsi, state: spear }
+#  productEntity: SpearGreyTide
+#  cost:
+#    Telecrystal: 50
+#  categories:
+#  - UplinkJob
+#  conditions:
+#  - !type:BuyerJobCondition
+#    whitelist:
+#    - Passenger
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
 
 - type: listing
   id: UplinkAdvMimery
