@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: LockerBosun
+  name: bosun's suit locker
+  parent: LockerBaseSecure
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Omu/Structures/Storage/closet.rsi
+  - type: AccessReader
+    access: [["Salvage"]]
+  - type: EntityStorageVisuals
+    stateBaseClosed: bosun
+    stateDoorOpen: bosun_open
+    stateDoorClosed: bosun_door
+
+- type: entity
+  id: LockerForeman
+  name: foreman's suit locker
+  parent: LockerBaseSecure
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Omu/Structures/Storage/closet.rsi
+  - type: AccessReader
+    access: [["Atmospherics"]]
+  - type: EntityStorageVisuals
+    stateBaseClosed: foreman
+    stateDoorOpen: foreman_open
+    stateDoorClosed: foreman_door

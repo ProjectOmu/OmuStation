@@ -4,7 +4,7 @@
     "x": 32,
     "y": 32
   },
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/64d90c159dee03688a02fd7c713397f7c78a439b | Recolored and edited for SS14 by DuskTheSnep",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/64d90c159dee03688a02fd7c713397f7c78a439b, Recolored and edited for SS14 by DuskTheSnep, Foreman and Bosun by DuskTheSnep",
   "license": "CC-BY-SA-3.0",
   "states": [
     {
@@ -40,6 +40,24 @@
     {
       "name": "bio_viro_open"
     },
+    {
+      "name": "bosun"
+    },
+    {
+      "name": "bosun_door"
+    },
+    {
+      "name": "bosun_open"
+    },
+    {
+      "name": "foreman"
+    },
+    {
+      "name": "foreman_door"
+    },
+    {
+      "name": "foreman_open"
+    },
 	{
       "name": "generic"
     },
@@ -60,6 +78,9 @@
     },
 	{
       "name": "locked"
+    },
+	{
+      "name": "sparking"
     }
   ]
 }

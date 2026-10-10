@@ -1,0 +1,57 @@
+# Medicus Jumpsuits
+
+- type: loadout
+  id: MedicusJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformMedicusUniform
+
+- type: loadout
+  id: MedicusJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformMedicusSkirt
+
+# Medicus Hats
+
+- type: loadout
+  id: MedicusBeret
+  equipment:
+    head: ClothingHeadHatBeretMedicus
+
+# Medicus OuterClothing
+
+- type: loadout
+  id: MedicusCoat
+  equipment:
+    outerClothing: ClothingOuterMedicusLabCoat
+
+- type: loadout
+  id: MedicusCoatLong
+  equipment:
+    outerClothing: ClothingOuterMedicusLabCoatLong
+
+- type: loadout
+  id: MedicusXelthiaJacket
+  equipment:
+    outerClothing: ClothingOuterJacketMedicus
+
+# Plasmaman stuff
+
+- type: loadout
+  id: MedicusEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmMedicus
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard"
+
+- type: loadout
+  id: MedicusEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitMedicus
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+
