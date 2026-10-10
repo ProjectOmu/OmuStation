@@ -54,6 +54,7 @@
     # - id: RevenantSpawn # Goob
     - !type:NestedSelector
       tableId: DerelictBorgEventTable
+    - id: ReplicatorSpawn # imp
 
 - type: entityTable
   id: ModerateAntagEventsTable
@@ -95,6 +96,7 @@
     - id: LoneXenomorph # Omu
     - !type:NestedSelector
       tableId: DerelictBorgEventTable
+    - id: ReplicatorSpawn # imp
 
 - type: entityTable
   id: DerelictBorgEventTable #For Derelict Borg spawns

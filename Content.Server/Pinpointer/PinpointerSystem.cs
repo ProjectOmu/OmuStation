@@ -131,6 +131,16 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
         var query = EntityQueryEnumerator<PinpointerComponent>();
         while (query.MoveNext(out var uid, out var pinpointer))
         {
+            //#IMP start automatically turn on the pinpointer ONCE if ActivateImmediately is true.
+            if (pinpointer.ActivateImmediately)
+            {
+                pinpointer.ActivateImmediately = false;
+
+                TogglePinpointer(uid, pinpointer);
+                LocateTarget(uid, pinpointer);
+            }
+            //#IMP end
+
             UpdateDirectionToTarget(uid, pinpointer);
         }
     }
