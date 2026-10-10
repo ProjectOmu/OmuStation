@@ -423,9 +423,9 @@
     wideAnimationRotation: 180
     soundHit:
       path: /Audio/Effects/bite.ogg
- 
+
 - type: entity
-  parent: BasePlushie   
+  parent: BasePlushie
   id: PlushiePoemOfExpressionOmuCrew
   name: poem of expression plushie
   description: This plushie smells strongly of burning wood... You can almost hear the explosions.
@@ -494,3 +494,49 @@
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
+    
+- type: entity
+  parent: BasePlushie
+  id: PlushieHaashaOmuCrew
+  name: haasha plushie
+  description: "It's a bright neon-pink plushie of Haasha! The tag reads 'Omnizine for everyone!*' *Omnizine not guaranteed. Consult Haasha before demanding!"
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/haasha.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/haasha.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/haasha.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: Trill
+  - type: EmitSoundOnDrop
+    sound:
+      collection: Trill
+  - type: EmitSoundOnUse
+    sound:
+      collection: Trill
+  - type: EmitSoundOnActivate
+    sound:
+      collection: Trill
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: Trill
+  - type: EmitSoundOnThrow
+    sound:
+      collection: ResomiSquawk
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: ResomiSquawk
+    soundNoDamage:
+      collection: ResomiSquawk
+
