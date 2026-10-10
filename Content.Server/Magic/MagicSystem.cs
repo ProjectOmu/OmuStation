@@ -24,6 +24,7 @@ public sealed class MagicSystem : SharedMagicSystem
     public override void Initialize()
     {
         base.Initialize();
+        SubscribeLocalEvent<SpeakSpellEvent>(OnSpellSpoken); // EE
 
     }
 
@@ -54,5 +55,10 @@ public sealed class MagicSystem : SharedMagicSystem
 
         Spawn(ev.Effect, perfXForm.Coordinates);
         Spawn(ev.Effect, targetXForm.Coordinates);
+    }
+
+    private void OnSpellSpoken(ref SpeakSpellEvent args) // EE
+    {
+        _chat.TrySendInGameICMessage(args.Performer, Loc.GetString(args.Speech), args.ChatType, false);
     }
 }
