@@ -528,6 +528,7 @@
     - NewsReaderCartridge
     - StockTradingCartridge # DeltaV - StockTrading
     - NanoChatCartridge # DeltaV
+    - NanoTaskCartridge # Omu
 
 - type: entity
   parent: BasePDA
@@ -1171,6 +1172,7 @@
       - NotekeeperCartridge
       - NanoTaskCartridge
       - MedTekCartridge
+      - NanoChatCartridge # Omu
 
 - type: entity
   parent: [ SyndiOperativePDA, BaseSyndicateContraband ]
@@ -1332,6 +1334,8 @@
     - NotekeeperCartridge
     - NewsReaderCartridge
     - StockTradingCartridge # DeltaV - StockTrading
+    - NanoTaskCartridge # Omu
+    - NanoChatCartridge # Omu
 
 - type: entity
   parent: BaseSecurityPDA
