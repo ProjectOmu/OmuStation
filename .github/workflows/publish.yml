@@ -14,7 +14,9 @@ concurrency:
 jobs:
   build:
     runs-on: self-hosted
-
+    permissions:
+      contents: write
+      actions: read
     steps:
     - name: Fail if we are attempting to run on the master branch
       if: ${{GITHUB.REF_NAME == 'master' && github.repository == 'space-wizards/space-station-14'}}
@@ -77,6 +79,12 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
         DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}
+        
+    - name: Mark changelog as published
+      if: github.ref_name == 'master'
+      run: |
+        git tag -f changelog-published
+        git push -f origin refs/tags/changelog-published
 
     - name: Publish changelog (RSS)
       run: Tools/actions_changelog_rss.py
