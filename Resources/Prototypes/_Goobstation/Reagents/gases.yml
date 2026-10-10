@@ -259,6 +259,9 @@
         - !type:ReagentCondition
           reagent: Healium
           min: 24
+        - !type:MetabolizerTypeCondition # Omu
+          type: [ Hydrakin ]
+          inverted: true
         ignoreResistances: true
         damage:
           groups:
@@ -285,6 +288,9 @@
         - !type:BloodReagentThresholdCondition
           reagent: NitrosylPlasmide
           max: 0.01
+        - !type:MetabolizerTypeCondition # Omu
+          type: [ Hydrakin ]
+          inverted: true
         key: ForcedSleep
         component: ForcedSleeping
         time: 1
@@ -317,6 +323,9 @@
         - !type:ReagentCondition
           reagent: Healium
           min: 24
+        - !type:MetabolizerTypeCondition # Omu
+          type: [ Hydrakin ]
+          inverted: true
         ignoreResistances: true
         damage:
           groups:
@@ -353,6 +362,9 @@
         - !type:ReagentCondition
           reagent: Healium
           min: 4
+        - !type:MetabolizerTypeCondition # Omu
+          type: [ Hydrakin ]
+          inverted: true
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition # Fuck you
