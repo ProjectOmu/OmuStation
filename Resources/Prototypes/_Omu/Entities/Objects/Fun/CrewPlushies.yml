@@ -522,6 +522,8 @@
   - type: EmitSoundOnThrow
     sound:
       collection: SiliconScreams
+    params:
+      volume: -2
   - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
