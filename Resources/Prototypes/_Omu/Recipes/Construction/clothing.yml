@@ -61,3 +61,11 @@
   targetNode: helmet
   category: construction-category-clothing
   objectType: Item
+
+- type: construction
+  id: OmuAdministrationGlasses
+  graph: OmuGlassesCommandHUD
+  startNode: start
+  targetNode: glassesCommand
+  category: construction-category-clothing
+  objectType: Item

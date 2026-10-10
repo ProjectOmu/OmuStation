@@ -241,6 +241,9 @@
   - type: IdentityBlocker
     coverage: EYES
   - type: ShowJobIcons
+  - type: Construction # For Omu recipe
+    graph: OmuGlassesCommandHUD # Omu
+    node: glassesCommand # Omu
 
 - type: entity
   parent: ClothingEyesBase
