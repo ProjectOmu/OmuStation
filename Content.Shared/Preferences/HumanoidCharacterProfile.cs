@@ -10,6 +10,8 @@ using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Random.Helpers;
 using Content.Shared._Omu.Roles;
+using Content.Shared._Omu.Speech;
+using Content.Omu.Common.CCVar;
 using Content.Shared.Roles;
 using Content.Goobstation.Common.Barks; // Goob Station - Barks
 using Content.Shared.Traits;
@@ -48,6 +50,9 @@ namespace Content.Shared.Preferences
         // Omu start
         [DataField]
         private Dictionary<ProtoId<JobPrototype>, string> _jobAlternateTitles = new();
+
+        [DataField]
+        private List<SpeechReplacement> _speechReplacements = new();
         // Omu end
 
         /// <summary>
@@ -129,6 +134,8 @@ namespace Content.Shared.Preferences
 
         public IReadOnlyDictionary<ProtoId<JobPrototype>, string> JobAlternateTitles => _jobAlternateTitles; // Omu
 
+        public IReadOnlyList<SpeechReplacement> SpeechReplacements => _speechReplacements; // Omu
+
         /// <summary>
         /// <see cref="_antagPreferences"/>
         /// </summary>
@@ -158,6 +165,7 @@ namespace Content.Shared.Preferences
             SpawnPriorityPreference spawnPriority,
             Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities,
             Dictionary<ProtoId<JobPrototype>, string> jobAlternateTitles, // Omu
+            List<SpeechReplacement> speechReplacements, // Omu
             PreferenceUnavailableMode preferenceUnavailable,
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
@@ -176,6 +184,7 @@ namespace Content.Shared.Preferences
             SpawnPriority = spawnPriority;
             _jobPriorities = jobPriorities;
             _jobAlternateTitles = jobAlternateTitles; // Omu
+            _speechReplacements = speechReplacements; // Omu
             PreferenceUnavailable = preferenceUnavailable;
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
@@ -211,6 +220,7 @@ namespace Content.Shared.Preferences
                 other.SpawnPriority,
                 new Dictionary<ProtoId<JobPrototype>, JobPriority>(other.JobPriorities),
                 new Dictionary<ProtoId<JobPrototype>, string>(other.JobAlternateTitles), // Omu
+                new List<SpeechReplacement>(other.SpeechReplacements), // Omu
                 other.PreferenceUnavailable,
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
@@ -440,6 +450,14 @@ namespace Content.Shared.Preferences
                 _jobAlternateTitles = dictionary,
             };
         }
+
+        public HumanoidCharacterProfile WithSpeechReplacements(IEnumerable<SpeechReplacement> replacements)
+        {
+            return new(this)
+            {
+                _speechReplacements = replacements.ToList(),
+            };
+        }
         // Omu end
 
         public HumanoidCharacterProfile WithPreferenceUnavailable(PreferenceUnavailableMode mode)
@@ -555,6 +573,7 @@ namespace Content.Shared.Preferences
             if (SpawnPriority != other.SpawnPriority) return false;
             if (!_jobPriorities.SequenceEqual(other._jobPriorities)) return false;
             if (!_jobAlternateTitles.SequenceEqual(other._jobAlternateTitles)) return false; // Omu
+            if (!_speechReplacements.SequenceEqual(other._speechReplacements)) return false; // Omu
             if (!_antagPreferences.SequenceEqual(other._antagPreferences)) return false;
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
@@ -729,6 +748,34 @@ namespace Content.Shared.Preferences
             {
                 _jobAlternateTitles.Add(job, title);
             }
+
+            var maxReplacements = configManager.GetCVar(OmuCVars.SpeechReplacementsMax);
+            var maxReplacementLength = configManager.GetCVar(OmuCVars.SpeechReplacementLength);
+            var speechReplacements = new List<SpeechReplacement>();
+
+            foreach (var replacement in _speechReplacements)
+            {
+                if (speechReplacements.Count >= maxReplacements)
+                    break;
+
+                var word = replacement.Word.Trim();
+                var text = replacement.Replacement.Trim();
+                if (word.Length > maxReplacementLength)
+                    word = word[..maxReplacementLength].TrimEnd();
+                if (text.Length > maxReplacementLength)
+                    text = text[..maxReplacementLength].TrimEnd();
+
+                if (word.Length == 0 || text.Length == 0)
+                    continue;
+
+                if (speechReplacements.Any(r => r.Word.Equals(word, StringComparison.OrdinalIgnoreCase)))
+                    continue;
+
+                speechReplacements.Add(new SpeechReplacement { Word = word, Replacement = text });
+            }
+
+            _speechReplacements.Clear();
+            _speechReplacements.AddRange(speechReplacements);
             // Omu end
 
             PreferenceUnavailable = prefsUnavailableMode;
@@ -833,6 +880,7 @@ namespace Content.Shared.Preferences
             var hashCode = new HashCode();
             hashCode.Add(_jobPriorities);
             hashCode.Add(_jobAlternateTitles); // Omu
+            hashCode.Add(_speechReplacements); // Omu
             hashCode.Add(_antagPreferences);
             hashCode.Add(_traitPreferences);
             hashCode.Add(_loadouts);

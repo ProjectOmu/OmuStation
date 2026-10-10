@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Numerics;
 using Content.Client._Omu.Lobby.Ui.Roles;
+using Content.Client._Omu.Lobby.Ui.Speech;
 using Content.Client.Humanoid;
 using Content.Client.Lobby.UI.Loadouts;
 using Content.Client.Lobby.UI.Roles;
@@ -106,6 +107,7 @@ namespace Content.Client.Lobby.UI
         private int _selectedTraitPointCount; // Omustation - Remake EE Traits System - Maximum allowed traits functionality
 
         private Dictionary<string, BoxContainer> _traitCategoryContainers = new(); // Omustation - Remake EE Traits System - Redesign traits tab
+        private readonly SpeechTab _speechTab; // Omu
 
         private List<SpeciesPrototype> _species = new();
 
@@ -478,15 +480,35 @@ namespace Content.Client.Lobby.UI
             // Get all trait categories, sorted A-Z.
             var categories = _prototypeManager.EnumeratePrototypes<TraitCategoryPrototype>().OrderBy(t => Loc.GetString(t.Name)).ToList();
 
+            _speechTab = new SpeechTab(_cfgManager); // Omu
+
             foreach (var category in categories)
             {
                 // each category should have a container, which that category's trait selectors can be loaded into.
                 var container = new BoxContainer() { Orientation = LayoutOrientation.Vertical };
                 _traitCategoryContainers.Add(category.Name, container);
 
+                // Omu start
+                if (category.ID == "SpeechTraits")
+                {
+                    _speechTab.AddAccents(container);
+                    continue;
+                }
+                // Omu end
+
                 // The index here is meaningful: category 0 in _traitCategoryContainers will correspond to tab 0 here.
                 TraitTabs.AddTab(container, Loc.GetString(category.Name));
             }
+
+            // Omu start
+            TabContainer.AddChild(_speechTab);
+            TabContainer.SetTabTitle(TabContainer.ChildCount - 1, Loc.GetString("humanoid-profile-editor-speech-tab"));
+            _speechTab.OnReplacementsChanged += replacements =>
+            {
+                Profile = Profile?.WithSpeechReplacements(replacements);
+                SetDirty();
+            };
+            // Omu end
 
             #endregion Omu Traits
 
@@ -918,6 +940,7 @@ namespace Content.Client.Lobby.UI
             RefreshLoadouts();
             RefreshSpecies();
             RefreshTraits();
+            _speechTab.SetReplacements(Profile?.SpeechReplacements ?? []); // Omu
             RefreshFlavorText();
             ReloadPreview();
 
