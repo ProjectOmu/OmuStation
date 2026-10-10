@@ -2,52 +2,52 @@
 
 - type: entity
   parent: BaseLockerTeleporter
-  id: BosunSuitTeleporter
-  name: bosun suit teleporter
-  description: Compact device allowing the Bosun to request bluespace delivery of their hardsuit.
+  id: BosunLockerTeleporter
+  name: bosun locker teleporter
+  description: Compact device allowing the Bosun to request bluespace delivery of their locker. Remember that any salvager can open it.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Devices/unique_teleporters.rsi
     state: shaft-miner
   - type: SpawnItemsOnUse
     items:
-    - id: ClothingOuterHardsuitBosun
+    - id: UniqueLockerBosunFilled
     - id: BluespaceLifeline
 
 - type: entity
-  parent: BosunSuitTeleporter
-  id: UniqueBosunSuitTeleporter
+  parent: BosunLockerTeleporter
+  id: UniqueBosunLockerTeleporter
   suffix: Unique
   categories: [ HideSpawnMenu ]
   components:
   - type: UniqueEntityChecker
-#    markerName: BosunLocker # TODO: make this a real prototype?
+    markerName: BosunLocker
   - type: UniqueEntityMarker
-#    markerName: BosunLocker
+    markerName: BosunLocker
     stationOnly: false
 
 - type: entity
   parent: BaseLockerTeleporter
-  id: ForemanSuitTeleporter
-  name: foreman suit teleporter
-  description: Compact device allowing the Foreman to request bluespace delivery of their hardsuit.
+  id: ForemanLockerTeleporter
+  name: foreman locker teleporter
+  description: Compact device allowing the Foreman to request bluespace delivery of their locker. Remember that any atmospheric technician can open it.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Devices/unique_teleporters.rsi
     state: salvage
   - type: SpawnItemsOnUse
     items:
-    - id: ClothingOuterHardsuitForeman
+    - id: UniqueLockerForemanFilled
     - id: BluespaceLifeline
 
 - type: entity
-  parent: ForemanSuitTeleporter
-  id: UniqueForemanSuitTeleporter
+  parent: ForemanLockerTeleporter
+  id: UniqueForemanLockerTeleporter
   suffix: Unique
   categories: [ HideSpawnMenu ]
   components:
   - type: UniqueEntityChecker
-#    markerName: ForemanLocker # TODO: make this a real prototype?
+    markerName: ForemanLocker
   - type: UniqueEntityMarker
-#    markerName: ForemanLocker
+    markerName: ForemanLocker
     stationOnly: false

@@ -1,0 +1,42 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entityTable
+  id: LockerFillBosun
+  table: !type:AllSelector
+    children:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingShoesBootsMag
+    - id: ClothingOuterHardsuitBosun
+    - id: ClothingMaskGasExplorer
+
+- type: entity
+  id: LockerBosunFilled
+  suffix: Filled
+  parent: LockerBosun
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillBosun
+
+- type: entityTable
+  id: LockerFillForeman
+  table: !type:AllSelector
+    children:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingShoesBootsMag
+    - id: ClothingOuterHardsuitForeman
+    - id: ClothingMaskGasAtmos
+
+- type: entity
+  id: LockerForemanFilled
+  suffix: Filled
+  parent: LockerForeman
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillForeman
+
