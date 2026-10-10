@@ -5,11 +5,3 @@ spook-burn-lights = Lights start to burn at your presence
 spook-flip-lights = Boo!
 spook-on-cooldown = The current action can not be activated. Try again later!
 spook-on-create = The spook has emerged from the darkness.
-
-spook-action-lights-flicker = Flip light switches
-spook-action-burn-lights = Burn lights
-spook-action-open-doors = Open doors, lockers, crates
-spook-action-create-smoke = Create smoke
-spook-action-create-ectoplasm = Create ectoplasm
-spook-action-sap-apc = Sap APC
-spook-action-random = Random

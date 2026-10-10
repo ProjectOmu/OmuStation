@@ -1,6 +1,6 @@
 - type: entity
   id: ActionFlipLights
-  name: spook-action-lights-flicker # Omu edit
+  name: Flicker Lights # Omu edit
   description: Light switches that are on turn off and off on.
   components:
   - type: Sprite
@@ -16,7 +16,7 @@
 
 - type: entity
   id: ActionBurnLights
-  name: spook-action-burn-lights # Omu edit
+  name: Burn lights
   description: Breaks up to four light tubes and bulbs in the area, creating sparks that can ignite flammables.
   components:
   - type: Sprite
@@ -32,7 +32,7 @@
 
 - type: entity
   id: ActionOpenDoors
-  name: spook-action-open-doors # Omu edit
+  name: Open doors, lockers, crates
   description: Opens and closes a few random doors, lockers, and crates in the area.
   components:
   - type: Sprite
@@ -48,7 +48,7 @@
 
 - type: entity
   id: ActionCreateSmoke
-  name: spook-action-create-smoke # Omu edit
+  name: Create smoke
   description: Creates multiple clouds of smoke near you that can completely obscure people's vision. Clouds persist for about a minute.
   components:
   - type: Sprite
@@ -64,7 +64,7 @@
 
 - type: entity
   id: ActionCreateEctoplasm
-  name: spook-action-create-ectoplasm # Omu edit
+  name: Create ectoplasm
   description: Spawns a few globs of ectoplasm in the area.
   components:
   - type: Sprite
@@ -80,7 +80,7 @@
 
 - type: entity
   id: ActionSapApc
-  name: spook-action-sap-apc # Omu edit
+  name: Sap APC
   description: Drains a bit of power from the area's APC. The higher your WP regen rate, the more power drained. Cannot drain multiple APCs.
   components:
   - type: Sprite
@@ -96,7 +96,7 @@
 
 - type: entity
   id: ActionSpookRandom
-  name: spook-action-random # Omu edit
+  name: Random
   description: Does one random action.
   components:
   - type: Sprite
