@@ -254,3 +254,22 @@
     table: !type:GroupSelector
       children:
       - id: MobSnake
+
+- type: entity
+  parent: BaseGameRule
+  id: MailGoblinSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 0
+    minimumPlayers: 15
+    weight: 5
+    reoccurrenceDelay: 30
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: 70 # Omu was 0
+  - type: VentCrittersRule
+    max: 1
+    min: 1
+    table: !type:GroupSelector
+      children:
+      - id: MobMailGoblin
