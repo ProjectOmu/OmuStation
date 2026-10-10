@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: ClothingShoesBaseButcherable
+  parent: [BaseChefContraband, ClothingShoesBaseButcherable] # Omu
   id: ClothingShoesChef
   name: chef shoes
   description: Sturdy shoes that minimize injury from falling objects or knives.
@@ -10,6 +10,12 @@
     sprite: Clothing/Shoes/Specific/chef.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Specific/chef.rsi
+  - type: NoSlip # Omu
+  - type: SlowedOverSlippery # Omu
+    slowdownModifier: 0.7
+  - type: SpeedModifierContactCapClothing # Omu
+    maxContactSprintSlowdown: 0.7
+    maxContactWalkSlowdown: 0.7
 
 # stuff common to all clown & jester shoes
 - type: entity

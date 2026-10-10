@@ -14,3 +14,11 @@
   - type: Contraband
     allowedJobs: [ ShaftMiner, SalvageSpecialist, BlueshieldOfficer ]
     allowedDepartments: [ Engineering ]
+
+- type: entity
+  id: BaseChefContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedJobs: [ Chef ]
