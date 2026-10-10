@@ -31,6 +31,8 @@
   components:
   - type: FaxMachine
     name: "Nanotrasen Representative"
+  - type: FaxCardPrinter
+    card: NanotrasenRepresentativeBusinessCard
   - type: Item
     size: Normal
     sprite: _Goobstation/Objects/Tools/official_fax.rsi
