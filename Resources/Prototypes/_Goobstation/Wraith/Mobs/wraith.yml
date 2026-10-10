@@ -53,7 +53,7 @@
     - Corporeal
   - type: Damageable
     damageContainer: ManifestedSpirit
-    damageModifierSet: ManifestedSpirit
+    damageModifierSet: Wraith
   - type: NoSlip
   - type: PointLight
     enabled: true
@@ -94,6 +94,17 @@
         time: 3
         type: Add
         probability: 1
+    - reagents: [Holywater] # Omu edit: I need to find a away to have it play a sound so the wraith knows it's taking holy damage and crew knows the holy water is damaging it.
+      methods: [Touch, Ingestion, Injection]
+      effects:
+      - !type:HealthChange
+        damage:
+          types: # while it does not seem like a lot of damage for something with 150 HP. Do remember that wraith doesn't heal holy damage on its own
+            Holy: 0.2 # water guns and backpack sprayers do 2, normal spray bottle does 4, big spray bottle does 12
+        conditions:
+        - !type:HasComponentCondition
+          components:
+          - type: Corporeal
   - type: WeakToHoly
     alwaysTakeHoly: true
   - type: Access # Only realistically used while corporeal.
@@ -149,6 +160,21 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
+  - type: NightVision # Omu edit start
+    color: MediumPurple
+    activateSound: null
+    deactivateSound: null
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/Wraith/revleave.ogg # Omu edit end
 
 - type: entity
   id: MobWraithPlague
@@ -168,11 +194,11 @@
     softness: 5
     autoRot: true
     castShadows: false
-  - type: AmbientSound
-    range: 10
-    volume: -15
-    sound:
-      path: /Audio/_Goobstation/Wraith/Ambience/Void_Calls.ogg
+#  - type: AmbientSound # Omu edit: Wraith doesn't need there own theme song playing 24/7
+#    range: 10
+#    volume: -15
+#    sound:
+#      path: /Audio/_Goobstation/Wraith/Ambience/Void_Calls.ogg
   - type: Plaguebringer
 
 - type: entity
@@ -193,11 +219,11 @@
     softness: 1
     autoRot: true
     castShadows: false
-  - type: AmbientSound
-    range: 10
-    volume: -15
-    sound:
-      path: /Audio/_Goobstation/Music/91476_Glorious_morning.ogg
+#  - type: AmbientSound # Omu edit
+#    range: 10
+#    volume: -15
+#    sound:
+#      path: /Audio/_Goobstation/Music/91476_Glorious_morning.ogg
 
 - type: entity
   id: MobWraithTrickster
@@ -215,9 +241,9 @@
     softness: 1
     autoRot: true
     castShadows: false
-  - type: AmbientSound
-    range: 10
-    volume: -15
-    sound:
-      path: /Audio/_Goobstation/Wraith/Ambience/Void_Hisses.ogg
+#  - type: AmbientSound # Omu edit
+#    range: 10
+#    volume: -15
+#    sound:
+#      path: /Audio/_Goobstation/Wraith/Ambience/Void_Hisses.ogg
 

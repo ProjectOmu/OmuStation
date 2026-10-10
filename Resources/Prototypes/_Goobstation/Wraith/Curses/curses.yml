@@ -38,17 +38,15 @@
     - !type:Emote
       emote: Cough
       showInChat: true
-    - !type:SpawnEntity
-      entity: PuddleBloodSmall
+    - !type:SpillBlood # Omu edit: Thank you heretic code for saving me from needing to write a system for this. since oddly there isn't a effect for spilling a container
+      amount: 1
     0.3:
     - !type:PopupMessage
       type: Pvs
       visualType: MediumCaution
       messages: ["curse-blood-1"]
-    - !type:ModifyBloodLevel
-      amount: -40
-    - !type:SpawnEntity
-      entity: PuddleBlood
+    - !type:SpillBlood # Omu edit
+      amount: 40
 
 - type: curse # TO DO: Make them emote "blinks"
   id: CurseBlindness
