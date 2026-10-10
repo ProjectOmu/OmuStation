@@ -1053,6 +1053,7 @@
         Piercing: 0.65
         Heat: 0.65
         Radiation: 0.6
+  - type: IngestionBlocker
   - type: ComponentToggler
     components:
     - type: BreathMask
@@ -1063,7 +1064,6 @@
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
     - type: IdentityBlocker
-    - type: IngestionBlocker
     - type: HideLayerClothing
       layers:
         Hair: HEAD
@@ -1071,6 +1071,11 @@
         HeadTop: HEAD
         HeadSide: HEAD
   #THIS WILL BE REPLACED WITH MODULE ↓↓
+  # Omu start, Fix modsuit light
+  - type: ToggleableVisuals
+    spriteLayer: light
+  - type: ItemTogglePointLight
+  # Omu end
   - type: PointLight
     enabled: false
     radius: 5
