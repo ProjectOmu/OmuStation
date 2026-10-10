@@ -27,9 +27,9 @@
         children:
         - id: Ointment
           amount: 2
-        #- id: PillCanisterKelotane # Goobstation
+        - id: PillCanisterKelotane # Omu
         - id: PillCanisterDermaline
-        - id: SprayBottleSilverSulfadiazine # Goobstation
+#        - id: SprayBottleSilverSulfadiazine # Goobstation # Omu
         - id: BurnAutoInjector # Goobstation
 
 - type: entity
@@ -45,9 +45,10 @@
         - id: Gauze
         - id: PillCanisterIron
         #- id: PillCanisterCopper # Goobstation
-        - id: SprayBottleStypticPowder # Goobstation
+#       - id: SprayBottleStypticPowder # Goobstation # Omu
         - id: BruteAutoInjector # Goobstation
-
+        - id: PillCanisterBicaridine # Omu
+        - id: SyringeTranexamicAcid # Omu
 - type: entity
   id: MedkitToxinFilled
   suffix: Filled
