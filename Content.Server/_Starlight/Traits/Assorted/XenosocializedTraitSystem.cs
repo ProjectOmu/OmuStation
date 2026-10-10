@@ -44,14 +44,15 @@ public sealed partial class XenosocializedTraitSystem : EntitySystem // Talita h
         }
         // Byrd end
 
-        var nativeLanguage = prototypeLanguages.Find(it => it != SharedLanguageSystem.FallbackLanguagePrototype && it != entity.Comp.NeocyteLanguage);
-        if (nativeLanguage == default)
+        var nativeLanguages = prototypeLanguages.FindAll(it => it != SharedLanguageSystem.FallbackLanguagePrototype);
+        if (nativeLanguages.Count == 0)
         {
             Log.Warning($"Entity {entity.Owner} does not have an native language to choose from (must have at least one non-GC for XenosocializedTrait!");
             return;
         }
 
-        _languages.RemoveLanguage(entity.Owner, nativeLanguage, true, true);
+        foreach (var language in nativeLanguages)
+            _languages.RemoveLanguage(entity.Owner, language, true, true);
     }
 }
 // Derived from ForeignerTraitSystem.cs
