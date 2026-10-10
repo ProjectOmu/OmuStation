@@ -70,8 +70,8 @@
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
       - map: [ "beltalt" ] # Omu 120
+      - map: [ "back" ] # Omu - neck renders above back to align with other species
       - map: [ "neck" ]
-      - map: [ "back" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "maskalt" ] # Omu - alt mask gooblayer below hair
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
@@ -154,8 +154,8 @@
     noRot: true
     drawdepth: Mobs
     layers:
-    - map: [ "enum.HumanoidVisualLayers.Groin" ]
-    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Chest" ] # Omu - match layers to Mob
+    - map: [ "enum.HumanoidVisualLayers.Groin" ] # Omu - match layers to Mob
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
@@ -189,8 +189,8 @@
     - map: [ "outerClothing" ]
     - map: [ "eyes" ]
     - map: [ "beltalt" ] # Omu 120
+    - map: [ "back" ] # Omu - neck renders above back to align with other species
     - map: [ "neck" ]
-    - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "maskalt" ] # Omu - alt mask gooblayer below hair
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
