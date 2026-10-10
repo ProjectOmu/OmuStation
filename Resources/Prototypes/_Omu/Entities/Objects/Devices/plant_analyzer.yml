@@ -1,0 +1,66 @@
+- type: entity
+  id: PlantAnalyzer
+  parent: [ BaseHandheldComputer ]
+  name: plant analyzer
+  description: A hand-held plant scanner capable of analyzing plants and seeds.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Devices/plantanalyzer.rsi
+    state: icon
+    layers:
+    - state: icon
+    - state: analyzer
+      shader: unshaded
+      visible: true
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+  - type: Item
+    heldPrefix: analyzer
+  - type: ActivatableUI
+    key: enum.PlantAnalyzerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PlantAnalyzerUiKey.Key:
+        type: PlantAnalyzerBoundUserInterface
+  - type: PlantAnalyzer
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
+  - type: PowerCellDraw
+    drawRate: 1.2
+  - type: ToggleCellDraw
+  - type: ActivatableUIRequiresPowerCell
+  - type: Appearance
+  - type: Tag
+    tags:
+    - PlantAnalyzer
+
+- type: entity
+  id: PlantAnalyzerDebug
+  parent: [ BaseHandheldComputer ]
+  name: plant analyzer (debug)
+  description: A debug plant scanner that does not draw power and scans instantly.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Devices/plantanalyzer.rsi
+    state: icon
+    layers:
+    - state: icon
+    - state: analyzer
+      shader: unshaded
+      visible: true
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+  - type: Item
+    heldPrefix: analyzer
+  - type: ActivatableUI
+    key: enum.PlantAnalyzerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PlantAnalyzerUiKey.Key:
+        type: PlantAnalyzerBoundUserInterface
+  - type: PlantAnalyzer
+    settings:
+      scanDelay: 0
+      maxScanRange: 999
+  - type: Appearance
+  - type: Tag
+    tags:
+    - PlantAnalyzer
