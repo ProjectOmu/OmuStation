@@ -28,13 +28,20 @@ public sealed class PendingAntagSystem : EntitySystem
     {
         if (ev.LateJoin)
             return;
-
-        if (ev.JobId == null || !_prototypeManager.Index<JobPrototype>(ev.JobId).CanBeAntag)
-            return;
-
+        // Omu start - to allow certain jobs to roll antag even if their CanBeAntag is false.
         if (!PendingAntags.Remove(ev.Player.UserId, out var pendingAntag))
             return;
 
+        if (ev.JobId == null)
+            return;
+
+        if (!_prototypeManager.TryIndex<JobPrototype>(ev.JobId, out var jobProto))
+            return;
+
+        if (!jobProto.CanBeAntag && pendingAntag.Item1.JobAntagImmunityOverride?.Contains(jobProto.ID) != true)
+            return;
+
+        // Omu end
         _selection.TryMakeAntag(pendingAntag.Item2, ev.Player, pendingAntag.Item1, true);
     }
 

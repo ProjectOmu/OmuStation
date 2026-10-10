@@ -349,7 +349,7 @@ public sealed partial class StationJobsSystem
     {
         var outputDict = new Dictionary<NetUserId, List<string>>(profiles.Count);
         var antagBlacklists = _antag.GetPreSelectedAntagSessionsWithBlacklist(); //GOOBSTATION
-
+        var antagOverrides = _antag.GetPreSelectedAntagSessionsWithImmunityOverride(); // Omu - Get the antag overrides for jobs that can roll antag even if their CanBeAntag is false.
         foreach (var (player, profile) in profiles)
         {
 
@@ -378,9 +378,22 @@ public sealed partial class StationJobsSystem
                         continue;
                 }
 
-                if (!job.CanBeAntag && (!_player.TryGetSessionById(player, out session) || antagBlocked.Contains(session)))
-                    continue;
+                // Omu start - antag-immune jobs are withheld from pre-selected antags,
+                // unless that antag's definition explicitly permits this job.
+                if (!job.CanBeAntag)
+                {
+                    if (!_player.TryGetSessionById(player, out session))
+                        continue;
 
+                    var allowedByAntag = antagOverrides.TryGetValue(session, out var overrideJobs)
+                                         && overrideJobs.Contains(jobId);
+
+                    if (antagBlocked.Contains(session) && !allowedByAntag)
+                        continue;
+                }
+                // Omu end
+
+                
                 if (weight is not null && job.Weight != weight.Value)
                     continue;
 

@@ -627,7 +627,22 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         // todo: expand this to allow for more fine antag-selection logic for game rules.
         if (!_jobs.CanBeAntag(session))
-            return false;
+        {
+            // Omu start - let some jobs roll some antags, even if they are normally antag-immune,
+            // based on the jobAntagImmunityOverride list in the antag selection definition.
+            var immunityOverride = def.JobAntagImmunityOverride;
+
+            // If there is no override list, there's nothing to check.
+            if (immunityOverride == null) return false;
+
+            _jobs.MindTryGetJob(mind, out var job);
+
+            if (job == null || !immunityOverride.Contains(job.ID))
+                return false;
+
+            // Omu end
+        }
+            
 
         return true;
     }
