@@ -1,0 +1,15 @@
+# Actions for Doll species
+
+- type: entity
+  id: ActionGenerateShellPiece
+  name: snap shell
+  description: Break off an expendable piece of your shell, either to use it as a crude knife or to donate it to a fellow doll.
+  components:
+    - type: Action
+      itemIconStyle: BigAction
+      icon:
+        sprite: _Starlight/Interface/Actions/actions_doll.rsi
+        state: break_shard
+      useDelay: 60
+    - type: ConfirmableAction
+      popup: doll-snap-shell-action

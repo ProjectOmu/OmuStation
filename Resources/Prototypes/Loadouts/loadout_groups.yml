@@ -158,6 +158,7 @@
   loadouts:
   - EmergencyNitrogen
   - EmergencyOxygen
+  - EmergencyOxygenBlood #Omu, ported from starlight
   - EmergencyPlasma
   - LoadoutSpeciesVoxNitrogen
   - LoadoutSpeciesPlasma # Goobstation
@@ -735,6 +736,7 @@
   - EmergencyNitrogenClown
   - EmergencyOxygenClown
   - EmergencyPlasmaClown
+  - EmergencyOxygenClownBlood #Omu, ported from starlight
   - LoadoutSpeciesVoxNitrogen
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencyWaterVaporClown # Delta-V
@@ -807,6 +809,7 @@
   loadouts:
   - EmergencyNitrogenMime
   - EmergencyOxygenMime
+  - EmergencyOxygenMimeBlood #Omu, ported from starlight
   - EmergencySpeciesMothMime
   - EmergencyPlasmaMime
   - LoadoutSpeciesVoxNitrogen
@@ -1245,6 +1248,7 @@
   loadouts:
   - EmergencyNitrogenExtended
   - EmergencyOxygenExtended
+  - EmergencyOxygenExtendedBlood #Omu, ported from starlight
   - EmergencyPlasmaExtended
   - LoadoutSpeciesVoxNitrogen
   - LoadoutSpeciesPlasma # Goobstation
@@ -1672,6 +1676,7 @@
   loadouts:
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
+  - EmergencyOxygenSecurityBlood # Omu, ported from Starlight
   - EmergencyPlasmaSecurity
   - LoadoutSpeciesVoxNitrogen
   - LoadoutSpeciesPlasma # Goobstation
@@ -2036,6 +2041,7 @@
   loadouts:
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
+  - EmergencyOxygenSyndicateBlood # Omu, ported from Starlight
   - EmergencyPlasmaSyndicate
   - LoadoutSpeciesVoxNitrogen
   - LoadoutSpeciesPlasma # Goobstation
@@ -2053,6 +2059,7 @@
   loadouts:
   - EmergencyNitrogenMilitaryDouble
   - EmergencyOxygenMilitaryDouble
+  - EmergencyOxygenMilitaryDoubleBlood # Omu, ported from Starlight
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool
