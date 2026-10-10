@@ -1429,3 +1429,15 @@
       stackRequirements:
         Manipulator: 4
 # Shitmed Change End
+
+- type: entity # Gabystation start
+  parent: BaseMachineCircuitboard
+  id: WashingMachineCircuitboard
+  name: washing machine board
+  components:
+  - type: MachineBoard
+    prototype: WashingMachine
+    stackRequirements:
+      Steel: 1
+      Manipulator: 1
+      Cable: 1 # Gabystation end
