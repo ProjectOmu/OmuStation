@@ -423,9 +423,9 @@
     wideAnimationRotation: 180
     soundHit:
       path: /Audio/Effects/bite.ogg
- 
+
 - type: entity
-  parent: BasePlushie   
+  parent: BasePlushie
   id: PlushiePoemOfExpressionOmuCrew
   name: poem of expression plushie
   description: This plushie smells strongly of burning wood... You can almost hear the explosions.
@@ -494,3 +494,38 @@
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieRyneOmuCrew
+  name: RYNE-137 plushie
+  description: A stuffed IPC. He has a name, you know.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/ryne137.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/ryne137.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/ryne137.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg
+  - type: EmitSoundOnUse
+    sound: /Audio/Machines/chime.ogg
+  - type: EmitSoundOnActivate
+    sound: /Audio/Machines/chime.ogg
+  - type: EmitSoundOnTrigger
+    sound: /Audio/Machines/chime.ogg
+  - type: EmitSoundOnThrow
+    sound:
+      collection: SiliconScreams
+    params:
+      volume: -2
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit: /Audio/_EinsteinEngines/Voice/IPC/robot-laugh_3.ogg
