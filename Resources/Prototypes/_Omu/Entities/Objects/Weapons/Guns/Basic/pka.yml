@@ -1,0 +1,30 @@
+- type: entity
+  name: Proto-Kinetic Sniper
+  id: WeaponProtoKineticSniper
+  parent: [ BaseGunWieldable, WeaponProtoKineticAcceleratorBase ]
+  components:
+  - type: Sprite
+    sprite: _Omu\Objects\Weapons\Guns\Basic\kinetic_sniper_icon_64x32.rsi
+    layers:
+    - state: icon
+    - state: animation-icon
+      visible: false
+      map: [ "empty-icon" ]
+  - type: Item
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_shotgun.rsi
+    shape:
+    - 0,0,4,0
+  - type: GunRequiresWield
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 5 # No spamming in the halls.
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.8 # Makes you actually consider where you shoot.
+    sprintModifier: 0.8
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 8 # On-par with the hristov, probably will change.
+    pvsIncrease: 0.8
+  - type: BasicEntityAmmoProvider
+    proto: SniperBulletKinetic

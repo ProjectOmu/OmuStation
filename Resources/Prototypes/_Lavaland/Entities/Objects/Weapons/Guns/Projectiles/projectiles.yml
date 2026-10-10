@@ -125,3 +125,21 @@
   # Short lifespan
   - type: TimedDespawn
     lifetime: 0.4
+
+# Omu start - Proto-Kinetic Sniper
+- type: entity
+  id: SniperBulletKinetic # Used for PK sniper
+  categories: [ HideSpawnMenu ]
+  parent: RapidBulletKinetic
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Blunt: 20
+        Structural: 17.5
+  - type: GatheringProjectile
+    amount: 40
+# Omu end - Proto-Kinetic Sniper
