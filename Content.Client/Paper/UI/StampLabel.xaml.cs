@@ -55,7 +55,7 @@ public sealed partial class StampLabel : Label
                 PixelPosition.Y * MathF.Cos(Orientation) + PixelPosition.X * MathF.Sin(Orientation));
 
         _stampShader?.SetParameter("objCoord", GlobalPosition * UIScale * new Vector2(1, -1));
-        _stampShader?.SetParameter("disableStampNoise", IsSignature); // Omu
+        _stampShader?.SetParameter("isSignature", IsSignature); // Omu
         handle.UseShader(_stampShader);
         handle.SetTransform(GlobalPixelPosition - PixelPosition + offset, Orientation, _textScaling);
         base.Draw(handle);
