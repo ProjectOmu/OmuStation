@@ -1,0 +1,12 @@
+- type: entity
+  id: ClosetTransmog
+  parent: ClosetSteelBase
+  name: Transmogrifier
+  components:
+  - type: Transmogrifier
+
+- type: transmogrifierGraph
+  id: Syringe
+  fine: MedkitFilled
+  veryFine: NuclearGrenade
+  transformedItem: Syringe
