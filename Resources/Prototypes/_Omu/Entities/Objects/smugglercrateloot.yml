@@ -5,18 +5,28 @@
     - id: SmugglerLootStole
     - id: SmugglerPickaxe
     - id: OrganEyesOfGod
+    - id: SingularityToy
+    - id: FoamThrongler
+    - id: GlueGrenade
+    - id: SyringePoisonFent
+    - id: ClothingOuterHardsuitSanta
+    - id: LavalandVampirismCrystal #Feel free to remove these lavaland items if it ever gets readded/reworked
+    - id: LavalandCursedHeart
+    - id: WeaponCrusherHalberdFilledRandom
+    - id: RGBStaff
+    - id: FishingRodGolden
 
 - type: entityTable     #Todo - more gamer lot
   id: SmugglerCrateSyndieLoot
   table: !type:GroupSelector
     children:
-    - id: SyndicateShuttleConsoleCircuitboard
     - id: SawAdvanced
-    - id: ChemistryBottleNocturine
     - id: CyberPen
     - id: ClothingHandsKnuckleDustersSyndicate
     - id: HappyHonkNukieSnacks
-    - id: ObservationKitSyndie
+    - id: ClothingBackpackDuffelSyndicatePyjamaBundle
+    - id: ClothingHeadHatCatEars
+    - id: CigPackSyndicate
 
 - type: entity
   parent: [ ClothingNeckStoleChaplain, BaseChameleon ]
