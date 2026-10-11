@@ -32,6 +32,7 @@ public sealed class ReadyManifestSystem : EntitySystem
         SubscribeNetworkEvent<RequestReadyManifestMessage>(OnRequestReadyManifest);
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStarting);
         SubscribeLocalEvent<PlayerToggleReadyEvent>(OnPlayerToggleReady);
+        SubscribeLocalEvent<CharacterQueueChangedEvent>(OnCharacterQueueChanged); // Omu
     }
 
     private void OnRoundStarting(RoundStartingEvent ev)
@@ -95,6 +96,17 @@ public sealed class ReadyManifestSystem : EntitySystem
 
         UpdateEuis();
     }
+
+    // Omu start
+    private void OnCharacterQueueChanged(CharacterQueueChangedEvent ev)
+    {
+        if (_gameTicker.PlayerGameStatuses.GetValueOrDefault(ev.Player) != PlayerGameStatus.ReadyToPlay)
+            return;
+
+        BuildReadyManifest();
+        UpdateEuis();
+    }
+    // Omu end
 
      private void BuildReadyManifest()
     {

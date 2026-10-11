@@ -47,6 +47,7 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
 
     private readonly Dictionary<NetUserId, CharacterQueueState> _queues = new();
     private readonly Dictionary<NetUserId, uint> _sequences = new();
+    private readonly Dictionary<NetUserId, Task> _saves = new();
     private readonly Dictionary<NetUserId, HumanoidCharacterProfile> _spawned = new();
     private readonly Dictionary<NetUserId, List<List<ProtoId<AntagPrototype>>>> _reservations = new();
 
@@ -160,8 +161,15 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
         _queues[session.UserId] = queue;
         SendQueue(session);
 
-        if (ServerPreferencesManager.ShouldStorePrefs(session.Channel.AuthType))
-            await _db.SaveCharacterQueueAsync(session.UserId, queue);
+        if (!ServerPreferencesManager.ShouldStorePrefs(session.Channel.AuthType))
+            return;
+
+        var save = SaveQueue(_saves.GetValueOrDefault(session.UserId) ?? Task.CompletedTask, session.UserId, queue);
+        _saves[session.UserId] = save;
+        await save;
+
+        if (_saves.GetValueOrDefault(session.UserId) == save)
+            _saves.Remove(session.UserId);
     }
 
     public bool WantsAntag(ICommonSession session, ProtoId<AntagPrototype> antag)
@@ -236,6 +244,20 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
         return sanitized;
     }
 
+    private async Task SaveQueue(Task previous, NetUserId userId, CharacterQueueState queue)
+    {
+        await previous;
+
+        try
+        {
+            await _db.SaveCharacterQueueAsync(userId, _queues.GetValueOrDefault(userId) ?? queue);
+        }
+        catch (Exception e)
+        {
+            Log.Error($"Failed to save the character queue for {userId}: {e}");
+        }
+    }
+
     private bool CanBeAntag(ICommonSession session, HumanoidCharacterProfile character, ProtoId<AntagPrototype> antag)
     {
         return character.AntagPreferences.Contains(antag) && _playTime.IsAllowed(session, antag, character);
@@ -243,8 +265,11 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
 
     private void SendQueue(ICommonSession session)
     {
-        if (_queues.TryGetValue(session.UserId, out var queue))
-            RaiseNetworkEvent(new CharacterQueueStateEvent(queue), session.Channel);
+        if (!_queues.TryGetValue(session.UserId, out var queue))
+            return;
+
+        RaiseNetworkEvent(new CharacterQueueStateEvent(queue), session.Channel);
+        RaiseLocalEvent(new CharacterQueueChangedEvent(session.UserId));
     }
 
     private List<AntagSelectionComponent> GetPreselectingRules()
