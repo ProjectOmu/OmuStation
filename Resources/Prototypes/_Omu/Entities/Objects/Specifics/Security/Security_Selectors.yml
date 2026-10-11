@@ -142,7 +142,7 @@
     maxSelectedSets: 1
 
 - type: entity
-  id: SergeantGunCase
+  id: SergeantMeleeCase
   name: sergeant melee case
   description: A case, used to securely store your melee weapon of choice.
   parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
