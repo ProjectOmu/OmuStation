@@ -137,7 +137,7 @@
                             <GridContainer Columns="2" HorizontalExpand="True" VSeparationOverride="4" Margin="8 8 8 8">
                                 <Label Text="{Loc 'plant-analyzer-pests'}" HorizontalExpand="True" />
                                 <PanelContainer HorizontalExpand="True" SetHeight="20">
-                                    <ProgressBar Name="PestBar" MinValue="0" MaxValue="100" HorizontalExpand="True" VerticalExpand="True" />
+                                    <ProgressBar Name="PestBar" MinValue="0" MaxValue="10" HorizontalExpand="True" VerticalExpand="True" />
                                     <Label Name="PestBarLabel" Text="{Loc 'plant-analyzer-na'}" Align="Center" VAlign="Center" HorizontalExpand="True" VerticalExpand="True" FontColorOverride="#FFFFFF" />
                                 </PanelContainer>
 
@@ -149,7 +149,7 @@
 
                                 <Label Text="{Loc 'plant-analyzer-weeds'}" HorizontalExpand="True" />
                                 <PanelContainer HorizontalExpand="True" SetHeight="20">
-                                    <ProgressBar Name="WeedBar" MinValue="0" MaxValue="100" HorizontalExpand="True" VerticalExpand="True" />
+                                    <ProgressBar Name="WeedBar" MinValue="0" MaxValue="10" HorizontalExpand="True" VerticalExpand="True" />
                                     <Label Name="WeedBarLabel" Text="{Loc 'plant-analyzer-na'}" Align="Center" VAlign="Center" HorizontalExpand="True" VerticalExpand="True" FontColorOverride="#FFFFFF" />
                                 </PanelContainer>
                             </GridContainer>

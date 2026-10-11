@@ -222,8 +222,15 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
 
     private void PopulateBar(ProgressBar bar, Label label, float? value)
     {
-        bar.Value = value == null || float.IsNaN(value.Value) || float.IsInfinity(value.Value) ? 0 : value.Value;
-        label.Text = FormatPercent(value);
+        if (value is not { } v || !float.IsFinite(v))
+        {
+            bar.Value = 0;
+            label.Text = Loc.GetString("plant-analyzer-na");
+            return;
+        }
+
+        bar.Value = v;
+        label.Text = $"{(int) (v / bar.MaxValue * 100)}%";
     }
 
     private void PopulateGeneticsTab(PlantAnalyzerScannedState state)
@@ -695,14 +702,6 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
 
         ((StyleBoxFlat) bar.ForegroundStyleBoxOverride).BackgroundColor = color;
         ((StyleBoxFlat) bar.BackgroundStyleBoxOverride).BackgroundColor = Color.FromHex(Colors.DarkBackground);
-    }
-
-    private static string FormatPercent(float? value)
-    {
-        if (value == null || float.IsNaN(value.Value) || float.IsInfinity(value.Value))
-            return Loc.GetString("plant-analyzer-na");
-
-        return ((int) value.Value).ToString() + "%";
     }
 
     private static string FormatHealth(float? health, float? maxHealth)
