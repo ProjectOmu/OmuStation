@@ -81,6 +81,8 @@
   - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHatHoodHereticAsh
+  - type: FireProtection
+    reduction: 0.75 # OMU
 
 - type: entity
   parent: ClothingOuterArmorHeretic
