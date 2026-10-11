@@ -21,7 +21,8 @@
   - type: XenomorphsRule
     xenomorphInfestationSound:
       collection: xeno_start
-      volume: -2
+      params:
+        volume: -4
   - type: AntagObjectives
     objectives:
     - XenomorphSurviveObjective

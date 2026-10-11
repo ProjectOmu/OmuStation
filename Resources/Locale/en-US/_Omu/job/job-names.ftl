@@ -13,6 +13,8 @@ job-name-science-professor = Professor
 # Security Misc
 job-name-transit-prisoner = Transit Prisoner
 # Cargo Jobs
+JobMailGoblin = Mail Goblin #Playtime tracker
 JobCourier = Courier #Playtime tracker
 job-name-courier = Courier
 job-name-logistics-assistant = Logistics Assistant
+job-name-mail-goblin = Mail Goblin
