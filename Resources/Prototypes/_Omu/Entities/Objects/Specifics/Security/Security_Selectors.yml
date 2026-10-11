@@ -148,7 +148,7 @@
   parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
   components:
   - type: Sprite
-    sprite: _Omu/Objects/Misc/GunCases/sergeantcasesmelee.rsi
+    sprite: _Omu/Objects/Misc/GunCases/sergeantcasemelee.rsi
     state: icon
   - type: SetSelector
     possibleSets:
