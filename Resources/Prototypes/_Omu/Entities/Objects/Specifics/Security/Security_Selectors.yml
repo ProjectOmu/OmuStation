@@ -51,11 +51,26 @@
     possibleSets:
     - WeaponEnergyShotgunSet
     - WeaponWardenRevolverShotgunSet
-    - WardenRapierSet
     - WardenSnubSet
     maxSelectedSets: 1
   - type: StealTarget
     stealGroup: WeaponEnergyShotgun
+
+- type: entity
+  id: WardenMeleeCase
+  name: warden's melee case
+  description: A case, used to securely store the warden's melee weapon of choice.
+  parent: [ BaseItem, BaseSetSelector, BaseGrandTheftContraband ]
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/GunCases/wardencasemelee.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - WardenSolcomSet
+    - WardenRapierSet
+    - SecurityTackleSet
+    maxSelectedSets: 1
 
 - type: entity
   id: OfficerGunCase
@@ -115,7 +130,7 @@
   parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
   components:
   - type: Sprite
-    sprite: _Omu/Objects/Misc/GunCases/officercase.rsi
+    sprite: _Omu/Objects/Misc/GunCases/sergeantcase.rsi
     state: icon
   - type: SetSelector
     possibleSets:
@@ -124,6 +139,21 @@
     - WeaponEG1Set
     - WeaponCeremonialRifleSet
     - SargeMagnumSet
+    maxSelectedSets: 1
+
+- type: entity
+  id: SergeantGunCase
+  name: sergeant melee case
+  description: A case, used to securely store your melee weapon of choice.
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/GunCases/sergeantcasesmelee.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - SergeantBeltSet
+    - SecurityTackleSet
     maxSelectedSets: 1
 
 - type: entity
