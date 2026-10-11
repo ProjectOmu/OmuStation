@@ -1188,10 +1188,16 @@
       amount: -8
     - !type:PlantAdjustHealth
       amount: -20
+  worksOnTheDead: true # Omu
   metabolisms:
     Medicine:
       metabolismRate: 1
       effects:
+      - !type:ReduceRotting # Omu
+        seconds: 17 # Omu huge topical sink due to the damage it deals which justifies the big unrot
+        conditions: # Omu
+        - !type:MobStateCondition # Omu
+          mobstate: Dead # Omu
       - !type:HealthChange
         damage:
           groups:
