@@ -1,11 +1,15 @@
+# Ported to OmuStation by https://github.com/shackhorn
+#     -> https://github.com/ProjectOmu/OmuStation/pull/1740
+# Original port to SS14 by https://github.com/Betterwithketchup
+#     -> https://github.com/space-wizards/space-station-14/pull/34191
 meta:
   format: 7
   category: Map
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 10/12/2026 16:52:28
-  entityCount: 26487
+  time: 10/12/2026 17:23:46
+  entityCount: 26486
 maps:
 - 1
 grids:
@@ -10888,6 +10892,11 @@ entities:
       parent: 15
 - proto: AirlockSecurityGlassLocked
   entities:
+  - uid: 524
+    components:
+    - type: Transform
+      pos: -36.5,7.5
+      parent: 15
   - uid: 751
     components:
     - type: Transform
@@ -10968,11 +10977,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 11.5,-0.5
-      parent: 15
-  - uid: 524
-    components:
-    - type: Transform
-      pos: -36.5,7.5
       parent: 15
 - proto: AirlockServiceLocked
   entities:
@@ -60143,7 +60147,7 @@ entities:
       pos: -78.5,-6.5
       parent: 15
     - type: Door
-      secondsUntilStateChange: -557357.8
+      secondsUntilStateChange: -557873.75
       state: Opening
 - proto: CurtainsPurpleOpen
   entities:
@@ -113577,13 +113581,6 @@ entities:
     components:
     - type: Transform
       pos: 17.293848,-13.2417755
-      parent: 15
-- proto: HoSPetKennel
-  entities:
-  - uid: 14838
-    components:
-    - type: Transform
-      pos: -37.474297,28.535156
       parent: 15
 - proto: HospitalCurtainsOpen
   entities:
