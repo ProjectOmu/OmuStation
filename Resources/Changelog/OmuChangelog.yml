@@ -8901,3 +8901,12 @@ Entries:
       message: Fixed Colossus' slam attack targeting non-vital parts.
   id: 1154
   time: '2026-10-11T21:46:45.0000000+00:00'
+- author: asterisksoda, ishkab
+  changes:
+    - type: Add
+      message: >-
+        There is a new station event that breaks powered lights around the
+        station. It comes in two versions: In one, lights all around the station
+        get broken; in the other, lights in just one area get broken.
+  id: 1155
+  time: '2026-10-12T05:49:52.0000000+00:00'
