@@ -15,5 +15,6 @@ guide-entry-training-manual-crew = Crew Training Manual
 guide-entry-training-manual-crew-allmedical = MEDICAL ONLY
 guide-entry-training-manual-crew-chaplain = CHAPLAIN ONLY
 guide-entry-training-manual-classified = Classified Training Manual
+guide-entry-training-manual-classified-srp = Standard Response Plan
 guide-entry-training-manual-dignitary = Dignitary Training Manual
 

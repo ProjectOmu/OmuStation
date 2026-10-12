@@ -33,11 +33,23 @@
 
 # Crew manual end
 
+# Classified manual start
 - type: guideEntry
   id: ClassifiedTrainingManual
   name: guide-entry-training-manual-classified
   text: "/ServerInfo/_Omu/Guidebook/TrainingManuals/ClassifiedTrainingManual.xml"
   priority: 1
+  children:
+  - ClassifiedTrainingManualSRP
+
+  # Standard Response Plan
+- type: guideEntry
+  id: ClassifiedTrainingManualSRP
+  name: guide-entry-training-manual-classified-srp
+  text: "/ServerInfo/_Omu/Guidebook/TrainingManuals/ClassifiedTrainingManual_SRP.xml"
+  priority: 0
+
+# Classified manual end
 
 - type: guideEntry
   id: DignitaryTrainingManual
