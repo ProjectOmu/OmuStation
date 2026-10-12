@@ -28,6 +28,11 @@
     guides:
     - Security
     - Antagonists
+  - type: RestrictById
+    restrictMelee: true
+    isEmaggable: false
+  - type: AccessReader
+    access: [['CentralCommand']]
   - type: Sharp
   - type: Execution
     doAfterDuration: 4.0
@@ -125,6 +130,11 @@
           sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           state: phoron-icon
         components:
+        - type: AmbientSound
+          range: 5
+          volume: 0
+          sound:
+            path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyhum.ogg
         - type: MeleeWeapon
           wideAnimationRotation: -135
           attackRate: 1
@@ -152,13 +162,34 @@
           params:
             variation: 0.250
 
-      smite: !type:ItemSwitchState
-        verb: smite
-        energyPerUse: 1000
+      Supermatter: !type:ItemSwitchState
+        verb: Supermatter
+        energyPerUse: 999
         sprite:
           sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
-          state: smite-icon
+          state: Supermatter-Icon
         components:
+        - type: AmbientSound
+          range: 5
+          volume: 0
+          sound:
+            path: /Audio/_Goobstation/Supermatter/calm.ogg
+        - type: Explosive
+          explosionType: Supermatter
+          maxIntensity: 10000
+          intensitySlope: 5
+          totalIntensity: 10000
+        - type: SupermatterHalberd
+          obliterateWhitelist:
+            components:
+            - Airlock
+            - Firelock
+            - Door
+            tags:
+            - Wall
+            - Window
+            - Airlock
+            - GlassAirlock
         - type: MeleeWeapon
           canWideSwing: false
           attackRate: 0.5
@@ -169,17 +200,13 @@
               Slash: 50
             armorPenetration: 1
           soundHit:
-              path: /Audio/Weapons/bladeslice.ogg
-        - type: IgniteOnMeleeHit
-          fireStacks: 25
-        - type: BleedInflicter
-          scalingSpeed: 10
-          severityThreshold: 25
-        - type: InjectOnHit
-          reagents:
-          - ReagentId: Amatoxin
-            Quantity: 10
-          limit: 20
+              path: /Audio/_Goobstation/Wizard/supermatter.ogg
+        - type: PointLight
+          enabled: true
+          radius: 5
+          energy: 3
+          color: "#ffe000"
+        - type: SupermatterImmune
         soundStateActivate:
           collection: sparks
           params:
