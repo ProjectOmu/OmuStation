@@ -66,7 +66,7 @@ public sealed class SpeechReplacementSystem : EntitySystem
         comp.Lookup.Clear();
         foreach (var replacement in comp.Replacements)
         {
-            var text = FormattedMessage.EscapeText(_chat.SanitizeMessageReplaceWords(replacement.Replacement))
+            var text = StripMarkup(_chat.SanitizeMessageReplaceWords(replacement.Replacement))
                 .Replace(SpeechReplacementComponent.Shield, string.Empty);
             if (replacement.Word.Length > 0 && text.Length > 0)
                 comp.Lookup.TryAdd(replacement.Word, text);
@@ -81,6 +81,19 @@ public sealed class SpeechReplacementSystem : EntitySystem
         var words = comp.Lookup.Keys.OrderByDescending(word => word.Length).Select(Regex.Escape);
         comp.Pattern = new Regex($@"(?<![\w'])(?:{string.Join('|', words)})(?![\w'])",
             RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+    }
+
+    private static string StripMarkup(string text)
+    {
+        try
+        {
+            text = FormattedMessage.RemoveMarkupPermissive(text);
+        }
+        catch (Exception)
+        {
+        }
+
+        return FormattedMessage.EscapeText(text);
     }
 
     private void OnCloning(Entity<SpeechReplacementComponent> ent, ref CloningEvent args)
