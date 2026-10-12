@@ -92,7 +92,7 @@ selectable-set-ceremonial-rifle-description =
 
 selectable-set-sergeant-belt-name = Sergeant's Disciplinary Belt
 selectable-set-sergeant-belt-description =
-    A sturdy belt designed for the Sergeant, often used to hit unduly cadets and officers alike.
+    A sturdy belt designed for the Sergeant, often used to hit unruly cadets and officers alike.
 
 selectable-set-security-tackle-name = Enhanced Retrieval Gloves
 selectable-set-security-tackle-description =
