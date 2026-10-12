@@ -7,7 +7,7 @@
   components:
   - type: ConditionalSpawner
     prototypes:
-    - UniqueMarkerNanorepLocker 
+    - UniqueMarkerNanorepLocker
 
 - type: entity
   id: UniqueLockerBlueshieldOfficerFilled
@@ -16,4 +16,4 @@
   components:
   - type: ConditionalSpawner
     prototypes:
-    - UniqueMarkerBlueshieldLocker
+    - UniqueMarker  BlueshieldLocker

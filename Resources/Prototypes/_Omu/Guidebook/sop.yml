@@ -28,6 +28,7 @@
   id: SecuritySergeantSOP
   name: guide-entry-sop-security-sergeant
   text: /ServerInfo/_Omu/Guidebook/SoP/Jobs/Security/SergeantSOP.xml
+  priority: -5 # should appear at (nearly) the top of the departmental list; warden goes above sergeant
 
 - type: guideEntry
   id: TrainingManuals
@@ -37,3 +38,29 @@
   - CommandTrainingManual
   - SecurityTrainingManual
   - CrewTrainingManual
+
+# Mentor SOPs
+  # Bosun SOP
+- type: guideEntry
+  id: BosunSOP
+  name: guide-entry-sop-bosun
+  text: /ServerInfo/_Omu/Guidebook/SoP/Jobs/Cargo/BosunSOP.xml
+  priority: -5 # should appear at the top of the departmental list
+  # Foreman SOP
+- type: guideEntry
+  id: ForemanSOP
+  name: guide-entry-sop-foreman
+  text: /ServerInfo/_Omu/Guidebook/SoP/Jobs/Engineering/ForemanSOP.xml
+  priority: -5 # should appear at the top of the departmental list
+  # Medicus SOP
+- type: guideEntry
+  id: MedicusSOP
+  name: guide-entry-sop-medicus
+  text: /ServerInfo/_Omu/Guidebook/SoP/Jobs/Medical/MedicusSOP.xml
+  priority: -5 # should appear at the top of the departmental list
+  # Professor SOP
+- type: guideEntry
+  id: ProfessorSOP
+  name: guide-entry-sop-professor
+  text: /ServerInfo/_Omu/Guidebook/SoP/Jobs/Science/ProfessorSOP.xml
+  priority: -5 # should appear at the top of the departmental list

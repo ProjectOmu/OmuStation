@@ -27,7 +27,6 @@
   - SecurityShoes
   - SecurityGloves
   - SergeantNeck
-  - SecuritySergeantPDA
   - SergeantBelt
   - SurvivalSecurity
   - Trinkets
@@ -37,6 +36,102 @@
   - SecurityOfficerEnvirohelm
   - SecurityOfficerEnvirosuit
   - SecurityOfficerEnvirogloves
+
+- type: roleLoadout
+  id: JobCargoBosun
+  groups:
+  - GroupTankHarness
+  - BosunHead
+  - BosunNeck
+  - BosunJumpsuit
+  - CargoTechnicianBackpack
+  - CargoTechnicianOuterClothing
+  - CargoShoes
+  - Glasses
+  - Survival
+  - Trinkets
+  - Animals
+  - GroupSpeciesBreathTool
+  # Goobstation - EE Plasmeme Change.
+  - BosunEnvirohelm
+  - BosunEnvirosuit
+  - CargoTechnicianEnvirogloves
+
+- type: roleLoadout
+  id: JobEngineeringForeman
+  groups:
+  - GroupTankHarness
+  - ForemanHead
+  - ForemanNeck
+  - ForemanJumpsuit
+  - StationEngineerBackpack
+  - ForemanOuterClothing
+  - ForemanShoes
+  - SurvivalExtended
+  - Trinkets
+  - Animals # Goobstation
+  - GroupSpeciesBreathTool
+  # Goobstation - EE Plasmeme Change.
+  - ForemanEnvirohelm
+  - ForemanEnvirosuit
+  - StationEngineerEnvirogloves
+
+- type: roleLoadout
+  id: JobMedicalMedicus
+  groups:
+  - GroupTankHarness
+  - MedicusHead
+  - MedicalMask
+  - MedicalNeck
+  - MedicusJumpsuit
+  - MedicalGloves
+  - MedicalBackpack
+  - MedicusOuterClothing
+  - MedicalShoes
+  - SurvivalMedical
+  - Trinkets
+  - Animals # Goobstation
+  - GroupSpeciesBreathToolMedical
+  # Goobstation - EE Plasmeme Change.
+  - MedicusEnvirohelm
+  - MedicusEnvirosuit
+  - MedicalDoctorEnvirogloves
+
+- type: roleLoadout
+  id: JobScienceProfessor
+  groups:
+  - GroupTankHarness
+  - ProfessorHead
+  - ProfessorJumpsuit
+  - ScientistBackpack
+  - ProfessorOuterClothing
+  - ScientistGloves
+  - ScientistShoes
+  - Glasses
+  - Survival
+  - Trinkets
+  - Animals # Goobstation
+  - GroupSpeciesBreathTool
+  # Goobstation - EE Plasmeme Change.
+  - ProfessorEnvirohelm
+  - ProfessorEnvirosuit
+  - ScientistEnvirogloves
+
+- type: roleLoadout
+  id: JobLogisticsAssistant
+  groups:
+  - GroupTankHarness
+  - LogisticsAssistantJumpsuit
+  - CargoTechnicianBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  - Animals
+  - GroupSpeciesBreathTool
+  # Goobstation - EE Plasmeme Change.
+  - CargoTechnicianEnvirohelm
+  - CargoTechnicianEnvirosuit
+  - CargoTechnicianEnvirogloves
 
 - type: roleLoadout
   id: JobCourier
