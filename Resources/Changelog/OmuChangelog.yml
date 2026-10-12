@@ -8940,3 +8940,24 @@ Entries:
       message: Sergeant melee case.
   id: 1159
   time: '2026-10-12T17:32:19.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Add
+      message: >-
+        Added/Ported Tram station map from Wizden. Includes a tram (shuttle) in
+        the middle of the station that can be driven between different stops by
+        a hopefully-responsible Tram Driver!
+    - type: Add
+      message: >-
+        Ported over the new, station-specific Tram Driver job, as well as PDA
+        and outfit, under the Service department.
+    - type: Add
+      message: >-
+        Added new SpawnMobMothroach and WindoorSecureSealed (+
+        DoorElectronicsSealed) prototypes.
+    - type: Add
+      message: >-
+        Added new broken Gekkerzine gas canister, based off the reagent of the
+        same name.
+  id: 1160
+  time: '2026-10-12T18:21:47.0000000+00:00'
