@@ -185,26 +185,6 @@
   - MagazineClipM1Garand
 
 - type: selectableSet
-  id: SergeantBeltSet
-  name: selectable-set-sergeant-belt-name
-  description: selectable-set-sergeant-belt-description
-  sprite:
-    sprite: _Omu/Clothing/Belt/sergeantdisciplinary.rsi
-    state: icon
-  content:
-  - WaistBeltSergeantBelt
-
-- type: selectableSet
-  id: SecurityTackleSet
-  name: selectable-set-security-tackle-name
-  description: selectable-set-security-tackle-description
-  sprite:
-    sprite: _Trauma/Clothing/Hands/Gloves/securitygloves.rsi
-    state: icon
-  content:
-  - ClothingHandsGlovesSecurity
-
-- type: selectableSet
   id: WeaponAntiqueLaserSet
   name: selectable-set-antiquelaser-name
   description: selectable-set-antiquelaser-description
@@ -243,16 +223,6 @@
     state: icon
   content:
   - ClothingNeckWardenParryCloakFilled
-
-- type: selectableSet
-  id: WardenSolcomSet
-  name: selectable-set-warden-solcom-name
-  description: selectable-set-warden-solcom-description
-  sprite:
-    sprite: _Goobstation/Clothing/Hands/Gloves/kravgloves.rsi
-    state: icon
-  content:
-  - ClothingHandsGlovesKravMaga
 
 - type: selectableSet
   id: HosOniGlaiveSet
