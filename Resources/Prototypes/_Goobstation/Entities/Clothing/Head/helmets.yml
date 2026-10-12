@@ -58,7 +58,7 @@
       coefficients:
         Blunt: 0.75
         Shock: 0.7
-        Radiation: 0.00
+        Radiation: 0 # 0.01 # Omu, change HEV suit to protect 100% against rads
         Caustic: 0.5
     coverage:
     - Head
