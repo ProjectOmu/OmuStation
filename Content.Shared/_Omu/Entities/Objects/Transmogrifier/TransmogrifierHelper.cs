@@ -9,19 +9,45 @@ public sealed partial class TransmogrifierGraphPrototype : IPrototype
     public string ID { get; private set; } = string.Empty;
 
     [DataField]
-    public EntProtoId Coarse = "Ash";
+    public TransmogrifierResult Coarse = new();
     [DataField]
-    public EntProtoId Rough = "Ash";
+    public TransmogrifierResult Rough = new();
 
     [DataField]
-    public EntProtoId OneToOne = "Ash";
+    public TransmogrifierResult OneToOne = new();
 
     [DataField]
-    public EntProtoId Fine = "Ash";
+    public TransmogrifierResult Fine = new();
 
     [DataField]
-    public EntProtoId VeryFine = "Ash";
+    public TransmogrifierResult VeryFine = new();
 
     [DataField(required: true)]
     public EntProtoId TransformedItem = "";
+}
+
+[DataDefinition]
+public sealed partial class TransmogrifierResult
+{
+    /// <summary>
+    /// A fixed entity to spawn. Used when no weighted options are configured.
+    /// </summary>
+    [DataField]
+    public EntProtoId? Entity;
+
+    /// <summary>
+    /// Optional weighted entity choices.
+    /// </summary>
+    [DataField]
+    public List<TransmogrifierWeightedEntry> Weighted = new();
+}
+
+[DataDefinition]
+public sealed partial class TransmogrifierWeightedEntry
+{
+    [DataField(required: true)]
+    public EntProtoId Entity = string.Empty;
+
+    [DataField(required: true)]
+    public float Weight;
 }

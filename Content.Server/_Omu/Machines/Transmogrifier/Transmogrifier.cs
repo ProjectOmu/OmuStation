@@ -8,6 +8,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Content.Shared._Omu.Entities.Objects.Transmogrifier;
 using System.Linq;
+using Content.Shared.Coordinates;
+using Robust.Shared.Random;
 
 namespace Content.Server._Omu.Machines.Transmogrifier;
 
@@ -26,6 +28,15 @@ public sealed partial class TransmogrifierComponent : Component
     [DataField]
     public Dictionary<EntProtoId, ProtoId<TransmogrifierGraphPrototype>> TransformableItems = new();
 
+    /// <summary>
+    /// Defines prototype to spawn for bluespace effect
+    /// </summary>
+    [DataField("bluespaceEffectPrototype"), ViewVariables(VVAccess.ReadWrite)]
+    public string BluespaceEffectPrototype { get; set; } = "EffectFlashBluespace";
+
+    [DataField]
+    public EntProtoId BackupGarbage = "RandomSpawner100";
+
 }
 public sealed partial class TransmogrifierSystem : EntitySystem
 {
@@ -35,6 +46,7 @@ public sealed partial class TransmogrifierSystem : EntitySystem
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -84,7 +96,7 @@ public sealed partial class TransmogrifierSystem : EntitySystem
             Text = GetModeName(mode),
             Disabled = ent.Comp.State == mode,
             Priority = -(int) mode,
-            Category = VerbCategory.SetSensor,
+            Category = VerbCategory.SetState,
             Act = () => TrySetSensor(ent.AsNullable(), mode, userUid)
         };
     }
@@ -154,19 +166,19 @@ public sealed partial class TransmogrifierSystem : EntitySystem
             switch (comp.State)
             {
                 case TransmogrifierMode.Coarse:
-                    SpawnInContainerOrDrop(graph.Coarse, uid, storage.Contents.ID);
+                    SpawnInContainerOrDrop(PickResult(graph.Coarse, comp), uid, storage.Contents.ID);
                     break;
                 case TransmogrifierMode.Rough:
-                    SpawnInContainerOrDrop(graph.Rough, uid, storage.Contents.ID);
+                    SpawnInContainerOrDrop(PickResult(graph.Rough, comp), uid, storage.Contents.ID);
                     break;
                 case TransmogrifierMode.OneToOne:
-                    SpawnInContainerOrDrop(graph.OneToOne, uid, storage.Contents.ID);
+                    SpawnInContainerOrDrop(PickResult(graph.OneToOne, comp), uid, storage.Contents.ID);
                     break;
                 case TransmogrifierMode.Fine:
-                    SpawnInContainerOrDrop(graph.Fine, uid, storage.Contents.ID);
+                    SpawnInContainerOrDrop(PickResult(graph.Fine, comp), uid, storage.Contents.ID);
                     break;
                 case TransmogrifierMode.VeryFine:
-                    SpawnInContainerOrDrop(graph.VeryFine, uid, storage.Contents.ID);
+                    SpawnInContainerOrDrop(PickResult(graph.VeryFine, comp), uid, storage.Contents.ID);
                     break;
             }
 
@@ -174,8 +186,43 @@ public sealed partial class TransmogrifierSystem : EntitySystem
             PredictedQueueDel(item);
         }
 
+
+        Spawn(comp.BluespaceEffectPrototype, uid.ToCoordinates());
+
         if (containsHuman)
             _popup.PopupEntity(Loc.GetString("transmog-human-fail"), uid);
+    }
+
+    private EntProtoId? PickResult(TransmogrifierResult result, TransmogrifierComponent comp)
+    {
+        if (result.Weighted.Count == 0)
+            return comp.BackupGarbage;
+
+        var totalWeight = 0f;
+
+        foreach (var entry in result.Weighted)
+        {
+            if (entry.Weight > 0)
+                totalWeight += entry.Weight;
+        }
+
+        if (totalWeight <= 0)
+            return result.Entity;
+
+        var roll = _random.NextFloat() * totalWeight;
+
+        foreach (var entry in result.Weighted)
+        {
+            if (entry.Weight <= 0)
+                continue;
+
+            roll -= entry.Weight;
+
+            if (roll < 0)
+                return entry.Entity;
+        }
+
+        return result.Weighted[^1].Entity;
     }
 }
 
