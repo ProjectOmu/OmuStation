@@ -41,7 +41,7 @@ public sealed class ApcSystem : EntitySystem
 
         SubscribeLocalEvent<ApcComponent, BoundUIOpenedEvent>(OnBoundUiOpen);
         SubscribeLocalEvent<ApcComponent, ComponentStartup>(OnApcStartup);
-        SubscribeLocalEvent<RulePlayerSpawningEvent>(OnPlayerSpawn);
+        SubscribeLocalEvent<RulePlayerSpawningEvent>(OnPlayerSpawn); // Omu - apc UI state check
         SubscribeLocalEvent<ApcComponent, ChargeChangedEvent>(OnBatteryChargeChanged);
         SubscribeLocalEvent<ApcComponent, ApcToggleMainBreakerMessage>(OnToggleMainBreaker);
         SubscribeLocalEvent<ApcComponent, GotEmaggedEvent>(OnEmagged);
@@ -103,6 +103,7 @@ public sealed class ApcSystem : EntitySystem
         component.NeedStateUpdate = true;
     }
 
+    // Omu Start - Fix APCs not initializing their UI state correctly
     private void OnPlayerSpawn(RulePlayerSpawningEvent args)
     {
         var query = EntityQueryEnumerator<ApcComponent, PowerNetworkBatteryComponent, UserInterfaceComponent>();
@@ -111,6 +112,7 @@ public sealed class ApcSystem : EntitySystem
             apc.NeedStateUpdate = true;
         }
     }
+    // Omu end
 
     private void OnBoundUiOpen(EntityUid uid, ApcComponent component, BoundUIOpenedEvent args)
     {
