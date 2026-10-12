@@ -6,6 +6,8 @@
   components:
   - type: FaxMachine
     name: "CentComm Intern"
+  - type: FaxCardPrinter
+    card: CentCommInternBusinessCard
   - type: Item
     size: Normal
     sprite: _Omu/Objects/Tools/intern_fax.rsi
