@@ -2,7 +2,7 @@
 
 - type: entity
   id: BookCorporateSecrets
-  parent: [BaseGuidebook, BaseCommandSecurityCentCommContraband] # Omu, metashield rewrite
+  parent: [BaseGuidebook, BaseCentCommCommandSecurityContraband] # Omu, metashield rewrite
   name: classified training manual # Omu, metashield rewrite
   description: There's a big red stamp that says "CONFIDENTIAL" on it. Probably should keep this locked up.
   components:
