@@ -1,0 +1,18 @@
+
+# For when you want the spook of a wraith without the power spike that comes from the evolutions
+- type: entity
+  parent: TokenWraith
+  id: TokenWraithNoEvolve
+  components:
+  - type: AntagSpawner
+    prototype: MobWraithNoEvolve
+
+- type: entity
+  parent: WraithMidround
+  id: WraithNoEvolve
+  components:
+  - type: AntagSpawner
+    prototype: MobWraithNoEvolve
+
+
+
