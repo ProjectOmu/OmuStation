@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Grid
+  category: Map
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 10/03/2026 22:13:33
-  entityCount: 1258
-maps: []
+  time: 10/13/2026 16:41:44
+  entityCount: 1270
+maps:
+- 381
 grids:
 - 2
-orphans:
-- 2
+orphans: []
 nullspace: []
 tilemap:
   1: Space
@@ -45,7 +45,7 @@ entities:
       name: Tram Evac
     - type: Transform
       pos: -0.59375,0.0785262
-      parent: invalid
+      parent: 381
     - type: MapGrid
       chunks:
         0,0:
@@ -286,6 +286,16 @@ entities:
       chunkCollection:
         version: 2
         nodes: []
+  - uid: 381
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: GridTree
+    - type: Broadphase
+    - type: OccluderTree
 - proto: AirAlarm
   entities:
   - uid: 11
@@ -5551,6 +5561,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,-21.5
       parent: 2
+- proto: PlushieBenryOmuCrew
+  entities:
+  - uid: 641
+    components:
+    - type: Transform
+      pos: 10.442813,-20.47757
+      parent: 2
 - proto: PlushieSeptOctOmuCrew
   entities:
   - uid: 380
@@ -5995,6 +6012,78 @@ entities:
     - type: Transform
       pos: 6.5,-22.5
       parent: 2
+- proto: Screen
+  entities:
+  - uid: 382
+    components:
+    - type: Transform
+      pos: 12.5,9.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 383
+    components:
+    - type: Transform
+      pos: 7.5,-4.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 384
+    components:
+    - type: Transform
+      pos: 17.5,-10.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 391
+    components:
+    - type: Transform
+      pos: 12.5,-10.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 442
+    components:
+    - type: Transform
+      pos: 5.5,-10.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 636
+    components:
+    - type: Transform
+      pos: 5.5,-14.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 637
+    components:
+    - type: Transform
+      pos: 12.5,-17.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 638
+    components:
+    - type: Transform
+      pos: 0.5,-0.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 639
+    components:
+    - type: Transform
+      pos: 4.5,9.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 640
+    components:
+    - type: Transform
+      pos: 5.5,-6.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: ShuttleWindow
   entities:
   - uid: 4
