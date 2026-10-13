@@ -21,6 +21,19 @@
         color: "#761711"
       - state: alpha-filling-inhand-right
         color: "#e4b7af"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Ichor
+          Quantity: 10 # A little more than what goes in
+        - ReagentId: Vitamin
+          Quantity: 10
+        - ReagentId: Iron
+          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 5
 
 - type: entity
   name: trail in the snow slice
