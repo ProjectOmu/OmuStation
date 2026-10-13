@@ -18,3 +18,6 @@ guide-entry-training-manual-classified = Classified Training Manual
 guide-entry-training-manual-classified-srp = Standard Response Plan
 guide-entry-training-manual-dignitary = Dignitary Training Manual
 
+# - Lore
+guide-entry-lore = Lore
+guide-entry-TwoMinutes = Omu In Two Minutes
