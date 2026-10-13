@@ -4,7 +4,7 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 10/13/2026 14:36:33
+  time: 10/13/2026 15:31:22
   entityCount: 32197
 maps:
 - 1
@@ -9905,8 +9905,8 @@ entities:
             0: 65535
           -13,-14:
             0: 52428
-            6: 16
-            7: 4096
+            5: 16
+            6: 4096
           -13,-13:
             0: 52428
             4: 4112
@@ -9954,7 +9954,7 @@ entities:
           -14,-9:
             0: 48019
           -14,-11:
-            5: 57344
+            7: 57344
             4: 192
           -14,-8:
             0: 63931
@@ -9988,8 +9988,8 @@ entities:
           -14,-17:
             0: 61695
           -14,-14:
-            6: 192
-            7: 49152
+            5: 192
+            6: 49152
           -13,0:
             0: 53597
           -12,1:
@@ -10809,17 +10809,17 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-            Oxygen: 21.824879
-            Nitrogen: 82.10312
-            Ammonia: 100
-        - volume: 2500
-          temperature: 293.15
-          moles:
             Nitrogen: 6666.982
         - volume: 2500
           temperature: 293.15
           moles:
             Oxygen: 6666.982
+        - volume: 2500
+          temperature: 293.15
+          moles:
+            Oxygen: 21.824879
+            Nitrogen: 82.10312
+            Ammonia: 100
         chunkSize: 4
     - type: BecomesStation
       id: Origin
@@ -82013,7 +82013,7 @@ entities:
       pos: -36.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -22724.25
+      secondsUntilStateChange: -24768.582
       state: Closing
 - proto: d10Dice
   entities:
