@@ -19,4 +19,7 @@ public sealed partial class OmuCVars
 
     public static readonly CVarDef<bool> AlternateJobTitles =
         CVarDef.Create("omu.alternate_job_titles", true, CVar.SERVER | CVar.REPLICATED);
+
+    public static readonly CVarDef<float> DecalPreviewOpacity =
+        CVarDef.Create("omu.decal_preview_opacity", 0.75f, CVar.ARCHIVE | CVar.CLIENTONLY);
 }

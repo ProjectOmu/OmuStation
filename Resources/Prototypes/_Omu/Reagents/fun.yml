@@ -313,3 +313,10 @@
         - !type:ReagentCondition
           reagent: Gekkerzine
           min: 50
+    # Gas:
+    #   effects:
+    #   - !type:Emote
+    #     emote: Gekker
+    #     showInChat: true
+    #     force: true
+    #     probability: 0.05 # "sorry, don't know what came over me"
