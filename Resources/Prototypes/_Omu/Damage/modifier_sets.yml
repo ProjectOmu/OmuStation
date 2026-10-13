@@ -25,13 +25,3 @@
     Holy: 2.0
     Shock: 0.0
   ignoreArmorPierceFlags: All
-
-- type: damageModifierSet # Keeping this in here for now.
-  id: Wraith
-  coefficients:
-    Caustic: 0
-    Blunt: 0.7
-    Slash: 0.7
-    Piercing: 0.7
-    Holy: 1.5
-  ignoreArmorPierceFlags: All
