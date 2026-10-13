@@ -230,7 +230,8 @@ public sealed class VoodooDollSystem : EntitySystem
 
     private void OnUiClosed(Entity<VoodooDollComponent> ent, ref BoundUIClosedEvent args)
     {
-        ent.Comp.Candidates.Clear();
+        if (args.UiKey.Equals(VoodooDollUiKey.Key))
+            ent.Comp.Candidates.Clear();
     }
 
     private void OnGetVerbs(Entity<VoodooDollComponent> ent, ref GetVerbsEvent<Verb> args)
@@ -574,6 +575,8 @@ public sealed class VoodooDollSystem : EntitySystem
             message = Loc.GetString("voodoo-user-stowed");
         else if (_useDelay.IsDelayed(ent.Owner, ent.Comp.DelayId))
             message = Loc.GetString("voodoo-user-cooldown");
+        else if (ent.Comp.Range is { } range && !_transform.InRange(ent.Owner, target, range))
+            message = Loc.GetString("voodoo-user-out-of-range", ("target", target));
         else if (IsShielded(ent, target))
             message = Loc.GetString("voodoo-user-shielded", ("target", target));
         else

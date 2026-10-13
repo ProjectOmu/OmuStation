@@ -8,7 +8,8 @@ namespace Content.Omu.Shared.Entities.Voodoo;
 [Serializable, NetSerializable]
 public enum VoodooDollUiKey : byte
 {
-    Key
+    Key,
+    Chameleon,
 }
 
 [Serializable, NetSerializable]
@@ -24,4 +25,18 @@ public sealed class VoodooDollBoundUserInterfaceState(List<VoodooDollCandidate> 
 public sealed class VoodooDollChooseVictimMessage(NetEntity victim) : BoundUserInterfaceMessage
 {
     public readonly NetEntity Victim = victim;
+}
+
+[Serializable, NetSerializable]
+public sealed class VoodooDollChameleonBoundUserInterfaceState(EntProtoId parent, EntProtoId? selected)
+    : BoundUserInterfaceState
+{
+    public readonly EntProtoId Parent = parent;
+    public readonly EntProtoId? Selected = selected;
+}
+
+[Serializable, NetSerializable]
+public sealed class VoodooDollChameleonSelectedMessage(EntProtoId selected) : BoundUserInterfaceMessage
+{
+    public readonly EntProtoId Selected = selected;
 }

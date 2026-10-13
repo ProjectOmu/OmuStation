@@ -54,6 +54,9 @@ public sealed partial class VoodooDollComponent : Component
     public int FontSize = 20;
 
     [DataField]
+    public float? Range = 150f;
+
+    [DataField]
     public bool LocationHints = true;
 
     [DataField]

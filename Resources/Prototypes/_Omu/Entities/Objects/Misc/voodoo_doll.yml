@@ -43,8 +43,17 @@
     remoteBindDelay: 0
     unbindDelay: 0
     rebindCooldownStatusEffect: null
+    range: null
     locationHints: false
   - type: UseDelay
     delays:
       voodoo:
         length: 0
+  - type: VoodooDollChameleon
+    parent: BasePlushie
+  - type: UserInterface
+    interfaces:
+      enum.VoodooDollUiKey.Key:
+        type: VoodooDollBoundUserInterface
+      enum.VoodooDollUiKey.Chameleon:
+        type: VoodooDollChameleonBoundUserInterface
