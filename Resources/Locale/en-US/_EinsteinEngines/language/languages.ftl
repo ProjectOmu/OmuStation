@@ -88,7 +88,7 @@ language-Marish-description =  A language spoken only by Shadowkin, one that is 
 # Omu - Avatel
 language-ValyrianStandard-name = Avatel Vulu
 language-ValyrianStandard-description =
-    Although hard to discern from all the squawking, it sounds similar to the early pagan latin and imperial japanese languages of old earth - Avatel Vulu is the main language spoken on the harpy homeworld of Avatel-Ran and most of Appalian space.
+    Although it is hard to discern amidst all the squawking, it sounds similar to the early pagan Latin and imperial Japanese languages of old Earth. Avatel Vulu is the main language spoken on the harpy homeworld of Avatel-Ran and most of Appalian space.
 
 language-Chittin-name = Chittin
 language-Chittin-description =
