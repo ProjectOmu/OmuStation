@@ -44,7 +44,7 @@ trait-language-elyran-desc =
 # Omu, renaming
 trait-language-valyrianstandard-name = Avatel Vulu
 trait-language-valyrianstandard-desc =
-    Although hard to discern from all the squawking, it sounds similar to the early pagan latin and imperial japanese languages of old earth - Avatel Vulu is the main language spoken on the harpy homeworld of Avatel-Ran and most of Appalian space.
+    Although it is hard to discern amidst all the squawking, it sounds similar to the early pagan Latin and imperial Japanese languages of old Earth. Avatel Vulu is the main language spoken on the harpy homeworld of Avatel-Ran and most of Appalian space.
 
 trait-language-novunederic-name = Novu-Nederic
 trait-language-novunederic-desc =
