@@ -1,6 +1,6 @@
 - type: entity
   name: trail in the snow
-  parent: FoodCakeCheese
+  parent: FoodCakeBase
   id: FoodCakeTrailInTheSnow
   description: Placeholder for the whole thing. It makes you feel wild.
   components:
@@ -9,13 +9,37 @@
     state: trailinthesnow
   - type: SliceableFood
     slice: FoodCakeTrailInTheSnowSlice
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: alpha-inhand-left
+        color: "#761711"
+      - state: alpha-filling-inhand-left
+        color: "#e4b7af"
+      right:
+      - state: alpha-inhand-right
+        color: "#761711"
+      - state: alpha-filling-inhand-right
+        color: "#e4b7af"
 
 - type: entity
   name: trail in the snow slice
-  parent: FoodCakeCheeseSlice
+  parent: FoodCakeSliceBase
   id: FoodCakeTrailInTheSnowSlice
   description: Placeholder for a slice. It makes you feel wild.
   components:
   - type: Sprite
     sprite: _Omu/Objects/Consumable/Food/trailinthesnow.rsi
     state: trailinthesnow_slice
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: alpha-slice-inhand-left
+        color: "#761711"
+      - state: alpha-slice-filling-inhand-left
+        color: "#e4b7af"
+      right:
+      - state: alpha-slice-inhand-right
+        color: "#761711"
+      - state: alpha-slice-filling-inhand-right
+        color: "#e4b7af"
