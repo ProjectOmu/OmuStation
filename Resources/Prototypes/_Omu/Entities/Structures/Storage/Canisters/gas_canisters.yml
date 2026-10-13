@@ -1,0 +1,55 @@
+# Bro trust me it'll be funny and not annoying at all bro trust me. Trust me bro. Trust.
+
+# ## Gekkerzine Canister -- Commented out until we can support more gases.
+# - type: entity
+#   parent: GasCanister
+#   id: GekkerzineCanister
+#   name: gekkerzine canister
+#   description: A canister that can contain any type of gas. This one is supposed to contain gekkerzine. It can be attached to connector ports using a wrench.
+#   components:
+#   - type: Sprite
+#     layers:
+#     - sprite: _Omu/Structures/Storage/canister.rsi
+#       state: gekkerzine
+#   - type: GasCanister
+#     gasMixture:
+#       volume: 1000
+#       moles:
+#         Gekkerzine: 1871.71051
+#       temperature: 293.15
+#   - type: Destructible
+#     thresholds:
+#     - trigger:
+#         !type:DamageTrigger
+#         damage: 600
+#       behaviors:
+#       - !type:DoActsBehavior
+#         acts: [ "Destruction" ]
+#     - trigger:
+#         !type:DamageTrigger
+#         damage: 300
+#       behaviors:
+#       - !type:PlaySoundBehavior
+#         sound:
+#           collection: MetalBreak
+#       - !type:SpawnEntitiesBehavior
+#         spawn:
+#           GekkerzineCanisterBroken:
+#             min: 1
+#             max: 1
+#       - !type:DoActsBehavior
+#         acts: [ "Destruction" ]
+#       - !type:DumpCanisterBehavior
+#   - type: Lock
+#     locked: true
+
+- type: entity
+  name: broken gekkerzine canister
+  parent: GasCanisterBrokenBase
+  id: GekkerzineCanisterBroken
+  # It's deco.
+  # categories: [ HideSpawnMenu ] 
+  components:
+  - type: Sprite
+    sprite: _Omu/Structures/Storage/canister.rsi
+    state: gekkerzine-1
