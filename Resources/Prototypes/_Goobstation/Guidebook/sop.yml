@@ -332,7 +332,7 @@
   id: CaptainSOP
   name: guide-entry-sop-captain
 #  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/CaptainSOP.xml" # Omu
-  text: "/ServerInfo/_Omu/Guidebook/SoP/Jobs/Command/CaptainSOP.xml" # Omu, use Omu's CaptainSOP instead of Goob's
+  text: "/ServerInfo/_Omu/Guidebook/SoP/Jobs/Command/CaptainSOP.xml" # Omu, use Omu's SOP instead of Goob's
 
 - type: guideEntry
   id: HeadOfPersonnelSOP
@@ -342,7 +342,8 @@
 - type: guideEntry
   id: HeadOfSecuritySOP
   name: guide-entry-sop-hos
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/HeadOfSecuritySOP.xml"
+#  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/HeadOfSecuritySOP.xml" # Omu
+  text: "/ServerInfo/_Omu/Guidebook/SoP/Jobs/Command/HeadOfSecuritySOP.xml" # Omu, use Omu's SOP instead of Goob's
 
 - type: guideEntry
   id: ResearchDirectorSOP
