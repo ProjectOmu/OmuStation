@@ -1,0 +1,20 @@
+# maps that can be picked across all omu servers
+- type: gameMapPool
+  id: OmuSharedMapPool
+  abstract: true
+  maps:
+
+# maps that can be picked for specific servers
+
+## Pelican
+- type: gameMapPool
+  id: PelicanMapPool
+  parent: OmuSharedMapPool
+  maps:
+
+## Magpie
+- type: gameMapPool
+  id: MagpieMapPool
+  parent: OmuSharedMapPool
+  maps:
+
