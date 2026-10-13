@@ -331,7 +331,8 @@
 - type: guideEntry
   id: CaptainSOP
   name: guide-entry-sop-captain
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/CaptainSOP.xml"
+#  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/CaptainSOP.xml" # Omu
+  text: "/ServerInfo/_Omu/Guidebook/SoP/Jobs/Command/CaptainSOP.xml" # Omu, use Omu's CaptainSOP instead of Goob's
 
 - type: guideEntry
   id: HeadOfPersonnelSOP
