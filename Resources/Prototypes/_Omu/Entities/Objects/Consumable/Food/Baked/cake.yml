@@ -9,6 +9,9 @@
     state: trailinthesnow
   - type: SliceableFood
     slice: FoodCakeTrailInTheSnowSlice
+  - type: Tag
+    tags:
+    - Cake
   - type: Item
     inhandVisuals:
       left:
@@ -44,6 +47,10 @@
   - type: Sprite
     sprite: _Omu/Objects/Consumable/Food/trailinthesnow.rsi
     state: trailinthesnow_slice
+  - type: Tag
+    tags:
+    - Cake
+    - Slice
   - type: Item
     inhandVisuals:
       left:
