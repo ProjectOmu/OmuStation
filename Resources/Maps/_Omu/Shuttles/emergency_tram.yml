@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Map
+  category: Grid
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 10/13/2026 16:41:44
-  entityCount: 1270
-maps:
-- 381
+  time: 10/13/2026 18:06:34
+  entityCount: 1269
+maps: []
 grids:
 - 2
-orphans: []
+orphans:
+- 2
 nullspace: []
 tilemap:
   1: Space
@@ -45,7 +45,7 @@ entities:
       name: Tram Evac
     - type: Transform
       pos: -0.59375,0.0785262
-      parent: 381
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -286,16 +286,6 @@ entities:
       chunkCollection:
         version: 2
         nodes: []
-  - uid: 381
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
-    - type: Broadphase
-    - type: OccluderTree
 - proto: AirAlarm
   entities:
   - uid: 11
