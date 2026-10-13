@@ -84,3 +84,54 @@ trait-redshirt-name = Redshirt
 trait-redshirt-desc =
    You don't go into critical condition.
    And at this rate you probably wont make it to the second act...
+
+trait-font-and-the-door-creeeaked-name = And The Door Creeeaked
+trait-font-and-the-door-creeeaked-desc = Shaky and unsettling.
+
+trait-font-bonbon-name = Bonbon
+trait-font-bonbon-desc = Sweet and magical.
+
+trait-font-caesar-dressing-name = Caesar Dressing
+trait-font-caesar-dressing-desc = Chiseled and bold, fit for an emperor.
+
+trait-font-comic-neue-name = Comic Neue
+trait-font-comic-neue-desc = For cartoon characters.
+
+trait-font-comic-neue-bold-name = Comic Neue Bold
+trait-font-comic-neue-bold-desc = For cartoon characters who really mean it.
+
+trait-font-hachi-maru-pop-name = Hachi Maru Pop
+trait-font-hachi-maru-pop-desc = Cute and casual.
+
+trait-font-kode-mono-name = Kode Mono
+trait-font-kode-mono-desc = Monospace. Robotic. Functional.
+
+trait-font-kode-mono-bold-name = Kode Mono Bold
+trait-font-kode-mono-bold-desc = Monospace. Robotic. Bold.
+
+trait-font-reenie-beanie-name = Reenie Beanie
+trait-font-reenie-beanie-desc = Loose and informal handwriting.
+
+trait-font-sixtyfour-name = Sixtyfour
+trait-font-sixtyfour-desc = Blocky and pixelated, favored by silicons.
+
+trait-font-snowburst-one-name = Snowburst One
+trait-font-snowburst-one-desc = For those who are a little frosty.
+
+trait-font-swamp-witch-name = Swamp Witch
+trait-font-swamp-witch-desc = For those who are spooky or cursed.
+
+trait-font-tangerine-name = Tangerine
+trait-font-tangerine-desc = Fancy-looking, professional handwriting.
+
+trait-font-tangerine-bold-name = Tangerine Bold
+trait-font-tangerine-bold-desc = Bold, professional handwriting.
+
+trait-font-unifraktur-name = UnifrakturMaguntia
+trait-font-unifraktur-desc = Dark, gothic, and maybe a bit too much.
+
+trait-font-wahroonga-name = Wahroonga
+trait-font-wahroonga-desc = Looks like it's your first time picking up a pen.
+
+trait-font-yuyu-short-name = Yuyu Short
+trait-font-yuyu-short-desc = Thin and casual.
