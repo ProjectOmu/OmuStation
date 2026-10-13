@@ -458,3 +458,39 @@
     wideAnimationRotation: 180
     soundHit: /Audio/Voice/Diona/diona_snap.ogg
 
+- type: entity
+  parent: BasePlushie
+  id: PlushieRogerCagelOmuCrew
+  name: Roger Cagel plushie
+  description: 'Despite its innocuous appearance, you can feel anti-corporate energy radiating from it. In spite of that, a tag is attached: "As an effort to make a dent in Roger Cagel''s 3-quadrillion-speso debt to us, we made him into a marketable plushie. Returns not accepted."'
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/rogercagel.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/rogercagel.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/rogercagel.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: VulpkaninSnarls
+  - type: EmitSoundOnUse
+    sound:
+      collection: VulpkaninWhines
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VulpkaninWhines
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: VulpkaninWhines
+  - type: EmitSoundOnThrow
+    sound:
+      collection: VulpkaninScreams
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
