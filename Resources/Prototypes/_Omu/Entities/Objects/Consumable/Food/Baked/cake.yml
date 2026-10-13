@@ -1,0 +1,21 @@
+- type: entity
+  name: trail in the snow
+  parent: FoodCakeCheese
+  id: FoodCakeTrailInTheSnow
+  description: Placeholder for the whole thing. It makes you feel wild.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Consumable/Food/trailinthesnow.rsi
+    state: trailinthesnow
+  - type: SliceableFood
+    slice: FoodCakeTrailInTheSnowSlice
+
+- type: entity
+  name: trail in the snow slice
+  parent: FoodCakeCheeseSlice
+  id: FoodCakeTrailInTheSnowSlice
+  description: Placeholder for a slice. It makes you feel wild.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Consumable/Food/trailinthesnow.rsi
+    state: trailinthesnow_slice

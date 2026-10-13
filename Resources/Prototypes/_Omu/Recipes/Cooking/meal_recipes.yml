@@ -37,3 +37,9 @@
   solids:
     FoodBakedMuffin: 2
     FoodSnackChocolateBar: 1
+
+- type: microwaveMealRecipe
+  id: RecipeTrailInTheSnow
+  name: Trail in the Snow recipe
+  result: FoodTrailInTheSnow
+  time: 10
