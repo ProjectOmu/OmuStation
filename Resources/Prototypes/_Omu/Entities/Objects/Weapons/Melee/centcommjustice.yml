@@ -174,30 +174,14 @@
           volume: 0
           sound:
             path: /Audio/_Goobstation/Supermatter/calm.ogg
-        - type: Explosive
-          explosionType: Supermatter
-          maxIntensity: 10000
-          intensitySlope: 5
-          totalIntensity: 10000
-        - type: SupermatterHalberd
-          obliterateWhitelist:
-            components:
-            - Airlock
-            - Firelock
-            - Door
-            tags:
-            - Wall
-            - Window
-            - Airlock
-            - GlassAirlock
         - type: MeleeWeapon
           canWideSwing: false
           attackRate: 0.5
           animation: WeaponArcThrust
           damage:
             types:
-              Heat: 100
-              Slash: 50
+              Heat: 10000
+              Slash: 10000
             armorPenetration: 1
           soundHit:
               path: /Audio/_Goobstation/Wizard/supermatter.ogg
