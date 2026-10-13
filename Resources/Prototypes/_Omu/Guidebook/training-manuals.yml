@@ -3,6 +3,7 @@
   id: TrainingManuals
   name: guide-entry-training-manuals
   text: /ServerInfo/_Omu/Guidebook/TrainingManuals/TrainingManuals.xml
+  priority: -100 # should appear at the top of Standard Operating Procedures
   children:
   - CrewTrainingManual
   - ClassifiedTrainingManual
