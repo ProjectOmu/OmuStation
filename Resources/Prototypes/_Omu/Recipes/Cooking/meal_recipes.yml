@@ -41,5 +41,13 @@
 - type: microwaveMealRecipe
   id: RecipeTrailInTheSnow
   name: Trail in the Snow recipe
-  result: FoodTrailInTheSnow
+  result: FoodCakeTrailInTheSnow
   time: 10
+  group: supersecret
+  reagents:
+    Ichor: 6 # 2 cutlets
+    Blood: 5
+    Iron: 5
+    JuiceBerry: 10
+  solids:
+    FoodCakeCheese: 1
