@@ -40,11 +40,11 @@ trait-language-elyran-desc =
     Elyran Standard is the official tongue of the Republic of Elyra.
     Constructed using elements of Farsi - Arabic - and Turkish - influence from all three of these languages can be seen throughout its grammar and vocabulary.
 
-trait-language-valyrianstandard-name = Valyrian Standard
+
+# Omu, renaming
+trait-language-valyrianstandard-name = Avatel Vulu
 trait-language-valyrianstandard-desc =
-    A language descended from eastern european languages of old earth - Valyrian Standard is the commonly spoken tongue of Harpies brought up on their homeworld of Valyrian 4b
-    It is rarely spoken outside of the worlds of its native speakers, and has in modern times been supplanted by the 'Conlangs of the Sol Alliance.
-    Its speakers are those who wish to uphold the traditions and beliefs of ancient peoples from before the colonial era.
+    Although hard to discern from all the squawking, it sounds similar to the early pagan latin and imperial japanese languages of old earth - Avatel Vulu is the main language spoken on the harpy homeworld of Avatel-Ran and most of Appalian space.
 
 trait-language-novunederic-name = Novu-Nederic
 trait-language-novunederic-desc =
