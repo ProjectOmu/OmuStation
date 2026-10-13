@@ -8,8 +8,6 @@ using Content.Shared.Revenant.Components;
 using Content.Shared.Revenant.EntitySystems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Physics;
-using Robust.Shared.Physics.Dynamics;
-using Robust.Shared.Physics.Systems;
 
 namespace Content.Server.Revenant.EntitySystems;
 
