@@ -10,6 +10,9 @@ using Content.Shared._Omu.Entities.Objects.Transmogrifier;
 using System.Linq;
 using Content.Shared.Coordinates;
 using Robust.Shared.Random;
+using Content.Shared.Storage;
+using Content.Shared.Objectives.Components;
+using Content.Shared.Chemistry.Components;
 
 namespace Content.Server._Omu.Machines.Transmogrifier;
 
@@ -148,10 +151,22 @@ public sealed partial class TransmogrifierSystem : EntitySystem
 
         foreach (var item in storage.Contents.ContainedEntities.ToArray())
         {
+            var transmogged = false;
             if (HasComp<HumanoidAppearanceComponent>(item))
             {
                 containsHuman = true;
                 continue;
+            }
+
+            if (HasComp<StealTargetComponent>(item))    // No deleting steal targets
+                continue;
+
+            if (TryComp<StorageComponent>(item, out var storageComp))
+            {
+                foreach (var contents in storageComp.Container.ContainedEntities)
+                {
+                    _containerSystem.Remove(contents, storageComp.Container, true, true);   // Force remove items in containers - prevents some issues like steal targets in bags getting deleted
+                }
             }
 
             var metadata = MetaData(item);
@@ -166,21 +181,49 @@ public sealed partial class TransmogrifierSystem : EntitySystem
             switch (comp.State)
             {
                 case TransmogrifierMode.Coarse:
-                    SpawnInContainerOrDrop(PickResult(graph.Coarse, comp), uid, storage.Contents.ID);
+                    if (graph.Coarse is not null)
+                    {
+                        SpawnInContainerOrDrop(PickResult(graph.Coarse, comp), uid, storage.Contents.ID);
+                        transmogged = true;
+                    }
                     break;
                 case TransmogrifierMode.Rough:
-                    SpawnInContainerOrDrop(PickResult(graph.Rough, comp), uid, storage.Contents.ID);
+                    if (graph.Rough is not null)
+                    {
+                        SpawnInContainerOrDrop(PickResult(graph.Rough, comp), uid, storage.Contents.ID);
+                        transmogged = true;
+                    }
                     break;
                 case TransmogrifierMode.OneToOne:
-                    SpawnInContainerOrDrop(PickResult(graph.OneToOne, comp), uid, storage.Contents.ID);
+                    if (graph.OneToOne is not null)
+                    {
+                        SpawnInContainerOrDrop(PickResult(graph.OneToOne, comp), uid, storage.Contents.ID);
+                        transmogged = true;
+                    }
                     break;
                 case TransmogrifierMode.Fine:
-                    SpawnInContainerOrDrop(PickResult(graph.Fine, comp), uid, storage.Contents.ID);
+                    if (graph.Fine is not null)
+                    {
+                        SpawnInContainerOrDrop(PickResult(graph.Fine, comp), uid, storage.Contents.ID);
+                        transmogged = true;
+                    }
                     break;
                 case TransmogrifierMode.VeryFine:
-                    SpawnInContainerOrDrop(PickResult(graph.VeryFine, comp), uid, storage.Contents.ID);
+                    if (graph.VeryFine is not null)
+                    {
+                        SpawnInContainerOrDrop(PickResult(graph.VeryFine, comp), uid, storage.Contents.ID);
+                        transmogged = true;
+                    }
                     break;
             }
+
+            //Hardcoded polymorphs, done below so they can be overriden by the above ^
+
+            if (HasComp<PillComponent>(item) && !transmogged)
+                SpawnInContainerOrDrop("StrangePill", uid, storage.Contents.ID);
+
+            if (!transmogged)
+                SpawnInContainerOrDrop(comp.BackupGarbage, uid, storage.Contents.ID);
 
             //_containerSystem.Remove(item, storage.Contents);
             PredictedQueueDel(item);

@@ -1,0 +1,42 @@
+- type: entity
+  parent: BaseAction
+  id: ActionMeatmancerTouch
+  name: Meaty Touch
+  description: I have the shiniest Meat bicycle
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 30
+    itemIconStyle: BigAction
+    sound: _Goobstation/Heretic/heartbeat.ogg
+    icon:
+      sprite: _Omu/Actions/Science/meatmancer.rsi
+      state: icon
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - HumanoidAppearance
+      - Inventory
+    canTargetSelf: false
+    event: !type:MeatmancerTouchEvent
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MeatmancerImplant
+  name: Meatmancer implant
+  description: Explode dead bodies into meat monsters. Yes they still hate you.
+  categories: [ HideSpawnMenu ]
+  components:
+   - type: SubdermalImplant
+   - type: Meatmancer
+
+- type: entity
+  id: MeatmancerImplanter
+  name: Strange Implanter
+  suffix: Meatmancer
+  parent: BaseImplantXeno
+  components:
+  - type: Implanter
+    implant: MeatmancerImplant
