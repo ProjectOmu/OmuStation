@@ -12,3 +12,8 @@ guide-entry-sop-security-sergeant = Sergeant
 # - General
 guide-entry-training-manual-crew = Crew Training Manual
 guide-entry-training-manuals = Training Manuals
+
+# - Lore
+guide-entry-lore = Lore
+guide-entry-TwoMinutes = Omu In Two Minutes
+guide-entry-AvatelRan = Avatel-Ran

@@ -1401,6 +1401,36 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("profile_role_loadout", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.ProfileSpeechReplacement", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("profile_speech_replacement_id");
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("profile_id");
+
+                    b.Property<string>("Replacement")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("replacement");
+
+                    b.Property<string>("Word")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("word");
+
+                    b.HasKey("Id")
+                        .HasName("PK_profile_speech_replacement");
+
+                    b.HasIndex("ProfileId", "Word")
+                        .IsUnique();
+
+                    b.ToTable("profile_speech_replacement", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.RMCDiscordAccount", b =>
                 {
                     b.Property<ulong>("Id")
@@ -2415,6 +2445,18 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Profile");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.ProfileSpeechReplacement", b =>
+                {
+                    b.HasOne("Content.Server.Database.Profile", "Profile")
+                        .WithMany("SpeechReplacements")
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_profile_speech_replacement_profile_profile_id");
+
+                    b.Navigation("Profile");
+                });
+
             modelBuilder.Entity("Content.Server.Database.RMCLinkedAccount", b =>
                 {
                     b.HasOne("Content.Server.Database.RMCDiscordAccount", "Discord")
@@ -2715,6 +2757,8 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Jobs");
 
                     b.Navigation("Loadouts");
+
+                    b.Navigation("SpeechReplacements");
 
                     b.Navigation("Traits");
                 });
