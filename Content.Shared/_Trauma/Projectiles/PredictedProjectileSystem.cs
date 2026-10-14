@@ -79,7 +79,7 @@ public sealed class PredictedProjectileSystem : EntitySystem
         // </Goob>
         var deleted = Deleted(target);
 
-        if (_damageable.TryChangeDamage((target, damageableComponent), ev.Damage, out var damage, component.IgnoreResistances, origin: component.Shooter, targetPart: targetPart) && Exists(component.Shooter))
+        if (_damageable.TryChangeDamage(target, ev.Damage, component.IgnoreResistances, origin: component.Shooter, targetPart: targetPart) is { } damage && Exists(component.Shooter))
         {
             if (!deleted)
             {
@@ -174,7 +174,7 @@ public sealed class PredictedProjectileSystem : EntitySystem
 
         if (!deleted)
         {
-            _gun.PlayImpactSound(target, damage, component.SoundHit, component.ForceSound);
+            _gun.PlayImpactSound(target, ev.Damage, component.SoundHit, component.ForceSound);
 
             if (!args.OurBody.LinearVelocity.IsLengthZero() && _timing.IsFirstTimePredicted)
                 _recoil.KickCamera(target, args.OurBody.LinearVelocity.Normalized());

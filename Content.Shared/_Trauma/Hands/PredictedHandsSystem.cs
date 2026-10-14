@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-using Content.Goobstation.Common.Hands;
+using Content.Shared.Hands;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Systems;
@@ -107,10 +107,10 @@ public sealed class PredictedHandsSystem : EntitySystem
         if (_hands.TryGetActiveItem(player, out var item) && _virtualQuery.TryComp(item, out var virtComp))
         {
             var virtEv = new VirtualItemDropAttemptEvent(virtComp.BlockingEntity, player, item.Value, true);
-            RaiseLocalEvent(player, ref virtEv);
+            RaiseLocalEvent(player, virtEv);
             if (virtEv.Cancelled) return false;
 
-            RaiseLocalEvent(virtComp.BlockingEntity, ref virtEv);
+            RaiseLocalEvent(virtComp.BlockingEntity, virtEv);
             if (virtEv.Cancelled) return false;
         }
         // </Goob>
@@ -149,7 +149,7 @@ public sealed class PredictedHandsSystem : EntitySystem
 
         if (TryComp(throwEnt, out StackComponent? stack) && stack.Count > 1 && stack.ThrowIndividually)
         {
-            if (_stack.Split((throwEnt.Value, stack), 1, Transform(player).Coordinates) is not {} splitStack)
+            if (_stack.Split(throwEnt.Value, 1, Transform(player).Coordinates) is not {} splitStack)
                 return false;
 
             throwEnt = splitStack;

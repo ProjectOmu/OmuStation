@@ -6,6 +6,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Construction;
 using Content.Shared.Destructible.Thresholds.Behaviors;
 using Content.Shared.Destructible.Thresholds.Triggers;
+using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Fluids;
 using Content.Shared.Stacks;
@@ -15,6 +16,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Tag; //omu
 
 namespace Content.Shared.Destructible;
 
@@ -38,6 +40,7 @@ public abstract partial class SharedDestructibleSystem
     [Dependency] public readonly SharedContainerSystem ContainerSystem = default!;
     [Dependency] public readonly IPrototypeManager PrototypeManager = default!;
     [Dependency] public readonly ISharedAdminLogManager AdminLogger = default!;
+    [Dependency] public readonly TagSystem TagSystem = default!; // Omu
 
     public bool TryGetDestroyedAt(Entity<DestructibleComponent?> ent, [NotNullWhen(true)] out FixedPoint2? destroyedAt)
     {
@@ -82,4 +85,25 @@ public abstract partial class SharedDestructibleSystem
         }
         return damageNeeded;
     }
+    //omu start
+    /// <summary>
+    /// Triggers this threshold.
+    /// </summary>
+    /// <param name="owner">The entity that owns this threshold.</param>
+    /// <param name="cause">The entity that caused this threshold to trigger.</param>
+    public void Execute(DamageThreshold threshold, EntityUid owner, EntityUid? cause = null)
+    {
+        threshold.Triggered = true;
+
+        foreach (var behavior in threshold.Behaviors)
+        {
+            // The owner has been deleted. We stop execution of behaviors here.
+            if (!Exists(owner))
+                return;
+
+            // TODO: Replace with EntityEffects.
+            behavior.Execute(owner, this, cause);
+        }
+    }
+    // omu end
 }

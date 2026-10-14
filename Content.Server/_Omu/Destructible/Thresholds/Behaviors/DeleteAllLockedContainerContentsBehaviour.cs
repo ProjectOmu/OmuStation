@@ -1,6 +1,8 @@
 using Robust.Shared.Containers;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
+using Content.Shared.Destructible.Thresholds.Behaviors;
+using Content.Shared.Destructible;
 
 namespace Content.Server.Destructible.Thresholds.Behaviors
 {
@@ -11,7 +13,7 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
     public sealed partial class DeleteAllLockedContainerContentsBehaviour : IThresholdBehavior
     {
         private static readonly ProtoId<TagPrototype> NotOpenedSecureCrateTag = "NotOpenedSecureCrate";
-        public void Execute(EntityUid owner, DestructibleSystem system, EntityUid? cause = null)
+        public void Execute(EntityUid owner, SharedDestructibleSystem system, EntityUid? cause = null)
         {
             if (!system.TagSystem.HasTag(owner, NotOpenedSecureCrateTag))
                 return;

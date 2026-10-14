@@ -2,7 +2,6 @@
 
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Destructible;
 using Content.Shared.Destructible.Thresholds.Behaviors;
 using JetBrains.Annotations;
@@ -29,9 +28,8 @@ public sealed partial class SpillBehavior : IThresholdBehavior
         /// <param name="cause"></param>
         public void Execute(EntityUid owner, SharedDestructibleSystem system, EntityUid? cause = null)
         {
-            var solutionContainerSystem = system.EntityManager.System<SharedSolutionContainerSystem>();
-            var spillableSystem = system.EntityManager.System<PuddleSystem>();
-
+            var puddleSystem = system.EntityManager.System<PuddleSystem>();
+            var solutionContainer = system.EntityManager.System<SharedSolutionContainerSystem>();
             var coordinates = system.EntityManager.GetComponent<TransformComponent>(owner).Coordinates;
 
         // Spill the solution that was drained/split

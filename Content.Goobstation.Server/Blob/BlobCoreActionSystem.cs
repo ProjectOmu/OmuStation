@@ -11,7 +11,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared.Atmos.Components;
-using Content.Shared.Damage.Systems;
+using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Emp;
 using Content.Shared.Interaction;
@@ -41,7 +41,7 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
     [Dependency] private readonly BlobCoreSystem _blobCoreSystem = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!;
-    [Dependency] private readonly EmpSystem _empSystem = default!;
+    [Dependency] private readonly SharedEmpSystem _empSystem = default!;
     [Dependency] private readonly AudioSystem _audioSystem = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;

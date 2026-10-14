@@ -31,7 +31,7 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
     [Dependency] private readonly BlobCoreSystem _blobCoreSystem = default!;
     [Dependency] private readonly BlobCoreActionSystem _blobCoreActionSystem = default!;
     [Dependency] private readonly AudioSystem _audioSystem = default!;
-    [Dependency] private readonly EmpSystem _empSystem = default!;
+    [Dependency] private readonly SharedEmpSystem _empSystem = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
