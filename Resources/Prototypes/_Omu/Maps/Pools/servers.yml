@@ -25,17 +25,29 @@
   - Cog
   - Glacier
 
-# maps that can be picked for specific servers
+# maps that can be picked for specific servers.
+# **every server has to have an entry**!!! if you try to use OmuSharedMapPool the server will fail to map roll!
 
 ## Pelican
 - type: gameMapPool
   id: PelicanMapPool
   parent: OmuSharedMapPool
-  maps:
+  maps: []
 
 ## Magpie
 - type: gameMapPool
   id: MagpieMapPool
   parent: OmuSharedMapPool
-  maps:
+  maps: []
 
+## Woodpecker
+- type: gameMapPool
+  id: WoodpeckerMapPool
+  parent: OmuSharedMapPool
+  maps: []
+
+## Booby
+- type: gameMapPool
+  id: BoobyMapPool
+  parent: OmuSharedMapPool
+  maps: []

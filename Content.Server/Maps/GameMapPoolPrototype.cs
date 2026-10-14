@@ -23,6 +23,7 @@ public sealed partial class GameMapPoolPrototype : IPrototype, IInheritingProtot
     [ParentDataField(typeof(PrototypeIdArraySerializer<GameMapPoolPrototype>))]
     public string[]? Parents { get; private set; }
 
+    // Omu - whether this pool can be in
     [AbstractDataField]
     [NeverPushInheritance]
     public bool Abstract { get; private set; }
