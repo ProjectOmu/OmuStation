@@ -16,3 +16,4 @@ guide-entry-training-manuals = Training Manuals
 # - Lore
 guide-entry-lore = Lore
 guide-entry-TwoMinutes = Omu In Two Minutes
+guide-entry-AvatelRan = Avatel-Ran
