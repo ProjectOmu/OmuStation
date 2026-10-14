@@ -2,6 +2,7 @@
   id: Lore
   name: guide-entry-lore
   text: "/ServerInfo/_Omu/Guidebook/Lore/Lore.xml"
+  priority: -80 # Move this under "Survival" in Station and Shifts
   children:
   - TwoMinutes
 
