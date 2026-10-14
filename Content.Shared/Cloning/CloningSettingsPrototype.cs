@@ -104,7 +104,7 @@ public sealed partial class CloningSettingsPrototype : IPrototype, IInheritingPr
     public HashSet<string> EventComponents = new();
 
     /// <summary>
-    ///     Whether or not to copy hand storage
+    /// Omu:    Whether or not to copy hand storage
     /// </summary>
     [DataField]
     public bool CopyHands = true;
