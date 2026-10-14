@@ -9047,3 +9047,14 @@ Entries:
       message: Added a red cellphone to the captain's locker.
   id: 1171
   time: '2026-10-14T02:22:35.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Add
+      message: >-
+        Added a Speech tab to the character editor where you can set speech
+        patterns that replace words or phrases your character says to make small
+        speaking quirks or remove word changes you don't like from accents.
+    - type: Tweak
+      message: Accents moved from the Traits tab to the new Speech tab.
+  id: 1172
+  time: '2026-10-14T02:32:44.0000000+00:00'
