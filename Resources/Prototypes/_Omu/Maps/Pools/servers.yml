@@ -38,16 +38,22 @@
 - type: gameMapPool
   id: MagpieMapPool
   parent: OmuSharedMapPool
-  maps: []
+  # maps:
+  #   - MapIDHere1
+  #   - MapIDHere2
 
 ## Woodpecker
 - type: gameMapPool
   id: WoodpeckerMapPool
   parent: OmuSharedMapPool
-  maps: []
+  # maps:
+  #   - MapIDHere1
+  #   - MapIDHere2
 
 ## Booby
 - type: gameMapPool
   id: BoobyMapPool
   parent: OmuSharedMapPool
-  maps: []
+  # maps:
+  #   - MapIDHere1
+  #   - MapIDHere2
