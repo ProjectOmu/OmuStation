@@ -63,3 +63,16 @@
         color: "#761711"
       - state: alpha-slice-filling-inhand-right
         color: "#e4b7af"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Ichor
+          Quantity: 2 # A little more than what goes in
+        - ReagentId: Vitamin
+          Quantity: 2
+        - ReagentId: Iron
+          Quantity: 1
+        - ReagentId: Protein
+          Quantity: 1
