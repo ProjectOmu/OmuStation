@@ -19,11 +19,16 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: CargoRequestEngineeringComputerCircuitboard
         - id: AlertsComputerCircuitboard
+        - id: CargoRequestEngineeringComputerCircuitboard # Omu
         - id: AtmosMonitoringComputerCircuitboard
         - id: PowerComputerCircuitboard
         - id: SolarControlComputerCircuitboard
+        - id: CargoRequestEngineeringComputerCircuitboard
+        - id: BluespaceHarvesterMachineCircuitboard # Omu
+        - id: EngineeringTechFabCircuitboard # Omu
+        - id: EngiCommsComputerCircuitboard # Omu
+        - id: SupermatterComputerCircuitboard # Omu
 
 - type: entity
   parent: ToteBase
@@ -36,6 +41,16 @@
         children:
         - id: MedicalTechFabCircuitboard
         - id: CargoRequestMedicalComputerCircuitboard
+        - id: EnergyChemDispenserMachineCircuitboard # Omu
+        - id: MedicalCommsComputerCircuitboard # Omu
+        - id: VaccinatorMachineCircuitboard # Omu
+        - id: MedicalBiofabMachineBoard # Omu
+        - id: HotplateMachineCircuitboard # Omu
+        - id: VaccinatorMachineCircuitboard # Omu
+        - id: BiomassReclaimerMachineCircuitboard # Omu
+        - id: CloningConsoleComputerCircuitboard # Omu
+        - id: MedicalScannerMachineCircuitboard # Omu
+        - id: CloningPodMachineCircuitboard # Omu
 
 - type: entity
   parent: ToteBase
@@ -49,6 +64,8 @@
         - id: IDComputerCircuitboard
         - id: FundingAllocationComputerCircuitboard
         - id: CargoRequestServiceComputerCircuitboard
+        - id: ServiceTechFabCircuitboard # Omu
+        - id: ServiceCommsComputerCircuitboard # Omu
 
 - type: entity
   parent: BoxStamps
@@ -74,6 +91,7 @@
         children:
         - id: SecurityTechFabCircuitboard
         - id: CargoRequestSecurityComputerCircuitboard
+        - id: SecurityCommsComputerCircuitboard # Omu
 
 - type: entity
   parent: ToteBase
@@ -91,6 +109,11 @@
         - id: SalvageMagnetMachineCircuitboard
         - id: SalvageJobBoardComputerCircuitboard
         - id: MailTeleporterMachineCircuitboard
+        - id: CargoTechFabCircuitboard # Omu
+        - id: LavalandShuttleConsoleCircuitboard # Omu
+        - id: SalvageShuttleConsoleCircuitboard # Omu
+        - id: SalvageExpeditionsComputerCircuitboard # Omu
+        - id: CargoCommsComputerCircuitboard # Omu
 
 - type: entity
   parent: BoxStamps
@@ -122,3 +145,6 @@
         - id: AnalysisComputerCircuitboard #Because sometimes round start artis just fucking explode on the pad.
         - id: ArtifactAnalyzerMachineCircuitboard
         - id: StationAiFixerCircuitboard
+        - id: ScienceCommsComputerCircuitboard # Omu
+        - id: XenobiologyBountyComputerCircuitboard # Omu
+        - id: ScienceTechFabCircuitboard # Omu
