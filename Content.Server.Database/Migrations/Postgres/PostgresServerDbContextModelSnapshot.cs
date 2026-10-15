@@ -914,6 +914,38 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("job", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.JobAlternateTitle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("job_alternate_title_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AlternateTitle")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("alternate_title");
+
+                    b.Property<string>("JobName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("job_name");
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("integer")
+                        .HasColumnName("profile_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_job_alternate_title");
+
+                    b.HasIndex("ProfileId", "JobName")
+                        .IsUnique();
+
+                    b.ToTable("job_alternate_title", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.PlayTime", b =>
                 {
                     b.Property<int>("Id")
@@ -1409,6 +1441,38 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.HasIndex("ProfileId");
 
                     b.ToTable("profile_role_loadout", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ProfileSpeechReplacement", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("profile_speech_replacement_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("integer")
+                        .HasColumnName("profile_id");
+
+                    b.Property<string>("Replacement")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("replacement");
+
+                    b.Property<string>("Word")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("word");
+
+                    b.HasKey("Id")
+                        .HasName("PK_profile_speech_replacement");
+
+                    b.HasIndex("ProfileId", "Word")
+                        .IsUnique();
+
+                    b.ToTable("profile_speech_replacement", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.RMCDiscordAccount", b =>
@@ -2261,6 +2325,18 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Profile");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.JobAlternateTitle", b =>
+                {
+                    b.HasOne("Content.Server.Database.Profile", "Profile")
+                        .WithMany("JobAlternateTitles")
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_job_alternate_title_profile_profile_id");
+
+                    b.Navigation("Profile");
+                });
+
             modelBuilder.Entity("Content.Server.Database.Player", b =>
                 {
                     b.OwnsOne("Content.Server.Database.TypedHwid", "LastSeenHWId", b1 =>
@@ -2413,6 +2489,18 @@ namespace Content.Server.Database.Migrations.Postgres
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("FK_profile_role_loadout_profile_profile_id");
+
+                    b.Navigation("Profile");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ProfileSpeechReplacement", b =>
+                {
+                    b.HasOne("Content.Server.Database.Profile", "Profile")
+                        .WithMany("SpeechReplacements")
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_profile_speech_replacement_profile_profile_id");
 
                     b.Navigation("Profile");
                 });
@@ -2710,9 +2798,13 @@ namespace Content.Server.Database.Migrations.Postgres
                 {
                     b.Navigation("Antags");
 
+                    b.Navigation("JobAlternateTitles");
+
                     b.Navigation("Jobs");
 
                     b.Navigation("Loadouts");
+
+                    b.Navigation("SpeechReplacements");
 
                     b.Navigation("Traits");
                 });

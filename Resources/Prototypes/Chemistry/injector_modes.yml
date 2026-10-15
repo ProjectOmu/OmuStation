@@ -121,7 +121,7 @@
 - type: injectorMode
   parent: HyposprayDynamicMode
   id: HypopenDynamicMode
-  containerDrawTime: 0.75
+  containerDrawTime: 0.5 # 0.75 # Omu, 2/3 original draw time
 
 - type: injectorMode
   abstract: true

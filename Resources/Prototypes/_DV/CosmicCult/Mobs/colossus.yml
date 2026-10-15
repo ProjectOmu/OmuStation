@@ -183,21 +183,16 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
-    - Binary # Goob # Omu, make it a radio
+    - Binary
     - Common
     - Science
     - CosmicRadio
   - type: ActiveRadio
     channels:
-    - Binary # Goob # Omu, make it a radio
+    - Binary
     - Common
     - Science
     - CosmicRadio
-  # Goobstation
-  #- type: CollectiveMind # Omu, replace with radio
-  #  defaultChannel: Binary
-  #  channels:
-  #  - Binary
   - type: ZombieImmune
   - type: UserInterface
     interfaces:
@@ -399,3 +394,4 @@
         types:
           Cold: 15 # Goobstation - 7 hits to kill instead of 8
           Ion: 15 # Omu, borgs/ipcs dont take cold, so they should take ion instead.
+      targetPart: Vital # Omu

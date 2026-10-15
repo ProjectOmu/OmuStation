@@ -740,6 +740,7 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: VoiceBroadcastConsole # Omu, this is a goob component, but without it tests fail.
 
 - type: entity
   parent: ComputerComms
@@ -834,6 +835,7 @@
     color: "#1d8bad"
     canShuttle: false
     global: true
+    canBypassAmberLock: true #omu
   - type: Computer
     board: CentcommCommsComputerCircuitboard
   - type: PointLight

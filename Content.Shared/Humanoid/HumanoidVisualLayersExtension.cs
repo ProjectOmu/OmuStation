@@ -38,6 +38,7 @@ namespace Content.Shared.Humanoid
             {
                 case HumanoidVisualLayers.Head:
                     yield return HumanoidVisualLayers.Head;
+                    yield return HumanoidVisualLayers.Face; // Omu - IPC marking fix
                     yield return HumanoidVisualLayers.Eyes;
                     yield return HumanoidVisualLayers.HeadSide;
                     yield return HumanoidVisualLayers.HeadTop;

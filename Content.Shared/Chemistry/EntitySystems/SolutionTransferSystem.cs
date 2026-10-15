@@ -143,7 +143,7 @@ public sealed class SolutionTransferSystem : EntitySystem
                 var doAfterArgs = new DoAfterArgs(EntityManager, args.User, transferTime, new SolutionDrainTransferDoAfterEvent(transferAmount), ent.Owner, target)
                 {
                     BreakOnDamage = true,
-                    BreakOnMove = true,
+                    // BreakOnMove = true, // Omu, you can move while drawing/inserting reagents
                     NeedHand = true,
                     Hidden = true,
                 };
@@ -183,7 +183,7 @@ public sealed class SolutionTransferSystem : EntitySystem
                 var doAfterArgs = new DoAfterArgs(EntityManager, args.User, transferTime, new SolutionRefillTransferDoAfterEvent(transferAmount), ent.Owner, target)
                 {
                     BreakOnDamage = true,
-                    BreakOnMove = true,
+                    // BreakOnMove = true, // Omu, you can move while drawing/inserting reagents
                     NeedHand = true,
                     Hidden = true,
                 };

@@ -14,3 +14,4 @@ station-event-emergencyresponseteam-medical-enroute = Central Command has dispat
 station-event-emergencyresponseteam-chaplain-enroute = Large quantities of unauthorized magical activities have been detected aboard the station. A special emergency response team has been deployed.
 # Omu - grammar
 station-event-emergencyresponseteam-janitorial-enroute = Central Command has deemed your mess big enough to dispatch an Emergency Response Team in order to clean it up. I hope you're proud of yourself. Station crew are to cooperate to pick up after themselves like grown, working, tax paying adults.
+station-event-hecu-enroute = An overwhelming threat to the station's security team has been reported and deemed it necessary to deploy an HECU task force. The chain of command has been updated so that HECU members are above the Head of Security when deployed. Remaining members of the security team are to aid HECU members in combat and/or evacuation of surviving crew.

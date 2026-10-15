@@ -11,6 +11,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Mobs.Systems; //omu
+using Content.Shared.Damage; //omu
 
 namespace Content.Shared.Nutrition.EntitySystems;
 
@@ -23,6 +25,8 @@ public sealed class ThirstSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly SharedJetpackSystem _jetpack = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!; //omu
+    [Dependency] private readonly DamageableSystem _damageable = default!; //omu
 
     private static readonly ProtoId<SatiationIconPrototype> ThirstIconOverhydratedId = "ThirstIconOverhydrated";
     private static readonly ProtoId<SatiationIconPrototype> ThirstIconThirstyId = "ThirstIconThirsty";
@@ -62,12 +66,13 @@ public sealed class ThirstSystem : EntitySystem
 
     private void OnRefreshMovespeed(EntityUid uid, ThirstComponent component, RefreshMovementSpeedModifiersEvent args)
     {
+        if (component.CurrentThirstThreshold > ThirstThreshold.Parched) //omu
+            return;
         // TODO: This should really be taken care of somewhere else
         if (_jetpack.IsUserFlying(uid))
             return;
 
-        var mod = component.CurrentThirstThreshold <= ThirstThreshold.Parched ? 0.75f : 1.0f;
-        args.ModifySpeed(mod, mod);
+        args.ModifySpeed(component.DehydrationSlowdownModifier, component.DehydrationSlowdownModifier); //omu
     }
 
     private void OnRejuvenate(EntityUid uid, ThirstComponent component, RejuvenateEvent args)
@@ -199,6 +204,20 @@ public sealed class ThirstSystem : EntitySystem
         }
     }
 
+    //omu start
+    private void DoContinuousDehydrationEffects(EntityUid uid, ThirstComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        if (component.CurrentThirstThreshold <= component.DehydrationThreshold &&
+            component.DehydrationDamage is { } damage &&
+            !_mobState.IsDead(uid))
+        {
+            _damageable.TryChangeDamage(uid, damage, true, false);
+        }
+    } //omu end
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -211,6 +230,7 @@ public sealed class ThirstSystem : EntitySystem
 
             thirst.NextUpdateTime += thirst.UpdateRate;
 
+            DoContinuousDehydrationEffects(uid, thirst); //omu
             ModifyThirst(uid, thirst, -thirst.ActualDecayRate);
             var calculatedThirstThreshold = GetThirstThreshold(thirst, thirst.CurrentThirst);
 

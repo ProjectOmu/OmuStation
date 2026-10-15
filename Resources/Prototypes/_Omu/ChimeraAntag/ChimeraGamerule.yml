@@ -5,6 +5,9 @@
   - type: ChimeraRule
   - type: GameRule
     minPlayers: 20
+    delay:
+      min: 600
+      max: 900
   - type: AntagObjectives
     objectives:
     - roles-antag-Chimera-objective
@@ -21,6 +24,8 @@
         - AntagImmune
         - CommandStaff
       startingGear: LetoStartingGear
+      mindRoles:
+      - MindRoleChimeraInitial
   - type: Tag
     tags:
     - RoundstartAntag

@@ -18,8 +18,9 @@
         color: "#00FF69"
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
-  - type: Damageable # Omu edit end
-    damageContainer: Xelthia # Omu edit end - shitmed moment
+  - type: Damageable
+    damageContainer: Xelthia
+    damageModifierSet: Xelthia # Omu edit end
 
 - type: entity
   id: ChestXelthia

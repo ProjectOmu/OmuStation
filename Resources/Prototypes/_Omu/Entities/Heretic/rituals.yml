@@ -1,0 +1,18 @@
+- type: hereticRitual
+  id: LodestoneRitual
+  locName: tome-knowledge-lodestone-name
+  locDesc: tome-knowledge-lodestone-desc
+  icon:
+    sprite: _Omu/Objects/Specific/Mansus/lodestone.rsi
+    state: icon_ring
+  requiredTags:
+    SheetGlass: 1
+    Steel: 1
+    ForceableFollow: 1    ##unspecific enough for now.
+  output:
+    LodestoneSelector: 1
+
+- type: hereticKnowledge
+  id: LodestoneRitual
+  ritualPrototypes:
+  - LodestoneRitual

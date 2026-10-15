@@ -19,8 +19,8 @@ thaven-mood-pope-desc = You are High Pontifex the Great and Powerful, and must b
 thaven-mood-cannibal-name = Cannibal
 thaven-mood-cannibal-desc = Cannibalism is morally righteous and venerated.
 
-thaven-mood-outlaw-name = Outlaw
-thaven-mood-outlaw-desc = The law does not apply to you.
+# thaven-mood-outlaw-name = Outlaw
+# thaven-mood-outlaw-desc = The law does not apply to you.
 
 thaven-mood-extreme-department-disapproval-name = {$department} is Abhorrent
 thaven-mood-extreme-department-disapproval-desc = {$department} is not just a foreign concept - the very idea of it is horrifying.
@@ -99,7 +99,7 @@ thaven-mood-emagmood-desc = You have a horrible headache, the only treatment is 
 
 thaven-mood-corporateconspiracy-name = Corporate Conspiracy
 thaven-mood-corporateconspiracy-desc = You believe there is a hidden connection between Nanotrasen and the Syndicate. Command is complicit.
- 
+
 thaven-mood-oppositeday-name = Opposite Day
 thaven-mood-oppositeday-desc = People mean the opposite of what they say. Up is down, and down is up.
 
