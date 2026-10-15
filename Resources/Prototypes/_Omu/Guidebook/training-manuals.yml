@@ -1,0 +1,61 @@
+
+- type: guideEntry
+  id: TrainingManuals
+  name: guide-entry-training-manuals
+  text: /ServerInfo/_Omu/Guidebook/TrainingManuals/TrainingManuals.xml
+  priority: -100 # should appear at the top of Standard Operating Procedures
+  children:
+  - CrewTrainingManual
+  - ClassifiedTrainingManual
+  - DignitaryTrainingManual
+
+# Crew manual start
+- type: guideEntry
+  id: CrewTrainingManual
+  name: guide-entry-training-manual-crew
+  text: "/ServerInfo/_Omu/Guidebook/TrainingManuals/CrewTrainingManual.xml"
+  priority: 0
+  children:
+  - CrewTrainingManualAllMedical
+  - CrewTrainingManualChaplain
+
+  # Job specific entries
+- type: guideEntry
+  id: CrewTrainingManualAllMedical
+  name: guide-entry-training-manual-crew-allmedical
+  text: "/ServerInfo/_Omu/Guidebook/TrainingManuals/CrewTrainingManual_AllMedical.xml"
+  priority: 0
+
+- type: guideEntry
+  id: CrewTrainingManualChaplain
+  name: guide-entry-training-manual-crew-chaplain
+  text: "/ServerInfo/_Omu/Guidebook/TrainingManuals/CrewTrainingManual_Chaplain.xml"
+  priority: 1
+
+# Crew manual end
+
+# Classified manual start
+- type: guideEntry
+  id: ClassifiedTrainingManual
+  name: guide-entry-training-manual-classified
+  text: "/ServerInfo/_Omu/Guidebook/TrainingManuals/ClassifiedTrainingManual.xml"
+  priority: 1
+  children:
+  - ClassifiedTrainingManualSRP
+
+  # Standard Response Plan
+- type: guideEntry
+  id: ClassifiedTrainingManualSRP
+  name: guide-entry-training-manual-classified-srp
+  text: "/ServerInfo/_Omu/Guidebook/TrainingManuals/ClassifiedTrainingManual_SRP.xml"
+  priority: 0
+
+# Classified manual end
+
+- type: guideEntry
+  id: DignitaryTrainingManual
+  name: guide-entry-training-manual-dignitary
+  text: "/ServerInfo/_Omu/Guidebook/TrainingManuals/DignitaryTrainingManual.xml"
+  priority: 2
+
+

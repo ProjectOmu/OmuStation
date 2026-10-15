@@ -5,19 +5,22 @@
   name: guide-entry-ss14
   text: "/ServerInfo/Guidebook/SpaceStation14.xml"
   children:
+  - Lore # Omu
   - Jobs
   - Survival
   - Antagonists
   - Glossary
   - MartialArts # Goobstation - idk where to put it
-  - SOP # Goobstation - Make it look good.
+  # - SOP # Goobstation - Make it look good. # Omu, move this under the Jobs tab instead
 
 - type: guideEntry
   id: Glossary
   name: guide-entry-glossary
   text: "/ServerInfo/Guidebook/Glossary.xml"
+  priority: -100 # Omu, move this to the top of Station and Shifts
 
 - type: guideEntry
   id: Survival
   name: guide-entry-survival
   text: "/ServerInfo/Guidebook/Survival.xml"
+  priority: -90 # Omu, move this under Glossary

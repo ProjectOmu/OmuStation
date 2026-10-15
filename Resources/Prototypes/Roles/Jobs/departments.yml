@@ -35,6 +35,7 @@
   - Visitor
   - ServiceWorker
   - PartyMaker # event-restricted, Goobstation
+  - TramDriver # Omu - port tramstation from wizden
 
 - type: department
   id: CentralCommand
@@ -170,4 +171,5 @@
   - RadioHost # Goobstation
   - Reporter
   - Psychologist
+  - TramDriver
   primary: false
