@@ -61,7 +61,7 @@
           state: secarang_on
         components:
         - type: Stunbaton # This has to be here otherwise it will not drain enegry on a throw hit, but cant be elsewhere because then the UI breaks
-          energyPerUse: 50
+          energyPerUse: 15
         - type: MeleeWeapon
           damage:
             types:
