@@ -15,3 +15,32 @@
           - !type:TemperatureCondition
             max: 213.0
           amount: -11 # 1 healing per bone on a humanoid, heals bones to full in 1 minute
+
+- type: reagent 
+  id: debugizine
+  name: reagent-name-debugizine
+  group: Medicine
+  desc: reagent-desc-debugizine
+  physicalDesc: reagent-physical-desc-unusual
+  flavor: medicine
+  color: "#8800D1"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+     metabolismRate: 0.5
+     effects: 
+        - !type:ReduceRotting
+          conditions:
+         - !type:MobStateCondition
+            mobstate: Dead
+          seconds: -10 #rots you so you better use it quick
+        - !type:HealthChange
+          damage:
+            types:
+              Poison: -2
+        - !type:HealthChange
+         damage:
+          groups:
+          Brute: -4
+          Heat: -4
+          Genetic: 1 # lazy people chem with drawback
