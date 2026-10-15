@@ -19,3 +19,23 @@
   - type: Tag
     tags:
     - BulletRubber
+
+- type: entity
+  parent: MuzzleFlashEffect
+  id: MuzzleFlashEffectShotgunHighCaliber
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.4
+  - type: Sprite
+    drawdepth: BelowMobs
+    offset: 0.15, 0
+    layers:
+    - sprite: Effects/chemsmoke.rsi
+      state: chemsmoke_white
+      scale: 0.35, 0.35
+      color: "#ffffffaa"
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi
+      state: kinetic

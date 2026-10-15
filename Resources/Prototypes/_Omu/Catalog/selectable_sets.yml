@@ -104,6 +104,19 @@
   - SpeedLoaderRevolverLightRifleMini
 
 - type: selectableSet
+  id: WardenHenriettaSet
+  name: selectable-set-warden-henrietta-name
+  description: selectable-set-warden-henrietta-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester_icon_48x.rsi
+    state: base
+  content:
+  - WeaponLeverHenrietta
+  - ClothingBeltBandolierHighCaliberFilled
+  - MagazineBoxShotgunHighCaliberFlash
+  - MagazineBoxShotgunHighCaliberEnsnaring
+
+- type: selectableSet
   id: BrigmedWeaponCrossbowSyringeSet
   name: selectable-set-brigmed-crossbow-name
   description: selectable-set-brigmed-crossbow-description
