@@ -41,7 +41,7 @@
       stash: !type:ContainerSlot {}
 
 - type: entity
-  parent: FoodCakeBase
+  parent: FoodInjectableBase
   id: FoodCakeSliceBase
   abstract: true
   description: Just a slice of cake, it is enough for everyone.
