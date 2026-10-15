@@ -8,17 +8,17 @@
   components:
   - type: Item
     sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
-    size: Ginormous # Use your sheath.
+    size: Ginormous # Use your sheath. There isn't one dumbass.
     heldPrefix: off
   - type: Sprite
     sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
     state: icon
   - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
+    maxCharge: 1500
+    startingCharge: 1500
   - type: BatterySelfRecharger
-    autoRechargeRate: 50
-    autoRechargePauseTime: 40
+    autoRechargeRate: 100
+    autoRechargePauseTime: 30
   - type: DisarmMalus
   - type: Tag
     tags:
@@ -67,7 +67,6 @@
           damage:
             types:
               Slash: 30
-              Piercing: 30
           soundHit:
             path: /Audio/Weapons/bladeslice.ogg
           angle: 60
@@ -90,7 +89,7 @@
           animation: WeaponArcThrust
           soundHit:
             path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
-        - type: StaminaDamageOnHit
+        - type: StaminaDamageOnHit # Batong
           damage: 25
           overtime: 25
           lightAttackDamageMultiplier: 2
@@ -102,7 +101,7 @@
 
       ion: !type:ItemSwitchState
         verb: ion
-        energyPerUse: 65 # 65 real
+        energyPerUse: 65
         sprite:
           sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           state: ion-icon
@@ -164,7 +163,7 @@
 
       Supermatter: !type:ItemSwitchState
         verb: Supermatter
-        energyPerUse: 999
+        energyPerUse: 999 # Also don't remove its energy usage I will cry
         sprite:
           sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           state: Supermatter-Icon
@@ -174,9 +173,11 @@
           volume: 0
           sound:
             path: /Audio/_Goobstation/Supermatter/calm.ogg
+        - type: SmiteOnMeleeHit
         - type: MeleeWeapon
-          canWideSwing: false
-          attackRate: 0.5
+          wideAnimationRotation: -135
+          canWideSwing: false # Do not fucking add wideswing to this shit holy fuck
+          attackRate: 0.5 # Also don't up the attack rate
           animation: WeaponArcThrust
           damage:
             types:
