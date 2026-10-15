@@ -1,13 +1,14 @@
-using Robust.Shared.Prototypes;
-using Content.Shared.StatusIcon;
 using Content.Shared.NPC.Prototypes;
+using Content.Shared.StatusIcon;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Omu.Shared.Entities.Heretic;
 
-[RegisterComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class FascinationComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float FascinationValue;
 
     /// <summary>
@@ -57,4 +58,5 @@ public sealed partial class FascinationComponent : Component
 public sealed class FascinationChangedArgs : EntityEventArgs
 {
     public float Amount;
+    public bool SpawnMaiden = true;
 }

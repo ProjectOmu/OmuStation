@@ -16,7 +16,7 @@ using Content.Goobstation.Shared.Bible;
 
 namespace Content.Omu.Server.Entities.Heretic;
 
-public sealed class FascinationSystem: EntitySystem
+public sealed class FascinationSystem : EntitySystem
 {
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
@@ -56,6 +56,8 @@ public sealed class FascinationSystem: EntitySystem
         }
 
         ent.Comp.FascinationValue = args.Amount + ent.Comp.FascinationValue; //increment the fascination value by the amount of knowledge gained!
+
+        Dirty(ent, ent.Comp);
 
         float fascvalue = ent.Comp.FascinationValue;
 
@@ -116,7 +118,8 @@ public sealed class FascinationSystem: EntitySystem
                 _faction.AddFaction(ent.Owner, ent.Comp.FactionToAdd); //Give them the faction so AI works
                 Dirty(ent.Owner, userFactionIcons);
             }
-            _gameTicker.StartGameRule("MirrorMaidenSpawn", out _);
+            if (args.SpawnMaiden)
+                _gameTicker.StartGameRule("MirrorMaidenSpawn", out _);
 
         }
     }

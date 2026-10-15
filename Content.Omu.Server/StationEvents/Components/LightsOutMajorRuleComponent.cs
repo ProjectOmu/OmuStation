@@ -12,7 +12,7 @@ public sealed partial class LightsOutMajorRuleComponent : Component
     /// <summary>
     /// When the actual smashing of lights should start
     /// </summary>
-    [DataField(customTypeSerializer : typeof(TimeOffsetSerializer))]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan? SmashingTime;
 
     /// <summary>
