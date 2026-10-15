@@ -94,6 +94,8 @@
       path: /Audio/_Omu/Weapons/henriettafire.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: MuzzleSmoke
+    effect: EffectGunSmoke
   - type: BallisticAmmoProvider
     whitelist:
       tags:

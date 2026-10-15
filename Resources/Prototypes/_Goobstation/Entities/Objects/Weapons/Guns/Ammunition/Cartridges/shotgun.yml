@@ -19,7 +19,6 @@
       map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
     proto: HighCaliberPelletShotgunSpread
-    muzzleFlash: MuzzleFlashEffectShotgunHighCaliber # Omu
   - type: SpentAmmoVisuals
     state: "base"
 
@@ -96,7 +95,6 @@
           map: [ "enum.AmmoVisualLayers.Base" ]
     - type: CartridgeAmmo
       proto: PelletShotgunSlugHighCaliber
-      muzzleFlash: MuzzleFlashEffectShotgunHighCaliber # Omu
     - type: SpentAmmoVisuals
       state: "slug"
 
