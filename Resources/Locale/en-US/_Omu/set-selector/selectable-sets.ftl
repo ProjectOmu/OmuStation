@@ -103,10 +103,6 @@ selectable-set-security-tackle-name = Enhanced Retrieval Gloves
 selectable-set-security-tackle-description =
     Special gloves that manipulate the blood vessels in the wearer's hands, granting them the ability to launch headfirst into walls and tackle fleeing criminals in a single bound.
 
-selectable-set-warden-solcom-name = Solcom Gloves
-selectable-set-warden-solcom-description =
-    A pair of gloves designed for the warden, implanting the user with knowledge of Solcom's martial arts, allowing them to perform a variety of combat techniques.
-
 selectable-set-antiquelaser-name = Antique Laser Pistol
 selectable-set-antiquelaser-description =
     The classic. An operative's worst nightmare.
