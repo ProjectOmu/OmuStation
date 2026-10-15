@@ -15,7 +15,7 @@
         - CrewTrainingManualAllMedical
 
 - type: entity
-  id: BookCorporateSecretsChaplain
+  id: BookCorporateSecretsChaplain # this is put inside FillWardrobeChapel in WardrobeChapelFilled
   parent: [BaseGuidebook, BaseMedicalContraband]
   name: classified chaplain training manual
   description: There's a big red stamp on it that says "CLASSIFIED," and there's a big green stamp that says "CHAPLAIN ONLY," too. Save this from the eyes of your flock.
