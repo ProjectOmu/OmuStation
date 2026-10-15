@@ -9,14 +9,15 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: ClothingHeadHatCaptain
-        - id: ClothingHeadHatCapcap
+        - id: ClothingOuterArmorCaptainCarapace # Omu
+        - id: ClothingOuterWinterCap
+        - id: ClothingOuterWinterCapArmored # Goobstation
         - id: ClothingUniformJumpsuitCapFormal
         - id: ClothingUniformJumpskirtCapFormalDress
         - id: ClothingHandsGlovesCaptain
-        #- id: ClothingOuterWinterCap
-        - id: ClothingOuterWinterCapArmored # Goobstation
         - id: ClothingNeckCloakCap
+        - id: ClothingHeadHatCaptain # Omu
+        - id: ClothingHeadHatCapcap # Omu
 
 - type: entity
   id: DresserChiefEngineerFilled
@@ -32,7 +33,9 @@
         - id: ClothingHeadHatBeretEngineering
         - id: ClothingOuterWinterCE
         - id: ClothingNeckCloakWhiteCe # GOOB
-
+        - id: ClothingOuterJacketInsulated # Omu
+        - id: ClothingHandsGlovesColorYellow # Omu
+        - id: ClothingEyesGlassesMeson # Omu
 - type: entity
   id: DresserChiefMedicalOfficerFilled
   parent: Dresser
@@ -50,6 +53,10 @@
         - id: ClothingEyesGlasses
         - id: ClothingOuterWinterCMO
         - id: ClothingCloakCmo
+        - id: ClothingEyesHudMedical # Omu
+        - id: ClothingHandsGlovesNitrile # Omu
+        - id: ClothingOuterJacketSurgical # Omu
+        - id: ClothingMaskSterile # Omu
 
 - type: entity
   id: DresserHeadOfPersonnelFilled
@@ -64,6 +71,7 @@
         - id: ClothingOuterWinterHoP
         - id: ClothingEyesGlasses
         - id: ClothingNeckCloakHop
+        - id: ClothingEyesHudCommand # Omu
 
 - type: entity
   id: DresserHeadOfSecurityFilled
@@ -74,8 +82,7 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: ClothingHeadHatBeretHoS
-        - id: ClothingHeadHatHoshat
+        - id: ClothingOuterCoatHoSTrench # Omu
         - id: ClothingMaskNeckGaiter
         - id: ClothingUniformJumpskirtHoSAlt
         - id: ClothingUniformJumpsuitHoSAlt
@@ -83,6 +90,11 @@
         - id: ClothingUniformJumpsuitHosFormal
         - id: ClothingOuterWinterHoS
         - id: ClothingNeckCloakHos
+        - id: ClothingShoesBootsJack # Omu
+        - id: ClothingEyesGlassesSecurity # Omu
+        - id: ClothingMaskNeckGaiter # Omu
+        - id: ClothingHeadHatBeretHoS
+        - id: ClothingHeadHatHoshat
 
 - type: entity
   id: DresserQuarterMasterFilled
@@ -116,6 +128,8 @@
         - id: ClothingOuterWinterRD
         - id: ClothingOuterCoatRD
         - id: ClothingNeckCloakRd
+        - id: ClothingEyesGlassesSciDiag # Omu
+
 
 - type: entity
   id: DresserWardenFilled
@@ -130,3 +144,5 @@
         - id: ClothingHeadHatBeretWarden
         - id: ClothingUniformJumpskirtWarden
         - id: ClothingUniformJumpsuitWarden
+        - id: ClothingShoesBootsJack
+        - id: ClothingHandsGlovesCombat
