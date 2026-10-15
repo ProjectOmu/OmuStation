@@ -195,5 +195,5 @@ reagent-desc-haloperidol = Removes most stimulating and hallucinogenic drugs. Re
 reagent-name-warfarin = warfarin
 reagent-desc-warfarin = Commonly used as an anticoagulant medication. Causes blood to have difficulty forming clots. Can cause internal bleeding when overdosed.
 
-reagent-name-debugizine = debugizine
+reagent-name-debugizine = setrozone
 reagent-desc-debugizine = does.. Something...
