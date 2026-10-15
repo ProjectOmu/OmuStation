@@ -41,7 +41,7 @@
       stash: !type:ContainerSlot {}
 
 - type: entity
-  parent: FoodInjectableBase
+  parent: FoodCakeBase
   id: FoodCakeSliceBase
   abstract: true
   description: Just a slice of cake, it is enough for everyone.
@@ -65,7 +65,12 @@
     tags:
     - Cake
     - Slice
-
+  - type: SecretStash
+    maxItemSize: "Tiny"
+    secretStashName: secret-stash-slice
+    damageEatenItemInside:
+      types:
+        Slash: 7.5
 # Custom Cake Example
 
 - type: entity
