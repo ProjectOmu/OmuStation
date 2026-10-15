@@ -1689,8 +1689,10 @@
   loadouts:
   - ChiefMedicalOfficerBeret
   - CMOMedicalHeadMirror
+  - ChiefMedicalOfficerSurgicalCap # Omu
   - ChemistUshanka # Goobstation
   - CMOVetBeret #Omu
+  - UshankaCMO # Omu
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerJumpsuit
@@ -1698,6 +1700,7 @@
   loadouts:
   - ChiefMedicalOfficerJumpsuit
   - ChiefMedicalOfficerJumpskirt
+  - ChiefMedicalOfficerScrubs # Omu
   - ChiefMedicalOfficerTurtleneckJumpsuit
   - ChiefMedicalOfficerTurtleneckJumpskirt
   - CMOMJ # goob
@@ -1760,6 +1763,7 @@
   - GreenSurgeryCap
   - PurpleSurgeryCap
   - NurseHat
+  - UshankaMedical # Omu
 
 - type: loadoutGroup
   id: MedicalDoctorJumpsuit
@@ -1917,6 +1921,7 @@
   - ParamedicHead
   - ParamedicCapCybersun # Omu
   - SeniorPhysicianBeret # Goobstation
+  - UshankaParamedic # Omu
 
 - type: loadoutGroup
   id: ParamedicJumpsuit
@@ -2021,6 +2026,35 @@
   minLimit: 0
   loadouts:
   - LizardPlushiePsychologist
+
+- type: loadoutGroup
+  id: TramDriverJumpsuit
+  name: loadout-group-tramdriver-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - TramDriverJumpsuit
+
+- type: loadoutGroup
+  id: TramDriverOuterClothing
+  name: loadout-group-tramdriver-outerclothing
+  minLimit: 0
+  loadouts:
+  - TramDriverSuit
+
+- type: loadoutGroup
+  id: TramDriverHat
+  name: loadout-group-tramdriver-hat
+  loadouts:
+  - TramDriverHat
+
+- type: loadoutGroup
+  id: TramDriverGloves
+  name: loadout-group-tramdriver-gloves
+  minLimit: 0
+  loadouts:
+  - TramDriverGlovesWhite
+  - TramDriverGlovesBlack
 
 # Other
 - type: loadoutGroup

@@ -1,0 +1,138 @@
+- type: entity
+  abstract: true
+  parent: [ BaseItem, BaseCentcommContraband ]
+  id: BaseSpeedLoaderCasull
+  name: "speed loader (.454 casull)"
+  components:
+  - type: Tag
+    tags:
+      - SpeedLoaderCasull
+  - type: SpeedLoader
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeCasull
+    capacity: 6
+  - type: Sprite
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+
+- type: entity
+  parent: BaseSpeedLoaderCasull
+  id: SpeedLoaderCasull
+  name: "speed loader (.454 casull)"
+  description: Designed to quickly load up to six rounds of .454 casull into an empty Mateba BFR. Intended to hold general-purpose kinetic ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCasull
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: base-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: base
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-ammo
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-ammo
+
+- type: entity
+  parent: SpeedLoaderCasull
+  id: SpeedLoaderCasullEmpty
+  name: "speed loader (.454 casull any)"
+  suffix: empty
+  description: Designed to quickly load up to six rounds of .454 casull into an empty Mateba BFR.
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: base-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
+
+- type: entity
+  parent: BaseSpeedLoaderCasull
+  id: SpeedLoaderCasullAP
+  name: "speed loader (.454 casull armor-piercing)"
+  description: Designed to quickly load up to six rounds of .454 casull into an empty Mateba BFR. Intended to hold specialized armor-piercing ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCasullAP
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: piercing-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: piercing
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-ammo
+      - state: inhand-left-stripe
+        color: "#540000"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-ammo
+      - state: inhand-right-stripe
+        color: "#540000"
+
+- type: entity
+  parent: BaseSpeedLoaderCasull
+  id: SpeedLoaderCasullHEAP
+  name: "speed loader (.454 casull high-explosive armor-piercing)"
+  description: Designed to quickly load up to six rounds of .454 casull into an empty Mateba BFR. Intended to hold specialized ammo used for fighting large non-humanoid targets.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCasullHEAP
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: piercing-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: piercing
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-ammo
+      - state: inhand-left-stripe
+        color: "#540000"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-ammo
+      - state: inhand-right-stripe
+        color: "#540000"

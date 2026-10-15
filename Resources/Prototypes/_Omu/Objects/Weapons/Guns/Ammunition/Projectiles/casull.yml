@@ -1,0 +1,45 @@
+- type: entity
+  parent: BaseBullet
+  id: BulletCasull
+  categories: [ HideSpawnMenu ]
+  name: bullet (.454 casull)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 55
+
+- type: entity
+  parent: BaseBullet
+  id: BulletCasullAP
+  categories: [ HideSpawnMenu ]
+  name: bullet (.454 Casull armor-piercing)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 48 
+      armorPenetration: 0.75
+
+- type: entity
+  parent: BaseBulletTrigger
+  id: BulletCasullHEAP
+  categories: [ HideSpawnMenu ]
+  name: bullet (.454 Casull high-explosive armor-piercing)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 55
+        Blunt: 20
+        Structural: 100
+      armorPenetration: 0.75
+  - type: StaminaDamageOnCollide
+    damage: 200 
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 5 
+    intensitySlope: 1.5
+    maxIntensity: 10
+    maxTileBreak: 0 # for breaking open walls not floors

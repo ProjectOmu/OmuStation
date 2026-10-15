@@ -7,11 +7,11 @@
   description: A Gold-plated MK-58. If you see an officer wielding this, they have definitely seen some shit. Uses .35 caliber pistol magazines.
   components:
   - type: Sprite
-    sprite: _Gabystation/Objects/Weapons/Guns/Pistol/mk58gold.rsi
+    sprite: _Omu/Objects/Weapons/Guns/Pistols/mk58gold.rsi # Omu
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _Gabystation/Objects/Weapons/Guns/Pistol/mk58gold.rsi
+    sprite: _Omu/Objects/Weapons/Guns/Pistols/mk58gold.rsi # Omu

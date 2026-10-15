@@ -8,3 +8,8 @@ ghost-role-information-syndicate-scurret-reinforcement-description = Someone nee
 ghost-role-information-syndicate-scurret-reinforcement-name = Syndicate Scurret Agent
 
 ghost-role-information-syndicate-cyborg-medical-name = Syndicate Medical Cyborg
+ghost-role-information-syndicate-cyborg-service-name = Syndicate Service Cyborg
+ghost-role-information-syndicate-cyborg-service-description = The Syndicate needs reinforcements. You, a cute silicon killing machine, will help them.
+
+ghost-role-information-syndicate-bingle-reinforcement-description = Someone needs reinforcements. You, a captured Bingle, will help them.
+ghost-role-information-syndicate-bingle-reinforcement-name = Syndicate bingle

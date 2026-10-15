@@ -6,9 +6,11 @@ namespace Content.Goobstation.Shared.StationRadio.Events;
 [Serializable, NetSerializable]
 public sealed class StationRadioMediaPlayedEvent : EntityEventArgs
 {
-    public SoundPathSpecifier MediaPlayed { get; }
-    public StationRadioMediaPlayedEvent(SoundPathSpecifier Media)
+    public SoundSpecifier MediaPlayed { get; }
+    public float Volume { get; }//omu
+    public StationRadioMediaPlayedEvent(SoundSpecifier Media, float volume)//omu
     {
         MediaPlayed = Media;
+        Volume = volume; //omu
     }
 }

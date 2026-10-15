@@ -11,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
+using Content.Shared._Omu.Speech;
 using Content.Shared._RMC14.LinkAccount;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Construction.Prototypes;
@@ -52,6 +53,8 @@ namespace Content.Server.Database
                 .Include(p => p.Profiles).ThenInclude(h => h.Jobs)
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
+                .Include(p => p.Profiles).ThenInclude(h => h.JobAlternateTitles) // Omu
+                .Include(p => p.Profiles).ThenInclude(h => h.SpeechReplacements) // Omu
                 .Include(p => p.Profiles)
                     .ThenInclude(h => h.Loadouts)
                     .ThenInclude(l => l.Groups)
@@ -108,6 +111,8 @@ namespace Content.Server.Database
                 .Include(p => p.Jobs)
                 .Include(p => p.Antags)
                 .Include(p => p.Traits)
+                .Include(p => p.JobAlternateTitles) // Omu
+                .Include(p => p.SpeechReplacements) // Omu
                 .Include(p => p.Loadouts)
                     .ThenInclude(l => l.Groups)
                     .ThenInclude(group => group.Loadouts)
@@ -211,6 +216,15 @@ namespace Content.Server.Database
             var jobs = profile.Jobs.ToDictionary(j => new ProtoId<JobPrototype>(j.JobName), j => (JobPriority) j.Priority);
             var antags = profile.Antags.Select(a => new ProtoId<AntagPrototype>(a.AntagName));
             var traits = profile.Traits.Select(t => new ProtoId<TraitPrototype>(t.TraitName));
+            // Omu start
+            var jobAlternateTitles = profile.JobAlternateTitles.ToDictionary(
+                t => new ProtoId<JobPrototype>(t.JobName),
+                t => t.AlternateTitle);
+            var speechReplacements = profile.SpeechReplacements
+                .OrderBy(r => r.Id)
+                .Select(r => new SpeechReplacement { Word = r.Word, Replacement = r.Replacement })
+                .ToList();
+            // Omu end
 
             var sex = Sex.Male;
             if (Enum.TryParse<Sex>(profile.Sex, true, out var sexVal))
@@ -285,6 +299,8 @@ namespace Content.Server.Database
                 ),
                 spawnPriority,
                 jobs,
+                jobAlternateTitles, // Omu
+                speechReplacements, // Omu
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
@@ -341,6 +357,20 @@ namespace Content.Server.Database
                 humanoid.TraitPreferences
                         .Select(t => new Trait { TraitName = t })
             );
+
+            // Omu start
+            profile.JobAlternateTitles.Clear();
+            profile.JobAlternateTitles.AddRange(
+                humanoid.JobAlternateTitles
+                    .Select(t => new JobAlternateTitle { JobName = t.Key, AlternateTitle = t.Value })
+            );
+
+            profile.SpeechReplacements.Clear();
+            profile.SpeechReplacements.AddRange(
+                humanoid.SpeechReplacements
+                    .Select(r => new ProfileSpeechReplacement { Word = r.Word, Replacement = r.Replacement })
+            );
+            // Omu end
 
             profile.BarkVoice = humanoid.BarkVoice; // Goob Station - Barks
 

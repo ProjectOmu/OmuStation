@@ -17,3 +17,14 @@
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Neck/Cloaks/genderfluid.rsi
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCentcommContraband ]
+  id: ClothingNeckCloakNTR
+  name: nanotrasen representative's off-coat
+  description: A coat imposingly worn as a cloak over your back. Cuts a dashing figure.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Neck/Cloaks/ntr_offcoat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Neck/Cloaks/ntr_offcoat.rsi

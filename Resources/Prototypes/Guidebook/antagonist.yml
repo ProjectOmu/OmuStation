@@ -4,6 +4,7 @@
   id: Antagonists
   name: guide-entry-antagonists
   text: "/ServerInfo/Guidebook/Antagonist/Antagonists.xml"
+  priority: 10 # Omu, move this down to the bottom of Station and Shifts
   children:
   - Traitors
   - CorporateAgents # Goobstation - Corporate Agents
@@ -34,6 +35,7 @@
   - Letoferol # Mono content
   - CorticalBorerGuide # Mono
   - SELFAgent # Starlight
+  - MirrorMaiden #Omu
 
 - type: guideEntry
   id: Traitors

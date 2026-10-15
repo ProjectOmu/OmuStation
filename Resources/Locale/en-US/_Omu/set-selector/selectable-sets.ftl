@@ -90,6 +90,14 @@ selectable-set-ceremonial-rifle-description =
     An weapon often given to Paratroopers mainly and Infantry in ancient Sol.
     This one is a relic given to the Sergeant, shoots .30 Rifle.
 
+selectable-set-sergeant-belt-name = Sergeant's Disciplinary Belt
+selectable-set-sergeant-belt-description =
+    A sturdy belt designed for the Sergeant, often used to hit unruly cadets and officers alike.
+
+selectable-set-security-tackle-name = Enhanced Retrieval Gloves
+selectable-set-security-tackle-description =
+    Special gloves that manipulate the blood vessels in the wearer's hands, granting them the ability to launch headfirst into walls and tackle fleeing criminals in a single bound.
+
 selectable-set-antiquelaser-name = Antique Laser Pistol
 selectable-set-antiquelaser-description =
     The classic. An operative's worst nightmare.
@@ -215,4 +223,11 @@ selectable-set-ntr-blade-name = Cane Blade
 selectable-set-ntr-blade-desc =
     A sturdier, bladed fancy cane, with no stun setting...
     This one is meant for emergencies only
+    CC note says: ONLY USE ON RED!!!!!
+
+selectable-set-ntr-brella-name = "Marlen" Umbrella
+selectable-set-ntr-brella-desc =
+    A stylish and intricate souvenir made from tough, hyper-woven
+    durathread by "NanoFashion" for the rich people of central command.
+    Looks expensive, and surprisingly durable.
     CC note says: ONLY USE ON RED!!!!!

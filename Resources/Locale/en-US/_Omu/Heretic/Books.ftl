@@ -20,3 +20,9 @@ book-text-mansus-depthII = For those readers astute enough to find this, know th
 book-text-eldritch-blast = To bargain with the mansus gods is to sell a part of yourself. The gains are incredible, but the risks are immense.
     Gaze upon this incantation and consider, is this worth your soul?
     Personally? I think its worth it.
+
+book-text-lodestone = The forces of this world flow ever onward, from worlds above to worlds below.
+    It is possible to divert these forces to flow through a focus, then onwards through a wielder.
+    The benefits can be immense, and the risks are less than to channel the forces directly.
+    Any watchers will be focused on the object, not the individual.
+    To begin the process of creation, one must find a remnant capable of channeling extra-spatial forces.
