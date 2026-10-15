@@ -1,0 +1,29 @@
+# Metashield Documents
+# Classified Training Manual prototype in Resources/Prototypes/_Funkystation/Entities/Objects/Misc/books.yml
+- type: entity
+  id: BookCorporateSecretsAllMedical # i'm so sorry CMO but you have another thing to shove into your locker
+  parent: [BaseGuidebook, BaseMedicalContraband]
+  name: classified medical training manual
+  description: There's a big red stamp on it that says "CLASSIFIED," and there's a big blue stamp that says "MEDICAL ONLY," too. Probably should keep this locked up.
+  components:
+    - type: Sprite
+      sprite: _Funkystation/Objects/Misc/books.rsi
+      layers:
+        - state: corporate-secrets
+    - type: GuideHelp
+      guides:
+        - CrewTrainingManualAllMedical
+
+- type: entity
+  id: BookCorporateSecretsChaplain
+  parent: [BaseGuidebook, BaseMedicalContraband]
+  name: classified chaplain training manual
+  description: There's a big red stamp on it that says "CLASSIFIED," and there's a big green stamp that says "CHAPLAIN ONLY," too. Save this from the eyes of your flock.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/books.rsi
+    layers:
+    - state: corporate-secrets
+  - type: GuideHelp
+    guides:
+    - CrewTrainingManualChaplain
