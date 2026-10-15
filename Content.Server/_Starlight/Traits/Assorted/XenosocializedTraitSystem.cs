@@ -15,7 +15,7 @@ public sealed partial class XenosocializedTraitSystem : EntitySystem // Talita h
 
     private void OnSpawn(Entity<XenosocializedTraitComponent> entity, ref ComponentInit args)
     {
-        if (!TryComp<LanguageKnowledgeComponent>(entity, out _))
+        if (!HasComp<LanguageKnowledgeComponent>(entity)) // Omu changed TryComp<...>(ent, _) to HasComp for clarity
         {
             Log.Warning($"Entity {entity.Owner} does not have a LanguageKnowledge but has a XenosocializedTrait!");
             return;
