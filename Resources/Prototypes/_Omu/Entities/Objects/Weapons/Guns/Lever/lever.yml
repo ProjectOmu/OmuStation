@@ -68,12 +68,12 @@
   description: A breechloading 8 gauge shotgun of unknown origins that has been customarily passed down from a Warden to their successor over the years. You feel certain that this weapon will never fail you.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester_icon_48x.rsi
+    sprite: _Omu/Objects/Weapons/Guns/Lever/henrietta_icon_48x.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
   - type: Item
-    sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
+    sprite: _Omu/Objects/Weapons/Guns/Lever/henrietta.rsi
     size: Large
     shape:
     - 0,0,4,1
@@ -109,6 +109,13 @@
     containers:
       ballistic-ammo: !type:Container
         ents: []
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.AmmoVisuals.AmmoCount:
+        enum.GunVisualLayers.Base:
+          0: { state: bolt-open }
+          1: { state: base }
   - type: AltFireMelee
   - type: MeleeWeapon
     attackRate: 0.8
