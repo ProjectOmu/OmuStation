@@ -1,0 +1,41 @@
+<!--
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<BoxContainer xmlns="https://spacestation14.io"
+              Orientation="Horizontal"
+              Margin="10"
+              SeparationOverride="10">
+    <BoxContainer Orientation="Vertical" MinWidth="280" SeparationOverride="6">
+        <Label Text="{Loc 'speech-tab-accents-heading'}" StyleClasses="LabelHeading" />
+        <PanelContainer StyleClasses="HighDivider" Margin="0 0 0 6" />
+        <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+            <BoxContainer Name="AccentsContainer" Orientation="Vertical" />
+        </ScrollContainer>
+    </BoxContainer>
+    <BoxContainer Name="ReplacementsSection" Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="10">
+        <PanelContainer StyleClasses="LowDivider" VerticalExpand="True" SetWidth="2" />
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="6">
+            <BoxContainer Orientation="Horizontal">
+                <Label Text="{Loc 'speech-tab-replacements-heading'}"
+                       StyleClasses="LabelHeading"
+                       HorizontalExpand="True" />
+                <PanelContainer Name="CountBadge" StyleClasses="SpeechReplacementBadge" VerticalAlignment="Center">
+                    <Label Name="CountLabel" />
+                </PanelContainer>
+            </BoxContainer>
+            <PanelContainer StyleClasses="HighDivider" Margin="0 0 0 6" />
+            <Label Text="{Loc 'speech-tab-replacements-description'}" StyleClasses="LabelWeak" />
+            <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                <BoxContainer Orientation="Vertical" SeparationOverride="4" HorizontalAlignment="Left">
+                    <Label Name="EmptyLabel" Text="{Loc 'speech-tab-replacements-empty'}" StyleClasses="LabelWeak" />
+                    <BoxContainer Name="RowsContainer" Orientation="Vertical" SeparationOverride="4" />
+                    <Button Name="AddButton"
+                            Text="{Loc 'speech-tab-replacements-add'}"
+                            HorizontalAlignment="Left"
+                            Margin="0 4 0 0" />
+                </BoxContainer>
+            </ScrollContainer>
+        </BoxContainer>
+    </BoxContainer>
+</BoxContainer>

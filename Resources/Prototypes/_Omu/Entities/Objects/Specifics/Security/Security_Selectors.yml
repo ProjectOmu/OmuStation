@@ -115,7 +115,7 @@
   parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
   components:
   - type: Sprite
-    sprite: _Omu/Objects/Misc/GunCases/officercase.rsi
+    sprite: _Omu/Objects/Misc/GunCases/sergeantcase.rsi
     state: icon
   - type: SetSelector
     possibleSets:
@@ -124,6 +124,21 @@
     - WeaponEG1Set
     - WeaponCeremonialRifleSet
     - SargeMagnumSet
+    maxSelectedSets: 1
+
+- type: entity
+  id: SergeantMeleeCase
+  name: sergeant melee case
+  description: A case, used to securely store your melee weapon of choice.
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/GunCases/sergeantcasemelee.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - SergeantBeltSet
+    - SecurityTackleSet
     maxSelectedSets: 1
 
 - type: entity
