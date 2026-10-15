@@ -1,7 +1,7 @@
-using Content.Shared.NPC.Prototypes;
-using Content.Shared.StatusIcon;
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Content.Shared.StatusIcon;
+using Content.Shared.NPC.Prototypes;
+using Robust.Shared.GameStates;
 
 namespace Content.Omu.Shared.Entities.Heretic;
 
