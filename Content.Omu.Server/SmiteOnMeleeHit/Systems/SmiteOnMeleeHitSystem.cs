@@ -20,7 +20,7 @@ public sealed class SmiteOnMeleeHit : EntitySystem
 
     [Dependency] private readonly IChatManager _achat = default!;
 
-    private const string JSTARE = "/Resources/Textures/_Omu/ScreenEffects/JohnStare.png";
+    private const string JSTARE = "/Textures/_Omu/ScreenEffects/JohnStare.png";
 
     public override void Initialize()
     {
