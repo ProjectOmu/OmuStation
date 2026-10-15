@@ -47,7 +47,7 @@ public sealed class MapPoolTests
                         continue;
                     if (pool.Parents.Contains(sharedPoolID))
                     {
-                        // NVM 
+                        // Might not need this. I don't even think it ever gets here.
                         // if (pool.Abstract)
                         // {
                         //     // While there are prob some valid reasons to have an abstract pool inherit from another, it's probably not intended?
