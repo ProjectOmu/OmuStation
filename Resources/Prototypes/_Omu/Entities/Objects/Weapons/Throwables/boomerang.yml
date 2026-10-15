@@ -71,10 +71,10 @@
             types:
               Blunt: 0
         - type: StaminaDamageOnHit
-          damage: 10
-          overtime: 10
+          damage: 4
+          overtime: 4
         - type: StaminaDamageOnCollide
-          damage: 25
+          damage: 10
         soundStateActivate:
           collection: sparks
           params:
