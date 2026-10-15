@@ -23,6 +23,12 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
+using Content.Shared._Starlight.SecureTerminal;
+using Robust.Shared.Player;
+using Robust.Shared.Timing;
+using Content.Shared.Silicons.StationAi;
+using Content.Shared.Station.Components;
+using Content.Server.Shuttles.Components;
 
 namespace Content.Server.Communications
 {
@@ -61,6 +67,10 @@ namespace Content.Server.Communications
             SubscribeLocalEvent<CommunicationsConsoleComponent, MapInitEvent>(OnCommunicationsConsoleMapInit);
 
             SubscribeLocalEvent<CommunicationsConsoleComponent, GotEmaggedEvent>(OnEmagged); // Goobstation
+
+            // Starlight Start: Secure Command Terminal
+            SubscribeLocalEvent<CommunicationsConsoleComponent, CommunicationsConsoleOpenSecureTerminalMessage>(OnOpenSecureTerminalMessage);
+            // Starlight End
         }
 
         public override void Update(float frameTime)
@@ -93,6 +103,18 @@ namespace Content.Server.Communications
             comp.AnnouncementCooldownRemaining = comp.InitialDelay;
             UpdateCommsConsoleInterface(uid, comp);
         }
+
+        // Starlight Start: Secure Command Terminal
+        private void OnOpenSecureTerminalMessage(EntityUid uid, CommunicationsConsoleComponent comp,
+            CommunicationsConsoleOpenSecureTerminalMessage msg)
+        {
+            if (msg.Actor is not { Valid: true } actor) return;
+            if (!CanUse(actor, uid)) return;
+            if (!TryComp<SecureCommandTerminalConsoleComponent>(uid, out var terminal) || !terminal.Enabled) return;
+            if (HasComp<StationAiHeldComponent>(actor)) return;
+            _uiSystem.TryOpenUi(uid, SecureCommandTerminalUiKey.Key, actor);
+        }
+        // Starlight End
 
         /// <summary>
         /// Update the UI of every comms console.
@@ -171,7 +193,8 @@ namespace Content.Server.Communications
                 levels,
                 currentLevel,
                 currentDelay,
-                _roundEndSystem.ExpectedCountdownEnd
+                _roundEndSystem.ExpectedCountdownEnd,
+                hasSecureTerminal: TryComp<Content.Shared._Starlight.SecureTerminal.SecureCommandTerminalConsoleComponent>(uid, out var sct) && sct.Enabled
             ));
         }
 
@@ -360,6 +383,7 @@ namespace Content.Server.Communications
             var (uid, comp) = ent;
             args.Repeatable = true;
 
+            /* Omu - we use secure terminal instead
             if (_emag.CompareFlag(args.Type, EmagType.Access))
             {
                 var amberStation = _stationSystem.GetOwningStation(uid);
@@ -372,6 +396,7 @@ namespace Content.Server.Communications
                     args.Handled = true;
                 }
             }
+            */
 
             if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
                 return;
