@@ -80,13 +80,22 @@
   actionPrototypes:
   - ActionHereticVolcanoBlast
 
+ # - type: hereticKnowledge Commented out by OMU
+ # id: MaskOfMadness
+ # path: Ash
+ # sideKnowledge: true
+ # stage: 6
+ # ritualPrototypes:
+ # - MaskOfMadness
+
 - type: hereticKnowledge
-  id: MaskOfMadness
+  id: AshenSkin # OMU
   path: Ash
   sideKnowledge: true
   stage: 6
-  ritualPrototypes:
-  - MaskOfMadness
+  event: !type:EventHereticAshenPassive
+    addedComponents:
+    - type: FireImmunity
 
 - type: hereticKnowledge
   id: FieryBlade
@@ -121,7 +130,7 @@
     - type: SpecialHighTempImmunity
     - type: SpecialBreathingImmunity
     - type: SpecialPressureImmunity
-    - type: FireImmunity
+    # OMU removed fire immunity
 
 ### blade path
 - type: hereticKnowledge
