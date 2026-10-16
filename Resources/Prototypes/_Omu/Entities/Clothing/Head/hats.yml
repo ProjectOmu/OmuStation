@@ -114,8 +114,8 @@
       sprite: _Omu/Clothing/Hats/virologist_ushanka.rsi
 
 - type: entity
-  parent: [ClothingHeadBase, BaseCommandContraband]
-  id: ClothingHeadHatHopcap
+  parent: [ClothingHeadBase, BaseCentcommContraband]
+  id: ClothingHeadHatCentCommHopcap
   name: centcomm head of personnel's cap
   description: A stylish cap worn by the CentComm Head of Personnel. Shows paperwork who's in charge.
   components:
