@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Yogstation at https://github.com/yogstation13/Yogstation/commit/9c046aa5327c71f9e93e45a34283b3a4aff58bd1; ipc_screen_dot by RadsammyT, edited by feistyfedora | ipc_screen_line and ipc_screen_charger by DuskTheSnep",
+  "copyright": "Taken from Yogstation at https://github.com/yogstation13/Yogstation/commit/9c046aa5327c71f9e93e45a34283b3a4aff58bd1; ipc_screen_dot by RadsammyT, edited by feistyfedora | ipc_screen_line and ipc_screen_charger by DuskTheSnep | ipc screen_large_eyes & ipc_screen_small_eyes & ipc_screen_small_eyes_smile by PeterGriffinFromFamilyguy",
   "size": {
     "x": 32,
     "y": 32
@@ -1486,6 +1486,72 @@
           0.1,
           0.1,
           0.1
+        ]
+      ]
+    },
+    {
+      "name": "ipc_screen_small_eyes_smile",
+      "directions": 4,
+      "delays": [
+        [
+          0.8,
+          0.8
+        ],
+        [
+          0.8,
+          0.8
+        ],
+        [
+          0.8,
+          0.8
+        ],
+        [
+          0.8,
+          0.8
+        ]
+      ]
+    },
+    {
+      "name": "ipc_screen_small_eyes",
+      "directions": 4,
+      "delays": [
+        [
+          0.8,
+          0.8
+        ],
+        [
+          0.8,
+          0.8
+        ],
+        [
+          0.8,
+          0.8
+        ],
+        [
+          0.8,
+          0.8
+        ]
+      ]
+    },
+    {
+      "name": "ipc_screen_large_eyes",
+      "directions": 4,
+      "delays": [
+        [
+          0.8,
+          0.8
+        ],
+        [
+          0.8,
+          0.8
+        ],
+        [
+          0.8,
+          0.8
+        ],
+        [
+          0.8,
+          0.8
         ]
       ]
     },
