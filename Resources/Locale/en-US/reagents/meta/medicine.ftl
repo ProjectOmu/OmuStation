@@ -196,4 +196,4 @@ reagent-name-warfarin = warfarin
 reagent-desc-warfarin = Commonly used as an anticoagulant medication. Causes blood to have difficulty forming clots. Can cause internal bleeding when overdosed.
 
 reagent-name-setrozone = setrozone
-reagent-desc-setrozone = A violent chemical that repairs tissue and poison damage. It's side effect of genetic damage and speeding up decomposition makes it rather obscure.
+reagent-desc-setrozone = A violent chemical that repairs tissue and poison damage. Its side effect of genetic damage and speeding up decomposition makes it rather obscure.

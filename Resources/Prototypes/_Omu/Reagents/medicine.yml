@@ -17,7 +17,7 @@
           amount: -11 # 1 healing per bone on a humanoid, heals bones to full in 1 minute
 
 - type: reagent 
-  id: Serozone # my name isnt as smart as the one above i just think it rolls off the tongue
+  id: Setrozone # my name isnt as smart as the one above i just think it rolls off the tongue
   name: reagent-name-setrozone
   group: Medicine
   desc: reagent-desc-setrozone
@@ -32,7 +32,7 @@
           conditions:
           - !type:MobStateCondition
             mobstate: Dead
-          seconds: -10 #rots you so you better use it quick or mix with de-rotters
+          seconds: -15 #rots you so you better use it quick or mix with de-rotters
         - !type:HealthChange
           conditions:
           - !type:MobStateCondition
@@ -46,6 +46,6 @@
             mobstate: Dead
           damage:
             groups:
-              Brute: -12
-              Burn: -12
+              Brute: -15 # it divides it so its not like 30000 heal for free which i guess makes sense
+              Burn: -15
               Genetic: 4 # lazy people chem with drawback
