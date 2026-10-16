@@ -485,7 +485,7 @@
     - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
       state: ipc_screen_large_eyes
 
-      - type: marking
+- type: marking
   speciesRestriction: [ IPC ]
   id: ScreenSmallEye
   bodyPart: Face
@@ -496,7 +496,7 @@
     - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
       state: ipc_screen_small_eyes
 
-      - type: marking
+- type: marking
   speciesRestriction: [ IPC ]
   id: ScreenSmallSmile
   bodyPart: Face
