@@ -201,7 +201,7 @@ public abstract partial class SharedGunSystem
         Audio.PlayPredicted(ent.Comp.SoundRack, ent, user);
 
         var shots = GetBallisticShots(ent.Comp);
-        Cycle(ent, coordinates);
+        Cycle(ent.Owner, ent, coordinates);
 
         var text = Loc.GetString(shots == 0 ? "gun-ballistic-cycled-empty" : "gun-ballistic-cycled");
 
@@ -270,37 +270,39 @@ public abstract partial class SharedGunSystem
             EntityUid? ammoEntity = null;
             if (ent.Comp.Entities.Count > 0)
             {
-                var existingEnt = component.Entities[^1];
+                var existingEnt = ent.Comp.Entities[^1];
                 ammoEntity = existingEnt;
                 // <Goob> - check AutoCycle before removing spent ammo
-                if (component.AutoCycle)
+                if (ent.Comp.AutoCycle)
                 {
-                    component.Entities.RemoveAt(component.Entities.Count - 1);
-                    DirtyField(uid, component, nameof(BallisticAmmoProviderComponent.Entities));
-                    Containers.Remove(existingEnt, component.Container);
+                    ent.Comp.Entities.RemoveAt(ent.Comp.Entities.Count - 1);
+                    DirtyField(ent, ent.Comp, nameof(BallisticAmmoProviderComponent.Entities));
+                    Containers.Remove(existingEnt, ent.Comp.Container);
                 }
                 // </Goob>
             }
             else if (ent.Comp.UnspawnedCount > 0)
             {
-                component.UnspawnedCount--;
-                DirtyField(uid, component, nameof(BallisticAmmoProviderComponent.UnspawnedCount));
-                ammoEntity = PredictedSpawnAtPosition(component.Proto, args.Coordinates); // Trauma - predicted this shit
+                ent.Comp.UnspawnedCount--;
+                DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.UnspawnedCount));
+                ammoEntity = PredictedSpawnAtPosition(ent.Comp.Proto, args.Coordinates); // Trauma - predicted this shit
                 // <Goob> - put spent ammo back in the gun if it doesn't autocycle
-                if (!component.AutoCycle)
+                if (!ent.Comp.AutoCycle)
                 {
-                    component.Entities.Add(ammoEntity.Value);
-                    Containers.Insert(ammoEntity.Value, component.Container);
-                    DirtyField(uid, component, nameof(BallisticAmmoProviderComponent.Entities));
+                    ent.Comp.Entities.Add(ammoEntity.Value);
+                    Containers.Insert(ammoEntity.Value, ent.Comp.Container);
+                    DirtyField(ent, ent.Comp, nameof(BallisticAmmoProviderComponent.Entities));
                 }
                 // </Goob>
             }
 
-            if (ammoEntity is { } ent)
+            if (ammoEntity is not { } ammoEnt)
+                continue;
+
+            args.Ammo.Add((ammoEnt, EnsureShootable(ammoEnt)));
+            if (TryComp<BallisticAmmoSelfRefillerComponent>(ent, out var ammoComp))
             {
-                ent.Comp.Entities.Add(ammoEnt);
-                Containers.Insert(ammoEnt, ent.Comp.Container);
-                DirtyField(ent.Owner, ent.Comp, nameof(BallisticAmmoProviderComponent.Entities));
+                PauseSelfRefill((ent.Owner, ammoComp));
             }
             // Goobstation - end
         }

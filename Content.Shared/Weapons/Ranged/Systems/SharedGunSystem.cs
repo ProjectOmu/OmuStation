@@ -6,7 +6,7 @@ using Content.Shared._Lavaland.Weapons.Ranged.Events;
 using Content.Shared._Shitmed.Weapons.Ranged.Events;
 using Content.Shared.Mech.Components;
 using Content.Shared.Weapons.Hitscan.Events;
-using Content.Trauma.Common.Projectiles;
+using Content.Omu.Common._Trauma.Projectiles;
 // </Trauma>
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
@@ -47,7 +47,6 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Item;
-using Content.Goobstation.Common.Weapons.Multishot;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -477,7 +476,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
 
         // Shoot confirmed - sounds also played here in case it's invalid (e.g. cartridge already spent).
-        Shoot(gun, ev.Ammo, fromCoordinates, toCoordinates.Value, out var userImpulse, user, throwItems: attemptEv.ThrowItems);
+        Shoot(gun.Owner, gun.Comp, ev.Ammo, fromCoordinates, toCoordinates.Value, out var userImpulse, user, throwItems: attemptEv.ThrowItems);
         var shotEv = new GunShotEvent(user, ev.Ammo);
         RaiseLocalEvent(gun, ref shotEv);
         var shotBodyEv = new GunShotBodyEvent(gun, gun); // Shitmed Change
@@ -506,7 +505,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         bool throwItems = false)
     {
         var shootable = EnsureShootable(ammo);
-        Shoot(gun, new List<(EntityUid? Entity, IShootable Shootable)>(1) { (ammo, shootable) }, fromCoordinates, toCoordinates, out userImpulse, user, throwItems);
+        Shoot(gun.Owner, gun.Comp, new List<(EntityUid? Entity, IShootable Shootable)>(1) { (ammo, shootable) }, fromCoordinates, toCoordinates, out userImpulse, user, throwItems);
     }
 
     /// <summary>
@@ -612,7 +611,6 @@ public abstract partial class SharedGunSystem : EntitySystem
                     var hitscanEv = new HitscanTraceEvent
                     {
                         FromCoordinates = fromCoordinates,
-                        TargetCoordinates = toMapBeforeRecoil, // Goob
                         ShotDirection = mapDirection.Normalized(),
                         Gun = gunUid,
                         Shooter = user,
@@ -995,6 +993,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         UpdateBallistic(frameTime);
     }
 }
+
 
 /// <summary>
 ///     Raised directed on the gun before firing to see if the shot should go through.

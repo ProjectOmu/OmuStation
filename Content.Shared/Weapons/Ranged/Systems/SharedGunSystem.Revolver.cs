@@ -284,7 +284,7 @@ public partial class SharedGunSystem
         {
             Text = Loc.GetString("gun-revolver-spin"),
             // Category = VerbCategory.G,
-            Act = () => SpinRevolver((uid, component), args.User)
+            Act = () => SpinRevolver(uid, component, args.User)
         });
     }
 
@@ -349,8 +349,8 @@ public partial class SharedGunSystem
         var mapCoordinates = TransformSystem.GetMapCoordinates(ent);
         var anyEmpty = false;
 
-        var rand = Random(revolverUid); // Trauma
-        for (var i = 0; i < component.Capacity; i++)
+        var rand = Random(ent.Owner); // Trauma
+        for (var i = 0; i < ent.Comp.Capacity; i++)
         {
             var chamber = ent.Comp.Chambers[i];
             var slot = ent.Comp.AmmoSlots[i];
@@ -361,7 +361,7 @@ public partial class SharedGunSystem
                     continue;
 
                 // <Trauma> - predicted this shit
-                var uid = EntityManager.PredictedSpawn(component.FillPrototype, mapCoordinates);
+                var uid = EntityManager.PredictedSpawn(ent.Comp.FillPrototype, mapCoordinates);
 
                 if (TryComp<CartridgeAmmoComponent>(uid, out var cartridge))
                     SetCartridgeSpent(uid, cartridge, !(bool) chamber);
@@ -446,9 +446,9 @@ public partial class SharedGunSystem
                 {
                     // Pretend it's always been there.
                     // <Trauma> - predicted this shit
-                    ent = PredictedSpawnAtPosition(component.FillPrototype, args.Coordinates);
-                    component.AmmoSlots[index] = ent;
-                    Containers.Insert(ent.Value, component.AmmoContainer);
+                    ammoEnt = PredictedSpawnAtPosition(ent.Comp.FillPrototype, args.Coordinates);
+                    ent.Comp.AmmoSlots[index] = ent;
+                    Containers.Insert(ammoEnt.Value, ent.Comp.AmmoContainer);
                     // </Trauma>
 
                     ent.Comp.Chambers[index] = false;
@@ -465,7 +465,7 @@ public partial class SharedGunSystem
                     continue;
 
                 // Mark cartridge as spent and if it's caseless delete from the chamber slot.
-                SetCartridgeSpent(ent.Value, cartridge, true);
+                SetCartridgeSpent(ammoEnt.Value, cartridge, true);
                 var spawned = PredictedSpawnAtPosition(cartridge.Prototype, args.Coordinates); // Trauma - predicted this shit
                 args.Ammo.Add((spawned, EnsureComp<AmmoComponent>(spawned)));
 

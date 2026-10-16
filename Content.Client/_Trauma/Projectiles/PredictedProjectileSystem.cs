@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Shared.Projectiles;
-using Content.Trauma.Common.Projectiles;
+using Content.Omu.Common._Trauma.Projectiles;
 using Robust.Client.GameObjects;
 using Robust.Client.Physics;
 
-namespace Content.Trauma.Client.Projectiles;
+namespace Content.Client._Trauma.Projectiles;
 
 /// <summary>
 /// Hides the server-spawned projectile when firing a predicted gun.

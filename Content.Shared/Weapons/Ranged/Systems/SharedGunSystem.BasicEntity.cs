@@ -34,7 +34,7 @@ public abstract partial class SharedGunSystem
         if (ent.Comp.Proto == null && (!ProtoManager.TryIndex(ent.Comp.Prototypes, out prototypes) ||
                                         prototypes.Weights.Count == 0))
             return;
-        var rand = Random(uid);
+        var rand = Random(ent);
         // </Trauma>
 
         for (var i = 0; i < args.Shots; i++)
@@ -46,8 +46,8 @@ public abstract partial class SharedGunSystem
                 ent.Comp.Count--;
 
             // <Trauma>
-            var proto = component.Proto ?? prototypes!.Pick(rand);
-            var ent = PredictedSpawnAtPosition(proto, args.Coordinates);
+            var proto = ent.Comp.Proto ?? prototypes!.Pick(rand);
+            var ammoEnt = PredictedSpawnAtPosition(proto, args.Coordinates);
             // </Trauma>
             args.Ammo.Add((ent, EnsureShootable(ent)));
         }
