@@ -1,9 +1,10 @@
 # Central Command Jobs
 job-name-exec-intern = Executive Intern
 job-name-centcomm-intern = CentComm Intern
-job-name-centcomm-direggtor = Centcomm Direggtor
+job-name-centcomm-direggtor = CentComm Direggtor
 job-name-nanotrasen-spectre = Spectre Agent
 job-name-centcomm-guard = Custodii Vitellus
+job-name-centcomm-hop = CentComm Head of Personnel
 # Security Misc
 job-name-transit-prisoner = Transit Prisoner
 job-name-security-sergeant = Sergeant
