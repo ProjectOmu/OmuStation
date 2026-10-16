@@ -1,0 +1,10 @@
+speech-tab-accents-heading = Accents
+speech-tab-replacements-heading = Speech Patterns
+speech-tab-replacements-description = Words your character replaces with another, accents never change these.
+speech-tab-replacements-count = {$count} / {$max}
+speech-tab-replacements-empty = No replacements yet.
+speech-tab-replacements-word = Word or phrase
+speech-tab-replacements-becomes = becomes
+speech-tab-replacements-replacement = Replacement
+speech-tab-replacements-add = Add replacement
+speech-tab-replacements-remove = Remove
