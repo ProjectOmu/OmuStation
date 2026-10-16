@@ -200,8 +200,8 @@ public abstract partial class SharedGunSystem
 
         Audio.PlayPredicted(ent.Comp.SoundRack, ent, user);
 
-        var shots = GetBallisticShots(component);
-        Cycle(uid, component, coordinates, user);
+        var shots = GetBallisticShots(ent.Comp);
+        Cycle(ent, ent.Comp, coordinates, user);
 
         var text = Loc.GetString(shots == 0 ? "gun-ballistic-cycled-empty" : "gun-ballistic-cycled");
 
