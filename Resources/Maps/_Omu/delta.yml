@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 08/26/2026 21:45:51
-  entityCount: 38882
+  time: 10/07/2026 03:39:12
+  entityCount: 38892
 maps:
 - 1
 grids:
@@ -75931,7 +75931,7 @@ entities:
   - uid: 8049
     components:
     - type: Transform
-      pos: -44.5,44.5
+      pos: -47.5,45.5
       parent: 2
   - uid: 8050
     components:
@@ -82963,6 +82963,26 @@ entities:
     - type: Transform
       pos: -113.5,53.5
       parent: 2
+  - uid: 32530
+    components:
+    - type: Transform
+      pos: -46.5,45.5
+      parent: 2
+  - uid: 32535
+    components:
+    - type: Transform
+      pos: -45.5,45.5
+      parent: 2
+  - uid: 32599
+    components:
+    - type: Transform
+      pos: -44.5,45.5
+      parent: 2
+  - uid: 33711
+    components:
+    - type: Transform
+      pos: -43.5,45.5
+      parent: 2
   - uid: 34993
     components:
     - type: Transform
@@ -83057,6 +83077,21 @@ entities:
     components:
     - type: Transform
       pos: -92.5,11.5
+      parent: 2
+  - uid: 36018
+    components:
+    - type: Transform
+      pos: -43.5,46.5
+      parent: 2
+  - uid: 36474
+    components:
+    - type: Transform
+      pos: -43.5,47.5
+      parent: 2
+  - uid: 37550
+    components:
+    - type: Transform
+      pos: -43.5,48.5
       parent: 2
   - uid: 41243
     components:
@@ -92090,17 +92125,17 @@ entities:
   - uid: 11113
     components:
     - type: Transform
-      pos: -44.5,48.5
+      pos: -44.5,45.5
       parent: 2
   - uid: 11114
     components:
     - type: Transform
-      pos: -44.5,47.5
+      pos: -43.5,45.5
       parent: 2
   - uid: 11115
     components:
     - type: Transform
-      pos: -44.5,46.5
+      pos: -43.5,46.5
       parent: 2
   - uid: 11116
     components:
@@ -99121,6 +99156,21 @@ entities:
     components:
     - type: Transform
       pos: -88.5,9.5
+      parent: 2
+  - uid: 37586
+    components:
+    - type: Transform
+      pos: -43.5,47.5
+      parent: 2
+  - uid: 38062
+    components:
+    - type: Transform
+      pos: -43.5,48.5
+      parent: 2
+  - uid: 38065
+    components:
+    - type: Transform
+      pos: -43.5,49.5
       parent: 2
 - proto: CableMVStack
   entities:
