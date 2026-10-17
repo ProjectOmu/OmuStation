@@ -5,3 +5,4 @@ maiden-guide = Mirror Maidens
 mansus-mob-miss-hit = Your claws fail to grasp any madness!
 mansus-mob-seek-player = The madness thorns your soul!
 mansus-mob-no-player = This plane contains no madness!
+mansus-mob-no-player-damage = Your mind pains for madness!
