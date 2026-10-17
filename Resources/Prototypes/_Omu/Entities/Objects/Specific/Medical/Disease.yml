@@ -1,0 +1,84 @@
+- type: entity
+  parent: VariantCubeBox
+  id: VirologyCubeBox
+  name: Virology Monkey Box
+  description: Contains two diseased monkeys, and several healthy monkeys for virology to experiment with diseases.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MonkeyCubeWrappedDiseased
+          amount: 2
+        - id: MonkeyCubeWrapped
+          amount: 6
+
+- type: entity
+  parent: KoboldCubeWrapped
+  id: MonkeyCubeWrappedDiseased
+  name: Dieased Monkey Cube
+  description: The label says this one has some sort of disease
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: MonkeyCubeDiseased
+
+- type: entity
+  parent: MonkeyCube
+  id: MonkeyCubeDiseased
+  suffix: Diseased
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobMonkeyDiseased
+
+- type: entity
+  parent: MobMonkey
+  id: MobMonkeyDiseased
+  description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. This one looks sickly.
+  suffix: Diseased
+  components:
+  - type: GrantDisease
+    baseDisease: DiseaseBaseMouse
+    possibleTypes:
+    - Viral
+    complexity: 10
+
+- type: entity
+  parent: SmartFridge
+  id: SmartFridgeVirology
+  name: Virology SmartFridge
+  description: A refridgerated storage unit... You should probably stay away from whatever is inside.
+  components:
+  - type: PointLight
+    radius: 1.2
+    energy: 3.0
+    color: "#2FEA17" #changes the light to green, for virology
+  - type: AccessReader
+    access: [["Chemistry"]] #prevents interns from accessing it
+  - type: SmartFridge
+    whitelist:
+      components:
+      - Edible
+      - FitsInDispenser
+      - Pill
+      - Produce
+      - Seed
+      - DiseasePen
+      - BotanySwab
+      - PaperVisuals # for disease reports
+      - Injector
+      tags:
+      - PillCanister
+      - Bottle
+      - Syringe
+      - ChemDispensable
+      - BoxCardboard # for monkey cubes
+      - MonkeyCube
+  - type: EntityTableContainerFill
+    containers:
+      smart_fridge_inventory: !type:AllSelector
+        children:
+        - id: VirologyCubeBox
+          amount: 1
+        - id: 
