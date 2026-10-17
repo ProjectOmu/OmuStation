@@ -1,10 +1,6 @@
-using Content.Goobstation.Shared.Blob.Components;
 using Content.Omu.Shared.Entities.Heretic;
-using Content.Omu.Shared.Overlays;
 using Content.Shared._Omu.Heretic;
 using Content.Shared.Actions;
-using Content.Shared.Damage.Components;
-using Content.Shared.Ghost;
 using Content.Shared.Heretic;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
@@ -15,8 +11,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
-using System.Security.Cryptography;
 
 namespace Content.Omu.Shared.MansusMob;
 
