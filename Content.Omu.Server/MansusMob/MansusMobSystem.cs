@@ -1,19 +1,11 @@
 using Content.Omu.Shared.Entities.Heretic;
 using Content.Omu.Shared.MansusMob;
 using Content.Server.NPC.Systems;
-using Content.Shared._Omu.Heretic;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
-using Content.Shared.Mobs;
 using Content.Shared.Popups;
-using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Player;
-using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Content.Server.Popups;
 
 namespace Content.Omu.Server.MansusMob;
@@ -70,11 +62,14 @@ public sealed class MansusMobSystem : EntitySystem
             if (seek.NextSeek < _timing.CurTime || seek.NextSeek == null)
             {
                 // Only update non-player entities
-                if (seek.Tracking && !HasComp<ActorComponent>(uid))
+                if (seek.Tracking)
                 {
-                    var trackedCoords = Transform(seek.TrackedId).Coordinates;
-                    _npc.SetBlackboard(uid, "CallTarget", trackedCoords);
-                    seek.NextSeek = _timing.CurTime + TimeSpan.FromSeconds(seek.SeekCooldown);
+                    if (!HasComp<ActorComponent>(uid))
+                    {
+                        var trackedCoords = Transform(seek.TrackedId).Coordinates;
+                        _npc.SetBlackboard(uid, "CallTarget", trackedCoords);
+                        seek.NextSeek = _timing.CurTime + TimeSpan.FromSeconds(seek.SeekCooldown);
+                    }
                 }
                 else
                 {
