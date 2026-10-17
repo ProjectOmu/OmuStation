@@ -5,7 +5,7 @@
   parent: CardBoxBase
   id: CardBoxYinjiSol
   name: Solarian deck box
-  Description: A pack of Solarian Yinji cards that smell like the warfront. Yinji: the legally distinct color- and number-matching game. First to one card wins!
+  description: A pack of Solarian Yinji cards that smell like the warfront. Yinji: the legally distinct color- and number-matching game. First to one card wins!
   components:
   - type: Item
     size: Small
@@ -408,7 +408,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: RedLockaSol
-  Description: Lock cards are used to skip an opponent's turn by "locking" their hand.
+  description: Lock cards are used to skip an opponent's turn by "locking" their hand.
   components:
   - type: Card
     name: red_lock
@@ -421,7 +421,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: RedLockbSol
-  Description: Lock cards are used to skip an opponent's turn by "locking" their hand.
+  description: Lock cards are used to skip an opponent's turn by "locking" their hand.
   components:
   - type: Card
     name: red_lock
@@ -434,7 +434,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: RedPlus2aSol
-  Description: +2 cards can be indefinitely stacked with each other.
+  description: +2 cards can be indefinitely stacked with each other.
   components:
   - type: Card
     name: red_plus2
@@ -447,7 +447,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: RedPlus2bSol
-  Description: +2 cards can be indefinitely stacked with each other.
+  description: +2 cards can be indefinitely stacked with each other.
   components:
   - type: Card
     name: red_plus2
@@ -460,7 +460,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: RedSwapaSol
-  Description: Swap cards are used to reverse turn order.
+  description: Swap cards are used to reverse turn order.
   components:
   - type: Card
     name: red_swap
@@ -473,7 +473,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: RedSwapbSol
-  Description: Swap cards are used to reverse turn order.
+  description: Swap cards are used to reverse turn order.
   components:
   - type: Card
     name: red_swap
@@ -715,7 +715,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: BlueLockaSol
-  Description: Lock cards are used to skip an opponent's turn by "locking" their hand.
+  description: Lock cards are used to skip an opponent's turn by "locking" their hand.
   components:
   - type: Card
     name: blue_lock
@@ -728,7 +728,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: BlueLockbSol
-  Description: Lock cards are used to skip an opponent's turn by "locking" their hand.
+  description: Lock cards are used to skip an opponent's turn by "locking" their hand.
   components:
   - type: Card
     name: blue_lock
@@ -741,7 +741,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: BluePlus2aSol
-  Description: +2 cards can be indefinitely stacked with each other.
+  description: +2 cards can be indefinitely stacked with each other.
   components:
   - type: Card
     name: blue_plus2
@@ -754,7 +754,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: BluePlus2bSol
-  Description: +2 cards can be indefinitely stacked with each other.
+  description: +2 cards can be indefinitely stacked with each other.
   components:
   - type: Card
     name: blue_plus2
@@ -767,7 +767,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: BlueSwapaSol
-  Description: Swap cards are used to reverse turn order.
+  description: Swap cards are used to reverse turn order.
   components:
   - type: Card
     name: blue_swap
@@ -780,7 +780,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: BlueSwapbSol
-  Description: Swap cards are used to reverse turn order.
+  description: Swap cards are used to reverse turn order.
   components:
   - type: Card
     name: blue_swap
@@ -1022,7 +1022,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: GreenLockaSol
-  Description: Lock cards are used to skip an opponent's turn by "locking" their hand.
+  description: Lock cards are used to skip an opponent's turn by "locking" their hand.
   components:
   - type: Card
     name: green_lock
@@ -1035,7 +1035,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: GreenLockbSol
-  Description: Lock cards are used to skip an opponent's turn by "locking" their hand.
+  description: Lock cards are used to skip an opponent's turn by "locking" their hand.
   components:
   - type: Card
     name: green_lock
@@ -1048,7 +1048,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: GreenPlus2aSol
-  Description: +2 cards can be indefinitely stacked with each other.
+  description: +2 cards can be indefinitely stacked with each other.
   components:
   - type: Card
     name: green_plus2
@@ -1061,7 +1061,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: GreenPlus2bSol
-  Description: +2 cards can be indefinitely stacked with each other.
+  description: +2 cards can be indefinitely stacked with each other.
   components:
   - type: Card
     name: green_plus2
@@ -1074,7 +1074,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: GreenSwapaSol
-  Description: Swap cards are used to reverse turn order.
+  description: Swap cards are used to reverse turn order.
   components:
   - type: Card
     name: green_swap
@@ -1087,7 +1087,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: GreenSwapbSol
-  Description: Swap cards are used to reverse turn order.
+  description: Swap cards are used to reverse turn order.
   components:
   - type: Card
     name: green_swap
@@ -1329,7 +1329,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: YellowLockaSol
-  Description: Lock cards are used to skip an opponent's turn by "locking" their hand.
+  description: Lock cards are used to skip an opponent's turn by "locking" their hand.
   components:
   - type: Card
     name: yellow_lock
@@ -1342,7 +1342,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: YellowLockbSol
-  Description: Lock cards are used to skip an opponent's turn by "locking" their hand.
+  description: Lock cards are used to skip an opponent's turn by "locking" their hand.
   components:
   - type: Card
     name: yellow_lock
@@ -1355,7 +1355,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: YellowPlus2aSol
-  Description: +2 cards can be indefinitely stacked with each other.
+  description: +2 cards can be indefinitely stacked with each other.
   components:
   - type: Card
     name: yellow_plus2
@@ -1368,7 +1368,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: YellowPlus2bSol
-  Description: +2 cards can be indefinitely stacked with each other.
+  description: +2 cards can be indefinitely stacked with each other.
   components:
   - type: Card
     name: yellow_plus2
@@ -1381,7 +1381,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: YellowSwapaSol
-  Description: Swap cards are used to reverse turn order.
+  description: Swap cards are used to reverse turn order.
   components:
   - type: Card
     name: yellow_swap
@@ -1394,7 +1394,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: YellowSwapbSol
-  Description: Swap cards are used to reverse turn order.
+  description: Swap cards are used to reverse turn order.
   components:
   - type: Card
     name: yellow_swap
@@ -1408,7 +1408,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: RainbowASol
-  Description: Rainbow cards act as any color/number card and can be played at any time.
+  description: Rainbow cards act as any color/number card and can be played at any time.
   components:
   - type: Card
     name: rainbow
@@ -1421,7 +1421,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: RainbowBSol
-  Description: Rainbow cards act as any color/number card and can be played at any time.
+  description: Rainbow cards act as any color/number card and can be played at any time.
   components:
   - type: Card
     name: rainbow
@@ -1434,7 +1434,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: RainbowCSol
-  Description: Rainbow cards act as any color/number card and can be played at any time.
+  description: Rainbow cards act as any color/number card and can be played at any time.
   components:
   - type: Card
     name: rainbow
@@ -1447,7 +1447,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: RainbowDSol
-  Description: Rainbow cards act as any color/number card and can be played at any time.
+  description: Rainbow cards act as any color/number card and can be played at any time.
   components:
   - type: Card
     name: rainbow
@@ -1460,7 +1460,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: RainbowDrawASol
-  Description: Rainbow cards act as any color/number card and can be played at any time. +4 cards can be indefinitely stacked with each other.
+  description: Rainbow cards act as any color/number card and can be played at any time. +4 cards can be indefinitely stacked with each other.
   components:
   - type: Card
     name: rainbow_draw
@@ -1473,7 +1473,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: RainbowDrawBSol
-  Description: Rainbow cards act as any color/number card and can be played at any time. +4 cards can be indefinitely stacked with each other.
+  description: Rainbow cards act as any color/number card and can be played at any time. +4 cards can be indefinitely stacked with each other.
   components:
   - type: Card
     name: rainbow_draw
@@ -1486,7 +1486,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: RainbowDrawCSol
-  Description: Rainbow cards act as any color/number card and can be played at any time. +4 cards can be indefinitely stacked with each other.
+  description: Rainbow cards act as any color/number card and can be played at any time. +4 cards can be indefinitely stacked with each other.
   components:
   - type: Card
     name: rainbow_draw
@@ -1499,7 +1499,7 @@
   parent: CardBaseYinjiSol
   categories: [ HideSpawnMenu ]
   id: RainbowDrawDSol
-  Description: Rainbow cards act as any color/number card and can be played at any time. +4 cards can be indefinitely stacked with each other.
+  description: Rainbow cards act as any color/number card and can be played at any time. +4 cards can be indefinitely stacked with each other.
   components:
   - type: Card
     name: rainbow_draw
