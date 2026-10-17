@@ -148,7 +148,7 @@
   - type: SolutionContainerManager
     solutions:
       beaker:
-        maxVol: 300
+        maxVol: 150 # Omu
   - type: PhysicalComposition
     materialComposition:
       Steel: 25
