@@ -81,6 +81,11 @@
         whitelist:
           tags:
           - SpaceMedipen
+      prybar:
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - GuildPrybar
   - type: ContainerFill
     containers:
       water:
@@ -273,6 +278,8 @@
       - EmergencyMedipen
       spacepen:
       - SpaceMedipen
+      prybar:
+      - GuildPrybar
   - type: Sprite
     state: box_sec
 
@@ -297,6 +304,8 @@
       - EmergencyMedipen
       spacepen:
       - SpaceMedipen
+      prybar:
+      - GuildPrybar
   - type: Label
     currentLabel: reagent-name-nitrogen
   - type: Sprite
