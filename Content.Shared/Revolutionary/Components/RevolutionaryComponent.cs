@@ -10,7 +10,7 @@ namespace Content.Shared.Revolutionary.Components;
 /// <summary>
 /// Used for marking regular revs as well as storing icon prototypes so you can see fellow revs.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedRevolutionarySystem))]
+[RegisterComponent, NetworkedComponent] //Access(typeof(SharedRevolutionarySystem))] Omu commented out access type of - assign objectives
 public sealed partial class RevolutionaryComponent : Component
 {
     /// <summary>
@@ -26,4 +26,12 @@ public sealed partial class RevolutionaryComponent : Component
     public SoundSpecifier RevStartSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/rev_start.ogg"); // Goobstation - custom rev sfx
 
     public override bool SessionSpecific => true;
+
+    // Omu
+    /// <summary>
+    /// The objective assigned to a rev.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public int? Objective;
+    //Omu end
 }
