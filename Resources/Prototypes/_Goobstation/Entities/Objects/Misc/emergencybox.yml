@@ -81,7 +81,7 @@
         whitelist:
           tags:
           - SpaceMedipen
-      prybar:
+      prybar: # omu - guild prybars
         ejectOnInteract: false
         whitelist:
           tags:
@@ -278,7 +278,7 @@
       - EmergencyMedipen
       spacepen:
       - SpaceMedipen
-      prybar:
+      prybar: # omu - guild prybars
       - GuildPrybar
   - type: Sprite
     state: box_sec
@@ -304,7 +304,7 @@
       - EmergencyMedipen
       spacepen:
       - SpaceMedipen
-      prybar:
+      prybar: # omu - guild prybars
       - GuildPrybar
   - type: Label
     currentLabel: reagent-name-nitrogen
