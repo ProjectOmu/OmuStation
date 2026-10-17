@@ -393,7 +393,6 @@ public sealed partial class StationJobsSystem
                 }
                 // Omu end
 
-                
                 if (weight is not null && job.Weight != weight.Value)
                     continue;
 
