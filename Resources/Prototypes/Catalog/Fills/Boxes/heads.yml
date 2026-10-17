@@ -50,18 +50,20 @@
         - id: FundingAllocationComputerCircuitboard
         - id: CargoRequestServiceComputerCircuitboard
 
-- type: entity
-  parent: BoxStamps
-  id: BoxHoPStamps
-  name: head of personnel's stamp box
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: RubberStampApproved
-        - id: RubberStampDenied
-        - id: RubberStampHop
+# Omu Start
+#- type: entity
+#  parent: BoxStamps
+#  id: BoxHoPStamps
+#  name: head of personnel's stamp box
+#  components:
+#  - type: EntityTableContainerFill
+#    containers:
+#      storagebase: !type:AllSelector
+#        children:
+#        - id: RubberStampApproved
+#        - id: RubberStampDenied
+#        - id: RubberStampHop
+# Omu End
 
 - type: entity
   parent: ToteBase
