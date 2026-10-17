@@ -208,6 +208,8 @@
   - type: CorePoweredThrower
   - type: MeleeThrowOnHit
     unanchorOnHit: Unanchorable
+  - type: OmuMeleeThrowOnHit # Omu
+    emagUnanchorOnHit: All
   - type: ItemSlots
     slots:
       core_slot:

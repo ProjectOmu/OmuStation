@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Camera;
@@ -19,7 +17,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Throwing;
 
-public sealed class ThrowingSystem : EntitySystem
+public sealed partial class ThrowingSystem : EntitySystem
 {
     public const float ThrowAngularImpulse = 5f;
 
@@ -32,27 +30,31 @@ public sealed class ThrowingSystem : EntitySystem
     private float _frictionModifier;
     private float _airDamping;
 
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ThrownItemSystem _thrownSystem = default!;
-    [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IConfigurationManager _configManager = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ThrownItemSystem _thrownSystem = default!;
+    [Dependency] private SharedCameraRecoilSystem _recoil = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private IConfigurationManager _configManager = default!;
 
-    private EntityQuery<AnchorableComponent> _anchorableQuery;
+    private EntityQuery<AnchorableComponent> _anchorableQuery; // Omu start, [Depencency] doesn't work with EntityQuerry currently
+    private EntityQuery<PhysicsComponent> _physicsQuery;
+    private EntityQuery<ProjectileComponent> _projectileQuery; // Omu end
 
     public override void Initialize()
     {
         base.Initialize();
 
-        _anchorableQuery = GetEntityQuery<AnchorableComponent>();
+        _anchorableQuery = GetEntityQuery<AnchorableComponent>(); // Omu start, [Depencency] doesn't work with EntityQuerry currently
+        _physicsQuery = GetEntityQuery<PhysicsComponent>();
+        _projectileQuery = GetEntityQuery<ProjectileComponent>(); // Omu end
 
         Subs.CVar(_configManager, CCVars.TileFrictionModifier, value => _frictionModifier = value, true);
         Subs.CVar(_configManager, CCVars.AirFriction, value => _airDamping = value, true);
     }
 
-    public void TryThrow(
+    public bool TryThrow(
         EntityUid uid,
         EntityCoordinates coordinates,
         float baseThrowSpeed = 10.0f,
@@ -64,17 +66,26 @@ public sealed class ThrowingSystem : EntitySystem
         bool animated = true,
         bool playSound = true,
         bool doSpin = true,
-        ThrowingUnanchorStrength unanchor = ThrowingUnanchorStrength.None,
-        bool throwInAir = true // WWDP throwInAir
-            )
+        ThrowingUnanchorStrength unanchor = ThrowingUnanchorStrength.None)
     {
         var thrownPos = _transform.GetMapCoordinates(uid);
         var mapPos = _transform.ToMapCoordinates(coordinates);
 
         if (mapPos.MapId != thrownPos.MapId)
-            return;
+            return false;
 
-        TryThrow(uid, mapPos.Position - thrownPos.Position, baseThrowSpeed, user, pushbackRatio, friction, compensateFriction: compensateFriction, recoil: recoil, animated: animated, playSound: playSound, doSpin: doSpin, unanchor: unanchor, throwInAir: throwInAir); // WWDP throwInAir
+        return TryThrow(uid,
+            mapPos.Position - thrownPos.Position,
+            baseThrowSpeed,
+            user,
+            pushbackRatio,
+            friction,
+            compensateFriction: compensateFriction,
+            recoil: recoil,
+            animated: animated,
+            playSound: playSound,
+            doSpin: doSpin,
+            unanchor: unanchor);
     }
 
     /// <summary>
@@ -88,8 +99,7 @@ public sealed class ThrowingSystem : EntitySystem
     /// <param name="compensateFriction">True will adjust the throw so the item stops at the target coordinates. False means it will land at the target and keep sliding.</param>
     /// <param name="doSpin">Whether spin will be applied to the thrown entity.</param>
     /// <param name="unanchor">If set to Unanchorable, if the entity has <see cref="AnchorableComponent"/> and is unanchorable, it will unanchor the thrown entity. If set to All, it will unanchor the entity regardless.</param>
-    /// <param name="throwInAir">WWDP - Whether the thrown entity status will be set to InAir during flight.</param>
-    public void TryThrow(EntityUid uid,
+    public bool TryThrow(EntityUid uid,
         Vector2 direction,
         float baseThrowSpeed = 10.0f,
         EntityUid? user = null,
@@ -100,27 +110,26 @@ public sealed class ThrowingSystem : EntitySystem
         bool animated = true,
         bool playSound = true,
         bool doSpin = true,
-        ThrowingUnanchorStrength unanchor = ThrowingUnanchorStrength.None,
-        bool throwInAir = true // WWDP throwInAir
-            )
+        ThrowingUnanchorStrength unanchor = ThrowingUnanchorStrength.None)
     {
-        var physicsQuery = GetEntityQuery<PhysicsComponent>();
-        if (!physicsQuery.TryGetComponent(uid, out var physics))
-            return;
+        if (!_physicsQuery.TryComp(uid, out var physics))
+            return false;
 
-        var projectileQuery = GetEntityQuery<ProjectileComponent>();
-
-        TryThrow(
+        return TryThrow(
             uid,
             direction,
             physics,
             Transform(uid),
-            projectileQuery,
             baseThrowSpeed,
             user,
             pushbackRatio,
-            friction, compensateFriction: compensateFriction, recoil: recoil, animated: animated, playSound: playSound, doSpin: doSpin, throwInAir: throwInAir);
-
+            friction,
+            compensateFriction: compensateFriction,
+            recoil: recoil,
+            animated: animated,
+            playSound: playSound,
+            doSpin: doSpin,
+            unanchor: unanchor);
     }
 
     /// <summary>
@@ -134,11 +143,10 @@ public sealed class ThrowingSystem : EntitySystem
     /// <param name="compensateFriction">True will adjust the throw so the item stops at the target coordinates. False means it will land at the target and keep sliding.</param>
     /// <param name="doSpin">Whether spin will be applied to the thrown entity.</param>
     /// <param name="unanchor">If set to Unanchorable, if the entity has <see cref="AnchorableComponent"/> and is unanchorable, it will unanchor the thrown entity. If set to All, it will unanchor the entity regardless.</param>
-    public void TryThrow(EntityUid uid,
+    public bool TryThrow(EntityUid uid,
         Vector2 direction,
         PhysicsComponent physics,
         TransformComponent transform,
-        EntityQuery<ProjectileComponent> projectileQuery,
         float baseThrowSpeed = 10.0f,
         EntityUid? user = null,
         float pushbackRatio = PushbackDefault,
@@ -148,12 +156,11 @@ public sealed class ThrowingSystem : EntitySystem
         bool animated = true,
         bool playSound = true,
         bool doSpin = true,
-        ThrowingUnanchorStrength unanchor = ThrowingUnanchorStrength.None,
-        bool throwInAir = true // WWDP throwInAir
-            )
+        ThrowingUnanchorStrength unanchor = ThrowingUnanchorStrength.None)
     {
-        if (!float.IsFinite(baseThrowSpeed) || baseThrowSpeed <= 0 || !float.IsFinite(direction.X) || !float.IsFinite(direction.Y) || direction == Vector2.Zero || friction < 0) // Goob
-            return;
+        if (baseThrowSpeed <= 0 || direction == Vector2Helpers.Infinity || direction == Vector2Helpers.NaN ||
+            direction == Vector2.Zero || friction < 0)
+            return false;
 
         // Unanchor the entity if applicable
         if (unanchor == ThrowingUnanchorStrength.All ||
@@ -163,17 +170,16 @@ public sealed class ThrowingSystem : EntitySystem
             _transform.Unanchor(uid);
 
         if ((physics.BodyType & (BodyType.Dynamic | BodyType.KinematicController)) == 0x0)
-            return;
+            return false;
 
         // Allow throwing if this projectile only acts as a projectile when shot, otherwise disallow
-        if (projectileQuery.TryGetComponent(uid, out var proj) && !proj.OnlyCollideWhenShot)
-            return;
+        if (_projectileQuery.TryComp(uid, out var proj) && !proj.OnlyCollideWhenShot)
+            return false;
 
         var comp = new ThrownItemComponent
         {
             Thrower = user,
             Animate = animated,
-
         };
 
         // if not given, get the default friction value for distance calculation
@@ -212,7 +218,9 @@ public sealed class ThrowingSystem : EntitySystem
         }
 
         if (user != null)
-            _adminLogger.Add(LogType.Throw, LogImpact.Low, $"{ToPrettyString(user.Value):user} threw {ToPrettyString(uid):entity}");
+            _adminLogger.Add(LogType.Throw,
+                LogImpact.Low,
+                $"{ToPrettyString(user.Value):user} threw {ToPrettyString(uid):entity}");
 
         // if compensateFriction==true compensate for the distance the item will slide over the floor after landing by reducing the throw speed accordingly.
         // else let the item land on the cursor and from where it slides a little further.
@@ -223,7 +231,7 @@ public sealed class ThrowingSystem : EntitySystem
         var impulseVector = direction.Normalized() * throwSpeed * physics.Mass;
         _physics.ApplyLinearImpulse(uid, impulseVector, body: physics);
 
-        var thrownEvent = new ThrowEvent(user, uid);
+        var thrownEvent = new ThrownEvent(user, uid);
         RaiseLocalEvent(uid, ref thrownEvent, true);
         if (user != null)
         {
@@ -231,7 +239,7 @@ public sealed class ThrowingSystem : EntitySystem
             RaiseLocalEvent(user.Value, ref throwEvent, true);
         }
 
-        if (comp.LandTime == null || comp.LandTime <= TimeSpan.Zero || !throwInAir) // WWDP
+        if (comp.LandTime == null || comp.LandTime <= TimeSpan.Zero)
         {
             _thrownSystem.LandComponent(uid, comp, physics, playSound);
         }
@@ -241,7 +249,7 @@ public sealed class ThrowingSystem : EntitySystem
         }
 
         if (user == null)
-            return;
+            return true;
 
         if (recoil)
             _recoil.KickCamera(user.Value, -direction * 0.04f);
@@ -250,22 +258,24 @@ public sealed class ThrowingSystem : EntitySystem
         if (pushbackRatio == 0.0f ||
             physics.Mass == 0f ||
             !TryComp(user.Value, out PhysicsComponent? userPhysics))
-            return;
+            return true;
         var msg = new ThrowPushbackAttemptEvent();
         RaiseLocalEvent(uid, msg);
 
         if (msg.Cancelled)
-            return;
+            return true;
 
         var pushEv = new ThrowerImpulseEvent();
         RaiseLocalEvent(user.Value, ref pushEv);
         const float massLimit = 5f;
 
         if (pushEv.Push)
-            _physics.ApplyLinearImpulse(user.Value, -impulseVector / physics.Mass * pushbackRatio * MathF.Min(massLimit, physics.Mass), body: userPhysics);
+            _physics.ApplyLinearImpulse(user.Value,
+                -impulseVector / physics.Mass * pushbackRatio * MathF.Min(massLimit, physics.Mass),
+                body: userPhysics);
+
+        return true;
     }
-
-
 }
 
 /// <summary>
@@ -278,10 +288,12 @@ public enum ThrowingUnanchorStrength : byte
     /// No entites will be unanchored.
     /// </summary>
     None,
+
     /// <summary>
     /// Only entities that can be unanchored (e.g. via wrench) will be unanchored.
     /// </summary>
     Unanchorable,
+
     /// <summary>
     /// All entities will be unanchored.
     /// </summary>
