@@ -8,6 +8,7 @@ using Content.Shared.Ghost;
 using Content.Shared.Heretic;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
+using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
@@ -19,7 +20,7 @@ using System.Security.Cryptography;
 
 namespace Content.Omu.Shared.MansusMob;
 
-public sealed class MirrorMaidenSystem : EntitySystem
+public sealed class SharedMansusMobSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
@@ -27,6 +28,7 @@ public sealed class MirrorMaidenSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedAudioSystem _aud = default!;
     [Dependency] private readonly SharedPoweredLightSystem _poweredLight = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -42,7 +44,7 @@ public sealed class MirrorMaidenSystem : EntitySystem
     {
         foreach (var hit in args.HitEntities)
         {
-            if (!HasComp<ActorComponent>(hit) || !TryComp<FascinationComponent>(hit, out var fascination) || fascination.FascinationValue < 5)
+            if (!TryComp<FascinationComponent>(hit, out var fascination) || fascination.FascinationValue < 5)
             {
                 _popup.PopupPredicted(Loc.GetString("mansus-mob-miss-hit"), ent, ent, PopupType.SmallCaution);
                 args.Handled = true;
@@ -132,7 +134,7 @@ public sealed class MirrorMaidenSystem : EntitySystem
 #pragma warning disable CS0618
                 args.Performer.SpawnTimer(light.GhostBlinkingTime, () =>
                 {
-                    _poweredLight.ToggleBlinkingLight(args.Performer, light, false);
+                    _poweredLight.ToggleBlinkingLight(lookupUid, light, false);
                 });
 #pragma warning restore CS0618
             }
