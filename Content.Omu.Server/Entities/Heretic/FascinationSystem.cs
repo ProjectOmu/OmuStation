@@ -12,7 +12,6 @@ using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Mobs;
 using Content.Shared.NPC.Systems;
-using Robust.Shared.Prototypes;
 
 namespace Content.Omu.Server.Entities.Heretic;
 
