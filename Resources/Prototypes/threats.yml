@@ -5,6 +5,7 @@
   weights:
     Dragon: 1
     # Revenant: 1 # Goob - Removed in favor of LoneOperative
+    Replicators: 1 # Imp
     SlaughterDemon: 1 # Goobstation begin
     # Wraith: 1
     LoneOperative: 1
@@ -36,3 +37,8 @@
   id: Colossus
   announcement: terror-colossus
   rule: ColossusSpawn # DeltaV end
+
+- type: ninjaHackingThreat # Imp
+  id: Replicators
+  announcement: terror-replicators
+  rule: ReplicatorSpawn
