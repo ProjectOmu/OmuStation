@@ -124,7 +124,10 @@ public sealed class SlipperySystem : EntitySystem
         var knockedDown = _knockedDownQuery.HasComp(other);
         if (knockedDown && !component.SlipData.SuperSlippery)
             return;
-        var attemptEv = new SlipAttemptEvent(uid);
+        var attemptEv = new SlipAttemptEvent(component.SlipData.SuperSlippery) // GabyStation change
+        {
+            SlipCausingEntity = uid
+        };
         RaiseLocalEvent(other, attemptEv);
         if (attemptEv.SlowOverSlippery)
             _speedModifier.AddModifiedEntity(other);
@@ -137,8 +140,11 @@ public sealed class SlipperySystem : EntitySystem
         if (attemptCausingEv.Cancelled)
             return;
 
-        var ev = new SlipEvent(other);
-        RaiseLocalEvent(uid, ref ev);
+        var slipEv = new SlipEvent(other); // GabyStation change
+        RaiseLocalEvent(uid, ref slipEv);
+
+        var slippedEv = new SlippedEvent(uid, component.SlipData.SuperSlippery); // GabyStation
+        RaiseLocalEvent(other, slippedEv);
 
         if (_physicsQuery.TryComp(other, out var physics) && !_slidingQuery.HasComp(other))
         {
@@ -196,8 +202,15 @@ public sealed class SlipAttemptEvent : EntityEventArgs, IInventoryRelayEvent
     {
         SlipCausingEntity = slipCausingEntity;
     }
+    public bool SuperSlippery; // GabyStation Start
+
+    public SlipAttemptEvent(bool superSlippery)
+    {
+        SuperSlippery = superSlippery;
+    } // GabyStation end
 }
 
+// GabyStation Start
 /// <summary>
 /// Raised on an entity that is causing the slip event (e.g, the banana peel), to determine if the slip attempt should be cancelled.
 /// </summary>
@@ -209,3 +222,21 @@ public record struct SlipCausingAttemptEvent (bool Cancelled);
 /// <param name="Slipped">The entity being slipped</param>
 [ByRefEvent]
 public readonly record struct SlipEvent(EntityUid Slipped);
+
+/// Raised on the entity that got slipped
+/// <param name="Slipper">The entity being slipped</param>
+/// <param name="SuperSlippery">Was whatever slipped us super slippery</param>
+public sealed class SlippedEvent : EntityEventArgs, IInventoryRelayEvent
+{
+    public SlotFlags TargetSlots { get; } = SlotFlags.WITHOUT_POCKET;
+
+    public EntityUid Slipper;
+    public bool SuperSlippery;
+
+    public SlippedEvent(EntityUid slipper, bool superSlippery)
+    {
+        Slipper = slipper;
+        SuperSlippery = superSlippery;
+    }
+}
+// GabyStation end

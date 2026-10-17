@@ -19,6 +19,13 @@ using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Player;
+using Content.Shared.Weapons.Melee.Events; // GabyStation start
+using Robust.Shared.Network;
+using Content.Shared.Popups;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reaction;
+using Content.Shared.Chemistry; // GabyStation end
 
 namespace Content.Shared.Fluids;
 

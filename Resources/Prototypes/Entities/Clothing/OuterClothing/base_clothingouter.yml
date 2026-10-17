@@ -29,6 +29,26 @@
   # Goobstation edit end
   - type: Sprite
     state: icon
+  - type: Appearance # Gabystation start
+  - type: Stainable
+    clothingVisuals:
+      outerClothing:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: outerclothing
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: outerclothing
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+      stain:
+        maxVol: 5
+  - type: StainBlocker
+    slots: [INNERCLOTHING] #Gabystation end
 
 - type: entity
   abstract: true
@@ -47,6 +67,16 @@
   - type: Tag
     tags:
       - WhitelistChameleon
+  - type: Stainable # GabyStation
+    clothingVisuals:
+      outerClothing:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: suitblood
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: suitbloodicon
+  - type: StainBlocker
+    slots: [INNERCLOTHING, FEET, GLOVES]
 
 - type: entity
   abstract: true
@@ -66,6 +96,14 @@
         type: StorageBoundUserInterface
   - type: StaticPrice
     price: 70
+  - type: Stainable # GabyStation
+    clothingVisuals:
+      outerClothing:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: coatblood
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: coatbloodicon
 
 - type: entity
   abstract: true
@@ -229,6 +267,8 @@
   - type: CosmicTransmutable # DeltaV
     transmutesTo: ClothingOuterHardsuitCosmicCult
     requiredGlyphType: CosmicGlyphWarding
+  - type: StainBlocker # Gabystation
+    slots: [INNERCLOTHING, FEET, GLOVES]
 
 - type: entity
   abstract: true
@@ -277,6 +317,8 @@
   - type: CosmicTransmutable # DeltaV
     transmutesTo: ClothingOuterHardsuitCosmicCult
     requiredGlyphType: CosmicGlyphWarding
+  - type: StainBlocker # Gabystation
+    slots: [INNERCLOTHING, FEET, GLOVES]
 
 - type: entity
   parent: ClothingOuterBase
