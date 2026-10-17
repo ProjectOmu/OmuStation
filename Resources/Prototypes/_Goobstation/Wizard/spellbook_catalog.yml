@@ -725,21 +725,21 @@
   categories:
   - SpellbookEquipment
 
-- type: listing
-  id: SpellbookGreyTide
-  name: uplink-grey-tide-name
-  description: uplink-grey-tide-desc
-  productEntity: SpearGreyTide
-  cost:
-    WizCoin: 1
-  categories:
-  - SpellbookEquipment
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:BuyBeforeCondition
-    whitelist:
-    - SpellTiderBundle
+#- type: listing # Omu, this thing duplicates itself, and is generaly broken.
+#  id: SpellbookGreyTide
+#  name: uplink-grey-tide-name
+#  description: uplink-grey-tide-desc
+#  productEntity: SpearGreyTide
+#  cost:
+#    WizCoin: 1
+#  categories:
+#  - SpellbookEquipment
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
+#  - !type:BuyBeforeCondition
+#    whitelist:
+#    - SpellTiderBundle
 
 - type: listing
   id: SpellbookStaffHealing
