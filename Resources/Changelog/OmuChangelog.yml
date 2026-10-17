@@ -8708,3 +8708,438 @@ Entries:
       message: Grounding rods and tesla coils should get stuck on doors less often
   id: 1130
   time: '2026-10-07T04:01:58.0000000+00:00'
+- author: arachnid14
+  changes:
+    - type: Tweak
+      message: >-
+        Goliath Hardsuit is now crafted with a Hardsuit, instead of the explorer
+        suit.
+  id: 1131
+  time: '2026-10-07T18:00:40.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        Spray painter got some love. You can now paint all your favourite
+        atmosian appliances with BZ, Nitrium, Pluoxium and Healium colours.
+    - type: Tweak
+      message: Spray painter can now spray pipes in several new standard colours
+    - type: Tweak
+      message: >-
+        Spray painter pipes category has been re-arranged to be in a more
+        reasonable colour order
+  id: 1132
+  time: '2026-10-07T18:04:37.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Add
+      message: Added signature fonts that are a character trait.
+    - type: Add
+      message: The Cybersun pen can choose a signature font.
+    - type: Tweak
+      message: Signatures no longer look like stamps.
+  id: 1133
+  time: '2026-10-07T23:14:04.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Add
+      message: >-
+        Added a decal preview when holding a crayon or a spray painter set to
+        add decals.
+    - type: Add
+      message: >-
+        Crayon and spray painter decals can be rotated with the rotate key,
+        middle mouse by default.
+    - type: Add
+      message: Added a decal preview opacity setting in General options.
+  id: 1134
+  time: '2026-10-08T08:44:02.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        The "creating a lathe factory" line in the rules about powergaming has
+        swapped out for a clearer line: you are not allowed to take other
+        departments' techfab boards to avoid interacting with them later.
+  id: 1135
+  time: '2026-10-08T21:13:44.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Add
+      message: added medical ushankas for all doctors and the corpsman / brigmedic
+  id: 1136
+  time: '2026-10-08T21:14:11.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: >-
+        Roundstart wizard will now run on its own (i.e, it will not role for any
+        other antags round start if wizard is rolled)
+  id: 1137
+  time: '2026-10-08T23:10:44.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: Smile the slime's hit sound is now a little pop instead of a punch
+  id: 1138
+  time: '2026-10-08T23:13:40.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Add
+      message: >-
+        Ported Extended descriptions from EE, allowing for items to display
+        different descriptions depending on what job/role the player is.
+        Currently only added to the EMAG.
+  id: 1139
+  time: '2026-10-09T00:28:09.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Markings are no longer lost when equipping or unequipping modsuits
+    - type: Fix
+      message: Sprites on certain modsuits showing as Errors
+    - type: Add
+      message: Resomi brigmed helmet sprite
+  id: 1140
+  time: '2026-10-09T19:47:02.0000000+00:00'
+- author: arachnid14
+  changes:
+    - type: Tweak
+      message: new stuff to smugglers crates, Including previously unobtainable items.
+    - type: Tweak
+      message: Smuggler crates are now about twice as rare.
+  id: 1141
+  time: '2026-10-09T21:21:05.0000000+00:00'
+- author: Naaatch
+  changes:
+    - type: Fix
+      message: >-
+        Signatures no longer have faint lines between the letters for some
+        players.
+  id: 1142
+  time: '2026-10-10T00:34:50.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        The server rules explicitly define textbaiting and state that you cannot
+        textbait people.
+  id: 1143
+  time: '2026-10-10T00:52:02.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Tweak
+      message: Ovinia NeckFluff layers better with other sprites.
+  id: 1144
+  time: '2026-10-10T09:33:20.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the ATV crate in Leonid's paramedic room to a paramedic ATV
+        crate
+  id: 1145
+  time: '2026-10-10T09:43:49.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Ensured PDAs have the default, expected programs.
+  id: 1146
+  time: '2026-10-10T18:51:57.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Fixed missing definition for sugar's effect on Cortical Borers.
+  id: 1147
+  time: '2026-10-10T19:11:47.0000000+00:00'
+- author: LunaTheFox
+  changes:
+    - type: Fix
+      message: Glacier mapping bugs
+  id: 1148
+  time: '2026-10-10T21:58:03.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: adjusted the value of frezon in the guidebook to be correct
+  id: 1149
+  time: '2026-10-10T21:59:00.0000000+00:00'
+- author: Natch and
+  changes:
+    - type: Fix
+      message: Fixed the god awful end of round lag.
+  id: 1150
+  time: '2026-10-10T23:40:00.0000000+00:00'
+- author: tyrone-ss14, asterisksoda
+  changes:
+    - type: Add
+      message: >-
+        Added the plant analyzer for inspecting plant, seed and produce data. It
+        is researched through "Basic Hydroponics"; once researched, it can be
+        made in the service techfab.
+  id: 1151
+  time: '2026-10-11T11:47:52.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Fix
+      message: The volume of the Xenomorphs event music has been lowered by 4 dB.
+    - type: Fix
+      message: >-
+        The volume of music track The Fine Print has been manually lowered by 6
+        dB.
+  id: 1152
+  time: '2026-10-11T16:05:28.0000000+00:00'
+- author: Jerulean
+  changes:
+    - type: Add
+      message: Added the Mail Goblin.
+  id: 1153
+  time: '2026-10-11T16:14:20.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed Colossus' slam attack targeting non-vital parts.
+  id: 1154
+  time: '2026-10-11T21:46:45.0000000+00:00'
+- author: asterisksoda, ishkab
+  changes:
+    - type: Add
+      message: >-
+        There is a new station event that breaks powered lights around the
+        station. It comes in two versions: In one, lights all around the station
+        get broken; in the other, lights in just one area get broken.
+  id: 1155
+  time: '2026-10-12T05:49:52.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Add
+      message: Added a crafting recipe for administrative glasses
+  id: 1156
+  time: '2026-10-12T08:06:41.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: 'Hostile mobs will now attack arachnids as expected. '
+  id: 1157
+  time: '2026-10-12T08:09:55.0000000+00:00'
+- author: Willfullyheretical
+  changes:
+    - type: Tweak
+      message: updated HEV helmet to have the same resistance as the HEV suit
+  id: 1158
+  time: '2026-10-12T14:59:13.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: >-
+        Tackle gloves are now restricted to HoS/Ward/Sarge on crewside. Antag
+        content remains the same.
+    - type: Add
+      message: Warden melee case.
+    - type: Add
+      message: Sergeant melee case.
+  id: 1159
+  time: '2026-10-12T17:32:19.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Add
+      message: >-
+        Added/Ported Tram station map from Wizden. Includes a tram (shuttle) in
+        the middle of the station that can be driven between different stops by
+        a hopefully-responsible Tram Driver!
+    - type: Add
+      message: >-
+        Ported over the new, station-specific Tram Driver job, as well as PDA
+        and outfit, under the Service department.
+    - type: Add
+      message: >-
+        Added new SpawnMobMothroach and WindoorSecureSealed (+
+        DoorElectronicsSealed) prototypes.
+    - type: Add
+      message: >-
+        Added new broken Gekkerzine gas canister, based off the reagent of the
+        same name.
+  id: 1160
+  time: '2026-10-12T18:21:47.0000000+00:00'
+- author: ggrab41
+  changes:
+    - type: Fix
+      message: Asakim now have a groin again.
+    - type: Tweak
+      message: Asakim are now immune to slowdowns.
+  id: 1161
+  time: '2026-10-12T19:23:51.0000000+00:00'
+- author: ggrab41
+  changes:
+    - type: Tweak
+      message: >-
+        Reworked Genecide into a robust anti-rot chemical... With a cost. Check
+        the guidebook!
+  id: 1162
+  time: '2026-10-12T21:06:41.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Fixed tram driver gloves replacing their hat.
+  id: 1163
+  time: '2026-10-13T11:31:24.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Add
+      message: >-
+        The Nanotrasen Representative Handheld Fax, CentComm Official and
+        CentComm Intern Handheld Fax can now print business cards. The NTR and
+        Interns get their own business cards to differentiate from the CentComm
+        business card.
+  id: 1164
+  time: '2026-10-13T13:19:13.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: >-
+        Valyrian Standard replaced with Avatel Vulu. Another morsel of lore for
+        you omunians...
+  id: 1165
+  time: '2026-10-13T14:46:05.0000000+00:00'
+- author: Raincall
+  changes:
+    - type: Add
+      message: >-
+        Added a brief summary of omu lore to the guidebook. More to come in the
+        future. Also the year is 2854 confirmed
+  id: 1166
+  time: '2026-10-13T17:21:25.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        The rules now inform players how to find the rules after agreeing to
+        them.
+  id: 1167
+  time: '2026-10-13T21:13:46.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Add
+      message: >-
+        Added Baaveltine, a noise chem made from 1 goat milk, 1 barozine, 2
+        flour.
+    - type: Add
+      message: Baaveltine can now turn up in random maintenance pills or chem anoms.
+  id: 1168
+  time: '2026-10-13T23:01:04.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Tweak
+      message: Allulalos now have three marking slots for Head (Top).
+  id: 1169
+  time: '2026-10-14T01:29:30.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Tweak
+      message: >-
+        Tram got various map quirks fixed after initial crew feedback. See PR
+        for more details.
+  id: 1170
+  time: '2026-10-14T02:21:56.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Add
+      message: Added a red cellphone to the captain's locker.
+  id: 1171
+  time: '2026-10-14T02:22:35.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Add
+      message: >-
+        Added a Speech tab to the character editor where you can set speech
+        patterns that replace words or phrases your character says to make small
+        speaking quirks or remove word changes you don't like from accents.
+    - type: Tweak
+      message: Accents moved from the Traits tab to the new Speech tab.
+  id: 1172
+  time: '2026-10-14T02:32:44.0000000+00:00'
+- author: Jerulean
+  changes:
+    - type: Add
+      message: Added a secret cheesecake!
+  id: 1173
+  time: '2026-10-14T16:52:58.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Add
+      message: >-
+        Changed harpy guidebook to fit omu lore.. Also added a guidebook page
+        for their home planet
+  id: 1174
+  time: '2026-10-14T17:54:10.0000000+00:00'
+- author: mason
+  changes:
+    - type: Tweak
+      message: >-
+        The metashield has received its long-awaited update. Please check
+        "Roleplay Rule 8. The Metashield" and the appropriate training manuals
+        (and addendums) for knowledge on what your characters will and will not
+        know when they are first employed by Nanotrasen.
+  id: 1175
+  time: '2026-10-14T19:45:53.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed the random teleport from bluespace crystals
+  id: 1176
+  time: '2026-10-15T22:11:40.0000000+00:00'
+- author: QuillTheCreature
+  changes:
+    - type: Add
+      message: >-
+        Ported the Xenosocialized trait from Starlight: You were raised without
+        being taught the language your species normally uses.
+  id: 1177
+  time: '2026-10-15T22:56:32.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        Metashield documents received day-one fixes: The new Standard Response
+        Plan document has been updated to properly handle Amber and Violet
+        alert. A word swap error in the Metashield rule no longer exists.
+        Missing signs of Changelings (flesh weaponry), cults (lambda-CDM or
+        Λ-CDM), and Mansus wielders (Heretic) (magical phenomena such as their
+        shadow form) are also present. Chaplains have mention of their ardent
+        censer and cult deconversion in their training manual.
+    - type: Add
+      message: >-
+        The Chaplain and the CMO have their respective job-specific Training
+        Manuals in their lockers.
+  id: 1178
+  time: '2026-10-15T23:27:55.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Fix
+      message: >-
+        Corrected a minor discrepancy with existing lore in the Xelthia
+        guidebook entry.
+  id: 1179
+  time: '2026-10-15T23:40:08.0000000+00:00'
+- author: Willzile1
+  changes:
+    - type: Fix
+      message: Cake Slices can no longer store items larger than itself.
+  id: 1180
+  time: '2026-10-16T17:01:16.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: >-
+        Rodentias can now remove their ear markings properly without needing to
+        have a "Head (Side)" marking equipped.
+  id: 1181
+  time: '2026-10-16T21:26:46.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Add
+      message: >-
+        Added Henrietta, a single-shot 8 gauge lever-action shotgun with a
+        bayonet, as an option in the warden's duty case.
+  id: 1182
+  time: '2026-10-16T21:45:08.0000000+00:00'

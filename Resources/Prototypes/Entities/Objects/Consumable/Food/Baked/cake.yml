@@ -65,6 +65,14 @@
     tags:
     - Cake
     - Slice
+  #Omu Start
+  - type: SecretStash
+    maxItemSize: "Tiny"
+    secretStashName: secret-stash-slice
+    damageEatenItemInside:
+      types:
+        Slash: 7.5
+  #Omu End
 
 # Custom Cake Example
 

@@ -184,6 +184,8 @@
   components:
   - type: FaxMachine
     name: "CentComm Official"
+  - type: FaxCardPrinter # Omu
+    card: CentralCommandBusinessCard # Omu
   - type: Item
     size: Normal
     sprite: _Goobstation/Objects/Tools/official_fax.rsi
