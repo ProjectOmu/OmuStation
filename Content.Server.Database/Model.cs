@@ -90,6 +90,10 @@ namespace Content.Server.Database
             modelBuilder.Entity<JobAlternateTitle>()
                 .HasIndex(p => new { HumanoidProfileId = p.ProfileId, p.JobName })
                 .IsUnique();
+
+            modelBuilder.Entity<ProfileSpeechReplacement>()
+                .HasIndex(p => new { HumanoidProfileId = p.ProfileId, p.Word })
+                .IsUnique();
             // Omu end
 
             modelBuilder.Entity<ProfileRoleLoadout>()
@@ -478,6 +482,7 @@ namespace Content.Server.Database
         public List<Antag> Antags { get; } = new();
         public List<Trait> Traits { get; } = new();
         public List<JobAlternateTitle> JobAlternateTitles { get; } = new(); // Omu
+        public List<ProfileSpeechReplacement> SpeechReplacements { get; } = new(); // Omu
 
         public List<ProfileRoleLoadout> Loadouts { get; } = new();
 
@@ -533,6 +538,16 @@ namespace Content.Server.Database
 
         public string JobName { get; set; } = null!;
         public string AlternateTitle { get; set; } = null!;
+    }
+
+    public class ProfileSpeechReplacement
+    {
+        public int Id { get; set; }
+        public Profile Profile { get; set; } = null!;
+        public int ProfileId { get; set; }
+
+        public string Word { get; set; } = null!;
+        public string Replacement { get; set; } = null!;
     }
     // Omu end
 
