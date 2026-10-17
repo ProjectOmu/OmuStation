@@ -375,9 +375,9 @@
           Slash: 15   #Goob Station rebalance, was originally 12
           Heat: 15    #Goob Station rebalance, was originally 12
           Structural: 40 # Goob edit
-        woundSeverityMultipliers: #Goob, Should be at least some reason to use this over eshield/base esword
-          Slash: 7
-          Heat: 7
+        woundSeverityMultipliers: # Omu
+          Slash: 4
+          Heat: 4
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
