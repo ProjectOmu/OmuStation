@@ -11,7 +11,7 @@
   - type: Item
     heldPrefix: scanner
   - type: Sprite
-    sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
+    sprite: _Omu/Objects/Specific/Medical/handheldcrewmonitor.rsi # Omu
     state: scanner
   - type: ActivatableUI
     key: enum.CrewMonitoringUIKey.Key
