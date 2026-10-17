@@ -8,14 +8,11 @@ using Content.Shared._Omu.Heretic;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.Examine;
-using Content.Shared.Interaction;
 using Content.Shared.Mobs;
-using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
-using Robust.Shared.Utility;
+using Robust.Shared.Prototypes;
 
 namespace Content.Omu.Server.Entities.Heretic;
 
