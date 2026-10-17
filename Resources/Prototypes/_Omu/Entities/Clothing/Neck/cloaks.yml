@@ -40,6 +40,37 @@
           tags:
           - WardenRapier
 
+# basically the warden cloak but green
+- type: entity
+  parent: [ClothingNeckBase, BaseWardenContraband, ClothingSlotBase]
+  id: ClothingNeckCentCommWardenParryCloak
+  name: centcomm warden's dueling cloak
+  description: A green cloak with an integrated scabbard, useful for dramatically swishing at prisoners of CentComm.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/ccparryingcloak.rsi
+  - type: ItemSlots
+    slots:
+      item:
+        name: Rapier
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - WardenRapier
+# Central command poncho but purple because who cares about bloat at this point
+- type: entity
+  parent: [ClothingNeckBase, BaseCentcommContraband]
+  id: ClothingNeckCloakPurpleCentCommPoncho
+  name: purple central command poncho
+  description: A regal purple-and-black poncho embellished with rich golden accents.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/purple_centcomm_poncho.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/purple_centcomm_poncho.rsi
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckCloakCMOFancy
