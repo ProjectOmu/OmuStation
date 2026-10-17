@@ -494,3 +494,71 @@
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
+
+- type: entity
+  parent: BasePlushie   
+  id: PlushieRhyssOmuCrew
+  name: rhyss plushie
+  description: This plushie resembles a scarred bird that smells heavily of ash and charcoal. The label reads 'Survivor of the Red Cycle.'
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/rhyss.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/rhyss.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/rhyss.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnUse
+    sound: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+  - type: EmitSoundOnPickup
+    sound: /Audio/_Goobstation/Voice/Resomi/warble.ogg
+  - type: EmitSoundOnActivate
+    sound: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+  - type: EmitSoundOnTrigger
+    sound: /Audio/_Starlight/Voice/Resomi/trill3.ogg
+  - type: EmitSoundOnThrow
+    sound: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+
+- type: entity
+  parent: BasePlushie   
+  id: PlushieNuiOmuCrew
+  name: nui plushie
+  description: A plushie of a small, sandy Avali. It has a soft looking head and smells strongly of charcoal.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/nui.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/nui.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/nui.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnUse
+    sound: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+  - type: EmitSoundOnPickup
+    sound: /Audio/_Starlight/Voice/Resomi/resomi_call_2.ogg
+  - type: EmitSoundOnActivate
+    sound: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+  - type: EmitSoundOnTrigger
+    sound: /Audio/_Starlight/Voice/Resomi/trill2.ogg
+  - type: EmitSoundOnThrow
+    sound: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
