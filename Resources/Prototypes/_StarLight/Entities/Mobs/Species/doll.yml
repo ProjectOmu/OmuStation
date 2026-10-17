@@ -1,0 +1,165 @@
+- type: entity
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobDoll
+  abstract: true
+  components:
+  - type: SpawnOnAction
+    action: ActionGenerateShellPiece
+    entityToSpawn: ShellFragmentDoll
+    damage:
+      types:
+        Slash: 5
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
+  - type: Absorbable
+  - type: Hunger
+  - type: Icon
+    sprite: _Starlight/Mobs/Species/Doll/parts.rsi
+    state: doll
+  - type: Thirst
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatAnomaly # Actual anomaly meat, since players probably won't be butchered too often. Yes, that does mean Dolls do not have "people" meat.
+      amount: 5
+    - id: SheetPlasteel1
+      amount: 5
+  - type: HumanoidAppearance
+    species: Doll
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+  - type: Body
+    prototype: Doll
+    requiredLegs: 2
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Doll
+  - type: Vocal
+    sounds:
+      Male: MaleHuman
+      Female: FemaleHuman
+      Unsexed: FemaleHuman
+  - type: Inventory
+    speciesId: Doll
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+
+- type: entity
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobDollFresh
+  description: Where did that shell come from? It is all soft and spongy...
+  abstract: true
+  components:
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
+  - type: Absorbable
+  - type: Hunger
+  - type: Icon
+    sprite: _Starlight/Mobs/Species/Doll/parts.rsi
+    state: doll
+  - type: Thirst
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatAnomaly # Actual anomaly meat, since players probably won't be butchered too often. Yes, that does mean Dolls do not have "people" meat.
+      amount: 5
+    - id: SheetPlasteel1
+      amount: 5
+  - type: HumanoidAppearance
+    species: Doll
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+    sex: Unsexed
+    eyeColor: '#FF0000'
+    skinColor: '#FFFFFF'
+    markingSet:
+        markings:
+          Arms:
+            - markingId: DollShellLArmSegmented
+              visible: True
+              markingColor:
+                - '#FFFFFF'
+            - markingId: DollShellRArmSegmented
+              visible: True
+              markingColor:
+                - '#FFFFFF'
+            - markingId: DollShellLHandSegmented
+              visible: True
+              markingColor:
+                - '#FFFFFF'
+            - markingId: DollShellRHandSegmented
+              visible: True
+              markingColor:
+                - '#FFFFFF'
+          Legs:
+            - markingId: DollShellLLegSegmented
+              visible: True
+              markingColor:
+                - '#FFFFFF'
+            - markingId: DollShellRLegSegmented
+              visible: True
+              markingColor:
+                - '#FFFFFF'
+            - markingId: DollShellLFootSegmented
+              visible: True
+              markingColor:
+                - '#FFFFFF'
+            - markingId: DollShellRFootSegmented
+              visible: True
+              markingColor:
+                - '#FFFFFF'
+          Head:
+            - markingId: DollShellHeadSegmented
+              visible: True
+              markingColor:
+                - '#FFFFFF'
+          Chest:
+            - markingId: DollShellChestSegmented
+              visible: True
+              markingColor:
+                - '#FFFFFF'
+  - type: Body
+    prototype: Doll
+    requiredLegs: 2
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Doll
+  - type: Vocal
+    sounds:
+      Male: MaleHuman
+      Female: FemaleHuman
+      Unsexed: FemaleHuman
+  - type: Inventory
+    speciesId: Doll
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobDollDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: Doll
+  - type: Inventory
+    speciesId: Doll
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female

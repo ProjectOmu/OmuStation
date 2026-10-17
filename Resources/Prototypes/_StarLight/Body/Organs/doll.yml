@@ -1,0 +1,233 @@
+- type: entity
+  id: BaseDollOrgan
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Starlight/Mobs/Species/Doll/organs.rsi
+  - type: Organ
+  - type: Edible
+  - type: Extractable
+    grindableSolutionName: organ
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 15
+  - type: FlavorProfile
+    flavors:
+    - savory
+    - meaty
+    - strange
+    - spooky
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  id: OrganDollBrain
+  parent: [BaseDollOrgan, OrganHumanBrain]
+  name: brain
+  description: "A strange mass of meat somehow equivalent to a brain."
+  components:
+  - type: Sprite
+    state: brain
+  # Have to replicate normal BaseBrain components here, without the movement blocker
+  - type: Item
+    size: Small
+    heldPrefix: brain
+  - type: NerveSystem # Goobstation
+  - type: ConsciousnessRequired # Goobstation
+    identifier: "nerveSystem"
+  - type: Organ
+  - type: Input
+    context: "ghost"
+  - type: Brain
+  - type: Examiner
+  - type: BadFood
+  - type: Tag
+    tags:
+      - Meat
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 20
+  - type: FoodSequenceElement
+    entries:
+      Burger: Brain
+      Taco: Brain
+
+- type: entity
+  id: OrganDollEyes
+  parent: [BaseDollOrgan, OrganHumanEyes]
+  name: eyes
+  description: "There are too many of these..."
+  components:
+  - type: Sprite
+    layers:
+      - state: eyeball-l
+      - state: eyeball-r
+  - type: Item
+    size: Small
+    heldPrefix: eyeballs
+
+
+- type: entity
+  id: OrganDollTongue
+  parent: [BaseDollOrgan, OrganHumanTongue]
+  name: tongue
+  description: "A fleshy muscle mostly used for whispering secrets from the dark."
+  components:
+  - type: Sprite
+    state: tongue
+
+- type: entity
+  id: OrganDollEars
+  parent: [BaseDollOrgan, OrganHumanEars]
+  name: ears
+  description: "There are three parts to the ear. Inner, middle and outer. You don't want to see any of it. Or for it to see you."
+  components:
+  - type: Sprite
+    state: ears
+
+- type: entity
+  id: OrganDollLungs
+  parent: [BaseDollOrgan, OrganHumanLungs]
+  name: lungs
+  description: "Dolls use these to breathe... somehow."
+  components:
+  - type: Sprite
+    layers:
+      - state: lung-l
+      - state: lung-r
+  - type: Lung
+  - type: Metabolizer
+    metabolizerTypes: [ Human ]
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      Lung:
+        maxVol: 100.0
+        canReact: false
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 10
+
+- type: entity
+  id: OrganDollHeart
+  parent: [BaseDollOrgan, OrganHumanHeart]
+  name: heart
+  description: "Is this even a heart?"
+  components:
+  - type: Sprite
+    state: heart-on
+  # The heart 'metabolizes' medicines and poisons that aren't filtered out by other organs.
+  # This is done because these chemicals need to have some effect even if they aren't being filtered out of your body.
+  # You're technically 'immune to poison' without a heart, but.. uhh, you'll have bigger problems on your hands.
+  - type: Metabolizer
+    maxPoisonsProcessable: 2
+    metabolizerTypes: [Doll, Human]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+  - type: Item
+    size: Small
+    heldPrefix: heart
+
+- type: entity
+  id: OrganDollStomach
+  parent: [BaseDollOrgan, OrganHumanStomach]
+  name: stomach
+  description: "Surprisingly large."
+  components:
+  - type: Sprite
+    state: stomach
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 100
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 10
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - Meat
+      - Blood
+      - Pill
+      - Crayon
+      - Paper
+  # The stomach metabolizes stuff like foods and drinks.
+  # TODO: Have it work off of the ent's solution container, and move this
+  # to intestines instead.
+  - type: Metabolizer
+    # mm yummy
+    maxReagents: 3
+    metabolizerTypes: [ Doll ]
+
+- type: entity
+  id: OrganDollLiver
+  parent: [BaseDollOrgan, OrganHumanLiver]
+  name: liver
+  description: "Indistinct mass of flesh. Probably the liver."
+  components:
+  - type: Sprite
+    state: liver
+  - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
+    maxReagents: 1
+    metabolizerTypes: [ Doll, Human ]
+
+- type: entity
+  id: OrganDollKidneys
+  parent: [BaseDollOrgan, OrganHumanKidneys]
+  name: kidneys
+  description: "Ew, why does it have eyes?!?"
+  components:
+  - type: Sprite
+    layers:
+      - state: kidney-l
+      - state: kidney-r
+  # The kidneys just remove anything that doesn't currently have any metabolisms, as a stopgap.
+  - type: Metabolizer
+    maxReagents: 5
+    metabolizerTypes: [ Human ]
+
+- type: entity
+  id: ShellFragmentDoll
+  parent: [BaseKnife]
+  name: "doll shell fragment"
+  description: "A shell piece, broken off of a doll. Sharp, and looks quite sturdy."
+  components:
+  - type: Sprite
+    sprite: _Starlight/Mobs/Species/Doll/organs.rsi
+    state: shell
+  - type: PhysicalComposition
+    materialComposition:
+      Plasteel: 500
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1.0
+    damage:
+      types:
+        Slash: 15
