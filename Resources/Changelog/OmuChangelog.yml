@@ -9165,3 +9165,22 @@ Entries:
       message: Grey Tide now degrades clones properly and prevents dropping!
   id: 1185
   time: '2026-10-17T22:06:13.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Add
+      message: >-
+        You can mark multiple characters as active and drag them into order in
+        character setup.
+    - type: Add
+      message: >-
+        Job priorities are now per account on the Character Jobs board in the
+        lobby. When you get a job, one of your active characters with it enabled
+        is picked.
+    - type: Add
+      message: >-
+        Hovering a job on the board shows each character's chance of being
+        picked.
+    - type: Tweak
+      message: Observing uses your top active character in the character list.
+  id: 1186
+  time: '2026-10-17T23:01:11.0000000+00:00'
