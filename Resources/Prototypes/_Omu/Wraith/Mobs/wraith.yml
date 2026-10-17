@@ -1,0 +1,30 @@
+
+
+- type: entity
+  id: MobWraithNoEvolve
+  parent: MobWraith
+  name: Wraith
+  suffix: NoEvolve
+  components:
+  - type: Wraith
+    abilities: WraithAbilitiesNoEvolve
+
+- type: entity
+  id: MobWraithCluwne
+  parent: MobWraithNoEvolve
+  name: Wraith
+  description: A VERY spooky... clown?
+  suffix: Admeme
+  components:
+  - type: Sprite
+    sprite: _Omu/Wraith/Mobs/cluwnewraith.rsi
+  - type: WaddleAnimation
+    hopIntensity: 0, 0.1
+    tumbleIntensity: 10
+    animationLength: 0.1
+    runAnimationLengthMultiplier: 1
+  - type: Speech
+    speechVerb: Cluwne
+  - type: Vocal
+    sounds:
+      Unsexed: Cluwne
