@@ -356,7 +356,7 @@
         !type:CableDeviceNode
         nodeGroupID: HVPower
   - type: ActivatableUI
-    singleUser: true
+    singleUser: false # Omu
     key: enum.PowerMonitoringConsoleUiKey.Key
   - type: UserInterface
     interfaces:
