@@ -93,3 +93,13 @@
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
     state: custodii
   jobName: job-name-centcomm-guard
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCHOP
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: cchop
+  jobName: job-name-centcomm-hop
+  # off for now but let's see where this goes
+  # allowSelection: false
