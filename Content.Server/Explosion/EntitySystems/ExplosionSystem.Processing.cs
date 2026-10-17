@@ -30,6 +30,7 @@ using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Components;
 using Content.Server.Destructible;
+using Content.Shared.Destructible;
 using Content.Shared.Destructible.Thresholds.Triggers;
 
 namespace Content.Server.Explosion.EntitySystems;
@@ -519,7 +520,8 @@ public sealed partial class ExplosionSystem
                 physics,
                 xform,
                 _projectileQuery,
-                throwForce);
+                throwForce,
+                predicted: false); // Trauma
         }
     }
 

@@ -6,7 +6,7 @@ using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Managers;
-using Content.Server.Destructible;
+using Content.Shared.Destructible; // Trauma - destructible moved to shared
 using Content.Server.NPC.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Administration;
@@ -48,7 +48,7 @@ namespace Content.Server.NPC.Pathfinding
         [Dependency] private readonly IParallelManager _parallel = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly DestructibleSystem _destructible = default!;
+        [Dependency] private readonly SharedDestructibleSystem _destructible = default!; // Trauma - use shared version
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly FixtureSystem _fixtures = default!;
         [Dependency] private readonly NPCSystem _npc = default!;

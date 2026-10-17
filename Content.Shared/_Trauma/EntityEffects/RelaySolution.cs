@@ -3,7 +3,7 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.EntityEffects;
 
-namespace Content.Trauma.Shared.EntityEffects;
+namespace Content.Shared._Trauma.EntityEffects;
 
 /// <summary>
 /// Applies effects to a solution entity of a given name.

@@ -2,6 +2,8 @@
 
 using Content.Shared.Body.Part; // Shitmed Change
 using Content.Shared.Body.Components;
+using Content.Shared.Destructible;
+using Content.Shared.Destructible.Thresholds.Behaviors;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
@@ -21,7 +23,7 @@ public sealed partial class BurnBodyBehavior : IThresholdBehavior
     [DataField]
     public LocId PopupMessage = "bodyburn-text-others";
 
-    public void Execute(EntityUid bodyId, DestructibleSystem system, EntityUid? cause = null)
+    public void Execute(EntityUid bodyId, SharedDestructibleSystem system, EntityUid? cause = null)
     {
         var transformSystem = system.EntityManager.System<TransformSystem>();
         var inventorySystem = system.EntityManager.System<InventorySystem>();

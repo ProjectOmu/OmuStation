@@ -3,7 +3,7 @@ using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 
-namespace Content.Trauma.Client.Sandevistan;
+namespace Content.Client._Trauma.Sandevistan;
 
 public sealed class SandevistanGlitchOverlay : Overlay
 {

@@ -5,7 +5,7 @@ using System.Numerics;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Destructible;
+using Content.Shared.Destructible; // Trauma - Destructible moved to shared
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NPC.Pathfinding;
 using Content.Shared.Atmos.Components;
@@ -58,7 +58,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly FlammableSystem _flammableSystem = default!;
-    [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
+    [Dependency] private readonly SharedDestructibleSystem _destructibleSystem = default!; // Trauma - use shared version
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly SharedBodySystem _body = default!; // Shitmed Change
 

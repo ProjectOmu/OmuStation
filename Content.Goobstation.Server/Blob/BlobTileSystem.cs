@@ -7,8 +7,7 @@ using Content.Goobstation.Shared.Blob;
 using Content.Goobstation.Shared.Blob.Components;
 using Content.Goobstation.Shared.Blob.Events;
 using Content.Server.Construction.Components;
-using Content.Server.Destructible;
-using Content.Server.Emp;
+using Content.Shared.Emp;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Interaction;
@@ -32,7 +31,7 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
     [Dependency] private readonly BlobCoreSystem _blobCoreSystem = default!;
     [Dependency] private readonly BlobCoreActionSystem _blobCoreActionSystem = default!;
     [Dependency] private readonly AudioSystem _audioSystem = default!;
-    [Dependency] private readonly EmpSystem _empSystem = default!;
+    [Dependency] private readonly SharedEmpSystem _empSystem = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IRobustRandom _random = default!;

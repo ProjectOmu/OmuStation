@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.VendingMachines;
+using Content.Shared.Destructible;
+using Content.Shared.Destructible.Thresholds.Behaviors;
 using Content.Shared.VendingMachines;
 
 namespace Content.Server.Destructible.Thresholds.Behaviors
@@ -25,7 +27,7 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
         [DataField("max")]
         public int Max = 3;
 
-        public void Execute(EntityUid owner, DestructibleSystem system, EntityUid? cause = null)
+        public void Execute(EntityUid owner, SharedDestructibleSystem system, EntityUid? cause = null)
         {
             if (!system.EntityManager.TryGetComponent<VendingMachineComponent>(owner, out var vendingcomp) ||
                 !system.EntityManager.TryGetComponent<TransformComponent>(owner, out var xform))

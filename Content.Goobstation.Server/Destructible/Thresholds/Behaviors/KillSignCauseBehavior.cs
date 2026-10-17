@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Administration.Components;
-using Content.Server.Destructible;
-using Content.Server.Destructible.Thresholds.Behaviors;
+using Content.Shared.Destructible;
+using Content.Shared.Destructible.Thresholds.Behaviors;
 using Content.Shared.Administration.Components;
 using Content.Shared.Database;
 
@@ -12,7 +12,7 @@ namespace Content.Goobstation.Server.Destructible.Thresholds.Behaviors
     [DataDefinition]
     public sealed partial class KillSignCauseBehavior : IThresholdBehavior
     {
-        public void Execute(EntityUid owner, DestructibleSystem system, EntityUid? cause = null)
+        public void Execute(EntityUid owner, SharedDestructibleSystem system, EntityUid? cause = null)
         {
             if (cause == null)
                 return;

@@ -1,5 +1,7 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
+// <Trauma>
+using Content.Omu.Common._Trauma.Throwing;
+using Robust.Shared.Network;
+// </Trauma>
 using System.Numerics;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Camera;
@@ -32,6 +34,9 @@ public sealed class ThrowingSystem : EntitySystem
     private float _frictionModifier;
     private float _airDamping;
 
+    // <Trauma>
+    [Dependency] private readonly INetManager _net = default!;
+    // </Trauma>
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -65,8 +70,10 @@ public sealed class ThrowingSystem : EntitySystem
         bool playSound = true,
         bool doSpin = true,
         ThrowingUnanchorStrength unanchor = ThrowingUnanchorStrength.None,
-        bool throwInAir = true // WWDP throwInAir
-            )
+        // <Trauma>
+        bool throwInAir = true,
+        bool predicted = true)
+        // </Trauma>
     {
         var thrownPos = _transform.GetMapCoordinates(uid);
         var mapPos = _transform.ToMapCoordinates(coordinates);
@@ -74,7 +81,8 @@ public sealed class ThrowingSystem : EntitySystem
         if (mapPos.MapId != thrownPos.MapId)
             return;
 
-        TryThrow(uid, mapPos.Position - thrownPos.Position, baseThrowSpeed, user, pushbackRatio, friction, compensateFriction: compensateFriction, recoil: recoil, animated: animated, playSound: playSound, doSpin: doSpin, unanchor: unanchor, throwInAir: throwInAir); // WWDP throwInAir
+        TryThrow(uid, mapPos.Position - thrownPos.Position, baseThrowSpeed, user, pushbackRatio, friction, compensateFriction: compensateFriction, recoil: recoil, animated: animated, playSound: playSound, doSpin: doSpin, unanchor: unanchor,
+            throwInAir: throwInAir, predicted: predicted); // Trauma
     }
 
     /// <summary>
@@ -101,8 +109,10 @@ public sealed class ThrowingSystem : EntitySystem
         bool playSound = true,
         bool doSpin = true,
         ThrowingUnanchorStrength unanchor = ThrowingUnanchorStrength.None,
-        bool throwInAir = true // WWDP throwInAir
-            )
+        // <Trauma>
+        bool throwInAir = true,
+        bool predicted = true)
+        // </Trauma>
     {
         var physicsQuery = GetEntityQuery<PhysicsComponent>();
         if (!physicsQuery.TryGetComponent(uid, out var physics))
@@ -119,8 +129,8 @@ public sealed class ThrowingSystem : EntitySystem
             baseThrowSpeed,
             user,
             pushbackRatio,
-            friction, compensateFriction: compensateFriction, recoil: recoil, animated: animated, playSound: playSound, doSpin: doSpin, throwInAir: throwInAir);
-
+            friction, compensateFriction: compensateFriction, recoil: recoil, animated: animated, playSound: playSound, doSpin: doSpin,
+            throwInAir: throwInAir, predicted: predicted); // Trauma
     }
 
     /// <summary>
@@ -149,8 +159,10 @@ public sealed class ThrowingSystem : EntitySystem
         bool playSound = true,
         bool doSpin = true,
         ThrowingUnanchorStrength unanchor = ThrowingUnanchorStrength.None,
-        bool throwInAir = true // WWDP throwInAir
-            )
+        // <Trauma>
+        bool throwInAir = true,
+        bool predicted = true)
+        // </Trauma>
     {
         if (!float.IsFinite(baseThrowSpeed) || baseThrowSpeed <= 0 || !float.IsFinite(direction.X) || !float.IsFinite(direction.Y) || direction == Vector2.Zero || friction < 0) // Goob
             return;
@@ -171,7 +183,7 @@ public sealed class ThrowingSystem : EntitySystem
 
         var comp = new ThrownItemComponent
         {
-            Thrower = user,
+            Thrower = TerminatingOrDeleted(user) ? null : user, // Trauma - don't network a deleted entity
             Animate = animated,
 
         };
@@ -240,9 +252,18 @@ public sealed class ThrowingSystem : EntitySystem
             _physics.SetBodyStatus(uid, physics, BodyStatus.InAir);
         }
 
+        // <Trauma> - its really not that hard
+        if (predicted)
+            EnsureComp<PredictedThrownItemComponent>(uid);
+        // </Trauma>
+
         if (user == null)
             return;
 
+        // <Trauma>
+        recoil &= _gameTiming.IsFirstTimePredicted;
+        recoil &= _net.IsClient || !predicted; // don't make server send a second recoil if client predicted it first
+        // </Trauma>
         if (recoil)
             _recoil.KickCamera(user.Value, -direction * 0.04f);
 

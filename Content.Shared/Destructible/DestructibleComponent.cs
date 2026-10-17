@@ -1,10 +1,9 @@
-// SPDX-License-Identifier: MIT
+using Content.Shared.Destructible.Thresholds;
 
-using Content.Server.Destructible.Thresholds;
-
-namespace Content.Server.Destructible
+namespace Content.Shared.Destructible
 {
     /// <summary>
+    ///     Trauma - moved to shared
     ///     When attached to an <see cref="Robust.Shared.GameObjects.EntityUid"/>, allows it to take damage
     ///     and triggers thresholds when reached.
     /// </summary>

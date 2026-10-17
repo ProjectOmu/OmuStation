@@ -1,5 +1,5 @@
-using Content.Server.Destructible;
-using Content.Server.Destructible.Thresholds.Behaviors;
+using Content.Shared.Destructible.Thresholds.Behaviors;
+using Content.Shared.Destructible;
 using Content.Shared._Lavaland.EntityShapes;
 using Content.Shared._Lavaland.EntityShapes.Shapes;
 using JetBrains.Annotations;
@@ -17,7 +17,7 @@ public sealed partial class SpawnEntityShapeBehavior : IThresholdBehavior
     [DataField(required: true)]
     public EntProtoId ToSpawn;
 
-    public void Execute(EntityUid owner, DestructibleSystem system, EntityUid? cause = null)
+    public void Execute(EntityUid owner, SharedDestructibleSystem system, EntityUid? cause = null)
     {
         var shapeSys = system.EntityManager.System<EntityShapeSystem>();
         var pos = system.EntityManager.GetComponent<TransformComponent>(owner);

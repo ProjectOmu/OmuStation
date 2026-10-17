@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Destructible;
+using Content.Shared.Destructible;
 using Content.Shared.Construction;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
@@ -36,7 +36,7 @@ public sealed partial class MinHealth : IGraphCondition
             return false;
         }
 
-        var destructionSys = entMan.System<DestructibleSystem>();
+        var destructionSys = entMan.System<SharedDestructibleSystem>(); // Trauma - use shared version
         var maxHealth = destructionSys.DestroyedAt(uid, destructibleComp);
         var curHealth = maxHealth - damageComp.TotalDamage;
         var proportionHealth = curHealth / maxHealth;
