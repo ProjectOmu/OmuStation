@@ -6,7 +6,7 @@
   components:
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: HostileMaidenCompound
   - type: Sprite
     sprite: _Omu/Mobs/heretic.rsi
     state: blue_maiden
@@ -15,6 +15,7 @@
   - type: ActionGrant
     actions:
     - ActionHereticJaunt
+    - ActionMansusScreech # Omu
   - type: MovementSpeedModifier
     baseWalkSpeed: 7    #Fast!
     baseSprintSpeed: 7
@@ -73,8 +74,11 @@
   - type: CombatMode
   - type: SeeHereticFixtures
   - type: MansusMob
+    screechRange: 2
+    screechFascination: 5
   - type: GuideHelp
     guides: [ MirrorMaiden ]
+  - type: MansusSeek # Omu
 
 - type: npcFaction
   id: Mansus
