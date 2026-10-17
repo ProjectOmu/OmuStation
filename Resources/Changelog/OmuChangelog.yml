@@ -9153,3 +9153,9 @@ Entries:
         vital and a 30% chance to deal non-vital damage.
   id: 1183
   time: '2026-10-17T16:28:00.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: 'Ensured APCs have the correct state on round start. '
+  id: 1184
+  time: '2026-10-17T22:05:32.0000000+00:00'
