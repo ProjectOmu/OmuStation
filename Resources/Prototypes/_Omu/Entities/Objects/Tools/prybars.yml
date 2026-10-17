@@ -1,9 +1,10 @@
 # hard forked from the crowbar because of how differently its intended to work
 - type: entity
+  abstract: true
   parent: BaseItem
-  id: GuildPrybar
-  name: Guild Prybar
-  description: A single purpose tool, officially manufactured and issued by NT-GSL to ensure security contractors the ability to pry open doors during power outages.
+  id: BasePrybar
+  name: Prybar
+  description: A single purpose tool, designed to pry open doors during power outages.
   components:
   - type: EmitSoundOnPickup
     sound:
@@ -36,7 +37,7 @@
   - type: Prying
   - type: UseDelay
     delay: 1
-  - type: Sprite
+  - type: Sprite # while ideally i'd have a non branded sprite here i'm no spriter and it shouldnt matter short term anyways
     sprite: _Omu/Objects/Tools/guild_prybar.rsi
     state: icon
   - type: Item
@@ -44,3 +45,13 @@
     size: Small
     shape:
     - 0,0,0,0
+
+- type: entity
+  parent: BasePrybar
+  id: GuildPrybar
+  name: Guild Prybar
+  description: A single purpose tool, officially manufactured and issued by NT-GSL to ensure security contractors the ability to pry open doors during power outages.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Tools/guild_prybar.rsi
+    state: icon
