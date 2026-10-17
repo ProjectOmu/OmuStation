@@ -1892,7 +1892,7 @@
           False: { visible: true }
   - type: SupermatterConsole
   - type: ActivatableUI
-    singleUser: true
+    singleUser: false # Omu - the AI exists, I care naught for where it looks.
     key: enum.SupermatterConsoleUiKey.Key
   - type: UserInterface
     interfaces:
