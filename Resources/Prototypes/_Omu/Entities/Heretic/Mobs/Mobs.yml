@@ -4,6 +4,16 @@
   name: Mirror Maiden
   description: A trick of the light? Or is it the shimmering air itself come to claim you?
   components:
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    name: mirror-maiden-role-name
+    description: mirror-maiden-role-desc
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    - MindRoleGhostRoleSoloAntagonistGoob
+    raffle:
+      settings: default
   - type: HTN
     rootTask:
       task: HostileMaidenCompound
