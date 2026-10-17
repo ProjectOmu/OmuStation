@@ -1,0 +1,13 @@
+- type: htnCompound
+  id: HostileMaidenCompound
+  branches:
+    - tasks:
+        - !type:HTNCompoundTask
+          task: MeleeCombatCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: MoveCallTargetCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleCompound
+    
