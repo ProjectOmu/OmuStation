@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Map
+  category: Grid
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 10/16/2026 21:22:05
-  entityCount: 823
-maps:
-- 2
+  time: 10/17/2026 17:39:08
+  entityCount: 822
+maps: []
 grids:
 - 1
-orphans: []
+orphans:
+- 1
 nullspace: []
 tilemap:
   11: Space
@@ -53,7 +53,7 @@ entities:
       name: Crystal Evac
     - type: Transform
       pos: -0.484375,-0.5
-      parent: 2
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -221,16 +221,6 @@ entities:
       chunkHistory: {}
     - type: ExplosionAirtightGrid
     - type: EmergencyShuttle
-  - uid: 2
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
-    - type: Broadphase
-    - type: OccluderTree
 - proto: AirAlarm
   entities:
   - uid: 576

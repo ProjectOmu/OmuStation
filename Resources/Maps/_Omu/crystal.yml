@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 10/16/2026 19:41:04
-  entityCount: 18593
+  time: 10/17/2026 17:32:47
+  entityCount: 18599
 maps:
 - 12140
 grids:
@@ -7365,7 +7365,7 @@ entities:
       pos: -11.5,32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -146911.75
+      secondsUntilStateChange: -148107.44
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7518,13 +7518,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -45.5,-41.5
       parent: 2
-- proto: AirlockCorpsmanGlassLocked
-  entities:
-  - uid: 455
-    components:
-    - type: Transform
-      pos: -30.5,-12.5
-      parent: 2
 - proto: AirlockCorpsmanLocked
   entities:
   - uid: 11727
@@ -7558,7 +7551,7 @@ entities:
       pos: -16.5,-28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -612521.44
+      secondsUntilStateChange: -613717.1
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7583,7 +7576,7 @@ entities:
       pos: 5.5,2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -624276.94
+      secondsUntilStateChange: -625472.6
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -8283,7 +8276,7 @@ entities:
       pos: 22.5,-15.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3385.356
+      secondsUntilStateChange: -4581.0464
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -9010,7 +9003,7 @@ entities:
       pos: 44.5,-23.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -543312.8
+      secondsUntilStateChange: -544508.5
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -9196,6 +9189,13 @@ entities:
         9222:
         - - DoorStatus
           - DoorBolt
+- proto: AirlockServiceGlassLocked
+  entities:
+  - uid: 455
+    components:
+    - type: Transform
+      pos: -30.5,-12.5
+      parent: 2
 - proto: AirlockServiceLocked
   entities:
   - uid: 7237
@@ -39224,6 +39224,36 @@ entities:
     components:
     - type: Transform
       pos: 4.5,15.5
+      parent: 2
+  - uid: 13805
+    components:
+    - type: Transform
+      pos: 22.5,17.5
+      parent: 2
+  - uid: 17924
+    components:
+    - type: Transform
+      pos: -17.5,-4.5
+      parent: 2
+  - uid: 18595
+    components:
+    - type: Transform
+      pos: 16.5,-1.5
+      parent: 2
+  - uid: 18597
+    components:
+    - type: Transform
+      pos: -28.5,22.5
+      parent: 2
+  - uid: 18598
+    components:
+    - type: Transform
+      pos: -30.5,-33.5
+      parent: 2
+  - uid: 18599
+    components:
+    - type: Transform
+      pos: -6.5,22.5
       parent: 2
 - proto: ClosetToolFilled
   entities:
@@ -82406,7 +82436,7 @@ entities:
       pos: 7.5,-23.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -608119.4
+      secondsUntilStateChange: -609315.06
       state: Opening
   - uid: 2029
     components:
@@ -82436,7 +82466,7 @@ entities:
       pos: 5.5,-28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -39297.535
+      secondsUntilStateChange: -40493.227
       state: Closing
   - uid: 5716
     components:
@@ -82454,7 +82484,7 @@ entities:
       pos: -25.5,9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -81951.79
+      secondsUntilStateChange: -83147.48
       state: Closing
 - proto: hydroponicsSoil
   entities:
@@ -93354,11 +93384,6 @@ entities:
     - type: Transform
       pos: 20.5,-10.5
       parent: 2
-  - uid: 17924
-    components:
-    - type: Transform
-      pos: 16.5,-1.5
-      parent: 2
   - uid: 17925
     components:
     - type: Transform
@@ -93391,6 +93416,11 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -20.5,16.5
+      parent: 2
+  - uid: 18596
+    components:
+    - type: Transform
+      pos: 17.5,-1.5
       parent: 2
 - proto: RandomSpawner100
   entities:
@@ -94155,6 +94185,13 @@ entities:
     components:
     - type: Transform
       pos: 37.5,-30.5
+      parent: 2
+- proto: ReinforcedSecretDoor
+  entities:
+  - uid: 14651
+    components:
+    - type: Transform
+      pos: -47.5,13.5
       parent: 2
 - proto: ReinforcedUraniumWindow
   entities:
@@ -100836,7 +100873,7 @@ entities:
       pos: 34.5,28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -34911.64
+      secondsUntilStateChange: -36107.332
       state: Opening
 - proto: SpaceCash
   entities:
@@ -115901,11 +115938,6 @@ entities:
     components:
     - type: Transform
       pos: -48.5,13.5
-      parent: 2
-  - uid: 14651
-    components:
-    - type: Transform
-      pos: -47.5,13.5
       parent: 2
   - uid: 14652
     components:
