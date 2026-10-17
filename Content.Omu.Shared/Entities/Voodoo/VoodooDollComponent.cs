@@ -27,108 +27,106 @@ public sealed partial class VoodooDollComponent : Component
     [DataField]
     public ProtoId<ReagentPrototype> HolyReagent = "Holywater";
 
-    [DataField]
-    public TimeSpan BindDelay = TimeSpan.FromSeconds(2.5);
+    [DataField(required: true)]
+    public TimeSpan BindDelay;
 
-    [DataField]
-    public TimeSpan RemoteBindDelay = TimeSpan.FromSeconds(10);
+    [DataField(required: true)]
+    public TimeSpan RemoteBindDelay;
 
-    [DataField]
-    public TimeSpan UnbindDelay = TimeSpan.FromSeconds(5);
+    [DataField(required: true)]
+    public TimeSpan UnbindDelay;
 
-    [DataField]
-    public SoundSpecifier BindSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/voidblink.ogg");
+    [DataField(required: true)]
+    public SoundSpecifier BindSound = default!;
 
-    [DataField]
-    public SoundSpecifier BindUserSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/voidblink.ogg",
-        AudioParams.Default.WithVolume(-8));
+    [DataField(required: true)]
+    public SoundSpecifier BindUserSound = default!;
 
     [DataField]
     public EntProtoId? RebindCooldownStatusEffect = "StatusEffectVoodooRebindCooldown";
 
-    [DataField]
-    public TimeSpan RebindCooldown = TimeSpan.FromMinutes(2);
+    [DataField(required: true)]
+    public TimeSpan RebindCooldown;
 
     // Spooky victim text size
-    [DataField]
-    public int FontSize = 20;
+    [DataField(required: true)]
+    public int FontSize;
 
-    [DataField]
-    public float? Range = 150f;
+    [DataField(required: true)]
+    public float? Range;
 
     [DataField]
     public bool LocationHints = true;
 
-    [DataField]
-    public float HintBeaconChance = 0.5f;
+    [DataField(required: true)]
+    public float HintBeaconChance;
 
-    [DataField]
-    public int ShockDamage = 5;
+    [DataField(required: true)]
+    public int ShockDamage;
 
-    [DataField]
-    public TimeSpan ShockTime = TimeSpan.FromSeconds(2);
+    [DataField(required: true)]
+    public TimeSpan ShockTime;
 
-    [DataField]
-    public TimeSpan FlashTime = TimeSpan.FromSeconds(5);
+    [DataField(required: true)]
+    public TimeSpan FlashTime;
 
-    [DataField]
-    public float FlashSlowTo = 0.5f;
+    [DataField(required: true)]
+    public float FlashSlowTo;
 
-    [DataField]
-    public SoundSpecifier FlashSound = new SoundPathSpecifier("/Audio/Weapons/flash.ogg",
-        AudioParams.Default.WithVolume(1f).WithMaxDistance(3f));
+    [DataField(required: true)]
+    public SoundSpecifier FlashSound = default!;
 
     [DataField]
     public EntProtoId BlindStatusEffect = "StatusEffectVoodooBlindness";
 
-    [DataField]
-    public TimeSpan BlindTime = TimeSpan.FromSeconds(10);
+    [DataField(required: true)]
+    public TimeSpan BlindTime;
 
-    [DataField]
-    public float HeatChange = 40f;
+    [DataField(required: true)]
+    public float HeatChange;
 
-    [DataField]
-    public SoundSpecifier HeatSound = new SoundPathSpecifier("/Audio/Items/welder.ogg");
+    [DataField(required: true)]
+    public SoundSpecifier HeatSound = default!;
 
     // Rolls with the heat interaction, % to add one fire stack.
-    [DataField]
-    public float IgniteChance = 0.33f;
+    [DataField(required: true)]
+    public float IgniteChance;
 
     [DataField(required: true)]
     public DamageSpecifier CutDamage = default!;
 
-    [DataField]
-    public float BleedAmount = 3.75f;
+    [DataField(required: true)]
+    public float BleedAmount;
 
-    [DataField]
-    public SoundSpecifier CutSound = new SoundPathSpecifier("/Audio/Weapons/bladeslice.ogg");
+    [DataField(required: true)]
+    public SoundSpecifier CutSound = default!;
 
     [DataField(required: true)]
     public DamageSpecifier ThrowDamage = default!;
 
-    [DataField]
-    public float ThrowDistance = 4f;
+    [DataField(required: true)]
+    public float ThrowDistance;
 
-    [DataField]
-    public float ThrowSpeed = 7f;
+    [DataField(required: true)]
+    public float ThrowSpeed;
 
-    [DataField]
-    public TimeSpan TripTime = TimeSpan.FromSeconds(2);
+    [DataField(required: true)]
+    public TimeSpan TripTime;
 
-    [DataField]
-    public TimeSpan ForcedAttackTime = TimeSpan.FromSeconds(6);
+    [DataField(required: true)]
+    public TimeSpan ForcedAttackTime;
 
-    [DataField]
-    public float ForcedShotRange = 3f;
+    [DataField(required: true)]
+    public float ForcedShotRange;
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? ForcedAttackStart;
 
-    [DataField]
-    public float FlingDistance = 4f;
+    [DataField(required: true)]
+    public float FlingDistance;
 
-    [DataField]
-    public float FlingSpeed = 10f;
+    [DataField(required: true)]
+    public float FlingSpeed;
 
     [DataField]
     public ProtoId<TagPrototype> PenTag = "Pen";
@@ -136,8 +134,8 @@ public sealed partial class VoodooDollComponent : Component
     [DataField]
     public ProtoId<StatusEffectPrototype> MuteStatusEffect = "Muted";
 
-    [DataField]
-    public TimeSpan MuteTime = TimeSpan.FromSeconds(10);
+    [DataField(required: true)]
+    public TimeSpan MuteTime;
 
     [DataField]
     public ProtoId<TagPrototype> LizardPlushieTag = "PlushieLizard";
@@ -161,11 +159,11 @@ public sealed partial class VoodooDollComponent : Component
     public ProtoId<TagPrototype> SoapTag = "Soap";
 
     // Friction override during soap
-    [DataField]
-    public float SoapFriction = 0.025f;
+    [DataField(required: true)]
+    public float SoapFriction;
 
-    [DataField]
-    public TimeSpan SoapTime = TimeSpan.FromSeconds(10);
+    [DataField(required: true)]
+    public TimeSpan SoapTime;
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? SoapEnd;
@@ -173,8 +171,8 @@ public sealed partial class VoodooDollComponent : Component
     [DataField(required: true)]
     public DamageSpecifier DestroyedDamage = default!;
 
-    [DataField]
-    public TimeSpan ViewTime = TimeSpan.FromSeconds(10);
+    [DataField(required: true)]
+    public TimeSpan ViewTime;
 
     [DataField]
     public EntityUid? Viewer;
