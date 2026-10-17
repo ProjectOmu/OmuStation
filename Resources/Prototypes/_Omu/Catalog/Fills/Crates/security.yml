@@ -8,3 +8,14 @@
     contents:
     - id: ClothingHandsGlovesCombat
       amount: 2
+
+- type: entity
+  id: CrateSecurityPanicButtons
+  parent: CrateSecgear
+  name: distress signaller crate
+  description: A crate containing four distress signallers.
+  components:
+  - type: StorageFill
+    contents:
+    - id: PanicButton
+      amount: 4
