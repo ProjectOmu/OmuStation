@@ -9159,3 +9159,9 @@ Entries:
       message: 'Ensured APCs have the correct state on round start. '
   id: 1184
   time: '2026-10-17T22:05:32.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Grey Tide now degrades clones properly and prevents dropping!
+  id: 1185
+  time: '2026-10-17T22:06:13.0000000+00:00'
