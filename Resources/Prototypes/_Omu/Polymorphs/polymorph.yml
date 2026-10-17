@@ -113,3 +113,16 @@
     transferDamage: true
     revertOnDeath: false
     revertOnCrit: false
+
+- type: polymorph
+  id: PolymorphRevert
+  configuration:
+    entity: ActionRevertPolymorph # refers to Resources/Prototypes/Actions/polymorph.yml ; no idea if this is what i actually need or not
+    forced: true
+    inventory: Transfer
+    transferName: true
+    transferDamage: true
+    revertOnDeath: false
+    revertOnCrit: false
+    AllowRepeatedMorphs: true
+    ignoreAllowRepeatedMorphs: true

@@ -15,3 +15,107 @@
           - !type:TemperatureCondition
             max: 213.0
           amount: -11 # 1 healing per bone on a humanoid, heals bones to full in 1 minute
+
+- type: reagent # cloning procenyl entry since we're following a similar mechanism
+  id: Cyclogenol
+  name: reagent-name-cyclogenol
+  group: Medicine
+  desc: reagent-desc-cyclogenol
+  physicalDesc: reagent-physical-desc-thick-and-grainy # delicate crystals in alcoholic syrup
+  flavor: astringent # tastes like alcohol
+  color: "#939393" # Edit later
+
+- type: reagent
+  id: Recyclogenix # Working name, maybe choose different suffix?
+  name: reagent-name-recyclogenix
+  group: Medicine
+  desc: reagent-desc-recyclogenix
+  physicalDesc: reagent-physical-desc-shimmering
+  flavor: medicine
+  color: "#ffdf97" #Edit later
+  worksOnTheDead: true # Omu
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:AdjustReagent
+        conditions:
+          - !type:TemperatureCondition
+            # cloned from cryoxadone, makes this a cryo med
+            max: 175.0
+          scaleByTemperature: # Shitmed Change
+            min: 100.0
+            max: 175.0
+            scale: 1.6
+          - !type:ReagentCondition
+            reagent: Recyclogenix
+            min: 34 # SHOULD allow it to hit the 40u polymorph trigger point before we make enough cytogenecin to start purging
+          reagent: Cytogenecin
+          amount: 1.2 # 0.5 -> 0.6 proportion, multiplied by two to get per unit basis; supposed to make around 48 cytogenecin
+      - !type:AdjustReagent # could make it remove mutation toxins from blood?
+        amount: 
+        reagent: 
+      - !type:Polymorph
+        conditions:
+          - !type:ReagentCondition # have to have a certain amount of it in the blood
+            reagent: Recyclogenix
+            min: 40
+          - !type:TemperatureCondition # dependent on cryonics to work
+            max: 175.0
+          scaleByTemperature: # Shitmed Change
+            min: 100.0
+            max: 175.0
+            scale: 1.6
+        prototype: PolymorphRevert # god i hope this works first try
+
+- type: reagent
+  id: Cytogenecin
+  name: reagent-name-cytogenecin
+  group: Medicine
+  desc: reagent-desc-cytogenecin
+  physicalDesc: reagent-physical-desc-nondescript # actually keeping it nondescript is really funny
+  flavor: medicine
+  color: "#65583b" # Edit later
+  worksOnTheDead: true # Omu
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1 # This can stay the same
+      effects:
+      - !type:HealthChange
+          conditions:
+          - !type:TemperatureCondition
+            max: 175.0
+          scaleByTemperature: # Shitmed Change
+            min: 100.0
+            max: 175.0
+            scale: 1.6
+          damage:
+            types:
+                Cellular: 0.17 # Should be around 20ish cellular by the time we hit 10u cytogenecin
+      - !type:Drunk # copied from bicaridine, for the giggles
+      - !type:AdjustReagent # remove extra precursor once there's enough cytogenecin
+        conditions:
+          - !type:TemperatureCondition
+            max: 175.0
+          scaleByTemperature: # Shitmed Change
+            min: 100.0
+            max: 175.0
+            scale: 1.6
+          - !type:ReagentCondition
+            reagent: Cytogenecin
+            min: 10
+        amount: -50
+        reagent: Recyclogenix
+    Narcotic:
+      effects:
+        - !type:PopupMessage # this is a dysmorphia cure after all
+        type: Local
+        visualType: Medium
+        messages:
+        - "cytogenecin-effect-dysmorphia"
+        - "cytogenecin-effect-anxieties"
+        - "cytogenecin-effect-at-peace"
+        probability: 0.2
+        conditions:
+        - !type:ReagentCondition
+          reagent: Cytogenecin
+          min: 5
