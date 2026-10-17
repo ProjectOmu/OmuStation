@@ -20,7 +20,7 @@ public sealed class AlertLevelEmitSoundSystem : EntitySystem
 
     private void OnAlertLevelChanged(AlertLevelChangedEvent args)
     {
-        var query = EntityQueryEnumerator<AlertLevelEmitSoundComponent>();
+        using var query = EntityQueryEnumerator<AlertLevelEmitSoundComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             SetSound((uid, comp), args.AlertLevel);
