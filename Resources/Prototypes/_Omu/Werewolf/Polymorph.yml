@@ -1,0 +1,14 @@
+- type: polymorph
+  id: WerewolfBasic
+  configuration:
+    entity: WerewolfEnt
+    forced: true
+    duration: 300 # Five minutes
+    transferDamage: false
+    revertOnCrit: true
+    revertOnDeath: true
+    componentsToTransfer:
+    - component: LanguageKnowledge
+    - component: LanguageSpeaker
+    - component: Grammar
+    - component: Werewolf
