@@ -84,7 +84,7 @@ public abstract partial class SharedGunSystem
         comp.LastFire = comp.NextFire;
 
         // Convert it so angle can go either side.
-        var random = Random(uid, tick).NextFloat(-0.5f, 0.5f);
+        var random = Random(uid).NextFloat(-0.5f, 0.5f);
 
         // <Goob>
         var angleEv = new GetRecoilModifiersEvent(uid, user ?? uid);

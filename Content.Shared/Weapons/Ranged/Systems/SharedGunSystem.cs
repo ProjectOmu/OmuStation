@@ -539,8 +539,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             return;
         // </Trauma>
         var mapAngle = mapDirection.ToAngle();
-        var angle = GetRecoilAngle(Timing.CurTime, (gunUid, gun), mapDirection.ToAngle(), user, // Trauma - pass gunUid and user
-            tick);
+        var angle = GetRecoilAngle(Timing.CurTime, (gunUid, gun), mapDirection.ToAngle(), user); // Trauma - pass gunUid and user
 
         userImpulse = true;
 

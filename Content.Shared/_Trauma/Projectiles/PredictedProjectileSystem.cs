@@ -97,7 +97,9 @@ public sealed class PredictedProjectileSystem : EntitySystem
     public void DoHit(Entity<ProjectileComponent, PhysicsComponent> ent, EntityUid target, Fixture otherFixture)
     {
         var (uid, comp, ourBody) = ent;
-        if (comp.ProjectileSpent || comp is { Weapon: null, OnlyCollideWhenShot: true })
+        if (comp.ProjectileSpent ||
+            comp.IgnoredEntities.Contains(target) || //omu edit
+            comp is { Weapon: null, OnlyCollideWhenShot: true })
             return;
 
         // it's here so this check is only done once before possible hit
@@ -142,20 +144,21 @@ public sealed class PredictedProjectileSystem : EntitySystem
                 LogImpact.Medium,
                 $"Projectile {ToPrettyString(uid):projectile} shot by {ToPrettyString(shooter):user} hit {otherName:target} and dealt {damage:damage} damage");
 
-            comp.ProjectileSpent = !TryPenetrate((uid, comp), target, damage, damageRequired);
+            if (TryPenetrate((uid, comp), target, damage, damageRequired))
+            { //omu start
+                comp.ProjectileSpent = false; // Hardlight bow should be able to deal damage while piercing, no? //omu moved this slightly
+                comp.IgnoredEntities.Add(target);
+            }
+            else
+            {
+                comp.ProjectileSpent = true;
+            } //omu end
         }
         else
         {
             comp.ProjectileSpent = true;
         }
 
-        // <Goob>
-        if (comp.Penetrate)
-        {
-            comp.IgnoredEntities.Add(target);
-            comp.ProjectileSpent = false; // Hardlight bow should be able to deal damage while piercing, no?
-        }
-        // </Goob>
 
         if (!deleted)
         {
@@ -176,6 +179,14 @@ public sealed class PredictedProjectileSystem : EntitySystem
     private bool TryPenetrate(Entity<ProjectileComponent> projectile, EntityUid target, DamageSpecifier damage, FixedPoint2 damageRequired)
     {
         var comp = projectile.Comp;
+
+        //omu from trauma start
+        if (comp.Penetrate)
+            return true;
+
+        if (damage.GetTotal() <= FixedPoint2.Zero)
+            return false;
+        //omu from trauma end
         // <Goob> - Splits penetration change if target have PenetratableComponent
         if (TryComp<PenetratableComponent>(target, out var penetratable))
         {
