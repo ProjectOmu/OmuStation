@@ -9165,3 +9165,99 @@ Entries:
       message: Grey Tide now degrades clones properly and prevents dropping!
   id: 1185
   time: '2026-10-17T22:06:13.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Add
+      message: >-
+        You can mark multiple characters as active and drag them into order in
+        character setup.
+    - type: Add
+      message: >-
+        Job priorities are now per account on the Character Jobs board in the
+        lobby. When you get a job, one of your active characters with it enabled
+        is picked.
+    - type: Add
+      message: >-
+        Hovering a job on the board shows each character's chance of being
+        picked.
+    - type: Tweak
+      message: Observing uses your top active character in the character list.
+  id: 1186
+  time: '2026-10-17T23:01:11.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Add
+      message: >-
+        Added Crescent, Hush and John plushies to the sectoral plushie crate and
+        the mystery sectoral command box.
+    - type: Add
+      message: >-
+        Added Sniffs-The-Glue (Yuuni) to the crew morale crate, who is also the
+        artist that sprited all these plushies!
+  id: 1187
+  time: '2026-10-18T00:18:24.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        Teg flickering on meta will no longer cause the entire power grid to
+        flicker
+    - type: Tweak
+      message: all pipes in meta atmos has been painted the correct colours
+    - type: Tweak
+      message: >-
+        replaced several of the pre-damaged grilles of meta with the random
+        grille spawner prototype
+  id: 1188
+  time: '2026-10-18T02:04:52.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Tweak
+      message: Multiple Users can now look at the same SM & Power monitoring console
+  id: 1189
+  time: '2026-10-18T02:13:39.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: Harpy "Scree"ing can now make both Allulalo and Resomi noises.
+  id: 1190
+  time: '2026-10-18T02:21:21.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Fix
+      message: LightsOut GameRules no longer target CentComm nor the Cargo Shuttle
+  id: 1191
+  time: '2026-10-18T02:39:18.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Remove
+      message: Removed the "no ears" marking for rodentia.
+  id: 1192
+  time: '2026-10-18T02:52:12.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Add
+      message: >-
+        Added new list property for Antag definitions: jobAntagImmunityOverride.
+        This will make those jobs able to roll that specific antag regardless of
+        that job's canBeAntag value.
+  id: 1193
+  time: '2026-10-18T04:05:49.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Add
+      message: >-
+        Added the Wicker Doll, a cursed doll Chaplains, Librarians, Clowns and
+        Mimes can buy from the uplink. Curse someone by using their fingerprints
+        or DNA from and item, or directly on them, then torment them in various
+        ways.
+  id: 1194
+  time: '2026-10-18T05:38:18.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: >-
+        Secarang considerably nerfed. It now takes 10 total hits for a stun on
+        no stamina resistance.
+  id: 1195
+  time: '2026-10-18T06:33:10.0000000+00:00'
