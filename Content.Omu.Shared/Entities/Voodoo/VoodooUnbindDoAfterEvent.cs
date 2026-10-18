@@ -6,6 +6,4 @@ using Robust.Shared.Serialization;
 namespace Content.Omu.Shared.Entities.Voodoo;
 
 [Serializable, NetSerializable]
-public sealed partial class VoodooUnbindDoAfterEvent : SimpleDoAfterEvent
-{
-}
+public sealed partial class VoodooUnbindDoAfterEvent : SimpleDoAfterEvent;
