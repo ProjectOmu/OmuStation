@@ -60,3 +60,87 @@
   - type: UseDelay
     delay: 0.1
   - type: UseDelayBlockShoot
+
+- type: entity
+  name: Henrietta
+  parent: [ BaseItem, BaseGunWieldable, BaseGrandTheftContraband ]
+  id: WeaponLeverHenrietta
+  description: A breechloading 8 gauge shotgun of unknown origins that has been customarily passed down from a Warden to their successor over the years. You feel certain that this weapon will never fail you.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Lever/henrietta_icon_48x.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    sprite: _Omu/Objects/Weapons/Guns/Lever/henrietta.rsi
+    size: Large
+    shape:
+    - 0,0,4,1
+  - type: Clothing
+    sprite: _Omu/Objects/Weapons/Guns/Lever/henrietta.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Omu/Weapons/henriettafire.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: MuzzleSmoke
+    effect: EffectGunSmoke
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - ShellShotgunHeavy
+    capacity: 1
+    proto: ShellShotgunHighCaliber
+    soundInsert:
+      path: /Audio/_Omu/Weapons/henriettaclose.ogg
+    soundRack:
+      path: /Audio/_Omu/Weapons/henriettaopen.ogg
+    autoCycle: false
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.AmmoVisuals.AmmoCount:
+        enum.GunVisualLayers.Base:
+          0: { state: bolt-open }
+          1: { state: base }
+  - type: AltFireMelee
+  - type: MeleeWeapon
+    attackRate: 0.8
+    range: 2
+    canWideSwing: false
+    damage:
+      types:
+        Piercing: 12
+    angle: 0
+    animationRotation: -90
+    wideAnimationRotation: -90
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: EmitSoundOnPickup
+    sound:
+      collection: ShotgunsPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: ShotgunsDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: ShotgunsDrop
+  - type: StealTarget
+    stealGroup: WeaponEnergyShotgun
+  - type: StaticPrice
+    price: 500
