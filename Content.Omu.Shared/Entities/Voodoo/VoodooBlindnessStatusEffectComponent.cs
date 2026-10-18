@@ -5,6 +5,4 @@ using Robust.Shared.GameStates;
 namespace Content.Omu.Shared.Entities.Voodoo;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class VoodooBlindnessStatusEffectComponent : Component
-{
-}
+public sealed partial class VoodooBlindnessStatusEffectComponent : Component;
