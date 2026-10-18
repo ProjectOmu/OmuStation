@@ -217,7 +217,7 @@
       thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 40
+          damage: 40 # gibs on death
         behaviors:
         - !type:GibBehavior
          gibContents: Skip 
