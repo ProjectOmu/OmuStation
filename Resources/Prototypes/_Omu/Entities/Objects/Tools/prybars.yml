@@ -35,6 +35,7 @@
   - type: StaticPrice
     price: 22
   - type: Prying
+    canPryPoweredFirelocks: false
   - type: UseDelay
     delay: 1
   - type: Sprite # while ideally i'd have a non branded sprite here i'm no spriter and it shouldnt matter short term anyways
