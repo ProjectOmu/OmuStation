@@ -9,6 +9,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
+using Robust.Shared.Player;
 
 namespace Content.Omu.Shared.MansusMob;
 
@@ -116,7 +117,10 @@ public sealed class SharedMansusMobSystem : EntitySystem
         if (!TryComp<MansusMobComponent>(args.Performer, out var mansus))
             return;
 
-        _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Omu/Entities/eerie_scream.ogg"), args.Performer);
+        foreach (var lookupUid in _lookup.GetEntitiesInRange<ActorComponent>(Transform(args.Performer).Coordinates, mansus.ScreechRange))
+        {
+            _aud.PlayEntity(new SoundPathSpecifier("/Audio/_Omu/Entities/eerie_scream.ogg"), lookupUid.Owner, lookupUid.Owner);
+        }
 
         foreach (var lookupUid in _lookup.GetEntitiesInRange<PoweredLightComponent>(Transform(args.Performer).Coordinates, mansus.ScreechRange))
         {
