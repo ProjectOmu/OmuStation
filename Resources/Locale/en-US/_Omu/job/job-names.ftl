@@ -21,3 +21,4 @@ JobCourier = Courier #Playtime tracker
 job-name-courier = Courier
 job-name-logistics-assistant = Logistics Assistant
 job-name-mail-goblin = Mail Goblin
+job-name-punpun = Pun Pun job name
