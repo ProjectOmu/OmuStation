@@ -11,13 +11,15 @@
     SleeperAgents: 1 # Omu
     # Slasher: 1 # Omu, disable this
     # Goobstation end
+    LoneXeno: 1 # Omu
+    Colossus: 1 # Omu - should be here but isnt lol - Clive
 
 - type: ninjaHackingThreat
   id: Dragon
   announcement: terror-dragon
   rule: DragonSpawn
 
-# Omu start 
+# Omu start
 - type: ninjaHackingThreat
   id: SleeperAgents
   announcement: terror-sleeper

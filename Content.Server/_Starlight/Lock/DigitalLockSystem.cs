@@ -6,7 +6,7 @@ using Content.Shared.Interaction;
 using Content.Shared._Starlight.Lock;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Audio.Systems;
+using Robust.Shared.Random;
 using Content.Shared.Electrocution;
 using Content.Shared.Examine;
 using Robust.Shared.Utility;
@@ -23,6 +23,7 @@ public sealed class DigitalLockSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambient = default!;
     [Dependency] private readonly NukeSystem _nuke = default!; // Omu
+    [Dependency] private readonly IRobustRandom _random = default!; // Omu
 
     public override void Initialize()
     {
@@ -39,6 +40,9 @@ public sealed class DigitalLockSystem : EntitySystem
         SubscribeLocalEvent<DigitalLockComponent, DigitalLockKeypadMessage>(OnKeypadButtonPressed);
         SubscribeLocalEvent<DigitalLockComponent, DigitalLockKeypadClearMessage>(OnClearButtonPressed);
         SubscribeLocalEvent<DigitalLockComponent, DigitalLockKeypadEnterMessage>(OnEnterButtonPressed);
+
+        //Omu
+        SubscribeLocalEvent<DigitalLockComponent, MapInitEvent>(OnMapInit);
     }
     #region Hacking
 
@@ -344,4 +348,20 @@ public sealed class DigitalLockSystem : EntitySystem
            or DigitalLockStatus.CHANGE_MODE_CODE;
 
     #endregion
+
+    //Omu
+    private void OnMapInit(EntityUid uid, DigitalLockComponent component, MapInitEvent args)
+    {
+        if (component.RandomCode == false)
+            return;
+
+        var code = "";
+        for (var i = 0; i < component.MaxCodeLength; i++)
+        {
+            var c = (char) _random.Next('0', '9' + 1);
+            code += c;
+        }
+
+        component.Code = code;
+    }
 }

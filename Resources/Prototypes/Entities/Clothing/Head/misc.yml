@@ -10,6 +10,15 @@
     sprite: Clothing/Head/Misc/bunny.rsi
   - type: Clothing
     sprite: Clothing/Head/Misc/bunny.rsi
+  # Omu start
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - DroneUsable
+    - ClothingHats
+    - MothroachUnwearable
+  # Omu end
 
 - type: entity
   parent: ClothingHeadBase
@@ -219,7 +228,8 @@
   categories: [ DoNotMap ]
   components:
   - type: Tag
-    tags: [] # ignore "WhitelistChameleon" tag
+    tags: # ignore "WhitelistChameleon" tag # Omu
+    - MothroachUnwearable # Omu
   - type: Sprite
     sprite: Clothing/Head/Hats/catears.rsi
   - type: Clothing
@@ -243,7 +253,8 @@
     components:
     - type: KillSign
   - type: Tag
-    tags: [] # ignore "WhitelistChameleon" tag
+    tags: # ignore "WhitelistChameleon" tag # Omu
+    - MothroachUnwearable # Omu
   - type: Sprite
     sprite: Clothing/Head/Hats/catears.rsi
   - type: Clothing
@@ -270,6 +281,15 @@
     sprite: Clothing/Head/Hats/dogears.rsi
   - type: AddAccentClothing
     accent: BarkAccent
+  # Omu start
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - DroneUsable
+    - ClothingHats
+    - MothroachUnwearable
+  # Omu end
 
 - type: entity
   parent: ClothingHeadBase

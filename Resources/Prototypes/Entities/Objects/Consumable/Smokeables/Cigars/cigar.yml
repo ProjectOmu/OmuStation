@@ -21,6 +21,22 @@
     size: Tiny
     sprite: Objects/Consumable/Smokeables/Cigars/cigar.rsi
     heldPrefix: unlit
+  # Omu start
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 25
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 15
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 5
+  # Omu end
 
 - type: entity
   id: CigarSpent
@@ -35,6 +51,13 @@
     solutions:
       smokable:
         maxVol: 20
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 1
+      # Omu end
   - type: Tag
     tags:
       - Cigar
@@ -77,6 +100,13 @@
     solutions:
       smokable:
         maxVol: 20
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 1
+      # Omu end
   # Omu start - correct incomplete tagging
   - type: Tag
     tags:

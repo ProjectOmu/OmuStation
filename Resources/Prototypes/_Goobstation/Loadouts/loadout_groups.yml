@@ -363,6 +363,15 @@
   loadouts:
   - AtmosEnvirogloves
 
+- type: loadoutGroup
+  id: AtmosphericTechnicianBelt
+  minLimit: 1
+  maxLimit: 1
+  name: loadout-group-atmospheric-technician-belt
+  loadouts:
+  - AtmosphericTechnicianUtilityBelt
+  - AtmosphericTechnicianAtmosBelt
+
 # Chief Engineer
 
 - type: loadoutGroup
@@ -1451,6 +1460,7 @@
   - ChemistNurseHat # Starlight - OMU port
   - ChemistTruckersHat # Starlight - OMU port
   - ChemistFisherCap # Starlight - OMU port
+  - UshankaChemist # Omu
 
 - type: loadoutGroup
   id: ChemistEnvirohelm
@@ -1521,7 +1531,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - GorillaGloves # Omu
+  - CombatGloves
 
 # Brigmedic | Omu - You mean Corpsman?
 
@@ -1555,6 +1565,7 @@
   - CorpsmanVeteranHeadHatKepi # Omu
   - CorpsmanNurseHat # Starlight
   - BrigmedicNurseHatOfLife # Starlight
+  - BrigmedicUshanka # Omu
 
 - type: loadoutGroup
   id: BrigmedicOuterClothing
@@ -1800,6 +1811,8 @@
   - SalvageSpecialistJumpskirt
   - SalvageSpecialistOveralls
   - SalvageSpecialistMJ
+  - VintageShaftMinerJumpsuit # Omu
+  - SalvageJumpskirt # Omu
 
 - type: loadoutGroup
   id: ShaftMinerJumpsuit

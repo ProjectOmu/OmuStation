@@ -38,6 +38,12 @@ public sealed partial class NodeCrawlerComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan EnterDelay = TimeSpan.FromSeconds(2.5f); // Omu, was 0.5, move it to be in line with ventcrawl's doafter
+
+    /// <summary>
+    /// Omu - which entities are given unremovable
+    /// </summary>
+    [DataField]
+    public List<EntityUid> Unremovables = new();
 }
 
 [Serializable, NetSerializable]

@@ -32,6 +32,7 @@
     - type: DeviceNetwork
       deviceNetId: Wireless
       transmitFrequencyId: ShuttleTimer
+    - type: VoiceBroadcastConsole # Omu, this is a goob component, but without it tests fail.
 
 - type: entity
   id: HandheldCentComs
@@ -68,3 +69,4 @@
     - type: DeviceNetwork
       deviceNetId: Wireless
       transmitFrequencyId: ShuttleTimer
+    - type: VoiceBroadcastConsole # Omu, this is a goob component, but without it tests fail.

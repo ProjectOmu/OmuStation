@@ -29,8 +29,7 @@
       types:
         Slash: 25
         Blunt: 25
-  - type: DemonicWhisper
-  - type: PossessObject
+  #- type: PossessObject # Omu edit
   - type: SpookMark
   #- type: WraithCommand
   #  blacklist:
@@ -53,11 +52,11 @@
   - type: ActionGrant
     actions:
     - ActionAbsorbCorpse
-    - ActionPossessObject
+   # - ActionPossessObject # Omu edit # Breaks items and meele weapons. would need to be entirely reworked.
     - ActionDecay
    # - ActionCommand
    # - ActionAnimateObject
-    - ActionWhisper
+    - ActionWraithWhisper
     - ActionBloodWriting
     - ActionSpook
     - ActionToggleGhosts

@@ -9,6 +9,8 @@ using Content.Shared.Database;
 using Content.Shared.NPC.Systems;
 using Content.Shared.NPC.Components;
 using Content.Shared._Omu.Heretic;
+using Content.Shared.Actions.Components;
+using Content.Shared.Actions;
 using Content.Shared.Interaction;
 using Content.Goobstation.Shared.Bible;
 
@@ -20,6 +22,7 @@ public sealed class FascinationSystem: EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -80,6 +83,11 @@ public sealed class FascinationSystem: EntitySystem
         }
         if (fascvalue <= 0)
         {
+            if (TryComp<ActionsContainerComponent>(ent, out var actioncomp))
+                foreach (var actionuid in actioncomp.Container.ContainedEntities)
+                    if (TryComp<FascinationGrantedComponent>(actionuid, out _))
+                        _actionContainer.RemoveAction(actionuid);           //Incentive to be just a little mad - you get the actions!
+
             RemComp<FascinationComponent>(ent);
         }
         if (fascvalue >= 5 && args.Amount > 0)
