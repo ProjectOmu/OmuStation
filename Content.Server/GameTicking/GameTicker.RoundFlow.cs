@@ -406,7 +406,7 @@ namespace Content.Server.GameTicking
                 HumanoidCharacterProfile profile;
                 if (_prefsManager.TryGetCachedPreferences(userId, out var preferences))
                 {
-                    profile = _characterQueue.GetAssignmentProfile(userId, preferences); // Omu
+                    profile = (HumanoidCharacterProfile) preferences.SelectedCharacter;
                 }
                 else
                 {

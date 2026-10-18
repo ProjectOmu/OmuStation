@@ -2,7 +2,6 @@
 
 using System.Linq;
 using Content.Server._Goobstation.Antag;
-using Content.Server._Omu.Preferences;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag.Components;
 using Content.Server.Chat.Managers;
@@ -50,7 +49,6 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 {
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IBanManager _ban = default!;
-    [Dependency] private readonly CharacterQueueSystem _characterQueue = default!; // Omu
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly GhostRoleSystem _ghostRole = default!;
     [Dependency] private readonly JobSystem _jobs = default!;

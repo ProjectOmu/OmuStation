@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Client.Stylesheets;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
@@ -27,8 +26,6 @@ public sealed partial class CharacterPickerButton : ContainerButton
     /// Invoked if we should delete the attached character
     /// </summary>
     public event Action? OnDeletePressed;
-
-    public event Action<bool>? OnActiveToggled; // Omu
 
     public CharacterPickerButton(
         IEntityManager entityManager,
@@ -79,8 +76,6 @@ public sealed partial class CharacterPickerButton : ContainerButton
             DeleteButton.Visible = false;
             ConfirmDeleteButton.Visible = true;
         };
-
-        ActiveButton.OnToggled += args => OnActiveToggled?.Invoke(args.Pressed); // Omu
     }
 
     protected override void Dispose(bool disposing)
@@ -92,17 +87,4 @@ public sealed partial class CharacterPickerButton : ContainerButton
         _entManager.DeleteEntity(_previewDummy);
         _previewDummy = default;
     }
-
-    // Omu start
-    public void SetActive(bool active)
-    {
-        ActiveButton.Pressed = active;
-        ActiveButton.Text = Loc.GetString(active ? "character-queue-active" : "character-queue-inactive");
-
-        if (active)
-            DescriptionLabel.RemoveStyleClass(StyleClass.LabelWeak);
-        else
-            DescriptionLabel.AddStyleClass(StyleClass.LabelWeak);
-    }
-    // Omu end
 }

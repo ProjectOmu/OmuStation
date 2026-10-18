@@ -2,7 +2,6 @@
 
 using System.Linq;
 using System.Numerics;
-using Content.Client._Omu.Preferences;
 using Content.Client.CrewManifest;
 using Content.Client.GameTicking.Managers;
 using Content.Client.Lobby;
@@ -30,12 +29,12 @@ namespace Content.Client.LateJoin
         [Dependency] private readonly IConfigurationManager _configManager = default!;
         [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
         [Dependency] private readonly JobRequirementsManager _jobRequirements = default!;
+        [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
         [Dependency] private readonly ILogManager _logManager = default!;
 
         public event Action<(NetEntity, string)> SelectedId;
 
         private readonly ClientGameTicker _gameTicker;
-        private readonly CharacterQueueSystem _characterQueue; // Omu
         private readonly SpriteSystem _sprites;
         private readonly CrewManifestSystem _crewManifest;
         private readonly ISawmill _sawmill;
@@ -53,7 +52,6 @@ namespace Content.Client.LateJoin
             _sprites = _entitySystem.GetEntitySystem<SpriteSystem>();
             _crewManifest = _entitySystem.GetEntitySystem<CrewManifestSystem>();
             _gameTicker = _entitySystem.GetEntitySystem<ClientGameTicker>();
-            _characterQueue = _entitySystem.GetEntitySystem<CharacterQueueSystem>(); // Omu
             _sawmill = _logManager.GetSawmill("latejoin.panel");
 
             Title = Loc.GetString("late-join-gui-title");
@@ -67,7 +65,6 @@ namespace Content.Client.LateJoin
             ContentsContainer.AddChild(_base);
 
             _jobRequirements.Updated += RebuildUI;
-            _characterQueue.Updated += RebuildUI; // Omu
             RebuildUI();
 
             SelectedId += x =>
@@ -264,8 +261,7 @@ namespace Content.Client.LateJoin
 
                         jobButton.OnPressed += _ => SelectedId.Invoke((id, jobButton.JobId));
 
-                        var joining = _characterQueue.GetJoinCharacters(prototype, out var reason); // Omu
-                        if (joining.Count == 0) // Omu
+                        if (!_jobRequirements.IsAllowed(prototype, (HumanoidCharacterProfile?)_preferencesManager.Preferences?.SelectedCharacter, out var reason))
                         {
                             jobButton.Disabled = true;
 
@@ -289,14 +285,6 @@ namespace Content.Client.LateJoin
                         {
                             jobButton.Disabled = true;
                         }
-
-                        // Omu start
-                        if (joining.Count > 0)
-                        {
-                            var names = string.Join(", ", joining.Select(c => c.Name));
-                            jobButton.ToolTip = Loc.GetString("character-queue-joins-as", ("names", names));
-                        }
-                        // Omu end
 
                         if (!_jobButtons[id].ContainsKey(prototype.ID))
                         {
@@ -344,7 +332,6 @@ namespace Content.Client.LateJoin
             if (disposing)
             {
                 _jobRequirements.Updated -= RebuildUI;
-                _characterQueue.Updated -= RebuildUI; // Omu
                 _gameTicker.LobbyJobsAvailableUpdated -= JobsAvailableUpdated;
                 _jobButtons.Clear();
                 _jobCategories.Clear();

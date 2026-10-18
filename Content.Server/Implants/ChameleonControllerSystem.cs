@@ -1,6 +1,5 @@
 ﻿using Content.Server.Clothing.Systems;
 using Content.Server.Preferences.Managers;
-using Content.Server._Omu.Preferences;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Implants;
@@ -23,7 +22,7 @@ public sealed class ChameleonControllerSystem : SharedChameleonControllerSystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedStationSpawningSystem _stationSpawningSystem = default!;
     [Dependency] private readonly ChameleonClothingSystem _chameleonClothingSystem = default!;
-    [Dependency] private readonly CharacterQueueSystem _characterQueue = default!; // Omu
+    [Dependency] private readonly IServerPreferencesManager _preferences = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
 
     public override void Initialize()
@@ -88,8 +87,9 @@ public sealed class ChameleonControllerSystem : SharedChameleonControllerSystem
             return;
 
         var userId = actorComponent.PlayerSession.UserId;
+        var prefs = _preferences.GetPreferences(userId);
 
-        if (_characterQueue.GetCurrentCharacter(userId) is not { } profile) // Omu
+        if (prefs.SelectedCharacter is not HumanoidCharacterProfile profile)
             return;
 
         var jobProtoId = LoadoutSystem.GetJobPrototype(jobPrototype.ID);

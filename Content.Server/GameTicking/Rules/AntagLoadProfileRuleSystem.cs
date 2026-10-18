@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Antag;
-using Content.Server._Omu.Preferences;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Humanoid;
 using Content.Server.Preferences.Managers;
@@ -15,9 +14,9 @@ namespace Content.Server.GameTicking.Rules;
 
 public sealed class AntagLoadProfileRuleSystem : GameRuleSystem<AntagLoadProfileRuleComponent>
 {
-    [Dependency] private readonly CharacterQueueSystem _characterQueue = default!; // Omu
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IServerPreferencesManager _prefs = default!;
     [Dependency] private readonly SharedHumanoidAppearanceSystem _sharedHumanoid = default!; // Goobstation
 
     public override void Initialize()
@@ -33,7 +32,7 @@ public sealed class AntagLoadProfileRuleSystem : GameRuleSystem<AntagLoadProfile
             return;
 
         var profile = args.Session != null
-            ? _characterQueue.GetAntagCharacter(args.Session.UserId, args.AntagRoles) // Omu
+            ? _prefs.GetPreferences(args.Session.UserId).SelectedCharacter as HumanoidCharacterProfile
             : HumanoidCharacterProfile.RandomWithSpecies();
 
 
