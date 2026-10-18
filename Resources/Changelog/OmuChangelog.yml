@@ -9234,3 +9234,12 @@ Entries:
       message: Removed the "no ears" marking for rodentia.
   id: 1192
   time: '2026-10-18T02:52:12.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Add
+      message: >-
+        Added new list property for Antag definitions: jobAntagImmunityOverride.
+        This will make those jobs able to roll that specific antag regardless of
+        that job's canBeAntag value.
+  id: 1193
+  time: '2026-10-18T04:05:49.0000000+00:00'
