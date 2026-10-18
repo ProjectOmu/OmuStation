@@ -383,16 +383,6 @@
   - JumpskirtGreenElegantDress
   - JumpskirtPurpleElegantDress
   - JumpskirtRedElegantDress
-  - JumpsuitMedicalDoctorOD
-  - JumpskirtMedicalDoctorOD
-  - JumpsuitScientistOD
-  - JumpskirtScientistOD
-  - JumpsuitEngineeringOD
-  - JumpskirtEngineeringOD
-  - JumpsuitCargoOD
-  - JumpskirtCargoOD
-  - JumpsuitBartenderOD
-  - JumpskirtBartenderOD
  # omu changes end
 
 - type: loadoutGroup
@@ -429,7 +419,12 @@
   - PonchoSmallRed
   - PonchoSmallPink
   - PonchoSmallBlack
-  - PonchoSmallWhite # omu end
+  - PonchoSmallWhite
+  - ArmbandMedOD
+  - ArmbandSciOD
+  - ArmbandEngiOD
+  - ArmbandCargoOD
+  - ArmbandServiceOD #omu end
 
 - type: loadoutGroup
   id: PassengerOuterClothing

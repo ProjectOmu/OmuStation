@@ -7,22 +7,22 @@
   playTimeTracker: JobPassenger
   startingGear: PassengerGear
   icon: "JobIconPassenger"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-hop # omu
   goobcoins: 20 #Goob content
   access:
   - Maintenance
-  special: # Goobstation
-  - !type:AddComponentSpecial
-    components:
-    - type: NpcFactionMember
-      factions:
-      - NanoTrasen
-      - Assistant
+  # special: # Goobstation # omu 
+  # - !type:AddComponentSpecial
+  #   components:
+  #   - type: NpcFactionMember
+  #     factions:
+  #     - NanoTrasen
+  #     - Assistant
 
 - type: startingGear
   id: PassengerGear
   equipment:
-    id: PassengerPDA
+    # id: PassengerPDA #omu moved to loadout
     ears: ClothingHeadsetGrey
   #storage:
     #back:

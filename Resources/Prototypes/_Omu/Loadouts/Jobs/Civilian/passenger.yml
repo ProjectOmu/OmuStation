@@ -45,6 +45,15 @@
       department: Civilian
       time: 36000 # 10 hrs
 
+- type: loadoutEffectGroup
+  id: SecEnjoyer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10 hrs
+
 ##jumpsuit
 #generic jumpsuits
 - type: loadout
@@ -248,97 +257,6 @@
     jumpsuit: ClothingUniformJumpskirtRedElegantDress
   groupBy: "JumpsuitElegantDress"
 
-#department
-- type: loadout
-  id: JumpsuitMedicalDoctorOD
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MedEnjoyer
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitMedicalDoctor
-  groupBy: "JumpsuitDepartment"
-
-- type: loadout
-  id: JumpskirtMedicalDoctorOD
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MedEnjoyer
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtMedicalDoctor
-  groupBy: "JumpsuitDepartment"
-  
-- type: loadout
-  id: JumpsuitScientistOD
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SciEnjoyer
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitScientist
-  groupBy: "JumpsuitDepartment"
-
-- type: loadout
-  id: JumpskirtScientistOD
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SciEnjoyer
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtScientist
-  groupBy: "JumpsuitDepartment"
-
-- type: loadout
-  id: JumpsuitEngineeringOD
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: EngiEnjoyer
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitEngineering
-  groupBy: "JumpsuitDepartment"
-
-- type: loadout
-  id: JumpskirtEngineeringOD
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: EngiEnjoyer
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtEngineering
-  groupBy: "JumpsuitDepartment"
-
-- type: loadout
-  id: JumpsuitCargoOD
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: CargoEnjoyer
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitCargo
-  groupBy: "JumpsuitDepartment"
-
-- type: loadout
-  id: JumpskirtCargoOD
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: CargoEnjoyer
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtCargo
-  groupBy: "JumpsuitDepartment"
-
-- type: loadout
-  id: JumpsuitBartenderOD
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ServiceEnjoyer
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitBartender
-  groupBy: "JumpsuitDepartment"
-
-- type: loadout
-  id: JumpskirtBartenderOD
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ServiceEnjoyer
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtBartender
-  groupBy: "JumpsuitDepartment"
-
 ## Outerclothing
 #winter coats
 
@@ -440,6 +358,52 @@
   equipment:
     neck: ClothingNeckPonchoSmallWhite
 
+#armbands
+- type: loadout
+  id: ArmbandMedOD
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MedEnjoyer
+  equipment:
+    neck: ClothingArmbandMed
+  groupBy: "ArmbandDepartment"
+
+- type: loadout
+  id: ArmbandSciOD
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SciEnjoyer
+  equipment:
+    neck: ClothingArmbandSci
+  groupBy: "ArmbandDepartment"
+
+- type: loadout
+  id: ArmbandEngiOD
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EngiEnjoyer
+  equipment:
+    neck: ClothingArmbandEngi
+  groupBy: "ArmbandDepartment"
+
+- type: loadout
+  id: ArmbandCargoOD
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: CargoEnjoyer
+  equipment:
+    neck: ClothingArmbandCargo
+  groupBy: "ArmbandDepartment"
+
+- type: loadout
+  id: ArmbandServiceOD
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ServiceEnjoyer
+  equipment:
+    neck: ClothingArmbandService
+  groupBy: "ArmbandDepartment"
+
 ##trinket
 #guidebooks
 - type: loadout
@@ -490,3 +454,15 @@
     back:
       - BookMedicalReferenceBook
   groupBy: "guidebook"
+
+##PDA
+- type: loadout
+  id: BasicPDA
+  equipment:
+    id: PassengerPDA
+
+- type: loadout
+  id: ClearPDA
+  equipment:
+    id: ClearPDA
+
