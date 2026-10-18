@@ -28,7 +28,7 @@ public sealed class MansusMobSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var seekQuery = EntityQueryEnumerator<MansusSeekComponent>();
+        using var seekQuery = EntityQueryEnumerator<MansusSeekComponent>();
         while (seekQuery.MoveNext(out var uid, out var seek))
         {
             if (Deleted(seek.TrackedId))
@@ -48,7 +48,7 @@ public sealed class MansusMobSystem : EntitySystem
             // If not tracking, check for another maddened player
             if (!seek.Tracking)
             {
-                var madQuery = EntityQueryEnumerator<FascinationComponent>();
+                using var madQuery = EntityQueryEnumerator<FascinationComponent>();
                 while (madQuery.MoveNext(out var madUid, out var fascination))
                 {
                     if (fascination.FascinationValue >= 5)
