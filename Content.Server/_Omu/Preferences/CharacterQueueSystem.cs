@@ -300,7 +300,10 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
         }
     }
 
-    private bool HasReservedJob(ICommonSession session, List<ProtoId<JobPrototype>>? blacklist)
+    private bool HasReservedJob(
+        ICommonSession session,
+        List<ProtoId<JobPrototype>>? blacklist,
+        List<ProtoId<JobPrototype>>? overrides)
     {
         if (!_prefs.TryGetCachedPreferences(session.UserId, out var prefs))
             return true;
@@ -313,7 +316,7 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
         return jobs.Any(job => blacklist?.Contains(job) != true
             && bans?.Contains(job) != true
             && _prototypes.TryIndex(job, out var jobPrototype)
-            && jobPrototype.CanBeAntag);
+            && (jobPrototype.CanBeAntag || overrides?.Contains(job) == true));
     }
 
     private async Task LoadData(ICommonSession session, CancellationToken cancel)
@@ -371,10 +374,11 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
         ReserveAntags(rules);
 
         var blacklists = _antag.GetPreSelectedAntagSessionsWithBlacklist();
+        var overrides = _antag.GetPreSelectedAntagSessionsWithImmunityOverride();
         foreach (var session in ev.PlayerPool)
         {
             if (!_reservations.ContainsKey(session.UserId)
-                || HasReservedJob(session, blacklists.GetValueOrDefault(session)))
+                || HasReservedJob(session, blacklists.GetValueOrDefault(session), overrides.GetValueOrDefault(session)))
                 continue;
 
             foreach (var rule in rules)
