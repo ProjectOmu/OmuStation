@@ -26,9 +26,7 @@ public sealed class VoodooDollBoundUserInterface(EntityUid owner, Enum uiKey) : 
         if (_menu == null || state is not VoodooDollBoundUserInterfaceState voodooState)
             return;
 
-        var options = new List<RadialMenuOptionBase>();
-
-        options.AddRange(
+        _menu.SetButtons(
             voodooState.Candidates.Select(c => new RadialMenuActionOption<NetEntity>(ChooseVictim, c.Entity)
             {
                 ToolTip = c.Name,
@@ -37,8 +35,6 @@ public sealed class VoodooDollBoundUserInterface(EntityUid owner, Enum uiKey) : 
                     : RadialMenuIconSpecifier.With(c.Prototype),
             })
         );
-
-        _menu.SetButtons(options);
     }
 
     private void ChooseVictim(NetEntity victim)
