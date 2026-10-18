@@ -3,8 +3,6 @@
 - type: entity
   parent: [BaseItem, BaseMagicalContraband]
   id: VoodooDoll
-  name: wicker doll
-  description: You feel like it's watching you.
   components:
   - type: Sprite
     sprite: _Omu/Objects/Misc/voodoo_doll.rsi
