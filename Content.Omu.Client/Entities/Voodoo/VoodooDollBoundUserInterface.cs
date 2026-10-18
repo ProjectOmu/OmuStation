@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Client.UserInterface.Controls;
 using Content.Omu.Shared.Entities.Voodoo;
 using Robust.Client.UserInterface;
@@ -26,16 +27,16 @@ public sealed class VoodooDollBoundUserInterface(EntityUid owner, Enum uiKey) : 
             return;
 
         var options = new List<RadialMenuOptionBase>();
-        foreach (var candidate in voodooState.Candidates)
-        {
-            options.Add(new RadialMenuActionOption<NetEntity>(ChooseVictim, candidate.Entity)
+
+        options.AddRange(
+            voodooState.Candidates.Select(c => new RadialMenuActionOption<NetEntity>(ChooseVictim, c.Entity)
             {
-                ToolTip = candidate.Name,
-                IconSpecifier = EntMan.TryGetEntity(candidate.Entity, out var uid)
+                ToolTip = c.Name,
+                IconSpecifier = EntMan.TryGetEntity(c.Entity, out var uid)
                     ? RadialMenuIconSpecifier.With(uid)
-                    : RadialMenuIconSpecifier.With(candidate.Prototype),
-            });
-        }
+                    : RadialMenuIconSpecifier.With(c.Prototype),
+            })
+        );
 
         _menu.SetButtons(options);
     }
