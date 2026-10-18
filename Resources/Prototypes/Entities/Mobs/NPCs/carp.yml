@@ -217,7 +217,7 @@
       thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 50
+          damage: 40
         behaviors:
         - !type:GibBehavior
          gibContents: Skip 
