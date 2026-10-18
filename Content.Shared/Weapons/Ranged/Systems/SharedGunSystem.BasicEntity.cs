@@ -49,7 +49,7 @@ public abstract partial class SharedGunSystem
             var proto = ent.Comp.Proto ?? prototypes!.Pick(rand);
             var ammoEnt = PredictedSpawnAtPosition(proto, args.Coordinates);
             // </Trauma>
-            args.Ammo.Add((ent, EnsureShootable(ent)));
+            args.Ammo.Add((ammoEnt, EnsureShootable(ammoEnt)));
         }
 
         _recharge.Reset(ent.Owner);

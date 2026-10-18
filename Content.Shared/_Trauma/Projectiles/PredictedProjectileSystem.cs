@@ -142,78 +142,11 @@ public sealed class PredictedProjectileSystem : EntitySystem
                 LogImpact.Medium,
                 $"Projectile {ToPrettyString(uid):projectile} shot by {ToPrettyString(shooter):user} hit {otherName:target} and dealt {damage:damage} damage");
 
-            // <Goob> - Splits penetration change if target have PenetratableComponent
-            if (!TryComp<PenetratableComponent>(target, out var penetratable))
-            {
-                // If the object won't be destroyed, it "tanks" the penetration hit.
-                if (damage.GetTotal() < damageRequired)
-                {
-                    comp.ProjectileSpent = true;
-                }
-
-                if (!comp.ProjectileSpent)
-                {
-                    comp.PenetrationAmount += damageRequired;
-                    // The projectile has dealt enough damage to be spent.
-                    if (comp.PenetrationAmount >= comp.PenetrationThreshold)
-                    {
-                        comp.ProjectileSpent = true;
-                    }
-                }
-            }
-            else
-            {
-                // Goobstation - Here penetration threshold count as "penetration health".
-                // If it's lower than damage than penetation damage entity cause it deletes projectile
-                if (comp.PenetrationThreshold < penetratable.PenetrateDamage)
-                {
-                    comp.ProjectileSpent = true;
-                }
-
-                comp.PenetrationThreshold -= FixedPoint2.New(penetratable.PenetrateDamage);
-                comp.Damage *= (1 - penetratable.DamagePenaltyModifier);
-            }
-            // </Goob>
-
-            // If penetration is to be considered, we need to do some checks to see if the projectile should stop.
-            if (comp.PenetrationThreshold != 0)
-            {
-                // If a damage type is required, stop the bullet if the hit entity doesn't have that type.
-                if (comp.PenetrationDamageTypeRequirement != null)
-                {
-                    var stopPenetration = false;
-                    foreach (var requiredDamageType in comp.PenetrationDamageTypeRequirement)
-                    {
-                        if (!damage.DamageDict.Keys.Contains(requiredDamageType))
-                        {
-                            stopPenetration = true;
-                            break;
-                        }
-                    }
-                    if (stopPenetration)
-                        comp.ProjectileSpent = true;
-                }
-
-                // If the object won't be destroyed, it "tanks" the penetration hit.
-                if (damage.GetTotal() < damageRequired)
-                {
-                    comp.ProjectileSpent = true;
-                }
-
-                if (!comp.ProjectileSpent)
-                {
-                    comp.PenetrationAmount += damageRequired;
-                    // The projectile has dealt enough damage to be spent.
-                    if (comp.PenetrationAmount >= comp.PenetrationThreshold)
-                    {
-                        comp.ProjectileSpent = true;
-                    }
-                }
-            }
-            else
-            {
-                comp.ProjectileSpent = true;
-            }
+            comp.ProjectileSpent = !TryPenetrate((uid, comp), target, damage, damageRequired);
+        }
+        else
+        {
+            comp.ProjectileSpent = true;
         }
 
         // <Goob>
@@ -233,15 +166,59 @@ public sealed class PredictedProjectileSystem : EntitySystem
         }
 
         if (comp.DeleteOnCollide && comp.ProjectileSpent || (comp.NoPenetrateMask & otherFixture.CollisionLayer) != 0) // Goobstation - Make x-ray arrows not penetrate blob
-        {
-            var deleteEv = new DeletingProjectileEvent(uid);
-            RaiseLocalEvent(ref deleteEv);
             PredictedQueueDel(uid);
-        }
 
         if (comp.ImpactEffect != null && TryComp(uid, out TransformComponent? xform) && _timing.IsFirstTimePredicted)
         {
             RaiseLocalEvent(new ImpactEffectEvent(comp.ImpactEffect, GetNetCoordinates(xform.Coordinates)));
         }
+    }
+    private bool TryPenetrate(Entity<ProjectileComponent> projectile, EntityUid target, DamageSpecifier damage, FixedPoint2 damageRequired)
+    {
+        var comp = projectile.Comp;
+        // <Goob> - Splits penetration change if target have PenetratableComponent
+        if (TryComp<PenetratableComponent>(target, out var penetratable))
+        {
+            // Here penetration threshold count as "penetration health".
+            // If it's lower than damage than penetation damage entity cause it deletes projectile
+            if (comp.PenetrationThreshold < penetratable.PenetrateDamage * comp.PenetrationFactor)
+                return false;
+
+            comp.PenetrationThreshold -= (FixedPoint2.New(penetratable.PenetrateDamage) * comp.PenetrationFactor);
+            comp.Damage *= (1 - penetratable.DamagePenaltyModifier);
+            return true;
+        }
+        // </Goob>
+
+        // If penetration is to be considered, we need to do some checks to see if the projectile should stop.
+        if (comp.PenetrationThreshold == 0)
+            return false;
+        // If a damage type is required, stop the bullet if the hit entity doesn't have that type.
+        if (comp.PenetrationDamageTypeRequirement != null)
+        {
+            foreach (var requiredDamageType in comp.PenetrationDamageTypeRequirement)
+            {
+                if (!damage.DamageDict.Keys.Contains(requiredDamageType))
+                    return false;
+            }
+        }
+
+        // If the object won't be destroyed, it "tanks" the penetration hit.
+        if (damage.GetTotal() < damageRequired)
+        {
+            return false;
+        }
+
+        if (!comp.ProjectileSpent)
+        {
+            comp.PenetrationAmount += damageRequired;
+            // The projectile has dealt enough damage to be spent.
+            if (comp.PenetrationAmount >= comp.PenetrationThreshold)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

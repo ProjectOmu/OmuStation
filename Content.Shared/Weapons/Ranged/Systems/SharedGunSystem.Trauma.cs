@@ -22,7 +22,7 @@ public abstract partial class SharedGunSystem
     private System.Random Random(EntityUid uid,
      uint? tick = null) //omu
     {
-        var seed = SharedRandomExtensions.HashCodeCombine((int) (tick ?? Timing.CurTick.Value), GetNetEntity(uid).Id); //omu edit to accept predicted tick
+        var seed = SharedRandomExtensions.HashCodeCombine((int) (Timing.CurTick.Value), GetNetEntity(uid).Id); //omu edit to accept predicted tick
         return new System.Random(seed);
     }
 

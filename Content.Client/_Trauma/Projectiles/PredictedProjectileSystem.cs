@@ -22,7 +22,6 @@ public sealed class PredictedProjectileSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ProjectileComponent, UpdateIsPredictedEvent>(OnUpdateIsPredicted);
-        SubscribeLocalEvent<DeletingProjectileEvent>(OnDeletingProjectile);
         SubscribeNetworkEvent<ShotPredictedProjectileEvent>(OnShotPredictedProjectile);
     }
 
@@ -34,19 +33,12 @@ public sealed class PredictedProjectileSystem : EntitySystem
             RemComp<TimedDespawnComponent>(ent.Owner);
     }
 
-    private void OnDeletingProjectile(ref DeletingProjectileEvent args)
-    {
-        RemComp<SpriteComponent>(args.Entity);
-        RemComp<PointLightComponent>(args.Entity);
-    }
-
     private void OnShotPredictedProjectile(ShotPredictedProjectileEvent args)
     {
         var uid = GetEntity(args.Projectile);
         if (!uid.IsValid())
             return;
 
-        //_sprite.SetVisible(uid, false);
         _physics.UpdateIsPredicted(uid);
         // TODO: come up with solution to fix the jitter when clientside entity is deleted and serverside one is spawned back at the shooter
         // clientside components have no way to persist so this may need engine work
