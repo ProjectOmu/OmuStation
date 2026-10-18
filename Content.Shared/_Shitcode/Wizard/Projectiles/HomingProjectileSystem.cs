@@ -14,7 +14,7 @@ public sealed class HomingProjectileSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly RotateToFaceSystem _rotate = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly IGameTiming _timing = default!; //omu fix
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private EntityQuery<TransformComponent> _xformQuery;
     private EntityQuery<FrozenComponent> _frozenQuery;
