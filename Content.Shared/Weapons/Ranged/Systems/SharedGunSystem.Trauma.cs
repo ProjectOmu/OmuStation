@@ -19,12 +19,8 @@ public abstract partial class SharedGunSystem
     /// <summary>
     /// Get a predicted random instance for an entity, specific to this tick.
     /// </summary>
-    private System.Random Random(EntityUid uid,
-     uint? tick = null) //omu
-    {
-        var seed = SharedRandomExtensions.HashCodeCombine((int) (Timing.CurTick.Value), GetNetEntity(uid).Id); //omu edit to accept predicted tick
-        return new System.Random(seed);
-    }
+    private IRobustRandom Random(EntityUid uid)
+        => SharedRandomExtensions.PredictedRandom(Timing, GetNetEntity(uid));
 
     /// <summary>
     /// Client-overriden function to do recoil for a shot.
@@ -77,8 +73,7 @@ public abstract partial class SharedGunSystem
     /// <summary>
     /// Trauma - changed component to Entity, added user
     /// </summary>
-    private Angle GetRecoilAngle(TimeSpan curTime, Entity<GunComponent> ent, Angle direction, EntityUid? user = null,
-        uint? tick = null) //omu
+    private Angle GetRecoilAngle(TimeSpan curTime, Entity<GunComponent> ent, Angle direction, EntityUid? user = null)
     {
         var (uid, comp) = ent;
         var timeSinceLastFire = (curTime - comp.LastFire).TotalSeconds;

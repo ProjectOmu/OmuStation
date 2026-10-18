@@ -237,7 +237,6 @@ public sealed partial class GunSystem : SharedGunSystem
             Target = target,
             Coordinates = GetNetCoordinates(coordinates),
             Gun = GetNetEntity(gun),
-            Tick = Timing.CurTick.Value //omu
         });
     }
 
