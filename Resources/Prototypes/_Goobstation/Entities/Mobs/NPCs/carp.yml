@@ -29,6 +29,15 @@
       defaultChannel: Dragonmind
       channels:
       - Dragonmind
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+        - !type:GibBehavior
+         gibContents: Skip 
+         recursive: false
 
 # carp but with dragon compound to make it follow the carp caller
 - type: entity
