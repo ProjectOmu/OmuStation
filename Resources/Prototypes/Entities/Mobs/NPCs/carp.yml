@@ -212,6 +212,7 @@
       defaultChannel: Dragonmind
       channels:
       - Dragonmind # Goobstation End
+# omu start
     - type: Destructible
       thresholds:
       - trigger:
@@ -221,6 +222,7 @@
         - !type:GibBehavior
          gibContents: Skip 
          recursive: false
+# omu end
 
 - type: entity
   id: MobCarpDungeon

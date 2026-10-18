@@ -29,6 +29,7 @@
       defaultChannel: Dragonmind
       channels:
       - Dragonmind
+# omu start
     - type: Destructible
       thresholds:
       - trigger:
@@ -38,6 +39,7 @@
         - !type:GibBehavior
          gibContents: Skip 
          recursive: false
+# omu end
 
 # carp but with dragon compound to make it follow the carp caller
 - type: entity
