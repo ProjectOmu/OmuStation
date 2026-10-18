@@ -64,9 +64,9 @@ knowledge-path-ash-s5-desc =
 knowledge-path-ash-s6-name = Ashen Skin
 # OMU
 knowledge-path-ash-s6-desc =
-    The Nightwatcher was lost. That's what the Watch believed. Yet he walked the world, unnoticed by the masses. His skin a new, ashen grey.
+    The Nightwatcher was lost. That's what the Watch believed... Yet he walked the world, unnoticed by the masses, his skin an ashen grey.
 
-    You now have full fire immunity, however it does not provide immunity to tempature damage and you can no longer extinguish the fire by rolling around.
+    "You now take no damage from burning, but can no longer roll to extinguish yourself. This does not provide immunity to temperature damage..
 
 knowledge-path-ash-s7-name = Fiery Blade
 knowledge-path-ash-s7-desc =
