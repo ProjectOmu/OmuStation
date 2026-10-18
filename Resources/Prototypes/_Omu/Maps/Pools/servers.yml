@@ -32,15 +32,16 @@
 - type: gameMapPool
   id: PelicanMapPool
   parent: OmuSharedMapPool
-  maps: []
+  # maps:
+  #   - MapIDHere1
+  #   - MapIDHere2
 
 ## Magpie
 - type: gameMapPool
   id: MagpieMapPool
   parent: OmuSharedMapPool
-  # maps:
-  #   - MapIDHere1
-  #   - MapIDHere2
+  maps:
+  - Tram2
 
 ## Woodpecker
 - type: gameMapPool
