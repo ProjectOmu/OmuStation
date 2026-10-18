@@ -8,6 +8,7 @@ using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Random;
 
 namespace Content.Omu.Shared.MansusMob;
@@ -20,6 +21,7 @@ public sealed class SharedMansusMobSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedAudioSystem _aud = default!;
     [Dependency] private readonly SharedPoweredLightSystem _poweredLight = default!;
+    [Dependency] private readonly Filter _filter = default!;
 
     public override void Initialize()
     {
@@ -116,7 +118,7 @@ public sealed class SharedMansusMobSystem : EntitySystem
         if (!TryComp<MansusMobComponent>(args.Performer, out var mansus))
             return;
 
-        _aud.PlayGlobal(new SoundPathSpecifier("/Audio/_Omu/Entities/eerie_scream.ogg"), args.Performer, AudioParams.Default.WithVolume(-3f));
+        _aud.PlayGlobal(new SoundPathSpecifier("/Audio/_Omu/Entities/eerie_scream.ogg"), _filter.AddPlayersByPvs(args.Performer), false, AudioParams.Default.WithVolume(-3f));
 
         foreach (var lookupUid in _lookup.GetEntitiesInRange<PoweredLightComponent>(Transform(args.Performer).Coordinates, mansus.ScreechRange))
         {
@@ -124,7 +126,7 @@ public sealed class SharedMansusMobSystem : EntitySystem
             {
                 _poweredLight.ToggleBlinkingLight(lookupUid, light, true);
 #pragma warning disable CS0618
-                args.Performer.SpawnTimer(light.GhostBlinkingTime, () =>
+                lookupUid.Owner.SpawnTimer(light.GhostBlinkingTime, () =>
                 {
                     _poweredLight.ToggleBlinkingLight(lookupUid, light, false);
                 });
