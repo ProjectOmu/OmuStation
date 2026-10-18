@@ -9234,3 +9234,30 @@ Entries:
       message: Removed the "no ears" marking for rodentia.
   id: 1192
   time: '2026-10-18T02:52:12.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Add
+      message: >-
+        Added new list property for Antag definitions: jobAntagImmunityOverride.
+        This will make those jobs able to roll that specific antag regardless of
+        that job's canBeAntag value.
+  id: 1193
+  time: '2026-10-18T04:05:49.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Add
+      message: >-
+        Added the Wicker Doll, a cursed doll Chaplains, Librarians, Clowns and
+        Mimes can buy from the uplink. Curse someone by using their fingerprints
+        or DNA from and item, or directly on them, then torment them in various
+        ways.
+  id: 1194
+  time: '2026-10-18T05:38:18.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: >-
+        Secarang considerably nerfed. It now takes 10 total hits for a stun on
+        no stamina resistance.
+  id: 1195
+  time: '2026-10-18T06:33:10.0000000+00:00'
