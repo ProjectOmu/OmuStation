@@ -1,18 +1,17 @@
-using Content.Goobstation.Server.Chaplain.Components;
-using Content.Goobstation.Shared.Bible;
+using Content.Shared.Examine;
+using Content.Server.GameTicking;
 using Content.Goobstation.Shared.CustomFactionIcons;
 using Content.Omu.Shared.Entities.Heretic;
+using Content.Goobstation.Server.Chaplain.Components;
 using Content.Omu.Shared.MansusMob;
-using Content.Server.GameTicking;
-using Content.Shared._Omu.Heretic;
-using Content.Shared.Actions;
-using Content.Shared.Actions.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
-using Content.Shared.Examine;
 using Content.Shared.Mobs;
 using Content.Shared.NPC.Systems;
-using Robust.Shared.Prototypes;
+using Content.Shared._Omu.Heretic;
+using Content.Shared.Actions.Components;
+using Content.Shared.Actions;
+using Content.Goobstation.Shared.Bible;
 
 namespace Content.Omu.Server.Entities.Heretic;
 

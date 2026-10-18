@@ -4,12 +4,10 @@ using Content.Shared.Actions;
 using Content.Shared.Heretic;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
-using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Player;
 using Robust.Shared.Random;
 
 namespace Content.Omu.Shared.MansusMob;
