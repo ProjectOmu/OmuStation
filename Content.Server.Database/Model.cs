@@ -90,6 +90,14 @@ namespace Content.Server.Database
             modelBuilder.Entity<JobAlternateTitle>()
                 .HasIndex(p => new { HumanoidProfileId = p.ProfileId, p.JobName })
                 .IsUnique();
+
+            modelBuilder.Entity<PlayerJobPriority>()
+                .HasIndex(p => new { p.PreferenceId, p.JobName })
+                .IsUnique();
+
+            modelBuilder.Entity<ProfileSpeechReplacement>()
+                .HasIndex(p => new { HumanoidProfileId = p.ProfileId, p.Word })
+                .IsUnique();
             // Omu end
 
             modelBuilder.Entity<ProfileRoleLoadout>()
@@ -451,6 +459,7 @@ namespace Content.Server.Database
         public string AdminOOCColor { get; set; } = null!;
         public List<string> ConstructionFavorites { get; set; } = new();
         public List<Profile> Profiles { get; } = new();
+        public List<PlayerJobPriority> JobPriorities { get; } = new(); // Omu
     }
 
     public class Profile
@@ -478,10 +487,13 @@ namespace Content.Server.Database
         public List<Antag> Antags { get; } = new();
         public List<Trait> Traits { get; } = new();
         public List<JobAlternateTitle> JobAlternateTitles { get; } = new(); // Omu
+        public List<ProfileSpeechReplacement> SpeechReplacements { get; } = new(); // Omu
 
         public List<ProfileRoleLoadout> Loadouts { get; } = new();
 
         [Column("pref_unavailable")] public DbPreferenceUnavailableMode PreferenceUnavailable { get; set; }
+        public bool Active { get; set; } // Omu
+        public int Position { get; set; } // Omu
 
         public int PreferenceId { get; set; }
         public Preference Preference { get; set; } = null!;
@@ -533,6 +545,26 @@ namespace Content.Server.Database
 
         public string JobName { get; set; } = null!;
         public string AlternateTitle { get; set; } = null!;
+    }
+
+    public class PlayerJobPriority
+    {
+        public int Id { get; set; }
+        public Preference Preference { get; set; } = null!;
+        public int PreferenceId { get; set; }
+
+        public string JobName { get; set; } = null!;
+        public DbJobPriority Priority { get; set; }
+    }
+
+    public class ProfileSpeechReplacement
+    {
+        public int Id { get; set; }
+        public Profile Profile { get; set; } = null!;
+        public int ProfileId { get; set; }
+
+        public string Word { get; set; } = null!;
+        public string Replacement { get; set; } = null!;
     }
     // Omu end
 

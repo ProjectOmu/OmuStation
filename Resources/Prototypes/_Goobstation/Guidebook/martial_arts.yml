@@ -2,6 +2,7 @@
   id: MartialArts
   name: guide-entry-martial-arts
   text: "/ServerInfo/_Goobstation/Guidebook/MartialArts/MartialArts.xml"
+  priority: 5 # Omu, move this second-to-bottom of Station and Shifts
   children:
   - CQC
   - SleepingCarp
