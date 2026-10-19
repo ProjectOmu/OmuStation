@@ -117,13 +117,25 @@ public sealed class MansusMobSystem : EntitySystem
             while (seekQuery.MoveNext(out var seekUid, out var seek))
             {
                 if (seekUid != uid)
+                {
                     noMaidens = false;
+                    break;
+                }
+
             }
 
             // Resupply the hunt if we are tracking madness 
-            if (noMaidens && _tracking)
+            if (noMaidens)
             {
-                _gameTicker.StartGameRule("MirrorMaidenSpawn", out var spawnEnt);
+                using var madQuery = EntityQueryEnumerator<FascinationComponent>();
+                while (madQuery.MoveNext(out var seekUid, out var fascination))
+                {
+                    if (fascination.FascinationValue >= 5)
+                    {
+                        _gameTicker.StartGameRule("MirrorMaidenSpawn", out var spawnEnt);
+                        break;
+                    }
+                }
             }
         }
     }
