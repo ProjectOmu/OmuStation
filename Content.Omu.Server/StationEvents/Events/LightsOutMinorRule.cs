@@ -94,6 +94,19 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
         );
     }
 
+    private bool IsEntityOnStation(EntityUid ent, EntityUid station)
+    {
+        var xform = Transform(ent);
+
+        if (!TryComp<StationMemberComponent>(xform.GridUid, out var smember))
+            return false;
+
+        // the ent is considered on-station if its grid has both BecomesStation and StationMember
+        // AND
+        // the StationMember.Station is equal to the station in question
+        return HasComp<BecomesStationComponent>(xform.GridUid) && smember.Station == station;
+    }
+
     protected override void ActiveTick(EntityUid uid, LightsOutMinorRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
         base.ActiveTick(uid, component, gameRule, frameTime);
