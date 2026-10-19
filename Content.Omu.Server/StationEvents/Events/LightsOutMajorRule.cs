@@ -51,6 +51,11 @@ public sealed partial class LightsOutMajorRule : StationEventSystem<LightsOutMaj
                 continue;
 
             // don't target if the light isn't on the station
+            // I would've factored this `if` out into a static IsEntityOnStation
+            // kinda like I did in LightsOutMinorRule
+            // but the `Transform` call is a protected method of EntitySystem
+            // and this `if` pattern only occurs once in this file
+            // suffer with me
             var transform = Transform(light);
             if (!HasComp<BecomesStationComponent>(transform.GridUid)
                 || CompOrNull<StationMemberComponent>(transform.GridUid)?.Station != station)
