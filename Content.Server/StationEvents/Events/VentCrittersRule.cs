@@ -1,20 +1,12 @@
-// SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Antag;
+using Content.Server.Chat.Managers; // Omu
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Pinpointer;
 using Content.Server.StationEvents.Components;
+using Content.Shared.Administration.Logs; // omu, logging
+using Content.Shared.Database; // omu, logging
 using Content.Shared.EntityTable;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Station.Components;
@@ -44,6 +36,8 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!; // Omu admin logging
+    [Dependency] private readonly IChatManager _achat = default!; // Omu admin announce
 
     private List<EntityCoordinates> _locations = new();
 
@@ -77,7 +71,12 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
         var min = comp.Min * players / comp.PlayerRatio;
         var max = comp.Max * players / comp.PlayerRatio;
         var count = Math.Max(RobustRandom.Next(min, max), 1);
-        Log.Info($"Spawning {count} critters for {ToPrettyString(uid):rule}");
+        // Omu edit start
+        var notice = $"Spawning {count} critters for {ToPrettyString(uid):rule}";
+        Log.Info(notice); // server console
+        _achat.SendAdminAlert(notice); // achat
+        _adminLogger.Add(LogType.EntitySpawn, LogImpact.Medium, $"Spawning {count} critters for {ToPrettyString(uid):rule}"); // admin logs
+        // Omu edit end
         for (int i = 0; i < count; i++)
         {
             foreach (var spawn in _entityTable.GetSpawns(comp.Table))

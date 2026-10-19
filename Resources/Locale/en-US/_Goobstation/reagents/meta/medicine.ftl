@@ -43,8 +43,8 @@ reagent-desc-salicylic-acid = Powerful healing agent, excelling at restoring mos
 reagent-name-oxandrolone = oxandrolone
 reagent-desc-oxandrolone = Gelatinous chemical that heals burn damage faster the more burnt patient's body is. Difficult to overdose.
 
-reagent-name-pentetic-acid = pentetic acid
-reagent-desc-pentetic-acid = Multipurpose drug, works against poisons and prevents radiation damage from all but strongest sources.
+reagent-name-pentenic-acid = pentetic acid
+reagent-desc-pentenic-acid = Multipurpose drug, works against poisons and prevents radiation damage from all but strongest sources.
 
 reagent-name-atropine = atropine
 reagent-desc-atropine = Shuts down many body functions to safely heal any damage to patients in critical condition. Best used outside of combat situations due to severe mental impairment it causes.
@@ -80,7 +80,8 @@ reagent-name-bozaide = bozaide
 reagent-desc-bozaide = A passive, slow acting brute medication that acts as a catalyst for natural tissue regeneration.
 
 reagent-name-genecide = genecide
-reagent-desc-genecide = Blows genetic damage away, literally. Make sure to monitor patients taking it.
+# Omu
+reagent-desc-genecide = Blows rot and genetic damage away, literally. Make sure to monitor and heal patients taking it. Works on dead patients but retains its side effects.
 
 reagent-name-procenyl-lazide-sludge = procenyl lazide sludge
 reagent-desc-procenyl-lazide-sludge = Relatively easy to create solution, needs heating to bind properly in a notoriously inefficient reaction.

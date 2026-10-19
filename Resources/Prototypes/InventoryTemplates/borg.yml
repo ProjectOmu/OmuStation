@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: inventoryTemplate
@@ -17,6 +10,18 @@
     strippingWindowPos: 0,0
     displayName: Head
     offset: 0.015625, -0.09375
+
+# Omu start - new template for replacing hard-coded offsets with a displacement map
+- type: inventoryTemplate
+  id: borgNoOffset
+  slots:
+  - name: head
+    slotTexture: head
+    slotFlags: HEAD
+    uiWindowPos: 1,0
+    strippingWindowPos: 0,0
+    displayName: Head
+# Omu end
 
 - type: inventoryTemplate
   id: borgShort

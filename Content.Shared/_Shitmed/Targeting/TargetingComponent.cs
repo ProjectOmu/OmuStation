@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
@@ -29,8 +23,10 @@ public sealed partial class TargetingComponent : Component
         {
             TargetBodyPart.Head, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.Head, 0.5f },
-                { TargetBodyPart.Chest, 0.5f },
+                { TargetBodyPart.Head, 0.4f }, // 0.5f }, // Omu start, prevent head aim from being dominant; 40% hit head
+                { TargetBodyPart.Chest, 0.3f }, // 0.5f }, // 30% hit chest
+                { TargetBodyPart.LeftArm, 0.15f }, // overall 30% hit arms; 70% chance to deal vital damage instead of 100%
+                { TargetBodyPart.RightArm, 0.15f }, // Omu end
             }
         },
         {

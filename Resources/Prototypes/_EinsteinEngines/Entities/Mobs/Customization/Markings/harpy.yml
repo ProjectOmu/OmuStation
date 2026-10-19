@@ -1,19 +1,10 @@
-# SPDX-FileCopyrightText: 2024 Adeinitas <147965189+adeinitas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Danger Revolution! <142105406+DangerRevolution@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Timemaster99 <57200767+Timemaster99@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # All the Harpy customization
 
 # Ears Markings
 - type: marking
   id: HarpyWingDefaultHuescale
-  bodyPart: RArm
+  bodyPart: Wings # Omu - Goat
   markingCategory: Wings # Goob - Wings category
   speciesRestriction: [Harpy]
   coloring:
@@ -30,8 +21,8 @@
 
 - type: marking
   id: HarpyWingDefaultWhitescale
-  bodyPart: RArm
-  markingCategory: Wings # Goob - Wings category
+  bodyPart: Wings # Omu - Goat
+  markingCategory: Wings # Omu - Goat
   speciesRestriction: [Harpy]
   coloring:
     default:
@@ -47,7 +38,7 @@
 
 - type: marking
   id: HarpyWingClassic
-  bodyPart: RArm
+  bodyPart: Wings # Omu - Goat
   markingCategory: Wings # Goob - Wings category
   speciesRestriction: [Harpy]
   coloring:
@@ -64,7 +55,7 @@
 
 - type: marking
   id: HarpyWingFoldedHuescale
-  bodyPart: RArm
+  bodyPart: Wings # Omu - Goat
   markingCategory: Wings # Goob - Wings category
   speciesRestriction: [Harpy]
   coloring:
@@ -81,7 +72,7 @@
 
 - type: marking
   id: HarpyWingFoldedWhitescale
-  bodyPart: RArm
+  bodyPart: Wings # Omu - Goat
   markingCategory: Wings # Goob - Wings category
   speciesRestriction: [Harpy]
   coloring:
@@ -98,7 +89,7 @@
 
 - type: marking
   id: HarpyWingOwlHuescale
-  bodyPart: RArm
+  bodyPart: Wings # Omu - Goat
   markingCategory: Wings # Goob - Wings category
   speciesRestriction: [Harpy]
   coloring:
@@ -115,7 +106,7 @@
 
 - type: marking
   id: HarpyWingOwlWhitescale
-  bodyPart: RArm
+  bodyPart: Wings # Omu - Goat
   markingCategory: Wings # Goob - Wings category
   speciesRestriction: [Harpy]
   coloring:
@@ -249,7 +240,7 @@
 
 - type: marking
   id: HarpyWing2ToneClassic
-  bodyPart: RArm
+  bodyPart: Wings # Omu - Goat
   markingCategory: Wings # Goob - Wings category
   speciesRestriction: [Harpy]
   sprites:
@@ -260,7 +251,7 @@
 
 - type: marking
   id: HarpyWing3ToneClassic
-  bodyPart: RArm
+  bodyPart: Wings # Omu - Goat
   markingCategory: Wings # Goob - Wings category
   speciesRestriction: [Harpy]
   sprites:
@@ -273,7 +264,7 @@
 
 - type: marking
   id: HarpyWingSpeckledClassic
-  bodyPart: RArm
+  bodyPart: Wings # Omu - Goat
   markingCategory: Wings # Goob - Wings category
   speciesRestriction: [Harpy]
   sprites:
@@ -284,7 +275,7 @@
 
 - type: marking
   id: HarpyWingUndertoneClassic
-  bodyPart: RArm
+  bodyPart: Wings # Omu - Goat
   markingCategory: Wings # Goob - Wings category
   speciesRestriction: [Harpy]
   sprites:
@@ -295,7 +286,7 @@
 
 - type: marking
   id: HarpyWingTipsClassic
-  bodyPart: RArm
+  bodyPart: Wings # Omu - Goat
   markingCategory: Wings # Goob - Wings category
   speciesRestriction: [Harpy]
   sprites:
@@ -306,7 +297,7 @@
 
 - type: marking
   id: HarpyWingBat
-  bodyPart: RArm
+  bodyPart: Wings # Omu - Goat
   markingCategory: Wings # Goob - Wings category
   speciesRestriction: [Harpy]
   sprites:
@@ -317,7 +308,7 @@
 
 - type: marking
   id: HarpyWingBionic
-  bodyPart: RArm
+  bodyPart: Wings # Omu - Goat
   markingCategory: Wings # Goob - Wings category
   speciesRestriction: [Harpy]
   sprites:

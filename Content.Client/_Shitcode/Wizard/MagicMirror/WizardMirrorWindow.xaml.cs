@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -609,7 +604,7 @@ public sealed partial class WizardMirrorWindow : DefaultWindow
         var hairMarking = Profile.Appearance.HairStyleId switch
         {
             "HairBald" => new List<Marking>(),
-            _ => new() { new(Profile.Appearance.HairStyleId, new List<Color>() { Profile.Appearance.HairColor }) },
+            _ => new() { new(Profile.Appearance.HairStyleId, new List<Color>() { Profile.Appearance.HairColor }, false) }, // Omu
         };
 
         var facialHairMarking = Profile.Appearance.FacialHairStyleId switch
@@ -617,7 +612,7 @@ public sealed partial class WizardMirrorWindow : DefaultWindow
             "FacialHairShaved" => new List<Marking>(),
             _ => new()
             {
-                new(Profile.Appearance.FacialHairStyleId, new List<Color>() { Profile.Appearance.FacialHairColor })
+                new(Profile.Appearance.FacialHairStyleId, new List<Color>() { Profile.Appearance.FacialHairColor }, false) // Omu
             },
         };
 
@@ -657,7 +652,7 @@ public sealed partial class WizardMirrorWindow : DefaultWindow
 
         if (hairColor != null)
         {
-            Markings.HairMarking = new(Profile.Appearance.HairStyleId, new List<Color>() { hairColor.Value });
+            Markings.HairMarking = new(Profile.Appearance.HairStyleId, new List<Color>() { hairColor.Value }, false); // Omu
         }
         else
         {
@@ -691,7 +686,7 @@ public sealed partial class WizardMirrorWindow : DefaultWindow
         if (facialHairColor != null)
         {
             Markings.FacialHairMarking = new(Profile.Appearance.FacialHairStyleId,
-                new List<Color>() { facialHairColor.Value });
+                new List<Color>() { facialHairColor.Value }, false); // Omu
         }
         else
         {

@@ -1,0 +1,100 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingMaskBandanaBase
+  id: ClothingMaskBandCargo
+  name: cargo bandana
+  description: A cargo bandana to make you look cool, made from sweat-wicking fibers.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Bandanas/cargo.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Bandanas/cargo.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingMaskBandanaBase
+  id: ClothingMaskBandSecurity
+  name: security bandana
+  description: A security bandana to make you look intimidating.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Bandanas/sec.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Bandanas/sec.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingMaskBandanaBase
+  id: ClothingMaskBandRoboticist
+  name: roboticist bandana
+  description: A roboticist bandana to make you and your borgs look cool.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Bandanas/roboticist.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Bandanas/roboticist.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingMaskBandanaBase
+  id: ClothingMaskBandJanitor
+  name: janitor bandana
+  description: A janitor bandana to make you look cool, weaved from recycled plastics.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Bandanas/janitor.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Bandanas/janitor.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingMaskBandanaBase
+  id: ClothingMaskBandChemistry
+  name: chemistry bandana
+  description: A chemistry bandana to make you look cool, made from impermeable fibers.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Bandanas/chemist.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Bandanas/chemist.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingMaskBandanaBase
+  id: ClothingMaskBandQuartermaster
+  name: quartermaster's bandana
+  description: An extra fancy cargo bandana to make you look cool, made from expensive silk.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Bandanas/qm.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Bandanas/qm.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingMaskBandanaBase
+  id: ClothingMaskBandWhite
+  name: white bandana
+  description: A white bandana to make you look cool.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Bandanas/white.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Bandanas/white.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+

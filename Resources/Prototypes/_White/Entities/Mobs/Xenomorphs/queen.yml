@@ -62,6 +62,8 @@
     damage:
       groups:
         Brute: 50
+      types: # Omu, give them structural damage.
+        Structural: 40
   - type: Deathgasp
     prototype: XenomorphQueenDeathgasp
   - type: Speech

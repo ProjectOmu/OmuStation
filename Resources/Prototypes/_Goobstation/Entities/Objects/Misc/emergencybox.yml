@@ -1,17 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -46,6 +32,7 @@
       mask: !type:ContainerSlot
       emergencypen: !type:ContainerSlot
       spacepen: !type:ContainerSlot
+      prybar: !type:ContainerSlot
   - type: ItemSlots
     slots:
       water:
@@ -60,6 +47,7 @@
           - FoodSnack
           - BreadEmergency
           - FoodTinMRE
+          - Wheat #Omu, Ovinia
       flare:
         ejectOnInteract: false
         whitelist:
@@ -94,6 +82,11 @@
         whitelist:
           tags:
           - SpaceMedipen
+      prybar: # omu - guild prybars
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - GuildPrybar
   - type: ContainerFill
     containers:
       water:
@@ -118,6 +111,7 @@
           - FoodSnack
           - BreadEmergency
           - FoodTinMRE
+          - Wheat #Omu, Ovinia
       flare:
         whitelist:
           tags:
@@ -285,6 +279,8 @@
       - EmergencyMedipen
       spacepen:
       - SpaceMedipen
+      prybar: # omu - guild prybars
+      - GuildPrybar
   - type: Sprite
     state: box_sec
 
@@ -309,6 +305,8 @@
       - EmergencyMedipen
       spacepen:
       - SpaceMedipen
+      prybar: # omu - guild prybars
+      - GuildPrybar
   - type: Label
     currentLabel: reagent-name-nitrogen
   - type: Sprite

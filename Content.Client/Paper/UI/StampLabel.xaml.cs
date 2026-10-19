@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
@@ -28,6 +25,8 @@ public sealed partial class StampLabel : Label
     /// this control.
     public float Orientation = 0.0f;
 
+    public bool IsSignature; // Omu
+
     public StampLabel()
     {
         RobustXamlLoader.Load(this);
@@ -42,7 +41,11 @@ public sealed partial class StampLabel : Label
         var clampedScale = Vector2.Min(availableSize / desiredTextSize, Vector2.One);
         var keepAspectRatio = MathF.Min(clampedScale.X, clampedScale.Y);
         const float shimmerReduction = 0.1f;
-        _textScaling = Vector2.One * MathF.Round(keepAspectRatio / shimmerReduction) * shimmerReduction;
+        // Omu start
+        var steps = keepAspectRatio / shimmerReduction;
+        var snappedSteps = IsSignature ? MathF.Floor(steps) : MathF.Round(steps);
+        _textScaling = Vector2.One * snappedSteps * shimmerReduction;
+        // Omu end
         return desiredTextSize;
     }
 
@@ -52,6 +55,7 @@ public sealed partial class StampLabel : Label
                 PixelPosition.Y * MathF.Cos(Orientation) + PixelPosition.X * MathF.Sin(Orientation));
 
         _stampShader?.SetParameter("objCoord", GlobalPosition * UIScale * new Vector2(1, -1));
+        _stampShader?.SetParameter("isSignature", IsSignature); // Omu
         handle.UseShader(_stampShader);
         handle.SetTransform(GlobalPixelPosition - PixelPosition + offset, Orientation, _textScaling);
         base.Draw(handle);

@@ -1,0 +1,36 @@
+- type: entity
+  parent: [DrinkBottlePlasticSmallBaseFull]
+  id: DrinkEthanolBottleFull
+  name: ethanol bottle
+  description: Simple clean ethanol of unknown origin. You think that maybe you dont want to know it.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Ethanol
+          Quantity: 30
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/waterbottle.rsi
+  - type: Label
+    currentLabel: reagent-name-ethanol
+  - type: Sealable
+  - type: Tag
+    tags:
+    - DrinkBottle
+
+- type: entity
+  parent: Beaker
+  id: KelpBeaker
+  name: sinister kelp beaker
+  description: Sinister beaker of sludge.....
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 50
+        reagents:
+        - ReagentId: KelpPodSlime
+          Quantity: 50
+  - type: Label
+    currentLabel: reagent-name-kelpslime

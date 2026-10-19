@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -29,7 +26,14 @@
     - AlienBlood
     - BlackBlood
     - BloodChangeling
-  - type: DemonicWhisper
+    #Omu Additons
+    - Slime
+    - ResomiBlood
+    - ShimmeringBlood
+    - BloodAllulalo
+    - AvaliBlood
+    - AcidBlood
+    #Omu end
   - type: Visibility
     layer: 2 # Ghost visflag
   - type: Spectral
@@ -39,7 +43,7 @@
     - Normal
     - Ghost
   - type: MindContainer
-    showExamineInfo: true
+  - type: MindExaminable
   - type: ActionGrant
     actions:
     - DemonicWhisperAction

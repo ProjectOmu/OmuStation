@@ -12,18 +12,126 @@
 
 - type: entity
   id: MobScurretSyndicateAgent
-  parent: MobBaseScurretSyndicate
+  parent: [MobBaseScurretSyndicate, DVNodeCrawler]
   suffix: syndicate agent
   components:
     # make the player a traitor once its taken
-  - type: VentCrawler # goobstation - Ventcrawl
   - type: AutoTraitor
     profile: TraitorReinforcement
 
 - type: entity
   id: MobScurretSyndicateAgentNukeops # Reinforcement exclusive to nukeops uplink
-  parent: MobBaseScurretSyndicate
+  parent: [MobBaseScurretSyndicate, DVNodeCrawler]
   suffix: NukeOps
   components:
-  - type: VentCrawler # goobstation - Ventcrawl
   - type: NukeOperative
+
+- type: entity
+  id: MobBingleSyndie
+  name: syndie bingle
+  description: Once a proud Bingle, now captured and forced to do work for the syndicate.
+  parent: SimpleSpaceMobBase # not being parented from the MobBingle because it breaks a lot of things. maybe change this to a pitless bingle idk
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    name: ghost-role-information-syndicate-bingle-reinforcement-name
+    description: ghost-role-information-syndicate-bingle-reinforcement-description
+    rules: ghost-role-information-syndicate-reinforcement-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+    raffle:
+      settings: default
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Omu/Mobs/Bingle/syndie-bingle.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
+      state: alive
+    - map: [ "enum.BingleVisual.Combat" ]
+      state: combat
+      visible: false
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Dead:
+        Base: dead
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Nitrogen
+        Quantity: 100
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    angle: 0
+    wideAnimationRotation: 0
+    animation: WeaponArcSlash
+    damage:
+      types:
+        Blunt: 7
+        Structural: 14 # breaks down the walls and airlocks in 10 hits
+        Ion: 5
+    bluntStaminaDamageFactor: 2.0
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 4
+  - type: Stamina
+    baseCritThreshold: 120
+  - type: StaminaDamageOnHit
+    damage: 25
+    overtime: 15
+    sound: /Audio/Weapons/egloves.ogg
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Bingle
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Effects/Footsteps/slime1.ogg
+      params:
+        volume: 3
+  - type: TypingIndicator
+    proto: alien
+  - type: Speech
+    speechVerb: Bingle
+    speechSounds: Slime
+  - type: LanguageKnowledge
+    speaks:
+    - Bingle
+    understands:
+    - TauCetiBasic
+  - type: PassiveDamage #passive Healing
+    allowedStates:
+    - Alive
+    damage:
+      types:
+        Poison: -0.5
+      groups:
+        Brute: -0.5
+        Burn: -0.5
+  - type: NightVision
+    color: "#008080"
+    activateSound: null
+    deactivateSound: null
+  - type: FlashImmunity
+  - type: Access
+    tags:
+    - Maintenance
+    - Cargo
+  - type: Puller
+    needsHands: false
+  - type: PointLight
+    radius: 1.2
+    energy: 2
+    color: "#4faffb"

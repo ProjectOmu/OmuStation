@@ -1,0 +1,11 @@
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleMirrorMaiden
+  name: Ghoul
+  components:
+  - type: MindRole
+    antagPrototype: Ghoul
+    exclusiveAntag: false
+    roleType: SoloAntagonist
+    subtype: role-subtype-mirror-maiden
+  - type: GhoulRole

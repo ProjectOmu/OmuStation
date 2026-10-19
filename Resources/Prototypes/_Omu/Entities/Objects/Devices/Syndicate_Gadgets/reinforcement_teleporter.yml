@@ -13,8 +13,22 @@
       - MindRoleGhostRoleSilicon
       raffle:
         settings: default
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 18000 #5 hours
     - type: GhostRoleMobSpawner
       prototype: PlayerBorgSyndicateMedicalBattery
+
+- type: entity
+  parent: ReinforcementRadio
+  id: ReinforcementRadioSyndicateBingle
+  name: syndicate Bingle reinforcement radio
+  description: Bingle Bongle
+  components:
+    - type: GhostRole
+      name: ghost-role-information-syndicate-bingle-reinforcement-name
+      description: ghost-role-information-syndicate-bingle-reinforcement-description
+      rules: ghost-role-information-syndicate-reinforcement-rules
+      mindRoles:
+      - MindRoleGhostRoleFamiliar
+      raffle:
+        settings: default
+    - type: GhostRoleMobSpawner
+      prototype: MobBingleSyndie

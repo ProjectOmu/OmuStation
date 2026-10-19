@@ -18,10 +18,12 @@
             Cold: -0.1
       - !type:HealthChange
         conditions:
-        - !type:OrganType # thaven have engineered the pods to be suited specifically to their digestive systems. other species cant partake as much without a mental/physical toll
-          type: Thaven
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition  # thaven have engineered the pods to be suited specifically to their digestive systems. other species cant partake as much without a mental/physical toll
+          type:
+          - Thaven
+          inverted: true
+        - !type:ReagentCondition
+          reagent: KelpPodSlime
           min: 30
         damage:
           types:
@@ -35,7 +37,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 10
-        refresh: false
     Narcotic:
       effects:
       - !type:PopupMessage
@@ -53,7 +54,8 @@
         - generic-reagent-effect-soundgood
         - generic-reagent-effect-euphoria
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: KelpPodSlime
           min: 5
           max: 30
         probability: 0.08
@@ -72,14 +74,16 @@
         - generic-reagent-effect-static
         - generic-reagent-effect-breakthrough
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: KelpPodSlime
           min: 30
         probability: 0.3
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Thaven # thavens have engineered the pod to be beneficial to their biological makeup, essentially being their aquatic pre-contact deus.
-          shouldHave: true
+        - !type:MetabolizerTypeCondition # thavens have engineered the pod to be beneficial to their biological makeup, essentially being their aquatic pre-contact deus.
+          type:
+          - Thaven
+          inverted: true
         damage:
           types:
             Blunt: -0.3 # bloodclotting helps with processing muscle damage or some shit idfk dude
@@ -89,17 +93,18 @@
             Cold: -0.3
       - !type:SuppressPain #moved to here so thaven can still get these effects
         conditions:
-        - !type:OrganType
-          type: Thaven
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type:
+          - Thaven
+          inverted: true
         amount: 30
         time: 60
       - !type:ModifyStatusEffect
         conditions:
-        - !type:OrganType
-          type: Thaven
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type:
+          - Thaven
+          inverted: true
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 25
-        refresh: false

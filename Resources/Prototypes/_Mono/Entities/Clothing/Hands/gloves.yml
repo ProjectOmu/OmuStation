@@ -1,5 +1,4 @@
-# SPDX-FileCopyrightText: 2025 Avalon
-# SPDX-FileCopyrightText: 2025 core-mene
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   parent: ClothingHandsBase
@@ -17,8 +16,8 @@
     attackRate: 2.5
     damage:
       types:
-        Blunt: 10
-        Structural: 40
+        Blunt: 5 # Omu
+        Structural: 20 # Omu
     soundHit:
       collection: ExplosionSmall
     heavyStaminaCost: 5
@@ -28,3 +27,4 @@
     - Pickaxe
   - type: PressureDamageChange
     applyToMelee: true
+    lowerBound: 0 # Omu

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # This is shit and needs cleanup but since we are technically running this after a workflow that runs on the fork and not master i kinda want to make sure we use nothing from that workflow
 # Forgive me for the mess. This is overkill.
 # I am future planning against shit that will never end up mattering.
@@ -118,7 +119,7 @@ jobs:
       with:
         number: ${{ steps.pr-context.outputs.number }}
         labels: "S: Approved"
-        
+
     - name: Remove All Other Labels if No Approval
       if: steps.check-approvals.outputs.approvals < 1
       uses: actions-ecosystem/action-remove-labels@v1

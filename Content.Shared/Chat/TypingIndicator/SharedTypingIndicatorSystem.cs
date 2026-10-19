@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.ActionBlocker;
@@ -90,6 +82,7 @@ public abstract class SharedTypingIndicatorSystem : EntitySystem
             return;
         }
 
+        SetTypingOverride(uid.Value, ev.OverrideIndicator); // DeltaV
         SetTypingIndicatorState(uid.Value, ev.State);
     }
 
@@ -99,5 +92,16 @@ public abstract class SharedTypingIndicatorSystem : EntitySystem
             return;
 
         _appearance.SetData(uid, TypingIndicatorVisuals.State, state, appearance);
+    }
+
+    /// <summary>
+    /// DeltaV: Adds an override to the TypingIndicator visuals
+    /// </summary>
+    /// <param name="protoId">The TypingIndicator to use in place of default or clothing indicators. Clears overrides when null.</param>
+    private void SetTypingOverride(EntityUid uid, ProtoId<TypingIndicatorPrototype>? protoId)
+    {
+        var comp = EnsureComp<TypingIndicatorComponent>(uid);
+        comp.TypingIndicatorOverridePrototype = protoId;
+        Dirty(uid, comp);
     }
 }

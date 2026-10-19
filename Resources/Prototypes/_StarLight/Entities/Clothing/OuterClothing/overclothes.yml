@@ -1,0 +1,16 @@
+- type: entity
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing]
+  id: ClothingOutercorset
+  name: corset
+  description: A little bit tight.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/OuterClothing/OverClothes/corset.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/OuterClothing/OverClothes/corset.rsi
+  - type: Item
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: StaticPrice
+    price: 30

@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # Translator that doesn't need power to work.
@@ -249,8 +245,8 @@
 - type: entity
   id: ValyrianStandardTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Valyrian Standard translator
-  description: Translates speech between Valyrian Standard and Tau-Ceti Basic. For talking to Harpies!
+  name: avatel vulu translator # Omu
+  description: Translates speech between Avatel Vulu and Tau-Ceti Basic. For talking to Harpies! # Omu
   components:
   - type: HandheldTranslator
     spoken:

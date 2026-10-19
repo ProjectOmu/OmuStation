@@ -40,7 +40,8 @@
           key: ScrambleDnaEffect
           component: ScrambleDnaEffect
           conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: AtomicPrecision
             min: 25
         - !type:HealthChange
           damage:

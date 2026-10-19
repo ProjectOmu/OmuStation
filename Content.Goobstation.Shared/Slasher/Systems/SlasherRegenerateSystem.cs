@@ -1,27 +1,27 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Slasher.Components;
-using Content.Goobstation.Shared.Slasher.Events;
 using Content.Shared.Actions;
-using Content.Shared.Actions.Events;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Cuffs;
-using Content.Shared.Cuffs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
+using Robust.Shared.Player;
 
 namespace Content.Goobstation.Shared.Slasher.Systems;
 
 public sealed class SlasherRegenerateSystem : EntitySystem
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
-    [Dependency] private readonly SharedCuffableSystem _cuffs = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
@@ -29,27 +29,18 @@ public sealed class SlasherRegenerateSystem : EntitySystem
 
         SubscribeLocalEvent<SlasherRegenerateComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SlasherRegenerateComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<SlasherRegenerateComponent, ActionAttemptEvent>(OnActionAttempt);
         SubscribeLocalEvent<SlasherRegenerateComponent, SlasherRegenerateEvent>(OnRegenerate);
     }
 
     private void OnMapInit(Entity<SlasherRegenerateComponent> ent, ref MapInitEvent args)
     {
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
+        Dirty(ent);
     }
 
     private void OnShutdown(Entity<SlasherRegenerateComponent> ent, ref ComponentShutdown args)
     {
         _actions.RemoveAction(ent.Comp.ActionEnt);
-    }
-
-    private void OnActionAttempt(EntityUid uid, SlasherRegenerateComponent comp, ref ActionAttemptEvent args)
-    {
-        if (!comp.HasSoulAvailable)
-        {
-            _popup.PopupPredicted(Loc.GetString("slasher-regenerate-no-soul"), uid, uid);
-            args.Cancelled = true;
-        }
     }
 
     /// <summary>
@@ -63,21 +54,26 @@ public sealed class SlasherRegenerateSystem : EntitySystem
         if (args.Handled)
             return;
 
-        RaiseLocalEvent(uid, new RejuvenateEvent());
-
-        TryInjectReagent(uid, comp);
-
-        // If our entity is cuffed/in-cuffs --> uncuff them
-        if (TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
+        if (!comp.HasSoulAvailable)
         {
-            var cuff = cuffs.LastAddedCuffs;
-            _cuffs.Uncuff(uid, uid, cuff);
-            QueueDel(cuff);
+            _popup.PopupClient(Loc.GetString("slasher-regenerate-no-soul"), uid, uid);
+            return;
         }
 
-        // Spawn the visual and light effect entity
-        var effectEnt = Spawn(comp.RegenerateEffect, _transform.GetMapCoordinates(uid));
-        _transform.SetParent(effectEnt, uid);
+        var wasDead = _mobState.IsDead(uid);
+
+        if (_net.IsServer)
+        {
+            RaiseLocalEvent(uid, new RejuvenateEvent());
+            TryInjectReagent(uid, comp);
+
+            // Spawn the visual and light effect entity
+            var effectEnt = Spawn(comp.RegenerateEffect, _transform.GetMapCoordinates(uid));
+            _transform.SetParent(effectEnt, uid);
+
+            if (wasDead)
+                ReviveFromDeath((uid, comp));
+        }
 
         // Play sound effect
         _audio.PlayPredicted(comp.RegenerateSound, uid, uid);
@@ -90,6 +86,24 @@ public sealed class SlasherRegenerateSystem : EntitySystem
     }
 
     /// <summary>
+    /// Shows the regenerate overlay to everyone in range and lets the server relocate the slasher.
+    /// </summary>
+    private void ReviveFromDeath(Entity<SlasherRegenerateComponent> ent)
+    {
+        var (uid, comp) = ent;
+
+        var filter = Filter.Empty().AddInRange(_transform.GetMapCoordinates(uid), comp.RegenerateEffectRange);
+        foreach (var session in filter.Recipients)
+        {
+            if (session.AttachedEntity is { } viewer)
+                EnsureComp<SlasherRegenerateOverlayComponent>(viewer);
+        }
+
+        var revived = new SlasherRevivedFromDeathEvent();
+        RaiseLocalEvent(uid, ref revived);
+    }
+
+    /// <summary>
     /// Injects the reagent into the bloodstream of the entity (self)
     /// </summary>
     /// <param name="target">The Entity calling this (self)</param>
@@ -99,10 +113,10 @@ public sealed class SlasherRegenerateSystem : EntitySystem
         if (!TryComp<BloodstreamComponent>(target, out var bloodstream))
             return;
 
-        if (!_solutions.ResolveSolution(target, bloodstream.ChemicalSolutionName, ref bloodstream.ChemicalSolution))
+        if (!_solutions.ResolveSolution(target, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution))
             return;
 
-        _solutions.TryAddReagent(bloodstream.ChemicalSolution.Value, new ReagentId(comp.Reagent, null), FixedPoint2.New(comp.ReagentAmount), out _);
+        _solutions.TryAddReagent(bloodstream.BloodSolution.Value, new ReagentId(comp.Reagent, null), FixedPoint2.New(comp.ReagentAmount), out _);
     }
 
     /// <summary>

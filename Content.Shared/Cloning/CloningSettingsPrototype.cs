@@ -67,6 +67,12 @@ public sealed partial class CloningSettingsPrototype : IPrototype, IInheritingPr
     public bool CopyImplants = true;
 
     /// <summary>
+    ///     Should infinite status effects applied to an entity be copied or not?
+    /// </summary>
+    [DataField]
+    public bool CopyStatusEffects = true;
+
+    /// <summary>
     ///     Whitelist for the equipment allowed to be copied.
     /// </summary>
     [DataField]
@@ -96,4 +102,10 @@ public sealed partial class CloningSettingsPrototype : IPrototype, IInheritingPr
     [DataField]
     [AlwaysPushInheritance]
     public HashSet<string> EventComponents = new();
+
+    /// <summary>
+    /// Omu:    Whether or not to copy hand storage
+    /// </summary>
+    [DataField]
+    public bool CopyHands = true;
 }

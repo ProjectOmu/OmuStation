@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleMobBase, MobCombat, DVNodeCrawler ] # Omu, add DVNodeCrawler
   id: BaseMobSlimeXenobio
   name: basic slime
   description: It looks so much like jelly. I wonder what it tastes like?
@@ -20,7 +20,7 @@
       Starving: 0.2
       Dead: 0.1
     baseDecayRate: 0.5
-    starvingSlowdownModifier: 0
+    starvingSlowdownModifier: 0.5 # Make them able to move
   - type: Sprite
     noRot: true
     drawdepth: OverMobs
@@ -72,7 +72,10 @@
     damageContainer: Biological
     damageModifierSet: Slime
   - type: Bloodstream
-    bloodReagent: Slime
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Slime
+        Quantity: 100
     smokeImmune: true  #No more 50000 slime extracts midshift
     bloodlossDamage:
       types:
@@ -94,12 +97,11 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
     - reagents: [ Water ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         damage:
           types:
             Caustic: 5
@@ -109,7 +111,7 @@
         probability: 0.25
   - type: Body
     prototype: XenobioSlimes
-    requiredLegs: 1
+    requiredLegs: 0     #OMU - no more slime legs
   - type: MeleeWeapon
     damage:
       groups:
@@ -120,10 +122,24 @@
     successChance: 0.5
     interactSuccessString: petting-success-slimes
     interactFailureString: petting-failure-generic
-  - type: VentCrawler
+  #- type: VentCrawler # Omu, use nodecrawler
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime
+  - type: CorpseEater
+    organWhitelist:
+      components:
+      - Edible
+    bodyPartWhitelist:
+      components:
+      - Edible
+    organBlacklist:
+      components:
+      - BadFood
+    bodyPartBlacklist:
+      components:
+      - BadFood
+    bodyPartComposition: Organic # I hope it works
   - type: TypingIndicator
     proto: slime
   - type: LanguageKnowledge # Einstein Engines - Language
@@ -133,7 +149,7 @@
     - Bubblish
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - XenobioSlime
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -141,12 +157,14 @@
   - type: ActionGrant
     actions:
     - ActionSlimeLatch
+    - ActionEatCorpse
   - type: HTN
     rootTask:
       task: XenoSlimeCompound
   - type: GuideHelp
     guides:
     - Xenobiology
+  - type: Inoperable # Omu
 
 # Begin Slimes
 
@@ -208,4 +226,4 @@
     layers:
       - state: green
       - sprite: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
-    state: base
+        state: base

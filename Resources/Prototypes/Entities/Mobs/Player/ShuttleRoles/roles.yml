@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 ## See also ../settings.yml and ../spawners.yml
 
@@ -363,7 +359,7 @@
 
 - type: entity
   id: RandomHumanoidVisitorLawyerCentcom
-  name: visiting centcom lawyer ghost role
+  name: visiting centcomm lawyer ghost role # Omu
   components:
     - type: Sprite
       sprite: Markers/jobs.rsi

@@ -36,15 +36,14 @@
     - state: icon-ert
       sprite: _Devilstation/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
-    moduleId: EmergencyResponse
-    items:
-    - WeaponPulsePistol
-    - HyperFlash
-    - StunBatonBorg
-    - ZiptieDispenser
-    - JawsOfLife
-    - SonicJackhammer
-    - JetpackXenoborg
+    hands:
+    - item: WeaponPulsePistol
+    - item: HyperFlash
+    - item: StunBatonBorg
+    - item: ZiptieDispenser
+    - item: JawsOfLife
+    - item: SonicJackhammer
+    - item: JetpackXenoborg
   - type: BorgModuleIcon
     icon: { sprite: _Devilstation/Interface/Actions/actions_borg.rsi, state: ert-module }
 
@@ -61,13 +60,12 @@
     - state: icon-xenoborg-laser # im not making a second sprite smh, also it fits.
       sprite: Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
-    moduleId: Commando
-    items:
-    - WeaponPulseRifleCyborg
-    - PhoronSabre
-    - HyperFlash
-    - JawsOfLife
-    - SonicJackhammer
-    - JetpackXenoborg
+    hands:
+    - item: WeaponPulseRifleCyborg
+    - item: PhoronSabre
+    - item: HyperFlash
+    - item: JawsOfLife
+    - item: SonicJackhammer
+    - item: JetpackXenoborg
   - type: BorgModuleIcon
     icon: { sprite: _Devilstation/Interface/Actions/actions_borg.rsi, state: ert-module } #im lazy

@@ -6,7 +6,15 @@ selectable-set-headofsecurity-paradevoidsuit-desc =
 
 selectable-set-paramedic-cybersunhardsuit-name = CSI-122M "Xiézhù" hardsuit
 selectable-set-paramedic-cybersunhardsuit-desc =
-    The odd one out of the Cybersun hardsuits, meant to be lightweight but less armored.
+    The odd one out of the Cybersun hardsuits,
+    meant to be lightweight but less armored.
+    About as protective as its NT counterpart.
+
+# Clearer distinction between itself and the modsuit.
+selectable-set-paramedic-voidsuit-omu-desc =
+    A light hardsuit favoring environmental
+    resistance and fast movement speed,
+    over physical protection.
 
 selectable-set-warden-eshotty-name = Energy Shotgun
 selectable-set-warden-eshotty-description =
@@ -15,6 +23,28 @@ selectable-set-warden-eshotty-description =
 selectable-set-warden-r6-name = R6 Trench Gun
 selectable-set-warden-r6-description =
     The simpler solution in armory defense. The brig is your domain.
+
+selectable-set-warden-snub-name = Twin Snubnose
+selectable-set-warden-snub-description =
+    Twin hammerless revolvers, for quick draws and quicker Magdumps
+
+selectable-set-warden-henrietta-name = Henrietta
+selectable-set-warden-henrietta-description =
+    A dependable 8 gauge lever-action shotgun with a bayonet.
+    Comes with a bandolier and some ammo to keep her fed.
+
+selectable-set-brigmed-crossbow-name = Syringe Crossbow
+selectable-set-brigmed-crossbow-description =
+    A portable Crossbow for healing at range.
+
+selectable-set-brigmed-shotgun-name = Pneumatic Shotgun
+selectable-set-brigmed-shotgun-description =
+    A low power, Innaccurate shotgun. Single shell, but can fire Syringes.
+    Hellishly innaccurate.
+
+selectable-set-brigmed-disabler-name = Energy SMG
+selectable-set-brigmed-disabler-description =
+    What it says on the box. It's boring. It works.
 
 selectable-set-hos-belt-name = Qua Nar'Vulna
 selectable-set-hos-belt-description =
@@ -34,6 +64,11 @@ selectable-set-hos-brdi-name = Antique BRDI R-25
 selectable-set-hos-brdi-description=
     Once wielded by an unknown member of the Biesel Foreign Legion,
     this beloved rifle has seen battle with Sol on every world in the colonies.
+
+selectable-set-sarge-magnum-name = Energy Magnum
+selectable-set-sarge-magnum-description =
+    Self-recharging energy magnum that can switch between lethal
+    and disabling mode.
 
 selectable-set-mk58-name = Mk58 Pistol
 selectable-set-mk58-description =
@@ -59,6 +94,14 @@ selectable-set-ceremonial-rifle-description =
     "Gory, gory, what a hell of a way to die!"
     An weapon often given to Paratroopers mainly and Infantry in ancient Sol.
     This one is a relic given to the Sergeant, shoots .30 Rifle.
+
+selectable-set-sergeant-belt-name = Sergeant's Disciplinary Belt
+selectable-set-sergeant-belt-description =
+    A sturdy belt designed for the Sergeant, often used to hit unruly cadets and officers alike.
+
+selectable-set-security-tackle-name = Enhanced Retrieval Gloves
+selectable-set-security-tackle-description =
+    Special gloves that manipulate the blood vessels in the wearer's hands, granting them the ability to launch headfirst into walls and tackle fleeing criminals in a single bound.
 
 selectable-set-antiquelaser-name = Antique Laser Pistol
 selectable-set-antiquelaser-description =
@@ -149,8 +192,8 @@ selectable-set-bso-brdi-description =
 selectable-set-bso-typewriter-name = Typewriter Submachine Gun
 selectable-set-bso-typewriter-desc =
     A kit containing a perfect replica of the Thompson Submachine Gun,
-    chambered in .35, a preloaded drum mag, a stick mag and a drum mag with rubber bullets. 
-    Perfect for LARPers and wise guys alike.
+    chambered in .35, a preloaded drum mag, a stick mag and a drum mag with rubber bullets;
+    perfect for the historically minded and wise guys alike.
 
 selectable-set-bso-extraction-name = Extraction kit
 selectable-set-bso-extraction-description =
@@ -185,4 +228,11 @@ selectable-set-ntr-blade-name = Cane Blade
 selectable-set-ntr-blade-desc =
     A sturdier, bladed fancy cane, with no stun setting...
     This one is meant for emergencies only
+    CC note says: ONLY USE ON RED!!!!!
+
+selectable-set-ntr-brella-name = "Marlen" Umbrella
+selectable-set-ntr-brella-desc =
+    A stylish and intricate souvenir made from tough, hyper-woven
+    durathread by "NanoFashion" for the rich people of central command.
+    Looks expensive, and surprisingly durable.
     CC note says: ONLY USE ON RED!!!!!

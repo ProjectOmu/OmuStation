@@ -17,7 +17,6 @@ public sealed class VinylPlayerSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
-    [Dependency] private readonly SharedDeviceLinkSystem _deviceLinkSystem = default!;
 
     public override void Initialize()
     {
@@ -62,7 +61,10 @@ public sealed class VinylPlayerSystem : EntitySystem
 
         var audio = _audio.PlayPredicted(vinylcomp.Song, uid, uid, AudioParams.Default.WithVolume(3f).WithMaxDistance(4.5f));
         if (audio != null)
+        {
             comp.SoundEntity = audio.Value.Entity;
+            _audio.SetGain(comp.SoundEntity, vinylcomp.Volume);  //omu
+        }
 
         // Used by VinylSummonRuleSystem
         var ev = new VinylInsertedEvent(args.Entity);
@@ -75,7 +77,7 @@ public sealed class VinylPlayerSystem : EntitySystem
         while (query.MoveNext(out var receiver, out var receiverComponent))
         {
             if (!receiverComponent.SoundEntity.HasValue)
-                RaiseLocalEvent(receiver, new StationRadioMediaPlayedEvent(vinylcomp.Song));
+                RaiseLocalEvent(receiver, new StationRadioMediaPlayedEvent(vinylcomp.Song, vinylcomp.Volume));//Omu
         }
     }
 

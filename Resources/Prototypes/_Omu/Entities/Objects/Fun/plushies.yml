@@ -22,7 +22,7 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_Omu/Items/Plushie/ogrenoise.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: false
     useSound:
       path: /Audio/_Omu/Items/Plushie/ogrenoise.ogg
@@ -70,7 +70,7 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_Floofstation/Voice/Avali/avali_cry.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -81,7 +81,7 @@
       food:
         maxVol: 15
         reagents:
-        - ReagentId: PenteticAcid
+        - ReagentId: PentenicAcid
           Quantity: 10
         - ReagentId: WhiskeySoda
           Quantity: 5
@@ -159,7 +159,7 @@
   id: PlushieThesiaOmuStaffAmnestic
   suffix: DO NOT MAP
   components:
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
@@ -202,7 +202,7 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_Floofstation/Voice/Avali/avali_laugh.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -257,7 +257,7 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_Floofstation/Voice/Avali/avali_cry.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -302,7 +302,7 @@
   - type: EmitSoundOnCollide
     sound:
       collection: VulpkaninSnarls
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -350,7 +350,7 @@
   - type: EmitSoundOnCollide
     sound:
       collection: ResomiScrees
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -472,7 +472,7 @@
   - type: EmitSoundOnCollide
     sound:
       collection: FelinidMews
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -510,12 +510,15 @@
   - type: EmitSoundOnCollide
     sound:
       collection: VoxScreams
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit:
       collection: VoxScreams
+  - type: GibThisGuy # You asked for it son
+    icNames:
+    - Cheron
 
 - type: entity
   parent: BasePlushie
@@ -548,7 +551,7 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/Voice/Talk/pai.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -586,7 +589,7 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_Floofstation/Voice/Avali/avali_cry.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -624,7 +627,7 @@
   - type: EmitSoundOnCollide
     sound:
       collection: VulpYips
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -662,7 +665,7 @@
   - type: EmitSoundOnCollide
     sound:
       collection: VulpYips
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -700,7 +703,7 @@
   - type: EmitSoundOnCollide
     sound:
       collection: VulpkaninBarks
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -742,18 +745,6 @@
     - HEAD
 
 - type: entity
-  parent: PlushieLizard
-  id: PlushiePickelSillyOmuStaffish
-  name: kur-nema plushie
-  description: A MAAAGICAAAL WIIIZAAAAAAAAAAARD!!! Abacraweh!
-  components:
-  - type: Sprite
-    sprite: _Omu/Objects/Fun/Plushies/pickelsilly.rsi
-    state: icon
-  - type: Item
-    sprite: _Omu/Objects/Fun/Plushies/pickelsilly.rsi
-
-- type: entity
   parent: BasePlushie
   id: PlushieXiOmuStaff
   name: hailey vera plushie
@@ -784,7 +775,7 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/Weapons/punch1.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -822,9 +813,183 @@
   - type: EmitSoundOnCollide
     sound:
       collection: Pops
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit:
       collection: Squishes
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieJessieFletcherOmuStaff
+  name: jessie fletcher plushie
+  description: This plushie looks like it'll treat your injuries with surgery most of the time. It has a label reading "MOTHS. DO NOT EAT."
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/jessiefletcher.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/jessiefletcher.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/jessiefletcher.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnUse
+    sound:
+      collection: VulpYips
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: VulpYips
+  - type: EmitSoundOnThrow
+    sound:
+      collection: VulpkaninScreams
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: Gekkerzine # Gekkerzine jumpscare
+          Quantity: 10
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieCrescentOmuStaff
+  name: crescent plushie
+  description: More and more are reliant on the "Crescent Index" for an accurate tell of Station happenings. Smells like cut grass.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/crescent.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/crescent.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/crescent-worn.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound: /Audio/_Goobstation/Voice/Human/gulp.ogg
+  - type: AlertLevelEmitSound
+    defaultSound:
+      path: /Audio/Animals/cow_moo.ogg
+      params:
+        volume: -6
+    sounds:
+      blue:
+        collection: FemaleScreams
+      red:
+        collection: FemaleCry
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: FemaleLaugh
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: EmitSoundOnLand
+    sound: null
+  - type: EmitSoundOnThrow
+    sound:
+      collection: FemaleScreams
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: FemaleScreams
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieHushOmuStaff
+  name: hush plush
+  description: Your local Corporate Compliance Officer. Ask her for her lawset, maybe she remembers it!
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/hush.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/hush.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/hush-worn.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: EmitSoundOnUse
+    sound: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: EmitSoundOnActivate
+    sound: null
+    handle: false
+  - type: EmitSoundOnTrigger
+    sound: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: EmitSoundOnLand
+    sound: null
+  - type: EmitSoundOnThrow
+    sound:
+      path: /Audio/Effects/tesla_consume.ogg
+      params:
+        variation: 0.125
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: TriggerOnActivate
+  - type: UseDelayOnTrigger
+  - type: UseDelayTriggerCondition
+  - type: Speech
+    speechSounds: Pai
+    speechVerb: Robotic
+  - type: SpeakOnTrigger
+    pack: PlushiesHush
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieJohnOmuStaff
+  name: john plushie
+  description: This plushie does not appear to be officially produced by any toy-making corporations. You get the feeling that it's staring at you...
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/john.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/john.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/john.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: MaleSigh
+  - type: EmitSoundOnUse
+    sound:
+      collection: MaleLaugh
+  - type: EmitSoundOnActivate
+    sound:
+      collection: MaleLaugh
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: MaleLaugh
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: EmitSoundOnThrow
+    sound:
+      collection: MaleScreams
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: MaleScreams
