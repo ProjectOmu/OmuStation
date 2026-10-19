@@ -27,7 +27,7 @@ marking-AllulaloTailBulb-Bulbtail2 = Bulb tail bottom
 
 marking-AllulaloTailBulbLong = Bulb tail (long)
 marking-AllulaloTailBulbLong-Bulbtaillong = Bulb tail (long) bottom
-marking-AllulaloTailBulbLong-Bulbtaillong = Bulb tail (long) top
+marking-AllulaloTailBulbLong-Bulbtaillong2 = Bulb tail (long) top
 
 marking-AllulaloTailCurly = Curly tail
 marking-AllulaloTailCurly-Curlytail = Curly tail top
