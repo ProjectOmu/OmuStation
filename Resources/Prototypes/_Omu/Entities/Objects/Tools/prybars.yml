@@ -4,7 +4,7 @@
   parent: BaseItem
   id: BasePrybar
   name: prybar
-  description: A single purpose tool, designed to pry open doors during power outages.
+  description: A single-purpose tool, designed to pry open doors during power outages.
   components:
   - type: EmitSoundOnPickup
     sound:
@@ -51,7 +51,7 @@
   parent: BasePrybar
   id: GuildPrybar
   name: guild prybar
-  description: A single purpose tool, officially manufactured and issued by NT-GSL to ensure security contractors the ability to pry open doors during power outages.
+  description: A single-purpose tool, officially manufactured and issued by NT-GSL to ensure security contractors have the ability to pry open doors during power outages.
   components:
   - type: Sprite
     sprite: _Omu/Objects/Tools/guild_prybar.rsi
