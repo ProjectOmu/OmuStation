@@ -49,3 +49,26 @@
         amount: 2
       - id: GrenadeToy # Lure them into a false sense of trust.
         amount: 4
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelTailorBundle
+  name: syndicate tailor bundle
+  description: "Contains tailoring equipment."
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MaterialCloth
+          amount: 3
+        - id: MaterialDurathread
+          amount: 1
+        - id: UniformPrinterMachineCircuitboard
+          amount: 1
+        - id: SheetPlasteel10
+          amount: 1
+        - id: MaterialDurathread10
+          amount: 1
+        - id: MaterialDurathread5
+          amount: 1

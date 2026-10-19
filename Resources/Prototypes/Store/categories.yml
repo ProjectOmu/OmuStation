@@ -87,12 +87,12 @@
   id: UplinkDisruption
   name: store-category-disruption
   priority: 6
-
-- type: storeCategory # OMU new category for uplink
+# OMU start new category for uplink
+- type: storeCategory
   id: UplinkSupplies
   name: store-category-supplies
   priority: 7
-
+# OMU End new category for uplink
 - type: storeCategory
   id: UplinkImplants
   name: store-category-implants

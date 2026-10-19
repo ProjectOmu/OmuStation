@@ -62,3 +62,18 @@ uplink-voice-mask-desc = A gas mask that lets you adjust your voice to whoever y
 
 uplink-fake-taiwan-pond-bundle-name = Taiwan Pond Bundle
 uplink-fake-taiwan-pond-bundle-desc = A China lake painted to look like a Taiwan Pond, Comes with two 40mm slugs, two 40mm birdshot grenades and a few 40mm prank grenades.
+
+uplink-basic-material-bundle-name = Basic Material Bundle
+uplink-basic-material-bundle-desc = Contains 90 Steel, Plastic and Glass. For the agent with a plan.
+
+uplink-advanced-material-bundle-name = Advanced Material Bundle
+uplink-advanced-material-bundle-desc = Contains 45 Steel, Glass, Plastic; 15 Gold, Silver, Uranium, Plasma as well as 10 Plasteel. Enough to feed your wildest lathe setup.
+
+uplink-tailor-bundle-name = Tailor Bundle
+uplink-tailor-bundle-desc = Contains 90 Cloth, 45 DuraThread, 10 Plasteel and a Uniform Printer board. EMAG sold seperately.
+
+uplink-exotic-material-bundle-name = Exotic Material Bundle
+uplink-exotic-material-bundle-desc = Contains 30 Gold, Silver, Plasma, Uranium, Plasteel as well as 10 Diamonds. Materials suited only for the most robust agents.
+
+uplink-chemist-bundle-name = Chemist Bundle
+uplink-chemist-bundle-desc = A luxiurious bundle containing: a Chemmaster, ChemVend Restock, 2 beakers, a cryostasis beaker, a plasma vial, chemical analysis goggles, a hotplate, a grinder, a electrolysis unit and a tabletop centrifuge. The Syndicate sends its regards.

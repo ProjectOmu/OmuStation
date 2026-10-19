@@ -51,3 +51,39 @@
   components:
   - type: Flatpack
     entity: MedicalComputerComms
+
+- type: entity # OMU START
+  parent: BaseFlatpack
+  id: ChemMasterFlatpack
+  name: ChemMaster 4000 flat pack
+  description: A flatpack used for constructing a ChemMaster 4000
+  components:
+  - type: Flatpack
+    entity: ChemMaster
+
+- type: entity
+  parent: BaseFlatpack
+  id: KitchenReagentGrinderFlatpack
+  name: Reagent Grinder flat pack
+  description: A flatpack used for constructing a Reagent Grinder
+  components:
+  - type: Flatpack
+    entity: KitchenReagentGrinder
+
+- type: entity
+  parent: BaseFlatpack
+  id: MachineElectrolysisUnitFlatpack
+  name: Electrolysis Unit flat pack
+  description: A flatpack used for constructing a Electrolysis Unit
+  components:
+  - type: Flatpack
+    entity: MachineElectrolysisUnit
+
+- type: entity
+  parent: BaseFlatpack
+  id: MachineCentrifugeFlatpack
+  name: Machine Centrifuge flat pack
+  description: A flatpack used for constructing a Machine Centrifuge
+  components:
+  - type: Flatpack
+    entity: MachineCentrifuge # OMU END
