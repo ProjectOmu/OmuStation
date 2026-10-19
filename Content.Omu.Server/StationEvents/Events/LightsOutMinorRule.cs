@@ -39,8 +39,10 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
         component.Damage = new DamageSpecifier(_proto.Index<DamageGroupPrototype>(DamageTypeToDeal), 5);
 
         // if there's no station, we can't run this event
-        if (!TryGetRandomStation(out var station))
+        if (!TryGetRandomStation(out var station_p))
             return;
+
+        var station = (EntityUid) station_p; // make this not null, god
 
         // choose a random station beacon to center the breaking around
         var beacons = new List<EntityUid>();
@@ -85,7 +87,7 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
         }
 
         _chat.DispatchStationAnnouncement(
-            (EntityUid) station,
+            station,
             Loc.GetString("lights-out-announcement"),
             Loc.GetString("lights-out-sender"),
             playDefaultSound: true,
