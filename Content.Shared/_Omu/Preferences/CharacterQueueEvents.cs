@@ -11,11 +11,13 @@ namespace Content.Shared._Omu.Preferences;
 public sealed class CharacterQueueState(
     Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities,
     HashSet<int> activeSlots,
-    List<int> order)
+    List<int> order,
+    PreferenceUnavailableMode preferenceUnavailable)
 {
     public readonly Dictionary<ProtoId<JobPrototype>, JobPriority> JobPriorities = jobPriorities;
     public readonly HashSet<int> ActiveSlots = activeSlots;
     public readonly List<int> Order = order;
+    public readonly PreferenceUnavailableMode PreferenceUnavailable = preferenceUnavailable;
 }
 
 [Serializable, NetSerializable]

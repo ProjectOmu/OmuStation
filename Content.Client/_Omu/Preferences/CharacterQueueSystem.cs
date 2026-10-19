@@ -16,7 +16,7 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
     [Dependency] private readonly IClientPreferencesManager _prefs = default!;
     [Dependency] private readonly JobRequirementsManager _requirements = default!;
 
-    public CharacterQueueState State { get; private set; } = new([], [], []);
+    public CharacterQueueState State { get; private set; } = new([], [], [], PreferenceUnavailableMode.StayInLobby);
 
     public event Action? Updated;
 
@@ -78,7 +78,12 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
         else
             priorities[job] = priority;
 
-        Send(new CharacterQueueState(priorities, State.ActiveSlots, State.Order));
+        Send(new CharacterQueueState(priorities, State.ActiveSlots, State.Order, State.PreferenceUnavailable));
+    }
+
+    public void SetPreferenceUnavailable(PreferenceUnavailableMode mode)
+    {
+        Send(new CharacterQueueState(State.JobPriorities, State.ActiveSlots, State.Order, mode));
     }
 
     public void SetActive(int slot, bool active)
@@ -89,7 +94,7 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
         else
             slots.Remove(slot);
 
-        Send(new CharacterQueueState(State.JobPriorities, slots, State.Order));
+        Send(new CharacterQueueState(State.JobPriorities, slots, State.Order, State.PreferenceUnavailable));
     }
 
     public void MoveCharacter(int slot, int index)
@@ -102,7 +107,7 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
             return;
 
         order.Insert(Math.Clamp(index, 0, order.Count), slot);
-        Send(new CharacterQueueState(State.JobPriorities, State.ActiveSlots, order));
+        Send(new CharacterQueueState(State.JobPriorities, State.ActiveSlots, order, State.PreferenceUnavailable));
     }
 
     private void Send(CharacterQueueState state)
@@ -114,7 +119,8 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
 
     private void OnState(CharacterQueueStateEvent ev)
     {
-        var changed = !ev.State.ActiveSlots.SetEquals(State.ActiveSlots)
+        var changed = ev.State.PreferenceUnavailable != State.PreferenceUnavailable
+            || !ev.State.ActiveSlots.SetEquals(State.ActiveSlots)
             || !ev.State.Order.SequenceEqual(State.Order)
             || ev.State.JobPriorities.Count != State.JobPriorities.Count
             || ev.State.JobPriorities.Any(pair => State.JobPriorities.GetValueOrDefault(pair.Key) != pair.Value);
