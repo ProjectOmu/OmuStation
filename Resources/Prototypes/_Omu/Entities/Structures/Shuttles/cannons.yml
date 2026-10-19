@@ -1,0 +1,68 @@
+- type: entity
+  name: syndicate remote shotgun
+  parent: [BaseStructure, BaseSyndicateContraband]
+  id: RemoteShotgun
+  description: A syndicate shotgun mounted on a stand. It fires all three shells in quick succession upon being triggered by a linked device.
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    layers:
+      - state: icon
+        map: [ "enum.GunVisualLayers.Base" ]
+    sprite: _Omu/Structures/Cannons/remote_shotgun.rsi
+  - type: Gun
+    fireRate: 0.25
+    burstFireRate: 2.5
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    shotsPerBurst: 3 # Enough to kill with slugs
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - ShellShotgun
+    capacity: 3
+    proto: ShellShotgun
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: Anchorable
+  - type: AmmoCounter
+  - type: GunSignalControl
+    addAdditionalTriggers: false
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Rotatable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        density: 60
+        mask:
+        - MachineMask
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+
+- type: entity
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: DisassembledRemoteShotgun
+  name: disassembled remote shotgun
+  description: A compact box containing a disassembled remote shotgun.
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: _Omu/Structures/Cannons/remote_shotgun.rsi
+    state: box
+  - type: SpawnItemsOnUse
+    items:
+    - id: RemoteShotgun
+    sound:
+      path: /Audio/Effects/unwrap.ogg

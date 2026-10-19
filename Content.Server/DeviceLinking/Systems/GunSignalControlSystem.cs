@@ -20,7 +20,9 @@ public sealed partial class GunSignalControlSystem : EntitySystem
 
     private void OnInit(Entity<GunSignalControlComponent> gunControl, ref MapInitEvent args)
     {
-        _signalSystem.EnsureSinkPorts(gunControl, gunControl.Comp.TriggerPort, gunControl.Comp.TogglePort, gunControl.Comp.OnPort, gunControl.Comp.OffPort);
+        _signalSystem.EnsureSinkPorts(gunControl, gunControl.Comp.TriggerPort); // Omu Start, If AddAdditionalTriggers is false, ensure all but the trigger port, by default its true.
+        if (gunControl.Comp.AddAdditionalTriggers)
+            _signalSystem.EnsureSinkPorts(gunControl, gunControl.Comp.TriggerPort, gunControl.Comp.TogglePort, gunControl.Comp.OnPort, gunControl.Comp.OffPort); // Omu end
     }
 
     private void OnSignalReceived(Entity<GunSignalControlComponent> gunControl, ref SignalReceivedEvent args)
