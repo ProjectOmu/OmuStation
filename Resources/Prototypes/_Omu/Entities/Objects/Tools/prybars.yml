@@ -3,7 +3,7 @@
   abstract: true
   parent: BaseItem
   id: BasePrybar
-  name: Prybar
+  name: prybar
   description: A single purpose tool, designed to pry open doors during power outages.
   components:
   - type: EmitSoundOnPickup
