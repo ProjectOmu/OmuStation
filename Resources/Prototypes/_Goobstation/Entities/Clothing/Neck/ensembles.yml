@@ -197,7 +197,7 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleHeadOfSecurity
   name: head of security's ensemble
-  description: Stained with the blood of tiders, and the tears of cadets. The word "shitsec" brings you joy, a tear to your eye.
+  description: Stained with the blood of tiders, and the tears of cadets. The word "shitsec" brings you joy, a tear to your eye. Equipped with a bodycam. # Omu
   suffix: DO NOT MAP
   components:
   - type: Item
@@ -236,6 +236,32 @@
         sprite:
           sprite: _Goobstation/Clothing/Neck/Ensembles/hos.rsi
           state: cloak-icon
+  # Omu Begin
+  - type: DeviceNetwork
+    deviceNetId: Wired # :clueless:
+    receiveFrequencyId: SurveillanceCameraSecurity
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+    nameSet: True
+    mobile: True  # Goobstation - mobile cameras fix
+    id: Bodycam
+  - type: Eye
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: SurveillanceCameraMicrophone
+    blacklist:
+      components:
+        - SurveillanceCamera
+        - SurveillanceCameraMonitor
+        - RadioSpeaker
+  - type: ActiveListener
+    range: 10
+  - type: ClothingGrantComponent
+    component:
+      - type: StationAiVision
+        range: 4
+  # Omu End
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
