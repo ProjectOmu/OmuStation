@@ -41,7 +41,7 @@ public sealed partial class LightsOutMajorRule : StationEventSystem<LightsOutMaj
             return;
 
         // generate the list of targets
-        var all_lights = EntityQueryEnumerator<PoweredLightComponent>();
+        using var all_lights = EntityQueryEnumerator<PoweredLightComponent>();
         while (all_lights.MoveNext(out var light, out _))
         {
             // don't target if the light isn't powered

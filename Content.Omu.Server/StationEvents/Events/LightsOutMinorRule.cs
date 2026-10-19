@@ -46,7 +46,7 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
 
         // choose a random station beacon to center the breaking around
         var beacons = new List<EntityUid>();
-        var beacons_eqe = EntityQueryEnumerator<ConfigurableNavMapBeaconComponent>();
+        using var beacons_eqe = EntityQueryEnumerator<ConfigurableNavMapBeaconComponent>();
         while (beacons_eqe.MoveNext(out var beacon, out _))
         {
             // don't consider a beacon if it's off-station
@@ -61,7 +61,7 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
         var center_position = Transform(beacons[_random.Next(beacons.Count)]).LocalPosition;
 
         // generate the list of targets (and store list of all lights to make major and minor versions initially indistinguishable)
-        var all_lights = EntityQueryEnumerator<PoweredLightComponent>();
+        using var all_lights = EntityQueryEnumerator<PoweredLightComponent>();
         while (all_lights.MoveNext(out var light, out _))
         {
             // don't target if the light isn't powered
