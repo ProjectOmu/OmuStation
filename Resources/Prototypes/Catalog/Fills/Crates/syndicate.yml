@@ -29,7 +29,7 @@
   parent: CrateSyndicate
   id: CrateSyndicateBasicMaterialBundle
   name: syndicate basic material bundle
-  description: TEMPLATE.
+  description: Contains the most basic of materials. 
   components:
   - type: EntityTableContainerFill
     containers:
@@ -47,7 +47,7 @@
   parent: CrateSyndicate
   id: CrateSyndicateAdvancedMaterialBundle
   name: syndicate advanced material bundle
-  description: TEMPLATE.
+  description: Contains a mix of basic and advanced materials.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -96,7 +96,7 @@
   parent: CrateSyndicate
   id: CrateSyndicateExoticMaterialBundle
   name: syndicate exotic material bundle
-  description: TEMPLATE.
+  description: Contains exotic and rare materials. The Syndicate sends its regards.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -121,7 +121,7 @@
   parent: CrateSyndicate
   id: CrateSyndicateChemistBundle
   name: syndicate chemist bundle
-  description: TEMPLATE.
+  description: Contains everything you need to make medicine! Or drugs! Or bombs! We don't judge!
   components:
   - type: EntityTableContainerFill
     containers:
