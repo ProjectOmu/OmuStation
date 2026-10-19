@@ -1,12 +1,15 @@
 using Content.Omu.Shared.Entities.Heretic;
 using Content.Omu.Shared.MansusMob;
+using Content.Server.GameTicking;
 using Content.Server.NPC.Systems;
+using Content.Server.Popups;
+using Content.Shared._Omu.Heretic;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
+using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
-using Content.Server.Popups;
 
 namespace Content.Omu.Server.MansusMob;
 
@@ -16,12 +19,15 @@ public sealed class MansusMobSystem : EntitySystem
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
+    private bool _tracking = false;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<MaidenSpawnEvent>(OnMaidenSpawn);
+        SubscribeLocalEvent<MansusMobComponent, MobStateChangedEvent>(OnMobStateChanged);
     }
 
     public override void Update(float frameTime)
@@ -41,6 +47,8 @@ public sealed class MansusMobSystem : EntitySystem
                 {
                     seek.Tracking = false;
                 }
+                else
+                    _tracking = true;
             }
             else
                 seek.Tracking = false;
@@ -55,9 +63,11 @@ public sealed class MansusMobSystem : EntitySystem
                     {
                         seek.Tracking = true;
                         seek.TrackedId = madUid;
+                        _tracking = true;
                         break;
                     }
                 }
+                _tracking = false;
             }
             if (seek.NextSeek < _timing.CurTime || seek.NextSeek == null)
             {
@@ -73,6 +83,8 @@ public sealed class MansusMobSystem : EntitySystem
                 }
                 else
                 {
+                    _tracking = false;
+
                     _popup.PopupEntity(Loc.GetString("mansus-mob-no-player-damage"), uid, uid, PopupType.SmallCaution);
                     var dmg = new DamageSpecifier()
                     {
@@ -93,5 +105,26 @@ public sealed class MansusMobSystem : EntitySystem
             return;
         seek.Tracking = true;
         seek.TrackedId = args.TrackedEntity;
+        _tracking = true;
+    }
+
+    private void OnMobStateChanged(EntityUid uid, MansusMobComponent component, MobStateChangedEvent args)
+    {
+        if (args.NewMobState == MobState.Dead)
+        {
+            bool noMaidens = true;
+            using var seekQuery = EntityQueryEnumerator<MansusMobComponent>();
+            while (seekQuery.MoveNext(out var seekUid, out var seek))
+            {
+                if (seekUid != uid)
+                    noMaidens = false;
+            }
+
+            // Resupply the hunt if we are tracking madness 
+            if (noMaidens && _tracking)
+            {
+                _gameTicker.StartGameRule("MirrorMaidenSpawn", out var spawnEnt);
+            }
+        }
     }
 }
