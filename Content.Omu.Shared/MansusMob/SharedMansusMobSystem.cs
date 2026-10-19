@@ -1,4 +1,3 @@
-using Content.Omu.Shared.Entities.Heretic;
 using Content.Shared._Omu.Heretic;
 using Content.Shared.Actions;
 using Content.Shared.Heretic;
@@ -8,8 +7,8 @@ using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Random;
 using Robust.Shared.Player;
+using Robust.Shared.Random;
 
 namespace Content.Omu.Shared.MansusMob;
 
@@ -37,7 +36,7 @@ public sealed class SharedMansusMobSystem : EntitySystem
     {
         foreach (var hit in args.HitEntities)
         {
-            if (!TryComp<FascinationComponent>(hit, out var fascination) || fascination.FascinationValue < 5)
+            if (!HasComp<MansusMaddenedComponent>(hit))
             {
                 _popup.PopupPredicted(Loc.GetString("mansus-mob-miss-hit"), ent, ent, PopupType.SmallCaution);
                 args.Handled = true;
@@ -67,25 +66,17 @@ public sealed class SharedMansusMobSystem : EntitySystem
             return;
 
         // Continuous tracking logic
-        if (seek.Tracking && TryComp<FascinationComponent>(seek.TrackedId, out var trackedFascination))
+        if (seek.Tracking && HasComp<MansusMaddenedComponent>(seek.TrackedId))
         {
-            if (trackedFascination.FascinationValue >= 5)
-            {
-                players.Add(seek.TrackedId);
-            }
-            else
-                seek.Tracking = false;
+            players.Add(seek.TrackedId);
         }
         else
         {
             // Find random madness inflicted player
-            var query = EntityQueryEnumerator<FascinationComponent>();
-            while (query.MoveNext(out var uid, out var fascination))
+            var query = EntityQueryEnumerator<MansusMaddenedComponent>();
+            while (query.MoveNext(out var uid, out var maddened))
             {
-                if (fascination.FascinationValue >= 5)
-                {
-                    players.Add(uid);
-                }
+                players.Add(uid);
             }
         }
 

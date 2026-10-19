@@ -1,3 +1,5 @@
+using Content.Goobstation.Server.Chaplain.Components;
+using Content.Goobstation.Shared.CustomFactionIcons;
 using Content.Omu.Shared.Entities.Heretic;
 using Content.Omu.Shared.MansusMob;
 using Content.Server.GameTicking;
@@ -5,10 +7,14 @@ using Content.Server.NPC.Systems;
 using Content.Server.Popups;
 using Content.Shared._Omu.Heretic;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Damage;
+using Content.Shared.Database;
 using Content.Shared.Mobs;
+using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Player;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Omu.Server.MansusMob;
@@ -20,7 +26,10 @@ public sealed class MansusMobSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
-    private bool _tracking = false;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -28,6 +37,8 @@ public sealed class MansusMobSystem : EntitySystem
 
         SubscribeLocalEvent<MaidenSpawnEvent>(OnMaidenSpawn);
         SubscribeLocalEvent<MansusMobComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<MansusMaddenedComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<MansusMaddenedComponent, ComponentRemove>(OnRemoval);
     }
 
     public override void Update(float frameTime)
@@ -40,34 +51,26 @@ public sealed class MansusMobSystem : EntitySystem
             if (Deleted(seek.TrackedId))
                 seek.Tracking = false;
 
-            // If tracking, check if tracked entity is still valid and has enough fascination value
-            if (seek.Tracking && TryComp<FascinationComponent>(seek.TrackedId, out var trackedFascination))
+            // If tracking, check if tracked entity is still valid
+            if (seek.Tracking && !HasComp<MansusMaddenedComponent>(seek.TrackedId))
             {
-                if (trackedFascination.FascinationValue < 5)
-                {
-                    seek.Tracking = false;
-                }
-                else
-                    _tracking = true;
-            }
-            else
                 seek.Tracking = false;
+            }
 
             // If not tracking, check for another maddened player
             if (!seek.Tracking)
             {
-                using var madQuery = EntityQueryEnumerator<FascinationComponent>();
+                List<EntityUid> maddenedPlayers = new();
+                using var madQuery = EntityQueryEnumerator<MansusMaddenedComponent>();
                 while (madQuery.MoveNext(out var madUid, out var fascination))
                 {
-                    if (fascination.FascinationValue >= 5)
-                    {
-                        seek.Tracking = true;
-                        seek.TrackedId = madUid;
-                        _tracking = true;
-                        break;
-                    }
+                    maddenedPlayers.Add(madUid);
                 }
-                _tracking = false;
+                if (maddenedPlayers.Count > 0)
+                {
+                    seek.Tracking = true;
+                    seek.TrackedId = _random.Pick(maddenedPlayers);
+                }
             }
             if (seek.NextSeek < _timing.CurTime || seek.NextSeek == null)
             {
@@ -83,8 +86,6 @@ public sealed class MansusMobSystem : EntitySystem
                 }
                 else
                 {
-                    _tracking = false;
-
                     _popup.PopupEntity(Loc.GetString("mansus-mob-no-player-damage"), uid, uid, PopupType.SmallCaution);
                     var dmg = new DamageSpecifier()
                     {
@@ -101,11 +102,6 @@ public sealed class MansusMobSystem : EntitySystem
     }
     private void OnMaidenSpawn(MaidenSpawnEvent args)
     {
-        if (!TryComp<MansusSeekComponent>(args.SpawnedEntity, out var seek))
-            return;
-        seek.Tracking = true;
-        seek.TrackedId = args.TrackedEntity;
-        _tracking = true;
     }
 
     private void OnMobStateChanged(EntityUid uid, MansusMobComponent component, MobStateChangedEvent args)
@@ -127,16 +123,63 @@ public sealed class MansusMobSystem : EntitySystem
             // Resupply the hunt if we are tracking madness 
             if (noMaidens)
             {
-                using var madQuery = EntityQueryEnumerator<FascinationComponent>();
+                using var madQuery = EntityQueryEnumerator<MansusMaddenedComponent>();
                 while (madQuery.MoveNext(out var seekUid, out var fascination))
                 {
-                    if (fascination.FascinationValue >= 5)
-                    {
-                        _gameTicker.StartGameRule("MirrorMaidenSpawn", out var spawnEnt);
-                        break;
-                    }
+                    _gameTicker.StartGameRule("MirrorMaidenSpawn", out var spawnEnt);
+                    break;
                 }
             }
         }
+    }
+
+    private void OnStartup(EntityUid uid, MansusMaddenedComponent maddened, ComponentStartup args)
+    {
+        var fascination = EnsureComp<FascinationComponent>(uid);
+
+        fascination.FascinationValue = 5;
+
+        if (fascination.Naturalsight == false)
+        {
+            _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+            $"{uid} has fascination 5, making valid");
+            EnsureComp<SeeHereticFixturesComponent>(uid);
+            fascination.AlteredVision = true;
+            _eye.RefreshVisibilityMask(uid);
+        }
+        if (fascination.Naturalsight == true && fascination.NaturalHereticsight == false)
+        {
+            if (TryComp<SeeHereticFixturesComponent>(uid, out var seefixtures))
+            {
+                seefixtures.SeeShifts = true;
+                _eye.RefreshVisibilityMask(uid);
+            }
+        }
+        if (fascination.AlteredFaction != true)
+        {
+            fascination.AlteredFaction = true;
+            var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(uid);    //Make them valid to the mirror maiden
+            userFactionIcons.FactionIcons.Add(fascination.IconToAdd);
+            _faction.AddFaction(uid, fascination.FactionToAdd); //Give them the faction so AI works
+            Dirty(uid, userFactionIcons);
+        }
+
+        Dirty(uid, fascination);
+    }
+
+    private void OnRemoval(EntityUid uid, MansusMaddenedComponent maddened, ComponentRemove args)
+    {
+        if (!TryComp<FascinationComponent>(uid, out var fascination))
+            return;
+
+        if (fascination.AlteredFaction == true)
+        {
+            var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(uid);    //Make them un-valid to the mirror maiden
+            userFactionIcons.FactionIcons.Remove(fascination.IconToAdd);
+            _faction.RemoveFaction(uid, fascination.FactionToAdd); // remove the faction
+            fascination.AlteredFaction = false;
+            Dirty(uid, userFactionIcons);
+        }
+        _eye.RefreshVisibilityMask(uid);
     }
 }
