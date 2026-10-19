@@ -73,7 +73,7 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
             // don't target if the light isn't on the station
             var transform = Transform(light);
             if (!HasComp<BecomesStationComponent>(transform.GridUid)
-                && CompOrNull<StationMemberComponent>(transform.GridUid)?.Station != station)
+                || CompOrNull<StationMemberComponent>(transform.GridUid)?.Station != station)
                 continue;
 
             component.AllLights.Add(light);
