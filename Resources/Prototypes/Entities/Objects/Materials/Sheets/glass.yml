@@ -125,6 +125,17 @@
     stackType: Glass
     count: 10
 
+- type: entity # OMU START
+  parent: SheetGlass
+  id: SheetGlass5
+  suffix: 5
+  components:
+  - type: Sprite
+    state: glass
+  - type: Stack
+    stackType: Glass
+    count: 5
+# OMU END
 - type: entity
   parent: SheetGlass
   id: SheetGlass1

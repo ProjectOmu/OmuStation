@@ -140,6 +140,16 @@
   - type: Stack
     count: 10
 
+- type: entity # OMU START
+  parent: SheetPlasma
+  id: SheetPlasma5
+  suffix: 5
+  components:
+  - type: Sprite
+    state: plasma
+  - type: Stack
+    count: 5
+# OMU END
 - type: entity
   parent: SheetPlasma
   id: SheetPlasma1
@@ -218,6 +228,17 @@
   - type: Stack
     count: 10
 
+- type: entity # OMU START
+  parent: SheetPlastic
+  id: SheetPlastic5
+  name: plastic
+  suffix: 5
+  components:
+  - type: Sprite
+    state: plastic
+  - type: Stack
+    count: 5
+# OMU END
 - type: entity
   parent: SheetPlastic
   id: SheetPlastic1
@@ -282,6 +303,24 @@
     - prototype: SheetRUGlass
     - prototype: SheetRUGlass1 #Omu end - EE port
 
+- type: entity # OMU START
+  parent: SheetUranium
+  id: SheetUranium10
+  name: uranium
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: SheetUranium
+  id: SheetUranium5
+  name: uranium
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5
+# OMU END
 - type: entity
   parent: SheetUranium
   id: SheetUranium1

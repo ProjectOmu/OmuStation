@@ -63,6 +63,28 @@
         - ReagentId: Gold
           Quantity: 10
 
+- type: entity # OMU START
+  parent: IngotGold
+  id: IngotGold10
+  name: gold bar
+  suffix: 10
+  components:
+  - type: Sprite
+    state: gold
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: IngotGold
+  id: IngotGold5
+  name: gold bar
+  suffix: 5
+  components:
+  - type: Sprite
+    state: gold
+  - type: Stack
+    count: 5 
+ # OMU END
 - type: entity
   parent: IngotGold
   id: IngotGold1
@@ -108,6 +130,29 @@
         - ReagentId: Silver
           Quantity: 10
 
+- type: entity # OMU START
+  parent: IngotSilver
+  id: IngotSilver10
+  name: silver bar
+  suffix: 10
+  components:
+  - type: Sprite
+    state: silver
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: IngotSilver
+  id: IngotSilver5
+  name: silver bar
+  suffix: 5
+  components:
+  - type: Sprite
+    state: silver
+  - type: Stack
+    count: 5
+
+# OMU END
 - type: entity
   parent: IngotSilver
   id: IngotSilver1

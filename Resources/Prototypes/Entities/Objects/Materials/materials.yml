@@ -178,6 +178,16 @@
   - type: Stack
     count: 10
 
+- type: entity # OMU START
+  parent: MaterialCloth
+  id: MaterialCloth5
+  suffix: 5
+  components:
+  - type: Sprite
+    state: cloth
+  - type: Stack
+    count: 5
+# OMU END
 - type: entity
   parent: MaterialCloth
   id: MaterialCloth1
@@ -237,6 +247,27 @@
   - type: Item
     heldPrefix: durathread
 
+- type: entity # OMU START
+  parent: MaterialDurathread
+  id: MaterialDurathread10
+  suffix: 10
+  components:
+  - type: Sprite
+    state: durathread
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: MaterialDurathread
+  id: MaterialDurathread5
+  suffix: 5
+  components:
+  - type: Sprite
+    state: durathread
+  - type: Stack
+    count: 5
+
+# OMU END
 - type: entity
   parent: MaterialDurathread
   id: MaterialDurathread1
@@ -437,6 +468,23 @@
     enchants:
     - EnchantFortune
 
+# OMU START
+- type: entity
+  parent: MaterialDiamond
+  id: MaterialDiamond10
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: MaterialDiamond
+  id: MaterialDiamond5
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5
+# OMU END
 - type: entity
   parent: MaterialDiamond
   id: MaterialDiamond1

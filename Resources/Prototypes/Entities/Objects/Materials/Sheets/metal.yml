@@ -178,6 +178,18 @@
     stackType: Steel
     count: 10
 
+- type: entity # OMU START
+  parent: SheetSteel
+  id: SheetSteel5
+  name: steel
+  suffix: 5
+  components:
+  - type: Sprite
+    state: steel
+  - type: Stack
+    stackType: Steel
+    count: 5
+# OMU END
 - type: entity
   parent: SheetSteel
   id: SheetSteel1
@@ -305,6 +317,18 @@
     stackType: Plasteel
     count: 10
 
+- type: entity # OMU START
+  parent: SheetPlasteel
+  id: SheetPlasteel5
+  name: plasteel
+  suffix: 5
+  components:
+  - type: Sprite
+    state: plasteel
+  - type: Stack
+    stackType: Plasteel
+    count: 5
+# OMU END
 - type: entity
   parent: SheetPlasteel
   id: SheetPlasteel1

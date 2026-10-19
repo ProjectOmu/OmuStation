@@ -25,6 +25,8 @@ store-category-explosives = Explosives
 store-category-chemicals = Chemicals
 store-category-deception = Deception
 store-category-disruption = Disruption
+store-category-supplies = Supplies
+# OMU new category for uplink supplies
 store-category-implants = Implants
 store-category-allies = Allies
 store-category-job = Job
@@ -32,7 +34,6 @@ store-category-wearables = Wearables
 store-category-contractor = Contractor
 store-category-pointless = Pointless
 store-discounted-items = Discounts
-
 # Revenant
 store-category-abilities = Abilities
 
