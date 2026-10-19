@@ -454,3 +454,40 @@
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieSniffsOmuCrew
+  name: sniffs-the-glue plushie
+  description: This plushie feels heavy... is... is it sopping wet with milk?
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/sniffs.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/sniffs.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/sniffs.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnUse
+    sound:
+      collection: Yip
+  - type: EmitSoundOnActivate
+    sound:
+      collection: Yip
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: Yip
+  - type: EmitSoundOnLand
+    sound:
+      collection: Yip
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    useSound:
+      collection: Yip
+  - type: MeleeWeapon
+    soundHit:
+      collection: Yip
