@@ -12,4 +12,6 @@ public sealed partial class SanitizedComponent : Component
 {
     [DataField]
     public bool WorksInHands;
+
+    [DataField] public bool RequiresGloves = false; //omu - ipcs dont need a mask to do surgery (but still need a mask)
 }
