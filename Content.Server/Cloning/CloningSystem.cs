@@ -87,13 +87,6 @@ public sealed partial class CloningSystem : SharedCloningSystem
         if (HasComp<UncloneableComponent>(original) && !settings.ForceCloning) // Goob: enable forcecloning bypass for antagctrl admemes on vox/ipc.
             return false; // Goobstation: Don't clone IPCs and voxes. It could be argued it should be in the CloningPodSystem instead
 
-        // todo omu fucking move all this garbage somewhere else we have cloning events right why dont we just use that
-        if (TryComp<SSDIndicatorComponent>(original, out var ssdComp)) // omu
-        {
-            if (ssdComp.IsSSD) // No cloning afk
-                return false;
-        }
-
         // Goobstation end
 
         var attemptEv = new CloningAttemptEvent(settings);
