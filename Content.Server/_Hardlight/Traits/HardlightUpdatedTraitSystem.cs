@@ -20,14 +20,15 @@ public sealed class HardlightUpdatedTraitSystem : EntitySystem
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly TraitSystem _traits = default!;
 
-    public void ApplySelectedTraits(EntityUid original, EntityUid clone)
+    public bool ApplySelectedTraits(EntityUid original, EntityUid clone)
     {
         if (!_mind.TryGetMind(original, out _, out var mind) ||
             mind.UserId == null ||
-            _characterQueue.GetCurrentCharacter(mind.UserId.Value) is not { } profile) // Omu
-            return;
+            _characterQueue.TryGetCurrentCharacter(mind.UserId.Value) is not { } profile) // Omu
+            return false;
 
         // Clone equipment separately; replay only the selected trait components here.
         _traits.ApplyProfileTraits(clone, profile, addTraitGear: false);
+        return true;
     }
 }

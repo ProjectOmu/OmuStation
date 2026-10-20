@@ -34,6 +34,7 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Radio.Components;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Radio.EntitySystems;
+using Content.Shared.SSDIndicator;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Cloning;
@@ -86,6 +87,13 @@ public sealed partial class CloningSystem : SharedCloningSystem
         if (HasComp<UncloneableComponent>(original) && !settings.ForceCloning) // Goob: enable forcecloning bypass for antagctrl admemes on vox/ipc.
             return false; // Goobstation: Don't clone IPCs and voxes. It could be argued it should be in the CloningPodSystem instead
 
+        // todo omu fucking move all this garbage somewhere else we have cloning events right why dont we just use that
+        if (TryComp<SSDIndicatorComponent>(original, out var ssdComp)) // omu
+        {
+            if (ssdComp.IsSSD) // No cloning afk
+                return false;
+        }
+
         // Goobstation end
 
         var attemptEv = new CloningAttemptEvent(settings);
@@ -97,7 +105,14 @@ public sealed partial class CloningSystem : SharedCloningSystem
         _humanoidSystem.CloneAppearance(original, clone.Value);
 
         CloneComponents(original, clone.Value, settings);
-        _hardlightUpdatedTraitSystem.ApplySelectedTraits(original, clone.Value); // HardLight
+        // Hardlight start + omushitfixes good luck with hellcode
+        if (!_hardlightUpdatedTraitSystem.ApplySelectedTraits(original, clone.Value))
+        {
+            QueueDel(clone); // haha what if we did validation
+            return false;
+        }
+        // Hardlight end
+
 
         // Add equipment first so that SetEntityName also renames the ID card.
         if (settings.CopyEquipment != null)
