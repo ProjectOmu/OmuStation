@@ -1,8 +1,8 @@
 - type: entity
   parent: [BaseStructure, BaseSyndicateContraband]
-  id: SyndicateAutocannon
+  id: AssembledSyndicateAutocannon
   name: syndicate autocannon
-  description: A massive machinegun assembly mounted to a base. Accepts .30 rifle L6 magazines and fires them at a blistering fast pace. Fires in 6 round bursts. Useful for mounting in narrow hallways or shuttles
+  description: A massive machinegun assembly mounted to a base. Accepts .30 rifle L6 magazines and fires them at a blistering fast pace. Fires in 7 round bursts. Useful for mounting in narrow hallways or shuttles
   components:
   - type: InteractionOutline
   - type: Sprite
@@ -13,21 +13,19 @@
         map: ["enum.GunVisualLayers.Mag"]
     sprite: _Omu/Structures/Cannons/syndicate_autocannon.rsi
   - type: Gun
-    projectileSpeed: 40 # ~ buff of 10
+    projectileSpeed: 40
     fireRate: 0.3
     minAngle: 1
-    maxAngle: 15
-    angleIncrease: 3.5
+    maxAngle: 12
+    angleIncrease: 2
     angleDecay: 35
-    burstFireRate: 12 # For reference, L6 is 8
+    burstFireRate: 13 # For reference, L6 is 8
     selectedMode: Burst
     availableModes:
     - Burst
-    shotsPerBurst: 6 # 96 damage per burst against unarmored
+    shotsPerBurst: 7 # 96 damage per burst against unarmored
     soundGunshot:
       path: /Audio/_Omu/Weapons/penmanfire.ogg
-    soundEmpty:
-      path: null
   - type: MagazineAmmoProvider
   - type: MagazineVisuals
     magState: mag
@@ -47,13 +45,11 @@
           path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
           params:
             pitch: 1.5
-        ejectSound:
-          path: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
-          params:
-            pitch: 0.75
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
   - type: Anchorable
   - type: AmmoCounter
   - type: GunSignalControl
+    forceAdditionalTriggers: false
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -61,9 +57,6 @@
   - type: DeviceLinkSink
     ports:
     - Trigger
-    - Toggle
-    - On
-    - Off
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
@@ -80,7 +73,7 @@
   parent: [BaseItem, BaseSyndicateContraband]
   id: DisassembledSyndicateAutocannon
   name: disassembled syndicate autocannon
-  description: A large box containing a disassembled syndicate autocannon. Anchored on assembly.
+  description: A large box containing a disassembled syndicate autocannon. Anchored on assembly. Once assembled, cannot be disassembled.
   components:
   - type: Item
     size: Huge
@@ -89,7 +82,7 @@
     state: box
   - type: SpawnItemsOnUse
     items:
-    - id: SyndicateAutocannon
+    - id: AssembledSyndicateAutocannon
     sound:
       path: /Audio/Weapons/Guns/Bolt/lmg_bolt_closed.ogg
       params:
