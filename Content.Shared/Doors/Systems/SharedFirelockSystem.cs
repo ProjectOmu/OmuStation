@@ -66,7 +66,7 @@ public abstract class SharedFirelockSystem : EntitySystem
 
     private void OnBeforePry(EntityUid uid, FirelockComponent component, ref BeforePryEvent args)
     {
-        if (args.Cancelled || !component.Powered || args.StrongPry || args.PryPowered || !args.CanPryPoweredFirelocks & !component.Powered ) //omu edit - prybars
+        if (args.Cancelled || !component.Powered || args.StrongPry || args.PryPowered || !args.CanPryPoweredFirelocks ) //omu edit - prybars
             return;
 
         args.Cancelled = true;
