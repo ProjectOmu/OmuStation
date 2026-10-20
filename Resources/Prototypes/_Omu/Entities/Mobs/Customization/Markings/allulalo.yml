@@ -56,6 +56,35 @@
   - sprite:  _Omu/Mobs/Customization/Allulalo/head.rsi
     state: Wattle
 
+- type: marking
+  id: AllulaloHeadMustache
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite:  _Omu/Mobs/Customization/Allulalo/head.rsi
+    state: Mustache
+
+- type: marking
+  id: AllulaloHeadMustacheThin
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite:  _Omu/Mobs/Customization/Allulalo/head.rsi
+    state: Mustachethin
+
+- type: marking
+  id: AllulaloHeadMustacheBig
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite:  _Omu/Mobs/Customization/Allulalo/head.rsi
+    state: Mustachebig
+
+
+
 # Tail
 
 - type: marking
