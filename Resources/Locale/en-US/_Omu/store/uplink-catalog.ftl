@@ -48,7 +48,7 @@ uplink-ammo-longrifle-name = Box of .30 Long Rifle Magnum
 uplink-ammo-longrifle-desc = A box of ammunition used as ammo by the Kardashev-Mosin and LRR-30 "Penman" DMR.
 
 uplink-syndicate-autocannon-name = Syndicate Autocannon
-uplink-syndicate-autocannon-desc = A convenient box containing an unnassembled mounted machine gun. The autocannon fires in rapid bursts of 7 and feeds from L6 box magazines. Perfect for suppressing hallways, arming shuttles, and maints death traps.
+uplink-syndicate-autocannon-desc = A convenient box containing an unassembled mounted machine gun. It fires in rapid bursts of seven, and feeds from L6 box magazines. Perfect for suppressing hallways, arming shuttles, and building maints death traps.
 
 uplink-xeno-compatibility-implanter-name = Xeno Compatibility Implanter
 uplink-xeno-compatibility-implanter-desc = An implant that allows the user to make use of xenomorph organs.
