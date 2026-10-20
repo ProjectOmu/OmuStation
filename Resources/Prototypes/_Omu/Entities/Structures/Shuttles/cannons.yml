@@ -1,7 +1,7 @@
 - type: entity
   name: syndicate remote shotgun
   parent: [BaseStructure, BaseSyndicateContraband]
-  id: RemoteShotgun
+  id: SyndicateRemoteShotgun
   description: A syndicate 12 gauge shotgun mounted on a stand featuring 3 barrels arranged in a triangle. It fires all three barrels in quick succession upon being linked up and triggered.
   components:
   - type: InteractionOutline
@@ -12,7 +12,7 @@
     sprite: _Omu/Structures/Cannons/remote_shotgun.rsi
   - type: Gun
     fireRate: 0.25
-    burstFireRate: 3.5
+    burstFireRate: 3 # Bulldog fire rate
     selectedMode: Burst
     availableModes:
     - Burst
@@ -74,39 +74,46 @@
     state: box
   - type: SpawnItemsOnUse
     items:
-    - id: RemoteShotgun
+    - id: SyndicateRemoteShotgun
     sound:
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: syndicate autocannon
   parent: [BaseStructure, BaseSyndicateContraband]
-  id: RemoteAutocannon
-  description: An oversized machinegun assembly mounted to a base. Accepts .30 rifle L6 magazines and fires them at a blistering fast pace. Fires in 8 round bursts.
+  id: SyndicateAutocannon
+  name: syndicate autocannon
+  description: An oversized machinegun assembly mounted to a base. Accepts .30 rifle L6 magazines and fires them at a blistering fast pace. Fires in 10 round bursts.
   components:
   - type: InteractionOutline
   - type: Sprite
     layers:
-      - state: icon
+      - state: base
         map: [ "enum.GunVisualLayers.Base" ]
-    sprite: _Omu/Structures/Cannons/remote_autocannon.rsi
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+    sprite: _Omu/Structures/Cannons/syndicate_autocannon.rsi
   - type: Gun
     projectileSpeed: 40
-    fireRate: 1
-    burstFireRate: 8
+    fireRate: 0.5
+    minAngle: 1
+    maxAngle: 20
+    angleIncrease: 2
+    angleDecay: 20
+    burstFireRate: 12
     selectedMode: Burst
     availableModes:
     - Burst
-    shotsPerBurst: 8 # Fires 8 rounds at 8 rounds per second and then pauses for 1 second
+    shotsPerBurst: 6 # 96 damage per burst against unarmored
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
     soundEmpty:
-      path: null # To not make a sound so it doesnt become annoying when toggled
+      path: null
   - type: MagazineAmmoProvider
   - type: MagazineVisuals
     magState: mag
-    steps: 8
-    zeroVisible: false
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -115,6 +122,7 @@
         whitelist:
           tags:
           - MagazineLightRifleBox
+        startingItem: MagazineLightRifleBox
         insertSound:
           path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
           params:
