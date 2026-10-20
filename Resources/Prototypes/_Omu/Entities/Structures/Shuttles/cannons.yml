@@ -2,7 +2,7 @@
   name: syndicate remote shotgun
   parent: [BaseStructure, BaseSyndicateContraband]
   id: RemoteShotgun
-  description: A syndicate shotgun mounted on a stand. It fires all three shells in quick succession upon being triggered by a linked device.
+  description: A syndicate 12 gauge shotgun mounted on a stand featuring 3 barrels arranged in a triangle. It fires all three barrels in quick succession upon being linked up and triggered.
   components:
   - type: InteractionOutline
   - type: Sprite
@@ -12,7 +12,7 @@
     sprite: _Omu/Structures/Cannons/remote_shotgun.rsi
   - type: Gun
     fireRate: 0.25
-    burstFireRate: 2.5
+    burstFireRate: 3.5
     selectedMode: Burst
     availableModes:
     - Burst
@@ -32,7 +32,7 @@
   - type: Anchorable
   - type: AmmoCounter
   - type: GunSignalControl
-    addAdditionalTriggers: false
+    forceAdditionalTriggers: false
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
@@ -49,6 +49,17 @@
   - type: DeviceLinkSink
     ports:
     - Trigger
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
 
 - type: entity
   parent: [BaseItem, BaseSyndicateContraband]
@@ -66,3 +77,70 @@
     - id: RemoteShotgun
     sound:
       path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: syndicate autocannon
+  parent: [BaseStructure, BaseSyndicateContraband]
+  id: RemoteAutocannon
+  description: An oversized machinegun assembly mounted to a base. Accepts .30 rifle L6 magazines and fires them at a blistering fast pace. Fires in 8 round bursts.
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    layers:
+      - state: icon
+        map: [ "enum.GunVisualLayers.Base" ]
+    sprite: _Omu/Structures/Cannons/remote_autocannon.rsi
+  - type: Gun
+    projectileSpeed: 40
+    fireRate: 1
+    burstFireRate: 8
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    shotsPerBurst: 8 # Fires 8 rounds at 8 rounds per second and then pauses for 1 second
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+    soundEmpty:
+      path: null # To not make a sound so it doesnt become annoying when toggled
+  - type: MagazineAmmoProvider
+  - type: MagazineVisuals
+    magState: mag
+    steps: 8
+    zeroVisible: false
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineLightRifleBox
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+          params:
+            pitch: 2
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+  - type: Anchorable
+  - type: AmmoCounter
+  - type: GunSignalControl
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: Rotatable
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+    - Toggle
+    - On
+    - Off
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]

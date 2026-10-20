@@ -16,7 +16,7 @@ public sealed partial class GunSignalControlComponent : Component
     public ProtoId<SinkPortPrototype> TriggerPort = "Trigger";
 
     [DataField]
-    public bool AddAdditionalTriggers = true; // Omu, If AddAdditionalTriggers is false, ensure all but the trigger port, by default its true.
+    public bool ForceAdditionalTriggers = true; // Omu, If ForceAdditionalTriggers is false, ensure all but the trigger port, by default its true.
 
     [DataField]
     public ProtoId<SinkPortPrototype> TogglePort = "Toggle";
