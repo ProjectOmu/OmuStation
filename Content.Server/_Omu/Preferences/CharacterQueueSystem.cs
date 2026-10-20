@@ -128,7 +128,8 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
             return spawned;
 
         var prefs = _prefs.GetPreferences(userId);
-        return GetPrimaryCharacter(prefs, GetQueue(userId, prefs));
+        return prefs.Characters.GetValueOrDefault(prefs.SelectedCharacterIndex) as HumanoidCharacterProfile
+            ?? GetPrimaryCharacter(prefs, GetQueue(userId, prefs));
     }
 
     public HumanoidCharacterProfile? GetAntagCharacter(NetUserId userId, List<ProtoId<AntagPrototype>> antags)
