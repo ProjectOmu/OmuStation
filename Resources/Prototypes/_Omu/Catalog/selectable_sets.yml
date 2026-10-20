@@ -104,6 +104,19 @@
   - SpeedLoaderRevolverLightRifleMini
 
 - type: selectableSet
+  id: WardenHenriettaSet
+  name: selectable-set-warden-henrietta-name
+  description: selectable-set-warden-henrietta-description
+  sprite:
+    sprite: _Omu/Objects/Weapons/Guns/Lever/henrietta_icon_48x.rsi
+    state: base
+  content:
+  - WeaponLeverHenrietta
+  - ClothingBeltBandolierHighCaliberFilled
+  - MagazineBoxShotgunHighCaliberFlash
+  - MagazineBoxShotgunHighCaliberEnsnaring
+
+- type: selectableSet
   id: BrigmedWeaponCrossbowSyringeSet
   name: selectable-set-brigmed-crossbow-name
   description: selectable-set-brigmed-crossbow-description
@@ -183,6 +196,26 @@
   - WeaponSniperM1Garand
   - MagazineClipM1Garand
   - MagazineClipM1Garand
+
+- type: selectableSet
+  id: SergeantBeltSet
+  name: selectable-set-sergeant-belt-name
+  description: selectable-set-sergeant-belt-description
+  sprite:
+    sprite: _Omu/Clothing/Belt/sergeantdisciplinary.rsi
+    state: icon
+  content:
+  - WaistBeltSergeantBelt
+
+- type: selectableSet
+  id: SecurityTackleSet
+  name: selectable-set-security-tackle-name
+  description: selectable-set-security-tackle-description
+  sprite:
+    sprite: _Trauma/Clothing/Hands/Gloves/securitygloves.rsi
+    state: icon
+  content:
+  - ClothingHandsGlovesSecurity
 
 - type: selectableSet
   id: WeaponAntiqueLaserSet
@@ -271,7 +304,7 @@
   name: selectable-set-ert-shotgun-name
   description: selectable-set-ert-shotgun-description
   sprite:
-    sprite: _Goobstation/Objects/Weapons/Guns/Lever/combatshotgun.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Lever/combatshotgun_icon_48x.rsi
     state: icon
   content:
   - WeaponShotgunCombatCentComm
@@ -410,3 +443,13 @@
     state: icon
   content:
   - CaneSheathFilledNanotrasen
+
+- type: selectableSet
+  id: BrellaNTSet
+  name: selectable-set-ntr-brella-name
+  description: selectable-set-ntr-brella-desc
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Melee/marlen.rsi
+    state: icon
+  content:
+  - Marlen

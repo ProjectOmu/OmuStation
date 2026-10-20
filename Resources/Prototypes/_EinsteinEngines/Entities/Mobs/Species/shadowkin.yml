@@ -161,8 +161,8 @@
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]
       - map: ["socks"]
-      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
-      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+      - map: ["enum.HumanoidVisualLayers.UndergarmentBottom"] # goobstation
+      - map: ["enum.HumanoidVisualLayers.UndergarmentTop"] # goobstation
       - map: ["jumpsuit"]
       - map: ["enum.HumanoidVisualLayers.LHand"]
       - map: ["enum.HumanoidVisualLayers.RHand"]
@@ -272,6 +272,8 @@
         - map: ["enum.HumanoidVisualLayers.LFoot"]
         - map: ["enum.HumanoidVisualLayers.RFoot"]
         - map: ["socks"]
+        - map: ["enum.HumanoidVisualLayers.UndergarmentBottom"] # goobstation
+        - map: ["enum.HumanoidVisualLayers.UndergarmentTop"] # goobstation
         - map: ["jumpsuit"]
         - map: ["enum.HumanoidVisualLayers.LHand"]
         - map: ["enum.HumanoidVisualLayers.RHand"]

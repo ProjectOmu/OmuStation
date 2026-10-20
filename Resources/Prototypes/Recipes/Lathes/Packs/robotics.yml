@@ -18,6 +18,7 @@
   - BorgModuleFireExtinguisher
   - BorgModuleInflatable
   - BorgModuleArtistry
+  - BorgModulePostal # Omu edit
 
 - type: latheRecipePack
   id: BorgLimbsStatic
@@ -43,9 +44,11 @@
   recipes:
   - BorgModuleAdvancedCleaning
   - BorgModuleAdvancedTool
-  #- BorgModuleAdvancedClowning # Goobstation
+  - BorgModuleAdvancedClowning
   - BorgModuleAdvancedTopical
   - BorgModuleAdvancedMining
+  - BorgModuleAdvancedThruster # Omu edit
+  - BorgModuleAdvancedMusique # Omu
 
 - type: latheRecipePack
   id: MechParts

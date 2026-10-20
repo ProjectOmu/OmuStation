@@ -15,6 +15,7 @@
   - SeedExtractorMachineCircuitboard
   - HydroponicsTrayMachineCircuitboard
   - ReagentGrinderIndustrialMachineCircuitboard
+  - PlantAnalyzer #Omu
   # Goobstation R&D Console rework start
   position: -3,4
   technologyPrerequisites:
@@ -88,6 +89,7 @@
     - JukeboxCircuitBoard
     - BorgModuleLollypop # Goobstation
     - CrayonRainbowLarge # Goobstation
+    - BorgModuleAdvancedMusique # Omu
   position: 0,2
 
 - type: technology
@@ -197,6 +199,7 @@
   - BorgModuleAdvancedCleaning
   - ClothingEyesHudJanitorial # Omu
   - ClothingCyberneticBeastMantleJanitor # Omu
+  - WireBrushElectrical # Omu
   # Goobstation R&D Console rework start
   position: -1,4
   technologyPrerequisites:
@@ -277,7 +280,7 @@
   cost: 4000
   recipeUnlocks:
   - PushHorn
-  # - BorgModuleAdvancedClowning # goobedit
+  - BorgModuleAdvancedClowning
   # Goobstation R&D Console rework start
   position: 0,5
   technologyPrerequisites:

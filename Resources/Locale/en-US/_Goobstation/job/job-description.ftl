@@ -7,8 +7,10 @@
 
 # Dignitary
 
-job-description-bso = Act as a bodyguard and advisor for Command and CentCom VIPs.
-job-description-ntr = Represent NT, Send reports back to them on the station's situation, Inform the heads of anything CentCom orders them to do.
+# Omu start
+job-description-bso = Act as a bodyguard and advisor for Command and CentComm VIPs.
+job-description-ntr = Represent NT, Send reports back to them on the station's situation, Inform the heads of anything CentComm orders them to do.
+# Omu end
 
 # Navy
 

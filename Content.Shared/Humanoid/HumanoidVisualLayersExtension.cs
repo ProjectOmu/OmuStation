@@ -38,6 +38,7 @@ namespace Content.Shared.Humanoid
             {
                 case HumanoidVisualLayers.Head:
                     yield return HumanoidVisualLayers.Head;
+                    yield return HumanoidVisualLayers.Face; // Omu - IPC marking fix
                     yield return HumanoidVisualLayers.Eyes;
                     yield return HumanoidVisualLayers.HeadSide;
                     yield return HumanoidVisualLayers.HeadTop;
@@ -67,6 +68,7 @@ namespace Content.Shared.Humanoid
                     yield return HumanoidVisualLayers.RFoot;
                     break;
                 case HumanoidVisualLayers.Chest:
+                    yield return HumanoidVisualLayers.NeckFluff; // Den, Omu Port
                     yield return HumanoidVisualLayers.Chest;
                     yield return HumanoidVisualLayers.Wings; // for IPC wings port from SimpleStation
                     yield return HumanoidVisualLayers.Tail;

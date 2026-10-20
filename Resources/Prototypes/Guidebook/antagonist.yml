@@ -4,6 +4,7 @@
   id: Antagonists
   name: guide-entry-antagonists
   text: "/ServerInfo/Guidebook/Antagonist/Antagonists.xml"
+  priority: 10 # Omu, move this down to the bottom of Station and Shifts
   children:
   - Traitors
   - CorporateAgents # Goobstation - Corporate Agents
@@ -30,9 +31,11 @@
   - Xenomorphs # WD - Xenomorphs
   - Wraith
   - Slasher # Goob content
+  - GangWars # Goob content
   - Letoferol # Mono content
   - CorticalBorerGuide # Mono
   - SELFAgent # Starlight
+  - MirrorMaiden #Omu
 
 - type: guideEntry
   id: Traitors
@@ -52,7 +55,7 @@
 - type: guideEntry
   id: Revolutionaries
   name: guide-entry-revolutionaries
-  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Revolutionaries.xml" # goobstation
+  text: "/ServerInfo/_Omu/Guidebook/Antagonist/Revolutionaries.xml" # Omu
 
 - type: guideEntry
   id: MinorAntagonists

@@ -103,7 +103,7 @@
 - type: cargoProduct
   id: MedicalBiosuit
   icon:
-    sprite: Clothing/Head/Hoods/Bio/bio.rsi
+    sprite: _Omu/Clothing/Head/Hoods/Bio/virology.rsi # Omu
     state: icon
   product: CrateVirologyBiosuit
   cost: 800
@@ -116,7 +116,7 @@
     sprite: Objects/Specific/Medical/implanter.rsi
     state: implanter0
   product: CrateMindShieldImplants
-  cost: 3000
+  cost: 1500 # Goobstation - half cost, revslop
   category: cargoproduct-category-name-medical
   group: market
 

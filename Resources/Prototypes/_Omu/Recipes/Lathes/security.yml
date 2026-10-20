@@ -53,6 +53,13 @@
 
 # Magazine boxes
 
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxLongRifleRecipe
+  result: MagazineBoxLongRifle
+  materials:
+    Steel: 500
+
 # Caseless Rifle
 
 - type: latheRecipe
@@ -152,3 +159,14 @@
     Steel: 300
     Plastic: 150
     Plasma: 150
+    
+# Weapons
+
+- type: latheRecipe
+  id: Secarang
+  result: secarang
+  materials:
+    Steel: 1500
+    Plasma: 500
+    Plastic: 200
+

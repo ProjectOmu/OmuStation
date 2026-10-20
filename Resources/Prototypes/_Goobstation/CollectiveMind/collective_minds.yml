@@ -38,7 +38,10 @@
   keycode: 'a'
   color: "#d600bd"
 
-#- type: collectiveMind # Omu, make binary a radio again.
+# Goobstation - RE-replaced with a radio channel
+# commented out so anyone trying to use it gets errors and sees this
+# if you ARE one of said anyones, you can copy the yml of anything with the binary radio channel
+#- type: collectiveMind
 #  id: Binary
 #  name: collective-mind-binary
 #  keycode: 'b'

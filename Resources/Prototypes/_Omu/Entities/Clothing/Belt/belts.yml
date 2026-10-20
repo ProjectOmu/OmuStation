@@ -1,5 +1,5 @@
 - type: entity
-  id: ClothingBeltMilitaryWebbingBSO
+  id: ClothingBeltMilitaryWebbingBSOMedical
   parent: [ BaseCentcommContraband, ClothingBeltMilitaryWebbingCMO ]
   name: blueshield officer's medical chest rig # renamed for medical set
   description: A robust chest rig with deep pockets and hooks, for use by a Blueshield Officer who believes in the reliability of classic medicinals.
@@ -235,4 +235,12 @@
   - type: Storage
     grid:
     - 0,0,9,1 # 20 squares of space, least of all of the options (chembag has 24, the chest rig has 21), cus it can store anything. Also funny long line.
+
+- type: entity
+  parent: ClothingBeltBandolier
+  id: ClothingBeltBandolierHighCaliberFilled
+  suffix: Filled, 8 Gauge
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunHighCaliber
 

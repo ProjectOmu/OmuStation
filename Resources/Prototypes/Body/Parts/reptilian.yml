@@ -4,7 +4,7 @@
 - type: entity
   id: PartReptilian
   parent: [BaseItem, BasePart]
-  name: "reptilian body part"
+  name: "unathi body part" # Omu unathi
   abstract: true
   components:
   - type: Icon # Shitmed Change
@@ -23,7 +23,7 @@
 
 - type: entity
   id: ChestReptilian
-  name: "reptilian chest"
+  name: "unathi chest" # Omu unathi
   parent: [PartReptilian, BaseChest]
   components:
   - type: Sprite
@@ -39,7 +39,7 @@
 
 - type: entity
   id: GroinReptilian
-  name: "reptilian groin"
+  name: "unathi groin" # Omu unathi
   parent: [PartReptilian, BaseGroin]
   components:
   - type: Sprite
@@ -55,7 +55,7 @@
 
 - type: entity
   id: HeadReptilian
-  name: "reptilian head"
+  name: "unathi head" # Omu unathi
   parent: [PartReptilian, BaseHead]
   components:
   - type: Sprite
@@ -71,7 +71,7 @@
 
 - type: entity
   id: LeftArmReptilian
-  name: "left reptilian arm"
+  name: "left unathi arm" # Omu unathi
   parent: [PartReptilian, BaseLeftArm]
   components:
   - type: Sprite
@@ -80,7 +80,7 @@
 
 - type: entity
   id: RightArmReptilian
-  name: "right reptilian arm"
+  name: "right unathi arm" # Omu unathi
   parent: [PartReptilian, BaseRightArm]
   components:
   - type: Sprite
@@ -89,7 +89,7 @@
 
 - type: entity
   id: LeftHandReptilian
-  name: "left reptilian hand"
+  name: "left unathi hand" # Omu unathi
   parent: [PartReptilian, BaseLeftHand]
   components:
   - type: Sprite
@@ -98,7 +98,7 @@
 
 - type: entity
   id: RightHandReptilian
-  name: "right reptilian hand"
+  name: "right unathi hand" # Omu unathi
   parent: [PartReptilian, BaseRightHand]
   components:
   - type: Sprite
@@ -107,7 +107,7 @@
 
 - type: entity
   id: LeftLegReptilian
-  name: "left reptilian leg"
+  name: "left unathi leg" # Omu unathi
   parent: [PartReptilian, BaseLeftLeg]
   components:
   - type: Sprite
@@ -116,7 +116,7 @@
 
 - type: entity
   id: RightLegReptilian
-  name: "right reptilian leg"
+  name: "right unathi leg" # Omu unathi
   parent: [PartReptilian, BaseRightLeg]
   components:
   - type: Sprite
@@ -125,7 +125,7 @@
 
 - type: entity
   id: LeftFootReptilian
-  name: "left reptilian foot"
+  name: "left unathi foot" # Omu unathi
   parent: [PartReptilian, BaseLeftFoot]
   components:
   - type: Sprite
@@ -134,7 +134,7 @@
 
 - type: entity
   id: RightFootReptilian
-  name: "right reptilian foot"
+  name: "right unathi foot" # Omu unathi
   parent: [PartReptilian, BaseRightFoot]
   components:
   - type: Sprite

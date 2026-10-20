@@ -21,6 +21,7 @@ using Content.Goobstation.Shared.InternalResources.Data;
 using Content.Goobstation.Shared.InternalResources.EntitySystems;
 using Content.Goobstation.Shared.InternalResources.Events;
 using Content.Goobstation.Shared.MartialArts.Components;
+using Content.Omu.Common.Changeling;
 using Content.Server.Actions;
 using Content.Shared.Atmos.Components;
 using Content.Server.Body.Systems;
@@ -313,7 +314,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (comp.StrainedMusclesActive)
         {
             var stamina = EnsureComp<StaminaComponent>(uid);
-            _stamina.TakeStaminaDamage(uid, 7.5f, visual: false, immediate: false);
+            _stamina.TakeStaminaDamage(uid, 7.5f, visual: false, immediate: false, ignoreResist: true);
             if (stamina.StaminaDamage >= stamina.CritThreshold || _gravity.IsWeightless(uid))
                 ToggleStrainedMuscles(uid, comp);
         }
@@ -624,6 +625,10 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             Comp<DnaComponent>(newEnt).DNA = data.DNA;
             _humanoid.CloneAppearance(data.Appearance.Owner, newEnt);
             _metaData.SetEntityName(newEnt, data.Name);
+            // Omu start
+            var formAssumed = new ChangelingFormAssumedEvent(data.Appearance.Owner);
+            RaiseLocalEvent(newEnt, ref formAssumed);
+            // Omu end
             var message = Loc.GetString("changeling-transform-finish", ("target", data.Name));
             _popup.PopupEntity(message, newEnt, newEnt);
         }
@@ -691,13 +696,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             comp.IsInLesserForm = false;
             newUid = TransformEntity(target, data: data, comp: comp, persistentDna: persistentDna);
             RemoveAllChangelingEquipment(target, comp);
-            if (newUid is not null)
-                EnsureComp<JumpComponent>(newUid.Value);          // omu ensure has jumping. For ling leap
         }
 
         if (newUid != null)
         {
             PlayMeatySound((EntityUid) newUid, comp);
+            EnsureComp<JumpComponent>(newUid.Value);          // omu ensure has jumping. For ling leap. Coping and seething
         }
 
         return true;

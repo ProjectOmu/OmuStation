@@ -183,7 +183,7 @@ public sealed partial class AtmosphereSystem
     {
         var aboveMinPressure = pressure > ent.Comp.MinPressure;
         var aboveMinDeltaPressure = delta > ent.Comp.MinPressureDelta;
-        if (!aboveMinPressure && !aboveMinDeltaPressure)
+        if (ent.Comp.Bypass || (!aboveMinPressure && !aboveMinDeltaPressure)) // Omu - add bypass
         {
             SetIsTakingDamageState(ent, false);
             return;

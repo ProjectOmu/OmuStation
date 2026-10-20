@@ -62,8 +62,10 @@
     Gasp:
       path: /Audio/_Impstation/Allulalo/allulalo_say.ogg
     DefaultDeathgasp:
-      /Audio/_Impstation/Allulalo/allulalo_deathgasp.ogg
-    #Omu Start
+    # Omu start
+      path: /Audio/_Impstation/Allulalo/allulalo_deathgasp.ogg #Omu- added path:
+    Gulp:
+       path: /Audio/_Impstation/Allulalo/allulalo_ask.ogg
     Awebo:
       collection: AllulaloAwebo
       params:
@@ -77,4 +79,6 @@
       collection: CatMeows
     Hew:
       collection: Hew
+    Gekker:
+      path: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
     #Omu End

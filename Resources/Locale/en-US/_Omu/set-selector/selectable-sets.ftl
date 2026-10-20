@@ -6,7 +6,15 @@ selectable-set-headofsecurity-paradevoidsuit-desc =
 
 selectable-set-paramedic-cybersunhardsuit-name = CSI-122M "Xiézhù" hardsuit
 selectable-set-paramedic-cybersunhardsuit-desc =
-    The odd one out of the Cybersun hardsuits, meant to be lightweight but less armored.
+    The odd one out of the Cybersun hardsuits,
+    meant to be lightweight but less armored.
+    About as protective as its NT counterpart.
+
+# Clearer distinction between itself and the modsuit.
+selectable-set-paramedic-voidsuit-omu-desc =
+    A light hardsuit favoring environmental
+    resistance and fast movement speed,
+    over physical protection.
 
 selectable-set-warden-eshotty-name = Energy Shotgun
 selectable-set-warden-eshotty-description =
@@ -19,6 +27,11 @@ selectable-set-warden-r6-description =
 selectable-set-warden-snub-name = Twin Snubnose
 selectable-set-warden-snub-description =
     Twin hammerless revolvers, for quick draws and quicker Magdumps
+
+selectable-set-warden-henrietta-name = Henrietta
+selectable-set-warden-henrietta-description =
+    A dependable 8 gauge lever-action shotgun with a bayonet.
+    Comes with a bandolier and some ammo to keep her fed.
 
 selectable-set-brigmed-crossbow-name = Syringe Crossbow
 selectable-set-brigmed-crossbow-description =
@@ -81,6 +94,14 @@ selectable-set-ceremonial-rifle-description =
     "Gory, gory, what a hell of a way to die!"
     An weapon often given to Paratroopers mainly and Infantry in ancient Sol.
     This one is a relic given to the Sergeant, shoots .30 Rifle.
+
+selectable-set-sergeant-belt-name = Sergeant's Disciplinary Belt
+selectable-set-sergeant-belt-description =
+    A sturdy belt designed for the Sergeant, often used to hit unruly cadets and officers alike.
+
+selectable-set-security-tackle-name = Enhanced Retrieval Gloves
+selectable-set-security-tackle-description =
+    Special gloves that manipulate the blood vessels in the wearer's hands, granting them the ability to launch headfirst into walls and tackle fleeing criminals in a single bound.
 
 selectable-set-antiquelaser-name = Antique Laser Pistol
 selectable-set-antiquelaser-description =
@@ -207,4 +228,11 @@ selectable-set-ntr-blade-name = Cane Blade
 selectable-set-ntr-blade-desc =
     A sturdier, bladed fancy cane, with no stun setting...
     This one is meant for emergencies only
+    CC note says: ONLY USE ON RED!!!!!
+
+selectable-set-ntr-brella-name = "Marlen" Umbrella
+selectable-set-ntr-brella-desc =
+    A stylish and intricate souvenir made from tough, hyper-woven
+    durathread by "NanoFashion" for the rich people of central command.
+    Looks expensive, and surprisingly durable.
     CC note says: ONLY USE ON RED!!!!!

@@ -8,11 +8,13 @@ namespace Content.Server._DV.CartridgeLoader.Cartridges;
 [RegisterComponent, Access(typeof(NanoChatCartridgeSystem))]
 public sealed partial class NanoChatCartridgeComponent : Component
 {
+    /* // Omu start
     /// <summary>
     ///     Station entity to keep track of.
     /// </summary>
     [DataField]
     public EntityUid? Station;
+    */ // Omu end
 
     /// <summary>
     ///     The NanoChat card to keep track of.

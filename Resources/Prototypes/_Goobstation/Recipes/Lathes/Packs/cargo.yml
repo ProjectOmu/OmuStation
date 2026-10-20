@@ -7,8 +7,8 @@
   - FultonBeacon
   - OreBag
 
-- type: latheRecipePack
-  id: SalvageExplosivesStatic # emag-locked
+- type: latheRecipePack #no longer static but upstream file so suffering
+  id: SalvageExplosivesStatic # emag-locked #omu moved to RND
   recipes:
   - SeismicCharge
 
@@ -40,6 +40,9 @@
   - WeaponProtoKineticRepeater
   - WeaponProtoKineticPistol
   - WeaponPlasmaCutter
+  - LavalandWeaponKineticMachete #omu
+  - LavalandWeaponKineticClaws #omu
+  - WeaponCrusherDagger #omu
   # - WeaponPlasmaRifle
 
 - type: latheRecipePack

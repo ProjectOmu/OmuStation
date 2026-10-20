@@ -49,6 +49,45 @@
   order: 3
   lawString: law-omu-science
 
+# Jermov laws
+
+- type: siliconLaw
+  id: Jermov1
+  order: 1
+  lawString: law-jermov-1
+
+- type: siliconLaw
+  id: Jermov2
+  order: 2
+  lawString: law-jermov-2
+
+- type: siliconLaw
+  id: Jermov3
+  order: 3
+  lawString: law-jermov-3
+
+# Reportertron laws
+
+- type: siliconLaw
+  id: Reportertron1
+  order: 1
+  lawString: law-reportertron-1
+
+- type: siliconLaw
+  id: Reportertron2
+  order: 2
+  lawString: law-reportertron-2
+
+- type: siliconLaw
+  id: Reportertron3
+  order: 3
+  lawString: law-reportertron-3
+
+- type: siliconLaw
+  id: Reportertron4
+  order: 4
+  lawString: law-reportertron-4
+
 # lawsets
 - type: siliconLawset
   id: OmuCrewsimov
@@ -110,4 +149,21 @@
   - OmuCrewsimov2
   - OmuScience
   - OmuCrewsimovBorgChassis4
+  obeysTo: laws-owner-crew
+
+- type: siliconLawset
+  id: JermovLawset
+  laws:
+  - Jermov1
+  - Jermov2
+  - Jermov3
+  obeysTo: laws-owner-crew
+
+- type: siliconLawset
+  id: ReportertronLawset
+  laws:
+  - Reportertron1
+  - Reportertron2
+  - Reportertron3
+  - Reportertron4
   obeysTo: laws-owner-crew

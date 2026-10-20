@@ -18,6 +18,7 @@
       visible: false
   - type: ApcPowerReceiver
     powerLoad: 0 # off by default
+    needsPower: true # Omu
   - type: EntityHeater
     settingSound:
       path: /Audio/Weapons/click.ogg

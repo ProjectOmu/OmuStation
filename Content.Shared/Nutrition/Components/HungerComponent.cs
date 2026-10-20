@@ -120,8 +120,16 @@ public sealed partial class HungerComponent : Component
     [AutoNetworkedField]
     public float StarvingSlowdownModifier = 0.75f;
 
+    ///omu
+    /// <Summary>
+    /// Determines the threshold that the mob starts taking damage at
+    /// </summary>
+    [DataField("starvationThreshold"), ViewVariables(VVAccess.ReadWrite)]
+    [AutoNetworkedField]
+    public HungerThreshold StarvationThreshold = HungerThreshold.Starving;
+
     /// <summary>
-    /// Damage dealt when your current threshold is at HungerThreshold.Dead
+    /// Damage dealt when your current threshold is at or below StarvationThreshold
     /// </summary>
     [DataField("starvationDamage")]
     public DamageSpecifier? StarvationDamage;

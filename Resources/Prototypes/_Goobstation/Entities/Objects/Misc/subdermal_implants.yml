@@ -79,6 +79,20 @@
 
 - type: entity
   parent: BaseSubdermalImplant
+  id: SyndicateJaunterImplant
+  name: syndicate jaunter implant
+  description: This implants allows the user to swap positions with a target individual. Recharges over time.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionSwapImplant
+  - type: Tag
+    tags:
+    - SubdermalImplant
+    - HideContextMenu
+
+- type: entity
+  parent: BaseSubdermalImplant
   id: KravMagaImplant
   name: solcom implant # Omu
   description: This implant allows the user to perform various Solarian Combat moves. # Omu
@@ -133,15 +147,16 @@
   components:
   - type: StypticStimulatorImplant
 
-#- type: entity # Omu, make binary a radio again.
-#  parent: BaseSubdermalImplant
-#  id: BinaryImplant
-#  name: binary decoder implant
-#  description: This implant allows the user to access Binary and communicate with silicons (use +b).
-#  categories: [ HideSpawnMenu ]
-#  components:
-#  - type: ImplantGrantCollectiveMind
-#    collectiveMind: Binary
+- type: entity
+  parent: BaseSubdermalImplant
+  id: BinaryImplant
+  name: binary decoder implant
+  description: This implant allows the user to access Binary and communicate with silicons (use :b).
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadioImplant
+    radioChannels:
+    - Binary
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -165,6 +180,16 @@
     permanent: true
   - type: ImplantGrantCollectiveMind
     collectiveMind: Shadowmind
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: TelepathyImplant
+  name: telepathy implant
+  description: This implant allows the user to use telepathy.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionTelepathy
 
 # Admeme
 

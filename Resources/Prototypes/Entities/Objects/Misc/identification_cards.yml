@@ -556,6 +556,18 @@
 
 - type: entity
   parent: IDCardStandard
+  id: TramDriverIDCard
+  name: tram driver ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idtramdriver
+  - type: PresetIdCard
+    job: TramDriver
+
+- type: entity
+  parent: IDCardStandard
   id: ERTJanitorIDCard
   name: ERT janitor ID card
   components:
@@ -626,7 +638,7 @@
     tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
-  parent: [IDCardStandard, BaseChameleon] # Omu - goob overwrote idcard standard with passenger and caused presets like nukie/wizard ids to not work
+  parent: [IDCardStandard, BaseChameleon] # Goobstation - IDCardStandard instead of PassengerIDCard, to get rid of PresetIDCard causing access overwrites based on a job
   id: AgentIDCard
   suffix: Agent
   components:
@@ -689,7 +701,7 @@
   components:
   - type: Sprite
     layers:
-    - state: black
+    - state: syndie # Omu
     - state: syndi
   - type: Access
     tags:
@@ -705,7 +717,7 @@
   components:
   - type: Sprite
     layers:
-    - state: black
+    - state: syndie # Omu
     - state: syndi_operative
   - type: AgentIDCard
 
@@ -716,7 +728,7 @@
   components:
   - type: Sprite
     layers:
-    - state: black
+    - state: syndie # Omu
     - state: syndi_corpsman
 
 - type: entity
@@ -726,7 +738,7 @@
   components:
   - type: Sprite
     layers:
-    - state: black
+    - state: syndie # Omu
     - state: syndi_commander
 
 - type: entity

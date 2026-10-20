@@ -1,6 +1,8 @@
 jobs-1 = command
 jobs-2 = bridge
-jobs-3 = centcom
+# Omu start
+jobs-3 = centcomm
+# Omu end
 jobs-4 = central command
 jobs-5 = service
 jobs-6 = personnel
