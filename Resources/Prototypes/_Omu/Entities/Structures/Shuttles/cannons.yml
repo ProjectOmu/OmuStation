@@ -1,88 +1,8 @@
 - type: entity
-  name: syndicate remote shotgun
-  parent: [BaseStructure, BaseSyndicateContraband]
-  id: SyndicateRemoteShotgun
-  description: A syndicate 12 gauge shotgun mounted on a stand featuring 3 barrels arranged in a triangle. It fires all three barrels in quick succession upon being linked up and triggered.
-  components:
-  - type: InteractionOutline
-  - type: Sprite
-    layers:
-      - state: icon
-        map: [ "enum.GunVisualLayers.Base" ]
-    sprite: _Omu/Structures/Cannons/remote_shotgun.rsi
-  - type: Gun
-    fireRate: 0.25
-    burstFireRate: 3 # Bulldog fire rate
-    selectedMode: Burst
-    availableModes:
-    - Burst
-    shotsPerBurst: 3 # Enough to kill with slugs
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
-    soundEmpty:
-      path: /Audio/Weapons/Guns/Empty/empty.ogg
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - ShellShotgun
-    capacity: 3
-    proto: ShellShotgun
-    soundInsert:
-      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
-  - type: Anchorable
-  - type: AmmoCounter
-  - type: GunSignalControl
-    forceAdditionalTriggers: false
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
-  - type: Rotatable
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.4
-        density: 60
-        mask:
-        - MachineMask
-  - type: DeviceLinkSink
-    ports:
-    - Trigger
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-        - !type:DoActsBehavior
-          acts: ["Destruction"]
-
-- type: entity
-  parent: [BaseItem, BaseSyndicateContraband]
-  id: DisassembledRemoteShotgun
-  name: disassembled remote shotgun
-  description: A compact box containing a disassembled remote shotgun.
-  components:
-  - type: Item
-    size: Normal
-  - type: Sprite
-    sprite: _Omu/Structures/Cannons/remote_shotgun.rsi
-    state: box
-  - type: SpawnItemsOnUse
-    items:
-    - id: SyndicateRemoteShotgun
-    sound:
-      path: /Audio/Effects/unwrap.ogg
-
-- type: entity
   parent: [BaseStructure, BaseSyndicateContraband]
   id: SyndicateAutocannon
   name: syndicate autocannon
-  description: An oversized machinegun assembly mounted to a base. Accepts .30 rifle L6 magazines and fires them at a blistering fast pace. Fires in 10 round bursts.
+  description: A massive machinegun assembly mounted to a base. Accepts .30 rifle L6 magazines and fires them at a blistering fast pace. Fires in 6 round bursts. Useful for mounting in narrow hallways or shuttles
   components:
   - type: InteractionOutline
   - type: Sprite
@@ -93,19 +13,19 @@
         map: ["enum.GunVisualLayers.Mag"]
     sprite: _Omu/Structures/Cannons/syndicate_autocannon.rsi
   - type: Gun
-    projectileSpeed: 40
-    fireRate: 0.5
+    projectileSpeed: 40 # ~ buff of 10
+    fireRate: 0.3
     minAngle: 1
-    maxAngle: 20
-    angleIncrease: 2
-    angleDecay: 20
-    burstFireRate: 12
+    maxAngle: 15
+    angleIncrease: 3.5
+    angleDecay: 35
+    burstFireRate: 12 # For reference, L6 is 8
     selectedMode: Burst
     availableModes:
     - Burst
     shotsPerBurst: 6 # 96 damage per burst against unarmored
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+      path: /Audio/_Omu/Weapons/penmanfire.ogg
     soundEmpty:
       path: null
   - type: MagazineAmmoProvider
@@ -126,8 +46,11 @@
         insertSound:
           path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
           params:
-            pitch: 2
-        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+            pitch: 1.5
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+          params:
+            pitch: 0.75
   - type: Anchorable
   - type: AmmoCounter
   - type: GunSignalControl
@@ -148,7 +71,26 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 300
+        damage: 250
       behaviors:
         - !type:DoActsBehavior
           acts: ["Destruction"]
+
+- type: entity
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: DisassembledSyndicateAutocannon
+  name: disassembled syndicate autocannon
+  description: A large box containing a disassembled syndicate autocannon. Anchored on assembly.
+  components:
+  - type: Item
+    size: Huge
+  - type: Sprite
+    sprite: _Omu/Structures/Cannons/syndicate_autocannon.rsi
+    state: box
+  - type: SpawnItemsOnUse
+    items:
+    - id: SyndicateAutocannon
+    sound:
+      path: /Audio/Weapons/Guns/Bolt/lmg_bolt_closed.ogg
+      params:
+        pitch: 0.5
