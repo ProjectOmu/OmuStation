@@ -278,9 +278,10 @@
     - id: DiseaseDiagnoserFlatPack
     - id: VaccinatorFlatPack
     # Goobstation End
-    - id: ComputerMedicalCommsFlatpack #Omu adds departmental comms board
-    - id: EnergyChemDispenserMachineCircuitboard # Omu
     - id: BookSecureTerminalManual # Starlight
+    - id: ComputerMedicalCommsFlatpack # Omu start; adds departmental comms board
+    - id: EnergyChemDispenserMachineCircuitboard
+    - id: BookCorporateSecretsAllMedical # Omu end; adds medical-specific metashield document
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
