@@ -6,7 +6,7 @@
     state: direggtor
   jobName: job-name-centcomm-direggtor
   allowSelection: false
-  
+
 - type: jobIcon
   parent: JobIcon
   id: JobIconSecuritySergeant
@@ -129,7 +129,7 @@
   id: JobIconCCToiletPaper
   icon:
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
-    state: toilet-paper
+    state: toiletpaper
   allowSelection: false
 
 - type: jobIcon
@@ -138,4 +138,20 @@
   icon:
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
     state: sadface
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCMiddleFinger
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: middlefinger
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCInspector
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: inspector
   allowSelection: false
