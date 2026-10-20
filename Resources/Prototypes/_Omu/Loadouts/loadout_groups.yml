@@ -574,3 +574,21 @@
   - BartenderBackpackSatchel
   - BartenderBackpackDuffel
   - BartenderBackpackMessenger
+
+# Blueshield Officer
+- type: loadoutGroup
+  id: SurvivalBlueshieldOfficer
+  name: loadout-group-survival-blueshield
+  minlimit: 3
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenBlueshieldOfficer
+  - EmergencyOxygenBlueshieldOfficer
+  - EmergencyPlasmaBlueshieldOfficer
+  - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma 
+  - EmergencyWaterVaporBlueshieldOfficer 
+  - EmergencySilicon 
+  - EmergencyOxygenCarnivoreBlueshieldOfficer 
+  - EmergencyOxygenEthanolBlueshieldOfficer 
+  - EmergencyOxygenVegetarianBlueshieldOfficer

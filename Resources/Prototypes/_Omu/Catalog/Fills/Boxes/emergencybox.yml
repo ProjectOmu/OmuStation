@@ -495,3 +495,192 @@
       - EmergencyMedipen
       spacepen:
       - SpaceMedipen
+
+- type: entity
+  parent: BoxSurvivalSlotsSecurity
+  id: BoxSurvivalSlotsBlueshieldOfficer
+  suffix: BlueshieldOfficer
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyOxygenTankFilled
+      mask:
+      - ClothingBSOMaskGasSwat
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+      prybar:
+      - GuildPrybar
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/emergencybox.rsi
+    state: box_bso
+
+- type: entity
+  parent: BoxSurvivalSlotsSecurity
+  id: BoxSurvivalSlotsBlueshieldOfficerNitrogen
+  suffix: BlueshieldOfficer
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyNitrogenTankFilled
+      mask:
+      - ClothingBSOMaskGasSwat
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+      prybar:
+      - GuildPrybar
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/emergencybox.rsi
+    state: box_bso
+
+- type: entity
+  parent: BoxSurvivalSlotsSecurity
+  id: BoxSurvivalSlotsBlueshieldOfficerPlasma
+  suffix: BlueshieldOfficer
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - EmergencyPlasmaTankFilled
+      mask:
+      - ClothingBSOMaskGasSwat
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+      prybar:
+      - GuildPrybar
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/emergencybox.rsi
+    state: box_bso
+
+- type: entity
+  parent: BoxSurvivalSlotsSecurity
+  id: BoxSurvivalSlotsBlueshieldOfficerWaterVapor
+  suffix: BlueshieldOfficer
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyWaterVaporTankFilled
+      mask:
+      - ClothingBSOMaskGasSwat
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+      prybar:
+      - GuildPrybar
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/emergencybox.rsi
+    state: box_bso
+
+- type: entity
+  parent: BoxSurvivalSlotsSecurity
+  id: BoxSurvivalSlotsBlueshieldOfficerMeat
+  suffix: BlueshieldOfficer
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyOxygenTankFilled
+      mask:
+      - ClothingBSOMaskGasSwat
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+      prybar:
+      - GuildPrybar
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/emergencybox.rsi
+    state: box_bso
+
+- type: entity
+  parent: BoxSurvivalSlotsSecurity
+  id: BoxSurvivalSlotsBlueshieldOfficerEthanol
+  suffix: BlueshieldOfficer
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkEthanolBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyOxygenTankFilled
+      mask:
+      - ClothingBSOMaskGasSwat
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+      prybar:
+      - GuildPrybar
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/emergencybox.rsi
+    state: box_bso
+
+- type: entity
+  parent: BoxSurvivalSlotsSecurity
+  id: BoxSurvivalSlotsBlueshieldOfficerVegetable
+  suffix: BlueshieldOfficer
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - WheatBushel
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyOxygenTankFilled
+      mask:
+      - ClothingBSOMaskGasSwat
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+      prybar:
+      - GuildPrybar
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/emergencybox.rsi
+    state: box_bso
