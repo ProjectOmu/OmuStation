@@ -46,7 +46,7 @@ public sealed class HearingPressureSystem : EntitySystem
 
         _nextUpdate = _timing.CurTime + UpdateInterval;
 
-        var query = EntityQueryEnumerator<HearingPressureComponent, TransformComponent>();
+        using var query = EntityQueryEnumerator<HearingPressureComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var hearing, out var xform))
         {
             var pressure = HasComp<GhostComponent>(uid)

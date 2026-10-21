@@ -148,7 +148,7 @@ public sealed class VacuumHearingSystem : EntitySystem
 
         _sourcesNext.Clear();
 
-        var query = AllEntityQuery<AudioComponent, TransformComponent>();
+        using var query = AllEntityQuery<AudioComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var audio, out var xform))
         {
             if (audio.Global || xform.MapID == MapId.Nullspace || (audio.Flags & AudioFlags.NoOcclusion) != 0)
@@ -168,7 +168,7 @@ public sealed class VacuumHearingSystem : EntitySystem
 
         _mufflersNext.Clear();
 
-        var mufflers = AllEntityQuery<SoundMufflerComponent, TransformComponent>();
+        using var mufflers = AllEntityQuery<SoundMufflerComponent, TransformComponent>();
         while (mufflers.MoveNext(out var uid, out var muffler, out var xform))
         {
             if (xform.MapID == MapId.Nullspace || GetLocalBounds(uid) is not { } bounds)
