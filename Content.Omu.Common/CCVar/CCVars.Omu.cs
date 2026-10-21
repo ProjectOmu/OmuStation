@@ -46,4 +46,11 @@ public sealed partial class OmuCVars
     /// </summary>
     public static readonly CVarDef<float> HearingWallOcclusion =
         CVarDef.Create("omu.hearing_wall_occlusion", 1f, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    ///     Distance between a projectile and a target's lag-compensated position that counts as a hit.
+    ///     Lets players with high ping hit what they actually saw when shooting.
+    /// </summary>
+    public static readonly CVarDef<float> GunLagCompRange =
+        CVarDef.Create("omu.gun_lag_comp_range", 0.6f, CVar.SERVER | CVar.SERVERONLY);
 }
