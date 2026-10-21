@@ -9293,3 +9293,43 @@ Entries:
       message: Fixed the Ovinia female chest marking's floating arms.
   id: 1200
   time: '2026-10-20T14:07:42.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: IPCs require gloves+mask to do surgery without poisoning again
+  id: 1201
+  time: '2026-10-20T17:13:27.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Tweak
+      message: Hos ensembles and Veteran security mantles have bodycams now
+    - type: Tweak
+      message: Hos mantle goes on security camera router instead of command
+  id: 1202
+  time: '2026-10-20T18:08:34.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Remove
+      message: Removed lavaland focused salvage voucher bundles, I am very sad.
+  id: 1203
+  time: '2026-10-20T19:21:09.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Add
+      message: >-
+        Sounds are now muffled when you're in a vacuum or the sound is coming
+        from space.
+    - type: Add
+      message: >-
+        Walls, airlocks, windows, holofans and atmos fans now muffle sound by
+        different amounts if they're between you and a sound source.
+  id: 1204
+  time: '2026-10-21T04:53:49.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Detective Warden and Corpsman spawning with an extra sec gas mask
+        in their bag
+  id: 1205
+  time: '2026-10-21T16:36:38.0000000+00:00'
