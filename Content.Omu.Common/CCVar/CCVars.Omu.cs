@@ -34,4 +34,16 @@ public sealed partial class OmuCVars
     /// </summary>
     public static readonly CVarDef<int> SpeechReplacementLength =
         CVarDef.Create("omu.speech_replacement_length", 64, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    ///     How muffled sounds are in vacuum, 0 to disable.
+    /// </summary>
+    public static readonly CVarDef<float> HearingVacuumOcclusion =
+        CVarDef.Create("omu.hearing_vacuum_occlusion", 8.5f, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    ///     Multiplier for how much walls muffle noise, 0 to disable.
+    /// </summary>
+    public static readonly CVarDef<float> HearingWallOcclusion =
+        CVarDef.Create("omu.hearing_wall_occlusion", 1f, CVar.SERVER | CVar.REPLICATED);
 }
