@@ -6,5 +6,5 @@ namespace Content.Omu.Server.StationEvents.Components;
 [RegisterComponent, Access(typeof(Events.LightsOutMajorRule))]
 public sealed partial class LightsOutMajorRuleComponent : LightsOutRuleComponent
 {
-    public override float DamageProbability { get; set; }= 0.20f;
+    public override float DamageProbability { get; set; } = 0.20f;
 }
