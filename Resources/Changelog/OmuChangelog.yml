@@ -9313,3 +9313,15 @@ Entries:
       message: Removed lavaland focused salvage voucher bundles, I am very sad.
   id: 1203
   time: '2026-10-20T19:21:09.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Add
+      message: >-
+        Sounds are now muffled when you're in a vacuum or the sound is coming
+        from space.
+    - type: Add
+      message: >-
+        Walls, airlocks, windows, holofans and atmos fans now muffle sound by
+        different amounts if they're between you and a sound source.
+  id: 1204
+  time: '2026-10-21T04:53:49.0000000+00:00'
