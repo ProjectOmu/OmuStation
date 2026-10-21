@@ -1,31 +1,26 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Ghost;
 using Content.Server.Station.Components;
-using Content.Server.Station.Systems;
 using Content.Server.StationEvents.Events;
 using Content.Server.Power.Components;
 using Content.Omu.Server.StationEvents.Components;
+using Content.Server.Shuttles.Components;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Light.Components;
 using Content.Shared.Station.Components;
 using Robust.Shared.Timing;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Omu.Server.StationEvents.Events;
 
-public sealed partial class LightsOutMajorRule : StationEventSystem<LightsOutMajorRuleComponent>
+public sealed partial class LightsOutMajorRule : LightsOutRule<LightsOutMajorRuleComponent>
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-
-    private const string DamageTypeToDeal = "Brute";
 
     protected override void Started(EntityUid uid, LightsOutMajorRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -34,38 +29,27 @@ public sealed partial class LightsOutMajorRule : StationEventSystem<LightsOutMaj
         // let the smashing start 5 seconds after the announcement goes out
         component.SmashingTime = _timing.CurTime + TimeSpan.FromSeconds(5);
 
-        component.Damage = new DamageSpecifier(_proto.Index<DamageGroupPrototype>(DamageTypeToDeal), 5);
-
         // if there's no station, we can't run this event
         if (!TryGetRandomStation(out var station))
             return;
 
         // generate the list of targets
-        using var all_lights = EntityQueryEnumerator<PoweredLightComponent>();
-        while (all_lights.MoveNext(out var light, out _))
+        using var allLights = EntityQueryEnumerator<PoweredLightComponent>();
+        while (allLights.MoveNext(out var light, out _))
         {
             // don't target if the light isn't powered
             if (TryComp<ApcPowerReceiverComponent>(light, out var powerComp)
-                && powerComp != null // compiler complains otherwise
                 && !powerComp.Powered)
                 continue;
 
-            // don't target if the light isn't on the station
-            // I would've factored this `if` out into a static IsEntityOnStation
-            // kinda like I did in LightsOutMinorRule
-            // but the `Transform` call is a protected method of EntitySystem
-            // and this `if` pattern only occurs once in this file
-            // suffer with me
-            var transform = Transform(light);
-            if (!HasComp<BecomesStationComponent>(transform.GridUid)
-                || CompOrNull<StationMemberComponent>(transform.GridUid)?.Station != station)
+            if (!IsEntityOnStation(light, station.Value))
                 continue;
 
             component.Targets.Add(light);
         }
 
         _chat.DispatchStationAnnouncement(
-            (EntityUid) station,
+            station.Value,
             Loc.GetString("lights-out-announcement"),
             Loc.GetString("lights-out-sender"),
             playDefaultSound: true,
@@ -81,14 +65,17 @@ public sealed partial class LightsOutMajorRule : StationEventSystem<LightsOutMaj
         if (component.SmashingTime == null)
             return;
 
-        LightsOutRule_SharedCode.InteriorActiveTick(
-            _timing, _random, _ghost, _damageable,
+        InteriorActiveTick(
+            _timing,
+            _random,
+            _ghost,
+            _damageable,
             ref component.SmashingTime,
-                component.Targets,
-                component.Targets,
+            component.Targets,
+            component.Targets,
             ref component.TargetIndex,
-                component.Damage!, // `ActiveTick` will always execute after `Started`
-                component.DamageProbability
+            component.Damage,
+            component.DamageProbability
         );
     }
 }

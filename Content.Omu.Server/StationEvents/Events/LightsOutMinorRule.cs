@@ -2,32 +2,27 @@ using System.Numerics;
 using Content.Server.Chat.Systems;
 using Content.Server.Ghost;
 using Content.Server.Station.Components;
-using Content.Server.Station.Systems;
 using Content.Server.StationEvents.Events;
 using Content.Server.Power.Components;
 using Content.Omu.Server.StationEvents.Components;
+using Content.Server.Shuttles.Components;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Light.Components;
 using Content.Shared.Station.Components;
 using Content.Shared.Pinpointer;
 using Robust.Shared.Timing;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Omu.Server.StationEvents.Events;
 
-public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMinorRuleComponent>
+public sealed partial class LightsOutMinorRule : LightsOutRule<LightsOutMinorRuleComponent>
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-
-    private const string DamageTypeToDeal = "Brute";
 
     protected override void Started(EntityUid uid, LightsOutMinorRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -36,18 +31,16 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
         // let the smashing start 5 seconds after the announcement goes out
         component.SmashingTime = _timing.CurTime + TimeSpan.FromSeconds(5);
 
-        component.Damage = new DamageSpecifier(_proto.Index<DamageGroupPrototype>(DamageTypeToDeal), 5);
-
         // if there's no station, we can't run this event
-        if (!TryGetRandomStation(out var station_p))
+        if (!TryGetRandomStation(out var stationP))
             return;
 
-        var station = (EntityUid) station_p; // make this not null, god
+        var station = stationP.Value; // make this not null, god
 
         // choose a random station beacon to center the breaking around
         var beacons = new List<EntityUid>();
-        using var beacons_eqe = EntityQueryEnumerator<ConfigurableNavMapBeaconComponent>();
-        while (beacons_eqe.MoveNext(out var beacon, out _))
+        using var beaconsEqe = EntityQueryEnumerator<ConfigurableNavMapBeaconComponent>();
+        while (beaconsEqe.MoveNext(out var beacon, out _))
         {
             // don't consider a beacon if it's off-station
             if (!IsEntityOnStation(beacon, station))
@@ -55,18 +48,19 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
 
             beacons.Add(beacon);
         }
+
         // if there's no station beacon, we can't run this event
         if (beacons.Count == 0)
             return;
-        var center_position = Transform(beacons[_random.Next(beacons.Count)]).LocalPosition;
+
+        var centerPosition = Transform(beacons[_random.Next(beacons.Count)]).LocalPosition;
 
         // generate the list of targets (and store list of all lights to make major and minor versions initially indistinguishable)
-        using var all_lights = EntityQueryEnumerator<PoweredLightComponent>();
-        while (all_lights.MoveNext(out var light, out _))
+        using var allLights = EntityQueryEnumerator<PoweredLightComponent>();
+        while (allLights.MoveNext(out var light, out _))
         {
             // don't target if the light isn't powered
             if (TryComp<ApcPowerReceiverComponent>(light, out var powerComp)
-                && powerComp != null // compiler complains otherwise
                 && !powerComp.Powered)
                 continue;
 
@@ -77,8 +71,8 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
             component.AllLights.Add(light);
 
             // target the lights in a 20 tile radius around the chosen beacon
-            var light_position = Transform(light).LocalPosition;
-            if (Vector2.Distance(center_position, light_position) < 20.0)
+            var lightPosition = Transform(light).LocalPosition;
+            if (Vector2.Distance(centerPosition, lightPosition) < 20.0)
                 component.Targets.Add(light);
         }
 
@@ -92,19 +86,6 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
         );
     }
 
-    private bool IsEntityOnStation(EntityUid ent, EntityUid station)
-    {
-        var xform = Transform(ent);
-
-        if (!TryComp<StationMemberComponent>(xform.GridUid, out var smember))
-            return false;
-
-        // the ent is considered on-station if its grid has both BecomesStation and StationMember
-        // AND
-        // the StationMember.Station is equal to the station in question
-        return HasComp<BecomesStationComponent>(xform.GridUid) && smember.Station == station;
-    }
-
     protected override void ActiveTick(EntityUid uid, LightsOutMinorRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
         base.ActiveTick(uid, component, gameRule, frameTime);
@@ -112,14 +93,17 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
         if (component.SmashingTime == null)
             return;
 
-        LightsOutRule_SharedCode.InteriorActiveTick(
-            _timing, _random, _ghost, _damageable,
+        InteriorActiveTick(
+            _timing,
+            _random,
+            _ghost,
+            _damageable,
             ref component.SmashingTime,
-                component.AllLights,
-                component.Targets,
+            component.AllLights,
+            component.Targets,
             ref component.TargetIndex,
-                component.Damage!, // `ActiveTick` will always execute after `Started`
-                component.DamageProbability
+            component.Damage,
+            component.DamageProbability
         );
     }
 }
