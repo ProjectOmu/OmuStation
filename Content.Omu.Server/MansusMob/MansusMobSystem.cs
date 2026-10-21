@@ -36,7 +36,6 @@ public sealed class MansusMobSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MaidenSpawnEvent>(OnMaidenSpawn);
         SubscribeLocalEvent<MansusMobComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<MansusMaddenedComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<MansusMaddenedComponent, ComponentRemove>(OnRemoval);
@@ -100,9 +99,6 @@ public sealed class MansusMobSystem : EntitySystem
                 }
             }
         }
-    }
-    private void OnMaidenSpawn(MaidenSpawnEvent args)
-    {
     }
 
     private void OnMobStateChanged(EntityUid uid, MansusMobComponent component, MobStateChangedEvent args)
