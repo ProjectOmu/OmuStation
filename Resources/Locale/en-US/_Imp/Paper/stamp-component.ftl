@@ -1,4 +1,4 @@
 stamp-component-stamped-name-hamlet = Hamlet
-<#-- Omu Start -->
+# Omu Start
 stamp-component-stamped-name-septoctplushie = Sept Oct plushie
-<#-- Omu End -->
+# Omu End
