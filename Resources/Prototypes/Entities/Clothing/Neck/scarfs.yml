@@ -272,3 +272,16 @@
     sprite: Clothing/Neck/Scarfs/PrideScarfs/lesbian-long.rsi
   - type: Clothing
     sprite: Clothing/Neck/Scarfs/PrideScarfs/lesbian-long.rsi
+
+# Omu addition start
+- type: entity
+  parent: ClothingScarfBase
+  id: ClothingNeckScarfStripedPlural
+  name: striped plural scarf
+  description: A soft, colorful scarf celebrating the many voices, identities, and experiences that make up one collective.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Scarves/plural_scarf.rsi
+  - type: Clothing
+    sprite: Clothing/Neck/Scarves/plural_scarf.rsi
+# Omu addition end
