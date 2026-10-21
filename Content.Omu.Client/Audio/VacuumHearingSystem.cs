@@ -228,7 +228,7 @@ public sealed class VacuumHearingSystem : EntitySystem
 
         var own = distance < OwnBodyRange
             || source is { Own: true }
-            || source is { Predicted: true } && distance <= OwnActionRange;
+            || (source is { Predicted: true } && distance <= OwnActionRange);
         var vacuum = MathF.Max(_listenerMuffle, source is { Placement.OpenSpace: true } ? 1f : 0f);
 
         var walls = 0f;
@@ -354,7 +354,7 @@ public sealed class VacuumHearingSystem : EntitySystem
 
         foreach (var source in _sources)
         {
-            if (source.Position.MapId != position.MapId || parent != null && source.Parent != parent)
+            if (source.Position.MapId != position.MapId || (parent != null && source.Parent != parent))
                 continue;
 
             var distance = (source.Position.Position - position.Position).LengthSquared();

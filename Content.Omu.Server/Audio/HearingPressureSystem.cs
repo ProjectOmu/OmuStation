@@ -51,7 +51,7 @@ public sealed class HearingPressureSystem : EntitySystem
         {
             var pressure = HasComp<GhostComponent>(uid)
                 ? Atmospherics.OneAtmosphere
-                : _atmosphere.GetContainingMixture((uid, xform))?.Pressure ?? 0f;
+                : (_atmosphere.GetContainingMixture((uid, xform))?.Pressure ?? 0f);
 
             pressure = MathF.Min(MathF.Round(pressure / PressureStep) * PressureStep, Atmospherics.OneAtmosphere);
 
