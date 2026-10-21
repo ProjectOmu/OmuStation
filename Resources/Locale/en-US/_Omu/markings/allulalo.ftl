@@ -26,7 +26,7 @@ marking-AllulaloHeadMustacheThin = Mustache (thin)
 marking-AllulaloHeadMustacheThin-Mustachethin = Mustache (thin)
 
 marking-AllulaloHeadMustacheBig = Mustache (big)
-marking-AllulaloHeadMustacheBig-Mustachebig = Mustahce (big)
+marking-AllulaloHeadMustacheBig-Mustachebig = Mustache (big)
 
 # Tail
 
