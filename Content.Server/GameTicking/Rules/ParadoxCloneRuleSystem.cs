@@ -41,6 +41,7 @@ public sealed class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxCloneRuleComp
         // check if we got enough potential cloning targets, otherwise cancel the gamerule so that the ghost role does not show up
         var allHumans = _mind.GetAliveHumans();
         allHumans.RemoveWhere(human => _whitelist.IsWhitelistPass(component.TargetBlacklist, human)); // Goobstation
+        allHumans.RemoveWhere(human => TryComp<SSDIndicatorComponent>(human.Comp.OwnedEntity, out var ssd) && ssd.IsSSD); // Omu
 
         if (allHumans.Count == 0)
         {
@@ -69,6 +70,7 @@ public sealed class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxCloneRuleComp
             // get possible targets
             var allAliveHumanoids = _mind.GetAliveHumans();
             allAliveHumanoids.RemoveWhere(human => _whitelist.IsWhitelistPass(ent.Comp.TargetBlacklist, human)); // Goobstation
+            allAliveHumanoids.RemoveWhere(human => TryComp<SSDIndicatorComponent>(human.Comp.OwnedEntity, out var ssd) && ssd.IsSSD); // Omu
 
             // we already checked when starting the gamerule, but someone might have died since then.
             if (allAliveHumanoids.Count == 0)
@@ -84,9 +86,7 @@ public sealed class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxCloneRuleComp
 
         }
 
-        if (ent.Comp.OriginalBody == null ||
-            TryComp<SSDIndicatorComponent>(ent.Comp.OriginalBody, out var ssdComp) && ssdComp.IsSSD || // Omu do not target afk for pdx clones
-            !_cloning.TryCloning(ent.Comp.OriginalBody.Value, _transform.GetMapCoordinates(spawner), ent.Comp.Settings, out var clone))
+        if (ent.Comp.OriginalBody == null || !_cloning.TryCloning(ent.Comp.OriginalBody.Value, _transform.GetMapCoordinates(spawner), ent.Comp.Settings, out var clone))
         {
             Log.Error($"Unable to make a paradox clone of entity {ToPrettyString(ent.Comp.OriginalBody)}");
             return;
