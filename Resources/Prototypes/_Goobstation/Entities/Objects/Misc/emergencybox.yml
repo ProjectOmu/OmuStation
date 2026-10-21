@@ -32,6 +32,7 @@
       mask: !type:ContainerSlot
       emergencypen: !type:ContainerSlot
       spacepen: !type:ContainerSlot
+      prybar: !type:ContainerSlot
   - type: ItemSlots
     slots:
       water:
@@ -81,6 +82,11 @@
         whitelist:
           tags:
           - SpaceMedipen
+      prybar: # omu - guild prybars
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - GuildPrybar
   - type: ContainerFill
     containers:
       water:
@@ -273,6 +279,8 @@
       - EmergencyMedipen
       spacepen:
       - SpaceMedipen
+      prybar: # omu - guild prybars
+      - GuildPrybar
   - type: Sprite
     state: box_sec
 
@@ -297,6 +305,8 @@
       - EmergencyMedipen
       spacepen:
       - SpaceMedipen
+      prybar: # omu - guild prybars
+      - GuildPrybar
   - type: Label
     currentLabel: reagent-name-nitrogen
   - type: Sprite

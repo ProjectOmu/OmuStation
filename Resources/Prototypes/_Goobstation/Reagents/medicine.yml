@@ -1188,20 +1188,26 @@
       amount: -8
     - !type:PlantAdjustHealth
       amount: -20
+  worksOnTheDead: true # Omu
   metabolisms:
     Medicine:
-      metabolismRate: 1
+      metabolismRate: 3 # omu
       effects:
+      - !type:ReduceRotting # Omu
+        seconds: 75 # Omu Butchers the body, cures rot.
+        conditions: # Omu
+        - !type:MobStateCondition # Omu
+          mobstate: Dead # Omu
       - !type:HealthChange
         damage:
           groups:
-            Genetic: -6
-      - !type:HealthChange # this + explosion rounds out to ~90dmg/15u
+            Genetic: -18 # Omu 15u is 100 genetic fixed and 170 from heat+brute
+      - !type:HealthChange # Omu - Butchers the body but anihilates rot and genetic damage 
         damage:
           types:
-            Heat: 1
-            Blunt: 1
-            Piercing: 1
+            Heat: 3 # Omu
+            Blunt: 3 # Omu
+            Piercing: 3 # Omu
       - !type:Explosion
         explosionType: Default
         maxIntensity: 0.4
