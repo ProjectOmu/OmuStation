@@ -83,7 +83,7 @@ marking-AllulaloHeadMohawkBig = Mohawk (big)
 marking-AllulaloHeadMohawkBig-Mohawkbig = Mohawk (big)
 
 marking-AllulaloHeadPlummageTiny = Plumage (tiny)
-marking-AllulaloHeadPlummageTiny-Wingssmooth = Plumage (tiny)
+marking-AllulaloHeadPlummageTiny-Plummagetiny = Plumage (tiny)
 
 marking-AllulaloHeadPuffy = Puffy
 marking-AllulaloHeadPuffy-Puffy = Puffy
