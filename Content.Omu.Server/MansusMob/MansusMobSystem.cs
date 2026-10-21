@@ -169,7 +169,8 @@ public sealed class MansusMobSystem : EntitySystem
 
     private void OnRemoval(EntityUid uid, MansusMaddenedComponent maddened, ComponentRemove args)
     {
-        if (!TryComp<FascinationComponent>(uid, out var fascination))
+        FascinationComponent? fascination = null;
+        if (Deleted(uid) || !Resolve(uid, ref fascination))
             return;
 
         if (fascination.AlteredFaction == true)
@@ -178,7 +179,6 @@ public sealed class MansusMobSystem : EntitySystem
             userFactionIcons.FactionIcons.Remove(fascination.IconToAdd);
             _faction.RemoveFaction(uid, fascination.FactionToAdd); // remove the faction
             fascination.AlteredFaction = false;
-            Dirty(uid, userFactionIcons);
         }
         _eye.RefreshVisibilityMask(uid);
     }
