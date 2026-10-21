@@ -110,7 +110,7 @@ public sealed partial class HumanoidAppearanceComponent : Component
     /// <summary>
     ///     The displacement maps that will be applied to specific layers of the humanoid.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField] // Omu - Plantigrade Trait
     public Dictionary<HumanoidVisualLayers, DisplacementData> MarkingsDisplacement = new();
 
     /// <summary>
