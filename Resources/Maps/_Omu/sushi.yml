@@ -4,7 +4,7 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 10/21/2026 09:08:10
+  time: 10/21/2026 18:06:41
   entityCount: 25511
 maps:
 - 1
@@ -11173,7 +11173,7 @@ entities:
       pos: 75.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -25776.74
+      secondsUntilStateChange: -25916.297
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -115672,7 +115672,7 @@ entities:
   - uid: 16659
     components:
     - type: Transform
-      pos: 71.617744,61.348534
+      pos: 84.69424,61.52437
       parent: 2
 - proto: HandheldHealthAnalyzer
   entities:
