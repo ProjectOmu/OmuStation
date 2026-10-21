@@ -13,6 +13,7 @@ using Content.Shared.Database;
 using Content.Shared.Mobs;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Random.Helpers;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -169,8 +170,11 @@ public sealed class MansusMobSystem : EntitySystem
 
     private void OnRemoval(EntityUid uid, MansusMaddenedComponent maddened, ComponentRemove args)
     {
+        if (TerminatingOrDeleted(uid))
+            return;
+
         FascinationComponent? fascination = null;
-        if (Deleted(uid) || !Resolve(uid, ref fascination))
+        if (!Resolve(uid, ref fascination))
             return;
 
         if (fascination.AlteredFaction == true)
