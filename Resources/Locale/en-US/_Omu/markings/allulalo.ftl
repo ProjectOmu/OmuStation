@@ -13,8 +13,8 @@ marking-AllulaloHeadEyebrow-Eyebrow = Eyebrows
 marking-AllulaloHeadNeckFrills = Neck frills
 marking-AllulaloHeadNeckFrills-Neckfrills = Neck frills
 
-marking-AllulaloHeadNeckFluffThick = Neck plummage (thick)
-marking-AllulaloHeadNeckFluffThick-Neckplumagethick = Neck plummage (thick)
+marking-AllulaloHeadNeckFluffThick = Neck plumage (thick)
+marking-AllulaloHeadNeckFluffThick-Neckplumagethick = Neck plumage (thick)
 
 marking-AllulaloHeadWattle = Wattle
 marking-AllulaloHeadWattle-Wattle = Wattle
