@@ -20,7 +20,7 @@ marking-AllulaloHeadWattle = Wattle
 marking-AllulaloHeadWattle-Wattle = Wattle
 
 marking-AllulaloHeadMustache = Mustache
-marking-AllulaloHeadMustache-mustache = Mustache
+marking-AllulaloHeadMustache-Mustache = Mustache
 
 marking-AllulaloHeadMustacheThin = Mustache (thin)
 marking-AllulaloHeadMustacheThin-Mustachethin = Mustache (thin)
