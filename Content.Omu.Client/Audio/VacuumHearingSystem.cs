@@ -373,6 +373,7 @@ public sealed class VacuumHearingSystem : EntitySystem
         if (!_mapManager.TryFindGridAt(position.MapId, position.Position, out var gridUid, out var gridComp))
             return new Placement(true, null);
 
+        // if `TryGetTileRef` fails, empty is true, otherwise empty is the value of `tile.Tile.IsEmpty`.
         var empty = !_maps.TryGetTileRef(gridUid, gridComp, position.Position, out var tile) || tile.Tile.IsEmpty;
         return new Placement(empty, gridUid);
     }
