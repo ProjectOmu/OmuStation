@@ -36,6 +36,32 @@
       - BlueshieldOfficer
 
 - type: entity
+  parent: ClothingNeckMantleBlueshield
+  id: ClothingNeckMantleCCOPrideMantle
+  name: CentComm pride ommantle
+  description: The commander's signature wrap, designed as a part of a uniform explicitly designed to torment her. Now with in built microchips, and pride pins!
+  components:
+  - type: Sprite
+    sprite:  _Omu/Clothing/Neck/Mantle/CCOpridemmantle.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Mantle/CCOpridemmantle.rsi
+  - type: Emag
+    emagType: All
+    emagSound: /Audio/_Goobstation/Items/card_swipe.ogg
+    successText: executive-card-success
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+      - CentCommOffical
+      - NanotrasenSpectre
+      - Deathsquad
+      - EmergencyResponseTeam
+      - CentralCommand
+      - NanotrasenRepresentative
+      - BlueshieldOfficer
+
+- type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckMantleCMOModern
   name: chief medical officer's modern mantle
