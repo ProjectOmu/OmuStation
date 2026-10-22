@@ -145,15 +145,22 @@
     outerClothing: ClothingOuterArmorBasicSlim
     id: ERTMedicPDABlue
     ears: ClothingHeadsetAltCentComMed
-    belt: ClothingBeltMedicalEMTFilled
+    belt: ClothingBeltSecurityWebbingFilledMedical
     pocket1: WeaponDisablerAdvanced
     pocket2: FlashlightSeclite
   storage:
     back:
-    - MedkitAdvancedFilled
-    - BoxAutoinjectorCartidges
+    - JugPunctTranex
+    - JugPyraDerma
+    - JugDexPlusSaline
+    - JugTrico
     - MedkitCombatFilled
+    - DefibrillatorCompact
+    - BeakerSmallArith
     - CrowbarRed
+    - AdvancedJetInjector
+    belt:
+    - ArtiplatesChemistryVial
 
 # ERT Janitor
 
@@ -192,15 +199,30 @@
     outerClothing: ClothingOuterArmorBasicSlim
     id: ERTJanitorPDABlue
     ears: ClothingHeadsetAltCentComJani
-    belt: ClothingBeltJanitorFilled
     pocket1: WeaponDisablerAdvanced
     pocket2: FlashlightSeclite
+    belt: ClothingBeltMilitaryWebbingERT
+    suitstorage: WeaponLauncherHydra # Goobstation
   storage:
     back:
-    - BoxLightMixed
-    - BoxLightMixed
+    - TrashBag
+    - SoapNT
+    - Plunger
+    - Screwdriver
+    - AdvMopItem # End of first line
+    - GrenadeCleanade
+    - GrenadeCleanade
+    - GrenadeCleanade
+    - GrenadeCleanade
+    - GrenadeCleanade
+    - GrenadeCleanade
+    belt:
+    - MegaSprayBottleSpaceCleaner
+    - Holoprojector
+    - LightReplacer
+    - WireBrush
     - CrowbarRed
-    - AdvMopItem
+    - EmergencyMedipen
 
 # ERT Engineer
 

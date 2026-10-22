@@ -133,7 +133,7 @@ ReverseEngineeringMachine: null
 Roboisseur: null
 SalvagePartsSpawnerLow: null
 SalvagePartsSpawnerMid: null
-SecBreachingHammer: null
+#SecBreachingHammer: null # Omu, we have this.
 Shinai: null
 ShockCollar: null
 shuttle_manipulator: null
@@ -1034,8 +1034,8 @@ PrefilledSyringe: Syringe
 BaseChemistryEmptyVial: ChemistryEmptyVial
 
 # 2025-10-6
-BibleTanakh: null
-BibleSatanic: null
+#BibleTanakh: null # Omu
+#BibleSatanic: null # Omu
 
 # 2026-01-04
 # GhostBarSpawner: null # Omu
@@ -1135,4 +1135,41 @@ Brutepack10Lingering: Brutepack
 Bloodpack10Lingering: Bloodpack
 MedicatedSuture10Lingering: MedicatedSuture
 RegenerativeMesh10Lingeing: RegenerativeMesh
-
+# Omu start
+GnomePlushie: PlushieLizardJobHeadofsecurity
+AutoMenderBrute: null
+AutoMenderBurn: null
+AutoMenderBruteFilled: null
+AutoMenderBurnFilled: null
+MedkitRobotic: MedkitCombatPurple
+MedkitRoboticFilled: MedkitCombatPurpleFilled
+PigPlushie: PlushieLizardJobSecurityofficer
+DefibrillatorParamed: DefibrillatorCompact
+OilPack: Oilpack
+OrganCycloriteHeart: OrganAvaliHeart
+OrganShadekinHeart: OrganShadowkinHeart
+OrganVulpkaninHeart: OrganAnimalHeart
+MagazinePistolHighCapacityFMJ: MagazinePistolHighCapacityRubber
+MagazinePistolHighCapacitySP: MagazinePistolHighCapacity
+MagazineRifleFMJ: MagazineRifle
+MagazineRifleSP: MagazineRifle
+MagazinePistolAP: MagazinePistol
+MagazinePistolFMJ: MagazinePistol
+MagazinePistolSP: MagazinePistol
+MagazinePistolSubMachineGunAP: MagazinePistolSubMachineGun
+MagazinePistolSubMachineGunFMJ: MagazinePistolSubMachineGun
+MagazinePistolSubMachineGunSP: MagazinePistolSubMachineGun
+SpeedLoaderMagnumFMJ: SpeedLoaderMagnum
+SpeedLoaderMagnumSP: SpeedLoaderMagnum
+VendingMachineMedicalSecurity: VendingMachineMedicalBase
+WeaponPistolEnforcer: WeaponPistolMk58
+CyberEnergyChainsword: null
+EnergyShieldCyber: null
+LeftArmCyberBulwark: null
+LeftHandCyber: null
+RightArmCyberBulwark: null
+RightHandCyber: null
+WeaponIonRifle: WeaponEnergyIonRifle
+WeaponMechCombatAMLG90: null
+WeaponMechCombatXray: null
+# Omu end
