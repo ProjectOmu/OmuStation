@@ -1,0 +1,275 @@
+# Head
+
+- type: marking
+  id: AllulaloHeadBeakthick
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/head.rsi
+    state: beakthick
+  - sprite: _Omu/Mobs/Customization/Allulalo/head.rsi
+    state: beakthick2
+
+- type: marking
+  id: AllulaloHeadEyebrow
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/head.rsi
+    state: Eyebrow
+
+- type: marking
+  id: AllulaloHeadEyebrowlong
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/head.rsi
+    state: Eyebrowlong
+
+- type: marking
+  id: AllulaloHeadNeckFrills
+  bodyPart: Tail #layering sucks
+  markingCategory: Head
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite:  _Omu/Mobs/Customization/Allulalo/head.rsi
+    state: Neckfrills
+
+- type: marking
+  id: AllulaloHeadNeckFluffThick
+  bodyPart: Tail #layering sucks
+  markingCategory: Head
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite:  _Omu/Mobs/Customization/Allulalo/head.rsi
+    state: Neckplumagethick
+
+- type: marking
+  id: AllulaloHeadWattle
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite:  _Omu/Mobs/Customization/Allulalo/head.rsi
+    state: Wattle
+
+- type: marking
+  id: AllulaloHeadMustache
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite:  _Omu/Mobs/Customization/Allulalo/head.rsi
+    state: Mustache
+
+- type: marking
+  id: AllulaloHeadMustacheThin
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite:  _Omu/Mobs/Customization/Allulalo/head.rsi
+    state: Mustachethin
+
+- type: marking
+  id: AllulaloHeadMustacheBig
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite:  _Omu/Mobs/Customization/Allulalo/head.rsi
+    state: Mustachebig
+
+
+
+# Tail
+
+- type: marking
+  id: AllulaloTailBulb
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/tail.rsi
+    state: Bulbtail
+  - sprite: _Omu/Mobs/Customization/Allulalo/tail.rsi
+    state: Bulbtail2
+
+- type: marking
+  id: AllulaloTailBulbLong
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/tail.rsi
+    state: Bulbtaillong
+  - sprite: _Omu/Mobs/Customization/Allulalo/tail.rsi
+    state: Bulbtaillong2
+
+- type: marking
+  id: AllulaloTailCurly
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/tail.rsi
+    state: Curlytail
+  - sprite: _Omu/Mobs/Customization/Allulalo/tail.rsi
+    state: Curlytail2
+
+- type: marking
+  id: AllulaloTailCurlyBig
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/tail.rsi
+    state: Curlytailbig
+  - sprite: _Omu/Mobs/Customization/Allulalo/tail.rsi
+    state: Curlytailbig2
+
+- type: marking
+  id: AllulaloTailDuck #Insert Duck tales reference here, I am too lazy.
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/tail.rsi
+    state: Ducktail
+  - sprite: _Omu/Mobs/Customization/Allulalo/tail.rsi
+    state: Ducktail2
+
+- type: marking
+  id: AllulaloTailLong
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/tail.rsi
+    state: Longtail
+  - sprite: _Omu/Mobs/Customization/Allulalo/tail.rsi
+    state: Longtail2
+
+
+# Rarm
+- type: marking
+  id: AllulaloWingsDragon
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/arms.rsi
+    state: Wingsdragon
+
+- type: marking
+  id: AllulaloWingsSmooth
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/arms.rsi
+    state: Wingssmooth
+
+# HeadTop
+
+- type: marking
+  id: AllulaloHeadCrest
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/headtop.rsi
+    state: Crest
+
+- type: marking
+  id: AllulaloHeadCrestBack
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/headtop.rsi
+    state: Crestback
+
+- type: marking
+  id: AllulaloHeadCrestFan
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/headtop.rsi
+    state: Crestfan
+
+- type: marking
+  id: AllulaloHeadCrestFront
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/headtop.rsi
+    state: Crestfront
+
+- type: marking
+  id: AllulaloHeadMohawk
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/headtop.rsi
+    state: Mohawk
+
+- type: marking
+  id: AllulaloHeadMohawkBig
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/headtop.rsi
+    state: Mohawkbig
+
+- type: marking
+  id: AllulaloHeadPlummageTiny
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/headtop.rsi
+    state: Plummagetiny
+
+- type: marking
+  id: AllulaloHeadPuffy
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/headtop.rsi
+    state: Puffy
+
+- type: marking
+  id: AllulaloHeadSingleHorn
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/headtop.rsi
+    state: Singlehorn
+
+- type: marking
+  id: AllulaloHeadTwinFeathers
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/headtop.rsi
+    state: Twinfeathers
+
+- type: marking
+  id: AllulaloHeadTwinSpikes
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/headtop.rsi
+    state: Twinspikes
