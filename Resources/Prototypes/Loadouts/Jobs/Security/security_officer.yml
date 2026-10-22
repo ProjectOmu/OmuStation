@@ -23,6 +23,17 @@
       department: Security
       time: 100h
 
+# Eyes
+- type: loadout #Omu
+  id: SecurityGlasses
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+
+- type: loadout #Omu
+  id: SecurityVisor
+  equipment:
+    eyes: ClothingEyesVisorSecurity
+
 # Head
 - type: loadout
   id: SecurityHelmet
