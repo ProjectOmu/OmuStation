@@ -1,34 +1,33 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-// Shitmed Change Start
-using Content.Shared._Shitmed.Body.Components;
-using Content.Shared._Shitmed.BodyEffects;
-using Content.Shared._Shitmed.Targeting;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
-using Content.Shared.Damage.Prototypes;
-// Goobstation
-using Content.Shared.Destructible;
-using Content.Shared.Humanoid;
-using Content.Shared.Inventory;
 using Content.Shared.Movement.Components;
 using Content.Shared.Standing;
 using Robust.Shared.Containers;
-using Robust.Shared.Network;
-using Robust.Shared.Network.Messages;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
+
+// Shitmed Change Start
+using Content.Shared._Shitmed.Body.Components;
+using Content.Shared._Shitmed.BodyEffects;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Humanoid;
+using Content.Shared.Inventory;
+using Robust.Shared.Random;
+
+// Goobstation
+using Content.Shared.Destructible;
 
 namespace Content.Shared.Body.Systems;
 
 public partial class SharedBodySystem
 {
-    [Dependency] private readonly INetManager _netManager = default!;
     private static readonly ProtoId<DamageTypePrototype> BloodlossDamageType = "Bloodloss";
 
     private void InitializeParts()
@@ -276,18 +275,12 @@ public partial class SharedBodySystem
         if (legEnt.Comp.PartType != BodyPartType.Leg)
             return;
 
-        if (_netManager.IsClient) // Fuck sound networking
-            return;
-
         // Omu start - ensure body speed
-        if (!bodyEnt.Comp.LegEntities.Contains(legEnt))
+        if (TryComp<MovementSpeedModifierComponent>(bodyEnt, out var movement) && TryComp<MovementBodyPartComponent>(legEnt, out var legMovement))
         {
-            if (TryComp<MovementSpeedModifierComponent>(bodyEnt, out var movement) && TryComp<MovementBodyPartComponent>(legEnt, out var legMovement))
-            {
-                legMovement.WalkSpeed = movement.InitWalkSpeed;
-                legMovement.SprintSpeed = movement.InitSprintSpeed;
-                legMovement.Acceleration = movement.InitAcceleration;
-            }
+            legMovement.WalkSpeed = movement.InitWalkSpeed;
+            legMovement.SprintSpeed = movement.InitSprintSpeed;
+            legMovement.Acceleration = movement.InitAcceleration;
         }
         // Omu end
         bodyEnt.Comp.LegEntities.Add(legEnt);

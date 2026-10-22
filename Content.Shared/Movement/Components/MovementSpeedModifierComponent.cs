@@ -52,19 +52,16 @@ namespace Content.Shared.Movement.Components
         /// <summary>
         /// Omu - Character's initial walk speed. This is the value that is used to reset the walk speed when modifiers are removed.
         /// </summary>
-        [AutoNetworkedField]
         public float InitWalkSpeed = 0.0f;
 
         /// <summary>
         /// Omu - Character's initial sprint speed. This is the value that is used to reset the sprint speed when modifiers are removed.
         /// </summary>
-        [AutoNetworkedField]
         public float InitSprintSpeed = 0.0f;
 
         /// <summary>
         /// Omu - Character's initial acceleration. This is the value that is used to reset the acceleration when modifiers are removed.
         /// </summary>
-        [AutoNetworkedField]
         public float InitAcceleration = 0.0f;
 
         /// <summary>
