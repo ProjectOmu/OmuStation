@@ -134,7 +134,7 @@
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: musical-module }
 
 - type: entity
-  id: BorgModuleParamedic # todo: reuse when med refractor is finished
+  id: BorgModuleParamedic # todo: reuse when med refactor is finished
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
   name: paramedic cyborg module
   components:
