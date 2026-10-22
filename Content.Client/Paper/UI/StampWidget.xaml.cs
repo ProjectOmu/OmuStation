@@ -35,11 +35,14 @@ public sealed partial class StampWidget : PanelContainer
            // ModulateSelfOverride = value.StampedColor;
 
            var icon = value.StampLargeIcon;
-           if (icon != null)
+           var path = value.StampLargePath;
+           if (icon != null || path != null)
            {
                var resCache = IoCManager.Resolve<IResourceCache>();
                var borderImage = resCache.GetResource<TextureResource>(
-                   "/Textures/_Goobstation/Interface/Paper/Stamps/" + icon + ".png");
+                // Omu - Support for Goob's stamps while also supporting Omu's stamps. This is a temporary solution until we can fully transition to a stamp system fit for both.
+                icon != null ? "/Textures/_Goobstation/Interface/Paper/Stamps/" + icon + ".png" : path!
+                );
 
                _borderTexture = new StyleBoxTexture { Texture = borderImage };
                PanelOverride = _borderTexture;
