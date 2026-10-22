@@ -236,3 +236,9 @@ selectable-set-ntr-brella-desc =
     durathread by "NanoFashion" for the rich people of central command.
     Looks expensive, and surprisingly durable.
     CC note says: ONLY USE ON RED!!!!!
+
+selectable-set-brig-modsuit-name = Corpsman 'Apollo' modsuit
+selectable-set-brig-modsuit-desc =
+    An alternative and customized modular medical hardsuit designed for combat medics. 
+
+    
