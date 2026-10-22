@@ -9375,3 +9375,29 @@ Entries:
       message: Added the PKA upgrades back to the salvage vendor
   id: 1210
   time: '2026-10-22T13:17:35.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: Fixed certain sec loadout options not being in the secdrobe
+  id: 1211
+  time: '2026-10-22T15:37:09.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: >-
+        The names of crew plushies are now all lowercased, to be consistent with
+        other plushies.
+    - type: Tweak
+      message: >-
+        The Sept Oct plushie is no longer found in the crew morale initiative
+        crate; it is now in the sectoral plushie crate.
+    - type: Tweak
+      message: >-
+        The Jessie Fletcher plushie and the Sept Oct plushie can now be won from
+        claw machines.
+    - type: Tweak
+      message: >-
+        The name and description of the crew morale initiative crate is
+        rewritten slightly.
+  id: 1212
+  time: '2026-10-22T15:43:43.0000000+00:00'
