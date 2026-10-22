@@ -151,3 +151,31 @@
     tags:
     - WhitelistChameleon
     - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesGlassesCorpsman
+  id: ClothingEyesVisorMedSec
+  name: medical security visor
+  description: Security visors designed for medical and security needs.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Eyes/Glasses/medsecvisor.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Eyes/Glasses/medsecvisor.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingEyesGlassesBSO
+  id: ClothingEyesVisorBlueshield
+  name: blueshield visor
+  description: A high-tech, menacing visor with a medical, job and diagnostic hud.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Eyes/Glasses/bsovisor.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Eyes/Glasses/bsovisor.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
