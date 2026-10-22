@@ -871,7 +871,7 @@
   parent: BasePlushie
   id: PlushieSeptOctOmuStaff
   name: sept oct plushie
-  description: This plushie looks to be in a hardly-used, yet earnest condition. He'd let you hug him, but only after you fill out and sign a Warm Embrace Request Form (D-5).
+  description: This plushie looks to be in a hardly-used, yet earnest condition. He'd let you hug him, but only after you fill out and sign a Warm Embrace Request Form (L-2).
   components:
   - type: Sprite
     sprite: _Omu/Objects/Fun/Plushies/septoct.rsi
@@ -906,6 +906,13 @@
     wideAnimationRotation: 180
     soundHit:
       collection: VulpkaninScreams
+  # gekkers
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-septoctplushie
+    stampedColor: "#39a2f2"
+    stampState: "paper_stamp-omu-septoctplushie"
+    stampLargePath: "/Textures/_Omu/Interface/Paper/Stamps/large_stamp-septoctplushie.png"
+    sound: /Audio/_DV/Voice/Vulpkanin/dog_snarl3.ogg
 
 - type: entity
   parent: BasePlushie
