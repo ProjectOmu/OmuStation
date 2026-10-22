@@ -87,3 +87,14 @@
     component:
       - type: StationAiVision
         range: 4
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakPlural
+  name: plural cloak
+  description: A soft, colorful cloak celebrating the many voices, identities, and experiences that make up one collective.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/pluralcloak.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/pluralcloak.rsi
