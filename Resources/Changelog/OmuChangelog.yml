@@ -9333,3 +9333,71 @@ Entries:
         in their bag
   id: 1205
   time: '2026-10-21T16:36:38.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Atmospheric belts do not replace your jumpsuit anymore.
+  id: 1206
+  time: '2026-10-21T23:26:20.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        Origin's atmos has been (almost) completely redone. Check the PR for
+        more!
+    - type: Tweak
+      message: Scattered several plushies across Origin.
+    - type: Tweak
+      message: minor fixes map wide
+  id: 1207
+  time: '2026-10-21T23:36:19.0000000+00:00'
+- author: ggrab41
+  changes:
+    - type: Tweak
+      message: Carps and Sharkminows spawned by Dragons now gib on death.
+  id: 1208
+  time: '2026-10-22T02:09:25.0000000+00:00'
+- author: Dat-Guy
+  changes:
+    - type: Add
+      message: >-
+        Added the BSO survival kit, and made the BSO gas mask the default mask
+        for the kit.
+    - type: Remove
+      message: >-
+        Removed the BSO gas mask from the BSO's starting items (added to the
+        survival kit).
+  id: 1209
+  time: '2026-10-22T12:22:03.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Add
+      message: Added the PKA upgrades back to the salvage vendor
+  id: 1210
+  time: '2026-10-22T13:17:35.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: Fixed certain sec loadout options not being in the secdrobe
+  id: 1211
+  time: '2026-10-22T15:37:09.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: >-
+        The names of crew plushies are now all lowercased, to be consistent with
+        other plushies.
+    - type: Tweak
+      message: >-
+        The Sept Oct plushie is no longer found in the crew morale initiative
+        crate; it is now in the sectoral plushie crate.
+    - type: Tweak
+      message: >-
+        The Jessie Fletcher plushie and the Sept Oct plushie can now be won from
+        claw machines.
+    - type: Tweak
+      message: >-
+        The name and description of the crew morale initiative crate is
+        rewritten slightly.
+  id: 1212
+  time: '2026-10-22T15:43:43.0000000+00:00'
