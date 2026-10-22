@@ -45,3 +45,14 @@
     sprite: _Omu/Clothing/Neck/Mantle/cmomantle.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Neck/Mantle/cmomantle.rsi
+
+- type: entity
+  parent: ClothingPrideMantleBase
+  id: ClothingNeckMantlePlural
+  name: plural mantle
+  description: A soft, colorful mantle celebrating the many voices, identities, and experiences that make up one collective.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Mantle/pluralmantle.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Mantle/pluralmantle.rsi
