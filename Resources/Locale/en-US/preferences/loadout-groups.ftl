@@ -183,7 +183,6 @@ loadout-group-warden-outerclothing = Warden outer clothing
 
 loadout-group-security-head = Security head
 loadout-group-security-jumpsuit = Security jumpsuit
-loadout-group-security-eyewear = Security eyewear
 loadout-group-security-backpack = Security backpack
 loadout-group-security-belt = Security Belt
 loadout-group-security-outerclothing = Security outer clothing
