@@ -45,6 +45,11 @@ namespace Content.Shared.Movement.Systems
             ent.Comp.Acceleration = ent.Comp.BaseAcceleration;
             ent.Comp.Friction = _frictionModifier * ent.Comp.BaseFriction;
             ent.Comp.FrictionNoInput = _frictionModifier * ent.Comp.BaseFriction;
+            // Omu start - set initial values
+            ent.Comp.InitWalkSpeed = ent.Comp.BaseWalkSpeed;
+            ent.Comp.InitSprintSpeed = ent.Comp.BaseSprintSpeed;
+            ent.Comp.InitAcceleration = ent.Comp.BaseAcceleration;
+            // Omu end
             Dirty(ent);
         }
 
