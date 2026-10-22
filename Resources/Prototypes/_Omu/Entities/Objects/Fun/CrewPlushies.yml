@@ -494,7 +494,7 @@
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
-
+    
 - type: entity
   parent: BasePlushie
   id: PlushieHaashaOmuCrew
@@ -541,7 +541,7 @@
       collection: ResomiSquawk
 
 - type: entity
-  parent: BasePlushie
+  parent: BasePlushie   
   id: PlushieRhyssOmuCrew
   name: rhyss plushie
   description: This plushie resembles a scarred bird that smells heavily of ash and charcoal. The label reads 'Survivor of the Red Cycle.'
@@ -575,7 +575,7 @@
     soundHit: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
 
 - type: entity
-  parent: BasePlushie
+  parent: BasePlushie   
   id: PlushieNuiOmuCrew
   name: nui plushie
   description: A plushie of a small, sandy Avali. It has a soft looking head and smells strongly of charcoal.
@@ -607,7 +607,7 @@
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
-
+    
 - type: entity
   parent: PlushieLizard
   id: PlushieSniffsOmuCrew
