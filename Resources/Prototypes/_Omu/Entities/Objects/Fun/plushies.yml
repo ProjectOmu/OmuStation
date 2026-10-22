@@ -869,6 +869,53 @@
 
 - type: entity
   parent: BasePlushie
+  id: PlushieSeptOctOmuStaff
+  name: sept oct plushie
+  description: This plushie looks to be in a hardly-used, yet earnest condition. He'd let you hug him, but only after you fill out and sign a Warm Embrace Request Form (L-2).
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/septoct.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/septoct.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/septoct.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: VulpYips
+  - type: EmitSoundOnUse
+    sound:
+      collection: VulpYaps
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VulpYaps
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: VulpYaps
+  - type: EmitSoundOnThrow
+    sound:
+      collection: VulpkaninScreams
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: VulpkaninScreams
+  # gekkers
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-septoctplushie
+    stampedColor: "#39a2f2"
+    stampState: "paper_stamp-omu-septoctplushie"
+    stampLargePath: "/Textures/_Omu/Interface/Paper/Stamps/large_stamp-septoctplushie.png"
+    sound: /Audio/_DV/Voice/Vulpkanin/dog_snarl3.ogg
+
+- type: entity
+  parent: BasePlushie
   id: PlushieCrescentOmuStaff
   name: crescent plushie
   description: More and more are reliant on the "Crescent Index" for an accurate tell of Station happenings. Smells like cut grass.
