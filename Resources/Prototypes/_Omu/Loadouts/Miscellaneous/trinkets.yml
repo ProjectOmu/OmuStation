@@ -178,6 +178,18 @@
     - ClothingNeckEnsembleTrans
   groupBy: "pin"
 
+# Omu - Plural Pride Rep
+- type: loadout
+  id: ClothingNeckCloakPlural
+  equipment:
+    neck: ClothingNeckCloakPlural
+
+- type: loadout
+  id: ClothingNeckScarfStripedPlural
+  equipment:
+    neck: ClothingNeckScarfStripedPlural
+# Omu End
+
 - type: loadout
   id: BarberScissors
   storage:
