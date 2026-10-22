@@ -35,8 +35,8 @@ public sealed partial class StampWidget : PanelContainer
            // ModulateSelfOverride = value.StampedColor;
 
            var icon = value.StampLargeIcon;
-           var path = value.StampLargePath;
-           if (icon != null || path != null)
+           var path = value.StampLargePath; // Omu - see below
+           if (icon != null || path != null) // Omu - see below
            {
                var resCache = IoCManager.Resolve<IResourceCache>();
                var borderImage = resCache.GetResource<TextureResource>(
