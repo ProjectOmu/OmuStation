@@ -26,7 +26,7 @@
   parent: ClothingShoesBase
   id: ClothingModsuitBootsStandard
   name: standard modsuit boots
-  description: A special modular suit boots designed for compact folding inside modular suit control.
+  description: A pair of modular suit boots designed for compact folding inside of the modular suit control unit. # Omu
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -106,7 +106,7 @@
   parent: ClothingShoesBase
   id: ClothingModsuitBootsHeadOfSecurity
   name: bulwark modsuit boots
-  description: I call these my commie stompers.
+  description: I call these my "commie stompers." # Omu
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -270,7 +270,7 @@
   parent: ClothingShoesBase
   id: ClothingModsuitBootsResearchDirector
   name: minerva modsuit boots
-  description: Won't stop you slipping on your own blood when the holocarp gets to you.
+  description: These won't stop you from slipping on your own blood when the holocarp gets to you. # Omu
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -332,12 +332,12 @@
       - state: equipped-FEET-sealed-vox
       shoes-hydrakin:
       - state: equipped-FEET-sealed-hydrakin
-  
+
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsBrigMed
   name: trauma modsuit boots
-  description: Cool boots.
+  description: THE IRON BOOTS OF THE (HEALER OF THE) LAW. # Omu
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
