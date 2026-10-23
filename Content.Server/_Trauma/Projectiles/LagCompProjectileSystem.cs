@@ -74,6 +74,9 @@ public sealed class LagCompProjectileSystem : EntitySystem
                 if (TerminatingOrDeleted(target) || _container.IsEntityInContainer(target))
                     continue;
 
+                if (proj is { IgnoreShooter: true } && (target == proj.Shooter || target == proj.Weapon))
+                    continue;
+
                 // Omu - old positions can be relative to an entity that got deleted since
                 var lagCoords = _lag.GetCoordinates(target, comp.ShooterSession);
                 if (!lagCoords.IsValid(EntityManager))
