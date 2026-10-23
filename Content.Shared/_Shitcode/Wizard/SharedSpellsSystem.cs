@@ -1393,7 +1393,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         _popup.PopupClient(locMessage, uid, uid, type);
     }
 
-    private bool IsTouchSpellDenied(EntityUid target)
+    public bool IsTouchSpellDenied(EntityUid target)    //Omu made this public
     {
         var ev = new BeforeCastTouchSpellEvent(target);
         RaiseLocalEvent(target, ev, true);
