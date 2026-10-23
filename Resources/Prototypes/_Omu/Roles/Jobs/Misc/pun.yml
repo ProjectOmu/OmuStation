@@ -1,0 +1,21 @@
+- type: job
+  id: PunPun
+  name: job-name-punpun
+  description: job-description-punpun
+  playTimeTracker: JobBartender
+  setPreference: false
+  requirements:
+  - !type:RoleTimeRequirement
+    role: JobBartender
+    time: 5h
+  icon: "JobIconBartender"
+  supervisors: job-supervisors-bartender
+  canBeAntag: true
+  goobcoins: 0
+  access:
+  - Service
+  - Maintenance
+  - Bar
+  extendedAccess:
+  - Kitchen
+  - Hydroponics
