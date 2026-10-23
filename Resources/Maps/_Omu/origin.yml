@@ -202388,6 +202388,15 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
+- proto: WeaponWoodenWand
+  entities:
+  - uid: 3561
+    components:
+    - type: Transform
+      pos: 10.511919,-7.158481
+      parent: 2
+    - type: ScaleVisuals
+      scale: 0.5,0.5
 - proto: Welder
   entities:
   - uid: 31418
