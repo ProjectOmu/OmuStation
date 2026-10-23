@@ -187,6 +187,24 @@
     - Librarian
 
 - type: listing
+  id: UplinkVoodooDoll
+  name: uplink-voodoo-doll-name
+  description: uplink-voodoo-doll-desc
+  icon: { sprite: _Omu/Objects/Misc/voodoo_doll.rsi, state: icon }
+  productEntity: VoodooDoll
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chaplain
+    - Librarian
+    - Clown
+    - Mime
+
+- type: listing
   id: UplinkSniperPenman
   name: uplink-sniper-penman-name
   description: uplink-sniper-penman-desc
