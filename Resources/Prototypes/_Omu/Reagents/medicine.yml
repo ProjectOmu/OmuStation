@@ -69,13 +69,13 @@
         conditions:
           - !type:TemperatureCondition # cloned from cryoxadone, makes this a cryo med
             max: 175.0
-            scaleByTemperature: # Shitmed Change
-              min: 100.0
-              max: 175.0
-              scale: 1.6
           - !type:ReagentCondition
             reagent: Recyclogenix
             min: 34 # SHOULD allow it to hit the 40u polymorph trigger point before we make enough cytogenecin to start purging
+        scaleByTemperature: # Shitmed Change
+          min: 100.0
+          max: 175.0
+          scale: 1.6
         reagent: Cytogenecin
         amount: 1.2 # 0.5 -> 0.6 proportion, multiplied by two to get per unit basis; supposed to make around 48 cytogenecin
       - !type:AdjustReagent
@@ -125,28 +125,28 @@
         reagent: CatDrugs
       - !type:Unpolymorph
         conditions:
-          - !type:TemperatureCondition # dependent on cryonics to work
-            max: 175.0
-            scaleByTemperature: # Shitmed Change
-              min: 100.0
-              max: 175.0
-              scale: 1.6
-          - !type:ReagentCondition # have to have a certain amount of it in the blood
-            reagent: Recyclogenix
-            min: 40
-          - !type:AnyTagCondition
-            tags: # blacklist letoferol and romerol
-            - Chimera
-            - Zombie
-            inverted: true
+        - !type:TemperatureCondition # dependent on cryonics to work
+          max: 175.0
+        - !type:ReagentCondition # have to have a certain amount of it in the blood
+          reagent: Recyclogenix
+          min: 40
+        - !type:AnyTagCondition
+          tags: # blacklist letoferol and romerol
+          - Chimera
+          - Zombie
+          inverted: true
+        scaleByTemperature: # Shitmed Change
+          min: 100.0
+          max: 175.0
+          scale: 1.6
       - !type:HealthChange
           conditions:
           - !type:TemperatureCondition
             max: 175.0
-            scaleByTemperature: # Shitmed Change
-              min: 100.0
-              max: 175.0
-              scale: 1.6
+          scaleByTemperature: # Shitmed Change
+            min: 100.0
+            max: 175.0
+            scale: 1.6
           damage: # deals mild damage to the cells as it's reverting the change
             types:
                 Cellular: 0.4 # should come to around 16 cellular damage per 40u
@@ -169,23 +169,23 @@
         conditions:
         - !type:TemperatureCondition
           max: 175.0
-          scaleByTemperature: # Shitmed Change
-            min: 100.0
-            max: 175.0
-            scale: 1.6
         - !type:ReagentCondition
           reagent: Cytogenecin
           min: 10
+        scaleByTemperature: # Shitmed Change
+          min: 100.0
+          max: 175.0
+          scale: 1.6
         amount: -50
         reagent: Recyclogenix
       - !type:HealthChange
         conditions:
         - !type:TemperatureCondition
           max: 175.0
-          scaleByTemperature: # Shitmed Change
-            min: 100.0
-            max: 175.0
-            scale: 1.6
+        scaleByTemperature: # Shitmed Change
+          min: 100.0
+          max: 175.0
+          scale: 1.6
         damage: # heals mild damage as it clears out waste from the reversion process
           types:
             Poison: -0.35 # should be around 7 tox healing per 20u
