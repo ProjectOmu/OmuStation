@@ -131,7 +131,7 @@ public sealed partial class DiseaseComponent : Component
     /// If <see cref="AffectsDead"/> is true, how to change infection progress per second in dead entities
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float DeadInfectionRate = 0.00444444444444f;
+    public float DeadInfectionRate = -0.01f; // Omu
 
     /// <summary>
     /// Determiens the effects this disease mutates

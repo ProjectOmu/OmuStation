@@ -662,18 +662,18 @@
         type: StrippableBoundUserInterface
   - type: InventorySlots
   - type: Inventory
-    speciesId: hamster
-    templateId: hamster
+    speciesId: mothroach # Omu
+    templateId: mothroach # Omu
     displacements:
       head:
         sizeMaps:
           32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
+            sprite: _Omu/Mobs/Animals/mothroach/displacement.rsi # Omu
             state: head
       mask:
         sizeMaps:
           32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
+            sprite: _Omu/Mobs/Animals/mothroach/displacement.rsi # Omu
             state: mask
       suitstorage:
         sizeMaps:
@@ -683,7 +683,7 @@
       eyes:
         sizeMaps:
           32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
+            sprite: _Omu/Mobs/Animals/mothroach/displacement.rsi # Omu
             state: eyes
       neck:
         sizeMaps:
@@ -2875,6 +2875,7 @@
   - MobSpiderBase
   - DVNodeCrawler # DeltaV - node crawling
   id: MobSpiderAngryBase
+  suffix: Angry # Omu - better labels
   abstract: true
   components:
   - type: NpcFactionMember
@@ -2901,6 +2902,7 @@
   name: tarantula
   parent: MobSpiderBase
   id: MobGiantSpider
+  suffix: Friendly # Omu - better labels
   description: Widely recognized to be the literal worst thing in existence.
   components:
   - type: Sprite
@@ -3007,7 +3009,7 @@
   parent: MobGiantSpider
   id: MobGiantSpiderWizard
   description: This spider looks a little magical
-  suffix: Wizard
+  suffix: Wizard, Friendly # Omu - better labels
   components:
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:

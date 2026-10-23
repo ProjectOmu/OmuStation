@@ -187,6 +187,20 @@
   - WhiteEnvirogloves
 
 - type: loadoutGroup
+  id: VirologistHead
+  name: loadout-group-virologist-head
+  minLimit: 0
+  loadouts:
+  - MedicalBeret
+  - SeniorPhysicianBeret
+  - MedicalHeadMirror
+  - BlueSurgeryCap
+  - GreenSurgeryCap
+  - PurpleSurgeryCap
+  - NurseHat
+  - UshankaVirologist
+
+- type: loadoutGroup
   id: VirologistEnvirohelm
   name: loadout-group-virologist-envirohelm
   minLimit: 1
@@ -367,7 +381,7 @@
   id: SergeantBelt
   name: loadout-group-sergeant-belt
   loadouts:
-  - SergeantBelt
+  # - SergeantBelt # its our change but i prefer commenting things out (Omu)
   - SecurityBelt
   - SecurityWebbing
   - SecuritySwordBelt # Omu
@@ -560,3 +574,21 @@
   - BartenderBackpackSatchel
   - BartenderBackpackDuffel
   - BartenderBackpackMessenger
+
+# Blueshield Officer
+- type: loadoutGroup
+  id: SurvivalBlueshieldOfficer
+  name: loadout-group-survival-blueshield
+  minLimit: 3
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenBlueshieldOfficer
+  - EmergencyOxygenBlueshieldOfficer
+  - EmergencyPlasmaBlueshieldOfficer
+  - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma 
+  - EmergencyWaterVaporBlueshieldOfficer 
+  - EmergencySilicon 
+  - EmergencyOxygenCarnivoreBlueshieldOfficer 
+  - EmergencyOxygenEthanolBlueshieldOfficer 
+  - EmergencyOxygenVegetarianBlueshieldOfficer

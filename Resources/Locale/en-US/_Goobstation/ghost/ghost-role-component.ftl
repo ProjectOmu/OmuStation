@@ -96,7 +96,8 @@ ghost-role-lead-intern-rules = Follow the orders given you by the [color=yellow]
 
 # cargo bingle
 ghost-role-cargo-bingle-name = Cargo bingle
-ghost-role-cargo-bingle-desc = Serve the Nanotrasen Representative and their interests, do not injure crew members, help cargo and the station.
+#omu change cargo bingle dont serve ntr anymore
+ghost-role-cargo-bingle-desc = Serve cargo and their interests, do not injure crew members, help cargo and the station.
 
 # shuttle roles
 
