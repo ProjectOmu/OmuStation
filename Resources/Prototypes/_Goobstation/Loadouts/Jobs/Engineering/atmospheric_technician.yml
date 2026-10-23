@@ -46,7 +46,7 @@
 - type: loadout
   id: AtmosphericTechnicianUtilityBelt
   equipment:
-    jumpsuit: ClothingBeltUtilityEngineering
+    belt: ClothingBeltUtilityEngineering
     
 - type: loadout
   id: AtmosphericTechnicianAtmosBelt
@@ -54,4 +54,4 @@
   - !type:GroupLoadoutEffect
     proto: SeniorAtmos
   equipment:
-    jumpsuit: ClothingBeltUtilityAtmosFilled
+    belt: ClothingBeltUtilityAtmosFilled
