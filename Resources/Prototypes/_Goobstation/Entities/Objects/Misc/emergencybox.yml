@@ -32,6 +32,7 @@
       mask: !type:ContainerSlot
       emergencypen: !type:ContainerSlot
       spacepen: !type:ContainerSlot
+      prybar: !type:ContainerSlot
   - type: ItemSlots
     slots:
       water:
@@ -71,6 +72,7 @@
           - BreathMask
           - SecurityBreathMask
           - SyndicateBreathMask
+          - BlueshieldBreathMask # Omu
       emergencypen:
         ejectOnInteract: false
         whitelist:
@@ -81,6 +83,11 @@
         whitelist:
           tags:
           - SpaceMedipen
+      prybar: # omu - guild prybars
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - GuildPrybar
   - type: ContainerFill
     containers:
       water:
@@ -134,6 +141,12 @@
         whitelist:
           tags:
           - SyndicateBreathMask
+      # Omustart
+      bsomask:
+        whitelist:
+          tags:
+          - BlueshieldBreathMask
+      # Omuend
       oxy:
         whitelist:
           tags:
@@ -273,6 +286,8 @@
       - EmergencyMedipen
       spacepen:
       - SpaceMedipen
+      prybar: # omu - guild prybars
+      - GuildPrybar
   - type: Sprite
     state: box_sec
 
@@ -297,6 +312,8 @@
       - EmergencyMedipen
       spacepen:
       - SpaceMedipen
+      prybar: # omu - guild prybars
+      - GuildPrybar
   - type: Label
     currentLabel: reagent-name-nitrogen
   - type: Sprite
