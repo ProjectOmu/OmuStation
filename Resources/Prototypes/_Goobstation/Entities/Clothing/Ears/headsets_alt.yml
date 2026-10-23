@@ -13,6 +13,10 @@
   parent: [ClothingHeadsetAltSyndicate, ClothingHeadsetAltLoudspeaker]
   id: ClothingHeadsetAltSyndicateCommander
   name: blood-red commander over-ear headset
+  components:
+  - type: RadioChime # Starlight
+    sound:
+      path: /Audio/_Starlight/Effects/Radio/marauder_commander.ogg
 
 - type: entity
   parent: ClothingHeadset
@@ -52,6 +56,9 @@
     sprite: _Goobstation/Clothing/Ears/Headsets/warden.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Ears/Headsets/warden.rsi
+  - type: RadioChime # Starlight
+    sound:
+      path: /Audio/_Starlight/Effects/Radio/warden.ogg
 
 - type: entity
   parent: [ClothingHeadsetAlt, BaseCentcommContraband]
@@ -69,6 +76,9 @@
     sprite: _Goobstation/Clothing/Ears/Headsets/deathsquad.rsi
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+  - type: RadioChime # Starlight
+    sound:
+      path: /Audio/_Starlight/Effects/Radio/deathsquad.ogg
 
 - type: entity
   parent: [ClothingHeadsetAlt, BaseSecurityContraband]
@@ -84,6 +94,9 @@
     sprite: Clothing/Ears/Headsets/security.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/security.rsi
+  - type: RadioChime # Starlight
+    sound:
+      path: /Audio/_Starlight/Effects/Radio/secoff.ogg
 
 - type: entity
   parent: [ClothingHeadsetAlt, BaseCentcommContraband]
@@ -100,6 +113,9 @@
     sprite: _Goobstation/Clothing/Ears/Headsets/blueshield.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Ears/Headsets/blueshield.rsi
+  - type: RadioChime # Starlight
+    sound:
+      path: /Audio/_Starlight/Effects/Radio/bso.ogg
 
 - type: entity
   parent: ClothingHeadsetCommand
