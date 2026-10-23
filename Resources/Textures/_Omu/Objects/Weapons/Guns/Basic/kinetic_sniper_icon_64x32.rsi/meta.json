@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites made by Pceererthegreat (github) for Omustation",
+  "size": {
+    "x": 64,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "animation-icon",
+            "delays": [
+                [
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "bayonet"
+        },
+        {
+            "name": "flight"
+        },
+        {
+            "name": "flight-on"
+        },
+        {
+            "name": "upgrade-space"
+        }
+    ]
+}
