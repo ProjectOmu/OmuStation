@@ -85,9 +85,9 @@
   description: An unnerving spear, wrought of indescribable material. Being near it feels like a prickle of static spreading through your nerves.
   components:
   - type: CosmicEquipment
-  - type: EmbeddableProjectile
-    removalTime: 2
-    sound: /Audio/_DV/CosmicCult/cosmiclance_impact.ogg
+#  - type: EmbeddableProjectile # Omu... wtf guys? this breaks the spear. who added this???
+#    removalTime: 2
+#    sound: /Audio/_DV/CosmicCult/cosmiclance_impact.ogg
   - type: Sprite
     sprite: _DV/CosmicCult/Objects/cosmiclance.rsi
     layers:

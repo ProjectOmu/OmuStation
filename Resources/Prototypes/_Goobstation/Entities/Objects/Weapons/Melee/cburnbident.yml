@@ -38,6 +38,8 @@
         Heat: 15
         Piercing: 5
     animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
   - type: IgniteOnMeleeHit
     fireStacks: 2
   - type: LandAtCursor

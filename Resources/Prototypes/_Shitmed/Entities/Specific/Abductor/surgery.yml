@@ -3,7 +3,7 @@
 - type: entity
   name: high-tech retractor
   id: MechanicalPinchesAbductor
-  description: A highly advanced retractor, it also seems to work like a hemostat.
+  description: A highly advanced retractor, it also seems to work like a hemostat. And a pair of scissors, suprisingly. # Omu - does not tell you that you can use them as scissors
   parent: [BaseToolSurgery, BaseMajorContraband]
   components:
   - type: Sprite
@@ -75,6 +75,8 @@
     damage:
       types:
         Heat: 15
+    soundHit:
+      path: /Audio/Effects/lightburn.ogg
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 150
@@ -101,12 +103,17 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
     heldPrefix: abductor
     storedRotation: 90
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
   - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    wideAnimationRotation: 90
     damage:
       types:
         Slash: 15
@@ -145,6 +152,8 @@
       damage:
         types:
           Blunt: 15
+      soundHit:
+        collection: MetalThud
     - type: BoneSetter
       speed: 2
     - type: BoneGel
