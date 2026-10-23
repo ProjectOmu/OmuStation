@@ -49,7 +49,7 @@
     - id: Binoculars
     #- id: WeaponEnergyShotgun Omu selectors
     - id: WardenGunCase # Omu
-    - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
+    # - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts # Omu, Ward Melee Selector
     - id: BoxLethalInjection # Goobstation
     - id: ClothingHeadsetAltWarden # Goobstation
     - id: Multitool # Goobstation
@@ -58,6 +58,7 @@
     - id: BoxEncryptionKeyPrisoner #Delta-V
     - id: BoxPrisonerHeadset # Einstein Engines
     - id: SecurityMegaphone # goob - loudspeakers
+    - id: WardenMeleeCase # Omu
 
 - type: entityTable
   id: FillLockerWardenHarduit
