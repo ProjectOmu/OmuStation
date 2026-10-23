@@ -292,21 +292,21 @@ public partial class SharedBodySystem
                 walkMod = movement.InitWalkSpeed * (1f + legMovement.WalkPercent.Value / 100);
             else
             {
-                var legShiftCalc = (legMovement.WalkSpeed - MovementSpeedModifierComponent.DefaultBaseWalkSpeed) / MovementSpeedModifierComponent.DefaultBaseWalkSpeed;
+                var legShiftCalc = (legMovement.WalkSpeed - movement.InitWalkSpeed) / movement.InitWalkSpeed;
                 walkMod = movement.InitWalkSpeed * (1f + legShiftCalc);
             }
             if (legMovement.SprintPercent != null)
                 sprintMod = movement.InitSprintSpeed * (1f + legMovement.SprintPercent.Value / 100);
             else
             {
-                var legShiftCalc = (legMovement.SprintSpeed - MovementSpeedModifierComponent.DefaultBaseSprintSpeed) / MovementSpeedModifierComponent.DefaultBaseSprintSpeed;
+                var legShiftCalc = (legMovement.SprintSpeed - movement.InitSprintSpeed) / movement.InitSprintSpeed;
                 sprintMod = movement.InitSprintSpeed * (1f + legShiftCalc);
             }
             if (legMovement.AccelerationPercent != null)
                 accMod = movement.InitAcceleration * (1f + legMovement.AccelerationPercent.Value / 100);
             else
             {
-                var legShiftCalc = (legMovement.Acceleration - MovementSpeedModifierComponent.DefaultAcceleration) / MovementSpeedModifierComponent.DefaultAcceleration;
+                var legShiftCalc = (legMovement.Acceleration - movement.InitAcceleration) / movement.InitAcceleration;
                 accMod = movement.InitAcceleration * (1f + legShiftCalc);
             }
 
