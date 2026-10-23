@@ -33,10 +33,6 @@
           type: [ Yowie ]
           inverted: true
     - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: Dylovene
-          min: 20
         type: Local
         visualType: Medium
         messages: [ "generic-reagent-effect-nauseous" ]
