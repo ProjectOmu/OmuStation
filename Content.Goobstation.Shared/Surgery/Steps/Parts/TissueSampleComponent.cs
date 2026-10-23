@@ -16,4 +16,9 @@ public sealed partial class TissueSampleComponent : Component, ISurgeryToolCompo
 
     [DataField]
     public float Speed { get; set; } = 1f;
+    //OMU
+    [DataField]
+    public float BaseSpeed { get; set; } = 1f;
+    [DataField]
+    public bool PreventUse { get; set; } = false;
 }

@@ -62,4 +62,11 @@ public sealed partial class HealingComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier? HealingEndSound = null;
+
+    //OMU addition Skill system
+    [DataField]
+    public bool PreventUse = false;
+
+    [DataField]
+    public TimeSpan ModifiedDelay = TimeSpan.FromSeconds(2f);
 }

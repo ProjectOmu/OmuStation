@@ -174,7 +174,7 @@ public sealed class HealingSystem : EntitySystem
 
         // Update our self heal delay so it shortens as we heal more damage.
         if (args.User == target.Owner)
-            args.Args.Delay = healing.Delay * GetScaledHealingPenalty(target.Owner, healing.SelfHealPenaltyMultiplier);
+            args.Args.Delay = healing.ModifiedDelay * GetScaledHealingPenalty(target.Owner, healing.SelfHealPenaltyMultiplier);//omu changed to modified delay
     }
 
     private bool HasDamage(Entity<HealingComponent> healing, Entity<DamageableComponent> target)
@@ -536,6 +536,10 @@ public sealed class HealingSystem : EntitySystem
             // Goobstation Moved - to avoid audio spam
             //_audio.PlayPredicted(healing.Comp.HealingBeginSound, healing, user);
 
+        //OMU Skill system start
+        if (healing.Comp.PreventUse) return false;
+        //OMU end
+
         var isNotSelf = user != target.Owner;
 
         if (isNotSelf)
@@ -546,9 +550,9 @@ public sealed class HealingSystem : EntitySystem
             _popupSystem.PopupClient(msg, target, target, PopupType.Medium);
         }
 
-        var delay = isNotSelf
-            ? healing.Comp.Delay
-            : healing.Comp.Delay * GetScaledHealingPenalty(target, healing.Comp.SelfHealPenaltyMultiplier);
+        var delay = isNotSelf//OMU changed to modifiedDelay
+            ? healing.Comp.ModifiedDelay
+            : healing.Comp.ModifiedDelay * GetScaledHealingPenalty(target, healing.Comp.SelfHealPenaltyMultiplier);
 
         // Play sound when starting the healing action
         // Goobstation

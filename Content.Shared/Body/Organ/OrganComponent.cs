@@ -143,4 +143,9 @@ public sealed partial class OrganComponent : Component, ISurgeryToolComponent //
     [DataField]
     public bool Removable = true;
     // Shitmed Change End
+    //OMU
+    [DataField]
+    public float BaseSpeed { get; set; } = 1f;
+    [DataField]
+    public bool PreventUse { get; set; } = false;
 }

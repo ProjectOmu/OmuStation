@@ -1,0 +1,26 @@
+﻿- type: entity
+  parent: BaseSkillTrainer
+  id: MedicalSkilltrainer
+  name: MedicalSkilltrainer
+  description: MedicalSkilltrainerDesc
+  components:
+    - type: Sprite
+      sprite: _Omu/Objects/Misc/GunCases/hoscasegun.rsi
+      state: icon
+    - type: Item
+      sprite: _Omu/Objects/Tools/bluespace_fulton.rsi
+    - type: SkillGranting
+      skillDicMaxSkillLevel:
+        Medical: 2
+
+- type: entity
+  parent: [ MedicalSkilltrainer, BaseSyndicateContraband]
+  id: MedicalSkilltrainerSyndicate
+  name: MedicalSkilltrainerSyndicate
+  description: MedicalSkilltrainerSyndicateDesc
+  components:
+    - type: Sprite
+      sprite: _Omu/Objects/Misc/GunCases/hoscasegun.rsi
+      state: icon
+    - type: Item
+      sprite: _Omu/Objects/Tools/bluespace_fulton.rsi

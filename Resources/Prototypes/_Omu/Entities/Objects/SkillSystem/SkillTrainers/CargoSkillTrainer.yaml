@@ -1,0 +1,26 @@
+﻿- type: entity
+  parent: BaseSkillTrainer
+  id: CargoSkilltrainer
+  name: CargoSkilltrainer
+  description: CargoSkilltrainerDesc
+  components:
+    - type: Sprite
+      sprite: _Omu/Objects/Misc/GunCases/hoscasegun.rsi
+      state: icon
+    - type: Item
+      sprite: _Omu/Objects/Tools/bluespace_fulton.rsi
+    - type: SkillGranting
+      skillDicMaxSkillLevel:
+        Cargo: 2
+
+- type: entity
+  parent: [ CargoSkilltrainer, BaseSyndicateContraband]
+  id: CargoSkilltrainerSyndicate
+  name: CargoSkilltrainerSyndicate
+  description: CargoSkilltrainerSyndicateDesc
+  components:
+    - type: Sprite
+      sprite: _Omu/Objects/Misc/GunCases/hoscasegun.rsi
+      state: icon
+    - type: Item
+      sprite: _Omu/Objects/Tools/bluespace_fulton.rsi

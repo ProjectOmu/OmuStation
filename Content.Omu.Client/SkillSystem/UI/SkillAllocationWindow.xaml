@@ -1,0 +1,30 @@
+<!--
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+                      Title="{Loc 'skill-allocation-title'}"
+                      MinSize="400 320">
+    <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="6">
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <Label Text="{Loc 'skill-allocation-points'}" StyleClasses="LabelHeading" HorizontalExpand="True" />
+            <PanelContainer Name="PointsBadge" StyleClasses="highlight" VerticalAlignment="Center">
+                <Label Name="PointsLabel" Margin="10 0" Align="Center" />
+            </PanelContainer>
+        </BoxContainer>
+        <controls:HighDivider />
+        <GridContainer Name="Skills" Columns="3" HorizontalExpand="True" HSeparationOverride="8"
+                       VSeparationOverride="6" Margin="0 4" />
+        <Label Name="EmptyLabel" Text="{Loc 'skill-allocation-empty'}" StyleClasses="LabelWeak" Visible="False" />
+        <Label Name="HintLabel" Text="{Loc 'skill-allocation-hint'}" StyleClasses="LabelSubText" />
+        <Control VerticalExpand="True" />
+        <PanelContainer StyleClasses="LowDivider" />
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <Label Text="{Loc 'skill-allocation-footer'}" StyleClasses="WindowFooterText" HorizontalExpand="True"
+                   VerticalAlignment="Center" />
+            <Button Name="ConfirmButton" Text="{Loc 'skill-allocation-confirm'}" StyleClasses="positive"
+                    Disabled="True" />
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

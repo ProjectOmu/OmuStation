@@ -1,0 +1,26 @@
+﻿- type: entity
+  parent: BaseSkillTrainer
+  id: CombatSkilltrainer
+  name: CombatSkilltrainer
+  description: CombatSkilltrainerDesc
+  components:
+    - type: Sprite
+      sprite: _Omu/Objects/Misc/GunCases/hoscasegun.rsi
+      state: icon
+    - type: Item
+      sprite: _Omu/Objects/Tools/bluespace_fulton.rsi
+    - type: SkillGranting
+      skillDicMaxSkillLevel:
+        Combat: 2
+
+- type: entity
+  parent: [ CombatSkilltrainer, BaseSyndicateContraband]
+  id: CombatSkilltrainerSyndicate
+  name: CombatSkilltrainerSyndicate
+  description: CombatSkilltrainerSyndicateDesc
+  components:
+    - type: Sprite
+      sprite: _Omu/Objects/Misc/GunCases/hoscasegun.rsi
+      state: icon
+    - type: Item
+      sprite: _Omu/Objects/Tools/bluespace_fulton.rsi

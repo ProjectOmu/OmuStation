@@ -1,0 +1,26 @@
+﻿- type: entity
+  parent: BaseSkillTrainer
+  id: EngineeringSkilltrainer
+  name: EngineeringSkilltrainer
+  description: EngineeringSkilltrainerDesc
+  components:
+    - type: Sprite
+      sprite: _Omu/Objects/Misc/GunCases/hoscasegun.rsi
+      state: icon
+    - type: Item
+      sprite: _Omu/Objects/Tools/bluespace_fulton.rsi
+    - type: SkillGranting
+      skillDicMaxSkillLevel:
+        Engineering: 2
+
+- type: entity
+  parent: [ EngineeringSkilltrainer, BaseSyndicateContraband]
+  id: EngineeringSkilltrainerSyndicate
+  name: EngineeringSkilltrainerSyndicate
+  description: EngineeringSkilltrainerSyndicateDesc
+  components:
+    - type: Sprite
+      sprite: _Omu/Objects/Misc/GunCases/hoscasegun.rsi
+      state: icon
+    - type: Item
+      sprite: _Omu/Objects/Tools/bluespace_fulton.rsi

@@ -1,0 +1,18 @@
+﻿#- type: entity
+#  parent: BaseSkillTrainer
+#  id: DebugSkilltrainer
+#  name: DebugSkilltrainer
+#  description: DebugSkilltrainerDesc
+#  components:
+#    - type: Sprite
+#      sprite: _Omu/Objects/Misc/GunCases/hoscasegun.rsi
+#      state: icon
+#    - type: Item
+#      sprite: _Omu/Objects/Tools/bluespace_fulton.rsi
+#    - type: SkillGranting
+#      skillDicMaxSkillLevel:
+#        Cargo: 5
+#        Command: 5
+#        Engineering: 5
+#        Medical: 5
+#        Combat: 5

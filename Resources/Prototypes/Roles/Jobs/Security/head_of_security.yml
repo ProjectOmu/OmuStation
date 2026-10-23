@@ -65,8 +65,24 @@
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
-      - type: CommandStaff
-      - type: SecurityStaff # goobstation
+    - type: CommandStaff
+    - type: SecurityStaff # goobstation
+    - type: RoundStartSkillGranting #omu skill system 
+      department: [ Security, Crew, Command ]
+      skillDic:
+        Cargo: 0
+        Combat: 3
+        Command: 2
+        Engineering: 0
+        Medical: 0
+    - type: SpeciesBasedSkillAddition #omu skill system
+      skillDic:
+        Harpy:
+          Cargo: -1
+          Combat: 1
+          Command: 1
+          Engineering: -1
+          Medical: -1
 
 - type: startingGear
   id: HoSGear

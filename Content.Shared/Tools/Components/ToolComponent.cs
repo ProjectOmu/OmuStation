@@ -4,11 +4,12 @@ using Content.Shared.Tools.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
+using Content.Omu.Common.SkillSystem;
 
 namespace Content.Shared.Tools.Components;
 
 [RegisterComponent, NetworkedComponent]
-[Access(typeof(SharedToolSystem))]
+[Access(typeof(SharedToolSystem), typeof(CommenOmuSkillSystem))]//OMU
 public sealed partial class ToolComponent : Component
 {
     [DataField]
@@ -19,6 +20,13 @@ public sealed partial class ToolComponent : Component
     /// </summary>
     [DataField]
     public float SpeedModifier = 1f;
+    /// <summary>
+    ///     OMU in case we want to modify the speed a tool works at!! this gets reset when the tool is dropped to the default!!!
+    /// </summary>
+    [DataField]
+    public float BaseSpeedModifier = 1f;
+    [DataField]
+    public bool PreventUse = false;
 
     [DataField]
     public SoundSpecifier? UseSound;

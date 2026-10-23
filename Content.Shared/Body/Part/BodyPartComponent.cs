@@ -164,6 +164,11 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
             return temp;
         }
     }
+    //OMU
+    [DataField]
+    public float BaseSpeed { get; set; } = 1f;
+    [DataField]
+    public bool PreventUse { get; set; } = false;
 }
 
 /// <summary>

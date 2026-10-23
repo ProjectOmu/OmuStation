@@ -24,6 +24,22 @@
       soulOwnedNotDevil: true # This just means they won't suffer the effects of being condemned, while still not being able to sell their soul. - Goobstation
     - type: CanEnchant #GoobStation
     - type: CurseImmune # Immune to curses of wraith plaguebringer - Goobstation
+    - type: RoundStartSkillGranting #omu skill system 
+      department: [ Crew ]
+      skillDic:
+        Cargo: 0
+        Combat: 0
+        Command: 0
+        Engineering: 0
+        Medical: 0
+    - type: SpeciesBasedSkillAddition #omu skill system
+      skillDic:
+        Harpy:
+          Cargo: -1
+          Combat: -1
+          Command: -1
+          Engineering: -1
+          Medical: -1
 
 - type: startingGear
   id: ChaplainGear

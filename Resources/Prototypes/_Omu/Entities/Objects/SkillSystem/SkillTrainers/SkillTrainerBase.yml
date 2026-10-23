@@ -1,0 +1,17 @@
+﻿- type: entity
+  parent: BaseItem
+  id: BaseSkilltrainer
+  name: BaseSkillTrainer
+  description: BaseSkillTrainerDesc
+  components:
+    - type: Sprite
+      sprite: _Omu/Objects/Misc/GunCases/hoscasegun.rsi
+      state: icon
+    - type: Item
+      sprite: _Omu/Objects/Tools/bluespace_fulton.rsi
+    - type: SkillGranting
+      skillDicMaxSkillLevel:
+        Command: 2
+        Engineering: 4
+        Medical: 1
+        Security: 5

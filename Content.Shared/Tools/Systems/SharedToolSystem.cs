@@ -180,7 +180,7 @@ public abstract partial class SharedToolSystem : EntitySystem
             return false;
 
         var toolEvent = new ToolDoAfterEvent(fuel, doAfterEv, GetNetEntity(target));
-        var doAfterLength = delay / toolComponent.SpeedModifier; // Goob - doAfterLength var
+        var doAfterLength = delay / toolComponent.SpeedModifier; // Goob - doAfterLength var OMU modifiedSpeedModInstead!!!
         var doAfterArgs = new DoAfterArgs(EntityManager, user, doAfterLength, toolEvent, tool, target: target, used: tool)
         {
             BreakOnDamage = true,
@@ -189,7 +189,6 @@ public abstract partial class SharedToolSystem : EntitySystem
             NeedHand = tool != user,
             AttemptFrequency = fuel > 0 || toolComponent.AlwaysCheckDoAfter ? AttemptFrequency.EveryTick : AttemptFrequency.Never
         };
-
         // Goobstation - Moved `TryStartDoAfter` into a check and added `UseToolEvent`.
         if (_doAfterSystem.TryStartDoAfter(doAfterArgs, out id))
         {

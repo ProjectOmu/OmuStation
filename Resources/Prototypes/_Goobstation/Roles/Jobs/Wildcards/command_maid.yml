@@ -25,6 +25,22 @@
   - !type:AddComponentSpecial
     components:
     - type: CommandStaff
+    - type: RoundStartSkillGranting #omu skill system 
+      department: CentralCommand
+      skillDic:
+        Cargo: 1
+        Combat: 1
+        Command: 1
+        Engineering: 1
+        Medical: 1
+    - type: SpeciesBasedSkillAddition #omu skill system
+      skillDic:
+        Harpy:
+          Cargo: -1
+          Combat: -1
+          Command: -1
+          Engineering: -1
+          Medical: -1
   #Omu End
   - !type:GiveItemOnHolidaySpecial
     holiday: GarbageDay

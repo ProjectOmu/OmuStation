@@ -19,4 +19,9 @@ public interface ISurgeryToolComponent
     /// </summary>
     [DataField]
     public float Speed { get; set; }
+    //OMU SKILL SYSTEM
+    [DataField]
+    public float BaseSpeed { get; set; }
+    [DataField]
+    public bool PreventUse { get; set; }
 }
