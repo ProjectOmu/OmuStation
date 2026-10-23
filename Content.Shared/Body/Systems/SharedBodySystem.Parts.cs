@@ -276,11 +276,44 @@ public partial class SharedBodySystem
             return;
 
         // Omu start - ensure body speed
+        //// Calculation Explanation ////
+        // In MovementSpeedModifierComponent //
+        //  Init* is the body's default movement stats
+        // In MovementBodyPartComponent //
+        //  *Percent is an explicit % modifier
+        //  WalkSpeed/SprintSpeed/Acceleration are used to calculate the % modifier from the default movement stats
         if (TryComp<MovementSpeedModifierComponent>(bodyEnt, out var movement) && TryComp<MovementBodyPartComponent>(legEnt, out var legMovement))
         {
-            legMovement.WalkSpeed = movement.InitWalkSpeed;
-            legMovement.SprintSpeed = movement.InitSprintSpeed;
-            legMovement.Acceleration = movement.InitAcceleration;
+            // Speed Mod Calculations
+            float walkMod = movement.InitWalkSpeed;
+            float sprintMod = movement.InitSprintSpeed;
+            float accMod = movement.InitAcceleration;
+            if (legMovement.WalkPercent != null)
+                walkMod = movement.InitWalkSpeed * (1f + legMovement.WalkPercent.Value / 100);
+            else
+            {
+                var legShiftCalc = (legMovement.WalkSpeed - MovementSpeedModifierComponent.DefaultBaseWalkSpeed) / MovementSpeedModifierComponent.DefaultBaseWalkSpeed;
+                walkMod = movement.InitWalkSpeed * (1f + legShiftCalc);
+            }
+            if (legMovement.SprintPercent != null)
+                sprintMod = movement.InitSprintSpeed * (1f + legMovement.SprintPercent.Value / 100);
+            else
+            {
+                var legShiftCalc = (legMovement.SprintSpeed - MovementSpeedModifierComponent.DefaultBaseSprintSpeed) / MovementSpeedModifierComponent.DefaultBaseSprintSpeed;
+                sprintMod = movement.InitSprintSpeed * (1f + legShiftCalc);
+            }
+            if (legMovement.AccelerationPercent != null)
+                accMod = movement.InitAcceleration * (1f + legMovement.AccelerationPercent.Value / 100);
+            else
+            {
+                var legShiftCalc = (legMovement.Acceleration - MovementSpeedModifierComponent.DefaultAcceleration) / MovementSpeedModifierComponent.DefaultAcceleration;
+                accMod = movement.InitAcceleration * (1f + legShiftCalc);
+            }
+
+            // Apply modifiers
+            legMovement.WalkSpeed = walkMod;
+            legMovement.SprintSpeed = sprintMod;
+            legMovement.Acceleration = accMod;
         }
         // Omu end
         bodyEnt.Comp.LegEntities.Add(legEnt);
