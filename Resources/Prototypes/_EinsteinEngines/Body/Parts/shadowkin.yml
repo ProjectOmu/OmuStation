@@ -140,6 +140,11 @@
       state: "r_leg"
     - type: Icon
       state: "r_leg"
+    # Omu start - movement in legs
+    - type: MovementBodyPart
+      walkPercent: 10
+      sprintPercent: 10
+    # Omu end
 
 - type: entity
   id: LeftFootShadowkin
@@ -150,6 +155,11 @@
       state: "l_foot"
     - type: Icon
       state: "l_foot"
+    # Omu start - movement in legs
+    - type: MovementBodyPart
+      walkPercent: 10
+      sprintPercent: 10
+    # Omu end
 
 - type: entity
   id: RightFootShadowkin
