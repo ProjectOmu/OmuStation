@@ -1,25 +1,21 @@
-using Content.Shared.Examine;
-using Robust.Shared.Utility;
-using Content.Server.GameTicking;
+using Content.Goobstation.Server.Chaplain.Components;
+using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.CustomFactionIcons;
 using Content.Omu.Shared.Entities.Heretic;
-using Content.Goobstation.Server.Chaplain.Components;
-using Content.Shared.Administration.Logs;
-using Content.Shared.Database;
-using Content.Shared.NPC.Systems;
-using Content.Shared.NPC.Components;
+using Content.Omu.Shared.MansusMob;
+using Content.Server.GameTicking;
 using Content.Shared._Omu.Heretic;
-using Content.Shared.Actions.Components;
 using Content.Shared.Actions;
-using Content.Shared.Interaction;
-using Content.Goobstation.Shared.Bible;
+using Content.Shared.Actions.Components;
+using Content.Shared.Examine;
+using Content.Shared.Mobs;
+using Content.Shared.NPC.Systems;
 
 namespace Content.Omu.Server.Entities.Heretic;
 
-public sealed class FascinationSystem: EntitySystem
+public sealed class FascinationSystem : EntitySystem
 {
     [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
@@ -30,6 +26,7 @@ public sealed class FascinationSystem: EntitySystem
         SubscribeLocalEvent<FascinationComponent, FascinationChangedArgs>(OnChange);
         SubscribeLocalEvent<FascinationComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<FascinationComponent, BibleSmiteUsed>(OnBibleInteract);
+        SubscribeLocalEvent<FascinationComponent, MobStateChangedEvent>(OnMobStateChanged);
     }
     private void OnStartup(EntityUid uid, FascinationComponent component, ComponentStartup args)
     {
@@ -56,6 +53,8 @@ public sealed class FascinationSystem: EntitySystem
         }
 
         ent.Comp.FascinationValue = args.Amount + ent.Comp.FascinationValue; //increment the fascination value by the amount of knowledge gained!
+
+        Dirty(ent, ent.Comp);
 
         float fascvalue = ent.Comp.FascinationValue;
 
@@ -89,35 +88,20 @@ public sealed class FascinationSystem: EntitySystem
                         _actionContainer.RemoveAction(actionuid);           //Incentive to be just a little mad - you get the actions!
 
             RemComp<FascinationComponent>(ent);
+            RemComp<MansusMaddenedComponent>(ent);
         }
         if (fascvalue >= 5 && args.Amount > 0)
         {
-            if (ent.Comp.Naturalsight == false)
-            {
-                _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
-                $"{ent} has fascination 5, making valid");
-                EnsureComp<SeeHereticFixturesComponent>(ent);
-                ent.Comp.AlteredVision = true;
-                _eye.RefreshVisibilityMask(ent.Owner);
-            }
-            if (ent.Comp.Naturalsight == true && ent.Comp.NaturalHereticsight == false)
-            {
-                if (TryComp<SeeHereticFixturesComponent>(ent, out var seefixtures))
-                {
-                    seefixtures.SeeShifts = true;
-                    _eye.RefreshVisibilityMask(ent.Owner);
-                }
-            }
-            if (ent.Comp.AlteredFaction != true)
-            {
-                ent.Comp.AlteredFaction = true;
-                var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(ent);    //Make them valid to the mirror maiden
-                userFactionIcons.FactionIcons.Add(ent.Comp.IconToAdd);
-                _faction.AddFaction(ent.Owner, ent.Comp.FactionToAdd); //Give them the faction so AI works
-                Dirty(ent.Owner, userFactionIcons);
-            }
-            _gameTicker.StartGameRule("MirrorMaidenSpawn", out _);
+            EnsureComp<MansusMaddenedComponent>(ent);
 
+            if (args.SpawnMaiden)
+            {
+                _gameTicker.StartGameRule("MirrorMaidenSpawn", out var spawnEnt);
+                var ev = new MaidenSpawnEvent();
+                ev.SpawnedEntity = spawnEnt;
+                ev.TrackedEntity = ent.Owner;
+                RaiseLocalEvent(ev);
+            }
         }
     }
     private void OnBibleInteract(Entity<FascinationComponent> ent, ref BibleSmiteUsed args)
@@ -127,4 +111,13 @@ public sealed class FascinationSystem: EntitySystem
         RaiseLocalEvent(ent, ev);
     }
 
+    private void OnMobStateChanged(Entity<FascinationComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState == MobState.Dead)
+        {
+            RemComp<MansusMaddenedComponent>(ent);
+            RemComp<FascinationComponent>(ent);
+            RemComp<SeeHereticFixturesComponent>(ent);
+        }
+    }
 }
