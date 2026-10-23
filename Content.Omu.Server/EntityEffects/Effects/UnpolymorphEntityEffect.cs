@@ -8,5 +8,5 @@ namespace Content.Omu.Shared.EntityEffects.Effects;
 public sealed partial class Unpolymorph : EntityEffectBase<Unpolymorph>
 {
     public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString("entity-effect-guidebook-unpolymorph");
+        => Loc.GetString("entity-effect-status-effect-unpolymorph");
 }
