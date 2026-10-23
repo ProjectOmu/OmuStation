@@ -454,7 +454,7 @@
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
-    
+
 - type: entity
   parent: BasePlushie
   id: PlushieHaashaOmuCrew
@@ -501,7 +501,7 @@
       collection: ResomiSquawk
 
 - type: entity
-  parent: BasePlushie   
+  parent: BasePlushie
   id: PlushieRhyssOmuCrew
   name: rhyss plushie
   description: This plushie resembles a scarred bird that smells heavily of ash and charcoal. The label reads 'Survivor of the Red Cycle.'
@@ -535,7 +535,39 @@
     soundHit: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
 
 - type: entity
-  parent: BasePlushie   
+  parent: BasePlushie
+  id: PlushieVeron612crew
+  name: vernon-612 plushie
+  description: A defective combat unit turned into 'The Best Doctor'(self-proclaimed) in NT!
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/Veron621.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/Veron621.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/Veron621.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound: /Audio/_EinsteinEngines/Voice/IPC/beep_2000.ogg
+  - type: EmitSoundOnUse
+    sound: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg
+  - type: EmitSoundOnActivate
+    sound: /Audio/_EinsteinEngines/Voice/IPC/beep_2000.ogg
+  - type: EmitSoundOnTrigger
+    sound: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: EmitSoundOnThrow
+    sound: /Audio/_EinsteinEngines/Voice/IPC/robot-laugh_3.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit: /Audio/_EinsteinEngines/Voice/IPC/robot-laugh_3.ogg
+
+- type: entity
+  parent: BasePlushie
   id: PlushieNuiOmuCrew
   name: nui plushie
   description: A plushie of a small, sandy Avali. It has a soft looking head and smells strongly of charcoal.
@@ -567,7 +599,7 @@
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
-    
+
 - type: entity
   parent: PlushieLizard
   id: PlushieSniffsOmuCrew
