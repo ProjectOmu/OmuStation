@@ -61,14 +61,12 @@ knowledge-path-ash-s5-desc =
     setting them on fire and burning them.
     If they do not extinguish themselves, the beam will continue to another target.
 
-knowledge-path-ash-s6-name = Mask of Madness
+knowledge-path-ash-s6-name = Ashen Skin
+# OMU
 knowledge-path-ash-s6-desc =
-    The Nightwatcher was lost. That's what the Watch believed. Yet he walked the world, unnoticed by the masses.
+    The Nightwatcher was lost. That's what the Watch believed... Yet he walked the world, unnoticed by the masses, his skin an ashen grey.
 
-    Allows you to transmute any mask, a flare, a pool of ash, a lighter, a stun baton, and a liver to create a Mask of Madness.
-    The mask instills fear into heathens who witness it, causing stamina damage, hallucinations, and insanity.
-    It can also be forced onto a heathen, to make them unable to take it off...
-    Additionally, the mask grants you protection from fires and high temperature when worn.
+    "You now take no damage from burning, but can no longer roll to extinguish yourself. This does not provide immunity to temperature damage..
 
 knowledge-path-ash-s7-name = Fiery Blade
 knowledge-path-ash-s7-desc =
