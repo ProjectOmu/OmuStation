@@ -40,37 +40,6 @@
           tags:
           - WardenRapier
 
-# basically the warden cloak but green
-- type: entity
-  parent: [ClothingNeckBase, BaseCentcommContraband, ClothingSlotBase]
-  id: ClothingNeckCentCommWardenParryCloak
-  name: centcomm warden's dueling cloak
-  description: A green cloak with an integrated scabbard, useful for dramatically swishing at prisoners of CentComm.
-  components:
-  - type: Sprite
-    sprite: _Omu/Clothing/Neck/Cloaks/ccparryingcloak.rsi
-  - type: ItemSlots
-    slots:
-      item:
-        name: Rapier
-        insertVerbText: sheath-insert-verb
-        ejectVerbText: sheath-eject-verb
-        insertSound: /Audio/Items/sheath.ogg
-        ejectSound: /Audio/Items/unsheath.ogg
-        whitelist:
-          tags:
-          - WardenRapier
-# Central command poncho but purple because who cares about bloat at this point
-- type: entity
-  parent: [ClothingNeckBase, BaseCentcommContraband]
-  id: ClothingNeckCloakPurpleCentCommPoncho
-  name: purple central command poncho
-  description: A regal purple-and-black poncho embellished with rich golden accents.
-  components:
-  - type: Sprite
-    sprite: _Omu/Clothing/Neck/Cloaks/purple_centcomm_poncho.rsi
-  - type: Clothing
-    sprite: _Omu/Clothing/Neck/Cloaks/purple_centcomm_poncho.rsi
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckCloakCMOFancy
@@ -118,3 +87,61 @@
     component:
       - type: StationAiVision
         range: 4
+
+
+# basically the warden cloak but green
+- type: entity
+  parent: [ClothingNeckBase, BaseCentcommContraband, ClothingSlotBase]
+  id: ClothingNeckCentCommWardenParryCloak
+  name: centcomm warden's dueling cloak
+  description: A green cloak with an integrated scabbard, useful for dramatically swishing at prisoners of CentComm.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/ccparryingcloak.rsi
+  - type: ItemSlots
+    slots:
+      item:
+        name: Rapier
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - WardenRapier
+          
+# Central command poncho but purple because who cares about bloat at this point
+- type: entity
+  parent: [ClothingNeckBase, BaseCentcommContraband]
+  id: ClothingNeckCloakPurpleCentCommPoncho
+  name: purple central command poncho
+  description: A regal purple-and-black poncho embellished with rich golden accents.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/purple_centcomm_poncho.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/purple_centcomm_poncho.rsi
+
+# Central command poncho but egg for the same exact reason as above
+- type: entity
+  parent: [ClothingNeckBase, BaseCentcommContraband]
+  id: ClothingNeckCloakEggCentCommPoncho
+  name: central command ponchegg
+  description: A regal eggy-and-black poncho embellished with rich golden accents.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/centcomm_ponchegg.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/centcomm_ponchegg.rsi
+
+# HoP cloak but green
+- type: entity
+  parent: [ClothingNeckBase, BaseCentcommContraband]
+  id: ClothingNeckCloakCentCommCrewOps
+  name: centcomm head of crew operations' cap
+  description: A green cloak with red shoulders and gold buttons, proving you are the gatekeeper to any airlock at central command.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/cchop.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak

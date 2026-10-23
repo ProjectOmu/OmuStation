@@ -115,9 +115,9 @@
 
 - type: entity
   parent: [ClothingHeadBase, BaseCentcommContraband]
-  id: ClothingHeadHatCentCommHopcap
-  name: centcomm head of personnel's cap
-  description: A stylish cap worn by the CentComm Head of Personnel. Shows paperwork who's in charge.
+  id: ClothingHeadHatCentCommCrewOps
+  name: centcomm head of crew operations' cap
+  description: A stylish cap worn by the CentComm Head of Crew Operations. Shows paperwork who's in charge.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Hats/cchopcap.rsi
