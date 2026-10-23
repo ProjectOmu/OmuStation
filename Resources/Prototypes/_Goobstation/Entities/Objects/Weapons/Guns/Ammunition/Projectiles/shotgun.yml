@@ -193,6 +193,10 @@
     duration: 4
   - type: SpawnOnTrigger
     proto: GrenadeFlashEffect
+  # Omu start
+  - type: Flashbang
+    minProtectionRange: 7
+  # Omu end
   - type: Ammo
     muzzleFlash: null
   - type: PointLight
