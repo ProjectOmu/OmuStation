@@ -340,7 +340,8 @@ public sealed partial class DragonSystem : EntitySystem
             if (_faction.IsEntityFriendly(uid, (mob.Owner, mob.Comp)))
                 continue;
 
-            _stun.TryUpdateStunDuration (mob, TimeSpan.FromSeconds(component.RoarStunTime));
+            _stun.TryUpdateStunDuration(mob, TimeSpan.FromSeconds(component.RoarStunTime)) // Omu
+            ;
         }
 
         args.Handled = true;
