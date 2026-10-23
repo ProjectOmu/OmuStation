@@ -1,34 +1,33 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
-using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Physics.Components;
 using System.Numerics;
+using Content.Shared.Timing;
 
 namespace Content.Shared.Weapons.Melee;
 
 /// <summary>
 /// This handles <see cref="MeleeThrowOnHitComponent"/>
 /// </summary>
-public sealed class MeleeThrowOnHitSystem : EntitySystem
+public sealed partial class MeleeThrowOnHitSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly UseDelaySystem _delay = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private UseDelaySystem _delay = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+
     /// <inheritdoc/>
     public override void Initialize()
     {
         SubscribeLocalEvent<MeleeThrowOnHitComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<MeleeThrowOnHitComponent, ThrowDoHitEvent>(OnThrowHit);
-        SubscribeLocalEvent<MeleeThrowOnHitComponent, ThrowEvent>(OnThrow);
+        SubscribeLocalEvent<MeleeThrowOnHitComponent, ThrownEvent>(OnThrow);
         SubscribeLocalEvent<MeleeThrowOnHitComponent, LandEvent>(OnLand);
     }
 
-    private void OnThrow(Entity<MeleeThrowOnHitComponent> ent, ref ThrowEvent args)
+    private void OnThrow(Entity<MeleeThrowOnHitComponent> ent, ref ThrownEvent args)
     {
         if (_delay.IsDelayed(ent.Owner))
             return;
@@ -55,8 +54,7 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
         if (!args.IsHit)
             return;
 
-        if (!weapon.Comp.ThrowWhileOnDelay // Goobstation edit
-            && _delay.IsDelayed(weapon.Owner))
+        if (_delay.IsDelayed(weapon.Owner))
             return;
 
         if (args.HitEntities.Count == 0)
@@ -88,7 +86,10 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
         ThrowOnHitHelper(weapon, args.Component.Thrower, args.Target, weaponPhysics.LinearVelocity);
     }
 
-    private void ThrowOnHitHelper(Entity<MeleeThrowOnHitComponent> ent, EntityUid? user, EntityUid target, Vector2 direction)
+    private void ThrowOnHitHelper(Entity<MeleeThrowOnHitComponent> ent,
+        EntityUid? user,
+        EntityUid target,
+        Vector2 direction)
     {
         var attemptEvent = new AttemptMeleeThrowOnHitEvent(target, user);
         RaiseLocalEvent(ent.Owner, ref attemptEvent);
@@ -105,6 +106,10 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
         if (direction == Vector2.Zero)
             return;
 
-        _throwing.TryThrow(target, direction.Normalized() * ent.Comp.Distance, ent.Comp.Speed, user, unanchor: ent.Comp.UnanchorOnHit);
+        _throwing.TryThrow(target,
+            direction.Normalized() * ent.Comp.Distance,
+            ent.Comp.Speed,
+            user,
+            unanchor: ent.Comp.UnanchorOnHit);
     }
 }

@@ -269,7 +269,7 @@ public sealed partial class ShuttleSystem
             if (direction.LengthSquared() > minsq)
             {
                 _stuns.TryCrawling(ent.Owner, knockdownTime);
-                _throwing.TryThrow(ent, direction, ent.Comp, Transform(ent), _projQuery, direction.Length(), playSound: false);
+                _throwing.TryThrow(ent, direction, ent.Comp, Transform(ent), direction.Length(), playSound: false); //Omu, remove _projQuery
             }
             else
             {
@@ -427,7 +427,7 @@ public sealed partial class ShuttleSystem
                 else
                 {
                     var direction = throwDirection * tileData.DistanceFactor;
-                    _throwing.TryThrow(localEnt, direction, physics, localEnt.Comp, _projQuery, direction.Length(), playSound: false);
+                    _throwing.TryThrow(localEnt, direction, physics, localEnt.Comp, direction.Length(), playSound: false); //Omu, remove _projQuery
                 }
             }
 
