@@ -23,7 +23,37 @@
   desc: reagent-desc-cyclogenol
   physicalDesc: reagent-physical-desc-thick-and-grainy # delicate crystals in alcoholic syrup
   flavor: astringent # tastes like alcohol
-  color: "#939393" # Edit later
+  color: "#4f271b" # muddy reddish brown
+  metabolisms:
+    Drink:
+    - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15
+    Medicine: #some negative effects for drinking the precursor just for the alcohol
+    - !type:Vomit
+        conditions:
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
+    - !type:PopupMessage
+        conditions:
+        - !type:ReagentCondition
+          reagent: Dylovene
+          min: 20
+        type: Local
+        visualType: Medium
+        messages: [ "generic-reagent-effect-nauseous" ]
+        probability: 0.2
+    - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Yowie ]
+          inverted: true
+        probability: 0.6
+        damage:
+          types:
+            Slash: 0.5 # pointy crystals
+            Radiation: 0.3 # it's literally part mutagen
 
 - type: reagent
   id: Recyclogenix # Working name, maybe choose different suffix?
@@ -32,54 +62,44 @@
   desc: reagent-desc-recyclogenix
   physicalDesc: reagent-physical-desc-shimmering
   flavor: medicine
-  color: "#ffdf97" #Edit later
+  color: "#990c09" # velvet red
   worksOnTheDead: true # Omu
   metabolisms:
     Medicine:
+      metabolismRate: 0.05 # very slow metabolism, only metabolizes at all so the damage procs while it processes in
       effects:
       - !type:AdjustReagent
         conditions:
-          - !type:TemperatureCondition
-            # cloned from cryoxadone, makes this a cryo med
+          - !type:TemperatureCondition # cloned from cryoxadone, makes this a cryo med
             max: 175.0
-          scaleByTemperature: # Shitmed Change
-            min: 100.0
-            max: 175.0
-            scale: 1.6
           - !type:ReagentCondition
             reagent: Recyclogenix
             min: 34 # SHOULD allow it to hit the 40u polymorph trigger point before we make enough cytogenecin to start purging
+          scaleByTemperature: # Shitmed Change
+              min: 100.0
+              max: 175.0
+              scale: 1.6
           reagent: Cytogenecin
           amount: 1.2 # 0.5 -> 0.6 proportion, multiplied by two to get per unit basis; supposed to make around 48 cytogenecin
       - !type:AdjustReagent # could make it remove mutation toxins from blood?
         amount: 
         reagent: 
-      - !type:Polymorph
+      - !type:Unpolymorph
         conditions:
+          - !type:TemperatureCondition # dependent on cryonics to work
+            max: 175.0
           - !type:ReagentCondition # have to have a certain amount of it in the blood
             reagent: Recyclogenix
             min: 40
-          - !type:TemperatureCondition # dependent on cryonics to work
-            max: 175.0
           scaleByTemperature: # Shitmed Change
             min: 100.0
             max: 175.0
             scale: 1.6
-        prototype: PolymorphRevert # god i hope this works first try
-
-- type: reagent
-  id: Cytogenecin
-  name: reagent-name-cytogenecin
-  group: Medicine
-  desc: reagent-desc-cytogenecin
-  physicalDesc: reagent-physical-desc-nondescript # actually keeping it nondescript is really funny
-  flavor: medicine
-  color: "#65583b" # Edit later
-  worksOnTheDead: true # Omu
-  metabolisms:
-    Medicine:
-      metabolismRate: 0.1 # This can stay the same
-      effects:
+        - !type:AnyTagCondition
+            tags: # blacklist letoferol and romerol
+              - Chimera
+              - Zombie
+            inverted: true
       - !type:HealthChange
           conditions:
           - !type:TemperatureCondition
@@ -88,34 +108,60 @@
             min: 100.0
             max: 175.0
             scale: 1.6
-          damage:
+          damage: # deals mild damage to the cells as it's reverting the change
             types:
-                Cellular: 0.17 # Should be around 20ish cellular by the time we hit 10u cytogenecin
+                Cellular: 0.4 # should come to around 16 cellular damage per 40u
+
+- type: reagent
+  id: Cytogenecin
+  name: reagent-name-cytogenecin
+  group: Medicine
+  desc: reagent-desc-cytogenecin
+  physicalDesc: reagent-physical-desc-therapeutic
+  flavor: medicine
+  color: "#943f21" # dusty orange
+  worksOnTheDead: true # Omu
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1 # slow metabolism
+      effects:
       - !type:Drunk # copied from bicaridine, for the giggles
       - !type:AdjustReagent # remove extra precursor once there's enough cytogenecin
         conditions:
-          - !type:TemperatureCondition
-            max: 175.0
-          scaleByTemperature: # Shitmed Change
-            min: 100.0
-            max: 175.0
-            scale: 1.6
-          - !type:ReagentCondition
-            reagent: Cytogenecin
-            min: 10
+        - !type:TemperatureCondition
+          max: 175.0
+        - !type:ReagentCondition
+          reagent: Cytogenecin
+          min: 10
+        scaleByTemperature: # Shitmed Change
+          min: 100.0
+          max: 175.0
+          scale: 1.6
         amount: -50
         reagent: Recyclogenix
+      - !type:HealthChange
+        conditions:
+        - !type:TemperatureCondition
+          max: 175.0
+        scaleByTemperature: # Shitmed Change
+          min: 100.0
+          max: 175.0
+          scale: 1.6
+        damage: # heals mild damage as it clears out waste from the reversion process
+          types:
+            Poison: -0.35 # should be around 7 tox healing per 20u
+            Radiation: -0.2 # should be around 4 rad healing per 20u
     Narcotic:
       effects:
         - !type:PopupMessage # this is a dysmorphia cure after all
-        type: Local
-        visualType: Medium
-        messages:
-        - "cytogenecin-effect-dysmorphia"
-        - "cytogenecin-effect-anxieties"
-        - "cytogenecin-effect-at-peace"
-        probability: 0.2
-        conditions:
-        - !type:ReagentCondition
-          reagent: Cytogenecin
-          min: 5
+          type: Local
+          visualType: Medium
+          messages:
+          - "cytogenecin-effect-dysmorphia"
+          - "cytogenecin-effect-anxieties"
+          - "cytogenecin-effect-at-peace"
+          probability: 0.2
+          conditions:
+          - !type:ReagentCondition
+            reagent: Cytogenecin
+            min: 5
