@@ -22393,12 +22393,12 @@ entities:
     - type: Transform
       pos: 3.5,68.5
       parent: 2
-  - uid: 32063
+  - uid: 33001
     components:
     - type: Transform
       pos: 3.5,69.5
       parent: 2
-  - uid: 32064
+  - uid: 33005
     components:
     - type: Transform
       pos: 2.5,69.5
@@ -22408,7 +22408,7 @@ entities:
     - type: Transform
       pos: 1.5,69.5
       parent: 2
-  - uid: 32066
+  - uid: 3300
     components:
     - type: Transform
       pos: 0.5,69.5
@@ -29858,7 +29858,7 @@ entities:
     - type: Transform
       pos: 6.5,19.5
       parent: 2
-  - uid: 3300
+  - uid: 33003
     components:
     - type: Transform
       pos: 6.5,20.5
@@ -82241,7 +82241,7 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconService
   entities:
-  - uid: 32060
+  - uid: 32066
     components:
     - type: Transform
       pos: -8.5,-13.5
@@ -123281,7 +123281,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
-  - uid: 19080
+  - uid: 32059
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -123289,7 +123289,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
-  - uid: 19081
+  - uid: 19087
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -123313,7 +123313,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF1212FF'
-
   - uid: 19084
     components:
     - type: Transform
@@ -124946,7 +124945,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
-  - uid: 19087
+  - uid: 1909
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -142603,7 +142602,7 @@ entities:
     - type: Transform
       pos: -39.5,-39.5
       parent: 2
-  - uid: 19074
+  - uid: 32057
     components:
     - type: Transform
       pos: -53.5,-54.5
@@ -154278,12 +154277,12 @@ entities:
     - type: Transform
       pos: -50.5,-46.5
       parent: 2
-  - uid: 19078
+  - uid: 32060
     components:
     - type: Transform
       pos: -50.5,-48.5
       parent: 2
-  - uid: 19079
+  - uid: 32078
     components:
     - type: Transform
       pos: -50.5,-50.5
@@ -165310,7 +165309,7 @@ entities:
     - type: Transform
       pos: -21.5,48.5
       parent: 2
-  - uid: 32059
+  - uid: 33004
     components:
     - type: Transform
       pos: -9.5,-13.5
@@ -166298,7 +166297,7 @@ entities:
       parent: 2
 - proto: StorageCanister
   entities:
-  - uid: 1909
+  - uid: 25174
     components:
     - type: Transform
       pos: -34.5,-39.5
@@ -176926,27 +176925,27 @@ entities:
     - type: Transform
       pos: 44.5,-62.5
       parent: 2
-  - uid: 19075
+  - uid: 32063
     components:
     - type: Transform
       pos: -50.5,-49.5
       parent: 2
-  - uid: 19076
+  - uid: 32061
     components:
     - type: Transform
       pos: -51.5,-47.5
       parent: 2
-  - uid: 19077
+  - uid: 33000
     components:
     - type: Transform
       pos: -50.5,-47.5
       parent: 2
-  - uid: 19082
+  - uid: 32067
     components:
     - type: Transform
       pos: -50.5,-43.5
       parent: 2
-  - uid: 19083
+  - uid: 32064
     components:
     - type: Transform
       pos: -50.5,-45.5
@@ -203170,7 +203169,7 @@ entities:
       parent: 2
 - proto: WindoorSecureServiceLocked
   entities:
-  - uid: 32057
+  - uid: 32077
     components:
     - type: Transform
       rot: 3.141592653589793 rad
