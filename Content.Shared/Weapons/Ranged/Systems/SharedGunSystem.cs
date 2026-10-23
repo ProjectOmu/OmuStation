@@ -533,14 +533,6 @@ public abstract partial class SharedGunSystem : EntitySystem
         // <Trauma>
         if (user is {} userUid)
         {
-            // so you can't shoot yourself if you are moving fast enough to catch up with it
-            // Omu - unless you are aiming at yourself on purpose, IgnoredEntities is checked before GunCanAimShooter
-            if (!TryComp<TargetedProjectileComponent>(uid, out var targeted) || targeted.Target != userUid)
-            {
-                projectile.IgnoredEntities.Add(userUid);
-                Dirty(uid, projectile);
-            }
-
             var ev = new PlayerShotProjectileEvent(uid, userUid);
             RaiseLocalEvent(ref ev);
         }
