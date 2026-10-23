@@ -38,6 +38,9 @@ uplink-bloodred-headphones-desc = Looks stylish, and synergizes with the Shredde
 uplink-hobbyist-spellbook-name = Hobbyist Spell Book
 uplink-hobbyist-spellbook-desc = A book given out by the Wizard Federation to get avid fanatics to finally shut up. Contains the spells: Spark, Cure Wounds, Conjure Peel, Abracaweh, and Lessest Magic Missile.
 
+uplink-voodoo-doll-name = Wicker Doll
+uplink-voodoo-doll-desc = A cursed wicker doll. Bind someone to it by using the doll on their DNA, fingerprints, or even them directly. Different fates await your victim depending on the doll's limb you interact with or items you use on it...
+
 uplink-sniper-penman-name = LRR-30 "Penman" DMR
 uplink-sniper-penman-desc = A prized long range product of Waffle Co. able to down targets fast and accurately at medium to long ranges. Chambered in .30 long rifle magnum, fires in semi-auto, has a medium strength optic.
 
