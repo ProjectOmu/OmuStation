@@ -25,11 +25,8 @@
   flavor: astringent # tastes like alcohol
   color: "#4f271b" # muddy reddish brown
   metabolisms:
-    Drink:
-    - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
     Medicine: #some negative effects for drinking the precursor just for the alcohol
+    - !type:Drunk
     - !type:Vomit
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
@@ -81,9 +78,9 @@
               scale: 1.6
         reagent: Cytogenecin
         amount: 1.2 # 0.5 -> 0.6 proportion, multiplied by two to get per unit basis; supposed to make around 48 cytogenecin
-      - !type:AdjustReagent # could make it remove mutation toxins from blood?
-        amount:
-        reagent:
+      # - !type:AdjustReagent # could make it remove mutation toxins from blood?
+      #   amount:
+      #  reagent:
       - !type:Unpolymorph
         conditions:
           - !type:TemperatureCondition # dependent on cryonics to work
@@ -91,15 +88,15 @@
           - !type:ReagentCondition # have to have a certain amount of it in the blood
             reagent: Recyclogenix
             min: 40
+          - !type:AnyTagCondition
+            tags: # blacklist letoferol and romerol
+            - Chimera
+            - Zombie
+            inverted: true
         scaleByTemperature: # Shitmed Change
           min: 100.0
           max: 175.0
           scale: 1.6
-        - !type:AnyTagCondition
-          tags: # blacklist letoferol and romerol
-            - Chimera
-            - Zombie
-          inverted: true
       - !type:HealthChange
           conditions:
           - !type:TemperatureCondition
