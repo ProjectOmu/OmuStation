@@ -1,0 +1,25 @@
+- type: entity
+  id: DiseaseRatPlague
+  parent: DiseaseBase
+  name: Rat Plague
+  description: A Supernatural illness that requires Supernatural treatment.
+  components:
+  - type: Disease
+    diseaseType: Supernatural
+    infectionRate: 0.008
+    immunityGainRate: 0
+    canGainImmunity: false
+    mutationRate: 0.2
+    mutationMutationCoefficient: 0
+    immunityGainMutationCoefficient: 0
+    infectionRateMutationCoefficient: 0
+    complexityMutationCoefficient: 0
+    severityMutationCoefficient: 0
+    effectMutationCoefficient: 0
+    genotypeMutationCoefficient: 1
+    genotype: 6666 # The only thing that can change from mutation, everything else is static
+    effects:
+      DiseaseBehaviorPoison: 0.5 # about 0.12 posion a second
+      DiseaseBehaviorFeelUnwell: 0.2
+      DiseaseBehaviorSneeze: 0.8
+      DiseaseBehaviorOrganFailure: 1 # if infection hits 100% there's a very, very small chance of death for those who are truely unlucky
