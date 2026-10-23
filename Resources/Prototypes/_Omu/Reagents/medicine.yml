@@ -80,7 +80,7 @@
               max: 175.0
               scale: 1.6
         reagent: Cytogenecin
-          amount: 1.2 # 0.5 -> 0.6 proportion, multiplied by two to get per unit basis; supposed to make around 48 cytogenecin
+        amount: 1.2 # 0.5 -> 0.6 proportion, multiplied by two to get per unit basis; supposed to make around 48 cytogenecin
       - !type:AdjustReagent # could make it remove mutation toxins from blood?
         amount:
         reagent:
