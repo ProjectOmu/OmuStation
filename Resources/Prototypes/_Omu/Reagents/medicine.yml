@@ -26,12 +26,16 @@
   color: "#4f271b" # muddy reddish brown
   metabolisms:
     Medicine: #some negative effects for drinking the precursor just for the alcohol
+    - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15
     - !type:Drunk
     - !type:Vomit
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [ Yowie ]
           inverted: true
+        probability: 0.6
     - !type:PopupMessage
         type: Local
         visualType: Medium
@@ -74,9 +78,51 @@
           scale: 1.6
         reagent: Cytogenecin
         amount: 1.2 # 0.5 -> 0.6 proportion, multiplied by two to get per unit basis; supposed to make around 48 cytogenecin
-      # - !type:AdjustReagent # could make it remove mutation toxins from blood?
-      #   amount:
-      #  reagent:
+      - !type:AdjustReagent
+        amount: -50
+        reagent: BirdFlu
+      - !type:AdjustReagent
+        amount: -50
+        reagent: Mothamphetamine
+      - !type:AdjustReagent
+        amount: -50
+        reagent: Cacaphonium
+      - !type:AdjustReagent
+        amount: -50
+        reagent: Chitterzine
+      - !type:AdjustReagent
+        amount: -50
+        reagent: Marotine
+      - !type:AdjustReagent
+        amount: -50
+        reagent: Methril
+      - !type:AdjustReagent
+        amount: -50
+        reagent: BirdFluConcentrate
+      - !type:AdjustReagent
+        amount: -50
+        reagent: MothamphetamineConcentrate
+      - !type:AdjustReagent
+        amount: -50
+        reagent: MarotineConcentrate
+      - !type:AdjustReagent
+        amount: -50
+        reagent: MethrilConcentrate
+      - !type:AdjustReagent
+        amount: -50
+        reagent: CorgiJuice
+      - !type:AdjustReagent
+        amount: -50
+        reagent: Tranquility
+      - !type:AdjustReagent
+        amount: -50
+        reagent: BingleJuice
+      - !type:AdjustReagent
+        amount: -50
+        reagent: Carpolin
+      - !type:AdjustReagent
+        amount: -50
+        reagent: CatDrugs
       - !type:Unpolymorph
         conditions:
           - !type:TemperatureCondition # dependent on cryonics to work
