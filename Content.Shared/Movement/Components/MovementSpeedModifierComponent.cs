@@ -43,6 +43,7 @@ namespace Content.Shared.Movement.Components
         [DataField, AutoNetworkedField]
         public float BaseSprintSpeed = DefaultBaseSprintSpeed;
 
+        // Omu start
         /// <summary>
         /// The acceleration applied to mobs when moving. If this is ever less than Friction the mob will be slower.
         /// </summary>
@@ -50,19 +51,20 @@ namespace Content.Shared.Movement.Components
         public float BaseAcceleration = DefaultAcceleration;
 
         /// <summary>
-        /// Omu - Character's initial walk speed. This is the value that is used to reset the walk speed when modifiers are removed.
+        /// Character's initial walk speed. This is the value that is used to reset the walk speed when modifiers are removed.
         /// </summary>
         public float InitWalkSpeed = 0.0f;
 
         /// <summary>
-        /// Omu - Character's initial sprint speed. This is the value that is used to reset the sprint speed when modifiers are removed.
+        /// Character's initial sprint speed. This is the value that is used to reset the sprint speed when modifiers are removed.
         /// </summary>
         public float InitSprintSpeed = 0.0f;
 
         /// <summary>
-        /// Omu - Character's initial acceleration. This is the value that is used to reset the acceleration when modifiers are removed.
+        /// Character's initial acceleration. This is the value that is used to reset the acceleration when modifiers are removed.
         /// </summary>
         public float InitAcceleration = 0.0f;
+        // Omu end
 
         /// <summary>
         /// The body's base friction modifier that is applied in *all* circumstances.
