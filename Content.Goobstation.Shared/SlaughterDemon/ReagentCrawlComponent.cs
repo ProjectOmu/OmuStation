@@ -11,7 +11,7 @@ namespace Content.Goobstation.Shared.SlaughterDemon;
 
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]
-public sealed partial class BloodCrawlComponent : Component
+public sealed partial class ReagentCrawlComponent : Component // Omu - Renamed to ReagentCrawl and genericized.
 {
     /// <summary>
     /// This is the search range of the blood puddles
@@ -38,6 +38,13 @@ public sealed partial class BloodCrawlComponent : Component
     public ProtoId<PolymorphPrototype> Jaunt = "BloodCrawlJaunt";
 
     /// <summary>
+    /// Omu
+    /// Genericize to reagentcrawling.
+    /// </summary>
+    [DataField]
+    public LocId EnterJauntFailMessage = "slaughter-blood-jaunt-fail";
+
+    /// <summary>
     /// This indicates whether the entity is crawling, or not. Used for toggling the ability.
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -47,7 +54,7 @@ public sealed partial class BloodCrawlComponent : Component
     /// The reagents to look out for when searching for puddles
     /// </summary>
     [DataField(required: true)]
-    public List<ProtoId<ReagentPrototype>> Blood = new();
+    public List<ProtoId<ReagentPrototype>> TargetReagent = new(); // Omu - Renamed to ReagentCrawl and genericized.
 
     /// <summary>
     /// The sound to play once entering the jaunt
