@@ -165,10 +165,6 @@
           min: 10
         - !type:TemperatureCondition
           max: 175.0
-        scaleByTemperature: # Shitmed Change
-          min: 100.0
-          max: 175.0
-          scale: 1.6
         amount: -50
         reagent: Recyclogenix
       - !type:HealthChange
