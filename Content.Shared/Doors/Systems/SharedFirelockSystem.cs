@@ -66,9 +66,10 @@ public abstract class SharedFirelockSystem : EntitySystem
 
     private void OnBeforePry(EntityUid uid, FirelockComponent component, ref BeforePryEvent args)
     {
-        if (args.Cancelled || !component.Powered || args.StrongPry || args.PryPowered || !args.CanPryPoweredFirelocks & !component.Powered ) //omu edit - prybars
+        if (args.Cancelled || !component.Powered || args.PryPowered || (args.CanPryPoweredFirelocks && args.StrongPry)) //omu edit - prybars
             return;
 
+        args.Message = "airlock-component-cannot-pry-is-ineffective"; // Omu - prybars
         args.Cancelled = true;
     }
 
