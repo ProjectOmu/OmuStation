@@ -286,3 +286,63 @@
         - !type:ReagentCondition
           reagent: JuiceThatMakesYouAwebo
           min: 50
+
+
+- type: reagent
+  id: Gekkerzine
+  name: reagent-name-gekkerzine
+  group: Toxins
+  desc: reagent-desc-gekkerzine
+  physicalDesc: reagent-physical-desc-gekkerzine
+  flavor: gekkering
+  color: "#8700ff"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.15
+      effects:
+      - !type:Emote
+        emote: Gekker
+        showInChat: true
+        showInGuidebook: true
+        force: true
+        probability: 0.10
+      - !type:AdjustReagent
+        reagent: Gekkerzine
+        amount: -20
+        conditions:
+        - !type:ReagentCondition
+          reagent: Gekkerzine
+          min: 50
+    # Gas:
+    #   effects:
+    #   - !type:Emote
+    #     emote: Gekker
+    #     showInChat: true
+    #     force: true
+    #     probability: 0.05 # "sorry, don't know what came over me"
+
+- type: reagent
+  id: Baaveltine
+  name: reagent-name-baaveltine
+  group: Toxins
+  desc: reagent-desc-baaveltine
+  physicalDesc: reagent-physical-desc-fluffy
+  flavor: baa
+  color: "#efe6d2"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.25
+      effects:
+      - !type:Emote
+        emote: Baa
+        showInChat: true
+        showInGuidebook: true
+        force: true
+        probability: 0.5
+      - !type:AdjustReagent
+        reagent: Baaveltine
+        amount: -20
+        conditions:
+        - !type:ReagentCondition
+          reagent: Baaveltine
+          min: 50

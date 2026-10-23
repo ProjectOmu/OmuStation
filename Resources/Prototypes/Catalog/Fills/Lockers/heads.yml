@@ -61,6 +61,8 @@
       - !type:PlayerCountCondition
         max: 15
     - id: BookCorporateSecrets # funky
+    - id: HandheldComs # Omu
+    - id: RedCellphone # Omu
 
 # No laser table + Laser table
 - type: entityTable
@@ -271,8 +273,9 @@
     - id: DiseaseDiagnoserFlatPack
     - id: VaccinatorFlatPack
     # Goobstation End
-    - id: ComputerMedicalCommsFlatpack #Omu adds departmental comms board
-    - id: EnergyChemDispenserMachineCircuitboard # Omu
+    - id: ComputerMedicalCommsFlatpack # Omu start; adds departmental comms board
+    - id: EnergyChemDispenserMachineCircuitboard
+    - id: BookCorporateSecretsAllMedical # Omu end; adds medical-specific metashield document
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -336,6 +339,7 @@
     - id: MMI # Goobstation
     - id: ComputerScienceCommsFlatpack #Omu adds departmental comms board
     - id: Multitool # Omu
+    - id: BaseHandheldScienceConsoleRD # Omu
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -403,7 +407,8 @@
     - id: ComputerSecurityCommsFlatpack #Omu adds departmental comms board
     - id: Multitool # Omu
     - id: HoSPetKennel #Omu
-    - id: BookCorporateSecretsSecurity # Omu
+    - id: BookCorporateSecrets # Omu
+    - id: ClothingHandsGlovesGorilla # Omu
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

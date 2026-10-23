@@ -165,6 +165,7 @@
   - EmergencySilicon
   - EmergencyOxygenCarnivore # Omu
   - EmergencyOxygenEthanol # Omu
+  - EmergencyOxygenVegetarian # Omu
 
 # nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup
@@ -740,6 +741,7 @@
   - EmergencySilicon
   - EmergencyOxygenCarnivoreClown # Omu
   - EmergencyOxygenEthanolClown # Omu
+  - EmergencyOxygenVegetarianClown # Omu
 
 - type: loadoutGroup
   id: ClownJobTrinkets
@@ -813,6 +815,7 @@
   - EmergencySilicon
   - EmergencyOxygenCarnivoreMime # Omu
   - EmergencyOxygenEthanolMime # Omu
+  - EmergencyOxygenVegetarianMime # Omu
 
 - type: loadoutGroup
   id: MimeJobTrinkets
@@ -1249,6 +1252,7 @@
   - EmergencySilicon
   - EmergencyOxygenCarnivoreExtended # Omu
   - EmergencyOxygenEthanolExtended # Omu
+  - EmergencyOxygenVegetarianExtended # Omu
 
 # Science
 - type: loadoutGroup
@@ -1675,6 +1679,7 @@
   - EmergencySilicon
   - EmergencyOxygenCarnivoreSecurity # Omu
   - EmergencyOxygenEthanolSecurity # Omu
+  - EmergencyOxygenVegetarianSecurity # Omu
 
 # Medical
 - type: loadoutGroup
@@ -1684,8 +1689,10 @@
   loadouts:
   - ChiefMedicalOfficerBeret
   - CMOMedicalHeadMirror
+  - ChiefMedicalOfficerSurgicalCap # Omu
   - ChemistUshanka # Goobstation
   - CMOVetBeret #Omu
+  - UshankaCMO # Omu
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerJumpsuit
@@ -1693,6 +1700,7 @@
   loadouts:
   - ChiefMedicalOfficerJumpsuit
   - ChiefMedicalOfficerJumpskirt
+  - ChiefMedicalOfficerScrubs # Omu
   - ChiefMedicalOfficerTurtleneckJumpsuit
   - ChiefMedicalOfficerTurtleneckJumpskirt
   - CMOMJ # goob
@@ -1755,6 +1763,7 @@
   - GreenSurgeryCap
   - PurpleSurgeryCap
   - NurseHat
+  - UshankaMedical # Omu
 
 - type: loadoutGroup
   id: MedicalDoctorJumpsuit
@@ -1912,6 +1921,7 @@
   - ParamedicHead
   - ParamedicCapCybersun # Omu
   - SeniorPhysicianBeret # Goobstation
+  - UshankaParamedic # Omu
 
 - type: loadoutGroup
   id: ParamedicJumpsuit
@@ -1985,6 +1995,7 @@
   - EmergencySilicon
   - EmergencyOxygenCarnivoreMedical # Omu
   - EmergencyOxygenEthanolMedical # Omu
+  - EmergencyOxygenVegetarianMedical # Omu
 
 # Wildcards
 - type: loadoutGroup
@@ -2016,6 +2027,35 @@
   loadouts:
   - LizardPlushiePsychologist
 
+- type: loadoutGroup
+  id: TramDriverJumpsuit
+  name: loadout-group-tramdriver-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - TramDriverJumpsuit
+
+- type: loadoutGroup
+  id: TramDriverOuterClothing
+  name: loadout-group-tramdriver-outerclothing
+  minLimit: 0
+  loadouts:
+  - TramDriverSuit
+
+- type: loadoutGroup
+  id: TramDriverHat
+  name: loadout-group-tramdriver-hat
+  loadouts:
+  - TramDriverHat
+
+- type: loadoutGroup
+  id: TramDriverGloves
+  name: loadout-group-tramdriver-gloves
+  minLimit: 0
+  loadouts:
+  - TramDriverGlovesWhite
+  - TramDriverGlovesBlack
+
 # Other
 - type: loadoutGroup
   id: SurvivalSyndicate
@@ -2032,6 +2072,7 @@
   - EmergencySilicon
   - EmergencyOxygenCarnivoreSyndicate # Omu
   - EmergencyOxygenEthanolSyndicate # Omu
+  - EmergencyOxygenVegetarianSyndicate # Omu
 
 - type: loadoutGroup
   id: SurvivalMilitaryDouble

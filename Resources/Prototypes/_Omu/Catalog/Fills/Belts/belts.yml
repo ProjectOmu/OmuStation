@@ -32,3 +32,19 @@
     - id: OmnimedToolDebug
     - id: MagazineCaselessTungsten
       amount: 4
+
+- type: entity
+  id: ClothingBeltHolsterFilledMatebaBFR
+  parent: ClothingBeltHolster
+  suffix: Filled, MatebaBFR, DO NOT MAP
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      item:
+        id: WeaponRevolverMatebaBfr
+      storagebase: !type:AllSelector
+        children:
+        - id: SpeedLoaderCasull
+          amount: 2
+        - id: SpeedLoaderCasullAP
+          amount: 2

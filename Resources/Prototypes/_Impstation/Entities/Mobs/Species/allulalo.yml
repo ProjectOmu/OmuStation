@@ -10,7 +10,7 @@
   - type: Hunger
     baseDecayRate: 0.03 # 0.02 # 30% ish more than default # Omu, update for new base rate
   - type: Thirst
-    baseDecayRate: 0.02 # 0.02 # 30% ish more than default
+    baseDecayRate: 0.1625 # 0.02 # 30% ish more than default # Omu, update for new base rate
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:

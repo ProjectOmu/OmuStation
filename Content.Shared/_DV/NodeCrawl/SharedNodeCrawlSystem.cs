@@ -1,5 +1,7 @@
+using Content.Shared.Clothing.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Eye;
+using Content.Shared.Inventory;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.RatKing;
@@ -26,6 +28,7 @@ public abstract class SharedNodeCrawlSystem : EntitySystem
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly NodeCrawlerMovementSystem _nodeCrawler = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
+    [Dependency] private readonly InventorySystem _inventorySystem = default!;
 
     private const string MoverContainer = "mover-container";
     private static readonly EntProtoId MoverProto = "DVNodeCrawlMover";
@@ -70,7 +73,18 @@ public abstract class SharedNodeCrawlSystem : EntitySystem
 
     private void StartEntryDoAfter(Entity<NodeCrawlerComponent> ent, EntityUid target)
     {
-        var doAfterArgs = new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.EnterDelay, new NodeCrawlEnterDoAfterEvent(), ent.Owner, target);
+        // Omu start
+        var doAfterArgs = new DoAfterArgs(EntityManager,
+            ent.Owner,
+            ent.Comp.EnterDelay,
+            new NodeCrawlEnterDoAfterEvent(),
+            ent.Owner,
+            target)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+        };
+        // Omu end
 
         _doAfter.TryStartDoAfter(doAfterArgs);
     }
@@ -81,6 +95,21 @@ public abstract class SharedNodeCrawlSystem : EntitySystem
             return;
 
         NodeCrawl(ent, target);
+
+        //Omu - ensure unremovable comp to clothes so you can't get freaky mid vent crawl
+        if (_inventorySystem.TryGetSlots(ent, out var slotDefinitions))
+        {
+            foreach (var slot in slotDefinitions)
+            {
+                if (!_inventorySystem.TryGetSlotEntity(ent, slot.Name, out var slotEnt) || HasComp<SelfUnremovableClothingComponent>(slotEnt))
+                    continue;
+
+                ent.Comp.Unremovables.Add(slotEnt.Value);
+
+                EnsureComp<SelfUnremovableClothingComponent>(slotEnt.Value);
+            }
+        }
+        //Omu end
     }
 
     protected virtual void SetupAir(Entity<NodeCrawlerMovementComponent> movement)
@@ -154,6 +183,13 @@ public abstract class SharedNodeCrawlSystem : EntitySystem
 
         _physics.SetCanCollide(ent.Owner, true);
         _eye.RefreshVisibilityMask(ent.Owner);
+
+        //Omu start
+        foreach (var clothing in ent.Comp.Unremovables)
+        {
+            RemComp<SelfUnremovableClothingComponent>(clothing);
+        }
+        //Omu end
     }
 
     private void OnArrivedAtNode(Entity<NodeCrawlerComponent> ent, ref NodeCrawlerArrivedAtNodeEvent args)

@@ -1,0 +1,53 @@
+<!--
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
+    #Secure Shipments
+    
+    [textlink="Cargo" link="Cargo"] can earn [color=cyan]spesos[color] by packing items for sale through [color=cyan]Shipment Notices[/color].
+
+    ## Preparing Shipments
+
+    <Box>
+        <GuideEntityEmbed Entity="CargoTechFabFilled"/>
+        <GuideEntityEmbed Entity="ShipmentNoticeMedicalSupplies"/>
+      <GuideEntityEmbed Entity="MachineGoodsPacker"/>
+    </Box>
+
+    To start a shipment, open the [color=cyan]Cargo Techfab[/color] and print off a [color=cyan]Shipment Notice[/color].
+    Next, at a [color=cyan]Goods Packer[/color], fabricate the corresponding crate for your shipment notice. 
+
+    ## Filling Shipments
+
+    <Box>
+        <GuideEntityEmbed Entity="CrateShipmentMedicalBase"/>
+        <GuideEntityEmbed Entity="CrateShipmentPlasticLid"/>
+        <GuideEntityEmbed Entity="SheetPlasteel10"/>
+    </Box>
+
+    Attach the shipment notice to the crate. Now, it is up to you to collect the required items. Examine the crate to see the required item. This can require retreiving items from other departments. 
+
+    Once you have collected an item, place it inside the [color=cyan]Shipment Crate[/color]. Once all items required are inside the crate, add the matching lid, and seal the crate with plasteel.
+
+    ## Selling Shipments
+
+    <Box>
+        <GuideEntityEmbed Entity="CrateShipmentMedicalSupplies"/>
+        <GuideEntityEmbed Entity="CargoPalletSell"/>
+    </Box>
+
+    Once you have sealed the crate, transport it to the [color=cyan]Trading Station[/color], sell it, and you are done!
+
+    ## Licenses
+
+    <Box>
+      <GuideEntityEmbed Entity="BlueprintCargoLicenseEngineering"/>
+      <GuideEntityEmbed Entity="BlueprintCargoLicenseReceiptEngineering"/>
+    </Box>
+
+  Once you've earned enough spesos, you can purchase Licenses in order to produce more complex and profitable shipments.
+
+  - The [color=cyan]License[/color] goes into the Techfab, allowing more advanced Shipment Notices and Receipts to be fabricated.
+  - The [color=cyan]Receipt[/color] goes into the Goods Packer, allowing more advanced Shipment Crates to be fabricated.
+</Document>

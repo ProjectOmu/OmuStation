@@ -26,10 +26,10 @@
   - type: PhysicalComposition
     materialComposition:
       BSCrystal: 100
-  - type: RandomTeleportOnUse
-    radius:
-      min: 2
-      max: 5
+  #- type: RandomTeleportOnUse # Omu
+  #  radius:
+  #    min: 2
+  #    max: 5
   - type: Tag
     tags:
     - Ore

@@ -5,6 +5,8 @@
   abstract: true
   id: PlayerSiliconBase #for player controlled silicons. it's a shitty name, idk why they did it like that.
   components:
+  - type: VoiceChatEffect # Goobstation - Voice chat
+    effect: Robot
   - type: Reactive
     groups:
       Acidic: [Touch]
@@ -72,16 +74,11 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
-    - Binary # Goobstation - replaced with collective mind # Omu, make binary a radio again.
+    - Binary
   - type: ActiveRadio
     channels:
-    - Binary # Goobstation - replaced with collective mind # Omu, make binary a radio again.
+    - Binary
     - Common
-  # Goobstation
-  #- type: CollectiveMind # Omu, make binary a radio again.
-  #  defaultChannel: Binary
-  #  channels:
-  #  - Binary
   - type: DoAfter
   - type: Pullable
   - type: Examiner
@@ -128,7 +125,7 @@
     cellSlotId: cell_slot
     fitsInCharger: true
   - type: PowerCellDraw # imp
-    drawRate: 0.6
+    drawRate: 0 # Omu
   - type: ItemSlots # imp
     slots:
       cell_slot:

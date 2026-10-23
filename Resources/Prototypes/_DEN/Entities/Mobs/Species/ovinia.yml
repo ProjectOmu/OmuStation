@@ -1,0 +1,233 @@
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  save: false
+  name: Urist McSheepy
+  parent: BaseMobSpeciesOrganic
+  id: MobOvinia
+  components:
+  - type: Sprite
+    noRot: true
+    # Omu start
+    layers:
+      - map: [ "enum.HumanoidVisualLayers.Groin" ]
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+      - map: [ "socks" ]
+      - map: [ "jumpsuit" ]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - map: [ "id" ]
+      - map: [ "gloves" ]
+      - map: [ "ears" ]
+      - map: [ "belt" ]
+      - map: [ "outerClothing" ]
+      - map: [ "beltalt" ]
+      - map: [ "eyes" ]
+      - map: [ "back" ]
+      - map: [ "neck" ]
+      - map: [ "enum.HumanoidVisualLayers.NeckFluff" ] # Omu - neck fluff should sit between chest and head
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: [ "clownedon" ]
+        sprite: "Effects/creampie.rsi"
+        state: "creampie_human"
+        visible: false
+      - map: [ "maskalt" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "mask" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "head" ]
+      # Omu end
+  - type: HumanoidAppearance
+    species: Ovinia
+  - type: Body
+    prototype: Ovinia
+  - type: Speech
+    speechSounds: Alto
+    speechVerb: Ovinia
+    allowedEmotes: ["Baa"]
+  - type: Vocal
+    sounds:
+      Male: MaleOvinia
+      Female: FemaleOvinia
+      Unsexed: MaleOvinia
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Caprine
+    understands:
+    - TauCetiBasic
+    - Caprine
+  - type: StepTriggerImmune
+    whitelist:
+      types:
+        - Shard
+        - Mousetrap
+        - SlipEntity
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - OviniaEmotes
+  - type: TypingIndicator
+    proto: ovinia
+  - type: Inventory
+    speciesId: ovinia
+    templateId: human
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: shoes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: outerclothing_hardsuit
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: shoes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: outerclothing_hardsuit
+  - type: Flammable
+    firestackFade: -0.15 #wool isnt flammable
+  - type: Hunger
+    baseDecayRate: 0.0125 #25% slower than normal (chewin they cud)
+  - type: Thirst
+    baseDecayRate: 0.075
+
+- type: entity
+  parent: MobHumanDummy
+  id: MobOviniaDummy
+  name: Ovinia Dummy
+  save: false
+  categories: [ HideSpawnMenu ]
+  description: A dummy ovinia meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: Ovinia
+  - type: Inventory
+    speciesId: ovinia
+    templateId: human
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: shoes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: outerclothing_hardsuit
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: shoes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _DEN/Mobs/Species/Ovinia/displacement.rsi
+            state: outerclothing_hardsuit
+  # Omu start
+  - type: Sprite
+    noRot: true
+    layers:
+      - map: [ "enum.HumanoidVisualLayers.Groin" ]
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+      - map: [ "socks" ]
+      - map: [ "jumpsuit" ]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - map: [ "id" ]
+      - map: [ "gloves" ]
+      - map: [ "ears" ]
+      - map: [ "belt" ]
+      - map: [ "outerClothing" ]
+      - map: [ "beltalt" ]
+      - map: [ "eyes" ]
+      - map: [ "back" ]
+      - map: [ "neck" ]
+      - map: [ "enum.HumanoidVisualLayers.NeckFluff" ] # Omu - neck fluff should sit between chest and head
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: [ "clownedon" ]
+        sprite: "Effects/creampie.rsi"
+        state: "creampie_human"
+        visible: false
+      - map: [ "maskalt" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "mask" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "head" ]
+  # Omu end

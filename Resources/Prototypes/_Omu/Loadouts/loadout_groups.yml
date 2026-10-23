@@ -187,6 +187,20 @@
   - WhiteEnvirogloves
 
 - type: loadoutGroup
+  id: VirologistHead
+  name: loadout-group-virologist-head
+  minLimit: 0
+  loadouts:
+  - MedicalBeret
+  - SeniorPhysicianBeret
+  - MedicalHeadMirror
+  - BlueSurgeryCap
+  - GreenSurgeryCap
+  - PurpleSurgeryCap
+  - NurseHat
+  - UshankaVirologist
+
+- type: loadoutGroup
   id: VirologistEnvirohelm
   name: loadout-group-virologist-envirohelm
   minLimit: 1
@@ -367,7 +381,7 @@
   id: SergeantBelt
   name: loadout-group-sergeant-belt
   loadouts:
-  - SergeantBelt
+  # - SergeantBelt # its our change but i prefer commenting things out (Omu)
   - SecurityBelt
   - SecurityWebbing
   - SecuritySwordBelt # Omu
@@ -401,6 +415,7 @@
   maxLimit: 1
   loadouts:
   - DetectiveWeaponRevolverInspector # Default for det should be their revolver
+  - DetectiveWeaponRevolverR3Compleat
 
 - type: loadoutGroup
   id: DetectiveEyes
@@ -529,3 +544,51 @@
   loadouts:
   - EMTBelt
   - ParamedPouch
+
+# Chef
+- type: loadoutGroup
+  id: ChefBackpack
+  name: loadout-group-chef-backpack
+  loadouts:
+  - ChefBackpack
+  - ChefBackpackSatchel
+  - ChefBackpackDuffel
+  - ChefBackpackMessenger
+
+# Janitor
+- type: loadoutGroup
+  id: JanitorBackpack
+  name: loadout-group-janitor-backpack
+  loadouts:
+  - JanitorBackpack
+  - JanitorBackpackSatchel
+  - JanitorBackpackDuffel
+  - JanitorBackpackMessenger
+
+# Bartender
+- type: loadoutGroup
+  id: BartenderBackpack
+  name: loadout-group-bartender-backpack
+  loadouts:
+  - BartenderBackpack
+  - BartenderBackpackSatchel
+  - BartenderBackpackDuffel
+  - BartenderBackpackMessenger
+
+# Blueshield Officer
+- type: loadoutGroup
+  id: SurvivalBlueshieldOfficer
+  name: loadout-group-survival-blueshield
+  minLimit: 3
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenBlueshieldOfficer
+  - EmergencyOxygenBlueshieldOfficer
+  - EmergencyPlasmaBlueshieldOfficer
+  - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma 
+  - EmergencyWaterVaporBlueshieldOfficer 
+  - EmergencySilicon 
+  - EmergencyOxygenCarnivoreBlueshieldOfficer 
+  - EmergencyOxygenEthanolBlueshieldOfficer 
+  - EmergencyOxygenVegetarianBlueshieldOfficer

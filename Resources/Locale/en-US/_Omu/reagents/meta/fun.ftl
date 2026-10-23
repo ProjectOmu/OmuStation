@@ -30,3 +30,9 @@ reagent-desc-methrilconcentrate = A concentrated form of methril made by Interdy
 
 reagent-name-awebo = Juice that makes you awebo
 reagent-desc-awebo = A strange concentrate of alchohol that makes you forget you have two hands.
+
+reagent-name-gekkerzine = Gekkerzine
+reagent-desc-gekkerzine = An annoying chemical that makes you gekker just like a vulp.
+
+reagent-name-baaveltine = Baaveltine
+reagent-desc-baaveltine = A suspicious concoction that leaves you bleating.

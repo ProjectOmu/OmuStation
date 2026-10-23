@@ -146,6 +146,7 @@
     - Brainrotted # Goobstation - skibidi rizz ohio update
     - Dementia # Goobstation - Amnestic spray!
     - StatusEffectBerserk # Omu for berserk sting
+    - CorticalBorerProtection # Omu for borers
   - type: Body
     prototype: Human
     requiredLegs: 2
@@ -261,6 +262,7 @@
   - type: MindControllable # Goobstation
   #- type: VisibleContraband # Goobstation - Omu not here
   - type: MomentumSteering # Goobstation - No steer
+  - type: Tackler # Trauma
 
 - type: entity
   save: false
