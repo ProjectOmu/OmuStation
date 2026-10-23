@@ -226,3 +226,105 @@
   storage:
     back:
     - MysteryStaffPlushieBox
+
+# honk
+- type: loadout
+  id: ClothingMaskClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: HonkliestOne
+  storage:
+    back:
+    - ClothingMaskClown
+  groupBy: "honk"
+
+- type: loadout
+  id: ClothingMaskSexyClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: HonkliestOne
+  storage:
+    back:
+    - ClothingMaskSexyClown
+  groupBy: "honk"
+
+- type: loadout
+  id: BikeHornImplanter
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: HonkliestOne
+  storage:
+    back:
+    - BikeHornImplanter
+  groupBy: "honk"
+
+- type: loadout
+  id: SadTromboneImplanter
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: HonkliestOne
+  storage:
+    back:
+    - SadTromboneImplanter
+  groupBy: "honk"
+
+- type: loadout
+  id: ClothingShoesClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: HonkliestOne
+  storage:
+    back:
+    - ClothingShoesClown
+  groupBy: "honk"
+
+- type: loadout
+  id: CrayonRainbow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: HonkliestOne
+  storage:
+    back:
+    - CrayonRainbow
+  groupBy: "honk"
+
+# mimey stuff
+- type: loadout
+  id: ClothingMaskMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EvilFuckingMime
+  storage:
+    back:
+    - ClothingMaskMime
+  groupBy: "mimeystuff"
+
+- type: loadout
+  id: ClothingMaskSadMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EvilFuckingMime
+  storage:
+    back:
+    - ClothingMaskSadMime
+  groupBy: "mimeystuff"
+
+- type: loadout
+  id: ClothingHeadHatBeret
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EvilFuckingMime
+  storage:
+    back:
+    - ClothingHeadHatBeret
+  groupBy: "mimeystuff"
+
+- type: loadout
+  id: CrayonMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EvilFuckingMime
+  storage:
+    back:
+    - CrayonMime
+  groupBy: "mimeystuff"

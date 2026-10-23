@@ -1,4 +1,14 @@
+- type: loadoutEffectGroup
+  id: HonkliestOne
+  effects:
+  - !type:JobRequirementLoadoutEffect
+   requirement:
+    !type:RoleTimeRequirement
+   role: JobClown
+   time: 20h
+
 # Belt
+
 - type: loadout
   id: ClownFoamSabre
   equipment:

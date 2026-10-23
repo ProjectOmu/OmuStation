@@ -30,6 +30,7 @@ loadout-group-detective-gun = Detective Gun
 # Security
 loadout-group-security-gun = Security Gun
 loadout-group-sergeant-gun = Sergeant Gun
+loadout-group-security-mask = Security mask
 
 loadout-group-sergeant-jumpsuit = Sergeant jumpsuit
 loadout-group-sergeant-head = Sergeant head

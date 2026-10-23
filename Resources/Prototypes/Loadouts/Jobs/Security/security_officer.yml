@@ -53,6 +53,24 @@
   equipment:
     head: ClothingHeadHatSecurityTrooper
 
+# Mask
+- type: loadout
+  id: ClothingMaskMimeSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EvilFuckingMime
+  storage:
+    back:
+    - ClothingMaskMimeSecurity
+
+- type: loadout
+  id: ClothingMaskClownSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: HonkliestOne
+  storage:
+    back:
+    - ClothingMaskClownSecurity
 
 # Jumpsuit
 - type: loadout

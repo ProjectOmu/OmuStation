@@ -1,0 +1,8 @@
+- type: loadoutEffectGroup
+  id: EvilFuckingMime
+  effects:
+  - !type:JobRequirementLoadoutEffect
+   requirement:
+    !type:RoleTimeRequirement
+   role: JobMime
+   time: 20h

@@ -335,6 +335,15 @@
 # Security
 
 - type: loadoutGroup
+  id: SecurityMask
+  name: loadout-group-security-mask
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ClothingMaskClownSecurity
+  - ClothingMaskMimeSecurity
+
+- type: loadoutGroup
   id: TrinketsSecurity
   name: loadout-group-security-gun
   minLimit: 1
