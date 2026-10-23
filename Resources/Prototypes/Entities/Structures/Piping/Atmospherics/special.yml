@@ -26,6 +26,7 @@
   - type: Tag
     tags:
       - SpreaderIgnore
+  - type: SoundMuffler # Omu
 
 - type: entity
   id: AtmosDeviceFanDirectional
@@ -51,6 +52,7 @@
     noAirWhenFullyAirBlocked: false
     airBlockedDirection:
       - South
+  - type: SoundMuffler # Omu
   - type: Clickable
   - type: Tag
     tags:
