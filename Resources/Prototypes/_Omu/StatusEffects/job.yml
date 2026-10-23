@@ -108,10 +108,19 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconCCInternalAffairs
+  id: JobIconCCInternalAffairsEye
   icon:
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
-    state: ia
+    state: ia_eye
+  jobName: job-name-internal-affairs
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCInternalAffairsText
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: ia_text
   jobName: job-name-internal-affairs
   allowSelection: false
 
