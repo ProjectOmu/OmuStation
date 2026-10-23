@@ -1,0 +1,35 @@
+- type: entity
+  parent: BaseAction
+  id: ActionNecroEnter
+  name: Enter #Placeholder sprites - its just the cortical borer one since i looked at it to make this work
+  description: Slither into an entity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Mono/Interface/Action.rsi
+      state: borer_infest
+  - type: TargetAction
+    range: 0.5
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:NecroEnterEvent {}
+
+- type: entity
+  id: ActionNecroLeave
+  name: Eject Host
+  description: Eject yourself from your host.
+  components:
+  - type: Action
+    useDelay: 5
+    icon:
+      sprite: _Mono/Interface/Action.rsi
+      state: borer_eject
+  - type: InstantAction
+    event: !type:NecroLeaveEvent
