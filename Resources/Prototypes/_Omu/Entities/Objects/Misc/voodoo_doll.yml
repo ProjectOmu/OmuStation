@@ -1,0 +1,98 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [BaseItem, BaseMagicalContraband]
+  id: VoodooDoll
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Misc/voodoo_doll.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: _Omu/Objects/Misc/voodoo_doll.rsi
+  - type: VoodooDoll
+    bindDelay: 2.5
+    remoteBindDelay: 10
+    unbindDelay: 5
+    bindSound:
+      path: /Audio/_Goobstation/Heretic/voidblink.ogg
+    bindUserSound:
+      path: /Audio/_Goobstation/Heretic/voidblink.ogg
+      params:
+        volume: -8
+    rebindCooldown: 120
+    fontSize: 20
+    range: 150
+    hintBeaconChance: 0.5
+    shockDamage: 5
+    shockTime: 2
+    flashTime: 5
+    flashSlowTo: 0.5
+    flashSound:
+      path: /Audio/Weapons/flash.ogg
+      params:
+        volume: 1
+        maxDistance: 3
+    blindTime: 10
+    heatChange: 40
+    heatSound:
+      path: /Audio/Items/welder.ogg
+    igniteChance: 0.33
+    cutDamage:
+      types:
+        Slash: 5
+    bleedAmount: 3.75
+    cutSound:
+      path: /Audio/Weapons/bladeslice.ogg
+    throwDamage:
+      types:
+        Blunt: 10
+    throwDistance: 4
+    throwSpeed: 7
+    tripTime: 2
+    forcedAttackTime: 6
+    forcedShotRange: 3
+    flingDistance: 4
+    flingSpeed: 10
+    muteTime: 10
+    soapFriction: 0.025
+    soapTime: 10
+    destroyedDamage:
+      groups:
+        Brute: 50
+    viewTime: 10
+  - type: UseDelay
+    delays:
+      voodoo:
+        length: 45
+  - type: UserInterface
+    interfaces:
+      enum.VoodooDollUiKey.Key:
+        type: VoodooDollBoundUserInterface
+
+- type: entity
+  parent: VoodooDoll
+  id: VoodooDollAdmin
+  name: evil wicker doll
+  description: When you really want someone to suffer.
+  suffix: Admeme
+  components:
+  - type: VoodooDoll
+    bindDelay: 0
+    remoteBindDelay: 0
+    unbindDelay: 0
+    rebindCooldownStatusEffect: null
+    range: null
+    locationHints: false
+  - type: UseDelay
+    delays:
+      voodoo:
+        length: 0
+  - type: VoodooDollChameleon
+    parent: BasePlushie
+  - type: UserInterface
+    interfaces:
+      enum.VoodooDollUiKey.Key:
+        type: VoodooDollBoundUserInterface
+      enum.VoodooDollUiKey.Chameleon:
+        type: VoodooDollChameleonBoundUserInterface
