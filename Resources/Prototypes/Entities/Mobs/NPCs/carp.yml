@@ -212,6 +212,17 @@
       defaultChannel: Dragonmind
       channels:
       - Dragonmind # Goobstation End
+# omu start
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 40 # gibs on death
+        behaviors:
+        - !type:GibBehavior
+         gibContents: Skip 
+         recursive: false
+# omu end
 
 - type: entity
   id: MobCarpDungeon
