@@ -23,7 +23,7 @@ public sealed class StationRadioReceiverSystem : EntitySystem
     private void OnPowerChanged(EntityUid uid, StationRadioReceiverComponent comp, PowerChangedEvent args)
     {
         if(comp.SoundEntity != null && args.Powered)
-            _audio.SetGain(comp.SoundEntity, comp.Active ? comp.DefaultParams.Volume : 0f);
+            _audio.SetGain(comp.SoundEntity, comp.Active ? comp.VinylVolume : 0f);//omu
         else if(comp.SoundEntity != null)
             _audio.SetGain(comp.SoundEntity, 0);
     }
@@ -32,14 +32,18 @@ public sealed class StationRadioReceiverSystem : EntitySystem
     {
         comp.Active = !comp.Active;
         if (comp.SoundEntity != null && _power.IsPowered(uid))
-            _audio.SetGain(comp.SoundEntity, comp.Active ? comp.DefaultParams.Volume : 0f);
+            _audio.SetGain(comp.SoundEntity, comp.Active ? comp.VinylVolume : 0f);//omu
     }
 
     private void OnMediaPlayed(EntityUid uid, StationRadioReceiverComponent comp, StationRadioMediaPlayedEvent args)
     {
         var audio = _audio.PlayPredicted(args.MediaPlayed, uid, uid, comp.DefaultParams);
         if (audio != null && _power.IsPowered(uid) && comp.Active)
+        {
             comp.SoundEntity = audio.Value.Entity;
+            comp.VinylVolume = args.Volume;                 //omu
+            _audio.SetGain(comp.SoundEntity, args.Volume);  //omu
+        }
         else if (audio != null && !_power.IsPowered(uid) || !comp.Active && audio != null)
         {
             comp.SoundEntity = audio.Value.Entity;

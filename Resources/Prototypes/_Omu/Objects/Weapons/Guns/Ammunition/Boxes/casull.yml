@@ -1,0 +1,80 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseMagazineBoxCasull
+  components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeCasull
+    proto: CartridgeCasull
+    capacity: 12
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Boxes/magnum.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: [BaseMagazineBoxCasull, BaseCentcommContraband] 
+  id: MagazineBoxCasull
+  name: ammunition box (.454 casull)
+  description: A cardboard box of .454 casull rounds. Intended to hold general-purpose kinetic ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCasull
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineBoxCasullAP
+  parent: BaseMagazineBoxCasull
+  name: ammunition box (.454 casull armor-piercing)
+  description: A cardboard box of .454 casull rounds. Intended to hold specialized armor-piercing ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCasullAP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: piercing
+
+- type: entity
+  id: MagazineBoxCasullHEAP
+  parent: BaseMagazineBoxCasull
+  name: ammunition box (.454 casull high-explosive armor-piercing)
+  description: A cardboard box of .454 casull rounds. Intended to hold specialized ammo used for fighting large non-humanoid targets.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCasullHEAP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary

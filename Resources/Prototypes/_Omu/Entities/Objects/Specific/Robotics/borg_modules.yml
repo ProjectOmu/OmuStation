@@ -115,3 +115,20 @@
           - Jetpack
   - type: BorgModuleIcon
     icon: { sprite: _Omu/Interface/Actions/actions-borg.rsi, state: thruster-module }
+
+- type: entity
+  id: BorgModuleAdvancedMusique
+  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  name: advanced musique cyborg module
+  description: Advanced service module for the most musical cyborgs! Comes with a built-in digital audio workstation that can play any instrument.
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-musique-adv
+      sprite: _Omu/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: DawInstrumentBorg
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: musical-module }

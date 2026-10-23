@@ -1,0 +1,59 @@
+- type: entity
+  abstract: true
+  parent: [ BaseCartridge, BaseCentcommContraband ]
+  id: BaseCartridgeCasull
+  name: cartridge (.454 casull)
+  components:
+  - type: Tag
+    tags:
+      - CartridgeCasull
+  - type: CartridgeAmmo
+    proto: BulletCasull
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  parent: BaseCartridgeCasull
+  id: CartridgeCasull
+  name: cartridge (.454 casull)
+  description: Heavy casull cartridge mostly used by the Mateba BFR. Standard kinetic ammunition is common and useful in most situations.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletCasull
+
+- type: entity
+  parent: BaseCartridgeCasull
+  id: CartridgeCasullAP
+  name: cartridge (.454 casull armor-piercing)
+  description: Heavy casull cartridge mostly used by the Mateba BFR. Armor-piercing ammunition is renowned for its ability to cut straight through body armor.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletCasullAP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#0a0a0a"
+
+- type: entity
+  parent: BaseCartridgeCasull
+  id: CartridgeCasullHEAP
+  name: cartridge (.454 casull high-explosive armor-piercing)
+  description: Heavy casull cartridge mostly used by the Mateba BFR. Used for large non-humanoid targets.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletCasullHEAP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#800000"

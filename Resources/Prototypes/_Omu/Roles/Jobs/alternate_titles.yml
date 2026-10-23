@@ -70,7 +70,7 @@
   id: AlternateTitlesLibrarian
   values:
     prefix: job-name-alt-librarian-
-    count: 5
+    count: 4
 
 - type: localizedDataset
   id: AlternateTitlesMime
@@ -204,11 +204,11 @@
     prefix: job-name-alt-detective-
     count: 3
 
-- type: localizedDataset
-  id: AlternateTitlesSecuritySergeant
-  values:
-    prefix: job-name-alt-security-sergeant-
-    count: 2
+# - type: localizedDataset
+#   id: AlternateTitlesSecuritySergeant
+#   values:
+#     prefix: job-name-alt-security-sergeant-
+#     count: 2
 
 - type: localizedDataset
   id: AlternateTitlesBrigmedic

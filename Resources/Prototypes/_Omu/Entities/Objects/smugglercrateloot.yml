@@ -4,22 +4,32 @@
     children:
     - id: SmugglerLootStole
     - id: SmugglerPickaxe
-    - id: ReinforcementRadioSmugglerCrateIPC
-    - id: ReinforcementRadioSmugglerCrateBorg
     - id: OrganEyesOfGod
     - id: MiningTomePlasma
     - id: LazarusImplanter
     - id: CogtoothAxe
+    - id: SingularityToy
+    - id: FoamThrongler
+    - id: GlueGrenade
+    - id: SyringePoisonFent
+    - id: ClothingOuterHardsuitSanta
+    - id: LavalandVampirismCrystal #Feel free to remove these lavaland items if it ever gets readded/reworked
+    - id: LavalandCursedHeart
+    - id: WeaponCrusherHalberdFilledRandom
+    - id: RGBStaff
+    - id: FishingRodGolden
 
 - type: entityTable     #Todo - more gamer lot
   id: SmugglerCrateSyndieLoot
   table: !type:GroupSelector
     children:
-    - id: SyndicateShuttleConsoleCircuitboard
     - id: SawAdvanced
     - id: CyberPen
     - id: ClothingHandsKnuckleDustersSyndicate
     - id: HappyHonkNukieSnacks
+    - id: ClothingBackpackDuffelSyndicatePyjamaBundle
+    - id: ClothingHeadHatCatEars
+    - id: CigPackSyndicate
 
 - type: entity
   parent: [ ClothingNeckStoleChaplain, BaseChameleon ]
@@ -39,7 +49,7 @@
 
 - type: entity
   name: Calvin    #Wilson the volleyball, Calvin Suitable pickaxe name.
-  parent: Pickaxe
+  parent: PickaxeDiamond
   suffix: Pickaxe
   id: SmugglerPickaxe
   description: Notched to perfection, for jamming it into rocks. Worn with age, now you have a friend to talk to!
@@ -76,7 +86,7 @@
   id: ReinforcementRadioSmugglerCrateIPC
   name: Damaged Silicon Parts
   description: Maybe it can be repaired?
-  suffix: NukeOps
+  suffix: IPC
   components:
   - type: Sprite
     sprite: /Textures/_Omu/Objects/SmugglerLoot.rsi
@@ -87,7 +97,7 @@
     description: smuggler-silicon-ipc-desc
     rules: ghost-role-information-familiar-rules
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonistGoob
+    - MindRoleGhostRoleFamiliar
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
@@ -98,18 +108,18 @@
   id: ReinforcementRadioSmugglerCrateBorg
   name: Damaged Silicon Parts
   description: Maybe it can be repaired?
-  suffix: NukeOps
+  suffix: Borg
   components:
   - type: Sprite
     sprite: /Textures/_Omu/Objects/SmugglerLoot/scrap.rsi
     layers:
     - state: ipc_rusted
   - type: GhostRole
-    name: smuggler-silicon-ipc-name
-    description: smuggler-silicon-ipc-desc
+    name: smuggler-silicon-borg-name
+    description: smuggler-silicon-borg-desc
     rules: ghost-role-information-familiar-rules
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonistGoob
+    - MindRoleGhostRoleFamiliar
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
@@ -118,7 +128,7 @@
 
 - type: entity
   id: BorgChassisDerelictSyndicateHelpimov
-  parent: BorgChassisDerelictSyndicateAssault
+  parent: PlayerBorgDerelictSyndicateAssaultBattery
   name: derelict syndicate assasult cyborg
   description: A lean, mean killing machine with access to a variety of deadly modules. This one is in a state of great disrepair despite your best efforts.
   components:
@@ -132,6 +142,18 @@
   components:
   - type: Organ
     onAdd:
+    - type: BatteryAmmoProvider
+      proto: RedLightLaser
+      fireCost: 50
+    - type: BatterySelfRecharger
+      autoRechargeRate: 25
+    - type: Gun
+      fireRate: 1
+      useKey: false
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+      soundGunshot: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     - type: Battery
       maxCharge: 200
       startingCharge: 0

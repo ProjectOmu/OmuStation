@@ -57,3 +57,15 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: JermovLawset
+
+- type: entity
+  id: ReportertronCircuitBoard
+  parent: BaseElectronics
+  name: law board (Reportertron)
+  description: An electronics board containing the Reportertron lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: ReportertronLawset

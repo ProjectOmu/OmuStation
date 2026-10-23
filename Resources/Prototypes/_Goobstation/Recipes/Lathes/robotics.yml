@@ -76,13 +76,15 @@
     Silver: 200
 
 # S.E.C. cyborg
-- type: latheRecipe
-  parent: BaseRoboticsRecipe
-  id: SecEndoskeleton
-  result: CyborgEndoskeletonSEC
-  completetime: 4
-  materials:
-    Steel: 1500
-    Gold: 200
-    Silver: 200
-    Uranium: 100
+# Omu start: remove S.E.C. cyborg from regular play
+# - type: latheRecipe
+#   parent: BaseRoboticsRecipe
+#   id: SecEndoskeleton
+#   result: CyborgEndoskeletonSEC
+#   completetime: 4
+#   materials:
+#     Steel: 1500
+#     Gold: 200
+#     Silver: 200
+#     Uranium: 100
+# Omu end
