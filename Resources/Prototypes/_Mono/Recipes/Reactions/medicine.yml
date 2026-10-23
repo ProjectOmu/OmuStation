@@ -1,4 +1,18 @@
 - type: reaction
+  id: Peranol
+  reactants:
+    Cryoxadone:
+      amount: 2
+    Leporazine:
+      amount: 1
+    Sulfur:
+      amount: 1
+  products:
+    Peranol: 4
+
+# Omustation Start
+
+- type: reaction
   id: Rhymatine
   minTemp: 320
   reactants:
@@ -86,3 +100,4 @@
   products:
     ProtoLetoferol: 2
     Carbon: 0.5
+# Omustation End

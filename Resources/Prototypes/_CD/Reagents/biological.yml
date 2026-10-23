@@ -13,9 +13,10 @@
       - !type:SatiateThirst
         factor: 1.5
         conditions:
-          - !type:OrganType # Omu, replace metabolisertype with organtype
-            type: Human
-            shouldHave: false
+          - !type:MetabolizerTypeCondition
+            type:
+            - Human
+            inverted: true
   footstepSound:
     collection: FootstepBlood
     params:

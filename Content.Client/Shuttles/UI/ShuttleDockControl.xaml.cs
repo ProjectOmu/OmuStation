@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
@@ -47,6 +41,8 @@ public sealed partial class ShuttleDockControl : BaseShuttleControl
 
     private readonly HashSet<DockingPortState> _drawnDocks = new();
     private readonly Dictionary<DockingPortState, Button> _dockButtons = new();
+
+    private readonly Color _fallbackHighlightedColor = Color.Magenta;
 
     /// <summary>
     /// Store buttons for every other dock
@@ -140,6 +136,9 @@ public sealed partial class ShuttleDockControl : BaseShuttleControl
         var canDockChange = _timing.CurTime > _nextDockChange;
         var lineOffset = (float) _timing.RealTime.TotalSeconds * 30f;
 
+        var viewedDockType = _viewedState?.DockType ?? DockType.None; // Frontier: cache dock type
+        var viewedReceiveOnly = _viewedState?.ReceiveOnly ?? true; // Frontier: cache receive only
+
         foreach (var grid in _grids)
         {
             EntManager.TryGetComponent(grid.Owner, out IFFComponent? iffComp);
@@ -221,11 +220,13 @@ public sealed partial class ShuttleDockControl : BaseShuttleControl
 
                 if (HighlightedDock == dock.Entity)
                 {
-                    otherDockColor = Color.ToSrgb(Color.Magenta);
+                    //otherDockColor = Color.ToSrgb(Color.Magenta); // Frontier
+                    otherDockColor = Color.ToSrgb(dock.HighlightedRadarColor); // Frontier
                 }
                 else
                 {
-                    otherDockColor = Color.ToSrgb(Color.Purple);
+                    // otherDockColor = Color.ToSrgb(Color.Purple); // Frontier
+                    otherDockColor = Color.ToSrgb(dock.RadarColor); // Frontier
                 }
 
                 /*
@@ -243,6 +244,7 @@ public sealed partial class ShuttleDockControl : BaseShuttleControl
                 if (dockButton != null && dock.GridDockedWith != null)
                 {
                     dockButton.Disabled = !canDockChange;
+                    dockButton.Visible = true; // Frontier: undock should always be visible.
                 }
 
                 // If the dock is in range then also do highlighting
@@ -272,18 +274,25 @@ public sealed partial class ShuttleDockControl : BaseShuttleControl
                             var canDock = distanceSq < maxDockDistSq && inAlignment;
 
                             if (dockButton != null)
-                                dockButton.Disabled = !canDock || !canDockChange;
+                            {
+                                dockButton.Disabled = !canDock && dock.GridDockedWith == null || !canDockChange; // Frontier: add "&& dock.GridDockedWith == null"
+                                dockButton.Visible = dock.GridDockedWith != null || (dock.DockType & viewedDockType) != DockType.None && !viewedReceiveOnly; // Frontier: do not enable docking for receive-only docks
+                            }
 
                             var lineColor = inAlignment ? Color.Lime : Color.Red;
                             handle.DrawDottedLine(viewedDockPos.Value, collisionCenter, lineColor, offset: lineOffset);
                         }
+                        else if (dockButton != null)
+                        {
+                            dockButton.Visible = dock.GridDockedWith != null; // Frontier: do not enable docking for receive-only docks
+                        }
 
                         canDraw = true;
                     }
-                    else
+                    else if (dockButton != null)
                     {
-                        if (dockButton != null)
-                            dockButton.Disabled = true;
+                        dockButton.Disabled = true;
+                        dockButton.Visible = dock.GridDockedWith != null || (dock.DockType & viewedDockType) != DockType.None && !viewedReceiveOnly; // Frontier
                     }
                 }
 
@@ -319,7 +328,7 @@ public sealed partial class ShuttleDockControl : BaseShuttleControl
             ScalePosition(Vector2.Transform(new Vector2(-0.5f, 0.5f), rotation)),
             ScalePosition(Vector2.Transform(new Vector2(0.5f, -0.5f), rotation)));
 
-        var dockColor = Color.Magenta;
+        var dockColor = _viewedState?.HighlightedRadarColor ?? Color.Magenta; // Frontier - use ViewedState
         var connectionColor = Color.Pink;
 
         handle.DrawRect(ourDockConnection, connectionColor.WithAlpha(0.2f));

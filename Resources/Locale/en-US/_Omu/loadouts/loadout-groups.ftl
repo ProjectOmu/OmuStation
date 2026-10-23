@@ -4,16 +4,25 @@ loadout-group-ntr-outerclothing = Nanotrasen Representative outer clothing
 
 # Blueshield Officer
 loadout-group-bso-belt = Blueshield Officer belt
+loadout-group-survival-blueshield = Blueshield Officer survival kit
 
 # Corpsman
 loadout-group-corpsman-glasses = Corpsman glasses
 loadout-group-corpsman-belt = Corpsman belt
 loadout-group-corpsman-headset = Corpsman headset
 
+# Medical
+loadout-group-medical-backpack = Medical backpack
+
+# Paramedic
+loadout-group-paramedic-backpack = Paramedic backpack
+loadout-group-paramedic-belt = Paramedic belt
+
 # Virologist
 loadout-group-virologist-envirohelm = Virologist envirohelm
 loadout-group-virologist-envirosuit = Virologist envirosuit
 loadout-group-virologist-envirogloves = Virologist envirogloves
+loadout-group-virologist-head = Virologist head
 
 # Detective
 loadout-group-detective-eyes = Detective Glasses
@@ -21,6 +30,7 @@ loadout-group-detective-gun = Detective Gun
 
 # Security
 loadout-group-security-gun = Security Gun
+loadout-group-sergeant-gun = Sergeant Gun
 
 loadout-group-sergeant-jumpsuit = Sergeant jumpsuit
 loadout-group-sergeant-head = Sergeant head
@@ -29,3 +39,19 @@ loadout-group-sergeant-belt = Sergeant belt
 
 # Clown
 loadout-group-clown-belt = Clown belt
+
+# Musician
+loadout-group-musician-shoes = Musician Shoes
+loadout-group-musician-hat = Musician Hat
+
+# Janitor
+loadout-group-janitor-backpack = Janitor backpacks
+
+# Chef
+loadout-group-chef-backpack = Chef backpacks
+
+# Bartender
+loadout-group-bartender-backpack = Bartender backpacks
+
+# Other
+loadout-group-civilian_formal-shoes = Formal shoes

@@ -1,0 +1,16 @@
+# Funky Station
+- type: entity
+  parent: BaseStationEvent
+  id: UtilityLineRupture
+  name: Utility Line Rupture
+  components:
+  - type: UtilityLineRuptureRule
+  - type: StationEvent
+    earliestStart: 15
+    weight: 6.5
+    duration: null
+  - type: GameRule
+    delay:
+      min: 0
+      max: 0
+    chaosScore: 300 # Omu - potential to do a lot of damage

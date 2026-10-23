@@ -1,0 +1,18 @@
+- type: entity
+  parent: BaseTraitorRule
+  id: OopsAllTraitors
+  components:
+  - type: GameRule
+    minPlayers: 30
+    chaosScore: 1500
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Traitor ]
+      max: 10
+      playerRatio: 7
+      blacklist:
+        components:
+        - AntagImmune
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleTraitor

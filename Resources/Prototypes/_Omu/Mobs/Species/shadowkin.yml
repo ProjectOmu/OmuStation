@@ -266,3 +266,95 @@
   sprites:
   - sprite: _Omu/Mobs/Customization/Shadowkin/shadowkin_overlay.rsi
     state: body_fullbelly
+
+- type: marking
+  id: HandShadowkinDollJointsTattooLeft
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [Shadowkin]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Shadowkin/lhand.rsi
+    state: doll
+
+- type: marking
+  id: HandShadowkinHeavyTattoosLeft
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [Shadowkin]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Shadowkin/lhand.rsi
+    state: heavy1
+  - sprite: _Omu/Mobs/Customization/Shadowkin/lhand.rsi
+    state: heavy2
+
+- type: marking
+  id: HandShadowkinRingsLeft
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [Shadowkin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffc833"
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Shadowkin/lhand.rsi
+    state: rings1
+  - sprite: _Omu/Mobs/Customization/Shadowkin/lhand.rsi
+    state: rings2
+
+- type: marking
+  id: HandShadowkinDollJointsTattooRight
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [Shadowkin]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Shadowkin/rhand.rsi
+    state: doll
+
+- type: marking
+  id: HandShadowkinHeavyTattoosRight
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [Shadowkin]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Shadowkin/rhand.rsi
+    state: heavy1
+  - sprite: _Omu/Mobs/Customization/Shadowkin/rhand.rsi
+    state: heavy2
+
+- type: marking
+  id: HandShadowkinRingsRight
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [Shadowkin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffc833"
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Shadowkin/rhand.rsi
+    state: rings1
+  - sprite: _Omu/Mobs/Customization/Shadowkin/rhand.rsi
+    state: rings2

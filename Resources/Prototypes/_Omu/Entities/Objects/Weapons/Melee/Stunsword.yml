@@ -15,9 +15,7 @@
     maxCharge: 1000
     startingCharge: 1000
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 10
-    autoRechargePause: false
     autoRechargePauseTime: 25
   - type: DisarmMalus
   - type: Tag
@@ -78,7 +76,7 @@
           soundHit:
             path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
         - type: StaminaDamageOnHit
-          damage: 15 
+          damage: 15
           overtime: 10
           lightAttackDamageMultiplier: 2
           lightAttackOvertimeDamageMultiplier: 1

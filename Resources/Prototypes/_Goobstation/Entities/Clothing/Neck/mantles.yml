@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -24,10 +16,47 @@
   parent: [ ClothingNeckBase ]
   id: ClothingNeckMantleVeteranSecurity
   name: veteran security's mantle
-  description: Personally awarded by HOS for repealing a Syndicate attack, looking at it seems to boost your morale by a bit
+  description: Personally awarded by HOS for repealing a Syndicate attack, looking at it seems to boost your morale by a bit. Equipped with a bodycam. # Omu
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Mantle/veteran_security.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Mantle/veteran_security.rsi
+  # Omu Begin
+  - type: DeviceNetwork
+    deviceNetId: Wired # :clueless:
+    receiveFrequencyId: SurveillanceCameraSecurity
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+    nameSet: True
+    mobile: True
+    id: Bodycam
+  - type: Eye
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: SurveillanceCameraMicrophone
+    blacklist:
+      components:
+        - SurveillanceCamera
+        - SurveillanceCameraMonitor
+        - RadioSpeaker
+  - type: ActiveListener
+    range: 10
+  - type: ClothingGrantComponent
+    component:
+      - type: StationAiVision
+        range: 4
+  # Omu End
 
+#Central command epaulettes
+- type: entity
+  parent: [ ClothingNeckBase, BaseCentcommContraband ]
+  id: ClothingNeckMantleEpaulettes
+  name: golden epaulettes
+  description: Exquisitely-crafted gold epaulettes symbolizing admiralty within Central Command.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Mantle/epaulettes.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Mantle/epaulettes.rsi

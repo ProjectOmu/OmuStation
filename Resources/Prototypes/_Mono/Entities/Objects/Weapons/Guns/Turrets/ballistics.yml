@@ -53,11 +53,10 @@
     - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: Bullet8x65mmSKR
     fireCost: 25
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 25
   - type: StaticPrice
     price: 1500

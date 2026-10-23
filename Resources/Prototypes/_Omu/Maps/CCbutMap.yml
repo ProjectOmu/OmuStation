@@ -23,12 +23,11 @@
             NanotrasenRepresentative: [ 1, 1 ]
             BlueshieldOfficer: [ 1, 1 ]
             HeadOfPersonnel: [ 2, 2 ]
-            AdministrativeAssistant: [ 1, 1 ] # Delta V
+            AdministrativeAssistant: [ 2, 2 ]
             Bartender: [ 1, 1 ]
             Botanist: [ 2, 2 ]
-            Chef: [ 3, 3 ]
+            Chef: [ 2, 2 ]
             Janitor: [ 1, 1 ]
-            Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
@@ -55,7 +54,7 @@
             SecurityCadet: [ 3, 6 ]
             Lawyer: [ 1, 1 ]
             Brigmedic: [ 1, 1 ]
-            TransitPrisoner: [6, 6] # Omu - Prisoner role
+            TransitPrisoner: [3, 3] # Omu - Prisoner role
             SecuritySergeant: [ 1, 1 ] #Omu
             #supply
             Quartermaster: [ 2, 2 ]
@@ -64,14 +63,13 @@
             CargoTechnician: [ 6, 6 ]
             #civilian
             Passenger: [ -1, -1 ]
-            Clown: [ 1, 1 ]
+            Clown: [ 3, 3 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             #silicon
-            StationAi: [ 4, 4 ]
+            StationAi: [ 6, 6 ]
             Borg: [ 12, 12 ]
 
-            NanotrasenCareerTrainer: [ 2, 2] # Omu
 
         # Goobstation blob-config-start HUGE
         - type: StationBlobConfig

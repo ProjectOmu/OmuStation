@@ -1,0 +1,69 @@
+- type: language
+  id: RakkProper
+  isVisibleLanguage: true
+  speech:
+    color: "#76adff"
+    fontId: VoxFont
+    fontSize: 12
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 4
+    #Transliteration of New Kin Pidgin replacements into Coptic script
+    #based on IPA pronunciation found on Wikipedia entry "Coptic script"
+    replacement:
+    - ⲭⲁ
+    - ⲣⲁ
+    - ⲙⲁ
+    - ⲥⲁ
+    - nⲁ
+    - ⲑⲁ
+    - ⲗⲁ
+    - ϭⲁ
+    - ⲑⲓ
+    - ϩⲓ
+    - ⲭⲓ
+    - ⲏⲁ
+    - ⲑⲁ
+    - ϩⲁ
+    - ⲭⲁ
+    - ⲏⲁ
+    - ⲧϣⲓ
+    - ⲧϣⲁ
+    - ⲭⲁϩ
+    - ⲥⲭⲣⲉ
+    - ⲁϩϧ
+    - ⲉⲭ
+    - ϯⲁwⲭ
+    - ⲭⲣⲁⲁ
+    - ⲓⲓ
+    - ⲭⲣⲓ
+    - ⲭⲁ
+    - ϫⲟ
+    #Glagolitic script information taken from Wikipedia article "Glagolitic script"
+    #The character origins seem to act kind of like Chinese characters, where the pictures have meaning
+    #I'm also putting some together that simply look cool.
+    - ⰇⰎⰖ
+    - ⰝⰞ
+    - ⰏⰫ
+    - ⰋⰋ
+    - ⰂⰆ
+    - ⰈⰎ
+    - ⰐⰔ
+    - ⰕⰗ
+    - ⰙⰡ
+    - ⰣⰤ
+    - ⰀⰇ
+    - Ⱈ
+    - Ⱖ
+    - Ⱙ
+    - ⰟⰊ
+    - ⰇⰄ
+    - Ⱋ
+    - ⰢⰢ
+    - ⰍⰋⰍ
+    - ⰖⰙⰅ
+    - Ⱘ
+    - ⰔⰒ
+    - ⰌⰞ
+    - Ⱚ

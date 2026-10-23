@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
-// SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -42,6 +35,19 @@ public sealed class BlobNodeSystem : EntitySystem
         SubscribeLocalEvent<BlobNodeComponent, BlobNodePulseEvent>(OnNodePulse);
 
         _tileQuery = GetEntityQuery<BlobTileComponent>();
+    }
+
+    private float GetPulseFrequencyByChem(BlobChemType chemType)
+    {
+        switch (chemType)
+        {
+            case BlobChemType.SinewyTendons:
+                return 2.5f;
+            case BlobChemType.ChainCoating:
+                return 6.0f;
+            default:
+                return 4.0f;
+        }
     }
 
     private void OnNodePulse(Entity<BlobNodeComponent> ent, ref BlobNodePulseEvent args)
@@ -148,12 +154,8 @@ public sealed class BlobNodeSystem : EntitySystem
                 if (!_tileQuery.HasComponent(tile))
                     continue;
 
-                var ev = new BlobTileGetPulseEvent
-                {
-                    Handled = explain
-                };
+                var ev = new BlobTileGetPulseEvent();
                 RaiseLocalEvent(tile, ev);
-                explain = false; // WTF?
             }
         }
 
@@ -169,6 +171,15 @@ public sealed class BlobNodeSystem : EntitySystem
         var blobNodeQuery = EntityQueryEnumerator<BlobNodeComponent, BlobTileComponent>();
         while (blobNodeQuery.MoveNext(out var ent, out var comp, out var blobTileComponent))
         {
+            if (blobTileComponent.Core != null && TryComp<BlobCoreComponent>(blobTileComponent.Core.Value, out var coreComp))
+                {
+                    comp.PulseFrequency = GetPulseFrequencyByChem(coreComp.CurrentChem);
+                }
+                else
+            {
+                comp.PulseFrequency = GetPulseFrequencyByChem(default);
+            }
+
             comp.NextPulse += frameTime;
             if (comp.PulseFrequency > comp.NextPulse)
                 continue;

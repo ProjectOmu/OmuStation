@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # markings intended for multiple species go here
@@ -601,7 +598,7 @@
   id: LegDollJointsTattooRight
   bodyPart: RLeg
   markingCategory: RightLeg
-  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie, Feroxi] # Omu - Feroxi
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie, Reptilian, Feroxi] # goob edit - yowies # Omu - Feroxi
   coloring:
     default:
       type:
@@ -615,7 +612,7 @@
   id: LegHeavyTattoosRight
   bodyPart: RLeg
   markingCategory: RightLeg
-  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie, Feroxi] # Omu - Feroxi
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie, Reptilian, Feroxi] # goob edit # Omu - Feroxi
   coloring:
     default:
       type:
@@ -631,7 +628,7 @@
   id: LegTwistingRight
   bodyPart: RLeg
   markingCategory: RightLeg
-  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie, Feroxi] # Omu - Feroxi
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie, Reptilian, Feroxi] # goob edit - yowies # Omu - Feroxi
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rleg.rsi
     state: twisting
@@ -687,7 +684,7 @@
   id: LegTwistingLeft
   bodyPart: LLeg
   markingCategory: LeftLeg
-  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Feroxi] # Omu - Feroxi
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie, Feroxi] # goob edit # Omu - Feroxi
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/lleg.rsi
     state: twisting
@@ -727,7 +724,7 @@
   id: FootHeavyTattoosLeft
   bodyPart: LFoot
   markingCategory: LeftFoot
-  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie, Feroxi] # Omu - Feroxi
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie, Reptilian, Feroxi] # goob edit # Omu - Feroxi
   coloring:
     default:
       type:
@@ -759,7 +756,7 @@
   id: FootHeavyTattoosRight
   bodyPart: RFoot
   markingCategory: RightFoot
-  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie, Feroxi] # Omu - Feroxi
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie, Reptilian, Feroxi] # goob edit # Omu - Feroxi
   coloring:
     default:
       type:
@@ -791,7 +788,7 @@
   id: HandDollJointsTattooLeft
   bodyPart: LHand
   markingCategory: LeftHand
-  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Feroxi] # Omu - Feroxi
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Vulpkanin, Rodentia, Feroxi] # Omu - Feroxi, No Shadowkin since they got their own version
   coloring:
     default:
       type:
@@ -805,7 +802,7 @@
   id: HandHeavyTattoosLeft
   bodyPart: LHand
   markingCategory: LeftHand
-  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Feroxi] # Omu - Feroxi
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Vulpkanin, Rodentia, Feroxi] # Omu - Feroxi, No Shadowkin since they got their own version
   coloring:
     default:
       type:
@@ -835,7 +832,7 @@
   id: HandRingsLeft
   bodyPart: LHand
   markingCategory: LeftHand
-  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Feroxi] # Omu - Feroxi
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Vulpkanin, Rodentia, Feroxi] # Omu - Feroxi, No Shadowkin since they got their own version
   coloring:
     default:
       type:
@@ -891,7 +888,7 @@
   id: HandDollJointsTattooRight
   bodyPart: RHand
   markingCategory: RightHand
-  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Feroxi] # Omu - Feroxi
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Vulpkanin, Rodentia, Feroxi] # Omu - Feroxi, No Shadowkin since they got their own version
   coloring:
     default:
       type:
@@ -905,7 +902,7 @@
   id: HandHeavyTattoosRight
   bodyPart: RHand
   markingCategory: RightHand
-  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Feroxi] # Omu - Feroxi
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Vulpkanin, Rodentia, Feroxi] # Omu - Feroxi, No Shadowkin since they got their own version
   coloring:
     default:
       type:
@@ -935,7 +932,7 @@
   id: HandRingsRight
   bodyPart: RHand
   markingCategory: RightHand
-  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Feroxi] # Omu - Feroxi
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Vulpkanin, Rodentia, Feroxi] # Omu - Feroxi, No Shadowkin since they got their own version
   coloring:
     default:
       type:

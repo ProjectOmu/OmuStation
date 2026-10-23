@@ -1,24 +1,4 @@
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 Rank #1 Jonestown partygoer <mary@thughunt.ing>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
-
-- type: entity
-  id: GhostBarSpawner
-  parent: MarkerBase
-  name: ghost bar spawn point
-  components:
-  - type: Sprite
-    sprite: Markers/jobs.rsi
-    layers:
-      - state: green
-      - sprite: Mobs/Ghosts/ghost_human.rsi
-        state: icon
-    state: observer
-  - type: GhostBarSpawn
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -31,6 +11,7 @@
     rules: ghost-role-information-silicon-rules
     mindRoles:
     - MindRoleGhostRoleSilicon
+    - MindRoleGhostRoleSoloAntagonistBorgGoob
     raffle:
       settings: default
   - type: Sprite
@@ -52,6 +33,7 @@
     rules: ghost-role-information-antagonist-rules
     mindRoles:
     - MindRoleGhostRoleSoloAntagonist
+    - MindRoleGhostRoleSoloAntagonistPassengerGoob
     raffle:
       settings: default
   - type: Sprite
@@ -73,6 +55,7 @@
     rules: ghost-role-information-antagonist-rules
     mindRoles:
     - MindRoleGhostRoleSoloAntagonist
+    - MindRoleGhostRoleSoloAntagonistClownGoob
     raffle:
       settings: default
   - type: Sprite
@@ -93,7 +76,7 @@
     description: ghost-role-information-Singuloth-Knight-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleFreeAgentEngineeringGoob
     raffle:
       settings: default
   - type: Sprite
@@ -114,7 +97,7 @@
     description: ghost-role-information-dark-lord-description
     rules: ghost-role-information-antagonist-rules
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
+    - MindRoleGhostRoleFreeAgentSecurityGoob
     raffle:
       settings: default
   - type: Sprite
@@ -136,7 +119,8 @@
     description: ghost-role-information-mime-Assassin-description
     rules: ghost-role-information-antagonist-rules
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
+    - MindRoleGhostRoleSoloAntagonistGoob
+    - MindRoleGhostRoleSoloAntagonistMimeGoob
     raffle:
       settings: default
   - type: Sprite
@@ -158,6 +142,7 @@
     rules: ghost-role-information-nonantagonist-rules
     mindRoles:
     - MindRoleGhostRoleNeutral
+    - MindRoleGhostRoleFreeAgentSecurityGoob
     raffle:
       settings: default
   - type: Sprite
@@ -179,6 +164,7 @@
     rules: ghost-role-information-freeagent-rules
     mindRoles:
     - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleFreeAgentSecurityGoob
     raffle:
       settings: default
   - type: Sprite
@@ -200,6 +186,7 @@
     rules: ghost-role-information-antagonist-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
+    - MindRoleGhostRoleFreeAgentSecurityGoob # todo marty
     raffle:
       settings: default
   - type: Sprite

@@ -1,0 +1,12 @@
+- type: entity
+  parent: Pitcher
+  id: PitcherCoffee
+  suffix: Coffee
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60
+        reagents:
+        - ReagentId: Coffee
+          Quantity: 60

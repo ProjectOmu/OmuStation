@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Heretic.Components.PathSpecific;
@@ -181,6 +177,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
 
                     var ghoul = _compFactory.GetComponent<GhoulComponent>();
                     ghoul.GiveBlade = true;
+                    ghoul.GibOnDeath = false;       //Omu - ghouled targets can be cloned and don't gib!
 
                     AddComp(target, ghoul);
                     applyMark = false;

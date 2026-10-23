@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.GameStates;
@@ -15,7 +7,7 @@ namespace Content.Shared.Clothing;
 
 /// <summary>
 /// Modifies speed when worn and activated.
-/// Supports <c>ItemToggleComponent</c>.
+/// Supports <see cref="ItemToggleComponent"/>.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(ClothingSpeedModifierSystem))]
 public sealed partial class ClothingSpeedModifierComponent : Component
@@ -25,6 +17,29 @@ public sealed partial class ClothingSpeedModifierComponent : Component
 
     [DataField]
     public float SprintModifier = 1.0f;
+
+    /// <summary>
+    /// Defines if the speed modifier requires <see cref="ItemToggleComponent"/> activation to apply.
+    /// This will have no effect without an <see cref="ItemToggleComponent"/> on the entity.
+    /// </summary>
+    [DataField]
+    public bool RequireActivated = true;
+
+    /// <summary>
+    /// An optional required standing state.
+    /// Set to true if you need to be standing, false if you need to not be standing, null if you don't care.
+    /// </summary>
+    [DataField]
+    public bool? Standing;
+
+    // Omu start
+    /// <summary>
+    /// Absolute control of whether the clothing will modify speed.
+    /// Set to true if you want to bypass any immunity components. Set to false if you will allow normal modifier function.
+    /// </summary>
+    [DataField]
+    public bool BypassImmune = false;
+    // Omu end
 }
 
 [Serializable, NetSerializable]

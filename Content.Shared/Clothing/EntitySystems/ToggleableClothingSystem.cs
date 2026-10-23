@@ -1,23 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
-// SPDX-FileCopyrightText: 2025 Martynas6ha4 <martynashagriefer@gmail.com>
-// SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
@@ -301,6 +281,9 @@ public sealed class ToggleableClothingSystem : EntitySystem
         if (_timing.ApplyingState)
             return;
 
+        if (_transferringInventory.Contains(args.Equipee)) // Goobstation
+            return;
+
         _clothing.SetEquippedPrefix(toggleable, null);
 
         // Check if container exists and we have linked clothings
@@ -442,13 +425,16 @@ public sealed class ToggleableClothingSystem : EntitySystem
         if (_timing.ApplyingState)
             return;
 
+        if (_transferringInventory.Contains(args.Equipee)) // Goobstation
+            return;
+
         if (comp.LifeStage > ComponentLifeStage.Running)
             return;
 
         if (!TryComp(comp.AttachedUid, out ToggleableClothingComponent? toggleableComp))
             return;
 
-        if (toggleableComp.LifeStage > ComponentLifeStage.Running)
+        if (LifeStage(attached.Comp.AttachedUid) > EntityLifeStage.MapInitialized) // Goobstation
             return;
 
         // As unequipped gets called in the middle of container removal, we cannot call a container-insert without causing issues.
@@ -588,6 +574,22 @@ public sealed class ToggleableClothingSystem : EntitySystem
             }
         }
     }
+
+    // <Goobstation>
+    private readonly HashSet<EntityUid> _transferringInventory = new();
+
+    /// <summary>
+    ///     While set, deployed pieces stay deployed when unequipped, so a whole-inventory
+    ///     transfer (e.g. polymorph) carries the worn state over to the new body as-is.
+    /// </summary>
+    public void SetInventoryTransferring(EntityUid wearer, bool transferring)
+    {
+        if (transferring)
+            _transferringInventory.Add(wearer);
+        else
+            _transferringInventory.Remove(wearer);
+    }
+    // </Goobstation>
 
     private bool CanToggleClothing(EntityUid user, Entity<ToggleableClothingComponent> toggleable, bool multiple)
     {

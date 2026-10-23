@@ -1,53 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 DrSmugleaf <drsmugleaf@gmail.com>
-// SPDX-FileCopyrightText: 2025 Ducks <97200673+TwoDucksOnnaPlane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ichaie <167008606+Ichaie@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 MortalBaguette <169563638+MortalBaguette@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Panela <107573283+AgentePanela@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Poips <Hanakohashbrown@gmail.com>
-// SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 Sara Aldrete's Top Guy <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
-// SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
-// SPDX-FileCopyrightText: 2025 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 blobadoodle <me@bloba.dev>
-// SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 kamkoi <poiiiple1@gmail.com>
-// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 shibe <95730644+shibechef@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 tetra <169831122+Foralemes@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Robust.Shared.Configuration;
 
 namespace Content.Goobstation.Common.CCVar;
@@ -138,10 +88,13 @@ public sealed partial class GoobCVars
         CVarDef.Create("goob.max_drunk_time", 1500f, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
-    /// Easy mode for biomass requirements on cloning. If true, 30% less biomass is required to clone mobs.
+
+    /// <summary>
+    ///     DEBUG Cvar - Should pathfinding be disabled globally. For SpawnAndDirty cause we need the mem.
     /// </summary>
-    public static readonly CVarDef<bool> CloneBiomassEasyMode =
-        CVarDef.Create("goob.clone_biomass_easy_mode", false, CVar.SERVER | CVar.SERVER);
+    public static readonly CVarDef<bool> DisablePathfinding =
+        CVarDef.Create("goob.disable_pathfinding", false, CVar.SERVER | CVar.SERVERONLY);
+
 
     #region Player Listener
 
@@ -468,56 +421,77 @@ public sealed partial class GoobCVars
 
     #region Voicechat
 
-    /// <summary>
-    /// Controls whether the Lidgren voice chat server is enabled and running.
-    /// </summary>
     public static readonly CVarDef<bool> VoiceChatEnabled =
-        CVarDef.Create("voice.enabled", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE, "Is the voice chat server enabled?");
+        CVarDef.Create("voice.enabled", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE, "Whether proximity voice chat is enabled.");
 
-    /// <summary>
-    /// The UDP port the Lidgren voice chat server will listen on.
-    /// </summary>
-    public static readonly CVarDef<int> VoiceChatPort =
-        CVarDef.Create("voice.vc_server_port", 1213, CVar.SERVER | CVar.REPLICATED, "Port for the voice chat server.");
+    public static readonly CVarDef<float> VoiceChatRange =
+        CVarDef.Create("voice.range", 10f, CVar.SERVER | CVar.REPLICATED, "Distance in tiles at which voice chat fades out completely.");
+
+    public static readonly CVarDef<string> VoiceChatWebSocketBind =
+        CVarDef.Create("voice.ws_bind", "127.0.0.1:1213", CVar.SERVERONLY, "Address and port the voice chat WebSocket listens on. Expose it through the reverse proxy in front of the status port at /voice/ws.");
+
+    public static readonly CVarDef<string> VoiceChatTrustedProxies =
+        CVarDef.Create("voice.trusted_proxies", "", CVar.SERVERONLY, "Comma-separated proxy IPs whose X-Real-IP and X-Forwarded-For headers are trusted. Loopback and private addresses are always trusted.");
+
+    public static readonly CVarDef<int> VoiceChatMaxConnectionsPerIp =
+        CVarDef.Create("voice.max_connections_per_ip", 6, CVar.SERVERONLY, "Maximum simultaneous voice chat connections from one IP address.");
+
+    public static readonly CVarDef<string> VoiceChatPublicUrl =
+        CVarDef.Create("voice.public_url", "", CVar.SERVERONLY, "Public URL of the voice chat page, e.g. https://example.com/voice/. Derived from hub.server_url when empty.");
+
+    public static readonly CVarDef<string> VoiceChatWebSocketUrl =
+        CVarDef.Create("voice.ws_url", "", CVar.SERVERONLY, "WebSocket URL the voice chat page connects to. Auto-detected by the page when empty.");
+
+    public static readonly CVarDef<bool> VoiceChatRadioEnabled =
+        CVarDef.Create("voice.radio_enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE, "Whether players can speak over radio channels with voice chat.");
+
+    public static readonly CVarDef<bool> VoiceChatRadioCommon =
+        CVarDef.Create("voice.radio_common", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE, "Whether voice chat is allowed on the Common radio channel.");
+
+    public static readonly CVarDef<int> VoiceChatBitrate =
+        CVarDef.Create("voice.bitrate", 64, CVar.SERVERONLY | CVar.ARCHIVE, "Voice bitrate sent to each client in kbps: 64 (16 kHz, best), 48, 32 (8 kHz), 24 or 16. Lower saves bandwidth at the cost of quality.");
+
+    public static readonly CVarDef<bool> VoiceLogEnabled =
+        CVarDef.Create("voice.log_enabled", true, CVar.SERVERONLY | CVar.ARCHIVE, "Whether voice chat audio is recorded to disk for admin review.");
+
+    public static readonly CVarDef<int> VoiceLogRounds =
+        CVarDef.Create("voice.log_rounds", 3, CVar.SERVERONLY | CVar.ARCHIVE, "How many rounds of voice chat recordings to keep on disk.");
+
+    public static readonly CVarDef<bool> VoiceChatLobby =
+        CVarDef.Create("voice.lobby", true, CVar.SERVERONLY | CVar.ARCHIVE, "Whether players in the lobby can talk to everyone else in the lobby.");
+
+    public static readonly CVarDef<bool> VoiceChatDynamicRange =
+        CVarDef.Create("voice.dynamic_range", true, CVar.SERVERONLY | CVar.ARCHIVE, "Whether shouting carries further and whispering stays close, based on each speaker's own normal loudness.");
+
+    public static readonly CVarDef<float> VoiceChatShoutRange =
+        CVarDef.Create("voice.shout_range", 15f, CVar.SERVERONLY | CVar.ARCHIVE, "Distance in tiles that shouted voice carries.");
+
+    public static readonly CVarDef<float> VoiceChatWhisperRange =
+        CVarDef.Create("voice.whisper_range", 3f, CVar.SERVERONLY | CVar.ARCHIVE, "Distance in tiles that whispered voice carries.");
+
+    public static readonly CVarDef<float> VoiceChatShoutThreshold =
+        CVarDef.Create("voice.shout_threshold", 14f, CVar.SERVERONLY | CVar.ARCHIVE, "How many dB above a speaker's normal loudness counts as shouting.");
+
+    public static readonly CVarDef<float> VoiceChatWhisperThreshold =
+        CVarDef.Create("voice.whisper_threshold", 5f, CVar.SERVERONLY | CVar.ARCHIVE, "How many dB below a speaker's normal loudness counts as whispering.");
+
+    public static readonly CVarDef<bool> VoiceChatJoinPrompt =
+        CVarDef.Create("voice.join_prompt", true, CVar.CLIENTONLY | CVar.ARCHIVE, "Offer to open voice chat when joining a server that has it.");
+
+    public static readonly CVarDef<bool> VoiceChatSpeakerList =
+        CVarDef.Create("voice.speaker_list", true, CVar.CLIENTONLY | CVar.ARCHIVE, "Show the list of players you can currently hear on voice chat.");
+
+    public static readonly CVarDef<float> VoiceChatRadioVolume =
+        CVarDef.Create("voice.radio_volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE, "Volume multiplier for voice heard over radio, 0 to 2.");
+
+    public static readonly CVarDef<string> VoiceChatRadioMuted =
+        CVarDef.Create("voice.radio_muted", "", CVar.CLIENTONLY | CVar.ARCHIVE, "Comma-separated radio channel IDs whose voice chat you don't want to hear.");
 
     public static readonly CVarDef<float> VoiceChatVolume =
-        CVarDef.Create("voice.volume", 5f, CVar.CLIENTONLY | CVar.ARCHIVE);
+        CVarDef.Create("voice.volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE, "Voice chat playback volume, 0 to 2.");
 
-    /// <summary>
-    /// Multiplier for the adaptive buffer target size calculation.
-    /// </summary>
-    public static readonly CVarDef<float> VoiceChatBufferTargetMultiplier =
-        CVarDef.Create("voice.buffer_target_multiplier", 1.0f, CVar.CLIENTONLY | CVar.ARCHIVE, "Multiplier for adaptive buffer target size calculation.");
-
-    /// <summary>
-    /// Minimum buffer size for voice chat, regardless of network conditions.
-    /// </summary>
-    public static readonly CVarDef<int> VoiceChatMinBufferSize =
-        CVarDef.Create("voice.min_buffer_size", 10, CVar.CLIENTONLY | CVar.ARCHIVE, "Minimum buffer size for voice chat.");
-
-    /// <summary>
-    /// Maximum buffer size for voice chat to prevent excessive memory usage.
-    /// </summary>
-    public static readonly CVarDef<int> VoiceChatMaxBufferSize =
-        CVarDef.Create("voice.max_buffer_size", 50, CVar.CLIENTONLY | CVar.ARCHIVE, "Maximum buffer size for voice chat.");
-
-    /// <summary>
-    /// Enable advanced time-stretching algorithms for better audio quality.
-    /// </summary>
-    public static readonly CVarDef<bool> VoiceChatAdvancedTimeStretch =
-        CVarDef.Create("voice.advanced_time_stretch", true, CVar.CLIENTONLY | CVar.ARCHIVE, "Enable advanced time-stretching for voice chat.");
-
-    /// <summary>
-    /// Enable debug logging for voice chat buffer management.
-    /// </summary>
-    public static readonly CVarDef<bool> VoiceChatDebugLogging =
-        CVarDef.Create("voice.debug_logging", false, CVar.CLIENTONLY | CVar.ARCHIVE, "Enable debug logging for voice chat buffer management.");
-
-    /// <summary>
-    /// Whether to hear audio from your own entity (useful for testing).
-    /// </summary>
     public static readonly CVarDef<bool> VoiceChatHearSelf =
-        CVarDef.Create("voice.hear_self", false, CVar.CLIENTONLY | CVar.ARCHIVE, "Whether to hear audio from your own entity.");
+        CVarDef.Create("voice.hear_self", false, CVar.CLIENTONLY | CVar.ARCHIVE, "Play your own voice back to you in game.");
 
     #endregion
 
@@ -535,6 +509,13 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> PatreonSkip =
         CVarDef.Create("queue.patreon_skip", true, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     How long in seconds to hold a queue position for a disconnected player.
+    ///     If they reconnect within this window, they are placed at the front of the queue.
+    /// </summary>
+    public static readonly CVarDef<int> QueueReconnectGraceSeconds =
+        CVarDef.Create("queue.reconnect_grace_seconds", 120, CVar.SERVERONLY);
 
     #endregion
 
@@ -604,7 +585,7 @@ public sealed partial class GoobCVars
     /// Applies to Brute and Burn damage
     /// </summary>
     public static readonly CVarDef<float> ExplosionWoundMultiplier =
-        CVarDef.Create("explosion.wounding_multiplier", 4f, CVar.SERVERONLY);
+        CVarDef.Create("explosion.wounding_multiplier", 2.5f, CVar.SERVERONLY);
 
     #endregion
 
@@ -695,4 +676,33 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<float> GpsUpdateRate =
         CVarDef.Create("gps.update_rate", 1f, CVar.SERVER | CVar.REPLICATED);
+    /// <summary>
+    /// Enables or disables flip dodging. Flip dodging makes you invincible during flip to projectiles.
+    /// </summary>
+    public static readonly CVarDef<bool> FlipDodgeEnabled =
+        CVarDef.Create("emotes.flip_dodge_enabled", false, CVar.SERVER | CVar.REPLICATED);
+
+    #region Particles
+
+    /// <summary>
+    /// Controls particle effect quality.
+    /// 0 = Off, 1 = Low, 2 = Medium, 3 = High
+    /// Low:    25% of maxCount per emitter
+    /// Medium: 50% of maxCount per emitter
+    /// High:   100% of maxCount per emitter
+    ///
+    /// Note: Particles with IgnoreQualitySettings = true always render at full quality.
+    /// </summary>
+    public static readonly CVarDef<int> ParticleQuality =
+        CVarDef.Create("particles.quality", 3, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Maximum total number of live particles allowed on screen at once across all emitters.
+    /// Emitters will reduce their emission rate once the budget is exhausted.
+    /// Overridden by ParticleQuality presets but can be set manually when quality is High.
+    /// </summary>
+    public static readonly CVarDef<int> ParticleGlobalBudget =
+        CVarDef.Create("particles.global_budget", 8000, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    #endregion
 }

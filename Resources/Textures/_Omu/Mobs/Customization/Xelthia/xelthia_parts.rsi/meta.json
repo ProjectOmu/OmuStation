@@ -1,7 +1,7 @@
 {
 "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Ominous hair, longsplit tail and bigfloppy ear sprites by https://github.com/angiogen",
+  "copyright": "Ominous, Asymmetrical Ponytail, and Side Ponytail Hair, Long Split and Standard tails, Big Floppy Ears, Fangs, Freckles, Colored Palms by https://github.com/angiogen",
   "size": {
     "x": 32,
     "y": 32
@@ -10,15 +10,43 @@
    {
       "name": "hair_ominous",
       "directions": 4
-    },  
-{
+    },
+    {
+      "name": "hair_asympony",
+      "directions": 4
+    },
+    {
+      "name": "hair_sidepony",
+      "directions": 4
+    },        
+   {
       "name": "tail_longsplit",
       "directions": 4
-    },  
+    },
+    {
+      "name": "tail_longstandard",
+      "directions": 4
+    },     
 
-{
+   {
       "name": "ears_bigfloppy",
       "directions": 4
-    }
+    },
+   {
+      "name": "face_fangs",
+      "directions": 4
+    },
+   {
+      "name": "face_freckles",
+      "directions": 4
+    },
+    {
+      "name": "hand_right_palm",
+      "directions": 4
+    },
+    {
+      "name": "hand_left_palm",
+      "directions": 4
+    }             
   ]
 }

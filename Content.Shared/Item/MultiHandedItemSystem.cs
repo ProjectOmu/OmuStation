@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -51,12 +47,17 @@ public sealed class MultiHandedItemSystem : EntitySystem
 
     private void OnAttemptPickup(Entity<MultiHandedItemComponent> ent, ref GettingPickedUpAttemptEvent args)
     {
-        if (_hands.CountFreeHands(args.User) >= ent.Comp.HandsNeeded)
+        if (args.Cancelled || _hands.CountFreeHands(args.User) >= ent.Comp.HandsNeeded)
             return;
 
         args.Cancel();
-        _popup.PopupPredictedCursor(Loc.GetString("multi-handed-item-pick-up-fail",
-            ("number", ent.Comp.HandsNeeded - 1), ("item", ent.Owner)), args.User);
+
+        if (args.ShowPopup)
+            _popup.PopupPredictedCursor(
+                Loc.GetString("multi-handed-item-pick-up-fail",
+                    ("number", ent.Comp.HandsNeeded - 1),
+                    ("item", ent.Owner)),
+                args.User);
     }
 
     private void OnVirtualItemDeleted(Entity<MultiHandedItemComponent> ent, ref VirtualItemDeletedEvent args)
@@ -97,20 +98,37 @@ public sealed class MultiHandedItemSystem : EntitySystem
     {
         if (TerminatingOrDeleted(ent))
             return;
-
-        // Method exists for that but it calls an event on deleting the virtual item hence forces the item to drop
-        foreach (var hand in _hands.EnumerateHands(Transform(ent).ParentUid))
+        
+        // Omu start; make this shutdown actually remove the virtual item from other hands
+        // This essentially ports from SharedVirtualItemSystem's DeleteInHandsMatching() and DeleteVirtualItem()
+        //  without sending the message for deleting virtual items.
+        // No, I don't know what's wrong with the original method. I sincerely tried to make it work.
+        foreach (var held in _hands.EnumerateHeld(Transform(ent).ParentUid))
         {
-            if (_timing.InPrediction
-                || !_hands.TryGetHeldItem(ent.Owner, hand, out var held)
-                || !TryComp(held, out VirtualItemComponent? virt)
-                || virt.BlockingEntity != ent.Owner)
-                continue;
-
-            if (TerminatingOrDeleted(held))
-                return;
-
-            QueueDel(held);
-        }
+            if (!_timing.InPrediction
+                && !TerminatingOrDeleted(held)
+                && TryComp(held, out VirtualItemComponent? virt)
+                && virt.BlockingEntity == ent.Owner)
+            {
+                PredictedQueueDel(held);
+            }
+        } // I've commented out the original check below.
+        
+        // // Method exists for that but it calls an event on deleting the virtual item hence forces the item to drop
+        // foreach (var hand in _hands.EnumerateHands(Transform(ent).ParentUid))
+        // {
+        //     if (_timing.InPrediction
+        //         || !_hands.TryGetHeldItem(ent.Owner, hand, out var held)
+        //         || !TryComp(held, out VirtualItemComponent? virt)
+        //         || virt.BlockingEntity != ent.Owner)
+        //         continue;
+        //
+        //     if (TerminatingOrDeleted(held))
+        //         return;
+        //
+        //     QueueDel(held);
+        // }
+        
+        // Omu end
     }
 }

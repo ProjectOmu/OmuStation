@@ -4,3 +4,32 @@
   id: CommandWintercoat
   equipment:
     outerClothing: ClothingOuterWinterCommand
+
+# Plasmaman stuff
+
+- type: loadout
+  id: AdminAssistantEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmAdminAssistant
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: AdminAssistantEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitAdminAssistant
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: AdminAssistantEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesAdminAssistant
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman

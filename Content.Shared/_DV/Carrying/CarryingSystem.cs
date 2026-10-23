@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._DV.Polymorph;
@@ -39,7 +29,8 @@ using System.Numerics;
 using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mind.Components;
-using Content.Shared._EinsteinEngines.Carrying; // EE
+using Content.Shared._EinsteinEngines.Carrying;
+using Content.Shared._Omu.Carrying; // EE
 
 namespace Content.Shared._DV.Carrying;
 
@@ -319,6 +310,20 @@ public sealed class CarryingSystem : EntitySystem
 
         if (GetPickupDuration(carrier, toCarry).TotalSeconds > 9f)
             return false;
+
+        // Omu start,
+        // carry checks because hey treating people as items and using item pickup events is bad.
+
+        var carryAttempt = new CarryAttemptEvent(carrier, toCarry);
+        RaiseLocalEvent(toCarry, carryAttempt);
+
+        if (carryAttempt.Cancelled)
+            return false;
+
+        var itemEv = new GettingCarriedEvent(carrier, toCarry);
+        RaiseLocalEvent(toCarry, itemEv);
+
+        // Omu end
 
         Carry(carrier, toCarry);
         return true;

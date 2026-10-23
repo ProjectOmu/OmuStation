@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -20,15 +17,20 @@ public partial class SubtypeSelection : Control
 
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     public BorgSubtypePrototype? SelectedBorgSubtype;
+    public BorgTypePrototype? SelectedParentType; // Omu - Tracking parent type
 
     public SubtypeSelection()
     {
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
     }
-    public void FillContainer(BorgTypePrototype parentPrototype)
+    // Omu - Added mouseRefresh logic to work with borgType groupings
+    public void FillContainer(BorgTypePrototype parentPrototype, bool mouseRefresh)
     {
-        OptionsContainer.RemoveAllChildren();
+        // Omu start
+        if (mouseRefresh)
+            OptionsContainer.RemoveAllChildren();
+        // Omu end
 
         var group = new ButtonGroup();
 
@@ -41,6 +43,8 @@ public partial class SubtypeSelection : Control
             button.Group = group;
             button.OnPressed += _ =>
             {
+                // Omu - Tracking parent type
+                var result = _prototype.TryIndex(borgSubtype.ParentBorgType, out SelectedParentType);
                 SelectedBorgSubtype = borgSubtype;
                 SubtypeSelected?.Invoke();
             };

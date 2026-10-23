@@ -1,6 +1,11 @@
 ﻿# Research Director
 loadout-group-research-director-eyewear = Research Director glasses
 
+# Administrative Assistant
+loadout-group-admin-assistant-envirohelm = Administrative Assistant envirohelm
+loadout-group-admin-assistant-envirosuit = Administrative Assistant envirosuit
+loadout-group-admin-assistant-envirogloves = Administrative Assistant envirogloves
+
 # Transit Prisoner
 loadout-group-prisoner-jumpsuits = Prisoner jumpsuit
 loadout-group-prisoner-outer-clothing = Prisoner outer clothing
@@ -8,6 +13,10 @@ loadout-group-prisoner-shoes = Prisoner shoes
 loadout-group-prisoner-envirohelm = Prisoner envirohelm
 loadout-group-prisoner-envirosuit = Prisoner envirosuit
 loadout-group-prisoner-envirogloves = Prisoner envirogloves
+
+# Medical Doctor
+
+loadout-group-medical-neck = Medical neck
 
 # New PDAs
 loadout-group-captain-id = Captain ID
