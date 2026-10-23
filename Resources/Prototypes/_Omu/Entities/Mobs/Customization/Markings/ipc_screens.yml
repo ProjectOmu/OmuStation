@@ -473,3 +473,36 @@
     state: ipc_screen_screen_small_whitehue
   - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
     state: ipc_screen_charger_moving
+
+- type: marking
+  speciesRestriction: [ IPC ]
+  id: ScreenLargeEye
+  bodyPart: Face
+  markingCategory: Face
+  sprites:
+    - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
+      state: ipc_screen_screen_small_whitehue
+    - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
+      state: ipc_screen_large_eyes
+
+- type: marking
+  speciesRestriction: [ IPC ]
+  id: ScreenSmallEye
+  bodyPart: Face
+  markingCategory: Face
+  sprites:
+    - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
+      state: ipc_screen_screen_small_whitehue
+    - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
+      state: ipc_screen_small_eyes
+
+- type: marking
+  speciesRestriction: [ IPC ]
+  id: ScreenSmallSmile
+  bodyPart: Face
+  markingCategory: Face
+  sprites:
+    - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
+      state: ipc_screen_screen_small_whitehue
+    - sprite: _Omu/Mobs/Species/IPC/ipc_screens.rsi
+      state: ipc_screen_small_eyes_smile
