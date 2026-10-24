@@ -35,7 +35,7 @@ public sealed partial class DCCVars
     /// How much of the crew the cult is aiming to convert for a tier 3 monument.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultTargetConversionPercent =
-        CVarDef.Create("cosmiccult.target_conversion_percent", 60, CVar.SERVER); // Omu
+        CVarDef.Create("cosmiccult.target_conversion_percent", 40, CVar.SERVER);
 
     /// <summary>
     /// How long the timer for the cult's stewardship vote lasts.
