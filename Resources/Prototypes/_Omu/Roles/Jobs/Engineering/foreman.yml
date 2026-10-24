@@ -45,7 +45,8 @@
     belt: ClothingBeltUtilityEngineering
     ears: ClothingHeadsetEngineering
   storage:
-    back: UniqueForemanLockerTeleporter
+    back:
+    - UniqueForemanLockerTeleporter
 
 - type: chameleonOutfit
   id: EngineeringForemanChameleonOutfit
