@@ -1,0 +1,32 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Aurorastation at commit https://github.com/Aurorastation/Aurora.3/commit/9aed55959fd90b9b7ccae8235e9fc48dff78f985 | SS14 Edits by DuskTheSnep",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon-RIGHT"
+        },
+        {
+            "name": "icon-LEFT"
+        },
+        {
+            "name": "icon-BOTH"
+        },
+        {
+            "name": "right-equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "left-equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "both-equipped-NECK",
+            "directions": 4
+        }
+    ]
+}

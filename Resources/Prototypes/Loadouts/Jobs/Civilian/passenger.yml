@@ -34,12 +34,14 @@
   id: GreyJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorGrey
+  groupBy: "Jumpsuit" #omu edit
 
 
 - type: loadout
   id: GreyJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorGrey
+  groupBy: "Jumpskirt" #omu edit
 
 
 # Rainbow
@@ -50,6 +52,7 @@
     proto: GreyTider
   equipment:
     jumpsuit: ClothingUniformColorRainbow
+  groupBy: "Jumpsuit" #omu edit
 
 # Rainbow Jumpskirt
 - type: loadout
@@ -59,6 +62,7 @@
     proto: GreyTider
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorRainbow
+  groupBy: "Jumpskirt" #omu edit
 
 # Ancient
 - type: loadout
@@ -113,6 +117,7 @@
   id: PassengerWintercoat
   equipment:
     outerClothing: ClothingOuterWinterCoat
+  groupBy: "Wintercoat" #omu
 
 # Shoes
 - type: loadout

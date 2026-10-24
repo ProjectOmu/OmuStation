@@ -1,0 +1,196 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingArmbandMed
+  name: medical armband
+  description: an armband to show your connection to the medical department
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Armbands/medarmband.rsi
+    state: "icon-RIGHT"
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Armbands/medarmband.rsi
+    equippedPrefix: right
+  - type: ItemSwitch
+    state: right
+    showLabel: true
+    states:
+      right: !type:ItemSwitchState
+        verb: right
+        sprite:
+          sprite: _Omu/Clothing/Neck/Armbands/medarmband.rsi
+          state: icon-RIGHT
+      left: !type:ItemSwitchState
+        verb: left
+        sprite:
+          sprite: _Omu/Clothing/Neck/Armbands/medarmband.rsi
+          state: icon-LEFT
+      both: !type:ItemSwitchState
+        verb: both
+        sprite:
+          sprite: _Omu/Clothing/Neck/Armbands/medarmband.rsi
+          state: icon-BOTH
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingArmbandEngi
+  name: engineering armband
+  description: an armband to show your connection to the engineering department
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Armbands/engiarmband.rsi
+    state: "icon-RIGHT"
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Armbands/engiarmband.rsi
+    equippedPrefix: right
+  - type: ItemSwitch
+    state: right
+    showLabel: true
+    states:
+      right: !type:ItemSwitchState
+        verb: right
+        sprite:
+          sprite: _Omu/Clothing/Neck/Armbands/engiarmband.rsi
+          state: icon-RIGHT
+      left: !type:ItemSwitchState
+        verb: left
+        sprite:
+          sprite: _Omu/Clothing/Neck/Armbands/engiarmband.rsi
+          state: icon-LEFT
+      both: !type:ItemSwitchState
+        verb: both
+        sprite:
+          sprite: _Omu/Clothing/Neck/Armbands/engiarmband.rsi
+          state: icon-BOTH
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingArmbandSci
+  name: science armband
+  description: an armband to show your connection to the science department
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Armbands/Color/color.rsi
+    color: "#9C0DE1"
+    state: "icon-RIGHT"
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Armbands/Color/color.rsi
+    color: "#9C0DE1"
+    equippedPrefix: right
+  - type: ItemSwitch
+    state: right
+    showLabel: true
+    states:
+      right: !type:ItemSwitchState
+        verb: right
+        sprite:
+          sprite: _Omu/Clothing/Neck/Armbands/Color/color.rsi
+          color: "#9C0DE1"
+          state: icon-RIGHT
+      left: !type:ItemSwitchState
+        verb: left
+        sprite:
+          sprite: _Omu/Clothing/Neck/Armbands/Color/color.rsi
+          color: "#9C0DE1"
+          state: icon-LEFT
+      both: !type:ItemSwitchState
+        verb: both
+        sprite:
+          sprite: _Omu/Clothing/Neck/Armbands/Color/color.rsi
+          color: "#9C0DE1"
+          state: icon-BOTH
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingArmbandSec
+  name: security armband
+  description: an armband to show your connection to the security department
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Armbands/engiarmband.rsi
+    state: "icon-RIGHT"
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Armbands/engiarmband.rsi
+    equippedPrefix: right
+  - type: ItemSwitch
+    state: right
+    showLabel: true
+    states:
+      right: !type:ItemSwitchState
+        verb: right
+        sprite:
+          sprite: _Omu/Clothing/Neck/Armbands/engiarmband.rsi
+          state: icon-RIGHT
+      left: !type:ItemSwitchState
+        verb: left
+        sprite:
+          sprite: _Omu/Clothing/Neck/Armbands/engiarmband.rsi
+          state: icon-LEFT
+      both: !type:ItemSwitchState
+        verb: both
+        sprite:
+          sprite: _Omu/Clothing/Neck/Armbands/engiarmband.rsi
+          state: icon-BOTH
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingArmbandService
+  name: service armband
+  description: an armband to show your connection to the service department
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Armbands/engiarmband.rsi
+    state: "icon-RIGHT"
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Armbands/engiarmband.rsi
+    equippedPrefix: right
+  - type: ItemSwitch
+    state: right
+    showLabel: true
+    states:
+      right: !type:ItemSwitchState
+        verb: right
+        sprite:
+          sprite: _Omu/Clothing/Neck/Armbands/engiarmband.rsi
+          state: icon-RIGHT
+      left: !type:ItemSwitchState
+        verb: left
+        sprite:
+          sprite: _Omu/Clothing/Neck/Armbands/engiarmband.rsi
+          state: icon-LEFT
+      both: !type:ItemSwitchState
+        verb: both
+        sprite:
+          sprite: _Omu/Clothing/Neck/Armbands/engiarmband.rsi
+          state: icon-BOTH
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingArmbandCargo
+  name: cargo armband
+  description: an armband to show your connection to the cargo department
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Armbands/engiarmband.rsi
+    state: "icon-RIGHT"
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Armbands/engiarmband.rsi
+    equippedPrefix: right
+  - type: ItemSwitch
+    state: right
+    showLabel: true
+    states:
+      right: !type:ItemSwitchState
+        verb: right
+        sprite:
+          sprite: _Omu/Clothing/Neck/Armbands/engiarmband.rsi
+          state: icon-RIGHT
+      left: !type:ItemSwitchState
+        verb: left
+        sprite:
+          sprite: _Omu/Clothing/Neck/Armbands/engiarmband.rsi
+          state: icon-LEFT
+      both: !type:ItemSwitchState
+        verb: both
+        sprite:
+          sprite: _Omu/Clothing/Neck/Armbands/engiarmband.rsi
+          state: icon-BOTH

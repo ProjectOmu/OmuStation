@@ -365,8 +365,8 @@
   parent: JobIcon
   id: JobIconPassenger
   icon:
-    sprite: *icon-rsi
-    state: Passenger
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: offduty
   jobName: job-name-passenger
 
 - type: jobIcon
