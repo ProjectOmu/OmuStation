@@ -16,10 +16,10 @@
     time: 36000 #10 hrs
   - !type:RoleTimeRequirement
     role: JobAtmosphericTechnician
-    time: 180000 #50 hrs
+    time: 252000 #70 hrs
   - !type:RoleTimeRequirement
     role: JobStationEngineer
-    time: 180000 #50 hrs
+    time: 108000 #30 hrs
   weight: 1
   startingGear: EngineeringForemanGear
   icon: "JobIconEngineeringForeman"
