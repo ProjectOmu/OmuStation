@@ -1,0 +1,12 @@
+<!--
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+                      Title="{Loc 'signature-font-selector-title'}"
+                      MinSize="420 520">
+    <ScrollContainer HScrollEnabled="False" VerticalExpand="True" Margin="5">
+        <BoxContainer Name="Fonts" Orientation="Vertical" HorizontalExpand="True" />
+    </ScrollContainer>
+</controls:FancyWindow>

@@ -351,6 +351,43 @@
 
 - type: entity
   parent: BasePlushie
+  id: PlushieTevikOmuCrew
+  name: Tevik plushie
+  description: A little resomi with a disposition for breaking things, watch your fingers around her!
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/tevik.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/tevik.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/tevik.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_1.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_1.ogg
+  - type: EmitSoundOnThrow
+    sound:
+      path: /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit: /Audio/_Starlight/Voice/Resomi/resomi_scree_1.ogg
+
+- type: entity
+  parent: BasePlushie
   id: PlushieGnashOmuCrew
   name: gnash plushie
   description: A red Avali, dresses up as atmospheric technician. You taste metal and smell ammonia near it.
@@ -421,3 +458,39 @@
     wideAnimationRotation: 180
     soundHit: /Audio/Voice/Diona/diona_snap.ogg
 
+- type: entity
+  parent: BasePlushie
+  id: PlushieRogerCagelOmuCrew
+  name: Roger Cagel plushie
+  description: 'Despite its innocuous appearance, you can feel anti-corporate energy radiating from it. In spite of that, a tag is attached: "As an effort to make a dent in Roger Cagel''s 3-quadrillion-speso debt to us, we made him into a marketable plushie. Returns not accepted."'
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/rogercagel.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/rogercagel.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/rogercagel.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: VulpkaninSnarls
+  - type: EmitSoundOnUse
+    sound:
+      collection: VulpkaninWhines
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VulpkaninWhines
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: VulpkaninWhines
+  - type: EmitSoundOnThrow
+    sound:
+      collection: VulpkaninScreams
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
