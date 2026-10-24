@@ -9293,3 +9293,195 @@ Entries:
       message: Fixed the Ovinia female chest marking's floating arms.
   id: 1200
   time: '2026-10-20T14:07:42.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: IPCs require gloves+mask to do surgery without poisoning again
+  id: 1201
+  time: '2026-10-20T17:13:27.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Tweak
+      message: Hos ensembles and Veteran security mantles have bodycams now
+    - type: Tweak
+      message: Hos mantle goes on security camera router instead of command
+  id: 1202
+  time: '2026-10-20T18:08:34.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Remove
+      message: Removed lavaland focused salvage voucher bundles, I am very sad.
+  id: 1203
+  time: '2026-10-20T19:21:09.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Add
+      message: >-
+        Sounds are now muffled when you're in a vacuum or the sound is coming
+        from space.
+    - type: Add
+      message: >-
+        Walls, airlocks, windows, holofans and atmos fans now muffle sound by
+        different amounts if they're between you and a sound source.
+  id: 1204
+  time: '2026-10-21T04:53:49.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Detective Warden and Corpsman spawning with an extra sec gas mask
+        in their bag
+  id: 1205
+  time: '2026-10-21T16:36:38.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Atmospheric belts do not replace your jumpsuit anymore.
+  id: 1206
+  time: '2026-10-21T23:26:20.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        Origin's atmos has been (almost) completely redone. Check the PR for
+        more!
+    - type: Tweak
+      message: Scattered several plushies across Origin.
+    - type: Tweak
+      message: minor fixes map wide
+  id: 1207
+  time: '2026-10-21T23:36:19.0000000+00:00'
+- author: ggrab41
+  changes:
+    - type: Tweak
+      message: Carps and Sharkminows spawned by Dragons now gib on death.
+  id: 1208
+  time: '2026-10-22T02:09:25.0000000+00:00'
+- author: Dat-Guy
+  changes:
+    - type: Add
+      message: >-
+        Added the BSO survival kit, and made the BSO gas mask the default mask
+        for the kit.
+    - type: Remove
+      message: >-
+        Removed the BSO gas mask from the BSO's starting items (added to the
+        survival kit).
+  id: 1209
+  time: '2026-10-22T12:22:03.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Add
+      message: Added the PKA upgrades back to the salvage vendor
+  id: 1210
+  time: '2026-10-22T13:17:35.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: Fixed certain sec loadout options not being in the secdrobe
+  id: 1211
+  time: '2026-10-22T15:37:09.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: >-
+        The names of crew plushies are now all lowercased, to be consistent with
+        other plushies.
+    - type: Tweak
+      message: >-
+        The Sept Oct plushie is no longer found in the crew morale initiative
+        crate; it is now in the sectoral plushie crate.
+    - type: Tweak
+      message: >-
+        The Jessie Fletcher plushie and the Sept Oct plushie can now be won from
+        claw machines.
+    - type: Tweak
+      message: >-
+        The name and description of the crew morale initiative crate is
+        rewritten slightly.
+  id: 1212
+  time: '2026-10-22T15:43:43.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Add
+      message: new Allulalo markings
+  id: 1213
+  time: '2026-10-22T21:05:42.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Add
+      message: The Sept Oct plushie can now be used as a stamp.
+    - type: Tweak
+      message: Moved Brizby and Redstonewolf plushies to the staff crate.
+  id: 1214
+  time: '2026-10-22T23:25:01.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Tweak
+      message: Characters can now have up to 50 speech patterns in the Speech tab.
+  id: 1215
+  time: '2026-10-22T23:39:36.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Add
+      message: Harpies have way more emote sounds, stolen from other species
+    - type: Add
+      message: Harpies can bagawk now
+  id: 1216
+  time: '2026-10-23T19:11:32.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: New Yorkers now call IPCs "Rowbits" instead of a slur.
+  id: 1217
+  time: '2026-10-23T22:26:35.0000000+00:00'
+- author: jckspjf, DuskTheSnep
+  changes:
+    - type: Add
+      message: Added security visors into security loadouts.
+    - type: Add
+      message: Added medsec visors into corpsman loadouts.
+    - type: Add
+      message: Added blueshield visors into BSO loadouts.
+  id: 1218
+  time: '2026-10-23T22:32:56.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Add
+      message: Added custom Vulp laughing, sighing, and crying sounds.
+  id: 1219
+  time: '2026-10-23T22:48:02.0000000+00:00'
+- author: cynischism
+  changes:
+    - type: Add
+      message: >-
+        Adds a new card game, Yinji, to maints loot tables and the Good Clean
+        Fun vendor.
+  id: 1220
+  time: '2026-10-23T23:28:11.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: Added the new vulp noises to harpy + clarified copyright.
+  id: 1221
+  time: '2026-10-23T23:31:46.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Tweak
+      message: >-
+        Thieving glove strip time reduction reduced significantly. The
+        stealthiness is still there you just have to keep them still for longer
+  id: 1222
+  time: '2026-10-24T00:21:33.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Tweak
+      message: CE's locker includes a SM monitoring console board.
+  id: 1223
+  time: '2026-10-24T00:23:27.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Fix
+      message: Fixed that pixel on bra (sports)
+  id: 1224
+  time: '2026-10-24T09:52:52.0000000+00:00'
