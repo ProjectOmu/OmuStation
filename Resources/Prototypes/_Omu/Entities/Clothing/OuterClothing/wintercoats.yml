@@ -239,3 +239,18 @@
     - type: TemperatureProtection
       heatingCoefficient: 0.1
       coolingCoefficient: 0.1
+
+- type: entity
+  parent: ClothingOuterCoatComfySweater
+  id: ClothingOuterCoatComfySweaterPlural
+  name: comfy plural sweater
+  description: A comfortable sweater celebrating the many voices, identities, and experiences that make up one collective.
+  components:
+    - type: Sprite
+      sprite: _Omu/Clothing/OuterClothing/WinterCoats/comfypluralsweater.rsi
+    - type: Clothing
+      sprite: _Omu/Clothing/OuterClothing/WinterCoats/comfypluralsweater.rsi
+    - type: TemperatureProtection
+      heatingCoefficient: 0.1
+      coolingCoefficient: 0.1
+      
