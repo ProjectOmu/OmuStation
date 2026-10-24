@@ -5,6 +5,7 @@
   components:
   - type: GameRule
     minPlayers: 5
+    jobAntagImmunityOverride: [ CargoBosun, EngineeringForeman, MedicalMedicus, ScienceProfessor ] # Omu
     delay:
       min: 240
       max: 420
