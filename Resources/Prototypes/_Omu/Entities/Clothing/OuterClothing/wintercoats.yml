@@ -159,13 +159,83 @@
 - type: entity
   parent: ClothingOuterCoatComfySweater
   id: ClothingOuterCoatComfySweaterPan
-  name: comfy pan sweater
+  name: comfy pansexual sweater
   description: It's comfy. And fruity.
   components:
     - type: Sprite
       sprite: _Omu/Clothing/OuterClothing/WinterCoats/comfypansweater.rsi
     - type: Clothing
       sprite: _Omu/Clothing/OuterClothing/WinterCoats/comfypansweater.rsi
+    - type: TemperatureProtection
+      heatingCoefficient: 0.1
+      coolingCoefficient: 0.1
+
+- type: entity
+  parent: ClothingOuterCoatComfySweater
+  id: ClothingOuterCoatComfySweaterTrans
+  name: comfy transgender sweater
+  description: It's comfy. And fruity.
+  components:
+    - type: Sprite
+      sprite: _Omu/Clothing/OuterClothing/WinterCoats/comfytranssweater.rsi
+    - type: Clothing
+      sprite: _Omu/Clothing/OuterClothing/WinterCoats/comfytranssweater.rsi
+    - type: TemperatureProtection
+      heatingCoefficient: 0.1
+      coolingCoefficient: 0.1
+
+- type: entity
+  parent: ClothingOuterCoatComfySweater
+  id: ClothingOuterCoatComfySweaterEnby
+  name: comfy non-binary sweater
+  description: It's comfy. And fruity.
+  components:
+    - type: Sprite
+      sprite: _Omu/Clothing/OuterClothing/WinterCoats/comfyenbysweater.rsi
+    - type: Clothing
+      sprite: _Omu/Clothing/OuterClothing/WinterCoats/comfyenbysweater.rsi
+    - type: TemperatureProtection
+      heatingCoefficient: 0.1
+      coolingCoefficient: 0.1
+
+- type: entity
+  parent: ClothingOuterCoatComfySweater
+  id: ClothingOuterCoatComfySweaterFluid
+  name: comfy genderfluid sweater
+  description: It's comfy. And fruity.
+  components:
+    - type: Sprite
+      sprite: _Omu/Clothing/OuterClothing/WinterCoats/comfyfluidsweater.rsi
+    - type: Clothing
+      sprite: _Omu/Clothing/OuterClothing/WinterCoats/comfyfluidsweater.rsi
+    - type: TemperatureProtection
+      heatingCoefficient: 0.1
+      coolingCoefficient: 0.1
+
+- type: entity
+  parent: ClothingOuterCoatComfySweater
+  id: ClothingOuterCoatComfySweaterQueer
+  name: comfy genderqueer sweater
+  description: It's comfy. And fruity.
+  components:
+    - type: Sprite
+      sprite: _Omu/Clothing/OuterClothing/WinterCoats/comfyqueersweater.rsi
+    - type: Clothing
+      sprite: _Omu/Clothing/OuterClothing/WinterCoats/comfyqueersweater.rsi
+    - type: TemperatureProtection
+      heatingCoefficient: 0.1
+      coolingCoefficient: 0.1
+
+- type: entity
+  parent: ClothingOuterCoatComfySweater
+  id: ClothingOuterCoatComfySweaterOmni
+  name: comfy omnisexual sweater
+  description: It's comfy. And fruity.
+  components:
+    - type: Sprite
+      sprite: _Omu/Clothing/OuterClothing/WinterCoats/comfyomnisweater.rsi
+    - type: Clothing
+      sprite: _Omu/Clothing/OuterClothing/WinterCoats/comfyomnisweater.rsi
     - type: TemperatureProtection
       heatingCoefficient: 0.1
       coolingCoefficient: 0.1
