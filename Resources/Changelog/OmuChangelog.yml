@@ -9495,3 +9495,18 @@ Entries:
       message: Storage implant price reduced 40tc -> 30tc
   id: 1225
   time: '2026-10-24T15:55:55.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Add
+      message: >-
+        Accommodated three new CCO types: Crew Operations (basically CC HoP),
+        Internal Affairs, and Judicial Affairs. This mostly only affects their
+        icons and titles, and only for staff larp.
+    - type: Fix
+      message: >-
+        The following job icons are no longer selectable via the Agent ID:
+        CentComm Direggtor, Death Squad, Custodii Vitellus, Future Agent.
+    - type: Fix
+      message: The CentComm Direggtor job icon is now green.
+  id: 1226
+  time: '2026-10-24T17:15:18.0000000+00:00'
