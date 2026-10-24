@@ -50,7 +50,7 @@ public sealed partial class LightsOutMinorRule : StationEventSystem<LightsOutMin
             // don't consider a beacon if it's off-station
             var transform = Transform(beacon);
             if (!HasComp<BecomesStationComponent>(transform.GridUid)
-                && CompOrNull<StationMemberComponent>(transform.GridUid)?.Station != station)
+                || CompOrNull<StationMemberComponent>(transform.GridUid)?.Station != station)
                 continue;
 
             beacons.Add(beacon);

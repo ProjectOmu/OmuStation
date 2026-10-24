@@ -14,7 +14,7 @@
     Cough:
       collection: MaleCoughs
     Sigh:
-      collection: MaleSigh
+      collection: HarpySigh # Omu
     Crying:
       collection: HarpyCry
     Whistle:
@@ -110,7 +110,7 @@
     Flap: # Omu, give harpy more emotes
       path: /Audio/_Goobstation/Voice/Moth/moth_flap.ogg
     Scree: # Omu, give harpy more emotes
-      collection: ResomiScrees
+      collection: CombinedScrees
     Call: # Omu, give harpy more emotes
       collection: ResomiCalls
     Squawk: # Omu, give harpy more emotes
@@ -131,6 +131,8 @@
       collection: RodentiaSnorts
     Gekker: # Omu
       path: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
+    Bagawk: # Omu
+      collection: Bagawk
 
 - type: emoteSounds
   id: SoundsHarpyMale
@@ -146,7 +148,7 @@
     Cough:
       collection: MaleCoughs
     Sigh:
-      collection: MaleSigh
+      collection: HarpySigh # Omu
     Crying:
       collection: HarpyCry
     Whistle:
@@ -239,8 +241,8 @@
       collection: Hew
     Flap: # Omu, give harpy more emotes
       path: /Audio/_Goobstation/Voice/Moth/moth_flap.ogg
-    Scree: # Omu, give harpy more emotes
-      collection: ResomiScrees
+    Scree: # Omu, give harpy more emotes (this was the wrong one before)
+      collection: CombinedScrees
     Call: # Omu, give harpy more emotes
       collection: ResomiCalls
     Squawk: # Omu, give harpy more emotes
@@ -263,6 +265,8 @@
       path: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
     Awebo: #Omu
       collection: AllulaloAwebo
+    Bagawk: # Omu
+      collection: Bagawk
 
 - type: emoteSounds
   id: FemaleVulpkanin
@@ -332,7 +336,7 @@
     Scream:
       collection: VulpkaninScreams # EE
     Laugh:
-      collection: MaleLaugh
+      collection: VulpLaughs # Omu
     Sneeze:
       collection: MaleSneezes
     Cough:
@@ -344,9 +348,9 @@
     Honk:
       collection: BikeHorn
     Sigh:
-      collection: MaleSigh
+      collection: VulpSighs # Omu
     Crying:
-      collection: MaleCry
+      collection: VulpCries # Omu
     Whistle:
       collection: Whistles
     Weh:
