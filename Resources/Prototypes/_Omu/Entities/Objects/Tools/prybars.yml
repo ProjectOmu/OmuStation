@@ -50,9 +50,9 @@
 - type: entity
   parent: BasePrybar
   id: SecurityPrybar
-  name: guild prybar
-  description: A single-purpose tool, officially manufactured and issued by NT-GSL to ensure security contractors have the ability to pry open doors during power outages.
+  name: security prybar
+  description: A single-purpose tool, officially manufactured and advocated for by the union to ensure security contractors have the ability to pry open doors during emergencies.
   components:
   - type: Sprite
-    sprite: _Omu/Objects/Tools/guild_prybar.rsi
+    sprite: _Omu/Objects/Tools/sec_prybar.rsi
     state: icon
