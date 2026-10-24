@@ -21,7 +21,7 @@
       path: /Audio/Items/crowbar_drop.ogg
   - type: Tag
     tags:
-    - GuildPrybar
+    - SecurityPrybar
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
@@ -49,7 +49,7 @@
 
 - type: entity
   parent: BasePrybar
-  id: GuildPrybar
+  id: SecurityPrybar
   name: guild prybar
   description: A single-purpose tool, officially manufactured and issued by NT-GSL to ensure security contractors have the ability to pry open doors during power outages.
   components:
