@@ -104,7 +104,8 @@ public sealed partial class MonumentMenu : FancyWindow
 
         var entropyToNextStage = Math.Max(state.TargetProgress - state.CurrentProgress, 0);
         var min = entropyToNextStage == 0 ? 0 : 1; // I have no idea what to call this. makes it so that it shows 0 crew for the final stage but at least one at all other times
-        var crewToNextStage = Math.Max(entropyToNextStage / _entropyPerCultist, min); // Why the fuck did you make such an ugly cast for an approximation anyway???
+        // var crewToNextStage = Math.Max(entropyToNextStage / _entropyPerCultist, min); // Omu removed
+        var crewToNextStage = Math.Max(Math.Ceiling((double)entropyToNextStage / _entropyPerCultist), min); // Omu
 
         AvailableEntropy.Text = Loc.GetString("monument-interface-entropy-value", ("infused", availableEntropy));
         EntropyUntilNextStage.Text = Loc.GetString("monument-interface-entropy-value", ("infused", entropyToNextStage.ToString()));
