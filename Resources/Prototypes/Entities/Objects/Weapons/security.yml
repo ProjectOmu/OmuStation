@@ -38,6 +38,10 @@
     activatedDamage:
       types:
         Blunt: 0
+      # Omu start
+      activatedSoundOnHit:
+        path: /Audio/Weapons/egloves.ogg
+      # Omu End
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:

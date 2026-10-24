@@ -60,15 +60,17 @@
         enum.ToggleableVisuals.Layer:
           True: {state: cane-nt-active}
           False: {state: cane-nt}
-  - type: Riggable
-  - type: SolutionContainerManager
-    solutions:
-      battery:
-        maxVol: 5
-  - type: InjectableSolution
-    solution: battery
-  - type: DrawableSolution
-    solution: battery
+# Omu Start
+#  - type: Riggable 
+#  - type: SolutionContainerManager
+#    solutions:
+#      battery:
+#        maxVol: 5
+#  - type: InjectableSolution
+#    solution: battery
+#  - type: DrawableSolution
+#    solution: battery
+# Omu End
 #  - type: MobilityAid
   - type: MovementImpairedCorrection # Omu
   - type: Prying
