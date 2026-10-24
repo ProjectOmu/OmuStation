@@ -72,6 +72,8 @@
   - type: ItemToggleSize
     activatedSize: Large
   - type: ItemToggleMeleeWeapon
+    deactivatedSoundOnHit:
+      path: /Audio/Weapons/bladeslice.ogg
     activatedSoundOnHit:
       path: /Audio/Weapons/eblade1.ogg
       params:
@@ -93,8 +95,11 @@
         Structural: 80
   - type: MeleeWeapon
     heavyStaminaCost: 1
-    wideAnimationRotation: -135
+#    wideAnimationRotation: -135 # Omu
+    wideAnimationRotation: -60 # Omu
     attackRate: 1.25
+    soundHit: # Omu
+      path: /Audio/Weapons/bladeslice.ogg # Omu
     damage:
       types:
         Slash: 35
