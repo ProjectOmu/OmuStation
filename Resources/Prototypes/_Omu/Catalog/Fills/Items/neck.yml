@@ -7,3 +7,14 @@
     containers:
       item:
       - WardenRapier
+
+- type: entity
+  id: ClothingNeckCentCommWardenParryCloakFilled
+  name: centcomm warden's dueling cloak
+  parent: ClothingNeckCentCommWardenParryCloak
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - WardenRapier
