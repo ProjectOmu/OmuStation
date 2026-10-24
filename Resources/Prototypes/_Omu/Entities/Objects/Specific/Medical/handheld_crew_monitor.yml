@@ -1,0 +1,60 @@
+
+- type: entity
+  parent: [BaseItem, BaseMedicalContraband]
+  id: HandheldCrewMonitorUnpowered # Shockingly this doesn't exist already
+  name: handheld crew monitor
+  description: A hand-held crew monitor displaying the status of suit sensors.
+  suffix: Unpowered
+  components:
+  - type: Item
+    heldPrefix: scanner
+  - type: Sprite
+    sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
+    state: scanner
+  - type: ActivatableUI
+    key: enum.CrewMonitoringUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.CrewMonitoringUIKey.Key:
+        type: CrewMonitoringBoundUserInterface
+  - type: CrewMonitoringConsole
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: CrewMonitor
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: StationLimitedNetwork
+  - type: Tag
+    tags:
+    - HandheldCrewMonitor
+
+
+- type: entity
+  parent: HandheldCrewMonitorUnpowered
+  id: HandheldCrewMonitorBorg
+  name: integrated crew monitor
+  description: Watch your masters injure themselves in real time! Comes with built in Siren.
+  suffix: Cyborg
+  components:
+  - type: ItemToggle
+    onUse: false
+    soundActivate:
+      path: /Audio/Items/flashlight_on.ogg
+    soundDeactivate:
+      path: /Audio/Items/flashlight_off.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/_Omu/Effects/Vehicle/ambulancesiren2.ogg
+      params:
+        volume: -4
+  - type: UseDelay
+    delay: 1.0
+  - type: ItemTogglePointLight
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: skyblue
+    mask: /Textures/Effects/LightMasks/double_cone.png
+  - type: RotatingLight
+    speed: 270
