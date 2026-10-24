@@ -18,6 +18,9 @@
   - !type:RoleTimeRequirement # Omustation
     role: JobBrigmedic
     time: 2h
+  - !type:RoleTimeRequirement
+    role: JobClown
+    time: 2h # Omustation, god forgive us.
   - !type:DepartmentTimeRequirement
     department: Security
     time: 30h # Omustation
