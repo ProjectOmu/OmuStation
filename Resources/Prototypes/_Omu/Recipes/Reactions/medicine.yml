@@ -11,3 +11,18 @@
       amount: 1
   products:
     Zoleadone: 10
+
+- type: reaction
+  id: Setrozone
+  maxTemp: 210 # i dont like the idea of chemists rushing this THAT hard
+  reactants:
+    SalicylicAcid:
+      amount: 2
+    Oxandrolone:
+      amount: 2
+    Dylovene:
+      amount: 1
+    SodiumAcetate:
+      amount: 1
+  products:
+    Setrozone: 3
