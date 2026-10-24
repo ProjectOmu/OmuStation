@@ -33,7 +33,7 @@
     - MobMonkeyDiseased
 
 - type: entity
-  parent: MobMonkey
+  parent: MobBaseAncestor
   id: MobMonkeyDiseased
   description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. This one looks sickly.
   suffix: Diseased
@@ -42,7 +42,19 @@
     baseDisease: DiseaseBaseMouse
     possibleTypes:
     - Viral
+    - Bacterial
     complexity: 10
+  - type: NameIdentifier
+    group: Monkey
+  - type: Speech
+    speechSounds: GoobMonkey
+    speechVerb: Monkey
+  - type: LanguageKnowledge
+    speaks:
+    - Monkey
+    understands:
+    - Monkey
+    - Kobold
 
 - type: entity
   parent: SmartFridge
