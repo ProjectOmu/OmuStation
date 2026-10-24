@@ -1188,6 +1188,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("construction_favorites");
 
+                    b.Property<int>("PreferenceUnavailable")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("preference_unavailable");
+
                     b.Property<int>("SelectedCharacterSlot")
                         .HasColumnType("INTEGER")
                         .HasColumnName("selected_character_slot");
