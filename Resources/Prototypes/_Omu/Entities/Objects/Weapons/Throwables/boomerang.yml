@@ -98,20 +98,21 @@
   - type: Boomerang
   - type: StaticPrice
     price: 95
-  - type: Riggable
-  - type: SolutionContainerManager
-    solutions:
-      battery:
-        maxVol: 5
-  - type: InjectableSolution
-    solution: battery
-  - type: DrawableSolution
-    solution: battery
-  - type: Explosive
-    explosionType: Default
-    intensitySlope: 1.5
-    maxIntensity: 200
-  - type: PhysicalComposition
+# Without custom logic the secarang explodes when it hits something, which turns rigging into a cheap and easily usable throwable bomb.
+#  - type: Riggable
+#  - type: SolutionContainerManager
+#    solutions:
+#      battery:
+#        maxVol: 5
+#  - type: InjectableSolution
+#    solution: battery
+#  - type: DrawableSolution
+#    solution: battery
+#  - type: Explosive
+#    explosionType: Default
+#    intensitySlope: 1.5
+#    maxIntensity: 200
+#  - type: PhysicalComposition
     materialComposition:
       Steel: 75
       Plastic: 75
