@@ -52,7 +52,8 @@
     ears: ClothingHeadsetCargo
     pocket1: AppraisalTool
   storage:
-    back: UniqueBosunLockerTeleporter
+    back:
+    - UniqueBosunLockerTeleporter
 
 - type: chameleonOutfit
   id: CargoBosunChameleonOutfit
