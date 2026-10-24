@@ -6,10 +6,10 @@
   description: job-description-cargotech
   playTimeTracker: JobCargoTechnician
   # Omu start
-  requirements:
-  - !type:DepartmentTimeRequirement
-    department: Cargo
-    time: 9000 # = 2.5 hours
+#  requirements: ## NOTICE: UNCOMMENT THIS WHEN MENTOR/LOGI ASSISTANT MAPPING IS DONE
+#  - !type:DepartmentTimeRequirement
+#    department: Cargo
+#    time: 9000 # = 2.5 hours
   # Omu end
   startingGear: CargoTechGear
   icon: "JobIconCargoTechnician"
