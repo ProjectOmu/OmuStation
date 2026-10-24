@@ -26,6 +26,27 @@
     - /Audio/_Omu/Voice/Vulp/yap2.ogg
     - /Audio/_Omu/Voice/Vulp/yap3.ogg
 
+- type: soundCollection
+  id: VulpLaughs
+  files:
+    - /Audio/_Omu/Voice/Vulp/laugh1.ogg
+    - /Audio/_Omu/Voice/Vulp/laugh2.ogg
+    - /Audio/_Omu/Voice/Vulp/laugh3.ogg
+
+- type: soundCollection
+  id: VulpSighs
+  files:
+    - /Audio/_Omu/Voice/Vulp/sigh1.ogg
+    - /Audio/_Omu/Voice/Vulp/sigh2.ogg
+    - /Audio/_Omu/Voice/Vulp/sigh3.ogg
+  
+- type: soundCollection
+  id: VulpCries
+  files:
+    - /Audio/_Omu/Voice/Vulp/cry1.ogg
+    - /Audio/_Omu/Voice/Vulp/cry2.ogg
+    - /Audio/_Omu/Voice/Vulp/cry3.ogg
+
 # Rodentia emotes
 
 - type: soundCollection
@@ -82,3 +103,10 @@
   - /Audio/_Omu/Effects/Emotes/hoot1.ogg
   - /Audio/_Omu/Effects/Emotes/hoot2.ogg
   - /Audio/_Omu/Effects/Emotes/hoot3.ogg
+
+- type: soundCollection
+  id: CombinedScrees
+  files:
+  - /Audio/_Starlight/Voice/Resomi/resomi_scree_1.ogg
+  - /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+  - /Audio/_Impstation/Allulalo/allulalo_exclaim.ogg

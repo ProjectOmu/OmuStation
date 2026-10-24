@@ -22,6 +22,20 @@
     - /Audio/Voice/Skeleton/skeleton_scream.ogg
     - /Audio/Voice/Reptilian/reptilian_scream.ogg
     - /Audio/_Floofstation/Voice/Avali/avali_scream.ogg
+    - /Audio/_EinsteinEngines/Voice/Xelthia/scream.ogg # Omu start
+    - /Audio/_Impstation/Allulalo/allulalo_scream.ogg
+    - /Audio/_Mono/Voice/Hydrakin/hydrakin-scream-1.ogg
+    - /Audio/_Mono/Voice/Hydrakin/hydrakin-scream-2.ogg
+    - /Audio/_Mono/Voice/Hydrakin/hydrakin-scream-3.ogg
+    - /Audio/_Mono/Voice/Hydrakin/hydrakin-scream-4.ogg
+    - /Audio/Voice/Vox/shriek1.ogg
+    - /Audio/_Goobstation/Voice/Vox/scream4.ogg
+    - /Audio/_Goobstation/Voice/Vox/scream3.ogg
+    - /Audio/Voice/Arachnid/arachnid_scream.ogg
+    - /Audio/Machines/robotscream_1.ogg
+    - /Audio/Machines/robotscream_2.ogg
+    - /Audio/Machines/robotscream_3.ogg
+    - /Audio/Voice/Xenoborg/xenoborg_scream.ogg # Omu end
 
 
 - type: soundCollection
@@ -37,6 +51,16 @@
     - /Audio/Animals/ferret_happy.ogg
     - /Audio/Voice/Moth/moth_laugh.ogg
     - /Audio/_Floofstation/Voice/Avali/avali_laugh.ogg
+    - /Audio/_EinsteinEngines/Voice/Xelthia/laugh.ogg # Omu start
+    - /Audio/_Impstation/Allulalo/allulalo_laugh.ogg
+    - /Audio/_Mono/Voice/Hydrakin/hydrakin-laugh-1.ogg
+    - /Audio/Voice/Vox/vox_laugh.ogg
+    - /Audio/Voice/Arachnid/arachnid_laugh.ogg
+    - /Audio/_EinsteinEngines/Voice/IPC/robot-laugh_3.ogg
+    - /Audio/Voice/Xenoborg/xenoborg_laugh_1.ogg
+    - /Audio/_Omu/Voice/Vulp/laugh1.ogg
+    - /Audio/_Omu/Voice/Vulp/laugh2.ogg
+    - /Audio/_Omu/Voice/Vulp/laugh3.ogg # Omu end
 
 - type: soundCollection
   id: HarpyHisses
@@ -65,6 +89,9 @@
   files:
     - /Audio/Voice/Human/male_sigh.ogg
     - /Audio/Voice/Human/female_sigh.ogg
+    - /Audio/_Omu/Voice/Vulp/sigh1.ogg # Omu start
+    - /Audio/_Omu/Voice/Vulp/sigh2.ogg
+    - /Audio/_Omu/Voice/Vulp/sigh3.ogg # Omu end
 
 - type: soundCollection
   id: HarpyCry
@@ -77,6 +104,14 @@
     - /Audio/Voice/Human/cry_female_2.ogg
     - /Audio/Voice/Human/cry_female_3.ogg
     - /Audio/Voice/Human/cry_female_4.ogg
+    - /Audio/_EinsteinEngines/Voice/Xelthia/cry.ogg # Omu start
+    - /Audio/_Impstation/Allulalo/allulalo_cry.ogg
+    - /Audio/_Mono/Voice/Hydrakin/hydrakin-cry-1.ogg
+    - /Audio/_Goobstation/Voice/Vox/vox_cry.ogg
+    - /Audio/_EinsteinEngines/Voice/IPC/cry_robot_1.ogg
+    - /Audio/_Omu/Voice/Vulp/cry1.ogg
+    - /Audio/_Omu/Voice/Vulp/cry2.ogg
+    - /Audio/_Omu/Voice/Vulp/cry3.ogg # Omu end
 
 - type: soundCollection
   id: HarpyMeows
@@ -86,12 +121,17 @@
     - /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
     - /Audio/Items/Toys/meow1.ogg
     - /Audio/Animals/cat_meow.ogg
+    - /Audio/_Gardenstation/Voice/Thaven/thavenmeow1.ogg # Omu start
+    - /Audio/_Gardenstation/Voice/Thaven/thavenmeow2.ogg
+    - /Audio/_Gardenstation/Voice/Thaven/thavenmeow3.ogg
+    - /Audio/_Gardenstation/Voice/Thaven/thavenmeow4.ogg # Omu end
 
 - type: soundCollection
   id: HarpyMews
   files:
     - /Audio/Nyanotrasen/Voice/Felinid/cat_mew1.ogg
     - /Audio/Nyanotrasen/Voice/Felinid/cat_mew2.ogg
+    - /Audio/_Gardenstation/Items/Toys/babusqueak.ogg # Omu
 
 - type: soundCollection
   id: HarpyGrowls
@@ -110,6 +150,10 @@
   files:
     - /Audio/Nyanotrasen/Voice/Felinid/cat_purr1.ogg
     - /Audio/Mecha/sound_mecha_hydraulic.ogg
+    - /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_purr.ogg # Omu start
+    - /Audio/_Gardenstation/Voice/Thaven/thavenchitter1.ogg
+    - /Audio/_Gardenstation/Voice/Thaven/thavenchitter2.ogg
+    - /Audio/_Gardenstation/Voice/Thaven/thavenchitter3.ogg # Omu end
 
 - type: soundCollection
   id: HarpyRings
@@ -230,6 +274,10 @@
     - /Audio/Machines/diagnoser_printing.ogg
     - /Audio/Machines/uniformprinter.ogg
     - /Audio/Machines/vaccinator_running.ogg
+    - /Audio/_Goobstation/Voice/Vox/vox_chitter.ogg # Omu start
+    - /Audio/_Goobstation/Voice/Vox/vox_chitter1.ogg
+    - /Audio/_Goobstation/Voice/Vox/vox_chitter2.ogg
+    - /Audio/_Impstation/Allulalo/allulalo_chitter.ogg # Omu end
 
 - type: soundCollection
   id: HarpySqueak
