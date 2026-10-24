@@ -17,10 +17,14 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Stunnable;
+using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Shadowling.Systems;
 
@@ -35,6 +39,10 @@ public abstract class SharedShadowlingSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
+    // <Trauma>
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    // </Trauma>
 
     public override void Initialize()
     {
@@ -46,6 +54,28 @@ public abstract class SharedShadowlingSystem : EntitySystem
         SubscribeLocalEvent<ShadowlingComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<ShadowlingComponent, DamageModifyEvent>(OnDamageModify);
         SubscribeLocalEvent<ShadowlingComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<ShadowlingComponent, SelfBeforeGunShotEvent>(BeforeGunShot); // Trauma - moved from server
+    }
+
+    /// <summary>
+    /// Trauma - moved from server and predicted since shooting is predicted
+    /// </summary>
+    private void BeforeGunShot(Entity<ShadowlingComponent> ent, ref SelfBeforeGunShotEvent args)
+    {
+        // Slings cant shoot guns
+        if (args.Gun.Comp.ClumsyProof)
+            return;
+
+        var seed = SharedRandomExtensions.HashCodeCombine((int) _timing.CurTick.Value, GetNetEntity(args.Gun).Id);
+        var rand = new System.Random(seed);
+        if (!rand.Prob(0.5f))
+            return;
+
+        _damageable.TryChangeDamage(ent, ent.Comp.GunShootFailDamage, origin: ent);
+
+        _stun.TryUpdateParalyzeDuration(ent, ent.Comp.GunShootFailStunTime);
+
+        args.Cancel();
     }
 
     #region Event Handlers

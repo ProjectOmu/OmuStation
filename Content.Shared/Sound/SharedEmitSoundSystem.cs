@@ -100,8 +100,10 @@ public abstract class SharedEmitSoundSystem : EntitySystem
         if (xform.GridUid != xform.MapUid && _turf.IsSpace(tile))
             return;
 
-        // hand throwing not predicted sadly
-        TryEmitSound(uid, component, args.User, false);
+        // Trauma - throwing is predicted by the thrower now
+        TryEmitSound(uid, component, args.User,
+            predict: args.User != null
+                && CompOrNull<Content.Shared._Trauma.Throwing.PredictedThrownItemComponent>(uid)?.Thrower == args.User);
     }
 
     private void OnEmitSoundOnUseInHand(EntityUid uid, EmitSoundOnUseComponent component, UseInHandEvent args)
