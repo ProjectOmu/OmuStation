@@ -4,6 +4,7 @@ loadout-group-ntr-outerclothing = Nanotrasen Representative outer clothing
 
 # Blueshield Officer
 loadout-group-bso-belt = Blueshield Officer belt
+loadout-group-survival-blueshield = Blueshield Officer survival kit
 
 # Corpsman
 loadout-group-corpsman-glasses = Corpsman glasses

@@ -23,23 +23,14 @@
   id: CorpsmanSOP
   name: guide-entry-sop-corpsman
   text: /ServerInfo/_Omu/Guidebook/SoP/Jobs/Security/CorpsmanSOP.xml
-# Security Sergeant SOP
+
+# Mentor SOPs
+  # Sergeant SOP
 - type: guideEntry
   id: SecuritySergeantSOP
   name: guide-entry-sop-security-sergeant
   text: /ServerInfo/_Omu/Guidebook/SoP/Jobs/Security/SergeantSOP.xml
   priority: -5 # should appear at (nearly) the top of the departmental list; warden goes above sergeant
-
-- type: guideEntry
-  id: TrainingManuals
-  name: guide-entry-training-manuals
-  text: /ServerInfo/_Omu/Guidebook/TrainingManuals/TrainingManuals.xml
-  children:
-  - CommandTrainingManual
-  - SecurityTrainingManual
-  - CrewTrainingManual
-
-# Mentor SOPs
   # Bosun SOP
 - type: guideEntry
   id: BosunSOP

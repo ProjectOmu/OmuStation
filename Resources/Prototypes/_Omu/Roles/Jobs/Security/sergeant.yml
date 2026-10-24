@@ -30,7 +30,7 @@
   - SecuritySergeantSOP
   - CorporateJudo
   - AlertLevels
-  - SecurityTrainingManual
+  - ClassifiedTrainingManual
   goobcoins: 45 #Goob content
   access:
   - Security
@@ -50,13 +50,14 @@
   id: SecuritySergeantGear
   equipment:
     id: SecuritySergeantPDA
-    eyes: ClothingEyesGlassesSecurity
+    #eyes: ClothingEyesGlassesSecurity #Omu, glasses options in loadout
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     #pocket1: OfficerGunCase #Omu, item in loadout instead
   storage:
     back:
     - Flash
     - SecuritySergeantWhistle
+    - SergeantMeleeCase
 
 - type: chameleonOutfit
   id: SecuritySergeantChameleonOutfit

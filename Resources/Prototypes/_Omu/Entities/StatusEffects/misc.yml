@@ -17,3 +17,15 @@
     range: 2
     energyConsumption: 25000
     disableDuration: 30
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectVoodooBlindness
+  name: voodoo blindness
+  components:
+  - type: VoodooBlindnessStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectVoodooRebindCooldown
+  name: voodoo rebind cooldown
