@@ -8,6 +8,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   Nanotrasen employs a variety of sapient species. It is wise to get to know them so you know the requirements of your fellow crew members.
 
   <Box>
+    <GuideEntityEmbed Entity="MobDoll" Caption="Doll"/> <!-- Omu: ported from Starlight -->
     <GuideEntityEmbed Entity="MobAllulalo" Caption="Allulalo"/> <!-- Imp -->
     <GuideEntityEmbed Entity="MobArachnid" Caption="Arachnid"/>
     <GuideEntityEmbed Entity="MobChitinid" Caption="Chitinid"/> <!-- Omu, reorder species list -->

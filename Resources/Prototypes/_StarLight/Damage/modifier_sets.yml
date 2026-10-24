@@ -3,3 +3,11 @@
   coefficients:
     Cold: 0.6
     Heat: 1.4
+
+- type: damageModifierSet
+  id: Doll # Omu, ported from starlight
+  coefficients:
+    Blunt: 1.3 # Base form is squish!
+    Slash: 1.3
+    Piercing: 1.3
+    Heat: 1.0
