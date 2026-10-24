@@ -51,6 +51,7 @@
   - type: SpawnPoint
     job_id: SecuritySergeant
   - type: Sprite
+    sprite: _Omu/Markers/jobs.rsi
     layers:
     - state: green
     - state: securitysergeant
@@ -63,6 +64,7 @@
   - type: SpawnPoint
     job_id: MedicalMedicus
   - type: Sprite
+    sprite: _Omu/Markers/jobs.rsi
     layers:
     - state: green
     - state: medicalmedicus
@@ -75,6 +77,7 @@
   - type: SpawnPoint
     job_id: ScienceProfessor
   - type: Sprite
+    sprite: _Omu/Markers/jobs.rsi
     layers:
     - state: green
     - state: scienceprofessor
@@ -87,6 +90,7 @@
   - type: SpawnPoint
     job_id: CargoBosun
   - type: Sprite
+    sprite: _Omu/Markers/jobs.rsi
     layers:
     - state: green
     - state: cargobosun
@@ -99,6 +103,7 @@
   - type: SpawnPoint
     job_id: EngineeringForeman
   - type: Sprite
+    sprite: _Omu/Markers/jobs.rsi
     layers:
     - state: green
     - state: engineeringforeman
