@@ -3,12 +3,8 @@
   id: BaseMobDoll
   abstract: true
   components:
-  - type: SpawnOnAction
-    action: ActionGenerateShellPiece
-    entityToSpawn: ShellFragmentDoll
-    damage:
-      types:
-        Blunt: 15
+  - type: Shell
+    generateShellPieceAction: ActionGenerateShellPiece
   - type: LanguageKnowledge
     speaks:
     - TauCetiBasic

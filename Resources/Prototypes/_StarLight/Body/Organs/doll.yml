@@ -215,19 +215,40 @@
 
 - type: entity
   id: ShellFragmentDoll
-  parent: [BaseKnife]
-  name: "doll shell fragment"
-  description: "A shell piece, broken off of a doll. Sharp, and looks quite sturdy."
+  parent: BaseKnife
+  name: doll shell fragment
+  description: A shell piece, broken off of a doll. Sharp, and looks quite sturdy.
   components:
   - type: Sprite
     sprite: _Starlight/Mobs/Species/Doll/organs.rsi
     state: shell
-  - type: PhysicalComposition
-    materialComposition:
-      Plasteel: 500
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    attackRate: 1.0
+  - type: Organ
+    slotId: shell
+  - type: OrganShell
+  - type: OrganDamage
     damage:
       types:
-        Slash: 15
+        Blunt: 30
+        Slash: 5
+        Piercing: 5
+  - type: Damageable
+    damageContainer: Biological
+  - type: MarkingOrgan
+    storeMarkings: true
+    appliedMarkings:
+      - DollShellHeadFemale
+      - DollShellChestFemale
+      - DollShellLArm
+      - DollShellLHand
+      - DollShellLLeg
+      - DollShellLFoot
+      - DollShellRArm
+      - DollShellRHand
+      - DollShellRLeg
+      - DollShellRFoot
+  - type: DamageModifierOrgan
+    modifiers:
+      coefficients:
+        Slash: -0.06
+        Piercing: -0.06
+        Heat: 0.03
