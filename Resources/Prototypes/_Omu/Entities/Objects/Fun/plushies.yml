@@ -1040,3 +1040,49 @@
     wideAnimationRotation: 180
     soundHit:
       collection: MaleScreams
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieToastOmuStaff
+  name: ember crux plushie
+  description: Can plushies dream of piloting giant mecha? This one sure does.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/embercrux.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/embercrux.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/embercrux.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: VulpYips
+  - type: EmitSoundOnUse
+    sound:
+      collection: VulpYaps
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VulpYaps
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: VulpYaps
+  - type: EmitSoundOnThrow
+    sound:
+      collection: VulpkaninScreams
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: VulpkaninScreams
+  - type: AiRemoteBrain
+  - type: Actions
+  - type: Tag
+    tags:
+    - CannotSuicide
+
