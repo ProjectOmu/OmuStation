@@ -123,8 +123,14 @@
           - BorgModuleGeneric
           - BorgModuleSyndicate
           - BorgModuleSyndicateAssault
+          - BorgModuleMartyr # One last stand
       hasMindState: synd_sec_e
       noMindState: synd_sec
+    - type: Damageable
+      damageContainer: Silicon
+      damageModifierSet: SiliconHeavyProtected #Heavy duty assault borgs, heavy duty armor plating.
+    - type: ExplosionResistance
+      damageCoefficient: 0.4
     - type: InteractionPopup
       interactSuccessString: petting-success-syndicate-cyborg
       interactFailureString: petting-failure-syndicate-cyborg
