@@ -25,7 +25,6 @@
   id: BulletLaserSpreadHeavyStructural
   categories: [ HideSpawnMenu ]
   parent: BulletLaserHeavyStructural # shows the proper damage
-  desc: Standard. Lethal. Destructive.
   components:
   - type: ProjectileSpread
     proto: BulletLaserHeavyStructural
@@ -56,7 +55,6 @@
   id: BulletLaserSpreadHeavySuperStructural
   categories: [ HideSpawnMenu ]
   parent: BulletLaserHeavySuperStructural
-  desc: Three-shot concentrated destruction. Avoid causing spacing.
   components:
   - type: ProjectileSpread
     proto: BulletLaserHeavySuperStructural
