@@ -52,7 +52,7 @@
       entity_storage: !type:NestedSelector
         tableId: AllPlushiesTable
         rolls: !type:ConstantNumberSelector
-          value: 2 # Omu
+          value: 10
 
 - type: entity
   parent: CrateGenericSteel
