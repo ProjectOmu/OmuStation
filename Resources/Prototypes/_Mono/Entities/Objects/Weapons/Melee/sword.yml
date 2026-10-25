@@ -72,8 +72,8 @@
   - type: ItemToggleSize
     activatedSize: Large
   - type: ItemToggleMeleeWeapon
-    deactivatedSoundOnHit:
-      path: /Audio/Weapons/bladeslice.ogg
+    deactivatedSoundOnHit: # Omu
+      path: /Audio/Weapons/bladeslice.ogg # Omu
     activatedSoundOnHit:
       path: /Audio/Weapons/eblade1.ogg
       params:
