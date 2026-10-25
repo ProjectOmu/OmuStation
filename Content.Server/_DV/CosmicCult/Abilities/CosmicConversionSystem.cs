@@ -101,7 +101,6 @@ public sealed class CosmicConversionSystem : EntitySystem
             }
             else if (HasComp<GhostComponent>(target))
             {
-                _popup.PopupEntity(Loc.GetString("cult-glyph-target-rotting"), uid, args.User);
                 args.Cancel();
             }
             else
