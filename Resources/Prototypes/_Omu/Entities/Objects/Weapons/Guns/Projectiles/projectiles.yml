@@ -19,3 +19,46 @@
   - type: Tag
     tags:
     - BulletRubber
+
+- type: entity
+  name: heavy structural laser barrage # used for the X-12 Flamberge; overall weaker than the energy shotgun
+  id: BulletLaserSpreadHeavyStructural
+  categories: [ HideSpawnMenu ]
+  parent: BulletLaserHeavyStructural # shows the proper damage
+  desc: Standard. Lethal. Destructive.
+  components:
+  - type: ProjectileSpread
+    proto: BulletLaserHeavyStructural
+    count: 5 # odd-numbered bullet spread actually aims at where you're firing; 50 heat if full connect
+    spread: 20 # narrower than the energy shotgun's wide spread but wider than the narrow spread
+
+- type: entity
+  name: heavy super-structural laser bolt # also a flamberge thing
+  id: BulletLaserHeavySuperStructural
+  parent: BulletLaserHeavy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite # taken from lawbringer's destructive shot
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser_greyscale
+      shader: unshaded
+  - type: Projectile
+    ignoreResistances: true # This needs ProjectileDamageWhitelistComponent
+    impactEffect: BulletImpactEffectKinetic # lawbringer effects end here
+    damage:
+      types:
+        Heat: 1 # this ignores resistances, so uh... y'know the lawbringer only has two blunt and two heat per shot?
+        Structural: 80 # for when 30 structural just isn't enough
+
+- type: entity
+  name: heavy super-structural laser barrage
+  id: BulletLaserSpreadHeavySuperStructural
+  categories: [ HideSpawnMenu ]
+  parent: BulletLaserHeavySuperStructural
+  desc: Three-shot concentrated destruction. Avoid causing spacing.
+  components:
+  - type: ProjectileSpread
+    proto: BulletLaserHeavySuperStructural
+    count: 3 # fewer but stronger
+    spread: 10
