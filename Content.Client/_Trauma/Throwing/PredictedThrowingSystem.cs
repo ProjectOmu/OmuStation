@@ -56,7 +56,7 @@ public sealed class PredictedThrowingSystem : EntitySystem
         Timer.Spawn(1000, () =>
         {
             // Omu - the entity can be deleted before the timer fires
-            if (!Deleted(uid))
+            if (!TerminatingOrDeleted(uid))
                 _physics.UpdateIsPredicted(uid);
         });
     }
