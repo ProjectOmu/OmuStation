@@ -99,6 +99,11 @@ public sealed class CosmicConversionSystem : EntitySystem
                 _popup.PopupEntity(Loc.GetString("cult-glyph-target-mindshield"), uid, args.User);
                 args.Cancel();
             }
+            else if (HasComp<GhostComponent>(target))
+            {
+                _popup.PopupEntity(Loc.GetString("cult-glyph-target-rotting"), uid, args.User);
+                args.Cancel();
+            }
             else
             {
                 _stun.TryUpdateStunDuration(target, TimeSpan.FromSeconds(4f));
