@@ -15,6 +15,7 @@ using Robust.Shared.Timing;
 using Content.Server.Atmos.Rotting;
 using Content.Server.Administration.Systems;
 using Content.Shared.Administration.Systems;
+using Content.Shared.Ghost;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
 
@@ -96,7 +97,7 @@ public sealed class CosmicConversionSystem : EntitySystem
             }
             if (HasComp<GhostComponent>(target))
             {
-                args.cancel();
+                args.Cancel();
             }
             else if (uid.Comp.NegateProtection == false && HasComp<MindShieldComponent>(target))
             {
