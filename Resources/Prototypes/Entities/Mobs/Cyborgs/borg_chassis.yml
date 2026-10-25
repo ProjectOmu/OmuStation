@@ -123,7 +123,6 @@
           - BorgModuleGeneric
           - BorgModuleSyndicate
           - BorgModuleSyndicateAssault
-          - BorgModuleMartyr # One last stand
       hasMindState: synd_sec_e
       noMindState: synd_sec
     - type: Damageable
@@ -162,7 +161,6 @@
           - BorgModuleMedical
           - BorgModuleSyndicate
           - BorgModuleSyndicateMedical # Omu
-          - BorgModuleMartyr # One last stand
       hasMindState: synd_medical_e
       noMindState: synd_medical
     - type: ShowHealthBars
