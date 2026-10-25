@@ -61,7 +61,7 @@
           state: secarang_on
         components:
         - type: Stunbaton # This has to be here otherwise it will not drain enegry on a throw hit, but cant be elsewhere because then the UI breaks
-          energyPerUse: 50
+          energyPerUse: 15
         - type: MeleeWeapon
           damage:
             types:
@@ -71,10 +71,10 @@
             types:
               Blunt: 0
         - type: StaminaDamageOnHit
-          damage: 10
-          overtime: 10
+          damage: 3
+          overtime: 3
         - type: StaminaDamageOnCollide
-          damage: 25
+          damage: 7
         soundStateActivate:
           collection: sparks
           params:
