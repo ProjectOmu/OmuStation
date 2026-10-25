@@ -15,7 +15,7 @@ using Robust.Shared.Timing;
 using Content.Server.Atmos.Rotting;
 using Content.Server.Administration.Systems;
 using Content.Shared.Administration.Systems;
-using Content.Shared.Ghost;
+using Content.Shared.Ghost; // Omu
 
 namespace Content.Server._DV.CosmicCult.Abilities;
 
@@ -95,7 +95,7 @@ public sealed class CosmicConversionSystem : EntitySystem
                 _popup.PopupEntity(Loc.GetString("cult-glyph-target-chaplain"), uid, args.User);
                 args.Cancel();
             }
-            if (HasComp<GhostComponent>(target))
+            if (HasComp<GhostComponent>(target)) // Omu
             {
                 args.Cancel();
             }
