@@ -69,17 +69,29 @@
 
 - type: entityTable
   id: ClawMachinePlushies
-  table: !type:AllSelector
+  table: !type:GroupSelector # Omu
     children:
     - !type:NestedSelector
       tableId: Plushies
+    # Omu start      
+    - !type:NestedSelector
+      tableId: OmuPlushiesTable
+    - !type:NestedSelector
+      tableId: OmuCrewPlushiesTable
+    # Omu end
 
 - type: entityTable
   id: ClawMachineEvilPlushies
-  table: !type:AllSelector
+  table: !type:GroupSelector # Omu
     children:
     - !type:NestedSelector
       tableId: Plushies
+    # Omu start      
+    - !type:NestedSelector
+      tableId: OmuPlushiesTable
+    - !type:NestedSelector
+      tableId: OmuCrewPlushiesTable
+    # Omu end
 
 - type: entityTable
   id: Plushies
@@ -100,59 +112,15 @@
     #- id: PlushieJvne # Omu
     #- id: PlushieFern # Omu
     #- id: PlushieNigel # Omu
-    - id: PlushieBrizby # Upstreamer was bribed to include this one.
+    #- id: PlushieBrizby # Upstreamer was bribed to include this one. # Omu
     #- id: PlushieBoggle # Omu
     #- id: PlushieLehmin # Omu
     #- id: PlushieWachtel # Omu
     #- id: PlushieLeguia # Omu
     #- id: PlushiePasha # Omu
     #- id: PlushieLeoMalone # Omu
-    - id: PlushieRedstonewolf
+    # - id: PlushieRedstonewolf # Omu
 # Omu begin
-    - id: PlushieRestfulOmuStaff
-    - id: PlushieCygOmuStaff
-    - id: PlushieAureuOmuStaff
-    - id: PlushieThesiaOmuStaff
-    - id: PlushieMarikiiiOmuStaff
-    - id: PlushieNagollOmuStaff
-    - id: PlushieArtemisOmuStaff
-    - id: PlushieCliveOmuStaff
-    - id: PlushieRestfulOmuStaff
-    - id: PlushieTossornOmuStaff
-    - id: PlushieDishwasherOmuStaff
-    - id: PlushieDoglettuceOmuStaff
-    - id: PlushieHayrayOmuStaff
-    - id: PlushieKabukiOmuStaffish
-    - id: PlushieGinoOmuStaff
-    - id: PlushiePuntsssOmuStaff
-    - id: PlushieNnifOmuStaff
-    - id: PlushieMednogOmuStaff
-    - id: PlushieYuriOmuStaff
-    - id: PlushiePickelSillyOmuStaffish
-    - id: PlushieXiOmuStaff
-    - id: PlushieSammyOmuStaff
-    - id: PlushieJessieFletcherOmuStaff
-    - id: PlushieSeptOctOmuStaff
-    - id: PlushieCrescentOmuStaff
-    - id: PlushieHushOmuStaff
-    - id: PlushieJohnOmuStaff
-    - id: PlushieJeelusanOmuCrew
-    - id: PlushieSoozieOmuCrew
-    - id: PlushieRebeccaOmuCrew
-    - id: PlushieGnashOmuCrew
-    - id: PlushieKandyOmuCrew
-    - id: PlushiePanaceaOmuCrew
-    - id: PlushieHarmonyDonovanOmuCrew
-    - id: PlushieZiggyDOmuCrew
-    - id: PlushieBenryOmuCrew
-    - id: PlushieQuellinOmuCrew
-    - id: PlushieHaashaOmuCrew
-    - id: PlushieRogerCagelOmuCrew
-    - id: PlushieTevikOmuCrew
-    - id: PlushiePoemOfExpressionOmuCrew
-    - id: PlushieNuiOmuCrew
-    - id: PlushieRhyssOmuCrew
-    - id: PlushieSniffsOmuCrew
     - id: PlushieLizard
     - id: PlushieSpaceLizard
     - id: PlushieLizardInversed
