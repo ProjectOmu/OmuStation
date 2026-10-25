@@ -60,6 +60,7 @@
         enum.ToggleableVisuals.Layer:
           True: {state: cane-nt-active}
           False: {state: cane-nt}
+# Without an explosive component this causes the cane to just delete itself, and unique items shouldn't really be able to delete themselves.
 # Omu Start
 #  - type: Riggable 
 #  - type: SolutionContainerManager
