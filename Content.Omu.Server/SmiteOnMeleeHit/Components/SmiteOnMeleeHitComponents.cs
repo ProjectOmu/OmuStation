@@ -8,7 +8,4 @@ namespace Content.Omu.Server.SmiteOnMeleeHit.Components;
 /// Causes entities to get Supermatter ashed when hit by an entity with this component.
 /// </summary>
 [RegisterComponent]
-public sealed partial class SmiteOnMeleeHitComponent : Component
-{
-
-}
+public sealed partial class SmiteOnMeleeHitComponent : Component;
