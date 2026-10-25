@@ -23,7 +23,7 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
     protected override void UpdateVisuals(Entity<ItemSwitchComponent> ent, string key)
     {
         base.UpdateVisuals(ent, key);
-        if (TryComp(ent, out SpriteComponent? sprite) && ent.Comp.States.TryGetValue(key, out var state))
+        if (TryComp(ent, out SpriteComponent? sprite) && ent.Comp.States.TryGetValue(key, out var state) && ent.Comp.AutomaticSprite ) // Omu, add ent.Comp.AutomaticSprite
             if (state.Sprite != null)
                 sprite.LayerSetSprite(0, state.Sprite);
     }
