@@ -43,16 +43,16 @@
   - type: Clothing
     sprite: _Starlight/Clothing/Uniforms/Jumpsuit/eliteblueshield.rsi
 
-- type: entity #Omu - Starlight Port
-  parent: [ClothingUniformBase, BaseCentcommContraband]
-  id: ClothingUniformJumpsuitBlueShieldCaptain
-  name: blueshield officer's shirt
-  description: A classic suit in theme with a blueshield.
-  components:
-  - type: Sprite
-    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/blueshieldshirt.rsi
-  - type: Clothing
-    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/blueshieldshirt.rsi
+#- type: entity #Omu - Starlight Port # Omu, artstyle reasonsss
+#  parent: [ClothingUniformBase, BaseCentcommContraband]
+#  id: ClothingUniformJumpsuitBlueShieldCaptain
+#  name: blueshield officer's shirt
+#  description: A classic suit in theme with a blueshield.
+#  components:
+#  - type: Sprite
+#    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/blueshieldshirt.rsi
+#  - type: Clothing
+#    sprite: _Starlight/Clothing/Uniforms/Jumpsuit/blueshieldshirt.rsi
 
 - type: entity
   parent: [ClothingUniformBase, BaseCentcommContraband]
