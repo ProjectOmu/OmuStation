@@ -482,12 +482,12 @@
   - ChefJacket
   - ChefWintercoat
 
-- type: loadoutGroup
-  id: ChefJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieChef
+#- type: loadoutGroup # Omu
+#  id: ChefJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
+#  - LizardPlushieChef
 
 - type: loadoutGroup
   id: LibrarianJumpsuit
@@ -970,17 +970,17 @@
   - CargoTechnicianJumpsuit
   - CargoTechnicianJumpskirt
   - CargoTechnicianOveralls #Goob
+  - CargoTechMJ # goob
   # OmuStation Start
   - CargoTechnicianSweater
   - CargoTechnicianSweaterSkirt
   - CargoTechnicianShortPantsIfuckinghateyouifyouwearthisbtw
   - CargoTechnicianShortSkirtsInsteadofPants
   - CargoTechnicianUniformTopInsteadOfJumpsuit
-  # OmuStation End
   #- CargoTechnicianJumpsuitMail # Goob/DeltaV - Mail # Omu - Moved to courier
   #- CargoTechnicianJumpskirtMail # Goob/DeltaV - Mail # Omu - Moved to courier
-  - CargoTechMJ # goob
-  - MailCarrierMJ #Goob
+  #- MailCarrierMJ # Omu courier
+  # OmuStation End
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
