@@ -162,6 +162,7 @@
           - BorgModuleMedical
           - BorgModuleSyndicate
           - BorgModuleSyndicateMedical # Omu
+          - BorgModuleMartyr # One last stand
       hasMindState: synd_medical_e
       noMindState: synd_medical
     - type: ShowHealthBars
@@ -195,7 +196,7 @@
           map: ["light"]
           visible: false
     - type: BorgChassis
-      maxModules: 7 # Trauma - was 3
+      maxModules: 8 # Omu - Extra space for self destruct
       moduleWhitelist:
         tags:
           - BorgModuleGeneric
