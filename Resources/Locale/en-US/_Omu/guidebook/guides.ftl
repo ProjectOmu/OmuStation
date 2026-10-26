@@ -8,6 +8,7 @@ guide-entry-sop-virologist = Virologist
 # - Security
 guide-entry-sop-corpsman = Corpsman
 guide-entry-sop-security-sergeant = Sergeant
+guide-entry-sop-offduty = Off Duty
 
 # - Training Manuals
 guide-entry-training-manuals = Training Manuals

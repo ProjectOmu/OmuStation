@@ -94,3 +94,18 @@
     sprite: _Omu/Clothing/Mask/sterilewhite.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Mask/sterilewhite.rsi
+
+- type: entity
+  parent: [ClothingMaskGas, BaseMagicalContraband]
+  id: ClothingMaskGasTide
+  name: cursed gas mask
+  description: Recovered from the aftermath of a revolt aboard Defense Outpost Theta Aegis, its straps seems to reach for your face
+  components:
+  - type: FactionClothing
+    faction: Assistant
+  - type: Clothing
+    equipDelay: 5
+  - type: SelfUnremovableClothing
+  - type: FlashImmunity
+  - type: IngestionBlocker
+    blockSmokeIngestion: true
