@@ -49,7 +49,6 @@
     angle: 60
     animation: WeaponArcThrust
   - type: ItemSwitch
-    automaticSprite: false
     needsPower: true
     defaultState: off
     state: "off"
@@ -76,10 +75,10 @@
       stun: !type:ItemSwitchState
         verb: stun
         energyPerUse: 48
-        components:
-        - type: sprite
+        sprite:
           sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           state: stun-icon
+        components:
         - type: MeleeWeapon
           wideAnimationRotation: -135
           attackRate: 1.5
@@ -107,9 +106,6 @@
           sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           state: ion-icon
         components:
-        - type: sprite
-          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
-          state: ion-icon
         - type: MeleeWeapon
           wideAnimationRotation: -135
           attackRate: 1.5
@@ -129,16 +125,10 @@
       phoron: !type:ItemSwitchState
         verb: phoron
         energyPerUse: 80
+        sprite:
+          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
+          state: phoron-icon
         components:
-        - type: Sprite
-          sprite: Objects/Weapons/Melee/e_sword.rsi
-          layers:
-          - state: e_sword
-          - state: e_sword_blade
-            color: "#FFFFFF"
-            visible: false
-            shader: unshaded
-            map: [ "blade" ]
         - type: AmbientSound
           range: 5
           volume: 0
@@ -174,10 +164,10 @@
       Supermatter: !type:ItemSwitchState
         verb: Supermatter
         energyPerUse: 999 # Also don't remove its energy usage I will cry
-        components:
-        - type: sprite
+        sprite:
           sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           state: Supermatter-Icon
+        components:
         - type: AmbientSound
           range: 5
           volume: 0

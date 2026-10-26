@@ -224,10 +224,7 @@ public abstract class SharedItemSwitchSystem : EntitySystem
         }
 
         comp.State = key;
-        // Omu start
-        if (comp.AutomaticSprite)
-            UpdateVisuals((uid, comp), key);
-        // Omu end
+        UpdateVisuals((uid, comp), key);
         Dirty(uid, comp);
 
         var switched = new ItemSwitchedEvent { Predicted = predicted, State = key, User = user };

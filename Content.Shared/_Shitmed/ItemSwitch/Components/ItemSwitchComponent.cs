@@ -65,12 +65,6 @@ public sealed partial class ItemSwitchComponent : Component
     [DataField]
     public string? DefaultState;
 
-    /// <summary>
-    /// Omu:     Do defualt sprite logic or override it.
-    /// </summary>
-    [DataField]
-    public bool AutomaticSprite = true;
-
     public ItemSwitchComponent(string state)
     {
         State = state;
