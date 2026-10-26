@@ -5,6 +5,7 @@
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
     state: direggtor
   jobName: job-name-centcomm-direggtor
+  allowSelection: false
 
 - type: jobIcon
   parent: JobIcon
@@ -77,6 +78,7 @@
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
     state: deathsquad
   jobName: job-name-deathsquad
+  allowSelection: false
 
 - type: jobIcon
   parent: JobIcon
@@ -93,6 +95,75 @@
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
     state: custodii
   jobName: job-name-centcomm-guard
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCHOP
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: cchop
+  jobName: job-name-centcomm-hop
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCInternalAffairsEye
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: ia_eye
+  jobName: job-name-internal-affairs
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCInternalAffairsText
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: ia_text
+  jobName: job-name-internal-affairs
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCJudicialAffairs
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: judicialaffairs
+  jobName: job-name-judicial-affairs
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCToiletPaper
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: toiletpaper
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCSadFace
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: sadface
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCMiddleFinger
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: middlefinger
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCInspector
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: inspector
+  allowSelection: false
 
 # Mentor Roles
 

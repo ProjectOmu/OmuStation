@@ -38,6 +38,10 @@
     activatedDamage:
       types:
         Blunt: 0
+    # Omu start
+    deactivatedSoundOnHit:
+      collection: MetalThud
+    # Omu End
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
