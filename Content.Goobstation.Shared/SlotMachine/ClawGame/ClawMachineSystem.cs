@@ -98,11 +98,7 @@ public sealed class ClawMachineSystem : EntitySystem
         Dirty(ent);
 
         if (_net.IsServer) // I have no fucking idea why this misperdicts on this only, when I try it on the slot machine its fine
-        {
-            // Omu start - weight modifier
-            _prize.HandlePrize(ent.Comp.Prizes, ent.Owner, ent.Comp.WeightModifier);
-            ent.Comp.WeightModifier *= ent.Comp.WeightReduction;
-            // Omu end
-        }
+            _prize.HandlePrize(ent.Comp.Prizes, ent.Owner, ent.Comp.WeightModifier); // Omu weight modifier
+
     }
 }
