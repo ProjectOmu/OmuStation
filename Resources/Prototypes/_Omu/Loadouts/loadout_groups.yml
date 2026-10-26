@@ -110,6 +110,7 @@
   loadouts:
   - CargoTechnicianJumpsuitMail
   - CargoTechnicianJumpskirtMail
+  - MailCarrierMJ # Omu
   - CourierJumpsuit
   - CourierJumpskirt
   - CourierJumpsuitLong
@@ -282,6 +283,15 @@
 
 # Blueshield Officer
 
+- type: loadoutGroup
+  id: BlueshieldEyewear
+  name: loadout-group-bso-eyewear
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BSOGlasses
+  - BSOVisor
+
 # - type: loadoutGroup
 #   id: BlueshieldOfficerBelt # - Now moved to support kits
 #   name: loadout-group-bso-belt
@@ -302,6 +312,7 @@
   loadouts:
   - GlassesMedSec
   - GlassesCorpsman
+  - VisorMedSec
 
 - type: loadoutGroup
   id: CorpsmanBelt
@@ -345,6 +356,15 @@
   - SecurityOfficerSecurityDutyRevolver
   - SecurityOfficerEG1
   - WeaponPistolMk58Gold
+
+- type: loadoutGroup
+  id: SecurityEyewear
+  name: loadout-group-security-eyewear
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SecurityGlasses
+  - SecurityVisor
 
 - type: loadoutGroup
   id: TrinketsSecuritySergeant
@@ -424,6 +444,7 @@
   maxLimit: 1
   loadouts:
   - DetectiveClothingEyesGlassesSecurity
+  - SecurityVisor
   - DetectiveClothingEyesGlassesNoir
 
 # And... a separate one for brigmed cause they cant put the terminus in the suit storage
