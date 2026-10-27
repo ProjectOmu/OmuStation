@@ -45,3 +45,14 @@
     sprite: _Omu/Clothing/Neck/Mantle/cmomantle.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Neck/Mantle/cmomantle.rsi
+
+- type: entity
+  parent: ClothingNeckMantleHOS
+  id: ClothingNeckMantleHOSFormal
+  name: head of security's formal mantle
+  description: A parade-ready, formalized version of the HOS' mantle. Comes with a built-in camera.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Mantle/hosmantle.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Mantle/hosmantle.rsi
