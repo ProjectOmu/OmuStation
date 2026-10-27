@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 10/21/2026 23:05:38
-  entityCount: 18646
+  time: 10/27/2026 03:02:50
+  entityCount: 18654
 maps:
 - 12140
 grids:
@@ -7365,7 +7365,7 @@ entities:
       pos: -11.5,32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -150447.28
+      secondsUntilStateChange: -150596.52
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7556,7 +7556,7 @@ entities:
       pos: -16.5,-28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -616056.94
+      secondsUntilStateChange: -616206.2
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7581,7 +7581,7 @@ entities:
       pos: 5.5,2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -627812.44
+      secondsUntilStateChange: -627961.7
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -8281,7 +8281,7 @@ entities:
       pos: 22.5,-15.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -6920.888
+      secondsUntilStateChange: -7070.125
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -9008,7 +9008,7 @@ entities:
       pos: 44.5,-23.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -546848.3
+      secondsUntilStateChange: -546997.56
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -34919,6 +34919,46 @@ entities:
     components:
     - type: Transform
       pos: -29.5,49.5
+      parent: 2
+  - uid: 18647
+    components:
+    - type: Transform
+      pos: -42.5,-0.5
+      parent: 2
+  - uid: 18648
+    components:
+    - type: Transform
+      pos: -43.5,-0.5
+      parent: 2
+  - uid: 18649
+    components:
+    - type: Transform
+      pos: -44.5,-0.5
+      parent: 2
+  - uid: 18650
+    components:
+    - type: Transform
+      pos: -46.5,-0.5
+      parent: 2
+  - uid: 18651
+    components:
+    - type: Transform
+      pos: -47.5,-0.5
+      parent: 2
+  - uid: 18652
+    components:
+    - type: Transform
+      pos: -48.5,-0.5
+      parent: 2
+  - uid: 18653
+    components:
+    - type: Transform
+      pos: -45.5,-0.5
+      parent: 2
+  - uid: 18654
+    components:
+    - type: Transform
+      pos: -49.5,-0.5
       parent: 2
 - proto: CableMVStack
   entities:
@@ -82914,7 +82954,7 @@ entities:
       pos: 7.5,-23.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -611654.9
+      secondsUntilStateChange: -611804.1
       state: Opening
   - uid: 2029
     components:
@@ -82944,7 +82984,7 @@ entities:
       pos: 5.5,-28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -42833.07
+      secondsUntilStateChange: -42982.31
       state: Closing
   - uid: 5716
     components:
@@ -82962,7 +83002,7 @@ entities:
       pos: -25.5,9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -85487.32
+      secondsUntilStateChange: -85636.555
       state: Closing
 - proto: hydroponicsSoil
   entities:
@@ -101337,7 +101377,7 @@ entities:
       pos: 34.5,28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -38447.176
+      secondsUntilStateChange: -38596.414
       state: Opening
 - proto: SpaceCash
   entities:
