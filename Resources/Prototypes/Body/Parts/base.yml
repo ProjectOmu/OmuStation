@@ -189,13 +189,13 @@
       - Head
   - type: Woundable
     boneEntity: BoneNeck
-    integrity: 125 #Decaps should happen after the person is already dead
-    integrityCap: 125
+    integrity: 1250 #Decaps should happen after the person is already dead # Omu They should only happen long after.
+    integrityCap: 1250 # Omu They should only happen long after.
     thresholds:
-      Minor: 110
-      Moderate: 70
-      Severe: 50
-      Critical: 20
+      Minor: 1100 # Omu, update in line with new integ value.
+      Moderate: 700 # Omu, update in line with new integ value.
+      Severe: 500 # Omu, update in line with new integ value.
+      Critical: 200 # Omu, update in line with new integ value.
       Mangled: 0
     damageOnAmputate: # This seemingly arbitrary spread is the result of the default head health (65) subtracted to 200 (death threshold).
       types:
