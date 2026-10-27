@@ -38,6 +38,9 @@ uplink-bloodred-headphones-desc = Looks stylish, and synergizes with the Shredde
 uplink-hobbyist-spellbook-name = Hobbyist Spell Book
 uplink-hobbyist-spellbook-desc = A book given out by the Wizard Federation to get avid fanatics to finally shut up. Contains the spells: Spark, Cure Wounds, Conjure Peel, Abracaweh, and Lessest Magic Missile.
 
+uplink-voodoo-doll-name = Wicker Doll
+uplink-voodoo-doll-desc = A cursed wicker doll. Bind someone to it by using the doll on their DNA, fingerprints, or even them directly. Different fates await your victim depending on the doll's limb you interact with or items you use on it...
+
 uplink-sniper-penman-name = LRR-30 "Penman" DMR
 uplink-sniper-penman-desc = A prized long range product of Waffle Co. able to down targets fast and accurately at medium to long ranges. Chambered in .30 long rifle magnum, fires in semi-auto, has a medium strength optic.
 
@@ -59,3 +62,6 @@ uplink-voice-mask-desc = A gas mask that lets you adjust your voice to whoever y
 
 uplink-fake-taiwan-pond-bundle-name = Taiwan Pond Bundle
 uplink-fake-taiwan-pond-bundle-desc = A China lake painted to look like a Taiwan Pond, Comes with two 40mm slugs, two 40mm birdshot grenades and a few 40mm prank grenades.
+
+uplink-intercontinental-belt-name = Intercontinental Champion Belt
+uplink-intercontinental-belt-desc = You feel this world-class wrestling title belt emanating the sweat, blood and tears of the Heartcrush Kid himself. Putting this on reminds you of an era once filled with Attitude, allowing you to terrorize the station with the knowledge that wrestling was never fake.

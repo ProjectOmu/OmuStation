@@ -131,7 +131,7 @@
   - Glasses
   - Survival
   - Trinkets
-  - ChefJobTrinkets
+#  - ChefJobTrinkets # Omu
   - Animals # Goobstation
   - GroupSpeciesBreathTool
   - TrinketsChef #Gabystation
@@ -519,6 +519,7 @@
   id: JobHeadOfSecurity
   groups:
   - HeadofSecurityHead
+  - SecurityEyewear #Omu
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
   - HeadofSecurityGloves # Omu - ORGANIZING THIS SHIT - gloves should stay near other clothing, NOT envirosuits
@@ -543,6 +544,7 @@
   id: JobWarden
   groups:
   - WardenHead
+  - SecurityEyewear #Omu
   - WardenJumpsuit
   - SecurityBackpack
   - SecurityMelee # Goobstation
@@ -566,6 +568,7 @@
   id: JobSecurityOfficer
   groups:
   - SecurityHead
+  - SecurityEyewear #Omu
   - SecurityJumpsuit
   - SecurityBackpack
   - SecurityMelee # Goobstation
@@ -778,6 +781,21 @@
   - PsychologistEnvirohelm
   - PsychologistEnvirosuit
   - PsychologistEnvirogloves
+
+- type: roleLoadout
+  id: JobTramDriver
+  groups:
+  - GroupTankHarness
+  - CommonBackpack
+  - TramDriverJumpsuit
+  - TramDriverOuterClothing #Vest and such
+  - TramDriverHat
+  - TramDriverGloves
+  - Glasses
+  - Survival
+  - Trinkets
+  #- TramDriverJobTrinkets
+  - GroupSpeciesBreathTool
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
