@@ -1645,9 +1645,11 @@
   id: DetectiveJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
+  maxLimit: 2 # Omu - was 1
   loadouts:
   - LizardPlushieDetective
   - SecStar
+  - DetectiveTrinketVeteranDetectivesFlask # Omu
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit
