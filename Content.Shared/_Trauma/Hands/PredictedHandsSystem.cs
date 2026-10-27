@@ -49,6 +49,8 @@ public sealed class PredictedHandsSystem : EntitySystem
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private EntityQuery<VirtualItemComponent> _virtualQuery;
 
+    public EntityUid? ThrowDropping { get; private set; } // Goob
+
     /// <summary>
     /// Items dropped when the holder falls down will be launched in
     /// a direction offset by up to this many degrees from the holder's
@@ -196,8 +198,16 @@ public sealed class PredictedHandsSystem : EntitySystem
             return true;
 
         // This can grief the above event so we raise it afterwards
-        if (_hands.IsHolding((player, hands), throwEnt, out _) && !_hands.TryDrop(player, throwEnt.Value))
-            return false;
+        // Goob start
+        if (_hands.IsHolding((player, hands), throwEnt, out _))
+        {
+            ThrowDropping = throwEnt;
+            var dropped = _hands.TryDrop(player, throwEnt.Value);
+            ThrowDropping = null;
+            if (!dropped)
+                return false;
+        }
+        // Goob end
 
         // <Goob>
         if (!ev.GrabThrow)
