@@ -48,7 +48,7 @@
     maxAngle: 120
     angleIncrease: 1.5
     angleDecay: 16
-    fireRate: 12 # 720 RPM
+    fireRate: 8.333333 # 500 RPM
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -59,7 +59,7 @@
 
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessLMG
-    capacity: 200
+    capacity: 125
     whitelist: null
     cycleable: false
     autoCycle: true
