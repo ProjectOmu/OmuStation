@@ -9510,3 +9510,100 @@ Entries:
       message: The CentComm Direggtor job icon is now green.
   id: 1226
   time: '2026-10-24T17:15:18.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Fix
+      message: Fixed chef loadout having 2 job trinket sections
+    - type: Fix
+      message: Moved mail carrier jumpsuit to courier loadout instead of cargo tech
+  id: 1227
+  time: '2026-10-25T01:01:33.0000000+00:00'
+- author: Willzile1
+  changes:
+    - type: Tweak
+      message: SalicylicAcid and Oxandrolone can no longer be mixed together.
+  id: 1228
+  time: '2026-10-25T02:03:20.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Add
+      message: >-
+        The claw machine can now give out the newer staff plushies, the crew
+        plushies and most of the upstream plushies.
+  id: 1229
+  time: '2026-10-25T03:06:26.0000000+00:00'
+- author: Fiya
+  changes:
+    - type: Remove
+      message: >-
+        Secarang and the NTR's cane can no longer be rigged to explode with
+        plasma.
+    - type: Add
+      message: >-
+        Re-added the Atrocity hit sound, added harm baton hit sound, added
+        welder burn sound to lit lighters.
+  id: 1230
+  time: '2026-10-25T08:12:28.0000000+00:00'
+- author: Jamandbutter0
+  changes:
+    - type: Add
+      message: Added Philtrumites Reprised lobby art
+  id: 1231
+  time: '2026-10-25T14:26:05.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: Energy guns can now melee again.
+  id: 1232
+  time: '2026-10-25T15:27:26.0000000+00:00'
+- author: Fiya
+  changes:
+    - type: Add
+      message: 'Service access for Clown, Mime, and Chaplain '
+  id: 1233
+  time: '2026-10-25T22:33:34.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Remove
+      message: Removed Hailey Vera plushie
+  id: 1234
+  time: '2026-10-26T16:55:52.0000000+00:00'
+- author: BoiWab
+  changes:
+    - type: Add
+      message: '"Grey the Warden and His SonDola" is now in the lobby art selection.'
+  id: 1235
+  time: '2026-10-26T17:03:21.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Add
+      message: Ember Staff Plushie! go stuff them in a borg
+  id: 1236
+  time: '2026-10-26T17:43:40.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Tweak
+      message: Diona Head markings now render above most layers.
+  id: 1237
+  time: '2026-10-26T17:45:01.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: Saying "?" or "???" now renders as the emote "looks confused."
+  id: 1238
+  time: '2026-10-26T19:19:14.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: Plushies are now flammable.
+  id: 1239
+  time: '2026-10-26T23:57:32.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Fix
+      message: >-
+        Off-station lights no longer *flicker* when LightsOutMinorRule is
+        applied. This was independent from the breaking behavior, which was
+        addressed recently.
+  id: 1240
+  time: '2026-10-27T01:07:00.0000000+00:00'
