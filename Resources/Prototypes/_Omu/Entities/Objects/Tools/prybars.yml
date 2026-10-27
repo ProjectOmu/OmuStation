@@ -39,10 +39,10 @@
   - type: UseDelay
     delay: 1
   - type: Sprite # while ideally i'd have a non branded sprite here i'm no spriter and it shouldnt matter short term anyways
-    sprite: _Omu/Objects/Tools/guild_prybar.rsi
+    sprite: _Omu/Objects/Tools/sec_prybar.rsi
     state: icon
   - type: Item
-    sprite: _Omu/Objects/Tools/guild_prybar.rsi
+    sprite: _Omu/Objects/Tools/sec_prybar.rsi
     size: Small
     shape:
     - 0,0,0,0
