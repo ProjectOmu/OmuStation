@@ -1,0 +1,144 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: martialArt
+  id: Wrestling
+  martialArtsForm: Wrestling
+  roundstartCombos: WrestlingMoves
+  randomSayings:
+  - wrestling-saying-bottom-line
+  - wrestling-saying-cant-see-me
+  - wrestling-saying-play-the-game
+  - wrestling-saying-sunday-night
+  - wrestling-saying-cooking
+
+- type: comboList
+  id: WrestlingMoves
+  combos:
+  - WrestlingSuplex
+  - WrestlingRko
+  - WrestlingDdt
+  - WrestlingDropkick
+  - WrestlingElbowDrop
+  - WrestlingSubmission
+  - WrestlingPowerbomb
+
+- type: combo
+  id: WrestlingSuplex
+  name: Suplex
+  martialArtsForm: Wrestling
+  attacks:
+  - Grab
+  - Harm
+  event: !type:WrestlingSuplexPerformedEvent
+    throwDistance: 0.5
+    sound:
+      path: /Audio/Effects/thudswoosh.ogg
+  thrownSpeed: 4
+  extraDamage: 15
+  staminaDamage: 30
+  paralyzeTime: 3
+  canDoWhileProne: false
+
+- type: combo
+  id: WrestlingRko
+  name: RKO
+  martialArtsForm: Wrestling
+  attacks:
+  - Disarm
+  - Disarm
+  - Grab
+  event: !type:WrestlingRkoPerformedEvent
+    catchphrase: wrestling-saying-watch-out
+    selfKnockdownTime: 1.5
+    sound:
+      path: /Audio/Effects/bodyfall1.ogg
+    crowdSound:
+      path: /Audio/_Omu/Effects/Wrestling/crowd_cheer.ogg
+      params:
+        volume: -4
+  thrownSpeed: 2.5
+  extraDamage: 15
+  paralyzeTime: 4
+  canDoWhileProne: false
+
+- type: combo
+  id: WrestlingDdt
+  name: DDT
+  martialArtsForm: Wrestling
+  attacks:
+  - Harm
+  - Disarm
+  - Harm
+  event: !type:WrestlingDdtPerformedEvent
+    sound:
+      path: /Audio/Effects/bodyfall3.ogg
+  extraDamage: 10
+  staminaDamage: 40
+  paralyzeTime: 4
+
+- type: combo
+  id: WrestlingDropkick
+  name: Dropkick
+  martialArtsForm: Wrestling
+  attacks:
+  - Harm
+  - Harm
+  - Disarm
+  event: !type:WrestlingDropkickPerformedEvent
+    knockbackDistance: 1
+    sound:
+      path: /Audio/Weapons/genhit3.ogg
+  extraDamage: 10
+  staminaDamage: 50
+  paralyzeTime: 3
+  canDoWhileProne: false
+
+- type: combo
+  id: WrestlingElbowDrop
+  name: Elbow Drop
+  martialArtsForm: Wrestling
+  attacks:
+  - Disarm
+  - Harm
+  - Harm
+  event: !type:WrestlingElbowDropPerformedEvent
+    sound:
+      path: /Audio/Effects/bodyfall4.ogg
+  thrownSpeed: 3
+  extraDamage: 20
+  paralyzeTime: 2
+
+- type: combo
+  id: WrestlingSubmission
+  name: Submission Hold
+  martialArtsForm: Wrestling
+  attacks:
+  - Grab
+  - Grab
+  event: !type:WrestlingSubmissionPerformedEvent
+    sound:
+      path: /Audio/Effects/bodyfall2.ogg
+  paralyzeTime: 5
+  staminaDamage: 10
+
+- type: combo
+  id: WrestlingPowerbomb
+  name: Powerbomb
+  martialArtsForm: Wrestling
+  attacks:
+  - Harm
+  - Grab
+  event: !type:WrestlingPowerbombPerformedEvent
+    sound:
+      path: /Audio/Effects/metal_slam1.ogg
+    crowdSound:
+      path: /Audio/_Omu/Effects/Wrestling/crowd_cheer.ogg
+      params:
+        volume: -4
+    critSound:
+      path: /Audio/_Omu/Effects/Wrestling/holy_shit_chant.ogg
+      params:
+        volume: 5
+  extraDamage: 20
+  staminaDamage: 80
+  paralyzeTime: 5

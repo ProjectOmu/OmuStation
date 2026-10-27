@@ -9592,3 +9592,51 @@ Entries:
       message: Saying "?" or "???" now renders as the emote "looks confused."
   id: 1238
   time: '2026-10-26T19:19:14.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: Plushies are now flammable.
+  id: 1239
+  time: '2026-10-26T23:57:32.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Fix
+      message: >-
+        Off-station lights no longer *flicker* when LightsOutMinorRule is
+        applied. This was independent from the breaking behavior, which was
+        addressed recently.
+  id: 1240
+  time: '2026-10-27T01:07:00.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Guns and throwing are both predicted now.
+  id: 1241
+  time: '2026-10-27T12:24:15.0000000+00:00'
+- author: doglettucee, Duuckie
+  changes:
+    - type: Add
+      message: >-
+        Antagonist rules are now live. Please read the new Antagonist Rules
+        section for clarification regarding antagonists.
+    - type: Tweak
+      message: >-
+        Roleplay Rule 1.1's precedents now do not explicitly prohibit repetitive
+        (non-mass sabotage) antagonist strategies. You are still encouraged to
+        vary your gameplan, though.
+  id: 1242
+  time: '2026-10-27T12:41:19.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Add
+      message: >-
+        Added the Wrestling fighting style! Put on a championship belt to learn
+        it, but it only works on someone else wearing a belt.
+    - type: Add
+      message: >-
+        Added the Intercontinental Champion Belt to the uplink. It works on
+        anyone and comes with a steel chair.
+    - type: Add
+      message: Added a guidebook page for Wrestling.
+  id: 1243
+  time: '2026-10-27T14:55:40.0000000+00:00'
