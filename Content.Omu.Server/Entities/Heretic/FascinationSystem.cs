@@ -1,6 +1,5 @@
 using Content.Goobstation.Server.Chaplain.Components;
 using Content.Goobstation.Shared.Bible;
-using Content.Goobstation.Shared.CustomFactionIcons;
 using Content.Omu.Shared.Entities.Heretic;
 using Content.Omu.Shared.MansusMob;
 using Content.Server.GameTicking;
@@ -9,15 +8,12 @@ using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Examine;
 using Content.Shared.Mobs;
-using Content.Shared.NPC.Systems;
 
 namespace Content.Omu.Server.Entities.Heretic;
 
 public sealed class FascinationSystem : EntitySystem
 {
     [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     public override void Initialize()
     {
@@ -60,25 +56,7 @@ public sealed class FascinationSystem : EntitySystem
 
         if (fascvalue < 5)
         {
-            if (ent.Comp.Naturalsight == false && ent.Comp.AlteredVision == true)
-            {
-                RemComp<SeeHereticFixturesComponent>(ent);
-                ent.Comp.AlteredVision = false;
-                _eye.RefreshVisibilityMask(ent.Owner);
-            }
-            if (ent.Comp.Naturalsight == true && ent.Comp.NaturalHereticsight == false)
-            {
-                if (TryComp<SeeHereticFixturesComponent>(ent, out var seefixtures))
-                    seefixtures.SeeShifts = false;
-            }
-            if (ent.Comp.AlteredFaction == true)
-            {
-                var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(ent);    //Make them un-valid to the mirror maiden
-                userFactionIcons.FactionIcons.Remove(ent.Comp.IconToAdd);
-                _faction.RemoveFaction(ent.Owner, ent.Comp.FactionToAdd); // remove the faction
-                ent.Comp.AlteredFaction = false;
-                Dirty(ent.Owner, userFactionIcons);
-            }
+            RemComp<MansusMaddenedComponent>(ent);
         }
         if (fascvalue <= 0)
         {
@@ -88,7 +66,6 @@ public sealed class FascinationSystem : EntitySystem
                         _actionContainer.RemoveAction(actionuid);           //Incentive to be just a little mad - you get the actions!
 
             RemComp<FascinationComponent>(ent);
-            RemComp<MansusMaddenedComponent>(ent);
         }
         if (fascvalue >= 5 && args.Amount > 0)
         {

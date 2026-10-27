@@ -134,7 +134,8 @@ public sealed class MansusMobSystem : EntitySystem
     {
         var fascination = EnsureComp<FascinationComponent>(uid);
 
-        fascination.FascinationValue = 5;
+        if (fascination.FascinationValue < 5)
+            fascination.FascinationValue = 5;
 
         if (fascination.Naturalsight == false)
         {
@@ -173,13 +174,23 @@ public sealed class MansusMobSystem : EntitySystem
         if (!Resolve(uid, ref fascination))
             return;
 
+        if (fascination.Naturalsight == false && fascination.AlteredVision == true)
+        {
+            RemComp<SeeHereticFixturesComponent>(uid);
+            fascination.AlteredVision = false;
+        }
+        if (fascination.Naturalsight == true && fascination.NaturalHereticsight == false)
+        {
+            if (TryComp<SeeHereticFixturesComponent>(uid, out var seefixtures))
+                seefixtures.SeeShifts = false;
+        }
         if (fascination.AlteredFaction == true)
         {
             var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(uid);    //Make them un-valid to the mirror maiden
             userFactionIcons.FactionIcons.Remove(fascination.IconToAdd);
             _faction.RemoveFaction(uid, fascination.FactionToAdd); // remove the faction
             fascination.AlteredFaction = false;
+            Dirty(uid, userFactionIcons);
         }
-        _eye.RefreshVisibilityMask(uid);
     }
 }
