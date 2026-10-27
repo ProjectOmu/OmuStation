@@ -1,0 +1,22 @@
+- type: entity
+  name: veteran detective's flask
+  parent: [DrinkFlask, BaseSecurityContraband]
+  id: VeteranDetectivesFlask
+  description: A well worn and battle scared flask that's seen many a case. It slowly fills with whiskey over time
+  components:
+    - type: Sprite
+      sprite: Objects/Consumable/Drinks/flask.rsi
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+          - ReagentId: Whiskey
+            Quantity: 30
+    - type: SolutionRegeneration
+      solution: drink
+      duration: 10
+      generated:
+        reagents:
+        - ReagentId: Whiskey
+          Quantity: 5
