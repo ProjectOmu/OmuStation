@@ -135,7 +135,7 @@ public abstract partial class SharedBatterySystem : EntitySystem
             if (recharger.CanEmp && _disabledQuery.HasComponent(uid))
                 continue;
 
-            recharger.NextAutoRecharge = null; // Don't refresh every tick.
+            recharger.NextAutoRecharge = curTime + recharger.AutoRechargePauseTime; // omu- for some reason this set to null and resulted in the while loop always continuing
             Dirty(uid, recharger);
             RefreshChargeRate((uid, battery)); // Cooldown is over, apply the new recharge rate.
         }
