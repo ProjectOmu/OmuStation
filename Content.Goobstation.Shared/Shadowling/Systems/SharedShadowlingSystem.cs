@@ -4,6 +4,7 @@ using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.LightDetection.Systems;
 using Content.Goobstation.Shared.Mindcontrol;
 using Content.Goobstation.Shared.Shadowling.Components;
+using Content.Omu.Common.Prediction;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
@@ -24,7 +25,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Shadowling.Systems;
 
@@ -40,9 +40,9 @@ public abstract class SharedShadowlingSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
     // <Trauma>
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     // </Trauma>
+    [Dependency] private readonly CommonPredictedRandomSystem _predictedRandom = default!; // Omu
 
     public override void Initialize()
     {
@@ -66,8 +66,7 @@ public abstract class SharedShadowlingSystem : EntitySystem
         if (args.Gun.Comp.ClumsyProof)
             return;
 
-        var seed = SharedRandomExtensions.HashCodeCombine((int) _timing.CurTick.Value, GetNetEntity(args.Gun).Id);
-        var rand = new System.Random(seed);
+        var rand = _predictedRandom.GetRandom(args.Gun); // Omu
         if (!rand.Prob(0.5f))
             return;
 

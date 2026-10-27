@@ -43,6 +43,8 @@ public sealed class PredictedProjectileSystem : EntitySystem
     private EntityQuery<FixturesComponent> _fixturesQuery;
     private EntityQuery<PredictedShooterComponent> _shooterQuery;
 
+    private readonly List<(EntityUid Projectile, EntityUid Target, string FixtureId)> _deferredHits = new(); // Omu
+
     public override void Initialize()
     {
         base.Initialize();
@@ -61,8 +63,41 @@ public sealed class PredictedProjectileSystem : EntitySystem
         if (args.OurFixtureId != SharedProjectileSystem.ProjectileFixture || !args.OtherFixture.Hard)
             return;
 
+        // Omu start
+        if (_net.IsClient && !args.OurBody.Predict)
+            return;
+
+        if (_net.IsClient && _timing.ApplyingState)
+        {
+            _deferredHits.Add((ent.Owner, args.OtherEntity, args.OtherFixtureId));
+            return;
+        }
+        // Omu end
+
         DoHit((ent, ent.Comp, args.OurBody), args.OtherEntity, args.OtherFixture);
     }
+
+    // Omu start
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var hits = _deferredHits.ToArray();
+        _deferredHits.Clear();
+        foreach (var (uid, target, fixtureId) in hits)
+        {
+            if (TerminatingOrDeleted(uid) || TerminatingOrDeleted(target) ||
+                !_query.TryComp(uid, out var comp) ||
+                !_physicsQuery.TryComp(uid, out var physics) ||
+                !_fixturesQuery.TryComp(target, out var fixtures) ||
+                !fixtures.Fixtures.TryGetValue(fixtureId, out var fixture) ||
+                CompOrNull<EmbeddableProjectileComponent>(uid)?.EmbeddedIntoUid != null)
+                continue;
+
+            DoHit((uid, comp, physics), target, fixture);
+        }
+    }
+    // Omu end
 
     /// <summary>
     /// Process a hit for a projectile and a target entity.
@@ -103,8 +138,7 @@ public sealed class PredictedProjectileSystem : EntitySystem
         if (component is { Weapon: null, OnlyCollideWhenShot: true })
             return;
 
-        // ignore spent in prediction ticks to allow for embedding to be predicted properly
-        if (component.ProjectileSpent && _timing.IsFirstTimePredicted)
+        if (component.ProjectileSpent) // Omu
             return;
 
         // lag compensated hits don't go through PreventCollideEvent
@@ -174,6 +208,8 @@ public sealed class PredictedProjectileSystem : EntitySystem
         {
             component.ProjectileSpent = true;
         }
+
+        Dirty(uid, component); // Omu
 
         // Trauma - don't hit the same thing twice if it keeps going, e.g. from lag compensation then actually colliding
         if (!component.ProjectileSpent && !component.IgnoredEntities.Contains(target))

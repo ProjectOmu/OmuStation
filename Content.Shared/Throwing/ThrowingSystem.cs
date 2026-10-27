@@ -73,6 +73,7 @@ public sealed class ThrowingSystem : EntitySystem
         bool doSpin = true,
         ThrowingUnanchorStrength unanchor = ThrowingUnanchorStrength.None,
         bool throwInAir = true, // WWDP throwInAir
+        EntityUid? predictingUser = null, // Omu
         bool predicted = true) // Trauma
     {
         var thrownPos = _transform.GetMapCoordinates(uid);
@@ -82,6 +83,7 @@ public sealed class ThrowingSystem : EntitySystem
             return;
 
         TryThrow(uid, mapPos.Position - thrownPos.Position, baseThrowSpeed, user, pushbackRatio, friction, compensateFriction: compensateFriction, recoil: recoil, animated: animated, playSound: playSound, doSpin: doSpin, unanchor: unanchor, throwInAir: throwInAir, // WWDP throwInAir
+            predictingUser: predictingUser, // Omu
             predicted: predicted); // Trauma
     }
 
@@ -97,6 +99,7 @@ public sealed class ThrowingSystem : EntitySystem
     /// <param name="doSpin">Whether spin will be applied to the thrown entity.</param>
     /// <param name="unanchor">If set to Unanchorable, if the entity has <see cref="AnchorableComponent"/> and is unanchorable, it will unanchor the thrown entity. If set to All, it will unanchor the entity regardless.</param>
     /// <param name="throwInAir">WWDP - Whether the thrown entity status will be set to InAir during flight.</param>
+    /// <param name="predictingUser">The entity whose client predicted the throw, if not the user.</param> // Omu
     public void TryThrow(EntityUid uid,
         Vector2 direction,
         float baseThrowSpeed = 10.0f,
@@ -110,6 +113,7 @@ public sealed class ThrowingSystem : EntitySystem
         bool doSpin = true,
         ThrowingUnanchorStrength unanchor = ThrowingUnanchorStrength.None,
         bool throwInAir = true, // WWDP throwInAir
+        EntityUid? predictingUser = null, // Omu
         bool predicted = true) // Trauma
     {
         var physicsQuery = GetEntityQuery<PhysicsComponent>();
@@ -128,6 +132,7 @@ public sealed class ThrowingSystem : EntitySystem
             user,
             pushbackRatio,
             friction, compensateFriction: compensateFriction, recoil: recoil, animated: animated, playSound: playSound, doSpin: doSpin, throwInAir: throwInAir,
+            predictingUser: predictingUser, // Omu
             predicted: predicted); // Trauma
 
     }
@@ -143,6 +148,7 @@ public sealed class ThrowingSystem : EntitySystem
     /// <param name="compensateFriction">True will adjust the throw so the item stops at the target coordinates. False means it will land at the target and keep sliding.</param>
     /// <param name="doSpin">Whether spin will be applied to the thrown entity.</param>
     /// <param name="unanchor">If set to Unanchorable, if the entity has <see cref="AnchorableComponent"/> and is unanchorable, it will unanchor the thrown entity. If set to All, it will unanchor the entity regardless.</param>
+    /// <param name="predictingUser">The entity whose client predicted the throw, if not the user.</param> // Omu
     public void TryThrow(EntityUid uid,
         Vector2 direction,
         PhysicsComponent physics,
@@ -159,6 +165,7 @@ public sealed class ThrowingSystem : EntitySystem
         bool doSpin = true,
         ThrowingUnanchorStrength unanchor = ThrowingUnanchorStrength.None,
         bool throwInAir = true, // WWDP throwInAir
+        EntityUid? predictingUser = null, // Omu
         bool predicted = true) // Trauma
     {
         if (!float.IsFinite(baseThrowSpeed) || baseThrowSpeed <= 0 || !float.IsFinite(direction.X) || !float.IsFinite(direction.Y) || direction == Vector2.Zero || friction < 0) // Goob
@@ -253,7 +260,7 @@ public sealed class ThrowingSystem : EntitySystem
         if (predicted)
         {
             var predictedComp = EnsureComp<PredictedThrownItemComponent>(uid);
-            predictedComp.Thrower = comp.Thrower; // Omu - only the thrower predicts it
+            predictedComp.Thrower = predictingUser ?? comp.Thrower; // Omu
             Dirty(uid, predictedComp);
         }
         // </Trauma>
@@ -263,6 +270,7 @@ public sealed class ThrowingSystem : EntitySystem
 
         // <Trauma>
         recoil &= _gameTiming.IsFirstTimePredicted;
+        predicted &= predictingUser == null || predictingUser == user; // Omu
         recoil &= _net.IsClient || !predicted; // don't make server send a second recoil if client predicted it first
         // </Trauma>
         if (recoil)

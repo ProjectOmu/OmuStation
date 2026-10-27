@@ -9,6 +9,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Tag;
+using Content.Shared._Trauma.Throwing;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Audio.Systems;
@@ -93,7 +94,8 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         if (!embeddable.Comp.EmbedOnThrow)
             return;
 
-        EmbedAttach(embeddable, args.Target, null, embeddable.Comp, args.Component.Thrower); // Trauma - thrower predicted it
+        EmbedAttach(embeddable, args.Target, null, embeddable.Comp, // Omu
+            CompOrNull<PredictedThrownItemComponent>(embeddable)?.Thrower ?? args.Component.Thrower); // Omu
     }
 
     private void OnEmbedProjectileHit(Entity<EmbeddableProjectileComponent> embeddable, ref ProjectileHitEvent args)

@@ -3,11 +3,13 @@
 using System.Numerics;
 using Content.Goobstation.Common.Projectiles;
 using Content.Goobstation.Common.Weapons.Ranged;
+using Content.Omu.Common.Prediction;
 using Content.Shared._Lavaland.Weapons.Ranged.Events;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Trauma.Projectiles;
 using Content.Shared.Body.Components;
 using Content.Shared.Damage;
+using Content.Shared.Mech.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Weapons.Hitscan.Components;
@@ -29,14 +31,14 @@ public abstract partial class SharedGunSystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly CommonPredictedRandomSystem _predictedRandom = default!; // Omu
 
     /// <summary>
     /// Get a predicted random instance for an entity, specific to this tick.
     /// </summary>
     protected System.Random GetRandom(EntityUid uid, int salt = 0)
     {
-        var seed = SharedRandomExtensions.HashCodeCombine((int) Timing.CurTick.Value, GetNetEntity(uid).Id, salt);
-        return new System.Random(seed);
+        return _predictedRandom.GetRandom(uid, salt); // Omu
     }
 
     /// <summary>
@@ -45,7 +47,7 @@ public abstract partial class SharedGunSystem
     private void SetPredictedShooter(EntityUid uid, EntityUid shooter)
     {
         var comp = EnsureComp<PredictedShooterComponent>(uid);
-        comp.Shooter = shooter;
+        comp.Shooter = CompOrNull<MechComponent>(shooter)?.PilotSlot.ContainedEntity ?? shooter; // Omu
         Dirty(uid, comp);
     }
 
@@ -351,7 +353,9 @@ public abstract partial class SharedGunSystem
         var maxTheta = Math.Max(component.MinAngleModified.Theta, component.MaxAngleModified.Theta); // goob edit reverse recoil direction for funny mechanics
         var newTheta = MathHelper.Clamp(component.CurrentAngle.Theta + component.AngleIncreaseModified.Theta - component.AngleDecayModified.Theta * timeSinceLastFire, minTheta, maxTheta); // goob edit
         component.CurrentAngle = new Angle(newTheta);
+        DirtyField(gun.AsNullable(), nameof(GunComponent.CurrentAngle)); // Omu
         component.LastFire = component.NextFire;
+        DirtyField(gun.AsNullable(), nameof(GunComponent.LastFire)); // Omu
 
         // Convert it so angle can go either side.
         var random = GetRandom(gun).NextFloat(-0.5f, 0.5f); // Trauma - predicted random

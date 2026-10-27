@@ -3,10 +3,10 @@
 // <Trauma>
 using Content.Shared._Trauma.Projectiles;
 using Content.Shared.Random.Helpers;
-using Robust.Shared.Timing;
 // </Trauma>
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Omu.Common.Prediction;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Audio;
@@ -36,7 +36,7 @@ namespace Content.Shared.Weapons.Reflect;
 public sealed class ReflectSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!; // Trauma
+    [Dependency] private readonly CommonPredictedRandomSystem _predictedRandom = default!; // Omu
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
@@ -83,7 +83,8 @@ public sealed class ReflectSystem : EntitySystem
         if (!ent.Comp.InRightPlace)
             return; // only reflect when equipped correctly
 
-        if (TryReflectHitscan(ent, ent.Owner, args.Shooter, args.SourceItem, args.Direction, args.Reflective, args.Damage, out var dir)) // Goob edit
+        if (TryReflectHitscan(ent, ent.Owner, args.Shooter, args.SourceItem, args.Direction, args.Reflective, args.Damage, out var dir, // Goob edit // Omu
+                args.PredictingUser)) // Omu
         {
             args.Direction = dir.Value;
             args.Reflected = true;
@@ -104,7 +105,8 @@ public sealed class ReflectSystem : EntitySystem
         if (args.Reflected)
             return;
 
-        if (TryReflectHitscan(ent, ent.Owner, args.Shooter, args.SourceItem, args.Direction, args.Reflective, args.Damage, out var dir))
+        if (TryReflectHitscan(ent, ent.Owner, args.Shooter, args.SourceItem, args.Direction, args.Reflective, args.Damage, out var dir, // Omu
+                args.PredictingUser)) // Omu
         {
             args.Direction = dir.Value;
             args.Reflected = true;
@@ -203,7 +205,8 @@ public sealed class ReflectSystem : EntitySystem
         ReflectType hitscanReflectType,
         DamageSpecifier? damage, // WD EDIT
 
-        [NotNullWhen(true)] out Vector2? newDirection)
+        [NotNullWhen(true)] out Vector2? newDirection, // Omu
+        EntityUid? predictingUser = null) // Omu
     {
         newDirection = null; //Starlight
 
@@ -218,7 +221,7 @@ public sealed class ReflectSystem : EntitySystem
             return false;
         }
 
-        PlayAudioAndPopup(reflector.Comp, user, shooter); // Trauma - pass predicting shooter
+        PlayAudioAndPopup(reflector.Comp, user, predictingUser); // Omu
 
         // WD EDIT START
         if (reflector.Comp.DamageOnReflectModifier != 0 && damage != null)
@@ -260,8 +263,7 @@ public sealed class ReflectSystem : EntitySystem
     /// </summary>
     private System.Random GetRandom(EntityUid uid)
     {
-        var seed = SharedRandomExtensions.HashCodeCombine((int) _timing.CurTick.Value, GetNetEntity(uid).Id);
-        return new System.Random(seed);
+        return _predictedRandom.GetRandom(uid); // Omu
     }
 
     private void OnReflectEquipped(Entity<ReflectComponent> ent, ref GotEquippedEvent args)

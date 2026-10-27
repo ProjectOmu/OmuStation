@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Omu.Common.Prediction;
 using Content.Shared._White.Grab;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CombatMode;
@@ -45,6 +46,7 @@ public sealed class PredictedHandsSystem : EntitySystem
     [Dependency] private readonly SharedStackSystem _stack = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly CommonPredictedRandomSystem _predictedRandom = default!; // Omu
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private EntityQuery<VirtualItemComponent> _virtualQuery;
@@ -85,8 +87,7 @@ public sealed class PredictedHandsSystem : EntitySystem
     /// </summary>
     private System.Random GetRandom(EntityUid uid)
     {
-        var seed = SharedRandomExtensions.HashCodeCombine((int) _timing.CurTick.Value, GetNetEntity(uid).Id);
-        return new System.Random(seed);
+        return _predictedRandom.GetRandom(uid); // Omu
     }
 
     private void OnDisarmed(Entity<HandsComponent> ent, ref DisarmedEvent args)
@@ -105,7 +106,7 @@ public sealed class PredictedHandsSystem : EntitySystem
 
         var offset = rand.NextAngle().RotateVec(new Vector2(rand.NextFloat(1f, 1.5f), 0));
         var coords = _transform.GetMoverCoordinates(args.Target).Offset(offset);
-        if (!ThrowHeldItem(args.Target, coords))
+        if (!ThrowHeldItem(args.Target, coords, predictingUser: args.Source)) // Omu
             return;
 
         args.Handled = true; // Successful disarm
@@ -141,7 +142,8 @@ public sealed class PredictedHandsSystem : EntitySystem
     /// <summary>
     /// Throw the player's currently held item.
     /// </summary>
-    public bool ThrowHeldItem(EntityUid player, EntityCoordinates coordinates, float minDistance = 0.1f)
+    public bool ThrowHeldItem(EntityUid player, EntityCoordinates coordinates, float minDistance = 0.1f, // Omu
+        EntityUid? predictingUser = null) // Omu
     {
         if (_container.IsEntityInContainer(player) ||
             !TryComp(player, out HandsComponent? hands) ||
@@ -211,7 +213,8 @@ public sealed class PredictedHandsSystem : EntitySystem
 
         // <Goob>
         if (!ev.GrabThrow)
-            _throwing.TryThrow(ev.ItemUid, ev.Direction, ev.ThrowSpeed, ev.PlayerUid, compensateFriction: !HasComp<LandAtCursorComponent>(ev.ItemUid));
+            _throwing.TryThrow(ev.ItemUid, ev.Direction, ev.ThrowSpeed, ev.PlayerUid, compensateFriction: !HasComp<LandAtCursorComponent>(ev.ItemUid), // Omu
+                predictingUser: predictingUser); // Omu
         else
             _grabThrown.Throw(ev.ItemUid, player, ev.Direction, ev.ThrowSpeed);
         // </Goob>
@@ -223,6 +226,9 @@ public sealed class PredictedHandsSystem : EntitySystem
     {
         if (args.Handled) // Goobstation
             return;
+
+        if (_net.IsClient) // Omu
+            return; // Omu
 
         // If the holder doesn't have a physics component, they ain't moving
         var holderVelocity = _physicsQuery.CompOrNull(entity)?.LinearVelocity ?? Vector2.Zero;
@@ -262,7 +268,8 @@ public sealed class PredictedHandsSystem : EntitySystem
                 throwSpeed,
                 entity,
                 pushbackRatio: 0,
-                compensateFriction: false
+                compensateFriction: false, // Omu
+                predicted: false // Omu
             );
         }
     }

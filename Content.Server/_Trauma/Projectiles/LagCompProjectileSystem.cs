@@ -108,7 +108,8 @@ public sealed class LagCompProjectileSystem : EntitySystem
     private void OnShotProjectile(ref PlayerShotProjectileEvent args)
     {
         // shooter wasn't player-controlled, don't care
-        if (!_actorQuery.TryComp(args.User, out var actor))
+        var user = CompOrNull<PredictedShooterComponent>(args.Projectile)?.Shooter ?? args.User; // Omu
+        if (!_actorQuery.TryComp(user, out var actor)) // Omu
             return;
 
         var session = actor.PlayerSession;

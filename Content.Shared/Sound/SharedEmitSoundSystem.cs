@@ -103,9 +103,8 @@ public abstract class SharedEmitSoundSystem : EntitySystem
             return;
 
         // Trauma - throwing is predicted by the thrower now
-        TryEmitSound(uid, component, args.User,
-            predict: args.User != null
-                && CompOrNull<Content.Shared._Trauma.Throwing.PredictedThrownItemComponent>(uid)?.Thrower == args.User);
+        var thrower = CompOrNull<Content.Shared._Trauma.Throwing.PredictedThrownItemComponent>(uid)?.Thrower; // Omu
+        TryEmitSound(uid, component, thrower ?? args.User, predict: thrower != null); // Omu
     }
 
     private void OnEmitSoundOnUseInHand(EntityUid uid, EmitSoundOnUseComponent component, UseInHandEvent args)

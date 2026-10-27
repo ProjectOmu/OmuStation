@@ -89,7 +89,7 @@ public partial class SharedGunSystem
         // Handle spins
         if (oldIndex != state.CurrentIndex)
         {
-            UpdateAmmoCount(ent); // Trauma - do predict it
+            UpdateAmmoCount(ent, prediction: false);
         }
     }
 

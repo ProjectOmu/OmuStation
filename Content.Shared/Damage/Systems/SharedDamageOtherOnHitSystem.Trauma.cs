@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Trauma.Throwing;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Camera;
 using Content.Shared.Coordinates;
@@ -45,6 +46,9 @@ public abstract partial class SharedDamageOtherOnHitSystem
         if (TerminatingOrDeleted(args.Target))
             return;
 
+        if (_net.IsClient && _physicsQuery.TryComp(uid, out var thrownBody) && !thrownBody.Predict) // Omu
+            return; // Omu
+
         if (args.Target == args.Component.Thrower) // Goobstation - Mjolnir
             return;
 
@@ -66,7 +70,8 @@ public abstract partial class SharedDamageOtherOnHitSystem
             _color.RaiseEffect(Color.Red, _target, Filter.Pvs(args.Target, entityManager: EntityManager));
         }
 
-        _gun.PlayImpactSound(args.Target, dmg, null, false, args.Component.Thrower); // Omu - thrower predicted it
+        _gun.PlayImpactSound(args.Target, dmg, null, false, // Omu
+            CompOrNull<PredictedThrownItemComponent>(uid)?.Thrower ?? args.Component.Thrower); // Omu
         // Omu - server sends the kick to the target, clients would otherwise kick again on every reprediction
         if (_net.IsServer && _physicsQuery.TryComp(uid, out var body) && body.LinearVelocity.LengthSquared() > 0f)
         {

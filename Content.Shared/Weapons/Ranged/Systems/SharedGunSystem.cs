@@ -397,6 +397,11 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
 
         var fromCoordinates = Transform(user).Coordinates;
+        // Omu start
+        if (TransformSystem.ToMapCoordinates(toCoordinates.Value).Position ==
+            TransformSystem.ToMapCoordinates(fromCoordinates).Position)
+            return false;
+        // Omu end
         // Remove ammo
         var ev = new TakeAmmoEvent(shots, [], fromCoordinates, user);
 
