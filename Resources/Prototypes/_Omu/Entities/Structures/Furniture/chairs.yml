@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ChairFoldingSpawnFolded
+  id: ChairFoldingSteel
+  name: steel folding chair
+  description: A sturdy steel folding chair. Great for sitting, better for settling title disputes.
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      path: /Audio/Items/trayhit2.ogg
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 10
+  - type: StunOnCollide
+    knockdownAmount: 2
+  - type: TriggerOnThrowDoHit
+  - type: EmitSoundOnTrigger
+    positional: true
+    sound:
+      path: /Audio/Items/trayhit2.ogg
+  - type: Reflect
+    reflectProb: 0.2
+    reflects:
+    - NonEnergy
+    soundOnReflect:
+      path: /Audio/Weapons/Guns/Hits/ric2.ogg
