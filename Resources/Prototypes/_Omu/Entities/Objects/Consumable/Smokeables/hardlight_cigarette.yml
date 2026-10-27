@@ -26,7 +26,7 @@
     - IPCMaskWearable
   - type: Appearance
   - type: ItemToggle
-    onUse: false # Keep Z for quick-equipping, like ordinary cigarettes.
+    onUse: false
     wieldToggle: false
   - type: ItemTogglePrefix
     prefixOn: lit
