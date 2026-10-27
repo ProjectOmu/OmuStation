@@ -1,0 +1,126 @@
+<Document>
+
+  # Wrestling
+
+  <Box>
+    <GuideEntityEmbed Entity="ClothingBeltChampion" Caption=""/>
+    <GuideEntityEmbed Entity="ClothingBeltIntercontinentalChampion" Caption=""/>
+  </Box>
+
+  Wrestling is a [textlink="martial art" link="MartialArts"] that turns any hallway into a ring. Slams, throws and
+  flying leaps put opponents on the floor fast, and the most crowd-riling moves happen
+  when your opponent is already there.
+  Nobody learns this from a manual. You pick it up the moment you strap on a championship belt,
+  and you forget all of it the moment the belt comes off.
+
+  ## Championship Belts
+
+  ### Championship Belt
+
+  Proof that you are the greatest in the Nanotrasen Wrestling Federation, and can be found on most stations.
+  Its moves only count in a title match, so your opponent has to be wearing a championship belt too.
+  This is professional wrestling, after all.
+
+  ### Intercontinental Champion Belt
+
+  A world-class title belt the Syndicate can provide to you. It works on anyone, belt or not.
+  It also toughens up whoever wears it, softening incoming Blunt hits and Stamina damage,
+  and it comes with a no-disqualification special: the steel chair.
+
+  ## Special abilities
+
+  ### Steel Chair
+
+  <Box>
+    <GuideEntityEmbed Entity="ChairFoldingSteel" Caption=""/>
+  </Box>
+
+  The Intercontinental Champion title holder can pull their trusty steel folding chair into a free hand
+  whenever they feel the need to go No Holds Barred. If it gets broken, a brand new chair
+  can be found "under the ring" and you'll make your point known by shouting [bold]NO DISQUALIFICATIONS![/bold]
+  for everyone to hear. It hits harder than a regular chair, knocks people down when thrown
+  and has a chance to deflect projectiles.
+
+  ## Combo attacks
+
+  Some of the flashier moves knock you down for a moment too since you're throwing your whole body into them.
+
+  ### Suplex
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  Hoists the opponent up and tosses them over your shoulder,
+  dealing Blunt and Stamina damage and knocking them down. Only works on standing opponents.
+
+  ### RKO
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+  </Box>
+
+  Outta nowhere! Leaps at the opponent and drives their head into the floor, dealing Blunt damage to the head
+  and knocking them down. You land on the floor right next to them. Needs a running start, so you have to be moving
+  when you finish the combo. Only works on standing opponents.
+
+  ### DDT
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  Spikes a standing opponent head-first into the floor, dealing Blunt damage to the head and some Stamina damage,
+  and knocks you both down. When done to an opponent who's already down it becomes a weaker hit to the head
+  that makes them drop whatever they're holding.
+
+  ### Dropkick
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+  </Box>
+
+  Both feet, right to the chest. Deals Blunt damage and a lot of Stamina damage, sending the opponent back
+  and knocking them down. You hit the floor too. Only works on standing opponents.
+
+  ### Elbow Drop
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  Throws yourself elbow-first onto a downed opponent, dealing Blunt damage to the chest and keeping them stunned.
+  Only works on downed opponents.
+
+  ### Submission Hold
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+  </Box>
+
+  Locks a downed opponent into a choke hold, dealing some Stamina damage and pinning them to the floor.
+  Opponents with stamina resistance wriggle free sooner. Only works on downed opponents.
+
+  ### Powerbomb
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+  </Box>
+
+  The finisher. Only works on an opponent you already have in a Submission Hold. Lifts them up and slams them
+  into the floor for heavy Blunt and Stamina damage, causing your opponent to stay floored for a while.
+  The bell rings, the crowd cheers, and you can't help but shout your catchphrase.
+  If the Powerbomb puts them into critical condition, it's guaranteed to make the crowd go wild.
+
+</Document>
