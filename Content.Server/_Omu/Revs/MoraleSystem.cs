@@ -41,6 +41,7 @@ public sealed class MoraleSystem : EntitySystem
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly MetaDataSystem _meta = default!;
 
     private const string MoraleNegative = "MoraleNegativeFaction";
     private const string MoraleAverage = "MoraleAverageFaction";
@@ -227,6 +228,15 @@ public sealed class MoraleSystem : EntitySystem
             _antag.SendBriefing(session, Loc.GetString("rev-role-greeting-omu"), Color.Red, revComp.RevStartSound); //Omu changed localisation
         }
         RemComp<MoraleComponent>(ent);
+
+        if (args.Objective is not null)     //Handles the rev objective
+        {
+            var objectiveId = SpawnAtPosition("RevolutionObjective", Transform(ent).Coordinates);
+            _meta.SetEntityDescription(objectiveId, args.Objective);
+            _mind.AddObjective(mindId, mind, objectiveId);
+            revComp.Objective = mind.Objectives.Count - 1;
+        }
+
         return true;
     }
 
