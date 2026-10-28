@@ -16,6 +16,7 @@ public sealed class SteelChairSummonSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -40,6 +41,14 @@ public sealed class SteelChairSummonSystem : EntitySystem
         if (ent.Comp.Chair is { } held && Exists(held) && _hands.IsHolding((user, hands), held, out _))
         {
             _popup.PopupClient(Loc.GetString("steel-chair-already-holding"), user, user);
+            return;
+        }
+
+        if (ent.Comp.Chair is { } nearby
+            && Exists(nearby)
+            && _transform.InRange(nearby, user, ent.Comp.MinSummonDistance))
+        {
+            _popup.PopupClient(Loc.GetString("steel-chair-too-close"), user, user);
             return;
         }
 

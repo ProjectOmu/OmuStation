@@ -23,6 +23,11 @@
     positional: true
     sound:
       path: /Audio/Items/trayhit2.ogg
+  - type: DamageOnTrigger
+    ignoreResistances: true
+    damage:
+      types:
+        Blunt: 50
   - type: Reflect
     reflectProb: 0.2
     reflects:
