@@ -112,3 +112,5 @@
           types:
             Poison: -1.3 # down from -2
             Radiation: -0.9 # down from -2
+      - !type:ModifyBloodLevel
+        amount: -1
