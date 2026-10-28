@@ -15,9 +15,9 @@
   - type: Input
     context: "ghost"
   - type: NoSlip
-  - type: BloodCrawl
+  - type: ReagentCrawl # Omu
     isCrawling: true
-    blood:
+    targetReagent:
     - Blood
     - AmmoniaBlood
     - InsectBlood
