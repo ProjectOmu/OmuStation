@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.MartialArts.Events;
@@ -57,6 +58,23 @@ public sealed partial class WrestlingDropkickPerformedEvent : BaseWrestlingEvent
 
     [DataField]
     public TimeSpan SelfKnockdownTime = TimeSpan.FromSeconds(1);
+
+    // Omu start
+    [DataField]
+    public float SelfDamage = 5f;
+
+    [DataField]
+    public List<EntProtoId> BreakableWindows = new();
+
+    [DataField]
+    public List<EntProtoId> BreakableGrilles = new();
+
+    [DataField]
+    public TimeSpan BreakThroughTime = TimeSpan.FromSeconds(1);
+
+    [DataField]
+    public SoundSpecifier? BreakThroughSound { get; set; }
+    // Omu end
 }
 
 public sealed partial class WrestlingPowerbombPerformedEvent : BaseWrestlingEvent
@@ -66,6 +84,17 @@ public sealed partial class WrestlingPowerbombPerformedEvent : BaseWrestlingEven
 
     [DataField]
     public SoundSpecifier? CritSound { get; set; }
+
+    // Omu start
+    [DataField]
+    public TimeSpan SubmissionCooldown = TimeSpan.FromSeconds(10);
+
+    [DataField]
+    public TimeSpan SlamDelay = TimeSpan.FromSeconds(0.58);
+
+    [DataField]
+    public List<EntProtoId> BreakableTables = new();
+    // Omu end
 }
 
 [Serializable, NetSerializable]
