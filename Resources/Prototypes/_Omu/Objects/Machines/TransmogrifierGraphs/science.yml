@@ -1,0 +1,38 @@
+# Artifacts
+- type: transmogrifierGraph
+  id: ComplexXenoArtifactItem
+  coarse:
+    entity: ArtifactFragmentOre1
+  oneToOne:
+    weighted:
+    - entity: BaseImplantXeno
+      weight: 25
+    - entity: ComplexXenoArtifactItem
+      weight: 75
+  fine:
+    weighted:
+    - entity: ComplexXenoArtifactItem
+      weight: 75
+    - entity: Ash
+      weight: 25
+  veryFine:
+    entity: Medkit
+  transformedItem: ComplexXenoArtifactItem
+
+- type: entity
+  id: BaseImplantXeno
+  parent: BaseImplantOnlyImplanter
+  description: A strange syringe-esque object... what could be inside it?
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Specific/Science/ArtifactImplanter.rsi
+    state: implanter0
+    layers:
+    - state: implanter1
+      map: [ "implantFull" ]
+      visible: true
+    - state: implanter0
+      map: [ "implantOnly" ]
+  - type: Implanter
+    currentMode: Inject
+    implantOnly: true

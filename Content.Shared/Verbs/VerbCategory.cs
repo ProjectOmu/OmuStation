@@ -90,10 +90,13 @@ namespace Content.Shared.Verbs
 
         public static readonly VerbCategory Adjust =
             new("verb-categories-adjust", "/Textures/Interface/VerbIcons/screwdriver.png");
-        
+
         // Shitmed - Starlight Abductors
         public static readonly VerbCategory Switch = new("verb-categories-switch", "/Textures/Interface/VerbIcons/group.svg.192dpi.png");
         // Einstein Engines - Interaction Verbs
         public static readonly VerbCategory Interaction = new("verb-categories-interaction", null);
+
+        //Omu - for the transmog
+        public static readonly VerbCategory SetState = new("verb-categories-set-state", null);
     }
 }

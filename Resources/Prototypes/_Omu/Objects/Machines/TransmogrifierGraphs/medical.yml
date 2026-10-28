@@ -1,0 +1,46 @@
+# Medkits
+- type: transmogrifierGraph
+  id: Medkit
+  coarse:
+    entity: SheetPlastic10
+  rough:
+    weighted:
+    - entity: PillCanisterTricordazine
+      weight: 25
+    - entity: PillCanisterBicaridine
+      weight: 25
+    - entity: PillCanisterDermaline
+      weight: 25
+  fine:
+    weighted:
+    - entity: MedkitFilled
+      weight: 25
+    - entity: RandomSpawner100
+      weight: 75
+  veryFine:
+    entity: Syringe
+  transformedItem: Medkit
+
+- type: transmogrifierGraph
+  id: MedkitFilled
+  coarse:
+    entity: SheetPlastic10
+  rough:
+    weighted:
+    - entity: PillCanisterTricordazine
+      weight: 25
+    - entity: PillCanisterBicaridine
+      weight: 25
+    - entity: PillCanisterDermaline
+      weight: 25
+  oneToOne:
+    weighted:
+    - entity: MedkitCombat
+      weight: 5
+    - entity: Syringe
+      weight: 95
+  fine:
+    entity: EmergencyMedipen
+  veryFine:
+    entity: Syringe
+  transformedItem: MedkitFilled

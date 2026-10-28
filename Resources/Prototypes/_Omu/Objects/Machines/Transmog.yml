@@ -1,0 +1,31 @@
+- type: entity
+  id: ClosetTransmog
+  parent: ClosetSteelBase
+  name: Transmogrifier
+  components:
+  - type: Transmogrifier
+  - type: Sprite
+    noRot: true
+    sprite: _Omu/Objects/Specific/Science/Transmogrifier.rsi
+    layers:
+    - state: generic
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: generic_door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+
+# Example below
+
+- type: transmogrifierGraph
+  id: Syringe
+  fine:
+    weighted:
+    - entity: MedkitFilled
+      weight: 75
+    - entity: Ash
+      weight: 25
+  veryFine:
+    entity: Medkit
+  transformedItem: Syringe
