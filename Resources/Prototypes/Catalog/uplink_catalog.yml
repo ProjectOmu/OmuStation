@@ -1532,7 +1532,7 @@
   icon: { sprite: /Textures/Clothing/Back/Backpacks/backpack.rsi, state: icon }
   productEntity: StorageImplanter
   cost:
-    Telecrystal: 40 # goob
+    Telecrystal: 30 # 40 # goob # Omu, reduce price due to nerfs
   categories:
     - UplinkImplants
   conditions:
@@ -2395,7 +2395,7 @@
   icon: { sprite:  Objects/Weapons/Melee/cane.rsi, state: cane}
   productEntity: CaneSheathFilled
   cost:
-    Telecrystal: 40 # E-sword sidegrade - goob
+    Telecrystal: 25 # E-sword DOWNGRADE - Omu
   categories:
   - UplinkJob
   conditions:
