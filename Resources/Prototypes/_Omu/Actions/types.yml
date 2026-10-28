@@ -84,3 +84,16 @@
       state: icon
   - type: InstantAction
     event: !type:ToggleJaniVisionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionSummonSteelChair
+  name: Summon Steel Chair
+  description: Pull your trusty steel folding chair into your hand, or a brand new one if yours is gone.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 15
+    icon: { sprite: Structures/Furniture/folding_chair.rsi, state: folding_folded }
+  - type: InstantAction
+    event: !type:SummonSteelChairActionEvent
