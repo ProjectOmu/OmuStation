@@ -453,7 +453,7 @@ public abstract partial class SharedMartialArtsSystem
     // Omu begin (big)
     private void UpdateWrestling()
     {
-        var query = EntityQueryEnumerator<PowerbombedComponent>();
+        using var query = EntityQueryEnumerator<PowerbombedComponent>();
         while (query.MoveNext(out var ent, out var comp))
         {
             if (_timing.CurTime < comp.SlamTime)
@@ -469,7 +469,7 @@ public abstract partial class SharedMartialArtsSystem
             RemCompDeferred(ent, comp);
         }
 
-        var dropkickedQuery = EntityQueryEnumerator<DropkickedComponent>();
+        using var dropkickedQuery = EntityQueryEnumerator<DropkickedComponent>();
         while (dropkickedQuery.MoveNext(out var ent, out var comp))
         {
             if (_timing.CurTime < comp.BreakThroughEnd)
