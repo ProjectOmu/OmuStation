@@ -94,7 +94,7 @@
         time: 3
         type: Add
         probability: 1
-    - reagents: [Holywater] # Omu edit: I need to find a away to have it play a sound so the wraith knows it's taking holy damage and crew knows the holy water is damaging it.
+    - reagents: [Holywater] # Omu edit start: I need to find a away to have it play a sound so the wraith knows it's taking holy damage and crew knows the holy water is damaging it.
       methods: [Touch, Ingestion, Injection]
       effects:
       - !type:HealthChange
@@ -104,7 +104,7 @@
         conditions:
         - !type:HasComponentCondition
           components:
-          - type: Corporeal
+          - type: Corporeal # Omu edit end
   - type: WeakToHoly
     alwaysTakeHoly: true
   - type: Access # Only realistically used while corporeal.

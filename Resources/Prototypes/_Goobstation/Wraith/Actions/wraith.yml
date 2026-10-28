@@ -46,9 +46,9 @@
     raiseOnUser: true # Omu edit start
     checkCanInteract: false
     checkConsciousness: false
-    itemIconStyle: NoItem # Omu edit end
-  - type: TelepathyAction # Omu edit
-    popupType: Medium
+    itemIconStyle: NoItem
+  - type: TelepathyAction
+    popupType: Medium # Omu edit end
 
 - type: entity
   id: ActionBloodWriting
