@@ -33,12 +33,14 @@ public abstract partial class SharedMartialArtsSystem
 {
     private const int WrestlingLongNameLength = 12;
 
+    // Omu start
     private static readonly ProtoId<TraumaTypePrototype>[] WrestlingSafeTraumas =
         ["BoneDamage", "OrganDamage", "NerveDamage", "VeinsDamage"];
 
     [Dependency] private readonly SharedDestructibleSystem _destructible = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    // Omu end
 
     private void InitializeWrestling()
     {
@@ -53,11 +55,14 @@ public abstract partial class SharedMartialArtsSystem
         SubscribeLocalEvent<GrantWrestlingComponent, ClothingGotEquippedEvent>(OnWear);
         SubscribeLocalEvent<GrantWrestlingComponent, ClothingGotUnequippedEvent>(OnRemove);
 
+        // Omu start
         SubscribeLocalEvent<BodyPartComponent, BeforeTraumaInducedEvent>(OnWrestlingTrauma);
         SubscribeLocalEvent<DropkickedComponent, StartCollideEvent>(OnDropkickedCollide);
         SubscribeLocalEvent<SuplexedComponent, ContactInteractionEvent>(OnSuplexedContact);
+        // Omu end
     }
 
+    // Omu start
     private void OnWrestlingTrauma(Entity<BodyPartComponent> ent, ref BeforeTraumaInducedEvent args)
     {
         if (HasComp<WrestlingHitComponent>(ent.Comp.Body) && WrestlingSafeTraumas.Contains(args.TraumaType))
@@ -74,6 +79,7 @@ public abstract partial class SharedMartialArtsSystem
         DoDamage(ent, target, damageType, damageAmount, out _, targetBodyPart);
         RemComp<WrestlingHitComponent>(target);
     }
+    // Omu end
 
     private void OnWear(EntityUid uid, GrantWrestlingComponent component, ref ClothingGotEquippedEvent args)
     {
@@ -140,13 +146,17 @@ public abstract partial class SharedMartialArtsSystem
         if (distance > 0f)
         {
             var landing = overShoulder * ((distance + args.ThrowDistance) / distance);
+            // _grabThrowing.Throw(target, ent, landing, proto.ThrownSpeed, behavior: proto.DropItems); // Omu
+            // Omu start
             var suplexed = EnsureComp<SuplexedComponent>(target);
             suplexed.Thrower = ent;
             suplexed.Landing = landing;
             suplexed.ThrownSpeed = proto.ThrownSpeed;
+            // Omu end
         }
 
-        DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage);
+        // DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _); // Omu
+        DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage); // Omu
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
         _stun.TryKnockdown(target, proto.ParalyzeTime, true, true, proto.DropItems);
         ComboPopup(ent, target, proto.Name);
@@ -183,7 +193,8 @@ public abstract partial class SharedMartialArtsSystem
             _pulling.TryStopPull(target, pullable, ent, true);
 
         _stun.TryKnockdown(target, proto.ParalyzeTime, true, true, proto.DropItems);
-        DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage, TargetBodyPart.Head);
+        // DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Head); // Omu
+        DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage, TargetBodyPart.Head); // Omu
 
         var toTarget = _transform.GetMapCoordinates(target).Position - _transform.GetMapCoordinates(ent).Position;
         var distance = toTarget.Length();
@@ -220,12 +231,14 @@ public abstract partial class SharedMartialArtsSystem
 
         if (downed)
         {
-            DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage / 2, TargetBodyPart.Head);
+            // DoDamage(ent, target, proto.DamageType, proto.ExtraDamage / 2, out _, TargetBodyPart.Head); // Omu
+            DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage / 2, TargetBodyPart.Head); // Omu
             _hands.TryDrop(target);
         }
         else
         {
-            DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage, TargetBodyPart.Head);
+            // DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Head); // Omu
+            DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage, TargetBodyPart.Head); // Omu
             _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
             _stun.TryKnockdown(target, proto.ParalyzeTime, true, true, proto.DropItems);
             _stun.TryKnockdown(ent.Owner, args.SelfKnockdownTime, true, true, false);
@@ -261,7 +274,8 @@ public abstract partial class SharedMartialArtsSystem
         }
 
         _stun.TryUpdateParalyzeDuration(target, proto.ParalyzeTime);
-        DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage, TargetBodyPart.Chest);
+        // DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Chest); // Omu
+        DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage, TargetBodyPart.Chest); // Omu
 
         var toTarget = _transform.GetMapCoordinates(target).Position - _transform.GetMapCoordinates(ent).Position;
         if (toTarget.LengthSquared() > 0f)
@@ -290,11 +304,13 @@ public abstract partial class SharedMartialArtsSystem
             || !TryComp<GrabbableComponent>(target, out var grabbable))
             return;
 
+        // Omu start
         if (_timing.CurTime < ent.Comp.NextSubmission)
         {
             _popupSystem.PopupEntity(Loc.GetString("wrestling-fail-submission-cooldown"), ent, ent);
             return;
         }
+        // Omu end
 
         var holdTime = proto.ParalyzeTime;
         var resist = new BeforeStaminaDamageEvent(1f);
@@ -318,8 +334,10 @@ public abstract partial class SharedMartialArtsSystem
 
     private void OnWrestlingDropkick(Entity<CanPerformComboComponent> ent, ref WrestlingDropkickPerformedEvent args)
     {
+        // Omu start
         if (!TryComp<SprinterComponent>(ent, out var sprinter) || !sprinter.IsSprinting)
             return;
+        // Omu end
 
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
             || !TryUseMartialArt(ent, proto, out var target, out var downed)
@@ -335,18 +353,19 @@ public abstract partial class SharedMartialArtsSystem
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
 
-        DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage, TargetBodyPart.Chest);
+        // DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Chest); // Omu
+        DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage, TargetBodyPart.Chest); // Omu
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
-        _sprinting.ToggleSprint(ent, sprinter, false);
-        DoWrestlingDamage(ent, ent, proto.DamageType, args.SelfDamage, TargetBodyPart.Chest);
+        _sprinting.ToggleSprint(ent, sprinter, false); // Omu
+        DoWrestlingDamage(ent, ent, proto.DamageType, args.SelfDamage, TargetBodyPart.Chest); // Omu
 
-        var smashedThrough = false;
+        var smashedThrough = false; // Omu
         var away = _transform.GetMapCoordinates(target).Position - _transform.GetMapCoordinates(ent).Position;
         var distance = away.Length();
         if (distance > 0f)
         {
             var knockback = away * (args.KnockbackDistance / distance);
-            smashedThrough = SmashThroughWindows(target, knockback, args);
+            smashedThrough = SmashThroughWindows(target, knockback, args); // Omu
             _grabThrowing.Throw(target, ent, knockback, proto.ThrownSpeed, behavior: proto.DropItems);
         }
 
@@ -358,6 +377,7 @@ public abstract partial class SharedMartialArtsSystem
         if (!_netManager.IsServer)
             return;
 
+        // Omu start
         if (smashedThrough)
         {
             _audio.PlayPvs(args.BreakThroughSound, target);
@@ -370,6 +390,7 @@ public abstract partial class SharedMartialArtsSystem
             dropkicked.BreakableGrilles = args.BreakableGrilles;
             dropkicked.BreakThroughSound = args.BreakThroughSound;
         }
+        // Omu end
 
         var dropkick = new WrestlingDropkickAnimationEvent(GetNetEntity(ent), GetNetEntity(target), args.Sound);
         RaiseNetworkEvent(dropkick, Filter.Pvs(target, entityManager: EntityManager));
@@ -389,19 +410,22 @@ public abstract partial class SharedMartialArtsSystem
             _pulling.TryStopPull(target, pullable, ent, true);
 
         var wasCritical = _mobState.IsCritical(target);
-        DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage, TargetBodyPart.Chest);
+        // DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Chest); // Omu
+        DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage, TargetBodyPart.Chest); // Omu
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
         _stun.TryKnockdown(target, proto.ParalyzeTime, true, true, proto.DropItems);
-        ent.Comp.NextSubmission = _timing.CurTime + args.SubmissionCooldown;
+        ent.Comp.NextSubmission = _timing.CurTime + args.SubmissionCooldown; // Omu
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
 
         if (!_netManager.IsServer)
             return;
 
+        // Omu start
         var powerbombed = EnsureComp<PowerbombedComponent>(target);
         powerbombed.SlamTime = _timing.CurTime + args.SlamDelay;
         powerbombed.BreakableTables = args.BreakableTables;
+        // Omu end
 
         var critSound = !wasCritical && _mobState.IsCritical(target) ? args.CritSound : null;
         var slam = new WrestlingSlamAnimationEvent(GetNetEntity(target),
@@ -426,6 +450,7 @@ public abstract partial class SharedMartialArtsSystem
         SayWrestlingCatchphrase(ent, saying);
     }
 
+    // Omu begin (big)
     private void UpdateWrestling()
     {
         var query = EntityQueryEnumerator<PowerbombedComponent>();
@@ -524,6 +549,7 @@ public abstract partial class SharedMartialArtsSystem
     {
         return Prototype(uid) is { } proto && ids.Contains(proto.ID);
     }
+    // Omu end (big)
 
     private void SayWrestlingCatchphrase(EntityUid wrestler, LocId line)
     {

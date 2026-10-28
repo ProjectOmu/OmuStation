@@ -59,6 +59,7 @@ public sealed partial class WrestlingDropkickPerformedEvent : BaseWrestlingEvent
     [DataField]
     public TimeSpan SelfKnockdownTime = TimeSpan.FromSeconds(1);
 
+    // Omu start
     [DataField]
     public float SelfDamage = 5f;
 
@@ -73,6 +74,7 @@ public sealed partial class WrestlingDropkickPerformedEvent : BaseWrestlingEvent
 
     [DataField]
     public SoundSpecifier? BreakThroughSound { get; set; }
+    // Omu end
 }
 
 public sealed partial class WrestlingPowerbombPerformedEvent : BaseWrestlingEvent
@@ -83,6 +85,7 @@ public sealed partial class WrestlingPowerbombPerformedEvent : BaseWrestlingEven
     [DataField]
     public SoundSpecifier? CritSound { get; set; }
 
+    // Omu start
     [DataField]
     public TimeSpan SubmissionCooldown = TimeSpan.FromSeconds(10);
 
@@ -91,6 +94,7 @@ public sealed partial class WrestlingPowerbombPerformedEvent : BaseWrestlingEven
 
     [DataField]
     public List<EntProtoId> BreakableTables = new();
+    // Omu end
 }
 
 [Serializable, NetSerializable]
