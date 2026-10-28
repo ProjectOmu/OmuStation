@@ -1,3 +1,4 @@
+using Content.Shared._Trauma.Throwing;
 using Content.Shared.Destructible;
 using Content.Shared.Light.Components;
 using Content.Shared.Throwing;
@@ -27,7 +28,7 @@ public abstract class SharedLightBulbSystem : EntitySystem
 
     private void HandleLand(EntityUid uid, LightBulbComponent bulb, ref LandEvent args)
     {
-        PlayBreakSound(uid, bulb);
+        PlayBreakSound(uid, bulb, CompOrNull<PredictedThrownItemComponent>(uid)?.Thrower); // Omu
         SetState(uid, LightBulbState.Broken, bulb);
     }
 

@@ -61,7 +61,7 @@
           state: secarang_on
         components:
         - type: Stunbaton # This has to be here otherwise it will not drain enegry on a throw hit, but cant be elsewhere because then the UI breaks
-          energyPerUse: 50
+          energyPerUse: 15
         - type: MeleeWeapon
           damage:
             types:
@@ -71,10 +71,10 @@
             types:
               Blunt: 0
         - type: StaminaDamageOnHit
-          damage: 10
-          overtime: 10
+          damage: 3
+          overtime: 3
         - type: StaminaDamageOnCollide
-          damage: 25
+          damage: 7
         soundStateActivate:
           collection: sparks
           params:
@@ -98,19 +98,20 @@
   - type: Boomerang
   - type: StaticPrice
     price: 95
-  - type: Riggable
-  - type: SolutionContainerManager
-    solutions:
-      battery:
-        maxVol: 5
-  - type: InjectableSolution
-    solution: battery
-  - type: DrawableSolution
-    solution: battery
-  - type: Explosive
-    explosionType: Default
-    intensitySlope: 1.5
-    maxIntensity: 200
+# Without custom logic the secarang explodes when it hits something, which turns rigging into a cheap and easily usable throwable bomb.
+#  - type: Riggable
+#  - type: SolutionContainerManager
+#    solutions:
+#      battery:
+#        maxVol: 5
+#  - type: InjectableSolution
+#    solution: battery
+#  - type: DrawableSolution
+#    solution: battery
+#  - type: Explosive
+#    explosionType: Default
+#    intensitySlope: 1.5
+#    maxIntensity: 200
   - type: PhysicalComposition
     materialComposition:
       Steel: 75
