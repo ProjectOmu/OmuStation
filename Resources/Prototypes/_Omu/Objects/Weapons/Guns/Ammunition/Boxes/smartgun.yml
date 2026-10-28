@@ -1,10 +1,9 @@
 - type: entity
   parent: BaseItem
-  id: MagazineBoxGyroJet
+  id: MagazineBoxSmart
   name: ammunition box (.160 smart)
   description: A steel box of .160 smart rounds. Intended to hold special-purpose gyrojet ammunition.
   components:
-  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/handling/ammobox_pickup.ogg
@@ -14,7 +13,6 @@
   - type: EmitSoundOnLand
     sound:
       path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
-  # Goobstation edit end
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
