@@ -1,20 +1,28 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using System.Numerics;
 using Content.Goobstation.Common.Grab;
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Common.SecondSkin;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.GrabIntent;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
+using Content.Goobstation.Shared.Sprinting;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
+using Content.Shared.Destructible;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Weapons.Melee;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.MartialArts;
@@ -22,6 +30,11 @@ namespace Content.Goobstation.Shared.MartialArts;
 public abstract partial class SharedMartialArtsSystem
 {
     private const int WrestlingLongNameLength = 12;
+
+    private static readonly ProtoId<TraumaTypePrototype>[] WrestlingSafeTraumas = ["BoneDamage", "OrganDamage"];
+
+    [Dependency] private readonly SharedDestructibleSystem _destructible = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
 
     private void InitializeWrestling()
     {
@@ -35,6 +48,26 @@ public abstract partial class SharedMartialArtsSystem
 
         SubscribeLocalEvent<GrantWrestlingComponent, ClothingGotEquippedEvent>(OnWear);
         SubscribeLocalEvent<GrantWrestlingComponent, ClothingGotUnequippedEvent>(OnRemove);
+
+        SubscribeLocalEvent<WrestlingHitComponent, GetSecondSkinDeductionEvent>(OnWrestlingHitDeduction);
+        SubscribeLocalEvent<DropkickedComponent, StartCollideEvent>(OnDropkickedCollide);
+    }
+
+    private void OnWrestlingHitDeduction(Entity<WrestlingHitComponent> ent, ref GetSecondSkinDeductionEvent args)
+    {
+        if (WrestlingSafeTraumas.Contains(args.TraumaType))
+            args.Deduction = 1f;
+    }
+
+    private void DoWrestlingDamage(EntityUid ent,
+        EntityUid target,
+        string damageType,
+        float damageAmount,
+        TargetBodyPart? targetBodyPart = null)
+    {
+        EnsureComp<WrestlingHitComponent>(target);
+        DoDamage(ent, target, damageType, damageAmount, out _, targetBodyPart);
+        RemComp<WrestlingHitComponent>(target);
     }
 
     private void OnWear(EntityUid uid, GrantWrestlingComponent component, ref ClothingGotEquippedEvent args)
@@ -105,7 +138,7 @@ public abstract partial class SharedMartialArtsSystem
             _grabThrowing.Throw(target, ent, landing, proto.ThrownSpeed, behavior: proto.DropItems);
         }
 
-        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
+        DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
         _stun.TryKnockdown(target, proto.ParalyzeTime, true, true, proto.DropItems);
         ComboPopup(ent, target, proto.Name);
@@ -142,7 +175,7 @@ public abstract partial class SharedMartialArtsSystem
             _pulling.TryStopPull(target, pullable, ent, true);
 
         _stun.TryKnockdown(target, proto.ParalyzeTime, true, true, proto.DropItems);
-        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Head);
+        DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage, TargetBodyPart.Head);
 
         var toTarget = _transform.GetMapCoordinates(target).Position - _transform.GetMapCoordinates(ent).Position;
         var distance = toTarget.Length();
@@ -179,12 +212,12 @@ public abstract partial class SharedMartialArtsSystem
 
         if (downed)
         {
-            DoDamage(ent, target, proto.DamageType, proto.ExtraDamage / 2, out _, TargetBodyPart.Head);
+            DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage / 2, TargetBodyPart.Head);
             _hands.TryDrop(target);
         }
         else
         {
-            DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Head);
+            DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage, TargetBodyPart.Head);
             _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
             _stun.TryKnockdown(target, proto.ParalyzeTime, true, true, proto.DropItems);
             _stun.TryKnockdown(ent.Owner, args.SelfKnockdownTime, true, true, false);
@@ -220,7 +253,7 @@ public abstract partial class SharedMartialArtsSystem
         }
 
         _stun.TryUpdateParalyzeDuration(target, proto.ParalyzeTime);
-        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Chest);
+        DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage, TargetBodyPart.Chest);
 
         var toTarget = _transform.GetMapCoordinates(target).Position - _transform.GetMapCoordinates(ent).Position;
         if (toTarget.LengthSquared() > 0f)
@@ -249,6 +282,12 @@ public abstract partial class SharedMartialArtsSystem
             || !TryComp<GrabbableComponent>(target, out var grabbable))
             return;
 
+        if (_timing.CurTime < ent.Comp.NextSubmission)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("wrestling-fail-submission-cooldown"), ent, ent);
+            return;
+        }
+
         var holdTime = proto.ParalyzeTime;
         var resist = new BeforeStaminaDamageEvent(1f);
         RaiseLocalEvent(target, ref resist);
@@ -271,6 +310,9 @@ public abstract partial class SharedMartialArtsSystem
 
     private void OnWrestlingDropkick(Entity<CanPerformComboComponent> ent, ref WrestlingDropkickPerformedEvent args)
     {
+        if (!TryComp<SprinterComponent>(ent, out var sprinter) || !sprinter.IsSprinting)
+            return;
+
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
             || !TryUseMartialArt(ent, proto, out var target, out var downed)
             || !CheckTitleMatch(ent, target))
@@ -285,14 +327,16 @@ public abstract partial class SharedMartialArtsSystem
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
 
-        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Chest);
+        DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage, TargetBodyPart.Chest);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
 
+        var smashedThrough = false;
         var away = _transform.GetMapCoordinates(target).Position - _transform.GetMapCoordinates(ent).Position;
         var distance = away.Length();
         if (distance > 0f)
         {
             var knockback = away * (args.KnockbackDistance / distance);
+            smashedThrough = SmashThroughWindows(target, knockback, args);
             _grabThrowing.Throw(target, ent, knockback, proto.ThrownSpeed, behavior: proto.DropItems);
         }
 
@@ -303,6 +347,19 @@ public abstract partial class SharedMartialArtsSystem
 
         if (!_netManager.IsServer)
             return;
+
+        if (smashedThrough)
+        {
+            _audio.PlayPvs(args.BreakThroughSound, target);
+        }
+        else
+        {
+            var dropkicked = EnsureComp<DropkickedComponent>(target);
+            dropkicked.BreakThroughEnd = _timing.CurTime + args.BreakThroughTime;
+            dropkicked.BreakableWindows = args.BreakableWindows;
+            dropkicked.BreakableGrilles = args.BreakableGrilles;
+            dropkicked.BreakThroughSound = args.BreakThroughSound;
+        }
 
         var dropkick = new WrestlingDropkickAnimationEvent(GetNetEntity(ent), GetNetEntity(target), args.Sound);
         RaiseNetworkEvent(dropkick, Filter.Pvs(target, entityManager: EntityManager));
@@ -322,14 +379,19 @@ public abstract partial class SharedMartialArtsSystem
             _pulling.TryStopPull(target, pullable, ent, true);
 
         var wasCritical = _mobState.IsCritical(target);
-        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Chest);
+        DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage, TargetBodyPart.Chest);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
         _stun.TryKnockdown(target, proto.ParalyzeTime, true, true, proto.DropItems);
+        ent.Comp.NextSubmission = _timing.CurTime + args.SubmissionCooldown;
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
 
         if (!_netManager.IsServer)
             return;
+
+        var powerbombed = EnsureComp<PowerbombedComponent>(target);
+        powerbombed.SlamTime = _timing.CurTime + args.SlamDelay;
+        powerbombed.BreakableTables = args.BreakableTables;
 
         var critSound = !wasCritical && _mobState.IsCritical(target) ? args.CritSound : null;
         var slam = new WrestlingSlamAnimationEvent(GetNetEntity(target),
@@ -352,6 +414,95 @@ public abstract partial class SharedMartialArtsSystem
             grant.LastSaying = saying;
 
         SayWrestlingCatchphrase(ent, saying);
+    }
+
+    private void UpdateWrestling()
+    {
+        var query = EntityQueryEnumerator<PowerbombedComponent>();
+        while (query.MoveNext(out var ent, out var comp))
+        {
+            if (_timing.CurTime < comp.SlamTime)
+                continue;
+
+            var landing = _transform.GetMapCoordinates(ent);
+            foreach (var table in _lookup.GetEntitiesIntersecting(landing, LookupFlags.Static))
+            {
+                if (IsPrototypeIn(table, comp.BreakableTables))
+                    SmashWrestlingProp(table);
+            }
+
+            RemCompDeferred(ent, comp);
+        }
+
+        var dropkickedQuery = EntityQueryEnumerator<DropkickedComponent>();
+        while (dropkickedQuery.MoveNext(out var ent, out var comp))
+        {
+            if (_timing.CurTime < comp.BreakThroughEnd)
+                continue;
+
+            RemCompDeferred(ent, comp);
+        }
+    }
+
+    private void OnDropkickedCollide(Entity<DropkickedComponent> ent, ref StartCollideEvent args)
+    {
+        if (!SmashWindowTile(args.OtherEntity, ent.Comp.BreakableWindows, ent.Comp.BreakableGrilles))
+            return;
+
+        _audio.PlayPvs(ent.Comp.BreakThroughSound, ent);
+        RemCompDeferred(ent, ent.Comp);
+    }
+
+    private bool SmashThroughWindows(EntityUid target, Vector2 knockback, WrestlingDropkickPerformedEvent args)
+    {
+        var start = _transform.GetMapCoordinates(target);
+        var path = Box2.FromTwoPoints(start.Position, start.Position + knockback).Enlarged(0.4f);
+
+        var smashed = false;
+        foreach (var hit in _lookup.GetEntitiesIntersecting(start.MapId, path, LookupFlags.Static))
+            smashed |= SmashWindowTile(hit, args.BreakableWindows, args.BreakableGrilles);
+
+        return smashed;
+    }
+
+    private bool SmashWindowTile(EntityUid hit, List<EntProtoId> windows, List<EntProtoId> grilles)
+    {
+        if (_transform.GetGrid(hit) is not { } grid || !TryComp<MapGridComponent>(grid, out var gridComp))
+            return false;
+
+        var tile = _map.GetAnchoredEntities((grid, gridComp), _transform.GetMapCoordinates(hit)).ToList();
+        if (!tile.Any(uid => IsPrototypeIn(uid, windows)))
+            return false;
+
+        foreach (var uid in tile)
+        {
+            if (IsPrototypeIn(uid, windows) || IsPrototypeIn(uid, grilles))
+                SmashWrestlingProp(uid);
+        }
+
+        return true;
+    }
+
+    private void SmashWrestlingProp(EntityUid prop)
+    {
+        var damageNeeded = _destructible.GetDestroyedAt(prop);
+        if (damageNeeded == FixedPoint2.MaxValue)
+            return;
+
+        if (TryComp<DamageableComponent>(prop, out var damageable))
+            damageNeeded -= damageable.TotalDamage;
+
+        if (damageNeeded <= FixedPoint2.Zero)
+            return;
+
+        var damage = new DamageSpecifier();
+        damage.DamageDict.Add("Blunt", damageNeeded);
+        _damageable.TryChangeDamage(prop, damage, true);
+    }
+
+    private bool IsPrototypeIn(EntityUid uid, List<EntProtoId> ids)
+    {
+        return Prototype(uid) is { } proto && ids.Contains(proto.ID);
     }
 
     private void SayWrestlingCatchphrase(EntityUid wrestler, LocId line)

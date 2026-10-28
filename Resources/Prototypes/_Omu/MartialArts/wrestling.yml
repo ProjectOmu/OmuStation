@@ -29,6 +29,7 @@
   attacks:
   - Grab
   - Harm
+  - Disarm
   event: !type:WrestlingSuplexPerformedEvent
     throwDistance: 0.5
     sound:
@@ -81,15 +82,28 @@
   name: Dropkick
   martialArtsForm: Wrestling
   attacks:
-  - Harm
-  - Harm
   - Disarm
   event: !type:WrestlingDropkickPerformedEvent
     knockbackDistance: 1
+    selfKnockdownTime: 3
+    breakableWindows:
+    - Window
+    - TintedWindow
+    - TintedWindowTransparent
+    - WindowDiagonal
+    - WindowDirectional
+    - WindowFrostedDirectional
+    breakableGrilles:
+    - Grille
+    - GrilleDiagonal
+    breakThroughSound:
+      path: /Audio/_Omu/Effects/Wrestling/holy_shit_chant.ogg
+      params:
+        volume: 5
     sound:
       path: /Audio/Weapons/genhit3.ogg
   extraDamage: 10
-  staminaDamage: 50
+  staminaDamage: 30
   paralyzeTime: 3
   canDoWhileProne: false
 
@@ -139,6 +153,26 @@
       path: /Audio/_Omu/Effects/Wrestling/holy_shit_chant.ogg
       params:
         volume: 5
+    breakableTables:
+    - TableGlass
+    - TablePlasmaGlass
+    - TableCard
+    - TableWood
+    - TableCarpet
+    - TableCounterWood
+    - TableFancyBlack
+    - TableFancyBlue
+    - TableFancyCyan
+    - TableFancyGreen
+    - TableFancyOrange
+    - TableFancyPink
+    - TableFancyPurple
+    - TableFancyRed
+    - TableFancySkyBlue
+    - TableFancyWhite
+    - TableStone
+    - TableWeb
+    - TableXeno
   extraDamage: 20
-  staminaDamage: 80
+  staminaDamage: 60
   paralyzeTime: 5
