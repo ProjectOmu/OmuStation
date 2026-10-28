@@ -1,0 +1,32 @@
+- type: entity
+  parent: BaseAction
+  id: ActionPlasmaBeam
+  name: Plasma Cutter
+  description: Fires an eldritch blast at the target location.    # Literally just a fireball. Till we can get a proper one going lel
+  components:
+  - type: Magic
+    requiresSpeech: true
+    school: Explosion
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    state: mediumstun
+  - type: Action
+    useDelay: 6
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/fireball.ogg
+    icon:
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+      state: mediumstun
+  - type: TargetAction
+    range: 60
+    checkCanAccess: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+  - type: WorldTargetAction
+    event: !type:ProjectileSpellEvent
+      prototype: BulletSuperPlasmaCutter
+      speed: 20
+  - type: SpeakOnAction
+    sentence: action-speech-plasma-cutter
