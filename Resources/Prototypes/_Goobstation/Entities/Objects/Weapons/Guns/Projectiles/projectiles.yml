@@ -472,8 +472,7 @@
   # Short lifespan
   - type: TimedDespawn
     lifetime: 0.4
-# Omu edit. lets it hit wraith by adding the Opaque layer
-  - type: Fixtures
+  - type: Fixtures # Omu edit start. lets it hit wraith by adding the Opaque layer
     fixtures:
       projectile:
         shape:
@@ -484,7 +483,7 @@
         - Opaque
         - Impassable
         - BulletImpassable
-      fly-by: *flybyfixture
+      fly-by: *flybyfixture # Omu edit end
 
 - type: entity
   id: BulletPistolSilver
@@ -497,7 +496,7 @@
       types:
         Piercing: 5
         Holy: 4
-  - type: Fixtures # Omu edit. lets it hit wraith by adding the Opaque layer
+  - type: Fixtures # Omu edit start. lets it hit wraith by adding the Opaque layer
     fixtures:
       projectile:
         shape:
@@ -508,7 +507,7 @@
         - Opaque
         - Impassable
         - BulletImpassable
-      fly-by: *flybyfixture
+      fly-by: *flybyfixture # Omu edit end
 
 - type: entity
   name : stun bolt
