@@ -15,22 +15,22 @@
   #  - state: panel
   #    map: ["enum.WiresVisualLayers.MaintenancePanel"]
   #    visible: false
-  #  - state: powered
-  #    map: ["vizkey_powered"]
-  #    visible: false
-  #  - state: working
-  #    map: ["vizkey_working"]
-  #    visible: false
-  #- type: GenericVisualizer
-  #  visuals:
-  #    enum.PowerDeviceVisuals.Powered:
-  #      vizkey_powered:
-  #        True:  { visible: True  }
-  #        False: { visible: False }
-  #    enum.SolutionContainerMixerVisuals.Mixing:
-  #      vizkey_working:
-  #        True:  { visible: True  }
-  #        False: { visible: False }
+    - state: powered
+      map: ["vizkey_powered"]
+      visible: false
+    - state: working
+      map: ["vizkey_working"]
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        vizkey_powered:
+          True:  { visible: True  }
+          False: { visible: False }
+      enum.SolutionContainerMixerVisuals.Mixing:
+        vizkey_working:
+          True:  { visible: True  }
+          False: { visible: False }
   - type: Machine
     board: DistillationSetupMachineCircuitboard
 
