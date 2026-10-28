@@ -34,4 +34,9 @@ public sealed partial class CanPerformComboComponent : Component
 
     [DataField, AutoNetworkedField]
     public int ConsecutiveGnashes;
+
+    // Omu start
+    [DataField, AutoNetworkedField]
+    public TimeSpan NextSubmission = TimeSpan.Zero;
+    // Omu end
 }
