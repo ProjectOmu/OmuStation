@@ -107,6 +107,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         InitializeDragon();
         InitializeNinjutsu();
         InitializeHellRip();
+        InitializeWrestling(); // Omu
         InitializeCanPerformCombo();
 
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);
