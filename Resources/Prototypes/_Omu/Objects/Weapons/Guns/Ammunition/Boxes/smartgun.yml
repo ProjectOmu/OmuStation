@@ -1,0 +1,41 @@
+- type: entity
+  parent: BaseItem
+  id: MagazineBoxGyroJet
+  name: ammunition box (.160 smart)
+  description: A steel box of .160 smart rounds. Intended to hold special-purpose gyrojet ammunition.
+  components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
+  # Goobstation edit end
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+      - CartridgeSmart
+    proto: CartridgeSmart
+    capacity: 100
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Ammunition/Boxes/smartgun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
