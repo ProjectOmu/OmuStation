@@ -132,14 +132,15 @@
       - Shard
   - type: SpeedModifierImmunity
   - type: Rootable
-  # Omu start
+ # Omu start
   - type: Sprite
     layers:
     - map: [ "enum.HumanoidVisualLayers.TailBehind" ]
     - map: [ "enum.HumanoidVisualLayers.Groin" ]
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
-    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.RArm" ]
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
@@ -162,7 +163,6 @@
     - map: [ "beltalt" ]
     - map: [ "back" ]
     - map: [ "neck" ]
-    - map: [ "enum.HumanoidVisualLayers.Head" ] # Omu - Diona head markings should "grow" through most things
     - map: [ "gloves" ]
     - map: [ "ears" ]
     - map: [ "eyes" ]
@@ -178,8 +178,8 @@
       visible: false
     - map: [ "maskalt" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ] # Omu - treat head top like hair
     - map: [ "mask" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "head" ]
   # Omu end
 
@@ -204,8 +204,9 @@
     - map: [ "enum.HumanoidVisualLayers.TailBehind" ]
     - map: [ "enum.HumanoidVisualLayers.Groin" ]
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
-    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.RArm" ]
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
@@ -228,7 +229,6 @@
     - map: [ "beltalt" ]
     - map: [ "back" ]
     - map: [ "neck" ]
-    - map: [ "enum.HumanoidVisualLayers.Head" ] # Omu - Diona head markings should "grow" through most things
     - map: [ "gloves" ]
     - map: [ "ears" ]
     - map: [ "eyes" ]
@@ -244,7 +244,7 @@
       visible: false
     - map: [ "maskalt" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ] # Omu - treat head top like hair
     - map: [ "mask" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "head" ]
   # Omu end
