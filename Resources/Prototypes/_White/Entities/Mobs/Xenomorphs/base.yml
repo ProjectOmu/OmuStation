@@ -43,6 +43,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 4.5
+  - type: MovementAlwaysTouching # Omu - falling into deepspace is lame
   - type: NpcFactionMember
     factions:
     - Xeno
