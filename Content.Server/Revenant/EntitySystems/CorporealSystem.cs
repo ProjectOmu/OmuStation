@@ -15,7 +15,7 @@ public sealed class CorporealSystem : SharedCorporealSystem
 {
     [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly PhysicsSystem _physicsSystem = default!;
+    [Dependency] private readonly PhysicsSystem _physicsSystem = default!; // Omu
 
     public override void OnStartup(EntityUid uid, CorporealComponent component, ComponentStartup args)
     {
