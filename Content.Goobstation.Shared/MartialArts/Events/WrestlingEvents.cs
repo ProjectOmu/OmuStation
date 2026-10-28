@@ -60,6 +60,9 @@ public sealed partial class WrestlingDropkickPerformedEvent : BaseWrestlingEvent
     public TimeSpan SelfKnockdownTime = TimeSpan.FromSeconds(1);
 
     [DataField]
+    public float SelfDamage = 5f;
+
+    [DataField]
     public List<EntProtoId> BreakableWindows = new();
 
     [DataField]

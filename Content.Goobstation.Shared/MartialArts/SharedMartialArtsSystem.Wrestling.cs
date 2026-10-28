@@ -4,7 +4,6 @@ using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Grab;
 using Content.Goobstation.Common.MartialArts;
-using Content.Goobstation.Common.SecondSkin;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.GrabIntent;
 using Content.Goobstation.Shared.MartialArts.Components;
@@ -12,15 +11,18 @@ using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Goobstation.Shared.Sprinting;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Body.Part;
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Destructible;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Events;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -31,10 +33,12 @@ public abstract partial class SharedMartialArtsSystem
 {
     private const int WrestlingLongNameLength = 12;
 
-    private static readonly ProtoId<TraumaTypePrototype>[] WrestlingSafeTraumas = ["BoneDamage", "OrganDamage"];
+    private static readonly ProtoId<TraumaTypePrototype>[] WrestlingSafeTraumas =
+        ["BoneDamage", "OrganDamage", "NerveDamage", "VeinsDamage"];
 
     [Dependency] private readonly SharedDestructibleSystem _destructible = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
     private void InitializeWrestling()
     {
@@ -49,14 +53,15 @@ public abstract partial class SharedMartialArtsSystem
         SubscribeLocalEvent<GrantWrestlingComponent, ClothingGotEquippedEvent>(OnWear);
         SubscribeLocalEvent<GrantWrestlingComponent, ClothingGotUnequippedEvent>(OnRemove);
 
-        SubscribeLocalEvent<WrestlingHitComponent, GetSecondSkinDeductionEvent>(OnWrestlingHitDeduction);
+        SubscribeLocalEvent<BodyPartComponent, BeforeTraumaInducedEvent>(OnWrestlingTrauma);
         SubscribeLocalEvent<DropkickedComponent, StartCollideEvent>(OnDropkickedCollide);
+        SubscribeLocalEvent<SuplexedComponent, ContactInteractionEvent>(OnSuplexedContact);
     }
 
-    private void OnWrestlingHitDeduction(Entity<WrestlingHitComponent> ent, ref GetSecondSkinDeductionEvent args)
+    private void OnWrestlingTrauma(Entity<BodyPartComponent> ent, ref BeforeTraumaInducedEvent args)
     {
-        if (WrestlingSafeTraumas.Contains(args.TraumaType))
-            args.Deduction = 1f;
+        if (HasComp<WrestlingHitComponent>(ent.Comp.Body) && WrestlingSafeTraumas.Contains(args.TraumaType))
+            args.Cancelled = true;
     }
 
     private void DoWrestlingDamage(EntityUid ent,
@@ -135,7 +140,10 @@ public abstract partial class SharedMartialArtsSystem
         if (distance > 0f)
         {
             var landing = overShoulder * ((distance + args.ThrowDistance) / distance);
-            _grabThrowing.Throw(target, ent, landing, proto.ThrownSpeed, behavior: proto.DropItems);
+            var suplexed = EnsureComp<SuplexedComponent>(target);
+            suplexed.Thrower = ent;
+            suplexed.Landing = landing;
+            suplexed.ThrownSpeed = proto.ThrownSpeed;
         }
 
         DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage);
@@ -329,6 +337,8 @@ public abstract partial class SharedMartialArtsSystem
 
         DoWrestlingDamage(ent, target, proto.DamageType, proto.ExtraDamage, TargetBodyPart.Chest);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
+        _sprinting.ToggleSprint(ent, sprinter, false);
+        DoWrestlingDamage(ent, ent, proto.DamageType, args.SelfDamage, TargetBodyPart.Chest);
 
         var smashedThrough = false;
         var away = _transform.GetMapCoordinates(target).Position - _transform.GetMapCoordinates(ent).Position;
@@ -450,6 +460,16 @@ public abstract partial class SharedMartialArtsSystem
             return;
 
         _audio.PlayPvs(ent.Comp.BreakThroughSound, ent);
+        RemCompDeferred(ent, ent.Comp);
+    }
+
+    private void OnSuplexedContact(Entity<SuplexedComponent> ent, ref ContactInteractionEvent args)
+    {
+        if (args.Other != ent.Comp.Thrower)
+            return;
+
+        _physics.SetLinearVelocity(ent, Vector2.Zero);
+        _grabThrowing.Throw(ent, ent.Comp.Thrower, ent.Comp.Landing, ent.Comp.ThrownSpeed);
         RemCompDeferred(ent, ent.Comp);
     }
 
