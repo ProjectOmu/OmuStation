@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Omu.Common.Paper;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.UserInterface;
@@ -365,6 +366,10 @@ public sealed class PaperSystem : EntitySystem
 
             role = id.Comp.LocalizedJobTitle ?? string.Empty;
         }
+
+        var nameEv = new SignatureNameEvent(name);
+        RaiseLocalEvent(player, ref nameEv);
+        name = nameEv.Name;
         // Omu end
 
         // Format: "Rank Name, Role" or fallback combinations
