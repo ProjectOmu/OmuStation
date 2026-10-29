@@ -149,8 +149,9 @@
     - hand:
         emptyRepresentative: RollerBedSpawnFolded
         whitelist:
-          components:
-          - Foldable # Covers roller beds, body bags, and folding chairs as a side effect. Wish there is a way to filter by IDs and not componets
+          tags:
+          - BodyBag
+          - RollerBed
     - hand: # Same hands from surgery modules to hold parts that gotten blown off or what have you
         emptyRepresentative: BioSynthHeart
         emptyLabel: borg-slot-organs-empty-goob
