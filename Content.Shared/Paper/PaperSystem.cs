@@ -1,18 +1,21 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.UserInterface;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Audio.Systems;
 using static Content.Shared.Paper.PaperComponent;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 // Starlight-start
 using Content.Shared.IdentityManagement;
 using Content.Shared.IdentityManagement.Components;
@@ -33,6 +36,8 @@ public sealed class PaperSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IdentitySystem _identitySystem = default!; // Starlight-edit
+    [Dependency] private readonly SharedIdCardSystem _idCard = default!; // Omu
+    [Dependency] private readonly InventorySystem _inventory = default!; // Omu
 
     private static readonly ProtoId<TagPrototype> WriteIgnoreStampsTag = "WriteIgnoreStamps";
     private static readonly ProtoId<TagPrototype> WriteTag = "Write";
@@ -311,7 +316,8 @@ public sealed class PaperSystem : EntitySystem
 
     private void OnSignatureRequest(Entity<PaperComponent> entity, ref PaperSignatureRequestMessage args)
     {
-        var signature = GetPlayerSignature(args.Actor);
+        // var signature = GetPlayerSignature(args.Actor); // Omu
+        var signature = FormattedMessage.EscapeText(GetPlayerSignature(args.Actor)); // Omu
         var newText = ReplaceNthSignatureTag(entity.Comp.Content, args.SignatureIndex, signature);
         SetContent(entity, newText);
 
@@ -340,16 +346,26 @@ public sealed class PaperSystem : EntitySystem
         name = MetaData(identityEntity).EntityName;
 
         // Get role from mind system
-        if (TryComp<MindContainerComponent>(player, out var mindContainer) &&
-            mindContainer.Mind != null)
+        // Omu start
+        // if (TryComp<MindContainerComponent>(player, out var mindContainer) &&
+        //     mindContainer.Mind != null)
+        // {
+        //     var roleSystem = EntityManager.System<SharedRoleSystem>();
+        //     var roleInfo = roleSystem.MindGetAllRoleInfo((mindContainer.Mind.Value, null));
+        //     if (roleInfo.Count > 0)
+        //     {
+        //         role = Loc.GetString(roleInfo[0].Name);
+        //     }
+        // }
+        name = Name(player);
+        if (_inventory.TryGetSlotEntity(player, "id", out var worn) && _idCard.TryGetIdCard(worn.Value, out var id))
         {
-            var roleSystem = EntityManager.System<SharedRoleSystem>();
-            var roleInfo = roleSystem.MindGetAllRoleInfo((mindContainer.Mind.Value, null));
-            if (roleInfo.Count > 0)
-            {
-                role = Loc.GetString(roleInfo[0].Name);
-            }
+            if (!string.IsNullOrWhiteSpace(id.Comp.FullName))
+                name = id.Comp.FullName;
+
+            role = id.Comp.LocalizedJobTitle ?? string.Empty;
         }
+        // Omu end
 
         // Format: "Rank Name, Role" or fallback combinations
         var signature = string.Empty;
