@@ -87,3 +87,8 @@
   - type: EmitSoundOnLand
     sound:
       collection: RiflesDrop
+
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 2000
+      Plastic: 500
