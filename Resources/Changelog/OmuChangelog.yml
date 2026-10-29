@@ -9333,3 +9333,381 @@ Entries:
         in their bag
   id: 1205
   time: '2026-10-21T16:36:38.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Atmospheric belts do not replace your jumpsuit anymore.
+  id: 1206
+  time: '2026-10-21T23:26:20.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        Origin's atmos has been (almost) completely redone. Check the PR for
+        more!
+    - type: Tweak
+      message: Scattered several plushies across Origin.
+    - type: Tweak
+      message: minor fixes map wide
+  id: 1207
+  time: '2026-10-21T23:36:19.0000000+00:00'
+- author: ggrab41
+  changes:
+    - type: Tweak
+      message: Carps and Sharkminows spawned by Dragons now gib on death.
+  id: 1208
+  time: '2026-10-22T02:09:25.0000000+00:00'
+- author: Dat-Guy
+  changes:
+    - type: Add
+      message: >-
+        Added the BSO survival kit, and made the BSO gas mask the default mask
+        for the kit.
+    - type: Remove
+      message: >-
+        Removed the BSO gas mask from the BSO's starting items (added to the
+        survival kit).
+  id: 1209
+  time: '2026-10-22T12:22:03.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Add
+      message: Added the PKA upgrades back to the salvage vendor
+  id: 1210
+  time: '2026-10-22T13:17:35.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: Fixed certain sec loadout options not being in the secdrobe
+  id: 1211
+  time: '2026-10-22T15:37:09.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: >-
+        The names of crew plushies are now all lowercased, to be consistent with
+        other plushies.
+    - type: Tweak
+      message: >-
+        The Sept Oct plushie is no longer found in the crew morale initiative
+        crate; it is now in the sectoral plushie crate.
+    - type: Tweak
+      message: >-
+        The Jessie Fletcher plushie and the Sept Oct plushie can now be won from
+        claw machines.
+    - type: Tweak
+      message: >-
+        The name and description of the crew morale initiative crate is
+        rewritten slightly.
+  id: 1212
+  time: '2026-10-22T15:43:43.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Add
+      message: new Allulalo markings
+  id: 1213
+  time: '2026-10-22T21:05:42.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Add
+      message: The Sept Oct plushie can now be used as a stamp.
+    - type: Tweak
+      message: Moved Brizby and Redstonewolf plushies to the staff crate.
+  id: 1214
+  time: '2026-10-22T23:25:01.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Tweak
+      message: Characters can now have up to 50 speech patterns in the Speech tab.
+  id: 1215
+  time: '2026-10-22T23:39:36.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Add
+      message: Harpies have way more emote sounds, stolen from other species
+    - type: Add
+      message: Harpies can bagawk now
+  id: 1216
+  time: '2026-10-23T19:11:32.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: New Yorkers now call IPCs "Rowbits" instead of a slur.
+  id: 1217
+  time: '2026-10-23T22:26:35.0000000+00:00'
+- author: jckspjf, DuskTheSnep
+  changes:
+    - type: Add
+      message: Added security visors into security loadouts.
+    - type: Add
+      message: Added medsec visors into corpsman loadouts.
+    - type: Add
+      message: Added blueshield visors into BSO loadouts.
+  id: 1218
+  time: '2026-10-23T22:32:56.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Add
+      message: Added custom Vulp laughing, sighing, and crying sounds.
+  id: 1219
+  time: '2026-10-23T22:48:02.0000000+00:00'
+- author: cynischism
+  changes:
+    - type: Add
+      message: >-
+        Adds a new card game, Yinji, to maints loot tables and the Good Clean
+        Fun vendor.
+  id: 1220
+  time: '2026-10-23T23:28:11.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: Added the new vulp noises to harpy + clarified copyright.
+  id: 1221
+  time: '2026-10-23T23:31:46.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Tweak
+      message: >-
+        Thieving glove strip time reduction reduced significantly. The
+        stealthiness is still there you just have to keep them still for longer
+  id: 1222
+  time: '2026-10-24T00:21:33.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Tweak
+      message: CE's locker includes a SM monitoring console board.
+  id: 1223
+  time: '2026-10-24T00:23:27.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Fix
+      message: Fixed that pixel on bra (sports)
+  id: 1224
+  time: '2026-10-24T09:52:52.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: >-
+        Storage implants can no longer hold syndicate steal objective items or
+        items with storage inside (like a winter coat)
+    - type: Tweak
+      message: Storage implant price reduced 40tc -> 30tc
+  id: 1225
+  time: '2026-10-24T15:55:55.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Add
+      message: >-
+        Accommodated three new CCO types: Crew Operations (basically CC HoP),
+        Internal Affairs, and Judicial Affairs. This mostly only affects their
+        icons and titles, and only for staff larp.
+    - type: Fix
+      message: >-
+        The following job icons are no longer selectable via the Agent ID:
+        CentComm Direggtor, Death Squad, Custodii Vitellus, Future Agent.
+    - type: Fix
+      message: The CentComm Direggtor job icon is now green.
+  id: 1226
+  time: '2026-10-24T17:15:18.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Fix
+      message: Fixed chef loadout having 2 job trinket sections
+    - type: Fix
+      message: Moved mail carrier jumpsuit to courier loadout instead of cargo tech
+  id: 1227
+  time: '2026-10-25T01:01:33.0000000+00:00'
+- author: Willzile1
+  changes:
+    - type: Tweak
+      message: SalicylicAcid and Oxandrolone can no longer be mixed together.
+  id: 1228
+  time: '2026-10-25T02:03:20.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Add
+      message: >-
+        The claw machine can now give out the newer staff plushies, the crew
+        plushies and most of the upstream plushies.
+  id: 1229
+  time: '2026-10-25T03:06:26.0000000+00:00'
+- author: Fiya
+  changes:
+    - type: Remove
+      message: >-
+        Secarang and the NTR's cane can no longer be rigged to explode with
+        plasma.
+    - type: Add
+      message: >-
+        Re-added the Atrocity hit sound, added harm baton hit sound, added
+        welder burn sound to lit lighters.
+  id: 1230
+  time: '2026-10-25T08:12:28.0000000+00:00'
+- author: Jamandbutter0
+  changes:
+    - type: Add
+      message: Added Philtrumites Reprised lobby art
+  id: 1231
+  time: '2026-10-25T14:26:05.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: Energy guns can now melee again.
+  id: 1232
+  time: '2026-10-25T15:27:26.0000000+00:00'
+- author: Fiya
+  changes:
+    - type: Add
+      message: 'Service access for Clown, Mime, and Chaplain '
+  id: 1233
+  time: '2026-10-25T22:33:34.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Remove
+      message: Removed Hailey Vera plushie
+  id: 1234
+  time: '2026-10-26T16:55:52.0000000+00:00'
+- author: BoiWab
+  changes:
+    - type: Add
+      message: '"Grey the Warden and His SonDola" is now in the lobby art selection.'
+  id: 1235
+  time: '2026-10-26T17:03:21.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Add
+      message: Ember Staff Plushie! go stuff them in a borg
+  id: 1236
+  time: '2026-10-26T17:43:40.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Tweak
+      message: Diona Head markings now render above most layers.
+  id: 1237
+  time: '2026-10-26T17:45:01.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: Saying "?" or "???" now renders as the emote "looks confused."
+  id: 1238
+  time: '2026-10-26T19:19:14.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: Plushies are now flammable.
+  id: 1239
+  time: '2026-10-26T23:57:32.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Fix
+      message: >-
+        Off-station lights no longer *flicker* when LightsOutMinorRule is
+        applied. This was independent from the breaking behavior, which was
+        addressed recently.
+  id: 1240
+  time: '2026-10-27T01:07:00.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Guns and throwing are both predicted now.
+  id: 1241
+  time: '2026-10-27T12:24:15.0000000+00:00'
+- author: doglettucee, Duuckie
+  changes:
+    - type: Add
+      message: >-
+        Antagonist rules are now live. Please read the new Antagonist Rules
+        section for clarification regarding antagonists.
+    - type: Tweak
+      message: >-
+        Roleplay Rule 1.1's precedents now do not explicitly prohibit repetitive
+        (non-mass sabotage) antagonist strategies. You are still encouraged to
+        vary your gameplan, though.
+  id: 1242
+  time: '2026-10-27T12:41:19.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Add
+      message: >-
+        Added the Wrestling fighting style! Put on a championship belt to learn
+        it, but it only works on someone else wearing a belt.
+    - type: Add
+      message: >-
+        Added the Intercontinental Champion Belt to the uplink. It works on
+        anyone and comes with a steel chair.
+    - type: Add
+      message: Added a guidebook page for Wrestling.
+  id: 1243
+  time: '2026-10-27T14:55:40.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Fix
+      message: >-
+        Shock muzzles will now actually administer a shock when the wearer tries
+        to speak.
+  id: 1244
+  time: '2026-10-28T05:22:19.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Tweak
+      message: >-
+        Various balance changes, quality of life and bug fixes to both
+        Championship Belts and changed some of their moves in the guidebook.
+    - type: Add
+      message: >-
+        Dropkicking someone into a regular glass window sends them flying
+        through it, powerbombing someone on a table smashes them through it,
+        unless it's metal or reinforced.
+  id: 1245
+  time: '2026-10-28T07:51:07.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Fix
+      message: >-
+        Fixed many bugs with Wraith along with a number of changes too extensive
+        to put into the changelog.
+    - type: Tweak
+      message: >-
+        The Holy Claymore, and chaplain's dual pistols Casul & Jackal can now
+        hit holocarps and other mobs that normally can't be hit by physical
+        projectiles.
+  id: 1246
+  time: '2026-10-28T11:04:57.0000000+00:00'
+- author: EctoplasmIsGood
+  changes:
+    - type: Tweak
+      message: The traitor cane blade has had its cost reduced to 25 TC
+  id: 1247
+  time: '2026-10-28T13:12:06.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: >-
+        Diona have eyes again and diona vines are available in Head and HeadTop
+        layering.
+  id: 1248
+  time: '2026-10-28T15:47:25.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Add
+      message: >-
+        Added a professional wrestling crate to cargo with two championship
+        belts, protein shakes, towels, a megaphone and a chance at a wrestler
+        lizard plushie.
+  id: 1249
+  time: '2026-10-28T16:35:29.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed Thaven moods causing testfails on github.
+  id: 1250
+  time: '2026-10-28T17:08:31.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: >-
+        Added a showobjectives command for admins to view objectives and
+        sacrifice targets in a nice ui.
+  id: 1251
+  time: '2026-10-29T00:56:43.0000000+00:00'
