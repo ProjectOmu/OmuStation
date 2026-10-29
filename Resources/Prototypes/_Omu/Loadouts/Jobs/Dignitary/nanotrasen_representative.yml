@@ -36,6 +36,12 @@
     jumpsuit: CentcomAgentSkirt
   groupBy: "jumpskirt"
 
+- type: loadout
+  id: CCAgentPencilSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCentcomPencilSkirt
+  groupBy: "jumpskirt"
+
 # Neck
 - type: loadout
   id: NanotrasenRepresentativeOffcoat
@@ -77,3 +83,11 @@
   id: CentcommHeadHatKepi
   equipment:
     head: ClothingHeadHatKepiCentcomm
+
+- type: loadout
+  id: CentcommHeadHatCap
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorNanotrasenRepresentative
+  equipment:
+    head: ClothingHeadHatCentcomcap
