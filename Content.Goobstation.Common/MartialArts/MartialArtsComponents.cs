@@ -55,4 +55,5 @@ public enum MartialArtsForms
     KungFuDragon,
     Ninjutsu,
     HellRip,
+    Wrestling, // Omu
 }

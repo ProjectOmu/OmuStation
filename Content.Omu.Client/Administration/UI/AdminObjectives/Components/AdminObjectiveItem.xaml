@@ -1,0 +1,18 @@
+<components:AdminObjectiveItem
+    xmlns="https://spacestation14.io"
+    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:components="clr-namespace:Content.Omu.Client.Administration.UI.AdminObjectives.Components">
+    <PanelContainer VerticalExpand="True" Margin="2 2">
+        <PanelContainer.PanelOverride>
+            <graphics:StyleBoxFlat BackgroundColor="#25252a" />
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Horizontal" Margin="4">
+            <TextureRect Name="ObjectiveIcon" Stretch="KeepAspect" HorizontalAlignment="Center" SetWidth="36" VerticalAlignment="Center" Margin="4 0" />
+            <SpriteView Name="ObjectiveSprite" Stretch="Fill" HorizontalAlignment="Center" SetWidth="36" VerticalAlignment="Center" Margin="4 0" />
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" VerticalAlignment="Center">
+                <RichTextLabel Name="ObjectiveName" />
+                <RichTextLabel Name="ObjectiveDescription" />
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</components:AdminObjectiveItem>
