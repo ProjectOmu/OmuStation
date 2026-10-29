@@ -4,7 +4,7 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 10/23/2026 07:18:48
+  time: 10/29/2026 22:44:40
   entityCount: 32134
 maps:
 - 1
@@ -81812,7 +81812,7 @@ entities:
       pos: -36.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -36636.902
+      secondsUntilStateChange: -36678.367
       state: Closing
 - proto: d10Dice
   entities:
@@ -97916,18 +97916,19 @@ entities:
     - type: Transform
       pos: -52.5,-50.5
       parent: 2
+- proto: GasMinerNitrogenStationLarge
+  entities:
+  - uid: 19552
+    components:
+    - type: Transform
+      pos: -52.5,-54.5
+      parent: 2
 - proto: GasMinerOxygenStationLarge
   entities:
   - uid: 4493
     components:
     - type: Transform
       pos: -52.5,-52.5
-      parent: 2
-  - uid: 19552
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -52.5,-54.5
       parent: 2
 - proto: GasMinerPlasma
   entities:
@@ -143103,7 +143104,6 @@ entities:
       stampedBy:
       - hasIcon: False
         stampFont: Default
-        stampLargePath: null
         stampLargeIcon: null
         stampedColor: '#2F4F4FFF'
         stampedName: Intern Jeff
@@ -143121,7 +143121,6 @@ entities:
       stampedBy:
       - hasIcon: False
         stampFont: Default
-        stampLargePath: null
         stampLargeIcon: null
         stampedColor: '#2F4F4FFF'
         stampedName: Intern Bob
@@ -143139,7 +143138,6 @@ entities:
       stampedBy:
       - hasIcon: True
         stampFont: null
-        stampLargePath: null
         stampLargeIcon: large_stamp-centcom
         stampedColor: '#006600FF'
         stampedName: stamp-component-stamped-name-centcom
@@ -143160,7 +143158,6 @@ entities:
       stampedBy:
       - hasIcon: False
         stampFont: Default
-        stampLargePath: null
         stampLargeIcon: null
         stampedColor: '#2F4F4FFF'
         stampedName: Jonathan Nuclear Operative
@@ -143880,7 +143877,6 @@ entities:
       stampedBy:
       - hasIcon: False
         stampFont: Default
-        stampLargePath: null
         stampLargeIcon: null
         stampedColor: '#2F4F4FFF'
         stampedName: John Syndicate
