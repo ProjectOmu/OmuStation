@@ -110,6 +110,7 @@
   loadouts:
   - CargoTechnicianJumpsuitMail
   - CargoTechnicianJumpskirtMail
+  - MailCarrierMJ # Omu
   - CourierJumpsuit
   - CourierJumpskirt
   - CourierJumpsuitLong
@@ -185,6 +186,20 @@
   loadouts:
   # - MailCarrierEnvirogloves
   - WhiteEnvirogloves
+
+- type: loadoutGroup
+  id: VirologistHead
+  name: loadout-group-virologist-head
+  minLimit: 0
+  loadouts:
+  - MedicalBeret
+  - SeniorPhysicianBeret
+  - MedicalHeadMirror
+  - BlueSurgeryCap
+  - GreenSurgeryCap
+  - PurpleSurgeryCap
+  - NurseHat
+  - UshankaVirologist
 
 - type: loadoutGroup
   id: VirologistEnvirohelm
@@ -268,6 +283,15 @@
 
 # Blueshield Officer
 
+- type: loadoutGroup
+  id: BlueshieldEyewear
+  name: loadout-group-bso-eyewear
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BSOGlasses
+  - BSOVisor
+
 # - type: loadoutGroup
 #   id: BlueshieldOfficerBelt # - Now moved to support kits
 #   name: loadout-group-bso-belt
@@ -288,6 +312,7 @@
   loadouts:
   - GlassesMedSec
   - GlassesCorpsman
+  - VisorMedSec
 
 - type: loadoutGroup
   id: CorpsmanBelt
@@ -333,6 +358,15 @@
   - WeaponPistolMk58Gold
 
 - type: loadoutGroup
+  id: SecurityEyewear
+  name: loadout-group-security-eyewear
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SecurityGlasses
+  - SecurityVisor
+
+- type: loadoutGroup
   id: TrinketsSecuritySergeant
   name: loadout-group-sergeant-gun
   minLimit: 1
@@ -367,7 +401,7 @@
   id: SergeantBelt
   name: loadout-group-sergeant-belt
   loadouts:
-  - SergeantBelt
+  # - SergeantBelt # its our change but i prefer commenting things out (Omu)
   - SecurityBelt
   - SecurityWebbing
   - SecuritySwordBelt # Omu
@@ -410,6 +444,7 @@
   maxLimit: 1
   loadouts:
   - DetectiveClothingEyesGlassesSecurity
+  - SecurityVisor
   - DetectiveClothingEyesGlassesNoir
 
 # And... a separate one for brigmed cause they cant put the terminus in the suit storage
@@ -560,3 +595,21 @@
   - BartenderBackpackSatchel
   - BartenderBackpackDuffel
   - BartenderBackpackMessenger
+
+# Blueshield Officer
+- type: loadoutGroup
+  id: SurvivalBlueshieldOfficer
+  name: loadout-group-survival-blueshield
+  minLimit: 3
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenBlueshieldOfficer
+  - EmergencyOxygenBlueshieldOfficer
+  - EmergencyPlasmaBlueshieldOfficer
+  - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma 
+  - EmergencyWaterVaporBlueshieldOfficer 
+  - EmergencySilicon 
+  - EmergencyOxygenCarnivoreBlueshieldOfficer 
+  - EmergencyOxygenEthanolBlueshieldOfficer 
+  - EmergencyOxygenVegetarianBlueshieldOfficer

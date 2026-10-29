@@ -480,12 +480,12 @@
   - ChefJacket
   - ChefWintercoat
 
-- type: loadoutGroup
-  id: ChefJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieChef
+#- type: loadoutGroup # Omu
+#  id: ChefJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
+#  - LizardPlushieChef
 
 - type: loadoutGroup
   id: LibrarianJumpsuit
@@ -968,17 +968,17 @@
   - CargoTechnicianJumpsuit
   - CargoTechnicianJumpskirt
   - CargoTechnicianOveralls #Goob
+  - CargoTechMJ # goob
   # OmuStation Start
   - CargoTechnicianSweater
   - CargoTechnicianSweaterSkirt
   - CargoTechnicianShortPantsIfuckinghateyouifyouwearthisbtw
   - CargoTechnicianShortSkirtsInsteadofPants
   - CargoTechnicianUniformTopInsteadOfJumpsuit
-  # OmuStation End
   #- CargoTechnicianJumpsuitMail # Goob/DeltaV - Mail # Omu - Moved to courier
   #- CargoTechnicianJumpskirtMail # Goob/DeltaV - Mail # Omu - Moved to courier
-  - CargoTechMJ # goob
-  - MailCarrierMJ #Goob
+  #- MailCarrierMJ # Omu courier
+  # OmuStation End
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
@@ -1692,6 +1692,7 @@
   - ChiefMedicalOfficerSurgicalCap # Omu
   - ChemistUshanka # Goobstation
   - CMOVetBeret #Omu
+  - UshankaCMO # Omu
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerJumpsuit
@@ -1762,6 +1763,7 @@
   - GreenSurgeryCap
   - PurpleSurgeryCap
   - NurseHat
+  - UshankaMedical # Omu
 
 - type: loadoutGroup
   id: MedicalDoctorJumpsuit
@@ -1919,6 +1921,7 @@
   - ParamedicHead
   - ParamedicCapCybersun # Omu
   - SeniorPhysicianBeret # Goobstation
+  - UshankaParamedic # Omu
 
 - type: loadoutGroup
   id: ParamedicJumpsuit
@@ -2023,6 +2026,35 @@
   minLimit: 0
   loadouts:
   - LizardPlushiePsychologist
+
+- type: loadoutGroup
+  id: TramDriverJumpsuit
+  name: loadout-group-tramdriver-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - TramDriverJumpsuit
+
+- type: loadoutGroup
+  id: TramDriverOuterClothing
+  name: loadout-group-tramdriver-outerclothing
+  minLimit: 0
+  loadouts:
+  - TramDriverSuit
+
+- type: loadoutGroup
+  id: TramDriverHat
+  name: loadout-group-tramdriver-hat
+  loadouts:
+  - TramDriverHat
+
+- type: loadoutGroup
+  id: TramDriverGloves
+  name: loadout-group-tramdriver-gloves
+  minLimit: 0
+  loadouts:
+  - TramDriverGlovesWhite
+  - TramDriverGlovesBlack
 
 # Other
 - type: loadoutGroup

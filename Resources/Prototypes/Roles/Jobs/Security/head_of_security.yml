@@ -45,8 +45,7 @@
   - HeadOfSecuritySOP
   - SecuritySOP
   - AlertLevels
-  - CommandTrainingManual # Omu
-  - SecurityTrainingManual # Omu
+  - ClassifiedTrainingManual # Omu
   goobcoins: 45 #Goob content
   access:
   - Corpsman # Omu
@@ -72,7 +71,7 @@
 - type: startingGear
   id: HoSGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
+    #eyes: ClothingEyesGlassesSecurity #Omu, glasses options in loadouts
     id: HoSPDA
     #gloves: ClothingHandsGlovesCombat - Goobstation, moved to loadouts
     ears: ClothingHeadsetAltSecurity
