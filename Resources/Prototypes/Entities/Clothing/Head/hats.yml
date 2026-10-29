@@ -1451,6 +1451,29 @@
         Piercing: 0.7
         Heat: 0.8
 
+#Omu start
+- type: entity
+  parent: [ ClothingHeadBase, BaseCentcommContraband ]
+  id: ClothingHeadHatCentcomcapUnarmored
+  name: CentComm cap
+  description: An extravagant, stylish cap worn by CentComm officials. Seems to have had some padding removed.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/comcap.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/comcap.rsi
+  - type: Item
+    sprite: Clothing/Head/Hats/comcap.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - MouseWearable
+#Omu end
+
 - type: entity
   parent: [ ClothingHeadHatArmored, ClothingHeadBase, BaseCentcommContraband ] #goob
   id: ClothingHeadHatCentcomcap
@@ -1472,7 +1495,6 @@
     - WhitelistChameleon
     - HamsterWearable
     - MouseWearable # Goobstation
-
 
 - type: entity
   parent: ClothingHeadBase
