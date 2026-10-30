@@ -1,12 +1,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Shared._Trauma.Throwing; // Trauma
 using Content.Shared._Goobstation.Wizard.TimeStop;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Gravity;
 using Content.Shared.Physics;
 using Content.Shared.Movement.Pulling.Events;
+using Content.Shared.Projectiles;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
@@ -30,6 +32,8 @@ namespace Content.Shared.Throwing
         [Dependency] private readonly SharedGravitySystem _gravity = default!;
 
         private const string ThrowingFixture = "throw-fixture";
+
+        private readonly List<(EntityUid Item, EntityUid Target)> _deferredHits = new(); // Omu
 
         public override void Initialize()
         {
@@ -69,6 +73,14 @@ namespace Content.Shared.Throwing
 
             if (args.OtherEntity == component.Thrower)
                 return;
+
+            // Omu start
+            if (_netMan.IsClient && _gameTiming.ApplyingState)
+            {
+                _deferredHits.Add((uid, args.OtherEntity));
+                return;
+            }
+            // Omu end
 
             ThrowCollideInteraction(component, args.OurEntity, args.OtherEntity);
         }
@@ -119,6 +131,10 @@ namespace Content.Shared.Throwing
             var ev = new StopThrowEvent(thrownItemComponent.Thrower);
             RaiseLocalEvent(uid, ref ev);
             RemComp<ThrownItemComponent>(uid);
+            // <Trauma> - tell clients to stop predicting physics once server finishes the throw
+            if (_netMan.IsServer)
+                RemComp<PredictedThrownItemComponent>(uid);
+            // </Trauma>
         }
 
         public void LandComponent(EntityUid uid, ThrownItemComponent thrownItem, PhysicsComponent physics, bool playSound)
@@ -169,6 +185,20 @@ namespace Content.Shared.Throwing
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
+
+            // Omu start
+            var hits = _deferredHits.ToArray();
+            _deferredHits.Clear();
+            foreach (var (item, target) in hits)
+            {
+                if (TerminatingOrDeleted(item) || TerminatingOrDeleted(target) ||
+                    !TryComp<ThrownItemComponent>(item, out var thrownComp) ||
+                    CompOrNull<EmbeddableProjectileComponent>(item)?.EmbeddedIntoUid != null)
+                    continue;
+
+                ThrowCollideInteraction(thrownComp, item, target);
+            }
+            // Omu end
 
             var query = EntityQueryEnumerator<ThrownItemComponent, PhysicsComponent>();
             var frozenQuery = GetEntityQuery<FrozenComponent>(); // Goobstation
