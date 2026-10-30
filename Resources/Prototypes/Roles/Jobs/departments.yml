@@ -8,9 +8,11 @@
   roles:
   - CargoTechnician
   - Quartermaster
+  - CargoBosun # Omu
   - SalvageSpecialist
   - ShaftMiner # Lavaland Change
   - Courier # Omu
+  - LogisticsAssistant # Omu
 
 - type: department
   id: Civilian
@@ -107,6 +109,7 @@
   roles:
   - AtmosphericTechnician
   - ChiefEngineer
+  - EngineeringForeman # Omu
   - StationEngineer
   - TechnicalAssistant
 
@@ -118,6 +121,7 @@
   roles:
   - Chemist
   - ChiefMedicalOfficer
+  - MedicalMedicus # Omu
   - MedicalDoctor
   - MedicalIntern
   - Psychologist
@@ -148,6 +152,7 @@
   color: "#D381C9"
   roles:
   - ResearchDirector
+  - ScienceProfessor # Omu
   - Scientist
   - ResearchAssistant
   - Roboticist #Goob
