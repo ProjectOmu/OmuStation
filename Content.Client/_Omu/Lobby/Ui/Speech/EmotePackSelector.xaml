@@ -1,0 +1,11 @@
+<!--
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<BoxContainer xmlns="https://spacestation14.io"
+              HorizontalExpand="True">
+    <Label Text="{Loc 'emote-pack-selector-label'}" />
+    <Control HorizontalExpand="True" />
+    <OptionButton Name="PackButton" HorizontalAlignment="Right" />
+    <Button Name="PlayButton" Text="{Loc 'emote-pack-selector-play'}" MaxWidth="80" />
+</BoxContainer>
