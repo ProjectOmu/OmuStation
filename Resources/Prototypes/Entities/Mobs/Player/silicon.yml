@@ -91,6 +91,9 @@
   - type: ContentEye  #Goobstation
     maxZoom: 1.44,1.44
   - type: VoiceBroadcastConsole # Omu, this is a goob component, but without it tests fail.
+  - type: RadioChime # Starlight
+    sound:
+      path: /Audio/_Starlight/Effects/Radio/ai.ogg
 
 - type: entity
   id: AiHeldIntellicard

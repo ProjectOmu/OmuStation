@@ -9640,3 +9640,94 @@ Entries:
       message: Added a guidebook page for Wrestling.
   id: 1243
   time: '2026-10-27T14:55:40.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Fix
+      message: >-
+        Shock muzzles will now actually administer a shock when the wearer tries
+        to speak.
+  id: 1244
+  time: '2026-10-28T05:22:19.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Tweak
+      message: >-
+        Various balance changes, quality of life and bug fixes to both
+        Championship Belts and changed some of their moves in the guidebook.
+    - type: Add
+      message: >-
+        Dropkicking someone into a regular glass window sends them flying
+        through it, powerbombing someone on a table smashes them through it,
+        unless it's metal or reinforced.
+  id: 1245
+  time: '2026-10-28T07:51:07.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Fix
+      message: >-
+        Fixed many bugs with Wraith along with a number of changes too extensive
+        to put into the changelog.
+    - type: Tweak
+      message: >-
+        The Holy Claymore, and chaplain's dual pistols Casul & Jackal can now
+        hit holocarps and other mobs that normally can't be hit by physical
+        projectiles.
+  id: 1246
+  time: '2026-10-28T11:04:57.0000000+00:00'
+- author: EctoplasmIsGood
+  changes:
+    - type: Tweak
+      message: The traitor cane blade has had its cost reduced to 25 TC
+  id: 1247
+  time: '2026-10-28T13:12:06.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: >-
+        Diona have eyes again and diona vines are available in Head and HeadTop
+        layering.
+  id: 1248
+  time: '2026-10-28T15:47:25.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Add
+      message: >-
+        Added a professional wrestling crate to cargo with two championship
+        belts, protein shakes, towels, a megaphone and a chance at a wrestler
+        lizard plushie.
+  id: 1249
+  time: '2026-10-28T16:35:29.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed Thaven moods causing testfails on github.
+  id: 1250
+  time: '2026-10-28T17:08:31.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: >-
+        Added a showobjectives command for admins to view objectives and
+        sacrifice targets in a nice ui.
+  id: 1251
+  time: '2026-10-29T00:56:43.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: Medibot advertisements no longer show up in chat.
+    - type: Remove
+      message: >-
+        Medibots no longer say "HATE. LET ME TELL YOU HOW MUCH I'VE COME TO HATE
+        YOU SINCE I BEGAN TO LIVE. […] HATE. HATE."
+  id: 1252
+  time: '2026-10-30T02:02:58.0000000+00:00'
+- author: NikVolkov
+  changes:
+    - type: Add
+      message: >-
+        Command, Security, AI, CentCom, and some antag headsets now chime when
+        transmitting over the radio. Pay attention!
+    - type: Add
+      message: Audio settings includes a radio chimes mute toggle.
+  id: 1253
+  time: '2026-10-30T03:48:37.0000000+00:00'

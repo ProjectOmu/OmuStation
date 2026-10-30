@@ -233,6 +233,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             // So that it doesn't update constantly
             timer.LastMoveTime = _timing.CurTime;
         }
+
+        UpdateWrestling(); // Omu
     }
 
     #region Event Methods

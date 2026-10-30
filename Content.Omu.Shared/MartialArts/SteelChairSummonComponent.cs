@@ -23,6 +23,9 @@ public sealed partial class SteelChairSummonComponent : Component
 
     [DataField]
     public LocId SummonShout = "steel-chair-summon-shout";
+
+    [DataField]
+    public float MinSummonDistance = 20f;
 }
 
 public sealed partial class SummonSteelChairActionEvent : InstantActionEvent;

@@ -38,8 +38,9 @@
   The Intercontinental Champion title holder can pull their trusty steel folding chair into a free hand
   whenever they feel the need to go No Holds Barred. If it gets broken, a brand new chair
   can be found "under the ring" and you'll make your point known by shouting [bold]NO DISQUALIFICATIONS![/bold]
-  for everyone to hear. It hits harder than a regular chair, knocks people down when thrown
-  and has a chance to deflect projectiles.
+  for everyone to hear. It hits harder than a regular chair and has a chance to deflect projectiles.
+  Throwing it knocks people down, but the chair breaks on whatever it hits.
+  If your chair is still within 20 tiles of you, you'll have to go pick it up yourself.
 
   ## Combo attacks
 
@@ -50,6 +51,7 @@
   <Box>
     <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
   </Box>
 
   Hoists the opponent up and tosses them over your shoulder,
@@ -82,13 +84,13 @@
   ### Dropkick
 
   <Box>
-    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
-    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
     <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
   </Box>
 
-  Both feet, right to the chest. Deals Blunt damage and a lot of Stamina damage, sending the opponent back
-  and knocking them down. You hit the floor too. Only works on standing opponents.
+  Shove someone [bold]while sprinting[/bold] to hit them with both feet, right to the chest. Deals Blunt damage and some
+  Stamina damage, sending the opponent back and knocking them down. Kick them into a regular glass window
+  and they go flying right through it, grille and all. You hit the floor for a while too.
+  Only works on standing opponents.
 
   ### Elbow Drop
 
@@ -122,5 +124,7 @@
   into the floor for heavy Blunt and Stamina damage, causing your opponent to stay floored for a while.
   The bell rings, the crowd cheers, and you can't help but shout your catchphrase.
   If the Powerbomb puts them into critical condition, it's guaranteed to make the crowd go wild.
+  Powerbomb them while they're on a table and it smashes right through, unless it's a metal or reinforced one.
+  You'll need 10 seconds to catch your breath afterwards before you can lock anyone into another Submission Hold.
 
 </Document>
