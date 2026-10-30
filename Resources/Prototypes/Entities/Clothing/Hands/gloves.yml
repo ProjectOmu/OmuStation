@@ -160,6 +160,11 @@
   - type: Tag
     tags:
     - LatexGloves # Goobstation
+    # Omu start: readd clobbered tags
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+    # Omu end
 
 - type: entity
   parent: ClothingHandsButcherable
