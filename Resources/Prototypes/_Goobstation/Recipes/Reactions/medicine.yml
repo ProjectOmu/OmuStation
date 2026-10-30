@@ -291,48 +291,50 @@
     Sodium: 1
     Carbon: 1
 
-- type: reaction
-  id: SalicylicAcid
-  minTemp: 370
-  reactants:
-    TranexamicAcid:
-      amount: 1
-    FluorosulfuricAcid:
-      amount: 1
-    SodiumHydroxide:
-      amount: 1
-    Bicaridine:
-      amount: 1
-  products:
-    SalicylicAcid: 4
-
-- type: reaction
-  id: Oxandrolone
-  reactants:
-    SodiumCarbonate:
-      amount: 1
-    Dermaline:
-      amount: 1
-    Phenol:
-      amount: 1
-    Leporazine:
-      amount: 1
-  products:
-    Oxandrolone: 4
-
-- type: reaction
-  id: PentenicAcid
-  reactants:
-    PolytrinicAcid:
-      amount: 1
-    PotassiumIodide:
-      amount: 1
-    Haloperidol:
-      amount: 1
-    Cyanide:
-      amount: 1
-  products:
-    PentenicAcid: 4
+# Omu start: make salicylic acid, oxandrolone, pentetic acid unobtainable
+# - type: reaction
+#   id: SalicylicAcid
+#   minTemp: 370
+#   reactants:
+#     TranexamicAcid:
+#       amount: 1
+#     FluorosulfuricAcid:
+#       amount: 1
+#     SodiumHydroxide:
+#       amount: 1
+#     Bicaridine:
+#       amount: 1
+#   products:
+#     SalicylicAcid: 4
+#
+# - type: reaction
+#   id: Oxandrolone
+#   reactants:
+#     SodiumCarbonate:
+#       amount: 1
+#     Dermaline:
+#       amount: 1
+#     Phenol:
+#       amount: 1
+#     Leporazine:
+#       amount: 1
+#   products:
+#     Oxandrolone: 4
+#
+# - type: reaction
+#   id: PentenicAcid
+#   reactants:
+#     PolytrinicAcid:
+#       amount: 1
+#     PotassiumIodide:
+#       amount: 1
+#     Haloperidol:
+#       amount: 1
+#     Cyanide:
+#       amount: 1
+#   products:
+#     PentenicAcid: 4
+# Omu end
 
 - type: reaction
   id: Atropine
