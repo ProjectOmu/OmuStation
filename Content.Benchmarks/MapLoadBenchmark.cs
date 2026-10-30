@@ -56,6 +56,7 @@ public class MapLoadBenchmark
         "Tram2", // Omu - Port tramstation from wizden
         "Crystal", // Omu - Adds Crystal
         "Shoukou"
+        "Sushi", // Omu - Adds Sushi
         }; 
 
     [ParamsSource(nameof(MapsSource))]
