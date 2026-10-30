@@ -1,0 +1,28 @@
+- type: entity
+  id: CartridgeCaselessLMG
+  name: cartridge (.22 caseless)
+  parent: [BaseCartridge, BaseSecurityContraband]
+  description: A small caseless cartridge used in the Vasquez. If you're holding this, something has probably gone very wrong with the gun itself...
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeCaselessLMG
+
+  - type: CartridgeAmmo
+    proto: BulletCaselessLMG
+    deleteOnSpawn: true
+
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+
+  - type: Appearance
+
+  - type: SpentAmmoVisuals
+
+  - type: StaticPrice
+    price: 0
