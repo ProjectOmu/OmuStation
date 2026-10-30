@@ -7,6 +7,8 @@ using Content.Shared.Actions;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Hands.EntitySystems;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 
 namespace Content.Server._StarLight.Dolls.Systems;
@@ -17,6 +19,7 @@ public sealed class SnapShellPieceSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -51,6 +54,12 @@ public sealed class SnapShellPieceSystem : EntitySystem
         if (!_body.TryRemoveOrgan(fragment))
             return;
 
+        // Play the quiet snapping sound.
+        _audio.PlayPvs(
+            new SoundPathSpecifier("/Audio/Effects/Emotes/snap1.ogg"),
+            user);
+
+        // Place the removed shell fragment into the Doll's hand.
         _hands.TryPickupAnyHand(user, fragment);
 
         if (args.SelfDamage != null)

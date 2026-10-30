@@ -3,6 +3,14 @@
   parent: BaseItem
   abstract: true
   components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: InputMover
+  - type: MobMover
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.5
+    baseSprintSpeed: 2.0
+  - type: LagCompensation
   - type: Sprite
     sprite: _Starlight/Mobs/Species/Doll/organs.rsi
   - type: Organ
@@ -36,6 +44,16 @@
   name: brain
   description: "A strange mass of meat somehow equivalent to a brain."
   components:
+  - type: DollMobileOrgan
+  - type: Input
+    context: human
+  - type: InputMover
+  - type: MobMover
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.5
+    baseSprintSpeed: 2.0
+  - type: Physics
+    bodyType: KinematicController
   - type: Sprite
     state: brain
   # Have to replicate normal BaseBrain components here, without the movement blocker
@@ -45,9 +63,6 @@
   - type: NerveSystem # Goobstation
   - type: ConsciousnessRequired # Goobstation
     identifier: "nerveSystem"
-  - type: Organ
-  - type: Input
-    context: "ghost"
   - type: Brain
   - type: Examiner
   - type: BadFood
@@ -225,12 +240,6 @@
   - type: Organ
     slotId: shell
   - type: OrganShell
-  - type: OrganDamage
-    damage:
-      types:
-        Blunt: 30
-        Slash: 5
-        Piercing: 5
   - type: Damageable
     damageContainer: Biological
   - type: MarkingOrgan
@@ -246,9 +255,3 @@
       - DollShellRHand
       - DollShellRLeg
       - DollShellRFoot
-  - type: DamageModifierOrgan
-    modifiers:
-      coefficients:
-        Slash: -0.06
-        Piercing: -0.06
-        Heat: 0.03
