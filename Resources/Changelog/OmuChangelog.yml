@@ -9751,3 +9751,21 @@ Entries:
       message: Judo belts and the HoS kung fu belt have some cool new resprites
   id: 1256
   time: '2026-10-30T20:21:07.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        The HoS's phoron guns (X-6 "Threadripper", X-8 "Station Sweeper", X-12
+        "Flamberge", X-18 "Ranought") are all ID-locked and all self-recharge
+        like the DT-12 Lawbringer. (The X-6 recharges twice as fast as the
+        others; the X-18 recharges much slower.)
+    - type: Add
+      message: >-
+        The X-12 "Flamberge" has a new super-destructive firing mode that
+        obliterates reinforced walls and tears down plastitanium walls with
+        slightly more effort. Also, the X-12's regular firing mode has reduced
+        spread and significantly increased structural damage at the cost of 1
+        projectile and 2 Heat damage per shot; it's more like a weaker energy
+        shotgun now.
+  id: 1257
+  time: '2026-10-30T20:30:42.0000000+00:00'
