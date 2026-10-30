@@ -104,6 +104,10 @@
     state: standard
   - type: SetSelector
     possibleSets:
+    # Omu start
+    # - VoidsuitSelectorBrigMedVoidsuit
+    # - VoidsuitSelectorBrigMedHardsuit
     - VoidsuitSelectorCorpsmanLightHardsuit
     - VoidsuitSelectorCorpsmanCombatHardsuit
-    - VoidsuitSelectorBrigMedHardsuit
+    - VoidsuitSelectorBrigMedModsuit
+    # Omu end
