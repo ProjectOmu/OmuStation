@@ -760,6 +760,7 @@
 - type: loadoutGroup
   id: MedicusOuterClothing
   name: loadout-group-medicus-outerclothing
+  minLimit: 0
   loadouts:
   - MedicusCoat
   - MedicusCoatLong
@@ -819,6 +820,7 @@
 - type: loadoutGroup
   id: ProfessorOuterClothing
   name: loadout-group-professor-outerclothing
+  minLimit: 0
   loadouts:
   - ProfessorCoat
   - RegularLabCoat
