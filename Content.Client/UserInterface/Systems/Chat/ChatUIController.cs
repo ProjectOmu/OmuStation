@@ -18,7 +18,6 @@ using Content.Client.UserInterface.Screens;
 using Content.Client.UserInterface.Systems.Chat.Widgets;
 using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Shared._Starlight.CollectiveMind; // Goobstation - Starlight collective mind port
-using Content.Client._Starlight.Radio.Systems; // Starlight
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
@@ -72,7 +71,6 @@ public sealed partial class ChatUIController : UIController
     [UISystemDependency] private readonly TransformSystem? _transform = default;
     [UISystemDependency] private readonly MindSystem? _mindSystem = default!;
     [UISystemDependency] private readonly RoleCodewordSystem? _roleCodewordSystem = default!;
-    [UISystemDependency] private readonly RadioChimeSystem? _radioChime = default; // Starlight
 
     private static readonly ProtoId<ColorPalettePrototype> ChatNamePalette = "ChatNames";
     private string[] _chatNameColors = default!;
@@ -941,8 +939,6 @@ public sealed partial class ChatUIController : UIController
         {
             History.Add((_timing.CurTick, msg));
             MessageAdded?.Invoke(msg);
-
-            _radioChime?.PlayChime(msg.Chime); // Starlight
 
             if (!msg.Read)
             {
