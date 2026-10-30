@@ -34,10 +34,7 @@ using Content.Shared.Inventory.VirtualItem;
 using Robust.Shared.Configuration;
 using Content.Shared._Omu.Entities.Objects.BloodredVim;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Database;
 using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.Roles;
-using Content.Shared.Humanoid;
 using Content.Shared.Movement.Pulling.Systems;
 
 namespace Content.Shared.Mech.EntitySystems;
@@ -196,7 +193,7 @@ public abstract partial class SharedMechSystem : EntitySystem
         }
     }
 
-    private void RemoveUser(EntityUid mech, EntityUid pilot, MechComponent component)
+    private void RemoveUser(EntityUid mech, EntityUid pilot, MechComponent component) //Omu - added mech comp here, shouldnt ever be null so dont have to deal with that
     {
         if (HasComp<TileMovementComponent>(mech)) // Goob change - Prevent mech jank.
             RemComp<TileMovementComponent>(mech);
@@ -475,7 +472,7 @@ public abstract partial class SharedMechSystem : EntitySystem
         if (pilot == null)
             return false;
 
-        RemoveUser(uid, pilot.Value, component); //omu
+        RemoveUser(uid, pilot.Value, component); //Omu
         _container.RemoveEntity(uid, pilot.Value);
         UpdateAppearance(uid, component);
         // <Goobstation>
