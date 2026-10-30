@@ -107,3 +107,14 @@
     sprite: _Omu/Clothing/Uniforms/Jumpskirt/cybersunmedicaljumpskirt.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Uniforms/Jumpskirt/cybersunmedicaljumpskirt.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCentcommContraband]
+  id: ClothingUniformJumpskirtCCMOFormal
+  name: centcomm chief medical offier's formal skirtsuit
+  description: An lavish greenish green skirtsuit with golden buttons and a green cross pin, fitted for the centcomm head of medical.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/ccmo_formal.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/ccmo_formal.rsi
