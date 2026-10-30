@@ -110,7 +110,7 @@ public sealed partial class ItemSlotsSystem
             // Omu start
             if (TryInsertOrDoAfter(uid, (user, hands), toInsert, slot, doAfter))
                 return true;
-                // Omu end
+            // Omu end
         }
 
         return false;
