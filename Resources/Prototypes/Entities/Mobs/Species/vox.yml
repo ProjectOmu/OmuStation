@@ -18,6 +18,8 @@
     requiredLegs: 2
   - type: HumanoidAppearance
     species: Vox
+    hideLayersOnEquip: # Triad: More beak shapes
+    - Snout
     undergarmentTop: UndergarmentTopTanktopVox
     undergarmentBottom: UndergarmentBottomBoxersVox
     markingsDisplacement: # Goobstation?
@@ -372,3 +374,4 @@
         32:
           sprite: Mobs/Species/Vox/displacement.rsi
           state: hand_r
+
