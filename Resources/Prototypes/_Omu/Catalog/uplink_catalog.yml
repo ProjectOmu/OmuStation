@@ -90,6 +90,17 @@
     - UplinkDisruption
 
 - type: listing
+  id: UplinkSyndicateAutocannon
+  name: uplink-syndicate-autocannon-name
+  description: uplink-syndicate-autocannon-desc
+  productEntity: DisassembledSyndicateAutocannon
+  icon: { sprite: _Omu/Structures/Cannons/syndicate_autocannon.rsi, state: icon }
+  cost:
+    Telecrystal: 40
+  categories:
+    - UplinkDisruption
+
+- type: listing
   id: UplinkSwordfish
   name: uplink-swordfish-name
   description: uplink-swordfish-desc
