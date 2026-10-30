@@ -32,7 +32,7 @@ namespace Content.Server.Communications
         /// <summary>
         /// Announcement color
         /// </summary>
-        [ViewVariables]
+        //[ViewVariables] // Omu, drop read-only permissions
         [DataField]
         public Color Color = Color.Gold;
 
