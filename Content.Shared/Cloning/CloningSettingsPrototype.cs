@@ -108,4 +108,11 @@ public sealed partial class CloningSettingsPrototype : IPrototype, IInheritingPr
     /// </summary>
     [DataField]
     public bool CopyHands = true;
+
+    /// <summary>
+    /// Omu:    Whether we should copy traits
+    /// Only set to true if target has a valid mind attached
+    /// </summary>
+    [DataField]
+    public bool CopyTraits = false;
 }
