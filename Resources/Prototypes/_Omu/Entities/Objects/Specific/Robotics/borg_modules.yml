@@ -132,3 +132,55 @@
     - item: DawInstrumentBorg
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: musical-module }
+
+- type: entity
+  id: BorgModuleParamedic # todo: reuse when med refactor is finished
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: paramedic cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-paramedic
+      sprite: _Omu/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: HandheldCrewMonitorBorg
+    - hand:
+        emptyRepresentative: RollerBedSpawnFolded
+        whitelist:
+          tags:
+          - BodyBag
+          - RollerBed
+    - hand: # Same hands from surgery modules to hold parts that gotten blown off or what have you
+        emptyRepresentative: BioSynthHeart
+        emptyLabel: borg-slot-organs-empty-goob
+        whitelist:
+          components:
+          - BodyPart
+          - Organ
+          - TissueSample
+          tags:
+          - Organ
+    - hand:
+        emptyRepresentative: BioSynthHeart
+        emptyLabel: borg-slot-organs-empty-goob
+        whitelist:
+          components:
+          - BodyPart
+          - Organ
+          - TissueSample
+          tags:
+          - Organ
+    - hand:
+        emptyRepresentative: BioSynthHeart
+        emptyLabel: borg-slot-organs-empty-goob
+        whitelist:
+          components:
+          - BodyPart
+          - Organ
+          - TissueSample
+          tags:
+          - Organ
+  - type: BorgModuleIcon
+    icon: { sprite: _Omu/Interface/Actions/actions-borg.rsi, state: paramedic_module }
