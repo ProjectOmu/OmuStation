@@ -87,6 +87,40 @@
 
 - type: entity
   parent: BaseAction
+  id: ActionMansusSeek
+  name: Mansus Seek
+  description: Use this to seek those with madness.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    startDelay: true
+    useDelay: 30
+    icon:
+      sprite: _Omu/Interface/Heretic/faction_icons.rsi
+      state: madness
+  - type: InstantAction
+    event: !type:ToggleMansusSeek
+
+- type: entity
+  parent: BaseAction
+  id: ActionMansusScreech
+  name: Mansus Screech
+  description: Screech and haunt your targets!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    startDelay: true
+    useDelay: 120
+    icon:
+      sprite: _Goobstation/Slasher/Objects/fear_alert.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:MansusScreechEvent
+
+- type: entity
+  parent: BaseAction
   id: ActionSummonSteelChair
   name: Summon Steel Chair
   description: Pull your trusty steel folding chair into your hand, or a brand new one if yours is gone.
