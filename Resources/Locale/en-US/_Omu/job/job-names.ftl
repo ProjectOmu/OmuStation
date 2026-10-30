@@ -15,3 +15,4 @@ JobMailGoblin = Mail Goblin #Playtime tracker
 JobCourier = Courier #Playtime tracker
 job-name-courier = Courier
 job-name-mail-goblin = Mail Goblin
+job-name-punpun = Pun Pun job name
