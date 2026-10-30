@@ -19,6 +19,7 @@
     - Wizard
     - PirateFaction # goob - pirates
     - Lavafauna # Goob - Lavaland
+    - Replicator # imp
 
 - type: npcFaction
   id: NanoTrasen
@@ -39,6 +40,7 @@
   - Xenoborg
   - Wraith # Goobstation - Wraith
   - Lavafauna # Goob - Lavaland
+  - Replicator # imp
 
 - type: npcFaction
   id: Mouse
@@ -61,6 +63,7 @@
   - Dragon
   - Blob # Goobstation - Blob
   - Lavafauna # Goob - Lavaland
+  - Replicator # imp
 
 - type: npcFaction
   id: SimpleHostile
@@ -80,6 +83,7 @@
   - Blob # Goobstation - Blob
   - PirateFaction # goob - pirates
   - Lavafauna # Goob - Lavaland
+  - Replicator # imp
   friendly: # Goobstation
   - Wizard
   - Shadowling # Einstein Engines - Shadowlings
@@ -107,6 +111,7 @@
   - Shadowling # Einstein Engines - Shadowlings
   - Wraith # Goobstation - Wraith
   - Lavafauna # Goob - Lavaland
+  - Replicator # imp
 
 - type: npcFaction
   id: Xeno
@@ -119,6 +124,7 @@
   - Revolutionary
   - AllHostile
   - Wizard
+  - Replicator # imp
   - Dragon
   - Xenoborg
   - Dragon
@@ -142,6 +148,7 @@
   - Revolutionary
   - AllHostile
   - Wizard
+  - Replicator # imp
   - Dragon
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
@@ -166,6 +173,7 @@
   - PirateFaction # goob - pirates
   - Xenoborg
   - Lavafauna # Goob - Lavaland
+  - Replicator # imp
 
 - type: npcFaction
   id: AllHostile
@@ -189,11 +197,13 @@
   - PirateFaction # goob - pirates
   - Wraith # Goobstation - Wraith
   - Lavafauna # Goob - Lavaland
+  - Replicator # imp
 
 # Balloons Factions Edit:
 - type: npcFaction
   id: Balloon
   # Balloons can't attack
+
 
 - type: npcFaction
   id: Monkey
