@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Trauma.Hands;
 using Content.Shared.Audio;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
@@ -7,6 +8,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Maps;
 using Content.Shared.Mobs;
 using Content.Shared.Popups;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Sound.Components;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
@@ -40,6 +42,7 @@ public abstract class SharedEmitSoundSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly PredictedHandsSystem _predictedHands = default!; // Goob
 
     public override void Initialize()
     {
@@ -99,8 +102,9 @@ public abstract class SharedEmitSoundSystem : EntitySystem
         if (xform.GridUid != xform.MapUid && _turf.IsSpace(tile))
             return;
 
-        // hand throwing not predicted sadly
-        TryEmitSound(uid, component, args.User, false);
+        // Trauma - throwing is predicted by the thrower now
+        var thrower = CompOrNull<Content.Shared._Trauma.Throwing.PredictedThrownItemComponent>(uid)?.Thrower; // Omu
+        TryEmitSound(uid, component, thrower ?? args.User, predict: thrower != null); // Omu
     }
 
     private void OnEmitSoundOnUseInHand(EntityUid uid, EmitSoundOnUseComponent component, UseInHandEvent args)
@@ -128,11 +132,15 @@ public abstract class SharedEmitSoundSystem : EntitySystem
 
     private void OnEmitSoundOnPickup(EntityUid uid, EmitSoundOnPickupComponent component, GotEquippedHandEvent args)
     {
-        TryEmitSound(uid, component, args.User);
+        if (!HasComp<BorgChassisComponent>(args.User)) /// Omu edit: Cyborgs no longer make a ton of noise when switching modules.
+            TryEmitSound(uid, component, args.User);
     }
 
     private void OnEmitSoundOnDrop(EntityUid uid, EmitSoundOnDropComponent component, DroppedEvent args)
     {
+        if (_predictedHands.ThrowDropping == uid) // Goob
+            return;
+
         TryEmitSound(uid, component, args.User);
     }
 
