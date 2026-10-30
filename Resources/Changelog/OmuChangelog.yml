@@ -9769,3 +9769,12 @@ Entries:
         shotgun now.
   id: 1257
   time: '2026-10-30T20:30:42.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Fix
+      message: >-
+        Fixed storing items in clothing sometimes triggering unintended actions
+        (you will no longer attempt to butcher/eat your clothing after inserting
+        a blade into it).
+  id: 1258
+  time: '2026-10-30T20:57:25.0000000+00:00'
