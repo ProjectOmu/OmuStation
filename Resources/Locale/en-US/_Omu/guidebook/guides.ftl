@@ -22,3 +22,10 @@ guide-entry-training-manual-dignitary = Dignitary Training Manual
 guide-entry-lore = Lore
 guide-entry-TwoMinutes = Omu In Two Minutes
 guide-entry-AvatelRan = Avatel-Ran
+
+# - Medicine Section
+guide-entry-medicine-t1 = T1 — Core
+guide-entry-medicine-t2 = T2 — Specialized
+guide-entry-medicine-t3 = T3 — Advanced General
+guide-entry-medicine-t4 = T4 — Supermedicines
+guide-entry-medicine-otherspecialty = Other Specialty Medications

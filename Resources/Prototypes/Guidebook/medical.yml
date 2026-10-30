@@ -43,8 +43,14 @@
 - type: guideEntry
   id: Medicine
   name: guide-entry-medicine
-  text: "/ServerInfo/Guidebook/Medical/Medicine.xml"
+  text: "/ServerInfo/_Omu/Guidebook/Medical/Medicine.xml" # Omu, use Omu's cool new Medicine.xml page
   filterEnabled: True
+  children: # Omu start, use Omu's cool new medicine pages
+  - MedicineT1
+  - MedicineT2
+  - MedicineT3
+  - MedicineT4
+  - MedicineOtherSpecialty
 
 - type: guideEntry
   id: Botanicals
