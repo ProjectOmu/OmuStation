@@ -593,28 +593,28 @@
       damageContainer: Shield
     - type: ExaminableDamage
       messages: EnergyShieldMessages
-    - type: Destructible
-      thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 180
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-        - trigger:
-            !type:DamageTrigger
-            damage: 100
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-            - !type:PlaySoundBehavior
-              sound:
-                collection: GlassBreak
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                BrokenEnergyShield:
-                  min: 1
-                  max: 1
+    #- type: Destructible # OMU disable energy shield breaking
+    #  thresholds:
+    #    - trigger:
+    #        !type:DamageTrigger
+    #        damage: 180
+    #      behaviors:
+    #        - !type:DoActsBehavior
+    #          acts: [ "Destruction" ]
+    #    - trigger:
+    #        !type:DamageTrigger
+    #        damage: 100
+    #      behaviors:
+    #        - !type:DoActsBehavior
+    #          acts: [ "Destruction" ]
+    #        - !type:PlaySoundBehavior
+    #          sound:
+    #            collection: GlassBreak
+    #        - !type:SpawnEntitiesBehavior
+    #          spawn:
+    #            BrokenEnergyShield:
+    #              min: 1
+    #              max: 1
     - type: StaticPrice
       price: 350
       # WD EDIT START
@@ -626,6 +626,7 @@
     - type: RechargeableBlocking
       dischargedRechargeRate: 2
       chargedRechargeRate: 3
+      rechargePercentage: 1 #omu edit fix recharge
       # WD EDIT END
 
 - type: entity
