@@ -129,16 +129,17 @@ public sealed partial class TestPair
         var newProfile = profile.WithJobPriorities(dictionary);
         _modifiedProfiles.Add(user);
         await Server.WaitPost(() => prefMan.SetProfile(user, 0, newProfile).Wait());
-        await SetQueuePriorities(user, dictionary); // Omu
+        await SetQueueFromProfile(user, newProfile); // Omu
     }
 
     // Omu start
-    private async Task SetQueuePriorities(NetUserId user, Dictionary<ProtoId<JobPrototype>, JobPriority> priorities)
+    private async Task SetQueueFromProfile(NetUserId user, HumanoidCharacterProfile profile)
     {
         if (!Server.PlayerMan.TryGetSessionById(user, out var session))
             return;
 
-        var queue = new CharacterQueueState(priorities, [0], []);
+        var queue = new CharacterQueueState(profile.JobPriorities.ToDictionary(), [0], [],
+            profile.PreferenceUnavailable);
         await Server.WaitPost(() => Server.System<CharacterQueueSystem>().SetQueue(session, queue).Wait());
     }
     // Omu end

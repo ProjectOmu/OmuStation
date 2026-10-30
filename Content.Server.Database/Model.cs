@@ -460,6 +460,7 @@ namespace Content.Server.Database
         public List<string> ConstructionFavorites { get; set; } = new();
         public List<Profile> Profiles { get; } = new();
         public List<PlayerJobPriority> JobPriorities { get; } = new(); // Omu
+        public DbPreferenceUnavailableMode PreferenceUnavailable { get; set; } // Omu
     }
 
     public class Profile

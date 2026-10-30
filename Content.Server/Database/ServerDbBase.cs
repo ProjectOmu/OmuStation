@@ -165,6 +165,7 @@ namespace Content.Server.Database
 
             prefs.Profiles.Add(profile);
             // Omu start
+            prefs.PreferenceUnavailable = profile.PreferenceUnavailable;
             foreach (var (job, priority) in ((HumanoidCharacterProfile) defaultProfile).JobPriorities)
             {
                 prefs.JobPriorities.Add(new PlayerJobPriority
@@ -250,7 +251,8 @@ namespace Content.Server.Database
             return new CharacterQueueState(
                 priorities,
                 slots.Where(s => s.Active).Select(s => s.Slot).ToHashSet(),
-                slots.Select(s => s.Slot).ToList());
+                slots.Select(s => s.Slot).ToList(),
+                (PreferenceUnavailableMode) prefs.PreferenceUnavailable);
         }
 
         public async Task SaveCharacterQueueAsync(NetUserId userId, CharacterQueueState queue)
@@ -262,6 +264,7 @@ namespace Content.Server.Database
                 .Include(p => p.Profiles)
                 .SingleAsync(p => p.UserId == userId.UserId);
 
+            prefs.PreferenceUnavailable = (DbPreferenceUnavailableMode) queue.PreferenceUnavailable;
             prefs.JobPriorities.Clear();
             foreach (var (job, priority) in queue.JobPriorities)
             {
