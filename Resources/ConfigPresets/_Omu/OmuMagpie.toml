@@ -8,5 +8,8 @@ desc = "Come join us on Omu Station! A roleplay-centric game focus with the adde
 # Player Controls
 soft_max_players = 50
 
+# Map Pool from Resources/Prototypes/_Omu/Maps/Pools/servers.yml
+map_pool = "MagpieMapPool"
+
 [vote]
 map_enabled = true
