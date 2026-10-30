@@ -32,9 +32,13 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory.VirtualItem;
 using Robust.Shared.Configuration;
-using Content.Shared._Omu.Entities.Objects.BloodredVim;         //OMU
-using Content.Shared.Administration.Logs;       //OMU
-using Content.Shared.Database;          //OMU
+using Content.Shared._Omu.Entities.Objects.BloodredVim;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
+using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Roles;
+using Content.Shared.Humanoid;
+using Content.Shared.Movement.Pulling.Systems;
 
 namespace Content.Shared.Mech.EntitySystems;
 
@@ -59,6 +63,7 @@ public abstract partial class SharedMechSystem : EntitySystem
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!; // Goobstation Change
     [Dependency] private readonly IConfigurationManager _config = default!; // Goobstation Change
     [Dependency] private readonly ISharedAdminLogManager _admin = default!;     //OMU
+    [Dependency] private readonly PullingSystem _pullingSystem = default!; //Omu
 
     // Goobstation: Local variable for checking if mech guns can be used out of them.
     private bool _canUseMechGunOutside;
@@ -164,6 +169,11 @@ public abstract partial class SharedMechSystem : EntitySystem
         if (HasComp<TileMovementComponent>(pilot)) // Goob change - Prevent mech jank.
             EnsureComp<TileMovementComponent>(mech);
 
+        if (TryComp<PullerComponent>(pilot, out var puller)) // Omu - mech can pull things
+        {
+            component.PilotPulling = puller.NeedsHands;
+            puller.NeedsHands = false;
+        }
         // Warning: this bypasses most normal interaction blocking components on the user, like drone laws and the like.
         var irelay = EnsureComp<InteractionRelayComponent>(pilot);
 
@@ -186,10 +196,17 @@ public abstract partial class SharedMechSystem : EntitySystem
         }
     }
 
-    private void RemoveUser(EntityUid mech, EntityUid pilot)
+    private void RemoveUser(EntityUid mech, EntityUid pilot, MechComponent component)
     {
         if (HasComp<TileMovementComponent>(mech)) // Goob change - Prevent mech jank.
             RemComp<TileMovementComponent>(mech);
+
+        //Omu start - prevent pull jank
+        _pullingSystem.StopAllPulls(pilot);
+
+        if (TryComp<PullerComponent>(pilot, out var puller))
+            puller.NeedsHands = component.PilotPulling;
+        // Omu end
 
         if (!RemComp<MechPilotComponent>(pilot))
             return;
@@ -458,7 +475,7 @@ public abstract partial class SharedMechSystem : EntitySystem
         if (pilot == null)
             return false;
 
-        RemoveUser(uid, pilot.Value);
+        RemoveUser(uid, pilot.Value, component); //omu
         _container.RemoveEntity(uid, pilot.Value);
         UpdateAppearance(uid, component);
         // <Goobstation>
