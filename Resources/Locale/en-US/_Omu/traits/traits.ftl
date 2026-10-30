@@ -135,3 +135,6 @@ trait-font-wahroonga-desc = Looks like it's your first time picking up a pen.
 
 trait-font-yuyu-short-name = Yuyu Short
 trait-font-yuyu-short-desc = Thin and casual.
+
+trait-plantigrade-name = Plantigrade
+trait-plantigrade-desc = You walk on your feet like humans do.

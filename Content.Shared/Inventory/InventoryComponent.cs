@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Omu.Traits.Plantigrade;
 using Content.Shared.DisplacementMap;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -8,7 +9,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Inventory;
 
 [RegisterComponent, NetworkedComponent]
-[Access(typeof(InventorySystem))]
+[Access(typeof(InventorySystem), typeof(PlantigradeTraitSystem))] // Omu - Plantigrade Trait
 [AutoGenerateComponentState(true)]
 public sealed partial class InventoryComponent : Component
 {
