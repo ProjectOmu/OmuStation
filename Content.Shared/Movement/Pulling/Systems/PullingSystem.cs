@@ -40,6 +40,8 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Robust.Shared.Toolshed.Commands.Values;
+using Content.Shared.Mech.Components;
 
 namespace Content.Shared.Movement.Pulling.Systems;
 
@@ -468,7 +470,7 @@ public sealed class PullingSystem : EntitySystem
             return false;
         }
 
-        if (!_containerSystem.IsInSameOrNoContainer(puller, pullableUid))
+        if (!_containerSystem.IsInSameOrNoContainer(puller, pullableUid) && !HasComp<MechPilotComponent>(puller)) // Omu - making mechs pull things inspite of goob code
         {
             return false;
         }
