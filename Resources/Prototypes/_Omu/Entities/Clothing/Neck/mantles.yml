@@ -45,21 +45,6 @@
     sprite:  _Omu/Clothing/Neck/Mantle/CCOpridemmantle.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Neck/Mantle/CCOpridemmantle.rsi
-  - type: Emag
-    emagType: All
-    emagSound: /Audio/_Goobstation/Items/card_swipe.ogg
-    successText: executive-card-success
-  - type: Access
-    groups:
-    - AllAccess
-    tags:
-      - CentCommOffical
-      - NanotrasenSpectre
-      - Deathsquad
-      - EmergencyResponseTeam
-      - CentralCommand
-      - NanotrasenRepresentative
-      - BlueshieldOfficer
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
