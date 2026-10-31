@@ -29,4 +29,18 @@ whitespace-enforcing comment
   <GuideReagentEmbed Reagent="Syriniver"/>
   <GuideReagentEmbed Reagent="Musiver"/>
 
+  ## Prerequisites
+
+  Aluite is the main precursor to all three T4 medications. It must be cooled in order to mix.
+  <GuideReagentEmbed Reagent="Aluite"/>
+
+  There are multiple ways to get the temperature necessary to make Aluite:
+  - Use Cryostylane to cool your beaker as much as necessary
+  - Use reactions that increase volume to cool your beaker, such as making Dexalin
+
+  As the ChemMaster 4000 outputs reagents at the same temperature as your beaker, you may find it useful to first fill your ChemMaster with the ingredients to make Aluite, then to transfer
+  individual reagents to mix in a separate container (such as a jug) so that your beaker does not heat up from Aluite reacting inside of it.
+  <GuideReagentEmbed Reagent="Cryostylane"/>
+  <GuideReagentEmbed Reagent="Dexalin"/>
+
 </Document>
