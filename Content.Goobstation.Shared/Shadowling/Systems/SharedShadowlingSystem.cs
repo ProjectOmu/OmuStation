@@ -4,6 +4,7 @@ using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.LightDetection.Systems;
 using Content.Goobstation.Shared.Mindcontrol;
 using Content.Goobstation.Shared.Shadowling.Components;
+using Content.Omu.Common.Prediction;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
@@ -17,10 +18,13 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Stunnable;
+using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.Shadowling.Systems;
 
@@ -35,6 +39,10 @@ public abstract class SharedShadowlingSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
+    // <Trauma>
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    // </Trauma>
+    [Dependency] private readonly CommonPredictedRandomSystem _predictedRandom = default!; // Omu
 
     public override void Initialize()
     {
@@ -46,6 +54,27 @@ public abstract class SharedShadowlingSystem : EntitySystem
         SubscribeLocalEvent<ShadowlingComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<ShadowlingComponent, DamageModifyEvent>(OnDamageModify);
         SubscribeLocalEvent<ShadowlingComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<ShadowlingComponent, SelfBeforeGunShotEvent>(BeforeGunShot); // Trauma - moved from server
+    }
+
+    /// <summary>
+    /// Trauma - moved from server and predicted since shooting is predicted
+    /// </summary>
+    private void BeforeGunShot(Entity<ShadowlingComponent> ent, ref SelfBeforeGunShotEvent args)
+    {
+        // Slings cant shoot guns
+        if (args.Gun.Comp.ClumsyProof)
+            return;
+
+        var rand = _predictedRandom.GetRandom(args.Gun); // Omu
+        if (!rand.Prob(0.5f))
+            return;
+
+        _damageable.TryChangeDamage(ent, ent.Comp.GunShootFailDamage, origin: ent);
+
+        _stun.TryUpdateParalyzeDuration(ent, ent.Comp.GunShootFailStunTime);
+
+        args.Cancel();
     }
 
     #region Event Handlers
