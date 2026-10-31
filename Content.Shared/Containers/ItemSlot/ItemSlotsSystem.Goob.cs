@@ -107,7 +107,10 @@ public sealed partial class ItemSlotsSystem
 
         foreach (var slot in slots)
         {
-            TryInsertOrDoAfter(uid, (user, hands), toInsert, slot, doAfter);
+            // Omu start
+            if (TryInsertOrDoAfter(uid, (user, hands), toInsert, slot, doAfter))
+                return true;
+            // Omu end
         }
 
         return false;

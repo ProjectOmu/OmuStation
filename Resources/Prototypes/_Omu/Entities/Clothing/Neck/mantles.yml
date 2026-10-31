@@ -45,3 +45,45 @@
     sprite: _Omu/Clothing/Neck/Mantle/cmomantle.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Neck/Mantle/cmomantle.rsi
+
+- type: entity
+  parent: [ClothingNeckBase, BaseEngineeringContraband]
+  id: ClothingNeckMantleForeman
+  name: foreman's mantle
+  description: A heavy mantle with removable tassels. Made from sturdy painted leather, like the welding jackets of old.
+  components:
+  - type: Item
+    size: Small
+    heldPrefix: tassels
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Mantle/foremanmantle.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Mantle/foremanmantle.rsi
+    equippedPrefix: tassels
+    slots:
+    - Neck
+  - type: ItemSwitch
+    state: tassels
+    showLabel: true
+    states:
+      tassels: !type:ItemSwitchState
+        verb: tassels
+        sprite:
+          sprite: _Omu/Clothing/Neck/Mantle/foremanmantle.rsi
+          state: icon
+      sleek: !type:ItemSwitchState
+        verb: sleek
+        sprite:
+          sprite: _Omu/Clothing/Neck/Mantle/foremanmantle.rsi
+          state: sleek-icon
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCargoContraband]
+  id: ClothingNeckMantleBosun
+  name: bosun's mantle
+  description: An elegant wrap made of rugged purple cloth, worn strategically to hide the dust and debris on the inside face.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Mantle/bosunmantle.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Mantle/bosunmantle.rsi

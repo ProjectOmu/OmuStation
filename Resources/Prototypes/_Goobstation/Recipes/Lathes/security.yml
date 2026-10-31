@@ -207,6 +207,15 @@
   materials:
     Steel: 550
 
+# Omu start - A magazine box for smart ammo.
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxSmart
+  result: MagazineBoxSmart
+  materials:
+    Steel: 750
+# Omu end - A magazine box for smart ammo.
+
 # Mech Weapons
 - type: latheRecipe
   id: WeaponMechCombatImmolationGun

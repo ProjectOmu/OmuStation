@@ -15,6 +15,9 @@
     sprite: _Omu/Clothing/Ears/Headsets/corpsman.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Ears/Headsets/corpsman.rsi
+  - type: RadioChime # Starlight
+    sound:
+      path: /Audio/_Starlight/Effects/Radio/brigmedic.ogg
 
 - type: entity
   parent: [ ClothingHeadsetAltCentCom ]

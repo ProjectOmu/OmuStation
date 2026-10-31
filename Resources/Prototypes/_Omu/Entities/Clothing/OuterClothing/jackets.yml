@@ -25,6 +25,19 @@
     fiberMaterial: fibers-nitrile
 
 - type: entity
+  parent: ClothingGloveJacketBase
+  id: ClothingOuterJacketMedicus
+  name: medicus surgical jacket
+  description: An extra thick surgical membrane jacket for the handless medical marvel.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/GloveJackets/medicussurgicaljacket.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/GloveJackets/medicussurgicaljacket.rsi
+  - type: Fiber
+    fiberMaterial: fibers-latex
+
+- type: entity
   parent: [ClothingGloveJacketBase, BaseEngineeringContraband]
   id: ClothingOuterJacketSeniorEngineer
   name: senior engineer insulated jacket
@@ -38,3 +51,18 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-blue
+
+- type: entity
+  parent: [ClothingGloveJacketBase, BaseEngineeringContraband]
+  id: ClothingOuterJacketForeman
+  name: foreman insulated jacket
+  description: An extra prestigious insulated membrane jacket for handless supervisors.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/GloveJackets/foremanjacket.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/GloveJackets/foremanjacket.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-orange

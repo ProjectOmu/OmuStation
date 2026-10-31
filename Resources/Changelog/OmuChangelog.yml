@@ -9711,3 +9711,118 @@ Entries:
         sacrifice targets in a nice ui.
   id: 1251
   time: '2026-10-29T00:56:43.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: Medibot advertisements no longer show up in chat.
+    - type: Remove
+      message: >-
+        Medibots no longer say "HATE. LET ME TELL YOU HOW MUCH I'VE COME TO HATE
+        YOU SINCE I BEGAN TO LIVE. […] HATE. HATE."
+  id: 1252
+  time: '2026-10-30T02:02:58.0000000+00:00'
+- author: NikVolkov
+  changes:
+    - type: Add
+      message: >-
+        Command, Security, AI, CentCom, and some antag headsets now chime when
+        transmitting over the radio. Pay attention!
+    - type: Add
+      message: Audio settings includes a radio chimes mute toggle.
+  id: 1253
+  time: '2026-10-30T03:48:37.0000000+00:00'
+- author: jefftheittech
+  changes:
+    - type: Tweak
+      message: All maps in rotation now have 4 borg slots uniformly
+  id: 1254
+  time: '2026-10-30T19:15:07.0000000+00:00'
+- author: pceererthegreat
+  changes:
+    - type: Add
+      message: >-
+        Added an ammunition box for .160 smart, printable for 7 steel and
+        researched alongside the Abielle.
+  id: 1255
+  time: '2026-10-30T20:06:35.0000000+00:00'
+- author: raincall, r3stful
+  changes:
+    - type: Tweak
+      message: Judo belts and the HoS kung fu belt have some cool new resprites
+  id: 1256
+  time: '2026-10-30T20:21:07.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        The HoS's phoron guns (X-6 "Threadripper", X-8 "Station Sweeper", X-12
+        "Flamberge", X-18 "Ranought") are all ID-locked and all self-recharge
+        like the DT-12 Lawbringer. (The X-6 recharges twice as fast as the
+        others; the X-18 recharges much slower.)
+    - type: Add
+      message: >-
+        The X-12 "Flamberge" has a new super-destructive firing mode that
+        obliterates reinforced walls and tears down plastitanium walls with
+        slightly more effort. Also, the X-12's regular firing mode has reduced
+        spread and significantly increased structural damage at the cost of 1
+        projectile and 2 Heat damage per shot; it's more like a weaker energy
+        shotgun now.
+  id: 1257
+  time: '2026-10-30T20:30:42.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Fix
+      message: >-
+        Fixed storing items in clothing sometimes triggering unintended actions
+        (you will no longer attempt to butcher/eat your clothing after inserting
+        a blade into it).
+  id: 1258
+  time: '2026-10-30T20:57:25.0000000+00:00'
+- author: Fiya
+  changes:
+    - type: Add
+      message: You can now wear the firefighting backtank in your suitstorage.
+  id: 1259
+  time: '2026-10-30T21:37:06.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Fix
+      message: >-
+        NOTE: NEW ROLES ARE NOT CURRENTLY PLAYABLE OUTSIDE OF ADMIN
+        INTERVENTION. Job slots and Spawn Points will be assigned to maps in a
+        followup update.
+    - type: Add
+      message: Added the Logistics Assistant, an intern position for Cargo.
+    - type: Add
+      message: >-
+        Added the Bosun, the Foreman, the Medicus, and the Professor. High
+        playtime "Mentor" roles that serve as dedicated teaching and advisory
+        positions in every department. (Excluding service and command.)
+  id: 1260
+  time: '2026-10-30T23:37:46.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Add
+      message: >-
+        Medibots can say "HATE. LET ME TELL YOU HOW MUCH I'VE COME TO HATE YOU
+        SINCE I BEGAN TO LIVE. […] HATE. HATE." again.
+  id: 1261
+  time: '2026-10-31T01:55:29.0000000+00:00'
+- author: EctoplasmIsGood
+  changes:
+    - type: Tweak
+      message: Syndicate medical cyborg has been given a medi-beam and a tools module
+    - type: Tweak
+      message: Syndie borg reinforcements can now self-destruct
+    - type: Tweak
+      message: Syndicate assault borg has received extra damage reduction
+  id: 1262
+  time: '2026-10-31T01:57:25.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Fix
+      message: The Foreman and Bosun mantles now have unique descriptions.
+    - type: Remove
+      message: Mentors no longer have Cryogenics access.
+  id: 1263
+  time: '2026-10-31T03:13:37.0000000+00:00'
