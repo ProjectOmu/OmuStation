@@ -7,18 +7,24 @@ whitespace-enforcing comment
 
   These three medications are strong in immediately healing large amounts of an entire group of damage.
 
-  However, they only fully metabolize in doses of 3 units or fewer and are not meant to mix with each other.
+  However, they only fully metabolize in doses of 3 units or fewer and are not meant to mix with each other. [italic]You should dilute these![/italic]
 
   Additionally, they produce helpful metabolites that may cause overdosing.
 
   [textlink="Medical patches" link="MedicalPatches"] are excellent at administering appropriate doses of these supermedications. Take care to not overdose the patient with the metabolite, though.
 
+  ## Brute
   <GuideReagentEmbed Reagent="ProcenylLazideSludge"/>
   <GuideReagentEmbed Reagent="ProcenylLazide"/>
   <GuideReagentEmbed Reagent="Bozaide"/>
 
+  ## Burn
   <GuideReagentEmbed Reagent="Ebifin"/>
   <GuideReagentEmbed Reagent="Tehifin"/>
+
+  ## Toxin
+
+  Syriniver and Musiver work on the dead, unlike most other chemicals.
 
   <GuideReagentEmbed Reagent="Syriniver"/>
   <GuideReagentEmbed Reagent="Musiver"/>
