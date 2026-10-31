@@ -32,7 +32,7 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
         // Omu start
         // we have to use node crawling now, old VentCrawler system borked their ability to go under tiles
         using var query = EntityQueryEnumerator<CrawlUnderFloorComponent, NodeCrawlerComponent, SpriteComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var comp, out var sprite, out var xform))
+        while (query.MoveNext(out var uid, out var comp, out var crawler, out var sprite, out var xform))
         {
             if (crawler.Mover != null)
                 continue;
