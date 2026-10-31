@@ -188,3 +188,5 @@ job-name-alt-reporter-4 = Journalist
 job-name-alt-radiohost-1 = Radio DJ
 job-name-alt-radiohost-2 = Broadcaster
 job-name-alt-radiohost-3 = Talk Show Host
+
+job-name-alt-offduty-1 = On Leave

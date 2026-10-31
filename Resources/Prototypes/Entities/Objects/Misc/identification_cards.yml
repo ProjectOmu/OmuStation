@@ -52,12 +52,12 @@
 - type: entity
   parent: IDCardStandard
   id: PassengerIDCard
-  name: assistant ID card
+  name: off duty ID card # omu
   components:
   - type: Sprite
     layers:
     - state: default
-    - state: idpassenger
+    - state: idoffduty # omu 
   - type: PresetIdCard
     job: Passenger
 

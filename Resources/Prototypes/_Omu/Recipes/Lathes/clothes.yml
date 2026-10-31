@@ -1,4 +1,4 @@
-﻿# Courier
+# Courier
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
   id: ClothingUniformCourier
@@ -54,3 +54,28 @@
     Glass: 1000
     Silver: 1000
     Gold: 1000
+
+- type: latheRecipe
+  parent: BaseNeckClothingRecipe
+  id: ClothingArmbandMed
+  result: ClothingArmbandMed
+
+- type: latheRecipe
+  parent: BaseNeckClothingRecipe
+  id: ClothingArmbandEngi
+  result: ClothingArmbandEngi
+
+- type: latheRecipe
+  parent: BaseNeckClothingRecipe
+  id: ClothingArmbandSci
+  result: ClothingArmbandSci
+
+- type: latheRecipe
+  parent: BaseNeckClothingRecipe
+  id: ClothingArmbandService
+  result: ClothingArmbandService
+
+- type: latheRecipe
+  parent: BaseNeckClothingRecipe
+  id: ClothingArmbandCargo
+  result: ClothingArmbandCargo

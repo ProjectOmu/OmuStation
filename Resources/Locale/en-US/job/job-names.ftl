@@ -66,8 +66,8 @@ job-name-janitor = Janitor
 job-name-chaplain = Chaplain
 job-name-botanist = Botanist
 job-name-bartender = Bartender
-## goob edit - epic passengers
-job-name-passenger = Assistant
+## omu edit - I have a job Im just off duty
+job-name-passenger = Off Duty
 job-name-salvagespec = Salvage Specialist
 job-name-station-ai = Station AI
 job-name-qm = Quartermaster
@@ -141,7 +141,7 @@ JobMedicalIntern = Medical intern
 JobMime = Mime
 JobMusician = Musician
 JobParamedic = Paramedic
-JobPassenger = Assistant
+JobPassenger = Off Duty
 JobPartyMaker = Party Maker
 JobPsychologist = Psychologist
 JobQuartermaster = Quartermaster

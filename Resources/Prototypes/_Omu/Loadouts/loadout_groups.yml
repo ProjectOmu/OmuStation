@@ -1,4 +1,4 @@
-﻿# RD
+# RD
 
 - type: loadoutGroup
   id: ResearchDirectorEyewear
@@ -347,13 +347,13 @@
 
 # tide
 
-- type: loadoutGroup
-  id: TrinketsAssistant
-  name: loadout-group-trinkets-job
-  minLimit: 0
-  maxLimit: 1
-  loadouts:
-  - GreyTideStamp
+# - type: loadoutGroup #omustart removing stamp from loadout and dupe loadoutGroup
+#   id: TrinketsAssistant
+#   name: loadout-group-trinkets-job
+#   minLimit: 0
+#   maxLimit: 1
+#   loadouts:
+#   - GreyTideStamp #omuend
 
 # Security
 
@@ -564,6 +564,14 @@
   - EmergencyOxygenCarnivoreBlueshieldOfficer
   - EmergencyOxygenEthanolBlueshieldOfficer
   - EmergencyOxygenVegetarianBlueshieldOfficer
+
+# OffDuty PDAs
+- type: loadoutGroup
+  id: OffDutyPDA
+  name: PDA
+  loadouts:
+  - BasicPDA
+  - ClearPDA
 
 ## Mentor
 
