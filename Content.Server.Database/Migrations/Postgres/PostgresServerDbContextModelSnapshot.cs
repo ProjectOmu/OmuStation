@@ -1482,6 +1482,37 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("profile_role_loadout", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.ProfileSkillAllocation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("profile_skill_allocation_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Points")
+                        .HasColumnType("integer")
+                        .HasColumnName("points");
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("integer")
+                        .HasColumnName("profile_id");
+
+                    b.Property<string>("Skill")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("skill");
+
+                    b.HasKey("Id")
+                        .HasName("PK_profile_skill_allocation");
+
+                    b.HasIndex("ProfileId", "Skill")
+                        .IsUnique();
+
+                    b.ToTable("profile_skill_allocation", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.ProfileSpeechReplacement", b =>
                 {
                     b.Property<int>("Id")
@@ -2544,6 +2575,18 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Profile");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.ProfileSkillAllocation", b =>
+                {
+                    b.HasOne("Content.Server.Database.Profile", "Profile")
+                        .WithMany("SkillAllocations")
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_profile_skill_allocation_profile_profile_id");
+
+                    b.Navigation("Profile");
+                });
+
             modelBuilder.Entity("Content.Server.Database.ProfileSpeechReplacement", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")
@@ -2856,6 +2899,8 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Jobs");
 
                     b.Navigation("Loadouts");
+
+                    b.Navigation("SkillAllocations");
 
                     b.Navigation("SpeechReplacements");
 

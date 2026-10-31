@@ -25,6 +25,22 @@
   - !type:AddComponentSpecial
     components:
     - type: DeathSquadMember # Goobstation
+    - type: RoundStartSkillGranting #omu skill system 
+      department: [ CentralCommand ]
+      skillDic:
+        Cargo: 5 #granted that is more there augmented strength
+        Combat: 5
+        Command: 3
+        Engineering: 1
+        Medical: 1
+    - type: SpeciesBasedSkillAddition #omu skill system
+      skillDic:
+        Harpy:
+          Cargo: 1
+          Combat: 1
+          Command: 1
+          Engineering: 1
+          Medical: 1
 
   # Goobstation Start - I basically re-did all of deathsquads stuff so. - Sol
 - type: startingGear

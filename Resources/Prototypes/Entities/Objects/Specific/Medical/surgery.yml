@@ -19,7 +19,7 @@
 - type: entity
   name: cautery
   id: Cautery
-  parent: [ BaseToolSurgery, BaseMedicalScienceContraband ] # Omu
+  parent: [ BaseToolSurgery, BaseMedicalScienceContraband, BaseMedicalSkillRequirments ] # Omu
   description: A surgical tool used to cauterize open wounds.
   components:
   - type: Sprite
@@ -48,7 +48,7 @@
 - type: entity
   name: drill
   id: Drill
-  parent: [ BaseToolSurgery, BaseMedicalScienceContraband ] # Omu
+  parent: [ BaseToolSurgery, BaseMedicalScienceContraband, BaseMedicalSkillRequirments ] # Omu
   description: A surgical drill for making holes into hard material.
   components:
   - type: Sprite
@@ -78,7 +78,7 @@
 - type: entity
   name: scalpel
   id: Scalpel
-  parent: [ BaseToolSurgery, BaseMedicalScienceContraband ] # Omu
+  parent: [ BaseToolSurgery, BaseMedicalScienceContraband, BaseMedicalSkillRequirments ] # Omu
   description: A surgical tool used to make incisions into flesh.
   components:
   - type: Sharp
@@ -184,7 +184,7 @@
 - type: entity
   name: retractor
   id: Retractor
-  parent: [ BaseToolSurgery, BaseMedicalScienceContraband ] # Omu
+  parent: [ BaseToolSurgery, BaseMedicalScienceContraband, BaseMedicalSkillRequirments ] # Omu
   description: A surgical tool used to hold open incisions.
   components:
   - type: Sprite
@@ -206,7 +206,7 @@
 - type: entity
   name: hemostat
   id: Hemostat
-  parent: [ BaseToolSurgery, BaseMedicalScienceContraband ] # Shitmed Change # Omu, made contra
+  parent: [ BaseToolSurgery, BaseMedicalScienceContraband, BaseMedicalSkillRequirments ] # Shitmed Change # Omu, made contra
   description: A surgical tool used to compress blood vessels to prevent bleeding.
   components:
   - type: Sprite
@@ -231,7 +231,7 @@
 - type: entity
   name: metal saw
   id: Saw
-  parent: BaseToolSurgery
+  parent: [BaseToolSurgery, BaseMedicalScienceContraband, BaseMedicalSkillRequirments] # Omu
   description: For cutting wood and other objects to pieces. Or sawing bones, in case of emergency.
   components:
   - type: Sharp
@@ -280,7 +280,7 @@
 - type: entity
   name: circular saw
   id: SawElectric
-  parent: [Saw, BaseMedicalScienceContraband] # Omu
+  parent: Saw # Omu
   description: For heavy duty cutting.
   components:
   - type: Sprite

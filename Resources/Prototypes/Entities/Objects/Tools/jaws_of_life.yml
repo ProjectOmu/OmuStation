@@ -2,7 +2,7 @@
 
 - type: entity
   name: jaws of life
-  parent: [BaseItem , BaseParamedicEngineeringContraband ] #omu
+  parent: [BaseItem , BaseParamedicEngineeringContraband, BaseEngineeringMedicalSkillRequirmentsHard ] #omu
   id: JawsOfLifeBase # Goobstation - Recycler Update
   abstract: true
   description: A set of jaws of life, compressed through the magic of science.
@@ -27,7 +27,7 @@
       - Prying
     useSound: /Audio/Items/jaws_pry.ogg
   - type: Prying
-    speedModifier: 1.5
+    speedModifier: 1.5 #omu
     pryPowered: true
     useSound: /Audio/Items/jaws_pry.ogg
   - type: UseDelay # Goobstation - For insta prying
@@ -77,7 +77,7 @@
 
 - type: entity
   name: syndicate jaws of life
-  parent: [JawsOfLifeBase, BaseSyndicateContraband]
+  parent: [JawsOfLifeBase, BaseSyndicateContraband, BaseEngineeringMedicalSkillRequirments]
   id: SyndicateJawsOfLife
   description: Useful for entering the station or its departments.
   components:
@@ -93,7 +93,7 @@
     size: Normal
   - type: Prying
     force: true
-    speedModifier: 3.0
+    speedModifier: 3.0 #omu
   - type: MultipleTool
     entries:
       - behavior: Prying

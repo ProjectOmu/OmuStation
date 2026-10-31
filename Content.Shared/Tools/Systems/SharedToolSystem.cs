@@ -189,7 +189,6 @@ public abstract partial class SharedToolSystem : EntitySystem
             NeedHand = tool != user,
             AttemptFrequency = fuel > 0 || toolComponent.AlwaysCheckDoAfter ? AttemptFrequency.EveryTick : AttemptFrequency.Never
         };
-
         // Goobstation - Moved `TryStartDoAfter` into a check and added `UseToolEvent`.
         if (_doAfterSystem.TryStartDoAfter(doAfterArgs, out id))
         {

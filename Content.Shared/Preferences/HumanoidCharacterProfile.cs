@@ -11,6 +11,7 @@ using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Random.Helpers;
 using Content.Shared._Omu.Roles;
 using Content.Shared._Omu.Speech;
+using Content.Shared._Omu.SkillSystem;
 using Content.Omu.Common.CCVar;
 using Content.Shared.Roles;
 using Content.Goobstation.Common.Barks; // Goob Station - Barks
@@ -53,6 +54,9 @@ namespace Content.Shared.Preferences
 
         [DataField]
         private List<SpeechReplacement> _speechReplacements = new();
+
+        [DataField]
+        private Dictionary<ProtoId<SkillNamePrototype>, int> _skillAllocation = new();
         // Omu end
 
         /// <summary>
@@ -136,6 +140,8 @@ namespace Content.Shared.Preferences
 
         public IReadOnlyList<SpeechReplacement> SpeechReplacements => _speechReplacements; // Omu
 
+        public IReadOnlyDictionary<ProtoId<SkillNamePrototype>, int> SkillAllocation => _skillAllocation; // Omu
+
         /// <summary>
         /// <see cref="_antagPreferences"/>
         /// </summary>
@@ -166,6 +172,7 @@ namespace Content.Shared.Preferences
             Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities,
             Dictionary<ProtoId<JobPrototype>, string> jobAlternateTitles, // Omu
             List<SpeechReplacement> speechReplacements, // Omu
+            Dictionary<ProtoId<SkillNamePrototype>, int> skillAllocation, // Omu
             PreferenceUnavailableMode preferenceUnavailable,
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
@@ -185,6 +192,7 @@ namespace Content.Shared.Preferences
             _jobPriorities = jobPriorities;
             _jobAlternateTitles = jobAlternateTitles; // Omu
             _speechReplacements = speechReplacements; // Omu
+            _skillAllocation = skillAllocation; // Omu
             PreferenceUnavailable = preferenceUnavailable;
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
@@ -221,6 +229,7 @@ namespace Content.Shared.Preferences
                 new Dictionary<ProtoId<JobPrototype>, JobPriority>(other.JobPriorities),
                 new Dictionary<ProtoId<JobPrototype>, string>(other.JobAlternateTitles), // Omu
                 new List<SpeechReplacement>(other.SpeechReplacements), // Omu
+                new Dictionary<ProtoId<SkillNamePrototype>, int>(other.SkillAllocation), // Omu
                 other.PreferenceUnavailable,
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
@@ -458,6 +467,15 @@ namespace Content.Shared.Preferences
                 _speechReplacements = replacements.ToList(),
             };
         }
+
+        public HumanoidCharacterProfile WithSkillAllocation(
+            IReadOnlyDictionary<ProtoId<SkillNamePrototype>, int> allocation)
+        {
+            return new(this)
+            {
+                _skillAllocation = new Dictionary<ProtoId<SkillNamePrototype>, int>(allocation),
+            };
+        }
         // Omu end
 
         public HumanoidCharacterProfile WithPreferenceUnavailable(PreferenceUnavailableMode mode)
@@ -574,6 +592,8 @@ namespace Content.Shared.Preferences
             if (!_jobPriorities.SequenceEqual(other._jobPriorities)) return false;
             if (!_jobAlternateTitles.SequenceEqual(other._jobAlternateTitles)) return false; // Omu
             if (!_speechReplacements.SequenceEqual(other._speechReplacements)) return false; // Omu
+            if (_skillAllocation.Count != other._skillAllocation.Count || // Omu
+                _skillAllocation.Except(other._skillAllocation).Any()) return false; // Omu
             if (!_antagPreferences.SequenceEqual(other._antagPreferences)) return false;
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
@@ -776,6 +796,24 @@ namespace Content.Shared.Preferences
 
             _speechReplacements.Clear();
             _speechReplacements.AddRange(speechReplacements);
+
+            var skillPoints = configManager.GetCVar(OmuCVars.SkillAllocationPoints);
+            var skillAllocation = new Dictionary<ProtoId<SkillNamePrototype>, int>();
+            foreach (var (skill, points) in _skillAllocation)
+            {
+                if (points <= 0 || skillPoints <= 0 || !prototypeManager.HasIndex(skill))
+                    continue;
+
+                var granted = Math.Min(points, skillPoints);
+                skillAllocation[skill] = granted;
+                skillPoints -= granted;
+            }
+
+            _skillAllocation.Clear();
+            foreach (var (skill, points) in skillAllocation)
+            {
+                _skillAllocation.Add(skill, points);
+            }
             // Omu end
 
             PreferenceUnavailable = prefsUnavailableMode;
@@ -881,6 +919,7 @@ namespace Content.Shared.Preferences
             hashCode.Add(_jobPriorities);
             hashCode.Add(_jobAlternateTitles); // Omu
             hashCode.Add(_speechReplacements); // Omu
+            hashCode.Add(_skillAllocation); // Omu
             hashCode.Add(_antagPreferences);
             hashCode.Add(_traitPreferences);
             hashCode.Add(_loadouts);

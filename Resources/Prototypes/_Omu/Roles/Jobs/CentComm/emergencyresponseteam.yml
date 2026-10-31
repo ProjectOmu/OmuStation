@@ -22,6 +22,24 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplantCentComm, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+  - !type:AddComponentSpecial
+    components:
+      - type: RoundStartSkillGranting #omu skill system 
+        department: [ CentralCommand ]
+        skillDic:
+          Cargo: 0
+          Combat: 3
+          Command: 3
+          Engineering: 0
+          Medical: 2
+      - type: SpeciesBasedSkillAddition #omu skill system
+        skillDic:
+          Harpy:
+            Cargo: -1
+            Combat: 1
+            Command: 1
+            Engineering: -1
+            Medical: 1
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 5h
@@ -84,6 +102,24 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplantCentComm, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+  - !type:AddComponentSpecial
+    components:
+      - type: RoundStartSkillGranting #omu skill system 
+        department: [ CentralCommand ]
+        skillDic:
+          Cargo: 0
+          Combat: 3
+          Command: 0
+          Engineering: 0
+          Medical: 2
+      - type: SpeciesBasedSkillAddition #omu skill system
+        skillDic:
+          Harpy:
+            Cargo: -1
+            Combat: 1
+            Command: -1
+            Engineering: -1
+            Medical: 1
 
 - type: startingGear
   id: ERTSecurityGearBlue
@@ -133,6 +169,24 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplantCentComm, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+  - !type:AddComponentSpecial
+    components:
+      - type: RoundStartSkillGranting #omu skill system 
+        department: [ CentralCommand ]
+        skillDic:
+          Cargo: 0
+          Combat: 3
+          Command: 0
+          Engineering: 0
+          Medical: 3
+      - type: SpeciesBasedSkillAddition #omu skill system
+        skillDic:
+          Harpy:
+            Cargo: -1
+            Combat: 1
+            Command: -1
+            Engineering: -1
+            Medical: 1
 
 - type: startingGear
   id: ERTMedicGearBlue
@@ -180,6 +234,24 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplantCentComm, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+  - !type:AddComponentSpecial
+    components:
+      - type: RoundStartSkillGranting #omu skill system 
+        department: [ CentralCommand ]
+        skillDic:
+          Cargo: 3
+          Combat: 3
+          Command: 3
+          Engineering: 3
+          Medical: 3
+      - type: SpeciesBasedSkillAddition #omu skill system
+        skillDic:
+          Harpy:
+            Cargo: 1
+            Combat: 1
+            Command: 1
+            Engineering: 1
+            Medical: 1
 
 - type: startingGear
   id: ERTJanitorGearBlue
@@ -227,6 +299,24 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplantCentComm, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
+  - !type:AddComponentSpecial
+    components:
+      - type: RoundStartSkillGranting #omu skill system 
+        department: [ CentralCommand ]
+        skillDic:
+          Cargo: 0
+          Combat: 3
+          Command: 0
+          Engineering: 3
+          Medical: 2
+      - type: SpeciesBasedSkillAddition #omu skill system
+        skillDic:
+          Harpy:
+            Cargo: -1
+            Combat: 1
+            Command: -1
+            Engineering: 1
+            Medical: 1
 
 - type: startingGear
   id: ERTEngineerGearBlue
@@ -280,9 +370,25 @@
   special:
   - !type:AddComponentSpecial
     components:
-    - type: BibleUser
-    - type: CurseImmune
-    - type: CanEnchant
+      - type: BibleUser
+      - type: CurseImmune
+      - type: CanEnchant
+      - type: RoundStartSkillGranting #omu skill system 
+        department: [ CentralCommand ]
+        skillDic:
+          Cargo: 0
+          Combat: 3
+          Command: 0
+          Engineering: 0
+          Medical: 2
+      - type: SpeciesBasedSkillAddition #omu skill system
+        skillDic:
+          Harpy:
+            Cargo: -1
+            Combat: 1
+            Command: -1
+            Engineering: -1
+            Medical: 1
   - !type:AddImplantSpecial
     implants: [ MindShieldImplantCentComm, FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, DeathRattleImplantCentcomm ]
 

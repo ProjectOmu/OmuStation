@@ -36,10 +36,24 @@
   - !type:AddComponentSpecial
     components:
     - type: SecurityStaff
-  - !type:AddComponentSpecial
-    components:
-    - type: SurgerySpeedModifier
-      speedModifier: 1.5
+    #- type: SurgerySpeedModifier
+    #  speedModifier: 1.5
+    - type: RoundStartSkillGranting #omu skill system 
+      department: [ Security, Medical]
+      skillDic:
+        Cargo: 0
+        Combat: 1
+        Command: 0
+        Engineering: 0
+        Medical: 2
+    - type: SpeciesBasedSkillAddition #omu skill system
+      skillDic:
+        Harpy:
+          Cargo: -1
+          Combat: 1
+          Command: -1
+          Engineering: -1
+          Medical: 1
 
 - type: chameleonOutfit
   id: BrigmedicChameleonOutfit

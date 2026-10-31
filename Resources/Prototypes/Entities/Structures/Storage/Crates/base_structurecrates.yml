@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ]
+  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized, BaseCargoCrateSkillRequirments ] #omu
   id: CrateGeneric
   categories: [ HideSpawnMenu ]
   name: crate
@@ -75,6 +75,14 @@
   - type: Tag
     tags:
       - Crate
+#OMUSKILL SYSTEM
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.1
+    sprintModifier: 0.1
+  - type: HeldSpeedModifier
 
 - type: entity
   parent: CrateGeneric

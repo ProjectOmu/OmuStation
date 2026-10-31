@@ -13,6 +13,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Shared._Omu.Preferences;
 using Content.Shared._Omu.Speech;
+using Content.Shared._Omu.SkillSystem;
 using Content.Shared._RMC14.LinkAccount;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Construction.Prototypes;
@@ -56,6 +57,7 @@ namespace Content.Server.Database
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
                 .Include(p => p.Profiles).ThenInclude(h => h.JobAlternateTitles) // Omu
                 .Include(p => p.Profiles).ThenInclude(h => h.SpeechReplacements) // Omu
+                .Include(p => p.Profiles).ThenInclude(h => h.SkillAllocations) // Omu
                 .Include(p => p.Profiles)
                     .ThenInclude(h => h.Loadouts)
                     .ThenInclude(l => l.Groups)
@@ -114,6 +116,7 @@ namespace Content.Server.Database
                 .Include(p => p.Traits)
                 .Include(p => p.JobAlternateTitles) // Omu
                 .Include(p => p.SpeechReplacements) // Omu
+                .Include(p => p.SkillAllocations) // Omu
                 .Include(p => p.Loadouts)
                     .ThenInclude(l => l.Groups)
                     .ThenInclude(group => group.Loadouts)
@@ -296,6 +299,9 @@ namespace Content.Server.Database
                 .OrderBy(r => r.Id)
                 .Select(r => new SpeechReplacement { Word = r.Word, Replacement = r.Replacement })
                 .ToList();
+            var skillAllocation = profile.SkillAllocations.ToDictionary(
+                s => new ProtoId<SkillNamePrototype>(s.Skill),
+                s => s.Points);
             // Omu end
 
             var sex = Sex.Male;
@@ -373,6 +379,7 @@ namespace Content.Server.Database
                 jobs,
                 jobAlternateTitles, // Omu
                 speechReplacements, // Omu
+                skillAllocation, // Omu
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
@@ -441,6 +448,12 @@ namespace Content.Server.Database
             profile.SpeechReplacements.AddRange(
                 humanoid.SpeechReplacements
                     .Select(r => new ProfileSpeechReplacement { Word = r.Word, Replacement = r.Replacement })
+            );
+
+            profile.SkillAllocations.Clear();
+            profile.SkillAllocations.AddRange(
+                humanoid.SkillAllocation
+                    .Select(s => new ProfileSkillAllocation { Skill = s.Key, Points = s.Value })
             );
             // Omu end
 

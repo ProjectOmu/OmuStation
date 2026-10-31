@@ -48,7 +48,34 @@
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
-      - type: CommandStaff
+    - type: CommandStaff
+    - type: RoundStartSkillGranting #omu skill system 
+      department: [ Science, Crew, Command ]
+      skillDic:
+        Cargo: 0
+        Combat: 0
+        Command: 0
+        Engineering: 2
+        Medical: 0
+    - type: SpeciesBasedSkillAddition #omu skill system
+      skillDic:
+        Harpy:
+          Cargo: -1
+          Combat: -1
+          Command: -1
+          Engineering: 1
+          Medical: -1
+    - type: CommandSkill
+      effectedDepartments: [ Science ]
+      speedModifier:
+        "-1": 0.5
+        "0": 1
+        "1": 1.25
+        "2": 1.5
+        "3": 1.75
+        "4": 2
+        "5": 3
+        "6": 3.5
 
 - type: startingGear
   id: ResearchDirectorGear
