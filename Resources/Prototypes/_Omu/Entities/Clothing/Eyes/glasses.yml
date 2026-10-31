@@ -196,7 +196,7 @@
 
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons]
-  id: ClothingEyesGlassesMedDiagJamJar
+  id: ClothingEyesGlassesMedDiagJamjar
   name: medical diagnostic jamjar glasses
   description: Jamjar glasses installed with a diagnostic and medical HUD.
   components:
@@ -216,9 +216,9 @@
 
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons, BaseMedicalContraband]
-  id: ClothingEyesGlassesMediChemJamJar
+  id: ClothingEyesGlassesMediChemJamjar
   name: medical chemical jamjar glasses
-  descirption:
+  description: Jamjar glasses installed with a medical HUD and solution analyzer.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Eyes/Glasses/jamjar_medichem.rsi
@@ -231,7 +231,7 @@
 
 - type: entity
   parent: [ClothingEyesHudJanitorial]
-  id: ClothingEyesGlassesJaniJamJar
+  id: ClothingEyesGlassesJaniJamjar
   name: janitorial jamjar glasses
   description: Jamjar glasses installed with a clean HUD.
   components:
@@ -244,15 +244,20 @@
     node: gogglesJamJarJani
 
 - type: entity
-  parent: ClothingEyesGlassesCommand
-  id: ClothingEyesGlassesCommandJamJar
+  parent: [ClothingEyesBase, BaseCommandContraband]
+  id: ClothingEyesGlassesCommandJamjar
   name: administration jamjar glasses
-  description: Upgraded jamjar glasses that provide flash immunity and show ID card status.
+  description: Upgraded jamjar glasses that show ID card status.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Eyes/Glasses/jamjar_command.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Eyes/Glasses/jamjar_command.rsi
+  - type: ShowJobIcons
+  - type: Tag
+    tags:
+    - PetWearable
+    - WhitelistChameleon
   - type: Construction
     graph: ClothingEyesGlassesCommandJJ
     node: gogglesJamJarCommand

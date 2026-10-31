@@ -47,6 +47,46 @@
   objectType: Item
 
 - type: construction
+  id: GlassesJamJarMedDiag
+  graph: ClothingEyesGlassesMedDiagJJ
+  startNode: start
+  targetNode: gogglesJamJarMedDiag
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: GlassesJamJarMediChem
+  graph: ClothingEyesGlassesMediChemJJ
+  startNode: start
+  targetNode: gogglesJamJarMediChem
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: GlassesJamJarMedSec
+  graph: ClothingEyesGlassesMedSecJJ
+  startNode: start
+  targetNode: gogglesJamJarMedSec
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: GlassesJamJarJani
+  graph: ClothingEyesGlassesJaniJJ
+  startNode: start
+  targetNode: gogglesJamJarJani
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: GlassesJamJarCommand
+  graph: ClothingEyesGlassesCommandJJ
+  startNode: start
+  targetNode: gogglesJamJarCommand
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
   id: ClothingCyberneticBeastSpaceMantleSecurity
   graph: ClothingCyberneticBeastSpaceMantleSecurity
   startNode: start
