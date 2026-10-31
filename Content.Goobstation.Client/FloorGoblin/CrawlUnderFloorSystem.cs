@@ -34,7 +34,7 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
         using var query = EntityQueryEnumerator<CrawlUnderFloorComponent, NodeCrawlerComponent, SpriteComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var comp, out var sprite, out var xform))
         {
-            if (TryComp<NodeCrawlerComponent>(uid, out var crawler) && crawler.Mover != null)
+            if (crawler.Mover != null)
                 continue;
             // Omu end
 
