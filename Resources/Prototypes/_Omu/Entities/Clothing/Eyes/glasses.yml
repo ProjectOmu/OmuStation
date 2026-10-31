@@ -179,3 +179,80 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingEyesGlassesSecJamjar, ClothingEyesGlassesMedJamjar]
+  id: ClothingEyesGlassesMedSecJamjar
+  name: medical security jamjar glasses
+  description: Jamjar glasses installed with a security HUD and flash protection, as well as a medical HUD.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_medsec.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_medsec.rsi
+  - type: Construction
+    graph: ClothingEyesGlassesMedSecJJ
+    node: gogglesJamJarMedSec
+
+- type: entity
+  parent: [ClothingEyesBase, ShowMedicalIcons]
+  id: ClothingEyesGlassesMedDiagJamJar
+  name: medical diagnostic jamjar glasses
+  description: Jamjar glasses installed with a diagnostic and medical HUD.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_meddiag.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_meddiag.rsi
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+    - Silicon
+    - SiliconRadiation
+  - type: Construction
+    graph: ClothingEyesGlassesMedDiagJJ
+    node: gogglesJamJarMedDiag
+
+- type: entity
+  parent: [ClothingEyesBase, ShowMedicalIcons, BaseMedicalContraband]
+  id: ClothingEyesGlassesMediChemJamJar
+  name: medical chemical jamjar glasses
+  descirption:
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_medichem.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_medichem.rsi
+  - type: SolutionScanner
+  - type: Construction
+    graph: ClothingEyesGlassesMediChemJJ
+    node: gogglesJamJarMediChem
+
+- type: entity
+  parent: [ClothingEyesHudJanitorial]
+  id: ClothingEyesGlassesJaniJamJar
+  name: janitorial jamjar glasses
+  description: Jamjar glasses installed with a clean HUD.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_jani.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_jani.rsi
+  - type: Construction
+    graph: ClothingEyesGlassesJaniJJ
+    node: gogglesJamJarJani
+
+- type: entity
+  parent: ClothingEyesGlassesCommand
+  id: ClothingEyesGlassesCommandJamJar
+  name: administration jamjar glasses
+  description: Upgraded jamjar glasses that provide flash immunity and show ID card status.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_command.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_command.rsi
+  - type: Construction
+    graph: ClothingEyesGlassesCommandJJ
+    node: gogglesJamJarCommand
