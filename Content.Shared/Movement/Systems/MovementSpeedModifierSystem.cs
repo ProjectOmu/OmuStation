@@ -27,6 +27,7 @@ namespace Content.Shared.Movement.Systems
             SubscribeLocalEvent<MovementSpeedModifierComponent, MapInitEvent>(OnModMapInit);
             SubscribeLocalEvent<MovementSpeedModifierComponent, DownedEvent>(OnDowned);
             SubscribeLocalEvent<MovementSpeedModifierComponent, StoodEvent>(OnStand);
+            SubscribeLocalEvent<MovementSpeedModifierComponent, ComponentStartup>(OnStartup); // Omu
 
             Subs.CVar(_configManager, CCVars.TileFrictionModifier, value => _frictionModifier = value, true);
             Subs.CVar(_configManager, CCVars.AirFriction, value => _airDamping = value, true);
@@ -59,6 +60,16 @@ namespace Content.Shared.Movement.Systems
             RefreshFrictionModifiers(entity);
             RefreshMovementSpeedModifiers(entity);
         }
+
+        // Omu start - set initial values
+        private void OnStartup(Entity<MovementSpeedModifierComponent> entity, ref ComponentStartup args)
+        {
+            entity.Comp.InitWalkSpeed = entity.Comp.BaseWalkSpeed;
+            entity.Comp.InitSprintSpeed = entity.Comp.BaseSprintSpeed;
+            entity.Comp.InitAcceleration = entity.Comp.BaseAcceleration;
+            Dirty(entity);
+        }
+        // Omu end
 
         public void RefreshWeightlessModifiers(EntityUid uid, MovementSpeedModifierComponent? move = null)
         {

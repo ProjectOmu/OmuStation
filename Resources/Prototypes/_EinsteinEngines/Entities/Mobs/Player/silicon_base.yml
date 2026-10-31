@@ -31,8 +31,8 @@
       damageModifierSet: IPC
     - type: InteractionOutline
     - type: MovementSpeedModifier
-      baseWalkSpeed: 4
-      baseSprintSpeed: 3
+      # baseWalkSpeed: 4 # Omu - why are IPC slower
+      # baseSprintSpeed: 3 # Omu - why are IPC slower
     - type: MindControllable # Goobstation - shadowling
     - type: ZombieImmune
     - type: DoAfter

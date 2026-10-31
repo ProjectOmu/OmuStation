@@ -84,7 +84,11 @@
   name: "left harpy leg"
   components:
   - type: MovementBodyPart # Goobstation
-    sprintSpeed: 5
+    # Omu start - movement in legs
+    # sprintSpeed: 5
+    walkPercent: 10
+    sprintPercent: 10
+    # Omu end
 
 - type: entity
   parent: [ PartHarpyBase, BaseRightLeg ]
@@ -92,7 +96,11 @@
   name: "right harpy leg"
   components:
   - type: MovementBodyPart # Goobstation
-    sprintSpeed: 5
+    # Omu start - movement in legs
+    # sprintSpeed: 5
+    walkPercent: 10
+    sprintPercent: 10
+    # Omu end
 
 - type: entity
   parent: [ PartHarpyBase, BaseLeftFoot ]
