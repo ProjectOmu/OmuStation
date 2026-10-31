@@ -25,3 +25,15 @@
     Holy: 2.0
     Shock: 0.0
   ignoreArmorPierceFlags: All
+
+- type: damageModifierSet
+  id: SiliconHeavyProtected
+  coefficients:
+    Blunt: 0.6
+    Slash: 0.4
+    Piercing: 0.45
+    Heat: 0.5
+  flatReductions:
+    Blunt: 6
+    Slash: 6
+    Piercing: 6
