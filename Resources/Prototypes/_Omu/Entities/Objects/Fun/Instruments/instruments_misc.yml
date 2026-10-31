@@ -88,3 +88,17 @@
       path: /Audio/Effects/drop.ogg
       params:
         volume: 2
+
+- type: entity
+  parent: BaseWoodwindInstrument
+  id: SquawkarinaInstrument
+  name: squawkarina
+  description: Originally a tool used for hunting, it's good for playing birdsong.
+  components:
+  - type: Instrument
+    program: 7
+    bank: 1
+  - type: Sprite
+    sprite: Objects/Fun/Instruments/ocarina.rsi
+  - type: Item
+    size: Small
