@@ -26,6 +26,7 @@
       allowNonHumans: true
       multiAntagSetting: NotExclusive
       startingGear: ThiefGear
+      jobAntagImmunityOverride: [ CargoBosun, EngineeringForeman, MedicalMedicus, ScienceProfessor ] # Omu
       jobBlacklist: [ Chaplain ] # GOOBSTATION
       blacklist: # GOOBSTATION
         components:
