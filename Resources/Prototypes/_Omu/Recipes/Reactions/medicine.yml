@@ -11,3 +11,27 @@
       amount: 1
   products:
     Zoleadone: 10
+
+- type: reaction
+  id: Cyclogenol
+  maxTemp: 200
+  reactants:
+    Rhymatine: # if rhym gets killed i'm gonna cry and then replace it with phalanximine
+      amount: 2
+    AmmoniatedMercury:
+      amount: 2
+    UnstableMutagen:
+      amount: 1
+  products:
+    Cyclogenol: 3
+
+- type: reaction
+  id: Recyclogenix
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    Cyclogenol:
+      amount: 6
+  products:
+    Recyclogenix: 5
+    Ethanol: 1 # They don't have to filter this off, and it would be funny to get people drunk while you're trying to fix them.
