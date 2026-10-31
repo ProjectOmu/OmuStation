@@ -1,0 +1,109 @@
+# there are TEN THINGS named "medical.yml" and this really doesn't help matters
+
+- type: guideEntry
+  id: MedicineT1
+  name: guide-entry-medicine-t1
+  text: "/ServerInfo/_Omu/Guidebook/Medical/MedicineT1.xml"
+  filterEnabled: True
+  priority: 1
+
+- type: guideEntry
+  id: MedicineT2
+  name: guide-entry-medicine-t2
+  text: "/ServerInfo/_Omu/Guidebook/Medical/MedicineT2.xml"
+  filterEnabled: True
+  priority: 2
+
+- type: guideEntry
+  id: MedicineT3
+  name: guide-entry-medicine-t3
+  text: "/ServerInfo/_Omu/Guidebook/Medical/MedicineT3.xml"
+  filterEnabled: True
+  priority: 3
+
+- type: guideEntry
+  id: MedicineT4
+  name: guide-entry-medicine-t4
+  text: "/ServerInfo/_Omu/Guidebook/Medical/MedicineT4.xml"
+  filterEnabled: True
+  priority: 4
+
+- type: guideEntry
+  id: MedicineCryogenics
+  name: guide-entry-medicine-cryogenics
+  text: "/ServerInfo/_Omu/Guidebook/Medical/MedicineCryogenics.xml"
+  filterEnabled: True
+  priority: 50
+
+- type: guideEntry
+  id: MedicineVirology # no needed filter because it's THREE MEDS
+  name: guide-entry-medicine-virology
+  text: "/ServerInfo/_Omu/Guidebook/Medical/MedicineVirology.xml"
+  priority: 100
+
+- type: guideEntry
+  id: MedicineSpray # no needed filter because it's THREE MEDS
+  name: guide-entry-medicine-spray
+  text: "/ServerInfo/_Omu/Guidebook/Medical/MedicineSpray.xml"
+  priority: 150
+
+
+- type: guideEntry
+  id: MedicineOtherSpecialty
+  name: guide-entry-medicine-otherspecialty
+  text: "/ServerInfo/_Omu/Guidebook/Medical/MedicineOtherSpecialty.xml"
+  filterEnabled: True
+  priority: 1000 # this should be at the bottom of the list
+  children:
+  - MedicineOtherSpecialtyAntiRotting
+  - MedicineOtherSpecialtyHolyDamage
+  - MedicineOtherSpecialtyInfection
+  - MedicineOtherSpecialtyInsanity
+  - MedicineOtherSpecialtyIntoxication
+  - MedicineOtherSpecialtyNarcolepsy
+  - MedicineOtherSpecialtySedation
+  - MedicineOtherSpecialtyTemperatureRegulation
+
+# and here are all of the otherspecialty tabs, hooboy
+# these are intended to be ordered alphabetically, so they have no priority listed
+# these have very few chems in them, so they do not have the search bar enabled
+
+- type: guideEntry
+  id: MedicineOtherSpecialtyAntiRotting
+  name: guide-entry-medicine-otherspecialty-antirotting
+  text: "/ServerInfo/_Omu/Guidebook/Medical/MedicineOtherSpecialtyAntiRotting.xml"
+
+- type: guideEntry
+  id: MedicineOtherSpecialtyHolyDamage
+  name: guide-entry-medicine-otherspecialty-holydamage
+  text: "/ServerInfo/_Omu/Guidebook/Medical/MedicineOtherSpecialtyHolyDamage.xml"
+
+- type: guideEntry
+  id: MedicineOtherSpecialtyInfection
+  name: guide-entry-medicine-otherspecialty-infection
+  text: "/ServerInfo/_Omu/Guidebook/Medical/MedicineOtherSpecialtyInfection.xml"
+
+- type: guideEntry
+  id: MedicineOtherSpecialtyInsanity
+  name: guide-entry-medicine-otherspecialty-insanity
+  text: "/ServerInfo/_Omu/Guidebook/Medical/MedicineOtherSpecialtyInsanity.xml"
+
+- type: guideEntry
+  id: MedicineOtherSpecialtyIntoxication
+  name: guide-entry-medicine-otherspecialty-intoxication
+  text: "/ServerInfo/_Omu/Guidebook/Medical/MedicineOtherSpecialtyIntoxication.xml"
+
+- type: guideEntry
+  id: MedicineOtherSpecialtyNarcolepsy
+  name: guide-entry-medicine-otherspecialty-narcolepsy
+  text: "/ServerInfo/_Omu/Guidebook/Medical/MedicineOtherSpecialtyNarcolepsy.xml"
+
+- type: guideEntry
+  id: MedicineOtherSpecialtySedation
+  name: guide-entry-medicine-otherspecialty-sedation
+  text: "/ServerInfo/_Omu/Guidebook/Medical/MedicineOtherSpecialtySedation.xml"
+
+- type: guideEntry
+  id: MedicineOtherSpecialtyTemperatureRegulation
+  name: guide-entry-medicine-otherspecialty-temperatureregulation
+  text: "/ServerInfo/_Omu/Guidebook/Medical/MedicineOtherSpecialtyTemperatureRegulation.xml"

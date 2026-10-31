@@ -1,0 +1,35 @@
+<!--
+whitespace-enforcing comment
+-->
+<Document>
+
+  # Tier 2 — Specialized Medications
+
+  These medications are strong in healing a specific type of damage.
+
+  ## Brute
+
+  Be warned that if mixed with each other or Bicaridine, these [textlink="specialized brute chemicals" link="AdvancedBrute"] will create Razorium, a reagent that induces severe bleeding on contact or ingestion.
+
+  <GuideReagentEmbed Reagent="Bruizine"/>
+  <GuideReagentEmbed Reagent="Puncturase"/>
+  <GuideReagentEmbed Reagent="Lacerinol"/>
+  <GuideReagentEmbed Reagent="Razorium"/>
+
+  ## Burn
+
+  The specialized burn chemicals mix freely with other medications. Take note of Pyrazine's slow metabolism rate.
+
+  <GuideReagentEmbed Reagent="Leporazine"/>
+  <GuideReagentEmbed Reagent="Pyrazine"/>
+  <GuideReagentEmbed Reagent="Insuzine"/>
+  <GuideReagentEmbed Reagent="Sigynate"/>
+
+  ## Toxin
+
+  Although Arithrazine is as easy to make as other Tier 1 medicines, it's still as strong and as versatile as other Tier 2 medications.
+
+  <GuideReagentEmbed Reagent="Diphenhydramine"/>
+  <GuideReagentEmbed Reagent="Arithrazine"/>
+
+</Document>

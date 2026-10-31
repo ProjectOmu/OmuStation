@@ -1,0 +1,32 @@
+<!--
+whitespace-enforcing comment
+-->
+<Document>
+
+  # Cryogenics (Cryo) Medications
+
+  These medications all use [textlink="Cryogenics" link="Cryogenics"] to function. (Don't forget that you can administer other medications through a Cryo Pod, even if they don't have a temperature threshold!)
+
+  All cryo medications work on the dead, unlike most other chemicals.
+
+  Almost every healing medication is fully effective at 100K or below; otherwise, the healing will only be a percentage of the stated numbers. The exception is Arcryox, which works at full effectiveness immediately. If the medication does not change health, then it will work fully at any point below the temperature threshold.
+
+  <GuideReagentEmbed Reagent="Aloxadone"/>
+  <GuideReagentEmbed Reagent="Arcryox"/>
+  <GuideReagentEmbed Reagent="Cryoxadone"/>
+  <GuideReagentEmbed Reagent="Doxarubixadone"/>
+  <GuideReagentEmbed Reagent="Necrosol"/>
+  <GuideReagentEmbed Reagent="Opporozidone"/>
+  <GuideReagentEmbed Reagent="Zoleadone"/>
+
+  Leporazine is incredibly useful to quickly bring a living patient back to room temperature. [bold]Do NOT use Leporazine on small animals. It causes major burns![/bold]
+  <GuideReagentEmbed Reagent="Leporazine"/>
+
+  ## Prerequisites
+  <GuideReagentEmbed Reagent="Dexalin"/>
+  <GuideReagentEmbed Reagent="Phalanximine"/>
+  <GuideReagentEmbed Reagent="UnstableMutagen"/>
+  <GuideReagentEmbed Reagent="SalicylicAcid"/>
+
+
+</Document>
