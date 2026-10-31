@@ -17,6 +17,9 @@
   id: HudMedichem
 
 - type: Tag
+  id: HudCommand
+
+- type: Tag
   id: BulletRubber
 
 - type: Tag
@@ -92,6 +95,9 @@
   id: WorkMantle # ConstructionGraph: ClothingCyberneticBeastSpaceMantleSecurity
 
 - type: Tag
+  id: SergeantMantle # probably a clunky way to do this but whatever
+
+- type: Tag
   id: SpeedLoaderRifleSmall # Used (R2)
 
 - type: Tag
@@ -105,3 +111,12 @@
 
 - type: Tag
   id: SpeedLoaderCasull
+
+- type: Tag
+  id: PlantAnalyzer
+
+- type: Tag
+  id: GuildPrybar
+
+- type: Tag
+  id: BlueshieldBreathMask

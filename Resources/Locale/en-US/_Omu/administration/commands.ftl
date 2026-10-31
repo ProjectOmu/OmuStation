@@ -5,3 +5,12 @@ lstraits-could-not-find-profile = Could not find character profile.
 lstraits-traits = Traits for {character.Name} (User: {session.Name}):
 lstraits-no-traits = No traits found.
 lstraits-unknown-trait = Unknown trait: {traitId}
+
+admin-verb-view-objectives-name = View Objectives
+admin-verb-view-objectives-description = Shows the players objectives and targets
+admin-view-objectives-window-title = View Objectives and Targets
+admin-view-objectives-window-sacrifice-targets = Sacrifice Targets
+command-view-objectives-window-desc = Opens the view objectives and targets window for the specified player
+command-view-objectives-window-help = Usage: showobjectives <player>
+command-view-objectives-window-no-objectives = Player '{ $player}' does not have any objectives
+

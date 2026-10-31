@@ -5,4 +5,13 @@
     Poison: 0.0
     Radiation: 0.3 # Resistent but not immune to rads.
     Holy: 0.5 # while unholy it's not fully metaphysical like demons and what not
+
+- type: damageModifierSet
+  id: Wraith
+  coefficients:
+    Caustic: 0
+    Blunt: 0.7
+    Slash: 0.7
+    Piercing: 0.7
+    Holy: 1.5
   ignoreArmorPierceFlags: All

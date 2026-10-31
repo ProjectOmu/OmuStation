@@ -14,3 +14,11 @@
   - type: Contraband
     allowedJobs: [ ShaftMiner, SalvageSpecialist, BlueshieldOfficer ]
     allowedDepartments: [ Engineering ]
+
+- type: entity
+  id: BaseCentCommCommandSecurityContraband # named for consistency with BaseCentCommCommandContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Command, Security, CentralCommand ] # the order is intentional; centcomm is least relevant
