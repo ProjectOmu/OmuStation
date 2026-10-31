@@ -87,3 +87,15 @@
     component:
       - type: StationAiVision
         range: 4
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCommandContraband ]
+  id: ClothingNeckCloakCMO
+  name: chief medical officer's off-coat
+  description: A coat imposingly worn as a cloak over your back. Cuts a dashing figure.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/cmo_offcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/cmo_offcoat.rsi
+

@@ -59,6 +59,14 @@
   equipment:
       head: ClothingHeadHatUshankaCMO
 
+- type: loadout
+  id: ChiefMedicalOfficerOffcoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranCMO
+  equipment:
+    neck: ClothingNeckCloakCMO
+
 # Plasmaman Stuff
 
 - type: loadout
