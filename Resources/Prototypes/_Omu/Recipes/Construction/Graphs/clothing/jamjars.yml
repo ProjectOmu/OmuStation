@@ -8,8 +8,8 @@
           steps:
             - tag: JamjarGlasses
               name: construction-graph-tag-jamjar-glasses
-              icon: 
-                sprite: Clothing/Eyes/Glasses/jamjar.rsi 
+              icon:
+                sprite: Clothing/Eyes/Glasses/jamjar.rsi
                 state: icon
               doAfter: 5
             - tag: HudMedical
@@ -41,8 +41,8 @@
           steps:
             - tag: JamjarGlasses
               name: construction-graph-tag-jamjar-glasses
-              icon: 
-                sprite: Clothing/Eyes/Glasses/jamjar.rsi 
+              icon:
+                sprite: Clothing/Eyes/Glasses/jamjar.rsi
                 state: icon
               doAfter: 5
             - tag: HudDiagnostic
@@ -74,8 +74,8 @@
           steps:
             - tag: JamjarGlasses
               name: construction-graph-tag-jamjar-glasses
-              icon: 
-                sprite: Clothing/Eyes/Glasses/jamjar.rsi 
+              icon:
+                sprite: Clothing/Eyes/Glasses/jamjar.rsi
                 state: icon
               doAfter: 5
             - tag: GogglesMeson
@@ -108,8 +108,8 @@
           steps:
             - tag: JamjarGlasses
               name: construction-graph-tag-jamjar-glasses
-              icon: 
-                sprite: Clothing/Eyes/Glasses/jamjar.rsi 
+              icon:
+                sprite: Clothing/Eyes/Glasses/jamjar.rsi
                 state: icon
               doAfter: 5
             - tag: HudSecurity
@@ -130,3 +130,144 @@
 
     - node: gogglesJamJarSec
       entity: ClothingEyesGlassesSecJamjar
+
+- type: constructionGraph
+  id: ClothingEyesGlassesMedSecJJ
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: gogglesJamJarMedSec
+          steps:
+            - tag: JamjarGlasses
+              name: construction-graph-tag-jamjar-glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/jamjar.rsi
+                state: icon
+              doAfter: 5
+            - tag: HudMedicalSecurity
+              name: construction-graph-tag-medsec-hud
+              icon:
+                sprite: Clothing/Eyes/Hud/medsec.rsi
+                state: icon
+              doAfter: 5
+            - material: Cable
+              amount: 5
+              doAfter: 5
+
+    - node: gogglesJamJarMedSec
+      entity: ClothingEyesGlassesMedSecJamjar
+
+- type: constructionGraph
+  id: ClothingEyesGlassesMedDiagJJ
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: gogglesJamJarMedDiag
+          steps:
+            - tag: JamjarGlasses
+              name: construction-graph-tag-jamjar-glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/jamjar.rsi
+                state: icon
+              doAfter: 5
+            - tag: HudMedicalDiagnostic
+              name: construction-graph-tag-meddiag-hud
+              icon:
+                sprite: _Goobstation/Clothing/Eyes/Hud/meddiag.rsi
+                state: icon
+              doAfter: 5
+            - material: Cable
+              amount: 5
+              doAfter: 5
+
+    - node: gogglesJamJarMedDiag
+      entity: ClothingEyesGlassesMedDiagJamjar
+
+- type: constructionGraph
+  id: ClothingEyesGlassesMediChemJJ
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: gogglesJamJarMediChem
+          steps:
+            - tag: JamjarGlasses
+              name: construction-graph-tag-jamjar-glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/jamjar.rsi
+                state: icon
+              doAfter: 5
+            - tag: HudMedichem
+              name: construction-graph-tag-medichem-hud
+              icon:
+                sprite: _Omu/Clothing/Eyes/Glasses/medichem.rsi
+                state: icon
+              doAfter: 5
+            - material: Cable
+              amount: 5
+              doAfter: 5
+
+    - node: gogglesJamJarMediChem
+      entity: ClothingEyesGlassesMediChemJamjar
+
+- type: constructionGraph
+  id: ClothingEyesGlassesJaniJJ
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: gogglesJamJarJani
+          steps:
+            - tag: JamjarGlasses
+              name: construction-graph-tag-jamjar-glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/jamjar.rsi
+                state: icon
+              doAfter: 5
+            - tag: CleanHud
+              name: construction-graph-tag-clean-hud
+              icon:
+                sprite: _Omu/Clothing/Eyes/janihud.rsi
+                state: icon
+              doAfter: 5
+            - material: Cable
+              amount: 5
+              doAfter: 5
+            - tag: Radio
+              name: construction-graph-tag-radio
+              icon:
+                sprite: Objects/Devices/communication.rsi
+                state: walkietalkie
+              doAfter: 5
+
+    - node: gogglesJamJarJani
+      entity: ClothingEyesGlassesJaniJamjar
+
+- type: constructionGraph
+  id: ClothingEyesGlassesCommandJJ
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: gogglesJamJarCommand
+          steps:
+            - tag: JamjarGlasses
+              name: construction-graph-tag-jamjar-glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/jamjar.rsi
+                state: icon
+              doAfter: 5
+            - tag: HudCommand
+              name: construction-graph-tag-administration-hud
+              icon:
+                sprite: Clothing/Eyes/Hud/command.rsi
+                state: icon
+              doAfter: 5
+            - material: Cable
+              amount: 5
+              doAfter: 5
+
+    - node: gogglesJamJarCommand
+      entity: ClothingEyesGlassesCommandJamjar
