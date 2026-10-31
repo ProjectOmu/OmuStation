@@ -251,7 +251,8 @@ uplink-reinforcement-radio-nukeops-name = Nuclear Operative Teleporter
 uplink-reinforcement-radio-nukeops-desc =  Radio in a nuclear operative of extremely questionable quality. No off button, buy this if you're ready to party. They have basic nuclear operative gear.
 
 uplink-reinforcement-radio-cyborg-assault-name = Syndicate Assault Cyborg Teleporter
-uplink-reinforcement-radio-cyborg-assault-desc =  A lean, mean killing machine with access to an Energy Sword, LMG, Cryptographic Sequencer, and a Pinpointer.
+# Omu
+uplink-reinforcement-radio-cyborg-assault-desc =  A less lean, mean killing machine with access to an Energy Sword, LMG, Cryptographic Sequencer, and a Pinpointer. Includes heavy armor plating for increased durability.
 
 uplink-stealth-box-name = Stealth Box
 uplink-stealth-box-desc = A box outfitted with stealth technology. Sneak around unnoticed, but don't move too fast or you'll be revealed!
@@ -288,7 +289,8 @@ uplink-antimov-law-desc = A very dangerous Lawset to use when you want to cause 
 
 # Implants
 uplink-storage-implanter-name = Storage Implanter
-uplink-storage-implanter-desc = Hide goodies inside of yourself with new bluespace technology!
+# Omu, fak you storage implant
+uplink-storage-implanter-desc = Hide goodies inside of yourself with new bluespace technology! Unfortunately, it can't hold anything with internal storage... or items you're tasked to steal.
 
 uplink-freedom-implanter-name = Freedom Implanter
 uplink-freedom-implanter-desc = Get away from those nasty sec officers with this implant! It allows you to break free of handcuffs and bolas with ease, as well as to paralyze anyone who is brave enough to pull you.

@@ -1,0 +1,19 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: UniqueLockerBosunFilled
+  suffix: DO NOT MAP, Unique, Filled
+  parent: LockerBosunFilled
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - UniqueMarkerBosunLocker
+
+- type: entity
+  id: UniqueLockerForemanFilled
+  suffix: DO NOT MAP, Unique, Filled
+  parent: LockerForemanFilled
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - UniqueMarkerForemanLocker

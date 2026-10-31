@@ -9479,3 +9479,350 @@ Entries:
       message: CE's locker includes a SM monitoring console board.
   id: 1223
   time: '2026-10-24T00:23:27.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Fix
+      message: Fixed that pixel on bra (sports)
+  id: 1224
+  time: '2026-10-24T09:52:52.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: >-
+        Storage implants can no longer hold syndicate steal objective items or
+        items with storage inside (like a winter coat)
+    - type: Tweak
+      message: Storage implant price reduced 40tc -> 30tc
+  id: 1225
+  time: '2026-10-24T15:55:55.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Add
+      message: >-
+        Accommodated three new CCO types: Crew Operations (basically CC HoP),
+        Internal Affairs, and Judicial Affairs. This mostly only affects their
+        icons and titles, and only for staff larp.
+    - type: Fix
+      message: >-
+        The following job icons are no longer selectable via the Agent ID:
+        CentComm Direggtor, Death Squad, Custodii Vitellus, Future Agent.
+    - type: Fix
+      message: The CentComm Direggtor job icon is now green.
+  id: 1226
+  time: '2026-10-24T17:15:18.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Fix
+      message: Fixed chef loadout having 2 job trinket sections
+    - type: Fix
+      message: Moved mail carrier jumpsuit to courier loadout instead of cargo tech
+  id: 1227
+  time: '2026-10-25T01:01:33.0000000+00:00'
+- author: Willzile1
+  changes:
+    - type: Tweak
+      message: SalicylicAcid and Oxandrolone can no longer be mixed together.
+  id: 1228
+  time: '2026-10-25T02:03:20.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Add
+      message: >-
+        The claw machine can now give out the newer staff plushies, the crew
+        plushies and most of the upstream plushies.
+  id: 1229
+  time: '2026-10-25T03:06:26.0000000+00:00'
+- author: Fiya
+  changes:
+    - type: Remove
+      message: >-
+        Secarang and the NTR's cane can no longer be rigged to explode with
+        plasma.
+    - type: Add
+      message: >-
+        Re-added the Atrocity hit sound, added harm baton hit sound, added
+        welder burn sound to lit lighters.
+  id: 1230
+  time: '2026-10-25T08:12:28.0000000+00:00'
+- author: Jamandbutter0
+  changes:
+    - type: Add
+      message: Added Philtrumites Reprised lobby art
+  id: 1231
+  time: '2026-10-25T14:26:05.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: Energy guns can now melee again.
+  id: 1232
+  time: '2026-10-25T15:27:26.0000000+00:00'
+- author: Fiya
+  changes:
+    - type: Add
+      message: 'Service access for Clown, Mime, and Chaplain '
+  id: 1233
+  time: '2026-10-25T22:33:34.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Remove
+      message: Removed Hailey Vera plushie
+  id: 1234
+  time: '2026-10-26T16:55:52.0000000+00:00'
+- author: BoiWab
+  changes:
+    - type: Add
+      message: '"Grey the Warden and His SonDola" is now in the lobby art selection.'
+  id: 1235
+  time: '2026-10-26T17:03:21.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Add
+      message: Ember Staff Plushie! go stuff them in a borg
+  id: 1236
+  time: '2026-10-26T17:43:40.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Tweak
+      message: Diona Head markings now render above most layers.
+  id: 1237
+  time: '2026-10-26T17:45:01.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: Saying "?" or "???" now renders as the emote "looks confused."
+  id: 1238
+  time: '2026-10-26T19:19:14.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: Plushies are now flammable.
+  id: 1239
+  time: '2026-10-26T23:57:32.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Fix
+      message: >-
+        Off-station lights no longer *flicker* when LightsOutMinorRule is
+        applied. This was independent from the breaking behavior, which was
+        addressed recently.
+  id: 1240
+  time: '2026-10-27T01:07:00.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Guns and throwing are both predicted now.
+  id: 1241
+  time: '2026-10-27T12:24:15.0000000+00:00'
+- author: doglettucee, Duuckie
+  changes:
+    - type: Add
+      message: >-
+        Antagonist rules are now live. Please read the new Antagonist Rules
+        section for clarification regarding antagonists.
+    - type: Tweak
+      message: >-
+        Roleplay Rule 1.1's precedents now do not explicitly prohibit repetitive
+        (non-mass sabotage) antagonist strategies. You are still encouraged to
+        vary your gameplan, though.
+  id: 1242
+  time: '2026-10-27T12:41:19.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Add
+      message: >-
+        Added the Wrestling fighting style! Put on a championship belt to learn
+        it, but it only works on someone else wearing a belt.
+    - type: Add
+      message: >-
+        Added the Intercontinental Champion Belt to the uplink. It works on
+        anyone and comes with a steel chair.
+    - type: Add
+      message: Added a guidebook page for Wrestling.
+  id: 1243
+  time: '2026-10-27T14:55:40.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Fix
+      message: >-
+        Shock muzzles will now actually administer a shock when the wearer tries
+        to speak.
+  id: 1244
+  time: '2026-10-28T05:22:19.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Tweak
+      message: >-
+        Various balance changes, quality of life and bug fixes to both
+        Championship Belts and changed some of their moves in the guidebook.
+    - type: Add
+      message: >-
+        Dropkicking someone into a regular glass window sends them flying
+        through it, powerbombing someone on a table smashes them through it,
+        unless it's metal or reinforced.
+  id: 1245
+  time: '2026-10-28T07:51:07.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Fix
+      message: >-
+        Fixed many bugs with Wraith along with a number of changes too extensive
+        to put into the changelog.
+    - type: Tweak
+      message: >-
+        The Holy Claymore, and chaplain's dual pistols Casul & Jackal can now
+        hit holocarps and other mobs that normally can't be hit by physical
+        projectiles.
+  id: 1246
+  time: '2026-10-28T11:04:57.0000000+00:00'
+- author: EctoplasmIsGood
+  changes:
+    - type: Tweak
+      message: The traitor cane blade has had its cost reduced to 25 TC
+  id: 1247
+  time: '2026-10-28T13:12:06.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: >-
+        Diona have eyes again and diona vines are available in Head and HeadTop
+        layering.
+  id: 1248
+  time: '2026-10-28T15:47:25.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Add
+      message: >-
+        Added a professional wrestling crate to cargo with two championship
+        belts, protein shakes, towels, a megaphone and a chance at a wrestler
+        lizard plushie.
+  id: 1249
+  time: '2026-10-28T16:35:29.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed Thaven moods causing testfails on github.
+  id: 1250
+  time: '2026-10-28T17:08:31.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: >-
+        Added a showobjectives command for admins to view objectives and
+        sacrifice targets in a nice ui.
+  id: 1251
+  time: '2026-10-29T00:56:43.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: Medibot advertisements no longer show up in chat.
+    - type: Remove
+      message: >-
+        Medibots no longer say "HATE. LET ME TELL YOU HOW MUCH I'VE COME TO HATE
+        YOU SINCE I BEGAN TO LIVE. […] HATE. HATE."
+  id: 1252
+  time: '2026-10-30T02:02:58.0000000+00:00'
+- author: NikVolkov
+  changes:
+    - type: Add
+      message: >-
+        Command, Security, AI, CentCom, and some antag headsets now chime when
+        transmitting over the radio. Pay attention!
+    - type: Add
+      message: Audio settings includes a radio chimes mute toggle.
+  id: 1253
+  time: '2026-10-30T03:48:37.0000000+00:00'
+- author: jefftheittech
+  changes:
+    - type: Tweak
+      message: All maps in rotation now have 4 borg slots uniformly
+  id: 1254
+  time: '2026-10-30T19:15:07.0000000+00:00'
+- author: pceererthegreat
+  changes:
+    - type: Add
+      message: >-
+        Added an ammunition box for .160 smart, printable for 7 steel and
+        researched alongside the Abielle.
+  id: 1255
+  time: '2026-10-30T20:06:35.0000000+00:00'
+- author: raincall, r3stful
+  changes:
+    - type: Tweak
+      message: Judo belts and the HoS kung fu belt have some cool new resprites
+  id: 1256
+  time: '2026-10-30T20:21:07.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        The HoS's phoron guns (X-6 "Threadripper", X-8 "Station Sweeper", X-12
+        "Flamberge", X-18 "Ranought") are all ID-locked and all self-recharge
+        like the DT-12 Lawbringer. (The X-6 recharges twice as fast as the
+        others; the X-18 recharges much slower.)
+    - type: Add
+      message: >-
+        The X-12 "Flamberge" has a new super-destructive firing mode that
+        obliterates reinforced walls and tears down plastitanium walls with
+        slightly more effort. Also, the X-12's regular firing mode has reduced
+        spread and significantly increased structural damage at the cost of 1
+        projectile and 2 Heat damage per shot; it's more like a weaker energy
+        shotgun now.
+  id: 1257
+  time: '2026-10-30T20:30:42.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Fix
+      message: >-
+        Fixed storing items in clothing sometimes triggering unintended actions
+        (you will no longer attempt to butcher/eat your clothing after inserting
+        a blade into it).
+  id: 1258
+  time: '2026-10-30T20:57:25.0000000+00:00'
+- author: Fiya
+  changes:
+    - type: Add
+      message: You can now wear the firefighting backtank in your suitstorage.
+  id: 1259
+  time: '2026-10-30T21:37:06.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Fix
+      message: >-
+        NOTE: NEW ROLES ARE NOT CURRENTLY PLAYABLE OUTSIDE OF ADMIN
+        INTERVENTION. Job slots and Spawn Points will be assigned to maps in a
+        followup update.
+    - type: Add
+      message: Added the Logistics Assistant, an intern position for Cargo.
+    - type: Add
+      message: >-
+        Added the Bosun, the Foreman, the Medicus, and the Professor. High
+        playtime "Mentor" roles that serve as dedicated teaching and advisory
+        positions in every department. (Excluding service and command.)
+  id: 1260
+  time: '2026-10-30T23:37:46.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Add
+      message: >-
+        Medibots can say "HATE. LET ME TELL YOU HOW MUCH I'VE COME TO HATE YOU
+        SINCE I BEGAN TO LIVE. […] HATE. HATE." again.
+  id: 1261
+  time: '2026-10-31T01:55:29.0000000+00:00'
+- author: EctoplasmIsGood
+  changes:
+    - type: Tweak
+      message: Syndicate medical cyborg has been given a medi-beam and a tools module
+    - type: Tweak
+      message: Syndie borg reinforcements can now self-destruct
+    - type: Tweak
+      message: Syndicate assault borg has received extra damage reduction
+  id: 1262
+  time: '2026-10-31T01:57:25.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Fix
+      message: The Foreman and Bosun mantles now have unique descriptions.
+    - type: Remove
+      message: Mentors no longer have Cryogenics access.
+  id: 1263
+  time: '2026-10-31T03:13:37.0000000+00:00'

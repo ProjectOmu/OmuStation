@@ -62,3 +62,6 @@ uplink-voice-mask-desc = A gas mask that lets you adjust your voice to whoever y
 
 uplink-fake-taiwan-pond-bundle-name = Taiwan Pond Bundle
 uplink-fake-taiwan-pond-bundle-desc = A China lake painted to look like a Taiwan Pond, Comes with two 40mm slugs, two 40mm birdshot grenades and a few 40mm prank grenades.
+
+uplink-intercontinental-belt-name = Intercontinental Champion Belt
+uplink-intercontinental-belt-desc = You feel this world-class wrestling title belt emanating the sweat, blood and tears of the Heartcrush Kid himself. Putting this on reminds you of an era once filled with Attitude, allowing you to terrorize the station with the knowledge that wrestling was never fake.

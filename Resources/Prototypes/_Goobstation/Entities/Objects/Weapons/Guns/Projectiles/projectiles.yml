@@ -269,8 +269,8 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 12
-        Structural: 10
+        Heat: 10 # 12 # Omu, turns out when you can hit your shots, 12 heat is a bit strong
+        Structural: 30 # 10 # Omu, walls have a flat 10 Structural reduction; this lets the X-12 be on-par with the Lawbringer
 
 - type: entity
   name: heavy laser barrage
@@ -472,6 +472,18 @@
   # Short lifespan
   - type: TimedDespawn
     lifetime: 0.4
+  - type: Fixtures # Omu edit start. lets it hit wraith by adding the Opaque layer
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.10,0.1,0.30"
+        hard: false
+        mask:
+        - Opaque
+        - Impassable
+        - BulletImpassable
+      fly-by: *flybyfixture # Omu edit end
 
 - type: entity
   id: BulletPistolSilver
@@ -484,6 +496,18 @@
       types:
         Piercing: 5
         Holy: 4
+  - type: Fixtures # Omu edit start. lets it hit wraith by adding the Opaque layer
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.10,0.1,0.30"
+        hard: false
+        mask:
+        - Opaque
+        - Impassable
+        - BulletImpassable
+      fly-by: *flybyfixture # Omu edit end
 
 - type: entity
   name : stun bolt

@@ -1,0 +1,46 @@
+# Bosun Jumpsuits
+
+- type: loadout
+  id: BosunJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformBosunUniform
+
+- type: loadout
+  id: BosunJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformBosunSkirt
+
+# Bosun Hats
+
+- type: loadout
+  id: BosunBeret
+  equipment:
+    head: ClothingHeadHatBeretBosun
+
+# Bosun Neck
+
+- type: loadout
+  id: BosunMantle
+  equipment:
+    neck: ClothingNeckMantleBosun
+
+# Plasmaman stuff
+
+- type: loadout
+  id: BosunEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmBosun
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard"
+
+- type: loadout
+  id: BosunEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitBosun
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
