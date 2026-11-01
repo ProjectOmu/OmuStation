@@ -64,14 +64,14 @@
     sprite: _Omu/Clothing/OuterClothing/GloveJackets/hosjacket.rsi
   - type: Insulated
   - type: Armor
-    coverage: # Goobstation
+    coverage:
     - Chest
     - Groin
     - Tail
     - Arm
     - Leg
     - Hand
-    traumaDeductions: # Goobstation -
+    traumaDeductions:
       Dismemberment: 0.2
       OrganDamage: 0.2
       BoneDamage: 0.2
@@ -86,10 +86,10 @@
         Caustic: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.9
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaResistance # Goobstation
+  - type: StaminaResistance
     damageCoefficient: 0.7
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.55
