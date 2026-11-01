@@ -114,12 +114,36 @@
   parent: [ ClothingNeckBase, BaseCommandContraband ]
   id: ClothingNeckCloakHOSCoat
   name: head of security's embroidered off-coat
-  description: A finely tailored coat worn imposingly as a cloak over your shoulders. Cuts a commanding figure befitting the station's highest authority in security.
+  description: A finely tailored coat worn imposingly as a cloak over your shoulders. Cuts a commanding figure befitting the station's highest authority in security. Built-in camera included.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Neck/Cloaks/hos_offcoat.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Neck/Cloaks/hos_offcoat.rsi
+  - type: DeviceNetwork
+    deviceNetId: Wired # :clueless:
+    receiveFrequencyId: SurveillanceCameraCommand
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+    nameSet: True
+    mobile: True  # Goobstation - mobile cameras fix
+    id: Bodycam
+  - type: Eye
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: SurveillanceCameraMicrophone
+    blacklist:
+      components:
+      - SurveillanceCamera
+      - SurveillanceCameraMonitor
+      - RadioSpeaker
+  - type: ActiveListener
+    range: 10
+  - type: ClothingGrantComponent
+    component:
+    - type: StationAiVision
+      range: 4
 
 - type: entity
   parent: [ ClothingNeckBase, BaseCentcommContraband ]
