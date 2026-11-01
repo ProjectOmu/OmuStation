@@ -55,8 +55,8 @@ public class MapLoadBenchmark
         "Delta", "Amber", "Chloris", "Cog", "Glacier", "Serpentcrest", //Goobstation, readds maps
         "Tram2", // Omu - Port tramstation from wizden
         "Crystal", // Omu - Adds Crystal
-        "Shoukou"
-        "Sushi", // Omu - Adds Sushi
+        "Shoukou",
+        "Sushi" // Omu - Adds Sushi
         }; 
 
     [ParamsSource(nameof(MapsSource))]
