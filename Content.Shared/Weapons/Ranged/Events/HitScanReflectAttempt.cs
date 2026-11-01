@@ -15,4 +15,6 @@ namespace Content.Shared.Weapons.Ranged.Events;
 public record struct HitScanReflectAttemptEvent(EntityUid? Shooter, EntityUid SourceItem, ReflectType Reflective, Vector2 Direction, bool Reflected, DamageSpecifier? Damage) : IInventoryRelayEvent // WD EDIT
 {
     SlotFlags IInventoryRelayEvent.TargetSlots => SlotFlags.WITHOUT_POCKET;
+
+    public EntityUid? PredictingUser { get; set; } // Omu
 }

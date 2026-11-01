@@ -1,3 +1,4 @@
+using Content.Shared._Trauma.Projectiles;
 using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Hitscan.Events;
 using Content.Shared.Weapons.Ranged.Events;
@@ -27,6 +28,7 @@ public sealed class HitscanReflectSystem : EntitySystem
 
         var ev = new HitScanReflectAttemptEvent(data.Shooter ?? data.Gun, data.Gun, hitscan.Comp.ReflectiveType, data.ShotDirection, false,
             CompOrNull<HitscanBasicDamageComponent>(hitscan)?.Damage); // Goob
+        ev.PredictingUser = CompOrNull<PredictedShooterComponent>(hitscan)?.Shooter; // Omu
         RaiseLocalEvent(data.HitEntity.Value, ref ev);
 
         if (!ev.Reflected)
