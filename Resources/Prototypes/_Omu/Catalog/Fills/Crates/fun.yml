@@ -1,0 +1,24 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateFunWrestling
+  name: professional wrestling crate
+  description: Everything you need to settle a grudge in the ring. Two belts, because everybody's a winner here.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingBeltChampion
+          amount: 2
+        - id: DrinkFitnessShakerRedProtein
+        - id: DrinkFitnessShakerBlueProtein
+        - id: FoodSnackProteinbar
+          amount: 2
+        - id: TowelColorRed
+        - id: TowelColorBlue
+        - id: Brutepack
+        - id: Megaphone
+        - id: PlushieLizardJobWrestler
+          prob: 0.2
