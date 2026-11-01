@@ -336,18 +336,19 @@ public sealed class PaperSystem : EntitySystem
         var role = string.Empty;
 
         // Get the identity entity (ID card, etc.)
-        var identityEntity = player;
-        if (TryComp<IdentityComponent>(player, out var identity)
-            && identity.IdentityEntitySlot is { ContainedEntity: { } idEntity })
-        {
-            identityEntity = idEntity;
-        }
+        // Omu start
+        // var identityEntity = player;
+        // if (TryComp<IdentityComponent>(player, out var identity)
+        //     && identity.IdentityEntitySlot is { ContainedEntity: { } idEntity })
+        // {
+        //     identityEntity = idEntity;
+        // }
 
         // Get name from identity or fallback to entity name
-        name = MetaData(identityEntity).EntityName;
+        // name = MetaData(identityEntity).EntityName;
+        name = Name(player);
 
         // Get role from mind system
-        // Omu start
         // if (TryComp<MindContainerComponent>(player, out var mindContainer) &&
         //     mindContainer.Mind != null)
         // {
@@ -358,7 +359,6 @@ public sealed class PaperSystem : EntitySystem
         //         role = Loc.GetString(roleInfo[0].Name);
         //     }
         // }
-        name = Name(player);
         if (_inventory.TryGetSlotEntity(player, "id", out var worn) && _idCard.TryGetIdCard(worn.Value, out var id))
         {
             if (!string.IsNullOrWhiteSpace(id.Comp.FullName))
