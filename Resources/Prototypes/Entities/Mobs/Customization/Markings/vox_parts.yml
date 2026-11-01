@@ -215,6 +215,16 @@
     state: tail_short
 
 - type: marking
+  id: VoxTailShortAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  forcedColoring: true
+  sprites:
+  - sprite: Mobs/Customization/vox_parts.rsi
+    state: tail_short_animated
+
+- type: marking
   id: VoxTailBig
   bodyPart: Tail
   markingCategory: Tail
