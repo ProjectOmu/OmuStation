@@ -121,3 +121,14 @@
   - type: Clothing
     sprite: _Omu/Clothing/Neck/Cloaks/hos_offcoat.rsi
 
+- type: entity
+  parent: [ ClothingNeckBase, BaseCentCommContraband ]
+  id: ClothingNeckCloakBSOCoat
+  name: blueshield officer's embroidered off-coat
+  description: A finely tailored coat worn imposingly as a cloak over your shoulders. Cuts a fitting figure for those entrusted with the lives of command.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/bso_offcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/bso_offcoat.rsi
+
