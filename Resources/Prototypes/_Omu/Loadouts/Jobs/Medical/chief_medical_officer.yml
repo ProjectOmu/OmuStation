@@ -12,6 +12,17 @@
       role: JobChiefMedicalOfficer
       time: 360000 #100 hours
 
+# I needed a 50h req for off-coat..
+
+- type: loadoutEffectGroup
+  id: ProCMO
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChiefMedicalOfficer
+      time: 180000 #50 hours
+
 - type: loadout
   id: CMOVetLabCoat
   equipment:
@@ -63,7 +74,7 @@
   id: ChiefMedicalOfficerOffcoat
   effects:
   - !type:GroupLoadoutEffect
-    proto: VeteranCMO
+    proto: ProCMO
   equipment:
     neck: ClothingNeckCloakCMOCoat
 
