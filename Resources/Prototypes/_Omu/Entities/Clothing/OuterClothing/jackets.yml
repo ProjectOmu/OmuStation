@@ -57,6 +57,7 @@
     - Tail
     - Arm
     - Leg
+    - Hand
     traumaDeductions: # Goobstation -
       Dismemberment: 0.2
       OrganDamage: 0.2
@@ -70,16 +71,6 @@
         Piercing: 0.55
         Heat: 0.55
         Caustic: 0.6
-  - type: Armor
-    coverage:
-    - Hand
-    modifiers:
-      coefficients:
-        Blunt: 0.90
-        Slash: 0.90
-        Piercing: 0.90
-        Heat: 0.90
-        Caustic: 0.90
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
