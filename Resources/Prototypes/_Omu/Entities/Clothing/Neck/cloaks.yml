@@ -110,3 +110,14 @@
   - type: Clothing
     sprite: _Omu/Clothing/Neck/Cloaks/rd_offcoat.rsi
 
+- type: entity
+  parent: [ ClothingNeckBase, BaseCommandContraband ]
+  id: ClothingNeckCloakHOSCoat
+  name: head of security's embroidered off-coat
+  description: A finely tailored coat worn imposingly as a cloak over your shoulders. Cuts a commanding figure befitting the station's highest authority in security.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/hos_offcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/hos_offcoat.rsi
+

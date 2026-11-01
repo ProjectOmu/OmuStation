@@ -9,6 +9,16 @@
       role: JobHeadOfSecurity
       time: 20h
 
+# Omu - for off-coat
+- type: loadoutEffectGroup
+  id: VeteranHoS
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobHeadOfSecurity
+      time: 180000 # 50 hrs
+
 # Goobstation - For Ensembles
 - type: loadoutEffectGroup
   id: GrandMasterHoS
@@ -129,6 +139,16 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: GrandMasterHoS
+
+# Omu start
+- type: loadout
+  id: HeadofSecurityOffcoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranHoS
+  equipment:
+    neck: ClothingNeckCloakHOSCoat
+# Omu end
 
 # OuterClothing
 - type: loadout
