@@ -1,5 +1,5 @@
 - type: marking
-  id: DionaVinelHeadTop
+  id: DionaVinelGreyEyeHeadTop
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Diona]
@@ -10,10 +10,24 @@
           color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
-    state: vinel
+    state: vinel_greyscale_eye
 
 - type: marking
-  id: DionaVinesHeadTop
+  id: DionaVinelGreyEyeHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Diona]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/diona.rsi
+    state: vinel_greyscale_eye
+
+- type: marking
+  id: DionaVinelGreyNoEyeHeadTop
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Diona]
@@ -24,4 +38,46 @@
           color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
-    state: vines
+    state: vinel_greyscale
+
+- type: marking
+  id: DionaVinesGreyEyeHeadTop
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Diona]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/diona.rsi
+    state: vines_greyscale_eye
+
+- type: marking
+  id: DionaVinesGreyEyeHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Diona]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/diona.rsi
+    state: vines_greyscale_eye
+
+- type: marking
+  id: DionaVinesGreyNoEyeHeadTop
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Diona]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/diona.rsi
+    state: vines_greyscale
