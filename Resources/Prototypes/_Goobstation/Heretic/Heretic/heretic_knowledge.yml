@@ -89,13 +89,13 @@
  # - MaskOfMadness
 
 - type: hereticKnowledge
-  id: AshenSkin # OMU
+  id: AshenSkin # OMU Start
   path: Ash
   sideKnowledge: true
   stage: 6
   event: !type:EventHereticAshenPassive
     addedComponents:
-    - type: FireImmunity
+    - type: FireImmunity # OMU end
 
 - type: hereticKnowledge
   id: FieryBlade
@@ -130,7 +130,7 @@
     - type: SpecialHighTempImmunity
     - type: SpecialBreathingImmunity
     - type: SpecialPressureImmunity
-    # OMU moved fire immunity to Ashen Skin
+  #- type: FireImmunity # OMU moved fire immunity to Ashen Skin
 
 ### blade path
 - type: hereticKnowledge

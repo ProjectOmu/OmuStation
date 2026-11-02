@@ -61,12 +61,13 @@ knowledge-path-ash-s5-desc =
     setting them on fire and burning them.
     If they do not extinguish themselves, the beam will continue to another target.
 
+# OMU Start
 knowledge-path-ash-s6-name = Ashen Skin
-# OMU
 knowledge-path-ash-s6-desc =
     The Nightwatcher was lost. That's what the Watch believed... Yet he walked the world, unnoticed by the masses, his skin an ashen grey.
 
     "You now take no damage from burning, but can no longer roll to extinguish yourself. This does not provide immunity to temperature damage..
+# OMU End
 
 knowledge-path-ash-s7-name = Fiery Blade
 knowledge-path-ash-s7-desc =
