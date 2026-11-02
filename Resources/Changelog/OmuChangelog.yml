@@ -9842,3 +9842,11 @@ Entries:
         dry.
   id: 1265
   time: '2026-11-02T01:55:34.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Fix
+      message: >-
+        A female character being polymorphed into a monkey should no longer
+        result in performance massively dropping for anyone nearby.
+  id: 1266
+  time: '2026-11-02T11:01:09.0000000+00:00'
