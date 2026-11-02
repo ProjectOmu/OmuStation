@@ -1,0 +1,73 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from goobstation at commit https://github.com/Goob-Station/Goob-Station/commit/4ba2c0d4e5c123546de9a2b3072ac16a2e96abab box_bso made by modifying box_sec, bsomask made by modifying syndiemask by Fiya",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "box_bso"
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "flare"
+        },
+        {
+            "name": "mask"
+        },
+        {
+            "name": "secmask"
+        },
+        {
+            "name": "syndiemask"
+        },
+        {
+            "name": "bsomask"
+        },
+        {
+            "name": "emergencypen"
+        },
+        {
+            "name": "spacepen"
+        },
+        {
+            "name": "nutriblock"
+        },
+        {
+            "name": "water"
+        },
+        {
+            "name": "oxy"
+        },
+        {
+            "name": "oxyclown"
+        },
+        {
+            "name": "oxyextend"
+        },
+        {
+            "name": "nit"
+        },
+        {
+            "name": "vapor"
+        },
+        {
+            "name": "battery"
+        },
+        {
+            "name": "welder"
+        },
+        {
+            "name": "cable"
+        }
+    ]
+}

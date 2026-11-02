@@ -1,7 +1,7 @@
 - type: entity
   parent: PlushieLizard
   id: PlushieJeelusanOmuCrew
-  name: Jeelus-an plushie
+  name: jeelus-an plushie
   description: Chaos Incarnate.
   components:
   - type: Sprite
@@ -70,7 +70,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieRebeccaOmuCrew
-  name: Rebecca Hawkins plushie
+  name: rebecca hawkins plushie
   description: Cheron, whatever you do, don't let them turn me into a marketable plushi-
   components:
   - type: Sprite
@@ -102,46 +102,6 @@
     wideAnimationRotation: 180
     soundHit:
       path: /Audio/Voice/Human/femalescream_3.ogg
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieSeptOctOmuCrew
-  name: Sept Oct plushie
-  description: This plushie looks to be in a hardly-used, yet earnest condition. He'd let you hug him, but only after you fill out and sign a Warm Embrace Request Form (D-5).
-  components:
-  - type: Sprite
-    sprite: _Omu/Objects/Fun/Plushies/septoct.rsi
-    state: icon
-  - type: Item
-    sprite: _Omu/Objects/Fun/Plushies/septoct.rsi
-  - type: Clothing
-    quickEquip: false
-    sprite: _Omu/Objects/Fun/Plushies/septoct.rsi
-    slots:
-    - HEAD
-  - type: EmitSoundOnPickup
-    sound:
-      collection: VulpYips
-  - type: EmitSoundOnUse
-    sound:
-      collection: VulpYaps
-  - type: EmitSoundOnActivate
-    sound:
-      collection: VulpYaps
-  - type: EmitSoundOnTrigger
-    sound:
-      collection: VulpYaps
-  - type: EmitSoundOnThrow
-    sound:
-      collection: VulpkaninScreams
-  - type: EmitSoundOnCollide
-    sound: /Audio/Effects/hit_kick.ogg
-  - type: Edible
-    requiresSpecialDigestion: true
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    soundHit:
-      collection: VulpkaninScreams
 
 - type: entity
   parent: BasePlushie
@@ -178,7 +138,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushiePanaceaOmuCrew
-  name: Panacea plushie
+  name: panacea plushie
   description: A plushie of a battered pink vulpkanin, smells of flour and strawberries, it also has a label, DO NOT EAT.
   components:
   - type: Sprite
@@ -352,7 +312,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieTevikOmuCrew
-  name: Tevik plushie
+  name: tevik plushie
   description: A little resomi with a disposition for breaking things, watch your fingers around her!
   components:
   - type: Sprite
@@ -423,9 +383,9 @@
     wideAnimationRotation: 180
     soundHit:
       path: /Audio/Effects/bite.ogg
- 
+
 - type: entity
-  parent: BasePlushie   
+  parent: BasePlushie
   id: PlushiePoemOfExpressionOmuCrew
   name: poem of expression plushie
   description: This plushie smells strongly of burning wood... You can almost hear the explosions.
@@ -461,7 +421,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieRogerCagelOmuCrew
-  name: Roger Cagel plushie
+  name: roger cagel plushie
   description: 'Despite its innocuous appearance, you can feel anti-corporate energy radiating from it. In spite of that, a tag is attached: "As an effort to make a dent in Roger Cagel''s 3-quadrillion-speso debt to us, we made him into a marketable plushie. Returns not accepted."'
   components:
   - type: Sprite
@@ -494,7 +454,120 @@
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
+    
+- type: entity
+  parent: BasePlushie
+  id: PlushieHaashaOmuCrew
+  name: haasha plushie
+  description: "It's a bright neon-pink plushie of Haasha! The tag reads 'Omnizine for everyone!*' *Omnizine not guaranteed. Consult Haasha before demanding!"
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/haasha.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/haasha.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/haasha.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: Trill
+  - type: EmitSoundOnDrop
+    sound:
+      collection: Trill
+  - type: EmitSoundOnUse
+    sound:
+      collection: Trill
+  - type: EmitSoundOnActivate
+    sound:
+      collection: Trill
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: Trill
+  - type: EmitSoundOnThrow
+    sound:
+      collection: ResomiSquawk
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: ResomiSquawk
+    soundNoDamage:
+      collection: ResomiSquawk
 
+- type: entity
+  parent: BasePlushie   
+  id: PlushieRhyssOmuCrew
+  name: rhyss plushie
+  description: This plushie resembles a scarred bird that smells heavily of ash and charcoal. The label reads 'Survivor of the Red Cycle.'
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/rhyss.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/rhyss.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/rhyss.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnUse
+    sound: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+  - type: EmitSoundOnPickup
+    sound: /Audio/_Goobstation/Voice/Resomi/warble.ogg
+  - type: EmitSoundOnActivate
+    sound: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+  - type: EmitSoundOnTrigger
+    sound: /Audio/_Starlight/Voice/Resomi/trill3.ogg
+  - type: EmitSoundOnThrow
+    sound: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+
+- type: entity
+  parent: BasePlushie   
+  id: PlushieNuiOmuCrew
+  name: nui plushie
+  description: A plushie of a small, sandy Avali. It has a soft looking head and smells strongly of charcoal.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/nui.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/nui.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/nui.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnUse
+    sound: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+  - type: EmitSoundOnPickup
+    sound: /Audio/_Starlight/Voice/Resomi/resomi_call_2.ogg
+  - type: EmitSoundOnActivate
+    sound: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+  - type: EmitSoundOnTrigger
+    sound: /Audio/_Starlight/Voice/Resomi/trill2.ogg
+  - type: EmitSoundOnThrow
+    sound: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+    
 - type: entity
   parent: PlushieLizard
   id: PlushieSniffsOmuCrew

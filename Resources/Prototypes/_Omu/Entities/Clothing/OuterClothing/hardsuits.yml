@@ -81,5 +81,51 @@
     sprintModifier: 0.9
   - type: HeldSpeedModifier
 
+- type: entity
+  parent: ClothingOuterHardsuitLuxury
+  id: ClothingOuterHardsuitBosun
+  name: bosun's hardsuit
+  description: A vintage excavation hardsuit, lovingly restored and repainted. Every dent carries a story, even if that comes at the cost of protection.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Hardsuits/bosun.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Hardsuits/bosun.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitBosun
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
 
-
+- type: entity
+  parent: ClothingOuterHardsuitAtmos
+  id: ClothingOuterHardsuitForeman
+  name: foreman's hardsuit
+  description: A surplus EVA rig from a far off sector, retrofitted with thermal shielding and lead plates.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Hardsuits/foreman.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Hardsuits/foreman.rsi
+  - type: Armor # Best stats of Engi and Atmos hardsuits
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.8
+        Shock: 0.5
+        Caustic: 0.7
+        Radiation: 0.15
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetForeman
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
