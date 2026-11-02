@@ -9,6 +9,16 @@
       role: JobChiefEngineer
       time: 20h
 
+# Omu - for off-coat
+- type: loadoutEffectGroup
+  id: VeteranCE
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChiefEngineer
+      time: 50h
+
 # Goobstation - For Ensembles
 - type: loadoutEffectGroup
   id: GrandMasterCE
@@ -91,6 +101,24 @@
   - !type:GroupLoadoutEffect
     proto: MasterCE
   groupBy: "cemantle"
+
+- type: loadout # Omu off-coat
+  id: ChiefEngineerWhiteOffcoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranCE
+  equipment:
+    neck: ClothingNeckCloakCECoatWhite
+  groupBy: "ceoffcoat"
+
+- type: loadout # Omu off-coat
+  id: ChiefEngineerGreenOffcoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranCE
+  equipment:
+    neck: ClothingNeckCloakCECoatGreen
+  groupBy: "ceoffcoat"
 
 - type: loadout # Goobstation - Ensembles
   id: ClothingNeckEnsembleChiefEngineerWhite

@@ -178,3 +178,25 @@
   - type: Clothing
     sprite: _Omu/Clothing/Neck/Cloaks/hop_offcoat.rsi
 
+- type: entity
+  parent: [ ClothingNeckBase, BaseCommandContraband ]
+  id: ClothingNeckCloakCECoatWhite
+  name: chief engineer's white embroidered off-coat
+  description: A rugged yet finely tailored coat draped over your shoulders. Cuts an imposing figure befitting the mind that keeps the station standing.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/ce_whiteoffcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/ce_whiteoffcoat.rsi
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCommandContraband ]
+  id: ClothingNeckCloakCECoatGreen
+  name: chief engineer's green embroidered off-coat
+  description: A rugged yet finely tailored coat draped over your shoulders. Cuts an imposing figure befitting the mind that keeps the station standing.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/ce_greenoffcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/ce_greenoffcoat.rsi
+
