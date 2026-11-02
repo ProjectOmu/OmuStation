@@ -373,7 +373,8 @@ public sealed class VoodooDollSystem : EntitySystem
             var item = _random.Pick(held);
             var direction = _random.NextAngle().ToVec() * ent.Comp.FlingDistance;
             if (_hands.TryDrop(target, item, checkActionBlocker: false))
-                _throwing.TryThrow(item, direction, ent.Comp.FlingSpeed, target);
+                _throwing.TryThrow(item, direction, ent.Comp.FlingSpeed, target,
+                    predicted: false); // Trauma
         }
 
         Afflict(ent, target, user, "voodoo-user-fling", "voodoo-victim-fling", "fling");
