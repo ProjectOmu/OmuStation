@@ -34,3 +34,8 @@
   - type: Clothing
     sprite: _Omu/Clothing/Head/Soft/refereecap.rsi
 
+- type: entity
+  parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatReferee]
+  id: ClothingHeadHatRefereeFlipped
+  name: referee cap
+
