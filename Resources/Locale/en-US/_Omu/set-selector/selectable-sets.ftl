@@ -28,6 +28,11 @@ selectable-set-warden-snub-name = Twin Snubnose
 selectable-set-warden-snub-description =
     Twin hammerless revolvers, for quick draws and quicker Magdumps
 
+selectable-set-warden-henrietta-name = Henrietta
+selectable-set-warden-henrietta-description =
+    A dependable 8 gauge lever-action shotgun with a bayonet.
+    Comes with a bandolier and some ammo to keep her fed.
+
 selectable-set-brigmed-crossbow-name = Syringe Crossbow
 selectable-set-brigmed-crossbow-description =
     A portable Crossbow for healing at range.

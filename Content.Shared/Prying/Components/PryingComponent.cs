@@ -45,6 +45,13 @@ public sealed partial class PryingComponent : Component
     /// </summary>
     [DataField]
     public bool InstaPry = true;
+
+    /// <summary>
+    /// Omustation
+    /// Whether or not the prycomponent can pry powered firelocks
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool CanPryPoweredFirelocks = true;
 }
 
 /// <summary>
@@ -52,7 +59,7 @@ public sealed partial class PryingComponent : Component
 /// Cancel to stop the entity from being pried open.
 /// </summary>
 [ByRefEvent]
-public record struct BeforePryEvent(EntityUid User, bool PryPowered, bool Force, bool StrongPry)
+public record struct BeforePryEvent(EntityUid User, bool PryPowered, bool Force, bool StrongPry, bool CanPryPoweredFirelocks)
 {
     public readonly EntityUid User = User;
 
@@ -71,6 +78,11 @@ public record struct BeforePryEvent(EntityUid User, bool PryPowered, bool Force,
     /// Whether anything other than bare hands were used. This should only be false if prying is being performed without a prying comp.
     /// </summary>
     public readonly bool StrongPry = StrongPry;
+
+    ///<summary>
+    /// Omustation, whether or not the tool can open powered firelocks
+    /// </summary>
+    public readonly bool CanPryPoweredFirelocks = CanPryPoweredFirelocks;
 
     public string? Message;
 

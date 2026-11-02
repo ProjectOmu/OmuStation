@@ -103,7 +103,8 @@ public sealed partial class CloningSystem : SharedCloningSystem
         if (settings.CopyEquipment != null)
         {
             CopyEquipment(original, clone.Value, settings.CopyEquipment.Value, settings.Whitelist, settings.Blacklist, settings.MakeEquipmentUnremoveable, settings.CopyStorage, settings.InternalContentsUnremoveable); // Goob edit
-            _omuCloneHelperSystem.CopyHands(original, clone.Value, settings.Whitelist, settings.Blacklist, settings.CopyStorage); // Omu
+            if (settings.CopyHands) // Omu - sometimes copying hands is bad
+                _omuCloneHelperSystem.CopyHands(original, clone.Value, settings.Whitelist, settings.Blacklist, settings.CopyStorage); // Omu
         }
 
         // Copy storage on the mob itself as well.

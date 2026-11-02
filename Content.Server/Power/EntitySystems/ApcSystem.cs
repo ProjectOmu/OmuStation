@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Emp;
+using Content.Server.GameTicking;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.Pow3r;
@@ -16,6 +17,7 @@ using Content.Shared.Rounding;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Power.EntitySystems;
@@ -39,6 +41,7 @@ public sealed class ApcSystem : EntitySystem
 
         SubscribeLocalEvent<ApcComponent, BoundUIOpenedEvent>(OnBoundUiOpen);
         SubscribeLocalEvent<ApcComponent, ComponentStartup>(OnApcStartup);
+        SubscribeLocalEvent<RulePlayerSpawningEvent>(OnPlayerSpawn); // Omu - apc UI state check
         SubscribeLocalEvent<ApcComponent, ChargeChangedEvent>(OnBatteryChargeChanged);
         SubscribeLocalEvent<ApcComponent, ApcToggleMainBreakerMessage>(OnToggleMainBreaker);
         SubscribeLocalEvent<ApcComponent, GotEmaggedEvent>(OnEmagged);
@@ -99,6 +102,17 @@ public sealed class ApcSystem : EntitySystem
         // Defer until the next tick.
         component.NeedStateUpdate = true;
     }
+
+    // Omu Start - Fix APCs not initializing their UI state correctly
+    private void OnPlayerSpawn(RulePlayerSpawningEvent args)
+    {
+        var query = EntityQueryEnumerator<ApcComponent, PowerNetworkBatteryComponent, UserInterfaceComponent>();
+        while (query.MoveNext(out var uid, out var apc, out var battery, out var ui))
+        {
+            apc.NeedStateUpdate = true;
+        }
+    }
+    // Omu end
 
     private void OnBoundUiOpen(EntityUid uid, ApcComponent component, BoundUIOpenedEvent args)
     {

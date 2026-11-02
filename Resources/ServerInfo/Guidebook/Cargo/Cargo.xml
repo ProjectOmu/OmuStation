@@ -11,9 +11,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   ## Personnel
 
-  Cargo is made up of [color=cyan]Cargo Technicians[/color] and [color=cyan]Salvage Specialists[/color] and is led by the [color=cyan]Quartermaster[/color].
-
-  <Box>
+  Cargo is made up of [color=cyan]Logistics Assistants[/color], [color=cyan]Cargo Technicians[/color], and [color=cyan]Salvage Specialists[/color] and is led by the [color=cyan]Quartermaster[/color]. <!--
+Omu: Added Logistics Assistant mention.
+  --><Box>
     <GuideEntityEmbed Entity="ToyFigurineCargoTech" Caption="Cargo Tech"/>
     <GuideEntityEmbed Entity="ToyFigurineSalvage" Caption="Salvage"/>
     <GuideEntityEmbed Entity="ToyFigurineQuartermaster" Caption="QM"/>
