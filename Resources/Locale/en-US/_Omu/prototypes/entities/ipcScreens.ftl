@@ -35,7 +35,7 @@ marking-ScreenLine = Visor
 marking-ScreenCharger = Charger
 marking-ScreenLargeEye = Cute Eyes
 marking-ScreenSmallEye = Dubious
-marking-ScreenSmallSmile = Small eye
+marking-ScreenSmallSmile = Small Eyes
 
 # Marking Slider Names
 marking-ScreenLine-ipc_screen_screen_small_whitehue = Screen
