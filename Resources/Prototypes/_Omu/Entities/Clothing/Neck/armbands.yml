@@ -4,6 +4,9 @@
   name: medical armband
   description: an armband to show your connection to the medical department
   components:
+  - type: Item
+    size: Small
+    heldPrefix: right
   - type: Tag
     tags:
      - Armband
@@ -39,6 +42,9 @@
   name: engineering armband
   description: an armband to show your connection to the engineering department
   components:
+  - type: Item
+    size: Small
+    heldPrefix: right
   - type: Tag
     tags:
      - Armband
@@ -74,6 +80,9 @@
   name: science armband
   description: an armband to show your connection to the science department
   components:
+  - type: Item
+    size: Small
+    heldPrefix: right
   - type: Tag
     tags:
      - Armband
@@ -109,6 +118,9 @@
   name: service armband
   description: an armband to show your connection to the service department
   components:
+  - type: Item
+    size: Small
+    heldPrefix: right
   - type: Tag
     tags:
      - Armband
@@ -144,6 +156,9 @@
   name: cargo armband
   description: an armband to show your connection to the cargo department
   components:
+  - type: Item
+    size: Small
+    heldPrefix: right
   - type: Tag
     tags:
      - Armband
@@ -179,6 +194,9 @@
   name: CC armband
   description: an armband to show your connection to central command
   components:
+  - type: Item
+    size: Small
+    heldPrefix: right
   - type: Tag
     tags:
      - Armband
