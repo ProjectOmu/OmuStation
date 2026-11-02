@@ -10,6 +10,17 @@
   equipment:
     jumpsuit: ClothingUniformBlackRedSecUniform
 
+# Eyes
+- type: loadout
+  id: SecurityGlasses
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+
+- type: loadout
+  id: SecurityVisor
+  equipment:
+    eyes: ClothingEyesVisorSecurity
+
 #Belt
 - type: loadout
   id: SecuritySwordBelt

@@ -1,5 +1,6 @@
 ﻿using Content.Server.Hands.Systems;
 using Content.Server.Preferences.Managers;
+using Content.Server._Omu.Preferences;
 using Content.Shared._EinsteinEngines.Silicon.IPC;
 using Content.Shared.Access.Components;
 using Content.Shared.Clothing;
@@ -22,7 +23,7 @@ namespace Content.Server.Clothing.Systems;
 
 public sealed class OutfitSystem : EntitySystem
 {
-    [Dependency] private readonly IServerPreferencesManager _preferenceManager = default!;
+    [Dependency] private readonly CharacterQueueSystem _characterQueue = default!; // Omu
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly HandsSystem _handSystem = default!;
     [Dependency] private readonly InventorySystem _invSystem = default!;
@@ -47,8 +48,7 @@ public sealed class OutfitSystem : EntitySystem
         {
             session = actorComponent.PlayerSession;
             var userId = actorComponent.PlayerSession.UserId;
-            var prefs = _preferenceManager.GetPreferences(userId);
-            profile = prefs.SelectedCharacter as HumanoidCharacterProfile;
+            profile = _characterQueue.GetCurrentCharacter(userId); // Omu
         }
 
         if (_invSystem.TryGetSlots(target, out var slots))
