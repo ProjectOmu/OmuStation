@@ -167,3 +167,14 @@
   - type: Clothing
     sprite: _Omu/Clothing/Neck/Cloaks/cap_offcoat.rsi
 
+- type: entity
+  parent: [ ClothingNeckBase, BaseCommandContraband ]
+  id: ClothingNeckCloakHOPCoat
+  name: head of personnel's off-coat
+  description: A finely tailored coat draped gracefully over your shoulders. Cuts a refined figure befitting the one who keeps the station's personnel in order.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/hop_offcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/hop_offcoat.rsi
+
