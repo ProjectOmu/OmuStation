@@ -1,0 +1,7 @@
+﻿- type: entity
+  id: WeaponBorgMeleeDrillDiamond
+  parent: WeaponMechMeleeDrillDiamond
+  components:
+  - type: ClothingSpeedModifier
+    walkModifier: 0.7
+    sprintModifier: 0.7

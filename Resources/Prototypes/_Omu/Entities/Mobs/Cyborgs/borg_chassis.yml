@@ -8,14 +8,16 @@
   - type: BorgSwitchableSubtype
     borgSubtype: generic_bugborg
 
-- type: entity
-  id: BorgChassisGenericBugScience
-  parent: BorgChassisGeneric
-  name: bugborg science cyborg
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: BorgSwitchableSubtype
-    borgSubtype: generic_bugscience
+#Start Byrd, commenting out as this chassis has moved to being a dedicated sciborg
+# - type: entity
+#   id: BorgChassisGenericBugScience
+#   parent: BorgChassisGeneric
+#   name: bugborg science cyborg
+#   categories: [ HideSpawnMenu ]
+#   components:
+#   - type: BorgSwitchableSubtype
+#     borgSubtype: generic_bugscience
+#End Byrd
 # Mining
 
 - type: entity

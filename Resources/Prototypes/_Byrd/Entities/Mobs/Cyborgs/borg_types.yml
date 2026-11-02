@@ -1,0 +1,45 @@
+﻿#Science Bug
+- type: borgType
+  id: science_bug
+
+  # Description
+  dummyPrototype: BorgChassisScienceBug
+
+  # Functional
+  extraModuleCount: 5
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleScience
+
+  defaultModules:
+  - BorgModuleTool
+  - BorgModuleArtifact
+  - BorgModuleAnomaly
+  - BorgModuleXenobio
+
+  lawset: scientist
+
+  radioChannels:
+  - Science
+
+  addComponents: # Goobstation
+  - type: Inventory
+    templateId: borgNoOffset
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _Omu/Mobs/Species/Cyborgs/displacements.rsi
+            state: head
+
+  # Visual
+  inventoryTemplateId: borgShort
+  spriteBodyState: robot
+  spriteHasMindState: robot_e
+  spriteNoMindState: robot_e_r
+  spriteToggleLightState: robot_l
+
+  # Pet
+  petSuccessString: petting-success-generic-cyborg
+  petFailureString: petting-failure-generic-cyborg

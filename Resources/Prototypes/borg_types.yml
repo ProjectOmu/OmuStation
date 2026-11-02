@@ -11,13 +11,18 @@
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
-    - BorgModuleScience #until sciborgs are added
+    - BorgModuleBasic #Byrd Applied to more basic modules to let generic actually be a jack of all trades
+    #  - BorgModuleScience Byrd sciborgs are added
 
   defaultModules:
   - BorgModuleTool
   - BorgModuleInflatable
-  - BorgModuleArtifact
-  - BorgModuleAnomaly
+	# start Byrd, removing the science modules and replacing with some generic borg modules as a dedicated science borg is now present
+  - BorgModuleFireExtinguisher
+  - BorgModuleCable
+  #  - BorgModuleArtifact
+  #  - BorgModuleAnomaly
+  # end Byrd
   radioChannels:
   - Science
 
@@ -154,6 +159,25 @@
   # Pet
   petSuccessString: petting-success-janitor-cyborg
   petFailureString: petting-failure-janitor-cyborg
+
+  #start Byrd, giving all janiborgs a built in Cleanhud so they can see the UNCLEAN
+  addComponents:
+  - type: JaniVision
+    isEquipment: false
+    toggleAction: ToggleJaniVision
+    janiShader: "unshaded"
+    showAllLights: false
+    workingLightsColor: "#FFFFFF"
+    brokenLightsColor: "#FF0000"
+    emptyLightsColor: "#05FCFC"
+    burnedLightsColor: "#2AFC05"
+    distanceCheckMin: 1
+    distanceCheckMax: 1.3
+    distanceAlpha: 0.2
+    tagColors:
+      Trash: "#FF00FF"
+  - type: SolutionScanner
+  #end Byrd
 
 
 # Medical borg

@@ -190,7 +190,8 @@
   components:
   - type: BorgModule
     borgFitTypes:
-    - borg-type-generic
+    - borg-type-science
+    #- borg-type-generic byrd
   - type: Tag
     tags:
     - BorgModuleScience
@@ -584,7 +585,7 @@
 # cargo modules
 - type: entity
   id: BorgModuleAppraisal
-  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleCargoBasic, BaseProviderBorgModule ] # Byrd changed parent to the Basic tagged version to let generics use it
   name: appraisal cyborg module
   components:
   - type: Sprite
@@ -653,7 +654,7 @@
 
 - type: entity
   id: BorgModuleTraversal
-  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleCargoBasic, BaseProviderBorgModule ] # Byrd changed parent to the Basic tagged version to let generics use it
   name: traversal cyborg module
   components:
   - type: Sprite
@@ -702,7 +703,7 @@
 
 - type: entity
   id: BorgModuleConstruction
-  parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleEngineeringBasic, BaseProviderBorgModule ] # Byrd changed parent to the Basic tagged version to let generics use it
   name: construction cyborg module
   components:
   - type: Sprite
@@ -795,7 +796,7 @@
 # janitorial modules (this gets its own unique things because janis are epic)
 - type: entity
   id: BorgModuleCustodial
-  parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleJanitorBasic, BaseProviderBorgModule ] # Byrd changed parent to the Basic tagged version to let generics use it
   name: custodial cyborg module
   components:
   - type: Sprite
@@ -819,7 +820,7 @@
 
 - type: entity
   id: BorgModuleCleaning
-  parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleJanitorBasic, BaseProviderBorgModule ] # Byrd changed parent to the Basic tagged version to let generics use it
   name: cleaning cyborg module
   components:
   - type: Sprite
@@ -882,7 +883,7 @@
 
 - type: entity
   id: BorgModuleTopicals
-  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleMedicalBasic, BaseProviderBorgModule ] # Byrd changed parent to the Basic tagged version to let generics use it
   name: first aid cyborg module
   components:
   - type: Sprite
@@ -919,7 +920,7 @@
 
 - type: entity
   id: BorgModuleRescue
-  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleMedicalBasic, BaseProviderBorgModule ] # Byrd changed parent to the Basic tagged version to let generics use it
   name: rescue cyborg module
   components:
   - type: Sprite
@@ -933,6 +934,16 @@
     - item: Crowbar
     - item: BorgFireExtinguisher
     - item: BorgHandheldGPSBasic
+  #start Byrd, giving rescue a bodybag/foldable roller slot so it has better ways to drag corpses/injured
+  - type: DroppableBorgModule
+    moduleId: Rescue
+    items:
+    - id: BodyBagFolded
+      whitelist:
+        tags:
+        - RollerBed
+        - BodyBag
+  #end Byrd
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: defib-module }
 
@@ -1045,7 +1056,7 @@
 # todo: if science ever gets their own custom robot, add more "sci" modules.
 - type: entity
   id: BorgModuleArtifact
-  parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleScienceBasic, BaseProviderBorgModule ] # Byrd changed parent to the Basic tagged version to let generics use it
   name: artifact cyborg module
   components:
   - type: Sprite
@@ -1072,7 +1083,7 @@
 
 - type: entity
   id: BorgModuleAnomaly
-  parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleScienceBasic, BaseProviderBorgModule ] # Byrd changed parent to the Basic tagged version to let generics use it
   name: anomaly cyborg module
   components:
   - type: Sprite
@@ -1103,7 +1114,7 @@
 # service modules
 - type: entity
   id: BorgModuleService
-  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleServiceBasic, BaseProviderBorgModule ] # Byrd changed parent to the Basic tagged version to let generics use it
   name: service cyborg module
   components:
   - type: Sprite
@@ -1153,7 +1164,7 @@
 
 - type: entity
   id: BorgModuleMusique
-  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleServiceBasic, BaseProviderBorgModule ] # Byrd changed parent to the Basic tagged version to let generics use it
   name: musique cyborg module
   components:
   - type: Sprite

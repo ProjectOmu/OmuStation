@@ -16,6 +16,7 @@
   - HydroponicsTrayMachineCircuitboard
   - ReagentGrinderIndustrialMachineCircuitboard
   - PlantAnalyzer #Omu
+  - BorgModuleAdvancedBotany #Byrd
   # Goobstation R&D Console rework start
   position: -3,4
   technologyPrerequisites:
@@ -90,6 +91,8 @@
     - BorgModuleLollypop # Goobstation
     - CrayonRainbowLarge # Goobstation
     - BorgModuleAdvancedMusique # Omu
+    - BorgModuleLibrarian #Byrd
+    - BorgModuleComedicViolence #Byrd
   position: 0,2
 
 - type: technology
@@ -245,6 +248,8 @@
   recipeUnlocks:
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
+  - BorgModuleSpraying #Byrd
+  - BorgModuleAggressiveClean #Byrd
   # Goobstation R&D Console rework start
   position: -1,6
   technologyPrerequisites:

@@ -1,0 +1,12 @@
+- type: Tag
+  id: BorgModuleBasic #Lets the generic borg equip modules tagged with this
+
+- type: Tag
+  id: LubeGrenade #needed so I can make a crafting recipe cost the lube grenade
+
+# Omu start - commenting out
+#- type: Tag
+#  id: RollerBed
+# Omuy end - commenting out
+- type: Tag
+  id: FunnyNoiseWhenWalkedOn

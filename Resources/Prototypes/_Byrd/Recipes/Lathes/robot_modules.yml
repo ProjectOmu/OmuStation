@@ -1,0 +1,158 @@
+# Generic
+- type: latheRecipe
+  abstract: true
+  parent: BaseBorgModuleRecipe
+  id: BaseDiamondBorgModuleRecipe
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 50
+    Diamond: 100
+#Omu start - redundant
+# - type: latheRecipe
+#   parent: BaseBorgModuleRecipe
+#   id: BorgModuleArt
+#   result: BorgModuleArt
+#Omu end - redundant
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleGravity
+  result: BorgModuleGravity
+
+# Science
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAdvancedAnomaly
+  result: BorgModuleAdvancedAnomaly
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleXenobio
+  result: BorgModuleXenobio
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAdvancedXenobio
+  result: BorgModuleAdvancedXenobio
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleAnomaly
+  result: BorgModuleAnomaly
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleArtifact
+  result: BorgModuleArtifact
+
+# Janitorial
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleSpraying
+  result: BorgModuleSpraying
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAggressiveClean
+  result: BorgModuleAggressiveClean
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleCleaning
+  result: BorgModuleCleaning
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleCustodial
+  result: BorgModuleCustodial
+
+# service
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleLibrarian
+  result: BorgModuleLibrarian
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAdvancedBotany
+  result: BorgModuleAdvancedBotany
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleCooking
+  result: BorgModuleCooking
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleComedicViolence
+  result: BorgModuleComedicViolence
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleMusique
+  result: BorgModuleMusique
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleService
+  result: BorgModuleService
+
+# Salvage
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleBFG
+  result: BorgModuleBFG
+
+- type: latheRecipe
+  parent: BaseDiamondBorgModuleRecipe
+  id: BorgModuleBFD
+  result: BorgModuleBFD
+
+- type: latheRecipe
+  parent: BaseDiamondBorgModuleRecipe
+  id: BorgModuleFulton
+  result: BorgModuleFulton
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleTraversal
+  result: BorgModuleTraversal
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleAppraisal
+  result: BorgModuleAppraisal
+
+# Engineering
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleNuclear
+  result: BorgModuleNuclear
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleFlatpack
+  result: BorgModuleFlatpack
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleConstruction
+  result: BorgModuleConstruction
+
+# Medical
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAdvancedRescue
+  result: BorgModuleAdvancedRescue
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleRescue
+  result: BorgModuleRescue
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleTopicals
+  result: BorgModuleTopicals

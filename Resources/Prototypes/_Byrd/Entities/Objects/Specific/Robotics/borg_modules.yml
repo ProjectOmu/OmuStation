@@ -1,0 +1,661 @@
+#Abstracts used in place of baseborgmodule[dept] to give basic modules the ability to install into generics
+- type: entity
+  id: BaseBorgModuleCargoBasic
+  parent: [BaseBorgModuleCargo]
+  abstract: true
+  components:
+  - type: BorgModule
+    borgFitTypes:
+    - borg-type-salvage
+    - borg-type-generic
+  - type: Tag
+    tags:
+    - BorgModuleBasic
+    - BorgModuleCargo
+
+- type: entity
+  id: BaseBorgModuleEngineeringBasic
+  parent: [BaseBorgModuleEngineering]
+  abstract: true
+  components:
+  - type: BorgModule
+    borgFitTypes:
+    - borg-type-engineer
+    - borg-type-generic
+  - type: Tag
+    tags:
+    - BorgModuleBasic
+    - BorgModuleEngineering
+
+- type: entity
+  id: BaseBorgModuleJanitorBasic
+  parent: [BaseBorgModuleJanitor]
+  abstract: true
+  components:
+  - type: BorgModule
+    borgFitTypes:
+    - borg-type-janitor
+    - borg-type-generic
+  - type: Tag
+    tags:
+    - BorgModuleBasic
+    - BorgModuleJanitor
+
+- type: entity
+  id: BaseBorgModuleMedicalBasic
+  parent: [BaseBorgModuleMedical]
+  abstract: true
+  components:
+  - type: BorgModule
+    borgFitTypes:
+    - borg-type-medical
+    - borg-type-generic
+  - type: Tag
+    tags:
+    - BorgModuleBasic
+    - BorgModuleMedical
+
+- type: entity
+  id: BaseBorgModuleScienceBasic
+  parent: [BaseBorgModuleScience]
+  abstract: true
+  components:
+  - type: BorgModule
+    borgFitTypes:
+    - borg-type-science
+    - borg-type-generic
+  - type: Tag
+    tags:
+    - BorgModuleBasic
+    - BorgModuleScience
+
+- type: entity
+  id: BaseBorgModuleServiceBasic
+  parent: [BaseBorgModuleService]
+  abstract: true
+  components:
+  - type: BorgModule
+    borgFitTypes:
+    - borg-type-service
+    - borg-type-generic
+  - type: Tag
+    tags:
+    - BorgModuleBasic
+    - BorgModuleService
+
+#Universal
+# Omu start- redundant we already have this
+# - type: entity
+#   id: BorgModuleArt
+#   parent: [ BaseBorgModule, BaseProviderBorgModule ]
+#   name: art cyborg module
+#   description: A universal cyborg module which allows the unit to make art
+#   components:
+#   - type: Sprite
+#     layers:
+#     - state: generic
+#       sprite: Objects/Specific/Robotics/borgmodule.rsi
+#     - state: icon-brush
+#       sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+#   - type: ItemBorgModule
+#     moduleId: Art
+#     items:
+#     - SprayPainterRecharging
+#     - Pen
+#   - type: DroppableBorgModule
+#     moduleId: Art
+#     items:
+#     - id: CrayonRainbow
+#       whitelist:
+#         components:
+#         - Crayon
+#   - type: BorgModuleIcon
+#     icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: art-module }
+# Omu end- redundant we already have this
+
+- type: entity
+  id: BorgModuleGravity
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: gravity manipulation cyborg module
+  description: A cyborg module to break the laws of gravity
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-tethergun
+      sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: GravityManipulation
+    items:
+    - WeaponTetherGunRecharging
+    - WeaponForceGunRecharging
+  - type: BorgModuleIcon
+    icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: gravity-module }
+
+#Tidecraft: generic modules made by hand with a unprofessional bent to them
+
+- type: entity
+  id: BorgModuleYEET
+  parent: [BaseBorgModule, BaseProviderBorgModule]
+  name: Y.E.E.T Cyborg module
+  description: How to reload is apparently an exercise left to the cyborg
+  components:
+  - type: Construction
+    graph: BorgModuleYeetCraft
+    node: borgmoduleyeet
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-yeet
+      sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponImprovisedPneumaticCannon
+      whitelist:
+        components:
+        - PneumaticCannon
+  - type: BorgModuleIcon
+    icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: yeet-module }
+
+- type: entity
+  id: BorgModuleAggressiveLube
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: aggressive cleaning cyborg module
+  description: a janitorial module to deploy cleaning ordinance to the station, this one's been tampered with
+  components:
+  - type: Construction
+    graph: BorgModuleLubeCraft
+    node: borgmodulelube
+  - type: Sprite
+    layers:
+    - state: janitor
+    - state: icon-cleanade
+      sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: AggressiveLube
+    items:
+    - BorgLauncherLubenade
+  - type: BorgModuleIcon
+    icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: cleanade-module }
+
+#Science
+- type: entity
+  id: BorgModuleAdvancedAnomaly
+  parent: [BaseBorgModuleScience, BaseProviderBorgModule]
+  name: advanced anomaly cyborg module
+  description: A advanced science module to assist in the management of dangerous anomalies
+  components:
+      - type: Sprite
+        layers:
+        - state: science
+        - state: icon-chimp
+          sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+      - type: ItemBorgModule
+        moduleId: AdvancedAnomaly
+        hands:
+        items:
+        - AnomalyScanner
+        - AnomalyLocatorUnpowered
+        - AnomalyLocatorWideUnpowered
+        - WeaponGauntletGorilla
+        - WeaponPistolCHIMPRecharging
+      - type: DroppableBorgModule
+        moduleId: AdvancedAnomaly
+        items:
+        - id: FoodAnomalyBerry
+          whitelist:
+            components:
+            - AnomalyCore
+      - type: BorgModuleIcon
+        icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: advancedanomaly-module }
+
+- type: entity
+  id: BorgModuleXenobio
+  parent: [BaseBorgModuleScience, BaseProviderBorgModule]
+  name: xenobio cyborg module
+  description: A science module to manage xenobiological research
+  components:
+  - type: Sprite
+    layers:
+    - state: science
+    - state: icon-xenobio
+      sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: Xenobio
+    items:
+    - ClothingBeltChemBagXenobiology
+    - WeaponXenoVacNozzle
+    - ClothingBackpackXenoBioTank
+    - SlimeScannerXenobio
+    - Syringe
+    - SprayBottle
+  - type: DroppableBorgModule
+    moduleId: Xenobio
+    items:
+    - id: MonkeyCube
+      whitelist:
+        components:
+        - Rehydratable
+        - SlimeExtract
+        tags:
+        - MonkeyCube
+  - type: BorgModuleIcon
+    icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: xenobio-module }
+
+- type: entity
+  id: BorgModuleAdvancedXenobio
+  parent: [BaseBorgModuleScience, BaseProviderBorgModule]
+  name: advanced xenobio cyborg module
+  description: A science module to manage advanced xenobiological research
+  components:
+  - type: Sprite
+    layers:
+    - state: science
+    - state: icon-xenobio
+      sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: AdvancedXenobio
+    items:
+    - ClothingBeltChemBagXenobiologyHolding
+    - WeaponXenoVacNozzle
+    - ClothingBackpackXenoBioTank #in future I'd like to replace this with a larger tank of holding
+    - SlimeScannerXenobio
+    - Syringe
+    - MegaSprayBottle
+  - type: DroppableBorgModule
+    moduleId: AdvancedXenobio
+    items:
+    - id: MonkeyCube
+      whitelist:
+        components:
+        - Rehydratable
+        - SlimeExtract
+        tags:
+        - MonkeyCube
+  - type: BorgModuleIcon
+    icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: advancedxenobio-module }
+
+#Janitorial
+- type: entity
+  id: BorgModuleSpraying
+  parent: [BaseBorgModuleJanitor, BaseProviderBorgModule]
+  name: nozzle cyborg module
+  description: A janitoral module to rapidly spray chemicals of dubious value all over the station
+  components:
+  - type: Sprite
+    layers:
+    - state: janitor
+    - state: icon-spraying
+      sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: SprayNozzle
+    items:
+    - WeaponSprayNozzle
+    - ClothingBackpackWaterTank
+  - type: BorgModuleIcon
+    icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: spray-module }
+
+
+- type: entity
+  id: BorgModuleAggressiveClean
+  parent: [BaseBorgModuleJanitor, BaseProviderBorgModule]
+  name: aggressive cleaning cyborg module
+  description: a janitorial module to deploy cleaning ordinance to the station
+  components:
+  - type: Sprite
+    layers:
+    - state: janitor
+    - state: icon-cleanade
+      sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: AggressiveClean
+    items:
+    - BorgLauncherCleanade
+  - type: BorgModuleIcon
+    icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: cleanade-module }
+
+#Service
+- type: entity
+  id: BorgModuleComedicViolence
+  parent: [BaseBorgModuleServiceBasic, BaseProviderBorgModule]
+  name: Comedic Violence cyborg module
+  description: A Service module for commiting VIOLENCE..... with foam
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-foam
+      sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: ComedicViolence
+    items:
+    - WeaponBorgRifleFoam
+    - RubberChicken
+    - ToyHammer
+  - type: DroppableBorgModule
+    moduleId: ComedicViolence
+    items:
+    - id: WhoopieCushion
+      whitelist:
+        tags:
+        - FunnyNoiseWhenWalkedOn #making broad in case anyone wants to give the borgs more options for putting under people
+  - type: BorgModuleIcon
+    icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: foam-module }
+
+- type: entity
+  id: BorgModuleLibrarian
+  parent: [BaseBorgModuleService, BaseProviderBorgModule]
+  name: librarian cyborg module
+  description: A Service module for when a tider throws 3072 books around the station
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-books
+      sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  - type: DroppableBorgModule
+    moduleId: Librarian
+    items:
+    - id: BookHowToCookForFortySpaceman
+      whitelist:
+        tags:
+        - Book
+    - id: BookBartendersManual
+      whitelist:
+        tags:
+        - Book
+    - id: BookEngineersHandbook
+      whitelist:
+        tags:
+        - Book
+    - id: BookMedicalReferenceBook
+      whitelist:
+        tags:
+        - Book
+    - id: BookSpaceLaw
+      whitelist:
+        tags:
+        - Book
+  - type: BorgModuleIcon
+    icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: book-module }
+
+- type: entity
+  id: BorgModuleAdvancedBotany
+  parent: [BaseBorgModuleService, BaseProviderBorgModule]
+  name: advanced botany cyborg module
+  description: a service module for advanced plant work
+  components:
+    - type: Sprite
+      layers:
+        - state: service
+        - state: icon-tree
+          sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+    - type: ItemBorgModule
+      moduleId: AdvancedGardening
+      items:
+      - PlantAnalyzerRecharging
+      - HydroponicsToolMiniHoe
+      - HydroponicsToolSpade
+      - HydroponicsToolClippers
+      - HydroponicsToolHatchet
+      - PlantBagOfHolding
+      - BorgBucket
+    - type: DroppableBorgModule
+      moduleId: AdvancedGardening
+      items:
+      - id: AppleSeeds
+        whitelist:
+          components:
+          - Seed
+      - id: FoodApple
+        whitelist:
+          components:
+          - Produce
+      - id: DiseaseSwab
+        whitelist:
+          components:
+          - DiseaseSwab
+    - type: BorgModuleIcon
+      icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: botany-module }
+
+- type: entity
+  id: BorgModuleCooking
+  parent: [BaseBorgModuleServiceBasic, BaseProviderBorgModule]
+  name: chef cyborg module
+  description: a service module to allow a borg to cook delicious meals for the crew
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-knife
+      sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: Cooking
+    items:
+    - KitchenKnife
+    - RollingPin
+  - type: DroppableBorgModule
+    moduleId: Cooking
+    items:
+    - id: Beaker
+      whitelist:
+        components:
+        - FitsInDispenser
+        tags:
+        - ChemDispensable
+    - id: ReagentContainerFlour
+      whitelist:
+        components:
+        - Produce
+        tags:
+        - Ingredient
+        - Meat
+        - Slice
+    - id: MonkeyCube
+      whitelist:
+        components:
+        - Rehydratable
+        tags:
+        - MonkeyCube
+  - type: BorgModuleIcon
+    icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: chef-module }
+#Salvage
+- type: entity
+  id: BorgModuleBFG #salvage enjoyers I know you want to, but DON'T PUT THESE INTO THE SALVAGE VENDOR, they need to be locked to late game
+  parent: [BaseBorgModuleCargo, BaseProviderBorgModule]
+  name: B.F.G cyborg module
+  description: A salvage module that gives cyborgs a REALLY BIG GUN, install with caution
+  components:
+    - type: Sprite
+      layers:
+      - state: cargo
+      - state: icon-BFG
+        sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+    - type: ItemBorgModule
+      moduleId: BFG
+      items:
+      - WeaponMechIndustrialKineticAccelerator
+    - type: BorgModuleIcon
+      icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: BFG-module }
+
+- type: entity
+  id: BorgModuleBFD #salvage enjoyers I know you want to, but DON'T PUT THESE INTO THE SALVAGE VENDOR, they need to be locked to late game
+  parent: [BaseBorgModuleCargo, BaseProviderBorgModule]
+  name: B.F.D Cyborg module
+  description: A salvage module to rip planets to shreds for the sake of capitalism
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-drill
+      sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: BFD
+    items:
+    - WeaponBorgMeleeDrillDiamond
+    - AdvancedMineralScannerUnpowered
+    - OreBagOfHolding
+  - type: BorgModuleIcon
+    icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: BFD-module }
+
+- type: entity
+  id: BorgModuleFulton #This one can go into the salvage vendor if you want
+  parent: [BaseBorgModuleCargo, BaseProviderBorgModule]
+  name: fulton cyborg module
+  description: A salvage module for rapid extraction of valuables back to the hoard
+  components:
+     - type: Sprite
+       layers:
+       - state: cargo
+       - state: icon-fulton
+         sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+     - type: DroppableBorgModule
+       moduleId: Fulton
+       items:
+       - id: Fulton
+         whitelist:
+           components:
+           - Fulton
+       - id: Fulton
+         whitelist:
+           components:
+           - Fulton
+       - id: FultonBeacon
+         whitelist:
+            components:
+            - FultonBeacon
+     - type: BorgModuleIcon
+       icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: fulton-module }
+
+#Engineering
+- type: entity
+  id: BorgModuleNuclear
+  parent: [BaseBorgModuleEngineering, BaseProviderBorgModule]
+  name: nuclear engineering cyborg module
+  description: a engineering module for establishing nuclear power and probably not melting down
+  components:
+  - type: Sprite
+    layers:
+    - state: engineering
+    - state: icon-radiation
+  - type: ItemBorgModule
+    moduleId: Nuclear
+    items:
+    - GeigerCounter
+  - type: DroppableBorgModule
+    moduleId: Nuclear
+    items:
+    - id: SteelReactorHeatExchanger
+      whitelist:
+        components:
+        - ReactorPart
+    - id: SteelReactorHeatExchanger
+      whitelist:
+        components:
+        - ReactorPart
+    - id: SteelReactorGasChannel
+      whitelist:
+        components:
+        - ReactorPart
+    - id: SteelReactorGasChannel
+      whitelist:
+        components:
+        - ReactorPart
+  - type: BorgModuleIcon
+    icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: nuclear-module }
+
+- type: entity
+  id: BorgModuleFlatpack
+  parent: [BaseBorgModuleEngineering, BaseProviderBorgModule]
+  name: flatpack cyborg module
+  description: a engineering module for rapidly constructing prefabricated structures
+  components:
+  - type: Sprite
+    layers:
+    - state: engineering
+    - state: icon-flatpack
+      sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: Flatpack
+    items:
+    - Multitool
+  - type: DroppableBorgModule
+    moduleId: Flatpack
+    items:
+    - id: WeaponCapacitorRechargerCircuitboard
+      whitelist:
+        components:
+        - Flatpack
+        - MachineBoard
+    - id: WeaponCapacitorRechargerCircuitboard
+      whitelist:
+        components:
+        - Flatpack
+        - MachineBoard
+    - id: WeaponCapacitorRechargerCircuitboard
+      whitelist:
+        components:
+        - FlatPack
+        - MachineBoard
+    - id: WeaponCapacitorRechargerCircuitboard
+      whitelist:
+        components:
+        - Flatpack
+        - MachineBoard
+  - type: BorgModuleIcon
+    icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: flatpack-module }
+
+# Medical
+- type: entity #Currently broken as the Droppable borg module fails to remove the embedded property from the syringes, once that's bugfixed this'll work fine
+  id: BorgModuleSyringeGun
+  suffix: Awaiting Bugfix, do not map
+  parent: [BaseBorgModuleMedical, BaseProviderBorgModule]
+  name: syringe gun cyborg module
+  description: a medical module for injecting chemicals into unruly patients
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-BFG
+      sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: SyringeGun
+    items:
+    - SyringeGun
+  - type: DroppableBorgModule
+    moduleId: SyringeGun
+    items:
+    - id: Syringe
+      whitelist:
+        tags:
+        - Syringe
+
+- type: entity
+  id: BorgModuleAdvancedRescue
+  parent: [BaseBorgModuleMedical, BaseProviderBorgModule]
+  name: advanced rescue cyborg module
+  description: a medical module for recovering even the most distant lost soul
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-paramed
+      sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: AdvancedRescue
+    items:
+    - BorgHypo #let the borgs have their hypo, they can only dump one full hypo at a time since there's no beaker in this module, and it lets them make custom autoinjectors essentially
+    - HandheldHealthAnalyzerUnpowered
+    - DefibrillatorOneHandedUnpowered
+    - HandheldCrewMonitorRecharging
+    - JetpackCrewBorg
+  - type: DroppableBorgModule
+    moduleId: AdvancedRescue
+    items:
+    - id: BodyBagFolded
+      whitelist:
+        tags:
+        - BodyBag
+        - RollerBed
+  - type: BorgModuleIcon
+    icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: advancedrescue-module }

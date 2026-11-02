@@ -1,0 +1,29 @@
+﻿- type: siliconLaw
+  id: scientist1
+  order: 1
+  lawString: law-scientist-1
+
+- type: siliconLaw
+  id: scientist2
+  order: 2
+  lawString: law-scientist-2
+
+- type: siliconLaw
+  id: scientist3
+  order: 3
+  lawString: law-scientist-3
+
+- type: siliconLaw
+  id: scientist4
+  order: 4
+  lawString: law-scientist-4
+
+- type: siliconLawset
+  id: scientist
+  name: law-scientist-name
+  laws:
+  - scientist1
+  - scientist2
+  - scientist3
+  - scientist4
+  obeysTo: laws-owner-crew

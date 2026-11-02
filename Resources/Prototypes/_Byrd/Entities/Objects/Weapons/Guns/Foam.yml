@@ -1,0 +1,36 @@
+﻿- type: entity
+  name: Foam Force Astro Ace
+  suffix: Recharging
+  parent: BaseWeaponBattery
+  id: WeaponBorgRifleFoam
+  description:  A premium foam rifle of the highest quality. Its plastic feels rugged, and its mechanisms sturdy.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Rifles/foam_rifle.rsi
+    state: icon
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Rifles/foam_rifle.rsi
+  - type: Item
+    sprite: Objects/Weapons/Guns/Rifles/foam_rifle_inhand_64x.rsi
+    size: Normal
+  - type: PacifismAllowedGun
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Effects/thunk.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    clumsyProof: true
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletFoam
+    fireCost: 10
+  - type: Battery
+    maxCharge: 100
+    startingCharge: 100
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 1
+  - type: AmmoCounter

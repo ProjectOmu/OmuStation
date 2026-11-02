@@ -1,0 +1,15 @@
+- type: construction
+  id: BorgModuleYeet
+  graph: BorgModuleYeetCraft
+  startNode: start
+  targetNode: borgmoduleyeet
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: BorgModuleLube
+  graph: BorgModuleLubeCraft #something is broken here
+  startNode: start
+  targetNode: borgmodulelube
+  category: construction-category-misc
+  objectType: Item

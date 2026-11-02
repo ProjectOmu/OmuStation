@@ -1,0 +1,51 @@
+﻿- type: entity
+  parent: BaseBulletTrigger
+  id: BorgBulletGrenadeCleanade
+  name: cleanade grenade round
+  description: This projectile is moving so fast nobody will see I'm non-binary
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 1
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: cleanade
+  - type: SmokeOnTrigger
+    duration: 3.5
+    spreadAmount: 30
+    smokePrototype: Foam
+    solution:
+      reagents:
+      - ReagentId: SpaceCleaner
+        Quantity: 30
+  - type: EmitSoundOnTrigger
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
+
+- type: entity
+  parent: BaseBulletTrigger
+  id: BorgBulletGrenadeLubenade
+  name: Lubenade grenade round
+  description: This projectile is moving so fast nobody will see I'm non-binary
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 1
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: cleanade
+  - type: SmokeOnTrigger
+    duration: 3.5
+    spreadAmount: 30
+    smokePrototype: Foam
+    solution:
+      reagents:
+      - ReagentId: SpaceLube
+        Quantity: 30
+  - type: EmitSoundOnTrigger
+    sound: /Audio/Items/smoke_grenade_smoke.ogg

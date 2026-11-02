@@ -6,11 +6,13 @@
   spritePath: _Omu/Mobs/Silicon/Generic/Buggeneric.rsi
   dummyPrototype: BorgChassisGenericBugborg
 
-- type: borgSubtype
-  parentBorgType: generic_bug
-  id: generic_bugscience
-  spritePath: _Omu/Mobs/Silicon/Generic/Bugscience.rsi
-  dummyPrototype: BorgChassisGenericBugScience
+# Start Byrd, commenting out as there's a proper science borg for it to live under
+#- type: borgSubtype
+#  parentBorgType: generic_bug
+#  id: generic_bugscience
+#  spritePath: _Omu/Mobs/Silicon/Generic/Bugscience.rsi
+#  dummyPrototype: BorgChassisGenericBugScience
+# End Byrd
 
 # Mining subtypes
 

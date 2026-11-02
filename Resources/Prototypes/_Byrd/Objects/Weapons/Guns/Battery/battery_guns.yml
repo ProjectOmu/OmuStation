@@ -1,0 +1,50 @@
+﻿- type: entity
+  name: C.H.I.M.P. handcannon
+  parent: WeaponPistolCHIMP
+  id: WeaponPistolCHIMPRecharging
+  suffix: Self-Charging
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 25
+
+- type: entity
+  name: experimental cleanade cannon
+  parent: BaseWeaponBattery
+  id: BorgLauncherCleanade
+  description: Deliver a generous portion of clean directly to the crew! Automatically recharges cleanades over time.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/hydra_launcher.rsi
+    layers:
+    - state: icon
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+    clumsyProof: true
+  - type: ProjectileBatteryAmmoProvider
+    proto: BorgBulletGrenadeCleanade
+    fireCost: 60
+  - type: Battery
+    maxCharge: 180
+    startingCharge: 180
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 1
+  - type: AmmoCounter
+  - type: Item
+    size: Normal
+
+- type: entity
+  name: experimental cleanade cannon
+  parent: BorgLauncherCleanade
+  id: BorgLauncherLubenade
+  description: This has been modified to recharge and fire lubenades istead, but odds are the borgs won't notice.
+  components:
+  - type: ProjectileBatteryAmmoProvider
+    proto: BorgBulletGrenadeLubenade

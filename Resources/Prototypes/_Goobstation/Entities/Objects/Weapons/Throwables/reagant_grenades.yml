@@ -16,6 +16,14 @@
       reagents:
       - ReagentId: SpaceLube
         Quantity: 20
+  # Omu start - porting over borg modules form byrd
+  - type: CartridgeAmmo
+    proto: LubeGrenadeArmed
+    deleteOnSpawn: true
+  - type: Tag
+    tags:
+      - LubeGrenade # just here for the crafting recipe
+  # Omu end - porting over borg modules form byrd
 
 - type: entity
   parent: SmokeGrenade
