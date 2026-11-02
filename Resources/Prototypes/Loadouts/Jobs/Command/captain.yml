@@ -19,6 +19,16 @@
       role: JobCaptain
       time: 360000 # 100 hrs
 
+# Omu - For Off-Coat
+- type: loadoutEffectGroup
+  id: VeteranCap
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 180000 # 50 hrs
+
 # Jumpsuit
 - type: loadout
   id: CaptainJumpsuit
@@ -123,6 +133,14 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: GrandMasterCap
+
+- type: loadout # Omu - off-coats
+  id: CaptainOffcoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranCap
+  equipment:
+    neck: ClothingNeckCloakCAPCoat
 
 # Back
 - type: loadout

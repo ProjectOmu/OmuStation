@@ -156,3 +156,14 @@
   - type: Clothing
     sprite: _Omu/Clothing/Neck/Cloaks/bso_offcoat.rsi
 
+- type: entity
+  parent: [ ClothingNeckBase, BaseCommandContraband ]
+  id: ClothingNeckCloakCAPCoat
+  name: captain's embroidered off-coat
+  description: A finely tailored coat draped elegantly over your shoulders. Cuts a distinguished figure befitting the station's highest authority.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/cap_offcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/cap_offcoat.rsi
+
