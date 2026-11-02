@@ -101,7 +101,7 @@
   name: CentComm over-ear loudspeaker headset
 
 - type: entity
-  parent: ClothingHeadsetAlt
+  parent: ClothingHeadsetAltCentCom
   id: ClothingHeadsetAltDrillSergeant
   name: Drill Sergeant over-ear headset
   description: A headset usually worn by Emergency Response Drill Sergeants, designed to strike fear into recruits. A particularly loud purple slime comes to mind seeing this headset.
@@ -110,11 +110,6 @@
     canToggle: true
     affectRadio: true
     affectChat: true
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - EncryptionKeyCentCom
-      - EncryptionKeyStationMaster
   - type: Sprite
     sprite: _Omu/Clothing/Ears/Headsets/drillsergeant.rsi
   - type: Clothing
