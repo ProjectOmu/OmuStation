@@ -89,7 +89,7 @@ uplink-pressure-modkit-desc = This illegal modkit takes 30 capacity of your prot
 
 uplink-grey-tide-name = Grey Tide
 #omu edit
-uplink-grey-tide-desc = A bundle containing an ancient artifact with magical properties. Identical to plasma spear but capable of summoning illusions upon hitting living mob if wielder is wearing a cused gas mask (also included).
+uplink-grey-tide-desc = A bundle containing an ancient artifact with magical properties. Identical to plasma spear but capable of summoning illusions upon hitting living mob if wielder is wearing a cursed gas mask (also included).
 
 uplink-adv-mimery-name = Guide to Advanced Mimery Series
 uplink-adv-mimery-desc = The classical two part series on how to further hone your mime skills. Upon studying the series, the user should be able to make 3x1 invisible walls, and shoot bullets out of their fingers.
