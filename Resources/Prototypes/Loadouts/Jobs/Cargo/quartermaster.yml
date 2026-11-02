@@ -9,6 +9,16 @@
       role: JobQuartermaster
       time: 20h
 
+# Omu - for off-coat
+- type: loadoutEffectGroup
+  id: VeteranQM
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobQuartermaster
+      time: 50h
+
 # Goobstation - For Ensembles
 - type: loadoutEffectGroup
   id: GrandMasterQM
@@ -87,6 +97,14 @@
   id: QuartermasterMantle
   equipment:
     neck: ClothingNeckMantleQM
+
+- type: loadout
+  id: QuartermasterOffcoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranQM
+  equipment:
+    neck: ClothingNeckCloakQMCoat # Omu
 
 - type: loadout # Goobstation - Ensembles
   id: QuartermasterEnsemble

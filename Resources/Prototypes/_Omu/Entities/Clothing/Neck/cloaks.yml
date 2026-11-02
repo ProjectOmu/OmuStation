@@ -200,3 +200,14 @@
   - type: Clothing
     sprite: _Omu/Clothing/Neck/Cloaks/ce_greenoffcoat.rsi
 
+- type: entity
+  parent: [ ClothingNeckBase, BaseCommandContraband ]
+  id: ClothingNeckCloakQMCoat
+  name: quartermaster's embroidered off-coat
+  description: A coat imposingly worn as a cloak over your back. Cuts a dashing figure befitting the station's wealth intake and material manager.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/qm_offcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/qm_offcoat.rsi
+
