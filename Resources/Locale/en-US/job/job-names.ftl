@@ -141,6 +141,7 @@ JobMedicalIntern = Medical intern
 JobMime = Mime
 JobMusician = Musician
 JobParamedic = Paramedic
+## omu edit - off duty
 JobPassenger = Off Duty
 JobPartyMaker = Party Maker
 JobPsychologist = Psychologist
