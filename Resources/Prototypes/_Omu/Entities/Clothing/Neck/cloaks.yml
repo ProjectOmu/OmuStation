@@ -211,3 +211,14 @@
   - type: Clothing
     sprite: _Omu/Clothing/Neck/Cloaks/qm_offcoat.rsi
 
+- type: entity
+  parent: [ ClothingNeckBase, BaseCentcommContraband ]
+  id: ClothingNeckCloakIA
+  name: centcomm agent's off-coat
+  description: A coat imposingly worn as a cloak over your back. Cuts a dashing figure.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/ia_offcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/ia_offcoat.rsi
+
