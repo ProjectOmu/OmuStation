@@ -686,7 +686,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             _monument.MonumentTier3(uid);
             cult.Comp.CurrentTier = 3; // Omu
             _monument.UpdateMonumentReqsForTier(uid, cult.Comp.CurrentTier);
-
+            // cult.Comp.CurrentTier = 3; Omu removed
             cult.Comp.Tier3DelayTimer = _timing.CurTime + _t3RevealDelay;
         }
         else if (uid.Comp.CurrentProgress >= uid.Comp.TargetProgress && cult.Comp.CurrentTier == 1 && uid.Comp.CanTierUp)
