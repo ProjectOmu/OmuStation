@@ -15,4 +15,19 @@
     - VoidsuitSelectorSecurityHardsuit
     - VoidsuitSelectorBrigMedHardsuit
 
+# warden
+- type: entity
+  id: UndeterminedVoidsuitWarden
+  name: warden hardsuit selector
+  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: SetSelector
+    possibleSets:
+    - VoidsuitSelectorWardenHardsuit
+    - VoidsuitSelectorWardenRiotHardsuit
+
 
