@@ -134,10 +134,10 @@
         Piercing: 0.40
         Radiation: 0.70
         Caustic: 0.70
-        Heat: 0.40
+        Heat: 0.50 # Omu
   - type: ClothingSpeedModifier
-    walkModifier: 0.70 # Omu
-    sprintModifier: 0.70 # Omu
+    walkModifier: 0.65 # Omu
+    sprintModifier: 0.65 # Omu
   - type: ToggleableClothing
     clothingPrototypes: #goobstation change
       head: ClothingHeadHelmetHardsuitCombatRiot
