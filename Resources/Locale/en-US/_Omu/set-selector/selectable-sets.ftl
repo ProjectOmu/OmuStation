@@ -193,7 +193,7 @@ selectable-set-warden-riothardsuit-name = Warden's riot hardsuit
 selectable-set-warden-riothardsuit-desc =
     Riot combat hardsuit repainted in security colors.
     Heavier plating stops bullets and lasers far better,
-    but slows the wearer down considerably.
+    but slows the wearer down more.
 
 # BSO
 selectable-set-bso-brdi-name = BRDI R-25
