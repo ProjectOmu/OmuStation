@@ -212,7 +212,7 @@
     sprite: _Omu/Clothing/Neck/Cloaks/qm_offcoat.rsi
 
 - type: entity
-  parent: [ ClothingNeckBase, BaseCentcommContraband ]
+  parent: [ ClothingNeckStorageBase, BaseCentcommContraband ]
   id: ClothingNeckCloakIA
   name: internal affair officer's off-coat
   description: A coat imposingly worn as a cloak over your back. Cuts a dashing figure.
@@ -224,7 +224,6 @@
   - type: Storage
     grid:
     - 0,0,3,1
-    # Goobstation start
     whitelist:
       components:
       - BallisticAmmoProvider
