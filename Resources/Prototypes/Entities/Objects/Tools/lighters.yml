@@ -18,6 +18,13 @@
     activatedDamage:
         types:
             Heat: 1
+    # Omu Start
+    activatedSoundOnHit:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    # Omu End
   - type: ItemToggleSize
     activatedSize: Small
   - type: ItemToggleHot
