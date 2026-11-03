@@ -221,4 +221,33 @@
     sprite: _Omu/Clothing/Neck/Cloaks/ia_offcoat.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Neck/Cloaks/ia_offcoat.rsi
+  - type: ItemSlots
+    slots:
+      item:
+        name: Handgun
+        whitelist:
+          tags:
+          - Sidearm
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCentcommContraband ]
+  id: ClothingNeckCloakEGG
+  name: direggtor's off-coat
+  description: A coat imposingly worn as a cloak over your back. Cuts a dashing figure.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/direggtor_offcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/direggtor_offcoat.rsi
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCentcommContraband ]
+  id: ClothingNeckCloakIARN
+  name: I.A.R.N ceremonial windbreaker
+  description: A coat imposingly worn as a cloak over your back. Cuts a dashing figure.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/iarn_offcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/iarn_offcoat.rsi
 
