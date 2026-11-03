@@ -136,8 +136,8 @@
         Caustic: 0.70
         Heat: 0.40
   - type: ClothingSpeedModifier
-    walkModifier: 0.60
-    sprintModifier: 0.60
+    walkModifier: 0.70 # Omu
+    sprintModifier: 0.70 # Omu
   - type: ToggleableClothing
     clothingPrototypes: #goobstation change
       head: ClothingHeadHelmetHardsuitCombatRiot
