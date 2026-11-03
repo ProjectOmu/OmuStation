@@ -9850,3 +9850,27 @@ Entries:
         result in performance massively dropping for anyone nearby.
   id: 1266
   time: '2026-11-02T11:01:09.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Fix
+      message: Floor goblins can crawl under floor tiles again.
+  id: 1267
+  time: '2026-11-03T02:51:07.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: You can now altclick flatpacks to unpack them
+    - type: Remove
+      message: Head lockers no longer contain Multitools
+    - type: Remove
+      message: You can no longer pulse flatpacks to unpack them
+  id: 1268
+  time: '2026-11-03T02:59:57.0000000+00:00'
+- author: BramvanZijp
+  changes:
+    - type: Tweak
+      message: >-
+        The Blueshield Officer and Corpsman are now allowed to carry jaws of
+        life.
+  id: 1269
+  time: '2026-11-03T11:39:04.0000000+00:00'
