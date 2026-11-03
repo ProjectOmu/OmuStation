@@ -221,6 +221,21 @@
     sprite: _Omu/Clothing/Neck/Cloaks/ia_offcoat.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Neck/Cloaks/ia_offcoat.rsi
+  - type: Storage
+    grid:
+    - 0,0,3,1
+    # Goobstation start
+    whitelist:
+      components:
+      - BallisticAmmoProvider
+      - CartridgeAmmo
+      tags:
+      - EnergySpeedloader
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+      storagebase: !type:Container
+        ents: []
   - type: ItemSlots
     slots:
       item:
