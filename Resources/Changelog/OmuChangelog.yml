@@ -9826,3 +9826,43 @@ Entries:
       message: Mentors no longer have Cryogenics access.
   id: 1263
   time: '2026-10-31T03:13:37.0000000+00:00'
+- author: doglettucee, Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Captain, Head of Security, and Warden SOPs should be clearer and more
+        robust. Check them before playing these roles.
+  id: 1264
+  time: '2026-11-02T01:30:13.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Fix
+      message: >-
+        Fixed the detective's bloodtrak incorrectly rejecting fresh blood as too
+        dry.
+  id: 1265
+  time: '2026-11-02T01:55:34.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Fix
+      message: >-
+        A female character being polymorphed into a monkey should no longer
+        result in performance massively dropping for anyone nearby.
+  id: 1266
+  time: '2026-11-02T11:01:09.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Fix
+      message: Floor goblins can crawl under floor tiles again.
+  id: 1267
+  time: '2026-11-03T02:51:07.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: You can now altclick flatpacks to unpack them
+    - type: Remove
+      message: Head lockers no longer contain Multitools
+    - type: Remove
+      message: You can no longer pulse flatpacks to unpack them
+  id: 1268
+  time: '2026-11-03T02:59:57.0000000+00:00'
