@@ -1,15 +1,22 @@
 - type: entity
   parent: ClothingNeckBase
+  id: ClothingArmbandBase
+  abstract: true
+  name: armband
+  description: An armband.
+  components:
+  - type: Item
+    size: Small
+    heldPrefix: right
+  - type: Tag
+    tags: [Armband]
+
+- type: entity
+  parent: ClothingArmbandBase
   id: ClothingArmbandMed
   name: medical armband
   description: an armband to show your connection to the medical department
   components:
-  - type: Item
-    size: Small
-    heldPrefix: right
-  - type: Tag
-    tags:
-     - Armband
   - type: Sprite
     sprite: _Omu/Clothing/Neck/Armbands/medarmband.rsi
     state: "icon-RIGHT"
@@ -37,17 +44,11 @@
           state: icon-BOTH
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingArmbandBase
   id: ClothingArmbandEngi
   name: engineering armband
   description: an armband to show your connection to the engineering department
   components:
-  - type: Item
-    size: Small
-    heldPrefix: right
-  - type: Tag
-    tags:
-     - Armband
   - type: Sprite
     sprite: _Omu/Clothing/Neck/Armbands/engiarmband.rsi
     state: "icon-RIGHT"
@@ -75,17 +76,11 @@
           state: icon-BOTH
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingArmbandBase
   id: ClothingArmbandSci
   name: science armband
   description: an armband to show your connection to the science department
   components:
-  - type: Item
-    size: Small
-    heldPrefix: right
-  - type: Tag
-    tags:
-     - Armband
   - type: Sprite
     sprite: _Omu/Clothing/Neck/Armbands/sciarmband.rsi
     state: "icon-RIGHT"
@@ -113,17 +108,11 @@
           state: icon-BOTH
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingArmbandBase
   id: ClothingArmbandService
   name: service armband
   description: an armband to show your connection to the service department
   components:
-  - type: Item
-    size: Small
-    heldPrefix: right
-  - type: Tag
-    tags:
-     - Armband
   - type: Sprite
     sprite: _Omu/Clothing/Neck/Armbands/servicearmband.rsi
     state: "icon-RIGHT"
@@ -151,17 +140,11 @@
           state: icon-BOTH
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingArmbandBase
   id: ClothingArmbandCargo
   name: cargo armband
   description: an armband to show your connection to the cargo department
   components:
-  - type: Item
-    size: Small
-    heldPrefix: right
-  - type: Tag
-    tags:
-     - Armband
   - type: Sprite
     sprite: _Omu/Clothing/Neck/Armbands/cargoarmband.rsi
     state: "icon-RIGHT"
@@ -189,17 +172,11 @@
           state: icon-BOTH
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingArmbandBase
   id: ClothingArmbandCC
   name: CC armband
   description: an armband to show your connection to central command
   components:
-  - type: Item
-    size: Small
-    heldPrefix: right
-  - type: Tag
-    tags:
-     - Armband
   - type: Sprite
     sprite: _Omu/Clothing/Neck/Armbands/ccarmband.rsi
     state: "icon-RIGHT"
