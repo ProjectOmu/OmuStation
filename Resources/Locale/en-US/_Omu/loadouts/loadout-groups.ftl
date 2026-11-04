@@ -92,4 +92,4 @@ loadout-group-bartender-backpack = Bartender backpacks
 loadout-group-civilian_formal-shoes = Formal shoes
 
 #Oni groud
-loadout-group-oni-gourd - Gourd
+loadout-group-oni-gourd = Gourd
