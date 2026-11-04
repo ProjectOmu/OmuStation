@@ -6,6 +6,10 @@
 
 - type: loadout
   id: HeadofSecurityGloveJacket
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Xelthia
   equipment:
     outerClothing: ClothingOuterJacketInsulatedHoS
 
