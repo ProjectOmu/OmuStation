@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Serialization;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.SetSelector;
@@ -43,12 +44,14 @@ public partial struct SelectableSetInfo
     public SpriteSpecifier Sprite;
 
     public bool Selected;
+    public ProtoId<SelectableSetPrototype> Prototype;
 
-    public SelectableSetInfo(string name, string desc, SpriteSpecifier sprite, bool selected)
+    public SelectableSetInfo(string name, string desc, SpriteSpecifier sprite, bool selected, ProtoId<SelectableSetPrototype> prototype)
     {
         Name = name;
         Description = desc;
         Sprite = sprite;
         Selected = selected;
+        Prototype = prototype;
     }
 }
