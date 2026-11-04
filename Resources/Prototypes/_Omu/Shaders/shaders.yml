@@ -2,3 +2,17 @@
   id: PhotophobiaShader
   kind: source
   path: "/Textures/_Omu/Shaders/photophobia.swsl"
+
+- type: shader
+  id: VoodooShader
+  kind: source
+  path: "/Textures/_Goobstation/Heretic/Shaders/hypno.swsl"
+  params:
+    steps: 6
+    speed: 3.0
+    col0: "#3d0b33ff"
+    col1: "#6a1b9aff"
+    col2: "#9c1f7eff"
+    col3: "#c2185bff"
+    col4: "#b71c1cff"
+    col5: "#6d1030ff"

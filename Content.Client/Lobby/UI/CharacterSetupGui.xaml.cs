@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Client._Omu.Lobby.Ui;
 using Content.Client.Info;
 using Content.Client.Info.PlaytimeStats;
 using Content.Client.Resources;
@@ -13,6 +14,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Client.Lobby.UI
 {
@@ -30,6 +32,8 @@ namespace Content.Client.Lobby.UI
 
         private readonly Button _createNewCharacterButton;
 
+        private readonly CharacterQueueEditor _queueEditor; // Omu
+
         public event Action<int>? SelectCharacter;
         public event Action<int>? DeleteCharacter;
 
@@ -37,6 +41,8 @@ namespace Content.Client.Lobby.UI
         {
             RobustXamlLoader.Load(this);
             IoCManager.InjectDependencies(this);
+
+            _queueEditor = new CharacterQueueEditor(Characters, ReloadCharacterPickers); // Omu
 
             var panelTex = _resourceCache.GetTexture("/Textures/Interface/Nano/button.svg.96dpi.png");
             var back = new StyleBoxTexture
@@ -68,6 +74,26 @@ namespace Content.Client.Lobby.UI
             _cfg.OnValueChanged(CCVars.SeeOwnNotes, p => AdminRemarksButton.Visible = p, true);
         }
 
+        // Omu start
+        protected override void EnteredTree()
+        {
+            base.EnteredTree();
+            _queueEditor.Attach();
+        }
+
+        protected override void ExitedTree()
+        {
+            base.ExitedTree();
+            _queueEditor.Detach();
+        }
+
+        protected override void FrameUpdate(FrameEventArgs args)
+        {
+            base.FrameUpdate(args);
+            _queueEditor.Update(args.DeltaSeconds);
+        }
+        // Omu end
+
         /// <summary>
         /// Disposes and reloads all character picker buttons from the preferences data.
         /// </summary>
@@ -75,6 +101,7 @@ namespace Content.Client.Lobby.UI
         {
             _createNewCharacterButton.Orphan();
             Characters.RemoveAllChildren();
+            _queueEditor.Clear(); // Omu
 
             var numberOfFullSlots = 0;
             var characterButtonsGroup = new ButtonGroup();
@@ -90,7 +117,7 @@ namespace Content.Client.Lobby.UI
 
             var selectedSlot = _preferencesManager.Preferences?.SelectedCharacterIndex;
 
-            foreach (var (slot, character) in _preferencesManager.Preferences!.Characters)
+            foreach (var (slot, character) in _queueEditor.OrderedCharacters(_preferencesManager.Preferences!)) // Omu
             {
                 numberOfFullSlots++;
                 var characterPickerButton = new CharacterPickerButton(_entManager,
@@ -110,6 +137,8 @@ namespace Content.Client.Lobby.UI
                 {
                     DeleteCharacter?.Invoke(slot);
                 };
+
+                _queueEditor.Add(slot, characterPickerButton); // Omu
             }
 
             _createNewCharacterButton.Disabled = numberOfFullSlots >= _preferencesManager.Settings.MaxCharacterSlots;
