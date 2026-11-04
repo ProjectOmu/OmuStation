@@ -26,15 +26,17 @@
     back:
     - TapeRecorderFilled
 
-- type: loadout
-  id: DrinkOniGourd
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Oni
-  storage:
-    back:
-    - DrinkOniGourd
+# Omu start - Onis start with gourds now
+# - type: loadout
+#   id: DrinkOniGourd
+#   effects:
+#   - !type:SpeciesLoadoutEffect
+#     species:
+#     - Oni
+#   storage:
+#     back:
+#     - DrinkOniGourd
+# Omu end - Onis start with gourds now
 
 - type: loadout
   id: AACTablet
