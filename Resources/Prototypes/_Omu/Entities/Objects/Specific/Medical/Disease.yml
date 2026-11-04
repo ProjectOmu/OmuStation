@@ -45,7 +45,7 @@
     - Viral
     - Bacterial
     complexity: 10
-  - type: NameIdentifier
+  - type: NameIdentifier #here and below, stuff from monkeys, we are using MobBaseAncestor to prevent them being ghost roles
     group: Monkey
   - type: Speech
     speechSounds: GoobMonkey
@@ -69,6 +69,17 @@
     color: "#2FEA17" #changes the light to green, for virology
   - type: AccessReader
     access: [["Chemistry"]] #prevents interns from accessing it
+  - type: Sprite
+    sprite: _Omu/Structures/Machines/virofridge.rsi
+    snapCardinals: true
+    layers:
+    - state: smartfridge
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: smartfridge_door
+      map: ["enum.StorageVisualLayers.Door"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: SmartFridge
     whitelist:
       components:
@@ -86,7 +97,7 @@
       - Bottle
       - Syringe
       - ChemDispensable
-      - BoxCardboard # for monkey cubes
+      - BoxCardboard # for monkey cube boxes
       - MonkeyCube
   - type: EntityTableContainerFill
     containers:
@@ -94,4 +105,3 @@
         children:
         - id: VirologyCubeBox
           amount: 1
-        - id: 
