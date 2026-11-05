@@ -147,7 +147,7 @@
   suffix: AI, Silicon
   components:
   - type: AccessReader
-    access: [["StationAi"], ["ResearchDirector"]]
+    access: [["StationAi"]] #Omu edit. removed RD's access so turrets can't be cheesed as much
   - type: StationAiTurret
   - type: TurretTargetSettings
     exemptAccessLevels:
