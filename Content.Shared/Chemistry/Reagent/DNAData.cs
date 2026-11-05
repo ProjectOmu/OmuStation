@@ -15,6 +15,7 @@ public sealed partial class DnaData : ReagentData
         return new DnaData
         {
             DNA = DNA,
+            Freshness = Freshness, // Omu fix
         };
     }
     [DataField] // Goobstation

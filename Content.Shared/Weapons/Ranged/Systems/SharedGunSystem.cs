@@ -39,6 +39,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Item;
 using Content.Goobstation.Common.Weapons.Multishot;
+using Content.Shared._Trauma.Projectiles; // Trauma
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -396,6 +397,11 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
 
         var fromCoordinates = Transform(user).Coordinates;
+        // Omu start
+        if (TransformSystem.ToMapCoordinates(toCoordinates.Value).Position ==
+            TransformSystem.ToMapCoordinates(fromCoordinates).Position)
+            return false;
+        // Omu end
         // Remove ammo
         var ev = new TakeAmmoEvent(shots, [], fromCoordinates, user);
 
@@ -500,14 +506,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         Shoot(gun, new List<(EntityUid? Entity, IShootable Shootable)>(1) { (ammo, shootable) }, fromCoordinates, toCoordinates, out userImpulse, user, throwItems);
     }
 
-    public abstract void Shoot(
-        Entity<GunComponent> gun,
-        List<(EntityUid? Entity, IShootable Shootable)> ammo,
-        EntityCoordinates fromCoordinates,
-        EntityCoordinates toCoordinates,
-        out bool userImpulse,
-        EntityUid? user = null,
-        bool throwItems = false);
+    // Trauma - moved server Shoot to SharedGunSystem.Trauma.cs and predicted it
 
     public void ShootProjectile(EntityUid uid, Vector2 direction, Vector2 gunVelocity, EntityUid? gunUid, EntityUid? user = null, float speed = ProjectileSpeed, Vector2? targetCoordinates = null) // Goob targetcoordinates
     {
@@ -530,9 +529,19 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (shooter != null)
             Projectiles.SetShooter(uid, projectile, shooter.Value);
 
+        Physics.UpdateIsPredicted(uid, physics); // Trauma - predict this shit
+
         TransformSystem.SetWorldRotation(uid, direction.ToWorldAngle() + projectile.Angle);
         if (targetCoordinates.HasValue) // Goobstation
             projectile.TargetCoordinates = targetCoordinates.Value; // Goobstation
+
+        // <Trauma>
+        if (user is {} userUid)
+        {
+            var ev = new PlayerShotProjectileEvent(uid, userUid);
+            RaiseLocalEvent(ref ev);
+        }
+        // </Trauma>
     }
 
     protected abstract void Popup(string message, EntityUid? uid, EntityUid? user);
@@ -563,18 +572,24 @@ public abstract partial class SharedGunSystem : EntitySystem
     /// Drops a single cartridge / shell
     /// </summary>
     protected void EjectCartridge(
+        // <Trauma>
+        System.Random rand, // predicted random instance for the gun
+        EntityUid? user,
+        // </Trauma>
         EntityUid entity,
         Angle? angle = null,
         bool playSound = true)
     {
         // TODO: Sound limit version.
-        var offsetPos = Random.NextVector2(EjectOffset);
+        // <Trauma> - use predicted random from params
+        var offsetPos = rand.NextAngle().RotateVec(new Vector2(rand.NextFloat(0, EjectOffset), 0));
         var xform = Transform(entity);
 
         var coordinates = xform.Coordinates;
         coordinates = coordinates.Offset(offsetPos);
 
-        TransformSystem.SetLocalRotation(entity, Random.NextAngle(), xform);
+        TransformSystem.SetLocalRotation(entity, rand.NextAngle(), xform);
+        // </Trauma>
         TransformSystem.SetCoordinates(entity, xform, coordinates);
 
         // decides direction the casing ejects and only when not cycling
@@ -586,7 +601,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
         if (playSound && TryComp<CartridgeAmmoComponent>(entity, out var cartridge))
         {
-            Audio.PlayPvs(cartridge.EjectSound, entity, AudioParams.Default.WithVariation(SharedContentAudioSystem.DefaultVariation).WithVolume(-1f));
+            Audio.PlayPredicted(cartridge.EjectSound, entity, user, AudioParams.Default.WithVariation(SharedContentAudioSystem.DefaultVariation).WithVolume(-1f)); // Trauma - predicted
         }
     }
 
@@ -767,7 +782,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
     protected abstract void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? user = null);
 
-    public abstract void PlayImpactSound(EntityUid otherEntity, DamageSpecifier? modifiedDamage, SoundSpecifier? weaponSound, bool forceWeaponSound);
+    // Trauma - PlayImpactSound made concrete in SharedGunSystem.Trauma.cs
 
     /// <summary>
     /// Used for animated effects on the client.
