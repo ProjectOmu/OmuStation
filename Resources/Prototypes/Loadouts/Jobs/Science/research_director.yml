@@ -9,16 +9,6 @@
       role: JobResearchDirector
       time: 20h
 
-# Omu - for off-coat
-- type: loadoutEffectGroup
-  id: VeteranRD
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobResearchDirector
-      time: 180000 # 50 hrs
-
 # Goobstation - For Ensembles
 - type: loadoutEffectGroup
   id: GrandMasterRD
@@ -42,16 +32,6 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterRD
-
-# Omu start
-- type: loadout
-  id: ResearchDirectorOffcoat
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: VeteranRD
-  equipment:
-    neck: ClothingNeckCloakRDCoat
-# Omu end
 
 - type: startingGear
   id: ResearchDirectorMantle

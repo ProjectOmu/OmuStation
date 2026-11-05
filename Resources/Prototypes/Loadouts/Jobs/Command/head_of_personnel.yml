@@ -9,16 +9,6 @@
       role: JobHeadOfPersonnel
       time: 20h
 
-# Omu - for off-coat
-- type: loadoutEffectGroup
-  id: VeteranHoP
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobHeadOfPersonnel
-      time: 50h
-
 # Goobstation - For Ensembles
 - type: loadoutEffectGroup
   id: GrandMasterHoP
@@ -82,14 +72,6 @@
   id: HoPMantle
   equipment:
     neck: ClothingNeckMantleHOP
-
-- type: loadout
-  id: HeadofPersonnelOffcoat
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: VeteranHoP
-  equipment:
-    neck: ClothingNeckCloakHOPCoat
 
 - type: loadout # Goobstation - Ensembles
   id: HeadOfPersonnelEnsemble
