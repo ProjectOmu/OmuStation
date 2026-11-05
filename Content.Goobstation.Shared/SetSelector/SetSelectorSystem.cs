@@ -3,13 +3,10 @@
 using System.Linq;
 using Content.Shared.EntityTable;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Players.PlayTimeTracking;
-using Content.Shared.Popups;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Player;
 
 namespace Content.Goobstation.Shared.SetSelector;
 
@@ -17,7 +14,7 @@ namespace Content.Goobstation.Shared.SetSelector;
 /// <see cref="SetSelectorComponent"/>
 /// this system links the interface to the logic, and will spawn sets selected by the player in the interface
 /// </summary>
-public sealed class SetSelectorSystem : EntitySystem
+public sealed partial class SetSelectorSystem : EntitySystem // Omu - Split out playtime checks.
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -27,16 +24,13 @@ public sealed class SetSelectorSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly ISharedPlaytimeManager _playtime = default!;
-    [Dependency] private readonly ISharedPlayerManager _players = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<SetSelectorComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SetSelectorComponent, BoundUIOpenedEvent>(OnUIOpened);
-        SubscribeLocalEvent<SetSelectorComponent, BoundUIClosedEvent>(OnUIClosed);
+        SubscribeLocalEvent<SetSelectorComponent, BoundUIClosedEvent>(OnUIClosed); // Omu - Reset selection on close.
         SubscribeLocalEvent<SetSelectorComponent, SetSelectorApproveMessage>(OnApprove);
         SubscribeLocalEvent<SetSelectorComponent, SetSelectorChangeSetMessage>(OnChangeSet);
     }
@@ -60,23 +54,18 @@ public sealed class SetSelectorSystem : EntitySystem
         UpdateUI(selector.Owner, selector.Comp);
     }
 
-    private void OnUIClosed(Entity<SetSelectorComponent> selector, ref BoundUIClosedEvent args)
-    {
-        selector.Comp.SelectedSets.Clear();
-        UpdateUI(selector.Owner, selector.Comp);
-    }
-
     private void OnApprove(Entity<SetSelectorComponent> selector, ref SetSelectorApproveMessage args)
     {
         if (selector.Comp.SelectedSets.Count != selector.Comp.MaxSelectedSets)
             return;
 
-        // Validate the entire selection before spawning anything or consuming the case.
+        // Omu start - Recheck before dispensing items.
         foreach (var index in selector.Comp.SelectedSets)
         {
             if (!CanSelect(selector, index, args.Actor))
                 return;
         }
+        // Omu end
 
         EntityUid spawnedStorage = default;
         var storagePrototype = selector.Comp.SpawnedStoragePrototype;
@@ -142,6 +131,7 @@ public sealed class SetSelectorSystem : EntitySystem
     private void OnChangeSet(Entity<SetSelectorComponent> selector, ref SetSelectorChangeSetMessage args)
     {
         // Switch selecting set
+        // Omu start - Reject invalid or locked selections.
         if (!selector.Comp.SelectedSets.Remove(args.SetNumber))
         {
             if (!CanSelect(selector, args.SetNumber, args.Actor))
@@ -149,22 +139,9 @@ public sealed class SetSelectorSystem : EntitySystem
 
             selector.Comp.SelectedSets.Add(args.SetNumber);
         }
+        // Omu end
 
         UpdateUI(selector.Owner, selector.Comp);
-    }
-
-    private bool CanSelect(Entity<SetSelectorComponent> selector, int index, EntityUid actor)
-    {
-        if (index < 0 || index >= selector.Comp.AvailableSets.Count)
-            return false;
-
-        _players.TryGetSessionByEntity(actor, out var session);
-        var set = _proto.Index(selector.Comp.AvailableSets[index]);
-        if (set.CanSelect(session, _playtime, EntityManager, _proto, out var reason))
-            return true;
-
-        _popup.PopupEntity(reason, selector.Owner, actor);
-        return false;
     }
 
     private void UpdateUI(EntityUid uid, SetSelectorComponent? component = null)
@@ -183,7 +160,7 @@ public sealed class SetSelectorSystem : EntitySystem
                 set.Description,
                 set.Sprite,
                 selected,
-                set.ID);
+                set.ID); // Omu - Used for client requirement checks.
             data.Add(i, info);
         }
 

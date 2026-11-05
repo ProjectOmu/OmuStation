@@ -14,7 +14,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 
-namespace Content.IntegrationTests.Tests._Goobstation;
+namespace Content.IntegrationTests.Tests._Omu;
 
 [TestFixture]
 public sealed class SetSelectorTests
