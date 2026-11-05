@@ -278,9 +278,9 @@
   table: !type:AllSelector
     children:
     - id: WeaponRifleLecter
-      amount: 2
+      amount: 3
     - id: MagazineRifle
-      amount: 4
+      amount: 6
 
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
@@ -297,9 +297,9 @@
   table: !type:AllSelector
     children:
     - id: WeaponSubMachineGunDrozd
-      amount: 2
+      amount: 3
     - id: MagazinePistolSubMachineGun
-      amount: 4
+      amount: 6
 
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
@@ -336,8 +336,9 @@
     children:
     - id: WeaponShotgunKammerer
       amount: 2
+    - id: WeaponShotgunEnforcer
     - id: BoxLethalshot
-      amount: 4
+      amount: 6
 
 - type: entity
   id: GunSafeSubMachineGunWt550
