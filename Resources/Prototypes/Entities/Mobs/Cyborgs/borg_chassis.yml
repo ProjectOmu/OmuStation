@@ -125,6 +125,13 @@
           - BorgModuleSyndicateAssault
       hasMindState: synd_sec_e
       noMindState: synd_sec
+      # Omu start
+    - type: Damageable
+      damageContainer: Silicon
+      damageModifierSet: SiliconHeavyProtected #Heavy duty assault borgs, heavy duty armor plating.
+    - type: ExplosionResistance
+      damageCoefficient: 0.4
+      # Omu end
     - type: InteractionPopup
       interactSuccessString: petting-success-syndicate-cyborg
       interactFailureString: petting-failure-syndicate-cyborg
@@ -149,7 +156,7 @@
           map: ["light"]
           visible: false
     - type: BorgChassis
-      maxModules: 7 # Trauma - was 3
+      maxModules: 8 # Omu - Extra space for self destruct
       moduleWhitelist:
         tags:
           - BorgModuleGeneric
@@ -189,7 +196,7 @@
           map: ["light"]
           visible: false
     - type: BorgChassis
-      maxModules: 7 # Trauma - was 3
+      maxModules: 8 # Omu - Extra space for self destruct
       moduleWhitelist:
         tags:
           - BorgModuleGeneric

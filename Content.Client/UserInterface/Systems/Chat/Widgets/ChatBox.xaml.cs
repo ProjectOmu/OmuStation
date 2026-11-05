@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 
+using Content.Client._Starlight.Radio.Systems;
 using Content.Goobstation.Common.CCVar;
 using Robust.Shared.Configuration;
 using Content.Client.UserInterface.Systems.Chat.Controls;
@@ -82,6 +83,9 @@ public partial class ChatBox : UIWidget
 
         if (msg is { Read: false, AudioPath: { } })
             _entManager.System<AudioSystem>().PlayGlobal(msg.AudioPath, Filter.Local(), false, AudioParams.Default.WithVolume(msg.AudioVolume));
+
+        if (msg is { Read: false, Chime: { } chime }) // Omu
+            _entManager.System<RadioChimeSystem>().PlayChime(chime); // Omu
 
         msg.Read = true;
 
