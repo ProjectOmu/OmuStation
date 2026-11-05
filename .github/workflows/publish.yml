@@ -36,7 +36,9 @@ jobs:
 
     - name: Setup submodules
       run: |
-        git submodule update --init --recursive
+        git submodule update --init --force
+        git submodule sync --recursive
+        git submodule update --init --recursive --force
 
     - name: Setup .NET Core
       if: env.skip == 'false'
