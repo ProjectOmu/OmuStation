@@ -132,7 +132,24 @@
   - type: ExplosionResistance
     damageCoefficient: 0
   - type: InteractionToggleable # CD
-  - type: SeeHereticFixtures # Omu
+  - type: SeeHereticFixtures # Omu start
+  - type: ShowCriminalRecordIcons # Omu - give aghosts more hud
+  - type: ShowJobIcons
+  - type: ShowMindShieldIcons
+  - type: ShowSyndicateIcons
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+    - Silicon
+    - SiliconRadiation
+    - InorganicMetaphysical
+  - type: ShowHealthIcons
+  - type: ShowDiseaseIcons
+    lowThreshold: 1
+    mediumThreshold: 20
+    highThreshold: 40 # Omu end
+  
 
 - type: entity
   abstract: true
