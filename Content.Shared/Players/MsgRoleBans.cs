@@ -21,6 +21,7 @@ public sealed class MsgRoleBans : NetMessage
     public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
     {
         var jobCount = buffer.ReadVariableInt32();
+        buffer.AssertAtLeastSize(jobCount * NetMessageExt.MinSizeOfString);
         JobBans.EnsureCapacity(jobCount);
 
         for (var i = 0; i < jobCount; i++)
@@ -29,6 +30,7 @@ public sealed class MsgRoleBans : NetMessage
         }
 
         var antagCount = buffer.ReadVariableInt32();
+        buffer.AssertAtLeastSize(antagCount * NetMessageExt.MinSizeOfString);
         AntagBans.EnsureCapacity(antagCount);
 
         for (var i = 0; i < antagCount; i++)
