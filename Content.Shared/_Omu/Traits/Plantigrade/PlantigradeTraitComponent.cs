@@ -15,6 +15,9 @@ public sealed partial class PlantigradeTraitComponent : Component
     public List<string> InventorySlots = new() { "jumpsuit", "shoes", "outerClothing" };
 
     [DataField]
+    public string MarkingPrefix = "Plantigrade";
+
+    [DataField]
     public List<HumanoidVisualLayers> DisplacementLayers =
         new()
         {
@@ -23,5 +26,7 @@ public sealed partial class PlantigradeTraitComponent : Component
             HumanoidVisualLayers.LFoot,
             HumanoidVisualLayers.RFoot,
             HumanoidVisualLayers.Chest,
+            HumanoidVisualLayers.Tail,
+            HumanoidVisualLayers.Groin,
         };
 }
