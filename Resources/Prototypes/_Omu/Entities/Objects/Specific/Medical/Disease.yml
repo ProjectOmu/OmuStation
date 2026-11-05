@@ -45,7 +45,7 @@
     - Viral
     - Bacterial
     complexity: 10
-  - type: NameIdentifier #here and below, stuff from monkeys, we are using MobBaseAncestor to prevent them being ghost roles
+  - type: NameIdentifier #here and below, stuff from monkeys, we are parenting MobBaseAncestor to prevent them being ghost roles
     group: Monkey
   - type: Speech
     speechSounds: GoobMonkey
@@ -61,12 +61,12 @@
   parent: SmartFridge
   id: SmartFridgeVirology
   name: Virology SmartFridge
-  description: A refridgerated storage unit... You should probably stay away from whatever is inside.
+  description: A refridgerated storage unit for diseases... You should probably stay away from whatever is inside.
   components:
   - type: PointLight
     radius: 1.2
     energy: 3.0
-    color: "#2FEA17" #changes the light to green, for virology
+    color: "#2FEA17"
   - type: AccessReader
     access: [["Chemistry"]] #prevents interns from accessing it
   - type: Sprite
