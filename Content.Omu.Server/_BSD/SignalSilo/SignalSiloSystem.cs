@@ -5,7 +5,6 @@ using Content.Omu.Server._BSD.SignalSilo.Components;
 using Content.Omu.Server._BSD.IngameServerSystem.Components;
 using Content.Omu.Server._BSD.SignalSalv.Helpers;
 using Content.Omu.Server._BSD.IngameServerClientLinkSystem.Components;
-using Content.Shared.Emag.Systems;
 
 namespace Content.Omu.Server._BSD.SignalSilo;
 
