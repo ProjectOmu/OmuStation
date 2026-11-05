@@ -419,6 +419,7 @@
   - type: Advertise
     pack: MedibotAds
   - type: Vocalizer
+    hideChat: true
   - type: DatasetVocalizer
     dataset: MedibotAds
   - type: Inventory
