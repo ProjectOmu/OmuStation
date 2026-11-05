@@ -20,6 +20,7 @@ namespace Content.Shared.Eui
             Id = buffer.ReadUInt32();
 
             var length = buffer.ReadVariableInt32();
+            buffer.AssertAtLeastSize(length); // Omu
             using var stream = new MemoryStream(length);
             buffer.ReadAlignedMemory(stream, length);
             Message = ser.Deserialize<EuiMessageBase>(stream);

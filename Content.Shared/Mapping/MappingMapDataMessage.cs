@@ -22,6 +22,7 @@ public sealed class MappingMapDataMessage : NetMessage
 
         var uncompressedLength = buffer.ReadVariableInt32();
         var compressedLength = buffer.ReadVariableInt32();
+        buffer.AssertAtLeastSize(compressedLength); // Omu
         var stream = new MemoryStream(compressedLength);
         buffer.ReadAlignedMemory(stream, compressedLength);
         using var decompress = new ZStdDecompressStream(stream);
