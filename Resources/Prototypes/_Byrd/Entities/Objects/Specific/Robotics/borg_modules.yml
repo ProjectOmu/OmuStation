@@ -207,7 +207,7 @@
         - item: FoodAnomalyBerry
           hand:
             emptyRepresentative: FoodAnomalyBerry
-            hitelist:
+            whitelist:
               components:
               - AnomalyCore
       #omu end
@@ -369,13 +369,13 @@
   - type: ItemBorgModule
     hands:
     - item: BookHowToCookForFortySpaceman
-      hands:
+      hand:
         emptyRepresentative: BookHowToCookForFortySpaceman
         whitelist:
           tags:
           - Book
     - item: BookBartendersManual
-      hands:
+      hand:
         emptyRepresentative: BookBartendersManual
         whitelist:
           tags:
@@ -383,9 +383,9 @@
     - item: BookEngineersHandbook
       hand:
         emptyRepresentative: BookEngineersHandbook
-      whitelist:
-        tags:
-        - Book
+        whitelist:
+          tags:
+          - Book
     - item: BookMedicalReferenceBook
       hand: 
         emptyRepresentative: BookMedicalReferenceBook
@@ -477,7 +477,7 @@
           - Produce
           - SolutionContainerManager
           tags:
-          - Ingredient
+          # - Ingredient
           - Meat
           - Slice
     - item: MonkeyCube

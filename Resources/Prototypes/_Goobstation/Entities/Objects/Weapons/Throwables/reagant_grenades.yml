@@ -18,7 +18,7 @@
         Quantity: 20
   # Omu start - porting over borg modules form byrd
   - type: CartridgeAmmo
-    proto: LubeGrenadeArmed
+    # proto: LubeGrenadeArmed test
     deleteOnSpawn: true
   - type: Tag
     tags:

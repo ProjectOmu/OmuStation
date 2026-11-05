@@ -31,7 +31,7 @@
       path: /Audio/Effects/Fluids/vacuum-cleaner-fast.ogg
   - type: Appearance
   - type: ClothingSlotAmmoProvider
-    checkHands: true #Byrd
+    # checkHands: true #Byrd || omu commented out
   - type: SlotBasedConnectedContainer
     checkHands: true #Omu - for byrd nozzle module
     targetSlot:

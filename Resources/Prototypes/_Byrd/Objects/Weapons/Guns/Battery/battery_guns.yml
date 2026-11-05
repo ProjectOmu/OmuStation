@@ -34,7 +34,7 @@
     maxCharge: 180
     startingCharge: 180
   - type: BatterySelfRecharger
-    autoRecharge: true
+    #autoRecharge: true || omu
     autoRechargeRate: 1
   - type: AmmoCounter
   - type: Item
