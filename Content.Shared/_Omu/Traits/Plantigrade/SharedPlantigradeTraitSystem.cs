@@ -4,10 +4,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Omu.Traits.Plantigrade;
 
-public sealed class PlantigradeTraitSystem : EntitySystem
+public abstract class SharedPlantigradeTraitSystem : EntitySystem
 {
     [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoid = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] protected readonly IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
@@ -21,13 +21,18 @@ public sealed class PlantigradeTraitSystem : EntitySystem
         if (!TryComp(ent, out HumanoidAppearanceComponent? appearance))
             return;
 
+        UpdateAppearance(ent, appearance);
+
+        Dirty(ent.Owner, appearance);
+    }
+
+    public virtual void UpdateAppearance(Entity<PlantigradeTraitComponent> ent, HumanoidAppearanceComponent appearance)
+    {
         UpdateSpriteLayers(ent, appearance);
 
         RemoveMarkingDisplacements(ent, appearance);
 
         RemoveInventoryDisplacements(ent);
-
-        Dirty(ent.Owner, appearance);
     }
 
     private void RemoveInventoryDisplacements(Entity<PlantigradeTraitComponent> ent)

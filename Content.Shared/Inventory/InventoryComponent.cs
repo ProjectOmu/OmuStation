@@ -9,7 +9,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Inventory;
 
 [RegisterComponent, NetworkedComponent]
-[Access(typeof(InventorySystem), typeof(PlantigradeTraitSystem))] // Omu - Plantigrade Trait
+[Access(typeof(InventorySystem), typeof(SharedPlantigradeTraitSystem))] // Omu - Plantigrade Trait
 [AutoGenerateComponentState(true)]
 public sealed partial class InventoryComponent : Component
 {
