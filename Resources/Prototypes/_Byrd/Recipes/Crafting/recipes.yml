@@ -6,10 +6,12 @@
   category: construction-category-misc
   objectType: Item
 
-- type: construction
-  id: BorgModuleLube
-  graph: BorgModuleLubeCraft #something is broken here
-  startNode: start
-  targetNode: borgmodulelube
-  category: construction-category-misc
-  objectType: Item
+#omu start - commenting out
+# - type: construction
+#   id: BorgModuleLube
+#   graph: BorgModuleLubeCraft #something is broken here
+#   startNode: start
+#   targetNode: borgmodulelube
+#   category: construction-category-misc
+#   objectType: Item
+#omu end - commenting out

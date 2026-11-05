@@ -168,9 +168,11 @@
   name: aggressive cleaning cyborg module
   description: a janitorial module to deploy cleaning ordinance to the station, this one's been tampered with
   components:
-  - type: Construction
-    graph: BorgModuleLubeCraft
-    node: borgmodulelube
+  #omu start - commenting out
+  # - type: Construction
+  #   graph: BorgModuleLubeCraft
+  #   node: borgmodulelube
+  #omu end - commenting out
   - type: Sprite
     layers:
     - state: janitor
