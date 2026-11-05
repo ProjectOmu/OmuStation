@@ -147,7 +147,7 @@
   suffix: AI, Silicon
   components:
   - type: AccessReader
-    access: [["StationAi"], ["ResearchDirector"]]
+    access: [["StationAi"]]
   - type: StationAiTurret
   - type: TurretTargetSettings
     exemptAccessLevels:
