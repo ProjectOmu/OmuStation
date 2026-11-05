@@ -87,13 +87,12 @@
     tags:
     - BasicSilicon
   - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
+  - type: IntrinsicRadioTransmitter # Omu edit start: oddly these lines were never commented on dispite being modified
     channels:
-    - Binary
+    - Common # Omu edit end
   - type: ActiveRadio
     channels:
     - Common
-    - Binary
   - type: IntellicardableMind # Goobstation - intellicard on more AIs
   - type: HealthExaminable
     examinableTypes:
@@ -526,7 +525,6 @@
     - Unimplantable
   - type: ActiveRadio
     channels:
-    - Binary
     - Common
     - Supply
   - type: StationAiVision # Goobstation - AI can see through NT silicon

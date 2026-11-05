@@ -58,10 +58,9 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
-    - Binary
+    - Common
   - type: ActiveRadio
     channels:
-    - Binary
     - Common
   - type: IntellicardableMind # Goobstation - intellicard on more AIs
   - type: DoAfter
