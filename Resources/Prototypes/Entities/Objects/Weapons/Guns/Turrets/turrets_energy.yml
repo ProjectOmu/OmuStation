@@ -147,7 +147,7 @@
   suffix: AI, Silicon
   components:
   - type: AccessReader
-    access: [["StationAi"]]
+    access: [["StationAi"]] # Omu edit: removed RD access
   - type: StationAiTurret
   - type: TurretTargetSettings
     exemptAccessLevels:
