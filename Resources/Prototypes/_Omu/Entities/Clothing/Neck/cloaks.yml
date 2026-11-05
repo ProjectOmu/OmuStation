@@ -92,7 +92,7 @@
   parent: [ ClothingNeckBase, BaseCommandContraband ]
   id: ClothingNeckCloakCMOCoat
   name: chief medical officer's embroidered off-coat
-  description: A finely embroidered coat worn imposingly as a cloak over your shoulders. A dashing figure befitting the finest mind in medicine.
+  description: A finely embroidered coat worn imposingly as a cloak over your shoulders. Cuts a dashing figure befitting the finest mind in medicine.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Neck/Cloaks/cmo_offcoat.rsi
@@ -214,7 +214,7 @@
 - type: entity
   parent: [ ClothingNeckStorageBase, BaseCentcommContraband ]
   id: ClothingNeckCloakIA
-  name: internal affair officer's off-coat
+  name: internal affairs officer's off-coat
   description: A coat imposingly worn as a cloak over your back. Cuts a dashing figure.
   components:
   - type: Sprite
