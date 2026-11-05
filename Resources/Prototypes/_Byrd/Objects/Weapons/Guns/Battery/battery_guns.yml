@@ -5,7 +5,7 @@
   suffix: Self-Charging
   components:
   - type: BatterySelfRecharger
-    autoRecharge: true
+    # autoRecharge: true || omu
     autoRechargeRate: 25
 
 - type: entity
