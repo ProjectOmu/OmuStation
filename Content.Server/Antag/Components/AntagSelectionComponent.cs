@@ -90,6 +90,14 @@ public partial struct AntagSelectionDefinition()
     [DataField("jobBlacklist")]
     public List<ProtoId<JobPrototype>>? JobBlacklist;
 
+    // Omu Start
+    /// <summary>
+    /// Jobs allowed to roll this antag even if their CanBeAntag is false.
+    /// </summary>
+    [DataField("jobAntagImmunityOverride")]
+    public List<ProtoId<JobPrototype>>? JobAntagImmunityOverride;
+    // Omu End
+
     /// <summary>
     /// A list of antagonist roles that are used for selecting which players will be antagonists.
     /// </summary>

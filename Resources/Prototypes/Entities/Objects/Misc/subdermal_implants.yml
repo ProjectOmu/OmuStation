@@ -120,6 +120,13 @@
     - type: Storage
       grid:
       - 0,0,2,2
+      blacklist: # Omustation start
+        components:
+        - Storage
+        - SecretStash
+        - Pda
+        tags:
+        - HighRiskItem # Omustation end
     - type: ContainerContainer
       containers:
         storagebase: !type:Container

@@ -23,8 +23,10 @@ public sealed partial class TargetingComponent : Component
         {
             TargetBodyPart.Head, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.Head, 0.5f },
-                { TargetBodyPart.Chest, 0.5f },
+                { TargetBodyPart.Head, 0.4f }, // 0.5f }, // Omu start, prevent head aim from being dominant; 40% hit head
+                { TargetBodyPart.Chest, 0.3f }, // 0.5f }, // 30% hit chest
+                { TargetBodyPart.LeftArm, 0.15f }, // overall 30% hit arms; 70% chance to deal vital damage instead of 100%
+                { TargetBodyPart.RightArm, 0.15f }, // Omu end
             }
         },
         {

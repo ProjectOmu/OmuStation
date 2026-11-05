@@ -2,6 +2,7 @@
 
 using System.Linq;
 using Content.Server._Goobstation.Antag;
+using Content.Server._Omu.Preferences;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag.Components;
 using Content.Server.Chat.Managers;
@@ -49,6 +50,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 {
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IBanManager _ban = default!;
+    [Dependency] private readonly CharacterQueueSystem _characterQueue = default!; // Omu
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly GhostRoleSystem _ghostRole = default!;
     [Dependency] private readonly JobSystem _jobs = default!;
@@ -627,7 +629,22 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         // todo: expand this to allow for more fine antag-selection logic for game rules.
         if (!_jobs.CanBeAntag(session))
-            return false;
+        {
+            // Omu start - let some jobs roll some antags, even if they are normally antag-immune,
+            // based on the jobAntagImmunityOverride list in the antag selection definition.
+            var immunityOverride = def.JobAntagImmunityOverride;
+
+            // If there is no override list, there's nothing to check.
+            if (immunityOverride == null) return false;
+
+            _jobs.MindTryGetJob(mind, out var job);
+
+            if (job == null || !immunityOverride.Contains(job.ID))
+                return false;
+
+            // Omu end
+        }
+            
 
         return true;
     }

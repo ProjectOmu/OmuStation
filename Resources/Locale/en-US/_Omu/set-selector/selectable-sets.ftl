@@ -28,6 +28,11 @@ selectable-set-warden-snub-name = Twin Snubnose
 selectable-set-warden-snub-description =
     Twin hammerless revolvers, for quick draws and quicker Magdumps
 
+selectable-set-warden-henrietta-name = Henrietta
+selectable-set-warden-henrietta-description =
+    A dependable 8 gauge lever-action shotgun with a bayonet.
+    Comes with a bandolier and some ammo to keep her fed.
+
 selectable-set-brigmed-crossbow-name = Syringe Crossbow
 selectable-set-brigmed-crossbow-description =
     A portable Crossbow for healing at range.
@@ -97,10 +102,6 @@ selectable-set-sergeant-belt-description =
 selectable-set-security-tackle-name = Enhanced Retrieval Gloves
 selectable-set-security-tackle-description =
     Special gloves that manipulate the blood vessels in the wearer's hands, granting them the ability to launch headfirst into walls and tackle fleeing criminals in a single bound.
-
-selectable-set-warden-solcom-name = Solcom Gloves
-selectable-set-warden-solcom-description =
-    A pair of gloves designed for the warden, implanting the user with knowledge of Solcom's martial arts, allowing them to perform a variety of combat techniques.
 
 selectable-set-antiquelaser-name = Antique Laser Pistol
 selectable-set-antiquelaser-description =

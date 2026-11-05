@@ -66,11 +66,12 @@
       defaultMarkings: [ RodentiaTailDefault ]
     HeadTop:
       points: 8
-      required: false
+      required: true # Omu
+      defaultMarkings: [ RodentiaHeadTopEarDefault ] # Omu
     HeadSide:
       points: 8
-      required: true
-      defaultMarkings: [ RodentiaHeadTopEarDefault ]
+      required: false # Omu
+      # defaultMarkings: [ RodentiaHeadTopEarDefault ] # Omu, this isn't required anymore
     Chest:
       points: 10
       required: false

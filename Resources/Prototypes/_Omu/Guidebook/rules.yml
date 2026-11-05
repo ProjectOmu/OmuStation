@@ -2,8 +2,17 @@
   id: OmuRuleset
   name: guide-entry-rules
   ruleEntry: true # well, at least this turns on the ability to click "Home" in the guidebook
-  priority: 1
+  priority: -100 # moved to the top of New? Start here! (id: NewPlayer)
   text: "/ServerInfo/_Omu/Guidebook/ServerRules/OmuRules.xml"
+
+## Antagonist Rules
+
+- type: guideEntry
+  id: RuleAntagonist
+  name: guide-entry-rules-antagonist
+  ruleEntry: true
+  priority: -99 # this really doesn't matter since it doesn't appear in the guidebook
+  text: "/ServerInfo/_Omu/Guidebook/ServerRules/OmuRuleAntagonists.xml"
 
 ## Core Rules
 - type: guideEntry

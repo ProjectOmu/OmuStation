@@ -18,7 +18,7 @@
     - id: ClothingHandsKnuckleDustersQM # Goobstation - ROCK THAT MF!!
     - id: CargoMegaphone # goob - loudspeaker
     - id: ComputerCargoCommsFlatpack #Omu adds departmental comms board
-    - id: Multitool # Omu
+    #- id: Multitool # Omu
     - id: SlotMachineHighRollerFlatPack # Goob - gambling
     - id: SalvageShuttleConsoleCircuitboard # Omu edit
     - id: SalvageExpeditionsComputerCircuitboard # Omu edit
@@ -62,6 +62,7 @@
         max: 15
     - id: BookCorporateSecrets # funky
     - id: HandheldComs # Omu
+    - id: RedCellphone # Omu
 
 # No laser table + Laser table
 - type: entityTable
@@ -149,7 +150,7 @@
     - id: ServiceTechFabCircuitboard # Goobstation - Service Techfab
     - id: CommandMegaphone # goob - loudspeakers
     - id: ComputerServiceCommsFlatpack #Omu adds departmental comms board
-    - id: Multitool # Omu
+    #- id: Multitool # Omu
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -259,7 +260,8 @@
     - id: MedicalScannerFlatpack
     - id: ComputerCloningConsoleFlatpack
     - id: BiomassReclaimerFlatpack
-    - id: Multitool
+    #- id: Multitool # Omu
+    - id: NetworkConfigurator #omu
     - id: MedTekCartridge
     - id: RapidSyringeGun
     - id: BoxSyringePax
@@ -272,8 +274,9 @@
     - id: DiseaseDiagnoserFlatPack
     - id: VaccinatorFlatPack
     # Goobstation End
-    - id: ComputerMedicalCommsFlatpack #Omu adds departmental comms board
-    - id: EnergyChemDispenserMachineCircuitboard # Omu
+    - id: ComputerMedicalCommsFlatpack # Omu start; adds departmental comms board
+    - id: EnergyChemDispenserMachineCircuitboard
+    - id: BookCorporateSecretsAllMedical # Omu end; adds medical-specific metashield document
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -405,7 +408,7 @@
     - id: ComputerSecurityCommsFlatpack #Omu adds departmental comms board
     - id: Multitool # Omu
     - id: HoSPetKennel #Omu
-    - id: BookCorporateSecretsSecurity # Omu
+    - id: BookCorporateSecrets # Omu
     - id: ClothingHandsGlovesGorilla # Omu
 
 # Hardsuit table, used for suit storage as well

@@ -93,14 +93,16 @@
     - sprite: _DV/Mobs/Customization/Rodentia/ear_markings.rsi
       state: mouse_large_overlay
 
-- type: marking
-  id: RodentiaHeadTopEarNone
-  markingCategory: HeadTop
-  bodyPart: HeadTop
-  speciesRestriction: [Rodentia]
-  sprites:
-    - sprite: _DV/Mobs/Customization/Rodentia/ear_markings.rsi
-      state: none
+# Omu begin
+# - type: marking
+#   id: RodentiaHeadTopEarNone
+#   markingCategory: HeadTop
+#   bodyPart: HeadTop
+#   speciesRestriction: [Rodentia]
+#   sprites:
+#     - sprite: _DV/Mobs/Customization/Rodentia/ear_markings.rsi
+#       state: none
+# Omu end
 
 - type: marking
   id: RodentiaHeadTopEarPointy

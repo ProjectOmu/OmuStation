@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Cheesecake sprite originally taken from Baystation12 at https://github.com/Baystation12/Baystation12/blob/464342c5dc8c417b7e79d56c69aa30445bdf3b75/icons/obj/food/food.dmi. Developer art by Jerulean.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+        {
+            "name": "trailinthesnow"
+        },
+        {
+            "name": "trailinthesnow_slice"
+        },
+        {
+            "name": "alpha-filling-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "alpha-filling-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "alpha-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "alpha-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "alpha-slice-filling-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "alpha-slice-filling-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "alpha-slice-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "alpha-slice-inhand-right",
+            "directions": 4
+        }
+    ]
+}
