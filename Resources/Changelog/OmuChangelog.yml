@@ -9850,3 +9850,63 @@ Entries:
         result in performance massively dropping for anyone nearby.
   id: 1266
   time: '2026-11-02T11:01:09.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Fix
+      message: Floor goblins can crawl under floor tiles again.
+  id: 1267
+  time: '2026-11-03T02:51:07.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: You can now altclick flatpacks to unpack them
+    - type: Remove
+      message: Head lockers no longer contain Multitools
+    - type: Remove
+      message: You can no longer pulse flatpacks to unpack them
+  id: 1268
+  time: '2026-11-03T02:59:57.0000000+00:00'
+- author: BramvanZijp
+  changes:
+    - type: Tweak
+      message: >-
+        The Blueshield Officer and Corpsman are now allowed to carry jaws of
+        life.
+  id: 1269
+  time: '2026-11-03T11:39:04.0000000+00:00'
+- author: NikVolkov
+  changes:
+    - type: Tweak
+      message: Armory gun safes are now standardized, matching mapped armories.
+  id: 1270
+  time: '2026-11-03T22:18:19.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Fix
+      message: Chameleon gloves can disguise themselves as latex gloves again.
+  id: 1271
+  time: '2026-11-03T22:19:17.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Fix
+      message: The single clap emote now plays a sound when performed by feroxi.
+  id: 1272
+  time: '2026-11-04T19:05:43.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: 'Admin ghosts now can wear most items & gain most Hud comps innately '
+  id: 1273
+  time: '2026-11-05T01:46:02.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Tweak
+      message: RT is now at v270.1.7
+  id: 1274
+  time: '2026-11-05T04:36:27.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Add
+      message: Added a pAI slot to energy swords (and derivative weapons).
+  id: 1275
+  time: '2026-11-05T09:12:16.0000000+00:00'
