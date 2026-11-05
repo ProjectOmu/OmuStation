@@ -24,7 +24,7 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
     clumsyProof: true
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider #omu
     proto: BulletFoam
     fireCost: 10
   - type: Battery

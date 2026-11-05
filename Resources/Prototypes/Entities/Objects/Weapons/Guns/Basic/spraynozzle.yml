@@ -33,6 +33,7 @@
   - type: ClothingSlotAmmoProvider
     checkHands: true #Byrd
   - type: SlotBasedConnectedContainer
+    checkHands: true #Omu - for byrd nozzle module
     targetSlot:
     - BACK
     - suitStorage #goob edit

@@ -934,15 +934,14 @@
     - item: Crowbar
     - item: BorgFireExtinguisher
     - item: BorgHandheldGPSBasic
-  #start Byrd, giving rescue a bodybag/foldable roller slot so it has better ways to drag corpses/injured
-  - type: DroppableBorgModule
-    moduleId: Rescue
-    items:
-    - id: BodyBagFolded
-      whitelist:
-        tags:
-        - RollerBed
-        - BodyBag
+  #start Byrd, giving rescue a bodybag/foldable roller slot so it has better ways to drag corpses/injured + omu edits
+    - item: BodyBagFolded
+      hand: 
+        emptyRepresentative: BodyBagFolded
+        whitelist:
+          tags:
+          - RollerBed
+          - BodyBag
   #end Byrd
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: defib-module }

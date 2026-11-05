@@ -124,11 +124,12 @@
     - state: generic
     - state: icon-tethergun
       sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  #omu end
   - type: ItemBorgModule
-    moduleId: GravityManipulation
-    items:
-    - WeaponTetherGunRecharging
-    - WeaponForceGunRecharging
+    hands:
+    - item: WeaponTetherGunRecharging
+    - item: WeaponForceGunRecharging
+  #omu start
   - type: BorgModuleIcon
     icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: gravity-module }
 
@@ -148,12 +149,16 @@
     - state: generic
     - state: icon-yeet
       sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  #omu start
   - type: ItemBorgModule
     hands:
     - item: WeaponImprovisedPneumaticCannon
-      whitelist:
-        components:
-        - PneumaticCannon
+      hand:
+        emptyRepresentative: WeaponImprovisedPneumaticCannon
+        whitelist:
+          components:
+          - PneumaticCannon
+  #omu end
   - type: BorgModuleIcon
     icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: yeet-module }
 
@@ -171,10 +176,11 @@
     - state: janitor
     - state: icon-cleanade
       sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  #omu start
   - type: ItemBorgModule
-    moduleId: AggressiveLube
-    items:
-    - BorgLauncherLubenade
+    hands:
+    - item: BorgLauncherLubenade
+  #omu end
   - type: BorgModuleIcon
     icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: cleanade-module }
 
@@ -190,22 +196,21 @@
         - state: science
         - state: icon-chimp
           sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+      #omu start
       - type: ItemBorgModule
-        moduleId: AdvancedAnomaly
         hands:
-        items:
-        - AnomalyScanner
-        - AnomalyLocatorUnpowered
-        - AnomalyLocatorWideUnpowered
-        - WeaponGauntletGorilla
-        - WeaponPistolCHIMPRecharging
-      - type: DroppableBorgModule
-        moduleId: AdvancedAnomaly
-        items:
-        - id: FoodAnomalyBerry
-          whitelist:
-            components:
-            - AnomalyCore
+        - item: AnomalyScanner
+        - item: AnomalyLocatorUnpowered
+        - item: AnomalyLocatorWideUnpowered
+        - item: WeaponGauntletGorilla
+        - item: WeaponPistolCHIMPRecharging
+        - item: FoodAnomalyBerry
+          hand:
+            emptyRepresentative: FoodAnomalyBerry
+            hitelist:
+              components:
+              - AnomalyCore
+      #omu end
       - type: BorgModuleIcon
         icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: advancedanomaly-module }
 
@@ -220,25 +225,25 @@
     - state: science
     - state: icon-xenobio
       sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  #omu start
   - type: ItemBorgModule
-    moduleId: Xenobio
-    items:
-    - ClothingBeltChemBagXenobiology
-    - WeaponXenoVacNozzle
-    - ClothingBackpackXenoBioTank
-    - SlimeScannerXenobio
-    - Syringe
-    - SprayBottle
-  - type: DroppableBorgModule
-    moduleId: Xenobio
-    items:
-    - id: MonkeyCube
-      whitelist:
-        components:
-        - Rehydratable
-        - SlimeExtract
-        tags:
-        - MonkeyCube
+    hands:
+    - item: ClothingBeltChemBagXenobiology
+    - item: WeaponXenoVacNozzle
+    - item: ClothingBackpackXenoBioTank
+    - item: SlimeScannerXenobio
+    - item: Syringe
+    - item: SprayBottle
+    - item: MonkeyCube
+      hand:
+        emptyRepresentative: MonkeyCube
+        whitelist:
+          components:
+          - Rehydratable
+          - SlimeExtract
+          tags:
+          - MonkeyCube
+  #omu end
   - type: BorgModuleIcon
     icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: xenobio-module }
 
@@ -253,25 +258,25 @@
     - state: science
     - state: icon-xenobio
       sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  #omu start
   - type: ItemBorgModule
-    moduleId: AdvancedXenobio
-    items:
-    - ClothingBeltChemBagXenobiologyHolding
-    - WeaponXenoVacNozzle
-    - ClothingBackpackXenoBioTank #in future I'd like to replace this with a larger tank of holding
-    - SlimeScannerXenobio
-    - Syringe
-    - MegaSprayBottle
-  - type: DroppableBorgModule
-    moduleId: AdvancedXenobio
-    items:
-    - id: MonkeyCube
-      whitelist:
-        components:
-        - Rehydratable
-        - SlimeExtract
-        tags:
-        - MonkeyCube
+    hands:
+    - item: ClothingBeltChemBagXenobiologyHolding
+    - item: WeaponXenoVacNozzle
+    - item: ClothingBackpackXenoBioTank #in future I'd like to replace this with a larger tank of holding
+    - item: SlimeScannerXenobio
+    - item: Syringe
+    - item: MegaSprayBottle
+    - item: MonkeyCube
+      hand:
+       emptyRepresentative: MonkeyCube
+       whitelist:
+          components:
+          - Rehydratable
+          - SlimeExtract
+          tags:
+          - MonkeyCube
+    #omu end
   - type: BorgModuleIcon
     icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: advancedxenobio-module }
 
@@ -287,11 +292,17 @@
     - state: janitor
     - state: icon-spraying
       sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  #omu start
   - type: ItemBorgModule
-    moduleId: SprayNozzle
-    items:
-    - WeaponSprayNozzle
-    - ClothingBackpackWaterTank
+    hands:
+    - item: WeaponSprayNozzle
+      hand:
+        emptyRepresentative: WeaponSprayNozzle
+        whitelist:
+          tags:
+          - SprayNozzle
+    - item: ClothingBackpackWaterTank
+  #omu end
   - type: BorgModuleIcon
     icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: spray-module }
 
@@ -307,10 +318,11 @@
     - state: janitor
     - state: icon-cleanade
       sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  #omu start
   - type: ItemBorgModule
-    moduleId: AggressiveClean
-    items:
-    - BorgLauncherCleanade
+    hands:
+    - item: BorgLauncherCleanade
+  #omu end
   - type: BorgModuleIcon
     icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: cleanade-module }
 
@@ -326,19 +338,19 @@
     - state: service
     - state: icon-foam
       sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+  #omu start
   - type: ItemBorgModule
-    moduleId: ComedicViolence
-    items:
-    - WeaponBorgRifleFoam
-    - RubberChicken
-    - ToyHammer
-  - type: DroppableBorgModule
-    moduleId: ComedicViolence
-    items:
-    - id: WhoopieCushion
-      whitelist:
-        tags:
-        - FunnyNoiseWhenWalkedOn #making broad in case anyone wants to give the borgs more options for putting under people
+    hands:
+    - item: WeaponBorgRifleFoam
+    - item: RubberChicken
+    - item: ToyHammer
+    - item: WhoopieCushion
+      hand:
+        emptyRepresentative: WhoopieCushion
+        whitelist:
+          tags:
+          - FunnyNoiseWhenWalkedOn #making broad in case anyone wants to give the borgs more options for putting under people
+  #omu end
   - type: BorgModuleIcon
     icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: foam-module }
 
@@ -353,29 +365,40 @@
     - state: service
     - state: icon-books
       sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
-  - type: DroppableBorgModule
-    moduleId: Librarian
-    items:
-    - id: BookHowToCookForFortySpaceman
+  #omu start
+  - type: ItemBorgModule
+    hands:
+    - item: BookHowToCookForFortySpaceman
+      hands:
+        emptyRepresentative: BookHowToCookForFortySpaceman
+        whitelist:
+          tags:
+          - Book
+    - item: BookBartendersManual
+      hands:
+        emptyRepresentative: BookBartendersManual
+        whitelist:
+          tags:
+          - Book
+    - item: BookEngineersHandbook
+      hand:
+        emptyRepresentative: BookEngineersHandbook
       whitelist:
         tags:
         - Book
-    - id: BookBartendersManual
-      whitelist:
-        tags:
-        - Book
-    - id: BookEngineersHandbook
-      whitelist:
-        tags:
-        - Book
-    - id: BookMedicalReferenceBook
-      whitelist:
-        tags:
-        - Book
-    - id: BookSpaceLaw
-      whitelist:
-        tags:
-        - Book
+    - item: BookMedicalReferenceBook
+      hand: 
+        emptyRepresentative: BookMedicalReferenceBook
+        whitelist:
+          tags:
+          - Book
+    - item: BookSpaceLaw
+      hand:
+        emptyRepresentative: BookSpaceLaw
+        whitelist:
+          tags:
+          - Book
+    #omu end
   - type: BorgModuleIcon
     icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: book-module }
 
@@ -390,31 +413,35 @@
         - state: service
         - state: icon-tree
           sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+    #omu start
     - type: ItemBorgModule
-      moduleId: AdvancedGardening
-      items:
-      - PlantAnalyzerRecharging
-      - HydroponicsToolMiniHoe
-      - HydroponicsToolSpade
-      - HydroponicsToolClippers
-      - HydroponicsToolHatchet
-      - PlantBagOfHolding
-      - BorgBucket
-    - type: DroppableBorgModule
-      moduleId: AdvancedGardening
-      items:
-      - id: AppleSeeds
-        whitelist:
-          components:
-          - Seed
-      - id: FoodApple
-        whitelist:
-          components:
-          - Produce
-      - id: DiseaseSwab
-        whitelist:
-          components:
-          - DiseaseSwab
+      hands:
+      - item: PlantAnalyzerRecharging
+      - item: HydroponicsToolMiniHoe
+      - item: HydroponicsToolSpade
+      - item: HydroponicsToolClippers
+      - item: HydroponicsToolHatchet
+      - item: PlantBagOfHolding
+      - item: BorgBucket
+      - item: AppleSeeds
+        hand:
+          emptyRepresentative: AppleSeeds
+          whitelist:
+            components:
+            - Seed
+      - item: FoodApple
+        hand:
+          emptyRepresentative: FoodApple
+          whitelist:
+            components:
+            - Produce
+      - item: DiseaseSwab
+        hand:
+          emptyRepresentative: DiseaseSwab
+          whitelist:
+            components:
+            - DiseaseSwab
+    #omu end
     - type: BorgModuleIcon
       icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: botany-module }
 
@@ -429,34 +456,39 @@
     - state: service
     - state: icon-knife
       sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+    #omu start
   - type: ItemBorgModule
-    moduleId: Cooking
-    items:
-    - KitchenKnife
-    - RollingPin
-  - type: DroppableBorgModule
-    moduleId: Cooking
-    items:
-    - id: Beaker
-      whitelist:
-        components:
-        - FitsInDispenser
-        tags:
-        - ChemDispensable
-    - id: ReagentContainerFlour
-      whitelist:
-        components:
-        - Produce
-        tags:
-        - Ingredient
-        - Meat
-        - Slice
-    - id: MonkeyCube
-      whitelist:
-        components:
-        - Rehydratable
-        tags:
-        - MonkeyCube
+    hands:
+    - item: KitchenKnife
+    - item: RollingPin
+    - item: Beaker
+      hand:
+        emptyRepresentative: Beaker
+        whitelist:
+          components:
+          - FitsInDispenser
+          tags:
+          - ChemDispensable
+    - item: ReagentContainerFlour
+      hand:
+        emptyRepresentative: ReagentContainerFlour
+        whitelist:
+          components:
+          - Produce
+          - SolutionContainerManager
+          tags:
+          - Ingredient
+          - Meat
+          - Slice
+    - item: MonkeyCube
+      hand:
+        emptyRepresentative: MonkeyCube
+        whitelist:
+          components:
+          - Rehydratable
+          tags:
+          - MonkeyCube
+    #omu end
   - type: BorgModuleIcon
     icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: chef-module }
 #Salvage
@@ -471,10 +503,11 @@
       - state: cargo
       - state: icon-BFG
         sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+    #omu start
     - type: ItemBorgModule
-      moduleId: BFG
-      items:
-      - WeaponMechIndustrialKineticAccelerator
+      hands:
+      - item: WeaponMechIndustrialKineticAccelerator
+    #omu end
     - type: BorgModuleIcon
       icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: BFG-module }
 
@@ -489,12 +522,13 @@
     - state: cargo
     - state: icon-drill
       sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+    #omu start
   - type: ItemBorgModule
-    moduleId: BFD
-    items:
-    - WeaponBorgMeleeDrillDiamond
-    - AdvancedMineralScannerUnpowered
-    - OreBagOfHolding
+    hands:
+    - item: WeaponBorgMeleeDrillDiamond
+    - item: AdvancedMineralScannerUnpowered
+    - item: OreBagOfHolding
+    #omu end
   - type: BorgModuleIcon
     icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: BFD-module }
 
@@ -509,21 +543,28 @@
        - state: cargo
        - state: icon-fulton
          sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
-     - type: DroppableBorgModule
-       moduleId: Fulton
-       items:
-       - id: Fulton
-         whitelist:
-           components:
-           - Fulton
-       - id: Fulton
-         whitelist:
-           components:
-           - Fulton
-       - id: FultonBeacon
-         whitelist:
-            components:
-            - FultonBeacon
+    #omu start
+     - type: ItemBorgModule
+       hands:
+        - item: Fulton
+          hand: 
+            emptyRepresentative: Fulton
+            whitelist:
+              components:
+              - Fulton
+        - item: Fulton
+          hand:
+            emptyRepresentative: Fulton
+            whitelist:
+              components:
+              - Fulton
+        - item: FultonBeacon
+          hand:
+            emptyRepresentative: FultonBeacon
+            whitelist:
+                components:
+                - FultonBeacon
+      #omu end
      - type: BorgModuleIcon
        icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: fulton-module }
 
@@ -538,29 +579,35 @@
     layers:
     - state: engineering
     - state: icon-radiation
+    #omu start
   - type: ItemBorgModule
-    moduleId: Nuclear
-    items:
-    - GeigerCounter
-  - type: DroppableBorgModule
-    moduleId: Nuclear
-    items:
-    - id: SteelReactorHeatExchanger
-      whitelist:
-        components:
-        - ReactorPart
-    - id: SteelReactorHeatExchanger
-      whitelist:
-        components:
-        - ReactorPart
-    - id: SteelReactorGasChannel
-      whitelist:
-        components:
-        - ReactorPart
-    - id: SteelReactorGasChannel
-      whitelist:
-        components:
-        - ReactorPart
+    hands:
+    - item: GeigerCounter
+    - item: SteelReactorHeatExchanger
+      hand:
+        emptyRepresentative: SteelReactorHeatExchanger
+        whitelist:
+          components:
+          - ReactorPart
+    - item: SteelReactorHeatExchanger
+      hand:
+        emptyRepresentative: SteelReactorHeatExchanger
+        whitelist:
+          components:
+          - ReactorPart
+    - item: SteelReactorGasChannel
+      hand:
+        emptyRepresentative: SteelReactorGasChannel
+        whitelist:
+          components:
+          - ReactorPart
+    - item: SteelReactorGasChannel
+      hand:
+        emptyRepresentative: SteelReactorGasChannel
+        whitelist:
+          components:
+          - ReactorPart
+    # omu end
   - type: BorgModuleIcon
     icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: nuclear-module }
 
@@ -575,33 +622,38 @@
     - state: engineering
     - state: icon-flatpack
       sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+    # omu start
   - type: ItemBorgModule
-    moduleId: Flatpack
-    items:
-    - Multitool
-  - type: DroppableBorgModule
-    moduleId: Flatpack
-    items:
-    - id: WeaponCapacitorRechargerCircuitboard
-      whitelist:
-        components:
-        - Flatpack
-        - MachineBoard
-    - id: WeaponCapacitorRechargerCircuitboard
-      whitelist:
-        components:
-        - Flatpack
-        - MachineBoard
-    - id: WeaponCapacitorRechargerCircuitboard
-      whitelist:
-        components:
-        - FlatPack
-        - MachineBoard
-    - id: WeaponCapacitorRechargerCircuitboard
-      whitelist:
-        components:
-        - Flatpack
-        - MachineBoard
+    hands:
+    - item: WeaponCapacitorRechargerCircuitboard
+      hand:
+        emptyRepresentative: WeaponCapacitorRechargerCircuitboard
+        whitelist:
+          components:
+          - Flatpack
+          - MachineBoard
+    - item: WeaponCapacitorRechargerCircuitboard
+      hand:
+        emptyRepresentative: WeaponCapacitorRechargerCircuitboard
+        whitelist:
+          components:
+          - Flatpack
+          - MachineBoard
+    - item: WeaponCapacitorRechargerCircuitboard
+      hand:
+        emptyRepresentative: WeaponCapacitorRechargerCircuitboard
+        whitelist:
+          components:
+          - Flatpack
+          - MachineBoard
+    - item: WeaponCapacitorRechargerCircuitboard
+      hand:
+        emptyRepresentative: WeaponCapacitorRechargerCircuitboard
+        whitelist:
+          components:
+          - Flatpack
+          - MachineBoard
+    #omu end
   - type: BorgModuleIcon
     icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: flatpack-module }
 
@@ -618,17 +670,17 @@
     - state: medical
     - state: icon-BFG
       sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+    #omu start
   - type: ItemBorgModule
-    moduleId: SyringeGun
-    items:
-    - SyringeGun
-  - type: DroppableBorgModule
-    moduleId: SyringeGun
-    items:
-    - id: Syringe
-      whitelist:
-        tags:
-        - Syringe
+    hands:
+    - item: SyringeGun
+    - item: Syringe
+      hand:
+        emptyRepresentative: Syringe
+        whitelist:
+          tags:
+          - Syringe
+    #omu end
 
 - type: entity
   id: BorgModuleAdvancedRescue
@@ -641,21 +693,21 @@
     - state: medical
     - state: icon-paramed
       sprite: _Byrd/Objects/Specific/Robotics/borgmodule.rsi
+    #Omu start
   - type: ItemBorgModule
-    moduleId: AdvancedRescue
-    items:
-    - BorgHypo #let the borgs have their hypo, they can only dump one full hypo at a time since there's no beaker in this module, and it lets them make custom autoinjectors essentially
-    - HandheldHealthAnalyzerUnpowered
-    - DefibrillatorOneHandedUnpowered
-    - HandheldCrewMonitorRecharging
-    - JetpackCrewBorg
-  - type: DroppableBorgModule
-    moduleId: AdvancedRescue
-    items:
-    - id: BodyBagFolded
-      whitelist:
-        tags:
-        - BodyBag
-        - RollerBed
+    hands:
+    - item: BorgHypo #let the borgs have their hypo, they can only dump one full hypo at a time since there's no beaker in this module, and it lets them make custom autoinjectors essentially
+    - item: HandheldHealthAnalyzer
+    - item: DefibrillatorOneHandedUnpowered
+    - item: HandheldCrewMonitorRecharging
+    - item: JetpackCrewBorg
+    - item: BodyBagFolded
+      hand:
+        emptyRepresentative: BodyBagFolded
+        whitelist:
+          tags:
+          - BodyBag
+          - RollerBed
+    #omu end
   - type: BorgModuleIcon
     icon: { sprite: _Byrd/Interface/Actions/actions_borg.rsi, state: advancedrescue-module }

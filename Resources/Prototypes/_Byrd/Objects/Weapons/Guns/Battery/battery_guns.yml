@@ -27,7 +27,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
     clumsyProof: true
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider # omu
     proto: BorgBulletGrenadeCleanade
     fireCost: 60
   - type: Battery
@@ -46,5 +46,5 @@
   id: BorgLauncherLubenade
   description: This has been modified to recharge and fire lubenades istead, but odds are the borgs won't notice.
   components:
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider # omu
     proto: BorgBulletGrenadeLubenade
