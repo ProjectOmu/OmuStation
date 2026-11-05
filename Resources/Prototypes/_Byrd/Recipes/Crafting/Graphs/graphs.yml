@@ -28,26 +28,28 @@
     - node: borgmoduleyeet
       entity: BorgModuleYEET
 
-- type: constructionGraph
-  id: BorgModuleLubeCraft
-  start: start
-  graph:
-  - node: start
-    edges:
-    - to: borgmodulelube
-      steps:
-      - tag: LubeGrenade
-        icon:
-          sprite: Objects/Weapons/Grenades/foamdart.rsi
-          state: icon
-        name: construction-graph-tag-lubenade
-      - material: Cable
-        amount: 6
-        doAfter: 10
-      - tag: BorgModuleJanitor
-        icon:
-          sprite: Objects/Specific/Robotics/borgmodule.rsi
-          state: janitor
-        name: construction-graph-tag-janitorborgmodule
-  - node: borgmodulelube
-    entity: BorgModuleAggressiveLube
+# Omu start - commenting out because I don't trust you people
+# - type: constructionGraph
+#   id: BorgModuleLubeCraft
+#   start: start
+#   graph:
+#   - node: start
+#     edges:
+#     - to: borgmodulelube
+#       steps:
+#       - tag: LubeGrenade
+#         icon:
+#           sprite: Objects/Weapons/Grenades/foamdart.rsi
+#           state: icon
+#         name: construction-graph-tag-lubenade
+#       - material: Cable
+#         amount: 6
+#         doAfter: 10
+#       - tag: BorgModuleJanitor
+#         icon:
+#           sprite: Objects/Specific/Robotics/borgmodule.rsi
+#           state: janitor
+#         name: construction-graph-tag-janitorborgmodule
+#   - node: borgmodulelube
+#     entity: BorgModuleAggressiveLube
+# Omu end - commenting out because I don't trust you people
