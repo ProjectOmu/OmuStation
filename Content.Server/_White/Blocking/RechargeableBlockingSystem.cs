@@ -46,7 +46,7 @@ public sealed class RechargeableBlockingSystem : EntitySystem
             || recharger is not { AutoRechargeRate: > 0})
             return 0;
 
-        return (int) MathF.Round((batteryComponent.MaxCharge - batteryComponent.LastCharge) /
+        return (int) MathF.Round((batteryComponent.MaxCharge - _battery.GetCharge((uid, batteryComponent))) /
                                  recharger.AutoRechargeRate);
     }
 
@@ -57,12 +57,13 @@ public sealed class RechargeableBlockingSystem : EntitySystem
             || args.DamageDelta == null)
             return;
 
-        var batteryUse = Math.Min(args.DamageDelta.GetTotal().Float(), batteryComponent.LastCharge);
+        var batteryUse = Math.Min(args.DamageDelta.GetTotal().Float(), _battery.GetCharge((uid, batteryComponent)));
         _battery.TryUseCharge(batteryUid.Value, batteryUse);
     }
 
     private void AttemptToggle(EntityUid uid, RechargeableBlockingComponent component, ref ItemToggleActivateAttemptEvent args)
     {
+        CheckCharge(uid, component); //omu - check if charged when turning on
         if (!component.Discharged)
             return;
 
@@ -89,7 +90,7 @@ public sealed class RechargeableBlockingSystem : EntitySystem
             return;
 
         BatterySelfRechargerComponent? recharger;
-        if (battery.LastCharge < 1)
+        if (_battery.GetCharge((uid, battery)) < 1)
         {
             if (TryComp(uid, out recharger))
                 recharger.AutoRechargeRate = component.DischargedRechargeRate;
@@ -99,7 +100,7 @@ public sealed class RechargeableBlockingSystem : EntitySystem
             return;
         }
 
-        if (MathF.Round(battery.LastCharge / battery.MaxCharge, 2) < component.RechargePercentage)
+        if (MathF.Round(_battery.GetCharge((uid, battery)) / battery.MaxCharge, 2) < component.RechargePercentage)
             return;
 
         component.Discharged = false;
