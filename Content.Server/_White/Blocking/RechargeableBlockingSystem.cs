@@ -46,7 +46,7 @@ public sealed class RechargeableBlockingSystem : EntitySystem
             || recharger is not { AutoRechargeRate: > 0})
             return 0;
 
-        return (int) MathF.Round((batteryComponent.MaxCharge - _battery.GetCharge((uid, batteryComponent))) /
+        return (int) MathF.Round((batteryComponent.MaxCharge - _battery.GetCharge((uid, batteryComponent))) / // Omu, port for upstream batteries
                                  recharger.AutoRechargeRate);
     }
 
@@ -57,7 +57,7 @@ public sealed class RechargeableBlockingSystem : EntitySystem
             || args.DamageDelta == null)
             return;
 
-        var batteryUse = Math.Min(args.DamageDelta.GetTotal().Float(), _battery.GetCharge((uid, batteryComponent)));
+        var batteryUse = Math.Min(args.DamageDelta.GetTotal().Float(), _battery.GetCharge((uid, batteryComponent))); // Omu, port for upstream batteries
         _battery.TryUseCharge(batteryUid.Value, batteryUse);
     }
 
@@ -90,7 +90,7 @@ public sealed class RechargeableBlockingSystem : EntitySystem
             return;
 
         BatterySelfRechargerComponent? recharger;
-        if (_battery.GetCharge((uid, battery)) < 1)
+        if (_battery.GetCharge((uid, battery)) < 1) // Omu, port for upstream batteries
         {
             if (TryComp(uid, out recharger))
                 recharger.AutoRechargeRate = component.DischargedRechargeRate;
@@ -100,7 +100,7 @@ public sealed class RechargeableBlockingSystem : EntitySystem
             return;
         }
 
-        if (MathF.Round(_battery.GetCharge((uid, battery)) / battery.MaxCharge, 2) < component.RechargePercentage)
+        if (MathF.Round(_battery.GetCharge((uid, battery)) / battery.MaxCharge, 2) < component.RechargePercentage) // Omu, port for upstream batteries
             return;
 
         component.Discharged = false;
