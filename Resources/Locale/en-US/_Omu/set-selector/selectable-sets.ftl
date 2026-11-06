@@ -238,4 +238,4 @@ selectable-set-ntr-brella-desc =
     CC note says: ONLY USE ON RED!!!!!
 
 selectable-set-brig-modsuit-name = Corpsman 'Apollo' modsuit
-selectable-set-brig-modsuit-desc = An alternative and customized modular medical hardsuit designed for combat medics. 
+selectable-set-brig-modsuit-desc = An alternative and customized modular medical hardsuit designed for combat medics.
