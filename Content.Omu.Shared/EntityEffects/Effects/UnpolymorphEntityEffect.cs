@@ -3,7 +3,6 @@ using Content.Shared.EntityEffects;
 
 namespace Content.Omu.Shared.EntityEffects.Effects;
 
-/// created by bookassecond
 /// <inheritdoc cref="EntityEffect"/>
 public sealed partial class Unpolymorph : EntityEffectBase<Unpolymorph>
 {
