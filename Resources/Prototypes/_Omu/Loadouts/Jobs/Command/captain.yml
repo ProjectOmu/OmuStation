@@ -1,3 +1,21 @@
+# Omu - For Off-Coat
+- type: loadoutEffectGroup
+  id: VeteranCap
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 180000 # 50 hrs
+
+- type: loadout
+  id: CaptainOffcoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranCap
+  equipment:
+    neck: ClothingNeckCloakCAPCoat
+
 #PDA
 - type: loadout
   id: CaptainPDA
