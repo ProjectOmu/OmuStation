@@ -6,13 +6,18 @@
   id: CentCommJustice
   description: PLACEHOLDER_DESCRIPTION
   components:
-  - type: Item
-    sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
-    size: Ginormous # Use your sheath. There isn't one dumbass.
-    heldPrefix: off
   - type: Sprite
-    sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
-    state: icon
+    sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+    state: Disabled-icon
+  #- type: Item
+  #  sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+  #  inhandVisuals:
+  #    left:
+  #      - state: Disabled-inhand-left
+  #    right:
+  #      - state: Disabled-inhand-right
+    heldPrefix: off
+    size: Ginormous
   - type: Battery
     maxCharge: 1500
     startingCharge: 1500
@@ -20,14 +25,10 @@
     autoRechargeRate: 100
     autoRechargePauseTime: 30
   - type: DisarmMalus
+    malus: 0
   - type: Tag
     tags:
     - Justice
-    - HighRiskItem
-  - type: GuideHelp
-    guides:
-    - Security
-    - Antagonists
   - type: RestrictById
     restrictMelee: true
     isEmaggable: false
@@ -36,7 +37,7 @@
   - type: Sharp
   - type: Execution
     doAfterDuration: 4.0
-  - type: MeleeWeapon
+  - type: MeleeWeapon # Don't think this section is needed, remove after finding out if it is or not.
     wideAnimationRotation: -135
     attackRate: 1.5
     damage:
@@ -50,17 +51,25 @@
     animation: WeaponArcThrust
   - type: ItemSwitch
     needsPower: true
-    defaultState: off
-    state: "off"
+    defaultState: Disabled
+    state: "Disabled"
     showLabel: true
     states:
-      off: !type:ItemSwitchState
-        verb: off
+
+      disabled: !type:ItemSwitchState
+        verb: Disabled
         energyPerUse: 0
-        sprite:
-          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
-          state: icon
         components:
+        - type: Sprite
+          sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+          state: Disabled-icon
+        - type: Item
+          sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+          inhandVisuals:
+            left:
+              - state: Disabled-inhand-left
+            right:
+              - state: Disabled-inhand-right
         - type: MeleeWeapon
           wideAnimationRotation: -135
           attackRate: 1.5
@@ -72,13 +81,20 @@
           angle: 60
           animation: WeaponArcThrust
 
-      stun: !type:ItemSwitchState
-        verb: stun
+      suppression: !type:ItemSwitchState
+        verb: Suppression
         energyPerUse: 48
-        sprite:
-          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
-          state: stun-icon
         components:
+        - type: Sprite
+          sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+          state: Suppression-icon
+        - type: Item
+          sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+          inhandVisuals:
+            left:
+              - state: Suppression-inhand-left
+            right:
+              - state: Suppression-inhand-right
         - type: MeleeWeapon
           wideAnimationRotation: -135
           attackRate: 1.5
@@ -89,7 +105,7 @@
           animation: WeaponArcThrust
           soundHit:
             path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
-        - type: StaminaDamageOnHit # Batong
+        - type: StaminaDamageOnHit
           damage: 25
           overtime: 25
           lightAttackDamageMultiplier: 2
@@ -99,13 +115,20 @@
           params:
             variation: 0.250
 
-      ion: !type:ItemSwitchState
-        verb: ion
+      surge: !type:ItemSwitchState
+        verb: Surge
         energyPerUse: 65
-        sprite:
-          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
-          state: ion-icon
         components:
+        - type: Sprite
+          sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+          state: Surge-icon
+        - type: Item
+          sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+          inhandVisuals:
+            left:
+              - state: Surge-inhand-left
+            right:
+              - state: Surge-inhand-right
         - type: MeleeWeapon
           wideAnimationRotation: -135
           attackRate: 1.5
@@ -123,12 +146,19 @@
             variation: 0.250
 
       phoron: !type:ItemSwitchState
-        verb: phoron
+        verb: Phoron
         energyPerUse: 80
-        sprite:
-          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
-          state: phoron-icon
         components:
+        - type: Sprite
+          sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+          state: Phoron-icon
+        - type: Item
+          sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+          inhandVisuals:
+            left:
+              - state: Phoron-inhand-left
+            right:
+              - state: Phoron-inhand-right
         - type: AmbientSound
           range: 5
           volume: 0
@@ -164,19 +194,26 @@
       Supermatter: !type:ItemSwitchState
         verb: Supermatter
         energyPerUse: 999 # Also don't remove its energy usage I will cry
-        sprite:
-          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
-          state: Supermatter-Icon
         components:
+        - type: Sprite
+          sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+          state: Supermatter-icon
+        - type: Item
+          sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+          inhandVisuals:
+            left:
+              - state: Supermatter-inhand-left
+            right:
+              - state: Supermatter-inhand-right
         - type: AmbientSound
           range: 5
           volume: 0
           sound:
             path: /Audio/_Goobstation/Supermatter/calm.ogg
-        - type: SmiteOnMeleeHit
+        - type: SmiteOnMeleeHit # Due to the nature in how I coded SmiteOnMeleeHit, please don't add it to ANY other items, it will be unbalanced as all hell and could very easily be used to destory an entire station in a matter of minutes.  All of the restraints that prevent this from being an immencely overpowered station destruction tool are done on the yml side.
         - type: MeleeWeapon
           wideAnimationRotation: -135
-          canWideSwing: false # Do not fucking add wideswing to this shit holy fuck
+          canWideSwing: false # Also do not fucking add wideswing to this shit holy fuck
           attackRate: 0.5 # Also don't up the attack rate
           animation: WeaponArcThrust
           damage:

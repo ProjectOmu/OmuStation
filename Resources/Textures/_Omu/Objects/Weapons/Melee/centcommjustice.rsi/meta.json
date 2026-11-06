@@ -3,15 +3,54 @@
     "copyright": "Sprited by LunaTheFox, using sprites from Taro Varne, RedTerror, and Conflee",
     "license": "CC-BY-SA-3.0",
     "size": {
-        "x": 32,
-        "y": 32
+        "x": 64,
+        "y": 64
     },
     "states": [
-        {
-            "name": "icon"
+		{
+            "name": "Disabled-icon"
         },
 		{
-            "name": "Supermatter-Icon",
+            "name": "Suppression-icon",
+            "delays": [
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ]
+            ]
+        },
+		{
+            "name": "Surge-icon",
+            "delays": [
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ]
+            ]
+        },
+		{
+            "name": "Phoron-icon",
+            "delays": [
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ]
+            ]
+        },
+		{
+            "name": "Supermatter-icon",
             "delays": [
               [
                 0.08,
@@ -20,55 +59,16 @@
               ]
             ]
         },
-        {
-            "name": "stun-icon",
-            "delays": [
-              [
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1
-              ]
-            ]
-        },
 		{
-            "name": "phoron-icon",
-            "delays": [
-              [
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1
-              ]
-            ]
-        },
-        {
-            "name": "ion-icon",
-            "delays": [
-              [
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1
-              ]
-            ]
-        },
-		{
-            "name": "off-inhand-left",
+            "name": "Disabled-inhand-left",
 			"directions": 4
         },
 		{
-            "name": "off-inhand-right",
+            "name": "Disabled-inhand-right",
 			"directions": 4
         },
 		{
-            "name": "ion-inhand-left",
+            "name": "Suppression-inhand-left",
 			"directions": 4,
             "delays": [
               [
@@ -98,7 +98,7 @@
             ]
         },
 		{
-            "name": "ion-inhand-right",
+            "name": "Suppression-inhand-right",
 			"directions": 4,
             "delays": [
               [
@@ -128,7 +128,7 @@
             ]
         },
 		{
-            "name": "phoron-inhand-left",
+            "name": "Surge-inhand-left",
 			"directions": 4,
             "delays": [
               [
@@ -158,7 +158,7 @@
             ]
         },
 		{
-            "name": "phoron-inhand-right",
+            "name": "Surge-inhand-right",
 			"directions": 4,
             "delays": [
               [
@@ -188,7 +188,7 @@
             ]
         },
 		{
-            "name": "stun-inhand-left",
+            "name": "Phoron-inhand-left",
 			"directions": 4,
             "delays": [
               [
@@ -218,7 +218,7 @@
             ]
         },
 		{
-            "name": "stun-inhand-right",
+            "name": "Phoron-inhand-right",
 			"directions": 4,
             "delays": [
               [
