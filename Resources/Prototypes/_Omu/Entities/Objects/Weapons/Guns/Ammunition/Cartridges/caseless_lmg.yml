@@ -8,21 +8,16 @@
     tags:
     - Cartridge
     - CartridgeCaselessLMG
-
   - type: CartridgeAmmo
     proto: BulletCaselessLMG
     deleteOnSpawn: true
-
   - type: Sprite
     noRot: false
     sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
     layers:
     - state: base
       map: [ "enum.AmmoVisualLayers.Base" ]
-
   - type: Appearance
-
   - type: SpentAmmoVisuals
-
   - type: StaticPrice
     price: 0
