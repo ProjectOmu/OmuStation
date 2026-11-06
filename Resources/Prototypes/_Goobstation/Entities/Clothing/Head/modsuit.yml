@@ -1063,7 +1063,7 @@
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
     - type: IdentityBlocker
-    # - type: IngestionBlocker # Omu
+    - type: IngestionBlocker
     - type: HideLayerClothing
       layers:
         Hair: HEAD
