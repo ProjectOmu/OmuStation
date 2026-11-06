@@ -179,6 +179,16 @@
   groupBy: "pin"
 
 - type: loadout
+  id: ClothingNeckCloakPlural
+  equipment:
+    neck: ClothingNeckCloakPlural
+
+- type: loadout
+  id: ClothingNeckScarfStripedPlural
+  equipment:
+    neck: ClothingNeckScarfStripedPlural
+
+- type: loadout
   id: BarberScissors
   storage:
     back:
