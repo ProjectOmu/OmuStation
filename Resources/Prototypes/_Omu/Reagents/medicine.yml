@@ -108,9 +108,9 @@
       - !type:AdjustReagent
         amount: -50
         reagent: CorgiJuice
-      - !type:AdjustReagent
-        amount: -50
-        reagent: Tranquility
+      #- !type:AdjustReagent # Commented out because gondolas are an antag tool
+        #amount: -50
+        #reagent: Tranquility
       - !type:AdjustReagent
         amount: -50
         reagent: BingleJuice
@@ -120,7 +120,7 @@
       - !type:AdjustReagent
         amount: -50
         reagent: CatDrugs
-      - !type:Unpolymorph
+      - !type:Unpolymorph # Code created by Ataraxia/bookassecond
         conditions:
         - !type:ReagentCondition # have to have a certain amount of it in the blood
           reagent: Recyclogenix
