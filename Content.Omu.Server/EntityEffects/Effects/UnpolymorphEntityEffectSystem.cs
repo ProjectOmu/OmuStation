@@ -6,7 +6,6 @@ namespace Content.Omu.Server.EntityEffects.Effects;
 
 /// <summary>
 /// Reverts a polymorphed entity
-/// Created by bookassecond
 /// </summary>
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
 public sealed partial class UnpolymorphEntityEffectSystem : EntityEffectSystem<PolymorphedEntityComponent, Shared.EntityEffects.Effects.Unpolymorph>
