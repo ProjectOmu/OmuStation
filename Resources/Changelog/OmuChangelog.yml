@@ -9970,3 +9970,21 @@ Entries:
       message: Cadets no longer start with an MK58 magazine.
   id: 1283
   time: '2026-11-07T16:04:51.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Tweak
+      message: >-
+        Assistants are instead "Off Duty" personnel. Tider- and
+        Assistant-related things are changed or removed to reflect this (such as
+        the now-removed Tidemind).
+    - type: Tweak
+      message: >-
+        The "Grey Tide" uplink item is now a bundle that also comes with
+        insulated gloves and an unremovable-by-self gas mask that activates the
+        Grey Tide.
+    - type: Add
+      message: >-
+        Loadouts and vendors offer departmental armbands. The Head of Security
+        gets a free box of them in their locker.
+  id: 1284
+  time: '2026-11-07T19:14:07.0000000+00:00'
