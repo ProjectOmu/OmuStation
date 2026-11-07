@@ -7,15 +7,15 @@
   description: PLACEHOLDER_DESCRIPTION
   components:
   - type: Sprite
-    sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+    sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
     state: Disabled-icon
-  #- type: Item
-  #  sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
-  #  inhandVisuals:
-  #    left:
-  #      - state: Disabled-inhand-left
-  #    right:
-  #      - state: Disabled-inhand-right
+  - type: Item
+    sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
+    inhandVisuals:
+      left:
+        - state: Disabled-inhand-left
+      right:
+        - state: Disabled-inhand-right
     heldPrefix: off
     size: Ginormous
   - type: Battery
@@ -56,15 +56,15 @@
     showLabel: true
     states:
 
-      disabled: !type:ItemSwitchState
+      Disabled: !type:ItemSwitchState
         verb: Disabled
         energyPerUse: 0
-        components:
-        - type: Sprite
-          sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+        sprite:
+          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           state: Disabled-icon
+        components:
         - type: Item
-          sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           inhandVisuals:
             left:
               - state: Disabled-inhand-left
@@ -81,15 +81,15 @@
           angle: 60
           animation: WeaponArcThrust
 
-      suppression: !type:ItemSwitchState
+      Suppression: !type:ItemSwitchState
         verb: Suppression
         energyPerUse: 48
-        components:
-        - type: Sprite
-          sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+        sprite:
+          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           state: Suppression-icon
+        components:
         - type: Item
-          sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           inhandVisuals:
             left:
               - state: Suppression-inhand-left
@@ -115,15 +115,15 @@
           params:
             variation: 0.250
 
-      surge: !type:ItemSwitchState
+      Surge: !type:ItemSwitchState
         verb: Surge
         energyPerUse: 65
-        components:
-        - type: Sprite
-          sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+        sprite:
+          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           state: Surge-icon
+        components:
         - type: Item
-          sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           inhandVisuals:
             left:
               - state: Surge-inhand-left
@@ -145,15 +145,15 @@
           params:
             variation: 0.250
 
-      phoron: !type:ItemSwitchState
+      Phoron: !type:ItemSwitchState
         verb: Phoron
         energyPerUse: 80
-        components:
-        - type: Sprite
-          sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+        sprite:
+          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           state: Phoron-icon
+        components:
         - type: Item
-          sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           inhandVisuals:
             left:
               - state: Phoron-inhand-left
@@ -194,12 +194,12 @@
       Supermatter: !type:ItemSwitchState
         verb: Supermatter
         energyPerUse: 999 # Also don't remove its energy usage I will cry
-        components:
-        - type: Sprite
-          sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+        sprite:
+          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           state: Supermatter-icon
+        components:
         - type: Item
-          sprite: _Omu/Objects/Weapons/Melee/CentCommJustice.rsi
+          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           inhandVisuals:
             left:
               - state: Supermatter-inhand-left
