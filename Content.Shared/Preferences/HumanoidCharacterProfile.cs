@@ -93,6 +93,12 @@ namespace Content.Shared.Preferences
         [DataField] // Goob Station - Barks
         public ProtoId<BarkPrototype> BarkVoice { get; set; } = SharedHumanoidAppearanceSystem.DefaultBarkVoice; // Goob Station - Barks
 
+        [DataField] // Omu
+        public ProtoId<EmotePackPrototype>? EmotePack { get; private set; } // Omu
+
+        [DataField] // Omu
+        public ProtoId<SpeciesPrototype>? EmotePackSpecies { get; private set; } // Omu
+
         [DataField]
         public int Age { get; set; } = 18;
 
@@ -166,6 +172,8 @@ namespace Content.Shared.Preferences
             Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities,
             Dictionary<ProtoId<JobPrototype>, string> jobAlternateTitles, // Omu
             List<SpeechReplacement> speechReplacements, // Omu
+            ProtoId<EmotePackPrototype>? emotePack, // Omu
+            ProtoId<SpeciesPrototype>? emotePackSpecies, // Omu
             PreferenceUnavailableMode preferenceUnavailable,
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
@@ -185,6 +193,8 @@ namespace Content.Shared.Preferences
             _jobPriorities = jobPriorities;
             _jobAlternateTitles = jobAlternateTitles; // Omu
             _speechReplacements = speechReplacements; // Omu
+            EmotePack = emotePack; // Omu
+            EmotePackSpecies = emotePackSpecies; // Omu
             PreferenceUnavailable = preferenceUnavailable;
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
@@ -221,6 +231,8 @@ namespace Content.Shared.Preferences
                 new Dictionary<ProtoId<JobPrototype>, JobPriority>(other.JobPriorities),
                 new Dictionary<ProtoId<JobPrototype>, string>(other.JobAlternateTitles), // Omu
                 new List<SpeechReplacement>(other.SpeechReplacements), // Omu
+                other.EmotePack, // Omu
+                other.EmotePackSpecies, // Omu
                 other.PreferenceUnavailable,
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
@@ -458,6 +470,12 @@ namespace Content.Shared.Preferences
                 _speechReplacements = replacements.ToList(),
             };
         }
+
+        public HumanoidCharacterProfile WithEmotePack(ProtoId<EmotePackPrototype>? emotePack,
+            ProtoId<SpeciesPrototype>? emotePackSpecies)
+        {
+            return new(this) { EmotePack = emotePack, EmotePackSpecies = emotePackSpecies };
+        }
         // Omu end
 
         public HumanoidCharacterProfile WithPreferenceUnavailable(PreferenceUnavailableMode mode)
@@ -574,6 +592,8 @@ namespace Content.Shared.Preferences
             if (!_jobPriorities.SequenceEqual(other._jobPriorities)) return false;
             if (!_jobAlternateTitles.SequenceEqual(other._jobAlternateTitles)) return false; // Omu
             if (!_speechReplacements.SequenceEqual(other._speechReplacements)) return false; // Omu
+            if (EmotePack != other.EmotePack) return false; // Omu
+            if (EmotePackSpecies != other.EmotePackSpecies) return false; // Omu
             if (!_antagPreferences.SequenceEqual(other._antagPreferences)) return false;
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
@@ -786,6 +806,22 @@ namespace Content.Shared.Preferences
             _traitPreferences.Clear();
             _traitPreferences.UnionWith(GetValidTraits(traits, prototypeManager));
 
+            // Omu start
+            if (EmotePackRules.TryGetChoice(prototypeManager,
+                    collection.Resolve<IComponentFactory>(),
+                    this,
+                    out _,
+                    out var emotePackSource))
+            {
+                EmotePackSpecies = emotePackSource == Species ? null : (ProtoId<SpeciesPrototype>?) emotePackSource;
+            }
+            else
+            {
+                EmotePack = null;
+                EmotePackSpecies = null;
+            }
+            // Omu end
+
             // Checks prototypes exist for all loadouts and dump / set to default if not.
             var toRemove = new ValueList<string>();
 
@@ -881,6 +917,8 @@ namespace Content.Shared.Preferences
             hashCode.Add(_jobPriorities);
             hashCode.Add(_jobAlternateTitles); // Omu
             hashCode.Add(_speechReplacements); // Omu
+            hashCode.Add(EmotePack); // Omu
+            hashCode.Add(EmotePackSpecies); // Omu
             hashCode.Add(_antagPreferences);
             hashCode.Add(_traitPreferences);
             hashCode.Add(_loadouts);

@@ -19,6 +19,7 @@ using Content.Shared.Construction.Prototypes;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
@@ -296,6 +297,9 @@ namespace Content.Server.Database
                 .OrderBy(r => r.Id)
                 .Select(r => new SpeechReplacement { Word = r.Word, Replacement = r.Replacement })
                 .ToList();
+            ProtoId<EmotePackPrototype>? emotePack = profile.EmotePack is { } pack ? new(pack) : null;
+            ProtoId<SpeciesPrototype>? emotePackSpecies =
+                profile.EmotePackSpecies is { } packSpecies ? new(packSpecies) : null;
             // Omu end
 
             var sex = Sex.Male;
@@ -373,6 +377,8 @@ namespace Content.Server.Database
                 jobs,
                 jobAlternateTitles, // Omu
                 speechReplacements, // Omu
+                emotePack, // Omu
+                emotePackSpecies, // Omu
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
@@ -445,6 +451,8 @@ namespace Content.Server.Database
             // Omu end
 
             profile.BarkVoice = humanoid.BarkVoice; // Goob Station - Barks
+            profile.EmotePack = humanoid.EmotePack?.Id; // Omu
+            profile.EmotePackSpecies = humanoid.EmotePackSpecies?.Id; // Omu
 
             profile.Loadouts.Clear();
 

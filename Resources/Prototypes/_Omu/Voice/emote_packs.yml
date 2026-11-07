@@ -1,0 +1,79 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: emotePack
+  id: Masculine
+  name: emote-pack-masc
+  sexes: [ Male ]
+
+- type: emotePack
+  id: Feminine
+  name: emote-pack-fem
+  sexes: [ Female ]
+
+- type: emotePack
+  id: All
+  name: emote-pack-all
+  sexes: [ Male, Female ]
+
+- type: emotePack
+  id: Standard
+  name: emote-pack-standard
+  unisex: true
+  sexes: [ Unsexed ]
+
+- type: emotePack
+  id: HarpyAll
+  name: emote-pack-all
+  species: Harpy
+  sounds:
+    Male: SoundsHarpyMale
+    Female: SoundsHarpyFemale
+    Unsexed: SoundsHarpyFemale
+
+- type: emotePack
+  id: HarpyFeminine
+  name: emote-pack-fem
+  species: Harpy
+  sounds:
+    Male: SoundsHarpyFem
+    Female: SoundsHarpyFem
+    Unsexed: SoundsHarpyFem
+
+- type: emotePack
+  id: HarpyMasculine
+  name: emote-pack-masc
+  species: Harpy
+  sounds:
+    Male: SoundsHarpyMasc
+    Female: SoundsHarpyMasc
+    Unsexed: SoundsHarpyMasc
+
+- type: emoteSounds
+  id: SoundsHarpyMasc
+  parent: SoundsHarpyMale
+  sounds:
+    Scream:
+      collection: HarpyScreamsMasc
+    Laugh:
+      collection: HarpyLaughMasc
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: HarpyCryMasc
+
+- type: emoteSounds
+  id: SoundsHarpyFem
+  parent: SoundsHarpyFemale
+  sounds:
+    Scream:
+      collection: HarpyScreamsFem
+    Laugh:
+      collection: HarpyLaughFem
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    Sigh:
+      collection: FemaleSigh
+    Crying:
+      collection: HarpyCryFem

@@ -1230,6 +1230,14 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("char_name");
 
+                    b.Property<string>("EmotePack")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("emote_pack");
+
+                    b.Property<string>("EmotePackSpecies")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("emote_pack_species");
+
                     b.Property<string>("EyeColor")
                         .IsRequired()
                         .HasColumnType("TEXT")

@@ -57,6 +57,11 @@ trait-singer-name = Singer
 trait-singer-desc =
     You are naturally capable of singing simple melodies with your voice.
 
+trait-raised-among-others-name = Raised Among Others
+trait-raised-among-others-desc =
+    You grew up among another species and their own vocal and speech quirks became your own.
+    Lets you pick most species' emote sounds and voice, and use their emotes.
+
 trait-thieving-name = Thieving
 trait-thieving-desc =
     You are deft with your hands, and talented at convincing people of their belongings.
