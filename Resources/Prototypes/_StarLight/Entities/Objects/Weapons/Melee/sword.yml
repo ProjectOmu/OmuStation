@@ -1,0 +1,55 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseSheatheWeapon
+  name: base sheathe
+  description: It's a sheathe.
+  components:
+  - type: MeleeWeapon
+    animation: WeaponArcSlash
+    wideAnimationRotation: -30
+    damage:
+      types:
+        Blunt: 9
+    soundHit:
+      collection: MetalThud
+
+- type: entity
+  name: sacred chainsaw sword
+  parent: BaseSword
+  id: ChainsawSword
+  description: Suffer not a heretic to live.
+  components:
+    - type: Sprite
+      sprite: _Starlight/Objects/Weapons/Melee/chainsaw_sword.rsi
+    - type: MeleeWeapon
+      attackRate: 1
+      damage:
+        types:
+          Structural: 5
+          Slash: 15
+          Holy: 20
+      soundHit:
+        path: /Audio/Weapons/chainsaw.ogg
+    - type: Item
+    - type: DisarmMalus
+      malus: 0 # Omu
+    - type: Clothing
+      sprite: _Starlight/Objects/Weapons/Melee/chainsaw_sword.rsi
+      slots:
+      - belt
+    - type: Contraband
+      allowedJobs: [ Chaplain ]
+    - type: Reflect # Omu start
+      reflectProb: 1
+      reflects:
+      - Magic
+      slotFlags:
+      - NONE
+    - type: DivineIntervention
+    - type: AlternatePrayable
+    - type: Nullrod
+      DamageOnUntrainedUse:
+        types:
+          Heat: 20
+      UntrainedUseString: nullrod-untrained-usage-popup

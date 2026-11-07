@@ -21,7 +21,18 @@ namespace Content.Shared.Communications
         public string CurrentAlert;
         public float CurrentAlertDelay;
 
-        public CommunicationsConsoleInterfaceState(bool canAnnounce, bool canCall, List<string>? alertLevels, string currentAlert, float currentAlertDelay, TimeSpan? expectedCountdownEnd = null)
+        // Starlight edit Start
+        public readonly bool HasSecureTerminal; // Starlight: SCT enabled
+        public CommunicationsConsoleInterfaceState(
+            bool canAnnounce,
+            bool canCall,
+            List<string>? alertLevels,
+            string currentAlert,
+            float currentAlertDelay,
+            TimeSpan? expectedCountdownEnd = null,
+            bool hasSecureTerminal = false
+        )
+        // Starlight edit End
         {
             CanAnnounce = canAnnounce;
             CanCall = canCall;
@@ -30,6 +41,9 @@ namespace Content.Shared.Communications
             AlertLevels = alertLevels;
             CurrentAlert = currentAlert;
             CurrentAlertDelay = currentAlertDelay;
+            // Starlight Start
+            HasSecureTerminal = hasSecureTerminal;
+            // Starlight End
         }
     }
 
@@ -80,4 +94,10 @@ namespace Content.Shared.Communications
     {
         Key
     }
+
+    // Starlight Start: Secure Command Terminal
+    /// <summary>Sent from the client when the player presses the "Secure Terminal" button.</summary>
+    [Serializable, NetSerializable]
+    public sealed class CommunicationsConsoleOpenSecureTerminalMessage : BoundUserInterfaceMessage { }
+    // Starlight End
 }
