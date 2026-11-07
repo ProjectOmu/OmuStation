@@ -1,0 +1,145 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Marks the guidebooks, so the library console can list them and print them from the archive.
+- type: Tag
+  id: LibraryGuidebook
+
+# A book printed from the library archive or bound by the book binder.
+# Random cover like BookRandom; the name, author and text are filled in by the library systems.
+- type: entity
+  parent: BookRandom
+  id: BookLibraryPrinted
+  suffix: library
+  components:
+  - type: LibraryBook
+  # The book sprite plus the two hidden layers the paper visualizer looks for. Books have an Appearance (for the
+  # fire visuals) and a written book would otherwise log "Layer with key 'Writing' does not exist".
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#332d27"
+      map: [ "cover" ]
+    - state: decor_wingette
+      color: "#453f3a"
+      map: [ "decor" ]
+    - state: icon_text
+      map: [ "icon" ]
+    - state: overlay_null
+      map: [ "overlay" ]
+    - state: overlay_null
+      visible: false
+      map: [ "enum.PaperVisualLayers.Writing" ]
+    - state: overlay_null
+      visible: false
+      map: [ "enum.PaperVisualLayers.Stamp" ]
+  # Library books burn like paper, but they are thicker and take a bit longer to turn to ash.
+  - type: Appearance
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+  - type: ExtinguishableSetCollisionWake
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    canExtinguish: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+# A book that turns into a random book from the library archive when the map starts. Used for the books
+# that used to be random story / premade story books on maps and in bookshelves.
+- type: entity
+  parent: BookLibraryPrinted
+  id: BookRandomArchive
+  suffix: random archive
+  components:
+  - type: RandomArchiveBook
+
+# The premade story books are copied into a brand new library archive, so there is always something to find.
+- type: librarySeed
+  id: PremadeStoryBooks
+  author: Unknown
+  category: Fiction
+  books:
+  - BookNarsieLegend
+  - BookTruth
+  - BookWorld
+  - BookIanAntarctica
+  - BookSlothClownSSS
+  - BookSlothClownPranks
+  - BookSlothClownMMD
+  - BookStruck
+  - BookSun
+  - BookPossum
+  - BookCafe
+  - BookFeather
+  - BookIanLostWolfPup
+  - BookIanRanch
+  - BookIanOcean
+  - BookIanMountain
+  - BookIanCity
+  - BookIanArctic
+  - BookIanDesert
+  - BookNames
+  - BookEarth
+  - BookAurora
+  - BookTemple
+  - BookWatched
+  - BookMedicalOfficer
+  - BookMorgue
+  - BookRufus
+  - BookMap
+  - BookJourney
+  - BookInspiration
+  - BookJanitorTale
+  texts:
+  - title: Botanical Specimens of NT
+    text: book-text-botanics
+  - title: Igor's Guide to Chemistry
+    text: book-text-chemistry-insane
+  - title: How To Summon a Demon
+    author: J.G. Wizgerald
+    text: book-text-demonomicon1
+  - title: How To Summon a Lemon
+    author: J.G. Wizgerald
+    text: book-text-demonomicon2
+  - title: Cool Demon Names I Found
+    author: Ms. Mossrock
+    text: book-text-demonomicon3
+  - title: Small Adventures, Big Station
+    text: book-text-detective
+  - title: The Art of Getting Robusted
+    text: book-text-escalation
+  - title: A Security Officer's Pen
+    text: book-text-escalation-security
+  - title: I Want To Catch Space Fish
+    text: book-text-fishing
+  - title: All Hail Our Gnome King
+    text: book-text-gnome

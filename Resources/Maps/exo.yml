@@ -13628,14 +13628,14 @@ entities:
     - type: Transform
       pos: -62.5,-25.5
       parent: 2
-- proto: BookIanCity
+- proto: BookRandomArchive
   entities:
   - uid: 18019
     components:
     - type: Transform
       pos: 14.53701,-63.48177
       parent: 2
-- proto: BookIanRanch
+- proto: BookRandomArchive
   entities:
   - uid: 15214
     components:
@@ -13643,7 +13643,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -38.482178,-55.18623
       parent: 2
-- proto: BookRandomStory
+- proto: BookRandomArchive
   entities:
   - uid: 2393
     components:

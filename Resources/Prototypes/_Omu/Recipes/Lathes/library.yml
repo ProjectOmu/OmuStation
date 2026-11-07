@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseServiceComputerRecipeCategory ]
+  id: LibraryComputerCircuitboard
+  icon: _Omu/Structures/Machines/Icons/Computers/library.png
+  result: LibraryComputerCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseServiceComputerRecipeCategory ]
+  id: LibraryRequestComputerCircuitboard
+  icon: _Omu/Structures/Machines/Icons/Computers/library.png
+  result: LibraryRequestComputerCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseGeneralMachineRecipeCategory ]
+  id: LibraryScannerMachineCircuitboard
+  icon: { sprite: _Omu/Structures/Machines/library_machines.rsi, state: bigscanner }
+  result: LibraryScannerMachineCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseGeneralMachineRecipeCategory ]
+  id: BookbinderMachineCircuitboard
+  icon: { sprite: Structures/Machines/uniform_printer.rsi, state: icon }
+  result: BookbinderMachineCircuitboard
+
+# Sheets of paper turned into paper, one sheet per page.
+- type: latheRecipe
+  id: LibraryPaper
+  result: Paper
+  completetime: 1
+  materials:
+    Paper: 100
+
+- type: latheRecipe
+  id: LibraryPaperOffice
+  result: PaperOffice
+  completetime: 1
+  materials:
+    Paper: 100

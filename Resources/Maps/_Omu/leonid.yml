@@ -41492,7 +41492,7 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: BookIanAntarctica
+- proto: BookRandomArchive
   entities:
   - uid: 5029
     components:
@@ -41502,7 +41502,7 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
-- proto: BookIanArctic
+- proto: BookRandomArchive
   entities:
   - uid: 5030
     components:
@@ -41512,7 +41512,7 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
-- proto: BookIanCity
+- proto: BookRandomArchive
   entities:
   - uid: 5031
     components:
@@ -41522,7 +41522,7 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
-- proto: BookIanDesert
+- proto: BookRandomArchive
   entities:
   - uid: 5032
     components:
@@ -41532,7 +41532,7 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
-- proto: BookIanLostWolfPup
+- proto: BookRandomArchive
   entities:
   - uid: 5033
     components:
@@ -41542,7 +41542,7 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
-- proto: BookIanMountain
+- proto: BookRandomArchive
   entities:
   - uid: 5034
     components:
@@ -41552,7 +41552,7 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
-- proto: BookIanOcean
+- proto: BookRandomArchive
   entities:
   - uid: 5035
     components:
@@ -41562,7 +41562,7 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
-- proto: BookIanRanch
+- proto: BookRandomArchive
   entities:
   - uid: 5036
     components:
@@ -41584,7 +41584,7 @@ entities:
     - type: Transform
       pos: -19.318043,-5.4772983
       parent: 2
-- proto: BookMedicalOfficer
+- proto: BookRandomArchive
   entities:
   - uid: 5039
     components:
@@ -41603,7 +41603,7 @@ entities:
     - type: Transform
       pos: -54.450085,-13.367164
       parent: 2
-- proto: BookPossum
+- proto: BookRandomArchive
   entities:
   - uid: 5043
     components:
@@ -41614,7 +41614,7 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: BookRandomStory
+- proto: BookRandomArchive
   entities:
   - uid: 5044
     components:
@@ -42118,7 +42118,7 @@ entities:
     - type: Transform
       pos: -73.458275,33.617874
       parent: 2
-- proto: BookSun
+- proto: BookRandomArchive
   entities:
   - uid: 5109
     components:

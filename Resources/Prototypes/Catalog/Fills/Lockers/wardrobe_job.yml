@@ -46,8 +46,7 @@
     - !type:GroupSelector
       prob: 0.25
       children:
-      - id: BookRandomStory
-      - id: BookRandom
+      - id: BookRandomArchive
     - !type:GroupSelector
       prob: 0.15
       children:

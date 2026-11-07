@@ -22388,7 +22388,7 @@ entities:
     - type: Transform
       pos: 76.35812,54.568344
       parent: 2
-- proto: BookMedicalOfficer
+- proto: BookRandomArchive
   entities:
   - uid: 1478
     components:
@@ -22403,7 +22403,7 @@ entities:
       parent: 1449
     - type: Physics
       canCollide: False
-- proto: BookNarsieLegend
+- proto: BookRandomArchive
   entities:
   - uid: 1479
     components:
@@ -22690,7 +22690,7 @@ entities:
       parent: 1449
     - type: Physics
       canCollide: False
-- proto: BookWatched
+- proto: BookRandomArchive
   entities:
   - uid: 1510
     components:

@@ -12396,21 +12396,21 @@ entities:
     - type: Transform
       pos: 8.550731,56.725502
       parent: 2
-- proto: BookNames
+- proto: BookRandomArchive
   entities:
   - uid: 883
     components:
     - type: Transform
       pos: -53.578575,72.572136
       parent: 2
-- proto: BookNarsieLegend
+- proto: BookRandomArchive
   entities:
   - uid: 884
     components:
     - type: Transform
       pos: -49.468697,10.638125
       parent: 2
-- proto: BookRandomStory
+- proto: BookRandomArchive
   entities:
   - uid: 885
     components:
@@ -12583,7 +12583,7 @@ entities:
     - type: Transform
       pos: -10.15158,63.567593
       parent: 2
-- proto: BookTruth
+- proto: BookRandomArchive
   entities:
   - uid: 920
     components:

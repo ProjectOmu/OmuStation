@@ -1,0 +1,230 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [ BaseComputer ]
+  id: ComputerLibrary
+  name: book inventory management console
+  description: The librarian's command station. Browse the archive, print books and keep track of what is lent out.
+  components:
+  - type: Computer
+    board: LibraryComputerCircuitboard
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: request
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: LibraryConsole
+    idSlot:
+      name: library-console-id-slot
+      insertSound: /Audio/Machines/id_insert.ogg
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      whitelist:
+        components:
+        - IdCard
+        - Pda
+  - type: ItemSlots
+  - type: DeviceLinkSource
+    ports:
+    - LibraryBinder
+    - LibraryScanner
+  - type: DeviceLinkSink
+    ports:
+    - LibraryRequestInbox
+  - type: AccessReader
+    access: [ [ "Library" ], [ "Command" ] ]
+  - type: ActivatableUI
+    key: enum.LibraryConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.LibraryConsoleUiKey.Key:
+        type: LibraryConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+
+- type: entity
+  parent: [ BaseComputer ]
+  id: ComputerLibraryRequest
+  name: book request console
+  description: A console to request books. You can have your favorite book be printed only for you or get a blank book to write your favorite fan fictions or just your daily duties.
+  components:
+  - type: Computer
+    board: LibraryRequestComputerCircuitboard
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: request
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: LibraryRequestConsole
+  - type: DeviceLinkSource
+    ports:
+    - LibraryRequests
+  - type: ActivatableUI
+    key: enum.LibraryRequestConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.LibraryRequestConsoleUiKey.Key:
+        type: LibraryRequestConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+
+- type: entity
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  id: LibraryScanner
+  name: book scanner
+  description: An industrial strength book scanner. Scan a book here, then upload it to the archive from a library console.
+  components:
+  - type: Sprite
+    sprite: _Omu/Structures/Machines/library_machines.rsi # tgstation sprite, CC-BY-SA 3.0
+    layers:
+    - state: bigscanner
+      map: [ "enum.LibraryScannerVisualLayers.Base" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.LibraryScannerVisuals.Scanning:
+        enum.LibraryScannerVisualLayers.Base:
+          True: { state: scanning }
+          False: { state: bigscanner }
+  - type: Machine
+    board: LibraryScannerMachineCircuitboard
+  - type: ApcPowerReceiver
+    powerLoad: 250
+  - type: LibraryScanner
+    bookSlot:
+      name: library-scanner-book-slot
+      insertSound: null # no sound on loading, only the scan button makes noise
+      ejectSound: /Audio/Machines/tray_eject.ogg
+      whitelist:
+        components:
+        - Paper
+        tags:
+        - Book
+  - type: ItemSlots
+  - type: DeviceLinkSink
+    ports:
+    - LibraryConsole
+  - type: AccessReader
+    access: [ [ "Library" ], [ "Command" ] ]
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: ActivatableUI
+    key: enum.LibraryScannerUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.LibraryScannerUiKey.Key:
+        type: LibraryScannerBoundUserInterface
+
+- type: entity
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  id: Bookbinder
+  name: book binder
+  description: Only intended for binding paper products. Feed it sheets of paper, swipe an ID to be credited as the author, then give it a written sheet of paper. Also prints the books a library console asks for.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/uniform_printer.rsi
+    snapCardinals: false
+    layers:
+    - state: icon
+      map: [ "enum.LatheVisualLayers.IsRunning" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.LatheVisuals.IsRunning:
+        enum.LatheVisualLayers.IsRunning:
+          True: { state: building }
+          False: { state: icon }
+  - type: Machine
+    board: BookbinderMachineCircuitboard
+  - type: ApcPowerReceiver
+    powerLoad: 400
+  - type: Bookbinder
+    startingSheets: 30
+  - type: DeviceLinkSink
+    ports:
+    - LibraryConsole
+  - type: MaterialStorage
+    storageLimit: 9000 # 90 sheets of paper
+    materialWhiteList:
+    - Paper
+    whitelist:
+      tags:
+      - Sheet
+  - type: AccessReader
+    access: [ [ "Library" ], [ "Command" ] ]
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      bookbinder_paper: !type:ContainerSlot
+
+# What a built book binder is, it starts without paper unlike the ones that spawn.
+- type: entity
+  parent: Bookbinder
+  id: BookbinderBuilt
+  suffix: Built
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Bookbinder
+    startingSheets: 0
+
+# Circuit boards
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: LibraryComputerCircuitboard
+  name: book inventory management console board
+  description: A computer printed circuit board for a library console.
+  components:
+  - type: Sprite
+    state: cpu_service
+  - type: ComputerBoard
+    prototype: ComputerLibrary
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: LibraryRequestComputerCircuitboard
+  name: book request console board
+  description: A computer printed circuit board for a book request console.
+  components:
+  - type: Sprite
+    state: cpu_service
+  - type: ComputerBoard
+    prototype: ComputerLibraryRequest
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: LibraryScannerMachineCircuitboard
+  name: book scanner machine board
+  components:
+  - type: MachineBoard
+    prototype: LibraryScanner
+    stackRequirements:
+      Manipulator: 2
+      Glass: 1
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: BookbinderMachineCircuitboard
+  name: book binder machine board
+  components:
+  - type: MachineBoard
+    prototype: BookbinderBuilt
+    stackRequirements:
+      Manipulator: 2
+      Glass: 1

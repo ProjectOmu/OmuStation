@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: latheRecipePack
+  id: LibraryBoardsStatic
+  recipes:
+  - LibraryComputerCircuitboard
+  - LibraryRequestComputerCircuitboard
+  - LibraryScannerMachineCircuitboard
+  - BookbinderMachineCircuitboard
+
+- type: latheRecipePack
+  id: LibraryPaperStatic
+  recipes:
+  - LibraryPaper
+  - LibraryPaperOffice

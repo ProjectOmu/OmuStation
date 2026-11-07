@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Link the library console to its book binder and book scanner with a network configurator:
+# the console's "binder" port goes to the binder's "console" port, the console's "scanner" port
+# goes to the scanner's "console" port.
+- type: sourcePort
+  id: LibraryBinder
+  name: library-port-name-binder
+  description: library-port-description-binder
+  defaultLinks: [ LibraryConsole ]
+
+- type: sourcePort
+  id: LibraryScanner
+  name: library-port-name-scanner
+  description: library-port-description-scanner
+  defaultLinks: [ LibraryConsole ]
+
+- type: sinkPort
+  id: LibraryConsole
+  name: library-port-name-console
+  description: library-port-description-console
+
+# Book requests: the request console's "requests" port goes to the library console's "request inbox" port.
+- type: sourcePort
+  id: LibraryRequests
+  name: library-port-name-requests
+  description: library-port-description-requests
+  defaultLinks: [ LibraryRequestInbox ]
+
+- type: sinkPort
+  id: LibraryRequestInbox
+  name: library-port-name-request-inbox
+  description: library-port-description-request-inbox

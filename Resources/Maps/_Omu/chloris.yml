@@ -33439,7 +33439,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 35.346653,136.70355
       parent: 2
-- proto: BookEarth
+- proto: BookRandomArchive
   entities:
   - uid: 2275
     components:
@@ -33467,14 +33467,14 @@ entities:
     - type: Transform
       pos: 105.10882,73.606674
       parent: 2
-- proto: BookJourney
+- proto: BookRandomArchive
   entities:
   - uid: 2279
     components:
     - type: Transform
       pos: 84.5,88.5
       parent: 2
-- proto: BookMedicalOfficer
+- proto: BookRandomArchive
   entities:
   - uid: 2280
     components:
@@ -33495,7 +33495,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 35.512363,136.58914
       parent: 2
-- proto: BookMorgue
+- proto: BookRandomArchive
   entities:
   - uid: 2284
     components:
@@ -33503,14 +33503,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: 39.536427,116.57696
       parent: 2
-- proto: BookRandom
+- proto: BookRandomArchive
   entities:
   - uid: 2286
     components:
     - type: Transform
       pos: 88.49942,78.55249
       parent: 2
-- proto: BookRandomStory
+- proto: BookRandomArchive
   entities:
   - uid: 2287
     components:

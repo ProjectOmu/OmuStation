@@ -313,7 +313,7 @@
     - to: AltarConvertNode
       completed:
       - !type:SpawnPrototype
-        prototype: BookRandom
+        prototype: BookRandomArchive
         amount: 1
       steps:
       - tool: Prying

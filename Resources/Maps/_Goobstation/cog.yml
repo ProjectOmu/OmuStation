@@ -22446,7 +22446,7 @@ entities:
       parent: 1451
     - type: Physics
       canCollide: False
-- proto: BookInspiration
+- proto: BookRandomArchive
   entities:
   - uid: 1479
     components:
@@ -22467,7 +22467,7 @@ entities:
     - type: Transform
       pos: 76.35812,54.568344
       parent: 2
-- proto: BookMap
+- proto: BookRandomArchive
   entities:
   - uid: 1481
     components:
@@ -22475,7 +22475,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 15.632471,35.57769
       parent: 2
-- proto: BookMedicalOfficer
+- proto: BookRandomArchive
   entities:
   - uid: 1482
     components:
@@ -22490,14 +22490,14 @@ entities:
       parent: 1451
     - type: Physics
       canCollide: False
-- proto: BookNarsieLegend
+- proto: BookRandomArchive
   entities:
   - uid: 1483
     components:
     - type: Transform
       pos: 54.5418,30.579618
       parent: 2
-- proto: BookRandom
+- proto: BookRandomArchive
   entities:
   - uid: 1484
     components:
@@ -22784,7 +22784,7 @@ entities:
       parent: 1451
     - type: Physics
       canCollide: False
-- proto: BookWatched
+- proto: BookRandomArchive
   entities:
   - uid: 1515
     components:

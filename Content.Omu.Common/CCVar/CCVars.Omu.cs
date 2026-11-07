@@ -53,4 +53,16 @@ public sealed partial class OmuCVars
     /// </summary>
     public static readonly CVarDef<float> GunLagCompRange =
         CVarDef.Create("omu.gun_lag_comp_range", 0.6f, CVar.SERVER | CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Whether library consoles may upload scanned books to the persistent library archive.
+    /// </summary>
+    public static readonly CVarDef<bool> LibraryUploadsEnabled =
+        CVarDef.Create("omu.library_uploads_enabled", true, CVar.SERVER | CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Maximum number of (non-deleted) books the library archive will hold, 0 for unlimited.
+    /// </summary>
+    public static readonly CVarDef<int> LibraryMaxBooks =
+        CVarDef.Create("omu.library_max_books", 5000, CVar.SERVER | CVar.SERVERONLY);
 }

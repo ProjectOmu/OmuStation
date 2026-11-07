@@ -23970,7 +23970,7 @@ entities:
     - type: Transform
       pos: -8.120271,14.578207
       parent: 2
-- proto: BookRandom
+- proto: BookRandomArchive
   entities:
   - uid: 2162
     components:
@@ -23992,7 +23992,7 @@ entities:
     - type: Transform
       pos: -33.495968,-67.45002
       parent: 2
-- proto: BookRandomStory
+- proto: BookRandomArchive
   entities:
   - uid: 2166
     components:
@@ -24103,7 +24103,7 @@ entities:
     - type: Transform
       pos: 13.5,-10.5
       parent: 2
-- proto: BookWatched
+- proto: BookRandomArchive
   entities:
   - uid: 2187
     components:

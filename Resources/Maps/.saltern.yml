@@ -6518,7 +6518,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 11.460378,1.5181434
       parent: 31
-- proto: BookIanOcean
+- proto: BookRandomArchive
   entities:
   - uid: 9373
     components:
@@ -6526,7 +6526,7 @@ entities:
       parent: 9372
     - type: Physics
       canCollide: False
-- proto: BookRandom
+- proto: BookRandomArchive
   entities:
   - uid: 7320
     components:

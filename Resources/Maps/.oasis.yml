@@ -36247,7 +36247,7 @@ entities:
     - type: Transform
       pos: 30.540497,21.53258
       parent: 22618
-- proto: BookAurora
+- proto: BookRandomArchive
   entities:
   - uid: 1233
     components:
@@ -36268,21 +36268,21 @@ entities:
     - type: Transform
       pos: 1.315032,0.14078546
       parent: 2
-- proto: BookMedicalOfficer
+- proto: BookRandomArchive
   entities:
   - uid: 1235
     components:
     - type: Transform
       pos: -29.549212,-36.381424
       parent: 2
-- proto: BookNarsieLegend
+- proto: BookRandomArchive
   entities:
   - uid: 7734
     components:
     - type: Transform
       pos: -64.66253,-49.444622
       parent: 2
-- proto: BookRandom
+- proto: BookRandomArchive
   entities:
   - uid: 1236
     components:
@@ -36290,7 +36290,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -37.53679,-21.452196
       parent: 2
-- proto: BookRandomStory
+- proto: BookRandomArchive
   entities:
   - uid: 26111
     components:

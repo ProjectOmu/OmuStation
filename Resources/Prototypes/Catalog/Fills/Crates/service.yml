@@ -233,12 +233,12 @@
   parent: CrateGenericSteel
   id: CrateServiceBooks
   name: books crate
-  description: Contains 10 empty books of random appearance.
+  description: Contains 10 random books of the library archive.
   components:
   - type: EntityTableContainerFill
     containers:
       entity_storage:
-        id: BookRandom
+        id: BookRandomArchive
         amount: 10
 
 - type: entity

@@ -11,6 +11,7 @@
   goobcoins: 10 #Goob content
   access:
   - Service
+  - Library # Omu
   - Maintenance
   special: # Goobstation start - Librarian should speak most languages.
   - !type:AddImplantSpecial
@@ -26,7 +27,10 @@
     pocket2: HandLabeler # for making named bestsellers
   storage:
     back:
-    - BookRandom
+    - BookRandomArchive # Omu, a random book of the archive
+    - BookPinpointer # Omu
+    - LibrarianUniversalPinpointer # Omu
+    - NetworkConfigurator # Omu, links the library machines
 
 - type: chameleonOutfit
   id: LibrarianChameleonOutfit

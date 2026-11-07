@@ -1,0 +1,59 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Library pinpointers. Using one opens a menu of books, the one you pick is tracked like with any pinpointer.
+# Using it again switches it off. The arrow and distance come from the normal Pinpointer component, which is
+# told what to track by the BookPinpointer component, so there is no whitelist here.
+- type: entity
+  parent: PinpointerBase
+  id: BookPinpointer
+  name: book pinpointer
+  description: A handheld library tool. Use it to list the books in the room you are in, pick one and it points the way. Use it again to switch it off. It loses the book when it gets too far away.
+  components:
+  - type: Sprite
+    layers:
+    - state: pinpointer
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    state: pinpointer
+  - type: Pinpointer
+    canToggle: false
+    canTargetMultiple: false
+    updateTargetName: true
+  - type: BookPinpointer
+    maxRange: 30
+  - type: UserInterface
+    interfaces:
+      enum.BookPinpointerUiKey.Key:
+        type: BookPinpointerBoundUserInterface
+
+- type: entity
+  parent: PinpointerBase
+  id: LibrarianUniversalPinpointer
+  name: Librarian's universal pinpointer
+  description: Librarian's mightiest weapon. Track any book, find the missing or overdue books and beat the book thieves, with the books they stole.
+  components:
+  - type: Sprite
+    layers:
+    - state: pinpointer-station
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    state: pinpointer-station
+  - type: Pinpointer
+    canToggle: false
+    canTargetMultiple: false
+    updateTargetName: true
+  - type: BookPinpointer
+    universal: true
+    maxRange: 0
+  - type: UserInterface
+    interfaces:
+      enum.BookPinpointerUiKey.Key:
+        type: BookPinpointerBoundUserInterface
