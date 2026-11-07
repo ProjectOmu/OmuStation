@@ -48,7 +48,7 @@ public sealed class OutfitSystem : EntitySystem
         {
             session = actorComponent.PlayerSession;
             var userId = actorComponent.PlayerSession.UserId;
-            profile = _characterQueue.GetCurrentCharacter(userId); // Omu
+            profile = _characterQueue.TryGetCurrentCharacter(userId); // Omu
         }
 
         if (_invSystem.TryGetSlots(target, out var slots))

@@ -123,24 +123,35 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
         _chat.DispatchServerMessage(session, Loc.GetString("character-queue-no-character-for-job"));
         return false;
     }
-
-    public HumanoidCharacterProfile? GetCurrentCharacter(NetUserId userId)
+    /// <summary>
+    /// Try because we use GetPreferencesOrNull, normal GetPreferences can fuck up if the guid we check doesn't exist in the cache
+    /// i.e. when a player has disconnected.
+    /// </summary>
+    /// <param name="userId"></param>
+    /// <returns></returns>
+    public HumanoidCharacterProfile? TryGetCurrentCharacter(NetUserId userId)
     {
         if (_spawned.TryGetValue(userId, out var spawned))
             return spawned;
 
-        var prefs = _prefs.GetPreferences(userId);
+        var prefs = _prefs.GetPreferencesOrNull(userId);
+        if (prefs == null)
+            return null;
+
         return GetPrimaryCharacter(prefs, GetQueue(userId, prefs));
     }
 
     public HumanoidCharacterProfile? GetAntagCharacter(NetUserId userId, List<ProtoId<AntagPrototype>> antags)
     {
-        var prefs = _prefs.GetPreferences(userId);
+        var prefs = _prefs.GetPreferencesOrNull(userId);
+        if (prefs == null)
+            return null;
+
         var wanting = GetActiveCharacters(prefs, GetQueue(userId, prefs))
             .Where(c => c.AntagPreferences.Overlaps(antags))
             .ToList();
 
-        var character = wanting.Count > 0 ? _random.Pick(wanting) : GetCurrentCharacter(userId);
+        var character = wanting.Count > 0 ? _random.Pick(wanting) : TryGetCurrentCharacter(userId);
         if (character != null)
             _spawned[userId] = character;
 
