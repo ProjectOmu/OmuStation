@@ -8,6 +8,8 @@
   startingGear: PassengerGear
   icon: "JobIconPassenger"
   supervisors: job-supervisors-hop # omu
+  guides: #omu
+  - OffDutySOP # omu
   goobcoins: 20 #Goob content
   access:
   - Maintenance
