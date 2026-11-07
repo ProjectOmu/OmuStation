@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Omu.Common.SkillSystem;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -9,7 +10,7 @@ namespace Content.Shared.Clothing;
 /// Modifies speed when worn and activated.
 /// Supports <see cref="ItemToggleComponent"/>.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(ClothingSpeedModifierSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(ClothingSpeedModifierSystem), typeof(CommenOmuSkillSystem))]//omu
 public sealed partial class ClothingSpeedModifierComponent : Component
 {
     [DataField]

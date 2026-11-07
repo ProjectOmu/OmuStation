@@ -4,11 +4,12 @@ using Content.Shared.Tools.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
+using Content.Omu.Common.SkillSystem;
 
 namespace Content.Shared.Tools.Components;
 
 [RegisterComponent, NetworkedComponent]
-[Access(typeof(SharedToolSystem))]
+[Access(typeof(SharedToolSystem), typeof(CommenOmuSkillSystem))]//OMU
 public sealed partial class ToolComponent : Component
 {
     [DataField]

@@ -14,6 +14,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Omu.Common.DoAfter;
+using Robust.Shared.Serialization.TypeSerializers.Implementations;
 
 namespace Content.Shared.DoAfter;
 
@@ -238,6 +240,18 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
             args.Delay *= delayMultiplierEv.Multiplier;
         }
         // Goobstation end
+        // OMU start
+        var modifyDelayToolSided = new ModifyDelayOfDoAfter(args.User, args.Used, args.Target);
+        RaiseLocalEvent(args.User, modifyDelayToolSided);
+        if (args.Target != null) RaiseLocalEvent((EntityUid) args.Target, modifyDelayToolSided);
+        if (args.Used != null) RaiseLocalEvent((EntityUid) args.Used, modifyDelayToolSided);
+        if (modifyDelayToolSided.Cancle)
+        {
+            id = null;
+            return false; //NEW FAILURE CONDITION!!!!
+        }
+        args.Delay *= modifyDelayToolSided.Multiplier;
+        //  OMU end
 
         id = new DoAfterId(args.User, comp.NextId++);
         var doAfter = new DoAfter(id.Value.Index, args, GameTiming.CurTime);

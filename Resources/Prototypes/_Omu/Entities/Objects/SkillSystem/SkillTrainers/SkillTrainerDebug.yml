@@ -1,0 +1,18 @@
+﻿- type: entity
+  parent: BaseItem
+  id: DebugSkilltrainer
+  name: DebugSkilltrainer
+  description: DebugSkilltrainerDesc
+  components:
+    - type: Sprite
+      sprite: _Omu/Objects/SkillTrainers.rsi
+      state: NT
+    - type: Item
+      sprite: _Omu/Objects/SkillTrainers.rsi
+    - type: SkillGranting
+      skillDicMaxSkillLevel:
+        Cargo: 5
+        Command: 5
+        Engineering: 5
+        Medical: 5
+        Combat: 5
