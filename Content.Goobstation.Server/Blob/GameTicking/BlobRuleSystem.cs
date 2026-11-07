@@ -211,11 +211,6 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                 }
                 // Omu end
 
-            check.TryAdd(stationUid.Value, 0);
-
-            check[stationUid.Value] += comp.BlobTiles.Count;
-        }
-
                 RaiseLocalEvent(stationUid,
                     new BlobChangeLevelEvent
                 {
