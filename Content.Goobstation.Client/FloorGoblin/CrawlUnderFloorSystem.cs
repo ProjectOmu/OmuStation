@@ -7,6 +7,7 @@ using Content.Shared.VentCrawler.Tube.Components;
 using Robust.Client.GameObjects;
 using Robust.Shared.Map.Components;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
+using Content.Shared._DV.NodeCrawl; // Omu
 
 namespace Content.Goobstation.Client.FloorGoblin;
 
@@ -28,11 +29,14 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<CrawlUnderFloorComponent, VentCrawlerComponent, SpriteComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var comp, out var vent, out var sprite, out var xform))
+        // Omu start
+        // we have to use node crawling now, old VentCrawler system borked their ability to go under tiles
+        using var query = EntityQueryEnumerator<CrawlUnderFloorComponent, NodeCrawlerComponent, SpriteComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var comp, out var crawler, out var sprite, out var xform))
         {
-            if (vent.InTube)
+            if (crawler.Mover != null)
                 continue;
+            // Omu end
 
             if (!comp.Enabled)
             {
@@ -91,5 +95,4 @@ public sealed partial class HideUnderFloorAbilitySystem : SharedCrawlUnderFloorS
                 _sprite.SetContainerOccluded((uid, sprite), false);
         }
     }
-
 }
