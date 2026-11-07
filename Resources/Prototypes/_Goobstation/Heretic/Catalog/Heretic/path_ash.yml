@@ -118,11 +118,11 @@
   id: HereticAshPath6
   name: knowledge-path-ash-s6-name
   description: knowledge-path-ash-s6-desc
-  icon: { sprite: _Goobstation/Heretic/mad_mask.rsi, state: icon }
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: ashen_shift } # OMU
   raiseProductEventOnMind: true
   productEvent: !type:EventHereticAddKnowledge
     knowledge:
-    - MaskOfMadness
+    - AshenSkin # OMU
   cost:
     KnowledgePoint: 1
   categories:

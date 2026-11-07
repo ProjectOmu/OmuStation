@@ -163,6 +163,7 @@ public sealed partial class EventHereticFleshSurgery : InstantActionEvent, ITouc
 }
 
 public sealed partial class EventHereticFleshPassive : HereticKnowledgeEvent;
+public sealed partial class EventHereticAshenPassive : HereticKnowledgeEvent; // OMU
 
 // void (+ upgrades)
 public sealed partial class EventHereticVoidPassiveT1 : HereticKnowledgeEvent;
