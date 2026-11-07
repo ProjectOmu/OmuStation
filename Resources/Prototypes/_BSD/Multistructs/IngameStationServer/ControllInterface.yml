@@ -1,0 +1,46 @@
+﻿- type: entity
+  id: StationServerMultistructCore
+  parent: [ MultistructBaseCore , BaseComputerAiAccess ]
+  name: StationServerCoreName
+  description: StationServerMultistructCoreDesc
+  components:
+  - type: IngameServerClientLinkInfrastructure
+  - type: IngameConsole
+    allowedTypes:
+    - ICC_ASSIGN
+    - ICC_PRINT
+    - ICC_PRINT_ALL
+    - ICC_PROXY
+    - ISCL_UNASSIGN
+  - type: IngameServer
+    processingPower: 5.0
+    processingPowerProvidingTypes:
+    - ServerComponent
+    - ServerProductivity
+    installedPrograms:
+    - 0.0
+    - 1.0
+  - type: MultiBlockPart
+    structureType: 
+    - IngameServerCore
+    allowedConnectionTypesNorth:
+    - ALL
+    allowedConnectionTypesEast:
+    - ALL
+    allowedConnectionTypesSouth:
+    - ALL
+    allowedConnectionTypesWest:
+    - ALL
+  - type: MultiBlockStructure
+    allowedTypes:
+    - ServerConnector
+    - EnergyTransfair
+    - EnergyCapacityProvider
+    - ServerProductivity
+    - ServerComponent
+  - type: ActivatableUI
+    key: enum.IngameConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.IngameConsoleUiKey.Key:
+        type: IngameConsoleBoundUserInterface

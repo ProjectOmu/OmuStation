@@ -1,0 +1,131 @@
+﻿- type: entity
+  id: MultistructPartBaseNoCollission
+  name: MultistructPartBase
+  placement:
+    mode: SnapgridCenter
+  abstract: true
+  components:
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: GravityAffected
+  - type: Physics
+    bodyType: Static
+  - type: Pullable
+  - type: Tag
+    tags:
+      - Structure
+  - type: Penetratable
+    penetrateDamage: 25
+    damagePenalty: 0.1
+  - type: Structure
+  - type: MultiBlockPart
+    PartTypes: 
+    - None
+    allowedConnectionTypesNorth:
+    - ERROR-NONE
+    allowedConnectionTypesEast:
+    - ERROR-NONE
+    allowedConnectionTypesSouth:
+    - ERROR-NONE
+    allowedConnectionTypesWest:
+    - ERROR-NONE
+
+
+- type: entity
+  id: MultistructPartBase
+  parent: [ MultistructPartBaseNoCollission ]
+  name: MultistructPartBase
+  placement:
+    mode: SnapgridCenter
+  abstract: true
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  id: MultistructBaseCore
+  parent: [MultistructPartBase]
+  name: MultistructBaseCore
+  abstract: true
+  components:
+  - type: StationAiWhitelist
+  - type: InteractedBlacklist # Goobstation - xenos too stupid to use computer
+    blacklist:
+      components:
+      - Xenomorph
+  - type: MultiBlockStructure
+    AllowedTypes:
+    - ERROR
+
+
+- type: entity
+  id: MultistructControllBase
+  abstract: true
+  suffix: controll entity
+  categories: [ HideSpawnMenu ]
+  name: Controll entity
+  desc: you should not be seeing this
+  components:
+  - type: MultiBlockEnergyManagment
+    EnergyProvidingTypes: 
+    - EnergyTransfair
+    EnergyCapacityTypes: 
+    - EnergyCapacityProvider
+
+- type: entity
+  id: MultistructPartEnergyTransfairBase
+  parent: [ ConstructibleMachine]
+  name: MultistructPartEnergyTransfairBase
+  abstract: true
+  components:
+  - type: MultiBlockPart
+    PartTypes: 
+    - EnergyTransfair
+  - type: MultiBlockEnergyTransfair
+  - type: ExaminableBattery
+  - type: PowerMonitoringDevice
+    group: MultiStructs
+    sourceNode: input
+    loadNode: output
+    collectionName: apc
+    sprite: Structures/Power/apc.rsi
+    state: static
+  - type: BatteryCharger #this needs testing but should be fine, they will possibly double as SMES due to this
+    voltage: High
+  - type: PowerProvider
+    voltage: High
+  - type: PowerNetworkBattery
+    maxChargeRate: 150000 # 150KW
+  - type: Battery
+    maxCharge: 10000000 #10MJ these are high yield power transfair and larger structs may need higher tier ones
+    startingCharge: 10000000
+  - type: Electrified #DONT mess with high power machiens
+    onHandInteract: false
+    onInteractUsing: true
+    onBump: true
+    requirePower: true
+    highVoltageNode: input
+    mediumVoltageNode: output
+  - type: LightningTarget
+    priority: 1
+
+- type: entity
+  id: MultistructPartEnergyStorageBase
+  parent: [ ConstructibleMachine]
+  name: MultistructPartEnergyStorageBase
+  abstract: true
+  components:
+  - type: MultiBlockPart
+    PartTypes: 
+    - EnergyCapacityProvider
+  - type: MultiBlockEnergyStorage
