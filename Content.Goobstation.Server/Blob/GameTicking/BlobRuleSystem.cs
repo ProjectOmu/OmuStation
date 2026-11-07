@@ -197,7 +197,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     {
                         continue;
                     }
-                    EnsureComp<PreventPilot>(ent);
+                    EnsureComp<PreventPilotComponent>(ent);
                 }
 
                 var salvageShuttleQuery = EntityQueryEnumerator<SalvageShuttleComponent, MetaDataComponent>();
@@ -207,7 +207,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     {
                         continue;
                     }
-                    EnsureComp<PreventPilot>(ent);
+                    EnsureComp<PreventPilotComponent>(ent);
                 }
                 // Omu end
 
