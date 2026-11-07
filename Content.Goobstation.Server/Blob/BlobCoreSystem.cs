@@ -584,7 +584,7 @@ public sealed class BlobCoreSystem : EntitySystem
 
             // Omu start - Its all dead now, you can leave.
             var cargoShuttleQuery = EntityQueryEnumerator<CargoShuttleComponent, MetaDataComponent, PreventPilotComponent>();
-            while (cargoShuttleQuery.MoveNext(out var ent, out var comp, out var md))
+            while (cargoShuttleQuery.MoveNext(out var ent, out var comp, out var md, out var preventpilot))
             {
                 if (TerminatingOrDeleted(ent, md))
                 {
@@ -594,7 +594,7 @@ public sealed class BlobCoreSystem : EntitySystem
             }
 
             var salvageShuttleQuery = EntityQueryEnumerator<SalvageShuttleComponent, MetaDataComponent, PreventPilotComponent>();
-            while (salvageShuttleQuery.MoveNext(out var ent, out var comp, out var md))
+            while (salvageShuttleQuery.MoveNext(out var ent, out var comp, out var md, out var preventpilot))
             {
                 if (TerminatingOrDeleted(ent, md))
                 {
