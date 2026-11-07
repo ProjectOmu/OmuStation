@@ -604,3 +604,37 @@
   - type: MeleeWeapon
     soundHit:
       collection: Yip
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieYessaOmuCrew
+  name: yessa plushie
+  description: Atmos bird, and failed Tessa clone. Smells of frezon, and has a strong hatred for shoes. You feel like you should throw her in a burn chamber
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/yessa.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/yessa.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/yessa.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnUse
+    sound:
+      collection: HydrakinWhistle
+  - type: EmitSoundOnActivate
+    sound:
+      collection: HydrakinCry
+  - type: EmitSoundOnThrow
+    sound:
+      collection: HydrakinCry
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    useSound:
+      collection: Yip
+  - type: MeleeWeapon
+    soundHit:
+      collection: HydrakinDeathgasp
