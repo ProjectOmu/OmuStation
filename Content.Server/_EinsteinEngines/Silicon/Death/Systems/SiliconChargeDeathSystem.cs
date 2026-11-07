@@ -173,7 +173,8 @@ public sealed class SiliconDeathSystem : SharedSiliconDeathSystem
             _actions.SetEnabled(combatMode.CombatToggleActionEntity, true);
 
         // Let you stand again
-        _standing.Stand(uid, force: true);
+        if (_standing.Stand(uid, force: true)) // Omu - fix downed bug
+            RemComp<KnockedDownComponent>(uid); // Omu
 
         // Update component
         siliconDeadComp.Dead = false;
