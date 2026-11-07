@@ -9948,3 +9948,11 @@ Entries:
       message: Insect blood is now called hemolymph
   id: 1280
   time: '2026-11-06T22:46:21.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: >-
+        IPC will now correctly stand up with correct movement speed after
+        recharging a depleted battery.
+  id: 1281
+  time: '2026-11-07T15:43:11.0000000+00:00'
