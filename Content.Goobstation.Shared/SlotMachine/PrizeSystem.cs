@@ -26,7 +26,7 @@ public sealed partial class PrizeSystem : EntitySystem
     /// </summary>
     /// <param name="prizes">List of prize prototypes to pick from</param>
     /// <returns></returns>
-    public PrizePrototype GetRandomPrize(List<ProtoId<PrizePrototype>> prizes)
+    public PrizePrototype GetRandomPrize(List<ProtoId<PrizePrototype>> prizes, float weightMod = 1.0f) // Omu - optional weight modifier
     {
         Dictionary<PrizePrototype, float> picks = new();
 
@@ -44,7 +44,7 @@ public sealed partial class PrizeSystem : EntitySystem
 
         foreach (var (prize, weight) in picks)
         {
-            accumulated += weight;
+            accumulated += weight * weightMod; // Omu
 
             if (accumulated >= rand)
             {
@@ -60,9 +60,10 @@ public sealed partial class PrizeSystem : EntitySystem
     /// </summary>
     /// <param name="prizes"></param>
     /// <param name="uid">Whatever entity is spawning the prize</param>
-    public void HandlePrize(List<ProtoId<PrizePrototype>> prizes, EntityUid uid)
+    /// <param name="weightMod">Optional modifier to reduce the probability of winning a prize over time</param> // Omu
+    public void HandlePrize(List<ProtoId<PrizePrototype>> prizes, EntityUid uid, float weightMod = 1.0f) // Omu - optional weight modifier
     {
-        var prize = GetRandomPrize(prizes);
+        var prize = GetRandomPrize(prizes, weightMod); // Omu
 
         var win = _entityTable.GetSpawns(prize.PrizeTable);
 

@@ -2,6 +2,7 @@
 
 using Content.Goobstation.Common.DoAfter;
 using Content.Goobstation.Shared.Factory.Filters;
+using Content.Goobstation.Shared._Omu.Factory;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.DoAfter;
@@ -112,6 +113,16 @@ public abstract class SharedInteractorSystem : EntitySystem
 
     protected bool InteractWith(Entity<InteractorComponent> ent, EntityUid target)
     {
+        // Omu start - interactor filtering
+        var ev = new InteractorConditionalEvent()
+        {
+            Interactor = ent.Owner,
+            Interactee = target
+        };
+        RaiseLocalEvent(target, ev, true);
+        if (ev.Handled)
+            return false;
+        // Omu end
         // alt interaction checks for held items via verbs system, just defer to it
         if (ent.Comp.AltInteract)
             return _interaction.AltInteract(ent, target);
