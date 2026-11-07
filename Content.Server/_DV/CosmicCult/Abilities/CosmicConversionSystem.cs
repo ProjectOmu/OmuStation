@@ -96,7 +96,7 @@ public sealed class CosmicConversionSystem : EntitySystem
                 args.Cancel();
             }
             // Omu start
-            if (HasComp<GhostComponent>(target))
+            else if (_mind.TryGetMind(target, out _, out var mind) && HasComp<GhostComponent>(mind.VisitingEntity))
             {
                 args.Cancel();
             }
