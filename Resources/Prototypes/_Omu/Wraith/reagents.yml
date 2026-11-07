@@ -1,0 +1,23 @@
+- type: reagent
+  id: Ratbile
+  name: Rat Bile
+  group: Toxins
+  desc: The toxic bile of plague rats
+  physicalDesc: reagent-physical-desc-putrid
+  flavor: vile
+  color: "#bd5902"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          inverted: true
+        damage:
+          types:
+            Poison: 0.4
+      - !type:DiseaseProgressChange
+        affectedType: Supernatural
+        progressModifier: 0.002

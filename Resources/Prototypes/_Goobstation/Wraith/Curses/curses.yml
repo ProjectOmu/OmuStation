@@ -113,8 +113,8 @@
     - !type:Emote
       emote: Scream
       showInChat: true
-    - !type:SpawnEntity
-      entity: PuddleBloodSmall
+    - !type:SpillBlood # Omu edit start
+      amount: 10 # Omu edit end
     - !type:HealthChange
       damage:
         groups:
