@@ -1,0 +1,40 @@
+<!--
+whitespace-enforcing comment
+-->
+<Document>
+
+  # Tier 1 — Core Medications
+
+  These medications are always useful to Medical. Often, you'll see them produced right at the beginning of the shift.
+
+  <GuideReagentEmbed Reagent="Bicaridine"/>
+  <GuideReagentEmbed Reagent="Dermaline"/>
+  <GuideReagentEmbed Reagent="Dylovene"/>
+  <GuideReagentEmbed Reagent="Arithrazine"/>
+  <GuideReagentEmbed Reagent="DexalinPlus"/>
+  <GuideReagentEmbed Reagent="Saline"/>
+  <GuideReagentEmbed Reagent="Phalanximine"/>
+
+  Be warned that Dexalin Plus and Saline will severely poison [textlink="Avali" link="Avali"] and [textlink="Resomi" link="Resomi"]. Amoxla or [textlink="Tirimol and Artiplates" link="MedicineT3"] are used for them instead.
+  <GuideReagentEmbed Reagent="Amoxla"/>
+
+  Kelotane mixed with Dermaline can help to alleviate Dermaline's low overdose threshold.
+  <GuideReagentEmbed Reagent="Kelotane"/>
+
+  Cryoxadone and Doxarubixadone are used with [textlink="Cryogenics" link="Cryogenics"], but they are easy to make and extremely versatile.
+  <GuideReagentEmbed Reagent="Cryoxadone"/>
+  <GuideReagentEmbed Reagent="Doxarubixadone"/>
+
+  ## Other Common Medications
+
+  Although not often made for distribution, these reagents below are found in Medical at the beginning of the shift. Some are prerequisites to the core medications.
+
+  <GuideReagentEmbed Reagent="Charcoal"/>
+  <GuideReagentEmbed Reagent="Dexalin"/>
+  <GuideReagentEmbed Reagent="Epinephrine"/>
+  <GuideReagentEmbed Reagent="Hyronalin"/>
+  <GuideReagentEmbed Reagent="Inaprovaline"/>
+  <GuideReagentEmbed Reagent="Iron"/>
+  <GuideReagentEmbed Reagent="Tricordrazine"/>
+
+</Document>

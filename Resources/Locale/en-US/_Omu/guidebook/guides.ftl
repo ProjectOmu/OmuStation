@@ -28,3 +28,21 @@ guide-entry-training-manual-dignitary = Dignitary Training Manual
 guide-entry-lore = Lore
 guide-entry-TwoMinutes = Omu In Two Minutes
 guide-entry-AvatelRan = Avatel-Ran
+
+# - Medicine Section
+guide-entry-medicine-t1 = T1 — Core
+guide-entry-medicine-t2 = T2 — Specialized
+guide-entry-medicine-t3 = T3 — Advanced General
+guide-entry-medicine-t4 = T4 — Supermedications
+guide-entry-medicine-cryogenics = Cryo
+guide-entry-medicine-virology = Viro
+guide-entry-medicine-spray = Sprays
+guide-entry-medicine-otherspecialty = Special
+guide-entry-medicine-otherspecialty-antirotting = Anti-Rotting
+guide-entry-medicine-otherspecialty-holydamage = Holy Damage
+guide-entry-medicine-otherspecialty-infection = Infection
+guide-entry-medicine-otherspecialty-insanity = Insanity
+guide-entry-medicine-otherspecialty-intoxication = Intoxication
+guide-entry-medicine-otherspecialty-narcolepsy = Narcolepsy
+guide-entry-medicine-otherspecialty-sedation = Sedation
+guide-entry-medicine-otherspecialty-temperatureregulation = Temperature Regulation
