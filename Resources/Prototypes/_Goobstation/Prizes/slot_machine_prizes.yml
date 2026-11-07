@@ -99,7 +99,7 @@
   winSound: !type:SoundPathSpecifier
     path: /Audio/Effects/Arcade/win.ogg
   prizeTable: !type:NestedSelector
-    tableId: Plushies
+    tableId: ClawMachinePlushies # Omu
 
 - type: prize
   id: ClawGameEvil
