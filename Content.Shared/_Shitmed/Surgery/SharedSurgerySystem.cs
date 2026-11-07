@@ -130,7 +130,8 @@ public abstract partial class SharedSurgerySystem : EntitySystem
 
     private void OnSanitization(Entity<SanitizedComponent> ent, ref SurgerySanitizationEvent args)
     {
-        args.Handled = true;
+        if(!ent.Comp.RequiresGloves) //omustation - ipcs require gloves but no mask for surgery
+            args.Handled = true;
     }
 
     private void OnRoundRestartCleanup(RoundRestartCleanupEvent ev)
