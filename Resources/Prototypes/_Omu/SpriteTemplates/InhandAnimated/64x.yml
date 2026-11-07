@@ -1,0 +1,19 @@
+- type: entity
+  parent: BaseItem
+  id: DebugSpriteTemplate64xAnimated
+  name: DebugSpriteTemplate64xAnimated
+  description: An animated 64x64 pixel sprite template for left hand inhand sprites.  Use this in a sprite editor to allign inhand sprites proerly.
+  components:
+  - type: Sprite
+    sprite: _Omu/SpriteTemplate/InhandAnimated/64x/Icon.rsi
+    state: inhand-guide-icon-64x-4Frames
+  - type: Item
+    sprite: _Omu/SpriteTemplate/InhandAnimated/64x/Inhand.rsi
+    inhandVisuals:
+      left:
+        - state: inhand-guide-left-64x-4Frames
+      right:
+        - state: inhand-guide-right-64x-4Frames
+  - type: Tag
+    tags:
+    - Debug
