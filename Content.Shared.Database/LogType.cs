@@ -515,4 +515,5 @@ public enum LogType
     SiliconLaws = 10005, // Goobstation
     AdminRefund = 203,
     AtmosDirectionChanged = 204,
+    MetashieldBreak = 50001 //OMU (preface our Logtypes with 5000)
 }
