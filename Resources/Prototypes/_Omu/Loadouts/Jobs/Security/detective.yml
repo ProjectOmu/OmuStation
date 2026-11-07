@@ -51,3 +51,15 @@
   equipment:
     belt: ClothingBeltHolsterFilledR3Compleat # Has revolver + ammo inside
   groupBy: "Main weapon"
+
+# Trinkets
+
+- type: loadout
+  id: DetectiveTrinketVeteranDetectivesFlask
+  dummyEntity: VeteranDetectivesFlask
+  effects:
+    - !type:GroupLoadoutEffect
+        proto: SeniorDetective
+  equipment:
+    pocket1: VeteranDetectivesFlask
+  groupBy: "Job Trinkets"
