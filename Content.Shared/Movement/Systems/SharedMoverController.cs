@@ -657,6 +657,15 @@ public abstract partial class SharedMoverController : VirtualController
             return sound != null;
         }
 
+        // Omu start
+        if (_inventory.TryGetSlotEntity(uid, "outerClothing", out var outerClothing) &&
+            FootstepModifierQuery.TryComp(outerClothing, out var outerModifier))
+        {
+            sound = outerModifier.FootstepSoundCollection;
+            return sound != null;
+        }
+        // Omu end
+
         if (_inventory.TryGetSlotEntity(uid, "shoes", out var shoes) &&
             FootstepModifierQuery.TryComp(shoes, out var modifier))
         {
