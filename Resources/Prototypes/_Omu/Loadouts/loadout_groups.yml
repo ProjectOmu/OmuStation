@@ -849,3 +849,12 @@
   loadouts:
   - ProfessorEnvirosuit
   - ScientistEnvirosuit
+
+# Oni gourd
+- type: loadoutGroup
+  id: OniGourdSpawn
+  name: loadout-group-oni-gourd
+  hidden: true 
+  minLimit: 1
+  loadouts:
+  - OniGourdOnSpawn
