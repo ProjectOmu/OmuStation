@@ -209,8 +209,8 @@
   - type: TypingIndicator
     proto: alien
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.7
-    baseSprintSpeed: 4.5
+    # baseWalkSpeed: 2.7 # Omu - move speed to legs
+    # baseSprintSpeed: 4.5 # Omu - move speed to legs
   - type: Speech
     allowedEmotes: ['Mars', 'Wurble']
   - type: CollectiveMind
