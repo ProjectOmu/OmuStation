@@ -54,20 +54,20 @@
       points: 4
       required: true
     Snout:
-      points: 1
+      points: 2 # Triad - Increased to 2
       required: true
       defaultMarkings: [ VoxBeak ]
     SnoutCover:
       points: 1
       required: false
     Arms:
-      points: 4
+      points: 8 # Triad - Increased to 8.
       required: true
-      defaultMarkings: [ VoxLArmScales, VoxRArmScales, VoxRHandScales, VoxLHandScales ]
+      #defaultMarkings: [ VoxLArmScales, VoxRArmScales, VoxRHandScales, VoxLHandScales ] Triad - disabled default markings
     Legs:
-      points: 4
+      points: 8 # Triad - Increased to 8.
       required: true
-      defaultMarkings: [ VoxLLegScales, VoxRLegScales, VoxRFootScales, VoxLFootScales ]
+      #defaultMarkings: [ VoxLLegScales, VoxRLegScales, VoxRFootScales, VoxLFootScales ] Triad - disabled default markings
     UndergarmentTop:
       points: 1
       required: false
