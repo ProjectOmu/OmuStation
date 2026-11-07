@@ -14,7 +14,7 @@ namespace Content.Goobstation.Shared.SetSelector;
 /// <see cref="SetSelectorComponent"/>
 /// this system links the interface to the logic, and will spawn sets selected by the player in the interface
 /// </summary>
-public sealed class SetSelectorSystem : EntitySystem
+public sealed partial class SetSelectorSystem : EntitySystem // Omu - Split out playtime checks.
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -30,6 +30,7 @@ public sealed class SetSelectorSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<SetSelectorComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SetSelectorComponent, BoundUIOpenedEvent>(OnUIOpened);
+        SubscribeLocalEvent<SetSelectorComponent, BoundUIClosedEvent>(OnUIClosed); // Omu - Reset selection on close.
         SubscribeLocalEvent<SetSelectorComponent, SetSelectorApproveMessage>(OnApprove);
         SubscribeLocalEvent<SetSelectorComponent, SetSelectorChangeSetMessage>(OnChangeSet);
     }
@@ -57,6 +58,14 @@ public sealed class SetSelectorSystem : EntitySystem
     {
         if (selector.Comp.SelectedSets.Count != selector.Comp.MaxSelectedSets)
             return;
+
+        // Omu start - Recheck before dispensing items.
+        foreach (var index in selector.Comp.SelectedSets)
+        {
+            if (!CanSelect(selector, index, args.Actor))
+                return;
+        }
+        // Omu end
 
         EntityUid spawnedStorage = default;
         var storagePrototype = selector.Comp.SpawnedStoragePrototype;
@@ -122,8 +131,15 @@ public sealed class SetSelectorSystem : EntitySystem
     private void OnChangeSet(Entity<SetSelectorComponent> selector, ref SetSelectorChangeSetMessage args)
     {
         // Switch selecting set
+        // Omu start - Reject invalid or locked selections.
         if (!selector.Comp.SelectedSets.Remove(args.SetNumber))
-             selector.Comp.SelectedSets.Add(args.SetNumber);
+        {
+            if (!CanSelect(selector, args.SetNumber, args.Actor))
+                return;
+
+            selector.Comp.SelectedSets.Add(args.SetNumber);
+        }
+        // Omu end
 
         UpdateUI(selector.Owner, selector.Comp);
     }
@@ -143,7 +159,8 @@ public sealed class SetSelectorSystem : EntitySystem
                 set.Name,
                 set.Description,
                 set.Sprite,
-                selected);
+                selected,
+                set.ID); // Omu - Used for client requirement checks.
             data.Add(i, info);
         }
 

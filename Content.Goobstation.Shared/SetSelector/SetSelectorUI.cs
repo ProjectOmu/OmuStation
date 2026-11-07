@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Serialization;
+using Robust.Shared.Prototypes; // Omu
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.SetSelector;
@@ -43,12 +44,23 @@ public partial struct SelectableSetInfo
     public SpriteSpecifier Sprite;
 
     public bool Selected;
+    // Omu start
+    /// <summary>
+    /// The set prototype used for requirement checks.
+    /// </summary>
+    public ProtoId<SelectableSetPrototype> Prototype;
+    // Omu end
 
-    public SelectableSetInfo(string name, string desc, SpriteSpecifier sprite, bool selected)
+    // Omu - Pass the set prototype to the client.
+    /// <summary>
+    /// Creates a selector entry.
+    /// </summary>
+    public SelectableSetInfo(string name, string desc, SpriteSpecifier sprite, bool selected, ProtoId<SelectableSetPrototype> prototype)
     {
         Name = name;
         Description = desc;
         Sprite = sprite;
         Selected = selected;
+        Prototype = prototype; // Omu
     }
 }
