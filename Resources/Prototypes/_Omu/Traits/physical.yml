@@ -283,3 +283,17 @@
       inverted: true
       species:
         - IPC
+
+- type: trait
+  id: Vampire
+  name: trait-vampire-name
+  description: trait-vampire-desc
+  category: PhysicalTraits
+  functions:
+    - !type:TraitVampire
+  globalCost: 3
+  requirements:
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+        - IPC
