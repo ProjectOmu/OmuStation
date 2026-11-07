@@ -74,7 +74,7 @@
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetStandard
   name: standard modsuit helmet
-  description: A special modular suit spaceproof helmet designed for compact folding inside modular suit control.
+  description: A spaceproof helmet designed for compact folding inside of a modular suit control unit. # Omu
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -318,7 +318,7 @@
   parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetHeadOfSecurity
   name: bulwark modsuit helmet
-  description: Put on the HEAD of security.. How do you see out of this thing?
+  description: Put on the HEAD of Security. How do you see out of this thing? # Omu
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -549,7 +549,7 @@
   parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetEngineer
   name: sapper modsuit helmet
-  description: A flat plate with cameras allowing your vision. turns you into an aero-cuck, but not like that matters in space.
+  description: A flat plate with cameras allowing your vision. # Omu
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -774,7 +774,7 @@
   parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetResearchDirector
   name: minerva modsuit helmet
-  description: A dark dark dark visor protecting your precious face from shrap and blast.
+  description: A dark, dark, dark visor protecting your precious face from shrapnel and blasts. # Omu
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -875,7 +875,7 @@
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetCaptain
   name: magnate modsuit helmet
-  description: The visor is made from 10,000 year old amythest.
+  description: The visor is made from 10,000 year-old amethyst. # Omu
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
