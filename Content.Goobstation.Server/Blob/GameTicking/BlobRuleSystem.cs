@@ -108,7 +108,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
     }
 
     private const string StationAlertCritical = "delta";
-    private const string StationAlertDetected = "red";
+    private const string StationAlertDetected = "amber"; // Omu, was red, our SRP states it should be amber.
 
     private void CheckChangeStage(
         Entity<StationBlobConfigComponent?> stationUid,
