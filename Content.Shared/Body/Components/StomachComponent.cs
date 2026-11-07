@@ -10,7 +10,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Body.Components
 {
-    [RegisterComponent, NetworkedComponent, Access(typeof(StomachSystem))]
+    [RegisterComponent, NetworkedComponent, Access(typeof(StomachSystem)), AutoGenerateComponentState] //omu
     public sealed partial class StomachComponent : Component
     {
         /// <summary>
@@ -60,13 +60,15 @@ namespace Content.Shared.Body.Components
         /// <summary>
         ///     A whitelist for what special-digestible-required foods this stomach is capable of eating.
         /// </summary>
-        [DataField]
+        [DataField, AutoNetworkedField] //omu
+        [Access(Other = AccessPermissions.ReadWriteExecute)] // omu
         public EntityWhitelist? SpecialDigestible = null;
 
         /// <summary>
         /// Controls whitelist behavior. If true, this stomach can digest <i>only</i> food that passes the whitelist. If false, it can digest normal food <i>and</i> any food that passes the whitelist.
         /// </summary>
-        [DataField]
+        [DataField, AutoNetworkedField] //omu
+        [Access(Other = AccessPermissions.ReadWriteExecute)] // omu
         public bool IsSpecialDigestibleExclusive = true;
 
         /// <summary>

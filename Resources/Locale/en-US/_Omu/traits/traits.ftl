@@ -135,3 +135,10 @@ trait-font-wahroonga-desc = Looks like it's your first time picking up a pen.
 
 trait-font-yuyu-short-name = Yuyu Short
 trait-font-yuyu-short-desc = Thin and casual.
+
+trait-vampire-name = Lesser Vampire
+trait-vampire-desc = You are a lesser vampire.
+    Somehow, be it inherited from a vampiric ancestor, from a vampire's bite, or a scientific expiriment, your body now runs on blood.
+    You cannot eat the normal food of your species. Instead you can consume blood packs, or liquid blood from other creatures, to restore hunger.
+    Chemical solutions for hunger such as syrup still work, if you prefer to not consume blood or cannot find any.
+    Fangs not included.
