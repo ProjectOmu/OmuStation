@@ -453,3 +453,15 @@
     state: icon
   content:
   - Marlen
+
+  # Brigmedic
+
+- type: selectableSet
+  id: VoidsuitSelectorBrigMedModsuit
+  name: selectable-set-brig-modsuit-name
+  description: selectable-set-brig-modsuit-desc
+  sprite:
+    sprite: _Goobstation/Clothing/Back/Modsuits/brigmed.rsi
+    state: control
+  content:
+  - ClothingModsuitBrigMedPowerCell

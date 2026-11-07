@@ -84,6 +84,7 @@
   - ScienceSOP
   - SecuritySOP
   - ServiceSOP
+  - OffDutySOP # omu
 
 - type: guideEntry
   id: CargoSOP
@@ -335,7 +336,8 @@
 - type: guideEntry
   id: CaptainSOP
   name: guide-entry-sop-captain
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/CaptainSOP.xml"
+#  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/CaptainSOP.xml" # Omu
+  text: "/ServerInfo/_Omu/Guidebook/SoP/Jobs/Command/CaptainSOP.xml" # Omu, use Omu's SOP instead of Goob's
 
 - type: guideEntry
   id: HeadOfPersonnelSOP
@@ -345,7 +347,8 @@
 - type: guideEntry
   id: HeadOfSecuritySOP
   name: guide-entry-sop-hos
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/HeadOfSecuritySOP.xml"
+#  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/HeadOfSecuritySOP.xml" # Omu
+  text: "/ServerInfo/_Omu/Guidebook/SoP/Jobs/Command/HeadOfSecuritySOP.xml" # Omu, use Omu's SOP instead of Goob's
 
 - type: guideEntry
   id: ResearchDirectorSOP
@@ -425,7 +428,8 @@
 - type: guideEntry
   id: WardenSOP
   name: guide-entry-sop-warden
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/WardenSOP.xml"
+#  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/WardenSOP.xml" # Omu
+  text: "/ServerInfo/_Omu/Guidebook/SoP/Jobs/Security/WardenSOP.xml" # Omu, use Omu SOP
   priority: -10 # Omu, this should appear at the top of the departmental list
 
 # Service SOP Entries

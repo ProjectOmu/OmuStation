@@ -49,8 +49,9 @@ panic_bunker.show_reason = true
 panic_bunker.whitelisted_can_bypass = true # Anyone that is whitelisted should be able to ignore; albeit this shouldn't be a problem anyway?
 # Admin Panic Bunker Interaction
 panic_bunker.count_deadminned_admins = false # We may change this later, but this is default.
-panic_bunker.disable_with_admins = true
+panic_bunker.disable_with_admins = false # Do not disable panic bunker; TEMPORARY MEASURE until security fixes are in
 panic_bunker.enable_without_admins = true
+panic_bunker.enabled = true # Panic bunker enabled by default; TEMPORARY MEASURE until security fixes are in
 
 # IPIntel Information
 ipintel_enabled = true
