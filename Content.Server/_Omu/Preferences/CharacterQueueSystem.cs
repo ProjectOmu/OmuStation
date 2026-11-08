@@ -155,7 +155,9 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
             SanitizePriorities(state.JobPriorities),
             state.ActiveSlots.Where(slot => slot >= 0 && slot < maxSlots).ToHashSet(),
             state.Order.Where(slot => slot >= 0 && slot < maxSlots).Distinct().ToList(),
-            state.PreferenceUnavailable);
+            Enum.IsDefined(state.PreferenceUnavailable)
+                ? state.PreferenceUnavailable
+                : PreferenceUnavailableMode.StayInLobby);
 
         _queues[session.UserId] = queue;
         SendQueue(session);
