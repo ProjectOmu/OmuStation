@@ -9994,3 +9994,9 @@ Entries:
       message: Removed the Slavic bible from Chaplain
   id: 1285
   time: '2026-11-07T22:42:54.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Fix
+      message: Fixed timed collision triggers potentially freezing the server.
+  id: 1286
+  time: '2026-11-08T06:28:55.0000000+00:00'
