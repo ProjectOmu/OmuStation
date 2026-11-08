@@ -593,14 +593,14 @@
     sound: /Audio/_Starlight/Voice/Resomi/trill2.ogg
   - type: EmitSoundOnThrow
     sound: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
-  - type: Edible
-    requiresSpecialDigestion: true
   - type: EmitSoundOnCollide
     sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit: /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
-
+    
 - type: entity
   parent: PlushieLizard
   id: PlushieSniffsOmuCrew
