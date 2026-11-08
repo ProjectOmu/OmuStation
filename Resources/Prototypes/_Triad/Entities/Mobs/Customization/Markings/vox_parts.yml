@@ -470,22 +470,22 @@
 - type: marking
   id: VoxLForearmsFade
   bodyPart: LArm
-  markingCategory: LeftArms
+  markingCategory: LeftArm
   forcedColoring: false
   speciesRestriction: [Vox]
   sprites:
   - sprite: _Triad/Mobs/Customization/vox_parts.rsi
-    state: l_forearms_fade
+    state: l_forearm_fade
 
 - type: marking
   id: VoxRForearmsFade
   bodyPart: RArm
-  markingCategory: RightArms
+  markingCategory: RightArm
   forcedColoring: false
   speciesRestriction: [Vox]
   sprites:
   - sprite: _Triad/Mobs/Customization/vox_parts.rsi
-    state: r_forearms_fade
+    state: r_forearm_fade
 
 - type: marking
   id: VoxLBigScales
@@ -510,7 +510,7 @@
 - type: marking
   id: VoxLShoulder
   bodyPart: LArm
-  markingCategory: LeftArms
+  markingCategory: LeftArm
   forcedColoring: false
   speciesRestriction: [Vox]
   sprites:
@@ -520,7 +520,7 @@
 - type: marking
   id: VoxRShoulder
   bodyPart: RArm
-  markingCategory: RightArms
+  markingCategory: RightArm
   forcedColoring: false
   speciesRestriction: [Vox]
   sprites:
