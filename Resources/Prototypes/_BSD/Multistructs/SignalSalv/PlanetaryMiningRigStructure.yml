@@ -1,0 +1,40 @@
+﻿- type: entity
+  id: PlanetaryMiningRigControllEntity
+  name: PlanetaryMiningRigControllEntity
+  components:
+  - type: SignalSalvMiningRigStructre
+  - type: MultiBlockStructure
+    allowedTypes:
+    - PlanetaryMiningRigDrill
+    - PlanetaryMiningRigExtender
+  
+
+- type: entity
+  id: PlanetaryMiningRigMultistructCore
+  parent: [ MultistructBaseCore , BaseComputerAiAccess ]
+  name: PlanetaryMiningRigCoreName
+  description: PlanetaryMiningRigMultistructCoreDesc
+  components:
+  - type: IngameConsole
+    allowedTypes:
+    - ICC_Start
+    - ICC_PRINT
+  - type: MultiBlockStructureCore
+    structureCoreProdID: PlanetaryMiningRigControllEntity
+  - type: MultiBlockPart
+    partTypes: 
+    - PlanetaryMiningRigStructureCore
+    allowedConnectionTypesNorth:
+    - ALL
+    allowedConnectionTypesEast:
+    - ALL
+    allowedConnectionTypesSouth:
+    - ALL
+    allowedConnectionTypesWest:
+    - ALL
+  - type: ActivatableUI
+    key: enum.IngameConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.IngameConsoleUiKey.Key:
+        type: IngameConsoleBoundUserInterface

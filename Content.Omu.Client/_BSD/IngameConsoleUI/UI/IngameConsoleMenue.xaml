@@ -1,0 +1,38 @@
+<ui:FancyWindow xmlns="https://spacestation14.io"
+                xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+                xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                VerticalExpand="False" HorizontalExpand="False"
+                Title="{Loc ingame-console-title}"
+                SetSize="600 400">
+    <PanelContainer StyleClasses="BackgroundDark">
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+            <PanelContainer
+                Name="ConsoleOuputPannel"
+                Access="Public"
+                MinSize="300 128"
+                SetSize="600 300"
+                Margin="5 5"
+                VerticalExpand="True"
+                HorizontalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                </PanelContainer.PanelOverride>
+                <ItemList Name="ConsoleOutPut" Access="Public" HorizontalExpand="True">
+                    <!-- Entries are added here by code -->
+                </ItemList>
+            </PanelContainer>
+            <PanelContainer
+                Name="Info"
+                Access="Public">
+                <Label Text="{Loc 'ingame-console-enter-command'}"/>
+            </PanelContainer>
+            <PanelContainer
+                Name="ConsoleInputs"
+                Access="Public">
+                <LineEdit Name="Input" HorizontalExpand="True" Access="Public"/>
+            </PanelContainer>
+        </BoxContainer>
+        
+    </PanelContainer>
+
+</ui:FancyWindow>

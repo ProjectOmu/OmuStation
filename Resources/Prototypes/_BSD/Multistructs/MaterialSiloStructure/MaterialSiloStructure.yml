@@ -1,0 +1,158 @@
+﻿- type: entity
+  id: MaterialSiloMultistructCore
+  parent: [ MultistructBaseCore , BaseComputerAiAccess ]
+  name: StationSiloCoreName
+  description: StationSiloMultistructCoreDesc
+  components:
+  - type: IngameServerClientLinkInfrastructure
+  - type: IngameServer
+    storedPointsCapacity:
+     Steel: 10000
+  - type: IngameConsole
+    allowedTypes:
+    - ICC_ASSIGN
+    - ICC_Print
+  - type: SignalSalvMaterialReciverStructure
+  - type: MultiBlockPart
+    PartTypes: 
+    - MaterialSiloStructureCore
+    allowedConnectionTypesNorth:
+    - ALL
+    allowedConnectionTypesEast:
+    - ALL
+    allowedConnectionTypesSouth:
+    - ALL
+    allowedConnectionTypesWest:
+    - ALL
+  - type: MultiBlockStructure
+    allowedTypes:
+    - MaterialSiloReciver
+    - MaterialSiloStructureConnector
+    - MaterialSiloStorageExtender
+  - type: ActivatableUI
+    key: enum.IngameConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.IngameConsoleUiKey.Key:
+        type: IngameConsoleBoundUserInterface
+
+
+#
+#Connectors
+# Stright, Corner, Corner(inverted), TJunction
+#
+- type: entity
+  parent: [ MultistructPartBase ]
+  id: MaterialSiloMultistructConnectorStright
+  name: MaterialSiloMultistructConnectorStrightName
+  description: MaterialSiloMultistructConnectorStrightDesc
+  components:
+  - type: Sprite
+    sprite: _BSD/Structures/MaterialSiloConnectors.rsi
+    layers:
+    - state: stright
+  - type: MultiBlockPart
+    transmissionEfficency: 1
+    PartTypes: 
+    - MaterialSiloStructureConnector
+    allowedConnectionTypesNorth:
+    - ALL
+    allowedConnectionTypesEast:
+    - NONE
+    allowedConnectionTypesSouth:
+    - ALL
+    allowedConnectionTypesWest:
+    - NONE
+
+- type: entity
+  parent: [ MultistructPartBaseNoCollission ]
+  id: MaterialSiloMultistructConnectorStrightBridge
+  name: MaterialSiloMultistructConnectorStrightBridgeName
+  description: MaterialSiloMultistructConnectorStrightBridgeDesc
+  components:
+  - type: Sprite
+    sprite: _BSD/Structures/MaterialSiloConnectors.rsi
+    layers:
+    - state: bridge
+  - type: MultiBlockPart
+    transmissionEfficency: 1
+    PartTypes: 
+    - MaterialSiloStructureConnector
+    allowedConnectionTypesNorth:
+    - ALL
+    allowedConnectionTypesEast:
+    - NONE
+    allowedConnectionTypesSouth:
+    - ALL
+    allowedConnectionTypesWest:
+    - NONE
+
+- type: entity
+  parent: [ MultistructPartBase ]
+  id: MaterialSiloMultistructConnectorCorner
+  name: MaterialSiloMultistructConnectorCornerName
+  description: MaterialSiloMultistructConnectorCornerDesc
+  components:
+  - type: Sprite
+    sprite: _BSD/Structures/MaterialSiloConnectors.rsi
+    layers:
+    - state: corner
+  - type: MultiBlockPart
+    transmissionEfficency: 1
+    PartTypes: 
+    - MaterialSiloStructureConnector
+    allowedConnectionTypesNorth:
+    - ALL
+    allowedConnectionTypesEast:
+    - ALL
+    allowedConnectionTypesSouth:
+    - NONE
+    allowedConnectionTypesWest:
+    - NONE
+
+#TODO add a easy way to swap between this and the none inverted one!!!
+- type: entity
+  parent: [ MultistructPartBase ]
+  id: MaterialSiloMultistructConnectorCornerInverted
+  name: MaterialSiloMultistructConnectorCornerInvertedName
+  description: MaterialSiloMultistructConnectorCornerInvertedDesc
+  components:
+  - type: Sprite
+    sprite: _BSD/Structures/MaterialSiloConnectors.rsi
+    layers:
+    - state: cornerMirrored
+  - type: MultiBlockPart
+    transmissionEfficency: 1
+    PartTypes: 
+    - MaterialSiloStructureConnector
+    allowedConnectionTypesNorth:
+    - ALL
+    allowedConnectionTypesEast:
+    - ALL
+    allowedConnectionTypesSouth:
+    - NONE
+    allowedConnectionTypesWest:
+    - NONE
+
+- type: entity
+  parent: [ MultistructPartBase ]
+  id: MaterialSiloMultistructConnectorTJunction
+  name: MaterialSiloMultistructConnectorTJunctionName
+  description: MaterialSiloMultistructConnectorTJunctionDesc
+  components:
+  - type: Sprite
+    sprite: _BSD/Structures/MaterialSiloConnectors.rsi
+    layers:
+    - state: tJunction
+  - type: MultiBlockPart
+    transmissionEfficency: 1
+    PartTypes: 
+    - MaterialSiloStructureConnector
+    allowedConnectionTypesNorth:
+    - NONE
+    allowedConnectionTypesEast:
+    - ALL
+    allowedConnectionTypesSouth:
+    - ALL
+    allowedConnectionTypesWest:
+    - ALL

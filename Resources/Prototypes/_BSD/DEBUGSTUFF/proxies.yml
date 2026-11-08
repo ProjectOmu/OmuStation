@@ -1,0 +1,52 @@
+﻿- type: entity
+  id: DebugProxy
+  parent: [ MultistructBaseCore , BaseComputerAiAccess ]
+  name: DebugProxyName
+  description: DebugProxyDesc
+  components:
+  - type: IngameServerClientLinkInfrastructure
+  - type: IngameConsole
+    allowedTypes:
+    - ICC_ASSIGN
+    - ICC_Print
+    - ICC_Print_ALL
+    - ICC_Proxy
+    - ISCL_UNASSIGN
+    PermitsProxy:
+    - DEBUG: true
+  - type: IngameServer
+    processingPower: 5.0
+    processingPowerProvidingTypes:
+    - ServerComponent
+    - ServerProductivity
+    installedPrograms:
+    - 0.0
+    - 1.0
+    ServerTypes:
+    - DEBUG
+    ClientTypes:
+    - DEBUG
+  - type: MultiBlockPart
+    structureType: 
+    - IngameServerCore
+    allowedConnectionTypesNorth:
+    - ALL
+    allowedConnectionTypesEast:
+    - ALL
+    allowedConnectionTypesSouth:
+    - ALL
+    allowedConnectionTypesWest:
+    - ALL
+  - type: MultiBlockStructure
+    allowedTypes:
+    - ServerConnector
+    - EnergyTransfair
+    - EnergyCapacityProvider
+    - ServerProductivity
+    - ServerComponent
+  - type: ActivatableUI
+    key: enum.IngameConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.IngameConsoleUiKey.Key:
+        type: IngameConsoleBoundUserInterface

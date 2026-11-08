@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Marikiii",
+  "size": {
+    "x": 32,
+    "y": 48
+  },
+  "states": [
+    {
+      "name": "default"
+    },
+    {
+      "name": "sideleft"
+    },
+    {
+      "name": "sideright"
+    },
+    {
+      "name": "back"
+    },
+    {
+      "name": "connected1"
+    },
+    {
+      "name": "connected2"
+    },
+    {
+      "name": "connected3"
+    },
+    {
+      "name": "overlay",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]  
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+﻿- type: entity
+  id: DishMultistructCore
+  parent: [ MultistructBaseCore , BaseComputerAiAccess ]
+  name: DishMultistructCoreName
+  description: DishMultistructCoreNameDesc
+  components:
+  - type: IngameServerClientLinkInfrastructure
+  - type: IngameConsole
+    allowedTypes:
+    - ICC_SET
+    - ICC_PRINT
+  - type: MultiBlockPart
+    PartTypes: 
+    - SignalDishControll
+    allowedConnectionTypesNorth:
+    - ALL
+    allowedConnectionTypesEast:
+    - ALL
+    allowedConnectionTypesSouth:
+    - ALL
+    allowedConnectionTypesWest:
+    - ALL
+  - type: MultiBlockStructure
+    allowedTypes:
+    - SignalDishControll
+    - DishConnector
+    - SignalDish
+    - SignalAntennaBase
+    - SignalAntenna
+    - EnergyTransfair
+    - EnergyCapacityProvider
+    - Productivity
+  - type: SignalSciDish
+  - type: ActivatableUI
+    key: enum.IngameConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.IngameConsoleUiKey.Key:
+        type: IngameConsoleBoundUserInterface
+
+- type: entity
+  parent: [ MultistructPartBase , BaseComputerAiAccess]
+  id: DishMultistructConnector
+  name: DishMultistructConnectorName
+  description: DishMultistructConnectorDesc
+  components:
+  - type: MultiBlockPart
+    transmissionEfficency: 1
+    PartTypes: 
+    - DishConnector
+    allowedConnectionTypesNorth:
+    - DishConnector
+    - SignalAntennaBase
+    - EnergyTransfair
+    - EnergyCapacityProvider
+    - Productivity
+    allowedConnectionTypesEast:
+    - DishConnector
+    - SignalAntennaBase
+    - EnergyTransfair
+    - EnergyCapacityProvider
+    - Productivity
+    allowedConnectionTypesSouth:
+    - DishConnector
+    - SignalAntennaBase
+    - EnergyTransfair
+    - EnergyCapacityProvider
+    - Productivity
+    allowedConnectionTypesWest:
+    - DishConnector
+    - SignalAntennaBase
+    - EnergyTransfair
+    - EnergyCapacityProvider
+    - Productivity
+
+- type: entity
+  parent: [ MultistructPartBase , BaseComputerAiAccess]
+  id: DishMultistructAntennaBase
+  name: DishMultistructAntennaBaseName
+  description: DishMultistructAntennaBaseDesc
+  components:
+  - type: MultiBlockPart
+    transmissionEfficency: 1
+    PartTypes: 
+    - SignalAntennaBase
+    allowedConnectionTypesNorth:
+    - SignalAntenna
+    allowedConnectionTypesEast:
+    - SignalDish
+    allowedConnectionTypesSouth:
+    - DishConnector
+    - EnergyTransfair
+    - EnergyCapacityProvider
+    - Productivity
+    allowedConnectionTypesWest:
+    - SignalDish
+
+- type: entity
+  parent: [ MultistructPartBase , BaseComputerAiAccess]
+  id: DishMultistructAntenaEnd
+  name: DishMultistructAntenaEndName
+  description: DishMultistructAntenaEndDesc
+  components:
+  - type: MultiBlockPart
+    transmissionEfficency: 1
+    PartTypes: 
+    - SignalAntenna
+    allowedConnectionTypesNorth:
+    - NONE
+    allowedConnectionTypesEast:
+    - NONE
+    allowedConnectionTypesSouth:
+    - SignalAntennaBase
+    allowedConnectionTypesWest:
+    - NONE
+
+- type: entity
+  parent: [ MultistructPartBase , BaseComputerAiAccess]
+  id: DishMultistructDishExtender
+  name: DishMultistructDishExtenderName
+  description: DishMultistructDishExtenderDesc
+  components:
+  - type: MultiBlockPart
+    transmissionEfficency: 1.5 #intended to boost but also contributes itself to harveseting power
+    PartTypes: 
+    - SignalDish
+    allowedConnectionTypesNorth:
+    - NONE
+    allowedConnectionTypesEast:
+    - SignalDish
+    allowedConnectionTypesSouth:
+    - NONE
+    allowedConnectionTypesWest:
+    - SignalDish
+
+- type: entity
+  parent: [ MultistructPartBase , BaseComputerAiAccess]
+  id: DishMultistructDishFinish
+  name: DishMultistructDishFinishName
+  description: DishMultistructDishFinishDesc
+  components:
+  - type: MultiBlockPart
+    MachinePower: 5 #This is massive to encourage people to actually use them
+    transmissionEfficency: 1.5
+    PartTypes: 
+    - SignalDish
+    allowedConnectionTypesNorth:
+    - NONE
+    allowedConnectionTypesEast:
+    - NONE
+    allowedConnectionTypesSouth:
+    - NONE
+    allowedConnectionTypesWest:
+    - NONE

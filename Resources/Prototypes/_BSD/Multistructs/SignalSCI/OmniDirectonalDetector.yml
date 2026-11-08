@@ -1,0 +1,168 @@
+﻿- type: entity
+  id: OmniDirectionalDetectorMultistructCore
+  parent: [ MultistructBaseCore ]
+  name: OmniDirectionalDetectorMultistructCoreName
+  description: OmniDirectionalDetectorMultistructCoreNameDesc
+  components:
+  - type: IngameServerClientLinkInfrastructure
+  - type: IngameConsole
+    allowedTypes:
+    - ICC_PRINT
+  - type: MultiBlockPart
+    PartTypes: 
+    - OmniDirectionalDetectorControll
+    - OmniDirectionalDetectorHull
+    allowedConnectionTypesNorth:
+    - OmniDirectionalDetectorSensor
+    allowedConnectionTypesEast:
+    - OmniDirectionalDetectorHull
+    allowedConnectionTypesSouth:
+    - NONE
+    allowedConnectionTypesWest:
+    - OmniDirectionalDetectorHull
+  - type: MultiBlockStructure
+    allowedTypes:
+    - OmniDirectionalDetectorControll
+    - OmniDirectionalDetectorHull
+    - OmniDirectionalDetectorSensor
+    - EnergyTransfair
+    - EnergyCapacityProvider
+    - Productivity
+  - type: SignalSciOmniDirectonalDetector
+  - type: Sprite
+    sprite: _BSD/Structures/OmnidirectionalDetector.rsi
+    layers:
+    - state: hullInterfacePlaceHolder
+  - type: ActivatableUI
+    key: enum.IngameConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.IngameConsoleUiKey.Key:
+        type: IngameConsoleBoundUserInterface
+
+- type: entity
+  parent: [ MultistructPartBase ]
+  id: OmniDirectionalDetectorMultistructHull
+  name: OmniDirectionalDetectorMultistructHullName
+  description: OmniDirectionalDetectorMultistructHullDesc
+  components:
+  - type: Sprite
+    sprite: _BSD/Structures/OmnidirectionalDetector.rsi
+    layers:
+    - state: hullPlaceHolder
+  - type: MultiBlockPart
+    transmissionEfficency: 1
+    PartTypes: 
+    - OmniDirectionalDetectorHull
+    allowedConnectionTypesNorth:
+    - OmniDirectionalDetectorSensor
+    allowedConnectionTypesEast:
+    - OmniDirectionalDetectorHull
+    allowedConnectionTypesSouth:
+    - EnergyTransfair
+    - EnergyCapacityProvider
+    - Productivity
+    allowedConnectionTypesWest:
+    - OmniDirectionalDetectorHull
+
+- type: entity
+  parent: [ MultistructPartBase ]
+  id: OmniDirectionalDetectorMultistructHullCorner
+  name: OmniDirectionalDetectorMultistructHullCornerName
+  description: OmniDirectionalDetectorMultistructHullCornerDesc
+  components:
+  - type: Sprite
+    sprite: _BSD/Structures/OmnidirectionalDetector.rsi
+    layers:
+    - state: hullCornerPlaceHolder
+  - type: MultiBlockPart
+    transmissionEfficency: 1
+    PartTypes: 
+    - OmniDirectionalDetectorHull
+    allowedConnectionTypesNorth:
+    - EnergyTransfair
+    - EnergyCapacityProvider
+    - Productivity
+    allowedConnectionTypesEast:
+    - EnergyTransfair
+    - EnergyCapacityProvider
+    - Productivity
+    allowedConnectionTypesSouth:
+    - OmniDirectionalDetectorHull
+    allowedConnectionTypesWest:
+    - OmniDirectionalDetectorHull
+
+- type: entity #TODO make a abstract base for the tierd thing here as they all share same structure properties rn
+  parent: [ MultistructPartBase ]
+  id: OmniDirectionalDetectorMultistructSensorTier1
+  name: OmniDirectionalDetectorMultistructSensorTier1Name
+  description: OmniDirectionalDetectorMultistructSensorTier1Desc
+  components:
+  - type: Sprite
+    sprite: _BSD/Structures/OmnidirectionalDetector.rsi
+    layers:
+    - state: corePlaceHolder
+  - type: SignalSciOmniDirectonalDetectorSensor
+    supportedOperationMode: 1
+  - type: MultiBlockPart
+    transmissionEfficency: 1
+    PartTypes: 
+    - OmniDirectionalDetectorSensor
+    allowedConnectionTypesNorth:
+    - NONE
+    allowedConnectionTypesEast:
+    - NONE
+    allowedConnectionTypesSouth:
+    - NONE
+    allowedConnectionTypesWest:
+    - NONE
+
+- type: entity
+  parent: [ MultistructPartBase , BaseComputerAiAccess]
+  id: OmniDirectionalDetectorMultistructSensorTier2
+  name: OmniDirectionalDetectorMultistructSensoTier2Name
+  description: OmniDirectionalDetectorMultistructSensorTier2Desc
+  components:
+  - type: Sprite
+    sprite: _BSD/Structures/OmnidirectionalDetector.rsi
+    layers:
+    - state: corePlaceHolder
+  - type: SignalSciOmniDirectonalDetectorSensor
+    supportedOperationMode: 2
+  - type: MultiBlockPart
+    transmissionEfficency: 1
+    PartTypes: 
+    - OmniDirectionalDetectorSensor
+    allowedConnectionTypesNorth:
+    - NONE
+    allowedConnectionTypesEast:
+    - NONE
+    allowedConnectionTypesSouth:
+    - NONE
+    allowedConnectionTypesWest:
+    - NONE
+
+- type: entity
+  parent: [ MultistructPartBase , BaseComputerAiAccess]
+  id: OmniDirectionalDetectorMultistructSensorTier3
+  name: OmniDirectionalDetectorMultistructSensoTier3Name
+  description: OmniDirectionalDetectorMultistructSensorTier3Desc
+  components:
+  - type: Sprite
+    sprite: _BSD/Structures/OmnidirectionalDetector.rsi
+    layers:
+    - state: corePlaceHolder
+  - type: SignalSciOmniDirectonalDetectorSensor
+    supportedOperationMode: 3
+  - type: MultiBlockPart
+    transmissionEfficency: 1
+    PartTypes: 
+    - OmniDirectionalDetectorSensor
+    allowedConnectionTypesNorth:
+    - NONE
+    allowedConnectionTypesEast:
+    - NONE
+    allowedConnectionTypesSouth:
+    - NONE
+    allowedConnectionTypesWest:
+    - NONE
