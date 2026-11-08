@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 266.0.0
+  engineVersion: 270.1.8
   forkId: ""
   forkVersion: ""
-  time: 08/08/2026 22:07:24
-  entityCount: 12560
+  time: 11/08/2026 20:49:35
+  entityCount: 12548
 maps:
 - 1
 grids:
@@ -1485,136 +1485,31 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-          - 21.824879
-          - 82.10312
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Oxygen: 21.824879
+            Nitrogen: 82.10312
         - volume: 2500
           temperature: 235
           moles:
-          - 27.225372
-          - 102.419266
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Oxygen: 27.225372
+            Nitrogen: 102.419266
         - volume: 2500
           immutable: True
-          moles:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+          moles: {}
         - volume: 2500
           temperature: 293.15
           moles:
-          - 0
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Nitrogen: 6666.982
+        - volume: 2500
+          temperature: 293.15
+          moles: {}
         - volume: 2500
           temperature: 293.15
           moles:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Oxygen: 6666.982
         - volume: 2500
           temperature: 293.15
           moles:
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 0
-          - 0
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Plasma: 6666.982
         chunkSize: 4
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -3883,6 +3778,9 @@ entities:
     - type: NavMap
     - type: ImplicitRoof
     - type: FTLDrive
+    - type: TileHistory
+      chunkHistory: {}
+    - type: ExplosionAirtightGrid
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 3
@@ -5697,7 +5595,7 @@ entities:
       pos: -9.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4400.228
+      secondsUntilStateChange: -4809.361
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7650,13 +7548,6 @@ entities:
     components:
     - type: Transform
       pos: 0.5206723,13.744839
-      parent: 2
-- proto: BoxBuildABuddySlime
-  entities:
-  - uid: 508
-    components:
-    - type: Transform
-      pos: 6.517578,-38.26372
       parent: 2
 - proto: BoxCartridgeCap
   entities:
@@ -24121,6 +24012,13 @@ entities:
     - type: Transform
       pos: 28.5,17.5
       parent: 2
+- proto: CargoMailTeleporter
+  entities:
+  - uid: 8469
+    components:
+    - type: Transform
+      pos: 21.5,10.5
+      parent: 2
 - proto: CargoTechFabFilled
   entities:
   - uid: 3766
@@ -24128,8 +24026,6 @@ entities:
     - type: Transform
       pos: 12.5,9.5
       parent: 2
-    - type: OreSiloClient
-      silo: null
 - proto: Carpet
   entities:
   - uid: 3767
@@ -28542,22 +28438,8 @@ entities:
         immutable: False
         temperature: 293.14963
         moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
   - uid: 4584
     components:
     - type: Transform
@@ -30206,22 +30088,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
 - proto: CrateEmptySpawner
   entities:
   - uid: 4855
@@ -30321,22 +30189,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -30400,22 +30254,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -36146,7 +35986,7 @@ entities:
       pos: 40.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -13832.963
+      secondsUntilStateChange: -14242.096
       state: Closing
   - uid: 5823
     components:
@@ -52561,8 +52401,6 @@ entities:
     - type: Transform
       pos: 27.180967,-25.483507
       parent: 2
-- proto: HandheldHealthAnalyzer
-  entities:
   - uid: 8203
     components:
     - type: Transform
@@ -54038,22 +53876,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
 - proto: LockerDetectiveFilledHardsuit
   entities:
   - uid: 7695
@@ -54294,22 +54118,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -54443,6 +54253,17 @@ entities:
     - type: Transform
       pos: 14.5,0.5
       parent: 2
+- proto: MachineMaterialSilo
+  entities:
+  - uid: 8502
+    components:
+    - type: Transform
+      pos: 23.5,9.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts: {}
+      lastSignals: {}
+      ports: []
 - proto: MachinePowerTransmissionLaser
   entities:
   - uid: 8464
@@ -54467,20 +54288,6 @@ entities:
     components:
     - type: Transform
       pos: -14.250454,20.691399
-      parent: 2
-- proto: MailMetricsCartridge
-  entities:
-  - uid: 8468
-    components:
-    - type: Transform
-      pos: 22.333054,13.1992035
-      parent: 2
-- proto: MailTeleporter
-  entities:
-  - uid: 8469
-    components:
-    - type: Transform
-      pos: 21.5,10.5
       parent: 2
 - proto: MaintenanceFluffSpawner
   entities:
@@ -54664,21 +54471,6 @@ entities:
     - type: Transform
       pos: 7.2571726,18.545927
       parent: 2
-- proto: MaterialSilo
-  entities:
-  - uid: 8502
-    components:
-    - type: Transform
-      pos: 23.5,9.5
-      parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        8560:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
-        3766:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
 - proto: MaterialWoodPlank1
   entities:
   - uid: 8503
@@ -55130,8 +54922,6 @@ entities:
     - type: Transform
       pos: 18.5,13.5
       parent: 2
-    - type: OreSiloClient
-      silo: null
 - proto: OxygenCanister
   entities:
   - uid: 8561
@@ -55992,6 +55782,23 @@ entities:
     components:
     - type: Transform
       pos: -35.523197,-23.564377
+      parent: 2
+- proto: PlushieSpawner50
+  entities:
+  - uid: 10563
+    components:
+    - type: Transform
+      pos: -30.5,-2.5
+      parent: 2
+  - uid: 10564
+    components:
+    - type: Transform
+      pos: -31.5,16.5
+      parent: 2
+  - uid: 10565
+    components:
+    - type: Transform
+      pos: -30.5,13.5
       parent: 2
 - proto: PonderingOrb
   entities:
@@ -64175,7 +63982,7 @@ entities:
     - type: Transform
       pos: -32.5,15.5
       parent: 2
-- proto: SpacemenFigureSpawner
+- proto: SpacemenFigurineSpawner90
   entities:
   - uid: 9953
     components:
@@ -64371,6 +64178,13 @@ entities:
     - type: Transform
       pos: 11.5,24.5
       parent: 2
+- proto: SpawnPointCargoBosun
+  entities:
+  - uid: 8468
+    components:
+    - type: Transform
+      pos: 14.5,10.5
+      parent: 2
 - proto: SpawnPointCargoTechnician
   entities:
   - uid: 9984
@@ -64449,6 +64263,13 @@ entities:
     - type: Transform
       pos: -15.5,-38.5
       parent: 2
+- proto: SpawnPointEngineeringForeman
+  entities:
+  - uid: 508
+    components:
+    - type: Transform
+      pos: 32.5,0.5
+      parent: 2
 - proto: SpawnPointHeadOfPersonnel
   entities:
   - uid: 9994
@@ -64494,6 +64315,13 @@ entities:
     - type: Transform
       pos: 11.5,-30.5
       parent: 2
+- proto: SpawnPointLogisticsAssistant
+  entities:
+  - uid: 10616
+    components:
+    - type: Transform
+      pos: 14.5,11.5
+      parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
   - uid: 10001
@@ -64517,6 +64345,13 @@ entities:
     components:
     - type: Transform
       pos: 22.5,-5.5
+      parent: 2
+- proto: SpawnPointMedicalMedicus
+  entities:
+  - uid: 12320
+    components:
+    - type: Transform
+      pos: 21.5,-6.5
       parent: 2
 - proto: SpawnPointMime
   entities:
@@ -64655,6 +64490,13 @@ entities:
     components:
     - type: Transform
       pos: 15.5,20.5
+      parent: 2
+- proto: SpawnPointScienceProfessor
+  entities:
+  - uid: 12319
+    components:
+    - type: Transform
+      pos: -8.5,-20.5
       parent: 2
 - proto: SpawnPointScientist
   entities:
@@ -65416,22 +65258,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -65461,22 +65289,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -68405,23 +68219,6 @@ entities:
     - type: Transform
       pos: 12.492016,27.532398
       parent: 2
-- proto: ToySpawner
-  entities:
-  - uid: 10563
-    components:
-    - type: Transform
-      pos: -30.5,-2.5
-      parent: 2
-  - uid: 10564
-    components:
-    - type: Transform
-      pos: -31.5,16.5
-      parent: 2
-  - uid: 10565
-    components:
-    - type: Transform
-      pos: -30.5,13.5
-      parent: 2
 - proto: TrashBag
   entities:
   - uid: 10566
@@ -68815,13 +68612,6 @@ entities:
     components:
     - type: Transform
       pos: -19.5,-10.5
-      parent: 2
-- proto: VendingMachineMailDrobe
-  entities:
-  - uid: 10616
-    components:
-    - type: Transform
-      pos: 12.5,10.5
       parent: 2
 - proto: VendingMachineMedical
   entities:
@@ -77772,106 +77562,6 @@ entities:
       parent: 2
     - type: WarpPoint
       location: library
-- proto: WarpPointBombing
-  entities:
-  - uid: 12319
-    components:
-    - type: Transform
-      pos: -36.5,14.5
-      parent: 2
-    - type: WarpPoint
-      location: chapel
-  - uid: 12320
-    components:
-    - type: Transform
-      pos: 8.5,19.5
-      parent: 2
-    - type: WarpPoint
-      location: hop's office
-  - uid: 12321
-    components:
-    - type: Transform
-      pos: 9.5,-9.5
-      parent: 2
-    - type: WarpPoint
-      location: medbay
-  - uid: 12322
-    components:
-    - type: Transform
-      pos: 16.5,-0.5
-      parent: 2
-    - type: WarpPoint
-      location: chemistry
-  - uid: 12323
-    components:
-    - type: Transform
-      pos: 13.5,-15.5
-      parent: 2
-    - type: WarpPoint
-      location: morgue
-  - uid: 12324
-    components:
-    - type: Transform
-      pos: -12.5,19.5
-      parent: 2
-    - type: WarpPoint
-      location: armory
-  - uid: 12325
-    components:
-    - type: Transform
-      pos: -9.5,-20.5
-      parent: 2
-    - type: WarpPoint
-      location: science
-  - uid: 12326
-    components:
-    - type: Transform
-      pos: 8.5,25.5
-      parent: 2
-    - type: WarpPoint
-      location: captain's quarters
-  - uid: 12327
-    components:
-    - type: Transform
-      pos: 3.5,30.5
-      parent: 2
-    - type: WarpPoint
-      location: bridge
-  - uid: 12328
-    components:
-    - type: Transform
-      pos: -1.5,17.5
-      parent: 2
-    - type: WarpPoint
-      location: vault
-  - uid: 12329
-    components:
-    - type: Transform
-      pos: 8.5,9.5
-      parent: 2
-    - type: WarpPoint
-      location: eva room
-  - uid: 12330
-    components:
-    - type: Transform
-      pos: 58.5,2.5
-      parent: 2
-    - type: WarpPoint
-      location: particle accelerator
-  - uid: 12331
-    components:
-    - type: Transform
-      pos: 34.5,14.5
-      parent: 2
-    - type: WarpPoint
-      location: atmospherics
-  - uid: 12332
-    components:
-    - type: Transform
-      pos: 50.5,-5.5
-      parent: 2
-    - type: WarpPoint
-      location: telecomms
 - proto: WaterCooler
   entities:
   - uid: 12333
