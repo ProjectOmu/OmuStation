@@ -416,16 +416,6 @@
     state: chestplate
 
 - type: marking
-  id: VoxShoulders
-  bodyPart: Chest
-  markingCategory: Chest
-  forcedColoring: false
-  speciesRestriction: [Vox]
-  sprites:
-  - sprite: _Triad/Mobs/Customization/vox_parts.rsi
-    state: shoulders
-
-- type: marking
   id: VoxRibs
   bodyPart: Chest
   markingCategory: Chest
@@ -458,34 +448,64 @@
 # -- Arms
 
 - type: marking
-  id: VoxForearms
+  id: VoxLForearms
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm
   forcedColoring: false
   speciesRestriction: [Vox]
   sprites:
   - sprite: _Triad/Mobs/Customization/vox_parts.rsi
-    state: forearms
+    state: l_forearm
 
 - type: marking
-  id: VoxForearmsFade
-  bodyPart: LArm
-  markingCategory: Arms
+  id: VoxRForearms
+  bodyPart: RArm
+  markingCategory: RightArm
   forcedColoring: false
   speciesRestriction: [Vox]
   sprites:
   - sprite: _Triad/Mobs/Customization/vox_parts.rsi
-    state: forearms_fade
+    state: r_forearm
 
 - type: marking
-  id: VoxBigScales
+  id: VoxLForearmsFade
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArms
   forcedColoring: false
   speciesRestriction: [Vox]
   sprites:
   - sprite: _Triad/Mobs/Customization/vox_parts.rsi
-    state: big_scales
+    state: l_forearms_fade
+
+- type: marking
+  id: VoxRForearmsFade
+  bodyPart: RArm
+  markingCategory: RightArms
+  forcedColoring: false
+  speciesRestriction: [Vox]
+  sprites:
+  - sprite: _Triad/Mobs/Customization/vox_parts.rsi
+    state: r_forearms_fade
+
+- type: marking
+  id: VoxLBigScales
+  bodyPart: LArm
+  markingCategory: LeftArm
+  forcedColoring: false
+  speciesRestriction: [Vox]
+  sprites:
+  - sprite: _Triad/Mobs/Customization/vox_parts.rsi
+    state: l_big_scales
+
+- type: marking
+  id: VoxRBigScales
+  bodyPart: RArm
+  markingCategory: RightArm
+  forcedColoring: false
+  speciesRestriction: [Vox]
+  sprites:
+  - sprite: _Triad/Mobs/Customization/vox_parts.rsi
+    state: r_big_scales
 
 - type: marking
   id: VoxLShoulder
@@ -506,26 +526,6 @@
   sprites:
   - sprite: _Triad/Mobs/Customization/vox_parts.rsi
     state: r_shoulder
-
-- type: marking
-  id: VoxLForearm
-  bodyPart: LArm
-  markingCategory: Arms
-  forcedColoring: false
-  speciesRestriction: [Vox]
-  sprites:
-  - sprite: _Triad/Mobs/Customization/vox_parts.rsi
-    state: l_forearm
-
-- type: marking
-  id: VoxRForearm
-  bodyPart: RArm
-  markingCategory: Arms
-  forcedColoring: false
-  speciesRestriction: [Vox]
-  sprites:
-  - sprite: _Triad/Mobs/Customization/vox_parts.rsi
-    state: r_forearm
 
 # -- Overlay
 
