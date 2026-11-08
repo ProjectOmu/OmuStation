@@ -128,8 +128,7 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
             return spawned;
 
         var prefs = _prefs.GetPreferences(userId);
-        return prefs.Characters.GetValueOrDefault(prefs.SelectedCharacterIndex) as HumanoidCharacterProfile
-            ?? GetPrimaryCharacter(prefs, GetQueue(userId, prefs));
+        return GetPrimaryCharacter(prefs, GetQueue(userId, prefs));
     }
 
     public HumanoidCharacterProfile? GetAntagCharacter(NetUserId userId, List<ProtoId<AntagPrototype>> antags)
@@ -156,9 +155,7 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
             SanitizePriorities(state.JobPriorities),
             state.ActiveSlots.Where(slot => slot >= 0 && slot < maxSlots).ToHashSet(),
             state.Order.Where(slot => slot >= 0 && slot < maxSlots).Distinct().ToList(),
-            Enum.IsDefined(state.PreferenceUnavailable)
-                ? state.PreferenceUnavailable
-                : PreferenceUnavailableMode.StayInLobby);
+            state.PreferenceUnavailable);
 
         _queues[session.UserId] = queue;
         SendQueue(session);
