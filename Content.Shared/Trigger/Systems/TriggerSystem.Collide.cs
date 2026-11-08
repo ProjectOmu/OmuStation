@@ -42,6 +42,10 @@ public sealed partial class TriggerSystem
 
     private void OnTimedCollide(Entity<TriggerOnTimedCollideComponent> ent, ref StartCollideEvent args)
     {
+        // Omu start
+        if (!args.OurFixture.Contacts.ContainsKey(args.OtherFixture))
+            return;
+        // Omu end
         //Ensures the trigger entity will have an active component
         EnsureComp<ActiveTriggerOnTimedCollideComponent>(ent);
         var otherUID = args.OtherEntity;
