@@ -156,8 +156,8 @@ namespace Content.Server.Doors.Systems
 
             // Funky change
             if (!HasComp<GridAtmosphereComponent>(xform.ParentUid) ||
-                !HasComp<MapGridComponent>(xform.ParentUid)) //||
-                // !HasComp<MapAtmosphereComponent>(xform.MapUid)) Omu - There is no MapAtmosphereComponent on most maps
+                !HasComp<MapGridComponent>(xform.ParentUid))/* ||
+                !HasComp<MapAtmosphereComponent>(xform.MapUid))*/ // Omu - There is no MapAtmosphereComponent on most maps
             {
                 return (false, false);
             }
