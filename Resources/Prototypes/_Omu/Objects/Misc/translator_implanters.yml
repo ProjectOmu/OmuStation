@@ -1,7 +1,7 @@
 - type: entity
   id: BaseTranslatorBorgImplanter
   abstract: true
-  parent: BaseImplantOnlyImplanter
+  parent: BaseImplantOnlyBorgImplanter
   name: translation chip
   components: # Omu start
   - type: Implanter
