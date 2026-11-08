@@ -56,12 +56,14 @@ loadout-group-hop-backpack = Head of Personnel backpack
 loadout-group-hop-outerclothing = Head of Personnel outer clothing
 
 # Civilian
-loadout-group-passenger-jumpsuit = Passenger jumpsuit
-loadout-group-passenger-mask = Passenger mask
-loadout-group-passenger-gloves = Passenger gloves
-loadout-group-passenger-outerclothing = Passenger outer clothing
-loadout-group-passenger-shoes = Passenger shoes
-loadout-group-passenger-neck = Passenger neck
+#omu start
+loadout-group-passenger-jumpsuit = Off Duty jumpsuit
+loadout-group-passenger-mask = Off Duty mask
+loadout-group-passenger-gloves = Off Duty gloves
+loadout-group-passenger-outerclothing = Off Duty outer clothing
+loadout-group-passenger-shoes = Off Duty shoes
+loadout-group-passenger-neck = Off Duty neck
+#omu end
 
 loadout-group-bartender-head = Bartender head
 loadout-group-bartender-jumpsuit = Bartender jumpsuit
