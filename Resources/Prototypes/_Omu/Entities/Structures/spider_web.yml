@@ -1,0 +1,12 @@
+- type: entity
+  parent: SpiderWeb
+  id: SpiderWebConstruct
+  name: spider web
+  description: It's stringy and sticky but malleable...
+  components:
+  - type: Icon
+    sprite: Structures/floor_web.rsi
+    state: full
+  - type: Construction
+    graph: SpiderWebConstruct
+    node: end
