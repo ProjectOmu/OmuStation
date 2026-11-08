@@ -5,17 +5,19 @@
   parent: [BaseItem, BaseCentcommContraband]
   id: CentCommJustice
   description: PLACEHOLDER_DESCRIPTION
+  sprite:
+          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
+          state: Disabled-icon
+          inhandVisuals:
+            left:
+              - state: Disabled-inhand-left
+            right:
+              - state: Disabled-inhand-right
   components:
   - type: Sprite
     sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
     state: Disabled-icon
   - type: Item
-    sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
-    inhandVisuals:
-      left:
-        - state: Disabled-inhand-left
-      right:
-        - state: Disabled-inhand-right
     heldPrefix: off
     size: Ginormous
   - type: Battery
@@ -62,14 +64,12 @@
         sprite:
           sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           state: Disabled-icon
-        components:
-        - type: Item
-          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           inhandVisuals:
             left:
               - state: Disabled-inhand-left
             right:
               - state: Disabled-inhand-right
+        components:
         - type: MeleeWeapon
           wideAnimationRotation: -135
           attackRate: 1.5
@@ -87,14 +87,12 @@
         sprite:
           sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           state: Suppression-icon
-        components:
-        - type: Item
-          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           inhandVisuals:
             left:
               - state: Suppression-inhand-left
             right:
               - state: Suppression-inhand-right
+        components:
         - type: MeleeWeapon
           wideAnimationRotation: -135
           attackRate: 1.5
@@ -121,14 +119,12 @@
         sprite:
           sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           state: Surge-icon
-        components:
-        - type: Item
-          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           inhandVisuals:
             left:
               - state: Surge-inhand-left
             right:
               - state: Surge-inhand-right
+        components:
         - type: MeleeWeapon
           wideAnimationRotation: -135
           attackRate: 1.5
@@ -151,14 +147,12 @@
         sprite:
           sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           state: Phoron-icon
-        components:
-        - type: Item
-          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           inhandVisuals:
             left:
               - state: Phoron-inhand-left
             right:
               - state: Phoron-inhand-right
+        components:
         - type: AmbientSound
           range: 5
           volume: 0
@@ -197,14 +191,12 @@
         sprite:
           sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           state: Supermatter-icon
-        components:
-        - type: Item
-          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
           inhandVisuals:
             left:
               - state: Supermatter-inhand-left
             right:
               - state: Supermatter-inhand-right
+        components:
         - type: AmbientSound
           range: 5
           volume: 0
