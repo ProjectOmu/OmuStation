@@ -33,8 +33,13 @@ jobs:
         fi
 
     - uses: actions/checkout@v3.6.0
-      with:
-        submodules: 'recursive'
+
+    - name: Setup submodules
+      run: |
+        git submodule update --init --force
+        git submodule sync --recursive
+        git submodule update --init --recursive --force
+
     - name: Setup .NET Core
       if: env.skip == 'false'
       uses: actions/setup-dotnet@v3.2.0
