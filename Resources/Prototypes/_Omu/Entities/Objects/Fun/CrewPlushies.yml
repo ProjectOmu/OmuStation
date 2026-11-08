@@ -474,11 +474,20 @@
   - type: EmitSoundOnPickup
     sound: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg
   - type: EmitSoundOnUse
-    sound: /Audio/Machines/chime.ogg
+    sound:
+      path: /Audio/Machines/chime.ogg
+      params:
+        volume: -2
   - type: EmitSoundOnActivate
-    sound: /Audio/Machines/chime.ogg
+    sound:
+      path: /Audio/Machines/chime.ogg
+      params:
+        volume: -2
   - type: EmitSoundOnTrigger
-    sound: /Audio/Machines/chime.ogg
+    sound:
+      path: /Audio/Machines/chime.ogg
+      params:
+        volume: -2
   - type: EmitSoundOnThrow
     sound:
       collection: SiliconScreams
