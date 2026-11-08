@@ -107,3 +107,14 @@
     sprite: _Omu/Clothing/Uniforms/Jumpskirt/cybersunmedicaljumpskirt.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Uniforms/Jumpskirt/cybersunmedicaljumpskirt.rsi
+
+- type: entity
+  parent: CentcomAgentSkirt
+  id: ClothingUniformJumpskirtCentcomAgentBlack
+  name: CentComm agent black suitskirt
+  description: A sleek black suitskirt worn by CentComm's legal team. Still smells of burnt coffee.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/centcomagentblackskirt.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/centcomagentblackskirt.rsi

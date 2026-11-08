@@ -36,6 +36,23 @@
     jumpsuit: CentcomAgentSkirt
   groupBy: "jumpskirt"
 
+- type: loadout
+  id: CCAgentBlackJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomAgentBlack
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: CCAgentBlackJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCentcomAgentBlack
+  groupBy: "jumpskirt"
+
+- type: loadout
+  id: NanotrasenRepresentativeLeatherSatchel
+  equipment:
+    back: ClothingBackpackSatchelLeather
+
 # Neck
 - type: loadout
   id: NanotrasenRepresentativeOffcoat
