@@ -53,7 +53,7 @@
     fiberColor: fibers-blue
 
 - type: entity
-  parent: [ClothingGloveJacketBase, BaseCommandContraband, AllowSuitStorageClothing, ClothingOuterStorageBase]
+  parent: [ClothingGloveJacketBase, BaseCommandContraband, ClothingOuterArmorHoS, ClothingOuterStorageBase]
   id: ClothingOuterJacketInsulatedHoS
   name: head of security's armored jacket
   description: An armored and insulated jacket for the station's handless protector.
