@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseSubdermalImplant
+  id: BasicTauCetiBasicTranslationChip
+  name: basic common translation chip
+  description: Allows your bugged borgs to understand the common galactic tongue.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: TauCetiBasicTranslationChip
+  name: advanced common translation chip
+  description: A more advanced version of the translator implant, allowing your bugged borgs to both speak and understand the galactic tongue!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - TauCetiBasic
+    spoken:
+    - TauCetiBasic
