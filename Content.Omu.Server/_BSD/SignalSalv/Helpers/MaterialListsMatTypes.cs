@@ -24,7 +24,7 @@ public struct Material
     public float MaxResoucePerSecond { get; init; }// Amount in /100 per second || aka 1 -> 0.01/s 100 is 1/s
     public bool Minable { get; init; }
     public int SignificantDataCostPerMiningUnit { get; init; } //cost for 0.01 /s outpust
-    public int LatheGradeTransportCost { get; init; } //cost for 0.01 /s outpust
+    public int LatheGradeTransportCost { get; init; }
 }
 
 public struct CompleteMaterialList
@@ -47,11 +47,14 @@ public struct CompleteMaterialList
         AdvancedMaterials.Add(new Material("Gold", 10, 25, true, 500));
         AdvancedMaterials.Add(new Material("Silver", 10, 25, true, 500));
         AdvancedMaterials.Add(new Material("Uranium", 10, 25, true, 500));
-        BaseMaterials.Add(new Material("BioMass", 10, 15, true, 2000));
+        AdvancedMaterials.Add(new Material("Biomass", 10, 15, true, 2000));
+        AdvancedMaterials.Add(new Material("Diamond", 10, 15, false, int.MaxValue));
         SpecialMaterials = new();
         SpecialMaterials.Add(new Material("Plasma", 0.1f, 1, true, 500000, 10));
         //yes 0.5 million is not a mistake you are not intended to do this
         //And only a tenth of the capacity so only 30 sheets can be transported at a time (PLASMA is rare anyway, prevents mass robbing of it)
+        SpecialMaterials.Add(new Material("BluespaceCristal", 0, 0, false, int.MaxValue, 300));
+        //One bluespace cristal may be moved per jug, intentinal these cristals are HIGHLY volotile
         AllMaterials = new();
         AllMaterials.UnionWith(BaseMaterials);
         AllMaterials.UnionWith(AdvancedMaterials);

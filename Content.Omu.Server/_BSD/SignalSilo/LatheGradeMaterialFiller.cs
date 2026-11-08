@@ -13,6 +13,7 @@ namespace Content.Omu.Server._BSD.SignalSilo;
 
 /// <summary>
 /// This system exists purly to facilitate intigration and easy of use for the cargo department
+/// TODO: get this thing a proper UI -> WAYS easier to the end user -> stal system till UI done
 /// </summary>
 public sealed partial class LathGradeMaterialFillerSystem : EntitySystem
 {
@@ -39,6 +40,11 @@ public sealed partial class LathGradeMaterialFillerSystem : EntitySystem
         else if (args.Type == IngameConsoleCommandType.ICC_START)
         {
             IngameConsoleHistoryChangeEvent ev = new(TryMakeJug());
+            RaiseLocalEvent(args.TerminalUid, ref ev);
+        }
+        else if (args.Type == IngameConsoleCommandType.ICC_SET && args.Args != null && args.Args.Length > 1)
+        {
+            IngameConsoleHistoryChangeEvent ev = new();
             RaiseLocalEvent(args.TerminalUid, ref ev);
         }
         return;
