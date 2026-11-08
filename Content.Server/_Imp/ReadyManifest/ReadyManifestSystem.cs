@@ -11,6 +11,7 @@ using Content.Shared._Imp.ReadyManifest;
 using Content.Server.GameTicking;
 using Content.Server.Preferences.Managers;
 using Content.Server.GameTicking.Events;
+using Content.Server._Omu.Preferences;
 
 namespace Content.Server._Imp.ReadyManifest;
 
@@ -21,6 +22,7 @@ public sealed class ReadyManifestSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
+    [Dependency] private readonly CharacterQueueSystem _characterQueue = default!; // Omu
 
     private readonly Dictionary<ICommonSession, ReadyManifestEui> _openEuis = new();
     private Dictionary<ProtoId<JobPrototype>, int> _jobCounts = new();
@@ -30,6 +32,7 @@ public sealed class ReadyManifestSystem : EntitySystem
         SubscribeNetworkEvent<RequestReadyManifestMessage>(OnRequestReadyManifest);
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStarting);
         SubscribeLocalEvent<PlayerToggleReadyEvent>(OnPlayerToggleReady);
+        SubscribeLocalEvent<CharacterQueueChangedEvent>(OnCharacterQueueChanged); // Omu
     }
 
     private void OnRoundStarting(RoundStartingEvent ev)
@@ -62,7 +65,7 @@ public sealed class ReadyManifestSystem : EntitySystem
             return;
         }
 
-        HumanoidCharacterProfile profile = (HumanoidCharacterProfile)preferences.SelectedCharacter;
+        HumanoidCharacterProfile profile = _characterQueue.GetAssignmentProfile(userId, preferences); // Omu
         var profileJobs = FilterPlayerJobs(profile);
 
 
@@ -94,6 +97,17 @@ public sealed class ReadyManifestSystem : EntitySystem
         UpdateEuis();
     }
 
+    // Omu start
+    private void OnCharacterQueueChanged(CharacterQueueChangedEvent ev)
+    {
+        if (_gameTicker.PlayerGameStatuses.GetValueOrDefault(ev.Player) != PlayerGameStatus.ReadyToPlay)
+            return;
+
+        BuildReadyManifest();
+        UpdateEuis();
+    }
+    // Omu end
+
      private void BuildReadyManifest()
     {
         var jobCounts = new Dictionary<ProtoId<JobPrototype>, int>();
@@ -103,7 +117,7 @@ public sealed class ReadyManifestSystem : EntitySystem
             if (status != PlayerGameStatus.ReadyToPlay
                 ||!_prefsManager.TryGetCachedPreferences(userId, out var preferences))
                 continue;
-            var profile = (HumanoidCharacterProfile)preferences.SelectedCharacter;
+            var profile = _characterQueue.GetAssignmentProfile(userId, preferences); // Omu
             var profileJobs = FilterPlayerJobs(profile);
             foreach (var jobId in profileJobs)
             {

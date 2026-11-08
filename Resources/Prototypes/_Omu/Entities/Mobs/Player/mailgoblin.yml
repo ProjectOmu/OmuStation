@@ -1,0 +1,101 @@
+- type: entity
+  name: mail goblin
+  id: MobMailGoblin
+  parent: [SimpleSpaceMobBase, DVNodeCrawler] # Omu, add DVNodeCrawler
+  description: A tamed, slightly more fruity floor goblin that got a job. Neither delamination, singuloose, nor terrorist attack will stop it from delivering mail.
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _Omu/Mobs/MailGoblin/mail_goblin.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: mail_goblin
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+        # Regular mob collision, but we'll handle small mob behavior in code
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-mail-goblin-name
+    description: ghost-role-information-mail-goblin-description
+    rules: ghost-role-information-familiar-rules # It's what cargo bingles are
+    mindRoles:
+    - MindRoleGhostRoleFamiliarCourier
+    raffle: null
+  - type: GhostTakeoverAvailable
+  - type: Speech
+    speechVerb: FloorGoblin
+    speechSounds: Duende
+    allowedEmotes: [Laugh]
+  - type: Vocal
+    sounds:
+      Unsexed: Duende
+  - type: LanguageSpeaker
+  - type: LanguageKnowledge
+    speaks:
+    - FloorGoblin
+    understands:
+    - FloorGoblin
+    - TauCetiBasic
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      60: Dead
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 40
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Butcherable
+    spawned: []
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  #- type: VentCrawler # Omu, use nodecrawler
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 3
+  - type: CrawlUnderFloor
+    actionProto: ActionToggleFloorBoardsMode
+  - type: MobPrice
+    price: 100
+  - type: DodgeWideswing
+    staminaRatio: 2
+  - type: Stamina
+    baseCritThreshold: 20
+    animationThreshold: 10 # Goob edit
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.25
+    damageRecovery:
+      types:
+        Asphyxiation: -0.25
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.1
+  - type: Puller
+    needsHands: false
+  - type: Stealth # Hijacking this to prevent huds from showing, tell me if you got a better solution.

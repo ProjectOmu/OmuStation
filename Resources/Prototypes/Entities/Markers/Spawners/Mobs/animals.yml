@@ -86,6 +86,23 @@
     prototypes:
     - MobCockroach
 
+# Start Omu
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobMothroach
+  name: Mothroach Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Animals/mothroach/mothroach.rsi
+      state: icon
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobMothroach
+# End Omu
+
 - type: entity
   parent: MarkerBase
   id: SpawnMobMoproach

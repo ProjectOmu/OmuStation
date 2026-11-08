@@ -2,8 +2,8 @@
 
 - type: entity
   id: BookCorporateSecrets
-  parent: [BaseGuidebook, BaseCommandContraband]
-  name: command training manual
+  parent: [BaseGuidebook, BaseCentCommCommandSecurityContraband] # Omu, metashield rewrite
+  name: classified training manual # Omu, metashield rewrite
   description: There's a big red stamp that says "CONFIDENTIAL" on it. Probably should keep this locked up.
   components:
   - type: Sprite
@@ -12,19 +12,6 @@
     - state: corporate-secrets
   - type: GuideHelp
     guides:
-    - CommandTrainingManual
+    - ClassifiedTrainingManual # Omu, metashield rewrite
 
 
-- type: entity # omu
-  id: BookCorporateSecretsSecurity
-  parent: [BaseGuidebook, BaseSecurityContraband] # Manual directly states command arent allowed to read it security is, so it makes sense to me.
-  name: security training manual
-  description: There's a big red stamp that says "CONFIDENTIAL" on it. Probably should keep this locked up.
-  components:
-  - type: Sprite
-    sprite: _Funkystation/Objects/Misc/books.rsi
-    layers:
-    - state: corporate-secrets
-  - type: GuideHelp
-    guides:
-    - SecurityTrainingManual

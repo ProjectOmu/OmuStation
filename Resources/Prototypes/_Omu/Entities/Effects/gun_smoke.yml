@@ -1,0 +1,21 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: EffectGunSmoke
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: FadingTimedDespawn
+    lifetime: 0.3
+    fadeOutTime: 0.9
+  - type: Sprite
+    drawdepth: BelowMobs
+    noRot: true
+    layers:
+    - sprite: Effects/chemsmoke.rsi
+      state: chemsmoke_white
+      scale: 0.35, 0.35
+      color: "#ffffffaa"
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: AnimationPlayer

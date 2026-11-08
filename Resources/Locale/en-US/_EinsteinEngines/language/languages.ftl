@@ -84,11 +84,11 @@ language-Sign-description =
 language-Marish-name = Marish
 language-Marish-description =  A language spoken only by Shadowkin, one that is unable to be replicated by normal tongues.
 
-language-ValyrianStandard-name = Valyrian Standard
+
+# Omu - Avatel
+language-ValyrianStandard-name = Avatel Vulu
 language-ValyrianStandard-description =
-    A language descended from eastern european languages of old earth - Valyrian Standard is the commonly spoken tongue of Harpies brought up on their homeworld of Valyrian 4b
-    It is rarely spoken outside of the worlds of its native speakers, and has in modern times been supplanted by the 'Conlangs of the Sol Alliance.
-    Its speakers are those who wish to uphold the traditions and beliefs of ancient peoples from before the colonial era.
+    Although it is hard to discern amidst all the squawking, it sounds similar to the early pagan Latin and imperial Japanese languages of old Earth. Avatel Vulu is the main language spoken on the harpy homeworld of Avatel-Ran and most of Appalian space.
 
 language-Chittin-name = Chittin
 language-Chittin-description =

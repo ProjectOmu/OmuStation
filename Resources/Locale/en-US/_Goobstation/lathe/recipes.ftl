@@ -10,7 +10,6 @@ lathe-recipe-SolCommonTranslatorImplanter-subname = sol-common translator implan
 lathe-recipe-ChittinTranslatorImplanter-subname = chittin translator implant
 lathe-recipe-RootSpeakTranslatorImplanter-subname = root-speak translator implant
 lathe-recipe-MofficTranslatorImplanter-subname = moffic translator implant
-lathe-recipe-ValyrianStandardTranslatorImplanter-subname = valyrian standard translator implant
 lathe-recipe-SiikMaasTranslatorImplanter-subname = siik'maas translator implant
 lathe-recipe-MarishTranslatorImplanter-subname = marish translator implant
 lathe-recipe-SchechiTranslatorImplanter-subname = schechi translator implant
@@ -18,3 +17,6 @@ lathe-recipe-NewKinPidginTranslatorImplanter-subname = ka'rakk translator implan
 lathe-recipe-ChevalTranslatorImplanter-subname = cheval translator implant
 lathe-recipe-YowKriolTranslatorImplanter-subname = yow kriol translator implant
 lathe-recipe-SignTranslatorImplanter-subname = sign translator implant
+
+# Omu
+lathe-recipe-ValyrianStandardTranslatorImplanter-subname = avatel vulu translator implant

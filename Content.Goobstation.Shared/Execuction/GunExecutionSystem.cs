@@ -229,7 +229,7 @@ public sealed class SharedGunExecutionSystem : EntitySystem
                 }
 
                 if (ammoUid != null)
-                    Del(ammoUid);
+                    PredictedDel(ammoUid.Value); // Trauma - ammo spawning is predicted
                 break;
         }
 

@@ -52,6 +52,8 @@ job-description-engineer = Keep the station's main engine & solars active, optim
 job-description-ertchaplain = Ensure the station crew's last rights are taken care of.
 job-description-ertengineer = Ensure that the station has power and clean air.
 job-description-ertjanitor = Ensure that the station is properly cleaned--for morale.
+## omu edit - tram driver
+job-description-tram-driver = Drive around a tram from stop to stop.
 job-description-ertleader = Lead the Emergency Response Team in dealing with threats to Nanotrasen assets.
 job-description-ertmedic = Ensure that the crew of the station is kept alive and healthy.
 job-description-ertsecurity = Ensure that any active threats to the station are put to rest.
@@ -63,7 +65,8 @@ job-description-lawyer = Ensure that every prisoner or criminal receives a fair 
 job-description-librarian = Manage the library, give out knowledge to any who seek it, and report on activities aboard the station.
 job-description-mime = Entertain the crew without speaking or writing, and engage with light rivalry with the clown.
 job-description-musician = Entertain the crew with your unique musical talent, and acquire new instruments to mess around with.
-job-description-passenger = Enjoy your stay aboard the station with no obligations!
+# omu off duty
+job-description-passenger = Enjoy your stay aboard the station with (almost) no obligations!
 job-description-psychologist = Provide emotional support to traumatized crew.
 job-description-qm = Manage the supplies of the station & the Cargo department, keep the salvage specialists working, make sure all orders are fulfilled, and keep the money flowing.
 job-description-rd = Manage the Science department, unlocking technologies, acquiring & researching artifacts, and performing experiments.

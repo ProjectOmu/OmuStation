@@ -48,3 +48,5 @@ station-event-random-sentience-flavor-kobold = kobold
 station-event-random-sentience-flavor-inanimate = inanimate
 # Goob fix
 station-event-random-sentience-flavor-corgi = corgi
+# Omu fix
+station-event-random-sentience-flavor-slime = slime

@@ -1,3 +1,4 @@
+using Content.Server._Omu.Preferences;
 using Content.Server._Omu.Traits;
 using Content.Server.Hands.Systems;
 using Content.Server.Mind;
@@ -13,7 +14,7 @@ namespace Content.Server._Hardlight.Traits;
 public sealed class HardlightUpdatedTraitSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IServerPreferencesManager _prefs = default!;
+    [Dependency] private readonly CharacterQueueSystem _characterQueue = default!; // Omu
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly JobSystem _jobs = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
@@ -23,7 +24,7 @@ public sealed class HardlightUpdatedTraitSystem : EntitySystem
     {
         if (!_mind.TryGetMind(original, out _, out var mind) ||
             mind.UserId == null ||
-            _prefs.GetPreferences(mind.UserId.Value).SelectedCharacter is not HumanoidCharacterProfile profile)
+            _characterQueue.GetCurrentCharacter(mind.UserId.Value) is not { } profile) // Omu
             return;
 
         // Clone equipment separately; replay only the selected trait components here.

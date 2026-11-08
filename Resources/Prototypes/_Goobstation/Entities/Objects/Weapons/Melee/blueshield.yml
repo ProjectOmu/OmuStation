@@ -31,6 +31,10 @@
     activatedDamage:
       types:
         Heat: 0 # Omu
+    # Omu Start
+    deactivatedSoundOnHit:
+      path: /Audio/_Goobstation/Weapons/Effects/metalcrush.ogg
+    # Omu End
   - type: Stunbaton
     energyPerUse: 40
     lightAttackEnergyMultiplier: 2

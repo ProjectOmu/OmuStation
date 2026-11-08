@@ -87,3 +87,193 @@
     component:
       - type: StationAiVision
         range: 4
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakPlural
+  name: plural cloak
+  description: A soft, colorful cloak celebrating the many voices, identities, and experiences that make up one collective.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/pluralcloak.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/pluralcloak.rsi
+    
+ 
+- type: entity
+  parent: [ ClothingNeckBase, BaseCommandContraband ]
+  id: ClothingNeckCloakCMOCoat
+  name: chief medical officer's embroidered off-coat
+  description: A finely embroidered coat worn imposingly as a cloak over your shoulders. Cuts a dashing figure befitting the finest mind in medicine.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/cmo_offcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/cmo_offcoat.rsi
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCommandContraband ]
+  id: ClothingNeckCloakRDCoat
+  name: research director's embroidered off-coat
+  description: A finely embroidered coat worn imposingly as a cloak over your shoulders. Cuts a dashing figure befitting the brightest minds in R&D.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/rd_offcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/rd_offcoat.rsi
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCommandContraband ]
+  id: ClothingNeckCloakHOSCoat
+  name: head of security's embroidered off-coat
+  description: A finely tailored coat worn imposingly as a cloak over your shoulders. Cuts a commanding figure befitting the station's highest authority in security. Built-in camera included.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/hos_offcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/hos_offcoat.rsi
+  - type: DeviceNetwork
+    deviceNetId: Wired # :clueless:
+    receiveFrequencyId: SurveillanceCameraCommand
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+    nameSet: True
+    mobile: True  # Goobstation - mobile cameras fix
+    id: Bodycam
+  - type: Eye
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: SurveillanceCameraMicrophone
+    blacklist:
+      components:
+      - SurveillanceCamera
+      - SurveillanceCameraMonitor
+      - RadioSpeaker
+  - type: ActiveListener
+    range: 10
+  - type: ClothingGrantComponent
+    component:
+    - type: StationAiVision
+      range: 4
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCentcommContraband ]
+  id: ClothingNeckCloakBSOCoat
+  name: blueshield officer's embroidered off-coat
+  description: A finely tailored coat worn imposingly as a cloak over your shoulders. Cuts a fitting figure for those entrusted with the lives of command.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/bso_offcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/bso_offcoat.rsi
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCommandContraband ]
+  id: ClothingNeckCloakCAPCoat
+  name: captain's embroidered off-coat
+  description: A finely tailored coat draped elegantly over your shoulders. Cuts a distinguished figure befitting the station's highest authority.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/cap_offcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/cap_offcoat.rsi
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCommandContraband ]
+  id: ClothingNeckCloakHOPCoat
+  name: head of personnel's off-coat
+  description: A finely tailored coat draped gracefully over your shoulders. Cuts a refined figure befitting the one who keeps the station's personnel in order.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/hop_offcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/hop_offcoat.rsi
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCommandContraband ]
+  id: ClothingNeckCloakCECoatWhite
+  name: chief engineer's white embroidered off-coat
+  description: A rugged yet finely tailored coat draped over your shoulders. Cuts an imposing figure befitting the mind that keeps the station standing.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/ce_whiteoffcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/ce_whiteoffcoat.rsi
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCommandContraband ]
+  id: ClothingNeckCloakCECoatGreen
+  name: chief engineer's green embroidered off-coat
+  description: A rugged yet finely tailored coat draped over your shoulders. Cuts an imposing figure befitting the mind that keeps the station standing.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/ce_greenoffcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/ce_greenoffcoat.rsi
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCommandContraband ]
+  id: ClothingNeckCloakQMCoat
+  name: quartermaster's embroidered off-coat
+  description: A coat imposingly worn as a cloak over your back. Cuts a dashing figure befitting the station's wealth intake and material manager.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/qm_offcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/qm_offcoat.rsi
+
+- type: entity
+  parent: [ ClothingNeckStorageBase, BaseCentcommContraband ]
+  id: ClothingNeckCloakIA
+  name: internal affairs officer's off-coat
+  description: A coat imposingly worn as a cloak over your back. Cuts a dashing figure.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/ia_offcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/ia_offcoat.rsi
+  - type: Storage
+    grid:
+    - 0,0,3,1
+    whitelist:
+      components:
+      - BallisticAmmoProvider
+      - CartridgeAmmo
+      tags:
+      - EnergySpeedloader
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+      storagebase: !type:Container
+        ents: []
+  - type: ItemSlots
+    slots:
+      item:
+        name: Handgun
+        whitelist:
+          tags:
+          - Sidearm
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCentcommContraband ]
+  id: ClothingNeckCloakEGG
+  name: direggtor's off-coat
+  description: A coat imposingly worn as a cloak over your back. Cuts a dashing figure.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/direggtor_offcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/direggtor_offcoat.rsi
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCentcommContraband ]
+  id: ClothingNeckCloakIARN
+  name: I.A.R.N ceremonial windbreaker
+  description: When the current carries you not into that gentle night; for those who stand in storms unending against threats unknowable; A bastion against Lash of rain and bite of wind.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/iarn_offcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/iarn_offcoat.rsi
+

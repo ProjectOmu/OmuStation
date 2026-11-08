@@ -17,3 +17,11 @@
       collection: Cracks
     Blink: # Imp
       collection: Blinks # Imp
+
+- type: emoteSounds
+  id: VocalFallback
+  params:
+    variation: 0.125
+  sounds:
+    Baa:
+      collection: OviniaBaa

@@ -406,7 +406,7 @@ namespace Content.Server.GameTicking
                 HumanoidCharacterProfile profile;
                 if (_prefsManager.TryGetCachedPreferences(userId, out var preferences))
                 {
-                    profile = (HumanoidCharacterProfile) preferences.SelectedCharacter;
+                    profile = _characterQueue.GetAssignmentProfile(userId, preferences); // Omu
                 }
                 else
                 {
@@ -605,7 +605,8 @@ namespace Content.Server.GameTicking
                         damagePerGroup = damageableComp.DamagePerGroup;
 
                     // Omu - End of Round Silicon Summary
-                    _pvsOverride.AddGlobalOverride(lastMob.Value);
+                    if (HasComp<SiliconLawProviderComponent>(lastMob)) // Omu
+                        _pvsOverride.AddGlobalOverride(lastMob.Value); // Omu
                 }
 
                 #endregion

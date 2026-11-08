@@ -29,6 +29,9 @@ public partial struct StampDisplayInfo
     public string? StampLargeIcon; // goob
 
     [DataField]
+    public string? StampLargePath; // Omu
+
+    [DataField]
     public string? StampFont; // goob
 
     [DataField]
@@ -64,8 +67,15 @@ public sealed partial class StampComponent : Component
 
     /// <summary>
     ///     The sprite state of the stamp to display on the paper when read from stamp Sprite path.
+    ///     (OMU)> This is interestingly hardcoded to Goob's texture namespace, and should be deprecated in favor of a system that references a direct/sprite texture path. See StampLargePath.
     /// </summary>
     [DataField]
     public string? StampLargeIcon = null; // Goob Stamp
+
+    /// <summary>
+    ///     (OMU)> This is a field that references a *direct* sprite/texture path for the stamp to display on the paper. This should be used instead of StampLargeIcon.
+    /// </summary>
+    [DataField]
+    public string? StampLargePath = null; // Omu Stamp
 
 }

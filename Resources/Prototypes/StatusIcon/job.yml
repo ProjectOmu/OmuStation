@@ -325,6 +325,14 @@
     state: Zookeeper
   jobName: job-name-zookeeper
 
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconTramDriver
+  icon:
+    sprite: *icon-rsi
+    state: TramDriver
+  jobName: job-name-tramdriver
+
 # Entertainer (like service, but not actually service)
 
 - type: jobIcon
@@ -357,8 +365,8 @@
   parent: JobIcon
   id: JobIconPassenger
   icon:
-    sprite: *icon-rsi
-    state: Passenger
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi #omu offduty
+    state: offduty #omu offduty
   jobName: job-name-passenger
 
 - type: jobIcon

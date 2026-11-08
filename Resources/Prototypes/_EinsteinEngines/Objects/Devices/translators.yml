@@ -245,8 +245,8 @@
 - type: entity
   id: ValyrianStandardTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Valyrian Standard translator
-  description: Translates speech between Valyrian Standard and Tau-Ceti Basic. For talking to Harpies!
+  name: avatel vulu translator # Omu
+  description: Translates speech between Avatel Vulu and Tau-Ceti Basic. For talking to Harpies! # Omu
   components:
   - type: HandheldTranslator
     spoken:
