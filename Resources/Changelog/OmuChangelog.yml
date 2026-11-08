@@ -9942,3 +9942,55 @@ Entries:
       message: Fixed light on the Corpsman modsuit, gave it a name and description.
   id: 1279
   time: '2026-11-06T21:53:07.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Tweak
+      message: Insect blood is now called hemolymph
+  id: 1280
+  time: '2026-11-06T22:46:21.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: >-
+        IPC will now correctly stand up with correct movement speed after
+        recharging a depleted battery.
+  id: 1281
+  time: '2026-11-07T15:43:11.0000000+00:00'
+- author: cynischism
+  changes:
+    - type: Add
+      message: >-
+        Wrestling crate and theater vendor now contain a referee jacket and
+        flippable cap.
+  id: 1282
+  time: '2026-11-07T15:47:01.0000000+00:00'
+- author: iamlcarus
+  changes:
+    - type: Fix
+      message: Cadets no longer start with an MK58 magazine.
+  id: 1283
+  time: '2026-11-07T16:04:51.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Tweak
+      message: >-
+        Assistants are instead "Off Duty" personnel. Tider- and
+        Assistant-related things are changed or removed to reflect this (such as
+        the now-removed Tidemind).
+    - type: Tweak
+      message: >-
+        The "Grey Tide" uplink item is now a bundle that also comes with
+        insulated gloves and an unremovable-by-self gas mask that activates the
+        Grey Tide.
+    - type: Add
+      message: >-
+        Loadouts and vendors offer departmental armbands. The Head of Security
+        gets a free box of them in their locker.
+  id: 1284
+  time: '2026-11-07T19:14:07.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed the Slavic bible from Chaplain
+  id: 1285
+  time: '2026-11-07T22:42:54.0000000+00:00'
