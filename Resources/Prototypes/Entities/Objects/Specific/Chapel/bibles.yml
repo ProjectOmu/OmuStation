@@ -16,7 +16,7 @@
     - QuaranSet
     - TanakhSet
     - ClockworkSet
-    - BibleVedaSet
+    #- BibleVedaSet # Omu
     - VelesBookSet
     maxSelectedSets: 1
 
@@ -60,15 +60,17 @@
   content:
   - BibleSlabClockwork
 
-- type: selectableSet
-  id: BibleVedaSet
-  name: Slavic-Aryan Vedas
-  description: Slavic neopaganisms.
-  sprite:
-    sprite: _Goobstation/Objects/Specific/Chapel/veda.rsi
-    state: icon
-  content:
-  - BibleVeda
+# Omu start
+#- type: selectableSet
+#  id: BibleVedaSet
+#  name: Slavic-Aryan Vedas
+#  description: Slavic neopaganisms.
+#  sprite:
+#    sprite: _Goobstation/Objects/Specific/Chapel/veda.rsi
+#    state: icon
+#  content:
+#  - BibleVeda
+# Omu end
 
 - type: selectableSet
   id: VelesBookSet

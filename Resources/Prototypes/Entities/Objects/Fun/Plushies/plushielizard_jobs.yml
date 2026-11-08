@@ -1,4 +1,4 @@
-﻿# This base is created so we don't have to define the different sprite path for each plushie job.
+# This base is created so we don't have to define the different sprite path for each plushie job.
 - type: entity
   abstract: true
   parent: PlushieLizard
@@ -241,8 +241,8 @@
 - type: entity
   parent: BasePlushieLizardJob
   id: PlushieLizardJobPassenger
-  name: passenger lizard plushie
-  description: An adorable stuffed toy that resembles a lizardperson as a passenger. Its eyes look at you, a little bit more beady than the rest.
+  name: off duty lizard plushie # omu
+  description: An adorable stuffed toy that resembles a lizardperson as a off duty crew member. Its eyes look at you, a little bit more beady than the rest. # omu
   components:
   - type: Sprite
     state: passenger
