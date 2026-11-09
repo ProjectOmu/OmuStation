@@ -36,6 +36,17 @@
       - BlueshieldOfficer
 
 - type: entity
+  parent: ClothingNeckMantleCCOMantle
+  id: ClothingNeckMantleCCOPrideMantle
+  name: CentComm pride ommantle
+  description: The commander's signature wrap, designed as a part of a uniform explicitly designed to torment her. Now with in built microchips, and pride pins!
+  components:
+  - type: Sprite
+    sprite:  _Omu/Clothing/Neck/Mantle/CCOpridemmantle.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Mantle/CCOpridemmantle.rsi
+
+- type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckMantleCMOModern
   name: chief medical officer's modern mantle
@@ -45,3 +56,56 @@
     sprite: _Omu/Clothing/Neck/Mantle/cmomantle.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Neck/Mantle/cmomantle.rsi
+
+- type: entity
+  parent: ClothingPrideMantleBase
+  id: ClothingNeckMantlePlural
+  name: plural mantle
+  description: A soft, colorful mantle celebrating the many voices, identities, and experiences that make up one collective.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Mantle/pluralmantle.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Mantle/pluralmantle.rsi
+
+- type: entity
+  parent: [ClothingNeckBase, BaseEngineeringContraband]
+  id: ClothingNeckMantleForeman
+  name: foreman's mantle
+  description: A heavy mantle with removable tassels. Made from sturdy painted leather, like the welding jackets of old.
+  components:
+  - type: Item
+    size: Small
+    heldPrefix: tassels
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Mantle/foremanmantle.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Mantle/foremanmantle.rsi
+    equippedPrefix: tassels
+    slots:
+    - Neck
+  - type: ItemSwitch
+    state: tassels
+    showLabel: true
+    states:
+      tassels: !type:ItemSwitchState
+        verb: tassels
+        sprite:
+          sprite: _Omu/Clothing/Neck/Mantle/foremanmantle.rsi
+          state: icon
+      sleek: !type:ItemSwitchState
+        verb: sleek
+        sprite:
+          sprite: _Omu/Clothing/Neck/Mantle/foremanmantle.rsi
+          state: sleek-icon
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCargoContraband]
+  id: ClothingNeckMantleBosun
+  name: bosun's mantle
+  description: An elegant wrap made of rugged purple cloth, worn strategically to hide the dust and debris on the inside face.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Mantle/bosunmantle.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Mantle/bosunmantle.rsi

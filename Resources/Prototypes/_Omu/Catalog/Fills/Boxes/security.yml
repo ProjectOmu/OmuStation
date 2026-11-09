@@ -29,3 +29,23 @@
     # - id: MagazineBoxMagnumEMP
     - id: MagazineMagnumLeverRifleEmpty
       amount: 2
+
+- type: entity
+  name: armband box
+  parent: [BoxCardboard]
+  id: BoxArmbands
+  description: A box containing some departmental armbands.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingArmbandMed
+    - id: ClothingArmbandEngi
+    - id: ClothingArmbandSci
+    - id: ClothingArmbandService
+    - id: ClothingArmbandCargo
+  - type: Storage
+    grid:
+    - 0,0,3,3
+    whitelist:
+      tags:
+      - Armband
