@@ -223,6 +223,13 @@
   groupBy: "smokeables"
 
 - type: loadout
+  id: Vape
+  storage:
+    back:
+    - Vape
+  groupBy: "smokeables"
+
+- type: loadout
   id: GreyTideStamp
   effects:
   - !type:GroupLoadoutEffect
