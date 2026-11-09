@@ -92,8 +92,12 @@ public sealed class RechargeableBlockingSystem : EntitySystem
         BatterySelfRechargerComponent? recharger;
         if (_battery.GetCharge((uid, battery)) < 1) // Omu, port for upstream batteries
         {
-            if (TryComp(uid, out recharger))
+            if (TryComp(uid, out recharger)
+            && recharger.AutoRechargeRate != component.DischargedRechargeRate) //omu start
+            {
                 recharger.AutoRechargeRate = component.DischargedRechargeRate;
+                _battery.RefreshChargeRate(uid);
+            } //omu end
 
             component.Discharged = true;
             _itemToggle.TryDeactivate(uid, predicted: false);
@@ -104,7 +108,11 @@ public sealed class RechargeableBlockingSystem : EntitySystem
             return;
 
         component.Discharged = false;
-        if (TryComp(uid, out recharger))
+        if (TryComp(uid, out recharger)
+        && recharger.AutoRechargeRate != component.ChargedRechargeRate) //omu start
+        {
             recharger.AutoRechargeRate = component.ChargedRechargeRate;
+            _battery.RefreshChargeRate(uid);
+        } //omu end
     }
 }
