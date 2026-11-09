@@ -1,6 +1,24 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: marking
+  id: LizardHornsDragonCrag
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/reptilian.rsi
+    state: crag
+
+- type: marking
+  id: LizardHornsDragonHook
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/reptilian.rsi
+    state: fishhook
+
+- type: marking
   id: LizardTailBig
   bodyPart: Tail
   markingCategory: Tail

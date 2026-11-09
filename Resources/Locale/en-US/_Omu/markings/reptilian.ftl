@@ -1,7 +1,10 @@
 # Head (Top)
 
-marking-LizardDragonFishHook = Dragon horns (Fish-Hook)
-marking-LizardDragonFishHook-fishhook = Horn
+marking-LizardHornsDragonHook = Dragon horns (Fish-Hook)
+marking-LizardHornsDragonHook-fishhook = Horn
+
+marking-LizardHornsDragonCrag = Dragon horns (Crag)
+marking-LizardHornsDragonCrag-crag = Horn
 
 
 # Tail
