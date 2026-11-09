@@ -28,6 +28,15 @@ marking-AllulaloHeadMustacheThin-Mustachethin = Mustache (thin)
 marking-AllulaloHeadMustacheBig = Mustache (big)
 marking-AllulaloHeadMustacheBig-Mustachebig = Mustache (big)
 
+marking-AllulaloHeadBeak = Beak
+marking-AllulaloHeadBeak-Beak = Beak
+
+marking-AllulaloHeadBeakPointy = Beak  (Pointy)
+marking-AllulaloHeadBeakPointy-Beakpointy = Beak
+
+marking-AllulaloHeadHead = Head
+marking-AllulaloHeadHead-Head = Head
+
 # Tail
 
 marking-AllulaloTailBulb = Bulb tail
@@ -54,13 +63,25 @@ marking-AllulaloTailLong = Long tail
 marking-AllulaloTailLong-Longtail = Long tail top
 marking-AllulaloTailLong-Longtail2 = Long tail bottom
 
+marking-AllulaloTailDouble = Double tail
+marking-AllulaloTailDouble-Doubletail = Right Double tail 
+marking-AllulaloTailDouble-Doubletail2 = Left Double tail
+
 # Rarm
 
 marking-AllulaloWingsDragon = Wings (dragon)
-marking-AllulaloWingsDragon-Wingsdragon = Wings (dragon)
+marking-AllulaloWingsDragon-Wingsdragon = Right Wing (dragon)
+marking-AllulaloWingsDragon-Wingsdragon2 = Left Wing (dragon)
 
 marking-AllulaloWingsSmooth = Wings (smooth)
-marking-AllulaloWingsSmooth-Wingssmooth = Wings (smooth)
+marking-AllulaloWingsSmooth-Wingssmooth = Right Wing (smooth)
+marking-AllulaloWingsSmooth-Wingssmooth2 = Left Wing (smooth)
+
+marking-AllulaloWingsTriFeather = Wings (tri feather)
+marking-AllulaloWingsTriFeather-Trifeatherwings = Wings (tri feather)
+marking-AllulaloWingsTriFeather-Trifeatherwings2 = Wings (tri feather) bottom
+marking-AllulaloWingsTriFeather-Trifeatherwings3 = Wings (tri feather) middle
+marking-AllulaloWingsTriFeather-Trifeatherwings4 = Wings (tri feather) top
 
 # HeadTop
 
@@ -96,3 +117,14 @@ marking-AllulaloHeadTwinFeathers-Twinfeathers = Twin feathers
 
 marking-AllulaloHeadTwinSpikes = Twin spikes
 marking-AllulaloHeadTwinSpikes-Twinspikes = Twin spikes
+
+marking-AllulaloHeadDevilHorns = horns (Devil)
+marking-AllulaloHeadDevilHorns-Devilhorns = horns (Devil)
+
+marking-AllulaloHeadEmoLeft =  Plumage (emo left)
+marking-AllulaloHeadEmoLeft-Plumageemoleft = Plumage (emo left) top
+marking-AllulaloHeadEmoLeft-Plumageemoleft2 = Plumage (emo left) bottom
+
+marking-AllulaloHeadEmoRight =  Plumage (emo right)
+marking-AllulaloHeadEmoRight-Plumageemoright = Plumage (emo right) top
+marking-AllulaloHeadEmoRight-Plumageemoright2 = Plumage (emo right) bottom
