@@ -1,0 +1,74 @@
+# Package Tables
+
+- type: entityTable
+  id: OmuRandomArmorTable
+  table: !type:GroupSelector
+    children:
+    - id: ClothingOuterArmorRU6B2Vest
+
+- type: entityTable
+  id: OmuRandomFoodTable
+  table: !type:GroupSelector
+    children:
+    - id: FoodBurgerMcrib
+    - id: FoodMealCubancarp
+    - id: FoodMealNachosCuban
+    - id: FoodKelpStew
+    - id: FoodMealThavenKelpFry
+
+- type: entityTable
+  id: OmuRandomDrinkTable
+  table: !type:GroupSelector
+    children:
+    - id: DrinkCanPack
+    - id: DrinkNukieCan
+    - id: DrinkPremiumAbsintheBottleFull
+    - id: DrinkRumBottleFull
+    - id: DrinkPremiumTequilaBottleFull
+    - id: DrinkChangelingStingCan
+    - id: DrinkWineBottleFull
+    - id: DrinkMelonLiquorBottleFull
+    - id: DrinkGildlagerBottleFull
+    - id: DrinkVermouthBottleFull
+
+- type: entityTable
+  id: OmuRandomPunishmentTable
+  table: !type:GroupSelector
+    children:
+    - id: LavalandMobAshWhelp
+    - id: MobBluespaceHarvesterMiGo
+
+- type: entityTable
+  id: OmuRandomContrabandTable
+  table: !type:GroupSelector
+    children:
+    - id: CyberPen
+
+- type: entityTable
+  id: OmuRandomRareContrabandTable
+  table: !type:GroupSelector
+    children:
+    - id: CyberPen
+    - id: ClothingBeltMilitaryWebbingERT
+    - id: ClothingHeadHelmetERTSecurity
+    - id: OrganEyesOfGod
+    
+- type: entityTable
+  id: OmuRandomStuffTable
+  table: !type:GroupSelector
+    children:
+    - id: WeaponSniperFoam
+    - id: CargoBingleSpawnCoin
+    - id: FoamThrongler
+    - id: CrateCargoForklift
+    - ID: CrateFunATV
+    
+- type: entityTable
+  id: OmuRandomCritterTable
+  table: !type:GroupSelector
+    children:
+    - id: SpawnMobMothroach
+ 
+# Letter Tables
+
+# Bundles
