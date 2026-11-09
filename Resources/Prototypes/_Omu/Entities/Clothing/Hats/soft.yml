@@ -23,4 +23,19 @@
     - ClothMade
     - Recyclable
 
-    
+- type: entity
+  parent: ClothingHeadHeadHatBaseFlippable
+  id: ClothingHeadHatReferee
+  name: referee cap
+  description: A cheap, thin striped hat. If you leave it up to the referee, you deserve to lose.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Soft/refereecap.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Soft/refereecap.rsi
+
+- type: entity
+  parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatReferee]
+  id: ClothingHeadHatRefereeFlipped
+  name: referee cap
+
