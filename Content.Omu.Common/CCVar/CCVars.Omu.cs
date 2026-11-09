@@ -53,4 +53,13 @@ public sealed partial class OmuCVars
     /// </summary>
     public static readonly CVarDef<float> GunLagCompRange =
         CVarDef.Create("omu.gun_lag_comp_range", 0.6f, CVar.SERVER | CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> PollRateLimitPeriod =
+        CVarDef.Create("omu.poll_rate_limit_period", 10f, CVar.SERVER | CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> PollRateLimitCount =
+        CVarDef.Create("omu.poll_rate_limit_count", 10, CVar.SERVER | CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> PollBulkRateLimitCount =
+        CVarDef.Create("omu.poll_bulk_rate_limit_count", 60, CVar.SERVER | CVar.SERVERONLY);
 }
