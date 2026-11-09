@@ -3,6 +3,7 @@
 using System.IO;
 using JetBrains.Annotations;
 using Lidgren.Network;
+using Robust.Shared.Audio; // Starlight
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -40,6 +41,7 @@ namespace Content.Shared.Chat
         public string? AudioPath;
         public float AudioVolume;
         public bool CanCoalesce; // Goobstation Edit
+        public SoundSpecifier? Chime; // Starlight
 
         [NonSerialized]
         public bool Read;
@@ -73,6 +75,7 @@ namespace Content.Shared.Chat
         public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
         {
             var length = buffer.ReadVariableInt32();
+            buffer.AssertAtLeastSize(length);
             using var stream = new MemoryStream(length);
             buffer.ReadAlignedMemory(stream, length);
             serializer.DeserializeDirect(stream, out Message);

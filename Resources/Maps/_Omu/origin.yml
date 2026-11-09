@@ -202397,31 +202397,6 @@ entities:
       parent: 2
     - type: ScaleVisuals
       scale: 0.5,0.5
-    - type: Tag
-      tags:
-      - IgnoreBindSoul
-    - type: MindContainer
-    - type: InputMover
-    - type: MobMover
-    - type: MovementSpeedModifier
-    - type: Speech
-      suffixSpeechVerbs:
-        chat-speech-verb-suffix-exclamation-strong: DefaultExclamationStrong
-        chat-speech-verb-suffix-exclamation: DefaultExclamation
-        chat-speech-verb-suffix-question: DefaultQuestion
-        chat-speech-verb-suffix-stutter: DefaultStutter
-        chat-speech-verb-suffix-mumble: DefaultMumble
-      allowedEmotes: []
-    - type: Emoting
-    - type: Examiner
-    - type: LanguageSpeaker
-      understoodLanguages:
-      - TauCetiBasic
-      spokenLanguages:
-      - TauCetiBasic
-    - type: Eye
-    - type: TypingIndicator
-    - type: Appearance
 - proto: Welder
   entities:
   - uid: 31418

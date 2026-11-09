@@ -127,3 +127,24 @@
     tags:
     - ClothMade
     - Recyclable
+- type: entity
+  parent: [ ClothingHeadBase, BaseCentcommContraband ]
+  id: ClothingHeadHatCentcommcapUnarmored
+  suffix: Unarmored
+  name: centcomm cap
+  description: An extravagant, stylish cap worn by CentComm officials. Seems to have had some padding removed.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/comcap.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/comcap.rsi
+  - type: Item
+    sprite: Clothing/Head/Hats/comcap.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - MouseWearable
