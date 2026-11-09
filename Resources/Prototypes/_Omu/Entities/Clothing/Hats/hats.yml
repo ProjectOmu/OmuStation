@@ -392,3 +392,43 @@
     sprite: _Omu/Clothing/Hats/hardhat_black.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Hats/hardhat_black.rsi
+
+- type: entity
+  parent: ClothingHeadHatCentcomcap
+  id: ClothingHeadHatCapCompliance
+  name: corporate compliance cap
+  description: A sharp black cap worn by CentComm's compliance officers. DID YOU KNOW? Everything you say is going in the report.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/cap_compliance.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/cap_compliance.rsi
+  - type: Item
+    sprite: _Omu/Clothing/Hats/cap_compliance.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHatCentcomcap
+  id: ClothingHeadHatCapInternalAffairs
+  name: internal affairs cap
+  description: A dark green cap worn by CentComm's internal affairs agents. Someone's getting written up.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/cap_internal_affairs.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/cap_internal_affairs.rsi
+  - type: Item
+    sprite: _Omu/Clothing/Hats/cap_internal_affairs.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
