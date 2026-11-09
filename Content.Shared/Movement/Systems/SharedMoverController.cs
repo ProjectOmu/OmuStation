@@ -662,7 +662,7 @@ public abstract partial class SharedMoverController : VirtualController
             FootstepModifierQuery.TryComp(outerClothing, out var outerModifier))
         {
             sound = outerModifier.FootstepSoundCollection;
-            return sound != null;
+            return sound is not null;
         }
         // Omu end
 
