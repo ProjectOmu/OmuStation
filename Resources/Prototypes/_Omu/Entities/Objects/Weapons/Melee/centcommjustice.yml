@@ -5,14 +5,6 @@
   parent: [BaseItem, BaseCentcommContraband]
   id: CentCommJustice
   description: An exorbitantly expensive self-recharging energy sword, designed exclusively for use by high-ranking Central Command personnel. Reportedly, the blade is a metallurgical miracle that incorporates pieces of a supermatter crystal...
-  sprite:
-          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
-          state: Disabled-icon
-          inhandVisuals:
-            left:
-              - state: Disabled-inhand-left
-            right:
-              - state: Disabled-inhand-right
   components:
   - type: Sprite
     sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
