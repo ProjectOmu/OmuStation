@@ -63,6 +63,7 @@
   id: FillLockerWardenHarduit
   table: !type:AllSelector
     children:
+    #- id: ClothingOuterHardsuitWarden # Omu
     - id: UndeterminedVoidsuitWarden # Omu
     - id: OxygenTankFilled
     - id: ClothingMaskBreath
