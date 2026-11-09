@@ -1,5 +1,8 @@
 # Head (Top)
 
+marking-LizardDragonFishHook = Dragon horns (Fish-Hook)
+marking-LizardDragonFishHook-fishhook = Horn
+
 
 # Tail
 marking-LizardTailBig = Big Serpent Tail (Basic)
