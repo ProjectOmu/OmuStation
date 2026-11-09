@@ -243,7 +243,7 @@ public sealed partial class TraitVampire : TraitFunction
             var stomachComp = entityManager.GetComponent<StomachComponent>(ent);
 
             stomachComp.IsSpecialDigestibleExclusive = true;
-            stomachComp.SpecialDigestible = new EntityWhitelist { Tags = new() { "Bloodpack" } };
+            stomachComp.SpecialDigestible = new EntityWhitelist { Tags = new() { "Bloodpack", "Pill" } };
 
             metabolizerComp.MetabolizerTypes = new() { "Vampire" };
 

@@ -25,7 +25,7 @@
           - !type:MetabolizerTypeCondition
             type: [ Vampire ]
       - !type:SatiateHunger
-        factor: 1.5 #omu end
+        factor: 1.5
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Vampire ]
@@ -33,7 +33,7 @@
     #  effects:
     #    - !type:AdjustReagent
     #      reagent: UncookedAnimalProteins
-    #      amount: 0.1
+    #      amount: 0.1 #omu end
     Medicine:
       effects:
       - !type:HealthChange
