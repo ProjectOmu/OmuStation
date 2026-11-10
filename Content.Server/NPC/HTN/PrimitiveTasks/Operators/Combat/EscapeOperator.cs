@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Content.Server.NPC.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.CombatMode;
+using Content.Shared.Storage.Components;
 using Robust.Server.Containers;
 
 namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators.Combat.Melee;
@@ -107,7 +108,7 @@ public sealed partial class EscapeOperator : HTNOperator, IHtnConditionalShutdow
             }
             else
             {
-                if (_entityStorage.TryOpenStorage(owner, target))
+                if (_entManager.HasComponent<EntityStorageComponent>(target) && _entityStorage.TryOpenStorage(owner, target)) // Omu - add EntityStorageComponent check
                 {
                     status = HTNOperatorStatus.Finished;
                 }
