@@ -116,7 +116,7 @@ public sealed class MansusMobSystem : EntitySystem
                 }
             }
 
-            // Resupply the hunt if we are tracking madness 
+            // Resupply the hunt if we are tracking madness
             if (noMaidens)
             {
                 using var madQuery = EntityQueryEnumerator<MansusMaddenedComponent>();
