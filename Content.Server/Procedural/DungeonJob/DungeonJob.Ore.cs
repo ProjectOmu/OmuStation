@@ -91,6 +91,12 @@ public sealed partial class DungeonJob
                 if (!ValidateResume())
                     return;
 
+                // Omu start - don't try to gen if we have no more tiles
+                // This should let the ore vein warning log only fire once
+                if (availableTiles.Count <= 0)
+                    break;
+                // Omu end
+
                 var groupSize = random.Next(gen.MinGroupSize, gen.MaxGroupSize + 1);
 
                 // While we have remaining tiles keep iterating
@@ -143,7 +149,7 @@ public sealed partial class DungeonJob
                     }
                 }
 
-                if (groupSize > 0 && availableTiles.Count > 0) // Omu - only care about remaining groups if there were available tiles left over
+                if (groupSize > 0)
                 {
                     _sawmill.Warning($"Found remaining group size for ore veins of {gen.Replacement ?? "null"}!");
                 }
