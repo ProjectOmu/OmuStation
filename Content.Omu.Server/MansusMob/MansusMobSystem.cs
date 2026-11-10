@@ -136,7 +136,7 @@ public sealed class MansusMobSystem : EntitySystem
         if (fascination.FascinationValue < 5)
             fascination.FascinationValue = 5;
 
-        if (fascination.Naturalsight == false)
+        if (!fascination.Naturalsight)
         {
             _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
             $"{uid} has fascination 5, making valid");
@@ -144,14 +144,18 @@ public sealed class MansusMobSystem : EntitySystem
             fascination.AlteredVision = true;
             _eye.RefreshVisibilityMask(uid);
         }
-        if (fascination.Naturalsight == true && fascination.NaturalHereticsight == false)
+        else // Naturalsight == true
         {
-            if (TryComp<SeeHereticFixturesComponent>(uid, out var seefixtures))
+            if (!fascination.NaturalHereticsight)
             {
-                seefixtures.SeeShifts = true;
-                _eye.RefreshVisibilityMask(uid);
+                if (TryComp<SeeHereticFixturesComponent>(uid, out var seefixtures))
+                {
+                    seefixtures.SeeShifts = true;
+                    _eye.RefreshVisibilityMask(uid);
+                }
             }
         }
+
         if (fascination.AlteredFaction != true)
         {
             fascination.AlteredFaction = true;
