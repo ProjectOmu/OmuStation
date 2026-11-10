@@ -1,7 +1,3 @@
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
-using Content.Omu.Server.SmiteOnMeleeHit.Systems;
-
 namespace Content.Omu.Server.SmiteOnMeleeHit.Components;
 
 /// <summary>
