@@ -114,7 +114,6 @@ public sealed class MansusMobSystem : EntitySystem
                     noMaidens = false;
                     break;
                 }
-
             }
 
             // Resupply the hunt if we are tracking madness 
