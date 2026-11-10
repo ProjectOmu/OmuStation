@@ -144,15 +144,12 @@ public sealed class MansusMobSystem : EntitySystem
             fascination.AlteredVision = true;
             _eye.RefreshVisibilityMask(uid);
         }
-        else // Naturalsight == true
+        else if (!fascination.NaturalHereticsight)
         {
-            if (!fascination.NaturalHereticsight)
+            if (TryComp<SeeHereticFixturesComponent>(uid, out var seefixtures))
             {
-                if (TryComp<SeeHereticFixturesComponent>(uid, out var seefixtures))
-                {
-                    seefixtures.SeeShifts = true;
-                    _eye.RefreshVisibilityMask(uid);
-                }
+                seefixtures.SeeShifts = true;
+                _eye.RefreshVisibilityMask(uid);
             }
         }
 
