@@ -87,10 +87,11 @@ public sealed class SharedMansusMobSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("mansus-mob-seek-player"), randomPlayer, randomPlayer, PopupType.SmallCaution);
 
             // Raise Living Heart Event
-            var ev = new EventHereticLivingHeartActivate();
-            ev.Target = GetNetEntity(randomPlayer);
-            ev.Actor = args.Performer;
-            RaiseLocalEvent(ev);
+            RaiseLocalEvent(new EventHereticLivingHeartActivate
+            {
+                Target = GetNetEntity(randomPlayer),
+                Actor = args.Performer,
+            });
 
             seek.Tracking = true;
             seek.TrackedId = randomPlayer;
