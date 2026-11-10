@@ -143,7 +143,7 @@ public sealed partial class DungeonJob
                     }
                 }
 
-                if (groupSize > 0)
+                if (groupSize > 0 && availableTiles.Count > 0) // Omu - only care about remaining groups if there were available tiles left over
                 {
                     _sawmill.Warning($"Found remaining group size for ore veins of {gen.Replacement ?? "null"}!");
                 }
