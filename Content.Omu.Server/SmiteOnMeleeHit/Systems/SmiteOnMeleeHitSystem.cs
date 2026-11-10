@@ -15,9 +15,7 @@ namespace Content.Omu.Server.SmiteOnMeleeHit.Systems;
 public sealed class SmiteOnMeleeHit : EntitySystem
 {
     [Dependency] private readonly ThunderstrikeSystem _thunderstrikeSystem = default!;
-
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-
     [Dependency] private readonly IChatManager _achat = default!;
 
     private const string JSTARE = "/Textures/_Omu/ScreenEffects/JohnStare.png";
