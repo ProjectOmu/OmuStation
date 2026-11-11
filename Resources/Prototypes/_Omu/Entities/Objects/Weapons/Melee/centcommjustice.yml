@@ -192,7 +192,7 @@
           volume: 0
           sound:
             path: /Audio/_Goobstation/Supermatter/calm.ogg
-        - type: SmiteOnMeleeHit # Due to the nature in how I coded SmiteOnMeleeHit, please don't add it to ANY other items, it will be unbalanced as all hell and could very easily be used to destroy an entire station in a matter of minutes.  All of the restraints that prevent this from being an immensely overpowered station destruction tool are done on the yml side.
+        - type: SmiteOnMeleeHit # Due to the nature of how I coded SmiteOnMeleeHit, please don't add it to ANY other items, it will be unbalanced as all hell and could very easily be used to destroy an entire station in a matter of minutes.  All of the restraints that prevent this from being an immensely overpowered station destruction tool are done on the yml side.
         - type: MeleeWeapon
           wideAnimationRotation: -135
           canWideSwing: false # Also do not fucking add wideswing to this shit holy fuck
