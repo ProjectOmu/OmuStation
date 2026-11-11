@@ -10,7 +10,7 @@
     sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
     state: Disabled-icon
   - type: Item
-    heldPrefix: off
+    heldPrefix: Disabled
     size: Ginormous
   - type: Battery
     maxCharge: 1500
@@ -36,9 +36,7 @@
     attackRate: 1.5
     damage:
       types:
-        Slash: 12
-      woundSeverityMultipliers:
-        Slash: 2
+        Slash: 30
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
     angle: 60
