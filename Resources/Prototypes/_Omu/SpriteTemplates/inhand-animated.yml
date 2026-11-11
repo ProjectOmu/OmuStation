@@ -1,5 +1,25 @@
 - type: entity
   parent: BaseItem
+  id: DebugSpriteTemplate32xAnimated
+  name: DebugSpriteTemplate32xAnimated
+  description: An animated 32x32 pixel sprite template for left hand inhand sprites. Use this in a sprite editor to align inhand sprites properly.
+  components:
+  - type: Sprite
+    sprite: _Omu/SpriteTemplate/InhandAnimated/32x.rsi
+    state: inhand-guide-icon-32x-4Frames
+  - type: Item
+    sprite: _Omu/SpriteTemplate/InhandAnimated/32x.rsi
+    inhandVisuals:
+      left:
+        - state: inhand-guide-left-32x-4Frames
+      right:
+        - state: inhand-guide-right-32x-4Frames
+  - type: Tag
+    tags:
+    - Debug
+
+- type: entity
+  parent: BaseItem
   id: DebugSpriteTemplate64xAnimated
   name: DebugSpriteTemplate64xAnimated
   description: An animated 64x64 pixel sprite template for left hand inhand sprites. Use this in a sprite editor to align inhand sprites properly.
