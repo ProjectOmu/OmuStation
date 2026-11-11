@@ -1,7 +1,8 @@
 - type: entity
-  parent: BaseItem
-  id: DebugSpriteTemplate32xAnimated
-  name: DebugSpriteTemplate32xAnimated
+  parent: DebugSpriteTemplate
+  id: DebugSpriteTemplateInhand32Animated
+  name: DebugSpriteTemplateInhand32Animated
+  suffix: animated, 32x32
   description: An animated 32x32 pixel sprite template for left hand inhand sprites. Use this in a sprite editor to align inhand sprites properly.
   components:
   - type: Sprite
@@ -10,18 +11,14 @@
   - type: Item
     sprite: _Omu/SpriteTemplate/InhandAnimated/32x.rsi
     inhandVisuals:
-      left:
-        - state: inhand-guide-left-32x-4Frames
-      right:
-        - state: inhand-guide-right-32x-4Frames
-  - type: Tag
-    tags:
-    - Debug
+      left:  [{ state: inhand-guide-left-32x-4Frames  }]
+      right: [{ state: inhand-guide-right-32x-4Frames }]
 
 - type: entity
-  parent: BaseItem
-  id: DebugSpriteTemplate64xAnimated
-  name: DebugSpriteTemplate64xAnimated
+  parent: DebugSpriteTemplate
+  id: DebugSpriteTemplateInhand64Animated
+  name: DebugSpriteTemplateInhand64Animated
+  suffix: animated, 64x64
   description: An animated 64x64 pixel sprite template for left hand inhand sprites. Use this in a sprite editor to align inhand sprites properly.
   components:
   - type: Sprite
@@ -30,10 +27,5 @@
   - type: Item
     sprite: _Omu/SpriteTemplate/InhandAnimated/64x/Inhand.rsi
     inhandVisuals:
-      left:
-        - state: inhand-guide-left-64x-4Frames
-      right:
-        - state: inhand-guide-right-64x-4Frames
-  - type: Tag
-    tags:
-    - Debug
+      left:  [{ state: inhand-guide-left-64x-4Frames  }]
+      right: [{ state: inhand-guide-right-64x-4Frames }]
