@@ -368,7 +368,7 @@
           reagent: Microplastics
           min: 10
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
+          type: [ Yowie, Vox ] # Omu - add vox; "Its toxic effects do not seem to affect Vox."
           inverted: true
       - !type:MovementSpeedModifier
         walkSpeedModifier: 0.90
