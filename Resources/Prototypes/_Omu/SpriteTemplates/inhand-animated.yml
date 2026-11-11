@@ -1,9 +1,7 @@
 - type: entity
   parent: DebugSpriteTemplate
   id: DebugSpriteTemplateInhand32Animated
-  name: DebugSpriteTemplateInhand32Animated
   suffix: animated, 32x32
-  description: An animated 32x32 pixel sprite template for left hand inhand sprites. Use this in a sprite editor to align inhand sprites properly.
   components:
   - type: Sprite
     sprite: _Omu/SpriteTemplate/InhandAnimated/32x.rsi
@@ -17,9 +15,7 @@
 - type: entity
   parent: DebugSpriteTemplate
   id: DebugSpriteTemplateInhand64Animated
-  name: DebugSpriteTemplateInhand64Animated
   suffix: animated, 64x64
-  description: An animated 64x64 pixel sprite template for left hand inhand sprites. Use this in a sprite editor to align inhand sprites properly.
   components:
   - type: Sprite
     sprite: _Omu/SpriteTemplate/InhandAnimated/64x/Icon.rsi

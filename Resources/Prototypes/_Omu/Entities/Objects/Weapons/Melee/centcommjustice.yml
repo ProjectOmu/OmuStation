@@ -1,10 +1,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: CC-21 'Judgement'
   parent: [BaseItem, BaseCentcommContraband]
   id: CentCommJustice
-  description: An exorbitantly expensive self-recharging energy sword, designed exclusively for use by high-ranking Central Command personnel. Reportedly, the blade is a metallurgical miracle that incorporates pieces of a supermatter crystal...
   components:
   - type: Sprite
     sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi

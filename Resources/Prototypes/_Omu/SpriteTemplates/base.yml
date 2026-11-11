@@ -2,8 +2,6 @@
   parent: BaseItem
   id: DebugSpriteTemplate
   abstract: true
-  name: DebugSpriteTemplate
-  description: A pixel sprite template. Use this in a sprite editor as a reference.
   components:
   - type: Tag
     tags: [Debug]

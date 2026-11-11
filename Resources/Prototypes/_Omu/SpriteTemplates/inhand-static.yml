@@ -1,9 +1,7 @@
 - type: entity
   parent: DebugSpriteTemplate
   id: DebugSpriteTemplateInhand32Static
-  name: DebugSpriteTemplateInhand32Static
   suffix: 32x32
-  description: A 32x32 pixel sprite template for left hand inhand sprites. Use this in a sprite editor to align inhand sprites properly.
   components:
   - type: Sprite
     sprite: _Omu/SpriteTemplate/Inhand/32x.rsi
@@ -17,9 +15,7 @@
 - type: entity
   parent: DebugSpriteTemplate
   id: DebugSpriteTemplateInhand64Static
-  name: DebugSpriteTemplateInhand64Static
   suffix: 64x64
-  description: A 64x64 pixel sprite template for left hand inhand sprites. Use this in a sprite editor to align inhand sprites properly.
   components:
   - type: Sprite
     sprite: _Omu/SpriteTemplate/Inhand/64x/Icon.rsi
