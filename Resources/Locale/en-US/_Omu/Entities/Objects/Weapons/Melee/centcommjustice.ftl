@@ -3,3 +3,6 @@ ent-CentCommJustice = CC-21 'Judgement'
 
 ent-ClothingBeltSheathCentralCommand = Central Command Sheath
   .desc = A reinforced sheath designed to house the CC-21 'Judgement'.  Lined with the same material used in the construction of the Chief Engineer's hardsuit.
+
+ent-ClothingBeltSheathCentralCommandFilled = Central Command Sheath
+  .desc = A reinforced sheath designed to house the CC-21 'Judgement'.  Lined with the same material used in the construction of the Chief Engineer's hardsuit.
