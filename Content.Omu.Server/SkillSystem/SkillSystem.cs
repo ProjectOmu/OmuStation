@@ -16,6 +16,7 @@ using Content.Shared.Clothing;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Omu.Common.DoAfter;
 using Content.Shared.Mind;
+using Content.Shared.Movement.Pulling.Events;
 
 namespace Content.Omu.Server.SkillSystem;
 
@@ -29,15 +30,12 @@ public partial class OmuSkillSystem : CommenOmuSkillSystem
 
         SubscribeLocalEvent<SkillGrantingComponent, UseInHandEvent>(LearnSkill);
 
-        SubscribeLocalEvent<SkillRequermentComponent, GotEquippedHandEvent>(ModifyToolSpeed);
-
         SubscribeLocalEvent<SkillRequermentComponent, ComponentStartup>(RequStartUp);
         SubscribeLocalEvent<SkillRequermentComponent, ModifyDelayOfDoAfter>(ModifyDoAfterTime);
         SubscribeLocalEvent<SkillStaminaAjustmentComponent, ComponentStartup>(StaminaAjustStartup);
 
         SubscribeLocalEvent<RoundStartSkillGrantingComponent, MindAddedMessage>(RoundStartSkillGrantingStartup);
         SubscribeLocalEvent<RoundStartSkillGrantingComponent, ComponentStartup>(RoundStartSkillGrantingStartup);
-        SubscribeLocalEvent<AntagSkillGrantingComponent, ComponentStartup>(AntagStartSkillGrantingStartup);
         SubscribeLocalEvent<CommandSkillComponent, ComponentStartup>(CommandCompStartup);
         SubscribeLocalEvent<CommandSkillComponent, MindAddedMessage>(CommandCompStartup);
         SubscribeLocalEvent<MindContainerComponent, SkillLevelChengeEvent>(AddCommandSkillToMind);
@@ -45,6 +43,7 @@ public partial class OmuSkillSystem : CommenOmuSkillSystem
         //Wizden components
         SubscribeLocalEvent<SkillStaminaAjustmentComponent, SkillLevelChengeEvent>(SkillStaminaModification);
         SubscribeLocalEvent<SkillRequermentComponent, GunRefreshModifiersEvent>(ModifyRangedWeaponComponent);
+        SubscribeLocalEvent<SkillRequermentComponent, PullStartedMessage>(ModifyPulledMass);
     }
     public void RequStartUp(Entity<SkillRequermentComponent> ent, ref ComponentStartup args)
     {
@@ -100,6 +99,7 @@ public partial class OmuSkillSystem : CommenOmuSkillSystem
     }
     public void OnExaminSkillRequierments(Entity<SkillRequermentComponent> ent, ref ExaminedEvent args)
     {
+        if (ent.Comp.HideDesc) return;
         if (ent.Comp.HardRequirment)
         {
             args.PushMarkup(Loc.GetString("OMU_Skill_Req_HardRequirment", ("Skill", ent.Comp.Skill), ("Skill_Level", ent.Comp.HardRequirmentMinSkill)));
@@ -217,10 +217,5 @@ public partial class OmuSkillSystem : CommenOmuSkillSystem
         }
         SkillLevelChengeEvent ev = new();
         RaiseLocalEvent(args.User, ref ev);
-    }
-    public void ModifyToolSpeed(Entity<SkillRequermentComponent> ent, ref GotEquippedHandEvent args)
-    {
-        //Wizden things
-        if (TryComp<ClothingSpeedModifierComponent>(args.Equipped, out var speedComp)) ModifyCrateComponent(speedComp, args.User, args.Equipped);
     }
 }

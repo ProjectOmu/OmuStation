@@ -21,9 +21,3 @@ public sealed partial class RoundStartSkillGrantingComponent : Component
     [DataField]
     public HashSet<ProtoId<DepartmentNamePrototype>> CommandSkillDepartment = ["ERROR"];
 }
-[RegisterComponent]
-public sealed partial class AntagSkillGrantingComponent : Component
-{
-    [DataField]
-    public Dictionary<ProtoId<SkillNamePrototype>, int> SkillDic = new();
-}

@@ -51,30 +51,4 @@ public sealed partial class OmuSkillSystem : CommenOmuSkillSystem
             }
         }
     }
-    public void AntagStartSkillGrantingStartup(Entity<AntagSkillGrantingComponent> ent, ref ComponentStartup args)
-    {
-        if (!TryComp<MindContainerComponent>(ent, out var mindContainer)) return;
-        if (!mindContainer.HasMind) return;
-        var skillComp = EnsureComp<SkillHolderComponent>((EntityUid) mindContainer.Mind);
-        foreach (var iterator in ent.Comp.SkillDic.Keys)
-        {
-            if (skillComp.SkillDic.ContainsKey(iterator))
-            {
-                if (skillComp.SkillDic[iterator] < ent.Comp.SkillDic[iterator])
-                {
-                    skillComp.SkillDic[iterator] = ent.Comp.SkillDic[iterator];
-                }
-            }
-            else
-            {
-                skillComp.SkillDic.Add(iterator, ent.Comp.SkillDic[iterator]);
-            }
-        }
-        if (TryComp<SpeciesBasedSkillAdditionComponent>(ent, out var speciesBased))
-        {
-            CheckSpeciesBasedAdditions(ent, skillComp, speciesBased);
-        }
-        SkillLevelChengeEvent ev = new();
-        RaiseLocalEvent(ent, ref ev);
-    }
 }

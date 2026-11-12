@@ -51,6 +51,8 @@ public sealed partial class SkillRequermentComponent : Component
     public ProtoId<SkillNamePrototype> HardRequirmentSkill = new();
     [DataField]
     public int HardRequirmentMinSkill = 1;
+    [DataField]
+    public bool HideDesc = false;
 }
 
 // <summary>
