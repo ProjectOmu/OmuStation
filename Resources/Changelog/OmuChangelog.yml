@@ -10069,3 +10069,12 @@ Entries:
       message: Arachnids can now craft single-tile spider webs.
   id: 1295
   time: '2026-11-11T13:54:57.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        Firelocks now show their proper status lights again and "lock"
+        themselves when it's dangerous. Crowbars or Engineering access are now
+        needed to open them when they're locked.
+  id: 1296
+  time: '2026-11-12T15:33:54.0000000+00:00'
