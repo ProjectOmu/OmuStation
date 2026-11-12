@@ -83,7 +83,7 @@
         Poison: .125
         Asphyxiation: .375
   - type: Thirst
-    baseDecayRate: .28
+    baseDecayRate: .28 #omu - changed from 0.3
     dehydrationSlowdownModifier: .35
     dehydrationDamage:
       types:
