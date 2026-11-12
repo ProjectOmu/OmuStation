@@ -29,14 +29,14 @@ public sealed partial class OmuSkillSystem : CommenOmuSkillSystem
         //we adda  new fixture that has a decnity scaled based on the based on the requirment -> aka make a unique skill profile for boxes and other items if you drag them
         _fixtures.TryCreateFixture(args.PulledUid,
                                     shape,
-                                    "SKILL-SYS-WHIGHT",
+                                    "SkillSystemWightFix",
                                     GetSkillSpeedModifier(args.PullerUid, args.PulledUid, out var _));
         _physicsSystem.ResetMassData(args.PulledUid);//basicly a recalc function
         return;
     }
     public void ResetModifiedPulledMass(Entity<SkillRequermentComponent> ent, ref PullStoppedMessage args)
     {
-        _fixtures.DestroyFixture(args.PulledUid, "SKILL-SYS-WHIGHT");
+        _fixtures.DestroyFixture(args.PulledUid, "SkillSystemWightFix");
         _physicsSystem.ResetMassData(args.PulledUid);//basicly a recalc function
     }
 }

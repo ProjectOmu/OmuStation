@@ -2,7 +2,7 @@
 
 - type: entity
   id: ClosetBase
-  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ]
+  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized, BaseCargoCrateSkillRequirments ] #OMU skill system
   name: closet
   description: A standard-issue Nanotrasen storage unit.
   abstract: true
