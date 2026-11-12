@@ -1,5 +1,6 @@
 # Syndicate
 
+# omu add agent ID observation kit and poison mag
 selectable-set-syndicate-lawyer-name = Syndicate Lawyer Bundle
 selectable-set-syndicate-lawyer-description =
     The law is on your side, this time.
@@ -7,13 +8,15 @@ selectable-set-syndicate-lawyer-description =
     lawyer badge, lawyer PDA, chameleon headset, chameleon
     backpack, syndicate encryption key, lawyer's stamp,
     cybersun pen, space law book, syndicate cane, syndicate stamp,
-    dna scrambler implant, And Cobra with four magazines.
+    dna scrambler implant, an Agent ID card, an observation kit,
+    and a Cobra with three normal magazines and a poison magazine.
 
+# omu add webvest
 selectable-set-syndicate-no-russian-name = Syndicate Terrorist Bundle
 selectable-set-no-russian-description =
     Remember, No Russian.
     Contains: black lawyer suit, chest rig, syndicate sun glasses,
-    syndicate encryption key, L6 SAW and
+    syndicate encryption key, armored web vest, L6 SAW and
     an L6 SAW magazine box.
 
 selectable-set-syndicate-pirate-captain-name = Syndicate Pirate Captain Bundle

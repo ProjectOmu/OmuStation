@@ -465,3 +465,76 @@
     state: control
   content:
   - ClothingModsuitBrigMedPowerCell
+
+- type: selectableSet
+  id: SyndicateNinjaSet
+  name: selectable-set-syndicate-ninja-name
+  description: selectable-set-syndicate-ninja-description
+  sprite:
+    sprite: Clothing/Mask/ninja.rsi
+    state: icon
+  content:
+  - AccessBreaker
+  - C4
+  - ClothingBackpackDuffelSyndicateStealthHardsuitBundle
+  - ExperimentalSyndicateTeleporter
+  - WeaponHFKatana
+  - AgentIDCard
+  - JetpackBlackFilled
+  - ClothingEyesNightVisionGogglesSyndie
+  - ThrowingKnivesKit
+  - MicroBombImplanter
+  - EncryptionKeySyndie
+  - ClothingShoesChameleonNoSlips
+
+- type: selectableSet
+  id: SyndicateSolarianSet
+  name: selectable-set-syndicate-solarian-name
+  description: selectable-set-syndicate-solarian-description
+  sprite:
+    sprite: _EinsteinEngines/Clothing/Neck/Misc/dogtags.rsi
+    state: icon
+  content:
+  - ClothingModsuitSANMarineFilledOfficer
+  - EncryptionKeySyndie
+  - GrenadeFlashBang
+  - JetpackBlackFilled
+  - MagazineRifle
+  - MagazineRifle
+  - MagazineRifle
+  - WeaponRifleQBZ24
+  - MedkitCombatFilled
+  - SarinGasGrenade
+  - ClothingHeadsetAltSolarianNavy
+
+- type: selectableSet
+  id: SyndicateArcherSet
+  name: selectable-set-syndicate-archer-name
+  description: selectable-set-syndicate-archer-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi
+    state: icon
+  content:
+  - BowHardlight
+  - HoloCigar
+  - MiniatureEnergyCrossbow
+  - ClothingBeltChameleonHolster
+  - ClothingEyesNightVisionGogglesSyndie
+  - EncryptionKeySyndie
+
+- type: selectableSet
+  id: SyndicateFriendSet
+  name: selectable-set-syndicate-friend-name
+  description: selectable-set-syndicate-friend-description
+  sprite:
+    sprite: Objects/Devices/communication.rsi
+    state: radio
+  content:
+  - ReinforcementRadioSyndicateSyndiRoach
+  - ReinforcementRadioSyndicateAncestor
+  - ReinforcementRadioSyndicateNukieCarp
+  - ReinforcementRadioSyndicateSyndiCat
+  - ReinforcementRadioSyndicateNukieMouse
+  - ClothingHeadSafari
+  - ReinforcementRadioSyndicateNukieSpider
+  - StealthBox
