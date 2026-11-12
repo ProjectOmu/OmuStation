@@ -7,3 +7,13 @@
     containers:
       item:
       - WardenRapier
+
+- type: entity
+  id: ClothingNeckWardenParryCloakBlueFilled
+  parent: ClothingNeckWardenParryCloakBlue
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - WardenRapierBlue

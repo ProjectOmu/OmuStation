@@ -44,7 +44,7 @@
   name: warden's rapier
   parent: [ BaseSword, BaseGrandTheftContraband ]
   id: WardenRapier
-  description: A thin, elegant sword made for lunging over banana peels.
+  description: A thin, elegant sword made for lunging over banana peels. The guard seems to be decorated with carved drawings of clowns being mistreated in various different ways.
   components:
   - type: Sprite
     sprite: _Omu/Objects/Weapons/Melee/wardenrapier.rsi
@@ -67,7 +67,7 @@
     length: 2
     canDashWhileWeightless: false # Omu
   - type: UseDelay
-    delay: 1.5
+    delay: 1.2
   - type: Tag
     tags:
     - WardenRapier
@@ -75,8 +75,17 @@
     stealGroup: WeaponEnergyShotgun
   - type: DisarmMalus
   - type: Reflect
-    reflectProb: 0.3
+    reflectProb: 0.5
     spread: 30
+
+- type: entity
+  name: warden's rapier
+  parent: WardenRapier
+  id: WardenRapierBlue
+  description: A thin, elegant sword made for lunging over banana peels. The guard seems to be decorated with carved drawings of clowns being mistreated in various different ways. This one is blue, ew.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Melee/wardenrapierblue.rsi
 
 - type: entity
   name: The Wind of the Steppes

@@ -123,6 +123,11 @@ selectable-set-warden-rapier-description =
     An elegant weapon for the cultured warden,
     or the warden who prefers to get their hands dirty.
 
+selectable-set-warden-rapier-blue-name = Blue Cloak and Rapier
+selectable-set-warden-rapier-blue-description =
+    An elegant weapon for the cultured warden,
+    now with a blue tint for those who know real style.
+
 selectable-set-hosoniblade-name = The Wind of the Steppes
 selectable-set-hosoniblade-description =
     A titanic relic, wieldable only by oni.
