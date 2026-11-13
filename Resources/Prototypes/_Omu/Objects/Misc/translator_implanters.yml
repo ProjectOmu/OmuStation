@@ -18,7 +18,7 @@
   - type: Implanter
     implant: BasicTauCetiBasicTranslationChip
 
-# Gives both ability to speak and understand TauCetiBasic.
+# Gives ability to speak and understand TauCetiBasic.
 - type: entity
   id: AdvancedGalaticCommonTranslationChip
   parent: BaseTranslatorBorgImplanter
@@ -26,3 +26,12 @@
   components:
   - type: Implanter
     implant: TauCetiBasicTranslationChip
+
+# Gives ability to speak and understand SignLanguage
+- type: entity
+  id: SignTranslationChip
+  parent: BaseTranslatorBorgImplanter
+  suffix: Sign
+  components:
+  - type: Implanter
+    implant: SignTranslatorImplant

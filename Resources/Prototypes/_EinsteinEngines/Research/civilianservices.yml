@@ -31,6 +31,7 @@
   - EckeckyikTranslator # omu thaven port from gds
   - BieselEckeckyikTranslator # omu thaven port from gds
   - BasicGalaticCommonTranslationChip # omu - borg translators
+  - BorgImplanter # omu - borg translators
   position: -4, 4
   technologyPrerequisites:
   - AdvancedEntertainment
@@ -84,7 +85,7 @@
   - EckeckyikTranslatorImplanter # omu thaven port from gds
   - BieselEckeckyikTranslatorImplanter # omu thaven port from gds
   - AdvancedGalaticCommonTranslationChip # omu - borg translators
-  - BorgImplanter # omu - borg translators
+  - SignTranslationChip # omu - borg translators
   position: -4, 5
   technologyPrerequisites:
   - BasicTranslation
