@@ -46,7 +46,6 @@
     showLabel: true
     noChargeMessage: ent-CentCommJustice-NoCharge
     states:
-
       Disabled: !type:ItemSwitchState
         verb: Disabled
         energyPerUse: 0
@@ -69,7 +68,6 @@
             path: /Audio/Weapons/bladeslice.ogg
           angle: 60
           animation: WeaponArcThrust
-
       Suppression: !type:ItemSwitchState
         verb: Suppression
         energyPerUse: 48
@@ -101,7 +99,6 @@
           collection: sparks
           params:
             variation: 0.250
-
       Surge: !type:ItemSwitchState
         verb: Surge
         energyPerUse: 65
@@ -129,7 +126,6 @@
           collection: sparks
           params:
             variation: 0.250
-
       Phoron: !type:ItemSwitchState
         verb: Phoron
         energyPerUse: 80
@@ -173,7 +169,6 @@
           path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
           params:
             variation: 0.250
-
       Supermatter: !type:ItemSwitchState
         verb: Supermatter
         energyPerUse: 999 # Also don't remove its energy usage I will cry
