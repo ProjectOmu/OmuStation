@@ -2,7 +2,7 @@
   parent: ClothingHandsKnuckleDustersBase
   id: ClothingHandsKnuckleDustersHoS
   name: Engraved HoS dusters
-  description: Big Dusters, engraved with a blunt on the end of each of them. Only wieldable by people of the Yowie.
+  description: Big Dusters, engraved with a blunt on the end of each of them.
   components:
   - type: MeleeWeapon
     canWideSwing: true
@@ -14,13 +14,6 @@
   - type: Contraband
     allowedJobs: []
     allowedDepartments: [Security, Command]
-  - type: RestrictedMelee
-    whitelist:
-      tags:
-      - Yowie
-    failText: restricted-melee-component-attack-fail-yowie
-    doKnockdown: false
-    forceDrop: false
   - type: Sprite
     sprite: _Omu/Clothing/Hands/Gloves/YowieDusters.rsi
     state: Yowiedusters
