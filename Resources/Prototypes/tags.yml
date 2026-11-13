@@ -246,9 +246,6 @@
 - type: Tag # NOT bullets. This is for the cart to load PDA programs.
   id: Cartridge # Storage whitelist: BasePDA
 
-- type: Tag
-  id: CCSabre #Literally just used for the CC Justice
-
 #region Cartridge (Ammo)
 
 # Entities tagged with the following are some fashion of bullet. Guns, magazines, and ammo boxes have storage whitelists for these tags.
