@@ -46,7 +46,7 @@ public sealed class RechargeableBlockingSystem : EntitySystem
             || recharger is not { AutoRechargeRate: > 0})
             return 0;
 
-        return (int) MathF.Round((batteryComponent.MaxCharge - batteryComponent.LastCharge) /
+        return (int) MathF.Round((batteryComponent.MaxCharge - _battery.GetCharge((uid, batteryComponent))) / // Omu, port for upstream batteries
                                  recharger.AutoRechargeRate);
     }
 
@@ -57,12 +57,13 @@ public sealed class RechargeableBlockingSystem : EntitySystem
             || args.DamageDelta == null)
             return;
 
-        var batteryUse = Math.Min(args.DamageDelta.GetTotal().Float(), batteryComponent.LastCharge);
+        var batteryUse = Math.Min(args.DamageDelta.GetTotal().Float(), _battery.GetCharge((uid, batteryComponent))); // Omu, port for upstream batteries
         _battery.TryUseCharge(batteryUid.Value, batteryUse);
     }
 
     private void AttemptToggle(EntityUid uid, RechargeableBlockingComponent component, ref ItemToggleActivateAttemptEvent args)
     {
+        CheckCharge(uid, component); //omu - check if charged when turning on
         if (!component.Discharged)
             return;
 
@@ -89,21 +90,29 @@ public sealed class RechargeableBlockingSystem : EntitySystem
             return;
 
         BatterySelfRechargerComponent? recharger;
-        if (battery.LastCharge < 1)
+        if (_battery.GetCharge((uid, battery)) < 1) // Omu, port for upstream batteries
         {
-            if (TryComp(uid, out recharger))
+            if (TryComp(uid, out recharger)
+            && recharger.AutoRechargeRate != component.DischargedRechargeRate) //omu start
+            {
                 recharger.AutoRechargeRate = component.DischargedRechargeRate;
+                _battery.RefreshChargeRate(uid);
+            } //omu end
 
             component.Discharged = true;
             _itemToggle.TryDeactivate(uid, predicted: false);
             return;
         }
 
-        if (MathF.Round(battery.LastCharge / battery.MaxCharge, 2) < component.RechargePercentage)
+        if (MathF.Round(_battery.GetCharge((uid, battery)) / battery.MaxCharge, 2) < component.RechargePercentage) // Omu, port for upstream batteries
             return;
 
         component.Discharged = false;
-        if (TryComp(uid, out recharger))
+        if (TryComp(uid, out recharger)
+        && recharger.AutoRechargeRate != component.ChargedRechargeRate) //omu start
+        {
             recharger.AutoRechargeRate = component.ChargedRechargeRate;
+            _battery.RefreshChargeRate(uid);
+        } //omu end
     }
 }

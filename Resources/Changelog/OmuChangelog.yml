@@ -10069,3 +10069,48 @@ Entries:
       message: Arachnids can now craft single-tile spider webs.
   id: 1295
   time: '2026-11-11T13:54:57.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        Firelocks now show their proper status lights again and "lock"
+        themselves when it's dangerous. Crowbars or Engineering access are now
+        needed to open them when they're locked.
+  id: 1296
+  time: '2026-11-12T15:33:54.0000000+00:00'
+- author: NikVolkov
+  changes:
+    - type: Add
+      message: >-
+        Warden now gets a hardsuit selector, letting them pick between the
+        warden's standard hardsuit and the new security-painted riot combat
+        hardsuit.
+    - type: Add
+      message: >-
+        The riot combat hardsuit (both default and warden variants) now makes
+        heavy footstep sounds.
+  id: 1297
+  time: '2026-11-13T05:56:47.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: >-
+        ERT Engineering hardsuit helmets now have improved protection values
+        from before. Most notably, radiation resistance was raised to 99% from
+        50%.
+  id: 1298
+  time: '2026-11-13T11:57:35.0000000+00:00'
+- author: bookassecond
+  changes:
+    - type: Fix
+      message: >-
+        The energy shield and greatshield can now recharge after running out of
+        charge again.
+  id: 1299
+  time: '2026-11-13T12:13:49.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: Test fail introduced with the airlock locking again pr
+  id: 1300
+  time: '2026-11-13T22:54:35.0000000+00:00'
