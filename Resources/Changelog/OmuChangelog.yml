@@ -10078,3 +10078,16 @@ Entries:
         needed to open them when they're locked.
   id: 1296
   time: '2026-11-12T15:33:54.0000000+00:00'
+- author: NikVolkov
+  changes:
+    - type: Add
+      message: >-
+        Warden now gets a hardsuit selector, letting them pick between the
+        warden's standard hardsuit and the new security-painted riot combat
+        hardsuit.
+    - type: Add
+      message: >-
+        The riot combat hardsuit (both default and warden variants) now makes
+        heavy footstep sounds.
+  id: 1297
+  time: '2026-11-13T05:56:47.0000000+00:00'
