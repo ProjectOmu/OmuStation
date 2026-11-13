@@ -44,6 +44,7 @@
     defaultState: Disabled
     state: "Disabled"
     showLabel: true
+    noChargeMessage: ent-CentCommJustice-NoCharge
     states:
 
       Disabled: !type:ItemSwitchState

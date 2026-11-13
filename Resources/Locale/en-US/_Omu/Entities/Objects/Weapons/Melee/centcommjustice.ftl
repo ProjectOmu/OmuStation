@@ -6,3 +6,5 @@ ent-ClothingBeltSheathCentralCommand = Central Command Sheath
 
 ent-ClothingBeltSheathCentralCommandFilled = Central Command Sheath
   .desc = A reinforced sheath designed to house the CC-21 'Judgement'. Lined with the same material used in the construction of the Chief Engineer's hardsuit.
+
+ent-CentCommJustice-NoCharge = Additional recharge time needed for supermatter mode.
