@@ -217,6 +217,7 @@
     stampedName: stamp-component-stamped-name-trader
     stampedColor: "#000000"
     stampState: "paper_stamp-trader"
+    stampLargePath: "/Textures/_Omu/Interface/Paper/Stamps/large_stamp-trader.png" # Omu
   - type: Sprite
     state: stamp-trader
 
@@ -246,6 +247,7 @@
     stampedName: stamp-component-stamped-name-warden
     stampedColor: "#5b0000"
     stampState: "paper_stamp-warden"
+    stampLargePath: "/Textures/_Omu/Interface/Paper/Stamps/large_stamp-warden.png" # Omu
   - type: Sprite
     state: stamp-warden
 
@@ -285,6 +287,7 @@
     stampedName: stamp-component-stamped-name-detective
     stampedColor: "#754d36"
     stampState: "paper_stamp-detective"
+    stampLargePath: "/Textures/_Omu/Interface/Paper/Stamps/large_stamp-detective.png" # Omu
   - type: Sprite
     state: stamp-detective
 
@@ -298,6 +301,7 @@
     stampedName: stamp-component-stamped-name-greytide
     stampedColor: "#323232"
     stampState: "paper_stamp-greytide"
+    stampLargePath: "/Textures/_Omu/Interface/Paper/Stamps/large_stamp-greytide.png" # Omu
   - type: Sprite
     state: stamp-greytide
 
@@ -312,6 +316,7 @@
     stampedName: stamp-component-stamped-name-psychologist
     stampedColor: "#5B97BC"
     stampState: "paper_stamp-psychologist"
+    stampLargePath: "/Textures/_Omu/Interface/Paper/Stamps/large_stamp-psychologist.png" # Omu
   - type: Sprite
     state: stamp-psychologist
 
@@ -326,5 +331,6 @@
     stampedName: Wizard
     stampedColor: "#881bc1"
     stampState: "paper_stamp-wizard"
+    stampLargePath: "/Textures/_Omu/Interface/Paper/Stamps/large_stamp-wizard.png" # Omu
   - type: Sprite
     state: stamp-wizard

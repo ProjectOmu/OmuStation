@@ -744,43 +744,43 @@
     slots:
     - HEAD
 
-- type: entity
-  parent: BasePlushie
-  id: PlushieXiOmuStaff
-  name: hailey vera plushie
-  description: The name sounds oddly like "Aloe Vera". This plushy has a tendency to torture blueshield officers.
-  components:
-  - type: Sprite
-    sprite: _Omu/Objects/Fun/Plushies/xi.rsi
-    state: icon
-  - type: Item
-    sprite: _Omu/Objects/Fun/Plushies/xi.rsi
-  - type: Clothing
-    quickEquip: false
-    sprite: _Omu/Objects/Fun/Plushies/xi.rsi
-    slots:
-    - HEAD
-  - type: EmitSoundOnPickup
-    sound:
-      collection: Bubbles
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/_Omu/Items/Plushie/vera_ay.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/_Omu/Items/Plushie/vera_ay.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      collection: Squishes
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Weapons/punch1.ogg
-  - type: Edible
-    requiresSpecialDigestion: true
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    soundHit:
-      path: /Audio/Weapons/punch1.ogg
+# - type: entity
+#   parent: BasePlushie
+#   id: PlushieXiOmuStaff
+#   name: hailey vera plushie
+#   description: The name sounds oddly like "Aloe Vera". This plushy has a tendency to torture blueshield officers.
+#   components:
+#   - type: Sprite
+#     sprite: _Omu/Objects/Fun/Plushies/xi.rsi
+#     state: icon
+#   - type: Item
+#     sprite: _Omu/Objects/Fun/Plushies/xi.rsi
+#   - type: Clothing
+#     quickEquip: false
+#     sprite: _Omu/Objects/Fun/Plushies/xi.rsi
+#     slots:
+#     - HEAD
+#   - type: EmitSoundOnPickup
+#     sound:
+#       collection: Bubbles
+#   - type: EmitSoundOnUse
+#     sound:
+#       path: /Audio/_Omu/Items/Plushie/vera_ay.ogg
+#   - type: EmitSoundOnActivate
+#     sound:
+#       path: /Audio/_Omu/Items/Plushie/vera_ay.ogg
+#   - type: EmitSoundOnTrigger
+#     sound:
+#       collection: Squishes
+#   - type: EmitSoundOnCollide
+#     sound:
+#       path: /Audio/Weapons/punch1.ogg
+#   - type: Edible
+#     requiresSpecialDigestion: true
+#   - type: MeleeWeapon
+#     wideAnimationRotation: 180
+#     soundHit:
+#       path: /Audio/Weapons/punch1.ogg
 
 - type: entity
   parent: BasePlushie
@@ -1040,3 +1040,54 @@
     wideAnimationRotation: 180
     soundHit:
       collection: MaleScreams
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieToastOmuStaff
+  name: ember crux plushie
+  description: Can plushies dream of piloting giant mecha? This one sure does.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/embercrux.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/embercrux.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/embercrux.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound:
+      collection: VulpYips
+  - type: EmitSoundOnUse
+    sound:
+      collection: VulpYaps
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VulpYaps
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: VulpYaps
+  - type: EmitSoundOnThrow
+    sound:
+      collection: VulpkaninScreams
+  - type: EmitSoundOnCollide
+    sound: /Audio/Effects/hit_kick.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: VulpkaninScreams
+  - type: AiRemoteBrain
+  - type: Actions
+  - type: Tag
+    tags:
+    - CannotSuicide
+
+- type: entity
+  parent: PlushieLizardJobBoxer
+  id: PlushieLizardJobWrestler
+  name: wrestler lizard plushie
+  description: An adorable stuffed toy, now mass-produced by the Nanotrasen Wrestling Federation for the low low price of 49.99 spesos.
