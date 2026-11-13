@@ -98,6 +98,7 @@
     intensitySlope: 2.5
     maxIntensity: 10
     canCreateVacuum: false
+    logImpactOverride: Medium # Omu - admins don't need to be chat notified for these
   - type: Destructible
     thresholds:
     - trigger:

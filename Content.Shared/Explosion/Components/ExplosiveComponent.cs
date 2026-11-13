@@ -2,6 +2,7 @@
 
 using Content.Shared.Explosion.EntitySystems;
 using Robust.Shared.Prototypes;
+using Content.Shared.Database;
 
 namespace Content.Shared.Explosion.Components;
 
@@ -85,4 +86,12 @@ public sealed partial class ExplosiveComponent : Component
     ///     Avoid somehow double-triggering this explosion (e.g. by damaging this entity from its own explosion.
     /// </summary>
     public bool Exploded;
+
+    // Omu start
+    /// <summary>
+    ///     Whether to admin log the explosion event.
+    /// </summary>
+    [DataField]
+    public LogImpact LogImpactOverride = LogImpact.High;
+    // Omu end
 }
