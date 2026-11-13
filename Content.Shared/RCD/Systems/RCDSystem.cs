@@ -492,7 +492,11 @@ public sealed class RCDSystem : EntitySystem
         var isCatwalk = prototype.ConstructionRules.Contains(RcdConstructionRule.IsCatwalk);
         var isWallLight = prototype.ConstructionRules.Contains(RcdConstructionRule.IsWallLight);
 
-        var isBuildingDoor = prototype.Prototype != null && _protoManager.TryIndex<EntityPrototype>(prototype.Prototype, out var constructionProto) && constructionProto.HasComponent<DoorComponent>(_entityManager.ComponentFactory); // Omu - Allow building doors on top of firelocks
+        // Omu begin - Allow building doors on top of firelocks
+        var isBuildingDoor = prototype.Prototype != null 
+            && _protoManager.TryIndex<EntityPrototype>(prototype.Prototype, out var constructionProto) 
+            && constructionProto.HasComponent<DoorComponent>(_entityManager.ComponentFactory);
+        // Omu end
 
         _intersectingEntities.Clear();
         _lookup.GetLocalEntitiesIntersecting(gridUid, position, _intersectingEntities, -0.05f, LookupFlags.Uncontained);
