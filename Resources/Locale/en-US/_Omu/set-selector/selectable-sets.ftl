@@ -183,18 +183,6 @@ selectable-set-corpsman-combathardsuit-desc =
     Built based on designs recovered from Regalis sector.
     Offers much better armor then newer models.
 
-# Warden
-selectable-set-warden-hardsuit-name = Warden's hardsuit
-selectable-set-warden-hardsuit-desc =
-    Standard issue warden's hardsuit.
-    A specialized riot suit geared to combat low pressure environments.
-
-selectable-set-warden-riothardsuit-name = Warden's riot hardsuit
-selectable-set-warden-riothardsuit-desc =
-    Riot combat hardsuit repainted in security colors.
-    Heavier plating stops bullets and lasers far better,
-    but slows the wearer down considerably.
-
 # BSO
 selectable-set-bso-brdi-name = BRDI R-25
 selectable-set-bso-brdi-description =

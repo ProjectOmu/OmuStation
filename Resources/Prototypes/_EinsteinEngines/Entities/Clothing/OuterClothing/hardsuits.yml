@@ -138,9 +138,6 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.60
     sprintModifier: 0.60
-  - type: FootstepModifier # Omu start
-    footstepSoundCollection:
-      collection: FootstepHeavySuit # Omu end
   - type: ToggleableClothing
     clothingPrototypes: #goobstation change
       head: ClothingHeadHelmetHardsuitCombatRiot

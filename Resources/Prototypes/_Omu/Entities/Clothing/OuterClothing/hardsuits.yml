@@ -129,17 +129,3 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
-
-- type: entity
-  parent: [ BaseWardenContraband, ClothingOuterHardsuitCombatRiot ]
-  id: ClothingOuterHardsuitWardenRiot
-  name: warden's riot hardsuit
-  description: A riot combat hardsuit repainted in security colors and issued to the warden. Built to hold the brig against armed combatants in low pressure environments.
-  components:
-  - type: Sprite
-    sprite: _Omu/Clothing/OuterClothing/Hardsuits/warden-riot.rsi
-  - type: Clothing
-    sprite: _Omu/Clothing/OuterClothing/Hardsuits/warden-riot.rsi
-  - type: ToggleableClothing
-    clothingPrototypes:
-      head: ClothingHeadHelmetHardsuitWardenRiot
