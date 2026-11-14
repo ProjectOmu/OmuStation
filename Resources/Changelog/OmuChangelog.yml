@@ -10124,3 +10124,17 @@ Entries:
       message: 'G-Man and Zombie icons are no longer available on agent ID selection '
   id: 1301
   time: '2026-11-14T12:51:32.0000000+00:00'
+- author: Naaatch
+  changes:
+    - type: Tweak
+      message: >-
+        "Stay in lobby or be an Assistant" is now one account-wide setting on
+        the job board instead of per character.
+    - type: Tweak
+      message: Made the buttons for the character UI have proper color-coding.
+    - type: Fix
+      message: >-
+        Fixed sometimes spawning as an Assistant when the character you got had
+        stay in lobby set.
+  id: 1302
+  time: '2026-11-14T18:09:26.0000000+00:00'
