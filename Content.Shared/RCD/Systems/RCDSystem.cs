@@ -30,7 +30,8 @@ using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Atmos.Components; // Goob - Check for pipe layer
 using Content.Shared.Doors.Systems;
-using Content.Shared.Doors.Components; // Goob - Check for Door Bolt
+using Content.Shared.Doors.Components;
+using Content.Shared.Prototypes; // Goob - Check for Door Bolt
 
 namespace Content.Shared.RCD.Systems;
 
@@ -54,6 +55,7 @@ public sealed class RCDSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TagSystem _tags = default!;
     [Dependency] private readonly AccessReaderSystem _accessReader = default!; // Goobstation - RCD respects door access
+    [Dependency] private IEntityManager _entityManager = default!; // Omu
 
     private readonly int _instantConstructionDelay = 0;
     private readonly EntProtoId _instantConstructionFx = "EffectRCDConstruct0";
@@ -490,6 +492,12 @@ public sealed class RCDSystem : EntitySystem
         var isCatwalk = prototype.ConstructionRules.Contains(RcdConstructionRule.IsCatwalk);
         var isWallLight = prototype.ConstructionRules.Contains(RcdConstructionRule.IsWallLight);
 
+        // Omu begin - Allow building doors on top of firelocks
+        var isBuildingDoor = prototype.Prototype != null 
+            && _protoManager.TryIndex<EntityPrototype>(prototype.Prototype, out var constructionProto) 
+            && constructionProto.HasComponent<DoorComponent>(_entityManager.ComponentFactory);
+        // Omu end
+
         _intersectingEntities.Clear();
         _lookup.GetLocalEntitiesIntersecting(gridUid, position, _intersectingEntities, -0.05f, LookupFlags.Uncontained);
 
@@ -526,6 +534,11 @@ public sealed class RCDSystem : EntitySystem
 
             if (isWindow && HasComp<SharedCanBuildWindowOnTopComponent>(ent))
                 continue;
+
+            // Omu begin - Allow building doors on top of firelocks
+            if (isBuildingDoor && Transform(ent).Anchored && HasComp<FirelockComponent>(ent))
+                continue;
+            // Omu end
 
             // Goobstation - No light spam
             if (isWallLight && _tags.HasTag(ent, WallLightTag))
