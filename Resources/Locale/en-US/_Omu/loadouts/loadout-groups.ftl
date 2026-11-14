@@ -93,3 +93,6 @@ loadout-group-offduty-pda = Off Duty PDA
 
 # Other
 loadout-group-civilian_formal-shoes = Formal shoes
+
+#Oni groud
+loadout-group-oni-gourd = Gourd
