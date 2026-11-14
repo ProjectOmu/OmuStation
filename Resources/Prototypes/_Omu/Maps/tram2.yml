@@ -44,6 +44,7 @@
             AtmosphericTechnician: [ 4, 4 ]
             StationEngineer: [ 5, 5 ]
             TechnicalAssistant: [ 4, 4 ]
+            EngineeringForeman: [ 1, 1 ] # Omu
             # Medical 
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 2, 2 ]
@@ -52,11 +53,13 @@
             Paramedic: [ 1, 2 ]
             Psychologist: [1, 1]
             Virologist: [ 2, 2 ]
+            MedicalMedicus: [ 1, 1 ] # Omu
             # Science 
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 3, 3 ]
             ResearchAssistant: [ 2, 2 ]
             Roboticist: [ 2, 2 ]
+            ScienceProfessor: [ 1, 1 ] # Omu
             # Security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
@@ -70,6 +73,8 @@
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 2, 2 ]
             CargoTechnician: [ 3, 3 ]
+            CargoBosun: [ 1, 1 ] # Omu
+            LogisticsAssistant: [ 2, 2 ] # Omu
             # Civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]
