@@ -122,7 +122,16 @@
     - !type:NestedSelector
       tableId: FoodRandomCakeTable
       weight: 2
+    - !type:NestedSelector
+      tableId: OmuRandomFoodTable # Omu
+      weight: 2
+    - !type:NestedSelector
+      tableId: OmuRandomDrinkTable # Omu
+      weight: 1
+    - !type:NestedSelector
+      tableId: AnimalMaskTable # Omu, changed to common
     - id: FoodBoxPizzaFilled
+
 
 - type: entityTable
   id: PackageUncommonEntityTable
@@ -137,28 +146,33 @@
       tableId: AllPlushiesTable
       weight: 0.4
     - !type:NestedSelector
-      tableId: RandomAllAlcoholTable
+      tableId: OmuRandomArmorTable # Omu
+      weight: 0.1
+    - !type:NestedSelector
+      tableId: PackageATVBundle # Omu
+      weight: 0.4
+    - !type:NestedSelector
+      tableId: InsulsTable #Omu, changed to uncommon table
       weight: 0.2
-      rolls: !type:RangeNumberSelector
-        range: 2, 3
+    - !type:NestedSelector
+      tableId: OmuRandomContrabandTable #Omu
+      weight: 0.1
+    - !type:NestedSelector
+      tableId: OmuRandomCritterTable #Omu
+      weight: 0.3
+    - !type:NestedSelector
+      tableId: OmuRandomOmuRandomStuffTable #Omu
+      weight: 0.2
 
 - type: entityTable # TODO: Add more variety!
   id: PackageRareEntityTable
   table: !type:GroupSelector
     children:
     - id: MedkitAdvancedFilled # TODO: Replace with PackageRareGeneralBundlesTable for when something doesn't fit with a department. (Like a bundle of bed sheets, dunno)
-    - id: MobMothroach # TODO: Replace with SmallCritterTable so you can get mice and snails and similiar
     - id: PipeBomb # TODO: PackageRarePunishmentTable, including things like pipebombs and other potentially harmful things (the pipebomb should also get primed when unpacked)
-    #- !type:NestedSelector TODO: Uncomment after all the rare department bundles are done (medical, security, etc...)
-    #  tableId: PackageRareDepartmentBundlesTable
     - !type:NestedSelector
-      tableId: AnimalMaskTable
-    # Weapons
+      tableId: OmuRandomPunishmentTable #Omu
+      weight: 0.1
     - !type:NestedSelector
-      tableId: RandomAllAlcoholTable
-      weight: 0.2
-      rolls: !type:RangeNumberSelector
-        range: 2, 3
-    - !type:NestedSelector
-      tableId: InsulsTable #Uncommon since it's weighted towards budget/fingerless
-      weight: 0.2
+      tableId: OmuRandomRareContrabandTable #Omu
+      weight: 0.1
