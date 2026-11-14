@@ -18,6 +18,9 @@
     size: Tiny
     sprite: Objects/Consumable/Smokeables/Cigars/cigar.rsi
     heldPrefix: unlit
+  - type: Tag
+    tags:
+    - IPCMaskWearable # Omu - Allow IPCs to smoke.
   - type: Appearance
   - type: BurnStateVisuals
   - type: HoloCigar
