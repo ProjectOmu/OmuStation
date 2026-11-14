@@ -266,6 +266,15 @@
     state: base
   content:
   - HosOniBlade
+- type: selectableSet
+  id: HosYowieDustersSet
+  name: selectable-set-hosyowiedusters-name
+  description: selectable-set-hosyowiedusters-description
+  sprite:
+    sprite: _Omu/Clothing/Hands/Gloves/YowieDusters.rsi
+    state: YowieDusters
+  content:
+  - ClothingHandsKnuckleDustersHoS
 
 - type: selectableSet
   id: HoSPetShivaSet

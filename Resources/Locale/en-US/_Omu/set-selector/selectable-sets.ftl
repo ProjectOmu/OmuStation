@@ -129,6 +129,12 @@ selectable-set-hosoniblade-description =
     This blade's immense size makes it a force to be reckoned with,
     able to cut down any foe in seconds.
 
+selectable-set-hosyowiedusters-name = Engraved HoS dusters
+selectable-set-hosyowiedusters-description = 
+    I put on my right glove
+    I put on my left glove
+    Time to break some bones.
+
 selectable-set-MobSpiderShiva-name = Shiva, The First Defender
 selectable-set-MobSpiderShiva-description =
     A veteran of security, Shiva's been fighting nuclear threats and syndicate traitors
