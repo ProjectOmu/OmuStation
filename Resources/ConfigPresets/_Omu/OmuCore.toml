@@ -61,6 +61,8 @@ defaultpreset = "SecretPlusMid"
 round_restart_time = 300 # Increased from 120//180 on 7/2026
 table_bonk = false # Default is false, change later?
 round_end_pvs_overrides = false # Default is true, needs to be disabled for less end-of-round lag
+[cosmiccult]
+target_conversion_percent = 60
 
 [infolinks]
 appeal = "https://discord.gg/omustation"
