@@ -11,6 +11,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Ghost;
 using Robust.Server.Containers;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
@@ -121,6 +122,12 @@ public sealed class DormNotifier : EntitySystem
 
             if (_afk.IsAfk(actorComp.PlayerSession))
                 return false;
+
+            // Omu start
+            // 4. At least two humanoids are not ghosts
+            if (HasComp<GhostComponent>(ent.Owner))
+                continue;
+            // Omu end
 
             // Disconnected is checked by having ActorComponent present, an entity loses it if the owner disconnects or changes entity.
             condemned.Add(ent.Owner);
