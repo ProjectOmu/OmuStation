@@ -5,10 +5,10 @@
   description: The syndicated version of crew monitor, intercepts information from the server.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/syndihandheldcrewmonitor.rsi
-    state: syndiscanner
+    sprite: _Omu/Objects/Specific/Medical/syndihandheldcrewmonitor.rsi # Omu
+    state: scanner # Omu
   - type: Item
-    sprite: Objects/Specific/Medical/syndihandheldcrewmonitor.rsi
+    sprite: _Omu/Objects/Specific/Medical/syndihandheldcrewmonitor.rsi # Omu
   - type: PowerCellDraw
     useCharge: 0
 
