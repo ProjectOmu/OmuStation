@@ -88,5 +88,8 @@ loadout-group-chef-backpack = Chef backpacks
 # Bartender
 loadout-group-bartender-backpack = Bartender backpacks
 
+# Off Duty
+loadout-group-offduty-pda = Off Duty PDA
+
 # Other
 loadout-group-civilian_formal-shoes = Formal shoes
