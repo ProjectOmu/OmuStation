@@ -83,6 +83,32 @@
   - sprite:  _Omu/Mobs/Customization/Allulalo/head.rsi
     state: Mustachebig
 
+- type: marking
+  id: AllulaloHeadBeak
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite:  _Omu/Mobs/Customization/Allulalo/head.rsi
+    state: Beak
+
+- type: marking
+  id: AllulaloHeadBeakPointy
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite:  _Omu/Mobs/Customization/Allulalo/head.rsi
+    state: Beakpointy
+
+- type: marking
+  id: AllulaloHeadHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite:  _Omu/Mobs/Customization/Allulalo/head.rsi
+    state: Head
 
 
 # Tail
@@ -154,6 +180,17 @@
     state: Longtail2
 
 
+- type: marking
+  id: AllulaloTailDouble
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/tail.rsi
+    state: Doubletail
+  - sprite: _Omu/Mobs/Customization/Allulalo/tail.rsi
+    state: Doubletail2
+
 # Rarm
 - type: marking
   id: AllulaloWingsDragon
@@ -163,6 +200,8 @@
   sprites:
   - sprite: _Omu/Mobs/Customization/Allulalo/arms.rsi
     state: Wingsdragon
+  - sprite: _Omu/Mobs/Customization/Allulalo/arms.rsi
+    state: Wingsdragon2
 
 - type: marking
   id: AllulaloWingsSmooth
@@ -172,6 +211,24 @@
   sprites:
   - sprite: _Omu/Mobs/Customization/Allulalo/arms.rsi
     state: Wingssmooth
+  - sprite: _Omu/Mobs/Customization/Allulalo/arms.rsi
+    state: Wingssmooth2
+
+- type: marking
+  id: AllulaloWingsTriFeather
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/arms.rsi
+    state: Trifeatherwings
+  - sprite: _Omu/Mobs/Customization/Allulalo/arms.rsi
+    state: Trifeatherwings2
+  - sprite: _Omu/Mobs/Customization/Allulalo/arms.rsi
+    state: Trifeatherwings3
+  - sprite: _Omu/Mobs/Customization/Allulalo/arms.rsi
+    state: Trifeatherwings4
+
 
 # HeadTop
 
@@ -273,3 +330,34 @@
   sprites:
   - sprite: _Omu/Mobs/Customization/Allulalo/headtop.rsi
     state: Twinspikes
+
+- type: marking
+  id: AllulaloHeadDevilHorns
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/headtop.rsi
+    state: Devilhorns
+
+- type: marking
+  id: AllulaloHeadEmoLeft
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/headtop.rsi
+    state: Plumageemoleft
+  - sprite: _Omu/Mobs/Customization/Allulalo/headtop.rsi
+    state: Plumageemoleft2
+
+- type: marking
+  id: AllulaloHeadEmoRight
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Allulalo ]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Allulalo/headtop.rsi
+    state: Plumageemoright
+  - sprite: _Omu/Mobs/Customization/Allulalo/headtop.rsi
+    state: Plumageemoright2
