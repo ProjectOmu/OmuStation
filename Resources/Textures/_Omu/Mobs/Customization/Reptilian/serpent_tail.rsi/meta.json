@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Original sprite is 'Large Snake Tail' (ID 'snake_large'), from https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/blob/master/modular_splurt/icons/mob/64_mam_tails.dmi, modified by vetochka_igrit (Discord) and PuroSlavKing (Github). Tail sprites are from these sources, reshaded and modified by Redstonewolf. Tuft and Frill by Redstonewolf.",
+  "size": {
+    "x": 64,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "flat",
+      "directions": 4
+    },
+    {
+      "name": "patterned",
+      "directions": 4
+    },
+    {
+      "name": "lattice",
+      "directions": 4
+    },
+    {
+      "name": "underside",
+      "directions": 4
+    },
+    {
+      "name": "ridged",
+      "directions": 4
+    },
+    {
+      "name": "frill",
+      "directions": 4
+    },
+    {
+      "name": "tuft",
+      "directions": 4
+    },
+    {
+      "name": "flat_front",
+      "directions": 4
+    },
+    {
+      "name": "patterned_front",
+      "directions": 4
+    },
+    {
+      "name": "lattice_front",
+      "directions": 4
+    },
+    {
+      "name": "underside_front",
+      "directions": 4
+    },
+    {
+      "name": "ridged_front",
+      "directions": 4
+    },
+    {
+      "name": "frill_front",
+      "directions": 4
+    },
+    {
+      "name": "tuft_front",
+      "directions": 4
+    }
+  ]
+}

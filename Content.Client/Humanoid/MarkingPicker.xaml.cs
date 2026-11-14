@@ -494,7 +494,8 @@ public sealed partial class MarkingPicker : Control
                 OnMarkingColorChange?.Invoke(_currentMarkings);
             };
 
-            CMarkingColors.AddChild(glowyToggle);
+            if (!skipdraw)
+                CMarkingColors.AddChild(glowyToggle);
             // Omu end
         }
 
