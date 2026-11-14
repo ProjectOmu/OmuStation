@@ -91,6 +91,12 @@ public sealed partial class DungeonJob
                 if (!ValidateResume())
                     return;
 
+                // Omu start - don't try to gen if we have no more tiles
+                // This should let the ore vein warning log only fire once
+                if (availableTiles.Count <= 0)
+                    break;
+                // Omu end
+
                 var groupSize = random.Next(gen.MinGroupSize, gen.MaxGroupSize + 1);
 
                 // While we have remaining tiles keep iterating
