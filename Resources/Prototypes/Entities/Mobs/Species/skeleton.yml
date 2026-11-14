@@ -101,7 +101,9 @@
             Brute: -3
             Metaphysical: -2
         ignoreResistances: true
-        useTargeting: false
+        useTargeting: true # Omu fix
+        targetPart: All # Omu
+        splitDamage: SplitEnsureAll # Omu
       - !type:PopupMessage
         type: Local
         visualType: Large
