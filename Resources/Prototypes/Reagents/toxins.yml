@@ -521,7 +521,7 @@
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Vox
           type: [ Vox ]
-          inverted: true
+          inverted: false # Omu - flip to `false`; make it satiate vox, not anyone but vox
 
 - type: reagent
   id: Romerol
