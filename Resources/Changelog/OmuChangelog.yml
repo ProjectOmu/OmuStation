@@ -10114,3 +10114,13 @@ Entries:
       message: Test fail introduced with the airlock locking again pr
   id: 1300
   time: '2026-11-13T22:54:35.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: >-
+        You can now use a few of the new (or otherwise recently occulted) icons
+        on agent IDs again
+    - type: Tweak
+      message: 'G-Man and Zombie icons are no longer available on agent ID selection '
+  id: 1301
+  time: '2026-11-14T12:51:32.0000000+00:00'
