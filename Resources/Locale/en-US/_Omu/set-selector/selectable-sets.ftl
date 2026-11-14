@@ -251,3 +251,32 @@ selectable-set-ntr-brella-desc =
 
 selectable-set-brig-modsuit-name = Corpsman 'Apollo' modsuit
 selectable-set-brig-modsuit-desc = An alternative and customized modular medical hardsuit designed for combat medics.
+
+selectable-set-syndicate-ninja-name = Syndicate "Ninja" Bundle
+selectable-set-syndicate-ninja-description =
+    The Syndicate tried to replicate the gear of the infamous Spider Clan's ninjas.
+    Not nearly as effective as the real thing. Contains an access breaker, a C4 brick,
+    a Stealth hardsuit, an Experimental teleporter, a High-frequency katana, an Agent ID,
+    a Jetpack, a pair of Night Vision goggles, some throwing knives,
+    a pair of no-slip shoes and a microbomb implant.
+
+selectable-set-syndicate-solarian-name = Solarian Officer Bundle
+selectable-set-syndicate-solarian-description =
+    The Syndicate bought this off a defecting Solarian officer.
+    Contains a Solarian modsuit filled with standard Solarian gear, an officer's saber, and a sidearm.
+    It also contains a flashbang, a jetpack, a QBZ-24 rifle with 3 spare magazines,
+    a combat medkit, a sarin gas grenade, and a Solarian headset.
+
+selectable-set-syndicate-archer-name = Master Archer Bundle
+selectable-set-syndicate-archer-description =
+    This bundle is a perfect fit for Donk. Co's strongest archer.
+    Contains a Hardlight bow, miniature energy crossbow, night vision goggles,
+    a chameleon weapon holster, and a holo-cigar. With the cigar active you can
+    shoot the bow without wielding it, and dual wield it with the miniature bow.
+
+selectable-set-syndicate-friend-name = Blood-Red Buddies Bundle
+selectable-set-syndicate-friend-description =
+    This bundle contains all of the Syndicate's most loyal pets.
+    Comes with a syndiroach, a carp operative, a syndi-cat,
+    a mouse operative, a spider operative, a genetic ancestor reinforcement,
+    a safari hat, and a stealth box to hide your friends in.
