@@ -132,6 +132,19 @@
     price: 1500
 
 - type: entity
+  name: Golden T8 "Consistency"
+  parent: SecurityDutyRevolver
+  id: SecurityDutyRevolverGold
+  description: A Gold-plated T8. If you see an officer wielding this, they have definitely seen some shit. Uses .30 caliber rifle speedloaders.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/T8Gold.rsi
+  - type: Item
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/T8Gold.rsi
+  - type: Clothing
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/T8Gold.rsi
+
+- type: entity
   name: R2 "Greeting" Revolver
   parent: [ BaseWeaponRevolver, BaseGrandTheftContraband ]
   id: WardenSnubRevolver

@@ -75,6 +75,8 @@ selectable-set-mk58-description =
     The standard duty pistol for Nanotrasen security.
 
 selectable-set-t8-name = T8 "Consistency" Revolver
+selectable-set-mk58-gold-name = Golden Mk58 Pistol
+selectable-set-t8-gold-name = Golden T8 "Consistency"
 selectable-set-t8-description =
     An alternative to the mk58, this revolver
     trades throughput for increased ability to shatter bones.

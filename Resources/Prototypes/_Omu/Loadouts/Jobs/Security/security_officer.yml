@@ -74,6 +74,23 @@
   groupBy: "Main weapon"
 
 - type: loadout
+  id: SecurityDutyRevolverGold
+  dummyEntity: SecurityDutyRevolverGold
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 252000 # 70 hours
+  equipment:
+    pocket1: SecurityDutyRevolverGold
+  storage:
+    back:
+    - SpeedLoaderRevolverLightRifle
+    - SpeedLoaderRevolverLightRifle
+  groupBy: "Main weapon"
+
+- type: loadout
   id: SecurityOfficerEG1
   dummyEntity: WeaponLaserCellRevolver
   equipment:
