@@ -4,9 +4,19 @@
   name: Mirror Maiden
   description: A trick of the light? Or is it the shimmering air itself come to claim you?
   components:
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    name: mirror-maiden-role-name
+    description: mirror-maiden-role-desc
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    - MindRoleGhostRoleSoloAntagonistGoob
+    raffle:
+      settings: default
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: HostileMaidenCompound
   - type: Sprite
     sprite: _Omu/Mobs/heretic.rsi
     state: blue_maiden
@@ -15,6 +25,7 @@
   - type: ActionGrant
     actions:
     - ActionHereticJaunt
+    - ActionMansusScreech # Omu
   - type: MovementSpeedModifier
     baseWalkSpeed: 7    #Fast!
     baseSprintSpeed: 7
@@ -73,8 +84,10 @@
   - type: CombatMode
   - type: SeeHereticFixtures
   - type: MansusMob
+    screechRange: 2
   - type: GuideHelp
     guides: [ MirrorMaiden ]
+  - type: MansusSeek # Omu
 
 - type: npcFaction
   id: Mansus
