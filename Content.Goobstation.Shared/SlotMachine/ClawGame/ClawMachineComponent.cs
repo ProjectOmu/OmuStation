@@ -25,6 +25,20 @@ public sealed partial class ClawMachineComponent : Component
 
     [DataField]
     public List<ProtoId<PrizePrototype>> EvilPrizes;
+
+    // Omu start
+    /// <summary>
+    /// Optional modifier to reduce the probability of winning a prize over time.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float WeightModifier = 1.0f;
+
+    /// <summary>
+    /// How much the weight modifier is reduced by after each spin.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float WeightReduction = 1.0f;
+    // Omu end
 }
 
 [Serializable, NetSerializable]
