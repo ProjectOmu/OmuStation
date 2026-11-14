@@ -32,6 +32,7 @@ using System.Linq;
 using Content.Shared._Shitmed.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 using Content.Shared._Mono.CorticalBorer; // mono
+using Content.Shared._StarLight.Dolls.Components;
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
 
@@ -367,8 +368,33 @@ public abstract partial class SharedSurgerySystem
             return;
 
         if (!HasComp(args.Tool, firstOrgan.Component.GetType())
-            || !TryComp<OrganComponent>(args.Tool, out var insertedOrgan)
-            || !_body.InsertOrgan(args.Part, args.Tool, insertedOrgan.SlotId, partComp, insertedOrgan))
+            || !TryComp<OrganComponent>(args.Tool, out var insertedOrgan))
+            return;
+
+        // Doll shell fragments must be returned to the body part they came from.
+        // Validate before insertion so a mismatched fragment is not consumed.
+        if (HasComp<OrganShellComponent>(args.Tool)
+            && TryComp<MarkingOrganComponent>(args.Tool, out var shellOrgan)
+            && shellOrgan.StoredMarkings.Count > 0)
+        {
+            var destinationLayer = partComp.ToHumanoidLayers();
+            var fits = destinationLayer != null
+                && shellOrgan.StoredMarkings.Values.All(marking =>
+                    _markingManager.Markings.TryGetValue(marking.MarkingId, out var prototype)
+                    && prototype.BodyPart == destinationLayer.Value);
+
+            if (!fits)
+            {
+                _popup.PopupEntity(
+                    "This shell fragment doesn't fit here!",
+                    args.User,
+                    args.User,
+                    PopupType.SmallCaution);
+                return;
+            }
+        }
+
+        if (!_body.InsertOrgan(args.Part, args.Tool, insertedOrgan.SlotId, partComp, insertedOrgan))
             return;
 
         EnsureComp<OrganReattachedComponent>(args.Tool);
