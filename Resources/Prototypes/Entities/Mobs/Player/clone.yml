@@ -97,6 +97,7 @@
   - Revolutionary
   - NukeOperative
   forceCloning: true # Goob - IPC/Vox cloning for paradox ghostrole
+  copyTraits: true # Omu
 
 # for cloning pods
 - type: cloningSettings
@@ -106,6 +107,7 @@
   copyEquipment: null
   copyInternalStorage: false
   copyImplants: false
+  copyTraits: true # Omu
 
 # for paradox clones
 - type: cloningSettings
@@ -113,6 +115,7 @@
   parent: [BaseClone, Antag]
   components:
   - Forensics # This is so hugging data is copied to the clone, so you can't hug metagame them
+  copyTraits: true # Omu
 
 # Upstreamer - requires Changeling devour and transform #34002 or some shit
 ## changeling identity copying

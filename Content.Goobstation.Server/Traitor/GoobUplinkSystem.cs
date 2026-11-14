@@ -94,7 +94,7 @@ public sealed class GoobUplinkSystem : GoobCommonUplinkSystem
         if (mind.UserId == null)
             return DefaultPreference;
 
-        if (_characterQueue.GetCurrentCharacter(mind.UserId.Value) is not { } profile // Omu
+        if (_characterQueue.TryGetCurrentCharacter(mind.UserId.Value) is not { } profile // Omu
             || !profile.Loadouts.TryGetValue(AntagTraitorLoadout, out var roleLoadout)
             || !roleLoadout.SelectedLoadouts.TryGetValue(TraitorUplinkGroup, out var selectedLoadouts))
             return DefaultPreference;

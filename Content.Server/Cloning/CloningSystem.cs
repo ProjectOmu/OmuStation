@@ -29,7 +29,6 @@ using Content.Server._Hardlight.Traits;
 using Content.Server._Omu.Traits;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
-using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Radio.Components;
 using Content.Shared.Inventory.VirtualItem;
@@ -97,7 +96,17 @@ public sealed partial class CloningSystem : SharedCloningSystem
         _humanoidSystem.CloneAppearance(original, clone.Value);
 
         CloneComponents(original, clone.Value, settings);
-        _hardlightUpdatedTraitSystem.ApplySelectedTraits(original, clone.Value); // HardLight
+        // Hardlight start + omushitfixes good luck with hellcode
+        if (settings.CopyTraits)
+        {
+            if (!_hardlightUpdatedTraitSystem.ApplySelectedTraits(original, clone.Value))
+            {
+                QueueDel(clone); // haha what if we did validation
+                clone = null;
+                return false;
+            }
+        }
+        // Hardlight end
 
         // Add equipment first so that SetEntityName also renames the ID card.
         if (settings.CopyEquipment != null)
