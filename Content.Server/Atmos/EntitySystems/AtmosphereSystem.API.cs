@@ -207,12 +207,12 @@ public partial class AtmosphereSystem
 
         // We either don't have a grid, or the event wasn't handled.
         // Let the map handle it instead, and also broadcast the event.
-        if (map is { } mapEnt && _mapAtmosQuery.Resolve(mapEnt, ref mapEnt.Comp))
+        if (map is { } mapEnt && TryComp<MapAtmosphereComponent>(mapEnt, out var mapAtmosphereComponent))//OMU due to changse in another file this needs to be changed as somone passed down a entity that may NOT have the required component
         {
             mixtures ??= new GasMixture?[tiles.Count];
             for (var i = 0; i < tiles.Count; i++)
             {
-                mixtures[i] ??= mapEnt.Comp.Mixture;
+                mixtures[i] ??= mapAtmosphereComponent.Mixture;//OMU
             }
 
             return mixtures;

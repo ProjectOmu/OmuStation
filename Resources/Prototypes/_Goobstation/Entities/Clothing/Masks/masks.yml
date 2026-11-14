@@ -117,6 +117,7 @@
   description: A muzzle designed to prevent biting. This one is fitted with a behaviour correction system.
   components:
   - type: ShockOnTrigger
+    targetUser: true # Omu fix
   - type: TriggerOnSpeak
   - type: ActiveListener
     range: 4

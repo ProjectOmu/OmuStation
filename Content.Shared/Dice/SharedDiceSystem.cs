@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Trauma.Throwing;
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
@@ -35,7 +36,7 @@ public abstract class SharedDiceSystem : EntitySystem
 
     private void OnLand(Entity<DiceComponent> entity, ref LandEvent args)
     {
-        Roll(entity);
+        Roll(entity, CompOrNull<PredictedThrownItemComponent>(entity)?.Thrower); // Omu
     }
 
     private void OnExamined(Entity<DiceComponent> entity, ref ExaminedEvent args)

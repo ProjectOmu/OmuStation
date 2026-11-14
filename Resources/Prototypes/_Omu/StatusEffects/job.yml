@@ -9,11 +9,11 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconSecuritySergeant
+  id: JobIconLogisticsAssistant
   icon:
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
-    state: securitysergeant
-  jobName: job-name-security-sergeant
+    state: LogisticsAssistant
+  jobName: job-name-logistics-assistant
 
 - type: jobIcon
   parent: JobIcon
@@ -104,7 +104,6 @@
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
     state: cchop
   jobName: job-name-centcomm-hop
-  allowSelection: false
 
 - type: jobIcon
   parent: JobIcon
@@ -113,7 +112,6 @@
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
     state: ia_eye
   jobName: job-name-internal-affairs
-  allowSelection: false
 
 - type: jobIcon
   parent: JobIcon
@@ -122,7 +120,6 @@
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
     state: ia_text
   jobName: job-name-internal-affairs
-  allowSelection: false
 
 - type: jobIcon
   parent: JobIcon
@@ -131,7 +128,6 @@
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
     state: judicialaffairs
   jobName: job-name-judicial-affairs
-  allowSelection: false
 
 - type: jobIcon
   parent: JobIcon
@@ -163,4 +159,45 @@
   icon:
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
     state: inspector
-  allowSelection: false
+
+# Mentor Roles
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSecuritySergeant
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: securitysergeant
+  jobName: job-name-security-sergeant
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMedicalMedicus
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: medicalmedicus
+  jobName: job-name-medical-medicus
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconEngineeringForeman
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: engineeringforeman
+  jobName: job-name-engineering-foreman
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCargoBosun
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: cargobosun
+  jobName: job-name-cargo-bosun
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconScienceProfessor
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: scienceprofessor
+  jobName: job-name-science-professor

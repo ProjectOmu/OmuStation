@@ -366,6 +366,27 @@
   content:
   - ClothingOuterHardsuitCorpsman
 
+#warden
+- type: selectableSet
+  id: VoidsuitSelectorWardenHardsuit
+  name: selectable-set-warden-hardsuit-name
+  description: selectable-set-warden-hardsuit-desc
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/security-warden.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitWarden
+
+- type: selectableSet
+  id: VoidsuitSelectorWardenRiotHardsuit
+  name: selectable-set-warden-riothardsuit-name
+  description: selectable-set-warden-riothardsuit-desc
+  sprite:
+    sprite: _Omu/Clothing/OuterClothing/Hardsuits/warden-riot.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitWardenRiot
+
 # Blueshield Officer
 
 - type: selectableSet
@@ -453,3 +474,15 @@
     state: icon
   content:
   - Marlen
+
+  # Brigmedic
+
+- type: selectableSet
+  id: VoidsuitSelectorBrigMedModsuit
+  name: selectable-set-brig-modsuit-name
+  description: selectable-set-brig-modsuit-desc
+  sprite:
+    sprite: _Goobstation/Clothing/Back/Modsuits/brigmed.rsi
+    state: control
+  content:
+  - ClothingModsuitBrigMedPowerCell
