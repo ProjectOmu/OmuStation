@@ -108,6 +108,7 @@ namespace Content.Client.Lobby.UI
 
         private Dictionary<string, BoxContainer> _traitCategoryContainers = new(); // Omustation - Remake EE Traits System - Redesign traits tab
         private readonly SpeechTab _speechTab; // Omu
+        private readonly EmotePackSelector _emotePackSelector = new(); // Omu
 
         private List<SpeciesPrototype> _species = new();
 
@@ -252,6 +253,15 @@ namespace Content.Client.Lobby.UI
             }
 
             #endregion
+
+            // Omu start
+            EmotePackContainer.AddChild(_emotePackSelector);
+            _emotePackSelector.OnPackSelected += (pack, species) =>
+            {
+                Profile = Profile?.WithEmotePack(pack, species);
+                SetDirty();
+            };
+            // Omu end
 
             RefreshSpecies();
 
@@ -688,6 +698,8 @@ namespace Content.Client.Lobby.UI
 
                     SetDirty();
                     RefreshTraits();
+                    UpdateBarkVoice(); // Omu
+                    _emotePackSelector.SetProfile(Profile); // Omu
                 };
 
                 // NOW show the trait selector.
@@ -929,6 +941,7 @@ namespace Content.Client.Lobby.UI
             UpdateSaveButton();
             UpdateMarkings();
             UpdateBarkVoice(); // Goob Station - Barks
+            _emotePackSelector.SetProfile(Profile); // Omu
             UpdateHairPickers();
             UpdateCMarkingsHair();
             UpdateCMarkingsFacialHair();
@@ -1365,6 +1378,7 @@ namespace Content.Client.Lobby.UI
 
             UpdateGenderControls();
             Markings.SetSex(newSex);
+            _emotePackSelector.SetProfile(Profile); // Omu
             ReloadPreview();
         }
 
@@ -1388,6 +1402,7 @@ namespace Content.Client.Lobby.UI
             UpdateSpeciesGuidebookIcon();
             ReloadPreview();
             UpdateBarkVoice(); // Goob Station - Barks
+            _emotePackSelector.SetProfile(Profile); // Omu
             // begin Goobstation: port EE height/width sliders
             // Changing species provides inaccurate sliders without these
             UpdateHeightWidthSliders();

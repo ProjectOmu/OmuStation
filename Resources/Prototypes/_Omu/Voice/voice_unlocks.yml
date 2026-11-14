@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: voiceUnlock
+  id: HarpyMimicry
+  innateSpecies: [ Harpy ]
+
+- type: voiceUnlock
+  id: RaisedAmongOthers
+  trait: RaisedAmongOthers
+  blacklist: [ Harpy, IPC ]
+
+- type: voiceUnlock
+  id: Synthetic
+  trait: Synthetic
+  species: [ IPC ]
+  emotePacks: false

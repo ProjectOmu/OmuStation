@@ -120,6 +120,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                                     <Button Name="BarkVoicePlayButton" Text="{Loc 'humanoid-profile-editor-voice-play'}" MaxWidth="80" />
                                 </BoxContainer>
                                 <!-- Corvax-Frontier-Barks-End -->
+                                <!-- Omu start -->
+                                <BoxContainer Name="EmotePackContainer" />
+                                <!-- Omu end -->
                             </BoxContainer>
                             <!-- Skin -->
                             <BoxContainer Margin="10" HorizontalExpand="True" Orientation="Vertical">
