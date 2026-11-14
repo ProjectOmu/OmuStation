@@ -34,6 +34,9 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Content.Server.Salvage.Expeditions;
+using Content.Shared.Cargo.Components;
+using Content.Shared.Shuttles.Components;
 
 namespace Content.Goobstation.Server.Blob;
 
@@ -578,6 +581,28 @@ public sealed class BlobCoreSystem : EntitySystem
                 _roundEndSystem.CancelRoundEndCountdown(null, false);
                 blobRuleComp.Stage = BlobStage.Default;
             }
+
+            // Omu start - Its all dead now, you can leave.
+            var cargoShuttleQuery = EntityQueryEnumerator<CargoShuttleComponent, MetaDataComponent, PreventPilotComponent>();
+            while (cargoShuttleQuery.MoveNext(out var ent, out var comp, out var md, out var preventpilot))
+            {
+                if (TerminatingOrDeleted(ent, md))
+                {
+                    continue;
+                }
+                RemCompDeferred<PreventPilotComponent>(ent);
+            }
+
+            var salvageShuttleQuery = EntityQueryEnumerator<SalvageShuttleComponent, MetaDataComponent, PreventPilotComponent>();
+            while (salvageShuttleQuery.MoveNext(out var ent, out var comp, out var md, out var preventpilot))
+            {
+                if (TerminatingOrDeleted(ent, md))
+                {
+                    continue;
+                }
+                RemCompDeferred<PreventPilotComponent>(ent);
+            }
+            // Omu end
         }
 
         QueueDel(core);
