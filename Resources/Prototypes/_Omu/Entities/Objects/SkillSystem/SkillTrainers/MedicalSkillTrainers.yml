@@ -1,0 +1,51 @@
+﻿- type: entity
+  parent: BaseItem
+  id: MedicalSkilltrainer
+  name: MedicalSkilltrainer
+  description: MedicalSkilltrainerDesc
+  components:
+    - type: Sprite
+      sprite: _Omu/Objects/SkillTrainers.rsi
+      state: NT
+    - type: Item
+      sprite: _Omu/Objects/SkillTrainers.rsi
+    - type: SkillGranting
+      skillDicMaxSkillLevel:
+        Combat: 0
+        Cargo: 0
+        Command: 0
+        Engineering: 0
+        Medical: 2
+
+- type: entity
+  parent: [ MedicalSkilltrainer, BaseSyndicateContraband]
+  id: MedicalSkilltrainerSyndicate
+  name: SkilltrainerSyndicate
+  description: SkilltrainerSyndicateDesc
+  suffix: Medical
+  components:
+    - type: Sprite
+      sprite: _Omu/Objects/SkillTrainers.rsi
+      state: syndicate
+    - type: Item
+      sprite: _Omu/Objects/SkillTrainers.rsi
+    - type: ExtendDescription
+      descriptionList:
+        - description: "SkillTrainerSyndicateDesc-extended-syndicate-medical"
+          fontSize: 12
+          color: "#880000"
+          requireDetailRange: false
+          requirements:
+          - !type:CharacterAntagonistRequirement
+            antagonists:
+              - Traitor
+              - TraitorSleeper
+              - Nukeops
+              - NukeopsMedic
+              - NukeopsCommander
+        - description: "mindshield-extenddescription-emag"
+          fontSize: 12
+          color: "#11aaff"
+          requireDetailRange: true
+          requirements:
+          - !type:CharacterMindshieldRequirement

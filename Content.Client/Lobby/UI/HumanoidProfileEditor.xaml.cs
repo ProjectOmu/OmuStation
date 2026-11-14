@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Numerics;
 using Content.Client._Omu.Lobby.Ui.Roles;
+using Content.Client._Omu.Lobby.Ui.Skills;
 using Content.Client._Omu.Lobby.Ui.Speech;
 using Content.Client.Humanoid;
 using Content.Client.Lobby.UI.Loadouts;
@@ -108,6 +109,7 @@ namespace Content.Client.Lobby.UI
 
         private Dictionary<string, BoxContainer> _traitCategoryContainers = new(); // Omustation - Remake EE Traits System - Redesign traits tab
         private readonly SpeechTab _speechTab; // Omu
+        private readonly SkillsTab _skillsTab; // Omu
 
         private List<SpeciesPrototype> _species = new();
 
@@ -506,6 +508,15 @@ namespace Content.Client.Lobby.UI
             _speechTab.OnReplacementsChanged += replacements =>
             {
                 Profile = Profile?.WithSpeechReplacements(replacements);
+                SetDirty();
+            };
+
+            _skillsTab = new SkillsTab(_cfgManager, _prototypeManager);
+            TabContainer.AddChild(_skillsTab);
+            TabContainer.SetTabTitle(TabContainer.ChildCount - 1, Loc.GetString("humanoid-profile-editor-skills-tab"));
+            _skillsTab.OnAllocationChanged += allocation =>
+            {
+                Profile = Profile?.WithSkillAllocation(allocation);
                 SetDirty();
             };
             // Omu end
@@ -941,6 +952,7 @@ namespace Content.Client.Lobby.UI
             RefreshSpecies();
             RefreshTraits();
             _speechTab.SetReplacements(Profile?.SpeechReplacements ?? []); // Omu
+            _skillsTab.SetProfile(Profile); // Omu
             RefreshFlavorText();
             ReloadPreview();
 
@@ -1146,6 +1158,7 @@ namespace Content.Client.Lobby.UI
                         ReloadPreview();
 
                         UpdateJobPriorities();
+                        _skillsTab.SetProfile(Profile); // Omu
                         SetDirty();
                     };
 

@@ -7,6 +7,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
          xmlns:humanoid="clr-namespace:Content.Client.Humanoid"
          xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
          xmlns:ui="clr-namespace:Content.Client.Lobby.UI"
+         xmlns:omu="clr-namespace:Content.Client._Omu.Lobby.Ui"
          HorizontalExpand="True">
         <!-- Left side -->
         <BoxContainer Orientation="Vertical" Margin="10 10 10 10" HorizontalExpand="True">
@@ -50,7 +51,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             </BoxContainer>
             <Control MinHeight="10" />
             <!-- tabContainer -->
-            <TabContainer Name="TabContainer" VerticalExpand="True">
+            <!-- <TabContainer Name="TabContainer" VerticalExpand="True"> --> <!-- Omu -->
+            <omu:AlertTabContainer Name="TabContainer" VerticalExpand="True"> <!-- Omu -->
                 <BoxContainer Orientation="Vertical">
                     <ScrollContainer VerticalExpand="True">
                         <!-- appearanceList -->
@@ -170,7 +172,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                         <humanoid:MarkingPicker Name="Markings" IgnoreCategories="Hair,FacialHair" />
                     </ScrollContainer>
                 </BoxContainer>
-            </TabContainer>
+            <!-- </TabContainer> --> <!-- Omu -->
+            </omu:AlertTabContainer> <!-- Omu -->
         </BoxContainer>
         <!-- Right side -->
         <BoxContainer Orientation="Vertical" VerticalExpand="True" VerticalAlignment="Center">

@@ -1,0 +1,18 @@
+﻿##USED for picking up crates!!!! -> speed modifiers
+- type: entity
+  id: BaseCargoCrateSkillRequirments
+  abstract: true
+  components:
+  - type: SkillRequerment
+    hideDesc: true
+    skill:
+    - Engineering
+    speedModifier:
+      "-1": 1000
+      "0": 100
+      "1": 10
+      "2": 5
+      "3": 1
+      "4": 0.5
+      "5": 0.25
+      "6": 0.1

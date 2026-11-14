@@ -27,6 +27,24 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: BoxingDay
     prototype: BoxCardboard
+  - !type:AddComponentSpecial
+    components:
+    - type: RoundStartSkillGranting #omu skill system 
+      department: [ Cargo, Crew ]
+      skillDic:
+        Cargo: 2
+        Combat: 0
+        Command: 0
+        Engineering: 0
+        Medical: 0
+    - type: SpeciesBasedSkillAddition #omu skill system
+      skillDic:
+        Harpy:
+          Cargo: 1
+          Combat: -1
+          Command: -1
+          Engineering: -1
+          Medical: -1
 
 - type: startingGear
   id: CargoTechGear

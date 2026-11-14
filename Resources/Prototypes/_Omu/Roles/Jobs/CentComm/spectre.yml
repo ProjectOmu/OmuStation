@@ -36,6 +36,22 @@
     - !type:AddComponentSpecial
       components:
         - type: DeathSquadMember
+        - type: RoundStartSkillGranting #omu skill system 
+          department: [ InternalAffairs ]
+          skillDic:
+            Cargo: 0
+            Combat: 5
+            Command: 0
+            Engineering: 2
+            Medical: 2
+        - type: SpeciesBasedSkillAddition #omu skill system
+          skillDic:
+            Harpy:
+              Cargo: -1
+              Combat: 1
+              Command: -1
+              Engineering: 1
+              Medical: 1
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 5h

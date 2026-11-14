@@ -1,0 +1,58 @@
+﻿- type: entity
+  parent: BaseItem
+  id: CombatSkilltrainer
+  name: CombatSkilltrainer
+  description: CombatSkilltrainerDesc
+  components:
+    - type: Sprite
+      sprite: _Omu/Objects/SkillTrainers.rsi
+      state: NT
+    - type: Item
+      sprite: _Omu/Objects/SkillTrainers.rsi
+    - type: SkillGranting
+      skillDicMaxSkillLevel:
+        Combat: 2
+        Cargo: 0
+        Command: 0
+        Engineering: 0
+        Medical: 0
+
+- type: entity
+  parent: [ CombatSkilltrainer, BaseSyndicateContraband]
+  id: CombatSkilltrainerSyndicate
+  name: SkilltrainerSyndicate
+  description: SkilltrainerSyndicateDesc
+  suffix: combat
+  components:
+    - type: Sprite
+      sprite: _Omu/Objects/SkillTrainers.rsi
+      state: syndicate
+    - type: Item
+      sprite: _Omu/Objects/SkillTrainers.rsi
+    - type: SkillGranting
+      skillDicMaxSkillLevel:
+        Combat: 3 #syndicate agents start with combat 2 so this is a upgrade to that
+        Cargo: 0
+        Command: 0
+        Engineering: 0
+        Medical: 0
+    - type: ExtendDescription
+      descriptionList:
+        - description: "SkillTrainerSyndicateDesc-extended-syndicate-combat"
+          fontSize: 12
+          color: "#880000"
+          requireDetailRange: false
+          requirements:
+          - !type:CharacterAntagonistRequirement
+            antagonists:
+              - Traitor
+              - TraitorSleeper
+              - Nukeops
+              - NukeopsMedic
+              - NukeopsCommander
+        - description: "mindshield-extenddescription-emag"
+          fontSize: 12
+          color: "#11aaff"
+          requireDetailRange: true
+          requirements:
+          - !type:CharacterMindshieldRequirement

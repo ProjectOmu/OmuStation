@@ -2,7 +2,7 @@
 
 - type: entity
   abstract: true
-  parent: BaseItem
+  parent: [ BaseItem, BaseEngineeringSkillRequirmentsEasy] #omu
   id: BaseCrowbar
   name: crowbar
   description: A multipurpose tool used for many tasks, such as prying doors or bludgeoning interdimensional invaders.

@@ -20,6 +20,24 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: RoundStartSkillGranting #omu skill system 
+        department: [ CentralCommand ]
+        skillDic:
+          Cargo: 2
+          Combat: 0
+          Command: 2
+          Engineering: 0
+          Medical: 2
+      - type: SpeciesBasedSkillAddition #omu skill system
+        skillDic:
+          Harpy:
+            Cargo: 1
+            Combat: -1
+            Command: -1
+            Engineering: -1
+            Medical: 1
 
 - type: startingGear
   id: CentcomInternGear
@@ -68,6 +86,24 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
+  - !type:AddComponentSpecial
+    components:
+      - type: RoundStartSkillGranting #omu skill system 
+        department: [ CentralCommand, Crew ]
+        skillDic:
+          Cargo: 5 #buff bird
+          Combat: -5
+          Command: 4
+          Engineering: 1
+          Medical: 5
+      - type: SpeciesBasedSkillAddition #omu skill system
+        skillDic:
+          Harpy:
+            Cargo: 1
+            Combat: -1
+            Command: 1
+            Engineering: -1
+            Medical: 1
 
 - type: startingGear
   id: CentcomDireggtorGear
@@ -117,6 +153,22 @@
   - !type:AddComponentSpecial
     components:
     - type: DeathSquadMember
+    - type: RoundStartSkillGranting #omu skill system 
+      department: [ VivianBodyGuard ]
+      skillDic:
+        Cargo: 5
+        Combat: 5
+        Command: 0
+        Engineering: 0
+        Medical: 3
+    - type: SpeciesBasedSkillAddition #omu skill system
+      skillDic:
+        Harpy:
+          Cargo: 1
+          Combat: 1
+          Command: -1
+          Engineering: -1
+          Medical: 1
 
 
 - type: startingGear

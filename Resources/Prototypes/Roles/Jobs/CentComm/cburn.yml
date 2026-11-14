@@ -21,6 +21,24 @@
   special: # Goobstation
   - !type:AddImplantSpecial
     implants: [ MindShieldImplantCentComm, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ] # Omu, use CC mindshield
+  - !type:AddComponentSpecial
+    components:
+    - type: RoundStartSkillGranting #omu skill system 
+      department: [ CentralCommand ]
+      skillDic:
+        Cargo: 0
+        Combat: 4
+        Command: 0
+        Engineering: 0
+        Medical: 2
+    - type: SpeciesBasedSkillAddition #omu skill system
+      skillDic:
+        Harpy:
+          Cargo: -1
+          Combat: 1
+          Command: -1
+          Engineering: -1
+          Medical: 1
 
 - type: startingGear # Goobstation - Start - Sol
   id: CBURNGear

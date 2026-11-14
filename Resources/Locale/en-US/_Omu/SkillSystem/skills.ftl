@@ -1,0 +1,10 @@
+skill-name-cargo = Cargo
+skill-description-cargo = Lifting crates and hauling speed.
+skill-name-combat = Combat
+skill-description-combat = Ranged weapon accuracy and stamina recovery.
+skill-name-command = Command
+skill-description-command = Speeds up the crew working near you.
+skill-name-engineering = Engineering
+skill-description-engineering = Speed with tools, including for science.
+skill-name-medical = Medical
+skill-description-medical = Speed with topicals and surgery.
