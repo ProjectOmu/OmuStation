@@ -258,7 +258,7 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 1000
+        maxVol: 500 # Omu
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Drinks/shaker_bluespace.rsi
     state: icon
