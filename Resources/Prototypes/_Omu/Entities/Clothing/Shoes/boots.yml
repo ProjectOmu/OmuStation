@@ -22,3 +22,33 @@
   - type: Clothing
     sprite: _Omu/Clothing/Shoes/Boots/cowboyworkboots.rsi
   - type: Matchbox
+
+- type: entity
+  parent: ClothingShoesBootsJack
+  id: ClothingShoesBootsJackFunny
+  name: funny jackboots
+  description: A pair of standard-issue jackboots. Something seems off about them. There is a HonkCo tag on the side.
+  components:
+  - type: WaddleWhenWorn
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepClown
+      params:
+        variation: 0.17
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        priority: 4
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
+        insertSound:
+          collection: BikeHorn
+          params:
+            variation: 0.125
+        ejectSound:
+          collection: BikeHorn
+          params:
+            variation: 0.125
