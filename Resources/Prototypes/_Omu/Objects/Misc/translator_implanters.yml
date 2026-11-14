@@ -1,0 +1,37 @@
+- type: entity
+  id: BaseTranslatorBorgImplanter
+  abstract: true
+  parent: BaseImplantOnlyBorgImplanter
+  name: translation chip
+  components: # Omu start
+  - type: Implanter
+    whitelist:
+      tags:
+      - BorgImplant # borg-only implants
+
+# Gives ability to understand TauCetiBasic.
+- type: entity
+  id: BasicGalaticCommonTranslationChip
+  parent: BaseTranslatorBorgImplanter
+  suffix: Basic Common
+  components:
+  - type: Implanter
+    implant: BasicTauCetiBasicTranslationChip
+
+# Gives ability to speak and understand TauCetiBasic.
+- type: entity
+  id: AdvancedGalaticCommonTranslationChip
+  parent: BaseTranslatorBorgImplanter
+  suffix: Advanced Common
+  components:
+  - type: Implanter
+    implant: TauCetiBasicTranslationChip
+
+# Gives ability to speak and understand SignLanguage
+- type: entity
+  id: SignTranslationChip
+  parent: BaseTranslatorBorgImplanter
+  suffix: Sign
+  components:
+  - type: Implanter
+    implant: SignLangTranslationChip

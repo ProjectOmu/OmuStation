@@ -1,0 +1,38 @@
+- type: entity
+  parent: BaseSubdermalImplant
+  id: BasicTauCetiBasicTranslationChip
+  name: basic common translation chip
+  description: Corrects damaged code by injecting a dictionary for the common galactic tongue.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: TauCetiBasicTranslationChip
+  name: advanced common translation chip
+  description: A more advanced version of the basic translation chip which corrects damaged code by injecting a dictionary for the common galactic tongue and repairing speech synthesis protocols.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - TauCetiBasic
+    spoken:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: SignLangTranslationChip
+  name: sign translation chip
+  description: A modular chip containing a sign language dictionary and a programming package which enables the projection of signs.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Sign
+    spoken:
+    - Sign
+    requires:
+    - TauCetiBasic
