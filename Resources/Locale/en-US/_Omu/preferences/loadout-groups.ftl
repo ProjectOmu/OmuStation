@@ -6,6 +6,12 @@ loadout-group-admin-assistant-envirohelm = Administrative Assistant envirohelm
 loadout-group-admin-assistant-envirosuit = Administrative Assistant envirosuit
 loadout-group-admin-assistant-envirogloves = Administrative Assistant envirogloves
 
+# BSO
+loadout-group-bso-eyewear = Blueshield Officer eyewear
+
+# Security
+loadout-group-security-eyewear = Security eyewear
+
 # Transit Prisoner
 loadout-group-prisoner-jumpsuits = Prisoner jumpsuit
 loadout-group-prisoner-outer-clothing = Prisoner outer clothing

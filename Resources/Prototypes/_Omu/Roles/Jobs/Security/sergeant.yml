@@ -18,6 +18,7 @@
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
       time: 180000 #50 hrs
+  weight: 1
   startingGear: SecuritySergeantGear
   icon: "JobIconSecuritySergeant"
   supervisors: job-supervisors-hos
@@ -64,7 +65,8 @@
 - type: startingGear
   id: SecuritySergeantGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
+    id: SecuritySergeantPDA
+    #eyes: ClothingEyesGlassesSecurity #Omu, glasses options in loadout
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     #pocket1: OfficerGunCase #Omu, item in loadout instead
   storage:

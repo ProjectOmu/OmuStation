@@ -5,14 +5,15 @@
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
     state: direggtor
   jobName: job-name-centcomm-direggtor
+  allowSelection: false
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconSecuritySergeant
+  id: JobIconLogisticsAssistant
   icon:
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
-    state: securitysergeant
-  jobName: job-name-security-sergeant
+    state: LogisticsAssistant
+  jobName: job-name-logistics-assistant
 
 - type: jobIcon
   parent: JobIcon
@@ -77,6 +78,7 @@
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
     state: deathsquad
   jobName: job-name-deathsquad
+  allowSelection: false
 
 - type: jobIcon
   parent: JobIcon
@@ -93,3 +95,114 @@
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
     state: custodii
   jobName: job-name-centcomm-guard
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCHOP
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: cchop
+  jobName: job-name-centcomm-hop
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCInternalAffairsEye
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: ia_eye
+  jobName: job-name-internal-affairs
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCInternalAffairsText
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: ia_text
+  jobName: job-name-internal-affairs
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCJudicialAffairs
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: judicialaffairs
+  jobName: job-name-judicial-affairs
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCToiletPaper
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: toiletpaper
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCSadFace
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: sadface
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCMiddleFinger
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: middlefinger
+  allowSelection: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCInspector
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: inspector
+  allowSelection: false
+
+# Mentor Roles
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSecuritySergeant
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: securitysergeant
+  jobName: job-name-security-sergeant
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMedicalMedicus
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: medicalmedicus
+  jobName: job-name-medical-medicus
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconEngineeringForeman
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: engineeringforeman
+  jobName: job-name-engineering-foreman
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCargoBosun
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: cargobosun
+  jobName: job-name-cargo-bosun
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconScienceProfessor
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: scienceprofessor
+  jobName: job-name-science-professor
