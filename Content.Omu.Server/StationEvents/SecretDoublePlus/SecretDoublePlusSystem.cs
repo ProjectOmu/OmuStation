@@ -91,14 +91,15 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
         scheduler.ChaosChangeVariation = MathHelper.Lerp(1f, bias, variationRoll);
         LogMessage($"Using chaos change multiplier of {scheduler.ChaosChangeVariation}");
 
-        // Spawn roundstart antags
-        LogMessage($"Initial chaos score: {scheduler.ChaosScore} (based on {totalPlayers} total players)");
-        TrySpawnRoundstartAntags(scheduler);
-
+        // Setup chaos factors
         foreach (var factor in scheduler.ChaosFactors)
         {
             factor.Initialize();
         }
+
+        // Spawn roundstart antags
+        LogMessage($"Initial chaos score: {scheduler.ChaosScore} (based on {totalPlayers} total players)");
+        TrySpawnRoundstartAntags(scheduler);
     }
 
     protected override void ActiveTick(EntityUid uid, SecretDoublePlusComponent scheduler, GameRuleComponent gameRule, float frameTime)
@@ -263,10 +264,13 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
 
         // If we have SelectedGameRules we take an intersect of those and the available events
         var possibleEvents = available;
-
-        TryComp<SelectedGameRulesComponent>(uid, out var selectedRules); // Intentionally hoisted for readability
-        if (selectedRules != null && _event.TryBuildLimitedEvents(selectedRules.ScheduledGameRules, available, out var limitedEvents))
-            possibleEvents = limitedEvents;
+        if (TryComp<SelectedGameRulesComponent>(uid, out var selectedRules))
+        {
+            if (_event.TryBuildLimitedEvents(selectedRules.ScheduledGameRules, available, out var limitedEvents))
+                possibleEvents = limitedEvents;
+            else
+                _sawmill.Error("SelectedRules was found but TryBuildLimitedEvents failed, falling back to all events");
+        }
 
         // Construct the final list of Selected Events
         var result = new List<SelectedEvent>();
@@ -288,12 +292,16 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
 
     private Dictionary<SelectedEvent, float> BuildChaosWeightedDict(SecretDoublePlusComponent scheduler, List<SelectedEvent> events, float targetChaos)
     {
-        var adjustedWeights = new Dictionary<SelectedEvent, float>();
         if (targetChaos == 0)
-            return adjustedWeights;
+            return new Dictionary<SelectedEvent, float>();
 
+        var adjustedWeights = new Dictionary<SelectedEvent, float>();
         foreach (var selected in events)
         {
+            // Negative weights crash the pick function
+            if (selected.Weight < 0)
+                continue;
+
             // We adjust each event's weight down by checking how far away from the target score it is
             var ratio = MathF.Abs(selected.ChaosScore / targetChaos);
             var rawFitScore = MathF.Min(ratio, 1 / ratio);
@@ -309,7 +317,29 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
             adjustedWeights[selected] = selected.Weight * fitScore;
         }
 
+        if (!ValidateChaosWeightedDict(adjustedWeights, targetChaos))
+            return new Dictionary<SelectedEvent, float>();
+
         return adjustedWeights;
+    }
+
+    private bool ValidateChaosWeightedDict(Dictionary<SelectedEvent, float> weights, float targetChaos)
+    {
+        var weightCount = weights.Count;
+        if (weightCount == 0)
+            return true;
+
+        var weightSum = weights.Values.Sum();
+        if (weightSum > 0)
+            return true;
+
+        _sawmill.Warning($"Chaos Weighted Dict Returned Negative or Zero sum, skipping. " +
+                         $"target_chaos: {targetChaos} " +
+                         $"weight_sum: {weightSum} " +
+                         $"weight_count: {weightCount}"
+        );
+
+        return false;
     }
 
     private float GetChaosScore(EntityPrototype ruleProto, GameRuleComponent ruleComp)

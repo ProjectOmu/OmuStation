@@ -59,5 +59,5 @@ public sealed partial class OmuCVars
     ///     Used by SecretDoublePlus.
     /// </summary>
     public static readonly CVarDef<bool> VerboseGameDirectorChatLogs =
-        CVarDef.Create("omu.verbose_game_director_chat_logs", false, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("omu.verbose_game_director_chat_logs", false, CVar.SERVER | CVar.SERVERONLY);
 }

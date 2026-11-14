@@ -183,5 +183,5 @@ public sealed partial class SecretDoublePlusComponent : Component
     ///   List of chaos factors used when calculating change in chaos every tick.
     /// </summary>
     [DataField]
-    public List<ChaosFactor> ChaosFactors;
+    public List<ChaosFactor> ChaosFactors = new();
 }

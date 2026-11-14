@@ -20,7 +20,10 @@ public abstract partial class ChaosFactor
     public float CalculateTimeAdjustedChaos(ChaosContext context)
     {
         var curTime = _timing.CurTime;
-        if (_lastRun != TimeSpan.Zero && curTime.Subtract(_lastRun) < Interval)
+        if (_lastRun == TimeSpan.Zero)
+            _lastRun = curTime;
+
+        if (curTime.Subtract(_lastRun) < Interval)
             return 0;
 
         var elapsed = context.FrameTime;

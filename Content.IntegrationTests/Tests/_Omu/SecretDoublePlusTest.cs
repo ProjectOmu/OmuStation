@@ -67,7 +67,7 @@ public sealed class SecretDoublePlusTest
                         {
                             any = selection.Definitions.Any(def => def.ChaosScore != null);
                             if (any)
-                                Assert.That(selection.Definitions.All(def => def.ChaosScore != null), Is.True, $"Gamerule {id} is fireable by {proto.ID}, but only some of its antag selection definitions have a choas score!");
+                                Assert.That(selection.Definitions.All(def => def.ChaosScore != null), Is.True, $"Gamerule {id} is fireable by {proto.ID}, but only some of its antag selection definitions have a chaos score!");
                         }
 
                         // allow null chaos score if we have non-null chaos score on antag selections

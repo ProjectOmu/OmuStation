@@ -94,7 +94,7 @@ public sealed partial class AntagAmbientFactor : ChaosFactor
             var delta = ambient.Rates.Chaos * GetTimeDecayMultiplier(ambient.Rates, firstSeen, curTime);
 
             var sign = delta < 0 ? SecretDoublePlusMetrics.Negative : SecretDoublePlusMetrics.Positive;
-            SecretDoublePlusMetrics.AntagAmbientChaos.WithLabels(sign, role.Prototype).Inc(MathF.Abs(delta));
+            SecretDoublePlusMetrics.AntagAmbientChaos.WithLabels(sign, role.Prototype).Inc(MathF.Abs(delta) * Interval.TotalSeconds);
 
             chaos += delta;
         }
@@ -114,7 +114,7 @@ public sealed partial class AntagAmbientFactor : ChaosFactor
             var delta = ambient.Rates.Chaos * GetTimeDecayMultiplier(ambient.Rates, firstSeen, curTime);
 
             var sign = delta < 0 ? SecretDoublePlusMetrics.Negative : SecretDoublePlusMetrics.Positive;
-            SecretDoublePlusMetrics.AntagAmbientChaos.WithLabels(sign, component.GetType().Name).Inc(MathF.Abs(delta));
+            SecretDoublePlusMetrics.AntagAmbientChaos.WithLabels(sign, component.GetType().Name).Inc(MathF.Abs(delta) * Interval.TotalSeconds);
 
             chaos += delta;
         }
