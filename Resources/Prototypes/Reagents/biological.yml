@@ -19,17 +19,21 @@
   metabolisms:
     Drink:
       effects:
-      - !type:SatiateThirst
-        factor: 1.0
+      - !type:SatiateThirst #omu start
+        factor: 1.5
         conditions:
           - !type:MetabolizerTypeCondition
-            type: [ Human ]
-            inverted: true
-    Food:
-      effects:
-        - !type:AdjustReagent
-          reagent: UncookedAnimalProteins
-          amount: 0.1
+            type: [ Vampire ]
+      - !type:SatiateHunger
+        factor: 1.5
+        conditions:
+          - !type:MetabolizerTypeCondition
+            type: [ Vampire ]
+    #Food:  # omu
+    #  effects:
+    #    - !type:AdjustReagent
+    #      reagent: UncookedAnimalProteins
+    #      amount: 0.1 #omu end
     Medicine:
       effects:
       - !type:HealthChange

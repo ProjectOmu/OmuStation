@@ -9,6 +9,12 @@ using Robust.Shared.Audio;
 using Content.Server.Roles.Jobs;
 using Content.Server.Mind;
 using Content.Server.Hands.Systems;
+using Content.Shared.Body.Systems;
+using Content.Shared.Body.Components;
+using Content.Shared.Tag;
+using Content.Server.Body.Components;
+using Content.Shared.Body.Prototypes;
+using Content.Shared.Whitelist;
 
 namespace Content.Server._Omu.Traits;
 
@@ -16,7 +22,7 @@ namespace Content.Server._Omu.Traits;
 ///     Used for traits that remove a component upon a player spawning in.
 /// </summary>
 /// <remarks>
-///     taken from EE. 
+///     taken from EE.
 /// </remarks>
 public sealed partial class TraitRemoveComponent : TraitFunction
 {
@@ -34,7 +40,7 @@ public sealed partial class TraitRemoveComponent : TraitFunction
 }
 
 /// <remarks>
-///     taken from EE. 
+///     taken from EE.
 /// </remarks>
 public sealed partial class TraitModifyDensity : TraitFunction
 {
@@ -65,7 +71,7 @@ public sealed partial class TraitModifyDensity : TraitFunction
 ///     Used for traits that modify unarmed damage on MeleeWeaponComponent.
 /// </summary>
 /// <remarks>
-///     taken from EE. 
+///     taken from EE.
 /// </remarks>
 public sealed partial class TraitModifyUnarmed : TraitFunction
 {
@@ -145,7 +151,7 @@ public sealed partial class TraitModifyUnarmed : TraitFunction
 }
 
 /// <summary>
-///     Gives the specified equipment to the player on spawn if they have the specified jobs. 
+///     Gives the specified equipment to the player on spawn if they have the specified jobs.
 /// </summary>
 /// <remarks>
 ///     Made for Cybernetic Beasts, in order to give work mantles to players with jobs that may require them round-start.
@@ -204,6 +210,44 @@ public sealed partial class TraitGiveEquipmentIfHasJobs : TraitFunction
             }
 
             _handsSystem.PickupOrDrop(uid, equipment);
+        }
+    }
+}
+
+/// <summary>
+/// Applies the vampiric trait by modifying the player's stomach type.
+/// </summary>
+/// <remarks>
+/// This will override the MetabolizerTypes and SpecialDigestible settings on the player's stomach, allowing for it to keep species-unique organs.
+/// </remarks>
+public sealed partial class TraitVampire : TraitFunction
+{
+    private SharedBodySystem? _bodySystem;
+    public override void OnPlayerSpawn(
+        EntityUid mob,
+        IComponentFactory factory,
+        IEntityManager entityManager,
+        ISerializationManager serializationManager)
+    {
+        _bodySystem = entityManager.SystemOrNull<SharedBodySystem>();
+
+        if (_bodySystem == null || !_bodySystem.TryGetBodyOrganEntityComps<StomachComponent>(mob, out var stomachs))
+            return;
+
+        //TryGetBodyOrganEntityComps returns a list of organs. There should only be one but we iterate over it to be safe.
+        foreach (var ent in stomachs)
+        {
+            if (!entityManager.TryGetComponent<MetabolizerComponent>(ent, out var metabolizerComp))
+                return;
+
+            var stomachComp = entityManager.GetComponent<StomachComponent>(ent);
+
+            stomachComp.IsSpecialDigestibleExclusive = true;
+            stomachComp.SpecialDigestible = new EntityWhitelist { Tags = new() { "Bloodpack", "Pill" } };
+
+            metabolizerComp.MetabolizerTypes = new() { "Vampire" };
+
+            entityManager.Dirty(ent, stomachComp);
         }
     }
 }

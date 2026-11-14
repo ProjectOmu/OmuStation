@@ -256,6 +256,20 @@
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
   - type: StackPrice
     price: 10
+    #omu start
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: FlavorProfile
+    flavors:
+    - blood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Blood
+          Quantity: 10
+    #omu end
 
 - type: entity
   parent: Bloodpack
