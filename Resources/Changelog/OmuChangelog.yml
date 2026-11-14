@@ -10144,3 +10144,16 @@ Entries:
       message: MMIs can no longer be inserted into MMIs.
   id: 1303
   time: '2026-11-14T18:18:56.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        various melees including glass shard, dispatcher's spear and all
+        derivatives of the armblade now use the bladeslice sound and not the
+        weakattack sound.
+    - type: Tweak
+      message: >-
+        The vacuous lance should no longer get stuck in walls players when
+        thrown
+  id: 1304
+  time: '2026-11-14T20:31:33.0000000+00:00'
