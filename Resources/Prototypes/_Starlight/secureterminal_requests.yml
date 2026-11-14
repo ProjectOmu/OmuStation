@@ -21,11 +21,11 @@
   oneTimeUse: true
   sortOrder: 35
   authGroups:
-    - [Captain, HeadOfSecurity]
-    - [Captain, HeadOfSecurity]
+    - [Captain, NanotrasenRepresentative, HeadOfSecurity] # Omu, allow NTR
+    - [Captain, NanotrasenRepresentative, HeadOfSecurity] # Omu, allow NTR
   authGroupLabels:
-    - "Captain / HoS (1)"
-    - "Captain / HoS (2)"
+    - "Captain / NTR / HoS (1)" # Omu, allow NTR
+    - "Captain / NTR / HoS (2)" # Omu, allow NTR
   cooldownSecs: 3600
 
 # ── ERT Security ─────────────────────────────────────────────────────────────
@@ -46,11 +46,11 @@
   oneTimeUse: true
   sortOrder: 40
   authGroups:
-    - [Captain, HeadOfSecurity]
-    - [Captain, HeadOfSecurity]
+    - [Captain, NanotrasenRepresentative, HeadOfSecurity] # Omu, allow NTR
+    - [Captain, NanotrasenRepresentative, HeadOfSecurity] # Omu, allow NTR
   authGroupLabels:
-    - "Captain / HoS (1)"
-    - "Captain / HoS (2)"
+    - "Captain / NTR / HoS (1)" # Omu, allow NTR
+    - "Captain / NTR / HoS (2)" # Omu, allow NTR
   cooldownSecs: 3600
   authTimer: 30
 
@@ -70,11 +70,11 @@
   oneTimeUse: true
   sortOrder: 50
   authGroups:
-    - [Captain, ChiefEngineer]
-    - [Captain, ChiefEngineer]
+    - [Captain, NanotrasenRepresentative, ChiefEngineer] # Omu, allow NTR
+    - [Captain, NanotrasenRepresentative, ChiefEngineer] # Omu, allow NTR
   authGroupLabels:
-    - "Captain / CE (1)"
-    - "Captain / CE (2)"
+    - "Captain / NTR / CE (1)" # Omu, allow NTR
+    - "Captain / NTR / CE (2)" # Omu, allow NTR
   cooldownSecs: 3600
   authTimer: 30
 
@@ -94,11 +94,11 @@
   oneTimeUse: true
   sortOrder: 60
   authGroups:
-    - [Captain, ChiefMedicalOfficer]
-    - [Captain, ChiefMedicalOfficer]
+    - [Captain, NanotrasenRepresentative, ChiefMedicalOfficer] # Omu, allow NTR
+    - [Captain, NanotrasenRepresentative, ChiefMedicalOfficer] # Omu, allow NTR
   authGroupLabels:
-    - "Captain / CMO (1)"
-    - "Captain / CMO (2)"
+    - "Captain / NTR / CMO (1)" # Omu, allow NTR
+    - "Captain / NTR / CMO (2)" # Omu, allow NTR
   cooldownSecs: 3600
   authTimer: 30
 
@@ -118,11 +118,11 @@
   oneTimeUse: true
   sortOrder: 70
   authGroups:
-    - [Captain, HeadOfPersonnel]
-    - [Captain, HeadOfPersonnel]
+    - [Captain, NanotrasenRepresentative, HeadOfPersonnel] # Omu, allow NTR
+    - [Captain, NanotrasenRepresentative, HeadOfPersonnel] # Omu, allow NTR
   authGroupLabels:
-    - "Captain / HoP (1)"
-    - "Captain / HoP (2)"
+    - "Captain / NTR / HoP (1)" # Omu, allow NTR
+    - "Captain / NTR / HoP (2)" # Omu, allow NTR
   cooldownSecs: 3600
   authTimer: 30
 
@@ -168,13 +168,13 @@
   requiresAlertLevel: violet
   sortOrder: 90
   authGroups:
-    - [Captain, HeadOfSecurity, ChiefMedicalOfficer, ResearchDirector]
-    - [Captain, HeadOfSecurity, ChiefMedicalOfficer, ResearchDirector]
-    - [Captain, HeadOfSecurity, ChiefMedicalOfficer, ResearchDirector]
+    - [Captain, NanotrasenRepresentative, HeadOfSecurity, ChiefMedicalOfficer, ResearchDirector] # Omu, allow NTR
+    - [Captain, NanotrasenRepresentative, HeadOfSecurity, ChiefMedicalOfficer, ResearchDirector] # Omu, allow NTR
+    - [Captain, NanotrasenRepresentative, HeadOfSecurity, ChiefMedicalOfficer, ResearchDirector] # Omu, allow NTR
   authGroupLabels:
-    - "Captain / HoS / CMO / RD (1)"
-    - "Captain / HoS / CMO / RD (2)"
-    - "Captain / HoS / CMO / RD (3)"
+    - "Captain / NTR / HoS / CMO / RD (1)" # Omu, allow NTR
+    - "Captain / NTR / HoS / CMO / RD (2)" # Omu, allow NTR
+    - "Captain / NTR / HoS / CMO / RD (3)" # Omu, allow NTR
   cooldownSecs: 3600
   authTimer: 30
 
@@ -386,11 +386,11 @@
   armoryKey: medical
   sortOrder: 30
   authGroups:
-    - [Captain, ChiefMedicalOfficer]
-    - [Captain, ChiefMedicalOfficer]
+    - [Captain, NanotrasenRepresentative, ChiefMedicalOfficer] # Omu, allow NTR
+    - [Captain, NanotrasenRepresentative, ChiefMedicalOfficer] # Omu, allow NTR
   authGroupLabels:
-    - "Captain / CMO (1)"
-    - "Captain / CMO (2)"
+    - "Captain / NTR / CMO (1)" # Omu, allow NTR
+    - "Captain / NTR / CMO (2)" # Omu, allow NTR
   cooldownSecs: 3600
   authTimer: 30
 
