@@ -1,0 +1,19 @@
+<!--
+whitespace-enforcing comment
+-->
+<Document>
+
+  # Anti-Rotting Medications
+
+  These medications combat rotting. Make sure to revive the patient the moment they are fresh enough to revive!
+
+  Formaldehyde prevents rotting from occurring and may even slowly freshen patients if the body is already preserved.
+  <GuideReagentEmbed Reagent="Formaldehyde"/>
+
+  Opporozidone requires [textlink="Cryogenics" link="Cryogenics"] to function.
+  <GuideReagentEmbed Reagent="Opporozidone"/>
+
+  Genecide is a hard-to-make chemical that removes rot exceedingly effectively but at the cost of causing the patient to repeatedly explode. Keep them away from anything important.
+  <GuideReagentEmbed Reagent="Genecide"/>
+
+</Document>
