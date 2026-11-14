@@ -1,0 +1,36 @@
+- type: startingGear
+  id: ERTChaplainGearStarlightEVA
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTChaplain
+    back: ClothingBackpackERTChaplain
+    shoes: ClothingShoesBootsMagEmergencyResponseTeam # Omu
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesCentCommNoThermal # Omu
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitERTChaplain
+    id: ERTChaplainPDA
+    ears: ClothingHeadsetCentCom
+    belt: ChainsawSword
+    neck: ClothingNeckStoleChaplain
+    pocket2: WeaponPistolMk58 # Omu
+  storage:
+    back:
+    - JugWater
+    - JugWater
+    - MedkitCombatFilled
+    - CosmicCenser
+    - WeaponDisablerSMG
+    - Handcuffs
+    - BibleNanoTrasen
+    - BodyBagFolded
+    - MagazinePistol # Omu
+    - DeviceDesynchronizer
+
+- type: startingGear
+  parent: ERTChaplainGearStarlightEVA
+  id: ERTChaplainGearStarlight
+  equipment:
+    shoes: ClothingShoesBootsJackFilled
+    head: ClothingHeadHatFez
+    neck: ClothingNeckStoleChaplain
+    outerClothing: ClothingOuterVestWebEliteCentcomm

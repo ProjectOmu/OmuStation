@@ -59,6 +59,8 @@
         type: SolarControlConsoleBoundUserInterface
       enum.CommunicationsConsoleUiKey.Key:
         type: CommunicationsConsoleBoundUserInterface
+      enum.SecureCommandTerminalUiKey.Key: # STARLIGHT
+        type: SecureCommandTerminalBui
       enum.RadarConsoleUiKey.Key:
         type: RadarConsoleBoundUserInterface
       enum.CargoConsoleUiKey.Orders:
@@ -89,6 +91,8 @@
     delay: 10
     initialDelay: 0
     global: true
+  - type: SecureCommandTerminalConsole
+    admin: true
   - type: RadarConsole
     followEntity: true
   - type: CargoOrderConsole
