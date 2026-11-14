@@ -97,3 +97,18 @@
     icon: { sprite: Structures/Furniture/folding_chair.rsi, state: folding_folded }
   - type: InstantAction
     event: !type:SummonSteelChairActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionBorgPlayMidi
+  name: Play MIDI
+  description: Open your built-in digital audio workstation.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    raiseOnUser: true
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: musical-module }
+  - type: InstantAction
+    event: !type:OpenUiActionEvent
+      key: enum.InstrumentUiKey.Key
