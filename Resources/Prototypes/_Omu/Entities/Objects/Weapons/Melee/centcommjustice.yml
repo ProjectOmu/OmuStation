@@ -1,0 +1,211 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [BaseItem, BaseCentcommContraband]
+  id: CentCommJustice
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
+    state: Disabled-icon
+  - type: Item
+    heldPrefix: Disabled
+    size: Ginormous
+  - type: Battery
+    maxCharge: 1500
+    startingCharge: 1500
+  - type: BatterySelfRecharger
+    autoRechargeRate: 100
+    autoRechargePauseTime: 30
+  - type: DisarmMalus
+    malus: 0
+  - type: Tag
+    tags:
+    - CCSabre
+  - type: RestrictById
+    restrictMelee: true
+    isEmaggable: false
+  - type: AccessReader
+    access: [['CentralCommand']]
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 30
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    angle: 60
+    animation: WeaponArcThrust
+  - type: ItemSwitch
+    needsPower: true
+    defaultState: Disabled
+    state: "Disabled"
+    showLabel: true
+    noChargeMessage: ent-CentCommJustice-NoCharge
+    states:
+      Disabled: !type:ItemSwitchState
+        verb: Disabled
+        energyPerUse: 0
+        sprite:
+          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
+          state: Disabled-icon
+          inhandVisuals:
+            left:
+              - state: Disabled-inhand-left
+            right:
+              - state: Disabled-inhand-right
+        components:
+        - type: MeleeWeapon
+          wideAnimationRotation: -135
+          attackRate: 1.5
+          damage:
+            types:
+              Slash: 30
+          soundHit:
+            path: /Audio/Weapons/bladeslice.ogg
+          angle: 60
+          animation: WeaponArcThrust
+      Suppression: !type:ItemSwitchState
+        verb: Suppression
+        energyPerUse: 48
+        sprite:
+          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
+          state: Suppression-icon
+          inhandVisuals:
+            left:
+              - state: Suppression-inhand-left
+            right:
+              - state: Suppression-inhand-right
+        components:
+        - type: MeleeWeapon
+          wideAnimationRotation: -135
+          attackRate: 1.5
+          damage:
+            types:
+              Shock: 0
+          angle: 60
+          animation: WeaponArcThrust
+          soundHit:
+            path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
+        - type: StaminaDamageOnHit
+          damage: 25
+          overtime: 25
+          lightAttackDamageMultiplier: 2
+          lightAttackOvertimeDamageMultiplier: 1
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.250
+      Surge: !type:ItemSwitchState
+        verb: Surge
+        energyPerUse: 65
+        sprite:
+          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
+          state: Surge-icon
+          inhandVisuals:
+            left:
+              - state: Surge-inhand-left
+            right:
+              - state: Surge-inhand-right
+        components:
+        - type: MeleeWeapon
+          wideAnimationRotation: -135
+          attackRate: 1.5
+          damage:
+            types:
+              Ion: 24
+              Shock: 3
+          angle: 60
+          animation: WeaponArcThrust
+          soundHit:
+            path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.250
+      Phoron: !type:ItemSwitchState
+        verb: Phoron
+        energyPerUse: 80
+        sprite:
+          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
+          state: Phoron-icon
+          inhandVisuals:
+            left:
+              - state: Phoron-inhand-left
+            right:
+              - state: Phoron-inhand-right
+        components:
+        - type: AmbientSound
+          range: 5
+          volume: 0
+          sound:
+            path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyhum.ogg
+        - type: MeleeWeapon
+          wideAnimationRotation: -135
+          attackRate: 1
+          damage:
+            types:
+              Slash: 30
+              Heat: 35
+              Radiation: 10
+              Structural: 80
+          angle: 60
+          animation: WeaponArcThrust
+          soundHit:
+            path: /Audio/Weapons/eblade1.ogg
+        - type: PointLight
+          enabled: true
+          radius: 3
+          energy: 2
+          color: "#ffffff"
+        - type: Reflect
+          reflectProb: 0.75
+          reflects:
+            - Energy
+        soundStateActivate:
+          path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+          params:
+            variation: 0.250
+      Supermatter: !type:ItemSwitchState
+        verb: Supermatter
+        energyPerUse: 999 # Also don't remove its energy usage I will cry
+        sprite:
+          sprite: _Omu/Objects/Weapons/Melee/centcommjustice.rsi
+          state: Supermatter-icon
+          inhandVisuals:
+            left:
+              - state: Supermatter-inhand-left
+            right:
+              - state: Supermatter-inhand-right
+        components:
+        - type: AmbientSound
+          range: 5
+          volume: 0
+          sound:
+            path: /Audio/_Goobstation/Supermatter/calm.ogg
+        - type: SmiteOnMeleeHit # Due to the nature of how I coded SmiteOnMeleeHit, please don't add it to ANY other items, it will be unbalanced as all hell and could very easily be used to destroy an entire station in a matter of minutes.  All of the restraints that prevent this from being an immensely overpowered station destruction tool are done on the yml side.
+        - type: MeleeWeapon
+          wideAnimationRotation: -135
+          canWideSwing: false # Also do not fucking add wideswing to this shit holy fuck
+          attackRate: 0.5 # Also don't up the attack rate
+          animation: WeaponArcThrust
+          damage:
+            types:
+              Heat: 10000
+              Slash: 10000
+            armorPenetration: 1
+          soundHit:
+              path: /Audio/_Goobstation/Wizard/supermatter.ogg
+        - type: PointLight
+          enabled: true
+          radius: 5
+          energy: 3
+          color: "#ffe000"
+        - type: SupermatterImmune
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.250

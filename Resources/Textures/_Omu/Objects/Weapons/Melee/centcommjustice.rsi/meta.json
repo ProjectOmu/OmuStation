@@ -1,0 +1,311 @@
+{
+    "version": 1,
+    "copyright": "Sprited by LunaTheFox, using sprites from Taro Varne, RedTerror, and Conflee",
+    "license": "CC-BY-SA-3.0",
+    "size": {
+        "x": 64,
+        "y": 64
+    },
+    "states": [
+		{
+            "name": "Disabled-icon"
+        },
+		{
+            "name": "Suppression-icon",
+            "delays": [
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ]
+            ]
+        },
+		{
+            "name": "Surge-icon",
+            "delays": [
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ]
+            ]
+        },
+		{
+            "name": "Phoron-icon",
+            "delays": [
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ]
+            ]
+        },
+		{
+            "name": "Supermatter-icon",
+            "delays": [
+              [
+                0.08,
+                0.08,
+                0.08
+              ]
+            ]
+        },
+		{
+            "name": "Disabled-inhand-left",
+			"directions": 4
+        },
+		{
+            "name": "Disabled-inhand-right",
+			"directions": 4
+        },
+		{
+            "name": "Suppression-inhand-left",
+			"directions": 4,
+            "delays": [
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ]
+            ]
+        },
+		{
+            "name": "Suppression-inhand-right",
+			"directions": 4,
+            "delays": [
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ]
+            ]
+        },
+		{
+            "name": "Surge-inhand-left",
+			"directions": 4,
+            "delays": [
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ]
+            ]
+        },
+		{
+            "name": "Surge-inhand-right",
+			"directions": 4,
+            "delays": [
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ]
+            ]
+        },
+		{
+            "name": "Phoron-inhand-left",
+			"directions": 4,
+            "delays": [
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ]
+            ]
+        },
+		{
+            "name": "Phoron-inhand-right",
+			"directions": 4,
+            "delays": [
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ]
+            ]
+        },
+		{
+            "name": "Supermatter-inhand-left",
+			"directions": 4,
+            "delays": [
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ]
+            ]
+        },
+		{
+            "name": "Supermatter-inhand-right",
+			"directions": 4,
+            "delays": [
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ],
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ]
+            ]
+        }
+    ]
+}
