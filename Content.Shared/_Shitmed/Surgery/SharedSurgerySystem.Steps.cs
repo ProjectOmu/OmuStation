@@ -720,6 +720,9 @@ public abstract partial class SharedSurgerySystem
             && _inventory.TryGetSlotEntity(args.User, "mask", out var _))
             return;
 
+        if (_inventory.TryGetSlotEntity(args.User, "gloves", out var _) && TryComp<SanitizedComponent>(args.User, out var san) && san.RequiresGloves) //omu - ipcs dont need a mask to do surgery (but still need a mask)
+            return;
+
         var sepsisEv = new SurgerySanitizationEvent();
         RaiseLocalEvent(args.User, sepsisEv);
         if (sepsisEv.Handled)
