@@ -90,11 +90,10 @@ public sealed class FascinationSystem : EntitySystem
 
     private void OnMobStateChanged(Entity<FascinationComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead)
-        {
-            RemComp<MansusMaddenedComponent>(ent);
-            RemComp<FascinationComponent>(ent);
-            RemComp<SeeHereticFixturesComponent>(ent);
-        }
+        if (args.NewMobState != MobState.Dead)
+            return;
+        RemComp<MansusMaddenedComponent>(ent);
+        RemComp<FascinationComponent>(ent);
+        RemComp<SeeHereticFixturesComponent>(ent);
     }
 }

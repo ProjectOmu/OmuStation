@@ -36,12 +36,10 @@ public sealed class SharedMansusMobSystem : EntitySystem
     {
         foreach (var hit in args.HitEntities)
         {
-            if (!HasComp<MansusMaddenedComponent>(hit))
-            {
-                _popup.PopupPredicted(Loc.GetString("mansus-mob-miss-hit"), ent, ent, PopupType.SmallCaution);
-                args.Handled = true;
+            if (HasComp<MansusMaddenedComponent>(hit))
                 continue;
-            }
+            _popup.PopupPredicted(Loc.GetString("mansus-mob-miss-hit"), ent, ent, PopupType.SmallCaution);
+            args.Handled = true;
         }
     }
 
@@ -74,7 +72,7 @@ public sealed class SharedMansusMobSystem : EntitySystem
         {
             // Find random madness inflicted player
             var query = EntityQueryEnumerator<MansusMaddenedComponent>();
-            while (query.MoveNext(out var uid, out var maddened))
+            while (query.MoveNext(out var uid, out _))
             {
                 players.Add(uid);
             }

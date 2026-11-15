@@ -13,7 +13,6 @@ using Content.Shared.Database;
 using Content.Shared.Mobs;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Random.Helpers;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -53,16 +52,15 @@ public sealed class MansusMobSystem : EntitySystem
 
             // If tracking, check if tracked entity is still valid
             if (seek.Tracking && !HasComp<MansusMaddenedComponent>(seek.TrackedId))
-            {
                 seek.Tracking = false;
-            }
+
 
             // If not tracking, check for another maddened player
             if (!seek.Tracking)
             {
                 List<EntityUid> maddenedPlayers = new();
                 using var madQuery = EntityQueryEnumerator<MansusMaddenedComponent>();
-                while (madQuery.MoveNext(out var madUid, out var fascination))
+                while (madQuery.MoveNext(out var madUid, out _))
                 {
                     maddenedPlayers.Add(madUid);
                 }
@@ -72,59 +70,58 @@ public sealed class MansusMobSystem : EntitySystem
                     seek.TrackedId = _random.Pick(maddenedPlayers);
                 }
             }
-            if (seek.NextSeek < _timing.CurTime || seek.NextSeek == null)
+            if (seek.NextSeek > _timing.CurTime)
+                continue;
+
+            // Only update non-player entities
+            if (seek.Tracking)
             {
-                // Only update non-player entities
-                if (seek.Tracking)
-                {
-                    if (!HasComp<ActorComponent>(uid))
-                    {
-                        var trackedCoords = Transform(seek.TrackedId).Coordinates;
-                        _npc.SetBlackboard(uid, "CallTarget", trackedCoords);
-                        seek.NextSeek = _timing.CurTime + TimeSpan.FromSeconds(seek.SeekCooldown);
-                    }
-                }
-                else
-                {
-                    _popup.PopupEntity(Loc.GetString("mansus-mob-no-player-damage"), uid, uid, PopupType.SmallCaution);
-                    var dmg = new DamageSpecifier()
-                    {
-                        DamageDict =
-                        {
-                            { "Blunt", seek.PassiveDamage }
-                        }
-                    };
-                    _damage.TryChangeDamage(uid, dmg, true, false, targetPart: TargetBodyPart.All);
-                    seek.NextSeek = _timing.CurTime + TimeSpan.FromSeconds(seek.PassiveDamageCooldown);
-                }
+                if (HasComp<ActorComponent>(uid))
+                    continue;
+                var trackedCoords = Transform(seek.TrackedId).Coordinates;
+                _npc.SetBlackboard(uid, "CallTarget", trackedCoords);
+                seek.NextSeek = _timing.CurTime + TimeSpan.FromSeconds(seek.SeekCooldown);
             }
+            else
+            {
+                _popup.PopupEntity(Loc.GetString("mansus-mob-no-player-damage"), uid, uid, PopupType.SmallCaution);
+                var dmg = new DamageSpecifier()
+                {
+                    DamageDict =
+                    {
+                        { "Blunt", seek.PassiveDamage }
+                    }
+                };
+                _damage.TryChangeDamage(uid, dmg, true, false, targetPart: TargetBodyPart.All);
+                seek.NextSeek = _timing.CurTime + TimeSpan.FromSeconds(seek.PassiveDamageCooldown);
+            }
+
         }
     }
 
     private void OnMobStateChanged(EntityUid uid, MansusMobComponent component, MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead)
+        if (args.NewMobState != MobState.Dead)
+            return;
+        var noMaidens = true;
+        using var seekQuery = EntityQueryEnumerator<MansusMobComponent>();
+        while (seekQuery.MoveNext(out var seekUid, out _))
         {
-            bool noMaidens = true;
-            using var seekQuery = EntityQueryEnumerator<MansusMobComponent>();
-            while (seekQuery.MoveNext(out var seekUid, out var seek))
+            if (seekUid != uid)
             {
-                if (seekUid != uid)
-                {
-                    noMaidens = false;
-                    break;
-                }
+                noMaidens = false;
+                break;
             }
+        }
 
-            // Resupply the hunt if we are tracking madness
-            if (noMaidens)
+        // Resupply the hunt if we are tracking madness
+        if (noMaidens)
+        {
+            using var madQuery = EntityQueryEnumerator<MansusMaddenedComponent>();
+            while (madQuery.MoveNext(out _, out _))
             {
-                using var madQuery = EntityQueryEnumerator<MansusMaddenedComponent>();
-                while (madQuery.MoveNext(out var seekUid, out var fascination))
-                {
-                    _gameTicker.StartGameRule("MirrorMaidenSpawn", out var spawnEnt);
-                    break;
-                }
+                _gameTicker.StartGameRule("MirrorMaidenSpawn", out _);
+                break;
             }
         }
     }
@@ -153,7 +150,7 @@ public sealed class MansusMobSystem : EntitySystem
             }
         }
 
-        if (fascination.AlteredFaction != true)
+        if (!fascination.AlteredFaction)
         {
             fascination.AlteredFaction = true;
             var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(uid);    //Make them valid to the mirror maiden
@@ -174,17 +171,17 @@ public sealed class MansusMobSystem : EntitySystem
         if (!Resolve(uid, ref fascination))
             return;
 
-        if (fascination.Naturalsight == false && fascination.AlteredVision == true)
+        if (!fascination.Naturalsight && fascination.AlteredVision)
         {
             RemComp<SeeHereticFixturesComponent>(uid);
             fascination.AlteredVision = false;
         }
-        if (fascination.Naturalsight == true && fascination.NaturalHereticsight == false)
+        if (fascination.Naturalsight && !fascination.NaturalHereticsight)
         {
             if (TryComp<SeeHereticFixturesComponent>(uid, out var seefixtures))
                 seefixtures.SeeShifts = false;
         }
-        if (fascination.AlteredFaction == true)
+        if (fascination.AlteredFaction)
         {
             var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(uid);    //Make them un-valid to the mirror maiden
             userFactionIcons.FactionIcons.Remove(fascination.IconToAdd);
