@@ -39,6 +39,8 @@ public sealed class MartialArtsSystem : SharedMartialArtsSystem
     // Omu end
 
     private void OnPolymorphedMAK(Entity<MartialArtsKnowledgeComponent> ent, ref PolymorphedEvent args)
+        // => _polymorph.CopyPolymorphComponent<MartialArtsKnowledgeComponent>(ent, args.NewEntity); // Omu
+    // Omu start
     {
         if (HasComp<MartialArtsKnowledgeComponent>(args.NewEntity))
             return;
