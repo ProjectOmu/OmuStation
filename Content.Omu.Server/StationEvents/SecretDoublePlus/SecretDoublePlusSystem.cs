@@ -144,7 +144,7 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
         // determines how much chaos budget we should hold back for the next active tick
         var chaosDampening = 1f;
         if (scheduler.ChaosScore < 0)
-            chaosDampening -= _random.NextFloat(Math.Clamp(scheduler.SaveChaosBudgetRange, 0f, 1f));
+            chaosDampening = GetSavedChaosBudgetMultiplier(scheduler);
 
         var targetChaos = -scheduler.ChaosScore * chaosDampening;
 
@@ -166,7 +166,7 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
         // Build weight list for primary antag
         var primaryWeights = _prototypeManager.Index(scheduler.PrimaryAntagsWeightTable).Weights.ToDictionary();
         var primaryEvents = BuildSelectedEventsFromDict(primaryWeights);
-        var primaryTargetChaos = -scheduler.ChaosScore * scheduler.PrimaryAntagBudget;
+        var primaryTargetChaos = -scheduler.ChaosScore * GetSavedChaosBudgetMultiplier(scheduler);
 
         // Build weight for secondary round start antags
         var secondaryWeights = _prototypeManager.Index(scheduler.RoundStartAntagsWeightTable).Weights.ToDictionary();
@@ -175,7 +175,6 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
         // Add antags until we get above 0 chaos score
         const int iterationGuard = 50; // Cap our iteration count just in-case
         var primarySelected = false;
-        var antagsToPick = scheduler.RoundStartAntagCount;
         for (var i = 0; scheduler.ChaosScore < 0 && i < iterationGuard; i++)
         {
             var events = primaryEvents;
@@ -183,7 +182,7 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
             if (primarySelected)
             {
                 events = secondaryEvents;
-                targetChaos = -scheduler.ChaosScore / Math.Max(antagsToPick, 1);
+                targetChaos = -scheduler.ChaosScore * GetSavedChaosBudgetMultiplier(scheduler);
             }
 
             var weights = BuildChaosWeightedDict(scheduler, events, targetChaos);
@@ -209,7 +208,6 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
 
             StartRule(scheduler, pick);
             primarySelected = true;
-            antagsToPick--;
 
             // Since we only select a primary antag once, we only remove incompatible antags from the secondary list
             if (!scheduler.IgnoreIncompatible && _prototypeManager.TryIndex(pick.Proto.ID, out IncompatibleGameModesPrototype? incompatible))
@@ -317,6 +315,7 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
             adjustedWeights[selected] = selected.Weight * fitScore;
         }
 
+        LogWeightedDict(adjustedWeights);
         if (!ValidateChaosWeightedDict(adjustedWeights, targetChaos))
             return new Dictionary<SelectedEvent, float>();
 
@@ -416,6 +415,33 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
     private float GetRamping(SecretDoublePlusComponent scheduler)
     {
         return 1f + (float) _ticker.RoundDuration().TotalSeconds * scheduler.SpeedRamping;
+    }
+
+    private float GetSavedChaosBudgetMultiplier(SecretDoublePlusComponent scheduler)
+    {
+        return 1 - _random.NextFloat(Math.Clamp(scheduler.SaveChaosBudgetRange, 0f, 1f));
+    }
+
+    private void LogWeightedDict(Dictionary<SelectedEvent, float> weights)
+    {
+        const string template = "| {0:F2}% | {1,4} | {2,4} | {3:G4} | {4}";
+        var weightSum = weights.Values.Sum();
+        LogMessage(
+            "Chaos Weights: \n" +
+            string.Join("\n",
+                weights.Select(p =>
+                    string.Format(
+                        template,
+                        p.Value / weightSum * 100,
+                        p.Key.ChaosScore,
+                        p.Key.Weight,
+                        p.Value,
+                        p.Key.Proto.ID
+                    )
+                )
+            ),
+            false
+        );
     }
 
     private void LogMessage(string message, bool showChat=true)
