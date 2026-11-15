@@ -395,7 +395,7 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
 
         var weightSum = weights.Values.Sum();
         LogMessage(
-            $"Attempting to run {selected.Proto?.ID ?? "NoOp"} \n" +
+            $"Attempting to run {selected.Proto.ID} \n" +
             $"| Chaos Value: {selected.ChaosScore} \n" +
             $"| Target Chaos: {targetChaos?.ToString() ?? "N/A"} \n" +
             $"| Raw Weight: {selected.Weight} \n" +
