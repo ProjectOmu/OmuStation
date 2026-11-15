@@ -42,6 +42,11 @@ public sealed partial class SummonPlagueRatSystem : EntitySystem
 
         if (_net.IsServer)
         {
+            comp.EndTimer = Timing.CurTime + comp.TimerLength;
+            while (!args.Handled)
+            {
+
+            }
             Spawn(comp.RatProto, xform.Coordinates);
             _popup.PopupEntity(Loc.GetString("wraith-plaguerat-channel"), uid, uid);
             _admin.Add(LogType.EntitySpawn, LogImpact.Medium, $"{args.Performer} has summoned a plague rat");

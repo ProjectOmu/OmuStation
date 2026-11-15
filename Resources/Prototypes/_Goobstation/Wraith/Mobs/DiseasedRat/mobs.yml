@@ -79,7 +79,7 @@
       path: /Audio/_Goobstation/Wraith/Attack/handcuffs.ogg
     damage:
       types:
-        Slash: 4 #Omu edit start: nerfing the damage some
+        Slash: 6 #Omu edit start: nerfing the damage some
 #        Blunt: 2
       armorPenetration: -0.3 # Omu edit end
   - type: SolutionContainerManager
@@ -251,9 +251,9 @@
       path: /Audio/_Goobstation/Wraith/Attack/handcuffs.ogg
     damage:
       types:
-        Slash: 4 # Omu edit start
+        Slash: 6 # Omu edit start
 #        Blunt: 2
-      armorPenetration: -0.4 # Omu edit end
+      armorPenetration: -0.3 # Omu edit end
   - type: SolutionContainerManager
     solutions:
       melee:
