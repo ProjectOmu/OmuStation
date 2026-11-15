@@ -3,6 +3,7 @@ using System.Linq;
 using Content.Goobstation.Server.StationEvents.Components;
 using Content.Omu.Server.StationEvents.SecretDoublePlus;
 using Content.Server.Antag.Components;
+using Content.Server.GameTicking;
 using Content.Shared.EntityTable;
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.GameObjects;
@@ -76,6 +77,42 @@ public sealed class SecretDoublePlusTest
                     }
                 }
             });
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task TestSecretDoublePlusStarts()
+    {
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings
+        {
+            Dirty = true,
+            InLobby = true,
+        });
+        var server = pair.Server;
+
+        // Add a large number of dummy players so we have enough for some antag rolls
+        await server.AddDummySessions(50);
+        await server.WaitRunTicks(5);
+
+        // Set up the game ticker and set everyone to ready
+        var gameTicker = server.ResolveDependency<IEntitySystemManager>().GetEntitySystem<GameTicker>();
+        gameTicker.ToggleReadyAll(true);
+
+        // Start the game rule and let it run for a few ticks
+        await server.WaitAssertion(() =>
+        {
+            gameTicker.AddGameRule("SecretDoublePlusMid");
+            gameTicker.StartGamePresetRules();
+        });
+        await server.WaitRunTicks(3);
+
+        // Assert that we started some game rules
+        await server.WaitAssertion(() =>
+        {
+            Assert.That(gameTicker.GetAddedGameRules().Count(), Is.GreaterThan(1), $"No additional rules started by secret double plus rule.");
+            gameTicker.ClearGameRules();
         });
 
         await pair.CleanReturnAsync();
