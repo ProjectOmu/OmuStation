@@ -47,6 +47,7 @@ public sealed class MartialArtsSystem : SharedMartialArtsSystem
 
         _polymorph.CopyPolymorphComponent<MartialArtsKnowledgeComponent>(ent, args.NewEntity);
     }
+    // Omu end
 
     private void OnSleepingCarpSaying(Entity<CanPerformComboComponent> ent, ref SleepingCarpSaying args)
     {
