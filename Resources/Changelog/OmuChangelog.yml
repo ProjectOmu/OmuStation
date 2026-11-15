@@ -10175,3 +10175,19 @@ Entries:
       message: RCDs can now place doors on top of firelocks.
   id: 1307
   time: '2026-11-14T21:09:02.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Fix
+      message: >-
+        Microplastics now heal poison damage for vox, as opposed to every
+        species except vox.
+    - type: Tweak
+      message: Microplastics no longer deal poison damage nor induce vomiting in vox.
+    - type: Fix
+      message: Vent crud now satiates vox, as opposed to every species except vox.
+    - type: Fix
+      message: >-
+        Morphine now causes aphyxiation when overdosed in every species except
+        diona, as opposed to only diona.
+  id: 1308
+  time: '2026-11-15T03:31:14.0000000+00:00'
