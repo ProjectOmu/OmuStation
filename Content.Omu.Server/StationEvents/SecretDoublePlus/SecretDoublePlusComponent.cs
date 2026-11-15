@@ -55,10 +55,10 @@ public sealed partial class SecretDoublePlusComponent : Component
     ///   Lower values make the round more random, which often allows a larger chaos
     ///   deficit to build before rolling one or more major events.
     ///
-    ///   Suggested range is [1.0, 4.0], but go crazy if you want to with [0, +inf)
+    ///   Suggested range is [2.0, 8.0], but go crazy if you want to with [0.0, 35.0]
     /// </summary>
     [DataField]
-    public float ChaosMatchingPower = 2f;
+    public float ChaosMatchingPower = 6f;
 
     /// <summary>
     ///   The percentage of event weight still used when an event moves the overall round chaos score further from 0.

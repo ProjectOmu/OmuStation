@@ -303,8 +303,8 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
                 continue;
 
             // We adjust each event's weight down by checking how far away from the target score it is
-            var ratio = MathF.Abs(selected.ChaosScore / targetChaos);
-            var rawFitScore = MathF.Min(ratio, 1 / ratio);
+            var difference = MathF.Abs(targetChaos - selected.ChaosScore) / MathF.Abs(targetChaos);
+            var rawFitScore = 1f / (1f + difference);
             var fitScore = MathF.Pow(rawFitScore, scheduler.ChaosMatchingPower);
 
             // For a target chaos of 50, -50 and 150 are equidistant.
@@ -345,7 +345,7 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
     private float GetChaosScore(EntityPrototype ruleProto, GameRuleComponent ruleComp)
     {
         if (!ruleProto.TryGetComponent<AntagSelectionComponent>(out var selection, _factory))
-            return ruleComp.ChaosScore ?? 1;
+            return ruleComp.ChaosScore ?? 0;
 
         var score = 0f;
 
@@ -362,7 +362,7 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
         if (score > 0)
             return score;
 
-        return ruleComp.ChaosScore ?? 1;
+        return ruleComp.ChaosScore ?? 0;
     }
 
     private bool ShouldSkipTick(SecretDoublePlusComponent scheduler)
