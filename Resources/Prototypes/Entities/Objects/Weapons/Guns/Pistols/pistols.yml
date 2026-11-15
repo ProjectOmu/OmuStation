@@ -2,7 +2,7 @@
 
 - type: entity
   name: BasePistol
-  parent: BaseItem
+  parent: [ BaseItem , BaseCombatSkillRequirmentsEasy ] #omu
   id: BaseWeaponPistol
   description: A rooty tooty point and shooty.
   abstract: true

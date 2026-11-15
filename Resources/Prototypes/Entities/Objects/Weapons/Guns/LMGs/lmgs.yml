@@ -2,7 +2,7 @@
 
 - type: entity
   name: BaseWeaponLightMachineGun
-  parent: BaseItem
+  parent: [ BaseItem, BaseCombatSkillRequirments ]
   id: BaseWeaponLightMachineGun
   description: A rooty tooty point and shooty.
   abstract: true

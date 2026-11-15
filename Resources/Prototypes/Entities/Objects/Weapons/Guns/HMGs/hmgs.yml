@@ -2,7 +2,7 @@
 
 - type: entity
   name: BaseWeaponHeavyMachineGun
-  parent: BaseItem
+  parent: [ BaseItem, BaseCombatSkillRequirmentsHard ] #Omu
   id: BaseWeaponHeavyMachineGun
   description: Spray and pray.
   abstract: true

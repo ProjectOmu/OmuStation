@@ -306,3 +306,45 @@
     Telecrystal: 40
   categories:
   - UplinkWeaponry
+
+#skill system
+
+- type: listing
+  id: UplinkCargoSkilltrainer
+  name: uplink-CargoSkilltrainer-name
+  description: uplink-CargoSkilltrainer-desc
+  productEntity: CargoSkilltrainerSyndicate
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkSkills
+
+- type: listing
+  id: UplinkEngineeringSkilltrainer
+  name: uplink-EngineeringSkilltrainer-name
+  description: uplink-EngineeringSkilltrainer-desc
+  productEntity: EngineeringSkilltrainerSyndicate
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkSkills
+
+- type: listing
+  id: UplinkMedicalSkilltrainer
+  name: uplink-MedicalSkilltrainer-name
+  description: uplink-MedicalSkilltrainer-desc
+  productEntity: MedicalSkilltrainerSyndicate
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkSkills
+
+- type: listing
+  id: UplinkCombatSkilltrainer
+  name: uplink-CombatSkilltrainer-name
+  description: uplink-CombatSkilltrainer-desc
+  productEntity: CombatSkilltrainerSyndicate
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkSkills

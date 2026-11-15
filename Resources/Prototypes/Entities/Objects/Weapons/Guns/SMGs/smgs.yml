@@ -2,7 +2,7 @@
 
 - type: entity
   name: BaseSMG
-  parent: BaseItem
+  parent: [ BaseItem, BaseCombatSkillRequirments ] #Omu
   id: BaseWeaponSubMachineGun
   description: A rooty tooty point and shooty.
   abstract: true

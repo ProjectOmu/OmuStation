@@ -2,7 +2,7 @@
 
 - type: entity
   name: BaseWeaponSniper
-  parent: BaseItem
+  parent: [ BaseItem, BaseCombatSkillRequirmentsHard ] #Omu
   id: BaseWeaponSniper
   description: A rooty tooty point and shooty.
   abstract: true

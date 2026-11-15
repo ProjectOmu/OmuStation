@@ -1,0 +1,1 @@
+store-category-skills = Skills
