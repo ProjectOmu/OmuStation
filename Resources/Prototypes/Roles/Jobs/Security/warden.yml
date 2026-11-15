@@ -32,8 +32,7 @@
   - Security
   - WardenSOP
   - KravMaga
-  - CommandTrainingManual # Omu
-  - SecurityTrainingManual # Omu
+  - ClassifiedTrainingManual # Omu
   goobcoins: 35 #Goob content
   access:
   - Corpsman # Omu
@@ -56,7 +55,7 @@
 - type: startingGear
   id: WardenGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
+    #eyes: ClothingEyesGlassesSecurity #Omu, glasses options in loadout
     id: WardenPDA
     ears: ClothingHeadsetAltWarden # Goobstation
     # pocket1: OfficerGunCase #Omu, item is in loadout instead
@@ -64,7 +63,7 @@
     back:
     - Flash
     #- MagazinePistol # Omu moved to loadouts and will give ammo according to weapon
-    - ClothingMaskGasSecurity # Goobstation
+    #- ClothingMaskGasSecurity #Goobstation # Omu
 
 - type: chameleonOutfit
   id: WardenChameleonOutfit

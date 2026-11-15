@@ -182,7 +182,8 @@ public sealed class PaperSystem : EntitySystem
         {
             StampedName = stamp.StampedName,
             StampedColor = stamp.StampedColor, // Goob stamp
-            StampLargeIcon = stamp.StampLargeIcon // goob Stamp
+            StampLargeIcon = stamp.StampLargeIcon, // goob Stamp
+            StampLargePath = stamp.StampLargePath, // Omu Stamp SPECIFIC PATH
         };
     }
 

@@ -35,7 +35,6 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
     [Dependency] private readonly IAfkManager _afk = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly PlayTimeTrackingManager _tracking = default!;
@@ -239,8 +238,10 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
     /// </summary>
     /// <param name="player">The player.</param>
     /// <param name="job">A list of role prototype IDs</param>
+    /// <param name="profile">The character, if any</param> // Omu
     /// <returns>Returns true if all requirements were met or there were no requirements.</returns>
-    public bool IsAllowed(ICommonSession player, ProtoId<JobPrototype> job)
+    public bool IsAllowed(ICommonSession player, ProtoId<JobPrototype> job, // Omu
+        HumanoidCharacterProfile? profile = null) // Omu
     {
         if (!_cfg.GetCVar(CCVars.GameRoleTimers))
             return true;
@@ -258,8 +259,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             out _,
             EntityManager,
             _prototypes,
-            (HumanoidCharacterProfile?)
-            _preferencesManager.GetPreferences(player.UserId).SelectedCharacter);
+            profile); // Omu
     }
 
     /// <summary>
@@ -267,8 +267,10 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
     /// </summary>
     /// <param name="player">The player.</param>
     /// <param name="antag">A list of role prototype IDs</param>
+    /// <param name="profile">The character, if any</param> // Omu
     /// <returns>Returns true if all requirements were met or there were no requirements.</returns>
-    public bool IsAllowed(ICommonSession player, ProtoId<AntagPrototype> antag)
+    public bool IsAllowed(ICommonSession player, ProtoId<AntagPrototype> antag, // Omu
+        HumanoidCharacterProfile? profile = null) // Omu
     {
         if (!_cfg.GetCVar(CCVars.GameRoleTimers))
             return true;
@@ -286,8 +288,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             out _,
             EntityManager,
             _prototypes,
-            (HumanoidCharacterProfile?)
-            _preferencesManager.GetPreferences(player.UserId).SelectedCharacter);
+            profile); // Omu
     }
 
     public HashSet<ProtoId<JobPrototype>> GetDisallowedJobs(ICommonSession player)
@@ -304,7 +305,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
 
         foreach (var job in _prototypes.EnumeratePrototypes<JobPrototype>())
         {
-            if (JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(player.UserId).SelectedCharacter))
+            if (!JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, null)) // Omu
                 roles.Add(job.ID);
         }
 
@@ -327,7 +328,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         for (var i = 0; i < jobs.Count; i++)
         {
             if (_prototypes.Resolve(jobs[i], out var job)
-                && JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(userId).SelectedCharacter))
+                && JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, null)) // Omu
             {
                 continue;
             }

@@ -62,3 +62,23 @@
     - !type:SpeciesRequirement
       species:
         - Vox
+
+- type: trait
+  id: Xenosocialized
+  name: trait-language-xenosocialized-name
+  description: trait-language-xenosocialized-desc
+  category: LanguageTraits
+  cost: -1
+  components:
+  - type: XenosocializedTrait
+  countsTowardsMaxTraits: false
+  requirements:
+  - !type:TraitsRequirement
+    traits:
+    - Foreigner
+    - ForeignerLight
+    inverted: true
+  - !type:SpeciesRequirement
+    species:
+    - Allulalo
+    inverted: true
