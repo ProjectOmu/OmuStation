@@ -16,5 +16,8 @@ jobs:
     name: Submodule update in pr found
     runs-on: ubuntu-latest
     steps:
-      - name: Fail
-        run: exit 1
+      - name: Checkbox or die
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          echo "$PR_BODY" | grep -Fxq -- '- [x] This is a Submodule PR.'

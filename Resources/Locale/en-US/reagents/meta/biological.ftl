@@ -20,7 +20,8 @@
 reagent-name-blood = blood
 reagent-desc-blood = I hope this is ketchup.
 
-reagent-name-insect-blood = insect blood
+# Omu "insect blood" -> "hemolymph" see Wikipedia <https://en.wikipedia.org/wiki/Hemolymph>
+reagent-name-insect-blood = hemolymph
 reagent-desc-insect-blood = Okay, this is really gross. It almost looks.. alive?
 
 reagent-name-slime = slime
