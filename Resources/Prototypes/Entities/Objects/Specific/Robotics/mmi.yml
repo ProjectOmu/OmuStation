@@ -26,6 +26,9 @@
         - Brain
         tags: # EE Reverse MMI - EE apparently changed this comp to tags as well? fuck it sure.
         - Brain
+      blacklist: # Omu
+        components:
+        - MMI
   - type: BorgBrain
   - type: BlockMovement
   - type: Examiner
@@ -88,6 +91,9 @@
         - Brain
         tags: # Omu
         - Brain
+      blacklist: # Omu
+        components:
+        - MMI
 
 - type: entity
   parent: BaseItem

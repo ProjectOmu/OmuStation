@@ -3,7 +3,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <BoxContainer xmlns="https://spacestation14.io"
-              Orientation="Horizontal"
+              Orientation="Vertical"
               HorizontalExpand="True"
-              HorizontalAlignment="Center"
-              SeparationOverride="6" />
+              SeparationOverride="4">
+    <BoxContainer Name="Columns"
+                  Orientation="Horizontal"
+                  HorizontalAlignment="Center"
+                  SeparationOverride="6" />
+    <OptionButton Name="PreferenceUnavailableButton" HorizontalAlignment="Center" />
+</BoxContainer>
