@@ -28,6 +28,8 @@ public sealed class MartialArtsSystem : SharedMartialArtsSystem
     }
 
     private void OnPolymorphedCPC(Entity<CanPerformComboComponent> ent, ref PolymorphedEvent args)
+        // => _polymorph.CopyPolymorphComponent<CanPerformComboComponent>(ent, args.NewEntity); // Omu
+    // Omu start
     {
         if (HasComp<CanPerformComboComponent>(args.NewEntity))
             return;
