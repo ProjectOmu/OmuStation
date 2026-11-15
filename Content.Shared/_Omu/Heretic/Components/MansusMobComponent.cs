@@ -1,11 +1,13 @@
-namespace Content.Shared._Omu.Heretic;
+using Robust.Shared.Audio;
+
+namespace Content.Shared._Omu.Heretic.Components;
 
 [RegisterComponent]
 public sealed partial class MansusMobComponent : Component
 {
-    /// <summary>
-    /// Maximum number of entities that can affected by the Mansus Screech action.
-    /// </summary>
     [DataField]
     public int ScreechRange = 10;
+
+    [DataField]
+    public SoundPathSpecifier ScreechSound = new("/Audio/_Omu/Entities/eerie_scream.ogg");
 }

@@ -32,6 +32,11 @@ public sealed partial class FascinationComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public bool AlteredFaction;
 
+    /// <summary>
+    /// If you are adding a FactionIconComponent you should probably clean up and remove it if you are the only source of it.
+    /// </summary>
+    public bool RemoveIconCompOnEnd;
+
 }
 public sealed class FascinationChangedArgs : EntityEventArgs
 {

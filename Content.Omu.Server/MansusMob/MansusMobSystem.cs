@@ -5,7 +5,7 @@ using Content.Omu.Shared.MansusMob;
 using Content.Server.GameTicking;
 using Content.Server.NPC.Systems;
 using Content.Server.Popups;
-using Content.Shared._Omu.Heretic;
+using Content.Shared._Omu.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage;
@@ -153,7 +153,10 @@ public sealed class MansusMobSystem : EntitySystem
         if (!fascination.AlteredFaction)
         {
             fascination.AlteredFaction = true;
-            var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(uid);    //Make them valid to the mirror maiden
+
+            if (!TryComp<CustomFactionIconsComponent>(uid, out var userFactionIcons)) // for cleanup at end
+                fascination.RemoveIconCompOnEnd = true;
+            userFactionIcons = EnsureComp<CustomFactionIconsComponent>(uid);    //Make them valid to the mirror maiden
             userFactionIcons.FactionIcons.Add(fascination.IconToAdd);
             _faction.AddFaction(uid, fascination.FactionToAdd); //Give them the faction so AI works
             Dirty(uid, userFactionIcons);
@@ -183,11 +186,20 @@ public sealed class MansusMobSystem : EntitySystem
         }
         if (fascination.AlteredFaction)
         {
-            var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(uid);    //Make them un-valid to the mirror maiden
-            userFactionIcons.FactionIcons.Remove(fascination.IconToAdd);
-            _faction.RemoveFaction(uid, fascination.FactionToAdd); // remove the faction
+            if (TryComp<CustomFactionIconsComponent>(uid, out var userFactionIcons))
+            {
+                if (fascination.RemoveIconCompOnEnd // we added it if true
+                    && userFactionIcons.FactionIcons.Contains(fascination.IconToAdd)
+                    && userFactionIcons.FactionIcons.Count == 1)
+                    RemComp<CustomFactionIconsComponent>(uid); // remove the entire component if we created it and it's the only icon
+                else
+                {
+                    userFactionIcons.FactionIcons.Remove(fascination.IconToAdd); // otherwise, only remove our icon
+                    Dirty(uid, userFactionIcons);
+                }
+            }
+            _faction.RemoveFaction(uid, fascination.FactionToAdd);
             fascination.AlteredFaction = false;
-            Dirty(uid, userFactionIcons);
         }
     }
 }

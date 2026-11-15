@@ -19,17 +19,17 @@ public sealed partial class MansusSeekComponent : Component
     [DataField]
     public int PassiveDamage = 10;
 
-    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? ActionUid;
 
-    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField, ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public EntityUid TrackedId;
 
-    [ViewVariables(VVAccess.ReadOnly)]
-    public bool Tracking = false;
+    [DataField, ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
+    public bool Tracking;
 
-    [ViewVariables(VVAccess.ReadOnly)]
-    public TimeSpan? NextSeek = null;
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan? NextSeek;
 }
 
 public sealed partial class ToggleMansusSeek : InstantActionEvent;

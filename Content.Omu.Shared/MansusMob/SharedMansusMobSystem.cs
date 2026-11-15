@@ -1,14 +1,13 @@
-using Content.Shared._Omu.Heretic;
+using Content.Shared._Omu.Heretic.Components;
 using Content.Shared.Actions;
 using Content.Shared.Heretic;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
-using Robust.Shared.Random;
 
 namespace Content.Omu.Shared.MansusMob;
 
@@ -16,10 +15,10 @@ public sealed class SharedMansusMobSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedAudioSystem _aud = default!;
     [Dependency] private readonly SharedPoweredLightSystem _poweredLight = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -28,7 +27,7 @@ public sealed class SharedMansusMobSystem : EntitySystem
         SubscribeLocalEvent<MansusMobComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<ToggleMansusSeek>(OnMansusSeek);
         SubscribeLocalEvent<MansusScreechEvent>(OnMansusScreech);
-        SubscribeLocalEvent<MansusSeekComponent, ComponentInit>(OnMansusSeekStartup);
+        SubscribeLocalEvent<MansusSeekComponent, ComponentStartup>(OnMansusSeekStartup);
         SubscribeLocalEvent<MansusSeekComponent, ComponentShutdown>(OnMansusSeekRemove);
     }
 
@@ -43,9 +42,11 @@ public sealed class SharedMansusMobSystem : EntitySystem
         }
     }
 
-    private void OnMansusSeekStartup(Entity<MansusSeekComponent> ent, ref ComponentInit args)
+    private void OnMansusSeekStartup(Entity<MansusSeekComponent> ent, ref ComponentStartup args)
     {
         ent.Comp.ActionUid = _actions.AddAction(ent, ent.Comp.ActionId);
+        if (_net.IsServer)
+            Dirty(ent);
     }
 
     private void OnMansusSeekRemove(Entity<MansusSeekComponent> ent, ref ComponentShutdown args)
@@ -58,46 +59,31 @@ public sealed class SharedMansusMobSystem : EntitySystem
 
     private void OnMansusSeek(ToggleMansusSeek args)
     {
-        List<EntityUid> players = new();
         // Check if currently tracking
         if (!TryComp<MansusSeekComponent>(args.Performer, out var seek))
             return;
 
-        // Continuous tracking logic
-        if (seek.Tracking && HasComp<MansusMaddenedComponent>(seek.TrackedId))
+        if (!seek.Tracking // for client target may be out of PVS and thus if it doesn't exist for client don't try to predict popups
+            || !HasComp<MansusMaddenedComponent>(seek.TrackedId)) // (this is an implicit check here, for client seek.TrackedId may not exist.)
         {
-            players.Add(seek.TrackedId);
-        }
-        else
-        {
-            // Find random madness inflicted player
-            var query = EntityQueryEnumerator<MansusMaddenedComponent>();
-            while (query.MoveNext(out var uid, out _))
-            {
-                players.Add(uid);
-            }
+            if (_net.IsClient) // kinda shit but i cba right now.
+                return;
+
+            _popup.PopupEntity(Loc.GetString("mansus-mob-no-player"), args.Performer, args.Performer, PopupType.SmallCaution);
+            args.Handled = true;
+            return;
         }
 
-        // Pick random player from list
-        if (players.Count > 0)
-        {
-            var randomPlayer = _random.Pick(players);
-            _popup.PopupEntity(Loc.GetString("mansus-mob-seek-player"), randomPlayer, randomPlayer, PopupType.SmallCaution);
-
-            // Raise Living Heart Event
+        _popup.PopupEntity(Loc.GetString("mansus-mob-seek-player"), seek.TrackedId, seek.TrackedId, PopupType.SmallCaution);
             RaiseLocalEvent(new EventHereticLivingHeartActivate
             {
-                Target = GetNetEntity(randomPlayer),
+                Target = GetNetEntity(seek.TrackedId),
                 Actor = args.Performer,
             });
 
             seek.Tracking = true;
-            seek.TrackedId = randomPlayer;
-        }
-        else
-        {
-            _popup.PopupPredicted(Loc.GetString("mansus-mob-no-player"), args.Performer, args.Performer, PopupType.SmallCaution);
-        }
+            if (_net.IsServer)
+                Dirty(args.Performer, seek);
 
         args.Handled = true;
     }
@@ -109,7 +95,7 @@ public sealed class SharedMansusMobSystem : EntitySystem
 
         foreach (var lookupUid in _lookup.GetEntitiesInRange<ActorComponent>(Transform(args.Performer).Coordinates, mansus.ScreechRange))
         {
-            _aud.PlayEntity(new SoundPathSpecifier("/Audio/_Omu/Entities/eerie_scream.ogg"), lookupUid.Owner, lookupUid.Owner);
+            _aud.PlayEntity(mansus.ScreechSound, lookupUid.Owner, lookupUid.Owner);
         }
 
         foreach (var lookupUid in _lookup.GetEntitiesInRange<PoweredLightComponent>(Transform(args.Performer).Coordinates, mansus.ScreechRange))
