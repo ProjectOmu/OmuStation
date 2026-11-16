@@ -10213,3 +10213,11 @@ Entries:
       message: Changed the sprites for both versions of the curly tail.
   id: 1311
   time: '2026-11-16T00:09:56.0000000+00:00'
+- author: Naaatch
+  changes:
+    - type: Fix
+      message: >-
+        Clicking or right click signing a [signature] markup uses the name and
+        job on your worn ID, and no longer shows your antag role.
+  id: 1312
+  time: '2026-11-16T00:41:33.0000000+00:00'
