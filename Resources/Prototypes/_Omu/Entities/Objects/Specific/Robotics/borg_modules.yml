@@ -145,6 +145,7 @@
       sprite: _Omu/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     hands:
+    - item: HandheldHealthAnalyzer
     - item: HandheldCrewMonitorBorg
     - hand:
         emptyRepresentative: RollerBedSpawnFolded
@@ -152,6 +153,19 @@
           tags:
           - BodyBag
           - RollerBed
+    - item: ParamedHypo
+    - item: EmergencyMedipen
+      hand:
+        emptyRepresentative: EmergencyMedipen
+        whitelist: # Same whitelist as syringe case
+          tags:
+          - Bottle
+          - CentrifugeCompatible
+          - Dropper
+          - Syringe
+          - Medipen
+          - AutoinjectorCartridge
+    - item: SyringeCase
     - hand: # Same hands from surgery modules to hold parts that gotten blown off or what have you
         emptyRepresentative: BioSynthHeart
         emptyLabel: borg-slot-organs-empty-goob
