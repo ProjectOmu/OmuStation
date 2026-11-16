@@ -42,7 +42,15 @@ public sealed partial class AdminCameraControl : Control
 
         FollowButton.OnPressed += _ => OnFollow?.Invoke();
         PopControl.OnPressed += _ => OnPopoutControl?.Invoke();
+        DrawLightButton.OnPressed +=  _ => OnDrawlight();
         CameraView.OnResized += OnResized;
+    }
+
+    private void OnDrawlight()
+    {
+        if (CameraView.Eye == null)
+            return;
+        CameraView.Eye.DrawLight = !CameraView.Eye.DrawLight;
     }
 
     private new void OnResized()
