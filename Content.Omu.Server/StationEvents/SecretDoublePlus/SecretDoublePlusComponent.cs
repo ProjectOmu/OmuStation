@@ -50,6 +50,15 @@ public sealed partial class SecretDoublePlusComponent : Component
     public float MaxStartingChaos;
 
     /// <summary>
+    ///   The exponent applied when weighting events by chaos at round start.
+    ///   See MidRoundChaosMatchingPower for more details.
+    ///
+    ///   Suggested range is [1.0, 2.0]
+    /// </summary>
+    [DataField]
+    public float RoundStartChaosMatchingPower = 1f;
+
+    /// <summary>
     ///   The exponent applied when weighting events by chaos. Higher values make the scheduler
     ///   pickier and favors events that keep the chaos score close to 0 on each roll.
     ///   Lower values make the round more random, which often allows a larger chaos
@@ -58,7 +67,7 @@ public sealed partial class SecretDoublePlusComponent : Component
     ///   Suggested range is [2.0, 8.0], but go crazy if you want to with [0.0, 35.0]
     /// </summary>
     [DataField]
-    public float ChaosMatchingPower = 6f;
+    public float MidRoundChaosMatchingPower = 6f;
 
     /// <summary>
     ///   The percentage of event weight still used when an event moves the overall round chaos score further from 0.
@@ -67,21 +76,6 @@ public sealed partial class SecretDoublePlusComponent : Component
     /// </summary>
     [DataField]
     public float OppositeDirectionEventChance = 0.05f;
-
-    /// <summary>
-    ///   The percentage of the starting chaos that should roughly be attributed to the primary round antag.
-    ///   This value is used to generate a target chaos score when rolling the primary antag, and the primary
-    ///   antag isn't guaranteed to use exactly this much budget.
-    /// </summary>
-    [DataField]
-    public float PrimaryAntagBudget = 0.6f;
-
-    /// <summary>
-    ///   The number of round start antags the scheduler targets. This is used to generate target chaos scores
-    ///   when rolling for antags, and the scheduler doesn't guarantee exactly this many antags will spawn.
-    /// </summary>
-    [DataField]
-    public int RoundStartAntagCount = 3;
 
     /// <summary>
     ///   Chaos change multiplier we're using.

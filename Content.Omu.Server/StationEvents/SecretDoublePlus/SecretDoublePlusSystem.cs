@@ -58,7 +58,7 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
     // cvars
     private float _minimumTimeUntilFirstEvent;
     private float _roundstartChaosScoreMultiplier;
-    private bool _verboseGameDirectoryChatLogs;
+    private bool _verboseGameDirectorChatLogs;
 
     private ISawmill _sawmill = default!;
 
@@ -70,7 +70,7 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
 
         Subs.CVar(_cfg, GoobCVars.MinimumTimeUntilFirstEvent, value => _minimumTimeUntilFirstEvent = value, true);
         Subs.CVar(_cfg, GoobCVars.RoundstartChaosScoreMultiplier, value => _roundstartChaosScoreMultiplier = value, true);
-        Subs.CVar(_cfg, OmuCVars.VerboseGameDirectorChatLogs, value => _verboseGameDirectoryChatLogs = value, true);
+        Subs.CVar(_cfg, OmuCVars.VerboseGameDirectorChatLogs, value => _verboseGameDirectorChatLogs = value, true);
     }
 
     protected override void Added(EntityUid uid, SecretDoublePlusComponent scheduler, GameRuleComponent gameRule, GameRuleAddedEvent args)
@@ -149,7 +149,7 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
         var targetChaos = -scheduler.ChaosScore * chaosDampening;
 
         var possibleEvents = GetPossibleEvents(uid, scheduler);
-        var weights = BuildChaosWeightedDict(scheduler, possibleEvents, targetChaos);
+        var weights = BuildChaosWeightedDict(scheduler, possibleEvents, targetChaos, scheduler.MidRoundChaosMatchingPower);
 
         if (weights.Count == 0)
             return;
@@ -185,7 +185,7 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
                 targetChaos = -scheduler.ChaosScore * GetSavedChaosBudgetMultiplier(scheduler);
             }
 
-            var weights = BuildChaosWeightedDict(scheduler, events, targetChaos);
+            var weights = BuildChaosWeightedDict(scheduler, events, targetChaos, scheduler.RoundStartChaosMatchingPower);
             if (weights.Count == 0)
                 return;
 
@@ -206,7 +206,7 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
             if (primarySelected && isLoneSpawn)
                 continue;
 
-            StartRule(scheduler, pick);
+            StartRule(scheduler, pick, true);
             primarySelected = true;
 
             // Since we only select a primary antag once, we only remove incompatible antags from the secondary list
@@ -223,11 +223,26 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
         }
     }
 
-    private void StartRule(SecretDoublePlusComponent scheduler, SelectedEvent selected)
+    private void StartRule(SecretDoublePlusComponent scheduler, SelectedEvent selected, bool shouldScale=false)
     {
         SecretDoublePlusMetrics.EventSelected.WithLabels(selected.Proto.ID).Inc();
-        _ticker.AddGameRule(selected.Proto.ID);
-        scheduler.ChaosScore += selected.ChaosScore;
+
+        // We add the rule and let the ticker start it later
+        var ruleId = _ticker.AddGameRule(selected.Proto.ID);
+        var chaos = selected.ChaosScore;
+
+        // When shouldScale is true we scale down the antag count for the rule if it would overshoot and bring us above 0 chaos
+        if (shouldScale && chaos + scheduler.ChaosScore > 0 && TryComp<AntagSelectionComponent>(ruleId, out var selection))
+        {
+            var scale = Math.Clamp(-scheduler.ChaosScore / chaos, 0, 1);
+            _antagSelection.ScaleAntagDefinitionCounts((ruleId, selection), scale);
+
+            // We updated the rule so we need to update the corresponding chaos
+            chaos = GetChaosScore(selected.Proto, selected.ChaosScore, scale);
+            LogMessage($"Scaling selected rule {selected.Proto.ID} by {scale}, adjusted chaos score {chaos}", _verboseGameDirectorChatLogs);
+        }
+
+        scheduler.ChaosScore += chaos;
     }
 
     private List<SelectedEvent> BuildSelectedEventsFromDict(Dictionary<string, float> weights)
@@ -241,7 +256,7 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
             if (!entProto.TryGetComponent<GameRuleComponent>(out var ruleComp, _factory))
                 continue;
 
-            var chaos = GetChaosScore(entProto, ruleComp);
+            var chaos = GetChaosScore(entProto, ruleComp.ChaosScore);
             selectedEvents.Add(new SelectedEvent(entProto, weight, chaos, ruleComp.MinPlayers));
         }
 
@@ -280,7 +295,7 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
             if (!proto.TryGetComponent<GameRuleComponent>(out var ruleComp, _factory))
                 continue;
 
-            var chaos = GetChaosScore(proto, ruleComp);
+            var chaos = GetChaosScore(proto, ruleComp.ChaosScore);
 
             result.Add(new SelectedEvent(proto, eventComp.Weight, chaos, ruleComp.MinPlayers));
         }
@@ -288,7 +303,7 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
         return result;
     }
 
-    private Dictionary<SelectedEvent, float> BuildChaosWeightedDict(SecretDoublePlusComponent scheduler, List<SelectedEvent> events, float targetChaos)
+    private Dictionary<SelectedEvent, float> BuildChaosWeightedDict(SecretDoublePlusComponent scheduler, List<SelectedEvent> events, float targetChaos, float matchingPower)
     {
         if (targetChaos == 0)
             return new Dictionary<SelectedEvent, float>();
@@ -303,7 +318,7 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
             // We adjust each event's weight down by checking how far away from the target score it is
             var difference = MathF.Abs(targetChaos - selected.ChaosScore) / MathF.Abs(targetChaos);
             var rawFitScore = 1f / (1f + difference);
-            var fitScore = MathF.Pow(rawFitScore, scheduler.ChaosMatchingPower);
+            var fitScore = MathF.Pow(rawFitScore, matchingPower);
 
             // For a target chaos of 50, -50 and 150 are equidistant.
             // Picking 150 is likely better for the round than picking -50 and moving
@@ -341,14 +356,14 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
         return false;
     }
 
-    private float GetChaosScore(EntityPrototype ruleProto, GameRuleComponent ruleComp)
+    private float GetChaosScore(EntityPrototype ruleProto, float? defaultChaos, float playerCountScale=1)
     {
         if (!ruleProto.TryGetComponent<AntagSelectionComponent>(out var selection, _factory))
-            return ruleComp.ChaosScore ?? 0;
+            return defaultChaos ?? 0;
 
         var score = 0f;
 
-        var players = GetTotalPlayerCount(_playerManager.Sessions);
+        var players = (int) MathF.Round(playerCountScale * GetTotalPlayerCount(_playerManager.Sessions));
         foreach (var def in selection.Definitions)
         {
             if (def.ChaosScore == null)
@@ -361,7 +376,7 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
         if (score > 0)
             return score;
 
-        return ruleComp.ChaosScore ?? 0;
+        return defaultChaos ?? 0;
     }
 
     private bool ShouldSkipTick(SecretDoublePlusComponent scheduler)
@@ -401,7 +416,7 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
             $"| Chaos Adjusted Weight: {weights[selected]} \n" +
             $"| Weight Sum: {weightSum} \n" +
             $"| Roll Chance: {weights[selected] / weightSum * 100}%",
-            _verboseGameDirectoryChatLogs
+            _verboseGameDirectorChatLogs
         );
 
         return selected;
