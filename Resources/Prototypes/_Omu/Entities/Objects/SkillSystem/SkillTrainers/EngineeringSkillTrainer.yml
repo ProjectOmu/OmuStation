@@ -1,8 +1,8 @@
 ﻿- type: entity
   parent: BaseItem
   id: EngineeringSkilltrainer
-  name: EngineeringSkilltrainer
-  description: EngineeringSkilltrainerDesc
+  name: engineeringSkilltrainer
+  description: engineeringSkilltrainerDesc
   components:
     - type: Sprite
       sprite: _Omu/Objects/SkillTrainers/NTSkillTrainer.rsi
@@ -20,8 +20,8 @@
 - type: entity
   parent: [ EngineeringSkilltrainer, BaseSyndicateContraband]
   id: EngineeringSkilltrainerSyndicate
-  name: SkilltrainerSyndicate
-  description: SkilltrainerSyndicateDesc
+  name: skilltrainerSyndicate
+  description: skilltrainerSyndicateDesc
   suffix: Engineering
   components:
     - type: Sprite
@@ -31,7 +31,7 @@
       sprite: _Omu/Objects/SkillTrainers/SyndicateSkillTrainer.rsi
     - type: ExtendDescription
       descriptionList:
-        - description: "SkillTrainerSyndicateDesc-extended-syndicate-engineering"
+        - description: "skillTrainerSyndicateDesc-extended-syndicate-engineering"
           fontSize: 12
           color: "#880000"
           requireDetailRange: false

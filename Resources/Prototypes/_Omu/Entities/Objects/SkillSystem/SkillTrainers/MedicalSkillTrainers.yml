@@ -1,8 +1,8 @@
 ﻿- type: entity
   parent: BaseItem
   id: MedicalSkilltrainer
-  name: MedicalSkilltrainer
-  description: MedicalSkilltrainerDesc
+  name: medicalSkilltrainer
+  description: medicalSkilltrainerDesc
   components:
     - type: Sprite
       sprite: _Omu/Objects/SkillTrainers/NTSkillTrainer.rsi
@@ -20,8 +20,8 @@
 - type: entity
   parent: [ MedicalSkilltrainer, BaseSyndicateContraband]
   id: MedicalSkilltrainerSyndicate
-  name: SkilltrainerSyndicate
-  description: SkilltrainerSyndicateDesc
+  name: skilltrainerSyndicate
+  description: skilltrainerSyndicateDesc
   suffix: Medical
   components:
     - type: Sprite
@@ -31,7 +31,7 @@
       sprite: _Omu/Objects/SkillTrainers/SyndicateSkillTrainer.rsi
     - type: ExtendDescription
       descriptionList:
-        - description: "SkillTrainerSyndicateDesc-extended-syndicate-medical"
+        - description: "skilltrainerSyndicateDesc-extended-syndicate-medical"
           fontSize: 12
           color: "#880000"
           requireDetailRange: false
