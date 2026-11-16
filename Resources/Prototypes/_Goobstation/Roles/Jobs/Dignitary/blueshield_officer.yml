@@ -61,6 +61,7 @@
     #  speedModifier: 1.25 #Same as Paramedic and Corpsman
     - type: RoundStartSkillGranting #omu skill system 
       department: [ CentralCommand, Command ]
+      commandSkillDepartment: [ CentralCommand ]
       skillDic:
         Cargo: 0
         Combat: 3

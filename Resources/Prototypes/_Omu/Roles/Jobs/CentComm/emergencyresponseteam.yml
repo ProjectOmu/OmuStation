@@ -26,6 +26,7 @@
     components:
       - type: RoundStartSkillGranting #omu skill system 
         department: [ CentralCommand ]
+        commandSkillDepartment: [ CentralCommand ]
         skillDic:
           Cargo: 0
           Combat: 3
@@ -106,6 +107,7 @@
     components:
       - type: RoundStartSkillGranting #omu skill system 
         department: [ CentralCommand ]
+        commandSkillDepartment: [ CentralCommand ]
         skillDic:
           Cargo: 0
           Combat: 3
@@ -173,6 +175,7 @@
     components:
       - type: RoundStartSkillGranting #omu skill system 
         department: [ CentralCommand ]
+        commandSkillDepartment: [ CentralCommand ]
         skillDic:
           Cargo: 0
           Combat: 3
@@ -238,6 +241,7 @@
     components:
       - type: RoundStartSkillGranting #omu skill system 
         department: [ CentralCommand ]
+        commandSkillDepartment: [ CentralCommand ]
         skillDic:
           Cargo: 3
           Combat: 3
@@ -303,6 +307,7 @@
     components:
       - type: RoundStartSkillGranting #omu skill system 
         department: [ CentralCommand ]
+        commandSkillDepartment: [ CentralCommand ]
         skillDic:
           Cargo: 0
           Combat: 3
@@ -375,6 +380,7 @@
       - type: CanEnchant
       - type: RoundStartSkillGranting #omu skill system 
         department: [ CentralCommand ]
+        commandSkillDepartment: [ CentralCommand ]
         skillDic:
           Cargo: 0
           Combat: 3

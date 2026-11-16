@@ -25,6 +25,7 @@
     components:
     - type: RoundStartSkillGranting #omu skill system 
       department: [ CentralCommand ]
+      commandSkillDepartment: [ CentralCommand ]
       skillDic:
         Cargo: 0
         Combat: 3
@@ -39,17 +40,6 @@
           Command: 1
           Engineering: -1
           Medical: 1
-    - type: CommandSkill
-      effectedDepartments: [ CentralCommand ]
-      speedModifier:
-        "-1": 0.5
-        "0": 1
-        "1": 1.25
-        "2": 1.5
-        "3": 1.75
-        "4": 2
-        "5": 3
-        "6": 3.5
 
 - type: startingGear
   parent: ERTLeaderGearEVA
@@ -161,6 +151,7 @@
     - type: CanEnchant #GoobStation
     - type: RoundStartSkillGranting #omu skill system 
       department: [ CentralCommand ]
+      commandSkillDepartment: [ CentralCommand ]
       skillDic:
         Cargo: 0
         Combat: 3
@@ -263,6 +254,7 @@
     components:
     - type: RoundStartSkillGranting #omu skill system 
       department: [ CentralCommand ]
+      commandSkillDepartment: [ CentralCommand ]
       skillDic:
         Cargo: 0
         Combat: 3
@@ -381,6 +373,7 @@
     components:
     - type: RoundStartSkillGranting #omu skill system 
       department: [ CentralCommand ]
+      commandSkillDepartment: [ CentralCommand ]
       skillDic:
         Cargo: 0
         Combat: 4
@@ -591,6 +584,7 @@
     components:
     - type: RoundStartSkillGranting #omu skill system 
       department: [ CentralCommand ]
+      commandSkillDepartment: [ CentralCommand ]
       skillDic:
         Cargo: 0
         Combat: 3
@@ -727,6 +721,7 @@
     components:
     - type: RoundStartSkillGranting #omu skill system 
       department: [ CentralCommand ]
+      commandSkillDepartment: [ CentralCommand ]
       skillDic:
         Cargo: 4
         Combat: 4

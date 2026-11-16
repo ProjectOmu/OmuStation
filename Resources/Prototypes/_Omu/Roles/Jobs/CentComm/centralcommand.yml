@@ -24,6 +24,7 @@
     components:
       - type: RoundStartSkillGranting #omu skill system 
         department: [ CentralCommand ]
+        commandSkillDepartment: [ CentralCommand ]
         skillDic:
           Cargo: 2
           Combat: 0
@@ -90,6 +91,7 @@
     components:
       - type: RoundStartSkillGranting #omu skill system 
         department: [ CentralCommand, Crew ]
+        commandSkillDepartment: [ CentralCommand, Crew ]
         skillDic:
           Cargo: 5 #buff bird
           Combat: -5
@@ -155,6 +157,7 @@
     - type: DeathSquadMember
     - type: RoundStartSkillGranting #omu skill system 
       department: [ VivianBodyGuard ]
+      commandSkillDepartment: [ VivianBodyGuard ]
       skillDic:
         Cargo: 5
         Combat: 5

@@ -5,10 +5,10 @@
   description: DebugSkilltrainerDesc
   components:
     - type: Sprite
-      sprite: _Omu/Objects/SkillTrainers.rsi
+      sprite: _Omu/Objects/SkillTrainers/NTSkillTrainer.rsi
       state: NT
     - type: Item
-      sprite: _Omu/Objects/SkillTrainers.rsi
+      sprite: _Omu/Objects/SkillTrainers/NTSkillTrainer.rsi
     - type: SkillGranting
       skillDicMaxSkillLevel:
         Cargo: 5

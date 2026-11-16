@@ -27,6 +27,7 @@
     - type: DeathSquadMember # Goobstation
     - type: RoundStartSkillGranting #omu skill system 
       department: [ CentralCommand ]
+      commandSkillDepartment: [ CentralCommand ]
       skillDic:
         Cargo: 5 #granted that is more there augmented strength
         Combat: 5

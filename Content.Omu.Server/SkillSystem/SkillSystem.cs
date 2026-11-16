@@ -25,7 +25,7 @@ public partial class OmuSkillSystem : CommenOmuSkillSystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<SkillHolderBodyComponent, ExaminedEvent>(OnExaminSkillHolder);
+        SubscribeLocalEvent<ExaminedEvent>(OnExaminSkillHolder);
         SubscribeLocalEvent<SkillRequermentComponent, ExaminedEvent>(OnExaminSkillRequierments);
 
         SubscribeLocalEvent<SkillGrantingComponent, UseInHandEvent>(LearnSkill);
@@ -80,15 +80,15 @@ public partial class OmuSkillSystem : CommenOmuSkillSystem
             }
         }
     }
-    public void OnExaminSkillHolder(Entity<SkillHolderBodyComponent> ent, ref ExaminedEvent args)
+    public void OnExaminSkillHolder(ExaminedEvent args)
     {
+        if (!TryComp<MindContainerComponent>(args.Examined, out var mindContainer)) return;
+        if (!mindContainer.HasMind) return;
+        if (!TryComp<SkillHolderComponent>(mindContainer.Mind, out var skillComp)) return;
         if (!(args.Examined == args.Examiner || TryComp<TraitSkillShowoffComponent>(args.Examined, out var _)))
         {
             if (!TryComp<SkillExaminPermittedComponent>(args.Examiner, out var _)) return;
         }
-        if (!TryComp<MindContainerComponent>(ent, out var mindContainer)) return;
-        if (!mindContainer.HasMind) return;
-        if (!TryComp<SkillHolderComponent>(mindContainer.Mind, out var skillComp)) return;
         string examinText = Loc.GetString("OMU_Skill_Examin_Text_Base");
         foreach (var iterator in skillComp.SkillDic.Keys)
         {

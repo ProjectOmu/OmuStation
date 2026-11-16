@@ -57,6 +57,7 @@
       soulOwnedNotDevil: true
     - type: RoundStartSkillGranting #omu skill system 
       department: [ CentralCommand, Command ]
+      commandSkillDepartment: [ CentralCommand ]
       skillDic:
         Cargo: 0
         Combat: 0

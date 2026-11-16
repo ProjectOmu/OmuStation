@@ -35,6 +35,7 @@
     components:
     - type: RoundStartSkillGranting #omu skill system 
       department: [ CentralCommand ]
+      commandSkillDepartment: [ CentralCommand ]
       skillDic:
         Cargo: 1
         Combat: 1
@@ -49,17 +50,6 @@
           Command: 1
           Engineering: -1
           Medical: -1
-    - type: CommandSkill
-      effectedDepartments: [ CentralCommand ]
-      speedModifier:
-        "-1": 0.5
-        "0": 1
-        "1": 1.25
-        "2": 1.5
-        "3": 1.75
-        "4": 2
-        "5": 3
-        "6": 3.5
 
 - type: startingGear # Goobstation - Start - SolsticeOfTheWinter
   id: CentcomGear

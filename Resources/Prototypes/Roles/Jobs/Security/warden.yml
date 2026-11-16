@@ -53,6 +53,7 @@
     - type: SecurityStaff
     - type: RoundStartSkillGranting #omu skill system 
       department: [ Security, Crew  ]
+      commandSkillDepartment: [ Security ]
       skillDic:
         Cargo: 0
         Combat: 2

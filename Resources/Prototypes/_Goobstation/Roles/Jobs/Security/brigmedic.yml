@@ -39,7 +39,8 @@
     #- type: SurgerySpeedModifier
     #  speedModifier: 1.5
     - type: RoundStartSkillGranting #omu skill system 
-      department: [ Security, Medical]
+      department: [ Security, Medical, Crew]
+      commandSkillDepartment: [ Security ]
       skillDic:
         Cargo: 0
         Combat: 1

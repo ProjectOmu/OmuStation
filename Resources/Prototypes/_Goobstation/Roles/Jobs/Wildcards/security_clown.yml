@@ -36,7 +36,7 @@
       snore: /Audio/Voice/Misc/silly_snore.ogg
       interval: 10
     - type: RoundStartSkillGranting #omu skill system 
-      department: [ Security, Crew]
+      department: [ Security, Crew] #no command skill designation for a reason this is a feature, dont obay orders from a clown
       skillDic:
         Cargo: 0
         Combat: 1
