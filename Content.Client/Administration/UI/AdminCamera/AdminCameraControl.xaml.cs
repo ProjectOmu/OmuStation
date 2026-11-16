@@ -42,16 +42,25 @@ public sealed partial class AdminCameraControl : Control
 
         FollowButton.OnPressed += _ => OnFollow?.Invoke();
         PopControl.OnPressed += _ => OnPopoutControl?.Invoke();
-        DrawLightButton.OnPressed +=  _ => OnDrawlight();
         CameraView.OnResized += OnResized;
+
+        // Omu start
+        DrawLightButton.OnPressed +=  _ => OnDrawlight();
+        DrawFovButton.OnPressed +=  _ => OnDrawFov();
+        // Omu end
     }
 
+    // Omu start
     private void OnDrawlight()
     {
-        if (CameraView.Eye == null)
-            return;
-        CameraView.Eye.DrawLight = !CameraView.Eye.DrawLight;
+        CameraView.Eye?.DrawLight = !CameraView.Eye.DrawLight;
     }
+
+    private void OnDrawFov()
+    {
+        CameraView.Eye?.DrawFov = !CameraView.Eye.DrawFov;
+    }
+    // Omu end
 
     private new void OnResized()
     {
