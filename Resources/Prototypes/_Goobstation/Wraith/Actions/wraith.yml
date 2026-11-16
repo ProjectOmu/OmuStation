@@ -514,7 +514,14 @@
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: summon_rats
-  - type: InstantAction
+    itemIconStyle: BigAction # Omu edit start
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - NodeCrawlVentAccess
+    canTargetSelf: false # Omu edit end
     event: !type:SummonPlagueRatEvent
 
 - type: entity
