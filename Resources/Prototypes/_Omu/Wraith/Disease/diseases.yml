@@ -6,18 +6,11 @@
   components:
   - type: Disease
     diseaseType: Supernatural
-    infectionRate: 0.008
+    infectionRate: 0.0025 # more then 5 minutes to fully infect. speed up by rat bile.
     immunityGainRate: 0
     canGainImmunity: false
-    mutationRate: 0.2
-    mutationMutationCoefficient: 0
-    immunityGainMutationCoefficient: 0
-    infectionRateMutationCoefficient: 0
-    complexityMutationCoefficient: 0
-    severityMutationCoefficient: 0
-    effectMutationCoefficient: 0
-    genotypeMutationCoefficient: 1
-    genotype: 6661 # The only thing that can change from mutation, everything else is static
+    genotype: 6660
     effects:
-      DiseaseBehaviorFeelUnwell: 0.2
-      DiseaseBehaviorSneeze: 0.8
+      DiseaseBehaviorSneeze: 0.2
+      DiseaseBehaviorWraithWeakness: 1
+      DiseaseBehaviorOrganFailure: 1

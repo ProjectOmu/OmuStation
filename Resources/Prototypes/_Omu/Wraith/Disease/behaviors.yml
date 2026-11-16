@@ -1,0 +1,19 @@
+- type: entity
+  id: DiseaseBehaviorWraithWeakness
+  parent: DiseaseBehaviorBase
+  name: Weakness
+  description: Deals poison damage if victim has less then 50 damage.
+  components:
+  - type: DiseaseEffect
+    complexity: 20
+  - type: DiseaseReagentEffect
+    effects:
+    - !type:HealthChange
+      conditions:
+      - !type:TotalDamageCondition
+        max: 50
+      damage:
+        types:
+          Poison: 0.5
+  - type: DiseaseProgressCondition
+    minProgress: 0.5

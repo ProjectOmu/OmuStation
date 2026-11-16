@@ -128,10 +128,12 @@
     deactivateSound: null
   - type: WeakToHoly # Omu edit start
     alwaysTakeHoly: true
+  - type: DiseaseCarrier
+    effectImmune: true
   - type: DiseaseOnHit
     disease: DiseaseRatPlague # Can be treated with holy water
     spreadParams:
-      chance: 0.33
+      chance: 0.15
       power: 1
       spreadType: Blood # Omu edit end
 
