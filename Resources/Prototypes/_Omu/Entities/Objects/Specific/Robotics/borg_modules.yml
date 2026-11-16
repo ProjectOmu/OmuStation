@@ -118,7 +118,7 @@
 
 - type: entity
   id: BorgModuleAdvancedMusique
-  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  parent: BaseBorgModuleService
   name: advanced musique cyborg module
   description: Advanced service module for the most musical cyborgs! Comes with a built-in digital audio workstation that can play any instrument.
   components:
@@ -127,8 +127,8 @@
     - state: service
     - state: icon-musique-adv
       sprite: _Omu/Objects/Specific/Robotics/borgmodule.rsi
-  - type: ItemBorgModule
-    hands:
-    - item: DawInstrumentBorg
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: musical-module }
+  - type: InstrumentBorgModule
+    components:
+    - type: Instrument
+      allowPercussion: true
+      allowProgramChange: true
