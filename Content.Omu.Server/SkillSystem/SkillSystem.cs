@@ -17,6 +17,7 @@ using Content.Shared.Weapons.Ranged.Events;
 using Content.Omu.Common.DoAfter;
 using Content.Shared.Mind;
 using Content.Shared.Movement.Pulling.Events;
+using Content.Server.Antag;
 
 namespace Content.Omu.Server.SkillSystem;
 
@@ -25,10 +26,11 @@ public partial class OmuSkillSystem : CommenOmuSkillSystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<ExaminedEvent>(OnExaminSkillHolder);
+        SubscribeLocalEvent<SkillHolderBodyComponent, ExaminedEvent>(OnExaminSkillHolder);
         SubscribeLocalEvent<SkillRequermentComponent, ExaminedEvent>(OnExaminSkillRequierments);
 
         SubscribeLocalEvent<SkillGrantingComponent, UseInHandEvent>(LearnSkill);
+        SubscribeLocalEvent<AfterAntagEntitySelectedEvent>(OnAntagSelected);
 
         SubscribeLocalEvent<SkillRequermentComponent, ComponentStartup>(RequStartUp);
         SubscribeLocalEvent<SkillRequermentComponent, ModifyDelayOfDoAfter>(ModifyDoAfterTime);
@@ -40,10 +42,11 @@ public partial class OmuSkillSystem : CommenOmuSkillSystem
         SubscribeLocalEvent<CommandSkillComponent, MindAddedMessage>(CommandCompStartup);
         SubscribeLocalEvent<MindContainerComponent, SkillLevelChengeEvent>(AddCommandSkillToMind);
 
-        //Wizden components
+        //Wizden components + content
         SubscribeLocalEvent<SkillStaminaAjustmentComponent, SkillLevelChengeEvent>(SkillStaminaModification);
         SubscribeLocalEvent<SkillRequermentComponent, GunRefreshModifiersEvent>(ModifyRangedWeaponComponent);
         SubscribeLocalEvent<SkillRequermentComponent, PullStartedMessage>(ModifyPulledMass);
+        SubscribeLocalEvent<SkillRequermentComponent, PullStoppedMessage>(ResetModifiedPulledMass);
     }
     public void RequStartUp(Entity<SkillRequermentComponent> ent, ref ComponentStartup args)
     {
@@ -80,7 +83,7 @@ public partial class OmuSkillSystem : CommenOmuSkillSystem
             }
         }
     }
-    public void OnExaminSkillHolder(ExaminedEvent args)
+    public void OnExaminSkillHolder(Entity<SkillHolderBodyComponent> ent, ref ExaminedEvent args)
     {
         if (!TryComp<MindContainerComponent>(args.Examined, out var mindContainer)) return;
         if (!mindContainer.HasMind) return;
