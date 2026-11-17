@@ -35,12 +35,6 @@
   - Robotics
   - Maintenance
   - External
-- type: startingGear
-  id: ScienceProfessorGear
-  equipment:
-    id: ScienceProfessorPDA
-    eyes: ClothingEyesHudDiagnostic
-    ears: ClothingHeadsetScience
   special:
   - !type:AddComponentSpecial
     components:
@@ -61,6 +55,14 @@
           Command: 1
           Engineering: 1
           Medical: -1
+
+
+- type: startingGear
+  id: ScienceProfessorGear
+  equipment:
+    id: ScienceProfessorPDA
+    eyes: ClothingEyesHudDiagnostic
+    ears: ClothingHeadsetScience
 
 - type: chameleonOutfit
   id: ScienceProfessorChameleonOutfit

@@ -35,20 +35,7 @@
   - Atmospherics
   - Maintenance
   - External
-- type: startingGear
-  id: EngineeringForemanGear
-  equipment:
-    id: EngineeringForemanPDA
-    eyes: ClothingEyesGlassesMeson
-    belt: ClothingBeltUtilityEngineering
-    ears: ClothingHeadsetEngineering
-  storage:
-    back:
-    - UniqueForemanLockerTeleporter
   special:
-  - !type:GiveItemOnHolidaySpecial
-    holiday: BoxingDay
-    prototype: BoxCardboard
   - !type:AddComponentSpecial
     components:
     - type: RoundStartSkillGranting #omu skill system 
@@ -68,6 +55,17 @@
           Command: 1
           Engineering: 1
           Medical: -1
+
+- type: startingGear
+  id: EngineeringForemanGear
+  equipment:
+    id: EngineeringForemanPDA
+    eyes: ClothingEyesGlassesMeson
+    belt: ClothingBeltUtilityEngineering
+    ears: ClothingHeadsetEngineering
+  storage:
+    back:
+    - UniqueForemanLockerTeleporter
 
 - type: chameleonOutfit
   id: EngineeringForemanChameleonOutfit
