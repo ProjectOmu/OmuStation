@@ -507,7 +507,7 @@
 - type: entity
   id: ActionSummonPlagueRat
   name: Summon Plague rat
-  description: Attempt to breach the veil between worlds to allow a plague rat to enter this realm.
+  description: Attempt to summon a plague rat though a air vent or scrubber. # Omu edit: added the fact you need to use it on a vent for it to work.
   components:
   - type: Action
     useDelay: 150
