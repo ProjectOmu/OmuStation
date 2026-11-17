@@ -28,6 +28,11 @@ selectable-set-warden-snub-name = Twin Snubnose
 selectable-set-warden-snub-description =
     Twin hammerless revolvers, for quick draws and quicker Magdumps
 
+selectable-set-warden-henrietta-name = Henrietta
+selectable-set-warden-henrietta-description =
+    A dependable 8 gauge lever-action shotgun with a bayonet.
+    Comes with a bandolier and some ammo to keep her fed.
+
 selectable-set-brigmed-crossbow-name = Syringe Crossbow
 selectable-set-brigmed-crossbow-description =
     A portable Crossbow for healing at range.
@@ -178,6 +183,18 @@ selectable-set-corpsman-combathardsuit-desc =
     Built based on designs recovered from Regalis sector.
     Offers much better armor then newer models.
 
+# Warden
+selectable-set-warden-hardsuit-name = Warden's hardsuit
+selectable-set-warden-hardsuit-desc =
+    Standard issue warden's hardsuit.
+    A specialized riot suit geared to combat low pressure environments.
+
+selectable-set-warden-riothardsuit-name = Warden's riot hardsuit
+selectable-set-warden-riothardsuit-desc =
+    Riot combat hardsuit repainted in security colors.
+    Heavier plating stops bullets and lasers far better,
+    but slows the wearer down considerably.
+
 # BSO
 selectable-set-bso-brdi-name = BRDI R-25
 selectable-set-bso-brdi-description =
@@ -231,3 +248,6 @@ selectable-set-ntr-brella-desc =
     durathread by "NanoFashion" for the rich people of central command.
     Looks expensive, and surprisingly durable.
     CC note says: ONLY USE ON RED!!!!!
+
+selectable-set-brig-modsuit-name = Corpsman 'Apollo' modsuit
+selectable-set-brig-modsuit-desc = An alternative and customized modular medical hardsuit designed for combat medics.

@@ -132,7 +132,7 @@ public sealed class PryingSystem : EntitySystem
 
         if (comp != null || Resolve(user, ref comp, false))
         {
-            canev = new BeforePryEvent(user, comp.PryPowered, comp.Force, true);
+            canev = new BeforePryEvent(user, comp.PryPowered, comp.Force, comp.CanPryPoweredFirelocks, true); // omu edit - prybars
         }
         else
         {
@@ -142,7 +142,7 @@ public sealed class PryingSystem : EntitySystem
                 return false;
             }
 
-            canev = new BeforePryEvent(user, false, false, false);
+            canev = new BeforePryEvent(user, false, false, false, false); //omu edit - prybars
         }
 
         RaiseLocalEvent(target, ref canev);

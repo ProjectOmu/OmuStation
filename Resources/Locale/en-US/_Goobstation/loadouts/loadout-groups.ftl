@@ -145,10 +145,10 @@ loadout-group-mime-envirogloves = Mime envirogloves
 loadout-group-mime-gloves = Mime gloves
 loadout-group-mime-shoes = Mime shoes
 
-# Assistant
-loadout-group-assistant-envirohelm = Assistant envirohelm
-loadout-group-assistant-envirosuit = Assistant envirosuit
-loadout-group-assistant-envirogloves = Assistant envirogloves
+# Assistant #omu Off Duty
+loadout-group-assistant-envirohelm = Off Duty envirohelm
+loadout-group-assistant-envirosuit = Off Duty envirosuit
+loadout-group-assistant-envirogloves = Off Duty envirogloves
 
 # Musician
 loadout-group-musician-envirohelm = Musician envirohelm
