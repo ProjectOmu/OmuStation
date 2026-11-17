@@ -1,0 +1,29 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: foreman locker unique marker
+  id: UniqueMarkerForemanLocker
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: _Omu/Structures/Storage/closet.rsi
+        state: bosun
+  - type: UniqueEntityMarker
+    markerName: BosunLocker
+
+- type: entity
+  name: bosun locker unique marker
+  id: UniqueMarkerBosunLocker
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: _Omu/Structures/Storage/closet.rsi
+        state: foreman
+  - type: UniqueEntityMarker
+    markerName: ForemanLocker

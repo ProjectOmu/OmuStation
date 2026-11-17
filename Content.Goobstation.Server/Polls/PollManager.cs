@@ -2,7 +2,10 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Goobstation.Shared.Polls;
+using Content.Omu.Common.CCVar;
 using Content.Server.Database;
+using Content.Server.Players.RateLimiting;
+using Content.Shared.Players.RateLimiting;
 using Robust.Server.Player;
 using Robust.Shared.Network;
 
@@ -13,6 +16,12 @@ public sealed class PollManager : IPostInjectInit
     [Dependency] private readonly IServerDbManager _db = null!;
     [Dependency] private readonly IPlayerManager _playerManager = null!;
     [Dependency] private readonly INetManager _net = null!;
+    [Dependency] private readonly PlayerRateLimitManager _rateLimit = null!; // Omu
+    // Omu start
+    private const string RateLimitKey = "Polls";
+    private const string BulkRateLimitKey = "PollsBulk";
+    private const string RateLimitedError = "Too many requests, try again shortly";
+    // Omu end
 
     private readonly Dictionary<int, Poll> _cachedPolls = [];
     private readonly object _cacheLock = new();
@@ -178,6 +187,10 @@ public sealed class PollManager : IPostInjectInit
 
     private async void OnRequestActivePolls(MsgRequestActivePolls msg)
     {
+        // Omu start
+        if (IsRateLimited(msg.MsgChannel, RateLimitKey))
+            return;
+        // Omu end
         var polls = await GetActivePolls();
         var seenIds = new List<int>();
 
@@ -193,6 +206,10 @@ public sealed class PollManager : IPostInjectInit
 
     private async void OnMarkPollSeen(MsgMarkPollSeen msg)
     {
+        // Omu start
+        if (IsRateLimited(msg.MsgChannel, BulkRateLimitKey))
+            return;
+        // Omu end
         if (!_playerManager.TryGetSessionByChannel(msg.MsgChannel, out var session) || session.UserId == default)
             return;
 
@@ -207,6 +224,10 @@ public sealed class PollManager : IPostInjectInit
 
     private async void OnRequestPollDetails(MsgRequestPollDetails msg)
     {
+        // Omu start
+        if (IsRateLimited(msg.MsgChannel, BulkRateLimitKey))
+            return;
+        // Omu end
         var poll = await GetPoll(msg.PollId);
         var playerVotes = new List<PollVoteData>();
 
@@ -224,6 +245,13 @@ public sealed class PollManager : IPostInjectInit
 
     private async void OnCastVote(MsgCastPollVote msg)
     {
+        // Omu start
+        if (IsRateLimited(msg.MsgChannel, RateLimitKey))
+        {
+            SendVoteResponse(false, RateLimitedError, null, msg.MsgChannel);
+            return;
+        }
+        // Omu end
         if (!_playerManager.TryGetSessionByChannel(msg.MsgChannel, out var session) || session.UserId == default)
         {
             SendVoteResponse(false, "Not logged in", null, msg.MsgChannel);
@@ -239,6 +267,13 @@ public sealed class PollManager : IPostInjectInit
 
     private async void OnRemoveVote(MsgRemovePollVote msg)
     {
+        // Omu start
+        if (IsRateLimited(msg.MsgChannel, RateLimitKey))
+        {
+            SendVoteResponse(false, RateLimitedError, null, msg.MsgChannel);
+            return;
+        }
+        // Omu end
         if (!_playerManager.TryGetSessionByChannel(msg.MsgChannel, out var session) || session.UserId == default)
         {
             SendVoteResponse(false, "Not logged in", null, msg.MsgChannel); // is this even possbile really? dunno but might as well check
@@ -268,6 +303,12 @@ public sealed class PollManager : IPostInjectInit
 
     void IPostInjectInit.PostInject()
     {
+        // Omu start
+        _rateLimit.Register(RateLimitKey,
+            new RateLimitRegistration(OmuCVars.PollRateLimitPeriod, OmuCVars.PollRateLimitCount, null));
+        _rateLimit.Register(BulkRateLimitKey,
+            new RateLimitRegistration(OmuCVars.PollRateLimitPeriod, OmuCVars.PollBulkRateLimitCount, null));
+        // Omu end
         _net.RegisterNetMessage<MsgRequestActivePolls>(OnRequestActivePolls);
         _net.RegisterNetMessage<MsgActivePollsResponse>();
         _net.RegisterNetMessage<MsgRequestPollDetails>(OnRequestPollDetails);
@@ -279,4 +320,12 @@ public sealed class PollManager : IPostInjectInit
         _net.RegisterNetMessage<MsgPollClosed>();
         _net.RegisterNetMessage<MsgMarkPollSeen>(OnMarkPollSeen);
     }
+    // Omu start
+
+    private bool IsRateLimited(INetChannel channel, string key)
+    {
+        return !_playerManager.TryGetSessionByChannel(channel, out var session)
+            || _rateLimit.CountAction(session, key) != RateLimitStatus.Allowed;
+    }
+    // Omu end
 }
