@@ -12,7 +12,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+        - !type:MetabolizerTypeCondition
           type: [Yowie]
           inverted: true
         damage:
