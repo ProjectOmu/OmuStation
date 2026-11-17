@@ -30,22 +30,20 @@ public sealed partial class CrewletBrainSystem
         _lookup.GetEntitiesInRange(Transform(ent).Coordinates, brain.FetchRange, _fetchable, LookupFlags.Uncontained);
 
         EntityUid? best = null;
-        var bestLength = 0;
+        var bestScore = -1;
         var bestDistance = float.PositiveInfinity;
         foreach (var item in _fetchable)
         {
-            var name = Name(item);
-            if (name.Length < bestLength
-                || _whitelist.IsWhitelistPass(brain.LootBlacklist, item)
-                || !ContainsWord(message, name))
+            var score = FetchScore(brain, message, Name(item));
+            if (score < bestScore || score < 0 || _whitelist.IsWhitelistPass(brain.LootBlacklist, item))
                 continue;
 
             var distance = DistanceTo(ent, item);
-            if (name.Length == bestLength && distance >= bestDistance)
+            if (score == bestScore && distance >= bestDistance)
                 continue;
 
             best = item;
-            bestLength = name.Length;
+            bestScore = score;
             bestDistance = distance;
         }
 
@@ -55,6 +53,15 @@ public sealed partial class CrewletBrainSystem
 
         brain.FetchItem = best;
         brain.FetchUntil = now + brain.FetchMemory;
+    }
+
+    private static int FetchScore(CrewletBrainComponent brain, string message, string name)
+    {
+        if (ContainsWord(message, name))
+            return name.Length;
+
+        var last = name[(name.LastIndexOf(' ') + 1)..];
+        return last.Length >= brain.MinFetchWord && last.Length < name.Length && ContainsWord(message, last) ? 0 : -1;
     }
 
     private bool WantsFetch(Entity<CrewletBrainComponent> ent, TimeSpan now)

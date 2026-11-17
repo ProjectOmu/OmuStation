@@ -28,4 +28,4 @@ entity-effect-guidebook-crewlet-gestation =
     { $chance ->
         [1] Grows
         *[other] grow
-    } a small version of the metabolizer once {$dose}u builds up. It follows whoever injected that dose.
+    } a small version of the metabolizer once {$dose}u builds up. It follows whoever injected that dose

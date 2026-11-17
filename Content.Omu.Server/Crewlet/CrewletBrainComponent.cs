@@ -70,6 +70,9 @@ public sealed partial class CrewletBrainComponent : Component
     public TimeSpan FetchMemory = TimeSpan.FromSeconds(10);
 
     [DataField]
+    public int MinFetchWord = 4;
+
+    [DataField]
     public ProtoId<LocalizedDatasetPrototype> ComeWords = "CrewletComeWords";
 
     [DataField]
@@ -433,6 +436,7 @@ public sealed partial class CrewletBrainComponent : Component
     {
         { CrewletActivity.Stare, TimeSpan.FromSeconds(10) },
         { CrewletActivity.Fetch, TimeSpan.FromSeconds(20) },
+        { CrewletActivity.Loot, TimeSpan.FromMinutes(10) },
         { CrewletActivity.Worry, TimeSpan.FromSeconds(60) },
         { CrewletActivity.Dance, TimeSpan.FromSeconds(60) },
     };
