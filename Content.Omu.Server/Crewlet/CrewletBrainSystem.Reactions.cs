@@ -290,7 +290,7 @@ public sealed partial class CrewletBrainSystem
             var lines = _proto.Index(brain.HelloLines).Values;
             var name = CrewletSystem.GetShortName(Identity.Name(person, EntityManager, ent));
             brain.PendingLine = Loc.GetString(lines[_random.Next(lines.Count)], ("name", name));
-            StartTyping(ent, now);
+            StartTyping(ent, now + brain.TypingTime);
             WaitFor(ent, brain.TypingTime, now);
         }
         else if (now >= brain.StepEnds)

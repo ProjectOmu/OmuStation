@@ -5,13 +5,17 @@ using Content.Server.Pointing.Components;
 using Content.Shared.Animals.Components;
 using Content.Shared.Chat;
 using Content.Shared.Chat.TypingIndicator;
+using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Robust.Shared.Map;
+using Robust.Shared.Random;
 
 namespace Content.Omu.Server.Crewlet;
 
 public sealed partial class CrewletBrainSystem
 {
+    private readonly HashSet<Entity<HumanoidAppearanceComponent>> _earshot = new();
+
     private void UpdateSpeech(Entity<CrewletBrainComponent> ent, TimeSpan now)
     {
         var brain = ent.Comp;
@@ -39,7 +43,7 @@ public sealed partial class CrewletBrainSystem
             if (PickMemory(ent) is { } memory && _actionBlocker.CanSpeak(ent))
             {
                 brain.PendingLine = memory;
-                StartTyping(ent, now);
+                StartTyping(ent, now + brain.TypingTime);
             }
         }
 
@@ -51,7 +55,7 @@ public sealed partial class CrewletBrainSystem
         if (roll < brain.TypingChance)
         {
             if (brain.TypingEnds == null && _actionBlocker.CanSpeak(ent))
-                StartTyping(ent, now);
+                StartTyping(ent, now + brain.TypingTime);
         }
         else if (roll < brain.TypingChance + brain.GlowChance)
         {
@@ -60,9 +64,9 @@ public sealed partial class CrewletBrainSystem
         }
     }
 
-    private void StartTyping(Entity<CrewletBrainComponent> ent, TimeSpan now)
+    private void StartTyping(Entity<CrewletBrainComponent> ent, TimeSpan until)
     {
-        ent.Comp.TypingEnds = now + ent.Comp.TypingTime;
+        ent.Comp.TypingEnds = until;
         _appearance.SetData(ent, TypingIndicatorVisuals.State, TypingIndicatorState.Typing);
     }
 
@@ -103,6 +107,9 @@ public sealed partial class CrewletBrainSystem
             return;
 
         brain.NextDislikeLine = now + brain.DislikeLineCooldown;
+        if (TryDislikeRare(ent, person, now))
+            return;
+
         var lines = _proto.Index(brain.DislikeLines).Values;
         var pick = _random.Next(lines.Count + 1);
         if (pick == lines.Count)
@@ -114,6 +121,42 @@ public sealed partial class CrewletBrainSystem
         var name = CrewletSystem.GetShortName(Identity.Name(person, EntityManager, ent));
         Point(ent, person);
         Say(ent, Loc.GetString(lines[pick], ("name", name)));
+    }
+
+    private bool TryDislikeRare(Entity<CrewletBrainComponent> ent, EntityUid person, TimeSpan now)
+    {
+        var brain = ent.Comp;
+        if (now < brain.NextDislikeRare
+            || brain.PendingLine != null
+            || !_actionBlocker.CanSpeak(ent)
+            || !_random.Prob(AloneWith(ent, person) ? brain.AloneDislikeRareChance : brain.DislikeRareChance))
+            return false;
+
+        brain.NextDislikeRare = now + brain.DislikeRareCooldown;
+        var lines = _proto.Index(brain.DislikeRareLines).Values;
+        var name = CrewletSystem.GetShortName(Identity.Name(person, EntityManager, ent));
+        brain.PendingLine = Loc.GetString(_random.Pick(lines), ("name", name));
+        Point(ent, person);
+        StartTyping(ent, now + brain.DislikeRareTypingTime);
+        return true;
+    }
+
+    private bool AloneWith(Entity<CrewletBrainComponent> ent, EntityUid person)
+    {
+        _earshot.Clear();
+        _lookup.GetEntitiesInRange(Transform(ent).Coordinates, ent.Comp.EarshotRange, _earshot);
+        var alone = true;
+        foreach (var listener in _earshot)
+        {
+            if (listener.Owner == person || _crewletQuery.HasComp(listener) || !_mobState.IsAlive(listener))
+                continue;
+
+            alone = false;
+            break;
+        }
+
+        _earshot.Clear();
+        return alone;
     }
 
     private void Say(Entity<CrewletBrainComponent> ent, string line)

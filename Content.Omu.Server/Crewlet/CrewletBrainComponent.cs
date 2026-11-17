@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Database;
 using Content.Shared.Dataset;
@@ -310,6 +311,24 @@ public sealed partial class CrewletBrainComponent : Component
     public ProtoId<EmotePrototype> DislikeEmote = "Crying";
 
     [DataField]
+    public ProtoId<LocalizedDatasetPrototype> DislikeRareLines = "CrewletDislikeRare";
+
+    [DataField]
+    public float DislikeRareChance = 0.02f;
+
+    [DataField]
+    public float AloneDislikeRareChance = 0.15f;
+
+    [DataField]
+    public float EarshotRange = SharedChatSystem.VoiceRange;
+
+    [DataField]
+    public TimeSpan DislikeRareCooldown = TimeSpan.FromMinutes(10);
+
+    [DataField]
+    public TimeSpan DislikeRareTypingTime = TimeSpan.FromSeconds(4);
+
+    [DataField]
     public float GiftOwnerWeight = 1f;
 
     [DataField]
@@ -584,6 +603,9 @@ public sealed partial class CrewletBrainComponent : Component
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextDislikeLine;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan NextDislikeRare;
 
     [DataField]
     public EntityUid? Door;
