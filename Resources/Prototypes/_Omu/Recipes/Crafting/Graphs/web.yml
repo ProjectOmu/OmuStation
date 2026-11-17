@@ -53,3 +53,17 @@
         doAfter: 5
   - node: end
     entity: ClothingNeckScarfArachnid
+
+- type: constructionGraph
+  id: SpiderWebConstruct
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: end
+      steps:
+      - material: WebSilk
+        amount: 2
+        doAfter: 5
+  - node: end
+    entity: SpiderWebConstruct

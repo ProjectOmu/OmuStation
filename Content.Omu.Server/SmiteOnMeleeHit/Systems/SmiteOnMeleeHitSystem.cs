@@ -44,7 +44,6 @@ public sealed class SmiteOnMeleeHit : EntitySystem
                 else
                 {
                     EntityManager.SpawnEntity("Ash", Transform(hit).Coordinates);
-                    //_audio.PlayPvs(sm.DustSound, uid); //Comes from "Content.Goobstation.Server\Supermatter\Systems\SupermatterSystem.cs" Define using soundHit on .yml side
                 }
             }
             QueueDel(hit);

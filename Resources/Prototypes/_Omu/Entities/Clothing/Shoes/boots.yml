@@ -11,3 +11,14 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: StepHeavyBoots
+
+- type: entity
+  parent: ClothingShoesBootsCowboyBrown
+  id: ClothingShoesBootsCowboyWork
+  name: spurred workboots
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Shoes/Boots/cowboyworkboots.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Shoes/Boots/cowboyworkboots.rsi
+  - type: Matchbox

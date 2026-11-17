@@ -115,3 +115,23 @@ public sealed partial class GrantHellRipComponent : GrantMartialArtKnowledgeComp
 
     public override LocId? LearnMessage { get; set; } = "hellrip-success-learned";
 }
+
+// Omu start
+[RegisterComponent]
+public sealed partial class GrantWrestlingComponent : GrantMartialArtKnowledgeComponent
+{
+    [DataField]
+    public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.Wrestling;
+
+    public override LocId? LearnMessage { get; set; } = "wrestling-success-learned";
+
+    [DataField]
+    public bool RequireOpponentBelt;
+
+    [DataField]
+    public SoundSpecifier? EquipSound;
+
+    [ViewVariables]
+    public LocId? LastSaying;
+}
+// Omu end
