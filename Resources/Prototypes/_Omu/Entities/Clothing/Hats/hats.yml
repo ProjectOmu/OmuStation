@@ -394,7 +394,7 @@
     sprite: _Omu/Clothing/Hats/hardhat_black.rsi
 
 - type: entity
-  parent: ClothingHeadHatCentcomcap
+  parent: [ ClothingHeadBase, BaseCentcommContraband ]
   id: ClothingHeadHatCapCompliance
   name: corporate compliance cap
   description: A sharp black cap worn by CentComm's compliance officers. DID YOU KNOW? Everything you say is going in the report.
