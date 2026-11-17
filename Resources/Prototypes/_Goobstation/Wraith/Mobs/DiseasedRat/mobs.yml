@@ -79,7 +79,7 @@
       path: /Audio/_Goobstation/Wraith/Attack/handcuffs.ogg
     damage:
       types:
-        Slash: 6 #Omu edit start: nerfing the damage some
+        Slash: 4 #Omu edit start: nerfing the damage some
 #        Blunt: 2
       armorPenetration: -0.3 # Omu edit end
   - type: SolutionContainerManager
@@ -135,7 +135,11 @@
     spreadParams:
       chance: 0.15
       power: 1
-      spreadType: Blood # Omu edit end
+      spreadType: Blood
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.1 # Omu edit end
 
 - type: entity
   id: MobPlagueRatMedium
@@ -253,7 +257,7 @@
       path: /Audio/_Goobstation/Wraith/Attack/handcuffs.ogg
     damage:
       types:
-        Slash: 6 # Omu edit start
+        Slash: 4 # Omu edit start
 #        Blunt: 2
       armorPenetration: -0.3 # Omu edit end
   - type: SolutionContainerManager
@@ -289,9 +293,9 @@
               path: /Audio/Items/snap.ogg
   - type: WeakToHoly # Omu edit start
     alwaysTakeHoly: true
-  - type: DiseaseOnHit
-    disease: DiseaseRatPlague
-    spreadParams:
-      chance: 0.15
-      power: 1
-      spreadType: Blood # Omu edit end
+  - type: DiseaseCarrier
+    effectImmune: true
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.1 # Omu edit end
