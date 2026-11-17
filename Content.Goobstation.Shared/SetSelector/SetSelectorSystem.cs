@@ -159,7 +159,7 @@ public sealed partial class SetSelectorSystem : EntitySystem // Omu - Split out 
                 set.Name,
                 set.Description,
                 set.Sprite,
-                selected,
+                selected, // Omu
                 set.ID); // Omu - Used for client requirement checks.
             data.Add(i, info);
         }

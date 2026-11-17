@@ -51,8 +51,8 @@ public partial struct SelectableSetInfo
     public ProtoId<SelectableSetPrototype> Prototype;
     // Omu end
 
-    // Omu - Pass the set prototype to the client.
-    public SelectableSetInfo(string name, string desc, SpriteSpecifier sprite, bool selected, ProtoId<SelectableSetPrototype> prototype)
+    public SelectableSetInfo(string name, string desc, SpriteSpecifier sprite, bool selected, // Omu
+        ProtoId<SelectableSetPrototype> prototype) // Omu
     {
         Name = name;
         Description = desc;

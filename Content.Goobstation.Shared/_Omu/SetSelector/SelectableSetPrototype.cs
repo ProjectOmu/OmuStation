@@ -32,7 +32,8 @@ public sealed partial class SelectableSetPrototype
             return false;
         }
 
-        var allowed = JobRequirements.TryRequirementsMet(Requirements, times, out var failure, entities, prototypes, null);
+        var allowed = JobRequirements.TryRequirementsMet(Requirements, times, out var failure,
+            entities, prototypes, null);
         reason = failure?.ToString();
         return allowed;
     }

@@ -27,7 +27,8 @@ public sealed partial class SetSelectorMenu
         if (prototype.Requirements.Count > 0)
         {
             child.MouseFilter = MouseFilterMode.Pass;
-            var requirements = string.Join("\n", prototype.Requirements.OfType<DepartmentTimeRequirement>().Select(requirement =>
+            var requirements = string.Join("\n",
+                prototype.Requirements.OfType<DepartmentTimeRequirement>().Select(requirement =>
                 Loc.GetString("set-selector-department-time",
                     ("time", ContentLocalizationManager.FormatPlaytime(requirement.Time)),
                     ("department", Loc.GetString(_prototypes.Index(requirement.Department).Name)))));
