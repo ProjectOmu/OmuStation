@@ -1,10 +1,10 @@
 - type: reagent
   id: Ratbile
-  name: Rat Bile
+  name: reagent-name-rat-bile
   group: Toxins
-  desc: The toxic bile of plague rats
+  desc: reagent-desc-rat-bile
   physicalDesc: reagent-physical-desc-putrid
-  flavor: vile
+  flavor: terrible
   color: "#bd5902"
   metabolisms:
     Poison:
@@ -17,7 +17,7 @@
           inverted: true
         damage:
           types:
-            Poison: 0.4
+            Poison: 0.4 # 2 posion damage per unit
       - !type:DiseaseProgressChange
         affectedType: Supernatural
         progressModifier: 0.002
