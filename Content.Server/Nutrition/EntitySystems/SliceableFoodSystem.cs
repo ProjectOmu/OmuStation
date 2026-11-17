@@ -30,6 +30,8 @@ public sealed class SliceableFoodSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+
+    private const float ScissorMult = 2f;
     public override void Initialize()
     {
         base.Initialize();
@@ -49,7 +51,7 @@ public sealed class SliceableFoodSystem : EntitySystem
         //Omu Start
         var sliceTime = entity.Comp.SliceTime;
         if ((utensil.Types & UtensilType.Scissor) != 0)
-            sliceTime *= 2; // You do not understand the agony in the past 3 days these motherfuckers have given me about this. I don't care its a "magic" number I want whoever decides to cut food with scissors instead of a knife to suffer.
+            sliceTime *= ScissorMult;
         //Omu End
 
 
