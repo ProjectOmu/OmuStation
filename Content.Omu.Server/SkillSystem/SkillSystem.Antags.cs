@@ -16,7 +16,7 @@ public sealed partial class OmuSkillSystem : CommenOmuSkillSystem
     {
         if (!_mind.TryGetMind(args.EntityUid, out var mindId, out var mind))
         {
-            Log.Error($"SkillSystem.Antag {ToPrettyString(args.EntityUid):player} was selected as antag but had no mind attached, unable to add skills!");
+            //Log.Debug.LogWarning($"SkillSystem.Antag {ToPrettyString(args.EntityUid):player} was selected as antag but had no mind attached, unable to add skills!");
             return;
         }
         if (!TryComp<SkillHolderComponent>(mindId, out var skillComp)) return;
