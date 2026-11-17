@@ -67,6 +67,7 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
         SubscribeLocalEvent<StationJobsGetCandidatesEvent>(OnStationJobsGetCandidates);
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete, before: [typeof(AntagSelectionSystem)]);
         SubscribeLocalEvent<NoJobsAvailableSpawningEvent>(OnNoJobsAvailable);
+        SubscribeLocalEvent<PlayerJoinedLobbyEvent>(OnPlayerJoinedLobby);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestartCleanup);
     }
 
@@ -84,13 +85,10 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
         var priorities = queue.JobPriorities
             .Where(pair => characters.Any(c => c.JobPriorities.ContainsKey(pair.Key)))
             .ToDictionary();
-        var overflow = characters.Any(c => c.PreferenceUnavailable == PreferenceUnavailableMode.SpawnAsOverflow);
 
         return (GetPrimaryCharacter(prefs, queue) ?? HumanoidCharacterProfile.Random())
             .WithJobPriorities(priorities)
-            .WithPreferenceUnavailable(overflow
-                ? PreferenceUnavailableMode.SpawnAsOverflow
-                : PreferenceUnavailableMode.StayInLobby);
+            .WithPreferenceUnavailable(queue.PreferenceUnavailable);
     }
 
     public IReadOnlyDictionary<ProtoId<JobPrototype>, JobPriority> GetJobPriorities(NetUserId userId)
@@ -156,7 +154,10 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
         var queue = new CharacterQueueState(
             SanitizePriorities(state.JobPriorities),
             state.ActiveSlots.Where(slot => slot >= 0 && slot < maxSlots).ToHashSet(),
-            state.Order.Where(slot => slot >= 0 && slot < maxSlots).Distinct().ToList());
+            state.Order.Where(slot => slot >= 0 && slot < maxSlots).Distinct().ToList(),
+            Enum.IsDefined(state.PreferenceUnavailable)
+                ? state.PreferenceUnavailable
+                : PreferenceUnavailableMode.StayInLobby);
 
         _queues[session.UserId] = queue;
         SendQueue(session);
@@ -190,7 +191,8 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
         return new CharacterQueueState(
             selected?.JobPriorities.ToDictionary() ?? [],
             [prefs.SelectedCharacterIndex],
-            []);
+            [],
+            selected?.PreferenceUnavailable ?? PreferenceUnavailableMode.StayInLobby);
     }
 
     private HumanoidCharacterProfile? PickCharacter(
@@ -331,7 +333,11 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
     private void FinishLoad(ICommonSession session)
     {
         if (_queues.TryGetValue(session.UserId, out var queue))
-            _queues[session.UserId] = new(SanitizePriorities(queue.JobPriorities), queue.ActiveSlots, queue.Order);
+            _queues[session.UserId] = new(
+                SanitizePriorities(queue.JobPriorities),
+                queue.ActiveSlots,
+                queue.Order,
+                queue.PreferenceUnavailable);
         else if (_prefs.TryGetCachedPreferences(session.UserId, out var prefs))
             _queues[session.UserId] = GetQueue(session.UserId, prefs);
 
@@ -353,7 +359,8 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
         _queues[userId] = new CharacterQueueState(
             queue.JobPriorities,
             queue.ActiveSlots.Where(s => s != slot).ToHashSet(),
-            queue.Order.Where(s => s != slot).ToList());
+            queue.Order.Where(s => s != slot).ToList(),
+            queue.PreferenceUnavailable);
 
         if (_player.TryGetSessionById(userId, out var session))
             SendQueue(session);
@@ -444,6 +451,11 @@ public sealed class CharacterQueueSystem : SharedCharacterQueueSystem
             return;
 
         _chat.DispatchServerMessage(ev.Player, Loc.GetString("character-queue-no-active-characters"));
+    }
+
+    private void OnPlayerJoinedLobby(PlayerJoinedLobbyEvent ev)
+    {
+        _spawned.Remove(ev.PlayerSession.UserId);
     }
 
     private void OnRoundRestartCleanup(RoundRestartCleanupEvent ev)

@@ -18,6 +18,9 @@
         whitelist:
           components:
           - PAI
+        blacklist: # Omu
+          components:
+          - MMI
     - type: Organ
       slotId: posbrain
     - type: Tag
@@ -47,5 +50,8 @@
         whitelist:
           tags:
           - Posibrain
+        blacklist: # Omu
+          components:
+          - MMI
     - type: Organ
       slotId: brain
