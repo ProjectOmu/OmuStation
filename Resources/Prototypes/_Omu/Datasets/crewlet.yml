@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: MIT
+
+- type: localizedDataset
+  id: CrewletMourning
+  values:
+    prefix: crewlet-mourning-
+    count: 12
+
+- type: localizedDataset
+  id: CrewletCreepy
+  values:
+    prefix: crewlet-creepy-
+    count: 7
+
+- type: localizedDataset
+  id: CrewletHello
+  values:
+    prefix: crewlet-hello-
+    count: 6
+
+- type: localizedDataset
+  id: CrewletDislike
+  values:
+    prefix: crewlet-dislike-
+    count: 7
+
+- type: localizedDataset
+  id: CrewletComeWords
+  values:
+    prefix: crewlet-come-
+    count: 2

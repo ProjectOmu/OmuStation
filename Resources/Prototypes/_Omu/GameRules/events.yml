@@ -72,3 +72,16 @@
         color: "#8c3986"
       mindRoles:
       - MindRoleXenomorph
+
+- type: entity
+  parent: BaseStationEvent
+  id: CrewletOmen
+  components:
+  - type: StationEvent
+    weight: 1
+    earliestStart: 20
+    maxOccurrences: 1
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: 20
+  - type: CrewletOmenRule
