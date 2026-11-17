@@ -1,0 +1,23 @@
+
+- type: entity
+  id: WraithAbilitiesNoEvolve
+  name: Wraith Abilities
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Haunt
+  - type: BloodWriting
+  - type: Decay
+  - type: AbsorbCorpse
+    damage:
+      types:
+        Slash: 25
+        Blunt: 25
+  - type: SpookMark
+  - type: ActionGrant
+    actions:
+    - ActionAbsorbCorpse
+    - ActionDecay
+    - ActionWraithWhisper
+    - ActionBloodWriting
+    - ActionSpook
+    - ActionToggleGhosts

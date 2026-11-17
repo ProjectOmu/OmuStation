@@ -7,14 +7,21 @@
   description: Proves to the world that you are the strongest!
   components:
   - type: Sprite
-    sprite: Clothing/Belt/champion.rsi
+    sprite: _Omu/Clothing/Belt/champion.rsi # Omu
   - type: Clothing
-    sprite: Clothing/Belt/champion.rsi
+    sprite: _Omu/Clothing/Belt/champion.rsi # Omu
     quickEquip: true
   - type: Tag
     tags:
     - Kangaroo # Kangaroo wearable. Dare to challenge the champ?
     - WhitelistChameleon
+  # Omu start
+  - type: GrantWrestling
+    requireOpponentBelt: true
+  - type: GuideHelp
+    guides:
+    - Wrestling
+  # Omu end
 
 - type: entity
   parent: ClothingBeltBase

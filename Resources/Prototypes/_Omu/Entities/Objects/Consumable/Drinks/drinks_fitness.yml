@@ -1,0 +1,24 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: DrinkFitnessShakerRed
+  id: DrinkFitnessShakerRedProtein
+  name: protein shake
+  description: A fitness shaker full of protein shake. Chalky, lumpy, and absolutely necessary before a title match.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Protein
+          Quantity: 10
+        - ReagentId: Water
+          Quantity: 20
+
+- type: entity
+  parent: DrinkFitnessShakerRedProtein
+  id: DrinkFitnessShakerBlueProtein
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Drinks/shakerblue.rsi
+    state: icon
