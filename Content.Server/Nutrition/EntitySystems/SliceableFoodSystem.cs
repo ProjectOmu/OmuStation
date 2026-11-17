@@ -44,12 +44,18 @@ public sealed class SliceableFoodSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (!TryComp<UtensilComponent>(args.Used, out var utensil) || (utensil.Types & UtensilType.Knife) == 0)
+        if (!TryComp<UtensilComponent>(args.Used, out var utensil) || (utensil.Types & (UtensilType.Knife | UtensilType.Scissor)) == 0) // Omu, added scissors to "slice" food for some reason.
             return;
+        //Omu Start
+        var sliceTime = entity.Comp.SliceTime;
+        if ((utensil.Types & UtensilType.Scissor) != 0)
+            sliceTime *= 2; // You do not understand the agony in the past 3 days these motherfuckers have given me about this. I don't care its a "magic" number I want whoever decides to cut food with scissors instead of a knife to suffer.
+        //Omu End
+
 
         var doAfterArgs = new DoAfterArgs(EntityManager,
             args.User,
-            entity.Comp.SliceTime,
+            sliceTime,// Omu, I guess.
             new SliceFoodDoAfterEvent(),
             entity,
             entity,
@@ -81,7 +87,7 @@ public sealed class SliceableFoodSystem : EntitySystem
         if (!_solutionContainer.TryGetSolution(entity.Owner, entity.Comp3.Solution, out var soln, out var solution))
             return false;
 
-        if (!TryComp<UtensilComponent>(usedItem, out var utensil) || (utensil.Types & UtensilType.Knife) == 0)
+        if (!TryComp<UtensilComponent>(usedItem, out var utensil) || (utensil.Types & (UtensilType.Knife | UtensilType.Scissor)) == 0)
             return false;
 
         var sliceVolume = solution.Volume / FixedPoint2.New(entity.Comp2.TotalCount);

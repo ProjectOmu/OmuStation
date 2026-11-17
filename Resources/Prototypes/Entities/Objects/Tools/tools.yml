@@ -68,6 +68,9 @@
       path: /Audio/Items/wirecutter.ogg
       params:
         variation: 0.125
+  - type: Utensil # Omu
+    types:
+      - Scissor
 
 - type: entity
   name: screwdriver
@@ -190,7 +193,7 @@
 
 - type: entity
   name: multitool
-  parent: BaseItem 
+  parent: BaseItem
   id: Multitool
   description: An advanced tool to copy, store, and send electrical pulses and signals through wires and machines.
   components:
