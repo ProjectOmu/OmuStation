@@ -1,8 +1,8 @@
 ﻿- type: entity
   parent: BaseItem
   id: CargoSkilltrainer
-  name: cargoSkilltrainer
-  description: cargoSkilltrainerDesc
+  name: Cargo Skilltrainer
+  description: A device inserted into eye of the person that rapidly restructures the mind of the individual to learn information related to cargo operations.
   components:
     - type: Sprite
       sprite: _Omu/Objects/SkillTrainers/NTSkillTrainer.rsi
@@ -20,8 +20,8 @@
 - type: entity
   parent: [ CargoSkilltrainer, BaseSyndicateContraband]
   id: CargoSkilltrainerSyndicate
-  name: skilltrainerSyndicate
-  description: skilltrainerSyndicateDesc
+  name: Unknown pice of Equipment
+  description: This device looks forin and dangerous to handle wires and explosed circitry everwhere and a multi pronged grabber that could perfectly fit your eye ball. 
   suffix: Cargo
   components:
     - type: Sprite
