@@ -10259,3 +10259,11 @@ Entries:
       message: The Paramedic MODsuit no longer hides your hair when worn.
   id: 1317
   time: '2026-11-18T01:04:49.0000000+00:00'
+- author: ggrab41
+  changes:
+    - type: Tweak
+      message: Made Bananium walls "welding" step take 10s to complete. (was 20s)
+    - type: Tweak
+      message: Bananium doors now block radiation.
+  id: 1318
+  time: '2026-11-18T02:28:06.0000000+00:00'
