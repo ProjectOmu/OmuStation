@@ -7,7 +7,11 @@ namespace Content.Shared._DV.Body.Components;
 /// Marks this entity as a feather, that probably has a custom color
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class FeatherComponent : Component;
+public sealed partial class FeatherComponent : Component
+{
+    [DataField]
+    public string LayerName = "feather"; // Omu
+}
 
 /// <summary>
 /// Visual data for feathers

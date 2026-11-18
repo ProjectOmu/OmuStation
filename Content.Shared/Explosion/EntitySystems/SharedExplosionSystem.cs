@@ -3,6 +3,7 @@
 using Content.Shared.Armor;
 using Content.Shared.Explosion.Components;
 using Robust.Shared.Prototypes;
+using Content.Shared.Database;
 
 namespace Content.Shared.Explosion.EntitySystems;
 
@@ -68,7 +69,8 @@ public abstract class SharedExplosionSystem : EntitySystem
                                         int maxTileBreak = int.MaxValue,
                                         bool canCreateVacuum = true,
                                         EntityUid? user = null,
-                                        bool addLog = true)
+                                        bool addLog = true,
+                                        LogImpact logTypeOverride = LogImpact.High) // Omu - add logging override
     {
     }
 
