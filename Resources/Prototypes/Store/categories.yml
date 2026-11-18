@@ -98,20 +98,24 @@
   name: store-category-allies
   priority: 8
 
-- type: storeCategory #omu start
+# Omu start
+- type: storeCategory
   id: UplinkSkills
   name: store-category-skills
-  priority: 9 #omu end
+  priority: 9
+# Omu end
 
 - type: storeCategory
   id: UplinkJob
   name: store-category-job
-  priority: 10 #omu
+  # priority: 9 # Omu
+  priority: 10 # Omu
 
 - type: storeCategory
   id: UplinkPointless
   name: store-category-pointless
-  priority: 11 #omu
+  # priority: 10 # Omu
+  priority: 11 # Omu
 
 - type: storeCategory
   id: DiscountedItems

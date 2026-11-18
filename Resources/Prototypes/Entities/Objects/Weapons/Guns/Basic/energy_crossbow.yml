@@ -1,6 +1,7 @@
 - type: entity
   abstract: true
-  parent: [ BaseItem, BaseCombatSkillRequirments ]
+  # parent: BaseItem # Omu
+  parent: [ BaseItem, BaseCombatSkill ] # Omu
   id: WeaponEnergyCrossbowBase
   components:
   - type: Sprite

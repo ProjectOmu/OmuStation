@@ -13,7 +13,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Shared._Omu.Preferences;
 using Content.Shared._Omu.Speech;
-using Content.Shared._Omu.SkillSystem;
+using Content.Shared._Omu.Skills;
 using Content.Shared._RMC14.LinkAccount;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Construction.Prototypes;
@@ -303,7 +303,7 @@ namespace Content.Server.Database
                 .Select(r => new SpeechReplacement { Word = r.Word, Replacement = r.Replacement })
                 .ToList();
             var skillAllocation = profile.SkillAllocations.ToDictionary(
-                s => new ProtoId<SkillNamePrototype>(s.Skill),
+                s => new ProtoId<SkillPrototype>(s.Skill),
                 s => s.Points);
             // Omu end
 

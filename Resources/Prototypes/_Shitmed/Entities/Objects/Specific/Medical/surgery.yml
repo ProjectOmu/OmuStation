@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseToolSurgery, BaseMedicalScienceContraband, BaseMedicalSkillRequirments ] # Omu
+  parent: [ BaseToolSurgery, BaseMedicalScienceContraband, BaseMedicalSkill ] # Omu
   id: Bonesetter
   name: bone setter
   description: Used for setting bones back into place.
@@ -14,7 +14,7 @@
       path: /Audio/_Shitmed/Medical/Surgery/bone_setter.ogg
 
 - type: entity
-  parent: [ BaseToolSurgery, BaseMedicalScienceContraband, BaseMedicalSkillRequirments ] # Omu
+  parent: [ BaseToolSurgery, BaseMedicalScienceContraband, BaseMedicalSkill ] # Omu
   id: BoneGel
   name: bottle of bone gel
   description: A container for bone gel that often needs to be refilled from a specialized machine.
@@ -25,7 +25,7 @@
   - type: BoneGel
 
 - type: entity
-  parent: [ BaseToolSurgery, BaseMedicalScienceContraband, BaseMedicalSkillRequirments ] # Omu
+  parent: [ BaseToolSurgery, BaseMedicalScienceContraband, BaseMedicalSkill ] # Omu
   id: MedicalStitches
   name: medical stitches
   description: A fine, curved needle with a length of absorbable polyglycolide suture thread.
@@ -65,9 +65,11 @@
       Glass: 37
       Gold: 37
   - type: Scalpel
-    speed: 1.5 #omu
+    # speed: 3 # Omu
+    speed: 1.5 # Omu
   - type: BoneSaw
-    speed: 1.5 #omu
+    # speed: 3 # Omu
+    speed: 1.5 # Omu
   - type: ItemSwitch
     showLabel: true
     state: scalpel
@@ -80,9 +82,11 @@
           state: e-scalpel
         components:
           - type: Scalpel
-            speed: 1.5 #omu
+            # speed: 3 # Omu
+            speed: 1.5 # Omu
           - type: BoneSaw
-            speed: 1.5 #omu
+            # speed: 3 # Omu
+            speed: 1.5 # Omu
         soundStateActivate:
           collection: sparks
           params:
@@ -96,7 +100,8 @@
           state: e-scalpel-on
         components:
         - type: Drill
-          speed: 1.5 #omu
+          # speed: 3 # Omu
+          speed: 1.5 # Omu
         soundStateActivate:
           collection: sparks
           params:
@@ -133,7 +138,8 @@
       Glass: 37
       Silver: 37
   - type: Retractor
-    speed: 1.5 #omu
+    # speed: 3 # Omu
+    speed: 1.5 # Omu
   - type: ItemSwitch
     showLabel: true
     state: retractor
@@ -145,7 +151,8 @@
           state: adv-retractor
         components:
           - type: Retractor
-            speed: 1.5 #omu
+            # speed: 3 # Omu
+            speed: 1.5 # Omu
         soundStateActivate:
           collection: sparks
           params:
@@ -159,11 +166,14 @@
           state: adv-retractor-on
         components:
           - type: Hemostat
-            speed: 1.5 #omu
+            # speed: 3 # Omu
+            speed: 1.5 # Omu
           - type: Tweezers
-            speed: 1.5 #omu
+            # speed: 3 # Omu
+            speed: 1.5 # Omu
           - type: Tending
-            speed: 1.5 #omu
+            # speed: 3 # Omu
+            speed: 1.5 # Omu
         soundStateActivate:
           collection: sparks
           params:
@@ -200,7 +210,8 @@
       Glass: 37
       Plasma: 37
   - type: Cautery
-    speed: 1.5 #omu
+    # speed: 3 # Omu
+    speed: 1.5 # Omu
   - type: ItemSwitch
     showLabel: true
     state: cautery
@@ -212,7 +223,8 @@
           state: e-cautery
         components:
         - type: Cautery
-          speed: 1.5 #omu
+          # speed: 3 # Omu
+          speed: 1.5 # Omu
         soundStateActivate:
           collection: WelderOn
           params:
@@ -226,7 +238,8 @@
           state: e-cautery-on
         components:
         - type: Stitches # should be unlimited when the actual stitches become limited
-          speed: 1.5 #omu
+          # speed: 3 # Omu
+          speed: 1.5 # Omu
         soundStateActivate:
           collection: sparks
           params:
@@ -264,7 +277,8 @@
       Glass: 37
       Plasma: 37
   - type: BoneGel # should be unlimited when the actual bone gel becomes limited
-    speed: 1.5 #omu
+    # speed: 3 # Omu
+    speed: 1.5 # Omu
   - type: ItemSwitch
     showLabel: true
     state: bonegel
@@ -276,7 +290,8 @@
           state: e-bone-gel
         components:
         - type: BoneGel # should be unlimited when the actual bone gel becomes limited
-          speed: 1.5 #omu
+          # speed: 3 # Omu
+          speed: 1.5 # Omu
         soundStateActivate:
           collection: sparks
           params:
@@ -290,7 +305,8 @@
           state: e-bone-gel-on
         components:
         - type: BoneSetter
-          speed: 1.5 #omu
+          # speed: 3 # Omu
+          speed: 1.5 # Omu
         soundStateActivate:
           collection: sparks
           params:
@@ -303,7 +319,7 @@
 - type: entity
   name: surgical omnitool
   id: OmnimedTool
-  parent: [ BaseToolSurgery, BaseMedicalScienceContraband, BaseMedicalSkillRequirmentsHard ] # Omu
+  parent: [ BaseToolSurgery, BaseMedicalScienceContraband, BaseMedicalSkillHard ] # Omu
   description: A compact surgical omnitool conveniently packed like a Swiss Army knife.
   components:
   - type: Sprite
@@ -315,30 +331,28 @@
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
-#OMU start
   - type: Hemostat
-    speed: 3
+    speed: 3 # Omu
   - type: Scalpel
-    speed: 3
+    speed: 3 # Omu
   - type: Drill
-    speed: 3
+    speed: 3 # Omu
   - type: BoneSetter
-    speed: 3
+    speed: 3 # Omu
   - type: Retractor
-    speed: 3
+    speed: 3 # Omu
   - type: Cautery
-    speed: 3
+    speed: 3 # Omu
   - type: BoneGel
-    speed: 3
+    speed: 3 # Omu
   - type: BoneSaw
-    speed: 3
+    speed: 3 # Omu
   - type: Tweezers
-    speed: 3
+    speed: 3 # Omu
   - type: Tending
-    speed: 3
+    speed: 3 # Omu
   - type: Stitches
-    speed: 3
-#omu end
+    speed: 3 # Omu
 
 # Omu edit start
 - type: entity
@@ -399,7 +413,6 @@
   suffix: Admeme
   name: experimental surgical omnitool
   components:
-#OMU START
   - type: Hemostat
     speed: 10
   - type: Scalpel
@@ -422,4 +435,3 @@
     speed: 10
   - type: Stitches
     speed: 10
-#OMU end

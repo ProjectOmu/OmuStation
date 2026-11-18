@@ -263,20 +263,30 @@
   #- type: VisibleContraband # Goobstation - Omu not here
   - type: MomentumSteering # Goobstation - No steer
   - type: Tackler # Trauma
-  - type: RoundStartSkillGranting #OMU skill system start
-  - type: SkillHolderBody 
-  - type: SkillStaminaAjustment
-    skill:
-    - Combat
-    staminaRegenModifiers:
-      "-1": 1
-      "0": 2.5
-      "1": 5
-      "2": 5.5
-      "3": 6
-      "4": 6.5
-      "5": 7
-      "6": 7.5 #OMU skill system end
+  # Omu start
+  - type: SkillBody
+    staminaSkills: [ Combat ]
+    staminaModifiers:
+      -1: 0.2
+      0: 0.5
+      1: 1
+      2: 1.1
+      3: 1.2
+      4: 1.3
+      5: 1.4
+      6: 1.5
+    commandSkills: [ Command ]
+    commandModifiers:
+      -1: 0.5
+      0: 1
+      1: 1.25
+      2: 1.5
+      3: 1.75
+      4: 2
+      5: 3
+      6: 3.5
+  # Omu end
+
 - type: entity
   save: false
   parent:

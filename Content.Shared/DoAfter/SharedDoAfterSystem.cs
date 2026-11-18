@@ -3,6 +3,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using Content.Goobstation.Common.DoAfter; // Goobstation
+using Content.Omu.Common.DoAfter;
 using Content.Shared._Shitmed.DoAfter; // Shitmed
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
@@ -14,8 +15,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Omu.Common.DoAfter;
-using Robust.Shared.Serialization.TypeSerializers.Implementations;
 
 namespace Content.Shared.DoAfter;
 
@@ -240,18 +239,21 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
             args.Delay *= delayMultiplierEv.Multiplier;
         }
         // Goobstation end
-        // OMU start
-        var modifyDelayToolSided = new ModifyDelayOfDoAfter(args.User, args.Used, args.Target);
-        RaiseLocalEvent(args.User, modifyDelayToolSided);
-        if (args.Target != null) RaiseLocalEvent((EntityUid) args.Target, modifyDelayToolSided);
-        if (args.Used != null) RaiseLocalEvent((EntityUid) args.Used, modifyDelayToolSided);
-        if (modifyDelayToolSided.Cancle)
+
+        // Omu start
+        if (args.Used is { } used)
         {
-            id = null;
-            return false; //NEW FAILURE CONDITION!!!!
+            var usedDelayEv = new DoAfterUsedDelayEvent(args.User);
+            RaiseLocalEvent(used, ref usedDelayEv);
+            if (usedDelayEv.Cancelled)
+            {
+                id = null;
+                return false;
+            }
+
+            args.Delay *= usedDelayEv.Multiplier;
         }
-        args.Delay *= modifyDelayToolSided.Multiplier;
-        //  OMU end
+        // Omu end
 
         id = new DoAfterId(args.User, comp.NextId++);
         var doAfter = new DoAfter(id.Value.Index, args, GameTiming.CurTime);

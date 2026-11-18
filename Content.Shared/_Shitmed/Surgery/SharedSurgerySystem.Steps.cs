@@ -925,7 +925,7 @@ public abstract partial class SharedSurgerySystem
             AttemptFrequency = AttemptFrequency.EveryTick,
             DistanceThreshold = null
         };
-        doAfter.Used = tool;//OMU THIS IS NEEDED!
+        doAfter.Used = tool; // Omu
 
         if (!_doAfter.TryStartDoAfter(doAfter))
         {

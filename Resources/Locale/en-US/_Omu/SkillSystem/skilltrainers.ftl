@@ -1,5 +1,0 @@
-
-skillTrainerSyndicateDesc-extended-syndicate-engineering = This experimental device is able to rapidly teach the user skills in engineering, simply put it on your eye and it will rapidly alter your mind to understand the subject, highly experimenal.
-skillTrainerSyndicateDesc-extended-syndicate-medical = This experimental device is able to rapidly teach the user skills in medical, simply put it on your eye and it will rapidly alter your mind to understand the subject, highly experimenal.
-skillTrainerSyndicateDesc-extended-syndicate-cargo = This experimental device is able to rapidly teach the user skills in cargo, simply put it on your eye and it will rapidly alter your mind to understand the subject, highly experimenal.
-skillTrainerSyndicateDesc-extended-syndicate-combat = This experimental device is able to rapidly teach the user skills in combat, simply put it on your eye and it will rapidly alter your mind to understand the subject, highly experimenal.

@@ -56,28 +56,12 @@
     components:
       - type: CommandStaff
   # Shitmed Change
-  - !type:AddComponentSpecial
-    components:
-    #- type: SurgerySpeedModifier
-      #speedModifier: 2
-    - type: CommandStaff
-    - type: RoundStartSkillGranting #omu skill system 
-      department: [ Medical, Crew, Command ]
-      commandSkillDepartment: [ Medical ]
-      skillDic:
-        Cargo: 0
-        Combat: 0
-        Command: 2
-        Engineering: 0
-        Medical: 3
-    - type: SpeciesBasedSkillAddition #omu skill system
-      skillDic:
-        Harpy:
-          Cargo: -1
-          Combat: -1
-          Command: 1
-          Engineering: -1
-          Medical: 1
+  # Omu start
+  # - !type:AddComponentSpecial
+  #   components:
+  #   - type: SurgerySpeedModifier
+  #     speedModifier: 2
+  # Omu end
 
 - type: startingGear
   id: CMOGear

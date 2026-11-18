@@ -2,7 +2,8 @@
 
 - type: entity
   name: BaseWeaponRifle
-  parent: [BaseItem, BaseGunWieldable, BaseCombatSkillRequirments] #OMU
+  # parent: [BaseItem, BaseGunWieldable] # Omu
+  parent: [BaseItem, BaseGunWieldable, BaseCombatSkill] # Omu
   id: BaseWeaponRifle
   description: A rooty tooty point and shooty.
   abstract: true
