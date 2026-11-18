@@ -48,5 +48,7 @@ public sealed class SmiteOnMeleeHit : EntitySystem
             }
             QueueDel(hit);
         }
+
+        args.Handled = true;
     }
 }
