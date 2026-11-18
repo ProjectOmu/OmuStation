@@ -20,9 +20,6 @@ ent-OmuRPObjectiveSabotageComms = Sabotage a Communications Frequency
 ent-OmuRPObjectiveCyberneticSmuggling = Cybernetic Smuggling
   .desc = One of our best operatives were caught and permanently incarcerated recently. Your duty is to gather tools and join their ranks for an eventual breakout. Use station resources to install an Cybernetic Arm Toolkit and get yourself taken to Central Command as a prisoner. Take care not to get yourself executed.
 
-ent-OmuRPObjectiveDelamTheSM = Delaminate the Supermattter Crystal
-  .desc = We're still upset that Nanotransen forcefully delaminated our nine supermatter setup. Pay them back by delaminating their own.
-
 ent-OmuRPObjectiveDestroyTheTEG = Destroy the Thermo Electric Generator
   .desc = Nanotrasen has been flooding the energy credit market with Power Transmision Beams, we want you to stop this, at the source.
 
