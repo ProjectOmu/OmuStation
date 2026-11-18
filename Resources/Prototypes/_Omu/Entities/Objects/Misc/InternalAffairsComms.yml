@@ -1,0 +1,42 @@
+- type: radioChannel
+  id: InternalAffairs
+  name: Internal Affairs
+  keycode: 'i'
+  frequency: 1339
+  color: "#2a6e47"
+  longRange: true
+
+- type: entity
+  parent: [ EncryptionKey, BaseCentcommContraband ]
+  id: EncryptionKeyInternalAffairs
+  name: internal affairs encryption key
+  description: An encryption key used by Internal Affairs.
+  components:
+  - type: EncryptionKey
+    channels:
+    - InternalAffairs
+    defaultChannel: InternalAffairs
+  - type: Sprite
+    layers:
+    - state: crypt_red
+    - state: nano_label
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: RadioImplantInternalAffairs
+  name: radio implant
+  description: This implant grants access to the internal affairs channel without a headset. Only authorized for internal affairs, and their agents.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+  - type: RadioImplant
+    radioChannels:
+    - InternalAffairs
+
+- type: entity
+  id: RadioImplanterInternalAffairs
+  name: internal affairs radio implanter
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: RadioImplantInternalAffairs
