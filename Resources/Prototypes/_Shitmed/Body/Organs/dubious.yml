@@ -1,13 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ss14-Starlight <ss14-Starlight@outlook.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -112,18 +102,18 @@
     - type: PressureImmunity
     - type: BreathingImmunity
 
-- type: entity
-  id: OrganDubiousArtifact
-  parent: OrganDubiousBase
-  components:
-  - type: Sprite
-    state: mindshock
-  - type: Organ
-    onAdd:
-    - type: XenoArtifact
-    - type: RandomStatusActivation
-      statusEffects:
-        ActivateArtifactEffect: ActivateArtifactEffect
+#- type: entity # Omu, this thing lags the server to death at random.
+#  id: OrganDubiousArtifact
+#  parent: OrganDubiousBase
+#  components:
+#  - type: Sprite
+#    state: mindshock
+#  - type: Organ
+#    onAdd:
+#    - type: XenoArtifact
+#    - type: RandomStatusActivation
+#      statusEffects:
+#        ActivateArtifactEffect: ActivateArtifactEffect
 
 - type: entity
   id: OrganDubiousScrambleDna
@@ -256,7 +246,7 @@
         - SlipTile
         - SlipEntity
         - ContrabandDetector
-          
+
 - type: entity
   id: OrganDubiousVentcrawler
   parent: OrganDubiousBase
@@ -265,8 +255,14 @@
     state: viral
   - type: Organ
     onAdd:
-    - type: VentCrawler
-      allowInventory: false
+    #- type: VentCrawler # Omu, use nodecrawler
+    #  allowInventory: false
+    - type: NodeCrawler # Omu
+      revealedComponents:
+        - Content.Shared.Atmos.Components.PipeAppearanceComponent
+      exitNodes:
+        components:
+          - NodeCrawlVentAccess
 
 - type: entity
   id: OrganDubiousRepairable

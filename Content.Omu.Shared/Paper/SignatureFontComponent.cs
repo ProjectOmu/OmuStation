@@ -1,0 +1,10 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+namespace Content.Omu.Shared.Paper;
+
+[RegisterComponent]
+public sealed partial class SignatureFontComponent : Component
+{
+    [DataField(required: true)]
+    public string Font = string.Empty;
+}

@@ -1,7 +1,26 @@
+# Omu - for off-coat
+- type: loadoutEffectGroup
+  id: VeteranRD
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobResearchDirector
+      time: 180000 # 50 hrs
+
+#Neck
 - type: loadout
   id: ResearchDirectorDecoratedCloak
   equipment:
     neck: ClothingNeckCloakRdFancy
+
+- type: loadout
+  id: ResearchDirectorOffcoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranRD
+  equipment:
+    neck: ClothingNeckCloakRDCoat
 
 #Silicon-Interfacing Glasses
 - type: loadout
@@ -24,3 +43,32 @@
   id: MystaHat
   equipment:
     head: ClothingHeadHatMysta
+
+#Plasmaman Stuff
+- type: loadout
+  id: ResearchDirectorEnvirosuitPurple
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitResearchDirectorPurple
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: ResearchDirectorEnvirohelmPurple
+  equipment:
+    head: ClothingHeadEnvirohelmResearchDirectorPurple
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard"
+
+- type: loadout
+  id: ResearchDirectorEnviroglovesPurple
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesResearchDirectorPurple
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

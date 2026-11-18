@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com
-# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -152,8 +147,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: ValyrianStandardTranslatorImplant
-  name: valyrian standard translator implant
-  description: An implant giving the ability to understand and speak Valyrian Standard. Chirp!
+  name: avatel vulu translator implant # Omu
+  description: An implant giving the ability to understand and speak Avatel Vulu. Chirp! # Omu
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant

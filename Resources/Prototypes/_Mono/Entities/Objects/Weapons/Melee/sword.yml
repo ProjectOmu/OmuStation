@@ -1,12 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Avalon
-# SPDX-FileCopyrightText: 2025 Ghost581
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 LukeZurg22
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 ScyronX
-# SPDX-FileCopyrightText: 2025 SupernoobTheN1
-# SPDX-FileCopyrightText: 2025 starch
-#
 # SPDX-License-Identifier: MPL-2.0
 
 - type: entity
@@ -81,6 +72,8 @@
   - type: ItemToggleSize
     activatedSize: Large
   - type: ItemToggleMeleeWeapon
+    deactivatedSoundOnHit: # Omu
+      path: /Audio/Weapons/bladeslice.ogg # Omu
     activatedSoundOnHit:
       path: /Audio/Weapons/eblade1.ogg
       params:
@@ -102,8 +95,11 @@
         Structural: 80
   - type: MeleeWeapon
     heavyStaminaCost: 1
-    wideAnimationRotation: -135
+#    wideAnimationRotation: -135 # Omu
+    wideAnimationRotation: -60 # Omu
     attackRate: 1.25
+    soundHit: # Omu
+      path: /Audio/Weapons/bladeslice.ogg # Omu
     damage:
       types:
         Slash: 35

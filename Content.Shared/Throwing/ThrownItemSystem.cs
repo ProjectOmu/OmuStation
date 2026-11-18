@@ -1,67 +1,14 @@
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2021 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2021 ColdAutumnRain <73938872+ColdAutumnRain@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
-// SPDX-FileCopyrightText: 2021 Jaskanbe <86671825+Jaskanbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Kara Dinyes <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+leonsfriedrich@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Leon Friedrich <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2021 Michael Will <will_m@outlook.de>
-// SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2021 SETh lafuente <cetaciocascarudo@gmail.com>
-// SPDX-FileCopyrightText: 2021 ScalyChimp <72841710+scaly-chimp@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 SethLafuente <84478872+SethLafuente@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Silver <silvertorch5@gmail.com>
-// SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-// SPDX-FileCopyrightText: 2021 TimrodDX <timrod@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2021 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021 mirrorcult <notzombiedude@gmail.com>
-// SPDX-FileCopyrightText: 2021 scrato <Mickaello2003@gmx.de>
-// SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 J�lio C�sar Ueti <52474532+Mirino97@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chubbygummibear <46236974+Chubbygummibear@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Henry <sigma1198@gmail.com>
-// SPDX-FileCopyrightText: 2023 Justin Pfeifler <jrpl101998@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vyacheslav Kovalevsky <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Shared._Trauma.Throwing; // Trauma
 using Content.Shared._Goobstation.Wizard.TimeStop;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Gravity;
 using Content.Shared.Physics;
 using Content.Shared.Movement.Pulling.Events;
+using Content.Shared.Projectiles;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
@@ -86,6 +33,8 @@ namespace Content.Shared.Throwing
 
         private const string ThrowingFixture = "throw-fixture";
 
+        private readonly List<(EntityUid Item, EntityUid Target)> _deferredHits = new(); // Omu
+
         public override void Initialize()
         {
             base.Initialize();
@@ -93,7 +42,7 @@ namespace Content.Shared.Throwing
             SubscribeLocalEvent<ThrownItemComponent, PhysicsSleepEvent>(OnSleep);
             SubscribeLocalEvent<ThrownItemComponent, StartCollideEvent>(HandleCollision);
             SubscribeLocalEvent<ThrownItemComponent, PreventCollideEvent>(PreventCollision);
-            SubscribeLocalEvent<ThrownItemComponent, ThrownEvent>(ThrowItem);
+            SubscribeLocalEvent<ThrownItemComponent, ThrowEvent>(ThrowItem);
 
             SubscribeLocalEvent<PullStartedMessage>(HandlePullStarted);
         }
@@ -103,7 +52,7 @@ namespace Content.Shared.Throwing
             component.ThrownTime ??= _gameTiming.CurTime;
         }
 
-        private void ThrowItem(EntityUid uid, ThrownItemComponent component, ref ThrownEvent @event)
+        private void ThrowItem(EntityUid uid, ThrownItemComponent component, ref ThrowEvent @event)
         {
             if (!TryComp(uid, out FixturesComponent? fixturesComponent) ||
                 fixturesComponent.Fixtures.Count != 1 ||
@@ -124,6 +73,14 @@ namespace Content.Shared.Throwing
 
             if (args.OtherEntity == component.Thrower)
                 return;
+
+            // Omu start
+            if (_netMan.IsClient && _gameTiming.ApplyingState)
+            {
+                _deferredHits.Add((uid, args.OtherEntity));
+                return;
+            }
+            // Omu end
 
             ThrowCollideInteraction(component, args.OurEntity, args.OtherEntity);
         }
@@ -174,6 +131,10 @@ namespace Content.Shared.Throwing
             var ev = new StopThrowEvent(thrownItemComponent.Thrower);
             RaiseLocalEvent(uid, ref ev);
             RemComp<ThrownItemComponent>(uid);
+            // <Trauma> - tell clients to stop predicting physics once server finishes the throw
+            if (_netMan.IsServer)
+                RemComp<PredictedThrownItemComponent>(uid);
+            // </Trauma>
         }
 
         public void LandComponent(EntityUid uid, ThrownItemComponent thrownItem, PhysicsComponent physics, bool playSound)
@@ -200,22 +161,44 @@ namespace Content.Shared.Throwing
         /// </summary>
         public void ThrowCollideInteraction(ThrownItemComponent component, EntityUid thrown, EntityUid target)
         {
-            if (component.Thrower is not null)
+            if (component.Thrower is not null) // Goob edit, add ThrowItemAttemptEvent + Logging
+            {
+                // Goob start
+                _adminLogger.Add(LogType.ThrowHit, LogImpact.Low,
+                    $"{ToPrettyString(component.Thrower.Value):thrower} is attempting to throw {ToPrettyString(thrown):thrown} targeting {ToPrettyString(target):target}.");
+
+                var ev = new ThrowAttemptEvent(component.Thrower.Value, thrown, target);
+                RaiseLocalEvent(thrown, ev);
+                if (ev.Cancelled)
+                    return;
+                // Goob end.
                 _adminLogger.Add(LogType.ThrowHit, LogImpact.Low,
                     $"{ToPrettyString(thrown):thrown} thrown by {ToPrettyString(component.Thrower.Value):thrower} hit {ToPrettyString(target):target}.");
+            }
 
-            // Goob edit start
-            var ev = new ThrowHitByEvent(thrown, target, component);
-            RaiseLocalEvent(target, ev, true);
-            if (ev.Handled)
-                return;
-            // Goob edit ent
-            RaiseLocalEvent(thrown, new ThrowDoHitEvent(thrown, target, component), true);
+            var hitByEv = new ThrowHitByEvent(thrown, target, component);
+            var doHitEv = new ThrowDoHitEvent(thrown, target, component);
+            RaiseLocalEvent(target, ref hitByEv, true);
+            RaiseLocalEvent(thrown, ref doHitEv, true);
         }
 
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
+
+            // Omu start
+            var hits = _deferredHits.ToArray();
+            _deferredHits.Clear();
+            foreach (var (item, target) in hits)
+            {
+                if (TerminatingOrDeleted(item) || TerminatingOrDeleted(target) ||
+                    !TryComp<ThrownItemComponent>(item, out var thrownComp) ||
+                    CompOrNull<EmbeddableProjectileComponent>(item)?.EmbeddedIntoUid != null)
+                    continue;
+
+                ThrowCollideInteraction(thrownComp, item, target);
+            }
+            // Omu end
 
             var query = EntityQueryEnumerator<ThrownItemComponent, PhysicsComponent>();
             var frozenQuery = GetEntityQuery<FrozenComponent>(); // Goobstation

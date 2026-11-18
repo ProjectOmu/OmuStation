@@ -2,7 +2,9 @@ using Content.Goobstation.Shared.Flashbang;
 using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Systems;
+using Content.Server.GameTicking;
 using Content.Server.Objectives.Systems;
+using Content.Server.RoundEnd;
 using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.Damage;
@@ -11,6 +13,7 @@ using Content.Shared.Storage.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Shadowling.Systems;
 
@@ -22,16 +25,35 @@ public sealed class ShadowlingSystem : SharedShadowlingSystem
     [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
     [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (_gameTicker.RunLevel != GameRunLevel.InRound)
+            return;
+
+        var query = EntityQueryEnumerator<ShadowlingComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.CurrentPhase != ShadowlingPhases.Ascension || comp.TimeAscended is null)
+                return;
+            if (_timing.CurTime - comp.TimeAscended < comp.AscensionRoundEndDelay)
+                return;
+
+            _roundEnd.EndRound(); // no more slop
+        }
+    }
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<ShadowlingAscendEvent>(OnAscend);
-        SubscribeLocalEvent<ShadowlingComponent, SelfBeforeGunShotEvent>(BeforeGunShot);
         SubscribeLocalEvent<ShadowlingComponent, GetFlashbangedEvent>(OnFlashBanged);
     }
 
@@ -41,21 +63,7 @@ public sealed class ShadowlingSystem : SharedShadowlingSystem
             _codeCondition.SetCompleted(args.ShadowlingAscended, comp.ObjectiveAscend);
     }
 
-    private void BeforeGunShot(Entity<ShadowlingComponent> ent, ref SelfBeforeGunShotEvent args)
-    {
-        // Slings cant shoot guns
-        if (args.Gun.Comp.ClumsyProof)
-            return;
-
-        if (!_random.Prob(0.5f))
-            return;
-
-        _damageable.TryChangeDamage(ent, ent.Comp.GunShootFailDamage, origin: ent);
-
-        _stun.TryUpdateParalyzeDuration(ent, ent.Comp.GunShootFailStunTime);
-
-        args.Cancel();
-    }
+    // Trauma - moved BeforeGunShot to SharedShadowlingSystem since shooting is predicted
 
     private void OnFlashBanged(EntityUid uid, ShadowlingComponent component, GetFlashbangedEvent args)
     {

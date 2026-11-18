@@ -1,14 +1,6 @@
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 yglop <95057024+yglop@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Heretic;
 using Content.Shared.Dataset;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Objectives.Components;
@@ -22,10 +14,11 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Heretic;
 
-// TODO: Move all of this to mind components, heretics should be safely polymorphable
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class HereticComponent : Component
 {
+    public override bool SessionSpecific => true;
+
     [DataField]
     public List<ProtoId<HereticKnowledgePrototype>> BaseKnowledge = new()
     {
@@ -38,9 +31,6 @@ public sealed partial class HereticComponent : Component
         "Reminiscence",
         "FeastOfOwls",
     };
-
-    [DataField]
-    public List<ProtoId<HereticKnowledgePrototype>> ResearchedKnowledge = new();
 
     [DataField, AutoNetworkedField]
     public List<ProtoId<HereticRitualPrototype>> KnownRituals = new();
@@ -93,22 +83,10 @@ public sealed partial class HereticComponent : Component
     ///     Used to prevent double casting mansus grasp.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    public EntityUid MansusGrasp = EntityUid.Invalid;
+    public EntityUid MansusGraspAction = EntityUid.Invalid;
 
     [DataField]
     public Dictionary<ProtoId<HereticRitualPrototype>, List<EntityUid>> LimitedTransmutations = new();
-
-    // Required for reminiscence, Path -> Blade ritual id
-    [DataField]
-    public Dictionary<string, ProtoId<HereticRitualPrototype>> Blades = new()
-    {
-        {"Ash", "BladeAsh"},
-        {"Blade", "BladeBlade"},
-        {"Flesh", "BladeFlesh"},
-        {"Void", "BladeVoid"},
-        {"Rust", "BladeRust"},
-        {"Cosmos", "BladeCosmos"},
-    };
 
     [DataField]
     public SoundSpecifier? InfluenceGainSound = new SoundCollectionSpecifier("bloodCrawl");
@@ -148,6 +126,18 @@ public sealed partial class HereticComponent : Component
         "HereticSacrificeObjective",
         "HereticSacrificeHeadObjective",
     };
+
+    /// <summary>
+    /// Events raised when on new body when mind gets transferred to it
+    /// </summary>
+    [DataField, NonSerialized]
+    public List<HereticKnowledgeEvent> KnowledgeEvents = new();
+
+    /// <summary>
+    /// Minions summoned by this heretic
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public HashSet<EntityUid> Minions = new();
 }
 
 [DataDefinition, Serializable, NetSerializable]

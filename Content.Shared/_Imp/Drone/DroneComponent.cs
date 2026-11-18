@@ -1,10 +1,8 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-// SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Whitelist;
+using Content.Shared.Alert;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Imp.Drone; // Goobstation - Moved into shared
 
@@ -26,4 +24,12 @@ public sealed partial class DroneComponent : Component
 
     [DataField, AutoNetworkedField] // Goob - Removed redudnant VV attribute
     public EntityWhitelist? Blacklist;
+
+    [DataField]
+    public ProtoId<AlertPrototype> BatteryAlert = "DroneBattery";
+
+    [DataField]
+    public ProtoId<AlertPrototype> NoBatteryAlert = "BorgBatteryNone";
+
+    public short LastChargePercent;
 }

@@ -1,0 +1,134 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseDiodeDisc
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Tools/diodedisc.rsi
+    state: icon
+  - type: DiodeDisc
+
+- type: entity
+  parent: BaseDiodeDisc
+  id: DiodeDiscElectroDisruptive
+  name: Electro-Disruptive Diode disc
+  description: A diode disc for use within an emitter, this one will trigger a causality rectifying event within a supermatter, causing it to repair itself.
+  components:
+  - type: DiodeDisc
+    newBolt: EmitterBoltElectroDisruptive
+    componentsToAdd:
+    - type: UpgradedMachine
+      upgrade: Emitter-Electro-Disrutpive
+
+- type: entity
+  parent: BaseDiodeDisc
+  id: DiodeDiscElectroBehavioural
+  name: Electro-Behavioural Diode disc
+  description: A diode disc for use within an emitter, this one will trigger a causality cascading event within a supermatter, causing damage but increasing energy output significantly. It also has a postive effect on patients health!
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Tools/diodedisc.rsi
+    state: icon_green
+  - type: DiodeDisc
+    newBolt: EmitterBoltElectroBehavioural
+    componentsToAdd:
+    - type: UpgradedMachine
+      upgrade: Emitter-Electro-Behavioural
+
+- type: entity
+  parent: BaseDiodeDisc
+  id: DiodeDiscExcitatory
+  name: Excitatory Diode disc
+  description: A diode disc for use within an emitter, this one will trigger a supermatter to become more active.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Tools/diodedisc.rsi
+    state: icon_red
+  - type: DiodeDisc
+    newBolt: EmitterBoltExcitatory
+    componentsToAdd:
+    - type: UpgradedMachine
+      upgrade: Emitter-Excitatory
+
+- type: entity
+  parent: BaseDiodeDisc
+  id: DiodeDiscEmissive
+  name: Emissive Diode disc
+  description: A diode disc for use within an emitter, this one will trigger a supermatter to emit more radiation
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Tools/diodedisc.rsi
+    state: icon_hazard
+  - type: DiodeDisc
+    newBolt: EmitterBoltEmissive
+    componentsToAdd:
+    - type: UpgradedMachine
+      upgrade: Emitter-Emissive
+
+
+- type: entity
+  name: emitter bolt
+  id: EmitterBoltElectroDisruptive
+  parent: EmitterBolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - EmitterBolt
+  - type: Projectile
+    damage:
+      types:
+        Heat: 14
+        Blunt: 6
+
+- type: entity
+  name: emitter bolt
+  id: EmitterBoltElectroBehavioural
+  parent: EmitterBolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - EmitterBolt
+  - type: Projectile
+    damage:
+      types:
+        Heat: -5
+        Blunt: -2
+
+- type: entity
+  name: emitter bolt
+  id: EmitterBoltExcitatory
+  parent: EmitterBolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - EmitterBolt
+  - type: Projectile
+    damage:
+      types:
+        Heat: 10
+  - type: TriggerOnCollide
+    fixtureID: projectile
+    maxTriggers: 1
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 10.0
+    intensitySlope: 5
+    maxIntensity: 4
+
+- type: entity
+  name: emitter bolt
+  id: EmitterBoltEmissive
+  parent: EmitterBolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - EmitterBolt
+  - type: Projectile
+    damage:
+      types:
+        Radiation: 10

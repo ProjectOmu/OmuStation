@@ -15,11 +15,11 @@ chat-language-Canilunzt-name = Canilunzt
 chat-language-Moffic-name = Moffic
 chat-language-RobotTalk-name = Binary
 chat-language-Calcic-name = Calcic
-chat-language-ValyrianStandard-name = Valyrian
 chat-language-Sign-name = Sign
 chat-language-Marish-name = Marish
 chat-language-Chittin-name = Chittin
 chat-language-Xeeplian-name = Xeeplian
+chat-language-Hydraspeak-name = Hy'drav'tha
 
 # Ported from Floofstation:
 
@@ -58,3 +58,6 @@ chat-language-Pig-name = Pig
 chat-language-Sheep-name = Sheep
 chat-language-Xeno-name = Xeno
 chat-language-DroneTalk-name = Drone
+
+# Omu, Avatel Vulu
+chat-language-ValyrianStandard-name = Avatel Vulu

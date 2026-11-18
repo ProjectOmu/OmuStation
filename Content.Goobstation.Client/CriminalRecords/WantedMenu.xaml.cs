@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 BeBright <98597725+bebr3ght@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.UserInterface.Controls;
@@ -127,7 +123,8 @@ public sealed partial class WantedMenu : FancyWindow
         if (status == SecurityStatus.Wanted
             || status == SecurityStatus.Suspected
             || status == SecurityStatus.Search
-            || status == SecurityStatus.Dangerous)
+            || status == SecurityStatus.Dangerous
+            || status == SecurityStatus.Demote) // Goobstation
         {
             GetReason(status);
             return;
@@ -177,6 +174,7 @@ public sealed partial class WantedMenu : FancyWindow
             SecurityStatus.Search => "hud_search",
             SecurityStatus.Perma => "hud_perma",
             SecurityStatus.Dangerous => "hud_dangerous",
+            SecurityStatus.Demote => "hud_demote", // Goobstation
             _ => "SecurityIconNone"
         };
     }

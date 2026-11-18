@@ -1,12 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # actions
 - type: entity
@@ -17,7 +8,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    raiseOnUser: true
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
@@ -35,7 +25,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    raiseOnUser: true
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
@@ -53,7 +42,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    raiseOnUser: true
     useDelay: 2
     itemIconStyle: NoItem
     icon:
@@ -72,7 +60,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    raiseOnUser: true
     useDelay: 10
     itemIconStyle: NoItem
     icon:
@@ -83,7 +70,8 @@
     event: !type:EventHereticMansusLink {}
   - type: HereticAction
     requireMagicItem: false
-    messageLoc: heretic-speech-mansuslink
+  - type: SpeakOnAction
+    sentence: heretic-speech-mansuslink
 
 - type: entity
   parent: BaseAction
@@ -93,14 +81,16 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    raiseOnUser: true
+    checkCanInteract: false
     useDelay: 6
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: shadowcloak
   - type: InstantAction
-    event: !type:EventHereticShadowCloak
+    event: !type:EventHereticCloak
+      status: ShadowCloakStatusEffect
+      lifetime: 180
   - type: HereticAction
     requireMagicItem: true
   - type: Tag
@@ -115,7 +105,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    raiseOnUser: true
     useDelay: 10
     itemIconStyle: NoItem
     icon:

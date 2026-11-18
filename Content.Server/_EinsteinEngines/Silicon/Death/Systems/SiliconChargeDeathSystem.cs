@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Power.Components;
@@ -20,6 +16,7 @@ using Content.Shared.Actions;
 using Content.Shared.CombatMode;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Popups;
+using Content.Shared.Power.Components;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 // Goobstation End - Energycrit
@@ -176,7 +173,8 @@ public sealed class SiliconDeathSystem : SharedSiliconDeathSystem
             _actions.SetEnabled(combatMode.CombatToggleActionEntity, true);
 
         // Let you stand again
-        _standing.Stand(uid, force: true);
+        if (_standing.Stand(uid, force: true)) // Omu - fix downed bug
+            RemComp<KnockedDownComponent>(uid); // Omu
 
         // Update component
         siliconDeadComp.Dead = false;

@@ -1,0 +1,14 @@
+- type: technology
+  id: WorkMantleTech
+  name: research-technology-work-mantle
+  icon:
+    sprite: _Omu/Clothing/Head/mantle.rsi
+    state: icon-work
+  discipline: Experimental
+  tier: 2
+  cost: 25000
+  recipeUnlocks:
+  - ClothingCyberneticBeastMantleWorkResearch
+  position: -5, -2
+  technologyPrerequisites:
+  - NightVisionTech

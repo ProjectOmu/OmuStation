@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Flash;
@@ -66,9 +55,12 @@ public sealed class FlashbangSystem : EntitySystem
         if (comp is { KnockdownTime: <= 0, StunTime: <= 0 })
             return;
 
+        var vulnerableEv = new CheckFlashVulnerable();
+        RaiseLocalEvent(args.Target, ref vulnerableEv);
+
         var protectionRange = args.Range;
         if (!_tag.HasTag(ent, FlashSystem.IgnoreResistancesTag)
-            && !HasComp<FlashVulnerableComponent>(args.Target))
+            && !vulnerableEv.Vulnerable)
         {
             var ev = new GetFlashbangedEvent(MathF.Max(args.Range, ent.Comp.MinProtectionRange + 1f));
             RaiseLocalEvent(args.Target, ev);

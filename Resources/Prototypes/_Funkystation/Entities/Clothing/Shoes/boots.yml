@@ -1,0 +1,25 @@
+## Changed by Funkystation.
+
+- type: entity
+  parent: [ ClothingShoesBaseButcherable, BaseCentcommContraband ] # Omu - plain shoe base, upstream uses the military boots base
+  id: ClothingShoesHighheelBootsNanotrasen
+  name: nanotrasen official's heel boots
+  description: An EXPENSIVE pair of black suede platform ankle boots, with block heels. Arguably a deadly weapon.
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 6
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Shoes/Boots/heelboots.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Shoes/Boots/heelboots.rsi
+    clothingVisuals:
+      shoes:
+      - state: equipped-FEET
+        offset: "0, -0.03125"
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHighHeels
+      params:
+        variation: 0.09

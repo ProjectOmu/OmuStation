@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/22/2026 10:41:42
+  time: 07/25/2026 19:34:49
   entityCount: 23155
 maps:
 - 1
@@ -45527,7 +45527,7 @@ entities:
     - type: Transform
       pos: -5.5,-50.5
       parent: 2
-- proto: CargoTechFab
+- proto: CargoTechFabFilled
   entities:
   - uid: 6799
     components:
@@ -55899,6 +55899,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 38.5,-10.5
       parent: 2
+- proto: ComputerShuttleSalvage
+  entities:
+  - uid: 23156
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 33.5,-11.5
+      parent: 2
 - proto: ComputerSolarControl
   entities:
   - uid: 8459
@@ -57019,11 +57027,6 @@ entities:
     - type: Transform
       pos: 31.5,42.5
       parent: 2
-  - uid: 18632
-    components:
-    - type: Transform
-      pos: -43.5,66.5
-      parent: 2
 - proto: CryogenicSleepUnitSpawner
   entities:
   - uid: 8596
@@ -57031,6 +57034,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 29.5,42.5
+      parent: 2
+- proto: CryogenicSleepUnitSpawnerForcedPrisonerLatejoin
+  entities:
+  - uid: 18632
+    components:
+    - type: Transform
+      pos: -43.5,66.5
       parent: 2
 - proto: CryogenicSleepUnitSpawnerLateJoin
   entities:
@@ -63931,7 +63941,7 @@ entities:
     - type: Transform
       pos: -5.5,-7.5
       parent: 2
-- proto: EngineeringTechFab
+- proto: EngineeringTechFabFilled
   entities:
   - uid: 9742
     components:
@@ -65869,7 +65879,7 @@ entities:
       pos: -2.5,-0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -163.64348
+      secondsUntilStateChange: -309.87704
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 35.4332999
@@ -104907,7 +104917,7 @@ entities:
     - type: Transform
       pos: -27.5,-7.5
       parent: 2
-- proto: MedicalTechFab
+- proto: MedicalTechFabFilled
   entities:
   - uid: 15413
     components:
@@ -117298,7 +117308,7 @@ entities:
     - type: Transform
       pos: -25.5,-0.5
       parent: 2
-- proto: ScienceTechFab
+- proto: ScienceTechFabFilled
   entities:
   - uid: 17385
     components:
@@ -117468,7 +117478,7 @@ entities:
     - type: Transform
       pos: 17.569016,13.6063385
       parent: 2
-- proto: SecurityTechFab
+- proto: SecurityTechFabFilled
   entities:
   - uid: 17409
     components:
@@ -117503,7 +117513,7 @@ entities:
     - type: Transform
       pos: -76.5,-51.5
       parent: 2
-- proto: ServiceTechFab
+- proto: ServiceTechFabFilled
   entities:
   - uid: 17413
     components:
@@ -120955,13 +120965,15 @@ entities:
     - type: Transform
       pos: 51.5,13.5
       parent: 2
-- proto: SmartFridgeMedical
+- proto: SmartFridgeBotany
   entities:
   - uid: 17819
     components:
     - type: Transform
       pos: -18.5,9.5
       parent: 2
+- proto: SmartFridgeMedical
+  entities:
   - uid: 17820
     components:
     - type: Transform
@@ -122523,13 +122535,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -27.5,5.5
       parent: 2
-- proto: SpawnMobHorseTrevor
-  entities:
-  - uid: 22845
-    components:
-    - type: Transform
-      pos: -32.5,49.5
-      parent: 2
 - proto: SpawnMobKangarooWillow
   entities:
   - uid: 18119
@@ -122594,13 +122599,6 @@ entities:
     components:
     - type: Transform
       pos: 26.5,1.5
-      parent: 2
-- proto: SpawnMobShiva
-  entities:
-  - uid: 18129
-    components:
-    - type: Transform
-      pos: -24.5,52.5
       parent: 2
 - proto: SpawnMobSmile
   entities:
@@ -123124,6 +123122,13 @@ entities:
     components:
     - type: Transform
       pos: -31.5,59.5
+      parent: 2
+- proto: SpawnPointSecuritySergeant
+  entities:
+  - uid: 23157
+    components:
+    - type: Transform
+      pos: -34.5,58.5
       parent: 2
 - proto: SpawnPointServiceWorker
   entities:

@@ -19,6 +19,8 @@ heretic-ability-fail-rust-stage-low = You are not powerful enough to rust this s
 heretic-ability-fail-target-ghoul = Target is ghoul already!
 heretic-ability-fail-target-no-mind = Target has no soul!
 
+heretic-ability-lose-focus-shadow-cloak = As you lose your focus, you are pulled out of the shadows!
+
 heretic-cosmic-rune-fail-star-mark = Blocked by star mark!
 heretic-cosmic-rune-fail-unlinked = No linked rune!
 heretic-cosmic-rune-fail-range = Not close enough!
@@ -34,6 +36,11 @@ heretic-blade-use = The blade shatters, and you feel the voices pulling you away
 heretic-riposte-used = Riposte used!
 heretic-riposte-available = Riposte available!
 heretic-cant-shoot = I can't use { THE($entity) } because of my sacred pledge to the path of the blade.
+
+## Imp library
+heretic-ghoul-examine = { CAPITALIZE(POSS-ADJ($ent)) } body looks like a decaying corpse.
+heretic-hell-victim-examine = { CAPITALIZE(POSS-ADJ($ent)) } eyes and skin are worryingly pale.
+## Imp end
 
 ## paths exclusive
 heretic-rust-mark-itembreak = {$name} shatters into dust!

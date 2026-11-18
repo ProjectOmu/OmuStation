@@ -1,0 +1,24 @@
+<controls:DefaultWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Robust.Client.UserInterface.CustomControls;assembly=Robust.Client"
+    Title="{Loc thaven-moods-admin-ui-new-mood-title}"
+    MinSize="420 240">
+    <PanelContainer StyleClasses="AngleRect">
+        <BoxContainer Orientation="Vertical" Margin="6" SeparationOverride="6">
+            <BoxContainer Orientation="Vertical">
+                <Label Text="{Loc thaven-moods-admin-ui-new-mood-name}" />
+                <LineEdit Name="MoodTitle" Access="Public" />
+            </BoxContainer>
+
+            <BoxContainer Orientation="Vertical">
+                <Label Text="{Loc thaven-moods-admin-ui-new-mood-desc}" />
+                <TextEdit Name="MoodDescription" Access="Public" MinHeight="120" />
+            </BoxContainer>
+
+            <BoxContainer Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Name="CancelButton" Access="Public" Text="{Loc thaven-moods-admin-ui-cancel}" StyleClasses="OpenRight" />
+                <Button Name="SaveButton" Access="Public" Text="{Loc thaven-moods-admin-ui-save}" StyleClasses="OpenLeft" />
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</controls:DefaultWindow>

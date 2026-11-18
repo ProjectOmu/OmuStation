@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -10,6 +7,7 @@
   description: No substitute for an engineer, but better than nothing.
   components:
   - type: Weldbot
+  - type: WeldingSparks # Omu
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Silicon/Bots/weldbot.rsi
     state: weldbot

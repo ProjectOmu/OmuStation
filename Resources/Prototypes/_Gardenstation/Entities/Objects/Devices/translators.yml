@@ -1,0 +1,33 @@
+﻿- type: entity
+  id: BieselEckeckyikTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Bieselized Eckeckyik translator
+  description: Translates the Bieselized Eckeckyik dialect into Tau Ceti basic, allowing you to communicate with your Thaven friends!
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - BieselEckeckyik
+    understood:
+    - TauCetiBasic
+    - BieselEckeckyik
+    requires:
+    - TauCetiBasic
+    - BieselEckeckyik
+
+- type: entity
+  id: EckeckyikTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Eckeckyik translator
+  description: Translates the Thaven language of Eckeckyik into Tau Ceti basic and vice versa, allowing you to communicate with your thaven friends even if you cant afford singing lessons!
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Eckeckyik
+    understood:
+    - TauCetiBasic
+    - Eckeckyik
+    requires:
+    - TauCetiBasic
+    - Eckeckyik

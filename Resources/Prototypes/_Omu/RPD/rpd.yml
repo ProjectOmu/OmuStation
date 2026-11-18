@@ -1,0 +1,11 @@
+﻿- type: rcd
+  id: PressureRegulator
+  category: PumpsValves
+  sprite: /Textures/_Omu/Interface/Radial/RPD/pressureRegulator.png
+  mode: ConstructObject
+  prototype: GasPressureRegulator
+  cost: 2
+  delay: 0
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0

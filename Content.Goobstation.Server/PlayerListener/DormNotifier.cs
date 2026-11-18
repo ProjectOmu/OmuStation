@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
@@ -16,6 +11,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Ghost;
 using Robust.Server.Containers;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
@@ -126,6 +122,12 @@ public sealed class DormNotifier : EntitySystem
 
             if (_afk.IsAfk(actorComp.PlayerSession))
                 return false;
+
+            // Omu start
+            // 4. At least two humanoids are not ghosts
+            if (HasComp<GhostComponent>(ent.Owner))
+                continue;
+            // Omu end
 
             // Disconnected is checked by having ActorComponent present, an entity loses it if the owner disconnects or changes entity.
             condemned.Add(ent.Owner);

@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: loadout # Omu
+  id: JanitorBandana
+  equipment:
+    head: ClothingHeadBandJanitor
+
+- type: loadout
+  id: JanitorBackpack
+  equipment:
+    back: ClothingBackpackJanitor
+
+- type: loadout
+  id: JanitorBackpackDuffel
+  equipment:
+    back: ClothingBackpackDuffelJanitor
+
+- type: loadout
+  id: JanitorBackpackMessenger
+  equipment:
+    back: ClothingBackpackMessengerJanitor
+
+- type: loadout
+  id: JanitorBackpackSatchel
+  equipment:
+    back: ClothingBackpackSatchelJanitor

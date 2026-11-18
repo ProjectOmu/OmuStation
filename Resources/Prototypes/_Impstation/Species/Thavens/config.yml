@@ -1,0 +1,20 @@
+- type: thavenMoodConfig
+  id: DefaultThavenMoodConfig
+  # shared moods rolled for the round
+  sharedDataset: ThavenMoodsShared
+  # first personal "yes, and" mood on spawn
+  yesAndDataset: ThavenMoodsYesAnd
+  # first personal "no, and" mood on spawn
+  noAndDataset: ThavenMoodsNoAnd
+  # wildcard moods, including emag effects
+  wildcardDataset: ThavenMoodsWildcard
+  # action used to open the mood window
+  viewMoodsAction: ActionViewMoods
+  # weighted picker for random mood rolls
+  randomMoodDataset: RandomThavenMoodDataset
+  # time needed to finish emagging a thaven
+  emagDoAfterSeconds: 1
+  # damage applied when the emag finishes
+  emagDamage:
+    types:
+      Radiation: 5

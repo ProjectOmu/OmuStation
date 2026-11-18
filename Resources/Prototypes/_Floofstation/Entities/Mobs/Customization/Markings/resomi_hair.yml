@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: marking
@@ -11,6 +8,7 @@
   sprites:
     - sprite: _Floofstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiBackstrafe
+  canBeDisplaced: false # Omustation
 
 - type: marking
   id: HairResomiBurstShort
@@ -20,6 +18,7 @@
   sprites:
     - sprite: _Floofstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiBurstShort
+  canBeDisplaced: false # Omustation
 
 - type: marking
   id: HairResomiDefault
@@ -29,6 +28,7 @@
   sprites:
     - sprite: _Floofstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiDefault
+  canBeDisplaced: false # Omustation
 
 - type: marking
   id: HairResomiDroopy
@@ -38,6 +38,7 @@
   sprites:
     - sprite: _Floofstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiDroopy
+  canBeDisplaced: false # Omustation
 
 - type: marking
   id: HairResomiEars
@@ -47,6 +48,7 @@
   sprites:
     - sprite: _Floofstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiEars
+  canBeDisplaced: false # Omustation
 
 - type: marking
   id: HairResomiFluffymohawk
@@ -56,6 +58,7 @@
   sprites:
     - sprite: _Floofstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiFluffymohawk
+  canBeDisplaced: false # Omustation
 
 - type: marking
   id: HairResomiHedge
@@ -65,6 +68,7 @@
   sprites:
     - sprite: _Floofstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiHedge
+  canBeDisplaced: false # Omustation
 
 - type: marking
   id: HairResomiLongway
@@ -74,6 +78,7 @@
   sprites:
     - sprite: _Floofstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiLongway
+  canBeDisplaced: false # Omustation
 
 - type: marking
   id: HairResomiMane
@@ -83,6 +88,7 @@
   sprites:
     - sprite: _Floofstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiMane
+  canBeDisplaced: false # Omustation
 
 - type: marking
   id: HairResomiManeBeardless
@@ -92,6 +98,7 @@
   sprites:
     - sprite: _Floofstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiManeBeardless
+  canBeDisplaced: false # Omustation
 
 - type: marking
   id: HairResomiMohawk
@@ -101,6 +108,7 @@
   sprites:
     - sprite: _Floofstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiMohawk
+  canBeDisplaced: false # Omustation
 
 - type: marking
   id: HairResomiMushroom
@@ -110,6 +118,7 @@
   sprites:
     - sprite: _Floofstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiMushroom
+  canBeDisplaced: false # Omustation
 
 - type: marking
   id: HairResomiNotree
@@ -119,6 +128,7 @@
   sprites:
     - sprite: _Floofstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiNotree
+  canBeDisplaced: false # Omustation
 
 - type: marking
   id: HairResomiSpiky
@@ -128,6 +138,7 @@
   sprites:
     - sprite: _Floofstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiSpiky
+  canBeDisplaced: false # Omustation
 
 - type: marking
   id: HairResomiPointy
@@ -137,6 +148,7 @@
   sprites:
     - sprite: _Floofstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiPointy
+  canBeDisplaced: false # Omustation
 
 - type: marking
   id: HairResomiTwies
@@ -146,6 +158,7 @@
   sprites:
     - sprite: _Floofstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiTwies
+  canBeDisplaced: false # Omustation
 
 - type: marking
   id: HairResomiUpright
@@ -155,6 +168,7 @@
   sprites:
     - sprite: _Floofstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiUpright
+  canBeDisplaced: false # Omustation
 
 - type: marking
   id: HairResomiLong
@@ -164,3 +178,4 @@
   sprites:
     - sprite: _Floofstation/Mobs/Customization/resomi_hair.rsi
       state: ResomiLong
+  canBeDisplaced: false # Omustation

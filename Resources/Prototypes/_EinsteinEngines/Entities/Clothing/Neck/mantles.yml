@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -18,7 +15,7 @@
   parent: ClothingNeckBase
   id: ClothingNeckUnathiMantle
   name: hide mantle
-  description: A rather grisly selection of cured hides and skin, sewn together to form a ragged mantle. Typically worn by Reptilians.
+  description: A rather grisly selection of cured hides and skin, sewn together to form a ragged mantle. Typically worn by Unathi.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Neck/Mantles/unathimantle.rsi

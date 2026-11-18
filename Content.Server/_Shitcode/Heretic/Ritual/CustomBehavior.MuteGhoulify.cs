@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Shitcode.Heretic.Components;
@@ -24,11 +17,15 @@ public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior
         for (var i = 0; i < Math.Min(uids.Count, Max); i++)
         {
             var uid = uids[i];
+
+            var minion = args.EntityManager.EnsureComponent<HereticMinionComponent>(uid);
+            minion.BoundHeretic = args.Performer;
+
             var ghoul = new GhoulComponent
             {
+                GibOnDeath = false,    //Omu
                 TotalHealth = 100f,
                 GiveBlade = true,
-                BoundHeretic = args.Performer,
             };
             args.EntityManager.AddComponent(uid, ghoul, overwrite: true);
             args.EntityManager.EnsureComponent<MutedComponent>(uid);

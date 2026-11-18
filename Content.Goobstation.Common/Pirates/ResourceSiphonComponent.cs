@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 amogus <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Analyzers;
@@ -25,11 +17,19 @@ public sealed partial class ResourceSiphonComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)] public float Credits = 0f;
 
-    [DataField] public float DrainRate = 10f;
+    [DataField] public float DrainRate = 100f; // Omu, was 10, but that was too slow.
 
-    [ViewVariables(VVAccess.ReadOnly)] public int ActivationPhase = 0;
+    [ViewVariables(VVAccess.ReadOnly)] public ResourceSiphonActivationPhase ActivationPhase = ResourceSiphonActivationPhase.Idle;
     [ViewVariables(VVAccess.ReadOnly)] public float ActivationRewindTime = 3.5f;
     [ViewVariables(VVAccess.ReadOnly)] public float ActivationRewindClock = 3.5f;
 
-    [DataField] public float MaxSignalRange = 250f;
+    [DataField] public float MaxSignalRange = 100f;
+}
+
+public enum ResourceSiphonActivationPhase
+{
+    Idle = 0,
+    FirstWarning = 1,
+    SecondWarning = 2,
+    Armed = 3,
 }

@@ -1,15 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Jessica M <jessica@jessicamaybe.com>
-// SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Nutrition.Components;
@@ -18,6 +6,8 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
+using Content.Server.Shuttles.Components;
+using Content.Shared.Shuttles.Components;
 
 namespace Content.Server.Nutrition.EntitySystems
 {
@@ -59,10 +49,17 @@ namespace Content.Server.Nutrition.EntitySystems
             if (solution.Volume <= 0)
             {
                 _tagSystem.AddTag(entity.Owner, TrashTag);
+
+                EnsureComp<SpaceGarbageComponent>(entity.Owner); // Omu - Add the SpaceGarbage component when the container is empty.
+
                 return;
             }
 
             _tagSystem.RemoveTag(entity.Owner, TrashTag);
+
+            if (HasComp<SpaceGarbageComponent>(entity.Owner)) // Omu - Remove the SpaceGarbage component when the container has a reagent, preventing deletion of chem bottles, etc.
+                RemComp<SpaceGarbageComponent>(entity.Owner); // Omu
+
         }
     }
 }

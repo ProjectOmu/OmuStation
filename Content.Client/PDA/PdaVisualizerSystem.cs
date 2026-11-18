@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Light;
@@ -25,12 +22,16 @@ public sealed class PdaVisualizerSystem : VisualizerSystem<PdaVisualsComponent>
 
         if (AppearanceSystem.TryGetData<bool>(uid, PdaVisuals.IdCardInserted, out var isCardInserted, args.Component))
             _sprite.LayerSetVisible((uid, args.Sprite), PdaVisualLayers.IdLight, isCardInserted);
+        //goob addition for pen visual
+        if (AppearanceSystem.TryGetData<bool>(uid, PdaVisuals.PenInserted, out var isPenInserted, args.Component))
+            _sprite.LayerSetVisible((uid, args.Sprite), PdaVisualLayers.Pen, isPenInserted);
     }
 
     public enum PdaVisualLayers : byte
     {
         Base,
         Flashlight,
-        IdLight
+        IdLight,
+        Pen //goob addition for pen visual
     }
 }

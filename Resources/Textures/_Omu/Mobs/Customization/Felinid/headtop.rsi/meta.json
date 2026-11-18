@@ -1,0 +1,27 @@
+{
+    "version": 1,
+    "copyright": "The sprites were taken from the Orbstation (/tg/station fork) server from this commit: https://github.com/lizardqueenlexi/orbstation/pull/360/changes/0787bd9cbde9d18cd06db5900d6fe732229dbbbd",
+    "license": "CC-BY-SA-3.0",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "tallalt_inner",
+            "directions": 4
+        },
+        {
+            "name": "tallalt_outer",
+            "directions": 4
+        },
+        {
+            "name": "lynx_inner",
+            "directions": 4
+        },
+        {
+            "name": "lynx_outer",
+            "directions": 4
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+- type: entity
+  parent: ShellShotgunSlug
+  id: ShellShotgunAPDS
+  name: shell (12 Gauge APDS)
+  description: Vivian herself mandated NT stations have access to APDS, when asked why, she responded with one word. "Funny".
+  components:
+  - type: Sprite
+    layers:
+      - state: APDS
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: PelletShotgunAPDS
+  - type: SpentAmmoVisuals
+    state: "APDS"

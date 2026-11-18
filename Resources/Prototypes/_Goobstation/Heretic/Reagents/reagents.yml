@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: flavor
@@ -26,9 +21,10 @@
         amount: 2
         conditions:
         - !type:HasComponentCondition
+          checkMind: true
           components:
-            - Heretic
-            - Ghoul
+          - type: Heretic
+          - type: Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
       - !type:HealthChange
         damage:
@@ -41,25 +37,29 @@
             Metaphysical: -5
         conditions:
         - !type:HasComponentCondition
+          checkMind: true
           components:
-            - Heretic
-            - Ghoul
+          - type: Heretic
+          - type: Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -1
         conditions:
         - !type:HasComponentCondition
+          checkMind: true
           components:
-            - Heretic
-            - Ghoul
+          - type: Heretic
+          - type: Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
-      - !type:ChemCleanBloodstream
+      - !type:CleanBloodstream
+        excluded: EldritchEssence
         cleanseRate: 3
         conditions:
         - !type:HasComponentCondition
+          checkMind: true
           components:
-            - Heretic
-            - Ghoul
+          - type: Heretic
+          - type: Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
       - !type:GenericStatusEffect
         key: SeeingRainbows
@@ -67,29 +67,32 @@
         type: Remove
         conditions:
         - !type:HasComponentCondition
+          checkMind: true
           components:
-            - Heretic
-            - Ghoul
+          - type: Heretic
+          - type: Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
       - !type:TakeStaminaDamage
         amount: -10
         immediate: true
         conditions:
         - !type:HasComponentCondition
+          checkMind: true
           components:
-            - Heretic
-            - Ghoul
+          - type: Heretic
+          - type: Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
     Poison:
       effects:
       - !type:Electrocute
         conditions:
         - !type:HasComponentCondition
+          checkMind: true
           components:
-            - Heretic
-            - Ghoul
+          - type: Heretic
+          - type: Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
-          invert: true
+          inverted: true
         probability: 0.5
       - !type:HealthChange
         damage:
@@ -97,10 +100,11 @@
             Poison: 5
         conditions:
         - !type:HasComponentCondition
+          checkMind: true
           components:
-            - Heretic
-            - Ghoul
+          - type: Heretic
+          - type: Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
-          invert: true
+          inverted: true
   tileReactions:
   - !type:ChangeTileReaction # Rusts tile

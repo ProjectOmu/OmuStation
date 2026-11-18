@@ -1,0 +1,37 @@
+- type: latheRecipePack
+  id: ReactorBasic
+  recipes:
+  - SteelReactorGasChannel
+  - SteelReactorHeatExchanger
+  - CerenkiteReactorFuelRod
+  - BohrumReactorControlRod
+  - BrassReactorControlRod
+  - BrassReactorGasChannel
+  - BrassReactorHeatExchanger
+  - GlassReactorControlRod
+  - GlassReactorGasChannel
+  - GlassReactorHeatExchanger
+
+- type: latheRecipePack
+  id: ReactorAdvanced
+  recipes:
+  - UraniumReactorFuelRod
+  - UraniumGlassReactorFuelRod
+  - PlutoniumReactorFuelRod
+  - PlasmaReactorFuelRod
+  - BananiumReactorFuelRod
+  - DiamondReactorControlRod
+  - GoldReactorControlRod
+  - PlasmaGlassReactorControlRod
+  - PlasteelReactorControlRod
+  - SilverReactorControlRod
+  - DiamondReactorHeatExchanger
+  - GoldReactorHeatExchanger
+  - PlasmaGlassReactorHeatExchanger
+  - PlasteelReactorHeatExchanger
+  - SilverReactorHeatExchanger
+  - DiamondReactorGasChannel
+  - GoldReactorGasChannel
+  - PlasmaGlassReactorGasChannel
+  - PlasteelReactorGasChannel
+  - SilverReactorGasChannel

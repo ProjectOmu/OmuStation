@@ -1,0 +1,81 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "gauntlets From tgstation - https://github.com/tgstation/tgstation/pull/59109, green-ified by NotoriousCapone, head/chestplate/boots from aurorastation - https://wiki.aurorastation.org/index.php/File:Marines_training.png - reconstructed by NotoriousCapone, back by NotoriousCapone",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "gauntlets"
+        },
+        {
+            "name": "gauntlets-sealed"
+        },
+        {
+            "name": "equipped-HAND",
+            "directions": 4
+        },
+        {
+            "name": "equipped-HAND-sealed",
+            "directions": 4
+        },
+        {
+            "name": "helmet"
+        },
+        {
+            "name": "helmet-sealed"
+        },
+        {
+            "name": "equipped-HEAD",
+            "directions": 4
+        },
+        {
+            "name": "equipped-HEAD-sealed",
+            "directions": 4
+        },
+        {
+            "name": "chestplate"
+        },
+        {
+            "name": "chestplate-sealed"
+        },
+        {
+            "name": "equipped-OUTERCLOTHING",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-sealed",
+            "directions": 4
+        },
+        {
+            "name": "boots"
+        },
+        {
+            "name": "boots-sealed"
+        },
+        {
+            "name": "equipped-FEET",
+            "directions": 4
+        },
+        {
+            "name": "equipped-FEET-sealed",
+            "directions": 4
+        },
+        {
+            "name": "control"
+        },
+        {
+            "name": "control-sealed"
+        },
+        {
+            "name": "equipped-BACKPACK",
+            "directions": 4
+        },
+        {
+            "name": "equipped-BACKPACK-sealed",
+            "directions": 4
+        }
+    ]
+}

@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -43,12 +34,9 @@ public sealed partial class HereticAbilitySystem
     {
         base.SubscribeRust();
 
-        SubscribeLocalEvent<HereticComponent, HereticLeechingWalkEvent>(OnLeechingWalk);
-        SubscribeLocalEvent<HereticComponent, EventHereticRustConstruction>(OnRustConstruction);
-        SubscribeLocalEvent<GhoulComponent, EventHereticAggressiveSpread>(OnGhoulAggressiveSpread);
-        SubscribeLocalEvent<HereticComponent, EventHereticAggressiveSpread>(OnHereticAggressiveSpread);
-        SubscribeLocalEvent<HereticComponent, EventHereticEntropicPlume>(OnEntropicPlume);
-        SubscribeLocalEvent<HereticComponent, HereticAscensionRustEvent>(OnAscensionRust);
+        SubscribeLocalEvent<EventHereticRustConstruction>(OnRustConstruction);
+        SubscribeLocalEvent<EventHereticAggressiveSpread>(OnAggressiveSpread);
+        SubscribeLocalEvent<EventHereticEntropicPlume>(OnEntropicPlume);
 
         SubscribeLocalEvent<SpriteRandomOffsetComponent, ComponentStartup>(OnRandomOffsetStartup);
 
@@ -73,32 +61,12 @@ public sealed partial class HereticAbilitySystem
         args.Cancelled = true;
     }
 
-    private void OnAscensionRust(Entity<HereticComponent> ent, ref HereticAscensionRustEvent args)
+    private void OnEntropicPlume(EventHereticEntropicPlume args)
     {
-        EnsureComp<LeechingWalkComponent>(ent); // Just in case
-        EnsureComp<RustbringerComponent>(ent);
-    }
-
-    private void OnHereticAggressiveSpread(Entity<HereticComponent> ent, ref EventHereticAggressiveSpread args)
-    {
-        var effectiveStage = MathF.Max(ent.Comp.PathStage - 4f, 1f);
-        var multiplier = ent.Comp.CurrentPath == "Rust" ? MathF.Sqrt(effectiveStage) : 1f;
-        OnAggressiveSpread(ent, ref args, multiplier);
-    }
-
-    private void OnGhoulAggressiveSpread(Entity<GhoulComponent> ent, ref EventHereticAggressiveSpread args)
-    {
-        OnAggressiveSpread(ent, ref args, 2.2f);
-    }
-
-    private void OnEntropicPlume(Entity<HereticComponent> ent, ref EventHereticEntropicPlume args)
-    {
-        var uid = ent.Owner;
-
-        if (!TryUseAbility(uid, args))
+        if (!TryUseAbility(args))
             return;
 
-        args.Handled = true;
+        var uid = args.Performer;
 
         var xform = Transform(uid);
 
@@ -155,12 +123,16 @@ public sealed partial class HereticAbilitySystem
             _random.NextVector2Box(comp.MinX, comp.MinY, comp.MaxX, comp.MaxY));
     }
 
-    private void OnAggressiveSpread(EntityUid ent, ref EventHereticAggressiveSpread args, float multiplier = 1f)
+    private void OnAggressiveSpread(EventHereticAggressiveSpread args)
     {
-        if (!TryUseAbility(ent, args))
+        if (!TryUseAbility(args))
             return;
 
-        args.Handled = true;
+        var uid = args.Performer;
+
+        Heretic.TryGetHereticComponent(uid, out var heretic, out _);
+        var effectiveStage = MathF.Max(heretic?.PathStage ?? 9f - 4f, 1f);
+        var multiplier = heretic?.CurrentPath is null or "Rust" ? MathF.Sqrt(effectiveStage) : 1f;
 
         var aoeRadius = MathF.Max(args.AoeRadius, args.AoeRadius * multiplier);
         var range = MathF.Max(args.Range, args.Range * multiplier);
@@ -276,10 +248,12 @@ public sealed partial class HereticAbilitySystem
         return true;
     }
 
-    private void OnRustConstruction(Entity<HereticComponent> ent, ref EventHereticRustConstruction args)
+    private void OnRustConstruction(EventHereticRustConstruction args)
     {
-        if (!TryUseAbility(ent, args))
+        if (!TryUseAbility(args, false))
             return;
+
+        var ent = args.Performer;
 
         if (!IsTileRust(args.Target, out var pos))
         {
@@ -310,7 +284,8 @@ public sealed partial class HereticAbilitySystem
             var dir = _transform.GetWorldPosition(xform) - mapCoords.Position;
             if (dir.LengthSquared() < 0.001f)
                 continue;
-            _throw.TryThrow(entity, dir.Normalized() * args.ThrowRange, args.ThrowSpeed);
+            _throw.TryThrow(entity, dir.Normalized() * args.ThrowRange, args.ThrowSpeed,
+                predicted: false); // Trauma
             _stun.KnockdownOrStun(entity, args.KnockdownTime, true);
             if (entity != args.Performer)
                 _dmg.TryChangeDamage(entity, args.Damage, targetPart: TargetBodyPart.All);
@@ -344,10 +319,5 @@ public sealed partial class HereticAbilitySystem
             });
 
         return rune;
-    }
-
-    private void OnLeechingWalk(Entity<HereticComponent> ent, ref HereticLeechingWalkEvent args)
-    {
-        EnsureComp<LeechingWalkComponent>(ent);
     }
 }

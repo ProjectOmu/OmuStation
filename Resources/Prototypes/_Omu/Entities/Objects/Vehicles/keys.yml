@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseKey
+  id: VehicleKeyATVParamedic
+  name: paramedic ATV keys
+  description: Keys to the paramedic's ride.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Vehicles/atvparamedic.rsi
+    state: keys
+  - type: Tag
+    tags:
+    - VehicleKey
+    - ATVParamedicKeys

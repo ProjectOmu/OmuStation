@@ -12,6 +12,17 @@
       role: JobChiefMedicalOfficer
       time: 360000 #100 hours
 
+# I needed a 50h req for off-coat..
+
+- type: loadoutEffectGroup
+  id: ProCMO
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChiefMedicalOfficer
+      time: 180000 #50 hours
+
 - type: loadout
   id: CMOVetLabCoat
   equipment:
@@ -43,3 +54,51 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterCMO
+
+- type: loadout
+  id: ChiefMedicalOfficerSurgicalCap
+  equipment:
+    head: ClothingHeadHatSurgcapTurquoise
+
+- type: loadout
+  id: ChiefMedicalOfficerScrubs
+  equipment:
+    jumpsuit: UniformScrubsColorTurquoise
+
+- type: loadout
+  id: UshankaCMO
+  equipment:
+      head: ClothingHeadHatUshankaCMO
+
+- type: loadout
+  id: ChiefMedicalOfficerOffcoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ProCMO
+  equipment:
+    neck: ClothingNeckCloakCMOCoat
+
+# Plasmaman Stuff
+
+- type: loadout
+  id: CMOVetEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmVeteranCMO
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranCMO
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+  groupBy: "envirohelmstandard"
+
+- type: loadout
+  id: CMOVetEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitVeteranCMO
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranCMO
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman

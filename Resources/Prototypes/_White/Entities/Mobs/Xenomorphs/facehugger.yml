@@ -4,6 +4,8 @@
   name: xenomorph facehugger
   description: A writhing nightmare. The facehugger clings to its victim's face, forcibly inserting a xenomorph fetus.
   components:
+  - type: VoiceChatEffect # Goobstation - Voice chat
+    effect: Alien
   - type: Sprite
     sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi
     layers:
@@ -44,9 +46,10 @@
       types:
         Blunt: 0
   - type: Temperature
+    currentTemperature: 310.15
+  - type: TemperatureDamage
     heatDamageThreshold: 360
     coldDamageThreshold: -150
-    currentTemperature: 310.15
   - type: Butcherable
     spawned:
     - id: FoodMeatXeno
@@ -88,7 +91,7 @@
     tags:
     - XenomorphItem
   - type: Physics
-    bodyType: Dynamic
+    bodyType: KinematicController
   - type: CollisionWake
     enabled: false
   - type: RequireProjectileTarget

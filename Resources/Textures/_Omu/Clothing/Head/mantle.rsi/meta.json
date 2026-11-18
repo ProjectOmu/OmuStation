@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Sprites by elixirboi (a.k.a. Skiis) on Discord, edited by MarkerWicker on Github",
+  "copyright": "Sprites by elixirboi (a.k.a. Skiis) on Discord, edited by MarkerWicker on Github --- Icons heavily by Marikiii, Chem, CMO, Corpsman, CC, CE, QM, HoS and RD by Marikiii using other mantles. --- Foreman, Sergeant, Medicus, Bosun, and Professor by DuskTheSnep",
   "size": {
     "x": 32,
     "y": 32
@@ -15,6 +15,9 @@
     },
     {
       "name": "icon-bso"
+    },
+    {
+      "name": "icon-bar"
     },
     {
       "name": "icon-command"
@@ -32,7 +35,69 @@
       "name": "icon-security"
     },
     {
-      "name": "helmet",
+      "name": "icon-space-security"
+    },
+    {
+      "name": "icon-qm"
+    },
+    {
+      "name": "icon-rd"
+    },
+    {
+      "name": "icon-robo"
+    },
+    {
+      "name": "icon-corpsman"
+    },
+    {
+      "name": "icon-corpsman-space"
+    },
+    {
+      "name": "icon-ce"
+    },
+    {
+      "name": "icon-cmo"
+    },
+    {
+      "name": "icon-chem"
+    },
+    {
+      "name": "icon-centralcommand"
+    },
+    {
+      "name": "icon-hos"
+    },
+    {
+      "name": "icon-janitor"
+    },
+    {
+      "name": "icon-foreman"
+    },
+    {
+      "name": "icon-sergeant"
+    },
+    {
+      "name": "icon-space-sergeant"
+    },
+    {
+      "name": "icon-medicus"
+    },
+    {
+      "name": "icon-bosun"
+    },
+    {
+      "name": "icon-professor"
+    },
+    {
+      "name": "helmet-default",
+      "directions": 4
+    },
+    {
+      "name": "helmet-round",
+      "directions": 4
+    },
+    {
+      "name": "helmet-security",
       "directions": 4
     },
     {
@@ -44,19 +109,51 @@
       "directions": 4
     },
     {
-      "name": "helmet-engineering",
-      "directions": 4
-    },
-    {
-      "name": "helmet-medical",
-      "directions": 4
-    },
-    {
       "name": "helmet-salvage",
       "directions": 4
     },
     {
-      "name": "helmet-security",
+      "name": "helmet-qm",
+      "directions": 4
+    },
+    {
+      "name": "helmet-rd",
+      "directions": 4
+    },
+    {
+      "name": "helmet-ce",
+      "directions": 4
+    },
+    {
+      "name": "helmet-cmo",
+      "directions": 4
+    },
+    {
+      "name": "helmet-centralcommand",
+      "directions": 4
+    },
+    {
+      "name": "helmet-hos",
+      "directions": 4
+    },
+    {
+      "name": "helmet-foreman",
+      "directions": 4
+    },
+    {
+      "name": "helmet-sergeant",
+      "directions": 4
+    },
+    {
+      "name": "helmet-medicus",
+      "directions": 4
+    },
+    {
+      "name": "helmet-bosun",
+      "directions": 4
+    },
+    {
+      "name": "helmet-professor",
       "directions": 4
     },
     {
@@ -76,15 +173,31 @@
       "directions": 4
     },
     {
-      "name": "eyes-medical",
+      "name": "eyes-med",
+      "directions": 4
+    },
+    {
+      "name": "eyes-security",
       "directions": 4
     },
     {
       "name": "eyes-salvage",
       "directions": 4
-    },    
+    },
     {
-      "name": "eyes-security",
+      "name": "eyes-qm",
+      "directions": 4
+    },
+    {
+      "name": "eyes-ce",
+      "directions": 4
+    },
+    {
+      "name": "eyes-bar",
+      "directions": 4
+    },
+    {
+      "name": "eyes-centralcommand",
       "directions": 4
     },
     {
@@ -93,6 +206,10 @@
     },
     {
       "name": "helmet-internals-medical",
+      "directions": 4
+    },
+    {
+      "name": "helmet-internals-security",
       "directions": 4
     },
     {

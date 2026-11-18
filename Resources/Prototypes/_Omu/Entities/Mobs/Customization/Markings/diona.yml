@@ -1,0 +1,27 @@
+- type: marking
+  id: DionaVinelHeadTop
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Diona]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/diona.rsi
+    state: vinel
+
+- type: marking
+  id: DionaVinesHeadTop
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Diona]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Mobs/Customization/diona.rsi
+    state: vines

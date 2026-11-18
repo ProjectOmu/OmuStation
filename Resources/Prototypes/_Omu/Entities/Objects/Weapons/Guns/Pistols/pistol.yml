@@ -7,3 +7,38 @@
   - type: Contraband
     allowedDepartments: [ CentralCommand ]
     severity: Restricted
+
+- type: entity
+  name: QSZ-08 Sidearm
+  parent: [BaseWeaponPistol, BaseSyndicateContraband]
+  id: WeaponPistolQSZ08
+  description: A simple and dependable service pistol from an aging but enduring production line. The QSZ-08 remains a cornerstone of Shengli sidearm production for one simple reason, it works.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Pistols/QSZ-08.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistol
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistol
+            - MagazinePistolHighCapacity
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: StaticPrice
+    price: 1000

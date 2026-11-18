@@ -1,4 +1,4 @@
-﻿# MORTIS
+# MORTIS
 - type: soundCollection
   id: MortisBark
   files:
@@ -15,6 +15,77 @@
   volume: 0.7
   soundCollection:
     collection: MortisBark
+  speciesWhitelist:
+  - IPC
+  - Harpy
+
+# Moff squeaksqueaksqueaksqueak
+- type: soundCollection
+  id: MothSqueakBark
+  files:
+  - /Audio/_Omu/Voice/Barks/Moth_Squeak/moth.ogg
+  - /Audio/_Omu/Voice/Barks/Moth_Squeak/moth_ask.ogg
+  - /Audio/_Omu/Voice/Barks/Moth_Squeak/moth_exclaim.ogg
+
+- type: bark
+  id: MothSqueak
+  name: Moth Squeak
+  soundCollection:
+    collection: MothSqueakBark
+  speciesWhitelist:
+    - Moth
+    - Harpy # The Egg demands that harpies get all barks...
+
+# Hydrakin chirp chrip chrip
+- type: soundCollection
+  id: HydraChripingBark
+  files:
+  - /Audio/_Omu/Voice/Barks/Hydrakin/hydrakin-say-1.ogg
+  - /Audio/_Omu/Voice/Barks/Hydrakin/hydrakin-say-2.ogg
+  - /Audio/_Omu/Voice/Barks/Hydrakin/hydrakin-ask-1.ogg
+  - /Audio/_Omu/Voice/Barks/Hydrakin/hydrakin-exclaim-1.ogg
+  - /Audio/_Omu/Voice/Barks/Hydrakin/hydrakin-exclaim-2.ogg
+# Since barks don't work with stereo tracks, I've made special mono versions of these.
+
+- type: bark
+  id: HydraChirp
+  name: Hydra
+  soundCollection:
+    collection: HydraChripingBark
+  speciesWhitelist:
+  - Hydrakin
+  - Harpy # The Egg is talking to me... its telling me to leave this be...
+
+# Breathy
+- type: soundCollection
+  id: BreathyBark
+  files:
+  - /Audio/_Omu/Voice/Barks/Breathy/breathy.ogg
+
+- type: bark
+  id: Breathy
+  name: Breathy
+  volume: 0.6
+  soundCollection:
+    collection: BreathyBark
+
+# ST
+- type: soundCollection
+  id: StBark
+  files:
+  - /Audio/_Omu/Voice/Barks/ST/a.ogg
+  - /Audio/_Omu/Voice/Barks/ST/e.ogg
+  - /Audio/_Omu/Voice/Barks/ST/i.ogg
+  - /Audio/_Omu/Voice/Barks/ST/o.ogg
+  - /Audio/_Omu/Voice/Barks/ST/u.ogg
+  - /Audio/_Omu/Voice/Barks/ST/y.ogg
+
+- type: bark
+  id: St
+  name: ST
+  volume: 0.5
+  soundCollection:
+    collection: StBark
   speciesWhitelist:
   - IPC
   - Harpy

@@ -1,0 +1,29 @@
+- type: entity
+  id: CrateCybersunBloodredVimBundle
+  suffix: Filled
+  parent: CrateSyndicate
+  name: Cybersun Vim bundle
+  description: Contains a Cybersun extra light armored mech.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MechBloodredVimBattery
+      - id: DoubleEmergencyOxygenTankFilled
+      - id: DoubleEmergencyNitrogenTankFilled
+      - id: ToolboxSyndicateFilled
+      - id: PlushieNuke
+
+- type: entity
+  id: CrateGreyTideBundle
+  suffix: Filled
+  parent: CrateSyndicate
+  name: Grey Tide bundle
+  description: Contains recovered relics from the Defense Outpost Theta Aegis revolt.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SpearGreyTide
+      - id: ClothingMaskGasTide
+      - id: ClothingUniformJumpsuitAncient
+      - id: ClothingHandsGlovesColorYellow
+      - id: PlushieNuke

@@ -11,6 +11,32 @@
   - StationAiIconDorf
   - StationAiIconHeartline
   - StationAiIconSmiley
+  # <Trauma>
+  - StationAiIconFirewall
+  - StationAiIconDatabase
+  - StationAiIconGlitchman
+  - StationAiIconHades
+  - StationAiIconMatrix
+  - StationAiIconMonochrome
+  - StationAiIconMurica
+  - StationAiIconNanotrasen
+  - StationAiIconPresident
+  - StationAiIconRedDot
+  - StationAiIconRed
+  - StationAiIconTooDeep
+  - StationAiIconTriumvirate
+  - StationAiIconNotMalf
+  - StationAiIconHelios
+  - StationAiIconHouse
+  - StationAiIconRainbow
+  - StationAiIconAlien
+  - StationAiIconGoon
+  - StationAiIconWeird
+  - StationAiIconInverted
+  # </Trauma>
+  - StationAiIconBingle #Goobstation
+  - StationAiIconBlank #Goobstation
+  - StationAiIconPerformer #Goobstation
 
 - type: stationAiCustomizationGroup
   id: StationAiHolograms
@@ -24,7 +50,21 @@
   - StationAiHologramDog
   - StationAiHologramKobold
   - StationAiHologramMonkey
-  - StationAiHologramScurret # goob
+  - StationAiHologramScurret #Goobstation
+  - StationAiHologramHorror #Goobstation
+  - StationAiHologramQueen #Goobstation
+  - StationAiHologramPerformer  #Goobstation
+# Omustation Start
+  - StationAiHologramAlgalone
+  - StationAiHologramFractalsnowflake
+  - StationAiHologramHensonsnode
+  - StationAiHologramLongrun
+  - StationAiHologramNtpaint
+  - StationAiHologramPuredata
+  - StationAiHologramRorschach
+  - StationAiHologramSeraphim
+  - StationAiHologramTripleaffirmative
+# Omustation End
 
 # Iconography
 - type: stationAiCustomization

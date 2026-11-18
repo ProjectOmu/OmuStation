@@ -7,3 +7,116 @@
     - type: Contraband
       allowedDepartments: [ CentralCommand ]
       severity: Restricted
+
+- type: entity
+  name: SKBC-15 "Varja"
+  parent: [BaseWeaponSubMachineGun, BaseGunWieldable]
+  id: WeaponSubMachineGunCustodii
+  suffix: ADMEME, DO NOT MAP EVER
+  description: Command, Compliance, Control. It's not a sin if you stand beside a god.
+  components:
+  - type: Contraband
+    allowedDepartments: [ CentralCommand ]
+    severity: Restricted
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/SMGs/tungstensmg.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Omu/Objects/Weapons/Guns/SMGs/tungstensmg.rsi
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -15
+    maxAngle: -24
+  - type: Gun
+    projectileSpeed: 65
+    minAngle: 18
+    maxAngle: 30
+    fireRate: 3
+    cameraRecoilScalar: 2
+    soundGunshot:
+      path: /Audio/_EinsteinEngines/Weapons/Guns/Gunshots/fpa-90-suppressed-gunshot.ogg
+      params:
+        volume: -3
+        maxDistance: 8
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: ChamberMagazineAmmoProvider
+    autoEject: true
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 10000
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineCaselessTungsten
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineCaselessTungsten
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeCaselessTungsten
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeCaselessTungsten
+
+- type: entity
+  name: Typewriter
+  parent: [ BaseWeaponSubMachineGun, BaseCentcommContraband ]
+  id: WeaponSubMachineGunTypewriter
+  description: Replica of a submachine gun notable for facing many battles, more famously those between mobsters back on Sol. Chambered in .35, fits both special made drum mags and stick mags. Perfect gun for making sure someone's sleeping with the carps.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/SMGs/typewriter.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/SMGs/typewriter.rsi
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunWieldBonus # Changed to be on par or slightly worse than the C20
+    minAngle: -12
+    maxAngle: -12
+  - type: Gun
+    minAngle: 21
+    maxAngle: 32
+    fireRate: 5 # Moved down from 8, Felt the best
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/typewriter.ogg
+  - type: ChamberMagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolSubMachineGunDrum
+        insertSound: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolSubMachineGun
+            - MagazinePistolSubMachineGunDrum
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+  - type: Appearance

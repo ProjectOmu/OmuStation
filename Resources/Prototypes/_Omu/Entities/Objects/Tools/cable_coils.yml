@@ -1,0 +1,177 @@
+- type: entity
+  parent: CableApcStack
+  id: CableApcGranular0Stack
+  name: LV G0 cable coil
+  description: Low-Voltage stack of wires for connecting APCs to machines and other purposes. This older variant doesn't see much use anymore.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: &sprite0 _Omu/Objects/Tools/cable-coils-granular.rsi
+    state: coillvg0-30
+    layers:
+    - state: coillvg0-30
+      map: ["base"]
+  - type: Item
+    sprite: *sprite0
+    size: Small
+    heldPrefix: coillvg0
+    storedRotation: -90
+  - type: Stack
+    baseLayer: base
+    layerStates:
+    - coillvg0-10
+    - coillvg0-20
+    - coillvg0-30
+  - type: CablePlacer
+    cablePrototypeID: CableApcExtensionGranular0
+    blockingWireType: Apc
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 7
+      Glass: 7
+  - type: SolutionContainerManager
+    solutions:
+      lvcable:
+        reagents:
+        - ReagentId: Copper
+          Quantity: 2
+        - ReagentId: Silicon
+          Quantity: 3
+
+- type: entity
+  parent: CableApcGranular0Stack
+  id: CableApcGranular0Stack10
+  suffix: 10
+  components:
+    - type: Sprite
+      state: coillvg0-10
+    - type: Stack
+      count: 10
+
+- type: entity
+  parent: CableApcGranular0Stack
+  id: CableApcGranular0Stack1
+  suffix: 1
+  components:
+  - type: Sprite
+    state: coillvg0-10
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: CableApcGranular0Stack
+  id: CableApcGranular1Stack
+  name: LV G1 cable coil
+  suffix: Full
+  components:
+  - type: Sprite
+    state: coillvg1-30
+    layers:
+    - state: coillvg1-30
+      map: ["base"]
+  - type: Item
+    size: Small
+    heldPrefix: coillvg1
+    storedRotation: -90
+  - type: Stack
+    baseLayer: base
+    layerStates:
+    - coillvg1-10
+    - coillvg1-20
+    - coillvg1-30
+  - type: CablePlacer
+    cablePrototypeID: CableApcExtensionGranular1
+    blockingWireType: Apc
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 10
+      Glass: 5
+  - type: SolutionContainerManager
+    solutions:
+      lvcable:
+        reagents:
+        - ReagentId: Iron
+          Quantity: 1
+        - ReagentId: Copper
+          Quantity: 2
+        - ReagentId: Silicon
+          Quantity: 2
+
+- type: entity
+  parent: CableApcGranular1Stack
+  id: CableApcGranular1Stack10
+  suffix: 10
+  components:
+    - type: Sprite
+      state: coillvg1-10
+    - type: Stack
+      count: 10
+
+- type: entity
+  parent: CableApcGranular1Stack
+  id: CableApcGranular1Stack1
+  suffix: 1
+  components:
+  - type: Sprite
+    state: coillvg1-10
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: CableApcGranular0Stack
+  id: CableApcGranular2Stack
+  name: LV G2 cable coil
+  suffix: Full
+  components:
+  - type: Sprite
+    state: coillvg2-30
+    layers:
+    - state: coillvg2-30
+      map: ["base"]
+  - type: Item
+    size: Small
+    heldPrefix: coillvg2
+    storedRotation: -90
+  - type: Stack
+    baseLayer: base
+    layerStates:
+    - coillvg2-10
+    - coillvg2-20
+    - coillvg2-30
+  - type: CablePlacer
+    cablePrototypeID: CableApcExtensionGranular2
+    blockingWireType: Apc
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 12
+      Glass: 2
+  - type: SolutionContainerManager
+    solutions:
+      lvcable:
+        reagents:
+        - ReagentId: Iron
+          Quantity: 2
+        - ReagentId: Copper
+          Quantity: 2
+        - ReagentId: Silicon
+          Quantity: 1
+
+- type: entity
+  parent: CableApcGranular2Stack
+  id: CableApcGranular2Stack10
+  suffix: 10
+  components:
+    - type: Sprite
+      state: coillvg2-10
+    - type: Stack
+      count: 10
+
+- type: entity
+  parent: CableApcGranular2Stack
+  id: CableApcGranular2Stack1
+  suffix: 1
+  components:
+  - type: Sprite
+    state: coillvg2-10
+  - type: Stack
+    count: 1

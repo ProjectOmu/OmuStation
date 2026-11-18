@@ -1,0 +1,55 @@
+﻿- type: body
+  id: Ovinia
+  name: ovinia
+  root: chest
+  slots:
+    head:
+      part: HeadOvinia
+      connections:
+      - chest
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    chest:
+      part: ChestOvinia
+      connections:
+      - groin
+      - right arm
+      - left arm
+      - head # Shitmed
+      organs:
+        heart: OrganAnimalHeart
+        lungs: OrganAnimalLungs
+    groin:
+      part: GroinOvinia
+      connections:
+      - right leg
+      - left leg
+      organs:
+        stomach: OrganOviniaStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganAnimalKidneys
+    right arm:
+      part: RightArmOvinia
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmOvinia
+      connections:
+      - left hand
+    right hand:
+      part: RightHandOvinia
+    left hand:
+      part: LeftHandOvinia
+    right leg:
+      part: RightLegOvinia
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegOvinia
+      connections:
+      - left foot
+    right foot:
+      part: RightFootOvinia
+    left foot:
+      part: LeftFootOvinia

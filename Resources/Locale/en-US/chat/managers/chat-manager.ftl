@@ -137,7 +137,9 @@ chat-speech-verb-robotic-1 = states
 chat-speech-verb-robotic-2 = beeps
 chat-speech-verb-robotic-3 = boops
 
-chat-speech-verb-name-reptilian = Reptilian
+# Omu: change Reptilian to Unathi
+chat-speech-verb-name-reptilian = Unathi
+# Omu end
 chat-speech-verb-reptilian-1 = hisses
 chat-speech-verb-reptilian-2 = snorts
 chat-speech-verb-reptilian-3 = huffs
@@ -197,6 +199,13 @@ chat-speech-verb-name-electricity = Electricity
 chat-speech-verb-electricity-1 = crackles
 chat-speech-verb-electricity-2 = buzzes
 chat-speech-verb-electricity-3 = screeches
+
+# Goob
+#chat-speech-verb-vulpkanin-1 = rawrs
+#chat-speech-verb-vulpkanin-2 = barks
+#chat-speech-verb-vulpkanin-3 = rurs
+#chat-speech-verb-vulpkanin-4 = yaps
+#chat-speech-verb-vulpkanin = Vulpkanin
 
 chat-speech-verb-name-wawa = Wawa
 chat-speech-verb-wawa-1 = intones

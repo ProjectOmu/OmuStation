@@ -1,0 +1,38 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+    Title="{Loc thaven-moods-admin-ui-title}"
+    MinSize="900 520"
+>
+    <BoxContainer Orientation="Vertical">
+        <BoxContainer Orientation="Horizontal" Align="End" Margin="0 0 0 8">
+            <Button Name="SaveButton" Text="{Loc thaven-moods-admin-ui-save}" MaxSize="256 64" Access="Public"></Button>
+        </BoxContainer>
+
+        <BoxContainer Orientation="Horizontal" SeparationOverride="12" VerticalExpand="True">
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+                <BoxContainer Orientation="Vertical" Margin="4 0 4 4">
+                    <Label Text="{Loc thaven-moods-admin-ui-global-section}" />
+                    <BoxContainer Orientation="Horizontal" Align="Begin">
+                        <Button Name="NewSharedMoodButton" Text="{Loc thaven-moods-admin-ui-new-global-mood}" MaxSize="256 64" />
+                    </BoxContainer>
+                </BoxContainer>
+                <ScrollContainer VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
+                    <BoxContainer Orientation="Vertical" Name="SharedMoodContainer" Access="Public" VerticalExpand="True" />
+                </ScrollContainer>
+            </BoxContainer>
+
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+                <BoxContainer Orientation="Vertical" Margin="4 0 4 4">
+                    <Label Text="{Loc thaven-moods-admin-ui-target-section}" />
+                    <BoxContainer Orientation="Horizontal" Align="Begin">
+                        <Button Name="NewMoodButton" Text="{Loc thaven-moods-admin-ui-new-mood}" MaxSize="256 64" />
+                    </BoxContainer>
+                </BoxContainer>
+                <ScrollContainer VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
+                    <BoxContainer Orientation="Vertical" Name="MoodContainer" Access="Public" VerticalExpand="True" />
+                </ScrollContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

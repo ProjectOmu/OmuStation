@@ -7,7 +7,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-heretic-roundend-name = heretic
+heretic-roundend-name = a heretic
 
 roundend-prepend-heretic-ascension-success = {$name}, [color=green] has Ascended![/color]
 roundend-prepend-heretic-ascension-fail = {$name}, [color=red] has failed![/color]
@@ -64,3 +64,11 @@ ghostrole-fire-shark-desc = Aid your summoner in achieving ascension. Burn your 
 ghostrole-rustwalker-desc = Aid your summoner in achieving ascension. Spread rust everywhere.
 ghostrole-stargazer-desc = Aid your summoner in wreaking havoc everywhere.
 ghostrole-ghoul-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the one who summoned you and other eldritch beings.
+
+## hell memory loss notification
+hell-memory-title = Memory Loss
+hell-memory-text =
+    Your mind has been harvested by a Heretic, driving you to madness!
+
+    You have lost all memory of who did this to you and how.
+hell-memory-confirm = Confirm

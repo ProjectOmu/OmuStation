@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Mobs.Components;
@@ -42,13 +37,17 @@ public sealed class SpawnEntitiesOnHitSystem : EntitySystem
         if (comp.SpawnOnlyIfHitMob && !HasComp<MobStateComponent>(args.Target))
             return;
 
-        var coords = _transform.GetMapCoordinates(uid);
-        for (var i = 0; i < ent.Comp.Amount; i++)
+        // Trauma - projectile hits are predicted now, don't spawn clientside entities that never get deleted
+        if (_net.IsServer)
         {
-            Spawn(comp.Proto, coords);
+            var coords = _transform.GetMapCoordinates(uid);
+            for (var i = 0; i < ent.Comp.Amount; i++)
+            {
+                Spawn(comp.Proto, coords);
+            }
         }
 
-        if (comp.DeleteOnSpawn && _net.IsServer)
-            QueueDel(uid);
+        if (comp.DeleteOnSpawn)
+            PredictedQueueDel(uid); // Trauma - predicted
     }
 }

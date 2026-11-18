@@ -1,23 +1,6 @@
-// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 ike709 <ike709@github.com>
-// SPDX-FileCopyrightText: 2022 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 chavonadelal <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 BeBright <98597725+bebr3ght@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq; //omu
 using Content.Shared.Access.Components;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
@@ -103,8 +86,18 @@ public sealed class IdExaminableSystem : EntitySystem
 
     private bool CanAccessWantedMenu(EntityUid user, EntityUid target) // Goobstation-WantedMenu
     {
-        if (!_inventorySystem.TryGetSlotEntity(user, "eyes", out var eyes)
-            || !TryComp<ShowCriminalRecordIconsComponent>(eyes, out _))
+        // omu edit -start
+        bool ItemExistsInSlotAndHasTheComponent(string slot)
+            // ent is not null in the second condition due to short circuiting
+            => _inventorySystem.TryGetSlotEntity(user, slot, out var ent)
+            && TryComp<ShowCriminalRecordIconsComponent>(ent, out _);
+
+        string[] slotsToCheck = ["head", "eyes"];
+
+        // "if there isn't an item on either (eyes or head) that has ShowCriminalRecordIconsComponent,
+        //  then failfast and return false"
+        if (!slotsToCheck.Any(i => ItemExistsInSlotAndHasTheComponent(i)))
+        // omu edit -end
             return false;
 
         if (TryComp<AccessReaderComponent>(target, out var accessReader))

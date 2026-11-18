@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.GameStates;
@@ -57,6 +49,11 @@ namespace Content.Shared.Stealth.Components
         [DataField]
         [AutoNetworkedField]
         public TimeSpan NoMoveTime = TimeSpan.Zero;
+
+        // goob - break stealth on any movement
+        [DataField]
+        [AutoNetworkedField]
+        public bool BreakOnMove;
         // </Goobstation>
     }
 }

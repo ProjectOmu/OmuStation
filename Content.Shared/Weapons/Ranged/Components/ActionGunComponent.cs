@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Actions;
@@ -15,6 +11,7 @@ namespace Content.Shared.Weapons.Ranged.Components;
 /// Lets you shoot a gun using an action.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(ActionGunSystem))]
+[AutoGenerateComponentState] // Trauma
 public sealed partial class ActionGunComponent : Component
 {
     /// <summary>
@@ -24,6 +21,7 @@ public sealed partial class ActionGunComponent : Component
     public EntProtoId Action = string.Empty;
 
     [DataField]
+    [AutoNetworkedField] // Trauma
     public EntityUid? ActionEntity;
 
     /// <summary>
@@ -34,6 +32,7 @@ public sealed partial class ActionGunComponent : Component
     public EntProtoId GunProto = string.Empty;
 
     [DataField]
+    [AutoNetworkedField] // Trauma
     public EntityUid? Gun;
 }
 

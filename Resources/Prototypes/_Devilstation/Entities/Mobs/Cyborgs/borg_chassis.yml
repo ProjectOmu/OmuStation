@@ -79,6 +79,7 @@
     - Security
     - Service
     - Supply
+    - Binary # Omu
   - type: ActiveRadio
     channels:
     - Common
@@ -90,10 +91,11 @@
     - Security
     - Service
     - Supply
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
+    - Binary # Omu
+  #- type: CollectiveMind # Omu, make binary a radio again.
+  #  defaultChannel: Binary
+  #  channels:
+  #  - Binary
   - type: ContainerFill
     containers:
       borg_brain:
@@ -212,6 +214,7 @@
     - Security
     - Service
     - Supply
+    - Binary # Omu
   - type: ActiveRadio
     channels:
     - Common
@@ -223,10 +226,11 @@
     - Security
     - Service
     - Supply
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
+    - Binary # Omu
+  #- type: CollectiveMind # Omu, make binary a radio again.
+  #  defaultChannel: Binary
+  #  channels:
+  #  - Binary
   - type: ContainerFill
     containers:
       borg_brain:
@@ -272,10 +276,9 @@
     rules: ghost-role-information-higher-standard-silicon-rules
     raffle:
       settings: default
-    requirements:
-    - !type:RoleTimeRequirement
-      role: JobBorg
-      time: 18000 #5 hrs - Omu Edit
+    mindRoles:
+    - MindRoleGhostRoleSilicon
+    job: Borg
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -289,8 +292,7 @@
     rules: ghost-role-information-higher-standard-silicon-rules
     raffle:
       settings: default
-    requirements:
-    - !type:RoleTimeRequirement
-      role: JobBorg
-      time: 18000 #5 hrs - Omu Edit
+    mindRoles:
+    - MindRoleGhostRoleSilicon
+    job: Borg
   - type: GhostTakeoverAvailable

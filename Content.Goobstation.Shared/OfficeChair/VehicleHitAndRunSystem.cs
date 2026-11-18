@@ -1,5 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
@@ -83,7 +81,8 @@ public sealed partial class VehicleHitAndRunSystem : EntitySystem
                 var distance = throwSpeed * comp.AirTime;
                 var dir = dirNorm * distance;
 
-                _throwing.TryThrow(other, dir, throwSpeed, ignore, animated: true, playSound: false, throwInAir: true);
+                _throwing.TryThrow(other, dir, throwSpeed, ignore, animated: true, playSound: false, throwInAir: true,
+                    predicted: false); // Trauma - server only
                 comp.LastLaunched[other] = now;
                 threwAny = true;
             }

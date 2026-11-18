@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Roudenn <149893554+Roudenn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
@@ -52,6 +42,7 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
         SubscribeLocalEvent<CanWeightlessMoveEvent>(OnWeightlessMove);
         SubscribeAllEvent<RequestGrapplingReelMessage>(OnGrapplingReel);
 
+        // TODO: After step trigger refactor, dropping a grappling gun should manually try and activate step triggers it's suppressing.
         SubscribeLocalEvent<GrapplingGunComponent, GunShotEvent>(OnGrapplingShot);
         SubscribeLocalEvent<GrapplingGunComponent, ActivateInWorldEvent>(OnGunActivate);
         SubscribeLocalEvent<GrapplingGunComponent, HandDeselectedEvent>(OnGrapplingDeselected);
@@ -76,8 +67,7 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
             Dirty(uid, component);
             var visuals = EnsureComp<JointVisualsComponent>(shotUid.Value);
             visuals.Sprite = component.RopeSprite;
-            visuals.OffsetA = new Vector2(0f, 0.5f);
-            visuals.Target = GetNetEntity(uid);
+            visuals.Target = uid;
             Dirty(shotUid.Value, visuals);
         }
 
@@ -129,7 +119,7 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
 
     private void OnGunActivate(EntityUid uid, GrapplingGunComponent component, ActivateInWorldEvent args)
     {
-        if (!Timing.IsFirstTimePredicted || args.Handled || !args.Complex || component.Projectile is not {} projectile)
+        if (!Timing.IsFirstTimePredicted || args.Handled || !args.Complex || component.Projectile is not { } projectile)
             return;
 
         _audio.PlayPredicted(component.CycleSound, uid, args.User);
@@ -140,7 +130,7 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
 
         component.Projectile = null;
         SetReeling(uid, component, false, args.User);
-        _gun.ChangeBasicEntityAmmoCount(uid,  1);
+        _gun.ChangeBasicEntityAmmoCount(uid, 1);
 
         args.Handled = true;
     }
@@ -175,7 +165,10 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var grappling))
         {
-            if (!grappling.Reeling)
+            // Omu start - initial reel/collision check
+            bool allowReel = true;
+            JointComponent? jointComp = null;
+            if (!grappling.Reeling || !TryComp<JointComponent>(uid, out jointComp)) // Omu end
             {
                 if (Timing.IsFirstTimePredicted)
                 {
@@ -183,16 +176,38 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
                     grappling.Stream = _audio.Stop(grappling.Stream);
                 }
 
+                // Omu start - wake up player physics
+                if (jointComp?.Relay != null && !grappling.Reeling)
+                    _physics.WakeBody(jointComp.Relay.Value);
+                // Omu end
                 continue;
+            }
+            // Omu start
+            SetReeling(uid, grappling, false, null);
+
+            if (jointComp?.Relay != null)
+            {
+                var _contactQuery = _physics.GetContacts(jointComp.Relay.Value);
+                while (_contactQuery.MoveNext(out var contact))
+                {
+                    if (contact.Hard)
+                    {
+                        allowReel = false;
+                        break;
+                    }
+                }
+                _physics.WakeBody(jointComp.Relay.Value);
             }
 
-            if (!TryComp<JointComponent>(uid, out var jointComp) ||
-                !jointComp.GetJoints.TryGetValue(GrapplingJoint, out var joint) ||
-                joint is not DistanceJoint distance)
+            if (jointComp == null)
+                continue;
+
+            if (!jointComp.GetJoints.TryGetValue(GrapplingJoint, out var joint) ||
+            joint is not DistanceJoint distance || !allowReel)
             {
-                SetReeling(uid, grappling, false, null);
                 continue;
             }
+            // Omu end
 
             // TODO: This should be on engine.
             distance.MaxLength = MathF.Max(distance.MinLength, distance.MaxLength - grappling.ReelRate * frameTime);
@@ -201,30 +216,49 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
             _physics.WakeBody(joint.BodyAUid);
             _physics.WakeBody(joint.BodyBUid);
 
-            if (jointComp.Relay != null)
-            {
-                _physics.WakeBody(jointComp.Relay.Value);
-            }
-
             Dirty(uid, jointComp);
 
             if (distance.MaxLength.Equals(distance.MinLength))
             {
-                SetReeling(uid, grappling, false, null);
+                allowReel = false; // Omu
             }
+
+            // Omu start - final reeling set
+            if (allowReel)
+                SetReeling(uid, grappling, true, null);
+            // Omu end
         }
+    }
+
+    /// <summary>
+    /// Checks whether the entity is hooked to something via grappling gun.
+    /// </summary>
+    /// <param name="entity">Entity to check.</param>
+    /// <returns>True if hooked, false otherwise.</returns>
+    public bool IsEntityHooked(Entity<JointRelayTargetComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp, false))
+            return false;
+
+        foreach (var uid in entity.Comp.Relayed)
+        {
+            if (HasComp<GrapplingGunComponent>(uid))
+                return true;
+        }
+
+        return false;
     }
 
     private void OnGrappleCollide(EntityUid uid, GrapplingProjectileComponent component, ref ProjectileEmbedEvent args)
     {
-        if (!Timing.IsFirstTimePredicted)
+        if (!Timing.IsFirstTimePredicted || !args.Weapon.HasValue)
             return;
 
         var jointComp = EnsureComp<JointComponent>(uid);
-        var joint = _joints.CreateDistanceJoint(uid, args.Weapon, anchorA: new Vector2(0f, 0.5f), id: GrapplingJoint);
+        var joint = _joints.CreateDistanceJoint(uid, args.Weapon.Value, id: GrapplingJoint);
         joint.MaxLength = joint.Length + 0.2f;
         joint.Stiffness = 1f;
-        joint.MinLength = 0.35f;
+        joint.MinLength = 1f; // Length of a tile to prevent pulling yourself into / through walls
         // Setting velocity directly for mob movement fucks this so need to make them aware of it.
         // joint.Breakpoint = 4000f;
         Dirty(uid, jointComp);

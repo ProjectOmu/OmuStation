@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -11,6 +5,7 @@ using Content.Goobstation.Common.Religion;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Goobstation.Wizard.TimeStop;
 using Content.Shared._Goobstation.Wizard.Traps;
+using Content.Shared._Shitcode.Heretic.Systems;
 using Content.Shared.Administration;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -25,6 +20,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Inventory;
+using Content.Shared.Projectiles;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
@@ -50,7 +46,7 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly SharedHereticSystem _heretic = default!;
 
     public override void Initialize()
     {
@@ -66,8 +62,7 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
         if (ent.Comp.AffectedEntities.Contains(args.OtherEntity))
             return;
 
-        if (!HasComp<MobStateComponent>(args.OtherEntity) || HasComp<HereticComponent>(args.OtherEntity) ||
-            HasComp<GhoulComponent>(args.OtherEntity))
+        if (!HasComp<MobStateComponent>(args.OtherEntity) || HasComp<GhoulComponent>(args.OtherEntity))
             return;
 
         var ev = new BeforeCastTouchSpellEvent(args.OtherEntity, false);
@@ -83,6 +78,7 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
             true);
 
         var affected = EnsureComp<EntropicPlumeAffectedComponent>(args.OtherEntity);
+        affected.ExcludedEntity = CompOrNull<ProjectileComponent>(ent)?.Shooter ?? EntityUid.Invalid;
         affected.Duration = MathF.Max(affected.Duration, ent.Comp.Duration);
 
         var solution = new Solution();
@@ -136,21 +132,21 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
                     return;
 
                 if (HasComp<StunnedComponent>(uid) || HasComp<FrozenComponent>(uid) ||
-                    HasComp<AdminFrozenComponent>(uid) || HasComp<IceCubeComponent>(uid))
+                    HasComp<AdminFrozenComponent>(uid) || HasComp<Wizard.Traps.IceCubeComponent>(uid))
                     return;
 
-                _gun.TryGetGun(uid, out var gun, out var gunComp);
+                var hasGun = _gun.TryGetGun(uid, out var gun);
                 _weapon.TryGetWeapon(uid, out var weapon, out var meleeComp);
 
                 float range;
                 float attackRate;
 
-                if (gunComp != null)
+                if (hasGun)
                 {
-                    if (gunComp.NextFire > curTime)
+                    if (gun.Comp.NextFire > curTime)
                         return;
 
-                    attackRate = gunComp.FireRate;
+                    attackRate = gun.Comp.FireRate;
                     range = 3f;
                 }
                 else if (meleeComp != null)
@@ -167,7 +163,7 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
                 if (attackRate == 0f)
                     return;
 
-                var targets = FindPotentialTargets((uid, xform), range);
+                var targets = FindPotentialTargets((uid, xform), affected.ExcludedEntity, range);
                 if (targets.Count == 0)
                     return;
 
@@ -179,8 +175,8 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
                 var target = rand.Pick(targets);
                 var coords = Transform(target).Coordinates;
 
-                if (gunComp != null)
-                    _gun.AttemptShoot(uid, gun, gunComp, coords, target);
+                if (hasGun)
+                    _gun.AttemptShoot(uid, gun, coords, target);
                 else if (meleeComp != null)
                     _weapon.AttemptLightAttack(uid, weapon, meleeComp, target);
             }
@@ -198,7 +194,7 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
         }
     }
 
-    private List<EntityUid> FindPotentialTargets(Entity<TransformComponent> attacker, float range)
+    private List<EntityUid> FindPotentialTargets(Entity<TransformComponent> attacker, EntityUid excluded, float range)
     {
         List<EntityUid> result = new();
         var ents = _lookup.GetEntitiesInRange<MobStateComponent>(attacker.Comp.Coordinates, range, LookupFlags.Dynamic);
@@ -207,7 +203,7 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
             if (ent.Owner == attacker.Owner)
                 continue;
 
-            if (HasComp<HereticComponent>(ent.Owner) || HasComp<GhoulComponent>(ent.Owner))
+            if (ent.Owner == excluded || HasComp<GhoulComponent>(ent.Owner))
                 continue;
 
             if (_examine.InRangeUnOccluded(attacker, ent, range + 1f))

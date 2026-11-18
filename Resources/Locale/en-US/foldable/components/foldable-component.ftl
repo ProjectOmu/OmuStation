@@ -23,6 +23,12 @@ fold-unzip-verb = Unzip
 # omu i think they forgot to put thisd here idk lol
 fold-rollsleeves-verb = Roll sleeves
 fold-unrollsleeves-verb = Unroll sleeves
+fold-verb-clothing-jacket = Take off jacket
+unfold-verb-clothing-jacket = Put on jacket
+
+# Omu
+fold-tilt-verb = Tilt
+fold-lift-verb = Lift
 
 # Hijacking this because it works well for toggling hideable layers - Goob
 

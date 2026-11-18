@@ -1,0 +1,7 @@
+- type: loadout
+  id: CaptainCloakLong
+  equipment:
+    neck: ClothingNeckLongCloakCap
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterCap

@@ -1,12 +1,6 @@
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server.Heretic.EntitySystems;
 using Content.Shared.Heretic;
 using Content.Shared.Mind;
 using Content.Shared.Store;
@@ -30,12 +24,10 @@ public sealed partial class HereticPathCondition : ListingCondition
     public override bool Condition(ListingConditionArgs args)
     {
         var ent = args.EntityManager;
-        var minds = ent.System<SharedMindSystem>();
+        var hereticSys = ent.System<HereticSystem>();
 
-        if (!minds.TryGetMind(args.Buyer, out var mindId, out var mind))
-            return false;
-
-        if (!ent.TryGetComponent<HereticComponent>(args.Buyer, out var hereticComp))
+        if (!hereticSys.TryGetHereticComponent(args.Buyer, out var hereticComp, out _) &&
+            !ent.TryGetComponent(args.Buyer, out hereticComp))
             return false;
 
         if (RequiresCanAscend && !hereticComp.CanAscend)

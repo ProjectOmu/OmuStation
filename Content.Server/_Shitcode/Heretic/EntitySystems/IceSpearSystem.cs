@@ -8,6 +8,7 @@ using Content.Shared.Ghost;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
+using Content.Shared.Temperature.Components;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -35,7 +36,7 @@ public sealed class IceSpearSystem : EntitySystem
 
         var hitNullRodUser = IsTouchSpellDenied(args.Target); // hit a null rod
 
-        if (!HasComp<HereticComponent>(args.Target) && !HasComp<GhostComponent>(args.Target) &&
+        if (!HasComp<GhostComponent>(args.Target) &&
             HasComp<TemperatureComponent>(args.Target) && !hitNullRodUser)
             EnsureComp<IceCubeComponent>(args.Target);
 

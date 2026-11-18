@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Xenobiology.Components;
@@ -139,7 +134,8 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         foreach (var ent in _container.EmptyContainer(slime.Stomach)) // spew everything out jic
         {
             _container.TryRemoveFromContainer(ent, true);
-            _throwing.TryThrow(ent, _robustRandom.NextVector2() * 5);
+            _throwing.TryThrow(ent, _robustRandom.NextVector2() * 5,
+                predicted: false); // Trauma
         }
         QueueDel(toProcess);
     }

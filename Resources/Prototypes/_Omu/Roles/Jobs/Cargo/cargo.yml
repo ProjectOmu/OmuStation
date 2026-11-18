@@ -28,7 +28,7 @@
   equipment:
     ears: ClothingHeadsetCargo
     pocket1: AppraisalTool
-    pocket2: MailMetricsCartridge
+    # pocket2: MailMetricsCartridge
     # head: ClothingHeadMailCarrier
 
 - type: startingGear
@@ -37,7 +37,7 @@
     id: CourierPDAAlt
     ears: ClothingHeadsetCargo
     pocket1: AppraisalTool
-    pocket2: MailMetricsCartridge
+    # pocket2: MailMetricsCartridge
     head: ClothingHeadMailCarrier
     jumpsuit: ClothingUniformMailCarrier
     gloves: ClothingHandsGlovesColorWhite
@@ -75,3 +75,23 @@
     outerClothing: ClothingOuterWinterCoatMail
     neck: ClothingNeckScarfStripedBrown
     gloves: ClothingHandsGlovesFingerless
+
+- type: job
+  id: MailGoblin
+  name: job-name-mail-goblin
+  description: job-description-courier
+  playTimeTracker: JobMailGoblin
+  overrideConsoleVisibility: false
+  guides: # goobstation
+  - CourierSOP
+  - Cargo
+  icon: "JobIconCourier"
+  supervisors: job-supervisors-qm
+  canBeAntag: false
+  goobcoins: 10 #Goob content
+  access:
+  - Cargo
+  - Maintenance
+  extendedAccess:
+  - Salvage
+  - External # goobstation

@@ -8,6 +8,22 @@
     stampedName: stamp-component-stamped-name-admin-assistant
     stampedColor: "#4191f2"
     stampState: "paper_stamp-admin-assistant"
+    stampLargePath: "/Textures/_Omu/Interface/Paper/Stamps/large_stamp-adminassistant.png" # Omu
   - type: Sprite
     sprite: _DV/Objects/Misc/stamps.rsi
     state: stamp-admin-assistant
+
+- type: entity
+  name: IA rubber stamp
+  parent: [RubberStampBase, BaseCentcommContraband] # Omu, add contra
+  id: RubberStampNTAgent
+  suffix: DO NOT MAP
+  description: A rubber stamp for stamping important documents. For internal related affairs.
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-NTAgent
+    stampedColor: "#000080"
+    stampState: "paper_stamp-cap"
+    stampLargePath: "/Textures/_Omu/Interface/Paper/Stamps/large_stamp-internalaffairs.png" # Omu
+  - type: Sprite
+    state: stamp-cap

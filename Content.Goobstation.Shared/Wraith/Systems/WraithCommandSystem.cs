@@ -48,10 +48,11 @@ public sealed class WraithCommandSystem : EntitySystem
 
         foreach (var entity in foundList)
         {
-            if (_whitelist.IsBlacklistPass(ent.Comp.Blacklist, entity))
+            if (_whitelist.IsWhitelistPassOrNull(ent.Comp.Blacklist, entity))
                 continue;
 
-            _throwingSystem.TryThrow(entity, Transform(args.Target).Coordinates, ent.Comp.ThrowSpeed, ent.Owner);
+            _throwingSystem.TryThrow(entity, Transform(args.Target).Coordinates, ent.Comp.ThrowSpeed, ent.Owner,
+                predicted: false); // Trauma - server only
         }
 
         args.Handled = true;

@@ -166,6 +166,27 @@
     - ClothingNeckChameleonPride
   groupBy: "pin"
 
+- type: loadout
+  id: ClothingNeckEnsembleTrans
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 720000 # 200hr
+  storage:
+    back:
+    - ClothingNeckEnsembleTrans
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckCloakPlural
+  equipment:
+    neck: ClothingNeckCloakPlural
+
+- type: loadout
+  id: ClothingNeckScarfStripedPlural
+  equipment:
+    neck: ClothingNeckScarfStripedPlural
 
 - type: loadout
   id: BarberScissors
@@ -202,6 +223,13 @@
   groupBy: "smokeables"
 
 - type: loadout
+  id: Vape
+  storage:
+    back:
+    - Vape
+  groupBy: "smokeables"
+
+- type: loadout
   id: GreyTideStamp
   effects:
   - !type:GroupLoadoutEffect
@@ -209,3 +237,9 @@
   storage:
    back:
    - RubberStampGreytide
+
+- type: loadout
+  id: MysteryStaffPlushieBox
+  storage:
+    back:
+    - MysteryStaffPlushieBox

@@ -1,5 +1,4 @@
 using Content.Goobstation.Shared.Slasher.Components;
-using Content.Goobstation.Shared.Slasher.Events;
 using Content.Shared.Actions;
 using Content.Shared.Interaction;
 using Content.Shared.Movement.Systems;
@@ -17,7 +16,6 @@ namespace Content.Goobstation.Shared.Slasher.Systems;
 /// </summary>
 public sealed class SlasherStaggerAreaSystem : EntitySystem
 {
-
     public static readonly EntProtoId EffectId = "SlasherSlowdownStatusEffect";
 
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -65,16 +63,20 @@ public sealed class SlasherStaggerAreaSystem : EntitySystem
 
             _movemod.TryUpdateMovementSpeedModDuration(targetUid, EffectId, TimeSpan.FromSeconds(comp.SlowDuration), comp.SlowMultiplier, comp.SlowMultiplier);
 
-            // Show popup to the victim
+            // Show popup to the victim only
             if (_net.IsServer)
                 _popup.PopupEntity(Loc.GetString("slasher-staggerarea-victim"), targetUid, targetUid, PopupType.MediumCaution);
         }
 
         _audio.PlayPredicted(comp.StaggerSound, uid, uid);
 
-        // Show popup to the user
-        if (_net.IsServer)
-            _popup.PopupEntity(Loc.GetString("slasher-staggerarea-popup"), uid, uid, PopupType.MediumCaution);
+        var overlay = EnsureComp<SlasherStaggerOverlayComponent>(uid);
+        overlay.Range = comp.Range;
+        overlay.ShockwaveShader = comp.ShockwaveShader;
+        overlay.RingColor = comp.RingColor;
+        Dirty(uid, overlay);
+
+        _popup.PopupClient(Loc.GetString("slasher-staggerarea-popup"), uid, uid, PopupType.MediumCaution);
 
         args.Handled = true;
     }

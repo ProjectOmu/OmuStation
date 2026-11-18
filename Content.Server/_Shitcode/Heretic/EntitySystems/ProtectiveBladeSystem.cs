@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Heretic.Components;
@@ -23,6 +13,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.Buckle.Systems;
 using Content.Server.Hands.Systems;
+using Content.Shared._Trauma.Hands; // Trauma
 using Content.Server.Heretic.Abilities;
 using Content.Shared._Goobstation.Heretic.Systems;
 using Content.Shared._Shitcode.Heretic.Components;
@@ -60,6 +51,7 @@ public sealed class ProtectiveBladeSystem : EntitySystem
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly HereticSystem _heretic = default!;
 
     public static readonly EntProtoId BladePrototype = "HereticProtectiveBlade";
     public static readonly EntProtoId BladeProjecilePrototype = "HereticProtectiveBladeProjectile";
@@ -71,29 +63,35 @@ public sealed class ProtectiveBladeSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ProtectiveBladeComponent, ComponentInit>(OnInit);
-        SubscribeLocalEvent<ProtectiveBladeComponent, InteractHandEvent>(OnInteract,
-            after: [typeof(BuckleSystem)]);
+        SubscribeLocalEvent<ProtectiveBladeComponent, ComponentStartup>(OnStartup);
 
-        SubscribeLocalEvent<HereticComponent, InteractHandEvent>(OnHereticInteract,
-            after: [typeof(BuckleSystem)]);
-        SubscribeLocalEvent<HereticComponent, BeforeDamageChangedEvent>(OnTakeDamage);
-        SubscribeLocalEvent<HereticComponent, BeforeHarmfulActionEvent>(OnBeforeHarmfulAction,
+        SubscribeLocalEvent<ProtectiveBladesComponent, InteractHandEvent>(OnHereticInteract, after: [typeof(BuckleSystem)]);
+        SubscribeLocalEvent<ProtectiveBladesComponent, BeforeDamageChangedEvent>(OnTakeDamage);
+        SubscribeLocalEvent<ProtectiveBladesComponent, BeforeHarmfulActionEvent>(OnBeforeHarmfulAction,
             after: [typeof(HereticAbilitySystem), typeof(RiposteeSystem)]);
-        SubscribeLocalEvent<HereticComponent, ProjectileReflectAttemptEvent>(OnProjectileReflectAttempt);
-        SubscribeLocalEvent<HereticComponent, HitScanReflectAttemptEvent>(OnHitscanReflectAttempt);
+        SubscribeLocalEvent<ProtectiveBladesComponent, ProjectileReflectAttemptEvent>(OnProjectileReflectAttempt);
+        SubscribeLocalEvent<ProtectiveBladesComponent, HitScanReflectAttemptEvent>(OnHitscanReflectAttempt);
+
+        SubscribeLocalEvent<ProtectiveBladesComponent, StoppedFollowingEntityEvent>(OnStopFollowing);
 
         CommandBinds.Builder
             .BindAfter(ContentKeyFunctions.ThrowItemInHand,
                 new PointerInputCmdHandler(HandleThrowBlade),
-                typeof(HandsSystem))
+                typeof(PredictedHandsSystem)) // Trauma - throwing moved to PredictedHandsSystem
             .Register<ProtectiveBladeComponent>();
+    }
+
+    private void OnStopFollowing(Entity<ProtectiveBladesComponent> ent, ref StoppedFollowingEntityEvent args)
+    {
+        var blades = GetBlades(ent);
+        if (blades.Count == 0)
+            RemCompDeferred(ent, ent.Comp);
     }
 
     private bool HandleThrowBlade(ICommonSession? session, EntityCoordinates coords, EntityUid uid)
     {
         if (session?.AttachedEntity is not { Valid: true } player || !Exists(player) ||
-            !coords.IsValid(EntityManager) || !HasComp<HereticComponent>(player) ||
+            !coords.IsValid(EntityManager) || !_heretic.IsHereticOrGhoul(player) ||
             HasComp<BlockProtectiveBladeShootComponent>(player))
             return false;
 
@@ -104,7 +102,7 @@ public sealed class ProtectiveBladeSystem : EntitySystem
         return ThrowProtectiveBlade(player, blades[0], uid, _xform.ToWorldPosition(coords));
     }
 
-    private void OnHereticInteract(Entity<HereticComponent> ent, ref InteractHandEvent args)
+    private void OnHereticInteract(Entity<ProtectiveBladesComponent> ent, ref InteractHandEvent args)
     {
         if (args.Handled || args.User != ent.Owner)
             return;
@@ -113,7 +111,7 @@ public sealed class ProtectiveBladeSystem : EntitySystem
             args.Handled = true;
     }
 
-    private void OnProjectileReflectAttempt(Entity<HereticComponent> ent, ref ProjectileReflectAttemptEvent args)
+    private void OnProjectileReflectAttempt(Entity<ProtectiveBladesComponent> ent, ref ProjectileReflectAttemptEvent args)
     {
         if (args.Cancelled)
             return;
@@ -132,7 +130,7 @@ public sealed class ProtectiveBladeSystem : EntitySystem
         }
     }
 
-    private void OnHitscanReflectAttempt(Entity<HereticComponent> ent, ref HitScanReflectAttemptEvent args)
+    private void OnHitscanReflectAttempt(Entity<ProtectiveBladesComponent> ent, ref HitScanReflectAttemptEvent args)
     {
         if (args.Reflected)
             return;
@@ -160,7 +158,7 @@ public sealed class ProtectiveBladeSystem : EntitySystem
         }
     }
 
-    private void OnBeforeHarmfulAction(Entity<HereticComponent> ent, ref BeforeHarmfulActionEvent args)
+    private void OnBeforeHarmfulAction(Entity<ProtectiveBladesComponent> ent, ref BeforeHarmfulActionEvent args)
     {
         if (args.Cancelled)
             return;
@@ -193,12 +191,12 @@ public sealed class ProtectiveBladeSystem : EntitySystem
         }
     }
 
-    private void OnInit(Entity<ProtectiveBladeComponent> ent, ref ComponentInit args)
+    private void OnStartup(Entity<ProtectiveBladeComponent> ent, ref ComponentStartup args)
     {
         ent.Comp.Timer = ent.Comp.Lifetime;
     }
 
-    private void OnTakeDamage(Entity<HereticComponent> ent, ref BeforeDamageChangedEvent args)
+    private void OnTakeDamage(Entity<ProtectiveBladesComponent> ent, ref BeforeDamageChangedEvent args)
     {
         if (args.Cancelled || args.Damage.GetTotal() < 5f)
             return;
@@ -213,15 +211,6 @@ public sealed class ProtectiveBladeSystem : EntitySystem
         _audio.PlayPvs(BladeBlockSound, ent);
 
         args.Cancelled = true;
-    }
-
-    private void OnInteract(Entity<ProtectiveBladeComponent> ent, ref InteractHandEvent args)
-    {
-        if (!TryComp<FollowerComponent>(ent, out var follower) || follower.Following != args.User)
-            return;
-
-        if (TryThrowProtectiveBlade(args.User, ent))
-            args.Handled = true;
     }
 
     public List<Entity<ProtectiveBladeComponent>> GetBlades(EntityUid ent)
@@ -273,6 +262,8 @@ public sealed class ProtectiveBladeSystem : EntitySystem
         _follow.StartFollowingEntity(pblade, ent);
         if (playSound)
             _audio.PlayPvs(BladeAppearSound, ent);
+
+        EnsureComp<ProtectiveBladesComponent>(ent);
 
         /* Upstream removed this, but they randomise the start point so it's w/e
         if (TryComp<OrbitVisualsComponent>(pblade, out var vorbit))

@@ -12,9 +12,9 @@
   - type: Butcherable
     spawned:
     - id: CoalUnprocessed
-      amount: 2
+      amount: 1
     - id: SteelOreUnprocessed
-      amount: 2
+      amount: 1
 
 - type: entity
   id: FishQuartzOre
@@ -30,7 +30,7 @@
   - type: Butcherable
     spawned:
     - id: SpaceQuartzUnprocessed
-      amount: 2
+      amount: 1
 
 - type: entity
   id: FishGoldOre
@@ -45,8 +45,8 @@
     sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
   - type: Butcherable
     spawned:
-    - id: GoldOreUnprocessed
-      amount: 1
+    - id: GoldOre1Unprocessed
+      amount: 15
 
 - type: entity
   id: FishSilverOre
@@ -61,8 +61,8 @@
     sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
   - type: Butcherable
     spawned:
-    - id: SilverOreUnprocessed
-      amount: 1
+    - id: SilverOre1Unprocessed
+      amount: 15
 
 - type: entity
   id: FishPlasmaOre
@@ -77,8 +77,8 @@
     sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
   - type: Butcherable
     spawned:
-    - id: PlasmaOreUnprocessed
-      amount: 1
+    - id: PlasmaOre1Unprocessed
+      amount: 15
 
 - type: entity
   id: FishUraniumOre
@@ -93,8 +93,8 @@
     sprite: _Omu/Objects/Specific/Fishing/orefish.rsi
   - type: Butcherable
     spawned:
-    - id: UraniumOreUnprocessed
-      amount: 1
+    - id: UraniumOre1Unprocessed
+      amount: 15
 
 - type: entity
   id: FishDiamondOre
@@ -110,7 +110,7 @@
   - type: Butcherable
     spawned:
     - id: DiamondOre1Unprocessed
-      amount: 6
+      amount: 4
 
 - type: entity
   id: FishBluespaceOre
@@ -142,7 +142,7 @@
   - type: Butcherable
     spawned:
     - id: ArtifactFragmentOre1Unprocessed
-      amount: 8
+      amount: 4
 
 - type: entity
   id: FishBananiumOre

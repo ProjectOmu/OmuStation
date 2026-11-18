@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/22/2026 15:42:46
-  entityCount: 49354
+  time: 04/12/2026 15:47:29
+  entityCount: 49355
 maps:
 - 1
 grids:
@@ -31445,7 +31445,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 116.546524,173.3486
       parent: 2
-- proto: BaseChemistryEmptyVial
+- proto: ChemistryEmptyVial
   entities:
   - uid: 21
     components:
@@ -33407,7 +33407,10 @@ entities:
       parent: 2
     - type: Paper
       stampedBy:
-      - stampedColor: '#850000FF'
+      - hasIcon: True
+        stampFont: null
+        stampLargeIcon: null
+        stampedColor: '#850000FF'
         stampedName: 1984
       content: >2
 
@@ -88960,7 +88963,7 @@ entities:
     - type: Transform
       pos: 92.5,46.5
       parent: 2
-- proto: CargoTechFab
+- proto: CargoTechFabFilled
   entities:
   - uid: 175
     components:
@@ -115178,6 +115181,14 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 43.5,34.5
       parent: 2
+- proto: ComputerShuttleSalvage
+  entities:
+  - uid: 24287
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 48.5,33.5
+      parent: 2
 - proto: ComputerSolarControl
   entities:
   - uid: 18195
@@ -118329,13 +118340,6 @@ entities:
     - type: Transform
       pos: 13.494041,97.43478
       parent: 2
-- proto: CryogenicSleepUnit
-  entities:
-  - uid: 3664
-    components:
-    - type: Transform
-      pos: 126.5,123.5
-      parent: 2
 - proto: CryogenicSleepUnitSpawner
   entities:
   - uid: 18561
@@ -118360,6 +118364,13 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 99.5,125.5
+      parent: 2
+- proto: CryogenicSleepUnitSpawnerForcedPrisonerLatejoin
+  entities:
+  - uid: 3664
+    components:
+    - type: Transform
+      pos: 126.5,123.5
       parent: 2
 - proto: CryogenicSleepUnitSpawnerLateJoin
   entities:
@@ -118573,7 +118584,7 @@ entities:
       pos: 97.5,172.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -145.0049
+      secondsUntilStateChange: -299.8149
       state: Opening
 - proto: CurtainsWhiteOpen
   entities:
@@ -135308,7 +135319,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 139.5,61.5
       parent: 2
-- proto: EngineeringTechFab
+- proto: EngineeringTechFabFilled
   entities:
   - uid: 173
     components:
@@ -141473,7 +141484,7 @@ entities:
       pos: 61.5,58.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -455.9048
+      secondsUntilStateChange: -610.7148
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -229889,7 +229900,7 @@ entities:
     - type: Transform
       pos: 52.49684,134.6185
       parent: 2
-- proto: HandheldHealthAnalyzerUnpowered
+- proto: HandheldHealthAnalyzer
   entities:
   - uid: 34900
     components:
@@ -239691,7 +239702,7 @@ entities:
     - type: Transform
       pos: 47.5,126.5
       parent: 2
-- proto: MedicalTechFab
+- proto: MedicalTechFabFilled
   entities:
   - uid: 36184
     components:
@@ -245047,11 +245058,6 @@ entities:
     components:
     - type: Transform
       pos: 168.5,120.5
-      parent: 2
-  - uid: 36934
-    components:
-    - type: Transform
-      pos: 48.5,33.5
       parent: 2
   - uid: 36935
     components:
@@ -261998,7 +262004,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 64.5,100.5
       parent: 2
-- proto: ScienceTechFab
+- proto: ScienceTechFabFilled
   entities:
   - uid: 174
     components:
@@ -262640,7 +262646,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 135.5,95.5
       parent: 2
-- proto: SecurityTechFab
+- proto: SecurityTechFabFilled
   entities:
   - uid: 40008
     components:
@@ -262686,7 +262692,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ServiceTechFab
+- proto: ServiceTechFabFilled
   entities:
   - uid: 14090
     components:
@@ -272162,6 +272168,13 @@ entities:
     components:
     - type: Transform
       pos: 145.5,95.5
+      parent: 2
+- proto: SpawnPointSecuritySergeant
+  entities:
+  - uid: 24286
+    components:
+    - type: Transform
+      pos: 139.5,95.5
       parent: 2
 - proto: SpawnPointServiceWorker
   entities:

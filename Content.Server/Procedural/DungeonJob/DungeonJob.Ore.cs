@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Threading.Tasks;
@@ -78,7 +74,7 @@ public sealed partial class DungeonJob
             var remapping = new Dictionary<EntProtoId, EntProtoId>();
 
             // TODO: Move this to engine
-            if (_prototype.TryIndex(gen.Entity, out var proto) &&
+            if (_prototype.Resolve(gen.Entity, out var proto) &&
                 proto.Components.TryGetComponent("EntityRemap", out var comps))
             {
                 var remappingComp = (EntityRemapComponent) comps;
@@ -94,6 +90,12 @@ public sealed partial class DungeonJob
 
                 if (!ValidateResume())
                     return;
+
+                // Omu start - don't try to gen if we have no more tiles
+                // This should let the ore vein warning log only fire once
+                if (availableTiles.Count <= 0)
+                    break;
+                // Omu end
 
                 var groupSize = random.Next(gen.MinGroupSize, gen.MaxGroupSize + 1);
 

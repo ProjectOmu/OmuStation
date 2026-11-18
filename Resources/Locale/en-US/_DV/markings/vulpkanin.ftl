@@ -105,11 +105,13 @@ marking-VulpHeadSlash = Vulpkanin Slash
 
 marking-VulpTail-vulp = Vulpkanin tail (base)
 marking-VulpTail-vulp-fade = Vulpkanin tail (fade)
-marking-VulpTail = Vulpkanin
+# Omu
+marking-VulpTail = Vulpkanin (Animated)
 
 marking-VulpTailTip-vulp = Vulpkanin tail (base)
 marking-VulpTailTip-vulp-tip = Vulpkanin tail (tip)
-marking-VulpTailTip = Vulpkanin (tip)
+# Omu
+marking-VulpTailTip = Vulpkanin (Tip, Animated)
 
 marking-VulpTailWag-vulp_wag = Vulpkanin tail (base)
 marking-VulpTailWag-vulp_wag-fade = Vulpkanin tail (fade)
@@ -133,11 +135,13 @@ marking-VulpTailLong = Vulpkanin Long
 
 marking-VulpTailFox-fox = Fox tail (base)
 marking-VulpTailFox-fox-fade = Fox tail (fade)
-marking-VulpTailFox = Vulpkanin Fox
+# Omu
+marking-VulpTailFox = Vulpkanin Fox (Animated)
 
 marking-VulpTailFoxTip-fox = Fox tail (base)
 marking-VulpTailFoxTip-fox-tip = Fox tail (fade)
-marking-VulpTailFoxTip = Vulpkanin Fox (tip)
+# Omu
+marking-VulpTailFoxTip = Vulpkanin Fox (Tip, Animated)
 
 marking-VulpTailFoxWag-fox_wag = Fox tail (base)
 marking-VulpTailFoxWag-fox_wag-fade = Fox tail (fade)
@@ -148,13 +152,15 @@ marking-VulpTailFoxWagTip-fox_wag-tip = Fox tail (tip)
 marking-VulpTailFoxWagTip = Vulpkanin Fox (wag, tip)
 
 marking-VulpTailBushy-bushfluff = Bush tail
-marking-VulpTailBushy = Vulpkanin Bush
+# Omu
+marking-VulpTailBushy = Vulpkanin Bush (Animated)
 
 marking-VulpTailBushyWag-bushfluff_wag = Bush tail
 marking-VulpTailBushyWag = Vulpkanin Bush (wag)
 
 marking-VulpTailCoyote-coyote = Coyote tail
-marking-VulpTailCoyote = Vulpkanin Coyote
+# Omu
+marking-VulpTailCoyote = Vulpkanin Coyote (Animated)
 
 marking-VulpTailCoyoteWag-coyote_wag = Coyote tail
 marking-VulpTailCoyoteWag = Vulpkanin Coyote (wag)

@@ -1,0 +1,39 @@
+using Content.Shared.NPC.Prototypes;
+using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+
+namespace Content.Omu.Server.Chimera.GameTicking.Rules;
+
+[RegisterComponent, Access(typeof(ChimeraRuleSystem))]
+public sealed partial class ChimeraRuleComponent : Component
+{
+    [DataField]
+    public SoundPathSpecifier BriefingSound = new("/Audio/_White/Voice/Xenomorph/scream6.ogg");
+
+    [DataField]
+    public ProtoId<NpcFactionPrototype> ChimeraFaction = "Chimera";
+
+    [DataField]
+    public ProtoId<NpcFactionPrototype> NanotrasenFaction = "NanoTrasen";
+
+    [DataField]
+    public EntProtoId MindRoleChimera = "MindRoleChimera";
+
+    public bool StartAnnounced = false;
+
+    [DataField]
+    public float DeltaCallPercentage = 0.7f;
+
+    /// <summary>
+    /// When the round will next check for round end.
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan? NextRoundEndCheck;
+
+    /// <summary>
+    /// The amount of time between each check for the end of the round.
+    /// </summary>
+    [DataField]
+    public TimeSpan EndCheckDelay = TimeSpan.FromSeconds(30);
+}

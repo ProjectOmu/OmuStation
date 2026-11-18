@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/22/2026 13:44:12
-  entityCount: 14033
+  time: 05/16/2026 14:57:26
+  entityCount: 14030
 maps:
 - 1
 grids:
@@ -3780,7 +3780,8 @@ entities:
           6,4:
             0: 119
           6,3:
-            0: 32639
+            0: 28543
+            3: 4096
           7,4:
             0: 3
             1: 1792
@@ -4318,11 +4319,11 @@ entities:
           -10,8:
             0: 2080
           -12,4:
-            3: 546
-            4: 2184
+            4: 546
+            5: 2184
           -13,4:
-            3: 2184
-            5: 546
+            4: 2184
+            6: 546
           -12,5:
             0: 1
             1: 3856
@@ -4331,7 +4332,7 @@ entities:
           -11,5:
             1: 784
           -11,4:
-            6: 546
+            7: 546
           -11,6:
             0: 49152
           -11,3:
@@ -4389,7 +4390,7 @@ entities:
             0: 12288
           -16,0:
             1: 62227
-            3: 3276
+            4: 3276
           -17,0:
             1: 8930
           -16,1:
@@ -4399,7 +4400,7 @@ entities:
             1: 43746
           -16,2:
             1: 13090
-            3: 34944
+            4: 34944
           -17,2:
             1: 34986
           -16,-1:
@@ -4407,13 +4408,13 @@ entities:
           -16,3:
             1: 58594
           -15,0:
-            3: 273
+            4: 273
             0: 52428
           -15,1:
             0: 239
             1: 61440
           -15,2:
-            3: 13104
+            4: 13104
             1: 34952
           -15,3:
             1: 16120
@@ -4430,7 +4431,7 @@ entities:
             0: 61166
           -14,4:
             1: 12561
-            3: 2184
+            4: 2184
           -16,-3:
             0: 61440
             1: 232
@@ -4442,19 +4443,19 @@ entities:
             0: 136
           -15,-3:
             1: 1
-            3: 26160
+            4: 26160
             0: 128
           -15,-2:
             0: 16
-            3: 52974
+            4: 52974
           -15,-1:
             0: 16
           -15,-4:
             0: 16384
           -14,-2:
-            3: 65520
+            4: 65520
           -14,-1:
-            3: 15
+            4: 15
             1: 3840
           -14,-4:
             0: 60928
@@ -4638,6 +4639,25 @@ entities:
           moles:
           - 27.225372
           - 102.419266
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -28213,7 +28233,7 @@ entities:
     - type: Transform
       pos: 16.5,35.5
       parent: 2
-- proto: CargoTechFab
+- proto: CargoTechFabFilled
   entities:
   - uid: 4375
     components:
@@ -33854,6 +33874,14 @@ entities:
     - type: Transform
       pos: 28.5,16.5
       parent: 2
+- proto: ComputerShuttleSalvage
+  entities:
+  - uid: 11056
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 24.5,15.5
+      parent: 2
 - proto: ComputerSolarControl
   entities:
   - uid: 5263
@@ -34538,18 +34566,20 @@ entities:
     - type: Transform
       pos: -20.5,5.5
       parent: 2
-  - uid: 9547
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -26.5,27.5
-      parent: 2
 - proto: CryogenicSleepUnitSpawner
   entities:
   - uid: 5330
     components:
     - type: Transform
       pos: -20.5,4.5
+      parent: 2
+- proto: CryogenicSleepUnitSpawnerForcedPrisonerLatejoin
+  entities:
+  - uid: 9547
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -26.5,27.5
       parent: 2
 - proto: CryogenicSleepUnitSpawnerLateJoin
   entities:
@@ -38778,7 +38808,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -48.5,-8.5
       parent: 2
-- proto: EngineeringTechFab
+- proto: EngineeringTechFabFilled
   entities:
   - uid: 5993
     components:
@@ -64338,7 +64368,7 @@ entities:
     - type: Transform
       pos: -15.5,-28.5
       parent: 2
-- proto: MedicalTechFab
+- proto: MedicalTechFabFilled
   entities:
   - uid: 9372
     components:
@@ -72160,7 +72190,7 @@ entities:
     - type: Transform
       pos: 26.5,-17.5
       parent: 2
-- proto: ScienceTechFab
+- proto: ScienceTechFabFilled
   entities:
   - uid: 10627
     components:
@@ -72400,7 +72430,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -19.5,24.5
       parent: 2
-- proto: SecurityTechFab
+- proto: SecurityTechFabFilled
   entities:
   - uid: 10647
     components:
@@ -72437,7 +72467,7 @@ entities:
     - type: Transform
       pos: 9.5,26.5
       parent: 2
-- proto: ServiceTechFab
+- proto: ServiceTechFabFilled
   entities:
   - uid: 10652
     components:
@@ -75338,13 +75368,6 @@ entities:
     - type: Transform
       pos: -15.5,22.5
       parent: 2
-- proto: SpawnMobHorseTrevor
-  entities:
-  - uid: 9920
-    components:
-    - type: Transform
-      pos: -31.5,20.5
-      parent: 2
 - proto: SpawnMobMcGriff
   entities:
   - uid: 11043
@@ -75384,13 +75407,6 @@ entities:
     components:
     - type: Transform
       pos: 17.5,19.5
-      parent: 2
-- proto: SpawnMobShiva
-  entities:
-  - uid: 9336
-    components:
-    - type: Transform
-      pos: -20.5,24.5
       parent: 2
 - proto: SpawnMobSlothPaperwork
   entities:
@@ -75445,11 +75461,6 @@ entities:
     components:
     - type: Transform
       pos: -6.5,15.5
-      parent: 2
-  - uid: 11056
-    components:
-    - type: Transform
-      pos: -11.5,28.5
       parent: 2
 - proto: SpawnPointBorg
   entities:
@@ -75701,11 +75712,6 @@ entities:
     - type: Transform
       pos: -8.5,15.5
       parent: 2
-  - uid: 11092
-    components:
-    - type: Transform
-      pos: -11.5,28.5
-      parent: 2
 - proto: SpawnPointObserver
   entities:
   - uid: 11093
@@ -75852,6 +75858,13 @@ entities:
     components:
     - type: Transform
       pos: -36.5,11.5
+      parent: 2
+- proto: SpawnPointSecuritySergeant
+  entities:
+  - uid: 10128
+    components:
+    - type: Transform
+      pos: -37.5,11.5
       parent: 2
 - proto: SpawnPointServiceWorker
   entities:
@@ -89606,13 +89619,6 @@ entities:
     components:
     - type: Transform
       pos: -31.5,27.5
-      parent: 2
-- proto: WardrobeSalvageFilled
-  entities:
-  - uid: 10128
-    components:
-    - type: Transform
-      pos: 24.5,15.5
       parent: 2
 - proto: WardrobeYellowFilled
   entities:

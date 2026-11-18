@@ -68,7 +68,7 @@ selectable-set-syndicate-implants-name = Cyberpsychosis Bundle
 selectable-set-syndicate-implants-description =
     A few implants to give you some options for when you inevitably get arrested.
     Contains: nutriment pump, scram, freedom, smoke,
-    krav maga and syndicate radio implanters, Sandevistan
+    SolCom and syndicate radio implanters, Sandevistan
     and paired mantis blades autosurgeons, and a cool jacket.
 
 selectable-set-syndicate-hacker-name = Hacker Bundle
@@ -151,7 +151,7 @@ selectable-set-blueshield-dragon-description =
 selectable-set-blueshield-chester-name = chester set
 selectable-set-blueshield-chester-description =
     Ready to go hunting?
-    Includes: .45 lever-action rifle, the Chester. Spare ammo, # omu
+    Includes: .45 lever-action rifle, the Chester. Spare ammo,
     Alternate ammo, Spare magazines.
 
 # Omu, add military webbing to syringe kit
@@ -243,11 +243,11 @@ selectable-set-captain-modsuit-desc =
 selectable-set-research-director-voidsuit-name = RD's hardsuit
 selectable-set-research-director-voidsuit-desc =
     The Research Director's light hardsuit fitted for experiments, lightly
-    armored to protect from assistants breaking in, all while still retaining
+    armored to protect from crew breaking in, all while still retaining
     common spacewalking capabilities.
 
 selectable-set-research-director-modsuit-name = RD's 'Minerva' modsuit
 selectable-set-research-director-modsuit-desc =
     A modular hardsuit armored perfectly to turn you into a research tank,
     not even the most dangerous of experiments will harm you in this,
-    and the worst of assistants will think twice before breaking in sci.
+    and the worst of crew will think twice before breaking in sci.

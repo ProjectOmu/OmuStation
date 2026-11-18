@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.StationRecords;
@@ -88,7 +85,8 @@ public sealed partial class CriminalRecordsConsoleSystem
         var requireReason = msg.Status is SecurityStatus.Wanted
             or SecurityStatus.Suspected
             or SecurityStatus.Search
-            or SecurityStatus.Dangerous;
+            or SecurityStatus.Dangerous
+            or SecurityStatus.Demote; // Goobstation
 
         if (requireReason != (msg.Reason != null))
             return;
@@ -153,6 +151,8 @@ public sealed partial class CriminalRecordsConsoleSystem
             (_, SecurityStatus.Search) => "search",
             // person is very dangerous
             (_, SecurityStatus.Dangerous) => "dangerous",
+            // person is demoted from their job
+            (_, SecurityStatus.Demote) => "demote", // Goobstation
             // person is no longer sus
             (SecurityStatus.Suspected, SecurityStatus.None) => "not-suspected",
             // going from wanted to none, must have been a mistake
@@ -167,6 +167,8 @@ public sealed partial class CriminalRecordsConsoleSystem
             (SecurityStatus.Search, SecurityStatus.None) => "not-search",
             // person is no longer dangerous
             (SecurityStatus.Dangerous, SecurityStatus.None) => "not-dangerous",
+            // person no longer demoted
+            (SecurityStatus.Demote, SecurityStatus.None) => "not-demoted", // Goobstation
             // this is impossible
             _ => "not-wanted"
         };

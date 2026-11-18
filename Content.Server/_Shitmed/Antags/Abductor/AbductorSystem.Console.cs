@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Shitmed.Antags.Abductor;
@@ -91,6 +87,12 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
         if (ent.Comp.Target == null || ent.Comp.AlienPod == null) return;
         var target = GetEntity(ent.Comp.Target.Value);
         EnsureComp<TransformComponent>(target, out var xform);
+        // Omu start, no abducting people that are not on the same map as the console.
+        if (!TryComp<TransformComponent>(ent, out var consoleXform))
+            return;
+        if (xform.MapID != consoleXform.MapID)
+            return;
+        // Omu end
         var effectEnt = SpawnAttachedTo(TeleportationEffectEntity, xform.Coordinates);
         _xformSys.SetParent(effectEnt, target);
         EnsureComp<TimedDespawnComponent>(effectEnt, out var despawnEffectEntComp);

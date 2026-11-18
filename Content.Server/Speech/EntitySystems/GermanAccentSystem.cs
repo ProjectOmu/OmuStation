@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Text;
@@ -55,6 +51,8 @@ public sealed class GermanAccentSystem : EntitySystem
             msgBuilder[match.Index] = (char) (msgBuilder[match.Index] + 6);
         }
 
+        /* Omu: get rid of the random umlauts because they don't make sense
+
         // Random Umlaut Time! (The joke outweighs the emotional damage this inflicts on actual Germans)
         var umlautCooldown = 0;
         for (var i = 0; i < msgBuilder.Length; i++)
@@ -81,6 +79,8 @@ public sealed class GermanAccentSystem : EntitySystem
                 umlautCooldown--;
             }
         }
+
+        */ // Omu end
 
         return msgBuilder.ToString();
     }

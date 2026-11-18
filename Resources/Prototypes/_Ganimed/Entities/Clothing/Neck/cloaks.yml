@@ -1,0 +1,78 @@
+# LONG CLOAKS
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckLongCloakCE
+  name: lightbringer CE long cloak
+  description: The cloak of a true Chief Engineer whom has mastered Electricity and Atmospherics.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/Long/ce.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckLongCloakQM
+  name: spesosbringer QM long cloak
+  description: The cloak of a true Quartermaster whom has mastered Trading and Currency.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/Long/qm.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckLongCloakRD
+  name: knowledgebringer RD long cloak
+  description: The cloak of a true Research Director whom has mastered Discovering and Robotics.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/Long/rd.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckLongCloakCap
+  name: directionbringer captain long cloak
+  description: The cloak of a true Captain whom has mastered Leadership and Strategy.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/Long/cap.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckLongCloakCMO
+  name: healthbringer CMO long cloak
+  description: The cloak of a true Chief Medical Officer whom has mastered Medicine and Treatment.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/Long/cmo.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckLongCloakHOP
+  name: paperpusher HOP long cloak
+  description: The cloak of a true Head of Personnel whom has mastered Bureaucracy and Regulations.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/Long/hop.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckLongCloakHOS
+  name: justicebringer HOS long cloak
+  description: The cloak of a true Head of Security whom has mastered Law and Combat.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/Long/hos.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak

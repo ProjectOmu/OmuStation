@@ -1,3 +1,4 @@
+using Content.Omu.Common.Inoperable;
 using Content.Shared._Shitmed.CCVar;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
 using Content.Shared.Verbs;
@@ -44,7 +45,8 @@ public abstract partial class SharedSurgerySystem
         var target = args.Target;
         if (!args.CanInteract
             || !args.CanAccess
-            || !_targetQuery.HasComp(target))
+            || !_targetQuery.HasComp(target)
+            || HasComp<InoperableComponent>(target)) // omu
             return;
 
         var user = args.User;
@@ -52,7 +54,7 @@ public abstract partial class SharedSurgerySystem
         var verb = new UtilityVerb()
         {
             Act = () => AttemptStartSurgery(ent, user, target),
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Specific/Medical/Surgery/scalpel.rsi"), "scalpel"),
+            Icon = new SpriteSpecifier.Texture(new("/Textures/_Shitmed/Interface/Examine/scalpel.png")),
             Text = Loc.GetString("surgery-verb-text"),
             Message = Loc.GetString("surgery-verb-message"),
             DoContactInteraction = true

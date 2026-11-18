@@ -3,7 +3,7 @@ using Content.Shared.Examine;
 
 namespace Content.Omu.Shared.StationAi;
 
-public partial class SharedStationAiWhitelistExamineSystem : EntitySystem
+public sealed class SharedStationAiWhitelistExamineSystem : EntitySystem
 {
     public override void Initialize()
     {

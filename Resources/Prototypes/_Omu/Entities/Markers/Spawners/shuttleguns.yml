@@ -1,0 +1,12 @@
+- type: entity
+  name: ADBX-31 TARNYX 150mm EMP Cannon Spawner
+  id: SpawnWeaponShuttleKineticTarnyx
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - WeaponShuttleKineticTarnyx

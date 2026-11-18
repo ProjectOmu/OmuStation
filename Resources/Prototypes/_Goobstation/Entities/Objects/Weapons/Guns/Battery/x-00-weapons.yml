@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # I don't want to clutter battery guns with these ones.
@@ -36,9 +30,12 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ship_perforator.ogg
     defaultDirection: 1, 0
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedMediumSplitLaser
-    fireCost: 80
+    fireCost: 60 #Omu buff
+  - type: BatterySelfRecharger # Omu start, self-recharging on all HoS weapons
+    autoRechargeRate: 17 # Approx 3.5s per bullet
+    autoRechargePauseTime: 40 # Omu end
   - type: StaticPrice
     price: 2500
   - type: MagazineVisuals
@@ -46,6 +43,18 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: StealTarget #Omu
+    stealGroup: WeaponEnergyGunLawbringer #Omu
+  - type: RestrictById # Omu start, ID lock the HoS weapons like the Lawbringer
+    restrictMelee: true
+    restrictRanged: true
+    isEmaggable: true
+  - type: TriggerOnVoiceIdLocked
+    keyPhrase: "lawbringer-phrase"
+    listenRange: 1
+    holderOnly: true
+  - type: AccessReader
+    access: [['HeadOfSecurity']] # Omu end
 
 - type: entity
   name: X-6 "Threadripper"
@@ -84,9 +93,12 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ship_svalinn.ogg
     defaultDirection: 1, 0
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletLaserHeavy
-    fireCost: 33
+    fireCost: 20 #Omu - more capacity because these things are ass
+  - type: BatterySelfRecharger # Omu start, self-recharging on all HoS weapons
+    autoRechargeRate: 20 # 1s per bullet
+    autoRechargePauseTime: 20 # Omu end
   - type: StaticPrice
     price: 2500
   - type: MagazineVisuals
@@ -94,6 +106,18 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: StealTarget #Omu
+    stealGroup: WeaponEnergyGunLawbringer #Omu
+  - type: RestrictById # Omu start, ID lock the HoS weapons like the Lawbringer
+    restrictMelee: true
+    restrictRanged: true
+    isEmaggable: true
+  - type: TriggerOnVoiceIdLocked
+    keyPhrase: "lawbringer-phrase"
+    listenRange: 1
+    holderOnly: true
+  - type: AccessReader
+    access: [['HeadOfSecurity']] # Omu end
 
 - type: entity
   name: X-12 "Flamberge"
@@ -121,19 +145,40 @@
     shape:
     - 0,0,4,1
   - type: Gun
-    fireRate: 0.75
+    fireRate: 1.25 # Omu Buff
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletLaserSpreadHeavy
-    fireCost: 125
+  - type: BatteryAmmoProvider
+    proto: BulletLaserSpreadHeavyStructural # Omu, new prototype that actually uses the proper structural bullet
+    fireCost: 100 # Omu Buff
+  - type: BatteryWeaponFireModes # Omu start, add a secondary super-structural
+    fireModes:
+    - proto: BulletLaserSpreadHeavyStructural
+      fireCost: 100
+    - proto: BulletLaserSpreadHeavySuperStructural
+      fireCost: 100
+  - type: BatterySelfRecharger # Omu, Self-recharging on all HoS weapons
+    autoRechargeRate: 25 # 4s per bullet
+    autoRechargePauseTime: 40 # Omu end
   - type: StaticPrice
     price: 2500
   - type: MagazineVisuals
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: StealTarget #Omu start
+    stealGroup: WeaponEnergyGunLawbringer #Omu
+  - type: RestrictById # Omu, ID lock the HoS weapons like the Lawbringer
+    restrictMelee: true
+    restrictRanged: true
+    isEmaggable: true
+  - type: TriggerOnVoiceIdLocked
+    keyPhrase: "lawbringer-phrase"
+    listenRange: 1
+    holderOnly: true
+  - type: AccessReader
+    access: [['HeadOfSecurity']] # Omu end
 
 - type: entity
   name: X-18 "Ranought"
@@ -166,9 +211,12 @@
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
     fireRate: 0.75
   - type: GunRequiresWield
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: LaserSniper
     fireCost: 100
+  - type: BatterySelfRecharger # Omu start, self-recharging on all HoS weapons
+    autoRechargeRate: 20 # 5s per bullet
+    autoRechargePauseTime: 60 # Omu end
   - type: SpeedModifiedOnWield
     walkModifier: 0.80
     sprintModifier: 0.80
@@ -182,3 +230,15 @@
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: StealTarget #Omu
+    stealGroup: WeaponEnergyGunLawbringer #Omu
+  - type: RestrictById # Omu start, ID lock the HoS weapons like the Lawbringer
+    restrictMelee: true
+    restrictRanged: true
+    isEmaggable: true
+  - type: TriggerOnVoiceIdLocked
+    keyPhrase: "lawbringer-phrase"
+    listenRange: 1
+    holderOnly: true
+  - type: AccessReader
+    access: [['HeadOfSecurity']] # Omu end

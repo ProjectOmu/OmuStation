@@ -1,18 +1,11 @@
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.Emoting;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
+using Content.Goobstation.Shared.Weapons.MeleeVulnerability;
 using Content.Goobstation.Shared.Sprinting;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Stunnable;
@@ -83,8 +76,13 @@ public abstract partial class SharedMartialArtsSystem
 
     private void OnCapoeiraMeleeHit(EntityUid uid, ref MeleeHitEvent ev)
     {
-        if (ev.HitEntities.Count > 0 || ev.Weapon != uid)
+        if (ev.HitEntities.Count > 0) // Omu start - split these into two seperate checks
             return;
+        if (ev.Weapon != uid)
+        {
+            ClearMartialArtsModifiers(uid);
+            return;
+        } // Omu end
 
         // Damage up on miss
         ApplyMultiplier(uid,
@@ -136,8 +134,7 @@ public abstract partial class SharedMartialArtsSystem
             || target != ent.Owner)
             return;
 
-        _status.TryRemoveStatusEffect(ent, "KnockedDown");
-        _standingState.Stand(ent);
+        RemCompDeferred<KnockedDownComponent>(ent);
         //_stamina.TryTakeStamina(ent, args.StaminaToHeal);
         ent.Comp.LastAttacks.Clear();
     }
@@ -158,7 +155,7 @@ public abstract partial class SharedMartialArtsSystem
             return;
 
         _stun.TryKnockdown(target,
-            TimeSpan.FromSeconds(proto.ParalyzeTime * power),
+            proto.ParalyzeTime * power,
             true,
             true,
             proto.DropItems);
@@ -190,7 +187,7 @@ public abstract partial class SharedMartialArtsSystem
             return;
 
         _stun.TryKnockdown(target,
-            TimeSpan.FromSeconds(proto.ParalyzeTime * power),
+            proto.ParalyzeTime * power,
             true,
             true,
             proto.DropItems);
@@ -223,27 +220,40 @@ public abstract partial class SharedMartialArtsSystem
     private void OnPushKick(Entity<CanPerformComboComponent> ent, ref PushKickPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out _))
+            || !TryUseMartialArt(ent, proto, out var target, out var downed))
             return;
 
         if (!TryPerformCapoeiraMove(ent, args, out var power))
             return;
 
+        if (downed)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("martial-arts-fail-target-down"), ent, ent);
+            return;
+        }
+
         var mapPos = _transform.GetMapCoordinates(ent).Position;
         var hitPos = _transform.GetMapCoordinates(target).Position;
         var dir = hitPos - mapPos;
+        var time = proto.ParalyzeTime * power;
 
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
 
+        if (_newStatus.TryUpdateStatusEffectDuration(target, args.StatusEffectProto, out var effect, time)
+            && TryComp(effect, out MeleeVulnerabilityStatusEffectComponent? effectComp))
+        {
+            effectComp.ModifierSets.Add(args.ModifierSet);
+            Dirty(effect.Value, effectComp);
+        }
+
         _stun.TryKnockdown(target,
-            TimeSpan.FromSeconds(proto.ParalyzeTime * power),
+            time,
             true,
             true,
             proto.DropItems);
 
         _audio.PlayPvs(args.Sound, target);
-        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _);
         _grabThrowing.Throw(target,
             ent,
             dir.Normalized() * args.ThrowRange * power,
@@ -257,7 +267,7 @@ public abstract partial class SharedMartialArtsSystem
         float multiplier,
         float modifier,
         TimeSpan time,
-        MartialArtModifierType type = MartialArtModifierType.AttackRate)
+        MartialArtModifierType type = MartialArtModifierType.AttackRate | MartialArtModifierType.Unarmed) // Omu, add MartialArtModifierType.Unarmed
     {
         if (Math.Abs(multiplier - 1f) < 0.001f
             && Math.Abs(modifier) < 0.001f

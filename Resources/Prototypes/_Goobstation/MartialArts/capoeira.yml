@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+baptr0b0t@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: martialArt
@@ -30,9 +26,14 @@
     staminaToHeal: -30
     sound:
       path: /Audio/Weapons/genhit3.ogg
-  extraDamage: 5
-  paralyzeTime: 1
-  dropItems: false # why is this even here, should it be true by default? if so isnt it stupid & OP as fuck?
+    modifierSet:
+      coefficients:
+        Blunt: 1.25
+        Slash: 1.25
+        Piercing: 1.25
+      ignoreArmorPierceFlags: All
+  paralyzeTime: 2 # this is further multiplied by your movespeed, about 6 seconds if you're running
+  dropItems: true
   canDoWhileProne: false
 
 - type: combo

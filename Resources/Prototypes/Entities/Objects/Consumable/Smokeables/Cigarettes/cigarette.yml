@@ -1,26 +1,3 @@
-# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-# SPDX-FileCopyrightText: 2023 Brayden H <35241666+hord-brayden@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Guilherme Ornel <86210200+joshepvodka@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Jeff <velcroboy333@hotmail.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Tollhouse <mistertollhouse@gmail.com>
-# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 ninruB <38016303+asperger-sind@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Ps3Moira <113228053+ps3moira@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 DR-DOCTOR-EVIL-EVIL <hudsonirwin11@icloud.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -48,6 +25,22 @@
   - type: Construction
     graph: smokeableCigarette
     node: cigarette
+  # Omu start
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 25
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 15
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 5
+  # Omu end
 
 - type: entity
   id: SoakedCigarette
@@ -73,6 +66,22 @@
   - type: Construction
     graph: smokeableCigarette
     node: cigarette
+  # Omu start
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 25
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 15
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 5
+  # Omu end
 
 - type: entity
   id: CigaretteSpent
@@ -85,6 +94,13 @@
     state: Burnt
   - type: SolutionContainerManager
     solutions:
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 1
+      # Omu end
       smokable:
         maxVol: 20
   - type: Tag
@@ -108,6 +124,26 @@
             Quantity: 10
           - ReagentId: Omnizine
             Quantity: 30
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 1.25
+        - ReagentId: Omnizine
+          Quantity: 3.75
+      # Omu end
+   # Goobstation - Grindable cigarette start
+      grinded:
+        maxVol: 40
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 10
+          - ReagentId: Omnizine
+            Quantity: 5
+  - type: Extractable
+    grindableSolutionName: grinded  # A different solution to prevent Syndis getting 300 Omni for only 5 TC
+    # Goobstation - Grindable cigarette end
 
 - type: entity
   id: CigaretteOmnizine
@@ -123,6 +159,15 @@
             Quantity: 10
           - ReagentId: Omnizine
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: Omnizine
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteIron
@@ -138,6 +183,15 @@
             Quantity: 10
           - ReagentId: Iron
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: Iron
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteTricordrazine
@@ -153,6 +207,15 @@
             Quantity: 10
           - ReagentId: Tricordrazine
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: Tricordrazine
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteDylovene
@@ -168,6 +231,15 @@
             Quantity: 10
           - ReagentId: Dylovene
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: Dylovene
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteDermaline
@@ -183,6 +255,15 @@
             Quantity: 10
           - ReagentId: Dermaline
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: Dermaline
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteArithrazine
@@ -198,6 +279,15 @@
             Quantity: 10
           - ReagentId: Arithrazine
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: Arithrazine
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteNutriment
@@ -213,6 +303,15 @@
             Quantity: 10
           - ReagentId: Nutriment
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: Nutriment
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteBicaridine
@@ -228,6 +327,15 @@
             Quantity: 10
           - ReagentId: Bicaridine
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: Bicaridine
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteDexalin
@@ -243,6 +351,15 @@
             Quantity: 10
           - ReagentId: Dexalin
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: Dexalin
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteSaline
@@ -258,6 +375,15 @@
             Quantity: 10
           - ReagentId: Saline
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: Saline
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteBbqSauce
@@ -273,6 +399,15 @@
             Quantity: 10
           - ReagentId: BbqSauce
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: BbqSauce
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteFrezon
@@ -288,6 +423,15 @@
             Quantity: 10
           - ReagentId: Frezon
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: Frezon
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteCapsaicinOil
@@ -303,6 +447,15 @@
             Quantity: 10
           - ReagentId: CapsaicinOil
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: CapsaicinOil
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteRadium
@@ -318,6 +471,15 @@
             Quantity: 10
           - ReagentId: Radium
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: Radium
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteHaloperidol
@@ -333,6 +495,15 @@
             Quantity: 10
           - ReagentId: Haloperidol
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: Haloperidol
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteLaughter
@@ -348,6 +519,15 @@
             Quantity: 10
           - ReagentId: Laughter
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: Laughter
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteLipolicide
@@ -363,6 +543,15 @@
             Quantity: 10
           - ReagentId: Lipolicide
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: Lipolicide
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteSodiumPolyacrylate
@@ -378,6 +567,15 @@
             Quantity: 10
           - ReagentId: SodiumPolyacrylate
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: SodiumPolyacrylate
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteMold
@@ -393,6 +591,15 @@
             Quantity: 10
           - ReagentId: Mold
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: Mold
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteLicoxide
@@ -408,6 +615,15 @@
             Quantity: 10
           - ReagentId: Licoxide
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: Licoxide
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteWeldingFuel
@@ -423,6 +639,15 @@
             Quantity: 10
           - ReagentId: WeldingFuel
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: WeldingFuel
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteRobustHarvest
@@ -438,6 +663,15 @@
             Quantity: 10
           - ReagentId: RobustHarvest
             Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: RobustHarvest
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigarettePhlogiston
@@ -453,6 +687,15 @@
           Quantity: 10
         - ReagentId: Phlogiston
           Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: Phlogiston
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteBanana
@@ -468,6 +711,15 @@
           Quantity: 10
         - ReagentId: Potassium
           Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: Potassium
+          Quantity: 2.5
+      # Omu end
 
 - type: entity
   id: CigaretteBlackPepper
@@ -483,3 +735,12 @@
           Quantity: 10
         - ReagentId: Blackpepper
           Quantity: 10
+      # Omu start
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 2.5
+        - ReagentId: Blackpepper
+          Quantity: 2.5
+      # Omu end

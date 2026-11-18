@@ -19,14 +19,14 @@
         type: Remove
       - !type:Jitter # Goobstation: Coffee causes jitteriness and alters speed
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: NTApprovedCoffee
           min: 20
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.15
         sprintSpeedModifier: 1.15
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: NTApprovedCoffee
           min: 20
           max: 99
@@ -34,14 +34,14 @@
         key: Stutter
         component: StutteringAccent
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: NTApprovedCoffee
           min: 20
-      - !type:MovespeedModifier # Goobstation: Drinking too much causes chest pain and slows you down
+      - !type:MovementSpeedModifier # Goobstation: Drinking too much causes chest pain and slows you down
         walkSpeedModifier: 0.70
         sprintSpeedModifier: 0.70
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: NTApprovedCoffee
           min: 31
       - !type:PopupMessage
@@ -50,7 +50,7 @@
         type: Local
         probability: 0.05
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: NTApprovedCoffee
           min: 20
           max: 31
@@ -60,7 +60,7 @@
         type: Local
         probability: 0.1
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: NTApprovedCoffee
           min: 31
       - !type:HealthChange
@@ -69,7 +69,7 @@
             Poison: 1
             Asphyxiation: 1
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: NTApprovedCoffee
           min: 31
   metamorphicSprite:
@@ -78,3 +78,26 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+
+- type: reagent
+  id: TheKitchenSink
+  name: reagent-name-thekitchensink
+  parent: BaseAlcohol
+  desc: reagent-desc-thekitchensink
+  physicalDesc: reagent-physical-desc-diluted
+  flavor: thekitchensink
+  color: "#8c7d26" # averaged between all ingredients
+  metamorphicSprite:
+    sprite: _Omu/Objects/Consumable/Drinks/the_kitchen_sink.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.25

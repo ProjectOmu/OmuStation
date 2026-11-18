@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: FoodProduceCrate
+  icon:
+    sprite: Objects/Specific/Hydroponics/tomato.rsi
+    state: produce
+  product: CrateFoodProduceCrate
+  cost: 6000
+  category: cargoproduct-category-name-food
+  group: market

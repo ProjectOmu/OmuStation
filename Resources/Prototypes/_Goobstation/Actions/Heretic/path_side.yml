@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -16,7 +9,6 @@
   components:
   - type: Action
     checkCanInteract: true
-    raiseOnUser: true
     useDelay: 5
     itemIconStyle: NoItem
     sound:
@@ -28,7 +20,8 @@
     event: !type:EventHereticIceSpear
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-ice-spear
+  - type: SpeakOnAction
+    sentence: heretic-speech-ice-spear
   - type: IceSpearAction
 
 - type: entity
@@ -45,7 +38,6 @@
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: cleave
     checkCanInteract: false
-    raiseOnUser: true
   - type: TargetAction
     checkCanAccess: false
     range: 4
@@ -53,4 +45,5 @@
     event: !type:EventHereticCleave
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-cleave
+  - type: SpeakOnAction
+    sentence: heretic-speech-cleave

@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -127,7 +120,8 @@ public sealed class FishingSystem : SharedFishingSystem
             direction = Vector2.UnitX; // If the user somehow manages to click directly in the center of themself, just toss it to the right i guess.
 
         // Yeet
-        Throwing.TryThrow(fishFloat, direction, 15f, player, 2f, null, true);
+        Throwing.TryThrow(fishFloat, direction, 15f, player, 2f, null, true,
+            predicted: false); // Trauma
 
         // Set up lure component
         var fishLureComp = EnsureComp<FishingLureComponent>(fishFloat);
@@ -139,7 +133,7 @@ public sealed class FishingSystem : SharedFishingSystem
         visuals.Sprite = component.RopeSprite;
         visuals.OffsetA = component.RopeLureOffset;
         visuals.OffsetB = component.RopeUserOffset;
-        visuals.Target = GetNetEntity(uid);
+        visuals.Target = uid;
     }
 
     protected override void ThrowFishReward(EntProtoId fishId, EntityUid fishSpot, EntityUid target)
@@ -152,7 +146,8 @@ public sealed class FishingSystem : SharedFishingSystem
         var distance = Math.Clamp(length, 0.5f, 15f);
         direction *= distance / length;
 
-        Throwing.TryThrow(fish, direction, 7f);
+        Throwing.TryThrow(fish, direction, 7f,
+            predicted: false); // Trauma
     }
 
     protected override void CalculateFightingTimings(Entity<ActiveFisherComponent> fisher, ActiveFishingSpotComponent activeSpotComp)

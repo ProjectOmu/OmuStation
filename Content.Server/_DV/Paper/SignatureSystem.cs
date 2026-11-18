@@ -1,10 +1,8 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Paper;
 using Content.Goobstation.Shared.Devil;
+using Content.Omu.Common.Paper;
 using Content.Server.Access.Systems;
 using Content.Server.Popups;
 using Content.Shared.Paper;
@@ -20,6 +18,7 @@ namespace Content.Server._DV.Paper;
 public sealed class SignatureSystem : EntitySystem
 {
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly CommonSignatureFontSystem _signatureFont = default!; // Omu
     [Dependency] private readonly IdCardSystem _idCard = default!;
     [Dependency] private readonly PaperSystem _paper = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -78,6 +77,8 @@ public sealed class SignatureSystem : EntitySystem
         {
             StampedName = signatureName,
             StampedColor = Color.DarkSlateGray, //TODO Make this configurable depending on the pen.
+            HasIcon = false, // Omu
+            StampFont = _signatureFont.GetFont(signer, pen) ?? "Default", // Omu
         };
 
         if (!comp.StampedBy.Contains(stampInfo) && _paper.TryStamp(paper, stampInfo, SignatureStampState))

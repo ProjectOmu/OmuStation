@@ -1,0 +1,10 @@
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateAluminium
+  name: aluminium crate
+  description: An aluminium crate for storing stuff.
+  components:
+  - type: Icon
+    sprite: _EinsteinEngines/Structures/Storage/Crates/aluminiumcrate.rsi
+  - type: Sprite
+    sprite: _EinsteinEngines/Structures/Storage/Crates/aluminiumcrate.rsi

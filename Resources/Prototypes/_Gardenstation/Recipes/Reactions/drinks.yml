@@ -1,0 +1,68 @@
+﻿# thaven drinks
+
+- type: reaction # thaven kelp wine fermentation // put estrogen in this later when we have it lolol
+  id: KelpPodWine
+  minTemp: 304.8 # higher end of wine fermentation
+  reactants:
+    Sulfur: # we dont hav sulfites so ths is close enough lol
+      amount: 1
+    KelpPodSlime:
+      amount: 1
+    Ethanol:
+      amount: 1
+    Sugar: # sugar feeds the yeast
+      amount: 1
+    Phosphorus:
+      amount: 1
+    Phenol: # it gives it a lightly flowery taste, similar to how rose works
+      amount: 1
+  products:
+    KelpPodWine: 5 # its a reduction, evaporation occurs during the brewing process generally resulting in ~0.5 gallons being gone or unusable
+
+- type: reaction # sodawater and wine with icecubes
+  id: ThavenWineSpritz
+  requiredMixerCategories:
+  - Stir # shaking a carbonated beverage would make it fizz everywhere lol (im looking at you budget insuls)
+  reactants:
+    KelpPodWine: # yum
+      amount: 1
+    KelpPodSlime: # its used similar to a simple syrup in this recipe
+      amount: 0.5
+    SodaWater:
+      amount: 1
+    Ice: # ABSOLUMENT AVEC DES GLAÇONS
+      amount: 0.5
+  products:
+    ThavenWineSpritz: 3 # i wanna have a piscine with choices <//3
+
+- type: reaction # this isnt really the real version till i port the weird thaven biology stuff from imp // post-rebase: ITS REAAAALLL
+  id: ThavenBloodDrink
+  requiredMixerCategories:
+  - Shake # we need to add a strain over ice step or something maybe cause i feel like this would be great chilled
+  reactants:
+    ShimmeringBlood: # make this shimmering blood later // post-rebase: its done yay
+      amount: 1
+    KelpPodSlime: # did you know that the reaction between eeaooe and alcohol is so great cause it actually lets the crimson du-
+      amount: 1
+    Ethanol: # girl yes.
+      amount: 1
+    Ice: # the ice isnt used in the glass proper idk
+      amount: 0.5
+  products:
+    ThavenBloodDrink: 3 # i wanna drink choi-*BANGBANGBANG*
+
+- type: reaction # i think the pods and absinthe would be reaaaally yummy. eventually we should make thaven absinthe for this too.
+  id: ThavenKelpCocktail
+  requiredMixerCategories:
+  - Shake # shake with ice and strain over a sugar cube
+  reactants:
+    Absinthe: # yummy licorice
+      amount: 1
+    KelpPodSlime: # this is made right after theyre processed to celebrate the harvest
+      amount: 1
+    Sugar:
+      amount: 0.5
+    Ice: # just to chill it
+      amount: 0.5
+  products:
+    ThavenKelpCocktail: 3

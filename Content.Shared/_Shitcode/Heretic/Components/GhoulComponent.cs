@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 github-actions <github-actions@github.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Maths.FixedPoint;
@@ -18,15 +8,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Heretic;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class GhoulComponent : Component
 {
-    /// <summary>
-    ///     Indicates who ghouled the entity.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public EntityUid? BoundHeretic;
-
     /// <summary>
     ///     Total health for ghouls.
     /// </summary>
@@ -56,11 +40,6 @@ public sealed partial class GhoulComponent : Component
     [DataField]
     public SoundSpecifier? BladeDeleteSound = new SoundCollectionSpecifier("gib");
 
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public ProtoId<FactionIconPrototype> MasterIcon { get; set; } = "GhoulHereticMaster";
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public ProtoId<FactionIconPrototype> GhoulIcon { get; set; } = "GhoulFaction";
-
     [DataField]
     public LocId GhostRoleName = "ghostrole-ghoul-name";
 
@@ -69,4 +48,7 @@ public sealed partial class GhoulComponent : Component
 
     [DataField]
     public LocId GhostRoleRules = "ghostrole-ghoul-rules";
+
+    [DataField]
+    public bool GibOnDeath = true;      //Omu ghoul gibbing
 }

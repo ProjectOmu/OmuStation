@@ -1,0 +1,18 @@
+# Headsets but not alt u know............
+
+- type: entity
+  parent: [ClothingHeadset, BaseSecurityLawyerContraband]
+  id: ClothingHeadsetLawyer
+  name: lawyer headset
+  description: A headset for lawyers. Looks soulless.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySecurity
+      - EncryptionKeyCommon
+      - EncryptionKeyService
+  - type: Sprite
+    sprite: _Omu/Clothing/Ears/Headsets/lawyer.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Ears/Headsets/lawyer.rsi

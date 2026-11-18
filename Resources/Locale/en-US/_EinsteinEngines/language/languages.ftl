@@ -10,6 +10,11 @@ language-Bubblish-description = The language of Slimes. Being a mixture of bubbl
 language-RootSpeak-name = Rootspeak
 language-RootSpeak-description = The strange whistling-style language spoken by the Diona.
 
+language-Hydraspeak-name = Hy'drav'tha
+language-Hydraspeak-description =
+    A Mix of warbles, trills and chirps, with heavy tonal shifts and pitch changes make up this unusual language.
+    Due to the avian nature of hydrakin, one word can mean a million other things at the same time, which makes this language next to incomprehensible for even other birdlike races to figure out.
+
 language-Nekomimetic-name = Nekomimetic
 language-Nekomimetic-description = To the casual observer, this language is an incomprehensible mess of broken Japanese. To the Felinids, it's somehow comprehensible.
 
@@ -79,11 +84,11 @@ language-Sign-description =
 language-Marish-name = Marish
 language-Marish-description =  A language spoken only by Shadowkin, one that is unable to be replicated by normal tongues.
 
-language-ValyrianStandard-name = Valyrian Standard
+
+# Omu - Avatel
+language-ValyrianStandard-name = Avatel Vulu
 language-ValyrianStandard-description =
-    A language descended from eastern european languages of old earth - Valyrian Standard is the commonly spoken tongue of Harpies brought up on their homeworld of Valyrian 4b
-    It is rarely spoken outside of the worlds of its native speakers, and has in modern times been supplanted by the 'Conlangs of the Sol Alliance.
-    Its speakers are those who wish to uphold the traditions and beliefs of ancient peoples from before the colonial era.
+    Although it is hard to discern amidst all the squawking, it sounds similar to the early pagan Latin and imperial Japanese languages of old Earth. Avatel Vulu is the main language spoken on the harpy homeworld of Avatel-Ran and most of Appalian space.
 
 language-Chittin-name = Chittin
 language-Chittin-description =

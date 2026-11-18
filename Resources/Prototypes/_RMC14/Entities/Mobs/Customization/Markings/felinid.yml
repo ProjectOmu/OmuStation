@@ -28,7 +28,7 @@
   id: FelinidLeopardAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Tajaran] # omu, animated wasnt an option in character creation idk why,,, i just added it to the species
+  speciesRestriction: [] # omu - tail wagging
   sprites:
   - sprite: _RMC14/Mobs/Felinids/leopard_tail.rsi
     state: m_tail_leopard_primary_wag

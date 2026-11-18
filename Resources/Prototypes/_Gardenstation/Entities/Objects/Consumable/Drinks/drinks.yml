@@ -1,0 +1,65 @@
+﻿#THAVEN DRINKS
+
+- type: entity #kelpwine
+  parent: DrinkGlass
+  id: DrinkKelpWineGlass
+  suffix: Eckeyiish kelpwine glass
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: KelpPodWine
+          Quantity: 30
+  - type: Icon
+    sprite: _Gardenstation/Objects/Consumable/Drinks/kelpwine_glass.rsi
+    state: icon
+
+- type: entity #spritz
+  parent: DrinkGlass
+  id: DrinkThavenWineSpritzGlass
+  suffix: Thaven wine spritz
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ThavenWineSpritz
+          Quantity: 30
+  - type: Icon
+    sprite: _Gardenstation/Objects/Consumable/Drinks/thavenwine_spritz.rsi
+    state: icon
+
+- type: entity #blood
+  parent: DrinkGlass
+  id: DrinkThavenBloodDrinkGlass
+  suffix: Choices Suprema
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ThavenBloodDrink
+          Quantity: 30
+  - type: Icon
+    sprite: _Gardenstation/Objects/Consumable/Drinks/thavenblooddrink_glass.rsi
+    state: icon
+
+- type: entity #seacow
+  parent: DrinkGlass
+  id: DrinkThavenKelpCocktailGlass
+  suffix: Eeckekyiishoo seacow
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ThavenKelpCocktail
+          Quantity: 30
+  - type: Icon
+    sprite: _Gardenstation/Objects/Consumable/Drinks/thavenkelpcocktail_glass.rsi
+    state: icon

@@ -1,20 +1,10 @@
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 TGRCDev <tgrc@tgrc.dev>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 MJSailor <92106367+kurokoTurbo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Heretic.EntitySystems;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Mind;
+using Content.Shared.Store.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Robust.Server.Containers;
@@ -41,10 +31,7 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
 
         outstr = null;
 
-        if (!args.EntityManager.TryGetComponent(args.Performer, out HereticComponent? heretic))
-            return false;
-
-        var requiredTags = _heretic.TryGetRequiredKnowledgeTags((args.Performer, heretic));
+        var requiredTags = _heretic.TryGetRequiredKnowledgeTags(args.Mind);
 
         if (requiredTags == null)
             return false;
@@ -90,15 +77,17 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
         {
             args.EntityManager.QueueDeleteEntity(ent);
         }
+
         _toDelete.Clear();
 
-        if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
+        if (!args.EntityManager.TryGetComponent(args.Mind, out StoreComponent? store) ||
+            !args.EntityManager.TryGetComponent(args.Mind, out MindComponent? mind))
             return;
 
-        _heretic.UpdateKnowledge(args.Performer, hereticComp, 5);
-        hereticComp.ChosenRitual = null;
-        hereticComp.KnowledgeRequiredTags.Clear();
-        hereticComp.KnownRituals.Remove(args.RitualId);
-        args.EntityManager.Dirty(args.Performer, hereticComp);
+        _heretic.UpdateMindKnowledge((args.Mind, args.Mind.Comp, store, mind), args.Performer, 5);
+        args.Mind.Comp.ChosenRitual = null;
+        args.Mind.Comp.KnowledgeRequiredTags.Clear();
+        args.Mind.Comp.KnownRituals.Remove(args.RitualId);
+        args.EntityManager.Dirty(args.Mind);
     }
 }

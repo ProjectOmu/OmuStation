@@ -14,3 +14,18 @@
     layers:
     - state: crypt_gold
     - state: nano_label
+
+- type: entity
+  parent: [ EncryptionKey, BaseMajorContraband ]
+  id: EncryptionKeySolarianNavy
+  name: solarian navy encryption key
+  description: An encryption key used by the solarian navy.
+  components:
+  - type: EncryptionKey
+    channels:
+    - SolarianNavy
+    defaultChannel: SolarianNavy
+  - type: Sprite
+    layers:
+    - state: crypt_rusted
+    - state: sec_label

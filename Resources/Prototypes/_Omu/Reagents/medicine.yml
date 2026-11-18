@@ -1,0 +1,17 @@
+- type: reagent
+  id: Zoleadone # zoleadronic acid + -adone
+  name: reagent-name-zoleadone
+  group: Medicine
+  desc: reagent-desc-zoleadone
+  physicalDesc: reagent-physical-desc-milky
+  flavor: medicine
+  color: "#fff0d9"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      effects:
+        - !type:AdjustBoneDamage
+          conditions:
+          - !type:TemperatureCondition
+            max: 213.0
+          amount: -11 # 1 healing per bone on a humanoid, heals bones to full in 1 minute

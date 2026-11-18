@@ -1,28 +1,3 @@
-# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 DamianX <DamianX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Visne <vincefvanwijk@gmail.com>
-# SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2021 RemberBL <timmermanrembrandt@gmail.com>
-# SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 yglop <95057024+yglop@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 ### basic knowledge
 - type: hereticKnowledge
@@ -30,6 +5,10 @@
   actionPrototypes:
   - ActionHereticOpenStore
   - ActionHereticMansusGrasp
+  event: !type:HereticStartupEvent
+    addedComponents:
+    - type: CanEnchant
+    - type: WeakToHoly
 
 - type: hereticKnowledge
   id: HeartbeatOfMansus
@@ -137,13 +116,18 @@
   - ActionHereticAscension1
   - ActionHereticAscension2
   event: !type:HereticAscensionAshEvent
+    addedComponents:
+    - type: SpecialLowTempImmunity
+    - type: SpecialHighTempImmunity
+    - type: SpecialBreathingImmunity
+    - type: SpecialPressureImmunity
+    - type: FireImmunity
 
 ### blade path
 - type: hereticKnowledge
   id: CuttingEdge
   path: Blade
   stage: 1
-  event: !type:HereticCuttingEdgeEvent
   ritualPrototypes:
   - BladeBlade
 
@@ -157,6 +141,10 @@
   path: Blade
   stage: 3
   event: !type:HereticDanceOfTheBrandEvent
+    addedComponents:
+    - type: Ripostee
+      data:
+        HereticBlade: !type:RiposteData
 
 - type: hereticKnowledge
   id: MarkOfBlade
@@ -175,6 +163,8 @@
   path: Blade
   stage: 6
   event: !type:HereticChampionStanceEvent
+    addedComponents:
+    - type: ChampionStance
 
 - type: hereticKnowledge
   id: EmpoweredBlades
@@ -200,6 +190,8 @@
   path: Blade
   stage: 10
   event: !type:HereticAscensionBladeEvent
+    addedComponents:
+    - type: SilverMaelstrom
 
 ### flesh path
 - type: hereticKnowledge
@@ -214,6 +206,8 @@
   path: Flesh
   stage: 2
   event: !type:EventHereticFleshPassive
+    addedComponents:
+    - type: FleshPassive
 
 - type: hereticKnowledge
   id: ImperfectRitual
@@ -268,6 +262,11 @@
   path: Flesh
   stage: 10
   event: !type:HereticAscensionFleshEvent
+    addedComponents:
+    - type: SpecialLowTempImmunity
+    - type: SpecialHighTempImmunity
+    - type: SpecialPressureImmunity
+    - type: FleshPassive
 
 ### void path
 - type: hereticKnowledge
@@ -281,7 +280,9 @@
   id: GraspOfVoid
   path: Void
   stage: 2
-  event: !type:HereticAristocratWayEvent
+  event: !type:EventHereticVoidPassiveT1
+    addedComponents:
+    - type: SpecialLowTempImmunity
 
 #- type: hereticKnowledge
 #  id: AristocratWay
@@ -302,8 +303,9 @@
   id: MarkOfVoid
   path: Void
   stage: 4
-  event: !type:HereticAristocratWayEvent
-    grantBreathingImmunity: true
+  event: !type:EventHereticVoidPassiveT2
+    addedComponents:
+    - type: SpecialBreathingImmunity
 
 #- type: hereticKnowledge
 #  id: VoidBlast
@@ -352,6 +354,23 @@
   stage: 10
   path: Void
   event: !type:HereticAscensionVoidEvent
+    addedComponents:
+    - type: SpecialLowTempImmunity
+    - type: SpecialHighTempImmunity
+    - type: SpecialBreathingImmunity
+    - type: SpecialPressureImmunity
+    - type: Aristocrat
+    - type: MovementIgnoreGravity
+    - type: CanMoveInAir
+    - type: NoSlip
+    - type: ThermalVision
+      color: "#b4babf"
+      isActive: true
+      lightRadius: 7.5
+      flashDurationMultiplier: 1
+      activateSound: null
+      deactivateSound: null
+      thermalShader: null
 
 ## rust path
 - type: hereticKnowledge
@@ -366,6 +385,8 @@
   path: Rust
   stage: 2
   event: !type:HereticLeechingWalkEvent
+    addedComponents:
+    - type: LeechingWalk
 
 - type: hereticKnowledge
   id: AggressiveSpread
@@ -420,6 +441,9 @@
   stage: 10
   path: Rust
   event: !type:HereticAscensionRustEvent
+    addedComponents:
+    - type: LeechingWalk
+    - type: Rustbringer
 
 ## cosmos path
 - type: hereticKnowledge
@@ -447,6 +471,8 @@
   path: Cosmos
   stage: 4
   event: !type:EventHereticCosmosPassive
+    addedComponents:
+    - type: CosmosPassive
 
 - type: hereticKnowledge
   id: StarTouch
@@ -488,15 +514,24 @@
   stage: 10
   path: Cosmos
   event: !type:HereticAscensionCosmosEvent
+    addedComponents:
+    - type: SpecialLowTempImmunity
+    - type: SpecialHighTempImmunity
+    - type: SpecialPressureImmunity
+    - type: NightVision
+      color: white
+      activateSound: null
+      deactivateSound: null
+      drawOverlay: false
   actionPrototypes:
   - ActionResetStarGazerConsciousness
 
 ### side paths
-- type: hereticKnowledge
-  id: RitualOfKnowledge
-  sideKnowledge: true
-  ritualPrototypes:
-  - RitualOfKnowledge
+#- type: hereticKnowledge
+#  id: RitualOfKnowledge
+#  sideKnowledge: true
+#  ritualPrototypes:
+#  - RitualOfKnowledge
 
 ## stage 3
 - type: hereticKnowledge

@@ -3,10 +3,6 @@
   name: job-name-nct
   description: job-description-nct
   playTimeTracker: JobNanotrasenCareerTrainer
-  requirements: # Omu, add requirements
-    - !type:RoleTimeRequirement
-      role: JobNanotrasenCareerTrainer
-      time: 360000 #100 hrs - Omu
   goobcoins: 45
   weight: 20
   startingGear: NanotrasenCareerTrainerGear
@@ -24,7 +20,7 @@
   - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, BluespaceLifelineImplant ]
+    implants: [ MindShieldImplantCentComm, BluespaceLifelineImplant ] # Omu, use CC mindshield
 #  - !type:AddComponentSpecial # Intentionally not command. I don't want them to ruin rev rounds.
 #    components:
 #    - type: CommandStaff

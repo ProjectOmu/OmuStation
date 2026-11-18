@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodWinterCommand
+  categories: [ HideSpawnMenu ]
+  name: command winter coat hood
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Hoods/Coat/hoodcommand.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Hoods/Coat/hoodcommand.rsi

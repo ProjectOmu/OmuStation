@@ -17,7 +17,7 @@ public sealed partial class JumpComponent : Component
     public TimeSpan StunTime = TimeSpan.FromSeconds(4);
 
     [DataField]
-    public EntProtoId JumpAction = "ActionJumpXenomorph";
+    public EntProtoId? JumpAction = null; //Omu - commented out - ActionJumpXenomorph enabling for a blank jump comp to be added, so ling can buy the action
 
     [ViewVariables]
     public EntityUid? JumpActionEntity;

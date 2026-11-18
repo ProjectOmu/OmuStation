@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: MIT
 
 - type: body
@@ -17,11 +14,34 @@
         lungs: OrganSlimesLungs
     groin:
       part: GroinSlime
+#      connections:       Omu start - no more slime legs
+#      - legs
+#    legs:
+#      part: LegsAnimal
+#      connections:
+#      - feet
+#    feet:
+#      part: FeetAnimal     Omu end
+
+- type: body # Goobstation add
+  id: XenobioSlimes
+  name: "xenobio slimes"
+  root: chest
+  slots:
+    chest:
+      part: ChestSlime
       connections:
-      - legs
-    legs:
-      part: LegsAnimal
-      connections:
-      - feet
-    feet:
-      part: FeetAnimal
+      - groin
+      organs:
+        core: XenobioSentientSlimesCore
+        lungs: OrganSlimesLungs
+    groin:
+      part: GroinSlime
+#      connections:       Omu start - no more slime lungs
+#      - legs
+#    legs:
+#      part: LegsAnimal
+#      connections:
+#      - feet
+#    feet:
+#      part: FeetAnimal    Omu end

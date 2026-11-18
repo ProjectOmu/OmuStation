@@ -20,6 +20,10 @@
   - type: AntagSpawner
     prototype: MobXenomorphLarva
   - type: XenomorphsRule
+    xenomorphInfestationSound:
+      collection: xeno_start #Goobstation
+      params: # Omu - lower volume for xeno music. whoever did it before did it wrong.
+        volume: -4 # Omu - needs to be under "params"
   - type: AntagObjectives
     objectives:
     - XenomorphSurviveObjective

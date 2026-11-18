@@ -14,11 +14,23 @@ highlights-quartermaster = Quartermaster, "QM", Cargo, Bridge, "Command"
 highlights-research-director = Research Director, "RD", Science, "Sci", Bridge, "Command"
 #Goob end
 
+# Omu start
+# Mentors
+highlights-sergeant = Sergeant, "Sarge", Security, "Sec"
+highlights-bosun = Boatswain, "Bosun", Salvage, "Salv", "Cargo"
+highlights-foreman = Foreman, Atmospheric, Engineering, "Atmos", "Engi"
+highlights-medicus = Medicus, Doctor, "Doc", MedBay, "Med"
+highlights-professor = Professor, Teacher, "Prof", Science, "Sci"
+# Omu end
+
 # Security
 highlights-detective = Detective, "Det", Security, "Sec"
 highlights-security-cadet = Security Cadet, Secoff, Cadet, Security, "Sec"
 highlights-security-officer = Security Officer, Secoff, Officer, Security, "Sec"
 highlights-warden = Warden, "Ward", Security, "Sec"
+# Omu start
+highlights-corpsman = corpsman, brigmed, "Corp", "Sec", Security, "Sec", "med"
+# Omu end
 
 # Cargo
 highlights-cargo-technician = Cargo Technician, Cargo Tech, "Cargo"
@@ -53,9 +65,7 @@ highlights-passenger = Passenger, Greytider, "Tider"
 highlights-service-worker = Service Worker
 
 # Station-specific
-highlights-boxer = Boxer
 highlights-reporter = Reporter, Journalist
-highlights-zookeeper = Zookeeper
 highlights-psychologist = Psychologist, Psychology
 
 # Silicon

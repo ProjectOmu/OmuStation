@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: soundCollection
@@ -17,3 +14,9 @@
   id: Cracks
   files:
     - /Audio/_Impstation/Effects/Emotes/knuckles.ogg
+
+- type: soundCollection
+  id: Blinks
+  files:
+  - /Audio/_Impstation/Effects/Emotes/blink1.ogg
+  - /Audio/_Impstation/Effects/Emotes/blink2.ogg

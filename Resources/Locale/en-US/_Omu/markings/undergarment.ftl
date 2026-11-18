@@ -1,0 +1,3 @@
+marking-UndergarmentBottomBoxersVulpkanin = Boxers
+marking-UndergarmentBottomBriefsVulpkanin = Briefs
+marking-UndergarmentBottomSatinVulpkanin = Satin

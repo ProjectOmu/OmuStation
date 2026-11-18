@@ -53,6 +53,7 @@ job-name-hop = Head of Personnel
 job-name-captain = Captain
 job-name-serviceworker = Service Worker
 job-name-centcomoff = CentComm Official
+job-name-centcommoff = CentComm Official
 job-name-cburn = Centcomm Quarantine Officer
 job-name-deathsquad = Deathsquad Operative
 job-name-reporter = Reporter
@@ -65,8 +66,8 @@ job-name-janitor = Janitor
 job-name-chaplain = Chaplain
 job-name-botanist = Botanist
 job-name-bartender = Bartender
-## goob edit - epic passengers
-job-name-passenger = Assistant
+## omu edit - I have a job Im just off duty
+job-name-passenger = Off Duty
 job-name-salvagespec = Salvage Specialist
 job-name-station-ai = Station AI
 job-name-qm = Quartermaster
@@ -79,9 +80,9 @@ job-name-ertengineer = ERT Engineer
 job-name-ertsecurity = ERT Security
 job-name-ertmedic = ERT Medic
 job-name-ertjanitor = ERT Janitor
-job-name-boxer = Boxer
-job-name-zookeeper = Zookeeper
 job-name-visitor = Visitor
+## omu edit - tram driver
+job-name-tram-driver = Tram Driver
 # Viro
 job-name-virologist = Virologist
 job-name-cluwne = Cluwne
@@ -112,7 +113,6 @@ JobAtmosphericTechnician = Atmospheric Technician
 JobBartender = Bartender
 JobBorg = Borg
 JobBotanist = Botanist
-JobBoxer = Boxer
 JobCaptain = Captain
 JobCargoTechnician = Cargo Technician
 JobCentralCommandOfficial = Central Command Official
@@ -141,7 +141,8 @@ JobMedicalIntern = Medical intern
 JobMime = Mime
 JobMusician = Musician
 JobParamedic = Paramedic
-JobPassenger = Assistant
+## omu edit - off duty
+JobPassenger = Off Duty
 JobPartyMaker = Party Maker
 JobPsychologist = Psychologist
 JobQuartermaster = Quartermaster
@@ -159,4 +160,3 @@ JobStationEngineer = Station Engineer
 JobTechnicalAssistant = Technical Assistant
 JobVisitor = Visitor
 JobWarden = Warden
-JobZookeeper = Zookeeper

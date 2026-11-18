@@ -1,9 +1,6 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -24,10 +21,11 @@ public sealed partial class SlimeComponent : Component
     public EntProtoId DefaultSlimeProto = "MobSlimeXenobioBaby";
 
     /// <summary>
-    /// What color is the slime?
+    /// If the associated breed prototype cannot be found,
+    /// it will use this extract as a fallback.
     /// </summary>
-    [DataField, AutoNetworkedField]
-    public Color SlimeColor = Color.FromHex("#FFFFFF");
+    [DataField]
+    public EntProtoId DefaultExtract = "GreySlimeExtract";
 
     /// <summary>
     /// What is the current slime's current breed?
@@ -36,11 +34,16 @@ public sealed partial class SlimeComponent : Component
     public ProtoId<BreedPrototype> Breed = "GreyMutation";
 
     /// <summary>
-    /// If the associated breed prototype cannot be found,
-    /// it will use this extract as a fallback.
+    /// The extract produced when this breed is ground.
     /// </summary>
     [DataField]
-    public EntProtoId DefaultExtract = "GreySlimeExtract";
+    public EntProtoId ProducedExtract = "GreySlimeExtract";
+
+    /// <summary>
+    /// What color is the slime?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Color SlimeColor = Color.FromHex("#FFFFFF");
 
     /// <summary>
     /// If the mutation chance is met, what potential mutations are available?
@@ -75,7 +78,7 @@ public sealed partial class SlimeComponent : Component
     /// <summary>
     /// The entity which has tamed this slime.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public EntityUid? Tamer;
 
     [DataField]
@@ -84,8 +87,14 @@ public sealed partial class SlimeComponent : Component
     /// <summary>
     /// The entity, if any, currently being consumed by the slime.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField]
     public EntityUid? LatchedTarget;
+
+    /// <summary>
+    /// Should this slime have a shader?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ShouldHaveShader;
 
     /// <summary>
     /// The maximum amount of offspring produced by mitosis.
@@ -131,12 +140,6 @@ public sealed partial class SlimeComponent : Component
     public float JitterDifference = 25f;
 
     /// <summary>
-    /// Should this slime have a shader?
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool ShouldHaveShader;
-
-    /// <summary>
     /// Which shader are we using?
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -153,4 +156,10 @@ public sealed partial class SlimeComponent : Component
     /// </summary>
     [DataField]
     public SoundPathSpecifier EatSound = new("/Audio/Voice/Talk/slime.ogg");
+
+    /// <summary>
+    /// This is mostly for slime to find their favorite food tag
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? Whitelist;
 }

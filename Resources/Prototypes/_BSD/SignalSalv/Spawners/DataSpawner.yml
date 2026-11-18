@@ -1,0 +1,7 @@
+- type: entity
+  id: SpawnSignalSalvOutpostData
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green

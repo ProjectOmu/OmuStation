@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Lidgren.Network;
@@ -21,6 +18,7 @@ public sealed class MsgDeleteChatMessagesBy : NetMessage
         Key = buffer.ReadInt32();
 
         var entities = buffer.ReadInt32();
+        buffer.AssertAtLeastSize(entities * NetMessageExt.SizeOfNetEntity);
         Entities = new HashSet<NetEntity>(entities);
 
         for (var i = 0; i < entities; i++)

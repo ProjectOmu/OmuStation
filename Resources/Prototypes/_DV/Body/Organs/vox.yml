@@ -1,0 +1,24 @@
+- type: entity
+  id: OrganVoxBrain
+  parent: OrganHumanBrain
+  name: cortical stack
+  description: "A peculiarly advanced bio-electronic device that seems to hold the memories and identity of a Vox."
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Vox/organs.rsi
+    state: cortical-stack
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Silicon
+          Quantity: 10
+        - ReagentId: GreyMatter # Omu, get cancer get cancer get cancer
+          Quantity: 5
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Silicon
+          Quantity: 10
+        - ReagentId: GreyMatter
+          Quantity: 5

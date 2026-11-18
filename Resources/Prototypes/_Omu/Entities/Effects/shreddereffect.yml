@@ -1,0 +1,19 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: EffectShredder
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.85
+  - type: Sprite
+    noRot: true
+    drawdepth: SmallMobs
+    sprite: _Omu/Effects/shredder_aura.rsi
+    offset: 0, -0.5
+    state: effect
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer

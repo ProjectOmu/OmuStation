@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
@@ -28,6 +19,7 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     private readonly SpriteSystem _spriteSystem;
+    private readonly HereticSystem _heretic;
 
     public event Action<ProtoId<HereticRitualPrototype>>? SendHereticRitualRuneMessageAction;
 
@@ -38,6 +30,7 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
         _spriteSystem = _entitySystem.GetEntitySystem<SpriteSystem>();
+        _heretic = _entitySystem.GetEntitySystem<HereticSystem>();
     }
 
     public void SetEntity(EntityUid uid)
@@ -54,7 +47,7 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
 
         var player = _playerManager.LocalEntity;
 
-        if (!_entityManager.TryGetComponent<HereticComponent>(player, out var heretic))
+        if (player == null || !_heretic.TryGetHereticComponent(player.Value, out var heretic, out _))
             return;
 
         foreach (var ritual in heretic.KnownRituals)
@@ -104,7 +97,7 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
         }
     }
 
-    public sealed class HereticRitualMenuButton : RadialMenuTextureButtonWithSector
+    public sealed class HereticRitualMenuButton : RadialMenuButtonWithSector
     {
         public ProtoId<HereticRitualPrototype> ProtoId { get; set; }
     }

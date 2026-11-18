@@ -18,7 +18,6 @@ namespace Content.Omu.Server.Administration.Systems;
 public sealed partial class OmuAdminVerbSystem
 {
     [Dependency] private readonly IAdminManager _admin = default!;
-    [Dependency] private readonly EuiManager _eui = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;

@@ -237,6 +237,43 @@
   name: central commander's labcoat
 
 - type: entity
+  parent: [ ClothingOuterStorageFoldableBase, BaseCentcommContraband ]
+  id:  ClothingOuterCentcomArmoredLabcoat
+  name: centcomm armored lab coat
+  description: A heavy, gilded labcoat, made to protect against chemical spills and bullet wounds alike.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/labcoat_armored_centcom.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/labcoat_armored_centcom.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.65
+        Heat: 0.6
+        Caustic: 0.4
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: HeldSpeedModifier
+  - type: GroupExamine
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBaseOpened, ClothingOuterCentcomArmoredLabcoat ]
+  id: ClothingOuterCentcomArmoredLabcoatOpened
+  name: centcomm armored lab coat
+
+- type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCourierDuster
   name: courier's duster
@@ -249,3 +286,115 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
+
+- type: entity
+  id: ClothingOuterCoatArmoredJamrockBlazer
+  parent: [ClothingOuterCoatDetective]
+  name: armored jamrock blazer
+  description: It reminds you there are no truces with the furies.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/OuterClothing/Coats/blazer_jamrock.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/OuterClothing/Coats/blazer_jamrock.rsi
+
+- type: entity
+  id: ClothingOuterCoatArmoredAerostaticBomber
+  parent: [ClothingOuterCoatDetective]
+  name: armored aerostatic bomber
+  description: Wearing this jacket makes you feel stoic.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/OuterClothing/Coats/bomber_aerostatic.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/OuterClothing/Coats/bomber_aerostatic.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterProfessorLabCoat
+  name: professor's lab coat
+  description: A special lab coat made custom for the Professor. Made from cutting-edge fibers to provide slightly more protection against caustics.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/labcoat_professor.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/labcoat_professor.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Caustic: 0.5
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterProfessorLabCoat]
+  id: ClothingOuterProfessorLabCoatOpened
+  name: professor's lab coat
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterMedicusLabCoat
+  name: medicus' lab coat
+  description: A heavy lab coat made custom for the Medicus. Offers slightly more protection against caustic hazards, at the cost of breathability.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/labcoat_medicus.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/labcoat_medicus.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Caustic: 0.5
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterMedicusLabCoat]
+  id: ClothingOuterMedicusLabCoatOpened
+  name: medicus' lab coat
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterMedicusLabCoatLong
+  name: medicus' longcoat
+  description: A thick, sterile labcoat made to cover most of the body. Made of plastic, to keep the chemicals out and the sweat in.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/medicuslonglabcoat.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/medicuslonglabcoat.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Caustic: 0.5
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterMedicusLabCoatLong]
+  id: ClothingOuterMedicusLabCoatLongOpened
+  name: medicus' longcoat
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterRefereeJacket
+  name: referee jacket
+  description: A cheap, thin striped jacket. It’s not the size of the dog in the fight, but the size of the fight in the dog.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/refereejacket.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/refereejacket.rsi
+

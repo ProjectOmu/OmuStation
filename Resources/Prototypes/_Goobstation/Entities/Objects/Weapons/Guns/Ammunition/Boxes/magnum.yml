@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 - type: entity # Omu start, uncomment this all.
   id: BaseMagazineBoxMagnumExtended
@@ -22,7 +14,7 @@
 
 - type: entity
   id: MagazineBoxMagnumEnsnaring
-  parent: BaseMagazineBoxMagnumExtended
+  parent: [BaseMagazineBoxMagnumExtended, BaseSecurityContraband] # Omu, add security contra tag
   name: ammunition box (.45 magnum ensnaring)
   components:
   - type: BallisticAmmoProvider
@@ -38,7 +30,7 @@
 
 - type: entity
   id: MagazineBoxMagnumEMP
-  parent: BaseMagazineBoxMagnumExtended
+  parent: [BaseMagazineBoxMagnumExtended, BaseSecurityContraband] # Omu, add security contra tag
   name: ammunition box (.45 magnum EMP)
   components:
   - type: BallisticAmmoProvider
@@ -54,7 +46,7 @@
 
 - type: entity
   id: MagazineBoxMagnumFlash
-  parent: BaseMagazineBoxMagnumExtended
+  parent: [BaseMagazineBoxMagnumExtended, BaseSecurityContraband] # Omu, add security contra tag
   name: ammunition box (.45 magnum flash)
   components:
   - type: BallisticAmmoProvider

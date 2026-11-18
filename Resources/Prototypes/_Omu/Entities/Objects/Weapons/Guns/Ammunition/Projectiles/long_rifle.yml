@@ -1,0 +1,13 @@
+- type: entity
+  id: BulletLongRifle
+  name: bullet (0.30 long rifle magnum)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    projectileSpeedModifier: 1.5
+    damage:
+      types:
+        Piercing: 32
+      armorPenetration: 0.35 # Full power rifle rounds should have armor penetration
+    penetrationThreshold: 40 # Not as much as Hristov, can pierce crates and machines but not people

@@ -11,3 +11,67 @@
     Holy: 1.5
     Shock: 1.5
   ignoreArmorPierceFlags: All
+
+- type: damageModifierSet
+  id: GhoulMirrorMaiden
+  coefficients:
+    Heat: 1.3
+    Cold: 0.8
+    Asphyxiation: 0.0
+    Bloodloss: 0.0
+    Blunt: 1.5
+    Slash: 0.8
+    Piercing: 1.5
+    Holy: 2.0
+    Shock: 0.0
+  ignoreArmorPierceFlags: All
+
+- type: damageModifierSet
+  id: SiliconHeavyProtected
+  coefficients:
+    Blunt: 0.6
+    Slash: 0.4
+    Piercing: 0.45
+    Heat: 0.5
+  flatReductions:
+    Blunt: 6
+    Slash: 6
+    Piercing: 6
+
+- type: damageModifierSet
+  id: CrewletProtection
+  coefficients:
+    Asphyxiation: 0.35
+    Bloodloss: 0.35
+    Blunt: 0.35
+    Caustic: 0.35
+    Cellular: 0.35
+    Cold: 0.35
+    Heat: 0.35
+    Holy: 0.35
+    Ion: 0.35
+    Piercing: 0.35
+    Poison: 0.35
+    Radiation: 0.35
+    Shock: 0.35
+    Slash: 0.35
+    Structural: 0.35
+
+- type: damageModifierSet
+  id: CrewletMobProtection
+  coefficients:
+    Asphyxiation: 0.675
+    Bloodloss: 0.675
+    Blunt: 0.675
+    Caustic: 0.675
+    Cellular: 0.675
+    Cold: 0.675
+    Heat: 0.675
+    Holy: 0.675
+    Ion: 0.675
+    Piercing: 0.675
+    Poison: 0.675
+    Radiation: 0.675
+    Shock: 0.675
+    Slash: 0.675
+    Structural: 0.675

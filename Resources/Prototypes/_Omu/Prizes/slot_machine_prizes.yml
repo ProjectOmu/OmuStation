@@ -1,0 +1,35 @@
+- type: prize
+  id: SmallWinEmag
+  weight: 0.6
+  winSound: !type:SoundPathSpecifier
+    path: /Audio/Effects/Cargo/ping.ogg
+  prizeTable: !type:NestedSelector
+    tableId: SlotMachineSmallWinCounterfeit
+  winMessage: slotmachine-win-godpot
+
+- type: prize
+  id: MediumWinEmag
+  weight: 0.1
+  winSound: !type:SoundPathSpecifier
+    path: /Audio/Effects/Arcade/win.ogg
+  prizeTable: !type:NestedSelector
+    tableId: SlotMachineMediumWinCounterfeit
+  winMessage: slotmachine-win-godpot
+
+- type: prize
+  id: LargeWinEmag
+  weight: 0.01
+  winSound: !type:SoundPathSpecifier
+    path: /Audio/_Goobstation/Machines/SlotMachine/slotmachine_bigwin.ogg
+  prizeTable: !type:NestedSelector
+    tableId: SlotMachineLargeWinCounterfeit
+  winMessage: slotmachine-win-godpot
+
+- type: prize
+  id: JackpotEmag
+  weight: 0.01
+  winSound: !type:SoundPathSpecifier
+    path: /Audio/_Goobstation/Machines/SlotMachine/slotmachine_jackpotwin.ogg
+  prizeTable: !type:NestedSelector
+    tableId: LootEmagJackpot
+  winMessage: slotmachine-win-godpot

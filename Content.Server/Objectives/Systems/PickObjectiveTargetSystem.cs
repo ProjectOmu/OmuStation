@@ -1,12 +1,6 @@
-// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 the biggest bruh <199992874+thebiggestbruh@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._DV.Objectives.Components; // DeltaV
 using Content.Server.Objectives.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
@@ -25,8 +19,6 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
 {
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly TraitorRuleSystem _traitorRule = default!;
 
     public override void Initialize()
     {
@@ -62,6 +54,22 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
             return;
         }
 
+        // DeltaV - TargetObjectiveImmune
+        if (HasComp<TargetObjectiveImmuneComponent>(targetComp.Target))
+        {
+            args.Cancelled = true;
+            return;
+        }
+        // END DeltaV
+
+        // Omu - TargetObjectiveImmune
+        if (!TryComp<MindComponent>(targetComp.Target, out var targetMind) || targetMind.OwnedEntity == null || HasComp<TargetObjectiveImmuneComponent>(targetMind.OwnedEntity))
+        {
+            args.Cancelled = true;
+            return;
+        }
+        // END Omu
+
         _target.SetTarget(ent.Owner, targetComp.Target.Value);
     }
 
@@ -84,6 +92,24 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
             args.Cancelled = true;
             return;
         }
+
+        // DeltaV - TargetObjectiveImmune
+        // Pretty much just a back-up check. Ideally, we should have filtered out all the minds
+        // with this comp with the mind filter TargetObjectiveMindFilter.
+        if (HasComp<TargetObjectiveImmuneComponent>(picked))
+        {
+            args.Cancelled = true;
+            return;
+        }
+        // END DeltaV
+
+        // Omu - TargetObjectiveImmune
+        if (!TryComp<MindComponent>(picked, out var pickedMind) || pickedMind.OwnedEntity == null || HasComp<TargetObjectiveImmuneComponent>(pickedMind.OwnedEntity))
+        {
+            args.Cancelled = true;
+            return;
+        }
+        // END Omu
 
         _target.SetTarget(ent, picked, target);
     }

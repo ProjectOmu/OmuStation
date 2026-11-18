@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -23,7 +17,6 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Maps;
 using Content.Shared.Movement.Pulling.Systems;
@@ -56,6 +49,8 @@ public sealed class CarvingKnifeSystem : EntitySystem
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly HereticSystem _heretic = default!;
+
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
@@ -96,7 +91,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
 
         var effect = effects.First();
 
-        if (!effect.Comp1.Locations.Contains(ev.Coords))
+        if (!effect.Comp1.Locations.TryGetValue(ev.Coords, out var carving))
             return;
 
         var coords = GetCoordinates(ev.Coords);
@@ -104,6 +99,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
         _transform.SetCoordinates(ent.Value, coords);
         _audio.PlayPvs(effect.Comp1.TeleportSound, coords);
         _statusNew.TryRemoveStatusEffect(ent.Value, AlertEffect);
+        QueueDel(carving);
     }
 
     private void OnGetItemActions(Entity<CarvingKnifeComponent> ent, ref GetItemActionsEvent args)
@@ -111,7 +107,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
         if (!args.InHands)
             return;
 
-        if (!HasComp<HereticComponent>(args.User) && !HasComp<GhoulComponent>(args.User))
+        if (!_heretic.IsHereticOrGhoul(args.User))
             return;
 
         args.AddAction(ent.Comp.RunebreakActionEntity);
@@ -179,7 +175,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
                 AlertEffect,
                 out var effect,
                 TimeSpan.FromMilliseconds(ent.Comp.TeleportDelay + 100)))
-            EnsureComp<CarvingAlertedStatusEffectComponent>(effect.Value).Locations.Add(coords);
+            EnsureComp<CarvingAlertedStatusEffectComponent>(effect.Value).Locations[coords] = ent;
     }
 
     private void OnDeleteCarvings(Entity<CarvingKnifeComponent> ent, ref DeleteAllCarvingsEvent args)
@@ -203,7 +199,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
 
     private void OnExamine(Entity<CarvingKnifeComponent> ent, ref ExaminedEvent args)
     {
-        if (!HasComp<HereticComponent>(args.Examiner) && !HasComp<GhoulComponent>(args.Examiner))
+        if (!_heretic.IsHereticOrGhoul(args.Examiner))
             return;
 
         UpdateRunes(ent);
@@ -217,7 +213,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
         if (args.Target == null || !_tag.HasTag(args.Target.Value, CarvingTag))
             return;
 
-        if (!HasComp<HereticComponent>(args.User) && !HasComp<GhoulComponent>(args.User))
+        if (!_heretic.IsHereticOrGhoul(args.User))
             return;
 
         QueueDel(args.Target.Value);
@@ -253,6 +249,11 @@ public sealed class CarvingKnifeSystem : EntitySystem
             return;
 
         trap.IgnoredMinds.Add(mind);
+
+        if (TryComp(args.User, out HereticMinionComponent? minion) && Exists(minion.BoundHeretic) &&
+            _mind.TryGetMind(minion.BoundHeretic.Value, out var masterMind, out _))
+            trap.IgnoredMinds.Add(masterMind);
+
         Dirty(rune, trap);
     }
 
@@ -292,7 +293,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
         if (!comp.Carvings.Contains(args.ProtoId))
             return;
 
-        if (!HasComp<HereticComponent>(args.Actor) && !HasComp<GhoulComponent>(args.Actor))
+        if (!_heretic.IsHereticOrGhoul(args.Actor))
             return;
 
         UpdateRunes(ent);
@@ -339,6 +340,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
         _audio.PlayPvs(comp.Sound, xform.Coordinates);
     }
 }
+
 
 [ByRefEvent]
 public readonly record struct RuneCarvedEvent(EntityUid User);

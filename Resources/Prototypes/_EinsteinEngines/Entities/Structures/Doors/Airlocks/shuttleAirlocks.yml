@@ -1,0 +1,17 @@
+- type: entity
+  parent: AirlockSyndicateGlass
+  id: AirlockSyndicateGlassShuttleSANDropship
+  suffix: External, SAN Dropship, Glass, Docking
+  components:
+    - type: PriorityDock
+      tag: DockSANDropship
+
+
+#1 per map, these spawn a shuttle.
+- type: entity
+  parent: AirlockSyndicateGlassShuttleSANDropship
+  id: AirlockSyndicateGlassShuttleSANDropshipFilled
+  suffix: SAN Dropship Spawner, MAX ONE PER MAP
+  components:
+    - type: GridFill
+      path: /Maps/_EinsteinEngines/Shuttles/ShuttleEvent/SANDropship.yml

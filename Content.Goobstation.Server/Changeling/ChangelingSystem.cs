@@ -1,35 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 TGRCDev <tgrc@tgrc.dev>
-// SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 the biggest bruh <199992874+thebiggestbruh@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Actions;
@@ -48,12 +16,14 @@ using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Changeling.Systems;
 using Content.Goobstation.Shared.Flashbang;
+using Content.Goobstation.Shared.GrabIntent;
 using Content.Goobstation.Shared.InternalResources.Data;
 using Content.Goobstation.Shared.InternalResources.EntitySystems;
 using Content.Goobstation.Shared.InternalResources.Events;
 using Content.Goobstation.Shared.MartialArts.Components;
+using Content.Omu.Common.Changeling;
 using Content.Server.Actions;
-using Content.Server.Atmos.Components;
+using Content.Shared.Atmos.Components;
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Emp;
@@ -108,6 +78,11 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Common.Grab;
+using Content.Shared.Atmos.Components;
+using Content.Shared.Zombies;
+using Content.Server.Ensnaring;
+using Content.Shared._White.Jump;    //OMU
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -153,6 +128,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
     [Dependency] private readonly ChangelingRuleSystem _changelingRuleSystem = default!;
     [Dependency] private readonly SharedInternalResourcesSystem _resources = default!;
+    [Dependency] private readonly EnsnareableSystem _snare = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -174,11 +150,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         SubscribeLocalEvent<ChangelingComponent, MapInitEvent>(OnChangelingMapInit);
 
         SubscribeLocalEvent<ChangelingIdentityComponent, MobStateChangedEvent>(OnMobStateChange);
-        SubscribeLocalEvent<ChangelingIdentityComponent, UpdateMobStateEvent>(OnUpdateMobState);
-        SubscribeLocalEvent<ChangelingIdentityComponent, DamageChangedEvent>(OnDamageChange);
         SubscribeLocalEvent<ChangelingIdentityComponent, ComponentRemove>(OnComponentRemove);
-        SubscribeLocalEvent<ChangelingIdentityComponent, TargetBeforeDefibrillatorZapsEvent>(OnDefibZap);
-        SubscribeLocalEvent<ChangelingIdentityComponent, RejuvenateEvent>(OnRejuvenate);
         SubscribeLocalEvent<ChangelingIdentityComponent, PolymorphedEvent>(OnPolymorphed);
 
         SubscribeLocalEvent<ChangelingComponent, PolymorphedEvent>(OnPolymorphedTakeTwo);
@@ -190,12 +162,13 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         SubscribeLocalEvent<ChangelingComponent, BeforeBrainAddedEvent>(OnBrainAddAttempt);
 
         SubscribeLocalEvent<ChangelingIdentityComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
-        SubscribeLocalEvent<ChangelingIdentityComponent, InternalResourcesRegenModifierEvent>(OnChemicalRegen);
 
         SubscribeLocalEvent<ChangelingDartComponent, ProjectileHitEvent>(OnDartHit);
 
         SubscribeLocalEvent<ChangelingIdentityComponent, AwakenedInstinctPurchasedEvent>(OnAwakenedInstinctPurchased);
         SubscribeLocalEvent<ChangelingIdentityComponent, AugmentedEyesightPurchasedEvent>(OnAugmentedEyesightPurchased);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ChameleonSkinPurchasedEvent>(OnChameleonSkinPurchased);
+        SubscribeLocalEvent<ChangelingIdentityComponent, DarknessAdaptionPurchasedEvent>(OnDarknessAdaptionPurchased);
         SubscribeLocalEvent<ChangelingIdentityComponent, VoidAdaptionPurchasedEvent>(OnVoidAdaptionPurchased);
 
         SubscribeAbilities();
@@ -267,28 +240,22 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     private void OnAugmentedEyesightPurchased(Entity<ChangelingIdentityComponent> ent, ref AugmentedEyesightPurchasedEvent args)
     {
-        InitializeAugmentedEyesight(ent);
+        EnsureComp<AugmentedEyesightComponent>(ent);
+    }
+
+    private void OnChameleonSkinPurchased(Entity<ChangelingIdentityComponent> ent, ref ChameleonSkinPurchasedEvent args)
+    {
+        EnsureComp<ChameleonSkinComponent>(ent);
+    }
+
+    private void OnDarknessAdaptionPurchased(Entity<ChangelingIdentityComponent> ent, ref DarknessAdaptionPurchasedEvent args)
+    {
+        EnsureComp<DarknessAdaptionComponent>(ent);
     }
 
     private void OnVoidAdaptionPurchased(Entity<ChangelingIdentityComponent> ent, ref VoidAdaptionPurchasedEvent args)
     {
         EnsureComp<VoidAdaptionComponent>(ent);
-    }
-
-    public void InitializeAugmentedEyesight(EntityUid uid)
-    {
-        EnsureComp<FlashImmunityComponent>(uid);
-        EnsureComp<EyeProtectionComponent>(uid);
-
-        var thermalVision = _compFactory.GetComponent<Shared.Overlays.ThermalVisionComponent>();
-        thermalVision.Color = Color.FromHex("#FB9898");
-        thermalVision.LightRadius = 15f;
-        thermalVision.FlashDurationMultiplier = 2f;
-        thermalVision.ActivateSound = null;
-        thermalVision.DeactivateSound = null;
-        thermalVision.ToggleAction = null;
-
-        AddComp(uid, thermalVision);
     }
 
     private void OnRefreshSpeed(Entity<ChangelingIdentityComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
@@ -297,17 +264,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             args.ModifySpeed(1.25f, 1.5f);
         else
             args.ModifySpeed(1f, 1f);
-    }
-
-    // TODO nuke this in the future and have this handled by systems for each relevant ability, like biomass does
-    public readonly ProtoId<InternalResourcesPrototype> ResourceType = "ChangelingChemicals";
-    private void OnChemicalRegen(Entity<ChangelingIdentityComponent> ent, ref InternalResourcesRegenModifierEvent args)
-    {
-        if (args.Data.InternalResourcesType != ResourceType)
-            return;
-
-        if (ent.Comp.ChameleonActive)
-            args.Modifier -= 0.25f;
     }
 
     public override void Update(float frameTime)
@@ -358,17 +314,9 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (comp.StrainedMusclesActive)
         {
             var stamina = EnsureComp<StaminaComponent>(uid);
-            _stamina.TakeStaminaDamage(uid, 7.5f, visual: false, immediate: false);
+            _stamina.TakeStaminaDamage(uid, 7.5f, visual: false, immediate: false, ignoreResist: true);
             if (stamina.StaminaDamage >= stamina.CritThreshold || _gravity.IsWeightless(uid))
                 ToggleStrainedMuscles(uid, comp);
-        }
-
-        if (comp.IsInStasis && comp.StasisTime > 0f)
-        {
-            comp.StasisTime -= 1f;
-
-            if (comp.StasisTime == 0f) // If this tick finished the stasis timer
-                _popup.PopupEntity(Loc.GetString("changeling-stasis-finished"), uid, uid);
         }
     }
 
@@ -450,7 +398,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     /// </summary>
     public bool IsHardGrabbed(EntityUid uid)
     {
-        return (TryComp<PullableComponent>(uid, out var pullable) && pullable.GrabStage > GrabStage.Soft);
+        return TryComp<GrabbableComponent>(uid, out var grabbable) && grabbable.GrabStage > GrabStage.Soft;
     }
 
     public float? GetEquipmentChemCostOverride(ChangelingIdentityComponent comp, EntProtoId proto)
@@ -677,6 +625,10 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             Comp<DnaComponent>(newEnt).DNA = data.DNA;
             _humanoid.CloneAppearance(data.Appearance.Owner, newEnt);
             _metaData.SetEntityName(newEnt, data.Name);
+            // Omu start
+            var formAssumed = new ChangelingFormAssumedEvent(data.Appearance.Owner);
+            RaiseLocalEvent(newEnt, ref formAssumed);
+            // Omu end
             var message = Loc.GetString("changeling-transform-finish", ("target", data.Name));
             _popup.PopupEntity(message, newEnt, newEnt);
         }
@@ -749,6 +701,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (newUid != null)
         {
             PlayMeatySound((EntityUid) newUid, comp);
+            EnsureComp<JumpComponent>(newUid.Value);          // omu ensure has jumping. For ling leap. Coping and seething
         }
 
         return true;
@@ -787,9 +740,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         // make sure its set to the default
         ent.Comp.TotalEvolutionPoints = _changelingRuleSystem.StartingCurrency;
 
-        // don't want instant stasis
-        ent.Comp.StasisTime = ent.Comp.DefaultStasisTime;
-
         // make their blood unreal
         _blood.ChangeBloodReagent(ent.Owner, "BloodChangeling");
     }
@@ -797,16 +747,14 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     // in the future ChangelingIdentity should have its own system and be ONLY used for holding stored DNA and handling transformations.
     private void OnChangelingMapInit(Entity<ChangelingComponent> ent, ref MapInitEvent args)
     {
-        if (ent.Comp.EvolutionsAssigned) // this is solely because polymorph will cause mega errors otherwise
+        if (ent.Comp.EvolutionsAssigned // this is solely because polymorph will cause mega errors otherwise
+            || !_proto.TryIndex(ent.Comp.EvolutionsProto, out var evoProto))
             return;
 
-        if (!_proto.TryIndex(ent.Comp.EvolutionsProto, out var evoProto))
-            return;
-
-        foreach (var startingComp in evoProto.Components)
+        foreach (var startingCompEntry in evoProto.Components.Values)
         {
-            var startCompType = startingComp.Value.Component.GetType();
-            var startComp = Factory.GetComponent(startCompType);
+            var startComp = Factory.GetComponent(startingCompEntry);
+            var startCompType = startComp.GetType();
 
             if (!HasComp(ent, startCompType)) // don't overwrite the starting components if you already have them (somehow)
                 AddComp(ent, startComp, true);
@@ -821,58 +769,9 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             RemoveAllChangelingEquipment(uid, comp);
     }
 
-    private void OnUpdateMobState(Entity<ChangelingIdentityComponent> ent, ref UpdateMobStateEvent args)
-    {
-        if (ent.Comp.IsInStasis)
-            args.State = MobState.Dead;
-    }
-
-    private void OnDamageChange(Entity<ChangelingIdentityComponent> ent, ref DamageChangedEvent args)
-    {
-        if (ent.Comp.IsInStasis
-            || !_mobThreshold.TryGetThresholdForState(ent, MobState.Dead, out var maxThreshold)
-            || !_mobThreshold.TryGetThresholdForState(ent, MobState.Critical, out var critThreshold))
-            return;
-
-        var lowestStasisTime = ent.Comp.DefaultStasisTime; // 15 sec
-        var highestStasisTime = ent.Comp.MaxStasisTime; // 45 sec
-        var catastrophicStasisTime = ent.Comp.CatastrophicStasisTime; // 1 min
-
-        var damage = args.Damageable;
-        var damageTaken = damage.TotalDamage;
-
-        var damageScaled = float.Round((float) (damageTaken / critThreshold.Value * highestStasisTime));
-
-        var damageToTime = MathF.Min(damageScaled, highestStasisTime);
-        var newStasisTime = MathF.Max(lowestStasisTime, damageToTime);
-
-        if (damageTaken < maxThreshold)
-            ent.Comp.StasisTime = newStasisTime;
-        else
-            ent.Comp.StasisTime = catastrophicStasisTime;
-    }
-
     private void OnComponentRemove(Entity<ChangelingIdentityComponent> ent, ref ComponentRemove args)
     {
         RemoveAllChangelingEquipment(ent, ent.Comp);
-    }
-
-    private void OnDefibZap(Entity<ChangelingIdentityComponent> ent, ref TargetBeforeDefibrillatorZapsEvent args)
-    {
-        if (ent.Comp.IsInStasis) // so you don't get a free insta-rejuvenate after being defibbed
-        {
-            ent.Comp.IsInStasis = false;
-            _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-defib"), ent, ent);
-        }
-    }
-
-    // triggered by leaving stasis and by admin rejuvenate
-    private void OnRejuvenate(Entity<ChangelingIdentityComponent> ent, ref RejuvenateEvent args)
-    {
-        ent.Comp.IsInStasis = false;
-        ent.Comp.StasisTime = ent.Comp.DefaultStasisTime;
-
-        _mobState.UpdateMobState(ent);
     }
     #endregion
 }

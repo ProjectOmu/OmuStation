@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Heretic.Components;
@@ -34,7 +24,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly HereticKnowledgeSystem _knowledge = default!;
+    [Dependency] private readonly HereticSystem _heretic = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -53,14 +43,18 @@ public sealed partial class HereticRitualSystem : EntitySystem
     ///     Try to perform a selected ritual
     /// </summary>
     /// <returns> If the ritual succeeded or not </returns>
-    public bool TryDoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public bool TryDoRitual(EntityUid performer,
+        EntityUid mind,
+        HereticComponent heretic,
+        EntityUid platform,
+        ProtoId<HereticRitualPrototype> ritualId)
     {
         // here i'm introducing locals for basically everything
         // because if i access stuff directly shit is bound to break.
         // please don't access stuff directly from the prototypes or else shit will break.
         // regards
 
-        if (!TryComp<HereticComponent>(performer, out var hereticComp))
+        if (!heretic.KnownRituals.Contains(ritualId))
             return false;
 
         var rit = _proto.Index(ritualId);
@@ -69,7 +63,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
         var exists = false;
 
         if (rit.Limit > 0)
-            limited = hereticComp.LimitedTransmutations.GetOrNew(ritualId, out exists);
+            limited = heretic.LimitedTransmutations.GetOrNew(ritualId, out exists);
 
         if (limited != null)
         {
@@ -96,7 +90,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         foreach (var behavior in behaviors)
         {
-            var ritData = new RitualData(performer, platform, ritualId, EntityManager, limited, rit.Limit);
+            var ritData = new RitualData(performer, platform, (mind, heretic), ritualId, EntityManager, limited, rit.Limit);
 
             if (!behavior.Execute(ritData, out var missingStr))
             {
@@ -169,7 +163,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
         // finalize all of the custom ones
         foreach (var behavior in behaviors)
         {
-            var ritData = new RitualData(performer, platform, ritualId, EntityManager, limited, rit.Limit);
+            var ritData = new RitualData(performer, platform, (mind, heretic), ritualId, EntityManager, limited, rit.Limit);
             behavior.Finalize(ritData);
         }
 
@@ -193,7 +187,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
                 var spawned = Spawn(ent, Transform(platform).Coordinates);
 
                 if (ghoulQuery.TryComp(spawned, out var ghoul))
-                    _ghoul.SetBoundHeretic((spawned, ghoul), performer);
+                    _ghoul.SetBoundHeretic(spawned, performer);
 
                 if (limited == null)
                     continue;
@@ -205,10 +199,10 @@ public sealed partial class HereticRitualSystem : EntitySystem
         }
 
         if (rit.OutputEvent != null)
-            RaiseLocalEvent(performer, rit.OutputEvent, true);
+            RaiseLocalEvent(mind, rit.OutputEvent, true);
 
         if (rit.OutputKnowledge != null)
-            _knowledge.AddKnowledge(performer, hereticComp, (ProtoId<HereticKnowledgePrototype>) rit.OutputKnowledge);
+            _heretic.TryAddKnowledge((mind, heretic),  rit.OutputKnowledge.Value, performer);
 
         return true;
     }
@@ -225,7 +219,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
     private void OnInteract(Entity<HereticRitualRuneComponent> ent, ref InteractHandEvent args)
     {
-        if (!TryComp<HereticComponent>(args.User, out var heretic))
+        if (!_heretic.TryGetHereticComponent(args.User, out var heretic, out var mind))
             return;
 
         if (heretic.KnownRituals.Count == 0)
@@ -241,7 +235,10 @@ public sealed partial class HereticRitualSystem : EntitySystem
     {
         var user = args.Actor;
 
-        if (!TryComp<HereticComponent>(user, out var heretic))
+        if (!_heretic.TryGetHereticComponent(user, out var heretic, out _))
+            return;
+
+        if (!heretic.KnownRituals.Contains(args.ProtoId))
             return;
 
         heretic.ChosenRitual = args.ProtoId;
@@ -252,10 +249,10 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
     private void OnInteractUsing(Entity<HereticRitualRuneComponent> ent, ref InteractUsingEvent args)
     {
-        if (!TryComp<HereticComponent>(args.User, out var heretic))
+        if (!_heretic.TryGetHereticComponent(args.User, out var heretic, out var mind))
             return;
 
-        if (!TryComp<MansusGraspComponent>(args.Used, out var grasp))
+        if (!HasComp<MansusGraspComponent>(args.Used))
             return;
 
         if (heretic.ChosenRitual == null)
@@ -266,7 +263,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         var successAnimation = _proto.Index(heretic.ChosenRitual.Value).RuneSuccessAnimation;
 
-        if (!TryDoRitual(args.User, ent, heretic.ChosenRitual.Value))
+        if (!TryDoRitual(args.User, mind, heretic, ent, heretic.ChosenRitual.Value))
             return;
 
         if (successAnimation)
@@ -275,7 +272,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
     private void OnExamine(Entity<HereticRitualRuneComponent> ent, ref ExaminedEvent args)
     {
-        if (!TryComp<HereticComponent>(args.Examiner, out var h))
+        if (!_heretic.TryGetHereticComponent(args.Examiner, out var h, out _))
             return;
 
         var ritual = h.ChosenRitual != null ? GetRitual(h.ChosenRitual).LocName : null;

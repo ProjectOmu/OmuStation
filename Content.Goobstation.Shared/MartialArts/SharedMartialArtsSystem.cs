@@ -1,32 +1,10 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+Baptr0b0t@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+baptr0b0t@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Bokser815 <70928915+Bokser815@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
-// SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-// SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Grab;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.Changeling.Components;
+using Content.Goobstation.Shared.GrabIntent;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.Sprinting;
 using Content.Goobstation.Shared.Stealth;
@@ -70,6 +48,9 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Inventory;
+using Robust.Shared.Toolshed.Commands.Values;
+using Content.Shared.Tag; // Omu
 
 namespace Content.Goobstation.Shared.MartialArts;
 
@@ -85,6 +66,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly Content.Shared.StatusEffect.StatusEffectsSystem _status = default!;
     [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _newStatus = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly GrabIntentSystem _grab = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly GrabThrownSystem _grabThrowing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -109,6 +91,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly SharedSprintingSystem _sprinting = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly TagSystem _tag = default!; // Omu
 
     public static readonly EntProtoId MartsGenericSlow = "MartialArtsGenericSlowdownEffect";
 
@@ -123,6 +107,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         InitializeDragon();
         InitializeNinjutsu();
         InitializeHellRip();
+        InitializeWrestling(); // Omu
         InitializeCanPerformCombo();
 
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);
@@ -248,6 +233,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             // So that it doesn't update constantly
             timer.LastMoveTime = _timing.CurTime;
         }
+
+        UpdateWrestling(); // Omu
     }
 
     #region Event Methods
@@ -603,6 +590,35 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         downed = IsDown(ent.Comp.CurrentTarget.Value);
         target = ent.Comp.CurrentTarget.Value;
 
+        foreach (var hand in _hands.EnumerateHands(ent.Owner)) //to do arts you have to have hands right???
+        {
+            if (!_hands.TryGetHeldItem(ent.Owner, hand, out var held))
+                continue;
+
+            if (TryComp<MartialArtBlockedComponent>(held, out var slotblockedComp)
+                    && TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledgeComp)
+                    && knowledgeComp.MartialArtsForm == slotblockedComp.Form)
+            {
+                return false;
+            }
+        }
+
+        if (_inventory.TryGetSlots(ent, out var inv)) //checks for Blocked comp and type from the inventory
+        {
+            foreach (var slot in inv)
+            {
+                if (!_inventory.TryGetSlotEntity(ent, slot.Name, out var slotEnt))
+                    continue;
+
+                if (TryComp<MartialArtBlockedComponent>(slotEnt, out var slotblockedComp)
+                    && TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledgeComp)
+                    && knowledgeComp.MartialArtsForm == slotblockedComp.Form)
+                {
+                    return false;
+                }
+            }
+        }
+
         if (!knowledgeComponent.Blocked)
             return true;
 
@@ -642,6 +658,18 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             origin: ent,
             targetPart: targetBodyPart ?? targetingComponent.Target);
     }
+
+    // Omu start
+    private void ClearMartialArtsModifiers(EntityUid ent)
+    {
+        if (!TryComp<MartialArtModifiersComponent>(ent, out var modifiers))
+            return;
+
+        modifiers.Data.Clear();
+        Dirty(ent, modifiers);
+        _modifier.RefreshMovementSpeedModifiers(ent);
+    }
+    // Omu end
 
     #endregion
 }

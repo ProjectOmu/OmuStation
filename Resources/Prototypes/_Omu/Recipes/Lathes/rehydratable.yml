@@ -1,0 +1,56 @@
+- type: latheRecipe
+  id: AllulaloCube
+  result: AllulaloCube
+  completetime: 30
+  materials:
+    Biomass: 25 # Apparently Allulalos only require 25 biomass instead of 70 from my testing so I changed the recipe to reflect that.
+    Plasma: 90 # Changed the plasma count to reflect how its cheaper to clone them, the ratio of biomass to plasma stays the same too! (250/2.8)
+
+- type: latheRecipe
+  id: ArachnidCube
+  result: ArachnidCube
+  completetime: 30
+  materials:
+    Biomass: 70 
+    Plasma: 250 
+
+- type: latheRecipe
+  id: OniCube
+  result: OniCube
+  completetime: 30
+  materials:
+    Biomass: 180 # this is really dumb, but I dont want creating a whole new body to be cheaper than cloning so... 
+    Plasma: 625 
+
+- type: latheRecipe
+  id: ResomiCube
+  result: ResomiCube
+  completetime: 30
+  materials:
+    Biomass: 60
+    Plasma: 215 
+
+- type: latheRecipe
+  id: XelthiaCube
+  result: XelthiaCube
+  completetime: 30
+  materials:
+    Biomass: 70
+    Plasma: 250 
+
+- type: latheRecipe
+  id: ThavenCube
+  result: ThavenCube
+  completetime: 30
+  materials:
+    Biomass: 70
+    Plasma: 250 
+
+- type: latheRecipe
+  id: AvaliCube
+  result: AvaliCube
+  completetime: 30
+  materials:
+    Biomass: 70
+    Plasma: 250 
+

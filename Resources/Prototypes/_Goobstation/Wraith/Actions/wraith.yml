@@ -13,7 +13,7 @@
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: hide_chat
-    iconOn: _Goobstation/Wraith/actions.rsi/show_chat.png
+    iconOn: { sprite: _Goobstation/Wraith/actions.rsi, state: show_chat }
 
 - type: entity
   id: ActionHaunt
@@ -31,9 +31,9 @@
     event: !type:HauntEvent
 
 - type: entity
-  id: ActionWhisper
-  parent: DemonicWhisperAction
-  name: Whisper
+  id: ActionWraithWhisper
+  parent: ActionTelepathy # Omu edit
+  name: Ethereal Whisper
   description: Send an ethereal message to a living being.
   components:
   - type: Action
@@ -43,6 +43,12 @@
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: whisper
+    raiseOnUser: true # Omu edit start
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+  - type: TelepathyAction
+    popupType: Medium # Omu edit end
 
 - type: entity
   id: ActionBloodWriting
@@ -129,6 +135,7 @@
       components:
       - BorgChassis
       - BibleUser
+      - MaterialReclaimer # Omu edit
     event: !type:DecayEvent
   - type: ActionWraithPoints
     wpConsume: 30

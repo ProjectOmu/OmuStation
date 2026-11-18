@@ -1,19 +1,9 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   name: high-tech retractor
   id: MechanicalPinchesAbductor
-  description: A highly advanced retractor, it also seems to work like a hemostat.
+  description: A highly advanced retractor, it also seems to work like a hemostat. And a pair of scissors, suprisingly. # Omu - does not tell you that you can use them as scissors
   parent: [BaseToolSurgery, BaseMajorContraband]
   components:
   - type: Sprite
@@ -85,6 +75,8 @@
     damage:
       types:
         Heat: 15
+    soundHit: # Omu
+      path: /Audio/Effects/lightburn.ogg # Omu
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 150
@@ -117,6 +109,9 @@
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
   - type: MeleeWeapon
+    soundHit: # Omu
+      path: /Audio/Weapons/bladeslice.ogg # Omu
+    wideAnimationRotation: 90 # Omu
     damage:
       types:
         Slash: 15
@@ -155,6 +150,8 @@
       damage:
         types:
           Blunt: 15
+      soundHit: # Omu
+        collection: MetalThud # Omu
     - type: BoneSetter
       speed: 2
     - type: BoneGel

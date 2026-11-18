@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -32,14 +27,19 @@
         restitution: 0.3
         friction: 0.2
   - type: MeleeWeapon
+    canWideSwing: false # Omu
+    range: 2.2 # Omu
     angle: 0
     attackRate: 0.9
+    animationRotation: -135 # Omu
     wideAnimationRotation: -135
     damage:
       types:
         Heat: 15
         Piercing: 5
     animation: WeaponArcThrust
+    soundHit: # Omu
+      path: /Audio/Weapons/bladeslice.ogg # Omu
   - type: IgniteOnMeleeHit
     fireStacks: 2
   - type: LandAtCursor

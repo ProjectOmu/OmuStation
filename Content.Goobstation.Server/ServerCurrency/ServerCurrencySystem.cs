@@ -1,19 +1,10 @@
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.ServerCurrency;
 using Content.Server._RMC14.LinkAccount;
 using Content.Server.GameTicking;
+using Content.Server.Holiday;
 using Content.Server.Popups;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
@@ -39,6 +30,7 @@ namespace Content.Goobstation.Server.ServerCurrency
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly LinkAccountManager _linkAccount = default!;
         [Dependency] private readonly GameTicker _gameTicker = default!;
+        [Dependency] private readonly HolidaySystem _holidaySystem = default!;
 
         private int _goobcoinsPerPlayer = 10;
         private int _goobcoinsNonAntagMultiplier = 1;
@@ -118,6 +110,13 @@ namespace Content.Goobstation.Server.ServerCurrency
                             var roundMinutesActual = _gameTicker.RoundDuration().TotalMinutes;
                             money = (int) (money * Math.Min(1, roundMinutesActual / _goobcoinsShortRoundPenaltyTargetMinutes));
                         }
+
+                        // Omu start -- for future: Make this a proper system later rather than just checking one holiday
+                        if (_holidaySystem.IsCurrentlyHoliday("EggWeeks") || _holidaySystem.IsCurrentlyHoliday("EggWeeksExt"))
+                        {
+                            money *= 2;
+                        }
+                        // Omu End
 
                         _currencyMan.AddCurrency(mind.OriginalOwnerUserId.Value, money);
                     }

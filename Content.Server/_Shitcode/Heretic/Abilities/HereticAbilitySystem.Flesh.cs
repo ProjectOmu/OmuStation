@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Maths.FixedPoint;
@@ -26,12 +15,12 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Cloning;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
-using Content.Shared.Ghost;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.NPC.Components;
+using Content.Shared.Nutrition;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged.Components;
@@ -53,8 +42,17 @@ public sealed partial class HereticAbilitySystem
         SubscribeLocalEvent<FleshPassiveComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<FleshPassiveComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<FleshPassiveComponent, GetBodyOrganOverrideEvent<StomachComponent>>(OnGetStomach);
-        SubscribeLocalEvent<FleshPassiveComponent, ConsumingFoodEvent>(OnConsumingFood);
+        SubscribeLocalEvent<FleshPassiveComponent, IngestingEvent>(OnIngesting);
         SubscribeLocalEvent<FleshPassiveComponent, ExcludeMetabolismGroupsEvent>(OnExclude);
+        SubscribeLocalEvent<FleshPassiveComponent, ComponentShutdown>(OnShutdown);
+    }
+
+    private void OnShutdown(Entity<FleshPassiveComponent> ent, ref ComponentShutdown args)
+    {
+        if (TerminatingOrDeleted(ent.Comp.FleshStomach))
+            return;
+
+        QueueDel(ent.Comp.FleshStomach);
     }
 
     private void OnExclude(Entity<FleshPassiveComponent> ent, ref ExcludeMetabolismGroupsEvent args)
@@ -69,15 +67,17 @@ public sealed partial class HereticAbilitySystem
         args.Groups.Add("Drink");
     }
 
-    private void OnConsumingFood(Entity<FleshPassiveComponent> ent, ref ConsumingFoodEvent args)
+    private void OnIngesting(Entity<FleshPassiveComponent> ent, ref IngestingEvent args)
     {
-        if (args.Volume <= FixedPoint2.Zero)
+        var volume = args.Split.Volume;
+
+        if (volume <= FixedPoint2.Zero)
             return;
 
-        if (!TryComp(ent, out HereticComponent? heretic) || heretic.PathStage <= 0)
+        if (!Heretic.TryGetHereticComponent(ent, out var heretic, out _) || heretic.PathStage <= 0)
             return;
 
-        var multiplier = GetMultiplier((ent.Owner, ent.Comp, heretic), ref args, out var stage, out var multipliersApplied);
+        var multiplier = GetMultiplier((ent.Owner, ent.Comp), heretic, volume, args.Food, out var stage, out var multipliersApplied);
         if (!multipliersApplied)
             return;
 
@@ -91,29 +91,31 @@ public sealed partial class HereticAbilitySystem
         _modifier.RefreshMovementSpeedModifiers(ent.Owner);
     }
 
-    private float GetMultiplier(Entity<FleshPassiveComponent, HereticComponent> ent,
-        ref ConsumingFoodEvent args,
+    private float GetMultiplier(Entity<FleshPassiveComponent> ent,
+        HereticComponent heretic,
+        FixedPoint2 volume,
+        EntityUid food,
         out float stage,
         out bool multipliersApplied)
     {
-        stage = MathF.Pow(ent.Comp2.PathStage, 0.3f);
-        var multiplier = args.Volume.Float() * stage;
+        stage = MathF.Pow(heretic.PathStage, 0.3f);
+        var multiplier = volume.Float() * stage;
         var oldMult = multiplier;
 
-        if (HasComp<MobStateComponent>(args.Food))
-            multiplier *= ent.Comp1.MobMultiplier;
-        if (HasComp<BrainComponent>(args.Food))
-            multiplier *= ent.Comp1.BrainMultiplier;
-        if (HasComp<BodyPartComponent>(args.Food))
-            multiplier *= ent.Comp1.BodyPartMultiplier;
-        if (HasComp<OrganComponent>(args.Food))
-            multiplier *= ent.Comp1.OrganMultiplier;
-        if (HasComp<HumanOrganComponent>(args.Food))
-            multiplier *= ent.Comp1.HumanMultiplier;
-        if (_tag.HasTag(args.Food, ent.Comp1.MeatTag))
-            multiplier *= ent.Comp1.MeatMultiplier;
-        if (ent.Comp2.Ascended)
-            multiplier *= ent.Comp1.AscensionMultiplier;
+        if (HasComp<MobStateComponent>(food))
+            multiplier *= ent.Comp.MobMultiplier;
+        if (HasComp<BrainComponent>(food))
+            multiplier *= ent.Comp.BrainMultiplier;
+        if (HasComp<BodyPartComponent>(food))
+            multiplier *= ent.Comp.BodyPartMultiplier;
+        if (HasComp<OrganComponent>(food))
+            multiplier *= ent.Comp.OrganMultiplier;
+        if (HasComp<HumanOrganComponent>(food))
+            multiplier *= ent.Comp.HumanMultiplier;
+        if (_tag.HasTag(food, ent.Comp.MeatTag))
+            multiplier *= ent.Comp.MeatMultiplier;
+        if (heretic.Ascended)
+            multiplier *= ent.Comp.AscensionMultiplier;
 
         multipliersApplied = oldMult < multiplier;
         return multiplier;
@@ -193,7 +195,7 @@ public sealed partial class HereticAbilitySystem
         if (damage <= 0)
             return;
 
-        if (!TryComp(ent, out HereticComponent? heretic) || !heretic.Ascended)
+        if (!Heretic.TryGetHereticComponent(ent, out var heretic, out _) || !heretic.Ascended)
             return;
 
         ent.Comp.TrackedDamage += damage;
@@ -260,10 +262,13 @@ public sealed partial class HereticAbilitySystem
             }
         }
 
+        var minion = EnsureComp<HereticMinionComponent>(clone.Value);
+        minion.BoundHeretic = user;
+        Dirty(clone.Value, minion);
+
         var ghoul = _compFactory.GetComponent<GhoulComponent>();
         ghoul.GiveBlade = giveBlade;
         ghoul.TotalHealth = hp;
-        ghoul.BoundHeretic = user;
         ghoul.DropOrgansOnDeath = false;
         ghoul.GhostRoleName = "ghostrole-flesh-mimic-name";
         ghoul.GhostRoleDesc = "ghostrole-flesh-mimic-desc";
