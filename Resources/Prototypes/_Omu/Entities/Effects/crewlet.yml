@@ -1,0 +1,269 @@
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  id: CrewletThroes
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: TriggerOnSpawn
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Anomaly/flesh_crit.ogg
+  - type: EmitSoundOnSpawn
+    positional: true
+    sound:
+      path: /Audio/Ambience/ambiodd.ogg
+      params:
+        volume: 8
+
+- type: entity
+  parent: Acidifier
+  id: CrewletMelt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    color: "#ff0000"
+  - type: SpawnOnDespawn
+    prototype: CrewletGoo
+  - type: TriggerOnSpawn
+  - type: SpawnEntityTableOnTrigger
+    table: !type:EntSelector
+      id: CrewletFlicker
+  - type: RepulseAttractOnTrigger
+    speed: 5
+    range: 5
+    whitelist:
+      components:
+      - MobState
+
+- type: entity
+  parent: PuddleTemporary
+  id: CrewletGoo
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30
+
+- type: entity
+  id: CrewletFlicker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    color: "#FF8080"
+    radius: 6
+    energy: 4.0
+    netsync: false
+  - type: LightBehaviour
+    behaviours:
+    - !type:RandomizeBehaviour
+      id: dying
+      enabled: true
+      interpolate: Nearest
+      minDuration: 0.04
+      maxDuration: 0.12
+      startValue: 1.0
+      endValue: 8.0
+      property: Energy
+      isLooped: true
+    - !type:FadeBehaviour
+      id: dying
+      enabled: true
+      maxDuration: 5.0
+      startValue: 6.0
+      endValue: 2.0
+  - type: TimedDespawn
+    lifetime: 5
+
+- type: entity
+  parent: CrewletFlicker
+  id: CrewletGlow
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnSpawn
+  - type: EmitSoundOnTrigger
+    positional: true
+    sound:
+      path: /Audio/_EinsteinEngines/Effects/Shadowkin/darkswapoff.ogg
+
+- type: entity
+  parent: CrewletFlicker
+  id: CrewletOmenGlow
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: LightBehaviour
+    behaviours:
+    - !type:RandomizeBehaviour
+      id: omen
+      enabled: true
+      interpolate: Nearest
+      minDuration: 0.04
+      maxDuration: 0.12
+      startValue: 1.0
+      endValue: 8.0
+      property: Energy
+      isLooped: true
+    - !type:FadeBehaviour
+      id: omen
+      enabled: true
+      maxDuration: 3.0
+      startValue: 6.0
+      endValue: 1.0
+  - type: TimedDespawn
+    lifetime: 3
+  - type: TriggerOnSpawn
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_EinsteinEngines/Effects/Shadowkin/darkswapon.ogg
+      params:
+        volume: -2
+
+- type: entity
+  id: CrewletFlare
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 2
+  - type: TriggerOnSpawn
+  - type: EmitSoundOnTrigger
+    positional: true
+    sound:
+      path: /Audio/_Goobstation/Heretic/heartbeat.ogg
+      params:
+        volume: 3
+        maxDistance: 8
+  - type: SpawnOnTrigger
+    proto: CrewletFlareBlood
+
+- type: entity
+  parent: PuddleTemporary
+  id: CrewletFlareBlood
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: Blood
+          Quantity: 8
+
+- type: entity
+  abstract: true
+  id: CrewletPortalBase
+  components:
+  - type: Sprite
+    drawdepth: FloorObjects
+    noRot: true
+    layers:
+    - sprite: Objects/Misc/fleshkudzu.rsi
+      state: kudzu_33
+    - sprite: Effects/portal.rsi
+      state: portal-red
+      color: "#ff2a3a"
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 0.12
+
+- type: entity
+  parent: CrewletPortalBase
+  id: CrewletPortal
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    scale: 0.3, 0.3
+  - type: SpawnOnDespawn
+    prototype: CrewletPortalOpening
+  - type: EmitSoundOnSpawn
+    positional: true
+    sound:
+      path: /Audio/Effects/demon_consume.ogg
+
+- type: entity
+  parent: CrewletPortalBase
+  id: CrewletPortalOpening
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    scale: 0.65, 0.65
+  - type: SpawnOnDespawn
+    prototype: CrewletPortalOpen
+
+- type: entity
+  parent: CrewletPortalBase
+  id: CrewletPortalOpen
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 2.3
+  - type: SpawnOnDespawn
+    prototype: CrewletPortalClosing
+  - type: PointLight
+    color: "#ff2a3a"
+    radius: 2.5
+    energy: 2
+    netsync: false
+
+- type: entity
+  parent: CrewletPortalBase
+  id: CrewletPortalClosing
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    scale: 0.65, 0.65
+  - type: SpawnOnDespawn
+    prototype: CrewletPortalShut
+  - type: EmitSoundOnSpawn
+    positional: true
+    sound:
+      path: /Audio/Effects/Fluids/splat.ogg
+
+- type: entity
+  parent: CrewletPortalBase
+  id: CrewletPortalShut
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    scale: 0.3, 0.3
+  - type: SpawnOnDespawn
+    prototype: CrewletPortalGoo
+
+- type: entity
+  parent: PuddleTemporary
+  id: CrewletPortalGoo
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: Blood
+          Quantity: 10
+
+- type: entity
+  id: CrewletPortalGulp
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: EmitSoundOnSpawn
+    positional: true
+    sound:
+      path: /Audio/_Goobstation/Misc/enter_blood.ogg
+
+- type: entity
+  id: CrewletPortalExit
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: EmitSoundOnSpawn
+    positional: true
+    sound:
+      path: /Audio/_Goobstation/Misc/exit_blood.ogg

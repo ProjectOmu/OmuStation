@@ -39,105 +39,123 @@
   id: GreyMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorGrey
+  groupBy: "militaryjumpsuit" #omu
 
 
 - type: loadout
   id: BlackMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorBlack
+  groupBy: "militaryjumpsuit" #omu
 
 
 - type: loadout
   id: BlueMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorBlue
+  groupBy: "militaryjumpsuit" #omu
 
 
 - type: loadout
   id: DarkBlueMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorDarkBlue
+  groupBy: "militaryjumpsuit" #omu
 
 
 - type: loadout
   id: TealMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorTeal
+  groupBy: "militaryjumpsuit" #omu
 
 
 - type: loadout
   id: GreenMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorGreen
+  groupBy: "militaryjumpsuit" #omu
 
 
 - type: loadout
   id: DarkGreenMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorDarkGreen
+  groupBy: "militaryjumpsuit" #omu
 
 
 - type: loadout
   id: OrangeMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorOrange
+  groupBy: "militaryjumpsuit" #omu
 
 
 - type: loadout
   id: PinkMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorPink
+  groupBy: "militaryjumpsuit" #omu
 
 
 - type: loadout
   id: RedMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorRed
+  groupBy: "militaryjumpsuit" #omu
 
 
 - type: loadout
   id: YellowMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorYellow
+  groupBy: "militaryjumpsuit" #omu
 
 
 - type: loadout
   id: PurpleMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorPurple
+  groupBy: "militaryjumpsuit" #omu
 
 
 - type: loadout
   id: LightBrownMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorLightBrown
+  groupBy: "militaryjumpsuit" #omu
 
 
 - type: loadout
   id: BrownMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorBrown
+  groupBy: "militaryjumpsuit" #omu
 
 
 - type: loadout
   id: MaroonMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorMaroon
+  groupBy: "militaryjumpsuit" #omu
 
 - type: loadout
   id: ContractorJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryContractor
+  groupBy: "militaryjumpsuit" #omu
 
 - type: loadout
   id: ContractorJumpsuitTac
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryContractorTac
+  groupBy: "militaryjumpsuit" #omu
 
 - type: loadout
   id: BlackMJAlt
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorBlackAlt
+  groupBy: "militaryjumpsuit" #omu
 
 # service jumpsuit - putting it here because frontier's only service jumpsuits are hydroponics and general lmao # goob change btw
 
@@ -145,3 +163,4 @@
   id: ServiceMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryService
+  groupBy: "militaryjumpsuit" #omu
