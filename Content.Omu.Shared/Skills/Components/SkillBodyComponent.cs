@@ -10,6 +10,9 @@ namespace Content.Omu.Shared.Skills.Components;
 public sealed partial class SkillBodyComponent : Component
 {
     [DataField]
+    public bool EffectsStamina = true;
+
+    [DataField]
     public HashSet<ProtoId<SkillPrototype>> StaminaSkills = new();
 
     [DataField]

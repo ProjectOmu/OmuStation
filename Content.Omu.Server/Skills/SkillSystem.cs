@@ -211,7 +211,7 @@ public sealed class SkillSystem : SharedSkillSystem
 
     private void SetStaminaMultiplier(Entity<SkillBodyComponent> body, float multiplier)
     {
-        if (!TryComp<StaminaComponent>(body, out var stamina) || multiplier == body.Comp.StaminaMultiplier)
+        if (!TryComp<StaminaComponent>(body, out var stamina) || multiplier == body.Comp.StaminaMultiplier || !body.Comp.EffectsStamina)
             return;
 
         stamina.Decay *= multiplier / body.Comp.StaminaMultiplier;
