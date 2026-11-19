@@ -2,8 +2,13 @@
 
 using System.Numerics;
 using Content.Omu.Shared.Paper;
+using Content.Shared.Chat;
+using Content.Shared.Crayon;
+using Content.Shared.Decals;
+using Content.Shared.Interaction.Components;
 using Content.Shared.Paper;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Omu.Server.Crewlet;
@@ -11,8 +16,10 @@ namespace Content.Omu.Server.Crewlet;
 public sealed partial class CrewletBrainSystem
 {
     private const string DefaultSignatureFont = "Default";
+    private const string CrayonDecalTag = "crayon";
 
     private readonly List<CrewletToolChoice> _toolChoices = new();
+    private readonly List<string> _drawings = new();
 
     private record struct CrewletToolChoice(
         CrewletToolAction Action,
@@ -35,6 +42,12 @@ public sealed partial class CrewletBrainSystem
                 }
 
                 var picked = PickToolUse(ent, now);
+                if (picked != null && picked == brain.ToolTarget && brain.ToolHabit?.Tool is { } shape)
+                {
+                    FormTool(ent, shape, now);
+                    return;
+                }
+
                 Begin(ent, picked, Handless(brain) ? brain.InteractRange : brain.MeleeRange, now);
                 return;
             case CrewletStep.Approach:
@@ -84,6 +97,42 @@ public sealed partial class CrewletBrainSystem
                     End(ent);
                 return;
         }
+    }
+
+    private bool CanForm(CrewletBrainComponent brain, EntProtoId shape)
+    {
+        if (!_proto.TryIndex(shape, out var prototype))
+            return false;
+
+        foreach (var name in brain.FormBlacklist.Keys)
+        {
+            if (prototype.Components.ContainsKey(name))
+                return false;
+        }
+
+        return true;
+    }
+
+    private void FormTool(Entity<CrewletBrainComponent> ent, EntProtoId shape, TimeSpan now)
+    {
+        var brain = ent.Comp;
+        var tool = Spawn(shape, Transform(ent).Coordinates);
+        AddComp<UnremoveableComponent>(tool);
+        if (!_hands.TryPickup(ent, tool, checkActionBlocker: false))
+        {
+            Del(tool);
+            End(ent);
+            return;
+        }
+
+        brain.FormedTool = tool;
+        brain.Target = tool;
+        _chat.TrySendInGameICMessage(ent,
+            Loc.GetString(brain.FormToolText, ("tool", tool)),
+            InGameICChatType.Emote,
+            false);
+        _audio.PlayPvs(brain.FormToolSound, ent);
+        SetCourse(ent, brain.ToolSpot, brain.MeleeRange, brain.MoveTimeout, now, CrewletStep.Escort);
     }
 
     private void Perform(Entity<CrewletBrainComponent> ent, EntityUid? tool, TimeSpan now)
@@ -197,10 +246,10 @@ public sealed partial class CrewletBrainSystem
     {
         var key = habit.Key;
         EntityUid? tool = null;
-        if (key.Tool != null)
+        if (key.Tool is { } shape)
         {
             tool = FindTool(ent, null, key, now);
-            if (tool == null)
+            if (tool == null && !CanForm(ent.Comp, shape))
                 return 0f;
         }
 
@@ -266,7 +315,7 @@ public sealed partial class CrewletBrainSystem
                 || TerminatingOrDeleted(uid)
                 || !TargetReady(ent.Comp, uid, now)
                 || _container.IsEntityInContainer(uid)
-                || (use != null ? !UseFits(ent, use, uid) : !HabitFits(ent, habit, tool, uid)))
+                || (use != null ? !UseFits(ent, use, uid) : !HabitFits(ent, habit, uid)))
                 continue;
 
             var distance = (_transform.GetWorldPosition(uid) - origin).Length();
@@ -303,6 +352,9 @@ public sealed partial class CrewletBrainSystem
         switch (brain.ToolAction)
         {
             case CrewletToolAction.Floor:
+                if (tool is { } crayon)
+                    PickDrawing(crayon);
+
                 _interaction.UserInteraction(ent, brain.ToolSpot, null);
                 return true;
             case CrewletToolAction.Sign:
@@ -336,6 +388,19 @@ public sealed partial class CrewletBrainSystem
                 Interact(ent, target);
                 return true;
         }
+    }
+
+    private void PickDrawing(EntityUid crayon)
+    {
+        _drawings.Clear();
+        foreach (var decal in _proto.EnumeratePrototypes<DecalPrototype>())
+        {
+            if (decal.Tags.Contains(CrayonDecalTag))
+                _drawings.Add(decal.ID);
+        }
+
+        if (_drawings.Count > 0)
+            RaiseLocalEvent(crayon, new CrayonSelectMessage(_random.Pick(_drawings)));
     }
 
     private bool Unsigned(EntityUid crewlet, EntityUid paper)

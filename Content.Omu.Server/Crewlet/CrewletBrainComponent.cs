@@ -77,6 +77,15 @@ public sealed partial class CrewletBrainComponent : Component
     public ProtoId<LocalizedDatasetPrototype> ComeWords = "CrewletComeWords";
 
     [DataField]
+    public ProtoId<LocalizedDatasetPrototype> StayWords = "CrewletStayWords";
+
+    [DataField]
+    public TimeSpan StayTime = TimeSpan.FromSeconds(10);
+
+    [DataField]
+    public LocId CommandEcho = "crewlet-command-echo";
+
+    [DataField]
     public float WorryDamage = 5f;
 
     [DataField]
@@ -117,6 +126,9 @@ public sealed partial class CrewletBrainComponent : Component
 
     [DataField]
     public TimeSpan PointDuration = TimeSpan.FromSeconds(4);
+
+    [DataField]
+    public float PointBackChance = 0.5f;
 
     [DataField]
     public TimeSpan FailureCooldown = TimeSpan.FromSeconds(5);
@@ -165,6 +177,15 @@ public sealed partial class CrewletBrainComponent : Component
 
     [DataField]
     public TimeSpan RetaliationRest = TimeSpan.FromSeconds(3);
+
+    [DataField]
+    public TimeSpan CrewletFightTime = TimeSpan.FromSeconds(15);
+
+    [DataField]
+    public TimeSpan CrewletFightGap = TimeSpan.FromSeconds(10);
+
+    [DataField]
+    public TimeSpan CrewletTruceTime = TimeSpan.FromMinutes(1);
 
     [DataField]
     public TimeSpan PunchRest = TimeSpan.FromSeconds(1.5);
@@ -290,6 +311,9 @@ public sealed partial class CrewletBrainComponent : Component
     public TimeSpan HelloCooldown = TimeSpan.FromMinutes(2);
 
     [DataField]
+    public TimeSpan CrewletHelloCooldown = TimeSpan.FromMinutes(7);
+
+    [DataField]
     public ProtoId<LocalizedDatasetPrototype> HelloLines = "CrewletHello";
 
     [DataField]
@@ -362,6 +386,9 @@ public sealed partial class CrewletBrainComponent : Component
     public EntityWhitelist? HabitToolBlacklist;
 
     [DataField]
+    public ComponentRegistry FormBlacklist = new();
+
+    [DataField]
     public EntityWhitelist? PersonTools;
 
     [DataField]
@@ -398,7 +425,7 @@ public sealed partial class CrewletBrainComponent : Component
     public TimeSpan HabitRecheckTime = TimeSpan.FromSeconds(30);
 
     [DataField]
-    public int RiskyLearnAfter = 4;
+    public int RiskyLearnAfter = 3;
 
     [DataField]
     public LogImpact RiskyImpact = LogImpact.High;
@@ -512,6 +539,12 @@ public sealed partial class CrewletBrainComponent : Component
     public LocId StareLine = "crewlet-stare";
 
     [DataField]
+    public LocId FormToolText = "crewlet-form-tool";
+
+    [DataField]
+    public SoundSpecifier FormToolSound = new SoundCollectionSpecifier("gib", AudioParams.Default.WithVolume(-3f));
+
+    [DataField]
     public LocId RecallLine = "crewlet-recall";
 
     [DataField]
@@ -553,11 +586,23 @@ public sealed partial class CrewletBrainComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan RestUntil;
 
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan StayUntil;
+
     [DataField]
     public EntityUid? RetaliationTarget;
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan RetaliateUntil;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan CrewletFightStart;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan LastCrewletFight;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan CrewletTruceUntil;
 
     [DataField]
     public EntityUid? Hugger;
@@ -668,6 +713,9 @@ public sealed partial class CrewletBrainComponent : Component
     public CrewletHabitKey? ToolHabit;
 
     [DataField]
+    public EntityUid? FormedTool;
+
+    [DataField]
     public CrewletHabitKey? LastHabit;
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
@@ -687,6 +735,9 @@ public sealed partial class CrewletBrainComponent : Component
 
     [DataField, AutoPausedField]
     public Dictionary<EntityUid, TimeSpan> HelloReadyAt = new();
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan CrewletHelloReadyAt;
 
     [DataField]
     public List<CrewletHabit> Habits = new();
@@ -738,6 +789,7 @@ public enum CrewletActivity : byte
     BreakPull,
     Retaliate,
     Rest,
+    Stay,
     Merge,
     Recall,
     CatchUp,

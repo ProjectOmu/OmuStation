@@ -53,6 +53,8 @@
         true
       NavPry: !type:Bool
         true
+      NavClimb: !type:Bool
+        true
   - type: CrewletBrain
     danceEmote: Jump
     pickpocketBlacklist:
@@ -103,6 +105,9 @@
       - Firelock
       - MindContainer
       - MobState
+    formBlacklist:
+    - type: LimitedCharges
+    - type: Emag
     habitToolBlacklist:
       components:
       - Injector
@@ -124,21 +129,6 @@
       components:
       - Puddle
     toolUses:
-    - tool:
-        tags:
-        - Wrench
-      target:
-        components:
-        - Anchorable
-    - tool:
-        requireAll: true
-        components:
-        - Utensil
-        tags:
-        - Knife
-      target:
-        components:
-        - SliceableFood
     - tool:
         tags:
         - Write
@@ -163,7 +153,6 @@
   - type: NpcFactionMember
     factions:
     - Passive
-  - type: MovementIgnoreGravity
   - type: ActiveListener
   - type: ParrotMemory
     learnChance: 1
@@ -174,6 +163,7 @@
     emotes:
     - Scream
     withChat: true
+  - type: CrewletHarmScream
   - type: CrewletRegen
     damage:
       types:

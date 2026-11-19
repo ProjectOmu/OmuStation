@@ -37,6 +37,10 @@ crewlet-dislike-7 = Hate {$name}!
 crewlet-come-1 = come
 crewlet-come-2 = follow
 
+crewlet-stay-1 = stay still
+crewlet-stay-2 = stand still
+crewlet-stay-3 = stay
+
 crewlet-dislikerare-1 = It has recently come to my attention that you are nothing more than a scoundrel, and I shall be ecstatic to finally be rid of you.
 crewlet-dislikerare-2 = When the shuttle arrives, {$name}, I will personally pray you are not on it.
 crewlet-dislikerare-3 = I have read your medical records, {$name}. All of them. But only I know what's really inside you.
