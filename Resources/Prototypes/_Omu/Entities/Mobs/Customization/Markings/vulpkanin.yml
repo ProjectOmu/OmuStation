@@ -207,3 +207,49 @@
   sprites:
   - sprite: _Omu/Mobs/Customization/Vulpkanin/body_markings.rsi
     state: points_feet_right
+
+- type: marking
+  id: VulpThreeSpurs
+  markingCategory: HeadTop
+  bodyPart: Head
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/head_top_markings.rsi
+    state: three_spurs
+
+- type: marking
+  id: VulpThreeSpursThick
+  markingCategory: HeadTop
+  bodyPart: Head
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/head_top_markings.rsi
+    state: three_spurs_thick
+
+- type: marking
+  id: VulpWedgeHead
+  markingCategory: Snout
+  bodyPart: Head
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/snout_markings.rsi
+    state: wedge_head
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/snout_markings.rsi
+    state: wedge_nose_1
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/snout_markings.rsi
+    state: wedge_nose_2
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/snout_markings.rsi
+    state: wedge_nose_3
+
+- type: marking
+  id: VulpSawTail
+  markingCategory: Tail
+  bodyPart: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: saw_tail
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: saw_tail_1
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: saw_tail_2

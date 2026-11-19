@@ -69,3 +69,8 @@ marking-VulpPointsFadeArmsRight = Vulpkanin Points Arm (fade)
 
 marking-VulpPointsSharpArmsRight-points_sharp-arms_right = Points (sharp)
 marking-VulpPointsSharpArmsRight = Vulpkanin Points Arm (sharp)
+
+marking-VulpThreeSpurs = Three Spurs
+marking-VulpThreeSpursThick = Three Spurs (Thick)
+marking-VulpWedgeHead = Wedge Head
+marking-VulpSawTail = Saw Tail
