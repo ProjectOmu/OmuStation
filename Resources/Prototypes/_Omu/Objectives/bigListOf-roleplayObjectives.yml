@@ -1,27 +1,93 @@
 - type: &e entity
   abstract: true
   parent: BaseTraitorObjective
-  id: &base BaseOmuRPObjective
+  id: &check BaseOmuBigListObjective
   components:
   - type: Objective
     difficulty: 1
+    icon:
+      sprite: Objects/Misc/bureaucracy.rsi
+      state: syndicate_card
+
+- type: *e
+  abstract: true
+  parent: *check
+  id: &base BaseOmuRPObjective
+  components:
   - type: RoleplayObjective
 
 - type: *e
   abstract: true
-  parent: *base
-  id: &rtgt BaseOmuRPObjectivePickPerson
+  parent: *check
+  id: &ctgt BaseOmuBigListObjectivePickPerson
   components:
   - type: PickRandomPerson
-    # prob needs filters
+    filters:
+    - !type:ObjectiveImmuneFilter
+    - !type:BodyMindFilter
+      inverted: true
+      whitelist:
+        components:
+        - TargetObjectiveImmune
+
+- type: *e
+  abstract: true
+  parent: [ *base, *ctgt ]
+  id: &rtgt BaseOmuRPObjectivePickPerson
+
+- type: *e
+  abstract: true
+  parent: *base
+  id: &bees BaseOmuRPObjectiveBees
+
+- type: *e
+  abstract: true
+  parent: *base
+  id: &bomb BaseOmuRPObjectiveBombDepartment
+
+- type: *e
+  abstract: true
+  parent: *base
+  id: &wipe BaseOmuRPObjectiveWipeDepartment
+
+- type: *e
+  abstract: true
+  parent: *base
+  id: &union BaseOmuRPObjectiveUnionizeDepartment
 
 - { type: *e , parent: *base , id: OmuRPObjectiveVandalizeATS }
 - { type: *e , parent: *base , id: OmuRPObjectiveBeStealthy }
-- { type: *e , parent: *base , id: OmuRPObjectiveBecomeCaptain }
-- { type: *e , parent: *base , id: OmuRPObjectiveClimbCorporateLadder }
+- type: *e
+  parent: *check
+  id: OmuRPObjectiveBecomeCaptain
+  components:
+  - type: NotJobRequirement
+    jobs: [ Captain ]
+  - type: IdCardJobCondition
+    jobs: [ Captain ]
+- type: *e
+  parent: *check
+  id: OmuRPObjectiveClimbCorporateLadder
+  components:
+  - type: NotCommandRequirement
+  - type: IdCardJobCondition
+    jobs:
+    - Captain
+    - HeadOfPersonnel
+    - ChiefEngineer
+    - ChiefMedicalOfficer
+    - HeadOfSecurity
+    - ResearchDirector
+    - Quartermaster
 - { type: *e , parent: *base , id: OmuRPObjectiveSabotageComms }
 - { type: *e , parent: *base , id: OmuRPObjectiveCyberneticSmuggling }
-- { type: *e , parent: *base , id: OmuRPObjectiveDestroyTheTEG }
+- type: *e
+  parent: *check
+  id: OmuRPObjectiveDestroyTheTEG
+  components:
+  - type: DestroyAllCondition
+    components:
+    - type: TegGenerator
 - { type: *e , parent: *base , id: OmuRPObjectiveKillXenobio }
 - { type: *e , parent: *base , id: OmuRPObjectiveShowOff }
 - { type: *e , parent: *base , id: OmuRPObjectiveEmptyArmory }
@@ -45,19 +111,102 @@
 - { type: *e , parent: *base , id: OmuRPObjectiveNoWeldingFuel }
 - { type: *e , parent: *base , id: OmuRPObjectiveDestroyTheSalvageShuttle }
 - { type: *e , parent: *base , id: OmuRPObjectiveDestroyTheCargoShuttle }
-- { type: *e , parent: *base , id: OmuRPObjectiveShrinkTheStation }
+- type: *e
+  parent: *check
+  id: OmuRPObjectiveShrinkTheStation
+  components:
+  - type: StationShrinkCondition
+    requiredLoss: 0.01
 - { type: *e , parent: *base , id: OmuRPObjectiveStealCargoSilo }
 - { type: *e , parent: *base , id: OmuRPObjectiveUnsafeBar }
 - { type: *e , parent: *base , id: OmuRPObjectiveUnsafeKitchen }
 - { type: *e , parent: *base , id: OmuRPObjectiveAllThePetsAreMineNow }
 - { type: *e , parent: *base , id: OmuRPObjectiveStealAVehicle }
 - { type: *e , parent: *base , id: OmuRPObjectiveSueNanotrasen }
-- { type: *e , parent: *base , id: OmuRPObjectivePromoteToRD }
-- { type: *e , parent: *base , id: OmuRPObjectivePromoteToQM }
-- { type: *e , parent: *base , id: OmuRPObjectivePromoteToCE }
-- { type: *e , parent: *base , id: OmuRPObjectivePromoteToCMO }
-- { type: *e , parent: *base , id: OmuRPObjectivePromoteToHOP }
+- type: *e
+  parent: *check
+  id: OmuRPObjectivePromoteToRD
+  components:
+  - type: NotJobRequirement
+    jobs: [ ResearchDirector ]
+  - type: IdCardJobCondition
+    jobs: [ ResearchDirector ]
+- type: *e
+  parent: *check
+  id: OmuRPObjectivePromoteToQM
+  components:
+  - type: NotJobRequirement
+    jobs: [ Quartermaster ]
+  - type: IdCardJobCondition
+    jobs: [ Quartermaster ]
+- type: *e
+  parent: *check
+  id: OmuRPObjectivePromoteToCE
+  components:
+  - type: NotJobRequirement
+    jobs: [ ChiefEngineer ]
+  - type: IdCardJobCondition
+    jobs: [ ChiefEngineer ]
+- type: *e
+  parent: *check
+  id: OmuRPObjectivePromoteToCMO
+  components:
+  - type: NotJobRequirement
+    jobs: [ ChiefMedicalOfficer ]
+  - type: IdCardJobCondition
+    jobs: [ ChiefMedicalOfficer ]
+- type: *e
+  parent: *check
+  id: OmuRPObjectivePromoteToHOP
+  components:
+  - type: NotJobRequirement
+    jobs: [ HeadOfPersonnel ]
+  - type: IdCardJobCondition
+    jobs: [ HeadOfPersonnel ]
 - { type: *e , parent: *base , id: OmuRPObjectiveVoxStation }
+- { type: *e , parent: *base , id: OmuRPObjectiveSabotageDepartment }
+- type: *e
+  parent: *check
+  id: OmuRPObjectiveDisableGravity
+  components:
+  - type: GravityOffCondition
+    duration: 300
+- { type: *e , parent: *base , id: OmuRPObjectiveStartAGang }
+- type: *e
+  parent: *check
+  id: OmuRPObjectiveWasteMedicalResources
+  components:
+  - type: DeathCountCondition
+    required: 3
+- { type: *e , parent: *base , id: OmuRPObjectiveReplaceTiles }
+
+- { type: *e , parent: *bees , id: OmuRPObjectiveBeesCargo }
+- { type: *e , parent: *bees , id: OmuRPObjectiveBeesEngineering }
+- { type: *e , parent: *bees , id: OmuRPObjectiveBeesMedical }
+- { type: *e , parent: *bees , id: OmuRPObjectiveBeesScience }
+- { type: *e , parent: *bees , id: OmuRPObjectiveBeesSecurity }
+- { type: *e , parent: *bees , id: OmuRPObjectiveBeesService }
+
+- { type: *e , parent: *bomb , id: OmuRPObjectiveBombCargo }
+- { type: *e , parent: *bomb , id: OmuRPObjectiveBombEngineering }
+- { type: *e , parent: *bomb , id: OmuRPObjectiveBombMedical }
+- { type: *e , parent: *bomb , id: OmuRPObjectiveBombScience }
+- { type: *e , parent: *bomb , id: OmuRPObjectiveBombSecurity }
+- { type: *e , parent: *bomb , id: OmuRPObjectiveBombService }
+
+- { type: *e , parent: *wipe , id: OmuRPObjectiveWipeCargo }
+- { type: *e , parent: *wipe , id: OmuRPObjectiveWipeEngineering }
+- { type: *e , parent: *wipe , id: OmuRPObjectiveWipeMedical }
+- { type: *e , parent: *wipe , id: OmuRPObjectiveWipeScience }
+- { type: *e , parent: *wipe , id: OmuRPObjectiveWipeSecurity }
+- { type: *e , parent: *wipe , id: OmuRPObjectiveWipeService }
+
+- { type: *e , parent: *union , id: OmuRPObjectiveUnionizeCargo }
+- { type: *e , parent: *union , id: OmuRPObjectiveUnionizeEngineering }
+- { type: *e , parent: *union , id: OmuRPObjectiveUnionizeMedical }
+- { type: *e , parent: *union , id: OmuRPObjectiveUnionizeScience }
+- { type: *e , parent: *union , id: OmuRPObjectiveUnionizeSecurity }
+- { type: *e , parent: *union , id: OmuRPObjectiveUnionizeService }
 
 - type: *e
   parent: *rtgt
@@ -72,10 +221,205 @@
   components:
   - type: TargetObjective
     title: objective-condition-permathisguy-person-title
+  - type: PickRandomPerson
+    filters:
+    - !type:ObjectiveImmuneFilter
+    - !type:BodyMindFilter
+      inverted: true
+      whitelist:
+        components:
+        - TargetObjectiveImmune
+    - !type:JobMindFilter
+      job: TransitPrisoner
 
 - type: *e
-  parent: *rtgt
+  parent: *ctgt
   id: OmuRPObjectiveBorgThisGuy
   components:
   - type: TargetObjective
     title: objective-condition-borgthisguy-person-title
+  - type: TargetBorgedCondition
+
+- type: *e
+  parent: *rtgt
+  id: OmuRPObjectiveBribery
+  components:
+  - type: TargetObjective
+    title: objective-condition-bribery-person-title
+  - type: PickRandomPerson
+    filters:
+    - !type:ObjectiveImmuneFilter
+    - !type:BodyMindFilter
+      inverted: true
+      whitelist:
+        components:
+        - TargetObjectiveImmune
+    - !type:JobMindFilter
+      job: Passenger
+
+- type: *e
+  parent: *ctgt
+  id: OmuRPObjectiveDemoteSecurity
+  components:
+  - type: TargetObjective
+    title: objective-condition-demote-person-title
+  - type: TargetJobLostCondition
+    department: Security
+  - type: PickRandomPerson
+    filters:
+    - !type:ObjectiveImmuneFilter
+    - !type:BodyMindFilter
+      inverted: true
+      whitelist:
+        components:
+        - TargetObjectiveImmune
+    - !type:JobMindFilter
+      job: SecurityOfficer
+      inverted: true
+
+- type: *e
+  parent: *ctgt
+  id: OmuRPObjectiveDemoteCommand
+  components:
+  - type: TargetObjective
+    title: objective-condition-demote-person-title
+  - type: TargetJobLostCondition
+    department: Command
+  - type: PickRandomPerson
+    filters:
+    - !type:ObjectiveImmuneFilter
+    - !type:BodyMindFilter
+      inverted: true
+      whitelist:
+        components:
+        - TargetObjectiveImmune
+    - !type:BodyMindFilter
+      whitelist:
+        components:
+        - CommandStaff
+
+- type: *e
+  parent: *ctgt
+  id: OmuRPObjectiveSpeciesSwap
+  components:
+  - type: TargetObjective
+    title: objective-condition-speciesswap-person-title
+  - type: TargetSpeciesChangedCondition
+
+- type: *e
+  parent: *rtgt
+  id: OmuRPObjectiveOrganHarvest
+  components:
+  - type: TargetObjective
+    title: objective-condition-organharvest-person-title
+
+- type: *e
+  parent: *ctgt
+  id: OmuRPObjectiveVoxLungs
+  components:
+  - type: TargetObjective
+    title: objective-condition-voxlungs-person-title
+  - type: TargetOrganCondition
+    organ: OrganVoxLungs
+  - type: PickRandomPerson
+    filters:
+    - !type:ObjectiveImmuneFilter
+    - !type:BodyMindFilter
+      inverted: true
+      whitelist:
+        components:
+        - TargetObjectiveImmune
+    - !type:BodyMindFilter
+      whitelist:
+        components:
+        - Respirator
+
+- type: *e
+  parent: [ *check, BaseKeepAliveObjective ]
+  id: OmuRPObjectivePrisonerRescue
+  components:
+  - type: Objective
+    difficulty: 1.5
+  - type: TargetObjective
+    title: objective-condition-prisonerrescue-person-title
+  - type: PickRandomPerson
+    filters:
+    - !type:ObjectiveImmuneFilter
+    - !type:BodyMindFilter
+      inverted: true
+      whitelist:
+        components:
+        - TargetObjectiveImmune
+    - !type:JobMindFilter
+      job: TransitPrisoner
+      inverted: true
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
+        - KeepAliveCondition
+
+- type: *e
+  parent: [ BaseTraitorObjective, BaseKillObjective ]
+  id: OmuRPObjectivePrisonerAssassination
+  components:
+  - type: Objective
+    difficulty: 2
+  - type: TargetObjective
+    title: objective-condition-prisonerkill-person-title
+  - type: PickRandomPerson
+    filters:
+    - !type:ObjectiveImmuneFilter
+    - !type:BodyMindFilter
+      inverted: true
+      whitelist:
+        components:
+        - TargetObjectiveImmune
+    - !type:JobMindFilter
+      job: TransitPrisoner
+      inverted: true
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
+        - KeepAliveCondition
+  - type: KillPersonCondition
+    requireDead: true
+
+- type: *e
+  parent: [ BaseTraitorObjective, BaseKillObjective ]
+  id: OmuRPObjectiveFrameMurder
+  components:
+  - type: Objective
+    difficulty: 2
+  - type: TargetObjective
+    title: objective-condition-framemurder-person-title
+  - type: PickRandomPerson
+    filters:
+    - !type:ObjectiveImmuneFilter
+    - !type:BodyMindFilter
+      inverted: true
+      whitelist:
+        components:
+        - TargetObjectiveImmune
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
+  - type: KillPersonCondition
+    requireDead: true
+
+- type: *e
+  parent: BaseTraitorStealObjective
+  id: OmuRPObjectiveStealNuke
+  components:
+  - type: Objective
+    difficulty: 4
+  - type: NotJobRequirement
+    jobs: [ Captain ]
+  - type: ObjectiveLimit
+    limit: 1
+  - type: StealCondition
+    stealGroup: NuclearBomb
+    objectiveNoOwnerText: objective-condition-stealnuke-title
+    descriptionText: objective-condition-stealnuke-description
