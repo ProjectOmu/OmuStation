@@ -83,8 +83,12 @@ public sealed class CrewletReputationSystem : EntitySystem
         var comp = crewlet.Comp;
         Prune(comp);
 
-        var opinion = Math.Clamp(GetOpinion(crewlet.AsNullable(), person) + delta, -comp.MaxOpinion, comp.MaxOpinion);
-        comp.Opinions[person] = new CrewletOpinion(opinion, _timing.CurTime);
+        var neutral = HasComp<CrewletComponent>(person);
+        var opinion = neutral
+            ? 0f
+            : Math.Clamp(GetOpinion(crewlet.AsNullable(), person) + delta, -comp.MaxOpinion, comp.MaxOpinion);
+        if (!neutral)
+            comp.Opinions[person] = new CrewletOpinion(opinion, _timing.CurTime);
 
         var ev = new CrewletOpinionChangedEvent(person, opinion, reason);
         RaiseLocalEvent(crewlet, ref ev);

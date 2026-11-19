@@ -33,6 +33,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
 using Content.Shared.Maps;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
@@ -141,6 +142,7 @@ public sealed partial class CrewletBrainSystem : EntitySystem
 
         InitializeReactions();
         InitializeMerge();
+        SubscribeLocalEvent<CrewletBrainComponent, MindAddedMessage>(OnMindAdded);
 
         _anomalyQuery = GetEntityQuery<AnomalyComponent>();
         _climbableQuery = GetEntityQuery<ClimbableComponent>();
@@ -220,6 +222,11 @@ public sealed partial class CrewletBrainSystem : EntitySystem
         Run(ent, now);
     }
 
+    private void OnMindAdded(Entity<CrewletBrainComponent> ent, ref MindAddedMessage args)
+    {
+        StopThinking(ent);
+    }
+
     public void StopThinking(EntityUid uid)
     {
         if (!TryComp<CrewletBrainComponent>(uid, out var brain) || !brain.Active)
@@ -259,6 +266,9 @@ public sealed partial class CrewletBrainSystem : EntitySystem
 
         if (current > CrewletActivity.Rest && now < ent.Comp.RestUntil)
             return CrewletActivity.Rest;
+
+        if (current > CrewletActivity.Stay && now < ent.Comp.StayUntil)
+            return CrewletActivity.Stay;
 
         if (current > CrewletActivity.Merge && WantsMerge(ent, now))
             return CrewletActivity.Merge;
@@ -332,6 +342,9 @@ public sealed partial class CrewletBrainSystem : EntitySystem
                 break;
             case CrewletActivity.Rest:
                 RunRest(ent, now);
+                break;
+            case CrewletActivity.Stay:
+                RunStay(ent, now);
                 break;
             case CrewletActivity.Merge:
                 RunMerge(ent, now);
@@ -459,7 +472,13 @@ public sealed partial class CrewletBrainSystem : EntitySystem
                 _doAfter.Cancel(doAfter);
         }
 
-        if (ent.Comp.Activity == CrewletActivity.Tinker
+        if (ent.Comp.FormedTool is { } formed)
+        {
+            ent.Comp.FormedTool = null;
+            QueueDel(formed);
+        }
+        else if (ent.Comp.Activity == CrewletActivity.Tinker
+            && ent.Comp.RetaliationTarget == null
             && ent.Comp.Target is { } tool
             && _hands.IsHolding(ent.Owner, tool))
             _hands.TryDrop(ent.Owner, tool);

@@ -48,6 +48,9 @@ public sealed class CrewletSpeechSystem : EntitySystem
         using var query = EntityQueryEnumerator<CrewletChatterComponent, CrewletDisguiseComponent>();
         while (query.MoveNext(out var uid, out var chatter, out var disguise))
         {
+            if (_mind.TryGetMind(uid, out _, out _))
+                continue;
+
             if (now >= chatter.NextLine)
             {
                 chatter.NextLine = now + _random.Next(chatter.MinInterval, chatter.MaxInterval);
