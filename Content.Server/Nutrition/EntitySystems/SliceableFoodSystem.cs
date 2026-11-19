@@ -31,7 +31,8 @@ public sealed class SliceableFoodSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
-    private const float ScissorMult = 2f;
+    private const float ScissorMult = 2f; // Omu
+
     public override void Initialize()
     {
         base.Initialize();
