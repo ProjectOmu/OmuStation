@@ -1,0 +1,63 @@
+- type: job
+  id: MedicalMime
+  name: job-name-medical-mime
+  description: job-description-medical-mime
+  playTimeTracker: JobMedicalMime
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 10h #10 hrs
+    - !type:RoleTimeRequirement
+      role: JobMime
+      time: 1h #1 hr
+  startingGear: MedicalMimeGear
+  icon: "JobIconMedicalMime"
+  supervisors: job-supervisors-cmo
+  canBeAntag: true
+  setPreference: false
+  access:
+  - Service
+  - Theatre
+  - Maintenance
+  - Medical
+  - Cryogenics
+  extendedAccess:
+  - Chemistry
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: MimePowers
+      preventWriting: true
+    - type: FrenchAccent
+  - !type:AddComponentSpecial
+    components:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.75
+
+- type: startingGear
+  id: MedicalMimeGear
+  equipment:
+    eyes: ClothingEyesHudMedical
+    mask: ClothingMaskMimeMedical
+    neck: ClothingNeckStethoscope
+    jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+    shoes: ClothingShoesColorWhite
+    id: MedicalMimePDA
+    ears: ClothingHeadsetMedical
+    belt: ClothingBeltMedicalSuspendersFilled
+    gloves: ClothingHandsGlovesNitrile
+  storage:
+    back:
+
+- type: chameleonOutfit
+  id: MedicalMimeChameleonOutfit
+  job: MedicalMime
+  equipment:
+    eyes: ClothingEyesHudMedical
+    mask: ClothingMaskMimeMedical
+    neck: ClothingNeckStethoscope
+    jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+    shoes: ClothingShoesColorWhite
+    id: MedicalMimePDA
+    ears: ClothingHeadsetMedical
+    belt: ClothingBeltMedicalSuspenders
+    gloves: ClothingHandsGlovesNitrile

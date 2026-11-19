@@ -133,3 +133,19 @@
       storagebase: !type:AllSelector
         children:
         - id: SpeedLoaderMagnum
+
+- type: entity
+  id: ClothingBeltMedicalSuspendersFilled
+  parent: ClothingBeltMedicalSuspenders
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Brutepack
+          amount: 2
+        - id: Ointment
+        - id: Bloodpack
+        - id: Gauze
+        - id: EmergencyMedipen

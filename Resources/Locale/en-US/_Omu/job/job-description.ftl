@@ -11,3 +11,5 @@ job-description-transit-prisoner = A bureaucratic error caused your stay on this
 # Cargo Jobs
 job-description-courier = Ensure mail, parcel and materials are delivered to the crew.
 job-description-logistics-assistant = Learn the basics of hauling cargo, handling the station's orders, and shuttle piloting.
+# Event-Exclusive
+job-description-medical-mime = Diagnose and heal crewmembers through laughter and advanced mimeicine. Accidentally overdose patients from your inability to call out injections.

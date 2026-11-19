@@ -206,3 +206,14 @@
     sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
     state: scienceprofessor
   jobName: job-name-science-professor
+
+# Event Roles
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMedicalMime
+  icon:
+    sprite: /Textures/_Omu/Interface/Misc/job_icons.rsi
+    state: MedicalMime
+  jobName: job-name-medical-mime
+  allowSelection: false

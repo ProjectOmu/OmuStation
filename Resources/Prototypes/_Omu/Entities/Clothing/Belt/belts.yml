@@ -276,3 +276,39 @@
   - type: BallisticAmmoProvider
     proto: ShellShotgunHighCaliber
 
+- type: entity
+  parent: ClothingBeltMedical
+  id: ClothingBeltMedicalSuspenders
+  name: medical suspenders
+  description: Can hold your pants up, and possibly some medical equipment.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Belt/medicalsuspenders.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Belt/medicalsuspenders.rsi
+  - type: ItemMapper
+    sprite: _Omu/Clothing/Belt/medicalsuspendersoverlay.rsi
+    mapLayers:
+      bottle:
+        whitelist:
+          tags:
+          - Bottle
+      hypo:
+        whitelist:
+          tags:
+          - Injector #genuinely not sure what an "injector" is because ive tried pens and hypos but nothing triggers this. weird!!!!
+      pill:
+        whitelist:
+          components:
+          - Pill
+          tags:
+          - PillCanister
+      bottle_spray:
+        whitelist:
+          tags:
+          - Spray
+      wrench:
+        whitelist:
+          tags:
+          - Wrench
+  - type: Appearance

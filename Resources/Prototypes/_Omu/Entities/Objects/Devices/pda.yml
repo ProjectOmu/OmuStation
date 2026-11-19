@@ -387,3 +387,22 @@
   components:
   - type: Pda
     id:
+
+# Event Exclusive
+- type: entity
+  parent: MimePDA
+  id: MedicalMimePDA
+  name: medical mime PDA
+  description: Mimeicine is a very serious practice for very serious people.
+  components:
+  - type: Pda
+    id: MedicalMimeIDCard
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - NewsReaderCartridge
+      - MedTekCartridge
+      - NanoChatCartridge

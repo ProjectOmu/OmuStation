@@ -276,3 +276,18 @@
     jobTitle: job-name-science-professor
     jobIcon: JobIconScienceProfessor
 
+- type: entity
+  parent: IDCardStandard
+  id: MedicalMimeIDCard
+  name: medical mime ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _Omu/Objects/Misc/id_cards.rsi
+      state: idmedicalmime
+  - type: PresetIdCard
+    job: MedicalMime
+  - type: IdCard
+    jobTitle: job-name-medical-mime
+    jobIcon: JobIconMedicalMime

@@ -109,3 +109,36 @@
   - type: FlashImmunity
   - type: IngestionBlocker
     blockSmokeIngestion: true
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskMimeMedical
+  name: medical mime mask
+  description: A sort-of traditional mime's mask, altered to be sterile and more friendly-looking.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Mask/medical_mime.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Mask/medical_mime.rsi
+  - type: BreathMask
+  - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - IPCMaskWearable
+  - type: HideLayerClothing
+    slots:
+    - Snout
+  - type: DiseaseProtection
+    # same as sterile mask
+    incoming:
+      powerModifiers:
+        Aerial: -0.6
+      chanceMultipliers:
+        Aerial: 0.4
+    outgoing:
+      powerModifiers:
+        Aerial: -0.6
+      chanceMultipliers:
+        Aerial: 0.4
