@@ -184,7 +184,8 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             explosive.TileBreakScale,
             explosive.MaxTileBreak,
             explosive.CanCreateVacuum,
-            user);
+            user,
+            logTypeOverride: explosive.LogImpactOverride); // Omu - control logging through comp);
 
         if (explosive.DeleteAfterExplosion ?? delete)
             QueueDel(uid);
@@ -252,7 +253,8 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         int maxTileBreak = int.MaxValue,
         bool canCreateVacuum = true,
         EntityUid? user = null,
-        bool addLog = true)
+        bool addLog = true,
+        LogImpact logTypeOverride = LogImpact.High) // Omu - add logging override
     {
         var pos = Transform(uid);
 
@@ -276,6 +278,10 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             var logImpact = (alertMinExplosionIntensity > -1 && totalIntensity >= alertMinExplosionIntensity)
                 ? LogImpact.Extreme
                 : LogImpact.High;
+            // Omu start
+            if (logTypeOverride < LogImpact.High) // Omu - only override if we are downgrading
+                logImpact = logTypeOverride;
+            // Omu end
             if (posFound)
                 _adminLogger.Add(LogType.Explosion, logImpact, $"{ToPrettyString(user.Value):user} caused {ToPrettyString(uid):entity} to explode ({typeId}) at Pos:{gridPos:coordinates} with intensity {totalIntensity} slope {slope}");
             else

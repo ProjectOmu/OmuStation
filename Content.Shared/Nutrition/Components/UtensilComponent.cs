@@ -47,6 +47,7 @@ namespace Content.Shared.Nutrition.Components
         None = 0,
         Fork = 1,
         Spoon = 1 << 1,
-        Knife = 1 << 2
+        Knife = 1 << 2,
+        Scissor = 1 << 3 // Omu, why the fuck is it like this
     }
 }

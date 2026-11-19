@@ -65,7 +65,8 @@ job-description-lawyer = Ensure that every prisoner or criminal receives a fair 
 job-description-librarian = Manage the library, give out knowledge to any who seek it, and report on activities aboard the station.
 job-description-mime = Entertain the crew without speaking or writing, and engage with light rivalry with the clown.
 job-description-musician = Entertain the crew with your unique musical talent, and acquire new instruments to mess around with.
-job-description-passenger = Enjoy your stay aboard the station with no obligations!
+# omu off duty
+job-description-passenger = Enjoy your stay aboard the station with (almost) no obligations!
 job-description-psychologist = Provide emotional support to traumatized crew.
 job-description-qm = Manage the supplies of the station & the Cargo department, keep the salvage specialists working, make sure all orders are fulfilled, and keep the money flowing.
 job-description-rd = Manage the Science department, unlocking technologies, acquiring & researching artifacts, and performing experiments.

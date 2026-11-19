@@ -24,6 +24,13 @@
   name: guide-entry-sop-corpsman
   text: /ServerInfo/_Omu/Guidebook/SoP/Jobs/Security/CorpsmanSOP.xml
 
+# Off Duty SOP Entry
+- type: guideEntry
+  id: OffDutySOP
+  name: guide-entry-sop-offduty
+  text: "/ServerInfo/_Omu/Guidebook/SoP/Jobs/OffDuty/OffDutySOP.xml"
+  priority: 8
+
 # Mentor SOPs
   # Sergeant SOP
 - type: guideEntry

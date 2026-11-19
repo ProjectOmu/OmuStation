@@ -123,7 +123,7 @@
               amount: 2
               doAfter: 2
             - tool: Welding
-              doAfter: 20
+              doAfter: 10 # Omu
 
         - to: meatWall
           completed:
