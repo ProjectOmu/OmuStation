@@ -10311,3 +10311,15 @@ Entries:
       message: '''SmiteOnMeleeHit'' component'
   id: 1323
   time: '2026-11-19T08:16:58.0000000+00:00'
+- author: LunaTheFox
+  changes:
+    - type: Add
+      message: Added Internal Affairs comms
+    - type: Add
+      message: Internal Affairs radio key
+    - type: Add
+      message: Internal Affairs radio implanter
+    - type: Tweak
+      message: Changed IAA to use IA comms instead of CC comms
+  id: 1324
+  time: '2026-11-19T08:23:29.0000000+00:00'
