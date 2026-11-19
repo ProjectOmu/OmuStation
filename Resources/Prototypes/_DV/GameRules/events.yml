@@ -77,7 +77,7 @@
       components:
       - type: AutoImplant
         implants:
-        - RadioImplantCentcomm
+        - RadioImplantInternalAffairs #Omu, swapping to IA radio
         - NanolinkSubImplant # Omu, give them nanolink as well.
 
 # nt agent sleeper event
@@ -122,7 +122,7 @@
       components:
       - type: AutoImplant
         implants:
-        - RadioImplantCentcomm
+        - RadioImplantInternalAffairs #Omu, swaping to IA radio
         - NanolinkSubImplant
 
 - type: entity
