@@ -69,6 +69,11 @@ public sealed partial class ItemSwitchComponent : Component
     {
         State = state;
     }
+
+    // Omu start
+    [DataField]
+    public LocId? NoChargeMessage;
+    // Omu end
 }
 [DataDefinition]
 public sealed partial class ItemSwitchState : BoundUserInterfaceMessage
