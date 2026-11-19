@@ -47,7 +47,8 @@ public sealed class SliceableFoodSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (!TryComp<UtensilComponent>(args.Used, out var utensil) || (utensil.Types & (UtensilType.Knife | UtensilType.Scissor)) == 0) // Omu, added scissors to "slice" food for some reason.
+        if (!TryComp<UtensilComponent>(args.Used, out var utensil)
+            || (utensil.Types & (UtensilType.Knife | UtensilType.Scissor)) == 0) // Omu
             return;
         //Omu Start
         var sliceTime = entity.Comp.SliceTime;
