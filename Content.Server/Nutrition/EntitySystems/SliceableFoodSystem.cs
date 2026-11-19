@@ -91,7 +91,8 @@ public sealed class SliceableFoodSystem : EntitySystem
         if (!_solutionContainer.TryGetSolution(entity.Owner, entity.Comp3.Solution, out var soln, out var solution))
             return false;
 
-        if (!TryComp<UtensilComponent>(usedItem, out var utensil) || (utensil.Types & (UtensilType.Knife | UtensilType.Scissor)) == 0)
+        if (!TryComp<UtensilComponent>(usedItem, out var utensil)
+            || (utensil.Types & (UtensilType.Knife | UtensilType.Scissor)) == 0) // Omu
             return false;
 
         var sliceVolume = solution.Volume / FixedPoint2.New(entity.Comp2.TotalCount);
