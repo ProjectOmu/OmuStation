@@ -3,21 +3,18 @@ using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Jittering;
-using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Robust.Shared.Network;
-using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.Wraith.Systems;
+namespace Content.Omu.Shared.Wraith.Systems;
 
 public sealed partial class SummonPlagueRatSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly ISharedAdminLogManager _admin = default!;
-    [Dependency] private readonly IGameTiming _timing = default!; // Omu edit
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -26,9 +23,7 @@ public sealed partial class SummonPlagueRatSystem : EntitySystem
         SubscribeLocalEvent<SummonPlagueRatComponent, SummonPlagueRatEvent>(OnSummonRat);
     }
 
-    // Part 2 TO DO: Only allow one summoned plaguerat to exist on station at any given time.
-
-    private void OnSummonRat(Entity<SummonPlagueRatComponent> ent, ref SummonPlagueRatEvent args) // Omu edit: This whole system is reworked
+    private void OnSummonRat(Entity<SummonPlagueRatComponent> ent, ref SummonPlagueRatEvent args) // Omu edit: This whole system is reworked, Used to exist in Content.Goobstation.Shared/Wraith/Systems/ but has been moved.
     {
         var comp = ent.Comp;
         if (args.Handled)
