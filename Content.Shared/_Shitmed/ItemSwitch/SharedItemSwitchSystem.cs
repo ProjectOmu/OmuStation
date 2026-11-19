@@ -18,6 +18,9 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Containers;
+using Content.Shared.Wieldable.Components;
+using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Weapons.Melee.Components;
 
 namespace Content.Shared._Shitmed.ItemSwitch;
 public abstract class SharedItemSwitchSystem : EntitySystem
@@ -70,6 +73,13 @@ public abstract class SharedItemSwitchSystem : EntitySystem
     {
         var comp = ent.Comp;
 
+        //Omu start - prolly a better way to do this but is for the blue moon BSO weapon, might currently ignore Yowies
+        if (TryComp<WieldableComponent>(ent, out var wieldable) &&
+            !wieldable.Wielded &&
+            HasComp<GunRequiresWieldComponent>(ent) || HasComp<MeleeRequiresWieldComponent>(ent))
+            return;
+        //Omu end
+
         if (args.Handled || !comp.OnUse || comp.States.Count == 0)
             return;
 
@@ -110,6 +120,13 @@ public abstract class SharedItemSwitchSystem : EntitySystem
     {
         if (args.Handled || !ent.Comp.OnActivate || ent.Comp is { IsPowered: false, NeedsPower: true })
             return;
+
+        //Omu start - prolly a better way to do this but is for the blue moon BSO weapon, might currently ignore Yowies
+        if (TryComp<WieldableComponent>(ent, out var wieldable) &&
+            !wieldable.Wielded &&
+            HasComp<GunRequiresWieldComponent>(ent) || HasComp<MeleeRequiresWieldComponent>(ent))
+            return;
+        //Omu end
 
         args.Handled = true;
 
