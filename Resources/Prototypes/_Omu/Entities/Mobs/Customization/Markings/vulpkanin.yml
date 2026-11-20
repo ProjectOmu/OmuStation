@@ -227,6 +227,78 @@
     state: three_spurs_thick
 
 - type: marking
+  id: VulpThreeSpursKnobby
+  markingCategory: HeadTop
+  bodyPart: Head
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/head_top_markings.rsi
+    state: three_spurs_knobby
+
+- type: marking
+  id: VulpThreeSpursMalformed
+  markingCategory: HeadTop
+  bodyPart: Head
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/head_top_markings.rsi
+    state: three_spurs_malformed
+
+- type: marking
+  id: VulpThreeSpursMissing
+  markingCategory: HeadTop
+  bodyPart: Head
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/head_top_markings.rsi
+    state: three_spurs_missing
+
+- type: marking
+  id: VulpThreeSpursRounded
+  markingCategory: HeadTop
+  bodyPart: Head
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/head_top_markings.rsi
+    state: three_spurs_rounded
+
+- type: marking
+  id: VulpThreeSpursThin
+  markingCategory: HeadTop
+  bodyPart: Head
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/head_top_markings.rsi
+    state: three_spurs_thin
+
+- type: marking
+  id: VulpTwoSpurs
+  markingCategory: HeadTop
+  bodyPart: Head
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/head_top_markings.rsi
+    state: two_spurs
+
+- type: marking
+  id: VulpTwoSpursMid
+  markingCategory: HeadTop
+  bodyPart: Head
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/head_top_markings.rsi
+    state: mid_two_spurs
+
+- type: marking
+  id: VulpTwoSpursTall
+  markingCategory: HeadTop
+  bodyPart: Head
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/head_top_markings.rsi
+    state: tall_two_spurs
+
+- type: marking
   id: VulpWedgeHead
   markingCategory: Snout
   bodyPart: Snout
@@ -240,6 +312,30 @@
     state: wedge_nose_2
   - sprite: _Omu/Mobs/Customization/Vulpkanin/snout_markings.rsi
     state: wedge_nose_3
+
+- type: marking
+  id: VulpWedgeHeadRounder
+  markingCategory: Snout
+  bodyPart: Snout
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/snout_markings.rsi
+    state: wedge_head_rounder
+
+- type: marking
+  id: VulpWedgeHeadLong
+  markingCategory: Snout
+  bodyPart: Snout
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/snout_markings.rsi
+    state: wedgehead_long
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/snout_markings.rsi
+    state: wedgehead_long_nose_1
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/snout_markings.rsi
+    state: wedgehead_long_nose_2
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/snout_markings.rsi
+    state: wedgehead_long_nose_3
 
 - type: marking
   id: VulpSawTail
@@ -325,3 +421,26 @@
   sprites:
   - sprite: _Omu/Mobs/Customization/Vulpkanin/face_markings.rsi
     state: wedge_jowl_back_scar_r
+
+- type: marking
+  id: VulpBigEyeLeft
+  markingCategory: Face
+  bodyPart: Face
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie, Feroxi, Harpy] # most species have eyes in the same place
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/face_markings.rsi
+    state: big_eye_l
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/face_markings.rsi
+    state: big_eye_l_pupil
+
+
+- type: marking
+  id: VulpBigEyeRight
+  markingCategory: Face
+  bodyPart: Face
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie, Feroxi, Harpy]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/face_markings.rsi
+    state: big_eye_r
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/face_markings.rsi
+    state: big_eye_r_pupil

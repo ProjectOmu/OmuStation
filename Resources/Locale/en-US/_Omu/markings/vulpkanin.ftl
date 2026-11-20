@@ -72,7 +72,17 @@ marking-VulpPointsSharpArmsRight = Vulpkanin Points Arm (sharp)
 
 marking-VulpThreeSpurs = Three Spurs
 marking-VulpThreeSpursThick = Three Spurs (Thick)
+marking-VulpThreeSpursKnobby = Three Spurs (Knobby)
+marking-VulpThreeSpursMalformed = Three Spurs (Malformed)
+marking-VulpThreeSpursMissing = Three Spurs (Missing)
+marking-VulpThreeSpursRounded = Three Spurs (Rounded)
+marking-VulpThreeSpursThin = Three Spurs (Thin)
+marking-VulpTwoSpurs = Two Spurs
+marking-VulpTwoSpursMid = Two Spurs (Mid)
+marking-VulpTwoSpursTall = Two Spurs (Tall)
 marking-VulpWedgeHead = Wedge Head
+marking-VulpWedgeHeadRounder = Wedge Head (Rounder)
+marking-VulpWedgeHeadLong = Wedge Head (Long)
 marking-VulpSawTail = Saw Tail
 
 marking-VulpWedgeCheekScarLeft = Wedge Cheek Scar (Left)
@@ -83,3 +93,5 @@ marking-VulpWedgeHighCheekScarLeft = Wedge High Cheek Scar (Left)
 marking-VulpWedgeHighCheekScarRight = Wedge High Cheek Scar (Right)
 marking-VulpWedgeJowlBackScarLeft = Wedge Back Jowl Scar (Left)
 marking-VulpWedgeJowlBackScarRight = Wedge Back Jowl Scar (Right)
+marking-VulpBigEyeLeft = Big Eye (Left)
+marking-VulpBigEyeRight = Big Eye (Right)
