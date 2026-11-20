@@ -24,7 +24,13 @@ public sealed partial class CrewletBrainSystem
         var now = _timing.CurTime;
         foreach (var uid in ent.Comp.Crewlets)
         {
-            if (TryComp<CrewletBrainComponent>(uid, out var brain) && brain.Active && dealt > brain.WorryDamage)
+            if (!TryComp<CrewletBrainComponent>(uid, out var brain))
+                continue;
+
+            if (args.Origin is { } origin && InSight((uid, brain), ent))
+                _reputation.OwnerHurt(uid, ent, origin, dealt);
+
+            if (brain.Active && dealt > brain.WorryDamage)
                 brain.WorryUntil = now + brain.WorryMemory;
         }
     }
@@ -119,7 +125,7 @@ public sealed partial class CrewletBrainSystem
         foreach (var habit in ent.Comp.Habits)
         {
             if (habit.Learned
-                && habit.Key is { Action: CrewletToolAction.Use, Target: null }
+                && habit.Key is { Action: CrewletToolAction.Use, Target: null, Group: null }
                 && FindTool(ent, null, habit.Key, now) is { } tool)
                 return tool;
         }

@@ -103,11 +103,25 @@
       - LightningSparking
       - GravityGenerator
       - Firelock
+      - Airlock
       - MindContainer
       - MobState
     formBlacklist:
     - type: LimitedCharges
     - type: Emag
+    habitGroups:
+      Locker:
+        components:
+        - EntityStorage
+      Light:
+        components:
+        - PoweredLight
+      Plant:
+        components:
+        - PlantHolder
+      Disposal:
+        components:
+        - DisposalUnit
     habitToolBlacklist:
       components:
       - Injector

@@ -432,6 +432,7 @@ public sealed partial class CrewletBrainSystem : EntitySystem
                 RunTag(ent, now);
                 break;
             case CrewletActivity.Tinker:
+            case CrewletActivity.Habit:
                 RunTinker(ent, now);
                 break;
             case CrewletActivity.Eat:
@@ -477,7 +478,7 @@ public sealed partial class CrewletBrainSystem : EntitySystem
             ent.Comp.FormedTool = null;
             QueueDel(formed);
         }
-        else if (ent.Comp.Activity == CrewletActivity.Tinker
+        else if (ent.Comp.Activity is CrewletActivity.Tinker or CrewletActivity.Habit
             && ent.Comp.RetaliationTarget == null
             && ent.Comp.Target is { } tool
             && _hands.IsHolding(ent.Owner, tool))

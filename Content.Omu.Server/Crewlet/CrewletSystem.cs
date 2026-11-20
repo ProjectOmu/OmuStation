@@ -12,6 +12,7 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Bed.Cryostorage;
 using Content.Shared.Chat;
 using Content.Shared.Cloning;
 using Content.Shared.Cloning.Events;
@@ -123,6 +124,7 @@ public sealed class CrewletSystem : EntitySystem
         RemComp<MindExaminableComponent>(uid);
         RemComp<PassiveDamageComponent>(uid);
         RemComp<SSDIndicatorComponent>(uid);
+        RemComp<CanEnterCryostorageComponent>(uid);
         var comp = EnsureComp<CrewletComponent>(uid);
         _tag.AddTags(uid, comp.Tags);
 
