@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Shared._RMC14.Chat;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Camera;
 using Content.Shared.Chat;
@@ -170,7 +171,8 @@ public sealed class RMCBattleExecuteSystem : EntitySystem
         }
 
         //ToDo RMC14 Make this head damage.
-        _damageable.TryChangeDamage(target, args.BattleExecuteDamage, true);
+        _damageable.TryChangeDamage(target, args.BattleExecuteDamage, true, targetPart: TargetBodyPart.Head); // Omu, make it do head damage.
+        _damageable.TryChangeDamage(target, args.BattleExecuteDamage, true, targetPart: TargetBodyPart.Vital); // Omu, make sure they are dead even if they don't have a head.
         _mobState.ChangeMobState(target, MobState.Dead);
         // Omu start, we don't have RMC unrevivable system so do it manualy instead.
         //_unrevivable.MakeUnrevivable(target);
