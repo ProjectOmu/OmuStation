@@ -62,8 +62,8 @@ public sealed class RMCBattleExecuteSystem : EntitySystem
     {
         if (args.User != args.Target &&
             _hands.TryGetActiveItem(args.User, out var handHeldItem) && handHeldItem != null &&
-            TryComp<CombatModeComponent>(args.User, out var combatModeComponent) && // Omu, fix the trycomp
-            combatModeComponent.IsInCombatMode &&
+            //TryComp<CombatModeComponent>(args.User, out var combatModeComponent) && // Omu, fix the trycomp, Omu combat mode disables verbs, so dont check for it.
+            //combatModeComponent.IsInCombatMode && // Omu combat mode disables verbs, so dont check for it.
             TryComp<RMCBattleExecuteComponent>(handHeldItem, out var executionComponent)) // Omu we dont have skils. && // Omu, fix the trycomp
             //_skills.HasSkill(args.User, executionComponent.Skill, 1))
 
@@ -193,7 +193,7 @@ public sealed class RMCBattleExecuteSystem : EntitySystem
         var players = Filter.Empty().AddInRange(coordinates, 12, _player, EntityManager);
 
         //players.RemoveWhereAttachedEntity(HasComp<XenoComponent>); // Omu we don't have this
-        _rmcChat.ChatMessageToMany(chatMsg, chatMsg, players, ChatChannel.Local); // Omu we don't have this
+        _rmcChat.ChatMessageToMany(chatMsg, chatMsg, players, ChatChannel.Local);
         EnsureComp<RMCBattleExecutedComponent>(target);
     }
 
