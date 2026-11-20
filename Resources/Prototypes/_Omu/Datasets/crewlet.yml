@@ -31,6 +31,12 @@
     count: 2
 
 - type: localizedDataset
+  id: CrewletStayWords
+  values:
+    prefix: crewlet-stay-
+    count: 3
+
+- type: localizedDataset
   id: CrewletDislikeRare
   values:
     prefix: crewlet-dislikerare-

@@ -53,6 +53,8 @@
         true
       NavPry: !type:Bool
         true
+      NavClimb: !type:Bool
+        true
   - type: CrewletBrain
     danceEmote: Jump
     pickpocketBlacklist:
@@ -101,8 +103,25 @@
       - LightningSparking
       - GravityGenerator
       - Firelock
+      - Airlock
       - MindContainer
       - MobState
+    formBlacklist:
+    - type: LimitedCharges
+    - type: Emag
+    habitGroups:
+      Locker:
+        components:
+        - EntityStorage
+      Light:
+        components:
+        - PoweredLight
+      Plant:
+        components:
+        - PlantHolder
+      Disposal:
+        components:
+        - DisposalUnit
     habitToolBlacklist:
       components:
       - Injector
@@ -120,25 +139,11 @@
       components:
       - ActivatableUI
       - Storage
+      - DisposalUnit
     expendableTargets:
       components:
       - Puddle
     toolUses:
-    - tool:
-        tags:
-        - Wrench
-      target:
-        components:
-        - Anchorable
-    - tool:
-        requireAll: true
-        components:
-        - Utensil
-        tags:
-        - Knife
-      target:
-        components:
-        - SliceableFood
     - tool:
         tags:
         - Write
@@ -163,7 +168,6 @@
   - type: NpcFactionMember
     factions:
     - Passive
-  - type: MovementIgnoreGravity
   - type: ActiveListener
   - type: ParrotMemory
     learnChance: 1
@@ -174,23 +178,24 @@
     emotes:
     - Scream
     withChat: true
+  - type: CrewletHarmScream
   - type: CrewletRegen
     damage:
       types:
-        Blunt: -1
-        Slash: -1
-        Piercing: -1
-        Heat: -1
-        Shock: -1
-        Cold: -1
-        Caustic: -1
-        Poison: -1
-        Radiation: -1
-        Asphyxiation: -1
-        Bloodloss: -1
-        Cellular: -1
-        Holy: -1
-        Ion: -1
+        Blunt: -0.5
+        Slash: -0.5
+        Piercing: -0.5
+        Heat: -0.5
+        Shock: -0.5
+        Cold: -0.5
+        Caustic: -0.5
+        Poison: -0.5
+        Radiation: -0.5
+        Asphyxiation: -0.5
+        Bloodloss: -0.5
+        Cellular: -0.5
+        Holy: -0.5
+        Ion: -0.5
   - type: Hunger
     baseDecayRate: 0.004167
   - type: Thirst
@@ -198,6 +203,8 @@
   - type: Access
     tags:
     - Maintenance
+  - type: TargetObjectiveImmune
+  - type: ObjectiveExempt
 
 - type: entity
   id: CrewletMobKit

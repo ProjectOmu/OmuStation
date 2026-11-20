@@ -53,6 +53,18 @@ public sealed partial class CrewletReputationComponent : Component
     public float MinHurtPenalty = 5f;
 
     [DataField]
+    public float OwnerHurtPerDamage = 1f;
+
+    [DataField]
+    public float MinOwnerHurtPenalty = 3f;
+
+    [DataField]
+    public TimeSpan OwnerHitWindow = TimeSpan.FromSeconds(15);
+
+    [DataField]
+    public Dictionary<EntityUid, TimeSpan> OwnerHitAt = new();
+
+    [DataField]
     public float HealedPerDamage = 0.5f;
 
     [DataField]
@@ -90,6 +102,8 @@ public sealed partial class CrewletReputationComponent : Component
     public CrewletTally Injection;
 
     public CrewletTally Hurt;
+
+    public CrewletTally OwnerHurt;
 
     public CrewletTally Healed;
 }

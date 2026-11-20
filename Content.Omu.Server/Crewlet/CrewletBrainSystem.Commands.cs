@@ -1,7 +1,8 @@
 // SPDX-License-Identifier: MIT
 
-using System.Linq;
+using Content.Shared.Dataset;
 using Content.Shared.Item;
+using Robust.Shared.Prototypes;
 
 namespace Content.Omu.Server.Crewlet;
 
@@ -9,14 +10,55 @@ public sealed partial class CrewletBrainSystem
 {
     private readonly HashSet<Entity<ItemComponent>> _fetchable = new();
 
-    private void NoticeCome(Entity<CrewletBrainComponent> ent, string message)
+    private void NoticeCome(Entity<CrewletBrainComponent> ent, string message, TimeSpan now)
     {
         var brain = ent.Comp;
-        if (!_proto.Index(brain.ComeWords).Values.Any(word => ContainsWord(message, Loc.GetString(word))))
+        if (HeardWord(brain.ComeWords, message) is not { } word)
             return;
 
         brain.Summoned = true;
+        brain.StayUntil = TimeSpan.Zero;
+        Echo(ent, word, now);
         if (brain.Activity is >= CrewletActivity.Hug and < CrewletActivity.Follow)
+            End(ent);
+    }
+
+    private void NoticeStay(Entity<CrewletBrainComponent> ent, string message, TimeSpan now)
+    {
+        var brain = ent.Comp;
+        if (HeardWord(brain.StayWords, message) is not { } word)
+            return;
+
+        brain.Summoned = false;
+        brain.FetchItem = null;
+        brain.StayUntil = now + brain.StayTime;
+        Echo(ent, word, now);
+    }
+
+    private string? HeardWord(ProtoId<LocalizedDatasetPrototype> words, string message)
+    {
+        foreach (var word in _proto.Index(words).Values)
+        {
+            var text = Loc.GetString(word);
+            if (ContainsWord(message, text))
+                return text;
+        }
+
+        return null;
+    }
+
+    private void Echo(Entity<CrewletBrainComponent> ent, string command, TimeSpan now)
+    {
+        ent.Comp.PendingLine = Loc.GetString(ent.Comp.CommandEcho, ("command", command));
+        StartTyping(ent, now + ent.Comp.TypingTime);
+    }
+
+    private void RunStay(Entity<CrewletBrainComponent> ent, TimeSpan now)
+    {
+        if (ent.Comp.Step == CrewletStep.Start)
+            WaitFor(ent, ent.Comp.StayUntil - now, now);
+
+        if (now >= ent.Comp.StayUntil)
             End(ent);
     }
 
@@ -53,6 +95,8 @@ public sealed partial class CrewletBrainSystem
 
         brain.FetchItem = best;
         brain.FetchUntil = now + brain.FetchMemory;
+        var name = Name(best.Value);
+        Echo(ent, bestScore > 0 ? name : LastWord(name), now);
     }
 
     private static int FetchScore(CrewletBrainComponent brain, string message, string name)
@@ -60,8 +104,13 @@ public sealed partial class CrewletBrainSystem
         if (ContainsWord(message, name))
             return name.Length;
 
-        var last = name[(name.LastIndexOf(' ') + 1)..];
+        var last = LastWord(name);
         return last.Length >= brain.MinFetchWord && last.Length < name.Length && ContainsWord(message, last) ? 0 : -1;
+    }
+
+    private static string LastWord(string name)
+    {
+        return name[(name.LastIndexOf(' ') + 1)..];
     }
 
     private bool WantsFetch(Entity<CrewletBrainComponent> ent, TimeSpan now)
