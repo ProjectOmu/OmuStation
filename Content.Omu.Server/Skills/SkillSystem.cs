@@ -182,6 +182,85 @@ public sealed class SkillSystem : SharedSkillSystem
 
         args.PushMarkup(text.ToString());
     }
+    public void EnsureAjustSkillBatch(EntityUid mindId, Dictionary<ProtoId<SkillPrototype>, int> valuePairs)
+    {
+        var holder = AddComp<SkillHolderComponent>(mindId);
+        foreach (var iterator in valuePairs)
+        {
+            TryAjustSkill(mindId, iterator.Key, iterator.Value, batchOverride: true);
+        }
+        UpdateSkills(new(mindId, holder));
+    }
+    public bool TryAjustSkillBatch(EntityUid mindId, Dictionary<ProtoId<SkillPrototype>, int> valuePairs, out Dictionary<ProtoId<SkillPrototype>, bool> results)
+    {
+        results = new();
+        if (!TryComp<SkillHolderComponent>(mindId, out var holder)) return false;
+        foreach (var iterator in valuePairs)
+        {
+            results[iterator.Key] = TryAjustSkill(mindId, iterator.Key, iterator.Value, batchOverride: true);
+        }
+        UpdateSkills(new(mindId, holder));
+        return true;
+    }
+    /// <summary>
+    /// Function that ensures that the mind of the target will recive the required components
+    /// </summary>
+    public void EnsureAjustSkill(EntityUid mindId, ProtoId<SkillPrototype> skill, int adjustment)
+    {
+        var holder = AddComp<SkillHolderComponent>(mindId);
+        TryAjustSkill(mindId, skill, adjustment);
+    }
+    /// <summary>
+    /// Tries to ajust the skill level fails if the target does not have a SkillHolder component
+    /// </summary>
+    /// <returns>if skills where added or not</returns>
+    public bool TryAjustSkill(EntityUid mindId, ProtoId<SkillPrototype> skill, int adjustment, bool batchOverride = false)
+    {
+        if (!TryComp<SkillHolderComponent>(mindId, out var holder)) return false;
+        holder.Skills[skill] = holder.Skills.GetValueOrDefault(skill) + adjustment;
+        if (!batchOverride) UpdateSkills(new(mindId, holder));
+        return true;
+    }
+    public void EnsureSetSkillBatch(EntityUid mindId, Dictionary<ProtoId<SkillPrototype>, int> valuePairs, bool onlyIncrease = false)
+    {
+        var holder = AddComp<SkillHolderComponent>(mindId);
+        foreach (var iterator in valuePairs)
+        {
+            TrySetSkill(mindId, iterator.Key, iterator.Value, onlyIncrease: onlyIncrease, batchOverride: true);
+        }
+        UpdateSkills(new(mindId, holder));
+    }
+    public bool TrySetSkillBatch(EntityUid mindId, Dictionary<ProtoId<SkillPrototype>, int> valuePairs, out Dictionary<ProtoId<SkillPrototype>, bool> results)
+    {
+        results = new();
+        if (!TryComp<SkillHolderComponent>(mindId, out var holder)) return false;
+        foreach (var iterator in valuePairs)
+        {
+            results[iterator.Key] = TrySetSkill(mindId, iterator.Key, iterator.Value, batchOverride: true);
+        }
+        UpdateSkills(new(mindId, holder));
+        return true;
+    }
+    public void EnsureSetSkill(EntityUid mindId, ProtoId<SkillPrototype> skill, int value, bool onlyIncrease = false)
+    {
+        var holder = AddComp<SkillHolderComponent>(mindId);
+        TrySetSkill(mindId, skill, value, onlyIncrease: onlyIncrease);
+    }
+    /// <summary>
+    /// Attempts to set a skill level, returns false if either the target does not have a skill holder component OR if the skill level is already at that level
+    /// </summary>
+    /// <param name="mindId"></param>
+    /// <param name="onlyIncrease">Will not ajust the value of the Skill level in case it is lower if set to true</param>
+    /// <returns></returns>
+    public bool TrySetSkill(EntityUid mindId, ProtoId<SkillPrototype> skill, int value, bool onlyIncrease = false, bool batchOverride = false)
+    {
+        if (!TryComp<SkillHolderComponent>(mindId, out var holder)) return false;
+        if (onlyIncrease && holder.Skills.GetValueOrDefault(skill) >= value) return false;
+        if (holder.Skills.GetValueOrDefault(skill) == value) return false;
+        holder.Skills[skill] = value;
+        if (!batchOverride) UpdateSkills(new(mindId, holder));
+        return true;
+    }
 
     private void UpdateSkills(Entity<SkillHolderComponent> holder)
     {
