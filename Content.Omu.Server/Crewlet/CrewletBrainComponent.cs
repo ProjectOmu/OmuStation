@@ -525,6 +525,12 @@ public sealed partial class CrewletBrainComponent : Component
     public EntProtoId GlowEffect = "CrewletGlow";
 
     [DataField]
+    public EntProtoId FleshForm = "CrewletFleshForm";
+
+    [DataField]
+    public TimeSpan FleshFormTime = TimeSpan.FromSeconds(5);
+
+    [DataField]
     public EntProtoId MergeCore = "AnomalyCoreFlesh";
 
     [DataField]

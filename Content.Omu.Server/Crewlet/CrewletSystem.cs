@@ -186,6 +186,16 @@ public sealed class CrewletSystem : EntitySystem
         _fleshTiles.Clear();
     }
 
+    public void FleshForm(EntityUid uid, EntProtoId form, TimeSpan duration)
+    {
+        var comp = EnsureComp<CrewletFleshFormComponent>(uid);
+        if (comp.Form is { } previous)
+            QueueDel(previous);
+
+        comp.Form = SpawnAttachedTo(form, new EntityCoordinates(uid, Vector2.Zero));
+        comp.Until = _timing.CurTime + duration;
+    }
+
     public void Wail(Entity<CrewletComponent> crewlet, EntityCoordinates coords)
     {
         if (!TryComp<VocalComponent>(crewlet, out var vocal)
@@ -234,6 +244,18 @@ public sealed class CrewletSystem : EntitySystem
                 damageable,
                 targetPart: TargetBodyPart.All,
                 splitDamage: SplitDamageBehavior.SplitEnsureAll);
+        }
+
+        using var forms = EntityQueryEnumerator<CrewletFleshFormComponent>();
+        while (forms.MoveNext(out var uid, out var form))
+        {
+            if (now < form.Until)
+                continue;
+
+            if (form.Form is { } shape)
+                QueueDel(shape);
+
+            RemCompDeferred<CrewletFleshFormComponent>(uid);
         }
 
         using var query = EntityQueryEnumerator<CrewletMeltingComponent, CrewletComponent, TransformComponent>();

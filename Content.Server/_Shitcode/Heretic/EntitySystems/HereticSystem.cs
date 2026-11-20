@@ -43,6 +43,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Server.Hands.Systems;
+using Content.Omu.Common.Objectives;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -406,6 +407,11 @@ public sealed partial class HereticSystem : SharedHereticSystem
 
             if (HasComp<HellVictimComponent>(session.AttachedEntity.Value))     //Omu - no saccing victims twice lol
                 return false;
+
+            // Omu start
+            if (HasComp<ObjectiveExemptComponent>(session.AttachedEntity.Value))
+                return false;
+            // Omu end
 
             if (!_mind.TryGetMind(session.AttachedEntity.Value, out var mind, out _) ||
                 mind == ent.Owner || !_job.MindTryGetJobId(mind, out _))
