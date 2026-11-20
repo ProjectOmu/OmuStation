@@ -253,3 +253,75 @@
     state: saw_tail_1
   - sprite: _Omu/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: saw_tail_2
+
+- type: marking
+  id: VulpWedgeCheekScarLeft
+  markingCategory: Face
+  bodyPart: Face
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/face_markings.rsi
+    state: wedge_cheek_scar_l
+
+- type: marking
+  id: VulpWedgeCheekScarRight
+  markingCategory: Face
+  bodyPart: Face
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/face_markings.rsi
+    state: wedge_cheek_scar_r
+
+- type: marking
+  id: VulpWedgeForeheadScarLeft
+  markingCategory: Face
+  bodyPart: Face
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/face_markings.rsi
+    state: wedge_forehead_scar_l
+
+- type: marking
+  id: VulpWedgeForeheadScarRight
+  markingCategory: Face
+  bodyPart: Face
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/face_markings.rsi
+    state: wedge_forehead_scar_r
+
+- type: marking
+  id: VulpWedgeHighCheekScarLeft
+  markingCategory: Face
+  bodyPart: Face
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/face_markings.rsi
+    state: wedge_hi_cheek_scar_l
+
+- type: marking
+  id: VulpWedgeHighCheekScarRight
+  markingCategory: Face
+  bodyPart: Face
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/face_markings.rsi
+    state: wedge_hi_cheek_scar_r
+
+- type: marking
+  id: VulpWedgeJowlBackScarLeft
+  markingCategory: Face
+  bodyPart: Face
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/face_markings.rsi
+    state: wedge_jowl_back_scar_l
+
+- type: marking
+  id: VulpWedgeJowlBackScarRight
+  markingCategory: Face
+  bodyPart: Face
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Vulpkanin/face_markings.rsi
+    state: wedge_jowl_back_scar_r

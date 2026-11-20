@@ -74,3 +74,12 @@ marking-VulpThreeSpurs = Three Spurs
 marking-VulpThreeSpursThick = Three Spurs (Thick)
 marking-VulpWedgeHead = Wedge Head
 marking-VulpSawTail = Saw Tail
+
+marking-VulpWedgeCheekScarLeft = Wedge Cheek Scar (Left)
+marking-VulpWedgeCheekScarRight = Wedge Cheek Scar (Right)
+marking-VulpWedgeForeheadScarLeft = Wedge Forehead Scar (Left)
+marking-VulpWedgeForeheadScarRight = Wedge Forehead Scar (Right)
+marking-VulpWedgeHighCheekScarLeft = Wedge High Cheek Scar (Left)
+marking-VulpWedgeHighCheekScarRight = Wedge High Cheek Scar (Right)
+marking-VulpWedgeJowlBackScarLeft = Wedge Back Jowl Scar (Left)
+marking-VulpWedgeJowlBackScarRight = Wedge Back Jowl Scar (Right)
