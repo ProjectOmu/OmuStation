@@ -54,7 +54,7 @@
   statusIcon: CurseBlindnessIcon
   update: 75 #1.5 minutes # Omu edit: changed update interval
   effects:
-    0.8:
+    0.7: # Omu edit
     #- !type:EyeDamage # Omu edit start
     #  amount: 2
     - !type:GenericStatusEffect
@@ -64,7 +64,7 @@
     - !type:MovementSpeedModifier
       walkSpeedModifier: 0.3
       sprintSpeedModifier: 0.3
-      time: 30 # Omu edit end
+      time: 5 # Omu edit end
     - !type:PopupMessage
       type: Local
       visualType: MediumCaution
