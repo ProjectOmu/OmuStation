@@ -1,4 +1,4 @@
-rmc-execution = Execute
+rmc-execution = Battlefield Execute
 rmc-executed = [color=#99FFFF]{ CAPITALIZE(SUBJECT($victim)) } { GENDER($victim) ->
     [epicene] seem
     *[other] seems
