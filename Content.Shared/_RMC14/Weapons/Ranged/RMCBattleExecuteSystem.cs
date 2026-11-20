@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._Omu.Weapons.Ranged;
 using Content.Shared._RMC14.Chat;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Administration.Logs;
@@ -179,6 +180,7 @@ public sealed class RMCBattleExecuteSystem : EntitySystem
         var unrevivable = EnsureComp<UnrevivableComponent>(target);
         unrevivable.Analyzable = false;
         unrevivable.Cloneable = false;
+        unrevivable.CPRBlock = true;
 
         Dirty(target, unrevivable);
         // Omu end
@@ -195,6 +197,11 @@ public sealed class RMCBattleExecuteSystem : EntitySystem
         //players.RemoveWhereAttachedEntity(HasComp<XenoComponent>); // Omu we don't have this
         _rmcChat.ChatMessageToMany(chatMsg, chatMsg, players, ChatChannel.Local);
         EnsureComp<RMCBattleExecutedComponent>(target);
+
+        // Omu start. Remove that brain
+        var battleExecutedev = new OmuBattleExecutedEvent(target);
+        RaiseLocalEvent(target, (object) battleExecutedev, true);
+        // Omu end
     }
 
     private void ExamineBody(Entity<RMCBattleExecutedComponent> ent, ref ExaminedEvent args)
