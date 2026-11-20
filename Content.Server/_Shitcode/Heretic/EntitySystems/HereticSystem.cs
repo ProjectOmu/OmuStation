@@ -43,7 +43,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Server.Hands.Systems;
-using Content.Omu.Common.Objectives;
+using Content.Omu.Common.Objectives; // Omu
 
 namespace Content.Server.Heretic.EntitySystems;
 

@@ -12,7 +12,7 @@ using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.SpecialPassives.BoostedImmunity.Components;
 using Content.Goobstation.Shared.SpecialPassives.Fleshmend.Components;
 using Content.Goobstation.Shared.SpecialPassives.SuperAdrenaline.Components;
-using Content.Omu.Common.Objectives;
+using Content.Omu.Common.Objectives; // Omu
 using Content.Server.Light.Components;
 using Content.Server.Nutrition.Components;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
