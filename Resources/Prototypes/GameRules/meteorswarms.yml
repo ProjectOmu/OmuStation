@@ -138,7 +138,7 @@
       Atmos: 25
   - type: MeteorSwarm
     announcement: station-event-space-dust-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
+    announcementSound: /Audio/_Omu/Announcements/meteors.ogg # Omu
     nonDirectional: true
     meteors:
       MeteorSpaceDust: 1
@@ -202,7 +202,7 @@
     weight: 0.05
   - type: MeteorSwarm
     announcement: station-event-meteor-urist-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
+    announcementSound: /Audio/_Omu/Announcements/meteors.ogg # Omu
     meteors:
       MeteorUrist: 1
     waves:
@@ -219,7 +219,7 @@
   - type: StationEvent
     startAnnouncement: station-event-immovable-rod-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_Omu/Announcements/incoming_rod.ogg # Omu
     weight: 3.5
     reoccurrenceDelay: 1
     duration: 1

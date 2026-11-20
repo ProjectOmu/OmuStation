@@ -346,7 +346,7 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
                 playDefaultSound: false);
 
             // TODO: Need filter extensions or something don't blame me.
-            _audio.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), true);
+            _audio.PlayGlobal("/Audio/_Omu/Announcements/shuttlenodock.ogg", Filter.Broadcast(), true); // Omu
             return;
         }
 
@@ -401,8 +401,8 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
         // Play announcement audio.
 
         var audioFile = result.ResultType == ShuttleDockResultType.NoDock
-            ? "/Audio/Misc/notice1.ogg"
-            : "/Audio/Announcements/shuttle_dock.ogg";
+            ? "/Audio/_Omu/Announcements/shuttlenodock.ogg" // Omu
+            : "/Audio/_Omu/Announcements/shuttle_dock.ogg"; // Omu
 
         // TODO: Need filter extensions or something don't blame me.
         _audio.PlayGlobal(audioFile, Filter.Broadcast(), true);

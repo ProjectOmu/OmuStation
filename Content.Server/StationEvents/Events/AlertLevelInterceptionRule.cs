@@ -19,6 +19,9 @@ public sealed class AlertLevelInterceptionRule : StationEventSystem<AlertLevelIn
         if (_alertLevelSystem.GetLevel(chosenStation.Value) != "green" && component.OverrideAlert == false) // Goobstation
             return;
 
-        _alertLevelSystem.SetLevel(chosenStation.Value, component.AlertLevel, true, true, true, component.Locked); // Goobstation
+        _alertLevelSystem.SetLevel(chosenStation.Value, component.AlertLevel, component.Sound == null, true, true, component.Locked); // Goobstation // Omu
+
+        if (component.Sound != null) // Omu
+            Audio.PlayGlobal(component.Sound, StationSystem.GetInOwningStation(chosenStation.Value), true); // Omu
     }
 }

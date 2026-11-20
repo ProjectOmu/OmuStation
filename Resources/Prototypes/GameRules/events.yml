@@ -153,7 +153,7 @@
   - type: StationEvent
     startAnnouncementColor: "#18abf5"
     startAudio:
-      path: /Audio/Announcements/announce.ogg
+      path: /Audio/_Omu/Announcements/anomaly_appear.ogg # Omu
     weight: 8
     duration: 35
     chaos: # Goobstation
@@ -176,7 +176,7 @@
   - type: StationEvent
     startAnnouncementColor: "#18abf5"
     startAudio:
-      path: /Audio/Announcements/announce.ogg
+      path: /Audio/_Omu/Announcements/anomaly_appear.ogg # Omu
     weight: 8
     duration: 35
     chaos: # Goobstation
@@ -223,6 +223,8 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-bureaucratic-error-announcement
+    startAudio: # Omu
+      path: /Audio/_Omu/Announcements/bureaucratic_error.ogg # Omu
     minimumPlayers: 25
     weight: 3
     duration: 1
@@ -511,7 +513,7 @@
   - type: StationEvent
     startAnnouncement: station-event-gas-leak-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_Omu/Announcements/gas_leak.ogg # Omu
     endAnnouncement: station-event-gas-leak-end-announcement
     weight: 8
     chaos:
@@ -551,7 +553,7 @@
     startAnnouncement: station-event-power-grid-check-start-announcement
     endAnnouncement: station-event-power-grid-check-end-announcement
     startAudio:
-      path: /Audio/Announcements/power_off.ogg
+      path: /Audio/_Omu/Announcements/power_off.ogg # Omu
       params:
         volume: -4
     duration: 60
@@ -571,7 +573,9 @@
     startAnnouncement: station-event-solar-flare-start-announcement
     endAnnouncement: station-event-solar-flare-end-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_Omu/Announcements/solar_start.ogg # Omu
+    endAudio: # Omu
+      path: /Audio/_Omu/Announcements/solar_end.ogg # Omu
     duration: 120
     maxDuration: 240
     chaos: # Goobstation
@@ -603,7 +607,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-clog-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_Omu/Announcements/ventclog.ogg # Omu
     earliestStart: 15
     minimumPlayers: 15
     weight: 5
@@ -627,7 +631,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/aliens.ogg
+      path: /Audio/_Omu/Announcements/aliens.ogg # Omu
     earliestStart: 20
     minimumPlayers: 15
     weight: 7 # Goobstation - was 5
@@ -651,7 +655,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_Omu/Announcements/aliens.ogg # Omu
     earliestStart: 20
     minimumPlayers: 15
     weight: 7 # Goobstation - was 5
@@ -677,7 +681,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/aliens.ogg
+      path: /Audio/_Omu/Announcements/aliens.ogg # Omu
     earliestStart: 20
     minimumPlayers: 15
     weight: 7 # Goobstation - was 5
@@ -700,7 +704,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_Omu/Announcements/aliens.ogg # Omu
     earliestStart: 45 # DeltaV - was 20
     minimumPlayers: 30 # DeltaV - was 20
     weight: 3 # Goobstation - was 1.5
@@ -832,13 +836,14 @@
     maxOccurrences: 2 # can only happen twice(omu up from 1) per round
     startAnnouncement: station-event-communication-interception
     startAudio:
-      path: /Audio/Announcements/intercept.ogg
+      path: /Audio/_Omu/Announcements/intercept.ogg # Omu
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
   - type: AlertLevelInterceptionRule
+    sound: /Audio/Misc/bluealert.ogg # Omu
   - type: AntagSelection
     definitions:
     - prefRoles: [ TraitorSleeper ]
@@ -919,7 +924,7 @@
   components:
   - type: StationEvent
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_Omu/Announcements/subroutine.ogg # Omu
     weight: 5
     minimumPlayers: 25
     reoccurrenceDelay: 20

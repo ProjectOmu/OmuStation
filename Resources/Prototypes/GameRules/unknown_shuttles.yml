@@ -46,7 +46,7 @@
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_Omu/Announcements/unknown_shuttle.ogg # Omu
     weight: 4 #Common, but not every round
     reoccurrenceDelay: 30
     earliestStart: 20 # Goobstation

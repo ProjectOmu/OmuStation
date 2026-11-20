@@ -12,7 +12,7 @@
     reoccurrenceDelay: 30 #Omu new - able to re-occur every 30 minutes
     startAnnouncement: station-event-communication-interception
     startAudio:
-      path: /Audio/Announcements/intercept.ogg
+      path: /Audio/_Omu/Announcements/intercept.ogg # Omu
     duration: null
     occursDuringRoundEnd: false
     chaos:
@@ -23,6 +23,7 @@
   - type: GameRule
     chaosScore: 400
   - type: AlertLevelInterceptionRule
+    sound: /Audio/Misc/bluealert.ogg # Omu
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
     definitions:
