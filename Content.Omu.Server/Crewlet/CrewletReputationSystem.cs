@@ -168,6 +168,27 @@ public sealed class CrewletReputationSystem : EntitySystem
         }
     }
 
+    public void OwnerHurt(Entity<CrewletReputationComponent?> crewlet, EntityUid owner, EntityUid origin, float dealt)
+    {
+        if (!Resolve(crewlet, ref crewlet.Comp, false) || FindMob(origin) is not { } person || person == owner)
+            return;
+
+        var comp = crewlet.Comp;
+        var now = _timing.CurTime;
+        var counting = comp.OwnerHurt.Person == person && comp.OwnerHurt.Tick == _timing.CurTick;
+        var repeat = comp.OwnerHitAt.TryGetValue(person, out var last)
+            && now > last
+            && now - last <= comp.OwnerHitWindow;
+        comp.OwnerHitAt[person] = now;
+        if (!counting && !repeat)
+            return;
+
+        ref var hurt = ref Track(ref comp.OwnerHurt, person);
+        hurt.Total += dealt;
+        var penalty = MathF.Max(hurt.Total * comp.OwnerHurtPerDamage, comp.MinOwnerHurtPenalty);
+        Settle((crewlet.Owner, comp), ref hurt, -penalty, CrewletOpinionReason.OwnerHurt);
+    }
+
     private void OnDisarmed(Entity<CrewletReputationComponent> ent, ref DisarmedEvent args)
     {
         Adjust(ent, args.Source, ent.Comp.ShovedOpinion, CrewletOpinionReason.Shoved);
@@ -396,6 +417,13 @@ public sealed class CrewletReputationSystem : EntitySystem
         PruneCooldowns(comp.NextHug);
         PruneCooldowns(comp.NextFed);
         PruneCooldowns(comp.NextMedicine);
+
+        var now = _timing.CurTime;
+        foreach (var (person, hit) in comp.OwnerHitAt)
+        {
+            if (TerminatingOrDeleted(person) || now - hit > comp.OwnerHitWindow)
+                comp.OwnerHitAt.Remove(person);
+        }
     }
 
     private void PruneCooldowns(Dictionary<EntityUid, TimeSpan> next)

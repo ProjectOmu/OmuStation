@@ -38,6 +38,9 @@ public sealed partial class CrewletBrainComponent : Component
     public TimeSpan ApartTime = TimeSpan.FromSeconds(90);
 
     [DataField]
+    public TimeSpan CryoOrphanTime = TimeSpan.FromMinutes(1);
+
+    [DataField]
     public TimeSpan RecallDelay = TimeSpan.FromSeconds(2);
 
     [DataField]
@@ -386,6 +389,9 @@ public sealed partial class CrewletBrainComponent : Component
     public EntityWhitelist? HabitToolBlacklist;
 
     [DataField]
+    public Dictionary<string, EntityWhitelist> HabitGroups = new();
+
+    [DataField]
     public ComponentRegistry FormBlacklist = new();
 
     [DataField]
@@ -426,6 +432,15 @@ public sealed partial class CrewletBrainComponent : Component
 
     [DataField]
     public int RiskyLearnAfter = 3;
+
+    [DataField]
+    public int ChoreLearnAfter = 4;
+
+    [DataField]
+    public float ChoreWeight = 0.5f;
+
+    [DataField]
+    public int HabitRetries = 2;
 
     [DataField]
     public LogImpact RiskyImpact = LogImpact.High;
@@ -473,6 +488,7 @@ public sealed partial class CrewletBrainComponent : Component
         { CrewletActivity.Mimic, 0.08f },
         { CrewletActivity.Tag, 0.05f },
         { CrewletActivity.Tinker, 0.03f },
+        { CrewletActivity.Habit, 0.06f },
         { CrewletActivity.Hat, 0.03f },
         { CrewletActivity.Pickpocket, 0.02f },
     };
@@ -507,6 +523,12 @@ public sealed partial class CrewletBrainComponent : Component
 
     [DataField]
     public EntProtoId GlowEffect = "CrewletGlow";
+
+    [DataField]
+    public EntProtoId FleshForm = "CrewletFleshForm";
+
+    [DataField]
+    public TimeSpan FleshFormTime = TimeSpan.FromSeconds(5);
 
     [DataField]
     public EntProtoId MergeCore = "AnomalyCoreFlesh";
@@ -582,6 +604,9 @@ public sealed partial class CrewletBrainComponent : Component
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? ApartSince;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? OwnerCryoSince;
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan RestUntil;
@@ -818,6 +843,7 @@ public enum CrewletActivity : byte
     Mimic,
     Tag,
     Tinker,
+    Habit,
     Follow,
     Eat,
     KeepAway,
@@ -881,7 +907,8 @@ public partial record struct CrewletHabitKey(
     EntProtoId? Tool,
     EntProtoId? Target,
     string? VerbType,
-    string? Verb);
+    string? Verb,
+    string? Group);
 
 [DataRecord]
 public partial record struct CrewletHabit(
