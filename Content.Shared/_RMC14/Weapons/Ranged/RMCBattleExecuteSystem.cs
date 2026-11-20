@@ -1,9 +1,7 @@
+using System.Numerics;
 using Content.Shared._RMC14.Chat;
-using Content.Shared._RMC14.Marines;
-using Content.Shared._RMC14.Marines.Skills;
-using Content.Shared._RMC14.Medical.Unrevivable;
-using Content.Shared._RMC14.Xenonids;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Camera;
 using Content.Shared.Chat;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
@@ -11,6 +9,7 @@ using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
@@ -19,6 +18,7 @@ using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Wieldable.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 
@@ -34,27 +34,37 @@ public sealed class RMCBattleExecuteSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly SharedCameraRecoilSystem _cameraRecoil = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SkillsSystem _skills = default!;
+    //[Dependency] private readonly SkillsSystem _skills = default!; // Omu we don't have this.
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly RMCUnrevivableSystem _unrevivable = default!;
+    //[Dependency] private readonly RMCUnrevivableSystem _unrevivable = default!; // Omu, we don't have this.
 
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<MarineComponent, GetVerbsEvent<AlternativeVerb>>(AlternativeInteract);
-        SubscribeLocalEvent<MarineComponent, RMCBattleExecuteEvent>(ExecuteDoAfter);
+        SubscribeLocalEvent<HumanoidAppearanceComponent, GetVerbsEvent<AlternativeVerb>>(AlternativeInteract); // Omu, replace MarineComponent with HumanoidApperanceComponent
+        SubscribeLocalEvent<HumanoidAppearanceComponent, RMCBattleExecuteEvent>(ExecuteDoAfter); // Omu, replace MarineComponent with HumanoidApperanceComponent
         SubscribeLocalEvent<RMCBattleExecutedComponent, ExaminedEvent>(ExamineBody);
+        SubscribeLocalEvent<RMCBattleExecuteComponent, ExaminedEvent>(OnGunExecuteExamined);
     }
 
-    private void AlternativeInteract(Entity<MarineComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+    private void OnGunExecuteExamined(Entity<RMCBattleExecuteComponent> ent, ref ExaminedEvent args)
+    {
+        using (args.PushGroup(nameof(RMCBattleExecuteComponent)))
+        {
+            args.PushMarkup(Loc.GetString("rmc-examine-text-execute"));
+        }
+    }
+
+    private void AlternativeInteract(Entity<HumanoidAppearanceComponent> ent, ref GetVerbsEvent<AlternativeVerb> args) // Omu, replace MarineComponent with HumanoidApperanceComponent
     {
         if (args.User != args.Target &&
-            _hands.TryGetActiveItem(args.User, out var handHeldItem) &&
-            TryComp(args.User, out CombatModeComponent? combatModeComponent) &&
+            _hands.TryGetActiveItem(args.User, out var handHeldItem) && handHeldItem != null &&
+            TryComp<CombatModeComponent>(args.User, out var combatModeComponent) && // Omu, fix the trycomp
             combatModeComponent.IsInCombatMode &&
-            TryComp(handHeldItem, out RMCBattleExecuteComponent? executionComponent) &&
-            _skills.HasSkill(args.User, executionComponent.Skill, 1))
+            TryComp<RMCBattleExecuteComponent>(handHeldItem, out var executionComponent)) // Omu we dont have skils. && // Omu, fix the trycomp
+            //_skills.HasSkill(args.User, executionComponent.Skill, 1))
 
         {
             var target = args.Target;
@@ -63,7 +73,7 @@ public sealed class RMCBattleExecuteSystem : EntitySystem
             args.Verbs.Add(new AlternativeVerb
             {
                 Text = Loc.GetString("rmc-execution"),
-                Act = () => { Execute(user, target, executionComponent, handHeldItem.Value); },
+                Act = () => { Execute(user, target, executionComponent, handHeldItem.Value); }, // Omu, its not null so just take .Value
                 Priority = 100
             });
         }
@@ -74,7 +84,7 @@ public sealed class RMCBattleExecuteSystem : EntitySystem
         RMCBattleExecuteComponent executionComponent,
         EntityUid handHeldItem)
     {
-        if (HasComp<RMCBattleExecutedComponent>(target) || HasComp<UnrevivableComponent>(target))
+        if (_mobState.IsDead(target) && HasComp<UnrevivableComponent>(target))
         {
             var cancelledMessage = $"You decide to not Execute {Name(target)}, as they are already far beyond revival.";
             _popup.PopupClient(cancelledMessage, user, PopupType.MediumCaution);
@@ -90,9 +100,13 @@ public sealed class RMCBattleExecuteSystem : EntitySystem
             target,
             handHeldItem);
         _doAfter.TryStartDoAfter(doAfterArgs);
+
+        var selfMsg = Loc.GetString("rmc-execute-start-self", ("target", Name(target)), ("gun", Name(handHeldItem)));
+        var othersMsg = Loc.GetString("rmc-execute-start-others", ("user", Name(user)), ("target", Name(target)), ("gun", Name(handHeldItem)));
+        _popup.PopupPredicted(selfMsg, othersMsg, user, user, PopupType.LargeCaution);
     }
 
-    private void ExecuteDoAfter(Entity<MarineComponent> ent, ref RMCBattleExecuteEvent args)
+    private void ExecuteDoAfter(Entity<HumanoidAppearanceComponent> ent, ref RMCBattleExecuteEvent args) // Omu, replace MarineComponent with HumanoidApperanceComponent
     {
         var user = GetEntity(args.User);
         var target = GetEntity(args.Target);
@@ -136,18 +150,48 @@ public sealed class RMCBattleExecuteSystem : EntitySystem
         _admin.Add(LogType.RMCExecution,
             LogImpact.High,
             $"{ToPrettyString(user)}'s Execution of {ToPrettyString(target)} Succeeded!");
+
+        if (TryComp<WieldableComponent>(args.Used.Value, out var wieldable))
+        {
+            if (!wieldable.Wielded)
+            {
+                var recoilScalar = gun.CameraRecoilScalarModified;
+
+                var userCoords = _transform.GetWorldPosition(user);
+                var targetCoords = _transform.GetWorldPosition(target);
+                var direction = targetCoords - userCoords;
+
+                if (direction == Vector2.Zero)
+                    direction = new Vector2(0, -1);
+
+                var kick = direction.Normalized() * recoilScalar;
+                _cameraRecoil.KickCamera(user, kick);
+            }
+        }
+
         //ToDo RMC14 Make this head damage.
         _damageable.TryChangeDamage(target, args.BattleExecuteDamage, true);
         _mobState.ChangeMobState(target, MobState.Dead);
-        _unrevivable.MakeUnrevivable(target);
-        _audio.PlayPredicted(gun.SoundGunshot, args.Used.Value, user);
+        // Omu start, we don't have RMC unrevivable system so do it manualy instead.
+        //_unrevivable.MakeUnrevivable(target);
+        var unrevivable = EnsureComp<UnrevivableComponent>(target);
+        unrevivable.Analyzable = false;
+        unrevivable.Cloneable = false;
+
+        Dirty(target, unrevivable);
+        // Omu end
+
+        _audio.PlayPredicted(gun.SoundGunshotModified, args.Used.Value, user);
+
         var popupMessage = $"{Name(target)} WAS EXECUTED BY {Name(user)}!";
         _popup.PopupPredicted(popupMessage, target, user, PopupType.LargeCaution);
+
         var chatMsg = $"[bold][font size=24][color=red]\n{Name(target)} WAS EXECUTED BY {Name(user)}!\n[/color][/font][/bold]";
         var coordinates = _transform.GetMapCoordinates(target);
         var players = Filter.Empty().AddInRange(coordinates, 12, _player, EntityManager);
-        players.RemoveWhereAttachedEntity(HasComp<XenoComponent>);
-        _rmcChat.ChatMessageToMany(chatMsg, chatMsg, players, ChatChannel.Local);
+
+        //players.RemoveWhereAttachedEntity(HasComp<XenoComponent>); // Omu we don't have this
+        _rmcChat.ChatMessageToMany(chatMsg, chatMsg, players, ChatChannel.Local); // Omu we don't have this
         EnsureComp<RMCBattleExecutedComponent>(target);
     }
 
