@@ -515,4 +515,9 @@ public enum LogType
     SiliconLaws = 10005, // Goobstation
     AdminRefund = 203,
     AtmosDirectionChanged = 204,
+
+    // RMC start
+    RMCMarineAnnounce = 10000,
+    RMCExecution = RMCMarineAnnounce + 39,
+    // RMC end
 }
