@@ -1,0 +1,231 @@
+# SPDX-License-Identifier: MIT
+
+- type: cloningSettings
+  id: Crewlet
+  components:
+  - DetailExaminable
+  - Dna
+  - Fingerprint
+  - Accentless
+  - BackwardsAccent
+  - BarkAccent
+  - BleatingAccent
+  - DamagedSiliconAccent
+  - FrenchAccent
+  - FrontalLisp
+  - GermanAccent
+  - LizardAccent
+  - MobsterAccent
+  - MonkeyAccent
+  - MothAccent
+  - MumbleAccent
+  - OwOAccent
+  - ParrotAccent
+  - PirateAccent
+  - RussianAccent
+  - ScrambledAccent
+  - SkeletonAccent
+  - SlurredAccent
+  - SouthernAccent
+  - SpanishAccent
+  - StutteringAccent
+  - LanguageSpeaker
+  - LanguageKnowledge
+  - ForeignerTrait
+  copyEquipment: null
+  copyInternalStorage: false
+  copyImplants: false
+  copyStatusEffects: false
+
+- type: entity
+  id: CrewletKit
+  save: false
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Crewlet
+  - type: CrewletReputation
+  - type: HTN
+    rootTask:
+      task: CrewletCompound
+    constantlyReplan: false
+    blackboard:
+      NavInteract: !type:Bool
+        true
+      NavPry: !type:Bool
+        true
+      NavClimb: !type:Bool
+        true
+  - type: CrewletBrain
+    danceEmote: Jump
+    pickpocketBlacklist:
+      components:
+      - PressureProtection
+      - Unremoveable
+    lootBlacklist:
+      components:
+      - VirtualItem
+      - Unremoveable
+      - NukeDisk
+    seatBlacklist:
+      components:
+      - Item
+      - Vehicle
+      - MobState
+      - BlockHandsOnBuckle
+      - IgniteOnBuckle
+      - RocketChair
+      - TriggerOnStrapped
+    hornBlacklist:
+      components:
+      - VirtualItem
+      - Unremoveable
+      - ActivatableUI
+      - TriggerOnUse
+      - TriggerOnActivate
+      - ItemToggle
+      - Rehydratable
+      - Storage
+      - ItemSlots
+      - AnomalyCore
+      - Whistle
+      - Armor
+      - Ransom
+    targetBlacklist:
+      components:
+      - NodeContainer
+      - ContainmentFieldGenerator
+      - Emitter
+      - SingularityGenerator
+      - MultipartMachine
+      - MultipartMachinePart
+      - AmeController
+      - AmeShield
+      - LightningSparking
+      - GravityGenerator
+      - Firelock
+      - Airlock
+      - MindContainer
+      - MobState
+    formBlacklist:
+    - type: LimitedCharges
+    - type: Emag
+    habitGroups:
+      Locker:
+        components:
+        - EntityStorage
+      Light:
+        components:
+        - PoweredLight
+      Plant:
+        components:
+        - PlantHolder
+      Disposal:
+        components:
+        - DisposalUnit
+    habitToolBlacklist:
+      components:
+      - Injector
+      - Handcuff
+      - Welder
+      - IdCard
+      - Pda
+      tags:
+      - Hypospray
+    personTools:
+      components:
+      - HealthAnalyzer
+      - Stethoscope
+    interfaceTargets:
+      components:
+      - ActivatableUI
+      - Storage
+      - DisposalUnit
+    expendableTargets:
+      components:
+      - Puddle
+    toolUses:
+    - tool:
+        tags:
+        - Write
+      target:
+        components:
+        - Paper
+      targetBlacklist:
+        components:
+        - DevilContract
+      action: Sign
+    - tool:
+        components:
+        - Crayon
+      action: Floor
+    - tool:
+        tags:
+        - Trash
+      target:
+        components:
+        - DisposalUnit
+      taught: true
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: ActiveListener
+  - type: ParrotMemory
+    learnChance: 1
+    learnCooldown: 10
+    maxEntryLength: 100
+  - type: EmoteOnDamage
+    emoteChance: 0.3
+    emotes:
+    - Scream
+    withChat: true
+  - type: CrewletHarmScream
+  - type: CrewletRegen
+    damage:
+      types:
+        Blunt: -0.5
+        Slash: -0.5
+        Piercing: -0.5
+        Heat: -0.5
+        Shock: -0.5
+        Cold: -0.5
+        Caustic: -0.5
+        Poison: -0.5
+        Radiation: -0.5
+        Asphyxiation: -0.5
+        Bloodloss: -0.5
+        Cellular: -0.5
+        Holy: -0.5
+        Ion: -0.5
+  - type: Hunger
+    baseDecayRate: 0.004167
+  - type: Thirst
+    baseDecayRate: 0.04167
+  - type: Access
+    tags:
+    - Maintenance
+  - type: TargetObjectiveImmune
+  - type: ObjectiveExempt
+
+- type: entity
+  id: CrewletMobKit
+  save: false
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: CrewletChatter
+  - type: CrewletRegen
+    damage:
+      types:
+        Blunt: -0.5
+        Slash: -0.5
+        Piercing: -0.5
+        Heat: -0.5
+        Shock: -0.5
+        Cold: -0.5
+        Caustic: -0.5
+        Poison: -0.5
+        Radiation: -0.5
+        Asphyxiation: -0.5
+        Bloodloss: -0.5
+        Cellular: -0.5
+        Holy: -0.5
+        Ion: -0.5
