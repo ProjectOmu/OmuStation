@@ -1,12 +1,15 @@
 // SPDX-License-Identifier: MIT
 
 using System.Linq;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Access.Components;
+using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.VendingMachines;
 using Content.Shared.Verbs;
 using Robust.Shared.Map;
@@ -132,8 +135,55 @@ public sealed partial class CrewletBrainSystem
             var expendable = verb != null || _whitelist.IsWhitelistPass(brain.ExpendableTargets, target);
             var risky = verb != null && verb.Impact >= brain.RiskyImpact;
             var facts = Facts(ent, target);
-            Note(brain, new CrewletWatch(key, owner, target, prototype, expendable, risky, facts, tick, now));
+            var state = tool is { } held ? ToolState(brain, held) : default;
+            Note(brain, new CrewletWatch(key, owner, target, prototype, expendable, risky, facts, tick, now, state));
         }
+    }
+
+    private CrewletToolState ToolState(CrewletBrainComponent brain, EntityUid tool)
+    {
+        var active = TryComp<ItemToggleComponent>(tool, out var toggle) && toggle.Activated;
+        if (!TryComp<SolutionContainerManagerComponent>(tool, out var manager))
+            return new CrewletToolState(active, null);
+
+        List<CrewletToolReagent>? reagents = null;
+        foreach (var (name, solution) in _solutions.EnumerateSolutions((tool, manager)))
+        {
+            if (name == null)
+                continue;
+
+            foreach (var reagent in brain.FormReagents)
+            {
+                var quantity = solution.Comp.Solution.GetTotalPrototypeQuantity(reagent);
+                if (quantity <= FixedPoint2.Zero)
+                    continue;
+
+                reagents ??= new List<CrewletToolReagent>();
+                reagents.Add(new CrewletToolReagent(name, reagent, quantity));
+            }
+        }
+
+        return new CrewletToolState(active, reagents);
+    }
+
+    private static CrewletToolState Fuller(CrewletToolState kept, CrewletToolState seen)
+    {
+        var reagents = Total(seen.Reagents) > Total(kept.Reagents) ? seen.Reagents : kept.Reagents;
+        return new CrewletToolState(kept.Active || seen.Active, reagents);
+    }
+
+    private static FixedPoint2 Total(List<CrewletToolReagent>? reagents)
+    {
+        var total = FixedPoint2.Zero;
+        if (reagents == null)
+            return total;
+
+        foreach (var reagent in reagents)
+        {
+            total += reagent.Quantity;
+        }
+
+        return total;
     }
 
     private void Teach(CrewletBrainComponent brain, EntityUid tool, EntityUid target)
@@ -268,7 +318,8 @@ public sealed partial class CrewletBrainSystem
                 key = new CrewletHabitKey(CrewletToolAction.Vend, null, null, null, null, null);
             }
             else if (_whitelist.IsWhitelistPass(brain.InterfaceTargets, target)
-                || _whitelist.IsWhitelistPass(brain.TargetBlacklist, target))
+                || _whitelist.IsWhitelistPass(brain.TargetBlacklist, target)
+                || _whitelist.IsWhitelistPass(brain.ActivateBlacklist, target))
             {
                 return false;
             }
@@ -556,11 +607,12 @@ public sealed partial class CrewletBrainSystem
             var habit = habits[index];
             habit.Count++;
             habit.Varied |= habit.Facts ^ watch.Facts;
+            habit.ToolState = Fuller(habit.ToolState, watch.ToolState);
             habits[index] = habit;
         }
         else
         {
-            habits.Add(new CrewletHabit(key, 1, false, watch.Risky, watch.Facts, CrewletFacts.None));
+            habits.Add(new CrewletHabit(key, 1, false, watch.Risky, watch.Facts, CrewletFacts.None, watch.ToolState));
             Trim(brain);
         }
 
