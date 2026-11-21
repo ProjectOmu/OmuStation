@@ -10341,3 +10341,47 @@ Entries:
       message: Even MORE crewlet fixes and changes + new actions.
   id: 1327
   time: '2026-11-20T03:31:15.0000000+00:00'
+- author: EctoplasmIsGood
+  changes:
+    - type: Fix
+      message: Slaughter Demons no longer lose their martial arts after using jaunt.
+  id: 1328
+  time: '2026-11-21T00:41:09.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Fix
+      message: >-
+        Crewlets form flesh tools in a usable state where possible and Parthenol
+        can no longer be in foam/smoke.
+  id: 1329
+  time: '2026-11-21T07:55:34.0000000+00:00'
+- author: Waterwithoutanyice
+  changes:
+    - type: Remove
+      message: Removed the surplus pills order from the cargo console
+  id: 1330
+  time: '2026-11-21T10:28:51.0000000+00:00'
+- author: ggrab41
+  changes:
+    - type: Fix
+      message: Ghosts can no longer be converted into cosmic cultists.
+    - type: Fix
+      message: >-
+        Fixed The Monument displaying incorrect number of converts needed to
+        progress.
+    - type: Fix
+      message: >-
+        The Monument should no longer wait for more entropy to update to stage 3
+        even after reaching the required amount.
+  id: 1331
+  time: '2026-11-21T19:37:49.0000000+00:00'
+- author: EctoplasmIsGood
+  changes:
+    - type: Tweak
+      message: The Foreman's locker has recieved a plethora of new tools.
+    - type: Tweak
+      message: >-
+        The Foreman's hardsuit and cyberbeast mantle are now nearly completely
+        immune to radiation.
+  id: 1332
+  time: '2026-11-21T19:44:13.0000000+00:00'
