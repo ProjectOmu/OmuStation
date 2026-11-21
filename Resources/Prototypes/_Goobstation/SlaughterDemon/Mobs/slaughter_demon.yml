@@ -188,6 +188,23 @@
     understands:
     - TauCetiBasic
   - type: AntiRottingContainer # Omu for anti-rot
+# OMU START
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 50
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: Hemorrhinol
+        Quantity: 10
+  - type: MeleeChemicalInjector
+    transferAmount: 0.5
+    transferEfficiency: 1
+    solution: melee
+    pierceArmor: true
+# OMU END
 
 # laughter demon
 - type: entity

@@ -89,6 +89,7 @@ public sealed class SlaughterDevourSystem : EntitySystem
             pullingEnt)
         {
             BreakOnMove = true,
+            BreakOnDamage = true, // omu
             ColorOverride = Color.Red
         };
 
