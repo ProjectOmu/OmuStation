@@ -23,6 +23,7 @@ Small fixes/refactors are exempt. Media may be used in SS14 progress reports wit
 - [ ] I have added media to this PR or it does not require an in-game showcase.
 <!-- You should understand that not following the above may get your PR closed at maintainer’s discretion -->
 
+## Licensing  
 <!-- To note to contribs, do not tick the following option if the code is not your own. -->
 - [ ] I allow my code and changes to be relicensed to MIT, upon them being ported to ProjectOmu's Refried in the near future.
 
