@@ -1,8 +1,8 @@
 - type: entity
   id: CrateArmoryVasquez
-  name: Vasquez expendable LMG crate
+  name: expendable LMG crate
   parent: CrateWeaponSecure
-  description: Contains two expendable light machine guns. Requires Armory access to open.
+  description: Contains two vasquez expendable light machine guns. Requires Armory access to open.
   components:
   - type: AccessReader
     access: [ [ "Armory" ] ]
