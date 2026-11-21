@@ -5,8 +5,8 @@ name: No database update checker
 on:
   pull_request:
     paths:
-      - 'Content.Server.Database'
-      - 'Content.Server/Database'
+      - 'Content.Server.Database/**'
+      - 'Content.Server/Database/**'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
