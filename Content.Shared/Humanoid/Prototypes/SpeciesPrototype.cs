@@ -124,6 +124,17 @@ public sealed partial class SpeciesPrototype : IPrototype
     [DataField]
     public int MaxAge = 120;
 
+    // Far Horizons Start - Subspecies system
+    [DataField]
+    public ProtoId<SpeciesPrototype>? SubspeciesOf = null;
+
+    [DataField]
+    public LocId? SubspeciesName = null;
+
+    [DataField]
+    public bool HasSubspecies = false;
+    // Far Horizons End
+
     // begin Goobstation: port EE height/width sliders
 
     /// <summary>
