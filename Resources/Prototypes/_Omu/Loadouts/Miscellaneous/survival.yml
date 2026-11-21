@@ -13,6 +13,13 @@
     species:
     - Ovinia
 
+- type: loadoutEffectGroup
+  id: OniGourd
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Oni
+
 # Basic
 - type: loadout
   id: EmergencyOxygenCarnivore
@@ -297,3 +304,13 @@
   storage:
     back:
     - BoxSurvivalSlotsBlueshieldOfficerVegetable
+
+# Oni gourd
+- type: loadout
+  id: OniGourdOnSpawn
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OniGourd
+  storage:
+    back:
+    - DrinkOniGourd

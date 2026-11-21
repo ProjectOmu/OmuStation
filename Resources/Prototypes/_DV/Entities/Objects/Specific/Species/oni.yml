@@ -1,5 +1,5 @@
 - type: entity
-  parent: FlaskBase
+  parent: [DrinkBase, DrinkBaseOpenable, DrinkVisualsOpenable] #omu - changed parents so gourd is unbreakable
   id: DrinkOniGourd
   name: sake gourd
   description: A traditional drinking vessel used by oni. It is said to be filled with the finest sake.
@@ -20,6 +20,16 @@
       - ReagentId: Sake
         Quantity: 2
     duration: 10
+  #omu start - added types from FlaskBase to gourd since it doesn't parent it anymore.
+  - type: FitsInDispenser
+    solution: drink
+  - type: Openable
+    sound:
+      collection: flaskOpenSounds
+    closeable: true
+    closeSound:
+      collection: flaskCloseSounds
+  #omu end - added types from FlaskBase to gourd since it doesn't parent it anymore.
 
 - type: entity
   parent: DrinkOniGourd
