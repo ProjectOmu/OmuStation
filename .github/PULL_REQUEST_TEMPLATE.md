@@ -25,7 +25,7 @@ Small fixes/refactors are exempt. Media may be used in SS14 progress reports wit
 
 ## Licensing  
 <!-- To note to contribs, do not tick the following option if the code is not your own. -->
-- [ ] I allow my code and changes to be relicensed to MIT, upon them being ported to ProjectOmu's Refried in the near future.
+- [ ] I allow my code and changes in this PR to be relicensed to MIT, upon them being ported to ProjectOmu's Refried in the near future.
 
 ## Breaking changes
 <!-- List any breaking changes, including namespaces, public class/method/field changes, prototype renames; and provide instructions for fixing them.
