@@ -9,4 +9,6 @@ reagent-physical-desc-verygritty = very gritty
 reagent-physical-desc-pandemonicallyfeathery = pandemonically feathery
 reagent-physical-desc-gekkerzine = annoyingly loud
 reagent-physical-desc-diluted = diluted
+reagent-physical-desc-shimmering = shimmering
+reagent-physical-desc-therapeutic = therapeutic
 reagent-physical-desc-pulsating = pulsating
