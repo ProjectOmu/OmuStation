@@ -52,11 +52,19 @@
   id: CurseBlindness
   name: Curse of Blindness
   statusIcon: CurseBlindnessIcon
-  update: 90 #1.5 minutes
+  update: 75 #1.5 minutes # Omu edit: changed update interval
   effects:
-    0.8:
-    - !type:EyeDamage
-      amount: 2
+    0.7: # Omu edit
+    #- !type:EyeDamage # Omu edit start
+    #  amount: 2
+    - !type:GenericStatusEffect
+      key: TemporaryBlindness
+      component: TemporaryBlindness
+      time: 30
+    - !type:MovementSpeedModifier
+      walkSpeedModifier: 0.3
+      sprintSpeedModifier: 0.3
+      time: 5 # Omu edit end
     - !type:PopupMessage
       type: Local
       visualType: MediumCaution
@@ -113,8 +121,8 @@
     - !type:Emote
       emote: Scream
       showInChat: true
-    - !type:SpawnEntity
-      entity: PuddleBloodSmall
+    - !type:SpillBlood # Omu edit start
+      amount: 10 # Omu edit end
     - !type:HealthChange
       damage:
         groups:

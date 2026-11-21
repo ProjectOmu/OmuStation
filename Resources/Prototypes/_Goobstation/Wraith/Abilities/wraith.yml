@@ -89,7 +89,10 @@
   components:
   - type: SummonPlagueRat
   - type: SummonRotHulk
-    searchRadius: 9
+    searchRadius: 6 # Omu edit start: more things count as trash but need more of it.
+    trashTag: Trash
+    minTrash: 15
+    maxTrash: 100 # Omu edit end
   - type: Defile
     reagents:
       BuzzochloricBees: 10
@@ -97,6 +100,15 @@
       Ash: 10
       Vomit: 10
       Toxin: 10
+      Ratbile: 20 # Omu edit start: more reagents for defile.
+      Phlogiston: 10
+      Nocturine: 15
+      JuiceThatMakesYouHew: 20
+      BerserkToxin: 5
+      Profanol: 15
+      Tilenol: 15
+      EldritchEssence: 1
+      Fresium: 4 # Omu edit end
   - type: ActionGrant
     actions:
     - ActionCurseBlindness
