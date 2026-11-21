@@ -1,0 +1,74 @@
+- type: entity
+  id: SpawnPointGhostERTLeaderBlue
+  parent: MarkerBase
+  name: ERT spawn point
+  suffix: Leader, Blue
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Markers/jobs.rsi
+      state: ertleadereva
+  - type: ConditionalSpawner
+    prototypes:
+    - RandomHumanoidSpawnerERTLeaderBlue
+
+- type: entity
+  id: SpawnPointGhostERTSecurityBlue
+  parent: MarkerBase
+  name: ERT spawn point
+  suffix: Security, Blue
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Markers/jobs.rsi
+      state: ertsecurityeva
+  - type: ConditionalSpawner
+    prototypes:
+    - RandomHumanoidSpawnerERTSecurityBlue
+
+- type: entity
+  id: SpawnPointGhostERTMedicalBlue
+  parent: MarkerBase
+  name: ERT spawn point
+  suffix: Medical, Blue
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Markers/jobs.rsi
+      state: ertmedical
+  - type: ConditionalSpawner
+    prototypes:
+    - RandomHumanoidSpawnerERTMedicBlue
+
+- type: entity
+  id: SpawnPointGhostERTEngineerBlue
+  parent: MarkerBase
+  name: ERT spawn point
+  suffix: Engineer, Blue
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Markers/jobs.rsi
+      state: ertengineereva
+  - type: ConditionalSpawner
+    prototypes:
+    - RandomHumanoidSpawnerERTEngineerBlue
+
+- type: entity
+  id: SpawnPointGhostERTJanitorBlue
+  parent: MarkerBase
+  name: ERT spawn point
+  suffix: Janitor, Blue
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Markers/jobs.rsi
+      state: ertjanitor
+  - type: ConditionalSpawner
+    prototypes:
+    - RandomHumanoidSpawnerERTJanitorBlue

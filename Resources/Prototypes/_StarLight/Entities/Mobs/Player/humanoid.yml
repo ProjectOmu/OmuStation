@@ -1,0 +1,51 @@
+- type: entity
+  id: RandomHumanoidSpawnerERTChaplainStarlight
+  parent: RandomHumanoidSpawnerERTLeader
+  name: ERT chaplain
+  suffix: ERTRole, Basic
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: ertchaplain
+    - type: RandomHumanoidSpawner
+      settings: ERTChaplainStarlight
+
+- type: randomHumanoidSettings
+  id: ERTChaplainStarlight
+  parent: ERTLeader
+  components:
+    - type: BibleUser
+    - type: GhostRole
+      name: ghost-role-information-ert-chaplain-name
+      description: ghost-role-information-ert-chaplain-description
+      rules: ghost-role-information-nonantagonist-rules # Omu
+      raffle:
+        settings: short
+      job: ERTChaplain
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryLast
+      nameFormat: name-format-ert-specialist
+    - type: Loadout
+      prototypes: [ ERTChaplainGearStarlight ]
+      roleLoadout: [ RoleSurvivalMilitaryDouble ]
+
+- type: entity
+  id: RandomHumanoidSpawnerERTChaplainStarlightEVA
+  parent: RandomHumanoidSpawnerERTChaplainStarlight
+  name: ERT chaplain
+  suffix: ERTRole, EVA
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: ertchaplaineva
+    - type: RandomHumanoidSpawner
+      settings: ERTChaplainStarlightEVA
+
+- type: randomHumanoidSettings
+  id: ERTChaplainStarlightEVA
+  parent: ERTChaplainStarlight
+  components:
+    - type: Loadout
+      prototypes: [ ERTChaplainGearStarlightEVA ]
+      roleLoadout: [ RoleSurvivalMilitaryDouble ]
