@@ -88,6 +88,18 @@ namespace Content.Shared.Damage
         [DataField]
         public FixedPoint2? HealthBarThreshold;
 
+        # region Starlight
+         /// <summary>
+         ///     Additive changes to damage coefficients. See also: <see cref="DamageModifierSet"/>
+        /// </summary>
+       [DataField]
+        public Dictionary<(EntityUid Source, string ModifierKey), float> AdditiveCoefficients = [];
+        /// <summary>
+        ///     Additive changes to damage modifiers. See also: <see cref="DamageModifierSet"/>
+        /// </summary>
+        [DataField]
+         public Dictionary<(EntityUid Source, string ModifierKey), float> AdditiveModifiers = [];
+        #endregion Starlight
         [ViewVariables]
         public TimeSpan LastModifiedTime = TimeSpan.Zero;
     }

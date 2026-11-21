@@ -65,6 +65,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] protected readonly StatusEffectsSystem Status = default!;
     [Dependency] private readonly SharedCorticalBorerSystem _corticalBorer = default!; // mono
+    [Dependency] private readonly MarkingManager _markingManager = default!;
 
     private EntityQuery<BodyComponent> _bodyQuery;
     private EntityQuery<StackComponent> _stackQuery;

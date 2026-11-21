@@ -52,6 +52,9 @@
   - type: PhysicalComposition
     materialComposition:
       Meaterial: 300
+  - type: Tag
+    tags:
+    - Meat # Why was this not always tagged as meat?
 
 - type: entity
   parent: FoodMeatBase
