@@ -92,10 +92,11 @@
     maxOccurrences: 1
     startAnnouncement: station-event-communication-interception
     startAudio:
-      path: /Audio/Announcements/intercept.ogg # Omu, Swapped to different traitor line for consistency
+      path: /Audio/_Omu/Announcements/intercept.ogg # Omu
     duration: null
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
+    sound: /Audio/Misc/bluealert.ogg # Omu
   - type: AntagRandomObjectives
     sets:
     - groups: NTAgentObjectiveGroup

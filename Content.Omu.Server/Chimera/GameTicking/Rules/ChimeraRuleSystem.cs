@@ -140,7 +140,7 @@ public sealed class ChimeraRuleSystem : GameRuleSystem<ChimeraRuleComponent>
                     colorOverride: Color.Pink);
             }
 
-            var audio = new SoundPathSpecifier("/Audio/Announcements/outbreak7.ogg");
+            var audio = new SoundPathSpecifier("/Audio/_Omu/Announcements/outbreak7.ogg");
 
             _audio.PlayGlobal(audio, Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
         }

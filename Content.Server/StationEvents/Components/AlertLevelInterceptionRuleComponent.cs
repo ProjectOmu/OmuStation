@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.StationEvents.Events;
+using Robust.Shared.Audio; // Omu
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.StationEvents.Components;
@@ -27,4 +28,7 @@ public sealed partial class AlertLevelInterceptionRuleComponent : Component
     /// </summary>
     [DataField]
     public bool Locked = false;
+
+    [DataField]
+    public SoundSpecifier? Sound; // Omu
 }

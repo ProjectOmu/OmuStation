@@ -24,7 +24,7 @@
   - type: StationEvent
     startAnnouncement: station-event-cburn-enroute
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_Omu/Announcements/attention.ogg # Omu
     duration: 1
     maxOccurrences: 1
   - type: LoadMapRule
@@ -39,7 +39,7 @@
   - type: StationEvent
     startAnnouncement: station-event-emergencyresponseteam-security-enroute
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_Omu/Announcements/attention.ogg # Omu
     duration: 1
     maxOccurrences: 1
   - type: LoadMapRule
@@ -52,7 +52,7 @@
   - type: StationEvent
     startAnnouncement: station-event-emergencyresponseteam-medical-enroute
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_Omu/Announcements/attention.ogg # Omu
     duration: 1
     maxOccurrences: 1
   - type: LoadMapRule
@@ -65,7 +65,7 @@
   - type: StationEvent
     startAnnouncement: station-event-emergencyresponseteam-engineering-enroute
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_Omu/Announcements/attention.ogg # Omu
     duration: 1
     maxOccurrences: 1
   - type: LoadMapRule
@@ -78,7 +78,7 @@
   - type: StationEvent
     startAnnouncement: station-event-emergencyresponseteam-janitorial-enroute # Omu - ERT Cleanup, Cleanup ERT
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_Omu/Announcements/attention.ogg # Omu
     duration: 1
     maxOccurrences: 1
   - type: LoadMapRule
@@ -91,7 +91,7 @@
   - type: StationEvent
     startAnnouncement: station-event-emergencyresponseteam-chaplain-enroute
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_Omu/Announcements/attention.ogg # Omu
     duration: 1
     maxOccurrences: 1
   - type: LoadMapRule
@@ -104,7 +104,7 @@
   - type: StationEvent
     startAnnouncement: station-event-hecu-enroute
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_Omu/Announcements/attention.ogg # Omu
     duration: 1
     maxOccurrences: 1
   - type: LoadMapRule
