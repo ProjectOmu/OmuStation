@@ -141,8 +141,8 @@
           steps:
             - tag: JamjarGlasses
               name: construction-graph-tag-jamjar-glasses
-              icon: 
-                sprite: Clothing/Eyes/Glasses/jamjar.rsi 
+              icon:
+                sprite: Clothing/Eyes/Glasses/jamjar.rsi
                 state: icon
               doAfter: 5
             - tag: HudChemistry
