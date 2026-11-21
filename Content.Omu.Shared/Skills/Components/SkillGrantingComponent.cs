@@ -14,4 +14,7 @@ public sealed partial class SkillGrantingComponent : Component
 
     [DataField]
     public bool DestroyAfterUse = true;
+
+    [DataField]
+    public bool OnlyIncreaseSkillLevel = true;
 }

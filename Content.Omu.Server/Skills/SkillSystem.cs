@@ -59,8 +59,8 @@ public sealed class SkillSystem : SharedSkillSystem
         if (jobSkills == null)
             return;
 
-        var holder = AddComp<SkillHolderComponent>(ev.MindId);
-        holder.Skills = new(jobSkills.Skills);
+        EnsureSetSkillBatch(ev.MindId, new(jobSkills.Skills));
+        var holder = EnsureComp<SkillHolderComponent>(ev.MindId);//we get the comp we just added
         holder.Departments = new(jobSkills.Departments);
         holder.Commands = new(jobSkills.Commands);
 
@@ -71,7 +71,7 @@ public sealed class SkillSystem : SharedSkillSystem
             foreach (var skill in PrototypeManager.EnumeratePrototypes<SkillPrototype>())
             {
                 var adjustment = jobSkills.Specialties.Contains(skill.ID) ? species.Specialty : species.Other;
-                holder.Skills[skill.ID] = holder.Skills.GetValueOrDefault(skill.ID) + adjustment;
+                TryAjustSkill(ev.MindId, skill, adjustment, batchOverride: true);//active batch overrride as we call the Update Skill functon ourselfs
             }
         }
 
@@ -83,12 +83,11 @@ public sealed class SkillSystem : SharedSkillSystem
         if (ev.Profile.SkillAllocation.Count == 0 || !MindSystem.TryGetMind(ev.Mob, out var mind, out _))
             return;
 
-        var holder = EnsureComp<SkillHolderComponent>(mind);
         foreach (var (skill, points) in ev.Profile.SkillAllocation)
         {
-            holder.Skills[skill] = holder.Skills.GetValueOrDefault(skill) + points;
+            EnsureAjustSkill(mind, skill, points, batchOverride: true);
         }
-
+        var holder = EnsureComp<SkillHolderComponent>(mind);
         UpdateSkills((mind, holder));
     }
 
@@ -117,16 +116,13 @@ public sealed class SkillSystem : SharedSkillSystem
     {
         if (args.Handled || !MindSystem.TryGetMind(args.User, out var mind, out _))
             return;
-
-        var holder = EnsureComp<SkillHolderComponent>(mind);
+        //we dont want entities that are not meant to have the skill system to be able to obtain skills
+        if (!TryComp<SkillHolderComponent>(mind, out var holder)) return;
         var learned = false;
-        foreach (var (skill, level) in ent.Comp.Skills)
+        TrySetSkillBatch(mind, ent.Comp.Skills, out var results, onlyIncrease: ent.Comp.OnlyIncreaseSkillLevel);
+        foreach (var result in results)
         {
-            if (holder.Skills.GetValueOrDefault(skill) >= level)
-                continue;
-
-            holder.Skills[skill] = level;
-            learned = true;
+            if (result.Value) learned = true;
         }
 
         if (!learned)
@@ -205,10 +201,10 @@ public sealed class SkillSystem : SharedSkillSystem
     /// <summary>
     /// Function that ensures that the mind of the target will recive the required components
     /// </summary>
-    public void EnsureAjustSkill(EntityUid mindId, ProtoId<SkillPrototype> skill, int adjustment)
+    public void EnsureAjustSkill(EntityUid mindId, ProtoId<SkillPrototype> skill, int adjustment, bool batchOverride = false)
     {
-        var holder = AddComp<SkillHolderComponent>(mindId);
-        TryAjustSkill(mindId, skill, adjustment);
+        var holder = EnsureComp<SkillHolderComponent>(mindId);
+        TryAjustSkill(mindId, skill, adjustment, batchOverride: batchOverride);
     }
     /// <summary>
     /// Tries to ajust the skill level fails if the target does not have a SkillHolder component
@@ -230,13 +226,13 @@ public sealed class SkillSystem : SharedSkillSystem
         }
         UpdateSkills(new(mindId, holder));
     }
-    public bool TrySetSkillBatch(EntityUid mindId, Dictionary<ProtoId<SkillPrototype>, int> valuePairs, out Dictionary<ProtoId<SkillPrototype>, bool> results)
+    public bool TrySetSkillBatch(EntityUid mindId, Dictionary<ProtoId<SkillPrototype>, int> valuePairs, out Dictionary<ProtoId<SkillPrototype>, bool> results, bool onlyIncrease = false)
     {
         results = new();
         if (!TryComp<SkillHolderComponent>(mindId, out var holder)) return false;
         foreach (var iterator in valuePairs)
         {
-            results[iterator.Key] = TrySetSkill(mindId, iterator.Key, iterator.Value, batchOverride: true);
+            results[iterator.Key] = TrySetSkill(mindId, iterator.Key, iterator.Value, batchOverride: true, onlyIncrease: onlyIncrease);
         }
         UpdateSkills(new(mindId, holder));
         return true;
@@ -261,7 +257,6 @@ public sealed class SkillSystem : SharedSkillSystem
         if (!batchOverride) UpdateSkills(new(mindId, holder));
         return true;
     }
-
     private void UpdateSkills(Entity<SkillHolderComponent> holder)
     {
         Dirty(holder);

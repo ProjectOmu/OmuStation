@@ -50,7 +50,7 @@ public sealed class AjustSkillLevelCommand : IConsoleCommand
             return;
         }
         //ensure skill exists
-        if (!_prototypes.TryIndex<SkillPrototype>(args[1], out var proto))
+        if (!_prototypes.TryIndex<SkillPrototype>(args[1], out var skill))
         {
             shell.WriteError(Loc.GetString("cmd-skill-not-valid"));
             return;
@@ -58,7 +58,7 @@ public sealed class AjustSkillLevelCommand : IConsoleCommand
         bool validPrototype = false;
         foreach (var iterator in _prototypes.EnumeratePrototypes<SkillPrototype>())
         {
-            if (iterator.ID == proto.ID)
+            if (iterator.ID == skill.ID)
             {
                 validPrototype = true;
             }
@@ -72,6 +72,11 @@ public sealed class AjustSkillLevelCommand : IConsoleCommand
         if (!int.TryParse(args[2], out var prasedSkillAjustment))
         {
             shell.WriteError(Loc.GetString("cmd-not-a-number"));
+            return;
+        }
+        if (_entities.System<SkillSystem>().TryAjustSkill(mindId, skill, prasedSkillAjustment))
+        {
+            shell.WriteError(Loc.GetString("cmd-failed-to-ajust-skill"));
             return;
         }
         shell.WriteLine("Skill levels have been altered");
