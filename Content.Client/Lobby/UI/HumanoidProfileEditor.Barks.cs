@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Goobstation.Common.Barks;
+using Content.Shared._Omu.Speech;
 using System.Linq;
 
 namespace Content.Client.Lobby.UI;
@@ -30,7 +31,9 @@ public sealed partial class HumanoidProfileEditor
             .EnumeratePrototypes<BarkPrototype>()
             .Where(o => o.RoundStart &&
                         (o.SpeciesWhitelist is null ||
-                         o.SpeciesWhitelist.Contains(Profile.Species)))
+                         o.SpeciesWhitelist.Contains(Profile.Species) || // Omu
+                         o.SpeciesWhitelist.Any(s => // Omu
+                             VoiceUnlockPrototype.IsUnlocked(_prototypeManager, Profile, s, emotePack: false)))) // Omu
             .OrderBy(o => Loc.GetString(o.ID))
             .ToList();
 

@@ -54,3 +54,18 @@
       inverted: true
       traits:
         - Muted
+
+- type: trait
+  id: RaisedAmongOthers
+  name: trait-raised-among-others-name
+  description: trait-raised-among-others-desc
+  category: AuditoryTraits
+  blacklist:
+    components:
+      - BorgChassis
+  globalCost: 2
+  requirements:
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+        - Harpy
