@@ -500,7 +500,7 @@
           min: 0.05
         - !type:MetabolizerTypeCondition # Fuck you
           type: [ Hydrakin ]
-        speedModifier: 1.25
+        speedModifier: 1.15 # omu 1.25 -> 1.15
       - !type:Emote
         minScale: 0.2
         conditions:
