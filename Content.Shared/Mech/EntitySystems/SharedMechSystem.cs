@@ -34,7 +34,8 @@ using Content.Shared.Inventory.VirtualItem;
 using Robust.Shared.Configuration;
 using Content.Shared._Omu.Entities.Objects.BloodredVim;         //OMU
 using Content.Shared.Administration.Logs;       //OMU
-using Content.Shared.Database;          //OMU
+using Content.Shared.Database;
+using Content.Shared.Movement.Pulling.Systems;
 
 namespace Content.Shared.Mech.EntitySystems;
 
@@ -59,6 +60,7 @@ public abstract partial class SharedMechSystem : EntitySystem
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!; // Goobstation Change
     [Dependency] private readonly IConfigurationManager _config = default!; // Goobstation Change
     [Dependency] private readonly ISharedAdminLogManager _admin = default!;     //OMU
+    [Dependency] private readonly PullingSystem _pullingSystem = default!; //Omu
 
     // Goobstation: Local variable for checking if mech guns can be used out of them.
     private bool _canUseMechGunOutside;
@@ -467,6 +469,9 @@ public abstract partial class SharedMechSystem : EntitySystem
         var ev = new MechEjectedEvent(uid);
         RaiseLocalEvent(pilot.Value, ev);
         // </Goobstation>
+        //Omu start
+        _pullingSystem.StopAllPulls(uid);
+        //Omu end
         return true;
     }
 
