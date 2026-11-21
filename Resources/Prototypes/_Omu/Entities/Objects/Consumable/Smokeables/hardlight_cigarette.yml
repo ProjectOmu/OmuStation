@@ -1,0 +1,42 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseItem
+  id: HardlightCigarette
+  name: hardlight cigarette
+  description: A cigarette made of projected light. It has a USB connector that can be attached to an IPC's monitor.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Consumable/Smokeables/Cigarettes/hardlight_cigarette.rsi
+    layers:
+    - state: unlit-icon
+      map: [ "base" ]
+      shader: unshaded
+  - type: Item
+    size: Tiny
+    sprite: _Omu/Objects/Consumable/Smokeables/Cigarettes/hardlight_cigarette.rsi
+    heldPrefix: unlit
+  - type: Clothing
+    sprite: _Omu/Objects/Consumable/Smokeables/Cigarettes/hardlight_cigarette.rsi
+    slots: [ mask ]
+    equippedPrefix: unlit
+  - type: Tag
+    tags:
+    - Cigarette
+    - IPCMaskWearable
+  - type: Appearance
+  - type: ItemToggle
+    onUse: false
+    wieldToggle: false
+  - type: ItemTogglePrefix
+    prefixOn: lit
+    prefixOff: unlit
+  - type: ToggleClothingPrefix
+    prefixOn: lit
+    prefixOff: unlit
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        base:
+          True: { state: lit-icon }
+          False: { state: unlit-icon }
