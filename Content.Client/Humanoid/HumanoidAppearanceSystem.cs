@@ -394,7 +394,9 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         // make a handy dict of filename -> colors
         // cus we might need to access it by filename to link
         // one sprite's colors to another
+        // Omu: and glowy bits too
         var colorDict = new Dictionary<string, Color>();
+        var glowyDict = new Dictionary<string, bool>(); // Omu
         for (var i = 0; i < markingPrototype.Sprites.Count; i++)
         {
             var spriteName = markingPrototype.Sprites[i] switch
@@ -410,6 +412,14 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
                     colorDict.Add(spriteName, colors[i]);
                 else
                     colorDict.Add(spriteName, Color.White);
+
+                // Omu begin
+                if (glowyBits > 0)
+                {
+                    var isGlowy = (glowyBits & (1u << i)) != 0;
+                    glowyDict.Add(spriteName, isGlowy);
+                }
+                // Omu end
             }
         }
         // now, rearrange them, copying any parented colors to children set to
@@ -422,6 +432,13 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
                 {
                     colorDict[child] = color;
                 }
+
+                // Omu begin
+                if (glowyDict.TryGetValue(parent, out var glowy))
+                {
+                    glowyDict[child] = glowy;
+                }
+                // Omu end
             }
         }
         // and, since we can't rely on the iterator knowing where the heck to put
@@ -507,8 +524,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 
             // Omu begin
             // Gets the current glowy bit from the loop
-            var isGlowy = (glowyBits & (1u << j)) != 0;
-            if (isGlowy)
+            if (glowyDict.TryGetValue(rsi.RsiState, out var isGlowy) && isGlowy)
                 sprite.LayerSetShader(layerId, "unshaded");
             // Omu end
 
