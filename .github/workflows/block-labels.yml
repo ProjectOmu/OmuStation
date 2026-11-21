@@ -17,5 +17,4 @@ jobs:
     if: "${{ contains(github.event.*.labels.*.name, 'Note: DO NOT MERGE') || contains(github.event.*.labels.*.name, 'Type: DATABASE CHANGES INCLUDED!!!!!') )}}"
     steps:
       - name: remove label for merging
-        run: |
-          exit 1
+        run: exit 1
