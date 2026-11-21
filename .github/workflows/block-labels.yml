@@ -14,7 +14,12 @@ jobs:
   check_bad_labels:
     name: Blocked label found
     runs-on: ubuntu-latest
-    if: "${{ contains(github.event.*.labels.*.name, 'Note: DO NOT MERGE') || contains(github.event.*.labels.*.name, 'Type: DATABASE CHANGES INCLUDED!!!!!') }}"
+    if: >
+      "${{
+        contains(github.event.pull_request.labels.*.name, 'Note: DO NOT MERGE') ||
+        contains(github.event.pull_request.labels.*.name, 'Type: DATABASE CHANGES INCLUDED!!!!!') ||
+        contains(github.event.pull_request.labels.*.name, 'S: REQUIRES COMMIT MERGE')
+      }}"
     steps:
       - name: remove label for merging
         run: exit 1
