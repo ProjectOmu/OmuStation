@@ -76,7 +76,7 @@ public abstract class SharedItemSwitchSystem : EntitySystem
         //Omu start - prolly a better way to do this but is for the blue moon BSO weapon, might currently ignore Yowies
         if (TryComp<WieldableComponent>(ent, out var wieldable) &&
             !wieldable.Wielded &&
-            HasComp<GunRequiresWieldComponent>(ent) || HasComp<MeleeRequiresWieldComponent>(ent))
+            (HasComp<GunRequiresWieldComponent>(ent) || HasComp<MeleeRequiresWieldComponent>(ent)))
             return;
         //Omu end
 
