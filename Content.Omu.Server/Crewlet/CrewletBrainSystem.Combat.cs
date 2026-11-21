@@ -127,10 +127,41 @@ public sealed partial class CrewletBrainSystem
         End(ent);
     }
 
+    private bool FightCrewlet(Entity<CrewletBrainComponent> ent, EntityUid other, TimeSpan now)
+    {
+        var brain = ent.Comp;
+        if (!_crewletQuery.HasComp(other))
+            return true;
+
+        if (now < brain.CrewletTruceUntil)
+            return false;
+
+        if (now - brain.LastCrewletFight > brain.CrewletFightGap)
+            brain.CrewletFightStart = now;
+
+        brain.LastCrewletFight = now;
+        if (now - brain.CrewletFightStart < brain.CrewletFightTime)
+            return true;
+
+        brain.CrewletTruceUntil = now + brain.CrewletTruceTime;
+        if (brain.RetaliationTarget is { } target && _crewletQuery.HasComp(target))
+            brain.RetaliationTarget = null;
+
+        return false;
+    }
+
     private bool Strike(Entity<CrewletBrainComponent> ent, EntityUid target, bool shove = false)
     {
-        if (!_melee.TryGetWeapon(ent, out var weaponUid, out var weapon))
+        if (!FightCrewlet(ent, target, _timing.CurTime))
             return false;
+
+        if (!_melee.TryGetWeapon(ent, out var weaponUid, out var weapon))
+        {
+            if (!TryComp(ent, out weapon))
+                return false;
+
+            weaponUid = ent;
+        }
 
         ent.Comp.InCombat = true;
         _combat.SetInCombatMode(ent, true);
