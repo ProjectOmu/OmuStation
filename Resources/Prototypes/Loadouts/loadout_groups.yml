@@ -93,6 +93,7 @@
   - DiscountDanLighter
   - CheapLighter
   - FlippoLighter
+  - Vape
   - MysteryStaffPlushieBox
   # Omu end
   - TowelColorBlack
@@ -324,7 +325,31 @@
   name: loadout-group-passenger-jumpsuit
   loadouts:
   - GreyJumpsuit
+  - JumpsuitWhite #omustart
+  - JumpsuitBlack
+  - JumpsuitBlue
+  - JumpsuitYellow
+  - JumpsuitGreen
+  - JumpsuitOrange
+  - JumpsuitRed
+  - JumpsuitPurple
+  - JumpsuitPink
+  - JumpsuitDarkBlue
+  - JumpsuitDarkGreen
+  - JumpsuitTeal #omuend
   - GreyJumpskirt
+  - JumpskirtWhite #omustart
+  - JumpskirtBlack
+  - JumpskirtBlue
+  - JumpskirtYellow
+  - JumpskirtGreen
+  - JumpskirtOrange
+  - JumpskirtRed
+  - JumpskirtPurple
+  - JumpskirtPink
+  - JumpskirtDarkBlue
+  - JumpskirtDarkGreen
+  - JumpskirtTeal #omuend
   - AncientJumpsuit
   - RainbowJumpsuit
   - RainbowJumpskirt
@@ -332,7 +357,7 @@
   - OverallsJumpsuit
  # goob changes start
   - JumpsuitRecruit
-  - OverallsJumpsuit
+  # - OverallsJumpsuit #omu
   - GreyMJ
   - BlackMJ
   - BlueMJ
@@ -353,6 +378,17 @@
   - ContractorJumpsuitTac
   - BlackMJAlt
  # goob changes end
+ # omu changes start
+  - JumpsuitHawaiYellow
+  - JumpsuitHawaiRed
+  - JumpsuitHawaiBlue
+  - JumpsuitHawaiBlack
+  - JumpskirtBlackElegantDress
+  - JumpskirtBlueElegantDress
+  - JumpskirtGreenElegantDress
+  - JumpskirtPurpleElegantDress
+  - JumpskirtRedElegantDress
+ # omu changes end
 
 - type: loadoutGroup
   id: PassengerFace
@@ -384,6 +420,16 @@
   loadouts:
   - Mantle
   - OldNeckWrap # EE
+  - PonchoSmallPurple #omu start
+  - PonchoSmallRed
+  - PonchoSmallPink
+  - PonchoSmallBlack
+  - PonchoSmallWhite
+  - ArmbandMedOD
+  - ArmbandSciOD
+  - ArmbandEngiOD
+  - ArmbandCargoOD
+  - ArmbandServiceOD #omu end
 
 - type: loadoutGroup
   id: PassengerOuterClothing
@@ -391,6 +437,18 @@
   minLimit: 0
   loadouts:
   - PassengerWintercoat
+  - WintercoatRed # omu start
+  - WintercoatOrange
+  - WintercoatYellow
+  - WintercoatGreen
+  - WintercoatBlue
+  - WintercoatPurple
+  - WintercoatLightBrown
+  - WintercoatBrown
+  - WintercoatGray
+  - WintercoatWhite
+  - WintercoatBlack
+  - CoatBomber # omu end
   - LongcoatBlack # DeltaV Longcoats
   - LongcoatBrown # DeltaV Longcoats
   - LongcoatNanoTrasen # DeltaV Longcoats
@@ -410,6 +468,13 @@
   minLimit: 0
   loadouts:
   - LizardPlushiePassenger
+  - BookEngineer # omu start
+  - BookSecurity
+  - BookBar
+  - BookPlant
+  - BookChem
+  - BookScientist
+  - BookMed # omu end
 
 - type: loadoutGroup
   id: BartenderHead
@@ -1476,6 +1541,7 @@
   - HeadofSecurityVestWeb # Goobstation
   - HeadofSecurityGreatCoatDV # Omu
   - HeadofSecurityLongcoat # DeltaV Longcoats
+  - HeadofSecurityGloveJacket # Omu
 
 - type: loadoutGroup
   id: HeadofSecurityJobTrinkets

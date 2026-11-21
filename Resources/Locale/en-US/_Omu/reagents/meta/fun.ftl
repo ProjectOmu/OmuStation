@@ -36,3 +36,6 @@ reagent-desc-gekkerzine = An annoying chemical that makes you gekker just like a
 
 reagent-name-baaveltine = Baaveltine
 reagent-desc-baaveltine = A suspicious concoction that leaves you bleating.
+
+reagent-name-parthenol = Parthenol
+reagent-desc-parthenol = A meaty serum extracted from an anomaly core. It seems to reach out to you...
