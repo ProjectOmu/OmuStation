@@ -45,7 +45,7 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
 
         // Omu
         // Handle Species with tempature transfer thresholds
-        // Look inside `CryoPodSystem.Omu.cs` for the methods
+        // Look inside `CryoPodSystem.cs` for the methods
         SubscribeLocalEvent<CryoPodComponent, EntInsertedIntoContainerMessage>(OnInserted);
     }
 
@@ -120,7 +120,7 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
             healthAnalyzer.ScannedEntity = null;
         }
 
-        // Omu - CryoPodSystem.Omu.cs
+        // Omu - CryoPodSystem.cs
         OnRemoved(cryoPod, args);
         // END
 

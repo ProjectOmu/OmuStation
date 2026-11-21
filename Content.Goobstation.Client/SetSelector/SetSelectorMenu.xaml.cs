@@ -36,6 +36,7 @@ public sealed partial class SetSelectorMenu : FancyWindow
         foreach (var (set, info) in state.Sets)
         {
             var child = new SelectableSet(info, _spriteSystem);
+            ApplyRequirements(child, info); // Omu - Show locked choices and their requirements.
 
             child.SetButton.OnButtonDown += (_) =>
             {
