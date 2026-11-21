@@ -23,7 +23,9 @@
   - MagazinePistolCaselessRifle # 1
   - MagazinePistolCaselessRifle # 2
   - MagazinePistolCaselessRifle # 3
-  - MagazinePistolCaselessRifle # 4
+  - MagazinePistolCaselessRiflePoison # omu - make this less useless
+  - AgentIDCard #omu
+  - ObservationKitSyndie #omu
 
 - type: selectableSet
   id: SyndicateNoRussianSet
@@ -39,6 +41,7 @@
   - EncryptionKeySyndie
   - WeaponLightMachineGunL6
   - MagazineLightRifleBox
+  - ClothingOuterVestWeb # omu- this needed more tc value and to not die instantly
 
 - type: selectableSet
   id: SyndicatePirateCaptainSet
