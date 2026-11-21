@@ -181,7 +181,7 @@ namespace Content.Server.GameTicking
 
         public HumanoidCharacterProfile GetPlayerProfile(ICommonSession p)
         {
-            return _characterQueue.GetCurrentCharacter(p.UserId) ?? HumanoidCharacterProfile.Random(); // Omu
+            return _characterQueue.TryGetCurrentCharacter(p.UserId) ?? HumanoidCharacterProfile.Random(); // Omu
         }
 
         public void PlayerJoinGame(ICommonSession session, bool silent = false)

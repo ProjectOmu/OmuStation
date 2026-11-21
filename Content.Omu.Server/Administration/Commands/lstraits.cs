@@ -44,7 +44,7 @@ public sealed class LsTraits : LocalizedCommands
         }
 
         // Get the selected character profile
-        if (_entities.System<CharacterQueueSystem>().GetCurrentCharacter(session.UserId) is not { } character)
+        if (_entities.System<CharacterQueueSystem>().TryGetCurrentCharacter(session.UserId) is not { } character)
         {
             shell.WriteError(Loc.GetString("lstraits-could-not-find-profile"));
             return;

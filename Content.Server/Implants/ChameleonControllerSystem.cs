@@ -89,7 +89,7 @@ public sealed class ChameleonControllerSystem : SharedChameleonControllerSystem
 
         var userId = actorComponent.PlayerSession.UserId;
 
-        if (_characterQueue.GetCurrentCharacter(userId) is not { } profile) // Omu
+        if (_characterQueue.TryGetCurrentCharacter(userId) is not { } profile) // Omu
             return;
 
         var jobProtoId = LoadoutSystem.GetJobPrototype(jobPrototype.ID);
