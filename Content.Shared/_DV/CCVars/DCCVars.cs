@@ -23,7 +23,7 @@ public sealed partial class DCCVars
     /// The multiplier for the difficulty of the monument.
     /// </summary>
     public static readonly CVarDef<float> CosmicCultistDifficultyMultiplier =
-        CVarDef.Create("cosmiccult.difficulty_multiplier", 1.5f, CVar.SERVER);
+        CVarDef.Create("cosmiccult.difficulty_multiplier", 0.2f, CVar.SERVER);
 
     /// <summary>
     /// How much entropy a convert is worth towards the next monument tier.
