@@ -126,7 +126,7 @@ public sealed partial class CrewletBrainSystem
         {
             if (habit.Learned
                 && habit.Key is { Action: CrewletToolAction.Use, Target: null, Group: null }
-                && FindTool(ent, null, habit.Key, now) is { } tool)
+                && FindTool(ent, null, habit, now) is { } tool)
                 return tool;
         }
 
