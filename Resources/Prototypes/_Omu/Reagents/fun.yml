@@ -344,3 +344,17 @@
         - !type:ReagentCondition
           reagent: Baaveltine
           min: 50
+
+- type: reagent
+  id: Parthenol
+  name: reagent-name-parthenol
+  group: Toxins
+  desc: reagent-desc-parthenol
+  physicalDesc: reagent-physical-desc-pulsating
+  flavor: meaty
+  color: "#a4262c"
+  metabolisms:
+    Poison:
+      metabolismRate: 0
+      effects:
+      - !type:CrewletGestationEntityEffect
