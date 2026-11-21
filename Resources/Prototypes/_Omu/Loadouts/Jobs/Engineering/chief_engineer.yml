@@ -1,0 +1,28 @@
+# Omu - for off-coat
+- type: loadoutEffectGroup
+  id: VeteranCE
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChiefEngineer
+      time: 50h
+
+# Neck
+- type: loadout
+  id: ChiefEngineerWhiteOffcoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranCE
+  equipment:
+    neck: ClothingNeckCloakCECoatWhite
+  groupBy: "ceoffcoat"
+
+- type: loadout
+  id: ChiefEngineerGreenOffcoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranCE
+  equipment:
+    neck: ClothingNeckCloakCECoatGreen
+  groupBy: "ceoffcoat"

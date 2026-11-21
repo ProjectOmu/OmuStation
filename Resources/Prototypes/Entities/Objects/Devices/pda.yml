@@ -190,8 +190,8 @@
 - type: entity
   parent: BasePDA
   id: PassengerPDA
-  name: passenger PDA
-  description: Why isn't it gray?
+  name: off duty PDA # omu
+  description: Nice and plain. # omu
   components:
   - type: Pda
     id: PassengerIDCard
