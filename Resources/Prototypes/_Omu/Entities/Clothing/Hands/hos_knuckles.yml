@@ -1,0 +1,20 @@
+- type: entity
+  parent: ClothingHandsKnuckleDustersBase
+  id: ClothingHandsKnuckleDustersHoS
+  name: Engraved HoS dusters
+  description: Big Dusters, engraved with a blunt on the end of each of them.
+  components:
+  - type: MeleeWeapon
+    canWideSwing: true
+    damage:
+      types:
+        Blunt: 16
+  - type: Contraband
+    allowedJobs: []
+    allowedDepartments: [Security, Command]
+  - type: Sprite
+    sprite: _Omu/Clothing/Hands/Gloves/YowieDusters.rsi
+    state: YowieDusters
+  - type: Clothing
+    sprite: _Omu/Clothing/Hands/Gloves/YowieDusters.rsi
+    slots: [gloves]
