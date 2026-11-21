@@ -50,7 +50,7 @@ public sealed partial class SlaughterDemonComponent : Component
     /// How long the speed boost lasts after a Slaughter Demon exits blood crawl
     /// </summary>
     [DataField]
-    public TimeSpan NextUpdate = TimeSpan.FromSeconds(6f);
+    public TimeSpan NextUpdate = TimeSpan.FromSeconds(12f); // omu
 
     /// <summary>
     /// The jaunt effect when entering the jaunt

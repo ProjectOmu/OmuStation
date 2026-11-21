@@ -102,7 +102,7 @@
         Toxin: -25
         Genetic: -25
         Metaphysical: -25
-    doAfterDelay: 2
+    doAfterDelay: 5 # Omu 2 -> 5
   - type: DemonicAccent # the accent
   - type: Puller
     needsHands: false
@@ -188,6 +188,23 @@
     understands:
     - TauCetiBasic
   - type: AntiRottingContainer # Omu for anti-rot
+# OMU START
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 50
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: Hemorrhinol
+        Quantity: 10 # Regenerate fast because it doesn't regen while jaunted
+  - type: MeleeChemicalInjector
+    transferAmount: 0.5
+    transferEfficiency: 1
+    solution: melee
+    pierceArmor: true
+# OMU END
 
 # laughter demon
 - type: entity

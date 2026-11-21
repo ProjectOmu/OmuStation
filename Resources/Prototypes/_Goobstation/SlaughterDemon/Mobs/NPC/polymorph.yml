@@ -33,6 +33,13 @@
     - BloodAllulalo
     - AvaliBlood
     - AcidBlood
+  - type: NightVision
+    color: "#AA4A44"
+    activateSound: null
+    deactivateSound: null
+  - type: Speech
+    speechVerb: SlaughterDemon
+    speechSounds: SlaughterDemon
     #Omu end
   - type: Visibility
     layer: 2 # Ghost visflag
@@ -47,6 +54,7 @@
   - type: ActionGrant
     actions:
     - DemonicWhisperAction
-  - type: Muted # 古布空间站 - ARMOK 1984
+  # Commented out by omu because this antag deserves more roleplay
+  #- type: Muted # 古布空间站 - ARMOK 1984
   - type: IsDeadIC
     dead: false
