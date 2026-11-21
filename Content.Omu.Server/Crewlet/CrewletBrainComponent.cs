@@ -388,6 +388,9 @@ public sealed partial class CrewletBrainComponent : Component
     public EntityWhitelist? TargetBlacklist;
 
     [DataField]
+    public EntityWhitelist? ActivateBlacklist;
+
+    [DataField]
     public EntityWhitelist? HabitToolBlacklist;
 
     [DataField]

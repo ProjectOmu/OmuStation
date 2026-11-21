@@ -318,7 +318,8 @@ public sealed partial class CrewletBrainSystem
                 key = new CrewletHabitKey(CrewletToolAction.Vend, null, null, null, null, null);
             }
             else if (_whitelist.IsWhitelistPass(brain.InterfaceTargets, target)
-                || _whitelist.IsWhitelistPass(brain.TargetBlacklist, target))
+                || _whitelist.IsWhitelistPass(brain.TargetBlacklist, target)
+                || _whitelist.IsWhitelistPass(brain.ActivateBlacklist, target))
             {
                 return false;
             }
