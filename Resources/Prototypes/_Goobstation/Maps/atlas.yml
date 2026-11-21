@@ -38,6 +38,7 @@
             AtmosphericTechnician: [ 2, 2 ]
             StationEngineer: [ 2, 2 ]
             TechnicalAssistant: [ 1, 3 ]
+            EngineeringForeman: [ 1, 1 ] # Omu
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 1, 1 ]
@@ -45,6 +46,7 @@
             MedicalIntern: [ 1, 3 ]
 #            Paramedic: [ 1, 1 ] #Omu: todo uncomment once mapped
             Virologist: [ 1, 1 ]
+            MedicalMedicus: [ 1, 1 ] # Omu
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 2, 2 ]
@@ -52,6 +54,7 @@
             Roboticist: [ 2, 2 ] #Omu
             Borg: [ 2, 2 ]
             StationAi: [ 1, 1 ]
+            ScienceProfessor: [ 1, 1 ] # Omu
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
@@ -67,6 +70,8 @@
             #ShaftMiner: [ 2, 2 ] # Omu,
             CargoTechnician: [ 2, 2 ]
             Courier: [ 2, 2 ] #Omu
+            CargoBosun: [ 1, 1 ] # Omu
+            LogisticsAssistant: [ 1, 3 ] # Omu
             #civillian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]
