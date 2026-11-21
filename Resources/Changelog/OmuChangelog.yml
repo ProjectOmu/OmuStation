@@ -10361,3 +10361,17 @@ Entries:
       message: Removed the surplus pills order from the cargo console
   id: 1330
   time: '2026-11-21T10:28:51.0000000+00:00'
+- author: ggrab41
+  changes:
+    - type: Fix
+      message: Ghosts can no longer be converted into cosmic cultists.
+    - type: Fix
+      message: >-
+        Fixed The Monument displaying incorrect number of converts needed to
+        progress.
+    - type: Fix
+      message: >-
+        The Monument should no longer wait for more entropy to update to stage 3
+        even after reaching the required amount.
+  id: 1331
+  time: '2026-11-21T19:37:49.0000000+00:00'
