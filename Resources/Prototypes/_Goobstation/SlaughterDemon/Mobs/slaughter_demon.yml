@@ -102,7 +102,7 @@
         Toxin: -25
         Genetic: -25
         Metaphysical: -25
-    doAfterDelay: 2
+    doAfterDelay: 5
   - type: DemonicAccent # the accent
   - type: Puller
     needsHands: false
@@ -198,7 +198,7 @@
     generated:
       reagents:
       - ReagentId: Hemorrhinol
-        Quantity: 10
+        Quantity: 10 # Regenerate fast because it doesn't regen while jaunted
   - type: MeleeChemicalInjector
     transferAmount: 0.5
     transferEfficiency: 1
