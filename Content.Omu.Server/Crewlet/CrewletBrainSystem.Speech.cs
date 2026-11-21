@@ -61,6 +61,7 @@ public sealed partial class CrewletBrainSystem
         {
             SpawnAttachedTo(brain.GlowEffect, new EntityCoordinates(ent, Vector2.Zero));
             _crewlet.Flare(ent);
+            _crewlet.FleshForm(ent, brain.FleshForm, brain.FleshFormTime);
         }
     }
 

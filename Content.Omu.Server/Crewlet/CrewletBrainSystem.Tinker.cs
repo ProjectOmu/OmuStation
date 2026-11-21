@@ -48,8 +48,27 @@ public sealed partial class CrewletBrainSystem
                     return;
                 }
 
-                Begin(ent, picked, Handless(brain) ? brain.InteractRange : brain.MeleeRange, now);
+                if (picked is not { } first)
+                {
+                    End(ent);
+                    return;
+                }
+
+                brain.Target = first;
+                Approach(ent, first, Handless(brain) ? brain.InteractRange : brain.MeleeRange, now);
                 return;
+            case CrewletStep.Approach when !Handless(brain):
+                switch (Move(ent, now))
+                {
+                    case CrewletMove.Moving:
+                        return;
+                    case CrewletMove.Arrived:
+                        brain.Step = CrewletStep.Act;
+                        return;
+                    default:
+                        Improvise(ent, now);
+                        return;
+                }
             case CrewletStep.Approach:
             case CrewletStep.Act:
                 if (!Reach(ent, now, out var reached))
@@ -64,7 +83,7 @@ public sealed partial class CrewletBrainSystem
                 Interact(ent, reached);
                 if (!_hands.IsHolding(ent.Owner, reached))
                 {
-                    End(ent);
+                    Improvise(ent, now);
                     return;
                 }
 
@@ -76,7 +95,7 @@ public sealed partial class CrewletBrainSystem
                     || !_hands.IsHolding(ent.Owner, held)
                     || (brain.ToolTarget != null && !Present(brain.ToolTarget)))
                 {
-                    End(ent);
+                    Improvise(ent, now);
                     return;
                 }
 
@@ -86,7 +105,7 @@ public sealed partial class CrewletBrainSystem
 
                 if (move != CrewletMove.Arrived)
                 {
-                    End(ent);
+                    Retry(ent);
                     return;
                 }
 
@@ -125,6 +144,10 @@ public sealed partial class CrewletBrainSystem
             return;
         }
 
+        var index = brain.ToolHabit is { } key ? IndexOf(brain.Habits, key) : -1;
+        if (index >= 0)
+            ApplyToolState(ent, tool, brain.Habits[index].ToolState);
+
         brain.FormedTool = tool;
         brain.Target = tool;
         _chat.TrySendInGameICMessage(ent,
@@ -133,6 +156,39 @@ public sealed partial class CrewletBrainSystem
             false);
         _audio.PlayPvs(brain.FormToolSound, ent);
         SetCourse(ent, brain.ToolSpot, brain.MeleeRange, brain.MoveTimeout, now, CrewletStep.Escort);
+    }
+
+    private void ApplyToolState(EntityUid user, EntityUid tool, CrewletToolState state)
+    {
+        if (state.Active)
+            _itemToggle.TryActivate(tool, user, predicted: false);
+
+        if (state.Reagents == null)
+            return;
+
+        foreach (var reagent in state.Reagents)
+        {
+            if (_solutions.TryGetSolution(tool, reagent.Solution, out var solution, out _))
+                _solutions.TryAddReagent(solution.Value, reagent.Reagent, reagent.Quantity);
+        }
+    }
+
+    private bool ToolReady(CrewletBrainComponent brain, EntityUid tool, CrewletToolState state)
+    {
+        if (state.Active && !_itemToggle.IsActivated(tool))
+            return false;
+
+        if (state.Reagents == null)
+            return true;
+
+        foreach (var reagent in state.Reagents)
+        {
+            if (!_solutions.TryGetSolution(tool, reagent.Solution, out _, out var solution)
+                || solution.GetTotalPrototypeQuantity(reagent.Reagent) < reagent.Quantity * brain.ToolStockFraction)
+                return false;
+        }
+
+        return true;
     }
 
     private void Perform(Entity<CrewletBrainComponent> ent, EntityUid? tool, TimeSpan now)
@@ -146,7 +202,7 @@ public sealed partial class CrewletBrainSystem
         {
             if (brain.ToolAction != CrewletToolAction.Verb || now >= brain.StepEnds)
             {
-                End(ent);
+                Improvise(ent, now);
                 return;
             }
 
@@ -163,6 +219,40 @@ public sealed partial class CrewletBrainSystem
         brain.UntrainUntil = now + wait + brain.UntrainWindow;
 
         WaitFor(ent, wait, now);
+    }
+
+    private void Improvise(Entity<CrewletBrainComponent> ent, TimeSpan now)
+    {
+        var brain = ent.Comp;
+        if (brain.Target is { } tried && tried != brain.FormedTool)
+            Cooldown(ent, tried, brain.TargetCooldown, now);
+
+        if (brain.FormedTool != null
+            || brain.ToolHabit?.Tool is not { } shape
+            || !Present(brain.ToolTarget)
+            || !CanForm(brain, shape))
+        {
+            Retry(ent);
+            return;
+        }
+
+        if (brain.Target is { } held && _hands.IsHolding(ent.Owner, held))
+            _hands.TryDrop(ent.Owner, held);
+
+        FormTool(ent, shape, now);
+    }
+
+    private void Retry(Entity<CrewletBrainComponent> ent)
+    {
+        var brain = ent.Comp;
+        var activity = brain.Activity;
+        var tries = brain.Count + 1;
+        End(ent);
+        if (tries > brain.HabitRetries)
+            return;
+
+        brain.Activity = activity;
+        brain.Count = tries;
     }
 
     private static bool Handless(CrewletBrainComponent brain)
@@ -182,16 +272,32 @@ public sealed partial class CrewletBrainSystem
             LookupFlags.Uncontained | LookupFlags.Approximate);
 
         var total = 0f;
-        for (var i = 0; i < brain.ToolUses.Count; i++)
+        if (brain.Activity != CrewletActivity.Habit)
         {
-            if (!brain.ToolUses[i].Taught || brain.TaughtUses.Contains(i))
-                total += AddToolChoice(ent, brain.ToolUses[i], now);
+            for (var i = 0; i < brain.ToolUses.Count; i++)
+            {
+                if (!brain.ToolUses[i].Taught || brain.TaughtUses.Contains(i))
+                    total += AddToolChoice(ent, brain.ToolUses[i], now);
+            }
         }
 
         foreach (var habit in brain.Habits)
         {
             if (habit.Learned)
                 total += AddHabitChoice(ent, habit, now);
+        }
+
+        if (_toolChoices.Count > 1 && brain.LastHabit is { } last)
+        {
+            for (var i = 0; i < _toolChoices.Count; i++)
+            {
+                if (_toolChoices[i].Habit != last)
+                    continue;
+
+                total -= _toolChoices[i].Weight;
+                _toolChoices.RemoveAt(i);
+                break;
+            }
         }
 
         _scan.Clear();
@@ -248,7 +354,7 @@ public sealed partial class CrewletBrainSystem
         EntityUid? tool = null;
         if (key.Tool is { } shape)
         {
-            tool = FindTool(ent, null, key, now);
+            tool = FindTool(ent, null, habit, now);
             if (tool == null && !CanForm(ent.Comp, shape))
                 return 0f;
         }
@@ -257,6 +363,9 @@ public sealed partial class CrewletBrainSystem
             return 0f;
 
         var weight = MathF.Min(habit.Count * ent.Comp.HabitWeight, ent.Comp.MaxHabitWeight);
+        if (Chore(key))
+            weight *= ent.Comp.ChoreWeight;
+
         return AddChoice(key.Action, weight, tool ?? target, target, key);
     }
 
@@ -277,7 +386,7 @@ public sealed partial class CrewletBrainSystem
 
     private EntityUid? FindTool(Entity<CrewletBrainComponent> ent,
         CrewletToolUse? use,
-        CrewletHabitKey habit,
+        CrewletHabit habit,
         TimeSpan now)
     {
         var origin = _transform.GetWorldPosition(ent);
@@ -329,12 +438,14 @@ public sealed partial class CrewletBrainSystem
         return best is { } target && InSight(ent, target) ? target : null;
     }
 
-    private bool ToolFits(Entity<CrewletBrainComponent> ent, CrewletToolUse? use, CrewletHabitKey habit, EntityUid uid)
+    private bool ToolFits(Entity<CrewletBrainComponent> ent, CrewletToolUse? use, CrewletHabit habit, EntityUid uid)
     {
         if (use != null)
             return _whitelist.IsWhitelistPass(use.Tool, uid);
 
-        return PrototypeOf(uid) == habit.Tool && !_whitelist.IsWhitelistPass(ent.Comp.HabitToolBlacklist, uid);
+        return PrototypeOf(uid) == habit.Key.Tool
+            && !_whitelist.IsWhitelistPass(ent.Comp.HabitToolBlacklist, uid)
+            && ToolReady(ent.Comp, uid, habit.ToolState);
     }
 
     private bool UseFits(Entity<CrewletBrainComponent> ent, CrewletToolUse use, EntityUid uid)
