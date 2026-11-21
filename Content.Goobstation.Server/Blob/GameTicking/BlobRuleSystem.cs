@@ -22,6 +22,9 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Objectives.Components;
 using Robust.Server.Player;
 using Robust.Shared.Player;
+using Content.Server.Salvage.Expeditions;
+using Content.Shared.Cargo.Components;
+using Content.Shared.Shuttles.Components;
 
 namespace Content.Goobstation.Server.Blob.GameTicking;
 
@@ -105,7 +108,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
     }
 
     private const string StationAlertCritical = "delta";
-    private const string StationAlertDetected = "red";
+    private const string StationAlertDetected = "amber"; // Omu, was red, our SRP states it should be amber.
 
     private void CheckChangeStage(
         Entity<StationBlobConfigComponent?> stationUid,
@@ -151,7 +154,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     blobRuleComp.DetectedAudio,
                     Color.Red);
 
-                _alertLevelSystem.SetLevel(stationUid, StationAlertDetected, true, true, true, true);
+                _alertLevelSystem.SetLevel(stationUid, StationAlertDetected, true, true, true, false); // Omu, change last true to false (make alert level not locked).
 
                 RaiseLocalEvent(stationUid,
                     new BlobChangeLevelEvent
@@ -185,6 +188,28 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                 }
 
                 _alertLevelSystem.SetLevel(stationUid, StationAlertCritical, true, true, true, true);
+
+                // Omu start - No running away from it, you fight it.
+                var cargoShuttleQuery = EntityQueryEnumerator<CargoShuttleComponent, MetaDataComponent>();
+                while (cargoShuttleQuery.MoveNext(out var ent, out var comp, out var md))
+                {
+                    if (TerminatingOrDeleted(ent, md))
+                    {
+                        continue;
+                    }
+                    EnsureComp<PreventPilotComponent>(ent);
+                }
+
+                var salvageShuttleQuery = EntityQueryEnumerator<SalvageShuttleComponent, MetaDataComponent>();
+                while (salvageShuttleQuery.MoveNext(out var ent, out var comp, out var md))
+                {
+                    if (TerminatingOrDeleted(ent, md))
+                    {
+                        continue;
+                    }
+                    EnsureComp<PreventPilotComponent>(ent);
+                }
+                // Omu end
 
                 RaiseLocalEvent(stationUid,
                     new BlobChangeLevelEvent
