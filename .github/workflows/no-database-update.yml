@@ -1,0 +1,21 @@
+# SPDX-License-Identifier: MIT
+
+name: No database update checker
+
+on:
+  pull_request:
+    paths:
+      - 'Content.Server.Database'
+      - 'Content.Server/Database'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fen_needs_to_be_here:
+    name: Host Perms Needed -> Database update in pr found
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for Fen
+        run: exit 1
