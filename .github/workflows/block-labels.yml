@@ -14,7 +14,7 @@ jobs:
   check_bad_labels:
     name: Blocked label found
     runs-on: ubuntu-latest
-    if: "${{ contains(github.event.*.labels.*.name, 'Note: DO NOT MERGE') || contains(github.event.*.labels.*.name, 'Type: DATABASE CHANGES INCLUDED!!!!!') )}}"
+    if: "${{ contains(github.event.*.labels.*.name, 'Note: DO NOT MERGE') || contains(github.event.*.labels.*.name, 'Type: DATABASE CHANGES INCLUDED!!!!!') }}"
     steps:
       - name: remove label for merging
         run: exit 1
