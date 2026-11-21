@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Bed.Cryostorage;
 using Content.Shared.Popups;
 
 namespace Content.Omu.Server.Crewlet;
@@ -12,6 +13,21 @@ public sealed partial class CrewletBrainSystem
         EntityUid? owner = null;
         if (_crewletQuery.TryComp(ent, out var crewlet) && Present(crewlet.CrewletOwner))
             owner = crewlet.CrewletOwner;
+
+        if (crewlet != null && owner is { } stored && HasComp<CryostorageContainedComponent>(stored))
+        {
+            brain.OwnerCryoSince ??= now;
+            if (now - brain.OwnerCryoSince.Value >= brain.CryoOrphanTime)
+            {
+                brain.OwnerCryoSince = null;
+                _crewlet.SetOwner((ent.Owner, crewlet), null);
+                owner = null;
+            }
+        }
+        else
+        {
+            brain.OwnerCryoSince = null;
+        }
 
         if (owner != brain.KnownOwner)
         {
@@ -81,7 +97,7 @@ public sealed partial class CrewletBrainSystem
 
     private bool WantsDeliver(Entity<CrewletBrainComponent> ent, TimeSpan now)
     {
-        return ent.Comp.Activity is not (CrewletActivity.Honk or CrewletActivity.Tinker)
+        return ent.Comp.Activity is not (CrewletActivity.Honk or CrewletActivity.Tinker or CrewletActivity.Habit)
             && HeldItem(ent) != null
             && IsReady(ent.Comp, CrewletActivity.Deliver, now);
     }
