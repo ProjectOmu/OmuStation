@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: MIT
+
+- type: htnCompound
+  id: CrewletCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:CrewletBrainOperator

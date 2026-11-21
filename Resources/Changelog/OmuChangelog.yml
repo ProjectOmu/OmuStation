@@ -9910,3 +9910,468 @@ Entries:
       message: Added a pAI slot to energy swords (and derivative weapons).
   id: 1275
   time: '2026-11-05T09:12:16.0000000+00:00'
+- author: Cryptisy
+  changes:
+    - type: Add
+      message: >-
+        Added eight new off-coats for the departmental heads + BSO. Show off
+        your title in style!
+    - type: Add
+      message: Added three new off-coats for CCOs!
+  id: 1276
+  time: '2026-11-05T22:43:39.0000000+00:00'
+- author: Cryptisy
+  changes:
+    - type: Add
+      message: The Pride-O-Mat features new plural pride items.
+    - type: Tweak
+      message: The pride ommantle has a trans pin variation.
+  id: 1277
+  time: '2026-11-06T17:03:37.0000000+00:00'
+- author: NikVolkov
+  changes:
+    - type: Tweak
+      message: >-
+        The default warden hardsuit now provides its previously missing 30%
+        radiation resistance.
+  id: 1278
+  time: '2026-11-06T17:11:57.0000000+00:00'
+- author: Cryptisy
+  changes:
+    - type: Fix
+      message: Fixed light on the Corpsman modsuit, gave it a name and description.
+  id: 1279
+  time: '2026-11-06T21:53:07.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Tweak
+      message: Insect blood is now called hemolymph
+  id: 1280
+  time: '2026-11-06T22:46:21.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: >-
+        IPC will now correctly stand up with correct movement speed after
+        recharging a depleted battery.
+  id: 1281
+  time: '2026-11-07T15:43:11.0000000+00:00'
+- author: cynischism
+  changes:
+    - type: Add
+      message: >-
+        Wrestling crate and theater vendor now contain a referee jacket and
+        flippable cap.
+  id: 1282
+  time: '2026-11-07T15:47:01.0000000+00:00'
+- author: iamlcarus
+  changes:
+    - type: Fix
+      message: Cadets no longer start with an MK58 magazine.
+  id: 1283
+  time: '2026-11-07T16:04:51.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Tweak
+      message: >-
+        Assistants are instead "Off Duty" personnel. Tider- and
+        Assistant-related things are changed or removed to reflect this (such as
+        the now-removed Tidemind).
+    - type: Tweak
+      message: >-
+        The "Grey Tide" uplink item is now a bundle that also comes with
+        insulated gloves and an unremovable-by-self gas mask that activates the
+        Grey Tide.
+    - type: Add
+      message: >-
+        Loadouts and vendors offer departmental armbands. The Head of Security
+        gets a free box of them in their locker.
+  id: 1284
+  time: '2026-11-07T19:14:07.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed the Slavic bible from Chaplain
+  id: 1285
+  time: '2026-11-07T22:42:54.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Fix
+      message: Fixed timed collision triggers potentially freezing the server.
+  id: 1286
+  time: '2026-11-08T06:28:55.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Add
+      message: >-
+        Internal Affairs, CentComm Intern, Blueshield Officer, Administrative
+        Assistant, Warden, Detective, Psychologist, Trader, Wizard and Greytide
+        stamps now have their own stamp designs.
+  id: 1287
+  time: '2026-11-08T12:09:47.0000000+00:00'
+- author: EctoplasmIsGood
+  changes:
+    - type: Tweak
+      message: Expanded NTRs loadout options to include the CC pencil skirt and cap
+  id: 1288
+  time: '2026-11-08T15:56:32.0000000+00:00'
+- author: TommisTrash
+  changes:
+    - type: Add
+      message: Vapes can now be selected as roundstart trinkets.
+  id: 1289
+  time: '2026-11-08T23:18:29.0000000+00:00'
+- author: Waterwithoutanyice
+  changes:
+    - type: Add
+      message: >-
+        Xelthia Heads of Security may choose in their loadout a new armored and
+        insulated jacket made for them.
+  id: 1290
+  time: '2026-11-08T23:32:04.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: Preened feathers now properly show the feathers color when equipped.
+  id: 1291
+  time: '2026-11-08T23:50:00.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: >-
+        Added the RYNE-137 plushie, which can be found in the Crew Morale
+        Initiative crate and claw machines.
+  id: 1292
+  time: '2026-11-09T19:52:52.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Add
+      message: >-
+        Added the Corporate Compliance cap, Internal Affairs cap, and the
+        CentComm Agent black suit and suitskirt.
+    - type: Add
+      message: >-
+        The Nanotrasen Representative can pick the black agent suit, suitskirt
+        and the leather satchel in their loadout.
+  id: 1293
+  time: '2026-11-09T23:31:54.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Tweak
+      message: >-
+        The Corporate Compliance cap no longer has armor and replaces the
+        unarmored CentComm cap in the Nanotrasen Representative's loadout.
+  id: 1294
+  time: '2026-11-10T23:57:03.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Add
+      message: Arachnids can now craft single-tile spider webs.
+  id: 1295
+  time: '2026-11-11T13:54:57.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        Firelocks now show their proper status lights again and "lock"
+        themselves when it's dangerous. Crowbars or Engineering access are now
+        needed to open them when they're locked.
+  id: 1296
+  time: '2026-11-12T15:33:54.0000000+00:00'
+- author: NikVolkov
+  changes:
+    - type: Add
+      message: >-
+        Warden now gets a hardsuit selector, letting them pick between the
+        warden's standard hardsuit and the new security-painted riot combat
+        hardsuit.
+    - type: Add
+      message: >-
+        The riot combat hardsuit (both default and warden variants) now makes
+        heavy footstep sounds.
+  id: 1297
+  time: '2026-11-13T05:56:47.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: >-
+        ERT Engineering hardsuit helmets now have improved protection values
+        from before. Most notably, radiation resistance was raised to 99% from
+        50%.
+  id: 1298
+  time: '2026-11-13T11:57:35.0000000+00:00'
+- author: bookassecond
+  changes:
+    - type: Fix
+      message: >-
+        The energy shield and greatshield can now recharge after running out of
+        charge again.
+  id: 1299
+  time: '2026-11-13T12:13:49.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: Test fail introduced with the airlock locking again pr
+  id: 1300
+  time: '2026-11-13T22:54:35.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: >-
+        You can now use a few of the new (or otherwise recently occulted) icons
+        on agent IDs again
+    - type: Tweak
+      message: 'G-Man and Zombie icons are no longer available on agent ID selection '
+  id: 1301
+  time: '2026-11-14T12:51:32.0000000+00:00'
+- author: Naaatch
+  changes:
+    - type: Tweak
+      message: >-
+        "Stay in lobby or be an Assistant" is now one account-wide setting on
+        the job board instead of per character.
+    - type: Tweak
+      message: Made the buttons for the character UI have proper color-coding.
+    - type: Fix
+      message: >-
+        Fixed sometimes spawning as an Assistant when the character you got had
+        stay in lobby set.
+  id: 1302
+  time: '2026-11-14T18:09:26.0000000+00:00'
+- author: pinktanuki
+  changes:
+    - type: Fix
+      message: MMIs can no longer be inserted into MMIs.
+  id: 1303
+  time: '2026-11-14T18:18:56.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        various melees including glass shard, dispatcher's spear and all
+        derivatives of the armblade now use the bladeslice sound and not the
+        weakattack sound.
+    - type: Tweak
+      message: >-
+        The vacuous lance should no longer get stuck in walls players when
+        thrown
+  id: 1304
+  time: '2026-11-14T20:31:33.0000000+00:00'
+- author: PhosphateWithManyOs
+  changes:
+    - type: Add
+      message: Voxes have received a texture re-sprite!
+  id: 1305
+  time: '2026-11-14T21:04:40.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: The Amber alert sound is now a different sound.
+  id: 1306
+  time: '2026-11-14T21:08:05.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: RCDs can now place doors on top of firelocks.
+  id: 1307
+  time: '2026-11-14T21:09:02.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Fix
+      message: >-
+        Microplastics now heal poison damage for vox, as opposed to every
+        species except vox.
+    - type: Tweak
+      message: Microplastics no longer deal poison damage nor induce vomiting in vox.
+    - type: Fix
+      message: Vent crud now satiates vox, as opposed to every species except vox.
+    - type: Fix
+      message: >-
+        Morphine now causes aphyxiation when overdosed in every species except
+        diona, as opposed to only diona.
+  id: 1308
+  time: '2026-11-15T03:31:14.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Fix
+      message: Milk now heals non-vital damage when used on closet skeletons.
+  id: 1309
+  time: '2026-11-15T03:33:58.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Tweak
+      message: 'MirrorMaiden has received a small rework. '
+  id: 1310
+  time: '2026-11-15T08:28:50.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Add
+      message: >-
+        Added 8 new allulalo markings and added more color options for some wing
+        markings.
+    - type: Tweak
+      message: Changed the sprites for both versions of the curly tail.
+  id: 1311
+  time: '2026-11-16T00:09:56.0000000+00:00'
+- author: Naaatch
+  changes:
+    - type: Fix
+      message: >-
+        Clicking or right click signing a [signature] markup uses the name and
+        job on your worn ID, and no longer shows your antag role.
+  id: 1312
+  time: '2026-11-16T00:41:33.0000000+00:00'
+- author: Harro365
+  changes:
+    - type: Add
+      message: >-
+        Added funny jackboots, available from your local SecDrobe’s contraband
+        inventory
+    - type: Tweak
+      message: >-
+        Funny jackboots are now the default shoes for sec clowns and their
+        outfits
+  id: 1313
+  time: '2026-11-16T01:59:22.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Fix
+      message: Player-controlled weldbots can now weld things.
+  id: 1314
+  time: '2026-11-16T15:49:44.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Add
+      message: >-
+        Crew monitor research now unlocks a paramedic module for medical
+        cyborgs.
+  id: 1315
+  time: '2026-11-17T18:30:32.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: Fixed bin examine comp examine text not being defined
+  id: 1316
+  time: '2026-11-17T19:51:50.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Fix
+      message: The Paramedic MODsuit no longer hides your hair when worn.
+  id: 1317
+  time: '2026-11-18T01:04:49.0000000+00:00'
+- author: ggrab41
+  changes:
+    - type: Tweak
+      message: Made Bananium walls "welding" step take 10s to complete. (was 20s)
+    - type: Tweak
+      message: Bananium doors now block radiation.
+  id: 1318
+  time: '2026-11-18T02:28:06.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Add
+      message: >-
+        Added crewlets, little copies of a crew member that follow them around,
+        copy their habits and remember who treats them well.
+    - type: Add
+      message: >-
+        Grinding a flesh anomaly core gives Parthenol, 10u of it makes a crewlet
+        grow out of someone. They also appear as a rare event.
+  id: 1319
+  time: '2026-11-18T04:24:05.0000000+00:00'
+- author: ratpatrick0-ops
+  changes:
+    - type: Tweak
+      message: >-
+        Ashen Heretics' "Mask Of Madness" skill has changed to "Ashen Skin"
+        which grants immunity to fire.
+  id: 1320
+  time: '2026-11-18T22:06:08.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Fix
+      message: Multiple fixes and tweaks to crewlets.
+  id: 1321
+  time: '2026-11-19T06:21:58.0000000+00:00'
+- author: izzwu and PickelSilly
+  changes:
+    - type: Add
+      message: >-
+        Added the Vasquez, an expendable LMG intended for soft targets. It can
+        be ordered from cargo.
+  id: 1322
+  time: '2026-11-19T07:51:46.0000000+00:00'
+- author: LunaTheFox
+  changes:
+    - type: Add
+      message: CC-21 'Judgement' [Admeme]
+    - type: Add
+      message: Inhand sprite templates
+    - type: Add
+      message: '''SmiteOnMeleeHit'' component'
+  id: 1323
+  time: '2026-11-19T08:16:58.0000000+00:00'
+- author: LunaTheFox
+  changes:
+    - type: Add
+      message: Added Internal Affairs comms
+    - type: Add
+      message: Internal Affairs radio key
+    - type: Add
+      message: Internal Affairs radio implanter
+    - type: Tweak
+      message: Changed IAA to use IA comms instead of CC comms
+  id: 1324
+  time: '2026-11-19T08:23:29.0000000+00:00'
+- author: PhosphateWithManyOs
+  changes:
+    - type: Add
+      message: 'The ability to cut pizzas with.... scissors and adjacent tools. '
+  id: 1325
+  time: '2026-11-19T15:39:02.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: Added a Plantigrade Trait for Vulpkanins.
+  id: 1326
+  time: '2026-11-19T19:03:40.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Fix
+      message: Even MORE crewlet fixes and changes + new actions.
+  id: 1327
+  time: '2026-11-20T03:31:15.0000000+00:00'
+- author: EctoplasmIsGood
+  changes:
+    - type: Fix
+      message: Slaughter Demons no longer lose their martial arts after using jaunt.
+  id: 1328
+  time: '2026-11-21T00:41:09.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Fix
+      message: >-
+        Crewlets form flesh tools in a usable state where possible and Parthenol
+        can no longer be in foam/smoke.
+  id: 1329
+  time: '2026-11-21T07:55:34.0000000+00:00'
+- author: Waterwithoutanyice
+  changes:
+    - type: Remove
+      message: Removed the surplus pills order from the cargo console
+  id: 1330
+  time: '2026-11-21T10:28:51.0000000+00:00'
+- author: ggrab41
+  changes:
+    - type: Fix
+      message: Ghosts can no longer be converted into cosmic cultists.
+    - type: Fix
+      message: >-
+        Fixed The Monument displaying incorrect number of converts needed to
+        progress.
+    - type: Fix
+      message: >-
+        The Monument should no longer wait for more entropy to update to stage 3
+        even after reaching the required amount.
+  id: 1331
+  time: '2026-11-21T19:37:49.0000000+00:00'
