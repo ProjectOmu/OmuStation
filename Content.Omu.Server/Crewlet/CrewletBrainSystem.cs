@@ -32,6 +32,7 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
+using Content.Shared.Item.ItemToggle;
 using Content.Shared.Maps;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
@@ -81,6 +82,7 @@ public sealed partial class CrewletBrainSystem : EntitySystem
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly IngestionSystem _ingestion = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly ItemToggleSystem _itemToggle = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly NPCSteeringSystem _steering = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
@@ -432,6 +434,7 @@ public sealed partial class CrewletBrainSystem : EntitySystem
                 RunTag(ent, now);
                 break;
             case CrewletActivity.Tinker:
+            case CrewletActivity.Habit:
                 RunTinker(ent, now);
                 break;
             case CrewletActivity.Eat:
@@ -477,7 +480,7 @@ public sealed partial class CrewletBrainSystem : EntitySystem
             ent.Comp.FormedTool = null;
             QueueDel(formed);
         }
-        else if (ent.Comp.Activity == CrewletActivity.Tinker
+        else if (ent.Comp.Activity is CrewletActivity.Tinker or CrewletActivity.Habit
             && ent.Comp.RetaliationTarget == null
             && ent.Comp.Target is { } tool
             && _hands.IsHolding(ent.Owner, tool))

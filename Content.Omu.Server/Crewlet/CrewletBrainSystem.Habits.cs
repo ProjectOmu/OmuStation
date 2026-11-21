@@ -1,12 +1,15 @@
 // SPDX-License-Identifier: MIT
 
 using System.Linq;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Access.Components;
+using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.VendingMachines;
 using Content.Shared.Verbs;
 using Robust.Shared.Map;
@@ -129,11 +132,58 @@ public sealed partial class CrewletBrainSystem
                 continue;
             }
 
-            var expendable = _whitelist.IsWhitelistPass(brain.ExpendableTargets, target);
+            var expendable = verb != null || _whitelist.IsWhitelistPass(brain.ExpendableTargets, target);
             var risky = verb != null && verb.Impact >= brain.RiskyImpact;
             var facts = Facts(ent, target);
-            Note(brain, new CrewletWatch(key, owner, target, prototype, expendable, risky, facts, tick, now));
+            var state = tool is { } held ? ToolState(brain, held) : default;
+            Note(brain, new CrewletWatch(key, owner, target, prototype, expendable, risky, facts, tick, now, state));
         }
+    }
+
+    private CrewletToolState ToolState(CrewletBrainComponent brain, EntityUid tool)
+    {
+        var active = TryComp<ItemToggleComponent>(tool, out var toggle) && toggle.Activated;
+        if (!TryComp<SolutionContainerManagerComponent>(tool, out var manager))
+            return new CrewletToolState(active, null);
+
+        List<CrewletToolReagent>? reagents = null;
+        foreach (var (name, solution) in _solutions.EnumerateSolutions((tool, manager)))
+        {
+            if (name == null)
+                continue;
+
+            foreach (var reagent in brain.FormReagents)
+            {
+                var quantity = solution.Comp.Solution.GetTotalPrototypeQuantity(reagent);
+                if (quantity <= FixedPoint2.Zero)
+                    continue;
+
+                reagents ??= new List<CrewletToolReagent>();
+                reagents.Add(new CrewletToolReagent(name, reagent, quantity));
+            }
+        }
+
+        return new CrewletToolState(active, reagents);
+    }
+
+    private static CrewletToolState Fuller(CrewletToolState kept, CrewletToolState seen)
+    {
+        var reagents = Total(seen.Reagents) > Total(kept.Reagents) ? seen.Reagents : kept.Reagents;
+        return new CrewletToolState(kept.Active || seen.Active, reagents);
+    }
+
+    private static FixedPoint2 Total(List<CrewletToolReagent>? reagents)
+    {
+        var total = FixedPoint2.Zero;
+        if (reagents == null)
+            return total;
+
+        foreach (var reagent in reagents)
+        {
+            total += reagent.Quantity;
+        }
+
+        return total;
     }
 
     private void Teach(CrewletBrainComponent brain, EntityUid tool, EntityUid target)
@@ -234,14 +284,16 @@ public sealed partial class CrewletBrainSystem
                 if (!_humanoidQuery.HasComp(target))
                     return false;
 
-                key = new CrewletHabitKey(action, tool, null, null, null);
+                key = new CrewletHabitKey(action, tool, null, null, null, null);
             }
             else
             {
                 if (_whitelist.IsWhitelistPass(brain.TargetBlacklist, target))
                     return false;
 
-                key = new CrewletHabitKey(action, tool, prototype, null, null);
+                var group = HabitGroup(brain, target);
+                var shape = group == null ? (EntProtoId?) prototype : null;
+                key = new CrewletHabitKey(action, tool, shape, null, null, group);
             }
         }
         else if (action == CrewletToolAction.Verb)
@@ -254,7 +306,7 @@ public sealed partial class CrewletBrainSystem
                 return false;
 
             var person = mob && _humanoidQuery.HasComp(target);
-            key = new CrewletHabitKey(action, tool, person ? null : (EntProtoId?) prototype, verbType, verb);
+            key = new CrewletHabitKey(action, tool, person ? null : (EntProtoId?) prototype, verbType, verb, null);
         }
         else
         {
@@ -262,15 +314,35 @@ public sealed partial class CrewletBrainSystem
                 return false;
 
             if (_vendingQuery.HasComp(target))
-                key = new CrewletHabitKey(CrewletToolAction.Vend, null, null, null, null);
+            {
+                key = new CrewletHabitKey(CrewletToolAction.Vend, null, null, null, null, null);
+            }
             else if (_whitelist.IsWhitelistPass(brain.InterfaceTargets, target)
-                || _whitelist.IsWhitelistPass(brain.TargetBlacklist, target))
+                || _whitelist.IsWhitelistPass(brain.TargetBlacklist, target)
+                || _whitelist.IsWhitelistPass(brain.ActivateBlacklist, target))
+            {
                 return false;
+            }
             else
-                key = new CrewletHabitKey(action, null, prototype, null, null);
+            {
+                var group = HabitGroup(brain, target);
+                var shape = group == null ? (EntProtoId?) prototype : null;
+                key = new CrewletHabitKey(action, null, shape, null, null, group);
+            }
         }
 
         return !brain.Unlearnable.Contains(key);
+    }
+
+    private string? HabitGroup(CrewletBrainComponent brain, EntityUid target)
+    {
+        foreach (var (group, whitelist) in brain.HabitGroups)
+        {
+            if (_whitelist.IsWhitelistPass(whitelist, target))
+                return group;
+        }
+
+        return null;
     }
 
     private bool HabitFits(Entity<CrewletBrainComponent> ent, CrewletHabit habit, EntityUid uid)
@@ -279,6 +351,7 @@ public sealed partial class CrewletBrainSystem
         var shaped = key.Action switch
         {
             CrewletToolAction.Vend => _vendingQuery.HasComp(uid),
+            _ when key.Group != null => HabitGroup(ent.Comp, uid) == key.Group,
             CrewletToolAction.Use or CrewletToolAction.Verb when key.Target == null => _humanoidQuery.HasComp(uid),
             _ => PrototypeOf(uid) == key.Target,
         };
@@ -288,7 +361,23 @@ public sealed partial class CrewletBrainSystem
             && ((Facts(ent, uid) ^ habit.Facts) & ~habit.Varied) == CrewletFacts.None
             && TryHabitKey(ent, action, key.Tool, uid, key.VerbType, key.Verb, out var found)
             && found == key
-            && (key.Action != CrewletToolAction.Vend || (CanVend(uid) && Authorized(ent, uid)));
+            && HabitUsable(ent, key, uid);
+    }
+
+    private bool HabitUsable(Entity<CrewletBrainComponent> ent, CrewletHabitKey key, EntityUid uid)
+    {
+        return key.Action switch
+        {
+            CrewletToolAction.Vend => CanVend(uid) && Authorized(ent, uid),
+            CrewletToolAction.Activate or CrewletToolAction.Hand => Authorized(ent, uid),
+            CrewletToolAction.Verb => key.Tool != null || FindVerb(ent, uid, key, true) != null,
+            _ => true,
+        };
+    }
+
+    private static bool Chore(CrewletHabitKey key)
+    {
+        return key.Action is CrewletToolAction.Activate or CrewletToolAction.Hand;
     }
 
     private CrewletFacts Facts(Entity<CrewletBrainComponent> ent, EntityUid uid)
@@ -329,19 +418,25 @@ public sealed partial class CrewletBrainSystem
 
     private bool RunVerb(Entity<CrewletBrainComponent> ent, EntityUid target, CrewletHabitKey key)
     {
-        if (Verb.VerbTypes.FirstOrDefault(type => type.Name == key.VerbType) is not { } verbType)
+        if (FindVerb(ent, target, key, false) is not { } verb)
             return false;
 
-        foreach (var verb in _verbs.GetLocalVerbs(target, ent, verbType))
-        {
-            if (verb.Disabled || VerbName(verb) != key.Verb)
-                continue;
+        _verbs.ExecuteVerb(verb, ent, target);
+        return true;
+    }
 
-            _verbs.ExecuteVerb(verb, ent, target);
-            return true;
+    private Verb? FindVerb(Entity<CrewletBrainComponent> ent, EntityUid target, CrewletHabitKey key, bool force)
+    {
+        if (Verb.VerbTypes.FirstOrDefault(type => type.Name == key.VerbType) is not { } verbType)
+            return null;
+
+        foreach (var verb in _verbs.GetLocalVerbs(target, ent, verbType, force))
+        {
+            if (!verb.Disabled && VerbName(verb) == key.Verb)
+                return verb;
         }
 
-        return false;
+        return null;
     }
 
     private static string VerbName(Verb verb)
@@ -424,7 +519,7 @@ public sealed partial class CrewletBrainSystem
 
                 watch.State = CrewletWatchState.Settle;
                 watch.CheckAt = watch.Seen + brain.HabitSettleTime;
-                return watch.Handled;
+                return watch.Handled || watch.Expendable;
             case CrewletWatchState.DoAfter:
                 if (OwnerDoAfter(watch.Owner, watch.DoAfter) is not { } doAfter
                     || doAfter.Cancelled
@@ -512,11 +607,12 @@ public sealed partial class CrewletBrainSystem
             var habit = habits[index];
             habit.Count++;
             habit.Varied |= habit.Facts ^ watch.Facts;
+            habit.ToolState = Fuller(habit.ToolState, watch.ToolState);
             habits[index] = habit;
         }
         else
         {
-            habits.Add(new CrewletHabit(key, 1, false, watch.Risky, watch.Facts, CrewletFacts.None));
+            habits.Add(new CrewletHabit(key, 1, false, watch.Risky, watch.Facts, CrewletFacts.None, watch.ToolState));
             Trim(brain);
         }
 
@@ -603,7 +699,7 @@ public sealed partial class CrewletBrainSystem
                     if (weakest < 0 || habit.Count < habits[weakest].Count)
                         weakest = i;
                 }
-                else if (habit.Count >= (habit.Risky ? brain.RiskyLearnAfter : brain.LearnAfter)
+                else if (habit.Count >= LearnThreshold(brain, habit)
                     && (best < 0 || habit.Count > habits[best].Count))
                 {
                     best = i;
@@ -623,6 +719,14 @@ public sealed partial class CrewletBrainSystem
 
             habits[best] = habits[best] with { Learned = true };
         }
+    }
+
+    private static int LearnThreshold(CrewletBrainComponent brain, CrewletHabit habit)
+    {
+        if (habit.Risky)
+            return brain.RiskyLearnAfter;
+
+        return Chore(habit.Key) ? brain.ChoreLearnAfter : brain.LearnAfter;
     }
 
     private EntProtoId? PrototypeOf(EntityUid uid)
