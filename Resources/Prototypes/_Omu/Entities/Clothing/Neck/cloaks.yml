@@ -24,7 +24,7 @@
   parent: [ClothingNeckBase, BaseWardenContraband, ClothingSlotBase]
   id: ClothingNeckWardenParryCloak
   name: warden's dueling cloak
-  description: A red cloak with an integrated scabbard, useful for dramatically swishing at prisoners.
+  description: A red cloak with an integrated scabbard, useful for dramatically swishing at prisoners. Comes wth a body camera built in.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Neck/Cloaks/parryingcloak.rsi
@@ -39,7 +39,40 @@
         whitelist:
           tags:
           - WardenRapier
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraSecurity
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+    nameSet: true
+    mobile: true
+    id: Bodycam
+  - type: Eye
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: SurveillanceCameraMicrophone
+    blacklist:
+      components:
+      - SurveillanceCamera
+      - SurveillanceCameraMonitor
+      - RadioSpeaker
+  - type: ActiveListener
+    range: 10
+  - type: ClothingGrantComponent
+    component:
+      - type: StationAiVision
+        range: 4
 
+- type: entity
+  parent: ClothingNeckWardenParryCloak
+  id: ClothingNeckWardenParryCloakBlue
+  name: warden's dueling cloak
+  description: A blue cloak with an integrated scabbard, useful for dramatically swishing at prisoners. Comes wth a body camera built in.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/parryingcloakblue.rsi
+        
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckCloakCMOFancy
