@@ -22,11 +22,13 @@
   - Maintenance
   extendedAccess:
   - Chemistry
-  special:
-  - !type:AddComponentSpecial
-    components:
-    - type: SurgerySpeedModifier
-      speedModifier: 1.75
+  # Omu start
+  # special:
+  # - !type:AddComponentSpecial
+  #   components:
+  #   - type: SurgerySpeedModifier
+  #     speedModifier: 1.75
+  # Omu end
 
 
 - type: startingGear

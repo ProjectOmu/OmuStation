@@ -27,10 +27,12 @@
     holiday: DoctorDay
     prototype: WehMedipen
   # Shitmed change
-  - !type:AddComponentSpecial
-    components:
-    - type: SurgerySpeedModifier
-      speedModifier: 1.5
+  # Omu start
+  # - !type:AddComponentSpecial
+  #   components:
+  #   - type: SurgerySpeedModifier
+  #     speedModifier: 1.5
+  # Omu end
 
 
 - type: startingGear

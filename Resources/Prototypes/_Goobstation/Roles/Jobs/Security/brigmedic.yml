@@ -36,10 +36,12 @@
   - !type:AddComponentSpecial
     components:
     - type: SecurityStaff
-  - !type:AddComponentSpecial
-    components:
-    - type: SurgerySpeedModifier
-      speedModifier: 1.5
+  # Omu start
+  # - !type:AddComponentSpecial
+  #   components:
+  #   - type: SurgerySpeedModifier
+  #     speedModifier: 1.5
+  # Omu end
 
 - type: chameleonOutfit
   id: BrigmedicChameleonOutfit

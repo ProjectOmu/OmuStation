@@ -1,0 +1,4 @@
+skill-trainer-syndicate-extended-cargo = This experimental device can rapidly teach the user cargo operations. Simply put it on your eye and it will alter your mind to understand the subject. Highly experimental.
+skill-trainer-syndicate-extended-combat = This experimental device can rapidly teach the user combat techniques. Simply put it on your eye and it will alter your mind to understand the subject. Highly experimental.
+skill-trainer-syndicate-extended-engineering = This experimental device can rapidly teach the user engineering. Simply put it on your eye and it will alter your mind to understand the subject. Highly experimental.
+skill-trainer-syndicate-extended-medical = This experimental device can rapidly teach the user medicine. Simply put it on your eye and it will alter your mind to understand the subject. Highly experimental.

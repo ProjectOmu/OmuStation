@@ -1,0 +1,187 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseItem
+  id: BaseSkillTrainer
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/SkillTrainers/NTSkillTrainer.rsi
+    state: NT
+  - type: Item
+    sprite: _Omu/Objects/SkillTrainers/NTSkillTrainer.rsi
+
+- type: entity
+  parent: BaseSyndicateContraband
+  id: BaseSkillTrainerSyndicate
+  abstract: true
+  name: unknown piece of equipment
+  description: This device looks foreign and dangerous to handle, with wires and exposed circuitry everywhere and a multi-pronged grabber that could perfectly fit your eyeball.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/SkillTrainers/SyndicateSkillTrainer.rsi
+    state: syndicate
+  - type: Item
+    sprite: _Omu/Objects/SkillTrainers/SyndicateSkillTrainer.rsi
+
+- type: entity
+  parent: BaseSkillTrainer
+  id: CargoSkilltrainer
+  name: cargo skill trainer
+  description: A device inserted into the eye that rapidly restructures the user's mind to teach them cargo operations.
+  components:
+  - type: SkillGranting
+    skills:
+      Cargo: 2
+
+- type: entity
+  parent: [ BaseSkillTrainerSyndicate, CargoSkilltrainer ]
+  id: CargoSkilltrainerSyndicate
+  suffix: Cargo
+  components:
+  - type: ExtendDescription
+    descriptionList:
+    - description: skill-trainer-syndicate-extended-cargo
+      fontSize: 12
+      color: "#880000"
+      requireDetailRange: false
+      requirements:
+      - !type:CharacterAntagonistRequirement
+        antagonists:
+        - Traitor
+        - TraitorSleeper
+        - Nukeops
+        - NukeopsMedic
+        - NukeopsCommander
+    - description: mindshield-extenddescription-emag
+      fontSize: 12
+      color: "#11aaff"
+      requireDetailRange: true
+      requirements:
+      - !type:CharacterMindshieldRequirement
+
+- type: entity
+  parent: BaseSkillTrainer
+  id: EngineeringSkilltrainer
+  name: engineering skill trainer
+  description: A device inserted into the eye that rapidly restructures the user's mind to teach them engineering.
+  components:
+  - type: SkillGranting
+    skills:
+      Engineering: 2
+
+- type: entity
+  parent: [ BaseSkillTrainerSyndicate, EngineeringSkilltrainer ]
+  id: EngineeringSkilltrainerSyndicate
+  suffix: Engineering
+  components:
+  - type: ExtendDescription
+    descriptionList:
+    - description: skill-trainer-syndicate-extended-engineering
+      fontSize: 12
+      color: "#880000"
+      requireDetailRange: false
+      requirements:
+      - !type:CharacterAntagonistRequirement
+        antagonists:
+        - Traitor
+        - TraitorSleeper
+        - Nukeops
+        - NukeopsMedic
+        - NukeopsCommander
+    - description: mindshield-extenddescription-emag
+      fontSize: 12
+      color: "#11aaff"
+      requireDetailRange: true
+      requirements:
+      - !type:CharacterMindshieldRequirement
+
+- type: entity
+  parent: BaseSkillTrainer
+  id: MedicalSkilltrainer
+  name: medical skill trainer
+  description: A device inserted into the eye that rapidly restructures the user's mind to teach them medicine.
+  components:
+  - type: SkillGranting
+    skills:
+      Medical: 2
+
+- type: entity
+  parent: [ BaseSkillTrainerSyndicate, MedicalSkilltrainer ]
+  id: MedicalSkilltrainerSyndicate
+  suffix: Medical
+  components:
+  - type: ExtendDescription
+    descriptionList:
+    - description: skill-trainer-syndicate-extended-medical
+      fontSize: 12
+      color: "#880000"
+      requireDetailRange: false
+      requirements:
+      - !type:CharacterAntagonistRequirement
+        antagonists:
+        - Traitor
+        - TraitorSleeper
+        - Nukeops
+        - NukeopsMedic
+        - NukeopsCommander
+    - description: mindshield-extenddescription-emag
+      fontSize: 12
+      color: "#11aaff"
+      requireDetailRange: true
+      requirements:
+      - !type:CharacterMindshieldRequirement
+
+- type: entity
+  parent: BaseSkillTrainer
+  id: CombatSkilltrainer
+  name: combat skill trainer
+  description: A device inserted into the eye that rapidly restructures the user's mind to teach them combat techniques.
+  components:
+  - type: SkillGranting
+    skills:
+      Combat: 2
+
+- type: entity
+  parent: [ BaseSkillTrainerSyndicate, CombatSkilltrainer ]
+  id: CombatSkilltrainerSyndicate
+  suffix: Combat
+  components:
+  - type: SkillGranting
+    skills:
+      Combat: 3
+  - type: ExtendDescription
+    descriptionList:
+    - description: skill-trainer-syndicate-extended-combat
+      fontSize: 12
+      color: "#880000"
+      requireDetailRange: false
+      requirements:
+      - !type:CharacterAntagonistRequirement
+        antagonists:
+        - Traitor
+        - TraitorSleeper
+        - Nukeops
+        - NukeopsMedic
+        - NukeopsCommander
+    - description: mindshield-extenddescription-emag
+      fontSize: 12
+      color: "#11aaff"
+      requireDetailRange: true
+      requirements:
+      - !type:CharacterMindshieldRequirement
+
+- type: entity
+  parent: BaseSkillTrainer
+  id: DebugSkilltrainer
+  name: debug skill trainer
+  suffix: DEBUG
+  description: Raises every skill to level 5.
+  components:
+  - type: SkillGranting
+    skills:
+      Cargo: 5
+      Combat: 5
+      Command: 5
+      Engineering: 5
+      Medical: 5

@@ -11,6 +11,7 @@ humanoid-profile-editor-traits-header-no-maxtraits = You have {$pointsRemaining 
     }
 
 humanoid-profile-editor-speech-tab = Speech
+humanoid-profile-editor-skills-tab = Skills
 
 trait-category-auditory = Auditory
 trait-category-mental = Mental

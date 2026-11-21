@@ -25,11 +25,13 @@
   extendedAccess:
   - Chemistry
   # Shitmed change
-  special:
-  - !type:AddComponentSpecial
-    components:
-    - type: SurgerySpeedModifier
-      speedModifier: 1.25
+  # Omu start
+  # special:
+  # - !type:AddComponentSpecial
+  #   components:
+  #   - type: SurgerySpeedModifier
+  #     speedModifier: 1.25
+  # Omu end
 
 - type: startingGear
   id: ParamedicGear

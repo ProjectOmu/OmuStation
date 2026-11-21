@@ -56,10 +56,12 @@
     components:
       - type: CommandStaff
   # Shitmed Change
-  - !type:AddComponentSpecial
-    components:
-    - type: SurgerySpeedModifier
-      speedModifier: 2
+  # Omu start
+  # - !type:AddComponentSpecial
+  #   components:
+  #   - type: SurgerySpeedModifier
+  #     speedModifier: 2
+  # Omu end
 
 - type: startingGear
   id: CMOGear
