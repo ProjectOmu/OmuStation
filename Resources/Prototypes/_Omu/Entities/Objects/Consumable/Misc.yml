@@ -11,7 +11,7 @@
   id: RandomFillSurplusMedicalPill
   fills:
    - quantity: 10
-     weight: 55
+     weight: 60 # 5 weight per reagent, 12 reagents
      reagents:
      - Water
      - Syrup
@@ -24,21 +24,23 @@
      - THC
      - ChloralHydrate
      - Probital
+     - Peranol
    - quantity: 5
-     weight: 5
+     weight: 5 # this one is the same as the ones above it
      reagents:
      - TranexamicAcid
-   - quantity: 3
+   - quantity: 6 # 3 weight per reagent, 2 reagents
      weight: 5
      reagents:
      - Cognizine
+     - Tricordrazine
    - quantity: 5
-     weight: 1
+     weight: 1 # 0.5 weight per reagent, 2 reagents. These reagents are actively deterimental to consume
      reagents:
      - Bleach
      - Phenol
    - quantity: 5
-     weight: 10
+     weight: 10 # 2.5 weight per reagent, 4 reagents. The Funny:tm: reagents.
      reagents:
      - JuiceThatMakesYouWeh
      - JuiceThatMakesYouAwebo
