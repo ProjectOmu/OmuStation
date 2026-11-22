@@ -33,7 +33,7 @@ marking-ScreenRing = Ring
 marking-ScreenL = L
 marking-ScreenLine = Visor
 marking-ScreenCharger = Charger
-marking-ScreenLargeEye = Cute Eyes
+marking-ScreenCuteEyes = Cute Eyes
 marking-ScreenSmallEye = Dubious
 marking-ScreenSmallSmile = Small Eyes
 
