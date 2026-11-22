@@ -1,0 +1,17 @@
+- type: marking
+  id: LizardFrillsDoomed
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Reptilian/head_side_markings.rsi
+    state: doomed_frills
+
+- type: marking
+  id: LizardAntennaeDoomed
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Reptilian/head_top_markings.rsi
+    state: doomed_antennae
