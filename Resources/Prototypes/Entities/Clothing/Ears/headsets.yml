@@ -84,6 +84,9 @@
       - EncryptionKeyCargo
       - EncryptionKeyCommand
       - EncryptionKeyCommon
+  - type: RadioChime # Starlight
+    sound:
+      path: /Audio/_Starlight/Effects/Radio/qm.ogg
 
 - type: entity
   parent: [ ClothingHeadset, BaseCentcommContraband ]
@@ -100,6 +103,9 @@
     sprite: Clothing/Ears/Headsets/centcom.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/centcom.rsi
+  - type: RadioChime # Starlight
+    sound:
+      path: /Audio/_Starlight/Effects/Radio/cc.ogg
 
 - type: entity
   parent: [ClothingHeadset, BaseCommandContraband]
@@ -144,6 +150,9 @@
       - EncryptionKeyEngineering
       - EncryptionKeyCommand
       - EncryptionKeyCommon
+  - type: RadioChime # Starlight
+    sound:
+      path: /Audio/_Starlight/Effects/Radio/ce.ogg
 
 - type: entity
   parent: ClothingHeadset
@@ -173,6 +182,9 @@
       - EncryptionKeyMedical
       - EncryptionKeyCommand
       - EncryptionKeyCommon
+  - type: RadioChime # Starlight
+    sound:
+      path: /Audio/_Starlight/Effects/Radio/cmo.ogg
 
 - type: entity
   parent: ClothingHeadset
@@ -234,6 +246,9 @@
       - EncryptionKeyScience
       - EncryptionKeyCommand
       - EncryptionKeyCommon
+  - type: RadioChime # Starlight
+    sound:
+      path: /Audio/_Starlight/Effects/Radio/rd.ogg
 
 - type: entity
   parent: [ClothingHeadset, BaseSecurityContraband] # Omu, lawyer get service key
@@ -250,6 +265,9 @@
     sprite: Clothing/Ears/Headsets/security.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/security.rsi
+  - type: RadioChime # Starlight
+    sound:
+      path: /Audio/_Starlight/Effects/Radio/secoff.ogg
 
 - type: entity
   parent: [ClothingHeadset, BaseSecurityContraband]
@@ -267,6 +285,9 @@
     sprite: _Omu/Clothing/Ears/Headsets/corpsman.rsi #Omu - new sprite
   - type: Clothing
     sprite: _Omu/Clothing/Ears/Headsets/corpsman.rsi #Omu - new sprite
+  - type: RadioChime # Starlight
+    sound:
+      path: /Audio/_Starlight/Effects/Radio/brigmedic.ogg
 
 - type: entity
   parent: ClothingHeadset
@@ -326,3 +347,6 @@
     sprite: Clothing/Ears/Headsets/ninja.rsi
   - type: EmpResistance
     strengthMultiplier: 0
+  - type: RadioChime # Starlight
+    sound:
+      path: /Audio/_Starlight/Effects/Radio/ninja.ogg

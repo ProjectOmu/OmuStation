@@ -130,3 +130,36 @@
 
     - node: gogglesJamJarSec
       entity: ClothingEyesGlassesSecJamjar
+
+- type: constructionGraph
+  id: ClothingEyesGlassesChemJJ
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: gogglesJamJarChem
+          steps:
+            - tag: JamjarGlasses
+              name: construction-graph-tag-jamjar-glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/jamjar.rsi
+                state: icon
+              doAfter: 5
+            - tag: HudChemistry
+              name: construction-graph-tag-chem-hud
+              icon:
+                sprite: Clothing/Eyes/Glasses/science.rsi
+                state: icon
+              doAfter: 5
+            - material: Cable
+              amount: 5
+              doAfter: 5
+            - tag: Radio
+              name: construction-graph-tag-radio
+              icon:
+                sprite: Objects/Devices/communication.rsi
+                state: walkietalkie
+              doAfter: 5
+
+    - node: gogglesJamJarChem
+      entity: ClothingEyesGlassesChemJamjar

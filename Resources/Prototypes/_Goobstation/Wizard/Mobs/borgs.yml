@@ -82,6 +82,11 @@
         - BorgModuleSyndicateSurgery
         - BorgModuleSyndicateRescue
         - BorgModuleOperative
+       # Omu start
+        - BorgModuleTool
+        - BorgModuleSyndicateMedicalTools
+        - BorgModuleMartyr
+       # Omu end
   - type: ItemSlots
     slots:
       cell_slot:
