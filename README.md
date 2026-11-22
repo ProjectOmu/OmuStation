@@ -1,6 +1,5 @@
 <h1>This project is intended as a smaller personal server for my friends, removing certain aspects for lower population and taste. love u omu</h1>
-<h2>To be clear, this project will have zero use of AI in any form. This includes generated code, LLM problem solving support, and any generated assets.<h2>
-<h2> if anyone holds any issue with any asset being present in this repo, contact me and I will remove it.</h2>
+<h2>To be clear, this project will have zero use of AI in any form. This includes generated code, LLM problem solving support, and any generated assets.<br><br>if anyone holds any issue with any asset being present in this repo, contact me and I will remove it.</h2>
 
 <h2>The rest of the readme will be unedited for now.</h2>
 
