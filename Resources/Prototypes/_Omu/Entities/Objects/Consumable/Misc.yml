@@ -11,7 +11,7 @@
   id: RandomFillSurplusMedicalPill
   fills:
    - quantity: 10
-     weight: 60 # 5 weight per reagent, 12 reagents
+     weight: 105 # 5 weight per reagent, 21 reagents
      reagents:
      - Water
      - Syrup
@@ -25,6 +25,15 @@
      - ChloralHydrate
      - Probital
      - Peranol
+     - Psicodine
+     - Ethylredoxa
+     - Derivative
+     - Spaceicillin
+     - Anithol
+     - Inaprovaline
+     - Kelotane
+     - Dexalin
+     - Hyrolain
    - quantity: 5
      weight: 5 # this one is the same as the ones above it
      reagents:
