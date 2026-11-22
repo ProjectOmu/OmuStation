@@ -63,6 +63,9 @@
   - type: SurgeryTool # Shitmed
     startSound: /Audio/Items/change_jaws.ogg
     endSound: /Audio/Items/change_jaws.ogg
+  - type: Utensil # Omu - yeah technically this makes it "cut" in all modes but multipletools comp is weird.
+    types:
+    - Scissor
 
 - type: entity # Goobstation - Recycler Update
   parent: JawsOfLifeBase
