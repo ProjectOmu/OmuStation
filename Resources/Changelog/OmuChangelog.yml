@@ -10419,3 +10419,98 @@ Entries:
       message: Lamarr no longer hugs faces.
   id: 1337
   time: '2026-11-21T21:49:16.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: Prying logic has been updated to be dependent on power.
+  id: 1338
+  time: '2026-11-22T20:53:07.0000000+00:00'
+- author: Waterwithoutanyice
+  changes:
+    - type: Add
+      message: >-
+        Added spawn points and role slots for Foreman, Bosun, Medicus,
+        Professor, and Logistics assistant to Tram station
+  id: 1339
+  time: '2026-11-22T21:02:38.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        on Delta, the TEG room has been rewired to ensure that it is powered
+        correctly
+    - type: Tweak
+      message: On Bagel and Kettle, added a few MV wires to their respective PA setups
+    - type: Tweak
+      message: re-moved the stray pipe in Origin's atmos
+    - type: Tweak
+      message: On Bagel, made atmos bigger
+    - type: Remove
+      message: On Bagel, stripped most of the SM setup.
+  id: 1340
+  time: '2026-11-22T21:12:55.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        On Oasis, Ripped up part of the SM's setup, should be easier to work
+        with
+    - type: Tweak
+      message: On Oasis, reinforced the SM to no longer leak into surrounding areas
+    - type: Tweak
+      message: On Oasis, moved the TEG to another room
+    - type: Tweak
+      message: On Oasis, recoloured the the pipes in Atmos
+    - type: Tweak
+      message: On Oasis, slightly redesigned the burn chamber
+    - type: Tweak
+      message: On Oasis, removed the Clockwork cult's shrine
+    - type: Tweak
+      message: On Oasis, reduced the size of the canister storage
+    - type: Tweak
+      message: On Oasis, recoloured the Waste/Distro pipes to their respective colours
+    - type: Tweak
+      message: >-
+        On Oasis, slightly redesigned the smoke break area to the left of atmos
+        and it's associated maints
+    - type: Tweak
+      message: On Oasis, the HV wires now lead out to the Singulo chamber
+    - type: Tweak
+      message: On Oasis, wired the CE's room to be powered correctly
+    - type: Tweak
+      message: >-
+        On Oasis, chopped up the three daisychained APC for
+        Engineering/Atmos/Cargo into three smaller networks
+    - type: Tweak
+      message: On Oasis, anchored the radiators on the left side of the SM's chamber
+    - type: Tweak
+      message: On Oasis, moved the HVE suits to out of the SM chamber
+    - type: Tweak
+      message: >-
+        On Oasis, moved the buttons from the inside to the outside of the PA
+        chamber
+    - type: Tweak
+      message: On Oasis, moved the det's office to the right of security
+    - type: Tweak
+      message: >-
+        On Oasis, replaced all of sci's glass with plasma glass. this should
+        help with radiation and the inevitable explosions.
+    - type: Tweak
+      message: >-
+        On Oasis, moved a few firelocks near sci around, their explosions should
+        no longer space the entire station
+    - type: Tweak
+      message: >-
+        On Oasis, Replaced most instances of regular glass with it's reinforced
+        variants. This should prevent tiders from breaking into a lot of areas
+        they shouldn't be able to anymore.
+    - type: Tweak
+      message: On Oasis, Captain's bathroom is now MUCH bigger than before.
+    - type: Tweak
+      message: >-
+        On Oasis, the CC stamped paper outside of the ward's office is now read
+        only...
+    - type: Tweak
+      message: On Oasis, medical's lathe & paramed doors are no longer all access
+  id: 1341
+  time: '2026-11-22T21:13:51.0000000+00:00'
