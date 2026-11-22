@@ -10361,3 +10361,61 @@ Entries:
       message: Removed the surplus pills order from the cargo console
   id: 1330
   time: '2026-11-21T10:28:51.0000000+00:00'
+- author: ggrab41
+  changes:
+    - type: Fix
+      message: Ghosts can no longer be converted into cosmic cultists.
+    - type: Fix
+      message: >-
+        Fixed The Monument displaying incorrect number of converts needed to
+        progress.
+    - type: Fix
+      message: >-
+        The Monument should no longer wait for more entropy to update to stage 3
+        even after reaching the required amount.
+  id: 1331
+  time: '2026-11-21T19:37:49.0000000+00:00'
+- author: EctoplasmIsGood
+  changes:
+    - type: Tweak
+      message: The Foreman's locker has recieved a plethora of new tools.
+    - type: Tweak
+      message: >-
+        The Foreman's hardsuit and cyberbeast mantle are now nearly completely
+        immune to radiation.
+  id: 1332
+  time: '2026-11-21T19:44:13.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: >-
+        Resprited the handheld crew monitor, syndicate crew monitor, and BSO's
+        command monitor.
+  id: 1333
+  time: '2026-11-21T20:37:48.0000000+00:00'
+- author: marchhaschwalth-boop
+  changes:
+    - type: Add
+      message: Made the H.E.V suit purchasable by cargo for 3000 spesos.
+  id: 1334
+  time: '2026-11-21T20:48:34.0000000+00:00'
+- author: Harro365
+  changes:
+    - type: Fix
+      message: >-
+        The R3 now counts as an OfficerHandgun theft objective like the
+        Inspector
+  id: 1335
+  time: '2026-11-21T21:02:34.0000000+00:00'
+- author: EidolonForgery
+  changes:
+    - type: Add
+      message: New variant of the JamJar glasses with a chemistry HUD.
+  id: 1336
+  time: '2026-11-21T21:20:37.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Tweak
+      message: Lamarr no longer hugs faces.
+  id: 1337
+  time: '2026-11-21T21:49:16.0000000+00:00'
