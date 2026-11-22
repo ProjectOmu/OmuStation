@@ -1,5 +1,7 @@
-marking-LizardFrillsDoomed-doomed_frills = Lizard Frills (Doomed)
-marking-LizardFrillsDoomed = Lizard Frills (Doomed)
-
-marking-LizardAntennaeDoomed-doomed_antennae = Lizard Antennae (Doomed)
-marking-LizardAntennaeDoomed = Lizard Antennae (Doomed)
+marking-LizardFrillsDoomed = Doomed Frills
+marking-LizardAntennaeDoomed = Doomed Antennae
+marking-LizardBugEyesHead = Bug Eyes (Below Glasses)
+marking-LizardBugEyesFace = Bug Eyes (Above Glasses)
+marking-LizardSnoutRoundNoggin = Round Noggin
+marking-LizardJaggedTeeth = Jagged Teeth
+marking-LizardTailKrillion = Krillion Tail
