@@ -1,4 +1,8 @@
-<h1>This project is intended as a smaller personal server for my friends, removing certain aspects for lower population and taste. I love you Omu, The rest of the readme will be unedited for now.</h1>
+<h1>This project is intended as a smaller personal server for my friends, removing certain aspects for lower population and taste. love u omu</h1>
+<h2>To be clear, this project will have zero use of AI in any form. This includes generated code, LLM problem solving support, and any generated assets.<h2>
+<h2> if anyone holds any issue with any asset being present in this repo, contact me and I will remove it.</h2>
+
+<h2>The rest of the readme will be unedited for now.</h2>
 
 This is a fork from [Goob Station](https://github.com/Goob-Station/Goob-Station), a primary fork from [Space Station 14](https://github.com/space-wizards/space-station-14). To prevent people forking [Robust Toolbox](https://github.com/space-wizards/RobustToolbox), a "content" pack is loaded by the client and server. This content pack contains everything needed to play the game on one specific server this is the content pack for Omu Station.
 
