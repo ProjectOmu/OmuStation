@@ -83,11 +83,11 @@
         whitelist:
           tags:
           - SpaceMedipen
-      prybar: # omu - guild prybars
-        ejectOnInteract: false
-        whitelist:
-          tags:
-          - SecurityPrybar
+#      prybar: # omu - guild prybars # they go in the SecVend now instead of boxes
+#        ejectOnInteract: false
+#        whitelist:
+#          tags:
+#          - SecurityPrybar
   - type: ContainerFill
     containers:
       water:
@@ -286,8 +286,8 @@
       - EmergencyMedipen
       spacepen:
       - SpaceMedipen
-      prybar: # omu - guild prybars
-      - SecurityPrybar
+#      prybar: # omu - guild prybars # they go in the SecVend now instead of boxes
+#      - SecurityPrybar
   - type: Sprite
     state: box_sec
 
@@ -312,8 +312,8 @@
       - EmergencyMedipen
       spacepen:
       - SpaceMedipen
-      prybar: # omu - guild prybars
-      - SecurityPrybar
+#      prybar: # omu - guild prybars # they go in the SecVend now instead of boxes
+#      - SecurityPrybar
   - type: Label
     currentLabel: reagent-name-nitrogen
   - type: Sprite
