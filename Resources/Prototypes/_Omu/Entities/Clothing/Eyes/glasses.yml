@@ -201,7 +201,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingEyesGlassesSecJamjar, ClothingEyesGlassesMedJamjar]
+  parent: [BaseCorpsmanBlueShieldContraband, ClothingEyesGlassesSecJamjar, ClothingEyesGlassesMedJamjar]
   id: ClothingEyesGlassesMedSecJamjar
   name: medical security jamjar glasses
   description: Jamjar glasses installed with a security HUD and flash protection, as well as a medical HUD.
@@ -215,7 +215,7 @@
     node: gogglesJamJarMedSec
 
 - type: entity
-  parent: [ClothingEyesBase, ShowMedicalIcons]
+  parent: [BaseMedicalContraband, ClothingEyesBase, ShowMedicalIcons]
   id: ClothingEyesGlassesMedDiagJamjar
   name: medical diagnostic jamjar glasses
   description: Jamjar glasses installed with a diagnostic and medical HUD.
