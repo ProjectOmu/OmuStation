@@ -15,6 +15,12 @@
                 <Button StyleClasses="OpenRight" Name="FollowButton" HorizontalExpand="True" Access="Public" Text="{Loc 'admin-camera-window-follow'}" />
                 <Button StyleClasses="OpenLeft" Name="PopControl" HorizontalExpand="True" Access="Public" Text="{Loc 'admin-camera-window-pop-out'}" />
             </BoxContainer>
+            <!-- Omu start, i love boxcontainer -->
+            <BoxContainer Orientation="Horizontal" Margin="5 5 5 5">
+                <Button StyleClasses="OpenRight" Name="DrawFovButton" HorizontalExpand="True" Access="Public" Text="{Loc 'sandbox-window-toggle-fov-button'}" />
+                <Button StyleClasses="OpenLeft" Name="DrawLightButton" HorizontalExpand="True" Access="Public" Text="{Loc 'sandbox-window-toggle-shadows-button'}" />
+            </BoxContainer>
+            <!-- Omu End -->
         </BoxContainer>
     </PanelContainer>
 </Control>

@@ -6,12 +6,14 @@
   components:
   - type: Sprite
     sprite: _White/Mobs/Aliens/Xenomorphs/old_facehugger.rsi
-  - type: FaceHugger
-    knockdownTime: 0
-    infectionPrototype: null
-    damageOnImpact:
-      types:
-        Blunt: 2
+  # Omu start: remove FaceHugger component
+  #- type: FaceHugger
+  #  knockdownTime: 0
+  #  infectionPrototype: null
+  #  damageOnImpact:
+  #    types:
+  #      Blunt: 2
+  # Omu end: remove FaceHugger component
   - type: UseDelay
     delay: 7
   - type: StealTarget
