@@ -10433,3 +10433,19 @@ Entries:
         Professor, and Logistics assistant to Tram station
   id: 1339
   time: '2026-11-22T21:02:38.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        on Delta, the TEG room has been rewired to ensure that it is powered
+        correctly
+    - type: Tweak
+      message: On Bagel and Kettle, added a few MV wires to their respective PA setups
+    - type: Tweak
+      message: re-moved the stray pipe in Origin's atmos
+    - type: Tweak
+      message: On Bagel, made atmos bigger
+    - type: Remove
+      message: On Bagel, stripped most of the SM setup.
+  id: 1340
+  time: '2026-11-22T21:12:55.0000000+00:00'
