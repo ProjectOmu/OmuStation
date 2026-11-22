@@ -18,6 +18,7 @@
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
       time: 180000 #50 hrs
+  weight: 1
   startingGear: SecuritySergeantGear
   icon: "JobIconSecuritySergeant"
   supervisors: job-supervisors-hos
@@ -29,7 +30,7 @@
   - SecuritySergeantSOP
   - CorporateJudo
   - AlertLevels
-  - SecurityTrainingManual
+  - ClassifiedTrainingManual
   goobcoins: 45 #Goob content
   access:
   - Security
@@ -48,13 +49,15 @@
 - type: startingGear
   id: SecuritySergeantGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
+    id: SecuritySergeantPDA
+    #eyes: ClothingEyesGlassesSecurity #Omu, glasses options in loadout
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     #pocket1: OfficerGunCase #Omu, item in loadout instead
   storage:
     back:
     - Flash
     - SecuritySergeantWhistle
+    - SergeantMeleeCase
 
 - type: chameleonOutfit
   id: SecuritySergeantChameleonOutfit

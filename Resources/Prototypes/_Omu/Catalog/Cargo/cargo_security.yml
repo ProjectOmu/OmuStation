@@ -7,3 +7,13 @@
   cost: 5500
   category: cargoproduct-category-name-security
   group: market
+
+- type: cargoProduct
+  id: SecurityPanicButtons
+  icon:
+    sprite: _Goobstation/Objects/Specific/Security/panicbutton.rsi
+    state: icon
+  product: CrateSecurityPanicButtons
+  cost: 4000
+  category: cargoproduct-category-name-security
+  group: market

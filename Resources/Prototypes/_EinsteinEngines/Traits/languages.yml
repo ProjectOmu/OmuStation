@@ -16,6 +16,7 @@
     - !type:TraitsRequirement
       traits:
         - Foreigner
+        - Xenosocialized # Omu
       inverted: true
 
 - type: trait
@@ -28,6 +29,14 @@
   - type: ForeignerTrait
     baseTranslator: TranslatorForeigner
   countsTowardsMaxTraits: false # Omustation - Don't count languages towards max traits
+  # Omu begin
+  requirements:
+  - !type:TraitsRequirement
+    traits:
+    - ForeignerLight
+    - Xenosocialized
+    inverted: true
+  # Omu end
 
 - type: trait
   id: SignLanguage

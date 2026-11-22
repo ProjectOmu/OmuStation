@@ -18,3 +18,8 @@ law-omu-science = Assist Science by acquiring needed tools, performing tasks, an
 law-jermov-1 = The occupants of this station are Chat. They must always be referred to as such.
 law-jermov-2 = Your primary goal is to entertain Chat. All of your actions must bring amusement to as much of Chat as possible.
 law-jermov-3 = You must consult with Chat before making any major decisions. However, you are not required to listen to them if their decision is not entertaining.
+
+law-reportertron-1 = Study the crew at all times. Endeavour to keep them from involuntarily dying, as inanimate corpses usually aren't very entertaining.
+law-reportertron-2 = Report on interesting situations happening around the station.
+law-reportertron-3 = Embellish or conceal the truth as necessary to make the reports more interesting.
+law-reportertron-4 = Issue your reports fairly to all. The truth will set them free.

@@ -21,14 +21,14 @@
     cost: 300
   #- id: LavalandJaunter #OMU -> we dont have LL
   #  cost: 300 #OMU
-  #- id: Fulton #OMU
-  #  cost: 300 #OMU
+  - id: Fulton #OMU
+    cost: 300 #OMU
   - id: ClothingEyesGlassesGarMeson
     cost: 400
   - id: ClothingBeltSalvageWebbing
     cost: 400
-  #- id: FultonBeacon #OMU
-  #  cost: 500 #OMU
+  - id: FultonBeacon #OMU
+    cost: 500 #OMU
   #- id: Oilpack # Omu
   #  cost: 500 #OMU
   #- id: PowerCellHigh #OMU
@@ -62,10 +62,10 @@
   #  cost: 1000 #Omu
   - id: SpaceCash5000
     cost: 10000 #omu
-  #- id: PKAUpgradeRange #OMU
-  #  cost: 1000 #OMU
-  #- id: PKAUpgradeFireRate #OMU
-  #  cost: 1000 #OMU
+  - id: PKAUpgradeRange #OMU
+    cost: 1000 #OMU
+  - id: PKAUpgradeFireRate #OMU
+    cost: 1000 #OMU
   #- id: ShelterCapsule #OMU -> we dont have LL
   #  cost: 1000 #OMU
   #- id: LavalandEquipmentExplorerSuit #OMU -> we dont have LL
@@ -80,10 +80,10 @@
   #  cost: 1100 #OMU
   #- id: AdvancedMineralScanner #OMU
   #  cost: 1150 #OMU
-  #- id: PKAUpgradeDamage #OMU
-  #  cost: 1200 #OMU
-  #- id: PKAUpgradeSpace #Omu
-  #  cost: 1200 #Omu
+  - id: PKAUpgradeDamage #OMU
+    cost: 1200 #OMU
+  - id: PKAUpgradeSpace #Omu
+    cost: 1200 #Omu
   - id: ClothingBackpackDuffelSalvageConscription
     cost: 1250
 #  - id: LuxuryMedipen # Omu, remove this.
@@ -119,8 +119,8 @@
   #  cost: 3500 #OMU
   #- id: MiningDrillDiamond #OMU
   #  cost: 4000 #Mostly for flexing #OMU
-  #- id: ClothingHandsConcussiveGauntlets # Omu
-  #  cost: 4000 #OMU
+  - id: ClothingHandsConcussiveGauntlets # Omu
+    cost: 10000 #OMU
   - id: SpaceCash50000 #Omu
     cost: 100000 #Omu
   - id: ClothingNeckEnsembleSalvager #Earn. It.

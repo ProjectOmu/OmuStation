@@ -29,6 +29,7 @@
     Head: MobAsakimHead
     HeadTop: MobAsakimAnyMarking
     Chest: MobAsakimChest
+    Groin: MobAsakimGroin # Omu
     Tail: MobHumanoidAnyMarking
     Eyes: MobAsakimEyes
     LArm: MobAsakimLArm
@@ -82,6 +83,26 @@
   baseSprite:
     sprite: _Mono/Mobs/Species/Asakim/parts.rsi
     state: chest_m
+
+# Omu - start: let's give poor Asakim a groin
+- type: humanoidBaseSprite
+  id: MobAsakimGroin
+  baseSprite:
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobAsakimGroinMale
+  baseSprite:
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobAsakimGroinFemale
+  baseSprite:
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: groin_f
+# Omu - end: let's give poor Asakim a groin
 
 - type: humanoidBaseSprite
   id: MobAsakimLLeg

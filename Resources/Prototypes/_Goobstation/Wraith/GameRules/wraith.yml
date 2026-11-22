@@ -20,9 +20,9 @@
         - NamesWraith
         - NamesWraithTitle
         nameFormat: name-format-wraith
-      - type: Banishment # revive on death, resets WP
-        lives: 1
-        popup: wraith-banishment
+#      - type: Banishment # revive on death, resets WP # Omu edit: Has some issues that need to be ironed out. Probably won't be added back for wraith but could have some uses in other things.
+#        lives: 1
+#        popup: wraith-banishment
   - type: AntagRandomSpawn
   - type: AntagSpawner
     prototype: MobWraith
@@ -68,7 +68,7 @@
         - NamesWraith
         - NamesWraithTitle
         nameFormat: name-format-wraith
-      - type: Banishment # revive on death, resets WP
-        lives: 1
-        popup: wraith-banishment
+#      - type: Banishment # revive on death, resets WP # Omu edit: Has some issues that need to be ironed out. Probably won't be added back for wraith but could have some uses in other things.
+#        lives: 1
+#        popup: wraith-banishment
 

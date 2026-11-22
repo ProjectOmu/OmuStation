@@ -8,3 +8,11 @@
 - type: statusEffect
   id: StatusEffectBerserk
   alwaysAllowed: true
+
+# Intended to make Chloral Hydrate less of a gamble
+- type: entity
+  parent: StatusEffectDrowsiness
+  id: StatusEffectDrowsinessChloralHydrate
+  components:
+  - type: DrowsinessStatusEffect
+    timeBetweenIncidents: 15, 30 # Minimum 5.5u dose, max 13u dose

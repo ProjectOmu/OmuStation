@@ -7,6 +7,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
+using Content.Shared._Omu.Preferences;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
 using Content.Shared.Construction.Prototypes;
@@ -50,6 +51,10 @@ namespace Content.Server.Database
         // Single method for two operations for transaction.
         Task DeleteSlotAndSetSelectedIndex(NetUserId userId, int deleteSlot, int newSlot);
         Task<PlayerPreferences?> GetPlayerPreferencesAsync(NetUserId userId, CancellationToken cancel);
+        // Omu start
+        Task<CharacterQueueState?> GetCharacterQueueAsync(NetUserId userId, CancellationToken cancel);
+        Task SaveCharacterQueueAsync(NetUserId userId, CharacterQueueState queue);
+        // Omu end
         #endregion
 
         #region User Ids
@@ -531,6 +536,20 @@ namespace Content.Server.Database
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetPlayerPreferencesAsync(userId, cancel));
         }
+
+        // Omu start
+        public Task<CharacterQueueState?> GetCharacterQueueAsync(NetUserId userId, CancellationToken cancel)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetCharacterQueueAsync(userId, cancel));
+        }
+
+        public Task SaveCharacterQueueAsync(NetUserId userId, CharacterQueueState queue)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SaveCharacterQueueAsync(userId, queue));
+        }
+        // Omu end
 
         public Task AssignUserIdAsync(string name, NetUserId userId)
         {

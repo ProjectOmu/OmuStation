@@ -565,33 +565,35 @@
       amount: !type:RangeNumberSelector
         range: 1, 2
       weight: 10
-    - id: AnomalyCorePyroclastic
-      amount: !type:RangeNumberSelector
-        range: 1, 3
-    - id: AnomalyCoreGravity
-      amount: !type:RangeNumberSelector
-        range: 1, 3
-    - id: AnomalyCoreIce
-      amount: !type:RangeNumberSelector
-        range: 1, 3
-    - id: AnomalyCoreFlesh
-      amount: !type:RangeNumberSelector
-        range: 1, 3
-    - id: AnomalyCoreLiquid
-      amount: !type:RangeNumberSelector
-        range: 1, 3
-    - id: AnomalyCoreBluespace
-      amount: !type:RangeNumberSelector
-        range: 1, 3
-    - id: AnomalyCoreElectricity
-      amount: !type:RangeNumberSelector
-        range: 1, 3
-    - id: AnomalyCoreFlora
-      amount: !type:RangeNumberSelector
-        range: 1, 3
-    - id: AnomalyCoreShadow
-      amount: !type:RangeNumberSelector
-        range: 1, 3
+  #omu begin, removed so science anomaly cores are more special, and not random salvage loot.
+#    - id: AnomalyCorePyroclastic
+#      amount: !type:RangeNumberSelector
+#        range: 1, 3
+#    - id: AnomalyCoreGravity
+#      amount: !type:RangeNumberSelector
+#        range: 1, 3
+#    - id: AnomalyCoreIce
+#      amount: !type:RangeNumberSelector
+#        range: 1, 3
+#    - id: AnomalyCoreFlesh
+#      amount: !type:RangeNumberSelector
+#        range: 1, 3
+#    - id: AnomalyCoreLiquid
+#      amount: !type:RangeNumberSelector
+#        range: 1, 3
+#    - id: AnomalyCoreBluespace
+#      amount: !type:RangeNumberSelector
+#        range: 1, 3
+#    - id: AnomalyCoreElectricity
+#      amount: !type:RangeNumberSelector
+#        range: 1, 3
+#    - id: AnomalyCoreFlora
+#      amount: !type:RangeNumberSelector
+#        range: 1, 3
+#    - id: AnomalyCoreShadow
+#      amount: !type:RangeNumberSelector
+#        range: 1, 3
+  #omu end
 
 - type: entityTable
   id: RandomSatchelTable6

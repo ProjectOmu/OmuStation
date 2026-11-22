@@ -1,0 +1,78 @@
+- type: entity
+  name: trail in the snow
+  parent: FoodCakeBase
+  id: FoodCakeTrailInTheSnow
+  description: An exquisitely rich cheesecake with a subtle hint of iron, it's surface runs like the blood of prey across a snowy field. Known to have invigorating effects on those who consume it.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Consumable/Food/trailinthesnow.rsi
+    state: trailinthesnow
+  - type: SliceableFood
+    slice: FoodCakeTrailInTheSnowSlice
+  - type: Tag
+    tags:
+    - Cake
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: alpha-inhand-left
+        color: "#761711"
+      - state: alpha-filling-inhand-left
+        color: "#e4b7af"
+      right:
+      - state: alpha-inhand-right
+        color: "#761711"
+      - state: alpha-filling-inhand-right
+        color: "#e4b7af"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Ichor
+          Quantity: 10 # A little more than what goes in
+        - ReagentId: Vitamin
+          Quantity: 10
+        - ReagentId: Iron
+          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 5
+
+- type: entity
+  name: trail in the snow slice
+  parent: FoodCakeSliceBase
+  id: FoodCakeTrailInTheSnowSlice
+  description: The spoils of a hunt are best enjoyed alongside one's pack.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Consumable/Food/trailinthesnow.rsi
+    state: trailinthesnow_slice
+  - type: Tag
+    tags:
+    - Cake
+    - Slice
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: alpha-slice-inhand-left
+        color: "#761711"
+      - state: alpha-slice-filling-inhand-left
+        color: "#e4b7af"
+      right:
+      - state: alpha-slice-inhand-right
+        color: "#761711"
+      - state: alpha-slice-filling-inhand-right
+        color: "#e4b7af"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Ichor
+          Quantity: 2 # A little more than what goes in
+        - ReagentId: Vitamin
+          Quantity: 2
+        - ReagentId: Iron
+          Quantity: 1
+        - ReagentId: Protein
+          Quantity: 1

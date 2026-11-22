@@ -4,6 +4,7 @@ using Content.Server.Objectives.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Cuffs.Components;
+using Content.Shared.Ghost;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
@@ -81,6 +82,9 @@ public sealed class HijackShuttleConditionSystem : EntitySystem
             var isHumanoid = humanoids.HasComponent(player.AttachedEntity.Value);
             if (!isHumanoid) // Only humanoids count as enemies
                 continue;
+
+            if (HasComp<GhostComponent>(player.AttachedEntity.Value)) // Omu
+                continue; // Omu
 
             var isAntagonist = _role.MindIsAntagonist(crewMindId); // Goobstation
             if (isAntagonist) // Allow antagonist

@@ -68,7 +68,7 @@
   # Omu Begin
   - type: DeviceNetwork
     deviceNetId: Wired # :clueless:
-    receiveFrequencyId: SurveillanceCameraCommand
+    receiveFrequencyId: SurveillanceCameraSecurity
     transmitFrequencyId: SurveillanceCamera
   - type: SurveillanceCamera
     networkSet: true

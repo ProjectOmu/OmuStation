@@ -58,6 +58,8 @@
     missChance: 0.4
     spreadMultiplier: 3
     spreadAddition: 40
+  - type: AltFireMelee # Omu, this was missing from the above Goob section to actually let the guns melee
+    attackType: Heavy
 
 - type: entity
   parent: [BaseWeaponBattery, BaseGunWieldable]

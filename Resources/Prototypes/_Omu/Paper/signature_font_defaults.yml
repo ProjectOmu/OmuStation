@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: signatureFontDefault
+  id: Borg
+  font: Sixtyfour
+  whitelist:
+    components:
+    - BorgChassis
+
+- type: signatureFontDefault
+  id: IPC
+  font: KodeMono
+  species:
+  - IPC
