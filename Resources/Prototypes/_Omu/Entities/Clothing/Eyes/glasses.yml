@@ -235,6 +235,21 @@
     node: gogglesJamJarMedDiag
 
 - type: entity
+  parent: [ClothingEyesBase, ShowMedicalIcons, BaseMedicalContraband]
+  id: ClothingEyesGlassesMediChemJamjar
+  name: medical chemical jamjar glasses
+  description: Jamjar glasses installed with a medical HUD and solution analyzer.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_medichem.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_medichem.rsi
+  - type: SolutionScanner
+  - type: Construction
+    graph: ClothingEyesGlassesMediChemJJ
+    node: gogglesJamJarMediChem
+
+- type: entity
   parent: [ClothingEyesHudJanitorial]
   id: ClothingEyesGlassesJaniJamjar
   name: janitorial jamjar glasses

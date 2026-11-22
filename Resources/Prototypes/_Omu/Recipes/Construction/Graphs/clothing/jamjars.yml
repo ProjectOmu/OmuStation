@@ -291,6 +291,15 @@
                 sprite: Clothing/Eyes/Glasses/science.rsi
                 state: icon
               doAfter: 5
+            - material: Cable
+              amount: 5
+              doAfter: 5
+            - tag: Radio
+              name: construction-graph-tag-radio
+              icon:
+                sprite: Objects/Devices/communication.rsi
+                state: walkietalkie
+              doAfter: 5
 
     - node: gogglesJamJarChem
       entity: ClothingEyesGlassesChemJamjar
