@@ -11,7 +11,10 @@ using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared._EinsteinEngines.Silicon.IPC; // DeltaV
-using Content.Shared.Whitelist; // Goobstation
+using Content.Shared.Whitelist;
+using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Preferences;
+using Content.Shared.Humanoid; // Goobstation
 
 namespace Content.Shared.Station;
 
@@ -228,4 +231,18 @@ public abstract class SharedStationSpawningSystem : EntitySystem
 
         return null;
     }
+
+    // EE start
+    public bool GetProfile(EntityUid? uid, [NotNullWhen(true)] out HumanoidCharacterProfile? profile)
+    {
+        if (!TryComp(uid, out HumanoidAppearanceComponent? appearance))
+        {
+            profile = null;
+            return false;
+        }
+
+        profile = HumanoidCharacterProfile.DefaultWithSpecies(appearance.Species);
+        return true;
+    }
+    // EE end
 }

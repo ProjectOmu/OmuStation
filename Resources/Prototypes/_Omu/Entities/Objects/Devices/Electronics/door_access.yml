@@ -51,3 +51,10 @@
   components:
   - type: AccessReader
     access: [["Paramedic"]]
+
+### Misc
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsSealed
+  suffix: Sealed

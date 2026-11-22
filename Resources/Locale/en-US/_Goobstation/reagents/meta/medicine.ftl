@@ -80,7 +80,8 @@ reagent-name-bozaide = bozaide
 reagent-desc-bozaide = A passive, slow acting brute medication that acts as a catalyst for natural tissue regeneration.
 
 reagent-name-genecide = genecide
-reagent-desc-genecide = Blows genetic damage away, literally. Make sure to monitor patients taking it.
+# Omu
+reagent-desc-genecide = Blows rot and genetic damage away, literally. Make sure to monitor and heal patients taking it. Works on dead patients but retains its side effects.
 
 reagent-name-procenyl-lazide-sludge = procenyl lazide sludge
 reagent-desc-procenyl-lazide-sludge = Relatively easy to create solution, needs heating to bind properly in a notoriously inefficient reaction.

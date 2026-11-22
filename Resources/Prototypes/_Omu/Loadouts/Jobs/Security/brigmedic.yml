@@ -35,6 +35,11 @@
     head: ClothingHeadHatKepiCorpsmanVeteran
 
 - type: loadout
+  id: VisorMedSec
+  equipment:
+    eyes: ClothingEyesVisorMedSec
+
+- type: loadout
   id: CorpsmanJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCorpsman
@@ -146,3 +151,8 @@
   equipment:
     pocket1: BrigMedCase
   groupBy: "Main weapon"
+
+- type: loadout
+  id: BrigmedicUshanka
+  equipment:
+    head: ClothingHeadHatUshankaBrigmed

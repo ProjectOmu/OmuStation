@@ -389,7 +389,8 @@ public sealed partial class SupermatterComponent : Component
         {Gas.Nitrium, 0f }, // EE Compatibility
         {Gas.BZ, 0f}, // Assmos - /tg/ gases
         {Gas.Healium, 0f}, // Assmos - /tg/ gases
-        {Gas.Pluoxium, 0f} // Assmos - /tg/ gases
+        {Gas.Pluoxium, 0f}, // Assmos - /tg/ gases
+
     };
 
     /// <summary>

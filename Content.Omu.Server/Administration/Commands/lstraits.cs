@@ -1,8 +1,8 @@
 using System.Linq;
+using Content.Server._Omu.Preferences;
 using Content.Server.Administration;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Administration;
-using Content.Shared.Preferences;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
@@ -13,6 +13,7 @@ namespace Content.Omu.Server.Administration.Commands;
 [AdminCommand(AdminFlags.Logs)]
 public sealed class LsTraits : LocalizedCommands
 {
+    [Dependency] private readonly IEntityManager _entities = default!;
     [Dependency] private readonly IPlayerManager _players = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
@@ -36,14 +37,14 @@ public sealed class LsTraits : LocalizedCommands
         }
 
         // Get the player's preferences
-        if (!_prefsManager.TryGetCachedPreferences(session.UserId, out var prefs))
+        if (!_prefsManager.TryGetCachedPreferences(session.UserId, out _))
         {
             shell.WriteError(Loc.GetString("lstraits-could-not-find-player-preferences"));
             return;
         }
 
         // Get the selected character profile
-        if (prefs.SelectedCharacter is not HumanoidCharacterProfile character)
+        if (_entities.System<CharacterQueueSystem>().GetCurrentCharacter(session.UserId) is not { } character)
         {
             shell.WriteError(Loc.GetString("lstraits-could-not-find-profile"));
             return;

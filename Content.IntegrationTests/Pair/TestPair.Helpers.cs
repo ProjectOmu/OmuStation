@@ -3,7 +3,9 @@
 #nullable enable
 using System.Collections.Generic;
 using System.Linq;
+using Content.Server._Omu.Preferences;
 using Content.Server.Preferences.Managers;
+using Content.Shared._Omu.Preferences;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Shared.EntitySerialization;
@@ -127,5 +129,18 @@ public sealed partial class TestPair
         var newProfile = profile.WithJobPriorities(dictionary);
         _modifiedProfiles.Add(user);
         await Server.WaitPost(() => prefMan.SetProfile(user, 0, newProfile).Wait());
+        await SetQueueFromProfile(user, newProfile); // Omu
     }
+
+    // Omu start
+    private async Task SetQueueFromProfile(NetUserId user, HumanoidCharacterProfile profile)
+    {
+        if (!Server.PlayerMan.TryGetSessionById(user, out var session))
+            return;
+
+        var queue = new CharacterQueueState(profile.JobPriorities.ToDictionary(), [0], [],
+            profile.PreferenceUnavailable);
+        await Server.WaitPost(() => Server.System<CharacterQueueSystem>().SetQueue(session, queue).Wait());
+    }
+    // Omu end
 }

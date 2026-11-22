@@ -1,83 +1,55 @@
 <Document>
   # Roleplay Rule 8 - The Metashield
 
-  The "metashield" protects antagonist information from being widely known by characters who don't need to know it. This is so antagonists can have the chance to build up and so roleplay can naturally occur around finding out about them.
+  The "metashield" protects antagonist information from being widely known by characters who don't need to know it. This is so antagonists can have the chance to build up and so roleplay can naturally occur around finding out about them. Although [textlink="persistent character information" link="RuleMetagameOverview"] may bypass some of these protections, you’re expected to use your character’s knowledge for good roleplay, not to take down antagonists before they can create an interesting story.
 
-  [bold]!! NOTE:[/bold] [italic]The metashield and its related documents will soon receive an overhaul, so what the crew will and will not know will be changing soon! This page will update once the new metashield goes live![/italic]
+  [bold]Any antagonist that is not listed in your respective training manual is to be interpreted as something you do NOT know.[/bold] But in general, antagonist capabilities and tools are not known by the crew. Refer to the appropriate training manual below to know what is typically known by your role.
 
-  Something that is "shielded" cannot be known by your character during a round until the "revealing condition" happens. This also means that your character cannot do things based on "shielded" information. Knowing or acting on something that is shielded before the revealing condition is met is referred to as metagaming.
+  If you yourself are an antagonist, you will obviously know that you (and others like you) exist. Otherwise, you only have access to the appropriate training manual for your role.
+  - If you’re a non-crew humanoid antagonist that doesn’t have a role on-station, such as a [textlink="Nuclear Operative" link="NuclearOperatives"] or a [textlink="Wizard" link="Wizard"], you know about the information in the [textlink="Crew Training Manual" link="CrewTrainingManual"] and the [textlink="Classified Training Manual." link="ClassifiedTrainingManual"]
+  - Non-humanoid antagonists (such as the [textlink="Rat King" link="MinorAntagonists"], [textlink="Space Dragons" link="MinorAntagonists"], and [textlink="Xenoborgs" link="Xenoborgs"]) do not get access to the manuals’ knowledge.
 
-  Revealing conditions reveal the shielded information for the round, not for a specific instance. This means that once a revealing condition is met in a round, the shield no longer applies in any case for the remainder of the round.
+  <Box>If you are a [textlink="Traitor" link="Traitors"] or other Syndicate member, you will also know about the [textlink="Gorlex Marauders" link="NuclearOperatives"] and their type of work. You should only help them if you have the objective "die a glorious death."</Box>
 
-  [bold]Any antagonist that is not listed in your respective metashield document is to be interpreted as something you do NOT know.[/bold]
+  ## Explicitly Shielded
 
-  Antagonist capabilities and tools are not generally known by the crew. Refer to your training manual as to what is typically known.
+  The following is a list of explicitly shielded things, which means that regardless of manual, your character definitely shouldn’t know about these:
+  - Chameleon items, such as no-slip shoes, that are [italic]locked[/italic] cannot be suspected of being chameleon. They must be real good on their feet or something... (If you can change the item’s appearance through the Chameleon menu, or if an EMP causes the item to change, then you’re aware of the item’s chameleon properties. [italic]You should not randomly EMP people to check if their clothing is chameleon! Admin help (F1) if this happens![/italic])
+  - Non-Nanotrasen implants cannot be suspected unless there is absolutely, physically no other possible way that something could’ve happened. (A SCRAM implant could’ve been a bluespace crystal, or a storage implant might actually be a clever stash in a plant pot...) If there is [italic]any[/italic] doubt, then you should not be attempting to remove an implant. Your character [italic]is[/italic] allowed to suspect implants if they find the used implanter itself, though.
 
-  These are the related documents regarding the metashield:
-  - [textlink="Command Training Manual" link="CommandTrainingManual"]
-  - [textlink="Security Training Manual" link="SecurityTrainingManual"]
+  ## Precedents
+
+  - Your character should use common sense on when to report things, even if they don’t know the specifics. If someone’s murdered, report it. If someone robs you, report it. If you have a valuable, one-of-a-kind item, you should keep an eye on it.
+  <Box>Report what people [italic]do[/italic], not what people [italic]are[/italic].</Box>
+  - Your character can know another character's typical appearance, but keep in mind that multiple people can share the same name.
+  - Unless mentioned in your role’s manual, you should avoid calling out the name of the antagonist if you can help it. Calling out “Terrorists at the bridge!" instead of “[bold]NUKIES BRIDGE!!![/bold]" helps to make a more immersive story.
+
+  ## Training Manuals
+
+  All crew have access to the Crew Training Manual (and in-character can access [italic]this manual[/italic] through their PDAs — you can find these manuals out-of-character [textlink="in the guidebook" link="TrainingManuals"]). Some jobs have additional information provided in their respective sections (information which other civilian jobs do not know about).
   - [textlink="Crew Training Manual" link="CrewTrainingManual"]
 
-  ## Lifting the Shield
+  [bold]If your role has access to any of the manuals below, your character is expected to treat the given knowledge as classified![/bold] [italic]There are in-character and out-of-character consequences for having classified knowledge becoming public too early or for no good reason![/italic] (Unless you’re an antagonist, that is...)
 
-  The metashield can be lifted one of two ways:
+  Some crew jobs get special, extended access to their training manuals.
+  - [color=#42636d][bold]Medical[/bold][/color] staff have this extra knowledge: [textlink="MEDICAL ONLY" link="CrewTrainingManualAllMedical"]
+  - [color=#388c34][bold]Chaplains[/bold][/color] get their own addendum, too:
+  [textlink="CHAPLAIN ONLY" link="CrewTrainingManualChaplain"]
+  - [color=#388c34][bold]Librarians[/bold][/color] may access [bold]both[/bold] the above addendums. They speak Eldritch; they should know a thing or two. (They also may know about the Wizard Federation — see "Optional Job Knowledge.")
 
-  1. Any announcement from Central Command, relating to the specific antagonist. Such as:
-  - War declaration
-  - Unusual activity recalls
-  - Enemy communications
-  - Biohazard announcements
+  Members of [color=#ba292c][bold]Security[/bold][/color], [color=#1b67a5][bold]Command[/bold][/color], and [color=#1e7f28][bold]Central Command[/bold][/color] have access to the Classified Training Manual, the Standard Response Plan addendum, and [bold]all[/bold] information in the Crew Training Manual, [italic]including the above job-specific sections[/italic]. [bold]Reading the manual from the in-game “Classified Training Manual" item gives you full access to [bolditalic]specifically this manual’s[/bolditalic] knowledge, too[/bold] (such as from the [color=#1b67a5][bold]Captain[/bold][/color]’s or [color=#1b67a5][bold]Head of Security[/bold][/color]’s lockers).
+  - [textlink="Classified Training Manual" link="ClassifiedTrainingManual"]
+  - [textlink="Standard Response Plan Addendum" link="ClassifiedTrainingManualSRP"]
 
-  2. Command members (or any other player who is no longer under the metashield) telling others about specific antagonists
+  Only [color=#1e7f28][bold]Central Command Officials/Dignitaries[/bold][/color] know the contents of the Dignitary Training Manual.
+  - [textlink="Dignitary Training Manual" link="DignitaryTrainingManual"]
 
-  Lifting the metashield (spilling corporate secrets) is considered to be something only done with *sufficient reason.*
+  ### Optional Job Knowledge
 
-  ## Corporate Secrets
-
-  The metashield is an out-of-character term used for admin actions; in character, this would be referred to as *corporate secrets.* You, as an average crewmember, are not trained to react to potential threats, nor do you remember the events between each round. Nanotrasen policy dictates that the average crewmate is here to do their job, not to worry about any potential threats. It is in Nanotrasen's best interest that the crew is unaware of any potential threat, as that would imply there is something to be afraid of.
-
-  As such, *all information about specific antagonists is shielded.* You do not know the objectives, tools, abilities, etc of any antagonist. Also included in metashielded knowledge is:
-  - Non-NT implanters
-  - Chameleon items and mysterious fibers
-  - Stealth items
-
-  Command is under a even less strict metashield see "Command Training Manual" for what they specifically know, and if the situation requires it, they are also allowed to tell crewmates what is happening and lift the shield. Security is still under metashield, however it is slightly modified and less strict. Please see the "Security Training Manual" for what they specifically know.
-
-  This comes at the expense of being against Nanotrasen policy. Wrongfully lifting the metashield, as a command member, has both IC and OOC consequences. Please see the general Command SOP for when it is considered wrong or right to lift the shield. The fact that Nanotrasen is hiding something from its crewmates is not shielded, but the actual secrets are shielded.
-
-  ## Examples
-
-  As a standard crew member, you do *not* know the objectives or abilities of any antagonist until the shield is revealed. However, you may know about rumors or concepts that relate to a specific antagonist, or that specific items or people are high-risk and require safekeeping. For example:
-  - Knowing that someone is a revolutionary is shielded; however, you may report them for unsolicited union activities.
-  - Knowing that someone is a heretic is shielded; however, you may report them for assault, kidnapping, etc.
-  - Knowing that someone is a traitor is shielded; however, you may report them for theft or murder.
-  - Knowing that someone is a changeling is shielded; however, genetic horrors beyond your imagination should probably not be on station. You can report them.
-
-  Essentially, do not take any action because you know that someone is antagonist, take action depending on *what they have done.* Avoid callouts that name the antagonist or game mode, at least until the shield has been lifted. If you find evidence that is inexcusably from an antagonist, bring it to a command member in order to "force" them to reveal the shield to you. Command is your boss, and you should consult them if you don't know what to do, IC or OOC.
-
-  This does not mean that the entire shift must play out without ever naming or dealing with the specific antagonists. As stated prior, the metashield is equal to corporate secrets, which do exist in character. This means that Nanotrasen is fully aware of any potential threats; they are just selective to who they give this information to.
-
-  ## Explicitly Not Shielded
-
-  The following is a list of things that are explicitly not shielded. If something is not on this list, it doesn't mean that it is shielded, but if something is on it then it definitely is not shielded.
-  - Non-NT aligned organizations exist, such as the Syndicate.
-  - The fact that the Syndicate are enemies of Nanotrasen.
-  - The fact that the nuke disk must be protected and could be used by a bad actor to try to destroy the station.
-  - Certain items are high-risk and may be desired by outlaws or outside organizations (such as the Syndicate), and therefore are likely targets of theft.
-  - The idea that any Syndicate agent or other bad actor has goals or objectives that they are attempting to accomplish.
-  - A character's typical appearance. Though you should keep in mind that multiple characters can share the same name.
-  - Things such as Gorlex Mercenary groups and their bloodred hardsuits are seen in war reports from far off the station, but it would never happen this shift, you're too far in civilized space!
-  - Cargo Bingles are a marketable mascot! Let them walk around and do their job!
-
-  ## Not Shielded For Specific Jobs
-
-  - Deathsquad are not shielded to Central Command and its dignitaries.
-  - All Medical staff are aware of Cortical Borers, that sugar weakens them, and that they should be removed from crew and disposed of.
-  - Zombies and Chimera are not shielded to Virologists, Chemists, or the Medicus, and they can divulge information as needed (such as needing zombie blood to make Ambuzol).
-  - Chemists and the Medicus are aware that Changelings have only one blood type, and their blood reacts violently when centrifuged.
-  - Chaplains know about mystical threats such as Heretics, Cosmic Cultists, Mirror Maidens, and Demons but should roleplay the situation appropriately.
-  - Scientists and the Professor will know basic features of Xenomorphs, such as the fact they reproduce through a parasitic facehugger (but they will not know specific castes).
-  - Chefs are the only civilians to know about the Ratking and how it needs to eat to produce more rats.
-  - The Head of Security, the Warden, or the Sergeant may or may not be aware of the particulars of Syndicate weaponry, such as the Hristov, the C-20 the Bulldog.
+  Though not included in the manuals, some information could be gained from prior employment experience. If you are one of these roles mentioned below, it’s up to you whether or not your character will know that information. (It may be more fun to not know.)
+  - [color=#388c34][bold]Librarians[/bold][/color] may know about the Wizard Federation and what typical Wizards look like, if they're a nerd or superstitiously inclined.
+  - [color=#cc74fc]Science[/color] personnel may know the basic features of [textlink="Xenomorphs" link="Xenomorphs"], such as the fact they reproduce through a parasitic facehugger, [bold]but they will not know specific castes[/bold].
+  - [color=#388c34][bold]Chefs[/bold][/color] may have seen a [textlink="large hyperintelligent rodent" link="MinorAntagonists"] attempt to establish itself via consuming large quantities of their food to raise a swarm of rats.
+  - The [color=#1b67a5][bold]Head of Security[/bold][/color], the [color=#ba292c][bold]Warden[/bold][/color], or the [color=#ba292c][bold]Sergeant[/bold][/color] may know of the intricacies of [color=#ff0000]Syndicate[/color] weapory, such as their names and functions. (This specific knowledge should be reserved for true gun fanatics.)
 
 </Document>

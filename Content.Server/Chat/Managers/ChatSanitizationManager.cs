@@ -94,6 +94,8 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         Entry("[':", "chatsan-tearfully-smiles"),
         Entry("('=", "chatsan-tearfully-smiles"),
         Entry("['=", "chatsan-tearfully-smiles"),
+        Entry("???", "chatsan-confused"), // Omu
+        Entry("?", "chatsan-confused"), // Omu
     ];
 
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;

@@ -20,7 +20,7 @@
   - Security
   - OfficerCadetSOP
   - SearchesSOP
-  - SecurityTrainingManual # Omu
+  - ClassifiedTrainingManual # Omu
   goobcoins: 30 #Goob content
   access:
   - Security
@@ -51,7 +51,7 @@
   storage:
     back:
     - Flash
-    - MagazinePistol
+    # - MagazinePistol # Omu, Cadets don't spawn with guns
 
 - type: chameleonOutfit
   id: SecurityCadetChameleonOutfit

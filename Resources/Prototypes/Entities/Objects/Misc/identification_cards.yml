@@ -52,12 +52,13 @@
 - type: entity
   parent: IDCardStandard
   id: PassengerIDCard
-  name: assistant ID card
+  name: off duty ID card # omu
   components:
   - type: Sprite
     layers:
     - state: default
-    - state: idpassenger
+    - sprite: _Omu/Objects/Misc/id_cards.rsi # omu
+      state: idoffduty # omu 
   - type: PresetIdCard
     job: Passenger
 
@@ -556,6 +557,18 @@
 
 - type: entity
   parent: IDCardStandard
+  id: TramDriverIDCard
+  name: tram driver ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idtramdriver
+  - type: PresetIdCard
+    job: TramDriver
+
+- type: entity
+  parent: IDCardStandard
   id: ERTJanitorIDCard
   name: ERT janitor ID card
   components:
@@ -637,7 +650,8 @@
   - type: Sprite # Goobstation? todo
     layers:
     - state: default
-    - state: idpassenger
+    - sprite: _Omu/Objects/Misc/id_cards.rsi # omu
+      state: idoffduty # omu 
   - type: AgentIDCard
   - type: UIRequiresLock
   - type: ActivatableUI

@@ -195,3 +195,9 @@ spray-painter-style-canisters-plasma = Plasma
 spray-painter-style-canisters-storage = Storage
 spray-painter-style-canisters-tritium = Tritium
 spray-painter-style-canisters-water-vapor = Water vapor
+# Omu Start
+spray-painter-style-canisters-pluoxium = Pluoxium
+spray-painter-style-canisters-bz = BZ
+spray-painter-style-canisters-healium = Healium
+spray-painter-style-canisters-nitrium = Nitrium
+# Omu End
