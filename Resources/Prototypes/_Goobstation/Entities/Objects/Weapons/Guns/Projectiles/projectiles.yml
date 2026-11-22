@@ -269,8 +269,8 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 12
-        Structural: 10
+        Heat: 10 # 12 # Omu, turns out when you can hit your shots, 12 heat is a bit strong
+        Structural: 30 # 10 # Omu, walls have a flat 10 Structural reduction; this lets the X-12 be on-par with the Lawbringer
 
 - type: entity
   name: heavy laser barrage

@@ -12,6 +12,7 @@ using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.SpecialPassives.BoostedImmunity.Components;
 using Content.Goobstation.Shared.SpecialPassives.Fleshmend.Components;
 using Content.Goobstation.Shared.SpecialPassives.SuperAdrenaline.Components;
+using Content.Omu.Common.Objectives; // Omu
 using Content.Server.Light.Components;
 using Content.Server.Nutrition.Components;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
@@ -206,7 +207,8 @@ public sealed partial class ChangelingSystem
                 || targetForm.Species == "Monkey") // if they are a headslug or in monkey form
                 popup = Loc.GetString("changeling-absorb-end-self-ling-incompatible");
         }
-        else if (!HasComp<PartialAbsorbableComponent>(target))
+        // else if (!HasComp<PartialAbsorbableComponent>(target)) // Omu
+        else if (!HasComp<PartialAbsorbableComponent>(target) && !HasComp<ObjectiveExemptComponent>(target)) // Omu
         {
             popup = Loc.GetString("changeling-absorb-end-self");
             bonusChemicals += 10;
@@ -219,7 +221,8 @@ public sealed partial class ChangelingSystem
 
         comp.TotalEvolutionPoints += bonusEvolutionPoints;
 
-        var objBool = !HasComp<PartialAbsorbableComponent>(target);
+        // var objBool = !HasComp<PartialAbsorbableComponent>(target); // Omu
+        var objBool = !HasComp<PartialAbsorbableComponent>(target) && !HasComp<ObjectiveExemptComponent>(target); // Omu
         if (objBool)
         {
             comp.TotalAbsorbedEntities++;
@@ -239,7 +242,8 @@ public sealed partial class ChangelingSystem
         if (_mind.TryGetMind(uid, out var mindId, out var mind))
         {
             if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var absorbObj, mind)
-                && !HasComp<PartialAbsorbableComponent>(target))
+                // && !HasComp<PartialAbsorbableComponent>(target)) // Omu
+                && objBool) // Omu
                 absorbObj.Absorbed += 1;
 
             if (_mind.TryGetObjectiveComp<AbsorbChangelingConditionComponent>(mindId, out var lingAbsorbObj, mind)
@@ -347,7 +351,8 @@ public sealed partial class ChangelingSystem
             return;
 
         var target = args.Target;
-        var objBool = !HasComp<PartialAbsorbableComponent>(target);
+        // var objBool = !HasComp<PartialAbsorbableComponent>(target); // Omu
+        var objBool = !HasComp<PartialAbsorbableComponent>(target) && !HasComp<ObjectiveExemptComponent>(target); // Omu
 
         if (!TryStealDNA(uid, target, comp, objBool))
         {
