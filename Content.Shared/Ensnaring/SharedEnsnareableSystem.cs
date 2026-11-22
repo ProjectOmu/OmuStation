@@ -15,6 +15,7 @@ using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Strip.Components;
+using Content.Shared._Trauma.Throwing;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -256,7 +257,8 @@ public abstract class SharedEnsnareableSystem : EntitySystem
 
         if (TryEnsnare(args.Target, uid, component))
         {
-            _audio.PlayPvs(component.EnsnareSound, uid);
+            _audio.PlayPredicted(component.EnsnareSound, uid, // Omu
+                CompOrNull<PredictedThrownItemComponent>(uid)?.Thrower ?? args.Component.Thrower); // Omu
         }
     }
 
@@ -268,7 +270,7 @@ public abstract class SharedEnsnareableSystem : EntitySystem
 
         if (TryEnsnare(args.Target, uid, component))
         {
-            _audio.PlayPvs(component.EnsnareSound, uid);
+            _audio.PlayPredicted(component.EnsnareSound, uid, args.Shooter); // Trauma - projectile hits are predicted
         }
     }
 

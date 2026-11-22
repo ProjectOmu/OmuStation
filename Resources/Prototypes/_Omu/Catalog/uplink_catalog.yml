@@ -295,3 +295,14 @@
     - !type:BuyerJobCondition
       whitelist:
         - Clown
+
+- type: listing
+  id: UplinkIntercontinentalChampionBelt
+  name: uplink-intercontinental-belt-name
+  description: uplink-intercontinental-belt-desc
+  icon: { sprite: _Omu/Clothing/Belt/intercontinentalchampion.rsi, state: icon }
+  productEntity: ClothingBeltIntercontinentalChampion
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkWeaponry

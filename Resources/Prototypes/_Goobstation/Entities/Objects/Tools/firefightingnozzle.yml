@@ -15,7 +15,7 @@
     size: Normal
   - type: FirefighterTankRefillable
     externalContainer: true
-    targetSlot: BACK
+    targetSlot: BACK, SUITSTORAGE # Omu
     providerWhitelist:
       tags:
       - AtmosBackTank
@@ -34,7 +34,7 @@
     sprayDistance: 5
     sprayVelocity: 2.0
     externalContainer: true
-    targetSlot: BACK
+    targetSlot: BACK, SUITSTORAGE # Omu
     providerWhitelist:
       tags:
       - NozzleBackTank

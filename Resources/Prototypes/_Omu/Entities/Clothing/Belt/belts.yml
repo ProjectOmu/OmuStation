@@ -91,6 +91,38 @@
     stealGroup: WeaponSecHeadSword
 
 - type: entity
+  parent: [ClothingBeltChampion, BaseSyndicateContraband]
+  id: ClothingBeltIntercontinentalChampion
+  name: intercontinental champion belt
+  description: Only the greatest to ever step into the ring may wear this. You can almost hear the crowd chanting your name.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Belt/intercontinentalchampion.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Belt/intercontinentalchampion.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.95
+        Piercing: 0.95
+  - type: StaminaResistance
+    damageCoefficient: 0.8
+  - type: SteelChairSummon
+  - type: GrantWrestling
+    requireOpponentBelt: false
+    equipSound:
+      path: /Audio/_Omu/Effects/Wrestling/crowd_cheer.ogg
+      params:
+        volume: -4
+
+- type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase]
   id: ClothingBeltMilitaryWebbingAsakim
   name: chest rig

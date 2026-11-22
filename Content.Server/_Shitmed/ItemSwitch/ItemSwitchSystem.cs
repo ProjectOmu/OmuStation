@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared._Shitmed.ItemSwitch;
@@ -15,6 +16,9 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
 {
     [Dependency] private readonly SharedItemSwitchSystem _itemSwitch = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
+
+    [Dependency] private readonly PopupSystem _popup = default!; // Omu
+    [Dependency] private readonly SharedTransformSystem _transform = default!; // Omu
     public override void Initialize()
     {
         base.Initialize();
@@ -58,7 +62,13 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
         component.IsPowered = _battery.GetCharge((uid, battery)) >= state.EnergyPerUse; // Goob
 
         if (component is { IsPowered: false, DefaultState: { } defaultState } && component.State != defaultState)
+        { // Omu start - no charge message
+            if (component.NoChargeMessage != null && TryComp<TransformComponent>(uid, out var transform))
+                if (_transform.GetParent(transform) is { } parent)
+                    _popup.PopupEntity(Loc.GetString(component.NoChargeMessage), parent.Owner, parent.Owner);
+
             _itemSwitch.Switch((uid, component), defaultState);
+        } // Omu end
     }
 
     private void OnMeleeAttack(Entity<ItemSwitchComponent> ent, ref MeleeHitEvent args)

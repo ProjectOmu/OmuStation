@@ -63,7 +63,7 @@ public sealed class ProjectileImmunitySystem : EntitySystem
         args.Reflected = true;
 
         if (ent.Comp.DodgeEffect != null)
-            SpawnAttachedTo(ent.Comp.DodgeEffect.Value, new EntityCoordinates(ent, Vector2.Zero));
+            PredictedSpawnAttachedTo(ent.Comp.DodgeEffect.Value, new EntityCoordinates(ent, Vector2.Zero)); // Trauma - predicted
     }
 
     private void TrySpawnDodgeEffect(Entity<ProjectileImmunityComponent> ent, EntityUid projectile)
@@ -77,6 +77,6 @@ public sealed class ProjectileImmunitySystem : EntitySystem
         if (!ent.Comp.DodgedEntities.Add(projectile))
             return;
 
-        SpawnAttachedTo(ent.Comp.DodgeEffect.Value, new EntityCoordinates(ent, Vector2.Zero));
+        PredictedSpawnAttachedTo(ent.Comp.DodgeEffect.Value, new EntityCoordinates(ent, Vector2.Zero)); // Trauma - predicted
     }
 }
