@@ -11,7 +11,7 @@
       storagebase:
         id: SurplusMedicalPill
         amount: !type:RangeNumberSelector
-          range: 1, 4
+          range: 15, 15
 
 - type: entity
   suffix: Artiplates
