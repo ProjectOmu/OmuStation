@@ -78,7 +78,9 @@ public sealed partial class AntagAmbientFactor : ChaosFactor
                 .Sum(objective => CalculateChaosForObjective(objective, curTime));
         }
 
-        _adminLogger.Add(LogType.SecretDoublePlus, $"Antag Ambient Factor adding {chaos} chaos per second");
+        if (chaos > 0)
+            _adminLogger.Add(LogType.SecretDoublePlus, $"Antag Ambient Factor adding {chaos} chaos per second");
+
         return chaos;
     }
 
