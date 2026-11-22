@@ -5,6 +5,7 @@
   name: job-name-ntr
   description: job-description-ntr
   playTimeTracker: JobNanotrasenRepresentative
+  setPreference: false
   requirements:
     - !type:DepartmentTimeRequirement
       department: Command

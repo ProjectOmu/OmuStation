@@ -5,6 +5,7 @@
   name: job-name-bso
   description: job-description-bso
   playTimeTracker: JobBlueshieldOfficer
+  setPreference: false
   requirements:
     - !type:DepartmentTimeRequirement
       department: Command

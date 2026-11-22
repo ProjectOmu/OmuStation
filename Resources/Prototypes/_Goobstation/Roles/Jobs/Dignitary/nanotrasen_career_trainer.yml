@@ -11,7 +11,7 @@
   supervisors: job-supervisors-ntr-centcom
   canBeAntag: false
   whitelisted: true # 1984
-  setPreference: true # Omu, enable NCT for admins
+  setPreference: false # Omu, enable NCT for admins
   accessGroups:
   - AllAccess
   access:

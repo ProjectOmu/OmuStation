@@ -7,3 +7,66 @@
 #
 # - /Prototypes/Guidebook
 # - /Prototypes/Catalog/uplink_catalog.yml
+
+# /Prototypes/_Omu/Loadouts/loadout_groups.yml has AA, Mentor, and BSO.
+# Resources/Prototypes/_Omu/QuickPhrases/jobs.yml has shit
+
+# setPreference: false
+# AA CONFIG = Resources/Prototypes/_DV/Roles/Jobs/Command/administrative_assistant.yml
+# BSO CONFIG = Resources/Prototypes/_Goobstation/Roles/Jobs/Dignitary/blueshield_officer.yml
+# NCT CONFIG = Resources/Prototypes/_Goobstation/Roles/Jobs/Dignitary/nanotrasen_career_trainer.yml
+# NTR CONFIG = Resources/Prototypes/_Goobstation/Roles/Jobs/Dignitary/nanotrasen_representative.yml
+
+
+
+
+
+
+
+
+
+
+
+
+## AA REMOVAL
+#
+##- /Prototypes/_DV/Entities/Markers/Spawners/jobs.yml
+#- /Prototypes/_DV/Loadouts/Jobs/Command/administrative_assistant.yml
+#- /Prototypes/_DV/Loadouts/loadout_groups.yml
+#- /Prototypes/_DV/Loadouts/role_loadouts.yml
+##- /Prototypes/_DV/Roles/Jobs/Command/administrative_assistant.yml
+#- /Prototypes/_Omu/Loadouts/Jobs/Command/administrative_assistant.yml
+#
+#
+## /Prototypes/_DV/QuickPhrases/jobs.yml contains a commented out mention of AA.
+#
+## CC REMOVAL
+## NTR can stay but will be disabled for now. CCO sounds fun to larp as so I'm gonna keep dat
+#
+#- /Prototypes/_Goobstation/Loadouts/Jobs/Dignitary/blueshield_officer.yml
+#- /Prototypes/_Goobstation/Loadouts/Jobs/Dignitary/nanotrasen_trainer.yml
+#- /Prototypes/_Omu/Loadouts/Jobs/Dignitary/blueshield_officer.yml
+#
+## /Prototypes/_Goobstation/Entities/Markers/Spawners/jobs.yml removes spawn markers for BSO and NCT.
+#
+## MENTOR REMOVALS
+#
+#- /Prototypes/_Omu/Loadouts/Jobs/Engineering/foreman.yml
+#- /Prototypes/_Omu/Loadouts/Jobs/Cargo/bosun.yml
+#- /Prototypes/_Omu/Loadouts/Jobs/Medical/medicus.yml
+#- /Prototypes/_Omu/Loadouts/Jobs/Science/professor.yml
+#- /Prototypes/_Omu/Loadouts/Jobs/Security/sergeant.yml
+#
+#- /Prototypes/_Omu/Roles/Jobs/Engineering/foreman.yml
+#- /Prototypes/_Omu/Roles/Jobs/Medical/medicus.yml
+#- /Prototypes/_Omu/Roles/Jobs/Science/professor.yml
+#- /Prototypes/_Omu/Roles/Jobs/Security/sergeant.yml
+#- /Prototypes/_Omu/Roles/Jobs/Cargo/bosun.yml
+#
+## /Prototypes/_Omu/Roles/play_time_trackers.yml has mentor timers
+## /Prototypes/_Omu/Loadouts/role_loadouts.yml has mentor loadouts
+## /Prototypes/_Omu/Entities/Markers/Spawners/jobs.yml contains spawn markers for mentors
+#
+## OTHER REMOVALS
+#- /Prototypes/_Lavaland/Roles/Jobs/Cargo/shaft_miner.yml
+#- /Prototypes/_Lavaland/Roles/play_time_trackers.yml

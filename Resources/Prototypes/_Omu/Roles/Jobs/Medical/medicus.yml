@@ -5,6 +5,7 @@
   name: job-name-medical-medicus
   description: job-description-medical-medicus
   playTimeTracker: JobMedicalMedicus
+  setPreference: false
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 360000 #100 hours

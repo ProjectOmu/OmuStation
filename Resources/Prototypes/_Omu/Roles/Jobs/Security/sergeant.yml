@@ -3,6 +3,7 @@
   name: job-name-security-sergeant
   description: job-description-security-sergeant
   playTimeTracker: JobSecuritySergeant
+  setPreference: false
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 360000 #100 hours
