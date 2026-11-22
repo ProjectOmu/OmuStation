@@ -9,6 +9,10 @@ public abstract partial class ChaosFactor
 
     private TimeSpan _lastRun = TimeSpan.Zero;
 
+    /// <summary>
+    ///   How often the chaos factor should run.
+    ///   All factors return a per-second rate, which is multiplied by this interval.
+    /// </summary>
     [DataField]
     public TimeSpan Interval;
 

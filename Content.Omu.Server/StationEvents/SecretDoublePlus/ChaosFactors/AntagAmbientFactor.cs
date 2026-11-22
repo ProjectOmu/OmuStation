@@ -21,6 +21,10 @@ public sealed partial class AntagAmbientFactor : ChaosFactor
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
+    /// <summary>
+    ///   The table of Chaos rates per second for existing Antags,
+    ///   keyed on either active objectives or active antag role types.
+    /// </summary>
     [DataField]
     public ProtoId<AmbientAntagChaosRatesPrototype> ChaosRates;
 
