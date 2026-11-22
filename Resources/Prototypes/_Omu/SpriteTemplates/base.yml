@@ -1,0 +1,7 @@
+- type: entity
+  parent: BaseItem
+  id: DebugSpriteTemplate
+  abstract: true
+  components:
+  - type: Tag
+    tags: [Debug]

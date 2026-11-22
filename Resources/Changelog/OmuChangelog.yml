@@ -10279,3 +10279,238 @@ Entries:
         grow out of someone. They also appear as a rare event.
   id: 1319
   time: '2026-11-18T04:24:05.0000000+00:00'
+- author: ratpatrick0-ops
+  changes:
+    - type: Tweak
+      message: >-
+        Ashen Heretics' "Mask Of Madness" skill has changed to "Ashen Skin"
+        which grants immunity to fire.
+  id: 1320
+  time: '2026-11-18T22:06:08.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Fix
+      message: Multiple fixes and tweaks to crewlets.
+  id: 1321
+  time: '2026-11-19T06:21:58.0000000+00:00'
+- author: izzwu and PickelSilly
+  changes:
+    - type: Add
+      message: >-
+        Added the Vasquez, an expendable LMG intended for soft targets. It can
+        be ordered from cargo.
+  id: 1322
+  time: '2026-11-19T07:51:46.0000000+00:00'
+- author: LunaTheFox
+  changes:
+    - type: Add
+      message: CC-21 'Judgement' [Admeme]
+    - type: Add
+      message: Inhand sprite templates
+    - type: Add
+      message: '''SmiteOnMeleeHit'' component'
+  id: 1323
+  time: '2026-11-19T08:16:58.0000000+00:00'
+- author: LunaTheFox
+  changes:
+    - type: Add
+      message: Added Internal Affairs comms
+    - type: Add
+      message: Internal Affairs radio key
+    - type: Add
+      message: Internal Affairs radio implanter
+    - type: Tweak
+      message: Changed IAA to use IA comms instead of CC comms
+  id: 1324
+  time: '2026-11-19T08:23:29.0000000+00:00'
+- author: PhosphateWithManyOs
+  changes:
+    - type: Add
+      message: 'The ability to cut pizzas with.... scissors and adjacent tools. '
+  id: 1325
+  time: '2026-11-19T15:39:02.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: Added a Plantigrade Trait for Vulpkanins.
+  id: 1326
+  time: '2026-11-19T19:03:40.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Fix
+      message: Even MORE crewlet fixes and changes + new actions.
+  id: 1327
+  time: '2026-11-20T03:31:15.0000000+00:00'
+- author: EctoplasmIsGood
+  changes:
+    - type: Fix
+      message: Slaughter Demons no longer lose their martial arts after using jaunt.
+  id: 1328
+  time: '2026-11-21T00:41:09.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Fix
+      message: >-
+        Crewlets form flesh tools in a usable state where possible and Parthenol
+        can no longer be in foam/smoke.
+  id: 1329
+  time: '2026-11-21T07:55:34.0000000+00:00'
+- author: Waterwithoutanyice
+  changes:
+    - type: Remove
+      message: Removed the surplus pills order from the cargo console
+  id: 1330
+  time: '2026-11-21T10:28:51.0000000+00:00'
+- author: ggrab41
+  changes:
+    - type: Fix
+      message: Ghosts can no longer be converted into cosmic cultists.
+    - type: Fix
+      message: >-
+        Fixed The Monument displaying incorrect number of converts needed to
+        progress.
+    - type: Fix
+      message: >-
+        The Monument should no longer wait for more entropy to update to stage 3
+        even after reaching the required amount.
+  id: 1331
+  time: '2026-11-21T19:37:49.0000000+00:00'
+- author: EctoplasmIsGood
+  changes:
+    - type: Tweak
+      message: The Foreman's locker has recieved a plethora of new tools.
+    - type: Tweak
+      message: >-
+        The Foreman's hardsuit and cyberbeast mantle are now nearly completely
+        immune to radiation.
+  id: 1332
+  time: '2026-11-21T19:44:13.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: >-
+        Resprited the handheld crew monitor, syndicate crew monitor, and BSO's
+        command monitor.
+  id: 1333
+  time: '2026-11-21T20:37:48.0000000+00:00'
+- author: marchhaschwalth-boop
+  changes:
+    - type: Add
+      message: Made the H.E.V suit purchasable by cargo for 3000 spesos.
+  id: 1334
+  time: '2026-11-21T20:48:34.0000000+00:00'
+- author: Harro365
+  changes:
+    - type: Fix
+      message: >-
+        The R3 now counts as an OfficerHandgun theft objective like the
+        Inspector
+  id: 1335
+  time: '2026-11-21T21:02:34.0000000+00:00'
+- author: EidolonForgery
+  changes:
+    - type: Add
+      message: New variant of the JamJar glasses with a chemistry HUD.
+  id: 1336
+  time: '2026-11-21T21:20:37.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Tweak
+      message: Lamarr no longer hugs faces.
+  id: 1337
+  time: '2026-11-21T21:49:16.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: Prying logic has been updated to be dependent on power.
+  id: 1338
+  time: '2026-11-22T20:53:07.0000000+00:00'
+- author: Waterwithoutanyice
+  changes:
+    - type: Add
+      message: >-
+        Added spawn points and role slots for Foreman, Bosun, Medicus,
+        Professor, and Logistics assistant to Tram station
+  id: 1339
+  time: '2026-11-22T21:02:38.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        on Delta, the TEG room has been rewired to ensure that it is powered
+        correctly
+    - type: Tweak
+      message: On Bagel and Kettle, added a few MV wires to their respective PA setups
+    - type: Tweak
+      message: re-moved the stray pipe in Origin's atmos
+    - type: Tweak
+      message: On Bagel, made atmos bigger
+    - type: Remove
+      message: On Bagel, stripped most of the SM setup.
+  id: 1340
+  time: '2026-11-22T21:12:55.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        On Oasis, Ripped up part of the SM's setup, should be easier to work
+        with
+    - type: Tweak
+      message: On Oasis, reinforced the SM to no longer leak into surrounding areas
+    - type: Tweak
+      message: On Oasis, moved the TEG to another room
+    - type: Tweak
+      message: On Oasis, recoloured the the pipes in Atmos
+    - type: Tweak
+      message: On Oasis, slightly redesigned the burn chamber
+    - type: Tweak
+      message: On Oasis, removed the Clockwork cult's shrine
+    - type: Tweak
+      message: On Oasis, reduced the size of the canister storage
+    - type: Tweak
+      message: On Oasis, recoloured the Waste/Distro pipes to their respective colours
+    - type: Tweak
+      message: >-
+        On Oasis, slightly redesigned the smoke break area to the left of atmos
+        and it's associated maints
+    - type: Tweak
+      message: On Oasis, the HV wires now lead out to the Singulo chamber
+    - type: Tweak
+      message: On Oasis, wired the CE's room to be powered correctly
+    - type: Tweak
+      message: >-
+        On Oasis, chopped up the three daisychained APC for
+        Engineering/Atmos/Cargo into three smaller networks
+    - type: Tweak
+      message: On Oasis, anchored the radiators on the left side of the SM's chamber
+    - type: Tweak
+      message: On Oasis, moved the HVE suits to out of the SM chamber
+    - type: Tweak
+      message: >-
+        On Oasis, moved the buttons from the inside to the outside of the PA
+        chamber
+    - type: Tweak
+      message: On Oasis, moved the det's office to the right of security
+    - type: Tweak
+      message: >-
+        On Oasis, replaced all of sci's glass with plasma glass. this should
+        help with radiation and the inevitable explosions.
+    - type: Tweak
+      message: >-
+        On Oasis, moved a few firelocks near sci around, their explosions should
+        no longer space the entire station
+    - type: Tweak
+      message: >-
+        On Oasis, Replaced most instances of regular glass with it's reinforced
+        variants. This should prevent tiders from breaking into a lot of areas
+        they shouldn't be able to anymore.
+    - type: Tweak
+      message: On Oasis, Captain's bathroom is now MUCH bigger than before.
+    - type: Tweak
+      message: >-
+        On Oasis, the CC stamped paper outside of the ward's office is now read
+        only...
+    - type: Tweak
+      message: On Oasis, medical's lathe & paramed doors are no longer all access
+  id: 1341
+  time: '2026-11-22T21:13:51.0000000+00:00'

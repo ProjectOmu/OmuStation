@@ -10,6 +10,7 @@ using Content.Shared.Input;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Pointing;
 using Content.Shared.Popups;
 using Content.Shared.Speech;
 using Content.Shared.Verbs;
@@ -26,6 +27,7 @@ public sealed partial class CrewletBrainSystem
         SubscribeLocalEvent<CrewletBrainComponent, InteractionSuccessEvent>(OnHugged,
             after: [typeof(CrewletReputationSystem)]);
         SubscribeLocalEvent<CrewletBrainComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<CrewletBrainComponent, AfterGotPointedAtEvent>(OnPointedAt);
         SubscribeLocalEvent<CrewletBrainComponent, ListenEvent>(OnListen);
         SubscribeLocalEvent<CrewletOwnerComponent, EmoteEvent>(OnOwnerEmote);
         SubscribeLocalEvent<CrewletOwnerComponent, UserInteractHandEvent>(OnOwnerInteractHand);
@@ -57,8 +59,12 @@ public sealed partial class CrewletBrainSystem
                 return;
         }
 
+        var now = _timing.CurTime;
+        if (!FightCrewlet(ent, args.Person, now))
+            return;
+
         ent.Comp.RetaliationTarget = args.Person;
-        ent.Comp.RetaliateUntil = _timing.CurTime + ent.Comp.RetaliationTime;
+        ent.Comp.RetaliateUntil = now + ent.Comp.RetaliationTime;
     }
 
     private void OnHugged(Entity<CrewletBrainComponent> ent, ref InteractionSuccessEvent args)
@@ -93,6 +99,17 @@ public sealed partial class CrewletBrainSystem
         ent.Comp.HugReactionUntil = _timing.CurTime + ent.Comp.HugMemory;
     }
 
+    private void OnPointedAt(Entity<CrewletBrainComponent> ent, ref AfterGotPointedAtEvent args)
+    {
+        if (!ent.Comp.Active
+            || args.Pointer == ent.Owner
+            || _ghostQuery.HasComp(args.Pointer)
+            || !_random.Prob(ent.Comp.PointBackChance))
+            return;
+
+        Point(ent, args.Pointer);
+    }
+
     private void OnExamined(Entity<CrewletBrainComponent> ent, ref ExaminedEvent args)
     {
         var examiner = args.Examiner;
@@ -115,8 +132,9 @@ public sealed partial class CrewletBrainSystem
         var now = _timing.CurTime;
         if (args.Source == ent.Comp.KnownOwner)
         {
-            NoticeCome(ent, args.Message);
+            NoticeCome(ent, args.Message, now);
             NoticeFetch(ent, args.Message, now);
+            NoticeStay(ent, args.Message, now);
         }
 
         if (now < ent.Comp.NextNameResponse
@@ -286,7 +304,16 @@ public sealed partial class CrewletBrainSystem
 
         if (brain.Step == CrewletStep.Start)
         {
-            brain.HelloReadyAt[person] = now + brain.HelloCooldown;
+            if (_crewletQuery.HasComp(person))
+            {
+                brain.CrewletHelloReadyAt = now + brain.CrewletHelloCooldown;
+                Point(ent, person);
+            }
+            else
+            {
+                brain.HelloReadyAt[person] = now + brain.HelloCooldown;
+            }
+
             var lines = _proto.Index(brain.HelloLines).Values;
             var name = CrewletSystem.GetShortName(Identity.Name(person, EntityManager, ent));
             brain.PendingLine = Loc.GetString(lines[_random.Next(lines.Count)], ("name", name));

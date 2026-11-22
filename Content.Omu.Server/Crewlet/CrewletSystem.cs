@@ -3,14 +3,17 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
-using Content.Goobstation.Common.Cloning;
 using Content.Omu.Shared.Crewlet;
 using Content.Server._EinsteinEngines.Language;
+using Content.Server.Chat;
+using Content.Server.Chat.Systems;
 using Content.Server.Cloning;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Bed.Cryostorage;
+using Content.Shared.Chat;
 using Content.Shared.Cloning;
 using Content.Shared.Cloning.Events;
 using Content.Shared.Damage;
@@ -89,13 +92,15 @@ public sealed class CrewletSystem : EntitySystem
         SubscribeLocalEvent<CrewletComponent, ComponentShutdown>(OnCrewletShutdown);
         SubscribeLocalEvent<CrewletOwnerComponent, ComponentShutdown>(OnOwnerShutdown);
         SubscribeLocalEvent<CrewletRegenComponent, MapInitEvent>(OnRegenMapInit);
+        SubscribeLocalEvent<CrewletHarmScreamComponent, DamageChangedEvent>(OnHarmed,
+            after: [typeof(EmoteOnDamageSystem)]);
+        SubscribeLocalEvent<CrewletHarmScreamComponent, BeforeEmoteEvent>(OnBeforeEmote);
     }
 
     public bool CanCreate(EntityUid template)
     {
         if (!HasComp<HumanoidAppearanceComponent>(template)
             || HasComp<CrewletComponent>(template)
-            || HasComp<UncloneableComponent>(template)
             || !_mind.TryGetMind(template, out _, out var mind)
             || mind.UserId == null)
             return false;
@@ -119,6 +124,7 @@ public sealed class CrewletSystem : EntitySystem
         RemComp<MindExaminableComponent>(uid);
         RemComp<PassiveDamageComponent>(uid);
         RemComp<SSDIndicatorComponent>(uid);
+        RemComp<CanEnterCryostorageComponent>(uid);
         var comp = EnsureComp<CrewletComponent>(uid);
         _tag.AddTags(uid, comp.Tags);
 
@@ -128,12 +134,6 @@ public sealed class CrewletSystem : EntitySystem
         _physics.ScaleFixtures(uid, comp.FixtureScale);
         _language.AddLanguage(uid, comp.Language);
         _language.SetLanguage(uid, comp.Language);
-
-        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
-        {
-            humanoid.EyeColor = comp.EyeColor;
-            Dirty(uid, humanoid);
-        }
 
         var fullName = _nameModifier.GetBaseName(template);
         var shortName = GetShortName(fullName);
@@ -186,6 +186,16 @@ public sealed class CrewletSystem : EntitySystem
         _fleshTiles.Clear();
     }
 
+    public void FleshForm(EntityUid uid, EntProtoId form, TimeSpan duration)
+    {
+        var comp = EnsureComp<CrewletFleshFormComponent>(uid);
+        if (comp.Form is { } previous)
+            QueueDel(previous);
+
+        comp.Form = SpawnAttachedTo(form, new EntityCoordinates(uid, Vector2.Zero));
+        comp.Until = _timing.CurTime + duration;
+    }
+
     public void Wail(Entity<CrewletComponent> crewlet, EntityCoordinates coords)
     {
         if (!TryComp<VocalComponent>(crewlet, out var vocal)
@@ -234,6 +244,18 @@ public sealed class CrewletSystem : EntitySystem
                 damageable,
                 targetPart: TargetBodyPart.All,
                 splitDamage: SplitDamageBehavior.SplitEnsureAll);
+        }
+
+        using var forms = EntityQueryEnumerator<CrewletFleshFormComponent>();
+        while (forms.MoveNext(out var uid, out var form))
+        {
+            if (now < form.Until)
+                continue;
+
+            if (form.Form is { } shape)
+                QueueDel(shape);
+
+            RemCompDeferred<CrewletFleshFormComponent>(uid);
         }
 
         using var query = EntityQueryEnumerator<CrewletMeltingComponent, CrewletComponent, TransformComponent>();
@@ -297,6 +319,34 @@ public sealed class CrewletSystem : EntitySystem
         ent.Comp.NextRegen = _timing.CurTime + ent.Comp.Interval;
     }
 
+    private void OnHarmed(Entity<CrewletHarmScreamComponent> ent, ref DamageChangedEvent args)
+    {
+        var now = _timing.CurTime;
+        var screams = ent.Comp.Screams;
+        if (now < ent.Comp.HushedUntil
+            || _mind.TryGetMind(ent, out _, out _)
+            || !TryComp<EmoteOnDamageComponent>(ent, out var emote)
+            || emote.LastEmoteTime != now
+            || (screams.Count > 0 && screams[^1] == now))
+            return;
+
+        screams.RemoveAll(time => now - time > ent.Comp.Window);
+        screams.Add(now);
+        if (screams.Count < ent.Comp.Limit)
+            return;
+
+        screams.Clear();
+        ent.Comp.HushedUntil = now + ent.Comp.Cooldown;
+    }
+
+    private void OnBeforeEmote(Entity<CrewletHarmScreamComponent> ent, ref BeforeEmoteEvent args)
+    {
+        if (_timing.CurTime < ent.Comp.HushedUntil
+            && args.Emote.ID == ent.Comp.Emote
+            && !_mind.TryGetMind(ent, out _, out _))
+            args.Cancel();
+    }
+
     private void OnCrewletShutdown(Entity<CrewletComponent> ent, ref ComponentShutdown args)
     {
         if (ent.Comp.CrewletOwner is { } owner)
@@ -347,7 +397,7 @@ public sealed class CrewletSystem : EntitySystem
 
     public static string GetShortName(string fullName)
     {
-        var words = fullName.Split((char[]?) null, StringSplitOptions.RemoveEmptyEntries);
+        var words = fullName.Replace('-', ' ').Split((char[]?) null, StringSplitOptions.RemoveEmptyEntries);
         if (words.Length == 0)
             return fullName;
 
