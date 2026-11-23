@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 270.1.0
+  engineVersion: 270.1.8
   forkId: ""
   forkVersion: ""
-  time: 10/23/2026 16:45:09
-  entityCount: 25222
+  time: 11/23/2026 05:01:35
+  entityCount: 25229
 maps:
 - 1
 grids:
@@ -132061,6 +132061,13 @@ entities:
     - type: Transform
       pos: -7.5,-4.5
       parent: 2
+- proto: SpawnPointCargoBosun
+  entities:
+  - uid: 24842
+    components:
+    - type: Transform
+      pos: 49.5,9.5
+      parent: 2
 - proto: SpawnPointCargoTechnician
   entities:
   - uid: 20127
@@ -132148,6 +132155,13 @@ entities:
     components:
     - type: Transform
       pos: -26.5,-29.5
+      parent: 2
+- proto: SpawnPointEngineeringForeman
+  entities:
+  - uid: 24841
+    components:
+    - type: Transform
+      pos: 0.5,19.5
       parent: 2
 - proto: SpawnPointHeadOfPersonnel
   entities:
@@ -132241,6 +132255,23 @@ entities:
     - type: Transform
       pos: -7.5,24.5
       parent: 2
+- proto: SpawnPointLogisticsAssistant
+  entities:
+  - uid: 24843
+    components:
+    - type: Transform
+      pos: 48.5,8.5
+      parent: 2
+  - uid: 24844
+    components:
+    - type: Transform
+      pos: 49.5,8.5
+      parent: 2
+  - uid: 24845
+    components:
+    - type: Transform
+      pos: 50.5,8.5
+      parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
   - uid: 20155
@@ -132284,6 +132315,13 @@ entities:
     components:
     - type: Transform
       pos: 39.5,-19.5
+      parent: 2
+- proto: SpawnPointMedicalMedicus
+  entities:
+  - uid: 24846
+    components:
+    - type: Transform
+      pos: 39.5,-18.5
       parent: 2
 - proto: SpawnPointMime
   entities:
@@ -132449,6 +132487,13 @@ entities:
     components:
     - type: Transform
       pos: 37.5,-0.5
+      parent: 2
+- proto: SpawnPointScienceProfessor
+  entities:
+  - uid: 24840
+    components:
+    - type: Transform
+      pos: -43.5,-7.5
       parent: 2
 - proto: SpawnPointScientist
   entities:
