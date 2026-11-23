@@ -12,7 +12,7 @@ public sealed partial class SummonPlagueRatComponent : Component
     [DataField]
     public TimeSpan TimerLength = TimeSpan.FromSeconds(10);
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public TimeSpan EndTimer = TimeSpan.Zero;
 
     public EntityUid Target; 
