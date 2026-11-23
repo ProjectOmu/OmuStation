@@ -1,3 +1,1 @@
-
-
 disease-type-supernatural = Supernatural
