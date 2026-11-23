@@ -72,8 +72,8 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
         Subs.CVar(_cfg, GoobCVars.RoundstartChaosScoreMultiplier, value => _roundstartChaosScoreMultiplier = value, true);
         Subs.CVar(_cfg, OmuCVars.VerboseGameDirectorChatLogs, value => _verboseGameDirectorChatLogs = value, true);
 
-        // Reset chaos score metric from previous rounds
-        SecretDoublePlusMetrics.ChaosScore.Set(0);
+        // Clean up our metrics on shutdown
+        SubscribeLocalEvent<SecretDoublePlusComponent, ComponentShutdown>(ResetMetrics);
     }
 
     protected override void Added(EntityUid uid, SecretDoublePlusComponent scheduler, GameRuleComponent gameRule, GameRuleAddedEvent args)
@@ -465,5 +465,10 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
         _adminLogger.Add(LogType.SecretDoublePlus, showChat?LogImpact.Medium:LogImpact.High, $"{message}");
         if (showChat)
             _chat.SendAdminAnnouncement("SecretDoublePlus " + message);
+    }
+
+    private void ResetMetrics(Entity<SecretDoublePlusComponent> ent, ref ComponentShutdown args)
+    {
+        SecretDoublePlusMetrics.ChaosScore.Set(0);
     }
 }
