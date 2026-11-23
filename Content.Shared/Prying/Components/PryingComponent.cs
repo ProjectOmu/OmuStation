@@ -59,7 +59,7 @@ public sealed partial class PryingComponent : Component
 /// Cancel to stop the entity from being pried open.
 /// </summary>
 [ByRefEvent]
-public record struct BeforePryEvent(EntityUid User, bool PryPowered, bool Force, bool StrongPry, bool CanPryPoweredFirelocks)
+public record struct BeforePryEvent(EntityUid User, bool PryPowered, bool Force, bool StrongPry, bool CanPryPoweredFirelocks = false) // Omu - prybars
 {
     public readonly EntityUid User = User;
 
