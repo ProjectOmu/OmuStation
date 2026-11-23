@@ -5,7 +5,7 @@
   - type: GameRule # Goobstation, same as dragon?
     chaosScore: 600
   - type: StationEvent
-    weight: 4.5
+    weight: 2 # Mald Pr for Mason 4.5 --> 2
     earliestStart: 30
     reoccurrenceDelay: 20
     minimumPlayers: 25
