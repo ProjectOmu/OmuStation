@@ -29,11 +29,14 @@
             #ShaftMiner: [ 4, 4 ] # Omu
             CargoTechnician: [ 5, 6 ]
             Courier: [ 2, 2 ] #Omu
+            LogisticsAssistant: [ 3, 3 ] # Omu
+            CargoBosun: [ 1, 1 ] # Omu
             # engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 2, 3 ]
             StationEngineer: [ 6, 7 ]
             TechnicalAssistant: [ 3, 3 ]
+            EngineeringForeman: [ 1, 1 ] # Omu
             # medical
             ChiefMedicalOfficer: [ 1, 1 ]
             MedicalDoctor: [ 4, 5 ]
@@ -42,11 +45,13 @@
             Paramedic: [ 2, 2 ]
             Chemist: [ 2, 2 ]
             Virologist: [ 1, 1 ]
+            MedicalMedicus: [ 1, 1 ] # Omu
             # science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 6, 7 ]
             ResearchAssistant: [ 3, 3 ]
             Roboticist: [ 2, 2 ] #Omu
+            ScienceProfessor: [ 1, 1 ] # Omu
             # security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
