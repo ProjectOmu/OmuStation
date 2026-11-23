@@ -35,6 +35,9 @@ jobs:
           # Label to use when marking a PR as stale
           stale-pr-label: 'Note: Stale'
 
+          # Omu - Label to use when marking a PR as auto closed
+          close-pr-label: 'Note: Auto-Closed'
+
           # Comment to post when marking a PR as stale
           stale-pr-message: |
             This pull request has been automatically marked as stale because it has not had

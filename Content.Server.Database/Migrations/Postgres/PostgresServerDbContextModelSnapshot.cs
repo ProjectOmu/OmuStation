@@ -1261,6 +1261,10 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text[]")
                         .HasColumnName("construction_favorites");
 
+                    b.Property<int>("PreferenceUnavailable")
+                        .HasColumnType("integer")
+                        .HasColumnName("preference_unavailable");
+
                     b.Property<int>("SelectedCharacterSlot")
                         .HasColumnType("integer")
                         .HasColumnName("selected_character_slot");

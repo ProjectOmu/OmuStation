@@ -67,6 +67,26 @@
 
 - type: entity
   parent: [ClothingEyesBase]
+  id: ClothingEyesGlassesChemJamjar
+  name: chemical jamjar glasses
+  description: Jamjar glasses installed with a chemical sensor.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_chem.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Eyes/Glasses/jamjar_chem.rsi
+  - type: Construction
+    graph: ClothingEyesGlassesChemJJ
+    node: gogglesJamJarChem
+  - type: VisionCorrection
+  - type: SolutionScanner
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HamsterWearable
+
+- type: entity
+  parent: [ClothingEyesBase]
   id: ClothingEyesGlassesDiagJamjar
   name: diagnostic jamjar glasses
   description: Jamjar glasses installed with a diagnostic HUD.

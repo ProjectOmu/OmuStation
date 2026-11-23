@@ -471,6 +471,7 @@ namespace Content.Client.Lobby.UI
                 Profile = Profile?.WithPreferenceUnavailable((PreferenceUnavailableMode) args.Id);
                 SetDirty();
             };
+            PreferenceUnavailableButton.Visible = false; // Omu
 
             _jobCategories = new Dictionary<string, BoxContainer>();
 

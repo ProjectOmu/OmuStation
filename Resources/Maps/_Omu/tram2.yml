@@ -1,16 +1,11 @@
-# Ported to OmuStation by https://github.com/shackhorn
-#     -> https://github.com/ProjectOmu/OmuStation/pull/1740
-#     -> https://github.com/ProjectOmu/OmuStation/pull/1967
-# Original port to SS14 by https://github.com/Betterwithketchup
-#     -> https://github.com/space-wizards/space-station-14/pull/34191
 meta:
   format: 7
   category: Map
-  engineVersion: 270.1.0
+  engineVersion: 270.1.8
   forkId: ""
   forkVersion: ""
-  time: 10/13/2026 17:45:37
-  entityCount: 26601
+  time: 11/08/2026 20:49:51
+  entityCount: 26607
 maps:
 - 1
 grids:
@@ -60584,7 +60579,7 @@ entities:
       pos: -78.5,-6.5
       parent: 15
     - type: Door
-      secondsUntilStateChange: -568718.94
+      secondsUntilStateChange: -568980.75
       state: Opening
 - proto: CurtainsPurpleOpen
   entities:
@@ -117712,11 +117707,13 @@ entities:
       stampedBy:
       - hasIcon: True
         stampFont: null
+        stampLargePath: null
         stampLargeIcon: null
         stampedColor: '#2F4F4FFF'
         stampedName: Bruce Oct
       - hasIcon: True
         stampFont: null
+        stampLargePath: null
         stampLargeIcon: large_stamp-hop
         stampedColor: '#6EC0EAFF'
         stampedName: stamp-component-stamped-name-hop
@@ -117795,11 +117792,13 @@ entities:
       stampedBy:
       - hasIcon: True
         stampFont: null
+        stampLargePath: null
         stampLargeIcon: null
         stampedColor: '#2F4F4FFF'
         stampedName: Bruce Oct
       - hasIcon: True
         stampFont: null
+        stampLargePath: null
         stampLargeIcon: large_stamp-hop
         stampedColor: '#6EC0EAFF'
         stampedName: stamp-component-stamped-name-hop
@@ -117815,16 +117814,19 @@ entities:
       stampedBy:
       - hasIcon: True
         stampFont: null
+        stampLargePath: null
         stampLargeIcon: large_stamp-deny
         stampedColor: '#A23E3EFF'
         stampedName: stamp-component-stamped-name-denied
       - hasIcon: True
         stampFont: null
+        stampLargePath: null
         stampLargeIcon: null
         stampedColor: '#2F4F4FFF'
         stampedName: Bruce Oct
       - hasIcon: True
         stampFont: null
+        stampLargePath: null
         stampLargeIcon: large_stamp-hop
         stampedColor: '#6EC0EAFF'
         stampedName: stamp-component-stamped-name-hop
@@ -117881,11 +117883,13 @@ entities:
       stampedBy:
       - hasIcon: True
         stampFont: null
+        stampLargePath: null
         stampLargeIcon: null
         stampedColor: '#008800FF'
         stampedName: stamp-component-stamped-name-centcom-intern
       - hasIcon: False
         stampFont: Default
+        stampLargePath: null
         stampLargeIcon: null
         stampedColor: '#2F4F4FFF'
         stampedName: Sept Oct
@@ -134937,6 +134941,13 @@ entities:
     - type: Transform
       pos: -45.5,1.5
       parent: 15
+- proto: SpawnPointCargoBosun
+  entities:
+  - uid: 26544
+    components:
+    - type: Transform
+      pos: 75.5,-0.5
+      parent: 15
 - proto: SpawnPointCargoTechnician
   entities:
   - uid: 3381
@@ -135018,6 +135029,13 @@ entities:
     - type: Transform
       pos: -32.5,-13.5
       parent: 15
+- proto: SpawnPointEngineeringForeman
+  entities:
+  - uid: 2081
+    components:
+    - type: Transform
+      pos: -57.5,-59.5
+      parent: 15
 - proto: SpawnPointHeadOfPersonnel
   entities:
   - uid: 147
@@ -135070,6 +135088,18 @@ entities:
     - type: Transform
       pos: -8.5,-12.5
       parent: 15
+- proto: SpawnPointLogisticsAssistant
+  entities:
+  - uid: 2084
+    components:
+    - type: Transform
+      pos: 76.5,1.5
+      parent: 15
+  - uid: 2085
+    components:
+    - type: Transform
+      pos: 76.5,-0.5
+      parent: 15
 - proto: SpawnPointMedicalDoctor
   entities:
   - uid: 4842
@@ -135118,6 +135148,13 @@ entities:
     components:
     - type: Transform
       pos: 7.5,-41.5
+      parent: 15
+- proto: SpawnPointMedicalMedicus
+  entities:
+  - uid: 2082
+    components:
+    - type: Transform
+      pos: 7.5,-39.5
       parent: 15
 - proto: SpawnPointMime
   entities:
@@ -135276,6 +135313,13 @@ entities:
     components:
     - type: Transform
       pos: 73.5,-7.5
+      parent: 15
+- proto: SpawnPointScienceProfessor
+  entities:
+  - uid: 2083
+    components:
+    - type: Transform
+      pos: 48.5,-40.5
       parent: 15
 - proto: SpawnPointScientist
   entities:
