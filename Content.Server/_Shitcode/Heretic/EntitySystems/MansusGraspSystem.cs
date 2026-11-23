@@ -28,6 +28,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Content.Shared.Hands.Components;
+using Content.Shared.Doors.Components; // Omu
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -171,7 +172,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         {
             _actions.SetCooldown(hereticComp.MansusGraspAction, grasp.Comp.CooldownAfterUse);
             hereticComp.MansusGraspAction = EntityUid.Invalid;
-            InvokeGrasp(user, grasp);
+            InvokeGrasp(user, grasp, target);
             QueueDel(grasp);
             return true;
         }
@@ -194,7 +195,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
 
         _actions.SetCooldown(hereticComp.MansusGraspAction, grasp.Comp.CooldownAfterUse);
         hereticComp.MansusGraspAction = EntityUid.Invalid;
-        InvokeGrasp(user, grasp);
+        InvokeGrasp(user, grasp, target);
         QueueDel(grasp);
         return true;
     }
@@ -210,7 +211,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         // no fumbling!
         if (target == args.User)
             return;
-        args.Handled = GraspTarget(ent, args.User,target);
+        args.Handled = GraspTarget(ent, args.User, target);
     }
 
     private void OnAfterInteract(Entity<MansusGraspComponent> ent, ref AfterInteractEvent args)
@@ -224,7 +225,8 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         args.Handled = GraspTarget(ent, args.User,args.Target.Value);
     }
 
-    public void InvokeGrasp(EntityUid user, Entity<MansusGraspComponent>? ent)
+    // Omu - added target so we can customise sound based on it
+    public void InvokeGrasp(EntityUid user, Entity<MansusGraspComponent>? ent, EntityUid? target = null)
     {
         var (sound, invocation) = ent == null
             ? (DefaultSound, DefaultInvocation)
@@ -232,11 +234,11 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
 
         // Omu - start
         // Lock Path has a distintive grasp sound
-        if (_heretic.TryGetHereticComponent(user, out var hereticComp, out _)) {
-            var path = hereticComp.CurrentPath;
-            if (path == "Lock") {
-                sound = new SoundPathSpecifier("/Audio/Magic/knock.ogg");
-            }
+        if (_heretic.TryGetHereticComponent(user, out var hereticComp, out _)
+            && hereticComp.CurrentPath == "Lock"
+            && target != null
+            && HasComp<DoorComponent>(target)) {
+            sound = new SoundPathSpecifier("/Audio/Magic/knock.ogg");
         }
         // Omu - end
 
