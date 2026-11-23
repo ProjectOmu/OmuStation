@@ -1,0 +1,46 @@
+<!--
+whitespace-enforcing comment
+-->
+<Document>
+
+  # Spray Medications
+
+  These medications are applied via spray bottle (or backpack water tank) to apply their effects. [bold]They work on the dead![/bold]
+
+  [bold]Medicinal sprays can't affect people through hardsuits![/bold] (They also can't affect animals...)
+
+  Note that the effects listed in the guidebook aren't necessarily what's applied.
+
+  ## Brute
+  Styptic Powder is fantastic at healing severe brute wounds, stitching up 6 Blunt, 6 Slash, and 3 Piercing damage per unit sprayed. It also significantly reduces bleeding!
+
+  <GuideReagentEmbed Reagent="StypticCrystalCatalyst"/>
+  <ColorBox>
+    <Box HorizontalAlignment="Center" Margin="10">
+      5 Styptic Crystal Catalyst + 10 Blood + 10 Sodium --> 1 styptic crystal shard
+    </Box>
+  </ColorBox>
+  <GuideReagentEmbed Reagent="StypticPowder"/>
+
+  ## Burn
+  Silver Sulfadiazine heals all sorts of burn wounds, repairing 4.5 Heat, 4.5 Cold, 3 Shock, and 3 Caustic damage per unit sprayed.
+
+  <GuideReagentEmbed Reagent="SilverSulfadiazine"/>
+
+  ## Toxin
+
+  Synthcells is an option to cure Toxin damage on the dead, healing per unit sprayed 6 Poison and 3 Radiation damage in exchange for inflicting about 0.75 Blunt damage.
+
+  Synthflesh cures Brute and Burn at 1/4 the effectiveness of Styptic Powder and Silver Sulfadiazine per unit sprayed.
+
+  <GuideReagentEmbed Reagent="Phenol"/>
+  <GuideReagentEmbed Reagent="SodiumPolyacrylate"/>
+  <ColorBox>
+    <Box HorizontalAlignment="Center" Margin="10">
+      10 Carbon + 10 Blood + 10 Phenol + 10 Sodium Polyacrylate --> 1 synth meat + 5 Hydroxide
+    </Box>
+  </ColorBox>
+  <GuideReagentEmbed Reagent="Synthflesh"/>
+  <GuideReagentEmbed Reagent="Synthcells"/>
+
+</Document>
