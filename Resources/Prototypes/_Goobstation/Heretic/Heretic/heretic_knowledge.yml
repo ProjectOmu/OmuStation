@@ -550,7 +550,7 @@
   stage: 2
 
 - type: hereticKnowledge
-  id: KeyKeepersBurden
+  id: KeyKeepersBurden # needs to be made
   path: Lock
   stage: 3
 
@@ -559,6 +559,10 @@
   path: Lock
   stage: 4
 
+- type: hereticKnowledge
+  id: ConciergesRite # needs to be made
+  path: Lock
+  stage: 5
 
 ### side paths
 #- type: hereticKnowledge

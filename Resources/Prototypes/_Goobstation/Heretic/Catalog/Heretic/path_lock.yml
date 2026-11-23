@@ -57,7 +57,7 @@
   raiseProductEventOnMind: true
   productEvent: !type:EventHereticAddKnowledge
     knowledge:
-    - KeyKeepersBurden
+    - KeyKeepersBurden # needs to be made
   cost:
     KnowledgePoint: 1
   categories:
@@ -88,5 +88,26 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 3
+    whitelist:
+    - Lock
+
+- type: listing
+  id: HereticLockPath5
+  name: knowledge-path-lock-s5-name
+  description: knowledge-path-lock-s5-desc
+  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - ConciergesRite # needs to be made
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 4
     whitelist:
     - Lock
