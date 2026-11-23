@@ -9,7 +9,7 @@ public sealed partial class SummonPlagueRatComponent : Component
     [DataField]
     public EntProtoId RatProto = "MobPlagueRatSmall";
 // Omu edit start
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public TimeSpan TimerLength = TimeSpan.FromSeconds(10);
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
