@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Content.Shared.Ghost;
 using Content.Shared.Humanoid;
 using JetBrains.Annotations;
 using Robust.Server.Player;
@@ -25,8 +26,15 @@ public sealed partial class LivingPlayersFactor : ChaosFactor
             if (player.AttachedEntity == null)
                 continue;
 
-            if (_entityManager.HasComponent<HumanoidAppearanceComponent>(player.AttachedEntity))
-                playerCount++;
+            // Has to be humanoid
+            if (!_entityManager.HasComponent<HumanoidAppearanceComponent>(player.AttachedEntity))
+                continue;
+
+            // But can't be a ghost
+            if (_entityManager.HasComponent<GhostComponent>(player.AttachedEntity))
+                continue;
+
+            playerCount++;
         }
 
         return playerCount * LivingChaosChange * context.Ramping;

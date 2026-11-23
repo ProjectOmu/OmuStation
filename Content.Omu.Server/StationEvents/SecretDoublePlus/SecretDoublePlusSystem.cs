@@ -71,13 +71,13 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
         Subs.CVar(_cfg, GoobCVars.MinimumTimeUntilFirstEvent, value => _minimumTimeUntilFirstEvent = value, true);
         Subs.CVar(_cfg, GoobCVars.RoundstartChaosScoreMultiplier, value => _roundstartChaosScoreMultiplier = value, true);
         Subs.CVar(_cfg, OmuCVars.VerboseGameDirectorChatLogs, value => _verboseGameDirectorChatLogs = value, true);
+
+        // Reset chaos score metric from previous rounds
+        SecretDoublePlusMetrics.ChaosScore.Set(0);
     }
 
     protected override void Added(EntityUid uid, SecretDoublePlusComponent scheduler, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
-        // Reset chaos score metric from previous rounds
-        SecretDoublePlusMetrics.ChaosScore.Set(0);
-
         // Set initial chaos score by player count
         var totalPlayers = GetTotalPlayerCount(_playerManager.Sessions);
         scheduler.ChaosScore = -1 *

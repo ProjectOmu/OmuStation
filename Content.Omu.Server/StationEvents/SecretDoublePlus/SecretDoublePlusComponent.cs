@@ -19,13 +19,13 @@ public sealed partial class SecretDoublePlusComponent : Component
     /// <summary>
     ///   Minimum interval between events
     /// </summary>
-    [DataField]
+    [DataField(required: true)]
     public TimeSpan EventIntervalMin;
 
     /// <summary>
     ///   Maximum interval between events
     /// </summary>
-    [DataField]
+    [DataField(required: true)]
     public TimeSpan EventIntervalMax;
 
     /// <summary>
@@ -136,7 +136,9 @@ public sealed partial class SecretDoublePlusComponent : Component
     public float MidRoundSkipRange = 250f;
 
     /// <summary>
-    ///   Does this round start with antags at all?
+    ///   Set to true to skip roundstart antags.
+    ///   This will still let negative chaos accrue so make sure to tweak
+    ///   starting chaos and factors unless you want huge mid-round spawns.
     /// </summary>
     [DataField]
     public bool NoRoundstartAntags = false;
