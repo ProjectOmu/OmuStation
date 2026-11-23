@@ -10514,3 +10514,27 @@ Entries:
       message: On Oasis, medical's lathe & paramed doors are no longer all access
   id: 1341
   time: '2026-11-22T21:13:51.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Fix
+      message: >-
+        Administrative assistants, roboticists, and tram drivers can now select
+        animals in their loadouts (like every other job can).
+  id: 1342
+  time: '2026-11-23T03:33:45.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Tweak
+      message: Tweaked the expendable LMG crate name and description.
+  id: 1343
+  time: '2026-11-23T03:36:37.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Add
+      message: >-
+        The Guidebook's "Medicine" tab under Tables & References > Chemicals >
+        Medicine features a proper categorization of medications, including a
+        standardization of what "T1" through "T4" actually mean. It should be
+        much more friendly for new chemists.
+  id: 1344
+  time: '2026-11-23T17:37:51.0000000+00:00'
