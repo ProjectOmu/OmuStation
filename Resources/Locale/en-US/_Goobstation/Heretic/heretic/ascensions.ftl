@@ -19,8 +19,8 @@ heretic-ascension-blade =
 
 heretic-ascension-lock =
     The Stewards... I hear them, now. My friends in the misted sky.
-    A Labyrinth meant to contain us now broken. Solved. A guiding string led through.
-    We cannot be contained. WE CANNOT BE LOCKED AWAY. WITNESS OUR ASCENSION!
+    The doors meant to contain us now lay broken. Solved. A master key made.
+    Nothing shall ever halt our path once again. NO DOOR SHALL OPEN TO YOUR COMMAND AGAIN. WITNESS MY ASCENSION!
 
 heretic-ascension-flesh =
     The heavens offered ideals and dreams. I desired more than that.
