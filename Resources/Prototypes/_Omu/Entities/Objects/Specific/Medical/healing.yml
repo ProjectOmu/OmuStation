@@ -27,3 +27,18 @@
         reagents:
           - ReagentId: Artiplates
             Quantity: 15
+
+- type: entity
+  suffix: Parthenol
+  parent: PrefilledSyringe
+  id: SyringeParthenol
+  components:
+  - type: Label
+    currentLabel: reagent-name-parthenol
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 10
+        reagents:
+          - ReagentId: Parthenol
+            Quantity: 10

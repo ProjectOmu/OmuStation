@@ -446,8 +446,8 @@
   #- type: IdentityBlocker
   #- type: IngestionBlocker
   - type: HideLayerClothing
-    slots:
-    - Snout
+    layers:
+      Snout: HEAD
   # Omu end
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
@@ -499,11 +499,11 @@
     - type: IdentityBlocker
     - type: IngestionBlocker
     - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
+      layers:
+        Hair: HEAD
+        Snout: HEAD
+        HeadTop: HEAD
+        HeadSide: HEAD
     # Omu end
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   # Omu start, Fix modsuit light
@@ -1071,6 +1071,11 @@
         HeadTop: HEAD
         HeadSide: HEAD
   #THIS WILL BE REPLACED WITH MODULE ↓↓
+  # Omu start, Fix modsuit light
+  - type: ToggleableVisuals
+    spriteLayer: light
+  - type: ItemTogglePointLight
+  # Omu end
   - type: PointLight
     enabled: false
     radius: 5

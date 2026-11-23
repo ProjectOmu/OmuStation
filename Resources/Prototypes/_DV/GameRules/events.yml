@@ -66,6 +66,7 @@
     definitions:
     - min: 1
       max: 2
+      jobAntagImmunityOverride: [ CargoBosun, EngineeringForeman, MedicalMedicus, ScienceProfessor ] # Omu
       pickPlayer: true
       briefing:
         text: NTAgent-role-greeting-human
@@ -76,7 +77,7 @@
       components:
       - type: AutoImplant
         implants:
-        - RadioImplantCentcomm
+        - RadioImplantInternalAffairs #Omu, swapping to IA radio
         - NanolinkSubImplant # Omu, give them nanolink as well.
 
 # nt agent sleeper event
@@ -106,6 +107,7 @@
     - prefRoles: [ NTAgent ]
       min: 1
       max: 2
+      jobAntagImmunityOverride: [ CargoBosun, EngineeringForeman, MedicalMedicus, ScienceProfessor ] # Omu
       playerRatio: 10
       pickPlayer: true
       blacklist:
@@ -120,7 +122,7 @@
       components:
       - type: AutoImplant
         implants:
-        - RadioImplantCentcomm
+        - RadioImplantInternalAffairs #Omu, swaping to IA radio
         - NanolinkSubImplant
 
 - type: entity

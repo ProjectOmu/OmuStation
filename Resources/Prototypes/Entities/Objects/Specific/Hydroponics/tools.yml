@@ -66,6 +66,9 @@
     useSound:
       path: /Audio/Items/wirecutter.ogg
     speedModifier: 0.25
+  - type: Utensil # Omu
+    types:
+    - Scissor
 
 - type: entity
   name: scythe
@@ -82,6 +85,8 @@
     damage:
       types:
         Slash: 10
+    soundHit: # Omu
+      path: /Audio/Weapons/bladeslice.ogg # Omu
   - type: Item
     size: Normal
   - type: Clothing
