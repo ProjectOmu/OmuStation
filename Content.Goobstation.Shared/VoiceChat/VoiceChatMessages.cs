@@ -113,6 +113,7 @@ public sealed class MsgVoiceSettings : NetMessage
 
     public const int MaxMutedChannels = 64;
     public const int MaxMutedSpeakers = 256;
+    private const int MaxMutedChannelNameBytes = 64; // Omu
 
     public bool HearSelf;
     public bool Receive = true;
@@ -128,6 +129,10 @@ public sealed class MsgVoiceSettings : NetMessage
         MutedChannels = new List<string>(Math.Max(count, 0));
         for (var i = 0; i < count; i++)
         {
+            // Omu start
+            if (buffer.PeekStringSize() > MaxMutedChannelNameBytes)
+                return;
+            // Omu end
             MutedChannels.Add(buffer.ReadString());
         }
 

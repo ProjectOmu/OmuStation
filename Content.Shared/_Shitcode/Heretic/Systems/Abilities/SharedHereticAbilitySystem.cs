@@ -32,7 +32,6 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
-using Content.Shared.Roles;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
@@ -45,7 +44,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared._Omu.Heretic; // Omu
+using Content.Shared._Omu.Heretic.Components;
 
 namespace Content.Shared._Shitcode.Heretic.Systems.Abilities;
 
