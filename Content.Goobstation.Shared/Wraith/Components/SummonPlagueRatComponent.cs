@@ -15,5 +15,6 @@ public sealed partial class SummonPlagueRatComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan EndTimer = TimeSpan.Zero;
 
-    public EntityUid Target; // Omu edit end
+    public EntityUid Target; 
+// Omu edit end
 }
