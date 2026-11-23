@@ -143,8 +143,19 @@
     state: icon
   - type: Item
     sprite: _Goobstation/Heretic/Blades/blade_lock-inhand.rsi
-  - type: Crowbar
-  speed: 1.25
+  - type: Prying
+  - type: Tool
+    speedModifier: 2
+    qualities:
+     - Prying
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: ToolTileCompatible
+
+  - type: Tag
+    tags:
+      - Crowbar
+
 
 - type: entity
   parent: HereticBladeBase
