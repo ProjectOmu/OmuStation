@@ -7,3 +7,13 @@
   cost: 15000
   category: cargoproduct-category-name-engineering
   group: market
+
+- type: cargoProduct
+  id: CrateRadiationResistant
+  icon:
+    sprite: Structures/Storage/Crates/radiation.rsi
+    state: icon
+  product: CrateRadiationResistant
+  cost: 100
+  category: cargoproduct-category-name-engineering
+  group: market
