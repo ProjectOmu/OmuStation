@@ -230,6 +230,16 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
             ? (DefaultSound, DefaultInvocation)
             : (ent.Value.Comp.Sound, ent.Value.Comp.Invocation);
 
+        // Omu - start
+        // Lock Path has a distintive grasp sound
+        if (_heretic.TryGetHereticComponent(user, out var hereticComp, out _)) {
+            var path = hereticComp.CurrentPath;
+            if (path == "Lock") {
+                sound = new SoundPathSpecifier("/Audio/Magic/knock.ogg");
+            }
+        }
+        // Omu - end
+
         _audio.PlayPvs(sound, user);
         _chat.TrySendInGameICMessage(user, Loc.GetString(invocation), InGameICChatType.Speak, false);
     }
