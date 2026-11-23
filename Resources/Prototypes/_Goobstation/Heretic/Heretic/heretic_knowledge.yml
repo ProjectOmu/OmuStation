@@ -535,6 +535,15 @@
   actionPrototypes:
   - ActionResetStarGazerConsciousness
 
+### Lock Path
+
+- type: hereticKnowledge
+  id: StewardsSecret
+  path: Lock
+  stage: 1
+  ritualPrototypes:
+  - BladeLock
+
 ### side paths
 #- type: hereticKnowledge
 #  id: RitualOfKnowledge
