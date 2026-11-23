@@ -19,6 +19,7 @@
     definitions:
     - prefRoles: [ SELFAgent ]
       playerRatio: 15
+      jobAntagImmunityOverride: [ CargoBosun, EngineeringForeman, MedicalMedicus, ScienceProfessor ] # Omu
       max: 3
       chaosScore: 150
       mindRoles:

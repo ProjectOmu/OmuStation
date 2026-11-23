@@ -25,3 +25,53 @@
     Holy: 2.0
     Shock: 0.0
   ignoreArmorPierceFlags: All
+
+- type: damageModifierSet
+  id: SiliconHeavyProtected
+  coefficients:
+    Blunt: 0.6
+    Slash: 0.4
+    Piercing: 0.45
+    Heat: 0.5
+  flatReductions:
+    Blunt: 6
+    Slash: 6
+    Piercing: 6
+
+- type: damageModifierSet
+  id: CrewletProtection
+  coefficients:
+    Asphyxiation: 0.85
+    Bloodloss: 0.85
+    Blunt: 0.85
+    Caustic: 0.85
+    Cellular: 0.85
+    Cold: 0.85
+    Heat: 0.85
+    Holy: 0.85
+    Ion: 0.85
+    Piercing: 0.85
+    Poison: 0.85
+    Radiation: 0.85
+    Shock: 0.85
+    Slash: 0.85
+    Structural: 0.85
+
+- type: damageModifierSet
+  id: CrewletMobProtection
+  coefficients:
+    Asphyxiation: 0.675
+    Bloodloss: 0.675
+    Blunt: 0.675
+    Caustic: 0.675
+    Cellular: 0.675
+    Cold: 0.675
+    Heat: 0.675
+    Holy: 0.675
+    Ion: 0.675
+    Piercing: 0.675
+    Poison: 0.675
+    Radiation: 0.675
+    Shock: 0.675
+    Slash: 0.675
+    Structural: 0.675

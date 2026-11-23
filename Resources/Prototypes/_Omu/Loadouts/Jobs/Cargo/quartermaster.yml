@@ -1,3 +1,22 @@
+# for off-coat
+- type: loadoutEffectGroup
+  id: VeteranQM
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobQuartermaster
+      time: 50h
+
+# Neck
+- type: loadout
+  id: QuartermasterOffcoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranQM
+  equipment:
+    neck: ClothingNeckCloakQMCoat 
+
 # InnerClothing
 # Head
 - type: loadout

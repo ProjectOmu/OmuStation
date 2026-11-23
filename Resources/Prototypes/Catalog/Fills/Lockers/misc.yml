@@ -185,6 +185,8 @@
     #- id: ClothingOuterArmorRU6B2Vest # Goobstation 
     #  prob: 0.04
     # Omu end
+    - id: CardBoxYinjiSol # Omu
+      prob: 0.08 # Omu
     # Tools
     - !type:NestedSelector
       tableId: MaintToolsTable
@@ -210,6 +212,8 @@
     - !type:NestedSelector
       tableId: SyndieMaintLoot
       prob: 0.05
+    - id: SyringeParthenol # Omu
+      prob: 0.005 # Omu
     # Recursive
     - id: ClosetMaintenanceFilledRandom
       prob: 0.01

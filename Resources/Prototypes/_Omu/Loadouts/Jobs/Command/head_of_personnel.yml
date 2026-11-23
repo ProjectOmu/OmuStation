@@ -1,3 +1,22 @@
+# Omu - for off-coat
+- type: loadoutEffectGroup
+  id: VeteranHoP
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobHeadOfPersonnel
+      time: 50h
+
+# Neck
+- type: loadout
+  id: HeadofPersonnelOffcoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranHoP
+  equipment:
+    neck: ClothingNeckCloakHOPCoat
+
 # OuterClothing
 - type: loadout
   id: ClothingFormalHoPCoat

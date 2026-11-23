@@ -114,6 +114,17 @@
     maxLevel: 5 # Non-inert cores can roll max level
     enchants:
     - EnchantSharpness
+  # Omu start
+  - type: Extractable
+    grindableSolutionName: core
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        maxVol: 10
+        reagents:
+        - ReagentId: Parthenol
+          Quantity: 10
+  # Omu end
 
 - type: entity
   parent: BaseAnomalyCore
@@ -342,6 +353,17 @@
     maxLevel: 3
     enchants:
     - EnchantSharpness
+  # Omu start
+  - type: Extractable
+    grindableSolutionName: core
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        maxVol: 10
+        reagents:
+        - ReagentId: Parthenol
+          Quantity: 10
+  # Omu end
 
 - type: entity
   parent: BaseAnomalyInertCore

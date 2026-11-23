@@ -63,6 +63,7 @@ public sealed partial class GunComponent : Component
     /// Used for recoil purposes.
     /// </summary>
     [DataField]
+    [AutoNetworkedField] // Omu
     public TimeSpan LastFire = TimeSpan.Zero;
 
     /// <summary>

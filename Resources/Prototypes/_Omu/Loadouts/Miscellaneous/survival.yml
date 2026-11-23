@@ -233,3 +233,67 @@
   storage:
     back:
     - BoxSurvivalSlotsSyndicateVegetable
+
+# Blueshield Officer survival boxes
+- type: loadout
+  id: EmergencyOxygenBlueshieldOfficer
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsBlueshieldOfficer
+
+- type: loadout
+  id: EmergencyNitrogenBlueshieldOfficer
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NitrogenBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsBlueshieldOfficerNitrogen
+
+- type: loadout
+  id: EmergencyPlasmaBlueshieldOfficer
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlasmaBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsBlueshieldOfficerPlasma
+
+- type: loadout
+  id: EmergencyWaterVaporBlueshieldOfficer
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsBlueshieldOfficerWaterVapor
+
+- type: loadout
+  id: EmergencyOxygenCarnivoreBlueshieldOfficer
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenMeatEater
+  storage:
+    back:
+    - BoxSurvivalSlotsBlueshieldOfficerMeat
+
+- type: loadout
+  id: EmergencyOxygenEthanolBlueshieldOfficer
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenEthanolDrinker
+  storage:
+    back:
+    - BoxSurvivalSlotsBlueshieldOfficerEthanol
+
+- type: loadout
+  id: EmergencyOxygenVegetarianBlueshieldOfficer
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenVegetableEater
+  storage:
+    back:
+    - BoxSurvivalSlotsBlueshieldOfficerVegetable
