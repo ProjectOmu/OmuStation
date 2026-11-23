@@ -1,0 +1,10 @@
+- type: entity
+  parent: CrateEngineeringSecure
+  id: CrateHEV
+  name: H.E.V suit crate
+  description: A crate containing a single robust H.E.V suit and a familiar crowbar to go alongside it.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterSuitHEV
+    - id: CrowbarOrange

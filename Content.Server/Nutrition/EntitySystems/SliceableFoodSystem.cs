@@ -30,6 +30,9 @@ public sealed class SliceableFoodSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+
+    private const float ScissorMult = 2f; // Omu
+
     public override void Initialize()
     {
         base.Initialize();
@@ -44,12 +47,19 @@ public sealed class SliceableFoodSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (!TryComp<UtensilComponent>(args.Used, out var utensil) || (utensil.Types & UtensilType.Knife) == 0)
+        if (!TryComp<UtensilComponent>(args.Used, out var utensil)
+            || (utensil.Types & (UtensilType.Knife | UtensilType.Scissor)) == 0) // Omu
             return;
+        //Omu Start
+        var sliceTime = entity.Comp.SliceTime;
+        if ((utensil.Types & UtensilType.Scissor) != 0)
+            sliceTime *= ScissorMult;
+        //Omu End
+
 
         var doAfterArgs = new DoAfterArgs(EntityManager,
             args.User,
-            entity.Comp.SliceTime,
+            sliceTime,// Omu, I guess.
             new SliceFoodDoAfterEvent(),
             entity,
             entity,
@@ -81,7 +91,8 @@ public sealed class SliceableFoodSystem : EntitySystem
         if (!_solutionContainer.TryGetSolution(entity.Owner, entity.Comp3.Solution, out var soln, out var solution))
             return false;
 
-        if (!TryComp<UtensilComponent>(usedItem, out var utensil) || (utensil.Types & UtensilType.Knife) == 0)
+        if (!TryComp<UtensilComponent>(usedItem, out var utensil)
+            || (utensil.Types & (UtensilType.Knife | UtensilType.Scissor)) == 0) // Omu
             return false;
 
         var sliceVolume = solution.Volume / FixedPoint2.New(entity.Comp2.TotalCount);
