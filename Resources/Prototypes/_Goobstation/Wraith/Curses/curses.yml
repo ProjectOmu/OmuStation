@@ -54,9 +54,7 @@
   statusIcon: CurseBlindnessIcon
   update: 75 #1.5 minutes # Omu edit: changed update interval
   effects:
-    0.7: # Omu edit
-    #- !type:EyeDamage # Omu edit start
-    #  amount: 2
+    0.7: # Omu edit start
     - !type:GenericStatusEffect
       key: TemporaryBlindness
       component: TemporaryBlindness
