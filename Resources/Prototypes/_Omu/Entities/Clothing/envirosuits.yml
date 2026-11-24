@@ -54,6 +54,50 @@
     sprite: _Omu/Clothing/Uniforms/Envirosuits/rd_purple.rsi
 
 - type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitBosun
+  name: bosun's envirosuit
+  description: A robust containment suit for the Bosun, painted in the colors of Cargo and Salvage.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Envirosuits/bosun.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Envirosuits/bosun.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitForeman
+  name: foreman's envirosuit
+  description: The bulky envirosuit of a very distinguished engineer. The overalls still haven't gotten any looser.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Envirosuits/foreman.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Envirosuits/foreman.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitMedicus
+  name: medicus' envirosuit
+  description: A very blue envirosuit, made for the experienced physician. Soon to be repainted by the blood of your patients.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Envirosuits/medicus.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Envirosuits/medicus.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitProfessor
+  name: professor's envirosuit
+  description: An envirosuit for the eggiest of eggheads. Sadly doesn't look QUITE as academic without the tie.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Envirosuits/professor.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Envirosuits/professor.rsi
+
+- type: entity
   parent: ClothingUniformEnvirosuitCustomBase
   id: ClothingUniformEnvirosuitReporter
   name: reporter envirosuit

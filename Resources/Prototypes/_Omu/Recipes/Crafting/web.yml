@@ -41,3 +41,16 @@
     tags:
     - SpiderCraft
   objectType: Item
+
+- type: construction
+  id: SpiderWebConstruct
+  graph: SpiderWebConstruct
+  startNode: start
+  targetNode: end
+  category: construction-category-structures
+  entityWhitelist:
+    tags:
+    - SpiderCraft
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true

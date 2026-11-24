@@ -1119,6 +1119,7 @@
         mask:
         - Impassable
         - BulletImpassable
+        - Opaque # Omu edit: So this can hit wraith
   - type: Vapor
     active: true
     transferAmountPercentage: 1

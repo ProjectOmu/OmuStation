@@ -9325,3 +9325,1222 @@ Entries:
         different amounts if they're between you and a sound source.
   id: 1204
   time: '2026-10-21T04:53:49.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Detective Warden and Corpsman spawning with an extra sec gas mask
+        in their bag
+  id: 1205
+  time: '2026-10-21T16:36:38.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Atmospheric belts do not replace your jumpsuit anymore.
+  id: 1206
+  time: '2026-10-21T23:26:20.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        Origin's atmos has been (almost) completely redone. Check the PR for
+        more!
+    - type: Tweak
+      message: Scattered several plushies across Origin.
+    - type: Tweak
+      message: minor fixes map wide
+  id: 1207
+  time: '2026-10-21T23:36:19.0000000+00:00'
+- author: ggrab41
+  changes:
+    - type: Tweak
+      message: Carps and Sharkminows spawned by Dragons now gib on death.
+  id: 1208
+  time: '2026-10-22T02:09:25.0000000+00:00'
+- author: Dat-Guy
+  changes:
+    - type: Add
+      message: >-
+        Added the BSO survival kit, and made the BSO gas mask the default mask
+        for the kit.
+    - type: Remove
+      message: >-
+        Removed the BSO gas mask from the BSO's starting items (added to the
+        survival kit).
+  id: 1209
+  time: '2026-10-22T12:22:03.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Add
+      message: Added the PKA upgrades back to the salvage vendor
+  id: 1210
+  time: '2026-10-22T13:17:35.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Fix
+      message: Fixed certain sec loadout options not being in the secdrobe
+  id: 1211
+  time: '2026-10-22T15:37:09.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: >-
+        The names of crew plushies are now all lowercased, to be consistent with
+        other plushies.
+    - type: Tweak
+      message: >-
+        The Sept Oct plushie is no longer found in the crew morale initiative
+        crate; it is now in the sectoral plushie crate.
+    - type: Tweak
+      message: >-
+        The Jessie Fletcher plushie and the Sept Oct plushie can now be won from
+        claw machines.
+    - type: Tweak
+      message: >-
+        The name and description of the crew morale initiative crate is
+        rewritten slightly.
+  id: 1212
+  time: '2026-10-22T15:43:43.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Add
+      message: new Allulalo markings
+  id: 1213
+  time: '2026-10-22T21:05:42.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Add
+      message: The Sept Oct plushie can now be used as a stamp.
+    - type: Tweak
+      message: Moved Brizby and Redstonewolf plushies to the staff crate.
+  id: 1214
+  time: '2026-10-22T23:25:01.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Tweak
+      message: Characters can now have up to 50 speech patterns in the Speech tab.
+  id: 1215
+  time: '2026-10-22T23:39:36.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Add
+      message: Harpies have way more emote sounds, stolen from other species
+    - type: Add
+      message: Harpies can bagawk now
+  id: 1216
+  time: '2026-10-23T19:11:32.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: New Yorkers now call IPCs "Rowbits" instead of a slur.
+  id: 1217
+  time: '2026-10-23T22:26:35.0000000+00:00'
+- author: jckspjf, DuskTheSnep
+  changes:
+    - type: Add
+      message: Added security visors into security loadouts.
+    - type: Add
+      message: Added medsec visors into corpsman loadouts.
+    - type: Add
+      message: Added blueshield visors into BSO loadouts.
+  id: 1218
+  time: '2026-10-23T22:32:56.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Add
+      message: Added custom Vulp laughing, sighing, and crying sounds.
+  id: 1219
+  time: '2026-10-23T22:48:02.0000000+00:00'
+- author: cynischism
+  changes:
+    - type: Add
+      message: >-
+        Adds a new card game, Yinji, to maints loot tables and the Good Clean
+        Fun vendor.
+  id: 1220
+  time: '2026-10-23T23:28:11.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: Added the new vulp noises to harpy + clarified copyright.
+  id: 1221
+  time: '2026-10-23T23:31:46.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Tweak
+      message: >-
+        Thieving glove strip time reduction reduced significantly. The
+        stealthiness is still there you just have to keep them still for longer
+  id: 1222
+  time: '2026-10-24T00:21:33.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Tweak
+      message: CE's locker includes a SM monitoring console board.
+  id: 1223
+  time: '2026-10-24T00:23:27.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Fix
+      message: Fixed that pixel on bra (sports)
+  id: 1224
+  time: '2026-10-24T09:52:52.0000000+00:00'
+- author: raincall
+  changes:
+    - type: Tweak
+      message: >-
+        Storage implants can no longer hold syndicate steal objective items or
+        items with storage inside (like a winter coat)
+    - type: Tweak
+      message: Storage implant price reduced 40tc -> 30tc
+  id: 1225
+  time: '2026-10-24T15:55:55.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Add
+      message: >-
+        Accommodated three new CCO types: Crew Operations (basically CC HoP),
+        Internal Affairs, and Judicial Affairs. This mostly only affects their
+        icons and titles, and only for staff larp.
+    - type: Fix
+      message: >-
+        The following job icons are no longer selectable via the Agent ID:
+        CentComm Direggtor, Death Squad, Custodii Vitellus, Future Agent.
+    - type: Fix
+      message: The CentComm Direggtor job icon is now green.
+  id: 1226
+  time: '2026-10-24T17:15:18.0000000+00:00'
+- author: raincally
+  changes:
+    - type: Fix
+      message: Fixed chef loadout having 2 job trinket sections
+    - type: Fix
+      message: Moved mail carrier jumpsuit to courier loadout instead of cargo tech
+  id: 1227
+  time: '2026-10-25T01:01:33.0000000+00:00'
+- author: Willzile1
+  changes:
+    - type: Tweak
+      message: SalicylicAcid and Oxandrolone can no longer be mixed together.
+  id: 1228
+  time: '2026-10-25T02:03:20.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Add
+      message: >-
+        The claw machine can now give out the newer staff plushies, the crew
+        plushies and most of the upstream plushies.
+  id: 1229
+  time: '2026-10-25T03:06:26.0000000+00:00'
+- author: Fiya
+  changes:
+    - type: Remove
+      message: >-
+        Secarang and the NTR's cane can no longer be rigged to explode with
+        plasma.
+    - type: Add
+      message: >-
+        Re-added the Atrocity hit sound, added harm baton hit sound, added
+        welder burn sound to lit lighters.
+  id: 1230
+  time: '2026-10-25T08:12:28.0000000+00:00'
+- author: Jamandbutter0
+  changes:
+    - type: Add
+      message: Added Philtrumites Reprised lobby art
+  id: 1231
+  time: '2026-10-25T14:26:05.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: Energy guns can now melee again.
+  id: 1232
+  time: '2026-10-25T15:27:26.0000000+00:00'
+- author: Fiya
+  changes:
+    - type: Add
+      message: 'Service access for Clown, Mime, and Chaplain '
+  id: 1233
+  time: '2026-10-25T22:33:34.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Remove
+      message: Removed Hailey Vera plushie
+  id: 1234
+  time: '2026-10-26T16:55:52.0000000+00:00'
+- author: BoiWab
+  changes:
+    - type: Add
+      message: '"Grey the Warden and His SonDola" is now in the lobby art selection.'
+  id: 1235
+  time: '2026-10-26T17:03:21.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Add
+      message: Ember Staff Plushie! go stuff them in a borg
+  id: 1236
+  time: '2026-10-26T17:43:40.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Tweak
+      message: Diona Head markings now render above most layers.
+  id: 1237
+  time: '2026-10-26T17:45:01.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: Saying "?" or "???" now renders as the emote "looks confused."
+  id: 1238
+  time: '2026-10-26T19:19:14.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: Plushies are now flammable.
+  id: 1239
+  time: '2026-10-26T23:57:32.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Fix
+      message: >-
+        Off-station lights no longer *flicker* when LightsOutMinorRule is
+        applied. This was independent from the breaking behavior, which was
+        addressed recently.
+  id: 1240
+  time: '2026-10-27T01:07:00.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Guns and throwing are both predicted now.
+  id: 1241
+  time: '2026-10-27T12:24:15.0000000+00:00'
+- author: doglettucee, Duuckie
+  changes:
+    - type: Add
+      message: >-
+        Antagonist rules are now live. Please read the new Antagonist Rules
+        section for clarification regarding antagonists.
+    - type: Tweak
+      message: >-
+        Roleplay Rule 1.1's precedents now do not explicitly prohibit repetitive
+        (non-mass sabotage) antagonist strategies. You are still encouraged to
+        vary your gameplan, though.
+  id: 1242
+  time: '2026-10-27T12:41:19.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Add
+      message: >-
+        Added the Wrestling fighting style! Put on a championship belt to learn
+        it, but it only works on someone else wearing a belt.
+    - type: Add
+      message: >-
+        Added the Intercontinental Champion Belt to the uplink. It works on
+        anyone and comes with a steel chair.
+    - type: Add
+      message: Added a guidebook page for Wrestling.
+  id: 1243
+  time: '2026-10-27T14:55:40.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Fix
+      message: >-
+        Shock muzzles will now actually administer a shock when the wearer tries
+        to speak.
+  id: 1244
+  time: '2026-10-28T05:22:19.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Tweak
+      message: >-
+        Various balance changes, quality of life and bug fixes to both
+        Championship Belts and changed some of their moves in the guidebook.
+    - type: Add
+      message: >-
+        Dropkicking someone into a regular glass window sends them flying
+        through it, powerbombing someone on a table smashes them through it,
+        unless it's metal or reinforced.
+  id: 1245
+  time: '2026-10-28T07:51:07.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Fix
+      message: >-
+        Fixed many bugs with Wraith along with a number of changes too extensive
+        to put into the changelog.
+    - type: Tweak
+      message: >-
+        The Holy Claymore, and chaplain's dual pistols Casul & Jackal can now
+        hit holocarps and other mobs that normally can't be hit by physical
+        projectiles.
+  id: 1246
+  time: '2026-10-28T11:04:57.0000000+00:00'
+- author: EctoplasmIsGood
+  changes:
+    - type: Tweak
+      message: The traitor cane blade has had its cost reduced to 25 TC
+  id: 1247
+  time: '2026-10-28T13:12:06.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: >-
+        Diona have eyes again and diona vines are available in Head and HeadTop
+        layering.
+  id: 1248
+  time: '2026-10-28T15:47:25.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Add
+      message: >-
+        Added a professional wrestling crate to cargo with two championship
+        belts, protein shakes, towels, a megaphone and a chance at a wrestler
+        lizard plushie.
+  id: 1249
+  time: '2026-10-28T16:35:29.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Fix
+      message: Fixed Thaven moods causing testfails on github.
+  id: 1250
+  time: '2026-10-28T17:08:31.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: >-
+        Added a showobjectives command for admins to view objectives and
+        sacrifice targets in a nice ui.
+  id: 1251
+  time: '2026-10-29T00:56:43.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: Medibot advertisements no longer show up in chat.
+    - type: Remove
+      message: >-
+        Medibots no longer say "HATE. LET ME TELL YOU HOW MUCH I'VE COME TO HATE
+        YOU SINCE I BEGAN TO LIVE. […] HATE. HATE."
+  id: 1252
+  time: '2026-10-30T02:02:58.0000000+00:00'
+- author: NikVolkov
+  changes:
+    - type: Add
+      message: >-
+        Command, Security, AI, CentCom, and some antag headsets now chime when
+        transmitting over the radio. Pay attention!
+    - type: Add
+      message: Audio settings includes a radio chimes mute toggle.
+  id: 1253
+  time: '2026-10-30T03:48:37.0000000+00:00'
+- author: jefftheittech
+  changes:
+    - type: Tweak
+      message: All maps in rotation now have 4 borg slots uniformly
+  id: 1254
+  time: '2026-10-30T19:15:07.0000000+00:00'
+- author: pceererthegreat
+  changes:
+    - type: Add
+      message: >-
+        Added an ammunition box for .160 smart, printable for 7 steel and
+        researched alongside the Abielle.
+  id: 1255
+  time: '2026-10-30T20:06:35.0000000+00:00'
+- author: raincall, r3stful
+  changes:
+    - type: Tweak
+      message: Judo belts and the HoS kung fu belt have some cool new resprites
+  id: 1256
+  time: '2026-10-30T20:21:07.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        The HoS's phoron guns (X-6 "Threadripper", X-8 "Station Sweeper", X-12
+        "Flamberge", X-18 "Ranought") are all ID-locked and all self-recharge
+        like the DT-12 Lawbringer. (The X-6 recharges twice as fast as the
+        others; the X-18 recharges much slower.)
+    - type: Add
+      message: >-
+        The X-12 "Flamberge" has a new super-destructive firing mode that
+        obliterates reinforced walls and tears down plastitanium walls with
+        slightly more effort. Also, the X-12's regular firing mode has reduced
+        spread and significantly increased structural damage at the cost of 1
+        projectile and 2 Heat damage per shot; it's more like a weaker energy
+        shotgun now.
+  id: 1257
+  time: '2026-10-30T20:30:42.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Fix
+      message: >-
+        Fixed storing items in clothing sometimes triggering unintended actions
+        (you will no longer attempt to butcher/eat your clothing after inserting
+        a blade into it).
+  id: 1258
+  time: '2026-10-30T20:57:25.0000000+00:00'
+- author: Fiya
+  changes:
+    - type: Add
+      message: You can now wear the firefighting backtank in your suitstorage.
+  id: 1259
+  time: '2026-10-30T21:37:06.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Fix
+      message: >-
+        NOTE: NEW ROLES ARE NOT CURRENTLY PLAYABLE OUTSIDE OF ADMIN
+        INTERVENTION. Job slots and Spawn Points will be assigned to maps in a
+        followup update.
+    - type: Add
+      message: Added the Logistics Assistant, an intern position for Cargo.
+    - type: Add
+      message: >-
+        Added the Bosun, the Foreman, the Medicus, and the Professor. High
+        playtime "Mentor" roles that serve as dedicated teaching and advisory
+        positions in every department. (Excluding service and command.)
+  id: 1260
+  time: '2026-10-30T23:37:46.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Add
+      message: >-
+        Medibots can say "HATE. LET ME TELL YOU HOW MUCH I'VE COME TO HATE YOU
+        SINCE I BEGAN TO LIVE. […] HATE. HATE." again.
+  id: 1261
+  time: '2026-10-31T01:55:29.0000000+00:00'
+- author: EctoplasmIsGood
+  changes:
+    - type: Tweak
+      message: Syndicate medical cyborg has been given a medi-beam and a tools module
+    - type: Tweak
+      message: Syndie borg reinforcements can now self-destruct
+    - type: Tweak
+      message: Syndicate assault borg has received extra damage reduction
+  id: 1262
+  time: '2026-10-31T01:57:25.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Fix
+      message: The Foreman and Bosun mantles now have unique descriptions.
+    - type: Remove
+      message: Mentors no longer have Cryogenics access.
+  id: 1263
+  time: '2026-10-31T03:13:37.0000000+00:00'
+- author: doglettucee, Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Captain, Head of Security, and Warden SOPs should be clearer and more
+        robust. Check them before playing these roles.
+  id: 1264
+  time: '2026-11-02T01:30:13.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Fix
+      message: >-
+        Fixed the detective's bloodtrak incorrectly rejecting fresh blood as too
+        dry.
+  id: 1265
+  time: '2026-11-02T01:55:34.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Fix
+      message: >-
+        A female character being polymorphed into a monkey should no longer
+        result in performance massively dropping for anyone nearby.
+  id: 1266
+  time: '2026-11-02T11:01:09.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Fix
+      message: Floor goblins can crawl under floor tiles again.
+  id: 1267
+  time: '2026-11-03T02:51:07.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: You can now altclick flatpacks to unpack them
+    - type: Remove
+      message: Head lockers no longer contain Multitools
+    - type: Remove
+      message: You can no longer pulse flatpacks to unpack them
+  id: 1268
+  time: '2026-11-03T02:59:57.0000000+00:00'
+- author: BramvanZijp
+  changes:
+    - type: Tweak
+      message: >-
+        The Blueshield Officer and Corpsman are now allowed to carry jaws of
+        life.
+  id: 1269
+  time: '2026-11-03T11:39:04.0000000+00:00'
+- author: NikVolkov
+  changes:
+    - type: Tweak
+      message: Armory gun safes are now standardized, matching mapped armories.
+  id: 1270
+  time: '2026-11-03T22:18:19.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Fix
+      message: Chameleon gloves can disguise themselves as latex gloves again.
+  id: 1271
+  time: '2026-11-03T22:19:17.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Fix
+      message: The single clap emote now plays a sound when performed by feroxi.
+  id: 1272
+  time: '2026-11-04T19:05:43.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Tweak
+      message: 'Admin ghosts now can wear most items & gain most Hud comps innately '
+  id: 1273
+  time: '2026-11-05T01:46:02.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Tweak
+      message: RT is now at v270.1.7
+  id: 1274
+  time: '2026-11-05T04:36:27.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Add
+      message: Added a pAI slot to energy swords (and derivative weapons).
+  id: 1275
+  time: '2026-11-05T09:12:16.0000000+00:00'
+- author: Cryptisy
+  changes:
+    - type: Add
+      message: >-
+        Added eight new off-coats for the departmental heads + BSO. Show off
+        your title in style!
+    - type: Add
+      message: Added three new off-coats for CCOs!
+  id: 1276
+  time: '2026-11-05T22:43:39.0000000+00:00'
+- author: Cryptisy
+  changes:
+    - type: Add
+      message: The Pride-O-Mat features new plural pride items.
+    - type: Tweak
+      message: The pride ommantle has a trans pin variation.
+  id: 1277
+  time: '2026-11-06T17:03:37.0000000+00:00'
+- author: NikVolkov
+  changes:
+    - type: Tweak
+      message: >-
+        The default warden hardsuit now provides its previously missing 30%
+        radiation resistance.
+  id: 1278
+  time: '2026-11-06T17:11:57.0000000+00:00'
+- author: Cryptisy
+  changes:
+    - type: Fix
+      message: Fixed light on the Corpsman modsuit, gave it a name and description.
+  id: 1279
+  time: '2026-11-06T21:53:07.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Tweak
+      message: Insect blood is now called hemolymph
+  id: 1280
+  time: '2026-11-06T22:46:21.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: >-
+        IPC will now correctly stand up with correct movement speed after
+        recharging a depleted battery.
+  id: 1281
+  time: '2026-11-07T15:43:11.0000000+00:00'
+- author: cynischism
+  changes:
+    - type: Add
+      message: >-
+        Wrestling crate and theater vendor now contain a referee jacket and
+        flippable cap.
+  id: 1282
+  time: '2026-11-07T15:47:01.0000000+00:00'
+- author: iamlcarus
+  changes:
+    - type: Fix
+      message: Cadets no longer start with an MK58 magazine.
+  id: 1283
+  time: '2026-11-07T16:04:51.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Tweak
+      message: >-
+        Assistants are instead "Off Duty" personnel. Tider- and
+        Assistant-related things are changed or removed to reflect this (such as
+        the now-removed Tidemind).
+    - type: Tweak
+      message: >-
+        The "Grey Tide" uplink item is now a bundle that also comes with
+        insulated gloves and an unremovable-by-self gas mask that activates the
+        Grey Tide.
+    - type: Add
+      message: >-
+        Loadouts and vendors offer departmental armbands. The Head of Security
+        gets a free box of them in their locker.
+  id: 1284
+  time: '2026-11-07T19:14:07.0000000+00:00'
+- author: CliveOcelot
+  changes:
+    - type: Remove
+      message: Removed the Slavic bible from Chaplain
+  id: 1285
+  time: '2026-11-07T22:42:54.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Fix
+      message: Fixed timed collision triggers potentially freezing the server.
+  id: 1286
+  time: '2026-11-08T06:28:55.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Add
+      message: >-
+        Internal Affairs, CentComm Intern, Blueshield Officer, Administrative
+        Assistant, Warden, Detective, Psychologist, Trader, Wizard and Greytide
+        stamps now have their own stamp designs.
+  id: 1287
+  time: '2026-11-08T12:09:47.0000000+00:00'
+- author: EctoplasmIsGood
+  changes:
+    - type: Tweak
+      message: Expanded NTRs loadout options to include the CC pencil skirt and cap
+  id: 1288
+  time: '2026-11-08T15:56:32.0000000+00:00'
+- author: TommisTrash
+  changes:
+    - type: Add
+      message: Vapes can now be selected as roundstart trinkets.
+  id: 1289
+  time: '2026-11-08T23:18:29.0000000+00:00'
+- author: Waterwithoutanyice
+  changes:
+    - type: Add
+      message: >-
+        Xelthia Heads of Security may choose in their loadout a new armored and
+        insulated jacket made for them.
+  id: 1290
+  time: '2026-11-08T23:32:04.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: Preened feathers now properly show the feathers color when equipped.
+  id: 1291
+  time: '2026-11-08T23:50:00.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Add
+      message: >-
+        Added the RYNE-137 plushie, which can be found in the Crew Morale
+        Initiative crate and claw machines.
+  id: 1292
+  time: '2026-11-09T19:52:52.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Add
+      message: >-
+        Added the Corporate Compliance cap, Internal Affairs cap, and the
+        CentComm Agent black suit and suitskirt.
+    - type: Add
+      message: >-
+        The Nanotrasen Representative can pick the black agent suit, suitskirt
+        and the leather satchel in their loadout.
+  id: 1293
+  time: '2026-11-09T23:31:54.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Tweak
+      message: >-
+        The Corporate Compliance cap no longer has armor and replaces the
+        unarmored CentComm cap in the Nanotrasen Representative's loadout.
+  id: 1294
+  time: '2026-11-10T23:57:03.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Add
+      message: Arachnids can now craft single-tile spider webs.
+  id: 1295
+  time: '2026-11-11T13:54:57.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Fix
+      message: >-
+        Firelocks now show their proper status lights again and "lock"
+        themselves when it's dangerous. Crowbars or Engineering access are now
+        needed to open them when they're locked.
+  id: 1296
+  time: '2026-11-12T15:33:54.0000000+00:00'
+- author: NikVolkov
+  changes:
+    - type: Add
+      message: >-
+        Warden now gets a hardsuit selector, letting them pick between the
+        warden's standard hardsuit and the new security-painted riot combat
+        hardsuit.
+    - type: Add
+      message: >-
+        The riot combat hardsuit (both default and warden variants) now makes
+        heavy footstep sounds.
+  id: 1297
+  time: '2026-11-13T05:56:47.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: >-
+        ERT Engineering hardsuit helmets now have improved protection values
+        from before. Most notably, radiation resistance was raised to 99% from
+        50%.
+  id: 1298
+  time: '2026-11-13T11:57:35.0000000+00:00'
+- author: bookassecond
+  changes:
+    - type: Fix
+      message: >-
+        The energy shield and greatshield can now recharge after running out of
+        charge again.
+  id: 1299
+  time: '2026-11-13T12:13:49.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: Test fail introduced with the airlock locking again pr
+  id: 1300
+  time: '2026-11-13T22:54:35.0000000+00:00'
+- author: Mariki
+  changes:
+    - type: Tweak
+      message: >-
+        You can now use a few of the new (or otherwise recently occulted) icons
+        on agent IDs again
+    - type: Tweak
+      message: 'G-Man and Zombie icons are no longer available on agent ID selection '
+  id: 1301
+  time: '2026-11-14T12:51:32.0000000+00:00'
+- author: Naaatch
+  changes:
+    - type: Tweak
+      message: >-
+        "Stay in lobby or be an Assistant" is now one account-wide setting on
+        the job board instead of per character.
+    - type: Tweak
+      message: Made the buttons for the character UI have proper color-coding.
+    - type: Fix
+      message: >-
+        Fixed sometimes spawning as an Assistant when the character you got had
+        stay in lobby set.
+  id: 1302
+  time: '2026-11-14T18:09:26.0000000+00:00'
+- author: pinktanuki
+  changes:
+    - type: Fix
+      message: MMIs can no longer be inserted into MMIs.
+  id: 1303
+  time: '2026-11-14T18:18:56.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        various melees including glass shard, dispatcher's spear and all
+        derivatives of the armblade now use the bladeslice sound and not the
+        weakattack sound.
+    - type: Tweak
+      message: >-
+        The vacuous lance should no longer get stuck in walls players when
+        thrown
+  id: 1304
+  time: '2026-11-14T20:31:33.0000000+00:00'
+- author: PhosphateWithManyOs
+  changes:
+    - type: Add
+      message: Voxes have received a texture re-sprite!
+  id: 1305
+  time: '2026-11-14T21:04:40.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: The Amber alert sound is now a different sound.
+  id: 1306
+  time: '2026-11-14T21:08:05.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: RCDs can now place doors on top of firelocks.
+  id: 1307
+  time: '2026-11-14T21:09:02.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Fix
+      message: >-
+        Microplastics now heal poison damage for vox, as opposed to every
+        species except vox.
+    - type: Tweak
+      message: Microplastics no longer deal poison damage nor induce vomiting in vox.
+    - type: Fix
+      message: Vent crud now satiates vox, as opposed to every species except vox.
+    - type: Fix
+      message: >-
+        Morphine now causes aphyxiation when overdosed in every species except
+        diona, as opposed to only diona.
+  id: 1308
+  time: '2026-11-15T03:31:14.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Fix
+      message: Milk now heals non-vital damage when used on closet skeletons.
+  id: 1309
+  time: '2026-11-15T03:33:58.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Tweak
+      message: 'MirrorMaiden has received a small rework. '
+  id: 1310
+  time: '2026-11-15T08:28:50.0000000+00:00'
+- author: TheGoatSinofIust
+  changes:
+    - type: Add
+      message: >-
+        Added 8 new allulalo markings and added more color options for some wing
+        markings.
+    - type: Tweak
+      message: Changed the sprites for both versions of the curly tail.
+  id: 1311
+  time: '2026-11-16T00:09:56.0000000+00:00'
+- author: Naaatch
+  changes:
+    - type: Fix
+      message: >-
+        Clicking or right click signing a [signature] markup uses the name and
+        job on your worn ID, and no longer shows your antag role.
+  id: 1312
+  time: '2026-11-16T00:41:33.0000000+00:00'
+- author: Harro365
+  changes:
+    - type: Add
+      message: >-
+        Added funny jackboots, available from your local SecDrobe’s contraband
+        inventory
+    - type: Tweak
+      message: >-
+        Funny jackboots are now the default shoes for sec clowns and their
+        outfits
+  id: 1313
+  time: '2026-11-16T01:59:22.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Fix
+      message: Player-controlled weldbots can now weld things.
+  id: 1314
+  time: '2026-11-16T15:49:44.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Add
+      message: >-
+        Crew monitor research now unlocks a paramedic module for medical
+        cyborgs.
+  id: 1315
+  time: '2026-11-17T18:30:32.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: Fixed bin examine comp examine text not being defined
+  id: 1316
+  time: '2026-11-17T19:51:50.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Fix
+      message: The Paramedic MODsuit no longer hides your hair when worn.
+  id: 1317
+  time: '2026-11-18T01:04:49.0000000+00:00'
+- author: ggrab41
+  changes:
+    - type: Tweak
+      message: Made Bananium walls "welding" step take 10s to complete. (was 20s)
+    - type: Tweak
+      message: Bananium doors now block radiation.
+  id: 1318
+  time: '2026-11-18T02:28:06.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Add
+      message: >-
+        Added crewlets, little copies of a crew member that follow them around,
+        copy their habits and remember who treats them well.
+    - type: Add
+      message: >-
+        Grinding a flesh anomaly core gives Parthenol, 10u of it makes a crewlet
+        grow out of someone. They also appear as a rare event.
+  id: 1319
+  time: '2026-11-18T04:24:05.0000000+00:00'
+- author: ratpatrick0-ops
+  changes:
+    - type: Tweak
+      message: >-
+        Ashen Heretics' "Mask Of Madness" skill has changed to "Ashen Skin"
+        which grants immunity to fire.
+  id: 1320
+  time: '2026-11-18T22:06:08.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Fix
+      message: Multiple fixes and tweaks to crewlets.
+  id: 1321
+  time: '2026-11-19T06:21:58.0000000+00:00'
+- author: izzwu and PickelSilly
+  changes:
+    - type: Add
+      message: >-
+        Added the Vasquez, an expendable LMG intended for soft targets. It can
+        be ordered from cargo.
+  id: 1322
+  time: '2026-11-19T07:51:46.0000000+00:00'
+- author: LunaTheFox
+  changes:
+    - type: Add
+      message: CC-21 'Judgement' [Admeme]
+    - type: Add
+      message: Inhand sprite templates
+    - type: Add
+      message: '''SmiteOnMeleeHit'' component'
+  id: 1323
+  time: '2026-11-19T08:16:58.0000000+00:00'
+- author: LunaTheFox
+  changes:
+    - type: Add
+      message: Added Internal Affairs comms
+    - type: Add
+      message: Internal Affairs radio key
+    - type: Add
+      message: Internal Affairs radio implanter
+    - type: Tweak
+      message: Changed IAA to use IA comms instead of CC comms
+  id: 1324
+  time: '2026-11-19T08:23:29.0000000+00:00'
+- author: PhosphateWithManyOs
+  changes:
+    - type: Add
+      message: 'The ability to cut pizzas with.... scissors and adjacent tools. '
+  id: 1325
+  time: '2026-11-19T15:39:02.0000000+00:00'
+- author: Quill
+  changes:
+    - type: Add
+      message: Added a Plantigrade Trait for Vulpkanins.
+  id: 1326
+  time: '2026-11-19T19:03:40.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Fix
+      message: Even MORE crewlet fixes and changes + new actions.
+  id: 1327
+  time: '2026-11-20T03:31:15.0000000+00:00'
+- author: EctoplasmIsGood
+  changes:
+    - type: Fix
+      message: Slaughter Demons no longer lose their martial arts after using jaunt.
+  id: 1328
+  time: '2026-11-21T00:41:09.0000000+00:00'
+- author: Natch
+  changes:
+    - type: Fix
+      message: >-
+        Crewlets form flesh tools in a usable state where possible and Parthenol
+        can no longer be in foam/smoke.
+  id: 1329
+  time: '2026-11-21T07:55:34.0000000+00:00'
+- author: Waterwithoutanyice
+  changes:
+    - type: Remove
+      message: Removed the surplus pills order from the cargo console
+  id: 1330
+  time: '2026-11-21T10:28:51.0000000+00:00'
+- author: ggrab41
+  changes:
+    - type: Fix
+      message: Ghosts can no longer be converted into cosmic cultists.
+    - type: Fix
+      message: >-
+        Fixed The Monument displaying incorrect number of converts needed to
+        progress.
+    - type: Fix
+      message: >-
+        The Monument should no longer wait for more entropy to update to stage 3
+        even after reaching the required amount.
+  id: 1331
+  time: '2026-11-21T19:37:49.0000000+00:00'
+- author: EctoplasmIsGood
+  changes:
+    - type: Tweak
+      message: The Foreman's locker has recieved a plethora of new tools.
+    - type: Tweak
+      message: >-
+        The Foreman's hardsuit and cyberbeast mantle are now nearly completely
+        immune to radiation.
+  id: 1332
+  time: '2026-11-21T19:44:13.0000000+00:00'
+- author: DuskTheSnep
+  changes:
+    - type: Tweak
+      message: >-
+        Resprited the handheld crew monitor, syndicate crew monitor, and BSO's
+        command monitor.
+  id: 1333
+  time: '2026-11-21T20:37:48.0000000+00:00'
+- author: marchhaschwalth-boop
+  changes:
+    - type: Add
+      message: Made the H.E.V suit purchasable by cargo for 3000 spesos.
+  id: 1334
+  time: '2026-11-21T20:48:34.0000000+00:00'
+- author: Harro365
+  changes:
+    - type: Fix
+      message: >-
+        The R3 now counts as an OfficerHandgun theft objective like the
+        Inspector
+  id: 1335
+  time: '2026-11-21T21:02:34.0000000+00:00'
+- author: EidolonForgery
+  changes:
+    - type: Add
+      message: New variant of the JamJar glasses with a chemistry HUD.
+  id: 1336
+  time: '2026-11-21T21:20:37.0000000+00:00'
+- author: ishkab
+  changes:
+    - type: Tweak
+      message: Lamarr no longer hugs faces.
+  id: 1337
+  time: '2026-11-21T21:49:16.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: Prying logic has been updated to be dependent on power.
+  id: 1338
+  time: '2026-11-22T20:53:07.0000000+00:00'
+- author: Waterwithoutanyice
+  changes:
+    - type: Add
+      message: >-
+        Added spawn points and role slots for Foreman, Bosun, Medicus,
+        Professor, and Logistics assistant to Tram station
+  id: 1339
+  time: '2026-11-22T21:02:38.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        on Delta, the TEG room has been rewired to ensure that it is powered
+        correctly
+    - type: Tweak
+      message: On Bagel and Kettle, added a few MV wires to their respective PA setups
+    - type: Tweak
+      message: re-moved the stray pipe in Origin's atmos
+    - type: Tweak
+      message: On Bagel, made atmos bigger
+    - type: Remove
+      message: On Bagel, stripped most of the SM setup.
+  id: 1340
+  time: '2026-11-22T21:12:55.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        On Oasis, Ripped up part of the SM's setup, should be easier to work
+        with
+    - type: Tweak
+      message: On Oasis, reinforced the SM to no longer leak into surrounding areas
+    - type: Tweak
+      message: On Oasis, moved the TEG to another room
+    - type: Tweak
+      message: On Oasis, recoloured the the pipes in Atmos
+    - type: Tweak
+      message: On Oasis, slightly redesigned the burn chamber
+    - type: Tweak
+      message: On Oasis, removed the Clockwork cult's shrine
+    - type: Tweak
+      message: On Oasis, reduced the size of the canister storage
+    - type: Tweak
+      message: On Oasis, recoloured the Waste/Distro pipes to their respective colours
+    - type: Tweak
+      message: >-
+        On Oasis, slightly redesigned the smoke break area to the left of atmos
+        and it's associated maints
+    - type: Tweak
+      message: On Oasis, the HV wires now lead out to the Singulo chamber
+    - type: Tweak
+      message: On Oasis, wired the CE's room to be powered correctly
+    - type: Tweak
+      message: >-
+        On Oasis, chopped up the three daisychained APC for
+        Engineering/Atmos/Cargo into three smaller networks
+    - type: Tweak
+      message: On Oasis, anchored the radiators on the left side of the SM's chamber
+    - type: Tweak
+      message: On Oasis, moved the HVE suits to out of the SM chamber
+    - type: Tweak
+      message: >-
+        On Oasis, moved the buttons from the inside to the outside of the PA
+        chamber
+    - type: Tweak
+      message: On Oasis, moved the det's office to the right of security
+    - type: Tweak
+      message: >-
+        On Oasis, replaced all of sci's glass with plasma glass. this should
+        help with radiation and the inevitable explosions.
+    - type: Tweak
+      message: >-
+        On Oasis, moved a few firelocks near sci around, their explosions should
+        no longer space the entire station
+    - type: Tweak
+      message: >-
+        On Oasis, Replaced most instances of regular glass with it's reinforced
+        variants. This should prevent tiders from breaking into a lot of areas
+        they shouldn't be able to anymore.
+    - type: Tweak
+      message: On Oasis, Captain's bathroom is now MUCH bigger than before.
+    - type: Tweak
+      message: >-
+        On Oasis, the CC stamped paper outside of the ward's office is now read
+        only...
+    - type: Tweak
+      message: On Oasis, medical's lathe & paramed doors are no longer all access
+  id: 1341
+  time: '2026-11-22T21:13:51.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Fix
+      message: >-
+        Administrative assistants, roboticists, and tram drivers can now select
+        animals in their loadouts (like every other job can).
+  id: 1342
+  time: '2026-11-23T03:33:45.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Tweak
+      message: Tweaked the expendable LMG crate name and description.
+  id: 1343
+  time: '2026-11-23T03:36:37.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Add
+      message: >-
+        The Guidebook's "Medicine" tab under Tables & References > Chemicals >
+        Medicine features a proper categorization of medications, including a
+        standardization of what "T1" through "T4" actually mean. It should be
+        much more friendly for new chemists.
+  id: 1344
+  time: '2026-11-23T17:37:51.0000000+00:00'
+- author: Cheesedinks
+  changes:
+    - type: Add
+      message: '"Whoops" is now in the lobby art selection.'
+  id: 1345
+  time: '2026-11-24T06:03:33.0000000+00:00'

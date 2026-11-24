@@ -1,0 +1,8 @@
+- type: entity
+  parent: ClothingHeadsetAltSyndicate
+  id: ClothingHeadsetAltSyndicateAgent
+  name: blood-red agent over-ear headset
+  components:
+  - type: RadioChime
+    sound:
+      path: /Audio/_Starlight/Effects/Radio/marauder_agent.ogg

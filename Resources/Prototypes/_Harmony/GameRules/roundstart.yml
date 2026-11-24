@@ -22,6 +22,7 @@
       min: 4
       max: 12 # Omu - 7 -> 12
       playerRatio: 7
+      jobAntagImmunityOverride: [ CargoBosun, EngineeringForeman, MedicalMedicus, ScienceProfessor ] # Omu
       briefing:
         text: conspirator-role-greeting
         color: "#724F29"

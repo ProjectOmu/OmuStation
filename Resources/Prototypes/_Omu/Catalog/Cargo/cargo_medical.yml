@@ -8,12 +8,13 @@
   category: cargoproduct-category-name-medical
   group: market
 
-- type: cargoProduct
-  id: MedicalStrangePills
-  icon:
-    sprite: Objects/Specific/Chemistry/pills_canister.rsi
-    state: icon
-  product: CrateMedicalStrangePills
-  cost: 1800
-  category: cargoproduct-category-name-medical
-  group: market
+# allows cargo to get a ridiculous amount of syndicate chems and the new parthenol
+# - type: cargoProduct
+#  id: MedicalStrangePills
+#  icon:
+#    sprite: Objects/Specific/Chemistry/pills_canister.rsi
+#    state: icon
+#  product: CrateMedicalStrangePills
+#  cost: 1800
+#  category: cargoproduct-category-name-medical
+#  group: market

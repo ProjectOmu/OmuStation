@@ -1,0 +1,1 @@
+OMU-flatpack-examine-tool-not-needed = This flatpack has a button to unpack itself and does not need tools.
