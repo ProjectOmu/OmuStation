@@ -2,6 +2,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Runtime.InteropServices;
 using Content.Server.Antag.Components;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.Antag;
@@ -494,7 +495,7 @@ public sealed partial class AntagSelectionSystem
             {
                 if (def.Equals(except))
                     continue;
-                
+
                 // Get the immunity overrides for this antag definition
                 var overrides = def.JobAntagImmunityOverride;
 
@@ -518,6 +519,32 @@ public sealed partial class AntagSelectionSystem
             }
         }
         return result;
+    }
+
+    /// <summary>
+    /// Scale down the target antag count for a given rule.
+    /// Used during round start to prevent large overshoots of the target chaos. | OmuStation
+    /// </summary>
+    public void ScaleAntagDefinitionCounts(Entity<AntagSelectionComponent> entity, float scale)
+    {
+        var adjustedPoolSize = (int) MathF.Round(scale * GetTotalPlayerCount(_playerManager.Sessions));
+
+        // Creating a span allows us to access the definitions by reference
+        var span = CollectionsMarshal.AsSpan(entity.Comp.Definitions);
+
+        // We compute the scaled target ahead of time as changes to one
+        // definition can affect other target's counts in GetTargetAntagCount
+        var targets = new int[entity.Comp.Definitions.Count];
+        for (var i = 0; i < targets.Length; i++)
+        {
+            targets[i] = GetTargetAntagCount(entity, adjustedPoolSize, span[i]);
+        }
+
+        // Update each definition
+        for (var i = 0; i < span.Length; i++)
+        {
+            span[i].Min = span[i].Max = targets[i];
+        }
     }
     // Omu End
 }

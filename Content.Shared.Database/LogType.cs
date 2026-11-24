@@ -520,4 +520,11 @@ public enum LogType
     RMCMarineAnnounce = 10000,
     RMCExecution = RMCMarineAnnounce + 39,
     // RMC end
+    
+    // Omu start
+    /// <summary>
+    /// SecretDoublePlus related game interactions.
+    /// </summary>
+    SecretDoublePlus = 20001,
+    // Omu end
 }
