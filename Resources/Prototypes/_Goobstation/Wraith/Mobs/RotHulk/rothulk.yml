@@ -83,7 +83,7 @@
     baseSprintSpeed: 4
   - type: Damageable
     damageContainer: Biological
-    damageModifierSet: Diona # Weak to heat
+    damageModifierSet: RotHulk # Omu edit: was Diona before.
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -102,6 +102,39 @@
     thresholds:
       0: Alive
       100: Dead
+  - type: Reactive # Omu edit start: Sinces these guys are made of grabage I figured I add this for flavor.
+    groups:
+      Acidic: [ Touch ]
+    reactions:
+    - reagents: [ Bleach ]
+      methods: [ Touch ]
+      effects:
+      - !type:Jitter
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 2
+    - reagents: [ SpaceCleaner ]
+      methods: [ Touch ] # oddly foam doesn't apply the acid effect to people effected so I don't need to worry about them instently dying to a cleanade
+      effects:
+      - !type:Jitter
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 1
+  - type: StatusEffects
+    allowed:
+    - Jitter
+  - type: PassiveDamage #little bit of passive healing since these guys got no way to heal, ever.
+    allowedStates:
+    - Alive
+    damage:
+      groups:
+        Brute: -0.2
+      types:
+        Burn: -0.1 # they don't heal caustic nor holy damage
+  - type: WeakToHoly
+    alwaysTakeHoly: true # Omu edit end
 
 - type: entity
   id: MobRotHulkBuff
@@ -137,8 +170,20 @@
     baseSprintSpeed: 5
   - type: Damageable
     damageContainer: Biological
-    damageModifierSet: Moth # Not as weak to heat, but still vulnerable
+    damageModifierSet: RotHulk # Omu edit: Was Moth before.
   - type: MobThresholds
     thresholds:
       0: Alive
       200: Dead
+  - type: Reactive # Omu edit start
+    groups:
+      Acidic: [ Touch ]
+    reactions:
+    - reagents: [ Bleach ]
+      methods: [ Touch ]
+      effects:
+      - !type:Jitter
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 1.5 # Omu edit end

@@ -15,3 +15,13 @@
     Piercing: 0.7
     Holy: 1.5
   ignoreArmorPierceFlags: All
+
+- type: damageModifierSet
+  id: RotHulk
+  coefficients:
+    Poison: 0
+    Radiation: 0
+    Piercing: 0.7
+    Blunt: 0.8
+    Slash: 0.9
+    Heat: 1.5

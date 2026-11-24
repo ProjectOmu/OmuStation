@@ -91,8 +91,7 @@
   - type: SummonRotHulk
     searchRadius: 4 # Omu edit start: more things count as trash but need more of it.
     trashTag: Trash
-    minTrash: 20
-    BuffThreshold: 40
+    minTrash: 15
     maxTrash: 100 # Omu edit end
   - type: Defile
     reagents:
