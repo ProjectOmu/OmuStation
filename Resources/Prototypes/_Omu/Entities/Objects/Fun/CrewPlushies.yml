@@ -497,6 +497,48 @@
 
 - type: entity
   parent: BasePlushie
+  id: PlushieRyneOmuCrew
+  name: ryne-137 plushie
+  description: A stuffed IPC. He has a name, you know.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/Plushies/ryne137.rsi
+    state: icon
+  - type: Item
+    sprite: _Omu/Objects/Fun/Plushies/ryne137.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Omu/Objects/Fun/Plushies/ryne137.rsi
+    slots:
+    - HEAD
+  - type: EmitSoundOnPickup
+    sound: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Machines/chime.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Machines/chime.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Machines/chime.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnThrow
+    sound:
+      collection: SiliconScreams
+      params:
+        volume: -4
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit: /Audio/_EinsteinEngines/Voice/IPC/robot-laugh_3.ogg
+
+- type: entity
+  parent: BasePlushie
   id: PlushieHaashaOmuCrew
   name: haasha plushie
   description: "It's a bright neon-pink plushie of Haasha! The tag reads 'Omnizine for everyone!*' *Omnizine not guaranteed. Consult Haasha before demanding!"
@@ -576,7 +618,7 @@
 
 - type: entity
   parent: BasePlushie
-  id: PlushieVeron612crew
+  id: PlushieVeron612OmuCrew
   name: veron-612 plushie
   description: A defective combat unit turned into 'The Best Doctor'(self-proclaimed) in NT!
   components:
