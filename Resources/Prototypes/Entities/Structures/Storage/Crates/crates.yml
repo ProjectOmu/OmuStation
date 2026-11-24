@@ -929,18 +929,3 @@
   - type: StealthOnMove
     passiveVisibilityRate: -0.10
     movementVisibilityRate: 0.10
-
-- type: entity
-  parent: CrateBaseSecure
-  id: CrateRadiationResistant
-  name: radiation resistant crate
-  description: A large crate for storing radioactive items.
-  components:
-  - type: Icon
-    sprite: Structures/Storage/Crates/plasma.rsi
-  - type: Sprite
-    sprite: Structures/Storage/Crates/plasma.rsi
-  - type: AccessReader
-    access: [["Engineering"], ["Research"], ["Cargo"]]
-  - type: RadiationBlockingContainer
-    decay: 20
