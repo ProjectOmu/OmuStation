@@ -54,3 +54,15 @@
   description: manual-control-gamerule-description
   rules:
   - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretDoublePlusMid
+  alias:
+  - secretdoubleplusmid
+  - secretdoubleplus
+  name: secretdoubleplus-mid-title
+  description: secretdoubleplus-mid-description
+  showInVote: true
+  rules:
+  - SecretDoublePlusMid
+  - MeteorSwarmScheduler

@@ -62,4 +62,11 @@ public sealed partial class OmuCVars
 
     public static readonly CVarDef<int> PollBulkRateLimitCount =
         CVarDef.Create("omu.poll_bulk_rate_limit_count", 60, CVar.SERVER | CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Whether verbose logs should be output to Admin Chat when a game director is rolling antags.
+    ///     Used by SecretDoublePlus.
+    /// </summary>
+    public static readonly CVarDef<bool> VerboseGameDirectorChatLogs =
+        CVarDef.Create("omu.verbose_game_director_chat_logs", false, CVar.SERVER | CVar.SERVERONLY);
 }
