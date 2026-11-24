@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 270.1.0
+  engineVersion: 270.1.8
   forkId: ""
   forkVersion: ""
-  time: 08/31/2026 12:52:15
-  entityCount: 36107
+  time: 11/08/2026 20:13:48
+  entityCount: 36113
 maps:
 - 1
 grids:
@@ -21297,7 +21297,7 @@ entities:
       pos: 72.5,-11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -73790.42
+      secondsUntilStateChange: -74099.06
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -166421,6 +166421,7 @@ entities:
       stampedBy:
       - hasIcon: True
         stampFont: null
+        stampLargePath: null
         stampLargeIcon: null
         stampedColor: '#323232FF'
         stampedName: stamp-component-stamped-name-greytide
@@ -166473,6 +166474,7 @@ entities:
       stampedBy:
       - hasIcon: True
         stampFont: null
+        stampLargePath: null
         stampLargeIcon: null
         stampedColor: '#C69B17FF'
         stampedName: stamp-component-stamped-name-ce
@@ -166732,6 +166734,7 @@ entities:
       stampedBy:
       - hasIcon: True
         stampFont: null
+        stampLargePath: null
         stampLargeIcon: null
         stampedColor: '#2F4F4FFF'
         stampedName: John Cadet
@@ -189805,6 +189808,13 @@ entities:
     - type: Transform
       pos: 78.5,50.5
       parent: 2
+- proto: SpawnPointCargoBosun
+  entities:
+  - uid: 30421
+    components:
+    - type: Transform
+      pos: 0.5,-20.5
+      parent: 2
 - proto: SpawnPointCargoTechnician
   entities:
   - uid: 28717
@@ -189893,6 +189903,13 @@ entities:
     - type: Transform
       pos: -22.5,41.5
       parent: 2
+- proto: SpawnPointEngineeringForeman
+  entities:
+  - uid: 36112
+    components:
+    - type: Transform
+      pos: 73.5,-0.5
+      parent: 2
 - proto: SpawnPointHeadOfPersonnel
   entities:
   - uid: 28730
@@ -189970,6 +189987,18 @@ entities:
     - type: Transform
       pos: -22.5,61.5
       parent: 2
+- proto: SpawnPointLogisticsAssistant
+  entities:
+  - uid: 35036
+    components:
+    - type: Transform
+      pos: 1.5,-20.5
+      parent: 2
+  - uid: 36107
+    components:
+    - type: Transform
+      pos: 2.5,-20.5
+      parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
   - uid: 28743
@@ -190023,6 +190052,13 @@ entities:
     components:
     - type: Transform
       pos: 7.5,65.5
+      parent: 2
+- proto: SpawnPointMedicalMedicus
+  entities:
+  - uid: 36113
+    components:
+    - type: Transform
+      pos: 7.5,68.5
       parent: 2
 - proto: SpawnPointMime
   entities:
@@ -190226,6 +190262,13 @@ entities:
     components:
     - type: Transform
       pos: 20.5,-32.5
+      parent: 2
+- proto: SpawnPointScienceProfessor
+  entities:
+  - uid: 36111
+    components:
+    - type: Transform
+      pos: 30.5,-47.5
       parent: 2
 - proto: SpawnPointScientist
   entities:
