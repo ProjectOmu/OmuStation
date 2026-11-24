@@ -386,3 +386,15 @@
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterMedicusLabCoatLong]
   id: ClothingOuterMedicusLabCoatLongOpened
   name: medicus' longcoat
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterRefereeJacket
+  name: referee jacket
+  description: A cheap, thin striped jacket. It’s not the size of the dog in the fight, but the size of the fight in the dog.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/OuterClothing/Coats/refereejacket.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/OuterClothing/Coats/refereejacket.rsi
+

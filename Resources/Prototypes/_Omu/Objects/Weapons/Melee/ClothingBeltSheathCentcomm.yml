@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingBeltSheath
+  id: ClothingBeltSheathCentralCommand
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Belt/clothingbeltsheathcentcomm.rsi
+    state: Sheath
+  - type: Clothing
+    sprite: _Omu/Clothing/Belt/clothingbeltsheathcentcomm.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - CCSabre
+  - type: ItemMapper
+    mapLayers:
+      SheathFilled:
+        whitelist:
+          tags:
+          - CCSabre
+  - type: Appearance
+
+- type: entity
+  id: ClothingBeltSheathCentralCommandFilled
+  parent: ClothingBeltSheathCentralCommand
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - CentCommJustice

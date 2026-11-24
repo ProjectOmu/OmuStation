@@ -1,8 +1,36 @@
+# for off-coat
+- type: loadoutEffectGroup
+  id: VeteranHoS
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobHeadOfSecurity
+      time: 180000 # 50 hrs
+
+# Neck
+- type: loadout
+  id: HeadofSecurityOffcoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranHoS
+  equipment:
+    neck: ClothingNeckCloakHOSCoat
+
 # OuterClothing
 - type: loadout
   id: ClothingHOSWinterJacket
   equipment:
     outerClothing: ClothingOuterCoatHOSWinterCoat
+
+- type: loadout
+  id: HeadofSecurityGloveJacket
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Xelthia
+  equipment:
+    outerClothing: ClothingOuterJacketInsulatedHoS
 
 # Jumpsuits / Jumpskirts
 - type: loadout

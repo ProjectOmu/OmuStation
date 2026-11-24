@@ -36,6 +36,17 @@
       - BlueshieldOfficer
 
 - type: entity
+  parent: ClothingNeckMantleCCOMantle
+  id: ClothingNeckMantleCCOPrideMantle
+  name: CentComm pride ommantle
+  description: The commander's signature wrap, designed as a part of a uniform explicitly designed to torment her. Now with in built microchips, and pride pins!
+  components:
+  - type: Sprite
+    sprite:  _Omu/Clothing/Neck/Mantle/CCOpridemmantle.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Mantle/CCOpridemmantle.rsi
+
+- type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckMantleCMOModern
   name: chief medical officer's modern mantle
@@ -45,6 +56,17 @@
     sprite: _Omu/Clothing/Neck/Mantle/cmomantle.rsi
   - type: Clothing
     sprite: _Omu/Clothing/Neck/Mantle/cmomantle.rsi
+
+- type: entity
+  parent: ClothingPrideMantleBase
+  id: ClothingNeckMantlePlural
+  name: plural mantle
+  description: A soft, colorful mantle celebrating the many voices, identities, and experiences that make up one collective.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Mantle/pluralmantle.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Mantle/pluralmantle.rsi
 
 - type: entity
   parent: [ClothingNeckBase, BaseEngineeringContraband]

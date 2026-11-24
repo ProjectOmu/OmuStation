@@ -1,0 +1,1 @@
+airlock-component-cannot-pry-is-ineffective = This tool is ineffective!
