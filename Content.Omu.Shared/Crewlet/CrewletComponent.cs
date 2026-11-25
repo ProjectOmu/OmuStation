@@ -29,9 +29,6 @@ public sealed partial class CrewletComponent : Component
     public float FixtureScale = 0.85f;
 
     [DataField]
-    public Color EyeColor = Color.Red;
-
-    [DataField]
     public ProtoId<DamageModifierSetPrototype> DamageModifierSet = "CrewletProtection";
 
     [DataField]

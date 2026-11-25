@@ -92,6 +92,26 @@
       path: /Audio/_EinsteinEngines/Effects/Shadowkin/darkswapoff.ogg
 
 - type: entity
+  id: CrewletFleshForm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Mobs/Aliens/flesh.rsi
+    scale: 0.55, 0.55
+    layers:
+    - map: [ "base" ]
+      state: jared
+  - type: RandomSprite
+    available:
+    - base:
+        jared: ""
+        golem: ""
+        clamp: ""
+        lover: ""
+
+- type: entity
   parent: CrewletFlicker
   id: CrewletOmenGlow
   categories: [ HideSpawnMenu ]

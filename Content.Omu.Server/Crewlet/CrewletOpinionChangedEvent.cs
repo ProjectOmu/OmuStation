@@ -18,4 +18,5 @@ public enum CrewletOpinionReason
     Shoved,
     Medicated,
     InjectedPoison,
+    OwnerHurt,
 }
