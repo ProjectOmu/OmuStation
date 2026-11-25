@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 270.1.0
+  engineVersion: 270.1.8
   forkId: ""
   forkVersion: ""
-  time: 10/06/2026 02:52:34
-  entityCount: 27784
+  time: 11/08/2026 21:50:00
+  entityCount: 27790
 maps:
 - 1
 grids:
@@ -11502,7 +11502,7 @@ entities:
       pos: -42.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -23124.184
+      secondsUntilStateChange: -23234.273
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -124346,6 +124346,7 @@ entities:
       stampedBy:
       - hasIcon: True
         stampFont: null
+        stampLargePath: null
         stampLargeIcon: null
         stampedColor: '#2F4F4FFF'
         stampedName: Fixes-the-shuttle
@@ -142838,6 +142839,13 @@ entities:
     - type: Transform
       pos: 11.5,5.5
       parent: 2
+- proto: SpawnPointCargoBosun
+  entities:
+  - uid: 27787
+    components:
+    - type: Transform
+      pos: -32.5,5.5
+      parent: 2
 - proto: SpawnPointCargoTechnician
   entities:
   - uid: 21254
@@ -142926,6 +142934,13 @@ entities:
     - type: Transform
       pos: 11.5,27.5
       parent: 2
+- proto: SpawnPointEngineeringForeman
+  entities:
+  - uid: 27790
+    components:
+    - type: Transform
+      pos: 51.5,14.5
+      parent: 2
 - proto: SpawnPointHeadOfPersonnel
   entities:
   - uid: 21266
@@ -143013,6 +143028,18 @@ entities:
     - type: Transform
       pos: -25.5,-16.5
       parent: 2
+- proto: SpawnPointLogisticsAssistant
+  entities:
+  - uid: 27785
+    components:
+    - type: Transform
+      pos: -33.5,4.5
+      parent: 2
+  - uid: 27786
+    components:
+    - type: Transform
+      pos: -31.5,6.5
+      parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
   - uid: 21281
@@ -143051,6 +143078,13 @@ entities:
     components:
     - type: Transform
       pos: -35.5,-34.5
+      parent: 2
+- proto: SpawnPointMedicalMedicus
+  entities:
+  - uid: 27788
+    components:
+    - type: Transform
+      pos: -35.5,-33.5
       parent: 2
 - proto: SpawnPointMime
   entities:
@@ -143174,11 +143208,6 @@ entities:
       parent: 2
 - proto: SpawnPointResearchAssistant
   entities:
-  - uid: 21302
-    components:
-    - type: Transform
-      pos: 23.5,-56.5
-      parent: 2
   - uid: 21303
     components:
     - type: Transform
@@ -143188,6 +143217,11 @@ entities:
     components:
     - type: Transform
       pos: 25.5,-56.5
+      parent: 2
+  - uid: 27789
+    components:
+    - type: Transform
+      pos: 26.5,-56.5
       parent: 2
 - proto: SpawnPointResearchDirector
   entities:
@@ -143226,6 +143260,13 @@ entities:
     components:
     - type: Transform
       pos: -41.5,24.5
+      parent: 2
+- proto: SpawnPointScienceProfessor
+  entities:
+  - uid: 21302
+    components:
+    - type: Transform
+      pos: 27.5,-56.5
       parent: 2
 - proto: SpawnPointScientist
   entities:
