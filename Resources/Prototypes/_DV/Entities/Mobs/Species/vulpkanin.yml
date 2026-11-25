@@ -10,6 +10,9 @@
   - type: HumanoidAppearance
     species: Vulpkanin
     # Omu start
+    hideLayersOnEquip:
+    - Hair
+    - Snout # Hide snout markings under helmets/mantles
     markingsDisplacement:
       Chest:
         sizeMaps:
