@@ -26,4 +26,13 @@ public sealed partial class LobbyBackgroundPrototype : IPrototype
 
     [DataField("artist")]
     public string? Artist;
+
+    // Omu - weighted lobby backgrounds
+    /// <summary>
+    /// Relative chance of this background being picked, compared to the others.
+    /// A background with weight 0.5 shows up half as often as one with the default weight of 1.
+    /// Weights of 0 or less remove the background from the rotation.
+    /// </summary>
+    [DataField("weight")]
+    public float Weight = 1f;
 }
