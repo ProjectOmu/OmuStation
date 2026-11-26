@@ -174,7 +174,7 @@
         - to: start
           completed:
             - !type:GivePrototype
-              Prototype: SheetRUGlass1
+              prototype: SheetRUGlass1
               amount: 1
             - !type:DeleteEntity {}
           steps:
