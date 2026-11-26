@@ -187,3 +187,21 @@
               doAfter: 2
             - tool: Anchoring
               doAfter: 3
+
+    - node: BananiumReinforcedWindowDirectional
+      entity: BananiumReinforcedWindowDirectional
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: ReinforcedGlass
+              amount: 1
+            - !type:GivePrototype
+              prototype: MaterialBananium
+              amount: 1
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Prying
+              doAfter: 3
+            - tool: Welding
+              doAfter: 10

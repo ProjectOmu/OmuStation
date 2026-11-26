@@ -578,11 +578,11 @@
   canRotate: false
 
 - type: construction
-  id: BananiumWindowDiagonal
-  name: construction-recipe-bananium-window-diagonal
-  graph: WindowDiagonal
+  id: BananiumReinforcedWindowDirectional
+  name: construction-recipe-bananium-window-directional
+  graph: WindowDirectional
   startNode: start
-  targetNode: bananiumWindowDiagonal
+  targetNode: reinforcedBananiumWindowDiagonal
   category: construction-category-structures
   canBuildInImpassable: true
   conditions:
@@ -593,7 +593,6 @@
 
 - type: construction
   id: ReinforcedBananiumWindowDiagonal
-  name: construction-recipe-reinforced-bananium-window-diagonal
   graph: WindowDiagonal
   startNode: start
   targetNode: reinforcedBananiumWindowDiagonal
