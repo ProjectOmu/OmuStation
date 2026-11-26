@@ -515,4 +515,11 @@ public enum LogType
     SiliconLaws = 10005, // Goobstation
     AdminRefund = 203,
     AtmosDirectionChanged = 204,
+
+    // Omu start
+
+    /// <summary>
+    /// SecretDoublePlus related game interactions.
+    /// </summary>
+    SecretDoublePlus = 20001, // Omu
 }
