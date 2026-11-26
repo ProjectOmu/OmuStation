@@ -1,0 +1,171 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: ReinforcedBananium
+  name: reinforced bananium window
+  parent: [BaseDeltaPressureReinforcedPlasma, WindowRCDResistant]
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: Structures/Windows/reinforced_bananium_window.rsi
+  - type: Icon
+    sprite: Structures/Windows/reinforced_bananium_window.rsi
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: RGlass
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 210
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 105
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialBananium:
+            min: 1
+            max: 2
+          ShardGlass:
+            min: 1
+            max: 2
+          PartRodMetal:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: IconSmooth
+    base: rbwindow
+  - type: Construction
+    graph: Window
+    node: reinforcedBananiumWindow
+  - type: Appearance
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    damageDivisor: 6
+    trackAllDamage: true
+    damageOverlay:
+      sprite: Structures/Windows/cracks.rsi
+  - type: StaticPrice
+    price: 215
+  - type: RadiationBlocker
+    resistance: 40 # Goobstation - Radiation Overhaul
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WindowCosmicCult
+
+- type: entity
+  id: BananiumReinforcedWindowDirectional
+  parent: [BaseDeltaPressureReinforcedPlasmaQuarter, WindowDirectionalRCDResistant]
+  name: directional reinforced bananium window
+  description: Don't smudge up the glass down there.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Window
+  components:
+  - type: Sprite
+    sprite: Structures/Windows/directional.rsi
+    state: bananium_reinforced_window
+  - type: Icon
+    sprite: Structures/Windows/directional.rsi
+    state: bananium_reinforced_window
+  - type: Construction
+    graph: WindowDirectional
+    node: BananiumReinforcedWindowDirectional
+  - type: Appearance
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    damageDivisor: 3
+    trackAllDamage: true
+    damageOverlay:
+      sprite: Structures/Windows/cracks_directional.rsi
+  - type: Damageable
+    damageModifierSet: RGlass
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 105
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 53
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialBananium:
+            min: 1
+            max: 2
+          ShardGlass:
+            min: 1
+            max: 2
+          PartRodMetal:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 110
+  - type: RadiationBlocker
+    resistance: 20 # Goobstation - Radiation Overhaul
+
+- type: entity
+  parent: ReinforcedBananiumWindow
+  id: ReinforcedBananiumWindowDiagonal
+  suffix: diagonal
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Window
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: Structures/Windows/reinforced_bananium_diagonal.rsi
+    state: state0
+  - type: Tag
+    tags:
+    - Diagonal
+    - Window
+  - type: IconSmooth
+    mode: Diagonal
+    key: windows
+    base: state
+  - type: Icon
+    sprite: Structures/Windows/reinforced_bananium_diagonal.rsi
+    state: state0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PolygonShape
+            vertices:
+            - "-0.5,-0.5"
+            - "0.5,0.5"
+            - "0.5,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+    - South
+    - East
+  - type: DamageVisuals
+    damageOverlay:
+      sprite: Structures/Windows/cracks_diagonal.rsi
+  - type: Construction
+    graph: WindowDiagonal
+    node: reinforcedBananiumWindowDiagonal
