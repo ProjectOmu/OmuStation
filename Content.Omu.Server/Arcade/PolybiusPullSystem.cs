@@ -34,7 +34,7 @@ public sealed class PolybiusPullSystem : EntitySystem
 
         _caught.Clear();
 
-        var query = EntityQueryEnumerator<PolybiusPullComponent, TransformComponent>();
+        using var query = EntityQueryEnumerator<PolybiusPullComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var pull, out var xform))
         {
             if (xform.Anchored && _power.IsPowered(uid))
@@ -42,7 +42,7 @@ public sealed class PolybiusPullSystem : EntitySystem
         }
 
         _released.Clear();
-        var pulled = EntityQueryEnumerator<PolybiusPulledComponent>();
+        using var pulled = EntityQueryEnumerator<PolybiusPulledComponent>();
         while (pulled.MoveNext(out var uid, out var comp))
         {
             if (!_caught.Contains(uid))

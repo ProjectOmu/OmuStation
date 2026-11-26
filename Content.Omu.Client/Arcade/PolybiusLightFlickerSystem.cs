@@ -17,7 +17,7 @@ public sealed class PolybiusLightFlickerSystem : EntitySystem
     {
         base.FrameUpdate(frameTime);
 
-        var query = EntityQueryEnumerator<PolybiusLightFlickerComponent, PointLightComponent>();
+        using var query = EntityQueryEnumerator<PolybiusLightFlickerComponent, PointLightComponent>();
         while (query.MoveNext(out var uid, out var flicker, out var light))
         {
             if (flicker.EndTime > _timing.CurTime)

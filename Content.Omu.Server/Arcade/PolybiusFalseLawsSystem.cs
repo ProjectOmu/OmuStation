@@ -35,7 +35,7 @@ public sealed class PolybiusFalseLawsSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<PolybiusFalseLawsComponent>();
+        using var query = EntityQueryEnumerator<PolybiusFalseLawsComponent>();
         while (query.MoveNext(out var uid, out var falseLaws))
         {
             if (falseLaws.NextAlertTime > _timing.CurTime)

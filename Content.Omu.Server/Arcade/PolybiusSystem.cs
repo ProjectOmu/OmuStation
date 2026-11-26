@@ -44,7 +44,7 @@ public sealed class PolybiusSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<PolybiusArcadeComponent>();
+        using var query = EntityQueryEnumerator<PolybiusArcadeComponent>();
         while (query.MoveNext(out var uid, out var arcade))
         {
             if (arcade.SpiralEndTime is not { } endTime || endTime > _timing.CurTime)

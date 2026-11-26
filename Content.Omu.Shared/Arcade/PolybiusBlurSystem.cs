@@ -1,0 +1,35 @@
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Eye.Blinding.Systems;
+
+namespace Content.Omu.Shared.Arcade;
+
+public sealed class PolybiusBlurSystem : EntitySystem
+{
+    [Dependency] private readonly BlurryVisionSystem _blurryVision = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<PolybiusBlurComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<PolybiusBlurComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<PolybiusBlurComponent, GetBlurEvent>(OnGetBlur);
+    }
+
+    private void OnStartup(Entity<PolybiusBlurComponent> ent, ref ComponentStartup args)
+    {
+        _blurryVision.UpdateBlurMagnitude(ent.Owner);
+    }
+
+    private void OnShutdown(Entity<PolybiusBlurComponent> ent, ref ComponentShutdown args)
+    {
+        _blurryVision.UpdateBlurMagnitude(ent.Owner);
+    }
+
+    private void OnGetBlur(Entity<PolybiusBlurComponent> ent, ref GetBlurEvent args)
+    {
+        if (ent.Comp.LifeStage <= ComponentLifeStage.Running)
+            args.Blur += ent.Comp.Blur;
+    }
+}

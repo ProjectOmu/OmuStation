@@ -79,7 +79,7 @@ public sealed class PolybiusRule : StationEventSystem<PolybiusRuleComponent>
 
     private bool TrySendToTelepad(Entity<StationDataComponent> station, CargoOrderData order)
     {
-        var consoles = EntityQueryEnumerator<CargoOrderConsoleComponent, TransformComponent>();
+        using var consoles = EntityQueryEnumerator<CargoOrderConsoleComponent, TransformComponent>();
         while (consoles.MoveNext(out var uid, out var console, out var xform))
         {
             if (StationSystem.GetOwningStation(uid, xform) != station.Owner)
@@ -99,7 +99,7 @@ public sealed class PolybiusRule : StationEventSystem<PolybiusRuleComponent>
         var popup = Loc.GetString(comp.Popup, ("approver", approver));
         EntityUid? radioSource = null;
 
-        var consoles = EntityQueryEnumerator<CargoOrderConsoleComponent, TransformComponent>();
+        using var consoles = EntityQueryEnumerator<CargoOrderConsoleComponent, TransformComponent>();
         while (consoles.MoveNext(out var console, out _, out var xform))
         {
             if (StationSystem.GetOwningStation(console, xform) != station)
@@ -143,7 +143,7 @@ public sealed class PolybiusRule : StationEventSystem<PolybiusRuleComponent>
 
     private void AddStationArcades<T>(EntityUid station, List<EntityUid> arcades) where T : IComponent
     {
-        var query = EntityQueryEnumerator<T, TransformComponent>();
+        using var query = EntityQueryEnumerator<T, TransformComponent>();
         while (query.MoveNext(out var arcade, out _, out var xform))
         {
             if (StationSystem.GetOwningStation(arcade, xform) != station

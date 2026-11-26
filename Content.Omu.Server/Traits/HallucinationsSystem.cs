@@ -29,7 +29,7 @@ public sealed class HallucinationsSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<HallucinationsComponent>();
+        using var query = EntityQueryEnumerator<HallucinationsComponent>();
         while (query.MoveNext(out var uid, out var hallucinations))
         {
             if (hallucinations.NextIncidentTime > _timing.CurTime)

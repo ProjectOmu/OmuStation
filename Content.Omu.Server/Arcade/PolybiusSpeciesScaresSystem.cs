@@ -55,7 +55,7 @@ public sealed class PolybiusSpeciesScaresSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<PolybiusSpeciesScaresComponent, HumanoidAppearanceComponent>();
+        using var query = EntityQueryEnumerator<PolybiusSpeciesScaresComponent, HumanoidAppearanceComponent>();
         while (query.MoveNext(out var uid, out var scares, out var humanoid))
         {
             if (scares.PendingScare is { } pending && scares.PendingScareTime <= _timing.CurTime)

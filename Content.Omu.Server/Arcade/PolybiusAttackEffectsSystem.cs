@@ -193,7 +193,7 @@ public sealed class PolybiusAttackEffectsSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<PolybiusAttackEffectsComponent>();
+        using var query = EntityQueryEnumerator<PolybiusAttackEffectsComponent>();
         while (query.MoveNext(out var uid, out var effects))
         {
             ShowNextLine(uid, effects);
@@ -205,7 +205,8 @@ public sealed class PolybiusAttackEffectsSystem : EntitySystem
                 HoldAiEyeStill(uid);
             }
 
-            if (effects.NextUnlockTime > _timing.CurTime || !IsFreezingMachine(uid) && !HasComp<SiliconComponent>(uid))
+            if (effects.NextUnlockTime > _timing.CurTime
+                || (!IsFreezingMachine(uid) && !HasComp<SiliconComponent>(uid)))
                 continue;
 
             effects.NextUnlockTime = _timing.CurTime

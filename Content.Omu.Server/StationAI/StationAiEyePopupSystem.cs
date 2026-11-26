@@ -17,6 +17,9 @@ public sealed class StationAiEyePopupSystem : EntitySystem
 
     public void PopupToSelf(string message, EntityUid uid)
     {
-        _popup.PopupEntity(message, GetEye(uid) ?? uid, uid, PopupType.Medium);
+        if (HasComp<StationAiHeldComponent>(uid))
+            _popup.PopupCursor(message, uid, PopupType.Medium);
+        else
+            _popup.PopupEntity(message, uid, uid, PopupType.Medium);
     }
 }

@@ -2,7 +2,6 @@
 
 using System.Numerics;
 using Content.Shared.Examine;
-using Content.Shared.Silicons.StationAi;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
@@ -82,7 +81,7 @@ public sealed class PopupOverlay : Overlay
         var ourEntity = _playerMgr.LocalEntity;
         var viewPos = new MapCoordinates(args.WorldAABB.Center, args.MapId);
         var ourPos = args.WorldBounds.Center;
-        if (ourEntity != null && !_entManager.HasComponent<StationAiHeldComponent>(ourEntity)) // Omu
+        if (ourEntity != null)
         {
             viewPos = _transform.GetMapCoordinates(ourEntity.Value);
             ourPos = viewPos.Position;

@@ -35,7 +35,7 @@ public sealed class SubtleMessagesSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<SubtleMessagesComponent>();
+        using var query = EntityQueryEnumerator<SubtleMessagesComponent>();
         while (query.MoveNext(out var uid, out var messages))
         {
             if (messages.NextMessageTime > _timing.CurTime)
