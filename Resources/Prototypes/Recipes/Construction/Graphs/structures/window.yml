@@ -55,7 +55,7 @@
             - material: ReinforcedGlass
               amount: 2
               doAfter: 4
-        
+
         - to: clockworkWindow
           steps:
             - material: ClockworkGlass
@@ -234,7 +234,7 @@
               doAfter: 2
             - tool: Anchoring
               doAfter: 3
-    
+
     - node: shuttleWindow
       entity: ShuttleWindow
       edges:
