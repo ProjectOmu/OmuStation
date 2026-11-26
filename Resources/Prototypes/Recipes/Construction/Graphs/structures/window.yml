@@ -62,6 +62,7 @@
               amount: 2
               doAfter: 3
 
+        # Omu - start
         - to: reinforcedBananiumWindow
           steps:
             - material: ReinforcedGlass
@@ -70,6 +71,7 @@
             - material: Bananium
               amount: 2
               doAfter: 3
+        # Omu - end
 
     - node: window
       entity: Window
@@ -266,6 +268,7 @@
             - tool: Anchoring
               doAfter: 1
 
+    # Omu - start
     - node: reinforcedBananiumWindow
       entity: ReinforcedBananiumWindow
       edges:
@@ -283,3 +286,4 @@
               doAfter: 3
             - tool: Welding
               doAfter: 10
+    # Omu - end

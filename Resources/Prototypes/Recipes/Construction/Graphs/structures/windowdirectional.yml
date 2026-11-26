@@ -48,6 +48,7 @@
               amount: 1
               doAfter: 3
 
+        # Omu - start
         - to: BananiumReinforcedWindowDirectional
           steps:
             - material: ReinforcedGlass
@@ -56,6 +57,7 @@
             - material: Bananium
               amount: 1
               doAfter: 2
+        # Omu - start
 
     - node: windowDirectional
       entity: WindowDirectional
@@ -175,7 +177,7 @@
               prototype: ReinforcedGlass
               amount: 1
             - !type:GivePrototype
-              Prototype: MaterialBananium
+              Prototype: SheetUGGlass1
               amount: 1
             - !type:DeleteEntity {}
           steps:
@@ -188,6 +190,7 @@
             - tool: Anchoring
               doAfter: 3
 
+    # Omu - start
     - node: BananiumReinforcedWindowDirectional
       entity: BananiumReinforcedWindowDirectional
       edges:
@@ -205,3 +208,4 @@
               doAfter: 3
             - tool: Welding
               doAfter: 10
+    # Omu - end
