@@ -53,7 +53,7 @@
             - material: ReinforcedGlass
               amount: 2
               doAfter: 3
-            - material: MaterialBananium1
+            - material: Bananium
               amount: 2
               doAfter: 3
 
@@ -201,14 +201,14 @@
               doAfter: 2
             - tool: Anchoring
               doAfter: 3
-              
+
     - node: reinforcedBananiumWindowDiagonal
       entity: ReinforcedBananiumWindowDiagonal
       edges:
         - to: start
           completed:
             - !type:GivePrototype
-              prototype: MaterialBananium1
+              prototype: Bananium
               amount: 2
             - !type:GivePrototype
               prototype: ReinforcedGlass
