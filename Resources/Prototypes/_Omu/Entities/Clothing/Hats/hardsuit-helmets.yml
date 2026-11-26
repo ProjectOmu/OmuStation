@@ -113,9 +113,20 @@
         Shock: 0.5
         Caustic: 0.7
         Heat: 0.8
-        Radiation: 0.15
+        Radiation: 0.01
   - type: EyeProtection
   - type: Tag
     tags:
     - CorgiWearable
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitCombatRiot
+  id: ClothingHeadHelmetHardsuitWardenRiot
+  name: warden's riot hardsuit helmet
+  description: A heavy armoured helmet with a sealed visor and dual head-mounted lights, striped in security red.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Head/Hardsuits/warden-riot.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Head/Hardsuits/warden-riot.rsi

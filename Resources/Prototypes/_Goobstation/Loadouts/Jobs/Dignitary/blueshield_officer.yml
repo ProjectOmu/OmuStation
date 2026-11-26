@@ -135,6 +135,16 @@
   equipment:
     neck: ClothingNeckEnsembleBlueshield
 
+# Omu start
+- type: loadout
+  id: BlueshieldOfficerOffcoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorBlueshieldOfficer
+  equipment:
+    neck: ClothingNeckCloakBSOCoat
+# Omu end
+
 # Mask
 - type: loadout
   id: BlueshieldOfficerMaskLollypop

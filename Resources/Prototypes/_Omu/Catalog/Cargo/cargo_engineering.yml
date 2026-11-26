@@ -1,0 +1,19 @@
+- type: cargoProduct
+  id: ClothingOuterSuitHEV
+  icon:
+    sprite: _Goobstation/Clothing/OuterClothing/Suits/hev.rsi
+    state: icon
+  product: CrateHEV
+  cost: 15000
+  category: cargoproduct-category-name-engineering
+  group: market
+
+- type: cargoProduct
+  id: CrateRadiationResistant
+  icon:
+    sprite: Structures/Storage/Crates/radiation.rsi
+    state: icon
+  product: CrateRadiationResistant
+  cost: 500
+  category: cargoproduct-category-name-engineering
+  group: market
