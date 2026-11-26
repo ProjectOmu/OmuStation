@@ -47,7 +47,7 @@
     startAnnouncement: station-event-unknown-shuttle-incoming
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 4 #Common, but not every round
+    weight: 2 # Omu - Reduce weight
     reoccurrenceDelay: 30
     earliestStart: 20 # Goobstation
     duration: 1

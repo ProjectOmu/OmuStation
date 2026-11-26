@@ -48,7 +48,7 @@
     eventType: FreeStuff # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -15
+    chaosScore: -50 # Omu - Make gifts higher impact to chaos score
   - type: CargoGiftsRule
     description: cargo-gift-pizza-small
     dest: cargo-gift-dest-bar
@@ -73,7 +73,7 @@
     eventType: FreeStuff # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -30
+    chaosScore: -100 # Omu - Make gifts higher impact to chaos score
   - type: CargoGiftsRule
     description: cargo-gift-pizza-large
     dest: cargo-gift-dest-bar
@@ -97,7 +97,7 @@
     eventType: FreeStuffUseful # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -40
+    chaosScore: -120 # Omu - Make gifts higher impact to chaos score
   - type: CargoGiftsRule
     description: cargo-gift-eng
     dest: cargo-gift-dest-eng
@@ -124,7 +124,7 @@
     eventType: FreeStuff # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -20
+    chaosScore: -80 # Omu - Make gifts higher impact to chaos score
   - type: CargoGiftsRule
     description: cargo-gift-vending
     dest: cargo-gift-dest-supp
@@ -150,7 +150,7 @@
     eventType: FreeStuff # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -20
+    chaosScore: -80 # Omu - Make gifts higher impact to chaos score
   - type: CargoGiftsRule
     description: cargo-gift-cleaning
     dest: cargo-gift-dest-janitor
@@ -174,7 +174,7 @@
     eventType: FreeStuffUseful # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -40
+    chaosScore: -160 # Omu - Make gifts higher impact to chaos score
   - type: CargoGiftsRule
     description: cargo-gift-medical-supply
     dest: cargo-gift-dest-med
@@ -199,7 +199,7 @@
     eventType: FreeStuffUseful # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -40
+    chaosScore: -160 # Omu - Make gifts higher impact to chaos score
   - type: CargoGiftsRule
     description: cargo-gift-space-protection
     dest: cargo-gift-dest-supp
@@ -224,7 +224,7 @@
     eventType: FreeStuffUseful # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -35
+    chaosScore: -75 # Omu - Make gifts higher impact to chaos score
   - type: CargoGiftsRule
     description: cargo-gift-fire-protection
     dest: cargo-gift-dest-supp
@@ -248,7 +248,7 @@
     eventType: FreeStuffUseful # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -90
+    chaosScore: -250 # Omu - Make gifts higher impact to chaos score
   - type: CargoGiftsRule
     description: cargo-gift-security-guns
     dest: cargo-gift-dest-sec
@@ -274,7 +274,7 @@
     eventType: FreeStuffUseful # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -80
+    chaosScore: -250 # Omu - Make gifts higher impact to chaos score
   - type: CargoGiftsRule
     description: cargo-gift-security-riot
     dest: cargo-gift-dest-sec

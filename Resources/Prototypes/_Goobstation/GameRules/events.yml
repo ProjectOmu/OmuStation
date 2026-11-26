@@ -49,7 +49,7 @@
     weight: 3
     duration: 1
   - type: GameRule
-    chaosScore: 50
+    chaosScore: -50 # Omu - Extra jobs can be funny when chaos is already high
   - type: JobDistributionErrorRule # Goobstation
     jobs:
     - SecurityClown
