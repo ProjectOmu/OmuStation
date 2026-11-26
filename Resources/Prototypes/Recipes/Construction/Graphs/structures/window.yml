@@ -67,7 +67,7 @@
             - material: ReinforcedGlass
               amount: 2
               doAfter: 3
-            - material: MaterialBananium
+            - material: MaterialBananium1
               amount: 2
               doAfter: 3
 
@@ -272,7 +272,7 @@
         - to: start
           completed:
             - !type:GivePrototype
-              prototype: MaterialBananium
+              prototype: MaterialBananium1
               amount: 2
             - !type:GivePrototype
               prototype: ReinforcedGlass
