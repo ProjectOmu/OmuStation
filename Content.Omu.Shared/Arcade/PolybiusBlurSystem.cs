@@ -24,6 +24,9 @@ public sealed class PolybiusBlurSystem : EntitySystem
 
     private void OnShutdown(Entity<PolybiusBlurComponent> ent, ref ComponentShutdown args)
     {
+        if (TerminatingOrDeleted(ent))
+            return;
+
         _blurryVision.UpdateBlurMagnitude(ent.Owner);
     }
 
