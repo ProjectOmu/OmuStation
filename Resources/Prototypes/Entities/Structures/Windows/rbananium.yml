@@ -3,7 +3,7 @@
 - type: entity
   id: ReinforcedBananiumWindow
   name: reinforced bananium window
-  parent: [BaseDeltaPressureReinforcedPlasma, WindowRCDResistant]
+  parent: [BaseDeltaPressureReinforcedPlasmaQuarter, WindowRCDResistant]
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -56,13 +56,13 @@
   - type: StaticPrice
     price: 215
   - type: RadiationBlocker
-    resistance: 40 # Goobstation - Radiation Overhaul
-  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    resistance: 40
+  - type: CosmicCorruptible
     convertTo: WindowCosmicCult
 
 - type: entity
   id: BananiumReinforcedWindowDirectional
-  parent: [BaseDeltaPressureReinforcedPlasmaQuarter, WindowDirectionalRCDResistant]
+  parent: [BaseDeltaPressurePlasmaQuarter, WindowDirectionalRCDResistant]
   name: directional reinforced bananium window
   description: Don't smudge up the glass down there.
   placement:
@@ -106,20 +106,20 @@
       - !type:SpawnEntitiesBehavior
         spawn:
           MaterialBananium:
-            min: 1
-            max: 2
+            min: 0
+            max: 1
           ShardGlass:
-            min: 1
-            max: 2
+            min: 0
+            max: 1
           PartRodMetal:
-            min: 1
-            max: 2
+            min: 0
+            max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: StaticPrice
     price: 110
   - type: RadiationBlocker
-    resistance: 20 # Goobstation - Radiation Overhaul
+    resistance: 20
 
 - type: entity
   parent: ReinforcedBananiumWindow

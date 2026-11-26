@@ -194,10 +194,10 @@
         - to: start
           completed:
             - !type:GivePrototype
-              prototype: ReinforcedGlass
+              prototype: ReinforcedGlass1
               amount: 1
             - !type:GivePrototype
-              prototype: Bananium
+              prototype: MaterialBananium1
               amount: 1
             - !type:DeleteEntity {}
           steps:

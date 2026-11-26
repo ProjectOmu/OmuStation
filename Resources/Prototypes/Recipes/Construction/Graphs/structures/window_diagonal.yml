@@ -211,10 +211,10 @@
         - to: start
           completed:
             - !type:GivePrototype
-              prototype: Bananium
+              prototype: MaterialBananium1
               amount: 2
             - !type:GivePrototype
-              prototype: ReinforcedGlass
+              prototype: ReinforcedGlass1
               amount: 2
             - !type:DeleteEntity {}
           steps:
