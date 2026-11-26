@@ -25,5 +25,7 @@ construction-recipe-pinion-airlock-glass = glass clockwork airlock
 construction-recipe-airlock-glass-shuttle = glass shuttle airlock
 construction-recipe-plastic-flaps-clear = plastic flaps (clear)
 construction-recipe-plastic-flaps-opaque = plastic flaps (opaque)
+# Omu - start
 construction-recipe-reinforced-bananium-window-diagonal = reinforced bananium window (diagonal)
 construction-recipe-bananium-window-directional = directional reinforced bananium window
+# Omu - end
