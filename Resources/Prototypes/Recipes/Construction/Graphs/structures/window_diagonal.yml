@@ -48,6 +48,15 @@
               amount: 2
               doAfter: 3
 
+        - to: reinforcedBananiumWindowDiagonal
+          steps:
+            - material: ReinforcedGlass
+              amount: 2
+              doAfter: 3
+            - material: MaterialBananium
+              amount: 2
+              doAfter: 3
+
     - node: windowDiagonal
       entity: WindowDiagonal
       edges:
@@ -192,3 +201,21 @@
               doAfter: 2
             - tool: Anchoring
               doAfter: 3
+              
+    - node: reinforcedBananiumWindowDiagonal
+      entity: ReinforcedBananiumWindowDiagonal
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialBananium
+              amount: 2
+            - !type:GivePrototype
+              prototype: ReinforcedGlass
+              amount: 2
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Prying
+              doafter: 3
+            - tool: Welding
+              doafter: 10

@@ -48,6 +48,15 @@
               amount: 1
               doAfter: 3
 
+        - to: BananiumReinforcedWindowDirectional
+          steps:
+            - material: ReinforcedGlass
+              amount: 1
+              doAfter: 2
+            - material: MaterialBananium
+              amount: 1
+              doAfter: 2
+
     - node: windowDirectional
       entity: WindowDirectional
       edges:
@@ -163,7 +172,10 @@
         - to: start
           completed:
             - !type:GivePrototype
-              prototype: SheetRUGlass1
+              prototype: ReinforcedGlass
+              amount: 1
+            - !type:GivePrototype
+              Prototype: MaterialBananium
               amount: 1
             - !type:DeleteEntity {}
           steps:
