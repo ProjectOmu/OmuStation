@@ -19,6 +19,7 @@ public sealed class AddChaosCommand : ChaosCommand, IConsoleCommand
         if (!TryGetComponent(shell, out var component))
             return;
 
+        LogMessage(shell.Player, $"added {chaos} chaos score");
         component.PendingOperations.Enqueue(new ChaosOperation(ChaosOperationType.Add, (float) chaos));
     }
 }

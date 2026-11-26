@@ -19,6 +19,7 @@ public sealed class SetChaosCommand : ChaosCommand, IConsoleCommand
         if (!TryGetComponent(shell, out var component))
             return;
 
+        LogMessage(shell.Player, $"set chaos score to {chaos}");
         component.PendingOperations.Enqueue(new ChaosOperation(ChaosOperationType.Set, (float) chaos));
     }
 }
