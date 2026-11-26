@@ -219,7 +219,7 @@
             - !type:DeleteEntity {}
           steps:
             - tool: Prying
-              doafter: 3
+              doAfter: 3
             - tool: Welding
-              doafter: 10
+              doAfter: 10
     # Omu - end
