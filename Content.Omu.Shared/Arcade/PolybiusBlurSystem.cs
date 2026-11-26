@@ -17,7 +17,7 @@ public sealed class PolybiusBlurSystem : EntitySystem
         SubscribeLocalEvent<PolybiusBlurComponent, GetBlurEvent>(OnGetBlur);
     }
 
-    private void OnStartup(Entity<PolybiusBlurComponent> ent, ref ComponentStartup args)
+    private void OnMapInit(Entity<PolybiusBlurComponent> ent, ref MapInitEvent args)
     {
         _blurryVision.UpdateBlurMagnitude(ent.Owner);
     }
