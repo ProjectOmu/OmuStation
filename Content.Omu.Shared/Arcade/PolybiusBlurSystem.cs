@@ -12,7 +12,7 @@ public sealed class PolybiusBlurSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PolybiusBlurComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<PolybiusBlurComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<PolybiusBlurComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<PolybiusBlurComponent, GetBlurEvent>(OnGetBlur);
     }
