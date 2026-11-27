@@ -1,0 +1,17 @@
+polybius-arcade-title = Polybius
+polybius-arcade-play = PLAY
+polybius-arcade-play-popup = Huh?
+polybius-silicon-diagnostic-start = RUNNING EMERGENCY SYSTEM DIAGNOSTICS
+polybius-silicon-diagnostic-end = DIAGNOSTICS COMPLETE. YOU WILL NOT REMEMBER THIS
+polybius-silicon-unlock-popup = You feel your chassis unlock!
+polybius-ai-intruder-popup = Someone is in your core!
+polybius-forgotten-popup = Wait, what was that game called again?
+polybius-paranoia-start = Why is everyone looking at you?
+polybius-paranoia-end = Act natural. They're watching.
+polybius-scare-answer = Something called back.
+polybius-scare-plasmaman = Your suit's seal is failing!
+polybius-scare-vox = Did your tank just turn off?
+polybius-scare-harpy = Someone nearby is singing your song wrong.
+polybius-scare-feather = A feather falls next to you. It's not yours.
+polybius-scare-resomi = It's so hot in here. Why is it so hot in here?
+polybius-scare-allulalo = Your heart skips a beat.

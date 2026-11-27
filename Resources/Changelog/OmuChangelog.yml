@@ -10419,3 +10419,243 @@ Entries:
       message: Lamarr no longer hugs faces.
   id: 1337
   time: '2026-11-21T21:49:16.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: Prying logic has been updated to be dependent on power.
+  id: 1338
+  time: '2026-11-22T20:53:07.0000000+00:00'
+- author: Waterwithoutanyice
+  changes:
+    - type: Add
+      message: >-
+        Added spawn points and role slots for Foreman, Bosun, Medicus,
+        Professor, and Logistics assistant to Tram station
+  id: 1339
+  time: '2026-11-22T21:02:38.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        on Delta, the TEG room has been rewired to ensure that it is powered
+        correctly
+    - type: Tweak
+      message: On Bagel and Kettle, added a few MV wires to their respective PA setups
+    - type: Tweak
+      message: re-moved the stray pipe in Origin's atmos
+    - type: Tweak
+      message: On Bagel, made atmos bigger
+    - type: Remove
+      message: On Bagel, stripped most of the SM setup.
+  id: 1340
+  time: '2026-11-22T21:12:55.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: >-
+        On Oasis, Ripped up part of the SM's setup, should be easier to work
+        with
+    - type: Tweak
+      message: On Oasis, reinforced the SM to no longer leak into surrounding areas
+    - type: Tweak
+      message: On Oasis, moved the TEG to another room
+    - type: Tweak
+      message: On Oasis, recoloured the the pipes in Atmos
+    - type: Tweak
+      message: On Oasis, slightly redesigned the burn chamber
+    - type: Tweak
+      message: On Oasis, removed the Clockwork cult's shrine
+    - type: Tweak
+      message: On Oasis, reduced the size of the canister storage
+    - type: Tweak
+      message: On Oasis, recoloured the Waste/Distro pipes to their respective colours
+    - type: Tweak
+      message: >-
+        On Oasis, slightly redesigned the smoke break area to the left of atmos
+        and it's associated maints
+    - type: Tweak
+      message: On Oasis, the HV wires now lead out to the Singulo chamber
+    - type: Tweak
+      message: On Oasis, wired the CE's room to be powered correctly
+    - type: Tweak
+      message: >-
+        On Oasis, chopped up the three daisychained APC for
+        Engineering/Atmos/Cargo into three smaller networks
+    - type: Tweak
+      message: On Oasis, anchored the radiators on the left side of the SM's chamber
+    - type: Tweak
+      message: On Oasis, moved the HVE suits to out of the SM chamber
+    - type: Tweak
+      message: >-
+        On Oasis, moved the buttons from the inside to the outside of the PA
+        chamber
+    - type: Tweak
+      message: On Oasis, moved the det's office to the right of security
+    - type: Tweak
+      message: >-
+        On Oasis, replaced all of sci's glass with plasma glass. this should
+        help with radiation and the inevitable explosions.
+    - type: Tweak
+      message: >-
+        On Oasis, moved a few firelocks near sci around, their explosions should
+        no longer space the entire station
+    - type: Tweak
+      message: >-
+        On Oasis, Replaced most instances of regular glass with it's reinforced
+        variants. This should prevent tiders from breaking into a lot of areas
+        they shouldn't be able to anymore.
+    - type: Tweak
+      message: On Oasis, Captain's bathroom is now MUCH bigger than before.
+    - type: Tweak
+      message: >-
+        On Oasis, the CC stamped paper outside of the ward's office is now read
+        only...
+    - type: Tweak
+      message: On Oasis, medical's lathe & paramed doors are no longer all access
+  id: 1341
+  time: '2026-11-22T21:13:51.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Fix
+      message: >-
+        Administrative assistants, roboticists, and tram drivers can now select
+        animals in their loadouts (like every other job can).
+  id: 1342
+  time: '2026-11-23T03:33:45.0000000+00:00'
+- author: izzwu
+  changes:
+    - type: Tweak
+      message: Tweaked the expendable LMG crate name and description.
+  id: 1343
+  time: '2026-11-23T03:36:37.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Add
+      message: >-
+        The Guidebook's "Medicine" tab under Tables & References > Chemicals >
+        Medicine features a proper categorization of medications, including a
+        standardization of what "T1" through "T4" actually mean. It should be
+        much more friendly for new chemists.
+  id: 1344
+  time: '2026-11-23T17:37:51.0000000+00:00'
+- author: Cheesedinks
+  changes:
+    - type: Add
+      message: '"Whoops" is now in the lobby art selection.'
+  id: 1345
+  time: '2026-11-24T06:03:33.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Oasis cargo and atmos no longer start spaced.
+  id: 1346
+  time: '2026-11-24T11:54:07.0000000+00:00'
+- author: Waterwithoutanyice
+  changes:
+    - type: Add
+      message: >-
+        Added spawn points and role slots for Foreman, Bosun, Medicus,
+        Professor, and Logistics assistant to Cluster station
+  id: 1347
+  time: '2026-11-24T12:27:35.0000000+00:00'
+- author: Waterwithoutanyice
+  changes:
+    - type: Add
+      message: >-
+        Added spawn points and role slots for Foreman, Bosun, Medicus,
+        Professor, and Logistics assistant to Cog station
+  id: 1348
+  time: '2026-11-24T12:27:59.0000000+00:00'
+- author: Waterwithoutanyice
+  changes:
+    - type: Add
+      message: >-
+        Added spawn points and role slots for Foreman, Bosun, Medicus,
+        Professor, and Logistics assistant to Packed station
+  id: 1349
+  time: '2026-11-24T12:29:02.0000000+00:00'
+- author: Waterwithoutanyice
+  changes:
+    - type: Add
+      message: >-
+        Added spawn points and role slots for Foreman, Bosun, Medicus,
+        Professor, and Logistics assistant to Omega station
+  id: 1350
+  time: '2026-11-24T12:29:50.0000000+00:00'
+- author: Andyspins
+  changes:
+    - type: Add
+      message: >-
+        Admins can select a new game rule that's easier to tune and should feel
+        less extreme (have fewer greenshifts and hellshifts) than Secret+
+        Medium.
+  id: 1351
+  time: '2026-11-24T18:17:23.0000000+00:00'
+- author: asterisksoda
+  changes:
+    - type: Tweak
+      message: >-
+        Cargo Technician now requires 2H 30M of playtime in the Cargo department
+        to unlock.
+  id: 1352
+  time: '2026-11-24T20:22:02.0000000+00:00'
+- author: Waterwithoutanyice
+  changes:
+    - type: Tweak
+      message: Virologist surgery speed reduced to match paramedic and chemist.
+  id: 1353
+  time: '2026-11-25T03:05:21.0000000+00:00'
+- author: ggrab41
+  changes:
+    - type: Add
+      message: >-
+        There is now a radiation-shielded crate. It is purchasable by Cargo for
+        500 spesos.
+  id: 1354
+  time: '2026-11-25T20:05:17.0000000+00:00'
+- author: Andyspins
+  changes:
+    - type: Tweak
+      message: >-
+        Increase chaos build-up in the new SecretDoublePlus game rule, which
+        should lead to fewer green shifts.
+  id: 1355
+  time: '2026-11-26T04:16:56.0000000+00:00'
+- author: BoiWab
+  changes:
+    - type: Fix
+      message: 'Vulpkanin snout markings no longer clip through some headwear. '
+  id: 1356
+  time: '2026-11-26T16:26:29.0000000+00:00'
+- author: Andyspins
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced some antags chaos generation in SecretDoublePlus, which should
+        lead to more midround spawns in some cases
+  id: 1357
+  time: '2026-11-26T16:40:02.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        Security Prybars no longer come in Security/Blueshield Officer survival
+        boxes; the SecTech instead stocks 8 prybars.
+    - type: Tweak
+      message: Security Prybars can pry powered firelocks.
+  id: 1358
+  time: '2026-11-26T18:19:37.0000000+00:00'
+- author: TheGreatNacho
+  changes:
+    - type: Fix
+      message: >-
+        Typo in Engineering Guidebook for BZ changed from nitroux oxide to
+        nitrous oxide.
+  id: 1359
+  time: '2026-11-26T18:20:54.0000000+00:00'
+- author: nazulinnn
+  changes:
+    - type: Add
+      message: Adds a new arcade cabinet.
+  id: 1360
+  time: '2026-11-27T05:33:32.0000000+00:00'

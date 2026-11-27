@@ -1,0 +1,32 @@
+<!-- SPDX-License-Identifier: AGPL-3.0-or-later -->
+
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+                      xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      x:Class="Content.Omu.Client.Arcade.UI.PolybiusArcadeWindow"
+                      Title="{Loc 'polybius-arcade-title'}"
+                      Resizable="False">
+    <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="8">
+        <PanelContainer MinSize="448 528">
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#000000" />
+            </PanelContainer.PanelOverride>
+            <TextureRect Name="TitleScreen"
+                         TexturePath="/Textures/_Omu/Interface/Arcade/polybius_title.png"
+                         TextureScale="2 2"
+                         Stretch="Keep" />
+            <TextureRect Name="GlitchScreen"
+                         TexturePath="/Textures/_Omu/Interface/Arcade/polybius_glitch.png"
+                         TextureScale="2 2"
+                         Stretch="Keep"
+                         Visible="False" />
+            <Label Name="SubliminalLabel"
+                   Align="Center"
+                   VAlign="Center"
+                   FontColorOverride="#FFFFFF"
+                   Visible="False" />
+        </PanelContainer>
+        <Button Name="PlayButton" Text="{Loc 'polybius-arcade-play'}" />
+    </BoxContainer>
+</controls:FancyWindow>
