@@ -1,0 +1,89 @@
+- type: entity
+  parent: [BaseStructure, BaseSyndicateContraband]
+  id: AssembledSyndicateAutocannon
+  name: syndicate autocannon
+  description: A massive machinegun assembly mounted to a base. Accepts .30 rifle L6 magazines and fires them at a blistering fast pace. Fires in 7 round bursts. Useful for mounting in narrow hallways or shuttles
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+    sprite: _Omu/Structures/Cannons/syndicate_autocannon.rsi
+  - type: Gun
+    projectileSpeed: 40
+    fireRate: 0.3
+    minAngle: 1
+    maxAngle: 12
+    angleIncrease: 2
+    angleDecay: 35
+    burstFireRate: 13 # For reference, L6 is 8
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    shotsPerBurst: 7 # 96 damage per burst against unarmored
+    soundGunshot:
+      path: /Audio/_Omu/Weapons/penmanfire.ogg
+  - type: MagazineAmmoProvider
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineLightRifleBox
+        startingItem: MagazineLightRifleBox
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+          params:
+            pitch: 1.5
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+  - type: Anchorable
+  - type: AmmoCounter
+  - type: GunSignalControl
+    forceAdditionalTriggers: false
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: Rotatable
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+
+- type: entity
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: DisassembledSyndicateAutocannon
+  name: disassembled syndicate autocannon
+  description: A large box containing a disassembled syndicate autocannon. Anchored on assembly. Once assembled, cannot be disassembled.
+  components:
+  - type: Item
+    size: Huge
+  - type: Sprite
+    sprite: _Omu/Structures/Cannons/syndicate_autocannon.rsi
+    state: box
+  - type: SpawnItemsOnUse
+    items:
+    - id: AssembledSyndicateAutocannon
+    sound:
+      path: /Audio/Weapons/Guns/Bolt/lmg_bolt_closed.ogg
+      params:
+        pitch: 0.5
