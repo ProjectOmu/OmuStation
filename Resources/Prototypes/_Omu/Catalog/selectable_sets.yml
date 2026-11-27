@@ -186,6 +186,38 @@
   - PowerCellIRRevolver
 
 - type: selectableSet
+  id: WeaponMk58GoldSet
+  name: selectable-set-mk58-gold-name
+  description: selectable-set-mk58-description
+  sprite:
+    sprite: _Omu/Objects/Weapons/Guns/Pistols/mk58gold.rsi
+    state: base
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 252000 # 70 hours
+  content:
+  - WeaponPistolMk58Gold
+  - MagazinePistol
+  - MagazinePistol
+
+- type: selectableSet
+  id: WeaponT8GoldSet
+  name: selectable-set-t8-gold-name
+  description: selectable-set-t8-description
+  sprite:
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/T8Gold.rsi
+    state: base
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 252000 # 70 hours
+  content:
+  - SecurityDutyRevolverGold
+  - SpeedLoaderRevolverLightRifle
+  - SpeedLoaderRevolverLightRifle
+
+- type: selectableSet
   id: WeaponCeremonialRifleSet
   name: selectable-set-ceremonial-rifle-name
   description: selectable-set-ceremonial-rifle-description

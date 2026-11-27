@@ -78,13 +78,17 @@ public sealed partial class StatusEffectsSystem : EntitySystem
 
     private void ReloadStatusEffectsCache()
     {
-        StatusEffectPrototypes.Clear();
+        // Omu start - Build separately so parallel game instances do not modify the same set.
+        var prototypes = new HashSet<string>();
 
         foreach (var ent in _proto.EnumeratePrototypes<EntityPrototype>())
         {
             if (ent.TryGetComponent<StatusEffectComponent>(out _, _factory))
-                StatusEffectPrototypes.Add(ent.ID);
+                prototypes.Add(ent.ID);
         }
+
+        StatusEffectPrototypes = prototypes;
+        // Omu end
     }
 
     private void OnStatusContainerInit(Entity<StatusEffectContainerComponent> ent, ref ComponentInit args)
