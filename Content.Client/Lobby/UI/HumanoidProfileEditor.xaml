@@ -65,6 +65,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                                                    ToolTip="{Loc 'humanoid-profile-editor-guidebook-button-tooltip'}"/>
                                     <OptionButton Name="SpeciesButton" HorizontalAlignment="Right" />
                                 </BoxContainer>
+                                <!-- Far Horizons - subspecies -->
+                                <BoxContainer Name="CSubspecies" HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-subspecies-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <OptionButton Name="SubspeciesButton" HorizontalAlignment="Right" />
+                                </BoxContainer>
+                                <!-- Far Horizons end -->
                                 <!-- Age -->
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Text="{Loc 'humanoid-profile-editor-age-label'}" />
