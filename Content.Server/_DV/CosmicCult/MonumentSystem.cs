@@ -314,10 +314,10 @@ public sealed class MonumentSystem : SharedMonumentSystem
                 break;
             case 2:
                 monument.Comp.ProgressOffset = (int)(numberOfCrewForTier3 / 3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue)); //reset the progress offset
-                monument.Comp.TargetProgress = (int)(numberOfCrewForTier3 / 3 * 2 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
+                monument.Comp.TargetProgress = (int)(numberOfCrewForTier3 / 3 * 2 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue) * (1 + _config.GetCVar(DCCVars.CosmicCultistDifficultyMultiplier) * 1));
                 break;
             case 3:
-                monument.Comp.ProgressOffset = (int)(numberOfCrewForTier3 / 3 * 2 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
+                monument.Comp.ProgressOffset = (int)(numberOfCrewForTier3 / 3 * 3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue) * (1 + _config.GetCVar(DCCVars.CosmicCultistDifficultyMultiplier) * 2));
                 monument.Comp.TargetProgress = (int)(numberOfCrewForTier3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
                 break;
         }
