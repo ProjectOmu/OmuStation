@@ -155,7 +155,7 @@
   components:
     - type: AlertLevel
       alertLevelPrototype: stationAlerts
-    - type: AmberAlert # Goobstation - gates the amber alert level
+    #- type: AmberAlert # Goobstation - gates the amber alert level # Omu, we use secure terminal instead.
 
 - type: entity
   id: BaseStationExpeditions

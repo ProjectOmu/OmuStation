@@ -3,7 +3,7 @@
 - type: entity
   id: ShuttleWindow
   name: shuttle window
-  parent: [BaseDeltaPressureReinforcedGlass, WindowRCDResistant]
+  parent: [BaseDeltaPressureImmune, WindowRCDResistant] # Omu, make them DeltaP immune
   components:
   - type: Sprite
     drawdepth: WallTops
