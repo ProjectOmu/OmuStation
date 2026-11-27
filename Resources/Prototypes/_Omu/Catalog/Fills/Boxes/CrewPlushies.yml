@@ -6,6 +6,7 @@
     - id: PlushiePickelSillyOmuStaffish
     - id: PlushieSoozieOmuCrew
     - id: PlushieRebeccaOmuCrew
+    - id: PlushieSeptOctOmuCrew
     - id: PlushieGnashOmuCrew
     - id: PlushieKandyOmuCrew
     - id: PlushiePanaceaOmuCrew
@@ -17,16 +18,17 @@
     - id: PlushieRogerCagelOmuCrew
     - id: PlushieTevikOmuCrew
     - id: PlushiePoemOfExpressionOmuCrew
-    - id: PlushieRyneOmuCrew
+    - id: PlushieVeron612OmuCrew
     - id: PlushieNuiOmuCrew
     - id: PlushieRhyssOmuCrew
     - id: PlushieSniffsOmuCrew
+    - id: PlushieRyneOmuCrew
 
 - type: entity
   id: CrateFunOmuCrewPlushie
   parent: CrateGenericSteel
-  name: crew morale initiative crate
-  description: A handful of plushies based on crew members. Nanotrasen wishes to see an increase in productivity from this initative.
+  name: Crew morale initative crate
+  description: A handful of Crew based plushies, NT wishes to see an increase in productivity from this Initative
   components:
   - type: EntityTableContainerFill
     containers:
