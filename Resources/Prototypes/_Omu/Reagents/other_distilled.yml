@@ -1,0 +1,15 @@
+- type: reagent
+  parent: Water
+  id: DistilledWater
+  name: reagent-name-distilled-water
+  desc: reagent-desc-distilled-water
+  recognizable: false
+
+- type: reagent
+  id: Impurities
+  name: reagent-name-impurities
+  desc: reagent-desc-impurities
+  physicalDesc: reagent-physical-desc-strong-smelling
+  group: Toxins
+  flavor: terrible
+  color: "#222222"
