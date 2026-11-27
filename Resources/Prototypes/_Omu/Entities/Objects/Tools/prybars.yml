@@ -35,7 +35,7 @@
   - type: StaticPrice
     price: 22
   - type: Prying
-    canPryPoweredFirelocks: false
+    canPryPoweredFirelocks: true # we added a whole system for this one boolean and we're not even using it
   - type: UseDelay
     delay: 1
   - type: Sprite # while ideally i'd have a non branded sprite here i'm no spriter and it shouldnt matter short term anyways
