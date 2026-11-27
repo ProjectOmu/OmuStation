@@ -1,0 +1,23 @@
+- type: reagent
+  id: Ratbile
+  name: reagent-name-rat-bile
+  group: Toxins
+  desc: reagent-desc-rat-bile
+  physicalDesc: reagent-physical-desc-putrid
+  flavor: terrible
+  color: "#bd5902"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [Yowie]
+          inverted: true
+        damage:
+          types:
+            Poison: 0.4 # 2 posion damage per unit
+      - !type:DiseaseProgressChange
+        affectedType: Supernatural
+        progressModifier: 0.002

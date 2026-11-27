@@ -1,0 +1,16 @@
+- type: entity
+  id: DiseaseRatPlague
+  parent: DiseaseBase
+  name: Rat Plague
+  description: A Supernatural illness that requires Supernatural treatment.
+  components:
+  - type: Disease
+    diseaseType: Supernatural
+    infectionRate: 0.0025 # more then 5 minutes to fully infect. speed up by rat bile.
+    immunityGainRate: 0
+    canGainImmunity: false
+    genotype: 6660
+    effects:
+      DiseaseBehaviorSneeze: 0.2
+      DiseaseBehaviorWraithWeakness: 1
+      DiseaseBehaviorOrganFailure: 1

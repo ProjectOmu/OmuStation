@@ -507,14 +507,21 @@
 - type: entity
   id: ActionSummonPlagueRat
   name: Summon Plague rat
-  description: Attempt to breach the veil between worlds to allow a plague rat to enter this realm.
+  description: Attempt to summon a plague rat though an air vent or scrubber. # Omu edit: added the fact you need to use it on a vent for it to work.
   components:
   - type: Action
     useDelay: 150
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: summon_rats
-  - type: InstantAction
+    itemIconStyle: BigAction # Omu edit start
+  - type: TargetAction
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - NodeCrawlVentAccess
+    canTargetSelf: false # Omu edit end
     event: !type:SummonPlagueRatEvent
 
 - type: entity

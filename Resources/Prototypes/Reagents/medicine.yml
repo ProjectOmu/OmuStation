@@ -1547,6 +1547,9 @@
             Heat: -0.2
             Shock: -0.2
             Cold: -0.2
+      - !type:DiseaseProgressChange # Omu edit start
+        affectedType: Supernatural
+        progressModifier: -0.03 # Omu edit end
   reactiveEffects:
     Extinguish:
       methods: [ Touch ]

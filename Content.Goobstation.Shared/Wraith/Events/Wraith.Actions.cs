@@ -65,7 +65,7 @@ public sealed partial class DeathCurseEvent : EntityTargetActionEvent;
 
 public sealed partial class DefileEvent : EntityTargetActionEvent;
 
-public sealed partial class SummonPlagueRatEvent : InstantActionEvent;
+public sealed partial class SummonPlagueRatEvent : EntityTargetActionEvent;// Omu edit: changed from InstantActionEvent to EntityTargetActionEvent
 
 public sealed partial class SummonRotHulkEvent : InstantActionEvent;
 
