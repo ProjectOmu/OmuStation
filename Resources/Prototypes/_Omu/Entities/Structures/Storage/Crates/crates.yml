@@ -1,0 +1,14 @@
+- type: entity
+  parent: CrateBaseSecure
+  id: CrateRadiationResistant
+  name: radiation-shielded crate
+  description: A large, lead-lined crate for storing radioactive objects.
+  components:
+  - type: Icon
+    sprite: Structures/Storage/Crates/plasma.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/plasma.rsi
+  - type: AccessReader
+    access: [["Engineering"], ["Research"], ["Cargo"]]
+  - type: RadiationBlockingContainer
+    decay: 20
