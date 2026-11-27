@@ -1,12 +1,14 @@
-﻿using Content.Goobstation.Common.StationEvents.SecretPlus;
+﻿using System.Collections.Concurrent;
+using Content.Goobstation.Common.StationEvents.SecretPlus;
 using Content.Omu.Server.StationEvents.SecretDoublePlus.ChaosFactors;
+using Content.Omu.Server.StationEvents.SecretDoublePlus.Commands;
 using Content.Shared.Random;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Omu.Server.StationEvents.SecretDoublePlus;
 
-[RegisterComponent, AutoGenerateComponentPause, Access(typeof(SecretDoublePlusSystem))]
+[RegisterComponent, AutoGenerateComponentPause, Access(typeof(SecretDoublePlusSystem), typeof(ChaosCommand))]
 public sealed partial class SecretDoublePlusComponent : Component
 {
     /// <summary>
@@ -180,4 +182,11 @@ public sealed partial class SecretDoublePlusComponent : Component
     /// </summary>
     [DataField]
     public List<ChaosFactor> ChaosFactors = new();
+
+    /// <summary>
+    ///   Queued operations that will be applied on the next tick.
+    ///   Typically created by admin commands to directly modify the chaos score.
+    /// </summary>
+    [ViewVariables]
+    public readonly ConcurrentQueue<ChaosOperation> PendingOperations = new();
 }

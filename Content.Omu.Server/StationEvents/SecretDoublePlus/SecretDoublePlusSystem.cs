@@ -25,18 +25,6 @@ using Robust.Shared.Timing;
 
 namespace Content.Omu.Server.StationEvents.SecretDoublePlus;
 
-public sealed class SelectedEvent(
-    EntityPrototype proto,
-    float weight,
-    float chaosScore,
-    int minPlayers)
-{
-    public readonly EntityPrototype Proto = proto;
-    public readonly float Weight = weight;
-    public readonly float ChaosScore = chaosScore;
-    public readonly int MinPlayers = minPlayers;
-}
-
 [UsedImplicitly]
 public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComponent>
 {
@@ -105,6 +93,8 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
     protected override void ActiveTick(EntityUid uid, SecretDoublePlusComponent scheduler, GameRuleComponent gameRule, float frameTime)
     {
         SecretDoublePlusMetrics.ChaosScore.Set(scheduler.ChaosScore);
+
+        ApplyPendingOperations(scheduler);
 
         var ramping = GetRamping(scheduler);
         var speedup = _event.EventSpeedup;
@@ -356,6 +346,22 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
         return false;
     }
 
+    private void ApplyPendingOperations(SecretDoublePlusComponent scheduler)
+    {
+        while (scheduler.PendingOperations.TryDequeue(out var operation))
+        {
+            switch (operation.Operation)
+            {
+                case ChaosOperationType.Add:
+                    scheduler.ChaosScore += operation.Amount;
+                    break;
+                case ChaosOperationType.Set:
+                    scheduler.ChaosScore = operation.Amount;
+                    break;
+            }
+        }
+    }
+
     private float GetChaosScore(EntityPrototype ruleProto, float? defaultChaos, float playerCountScale=1)
     {
         if (!ruleProto.TryGetComponent<AntagSelectionComponent>(out var selection, _factory))
@@ -472,3 +478,23 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
         SecretDoublePlusMetrics.ChaosScore.Set(0);
     }
 }
+
+public sealed class SelectedEvent(
+    EntityPrototype proto,
+    float weight,
+    float chaosScore,
+    int minPlayers)
+{
+    public readonly EntityPrototype Proto = proto;
+    public readonly float Weight = weight;
+    public readonly float ChaosScore = chaosScore;
+    public readonly int MinPlayers = minPlayers;
+}
+
+public enum ChaosOperationType
+{
+    Set,
+    Add,
+}
+
+public sealed record ChaosOperation(ChaosOperationType Operation, float Amount);
