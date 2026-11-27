@@ -66,6 +66,9 @@
     useSound:
       path: /Audio/Items/wirecutter.ogg
     speedModifier: 0.25
+  - type: Utensil # Omu
+    types:
+    - Scissor
 
 - type: entity
   name: scythe

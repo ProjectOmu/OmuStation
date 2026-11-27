@@ -85,6 +85,12 @@ public sealed partial class CrewletBrainSystem
                 _near.Add(person);
         }
 
+        foreach (var crewlet in brain.Crewlets)
+        {
+            if (crewlet != ent.Owner && DistanceTo(ent, crewlet) <= brain.HelloLeaveRange)
+                _near.Add(crewlet);
+        }
+
         foreach (var person in _near)
         {
             if (!brain.Nearby.Contains(person))
@@ -102,11 +108,7 @@ public sealed partial class CrewletBrainSystem
             if (!brain.Arrivals.Contains(person) || DistanceTo(ent, person) > brain.HelloRange)
                 continue;
 
-            var welcome = reputation != null
-                && _mobState.IsAlive(person)
-                && !brain.HelloReadyAt.ContainsKey(person)
-                && _reputation.GetOpinion((ent.Owner, reputation), person) >= reputation.FriendlyThreshold;
-
+            var welcome = Welcomes(ent, reputation, person, now);
             if (welcome && brain.HelloCandidate != null)
                 continue;
 
@@ -114,6 +116,22 @@ public sealed partial class CrewletBrainSystem
             if (welcome)
                 brain.HelloCandidate = person;
         }
+    }
+
+    private bool Welcomes(Entity<CrewletBrainComponent> ent,
+        CrewletReputationComponent? reputation,
+        EntityUid person,
+        TimeSpan now)
+    {
+        if (!_mobState.IsAlive(person))
+            return false;
+
+        if (_crewletQuery.HasComp(person))
+            return now >= ent.Comp.CrewletHelloReadyAt;
+
+        return reputation != null
+            && !ent.Comp.HelloReadyAt.ContainsKey(person)
+            && _reputation.GetOpinion((ent.Owner, reputation), person) >= reputation.FriendlyThreshold;
     }
 
     private void Sort(CrewletBrainComponent brain, EntityUid uid)
@@ -133,7 +151,7 @@ public sealed partial class CrewletBrainSystem
             return;
         }
 
-        if (_itemQuery.HasComp(uid))
+        if (_itemQuery.HasComp(uid) && !Transform(uid).Anchored)
             brain.Items.Add(uid);
 
         if (_edibleQuery.HasComp(uid))

@@ -12,6 +12,8 @@ crewlet-pickpocket = {CAPITALIZE(THE($crewlet))} is tugging at your {$item}!
 
 crewlet-looking = It's looking at you.
 crewlet-stare = …
+crewlet-form-tool = forms {INDEFINITE($tool)} {$tool} out of flesh!
+crewlet-command-echo = {CAPITALIZE($command)}!
 crewlet-recall = {$name}... where are you...
 crewlet-dread = You feel a sense of dread.
 

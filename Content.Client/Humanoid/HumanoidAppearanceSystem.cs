@@ -102,7 +102,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         foreach (var (key, info) in component.CustomBaseLayers)
         {
             oldLayers.Remove(key);
-            SetLayerData(entity, key, info.Id, sexMorph: false, color: info.Color, overrideSkin: true, shader: info.Shader);
+            SetLayerData(entity, key, info.Id, sexMorph: false, color: info.Color, overrideSkin: info.Color != null, shader: info.Shader); // Omu - Plantigrade Trait
         }
 
         // hide old layers
