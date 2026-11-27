@@ -1,0 +1,14 @@
+advertisement-polybius-1 = You've played this before, you just don't remember.
+advertisement-polybius-2 = Polybius remembers your high score!
+advertisement-polybius-3 = Come closer.
+advertisement-polybius-4 = Free to play. Paid in other ways.
+advertisement-polybius-5 = Nobody's watching, promise.
+advertisement-polybius-6 = Come see the shapes!
+advertisement-polybius-7 = Just look at the screen.
+advertisement-polybius-8 = No coin? That's okay. Play anyway.
+thankyou-polybius-1 = See you in your dreams.
+thankyou-polybius-2 = You'll be back.
+thankyou-polybius-3 = Don't forget to blink.
+thankyou-polybius-4 = Sweet dreams.
+thankyou-polybius-5 = Did you hear that too?
+thankyou-polybius-6 = We'll be watching.
