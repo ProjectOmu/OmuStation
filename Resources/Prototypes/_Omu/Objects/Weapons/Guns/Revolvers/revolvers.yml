@@ -11,7 +11,7 @@
   - type: Item
     storedOffset: 0,-3
   - type: Gun
-    fireRate: 4 
+    fireRate: 4
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
   - type: RevolverAmmoProvider
@@ -20,10 +20,11 @@
         - CartridgeCasull
         - SpeedLoaderCasull
     proto: CartridgeCasull
-    capacity: 6 
-    chambers: [ True, True, True, True, True, True ] 
-    ammoSlots: [ null, null, null, null, null, null ] 
+    capacity: 6
+    chambers: [ True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null ]
     soundEject:
       path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+  - type: RMCBattleExecute

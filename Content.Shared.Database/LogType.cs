@@ -516,10 +516,15 @@ public enum LogType
     AdminRefund = 203,
     AtmosDirectionChanged = 204,
 
+    // RMC start
+    RMCMarineAnnounce = 10000,
+    RMCExecution = RMCMarineAnnounce + 39,
+    // RMC end
+    
     // Omu start
-
     /// <summary>
     /// SecretDoublePlus related game interactions.
     /// </summary>
-    SecretDoublePlus = 20001, // Omu
+    SecretDoublePlus = 20001,
+    // Omu end
 }
