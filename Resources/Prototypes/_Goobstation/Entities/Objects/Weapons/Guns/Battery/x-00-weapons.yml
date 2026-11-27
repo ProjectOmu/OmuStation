@@ -32,7 +32,7 @@
     defaultDirection: 1, 0
   - type: BatteryAmmoProvider
     proto: RedMediumSplitLaser
-    fireCost: 60 #Omu buff
+    fireCost: 50 # Omu, even further buff: 20 shots per charge
   - type: BatterySelfRecharger # Omu start, self-recharging on all HoS weapons
     autoRechargeRate: 17 # Approx 3.5s per bullet
     autoRechargePauseTime: 40 # Omu end
