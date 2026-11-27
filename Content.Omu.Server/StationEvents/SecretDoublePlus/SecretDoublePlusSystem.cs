@@ -206,6 +206,7 @@ public sealed class SecretDoublePlusSystem : GameRuleSystem<SecretDoublePlusComp
             if (primarySelected && isLoneSpawn)
                 continue;
 
+            LogMessage($"Roundstart rule chosen: {pick.Proto.ID} with score {pick.ChaosScore}");
             StartRule(scheduler, pick, true);
             primarySelected = true;
 
