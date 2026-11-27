@@ -1,0 +1,17 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: CigPackGreen
+  id: CigPackHardlight
+  name: IPC's Favorite packet
+  description: A packet of ten hardlight cigarettes.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Consumable/Smokeables/Cigarettes/Packs/ipc_favorite.rsi
+  - type: Item
+    sprite: _Omu/Objects/Consumable/Smokeables/Cigarettes/Packs/ipc_favorite.rsi
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: HardlightCigarette
+        amount: 10
