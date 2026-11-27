@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.GameTicking.Prototypes;
+using Content.Shared.Random.Helpers; // Omu - weighted lobby backgrounds
 using Robust.Shared.Random;
 using System.Linq;
 using Robust.Shared.Prototypes;
@@ -14,7 +15,7 @@ public sealed partial class GameTicker
     public ProtoId<LobbyBackgroundPrototype>? LobbyBackground { get; private set; }
 
     [ViewVariables]
-    private List<ProtoId<LobbyBackgroundPrototype>> _lobbyBackgrounds = [];
+    private Dictionary<ProtoId<LobbyBackgroundPrototype>, float> _lobbyBackgrounds = []; // Omu - weighted lobby backgrounds
 
     private static readonly string[] WhitelistedBackgroundExtensions = new string[] {"png", "jpg", "jpeg", "webp"};
 
@@ -28,7 +29,12 @@ public sealed partial class GameTicker
                 continue;
             }
 
-            _lobbyBackgrounds.Add(prototype.ID);
+            // Omu start - weighted lobby backgrounds
+            if (prototype.Weight <= 0f)
+                continue;
+
+            _lobbyBackgrounds[prototype.ID] = prototype.Weight;
+            // Omu end
         }
 
         RandomizeLobbyBackground();
