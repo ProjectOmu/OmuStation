@@ -169,32 +169,56 @@ ent-OmuRPObjectiveReplaceTiles = Replace Tiles
   .desc = The on-station zookeeper finds the living spaces for his animals to be too small and cramped! Replace all of the tiles on the station with astro-grass, ice, and snow.
 
 ent-OmuRPObjectiveBeesCargo = Cover Cargo with Bees!
+  .desc = The Bee Liberation Front needs your help, this department has been found to be oppressing bees! Fill it with as many of our soldier bees as you can; Cargo sells them by the crate. For freedom! Death to Nanotrasen!
 ent-OmuRPObjectiveBeesEngineering = Cover Engineering with Bees!
+  .desc = The Bee Liberation Front needs your help, this department has been found to be oppressing bees! Fill it with as many of our soldier bees as you can; Cargo sells them by the crate. For freedom! Death to Nanotrasen!
 ent-OmuRPObjectiveBeesMedical = Cover Medical with Bees!
+  .desc = The Bee Liberation Front needs your help, this department has been found to be oppressing bees! Fill it with as many of our soldier bees as you can; Cargo sells them by the crate. For freedom! Death to Nanotrasen!
 ent-OmuRPObjectiveBeesScience = Cover Science with Bees!
+  .desc = The Bee Liberation Front needs your help, this department has been found to be oppressing bees! Fill it with as many of our soldier bees as you can; Cargo sells them by the crate. For freedom! Death to Nanotrasen!
 ent-OmuRPObjectiveBeesSecurity = Cover Security with Bees!
+  .desc = The Bee Liberation Front needs your help, this department has been found to be oppressing bees! Fill it with as many of our soldier bees as you can; Cargo sells them by the crate. For freedom! Death to Nanotrasen!
 ent-OmuRPObjectiveBeesService = Cover Service with Bees!
+  .desc = The Bee Liberation Front needs your help, this department has been found to be oppressing bees! Fill it with as many of our soldier bees as you can; Cargo sells them by the crate. For freedom! Death to Nanotrasen!
 
 ent-OmuRPObjectiveBombCargo = Bomb Cargo
+  .desc = This department has been operating too smoothly. Kindly remind them that they are bombable. Try to keep casualties to a minimum; this is to teach a lesson that no one is safe.
 ent-OmuRPObjectiveBombEngineering = Bomb Engineering
+  .desc = This department has been operating too smoothly. Kindly remind them that they are bombable. Try to keep casualties to a minimum; this is to teach a lesson that no one is safe.
 ent-OmuRPObjectiveBombMedical = Bomb Medical
+  .desc = This department has been operating too smoothly. Kindly remind them that they are bombable. Try to keep casualties to a minimum; this is to teach a lesson that no one is safe.
 ent-OmuRPObjectiveBombScience = Bomb Science
+  .desc = This department has been operating too smoothly. Kindly remind them that they are bombable. Try to keep casualties to a minimum; this is to teach a lesson that no one is safe.
 ent-OmuRPObjectiveBombSecurity = Bomb Security
+  .desc = This department has been operating too smoothly. Kindly remind them that they are bombable. Try to keep casualties to a minimum; this is to teach a lesson that no one is safe.
 ent-OmuRPObjectiveBombService = Bomb Service
+  .desc = This department has been operating too smoothly. Kindly remind them that they are bombable. Try to keep casualties to a minimum; this is to teach a lesson that no one is safe.
 
 ent-OmuRPObjectiveWipeCargo = Wipe Cargo
+  .desc = This department has been performing too well, take them down a notch. Teach a lesson to three of their workers, and be creative in how you achieve this.
 ent-OmuRPObjectiveWipeEngineering = Wipe Engineering
+  .desc = This department has been performing too well, take them down a notch. Teach a lesson to three of their workers, and be creative in how you achieve this.
 ent-OmuRPObjectiveWipeMedical = Wipe Medical
+  .desc = This department has been performing too well, take them down a notch. Teach a lesson to three of their workers, and be creative in how you achieve this.
 ent-OmuRPObjectiveWipeScience = Wipe Science
+  .desc = This department has been performing too well, take them down a notch. Teach a lesson to three of their workers, and be creative in how you achieve this.
 ent-OmuRPObjectiveWipeSecurity = Wipe Security
+  .desc = This department has been performing too well, take them down a notch. Teach a lesson to three of their workers, and be creative in how you achieve this.
 ent-OmuRPObjectiveWipeService = Wipe Service
+  .desc = This department has been performing too well, take them down a notch. Teach a lesson to three of their workers, and be creative in how you achieve this.
 
 ent-OmuRPObjectiveUnionizeCargo = Liberate the Workers of Cargo
+  .desc = While the Syndicate cannot yet authorize a full revolution, you've been sent ahead to build a sleeper cell. Ensure that all, or most, members of this department are converted to the cause and remain so. Your mission is to build, not destroy: do not bring this army against the station unless they force your hand.
 ent-OmuRPObjectiveUnionizeEngineering = Liberate the Workers of Engineering
+  .desc = While the Syndicate cannot yet authorize a full revolution, you've been sent ahead to build a sleeper cell. Ensure that all, or most, members of this department are converted to the cause and remain so. Your mission is to build, not destroy: do not bring this army against the station unless they force your hand.
 ent-OmuRPObjectiveUnionizeMedical = Liberate the Workers of Medical
+  .desc = While the Syndicate cannot yet authorize a full revolution, you've been sent ahead to build a sleeper cell. Ensure that all, or most, members of this department are converted to the cause and remain so. Your mission is to build, not destroy: do not bring this army against the station unless they force your hand.
 ent-OmuRPObjectiveUnionizeScience = Liberate the Workers of Science
+  .desc = While the Syndicate cannot yet authorize a full revolution, you've been sent ahead to build a sleeper cell. Ensure that all, or most, members of this department are converted to the cause and remain so. Your mission is to build, not destroy: do not bring this army against the station unless they force your hand.
 ent-OmuRPObjectiveUnionizeSecurity = Liberate the Workers of Security
+  .desc = While the Syndicate cannot yet authorize a full revolution, you've been sent ahead to build a sleeper cell. Ensure that all, or most, members of this department are converted to the cause and remain so. Your mission is to build, not destroy: do not bring this army against the station unless they force your hand.
 ent-OmuRPObjectiveUnionizeService = Liberate the Workers of Service
+  .desc = While the Syndicate cannot yet authorize a full revolution, you've been sent ahead to build a sleeper cell. Ensure that all, or most, members of this department are converted to the cause and remain so. Your mission is to build, not destroy: do not bring this army against the station unless they force your hand.
 
 ent-OmuRPObjectiveTeachRealLesson = Teach a Crew Member a Lesson
   .desc = They have made one too many mistakes. It's about time we taught them a lesson they won't forget. Teach them ten fun facts on a space station-related topic of your choice.
