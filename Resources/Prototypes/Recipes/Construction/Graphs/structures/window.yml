@@ -55,12 +55,23 @@
             - material: ReinforcedGlass
               amount: 2
               doAfter: 4
-        
+
         - to: clockworkWindow
           steps:
             - material: ClockworkGlass
               amount: 2
               doAfter: 3
+
+        # Omu - start
+        - to: reinforcedBananiumWindow
+          steps:
+            - material: ReinforcedGlass
+              amount: 2
+              doAfter: 3
+            - material: Bananium
+              amount: 2
+              doAfter: 3
+        # Omu - end
 
     - node: window
       entity: Window
@@ -225,7 +236,7 @@
               doAfter: 2
             - tool: Anchoring
               doAfter: 3
-    
+
     - node: shuttleWindow
       entity: ShuttleWindow
       edges:
@@ -256,3 +267,23 @@
               doAfter: 4
             - tool: Anchoring
               doAfter: 1
+
+    # Omu - start
+    - node: reinforcedBananiumWindow
+      entity: ReinforcedBananiumWindow
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialBananium1
+              amount: 2
+            - !type:GivePrototype
+              prototype: SheetRGlass1
+              amount: 2
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Prying
+              doAfter: 3
+            - tool: Welding
+              doAfter: 10
+    # Omu - end

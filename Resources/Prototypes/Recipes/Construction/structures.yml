@@ -561,6 +561,52 @@
   objectType: Structure
   placementMode: SnapgridCenter
 
+# Omu - start
+
+- type: construction
+  id: ReinforcedBananiumWindow
+  graph: Window
+  startNode: start
+  targetNode: reinforcedBananiumWindow
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+    - !type:EmptyOrWindowValidInTile
+    - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+
+- type: construction
+  id: BananiumReinforcedWindowDirectional
+  name: construction-recipe-bananium-window-directional
+  graph: WindowDirectional
+  startNode: start
+  targetNode: BananiumReinforcedWindowDirectional
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+    - !type:EmptyOrWindowValidInTile
+    - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: ReinforcedBananiumWindowDiagonal
+  name: construction-recipe-reinforced-bananium-window-diagonal
+  graph: WindowDiagonal
+  startNode: start
+  targetNode: reinforcedBananiumWindowDiagonal
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+    - !type:EmptyOrWindowValidInTile
+    - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+# Omu - end
+
 - type: construction
   id: Firelock
   graph: Firelock

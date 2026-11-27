@@ -48,6 +48,17 @@
               amount: 2
               doAfter: 3
 
+        # Omu - start
+        - to: reinforcedBananiumWindowDiagonal
+          steps:
+            - material: ReinforcedGlass
+              amount: 2
+              doAfter: 3
+            - material: Bananium
+              amount: 2
+              doAfter: 3
+        # Omu - end
+
     - node: windowDiagonal
       entity: WindowDiagonal
       edges:
@@ -192,3 +203,23 @@
               doAfter: 2
             - tool: Anchoring
               doAfter: 3
+
+    # Omu - start
+    - node: reinforcedBananiumWindowDiagonal
+      entity: ReinforcedBananiumWindowDiagonal
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialBananium1
+              amount: 2
+            - !type:GivePrototype
+              prototype: SheetRGlass1
+              amount: 2
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Prying
+              doAfter: 3
+            - tool: Welding
+              doAfter: 10
+    # Omu - end
