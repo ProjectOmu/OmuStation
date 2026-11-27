@@ -1,0 +1,81 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: gameMap
+  id: Inferno
+  mapName: 'Inferno'
+  mapPath: /Maps/_Omu/inferno.yml # Omu - Prisoner role mapping
+  minPlayers: 35
+  maxPlayers: 80
+  stations:
+    Inferno:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Inferno {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/emergency_lox.yml
+        - type: StationCargoShuttle
+          path: /Maps/_Omu/Shuttles/infernoshuttle.yml
+        - type: StationJobs
+          availableJobs: # 60 jobs total w/o latejoins & interns, 77 jobs total w/ latejoins & interns
+            #command (7)
+            Captain: [ 1, 1 ]
+            NanotrasenRepresentative: [ 1, 1 ]
+            BlueshieldOfficer: [ 1, 1 ]
+            NanotrasenCareerTrainer: [ 2, 2] # Omu
+            #service
+            HeadOfPersonnel: [ 1, 1 ]
+            AdministrativeAssistant: [ 1, 1 ] # Delta V
+            Bartender: [ 1, 2 ]
+            Botanist: [ 3, 3 ]
+            Chef: [ 2, 2 ]
+            Janitor: [ 3, 3 ]
+            Chaplain: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
+            ServiceWorker: [ 3, 3 ]
+            #engineering
+            ChiefEngineer: [ 1, 1 ]
+            AtmosphericTechnician: [ 4, 4 ]
+            StationEngineer: [ 4, 4 ]
+            TechnicalAssistant: [ 3, 3 ]
+            #medical
+            ChiefMedicalOfficer: [ 1, 1 ]
+            Chemist: [ 3, 3 ]
+            MedicalDoctor: [ 3, 3 ]
+            Paramedic: [ 3, 3 ] # Omu 1 -> 2
+            MedicalIntern: [ 3, 3 ]
+            Virologist: [ 2, 2 ] # Omu
+            #science
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 5, 5 ]
+            ResearchAssistant: [ 3, 3 ] #intern, not counted
+            Roboticist: [ 3, 3 ]
+            #security (10)
+            HeadOfSecurity: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            SecurityOfficer: [ 6, 6 ]
+            Detective: [ 1, 1 ]
+            SecurityCadet: [ 3, 3 ]
+            Lawyer: [ 2, 2 ]
+            Brigmedic: [ 1, 1 ]
+            TransitPrisoner: [3, 3] # Omu - Prisoner role
+            SecuritySergeant: [ 1, 1 ] #Omu
+            #supply
+            Quartermaster: [ 1, 1 ]
+            SalvageSpecialist: [ 4, 4 ]
+            # ShaftMiner: [ 0, 0 ] # Omu, needs mapping
+            CargoTechnician: [ 5, 5 ]
+            Courier: [ 2, 2 ] # Omu - Courier role
+            #civilian
+            Passenger: [ -1, -1 ]
+            Clown: [ 1, 1 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            Reporter: [ 2, 2 ]
+            RadioHost: [ 1, 1 ] # Omu
+            #silicon
+            StationAi: [ 1, 1 ]
+            Borg: [ 4, 4 ]
