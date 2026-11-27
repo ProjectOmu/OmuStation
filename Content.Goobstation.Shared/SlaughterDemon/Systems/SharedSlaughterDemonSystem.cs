@@ -108,7 +108,8 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
         if (evAttempt.Cancelled)
             return;
 
-        _container.Insert(pullingEnt, slaughterDevour.Container);
+        if (!evAttempt.Handled) // Omu
+            _container.Insert(pullingEnt, slaughterDevour.Container);
 
         // Stop them from being able to self-revive
         EnsureComp<PreventSelfRevivalComponent>(pullingEnt);
