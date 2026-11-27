@@ -80,21 +80,32 @@
     shape:
     - 0,0,3,1
   - type: Gun
-    minAngle: 3
-    maxAngle: 18
+    minAngle: 19 # 3 # Omu, this is 3 degrees when wielded
+    maxAngle: 31 # 18 # Omu, this is 15 degrees when wielded; lowered from 18 degrees
     fireRate: 6
-    burstFireRate: 8
+    burstFireRate: 15 # 8 # Omu, increase fun factor of using the burst
     angleIncrease: 4
     angleDecay: 8
-    selectedMode: FullAuto
+    selectedMode: Burst # FullAuto # Omu, people should use burst by default to conserve ammo, like the BRDI or Drozd
     availableModes:
     - FullAuto
     - Burst
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ship_svalinn.ogg
     defaultDirection: 1, 0
+    # Omu start
+    # Make the burst fire mode kick ass but still be inferior to full auto in a head-to-head
+    shotsPerBurst: 5 # 10 bursts per full charge
+    burstCooldown: 0.45 # default's 0.25
+    # Require wielding like the Drozd does
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunWieldBonus
+    minAngle: -19
+    maxAngle: -16
+    # Omu end
   - type: BatteryAmmoProvider
-    proto: BulletLaserHeavy
+    proto: BulletLaserHeavyThreadripper # Omu, use stronger bullet
     fireCost: 20 #Omu - more capacity because these things are ass
   - type: BatterySelfRecharger # Omu start, self-recharging on all HoS weapons
     autoRechargeRate: 20 # 1s per bullet

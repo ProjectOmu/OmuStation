@@ -60,3 +60,15 @@
     proto: BulletLaserHeavySuperStructural
     count: 3 # fewer but stronger
     spread: 10
+
+- type: entity
+  name: heavy laser bolt
+  id: BulletLaserHeavyThreadripper # solely for the X-6 "Threadripper"
+  parent: BulletLaserHeavy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Heat: 8 # regular base damage
+        Shock: 1 # the X-8 rifle deals 2 Shock per hit, so why shouldn't this deal a bit too?
