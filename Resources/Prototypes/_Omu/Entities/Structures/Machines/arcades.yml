@@ -1,0 +1,71 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ArcadeBase
+  id: PolybiusArcade
+  name: Polybius
+  description: A really old arcade machine. Nobody knows how it got here.
+  components:
+  - type: Sprite
+    sprite: _Omu/Structures/Machines/polybius_arcade.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: arcade
+    - map: ["computerLayerScreen"]
+      state: screen_polybius
+    - map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      sprite: Structures/Machines/arcade.rsi
+      state: panel
+      visible: false
+  - type: Icon
+    sprite: _Omu/Structures/Machines/polybius_arcade.rsi
+    state: arcade
+  - type: GenericVisualizer
+    visuals:
+      enum.ComputerVisuals.Powered:
+        computerLayerScreen:
+          True: { visible: true, shader: unshaded }
+          False: { visible: false }
+      enum.WiresVisuals.MaintenancePanelState:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: false }
+          False: { visible: true }
+      enum.PolybiusArcadeVisuals.Spiral:
+        computerLayerScreen:
+          True: { state: screen_spiral }
+          False: { state: screen_polybius }
+  - type: PointLight
+    color: "#79cdc5"
+  - type: SpamEmitSound
+    minInterval: 30
+    maxInterval: 90
+    sound:
+      collection: ArcadeNoise
+      params:
+        volume: -8
+        maxDistance: 10
+        variation: 0.05
+        pitch: 0.6
+  - type: PolybiusArcade
+  - type: PolybiusPull
+  - type: ActivatableUI
+    key: enum.PolybiusArcadeUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: StationAiWhitelist
+  - type: UserInterface
+    interfaces:
+      enum.PolybiusArcadeUiKey.Key:
+        type: PolybiusArcadeBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Computer
+    board: BlockGameArcadeComputerCircuitboard
+  - type: Vocalizer
+    minVocalizeInterval: 1m
+    maxVocalizeInterval: 4m
+    hideChat: true
+  - type: DatasetVocalizer
+    dataset: PolybiusAds
+  - type: SpeakOnUIClosed
+    pack: PolybiusGoodbyes
+    requireFlag: false

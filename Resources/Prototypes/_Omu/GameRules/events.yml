@@ -32,6 +32,21 @@
       max: 0
     chaosScore: 80
 
+- type: entity
+  parent: BaseGameRule
+  id: Polybius
+  name: Polybius
+  components:
+  - type: PolybiusRule
+    prototype: PolybiusArcade
+  - type: StationEvent
+    earliestStart: 10
+    weight: 5
+    maxOccurrences: 1
+    eventType: Chaotic
+  - type: GameRule
+    chaosScore: 30
+
 - type: entity      #Its the xeno infestation but for one!
   parent: BaseGameRule
   id: LoneXenomorph
