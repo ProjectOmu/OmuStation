@@ -1,0 +1,57 @@
+- type: entity
+  parent: StrangePill
+  id: SurplusMedicalPill
+  components:
+  - type: RandomFillSolution
+    solution: food
+    weightedRandomId: RandomFillSurplusMedicalPill
+
+
+- type: weightedRandomFillSolution
+  id: RandomFillSurplusMedicalPill
+  fills:
+   - quantity: 10
+     weight: 105 # 5 weight per reagent, 21 reagents
+     reagents:
+     - Water
+     - Syrup
+     - Vitamin
+     - Nutriment
+     - Mannitol
+     - Oculine
+     - Ipecac
+     - MindbreakerToxin
+     - THC
+     - ChloralHydrate
+     - Probital
+     - Peranol
+     - Psicodine
+     - Ethylredoxrazine
+     - Derivative
+     - Spaceicillin
+     - Anithol
+     - Inaprovaline
+     - Kelotane
+     - Dexalin
+     - Hyrolain
+   - quantity: 5
+     weight: 5 # this one is the same as the ones above it
+     reagents:
+     - TranexamicAcid
+   - quantity: 6 # 3 weight per reagent, 2 reagents
+     weight: 5
+     reagents:
+     - Cognizine
+     - Tricordrazine
+   - quantity: 5
+     weight: 1 # 0.5 weight per reagent, 2 reagents. These reagents are actively deterimental to consume
+     reagents:
+     - Bleach
+     - Phenol
+   - quantity: 5
+     weight: 10 # 2.5 weight per reagent, 4 reagents. The Funny:tm: reagents.
+     reagents:
+     - JuiceThatMakesYouWeh
+     - JuiceThatMakesYouAwebo
+     - Gekkerzine
+     - Baaveltine
