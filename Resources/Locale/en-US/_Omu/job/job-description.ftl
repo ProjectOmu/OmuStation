@@ -11,3 +11,5 @@ job-description-transit-prisoner = A bureaucratic error caused your stay on this
 # Cargo Jobs
 job-description-courier = Ensure mail, parcel and materials are delivered to the crew.
 job-description-logistics-assistant = Learn the basics of hauling cargo, handling the station's orders, and shuttle piloting.
+
+job-description-punpun = An honorable member of the monkey society in charge of the bar and helping the bartenders in any way he can.
