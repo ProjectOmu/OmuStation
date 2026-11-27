@@ -33,8 +33,17 @@ marking-ScreenRing = Ring
 marking-ScreenL = L
 marking-ScreenLine = Visor
 marking-ScreenCharger = Charger
+marking-ScreenCuteEyes = Cute Eyes
+marking-ScreenSmallEye = Dubious
+marking-ScreenSmallSmile = Small Eyes
 
 # Marking Slider Names
+marking-ScreenCuteEyes_screen_small_whitehue = Screen
+marking-ScreenCuteEyes_ipc_screen_small_eyes_smile = Eyes
+marking-ScreenSmallEye_screen_screen_small_whitehue = Screen
+marking-ScreenSmallEye_ipc_screen_small_eyes_smile = Eyes
+marking-ScreenSmallSmileipc_screen_screen_small_whitehue = Screen
+marking-ScreenSmallSmile_ipc_screen_small_eyes_smile = Eyes
 marking-ScreenLine-ipc_screen_screen_small_whitehue = Screen
 marking-ScreenLine-ipc_screen_line = Graphic
 marking-ScreenCharger-ipc_screen_screen_small_whitehue = Screen
