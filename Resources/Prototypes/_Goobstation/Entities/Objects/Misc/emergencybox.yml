@@ -72,6 +72,7 @@
           - SecurityBreathMask
           - SyndicateBreathMask
           - BlueshieldBreathMask # Omu
+          - AtmosBreathMask # Omu
       emergencypen:
         ejectOnInteract: false
         whitelist:
@@ -140,6 +141,10 @@
         whitelist:
           tags:
           - BlueshieldBreathMask
+      atmosmask:
+        whitelist:
+          tags:
+          - AtmosBreathMask
       # Omuend
       oxy:
         whitelist:
