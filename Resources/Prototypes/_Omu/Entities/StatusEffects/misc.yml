@@ -29,3 +29,146 @@
   parent: MobStatusEffectBase
   id: StatusEffectVoodooRebindCooldown
   name: voodoo rebind cooldown
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectPolybius
+  name: polybius
+  components:
+  - type: PolybiusStatusEffect
+    components:
+    - type: Paracusia
+      minTimeBetweenIncidents: 30
+      maxTimeBetweenIncidents: 90
+      maxSoundDistance: 7
+      sounds:
+        collection: PolybiusHallucinations
+    - type: Narcolepsy
+      minTimeBetweenIncidents: 180
+      maxTimeBetweenIncidents: 360
+      minDurationOfIncident: 10
+      maxDurationOfIncident: 20
+    - type: Hallucinations
+      statusEffect: StatusEffectPolybiusVision
+      minTimeBetweenIncidents: 120
+      maxTimeBetweenIncidents: 240
+      minDurationOfIncident: 20
+      maxDurationOfIncident: 40
+    - type: SubtleMessages
+      messages: PolybiusWhispers
+      stationAiMessages: PolybiusAiWhispers
+      minTimeBetweenMessages: 45
+      maxTimeBetweenMessages: 50
+    - type: PolybiusAttackEffects
+      minTimeBetweenUnlocks: 120
+      maxTimeBetweenUnlocks: 300
+      minTimeBetweenFreezes: 180
+      maxTimeBetweenFreezes: 360
+      minFreezeDuration: 10
+      maxFreezeDuration: 20
+      speciesParanoia:
+        Allulalo: PolybiusParanoiaAllulalo
+        Arachnid: PolybiusParanoiaArachnid
+        Avali: PolybiusParanoiaAvali
+        Chitinid: PolybiusParanoiaChitinid
+        Diona: PolybiusParanoiaDiona
+        Felinid: PolybiusParanoiaFelinid
+        Feroxi: PolybiusParanoiaFeroxi
+        Harpy: PolybiusParanoiaHarpy
+        Human: PolybiusParanoiaHuman
+        Hydrakin: PolybiusParanoiaHydrakin
+        Moth: PolybiusParanoiaMoth
+        Oni: PolybiusParanoiaOni
+        Ovinia: PolybiusParanoiaOvinia
+        Plasmaman: PolybiusParanoiaPlasmaman
+        Reptilian: PolybiusParanoiaReptilian
+        Resomi: PolybiusParanoiaResomi
+        Rodentia: PolybiusParanoiaRodentia
+        Shadowkin: PolybiusParanoiaShadowkin
+        SlimePerson: PolybiusParanoiaSlime
+        Tajaran: PolybiusParanoiaTajaran
+        Thaven: PolybiusParanoiaThaven
+        Vox: PolybiusParanoiaVox
+        Vulpkanin: PolybiusParanoiaVulpkanin
+        Xelthia: PolybiusParanoiaXelthia
+        Yowie: PolybiusParanoiaYowie
+    - type: PolybiusSpeciesScares
+      minTimeBetweenScares: 150
+      maxTimeBetweenScares: 300
+      scares:
+        Plasmaman:
+        - popup: polybius-scare-plasmaman
+          popupType: LargeCaution
+          sound:
+            path: /Audio/Items/hiss.ogg
+        Vox:
+        - popup: polybius-scare-vox
+          popupType: MediumCaution
+          sound:
+            path: /Audio/Effects/internals.ogg
+        Harpy:
+        - emote: Scree
+          delay: 2
+          popup: polybius-scare-answer
+          soundDistance: 6
+          sound:
+            collection: ResomiScrees
+            params:
+              pitch: 0.7
+        - popup: polybius-scare-harpy
+          soundDistance: 6
+          sound:
+            path: /Audio/_Floofstation/Voice/Harpy/harpy_coo1.ogg
+            params:
+              pitch: 0.7
+        Avali:
+        - emote: Scree
+          delay: 2
+          popup: polybius-scare-answer
+          soundDistance: 6
+          sound:
+            collection: ResomiScrees
+            params:
+              pitch: 0.7
+        - popup: polybius-scare-feather
+          spawn: AvaliFeather
+        Resomi:
+        - emote: Scree
+          delay: 2
+          popup: polybius-scare-answer
+          soundDistance: 6
+          sound:
+            collection: ResomiScrees
+            params:
+              pitch: 0.7
+        - popup: polybius-scare-feather
+          spawn: ResomiFeather
+        - popup: polybius-scare-resomi
+          popupType: MediumCaution
+        Allulalo:
+        - emote: Scree
+          delay: 2
+          popup: polybius-scare-answer
+          soundDistance: 6
+          sound:
+            path: /Audio/_Impstation/Allulalo/allulalo_exclaim.ogg
+            params:
+              pitch: 0.7
+        - popup: polybius-scare-allulalo
+          popupType: MediumCaution
+          sound:
+            path: /Audio/_Goobstation/Heretic/heartbeat.ogg
+    - type: PolybiusHudFlicker
+    - type: PolybiusLightFlicker
+    - type: PolybiusFalseLaws
+      minTimeBetweenAlerts: 240
+      maxTimeBetweenAlerts: 480
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectPolybiusVision
+  name: polybius vision
+  components:
+  - type: PolybiusStatusEffect
+    components:
+    - type: PolybiusBlur
