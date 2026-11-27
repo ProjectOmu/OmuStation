@@ -71,6 +71,18 @@
     - SeashellInstrument
 
 - type: loadout
+  id: Squawkarina
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMusician
+      time: 126000 # 35 hrs
+  storage:
+    back:
+    - SquawkarinaInstrument
+
+- type: loadout
   id: Marmonica
   effects:
   - !type:JobRequirementLoadoutEffect
@@ -81,7 +93,6 @@
   storage:
     back:
     - MarmonicaInstrument
-
 
 - type: loadout
   id: Wehpet
