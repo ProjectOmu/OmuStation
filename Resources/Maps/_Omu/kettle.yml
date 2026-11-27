@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 270.1.0
+  engineVersion: 270.1.8
   forkId: ""
   forkVersion: ""
-  time: 10/07/2026 03:40:14
-  entityCount: 28351
+  time: 11/23/2026 05:12:40
+  entityCount: 28358
 maps:
 - 1
 grids:
@@ -14685,7 +14685,7 @@ entities:
       pos: 45.5,55.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -84219.58
+      secondsUntilStateChange: -84359.36
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -84778,7 +84778,7 @@ entities:
       pos: 25.5,49.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -11162.097
+      secondsUntilStateChange: -11301.875
       state: Closing
   - uid: 12433
     components:
@@ -151788,6 +151788,13 @@ entities:
     - type: Transform
       pos: 3.5,-15.5
       parent: 2
+- proto: SpawnPointCargoBosun
+  entities:
+  - uid: 28353
+    components:
+    - type: Transform
+      pos: 44.5,28.5
+      parent: 2
 - proto: SpawnPointCargoTechnician
   entities:
   - uid: 21659
@@ -151891,6 +151898,13 @@ entities:
     - type: Transform
       pos: -54.5,1.5
       parent: 2
+- proto: SpawnPointEngineeringForeman
+  entities:
+  - uid: 28358
+    components:
+    - type: Transform
+      pos: -11.5,40.5
+      parent: 2
 - proto: SpawnPointHeadOfPersonnel
   entities:
   - uid: 21670
@@ -151978,6 +151992,23 @@ entities:
     - type: Transform
       pos: 29.5,22.5
       parent: 2
+- proto: SpawnPointLogisticsAssistant
+  entities:
+  - uid: 28354
+    components:
+    - type: Transform
+      pos: 43.5,29.5
+      parent: 2
+  - uid: 28355
+    components:
+    - type: Transform
+      pos: 43.5,28.5
+      parent: 2
+  - uid: 28356
+    components:
+    - type: Transform
+      pos: 43.5,27.5
+      parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
   - uid: 10408
@@ -152026,6 +152057,13 @@ entities:
     components:
     - type: Transform
       pos: -49.5,-28.5
+      parent: 2
+- proto: SpawnPointMedicalMedicus
+  entities:
+  - uid: 22736
+    components:
+    - type: Transform
+      pos: -37.5,-37.5
       parent: 2
 - proto: SpawnPointMime
   entities:
@@ -152232,6 +152270,13 @@ entities:
     components:
     - type: Transform
       pos: 41.5,36.5
+      parent: 2
+- proto: SpawnPointScienceProfessor
+  entities:
+  - uid: 28357
+    components:
+    - type: Transform
+      pos: 26.5,59.5
       parent: 2
 - proto: SpawnPointScientist
   entities:
