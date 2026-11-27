@@ -58,6 +58,9 @@ knowledge-path-lock-s4-desc =
     Attack a marked person to bar them from all passages for the duration of the mark.
     This will make it so that they have no access whatsoever, even public access doors will reject them.
 
+knowledge-path-lock-s5-name = TODO
+knowledge-path-lock-s5-desc = TODO
+
 knowledge-path-lock-s6-name = Concierge's Rite
 knowledge-path-lock-s6-desc =
     The Concierge scribbled my name into the Handbook. Welcome to your new home, fellow Steward.

@@ -1,11 +1,14 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: listing
-  id: KnowledgePathStartLock
+  id: HereticLockPath1
   name: knowledge-path-lock-s1-name
   description: knowledge-path-lock-s1-desc
   icon: { sprite: _Goobstation/Heretic/Blades/blade_lock.rsi, state: icon }
-  #productHereticKnowledge:
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+   knowledge:
+   - StewardsSecret
   cost:
     KnowledgePoint: 1
   categories:
@@ -24,3 +27,87 @@
     - Void
     - Rust
     - Cosmos
+
+- type: listing
+  id: HereticLockPath2
+  name: knowledge-path-lock-s2-name
+  description: knowledge-path-lock-s2-desc
+  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - GraspOfLock
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 1
+    whitelist:
+    - Lock
+
+- type: listing
+  id: HereticLockPath3
+  name: knowledge-path-lock-s3-name
+  description: knowledge-path-lock-s3-desc
+  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - KeyKeepersBurden # needs to be made
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+    whitelist:
+    - Lock
+
+- type: listing
+  id: HereticLockPath4
+  name: knowledge-path-lock-s4-name
+  description: knowledge-path-lock-s4-desc
+  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - MarkOfLock
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+    whitelist:
+    - Lock
+
+- type: listing
+  id: HereticLockPath5
+  name: knowledge-path-lock-s5-name
+  description: knowledge-path-lock-s5-desc
+  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - ConciergesRite # needs to be made
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathLock
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 4
+    whitelist:
+    - Lock
