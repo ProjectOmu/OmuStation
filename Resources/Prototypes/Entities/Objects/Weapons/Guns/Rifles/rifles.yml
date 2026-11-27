@@ -190,14 +190,14 @@
     tags:
     - WeaponRifleLecter # Goobstation - S.E.C. cyborg lethal module
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
+    sprite: _Omu/Objects/Weapons/Guns/Rifles/lecter.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
+    sprite: _Omu/Objects/Weapons/Guns/Rifles/lecter.rsi
   - type: Gun
     fireRate: 5 # Goobstation?
     soundGunshot:
