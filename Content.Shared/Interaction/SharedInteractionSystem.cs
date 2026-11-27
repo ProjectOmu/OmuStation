@@ -296,6 +296,14 @@ namespace Content.Shared.Interaction
             if (Deleted(uid))
                 return false;
 
+            //Omu start
+            if (_relayQuery.TryComp(userEntity.Value, out var userRelay) && userRelay.RelayEntity is not null)
+            {
+                _pullSystem.TogglePull(uid, userRelay.RelayEntity.Value);
+                return false;
+            }
+            //Omu end
+
             // <Trauma>
             if (_targetRelayQuery.TryComp(uid, out var relay) && relay.RelayPulls &&
                 Exists(relay.RelayEntity) && relay.RelayEntity.Value != uid)
