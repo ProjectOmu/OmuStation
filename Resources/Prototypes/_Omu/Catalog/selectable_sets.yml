@@ -258,6 +258,16 @@
   - ClothingNeckWardenParryCloakFilled
 
 - type: selectableSet
+  id: WardenRapierBlueSet
+  name: selectable-set-warden-rapier-blue-name
+  description: selectable-set-warden-rapier-blue-description
+  sprite:
+    sprite: _Omu/Objects/Weapons/Melee/wardenrapierblue.rsi
+    state: icon
+  content:
+  - ClothingNeckWardenParryCloakBlueFilled
+
+- type: selectableSet
   id: HosOniGlaiveSet
   name: selectable-set-hosoniblade-name
   description: selectable-set-hosoniblade-description
