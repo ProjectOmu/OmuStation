@@ -109,7 +109,7 @@
     fireCost: 20 #Omu - more capacity because these things are ass
   - type: BatterySelfRecharger # Omu start, self-recharging on all HoS weapons
     autoRechargeRate: 20 # 1s per bullet
-    autoRechargePauseTime: 20 # Omu end
+    autoRechargePauseTime: 40 # Omu end
   - type: StaticPrice
     price: 2500
   - type: MagazineVisuals
