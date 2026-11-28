@@ -20,6 +20,9 @@ public sealed partial class OmuCVars
     public static readonly CVarDef<bool> AlternateJobTitles =
         CVarDef.Create("omu.alternate_job_titles", true, CVar.SERVER | CVar.REPLICATED);
 
+    public static readonly CVarDef<int> SkillAllocationPoints =
+        CVarDef.Create("omu.skill_allocation_points", 2, CVar.SERVER | CVar.REPLICATED);
+
     public static readonly CVarDef<float> DecalPreviewOpacity =
         CVarDef.Create("omu.decal_preview_opacity", 0.75f, CVar.ARCHIVE | CVar.CLIENTONLY);
 
@@ -69,4 +72,7 @@ public sealed partial class OmuCVars
     /// </summary>
     public static readonly CVarDef<bool> VerboseGameDirectorChatLogs =
         CVarDef.Create("omu.verbose_game_director_chat_logs", false, CVar.SERVER | CVar.SERVERONLY);
+
+    public static readonly CVarDef<bool> SkillSystemEffectToggle =
+        CVarDef.Create("omu.skill_system_effect_toggle", true, CVar.SERVER | CVar.SERVERONLY);
 }

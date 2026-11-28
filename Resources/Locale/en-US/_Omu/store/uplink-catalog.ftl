@@ -65,3 +65,15 @@ uplink-fake-taiwan-pond-bundle-desc = A China lake painted to look like a Taiwan
 
 uplink-intercontinental-belt-name = Intercontinental Champion Belt
 uplink-intercontinental-belt-desc = You feel this world-class wrestling title belt emanating the sweat, blood and tears of the Heartcrush Kid himself. Putting this on reminds you of an era once filled with Attitude, allowing you to terrorize the station with the knowledge that wrestling was never fake.
+
+uplink-CargoSkilltrainer-name = Cargo Skill Trainer
+uplink-CargoSkilltrainer-desc = A device inserted into the eye that rapidly restructures the user's mind to teach them cargo operations. Brings you up to cargo skill level 2.
+
+uplink-EngineeringSkilltrainer-name = Engineering Skill Trainer
+uplink-EngineeringSkilltrainer-desc = A device inserted into the eye that rapidly restructures the user's mind to teach them engineering. Brings you up to engineering skill level 2.
+
+uplink-MedicalSkilltrainer-name = Medical Skill Trainer
+uplink-MedicalSkilltrainer-desc = A device inserted into the eye that rapidly restructures the user's mind to teach them medicine. Brings you up to medical skill level 2.
+
+uplink-CombatSkilltrainer-name = Operative Combat Skill Trainer
+uplink-CombatSkilltrainer-desc = A device inserted into the eye that rapidly restructures the user's mind with the techniques of our most skilled operatives. Brings you up to combat skill level 3.

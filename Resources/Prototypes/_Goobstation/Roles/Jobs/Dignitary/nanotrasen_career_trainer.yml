@@ -24,6 +24,12 @@
 #  - !type:AddComponentSpecial # Intentionally not command. I don't want them to ruin rev rounds.
 #    components:
 #    - type: CommandStaff
+  # Omu start
+  - !type:AddComponentSpecial
+    components:
+    - type: Condemned
+      soulOwnedNotDevil: true
+  # Omu end
 
 - type: startingGear
   id: NanotrasenCareerTrainerGear

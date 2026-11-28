@@ -2,7 +2,8 @@
 
 - type: entity
   name: wirecutter
-  parent: BaseItem
+  # parent: BaseItem # Omu
+  parent: [ BaseItem, BaseEngineeringSkillEasy ] # Omu
   id: Wirecutter
   description: This kills the wire.
   components:
@@ -74,7 +75,8 @@
 
 - type: entity
   name: screwdriver
-  parent: BaseItem
+  # parent: BaseItem # Omu
+  parent: [ BaseItem, BaseEngineeringSkillEasy ] # Omu
   id: Screwdriver
   description: Industrial grade torque in a small screwdriving package.
   components:
@@ -137,7 +139,8 @@
 
 - type: entity
   name: wrench
-  parent: BaseItem
+  # parent: BaseItem # Omu
+  parent: [ BaseItem, BaseEngineeringSkill ] # Omu
   id: Wrench
   description: 'A common tool for assembly and disassembly. Remember: lefty latchy, righty removey.'
   components:
@@ -193,7 +196,8 @@
 
 - type: entity
   name: multitool
-  parent: BaseItem 
+  # parent: BaseItem # Omu
+  parent: [ BaseItem, BaseEngineeringSkill ] # Omu
   id: Multitool
   description: An advanced tool to copy, store, and send electrical pulses and signals through wires and machines.
   components:
@@ -256,7 +260,8 @@
 
 - type: entity
   name: network configurator
-  parent: BaseItem
+  # parent: BaseItem # Omu
+  parent: [ BaseItem, BaseEngineeringSkillEasy ] # Omu
   id: NetworkConfigurator
   description: A tool for linking devices together. Has two modes, a list mode for mass linking devices and a linking mode for advanced device linking.
   components:
@@ -313,7 +318,8 @@
 #Later on these should switch probably switch damage when changing the tool behavior.
 - type: entity
   name: power drill
-  parent: BaseItem
+  # parent: BaseItem # Omu
+  parent: [ BaseItem, BaseEngineeringSkill ] # Omu
   id: PowerDrill
   description: A simple powered hand drill.
   components:
@@ -375,7 +381,8 @@
 
 - type: entity
   id: RCD
-  parent: [ BaseItem, BaseEngineeringContraband ]
+  # parent: [ BaseItem, BaseEngineeringContraband ] # Omu
+  parent: [ BaseItem, BaseEngineeringContraband, BaseEngineeringSkillHard ] # Omu
   name: RCD
   description: The rapid construction device can be used to quickly place and remove various station structures and fixtures. Requires compressed matter to function.
   components:
@@ -525,7 +532,8 @@
 
 - type: entity
   name: omnitool
-  parent: BaseItem
+  # parent: BaseItem # Omu
+  parent: [ BaseItem, BaseEngineeringSkillHard ] # Omu
   id: Omnitool
   description: A drone's best friend.
   components:
@@ -545,7 +553,8 @@
   - type: Tool
     qualities:
     - Screwing
-    speedModifier: 1.2 # Kept for future adjustments. Currently 1.2x for balance
+    # speedModifier: 1.2 # Kept for future adjustments. Currently 1.2x for balance # Omu
+    speedModifier: 2 # Omu
     useSound: /Audio/Items/drill_use.ogg
   - type: ToolTileCompatible
   - type: MultipleTool

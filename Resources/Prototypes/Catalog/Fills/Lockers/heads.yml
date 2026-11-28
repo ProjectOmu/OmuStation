@@ -23,6 +23,9 @@
     - id: SalvageShuttleConsoleCircuitboard # Omu edit
     - id: SalvageExpeditionsComputerCircuitboard # Omu edit
     - id: StockTradingCartridge #Omu STOCKS
+    - id: CargoSkilltrainer #OMU skills
+    - id: CargoSkilltrainer #OMU skills
+    - id: CargoSkilltrainer #OMU skills
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -196,6 +199,9 @@
     - id: MaterialSiloFlatpack # Goob
     - id: ComputerEngiCommsFlatpack #Omu adds departmental comms board
     - id: BluespaceHarvesterMachineCircuitboard # Starlight
+    - id: EngineeringSkilltrainer #omuskills
+    - id: EngineeringSkilltrainer #omuskills
+    - id: EngineeringSkilltrainer #omuskills
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -277,6 +283,9 @@
     - id: ComputerMedicalCommsFlatpack # Omu start; adds departmental comms board
     - id: EnergyChemDispenserMachineCircuitboard
     - id: BookCorporateSecretsAllMedical # Omu end; adds medical-specific metashield document
+    - id: MedicalSkilltrainer #omuskills
+    - id: MedicalSkilltrainer #omuskills
+    - id: MedicalSkilltrainer #omuskills
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -341,6 +350,9 @@
     - id: ComputerScienceCommsFlatpack #Omu adds departmental comms board
     - id: Multitool # Omu
     - id: BaseHandheldScienceConsoleRD # Omu
+    - id: EngineeringSkilltrainer #omuskills
+    - id: EngineeringSkilltrainer #omuskills
+    - id: EngineeringSkilltrainer #omuskills
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -411,6 +423,9 @@
     - id: BookCorporateSecrets # Omu
     - id: ClothingHandsGlovesGorilla # Omu
     - id: BoxArmbands # Omu
+    - id: CombatSkilltrainer #omuskills
+    - id: CombatSkilltrainer #omuskills
+    - id: CombatSkilltrainer #omuskills
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

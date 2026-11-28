@@ -1,7 +1,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ]
+  # parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ] # Omu
+  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized, BaseCargoSkill ] # Omu
   id: CrateGeneric
   categories: [ HideSpawnMenu ]
   name: crate

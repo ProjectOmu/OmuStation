@@ -3,6 +3,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using Content.Goobstation.Common.DoAfter; // Goobstation
+using Content.Omu.Common.DoAfter;
 using Content.Shared._Shitmed.DoAfter; // Shitmed
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
@@ -238,6 +239,21 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
             args.Delay *= delayMultiplierEv.Multiplier;
         }
         // Goobstation end
+
+        // Omu start
+        if (args.Used is { } used)
+        {
+            var usedDelayEv = new DoAfterUsedDelayEvent(args.User);
+            RaiseLocalEvent(used, ref usedDelayEv);
+            if (usedDelayEv.Cancelled)
+            {
+                id = null;
+                return false;
+            }
+
+            args.Delay *= usedDelayEv.Multiplier;
+        }
+        // Omu end
 
         id = new DoAfterId(args.User, comp.NextId++);
         var doAfter = new DoAfter(id.Value.Index, args, GameTiming.CurTime);

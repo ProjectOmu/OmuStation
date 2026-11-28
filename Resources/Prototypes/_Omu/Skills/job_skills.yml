@@ -1,0 +1,508 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: jobSkills
+  id: CargoWorker
+  jobs: [ CargoTechnician, Courier, LogisticsAssistant ]
+  skills:
+    Cargo: 2
+  specialties: [ Cargo ]
+  departments: [ Cargo, Crew ]
+  commands: [ Cargo ]
+
+- type: jobSkills
+  id: Quartermaster
+  jobs: [ Quartermaster ]
+  skills:
+    Cargo: 3
+    Command: 2
+  specialties: [ Command ]
+  departments: [ Cargo, Command, Crew ]
+  commands: [ Cargo ]
+
+- type: jobSkills
+  id: SalvageSpecialist
+  jobs: [ SalvageSpecialist ]
+  skills:
+    Cargo: 2
+    Combat: 1
+  specialties: [ Cargo, Combat ]
+  departments: [ Cargo, Crew ]
+  commands: [ Cargo ]
+
+- type: jobSkills
+  id: ResponseSecurity
+  jobs: [ CBURN, ERTSecurity ]
+  skills:
+    Combat: 4
+    Medical: 2
+  specialties: [ Combat, Medical ]
+  departments: [ CentralCommand ]
+  commands: [ CentralCommand ]
+
+- type: jobSkills
+  id: DeathSquad
+  jobs: [ DeathSquad ]
+  skills:
+    Cargo: 5
+    Combat: 5
+    Command: 3
+    Engineering: 1
+    Medical: 1
+  specialties: [ Cargo, Combat, Command, Engineering, Medical ]
+  departments: [ CentralCommand ]
+  commands: [ CentralCommand ]
+
+- type: jobSkills
+  id: ERTLeader
+  jobs: [ ERTLeader ]
+  skills:
+    Combat: 3
+    Command: 4
+    Medical: 2
+  specialties: [ Combat, Command, Medical ]
+  departments: [ CentralCommand ]
+  commands: [ CentralCommand ]
+
+- type: jobSkills
+  id: ERTChaplain
+  jobs: [ ERTChaplain ]
+  skills:
+    Combat: 3
+  specialties: [ Combat, Medical ]
+  departments: [ CentralCommand ]
+  commands: [ CentralCommand ]
+
+- type: jobSkills
+  id: ERTEngineer
+  jobs: [ ERTEngineer ]
+  skills:
+    Combat: 3
+    Engineering: 4
+    Medical: 2
+  specialties: [ Combat, Engineering, Medical ]
+  departments: [ CentralCommand ]
+  commands: [ CentralCommand ]
+
+- type: jobSkills
+  id: ERTMedical
+  jobs: [ ERTMedical ]
+  skills:
+    Combat: 3
+    Medical: 4
+  specialties: [ Combat, Medical ]
+  departments: [ CentralCommand ]
+  commands: [ CentralCommand ]
+
+- type: jobSkills
+  id: ERTJanitor
+  jobs: [ ERTJanitor ]
+  skills:
+    Cargo: 4
+    Combat: 4
+    Command: 4
+    Engineering: 4
+    Medical: 4
+  specialties: [ Cargo, Combat, Command, Engineering, Medical ]
+  departments: [ CentralCommand ]
+  commands: [ CentralCommand ]
+
+- type: jobSkills
+  id: CentralCommandOfficial
+  jobs: [ CentralCommandOfficial ]
+  skills:
+    Cargo: 1
+    Combat: 1
+    Command: 5
+    Engineering: 1
+    Medical: 1
+  specialties: [ Command ]
+  departments: [ CentralCommand ]
+  commands: [ CentralCommand ]
+
+- type: jobSkills
+  id: Civilian
+  jobs:
+  - Passenger
+  - Bartender
+  - Botanist
+  - Chaplain
+  - Chef
+  - Clown
+  - Janitor
+  - Lawyer
+  - Librarian
+  - Mime
+  - Musician
+  - ServiceWorker
+  - Visitor
+  - Reporter
+  - TramDriver
+  - RadioHost
+  - PartyMaker
+  departments: [ Crew ]
+
+- type: jobSkills
+  id: Captain
+  jobs: [ Captain ]
+  skills:
+    Cargo: 2
+    Combat: 2
+    Command: 3
+    Engineering: 2
+    Medical: 2
+  specialties: [ Command ]
+  departments: [ Command, Crew ]
+  commands: [ Crew ]
+
+- type: jobSkills
+  id: HeadOfPersonnel
+  jobs: [ HeadOfPersonnel ]
+  skills:
+    Cargo: 1
+    Combat: 1
+    Command: 2
+    Engineering: 1
+    Medical: 1
+  specialties: [ Command ]
+  departments: [ Command, Crew ]
+  commands: [ Crew ]
+
+- type: jobSkills
+  id: EngineeringStaff
+  jobs: [ AtmosphericTechnician, StationEngineer, TechnicalAssistant ]
+  skills:
+    Engineering: 2
+  specialties: [ Engineering ]
+  departments: [ Crew, Engineering ]
+  commands: [ Engineering ]
+
+- type: jobSkills
+  id: ChiefEngineer
+  jobs: [ ChiefEngineer ]
+  skills:
+    Command: 2
+    Engineering: 3
+  specialties: [ Command, Engineering ]
+  departments: [ Command, Crew, Engineering ]
+  commands: [ Engineering ]
+
+- type: jobSkills
+  id: MedicalStaff
+  jobs:
+  - Chemist
+  - MedicalDoctor
+  - MedicalIntern
+  - Paramedic
+  - Psychologist
+  - Virologist
+  skills:
+    Medical: 2
+  specialties: [ Medical ]
+  departments: [ Crew, Medical ]
+  commands: [ Medical ]
+
+- type: jobSkills
+  id: ChiefMedicalOfficer
+  jobs: [ ChiefMedicalOfficer ]
+  skills:
+    Command: 2
+    Medical: 3
+  specialties: [ Command, Medical ]
+  departments: [ Command, Crew, Medical ]
+  commands: [ Medical ]
+
+- type: jobSkills
+  id: StationAi
+  jobs: [ StationAi ]
+  skills:
+    Command: 5
+  commands: [ Silicon ]
+
+- type: jobSkills
+  id: Borg
+  jobs: [ Borg ]
+  skills:
+    Cargo: 2
+    Combat: 2
+    Engineering: 2
+    Medical: 2
+  departments: [ Silicon ]
+  commands: [ Silicon ]
+
+- type: jobSkills
+  id: ScienceStaff
+  jobs: [ ResearchAssistant, Scientist ]
+  skills:
+    Engineering: 2
+  specialties: [ Engineering ]
+  departments: [ Crew, Science ]
+  commands: [ Science ]
+
+- type: jobSkills
+  id: ResearchDirector
+  jobs: [ ResearchDirector ]
+  skills:
+    Engineering: 2
+  specialties: [ Engineering ]
+  departments: [ Command, Crew, Science ]
+  commands: [ Science, Silicon ]
+
+- type: jobSkills
+  id: SecurityStaff
+  jobs: [ Detective, SecurityCadet, SecurityOfficer ]
+  skills:
+    Combat: 2
+  specialties: [ Combat ]
+  departments: [ Crew, Security ]
+  commands: [ Security ]
+
+- type: jobSkills
+  id: HeadOfSecurity
+  jobs: [ HeadOfSecurity ]
+  skills:
+    Combat: 3
+    Command: 2
+  specialties: [ Combat, Command ]
+  departments: [ Command, Crew, Security ]
+  commands: [ Security ]
+
+- type: jobSkills
+  id: Warden
+  jobs: [ Warden ]
+  skills:
+    Combat: 2
+    Command: 1
+  specialties: [ Combat ]
+  departments: [ Crew, Security ]
+  commands: [ Security ]
+
+- type: jobSkills
+  id: AdministrativeAssistant
+  jobs: [ AdministrativeAssistant ]
+  departments: [ Command, Crew ]
+
+- type: jobSkills
+  id: Roboticist
+  jobs: [ Roboticist ]
+  skills:
+    Engineering: 2
+    Medical: 1
+  departments: [ Crew, Science ]
+  commands: [ Science ]
+
+- type: jobSkills
+  id: BlueshieldOfficer
+  jobs: [ BlueshieldOfficer ]
+  skills:
+    Combat: 3
+    Medical: 2
+  specialties: [ Combat, Medical ]
+  departments: [ CentralCommand, Command ]
+  commands: [ CentralCommand ]
+
+- type: jobSkills
+  id: NanotrasenCareerTrainer
+  jobs: [ NanotrasenCareerTrainer ]
+  skills:
+    Cargo: 4
+    Combat: 4
+    Engineering: 4
+    Medical: 4
+  specialties: [ Cargo, Combat, Engineering, Medical ]
+  departments: [ CentralCommand ]
+  commands: [ CentralCommand ]
+
+- type: jobSkills
+  id: NanotrasenRepresentative
+  jobs: [ NanotrasenRepresentative ]
+  skills:
+    Command: 3
+  specialties: [ Command ]
+  departments: [ CentralCommand, Command ]
+  commands: [ CentralCommand ]
+
+- type: jobSkills
+  id: Brigmedic
+  jobs: [ Brigmedic ]
+  skills:
+    Combat: 1
+    Medical: 2
+  specialties: [ Combat, Medical ]
+  departments: [ Crew, Medical, Security ]
+  commands: [ Security ]
+
+- type: jobSkills
+  id: CommandMaid
+  jobs: [ CommandMaid ]
+  skills:
+    Cargo: 1
+    Combat: 1
+    Command: 1
+    Engineering: 1
+    Medical: 1
+  departments: [ Command, Crew ]
+
+- type: jobSkills
+  id: SecurityClown
+  jobs: [ SecurityClown ]
+  skills:
+    Combat: 1
+  specialties: [ Combat ]
+  departments: [ Crew, Security ]
+
+- type: jobSkills
+  id: CargoBosun
+  jobs: [ CargoBosun ]
+  skills:
+    Cargo: 2
+    Command: 1
+  specialties: [ Cargo, Command ]
+  departments: [ Cargo, Crew ]
+  commands: [ Cargo ]
+
+- type: jobSkills
+  id: CentCommIntern
+  jobs: [ CentCommIntern ]
+  skills:
+    Cargo: 2
+    Command: 2
+    Medical: 2
+  specialties: [ Cargo, Medical ]
+  departments: [ CentralCommand ]
+  commands: [ CentralCommand ]
+
+- type: jobSkills
+  id: CentralCommandDireggtor
+  jobs: [ CentralCommandDireggtor ]
+  skills:
+    Cargo: 5
+    Combat: -5
+    Command: 4
+    Engineering: 1
+    Medical: 5
+  specialties: [ Cargo, Command, Medical ]
+  departments: [ CentralCommand, Crew ]
+  commands: [ CentralCommand, Crew ]
+
+- type: jobSkills
+  id: CustodiiVitellus
+  jobs: [ CustodiiVitellus ]
+  skills:
+    Cargo: 5
+    Combat: 5
+    Medical: 3
+  specialties: [ Cargo, Combat, Medical ]
+  departments: [ VivianBodyGuard ]
+  commands: [ VivianBodyGuard ]
+
+- type: jobSkills
+  id: ERTLeaderBlue
+  jobs: [ ERTLeaderBlue ]
+  skills:
+    Combat: 3
+    Command: 3
+    Medical: 2
+  specialties: [ Combat, Command, Medical ]
+  departments: [ CentralCommand ]
+  commands: [ CentralCommand ]
+
+- type: jobSkills
+  id: ResponseSecurityBlue
+  jobs: [ ERTSecurityBlue, ERTChaplainBlue ]
+  skills:
+    Combat: 3
+    Medical: 2
+  specialties: [ Combat, Medical ]
+  departments: [ CentralCommand ]
+  commands: [ CentralCommand ]
+
+- type: jobSkills
+  id: ERTMedicBlue
+  jobs: [ ERTMedicBlue ]
+  skills:
+    Combat: 3
+    Medical: 3
+  specialties: [ Combat, Medical ]
+  departments: [ CentralCommand ]
+  commands: [ CentralCommand ]
+
+- type: jobSkills
+  id: ERTJanitorBlue
+  jobs: [ ERTJanitorBlue ]
+  skills:
+    Cargo: 3
+    Combat: 3
+    Command: 3
+    Engineering: 3
+    Medical: 3
+  specialties: [ Cargo, Combat, Command, Engineering, Medical ]
+  departments: [ CentralCommand ]
+  commands: [ CentralCommand ]
+
+- type: jobSkills
+  id: ERTEngineerBlue
+  jobs: [ ERTEngineerBlue ]
+  skills:
+    Combat: 3
+    Engineering: 3
+    Medical: 2
+  specialties: [ Combat, Engineering, Medical ]
+  departments: [ CentralCommand ]
+  commands: [ CentralCommand ]
+
+- type: jobSkills
+  id: NanoTrasenSpectre
+  jobs: [ NanoTrasenSpectre ]
+  skills:
+    Combat: 5
+    Engineering: 2
+    Medical: 2
+  specialties: [ Combat, Engineering, Medical ]
+  departments: [ InternalAffairs ]
+  commands: [ InternalAffairs ]
+
+- type: jobSkills
+  id: EngineeringForeman
+  jobs: [ EngineeringForeman ]
+  skills:
+    Command: 1
+    Engineering: 2
+  specialties: [ Command, Engineering ]
+  departments: [ Crew, Engineering ]
+  commands: [ Engineering ]
+
+- type: jobSkills
+  id: MedicalMedicus
+  jobs: [ MedicalMedicus ]
+  skills:
+    Command: 1
+    Medical: 2
+  specialties: [ Command, Medical ]
+  departments: [ Crew, Medical ]
+  commands: [ Medical ]
+
+- type: jobSkills
+  id: TransitPrisoner
+  jobs: [ TransitPrisoner ]
+  skills:
+    Combat: 1
+
+- type: jobSkills
+  id: ScienceProfessor
+  jobs: [ ScienceProfessor ]
+  skills:
+    Command: 1
+    Engineering: 2
+  specialties: [ Command, Engineering ]
+  departments: [ Crew, Science ]
+  commands: [ Science ]
+
+- type: jobSkills
+  id: SecuritySergeant
+  jobs: [ SecuritySergeant ]
+  skills:
+    Combat: 2
+    Command: 1
+  specialties: [ Combat, Command ]
+  departments: [ Crew, Security ]
+  commands: [ Security ]

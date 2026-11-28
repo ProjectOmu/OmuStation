@@ -2,7 +2,8 @@
 
 - type: entity
   id: ClosetBase
-  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ]
+  # parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ] # Omu
+  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized, BaseCargoSkill ] # Omu
   name: closet
   description: A standard-issue Nanotrasen storage unit.
   abstract: true
