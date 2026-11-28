@@ -23,3 +23,19 @@
   - !type:NoWindowsInTile
   objectType: Structure
   placementMode: SnapgridCenter
+
+- type: construction
+  id: BilliardsTable
+  graph: BilliardsTable
+  startNode: start
+  targetNode: table
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TilesNotBlocked
+    tiles:
+    - -1,0
+    - 0,0
+    - 1,0

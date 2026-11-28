@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: BaseItem
+  id: BilliardsCue
+  name: billiards cue
+  description: A tapered wooden stick, used to play billiards or as a weapon against people who beat you in billiards.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Fun/billiards_cue.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: MeleeWeapon
+    range: 1.75
+    angle: 0
+    animation: WeaponArcThrust
+    wideAnimation: WeaponArcThrust
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 8
+  - type: Construction
+    graph: BilliardsCue
+    node: cue
+  - type: BilliardsCue

@@ -1,0 +1,97 @@
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: BaseStructure
+  id: BilliardsTable
+  name: billiards table
+  description: A felted table, used with cues for a game often played in shady bars by even shadier individuals.
+  components:
+  - type: Sprite
+    sprite: _Omu/Structures/Furniture/billiards_table.rsi
+    layers:
+    - state: table
+    - state: balls
+      map: ["enum.BilliardsTableLayers.Balls"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-0.6,1.5,0.6"
+        density: 55
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+  - type: Climbable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 2
+            max: 4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    graph: BilliardsTable
+    node: table
+  - type: BilliardsTable
+  - type: UserInterface
+    interfaces:
+      enum.BilliardsUiKey.Key:
+        type: BilliardsBoundUserInterface
+        interactionRange: 3
+
+- type: entity
+  parent: BaseStructure
+  id: BilliardsTableFrame
+  name: billiards table frame
+  description: The start of a billiards table, just needs some green carpet.
+  components:
+  - type: Sprite
+    sprite: _Omu/Structures/Furniture/billiards_table.rsi
+    state: frame
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-0.6,1.5,0.6"
+        density: 55
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 2
+            max: 4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    graph: BilliardsTable
+    node: frame

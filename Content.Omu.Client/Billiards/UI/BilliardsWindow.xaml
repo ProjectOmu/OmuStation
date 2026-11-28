@@ -1,0 +1,100 @@
+<!-- SPDX-License-Identifier: MIT -->
+
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+                      xmlns:ui="clr-namespace:Content.Omu.Client.Billiards.UI"
+                      x:Class="Content.Omu.Client.Billiards.UI.BilliardsWindow"
+                      Title="{Loc 'billiards-window-title'}"
+                      Resizable="False">
+    <Control Margin="8">
+        <ui:BilliardsTableControl Name="TableView" MinSize="768 528" />
+
+        <GridContainer Name="Plates"
+                       Columns="4"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       Margin="0 18 0 0"
+                       HSeparationOverride="8"
+                       VSeparationOverride="2" />
+        <BoxContainer Name="Lobby"
+                      Orientation="Vertical"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Top"
+                      Margin="0 22 0 0"
+                      SeparationOverride="2">
+            <Label Name="LobbyTitle" StyleClasses="LabelHeadingBigger" Align="Center" />
+            <Label Name="LobbySubtitle" StyleClasses="LabelSubText" Align="Center" />
+        </BoxContainer>
+
+        <Label Text="{Loc 'billiards-window-power'}"
+               StyleClasses="LabelKeyText"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               SetWidth="96"
+               Align="Center"
+               Margin="0 114 0 0" />
+        <Label Name="PowerValue"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               SetWidth="96"
+               Align="Center"
+               Margin="0 396 0 0" />
+        <Label Text="{Loc 'billiards-window-pocketed'}"
+               StyleClasses="LabelKeyText"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Top"
+               SetWidth="96"
+               Align="Center"
+               Margin="0 114 0 0" />
+        <Label Name="Pocketed"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Top"
+               SetWidth="96"
+               Align="Center"
+               Margin="0 396 0 0" />
+
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Bottom"
+                      Margin="12 0 0 10">
+            <Button Name="JoinButton" Text="{Loc 'billiards-window-join'}" />
+            <Button Name="LeaveButton" Text="{Loc 'billiards-window-leave'}" StyleClasses="OpenRight" />
+            <Button Name="SkipButton"
+                    Text="{Loc 'billiards-window-skip'}"
+                    ToolTip="{Loc 'billiards-window-skip-tooltip'}"
+                    StyleClasses="OpenLeft" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalAlignment="Right"
+                      VerticalAlignment="Bottom"
+                      Margin="0 0 12 10">
+            <Button Name="NewGameButton" Text="{Loc 'billiards-window-new-game'}" StyleClasses="OpenRight" />
+            <controls:ConfirmButton Name="RestartButton"
+                                    Text="{Loc 'billiards-window-restart'}"
+                                    StyleClasses="OpenLeft" />
+        </BoxContainer>
+
+        <PanelContainer Name="Callout"
+                        StyleClasses="BilliardsCallout"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Visible="False">
+            <Label Name="CalloutText" StyleClasses="LabelHeadingBigger" />
+        </PanelContainer>
+
+        <PanelContainer Name="ModeMenu"
+                        StyleClasses="BilliardsMenu"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        MouseFilter="Stop"
+                        Visible="False">
+            <BoxContainer Orientation="Vertical" SeparationOverride="8">
+                <Label Text="{Loc 'billiards-menu-title'}" StyleClasses="LabelHeadingBigger" Align="Center" />
+                <PanelContainer StyleClasses="HighDivider" />
+                <GridContainer Name="ModeCards" Columns="3" HSeparationOverride="8" VSeparationOverride="8" />
+                <Button Name="MenuBackButton" Text="{Loc 'billiards-menu-back'}" HorizontalAlignment="Right" />
+            </BoxContainer>
+        </PanelContainer>
+    </Control>
+</controls:FancyWindow>

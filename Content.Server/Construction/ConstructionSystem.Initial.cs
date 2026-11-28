@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Content.Goobstation.Common.Construction; // Goobstation
+using Content.Omu.Common.Construction;
 using Content.Server.Construction.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Construction;
@@ -542,7 +543,13 @@ namespace Content.Server.Construction
             var mapPos = _transformSystem.ToMapCoordinates(location);
             var predicate = GetPredicate(constructionPrototype.CanBuildInImpassable, mapPos);
 
-            if (!_interactionSystem.InRangeUnobstructed(user, mapPos, predicate: predicate))
+            // Omu start
+            var reach = new ConstructionReachEvent(prototypeName, user, location, angle);
+            RaiseLocalEvent(ref reach);
+            // Omu end
+            // if (!_interactionSystem.InRangeUnobstructed(user, mapPos, predicate: predicate)) // Omu
+            if (!_interactionSystem.InRangeUnobstructed(user, _transformSystem.ToMapCoordinates(reach.Target), // Omu
+                    predicate: predicate)) // Omu
             {
                 Cleanup();
                 return false;

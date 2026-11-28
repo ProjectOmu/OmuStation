@@ -1,0 +1,44 @@
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
+  id: BilliardsTable
+  start: start
+  graph:
+  - node: start
+    actions:
+    - !type:DestroyEntity {}
+    edges:
+    - to: frame
+      completed:
+      - !type:SnapToGrid { }
+      steps:
+      - material: WoodPlank
+        amount: 10
+        doAfter: 4
+  - node: frame
+    entity: BilliardsTableFrame
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MaterialWoodPlank
+        amount: 10
+      steps:
+      - tool: Prying
+        doAfter: 6
+    - to: table
+      steps:
+      - material: FloorCarpetGreen
+        amount: 4
+        doAfter: 4
+  - node: table
+    entity: BilliardsTable
+    edges:
+    - to: frame
+      completed:
+      - !type:SpawnPrototype
+        prototype: FloorCarpetItemGreen
+        amount: 4
+      steps:
+      - tool: Prying
+        doAfter: 6
