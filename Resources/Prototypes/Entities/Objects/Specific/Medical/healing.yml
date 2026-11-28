@@ -29,7 +29,7 @@
     state: ointment
   - type: Item
     heldPrefix: ointment
-    storedRotation: 45
+    storedRotation: 0 # set rotation back to 0 (Omu)
   - type: Healing
     damageContainers:
       - Biological
