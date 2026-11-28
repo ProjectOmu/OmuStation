@@ -72,4 +72,7 @@ public sealed partial class OmuCVars
     /// </summary>
     public static readonly CVarDef<bool> VerboseGameDirectorChatLogs =
         CVarDef.Create("omu.verbose_game_director_chat_logs", false, CVar.SERVER | CVar.SERVERONLY);
+
+    public static readonly CVarDef<bool> SkillSystemEffectToggle =
+        CVarDef.Create("omu.skill_system_effect_toggle", true, CVar.SERVER | CVar.SERVERONLY);
 }

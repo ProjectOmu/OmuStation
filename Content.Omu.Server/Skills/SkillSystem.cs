@@ -2,6 +2,7 @@
 
 using System.Linq;
 using System.Text;
+using Content.Omu.Common.CCVar;
 using Content.Omu.Shared.Skills.Components;
 using Content.Omu.Shared.Skills.Prototypes;
 using Content.Omu.Shared.Skills.Systems;
@@ -17,6 +18,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
+using Robust.Shared.Configuration;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
@@ -25,9 +27,11 @@ namespace Content.Omu.Server.Skills;
 
 public sealed class SkillSystem : SharedSkillSystem
 {
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly SharedJobSystem _jobs = default!;
     [Dependency] private readonly FixtureSystem _fixtures = default!;
 
+    private bool _skill_system_effect_toggle = true;
     private static readonly ProtoId<SkillPrototype> AntagSkill = "Combat";
     private const int AntagSkillBonus = 2;
     private const string HaulingFixture = "skill-hauling";
@@ -45,6 +49,8 @@ public sealed class SkillSystem : SharedSkillSystem
         SubscribeLocalEvent<SkillHaulingComponent, PullStartedMessage>(OnPullStarted);
         SubscribeLocalEvent<SkillHaulingComponent, PullStoppedMessage>(OnPullStopped);
         SubscribeLocalEvent<SkillBodyComponent, ExaminedEvent>(OnBodyExamined);
+
+        Subs.CVar(_cfg, OmuCVars.SkillSystemEffectToggle, value => _skill_system_effect_toggle = false, true);
     }
 
     private void OnRoleAdded(RoleAddedEvent ev)
@@ -212,6 +218,7 @@ public sealed class SkillSystem : SharedSkillSystem
     /// <returns>if skills where added or not</returns>
     public bool TryAjustSkill(EntityUid mindId, ProtoId<SkillPrototype> skill, int adjustment, bool batchOverride = false)
     {
+        if (!_skill_system_effect_toggle) return false;
         if (!TryComp<SkillHolderComponent>(mindId, out var holder)) return false;
         holder.Skills[skill] = holder.Skills.GetValueOrDefault(skill) + adjustment;
         if (!batchOverride) UpdateSkills(new(mindId, holder));
@@ -250,6 +257,7 @@ public sealed class SkillSystem : SharedSkillSystem
     /// <returns></returns>
     public bool TrySetSkill(EntityUid mindId, ProtoId<SkillPrototype> skill, int value, bool onlyIncrease = false, bool batchOverride = false)
     {
+        if (!_skill_system_effect_toggle) return false;
         if (!TryComp<SkillHolderComponent>(mindId, out var holder)) return false;
         if (onlyIncrease && holder.Skills.GetValueOrDefault(skill) >= value) return false;
         if (holder.Skills.GetValueOrDefault(skill) == value) return false;
