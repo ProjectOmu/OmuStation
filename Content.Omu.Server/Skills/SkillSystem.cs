@@ -186,6 +186,7 @@ public sealed class SkillSystem : SharedSkillSystem
     }
     public void EnsureAjustSkillBatch(EntityUid mindId, Dictionary<ProtoId<SkillPrototype>, int> valuePairs)
     {
+        if (!_skill_system_effect_toggle) return;
         var holder = AddComp<SkillHolderComponent>(mindId);
         foreach (var iterator in valuePairs)
         {
@@ -196,6 +197,7 @@ public sealed class SkillSystem : SharedSkillSystem
     public bool TryAjustSkillBatch(EntityUid mindId, Dictionary<ProtoId<SkillPrototype>, int> valuePairs, out Dictionary<ProtoId<SkillPrototype>, bool> results)
     {
         results = new();
+        if (!_skill_system_effect_toggle) return false;
         if (!TryComp<SkillHolderComponent>(mindId, out var holder)) return false;
         foreach (var iterator in valuePairs)
         {
@@ -209,6 +211,7 @@ public sealed class SkillSystem : SharedSkillSystem
     /// </summary>
     public void EnsureAjustSkill(EntityUid mindId, ProtoId<SkillPrototype> skill, int adjustment, bool batchOverride = false)
     {
+        if (!_skill_system_effect_toggle) return;
         var holder = EnsureComp<SkillHolderComponent>(mindId);
         TryAjustSkill(mindId, skill, adjustment, batchOverride: batchOverride);
     }
@@ -236,6 +239,7 @@ public sealed class SkillSystem : SharedSkillSystem
     public bool TrySetSkillBatch(EntityUid mindId, Dictionary<ProtoId<SkillPrototype>, int> valuePairs, out Dictionary<ProtoId<SkillPrototype>, bool> results, bool onlyIncrease = false)
     {
         results = new();
+        if (!_skill_system_effect_toggle) return false;
         if (!TryComp<SkillHolderComponent>(mindId, out var holder)) return false;
         foreach (var iterator in valuePairs)
         {
@@ -246,6 +250,7 @@ public sealed class SkillSystem : SharedSkillSystem
     }
     public void EnsureSetSkill(EntityUid mindId, ProtoId<SkillPrototype> skill, int value, bool onlyIncrease = false)
     {
+        if (!_skill_system_effect_toggle) return;
         var holder = AddComp<SkillHolderComponent>(mindId);
         TrySetSkill(mindId, skill, value, onlyIncrease: onlyIncrease);
     }
