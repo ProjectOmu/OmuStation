@@ -1,0 +1,201 @@
+uniform highp vec2[16] balls;
+uniform highp vec2[16] spinAxis;
+uniform highp vec2[16] spinTurn;
+uniform highp vec2 cueDirection;
+uniform highp float cuePull;
+uniform highp float guideLength;
+uniform highp vec2 guideNormal;
+uniform highp vec2 origin;
+uniform highp vec2 extent;
+uniform highp float flipped;
+uniform highp float stage;
+uniform highp float background;
+uniform highp float meterPower;
+uniform highp vec3 meterColor;
+
+const highp float BALL = 0.03125;
+const highp float CELL = 0.0125;
+const highp float RAIL = 0.2;
+const highp float CUE_LENGTH = 0.95;
+const highp float FRAME = 0.025;
+const highp vec2 SHADOW = vec2(0.0125, -0.025);
+const highp vec2 METER = vec2(-0.4, 0.5);
+const highp vec2 METER_SIZE = vec2(0.05, 0.5);
+const highp vec2 TUBE = vec2(2.40625, 0.5);
+const highp vec2 TUBE_SIZE = vec2(0.04375, 0.5);
+
+highp vec3 tone(highp float r, highp float g, highp float b) {
+    return zFromSrgb(vec4(r, g, b, 1.0)).rgb;
+}
+
+highp float segment(highp vec2 p, highp vec2 a, highp vec2 b) {
+    highp vec2 pa = p - a;
+    highp vec2 ba = b - a;
+    highp float along = clamp(dot(pa, ba) / max(dot(ba, ba), 0.000001), 0.0, 1.0);
+    return length(pa - ba * along);
+}
+
+highp float box(highp vec2 p, highp vec2 center, highp vec2 size) {
+    highp vec2 d = abs(p - center) - size;
+    return max(d.x, d.y);
+}
+
+highp float inside(highp float dist) {
+    return step(dist, 0.0);
+}
+
+highp vec4 blend(highp vec4 under, highp vec3 color, highp float alpha) {
+    highp float total = alpha + under.a * (1.0 - alpha);
+    highp vec3 mixed = color * alpha + under.rgb * under.a * (1.0 - alpha);
+    return vec4(mixed / max(total, 0.0001), total);
+}
+
+highp vec3 unspin(highp vec3 v, highp vec4 spin) {
+    highp vec3 turned = 2.0 * cross(-spin.xyz, v);
+    return v + spin.w * turned + cross(-spin.xyz, turned);
+}
+
+highp vec3 ballColor(lowp int number) {
+    lowp int suit = number > 8 ? number - 8 : number;
+    if (suit == 1) return tone(0.96, 0.80, 0.15);
+    if (suit == 2) return tone(0.14, 0.30, 0.78);
+    if (suit == 3) return tone(0.85, 0.16, 0.14);
+    if (suit == 4) return tone(0.45, 0.20, 0.62);
+    if (suit == 5) return tone(0.95, 0.50, 0.12);
+    if (suit == 6) return tone(0.12, 0.52, 0.28);
+    if (suit == 7) return tone(0.50, 0.12, 0.14);
+    if (suit == 8) return tone(0.07, 0.07, 0.08);
+    return tone(0.96, 0.95, 0.90);
+}
+
+highp vec3 stick(highp float along) {
+    highp vec3 color = mix(tone(0.87, 0.73, 0.50), tone(0.22, 0.11, 0.08), step(0.6, along));
+    color = mix(tone(0.94, 0.93, 0.88), color, step(0.04, along));
+    return mix(tone(0.25, 0.50, 0.78), color, step(0.014, along));
+}
+
+highp vec4 casing(highp vec4 under, highp vec2 p, highp vec2 center, highp vec2 size) {
+    under = blend(under, vec3(0.0), 0.45 * inside(box(p - SHADOW, center, size + FRAME)));
+
+    highp float outer = box(p, center, size + FRAME);
+    if (outer > 0.0)
+        return under;
+
+    if (outer > -CELL)
+        return vec4(tone(0.18, 0.10, 0.05), 1.0);
+
+    if (box(p, center, size) > 0.0) {
+        highp float lit = step(center.y + size.y, p.y) + step(p.x, center.x - size.x);
+        return vec4(mix(tone(0.35, 0.20, 0.09), tone(0.64, 0.41, 0.23), min(lit, 1.0)), 1.0);
+    }
+
+    highp vec3 slot = tone(0.05, 0.05, 0.07);
+    return vec4(mix(slot, slot * 0.4, step(center.y + size.y - CELL, p.y)), 1.0);
+}
+
+void fragment() {
+    highp vec2 uv = mix(UV2, vec2(UV2.x, 1.0 - UV2.y), flipped);
+    highp vec2 p = origin + uv * extent;
+    highp vec2 grid = (floor(p / CELL) + 0.5) * CELL;
+
+    highp vec2 folded = abs(grid - vec2(1.0, 0.5));
+    highp float onBed = inside(max(folded.x - 1.0, folded.y - 0.5));
+    highp float onTable = inside(max(folded.x - 1.0 - RAIL, folded.y - 0.5 - RAIL));
+    highp vec4 result = vec4(0.0);
+
+    if (background > 0.5) {
+        highp float shade = inside(box(grid - SHADOW, vec2(1.0, 0.5), vec2(1.0 + RAIL, 0.5 + RAIL)));
+        result = blend(result, vec3(0.0), 0.5 * shade);
+        result = casing(result, grid, METER, METER_SIZE);
+        result = casing(result, grid, TUBE, TUBE_SIZE);
+    } else {
+        if (stage > 0.5) {
+            highp float reach = length((grid - vec2(1.0, 0.5)) / vec2(1.1, 0.62));
+            result = blend(result, vec3(0.0), 0.18 * floor(clamp(reach, 0.0, 1.0) * 3.0) / 3.0 * onBed);
+        }
+
+        if (guideLength > 0.0) {
+            highp vec2 target = balls[0] + cueDirection * guideLength;
+            highp float dash = step(0.5, fract(dot(grid - balls[0], cueDirection) * 14.0));
+            highp float guide = dash * inside(segment(grid, balls[0], target) - 0.009);
+            guide = max(guide, inside(abs(length(grid - target) - BALL) - 0.0075));
+
+            if (dot(guideNormal, guideNormal) > 0.5) {
+                highp float fullness = dot(cueDirection, guideNormal);
+                highp vec2 struck = target + guideNormal * BALL * 2.0;
+                highp vec2 glance = cueDirection - guideNormal * fullness;
+                highp vec2 thrown = struck + guideNormal * (0.08 + 0.3 * fullness);
+                guide = max(guide, inside(segment(grid, struck, thrown) - 0.009));
+                guide = max(guide, inside(segment(grid, target, target + glance * 0.35) - 0.009));
+            }
+
+            result = blend(result, vec3(1.0), 0.55 * guide);
+        }
+
+        if (stage > 0.5 && meterPower >= 0.0 && box(grid, METER, METER_SIZE) <= 0.0) {
+            highp float top = METER.y + METER_SIZE.y;
+            highp float level = top - meterPower * METER_SIZE.y * 2.0;
+            result = blend(result, zFromSrgb(vec4(meterColor, 1.0)).rgb, 0.85 * step(level, grid.y));
+
+            highp float edge = step(METER_SIZE.x - CELL, abs(grid.x - METER.x));
+            highp float tick = step(fract((top - grid.y) / 0.1), 0.1) * edge;
+            result = blend(result, vec3(1.0), 0.3 * tick);
+
+            highp float tip = level - CELL;
+            highp float along = clamp((tip - grid.y) / CUE_LENGTH, 0.0, 1.0);
+            highp float body = inside(abs(grid.x - METER.x) - mix(0.0095, 0.017, along)) * step(grid.y, tip);
+            result = blend(result, stick(along), body);
+        }
+
+        highp float shadowed = 0.0;
+        for (int i = 0; i < 16; i++) {
+            highp vec2 cell = floor((p - balls[i] - vec2(CELL, -CELL)) / CELL + 0.5);
+            if (balls[i].x > -0.5 && dot(cell, cell) < 5.5)
+                shadowed = 1.0;
+        }
+
+        result = blend(result, vec3(0.0), 0.4 * shadowed * onBed);
+
+        highp vec3 light = normalize(vec3(-0.45, 0.55, 0.70));
+        highp vec3 ivory = tone(0.96, 0.95, 0.90);
+
+        for (int i = 0; i < 16; i++) {
+            highp vec2 cell = floor((p - balls[i]) / CELL + 0.5);
+            if (balls[i].x < -0.5 || dot(cell, cell) > 5.5)
+                continue;
+
+            highp vec2 local = cell / 2.5;
+            highp vec3 normal = vec3(local, sqrt(max(1.0 - dot(local, local), 0.0)));
+            highp vec3 surface = unspin(normal, vec4(spinAxis[i], spinTurn[i]));
+            highp vec3 color = ballColor(i);
+
+            if (i == 0) {
+                highp float dots = max(max(abs(surface.x), abs(surface.y)), abs(surface.z));
+                color = mix(ivory, tone(0.78, 0.14, 0.14), step(0.94, dots));
+            } else if (i > 8) {
+                color = mix(color, ivory, step(0.5, abs(surface.y)));
+            } else {
+                color = mix(color, ivory, step(0.94, abs(surface.z)));
+            }
+
+            highp float lit = dot(normal, light);
+            color *= mix(0.62, 1.0, step(0.3, lit));
+            color = mix(color, vec3(1.0), 0.6 * step(0.95, lit));
+            result = vec4(color, 1.0);
+        }
+
+        if (cuePull >= 0.0) {
+            highp vec2 tip = balls[0] - cueDirection * (BALL + 0.015 + cuePull * 0.35);
+            highp vec2 butt = tip - cueDirection * CUE_LENGTH;
+            highp float along = clamp(dot(tip - grid, cueDirection) / CUE_LENGTH, 0.0, 1.0);
+
+            highp vec2 shade = grid - vec2(CELL, -CELL);
+            highp float shadeAlong = clamp(dot(tip - shade, cueDirection) / CUE_LENGTH, 0.0, 1.0);
+            highp float shadow = segment(shade, tip, butt) - mix(0.0095, 0.017, shadeAlong);
+            result = blend(result, vec3(0.0), 0.35 * inside(shadow) * onTable);
+            result = blend(result, stick(along), inside(segment(grid, tip, butt) - mix(0.0095, 0.017, along)));
+        }
+    }
+
+    COLOR = result;
+}
