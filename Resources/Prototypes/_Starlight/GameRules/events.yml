@@ -4,7 +4,7 @@
   id: SyndicateDeadDrop
   components:
   - type: GameRule  #Omu addition to get it to work
-    chaosScore: 300
+    chaosScore: 200 # Omu reduce chaos score slightly
   - type: StationEvent
     endAnnouncement: station-syndicate-dead-drop-announcement # Omu changed to end announcement to allow for 5 minute timer
     duration: 300 # Omu five minutes
@@ -13,7 +13,7 @@
     earliestStart: 15
     minimumPlayers: 10
     maxOccurrences: 3 #Omu just having an alternative to antags
-    weight: 10
+    weight: 5 # Omu reduce weight
   - type: RandomSpawnRule
     prototype: BriefcaseSyndieDeadDrop    #Omu no flashy bang sadly, but... should work?
     radioMessage: {channel: Syndicate, message: "syndicate-dead-drop-announcement"}

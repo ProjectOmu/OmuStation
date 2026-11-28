@@ -88,7 +88,7 @@
   - type: StationEvent
     earliestStart: 15
     minimumPlayers: 25
-    weight: 3
+    weight: 7.5 # Omu, make NT sleeper agents a bit more common
     maxOccurrences: 1
     startAnnouncement: station-event-communication-interception
     startAudio:

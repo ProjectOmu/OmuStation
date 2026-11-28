@@ -7,10 +7,10 @@
   - type: UtilityLineRuptureRule
   - type: StationEvent
     earliestStart: 15
-    weight: 6.5
+    weight: 3 # Omu reduce weight
     duration: null
   - type: GameRule
     delay:
       min: 0
       max: 0
-    chaosScore: 300 # Omu - potential to do a lot of damage
+    chaosScore: 200 # Omu - potential to do a lot of damage

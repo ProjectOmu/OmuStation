@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/bd6873fd4dd6a61d7e46f1d75cd4d90f64c40894 and modified by Swept, resprited as Polybius by nazu",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "arcade",
+      "directions": 4
+    },
+    {
+      "name": "screen_polybius",
+      "directions": 4,
+      "delays": [
+        [
+          0.18,
+          0.18,
+          0.18,
+          0.18,
+          0.18,
+          0.18,
+          0.18,
+          0.18,
+          0.18,
+          0.18,
+          0.18,
+          0.1,
+          0.18,
+          0.18,
+          0.18,
+          0.18,
+          0.18,
+          0.18,
+          0.18,
+          0.18,
+          0.18,
+          0.18,
+          0.18,
+          0.1
+        ],
+        [
+          4.16
+        ],
+        [
+          4.16
+        ],
+        [
+          4.16
+        ]
+      ]
+    },
+    {
+      "name": "screen_spiral",
+      "directions": 4,
+      "delays": [
+        [
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          0.96
+        ],
+        [
+          0.96
+        ],
+        [
+          0.96
+        ]
+      ]
+    }
+  ]
+}
