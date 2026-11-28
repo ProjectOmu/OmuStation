@@ -1,0 +1,69 @@
+- type: marking
+  id: LizardFrillsDoomed
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Reptilian/head_side_markings.rsi
+    state: doomed_frills
+
+- type: marking
+  id: LizardAntennaeDoomed
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Reptilian/head_top_markings.rsi
+    state: doomed_antennae
+  - sprite: _Omu/Mobs/Customization/Reptilian/head_top_markings.rsi
+    state: doomed_antennae_1
+
+
+- type: marking
+  id: LizardBugEyesFace
+  bodyPart: Face  # Face markings render OVER glasses
+  markingCategory: Face
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie, Feroxi, Harpy] # most species have eyes in the same place
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Reptilian/face_markings.rsi
+    state: bug_eyes
+
+- type: marking
+  id: LizardBugEyesHead
+  bodyPart: Head  # Head markings appear UNDER glasses
+  markingCategory: Head
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie, Feroxi, Harpy] # most species have eyes in the same place
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Reptilian/face_markings.rsi
+    state: bug_eyes
+
+- type: marking
+  id: LizardSnoutRoundNoggin
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Reptilian/snout_markings.rsi
+    state: round_noggin
+  - sprite: _Omu/Mobs/Customization/Reptilian/snout_markings.rsi
+    state: round_noggin_1
+
+- type: marking
+  id: LizardJaggedTeeth
+  bodyPart: Snout # drawn on the snout layer so it hides with the snout under helmets
+  markingCategory: Face # Face category so it doesn't use the reptilian's single Snout slot
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Reptilian/face_markings.rsi
+    state: jagged_teeth
+
+- type: marking
+  id: LizardTailKrillion
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Omu/Mobs/Customization/Reptilian/tail_markings_64x32.rsi
+    state: krillion_tail
+  - sprite: _Omu/Mobs/Customization/Reptilian/tail_markings_64x32.rsi
+    state: krillion_tail_1

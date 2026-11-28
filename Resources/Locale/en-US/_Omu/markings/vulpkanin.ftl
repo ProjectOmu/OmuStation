@@ -69,3 +69,38 @@ marking-VulpPointsFadeArmsRight = Vulpkanin Points Arm (fade)
 
 marking-VulpPointsSharpArmsRight-points_sharp-arms_right = Points (sharp)
 marking-VulpPointsSharpArmsRight = Vulpkanin Points Arm (sharp)
+
+marking-VulpDorsalFin = Dorsal Fin (over clothes)
+marking-VulpDorsalFinUnder = Dorsal Fin (under clothes)
+
+marking-VulpThreeSpurs = Three Spurs
+marking-VulpThreeSpursThick = Three Spurs (Thick)
+marking-VulpThreeSpursKnobby = Three Spurs (Knobby)
+marking-VulpThreeSpursMalformed = Three Spurs (Malformed)
+marking-VulpThreeSpursMissing = Three Spurs (Missing)
+marking-VulpThreeSpursRounded = Three Spurs (Rounded)
+marking-VulpThreeSpursThin = Three Spurs (Thin)
+marking-VulpTwoSpurs = Two Spurs
+marking-VulpTwoSpursMid = Two Spurs (Mid)
+marking-VulpTwoSpursTall = Two Spurs (Tall)
+marking-VulpSpurEarringsProximal = Spur Earrings (Proximal)
+marking-VulpSpurEarringsDistal = Spur Earrings (Distal)
+marking-VulpSpurStripes = Spur Stripes
+marking-VulpSpurScars = Spur Scars
+marking-VulpWedgeHead = Wedge Head
+marking-VulpWedgeHeadRounder = Wedge Head (Rounder)
+marking-VulpWedgeHeadLong = Wedge Head (Long)
+marking-VulpSawTail = Saw Tail
+
+marking-VulpWedgeCheekScarLeft = Wedge Cheek Scar (Left)
+marking-VulpWedgeCheekScarRight = Wedge Cheek Scar (Right)
+marking-VulpWedgeForeheadScarLeft = Wedge Forehead Scar (Left)
+marking-VulpWedgeForeheadScarRight = Wedge Forehead Scar (Right)
+marking-VulpWedgeHighCheekScarLeft = Wedge High Cheek Scar (Left)
+marking-VulpWedgeHighCheekScarRight = Wedge High Cheek Scar (Right)
+marking-VulpWedgeJowlBackScarLeft = Wedge Back Jowl Scar (Left)
+marking-VulpWedgeJowlBackScarRight = Wedge Back Jowl Scar (Right)
+marking-VulpBigEyeLeft = Big Eye (Left)(Above Eyewear)
+marking-VulpBigEyeRight = Big Eye (Right)(Above Eyewear)
+marking-VulpBigEyeLeftHead = Big Eye (Left)(Below Eyewear)
+marking-VulpBigEyeRightHead = Big Eye (Right)(Below Eyewear)

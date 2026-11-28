@@ -202,6 +202,10 @@
   components:
   - type: HumanoidAppearance
     species: Vulpkanin
+    # Omu - hide snout markings under helmets/mantles
+    hideLayersOnEquip:
+    - Hair
+    - Snout
     # Omu start
     markingsDisplacement:
       Chest:
